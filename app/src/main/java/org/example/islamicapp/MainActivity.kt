@@ -19,6 +19,7 @@ import kotlinx.coroutines.launch
 import org.example.islamicapp.core.notifications.NotificationChannels
 import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
 import org.example.islamicapp.feature.prayertimes.notifications.AdhanScheduler
+import org.example.islamicapp.feature.prayertimes.widget.refreshPrayerTimesWidgets
 import org.example.islamicapp.ui.ManaraApp
 import javax.inject.Inject
 
@@ -49,6 +50,10 @@ class MainActivity : ComponentActivity() {
         lifecycleScope.launch {
             val settings = settingsRepository.settings.first()
             adhanScheduler.schedule(settings)
+        }
+        // Every app open refreshes the widget (fresh countdown for the user).
+        lifecycleScope.launch {
+            refreshPrayerTimesWidgets(applicationContext)
         }
 
         targetRoute.value = routeFromIntent(intent)

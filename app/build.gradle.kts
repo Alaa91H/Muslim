@@ -45,6 +45,7 @@ dependencies {
     implementation(project(":core:core-location"))
     implementation(project(":feature:feature-prayer-times"))
     implementation(project(":feature:feature-qibla"))
+    implementation(project(":feature:feature-quran"))
 
     // AndroidX core
     implementation(libs.androidx.core.ktx)

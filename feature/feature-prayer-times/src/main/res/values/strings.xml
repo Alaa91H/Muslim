@@ -69,6 +69,12 @@
     <string name="settings_reminder">التذكير قبل الصلاة</string>
     <string name="settings_reminder_off">بدون تذكير</string>
     <string name="settings_reminder_minutes">%1$d دقيقة</string>
+    <string name="settings_adhan_sound">صوت الأذان لكل صلاة</string>
+    <string name="adhan_option_default">الأذان الافتراضي</string>
+    <string name="adhan_option_vibrate">اهتزاز فقط</string>
+    <string name="adhan_option_silent">صامت</string>
+    <string name="settings_volume">مستوى الصوت</string>
+    <string name="settings_preview">معاينة الأذان</string>
     <string name="settings_location">موقع الصلاة</string>
     <string name="settings_location_value">%1$s</string>
     <string name="settings_hijri_adjustment">تعديل التاريخ الهجري (بالأيام)</string>
@@ -89,6 +95,14 @@
     <string name="location_gps_failed">تعذّر الحصول على الموقع</string>
     <string name="location_invalid">قيم غير صالحة (خط العرض -90..90، خط الطول -180..180)</string>
     <string name="location_gps_name">الموقع الحالي</string>
+
+    <!-- Home-screen widget -->
+    <string name="widget_prayer_times_label">مواقيت الصلاة</string>
+    <string name="widget_prayer_times_description">الصلاة القادمة مع عدّاد تنازلي</string>
+    <string name="widget_next_prayer">الصلاة القادمة</string>
+    <string name="widget_no_location_title">لم يُحدَّد الموقع</string>
+    <string name="widget_no_location_hint">اختر الموقع من التطبيق</string>
+    <string name="widget_no_times">تعذّر حساب الأوقات</string>
 
     <!-- Qibla -->
     <string name="qibla_title">اتجاه القبلة</string>

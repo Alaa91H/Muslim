@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quran_title">القرآن الكريم</string>
+    <string name="quran_surah_ayahs">%1$d آية</string>
+    <string name="quran_surah_meccan">مكية</string>
+    <string name="quran_surah_medinan">مدنية</string>
+    <string name="quran_back">رجوع</string>
+    <string name="quran_font_smaller">تصغير الخط</string>
+    <string name="quran_font_larger">تكبير الخط</string>
+
+    <!-- Search -->
+    <string name="quran_search">البحث</string>
+    <string name="quran_search_hint">ابحث في القرآن…</string>
+    <string name="quran_search_prompt">اكتب كلمة أو عبارة للبحث في المصحف كاملًا (دون إنترنت).</string>
+    <string name="quran_search_empty">لا توجد نتائج مطابقة</string>
+    <string name="quran_search_ref">%1$s:%2$s</string>
+
+    <!-- Bookmarks & resume -->
+    <string name="quran_bookmarks">العلامات المرجعية</string>
+    <string name="quran_bookmarks_empty">لا توجد علامات بعد — اضغط على أيقونة العلامة في القارئ لحفظ آية.</string>
+    <string name="quran_bookmark_add">إضافة علامة</string>
+    <string name="quran_bookmark_remove">إزالة العلامة</string>
+    <string name="quran_bookmark_ref">%1$s — آية %2$s</string>
+    <string name="quran_resume">متابعة القراءة — سورة %1$s، آية %2$s</string>
+</resources>

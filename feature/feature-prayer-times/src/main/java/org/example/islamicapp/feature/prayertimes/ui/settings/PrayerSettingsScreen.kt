@@ -29,8 +29,10 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
+import androidx.compose.material3.Slider
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -49,6 +51,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.example.islamicapp.feature.prayertimes.R
 import org.example.islamicapp.feature.prayertimes.data.PrayerSettings
+import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
 import org.example.islamicapp.feature.prayertimes.domain.AsrMethod
 import org.example.islamicapp.feature.prayertimes.domain.CalculationMethod
 import org.example.islamicapp.feature.prayertimes.domain.HighLatitudeRule
@@ -104,6 +107,22 @@ fun PrayerSettingsScreen(
         SwitchRow(stringResource(R.string.settings_adhan_enabled), settings.adhanEnabled, viewModel::setAdhanEnabled)
         SwitchRow(stringResource(R.string.settings_vibrate), settings.vibrateEnabled, viewModel::setVibrateEnabled)
         ReminderDropdown(settings.reminderMinutes) { viewModel.setReminderMinutes(it) }
+
+        SectionHeader(stringResource(R.string.settings_adhan_sound))
+        Prayer.entries.filter { it != Prayer.Sunrise }.forEach { prayer ->
+            AdhanSoundDropdown(
+                prayer = prayer,
+                current = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
+                onSelected = { viewModel.setAdhanSound(prayer, it) },
+            )
+        }
+        VolumeRow(volume = settings.adhanVolume, onChanged = viewModel::setAdhanVolume)
+        OutlinedButton(
+            onClick = { viewModel.previewAdhan(Prayer.Fajr) },
+            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+        ) {
+            Text(stringResource(R.string.settings_preview))
+        }
 
         // Transparent guidance, never forced (PROJECT_PROMPT.md §3.5).
         SectionHeader(stringResource(R.string.settings_battery_title))
@@ -204,6 +223,72 @@ private fun StepperRow(label: String, value: Int, onChanged: (Int) -> Unit) {
             Icon(Icons.Default.Add, contentDescription = null)
         }
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun AdhanSoundDropdown(
+    prayer: Prayer,
+    current: AdhanSoundOption,
+    onSelected: (AdhanSoundOption) -> Unit,
+) {
+    var expanded by remember { mutableStateOf(false) }
+    ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
+        OutlinedTextField(
+            value = stringResource(adhanOptionLabelRes(current)),
+            onValueChange = {},
+            readOnly = true,
+            label = { Text(stringResource(prayerLabelRes(prayer))) },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 4.dp)
+                .menuAnchor(MenuAnchorType.PrimaryNotEditable),
+        )
+        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+            AdhanSoundOption.entries.forEach { option ->
+                DropdownMenuItem(
+                    text = { Text(stringResource(adhanOptionLabelRes(option))) },
+                    onClick = {
+                        expanded = false
+                        onSelected(option)
+                    },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun VolumeRow(volume: Int, onChanged: (Int) -> Unit) {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = stringResource(R.string.settings_volume),
+            style = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.weight(1f),
+        )
+        Text(
+            text = "$volume%",
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.primary,
+        )
+    }
+    Slider(
+        value = volume.toFloat(),
+        onValueChange = { onChanged(it.toInt()) },
+        valueRange = 0f..100f,
+        modifier = Modifier.fillMaxWidth(),
+    )
+}
+
+@Composable
+private fun adhanOptionLabelRes(option: AdhanSoundOption): Int = when (option) {
+    AdhanSoundOption.Default -> R.string.adhan_option_default
+    AdhanSoundOption.VibrateOnly -> R.string.adhan_option_vibrate
+    AdhanSoundOption.Silent -> R.string.adhan_option_silent
 }
 
 @Composable

@@ -1,6 +1,7 @@
 package org.example.islamicapp.feature.prayertimes.data
 
 import android.content.Context
+import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.doublePreferencesKey
 import androidx.datastore.preferences.core.edit
@@ -12,6 +13,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
 import org.example.islamicapp.feature.prayertimes.domain.AsrMethod
 import org.example.islamicapp.feature.prayertimes.domain.CalculationMethod
 import org.example.islamicapp.feature.prayertimes.domain.HighLatitudeRule
@@ -54,6 +56,14 @@ class PrayerSettingsRepository @Inject constructor(
             ).takeIf { prefs[Keys.LOCATION_NAME] != null },
             adhanEnabled = prefs[Keys.ADHAN_ENABLED] ?: true,
             vibrateEnabled = prefs[Keys.VIBRATE_ENABLED] ?: true,
+            adhanSounds = Prayer.entries
+                .mapNotNull { prayer ->
+                    prefs[Keys.soundFor(prayer)]?.let { name ->
+                        runCatching { AdhanSoundOption.valueOf(name) }.getOrNull()?.let { prayer to it }
+                    }
+                }
+                .toMap(),
+            adhanVolume = prefs[Keys.ADHAN_VOLUME] ?: 100,
             reminderMinutes = prefs[Keys.REMINDER_MINUTES] ?: 10,
             hijriAdjustment = prefs[Keys.HIJRI_ADJUSTMENT] ?: 0,
         )
@@ -91,6 +101,10 @@ class PrayerSettingsRepository @Inject constructor(
             }
             prefs[Keys.ADHAN_ENABLED] = newSettings.adhanEnabled
             prefs[Keys.VIBRATE_ENABLED] = newSettings.vibrateEnabled
+            Prayer.entries.forEach { prayer ->
+                prefs[Keys.soundFor(prayer)] = newSettings.adhanSounds[prayer]?.name ?: AdhanSoundOption.Default.name
+            }
+            prefs[Keys.ADHAN_VOLUME] = newSettings.adhanVolume
             prefs[Keys.REMINDER_MINUTES] = newSettings.reminderMinutes
             prefs[Keys.HIJRI_ADJUSTMENT] = newSettings.hijriAdjustment
         }
@@ -122,7 +136,11 @@ class PrayerSettingsRepository @Inject constructor(
         val LOCATION_ZONE = stringPreferencesKey("location_timezone")
         val ADHAN_ENABLED = booleanPreferencesKey("adhan_enabled")
         val VIBRATE_ENABLED = booleanPreferencesKey("vibrate_enabled")
+        val ADHAN_VOLUME = intPreferencesKey("adhan_volume")
         val REMINDER_MINUTES = intPreferencesKey("reminder_minutes")
         val HIJRI_ADJUSTMENT = intPreferencesKey("hijri_adjustment")
+
+        fun soundFor(prayer: Prayer): Preferences.Key<String> =
+            stringPreferencesKey("adhan_sound_${prayer.name.lowercase()}")
     }
 }

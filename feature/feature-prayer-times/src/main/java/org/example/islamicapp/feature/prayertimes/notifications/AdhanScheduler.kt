@@ -8,6 +8,7 @@ import android.os.Build
 import dagger.hilt.android.qualifiers.ApplicationContext
 import org.example.islamicapp.feature.prayertimes.data.PrayerSettings
 import org.example.islamicapp.feature.prayertimes.data.SelectedLocation
+import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
 import org.example.islamicapp.feature.prayertimes.domain.CalculationMethod
 import org.example.islamicapp.feature.prayertimes.domain.Coordinates
 import org.example.islamicapp.feature.prayertimes.domain.Prayer
@@ -73,23 +74,25 @@ class AdhanScheduler @Inject constructor(
         // Cancel any previous alarms, then schedule fresh ones.
         cancelAll()
         for ((prayer, at) in upcoming) {
-            scheduleExact(at, prayer, isReminder = false)
+            scheduleExact(at, prayer, isReminder = false, settings = settings)
             if (settings.reminderMinutes > 0) {
                 val reminderAt = at - settings.reminderMinutes * 60_000L
-                if (reminderAt > now) scheduleExact(reminderAt, prayer, isReminder = true)
+                if (reminderAt > now) scheduleExact(reminderAt, prayer, isReminder = true, settings = settings)
             }
         }
     }
 
     fun cancelAll() {
+        // Extras don't affect PendingIntent identity, so defaults are fine here.
+        val defaults = PrayerSettings()
         for (prayer in Prayer.entries) {
-            alarmManager.cancel(prayerPendingIntent(prayer, isReminder = false))
-            alarmManager.cancel(prayerPendingIntent(prayer, isReminder = true))
+            alarmManager.cancel(prayerPendingIntent(prayer, isReminder = false, settings = defaults))
+            alarmManager.cancel(prayerPendingIntent(prayer, isReminder = true, settings = defaults))
         }
     }
 
-    private fun scheduleExact(at: Long, prayer: Prayer, isReminder: Boolean) {
-        val pendingIntent = prayerPendingIntent(prayer, isReminder)
+    private fun scheduleExact(at: Long, prayer: Prayer, isReminder: Boolean, settings: PrayerSettings) {
+        val pendingIntent = prayerPendingIntent(prayer, isReminder, settings)
         val canExact = Build.VERSION.SDK_INT < Build.VERSION_CODES.S ||
             alarmManager.canScheduleExactAlarms()
         if (canExact) {
@@ -99,10 +102,16 @@ class AdhanScheduler @Inject constructor(
         }
     }
 
-    private fun prayerPendingIntent(prayer: Prayer, isReminder: Boolean): PendingIntent {
+    private fun prayerPendingIntent(
+        prayer: Prayer,
+        isReminder: Boolean,
+        settings: PrayerSettings,
+    ): PendingIntent {
         val intent = Intent(context, AdhanAlarmReceiver::class.java)
             .putExtra(AdhanAlarmReceiver.EXTRA_PRAYER, prayer.name)
             .putExtra(AdhanAlarmReceiver.EXTRA_IS_REMINDER, isReminder)
+            .putExtra(AdhanAlarmReceiver.EXTRA_SOUND_OPTION, (settings.adhanSounds[prayer] ?: AdhanSoundOption.Default).name)
+            .putExtra(AdhanAlarmReceiver.EXTRA_VOLUME, settings.adhanVolume)
         val requestCode = prayer.ordinal + (if (isReminder) 100 else 0)
         return PendingIntent.getBroadcast(
             context, requestCode, intent,

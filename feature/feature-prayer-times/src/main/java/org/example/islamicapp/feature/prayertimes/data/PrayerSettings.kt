@@ -1,8 +1,10 @@
 package org.example.islamicapp.feature.prayertimes.data
 
+import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
 import org.example.islamicapp.feature.prayertimes.domain.AsrMethod
 import org.example.islamicapp.feature.prayertimes.domain.CalculationMethod
 import org.example.islamicapp.feature.prayertimes.domain.HighLatitudeRule
+import org.example.islamicapp.feature.prayertimes.domain.Prayer
 import org.example.islamicapp.feature.prayertimes.domain.PrayerAdjustments
 
 /**
@@ -22,6 +24,10 @@ data class PrayerSettings(
     val location: SelectedLocation? = null,
     val adhanEnabled: Boolean = true,
     val vibrateEnabled: Boolean = true,
+    /** Per-prayer adhan mode; absent keys behave as [AdhanSoundOption.Default]. */
+    val adhanSounds: Map<Prayer, AdhanSoundOption> = emptyMap(),
+    /** Master adhan playback volume, 0..100. */
+    val adhanVolume: Int = 100,
     /** Minutes before the prayer to remind; 0 disables the reminder. */
     val reminderMinutes: Int = 10,
     /** App-wide manual Hijri day adjustment (±). */

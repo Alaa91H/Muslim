@@ -64,6 +64,12 @@
     <string name="settings_reminder">Reminder before prayer</string>
     <string name="settings_reminder_off">No reminder</string>
     <string name="settings_reminder_minutes">%1$d minutes</string>
+    <string name="settings_adhan_sound">Adhan sound per prayer</string>
+    <string name="adhan_option_default">Default adhan</string>
+    <string name="adhan_option_vibrate">Vibrate only</string>
+    <string name="adhan_option_silent">Silent</string>
+    <string name="settings_volume">Volume</string>
+    <string name="settings_preview">Preview adhan</string>
     <string name="settings_location">Prayer location</string>
     <string name="settings_location_value">%1$s</string>
     <string name="settings_hijri_adjustment">Hijri date adjustment (days)</string>
@@ -83,6 +89,13 @@
     <string name="location_gps_failed">Could not get location</string>
     <string name="location_invalid">Invalid values (lat -90..90, lng -180..180)</string>
     <string name="location_gps_name">Current location</string>
+
+    <string name="widget_prayer_times_label">Prayer times</string>
+    <string name="widget_prayer_times_description">Next prayer with countdown</string>
+    <string name="widget_next_prayer">Next prayer</string>
+    <string name="widget_no_location_title">No location set</string>
+    <string name="widget_no_location_hint">Choose a location in the app</string>
+    <string name="widget_no_times">Unable to calculate times</string>
 
     <string name="qibla_title">Qibla direction</string>
     <string name="qibla_bearing">Bearing: %1$.1f°</string>

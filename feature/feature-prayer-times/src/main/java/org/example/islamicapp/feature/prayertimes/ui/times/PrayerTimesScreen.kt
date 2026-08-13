@@ -62,6 +62,14 @@ fun PrayerTimesScreen(
                     text = state.selectedDate.format(localDateFormatter),
                     style = MaterialTheme.typography.titleMedium,
                 )
+                // Hijri date beside the Gregorian one (PROJECT_PROMPT.md §6).
+                state.hijri?.let {
+                    Text(
+                        text = it.formatArabicLong(),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
                 Text(
                     text = stringResource(
                         if (state.monthly) R.string.times_monthly else R.string.times_daily

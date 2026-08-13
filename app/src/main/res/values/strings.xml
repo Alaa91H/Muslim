@@ -6,6 +6,7 @@
 
     <!-- Bottom navigation tabs -->
     <string name="tab_home">الرئيسية</string>
+    <string name="tab_quran">القرآن</string>
     <string name="tab_times">الأوقات</string>
     <string name="tab_qibla">القبلة</string>
     <string name="tab_settings">الإعدادات</string>

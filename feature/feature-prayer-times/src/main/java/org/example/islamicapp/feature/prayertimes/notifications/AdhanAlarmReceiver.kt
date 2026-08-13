@@ -3,12 +3,15 @@ package org.example.islamicapp.feature.prayertimes.notifications
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import androidx.glance.appwidget.updateAll
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
 import org.example.islamicapp.feature.prayertimes.domain.Prayer
+import org.example.islamicapp.feature.prayertimes.widget.PrayerTimesWidget
 
 /**
  * Fired by the exact alarms scheduled via [AdhanScheduler]. Shows the Adhan
@@ -30,15 +33,25 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                     AdhanNotifications.showReminder(appContext, prayer, settings.reminderMinutes)
                 }
             } else if (settings.adhanEnabled) {
-                AdhanPlaybackService.start(appContext, prayer, settings.vibrateEnabled)
+                AdhanPlaybackService.start(
+                    context = appContext,
+                    prayer = prayer,
+                    vibrate = settings.vibrateEnabled,
+                    soundOption = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
+                    volumePercent = settings.adhanVolume,
+                )
             }
             entryPoint.scheduler().schedule(settings)
+            // A prayer just started: flip the widget to the next prayer.
+            PrayerTimesWidget().updateAll(appContext)
         }
     }
 
     companion object {
         const val EXTRA_PRAYER = "extra_prayer"
         const val EXTRA_IS_REMINDER = "extra_is_reminder"
+        const val EXTRA_SOUND_OPTION = "extra_sound_option"
+        const val EXTRA_VOLUME = "extra_volume"
 
         /** Builds the intent used by [AdhanScheduler] for a given prayer. */
         fun intentFor(context: Context, prayer: Prayer, isReminder: Boolean): Intent =

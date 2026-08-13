@@ -1,8 +1,11 @@
 package org.example.islamicapp.feature.prayertimes.ui.location
 
+import android.content.Context
+import androidx.glance.appwidget.updateAll
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -16,11 +19,13 @@ import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
 import org.example.islamicapp.feature.prayertimes.data.SelectedLocation
 import org.example.islamicapp.feature.prayertimes.domain.City
 import org.example.islamicapp.feature.prayertimes.notifications.AdhanScheduler
+import org.example.islamicapp.feature.prayertimes.widget.PrayerTimesWidget
 import java.util.TimeZone
 import javax.inject.Inject
 
 @HiltViewModel
 class LocationViewModel @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val repository: PrayerSettingsRepository,
     private val locationProvider: LocationProvider,
     private val scheduler: AdhanScheduler,
@@ -95,6 +100,8 @@ class LocationViewModel @Inject constructor(
             val current = repository.settings.first()
             repository.save(current.copy(location = location))
             scheduler.schedule(current.copy(location = location))
+            // The home-screen widget shows the next prayer for this location.
+            PrayerTimesWidget().updateAll(context)
             messages.value = Message.Saved
         }
     }

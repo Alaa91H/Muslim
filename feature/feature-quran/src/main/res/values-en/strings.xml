@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quran_title">The Holy Quran</string>
+    <string name="quran_surah_ayahs">%1$d verses</string>
+    <string name="quran_surah_meccan">Meccan</string>
+    <string name="quran_surah_medinan">Medinan</string>
+    <string name="quran_back">Back</string>
+    <string name="quran_font_smaller">Smaller font</string>
+    <string name="quran_font_larger">Larger font</string>
+
+    <!-- Search -->
+    <string name="quran_search">Search</string>
+    <string name="quran_search_hint">Search the Quran…</string>
+    <string name="quran_search_prompt">Type a word or phrase to search the whole mushaf (offline).</string>
+    <string name="quran_search_empty">No matching results</string>
+    <string name="quran_search_ref">%1$s:%2$s</string>
+
+    <!-- Bookmarks & resume -->
+    <string name="quran_bookmarks">Bookmarks</string>
+    <string name="quran_bookmarks_empty">No bookmarks yet — tap the bookmark icon in the reader to save an ayah.</string>
+    <string name="quran_bookmark_add">Add bookmark</string>
+    <string name="quran_bookmark_remove">Remove bookmark</string>
+    <string name="quran_bookmark_ref">%1$s — ayah %2$s</string>
+    <string name="quran_resume">Resume reading — Surah %1$s, ayah %2$s</string>
+</resources>

@@ -39,6 +39,7 @@ class PrayerTimesViewModel @Inject constructor(
     data class UiState(
         val settings: PrayerSettings = PrayerSettings(),
         val selectedDate: LocalDate = LocalDate.now(),
+        val hijri: HijriDate? = null,
         val times: Map<Prayer, LocalTime> = emptyMap(),
         val isValid: Boolean = false,
         val monthly: Boolean = false,
@@ -67,6 +68,7 @@ class PrayerTimesViewModel @Inject constructor(
                 UiState(
                     settings = settings,
                     selectedDate = date,
+                    hijri = runCatching { HijriDate.from(date, settings.hijriAdjustment) }.getOrNull(),
                     times = result.times,
                     isValid = result.isValid,
                     monthly = isMonthly,
