@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Prayer names -->
+    <string name="prayer_fajr">الفجر</string>
+    <string name="prayer_sunrise">الشروق</string>
+    <string name="prayer_dhuhr">الظهر</string>
+    <string name="prayer_asr">العصر</string>
+    <string name="prayer_maghrib">المغرب</string>
+    <string name="prayer_isha">العشاء</string>
+    <string name="prayer_name">صلاة %1$s</string>
+
+    <!-- Notifications -->
+    <string name="adhan_notification_title">حان الآن وقت الصلاة</string>
+    <string name="reminder_title">تذكير الصلاة</string>
+    <string name="reminder_message">صلاة %1$s بعد %2$d دقائق</string>
+
+    <!-- Home -->
+    <string name="home_next_prayer">الصلاة القادمة</string>
+    <string name="home_select_location">اختر الموقع</string>
+    <string name="home_location_unknown">لم يُحدَّد الموقع بعد</string>
+    <string name="home_today_times">مواقيت اليوم</string>
+    <string name="home_cannot_compute">تعذّر حساب الأوقات لهذا اليوم</string>
+
+    <!-- Prayer times screen -->
+    <string name="times_title">مواقيت الصلاة</string>
+    <string name="times_monthly">عرض شهري</string>
+    <string name="times_daily">عرض يومي</string>
+    <string name="times_month_fajr">فجر</string>
+    <string name="times_month_maghrib">مغرب</string>
+    <string name="times_share">مشاركة</string>
+    <string name="times_export_header">مواقيت الصلاة — %1$s</string>
+    <string name="times_export_location">الموقع: %1$s</string>
+    <string name="times_export_subject">مواقيت الصلاة</string>
+
+    <!-- Calculation methods -->
+    <string name="method_mwl">رابطة العالم الإسلامي</string>
+    <string name="method_egyptian">الهيئة المصرية العامة للمساحة</string>
+    <string name="method_karachi">جامعة العلوم الإسلامية بكراتشي</string>
+    <string name="method_umm_al_qura">أم القرى (مكة المكرمة)</string>
+    <string name="method_isna">ISNA (أمريكا الشمالية)</string>
+    <string name="method_dubai">دبي والخليج</string>
+    <string name="method_qatar">قطر</string>
+    <string name="method_kuwait">الكويت</string>
+    <string name="method_singapore">سنغافورة</string>
+    <string name="method_moonsighting">لجنة رؤية الهلال</string>
+    <string name="method_turkey">ديانت تركيا</string>
+    <string name="method_tehran">معهد الجيوفيزياء بطهران</string>
+    <string name="method_jafari">الجعفري</string>
+    <string name="method_france">فرنسا (UOIF)</string>
+
+    <!-- Settings -->
+    <string name="settings_title">الإعدادات</string>
+    <string name="settings_method">طريقة الحساب</string>
+    <string name="settings_custom_method">مخصص</string>
+    <string name="settings_custom_fajr">زاوية الفجر</string>
+    <string name="settings_custom_isha">زاوية العشاء</string>
+    <string name="settings_asr">مذهب حساب العصر</string>
+    <string name="settings_asr_standard">الجمهور (شافعي/مالكي/حنبلي)</string>
+    <string name="settings_asr_hanafi">الحنفي</string>
+    <string name="settings_high_lat">قاعدة خطوط العرض العالية</string>
+    <string name="settings_high_lat_auto">تلقائي (موصى به للموقع)</string>
+    <string name="settings_high_lat_midnight">منتصف الليل</string>
+    <string name="settings_high_lat_seventh">السُبع الأخير</string>
+    <string name="settings_high_lat_angle">الزاوية</string>
+    <string name="settings_adjustments">التعديل اليدوي (بالدقائق)</string>
+    <string name="settings_adhan">الأذان والتنبيهات</string>
+    <string name="settings_adhan_enabled">تفعيل الأذان</string>
+    <string name="settings_vibrate">الاهتزاز</string>
+    <string name="settings_reminder">التذكير قبل الصلاة</string>
+    <string name="settings_reminder_off">بدون تذكير</string>
+    <string name="settings_reminder_minutes">%1$d دقيقة</string>
+    <string name="settings_location">موقع الصلاة</string>
+    <string name="settings_location_value">%1$s</string>
+    <string name="settings_hijri_adjustment">تعديل التاريخ الهجري (بالأيام)</string>
+    <string name="settings_minutes_suffix">د</string>
+    <string name="settings_battery_title">دقة الأذان في الخلفية</string>
+    <string name="settings_battery_desc">قد يمنع توفير البطارية انطلاق الأذان في وقته المحدد. يمكنك استثناء التطبيق من تحسين البطارية — هذا اختياري تمامًا ولا يُفرض عليك.</string>
+    <string name="settings_battery_open">فتح إعدادات البطارية</string>
+
+    <!-- Location -->
+    <string name="location_title">اختيار الموقع</string>
+    <string name="location_search_hint">ابحث عن مدينة…</string>
+    <string name="location_manual">إدخال الإحداثيات يدويًا</string>
+    <string name="location_latitude">خط العرض</string>
+    <string name="location_longitude">خط الطول</string>
+    <string name="location_save">حفظ</string>
+    <string name="location_use_gps">استخدام موقعي الحالي (GPS)</string>
+    <string name="location_gps_denied">تم رفض إذن الموقع — استخدم البحث اليدوي</string>
+    <string name="location_gps_failed">تعذّر الحصول على الموقع</string>
+    <string name="location_invalid">قيم غير صالحة (خط العرض -90..90، خط الطول -180..180)</string>
+    <string name="location_gps_name">الموقع الحالي</string>
+
+    <!-- Qibla -->
+    <string name="qibla_title">اتجاه القبلة</string>
+    <string name="qibla_bearing">الاتجاه: %1$.1f°</string>
+    <string name="qibla_distance">المسافة إلى مكة: %1$s</string>
+    <string name="qibla_calibrate">حرّك الهاتف بشكل ثماني لمعايرة البوصلة</string>
+</resources>

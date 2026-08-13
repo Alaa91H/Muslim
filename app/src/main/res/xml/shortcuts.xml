@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- App Shortcuts shown on long-press of the launcher icon
+     (PROJECT_PROMPT.md §6 Phase 1: القبلة، التسبيح، الصلاة القادمة). -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <shortcut
+        android:shortcutId="prayer_times"
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_times"
+        android:shortcutShortLabel="@string/shortcut_times"
+        android:shortcutLongLabel="@string/shortcut_times_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="org.example.islamicapp"
+            android:targetClass="org.example.islamicapp.MainActivity"
+            android:data="manara://times" />
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="qibla"
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_qibla"
+        android:shortcutShortLabel="@string/shortcut_qibla"
+        android:shortcutLongLabel="@string/shortcut_qibla_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="org.example.islamicapp"
+            android:targetClass="org.example.islamicapp.MainActivity"
+            android:data="manara://qibla" />
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="settings"
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_settings"
+        android:shortcutShortLabel="@string/shortcut_settings"
+        android:shortcutLongLabel="@string/shortcut_settings_long">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="org.example.islamicapp"
+            android:targetClass="org.example.islamicapp.MainActivity"
+            android:data="manara://settings" />
+    </shortcut>
+
+</shortcuts>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="qibla_title">اتجاه القبلة</string>
+    <string name="qibla_bearing">الاتجاه: %1$.1f°</string>
+    <string name="qibla_distance">المسافة إلى مكة: %1$s</string>
+    <string name="qibla_distance_km">%,.0f كم</string>
+    <string name="qibla_calibrate">حرّك الهاتف بشكل ثماني لمعايرة البوصلة</string>
+</resources>

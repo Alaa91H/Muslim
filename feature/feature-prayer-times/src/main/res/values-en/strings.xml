@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="prayer_fajr">Fajr</string>
+    <string name="prayer_sunrise">Sunrise</string>
+    <string name="prayer_dhuhr">Dhuhr</string>
+    <string name="prayer_asr">Asr</string>
+    <string name="prayer_maghrib">Maghrib</string>
+    <string name="prayer_isha">Isha</string>
+    <string name="prayer_name">%1$s prayer</string>
+
+    <string name="adhan_notification_title">It is time for prayer</string>
+    <string name="reminder_title">Prayer reminder</string>
+    <string name="reminder_message">%1$s prayer in %2$d minutes</string>
+
+    <string name="home_next_prayer">Next prayer</string>
+    <string name="home_select_location">Choose location</string>
+    <string name="home_location_unknown">Location not set yet</string>
+    <string name="home_today_times">Today\'s prayer times</string>
+    <string name="home_cannot_compute">Unable to calculate times for this day</string>
+
+    <string name="times_title">Prayer times</string>
+    <string name="times_monthly">Monthly view</string>
+    <string name="times_daily">Daily view</string>
+    <string name="times_month_fajr">Fajr</string>
+    <string name="times_month_maghrib">Maghrib</string>
+    <string name="times_share">Share</string>
+    <string name="times_export_header">Prayer times — %1$s</string>
+    <string name="times_export_location">Location: %1$s</string>
+    <string name="times_export_subject">Prayer times</string>
+
+    <!-- Calculation methods -->
+    <string name="method_mwl">Muslim World League</string>
+    <string name="method_egyptian">Egyptian General Authority of Survey</string>
+    <string name="method_karachi">University of Islamic Sciences, Karachi</string>
+    <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
+    <string name="method_isna">ISNA (North America)</string>
+    <string name="method_dubai">Dubai / Gulf</string>
+    <string name="method_qatar">Qatar</string>
+    <string name="method_kuwait">Kuwait</string>
+    <string name="method_singapore">Singapore</string>
+    <string name="method_moonsighting">Moonsighting Committee</string>
+    <string name="method_turkey">Diyanet Turkey</string>
+    <string name="method_tehran">Tehran Institute of Geophysics</string>
+    <string name="method_jafari">Jafari</string>
+    <string name="method_france">France (UOIF)</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_method">Calculation method</string>
+    <string name="settings_custom_method">Custom</string>
+    <string name="settings_custom_fajr">Fajr angle</string>
+    <string name="settings_custom_isha">Isha angle</string>
+    <string name="settings_asr">Asr calculation</string>
+    <string name="settings_asr_standard">Standard (Shafi\'i/Maliki/Hanbali)</string>
+    <string name="settings_asr_hanafi">Hanafi</string>
+    <string name="settings_high_lat">High latitude rule</string>
+    <string name="settings_high_lat_auto">Automatic (recommended)</string>
+    <string name="settings_high_lat_midnight">Middle of the night</string>
+    <string name="settings_high_lat_seventh">Seventh of the night</string>
+    <string name="settings_high_lat_angle">Angle-based</string>
+    <string name="settings_adjustments">Manual adjustments (minutes)</string>
+    <string name="settings_adhan">Adhan &amp; reminders</string>
+    <string name="settings_adhan_enabled">Enable Adhan</string>
+    <string name="settings_vibrate">Vibration</string>
+    <string name="settings_reminder">Reminder before prayer</string>
+    <string name="settings_reminder_off">No reminder</string>
+    <string name="settings_reminder_minutes">%1$d minutes</string>
+    <string name="settings_location">Prayer location</string>
+    <string name="settings_location_value">%1$s</string>
+    <string name="settings_hijri_adjustment">Hijri date adjustment (days)</string>
+    <string name="settings_minutes_suffix">m</string>
+    <string name="settings_battery_title">Adhan accuracy in the background</string>
+    <string name="settings_battery_desc">Battery optimization may delay the Adhan past its exact time. You can exempt the app from battery optimization — this is entirely optional and never forced.</string>
+    <string name="settings_battery_open">Open battery settings</string>
+
+    <string name="location_title">Choose location</string>
+    <string name="location_search_hint">Search for a city…</string>
+    <string name="location_manual">Enter coordinates manually</string>
+    <string name="location_latitude">Latitude</string>
+    <string name="location_longitude">Longitude</string>
+    <string name="location_save">Save</string>
+    <string name="location_use_gps">Use my current location (GPS)</string>
+    <string name="location_gps_denied">Location permission denied — use manual search</string>
+    <string name="location_gps_failed">Could not get location</string>
+    <string name="location_invalid">Invalid values (lat -90..90, lng -180..180)</string>
+    <string name="location_gps_name">Current location</string>
+
+    <string name="qibla_title">Qibla direction</string>
+    <string name="qibla_bearing">Bearing: %1$.1f°</string>
+    <string name="qibla_distance">Distance to Makkah: %1$s</string>
+    <string name="qibla_calibrate">Move your phone in a figure-eight to calibrate</string>
+</resources>

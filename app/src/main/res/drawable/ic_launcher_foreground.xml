@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Provisional launcher foreground: a simple crescent with a star.
+     Replace with a professionally designed icon before release. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Crescent (evenOdd: outer circle minus offset inner circle) -->
+    <group
+        android:scaleX="0.6"
+        android:scaleY="0.6"
+        android:pivotX="54"
+        android:pivotY="54">
+        <path
+            android:fillColor="#FFFFFF"
+            android:fillType="evenOdd"
+            android:pathData="M54,22 a32,32 0 1,0 0,64 a32,32 0 1,0 0,-64 z M66,28 a26,26 0 1,0 0,52 a26,26 0 1,0 0,-52 z" />
+    </group>
+
+    <!-- Star -->
+    <path
+        android:fillColor="#FFD54F"
+        android:pathData="M36,20 L38.5,27.5 L46,30 L38.5,32.5 L36,40 L33.5,32.5 L26,30 L33.5,27.5 Z" />
+</vector>

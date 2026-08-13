@@ -1,0 +1,26 @@
+# Gradle
+.gradle/
+build/
+
+# Local configuration (machine-specific)
+local.properties
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Android
+*.apk
+*.aab
+*.keystore
+!debug.keystore
+
+# Kotlin
+.kotlin/
+
+# Freebuff local tool state
+.freebuff/

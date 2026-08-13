@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Manara</string>
+    <string name="scaffold_message">The multi-module project skeleton is ready.\nPhase 1 — Adhan, prayer times, Qibla, and the Hijri calendar — starts here.</string>
+
+    <!-- Bottom navigation tabs -->
+    <string name="tab_home">Home</string>
+    <string name="tab_times">Times</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_settings">Settings</string>
+
+    <!-- App shortcuts (long-press the launcher icon) -->
+    <string name="shortcut_times">Prayer times</string>
+    <string name="shortcut_times_long">Today\'s prayer times</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla direction</string>
+    <string name="shortcut_settings">Settings</string>
+    <string name="shortcut_settings_long">Prayer &amp; adhan settings</string>
+</resources>
