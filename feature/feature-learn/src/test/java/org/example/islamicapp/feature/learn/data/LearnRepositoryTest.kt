@@ -10,15 +10,24 @@ class LearnRepositoryTest {
         islamIntroRepository = IslamIntroRepository(),
         sirahRepository = SirahRepository(),
         prophetsStoriesRepository = ProphetsStoriesRepository(),
+        namesOfAllahRepository = NamesOfAllahRepository(),
     )
 
     @Test
     fun `covers the core worship guides`() {
         val ids = repository.topics.map { it.id }
         assertThat(ids).containsAtLeast(
-            "islam_intro", "sirah", "prophets_stories",
+            "islam_intro", "sirah", "prophets_stories", "names_of_allah",
             "wudu", "ghusl", "tayammum", "salah", "special_prayers",
         )
+    }
+
+    @Test
+    fun `the ninety-nine names are complete and unique`() {
+        val names = repository.topics.first { it.id == "names_of_allah" }
+        assertThat(names.steps).hasSize(99)
+        val arTitles = names.steps.map { it.titleAr }
+        assertThat(arTitles.distinct()).hasSize(99)
     }
 
     @Test

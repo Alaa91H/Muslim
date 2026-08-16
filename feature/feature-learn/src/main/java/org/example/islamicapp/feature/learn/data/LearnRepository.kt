@@ -16,6 +16,7 @@ class LearnRepository @Inject constructor(
     private val islamIntroRepository: IslamIntroRepository,
     private val sirahRepository: SirahRepository,
     private val prophetsStoriesRepository: ProphetsStoriesRepository,
+    private val namesOfAllahRepository: NamesOfAllahRepository,
 ) {
 
     val topics: List<LearnTopic> by lazy {
@@ -23,6 +24,7 @@ class LearnRepository @Inject constructor(
             islamIntroRepository.topic,
             sirahRepository.topic,
             prophetsStoriesRepository.topic,
+            namesOfAllahRepository.topic,
             wudu,
             ghusl,
             tayammum,

@@ -1,0 +1,127 @@
+package org.example.islamicapp.feature.learn.data
+
+import org.example.islamicapp.feature.learn.domain.LearnStep
+import org.example.islamicapp.feature.learn.domain.LearnTopic
+import javax.inject.Inject
+import javax.inject.Singleton
+
+/**
+ * The 99 beautiful names of Allah (أسماء الله الحسنى) — Phase 8 addition —
+ * each with its meaning in Arabic and English, per the authenticated list
+ * gathered by Ibn Hajar from the Qur'an and Sunnah.
+ */
+@Singleton
+class NamesOfAllahRepository @Inject constructor() {
+
+    private fun n(ar: String, meaningAr: String, meaningEn: String) =
+        LearnStep(ar, ar, meaningAr, meaningEn)
+
+    val topic: LearnTopic by lazy {
+        LearnTopic(
+            id = "names_of_allah",
+            titleAr = "أسماء الله الحسنى — التسعة والتسعون",
+            titleEn = "The 99 beautiful names of Allah",
+            steps = listOf(
+                n("اللَّه", "المعبود بحق الذي تألهه القلوب محبةً وتعظيمًا", "The One true God worshipped by all hearts"),
+                n("الرَّحْمَٰن", "ذو الرحمة الواسعة التي وسعت كل شيء", "The Most Merciful to all creation"),
+                n("الرَّحِيم", "الموصِل رحمته لمن يشاء من عباده", "The Bestower of special mercy on believers"),
+                n("الْمَلِك", "المالك المتصرف في الملك كله", "The King, the Owner of all dominion"),
+                n("الْقُدُّوس", "المنزه عن كل عيب ونقص", "The Most Pure and Holy"),
+                n("السَّلَام", "السالم من كل نقص، ومانح السلام لخلقه", "The Source of peace and perfection"),
+                n("الْمُؤْمِن", "المصدق لرسله، المؤمِّن لخلقه من الخوف", "The Granter of security and faith"),
+                n("الْمُهَيْمِن", "الرقيب الحافظ لكل شيء", "The Watchful Guardian over all"),
+                n("الْعَزِيز", "القوي الغالب الذي لا يُقهر", "The Almighty, the Invincible"),
+                n("الْجَبَّار", "القاهر لخلقه بجبروته، جابر كل كسير", "The Compeller who mends and subdues"),
+                n("الْمُتَكَبِّر", "المتعالي عن صفات الخلق", "The Supreme in greatness"),
+                n("الْخَالِق", "الموجد للأشياء من غير مثال سابق", "The Creator"),
+                n("الْبَارِئ", "المنشئ للخلق بريئًا من التفاوت", "The Originator who creates flawlessly"),
+                n("الْمُصَوِّر", "الذي صوّر المخلوقات وأحسن صورها", "The Fashioner of forms"),
+                n("الْغَفَّار", "الذي يغفر الذنوب مهما تكررت", "The Ever-Forgiving"),
+                n("الْقَهَّار", "الغالب لكل شيء", "The All-Dominant"),
+                n("الْوَهَّاب", "المعطي بلا عوض ولا حد", "The Bestower of gifts"),
+                n("الرَّزَّاق", "المتكفل بأرزاق العباد كلهم", "The Provider for all"),
+                n("الْفَتَّاح", "فاتح أبواب الرحمة والرزق", "The Opener of doors and hearts"),
+                n("الْعَلِيم", "المحيط علمه بكل شيء", "The All-Knowing"),
+                n("الْقَابِض", "الذي يقبض الرزق والأرواح بحكمته", "The Withholder in wisdom"),
+                n("الْبَاسِط", "الذي يبسط الرزق لمن يشاء", "The Expander of provision"),
+                n("الْخَافِض", "مذل المتكبرين", "The Abaser of the arrogant"),
+                n("الرَّافِع", "رافع أوليائه بالطاعات", "The Exalter of the humble"),
+                n("الْمُعِزّ", "معطي العزة لمن يشاء", "The Giver of honour"),
+                n("الْمُذِلّ", "مذل من يشاء بعدله", "The Humbler of whom He wills"),
+                n("السَّمِيع", "السامع لكل صوت ظاهر وخفي", "The All-Hearing"),
+                n("الْبَصِير", "المبصر لكل شيء وإن دق", "The All-Seeing"),
+                n("الْحَكَم", "الحاكم بين خلقه بالعدل", "The Impartial Judge"),
+                n("الْعَدْل", "الذي لا يظلم مثقال ذرة", "The utterly Just"),
+                n("اللَّطِيف", "اللطيف بعباده العالم بدقائق الأمور", "The Subtle, the Kind"),
+                n("الْخَبِير", "العالم ببواطن الأشياء", "The All-Aware"),
+                n("الْحَلِيم", "الذي لا يعاجل العصاة بالعقوبة", "The Most Forbearing"),
+                n("الْعَظِيم", "ذو العظمة والجلال في كل شيء", "The Magnificent"),
+                n("الْغَفُور", "الساتر لذنوب عباده التوابين", "The Great Forgiver"),
+                n("الشَّكُور", "الذي يجازي على اليسير بالكثير", "The Most Appreciative"),
+                n("الْعَلِيّ", "المتعالي فوق كل شيء ذاتًا وقهرًا", "The Most High"),
+                n("الْكَبِير", "الكبير في ذاته وصفاته", "The Most Great"),
+                n("الْحَفِيظ", "الحافظ لخلقه وأعمالهم", "The Preserver"),
+                n("الْمُقِيت", "المقتدر الرزاق", "The Sustainer, the Powerful"),
+                n("الْحَسِيب", "الكافي عباده، المحاسب لهم", "The Reckoner, the Sufficient"),
+                n("الْجَلِيل", "الموصوف بمعاني الجلال", "The Majestic"),
+                n("الْكَرِيم", "العطاء الذي لا ينفد", "The Most Generous"),
+                n("الرَّقِيب", "المطالع على أحوال عباده", "The Watchful"),
+                n("الْمُجِيب", "الذي يجيب دعاء من دعاه", "The Responsive to prayers"),
+                n("الْوَاسِع", "الواسع الرحمة والعلم والملك", "The All-Encompassing"),
+                n("الْحَكِيم", "المحكم لخلقه وأمره", "The All-Wise"),
+                n("الْوَدُود", "المحب لأوليائه المحبوب لهم", "The Most Loving"),
+                n("الْمَجِيد", "الواسع الكرم مع كمال الشرف", "The Most Glorious"),
+                n("الْبَاعِث", "باعث الخلق يوم القيامة", "The Resurrector"),
+                n("الشَّهِيد", "الحاضر المطالع على كل شيء", "The Witness over all"),
+                n("الْحَقّ", "الثابت الذي لا يزول", "The Absolute Truth"),
+                n("الْوَكِيل", "المتكفل بأرزاق العباد القائم بمصالحهم", "The Trustee, the Disposer of affairs"),
+                n("الْقَوِيّ", "التام القدرة", "The All-Strong"),
+                n("الْمَتِين", "الشديد القوة الذي لا تنقطع قوته", "The Firm, the Steadfast"),
+                n("الْوَلِيّ", "الناصر لأوليائه المتولي أمورهم", "The Protecting Friend"),
+                n("الْحَمِيد", "المحمود على كل حال", "The Most Praiseworthy"),
+                n("الْمُحْصِي", "الذي أحصى كل شيء عددًا وعلمًا", "The All-Enumerating"),
+                n("الْمُبْدِئ", "الذي بدأ الخلق", "The Initiator of creation"),
+                n("الْمُعِيد", "الذي يعيد الخلق بعد الفناء", "The Restorer of life"),
+                n("الْمُحْيِي", "الذي يهب الحياة", "The Giver of life"),
+                n("الْمُمِيت", "الذي كتب الفناء على خلقه", "The Bringer of death"),
+                n("الْحَيّ", "الحي حياة كاملة لا تشبه حياة خلقه", "The Ever-Living"),
+                n("الْقَيُّوم", "القائم بنفسه المقيم لغيره", "The Self-Subsisting Sustainer"),
+                n("الْوَاجِد", "الغني الذي لا يعوزه شيء", "The Self-Sufficient Finder"),
+                n("الْمَاجِد", "الكريم الشريف في أفعاله", "The Noble, the Illustrious"),
+                n("الْوَاحِد", "المتفرد بالألوهية المنفرد بكل كمال — الأحد الذي لا شريك له", "The One, the Unique with no partner"),
+                n("الصَّمَد", "المقصود في الحوائج السيد الكامل", "The Eternal Refuge"),
+                n("الْقَادِر", "التام القدرة على كل شيء", "The All-Able"),
+                n("الْمُقْتَدِر", "البالغ في القدرة", "The All-Determiner"),
+                n("الْمُقَدِّم", "الذي يقدم من يشاء بفضله", "The Promoter"),
+                n("الْمُؤَخِّر", "الذي يؤخر من يشاء بحكمته", "The Delayer"),
+                n("الْأَوَّل", "الذي ليس قبله شيء", "The First"),
+                n("الْآخِر", "الذي ليس بعده شيء", "The Last"),
+                n("الظَّاهِر", "الظاهر بأدلته فوق كل شيء", "The Manifest"),
+                n("الْبَاطِن", "العالم بالخفايا القريب", "The Hidden, the Inward"),
+                n("الْوَالِي", "المتولي لأمور الخلق", "The Sole Governor"),
+                n("الْمُتَعَالِي", "المتنزه عن صفات المخلوقين", "The Most Exalted"),
+                n("الْبَرّ", "المحسن إلى خلقه الذي لا ينقطع إحسانه", "The Source of all goodness"),
+                n("التَّوَّاب", "الذي يقبل التوبة مرة بعد مرة", "The Ever-Pardoning, who accepts repentance"),
+                n("الْمُنْتَقِم", "الذي ينتصف للمظلوم من الظالم", "The Avenger"),
+                n("الْعَفُوّ", "الماحي للذنوب بالعفو", "The Pardoner who erases sins"),
+                n("الرَّءُوف", "شديد الرحمة والرأفة بعباده", "The Most Compassionate"),
+                n("مَالِكُ الْمُلْك", "المتصرف في ملكه كما يشاء", "The Owner of all sovereignty"),
+                n("ذُو الْجَلَالِ وَالْإِكْرَام", "المتصف بالجلال والعظمة والكرم", "The Lord of Majesty and Generosity"),
+                n("الْمُقْسِط", "العادل في حكمه", "The Equitable"),
+                n("الْجَامِع", "جامع الخلق ليوم الحساب", "The Gatherer of all"),
+                n("الْغَنِيّ", "الغني عن كل شيء", "The Self-Sufficient"),
+                n("الْمُغْنِي", "الذي يغني من يشاء من عباده", "The Enricher"),
+                n("الْمَانِع", "الذي يمنع العطاء بحكمته لا بخلًا", "The Withholder in wisdom"),
+                n("الضَّارّ", "الذي يقدّر الضرر على من يشاء بحكمته", "The Creator of harm by wisdom"),
+                n("النَّافِع", "الذي يوصل النفع لمن يشاء", "The Bestower of benefit"),
+                n("النُّور", "الهادي، منور السماوات والأرض", "The Light of the heavens and earth"),
+                n("الْهَادِي", "الذي يهدي عباده لمصالحهم", "The Guide"),
+                n("الْبَدِيع", "الذي خلق الخلق على غير مثال", "The Incomparable Originator"),
+                n("الْبَاقِي", "الدائم الذي لا يفنى", "The Everlasting"),
+                n("الْوَارِث", "الباقي بعد فناء الخلق", "The Inheritor of all"),
+                n("الرَّشِيد", "المرشد لمصالح الخلق بحكمته", "The Guide to the right path"),
+                n("الصَّبُور", "الذي لا يعاجل بالعقوبة عصاته", "The Most Patient"),
+            ),
+        )
+    }
+}
