@@ -10,10 +10,10 @@ import org.example.islamicapp.core.common.prayer.AdhanSoundOption
 import org.example.islamicapp.core.common.prayer.CalculationMethod
 import org.example.islamicapp.core.datastore.prayer.PrayerSettings
 import org.example.islamicapp.core.datastore.prayer.SelectedLocation
-import org.example.islamicapp.feature.prayertimes.domain.Coordinates
+import org.example.islamicapp.core.common.prayer.Coordinates
 import org.example.islamicapp.core.common.prayer.Prayer
 import org.example.islamicapp.core.common.prayer.PrayerParameters
-import org.example.islamicapp.feature.prayertimes.domain.PrayerTimesCalculator
+import org.example.islamicapp.core.common.prayer.PrayerTimesCalculator
 import java.time.LocalDate
 import java.time.ZoneId
 import javax.inject.Inject

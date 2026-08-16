@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="learn_title">التعلّم</string>
+    <string name="learn_back">رجوع</string>
+    <string name="learn_topic_wudu">الوضوء</string>
+    <string name="learn_topic_wudu_sub">خطوات الوضوء خطوة بخطوة</string>
+    <string name="learn_topic_ghusl">الغسل</string>
+    <string name="learn_topic_ghusl_sub">الغسل من الجنابة والحيض والنفاس</string>
+    <string name="learn_topic_tayammum">التيمم</string>
+    <string name="learn_topic_tayammum_sub">عند فقد الماء أو العجز عن استعماله</string>
+    <string name="learn_topic_salah">كيفية الصلاة</string>
+    <string name="learn_topic_salah_sub">الصلاة خطوة بخطوة من التكبير إلى التسليم</string>
+    <string name="learn_topic_special">الصلوات الخاصة</string>
+    <string name="learn_topic_special_sub">الجنازة، العيدين، التراويح، الوتر، الاستخارة…</string>
+    <string name="learn_topic_rakats">جدول الركعات</string>
+    <string name="learn_topic_rakats_sub">عدد ركعات كل صلاة</string>
+    <string name="learn_topic_madhhab">الفروقات المذهبية</string>
+    <string name="learn_topic_madhhab_sub">عرض محايد لمسائل الخلاف</string>
+</resources>

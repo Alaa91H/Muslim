@@ -24,3 +24,7 @@ captures/
 
 # Freebuff local tool state
 .freebuff/
+
+# Local release signing (never commit)
+keystore.properties
+release.keystore

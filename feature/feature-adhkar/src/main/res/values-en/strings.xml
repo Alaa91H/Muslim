@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_back">Back</string>
+    <string name="adhkar_all">All</string>
+    <string name="adhkar_category_morning">Morning</string>
+    <string name="adhkar_category_evening">Evening</string>
+    <string name="adhkar_category_postprayer">After prayer</string>
+    <string name="adhkar_category_sleep">Sleep</string>
+    <string name="adhkar_category_waking">Waking up</string>
+    <string name="adhkar_category_food">Eating</string>
+    <string name="adhkar_category_travel">Travel</string>
+    <string name="adhkar_category_general">General supplications</string>
+    <string name="adhkar_repetition_label">Repeat: %1$s</string>
+    <string name="adhkar_complete">Done</string>
+    <string name="adhkar_reset">Reset counter</string>
+    <string name="adhkar_show_translation">Show translation</string>
+</resources>

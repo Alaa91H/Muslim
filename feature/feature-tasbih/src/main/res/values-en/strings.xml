@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_back">Back</string>
+    <string name="tasbih_of_target">of %1$s</string>
+    <string name="tasbih_target_reached">Goal reached — may Allah accept</string>
+    <string name="tasbih_tap_hint">Tap the circle to count</string>
+    <string name="tasbih_reset">Reset</string>
+    <string name="tasbih_week_stats">Last 7 days</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_description">Digital misbaha — tap to count</string>
+    <string name="misbaha_widget_tap_hint">Tap to count</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_title">رمضان</string>
+    <string name="ramadan_back">رجوع</string>
+    <string name="ramadan_day_of_month">اليوم %1$s من رمضان</string>
+    <string name="ramadan_days_left">متبقٍ %1$s أيام</string>
+    <string name="ramadan_countdown">رمضان يبدأ بعد %1$s يوم</string>
+    <string name="ramadan_starts_on">من %1$s إلى %2$s</string>
+    <string name="ramadan_hijri_year">سنة %1$s هـ</string>
+    <string name="ramadan_iftar">الإفطار</string>
+    <string name="ramadan_iftar_time">وقت الإفطار (المغرب): %1$s</string>
+    <string name="ramadan_countdown_to_iftar">متبقي على الإفطار: %1$s</string>
+    <string name="ramadan_iftar_dua">دعاء الإفطار: «اللهم لك صمت وعلى رزقك أفطرت، ذهب الظمأ وابتلت العروق وثبت الأجر إن شاء الله»</string>
+    <string name="ramadan_suhoor">السحور</string>
+    <string name="ramadan_suhoor_time">نهاية وقت السحور (الفجر): %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">متبقي على أذان الفجر: %1$s</string>
+    <string name="ramadan_suhoor_remind_before">تذكير قبل:</string>
+    <string name="ramadan_minutes">%1$s د</string>
+    <string name="ramadan_fasting_tracker">متابعة الصيام</string>
+    <string name="ramadan_fasting_progress">أيام الصيام: %1$s من %2$s — اضغط على اليوم لتسجيله</string>
+    <string name="ramadan_hijri_note">التقويم مبني على حساب أم القرى مع تطبيق تعديل التاريخ الهجري من الإعدادات.</string>
+    <string name="ramadan_location_required">اختر المدينة أولاً من شاشة الإعدادات لعرض المواقيت.</string>
+    <string name="ramadan_notification_iftar_title">حان وقت الإفطار</string>
+    <string name="ramadan_notification_iftar_body">اللهم لك صمت وعلى رزقك أفطرت</string>
+    <string name="ramadan_notification_suhoor_title">تذكير السحور</string>
+    <string name="ramadan_notification_suhoor_body">بقي وقت على أذان الفجر — خذ سحورك</string>
+</resources>

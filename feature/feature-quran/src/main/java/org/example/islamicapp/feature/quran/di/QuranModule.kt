@@ -6,7 +6,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import kotlinx.serialization.json.Json
 import org.example.islamicapp.core.database.AppDatabase
 import org.example.islamicapp.core.database.dao.AyahDao
 import org.example.islamicapp.core.database.dao.AyahFtsDao
@@ -44,13 +43,6 @@ object QuranModule {
 
     @Provides
     fun provideTafsirDao(database: AppDatabase): TafsirDao = database.tafsirDao()
-
-    @Provides
-    @Singleton
-    fun provideJson(): Json = Json {
-        ignoreUnknownKeys = true
-        explicitNulls = false
-    }
 
     @Provides
     @Singleton

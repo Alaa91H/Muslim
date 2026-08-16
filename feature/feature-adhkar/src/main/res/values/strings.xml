@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="adhkar_title">الأذكار</string>
+    <string name="adhkar_back">رجوع</string>
+    <string name="adhkar_all">الكل</string>
+    <string name="adhkar_category_morning">الصباح</string>
+    <string name="adhkar_category_evening">المساء</string>
+    <string name="adhkar_category_postprayer">بعد الصلاة</string>
+    <string name="adhkar_category_sleep">النوم</string>
+    <string name="adhkar_category_waking">الاستيقاظ</string>
+    <string name="adhkar_category_food">الطعام</string>
+    <string name="adhkar_category_travel">السفر</string>
+    <string name="adhkar_category_general">أذكار وأدعية عامة</string>
+    <string name="adhkar_repetition_label">التكرار: %1$s</string>
+    <string name="adhkar_complete">تم</string>
+    <string name="adhkar_reset">إعادة العداد</string>
+    <string name="adhkar_show_translation">عرض الترجمة</string>
+</resources>

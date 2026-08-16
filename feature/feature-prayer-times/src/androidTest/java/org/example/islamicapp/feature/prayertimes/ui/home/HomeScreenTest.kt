@@ -12,8 +12,8 @@ import org.example.islamicapp.core.common.prayer.Prayer
 import org.example.islamicapp.core.datastore.prayer.PrayerSettings
 import org.example.islamicapp.core.datastore.prayer.PrayerSettingsRepository
 import org.example.islamicapp.core.datastore.prayer.SelectedLocation
-import org.example.islamicapp.feature.prayertimes.domain.PrayerTimesCalculator
-import org.example.islamicapp.feature.prayertimes.domain.PrayerTimesResult
+import org.example.islamicapp.core.common.prayer.PrayerTimesCalculator
+import org.example.islamicapp.core.common.prayer.PrayerTimesResult
 import org.example.islamicapp.feature.prayertimes.ui.prayerLabelRes
 import org.junit.Rule
 import org.junit.Test

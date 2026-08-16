@@ -3,6 +3,7 @@
     <string name="app_name">منارة</string>
 
     <string name="settings_title">الإعدادات</string>
+    <string name="settings_back">رجوع</string>
 
     <string name="settings_section_appearance">المظهر</string>
     <string name="settings_theme_mode">نمط العرض</string>

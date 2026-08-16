@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasbih_title">المسبحة</string>
+    <string name="tasbih_back">رجوع</string>
+    <string name="tasbih_of_target">من %1$s</string>
+    <string name="tasbih_target_reached">تم الهدف — تقبل الله</string>
+    <string name="tasbih_tap_hint">اضغط على الدائرة للتسبيح</string>
+    <string name="tasbih_reset">إعادة الضبط</string>
+    <string name="tasbih_week_stats">آخر ٧ أيام</string>
+    <string name="misbaha_widget_label">المسبحة</string>
+    <string name="misbaha_widget_description">مسبحة إلكترونية — اضغط للعدّ</string>
+    <string name="misbaha_widget_tap_hint">اضغط للعدّ</string>
+</resources>

@@ -15,7 +15,7 @@
     <string name="hadith_collection_muslim">Muslim</string>
     <string name="hadith_collection_tirmidhi">At-Tirmidhi</string>
     <string name="hadith_collection_abudawud">Abu Dawud</string>
-    <string name="hadith_collection_nasai">An-Nasa'i</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
     <string name="hadith_collection_ibnmajah">Ibn Majah</string>
     <string name="hadith_collection_other">Other</string>
 </resources>

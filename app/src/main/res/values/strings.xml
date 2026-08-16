@@ -9,7 +9,23 @@
     <string name="tab_quran">القرآن</string>
     <string name="tab_times">الأوقات</string>
     <string name="tab_qibla">القبلة</string>
-    <string name="tab_settings">الإعدادات</string>
+    <string name="tab_more">المزيد</string>
+
+    <!-- More hub entries -->
+    <string name="more_settings">الإعدادات</string>
+    <string name="more_settings_desc">الثيم واللغة وإعدادات الصلاة والأذان</string>
+    <string name="more_hadith">الأحاديث</string>
+    <string name="more_hadith_desc">مكتبة الأحاديث والبحث وحديث اليوم</string>
+    <string name="more_adhkar">الأذكار</string>
+    <string name="more_adhkar_desc">أذكار الصباح والمساء وما بعد الصلاة مع العدّاد</string>
+    <string name="more_tasbih">المسبحة</string>
+    <string name="more_tasbih_desc">مسبحة إلكترونية مع سجل يومي</string>
+    <string name="more_ramadan">رمضان</string>
+    <string name="more_ramadan_desc">مواقيت السحور والإفطار ومتابعة الصيام</string>
+    <string name="more_zakat">الزكاة</string>
+    <string name="more_zakat_desc">حاسبة زكاة المال وزكاة الفطر</string>
+    <string name="more_learn">التعلّم</string>
+    <string name="more_learn_desc">دليل الوضوء والصلاة خطوة بخطوة</string>
 
     <!-- App shortcuts (long-press the launcher icon) -->
     <string name="shortcut_times">مواقيت الصلاة</string>

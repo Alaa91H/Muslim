@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_back">Back</string>
+    <string name="zakat_money_section">Zakat on wealth</string>
+    <string name="zakat_cash">Cash and savings</string>
+    <string name="zakat_gold_grams">Gold (grams)</string>
+    <string name="zakat_gold_price">Gold price per gram</string>
+    <string name="zakat_silver_grams">Silver (grams)</string>
+    <string name="zakat_silver_price">Silver price per gram</string>
+    <string name="zakat_trade">Trade goods value</string>
+    <string name="zakat_investments">Investments</string>
+    <string name="zakat_debts">Debts you owe (deducted)</string>
+    <string name="zakat_total_assets">Total assets</string>
+    <string name="zakat_zakatable">Zakatable amount after debts</string>
+    <string name="zakat_nisab_gold">Gold nisab (85g)</string>
+    <string name="zakat_nisab_silver">Silver nisab (595g)</string>
+    <string name="zakat_nisab_met">The nisab is reached — zakat is due</string>
+    <string name="zakat_nisab_not_met">Below the nisab — no zakat due</string>
+    <string name="zakat_due">Zakat due (2.5%%): %1$s</string>
+    <string name="zakat_save_result">Save to history</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_saa_value">Value of one sa\' (staple food)</string>
+    <string name="zakat_fitr_persons">Number of family members</string>
+    <string name="zakat_fitr_total">Total Fitr zakat: %1$s</string>
+    <string name="zakat_history">Calculation history</string>
+    <string name="zakat_history_empty">No saved calculations yet.</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_clear_history">Clear history</string>
+    <string name="zakat_rulings_note">Per the majority (jumhoor): gold nisab is 85g, silver 595g, and the rate is 2.5%% after deducting due debts. Consult a qualified scholar for special cases.</string>
+</resources>

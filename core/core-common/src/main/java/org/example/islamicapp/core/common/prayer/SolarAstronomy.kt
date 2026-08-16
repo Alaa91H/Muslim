@@ -1,6 +1,5 @@
-package org.example.islamicapp.feature.prayertimes.internal
+package org.example.islamicapp.core.common.prayer
 
-import org.example.islamicapp.feature.prayertimes.domain.Coordinates
 import java.time.LocalDate
 import kotlin.math.abs
 import kotlin.math.acos

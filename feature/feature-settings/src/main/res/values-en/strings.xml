@@ -3,6 +3,7 @@
     <string name="app_name">Manara</string>
 
     <string name="settings_title">Settings</string>
+    <string name="settings_back">Back</string>
 
     <string name="settings_section_appearance">Appearance</string>
     <string name="settings_theme_mode">Theme</string>

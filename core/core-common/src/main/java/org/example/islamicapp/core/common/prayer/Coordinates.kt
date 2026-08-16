@@ -1,4 +1,4 @@
-package org.example.islamicapp.feature.prayertimes.domain
+package org.example.islamicapp.core.common.prayer
 
 /**
  * Geographic coordinates of a location.

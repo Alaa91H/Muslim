@@ -6,8 +6,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.MoreHoriz
 import androidx.compose.material.icons.filled.Schedule
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -35,15 +35,21 @@ import org.example.islamicapp.core.ui.theme.AppTheme
 import org.example.islamicapp.feature.prayertimes.ui.home.HomeScreen
 import org.example.islamicapp.feature.prayertimes.ui.location.LocationScreen
 import org.example.islamicapp.feature.prayertimes.ui.settings.PrayerSettingsScreen
+import org.example.islamicapp.feature.adhkar.ui.AdhkarScreen
+import org.example.islamicapp.feature.hadith.ui.HadithScreen
+import org.example.islamicapp.feature.learn.ui.LearnScreen
 import org.example.islamicapp.feature.prayertimes.ui.times.PrayerTimesScreen
 import org.example.islamicapp.feature.qibla.ui.QiblaScreen
 import org.example.islamicapp.feature.quran.ui.BookmarksScreen
+import org.example.islamicapp.feature.ramadan.ui.RamadanScreen
 import org.example.islamicapp.feature.quran.ui.QuranReaderScreen
 import org.example.islamicapp.feature.quran.ui.SearchScreen
 import org.example.islamicapp.feature.quran.ui.SurahListScreen
 import org.example.islamicapp.feature.settings.AboutScreen
 import org.example.islamicapp.feature.settings.PrivacyScreen
 import org.example.islamicapp.feature.settings.SettingsScreen
+import org.example.islamicapp.feature.tasbih.ui.TasbihScreen
+import org.example.islamicapp.feature.zakat.ui.ZakatScreen
 
 private data class Tab(
     val route: String,
@@ -56,20 +62,27 @@ private val tabs = listOf(
     Tab("quran", R.string.tab_quran, Icons.AutoMirrored.Filled.MenuBook),
     Tab("times", R.string.tab_times, Icons.Default.Schedule),
     Tab("qibla", R.string.tab_qibla, Icons.Default.Explore),
-    Tab("settings", R.string.tab_settings, Icons.Default.Settings),
+    Tab("more", R.string.tab_more, Icons.Default.MoreHoriz),
 )
 
 private const val READER_ROUTE = "quran/reader"
 private const val SEARCH_ROUTE = "quran/search"
 private const val BOOKMARKS_ROUTE = "quran/bookmarks"
+private const val SETTINGS_ROUTE = "settings"
 private const val PRAYER_SETTINGS_ROUTE = "settings/prayer"
 private const val ABOUT_ROUTE = "settings/about"
 private const val PRIVACY_ROUTE = "settings/privacy"
+private const val HADITH_ROUTE = "hadith"
+private const val ADHKAR_ROUTE = "adhkar"
+private const val TASBIH_ROUTE = "tasbih"
+private const val RAMADAN_ROUTE = "ramadan"
+private const val ZAKAT_ROUTE = "zakat"
+private const val LEARN_ROUTE = "learn"
 
 @Composable
 fun ManaraApp(
-    initialRoute: String = "home",
     modifier: Modifier = Modifier,
+    initialRoute: String = "home",
     onLanguageChanged: () -> Unit = {},
 ) {
     val navController = rememberNavController()
@@ -186,13 +199,43 @@ fun ManaraApp(
                         )
                     }
                 }
-                composable("settings") {
+                composable("more") {
+                    MoreScreen(
+                        onOpenSettings = { navController.navigate(SETTINGS_ROUTE) },
+                        onOpenHadith = { navController.navigate(HADITH_ROUTE) },
+                        onOpenAdhkar = { navController.navigate(ADHKAR_ROUTE) },
+                        onOpenTasbih = { navController.navigate(TASBIH_ROUTE) },
+                        onOpenRamadan = { navController.navigate(RAMADAN_ROUTE) },
+                        onOpenZakat = { navController.navigate(ZAKAT_ROUTE) },
+                        onOpenLearn = { navController.navigate(LEARN_ROUTE) },
+                    )
+                }
+                composable(SETTINGS_ROUTE) {
                     SettingsScreen(
+                        onBack = { navController.popBackStack() },
                         onOpenPrayerSettings = { navController.navigate(PRAYER_SETTINGS_ROUTE) },
                         onOpenAbout = { navController.navigate(ABOUT_ROUTE) },
                         onOpenPrivacy = { navController.navigate(PRIVACY_ROUTE) },
                         onLanguageChanged = onLanguageChanged,
                     )
+                }
+                composable(HADITH_ROUTE) {
+                    HadithScreen(onBack = { navController.popBackStack() })
+                }
+                composable(ADHKAR_ROUTE) {
+                    AdhkarScreen(onBack = { navController.popBackStack() })
+                }
+                composable(TASBIH_ROUTE) {
+                    TasbihScreen(onBack = { navController.popBackStack() })
+                }
+                composable(RAMADAN_ROUTE) {
+                    RamadanScreen(onBack = { navController.popBackStack() })
+                }
+                composable(ZAKAT_ROUTE) {
+                    ZakatScreen(onBack = { navController.popBackStack() })
+                }
+                composable(LEARN_ROUTE) {
+                    LearnScreen(onBack = { navController.popBackStack() })
                 }
                 composable(PRAYER_SETTINGS_ROUTE) {
                     PrayerSettingsScreen(onOpenLocation = { navController.navigate("location") })

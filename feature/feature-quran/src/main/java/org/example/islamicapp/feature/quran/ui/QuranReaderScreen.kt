@@ -37,7 +37,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MenuAnchorType
+import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -358,7 +358,7 @@ private fun RecitationBar(
                         trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = reciterMenu) },
                         modifier = Modifier
                             .weight(1f)
-                            .menuAnchor(MenuAnchorType.PrimaryNotEditable),
+                            .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
                     )
                     ExposedDropdownMenu(expanded = reciterMenu, onDismissRequest = { reciterMenu = false }) {
                         Reciter.Bundled.forEach { option ->

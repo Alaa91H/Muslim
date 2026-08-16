@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.IBinder
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.os.VibratorManager
 import dagger.hilt.android.AndroidEntryPoint
 import org.example.islamicapp.core.notifications.NotificationChannels
 import org.example.islamicapp.core.common.prayer.AdhanPlaybackPlan
@@ -74,7 +75,12 @@ class AdhanPlaybackService : Service() {
     }
 
     private fun vibrate() {
-        val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator ?: return
+        @Suppress("DEPRECATION")
+        val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            (getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager).defaultVibrator
+        } else {
+            getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
+        } ?: return
         if (!vibrator.hasVibrator()) return
         vibrator.vibrate(
             VibrationEffect.createWaveform(longArrayOf(0, 600, 400, 600, 400, 600), -1),

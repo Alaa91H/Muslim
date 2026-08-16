@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_back">Back</string>
+    <string name="ramadan_day_of_month">Day %1$s of Ramadan</string>
+    <string name="ramadan_days_left">%1$s days remaining</string>
+    <string name="ramadan_countdown">Ramadan begins in %1$s days</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_hijri_year">Year %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) time: %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Time to iftar: %1$s</string>
+    <string name="ramadan_iftar_dua">Iftar supplication: "O Allah, for You I fasted and on Your provision I break my fast…"</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_time">Suhoor ends (Fajr): %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Time to Fajr: %1$s</string>
+    <string name="ramadan_suhoor_remind_before">Remind me before:</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_fasting_tracker">Fasting tracker</string>
+    <string name="ramadan_fasting_progress">Fasting days: %1$s of %2$s — tap a day to record it</string>
+    <string name="ramadan_hijri_note">Based on the Umm al-Qura calendar with the app-wide Hijri adjustment applied.</string>
+    <string name="ramadan_location_required">Choose a city in Settings first to see the times.</string>
+    <string name="ramadan_notification_iftar_title">Time for iftar</string>
+    <string name="ramadan_notification_iftar_body">O Allah, for You I fasted and on Your provision I break my fast</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor reminder</string>
+    <string name="ramadan_notification_suhoor_body">Fajr is approaching — have your suhoor</string>
+</resources>

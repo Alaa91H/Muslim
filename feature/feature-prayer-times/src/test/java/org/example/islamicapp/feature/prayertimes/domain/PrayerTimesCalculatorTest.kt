@@ -3,6 +3,8 @@ package org.example.islamicapp.feature.prayertimes.domain
 import com.google.common.truth.Truth.assertThat
 import org.example.islamicapp.core.common.prayer.AsrMethod
 import org.example.islamicapp.core.common.prayer.CalculationMethod
+import org.example.islamicapp.core.common.prayer.Coordinates
+import org.example.islamicapp.core.common.prayer.PrayerTimesCalculator
 import org.example.islamicapp.core.common.prayer.HighLatitudeRule
 import org.example.islamicapp.core.common.prayer.Prayer
 import org.example.islamicapp.core.common.prayer.PrayerAdjustments

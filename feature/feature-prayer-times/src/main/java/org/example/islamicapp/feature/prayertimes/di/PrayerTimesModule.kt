@@ -8,7 +8,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import org.example.islamicapp.core.location.FusedLocationProvider
 import org.example.islamicapp.core.location.LocationProvider
-import org.example.islamicapp.feature.prayertimes.domain.PrayerTimesCalculator
+import org.example.islamicapp.core.common.prayer.PrayerTimesCalculator
 import javax.inject.Singleton
 
 @Module

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="learn_title">Learn</string>
+    <string name="learn_back">Back</string>
+    <string name="learn_topic_wudu">Wudu (ablution)</string>
+    <string name="learn_topic_wudu_sub">Step-by-step ablution guide</string>
+    <string name="learn_topic_ghusl">Ghusl</string>
+    <string name="learn_topic_ghusl_sub">Full bath after major impurity</string>
+    <string name="learn_topic_tayammum">Tayammum</string>
+    <string name="learn_topic_tayammum_sub">Dry ablution when water is unavailable</string>
+    <string name="learn_topic_salah">How to pray</string>
+    <string name="learn_topic_salah_sub">Prayer step by step, from takbir to taslim</string>
+    <string name="learn_topic_special">Special prayers</string>
+    <string name="learn_topic_special_sub">Funeral, Eid, Tarawih, Witr, Istikhara…</string>
+    <string name="learn_topic_rakats">Rak\'ah reference</string>
+    <string name="learn_topic_rakats_sub">Number of rak\'ahs for each prayer</string>
+    <string name="learn_topic_madhhab">Madhhab differences</string>
+    <string name="learn_topic_madhhab_sub">A neutral overview of points of difference</string>
+</resources>
