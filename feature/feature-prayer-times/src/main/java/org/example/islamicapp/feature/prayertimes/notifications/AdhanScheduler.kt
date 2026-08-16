@@ -53,23 +53,19 @@ class AdhanScheduler @Inject constructor(
         val params = parametersFor(settings, location)
         val now = System.currentTimeMillis()
 
-        // For each prayer find the next occurrence within today..tomorrow.
-        val upcoming = LinkedHashMap<Prayer, Long>()
-        for (date in listOf(LocalDate.now(zone), LocalDate.now(zone).plusDays(1))) {
-            val result = calculator.compute(
+        // Keep the first future occurrence for each prayer while scanning today
+        // and tomorrow. A time found tomorrow must never replace one found today.
+        val occurrences = listOf(LocalDate.now(zone), LocalDate.now(zone).plusDays(1)).map { date ->
+            calculator.compute(
                 date = date,
                 coordinates = Coordinates(location.latitude, location.longitude),
                 parameters = params,
                 timeZone = zone,
                 asrMethod = settings.asrMethod,
                 userAdjustments = settings.adjustments,
-            )
-            if (!result.isValid) continue
-            for ((prayer, at) in result.epochMillis) {
-                if (prayer == Prayer.Sunrise) continue
-                if (at > now && at !in upcoming.values) upcoming[prayer] = at
-            }
+            ).takeIf { it.isValid }?.epochMillis.orEmpty()
         }
+        val upcoming = selectNextOccurrences(occurrences, now)
 
         // Cancel any previous alarms, then schedule fresh ones.
         cancelAll()
@@ -129,6 +125,23 @@ class AdhanScheduler @Inject constructor(
             )
         } else {
             PrayerParameters.of(settings.method).copy(highLatitudeRule = settings.highLatitudeRule)
+        }
+    }
+}
+
+/**
+ * Selects the earliest future occurrence of each prayer from consecutive daily
+ * calculation results. Sunrise is excluded because it is not a prayer alarm.
+ */
+internal fun selectNextOccurrences(
+    dailyOccurrences: Iterable<Map<Prayer, Long>>,
+    nowMillis: Long,
+): Map<Prayer, Long> = buildMap {
+    dailyOccurrences.forEach { occurrences ->
+        occurrences.forEach { (prayer, at) ->
+            if (prayer != Prayer.Sunrise && at > nowMillis && prayer !in this) {
+                put(prayer, at)
+            }
         }
     }
 }

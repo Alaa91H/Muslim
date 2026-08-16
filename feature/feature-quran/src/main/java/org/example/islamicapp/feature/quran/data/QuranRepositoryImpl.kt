@@ -1,6 +1,7 @@
 package org.example.islamicapp.feature.quran.data
 
 import android.content.Context
+import androidx.room.withTransaction
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emitAll
@@ -10,6 +11,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import org.example.islamicapp.core.common.text.ArabicText
+import org.example.islamicapp.core.database.AppDatabase
 import org.example.islamicapp.core.database.dao.AyahDao
 import org.example.islamicapp.core.database.dao.AyahFtsDao
 import org.example.islamicapp.core.database.dao.BookmarkDao
@@ -34,6 +36,7 @@ import javax.inject.Singleton
 @Singleton
 class QuranRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val database: AppDatabase,
     private val surahDao: SurahDao,
     private val ayahDao: AyahDao,
     private val ayahFtsDao: AyahFtsDao,
@@ -47,24 +50,27 @@ class QuranRepositoryImpl @Inject constructor(
         if (seeded.get()) return
         seedMutex.withLock {
             if (seeded.get()) return
-            if (surahDao.count() == 0 && ayahDao.count() == 0) {
-                val surahs = QuranAssetParser.parseSurahs(readAssetText("quran_surahs.json"))
-                val ayahs = context.assets.open("quran_ayahs.txt")
-                    .bufferedReader(Charsets.UTF_8)
-                    .use { QuranAssetParser.parseAyahs(it) }
-                surahDao.insertAll(surahs)
-                ayahDao.insertAll(ayahs)
-                if (ayahFtsDao.count() == 0) {
-                    ayahFtsDao.insertAll(
-                        ayahs.map {
-                            AyahFtsEntity(
-                                normalizedText = ArabicText.normalize(it.text),
-                                globalNumber = it.globalNumber,
-                                surahNumber = it.surahNumber,
-                                numberInSurah = it.numberInSurah,
-                            )
-                        }
-                    )
+            database.withTransaction {
+                val surahCount = surahDao.count()
+                val ayahCount = ayahDao.count()
+                val ayahs = when {
+                    surahCount == 0 && ayahCount == 0 -> importBundledQuran()
+                    surahCount > 0 && ayahCount > 0 -> ayahDao.getAll()
+                    else -> {
+                        // A prior process stopped during initial import. Reset the
+                        // incomplete state inside this transaction and import again.
+                        surahDao.clearAll()
+                        ayahDao.clearAll()
+                        ayahFtsDao.clearAll()
+                        importBundledQuran()
+                    }
+                }
+
+                // Version 2 added FTS. Existing installations already have ayahs,
+                // so rebuild the index whenever it is absent or incomplete.
+                if (ayahFtsDao.count() != ayahs.size) {
+                    ayahFtsDao.clearAll()
+                    ayahFtsDao.insertAll(buildAyahFtsRows(ayahs))
                 }
             }
             seeded.set(true)
@@ -145,6 +151,16 @@ class QuranRepositoryImpl @Inject constructor(
         )
     }
 
+    private suspend fun importBundledQuran(): List<AyahEntity> {
+        val surahs = QuranAssetParser.parseSurahs(readAssetText("quran_surahs.json"))
+        val ayahs = context.assets.open("quran_ayahs.txt")
+            .bufferedReader(Charsets.UTF_8)
+            .use { QuranAssetParser.parseAyahs(it) }
+        surahDao.insertAll(surahs)
+        ayahDao.insertAll(ayahs)
+        return ayahs
+    }
+
     private fun readAssetText(name: String): String =
         context.assets.open(name).bufferedReader(Charsets.UTF_8).use { it.readText() }
 
@@ -166,3 +182,14 @@ class QuranRepositoryImpl @Inject constructor(
         text = text,
     )
 }
+
+/** Builds the FTS rows from canonical ayah rows for initial seeding and upgrades. */
+internal fun buildAyahFtsRows(ayahs: List<AyahEntity>): List<AyahFtsEntity> =
+    ayahs.map {
+        AyahFtsEntity(
+            normalizedText = ArabicText.normalize(it.text),
+            globalNumber = it.globalNumber,
+            surahNumber = it.surahNumber,
+            numberInSurah = it.numberInSurah,
+        )
+    }
