@@ -1,4 +1,4 @@
-package org.example.islamicapp.feature.prayertimes.data
+package org.example.islamicapp.core.datastore.prayer
 
 import android.content.Context
 import androidx.datastore.preferences.core.Preferences
@@ -13,12 +13,12 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
-import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
-import org.example.islamicapp.feature.prayertimes.domain.AsrMethod
-import org.example.islamicapp.feature.prayertimes.domain.CalculationMethod
-import org.example.islamicapp.feature.prayertimes.domain.HighLatitudeRule
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
-import org.example.islamicapp.feature.prayertimes.domain.PrayerAdjustments
+import org.example.islamicapp.core.common.prayer.AdhanSoundOption
+import org.example.islamicapp.core.common.prayer.AsrMethod
+import org.example.islamicapp.core.common.prayer.CalculationMethod
+import org.example.islamicapp.core.common.prayer.HighLatitudeRule
+import org.example.islamicapp.core.common.prayer.Prayer
+import org.example.islamicapp.core.common.prayer.PrayerAdjustments
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -63,6 +63,11 @@ class PrayerSettingsRepository @Inject constructor(
                     }
                 }
                 .toMap(),
+            adhanSoundFiles = Prayer.entries
+                .mapNotNull { prayer ->
+                    prefs[Keys.soundFileFor(prayer)]?.let { prayer to it }
+                }
+                .toMap(),
             adhanVolume = prefs[Keys.ADHAN_VOLUME] ?: 100,
             reminderMinutes = prefs[Keys.REMINDER_MINUTES] ?: 10,
             hijriAdjustment = prefs[Keys.HIJRI_ADJUSTMENT] ?: 0,
@@ -103,6 +108,12 @@ class PrayerSettingsRepository @Inject constructor(
             prefs[Keys.VIBRATE_ENABLED] = newSettings.vibrateEnabled
             Prayer.entries.forEach { prayer ->
                 prefs[Keys.soundFor(prayer)] = newSettings.adhanSounds[prayer]?.name ?: AdhanSoundOption.Default.name
+                val file = newSettings.adhanSoundFiles[prayer]
+                if (file != null) {
+                    prefs[Keys.soundFileFor(prayer)] = file
+                } else {
+                    prefs.remove(Keys.soundFileFor(prayer))
+                }
             }
             prefs[Keys.ADHAN_VOLUME] = newSettings.adhanVolume
             prefs[Keys.REMINDER_MINUTES] = newSettings.reminderMinutes
@@ -142,5 +153,8 @@ class PrayerSettingsRepository @Inject constructor(
 
         fun soundFor(prayer: Prayer): Preferences.Key<String> =
             stringPreferencesKey("adhan_sound_${prayer.name.lowercase()}")
+
+        fun soundFileFor(prayer: Prayer): Preferences.Key<String> =
+            stringPreferencesKey("adhan_sound_file_${prayer.name.lowercase()}")
     }
 }

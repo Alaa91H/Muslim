@@ -1,0 +1,108 @@
+{
+  "note": "DEVELOPMENT SAMPLE ONLY — a dozen canonical hadiths so the UI and search can be exercised offline. Full collections (Six Books, Riyadh al-Salihin, Nawawi 40) must be imported from a licensed, curated source and must pass independent religious review before any release. Texts here are the widely-reproduced canonical wordings; attributions are given per item.",
+  "hadiths": [
+    {
+      "collection": "nawawi40",
+      "chapter": "النية",
+      "number": 1,
+      "arabic": "إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ فَهِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ، وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا أَوِ امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ",
+      "translation": "Actions are but by intentions, and every person shall have only what they intended…",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "النصيحة",
+      "number": 7,
+      "arabic": "الدِّينُ النَّصِيحَةُ. قُلْنَا: لِمَنْ يَا رَسُولَ اللَّهِ؟ قَالَ: لِلَّهِ، وَلِكِتَابِهِ، وَلِرَسُولِهِ، وَلِأَئِمَّةِ الْمُسْلِمِينَ وَعَامَّتِهِمْ",
+      "translation": "Religion is sincere advice. We asked: to whom, O Messenger of God? He said: to God, His Book, His Messenger, and to the leaders and the general body of Muslims.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "ترك ما لا يعنيه",
+      "number": 12,
+      "arabic": "مِنْ حُسْنِ إِسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ",
+      "translation": "Part of the perfection of a person's Islam is leaving alone what does not concern them.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "حب لأخيه ما يحب لنفسه",
+      "number": 13,
+      "arabic": "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ",
+      "translation": "None of you truly believes until he loves for his brother what he loves for himself.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "حرمة دم المسلم",
+      "number": 14,
+      "arabic": "الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ",
+      "translation": "A Muslim is one from whose tongue and hand other Muslims are safe.",
+      "grade": "Sahih",
+      "source": "رواه البخاري"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "قول خير أو الصمت",
+      "number": 15,
+      "arabic": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ، وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ جَارَهُ، وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ ضَيْفَهُ",
+      "translation": "Whoever believes in God and the Last Day, let him speak good or remain silent; let him honour his neighbour; let him honour his guest.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "التقوى",
+      "number": 18,
+      "arabic": "اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ",
+      "translation": "Be mindful of God wherever you are; follow a bad deed with a good one and it will erase it; and deal with people with good character.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي"
+    },
+    {
+      "collection": "riyad",
+      "chapter": "باب الكلام الطيب",
+      "arabic": "الْكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ",
+      "translation": "A kind word is an act of charity.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "أركان الإسلام",
+      "arabic": "بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ: شَهَادَةِ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَإِقَامِ الصَّلَاةِ، وَإِيتَاءِ الزَّكَاةِ، وَالْحَجِّ، وَصَوْمِ رَمَضَانَ",
+      "translation": "Islam is built upon five: testifying that there is no god but God and that Muhammad is His Messenger, establishing prayer, giving zakah, performing the Hajj, and fasting Ramadan.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "muslim",
+      "chapter": "الطهارة",
+      "arabic": "الطُّهُورُ شَطْرُ الْإِيمَانِ، وَالْحَمْدُ لِلَّهِ تَمْلَأُ الْمِيزَانَ",
+      "translation": "Purity is half of faith, and 'praise be to God' fills the scale.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "الرفق",
+      "arabic": "يَسِّرُوا وَلَا تُعَسِّرُوا، وَبَشِّرُوا وَلَا تُنَفِّرُوا",
+      "translation": "Make things easy and do not make them difficult; give glad tidings and do not drive people away.",
+      "grade": "Sahih",
+      "source": "رواه البخاري"
+    },
+    {
+      "collection": "other",
+      "chapter": "الإتقان في العمل",
+      "arabic": "إِنَّ اللَّهَ تَعَالَى يُحِبُّ إِذَا عَمِلَ أَحَدُكُمْ عَمَلًا أَنْ يُتْقِنَهُ",
+      "translation": "God loves that when one of you does something, he does it with excellence.",
+      "grade": "Hasan",
+      "source": "رواه البيهقي"
+    }
+  ]
+}

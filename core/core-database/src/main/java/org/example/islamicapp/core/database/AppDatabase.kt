@@ -10,10 +10,14 @@ import org.example.islamicapp.core.database.dao.AyahDao
 import org.example.islamicapp.core.database.dao.AyahFtsDao
 import org.example.islamicapp.core.database.dao.BookmarkDao
 import org.example.islamicapp.core.database.dao.SurahDao
+import org.example.islamicapp.core.database.dao.TafsirDao
+import org.example.islamicapp.core.database.dao.TranslationDao
 import org.example.islamicapp.core.database.entity.AyahEntity
 import org.example.islamicapp.core.database.entity.AyahFtsEntity
 import org.example.islamicapp.core.database.entity.BookmarkEntity
 import org.example.islamicapp.core.database.entity.SurahEntity
+import org.example.islamicapp.core.database.entity.TafsirEntity
+import org.example.islamicapp.core.database.entity.TranslationEntity
 
 /**
  * The app's single Room database. Pre-populated content (the Quran here,
@@ -26,8 +30,10 @@ import org.example.islamicapp.core.database.entity.SurahEntity
         AyahEntity::class,
         AyahFtsEntity::class,
         BookmarkEntity::class,
+        TranslationEntity::class,
+        TafsirEntity::class,
     ],
-    version = 2,
+    version = 3,
     exportSchema = true,
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -36,6 +42,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun ayahDao(): AyahDao
     abstract fun ayahFtsDao(): AyahFtsDao
     abstract fun bookmarkDao(): BookmarkDao
+    abstract fun translationDao(): TranslationDao
+    abstract fun tafsirDao(): TafsirDao
 
     companion object {
         private const val DB_NAME = "manara.db"
@@ -75,13 +83,48 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        /**
+         * v2 → v3: meaning translations + tafsir entries (imported packs).
+         * DDL mirrors Room's generated schema for the new entities.
+         */
+        val MIGRATION_2_3 = object : Migration(2, 3) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `translations` (
+                        `globalNumber` INTEGER NOT NULL,
+                        `language` TEXT NOT NULL,
+                        `text` TEXT NOT NULL,
+                        PRIMARY KEY(`globalNumber`, `language`)
+                    )
+                    """.trimIndent()
+                )
+                db.execSQL(
+                    "CREATE INDEX IF NOT EXISTS `index_translations_language` ON `translations` (`language`)"
+                )
+                db.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `tafsir` (
+                        `globalNumber` INTEGER NOT NULL,
+                        `source` TEXT NOT NULL,
+                        `text` TEXT NOT NULL,
+                        PRIMARY KEY(`globalNumber`, `source`)
+                    )
+                    """.trimIndent()
+                )
+                db.execSQL(
+                    "CREATE INDEX IF NOT EXISTS `index_tafsir_source` ON `tafsir` (`source`)"
+                )
+            }
+        }
+
         @Volatile
         private var instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase =
             instance ?: synchronized(this) {
                 instance ?: Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DB_NAME)
-                    .addMigrations(MIGRATION_1_2)
+                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
                     .build()
                     .also { instance = it }
             }

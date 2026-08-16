@@ -8,7 +8,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import org.example.islamicapp.core.location.FusedLocationProvider
 import org.example.islamicapp.core.location.LocationProvider
-import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
 import org.example.islamicapp.feature.prayertimes.domain.PrayerTimesCalculator
 import javax.inject.Singleton
 
@@ -19,12 +18,6 @@ object PrayerTimesModule {
     @Provides
     @Singleton
     fun provideCalculator(): PrayerTimesCalculator = PrayerTimesCalculator()
-
-    @Provides
-    @Singleton
-    fun provideSettingsRepository(
-        @ApplicationContext context: Context,
-    ): PrayerSettingsRepository = PrayerSettingsRepository(context)
 
     @Provides
     @Singleton

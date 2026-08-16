@@ -3,18 +3,22 @@ package org.example.islamicapp.feature.qibla.ui
 import android.hardware.SensorManager
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -59,6 +63,8 @@ fun QiblaScreen(
     val distanceKm = QiblaCalculator.distanceKm(latitude, longitude)
     val trueHeading = (heading.heading + declination) % 360f
 
+    var viewMode by remember { mutableStateOf(QiblaViewMode.Compass) }
+
     Column(
         modifier = modifier.fillMaxSize().padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -68,25 +74,64 @@ fun QiblaScreen(
             text = locationName,
             style = MaterialTheme.typography.titleLarge,
         )
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(16.dp))
 
-        Surface(shape = MaterialTheme.shapes.extraLarge) {
-            CompassRose(
-                trueHeading = trueHeading,
-                bearing = bearing,
-                modifier = Modifier
-                    .size(320.dp)
-                    .padding(8.dp),
+        Row {
+            FilterChip(
+                selected = viewMode == QiblaViewMode.Compass,
+                onClick = { viewMode = QiblaViewMode.Compass },
+                label = { Text(stringResource(R.string.qibla_mode_compass)) },
+            )
+            Spacer(Modifier.size(8.dp))
+            FilterChip(
+                selected = viewMode == QiblaViewMode.Map,
+                onClick = { viewMode = QiblaViewMode.Map },
+                label = { Text(stringResource(R.string.qibla_mode_map)) },
             )
         }
+        Spacer(Modifier.height(16.dp))
 
-        Spacer(Modifier.height(24.dp))
+        when (viewMode) {
+            QiblaViewMode.Compass -> {
+                Surface(shape = MaterialTheme.shapes.extraLarge) {
+                    CompassRose(
+                        trueHeading = trueHeading,
+                        bearing = bearing,
+                        modifier = Modifier
+                            .size(320.dp)
+                            .padding(8.dp),
+                    )
+                }
+                Spacer(Modifier.height(24.dp))
+                Text(
+                    text = stringResource(R.string.qibla_bearing, bearing),
+                    style = MaterialTheme.typography.headlineSmall,
+                    fontWeight = FontWeight.Bold,
+                )
+                if (heading.accuracy < SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM) {
+                    Spacer(Modifier.height(12.dp))
+                    Text(
+                        text = stringResource(R.string.qibla_calibrate),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.tertiary,
+                    )
+                }
+            }
 
-        Text(
-            text = stringResource(R.string.qibla_bearing, bearing),
-            style = MaterialTheme.typography.headlineSmall,
-            fontWeight = FontWeight.Bold,
-        )
+            QiblaViewMode.Map -> {
+                QiblaMapView(
+                    latitude = latitude,
+                    longitude = longitude,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f),
+                )
+                Spacer(Modifier.height(12.dp))
+                QiblaMapLegend()
+            }
+        }
+
+        Spacer(Modifier.height(16.dp))
         Text(
             text = stringResource(
                 R.string.qibla_distance,
@@ -95,18 +140,11 @@ fun QiblaScreen(
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-
-        if (heading.accuracy < SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM) {
-            Spacer(Modifier.height(12.dp))
-            Text(
-                text = stringResource(R.string.qibla_calibrate),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.tertiary,
-            )
-        }
         Spacer(Modifier.weight(1f))
     }
 }
+
+private enum class QiblaViewMode { Compass, Map }
 
 @Composable
 private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier = Modifier) {

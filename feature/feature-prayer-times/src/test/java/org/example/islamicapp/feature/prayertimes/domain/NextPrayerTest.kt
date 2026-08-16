@@ -1,6 +1,7 @@
 package org.example.islamicapp.feature.prayertimes.domain
 
 import com.google.common.truth.Truth.assertThat
+import org.example.islamicapp.core.common.prayer.Prayer
 import org.junit.Test
 
 class NextPrayerTest {

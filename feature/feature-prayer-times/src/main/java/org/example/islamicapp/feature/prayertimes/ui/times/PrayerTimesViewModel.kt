@@ -9,11 +9,12 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import org.example.islamicapp.core.common.time.HijriDate
-import org.example.islamicapp.feature.prayertimes.data.PrayerSettings
-import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
-import org.example.islamicapp.feature.prayertimes.data.toPrayerParameters
+import org.example.islamicapp.core.datastore.prayer.PrayerSettings
+import org.example.islamicapp.core.datastore.prayer.PrayerSettingsRepository
+import org.example.islamicapp.core.common.prayer.Prayer
+import org.example.islamicapp.core.common.prayer.PrayerParameters
+import org.example.islamicapp.core.datastore.prayer.toPrayerParameters
 import org.example.islamicapp.feature.prayertimes.domain.Coordinates
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
 import org.example.islamicapp.feature.prayertimes.domain.PrayerTimesCalculator
 import java.time.LocalDate
 import java.time.LocalTime
@@ -93,7 +94,7 @@ class PrayerTimesViewModel @Inject constructor(
     private fun monthGrid(
         month: YearMonth,
         coordinates: Coordinates,
-        params: org.example.islamicapp.feature.prayertimes.domain.PrayerParameters,
+        params: PrayerParameters,
         zone: ZoneId,
         settings: PrayerSettings,
     ): List<DayTimes> {

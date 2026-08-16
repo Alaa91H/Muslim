@@ -19,6 +19,10 @@ object NotificationChannels {
     const val REMINDER = "prayer_reminder"
     const val REMINDER_NAME = "تذكير الصلاة"
 
+    /** Low-importance channel for the optional daily ayah notification. */
+    const val QURAN_DAILY = "quran_daily"
+    const val QURAN_DAILY_NAME = "آية اليوم"
+
     /** Creates all channels; safe to call on every app start (idempotent). */
     fun create(context: Context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
@@ -32,6 +36,12 @@ object NotificationChannels {
         manager.createNotificationChannel(
             NotificationChannel(REMINDER, REMINDER_NAME, NotificationManager.IMPORTANCE_DEFAULT).apply {
                 description = "تذكير قبل موعد الصلاة"
+            }
+        )
+        manager.createNotificationChannel(
+            NotificationChannel(QURAN_DAILY, QURAN_DAILY_NAME, NotificationManager.IMPORTANCE_LOW).apply {
+                description = "آية يومية اختيارية مع تذكير بالقراءة"
+                setShowBadge(false)
             }
         )
     }

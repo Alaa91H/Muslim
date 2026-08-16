@@ -22,4 +22,18 @@
     <string name="quran_bookmark_remove">إزالة العلامة</string>
     <string name="quran_bookmark_ref">%1$s — آية %2$s</string>
     <string name="quran_resume">متابعة القراءة — سورة %1$s، آية %2$s</string>
+
+    <!-- Reader comfort & khatma -->
+    <string name="quran_reader_theme">نمط القراءة</string>
+    <string name="quran_khatma_progress">تقدّم الختمة</string>
+    <string name="quran_khatma_percent">%1$d٪</string>
+    <string name="quran_khatma_detail">قرأت حتى الآية %1$s من %2$s</string>
+    <string name="quran_supplement_title">المعاني والتفسير</string>
+    <string name="quran_tafsir_source">تفسير: %1$s</string>
+
+    <!-- Recitation -->
+    <string name="quran_reciter">القارئ</string>
+    <string name="quran_download_surah">تنزيل السورة</string>
+    <string name="quran_play_ayah">تشغيل الآية</string>
+    <string name="quran_repeat">تكرار</string>
 </resources>

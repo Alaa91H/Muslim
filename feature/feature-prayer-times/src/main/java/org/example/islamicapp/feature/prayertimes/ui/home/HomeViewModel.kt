@@ -10,12 +10,12 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.stateIn
 import org.example.islamicapp.core.common.time.HijriDate
-import org.example.islamicapp.feature.prayertimes.data.PrayerSettings
-import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
-import org.example.islamicapp.feature.prayertimes.data.toPrayerParameters
+import org.example.islamicapp.core.datastore.prayer.PrayerSettings
+import org.example.islamicapp.core.datastore.prayer.PrayerSettingsRepository
+import org.example.islamicapp.core.datastore.prayer.toPrayerParameters
 import org.example.islamicapp.feature.prayertimes.domain.Coordinates
 import org.example.islamicapp.feature.prayertimes.domain.NextPrayer
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
+import org.example.islamicapp.core.common.prayer.Prayer
 import org.example.islamicapp.feature.prayertimes.domain.PrayerTimesCalculator
 import java.time.Instant
 import java.time.LocalTime

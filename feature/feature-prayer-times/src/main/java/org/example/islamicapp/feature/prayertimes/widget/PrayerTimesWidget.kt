@@ -38,8 +38,8 @@ import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.flow.first
 import org.example.islamicapp.feature.prayertimes.R
-import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
+import org.example.islamicapp.core.datastore.prayer.PrayerSettingsRepository
+import org.example.islamicapp.core.common.prayer.Prayer
 import org.example.islamicapp.feature.prayertimes.domain.PrayerTimesCalculator
 
 /**

@@ -70,6 +70,16 @@
     <string name="adhan_option_silent">Silent</string>
     <string name="settings_volume">Volume</string>
     <string name="settings_preview">Preview adhan</string>
+    <string name="settings_sound_pick">Pick file</string>
+    <string name="settings_sound_download">Download from URL</string>
+    <string name="settings_sound_custom_active">Custom sound active for this prayer</string>
+    <string name="settings_sound_remove">Remove</string>
+    <string name="settings_sound_downloading">Downloading…</string>
+    <string name="settings_sound_dialog_title">Download adhan sound — %1$s</string>
+    <string name="settings_sound_dialog_hint">Paste a direct link to an audio file (mp3/ogg). The file is stored on your device only.</string>
+    <string name="settings_sound_dialog_url">File URL</string>
+    <string name="settings_sound_dialog_download">Download</string>
+    <string name="settings_sound_dialog_cancel">Cancel</string>
     <string name="settings_location">Prayer location</string>
     <string name="settings_location_value">%1$s</string>
     <string name="settings_hijri_adjustment">Hijri date adjustment (days)</string>

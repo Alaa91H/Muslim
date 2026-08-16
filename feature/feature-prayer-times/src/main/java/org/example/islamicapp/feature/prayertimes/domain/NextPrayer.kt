@@ -1,5 +1,7 @@
 package org.example.islamicapp.feature.prayertimes.domain
 
+import org.example.islamicapp.core.common.prayer.Prayer
+
 /**
  * Pure logic for "next prayer" and the live countdown shown on the home
  * screen (PROJECT_PROMPT.md §6: "عدّاد تنازلي مباشر للصلاة القادمة").

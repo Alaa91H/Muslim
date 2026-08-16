@@ -5,4 +5,9 @@
     <string name="qibla_distance">المسافة إلى مكة: %1$s</string>
     <string name="qibla_distance_km">%,.0f كم</string>
     <string name="qibla_calibrate">حرّك الهاتف بشكل ثماني لمعايرة البوصلة</string>
+    <string name="qibla_mode_compass">البوصلة</string>
+    <string name="qibla_mode_map">الخريطة</string>
+    <string name="qibla_map_you">موقعك</string>
+    <string name="qibla_map_kaaba">الكعبة</string>
+    <string name="qibla_map_hint">خط مستقيم (دائرة عظمى) من موقعك إلى الكعبة — بدون إنترنت</string>
 </resources>

@@ -41,11 +41,13 @@ dependencies {
     // Project modules
     implementation(project(":core:core-ui"))
     implementation(project(":core:core-common"))
+    implementation(project(":core:core-datastore"))
     implementation(project(":core:core-notifications"))
     implementation(project(":core:core-location"))
     implementation(project(":feature:feature-prayer-times"))
     implementation(project(":feature:feature-qibla"))
     implementation(project(":feature:feature-quran"))
+    implementation(project(":feature:feature-settings"))
 
     // AndroidX core
     implementation(libs.androidx.core.ktx)

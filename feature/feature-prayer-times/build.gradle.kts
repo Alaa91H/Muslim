@@ -29,6 +29,7 @@ dependencies {
     implementation(project(":core:core-ui"))
     implementation(project(":core:core-common"))
     implementation(project(":core:core-datastore"))
+    implementation(project(":core:core-network"))
     implementation(project(":core:core-notifications"))
     implementation(project(":core:core-location"))
 

@@ -1,4 +1,4 @@
-package org.example.islamicapp.feature.prayertimes.domain
+package org.example.islamicapp.core.common.prayer
 
 /**
  * Manual adjustment (in minutes) applied to each prayer time on top of the

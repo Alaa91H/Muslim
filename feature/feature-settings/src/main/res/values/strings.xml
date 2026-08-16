@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">منارة</string>
+
+    <string name="settings_title">الإعدادات</string>
+
+    <string name="settings_section_appearance">المظهر</string>
+    <string name="settings_theme_mode">نمط العرض</string>
+    <string name="settings_theme_system">حسب النظام</string>
+    <string name="settings_theme_light">فاتح</string>
+    <string name="settings_theme_dark">داكن</string>
+    <string name="settings_dynamic_color">ألوان ديناميكية</string>
+    <string name="settings_dynamic_color_desc">استخدام ألوان خلفية جهازك (Material You) على أندرويد 12 فأحدث</string>
+    <string name="settings_reduce_animations">تقليل الحركات</string>
+    <string name="settings_reduce_animations_desc">إيقاف الحركات غير الضرورية لتفضيلات إتاحة الوصول</string>
+
+    <string name="settings_section_language">اللغة</string>
+    <string name="settings_language_system">حسب النظام</string>
+    <string name="settings_language_arabic">العربية</string>
+    <string name="settings_language_english">English</string>
+
+    <string name="settings_section_prayer">الصلاة والأذان</string>
+    <string name="settings_prayer_section">إعدادات الصلاة والأذان</string>
+    <string name="settings_prayer_section_desc">طريقة الحساب، المذهب، تعديل الأوقات، أصوات الأذان والتنبيهات</string>
+
+    <string name="settings_section_data">البيانات والخصوصية</string>
+    <string name="settings_privacy">سياسة الخصوصية</string>
+    <string name="settings_privacy_desc">كيف نتعامل مع بياناتك: لا تتبّع، البيانات تبقى على جهازك</string>
+
+    <string name="settings_section_about">حول التطبيق</string>
+    <string name="settings_about">حول منارة</string>
+    <string name="settings_about_desc">النسخة، الترخيص، والمبادئ</string>
+    <string name="settings_open_source">مفتوح المصدر</string>
+    <string name="settings_open_source_desc">الترخيص GPLv3 — الكود متاح للجميع</string>
+
+    <string name="about_title">حول التطبيق</string>
+    <string name="about_version">الإصدار %1$s</string>
+    <string name="about_license_title">الترخيص</string>
+    <string name="about_license_body">منارة تطبيق مجاني بالكامل ومفتوح المصدر بموجب رخصة GPLv3، بلا إعلانات وبلا اشتراكات وبلا تتبّع. أي نسخة معدّلة من التطبيق تبقى مفتوحة المصدر.</string>
+    <string name="about_principles_title">مبادئنا</string>
+    <string name="about_principles_body">مجاني للأبد · خصوصية أولًا · دقة فلكية في مواقيت الصلاة والقبلة · يعمل دون إنترنت · دعم المذاهب الفقهية عبر إعدادات قابلة للتخصيص.</string>
+    <string name="about_content_review_title">مراجعة المحتوى الديني</string>
+    <string name="about_content_review_body">نصوص القرآن والأحاديث والأذكار تخضع لمراجعة شرعية متخصصة منفصلة عن مراجعة الكود قبل الإصدار الرسمي. مصدر نص القرآن: مشروع Tanzil (رسم عثماني).</string>
+
+    <string name="privacy_title">سياسة الخصوصية</string>
+    <string name="privacy_body">منارة يحترم خصوصيتك ولا يجمع بياناتك.\n\n• لا تتبّع: لا يوجد أي SDK إعلانات أو أدوات تحليلات أو تتبّع تسويقي.\n• البيانات تبقى على جهازك: كل بياناتك (الموقع، الإعدادات، العلامات المرجعية) تُخزَّن محليًا على جهازك فقط.\n• الموقع يُستخدم محليًا: إحداثياتك تُستخدم لحساب أوقات الصلاة واتجاه القبلة على جهازك، ولا تُرسَل إلى أي خادم خارجي.\n• الأذونات عند الحاجة فقط: نطلب أذونات (الموقع، الإشعارات) فقط عند الحاجة الفعلية للميزة، مع شرح واضح لسبب الطلب.\n• بلا اتصال إجباري: التطبيق يعمل دون إنترنت؛ الاتصال بالشبكة اختياري بالكامل لميزات إضافية كتنزيل التلاوات.\n\nهذه السياسة جزء من مستودع الكود المفتوح وتخضع للمراجعة المجتمعية.</string>
+
+    <string name="back">رجوع</string>
+</resources>

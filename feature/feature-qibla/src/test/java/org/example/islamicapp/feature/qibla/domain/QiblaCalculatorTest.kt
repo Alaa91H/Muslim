@@ -2,6 +2,7 @@ package org.example.islamicapp.feature.qibla.domain
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
+import kotlin.math.abs
 
 /**
  * Expected directions are the official test vectors of the Adhan library
@@ -66,5 +67,62 @@ class QiblaCalculatorTest {
         val distance = QiblaCalculator.distanceKm(30.0444, 31.2357)
         assertThat(distance).isAtLeast(1_250.0)
         assertThat(distance).isAtMost(1_360.0)
+    }
+
+    @Test
+    fun routePoints_startsAtUserAndEndsAtKaaba() {
+        val route = QiblaCalculator.routePoints(38.9072, -77.0369, steps = 10)
+        assertThat(route).hasSize(11)
+        assertThat(route.first().latitude).isWithin(1e-9).of(38.9072)
+        assertThat(route.first().longitude).isWithin(1e-9).of(-77.0369)
+        assertThat(route.last().latitude).isWithin(1e-6).of(QiblaCalculator.KAABA_LATITUDE)
+        assertThat(route.last().longitude).isWithin(1e-6).of(QiblaCalculator.KAABA_LONGITUDE)
+    }
+
+    @Test
+    fun routePoints_staysOnTheGreatCircle() {
+        val route = QiblaCalculator.routePoints(38.9072, -77.0369, steps = 20)
+        // Every intermediate point is roughly as far from the Kaaba as expected
+        // on the great circle: distance shrinks monotonically toward the Kaaba.
+        val distances = route.map { QiblaCalculator.distanceKm(it.latitude, it.longitude) }
+        for (i in 1 until distances.size) {
+            assertThat(distances[i]).isAtMost(distances[i - 1] + 0.01)
+        }
+    }
+
+    @Test
+    fun routePoints_atKaabaIsStable() {
+        val route = QiblaCalculator.routePoints(
+            QiblaCalculator.KAABA_LATITUDE,
+            QiblaCalculator.KAABA_LONGITUDE,
+            steps = 4,
+        )
+        route.forEach { point ->
+            assertThat(point.latitude).isWithin(1e-6).of(QiblaCalculator.KAABA_LATITUDE)
+            assertThat(point.longitude).isWithin(1e-6).of(QiblaCalculator.KAABA_LONGITUDE)
+        }
+    }
+
+    @Test
+    fun projection_fitsWithinUnitSquare() {
+        val route = QiblaCalculator.routePoints(38.9072, -77.0369)
+        val projected = QiblaCalculator.projectToUnitSquare(route, 38.9072, -77.0369, 1.0, 1.0)
+        assertThat(projected).hasSize(route.size)
+        projected.forEach { (x, y) ->
+            assertThat(x).isAtLeast(0.0)
+            assertThat(x).isAtMost(1.0)
+            assertThat(y).isAtLeast(0.0)
+            assertThat(y).isAtMost(1.0)
+        }
+        // North-up: latitude decreases downward. The Kaaba (21.4°N) is south of
+        // the user (38.9°N), so it must project below the user's location.
+        assertThat(projected.last().second).isGreaterThan(projected.first().second)
+    }
+
+    @Test
+    fun relativeToTrueNorth_isNormalized() {
+        assertThat(QiblaCalculator.relativeToTrueNorth(30.0, 40.0)).isWithin(1e-9).of(350.0)
+        assertThat(QiblaCalculator.relativeToTrueNorth(10.0, 20.0)).isWithin(1e-9).of(350.0)
+        assertThat(QiblaCalculator.relativeToTrueNorth(350.0, 10.0)).isWithin(1e-9).of(340.0)
     }
 }

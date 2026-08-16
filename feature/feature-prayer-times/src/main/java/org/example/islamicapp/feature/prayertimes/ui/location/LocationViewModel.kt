@@ -15,8 +15,8 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.example.islamicapp.core.location.LocationProvider
 import org.example.islamicapp.feature.prayertimes.data.CitiesRepository
-import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
-import org.example.islamicapp.feature.prayertimes.data.SelectedLocation
+import org.example.islamicapp.core.datastore.prayer.PrayerSettingsRepository
+import org.example.islamicapp.core.datastore.prayer.SelectedLocation
 import org.example.islamicapp.feature.prayertimes.domain.City
 import org.example.islamicapp.feature.prayertimes.notifications.AdhanScheduler
 import org.example.islamicapp.feature.prayertimes.widget.PrayerTimesWidget

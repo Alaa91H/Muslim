@@ -27,10 +27,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.example.islamicapp.feature.prayertimes.R
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
+import org.example.islamicapp.core.common.prayer.Prayer
 import org.example.islamicapp.feature.prayertimes.ui.formatCountdown
 import org.example.islamicapp.feature.prayertimes.ui.localDateFormatter
 import org.example.islamicapp.feature.prayertimes.ui.localTimeFormatter

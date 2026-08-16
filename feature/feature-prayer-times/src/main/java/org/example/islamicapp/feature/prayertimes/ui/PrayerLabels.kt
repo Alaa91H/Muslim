@@ -2,7 +2,7 @@ package org.example.islamicapp.feature.prayertimes.ui
 
 import androidx.annotation.StringRes
 import org.example.islamicapp.feature.prayertimes.R
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
+import org.example.islamicapp.core.common.prayer.Prayer
 
 /** Maps [Prayer] to its localized display name. */
 @StringRes

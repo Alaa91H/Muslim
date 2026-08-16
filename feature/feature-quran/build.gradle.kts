@@ -31,6 +31,8 @@ dependencies {
     implementation(project(":core:core-common"))
     implementation(project(":core:core-database"))
     implementation(project(":core:core-datastore"))
+    implementation(project(":core:core-network"))
+    implementation(project(":core:core-notifications"))
     // Room runtime is needed for type visibility of AppDatabase's supertype.
     implementation(libs.androidx.room.runtime)
 
@@ -46,6 +48,9 @@ dependencies {
     ksp(libs.hilt.compiler)
 
     implementation(libs.kotlinx.serialization.json)
+
+    // Daily "ayah of the day" notification
+    implementation(libs.androidx.work.runtime.ktx)
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)

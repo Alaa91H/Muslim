@@ -1,5 +1,6 @@
 package org.example.islamicapp.feature.prayertimes.domain
 
+import org.example.islamicapp.core.common.prayer.Prayer
 import java.time.LocalDate
 import java.time.LocalTime
 

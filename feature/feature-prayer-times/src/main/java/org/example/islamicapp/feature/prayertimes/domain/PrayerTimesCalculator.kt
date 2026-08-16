@@ -1,5 +1,11 @@
 package org.example.islamicapp.feature.prayertimes.domain
 
+import org.example.islamicapp.core.common.prayer.AsrMethod
+import org.example.islamicapp.core.common.prayer.CalculationMethod
+import org.example.islamicapp.core.common.prayer.HighLatitudeRule
+import org.example.islamicapp.core.common.prayer.Prayer
+import org.example.islamicapp.core.common.prayer.PrayerAdjustments
+import org.example.islamicapp.core.common.prayer.PrayerParameters
 import org.example.islamicapp.feature.prayertimes.internal.SolarTime
 import java.time.Instant
 import java.time.LocalDate
@@ -117,10 +123,11 @@ class PrayerTimesCalculator {
         } ?: maghribFromSunset
 
         // Isha.
-        var ishaMs: Long? = if (parameters.ishaAngle == null) {
+        val ishaAngle = parameters.ishaAngle
+        var ishaMs: Long? = if (ishaAngle == null) {
             maghribMs + parameters.ishaMinutes * 60_000L
         } else {
-            solarTime.timeForSolarAngle(-parameters.ishaAngle, afterTransit = true)
+            solarTime.timeForSolarAngle(-ishaAngle, afterTransit = true)
                 .let { if (it.isNaN()) null else ms(it) }
         }
         if (parameters.method == CalculationMethod.MoonsightingCommittee && coordinates.latitude >= 55) {

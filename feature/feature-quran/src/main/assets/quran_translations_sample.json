@@ -1,0 +1,17 @@
+{
+  "_note": "DEVELOPMENT SAMPLE ONLY. This tiny pack exists so the reader UI can be exercised offline. It is a plain, non-authoritative rendering and MUST be replaced by a properly licensed, religiously reviewed translation pack (e.g. from Tanzil/Alquran.cloud) before any release. Format: { \"language\": \"en\", \"translations\": [ { \"globalNumber\": N, \"text\": \"...\" } ] }",
+  "language": "en",
+  "translations": [
+    { "globalNumber": 1, "text": "In the name of God, the Most Gracious, the Most Merciful." },
+    { "globalNumber": 2, "text": "Praise be to God, Lord of all the worlds." },
+    { "globalNumber": 3, "text": "The Most Gracious, the Most Merciful." },
+    { "globalNumber": 4, "text": "Master of the Day of Judgment." },
+    { "globalNumber": 5, "text": "You alone we worship, and You alone we ask for help." },
+    { "globalNumber": 6, "text": "Guide us on the straight path." },
+    { "globalNumber": 7, "text": "The path of those You have blessed — not of those who earned anger, nor of those who went astray." },
+    { "globalNumber": 6233, "text": "Say: He is God, the One." },
+    { "globalNumber": 6234, "text": "God, the Eternal Refuge." },
+    { "globalNumber": 6235, "text": "He neither begets nor is born." },
+    { "globalNumber": 6236, "text": "And there is nothing comparable to Him." }
+  ]
+}

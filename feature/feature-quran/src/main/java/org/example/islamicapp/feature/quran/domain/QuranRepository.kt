@@ -10,6 +10,9 @@ interface QuranRepository {
 
     fun observeSurahs(): Flow<List<Surah>>
 
+    /** Fetches one ayah by its global number (ayah-of-the-day, quick lookup). */
+    suspend fun ayahByGlobal(globalNumber: Int): Ayah?
+
     /** Metadata of a single surah (for the reader header). */
     fun observeSurahMetadata(surahNumber: Int): Flow<Surah?>
 

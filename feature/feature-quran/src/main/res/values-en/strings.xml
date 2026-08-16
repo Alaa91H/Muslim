@@ -22,4 +22,18 @@
     <string name="quran_bookmark_remove">Remove bookmark</string>
     <string name="quran_bookmark_ref">%1$s — ayah %2$s</string>
     <string name="quran_resume">Resume reading — Surah %1$s, ayah %2$s</string>
+
+    <!-- Reader comfort & khatma -->
+    <string name="quran_reader_theme">Reading theme</string>
+    <string name="quran_khatma_progress">Khatma progress</string>
+    <string name="quran_khatma_percent">%1$d%%</string>
+    <string name="quran_khatma_detail">Read up to verse %1$s of %2$s</string>
+    <string name="quran_supplement_title">Meanings &amp; tafsir</string>
+    <string name="quran_tafsir_source">Tafsir: %1$s</string>
+
+    <!-- Recitation -->
+    <string name="quran_reciter">Reciter</string>
+    <string name="quran_download_surah">Download surah</string>
+    <string name="quran_play_ayah">Play ayah</string>
+    <string name="quran_repeat">Repeat</string>
 </resources>

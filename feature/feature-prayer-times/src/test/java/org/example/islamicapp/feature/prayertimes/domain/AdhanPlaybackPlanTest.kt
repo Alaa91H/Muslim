@@ -1,6 +1,8 @@
 package org.example.islamicapp.feature.prayertimes.domain
 
 import com.google.common.truth.Truth.assertThat
+import org.example.islamicapp.core.common.prayer.AdhanPlaybackPlan
+import org.example.islamicapp.core.common.prayer.AdhanSoundOption
 import org.junit.Test
 
 class AdhanPlaybackPlanTest {

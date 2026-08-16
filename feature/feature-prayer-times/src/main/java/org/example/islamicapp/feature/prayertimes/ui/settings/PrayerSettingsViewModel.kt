@@ -1,24 +1,29 @@
 package org.example.islamicapp.feature.prayertimes.ui.settings
 
 import android.content.Context
+import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import org.example.islamicapp.feature.prayertimes.data.PrayerSettings
-import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
-import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
-import org.example.islamicapp.feature.prayertimes.domain.AsrMethod
-import org.example.islamicapp.feature.prayertimes.domain.CalculationMethod
-import org.example.islamicapp.feature.prayertimes.domain.HighLatitudeRule
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
+import org.example.islamicapp.core.common.prayer.AdhanSoundOption
+import org.example.islamicapp.core.common.prayer.AsrMethod
+import org.example.islamicapp.core.common.prayer.CalculationMethod
+import org.example.islamicapp.core.common.prayer.HighLatitudeRule
+import org.example.islamicapp.core.common.prayer.Prayer
+import org.example.islamicapp.core.datastore.prayer.PrayerSettings
+import org.example.islamicapp.core.datastore.prayer.PrayerSettingsRepository
 import androidx.glance.appwidget.updateAll
 import org.example.islamicapp.feature.prayertimes.notifications.AdhanPlaybackService
 import org.example.islamicapp.feature.prayertimes.notifications.AdhanScheduler
+import org.example.islamicapp.feature.prayertimes.notifications.AdhanSoundRepository
 import org.example.islamicapp.feature.prayertimes.widget.PrayerTimesWidget
 import javax.inject.Inject
 
@@ -27,10 +32,15 @@ class PrayerSettingsViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val repository: PrayerSettingsRepository,
     private val scheduler: AdhanScheduler,
+    private val soundRepository: AdhanSoundRepository,
 ) : ViewModel() {
 
     val settings: StateFlow<PrayerSettings> =
         repository.settings.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), PrayerSettings())
+
+    /** Download progress (0..1) per prayer, present only while downloading. */
+    private val _downloadProgress = MutableStateFlow<Map<Prayer, Float>>(emptyMap())
+    val downloadProgress: StateFlow<Map<Prayer, Float>> = _downloadProgress.asStateFlow()
 
     fun setMethod(method: CalculationMethod) = update { it.copy(method = method) }
 
@@ -64,13 +74,51 @@ class PrayerSettingsViewModel @Inject constructor(
     fun previewAdhan(prayer: Prayer) {
         val current = settings.value
         if (!current.adhanEnabled) return
-        AdhanPlaybackService.start(
-            context = context,
-            prayer = prayer,
-            vibrate = current.vibrateEnabled,
-            soundOption = current.adhanSounds[prayer] ?: AdhanSoundOption.Default,
-            volumePercent = current.adhanVolume,
-        )
+        viewModelScope.launch {
+            val soundPath = soundRepository.customSoundFile(prayer)?.absolutePath
+            AdhanPlaybackService.start(
+                context = context,
+                prayer = prayer,
+                vibrate = current.vibrateEnabled,
+                soundOption = current.adhanSounds[prayer] ?: AdhanSoundOption.Default,
+                volumePercent = current.adhanVolume,
+                soundPath = soundPath,
+            )
+        }
+    }
+
+    /** Binds a user-picked audio file to [prayer] (stored privately on-device). */
+    fun setCustomSound(prayer: Prayer, uri: Uri) {
+        viewModelScope.launch {
+            soundRepository.setCustomSound(prayer, uri)
+            reschedule()
+        }
+    }
+
+    /** Downloads an adhan audio from [url] for [prayer], reporting progress. */
+    fun downloadSound(prayer: Prayer, url: String) {
+        viewModelScope.launch {
+            _downloadProgress.value = _downloadProgress.value + (prayer to 0f)
+            soundRepository.downloadSound(prayer, url) { progress ->
+                _downloadProgress.value = _downloadProgress.value + (prayer to progress)
+            }
+            _downloadProgress.value = _downloadProgress.value - prayer
+            reschedule()
+        }
+    }
+
+    /** Reverts [prayer] to the bundled tone. */
+    fun clearCustomSound(prayer: Prayer) {
+        viewModelScope.launch {
+            soundRepository.clearCustomSound(prayer)
+            reschedule()
+        }
+    }
+
+    private suspend fun reschedule() {
+        val current = repository.settings.first()
+        scheduler.schedule(current)
+        PrayerTimesWidget().updateAll(context)
     }
 
     private fun update(transform: (PrayerSettings) -> PrayerSettings) {

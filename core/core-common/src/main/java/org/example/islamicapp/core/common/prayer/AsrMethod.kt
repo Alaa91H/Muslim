@@ -1,4 +1,4 @@
-package org.example.islamicapp.feature.prayertimes.domain
+package org.example.islamicapp.core.common.prayer
 
 /**
  * Juristic method used to calculate the Asr prayer time.

@@ -9,8 +9,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
+import org.example.islamicapp.core.common.prayer.AdhanSoundOption
+import org.example.islamicapp.core.common.prayer.Prayer
 import org.example.islamicapp.feature.prayertimes.widget.PrayerTimesWidget
 
 /**
@@ -33,12 +33,14 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                     AdhanNotifications.showReminder(appContext, prayer, settings.reminderMinutes)
                 }
             } else if (settings.adhanEnabled) {
+                val soundPath = entryPoint.soundRepository().customSoundFile(prayer)?.absolutePath
                 AdhanPlaybackService.start(
                     context = appContext,
                     prayer = prayer,
                     vibrate = settings.vibrateEnabled,
                     soundOption = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
                     volumePercent = settings.adhanVolume,
+                    soundPath = soundPath,
                 )
             }
             entryPoint.scheduler().schedule(settings)

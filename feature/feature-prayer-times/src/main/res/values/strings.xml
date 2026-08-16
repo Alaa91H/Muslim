@@ -75,6 +75,16 @@
     <string name="adhan_option_silent">صامت</string>
     <string name="settings_volume">مستوى الصوت</string>
     <string name="settings_preview">معاينة الأذان</string>
+    <string name="settings_sound_pick">اختيار ملف</string>
+    <string name="settings_sound_download">تنزيل من رابط</string>
+    <string name="settings_sound_custom_active">صوت مخصص مفعّل لهذه الصلاة</string>
+    <string name="settings_sound_remove">إزالة</string>
+    <string name="settings_sound_downloading">جارٍ التنزيل…</string>
+    <string name="settings_sound_dialog_title">تنزيل صوت الأذان — %1$s</string>
+    <string name="settings_sound_dialog_hint">ألصق رابطًا مباشرًا لملف صوتي (mp3/ogg). يُخزَّن الملف على جهازك فقط.</string>
+    <string name="settings_sound_dialog_url">رابط الملف</string>
+    <string name="settings_sound_dialog_download">تنزيل</string>
+    <string name="settings_sound_dialog_cancel">إلغاء</string>
     <string name="settings_location">موقع الصلاة</string>
     <string name="settings_location_value">%1$s</string>
     <string name="settings_hijri_adjustment">تعديل التاريخ الهجري (بالأيام)</string>

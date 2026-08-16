@@ -19,6 +19,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,7 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.example.islamicapp.core.common.text.toArabicIndic
 import org.example.islamicapp.feature.quran.R
@@ -85,6 +86,13 @@ fun SurahListScreen(
                     modifier = Modifier.fillMaxSize(),
                     contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 16.dp),
                 ) {
+                    item(key = "khatma") {
+                        KhatmaProgressCard(
+                            readThrough = state.readThroughGlobal,
+                            totalAyahs = state.totalAyahs,
+                            fraction = state.progressFraction,
+                        )
+                    }
                     state.lastRead?.let { last ->
                         item(key = "resume") {
                             ResumeReadingCard(
@@ -100,6 +108,48 @@ fun SurahListScreen(
                     }
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun KhatmaProgressCard(readThrough: Int, totalAyahs: Int, fraction: Float) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = stringResource(R.string.quran_khatma_progress),
+                    style = MaterialTheme.typography.titleSmall,
+                    modifier = Modifier.weight(1f),
+                )
+                Text(
+                    text = stringResource(
+                        R.string.quran_khatma_percent,
+                        (fraction * 100).toInt(),
+                    ),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
+            Spacer(Modifier.padding(top = 8.dp))
+            LinearProgressIndicator(
+                progress = { fraction },
+                modifier = Modifier.fillMaxWidth(),
+            )
+            Spacer(Modifier.padding(top = 6.dp))
+            Text(
+                text = stringResource(
+                    R.string.quran_khatma_detail,
+                    readThrough.toArabicIndic(),
+                    totalAyahs.toArabicIndic(),
+                ),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
     }
 }

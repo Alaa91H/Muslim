@@ -86,6 +86,11 @@ class QuranRepositoryImpl @Inject constructor(
         emitAll(ayahDao.observeSurah(surahNumber).map { list -> list.map { it.toDomain() } })
     }
 
+    override suspend fun ayahByGlobal(globalNumber: Int): Ayah? {
+        ensureSeeded()
+        return ayahDao.byGlobal(globalNumber)?.toDomain()
+    }
+
     override suspend fun search(rawQuery: String): List<Ayah> {
         ensureSeeded()
         val match = QuranSearchQuery.build(rawQuery)

@@ -3,6 +3,8 @@ package org.example.islamicapp.feature.prayertimes.ui.settings
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,6 +20,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Remove
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenuItem
@@ -28,6 +31,7 @@ import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
@@ -35,6 +39,7 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -47,15 +52,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.example.islamicapp.feature.prayertimes.R
-import org.example.islamicapp.feature.prayertimes.data.PrayerSettings
-import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
-import org.example.islamicapp.feature.prayertimes.domain.AsrMethod
-import org.example.islamicapp.feature.prayertimes.domain.CalculationMethod
-import org.example.islamicapp.feature.prayertimes.domain.HighLatitudeRule
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
+import org.example.islamicapp.core.common.prayer.AdhanSoundOption
+import org.example.islamicapp.core.common.prayer.AsrMethod
+import org.example.islamicapp.core.common.prayer.CalculationMethod
+import org.example.islamicapp.core.common.prayer.HighLatitudeRule
+import org.example.islamicapp.core.common.prayer.Prayer
+import org.example.islamicapp.core.datastore.prayer.PrayerSettings
 import org.example.islamicapp.feature.prayertimes.ui.prayerLabelRes
 
 @Composable
@@ -65,6 +70,14 @@ fun PrayerSettingsScreen(
     viewModel: PrayerSettingsViewModel = hiltViewModel(),
 ) {
     val settings by viewModel.settings.collectAsStateWithLifecycle()
+    val downloadProgress by viewModel.downloadProgress.collectAsStateWithLifecycle()
+
+    var pendingSoundPrayer by remember { mutableStateOf<Prayer?>(null) }
+    var downloadPrayer by remember { mutableStateOf<Prayer?>(null) }
+    val filePicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        uri?.let { selected -> pendingSoundPrayer?.let { viewModel.setCustomSound(it, selected) } }
+        pendingSoundPrayer = null
+    }
 
     Column(
         modifier = modifier
@@ -114,6 +127,27 @@ fun PrayerSettingsScreen(
                 prayer = prayer,
                 current = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
                 onSelected = { viewModel.setAdhanSound(prayer, it) },
+            )
+            CustomSoundRow(
+                prayer = prayer,
+                customPath = settings.adhanSoundFiles[prayer],
+                progress = downloadProgress[prayer],
+                onPickFile = {
+                    pendingSoundPrayer = prayer
+                    filePicker.launch(arrayOf("audio/*", "application/ogg", "video/mp4"))
+                },
+                onDownload = { downloadPrayer = prayer },
+                onClear = { viewModel.clearCustomSound(prayer) },
+            )
+        }
+        downloadPrayer?.let { prayer ->
+            DownloadSoundDialog(
+                prayer = prayer,
+                onDismiss = { downloadPrayer = null },
+                onConfirm = { url ->
+                    viewModel.downloadSound(prayer, url)
+                    downloadPrayer = null
+                },
             )
         }
         VolumeRow(volume = settings.adhanVolume, onChanged = viewModel::setAdhanVolume)
@@ -448,4 +482,106 @@ private fun highLatLabelRes(rule: HighLatitudeRule?): Int = when (rule) {
     HighLatitudeRule.MiddleOfTheNight -> R.string.settings_high_lat_midnight
     HighLatitudeRule.SeventhOfTheNight -> R.string.settings_high_lat_seventh
     HighLatitudeRule.TwilightAngle -> R.string.settings_high_lat_angle
+}
+
+/**
+ * Per-prayer custom sound controls (PROJECT_PROMPT.md §6: مكتبة أصوات الأذان):
+ * pick a local audio file, download one from a URL, or revert to the bundled tone.
+ */
+@Composable
+private fun CustomSoundRow(
+    prayer: Prayer,
+    customPath: String?,
+    progress: Float?,
+    onPickFile: () -> Unit,
+    onDownload: () -> Unit,
+    onClear: () -> Unit,
+) {
+    Column(modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)) {
+        if (progress != null) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = stringResource(R.string.settings_sound_downloading),
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier.weight(1f),
+                )
+                Text(
+                    text = "${(progress * 100).toInt()}%",
+                    style = MaterialTheme.typography.labelSmall,
+                )
+            }
+            LinearProgressIndicator(
+                progress = { progress },
+                modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
+            )
+        } else if (customPath != null) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = stringResource(R.string.settings_sound_custom_active),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.weight(1f),
+                )
+                TextButton(onClick = onClear) {
+                    Text(stringResource(R.string.settings_sound_remove))
+                }
+            }
+        } else {
+            Row(modifier = Modifier.fillMaxWidth()) {
+                OutlinedButton(onClick = onPickFile, modifier = Modifier.weight(1f)) {
+                    Text(stringResource(R.string.settings_sound_pick))
+                }
+                Spacer(Modifier.width(8.dp))
+                OutlinedButton(onClick = onDownload, modifier = Modifier.weight(1f)) {
+                    Text(stringResource(R.string.settings_sound_download))
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun DownloadSoundDialog(
+    prayer: Prayer,
+    onDismiss: () -> Unit,
+    onConfirm: (String) -> Unit,
+) {
+    var url by remember { mutableStateOf("") }
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.settings_sound_dialog_title, stringResource(prayerLabelRes(prayer)))) },
+        text = {
+            Column {
+                Text(
+                    text = stringResource(R.string.settings_sound_dialog_hint),
+                    style = MaterialTheme.typography.bodySmall,
+                )
+                Spacer(Modifier.height(8.dp))
+                OutlinedTextField(
+                    value = url,
+                    onValueChange = { url = it },
+                    label = { Text(stringResource(R.string.settings_sound_dialog_url)) },
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Uri),
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = { onConfirm(url.trim()) }, enabled = url.isNotBlank()) {
+                Text(stringResource(R.string.settings_sound_dialog_download))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(R.string.settings_sound_dialog_cancel))
+            }
+        },
+    )
 }

@@ -1,11 +1,11 @@
-package org.example.islamicapp.feature.prayertimes.data
+package org.example.islamicapp.core.datastore.prayer
 
-import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
-import org.example.islamicapp.feature.prayertimes.domain.AsrMethod
-import org.example.islamicapp.feature.prayertimes.domain.CalculationMethod
-import org.example.islamicapp.feature.prayertimes.domain.HighLatitudeRule
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
-import org.example.islamicapp.feature.prayertimes.domain.PrayerAdjustments
+import org.example.islamicapp.core.common.prayer.AdhanSoundOption
+import org.example.islamicapp.core.common.prayer.AsrMethod
+import org.example.islamicapp.core.common.prayer.CalculationMethod
+import org.example.islamicapp.core.common.prayer.HighLatitudeRule
+import org.example.islamicapp.core.common.prayer.Prayer
+import org.example.islamicapp.core.common.prayer.PrayerAdjustments
 
 /**
  * Immutable snapshot of all prayer-related user settings, persisted in
@@ -26,6 +26,11 @@ data class PrayerSettings(
     val vibrateEnabled: Boolean = true,
     /** Per-prayer adhan mode; absent keys behave as [AdhanSoundOption.Default]. */
     val adhanSounds: Map<Prayer, AdhanSoundOption> = emptyMap(),
+    /**
+     * Per-prayer custom audio file path (user-picked or downloaded). When set,
+     * it replaces the bundled synthesised tone for that prayer.
+     */
+    val adhanSoundFiles: Map<Prayer, String> = emptyMap(),
     /** Master adhan playback volume, 0..100. */
     val adhanVolume: Int = 100,
     /** Minutes before the prayer to remind; 0 disables the reminder. */

@@ -1,7 +1,7 @@
-package org.example.islamicapp.feature.prayertimes.data
+package org.example.islamicapp.core.datastore.prayer
 
-import org.example.islamicapp.feature.prayertimes.domain.CalculationMethod
-import org.example.islamicapp.feature.prayertimes.domain.PrayerParameters
+import org.example.islamicapp.core.common.prayer.CalculationMethod
+import org.example.islamicapp.core.common.prayer.PrayerParameters
 
 /** Resolves the effective [PrayerParameters] from persisted settings. */
 fun PrayerSettings.toPrayerParameters(): PrayerParameters =

@@ -6,11 +6,14 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import kotlinx.serialization.json.Json
 import org.example.islamicapp.core.database.AppDatabase
 import org.example.islamicapp.core.database.dao.AyahDao
 import org.example.islamicapp.core.database.dao.AyahFtsDao
 import org.example.islamicapp.core.database.dao.BookmarkDao
 import org.example.islamicapp.core.database.dao.SurahDao
+import org.example.islamicapp.core.database.dao.TafsirDao
+import org.example.islamicapp.core.database.dao.TranslationDao
 import org.example.islamicapp.feature.quran.data.QuranRepositoryImpl
 import org.example.islamicapp.feature.quran.domain.QuranRepository
 import javax.inject.Singleton
@@ -35,6 +38,19 @@ object QuranModule {
 
     @Provides
     fun provideBookmarkDao(database: AppDatabase): BookmarkDao = database.bookmarkDao()
+
+    @Provides
+    fun provideTranslationDao(database: AppDatabase): TranslationDao = database.translationDao()
+
+    @Provides
+    fun provideTafsirDao(database: AppDatabase): TafsirDao = database.tafsirDao()
+
+    @Provides
+    @Singleton
+    fun provideJson(): Json = Json {
+        ignoreUnknownKeys = true
+        explicitNulls = false
+    }
 
     @Provides
     @Singleton

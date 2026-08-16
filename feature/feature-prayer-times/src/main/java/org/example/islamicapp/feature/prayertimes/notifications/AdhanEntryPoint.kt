@@ -3,7 +3,7 @@ package org.example.islamicapp.feature.prayertimes.notifications
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
+import org.example.islamicapp.core.datastore.prayer.PrayerSettingsRepository
 
 /**
  * Hilt does not support injection into BroadcastReceivers; receivers use this
@@ -14,4 +14,5 @@ import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
 interface AdhanEntryPoint {
     fun scheduler(): AdhanScheduler
     fun settingsRepository(): PrayerSettingsRepository
+    fun soundRepository(): AdhanSoundRepository
 }

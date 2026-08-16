@@ -1,4 +1,4 @@
-package org.example.islamicapp.feature.prayertimes.domain
+package org.example.islamicapp.core.common.prayer
 
 /**
  * Rules for placing bounds on Fajr and Isha at high latitudes where the sun

@@ -1,5 +1,6 @@
 package org.example.islamicapp.ui
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.MenuBook
@@ -18,7 +19,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -29,6 +30,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import org.example.islamicapp.R
+import org.example.islamicapp.core.datastore.AppThemeMode
+import org.example.islamicapp.core.ui.theme.AppTheme
 import org.example.islamicapp.feature.prayertimes.ui.home.HomeScreen
 import org.example.islamicapp.feature.prayertimes.ui.location.LocationScreen
 import org.example.islamicapp.feature.prayertimes.ui.settings.PrayerSettingsScreen
@@ -38,6 +41,9 @@ import org.example.islamicapp.feature.quran.ui.BookmarksScreen
 import org.example.islamicapp.feature.quran.ui.QuranReaderScreen
 import org.example.islamicapp.feature.quran.ui.SearchScreen
 import org.example.islamicapp.feature.quran.ui.SurahListScreen
+import org.example.islamicapp.feature.settings.AboutScreen
+import org.example.islamicapp.feature.settings.PrivacyScreen
+import org.example.islamicapp.feature.settings.SettingsScreen
 
 private data class Tab(
     val route: String,
@@ -56,15 +62,20 @@ private val tabs = listOf(
 private const val READER_ROUTE = "quran/reader"
 private const val SEARCH_ROUTE = "quran/search"
 private const val BOOKMARKS_ROUTE = "quran/bookmarks"
+private const val PRAYER_SETTINGS_ROUTE = "settings/prayer"
+private const val ABOUT_ROUTE = "settings/about"
+private const val PRIVACY_ROUTE = "settings/privacy"
 
 @Composable
 fun ManaraApp(
     initialRoute: String = "home",
     modifier: Modifier = Modifier,
+    onLanguageChanged: () -> Unit = {},
 ) {
     val navController = rememberNavController()
     val viewModel: MainViewModel = hiltViewModel()
     val location by viewModel.location.collectAsStateWithLifecycle()
+    val preferences by viewModel.appPreferences.collectAsStateWithLifecycle()
 
     // Route to the tab requested by an App Shortcut (cold start or onNewIntent).
     LaunchedEffect(initialRoute) {
@@ -76,100 +87,125 @@ fun ManaraApp(
         }
     }
 
-    Scaffold(
-        modifier = modifier,
-        bottomBar = {
-            val backStackEntry by navController.currentBackStackEntryAsState()
-            val currentDestination = backStackEntry?.destination
-            val onTab = tabs.any { currentDestination?.route == it.route }
-            if (onTab) {
-                NavigationBar {
-                    tabs.forEach { tab ->
-                        NavigationBarItem(
-                            selected = currentDestination?.hierarchy?.any { it.route == tab.route } == true,
-                            onClick = {
-                                navController.navigate(tab.route) {
-                                    popUpTo(navController.graph.findStartDestination().id) {
-                                        saveState = true
+    val darkTheme = when (preferences.themeMode) {
+        AppThemeMode.System -> isSystemInDarkTheme()
+        AppThemeMode.Light -> false
+        AppThemeMode.Dark -> true
+    }
+
+    AppTheme(
+        darkTheme = darkTheme,
+        dynamicColor = preferences.dynamicColor,
+    ) {
+        Scaffold(
+            modifier = modifier,
+            bottomBar = {
+                val backStackEntry by navController.currentBackStackEntryAsState()
+                val currentDestination = backStackEntry?.destination
+                val onTab = tabs.any { currentDestination?.route == it.route }
+                if (onTab) {
+                    NavigationBar {
+                        tabs.forEach { tab ->
+                            NavigationBarItem(
+                                selected = currentDestination?.hierarchy?.any { it.route == tab.route } == true,
+                                onClick = {
+                                    navController.navigate(tab.route) {
+                                        popUpTo(navController.graph.findStartDestination().id) {
+                                            saveState = true
+                                        }
+                                        launchSingleTop = true
+                                        restoreState = true
                                     }
-                                    launchSingleTop = true
-                                    restoreState = true
-                                }
-                            },
-                            icon = { Icon(tab.icon, contentDescription = null) },
-                            label = { Text(stringResource(tab.labelRes)) },
+                                },
+                                icon = { Icon(tab.icon, contentDescription = null) },
+                                label = { Text(stringResource(tab.labelRes)) },
+                            )
+                        }
+                    }
+                }
+            },
+        ) { innerPadding ->
+            NavHost(
+                navController = navController,
+                startDestination = "home",
+                modifier = Modifier.padding(innerPadding),
+            ) {
+                composable("home") {
+                    HomeScreen(onSelectLocation = { navController.navigate("location") })
+                }
+                composable("quran") {
+                    SurahListScreen(
+                        onOpenSurah = { number -> navController.navigate("$READER_ROUTE/$number") },
+                        onOpenSearch = { navController.navigate(SEARCH_ROUTE) },
+                        onOpenBookmarks = { navController.navigate(BOOKMARKS_ROUTE) },
+                        onResumeReading = { surah, global ->
+                            navController.navigate("$READER_ROUTE/$surah?ayah=$global")
+                        },
+                    )
+                }
+                composable(SEARCH_ROUTE) {
+                    SearchScreen(
+                        onBack = { navController.popBackStack() },
+                        onOpenAyah = { surah, global ->
+                            navController.navigate("$READER_ROUTE/$surah?ayah=$global")
+                        },
+                    )
+                }
+                composable(BOOKMARKS_ROUTE) {
+                    BookmarksScreen(
+                        onBack = { navController.popBackStack() },
+                        onOpenAyah = { surah, global ->
+                            navController.navigate("$READER_ROUTE/$surah?ayah=$global")
+                        },
+                    )
+                }
+                composable(
+                    route = "$READER_ROUTE/{surahNumber}?ayah={ayah}",
+                    arguments = listOf(
+                        navArgument("surahNumber") { type = NavType.IntType },
+                        navArgument("ayah") {
+                            type = NavType.IntType
+                            defaultValue = -1
+                        },
+                    ),
+                ) {
+                    QuranReaderScreen(onBack = { navController.popBackStack() })
+                }
+                composable("times") {
+                    PrayerTimesScreen()
+                }
+                composable("qibla") {
+                    val selected = location
+                    if (selected == null) {
+                        HomeScreen(onSelectLocation = { navController.navigate("location") })
+                    } else {
+                        QiblaScreen(
+                            latitude = selected.latitude,
+                            longitude = selected.longitude,
+                            locationName = selected.name,
                         )
                     }
                 }
-            }
-        },
-    ) { innerPadding ->
-        NavHost(
-            navController = navController,
-            startDestination = "home",
-            modifier = Modifier.padding(innerPadding),
-        ) {
-            composable("home") {
-                HomeScreen(onSelectLocation = { navController.navigate("location") })
-            }
-            composable("quran") {
-                SurahListScreen(
-                    onOpenSurah = { number -> navController.navigate("$READER_ROUTE/$number") },
-                    onOpenSearch = { navController.navigate(SEARCH_ROUTE) },
-                    onOpenBookmarks = { navController.navigate(BOOKMARKS_ROUTE) },
-                    onResumeReading = { surah, global ->
-                        navController.navigate("$READER_ROUTE/$surah?ayah=$global")
-                    },
-                )
-            }
-            composable(SEARCH_ROUTE) {
-                SearchScreen(
-                    onBack = { navController.popBackStack() },
-                    onOpenAyah = { surah, global ->
-                        navController.navigate("$READER_ROUTE/$surah?ayah=$global")
-                    },
-                )
-            }
-            composable(BOOKMARKS_ROUTE) {
-                BookmarksScreen(
-                    onBack = { navController.popBackStack() },
-                    onOpenAyah = { surah, global ->
-                        navController.navigate("$READER_ROUTE/$surah?ayah=$global")
-                    },
-                )
-            }
-            composable(
-                route = "$READER_ROUTE/{surahNumber}?ayah={ayah}",
-                arguments = listOf(
-                    navArgument("surahNumber") { type = NavType.IntType },
-                    navArgument("ayah") {
-                        type = NavType.IntType
-                        defaultValue = -1
-                    },
-                ),
-            ) {
-                QuranReaderScreen(onBack = { navController.popBackStack() })
-            }
-            composable("times") {
-                PrayerTimesScreen()
-            }
-            composable("qibla") {
-                val selected = location
-                if (selected == null) {
-                    HomeScreen(onSelectLocation = { navController.navigate("location") })
-                } else {
-                    QiblaScreen(
-                        latitude = selected.latitude,
-                        longitude = selected.longitude,
-                        locationName = selected.name,
+                composable("settings") {
+                    SettingsScreen(
+                        onOpenPrayerSettings = { navController.navigate(PRAYER_SETTINGS_ROUTE) },
+                        onOpenAbout = { navController.navigate(ABOUT_ROUTE) },
+                        onOpenPrivacy = { navController.navigate(PRIVACY_ROUTE) },
+                        onLanguageChanged = onLanguageChanged,
                     )
                 }
-            }
-            composable("settings") {
-                PrayerSettingsScreen(onOpenLocation = { navController.navigate("location") })
-            }
-            composable("location") {
-                LocationScreen(onSaved = { navController.popBackStack() })
+                composable(PRAYER_SETTINGS_ROUTE) {
+                    PrayerSettingsScreen(onOpenLocation = { navController.navigate("location") })
+                }
+                composable(ABOUT_ROUTE) {
+                    AboutScreen(onBack = { navController.popBackStack() })
+                }
+                composable(PRIVACY_ROUTE) {
+                    PrivacyScreen(onBack = { navController.popBackStack() })
+                }
+                composable("location") {
+                    LocationScreen(onSaved = { navController.popBackStack() })
+                }
             }
         }
     }

@@ -1,6 +1,7 @@
 package org.example.islamicapp
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -12,14 +13,20 @@ import androidx.compose.runtime.getValue
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import dagger.hilt.EntryPoint
+import dagger.hilt.InstallIn
+import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.example.islamicapp.core.notifications.NotificationChannels
-import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
+import org.example.islamicapp.core.datastore.AppPreferencesRepository
+import org.example.islamicapp.core.datastore.prayer.PrayerSettingsRepository
 import org.example.islamicapp.feature.prayertimes.notifications.AdhanScheduler
 import org.example.islamicapp.feature.prayertimes.widget.refreshPrayerTimesWidgets
+import org.example.islamicapp.feature.settings.locale.withAppLocale
 import org.example.islamicapp.ui.ManaraApp
 import javax.inject.Inject
 
@@ -36,10 +43,26 @@ class MainActivity : ComponentActivity() {
     lateinit var settingsRepository: PrayerSettingsRepository
 
     @Inject
+    lateinit var appPreferencesRepository: AppPreferencesRepository
+
+    @Inject
     lateinit var adhanScheduler: AdhanScheduler
 
     /** Tab requested by an App Shortcut (`manara://times` etc.), else home. */
     private val targetRoute = MutableStateFlow(ROUTE_HOME)
+
+    /**
+     * Applies the user-chosen UI language before any resource is inflated.
+     * The value comes from a synchronous mirror updated on every change.
+     * Hilt fields are not injected yet at this stage, so the repository is
+     * resolved through an [EntryPoint] on the application graph.
+     */
+    override fun attachBaseContext(newBase: Context) {
+        val repository = EntryPointAccessors
+            .fromApplication(newBase.applicationContext, LocaleEntryPoint::class.java)
+            .appPreferencesRepository()
+        super.attachBaseContext(newBase.withAppLocale(repository.readLanguageSync()))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +82,7 @@ class MainActivity : ComponentActivity() {
         targetRoute.value = routeFromIntent(intent)
         setContent {
             val route by targetRoute.collectAsStateWithLifecycle()
-            ManaraApp(initialRoute = route)
+            ManaraApp(initialRoute = route, onLanguageChanged = ::recreate)
         }
     }
 
@@ -87,6 +110,13 @@ class MainActivity : ComponentActivity() {
         ) {
             requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 0)
         }
+    }
+
+    /** Exposes [AppPreferencesRepository] before the activity is injected. */
+    @EntryPoint
+    @InstallIn(SingletonComponent::class)
+    interface LocaleEntryPoint {
+        fun appPreferencesRepository(): AppPreferencesRepository
     }
 
     private companion object {
