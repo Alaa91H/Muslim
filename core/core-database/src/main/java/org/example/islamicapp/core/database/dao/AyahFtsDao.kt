@@ -32,4 +32,7 @@ interface AyahFtsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(rows: List<AyahFtsEntity>)
+
+    @Query("DELETE FROM ayah_fts")
+    suspend fun clearAll()
 }

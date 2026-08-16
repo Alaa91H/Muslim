@@ -15,6 +15,9 @@ interface AyahDao {
     @Query("SELECT * FROM ayahs ORDER BY globalNumber")
     fun observeAll(): Flow<List<AyahEntity>>
 
+    @Query("SELECT * FROM ayahs ORDER BY globalNumber")
+    suspend fun getAll(): List<AyahEntity>
+
     @Query("SELECT * FROM ayahs WHERE globalNumber = :globalNumber")
     suspend fun byGlobal(globalNumber: Int): AyahEntity?
 
@@ -23,4 +26,7 @@ interface AyahDao {
 
     @Insert
     suspend fun insertAll(ayahs: List<AyahEntity>)
+
+    @Query("DELETE FROM ayahs")
+    suspend fun clearAll()
 }

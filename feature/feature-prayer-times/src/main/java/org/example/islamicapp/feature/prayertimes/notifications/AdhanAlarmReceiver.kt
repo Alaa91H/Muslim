@@ -3,6 +3,7 @@ package org.example.islamicapp.feature.prayertimes.notifications
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import androidx.glance.appwidget.updateAll
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.CoroutineScope
@@ -23,31 +24,40 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         val prayerName = intent.getStringExtra(EXTRA_PRAYER) ?: return
         val isReminder = intent.getBooleanExtra(EXTRA_IS_REMINDER, false)
         val appContext = context.applicationContext
-        val entryPoint = EntryPointAccessors.fromApplication(appContext, AdhanEntryPoint::class.java)
-
         val prayer = runCatching { Prayer.valueOf(prayerName) }.getOrNull() ?: return
+        val pendingResult = goAsync()
+
         CoroutineScope(Dispatchers.IO).launch {
-            val settings = entryPoint.settingsRepository().settings.first()
-            if (isReminder) {
-                if (settings.reminderMinutes > 0) {
-                    AdhanNotifications.showReminder(appContext, prayer, settings.reminderMinutes)
+            try {
+                val entryPoint = EntryPointAccessors.fromApplication(appContext, AdhanEntryPoint::class.java)
+                val settings = entryPoint.settingsRepository().settings.first()
+                if (isReminder) {
+                    if (settings.reminderMinutes > 0) {
+                        AdhanNotifications.showReminder(appContext, prayer, settings.reminderMinutes)
+                    }
+                } else if (settings.adhanEnabled) {
+                    AdhanPlaybackService.start(
+                        context = appContext,
+                        prayer = prayer,
+                        vibrate = settings.vibrateEnabled,
+                        soundOption = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
+                        volumePercent = settings.adhanVolume,
+                    )
                 }
-            } else if (settings.adhanEnabled) {
-                AdhanPlaybackService.start(
-                    context = appContext,
-                    prayer = prayer,
-                    vibrate = settings.vibrateEnabled,
-                    soundOption = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
-                    volumePercent = settings.adhanVolume,
-                )
+                entryPoint.scheduler().schedule(settings)
+                // A prayer just started: flip the widget to the next prayer.
+                PrayerTimesWidget().updateAll(appContext)
+            } catch (error: Exception) {
+                Log.e(TAG, "Unable to process the adhan alarm", error)
+            } finally {
+                pendingResult.finish()
             }
-            entryPoint.scheduler().schedule(settings)
-            // A prayer just started: flip the widget to the next prayer.
-            PrayerTimesWidget().updateAll(appContext)
         }
     }
 
     companion object {
+        private const val TAG = "AdhanAlarmReceiver"
+
         const val EXTRA_PRAYER = "extra_prayer"
         const val EXTRA_IS_REMINDER = "extra_is_reminder"
         const val EXTRA_SOUND_OPTION = "extra_sound_option"

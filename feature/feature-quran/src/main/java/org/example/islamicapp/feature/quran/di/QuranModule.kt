@@ -40,9 +40,17 @@ object QuranModule {
     @Singleton
     fun provideQuranRepository(
         @ApplicationContext context: Context,
+        database: AppDatabase,
         surahDao: SurahDao,
         ayahDao: AyahDao,
         ayahFtsDao: AyahFtsDao,
         bookmarkDao: BookmarkDao,
-    ): QuranRepository = QuranRepositoryImpl(context, surahDao, ayahDao, ayahFtsDao, bookmarkDao)
+    ): QuranRepository = QuranRepositoryImpl(
+        context = context,
+        database = database,
+        surahDao = surahDao,
+        ayahDao = ayahDao,
+        ayahFtsDao = ayahFtsDao,
+        bookmarkDao = bookmarkDao,
+    )
 }

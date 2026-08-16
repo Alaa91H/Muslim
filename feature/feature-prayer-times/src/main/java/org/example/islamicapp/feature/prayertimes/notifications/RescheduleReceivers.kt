@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.util.Log
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -12,13 +13,23 @@ import kotlinx.coroutines.launch
 
 /** Base receiver that re-computes the alarm schedule. */
 abstract class RescheduleReceiver : BroadcastReceiver() {
+    private companion object {
+        const val TAG = "RescheduleReceiver"
+    }
+
     override fun onReceive(context: Context, intent: Intent) {
-        val entryPoint = EntryPointAccessors.fromApplication(
-            context.applicationContext, AdhanEntryPoint::class.java,
-        )
+        val appContext = context.applicationContext
+        val pendingResult = goAsync()
         CoroutineScope(Dispatchers.IO).launch {
-            val settings = entryPoint.settingsRepository().settings.first()
-            entryPoint.scheduler().schedule(settings)
+            try {
+                val entryPoint = EntryPointAccessors.fromApplication(appContext, AdhanEntryPoint::class.java)
+                val settings = entryPoint.settingsRepository().settings.first()
+                entryPoint.scheduler().schedule(settings)
+            } catch (error: Exception) {
+                Log.e(TAG, "Unable to reschedule prayer alarms", error)
+            } finally {
+                pendingResult.finish()
+            }
         }
     }
 }

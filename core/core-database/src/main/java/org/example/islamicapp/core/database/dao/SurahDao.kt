@@ -17,4 +17,7 @@ interface SurahDao {
 
     @Insert
     suspend fun insertAll(surahs: List<SurahEntity>)
+
+    @Query("DELETE FROM surahs")
+    suspend fun clearAll()
 }
