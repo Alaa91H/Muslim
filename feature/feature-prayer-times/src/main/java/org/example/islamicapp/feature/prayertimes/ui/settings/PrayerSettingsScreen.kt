@@ -47,15 +47,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.example.islamicapp.feature.prayertimes.R
 import org.example.islamicapp.feature.prayertimes.data.PrayerSettings
 import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
-import org.example.islamicapp.feature.prayertimes.domain.AsrMethod
-import org.example.islamicapp.feature.prayertimes.domain.CalculationMethod
-import org.example.islamicapp.feature.prayertimes.domain.HighLatitudeRule
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
+import org.example.islamicapp.core.prayer.AsrMethod
+import org.example.islamicapp.core.prayer.CalculationMethod
+import org.example.islamicapp.core.prayer.HighLatitudeRule
+import org.example.islamicapp.core.prayer.Prayer
 import org.example.islamicapp.feature.prayertimes.ui.prayerLabelRes
 
 @Composable
@@ -437,7 +437,6 @@ private fun methodLabelRes(method: CalculationMethod): Int = when (method) {
     CalculationMethod.MoonsightingCommittee -> R.string.method_moonsighting
     CalculationMethod.Turkey -> R.string.method_turkey
     CalculationMethod.Tehran -> R.string.method_tehran
-    CalculationMethod.Jafari -> R.string.method_jafari
     CalculationMethod.France -> R.string.method_france
     CalculationMethod.Custom -> R.string.settings_custom_method
 }

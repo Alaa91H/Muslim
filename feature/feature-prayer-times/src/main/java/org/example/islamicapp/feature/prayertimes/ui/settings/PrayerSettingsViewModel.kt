@@ -12,10 +12,10 @@ import kotlinx.coroutines.launch
 import org.example.islamicapp.feature.prayertimes.data.PrayerSettings
 import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
 import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
-import org.example.islamicapp.feature.prayertimes.domain.AsrMethod
-import org.example.islamicapp.feature.prayertimes.domain.CalculationMethod
-import org.example.islamicapp.feature.prayertimes.domain.HighLatitudeRule
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
+import org.example.islamicapp.core.prayer.AsrMethod
+import org.example.islamicapp.core.prayer.CalculationMethod
+import org.example.islamicapp.core.prayer.HighLatitudeRule
+import org.example.islamicapp.core.prayer.Prayer
 import androidx.glance.appwidget.updateAll
 import org.example.islamicapp.feature.prayertimes.notifications.AdhanPlaybackService
 import org.example.islamicapp.feature.prayertimes.notifications.AdhanScheduler

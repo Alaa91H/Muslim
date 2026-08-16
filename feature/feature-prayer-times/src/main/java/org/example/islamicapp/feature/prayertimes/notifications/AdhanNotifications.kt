@@ -6,7 +6,7 @@ import android.content.Context
 import androidx.core.app.NotificationCompat
 import org.example.islamicapp.core.notifications.NotificationChannels
 import org.example.islamicapp.feature.prayertimes.R
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
+import org.example.islamicapp.core.prayer.Prayer
 import org.example.islamicapp.feature.prayertimes.ui.prayerLabelRes
 
 /** Builders for the prayer notifications (adhan + reminder). */

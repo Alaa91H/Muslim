@@ -41,11 +41,17 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
 
+    implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     ksp(libs.hilt.compiler)
 
     implementation(libs.kotlinx.serialization.json)
+
+    // Audio playback of Quran recitations (on-demand downloads + playback)
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.common)
+    implementation(libs.okhttp)
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)

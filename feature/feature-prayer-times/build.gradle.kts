@@ -28,6 +28,7 @@ android {
 dependencies {
     implementation(project(":core:core-ui"))
     implementation(project(":core:core-common"))
+    api(project(":core:core-prayer"))
     implementation(project(":core:core-datastore"))
     implementation(project(":core:core-notifications"))
     implementation(project(":core:core-location"))
@@ -43,6 +44,7 @@ dependencies {
     implementation(libs.androidx.glance.appwidget)
     implementation(libs.androidx.work.runtime.ktx)
 
+    implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     ksp(libs.hilt.compiler)

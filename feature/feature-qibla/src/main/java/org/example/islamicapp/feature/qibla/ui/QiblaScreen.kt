@@ -9,12 +9,19 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SegmentedButton
+import androidx.compose.material3.SegmentedButtonDefaults
+import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -33,14 +40,20 @@ import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
 
+/** View mode of the qibla screen: live compass or map alternative. */
+private const val MODE_COMPASS = 0
+private const val MODE_MAP = 1
+
 /**
- * Qibla compass (PROJECT_PROMPT.md §6 Phase 1).
+ * Qibla screen (PROJECT_PROMPT.md §6 Phase 1).
  *
- * The rose rotates with the device so that its north tick always points to
- * true north (magnetic heading corrected by the local magnetic declination);
- * the gold marker shows the Qibla bearing. Rotate the phone until the marker
- * sits at the top indicator — you are then facing the Kaaba.
+ * Two alternatives: the live compass (the rose rotates with the device so its
+ * north tick points to true north, corrected by the local magnetic
+ * declination; the gold marker shows the Qibla bearing — rotate until the
+ * marker sits at the top indicator) and an OpenStreetMap view drawing a
+ * straight line from the user's location to the Kaaba ([QiblaMap]).
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun QiblaScreen(
     latitude: Double,
@@ -59,28 +72,62 @@ fun QiblaScreen(
     val distanceKm = QiblaCalculator.distanceKm(latitude, longitude)
     val trueHeading = (heading.heading + declination) % 360f
 
+    var mode by rememberSaveable { mutableIntStateOf(MODE_COMPASS) }
+
     Column(
-        modifier = modifier.fillMaxSize().padding(24.dp),
+        modifier = modifier.fillMaxSize().padding(horizontal = 24.dp, vertical = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Spacer(Modifier.height(8.dp))
         Text(
             text = locationName,
             style = MaterialTheme.typography.titleLarge,
         )
-        Spacer(Modifier.height(24.dp))
 
-        Surface(shape = MaterialTheme.shapes.extraLarge) {
-            CompassRose(
-                trueHeading = trueHeading,
-                bearing = bearing,
-                modifier = Modifier
-                    .size(320.dp)
-                    .padding(8.dp),
-            )
+        Spacer(Modifier.height(16.dp))
+
+        SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
+            SegmentedButton(
+                selected = mode == MODE_COMPASS,
+                onClick = { mode = MODE_COMPASS },
+                shape = SegmentedButtonDefaults.itemShape(index = 0, count = 2),
+            ) {
+                Text(stringResource(R.string.qibla_mode_compass))
+            }
+            SegmentedButton(
+                selected = mode == MODE_MAP,
+                onClick = { mode = MODE_MAP },
+                shape = SegmentedButtonDefaults.itemShape(index = 1, count = 2),
+            ) {
+                Text(stringResource(R.string.qibla_mode_map))
+            }
         }
 
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(20.dp))
+
+        when (mode) {
+            MODE_COMPASS -> {
+                Surface(shape = MaterialTheme.shapes.extraLarge) {
+                    CompassRose(
+                        trueHeading = trueHeading,
+                        bearing = bearing,
+                        modifier = Modifier
+                            .size(320.dp)
+                            .padding(8.dp),
+                    )
+                }
+            }
+            else -> {
+                QiblaMap(
+                    latitude = latitude,
+                    longitude = longitude,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f),
+                )
+            }
+        }
+
+        Spacer(Modifier.height(20.dp))
 
         Text(
             text = stringResource(R.string.qibla_bearing, bearing),
@@ -96,7 +143,7 @@ fun QiblaScreen(
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
 
-        if (heading.accuracy < SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM) {
+        if (mode == MODE_COMPASS && heading.accuracy < SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM) {
             Spacer(Modifier.height(12.dp))
             Text(
                 text = stringResource(R.string.qibla_calibrate),
@@ -104,7 +151,9 @@ fun QiblaScreen(
                 color = MaterialTheme.colorScheme.tertiary,
             )
         }
-        Spacer(Modifier.weight(1f))
+        if (mode == MODE_COMPASS) {
+            Spacer(Modifier.weight(1f))
+        }
     }
 }
 

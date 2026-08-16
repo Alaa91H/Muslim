@@ -10,7 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
+import org.example.islamicapp.core.prayer.Prayer
 import org.example.islamicapp.feature.prayertimes.widget.PrayerTimesWidget
 
 /**

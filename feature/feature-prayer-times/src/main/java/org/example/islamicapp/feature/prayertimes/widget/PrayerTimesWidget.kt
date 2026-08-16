@@ -39,8 +39,8 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.flow.first
 import org.example.islamicapp.feature.prayertimes.R
 import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
-import org.example.islamicapp.feature.prayertimes.domain.PrayerTimesCalculator
+import org.example.islamicapp.core.prayer.Prayer
+import org.example.islamicapp.core.prayer.PrayerTimesCalculator
 
 /**
  * Home-screen widget (Glance) showing the next prayer and a live countdown,
@@ -117,6 +117,16 @@ private val WidgetHighlight = ColorProvider(Color(0x33FFFFFF))
 private val PrayerNames = listOf(Prayer.Fajr, Prayer.Dhuhr, Prayer.Asr, Prayer.Maghrib, Prayer.Isha)
 
 // ---- Root: picks the layout for the current bucket size ----
+
+/**
+ * Public wrapper over the widget content, used by the debug preview screen
+ * ([WidgetPreviewActivity]) to render the widget at any [LocalSize] without
+ * a launcher, and by [PrayerTimesWidget.provideGlance] for the real widget.
+ */
+@Composable
+internal fun PrayerTimesWidgetContent(data: PrayerTimesWidgetData) {
+    WidgetRoot(data)
+}
 
 @Composable
 private fun WidgetRoot(data: PrayerTimesWidgetData) {

@@ -22,4 +22,40 @@
     <string name="quran_bookmark_remove">إزالة العلامة</string>
     <string name="quran_bookmark_ref">%1$s — آية %2$s</string>
     <string name="quran_resume">متابعة القراءة — سورة %1$s، آية %2$s</string>
+
+    <!-- Repeat (memorization) mode -->
+    <string name="quran_repeat">وضع التكرار</string>
+    <string name="quran_repeat_from">من:</string>
+    <string name="quran_repeat_to">إلى:</string>
+    <string name="quran_repeat_from_here">من هنا</string>
+    <string name="quran_repeat_to_here">إلى هنا</string>
+    <string name="quran_repeat_not_set">—</string>
+    <string name="quran_repeat_count">عدد التكرارات</string>
+    <string name="quran_repeat_pacing">مدة كل آية</string>
+    <string name="quran_repeat_seconds">%1$s ث</string>
+    <string name="quran_repeat_decrease">تقليل</string>
+    <string name="quran_repeat_increase">زيادة</string>
+    <string name="quran_repeat_play">تشغيل</string>
+    <string name="quran_repeat_pause">إيقاف</string>
+    <string name="quran_repeat_reset">إعادة ضبط</string>
+    <string name="quran_repeat_close">إغلاق</string>
+    <string name="quran_repeat_hint">حدّد الآية أو المقطع ثم اضغط تشغيل</string>
+    <string name="quran_repeat_ready">جاهز — اضغط تشغيل</string>
+    <string name="quran_repeat_progress">التكرار %1$s من %2$s</string>
+    <string name="quran_repeat_done">اكتمل الحفظ ✓</string>
+
+    <!-- Recitation (audio) -->
+    <string name="quran_recitation">التلاوة الصوتية</string>
+    <string name="quran_recitation_download">تنزيل</string>
+    <string name="quran_recitation_downloading">جارٍ التنزيل…</string>
+    <string name="quran_recitation_delete">حذف</string>
+    <string name="quran_recitation_ready">جاهزة للتشغيل</string>
+    <string name="quran_recitation_progress">يتم التنزيل %1$s من %2$s</string>
+    <string name="quran_recitation_error">فشل التنزيل — أعد المحاولة</string>
+    <string name="quran_recitation_not_downloaded">لم تُنزَّل هذه السورة بعد — تُنزَّل آية آية وتُحفظ على جهازك (تعمل دون إنترنت بعدها).</string>
+    <string name="reciter_alafasy">مشاري العفاسي</string>
+    <string name="reciter_husary">محمود خليل الحصري</string>
+    <string name="reciter_minshawi">محمد صديق المنشاوي</string>
+    <string name="reciter_ahmedajam">أحمد بن علي العجمي</string>
+    <string name="reciter_mahermuaiqly">ماهر المعيقلي</string>
 </resources>

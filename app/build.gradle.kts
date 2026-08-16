@@ -15,15 +15,20 @@ android {
         applicationId = "org.example.islamicapp"
         minSdk = 26
         targetSdk = 37
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.2.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            // R8 shrinking/obfuscation is on for real release artifacts.
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            // Debug-signed so the release build remains installable during
+            // development; replace with a private keystore before store upload.
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
 
@@ -34,6 +39,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -46,6 +52,13 @@ dependencies {
     implementation(project(":feature:feature-prayer-times"))
     implementation(project(":feature:feature-qibla"))
     implementation(project(":feature:feature-quran"))
+    implementation(project(":feature:feature-adhkar"))
+    implementation(project(":feature:feature-tasbih"))
+    implementation(project(":feature:feature-hadith"))
+    implementation(project(":feature:feature-learn"))
+    implementation(project(":feature:feature-ramadan"))
+    implementation(project(":feature:feature-zakat"))
+    implementation(project(":feature:feature-settings"))
 
     // AndroidX core
     implementation(libs.androidx.core.ktx)
@@ -64,6 +77,7 @@ dependencies {
     implementation(libs.androidx.compose.material3.adaptive)
 
     // DI
+    implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     ksp(libs.hilt.compiler)

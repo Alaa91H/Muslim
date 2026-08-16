@@ -11,8 +11,10 @@ import org.example.islamicapp.core.database.dao.AyahDao
 import org.example.islamicapp.core.database.dao.AyahFtsDao
 import org.example.islamicapp.core.database.dao.BookmarkDao
 import org.example.islamicapp.core.database.dao.SurahDao
+import okhttp3.OkHttpClient
 import org.example.islamicapp.feature.quran.data.QuranRepositoryImpl
 import org.example.islamicapp.feature.quran.domain.QuranRepository
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
@@ -35,6 +37,13 @@ object QuranModule {
 
     @Provides
     fun provideBookmarkDao(database: AppDatabase): BookmarkDao = database.bookmarkDao()
+
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
+        .connectTimeout(20, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
+        .build()
 
     @Provides
     @Singleton

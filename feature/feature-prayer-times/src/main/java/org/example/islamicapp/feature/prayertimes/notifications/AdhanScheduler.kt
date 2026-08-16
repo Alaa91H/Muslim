@@ -9,11 +9,11 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import org.example.islamicapp.feature.prayertimes.data.PrayerSettings
 import org.example.islamicapp.feature.prayertimes.data.SelectedLocation
 import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
-import org.example.islamicapp.feature.prayertimes.domain.CalculationMethod
-import org.example.islamicapp.feature.prayertimes.domain.Coordinates
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
-import org.example.islamicapp.feature.prayertimes.domain.PrayerParameters
-import org.example.islamicapp.feature.prayertimes.domain.PrayerTimesCalculator
+import org.example.islamicapp.core.prayer.CalculationMethod
+import org.example.islamicapp.core.prayer.Coordinates
+import org.example.islamicapp.core.prayer.Prayer
+import org.example.islamicapp.core.prayer.PrayerParameters
+import org.example.islamicapp.core.prayer.PrayerTimesCalculator
 import java.time.LocalDate
 import java.time.ZoneId
 import javax.inject.Inject

@@ -45,7 +45,6 @@
     <string name="method_moonsighting">لجنة رؤية الهلال</string>
     <string name="method_turkey">ديانت تركيا</string>
     <string name="method_tehran">معهد الجيوفيزياء بطهران</string>
-    <string name="method_jafari">الجعفري</string>
     <string name="method_france">فرنسا (UOIF)</string>
 
     <!-- Settings -->
@@ -100,6 +99,15 @@
     <string name="widget_prayer_times_label">مواقيت الصلاة</string>
     <string name="widget_prayer_times_description">الصلاة القادمة مع عدّاد تنازلي</string>
     <string name="widget_next_prayer">الصلاة القادمة</string>
+
+    <!-- Dev-only widget preview screen -->
+    <string name="widget_preview_title">معاينة الـ Widget</string>
+    <string name="widget_preview_subtitle">عرض حي للـ Widget بالمقاسات الثلاثة مع عدّاد تنازلي يتحدث كل ثانية.</string>
+    <string name="widget_preview_pin">أضِف إلى الشاشة الرئيسية</string>
+    <string name="widget_preview_no_data">لا توجد بيانات — اضبط الموقع أولًا من إعدادات أوقات الصلاة.</string>
+    <string name="widget_preview_size_compact">2×2 — مدمج (110dp)</string>
+    <string name="widget_preview_size_medium">3×3 — متوسط (180dp)</string>
+    <string name="widget_preview_size_large">4×4 — كبير (250dp)</string>
     <string name="widget_no_location_title">لم يُحدَّد الموقع</string>
     <string name="widget_no_location_hint">اختر الموقع من التطبيق</string>
     <string name="widget_no_times">تعذّر حساب الأوقات</string>

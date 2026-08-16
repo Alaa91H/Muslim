@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="adhkar_title">الأذكار</string>
+    <string name="adhkar_back">رجوع</string>
+    <string name="adhkar_reset">إعادة العدّاد</string>
+    <string name="adhkar_item_count">%1$d ذكرًا</string>
+    <string name="adhkar_counter">%1$d / %2$d</string>
+    <string name="adhkar_done">تم</string>
+
+    <!-- Periodic dhikr reminder -->
+    <string name="dhikr_reminder_title">التذكير الدوري بالذكر</string>
+    <string name="dhikr_reminder_subtitle">تذكير خفيف بذكرٍ قصير طوال اليوم — يمكنك إيقافه تمامًا</string>
+    <string name="dhikr_reminder_off">إيقاف</string>
+    <string name="dhikr_reminder_30m">٣٠ دقيقة</string>
+    <string name="dhikr_reminder_1h">ساعة</string>
+    <string name="dhikr_reminder_3h">٣ ساعات</string>
+    <string name="dhikr_reminder_6h">٦ ساعات</string>
+</resources>

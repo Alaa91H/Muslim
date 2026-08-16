@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_title">رمضان</string>
+    <string name="ramadan_countdown_title">العدّ التنازلي لرمضان</string>
+    <string name="ramadan_day_n">اليوم %1$d من %2$d من رمضان</string>
+    <string name="ramadan_remaining_days">باقي %1$d يومًا من الشهر</string>
+    <string name="ramadan_days_until">بعد %1$d يومًا</string>
+    <string name="ramadan_after_days">بعد %1$d يومًا</string>
+    <string name="ramadan_today">اليوم</string>
+    <string name="ramadan_suhoor_ends">ينتهي السحور بعد</string>
+    <string name="ramadan_iftar_in">الإفطار بعد</string>
+    <string name="ramadan_fasting_tracker">متتبع الصيام</string>
+    <string name="ramadan_mark_fasted">صمتُّ اليوم ✓</string>
+    <string name="ramadan_fasted_today">تم تسجيل صيام اليوم</string>
+    <string name="ramadan_month_progress">تقدّم الشهر — انقر على اليوم لتسجيله</string>
+    <string name="ramadan_qada">أيام القضاء المتبقية: %1$d</string>
+    <string name="ramadan_qada_increase">زيادة القضاء</string>
+    <string name="ramadan_qada_decrease">إنقاص القضاء</string>
+    <string name="ramadan_events">المناسبات الإسلامية القادمة</string>
+    <string name="ramadan_sunnah_fasting">الصيام المسنون القريب</string>
+    <string name="ramadan_moon_phase">طور القمر اليوم</string>
+    <string name="ramadan_moon_illumination">الإضاءة: %1$d٪ — الشهور الهجرية أهلية تبدأ بالهلال</string>
+    <string name="moon_new">محاق (قمر جديد)</string>
+    <string name="moon_waxing_crescent">هلال متزايد</string>
+    <string name="moon_first_quarter">تربيع أول</string>
+    <string name="moon_waxing_gibbous">أحدب متزايد</string>
+    <string name="moon_full">بدر كامل</string>
+    <string name="moon_waning_gibbous">أحدب متناقص</string>
+    <string name="moon_last_quarter">تربع أخير</string>
+    <string name="moon_waning_crescent">هلال متناقص</string>
+</resources>

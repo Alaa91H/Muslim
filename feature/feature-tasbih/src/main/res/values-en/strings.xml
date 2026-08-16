@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_tap_hint">Tap anywhere to count</string>
+    <string name="tasbih_of_target">of %1$d</string>
+    <string name="tasbih_cycles_done">Cycles completed: %1$d</string>
+    <string name="tasbih_today_total">Today total: %1$d</string>
+    <string name="tasbih_target_label">Target per cycle</string>
+    <string name="tasbih_reset_cycle">Reset current cycle</string>
+    <string name="tasbih_reset_day">Reset today\'s count</string>
+    <string name="tasbih_weekly">Last 7 days</string>
+    <string name="tasbih_today_widget">Today\'s tasbih — tap to count</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_countdown_title">Countdown to Ramadan</string>
+    <string name="ramadan_day_n">Day %1$d of %2$d of Ramadan</string>
+    <string name="ramadan_remaining_days">%1$d days left this month</string>
+    <string name="ramadan_days_until">In %1$d days</string>
+    <string name="ramadan_after_days">In %1$d days</string>
+    <string name="ramadan_today">Today</string>
+    <string name="ramadan_suhoor_ends">Suhoor ends in</string>
+    <string name="ramadan_iftar_in">Iftar in</string>
+    <string name="ramadan_fasting_tracker">Fasting tracker</string>
+    <string name="ramadan_mark_fasted">Mark today fasted ✓</string>
+    <string name="ramadan_fasted_today">Today\'s fast recorded</string>
+    <string name="ramadan_month_progress">Month progress — tap a day to record it</string>
+    <string name="ramadan_qada">Make-up days remaining: %1$d</string>
+    <string name="ramadan_qada_increase">Increase make-up days</string>
+    <string name="ramadan_qada_decrease">Decrease make-up days</string>
+    <string name="ramadan_events">Upcoming Islamic occasions</string>
+    <string name="ramadan_sunnah_fasting">Upcoming sunnah fasting</string>
+    <string name="ramadan_moon_phase">Moon phase today</string>
+    <string name="ramadan_moon_illumination">Illumination: %1$d%% — Hijri months are lunar</string>
+    <string name="moon_new">New moon</string>
+    <string name="moon_waxing_crescent">Waxing crescent</string>
+    <string name="moon_first_quarter">First quarter</string>
+    <string name="moon_waxing_gibbous">Waxing gibbous</string>
+    <string name="moon_full">Full moon</string>
+    <string name="moon_waning_gibbous">Waning gibbous</string>
+    <string name="moon_last_quarter">Last quarter</string>
+    <string name="moon_waning_crescent">Waning crescent</string>
+</resources>

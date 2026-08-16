@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_title">About</string>
+    <string name="about_app_name">Manara</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_tagline">Your daily companion for prayer, Quran and dhikr — free forever, open source, no ads, no tracking.</string>
+    <string name="about_principles_title">Principles</string>
+    <string name="about_principles_body">• Free forever: no ads, no subscriptions, no in-app purchases.\n• Offline-first: all core content (times, qibla, Quran, adhkar) works without a connection.\n• Accuracy first: an astronomy engine tested against certified references.\n• Religious content from authoritative Sunni sources (Bukhari, Muslim and others) with the four Sunni schools presented neutrally.</string>
+    <string name="about_privacy_title">Privacy</string>
+    <string name="about_privacy_body">We collect nothing and send nothing to any server. Your location is used locally for times and qibla only; all preferences and records stay on your device. Internet access is optional and limited to features you explicitly choose (e.g. recitation downloads).</string>
+    <string name="about_license_title">License &amp; source</string>
+    <string name="about_license_body">Manara is free software under the GPLv3 license: use, study, share and improve it, keeping any derivative work open under the same license.</string>
+    <string name="about_sources_title">Content sources</string>
+    <string name="about_sources_body">Adhkar and hadith texts come from the authoritative Sunni source books (Bukhari, Muslim and the Sunan) with the reference shown per text. Prayer times are computed astronomically and verified against the Adhan library and PrayTimes reference tables.</string>
+</resources>

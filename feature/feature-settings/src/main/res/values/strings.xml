@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_title">حول التطبيق</string>
+    <string name="about_app_name">منارة — Manara</string>
+    <string name="about_version">الإصدار %1$s</string>
+    <string name="about_tagline">رفيقك اليومي للصلاة والقرآن والذكر — مجاني للأبد، مفتوح المصدر، بلا إعلانات ولا تتبع.</string>
+    <string name="about_principles_title">مبادئ التطبيق</string>
+    <string name="about_principles_body">• مجاني بالكامل للأبد: لا إعلانات ولا اشتراكات ولا شراء داخل التطبيق.\n• يعمل بدون إنترنت: كل المحتوى الأساسي (المواقيت والقبلة والقرآن والأذكار) متاح دائمًا دون اتصال.\n• الدقة أولًا: محرك حساب فلكي مُختبَر مقابل مراجع معتمدة.\n• المحتوى الشرعي من مصادر موثقة (البخاري ومسلم وغيرهما) ويعرض مذاهب أهل السنة الأربعة بحياد.</string>
+    <string name="about_privacy_title">الخصوصية</string>
+    <string name="about_privacy_body">لا نجمع أي بيانات ولا نرسلها لأي خادم. بيانات موقعك تُستخدم محليًا لحساب المواقيت والقبلة فقط، وكل تفضيلاتك وسجلاتك محفوظة على جهازك وحده. الاتصال بالإنترنت اختياري ولا يُستخدم إلا لميزات إضافية تختارها بنفسك (كنزيل التلاوات).</string>
+    <string name="about_license_title">الترخيص والمصدر</string>
+    <string name="about_license_body">هذا التطبيق برنامج حر مرخّص برخصة GPLv3: لك حريّة استخدامه ودراسة كوده ومشاركته وتطويره، ويجب أن تبقي أي نسخة معدَّلة مفتوحة المصدر بنفس الرخصة.</string>
+    <string name="about_sources_title">مصادر المحتوى</string>
+    <string name="about_sources_body">نصوص الأذكار والأحاديث من أمهات المصادر المعتمدة عند أهل السنة (البخاري ومسلم والسنن) مع ذكر التخريج لكل نص. مواقيت الصلاة محسوبة فلكيًا ومقارنة بمكتبة Adhan وجداول PrayTimes المرجعية.</string>
+</resources>

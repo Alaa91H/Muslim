@@ -30,6 +30,9 @@ dependencies {
     implementation(project(":core:core-common"))
     implementation(project(":core:core-location"))
 
+    // OpenStreetMap alternative view (no API key — PROJECT_PROMPT.md §12)
+    implementation(libs.osmdroid.android)
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.material3)

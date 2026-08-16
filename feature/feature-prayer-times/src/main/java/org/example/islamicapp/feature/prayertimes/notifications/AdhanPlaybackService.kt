@@ -13,7 +13,7 @@ import android.os.Vibrator
 import org.example.islamicapp.core.notifications.NotificationChannels
 import org.example.islamicapp.feature.prayertimes.domain.AdhanPlaybackPlan
 import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
+import org.example.islamicapp.core.prayer.Prayer
 
 /**
  * Foreground service that delivers the Adhan reliably in the background.

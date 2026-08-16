@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="learn_title">التعلّم</string>
+    <string name="learn_back">رجوع</string>
+    <string name="learn_subtitle">أدلة مبسطة للوضوء والغسل والتيمم والصلوات وصلوات خاصة — من مصادر أهل السنة والجماعة، والفروق بين المذاهب السنية تُعرض بحياد دون ترجيح.</string>
+    <string name="learn_steps_count">%1$d خطوات</string>
+    <string name="learn_step_of">الخطوة %1$d من %2$d</string>
+    <string name="learn_show_differences">الفروق بين المذاهب السنية</string>
+    <string name="learn_differences_title">أشهر الفروق بين المذاهب الأربعة — عرضٌ محايد</string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_title">الأحاديث النبوية</string>
+    <string name="hadith_search_hint">ابحث في المتون والراوي…</string>
+    <string name="hadith_bookmarks">المحفوظات</string>
+    <string name="hadith_bookmark">حفظ الحديث</string>
+    <string name="hadith_share">مشاركة الحديث</string>
+    <string name="hadith_daily_notification">حديث اليوم</string>
+    <string name="hadith_tab_selection">مختارات موثقة</string>
+    <string name="hadith_tab_library">المكتبة الكاملة</string>
+    <string name="hadith_library_intro">الكتب الأمهة كاملة النصوص: النووية والقدسية مضمّنة تعمل بلا إنترنت، والكتب الستة تُنزَّل مرة واحدة ثم تعمل offline دائمًا — من بيانات hadith-api المفتوحة.</string>
+    <string name="hadith_available">جاهز ✓</string>
+    <string name="hadith_needs_download">تنزيل (مرة واحدة)</string>
+    <string name="hadith_downloading">جارٍ تجهيز الكتاب…</string>
+    <string name="hadith_download_error">تعذّر التنزيل: %1$s — تحقق من الاتصال وحاول مجددًا</string>
+    <string name="hadith_close_book">إغلاق</string>
+    <string name="hadith_book_search">ابحث في الكتاب…</string>
+    <string name="hadith_no_results">لا نتائج مطابقة</string>
+    <string name="hadith_number">حديث %1$d</string>
+</resources>

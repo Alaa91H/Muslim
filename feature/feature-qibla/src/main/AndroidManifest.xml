@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- OSM raster tiles for the qibla map alternative (tile.openstreetmap.org).
+         The app works fully offline; tiles are fetched only while the map is open. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>

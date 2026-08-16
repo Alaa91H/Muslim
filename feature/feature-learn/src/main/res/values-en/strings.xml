@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="learn_title">Learn</string>
+    <string name="learn_back">Back</string>
+    <string name="learn_subtitle">Simple guides for wudu, ghusl, tayammum, the prayers and special prayers — from Ahl al-Sunnah sources; the four Sunni schools\' differences are shown neutrally.</string>
+    <string name="learn_steps_count">%1$d steps</string>
+    <string name="learn_step_of">Step %1$d of %2$d</string>
+    <string name="learn_show_differences">Sunni madhhab differences</string>
+    <string name="learn_differences_title">Well-known differences among the four schools — neutral presentation</string>
+</resources>

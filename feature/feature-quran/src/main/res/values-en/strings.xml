@@ -22,4 +22,40 @@
     <string name="quran_bookmark_remove">Remove bookmark</string>
     <string name="quran_bookmark_ref">%1$s — ayah %2$s</string>
     <string name="quran_resume">Resume reading — Surah %1$s, ayah %2$s</string>
+
+    <!-- Repeat (memorization) mode -->
+    <string name="quran_repeat">Repeat</string>
+    <string name="quran_repeat_from">From:</string>
+    <string name="quran_repeat_to">To:</string>
+    <string name="quran_repeat_from_here">From here</string>
+    <string name="quran_repeat_to_here">To here</string>
+    <string name="quran_repeat_not_set">—</string>
+    <string name="quran_repeat_count">Repetitions</string>
+    <string name="quran_repeat_pacing">Per ayah</string>
+    <string name="quran_repeat_seconds">%1$s s</string>
+    <string name="quran_repeat_decrease">Decrease</string>
+    <string name="quran_repeat_increase">Increase</string>
+    <string name="quran_repeat_play">Play</string>
+    <string name="quran_repeat_pause">Pause</string>
+    <string name="quran_repeat_reset">Reset</string>
+    <string name="quran_repeat_close">Close</string>
+    <string name="quran_repeat_hint">Set the ayah or passage, then press play</string>
+    <string name="quran_repeat_ready">Ready — press play</string>
+    <string name="quran_repeat_progress">Pass %1$s of %2$s</string>
+    <string name="quran_repeat_done">Completed ✓</string>
+
+    <!-- Recitation (audio) -->
+    <string name="quran_recitation">Recitation</string>
+    <string name="quran_recitation_download">Download</string>
+    <string name="quran_recitation_downloading">Downloading…</string>
+    <string name="quran_recitation_delete">Delete</string>
+    <string name="quran_recitation_ready">Ready to play</string>
+    <string name="quran_recitation_progress">Downloading %1$s of %2$s</string>
+    <string name="quran_recitation_error">Download failed — try again</string>
+    <string name="quran_recitation_not_downloaded">This surah isn\'t downloaded yet — it downloads ayah by ayah and is stored on your device (fully offline afterwards).</string>
+    <string name="reciter_alafasy">Mishary Alafasy</string>
+    <string name="reciter_husary">Mahmoud Al-Husary</string>
+    <string name="reciter_minshawi">Muhammad Siddiq Al-Minshawi</string>
+    <string name="reciter_ahmedajam">Ahmed Al-Ajamy</string>
+    <string name="reciter_mahermuaiqly">Maher Al-Muaiqly</string>
 </resources>

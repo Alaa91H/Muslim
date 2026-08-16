@@ -41,7 +41,6 @@
     <string name="method_moonsighting">Moonsighting Committee</string>
     <string name="method_turkey">Diyanet Turkey</string>
     <string name="method_tehran">Tehran Institute of Geophysics</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_france">France (UOIF)</string>
 
     <string name="settings_title">Settings</string>
@@ -93,6 +92,15 @@
     <string name="widget_prayer_times_label">Prayer times</string>
     <string name="widget_prayer_times_description">Next prayer with countdown</string>
     <string name="widget_next_prayer">Next prayer</string>
+
+    <!-- Dev-only widget preview screen -->
+    <string name="widget_preview_title">Widget preview</string>
+    <string name="widget_preview_subtitle">Live render of the widget at the three sizes with a countdown ticking every second.</string>
+    <string name="widget_preview_pin">Add to home screen</string>
+    <string name="widget_preview_no_data">No data — set a location first in the prayer-times settings.</string>
+    <string name="widget_preview_size_compact">2×2 — Compact (110dp)</string>
+    <string name="widget_preview_size_medium">3×3 — Medium (180dp)</string>
+    <string name="widget_preview_size_large">4×4 — Large (250dp)</string>
     <string name="widget_no_location_title">No location set</string>
     <string name="widget_no_location_hint">Choose a location in the app</string>
     <string name="widget_no_times">Unable to calculate times</string>

@@ -5,8 +5,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Apps
 import androidx.compose.material.icons.filled.Schedule
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -18,7 +18,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -28,7 +28,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import org.example.islamicapp.BuildConfig
 import org.example.islamicapp.R
+import org.example.islamicapp.feature.adhkar.ui.AdhkarScreen
+import org.example.islamicapp.feature.hadith.ui.HadithScreen
+import org.example.islamicapp.feature.learn.ui.LearnScreen
 import org.example.islamicapp.feature.prayertimes.ui.home.HomeScreen
 import org.example.islamicapp.feature.prayertimes.ui.location.LocationScreen
 import org.example.islamicapp.feature.prayertimes.ui.settings.PrayerSettingsScreen
@@ -38,6 +42,10 @@ import org.example.islamicapp.feature.quran.ui.BookmarksScreen
 import org.example.islamicapp.feature.quran.ui.QuranReaderScreen
 import org.example.islamicapp.feature.quran.ui.SearchScreen
 import org.example.islamicapp.feature.quran.ui.SurahListScreen
+import org.example.islamicapp.feature.ramadan.ui.RamadanScreen
+import org.example.islamicapp.feature.settings.ui.AboutScreen
+import org.example.islamicapp.feature.tasbih.ui.TasbihScreen
+import org.example.islamicapp.feature.zakat.ui.ZakatScreen
 
 private data class Tab(
     val route: String,
@@ -45,12 +53,13 @@ private data class Tab(
     val icon: ImageVector,
 )
 
+// Five core tabs (Material guidance); every other feature lives in "More".
 private val tabs = listOf(
     Tab("home", R.string.tab_home, Icons.Default.Home),
     Tab("quran", R.string.tab_quran, Icons.AutoMirrored.Filled.MenuBook),
     Tab("times", R.string.tab_times, Icons.Default.Schedule),
     Tab("qibla", R.string.tab_qibla, Icons.Default.Explore),
-    Tab("settings", R.string.tab_settings, Icons.Default.Settings),
+    Tab("more", R.string.tab_more, Icons.Default.Apps),
 )
 
 private const val READER_ROUTE = "quran/reader"
@@ -165,8 +174,35 @@ fun ManaraApp(
                     )
                 }
             }
+            composable("more") {
+                MoreScreen(onOpen = { route -> navController.navigate(route) })
+            }
+            composable("adhkar") {
+                AdhkarScreen(onBack = { navController.popBackStack() })
+            }
+            composable("tasbih") {
+                TasbihScreen()
+            }
+            composable("hadith") {
+                HadithScreen()
+            }
+            composable("learn") {
+                LearnScreen()
+            }
+            composable("ramadan") {
+                RamadanScreen(
+                    latitude = location?.latitude,
+                    longitude = location?.longitude,
+                )
+            }
+            composable("zakat") {
+                ZakatScreen()
+            }
             composable("settings") {
                 PrayerSettingsScreen(onOpenLocation = { navController.navigate("location") })
+            }
+            composable("about") {
+                AboutScreen(versionName = BuildConfig.VERSION_NAME)
             }
             composable("location") {
                 LocationScreen(onSaved = { navController.popBackStack() })

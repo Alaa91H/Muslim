@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasbih_title">المسبحة</string>
+    <string name="tasbih_tap_hint">اضغط في أي مكان للتسبيح</string>
+    <string name="tasbih_of_target">من %1$d</string>
+    <string name="tasbih_cycles_done">الدورات المكتملة: %1$d</string>
+    <string name="tasbih_today_total">إجمالي اليوم: %1$d</string>
+    <string name="tasbih_target_label">الهدف لكل دورة</string>
+    <string name="tasbih_reset_cycle">تصفير الدورة الحالية</string>
+    <string name="tasbih_reset_day">تصفير إحصاء اليوم</string>
+    <string name="tasbih_weekly">آخر ٧ أيام</string>
+    <string name="tasbih_today_widget">تسبيح اليوم — اضغط للعدّ</string>
+</resources>

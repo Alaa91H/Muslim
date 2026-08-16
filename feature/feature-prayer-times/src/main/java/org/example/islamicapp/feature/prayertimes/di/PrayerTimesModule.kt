@@ -9,7 +9,7 @@ import dagger.hilt.components.SingletonComponent
 import org.example.islamicapp.core.location.FusedLocationProvider
 import org.example.islamicapp.core.location.LocationProvider
 import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
-import org.example.islamicapp.feature.prayertimes.domain.PrayerTimesCalculator
+import org.example.islamicapp.core.prayer.PrayerTimesCalculator
 import javax.inject.Singleton
 
 @Module

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_title">Prophetic Hadith</string>
+    <string name="hadith_search_hint">Search texts and narrators…</string>
+    <string name="hadith_bookmarks">Saved</string>
+    <string name="hadith_bookmark">Bookmark hadith</string>
+    <string name="hadith_share">Share hadith</string>
+    <string name="hadith_daily_notification">Hadith of the day</string>
+    <string name="hadith_tab_selection">Curated selection</string>
+    <string name="hadith_tab_library">Complete library</string>
+    <string name="hadith_library_intro">The mother books in full: Nawawi and Qudsi are bundled offline; the six books download once then work offline forever — from the open hadith-api dataset.</string>
+    <string name="hadith_available">Ready ✓</string>
+    <string name="hadith_needs_download">Download (once)</string>
+    <string name="hadith_downloading">Preparing the book…</string>
+    <string name="hadith_download_error">Download failed: %1$s — check your connection and retry</string>
+    <string name="hadith_close_book">Close</string>
+    <string name="hadith_book_search">Search this book…</string>
+    <string name="hadith_no_results">No matching results</string>
+    <string name="hadith_number">Hadith %1$d</string>
+</resources>

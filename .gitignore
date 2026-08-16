@@ -24,3 +24,9 @@ captures/
 
 # Freebuff local tool state
 .freebuff/
+
+# Stray DataStore files (must never be committed)
+*.preferences_pb
+
+# Local screenshots/tmp
+.tmp_shots/

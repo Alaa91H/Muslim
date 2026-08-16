@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_title">Zakat Calculator</string>
+    <string name="zakat_mal_tab">Zakat al-mal</string>
+    <string name="zakat_fitr_tab">Zakat al-fitr</string>
+
+    <string name="zakat_mal_intro">Zakat is 2.5% of net zakatable wealth (cash, gold, silver, trade goods and investments minus due debts) once it reaches the nisab and a lunar year has passed.</string>
+    <string name="zakat_cash">Cash (incl. bank)</string>
+    <string name="zakat_cash_hint">All money you currently own</string>
+    <string name="zakat_gold_grams">Gold (grams)</string>
+    <string name="zakat_gold_hint">Weight of gold you own</string>
+    <string name="zakat_silver_grams">Silver (grams)</string>
+    <string name="zakat_silver_hint">Weight of silver you own</string>
+    <string name="zakat_trade_goods">Trade goods</string>
+    <string name="zakat_trade_hint">Market value of goods for sale</string>
+    <string name="zakat_investments">Investments</string>
+    <string name="zakat_invest_hint">Current value of zakatable holdings</string>
+    <string name="zakat_debts">Due debts</string>
+    <string name="zakat_debts_hint">Deducted before calculating</string>
+    <string name="zakat_gold_price">Gold price per gram</string>
+    <string name="zakat_silver_price">Silver price per gram</string>
+    <string name="zakat_price_hint">Enter manually in your currency — used for the nisab (85g gold)</string>
+    <string name="zakat_hawl">A lunar year (hawl) has passed</string>
+    <string name="zakat_calculate">Calculate zakat</string>
+
+    <string name="zakat_mal_result">Zakat al-mal result</string>
+    <string name="zakat_net_wealth">Net zakatable wealth: %1$s</string>
+    <string name="zakat_nisab">Nisab: %1$s</string>
+    <string name="zakat_due_amount">Zakat due: %1$s</string>
+    <string name="zakat_below_nisab">Below nisab — no zakat is due now</string>
+    <string name="zakat_hawl_not_completed">Hawl not completed — when complete it will be: %1$s</string>
+    <string name="zakat_save">Save to history</string>
+    <string name="zakat_records">Your calculation history</string>
+
+    <string name="zakat_fitr_intro">Fitrah for each household member: one sa\' of the local staple (~2.75 kg) or its cash value — paid before the Eid prayer.</string>
+    <string name="zakat_family_members">Family members</string>
+    <string name="zakat_family_hint">Everyone you provide for</string>
+    <string name="zakat_staple_price">Staple food price per kg</string>
+    <string name="zakat_staple_hint">Rice/wheat/dates… at your local price</string>
+    <string name="zakat_fitr_result">Zakat al-fitr result</string>
+    <string name="zakat_fitr_kg">Total in food: %1$s kg</string>
+    <string name="zakat_fitr_cash">Total in cash: %1$s</string>
+</resources>

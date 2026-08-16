@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_back">Back</string>
+    <string name="adhkar_reset">Reset counters</string>
+    <string name="adhkar_item_count">%1$d adhkar</string>
+    <string name="adhkar_counter">%1$d / %2$d</string>
+    <string name="adhkar_done">Done</string>
+
+    <!-- Periodic dhikr reminder -->
+    <string name="dhikr_reminder_title">Periodic dhikr reminder</string>
+    <string name="dhikr_reminder_subtitle">A gentle short-dhikr reminder through the day — fully optional</string>
+    <string name="dhikr_reminder_off">Off</string>
+    <string name="dhikr_reminder_30m">30 min</string>
+    <string name="dhikr_reminder_1h">1 hour</string>
+    <string name="dhikr_reminder_3h">3 hours</string>
+    <string name="dhikr_reminder_6h">6 hours</string>
+</resources>

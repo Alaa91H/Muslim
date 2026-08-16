@@ -66,6 +66,16 @@
                 <action android:name="android.intent.action.DATE_CHANGED" />
             </intent-filter>
         </receiver>
+
+        <!--
+            Dev-only preview + pin screen for the widget (launched via adb).
+            Renders the widget at the three sizes with a live countdown and can
+            pin it to the home screen through the launcher's requestPinAppWidget.
+        -->
+        <activity
+            android:name=".widget.WidgetPreviewActivity"
+            android:exported="true"
+            android:label="@string/widget_preview_title" />
     </application>
 
 </manifest>

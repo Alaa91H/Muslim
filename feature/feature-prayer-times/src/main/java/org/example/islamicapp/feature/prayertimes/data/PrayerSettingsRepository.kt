@@ -14,11 +14,11 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import org.example.islamicapp.feature.prayertimes.domain.AdhanSoundOption
-import org.example.islamicapp.feature.prayertimes.domain.AsrMethod
-import org.example.islamicapp.feature.prayertimes.domain.CalculationMethod
-import org.example.islamicapp.feature.prayertimes.domain.HighLatitudeRule
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
-import org.example.islamicapp.feature.prayertimes.domain.PrayerAdjustments
+import org.example.islamicapp.core.prayer.AsrMethod
+import org.example.islamicapp.core.prayer.CalculationMethod
+import org.example.islamicapp.core.prayer.HighLatitudeRule
+import org.example.islamicapp.core.prayer.Prayer
+import org.example.islamicapp.core.prayer.PrayerAdjustments
 import javax.inject.Inject
 import javax.inject.Singleton
 

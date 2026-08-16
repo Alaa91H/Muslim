@@ -13,10 +13,10 @@ import org.example.islamicapp.core.common.time.HijriDate
 import org.example.islamicapp.feature.prayertimes.data.PrayerSettings
 import org.example.islamicapp.feature.prayertimes.data.PrayerSettingsRepository
 import org.example.islamicapp.feature.prayertimes.data.toPrayerParameters
-import org.example.islamicapp.feature.prayertimes.domain.Coordinates
-import org.example.islamicapp.feature.prayertimes.domain.NextPrayer
-import org.example.islamicapp.feature.prayertimes.domain.Prayer
-import org.example.islamicapp.feature.prayertimes.domain.PrayerTimesCalculator
+import org.example.islamicapp.core.prayer.Coordinates
+import org.example.islamicapp.core.prayer.NextPrayer
+import org.example.islamicapp.core.prayer.Prayer
+import org.example.islamicapp.core.prayer.PrayerTimesCalculator
 import java.time.Instant
 import java.time.LocalTime
 import java.time.ZoneId

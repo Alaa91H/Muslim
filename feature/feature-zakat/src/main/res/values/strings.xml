@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_title">حاسبة الزكاة</string>
+    <string name="zakat_mal_tab">زكاة المال</string>
+    <string name="zakat_fitr_tab">زكاة الفطر</string>
+
+    <string name="zakat_mal_intro">تُحسب الزكاة بواقع ٢٫٥٪ من صافي الثروة الزكوية (النقد والذهب والفضة وعروض التجارة والاستثمارات بعد خصم الديون الحالّة) إذا بلغت النصاب وحال عليها الحول.</string>
+    <string name="zakat_cash">النقود (حاضرة وبنوك)</string>
+    <string name="zakat_cash_hint">كل النقود التي تملكها الآن</string>
+    <string name="zakat_gold_grams">الذهب (بالجرام)</string>
+    <string name="zakat_gold_hint">وزن ما تملكه من ذهب</string>
+    <string name="zakat_silver_grams">الفضة (بالجرام)</string>
+    <string name="zakat_silver_hint">وزن ما تملكه من فضة</string>
+    <string name="zakat_trade_goods">عروض التجارة</string>
+    <string name="zakat_trade_hint">قيمة البضائع المعدّة للبيع بسعر السوق الحالي</string>
+    <string name="zakat_investments">الاستثمارات</string>
+    <string name="zakat_invest_hint">القيمة الحالية للأسهم والصناديق الزكوية</string>
+    <string name="zakat_debts">الديون الحالّة</string>
+    <string name="zakat_debts_hint">تُخصم قبل حساب الزكاة</string>
+    <string name="zakat_gold_price">سعر جرام الذهب</string>
+    <string name="zakat_silver_price">سعر جرام الفضة</string>
+    <string name="zakat_price_hint">أدخله يدويًا بعملتك — يُستخدم لاحتساب النصاب (٨٥ جرام ذهب)</string>
+    <string name="zakat_hawl">مرّ الحول (سنة قمرية) على المال</string>
+    <string name="zakat_calculate">احسب الزكاة</string>
+
+    <string name="zakat_mal_result">نتيجة زكاة المال</string>
+    <string name="zakat_net_wealth">صافي الثروة الزكوية: %1$s</string>
+    <string name="zakat_nisab">النصاب: %1$s</string>
+    <string name="zakat_due_amount">الزكاة الواجبة: %1$s</string>
+    <string name="zakat_below_nisab">المال دون النصاب — لا زكاة عليك الآن</string>
+    <string name="zakat_hawl_not_completed">لم يتم الحول بعد — عند إتمامه ستكون: %1$s</string>
+    <string name="zakat_save">حفظ في السجل</string>
+    <string name="zakat_records">سجل حساباتك</string>
+
+    <string name="zakat_fitr_intro">صدقة فطر عن كل فرد من أهل البيت: صاع من طعام الناس الغالب (نحو ٢٫٧٥ كجم) أو قيمته نقدًا — تؤدى قبل صلاة العيد.</string>
+    <string name="zakat_family_members">عدد أفراد الأسرة</string>
+    <string name="zakat_family_hint">كل من تلزمك نفقته</string>
+    <string name="zakat_staple_price">سعر كيلو الطعام الغالب</string>
+    <string name="zakat_staple_hint">الأرز/القمح/التمر… بسعر بلدك</string>
+    <string name="zakat_fitr_result">نتيجة زكاة الفطر</string>
+    <string name="zakat_fitr_kg">الإجمالي بالطعام: %1$s كجم</string>
+    <string name="zakat_fitr_cash">الإجمالي نقدًا: %1$s</string>
+</resources>
