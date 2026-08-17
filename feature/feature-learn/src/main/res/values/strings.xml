@@ -16,4 +16,6 @@
     <string name="learn_topic_rakats_sub">عدد ركعات كل صلاة</string>
     <string name="learn_topic_madhhab">الفروقات المذهبية</string>
     <string name="learn_topic_madhhab_sub">عرض محايد لمسائل الخلاف</string>
+    <string name="learn_topic_names_of_allah">أسماء الله الحسنى</string>
+    <string name="learn_topic_names_of_allah_sub">التسعة والتسعون اسمًا مع معانيها</string>
 </resources>
