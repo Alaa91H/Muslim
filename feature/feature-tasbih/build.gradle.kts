@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "org.example.islamicapp.feature.tasbih"
+    namespace = "org.muslim.app.feature.tasbih"
     compileSdk {
         version = release(37)
     }

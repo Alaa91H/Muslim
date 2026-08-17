@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "org.example.islamicapp.feature.adhkar"
+    namespace = "org.muslim.app.feature.adhkar"
     compileSdk {
         version = release(37)
     }
@@ -38,6 +38,7 @@ dependencies {
     implementation(project(":core:core-ui"))
     implementation(project(":core:core-common"))
     implementation(project(":core:core-datastore"))
+    implementation(project(":core:core-notifications"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)

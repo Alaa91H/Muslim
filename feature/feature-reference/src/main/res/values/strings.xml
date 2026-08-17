@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_title">المكتبة المرجعية الإسلامية</string>
+    <string name="reference_back">رجوع</string>
+    <string name="reference_search_hint">ابحث في الكتاب…</string>
+    <string name="reference_no_results">لا توجد نتائج مطابقة</string>
+    <string name="reference_topics_count">موضوعًا</string>
+</resources>

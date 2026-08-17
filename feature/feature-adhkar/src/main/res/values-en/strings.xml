@@ -15,4 +15,21 @@
     <string name="adhkar_complete">Done</string>
     <string name="adhkar_reset">Reset counter</string>
     <string name="adhkar_show_translation">Show translation</string>
+    <string name="adhkar_settings_title">Adhkar settings</string>
+    <string name="adhkar_overlay_section">Floating message</string>
+    <string name="adhkar_overlay_toggle">Show adhkar as a message above all apps</string>
+    <string name="adhkar_overlay_desc">A small card with the chosen dhikr appears above any app and disappears automatically after the duration you set.</string>
+    <string name="adhkar_overlay_grant_permission">Grant overlay permission</string>
+    <string name="adhkar_overlay_permission_hint">Opens the system settings that allow the app to draw over other apps.</string>
+    <string name="adhkar_overlay_duration">Display duration</string>
+    <string name="adhkar_overlay_duration_value">%1$d seconds</string>
+    <string name="adhkar_overlay_test">Try it now</string>
+    <string name="adhkar_overlay_notification_title">Dhikr</string>
+    <string name="adhkar_overlay_notification_text">Adhkar message</string>
+    <string name="adhkar_customize_title">Customize visible adhkar</string>
+    <string name="adhkar_reminders_section">Daily reminders</string>
+    <string name="adhkar_morning_reminder">Morning adhkar reminder</string>
+    <string name="adhkar_evening_reminder">Evening adhkar reminder</string>
+    <string name="adhkar_reminder_time">Time</string>
+    <string name="adhkar_reminder_notification_title">Adhkar reminder</string>
 </resources>

@@ -2,5 +2,5 @@
 <resources>
     <!-- Compose owns the actual theming (AppTheme). This style only provides
          the platform base so the window has a sane background. -->
-    <style name="Theme.Manara" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Muslim" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>

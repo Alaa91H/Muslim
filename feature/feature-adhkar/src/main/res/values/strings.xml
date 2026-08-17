@@ -15,4 +15,21 @@
     <string name="adhkar_complete">تم</string>
     <string name="adhkar_reset">إعادة العداد</string>
     <string name="adhkar_show_translation">عرض الترجمة</string>
+    <string name="adhkar_settings_title">إعدادات الأذكار</string>
+    <string name="adhkar_overlay_section">الرسالة العائمة</string>
+    <string name="adhkar_overlay_toggle">عرض الأذكار كرسالة فوق جميع التطبيقات</string>
+    <string name="adhkar_overlay_desc">تظهر رسالة صغيرة بالذكر المختار فوق أي تطبيق وتختفي تلقائيًا بعد المدة التي تحددها.</string>
+    <string name="adhkar_overlay_grant_permission">منح إذن العرض فوق التطبيقات</string>
+    <string name="adhkar_overlay_permission_hint">يُفتح إعداد النظام للسماح للتطبيق بالعرض فوق التطبيقات الأخرى.</string>
+    <string name="adhkar_overlay_duration">مدة الظهور</string>
+    <string name="adhkar_overlay_duration_value">%1$d ثانية</string>
+    <string name="adhkar_overlay_test">تجربة الرسالة الآن</string>
+    <string name="adhkar_overlay_notification_title">ذكر</string>
+    <string name="adhkar_overlay_notification_text">رسالة الأذكار</string>
+    <string name="adhkar_customize_title">تخصيص الأذكار الظاهرة</string>
+    <string name="adhkar_reminders_section">التذكير اليومي</string>
+    <string name="adhkar_morning_reminder">تذكير أذكار الصباح</string>
+    <string name="adhkar_evening_reminder">تذكير أذكار المساء</string>
+    <string name="adhkar_reminder_time">الوقت</string>
+    <string name="adhkar_reminder_notification_title">تذكير الأذكار</string>
 </resources>

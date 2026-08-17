@@ -5,13 +5,13 @@
          requested just-in-time when a feature actually needs them. -->
 
     <application
-        android:name=".ManaraApplication"
+        android:name=".MuslimApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Manara">
+        android:theme="@style/Theme.Muslim">
 
         <activity
             android:name=".MainActivity"
@@ -25,7 +25,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="manara" />
+                <data android:scheme="muslim" />
             </intent-filter>
             <meta-data
                 android:name="android.app.shortcuts"

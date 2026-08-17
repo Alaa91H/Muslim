@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "org.example.islamicapp.core.notifications"
+    namespace = "org.muslim.app.core.notifications"
     compileSdk {
         version = release(37)
     }

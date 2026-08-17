@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "org.example.islamicapp.feature.learn"
+    namespace = "org.muslim.app.feature.learn"
     compileSdk {
         version = release(37)
     }

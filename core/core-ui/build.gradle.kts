@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "org.example.islamicapp.core.ui"
+    namespace = "org.muslim.app.core.ui"
     compileSdk {
         version = release(37)
     }

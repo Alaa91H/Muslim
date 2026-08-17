@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Manara</string>
+    <string name="app_name">Muslim</string>
     <string name="scaffold_message">The multi-module project skeleton is ready.\nPhase 1 — Adhan, prayer times, Qibla, and the Hijri calendar — starts here.</string>
 
     <!-- Bottom navigation tabs -->
@@ -25,6 +25,8 @@
     <string name="more_zakat_desc">Zakat on wealth &amp; Fitr calculator</string>
     <string name="more_learn">Learn</string>
     <string name="more_learn_desc">Step-by-step wudu &amp; prayer guides</string>
+    <string name="more_reference">Reference Library</string>
+    <string name="more_reference_desc">Introduction to Islam, the Sira &amp; the prophets</string>
 
     <!-- App shortcuts (long-press the launcher icon) -->
     <string name="shortcut_times">Prayer times</string>

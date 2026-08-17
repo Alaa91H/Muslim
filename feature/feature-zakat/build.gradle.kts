@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "org.example.islamicapp.feature.zakat"
+    namespace = "org.muslim.app.feature.zakat"
     compileSdk {
         version = release(37)
     }

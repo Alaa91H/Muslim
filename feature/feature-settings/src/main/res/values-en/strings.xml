@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Manara</string>
+    <string name="app_name">Muslim</string>
 
     <string name="settings_title">Settings</string>
     <string name="settings_back">Back</string>
@@ -29,7 +29,7 @@
     <string name="settings_privacy_desc">How we handle your data: no tracking, everything stays on your device</string>
 
     <string name="settings_section_about">About</string>
-    <string name="settings_about">About Manara</string>
+    <string name="settings_about">About Muslim</string>
     <string name="settings_about_desc">Version, license and principles</string>
     <string name="settings_open_source">Open source</string>
     <string name="settings_open_source_desc">GPLv3 license — the code is available to everyone</string>
@@ -37,14 +37,14 @@
     <string name="about_title">About</string>
     <string name="about_version">Version %1$s</string>
     <string name="about_license_title">License</string>
-    <string name="about_license_body">Manara is a completely free, open-source app under the GPLv3 license — no ads, no subscriptions, no tracking. Any modified version stays open source.</string>
+    <string name="about_license_body">Muslim is a completely free, open-source app under the GPLv3 license — no ads, no subscriptions, no tracking. Any modified version stays open source.</string>
     <string name="about_principles_title">Our principles</string>
     <string name="about_principles_body">Free forever · Privacy first · Astronomical accuracy in prayer times and qibla · Works offline · Support for juristic schools through customizable settings.</string>
     <string name="about_content_review_title">Religious content review</string>
     <string name="about_content_review_body">Quran, hadith and adhkar texts undergo specialist religious review, separate from code review, before the official release. Quran text source: Tanzil project (Uthmani script).</string>
 
     <string name="privacy_title">Privacy policy</string>
-    <string name="privacy_body">Manara respects your privacy and does not collect your data.\n\n• No tracking: no ad SDKs, analytics or marketing trackers.\n• Data stays on your device: all your data (location, settings, bookmarks) is stored locally on your device only.\n• Location is used locally: your coordinates are used to calculate prayer times and the qibla on your device, and are never sent to any external server.\n• Permissions only when needed: we ask for permissions (location, notifications) only when a feature actually needs them, with a clear explanation.\n• No forced connectivity: the app works offline; network use is entirely optional for extras such as downloading recitations.\n\nThis policy is part of the open-source repository and is open to community review.</string>
+    <string name="privacy_body">Muslim respects your privacy and does not collect your data.\n\n• No tracking: no ad SDKs, analytics or marketing trackers.\n• Data stays on your device: all your data (location, settings, bookmarks) is stored locally on your device only.\n• Location is used locally: your coordinates are used to calculate prayer times and the qibla on your device, and are never sent to any external server.\n• Permissions only when needed: we ask for permissions (location, notifications) only when a feature actually needs them, with a clear explanation.\n• No forced connectivity: the app works offline; network use is entirely optional for extras such as downloading recitations.\n\nThis policy is part of the open-source repository and is open to community review.</string>
 
     <string name="back">Back</string>
 </resources>

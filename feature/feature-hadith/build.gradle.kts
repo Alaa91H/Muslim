@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "org.example.islamicapp.feature.hadith"
+    namespace = "org.muslim.app.feature.hadith"
     compileSdk {
         version = release(37)
     }

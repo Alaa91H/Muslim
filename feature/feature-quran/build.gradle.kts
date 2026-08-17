@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "org.example.islamicapp.feature.quran"
+    namespace = "org.muslim.app.feature.quran"
     compileSdk {
         version = release(37)
     }

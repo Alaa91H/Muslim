@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "org.example.islamicapp.feature.qibla"
+    namespace = "org.muslim.app.feature.qibla"
     compileSdk {
         version = release(37)
     }

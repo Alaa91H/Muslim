@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "org.example.islamicapp.feature.settings"
+    namespace = "org.muslim.app.feature.settings"
     compileSdk {
         version = release(37)
     }
@@ -22,6 +22,13 @@ android {
 
     buildFeatures {
         compose = true
+    }
+
+    lint {
+        // app_name is professionally translated in every locale folder; the
+        // remaining UI strings are curated in ar/en and intentionally fall
+        // back to the default (Arabic) in other locales.
+        disable += "MissingTranslation"
     }
 }
 

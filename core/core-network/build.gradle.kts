@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "org.example.islamicapp.core.network"
+    namespace = "org.muslim.app.core.network"
     compileSdk {
         version = release(37)
     }

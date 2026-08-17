@@ -1,0 +1,324 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "c592d2a949bd0715adb827accafc527f",
+    "entities": [
+      {
+        "tableName": "surahs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`number` INTEGER NOT NULL, `arabicName` TEXT NOT NULL, `englishName` TEXT NOT NULL, `translation` TEXT NOT NULL, `revelationType` TEXT NOT NULL, `ayahCount` INTEGER NOT NULL, PRIMARY KEY(`number`))",
+        "fields": [
+          {
+            "fieldPath": "number",
+            "columnName": "number",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "arabicName",
+            "columnName": "arabicName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "englishName",
+            "columnName": "englishName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "translation",
+            "columnName": "translation",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "revelationType",
+            "columnName": "revelationType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ayahCount",
+            "columnName": "ayahCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "number"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_surahs_number",
+            "unique": true,
+            "columnNames": [
+              "number"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_surahs_number` ON `${TABLE_NAME}` (`number`)"
+          }
+        ]
+      },
+      {
+        "tableName": "ayahs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`globalNumber` INTEGER NOT NULL, `surahNumber` INTEGER NOT NULL, `numberInSurah` INTEGER NOT NULL, `juz` INTEGER NOT NULL, `page` INTEGER NOT NULL, `text` TEXT NOT NULL, PRIMARY KEY(`globalNumber`))",
+        "fields": [
+          {
+            "fieldPath": "globalNumber",
+            "columnName": "globalNumber",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surahNumber",
+            "columnName": "surahNumber",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberInSurah",
+            "columnName": "numberInSurah",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "juz",
+            "columnName": "juz",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "page",
+            "columnName": "page",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "globalNumber"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_ayahs_surahNumber_numberInSurah",
+            "unique": true,
+            "columnNames": [
+              "surahNumber",
+              "numberInSurah"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_ayahs_surahNumber_numberInSurah` ON `${TABLE_NAME}` (`surahNumber`, `numberInSurah`)"
+          },
+          {
+            "name": "index_ayahs_globalNumber",
+            "unique": true,
+            "columnNames": [
+              "globalNumber"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_ayahs_globalNumber` ON `${TABLE_NAME}` (`globalNumber`)"
+          }
+        ]
+      },
+      {
+        "tableName": "ayah_fts",
+        "createSql": "CREATE VIRTUAL TABLE IF NOT EXISTS `${TABLE_NAME}` USING FTS4(`normalized_text` TEXT NOT NULL, `global_number` INTEGER NOT NULL, `surah_number` INTEGER NOT NULL, `number_in_surah` INTEGER NOT NULL, tokenize=unicode61)",
+        "fields": [
+          {
+            "fieldPath": "normalizedText",
+            "columnName": "normalized_text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalNumber",
+            "columnName": "global_number",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surahNumber",
+            "columnName": "surah_number",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberInSurah",
+            "columnName": "number_in_surah",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": []
+        },
+        "ftsVersion": "FTS4",
+        "ftsOptions": {
+          "tokenizer": "unicode61",
+          "tokenizerArgs": [],
+          "contentTable": "",
+          "languageIdColumnName": "",
+          "matchInfo": "FTS4",
+          "notIndexedColumns": [],
+          "prefixSizes": [],
+          "preferredOrder": "ASC"
+        },
+        "contentSyncTriggers": []
+      },
+      {
+        "tableName": "bookmarks",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`globalNumber` INTEGER NOT NULL, `surahNumber` INTEGER NOT NULL, `numberInSurah` INTEGER NOT NULL, `text` TEXT NOT NULL, `addedAt` INTEGER NOT NULL, PRIMARY KEY(`globalNumber`))",
+        "fields": [
+          {
+            "fieldPath": "globalNumber",
+            "columnName": "globalNumber",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "surahNumber",
+            "columnName": "surahNumber",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numberInSurah",
+            "columnName": "numberInSurah",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "addedAt",
+            "columnName": "addedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "globalNumber"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_bookmarks_surahNumber",
+            "unique": false,
+            "columnNames": [
+              "surahNumber"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bookmarks_surahNumber` ON `${TABLE_NAME}` (`surahNumber`)"
+          }
+        ]
+      },
+      {
+        "tableName": "translations",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`globalNumber` INTEGER NOT NULL, `language` TEXT NOT NULL, `text` TEXT NOT NULL, PRIMARY KEY(`globalNumber`, `language`))",
+        "fields": [
+          {
+            "fieldPath": "globalNumber",
+            "columnName": "globalNumber",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "language",
+            "columnName": "language",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "globalNumber",
+            "language"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_translations_language",
+            "unique": false,
+            "columnNames": [
+              "language"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_translations_language` ON `${TABLE_NAME}` (`language`)"
+          }
+        ]
+      },
+      {
+        "tableName": "tafsir",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`globalNumber` INTEGER NOT NULL, `source` TEXT NOT NULL, `text` TEXT NOT NULL, PRIMARY KEY(`globalNumber`, `source`))",
+        "fields": [
+          {
+            "fieldPath": "globalNumber",
+            "columnName": "globalNumber",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "source",
+            "columnName": "source",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "globalNumber",
+            "source"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_tafsir_source",
+            "unique": false,
+            "columnNames": [
+              "source"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_tafsir_source` ON `${TABLE_NAME}` (`source`)"
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c592d2a949bd0715adb827accafc527f')"
+    ]
+  }
+}

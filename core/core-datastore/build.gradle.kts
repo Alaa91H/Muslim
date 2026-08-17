@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "org.example.islamicapp.core.datastore"
+    namespace = "org.muslim.app.core.datastore"
     compileSdk {
         version = release(37)
     }

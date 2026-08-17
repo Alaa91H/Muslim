@@ -11,9 +11,9 @@
         android:shortcutLongLabel="@string/shortcut_times_long">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetPackage="org.example.islamicapp"
-            android:targetClass="org.example.islamicapp.MainActivity"
-            android:data="manara://times" />
+            android:targetPackage="org.muslim.app"
+            android:targetClass="org.muslim.app.MainActivity"
+            android:data="muslim://times" />
     </shortcut>
 
     <shortcut
@@ -24,9 +24,9 @@
         android:shortcutLongLabel="@string/shortcut_qibla_long">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetPackage="org.example.islamicapp"
-            android:targetClass="org.example.islamicapp.MainActivity"
-            android:data="manara://qibla" />
+            android:targetPackage="org.muslim.app"
+            android:targetClass="org.muslim.app.MainActivity"
+            android:data="muslim://qibla" />
     </shortcut>
 
     <shortcut
@@ -37,9 +37,9 @@
         android:shortcutLongLabel="@string/shortcut_settings_long">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetPackage="org.example.islamicapp"
-            android:targetClass="org.example.islamicapp.MainActivity"
-            android:data="manara://settings" />
+            android:targetPackage="org.muslim.app"
+            android:targetClass="org.muslim.app.MainActivity"
+            android:data="muslim://settings" />
     </shortcut>
 
 </shortcuts>

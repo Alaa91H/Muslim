@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- App name is provisional: "منارة" is a suggested working title. -->
-    <string name="app_name">منارة</string>
+    <!-- App name is provisional: "مسلم" is a suggested working title. -->
+    <string name="app_name">Muslim</string>
     <string name="scaffold_message">تم إنشاء هيكل المشروع متعدد الوحدات بنجاح.\nالمرحلة 1 — الأذان، أوقات الصلاة، القبلة، والتقويم الهجري — تبدأ من هنا.</string>
 
     <!-- Bottom navigation tabs -->
@@ -26,6 +26,8 @@
     <string name="more_zakat_desc">حاسبة زكاة المال وزكاة الفطر</string>
     <string name="more_learn">التعلّم</string>
     <string name="more_learn_desc">دليل الوضوء والصلاة خطوة بخطوة</string>
+    <string name="more_reference">المكتبة المرجعية</string>
+    <string name="more_reference_desc">التعريف بالإسلام والسيرة وقصص الأنبياء</string>
 
     <!-- App shortcuts (long-press the launcher icon) -->
     <string name="shortcut_times">مواقيت الصلاة</string>

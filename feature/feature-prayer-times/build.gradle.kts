@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "org.example.islamicapp.feature.prayertimes"
+    namespace = "org.muslim.app.feature.prayertimes"
     compileSdk {
         version = release(37)
     }

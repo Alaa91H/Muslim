@@ -8,11 +8,11 @@
 -keepclasseswithmembers class kotlinx.serialization.json.** {
     kotlinx.serialization.KSerializer serializer(...);
 }
--keep,includedescriptorclasses class org.example.islamicapp.**$$serializer { *; }
--keepclassmembers class org.example.islamicapp.** {
+-keep,includedescriptorclasses class org.muslim.app.**$$serializer { *; }
+-keepclassmembers class org.muslim.app.** {
     *** Companion;
 }
--keepclasseswithmembers class org.example.islamicapp.** {
+-keepclasseswithmembers class org.muslim.app.** {
     kotlinx.serialization.KSerializer serializer(...);
 }
 

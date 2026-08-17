@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "org.example.islamicapp.feature.ramadan"
+    namespace = "org.muslim.app.feature.ramadan"
     compileSdk {
         version = release(37)
     }

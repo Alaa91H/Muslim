@@ -75,6 +75,12 @@
     <string name="adhan_option_silent">صامت</string>
     <string name="settings_volume">مستوى الصوت</string>
     <string name="settings_preview">معاينة الأذان</string>
+    <string name="settings_dnd">عدم الإزعاج أثناء الصلاة</string>
+    <string name="settings_dnd_toggle">تفعيل وضع عدم الإزعاج بعد الأذان</string>
+    <string name="settings_dnd_duration">مدة الصمت</string>
+    <string name="settings_dnd_minutes">%1$d دقيقة</string>
+    <string name="settings_dnd_grant">منح إذن التحكم بعدم الإزعاج</string>
+    <string name="settings_dnd_hint">يُفتح إعداد النظام للسماح للتطبيق بكتم الإشعارات أثناء الصلاة ثم استعادتها تلقائيًا بعد المدة المحددة.</string>
     <string name="settings_sound_pick">اختيار ملف</string>
     <string name="settings_sound_download">تنزيل من رابط</string>
     <string name="settings_sound_custom_active">صوت مخصص مفعّل لهذه الصلاة</string>

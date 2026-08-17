@@ -20,7 +20,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Manara"
+rootProject.name = "Muslim"
 
 // ---------------------------------------------------------------------------
 // Multi-module structure (see PROJECT_PROMPT.md §3.3)
@@ -51,3 +51,4 @@ include(":feature:feature-learn")
 include(":feature:feature-ramadan")
 include(":feature:feature-zakat")
 include(":feature:feature-settings")
+include(":feature:feature-reference")

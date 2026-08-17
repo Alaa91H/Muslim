@@ -15,6 +15,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+    <!-- Do Not Disturb during the prayer (granted just-in-time from settings) -->
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+
     <application>
         <receiver
             android:name=".notifications.AdhanAlarmReceiver"
@@ -41,6 +44,10 @@
             android:name=".notifications.AdhanPlaybackService"
             android:exported="false"
             android:foregroundServiceType="mediaPlayback" />
+
+        <receiver
+            android:name=".notifications.PrayerDndRestoreReceiver"
+            android:exported="false" />
 
         <!-- Home-screen widget: next prayer + countdown (multiple sizes) -->
         <receiver

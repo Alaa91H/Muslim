@@ -70,6 +70,12 @@
     <string name="adhan_option_silent">Silent</string>
     <string name="settings_volume">Volume</string>
     <string name="settings_preview">Preview adhan</string>
+    <string name="settings_dnd">Do Not Disturb during prayer</string>
+    <string name="settings_dnd_toggle">Enable Do Not Disturb after the adhan</string>
+    <string name="settings_dnd_duration">Quiet duration</string>
+    <string name="settings_dnd_minutes">%1$d minutes</string>
+    <string name="settings_dnd_grant">Grant Do Not Disturb access</string>
+    <string name="settings_dnd_hint">Opens the system settings that let the app silence notifications during prayer and restore them automatically after the chosen duration.</string>
     <string name="settings_sound_pick">Pick file</string>
     <string name="settings_sound_download">Download from URL</string>
     <string name="settings_sound_custom_active">Custom sound active for this prayer</string>
