@@ -10,7 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.muslim.app.core.notifications.NotificationCategory
-import org.muslim.app.core.notifications.notificationCategoryEnabled
+import org.muslim.app.core.notifications.notificationAllowed
 import org.muslim.app.feature.adhkar.domain.DhikrCategory
 import org.muslim.app.feature.adhkar.overlay.AdhkarOverlayService
 import java.time.LocalTime
@@ -30,7 +30,7 @@ class PeriodicAdhkarReminderReceiver : BroadcastReceiver() {
         CoroutineScope(Dispatchers.IO).launch {
             val prefs = entryPoint.prefsRepository().prefs.first()
             if (!prefs.periodicReminderEnabled) return@launch
-            if (!appContext.notificationCategoryEnabled(NotificationCategory.Adhkar)) return@launch
+            if (!appContext.notificationAllowed(NotificationCategory.Adhkar)) return@launch
 
             if (prefs.periodicReminderWindowEnabled) {
                 val now = LocalTime.now()

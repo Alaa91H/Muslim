@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="channel_adhan">الأذان</string>
+    <string name="channel_adhan_desc">صوت الأذان وإشعاراته عند كل صلاة</string>
+    <string name="channel_reminder">تذكير الصلاة</string>
+    <string name="channel_reminder_desc">تذكير قبل موعد الصلاة بالوقت المحدد</string>
+    <string name="channel_quran_daily">آية اليوم</string>
+    <string name="channel_quran_daily_desc">آية يومية مع دعوة للقراءة والتدبر</string>
+    <string name="channel_ramadan">رمضان</string>
+    <string name="channel_ramadan_desc">تنبيهات الإفطار والسحور في رمضان</string>
+    <string name="channel_adhkar">الأذكار</string>
+    <string name="channel_adhkar_desc">تذكيرات الأذكار والرسالة العائمة</string>
+    <string name="channel_hadith_daily">حديث اليوم</string>
+    <string name="channel_hadith_daily_desc">حديث يومي مع تذكير بالهدي النبوي</string>
+</resources>

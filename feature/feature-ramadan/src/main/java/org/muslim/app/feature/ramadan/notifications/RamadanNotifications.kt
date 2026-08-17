@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.NotificationChannels
-import org.muslim.app.core.notifications.notificationCategoryEnabled
+import org.muslim.app.core.notifications.notificationAllowed
 import org.muslim.app.feature.ramadan.R
 import org.muslim.app.feature.ramadan.data.RamadanRepository
 import javax.inject.Inject
@@ -58,7 +58,7 @@ class RamadanAlarmReceiver : BroadcastReceiver() {
         )
         CoroutineScope(Dispatchers.IO).launch {
             // Respect the unified notification manager; still re-arm the alarms.
-            if (context.applicationContext.notificationCategoryEnabled(NotificationCategory.Ramadan)) {
+            if (context.applicationContext.notificationAllowed(NotificationCategory.Ramadan)) {
                 entryPoint.notifier().notify(type)
             }
             val prayerSettings = entryPoint.prayerSettingsRepository().settings.first()

@@ -76,4 +76,24 @@
     <string name="notif_category_adhkar_desc">Adhkar reminders and the floating overlay</string>
     <string name="notif_category_hadith">Hadith of the day</string>
     <string name="notif_category_hadith_desc">A daily hadith with a reminder of the prophetic guidance</string>
+    <string name="notif_permission_title">Allow notifications</string>
+    <string name="notif_permission_desc">To receive the adhan and daily reminders, allow the app to show notifications.</string>
+    <string name="notif_permission_allow">Allow</string>
+    <string name="notif_open_system_settings">System settings</string>
+    <string name="notif_quiet_title">Quiet hours</string>
+    <string name="notif_quiet_desc">Mute all notifications (except the adhan) during the chosen window</string>
+    <string name="notif_quiet_start">Start</string>
+    <string name="notif_quiet_end">End</string>
+    <string name="notif_sound">Sound</string>
+    <string name="notif_vibration">Vibration</string>
+    <string name="notif_importance">Importance</string>
+    <string name="notif_importance_low">Low</string>
+    <string name="notif_importance_default">Default</string>
+    <string name="notif_importance_high">High</string>
+    <string name="notif_badge">App icon badge</string>
+    <string name="notif_test">Send test notification</string>
+    <string name="notif_test_body">This is a test notification from the notification settings.</string>
+    <string name="notif_details">Details &amp; customization</string>
+    <string name="notif_time_picker_confirm">OK</string>
+    <string name="notif_time_picker_cancel">Cancel</string>
 </resources>

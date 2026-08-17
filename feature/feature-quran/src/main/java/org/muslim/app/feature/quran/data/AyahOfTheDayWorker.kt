@@ -15,7 +15,7 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.flow.first
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.NotificationChannels
-import org.muslim.app.core.notifications.notificationCategoryEnabled
+import org.muslim.app.core.notifications.notificationAllowed
 import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.QuranRepository
 import java.time.LocalDate
@@ -35,7 +35,7 @@ class AyahOfTheDayWorker(
     override suspend fun doWork(): Result {
         // Respect the unified notification manager even if the periodic job
         // was scheduled before the user disabled this category.
-        if (!applicationContext.notificationCategoryEnabled(NotificationCategory.QuranDaily)) return Result.success()
+        if (!applicationContext.notificationAllowed(NotificationCategory.QuranDaily)) return Result.success()
         val entryPoint = EntryPointAccessors.fromApplication(
             applicationContext,
             AyahOfTheDayEntryPoint::class.java,

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="channel_adhan">The Adhan</string>
+    <string name="channel_adhan_desc">Adhan sound and its notification at each prayer</string>
+    <string name="channel_reminder">Prayer reminder</string>
+    <string name="channel_reminder_desc">Reminder before the prayer time, at your chosen offset</string>
+    <string name="channel_quran_daily">Ayah of the day</string>
+    <string name="channel_quran_daily_desc">A daily ayah with an invitation to read and reflect</string>
+    <string name="channel_ramadan">Ramadan</string>
+    <string name="channel_ramadan_desc">Iftar and suhoor alerts during Ramadan</string>
+    <string name="channel_adhkar">Adhkar</string>
+    <string name="channel_adhkar_desc">Adhkar reminders and the floating overlay</string>
+    <string name="channel_hadith_daily">Hadith of the day</string>
+    <string name="channel_hadith_daily_desc">A daily hadith with a reminder of the prophetic guidance</string>
+</resources>

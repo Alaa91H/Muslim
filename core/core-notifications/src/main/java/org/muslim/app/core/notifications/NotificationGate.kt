@@ -16,3 +16,22 @@ suspend fun Context.notificationCategoryEnabled(category: NotificationCategory):
     )
     return entryPoint.notificationPrefs().isEnabled(category)
 }
+
+/**
+ * The full gate used by every notifier: the category must be enabled AND
+ * (for non-adhan categories) the current time must fall outside the user's
+ * quiet-hours window. The Adhan is deliberately exempt so the call to prayer
+ * is never silenced during quiet hours.
+ */
+suspend fun Context.notificationAllowed(
+    category: NotificationCategory,
+    atMillis: Long = System.currentTimeMillis(),
+): Boolean {
+    val entryPoint = EntryPointAccessors.fromApplication(
+        applicationContext, NotificationEntryPoint::class.java,
+    )
+    val prefs = entryPoint.notificationPrefs()
+    if (!prefs.isEnabled(category)) return false
+    if (category == NotificationCategory.Adhan) return true
+    return !prefs.isQuietHourActive(atMillis)
+}

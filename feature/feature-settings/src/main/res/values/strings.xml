@@ -76,4 +76,24 @@
     <string name="notif_category_adhkar_desc">تذكيرات الأذكار والرسالة العائمة</string>
     <string name="notif_category_hadith">حديث اليوم</string>
     <string name="notif_category_hadith_desc">حديث يومي مع تذكير بالهدي النبوي</string>
+    <string name="notif_permission_title">السماح بالإشعارات</string>
+    <string name="notif_permission_desc">للحصول على الأذان والتذكيرات اليومية، اسمح للتطبيق بعرض الإشعارات.</string>
+    <string name="notif_permission_allow">السماح</string>
+    <string name="notif_open_system_settings">إعدادات النظام</string>
+    <string name="notif_quiet_title">ساعات الهدوء</string>
+    <string name="notif_quiet_desc">كتم كل الإشعارات (ما عدا الأذان) خلال الفترة المحددة</string>
+    <string name="notif_quiet_start">البداية</string>
+    <string name="notif_quiet_end">النهاية</string>
+    <string name="notif_sound">الصوت</string>
+    <string name="notif_vibration">الاهتزاز</string>
+    <string name="notif_importance">الأهمية</string>
+    <string name="notif_importance_low">منخفضة</string>
+    <string name="notif_importance_default">متوسطة</string>
+    <string name="notif_importance_high">عالية</string>
+    <string name="notif_badge">شارة أيقونة التطبيق</string>
+    <string name="notif_test">إرسال إشعار تجريبي</string>
+    <string name="notif_test_body">هذا إشعار تجريبي من إعدادات الإشعارات.</string>
+    <string name="notif_details">تفاصيل وتخصيص</string>
+    <string name="notif_time_picker_confirm">موافق</string>
+    <string name="notif_time_picker_cancel">إلغاء</string>
 </resources>

@@ -9,7 +9,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.components.SingletonComponent
 import org.muslim.app.core.notifications.NotificationCategory
-import org.muslim.app.core.notifications.notificationCategoryEnabled
+import org.muslim.app.core.notifications.notificationAllowed
 
 /**
  * Optional daily hadith notification (PROJECT_PROMPT.md §6 Phase 3: «حديث اليوم»).
@@ -40,7 +40,7 @@ open class HadithOfTheDayWorker(
 
     /** Whether the unified notification manager allows the hadith category. */
     protected open suspend fun categoryEnabled(): Boolean =
-        applicationContext.notificationCategoryEnabled(NotificationCategory.HadithDaily)
+        applicationContext.notificationAllowed(NotificationCategory.HadithDaily)
 
     protected open fun repository(): HadithOfTheDaySource =
         EntryPointAccessors.fromApplication(

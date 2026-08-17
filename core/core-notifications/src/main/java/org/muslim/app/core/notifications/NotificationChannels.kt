@@ -7,76 +7,73 @@ import android.os.Build
 
 /**
  * Central notification-channel definitions (core-notifications owns the
- * unified notification system per PROJECT_PROMPT.md §3.3).
+ * unified notification system per PROJECT_PROMPT.md §3.3). Channel names and
+ * descriptions are localized through resources; per-category presentation
+ * (importance / sound / vibration / badge) is applied from the user's
+ * [NotificationCategoryPrefs] so the in-app manager and the system settings
+ * stay in sync.
  */
 object NotificationChannels {
 
     /** High-importance channel for the Adhan itself. */
     const val ADHAN = "adhan"
-    const val ADHAN_NAME = "الأذان"
 
     /** Default-importance channel for pre-prayer reminders. */
     const val REMINDER = "prayer_reminder"
-    const val REMINDER_NAME = "تذكير الصلاة"
 
     /** Low-importance channel for the optional daily ayah notification. */
     const val QURAN_DAILY = "quran_daily"
-    const val QURAN_DAILY_NAME = "آية اليوم"
 
     /** High-importance channel for Ramadan iftar / suhoor alerts. */
     const val RAMADAN = "ramadan"
-    const val RAMADAN_NAME = "رمضان"
 
     /** Default-importance channel for adhkar reminders and the overlay service. */
     const val ADHKAR = "adhkar"
-    const val ADHKAR_NAME = "الأذكار"
 
     /** Low-importance channel for the optional daily hadith notification. */
     const val HADITH_DAILY = "hadith_daily"
-    const val HADITH_DAILY_NAME = "حديث اليوم"
 
-    /** Creates all channels; safe to call on every app start (idempotent). */
+    /** Creates/updates every channel with the app defaults; safe to call on each start (idempotent). */
     fun create(context: Context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
+        NotificationCategory.entries.forEach { category ->
+            applyCategorySettings(context, category, category.defaultPrefs())
+        }
+    }
+
+    /**
+     * Applies the user's [prefs] to the category's channel. Re-creating a
+     * channel with the same id updates its properties (importance, sound,
+     * vibration, badge); a manual override the user made in system settings
+     * is always respected by Android.
+     */
+    fun applyCategorySettings(
+        context: Context,
+        category: NotificationCategory,
+        prefs: NotificationCategoryPrefs,
+    ) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
         val manager = context.getSystemService(NotificationManager::class.java)
-        manager.createNotificationChannel(
-            NotificationChannel(ADHAN, ADHAN_NAME, NotificationManager.IMPORTANCE_HIGH).apply {
-                description = "صوت الأذان وإشعارات مواقيت الصلاة"
-                enableVibration(true)
+        val channel = NotificationChannel(
+            category.channelId,
+            context.getString(category.nameRes),
+            prefs.importance.channelImportance,
+        ).apply {
+            description = context.getString(category.descriptionRes)
+            if (!prefs.soundEnabled) {
+                // null sound = a silent channel when the user muted it.
+                setSound(null, null)
             }
-        )
-        manager.createNotificationChannel(
-            NotificationChannel(REMINDER, REMINDER_NAME, NotificationManager.IMPORTANCE_DEFAULT).apply {
-                description = "تذكير قبل موعد الصلاة"
+            enableVibration(prefs.vibrateEnabled)
+            if (!prefs.vibrateEnabled) {
+                vibrationPattern = null
             }
-        )
-        manager.createNotificationChannel(
-            NotificationChannel(QURAN_DAILY, QURAN_DAILY_NAME, NotificationManager.IMPORTANCE_LOW).apply {
-                description = "آية يومية اختيارية مع تذكير بالقراءة"
-                setShowBadge(false)
-            }
-        )
-        manager.createNotificationChannel(
-            NotificationChannel(RAMADAN, RAMADAN_NAME, NotificationManager.IMPORTANCE_HIGH).apply {
-                description = "تنبيهات الإفطار والسحور في رمضان"
-                enableVibration(true)
-            }
-        )
-        manager.createNotificationChannel(
-            NotificationChannel(ADHKAR, ADHKAR_NAME, NotificationManager.IMPORTANCE_DEFAULT).apply {
-                description = "تذكيرات الأذكار والرسالة العائمة"
-                setShowBadge(false)
+            setShowBadge(prefs.badgeEnabled)
+            if (category == NotificationCategory.Adhkar && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 // Optional bubble presentation for the periodic reminder (Android 11+).
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    setAllowBubbles(true)
-                }
+                setAllowBubbles(true)
             }
-        )
-        manager.createNotificationChannel(
-            NotificationChannel(HADITH_DAILY, HADITH_DAILY_NAME, NotificationManager.IMPORTANCE_LOW).apply {
-                description = "حديث يومي اختياري مع تذكير بالهدي النبوي"
-                setShowBadge(false)
-            }
-        )
+        }
+        manager.createNotificationChannel(channel)
     }
 }
