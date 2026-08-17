@@ -58,6 +58,7 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.core.common.prayer.AdhanSoundOption
+import org.muslim.app.core.common.prayer.BundledAdhanSound
 import org.muslim.app.core.common.prayer.AsrMethod
 import org.muslim.app.core.common.prayer.CalculationMethod
 import org.muslim.app.core.common.prayer.HighLatitudeRule
@@ -184,6 +185,10 @@ fun PrayerSettingsScreen(
                 },
             )
         }
+        BundledSoundDropdown(
+            current = BundledAdhanSound.fromId(settings.bundledAdhanSound),
+            onSelected = { viewModel.setBundledAdhanSound(it.id) },
+        )
         VolumeRow(volume = settings.adhanVolume, onChanged = viewModel::setAdhanVolume)
         OutlinedButton(
             onClick = { viewModel.previewAdhan(Prayer.Fajr) },
@@ -326,6 +331,46 @@ private fun AdhanSoundDropdown(
             }
         }
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun BundledSoundDropdown(
+    current: BundledAdhanSound,
+    onSelected: (BundledAdhanSound) -> Unit,
+) {
+    var expanded by remember { mutableStateOf(false) }
+    ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
+        OutlinedTextField(
+            value = stringResource(bundledSoundLabelRes(current)),
+            onValueChange = {},
+            readOnly = true,
+            label = { Text(stringResource(R.string.settings_bundled_adhan)) },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 4.dp)
+                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
+        )
+        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+            BundledAdhanSound.entries.forEach { sound ->
+                DropdownMenuItem(
+                    text = { Text(stringResource(bundledSoundLabelRes(sound))) },
+                    onClick = {
+                        expanded = false
+                        onSelected(sound)
+                    },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun bundledSoundLabelRes(sound: BundledAdhanSound): Int = when (sound) {
+    BundledAdhanSound.Makkah -> R.string.bundled_adhan_makkah
+    BundledAdhanSound.AbdulBasit -> R.string.bundled_adhan_abdul_basit
+    BundledAdhanSound.Minshawi -> R.string.bundled_adhan_minshawi
 }
 
 @Composable

@@ -33,6 +33,12 @@ data class PrayerSettings(
     val adhanSoundFiles: Map<Prayer, String> = emptyMap(),
     /** Master adhan playback volume, 0..100. */
     val adhanVolume: Int = 100,
+    /**
+     * Which bundled recording to play by default (see
+     * [org.muslim.app.core.common.prayer.BundledAdhanSound]); always
+     * available offline since it ships inside the APK.
+     */
+    val bundledAdhanSound: String = org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID,
     /** Minutes before the prayer to remind; 0 disables the reminder. */
     val reminderMinutes: Int = 10,
     /**

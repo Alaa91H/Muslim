@@ -14,17 +14,24 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicText
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.Pause
+import androidx.compose.material.icons.automirrored.filled.PlaylistPlay
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.SkipNext
+import androidx.compose.material.icons.filled.SkipPrevious
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.outlined.BookmarkBorder
@@ -64,12 +71,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.BaselineShift
+import androidx.compose.ui.text.withLink
 import androidx.compose.ui.text.withStyle
 import android.app.Activity
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -82,6 +93,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
+import org.muslim.app.core.common.text.ArabicText
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.data.PlaybackState
 import org.muslim.app.feature.quran.domain.Ayah
@@ -89,12 +101,53 @@ import org.muslim.app.feature.quran.domain.ReaderTheme
 import org.muslim.app.feature.quran.domain.Reciter
 import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.SurahRevelationData
+import java.util.Locale
 
 private const val MIN_FONT_SP = 18f
 private const val MAX_FONT_SP = 40f
 private const val DEFAULT_FONT_SP = 26f
 private const val FONT_STEP_SP = 2f
 private val REPEAT_OPTIONS = listOf(1, 3, 5, 10)
+
+/**
+ * The opening Basmala, rendered standalone at the top of every surah — except
+ * At-Tawbah (9), which omits it, and Al-Fatiha (1), where it is ayah 1 and
+ * stays numbered inline.
+ */
+internal val BASMALA = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
+
+/**
+ * Removes a leading Basmala from [text]. Matching is diacritic-insensitive and
+ * also covers the `بِّسْمِ` shadda variant used in a couple of surahs; returns
+ * the text unchanged when there is no Basmala prefix.
+ */
+internal fun stripLeadingBasmala(text: String): String {
+    val normalizedBasmala = ArabicText.normalize(BASMALA)
+    val consumed = StringBuilder()
+    var index = 0
+    for (c in text) {
+        val kept = when {
+            c.code in 0x064B..0x065F || c.code == 0x0670 -> ""
+            c == '\u0671' -> "\u0627"
+            else -> c.toString()
+        }
+        consumed.append(kept)
+        index++
+        if (consumed.length >= normalizedBasmala.length) {
+            if (consumed.toString() != normalizedBasmala) return text
+            // The Basmala's trailing diacritics (e.g. the kasra on its final
+            // letter) are dropped by normalization but still occupy characters
+            // in the source — skip them along with any following whitespace.
+            var cut = index
+            while (cut < text.length && isSkippableAfterBasmala(text[cut])) cut++
+            return text.substring(cut)
+        }
+    }
+    return text
+}
+
+private fun isSkippableAfterBasmala(c: Char): Boolean =
+    c.isWhitespace() || c.code in 0x064B..0x065F || c.code == 0x0670 || c == '\u0640'
 
 /** Sepia palette — warm paper, high contrast, comfortable long reading. */
 private val SepiaColorScheme = lightColorScheme(
@@ -151,6 +204,11 @@ fun QuranReaderScreen(
     val downloading by viewModel.downloading.collectAsStateWithLifecycle()
     val playbackState by viewModel.playbackState.collectAsStateWithLifecycle()
     val currentAudioAyah by viewModel.currentAudioAyah.collectAsStateWithLifecycle()
+    val hasNextAyah by viewModel.hasNextAyah.collectAsStateWithLifecycle()
+    val hasPreviousAyah by viewModel.hasPreviousAyah.collectAsStateWithLifecycle()
+    val playbackErrorCount by viewModel.playbackErrorCount.collectAsStateWithLifecycle()
+    val positionMs by viewModel.positionMs.collectAsStateWithLifecycle()
+    val durationMs by viewModel.durationMs.collectAsStateWithLifecycle()
 
     // Keep the screen lit while recitation is playing (تلاوة) so the ayah
     // stays readable without touching the device; restore on pause/stop.
@@ -167,10 +225,46 @@ fun QuranReaderScreen(
         }
     }
 
+    // Surface playback failures (e.g. a bad download or no connectivity) so a
+    // silent "nothing happened" never confuses the user.
+    val context = LocalContext.current
+    val playbackErrorText = stringResource(R.string.quran_playback_error)
+    var lastShownError by remember { mutableStateOf(0) }
+    LaunchedEffect(playbackErrorCount) {
+        if (playbackErrorCount > lastShownError) {
+            lastShownError = playbackErrorCount
+            Toast.makeText(context, playbackErrorText, Toast.LENGTH_SHORT).show()
+        }
+    }
+
     var fontSize by rememberSaveable { mutableStateOf(DEFAULT_FONT_SP) }
     var repeatCount by rememberSaveable { mutableStateOf(1) }
+    var playRange by rememberSaveable { mutableStateOf(RecitationRange.FromAyahToEnd) }
     var showDetails by remember { mutableStateOf(false) }
     val listState = rememberLazyListState()
+
+    // A short-lived highlight flashed on the ayah the user just tapped, so the
+    // selection is unmistakable before playback starts.
+    var tappedAyahGlobal by remember { mutableStateOf<Int?>(null) }
+    LaunchedEffect(tappedAyahGlobal) {
+        if (tappedAyahGlobal != null) {
+            kotlinx.coroutines.delay(1_500)
+            tappedAyahGlobal = null
+        }
+    }
+
+    // Shared play/pause/resume toggle used by both the mini now-playing bar
+    // and the full recitation bar.
+    val togglePlayback: () -> Unit = {
+        when (playbackState) {
+            PlaybackState.Playing -> viewModel.pausePlayback()
+            PlaybackState.Paused -> viewModel.resumePlayback()
+            PlaybackState.Idle -> currentAyah?.let { viewModel.playAyahWithRange(it, repeatCount, playRange) }
+        }
+    }
+
+    // The ayah currently playing (if any) — drives the mini now-playing bar.
+    val playingAyah = currentAudioAyah?.let { global -> state.ayahs.firstOrNull { it.globalNumber == global } }
 
     // Group the surah's ayahs into mushaf pages (flowing text per page).
     val pageEntries = remember(state.ayahs) {
@@ -193,6 +287,14 @@ fun QuranReaderScreen(
         }
         listState.scrollToItem(if (pageIndex >= 0) pageIndex else 0)
         scrolledToInitial = true
+    }
+
+    // Follow-along: keep the page containing the currently-playing ayah in
+    // view so the highlighted ayah is always visible during recitation.
+    LaunchedEffect(currentAudioAyah) {
+        val target = currentAudioAyah ?: return@LaunchedEffect
+        val pageIndex = pageEntries.indexOfFirst { (_, ayahs) -> ayahs.any { it.globalNumber == target } }
+        if (pageIndex >= 0) listState.animateScrollToItem(pageIndex)
     }
 
     // Track the visible page (bookmark/play target) and persist resume + khatma.
@@ -304,7 +406,17 @@ fun QuranReaderScreen(
                                 ayahs = pageAyahs,
                                 surahName = state.surah?.arabicName.orEmpty(),
                                 fontSizeSp = fontSize,
+                                playingAyahGlobal = currentAudioAyah,
+                                selectedAyahGlobal = currentAyah?.globalNumber,
+                                tappedAyahGlobal = tappedAyahGlobal,
                                 onClick = { viewModel.currentAyah.value = pageAyahs.first() },
+                                onAyahClick = { ayah ->
+                                    // Tap only selects the ayah; recitation
+                                    // starts from the play button in the
+                                    // recitation bar below.
+                                    viewModel.currentAyah.value = ayah
+                                    tappedAyahGlobal = ayah.globalNumber
+                                },
                             )
                             Spacer(Modifier.height(16.dp))
                         }
@@ -314,25 +426,40 @@ fun QuranReaderScreen(
 
             SupplementPanel(supplements = supplements, currentAyah = currentAyah)
 
+            if (playingAyah != null) {
+                MiniPlayerBar(
+                    ayahNumber = playingAyah.numberInSurah,
+                    playbackState = playbackState,
+                    positionMs = positionMs,
+                    durationMs = durationMs,
+                    hasNext = hasNextAyah,
+                    hasPrevious = hasPreviousAyah,
+                    onTogglePlayback = togglePlayback,
+                    onPrevious = viewModel::previousAyah,
+                    onNext = viewModel::nextAyah,
+                    onStop = viewModel::stopPlayback,
+                )
+            }
+
             RecitationBar(
                 reciter = reciter,
                 downloaded = downloaded,
                 downloading = downloading,
                 progress = downloadProgress,
                 playbackState = playbackState,
-                isCurrentAyahAudio = currentAudioAyah != null && currentAudioAyah == currentAyah?.globalNumber,
+                currentAyah = currentAyah,
+                hasNext = hasNextAyah,
+                hasPrevious = hasPreviousAyah,
                 repeatCount = repeatCount,
                 onRepeatChanged = { repeatCount = it },
                 onSelectReciter = viewModel::selectReciter,
                 onDownload = viewModel::downloadCurrentSurah,
-                onPlay = { ayah -> viewModel.playAyah(ayah, repeatCount) },
-                onTogglePlayback = {
-                    when (playbackState) {
-                        PlaybackState.Playing -> viewModel.pausePlayback()
-                        PlaybackState.Paused -> viewModel.resumePlayback()
-                        PlaybackState.Idle -> currentAyah?.let { viewModel.playAyah(it, repeatCount) }
-                    }
-                },
+                onPlayWholeSurah = { viewModel.playWholeSurah(repeatCount) },
+                onPrevious = viewModel::previousAyah,
+                onNext = viewModel::nextAyah,
+                onTogglePlayback = togglePlayback,
+                range = playRange,
+                onRangeChanged = { playRange = it },
             )
 
         }
@@ -396,13 +523,19 @@ private fun RecitationBar(
     downloading: Boolean,
     progress: Float?,
     playbackState: PlaybackState,
-    isCurrentAyahAudio: Boolean,
+    currentAyah: Ayah?,
+    hasNext: Boolean,
+    hasPrevious: Boolean,
     repeatCount: Int,
     onRepeatChanged: (Int) -> Unit,
     onSelectReciter: (Reciter) -> Unit,
     onDownload: () -> Unit,
-    onPlay: (Ayah) -> Unit,
+    onPlayWholeSurah: () -> Unit,
+    onPrevious: () -> Unit,
+    onNext: () -> Unit,
     onTogglePlayback: () -> Unit,
+    range: RecitationRange,
+    onRangeChanged: (RecitationRange) -> Unit,
 ) {
     var reciterMenu by remember { mutableStateOf(false) }
     Surface(color = MaterialTheme.colorScheme.surfaceVariant) {
@@ -447,6 +580,15 @@ private fun RecitationBar(
                         modifier = Modifier.size(40.dp),
                     )
                 } else {
+                    IconButton(
+                        onClick = onPlayWholeSurah,
+                        enabled = !downloading,
+                    ) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.PlaylistPlay,
+                            contentDescription = stringResource(R.string.quran_play_whole_surah),
+                        )
+                    }
                     IconButton(onClick = onDownload, enabled = !downloaded) {
                         Icon(
                             imageVector = Icons.Filled.Download,
@@ -460,13 +602,25 @@ private fun RecitationBar(
             Spacer(Modifier.height(6.dp))
 
             Row(verticalAlignment = Alignment.CenterVertically) {
-                IconButton(onClick = onTogglePlayback, enabled = playbackState != PlaybackState.Idle || isCurrentAyahAudio) {
+                IconButton(onClick = onPrevious, enabled = hasPrevious) {
+                    Icon(
+                        imageVector = Icons.Filled.SkipPrevious,
+                        contentDescription = stringResource(R.string.quran_previous_ayah),
+                    )
+                }
+                IconButton(onClick = onTogglePlayback, enabled = playbackState != PlaybackState.Idle || currentAyah != null) {
                     Icon(
                         imageVector = when (playbackState) {
                             PlaybackState.Playing -> Icons.Filled.Pause
                             else -> Icons.Filled.PlayArrow
                         },
                         contentDescription = stringResource(R.string.quran_play_ayah),
+                    )
+                }
+                IconButton(onClick = onNext, enabled = hasNext) {
+                    Icon(
+                        imageVector = Icons.Filled.SkipNext,
+                        contentDescription = stringResource(R.string.quran_next_ayah),
                     )
                 }
                 Text(
@@ -483,7 +637,136 @@ private fun RecitationBar(
                     )
                 }
             }
+
+            Spacer(Modifier.height(4.dp))
+
+            Row(
+                modifier = Modifier.padding(horizontal = 12.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = stringResource(R.string.quran_play_range),
+                    style = MaterialTheme.typography.labelMedium,
+                    modifier = Modifier.padding(end = 8.dp),
+                )
+                FilterChip(
+                    selected = range == RecitationRange.SingleAyah,
+                    onClick = { onRangeChanged(RecitationRange.SingleAyah) },
+                    label = { Text(stringResource(R.string.quran_range_single_ayah)) },
+                    modifier = Modifier.padding(end = 6.dp),
+                )
+                FilterChip(
+                    selected = range == RecitationRange.FromAyahToEnd,
+                    onClick = { onRangeChanged(RecitationRange.FromAyahToEnd) },
+                    label = { Text(stringResource(R.string.quran_range_to_end)) },
+                )
+            }
         }
+    }
+}
+
+// A slim "now playing" bar shown only while recitation is active (or paused).
+// It keeps the essential controls (previous / play-pause / next / close), the
+// current ayah number and a live progress bar within easy reach without the
+// full recitation bar.
+@Composable
+private fun MiniPlayerBar(
+    ayahNumber: Int,
+    playbackState: PlaybackState,
+    positionMs: Long,
+    durationMs: Long,
+    hasNext: Boolean,
+    hasPrevious: Boolean,
+    onTogglePlayback: () -> Unit,
+    onPrevious: () -> Unit,
+    onNext: () -> Unit,
+    onStop: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Surface(
+        modifier = modifier.fillMaxWidth(),
+        color = MaterialTheme.colorScheme.primaryContainer,
+        tonalElevation = 3.dp,
+    ) {
+        Column {
+            // Live playback progress for the current ayah.
+            LinearProgressIndicator(
+                progress = {
+                    if (durationMs > 0L) (positionMs.toFloat() / durationMs).coerceIn(0f, 1f) else 0f
+                },
+                modifier = Modifier.fillMaxWidth(),
+            )
+            // Elapsed / total time alongside the progress bar.
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 12.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = formatTime(positionMs),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                )
+                Spacer(Modifier.weight(1f))
+                Text(
+                    text = formatTime(durationMs),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                )
+            }
+            Row(
+                modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = stringResource(R.string.quran_mini_ayah, ayahNumber),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    modifier = Modifier.weight(1f),
+                )
+                IconButton(onClick = onPrevious, enabled = hasPrevious) {
+                    Icon(
+                        imageVector = Icons.Filled.SkipPrevious,
+                        contentDescription = stringResource(R.string.quran_previous_ayah),
+                    )
+                }
+                IconButton(onClick = onTogglePlayback) {
+                    Icon(
+                        imageVector = if (playbackState == PlaybackState.Playing) Icons.Filled.Pause else Icons.Filled.PlayArrow,
+                        contentDescription = stringResource(R.string.quran_play_ayah),
+                    )
+                }
+                IconButton(onClick = onNext, enabled = hasNext) {
+                    Icon(
+                        imageVector = Icons.Filled.SkipNext,
+                        contentDescription = stringResource(R.string.quran_next_ayah),
+                    )
+                }
+                IconButton(onClick = onStop) {
+                    Icon(
+                        imageVector = Icons.Filled.Close,
+                        contentDescription = stringResource(R.string.quran_stop_playback),
+                    )
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Formats milliseconds as m:ss or mm:ss (h:mm:ss from one hour up), always
+ * with Western digits regardless of the device locale.
+ */
+private fun formatTime(ms: Long): String {
+    val totalSeconds = (ms / 1000).coerceAtLeast(0)
+    val hours = totalSeconds / 3600
+    val minutes = (totalSeconds % 3600) / 60
+    val seconds = totalSeconds % 60
+    return if (hours > 0) {
+        String.format(Locale.ROOT, "%d:%02d:%02d", hours, minutes, seconds)
+    } else {
+        String.format(Locale.ROOT, "%02d:%02d", minutes, seconds)
     }
 }
 
@@ -495,25 +778,58 @@ private fun MushafPageCard(
     ayahs: List<Ayah>,
     surahName: String,
     fontSizeSp: Float,
+    playingAyahGlobal: Int?,
+    selectedAyahGlobal: Int?,
+    tappedAyahGlobal: Int?,
     onClick: () -> Unit,
+    onAyahClick: (Ayah) -> Unit,
 ) {
     if (ayahs.isEmpty()) return
     val scheme = MaterialTheme.colorScheme
+    // The Basmala embedded at the start of ayah 1 (every surah except 9) is
+    // pulled out into its own line above the surah, like printed mushafs.
+    val firstAyah = ayahs.first()
+    val isSurahOpeningPage = firstAyah.numberInSurah == 1
+    val firstAyahText = if (isSurahOpeningPage) stripLeadingBasmala(firstAyah.text) else firstAyah.text
+    val showBasmala = isSurahOpeningPage && firstAyah.surahNumber != 1 && firstAyahText != firstAyah.text
     val annotated = buildAnnotatedString {
         ayahs.forEach { ayah ->
-            append(ayah.text)
-            append(" ")
-            withStyle(
-                SpanStyle(
-                    color = scheme.primary,
-                    fontSize = (fontSizeSp * 0.6f).sp,
-                    fontWeight = FontWeight.Bold,
-                    baselineShift = BaselineShift(0.35f),
-                ),
-            ) {
-                append("\uFD3F${ayah.numberInSurah.toString()}\uFD3E")
+            // Visual hierarchy: the tapped ayah flashes strongest (temporary),
+            // the ayah being recited glows while playing (follow-along), and the
+            // currently selected ayah keeps a soft tint. All work on the light,
+            // sepia and night themes.
+            val highlight = when {
+                ayah.globalNumber == tappedAyahGlobal ->
+                    SpanStyle(background = scheme.primary.copy(alpha = 0.35f))
+                ayah.globalNumber == playingAyahGlobal ->
+                    SpanStyle(background = scheme.primary.copy(alpha = 0.22f))
+                ayah.globalNumber == selectedAyahGlobal ->
+                    SpanStyle(background = scheme.primary.copy(alpha = 0.12f))
+                else -> SpanStyle()
             }
-            append(" ")
+            // Every ayah is individually tappable: tapping selects it (and
+            // flashes the highlight); recitation starts from the play button.
+            withLink(
+                LinkAnnotation.Clickable(tag = "ayah-${ayah.globalNumber}") {
+                    onAyahClick(ayah)
+                },
+            ) {
+                withStyle(highlight) {
+                    append(if (ayah === firstAyah) firstAyahText else ayah.text)
+                    append(" ")
+                    withStyle(
+                        SpanStyle(
+                            color = scheme.primary,
+                            fontSize = (fontSizeSp * 0.6f).sp,
+                            fontWeight = FontWeight.Bold,
+                            baselineShift = BaselineShift(0.35f),
+                        ),
+                    ) {
+                        append("\uFD3F${ayah.numberInSurah.toString()}\uFD3E")
+                    }
+                    append(" ")
+                }
+            }
         }
     }
 
@@ -545,12 +861,39 @@ private fun MushafPageCard(
             Spacer(Modifier.height(10.dp))
             HorizontalDivider(color = scheme.surfaceVariant)
             Spacer(Modifier.height(14.dp))
-            Text(
+            if (showBasmala) {
+                // Standalone Basmala line, separated from the ayah text below.
+                Text(
+                    text = BASMALA,
+                    fontSize = (fontSizeSp * 1.1f).sp,
+                    lineHeight = (fontSizeSp * 1.9f).sp,
+                    textAlign = TextAlign.Center,
+                    color = scheme.primary,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Spacer(Modifier.height(14.dp))
+                HorizontalDivider(color = scheme.surfaceVariant)
+                Spacer(Modifier.height(14.dp))
+            }
+            var layoutResult by remember { mutableStateOf<TextLayoutResult?>(null) }
+            BasicText(
                 text = annotated,
-                fontSize = fontSizeSp.sp,
-                lineHeight = (fontSizeSp * 1.9f).sp,
-                textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .pointerInput(annotated) {
+                        detectTapGestures { position ->
+                            val result = layoutResult ?: return@detectTapGestures
+                            val offset = result.getOffsetForPosition(position)
+                            val link = annotated.getLinkAnnotations(offset, offset + 1).firstOrNull()
+                            link?.item?.linkInteractionListener?.onClick(link.item)
+                        }
+                    },
+                style = MaterialTheme.typography.bodyLarge.copy(
+                    fontSize = fontSizeSp.sp,
+                    lineHeight = (fontSizeSp * 1.9f).sp,
+                    textAlign = TextAlign.Center,
+                ),
+                onTextLayout = { layoutResult = it },
             )
             Spacer(Modifier.height(8.dp))
         }

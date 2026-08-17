@@ -70,6 +70,10 @@
     <string name="adhan_option_silent">Silent</string>
     <string name="settings_volume">Volume</string>
     <string name="settings_preview">Preview adhan</string>
+    <string name="settings_bundled_adhan">Bundled adhan sound (offline)</string>
+    <string name="bundled_adhan_makkah">Makkah adhan</string>
+    <string name="bundled_adhan_abdul_basit">Abdul Basit adhan</string>
+    <string name="bundled_adhan_minshawi">Minshawi adhan</string>
     <string name="settings_dnd">Do Not Disturb during prayer</string>
     <string name="settings_dnd_toggle">Enable Do Not Disturb after the adhan</string>
     <string name="settings_dnd_duration">Quiet duration</string>

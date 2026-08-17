@@ -64,6 +64,9 @@ class PrayerSettingsViewModel @Inject constructor(
         it.copy(adhanSounds = it.adhanSounds + (prayer to option))
     }
 
+    /** Selects which bundled (offline) recording plays by default. */
+    fun setBundledAdhanSound(id: String) = update { it.copy(bundledAdhanSound = id) }
+
     fun setAdhanVolume(volume: Int) = update { it.copy(adhanVolume = volume.coerceIn(0, 100)) }
 
     fun setReminderMinutes(minutes: Int) = update { it.copy(reminderMinutes = minutes) }
@@ -87,6 +90,7 @@ class PrayerSettingsViewModel @Inject constructor(
                 soundOption = current.adhanSounds[prayer] ?: AdhanSoundOption.Default,
                 volumePercent = current.adhanVolume,
                 soundPath = soundPath,
+                bundledSoundId = current.bundledAdhanSound,
             )
         }
     }

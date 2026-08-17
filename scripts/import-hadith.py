@@ -38,10 +38,12 @@ strategy accepts the APK size, and keep the curated sample as the default.
 from __future__ import annotations
 
 import argparse
+import gzip
 import hashlib
 import json
 import os
 import re
+import shutil
 import sys
 import time
 import urllib.request
@@ -120,6 +122,26 @@ def fetch_json(url: str, cache_dir: str):
     raise RuntimeError(f"failed to fetch {url}: {last_error}")
 
 
+def coerce_number(n):
+    """Normalize a source hadithnumber into an int for the app's Int? schema.
+
+    The source uses floats for sub-narrations (e.g. 402.2) and occasionally
+    strings; truncate the decimal suffix so the value always decodes as an int.
+    """
+    if n is None:
+        return None
+    if isinstance(n, bool):
+        return int(n)
+    if isinstance(n, int):
+        return n
+    if isinstance(n, float):
+        return int(n)
+    try:
+        return int(n)
+    except (TypeError, ValueError):
+        return None
+
+
 def pick_grade(grades) -> str:
     """Prefer Al-Albani's verdict, else the first available one."""
     if not grades:
@@ -145,18 +167,22 @@ def load_book(book_id: str, with_eng: bool, limit: int, cache_dir: str) -> tuple
 
     items = []
     for h in ara.get("hadiths", []):
-        number = h.get("hadithnumber")
+        raw_number = h.get("hadithnumber")
         if limit and len(items) >= limit:
             break
+        arabic_text = (h.get("text") or "").strip()
+        if not arabic_text:
+            # Section/header placeholders without a matn — not real hadiths.
+            continue
         book = (h.get("reference") or {}).get("book")
         chapter = sections.get(str(book), "") if book is not None else ""
         items.append(
             {
                 "collection": cfg["collection"],
                 "chapter": chapter or None,
-                "number": number,
-                "arabic": h.get("text", ""),
-                "translation": eng_by_number.get(number, "") if eng else "",
+                "number": coerce_number(raw_number),
+                "arabic": arabic_text,
+                "translation": eng_by_number.get(raw_number, "") if eng else "",
                 "grade": pick_grade(h.get("grades")),
                 "source": cfg["source_ar"],
             }
@@ -231,23 +257,36 @@ def main() -> int:
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
 
-    # فحص التكرار: re-open the written file and assert zero duplicate fingerprints.
+    # The repo ships the compressed form (hadith_full.json.gz, ~11 MB) so every
+    # build carries the full corpus without a 54 MB blob in git or the APK.
+    gz_path = args.out + ".gz"
+    with open(args.out, "rb") as src, gzip.open(gz_path, "wb", compresslevel=9) as dst:
+        shutil.copyfileobj(src, dst, length=1024 * 1024)
+
+    # فحص التكرار: re-open the written file and assert zero duplicates using
+    # the same keying as the dedupe step (per-book by default, or global only
+    # with --dedupe-across-books). Cross-book matn repeats are legitimate — a
+    # hadith often appears in both Bukhari and Muslim.
     with open(args.out, encoding="utf-8") as f:
         written = json.load(f)
-    fps = [fingerprint(h["arabic"]) for h in written["hadiths"]]
-    dup_count = len(fps) - len(set(fps))
+    keys = []
+    for h in written["hadiths"]:
+        fp = fingerprint(h["arabic"])
+        keys.append(fp if args.dedupe_across_books else (h["collection"], fp))
+    dup_count = len(keys) - len(set(keys))
     if dup_count:
         print(f"FAIL: {dup_count} duplicate fingerprints in the output file!", file=sys.stderr)
         return 4
 
     size_mb = os.path.getsize(args.out) / (1024 * 1024)
+    gz_mb = os.path.getsize(gz_path) / (1024 * 1024)
     print("\n=== import report ===")
     print("\n".join(report))
     print(f"  TOTAL kept: {len(written['hadiths'])} hadiths across {len(book_ids)} books")
     print(f"  Duplicate check: PASS (0 duplicates in {args.out})")
-    print(f"  Output size: {size_mb:.1f} MB - {args.out}")
-    if size_mb > 25:
-        print("  Warning: large corpus; keep it git-ignored or accept the APK size.")
+    print(f"  Output: {args.out} ({size_mb:.1f} MB) + {gz_path} ({gz_mb:.1f} MB compressed)")
+    print("  Commit the .gz asset so every build ships the full corpus; the raw")
+    print("  JSON stays git-ignored and is regenerated on re-import.")
     return 0
 
 

@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -18,6 +19,7 @@ import kotlinx.coroutines.launch
 import org.muslim.app.feature.quran.data.QuranAudioPlayer
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.data.QuranSupplementRepository
+import org.muslim.app.feature.quran.data.RecitationQueueItem
 import org.muslim.app.feature.quran.data.RecitationRepository
 import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.LastRead
@@ -28,6 +30,9 @@ import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.TafsirEntry
 import org.muslim.app.feature.quran.domain.Translation
 import javax.inject.Inject
+
+/** Playback range selected in the reader's recitation controls. */
+enum class RecitationRange { SingleAyah, FromAyahToEnd }
 
 @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
 @HiltViewModel
@@ -133,8 +138,24 @@ class QuranReaderViewModel @Inject constructor(
 
     val playbackState = audioPlayer.playbackState
     val currentAudioAyah = audioPlayer.currentAyah
+    val hasNextAyah = audioPlayer.hasNext
+    val hasPreviousAyah = audioPlayer.hasPrevious
+    val positionMs = audioPlayer.positionMs
+    val durationMs = audioPlayer.durationMs
+
+    /** Increments on each failed playback attempt (shown as a hint in the UI). */
+    val playbackErrorCount: StateFlow<Int> = audioPlayer.errorCount
 
     init {
+        // Poll the media position while the reader is open so the mini
+        // player's progress bar stays live.
+        viewModelScope.launch {
+            while (isActive) {
+                audioPlayer.refreshPosition()
+                kotlinx.coroutines.delay(250)
+            }
+        }
+
         // Track whether the whole surah is downloaded for the selected reciter.
         // isDownloaded() hops to Dispatchers.IO internally, so this collector
         // never blocks the main thread.
@@ -171,29 +192,74 @@ class QuranReaderViewModel @Inject constructor(
         }
     }
 
-    /** Plays (or repeats) the given ayah's downloaded audio. */
-    fun playAyah(ayah: Ayah, repeatCount: Int) {
+    /**
+     * Builds and plays a queue from the given ayahs, downloading any missing
+     * audio first (with progress). [repeatCount] is applied per ayah.
+     */
+    private fun playQueueOf(ayahs: List<Ayah>, repeatCount: Int) {
+        if (ayahs.isEmpty() || _downloading.value) return
         viewModelScope.launch {
             val reciter = selectedReciter.value
-            val file = recitationRepository.fileFor(reciter.id, ayah.surahNumber, ayah.globalNumber)
-            if (!file.exists()) {
-                // Not downloaded: fetch just this ayah on demand.
-                _downloading.value = true
-                val result = recitationRepository.downloadSurah(
-                    reciter,
-                    ayah.surahNumber,
-                    mapOf(ayah.numberInSurah to ayah.globalNumber),
+
+            _downloading.value = true
+            _downloadProgress.value = 0f
+            val result = recitationRepository.downloadSurah(
+                reciter,
+                surahNumber,
+                ayahs.associate { it.numberInSurah to it.globalNumber },
+            ) { progress -> _downloadProgress.value = progress }
+            _downloading.value = false
+            _downloadProgress.value = null
+            if (result !is org.muslim.app.core.network.FileDownloader.Result.Success) return@launch
+
+            val items = ayahs.map {
+                RecitationQueueItem(
+                    file = recitationRepository.fileFor(reciter.id, it.surahNumber, it.globalNumber),
+                    globalNumber = it.globalNumber,
                 )
-                _downloading.value = false
-                if (result !is org.muslim.app.core.network.FileDownloader.Result.Success) return@launch
             }
-            audioPlayer.play(file, ayah.globalNumber, repeatCount)
+            audioPlayer.playQueue(items, startIndex = 0, repeatCount = repeatCount)
         }
+    }
+
+    /**
+     * Continuous playback: plays [ayah] then auto-advances through the rest
+     * of the surah. Missing audio is downloaded (with progress) first, so
+     * playback then works fully offline.
+     */
+    fun playFromAyah(ayah: Ayah, repeatCount: Int) {
+        val ayahs = uiState.value.ayahs
+        val start = ayahs.indexOfFirst { it.globalNumber == ayah.globalNumber }.coerceAtLeast(0)
+        playQueueOf(ayahs.drop(start), repeatCount)
+    }
+
+    /** Plays only [ayah], repeating it [repeatCount] times (memorisation). */
+    fun playSingleAyah(ayah: Ayah, repeatCount: Int) {
+        playQueueOf(listOf(ayah), repeatCount)
+    }
+
+    /** Applies the reader's chosen [range] to playback starting at [ayah]. */
+    fun playAyahWithRange(ayah: Ayah, repeatCount: Int, range: RecitationRange) {
+        when (range) {
+            RecitationRange.SingleAyah -> playSingleAyah(ayah, repeatCount)
+            RecitationRange.FromAyahToEnd -> playFromAyah(ayah, repeatCount)
+        }
+    }
+
+    /**
+     * Plays the whole surah continuously from the first ayah to the last,
+     * applying the same per-ayah [repeatCount] before each advance.
+     */
+    fun playWholeSurah(repeatCount: Int) {
+        val first = uiState.value.ayahs.firstOrNull() ?: return
+        playFromAyah(first, repeatCount)
     }
 
     fun pausePlayback() = audioPlayer.pause()
     fun resumePlayback() = audioPlayer.resume()
     fun stopPlayback() = audioPlayer.stop()
+    fun nextAyah() = audioPlayer.next()
+    fun previousAyah() = audioPlayer.previous()
 
     // --- Bookmarks / last-read (existing) ---
 

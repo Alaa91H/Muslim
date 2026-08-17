@@ -1,6 +1,7 @@
 package org.muslim.app.feature.hadith.data
 
 import android.content.Context
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
@@ -28,6 +29,16 @@ class HadithPrefsRepository @Inject constructor(
     val seedVersion: Flow<Int> =
         context.hadithPrefsDataStore.data.map { it[Keys.SEED_VERSION] ?: 0 }
 
+    /** Whether the daily hadith notification is enabled (default: on). */
+    val dailyNotificationEnabled: Flow<Boolean> =
+        context.hadithPrefsDataStore.data.map { it[Keys.DAILY_NOTIFICATION] ?: true }
+
+    suspend fun setDailyNotificationEnabled(enabled: Boolean) {
+        context.hadithPrefsDataStore.edit { prefs ->
+            prefs[Keys.DAILY_NOTIFICATION] = enabled
+        }
+    }
+
     suspend fun setSeedVersion(version: Int) {
         context.hadithPrefsDataStore.edit { prefs ->
             prefs[Keys.SEED_VERSION] = version
@@ -53,5 +64,6 @@ class HadithPrefsRepository @Inject constructor(
     private object Keys {
         val BOOKMARKS = stringSetPreferencesKey("hadith_bookmarks")
         val SEED_VERSION = intPreferencesKey("hadith_seed_version")
+        val DAILY_NOTIFICATION = booleanPreferencesKey("hadith_daily_notification")
     }
 }

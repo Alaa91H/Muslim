@@ -12,6 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.core.common.prayer.AdhanPlaybackPlan
 import org.muslim.app.core.common.prayer.AdhanSoundOption
+import org.muslim.app.core.common.prayer.BundledAdhanSound
 import org.muslim.app.core.common.prayer.Prayer
 import java.io.File
 import javax.inject.Inject
@@ -44,8 +45,10 @@ class AdhanPlaybackService : Service() {
         val vibrateEnabled = intent?.getBooleanExtra(EXTRA_VIBRATE, true) ?: true
         val volumePercent = intent?.getIntExtra(EXTRA_VOLUME, 100)?.coerceIn(0, 100) ?: 100
         val soundPath = intent?.getStringExtra(EXTRA_SOUND_PATH)
+        val bundled = BundledAdhanSound.fromId(intent?.getStringExtra(EXTRA_BUNDLED_SOUND))
 
-        // The synthesised tone always ships with the app, so "Default" plays.
+        // A bundled real recording always ships with the app, so "Default"
+        // plays offline with no download.
         val plan = AdhanPlaybackPlan.plan(
             option = option,
             hasBundledSound = true,
@@ -64,7 +67,7 @@ class AdhanPlaybackService : Service() {
         when {
             plan.playSound && soundPath != null && File(soundPath).exists() ->
                 soundPlayer.playFile(File(soundPath), volumePercent, onFinished)
-            plan.playSound -> soundPlayer.playSynthesized(volumePercent, onFinished)
+            plan.playSound -> soundPlayer.playBundled(bundled, volumePercent, onFinished)
             plan.vibrate -> vibrate()
         }
 
@@ -98,6 +101,7 @@ class AdhanPlaybackService : Service() {
         private const val EXTRA_VIBRATE = "extra_vibrate"
         private const val EXTRA_VOLUME = "extra_volume"
         private const val EXTRA_SOUND_PATH = "extra_sound_path"
+        private const val EXTRA_BUNDLED_SOUND = "extra_bundled_sound"
         private const val MAX_PLAYBACK_MS = 5 * 60 * 1000L
 
         fun start(
@@ -107,6 +111,7 @@ class AdhanPlaybackService : Service() {
             soundOption: AdhanSoundOption = AdhanSoundOption.Default,
             volumePercent: Int = 100,
             soundPath: String? = null,
+            bundledSoundId: String = BundledAdhanSound.DEFAULT_ID,
         ) {
             val intent = Intent(context, AdhanPlaybackService::class.java)
                 .putExtra(EXTRA_PRAYER, prayer.name)
@@ -114,6 +119,7 @@ class AdhanPlaybackService : Service() {
                 .putExtra(EXTRA_VIBRATE, vibrate)
                 .putExtra(EXTRA_VOLUME, volumePercent)
                 .putExtra(EXTRA_SOUND_PATH, soundPath)
+                .putExtra(EXTRA_BUNDLED_SOUND, bundledSoundId)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 context.startForegroundService(intent)
             } else {

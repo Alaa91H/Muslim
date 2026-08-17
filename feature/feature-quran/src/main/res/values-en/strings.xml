@@ -47,6 +47,15 @@
     <string name="quran_download_surah">Download surah</string>
     <string name="quran_play_ayah">Play ayah</string>
     <string name="quran_repeat">Repeat</string>
+    <string name="quran_next_ayah">Next ayah</string>
+    <string name="quran_previous_ayah">Previous ayah</string>
+    <string name="quran_play_whole_surah">Play whole surah</string>
+    <string name="quran_mini_ayah">Ayah %1$d</string>
+    <string name="quran_stop_playback">Stop playback</string>
+    <string name="quran_play_range">Playback range</string>
+    <string name="quran_range_single_ayah">Single ayah</string>
+    <string name="quran_range_to_end">To end of surah</string>
+    <string name="quran_playback_error">Could not play audio — check your connection and try again</string>
 
     <!-- Downloads -->
     <string name="quran_downloads_title">Downloads</string>

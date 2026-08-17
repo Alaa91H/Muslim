@@ -75,6 +75,10 @@
     <string name="adhan_option_silent">صامت</string>
     <string name="settings_volume">مستوى الصوت</string>
     <string name="settings_preview">معاينة الأذان</string>
+    <string name="settings_bundled_adhan">صوت الأذان المضمّن (بدون تحميل)</string>
+    <string name="bundled_adhan_makkah">أذان مكة</string>
+    <string name="bundled_adhan_abdul_basit">أذان عبد الباسط</string>
+    <string name="bundled_adhan_minshawi">أذان المنشاوي</string>
     <string name="settings_dnd">عدم الإزعاج أثناء الصلاة</string>
     <string name="settings_dnd_toggle">تفعيل وضع عدم الإزعاج بعد الأذان</string>
     <string name="settings_dnd_duration">مدة الصمت</string>

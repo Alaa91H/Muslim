@@ -5,6 +5,8 @@
     <string name="hadith_search_hint">ابحث في الأحاديث…</string>
     <string name="hadith_all">الكل</string>
     <string name="hadith_of_the_day">حديث اليوم</string>
+    <string name="hadith_daily_notification">إشعار حديث اليوم</string>
+    <string name="hadith_daily_notification_desc">إشعار يومي بحديث من المجموعة</string>
     <string name="hadith_share">مشاركة</string>
     <string name="hadith_bookmark_add">إضافة علامة</string>
     <string name="hadith_bookmark_remove">إزالة العلامة</string>

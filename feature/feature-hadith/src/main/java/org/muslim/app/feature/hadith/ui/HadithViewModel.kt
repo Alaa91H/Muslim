@@ -40,6 +40,9 @@ class HadithViewModel @Inject constructor(
     val bookmarkedIds: StateFlow<Set<Long>> = prefsRepository.bookmarkedIds
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptySet())
 
+    val dailyNotificationEnabled: StateFlow<Boolean> = prefsRepository.dailyNotificationEnabled
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
+
     private val _daily = MutableStateFlow<Hadith?>(null)
     val daily: StateFlow<Hadith?> = _daily
 
@@ -58,10 +61,14 @@ class HadithViewModel @Inject constructor(
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     init {
-        // Schedule the optional daily hadith notification (idempotent, mirrors
-        // the Quran module's ayah-of-the-day pattern).
-        viewModelScope.launch { HadithOfTheDayScheduler.schedule(context) }
-        viewModelScope.launch { _daily.value = repository.hadithOfTheDay() }
+        // Schedule the daily hadith notification only when the user has it
+        // enabled (default on). The worker re-checks the flag as a guard.
+        viewModelScope.launch {
+            if (prefsRepository.dailyNotificationEnabled.first()) {
+                HadithOfTheDayScheduler.schedule(context)
+            }
+            _daily.value = repository.hadithOfTheDay()
+        }
     }
 
     fun setQuery(value: String) {
@@ -70,6 +77,17 @@ class HadithViewModel @Inject constructor(
 
     fun setCollection(collection: HadithCollection?) {
         _collection.value = collection
+    }
+
+    fun setDailyNotificationEnabled(enabled: Boolean) {
+        viewModelScope.launch {
+            prefsRepository.setDailyNotificationEnabled(enabled)
+            if (enabled) {
+                HadithOfTheDayScheduler.schedule(context)
+            } else {
+                HadithOfTheDayScheduler.cancel(context)
+            }
+        }
     }
 
     fun toggleBookmark(id: Long) {

@@ -41,6 +41,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                     soundOption = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
                     volumePercent = settings.adhanVolume,
                     soundPath = soundPath,
+                    bundledSoundId = settings.bundledAdhanSound,
                 )
                 // Quiet notifications during the prayer (user-configurable).
                 if (settings.dndEnabled) {

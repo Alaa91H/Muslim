@@ -5,6 +5,8 @@
     <string name="hadith_search_hint">Search hadiths…</string>
     <string name="hadith_all">All</string>
     <string name="hadith_of_the_day">Hadith of the day</string>
+    <string name="hadith_daily_notification">Daily hadith notification</string>
+    <string name="hadith_daily_notification_desc">Receive a hadith every day</string>
     <string name="hadith_share">Share</string>
     <string name="hadith_bookmark_add">Add bookmark</string>
     <string name="hadith_bookmark_remove">Remove bookmark</string>

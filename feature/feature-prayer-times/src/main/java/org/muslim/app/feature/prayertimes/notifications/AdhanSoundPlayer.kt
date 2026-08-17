@@ -5,16 +5,19 @@ import android.media.AudioAttributes
 import android.media.AudioFormat
 import android.media.AudioTrack
 import android.media.MediaPlayer
+import android.net.Uri
 import dagger.hilt.android.qualifiers.ApplicationContext
+import org.muslim.app.core.common.prayer.BundledAdhanSound
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Plays the adhan for [AdhanPlaybackService]: either the bundled synthesised
- * tone ([AdhanSynthesizer]) or a user-provided/downloaded audio file
- * ([AdhanSoundRepository]). Both honour the configured master volume with a
- * gradual fade-in (PROJECT_PROMPT.md §6: Fade-in تدريجي).
+ * Plays the adhan for [AdhanPlaybackService]: a bundled real recording
+ * ([BundledAdhanSound] shipped in `res/raw` — plays offline with no download),
+ * a user-provided/downloaded audio file ([AdhanSoundRepository]), or the
+ * synthesised tone ([AdhanSynthesizer]) as a last resort. All honour the
+ * configured master volume with a gradual fade-in (PROJECT_PROMPT.md §6).
  */
 @Singleton
 class AdhanSoundPlayer @Inject constructor(
@@ -23,6 +26,37 @@ class AdhanSoundPlayer @Inject constructor(
 
     private var mediaPlayer: MediaPlayer? = null
     private var audioTrack: AudioTrack? = null
+
+    /** Plays a bundled recording (shipped in `res/raw`, always offline). */
+    fun playBundled(sound: BundledAdhanSound, volumePercent: Int, onFinished: () -> Unit) {
+        val resId = bundledSoundRes(sound)
+        if (resId == 0) {
+            // Resource missing (should never happen — ships with the app).
+            playSynthesized(volumePercent, onFinished)
+            return
+        }
+        stop()
+        val player = MediaPlayer()
+        mediaPlayer = player
+        player.setAudioAttributes(
+            AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_ALARM)
+                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                .build(),
+        )
+        player.setDataSource(
+            context,
+            Uri.parse("android.resource://${context.packageName}/$resId"),
+        )
+        player.setOnPreparedListener { p ->
+            p.setVolume(0f, 0f)
+            p.start()
+            fadeIn(p, volumePercent / 100f)
+        }
+        player.setOnCompletionListener { onFinished() }
+        player.setOnErrorListener { _, _, _ -> onFinished(); true }
+        runCatching { player.prepare() }
+    }
 
     /** Plays [file] (user-picked or downloaded). */
     fun playFile(file: File, volumePercent: Int, onFinished: () -> Unit) {
@@ -127,6 +161,12 @@ class AdhanSoundPlayer @Inject constructor(
             }
         }
         android.os.Handler(android.os.Looper.getMainLooper()).post(runnable)
+    }
+
+    private fun bundledSoundRes(sound: BundledAdhanSound): Int = when (sound) {
+        BundledAdhanSound.Makkah -> org.muslim.app.feature.prayertimes.R.raw.adhan_makkah
+        BundledAdhanSound.AbdulBasit -> org.muslim.app.feature.prayertimes.R.raw.adhan_abdul_basit
+        BundledAdhanSound.Minshawi -> org.muslim.app.feature.prayertimes.R.raw.adhan_minshawi
     }
 
     private companion object {
