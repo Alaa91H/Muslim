@@ -46,6 +46,14 @@ class NotificationSettingsViewModel @Inject constructor(
         prefsRepository.quietHours
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), QuietHours())
 
+    /**
+     * Whether the permanent next-adhan notification shows the missed-adhan
+     * line (user can hide it; defaults to true).
+     */
+    val showMissedAdhan: StateFlow<Boolean> =
+        prefsRepository.showMissedAdhan
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
+
     /** True when the app may post notifications (always true below Android 13). */
     fun notificationPermissionGranted(): Boolean =
         Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
@@ -70,6 +78,10 @@ class NotificationSettingsViewModel @Inject constructor(
 
     fun setBadgeEnabled(category: NotificationCategory, enabled: Boolean) = launch {
         prefsRepository.setBadgeEnabled(category, enabled)
+    }
+
+    fun setShowMissedAdhan(show: Boolean) = launch {
+        prefsRepository.setShowMissedAdhan(show)
     }
 
     fun setQuietHoursEnabled(enabled: Boolean) = launch {
@@ -115,6 +127,8 @@ class NotificationSettingsViewModel @Inject constructor(
         NotificationCategory.Ramadan -> R.string.notif_category_ramadan
         NotificationCategory.Adhkar -> R.string.notif_category_adhkar
         NotificationCategory.HadithDaily -> R.string.notif_category_hadith
+        NotificationCategory.PrayerCountdown -> R.string.notif_category_prayer_countdown
+        NotificationCategory.Recitation -> R.string.notif_category_recitation
     }
 
     private companion object {

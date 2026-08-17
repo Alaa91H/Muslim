@@ -20,6 +20,7 @@ import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.SelectedLocation
 import org.muslim.app.feature.prayertimes.domain.City
 import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
+import org.muslim.app.feature.prayertimes.notifications.NextAdhanService
 import org.muslim.app.feature.prayertimes.widget.PrayerTimesWidget
 import java.util.TimeZone
 import javax.inject.Inject
@@ -114,6 +115,8 @@ class LocationViewModel @Inject constructor(
             }
             repository.save(settings)
             scheduler.schedule(settings)
+            // The countdown notification must reflect the new location.
+            NextAdhanService.start(context)
             // The home-screen widget shows the next prayer for this location.
             PrayerTimesWidget().updateAll(context)
             messages.value = Message.Saved

@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
-"""Import the complete Six Books of hadith into the app's corpus format.
+"""Import the complete hadith corpus (Six Books + Arba'in + Riyad as-Salihin).
 
-Source (licensed, open):
-  the hadith-api project — github.com/fawazahmed0/hadith-api — served via the
-  jsDelivr CDN (https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/).
-  The API itself is MIT-licensed; the classical Arabic texts are public-domain
-  works; the English translations keep their original copyrights (attribution
-  in the source project). The official Sunnah.com API (api.sunnah.com) is an
-  alternative source for the Arabic text (free for personal/research use with a
-  free API key).
+Sources (licensed, open):
+  * The Six Books — the hadith-api project, github.com/fawazahmed0/hadith-api,
+    served via the jsDelivr CDN
+    (https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/). The API
+    itself is MIT-licensed; the classical Arabic texts are public-domain works;
+    the English translations keep their original copyrights (attribution in the
+    source project).
+  * Arba'in an-Nawawiyyah + Riyad as-Salihin — the hadith-json project,
+    github.com/AhmedBaset/hadith-json (Arabic + English scraped from
+    Sunnah.com). The classical texts are public-domain works.
 
 The pipeline:
   1. Fetches `ara-{book}.json` (+ `eng-{book}.json` unless --no-eng) for each
-     requested book of the Six Books.
+     requested book of the Six Books, plus the Nawawi 40 / Riyad as-Salihin
+     packs (skipped with --no-extra).
   2. Maps each hadith into the app schema
      ({collection, chapter, number, arabic, translation, grade, source}).
   3. Deduplicates by fingerprinting the diacritic-normalized Arabic text
@@ -24,20 +27,25 @@ The pipeline:
      prints a report (fetched / kept / duplicates, per book + total size).
 
 Usage:
-  python scripts/import-hadith.py                       # all six books
+  python scripts/import-hadith.py                       # Six Books + Nawawi + Riyad
   python scripts/import-hadith.py --books bukhari,muslim
   python scripts/import-hadith.py --limit 25            # smoke test
+  python scripts/import-hadith.py --no-extra            # Six Books only
   python scripts/import-hadith.py --no-eng --out /tmp/hadith.json
   python scripts/import-hadith.py --self-check          # verify dedupe logic
 
-Note: the full Six Books are ~34k hadiths; the resulting JSON is tens of MB.
-The output file is git-ignored by default — only bundle it if your release
+Note: the corpus is ~35.7k hadiths; the resulting JSON is tens of MB. The
+output file is git-ignored by default — only bundle it if your release
 strategy accepts the APK size, and keep the curated sample as the default.
 """
 
 from __future__ import annotations
 
 import argparse
+import sys
+# Windows consoles default to cp1252; force UTF-8 so the Arabic report prints.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 import hashlib
 import json
 import os
@@ -62,6 +70,22 @@ BOOKS = {
     "tirmidhi": {"collection": "tirmidhi", "source_ar": "جامع الترمذي"},
     "nasai": {"collection": "nasai", "source_ar": "سنن النسائي"},
     "ibnmajah": {"collection": "ibnmajah", "source_ar": "سنن ابن ماجه"},
+}
+
+# Arba'in an-Nawawiyyah + Riyad as-Salihin from AhmedBaset/hadith-json
+# (Arabic + English scraped from Sunnah.com; classical texts are public-domain).
+EXTRA_BASE = "https://raw.githubusercontent.com/AhmedBaset/hadith-json/main/"
+EXTRA_BOOKS = {
+    "nawawi40": {
+        "collection": "nawawi40",
+        "source_ar": "الأربعون النووية",
+        "path": "db/by_book/forties/nawawi40.json",
+    },
+    "riyad": {
+        "collection": "riyad",
+        "source_ar": "رياض الصالحين",
+        "path": "db/by_book/other_books/riyad_assalihin.json",
+    },
 }
 
 # Harakat / tashkeel / tatweel / waqf marks / special characters stripped for
@@ -188,6 +212,53 @@ def load_book(book_id: str, with_eng: bool, limit: int, cache_dir: str) -> tuple
     return items, ara.get("metadata", {}).get("name", book_id)
 
 
+def load_extra_book(book_id: str, cache_dir: str) -> tuple[list, str]:
+    """Loads a non-Six-Books collection from AhmedBaset/hadith-json."""
+    cfg = EXTRA_BOOKS[book_id]
+    data = fetch_json(EXTRA_BASE + cfg["path"], cache_dir)
+    chapters = data.get("chapters") or []
+    items = []
+    for h in data.get("hadiths", []):
+        arabic_text = (h.get("arabic") or "").strip()
+        if not arabic_text:
+            continue
+        eng = h.get("english") or {}
+        narrator = (eng.get("narrator") or "").strip()
+        text = (eng.get("text") or "").strip()
+        translation = "\n".join(part for part in (narrator, text) if part)
+        chapter = None
+        cid = h.get("chapterId")
+        if isinstance(chapters, dict):
+            raw = chapters.get(str(cid))
+            chapter = _chapter_name(raw)
+        elif isinstance(chapters, list) and isinstance(cid, int) and 0 <= cid < len(chapters):
+            chapter = _chapter_name(chapters[cid])
+        items.append(
+            {
+                "collection": cfg["collection"],
+                "chapter": chapter or None,
+                "number": coerce_number(h.get("idInBook")),
+                "arabic": arabic_text,
+                "translation": translation,
+                "grade": "—",
+                "source": cfg["source_ar"],
+            }
+        )
+    title = (data.get("metadata") or {}).get("arabic", {}).get("title", book_id)
+    return items, title
+
+
+def _chapter_name(raw) -> str | None:
+    """Chapter entries are dicts ({id, bookId, arabic, english}) in the
+    extra-books source; the app schema stores a single display string. Use the
+    English name to match the Six Books' English section names."""
+    if isinstance(raw, str):
+        return raw or None
+    if isinstance(raw, dict):
+        return raw.get("english") or raw.get("arabic") or None
+    return None
+
+
 def run_self_check() -> None:
     """Validates the dedupe + normalization logic on synthetic fixtures."""
     a = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ"
@@ -217,7 +288,8 @@ def main() -> int:
     parser.add_argument("--out", default=DEFAULT_OUT, help="output JSON path")
     parser.add_argument("--cache-dir", default=DEFAULT_CACHE, help="download cache dir")
     parser.add_argument("--self-check", action="store_true", help="run fixture checks and exit")
-    parser.add_argument("--version", type=int, default=10, help="corpus version (bump to force reseed)")
+    parser.add_argument("--no-extra", action="store_true", help="skip Nawawi 40 + Riyad as-Salihin")
+    parser.add_argument("--version", type=int, default=11, help="corpus version (bump to force reseed)")
     args = parser.parse_args()
 
     if args.self_check:
@@ -239,14 +311,22 @@ def main() -> int:
         report.append(f"  {book_id:10s} {name:24s} fetched={len(items):6d} kept={len(kept):6d} dupes={dupes}")
         print(f"  {book_id}: {len(items)} fetched, {len(kept)} kept, {dupes} duplicates skipped")
 
+    if not args.no_extra:
+        for extra_id in EXTRA_BOOKS:
+            items, name = load_extra_book(extra_id, cache_dir=args.cache_dir)
+            kept, dupes = dedupe(items, across_books=args.dedupe_across_books)
+            all_items.extend(kept)
+            report.append(f"  {extra_id:10s} {name:24s} fetched={len(items):6d} kept={len(kept):6d} dupes={dupes}")
+            print(f"  {extra_id}: {len(items)} fetched, {len(kept)} kept, {dupes} duplicates skipped")
+
     if not all_items:
         print("nothing imported — aborting", file=sys.stderr)
         return 3
 
     out = {
-        "note": "Complete Six Books imported from the licensed hadith-api project "
-        "(github.com/fawazahmed0/hadith-api). Bump 'version' when regenerating so "
-        "installed copies reseed.",
+        "note": "Complete Six Books (fawazahmed0/hadith-api) plus Arba'in "
+        "an-Nawawiyyah and Riyad as-Salihin (AhmedBaset/hadith-json). Bump "
+        "'version' when regenerating so installed copies reseed.",
         "version": args.version,
         "hadiths": all_items,
     }
@@ -273,7 +353,8 @@ def main() -> int:
     size_mb = os.path.getsize(args.out) / (1024 * 1024)
     print("\n=== import report ===")
     print("\n".join(report))
-    print(f"  TOTAL kept: {len(written['hadiths'])} hadiths across {len(book_ids)} books")
+    total_books = len(book_ids) + (0 if args.no_extra else len(EXTRA_BOOKS))
+    print(f"  TOTAL kept: {len(written['hadiths'])} hadiths across {total_books} collections")
     print(f"  Duplicate check: PASS (0 duplicates in {args.out})")
     print(f"  Output size: {size_mb:.1f} MB - {args.out}")
     return 0

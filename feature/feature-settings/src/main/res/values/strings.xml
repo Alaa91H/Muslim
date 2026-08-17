@@ -110,9 +110,14 @@
     <string name="notif_importance_default">متوسطة</string>
     <string name="notif_importance_high">عالية</string>
     <string name="notif_badge">شارة أيقونة التطبيق</string>
+    <string name="notif_show_missed_adhan">إظهار الأذان الفائت</string>
     <string name="notif_test">إرسال إشعار تجريبي</string>
     <string name="notif_test_body">هذا إشعار تجريبي من إعدادات الإشعارات.</string>
     <string name="notif_details">تفاصيل وتخصيص</string>
     <string name="notif_time_picker_confirm">موافق</string>
     <string name="notif_time_picker_cancel">إلغاء</string>
+    <string name="notif_category_prayer_countdown">عداد الأذان التالي</string>
+    <string name="notif_category_prayer_countdown_desc">إشعار دائم يعرض الأذان التالي والوقت المتبقي والأذان الفائت</string>
+    <string name="notif_category_recitation">التحكم في التلاوة</string>
+    <string name="notif_category_recitation_desc">إشعار بأزرار تشغيل/إيقاف/إغلاق أثناء تلاوة القرآن</string>
 </resources>

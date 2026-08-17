@@ -8,6 +8,8 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -17,6 +19,8 @@ import org.muslim.app.feature.quran.data.DownloadStatus
 import org.muslim.app.feature.quran.data.DownloadTaskUi
 import org.muslim.app.feature.quran.data.QuranDownloadManager
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
+import org.muslim.app.feature.quran.data.RecitationRepository
+import org.muslim.app.feature.quran.data.ReciterDownloadState
 import org.muslim.app.feature.quran.domain.QuranRepository
 import org.muslim.app.feature.quran.domain.Reciter
 import org.muslim.app.feature.quran.domain.Surah
@@ -27,6 +31,7 @@ class QuranDownloadsViewModel @Inject constructor(
     private val repository: QuranRepository,
     private val prefsRepository: QuranPrefsRepository,
     private val manager: QuranDownloadManager,
+    private val recitationRepository: RecitationRepository,
 ) : ViewModel() {
 
     val reciters: List<Reciter> = Reciter.Bundled
@@ -73,7 +78,10 @@ class QuranDownloadsViewModel @Inject constructor(
 
     fun setAyahInput(value: String) { _ayahInput.value = value.filter { it.isDigit() }.take(3) }
 
-    fun selectReciter(id: String) = viewModelScope.launch { prefsRepository.setSelectedReciterId(id) }
+    fun selectReciter(id: String) = viewModelScope.launch {
+        prefsRepository.setSelectedReciterId(id)
+        refreshReciterState()
+    }
 
     fun startDownload() {
         val reciter = selectedReciter.value
@@ -97,6 +105,7 @@ class QuranDownloadsViewModel @Inject constructor(
                             globalNumber = null,
                             label = "سورة ${meta.arabicName}",
                             totalBytes = total,
+                            nightOnly = nightOnly.value,
                         )
                     )
                 }
@@ -114,6 +123,7 @@ class QuranDownloadsViewModel @Inject constructor(
                             globalNumber = ayah.globalNumber,
                             label = "الآية $surahNumber:$ayahNumber",
                             totalBytes = reciter.estimatedBytesPerAyah(),
+                            nightOnly = nightOnly.value,
                         )
                     )
                 }
@@ -128,6 +138,7 @@ class QuranDownloadsViewModel @Inject constructor(
                             globalNumber = null,
                             label = "القرآن الكريم كاملًا",
                             totalBytes = reciter.estimatedBytesPerAyah() * TOTAL_AYAHS,
+                            nightOnly = nightOnly.value,
                         )
                     )
                 }
@@ -136,6 +147,65 @@ class QuranDownloadsViewModel @Inject constructor(
     }
 
     fun cancel(id: String) = manager.cancel(id)
+
+    init {
+        // Refresh the per-reciter scan whenever a task finishes (or starts),
+        // so the "downloaded" section reflects completed transfers.
+        viewModelScope.launch {
+            manager.tasks.collect { list ->
+                if (list.any { it.status == DownloadStatus.Completed || it.status == DownloadStatus.Failed }) {
+                    refreshReciterState()
+                }
+            }
+        }
+    }
+
+    // --- Night-only downloads (التحميل الليلي) ---
+
+    val nightOnly: StateFlow<Boolean> = prefsRepository.nightDownloadsEnabled
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
+
+    val nightWindowStart: StateFlow<Int> = prefsRepository.nightDownloadStart
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), QuranPrefsRepository.DEFAULT_NIGHT_START)
+
+    val nightWindowEnd: StateFlow<Int> = prefsRepository.nightDownloadEnd
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), QuranPrefsRepository.DEFAULT_NIGHT_END)
+
+    fun setNightOnly(enabled: Boolean) = viewModelScope.launch {
+        prefsRepository.setNightDownloadsEnabled(enabled)
+    }
+
+    // --- Per-reciter downloaded state (what is already on disk) ---
+
+    private val _refreshTrigger = MutableStateFlow(0)
+
+    /** Scans disk whenever the selected reciter changes (reactive). */
+    val reciterState: StateFlow<ReciterDownloadState?> = combine(
+        selectedReciterId, _refreshTrigger,
+    ) { id, _ -> id }
+        .flatMapLatest { id ->
+            flow { emit(recitationRepository.downloadState(id)) }
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
+
+    /** Deletes one downloaded surah for the selected reciter. */
+    fun deleteSurah(surahNumber: Int) = viewModelScope.launch {
+        val reciter = selectedReciter.value
+        recitationRepository.deleteSurah(reciter.id, surahNumber)
+        refreshReciterState()
+    }
+
+    /** Deletes every downloaded surah for the selected reciter. */
+    fun deleteReciter() = viewModelScope.launch {
+        val reciter = selectedReciter.value
+        recitationRepository.deleteReciter(reciter.id)
+        refreshReciterState()
+    }
+
+    /** Force a rescan (after a delete or a finished download). */
+    fun refreshReciterState() {
+        _refreshTrigger.value = _refreshTrigger.value + 1
+    }
 
     private fun estimate(
         reciter: Reciter,

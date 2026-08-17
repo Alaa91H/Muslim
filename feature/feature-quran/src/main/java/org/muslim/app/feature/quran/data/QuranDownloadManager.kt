@@ -15,7 +15,14 @@ import javax.inject.Singleton
 enum class DownloadScope { Ayah, Surah, FullQuran }
 
 /** One queued/running/finished download shown in the downloads screen. */
-enum class DownloadStatus { Queued, Downloading, Completed, Failed }
+enum class DownloadStatus {
+    Queued,
+    Downloading,
+    /** Held until the night-download window opens (التحميل الليلي). */
+    WaitingNight,
+    Completed,
+    Failed,
+}
 
 /** A user-initiated recitation download request. */
 data class DownloadRequest(
@@ -27,6 +34,8 @@ data class DownloadRequest(
     val globalNumber: Int?,
     val label: String,
     val totalBytes: Long,
+    /** Defer the actual transfer until the night window (التحميل الليلي). */
+    val nightOnly: Boolean = false,
 )
 
 /** Observable snapshot of one download task. */
@@ -92,7 +101,13 @@ class QuranDownloadManager @Inject constructor(
         _tasks.update { list -> list.map { if (it.id == id) transform(it) else it } }
     }
 
-    private fun upsert(task: DownloadTaskUi) {
+    /** Adds or replaces [task] (used when a night-held task is re-delivered). */
+    fun upsert(task: DownloadTaskUi) {
         _tasks.update { list -> list.filterNot { it.id == task.id } + task }
+    }
+
+    /** Removes a task from the observable list (e.g. after deletion). */
+    fun remove(id: String) {
+        _tasks.update { list -> list.filterNot { it.id == id } }
     }
 }

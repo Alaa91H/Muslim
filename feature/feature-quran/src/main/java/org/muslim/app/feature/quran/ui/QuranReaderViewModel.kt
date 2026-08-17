@@ -8,11 +8,14 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -24,6 +27,7 @@ import org.muslim.app.feature.quran.data.DownloadScope
 import org.muslim.app.feature.quran.data.QuranDownloadManager
 import org.muslim.app.feature.quran.data.RecitationQueueItem
 import org.muslim.app.feature.quran.data.RecitationRepository
+import org.muslim.app.feature.quran.data.ReciterDownloadState
 import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.LastRead
 import org.muslim.app.feature.quran.domain.QuranRepository
@@ -35,7 +39,7 @@ import org.muslim.app.feature.quran.domain.Translation
 import javax.inject.Inject
 
 /** Playback range selected in the reader's recitation controls. */
-enum class RecitationRange { SingleAyah, FromAyahToEnd }
+enum class RecitationRange { SingleAyah, FromAyahToEnd, WholeSurah }
 
 @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
 @HiltViewModel
@@ -49,7 +53,11 @@ class QuranReaderViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
-    val surahNumber: Int = savedStateHandle["surahNumber"] ?: 1
+    private val initialSurahNumber: Int = savedStateHandle["surahNumber"] ?: 1
+
+    /** Current surah (mutable so continuous playback can auto-advance). */
+    private val _surahNumber = MutableStateFlow(initialSurahNumber)
+    val surahNumber: StateFlow<Int> = _surahNumber.asStateFlow()
 
     /** Global ayah number to scroll to (search/bookmarks/last-read), -1 = none. */
     val initialAyahGlobal: Int = savedStateHandle["ayah"] ?: -1
@@ -64,8 +72,8 @@ class QuranReaderViewModel @Inject constructor(
     val currentAyah = MutableStateFlow<Ayah?>(null)
 
     val uiState: StateFlow<UiState> = combine(
-        repository.observeSurahMetadata(surahNumber),
-        repository.observeSurah(surahNumber),
+        _surahNumber.flatMapLatest { repository.observeSurahMetadata(it) },
+        _surahNumber.flatMapLatest { repository.observeSurah(it) },
     ) { surah, ayahs ->
         UiState(loading = false, surah = surah, ayahs = ayahs)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), UiState())
@@ -104,26 +112,63 @@ class QuranReaderViewModel @Inject constructor(
 
     // --- Meaning + tafsir (Phase C3/C4) ---
 
-    /** Translations + tafsir of the currently viewed ayah, when installed. */
-    val supplements: StateFlow<SupplementUi> = currentAyah
-        .flatMapLatest { ayah ->
-            if (ayah == null) {
-                kotlinx.coroutines.flow.flowOf(SupplementUi())
+    /**
+     * Translations + tafsir of the currently viewed ayah, when installed.
+     * Honors the reader's meanings/tafsir controls: the panel hides when
+     * [supplementEnabled] is off, and translations are filtered to the chosen
+     * language ("auto" resolves to the current app language).
+     */
+    val supplements: StateFlow<SupplementUi> = combine(
+        currentAyah,
+        prefsRepository.supplementEnabled,
+        prefsRepository.supplementLanguage,
+    ) { ayah, enabled, language -> Triple(ayah, enabled, language) }
+        .flatMapLatest { (ayah, enabled, language) ->
+            if (ayah == null || !enabled) {
+                flowOf(SupplementUi())
             } else {
                 combine(
                     supplementRepository.observeTranslations(ayah.globalNumber),
                     supplementRepository.observeTafsir(ayah.globalNumber),
                 ) { translations, tafsir ->
-                    SupplementUi(translations = translations, tafsir = tafsir)
+                    val resolved = if (language == QuranPrefsRepository.AUTO_LANGUAGE) {
+                        java.util.Locale.getDefault().language
+                    } else {
+                        language
+                    }
+                    SupplementUi(
+                        translations = translations.filter { it.language == resolved },
+                        tafsir = tafsir,
+                    )
                 }
             }
         }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), SupplementUi())
 
+    /** Installed translation languages, for the meanings panel language picker. */
+    val availableSupplementLanguages: StateFlow<List<String>> =
+        supplementRepository.observeLanguages()
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    val supplementEnabled: StateFlow<Boolean> = prefsRepository.supplementEnabled
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
+
+    val supplementLanguage: StateFlow<String> = prefsRepository.supplementLanguage
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), QuranPrefsRepository.AUTO_LANGUAGE)
+
+    fun setSupplementEnabled(enabled: Boolean) = viewModelScope.launch {
+        prefsRepository.setSupplementEnabled(enabled)
+    }
+
+    fun setSupplementLanguage(language: String) = viewModelScope.launch {
+        prefsRepository.setSupplementLanguage(language)
+    }
+
     data class SupplementUi(
         val translations: List<Translation> = emptyList(),
         val tafsir: List<TafsirEntry> = emptyList(),
     )
+
 
     // --- Recitation (Phase C5/C7) ---
 
@@ -134,11 +179,47 @@ class QuranReaderViewModel @Inject constructor(
         .map { id -> Reciter.Bundled.firstOrNull { it.id == id } ?: Reciter.Bundled.first() }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), Reciter.Bundled.first())
 
+    /**
+     * What is downloaded for the selected reciter (per-reciter state shown in
+     * the reader's download dialog instead of only the current surah's flag).
+     */
+    val reciterDownloadState: StateFlow<ReciterDownloadState?> = prefsRepository.selectedReciterId
+        .flatMapLatest { id ->
+            flow { emit(recitationRepository.downloadState(id)) }
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
+
+    /** Deletes the downloaded audio of [surahNumber] for the selected reciter. */
+    fun deleteDownloadedSurah(surahNumber: Int) = viewModelScope.launch {
+        recitationRepository.deleteSurah(selectedReciter.value.id, surahNumber)
+        refreshDownloadedFlag()
+    }
+
+    /** Re-checks whether the current surah is fully downloaded. */
+    private fun refreshDownloadedFlag() {
+        viewModelScope.launch {
+            val reciterId = selectedReciter.value.id
+            val ayahs = uiState.value.ayahs
+            _downloaded.value = ayahs.isNotEmpty() && ayahs.all { ayah ->
+                recitationRepository.isDownloaded(reciterId, _surahNumber.value, ayah.globalNumber)
+            }
+        }
+    }
+
     private val _downloadProgress = MutableStateFlow<Float?>(null)
     val downloadProgress: StateFlow<Float?> = _downloadProgress
 
     private val _downloading = MutableStateFlow(false)
     val downloading: StateFlow<Boolean> = _downloading
+
+    /** Continuous playback stops after surah 114 (instead of wrapping). */
+    private val _continuousStopAtEnd = MutableStateFlow(false)
+    val continuousStopAtEnd: StateFlow<Boolean> = _continuousStopAtEnd.asStateFlow()
+
+    fun setContinuousStopAtEnd(stopAtEnd: Boolean) {
+        _continuousStopAtEnd.value = stopAtEnd
+        viewModelScope.launch { prefsRepository.setContinuousStopAtEnd(stopAtEnd) }
+    }
 
     val playbackState = audioPlayer.playbackState
     val currentAudioAyah = audioPlayer.currentAyah
@@ -151,6 +232,11 @@ class QuranReaderViewModel @Inject constructor(
     val playbackErrorCount: StateFlow<Int> = audioPlayer.errorCount
 
     init {
+        // Hydrate the stop-at-end mirror from the persisted value.
+        viewModelScope.launch {
+            _continuousStopAtEnd.value = prefsRepository.continuousStopAtEnd.first()
+        }
+
         // Poll the media position while the reader is open so the mini
         // player's progress bar stays live.
         viewModelScope.launch {
@@ -164,12 +250,13 @@ class QuranReaderViewModel @Inject constructor(
         // isDownloaded() hops to Dispatchers.IO internally, so this collector
         // never blocks the main thread.
         viewModelScope.launch {
-            combine(prefsRepository.selectedReciterId, repository.observeSurah(surahNumber)) { id, ayahs ->
-                id to ayahs
-            }.collect { (reciterId, ayahs) ->
+            combine(
+                prefsRepository.selectedReciterId,
+                _surahNumber.flatMapLatest { repository.observeSurah(it) },
+            ) { id, ayahs -> id to ayahs }.collect { (reciterId, ayahs) ->
                 val reciter = Reciter.Bundled.firstOrNull { it.id == reciterId } ?: Reciter.Bundled.first()
                 _downloaded.value = ayahs.isNotEmpty() && ayahs.all { ayah ->
-                    recitationRepository.isDownloaded(reciter.id, surahNumber, ayah.globalNumber)
+                    recitationRepository.isDownloaded(reciter.id, _surahNumber.value, ayah.globalNumber)
                 }
             }
         }
@@ -188,7 +275,7 @@ class QuranReaderViewModel @Inject constructor(
             _downloadProgress.value = 0f
             val reciter = selectedReciter.value
             val mapping = ayahs.associate { it.numberInSurah to it.globalNumber }
-            recitationRepository.downloadSurah(reciter, surahNumber, mapping) { progress ->
+            recitationRepository.downloadSurah(reciter, surahNumber.value, mapping) { progress ->
                 _downloadProgress.value = progress
             }
             _downloading.value = false
@@ -238,7 +325,11 @@ class QuranReaderViewModel @Inject constructor(
      * Builds and plays a queue from the given ayahs, downloading any missing
      * audio first (with progress). [repeatCount] is applied per ayah.
      */
-    private fun playQueueOf(ayahs: List<Ayah>, repeatCount: Int) {
+    private fun playQueueOf(
+        ayahs: List<Ayah>,
+        repeatCount: Int,
+        continuous: Boolean = false,
+    ) {
         if (ayahs.isEmpty() || _downloading.value) return
         viewModelScope.launch {
             val reciter = selectedReciter.value
@@ -247,12 +338,13 @@ class QuranReaderViewModel @Inject constructor(
             _downloadProgress.value = 0f
             val result = recitationRepository.downloadSurah(
                 reciter,
-                surahNumber,
+                surahNumber.value,
                 ayahs.associate { it.numberInSurah to it.globalNumber },
             ) { progress -> _downloadProgress.value = progress }
             _downloading.value = false
             _downloadProgress.value = null
             if (result !is org.muslim.app.core.network.FileDownloader.Result.Success) return@launch
+            if (!isActive) return@launch
 
             val items = ayahs.map {
                 RecitationQueueItem(
@@ -260,7 +352,36 @@ class QuranReaderViewModel @Inject constructor(
                     globalNumber = it.globalNumber,
                 )
             }
-            audioPlayer.playQueue(items, startIndex = 0, repeatCount = repeatCount)
+            val continuousMode = continuous || repeatCount <= 0
+            val effectiveRepeat = if (continuousMode) 1 else repeatCount.coerceAtLeast(1)
+            audioPlayer.onQueueCompleted =
+                if (continuousMode) { { advanceToNextSurah() } } else null
+            audioPlayer.playQueue(
+                items,
+                startIndex = 0,
+                repeatCount = effectiveRepeat,
+                continuous = continuousMode,
+            )
+        }
+    }
+
+    /**
+     * Continuous mode ("without stopping"): the queue just finished, so move
+     * to the next surah and keep playing, wrapping from 114 back to 1 so the
+     * recitation never stops. Called from the audio player's completion path.
+     */
+    private fun advanceToNextSurah() {
+        if (_surahNumber.value >= 114 && _continuousStopAtEnd.value) {
+            // Reached the end of the mushaf and the user chose to stop there
+            // instead of wrapping back to Al-Fatiha.
+            audioPlayer.stop()
+            return
+        }
+        val next = if (_surahNumber.value >= 114) 1 else _surahNumber.value + 1
+        _surahNumber.value = next
+        viewModelScope.launch {
+            val ayahs = repository.observeSurah(next).first()
+            playQueueOf(ayahs, repeatCount = 1, continuous = true)
         }
     }
 
@@ -285,6 +406,7 @@ class QuranReaderViewModel @Inject constructor(
         when (range) {
             RecitationRange.SingleAyah -> playSingleAyah(ayah, repeatCount)
             RecitationRange.FromAyahToEnd -> playFromAyah(ayah, repeatCount)
+            RecitationRange.WholeSurah -> playWholeSurah(repeatCount)
         }
     }
 

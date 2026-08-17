@@ -10,6 +10,7 @@
     <!-- Foreground service delivering the Adhan (mediaPlayback type on API 34+) -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
     <!-- GPS fix, requested just-in-time from the location screen -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -44,6 +45,18 @@
             android:name=".notifications.AdhanPlaybackService"
             android:exported="false"
             android:foregroundServiceType="mediaPlayback" />
+        <service
+            android:name=".notifications.NextAdhanService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Permanent next adhan countdown notification" />
+        </service>
+
+        <receiver
+            android:name=".notifications.NextAdhanReceiver"
+            android:exported="false" />
 
         <receiver
             android:name=".notifications.PrayerDndRestoreReceiver"

@@ -23,6 +23,7 @@ import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import androidx.glance.appwidget.updateAll
 import org.muslim.app.feature.prayertimes.notifications.AdhanPlaybackService
 import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
+import org.muslim.app.feature.prayertimes.notifications.NextAdhanService
 import org.muslim.app.feature.prayertimes.notifications.AdhanSoundRepository
 import org.muslim.app.feature.prayertimes.widget.PrayerTimesWidget
 import javax.inject.Inject
@@ -78,6 +79,22 @@ class PrayerSettingsViewModel @Inject constructor(
 
     fun setHijriAdjustment(days: Int) = update { it.copy(hijriAdjustment = days) }
 
+    /** Plays a bundled adhan recording directly so the user can hear it before choosing. */
+    fun previewBundled(sound: org.muslim.app.core.common.prayer.BundledAdhanSound) {
+        val current = settings.value
+        viewModelScope.launch {
+            AdhanPlaybackService.start(
+                context = context,
+                prayer = Prayer.Fajr,
+                vibrate = false,
+                soundOption = AdhanSoundOption.Default,
+                volumePercent = current.adhanVolume,
+                soundPath = null,
+                bundledSoundId = sound.id,
+            )
+        }
+    }
+
     /** Plays the adhan as configured for [prayer] so the user can preview it. */
     fun previewAdhan(prayer: Prayer) {
         val current = settings.value
@@ -127,6 +144,8 @@ class PrayerSettingsViewModel @Inject constructor(
     private suspend fun reschedule() {
         val current = repository.settings.first()
         scheduler.schedule(current)
+        // Keep the countdown notification in sync with the new settings.
+        NextAdhanService.start(context)
         PrayerTimesWidget().updateAll(context)
     }
 
@@ -136,6 +155,7 @@ class PrayerSettingsViewModel @Inject constructor(
             repository.save(updated)
             // Adhan alarms must reflect the new settings immediately.
             scheduler.schedule(updated)
+            NextAdhanService.start(context)
             // The home-screen widget must reflect the new settings too.
             PrayerTimesWidget().updateAll(context)
         }

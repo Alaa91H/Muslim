@@ -107,9 +107,14 @@
     <string name="notif_importance_default">Default</string>
     <string name="notif_importance_high">High</string>
     <string name="notif_badge">App icon badge</string>
+    <string name="notif_show_missed_adhan">Show missed adhan</string>
     <string name="notif_test">Send test notification</string>
     <string name="notif_test_body">This is a test notification from the notification settings.</string>
     <string name="notif_details">Details &amp; customization</string>
     <string name="notif_time_picker_confirm">OK</string>
     <string name="notif_time_picker_cancel">Cancel</string>
+    <string name="notif_category_prayer_countdown">Next adhan countdown</string>
+    <string name="notif_category_prayer_countdown_desc">A permanent notification showing the next adhan, the time remaining, and the missed adhan</string>
+    <string name="notif_category_recitation">Recitation controls</string>
+    <string name="notif_category_recitation_desc">A notification with play / pause / stop controls while reciting the Quran</string>
 </resources>

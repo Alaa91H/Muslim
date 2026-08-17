@@ -23,10 +23,12 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Alarm
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Book
-import androidx.compose.material.icons.filled.MenuBook
+import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.automirrored.filled.PlaylistPlay
 import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.Schedule
+import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.ExpandLess
@@ -87,6 +89,7 @@ fun NotificationSettingsScreen(
 ) {
     val preferences by viewModel.preferences.collectAsStateWithLifecycle()
     val quietHours by viewModel.quietHours.collectAsStateWithLifecycle()
+    val showMissedAdhan by viewModel.showMissedAdhan.collectAsStateWithLifecycle()
     val context = LocalContext.current
     val permissionGranted = remember { mutableStateOf(viewModel.notificationPermissionGranted()) }
 
@@ -165,6 +168,8 @@ fun NotificationSettingsScreen(
                     onToggleBadge = { viewModel.setBadgeEnabled(category, it) },
                     onTest = { viewModel.testNotification(category) },
                     onSystemSettings = viewModel::openSystemNotificationSettings,
+                    showMissedAdhan = showMissedAdhan,
+                    onToggleShowMissedAdhan = viewModel::setShowMissedAdhan,
                 )
             }
         }
@@ -288,6 +293,8 @@ private fun NotificationCategoryCard(
     onToggleBadge: (Boolean) -> Unit,
     onTest: () -> Unit,
     onSystemSettings: () -> Unit,
+    showMissedAdhan: Boolean = true,
+    onToggleShowMissedAdhan: (Boolean) -> Unit = {},
 ) {
     var expanded by remember { mutableStateOf(false) }
     Card(
@@ -337,6 +344,13 @@ private fun NotificationCategoryCard(
                         checked = prefs.badgeEnabled,
                         onCheckedChange = onToggleBadge,
                     )
+                    if (category == NotificationCategory.PrayerCountdown) {
+                        SettingRow(
+                            label = stringResource(R.string.notif_show_missed_adhan),
+                            checked = showMissedAdhan,
+                            onCheckedChange = onToggleShowMissedAdhan,
+                        )
+                    }
                     Spacer(Modifier.height(8.dp))
                     Text(
                         text = stringResource(R.string.notif_importance),
@@ -438,10 +452,12 @@ private fun timeLabel(minutes: Int): String {
 private fun categoryIcon(category: NotificationCategory): ImageVector = when (category) {
     NotificationCategory.Adhan -> Icons.Filled.NotificationsActive
     NotificationCategory.PrayerReminder -> Icons.Filled.Alarm
-    NotificationCategory.QuranDaily -> Icons.Filled.MenuBook
+    NotificationCategory.QuranDaily -> Icons.AutoMirrored.Filled.MenuBook
     NotificationCategory.Ramadan -> Icons.Filled.Nightlight
     NotificationCategory.Adhkar -> Icons.Filled.AutoAwesome
     NotificationCategory.HadithDaily -> Icons.Filled.Book
+    NotificationCategory.PrayerCountdown -> Icons.Filled.Timer
+    NotificationCategory.Recitation -> Icons.AutoMirrored.Filled.PlaylistPlay
 }
 
 @Composable
@@ -452,6 +468,8 @@ private fun categoryLabelRes(category: NotificationCategory): Int = when (catego
     NotificationCategory.Ramadan -> R.string.notif_category_ramadan
     NotificationCategory.Adhkar -> R.string.notif_category_adhkar
     NotificationCategory.HadithDaily -> R.string.notif_category_hadith
+    NotificationCategory.PrayerCountdown -> R.string.notif_category_prayer_countdown
+    NotificationCategory.Recitation -> R.string.notif_category_recitation
 }
 
 @Composable
@@ -462,6 +480,8 @@ private fun categoryDescriptionRes(category: NotificationCategory): Int = when (
     NotificationCategory.Ramadan -> R.string.notif_category_ramadan_desc
     NotificationCategory.Adhkar -> R.string.notif_category_adhkar_desc
     NotificationCategory.HadithDaily -> R.string.notif_category_hadith_desc
+    NotificationCategory.PrayerCountdown -> R.string.notif_category_prayer_countdown_desc
+    NotificationCategory.Recitation -> R.string.notif_category_recitation_desc
 }
 
 @Composable

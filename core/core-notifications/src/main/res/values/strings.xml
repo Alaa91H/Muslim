@@ -12,4 +12,8 @@
     <string name="channel_adhkar_desc">تذكيرات الأذكار والرسالة العائمة</string>
     <string name="channel_hadith_daily">حديث اليوم</string>
     <string name="channel_hadith_daily_desc">حديث يومي مع تذكير بالهدي النبوي</string>
+    <string name="channel_prayer_countdown">عداد الأذان التالي</string>
+    <string name="channel_prayer_countdown_desc">إشعار دائم يعرض الأذان التالي والوقت المتبقي والأذان الفائت</string>
+    <string name="channel_recitation">التحكم في التلاوة</string>
+    <string name="channel_recitation_desc">أزرار التشغيل والإيقاف لتلاوة القرآن الكريم</string>
 </resources>

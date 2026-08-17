@@ -19,6 +19,8 @@ abstract class RescheduleReceiver : BroadcastReceiver() {
         CoroutineScope(Dispatchers.IO).launch {
             val settings = entryPoint.settingsRepository().settings.first()
             entryPoint.scheduler().schedule(settings)
+            // Keep the permanent next-adhan countdown running after reboot/time change.
+            NextAdhanService.start(context)
         }
     }
 }
@@ -36,6 +38,8 @@ class BootReceiver : BroadcastReceiver() {
         CoroutineScope(Dispatchers.IO).launch {
             val settings = entryPoint.settingsRepository().settings.first()
             entryPoint.scheduler().schedule(settings)
+            // Keep the permanent next-adhan countdown running after reboot/time change.
+            NextAdhanService.start(context)
         }
     }
 }

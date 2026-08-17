@@ -65,6 +65,9 @@ class QuranSupplementRepository @Inject constructor(
             list.map { TafsirEntry(it.globalNumber, it.source, it.text) }
         }
 
+    /** Installed translation languages (BCP-47 tags), for the reader picker. */
+    fun observeLanguages(): Flow<List<String>> = translationDao.observeLanguages()
+
     /** Installs a translation pack from a JSON file; returns the inserted count. */
     suspend fun installTranslationPack(file: File): Int {
         val pack = json.decodeFromString<TranslationPackJson>(file.readText())

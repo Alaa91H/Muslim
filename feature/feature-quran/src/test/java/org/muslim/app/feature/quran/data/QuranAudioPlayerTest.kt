@@ -282,4 +282,50 @@ class QuranAudioPlayerTest {
 
         assertThat(player.positionMs.value).isEqualTo(1234L)
     }
+
+    @Test
+    fun `continuous queue fires onQueueCompleted at the end instead of finishing`() {
+        val factory = FakeFactory()
+        val player = player(factory)
+        var completed = 0
+        player.onQueueCompleted = { completed++ }
+
+        player.playQueue(
+            listOf(item(1), item(2)),
+            startIndex = 0,
+            repeatCount = 1,
+            continuous = true,
+        )
+
+        factory.engines[0].fireCompletion()
+        assertThat(player.currentAyah.value).isEqualTo(2)
+        assertThat(completed).isEqualTo(0)
+
+        factory.engines[1].fireCompletion()
+        assertThat(completed).isEqualTo(1)
+        assertThat(player.playbackState.value).isEqualTo(PlaybackState.Idle)
+        assertThat(player.currentAyah.value).isNull()
+        // The flag is consumed so a second completion cannot double-fire.
+        factory.engines[1].fireCompletion()
+        assertThat(completed).isEqualTo(1)
+    }
+
+    @Test
+    fun `stop clears continuous mode and the completion callback`() {
+        val factory = FakeFactory()
+        val player = player(factory)
+        var completed = 0
+        player.onQueueCompleted = { completed++ }
+
+        player.playQueue(
+            listOf(item(1), item(2)),
+            startIndex = 0,
+            repeatCount = 1,
+            continuous = true,
+        )
+        player.stop()
+
+        assertThat(player.playbackState.value).isEqualTo(PlaybackState.Idle)
+        assertThat(player.onQueueCompleted).isNull()
+    }
 }

@@ -165,8 +165,22 @@ class AdhanSoundPlayer @Inject constructor(
 
     private fun bundledSoundRes(sound: BundledAdhanSound): Int = when (sound) {
         BundledAdhanSound.Makkah -> org.muslim.app.feature.prayertimes.R.raw.adhan_makkah
+        BundledAdhanSound.Madinah -> org.muslim.app.feature.prayertimes.R.raw.adhan_madinah
         BundledAdhanSound.AbdulBasit -> org.muslim.app.feature.prayertimes.R.raw.adhan_abdul_basit
         BundledAdhanSound.Minshawi -> org.muslim.app.feature.prayertimes.R.raw.adhan_minshawi
+        BundledAdhanSound.Egypt -> org.muslim.app.feature.prayertimes.R.raw.adhan_egypt
+        BundledAdhanSound.AlAqsa -> org.muslim.app.feature.prayertimes.R.raw.adhan_alaqsa
+        BundledAdhanSound.Halab -> org.muslim.app.feature.prayertimes.R.raw.adhan_halab
+        BundledAdhanSound.AbdulGhaffar -> org.muslim.app.feature.prayertimes.R.raw.adhan_abdul_ghaffar
+        BundledAdhanSound.AbdulHakam -> org.muslim.app.feature.prayertimes.R.raw.adhan_abdul_hakam
+        BundledAdhanSound.AlHussaini -> org.muslim.app.feature.prayertimes.R.raw.adhan_al_hussaini
+        BundledAdhanSound.BakirBash -> org.muslim.app.feature.prayertimes.R.raw.adhan_bakir_bash
+        BundledAdhanSound.Hafez -> org.muslim.app.feature.prayertimes.R.raw.adhan_hafez
+        BundledAdhanSound.HafizMurad -> org.muslim.app.feature.prayertimes.R.raw.adhan_hafiz_murad
+        BundledAdhanSound.Naghshbandi -> org.muslim.app.feature.prayertimes.R.raw.adhan_naghshbandi
+        BundledAdhanSound.Saber -> org.muslim.app.feature.prayertimes.R.raw.adhan_saber
+        BundledAdhanSound.SharifDoman -> org.muslim.app.feature.prayertimes.R.raw.adhan_sharif_doman
+        BundledAdhanSound.YusufIslam -> org.muslim.app.feature.prayertimes.R.raw.adhan_yusuf_islam
     }
 
     private companion object {

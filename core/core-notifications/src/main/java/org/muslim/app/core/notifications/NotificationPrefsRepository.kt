@@ -2,11 +2,12 @@ package org.muslim.app.core.notifications
 
 import android.app.NotificationManager
 import android.content.Context
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
-import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -14,8 +15,6 @@ import kotlinx.coroutines.flow.map
 import java.util.Calendar
 import javax.inject.Inject
 import javax.inject.Singleton
-
-private val Context.notificationPrefsDataStore by preferencesDataStore(name = "notification_prefs")
 
 /**
  * Single source of truth for the unified notification manager: per-category
@@ -25,14 +24,19 @@ private val Context.notificationPrefsDataStore by preferencesDataStore(name = "n
  * underlying Android channel immediately so system and in-app settings never
  * drift apart.
  */
+/**
+ * @param store the notification-prefs DataStore, provided by Hilt through
+ *   [NotificationDataStoreModule] (and injectable in tests via a temp file).
+ */
 @Singleton
 class NotificationPrefsRepository @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val store: DataStore<Preferences>,
 ) {
 
     /** Per-category presentation prefs (defaults per [NotificationCategory]). */
     val prefs: Flow<Map<NotificationCategory, NotificationCategoryPrefs>> =
-        context.notificationPrefsDataStore.data.map { stored ->
+        store.data.map { stored ->
             NotificationCategory.entries.associateWith { category ->
                 NotificationCategoryPrefs(
                     enabled = stored[Keys.enabled(category)] ?: category.defaultEnabled,
@@ -46,13 +50,20 @@ class NotificationPrefsRepository @Inject constructor(
 
     /** Global quiet-hours window (all non-adhan notifications muted inside). */
     val quietHours: Flow<QuietHours> =
-        context.notificationPrefsDataStore.data.map { stored ->
+        store.data.map { stored ->
             QuietHours(
                 enabled = stored[Keys.QUIET_ENABLED] ?: false,
                 startMinutes = stored[Keys.QUIET_START] ?: QuietHours.DEFAULT_QUIET_START,
                 endMinutes = stored[Keys.QUIET_END] ?: QuietHours.DEFAULT_QUIET_END,
             )
         }
+
+    /**
+     * Whether the permanent "next adhan" notification shows the missed-adhan
+     * line (defaults to true); only presentation, no channel side effects.
+     */
+    val showMissedAdhan: Flow<Boolean> =
+        store.data.map { stored -> stored[Keys.SHOW_MISSED_ADHAN] ?: true }
 
     /** Current prefs for one category (defaults apply when unset). */
     suspend fun prefsFor(category: NotificationCategory): NotificationCategoryPrefs =
@@ -64,7 +75,7 @@ class NotificationPrefsRepository @Inject constructor(
 
     /** Turns [category] on/off; disabling cancels that channel's posted alerts too. */
     suspend fun setEnabled(category: NotificationCategory, enabled: Boolean) {
-        context.notificationPrefsDataStore.edit { stored ->
+        store.edit { stored ->
             stored[Keys.enabled(category)] = enabled
         }
         if (!enabled) {
@@ -74,7 +85,7 @@ class NotificationPrefsRepository @Inject constructor(
 
     /** Sets whether [category] plays a sound; the channel is updated live. */
     suspend fun setSoundEnabled(category: NotificationCategory, soundEnabled: Boolean) {
-        context.notificationPrefsDataStore.edit { stored ->
+        store.edit { stored ->
             stored[Keys.sound(category)] = soundEnabled
         }
         applyToChannel(category)
@@ -82,7 +93,7 @@ class NotificationPrefsRepository @Inject constructor(
 
     /** Sets whether [category] vibrates; the channel is updated live. */
     suspend fun setVibrateEnabled(category: NotificationCategory, vibrateEnabled: Boolean) {
-        context.notificationPrefsDataStore.edit { stored ->
+        store.edit { stored ->
             stored[Keys.vibrate(category)] = vibrateEnabled
         }
         applyToChannel(category)
@@ -90,7 +101,7 @@ class NotificationPrefsRepository @Inject constructor(
 
     /** Sets the presentation importance of [category]; the channel is updated live. */
     suspend fun setImportance(category: NotificationCategory, importance: NotificationImportance) {
-        context.notificationPrefsDataStore.edit { stored ->
+        store.edit { stored ->
             stored[Keys.importance(category)] = importance.name
         }
         applyToChannel(category)
@@ -98,7 +109,7 @@ class NotificationPrefsRepository @Inject constructor(
 
     /** Sets whether [category] contributes to the launcher badge; the channel is updated live. */
     suspend fun setBadgeEnabled(category: NotificationCategory, badgeEnabled: Boolean) {
-        context.notificationPrefsDataStore.edit { stored ->
+        store.edit { stored ->
             stored[Keys.badge(category)] = badgeEnabled
         }
         applyToChannel(category)
@@ -106,10 +117,17 @@ class NotificationPrefsRepository @Inject constructor(
 
     /** Persists the quiet-hours window. */
     suspend fun setQuietHours(hours: QuietHours) {
-        context.notificationPrefsDataStore.edit { stored ->
+        store.edit { stored ->
             stored[Keys.QUIET_ENABLED] = hours.enabled
             stored[Keys.QUIET_START] = hours.startMinutes
             stored[Keys.QUIET_END] = hours.endMinutes
+        }
+    }
+
+    /** Persists whether the next-adhan notification shows the missed-adhan line. */
+    suspend fun setShowMissedAdhan(show: Boolean) {
+        store.edit { stored ->
+            stored[Keys.SHOW_MISSED_ADHAN] = show
         }
     }
 
@@ -123,7 +141,10 @@ class NotificationPrefsRepository @Inject constructor(
     }
 
     private suspend fun applyToChannel(category: NotificationCategory) {
-        NotificationChannels.applyCategorySettings(context, category, prefsFor(category))
+        // forceRecreate: the user changed a setting in-app, so the live channel
+        // must be deleted + re-created to actually take effect (Android treats
+        // existing channels as immutable for raises and sound/vibration/badge).
+        NotificationChannels.applyCategorySettings(context, category, prefsFor(category), forceRecreate = true)
     }
 
     /** Removes every already-posted notification that uses this category's channel. */
@@ -152,6 +173,7 @@ class NotificationPrefsRepository @Inject constructor(
             booleanPreferencesKey("notification_${category.name}_badge")
 
         val QUIET_ENABLED = booleanPreferencesKey("notification_quiet_enabled")
+        val SHOW_MISSED_ADHAN = booleanPreferencesKey("notification_show_missed_adhan")
         val QUIET_START = intPreferencesKey("notification_quiet_start")
         val QUIET_END = intPreferencesKey("notification_quiet_end")
     }

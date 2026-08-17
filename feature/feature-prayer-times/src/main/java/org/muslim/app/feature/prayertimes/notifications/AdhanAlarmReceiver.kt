@@ -55,6 +55,8 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 }
             }
             entryPoint.scheduler().schedule(settings)
+            // Flip the countdown notification to the next prayer immediately.
+            NextAdhanService.start(appContext)
             // A prayer just started: flip the widget to the next prayer.
             PrayerTimesWidget().updateAll(appContext)
         }

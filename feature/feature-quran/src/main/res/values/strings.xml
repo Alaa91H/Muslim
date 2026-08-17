@@ -44,17 +44,25 @@
 
     <!-- Recitation -->
     <string name="quran_reciter">القارئ</string>
-    <string name="quran_download_surah">تنزيل السورة</string>
+    <string name="quran_download_reciter_title">اختيار القارئ</string>
+    <string name="quran_download_options_title">خيارات التحميل</string>
+    <string name="quran_download_current_ayah">الآية الحالية</string>
+    <string name="quran_download_current_surah">السورة الحالية</string>
+    <string name="quran_downloaded">تم التنزيل</string>
     <string name="quran_play_ayah">تشغيل الآية</string>
     <string name="quran_repeat">تكرار</string>
     <string name="quran_next_ayah">الآية التالية</string>
     <string name="quran_previous_ayah">الآية السابقة</string>
-    <string name="quran_play_whole_surah">تشغيل السورة كاملة</string>
     <string name="quran_mini_ayah">الآية %1$d</string>
     <string name="quran_stop_playback">إيقاف التشغيل</string>
     <string name="quran_play_range">نطاق التشغيل</string>
     <string name="quran_range_single_ayah">آية واحدة</string>
     <string name="quran_range_to_end">إلى نهاية السورة</string>
+    <string name="quran_range_whole_surah">السورة كاملة</string>
+    <string name="quran_range_single_ayah_short">آية</string>
+    <string name="quran_range_to_end_short">إلى النهاية</string>
+    <string name="quran_range_whole_surah_short">السورة</string>
+    <string name="quran_repeat_continuous">بدون توقف</string>
     <string name="quran_playback_error">تعذّر تشغيل الصوت — تحقق من الاتصال ثم أعد المحاولة</string>
 
     <!-- Downloads -->
@@ -79,6 +87,41 @@
     <string name="quran_download_in_progress">جارٍ التنزيل في الخلفية…</string>
     <string name="quran_download_done">اكتمل التنزيل</string>
     <string name="quran_download_failed">تعذّر التنزيل</string>
-    <string name="quran_recitation_download_all">تنزيل المصحف كاملًا لهذا القارئ</string>
-    <string name="quran_recitation_download_ayah">تنزيل الآية الحالية</string>
+
+    <!-- Recitation control notification -->
+    <string name="quran_recitation_notif_title">%1$s · الآية %2$d</string>
+    <string name="quran_recitation_notif_title_unknown">تلاوة القرآن الكريم</string>
+    <string name="quran_recitation_notif_playing">جارٍ التشغيل</string>
+    <string name="quran_recitation_notif_paused">متوقف مؤقتًا</string>
+    <string name="quran_recitation_notif_play">تشغيل</string>
+    <string name="quran_recitation_notif_pause">إيقاف مؤقت</string>
+    <string name="quran_recitation_notif_stop">إيقاف</string>
+
+    <!-- Meanings/tafsir controls -->
+    <string name="quran_supplement_controls">المعاني والتفسير</string>
+    <string name="quran_supplement_show">إظهار المعاني والتفسير</string>
+    <string name="quran_supplement_language">لغة المعاني</string>
+    <string name="quran_supplement_language_auto">لغة التطبيق (%1$s)</string>
+
+    <!-- Night downloads & management -->
+    <string name="quran_download_percent">%1$d٪</string>
+    <string name="quran_download_night_waiting">سيبدأ التحميل ليلًا — النافذة %1$s</string>
+    <string name="quran_download_night_only">التحميل الليلي فقط</string>
+    <string name="quran_download_night_hint">يبدأ التحميل تلقائيًا داخل النافذة %1$s (توفيرًا للبيانات والبطارية)</string>
+    <string name="quran_download_reciter_state">المحلَّى للقارئ: %1$s</string>
+    <string name="quran_download_reciter_state_detail">%1$d سورة · %2$d آية · %3$s</string>
+    <string name="quran_download_delete_surah">حذف السورة المحمّلة</string>
+    <string name="quran_download_delete_reciter">حذف كل تحميلات هذا القارئ</string>
+    <string name="quran_download_delete_confirm">حذف التحميلات؟</string>
+    <string name="quran_download_delete_confirm_message">سيُحذف الصوت المحمَّل نهائيًا من الجهاز.</string>
+    <string name="quran_download_delete">حذف</string>
+    <string name="quran_download_keep">إبقاء</string>
+    <string name="quran_download_resume">استكمال</string>
+    <string name="quran_download_night_status">بانتظار الليل</string>
+
+    <string name="quran_surah_number_short">سورة %1$d</string>
+
+    <string name="quran_mini_surah_ayah">%1$s (%2$d) · الآية %3$d</string>
+
+    <string name="quran_stop_at_end_of_mushaf">إيقاف تلقائي عند نهاية المصحف</string>
 </resources>

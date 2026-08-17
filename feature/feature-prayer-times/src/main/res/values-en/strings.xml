@@ -123,4 +123,26 @@
     <string name="qibla_bearing">Bearing: %1$.1f°</string>
     <string name="qibla_distance">Distance to Makkah: %1$s</string>
     <string name="qibla_calibrate">Move your phone in a figure-eight to calibrate</string>
+    <!-- Permanent next-adhan countdown notification -->
+    <string name="next_adhan_notification_title">Next Adhan: %1$s — %2$s</string>
+    <string name="next_adhan_remaining">Time remaining: %1$s</string>
+    <string name="next_adhan_missed">Missed Adhan: %1$s — %2$s</string>
+    <string name="next_adhan_no_location">Set your location to see prayer times</string>
+
+    <string name="bundled_adhan_madinah">Madinah adhan</string>
+    <string name="bundled_adhan_egypt">Egypt adhan</string>
+    <string name="bundled_adhan_alaqsa">Al-Aqsa adhan</string>
+    <string name="bundled_adhan_halab">Halab adhan</string>
+    <string name="bundled_adhan_abdul_ghaffar">Abdul Ghaffar adhan</string>
+    <string name="bundled_adhan_abdul_hakam">Abdul Hakam adhan</string>
+    <string name="bundled_adhan_al_hussaini">Al-Hussaini adhan</string>
+    <string name="bundled_adhan_bakir_bash">Bakir Bash adhan</string>
+    <string name="bundled_adhan_hafez">Hafez adhan</string>
+    <string name="bundled_adhan_hafiz_murad">Hafiz Murad adhan</string>
+    <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
+    <string name="bundled_adhan_saber">Saber adhan</string>
+    <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
+    <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
+
+    <string name="settings_listen">Listen</string>
 </resources>

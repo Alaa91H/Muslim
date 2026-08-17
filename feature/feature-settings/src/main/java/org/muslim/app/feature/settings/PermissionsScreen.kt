@@ -23,7 +23,7 @@ import androidx.compose.material.icons.filled.Circle
 import androidx.compose.material.icons.filled.GpsFixed
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.NotificationsActive
-import androidx.compose.material.icons.filled.OpenInNew
+import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.filled.Power
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Vibration
@@ -246,7 +246,7 @@ private fun PermissionRow(
                     PermissionStatus.SpecialAccessRequired -> {
                         TextButton(onClick = onOpenSettings) {
                             Icon(
-                                Icons.Filled.OpenInNew,
+                                Icons.AutoMirrored.Filled.OpenInNew,
                                 contentDescription = null,
                                 modifier = Modifier.size(18.dp),
                             )

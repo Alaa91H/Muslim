@@ -62,6 +62,14 @@ class QuranAudioPlayer @Inject constructor(
     private val _hasPrevious = MutableStateFlow(false)
     val hasPrevious: StateFlow<Boolean> = _hasPrevious.asStateFlow()
 
+    /**
+     * Invoked when a queue started with [continuous] finishes (its last item
+     * completed), so the owner can start the next queue (e.g. auto-advance to
+     * the next surah). Cleared when a new queue is started or playback stops.
+     */
+    var onQueueCompleted: (() -> Unit)? = null
+    private var continuous = false
+
     /** True while the loaded ayah is playing its configured repeats. */
     val isPlaying: Boolean get() = _playbackState.value == PlaybackState.Playing
 
@@ -70,10 +78,16 @@ class QuranAudioPlayer @Inject constructor(
      * before advancing to the next one. Preparation is asynchronous so the
      * caller's thread (usually the main thread) never blocks.
      */
-    fun playQueue(items: List<RecitationQueueItem>, startIndex: Int, repeatCount: Int) {
+    fun playQueue(
+        items: List<RecitationQueueItem>,
+        startIndex: Int,
+        repeatCount: Int,
+        continuous: Boolean = false,
+    ) {
         if (items.isEmpty()) return
         queue = items
         repeatPerAyah = repeatCount.coerceAtLeast(1)
+        this.continuous = continuous
         queueIndex = startIndex.coerceIn(0, items.lastIndex)
         loadCurrent()
     }
@@ -108,6 +122,8 @@ class QuranAudioPlayer @Inject constructor(
         releaseEngine()
         queue = emptyList()
         queueIndex = -1
+        continuous = false
+        onQueueCompleted = null
         _playbackState.value = PlaybackState.Idle
         _currentAyah.value = null
         resetProgress()
@@ -165,6 +181,20 @@ class QuranAudioPlayer @Inject constructor(
 
     private fun finish() {
         releaseEngine()
+        if (continuous) {
+            // Continuous mode: hand control back to the owner (e.g. the reader
+            // advances to the next surah) instead of just going idle.
+            val callback = onQueueCompleted
+            continuous = false
+            queue = emptyList()
+            queueIndex = -1
+            _playbackState.value = PlaybackState.Idle
+            _currentAyah.value = null
+            resetProgress()
+            updateNavState()
+            callback?.invoke()
+            return
+        }
         _playbackState.value = PlaybackState.Idle
         _currentAyah.value = null
         resetProgress()

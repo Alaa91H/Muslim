@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Remove
@@ -185,10 +186,21 @@ fun PrayerSettingsScreen(
                 },
             )
         }
-        BundledSoundDropdown(
-            current = BundledAdhanSound.fromId(settings.bundledAdhanSound),
-            onSelected = { viewModel.setBundledAdhanSound(it.id) },
-        )
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            BundledSoundDropdown(
+                current = BundledAdhanSound.fromId(settings.bundledAdhanSound),
+                onSelected = { viewModel.setBundledAdhanSound(it.id) },
+                modifier = Modifier.weight(1f),
+            )
+            IconButton(
+                onClick = { viewModel.previewBundled(BundledAdhanSound.fromId(settings.bundledAdhanSound)) },
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.PlayArrow,
+                    contentDescription = stringResource(R.string.settings_listen),
+                )
+            }
+        }
         VolumeRow(volume = settings.adhanVolume, onChanged = viewModel::setAdhanVolume)
         OutlinedButton(
             onClick = { viewModel.previewAdhan(Prayer.Fajr) },
@@ -338,9 +350,10 @@ private fun AdhanSoundDropdown(
 private fun BundledSoundDropdown(
     current: BundledAdhanSound,
     onSelected: (BundledAdhanSound) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     var expanded by remember { mutableStateOf(false) }
-    ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
+    ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }, modifier = modifier) {
         OutlinedTextField(
             value = stringResource(bundledSoundLabelRes(current)),
             onValueChange = {},
@@ -369,8 +382,22 @@ private fun BundledSoundDropdown(
 @Composable
 private fun bundledSoundLabelRes(sound: BundledAdhanSound): Int = when (sound) {
     BundledAdhanSound.Makkah -> R.string.bundled_adhan_makkah
+    BundledAdhanSound.Madinah -> R.string.bundled_adhan_madinah
     BundledAdhanSound.AbdulBasit -> R.string.bundled_adhan_abdul_basit
     BundledAdhanSound.Minshawi -> R.string.bundled_adhan_minshawi
+    BundledAdhanSound.Egypt -> R.string.bundled_adhan_egypt
+    BundledAdhanSound.AlAqsa -> R.string.bundled_adhan_alaqsa
+    BundledAdhanSound.Halab -> R.string.bundled_adhan_halab
+    BundledAdhanSound.AbdulGhaffar -> R.string.bundled_adhan_abdul_ghaffar
+    BundledAdhanSound.AbdulHakam -> R.string.bundled_adhan_abdul_hakam
+    BundledAdhanSound.AlHussaini -> R.string.bundled_adhan_al_hussaini
+    BundledAdhanSound.BakirBash -> R.string.bundled_adhan_bakir_bash
+    BundledAdhanSound.Hafez -> R.string.bundled_adhan_hafez
+    BundledAdhanSound.HafizMurad -> R.string.bundled_adhan_hafiz_murad
+    BundledAdhanSound.Naghshbandi -> R.string.bundled_adhan_naghshbandi
+    BundledAdhanSound.Saber -> R.string.bundled_adhan_saber
+    BundledAdhanSound.SharifDoman -> R.string.bundled_adhan_sharif_doman
+    BundledAdhanSound.YusufIslam -> R.string.bundled_adhan_yusuf_islam
 }
 
 @Composable

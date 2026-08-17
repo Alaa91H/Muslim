@@ -16,7 +16,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Send
+import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -113,7 +113,7 @@ fun AboutScreen(
                     uri = "mailto:$EMAIL",
                 )
                 ContactRow(
-                    icon = Icons.Filled.Send,
+                    icon = Icons.AutoMirrored.Filled.Send,
                     label = stringResource(R.string.about_contact_telegram),
                     value = "t.me/Alaa91h",
                     uri = TELEGRAM_URL,

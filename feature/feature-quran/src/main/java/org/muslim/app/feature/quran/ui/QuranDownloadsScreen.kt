@@ -14,6 +14,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenuItem
@@ -22,6 +24,9 @@ import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.FilterChip
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Switch
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
@@ -38,6 +43,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.foundation.layout.size
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -45,6 +51,7 @@ import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.data.DownloadScope
 import org.muslim.app.feature.quran.data.DownloadStatus
 import org.muslim.app.feature.quran.data.DownloadTaskUi
+import java.util.Locale
 
 /** Downloads hub: choose scope + reciter, see sizes, and track background progress. */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -60,6 +67,12 @@ fun QuranDownloadsScreen(
     val ayahInput by viewModel.ayahInput.collectAsStateWithLifecycle()
     val estimateBytes by viewModel.estimateBytes.collectAsStateWithLifecycle()
     val tasks by viewModel.tasks.collectAsStateWithLifecycle()
+    val nightOnly by viewModel.nightOnly.collectAsStateWithLifecycle()
+    val nightWindowStart by viewModel.nightWindowStart.collectAsStateWithLifecycle()
+    val nightWindowEnd by viewModel.nightWindowEnd.collectAsStateWithLifecycle()
+    val reciterState by viewModel.reciterState.collectAsStateWithLifecycle()
+    var confirmDeleteSurah by remember { mutableStateOf<Int?>(null) }
+    var confirmDeleteReciter by remember { mutableStateOf(false) }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -168,6 +181,34 @@ fun QuranDownloadsScreen(
 
             Spacer(Modifier.height(12.dp))
 
+            // Night-only downloads (التحميل الليلي): defer the transfer to the
+            // configured window to save data and battery.
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Column(Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(R.string.quran_download_night_only),
+                        style = MaterialTheme.typography.bodyLarge,
+                    )
+                    Text(
+                        text = stringResource(
+                            R.string.quran_download_night_hint,
+                            formatWindow(nightWindowStart, nightWindowEnd),
+                        ),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                Switch(
+                    checked = nightOnly,
+                    onCheckedChange = viewModel::setNightOnly,
+                )
+            }
+
+            Spacer(Modifier.height(12.dp))
+
             Button(
                 onClick = viewModel::startDownload,
                 enabled = estimateBytes != null,
@@ -175,6 +216,16 @@ fun QuranDownloadsScreen(
             ) {
                 Text(stringResource(R.string.quran_download_start))
             }
+
+            Spacer(Modifier.height(24.dp))
+
+            // What is already downloaded for the selected reciter (per-reciter
+            // state instead of only the current surah's flag).
+            ReciterStateSection(
+                state = reciterState,
+                onDeleteSurah = { confirmDeleteSurah = it },
+                onDeleteReciter = { confirmDeleteReciter = true },
+            )
 
             Spacer(Modifier.height(24.dp))
 
@@ -200,6 +251,47 @@ fun QuranDownloadsScreen(
 
             Spacer(Modifier.height(24.dp))
         }
+    }
+
+    confirmDeleteSurah?.let { surahNumber ->
+        AlertDialog(
+            onDismissRequest = { confirmDeleteSurah = null },
+            title = { Text(stringResource(R.string.quran_download_delete_confirm)) },
+            text = { Text(stringResource(R.string.quran_download_delete_confirm_message)) },
+            confirmButton = {
+                TextButton(onClick = {
+                    viewModel.deleteSurah(surahNumber)
+                    confirmDeleteSurah = null
+                }) {
+                    Text(stringResource(R.string.quran_download_delete))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { confirmDeleteSurah = null }) {
+                    Text(stringResource(R.string.quran_download_keep))
+                }
+            },
+        )
+    }
+    if (confirmDeleteReciter) {
+        AlertDialog(
+            onDismissRequest = { confirmDeleteReciter = false },
+            title = { Text(stringResource(R.string.quran_download_delete_confirm)) },
+            text = { Text(stringResource(R.string.quran_download_delete_confirm_message)) },
+            confirmButton = {
+                TextButton(onClick = {
+                    viewModel.deleteReciter()
+                    confirmDeleteReciter = false
+                }) {
+                    Text(stringResource(R.string.quran_download_delete))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { confirmDeleteReciter = false }) {
+                    Text(stringResource(R.string.quran_download_keep))
+                }
+            },
+        )
     }
 }
 
@@ -286,12 +378,13 @@ private fun statusLabel(status: DownloadStatus): String = stringResource(
     when (status) {
         DownloadStatus.Queued -> R.string.quran_download_status_queued
         DownloadStatus.Downloading -> R.string.quran_download_status_downloading
+        DownloadStatus.WaitingNight -> R.string.quran_download_night_status
         DownloadStatus.Completed -> R.string.quran_download_status_completed
         DownloadStatus.Failed -> R.string.quran_download_status_failed
     },
 )
 
-private fun formatBytes(bytes: Long): String {
+internal fun formatBytes(bytes: Long): String {
     if (bytes <= 0) return "0 B"
     val units = arrayOf("B", "KB", "MB", "GB")
     var value = bytes.toDouble()
@@ -300,5 +393,87 @@ private fun formatBytes(bytes: Long): String {
         value /= 1024
         unit++
     }
-    return String.format(if (unit == 0) "%.0f %s" else "%.1f %s", value, units[unit])
+    return String.format(Locale.ROOT, if (unit == 0) "%.0f %s" else "%.1f %s", value, units[unit])
+}
+
+/**
+ * What is downloaded for the selected reciter: a summary line plus one row per
+ * surah with its size and a delete button. Deletes are confirmed by the caller
+ * (dialog), so the section itself stays simple.
+ */
+@Composable
+private fun ReciterStateSection(
+    state: org.muslim.app.feature.quran.data.ReciterDownloadState?,
+    onDeleteSurah: (Int) -> Unit,
+    onDeleteReciter: () -> Unit,
+) {
+    Text(
+        text = stringResource(R.string.quran_downloads_title) + " — " + stringResource(R.string.quran_reciter),
+        style = MaterialTheme.typography.titleMedium,
+        color = MaterialTheme.colorScheme.primary,
+    )
+    Spacer(Modifier.height(8.dp))
+    val current = state
+    if (current == null || current.downloadedAyahs == 0) {
+        Text(
+            text = stringResource(R.string.quran_download_reciter_state, "—"),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        return
+    }
+    Text(
+        text = stringResource(
+            R.string.quran_download_reciter_state_detail,
+            current.downloadedSurahs,
+            current.downloadedAyahs,
+            formatBytes(current.totalBytes),
+        ),
+        style = MaterialTheme.typography.bodyMedium,
+        color = MaterialTheme.colorScheme.primary,
+    )
+    Spacer(Modifier.height(8.dp))
+    current.surahCounts.forEach { (surahNumber, ayahs) ->
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(
+                imageVector = Icons.Filled.CheckCircle,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(18.dp),
+            )
+            Spacer(Modifier.width(8.dp))
+            Text(
+                text = stringResource(R.string.quran_surah_number_short, surahNumber) + " · $ayahs",
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f),
+            )
+            IconButton(onClick = { onDeleteSurah(surahNumber) }) {
+                Icon(
+                    imageVector = Icons.Filled.Delete,
+                    contentDescription = stringResource(R.string.quran_download_delete_surah),
+                    tint = MaterialTheme.colorScheme.error,
+                )
+            }
+        }
+    }
+    Spacer(Modifier.height(4.dp))
+    TextButton(onClick = onDeleteReciter) {
+        Icon(
+            imageVector = Icons.Filled.Delete,
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.error,
+            modifier = Modifier.size(18.dp),
+        )
+        Spacer(Modifier.width(6.dp))
+        Text(stringResource(R.string.quran_download_delete_reciter))
+    }
+}
+
+/** Formats minutes-from-midnight as "HH:MM". */
+private fun formatWindow(startMinutes: Int, endMinutes: Int): String {
+    fun fmt(min: Int) = String.format(java.util.Locale.ROOT, "%02d:%02d", min / 60, min % 60)
+    return "${fmt(startMinutes)} – ${fmt(endMinutes)}"
 }

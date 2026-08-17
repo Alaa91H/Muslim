@@ -24,7 +24,9 @@ import org.muslim.app.core.permissions.PermissionManager
 import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
+import org.muslim.app.feature.prayertimes.notifications.NextAdhanService
 import org.muslim.app.feature.prayertimes.widget.refreshPrayerTimesWidgets
+import org.muslim.app.feature.quran.data.RecitationNotificationController
 import org.muslim.app.feature.settings.locale.withAppLocale
 import org.muslim.app.ui.MuslimApp
 import javax.inject.Inject
@@ -49,6 +51,9 @@ class MainActivity : ComponentActivity() {
 
     @Inject
     lateinit var permissionManager: PermissionManager
+
+    @Inject
+    lateinit var recitationNotificationController: RecitationNotificationController
 
     /** Tab requested by an App Shortcut (`muslim://times` etc.), else home. */
     private val targetRoute = MutableStateFlow(ROUTE_HOME)
@@ -75,11 +80,15 @@ class MainActivity : ComponentActivity() {
         lifecycleScope.launch {
             val settings = settingsRepository.settings.first()
             adhanScheduler.schedule(settings)
+            // Keep the permanent next-adhan countdown notification fresh.
+            NextAdhanService.start(applicationContext)
         }
         // Every app open refreshes the widget (fresh countdown for the user).
         lifecycleScope.launch {
             refreshPrayerTimesWidgets(applicationContext)
         }
+        // Recitation control notification follows the player state app-wide.
+        recitationNotificationController.start()
 
         targetRoute.value = routeFromIntent(intent)
         setContent {

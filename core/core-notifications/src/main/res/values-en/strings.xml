@@ -12,4 +12,8 @@
     <string name="channel_adhkar_desc">Adhkar reminders and the floating overlay</string>
     <string name="channel_hadith_daily">Hadith of the day</string>
     <string name="channel_hadith_daily_desc">A daily hadith with a reminder of the prophetic guidance</string>
+    <string name="channel_prayer_countdown">Next adhan countdown</string>
+    <string name="channel_prayer_countdown_desc">A permanent notification showing the next adhan, the time remaining, and the missed adhan</string>
+    <string name="channel_recitation">Recitation controls</string>
+    <string name="channel_recitation_desc">Play / pause / stop controls for Quran recitation</string>
 </resources>

@@ -1,5 +1,6 @@
 package org.muslim.app.feature.quran.data
 
+import android.app.AlarmManager
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -19,9 +20,12 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.muslim.app.core.network.FileDownloader
 import org.muslim.app.feature.quran.R
+import org.muslim.app.feature.quran.domain.NightDownloadWindow
 import org.muslim.app.feature.quran.domain.QuranRepository
 import org.muslim.app.feature.quran.domain.Reciter
 import java.io.File
+import java.time.ZoneId
+import java.util.Locale
 import javax.inject.Inject
 
 /**
@@ -29,6 +33,10 @@ import javax.inject.Inject
  * background (ayah / surah / full Quran), reporting progress through a
  * notification and through [QuranDownloadManager] for the in-app screen.
  * Interrupted downloads resume via [FileDownloader]'s Range support.
+ *
+ * Night-only downloads (التحميل الليلي) are parked with a `WaitingNight`
+ * status and an exact alarm at the window start, so the transfer begins
+ * automatically inside the configured window (default 23:00–05:00).
  */
 @AndroidEntryPoint
 class QuranDownloadService : Service() {
@@ -36,6 +44,7 @@ class QuranDownloadService : Service() {
     @Inject lateinit var recitationRepository: RecitationRepository
     @Inject lateinit var quranRepository: QuranRepository
     @Inject lateinit var manager: QuranDownloadManager
+    @Inject lateinit var prefsRepository: QuranPrefsRepository
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private val jobs = mutableMapOf<String, Job>()
@@ -47,6 +56,19 @@ class QuranDownloadService : Service() {
             ACTION_START -> {
                 val request = parseRequest(intent) ?: return START_NOT_STICKY
                 ensureChannel()
+                // Night-held tasks re-delivered by the alarm must not re-park
+                // forever; upsert so the UI always sees the task.
+                manager.upsert(
+                    DownloadTaskUi(
+                        id = request.id,
+                        label = request.label,
+                        reciterName = request.reciterName,
+                        progress = 0f,
+                        downloadedBytes = 0L,
+                        totalBytes = request.totalBytes,
+                        status = DownloadStatus.Queued,
+                    )
+                )
                 startForeground(
                     NOTIFICATION_ID,
                     buildNotification(request.label, 0, 0L, request.totalBytes),
@@ -67,6 +89,10 @@ class QuranDownloadService : Service() {
     }
 
     private suspend fun run(request: DownloadRequest) {
+        if (request.nightOnly && !insideNightWindow()) {
+            holdForNight(request)
+            return
+        }
         manager.update(request.id) { it.copy(status = DownloadStatus.Downloading) }
         val reciter = Reciter.Bundled.firstOrNull { it.id == request.reciterId } ?: Reciter.Bundled.first()
         val result = when (request.scope) {
@@ -88,6 +114,55 @@ class QuranDownloadService : Service() {
         }
         jobs.remove(request.id)
         maybeStop()
+    }
+
+    /**
+     * Night-only download outside the window: mark the task as waiting, post a
+     * notification, and arm an exact alarm for the window start so the
+     * transfer begins automatically (or wakes the app if it was killed).
+     */
+    private suspend fun holdForNight(request: DownloadRequest) {
+        manager.update(request.id) { it.copy(status = DownloadStatus.WaitingNight) }
+        val windowStart = prefsRepository.nightDownloadStart.first()
+        val windowEnd = prefsRepository.nightDownloadEnd.first()
+        val openAt = NightDownloadWindow.nextOpenMillis(
+            System.currentTimeMillis(), ZoneId.systemDefault(), windowStart,
+        )
+        val openIntent = Intent(this, QuranDownloadService::class.java).apply {
+            action = ACTION_START
+            putExtra(EXTRA_ID, request.id)
+            putExtra(EXTRA_RECITER_ID, request.reciterId)
+            putExtra(EXTRA_RECITER_NAME, request.reciterName)
+            putExtra(EXTRA_SCOPE, request.scope.name)
+            putExtra(EXTRA_SURAH, request.surahNumber ?: -1)
+            putExtra(EXTRA_GLOBAL, request.globalNumber ?: -1)
+            putExtra(EXTRA_LABEL, request.label)
+            putExtra(EXTRA_TOTAL_BYTES, request.totalBytes)
+            putExtra(EXTRA_NIGHT_ONLY, true)
+        }
+        val pending = PendingIntent.getService(
+            this, request.id.hashCode(), openIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+        )
+        val alarm = getSystemService(AlarmManager::class.java)
+        runCatching {
+            alarm.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, openAt, pending)
+        }.onFailure {
+            // Exact alarms can be unavailable (e.g. Doze policies); fall back to
+            // an inexact one — the transfer still starts near the window.
+            alarm.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, openAt, pending)
+        }
+        val nm = getSystemService(NotificationManager::class.java)
+        nm.notify(NOTIFICATION_ID, buildNightNotification(request.label, windowStart, windowEnd))
+        // This request is parked; nothing else to run for it right now.
+        jobs.remove(request.id)
+        maybeStop()
+    }
+
+    private suspend fun insideNightWindow(): Boolean {
+        val start = prefsRepository.nightDownloadStart.first()
+        val end = prefsRepository.nightDownloadEnd.first()
+        return NightDownloadWindow.contains(System.currentTimeMillis(), ZoneId.systemDefault(), start, end)
     }
 
     private suspend fun downloadAyah(reciter: Reciter, request: DownloadRequest): FileDownloader.Result {
@@ -114,7 +189,6 @@ class QuranDownloadService : Service() {
 
     private suspend fun downloadFullQuran(reciter: Reciter, request: DownloadRequest): FileDownloader.Result {
         var offsetBytes = 0L
-        var remainingBytes = request.totalBytes
         for (surahNumber in 1..114) {
             val ayahs = quranRepository.observeSurah(surahNumber).first()
             if (ayahs.isEmpty()) continue
@@ -126,7 +200,6 @@ class QuranDownloadService : Service() {
                 is FileDownloader.Result.Failure -> return result
                 is FileDownloader.Result.Success -> {
                     offsetBytes += surahBytes
-                    remainingBytes = (request.totalBytes - offsetBytes).coerceAtLeast(0L)
                 }
             }
         }
@@ -175,10 +248,11 @@ class QuranDownloadService : Service() {
             },
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
+        val percentText = getString(R.string.quran_download_percent, percent)
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_download_notification)
             .setContentTitle(title)
-            .setContentText(getString(R.string.quran_download_in_progress))
+            .setContentText(percentText)
             .setOngoing(true)
             .setOnlyAlertOnce(true)
             .setContentIntent(contentIntent)
@@ -186,6 +260,31 @@ class QuranDownloadService : Service() {
             builder.setProgress(100, percent, false)
         }
         return builder.build()
+    }
+
+    /** Parked night-only download: shows when the window opens (23:00–05:00). */
+    private fun buildNightNotification(label: String, startMinutes: Int, endMinutes: Int): Notification {
+        val contentIntent = PendingIntent.getActivity(
+            this,
+            0,
+            packageManager.getLaunchIntentForPackage(packageName)?.apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            },
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+        )
+        return NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_download_notification)
+            .setContentTitle(label)
+            .setContentText(getString(R.string.quran_download_night_waiting, formatWindow(startMinutes, endMinutes)))
+            .setOngoing(true)
+            .setOnlyAlertOnce(true)
+            .setContentIntent(contentIntent)
+            .build()
+    }
+
+    private fun formatWindow(startMinutes: Int, endMinutes: Int): String {
+        fun fmt(min: Int) = String.format(Locale.ROOT, "%02d:%02d", min / 60, min % 60)
+        return "${fmt(startMinutes)} – ${fmt(endMinutes)}"
     }
 
     private fun ensureChannel() {
@@ -220,6 +319,7 @@ class QuranDownloadService : Service() {
             globalNumber = intent.getIntExtra(EXTRA_GLOBAL, -1).takeIf { it > 0 },
             label = intent.getStringExtra(EXTRA_LABEL).orEmpty(),
             totalBytes = intent.getLongExtra(EXTRA_TOTAL_BYTES, 0L),
+            nightOnly = intent.getBooleanExtra(EXTRA_NIGHT_ONLY, false),
         )
     }
 
@@ -236,5 +336,6 @@ class QuranDownloadService : Service() {
         const val EXTRA_GLOBAL = "extra_global"
         const val EXTRA_LABEL = "extra_label"
         const val EXTRA_TOTAL_BYTES = "extra_total_bytes"
+        const val EXTRA_NIGHT_ONLY = "extra_night_only"
     }
 }

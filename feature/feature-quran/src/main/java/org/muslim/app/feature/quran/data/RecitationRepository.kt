@@ -83,7 +83,59 @@ class RecitationRepository @Inject constructor(
             dir.delete()
         }
 
+    /** Removes every downloaded surah for [reciterId]; true when anything was deleted. */
+    suspend fun deleteReciter(reciterId: String): Boolean =
+        withContext(Dispatchers.IO) {
+            val dir = reciterDir(reciterId)
+            if (!dir.exists()) return@withContext false
+            val files = dir.listFiles().orEmpty()
+            files.forEach { it.deleteRecursively() }
+            files.isNotEmpty()
+        }
+
     /** Total size of downloaded recitation audio in bytes (shown to the user). */
     fun downloadedBytes(): Long =
         recitationsDir.walkTopDown().filter { it.isFile }.sumOf { it.length() }
+
+    /**
+     * Scans disk for [reciterId] and returns what is downloaded: total ayah
+     * files, bytes, and per-surah counts. Drives the per-reciter download
+     * state shown in the downloads screen / reader dialog.
+     */
+    suspend fun downloadState(reciterId: String): ReciterDownloadState =
+        withContext(Dispatchers.IO) {
+            val dir = File(recitationsDir, reciterId)
+            if (!dir.exists()) return@withContext ReciterDownloadState(reciterId, emptyMap(), 0L)
+            val perSurah = dir.listFiles().orEmpty()
+                .filter { it.isDirectory }
+                .mapNotNull { surahDir ->
+                    val number = surahDir.name.toIntOrNull() ?: return@mapNotNull null
+                    val ayahs = surahDir.listFiles().orEmpty().count { it.isFile && it.name.endsWith(".mp3") }
+                    number to ayahs
+                }
+                .filter { it.second > 0 }
+                .toMap()
+            val bytes = dir.walkTopDown().filter { it.isFile }.sumOf { it.length() }
+            ReciterDownloadState(reciterId, perSurah, bytes)
+        }
+
+    /** True when every ayah of [surahNumber] is downloaded for [reciterId]. */
+    suspend fun isSurahComplete(reciterId: String, surahNumber: Int, expectedAyahs: Int): Boolean =
+        withContext(Dispatchers.IO) {
+            val dir = File(reciterDir(reciterId), surahNumber.toString())
+            if (!dir.exists()) return@withContext false
+            val count = dir.listFiles().orEmpty().count { it.isFile && it.name.endsWith(".mp3") }
+            count >= expectedAyahs
+        }
+}
+
+/** Snapshot of what audio is downloaded for one reciter. */
+data class ReciterDownloadState(
+    val reciterId: String,
+    /** surahNumber -> downloaded ayah count. */
+    val surahCounts: Map<Int, Int>,
+    val totalBytes: Long,
+) {
+    val downloadedAyahs: Int get() = surahCounts.values.sum()
+    val downloadedSurahs: Int get() = surahCounts.keys.size
 }

@@ -131,4 +131,26 @@
     <string name="qibla_bearing">الاتجاه: %1$.1f°</string>
     <string name="qibla_distance">المسافة إلى مكة: %1$s</string>
     <string name="qibla_calibrate">حرّك الهاتف بشكل ثماني لمعايرة البوصلة</string>
+    <!-- Permanent next-adhan countdown notification -->
+    <string name="next_adhan_notification_title">الأذان التالي: %1$s — %2$s</string>
+    <string name="next_adhan_remaining">الوقت المتبقي: %1$s</string>
+    <string name="next_adhan_missed">الأذان الفائت: %1$s — %2$s</string>
+    <string name="next_adhan_no_location">حدِّد موقعك لعرض مواقيت الصلاة</string>
+
+    <string name="bundled_adhan_madinah">أذان المدينة</string>
+    <string name="bundled_adhan_egypt">أذان مصر</string>
+    <string name="bundled_adhan_alaqsa">أذان الأقصى</string>
+    <string name="bundled_adhan_halab">أذان حلب</string>
+    <string name="bundled_adhan_abdul_ghaffar">أذان عبد الغفار</string>
+    <string name="bundled_adhan_abdul_hakam">أذان عبد الحكم</string>
+    <string name="bundled_adhan_al_hussaini">أذان الحسيني</string>
+    <string name="bundled_adhan_bakir_bash">أذان بكير باش</string>
+    <string name="bundled_adhan_hafez">أذان الحافظ</string>
+    <string name="bundled_adhan_hafiz_murad">أذان حافظ مراد</string>
+    <string name="bundled_adhan_naghshbandi">أذان النقشبندي</string>
+    <string name="bundled_adhan_saber">أذان صابر</string>
+    <string name="bundled_adhan_sharif_doman">أذان شريف دومان</string>
+    <string name="bundled_adhan_yusuf_islam">أذان يوسف إسلام</string>
+
+    <string name="settings_listen">استماع</string>
 </resources>

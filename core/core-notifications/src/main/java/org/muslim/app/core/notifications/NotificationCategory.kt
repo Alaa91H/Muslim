@@ -1,6 +1,8 @@
 package org.muslim.app.core.notifications
 
 import android.app.NotificationManager
+import java.time.Instant
+import java.time.ZoneId
 
 /**
  * How prominent a notification is. Mapped 1:1 onto the Android channel
@@ -42,6 +44,29 @@ data class QuietHours(
             minutesOfDay in startMinutes until endMinutes
         } else {
             minutesOfDay >= startMinutes || minutesOfDay < endMinutes
+        }
+    }
+
+    /**
+     * The epoch-millis instant when the current window ends: [endMinutes]
+     * today, or tomorrow when that time already passed today. Used by the
+     * permanent next-adhan notification to wake up again when quiet hours end.
+     */
+    fun nextEndMillis(nowMillis: Long, zone: ZoneId): Long {
+        val now = Instant.ofEpochMilli(nowMillis).atZone(zone)
+        val endToday = now.toLocalDate()
+            .atTime(endMinutes / 60, endMinutes % 60)
+            .atZone(zone)
+            .toInstant()
+            .toEpochMilli()
+        return if (endToday > nowMillis) {
+            endToday
+        } else {
+            now.toLocalDate().plusDays(1)
+                .atTime(endMinutes / 60, endMinutes % 60)
+                .atZone(zone)
+                .toInstant()
+                .toEpochMilli()
         }
     }
 
@@ -107,6 +132,20 @@ enum class NotificationCategory(
         NotificationChannels.HADITH_DAILY, defaultEnabled = true,
         defaultImportance = NotificationImportance.Low, defaultSound = true, defaultVibrate = false, defaultBadge = false,
         nameRes = R.string.channel_hadith_daily, descriptionRes = R.string.channel_hadith_daily_desc,
+    ),
+
+    /** Permanent status line: next adhan, countdown and the missed adhan. */
+    PrayerCountdown(
+        NotificationChannels.PRAYER_COUNTDOWN, defaultEnabled = true,
+        defaultImportance = NotificationImportance.Low, defaultSound = false, defaultVibrate = false, defaultBadge = false,
+        nameRes = R.string.channel_prayer_countdown, descriptionRes = R.string.channel_prayer_countdown_desc,
+    ),
+
+    /** Media-style controls while a Quran recitation is playing. */
+    Recitation(
+        NotificationChannels.RECITATION, defaultEnabled = true,
+        defaultImportance = NotificationImportance.Low, defaultSound = false, defaultVibrate = false, defaultBadge = false,
+        nameRes = R.string.channel_recitation, descriptionRes = R.string.channel_recitation_desc,
     );
 
     /** The defaults the app ships with for this category. */

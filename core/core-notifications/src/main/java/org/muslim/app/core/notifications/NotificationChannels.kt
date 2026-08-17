@@ -33,47 +33,88 @@ object NotificationChannels {
     /** Low-importance channel for the optional daily hadith notification. */
     const val HADITH_DAILY = "hadith_daily"
 
-    /** Creates/updates every channel with the app defaults; safe to call on each start (idempotent). */
+    /** Low-importance channel for the permanent next-adhan countdown. */
+    const val PRAYER_COUNTDOWN = "prayer_countdown"
+
+    /** Silent, low-importance channel for the Quran recitation media controls. */
+    const val RECITATION = "recitation"
+
+    /**
+     * Ensures every channel exists with the app defaults. Idempotent: channels
+     * that already exist are left untouched so a manual override the user made
+     * in system settings is never reset by a plain app start.
+     */
     fun create(context: Context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
         NotificationCategory.entries.forEach { category ->
-            applyCategorySettings(context, category, category.defaultPrefs())
+            val manager = context.getSystemService(NotificationManager::class.java)
+            if (manager.getNotificationChannel(category.channelId) == null) {
+                manager.createNotificationChannel(
+                    buildChannel(context, category, category.defaultPrefs()),
+                )
+            }
         }
     }
 
     /**
-     * Applies the user's [prefs] to the category's channel. Re-creating a
-     * channel with the same id updates its properties (importance, sound,
-     * vibration, badge); a manual override the user made in system settings
-     * is always respected by Android.
+     * Applies the user's [prefs] to the category's channel.
+     *
+     * Android treats an existing channel as immutable for raising importance
+     * and for sound / vibration / badge updates, so when [forceRecreate] is
+     * true (a user changed a setting in-app) and the channel's current state
+     * differs from [prefs], the channel is deleted and re-created with the new
+     * presentation. When the state already matches, nothing is re-created.
      */
     fun applyCategorySettings(
         context: Context,
         category: NotificationCategory,
         prefs: NotificationCategoryPrefs,
+        forceRecreate: Boolean = false,
     ) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
         val manager = context.getSystemService(NotificationManager::class.java)
-        val channel = NotificationChannel(
-            category.channelId,
-            context.getString(category.nameRes),
-            prefs.importance.channelImportance,
-        ).apply {
-            description = context.getString(category.descriptionRes)
-            if (!prefs.soundEnabled) {
-                // null sound = a silent channel when the user muted it.
-                setSound(null, null)
-            }
-            enableVibration(prefs.vibrateEnabled)
-            if (!prefs.vibrateEnabled) {
-                vibrationPattern = null
-            }
-            setShowBadge(prefs.badgeEnabled)
-            if (category == NotificationCategory.Adhkar && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                // Optional bubble presentation for the periodic reminder (Android 11+).
-                setAllowBubbles(true)
-            }
+        val existing = manager.getNotificationChannel(category.channelId)
+        if (forceRecreate && existing != null && channelDiffers(existing, prefs)) {
+            manager.deleteNotificationChannel(category.channelId)
         }
-        manager.createNotificationChannel(channel)
+        manager.createNotificationChannel(buildChannel(context, category, prefs))
+    }
+
+    private fun buildChannel(
+        context: Context,
+        category: NotificationCategory,
+        prefs: NotificationCategoryPrefs,
+    ): NotificationChannel = NotificationChannel(
+        category.channelId,
+        context.getString(category.nameRes),
+        prefs.importance.channelImportance,
+    ).apply {
+        description = context.getString(category.descriptionRes)
+        if (!prefs.soundEnabled) {
+            // null sound = a silent channel when the user muted it.
+            setSound(null, null)
+        }
+        enableVibration(prefs.vibrateEnabled)
+        if (!prefs.vibrateEnabled) {
+            vibrationPattern = null
+        }
+        setShowBadge(prefs.badgeEnabled)
+        if (category == NotificationCategory.Adhkar && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            // Optional bubble presentation for the periodic reminder (Android 11+).
+            setAllowBubbles(true)
+        }
+    }
+
+    /** True when the live channel's presentation differs from the requested [prefs]. */
+    private fun channelDiffers(
+        existing: NotificationChannel,
+        prefs: NotificationCategoryPrefs,
+    ): Boolean {
+        if (existing.importance != prefs.importance.channelImportance) return true
+        val soundMatches = if (prefs.soundEnabled) existing.sound != null else existing.sound == null
+        if (!soundMatches) return true
+        if (existing.shouldVibrate() != prefs.vibrateEnabled) return true
+        if (existing.canShowBadge() != prefs.badgeEnabled) return true
+        return false
     }
 }
