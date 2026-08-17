@@ -18,6 +18,7 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Nightlight
+import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.PrivacyTip
 import androidx.compose.material.icons.filled.Schedule
@@ -77,6 +78,7 @@ private val startTabOptions = listOf(
 @Composable
 fun SettingsScreen(
     onOpenPrayerSettings: () -> Unit,
+    onOpenNotifications: () -> Unit,
     onOpenAbout: () -> Unit,
     onOpenPrivacy: () -> Unit,
     onLanguageChanged: () -> Unit,
@@ -249,6 +251,16 @@ fun SettingsScreen(
                     leadingContent = { Icon(Icons.Filled.Schedule, contentDescription = null) },
                     trailingContent = { Chevron() },
                     modifier = Modifier.clickable(onClick = onOpenPrayerSettings),
+                )
+            }
+
+            item {
+                ListItem(
+                    headlineContent = { Text(stringResource(R.string.settings_notifications)) },
+                    supportingContent = { Text(stringResource(R.string.settings_notifications_desc)) },
+                    leadingContent = { Icon(Icons.Filled.NotificationsActive, contentDescription = null) },
+                    trailingContent = { Chevron() },
+                    modifier = Modifier.clickable(onClick = onOpenNotifications),
                 )
             }
 

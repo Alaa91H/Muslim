@@ -59,4 +59,21 @@
     <string name="privacy_body">مسلم يحترم خصوصيتك ولا يجمع بياناتك.\n\n• لا تتبّع: لا يوجد أي SDK إعلانات أو أدوات تحليلات أو تتبّع تسويقي.\n• البيانات تبقى على جهازك: كل بياناتك (الموقع، الإعدادات، العلامات المرجعية) تُخزَّن محليًا على جهازك فقط.\n• الموقع يُستخدم محليًا: إحداثياتك تُستخدم لحساب أوقات الصلاة واتجاه القبلة على جهازك، ولا تُرسَل إلى أي خادم خارجي.\n• الأذونات عند الحاجة فقط: نطلب أذونات (الموقع، الإشعارات) فقط عند الحاجة الفعلية للميزة، مع شرح واضح لسبب الطلب.\n• بلا اتصال إجباري: التطبيق يعمل دون إنترنت؛ الاتصال بالشبكة اختياري بالكامل لميزات إضافية كتنزيل التلاوات.\n\nهذه السياسة جزء من مستودع الكود المفتوح وتخضع للمراجعة المجتمعية.</string>
 
     <string name="back">رجوع</string>
+
+    <string name="settings_notifications">الإشعارات</string>
+    <string name="settings_notifications_desc">إدارة كل إشعارات التطبيق من مكان واحد</string>
+    <string name="notifications_title">الإشعارات</string>
+    <string name="notifications_intro">تحكم كامل في كل إشعارات التطبيق من مكان واحد. عند تعطيل أي فئة، تُلغى فورًا كل الإشعارات المعلّقة منها.</string>
+    <string name="notif_category_adhan">الأذان</string>
+    <string name="notif_category_adhan_desc">صوت الأذان وإشعار الأذان نفسه عند كل صلاة</string>
+    <string name="notif_category_reminder">تذكير الصلاة</string>
+    <string name="notif_category_reminder_desc">تذكير قبل موعد الصلاة بالوقت المحدد</string>
+    <string name="notif_category_quran">آية اليوم</string>
+    <string name="notif_category_quran_desc">آية يومية مع دعوة للقراءة والتدبر</string>
+    <string name="notif_category_ramadan">رمضان</string>
+    <string name="notif_category_ramadan_desc">تنبيهات الإفطار والسحور في رمضان</string>
+    <string name="notif_category_adhkar">الأذكار</string>
+    <string name="notif_category_adhkar_desc">تذكيرات الأذكار والرسالة العائمة</string>
+    <string name="notif_category_hadith">حديث اليوم</string>
+    <string name="notif_category_hadith_desc">حديث يومي مع تذكير بالهدي النبوي</string>
 </resources>

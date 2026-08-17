@@ -9,6 +9,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import org.muslim.app.core.notifications.NotificationCategory
+import org.muslim.app.core.notifications.notificationCategoryEnabled
 import org.muslim.app.feature.adhkar.domain.DhikrCategory
 import org.muslim.app.feature.adhkar.overlay.AdhkarOverlayService
 
@@ -32,7 +34,7 @@ class AdhkarReminderReceiver : BroadcastReceiver() {
                 AdhkarReminderSlot.Morning -> prefs.morningReminderEnabled
                 AdhkarReminderSlot.Evening -> prefs.eveningReminderEnabled
             }
-            if (slotEnabled) {
+            if (slotEnabled && appContext.notificationCategoryEnabled(NotificationCategory.Adhkar)) {
                 val category = when (slot) {
                     AdhkarReminderSlot.Morning -> DhikrCategory.Morning
                     AdhkarReminderSlot.Evening -> DhikrCategory.Evening

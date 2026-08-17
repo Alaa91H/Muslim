@@ -23,6 +23,7 @@ class HadithOfTheDayWorkerTest {
     private fun worker(
         source: HadithOfTheDaySource,
         notifier: HadithOfTheDayNotifier = mockk(relaxed = true),
+        categoryEnabled: Boolean = true,
     ): HadithOfTheDayWorker =
         object : HadithOfTheDayWorker(
             context = mockk(relaxed = true),
@@ -30,6 +31,7 @@ class HadithOfTheDayWorkerTest {
         ) {
             override fun repository(): HadithOfTheDaySource = source
             override fun notifier(): HadithOfTheDayNotifier = notifier
+            override suspend fun categoryEnabled(): Boolean = categoryEnabled
         }
 
     @Test
@@ -54,6 +56,20 @@ class HadithOfTheDayWorkerTest {
         val notifier = mockk<HadithOfTheDayNotifier>(relaxed = true)
 
         val result = worker(source, notifier).doWork()
+
+        assertThat(result).isInstanceOf(ListenableWorker.Result.Success::class.java)
+        verify(exactly = 0) { notifier.show(any()) }
+        coVerify(exactly = 0) { source.hadithOfTheDay() }
+    }
+
+    @Test
+    fun `returns success without posting when the unified manager disables the category`() = runTest {
+        val source = mockk<HadithOfTheDaySource> {
+            coEvery { isDailyNotificationEnabled() } returns true
+        }
+        val notifier = mockk<HadithOfTheDayNotifier>(relaxed = true)
+
+        val result = worker(source, notifier, categoryEnabled = false).doWork()
 
         assertThat(result).isInstanceOf(ListenableWorker.Result.Success::class.java)
         verify(exactly = 0) { notifier.show(any()) }

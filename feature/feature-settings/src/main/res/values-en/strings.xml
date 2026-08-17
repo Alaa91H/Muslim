@@ -59,4 +59,21 @@
     <string name="privacy_body">Muslim respects your privacy and does not collect your data.\n\n• No tracking: no ad SDKs, analytics or marketing trackers.\n• Data stays on your device: all your data (location, settings, bookmarks) is stored locally on your device only.\n• Location is used locally: your coordinates are used to calculate prayer times and the qibla on your device, and are never sent to any external server.\n• Permissions only when needed: we ask for permissions (location, notifications) only when a feature actually needs them, with a clear explanation.\n• No forced connectivity: the app works offline; network use is entirely optional for extras such as downloading recitations.\n\nThis policy is part of the open-source repository and is open to community review.</string>
 
     <string name="back">Back</string>
+
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_notifications_desc">Manage every app notification in one place</string>
+    <string name="notifications_title">Notifications</string>
+    <string name="notifications_intro">Full control over every app notification in one place. Disabling a category immediately cancels its pending notifications.</string>
+    <string name="notif_category_adhan">Adhan</string>
+    <string name="notif_category_adhan_desc">The adhan sound and its notification at each prayer</string>
+    <string name="notif_category_reminder">Prayer reminder</string>
+    <string name="notif_category_reminder_desc">Reminder before the prayer time, at your chosen offset</string>
+    <string name="notif_category_quran">Ayah of the day</string>
+    <string name="notif_category_quran_desc">A daily ayah with an invitation to read and reflect</string>
+    <string name="notif_category_ramadan">Ramadan</string>
+    <string name="notif_category_ramadan_desc">Iftar and suhoor alerts during Ramadan</string>
+    <string name="notif_category_adhkar">Adhkar</string>
+    <string name="notif_category_adhkar_desc">Adhkar reminders and the floating overlay</string>
+    <string name="notif_category_hadith">Hadith of the day</string>
+    <string name="notif_category_hadith_desc">A daily hadith with a reminder of the prophetic guidance</string>
 </resources>

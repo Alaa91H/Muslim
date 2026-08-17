@@ -8,6 +8,8 @@ import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.components.SingletonComponent
+import org.muslim.app.core.notifications.NotificationCategory
+import org.muslim.app.core.notifications.notificationCategoryEnabled
 
 /**
  * Optional daily hadith notification (PROJECT_PROMPT.md §6 Phase 3: «حديث اليوم»).
@@ -26,13 +28,19 @@ open class HadithOfTheDayWorker(
 ) : CoroutineWorker(context, params) {
 
     override suspend fun doWork(): Result {
-        // Respect the user's toggle even if a periodic job is still queued
-        // (e.g. it was scheduled before the toggle was turned off).
+        // Respect the user's toggles even if a periodic job is still queued
+        // (e.g. it was scheduled before the toggle was turned off): the
+        // hadith-specific switch and the unified notification manager.
         if (!repository().isDailyNotificationEnabled()) return Result.success()
+        if (!categoryEnabled()) return Result.success()
         val hadith = repository().hadithOfTheDay() ?: return Result.retry()
         notifier().show(hadith)
         return Result.success()
     }
+
+    /** Whether the unified notification manager allows the hadith category. */
+    protected open suspend fun categoryEnabled(): Boolean =
+        applicationContext.notificationCategoryEnabled(NotificationCategory.HadithDaily)
 
     protected open fun repository(): HadithOfTheDaySource =
         EntryPointAccessors.fromApplication(

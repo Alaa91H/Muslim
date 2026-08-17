@@ -49,6 +49,7 @@ import org.muslim.app.feature.quran.ui.SearchScreen
 import org.muslim.app.feature.quran.ui.SurahListScreen
 import org.muslim.app.feature.reference.ui.ReferenceScreen
 import org.muslim.app.feature.settings.AboutScreen
+import org.muslim.app.feature.settings.NotificationSettingsScreen
 import org.muslim.app.feature.settings.PrivacyScreen
 import org.muslim.app.feature.settings.SettingsScreen
 import org.muslim.app.feature.tasbih.ui.TasbihScreen
@@ -73,6 +74,7 @@ private const val SEARCH_ROUTE = "quran/search"
 private const val BOOKMARKS_ROUTE = "quran/bookmarks"
 private const val SETTINGS_ROUTE = "settings"
 private const val PRAYER_SETTINGS_ROUTE = "settings/prayer"
+private const val NOTIFICATIONS_ROUTE = "settings/notifications"
 private const val ABOUT_ROUTE = "settings/about"
 private const val PRIVACY_ROUTE = "settings/privacy"
 private const val HADITH_ROUTE = "hadith"
@@ -228,10 +230,14 @@ fun MuslimApp(
                     SettingsScreen(
                         onBack = { navController.popBackStack() },
                         onOpenPrayerSettings = { navController.navigate(PRAYER_SETTINGS_ROUTE) },
+                        onOpenNotifications = { navController.navigate(NOTIFICATIONS_ROUTE) },
                         onOpenAbout = { navController.navigate(ABOUT_ROUTE) },
                         onOpenPrivacy = { navController.navigate(PRIVACY_ROUTE) },
                         onLanguageChanged = onLanguageChanged,
                     )
+                }
+                composable(NOTIFICATIONS_ROUTE) {
+                    NotificationSettingsScreen(onBack = { navController.popBackStack() })
                 }
                 composable(HADITH_ROUTE) {
                     HadithScreen(onBack = { navController.popBackStack() })

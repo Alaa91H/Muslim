@@ -11,6 +11,8 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.muslim.app.core.common.prayer.AdhanSoundOption
 import org.muslim.app.core.common.prayer.Prayer
+import org.muslim.app.core.notifications.NotificationCategory
+import org.muslim.app.core.notifications.notificationCategoryEnabled
 import org.muslim.app.feature.prayertimes.widget.PrayerTimesWidget
 
 /**
@@ -29,10 +31,14 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         CoroutineScope(Dispatchers.IO).launch {
             val settings = entryPoint.settingsRepository().settings.first()
             if (isReminder) {
-                if (settings.reminderMinutes > 0) {
+                if (settings.reminderMinutes > 0 &&
+                    appContext.notificationCategoryEnabled(NotificationCategory.PrayerReminder)
+                ) {
                     AdhanNotifications.showReminder(appContext, prayer, settings.reminderMinutes)
                 }
-            } else if (settings.adhanEnabled) {
+            } else if (settings.adhanEnabled &&
+                appContext.notificationCategoryEnabled(NotificationCategory.Adhan)
+            ) {
                 val soundPath = entryPoint.soundRepository().customSoundFile(prayer)?.absolutePath
                 AdhanPlaybackService.start(
                     context = appContext,
