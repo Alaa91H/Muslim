@@ -10,6 +10,7 @@ import kotlinx.serialization.json.Json
 import org.muslim.app.feature.hadith.data.HadithDao
 import org.muslim.app.feature.hadith.data.HadithDatabase
 import org.muslim.app.feature.hadith.data.HadithFtsDao
+import org.muslim.app.feature.hadith.data.HadithPrefsRepository
 import org.muslim.app.feature.hadith.data.HadithRepository
 import javax.inject.Singleton
 
@@ -38,6 +39,7 @@ object HadithModule {
         @ApplicationContext context: Context,
         hadithDao: HadithDao,
         hadithFtsDao: HadithFtsDao,
+        prefsRepository: HadithPrefsRepository,
         json: Json,
-    ): HadithRepository = HadithRepository(context, hadithDao, hadithFtsDao, json)
+    ): HadithRepository = HadithRepository(context, hadithDao, hadithFtsDao, prefsRepository, json)
 }

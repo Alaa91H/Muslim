@@ -38,6 +38,7 @@ dependencies {
     implementation(project(":core:core-ui"))
     implementation(project(":core:core-common"))
     implementation(project(":core:core-datastore"))
+    implementation(project(":core:core-notifications"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -51,6 +52,7 @@ dependencies {
     ksp(libs.androidx.room.compiler)
 
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.work.runtime.ktx)
 
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)

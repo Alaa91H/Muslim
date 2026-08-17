@@ -1,8 +1,10 @@
 package org.muslim.app.feature.hadith.ui
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -14,6 +16,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import org.muslim.app.feature.hadith.data.HadithOfTheDayScheduler
 import org.muslim.app.feature.hadith.data.HadithPrefsRepository
 import org.muslim.app.feature.hadith.data.HadithRepository
 import org.muslim.app.feature.hadith.domain.Hadith
@@ -23,6 +26,7 @@ import javax.inject.Inject
 @OptIn(ExperimentalCoroutinesApi::class)
 @HiltViewModel
 class HadithViewModel @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val repository: HadithRepository,
     private val prefsRepository: HadithPrefsRepository,
 ) : ViewModel() {
@@ -54,6 +58,9 @@ class HadithViewModel @Inject constructor(
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     init {
+        // Schedule the optional daily hadith notification (idempotent, mirrors
+        // the Quran module's ayah-of-the-day pattern).
+        viewModelScope.launch { HadithOfTheDayScheduler.schedule(context) }
         viewModelScope.launch { _daily.value = repository.hadithOfTheDay() }
     }
 

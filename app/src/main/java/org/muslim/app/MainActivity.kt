@@ -99,6 +99,7 @@ class MainActivity : ComponentActivity() {
             data.startsWith("muslim://times") -> ROUTE_TIMES
             data.startsWith("muslim://qibla") -> ROUTE_QIBLA
             data.startsWith("muslim://settings") -> ROUTE_SETTINGS
+            data.startsWith("muslim://hadith") -> ROUTE_HADITH
             else -> ROUTE_HOME
         }
     }
@@ -124,5 +125,6 @@ class MainActivity : ComponentActivity() {
         const val ROUTE_TIMES = "times"
         const val ROUTE_QIBLA = "qibla"
         const val ROUTE_SETTINGS = "settings"
+        const val ROUTE_HADITH = "hadith"
     }
 }

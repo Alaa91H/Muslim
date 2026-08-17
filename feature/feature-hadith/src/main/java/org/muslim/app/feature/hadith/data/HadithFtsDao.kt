@@ -18,4 +18,7 @@ interface HadithFtsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(rows: List<HadithFtsEntity>)
+
+    @Query("DELETE FROM hadith_fts")
+    suspend fun clearAll()
 }

@@ -5,9 +5,9 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 
 /**
- * A hadith record (PROJECT_PROMPT.md §6 Phase 3). Content ships via the
- * import pipeline and is subject to independent religious review before the
- * official release; the bundled asset is a development sample.
+ * A hadith record (PROJECT_PROMPT.md §6 Phase 3). Content ships bundled as a
+ * curated corpus and remains subject to independent religious review before
+ * the official release.
  */
 @Entity(
     tableName = "hadiths",

@@ -31,6 +31,10 @@ object NotificationChannels {
     const val ADHKAR = "adhkar"
     const val ADHKAR_NAME = "الأذكار"
 
+    /** Low-importance channel for the optional daily hadith notification. */
+    const val HADITH_DAILY = "hadith_daily"
+    const val HADITH_DAILY_NAME = "حديث اليوم"
+
     /** Creates all channels; safe to call on every app start (idempotent). */
     fun create(context: Context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
@@ -61,6 +65,12 @@ object NotificationChannels {
         manager.createNotificationChannel(
             NotificationChannel(ADHKAR, ADHKAR_NAME, NotificationManager.IMPORTANCE_DEFAULT).apply {
                 description = "تذكيرات الأذكار والرسالة العائمة"
+                setShowBadge(false)
+            }
+        )
+        manager.createNotificationChannel(
+            NotificationChannel(HADITH_DAILY, HADITH_DAILY_NAME, NotificationManager.IMPORTANCE_LOW).apply {
+                description = "حديث يومي اختياري مع تذكير بالهدي النبوي"
                 setShowBadge(false)
             }
         )

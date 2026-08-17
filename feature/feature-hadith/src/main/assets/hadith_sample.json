@@ -1,12 +1,58 @@
 {
-  "note": "DEVELOPMENT SAMPLE ONLY — a dozen canonical hadiths so the UI and search can be exercised offline. Full collections (Six Books, Riyadh al-Salihin, Nawawi 40) must be imported from a licensed, curated source and must pass independent religious review before any release. Texts here are the widely-reproduced canonical wordings; attributions are given per item.",
+  "note": "Curated starter corpus (v2): the complete Arba'in an-Nawawiyyah (42 hadiths) plus famous hadiths from the Six Books and Riyadh as-Salihin (57). Texts follow the canonical wordings; attributions and grades are given per item. Independent religious review remains recommended before an official release.",
+  "version": 2,
   "hadiths": [
     {
       "collection": "nawawi40",
       "chapter": "النية",
       "number": 1,
-      "arabic": "إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ فَهِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ، وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا أَوِ امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ",
-      "translation": "Actions are but by intentions, and every person shall have only what they intended…",
+      "arabic": "إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ فَهِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ، وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا أَوِ امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ.",
+      "translation": "Actions are but by intentions, and every person shall have only what he intended. Whoever emigrates for God and His Messenger, his emigration is for God and His Messenger; and whoever emigrates for worldly gain or to marry a woman, his emigration is for that which he emigrated to.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "الإسلام والإيمان والإحسان",
+      "number": 2,
+      "arabic": "عَنْ عُمَرَ بْنِ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ قَالَ: بَيْنَمَا نَحْنُ جُلُوسٌ عِنْدَ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ ذَاتَ يَوْمٍ إِذْ طَلَعَ عَلَيْنَا رَجُلٌ شَدِيدُ بَيَاضِ الثِّيَابِ شَدِيدُ سَوَادِ الشَّعَرِ، لَا يُرَى عَلَيْهِ أَثَرُ السَّفَرِ وَلَا يَعْرِفُهُ مِنَّا أَحَدٌ، حَتَّى جَلَسَ إِلَى النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَأَسْنَدَ رُكْبَتَيْهِ إِلَى رُكْبَتَيْهِ وَوَضَعَ كَفَّيْهِ عَلَى فَخِذَيْهِ وَقَالَ: يَا مُحَمَّدُ أَخْبِرْنِي عَنِ الْإِسْلَامِ، فَقَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: الْإِسْلَامُ أَنْ تَشْهَدَ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَتُقِيمَ الصَّلَاةَ، وَتُؤْتِيَ الزَّكَاةَ، وَتَصُومَ رَمَضَانَ، وَتَحُجَّ الْبَيْتَ إِنِ اسْتَطَعْتَ إِلَيْهِ سَبِيلًا، قَالَ: صَدَقْتَ، فَعَجِبْنَا لَهُ يَسْأَلُهُ وَيُصَدِّقُهُ، قَالَ: فَأَخْبِرْنِي عَنِ الْإِيمَانِ، قَالَ: أَنْ تُؤْمِنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الْآخِرِ وَتُؤْمِنَ بِالْقَدَرِ خَيْرِهِ وَشَرِّهِ، قَالَ: صَدَقْتَ، قَالَ: فَأَخْبِرْنِي عَنِ الْإِحْسَانِ، قَالَ: أَنْ تَعْبُدَ اللَّهَ كَأَنَّكَ تَرَاهُ فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ، قَالَ: فَأَخْبِرْنِي عَنِ السَّاعَةِ، قَالَ: مَا الْمَسْئُولُ عَنْهَا بِأَعْلَمَ مِنَ السَّائِلِ، قَالَ: فَأَخْبِرْنِي عَنْ أَمَارَاتِهَا، قَالَ: أَنْ تَلِدَ الْأَمَةُ رَبَّتَهَا، وَأَنْ تَرَى الْحُفَاةَ الْعُرَاةَ الْعَالَةَ رِعَاءَ الشَّاءِ يَتَطَاوَلُونَ فِي الْبُنْيَانِ، ثُمَّ انْطَلَقَ فَلَبِثْتُ مَلِيًّا، ثُمَّ قَالَ: يَا عُمَرُ أَتَدْرِي مَنِ السَّائِلُ؟ قُلْتُ: اللَّهُ وَرَسُولُهُ أَعْلَمُ، قَالَ: فَإِنَّهُ جِبْرِيلُ أَتَاكُمْ يُعَلِّمُكُمْ دِينَكُمْ.",
+      "translation": "Umar ibn al-Khattab reported: While we were sitting with the Messenger of God, a man appeared with very white clothes and very black hair, with no sign of travel upon him, whom none of us knew. He sat before the Prophet and asked: O Muhammad, tell me about Islam. The Prophet said: Islam is to testify that there is no god but God and that Muhammad is the Messenger of God, to establish prayer, give zakat, fast Ramadan, and make pilgrimage to the House if you are able. He said: You have spoken truthfully. Then he asked about faith, and he said: To believe in God, His angels, His books, His messengers, the Last Day, and to believe in divine decree, its good and its evil. Then he asked about excellence, and he said: To worship God as though you see Him, for though you do not see Him, He sees you. Then he asked about the Hour and its signs, and the Prophet answered and said: O Umar, do you know who the questioner was? I said: God and His Messenger know best. He said: It was Gabriel, who came to teach you your religion.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "أركان الإسلام",
+      "number": 3,
+      "arabic": "بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ: شَهَادَةِ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَإِقَامِ الصَّلَاةِ، وَإِيتَاءِ الزَّكَاةِ، وَحَجِّ الْبَيْتِ، وَصَوْمِ رَمَضَانَ.",
+      "translation": "Islam is built upon five: testifying that there is no god but God and that Muhammad is the Messenger of God, establishing prayer, giving zakat, performing pilgrimage to the House, and fasting Ramadan.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "خلق الإنسان في بطن أمه",
+      "number": 4,
+      "arabic": "إِنَّ أَحَدَكُمْ يُجْمَعُ خَلْقُهُ فِي بَطْنِ أُمِّهِ أَرْبَعِينَ يَوْمًا نُطْفَةً، ثُمَّ يَكُونُ عَلَقَةً مِثْلَ ذَلِكَ، ثُمَّ يَكُونُ مُضْغَةً مِثْلَ ذَلِكَ، ثُمَّ يُرْسَلُ إِلَيْهِ الْمَلَكُ فَيَنْفُخُ فِيهِ الرُّوحَ، وَيُؤْمَرُ بِأَرْبَعِ كَلِمَاتٍ: بِكَتْبِ رِزْقِهِ وَأَجَلِهِ وَعَمَلِهِ وَشَقِيٍّ أَوْ سَعِيدٍ، فَوَالَّذِي لَا إِلَهَ غَيْرُهُ إِنَّ أَحَدَكُمْ لَيَعْمَلُ بِعَمَلِ أَهْلِ الْجَنَّةِ حَتَّى مَا يَكُونَ بَيْنَهُ وَبَيْنَهَا إِلَّا ذِرَاعٌ فَيَسْبِقُ عَلَيْهِ الْكِتَابُ فَيَعْمَلُ بِعَمَلِ أَهْلِ النَّارِ فَيَدْخُلُهَا، وَإِنَّ أَحَدَكُمْ لَيَعْمَلُ بِعَمَلِ أَهْلِ النَّارِ حَتَّى مَا يَكُونَ بَيْنَهُ وَبَيْنَهَا إِلَّا ذِرَاعٌ فَيَسْبِقُ عَلَيْهِ الْكِتَابُ فَيَعْمَلُ بِعَمَلِ أَهْلِ الْجَنَّةِ فَيَدْخُلُهَا.",
+      "translation": "Each of you is gathered in his mother's womb for forty days as a drop, then as a clot for the like, then as a lump for the like, then the angel is sent and breathes the spirit into him, and is commanded with four words: to write his provision, his life span, his deeds, and whether he is wretched or blessed. By Him besides whom there is no god, one of you may do the deeds of the people of Paradise until there is only a forearm's distance between him and it, then the decree overtakes him and he does the deeds of the people of the Fire and enters it; and one of you may do the deeds of the people of the Fire until there is only a forearm's distance between him and it, then the decree overtakes him and he does the deeds of the people of Paradise and enters it.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "البدع",
+      "number": 5,
+      "arabic": "مَنْ أَحْدَثَ فِي أَمْرِنَا هَذَا مَا لَيْسَ مِنْهُ فَهُوَ رَدٌّ.",
+      "translation": "Whoever innovates in this matter of ours something that is not of it, it is rejected.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "الحلال والحرام والشبهات",
+      "number": 6,
+      "arabic": "إِنَّ الْحَلَالَ بَيِّنٌ وَإِنَّ الْحَرَامَ بَيِّنٌ، وَبَيْنَهُمَا أُمُورٌ مُشْتَبِهَاتٌ لَا يَعْلَمُهُنَّ كَثِيرٌ مِنَ النَّاسِ، فَمَنِ اتَّقَى الشُّبُهَاتِ فَقَدِ اسْتَبْرَأَ لِدِينِهِ وَعِرْضِهِ، وَمَنْ وَقَعَ فِي الشُّبُهَاتِ وَقَعَ فِي الْحَرَامِ، كَالرَّاعِي يَرْعَى حَوْلَ الْحِمَى يُوشِكُ أَنْ يَرْتَعَ فِيهِ، أَلَا وَإِنَّ لِكُلِّ مَلِكٍ حِمًى، أَلَا وَإِنَّ حِمَى اللَّهِ مَحَارِمُهُ، أَلَا وَإِنَّ فِي الْجَسَدِ مُضْغَةً إِذَا صَلَحَتْ صَلَحَ الْجَسَدُ كُلُّهُ، وَإِذَا فَسَدَتْ فَسَدَ الْجَسَدُ كُلُّهُ، أَلَا وَهِيَ الْقَلْبُ.",
+      "translation": "The lawful is clear and the unlawful is clear, and between them are doubtful matters unknown to most people. Whoever guards against the doubtful matters has cleared his religion and his honour; whoever falls into the doubtful matters falls into the unlawful, like a shepherd who grazes around a sanctuary and is likely to enter it. Every king has a sanctuary, and the sanctuary of God is His prohibitions. In the body there is a lump of flesh which, if sound, makes the whole body sound, and if corrupt, makes the whole body corrupt — it is the heart.",
       "grade": "Sahih",
       "source": "رواه البخاري ومسلم"
     },
@@ -14,17 +60,53 @@
       "collection": "nawawi40",
       "chapter": "النصيحة",
       "number": 7,
-      "arabic": "الدِّينُ النَّصِيحَةُ. قُلْنَا: لِمَنْ يَا رَسُولَ اللَّهِ؟ قَالَ: لِلَّهِ، وَلِكِتَابِهِ، وَلِرَسُولِهِ، وَلِأَئِمَّةِ الْمُسْلِمِينَ وَعَامَّتِهِمْ",
-      "translation": "Religion is sincere advice. We asked: to whom, O Messenger of God? He said: to God, His Book, His Messenger, and to the leaders and the general body of Muslims.",
+      "arabic": "الدِّينُ النَّصِيحَةُ، قُلْنَا: لِمَنْ يَا رَسُولَ اللَّهِ؟ قَالَ: لِلَّهِ، وَلِكِتَابِهِ، وَلِرَسُولِهِ، وَلِأَئِمَّةِ الْمُسْلِمِينَ وَعَامَّتِهِمْ.",
+      "translation": "Religion is sincere advice. We asked: to whom, O Messenger of God? He said: to God, His Book, His Messenger, the leaders of the Muslims and their common people.",
       "grade": "Sahih",
       "source": "رواه مسلم"
     },
     {
       "collection": "nawawi40",
+      "chapter": "حرمة الدم والمال",
+      "number": 8,
+      "arabic": "أُمِرْتُ أَنْ أُقَاتِلَ النَّاسَ حَتَّى يَشْهَدُوا أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَيُقِيمُوا الصَّلَاةَ، وَيُؤْتُوا الزَّكَاةَ، فَإِذَا فَعَلُوا ذَلِكَ عَصَمُوا مِنِّي دِمَاءَهُمْ وَأَمْوَالَهُمْ إِلَّا بِحَقِّ الْإِسْلَامِ، وَحِسَابُهُمْ عَلَى اللَّهِ.",
+      "translation": "I have been commanded to fight people until they testify that there is no god but God and that Muhammad is the Messenger of God, establish prayer, and give zakat. When they do that, they have protected their blood and property from me except by the right of Islam, and their reckoning is with God.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "اتباع الأوامر واجتناب النواهي",
+      "number": 9,
+      "arabic": "مَا نَهَيْتُكُمْ عَنْهُ فَاجْتَنِبُوهُ، وَمَا أَمَرْتُكُمْ بِهِ فَأْتُوا مِنْهُ مَا اسْتَطَعْتُمْ، فَإِنَّمَا أَهْلَكَ الَّذِينَ مِنْ قَبْلِكُمْ كَثْرَةُ مَسَائِلِهِمْ وَاخْتِلَافُهُمْ عَلَى أَنْبِيَائِهِمْ.",
+      "translation": "What I have forbidden you, avoid; what I have commanded you, do of it what you are able. Those before you were only destroyed by their excessive questioning and their disagreement with their prophets.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "الطعام الحلال",
+      "number": 10,
+      "arabic": "يَا أَيُّهَا النَّاسُ إِنَّ اللَّهَ طَيِّبٌ لَا يَقْبَلُ إِلَّا طَيِّبًا، وَإِنَّ اللَّهَ أَمَرَ الْمُؤْمِنِينَ بِمَا أَمَرَ بِهِ الْمُرْسَلِينَ فَقَالَ: يَا أَيُّهَا الرُّسُلُ كُلُوا مِنَ الطَّيِّبَاتِ وَاعْمَلُوا صَالِحًا، وَقَالَ: يَا أَيُّهَا الَّذِينَ آمَنُوا كُلُوا مِنْ طَيِّبَاتِ مَا رَزَقْنَاكُمْ، ثُمَّ ذَكَرَ الرَّجُلَ يُطِيلُ السَّفَرَ أَشْعَثَ أَغْبَرَ يَمُدُّ يَدَيْهِ إِلَى السَّمَاءِ: يَا رَبِّ يَا رَبِّ، وَمَطْعَمُهُ حَرَامٌ وَمَشْرَبُهُ حَرَامٌ وَمَلْبَسُهُ حَرَامٌ وَغُذِّيَ بِالْحَرَامِ، فَأَنَّى يُسْتَجَابُ لَهُ؟",
+      "translation": "O people, God is Good and accepts only what is good. God commanded the believers with what He commanded the messengers: O messengers, eat from the good things and work righteousness; and: O you who believe, eat from the good things We have provided you. Then he mentioned a man who travels far, disheveled and dusty, stretching his hands to the sky saying: O Lord, O Lord — while his food is unlawful, his drink is unlawful, his clothing is unlawful, and he was nourished with the unlawful — so how can his supplication be answered?",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "ترك الشبهات",
+      "number": 11,
+      "arabic": "دَعْ مَا يَرِيبُكَ إِلَى مَا لَا يَرِيبُكَ، فَإِنَّ الصِّدْقَ طُمَأْنِينَةٌ وَإِنَّ الْكَذِبَ رِيبَةٌ.",
+      "translation": "Leave what makes you doubt for what does not make you doubt. Truthfulness is tranquility, and falsehood is doubt.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي والنسائي"
+    },
+    {
+      "collection": "nawawi40",
       "chapter": "ترك ما لا يعنيه",
       "number": 12,
-      "arabic": "مِنْ حُسْنِ إِسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ",
-      "translation": "Part of the perfection of a person's Islam is leaving alone what does not concern them.",
+      "arabic": "مِنْ حُسْنِ إِسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ.",
+      "translation": "Part of the perfection of a person's Islam is leaving alone what does not concern him.",
       "grade": "Hasan",
       "source": "رواه الترمذي"
     },
@@ -32,7 +114,7 @@
       "collection": "nawawi40",
       "chapter": "حب لأخيه ما يحب لنفسه",
       "number": 13,
-      "arabic": "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ",
+      "arabic": "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ.",
       "translation": "None of you truly believes until he loves for his brother what he loves for himself.",
       "grade": "Sahih",
       "source": "رواه البخاري ومسلم"
@@ -41,68 +123,775 @@
       "collection": "nawawi40",
       "chapter": "حرمة دم المسلم",
       "number": 14,
-      "arabic": "الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ",
-      "translation": "A Muslim is one from whose tongue and hand other Muslims are safe.",
+      "arabic": "لَا يَحِلُّ دَمُ امْرِئٍ مُسْلِمٍ يَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنِّي رَسُولُ اللَّهِ إِلَّا بِإِحْدَى ثَلَاثٍ: الثَّيِّبُ الزَّانِي، وَالنَّفْسُ بِالنَّفْسِ، وَالتَّارِكُ لِدِينِهِ الْمُفَارِقُ لِلْجَمَاعَةِ.",
+      "translation": "The blood of a Muslim who testifies that there is no god but God and that I am the Messenger of God is not lawful except for one of three: the married adulterer, a life for a life, and one who abandons his religion and separates from the community.",
       "grade": "Sahih",
-      "source": "رواه البخاري"
+      "source": "رواه البخاري ومسلم"
     },
     {
       "collection": "nawawi40",
       "chapter": "قول خير أو الصمت",
       "number": 15,
-      "arabic": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ، وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ جَارَهُ، وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ ضَيْفَهُ",
-      "translation": "Whoever believes in God and the Last Day, let him speak good or remain silent; let him honour his neighbour; let him honour his guest.",
+      "arabic": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ، وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ جَارَهُ، وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ ضَيْفَهُ.",
+      "translation": "Whoever believes in God and the Last Day, let him speak good or remain silent; whoever believes in God and the Last Day, let him honour his neighbour; whoever believes in God and the Last Day, let him honour his guest.",
       "grade": "Sahih",
       "source": "رواه البخاري ومسلم"
     },
     {
       "collection": "nawawi40",
+      "chapter": "النهي عن الغضب",
+      "number": 16,
+      "arabic": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ أَنَّ رَجُلًا قَالَ لِلنَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: أَوْصِنِي، قَالَ: لَا تَغْضَبْ، فَرَدَّدَ مِرَارًا، قَالَ: لَا تَغْضَبْ.",
+      "translation": "Abu Huraira reported that a man said to the Prophet: Advise me. He said: Do not become angry. He repeated his request several times, and he said: Do not become angry.",
+      "grade": "Sahih",
+      "source": "رواه البخاري"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "الإحسان في كل شيء",
+      "number": 17,
+      "arabic": "إِنَّ اللَّهَ كَتَبَ الْإِحْسَانَ عَلَى كُلِّ شَيْءٍ، فَإِذَا قَتَلْتُمْ فَأَحْسِنُوا الْقِتْلَةَ، وَإِذَا ذَبَحْتُمْ فَأَحْسِنُوا الذِّبْحَةَ، وَلْيُحِدَّ أَحَدُكُمْ شَفْرَتَهُ وَلْيُرِحْ ذَبِيحَتَهُ.",
+      "translation": "God has prescribed excellence in everything. When you kill, kill well; when you slaughter, slaughter well. Let each of you sharpen his blade and spare his animal suffering.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "nawawi40",
       "chapter": "التقوى",
       "number": 18,
-      "arabic": "اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ",
-      "translation": "Be mindful of God wherever you are; follow a bad deed with a good one and it will erase it; and deal with people with good character.",
+      "arabic": "اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ.",
+      "translation": "Be mindful of God wherever you are; follow a bad deed with a good deed that wipes it out; and deal with people with good character.",
       "grade": "Hasan",
       "source": "رواه الترمذي"
     },
     {
-      "collection": "riyad",
-      "chapter": "باب الكلام الطيب",
-      "arabic": "الْكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ",
-      "translation": "A kind word is an act of charity.",
+      "collection": "nawawi40",
+      "chapter": "حفظ الله",
+      "number": 19,
+      "arabic": "احْفَظِ اللَّهَ يَحْفَظْكَ، احْفَظِ اللَّهَ تَجِدْهُ تُجَاهَكَ، إِذَا سَأَلْتَ فَاسْأَلِ اللَّهَ، وَإِذَا اسْتَعَنْتَ فَاسْتَعِنْ بِاللَّهِ، وَاعْلَمْ أَنَّ الْأُمَّةَ لَوِ اجْتَمَعَتْ عَلَى أَنْ يَنْفَعُوكَ بِشَيْءٍ لَمْ يَنْفَعُوكَ إِلَّا بِشَيْءٍ قَدْ كَتَبَهُ اللَّهُ لَكَ، وَإِنِ اجْتَمَعُوا عَلَى أَنْ يَضُرُّوكَ بِشَيْءٍ لَمْ يَضُرُّوكَ إِلَّا بِشَيْءٍ قَدْ كَتَبَهُ اللَّهُ عَلَيْكَ، رُفِعَتِ الْأَقْلَامُ وَجَفَّتِ الصُّحُفُ.",
+      "translation": "Be mindful of God and He will protect you; be mindful of God and you will find Him before you. When you ask, ask God; when you seek help, seek help from God. Know that if the whole nation gathered to benefit you, they could not benefit you except with something God has written for you; and if they gathered to harm you, they could not harm you except with something God has written against you. The pens have been lifted and the pages have dried.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "الحياء",
+      "number": 20,
+      "arabic": "إِنَّ الْحَيَاءَ لَا يَأْتِي إِلَّا بِخَيْرٍ.",
+      "translation": "Modesty brings nothing but good.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "الاستقامة",
+      "number": 21,
+      "arabic": "قُلْ آمَنْتُ بِاللَّهِ ثُمَّ اسْتَقِمْ.",
+      "translation": "Say: I believe in God, then remain steadfast.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "أبواب الخير",
+      "number": 22,
+      "arabic": "عَنْ جَابِرِ بْنِ عَبْدِ اللَّهِ الْأَنْصَارِيِّ رَضِيَ اللَّهُ عَنْهُمَا: أَنَّ رَجُلًا سَأَلَ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَقَالَ: أَرَأَيْتَ إِذَا صَلَّيْتُ الْمَكْتُوبَاتِ وَصُمْتُ رَمَضَانَ وَأَحْلَلْتُ الْحَلَالَ وَحَرَّمْتُ الْحَرَامَ وَلَمْ أَزِدْ عَلَى ذَلِكَ شَيْئًا، أَأَدْخُلُ الْجَنَّةَ؟ قَالَ: نَعَمْ.",
+      "translation": "Jabir ibn Abdullah reported that a man asked the Messenger of God: If I pray the obligatory prayers, fast Ramadan, treat the lawful as lawful and the unlawful as unlawful, and do not add anything to that, will I enter Paradise? He said: Yes.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "الطهارة والذكر",
+      "number": 23,
+      "arabic": "الطُّهُورُ شَطْرُ الْإِيمَانِ، وَالْحَمْدُ لِلَّهِ تَمْلَأُ الْمِيزَانَ، وَسُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ تَمْلَآنِ أَوْ تَمْلَأُ مَا بَيْنَ السَّمَاوَاتِ وَالْأَرْضِ، وَالصَّلَاةُ نُورٌ، وَالصَّدَقَةُ بُرْهَانٌ، وَالصَّبْرُ ضِيَاءٌ، وَالْقُرْآنُ حُجَّةٌ لَكَ أَوْ عَلَيْكَ، كُلُّ النَّاسِ يَغْدُو فَبَائِعٌ نَفْسَهُ فَمُعْتِقُهَا أَوْ مُوبِقُهَا.",
+      "translation": "Purity is half of faith. Praise be to God fills the scales. Glory be to God and praise be to God fill what is between the heavens and the earth. Prayer is light, charity is proof, patience is illumination, and the Quran is an argument for you or against you. Every person sets out in the morning, selling his soul, either freeing it or ruining it.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "الحديث القدسي: يا عبادي",
+      "number": 24,
+      "arabic": "يَا عِبَادِي إِنِّي حَرَّمْتُ الظُّلْمَ عَلَى نَفْسِي وَجَعَلْتُهُ بَيْنَكُمْ مُحَرَّمًا فَلَا تَظَالَمُوا، يَا عِبَادِي كُلُّكُمْ ضَالٌّ إِلَّا مَنْ هَدَيْتُهُ فَاسْتَهْدُونِي أَهْدِكُمْ، يَا عِبَادِي كُلُّكُمْ جَائِعٌ إِلَّا مَنْ أَطْعَمْتُهُ فَاسْتَطْعِمُونِي أُطْعِمْكُمْ، يَا عِبَادِي كُلُّكُمْ عَارٍ إِلَّا مَنْ كَسَوْتُهُ فَاسْتَكْسُونِي أَكْسُكُمْ، يَا عِبَادِي إِنَّكُمْ تُخْطِئُونَ بِاللَّيْلِ وَالنَّهَارِ وَأَنَا أَغْفِرُ الذُّنُوبَ جَمِيعًا فَاسْتَغْفِرُونِي أَغْفِرْ لَكُمْ، يَا عِبَادِي إِنَّكُمْ لَنْ تَبْلُغُوا ضَرِّي فَتَضُرُّونِي وَلَنْ تَبْلُغُوا نَفْعِي فَتَنْفَعُونِي، يَا عِبَادِي لَوْ أَنَّ أَوَّلَكُمْ وَآخِرَكُمْ وَإِنْسَكُمْ وَجِنَّكُمْ كَانُوا عَلَى أَتْقَى قَلْبِ رَجُلٍ وَاحِدٍ مِنْكُمْ مَا زَادَ ذَلِكَ فِي مُلْكِي شَيْئًا، يَا عِبَادِي لَوْ أَنَّ أَوَّلَكُمْ وَآخِرَكُمْ وَإِنْسَكُمْ وَجِنَّكُمْ كَانُوا عَلَى أَفْجَرِ قَلْبِ رَجُلٍ وَاحِدٍ مِنْكُمْ مَا نَقَصَ ذَلِكَ مِنْ مُلْكِي شَيْئًا، يَا عِبَادِي لَوْ أَنَّ أَوَّلَكُمْ وَآخِرَكُمْ وَإِنْسَكُمْ وَجِنَّكُمْ قَامُوا فِي صَعِيدٍ وَاحِدٍ فَسَأَلُونِي فَأَعْطَيْتُ كُلَّ وَاحِدٍ مَسْأَلَتَهُ مَا نَقَصَ ذَلِكَ مِمَّا عِنْدِي إِلَّا كَمَا يَنْقُصُ الْمِخْيَطُ إِذَا أُدْخِلَ الْبَحْرَ، يَا عِبَادِي إِنَّمَا هِيَ أَعْمَالُكُمْ أُحْصِيهَا لَكُمْ ثُمَّ أُوَفِّيكُمْ إِيَّاهَا، فَمَنْ وَجَدَ خَيْرًا فَلْيَحْمَدِ اللَّهَ، وَمَنْ وَجَدَ غَيْرَ ذَلِكَ فَلَا يَلُومَنَّ إِلَّا نَفْسَهُ.",
+      "translation": "O My servants, I have forbidden injustice for Myself and made it forbidden among you, so do not wrong one another. O My servants, all of you are astray except those whom I guide, so seek guidance from Me and I will guide you. O My servants, all of you are hungry except those whom I feed, so ask Me for food and I will feed you. O My servants, all of you are naked except those whom I clothe, so ask Me for clothing and I will clothe you. O My servants, you err by night and day, and I forgive all sins, so ask My forgiveness and I will forgive you. O My servants, you can never harm Me nor benefit Me. O My servants, if the first of you and the last of you, humans and jinn, were as devout as the most devout heart among you, that would add nothing to My dominion; and if they were as wicked as the most wicked heart among you, that would diminish nothing from My dominion. O My servants, if they all stood on one plain and asked of Me and I gave each his request, that would diminish what I have only as a needle diminishes the sea when dipped into it. O My servants, it is only your deeds that I count for you and recompense to you, so whoever finds good, let him praise God, and whoever finds other than that, let him blame no one but himself.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "الصدقة في كل شيء",
+      "number": 25,
+      "arabic": "عَنْ أَبِي ذَرٍّ رَضِيَ اللَّهُ عَنْهُ: أَنَّ نَاسًا مِنْ أَصْحَابِ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالُوا: يَا رَسُولَ اللَّهِ، ذَهَبَ أَهْلُ الدُّثُورِ بِالْأُجُورِ، يُصَلُّونَ كَمَا نُصَلِّي وَيَصُومُونَ كَمَا نَصُومُ، وَيَتَصَدَّقُونَ بِفُضُولِ أَمْوَالِهِمْ، قَالَ: أَوَلَيْسَ قَدْ جَعَلَ اللَّهُ لَكُمْ مَا تَصَّدَّقُونَ؟ إِنَّ بِكُلِّ تَسْبِيحَةٍ صَدَقَةً، وَكُلِّ تَكْبِيرَةٍ صَدَقَةً، وَكُلِّ تَحْمِيدَةٍ صَدَقَةً، وَكُلِّ تَهْلِيلَةٍ صَدَقَةً، وَأَمْرٌ بِالْمَعْرُوفِ صَدَقَةٌ، وَنَهْيٌ عَنْ مُنْكَرٍ صَدَقَةٌ، وَفِي بُضْعِ أَحَدِكُمْ صَدَقَةٌ، قَالُوا: يَا رَسُولَ اللَّهِ، أَيَأْتِي أَحَدُنَا شَهْوَتَهُ وَيَكُونُ لَهُ فِيهَا أَجْرٌ؟ قَالَ: أَرَأَيْتُمْ لَوْ وَضَعَهَا فِي حَرَامٍ أَكَانَ عَلَيْهِ فِيهَا وِزْرٌ؟ فَكَذَلِكَ إِذَا وَضَعَهَا فِي الْحَلَالِ كَانَ لَهُ أَجْرٌ.",
+      "translation": "Abu Dharr reported that some companions said: O Messenger of God, the wealthy have taken all the rewards; they pray as we pray, fast as we fast, and give in charity from their surplus wealth. He said: Has God not made for you things to give in charity? Every glorification of God is charity, every magnification of God is charity, every praise of God is charity, every declaration of His oneness is charity, commanding good is charity, forbidding evil is charity, and in your intimate relations with your spouse is charity. They said: O Messenger of God, does one of us get reward for fulfilling his desire? He said: Do you not see that if he fulfilled it unlawfully he would bear a sin? So likewise, if he fulfils it lawfully, he has a reward.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "صدقة كل سلامى",
+      "number": 26,
+      "arabic": "كُلُّ سُلَامَى مِنَ النَّاسِ عَلَيْهِ صَدَقَةٌ كُلَّ يَوْمٍ تَطْلُعُ فِيهِ الشَّمْسُ: تَعْدِلُ بَيْنَ اثْنَيْنِ صَدَقَةٌ، وَتُعِينُ الرَّجُلَ فِي دَابَّتِهِ فَتَحْمِلُهُ عَلَيْهَا أَوْ تَرْفَعُ لَهُ عَلَيْهَا مَتَاعَهُ صَدَقَةٌ، وَالْكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ، وَبِكُلِّ خُطْوَةٍ تَمْشِيهَا إِلَى الصَّلَاةِ صَدَقَةٌ، وَتُمِيطُ الْأَذَى عَنِ الطَّرِيقِ صَدَقَةٌ.",
+      "translation": "Every joint of every person owes charity each day the sun rises: to bring justice between two people is charity, to help a man mount his animal or lift his goods onto it is charity, a good word is charity, every step you take to prayer is charity, and removing a harmful thing from the road is charity.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "البر والإثم",
+      "number": 27,
+      "arabic": "الْبِرُّ حُسْنُ الْخُلُقِ، وَالْإِثْمُ مَا حَاكَ فِي نَفْسِكَ وَكَرِهْتَ أَنْ يَطَّلِعَ عَلَيْهِ النَّاسُ.",
+      "translation": "Righteousness is good character, and sin is what troubles your conscience and you dislike people knowing about it.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "وصية حجة الوداع",
+      "number": 28,
+      "arabic": "وَعَظَنَا رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ مَوْعِظَةً بَلِيغَةً وَجِلَتْ مِنْهَا الْقُلُوبُ وَذَرَفَتْ مِنْهَا الْعُيُونُ، فَقُلْنَا: يَا رَسُولَ اللَّهِ، كَأَنَّهَا مَوْعِظَةُ مُوَدِّعٍ فَأَوْصِنَا، قَالَ: أُوصِيكُمْ بِتَقْوَى اللَّهِ وَالسَّمْعِ وَالطَّاعَةِ، وَإِنْ تَأَمَّرَ عَلَيْكُمْ عَبْدٌ، فَإِنَّهُ مَنْ يَعِشْ مِنْكُمْ فَسَيَرَى اخْتِلَافًا كَثِيرًا، فَعَلَيْكُمْ بِسُنَّتِي وَسُنَّةِ الْخُلَفَاءِ الرَّاشِدِينَ الْمَهْدِيِّينَ، عَضُّوا عَلَيْهَا بِالنَّوَاجِذِ، وَإِيَّاكُمْ وَمُحْدَثَاتِ الْأُمُورِ، فَإِنَّ كُلَّ بِدْعَةٍ ضَلَالَةٌ.",
+      "translation": "The Messenger of God gave us an eloquent exhortation from which hearts trembled and eyes shed tears. We said: O Messenger of God, it is like a farewell counsel, so advise us. He said: I advise you to fear God, and to hear and obey even if a slave is made your leader. Whoever among you lives will see much disagreement, so hold fast to my Sunnah and the Sunnah of the rightly guided caliphs; cling to it with your molars. Beware of newly invented matters, for every innovation is misguidance.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي وأبو داود"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "رأس الأمر وعموده",
+      "number": 29,
+      "arabic": "عَنْ مُعَاذِ بْنِ جَبَلٍ رَضِيَ اللَّهُ عَنْهُ قَالَ: قُلْتُ: يَا رَسُولَ اللَّهِ، أَخْبِرْنِي بِعَمَلٍ يُدْخِلُنِي الْجَنَّةَ وَيُبَاعِدُنِي عَنِ النَّارِ، قَالَ: لَقَدْ سَأَلْتَ عَنْ عَظِيمٍ، وَإِنَّهُ لَيَسِيرٌ عَلَى مَنْ يَسَّرَهُ اللَّهُ عَلَيْهِ: تَعْبُدُ اللَّهَ لَا تُشْرِكُ بِهِ شَيْئًا، وَتُقِيمُ الصَّلَاةَ، وَتُؤْتِي الزَّكَاةَ، وَتَصُومُ رَمَضَانَ، وَتَحُجُّ الْبَيْتَ، ثُمَّ قَالَ: أَلَا أَدُلُّكَ عَلَى أَبْوَابِ الْخَيْرِ؟ الصَّوْمُ جُنَّةٌ، وَالصَّدَقَةُ تُكَفِّرُ الْخَطِيئَةَ، وَصَلَاةُ الرَّجُلِ فِي جَوْفِ اللَّيْلِ، ثُمَّ تَلَا: تَتَجَافَى جُنُوبُهُمْ عَنِ الْمَضَاجِعِ يَدْعُونَ رَبَّهُمْ خَوْفًا وَطَمَعًا وَمِمَّا رَزَقْنَاهُمْ يُنْفِقُونَ، ثُمَّ قَالَ: أَلَا أُخْبِرُكَ بِرَأْسِ الْأَمْرِ وَعَمُودِهِ وَذِرْوَةِ سَنَامِهِ؟ قُلْتُ: بَلَى يَا رَسُولَ اللَّهِ، قَالَ: رَأْسُ الْأَمْرِ الْإِسْلَامُ، وَعَمُودُهُ الصَّلَاةُ، وَذِرْوَةُ سَنَامِهِ الْجِهَادُ، ثُمَّ قَالَ: أَلَا أُخْبِرُكَ بِمِلَاكِ ذَلِكَ كُلِّهِ؟ قُلْتُ: بَلَى يَا نَبِيَّ اللَّهِ، قَالَ: كُفَّ عَلَيْكَ لِسَانَكَ، قُلْتُ: يَا نَبِيَّ اللَّهِ وَإِنَّا لَمُؤَاخَذُونَ بِمَا نَتَكَلَّمُ بِهِ؟ قَالَ: ثَكِلَتْكَ أُمُّكَ يَا مُعَاذُ، وَهَلْ يَكُبُّ النَّاسَ فِي النَّارِ عَلَى وُجُوهِهِمْ إِلَّا حَصَائِدُ أَلْسِنَتِهِمْ؟",
+      "translation": "Muadh ibn Jabal said: I asked: O Messenger of God, tell me of a deed that will admit me to Paradise and keep me far from the Fire. He said: You have asked about a great matter, yet it is easy for whom God makes it easy: worship God without associating anything with Him, establish prayer, give zakat, fast Ramadan, and make pilgrimage to the House. Then he said: Shall I not guide you to the gates of goodness? Fasting is a shield, charity wipes away sin, and a person's prayer in the depth of the night. Then he said: Shall I not tell you of the head of the matter, its pillar, and the peak of its hump? The head of the matter is Islam, its pillar is prayer, and the peak of its hump is striving in God's cause. Then he said: Shall I not tell you what holds all of that together? I said: Yes, O Prophet of God. He took hold of his tongue and said: Restrain this. I said: O Prophet of God, will we truly be taken to task for what we say? He said: May your mother lose you, Muadh — is anything that topples people into the Fire on their faces except the harvest of their tongues?",
+      "grade": "Sahih",
+      "source": "رواه الترمذي وابن ماجه"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "حدود الله",
+      "number": 30,
+      "arabic": "إِنَّ اللَّهَ تَعَالَى فَرَضَ فَرَائِضَ فَلَا تُضَيِّعُوهَا، وَحَدَّ حُدُودًا فَلَا تَعْتَدُوهَا، وَحَرَّمَ أَشْيَاءَ فَلَا تَنْتَهِكُوهَا، وَسَكَتَ عَنْ أَشْيَاءَ رَحْمَةً لَكُمْ غَيْرَ نِسْيَانٍ فَلَا تَبْحَثُوا عَنْهَا.",
+      "translation": "God has prescribed obligations, so do not neglect them; set limits, so do not transgress them; forbidden things, so do not violate them; and remained silent about other things out of mercy for you, not forgetfulness, so do not ask about them.",
+      "grade": "Hasan",
+      "source": "رواه الدارقطني"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "الزهد",
+      "number": 31,
+      "arabic": "جَاءَ رَجُلٌ إِلَى النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَقَالَ: يَا رَسُولَ اللَّهِ دُلَّنِي عَلَى عَمَلٍ إِذَا عَمِلْتُهُ أَحَبَّنِي اللَّهُ وَأَحَبَّنِي النَّاسُ، فَقَالَ: ازْهَدْ فِي الدُّنْيَا يُحِبَّكَ اللَّهُ، وَازْهَدْ فِيمَا عِنْدَ النَّاسِ يُحِبَّكَ النَّاسُ.",
+      "translation": "A man came to the Prophet and said: O Messenger of God, guide me to a deed which, if I do it, God will love me and people will love me. He said: Be ascetic in this world and God will love you; be ascetic in what people possess and people will love you.",
+      "grade": "Hasan",
+      "source": "رواه ابن ماجه"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "لا ضرر ولا ضرار",
+      "number": 32,
+      "arabic": "لَا ضَرَرَ وَلَا ضِرَارَ.",
+      "translation": "There is to be no harm and no reciprocating harm.",
+      "grade": "Hasan",
+      "source": "رواه ابن ماجه"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "البينة على المدعي",
+      "number": 33,
+      "arabic": "لَوْ يُعْطَى النَّاسُ بِدَعْوَاهُمْ لَادَّعَى نَاسٌ دِمَاءَ رِجَالٍ وَأَمْوَالَهُمْ، وَلَكِنِ الْيَمِينُ عَلَى الْمُدَّعَى عَلَيْهِ.",
+      "translation": "If people were given according to their claims, some would claim the blood and property of others, but the burden of proof is on the claimant, and the oath is on the one who denies.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "تغيير المنكر",
+      "number": 34,
+      "arabic": "مَنْ رَأَى مِنْكُمْ مُنْكَرًا فَلْيُغَيِّرْهُ بِيَدِهِ، فَإِنْ لَمْ يَسْتَطِعْ فَبِلِسَانِهِ، فَإِنْ لَمْ يَسْتَطِعْ فَبِقَلْبِهِ، وَذَلِكَ أَضْعَفُ الْإِيمَانِ.",
+      "translation": "Whoever among you sees an evil, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart — and that is the weakest of faith.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "التحاسد والتباغض",
+      "number": 35,
+      "arabic": "إِيَّاكُمْ وَالظَّنَّ فَإِنَّ الظَّنَّ أَكْذَبُ الْحَدِيثِ، وَلَا تَحَسَّسُوا وَلَا تَجَسَّسُوا وَلَا تَنَافَسُوا وَلَا تَحَاسَدُوا وَلَا تَبَاغَضُوا وَلَا تَدَابَرُوا، وَكُونُوا عِبَادَ اللَّهِ إِخْوَانًا.",
+      "translation": "Beware of suspicion, for suspicion is the most false of speech. Do not spy on one another, do not compete, do not envy one another, do not hate one another, do not turn your backs on one another, and be, O servants of God, brothers.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "تفريج الكرب",
+      "number": 36,
+      "arabic": "مَنْ نَفَّسَ عَنْ مُؤْمِنٍ كُرْبَةً مِنْ كُرَبِ الدُّنْيَا نَفَّسَ اللَّهُ عَنْهُ كُرْبَةً مِنْ كُرَبِ يَوْمِ الْقِيَامَةِ، وَمَنْ يَسَّرَ عَلَى مُعْسِرٍ يَسَّرَ اللَّهُ عَلَيْهِ فِي الدُّنْيَا وَالْآخِرَةِ، وَمَنْ سَتَرَ مُسْلِمًا سَتَرَهُ اللَّهُ فِي الدُّنْيَا وَالْآخِرَةِ، وَاللَّهُ فِي عَوْنِ الْعَبْدِ مَا كَانَ الْعَبْدُ فِي عَوْنِ أَخِيهِ، وَمَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ، وَمَا اجْتَمَعَ قَوْمٌ فِي بَيْتٍ مِنْ بُيُوتِ اللَّهِ يَتْلُونَ كِتَابَ اللَّهِ وَيَتَدَارَسُونَهُ بَيْنَهُمْ إِلَّا نَزَلَتْ عَلَيْهِمُ السَّكِينَةُ وَغَشِيَتْهُمُ الرَّحْمَةُ وَحَفَّتْهُمُ الْمَلَائِكَةُ وَذَكَرَهُمُ اللَّهُ فِيمَنْ عِنْدَهُ، وَمَنْ بَطَّأَ بِهِ عَمَلُهُ لَمْ يُسْرِعْ بِهِ نَسَبُهُ.",
+      "translation": "Whoever relieves a believer of a distress of this world, God will relieve him of a distress of the Day of Resurrection. Whoever eases one in difficulty, God will ease him in this world and the next. Whoever conceals a Muslim, God will conceal him in this world and the next. God helps the servant as long as the servant helps his brother. Whoever travels a path seeking knowledge, God will make easy for him a path to Paradise. No people gather in a house of God reciting His Book and studying it among themselves but that tranquility descends upon them, mercy envelops them, angels surround them, and God mentions them among those with Him. And whoever is slowed by his deeds will not be speeded by his lineage.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "الحسنات والسيئات",
+      "number": 37,
+      "arabic": "إِنَّ اللَّهَ كَتَبَ الْحَسَنَاتِ وَالسَّيِّئَاتِ، ثُمَّ بَيَّنَ ذَلِكَ: فَمَنْ هَمَّ بِحَسَنَةٍ فَلَمْ يَعْمَلْهَا كَتَبَهَا اللَّهُ عِنْدَهُ حَسَنَةً كَامِلَةً، وَإِنْ هَمَّ بِهَا فَعَمِلَهَا كَتَبَهَا اللَّهُ عِنْدَهُ عَشْرَ حَسَنَاتٍ إِلَى سَبْعِمِائَةِ ضِعْفٍ إِلَى أَضْعَافٍ كَثِيرَةٍ، وَإِنْ هَمَّ بِسَيِّئَةٍ فَلَمْ يَعْمَلْهَا كَتَبَهَا اللَّهُ عِنْدَهُ حَسَنَةً كَامِلَةً، وَإِنْ هَمَّ بِهَا فَعَمِلَهَا كَتَبَهَا اللَّهُ سَيِّئَةً وَاحِدَةً.",
+      "translation": "God has written down the good deeds and the evil deeds, then explained: whoever intends a good deed and does not do it, God writes it with Him as a complete good deed; if he intends it and does it, God writes it as ten good deeds up to seven hundred times or more. If he intends an evil deed and does not do it, God writes it as a complete good deed; if he intends it and does it, God writes it as a single evil deed.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "الولاية",
+      "number": 38,
+      "arabic": "إِنَّ اللَّهَ تَعَالَى قَالَ: مَنْ عَادَى لِي وَلِيًّا فَقَدْ آذَنْتُهُ بِالْحَرْبِ، وَمَا تَقَرَّبَ إِلَيَّ عَبْدِي بِشَيْءٍ أَحَبَّ إِلَيَّ مِمَّا افْتَرَضْتُ عَلَيْهِ، وَمَا يَزَالُ عَبْدِي يَتَقَرَّبُ إِلَيَّ بِالنَّوَافِلِ حَتَّى أُحِبَّهُ، فَإِذَا أَحْبَبْتُهُ كُنْتُ سَمْعَهُ الَّذِي يَسْمَعُ بِهِ وَبَصَرَهُ الَّذِي يُبْصِرُ بِهِ وَيَدَهُ الَّتِي يَبْطِشُ بِهَا وَرِجْلَهُ الَّتِي يَمْشِي بِهَا، وَإِنْ سَأَلَنِي لَأُعْطِيَنَّهُ، وَلَئِنِ اسْتَعَاذَنِي لَأُعِيذَنَّهُ.",
+      "translation": "God Almighty said: Whoever shows enmity to a friend of Mine, I declare war against him. My servant draws near to Me with nothing more beloved to Me than what I have made obligatory upon him, and My servant continues drawing near to Me with supererogatory works until I love him. When I love him, I am his hearing with which he hears, his sight with which he sees, his hand with which he strikes, and his foot with which he walks. If he asks Me, I will surely give him; and if he seeks refuge in Me, I will surely protect him.",
+      "grade": "Sahih",
+      "source": "رواه البخاري"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "التجاوز عن الخطأ والنسيان",
+      "number": 39,
+      "arabic": "إِنَّ اللَّهَ تَجَاوَزَ لِي عَنْ أُمَّتِي الْخَطَأَ وَالنِّسْيَانَ وَمَا اسْتُكْرِهُوا عَلَيْهِ.",
+      "translation": "God has pardoned for my nation their mistakes, their forgetfulness, and what they are compelled to do.",
+      "grade": "Hasan",
+      "source": "رواه ابن ماجه"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "الغربة في الدنيا",
+      "number": 40,
+      "arabic": "كُنْ فِي الدُّنْيَا كَأَنَّكَ غَرِيبٌ أَوْ عَابِرُ سَبِيلٍ، وَكَانَ ابْنُ عُمَرَ يَقُولُ: إِذَا أَمْسَيْتَ فَلَا تَنْتَظِرِ الصَّبَاحَ، وَإِذَا أَصْبَحْتَ فَلَا تَنْتَظِرِ الْمَسَاءَ، وَخُذْ مِنْ صِحَّتِكَ لِمَرَضِكَ، وَمِنْ حَيَاتِكَ لِمَوْتِكَ.",
+      "translation": "Be in this world as if you were a stranger or a wayfarer. Ibn Umar used to say: When you reach the evening, do not wait for the morning; when you reach the morning, do not wait for the evening. Take from your health for your sickness, and from your life for your death.",
+      "grade": "Sahih",
+      "source": "رواه البخاري"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "اتباع السنة",
+      "number": 41,
+      "arabic": "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يَكُونَ هَوَاهُ تَبَعًا لِمَا جِئْتُ بِهِ.",
+      "translation": "None of you truly believes until his inclination follows what I have brought.",
+      "grade": "Da'if",
+      "source": "رواه البزار"
+    },
+    {
+      "collection": "nawawi40",
+      "chapter": "الاستغفار",
+      "number": 42,
+      "arabic": "قَالَ اللَّهُ تَعَالَى: يَا ابْنَ آدَمَ إِنَّكَ مَا دَعَوْتَنِي وَرَجَوْتَنِي غَفَرْتُ لَكَ عَلَى مَا كَانَ مِنْكَ وَلَا أُبَالِي، يَا ابْنَ آدَمَ لَوْ بَلَغَتْ ذُنُوبُكَ عَنَانَ السَّمَاءِ ثُمَّ اسْتَغْفَرْتَنِي غَفَرْتُ لَكَ، يَا ابْنَ آدَمَ إِنَّكَ لَوْ أَتَيْتَنِي بِقِرَابِ الْأَرْضِ خَطَايَا ثُمَّ لَقِيتَنِي لَا تُشْرِكُ بِي شَيْئًا لَأَتَيْتُكَ بِقِرَابِهَا مَغْفِرَةً.",
+      "translation": "God Almighty said: O son of Adam, as long as you call upon Me and hope in Me, I will forgive you for what has come from you, and I do not mind. O son of Adam, if your sins reached the clouds of the sky and then you sought My forgiveness, I would forgive you. O son of Adam, if you came to Me with sins nearly filling the earth, and met Me without associating anything with Me, I would come to you with forgiveness nearly filling it.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "فضل القرآن",
+      "number": null,
+      "arabic": "خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ.",
+      "translation": "The best of you are those who learn the Quran and teach it.",
+      "grade": "Sahih",
+      "source": "رواه البخاري"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "الأخوة الإسلامية",
+      "number": null,
+      "arabic": "الْمُسْلِمُ أَخُو الْمُسْلِمِ لَا يَظْلِمُهُ وَلَا يُسْلِمُهُ، وَمَنْ كَانَ فِي حَاجَةِ أَخِيهِ كَانَ اللَّهُ فِي حَاجَتِهِ، وَمَنْ فَرَّجَ عَنْ مُسْلِمٍ كُرْبَةً فَرَّجَ اللَّهُ عَنْهُ بِهَا كُرْبَةً مِنْ كُرَبِ يَوْمِ الْقِيَامَةِ، وَمَنْ سَتَرَ مُسْلِمًا سَتَرَهُ اللَّهُ يَوْمَ الْقِيَامَةِ.",
+      "translation": "A Muslim is the brother of a Muslim: he does not wrong him nor abandon him. Whoever is in the need of his brother, God is in his need; whoever relieves a Muslim of a distress, God relieves him of a distress of the Day of Resurrection; and whoever conceals a Muslim, God will conceal him on the Day of Resurrection.",
       "grade": "Sahih",
       "source": "رواه البخاري ومسلم"
     },
     {
       "collection": "bukhari",
-      "chapter": "أركان الإسلام",
-      "arabic": "بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ: شَهَادَةِ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَإِقَامِ الصَّلَاةِ، وَإِيتَاءِ الزَّكَاةِ، وَالْحَجِّ، وَصَوْمِ رَمَضَانَ",
-      "translation": "Islam is built upon five: testifying that there is no god but God and that Muhammad is His Messenger, establishing prayer, giving zakah, performing the Hajj, and fasting Ramadan.",
+      "chapter": "المداومة على العمل",
+      "number": null,
+      "arabic": "أَحَبُّ الْأَعْمَالِ إِلَى اللَّهِ أَدْوَمُهَا وَإِنْ قَلَّ.",
+      "translation": "The most beloved of deeds to God are the most constant of them, even if small.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "التيسير",
+      "number": null,
+      "arabic": "يَسِّرُوا وَلَا تُعَسِّرُوا، وَبَشِّرُوا وَلَا تُنَفِّرُوا.",
+      "translation": "Make things easy and do not make them difficult; give glad tidings and do not drive people away.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "الصيام",
+      "number": null,
+      "arabic": "الصِّيَامُ جُنَّةٌ، فَلَا يَرْفُثْ وَلَا يَجْهَلْ، وَإِنِ امْرُؤٌ قَاتَلَهُ أَوْ شَاتَمَهُ فَلْيَقُلْ: إِنِّي صَائِمٌ، إِنِّي صَائِمٌ.",
+      "translation": "Fasting is a shield, so the fasting person should not indulge in obscenity or ignorance. If someone fights or insults him, let him say: I am fasting, I am fasting.",
+      "grade": "Sahih",
+      "source": "رواه البخاري"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "رمضان",
+      "number": null,
+      "arabic": "مَنْ قَامَ رَمَضَانَ إِيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ.",
+      "translation": "Whoever stands in prayer during Ramadan out of faith and seeking reward, his previous sins will be forgiven.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "فضل المساجد",
+      "number": null,
+      "arabic": "مَنْ غَدَا إِلَى الْمَسْجِدِ أَوْ رَاحَ أَعَدَّ اللَّهُ لَهُ فِي الْجَنَّةِ نُزُلًا كُلَّمَا غَدَا أَوْ رَاحَ.",
+      "translation": "Whoever goes to the mosque in the morning or the evening, God prepares for him a place in Paradise every time he goes in the morning or the evening.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "الظل يوم القيامة",
+      "number": null,
+      "arabic": "سَبْعَةٌ يُظِلُّهُمُ اللَّهُ فِي ظِلِّهِ يَوْمَ لَا ظِلَّ إِلَّا ظِلُّهُ: إِمَامٌ عَادِلٌ، وَشَابٌّ نَشَأَ فِي عِبَادَةِ اللَّهِ، وَرَجُلٌ قَلْبُهُ مُعَلَّقٌ فِي الْمَسَاجِدِ، وَرَجُلَانِ تَحَابَّا فِي اللَّهِ اجْتَمَعَا عَلَيْهِ وَتَفَرَّقَا عَلَيْهِ، وَرَجُلٌ دَعَتْهُ امْرَأَةٌ ذَاتُ مَنْصِبٍ وَجَمَالٍ فَقَالَ: إِنِّي أَخَافُ اللَّهَ، وَرَجُلٌ تَصَدَّقَ بِصَدَقَةٍ فَأَخْفَاهَا حَتَّى لَا تَعْلَمَ شِمَالُهُ مَا تُنْفِقُ يَمِينُهُ، وَرَجُلٌ ذَكَرَ اللَّهَ خَالِيًا فَفَاضَتْ عَيْنَاهُ.",
+      "translation": "Seven are shaded by God in His shade on the day when there is no shade but His: a just ruler; a young man who grows up in the worship of God; a man whose heart is attached to the mosques; two men who love each other for God, meeting and parting upon that; a man whom a woman of position and beauty invites, and he says: I fear God; a man who gives charity so secretly that his left hand does not know what his right hand spends; and a man who remembers God in seclusion and his eyes overflow with tears.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "التراحم",
+      "number": null,
+      "arabic": "مَثَلُ الْمُؤْمِنِينَ فِي تَوَادِّهِمْ وَتَرَاحُمِهِمْ وَتَعَاطُفِهِمْ مَثَلُ الْجَسَدِ إِذَا اشْتَكَى مِنْهُ عُضْوٌ تَدَاعَى لَهُ سَائِرُ الْجَسَدِ بِالسَّهَرِ وَالْحُمَّى.",
+      "translation": "The believers, in their mutual love, mercy and compassion, are like one body: when one part complains, the rest of the body responds with sleeplessness and fever.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "التعاون",
+      "number": null,
+      "arabic": "الْمُؤْمِنُ لِلْمُؤْمِنِ كَالْبُنْيَانِ يَشُدُّ بَعْضُهُ بَعْضًا.",
+      "translation": "A believer to another believer is like a building, each part strengthening the other.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "الحياء",
+      "number": null,
+      "arabic": "الْحَيَاءُ شُعْبَةٌ مِنَ الْإِيمَانِ.",
+      "translation": "Modesty is a branch of faith.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "الغضب",
+      "number": null,
+      "arabic": "لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ.",
+      "translation": "The strong man is not the one who overcomes people in wrestling; the strong man is the one who controls himself when angry.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "الذكر",
+      "number": null,
+      "arabic": "كَلِمَتَانِ خَفِيفَتَانِ عَلَى اللِّسَانِ ثَقِيلَتَانِ فِي الْمِيزَانِ حَبِيبَتَانِ إِلَى الرَّحْمَنِ: سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ.",
+      "translation": "Two words that are light on the tongue, heavy on the scales, and beloved to the Most Merciful: Glory be to God and praise be to Him; Glory be to God the Magnificent.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "صلاة الفجر والعصر",
+      "number": null,
+      "arabic": "مَنْ صَلَّى الْبَرْدَيْنِ دَخَلَ الْجَنَّةَ.",
+      "translation": "Whoever prays the two cool prayers (Fajr and Asr) will enter Paradise.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "الفقه في الدين",
+      "number": null,
+      "arabic": "مَنْ يُرِدِ اللَّهُ بِهِ خَيْرًا يُفَقِّهْهُ فِي الدِّينِ.",
+      "translation": "Whoever God wishes good for, He grants him understanding in the religion.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "الصحة والفراغ",
+      "number": null,
+      "arabic": "نِعْمَتَانِ مَغْبُونٌ فِيهِمَا كَثِيرٌ مِنَ النَّاسِ: الصِّحَّةُ وَالْفَرَاغُ.",
+      "translation": "Two blessings that many people squander: health and free time.",
+      "grade": "Sahih",
+      "source": "رواه البخاري"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "صلة الرحم",
+      "number": null,
+      "arabic": "مَنْ أَحَبَّ أَنْ يُبْسَطَ لَهُ فِي رِزْقِهِ وَيُنْسَأَ لَهُ فِي أَثَرِهِ فَلْيَصِلْ رَحِمَهُ.",
+      "translation": "Whoever loves that his provision be increased and his life be extended, let him maintain family ties.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "bukhari",
+      "chapter": "الحب في الله",
+      "number": null,
+      "arabic": "الْمَرْءُ مَعَ مَنْ أَحَبَّ.",
+      "translation": "A person is with the one he loves.",
       "grade": "Sahih",
       "source": "رواه البخاري ومسلم"
     },
     {
       "collection": "muslim",
-      "chapter": "الطهارة",
-      "arabic": "الطُّهُورُ شَطْرُ الْإِيمَانِ، وَالْحَمْدُ لِلَّهِ تَمْلَأُ الْمِيزَانَ",
-      "translation": "Purity is half of faith, and 'praise be to God' fills the scale.",
+      "chapter": "القوة والإيمان",
+      "number": null,
+      "arabic": "الْمُؤْمِنُ الْقَوِيُّ خَيْرٌ وَأَحَبُّ إِلَى اللَّهِ مِنَ الْمُؤْمِنِ الضَّعِيفِ، وَفِي كُلٍّ خَيْرٌ، احْرِصْ عَلَى مَا يَنْفَعُكَ وَاسْتَعِنْ بِاللَّهِ وَلَا تَعْجَزْ، وَإِنْ أَصَابَكَ شَيْءٌ فَلَا تَقُلْ: لَوْ أَنِّي فَعَلْتُ كَانَ كَذَا وَكَذَا، وَلَكِنْ قُلْ: قَدَّرَ اللَّهُ وَمَا شَاءَ فَعَلَ، فَإِنَّ لَوْ تَفْتَحُ عَمَلَ الشَّيْطَانِ.",
+      "translation": "The strong believer is better and more beloved to God than the weak believer, though there is good in both. Be keen on what benefits you, seek help from God, and do not be helpless. If something befalls you, do not say: If only I had done such and such; rather say: God has decreed, and what He wills He does, for indeed 'if only' opens the work of Satan.",
       "grade": "Sahih",
       "source": "رواه مسلم"
     },
     {
-      "collection": "bukhari",
-      "chapter": "الرفق",
-      "arabic": "يَسِّرُوا وَلَا تُعَسِّرُوا، وَبَشِّرُوا وَلَا تُنَفِّرُوا",
-      "translation": "Make things easy and do not make them difficult; give glad tidings and do not drive people away.",
+      "collection": "muslim",
+      "chapter": "إفشاء السلام",
+      "number": null,
+      "arabic": "لَا تَدْخُلُونَ الْجَنَّةَ حَتَّى تُؤْمِنُوا، وَلَا تُؤْمِنُوا حَتَّى تَحَابُّوا، أَلَا أَدُلُّكُمْ عَلَى شَيْءٍ إِذَا فَعَلْتُمُوهُ تَحَابَبْتُمْ؟ أَفْشُوا السَّلَامَ بَيْنَكُمْ.",
+      "translation": "You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I guide you to something which, if you do it, you will love one another? Spread peace (salam) among you.",
       "grade": "Sahih",
-      "source": "رواه البخاري"
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "muslim",
+      "chapter": "الصدقة والعفو والتواضع",
+      "number": null,
+      "arabic": "مَا نَقَصَتْ صَدَقَةٌ مِنْ مَالٍ، وَمَا زَادَ اللَّهُ عَبْدًا بِعَفْوٍ إِلَّا عِزًّا، وَمَا تَوَاضَعَ أَحَدٌ لِلَّهِ إِلَّا رَفَعَهُ اللَّهُ.",
+      "translation": "Charity never decreases wealth; God only increases a servant in honour through forgiveness; and no one humbles himself for God but that God raises him.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "muslim",
+      "chapter": "النظر إلى القلوب",
+      "number": null,
+      "arabic": "إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى صُوَرِكُمْ وَأَمْوَالِكُمْ، وَلَكِنْ يَنْظُرُ إِلَى قُلُوبِكُمْ وَأَعْمَالِكُمْ.",
+      "translation": "God does not look at your forms or your wealth, but He looks at your hearts and your deeds.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "muslim",
+      "chapter": "التحذير من الغش",
+      "number": null,
+      "arabic": "مَنْ غَشَّنَا فَلَيْسَ مِنَّا.",
+      "translation": "Whoever cheats us is not of us.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "muslim",
+      "chapter": "الدلالة على الخير",
+      "number": null,
+      "arabic": "مَنْ دَلَّ عَلَى خَيْرٍ فَلَهُ مِثْلُ أَجْرِ فَاعِلِهِ.",
+      "translation": "Whoever points to something good has the like of the reward of the one who does it.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "muslim",
+      "chapter": "ما يلحق الميت",
+      "number": null,
+      "arabic": "إِذَا مَاتَ ابْنُ آدَمَ انْقَطَعَ عَمَلُهُ إِلَّا مِنْ ثَلَاثٍ: صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ.",
+      "translation": "When a person dies, his deeds come to an end except for three: ongoing charity, knowledge from which people benefit, or a righteous child who prays for him.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "muslim",
+      "chapter": "الظلم",
+      "number": null,
+      "arabic": "اتَّقُوا الظُّلْمَ فَإِنَّ الظُّلْمَ ظُلُمَاتٌ يَوْمَ الْقِيَامَةِ.",
+      "translation": "Beware of injustice, for injustice will be darkness on the Day of Resurrection.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "muslim",
+      "chapter": "الدعاء في السجود",
+      "number": null,
+      "arabic": "أَقْرَبُ مَا يَكُونُ الْعَبْدُ مِنْ رَبِّهِ وَهُوَ سَاجِدٌ، فَأَكْثِرُوا الدُّعَاءَ.",
+      "translation": "The servant is closest to his Lord when prostrating, so increase your supplication.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "muslim",
+      "chapter": "الصلاة على النبي",
+      "number": null,
+      "arabic": "مَنْ صَلَّى عَلَيَّ صَلَاةً صَلَّى اللَّهُ عَلَيْهِ بِهَا عَشْرًا.",
+      "translation": "Whoever sends blessings upon me, God sends ten blessings upon him.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "muslim",
+      "chapter": "قيام الليل",
+      "number": null,
+      "arabic": "أَفْضَلُ الصَّلَاةِ بَعْدَ الْفَرِيضَةِ صَلَاةُ اللَّيْلِ.",
+      "translation": "The best prayer after the obligatory prayers is the night prayer.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "muslim",
+      "chapter": "الزهد في الدنيا",
+      "number": null,
+      "arabic": "الدُّنْيَا سِجْنُ الْمُؤْمِنِ وَجَنَّةُ الْكَافِرِ.",
+      "translation": "This world is a prison for the believer and a paradise for the disbeliever.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "muslim",
+      "chapter": "الطهارة",
+      "number": null,
+      "arabic": "مَنْ تَوَضَّأَ فَأَحْسَنَ الْوُضُوءَ خَرَجَتْ خَطَايَاهُ مِنْ جَسَدِهِ حَتَّى تَخْرُجَ مِنْ تَحْتِ أَظْفَارِهِ.",
+      "translation": "Whoever performs ablution and does it well, his sins come out of his body until they come out from under his nails.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "muslim",
+      "chapter": "صيام داود",
+      "number": null,
+      "arabic": "أَحَبُّ الصِّيَامِ إِلَى اللَّهِ صِيَامُ دَاوُدَ، كَانَ يَصُومُ يَوْمًا وَيُفْطِرُ يَوْمًا، وَأَحَبُّ الصَّلَاةِ إِلَى اللَّهِ صَلَاةُ دَاوُدَ، كَانَ يَنَامُ نِصْفَ اللَّيْلِ وَيَقُومُ ثُلُثَهُ وَيَنَامُ سُدُسَهُ.",
+      "translation": "The most beloved fasting to God is the fasting of David: he fasted one day and broke his fast the next. And the most beloved prayer to God is the prayer of David: he slept half the night, stood a third of it, and slept a sixth of it.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "muslim",
+      "chapter": "السنن الحسنة والسيئة",
+      "number": null,
+      "arabic": "مَنْ سَنَّ فِي الْإِسْلَامِ سُنَّةً حَسَنَةً فَلَهُ أَجْرُهَا وَأَجْرُ مَنْ عَمِلَ بِهَا مِنْ بَعْدِهِ مِنْ غَيْرِ أَنْ يَنْقُصَ مِنْ أُجُورِهِمْ شَيْءٌ، وَمَنْ سَنَّ فِي الْإِسْلَامِ سُنَّةً سَيِّئَةً كَانَ عَلَيْهِ وِزْرُهَا وَوِزْرُ مَنْ عَمِلَ بِهَا مِنْ بَعْدِهِ مِنْ غَيْرِ أَنْ يَنْقُصَ مِنْ أَوْزَارِهِمْ شَيْءٌ.",
+      "translation": "Whoever establishes a good practice in Islam has its reward and the reward of those who act upon it after him, without diminishing their rewards in the least; and whoever establishes an evil practice bears its sin and the sin of those who act upon it after him, without diminishing their sins in the least.",
+      "grade": "Sahih",
+      "source": "رواه مسلم"
+    },
+    {
+      "collection": "tirmidhi",
+      "chapter": "فضل القرآن",
+      "number": null,
+      "arabic": "مَنْ قَرَأَ حَرْفًا مِنْ كِتَابِ اللَّهِ فَلَهُ بِهِ حَسَنَةٌ، وَالْحَسَنَةُ بِعَشْرِ أَمْثَالِهَا، لَا أَقُولُ: الْم حَرْفٌ، وَلَكِنْ أَلِفٌ حَرْفٌ وَلَامٌ حَرْفٌ وَمِيمٌ حَرْفٌ.",
+      "translation": "Whoever recites a letter from the Book of God has a good deed for it, and a good deed is multiplied tenfold. I do not say that Alif Lam Mim is one letter, but Alif is a letter, Lam is a letter, and Mim is a letter.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي"
+    },
+    {
+      "collection": "tirmidhi",
+      "chapter": "الذكر",
+      "number": null,
+      "arabic": "أَفْضَلُ الذِّكْرِ لَا إِلَهَ إِلَّا اللَّهُ، وَأَفْضَلُ الدُّعَاءِ الْحَمْدُ لِلَّهِ.",
+      "translation": "The best remembrance is: there is no god but God; and the best supplication is: praise be to God.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي"
+    },
+    {
+      "collection": "tirmidhi",
+      "chapter": "المعروف",
+      "number": null,
+      "arabic": "تَبَسُّمُكَ فِي وَجْهِ أَخِيكَ لَكَ صَدَقَةٌ، وَأَمْرُكَ بِالْمَعْرُوفِ وَنَهْيُكَ عَنِ الْمُنْكَرِ صَدَقَةٌ، وَإِرْشَادُكَ الرَّجُلَ فِي أَرْضِ الضَّلَالِ لَكَ صَدَقَةٌ.",
+      "translation": "Your smile in the face of your brother is charity for you; commanding good and forbidding evil is charity; and guiding a person in a land of error is charity for you.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي"
+    },
+    {
+      "collection": "tirmidhi",
+      "chapter": "الرحمة بالصغار والكبار",
+      "number": null,
+      "arabic": "مَنْ لَمْ يَرْحَمْ صَغِيرَنَا وَيَعْرِفْ حَقَّ كَبِيرِنَا فَلَيْسَ مِنَّا.",
+      "translation": "Whoever does not show mercy to our young ones and does not acknowledge the right of our elders is not of us.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي وأبو داود"
+    },
+    {
+      "collection": "tirmidhi",
+      "chapter": "الحساب يوم القيامة",
+      "number": null,
+      "arabic": "لَا تَزُولُ قَدَمَا عَبْدٍ يَوْمَ الْقِيَامَةِ حَتَّى يُسْأَلَ عَنْ أَرْبَعٍ: عَنْ عُمُرِهِ فِيمَ أَفْنَاهُ، وَعَنْ شَبَابِهِ فِيمَ أَبْلَاهُ، وَعَنْ مَالِهِ مِنْ أَيْنَ اكْتَسَبَهُ وَفِيمَ أَنْفَقَهُ، وَعَنْ عِلْمِهِ مَاذَا عَمِلَ بِهِ.",
+      "translation": "A servant's feet will not move on the Day of Resurrection until he is asked about four things: his life, how he spent it; his youth, how he used it; his wealth, how he earned it and spent it; and his knowledge, what he did with it.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي"
+    },
+    {
+      "collection": "tirmidhi",
+      "chapter": "محاسبة النفس",
+      "number": null,
+      "arabic": "الْكَيِّسُ مَنْ دَانَ نَفْسَهُ وَعَمِلَ لِمَا بَعْدَ الْمَوْتِ، وَالْعَاجِزُ مَنْ أَتْبَعَ نَفْسَهُ هَوَاهَا وَتَمَنَّى عَلَى اللَّهِ.",
+      "translation": "The wise person is the one who holds his soul to account and works for what comes after death; the helpless one is the one who follows his desires and makes vain wishes upon God.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي وابن ماجه"
+    },
+    {
+      "collection": "tirmidhi",
+      "chapter": "إفطار الصائم",
+      "number": null,
+      "arabic": "مَنْ فَطَّرَ صَائِمًا كَانَ لَهُ مِثْلُ أَجْرِهِ غَيْرَ أَنَّهُ لَا يَنْقُصُ مِنْ أَجْرِ الصَّائِمِ شَيْءٌ.",
+      "translation": "Whoever feeds a fasting person has the like of his reward, without diminishing anything from the reward of the fasting person.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي"
+    },
+    {
+      "collection": "tirmidhi",
+      "chapter": "حسن الخلق",
+      "number": null,
+      "arabic": "أَكْثَرُ مَا يُدْخِلُ النَّاسَ الْجَنَّةَ تَقْوَى اللَّهِ وَحُسْنُ الْخُلُقِ.",
+      "translation": "The thing that admits most people into Paradise is the fear of God and good character.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي وابن ماجه"
+    },
+    {
+      "collection": "tirmidhi",
+      "chapter": "فضل معلم الناس الخير",
+      "number": null,
+      "arabic": "إِنَّ اللَّهَ وَمَلَائِكَتَهُ وَأَهْلَ السَّمَاوَاتِ وَالْأَرْضِ حَتَّى النَّمْلَةَ فِي جُحْرِهَا وَحَتَّى الْحُوتَ لَيُصَلُّونَ عَلَى مُعَلِّمِ النَّاسِ الْخَيْرَ.",
+      "translation": "Indeed God, His angels, and the inhabitants of the heavens and the earth — even the ant in its hole and even the fish — send blessings upon the one who teaches people goodness.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي"
+    },
+    {
+      "collection": "tirmidhi",
+      "chapter": "حسن الخلق",
+      "number": null,
+      "arabic": "إِنَّ مِنْ أَحَبِّكُمْ إِلَيَّ وَأَقْرَبِكُمْ مِنِّي مَجْلِسًا يَوْمَ الْقِيَامَةِ أَحَاسِنُكُمْ أَخْلَاقًا.",
+      "translation": "The most beloved of you to me and the closest to me in seat on the Day of Resurrection are those of you with the best character.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي"
+    },
+    {
+      "collection": "tirmidhi",
+      "chapter": "بر الوالدين",
+      "number": null,
+      "arabic": "رِضَا الرَّبِّ فِي رِضَا الْوَالِدِ، وَسَخَطُ الرَّبِّ فِي سَخَطِ الْوَالِدِ.",
+      "translation": "The pleasure of the Lord is in the pleasure of the parent, and the displeasure of the Lord is in the displeasure of the parent.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي"
+    },
+    {
+      "collection": "abudawud",
+      "chapter": "حسن الخاتمة",
+      "number": null,
+      "arabic": "مَنْ كَانَ آخِرُ كَلَامِهِ لَا إِلَهَ إِلَّا اللَّهُ دَخَلَ الْجَنَّةَ.",
+      "translation": "Whoever has as his last words: there is no god but God, will enter Paradise.",
+      "grade": "Hasan",
+      "source": "رواه أبو داود"
+    },
+    {
+      "collection": "abudawud",
+      "chapter": "الجهاد بالكلمة",
+      "number": null,
+      "arabic": "أَفْضَلُ الْجِهَادِ كَلِمَةُ حَقٍّ عِنْدَ سُلْطَانٍ جَائِرٍ.",
+      "translation": "The best striving is a word of truth spoken before a tyrannical ruler.",
+      "grade": "Hasan",
+      "source": "رواه أبو داود والترمذي"
+    },
+    {
+      "collection": "nasai",
+      "chapter": "أول ما يحاسب به العبد",
+      "number": null,
+      "arabic": "أَوَّلُ مَا يُحَاسَبُ بِهِ الْعَبْدُ يَوْمَ الْقِيَامَةِ صَلَاتُهُ، فَإِنْ صَلَحَتْ فَقَدْ أَفْلَحَ وَأَنْجَحَ، وَإِنْ فَسَدَتْ فَقَدْ خَابَ وَخَسِرَ.",
+      "translation": "The first thing for which the servant is held to account on the Day of Resurrection is his prayer. If it is sound, he has succeeded and prospered; if it is corrupt, he has failed and lost.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي والنسائي"
+    },
+    {
+      "collection": "nasai",
+      "chapter": "الدعاء",
+      "number": null,
+      "arabic": "الدُّعَاءُ هُوَ الْعِبَادَةُ.",
+      "translation": "Supplication is worship.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي والنسائي"
+    },
+    {
+      "collection": "ibnmajah",
+      "chapter": "الشكر والصبر",
+      "number": null,
+      "arabic": "الطَّاعِمُ الشَّاكِرُ بِمَنْزِلَةِ الصَّائِمِ الصَّابِرِ.",
+      "translation": "The one who eats and is grateful is like the one who fasts and is patient.",
+      "grade": "Hasan",
+      "source": "رواه الترمذي وابن ماجه"
+    },
+    {
+      "collection": "ibnmajah",
+      "chapter": "فضل العلم",
+      "number": null,
+      "arabic": "فَضْلُ الْعَالِمِ عَلَى الْعَابِدِ كَفَضْلِ الْقَمَرِ عَلَى سَائِرِ الْكَوَاكِبِ.",
+      "translation": "The superiority of the scholar over the worshipper is like the superiority of the moon over all the other stars.",
+      "grade": "Hasan",
+      "source": "رواه أبو داود والترمذي وابن ماجه"
+    },
+    {
+      "collection": "riyad",
+      "chapter": "باب الكلام الطيب",
+      "number": null,
+      "arabic": "الْكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ.",
+      "translation": "A kind word is an act of charity.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "riyad",
+      "chapter": "باب إكرام الضيف",
+      "number": null,
+      "arabic": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ ضَيْفَهُ.",
+      "translation": "Whoever believes in God and the Last Day, let him honour his guest.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "riyad",
+      "chapter": "باب حق الجار",
+      "number": null,
+      "arabic": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ جَارَهُ.",
+      "translation": "Whoever believes in God and the Last Day, let him honour his neighbour.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "riyad",
+      "chapter": "باب حلاوة الإيمان",
+      "number": null,
+      "arabic": "ثَلَاثٌ مَنْ كُنَّ فِيهِ وَجَدَ بِهِنَّ حَلَاوَةَ الْإِيمَانِ: أَنْ يَكُونَ اللَّهُ وَرَسُولُهُ أَحَبَّ إِلَيْهِ مِمَّا سِوَاهُمَا، وَأَنْ يُحِبَّ الْمَرْءَ لَا يُحِبُّهُ إِلَّا لِلَّهِ، وَأَنْ يَكْرَهَ أَنْ يَعُودَ فِي الْكُفْرِ بَعْدَ أَنْ أَنْقَذَهُ اللَّهُ مِنْهُ كَمَا يَكْرَهُ أَنْ يُقْذَفَ فِي النَّارِ.",
+      "translation": "There are three qualities: whoever has them will taste the sweetness of faith — that God and His Messenger are more beloved to him than all else; that he loves a person only for the sake of God; and that he hates to return to disbelief after God has saved him from it, as he would hate to be thrown into the Fire.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
+    },
+    {
+      "collection": "riyad",
+      "chapter": "باب محبة النبي ﷺ",
+      "number": null,
+      "arabic": "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى أَكُونَ أَحَبَّ إِلَيْهِ مِنْ وَالِدِهِ وَوَلَدِهِ وَالنَّاسِ أَجْمَعِينَ.",
+      "translation": "None of you truly believes until I am more beloved to him than his father, his child, and all people.",
+      "grade": "Sahih",
+      "source": "رواه البخاري ومسلم"
     },
     {
       "collection": "other",
       "chapter": "الإتقان في العمل",
-      "arabic": "إِنَّ اللَّهَ تَعَالَى يُحِبُّ إِذَا عَمِلَ أَحَدُكُمْ عَمَلًا أَنْ يُتْقِنَهُ",
+      "number": null,
+      "arabic": "إِنَّ اللَّهَ تَعَالَى يُحِبُّ إِذَا عَمِلَ أَحَدُكُمْ عَمَلًا أَنْ يُتْقِنَهُ.",
       "translation": "God loves that when one of you does something, he does it with excellence.",
       "grade": "Hasan",
       "source": "رواه البيهقي"
+    },
+    {
+      "collection": "other",
+      "chapter": "مكارم الأخلاق",
+      "number": null,
+      "arabic": "إِنَّمَا بُعِثْتُ لِأُتَمِّمَ صَالِحَ الْأَخْلَاقِ.",
+      "translation": "I was only sent to perfect good character.",
+      "grade": "Hasan",
+      "source": "رواه أحمد"
     }
   ]
 }
