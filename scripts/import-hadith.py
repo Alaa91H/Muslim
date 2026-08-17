@@ -38,12 +38,10 @@ strategy accepts the APK size, and keep the curated sample as the default.
 from __future__ import annotations
 
 import argparse
-import gzip
 import hashlib
 import json
 import os
 import re
-import shutil
 import sys
 import time
 import urllib.request
@@ -257,12 +255,6 @@ def main() -> int:
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
 
-    # The repo ships the compressed form (hadith_full.json.gz, ~11 MB) so every
-    # build carries the full corpus without a 54 MB blob in git or the APK.
-    gz_path = args.out + ".gz"
-    with open(args.out, "rb") as src, gzip.open(gz_path, "wb", compresslevel=9) as dst:
-        shutil.copyfileobj(src, dst, length=1024 * 1024)
-
     # فحص التكرار: re-open the written file and assert zero duplicates using
     # the same keying as the dedupe step (per-book by default, or global only
     # with --dedupe-across-books). Cross-book matn repeats are legitimate — a
@@ -279,14 +271,11 @@ def main() -> int:
         return 4
 
     size_mb = os.path.getsize(args.out) / (1024 * 1024)
-    gz_mb = os.path.getsize(gz_path) / (1024 * 1024)
     print("\n=== import report ===")
     print("\n".join(report))
     print(f"  TOTAL kept: {len(written['hadiths'])} hadiths across {len(book_ids)} books")
     print(f"  Duplicate check: PASS (0 duplicates in {args.out})")
-    print(f"  Output: {args.out} ({size_mb:.1f} MB) + {gz_path} ({gz_mb:.1f} MB compressed)")
-    print("  Commit the .gz asset so every build ships the full corpus; the raw")
-    print("  JSON stays git-ignored and is regenerated on re-import.")
+    print(f"  Output size: {size_mb:.1f} MB - {args.out}")
     return 0
 
 

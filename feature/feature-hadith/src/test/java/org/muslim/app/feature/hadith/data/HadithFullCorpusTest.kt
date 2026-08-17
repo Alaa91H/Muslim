@@ -8,7 +8,6 @@ import org.junit.Test
 import org.muslim.app.core.common.text.ArabicText
 import org.muslim.app.feature.hadith.domain.HadithCollection
 import java.io.File
-import java.util.zip.GZIPInputStream
 
 /**
  * Guards the optional full Six-Books corpus (hadith_full.json) produced by
@@ -38,20 +37,13 @@ class HadithFullCorpusTest {
     private val json = Json { ignoreUnknownKeys = true }
 
     private fun fullCorpusFile(): File? = listOf(
-        File("src/main/assets/hadith_full.json.gz"),
-        File("feature/feature-hadith/src/main/assets/hadith_full.json.gz"),
         File("src/main/assets/hadith_full.json"),
         File("feature/feature-hadith/src/main/assets/hadith_full.json"),
     ).firstOrNull { it.exists() }
 
     private fun loadFullCorpus(): SeedFile? {
         val file = fullCorpusFile() ?: return null
-        val text = if (file.name.endsWith(".gz")) {
-            GZIPInputStream(file.inputStream()).bufferedReader(Charsets.UTF_8).use { it.readText() }
-        } else {
-            file.readText(Charsets.UTF_8)
-        }
-        return json.decodeFromString<SeedFile>(text)
+        return json.decodeFromString<SeedFile>(file.readText(Charsets.UTF_8))
     }
 
     @Test
