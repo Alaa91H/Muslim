@@ -35,6 +35,15 @@ We do not move to a new phase until the current one is complete and tested on a 
 
 - **Quran text:** Uthmani script from the [Tanzil](https://tanzil.net/) project (via the alquran.cloud dataset) — 6236 ayahs with per-surah metadata (name, revelation type) and ayah positions (juz/page).
 - **Prayer-time algorithms:** ported and verified against the [Adhan](https://github.com/batoulapps/Adhan-Kotlin) library (MIT, attributed).
+- **Hadith corpus:** the app ships a curated sample (Arba'in an-Nawawiyyah + famous hadiths of the Six Books). The **complete Six Books** can be imported with
+
+  ```bash
+  python scripts/import-hadith.py                     # all six books
+  python scripts/import-hadith.py --books bukhari,muslim --limit 25   # smoke test
+  python scripts/import-hadith.py --self-check       # verify the dedupe logic
+  ```
+
+  The importer fetches from the licensed, open [hadith-api](https://github.com/fawazahmed0/hadith-api) project (MIT-licensed API; classical Arabic texts are public domain; translations keep their original copyrights) via the jsDelivr CDN, maps hadiths into the app schema, and **deduplicates by fingerprinting the diacritic-normalized Arabic text** (in-book always, cross-book optionally) — the output file is re-verified to contain zero duplicates before it is written. The full corpus is ~50 MB, so the generated `hadith_full.json` is git-ignored; the app loads it automatically when bundled and falls back to the curated sample otherwise.
 
 Religious content (Quran text, hadith and their grading, adhkar, rulings) is subject to specialist religious review, separate from code review, before the official release.
 

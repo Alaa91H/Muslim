@@ -28,3 +28,6 @@ captures/
 # Local release signing (never commit)
 keystore.properties
 release.keystore
+
+# Full hadith corpus (imported via scripts/import-hadith.py — tens of MB)
+feature/feature-hadith/src/main/assets/hadith_full.json
