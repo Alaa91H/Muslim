@@ -32,4 +32,16 @@
     <string name="adhkar_evening_reminder">Evening adhkar reminder</string>
     <string name="adhkar_reminder_time">Time</string>
     <string name="adhkar_reminder_notification_title">Adhkar reminder</string>
+
+    <string name="adhkar_periodic_section">Periodic reminder</string>
+    <string name="adhkar_periodic_toggle">Enable periodic reminder</string>
+    <string name="adhkar_periodic_desc">Shows a random or category-pinned dhikr at your chosen interval, as a bubble on Android 11+ or a heads-up notification.</string>
+    <string name="adhkar_periodic_interval">Repeat every</string>
+    <string name="adhkar_periodic_interval_value">%1$d minutes</string>
+    <string name="adhkar_periodic_category">Adhkar category</string>
+    <string name="adhkar_periodic_category_random">Random (all adhkar)</string>
+    <string name="adhkar_periodic_window_toggle">Only within a time window</string>
+    <string name="adhkar_periodic_window_start">Start</string>
+    <string name="adhkar_periodic_window_end">End</string>
+    <string name="adhkar_periodic_notification_title">Adhkar reminder</string>
 </resources>

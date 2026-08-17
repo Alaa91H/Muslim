@@ -32,4 +32,16 @@
     <string name="adhkar_evening_reminder">تذكير أذكار المساء</string>
     <string name="adhkar_reminder_time">الوقت</string>
     <string name="adhkar_reminder_notification_title">تذكير الأذكار</string>
+
+    <string name="adhkar_periodic_section">التذكير الدوري</string>
+    <string name="adhkar_periodic_toggle">تفعيل التذكير الدوري</string>
+    <string name="adhkar_periodic_desc">يظهر ذكر عشوائي أو من الفئة المختارة كل مدة تحددها، كفقاعة على أندرويد 11+ أو إشعار عائم.</string>
+    <string name="adhkar_periodic_interval">التكرار كل</string>
+    <string name="adhkar_periodic_interval_value">%1$d دقيقة</string>
+    <string name="adhkar_periodic_category">فئة الأذكار</string>
+    <string name="adhkar_periodic_category_random">عشوائي (كل الأذكار)</string>
+    <string name="adhkar_periodic_window_toggle">تحديد فترة زمنية فقط</string>
+    <string name="adhkar_periodic_window_start">البداية</string>
+    <string name="adhkar_periodic_window_end">النهاية</string>
+    <string name="adhkar_periodic_notification_title">تذكير الأذكار</string>
 </resources>

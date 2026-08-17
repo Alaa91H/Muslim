@@ -15,4 +15,5 @@ interface AdhkarEntryPoint {
     fun prefsRepository(): AdhkarPrefsRepository
     fun adhkarRepository(): AdhkarRepository
     fun reminderScheduler(): AdhkarReminderScheduler
+    fun periodicReminderScheduler(): PeriodicAdhkarReminderScheduler
 }

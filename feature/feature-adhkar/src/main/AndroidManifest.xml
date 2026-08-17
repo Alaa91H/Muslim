@@ -28,12 +28,25 @@
             android:exported="false" />
 
         <receiver
+            android:name=".data.PeriodicAdhkarReminderReceiver"
+            android:exported="false" />
+
+        <receiver
             android:name=".data.AdhkarBootReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <!-- Auto-dismissing window opened when the reminder bubble is tapped -->
+        <activity
+            android:name=".overlay.AdhkarBubbleActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
 </manifest>

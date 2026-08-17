@@ -66,6 +66,10 @@ object NotificationChannels {
             NotificationChannel(ADHKAR, ADHKAR_NAME, NotificationManager.IMPORTANCE_DEFAULT).apply {
                 description = "تذكيرات الأذكار والرسالة العائمة"
                 setShowBadge(false)
+                // Optional bubble presentation for the periodic reminder (Android 11+).
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    setAllowBubbles(true)
+                }
             }
         )
         manager.createNotificationChannel(

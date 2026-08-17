@@ -46,8 +46,10 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.adhkar.R
+import org.muslim.app.feature.adhkar.domain.DhikrCategory
 
 private val DURATION_OPTIONS = listOf(5, 10, 15, 30, 60)
+private val INTERVAL_OPTIONS = listOf(15, 30, 60, 120, 180)
 private val HOUR_OPTIONS = (0..23).map { String.format("%02d", it) }
 private val MINUTE_OPTIONS = (0..59 step 5).map { String.format("%02d", it) }
 
@@ -163,6 +165,85 @@ fun AdhkarSettingsScreen(
                 onHourChanged = { hour -> viewModel.setEveningReminder(prefs.eveningReminderEnabled, hour, prefs.eveningMinute) },
                 onMinuteChanged = { minute -> viewModel.setEveningReminder(prefs.eveningReminderEnabled, prefs.eveningHour, minute) },
             )
+
+            SectionHeader(stringResource(R.string.adhkar_periodic_section))
+
+            SwitchRow(
+                label = stringResource(R.string.adhkar_periodic_toggle),
+                checked = prefs.periodicReminderEnabled,
+                onCheckedChange = viewModel::setPeriodicReminderEnabled,
+            )
+            Text(
+                text = stringResource(R.string.adhkar_periodic_desc),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Spacer(Modifier.height(8.dp))
+
+            if (prefs.periodicReminderEnabled) {
+                IntervalDropdown(
+                    current = prefs.periodicReminderIntervalMinutes,
+                    onSelected = viewModel::setPeriodicReminderInterval,
+                )
+                Spacer(Modifier.height(8.dp))
+                CategoryDropdown(
+                    current = prefs.periodicReminderCategoryId,
+                    onSelected = viewModel::setPeriodicReminderCategory,
+                )
+                Spacer(Modifier.height(8.dp))
+                WindowSlot(
+                    enabled = prefs.periodicReminderWindowEnabled,
+                    startHour = prefs.periodicReminderWindowStartHour,
+                    startMinute = prefs.periodicReminderWindowStartMinute,
+                    endHour = prefs.periodicReminderWindowEndHour,
+                    endMinute = prefs.periodicReminderWindowEndMinute,
+                    onEnabledChanged = { enabled ->
+                        viewModel.setPeriodicReminderWindow(
+                            enabled,
+                            prefs.periodicReminderWindowStartHour,
+                            prefs.periodicReminderWindowStartMinute,
+                            prefs.periodicReminderWindowEndHour,
+                            prefs.periodicReminderWindowEndMinute,
+                        )
+                    },
+                    onStartHourChanged = { hour ->
+                        viewModel.setPeriodicReminderWindow(
+                            prefs.periodicReminderWindowEnabled,
+                            hour,
+                            prefs.periodicReminderWindowStartMinute,
+                            prefs.periodicReminderWindowEndHour,
+                            prefs.periodicReminderWindowEndMinute,
+                        )
+                    },
+                    onStartMinuteChanged = { minute ->
+                        viewModel.setPeriodicReminderWindow(
+                            prefs.periodicReminderWindowEnabled,
+                            prefs.periodicReminderWindowStartHour,
+                            minute,
+                            prefs.periodicReminderWindowEndHour,
+                            prefs.periodicReminderWindowEndMinute,
+                        )
+                    },
+                    onEndHourChanged = { hour ->
+                        viewModel.setPeriodicReminderWindow(
+                            prefs.periodicReminderWindowEnabled,
+                            prefs.periodicReminderWindowStartHour,
+                            prefs.periodicReminderWindowStartMinute,
+                            hour,
+                            prefs.periodicReminderWindowEndMinute,
+                        )
+                    },
+                    onEndMinuteChanged = { minute ->
+                        viewModel.setPeriodicReminderWindow(
+                            prefs.periodicReminderWindowEnabled,
+                            prefs.periodicReminderWindowStartHour,
+                            prefs.periodicReminderWindowStartMinute,
+                            prefs.periodicReminderWindowEndHour,
+                            minute,
+                        )
+                    },
+                )
+            }
 
             Spacer(Modifier.height(24.dp))
         }
@@ -292,6 +373,109 @@ private fun TimeDropdown(options: List<String>, value: String, onSelected: (Stri
                     text = { Text(option) },
                     onClick = { expanded = false; onSelected(option) },
                 )
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun IntervalDropdown(current: Int, onSelected: (Int) -> Unit) {
+    var expanded by remember { mutableStateOf(false) }
+    ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
+        OutlinedTextField(
+            value = stringResource(R.string.adhkar_periodic_interval_value, current),
+            onValueChange = {},
+            readOnly = true,
+            label = { Text(stringResource(R.string.adhkar_periodic_interval)) },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
+        )
+        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+            INTERVAL_OPTIONS.forEach { minutes ->
+                DropdownMenuItem(
+                    text = { Text(stringResource(R.string.adhkar_periodic_interval_value, minutes)) },
+                    onClick = { expanded = false; onSelected(minutes) },
+                )
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun CategoryDropdown(current: String?, onSelected: (String?) -> Unit) {
+    var expanded by remember { mutableStateOf(false) }
+    val currentLabel = current
+        ?.let { id -> DhikrCategory.fromId(id).let { stringResource(it.titleRes) } }
+        ?: stringResource(R.string.adhkar_periodic_category_random)
+    ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
+        OutlinedTextField(
+            value = currentLabel,
+            onValueChange = {},
+            readOnly = true,
+            label = { Text(stringResource(R.string.adhkar_periodic_category)) },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
+        )
+        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+            DropdownMenuItem(
+                text = { Text(stringResource(R.string.adhkar_periodic_category_random)) },
+                onClick = { expanded = false; onSelected(null) },
+            )
+            DhikrCategory.entries.forEach { category ->
+                DropdownMenuItem(
+                    text = { Text(stringResource(category.titleRes)) },
+                    onClick = { expanded = false; onSelected(category.id) },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun WindowSlot(
+    enabled: Boolean,
+    startHour: Int,
+    startMinute: Int,
+    endHour: Int,
+    endMinute: Int,
+    onEnabledChanged: (Boolean) -> Unit,
+    onStartHourChanged: (Int) -> Unit,
+    onStartMinuteChanged: (Int) -> Unit,
+    onEndHourChanged: (Int) -> Unit,
+    onEndMinuteChanged: (Int) -> Unit,
+) {
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
+            SwitchRow(
+                label = stringResource(R.string.adhkar_periodic_window_toggle),
+                checked = enabled,
+                onCheckedChange = onEnabledChanged,
+            )
+            if (enabled) {
+                Text(
+                    text = stringResource(R.string.adhkar_periodic_window_start),
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    TimeDropdown(HOUR_OPTIONS, String.format("%02d", startHour)) { onStartHourChanged(it.toInt()) }
+                    Spacer(Modifier.padding(horizontal = 4.dp))
+                    TimeDropdown(MINUTE_OPTIONS, String.format("%02d", startMinute)) { onStartMinuteChanged(it.toInt()) }
+                }
+                Text(
+                    text = stringResource(R.string.adhkar_periodic_window_end),
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    TimeDropdown(HOUR_OPTIONS, String.format("%02d", endHour)) { onEndHourChanged(it.toInt()) }
+                    Spacer(Modifier.padding(horizontal = 4.dp))
+                    TimeDropdown(MINUTE_OPTIONS, String.format("%02d", endMinute)) { onEndMinuteChanged(it.toInt()) }
+                }
             }
         }
     }

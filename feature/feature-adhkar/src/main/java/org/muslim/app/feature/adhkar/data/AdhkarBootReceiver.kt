@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
-/** Re-arms the daily adhkar reminders after a device reboot. */
+/** Re-arms the daily and periodic adhkar reminders after a device reboot. */
 class AdhkarBootReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
@@ -20,6 +20,7 @@ class AdhkarBootReceiver : BroadcastReceiver() {
         CoroutineScope(Dispatchers.IO).launch {
             val prefs = entryPoint.prefsRepository().prefs.first()
             entryPoint.reminderScheduler().schedule(prefs)
+            entryPoint.periodicReminderScheduler().schedule(prefs)
         }
     }
 }

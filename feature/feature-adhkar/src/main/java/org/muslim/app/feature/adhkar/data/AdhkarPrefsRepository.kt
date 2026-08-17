@@ -34,6 +34,18 @@ data class AdhkarPrefs(
     val eveningReminderEnabled: Boolean = false,
     val eveningHour: Int = 18,
     val eveningMinute: Int = 0,
+    /** Periodic floating reminder (PROJECT_PROMPT.md Phase 4) — repeats every interval. */
+    val periodicReminderEnabled: Boolean = false,
+    /** Interval in minutes between reminders (15/30/60/120/180). */
+    val periodicReminderIntervalMinutes: Int = 60,
+    /** Category for the periodic reminder; null = random across all enabled adhkar. */
+    val periodicReminderCategoryId: String? = null,
+    /** Restrict the periodic reminder to a daily time window (e.g. work hours). */
+    val periodicReminderWindowEnabled: Boolean = false,
+    val periodicReminderWindowStartHour: Int = 9,
+    val periodicReminderWindowStartMinute: Int = 0,
+    val periodicReminderWindowEndHour: Int = 17,
+    val periodicReminderWindowEndMinute: Int = 0,
 ) {
     fun isDhikrEnabled(id: Long): Boolean = id !in disabledDhikrIds
 }
@@ -56,6 +68,14 @@ class AdhkarPrefsRepository @Inject constructor(
             eveningReminderEnabled = p[Keys.EVENING_ENABLED] ?: false,
             eveningHour = (p[Keys.EVENING_HOUR] ?: 18).coerceIn(0, 23),
             eveningMinute = (p[Keys.EVENING_MINUTE] ?: 0).coerceIn(0, 59),
+            periodicReminderEnabled = p[Keys.PERIODIC_ENABLED] ?: false,
+            periodicReminderIntervalMinutes = (p[Keys.PERIODIC_INTERVAL] ?: 60).coerceIn(5, 1_440),
+            periodicReminderCategoryId = p[Keys.PERIODIC_CATEGORY],
+            periodicReminderWindowEnabled = p[Keys.PERIODIC_WINDOW_ENABLED] ?: false,
+            periodicReminderWindowStartHour = (p[Keys.PERIODIC_WINDOW_START_HOUR] ?: 9).coerceIn(0, 23),
+            periodicReminderWindowStartMinute = (p[Keys.PERIODIC_WINDOW_START_MINUTE] ?: 0).coerceIn(0, 59),
+            periodicReminderWindowEndHour = (p[Keys.PERIODIC_WINDOW_END_HOUR] ?: 17).coerceIn(0, 23),
+            periodicReminderWindowEndMinute = (p[Keys.PERIODIC_WINDOW_END_MINUTE] ?: 0).coerceIn(0, 59),
         )
     }
 
@@ -82,6 +102,26 @@ class AdhkarPrefsRepository @Inject constructor(
         it[Keys.EVENING_MINUTE] = minute.coerceIn(0, 59)
     }
 
+    suspend fun setPeriodicReminderEnabled(enabled: Boolean) = edit {
+        it[Keys.PERIODIC_ENABLED] = enabled
+    }
+
+    suspend fun setPeriodicReminderInterval(minutes: Int) = edit {
+        it[Keys.PERIODIC_INTERVAL] = minutes.coerceIn(5, 1_440)
+    }
+
+    suspend fun setPeriodicReminderCategory(categoryId: String?) = edit {
+        if (categoryId == null) it.remove(Keys.PERIODIC_CATEGORY) else it[Keys.PERIODIC_CATEGORY] = categoryId
+    }
+
+    suspend fun setPeriodicReminderWindow(enabled: Boolean, startHour: Int, startMinute: Int, endHour: Int, endMinute: Int) = edit {
+        it[Keys.PERIODIC_WINDOW_ENABLED] = enabled
+        it[Keys.PERIODIC_WINDOW_START_HOUR] = startHour.coerceIn(0, 23)
+        it[Keys.PERIODIC_WINDOW_START_MINUTE] = startMinute.coerceIn(0, 59)
+        it[Keys.PERIODIC_WINDOW_END_HOUR] = endHour.coerceIn(0, 23)
+        it[Keys.PERIODIC_WINDOW_END_MINUTE] = endMinute.coerceIn(0, 59)
+    }
+
     private suspend fun edit(transform: (androidx.datastore.preferences.core.MutablePreferences) -> Unit) {
         context.adhkarPrefsDataStore.edit { transform(it) }
     }
@@ -96,5 +136,13 @@ class AdhkarPrefsRepository @Inject constructor(
         val EVENING_ENABLED = booleanPreferencesKey("evening_reminder_enabled")
         val EVENING_HOUR = intPreferencesKey("evening_reminder_hour")
         val EVENING_MINUTE = intPreferencesKey("evening_reminder_minute")
+        val PERIODIC_ENABLED = booleanPreferencesKey("periodic_reminder_enabled")
+        val PERIODIC_INTERVAL = intPreferencesKey("periodic_reminder_interval_minutes")
+        val PERIODIC_CATEGORY = androidx.datastore.preferences.core.stringPreferencesKey("periodic_reminder_category")
+        val PERIODIC_WINDOW_ENABLED = booleanPreferencesKey("periodic_window_enabled")
+        val PERIODIC_WINDOW_START_HOUR = intPreferencesKey("periodic_window_start_hour")
+        val PERIODIC_WINDOW_START_MINUTE = intPreferencesKey("periodic_window_start_minute")
+        val PERIODIC_WINDOW_END_HOUR = intPreferencesKey("periodic_window_end_hour")
+        val PERIODIC_WINDOW_END_MINUTE = intPreferencesKey("periodic_window_end_minute")
     }
 }

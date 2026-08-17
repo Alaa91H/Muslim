@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 import org.muslim.app.feature.adhkar.data.AdhkarPrefs
 import org.muslim.app.feature.adhkar.data.AdhkarPrefsRepository
 import org.muslim.app.feature.adhkar.data.AdhkarReminderScheduler
+import org.muslim.app.feature.adhkar.data.PeriodicAdhkarReminderScheduler
 import org.muslim.app.feature.adhkar.data.AdhkarRepository
 import org.muslim.app.feature.adhkar.overlay.AdhkarOverlayService
 import javax.inject.Inject
@@ -24,6 +25,7 @@ class AdhkarSettingsViewModel @Inject constructor(
     private val prefsRepository: AdhkarPrefsRepository,
     private val adhkarRepository: AdhkarRepository,
     private val scheduler: AdhkarReminderScheduler,
+    private val periodicScheduler: PeriodicAdhkarReminderScheduler,
 ) : ViewModel() {
 
     val prefs: StateFlow<AdhkarPrefs> = prefsRepository.prefs
@@ -32,7 +34,9 @@ class AdhkarSettingsViewModel @Inject constructor(
     init {
         // Re-arm reminders whenever the app starts (covers the reboot-free gap).
         viewModelScope.launch {
-            scheduler.schedule(prefsRepository.prefs.first())
+            val current = prefsRepository.prefs.first()
+            scheduler.schedule(current)
+            periodicScheduler.schedule(current)
         }
     }
 
@@ -50,6 +54,18 @@ class AdhkarSettingsViewModel @Inject constructor(
     fun setEveningReminder(enabled: Boolean, hour: Int, minute: Int) =
         save { prefsRepository.setEveningReminder(enabled, hour, minute) }
 
+    fun setPeriodicReminderEnabled(enabled: Boolean) =
+        save { prefsRepository.setPeriodicReminderEnabled(enabled) }
+
+    fun setPeriodicReminderInterval(minutes: Int) =
+        save { prefsRepository.setPeriodicReminderInterval(minutes) }
+
+    fun setPeriodicReminderCategory(categoryId: String?) =
+        save { prefsRepository.setPeriodicReminderCategory(categoryId) }
+
+    fun setPeriodicReminderWindow(enabled: Boolean, startHour: Int, startMinute: Int, endHour: Int, endMinute: Int) =
+        save { prefsRepository.setPeriodicReminderWindow(enabled, startHour, startMinute, endHour, endMinute) }
+
     /** Shows a random enabled dhikr above all apps right now (test action). */
     fun testOverlay() {
         viewModelScope.launch {
@@ -63,7 +79,9 @@ class AdhkarSettingsViewModel @Inject constructor(
     private fun save(transform: suspend () -> Unit) {
         viewModelScope.launch {
             transform()
-            scheduler.schedule(prefsRepository.prefs.first())
+            val current = prefsRepository.prefs.first()
+            scheduler.schedule(current)
+            periodicScheduler.schedule(current)
         }
     }
 }
