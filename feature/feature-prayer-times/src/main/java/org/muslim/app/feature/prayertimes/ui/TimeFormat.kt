@@ -1,16 +1,21 @@
 package org.muslim.app.feature.prayertimes.ui
 
 import java.time.format.DateTimeFormatter
+import java.time.format.DecimalStyle
 import java.time.format.FormatStyle
 import java.util.Locale
 
-/** Formats a time with the device locale, e.g. "5:23 AM" / "٥:٢٣ ص". */
+/** Formats a time with the device locale, e.g. "5:23 AM" / "5:23 ص" (Western digits). */
 val localTimeFormatter: DateTimeFormatter =
-    DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT).withLocale(Locale.getDefault())
+    DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)
+        .withLocale(Locale.getDefault())
+        .withDecimalStyle(DecimalStyle.STANDARD)
 
-/** Formats "13 Aug 2026" with the device locale. */
+/** Formats "13 Aug 2026" with the device locale (Western digits). */
 val localDateFormatter: DateTimeFormatter =
-    DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(Locale.getDefault())
+    DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
+        .withLocale(Locale.getDefault())
+        .withDecimalStyle(DecimalStyle.STANDARD)
 
 /** Countdown "HH:MM:SS". */
 fun formatCountdown(totalSeconds: Long): String {

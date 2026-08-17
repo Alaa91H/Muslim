@@ -5,6 +5,7 @@
     <string name="quran_surah_meccan">مكية</string>
     <string name="quran_surah_medinan">مدنية</string>
     <string name="quran_back">رجوع</string>
+    <string name="quran_page_header">صفحة %1$s · الجزء %2$s</string>
     <string name="quran_font_smaller">تصغير الخط</string>
     <string name="quran_font_larger">تكبير الخط</string>
 
@@ -14,6 +15,16 @@
     <string name="quran_search_prompt">اكتب كلمة أو عبارة للبحث في المصحف كاملًا (دون إنترنت).</string>
     <string name="quran_search_empty">لا توجد نتائج مطابقة</string>
     <string name="quran_search_ref">%1$s:%2$s</string>
+    <string name="quran_search_summary">وُجدت الكلمة في %1$d موضعًا ضمن %2$d آية</string>
+    <string name="quran_details">تفاصيل السورة</string>
+    <string name="quran_details_close">إغلاق</string>
+    <string name="quran_details_type">النوع</string>
+    <string name="quran_details_meccan">مكية</string>
+    <string name="quran_details_medinan">مدنية</string>
+    <string name="quran_details_order">الترتيب النزولي</string>
+    <string name="quran_details_order_value">%1$d من 114</string>
+    <string name="quran_details_ayahs">عدد الآيات</string>
+    <string name="quran_details_reason_title">سبب النزول</string>
 
     <!-- Bookmarks & resume -->
     <string name="quran_bookmarks">العلامات المرجعية</string>
@@ -36,4 +47,27 @@
     <string name="quran_download_surah">تنزيل السورة</string>
     <string name="quran_play_ayah">تشغيل الآية</string>
     <string name="quran_repeat">تكرار</string>
+
+    <!-- Downloads -->
+    <string name="quran_downloads_title">التنزيلات</string>
+    <string name="quran_download_scope_ayah">آية</string>
+    <string name="quran_download_scope_surah">سورة</string>
+    <string name="quran_download_scope_full">القرآن كامل</string>
+    <string name="quran_download_surah_number">رقم السورة (1–114)</string>
+    <string name="quran_download_ayah_number">رقم الآية</string>
+    <string name="quran_download_full_hint">سيتم تنزيل كل السور (6236 آية) في الخلفية، مع إمكانية الاستكمال لاحقًا.</string>
+    <string name="quran_download_size_estimate">الحجم التقريبي: %1$s</string>
+    <string name="quran_download_size_unknown">أدخل سورة صحيحة لمعرفة الحجم التقريبي</string>
+    <string name="quran_download_start">بدء التحميل</string>
+    <string name="quran_download_cancel">إلغاء</string>
+    <string name="quran_downloads_active_title">التنزيلات الحالية والسابقة</string>
+    <string name="quran_downloads_none">لا توجد تنزيلات بعد</string>
+    <string name="quran_download_status_queued">في الانتظار</string>
+    <string name="quran_download_status_downloading">جارٍ التنزيل</string>
+    <string name="quran_download_status_completed">اكتمل</string>
+    <string name="quran_download_status_failed">فشل</string>
+    <string name="quran_download_channel">تنزيلات التلاوة</string>
+    <string name="quran_download_in_progress">جارٍ التنزيل في الخلفية…</string>
+    <string name="quran_download_done">اكتمل التنزيل</string>
+    <string name="quran_download_failed">تعذّر التنزيل</string>
 </resources>

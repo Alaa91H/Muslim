@@ -27,6 +27,8 @@
     <string name="more_learn_desc">Step-by-step wudu &amp; prayer guides</string>
     <string name="more_reference">Reference Library</string>
     <string name="more_reference_desc">Introduction to Islam, the Sira &amp; the prophets</string>
+    <string name="more_downloads">Recitation downloads</string>
+    <string name="more_downloads_desc">Download a surah, an ayah or the full Quran with your chosen reciter</string>
 
     <!-- App shortcuts (long-press the launcher icon) -->
     <string name="shortcut_times">Prayer times</string>

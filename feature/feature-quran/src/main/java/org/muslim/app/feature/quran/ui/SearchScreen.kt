@@ -30,7 +30,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.muslim.app.core.common.text.toArabicIndic
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.Ayah
 
@@ -96,6 +95,18 @@ fun SearchScreen(
                     modifier = Modifier.fillMaxSize(),
                     contentPadding = androidx.compose.foundation.layout.PaddingValues(vertical = 4.dp),
                 ) {
+                    item {
+                        Text(
+                            text = stringResource(
+                                R.string.quran_search_summary,
+                                state.occurrences,
+                                state.results.size,
+                            ),
+                            style = MaterialTheme.typography.labelLarge,
+                            color = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                        )
+                    }
                     items(state.results, key = { it.globalNumber }) { ayah ->
                         SearchResultRow(ayah, onClick = { onOpenAyah(ayah.surahNumber, ayah.globalNumber) })
                     }
@@ -122,7 +133,7 @@ private fun SearchResultRow(ayah: Ayah, onClick: () -> Unit) {
         Spacer(Modifier.padding(start = 8.dp))
         Column(horizontalAlignment = Alignment.End) {
             Text(
-                text = stringResource(R.string.quran_search_ref, ayah.surahNumber.toArabicIndic(), ayah.numberInSurah.toArabicIndic()),
+                text = stringResource(R.string.quran_search_ref, ayah.surahNumber.toString(), ayah.numberInSurah.toString()),
                 style = MaterialTheme.typography.labelMedium,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary,

@@ -1,6 +1,26 @@
 import java.util.Base64
 import java.util.Properties
 
+// Derives versionCode/versionName from the nearest `v*` git tag so the release
+// version is never hardcoded (PROJECT_PROMPT.md §8). scripts/release.sh pushes
+// the tag before building, so `git describe` returns e.g. "v1.3.0"; VERSION_TAG
+// is an explicit override for CI where tags are not reachable from HEAD.
+val gitVersionTag = providers.exec {
+    commandLine("git", "describe", "--tags", "--match", "v*", "--always")
+    workingDir = rootProject.projectDir
+    isIgnoreExitValue = true
+}.standardOutput.asText.map { it.trim() }
+
+fun deriveVersion(describe: String, envTag: String): Pair<Int, String> {
+    val match = Regex("v?(\\d+)\\.(\\d+)\\.(\\d+)").find(envTag.ifBlank { describe })
+    val major = match?.groupValues?.get(1)?.toIntOrNull() ?: 1
+    val minor = match?.groupValues?.get(2)?.toIntOrNull() ?: 0
+    val patch = match?.groupValues?.get(3)?.toIntOrNull() ?: 0
+    val versionCode = major * 10_000 + minor * 100 + patch
+    val versionName = if (match == null) "1.0.0-dev" else "$major.$minor.$patch"
+    return versionCode to versionName
+}
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.compose.compiler)
@@ -18,8 +38,9 @@ android {
         applicationId = "org.muslim.app"
         minSdk = 26
         targetSdk = 37
-        versionCode = 1
-        versionName = "1.0.0"
+        val (code, name) = deriveVersion(gitVersionTag.get(), System.getenv("VERSION_TAG").orEmpty())
+        versionCode = code
+        versionName = name
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -73,6 +94,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     lint {

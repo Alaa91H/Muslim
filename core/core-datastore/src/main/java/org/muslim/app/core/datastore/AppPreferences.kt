@@ -11,9 +11,12 @@ data class AppPreferences(
     val languageCode: String = SYSTEM_LANGUAGE,
     /** Respect the system "remove animations" accessibility setting. */
     val reduceAnimations: Boolean = false,
+    /** Navigation route shown as the start destination (default: prayer-times home). */
+    val startTab: String = START_TAB_HOME,
 ) {
     companion object {
         const val SYSTEM_LANGUAGE = "system"
+        const val START_TAB_HOME = "home"
     }
 }
 

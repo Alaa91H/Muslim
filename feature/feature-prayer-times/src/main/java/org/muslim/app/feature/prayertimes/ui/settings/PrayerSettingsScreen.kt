@@ -1,7 +1,9 @@
 package org.muslim.app.feature.prayertimes.ui.settings
 
+import android.app.AlarmManager
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -201,6 +203,7 @@ fun PrayerSettingsScreen(
                 )
                 Spacer(Modifier.height(8.dp))
                 BatterySettingsButton()
+                ExactAlarmButton()
             }
         }
 
@@ -368,6 +371,42 @@ private fun BatterySettingsButton() {
         runCatching { context.startActivity(intent) }
     }) {
         Text(stringResource(R.string.settings_battery_open))
+    }
+}
+
+/**
+ * Android 12+ only: offers the one-tap system dialog to grant exact alarms
+ * (the app degrades to inexact alarms otherwise). This keeps the Adhan firing
+ * precisely on time even in Doze.
+ */
+@Composable
+private fun ExactAlarmButton() {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) return
+    val context = LocalContext.current
+    val alarmManager = context.getSystemService(AlarmManager::class.java)
+    if (alarmManager.canScheduleExactAlarms()) return
+
+    Column {
+        Spacer(Modifier.height(8.dp))
+        Text(
+            text = stringResource(R.string.settings_exact_alarm_hint),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Spacer(Modifier.height(8.dp))
+        OutlinedButton(
+            onClick = {
+                runCatching {
+                    context.startActivity(
+                        Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM)
+                            .setData(Uri.parse("package:${context.packageName}")),
+                    )
+                }
+            },
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Text(stringResource(R.string.settings_exact_alarm_open))
+        }
     }
 }
 

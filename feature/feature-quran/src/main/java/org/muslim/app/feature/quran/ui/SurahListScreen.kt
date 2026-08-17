@@ -31,7 +31,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.muslim.app.core.common.text.toArabicIndic
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.Surah
 
@@ -144,8 +143,8 @@ private fun KhatmaProgressCard(readThrough: Int, totalAyahs: Int, fraction: Floa
             Text(
                 text = stringResource(
                     R.string.quran_khatma_detail,
-                    readThrough.toArabicIndic(),
-                    totalAyahs.toArabicIndic(),
+                    readThrough.toString(),
+                    totalAyahs.toString(),
                 ),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -174,7 +173,7 @@ private fun ResumeReadingCard(surahNumber: Int, ayahNumber: Int, onClick: () -> 
             )
             Spacer(Modifier.padding(start = 4.dp))
             Text(
-                text = stringResource(R.string.quran_resume, surahNumber.toArabicIndic(), ayahNumber.toArabicIndic()),
+                text = stringResource(R.string.quran_resume, surahNumber.toString(), ayahNumber.toString()),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
                 modifier = Modifier.weight(1f),
@@ -193,7 +192,7 @@ private fun SurahRow(surah: Surah, onClick: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
-            text = surah.number.toArabicIndic(),
+            text = surah.number.toString(),
             style = MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier.padding(end = 16.dp),

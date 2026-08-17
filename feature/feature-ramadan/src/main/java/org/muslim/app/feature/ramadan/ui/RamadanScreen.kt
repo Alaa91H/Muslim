@@ -46,7 +46,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.muslim.app.core.common.text.toArabicIndic
 import org.muslim.app.feature.ramadan.R
 import java.time.Duration
 import java.time.LocalDate
@@ -136,9 +135,9 @@ private fun RamadanHeaderCard(state: RamadanUiState) {
             Spacer(Modifier.height(8.dp))
             Text(
                 text = if (inRamadan) {
-                    stringResource(R.string.ramadan_day_of_month, day.toArabicIndic())
+                    stringResource(R.string.ramadan_day_of_month, day.toString())
                 } else {
-                    stringResource(R.string.ramadan_countdown, untilStart.toArabicIndic())
+                    stringResource(R.string.ramadan_countdown, untilStart.toString())
                 },
                 style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.Bold,
@@ -147,7 +146,7 @@ private fun RamadanHeaderCard(state: RamadanUiState) {
             Spacer(Modifier.height(4.dp))
             Text(
                 text = if (inRamadan) {
-                    stringResource(R.string.ramadan_days_left, remaining.toArabicIndic())
+                    stringResource(R.string.ramadan_days_left, remaining.toString())
                 } else {
                     stringResource(R.string.ramadan_starts_on, formatDate(info.start), formatDate(info.end))
                 },
@@ -156,7 +155,7 @@ private fun RamadanHeaderCard(state: RamadanUiState) {
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                text = stringResource(R.string.ramadan_hijri_year, info.hijriYear.toArabicIndic()),
+                text = stringResource(R.string.ramadan_hijri_year, info.hijriYear.toString()),
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f),
             )
@@ -261,7 +260,7 @@ private fun SuhoorCard(state: RamadanUiState, viewModel: RamadanViewModel) {
                     FilterChip(
                         selected = state.settings.suhoorMinutesBefore == minutes,
                         onClick = { viewModel.setSuhoorMinutesBefore(minutes) },
-                        label = { Text(stringResource(R.string.ramadan_minutes, minutes.toArabicIndic())) },
+                        label = { Text(stringResource(R.string.ramadan_minutes, minutes.toString())) },
                         modifier = Modifier.padding(end = 6.dp),
                     )
                 }
@@ -287,8 +286,8 @@ private fun FastingTracker(
         Text(
             text = stringResource(
                 R.string.ramadan_fasting_progress,
-                fastingDays.count { it in info.days }.toArabicIndic(),
-                info.days.size.toArabicIndic(),
+                fastingDays.count { it in info.days }.toString(),
+                info.days.size.toString(),
             ),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -337,7 +336,7 @@ private fun DayCell(dayNumber: Int, fasted: Boolean, isToday: Boolean, onClick: 
         contentAlignment = Alignment.Center,
     ) {
         Text(
-            text = dayNumber.toArabicIndic(),
+            text = dayNumber.toString(),
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
             color = content,

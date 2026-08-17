@@ -28,7 +28,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.muslim.app.core.common.text.toArabicIndic
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.Bookmark
 
@@ -98,7 +97,7 @@ private fun BookmarkRow(bookmark: Bookmark, onClick: () -> Unit) {
             text = stringResource(
                 R.string.quran_bookmark_ref,
                 bookmark.surahName,
-                bookmark.ayah.numberInSurah.toArabicIndic(),
+                bookmark.ayah.numberInSurah.toString(),
             ),
             style = MaterialTheme.typography.labelMedium,
             fontWeight = FontWeight.Bold,

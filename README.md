@@ -1,115 +1,134 @@
-# مسلم (Muslim) — تطبيق إسلامي شامل ومفتوح المصدر
+# Muslim — a complete, open-source Islamic app
 
-> **الاسم الرسمي:** Muslim (مسلم) — اسم موحّد للمشروع والحزمة والتطبيق. اسم التطبيق في واجهة الجهاز يُترجم تلقائيًا حسب لغة العرض (185 لغة).
+> **Official name:** Muslim — one unified name for the project, the package and the app. The launcher label is translated automatically with the display language (185+ locales).
 
-تطبيق أندرويد إسلامي شامل، مجاني بالكامل ومفتوح المصدر. يبدأ بالأذان وأوقات الصلاة والقبلة بدقة فلكية عالية، ويتوسّع تدريجيًا ليشمل القرآن الكريم، الأحاديث، الأذكار، رمضان، حاسبة الزكاة، وكل ما يحتاجه المسلم يوميًا.
+A complete, fully free and open-source Android app for every Muslim. It starts with astronomically accurate prayer times, the Adhan and Qibla, then grows to the Quran, hadith, adhkar, Ramadan, a zakat calculator and more.
 
-- مجاني للأبد، بلا إعلانات وبلا اشتراكات
-- مفتوح المصدر (GPLv3)
-- خصوصية أولًا: لا تتبّع، البيانات تبقى على الجهاز
-- Offline-first: يعمل بدون إنترنت بعد الإعداد الأول
+- Free forever — no ads, no subscriptions
+- Open source (GPLv3)
+- Privacy first: no tracking, your data stays on your device
+- Offline-first: works without the internet after initial setup
 
-> 📄 **المرجع الشامل للمشروع:** اقرأ [`PROJECT_PROMPT.md`](PROJECT_PROMPT.md) — هو "مصدر الحقيقة الوحيد": الرؤية، البنية، نظام التصميم، خارطة الطريق (8 مراحل)، ومعايير الدقة والمحتوى الشرعي.
+> 📄 **The comprehensive project reference:** read [`PROJECT_PROMPT.md`](PROJECT_PROMPT.md) — the single source of truth: vision, architecture, design system, roadmap (8 phases), and the accuracy and religious-content standards.
 
 ---
 
-## حالة المشروع (Status)
+## Status
 
-| الخطوة | الحالة |
+| Step | Status |
 |---|---|
-| هيكل المشروع متعدد الوحدات (القسم 3.3) | ✅ مكتمل — يُبنى بنجاح |
-| المرحلة 1: الأذان، أوقات الصلاة، القبلة، التقويم الهجري | ✅ مكتملة — المحرك الفلكي، القبلة (بوصلة + خريطة + مسافة)، الهجري، جدولة أذان دقيقة، إشعارات، Widgets متعددة المقاسات، اختصارات، تصدير |
-| المرحلة 2: القرآن الكريم | ✅ مكتملة الوظائف الأساسية — النص العثماني في Room، القارئ (حجم خط/ليلي/ترجمة/تفسير)، بحث FTS، علامات، آخر قراءة، تلاوات قابلة للتنزيل، آية اليوم |
-| المرحلة 3: الأحاديث | ✅ مكتملة الأساس — مكتبة + بحث FTS + حديث اليوم + علامات + مشاركة (عيّنة مُصدَّرة؛ الكتب الكاملة والمراجعة الشرعية لاحقًا) |
-| المرحلة 4: الأذكار والتسبيح | ✅ مكتملة — 44 ذكرًا موثّق المصدر مع عدّادات، مسبحة إلكترونية (سجل يومي + Widget) |
-| المرحلة 5: التعلّم | ✅ مكتملة الأساس — الوضوء/الغسل/التيمم/الصلاة خطوة بخطوة + الصلوات الخاصة + جدول الركعات + الفروقات المذهبية |
-| المرحلة 6: رمضان | ✅ مكتملة — عدّاد السحور/الإفطار، تنبيهات دقيقة، متابعة الصيام، تطبيق تعديل الهجري تلقائيًا |
-| المرحلة 7: الزكاة | ✅ مكتملة — زكاة المال (نصاب + خصم الديون)، زكاة الفطر، سجل سنوي |
-| المراحل 8 والإضافات | 🔶 بدأت — سياسة خصوصية + شاشات حول/الخصوصية؛ (أسماء الله الحسنى، الأدعية، Wear OS، باحث المساجد... لاحقًا) |
+| Multi-module structure | ✅ Complete — builds successfully |
+| Phase 1: Adhan, prayer times, Qibla, Hijri calendar | ✅ Complete — astronomical engine, Qibla (compass + map + distance), Hijri, exact Adhan scheduling, notifications, multi-size widgets, app shortcuts, export |
+| Phase 2: Quran | ✅ Core complete — Uthmani text in Room, reader (font size / night mode / translation / tafsir), FTS search, bookmarks, last-read, downloadable recitations, ayah of the day |
+| Phase 3: Hadith | ✅ Core complete — library + FTS search + hadith of the day + bookmarks + share |
+| Phase 4: Adhkar & tasbih | ✅ Complete — sourced adhkar with counters, electronic misbaha (daily log + widget) |
+| Phase 5: Learning | ✅ Core complete — wudu/ghusl/tayammum/prayer step-by-step + special prayers + rak'ah table + madhhab differences |
+| Phase 6: Ramadan | ✅ Complete — suhoor/iftar countdown, exact alerts, fasting tracker, automatic Hijri adjustment |
+| Phase 7: Zakat | ✅ Complete — zakat al-mal (nisab + debt deduction), zakat al-fitr, yearly log |
+| Phases 8 & extras | 🔶 In progress — privacy policy + about/privacy screens |
 
-> 🗺️ **خطة الاستكمال الكاملة:** راجع [`COMPLETION_PLAN.md`](COMPLETION_PLAN.md) — خطة تشغيلية مفصلة بالأولويات (P0/P1/P2)، الخطوات، معايير القبول، الجدول الزمني، والمخاطر.
+> 🗺️ **Full completion plan:** see [`COMPLETION_PLAN.md`](COMPLETION_PLAN.md).
 
-لا ننتقل إلى مرحلة جديدة قبل أن تكتمل المرحلة الحالية وتُختبر على جهاز حقيقي.
+We do not move to a new phase until the current one is complete and tested on a real device.
 
-## مصادر المحتوى (Content sources)
+## Content sources
 
-- **نص القرآن:** الرسم العثماني من مشروع [Tanzil](https://tanzil.net/) (عبر مجموعة بيانات alquran.cloud) — 6236 آية مع بيانات كل سورة (الاسم، نوع النزول) ومواضع الآية (الجزء/الصفحة). ملاحظة وفق §10 من وثيقة المشروع: مراجعة شرعية نهائية مقابل مصحف مدني مطبوع مطلوبة قبل الإصدار.
-- **خوارزميات أوقات الصلاة:** منقولة ومُحقّقة مقابل مكتبة [Adhan](https://github.com/batoulapps/Adhan-Kotlin) (MIT، مع الإسناد).
+- **Quran text:** Uthmani script from the [Tanzil](https://tanzil.net/) project (via the alquran.cloud dataset) — 6236 ayahs with per-surah metadata (name, revelation type) and ayah positions (juz/page).
+- **Prayer-time algorithms:** ported and verified against the [Adhan](https://github.com/batoulapps/Adhan-Kotlin) library (MIT, attributed).
 
-لا ننتقل إلى مرحلة جديدة قبل أن تكتمل المرحلة الحالية وتُختبر على جهاز حقيقي.
+Religious content (Quran text, hadith and their grading, adhkar, rulings) is subject to specialist religious review, separate from code review, before the official release.
 
-## البنية التقنية
+## Technical architecture
 
-- **Kotlin 100% + Jetpack Compose** (بدون XML Views)
-- **Material 3 Expressive** — Dynamic Color (Material You) مع لوحات احتياطية يدوية
-- **Clean Architecture** بثلاث طبقات: presentation ← domain ← data
-- **MVI/MVVM** مع `StateFlow`/`SharedFlow`
-- **Hilt** لحقن التبعيات، **Coroutines + Flow** للبرمجة اللامتزامنة
-- **Room** (بيانات مُحمّلة مسبقًا) + **DataStore** (تفضيلات)
-- **AlarmManager** (أذان دقيق في الخلفية) + **WorkManager** (مهام غير حرجة)
-- **Glance** (Widget شاشة رئيسية للصلاة القادمة بعدّاد تنازلي، 3 مقاسات)
-- **Retrofit/OkHttp/kotlinx.serialization** — للشبكة الاختيارية فقط
+- **100% Kotlin + Jetpack Compose** (no XML views)
+- **Material 3 Expressive** — Dynamic Color (Material You) with manual fallback palettes
+- **Clean Architecture** — presentation ← domain ← data
+- **MVI/MVVM** with `StateFlow`/`SharedFlow`
+- **Hilt** for DI, **Coroutines + Flow** for async
+- **Room** (preloaded data) + **DataStore** (preferences)
+- **AlarmManager** (exact background Adhan) + **WorkManager** (non-critical tasks)
+- **Glance** (home-screen widget for the next prayer with countdown, 3 sizes)
+- **Retrofit/OkHttp/kotlinx.serialization** — for optional networking only
 
-### الوحدات (18)
+### Modules (18)
 
 ```
-app  ·  core-common · core-design-system · core-ui · core-database
-core-datastore · core-network · core-notifications · core-location
+app · core-common · core-ui · core-database · core-datastore
+core-network · core-notifications · core-location
 feature-prayer-times · feature-qibla · feature-quran · feature-hadith
 feature-adhkar · feature-tasbih · feature-learn · feature-ramadan
-feature-zakat · feature-settings
+feature-zakat · feature-settings · feature-reference
 ```
 
-كل وحدة feature تعتمد على وحدات core فقط، ولا تعتمد على وحدة feature أخرى.
+Each feature module depends only on core modules, never on another feature module.
 
-التبويبات الخمسة: **الرئيسية · القرآن · الأوقات · القبلة · المزيد** — والمزيد يضم: الإعدادات، الأحاديث، الأذكار، المسبحة، رمضان، الزكاة، والتعلّم.
+The five tabs: **Home · Quran · Times · Qibla · More** — More contains: settings, hadith, adhkar, tasbih, Ramadan, zakat, learning, the reference library and downloads.
 
-## بيئة التطوير المعتمدة (2026)
+## Development environment (2026)
 
-| الأداة | الإصدار |
+| Tool | Version |
 |---|---|
-| Android Gradle Plugin | 9.3.1 (Kotlin مدمج — بدون `kotlin-android` plugin) |
+| Android Gradle Plugin | 9.3.1 (bundled Kotlin — no `kotlin-android` plugin) |
 | Gradle | 9.5.0 |
-| Kotlin (مدمج في AGP) | 2.2.10 |
+| Kotlin (bundled in AGP) | 2.2.10 |
 | KSP | 2.2.10-2.0.2 |
 | Compose BOM | 2026.08.00 |
 | compileSdk / targetSdk | 37 (Android 17) |
 | minSdk | 26 (Android 8) |
 | JDK | 17 |
 
-> كل الإصدارات مركزية في `gradle/libs.versions.toml`.
+> All versions are centralized in `gradle/libs.versions.toml`.
 
-## البناء
-
-```bash
-# يتطلب: JDK 17، Android SDK (platform 37) — المسار في local.properties
-./gradlew :app:assembleDebug     # بناء APK التصحيح
-./gradlew :app:assembleRelease   # APK الإصدار (R8 + توقيع)
-./gradlew testDebugUnitTest      # اختبارات الوحدة
-./gradlew lintDebug              # فحص lint
-./gradlew :app:installDebug      # تثبيت على جهاز/محاكي متصل
-```
-
-### توقيع الإصدار (Release) — توقيع ثابت لتحديثات فوق التثبيت
-
-يجب أن تُوقَّع كل إصدارات التطبيق بنفس المفتاح حتى تُثبَّت التحديثات فوق التثبيت القائم بدون حذف التطبيق أولًا. الطريقة الآلية الكاملة:
+## Building
 
 ```bash
-./scripts/create-signing-keystore.sh   # ينشئ release.keystore + keystore.properties (المفاتيح الأربعة) تلقائيًا
-./scripts/setup-github-signing.sh      # يرفع نفس المفتاح إلى أسرار GitHub Actions (مرة واحدة)
+# Requires: JDK 17, Android SDK (platform 37) — path in local.properties
+./gradlew :app:assembleDebug     # debug APK
+./gradlew :app:assembleRelease   # release APK (R8 + signing)
+./gradlew testDebugUnitTest      # unit tests
+./gradlew lintDebug              # lint
+./gradlew :app:installDebug      # install on a connected device/emulator
 ```
 
-- **محليًا:** يُقرأ التوقيع من `keystore.properties` (مستثنى من git).
-- **في CI:** يُقرأ من أسرار البيئة `SIGNING_KEYSTORE` (Base64) و `SIGNING_STORE_PASSWORD` و `SIGNING_KEY_ALIAS` و `SIGNING_KEY_PASSWORD` — نفس المفتاح، فيُنتج CI حزمة بنفس التوقيع المحلي.
-- بدون أي من المصدرين يُستخدم مفتاح التصحيح تلقائيًا فيُنتج APK قابلًا للتثبيت (للاختبار، وليس للنشر في المتجر).
-- عند كل إصدار جديد: ارفع `versionCode` في `app/build.gradle.kts` حتى تُقبل التحديثات.
+## Versioning — tied to git tags (never hardcoded)
 
-## المساهمة
+`versionName` and `versionCode` are derived at build time from the nearest `v*` git tag (`git describe` in `app/build.gradle.kts`). There is no hardcoded version anywhere.
 
-راجع [`CONTRIBUTING.md`](CONTRIBUTING.md) و [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
+To publish a release the "tag-first" way (so the APK version always matches the tag):
 
-ملاحظة مهمة: المحتوى الديني (نص القرآن، الأحاديث ودرجتها، الأذكار، الأحكام) يخضع لمراجعة شرعية متخصصة منفصلة عن مراجعة الكود — انظر القسم 10 من `PROJECT_PROMPT.md`.
+```bash
+./scripts/release.sh            # bumps the patch (v1.2.0 -> v1.3.0)
+./scripts/release.sh 2.0.0      # explicit version
+```
 
-## الترخيص
+The script tags and pushes, waits for CI to build the signed APK from that tag, downloads the artifact and creates the GitHub Release with it attached.
 
-[GPLv3](LICENSE) — أي نسخة معدّلة من التطبيق تبقى مفتوحة المصدر.
+## Release signing — stable key for install-over updates
+
+Every release must be signed with the same key so updates install over the existing install without uninstalling first. The fully automated flow:
+
+```bash
+./scripts/create-signing-keystore.sh   # creates release.keystore + keystore.properties automatically
+./scripts/setup-github-signing.sh      # uploads the same key to GitHub Actions secrets (once)
+```
+
+- **Locally:** signing is read from `keystore.properties` (git-ignored).
+- **In CI:** read from the `SIGNING_KEYSTORE` (Base64), `SIGNING_STORE_PASSWORD`, `SIGNING_KEY_ALIAS` and `SIGNING_KEY_PASSWORD` secrets — the same key, so CI produces an APK with the same local signature.
+- Without either source, the debug key is used automatically, producing an installable APK (for testing, not store publishing).
+
+## Contributing
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
+
+Important: religious content is reviewed separately from code — see section 10 of `PROJECT_PROMPT.md`.
+
+## Contact & support
+
+- **GitHub:** [github.com/Alaa91H](https://github.com/Alaa91H)
+- **Email:** [alahus2591@gmail.com](mailto:alahus2591@gmail.com)
+- **Telegram:** [t.me/Alaa91h](https://t.me/Alaa91h)
+- **Support development:** [ko-fi.com/alaa91h](https://ko-fi.com/alaa91h)
+
+## License
+
+[GPLv3](LICENSE) — any modified version of the app stays open source.

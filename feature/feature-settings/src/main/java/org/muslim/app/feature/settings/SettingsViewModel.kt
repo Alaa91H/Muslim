@@ -32,6 +32,8 @@ class SettingsViewModel @Inject constructor(
 
     fun setReduceAnimations(enabled: Boolean) = launch { appPreferencesRepository.setReduceAnimations(enabled) }
 
+    fun setStartTab(route: String) = launch { appPreferencesRepository.setStartTab(route) }
+
     /**
      * Suspends until the new language is persisted, so the caller can safely
      * recreate the activity afterwards without a read race.

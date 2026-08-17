@@ -57,6 +57,17 @@ private val languageOptions = listOf(
     LanguageOption("en", R.string.settings_language_english),
 )
 
+/** A selectable start (default) tab shown when the app opens. */
+private data class StartTabOption(val route: String, val labelRes: Int)
+
+private val startTabOptions = listOf(
+    StartTabOption("home", R.string.settings_start_home),
+    StartTabOption("quran", R.string.settings_start_quran),
+    StartTabOption("times", R.string.settings_start_times),
+    StartTabOption("qibla", R.string.settings_start_qibla),
+    StartTabOption("more", R.string.settings_start_more),
+)
+
 /**
  * Central settings hub (PROJECT_PROMPT.md §6 "وحدة الإعدادات العامة").
  * Cross-feature sections (prayer & adhan) are reached via app-level
@@ -149,6 +160,37 @@ fun SettingsScreen(
                         )
                     },
                 )
+            }
+
+            item { HorizontalDivider() }
+            item { SectionHeader(stringResource(R.string.settings_section_start)) }
+
+            item {
+                Column(Modifier.selectableGroup()) {
+                    startTabOptions.forEach { option ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .selectable(
+                                    selected = preferences.startTab == option.route,
+                                    onClick = { viewModel.setStartTab(option.route) },
+                                )
+                                .padding(horizontal = 16.dp, vertical = 12.dp),
+                        ) {
+                            Text(
+                                text = stringResource(option.labelRes),
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .padding(start = 16.dp),
+                                style = MaterialTheme.typography.bodyLarge,
+                            )
+                            RadioButton(
+                                selected = preferences.startTab == option.route,
+                                onClick = { viewModel.setStartTab(option.route) },
+                            )
+                        }
+                    }
+                }
             }
 
             item { HorizontalDivider() }

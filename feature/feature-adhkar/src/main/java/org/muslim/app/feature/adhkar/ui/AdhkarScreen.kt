@@ -47,7 +47,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.muslim.app.core.common.text.toArabicIndic
 import org.muslim.app.feature.adhkar.R
 import org.muslim.app.feature.adhkar.domain.Dhikr
 import org.muslim.app.feature.adhkar.domain.DhikrCategory
@@ -206,7 +205,7 @@ private fun DhikrCard(
                 Text(
                     text = stringResource(
                         R.string.adhkar_repetition_label,
-                        dhikr.repetition.toArabicIndic(),
+                        dhikr.repetition.toString(),
                     ),
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -231,7 +230,7 @@ private fun DhikrCard(
                             text = if (complete) {
                                 stringResource(R.string.adhkar_complete)
                             } else {
-                                currentCount.toArabicIndic()
+                                currentCount.toString()
                             },
                             style = MaterialTheme.typography.titleLarge,
                             fontWeight = FontWeight.Bold,

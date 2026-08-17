@@ -46,7 +46,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.muslim.app.core.common.text.toArabicIndic
 import org.muslim.app.feature.tasbih.R
 import org.muslim.app.feature.tasbih.domain.DailyCount
 import org.muslim.app.feature.tasbih.domain.TasbihPhrase
@@ -126,13 +125,13 @@ fun TasbihScreen(
                 CounterRing(progress = if (state.target > 0) state.count.coerceAtMost(state.target).toFloat() / state.target else 0f)
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
-                        text = state.count.toArabicIndic(),
+                        text = state.count.toString(),
                         style = MaterialTheme.typography.displayLarge,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                     )
                     Text(
-                        text = stringResource(R.string.tasbih_of_target, state.target.toArabicIndic()),
+                        text = stringResource(R.string.tasbih_of_target, state.target.toString()),
                         style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                     )
@@ -161,7 +160,7 @@ fun TasbihScreen(
                     FilterChip(
                         selected = state.target == target,
                         onClick = { viewModel.setTarget(target) },
-                        label = { Text(target.toArabicIndic()) },
+                        label = { Text(target.toString()) },
                     )
                 }
             }

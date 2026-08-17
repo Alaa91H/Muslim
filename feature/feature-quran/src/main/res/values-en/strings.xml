@@ -5,6 +5,7 @@
     <string name="quran_surah_meccan">Meccan</string>
     <string name="quran_surah_medinan">Medinan</string>
     <string name="quran_back">Back</string>
+    <string name="quran_page_header">Page %1$s · Juz %2$s</string>
     <string name="quran_font_smaller">Smaller font</string>
     <string name="quran_font_larger">Larger font</string>
 
@@ -14,6 +15,16 @@
     <string name="quran_search_prompt">Type a word or phrase to search the whole mushaf (offline).</string>
     <string name="quran_search_empty">No matching results</string>
     <string name="quran_search_ref">%1$s:%2$s</string>
+    <string name="quran_search_summary">Found %1$d mentions across %2$d ayahs</string>
+    <string name="quran_details">Surah details</string>
+    <string name="quran_details_close">Close</string>
+    <string name="quran_details_type">Type</string>
+    <string name="quran_details_meccan">Meccan</string>
+    <string name="quran_details_medinan">Medinan</string>
+    <string name="quran_details_order">Order of revelation</string>
+    <string name="quran_details_order_value">%1$d of 114</string>
+    <string name="quran_details_ayahs">Number of ayahs</string>
+    <string name="quran_details_reason_title">Reason for revelation</string>
 
     <!-- Bookmarks & resume -->
     <string name="quran_bookmarks">Bookmarks</string>
@@ -36,4 +47,27 @@
     <string name="quran_download_surah">Download surah</string>
     <string name="quran_play_ayah">Play ayah</string>
     <string name="quran_repeat">Repeat</string>
+
+    <!-- Downloads -->
+    <string name="quran_downloads_title">Downloads</string>
+    <string name="quran_download_scope_ayah">Ayah</string>
+    <string name="quran_download_scope_surah">Surah</string>
+    <string name="quran_download_scope_full">Full Quran</string>
+    <string name="quran_download_surah_number">Surah number (1–114)</string>
+    <string name="quran_download_ayah_number">Ayah number</string>
+    <string name="quran_download_full_hint">All surahs (6236 ayahs) will download in the background, resumable later.</string>
+    <string name="quran_download_size_estimate">Approximate size: %1$s</string>
+    <string name="quran_download_size_unknown">Enter a valid surah to see the approximate size</string>
+    <string name="quran_download_start">Start download</string>
+    <string name="quran_download_cancel">Cancel</string>
+    <string name="quran_downloads_active_title">Current and past downloads</string>
+    <string name="quran_downloads_none">No downloads yet</string>
+    <string name="quran_download_status_queued">Queued</string>
+    <string name="quran_download_status_downloading">Downloading</string>
+    <string name="quran_download_status_completed">Completed</string>
+    <string name="quran_download_status_failed">Failed</string>
+    <string name="quran_download_channel">Recitation downloads</string>
+    <string name="quran_download_in_progress">Downloading in the background…</string>
+    <string name="quran_download_done">Download complete</string>
+    <string name="quran_download_failed">Download failed</string>
 </resources>

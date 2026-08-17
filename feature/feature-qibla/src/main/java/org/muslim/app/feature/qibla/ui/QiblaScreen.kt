@@ -63,6 +63,12 @@ fun QiblaScreen(
     val distanceKm = QiblaCalculator.distanceKm(latitude, longitude)
     val trueHeading = (heading.heading + declination) % 360f
 
+    // Clockwise turn needed to face the Kaaba from the current heading.
+    val turnClockwise = ((bearing - trueHeading) % 360.0 + 360.0) % 360.0
+    val facingQibla = turnClockwise < 2.0 || turnClockwise > 358.0
+    val turnRight = turnClockwise <= 180.0
+    val turnDegrees = if (turnRight) turnClockwise else 360.0 - turnClockwise
+
     var viewMode by remember { mutableStateOf(QiblaViewMode.Compass) }
 
     Column(
@@ -102,11 +108,34 @@ fun QiblaScreen(
                             .padding(8.dp),
                     )
                 }
-                Spacer(Modifier.height(24.dp))
+                Spacer(Modifier.height(20.dp))
+                Text(
+                    text = "🕋",
+                    style = MaterialTheme.typography.displayMedium,
+                )
+                Spacer(Modifier.height(8.dp))
                 Text(
                     text = stringResource(R.string.qibla_bearing, bearing),
                     style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.Bold,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = stringResource(R.string.qibla_heading, trueHeading),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = when {
+                        facingQibla -> stringResource(R.string.qibla_facing)
+                        turnRight -> stringResource(R.string.qibla_turn_right, turnDegrees)
+                        else -> stringResource(R.string.qibla_turn_left, turnDegrees)
+                    },
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = if (facingQibla) MaterialTheme.colorScheme.primary
+                    else MaterialTheme.colorScheme.onSurface,
                 )
                 if (heading.accuracy < SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM) {
                     Spacer(Modifier.height(12.dp))

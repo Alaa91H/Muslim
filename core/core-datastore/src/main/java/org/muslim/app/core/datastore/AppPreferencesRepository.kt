@@ -32,6 +32,7 @@ class AppPreferencesRepository @Inject constructor(
             dynamicColor = prefs[Keys.DYNAMIC_COLOR] ?: true,
             languageCode = prefs[Keys.LANGUAGE] ?: AppPreferences.SYSTEM_LANGUAGE,
             reduceAnimations = prefs[Keys.REDUCE_ANIMATIONS] ?: false,
+            startTab = prefs[Keys.START_TAB] ?: AppPreferences.START_TAB_HOME,
         )
     }
 
@@ -47,6 +48,8 @@ class AppPreferencesRepository @Inject constructor(
     }
 
     suspend fun setReduceAnimations(enabled: Boolean) = edit { prefs -> prefs[Keys.REDUCE_ANIMATIONS] = enabled }
+
+    suspend fun setStartTab(route: String) = edit { prefs -> prefs[Keys.START_TAB] = route }
 
     /** Blocking read of the persisted language, safe for [android.app.Activity.attachBaseContext]. */
     fun readLanguageSync(): String =
@@ -65,5 +68,6 @@ class AppPreferencesRepository @Inject constructor(
         val DYNAMIC_COLOR = booleanPreferencesKey("dynamic_color")
         val LANGUAGE = stringPreferencesKey("language")
         val REDUCE_ANIMATIONS = booleanPreferencesKey("reduce_animations")
+        val START_TAB = stringPreferencesKey("start_tab")
     }
 }

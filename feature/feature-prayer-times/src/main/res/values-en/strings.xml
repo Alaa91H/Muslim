@@ -93,6 +93,8 @@
     <string name="settings_battery_title">Adhan accuracy in the background</string>
     <string name="settings_battery_desc">Battery optimization may delay the Adhan past its exact time. You can exempt the app from battery optimization — this is entirely optional and never forced.</string>
     <string name="settings_battery_open">Open battery settings</string>
+    <string name="settings_exact_alarm_hint">Allow exact alarms so the Adhan fires precisely on time, even with battery saving.</string>
+    <string name="settings_exact_alarm_open">Enable exact alarms</string>
 
     <string name="location_title">Choose location</string>
     <string name="location_search_hint">Search for a city…</string>

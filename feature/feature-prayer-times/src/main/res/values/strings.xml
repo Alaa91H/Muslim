@@ -98,6 +98,8 @@
     <string name="settings_battery_title">دقة الأذان في الخلفية</string>
     <string name="settings_battery_desc">قد يمنع توفير البطارية انطلاق الأذان في وقته المحدد. يمكنك استثناء التطبيق من تحسين البطارية — هذا اختياري تمامًا ولا يُفرض عليك.</string>
     <string name="settings_battery_open">فتح إعدادات البطارية</string>
+    <string name="settings_exact_alarm_hint">فعّل التنبيهات الدقيقة حتى ينطلق الأذان في وقته تمامًا حتى مع توفير الطاقة.</string>
+    <string name="settings_exact_alarm_open">تفعيل التنبيهات الدقيقة</string>
 
     <!-- Location -->
     <string name="location_title">اختيار الموقع</string>

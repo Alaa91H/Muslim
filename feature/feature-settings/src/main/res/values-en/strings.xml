@@ -15,6 +15,13 @@
     <string name="settings_reduce_animations">Reduce animations</string>
     <string name="settings_reduce_animations_desc">Disable non-essential motion for accessibility</string>
 
+    <string name="settings_section_start">Start screen</string>
+    <string name="settings_start_home">Home (prayer times)</string>
+    <string name="settings_start_quran">Quran</string>
+    <string name="settings_start_times">Timetable</string>
+    <string name="settings_start_qibla">Qibla</string>
+    <string name="settings_start_more">More</string>
+
     <string name="settings_section_language">Language</string>
     <string name="settings_language_system">System default</string>
     <string name="settings_language_arabic">العربية</string>
@@ -42,6 +49,11 @@
     <string name="about_principles_body">Free forever · Privacy first · Astronomical accuracy in prayer times and qibla · Works offline · Support for juristic schools through customizable settings.</string>
     <string name="about_content_review_title">Religious content review</string>
     <string name="about_content_review_body">Quran, hadith and adhkar texts undergo specialist religious review, separate from code review, before the official release. Quran text source: Tanzil project (Uthmani script).</string>
+    <string name="about_contact_title">Contact the developer</string>
+    <string name="about_contact_github">GitHub</string>
+    <string name="about_contact_email">Email</string>
+    <string name="about_contact_telegram">Telegram</string>
+    <string name="about_contact_support">Support development</string>
 
     <string name="privacy_title">Privacy policy</string>
     <string name="privacy_body">Muslim respects your privacy and does not collect your data.\n\n• No tracking: no ad SDKs, analytics or marketing trackers.\n• Data stays on your device: all your data (location, settings, bookmarks) is stored locally on your device only.\n• Location is used locally: your coordinates are used to calculate prayer times and the qibla on your device, and are never sent to any external server.\n• Permissions only when needed: we ask for permissions (location, notifications) only when a feature actually needs them, with a clear explanation.\n• No forced connectivity: the app works offline; network use is entirely optional for extras such as downloading recitations.\n\nThis policy is part of the open-source repository and is open to community review.</string>

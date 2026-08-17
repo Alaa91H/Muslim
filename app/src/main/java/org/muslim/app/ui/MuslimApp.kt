@@ -29,6 +29,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import org.muslim.app.BuildConfig
 import org.muslim.app.R
 import org.muslim.app.core.datastore.AppThemeMode
 import org.muslim.app.core.ui.theme.AppTheme
@@ -42,6 +43,7 @@ import org.muslim.app.feature.prayertimes.ui.times.PrayerTimesScreen
 import org.muslim.app.feature.qibla.ui.QiblaScreen
 import org.muslim.app.feature.quran.ui.BookmarksScreen
 import org.muslim.app.feature.ramadan.ui.RamadanScreen
+import org.muslim.app.feature.quran.ui.QuranDownloadsScreen
 import org.muslim.app.feature.quran.ui.QuranReaderScreen
 import org.muslim.app.feature.quran.ui.SearchScreen
 import org.muslim.app.feature.quran.ui.SurahListScreen
@@ -80,6 +82,7 @@ private const val RAMADAN_ROUTE = "ramadan"
 private const val ZAKAT_ROUTE = "zakat"
 private const val LEARN_ROUTE = "learn"
 private const val REFERENCE_ROUTE = "reference"
+private const val QURAN_DOWNLOADS_ROUTE = "quran/downloads"
 
 @Composable
 fun MuslimApp(
@@ -140,9 +143,16 @@ fun MuslimApp(
                 }
             },
         ) { innerPadding ->
+            // The user-chosen start tab (default: prayer-times home), validated
+            // against the real tab routes so a stale value can never crash.
+            val startDestination = if (tabs.any { it.route == preferences.startTab }) {
+                preferences.startTab
+            } else {
+                "home"
+            }
             NavHost(
                 navController = navController,
-                startDestination = "home",
+                startDestination = startDestination,
                 modifier = Modifier.padding(innerPadding),
             ) {
                 composable("home") {
@@ -211,6 +221,7 @@ fun MuslimApp(
                         onOpenZakat = { navController.navigate(ZAKAT_ROUTE) },
                         onOpenLearn = { navController.navigate(LEARN_ROUTE) },
                         onOpenReference = { navController.navigate(REFERENCE_ROUTE) },
+                        onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
                     )
                 }
                 composable(SETTINGS_ROUTE) {
@@ -243,11 +254,17 @@ fun MuslimApp(
                 composable(REFERENCE_ROUTE) {
                     ReferenceScreen(onBack = { navController.popBackStack() })
                 }
+                composable(QURAN_DOWNLOADS_ROUTE) {
+                    QuranDownloadsScreen(onBack = { navController.popBackStack() })
+                }
                 composable(PRAYER_SETTINGS_ROUTE) {
                     PrayerSettingsScreen(onOpenLocation = { navController.navigate("location") })
                 }
                 composable(ABOUT_ROUTE) {
-                    AboutScreen(onBack = { navController.popBackStack() })
+                    AboutScreen(
+                        onBack = { navController.popBackStack() },
+                        versionName = BuildConfig.VERSION_NAME,
+                    )
                 }
                 composable(PRIVACY_ROUTE) {
                     PrivacyScreen(onBack = { navController.popBackStack() })

@@ -72,7 +72,7 @@ class QuranPrefsRepository @Inject constructor(
 
     /** Selected reciter id (defaults to the first bundled reciter). */
     val selectedReciterId: Flow<String> = context.quranPrefsDataStore.data.map { prefs ->
-        prefs[Keys.RECITER] ?: "abdulbasit_murattal"
+        prefs[Keys.RECITER] ?: "abdul_basit_murattal_192kbps"
     }
 
     suspend fun setSelectedReciterId(id: String) {

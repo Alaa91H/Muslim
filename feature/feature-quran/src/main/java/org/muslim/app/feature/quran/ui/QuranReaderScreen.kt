@@ -1,5 +1,7 @@
 package org.muslim.app.feature.quran.ui
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -11,13 +13,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Download
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.Pause
@@ -25,6 +28,7 @@ import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.outlined.BookmarkBorder
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenuItem
@@ -41,6 +45,7 @@ import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
@@ -56,8 +61,13 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.style.BaselineShift
+import androidx.compose.ui.text.withStyle
 import android.app.Activity
 import android.view.WindowManager
 import androidx.compose.ui.text.font.FontWeight
@@ -72,12 +82,13 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
-import org.muslim.app.core.common.text.toArabicIndic
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.data.PlaybackState
 import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.ReaderTheme
 import org.muslim.app.feature.quran.domain.Reciter
+import org.muslim.app.feature.quran.domain.Surah
+import org.muslim.app.feature.quran.domain.SurahRevelationData
 
 private const val MIN_FONT_SP = 18f
 private const val MAX_FONT_SP = 40f
@@ -158,7 +169,13 @@ fun QuranReaderScreen(
 
     var fontSize by rememberSaveable { mutableStateOf(DEFAULT_FONT_SP) }
     var repeatCount by rememberSaveable { mutableStateOf(1) }
+    var showDetails by remember { mutableStateOf(false) }
     val listState = rememberLazyListState()
+
+    // Group the surah's ayahs into mushaf pages (flowing text per page).
+    val pageEntries = remember(state.ayahs) {
+        state.ayahs.groupBy { it.page }.toSortedMap().entries.toList()
+    }
 
     // Persisted font size wins after the async read arrives.
     LaunchedEffect(persistedFont) {
@@ -167,22 +184,22 @@ fun QuranReaderScreen(
 
     // Scroll to the requested ayah (from search/bookmarks/resume) once loaded.
     var scrolledToInitial by remember { mutableStateOf(false) }
-    LaunchedEffect(state.ayahs) {
-        if (scrolledToInitial || state.ayahs.isEmpty()) return@LaunchedEffect
-        val index = if (viewModel.initialAyahGlobal > 0) {
-            state.ayahs.indexOfFirst { it.globalNumber == viewModel.initialAyahGlobal }
+    LaunchedEffect(pageEntries) {
+        if (scrolledToInitial || pageEntries.isEmpty()) return@LaunchedEffect
+        val pageIndex = if (viewModel.initialAyahGlobal > 0) {
+            pageEntries.indexOfFirst { (_, ayahs) -> ayahs.any { it.globalNumber == viewModel.initialAyahGlobal } }
         } else {
             -1
         }
-        listState.scrollToItem(if (index >= 0) index else 0)
+        listState.scrollToItem(if (pageIndex >= 0) pageIndex else 0)
         scrolledToInitial = true
     }
 
-    // Track the visible ayah (bookmark target) and persist resume + khatma.
-    LaunchedEffect(listState, state.ayahs) {
-        if (state.ayahs.isEmpty()) return@LaunchedEffect
+    // Track the visible page (bookmark/play target) and persist resume + khatma.
+    LaunchedEffect(listState, pageEntries) {
+        if (pageEntries.isEmpty()) return@LaunchedEffect
         snapshotFlow { listState.firstVisibleItemIndex }
-            .map { state.ayahs.getOrNull(it) }
+            .map { pageEntries.getOrNull(it)?.value?.firstOrNull() }
             .filterNotNull()
             .distinctUntilChanged()
             .onEach { viewModel.currentAyah.value = it }
@@ -230,6 +247,15 @@ fun QuranReaderScreen(
                             contentDescription = stringResource(R.string.quran_reader_theme),
                         )
                     }
+                    IconButton(
+                        onClick = { showDetails = true },
+                        enabled = state.surah != null,
+                    ) {
+                        Icon(
+                            imageVector = Icons.Filled.Info,
+                            contentDescription = stringResource(R.string.quran_details),
+                        )
+                    }
                     FontSizeControls(
                         fontSize = fontSize,
                         onChanged = { newSize ->
@@ -269,11 +295,18 @@ fun QuranReaderScreen(
                     LazyColumn(
                         state = listState,
                         modifier = Modifier.fillMaxSize().weight(1f),
-                        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 16.dp),
+                        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 16.dp),
                     ) {
-                        items(state.ayahs, key = { it.globalNumber }) { ayah ->
-                            AyahRow(ayah = ayah, fontSizeSp = fontSize)
-                            Spacer(Modifier.height(18.dp))
+                        items(pageEntries.size, key = { pageEntries[it].key }) { index ->
+                            val (pageNumber, pageAyahs) = pageEntries[index]
+                            MushafPageCard(
+                                pageNumber = pageNumber,
+                                ayahs = pageAyahs,
+                                surahName = state.surah?.arabicName.orEmpty(),
+                                fontSizeSp = fontSize,
+                                onClick = { viewModel.currentAyah.value = pageAyahs.first() },
+                            )
+                            Spacer(Modifier.height(16.dp))
                         }
                     }
                 }
@@ -301,6 +334,13 @@ fun QuranReaderScreen(
                     }
                 },
             )
+
+        }
+
+        if (showDetails) {
+            state.surah?.let { surah ->
+                SurahDetailsDialog(surah = surah, onDismiss = { showDetails = false })
+            }
         }
     }
 }
@@ -447,35 +487,73 @@ private fun RecitationBar(
     }
 }
 
+// One mushaf-style page: a framed card with flowing ayahs and inline ayah
+// markers (﴿1﴾), like a printed Quran page rather than a vertical list.
 @Composable
-private fun AyahRow(ayah: Ayah, fontSizeSp: Float) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.Top,
-    ) {
-        Surface(
-            shape = MaterialTheme.shapes.small,
-            color = MaterialTheme.colorScheme.secondaryContainer,
-            modifier = Modifier
-                .padding(top = 6.dp, end = 12.dp)
-                .size(28.dp),
-        ) {
-            Text(
-                text = ayah.numberInSurah.toArabicIndic(),
-                style = MaterialTheme.typography.labelMedium,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSecondaryContainer,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(top = 4.dp),
-            )
+private fun MushafPageCard(
+    pageNumber: Int,
+    ayahs: List<Ayah>,
+    surahName: String,
+    fontSizeSp: Float,
+    onClick: () -> Unit,
+) {
+    if (ayahs.isEmpty()) return
+    val scheme = MaterialTheme.colorScheme
+    val annotated = buildAnnotatedString {
+        ayahs.forEach { ayah ->
+            append(ayah.text)
+            append(" ")
+            withStyle(
+                SpanStyle(
+                    color = scheme.primary,
+                    fontSize = (fontSizeSp * 0.6f).sp,
+                    fontWeight = FontWeight.Bold,
+                    baselineShift = BaselineShift(0.35f),
+                ),
+            ) {
+                append("\uFD3F${ayah.numberInSurah.toString()}\uFD3E")
+            }
+            append(" ")
         }
-        Text(
-            text = ayah.text,
-            fontSize = fontSizeSp.sp,
-            lineHeight = (fontSizeSp * 1.9f).sp,
-            style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.weight(1f),
-        )
+    }
+
+    Surface(
+        shape = RoundedCornerShape(16.dp),
+        color = scheme.surface,
+        border = BorderStroke(1.dp, scheme.surfaceVariant),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
+    ) {
+        Column(modifier = Modifier.padding(horizontal = 20.dp, vertical = 18.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = surahName,
+                    style = MaterialTheme.typography.labelMedium,
+                    color = scheme.primary,
+                    modifier = Modifier.weight(1f),
+                )
+                Text(
+                    text = stringResource(R.string.quran_page_header, pageNumber.toString(), ayahs.first().juz.toString()),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = scheme.onSurfaceVariant,
+                )
+            }
+            Spacer(Modifier.height(10.dp))
+            HorizontalDivider(color = scheme.surfaceVariant)
+            Spacer(Modifier.height(14.dp))
+            Text(
+                text = annotated,
+                fontSize = fontSizeSp.sp,
+                lineHeight = (fontSizeSp * 1.9f).sp,
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.bodyLarge,
+            )
+            Spacer(Modifier.height(8.dp))
+        }
     }
 }
 
@@ -509,3 +587,88 @@ private val ReaderTheme.next: ReaderTheme
         ReaderTheme.Sepia -> ReaderTheme.Dark
         ReaderTheme.Dark -> ReaderTheme.Light
     }
+
+/**
+ * Details dialog for a surah: type (Meccan/Medinan), chronological order of
+ * revelation, ayah count, and the reason for revelation when known.
+ */
+@Composable
+private fun SurahDetailsDialog(surah: Surah, onDismiss: () -> Unit) {
+    val isEnglish = LocalConfiguration.current.locales[0].language.startsWith("en")
+    val reason = SurahRevelationData.reasonOf(surah.number)
+    val order = SurahRevelationData.orderOf(surah.number)
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(surah.arabicName) },
+        text = {
+            Column {
+                Text(
+                    text = "${surah.englishName} — ${surah.translation}",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.height(12.dp))
+                DetailRow(
+                    label = stringResource(R.string.quran_details_type),
+                    value = stringResource(
+                        if (surah.revelationType.equals("Meccan", ignoreCase = true)) {
+                            R.string.quran_details_meccan
+                        } else {
+                            R.string.quran_details_medinan
+                        }
+                    ),
+                )
+                order?.let {
+                    DetailRow(
+                        label = stringResource(R.string.quran_details_order),
+                        value = stringResource(R.string.quran_details_order_value, it),
+                    )
+                }
+                DetailRow(
+                    label = stringResource(R.string.quran_details_ayahs),
+                    value = surah.ayahCount.toString(),
+                )
+                reason?.let {
+                    Spacer(Modifier.height(12.dp))
+                    Text(
+                        text = stringResource(R.string.quran_details_reason_title),
+                        style = MaterialTheme.typography.titleSmall,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        text = if (isEnglish) it.second else it.first,
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                }
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(R.string.quran_details_close))
+            }
+        },
+    )
+}
+
+@Composable
+private fun DetailRow(label: String, value: String) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.weight(1f),
+        )
+        Text(
+            text = value,
+            style = MaterialTheme.typography.bodyMedium,
+            fontWeight = FontWeight.Bold,
+        )
+    }
+}

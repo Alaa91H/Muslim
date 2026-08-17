@@ -27,6 +27,14 @@ class ReciterTest {
     @Test
     fun selectedReciterFallback_usesBundledFirst() {
         assertThat(Reciter.Bundled).isNotEmpty()
-        assertThat(Reciter.Bundled.first().id).isEqualTo("abdulbasit_murattal")
+        assertThat(Reciter.Bundled.first().id).isEqualTo("abdul_basit_murattal_192kbps")
+    }
+
+    @Test
+    fun bundledReciters_havePositiveBitrate() {
+        Reciter.Bundled.forEach { reciter ->
+            assertThat(reciter.bitrateKbps).isAtLeast(1)
+            assertThat(reciter.estimatedBytesPerAyah()).isAtLeast(1L)
+        }
     }
 }

@@ -32,7 +32,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.flow.first
-import org.muslim.app.core.common.text.toArabicIndic
 import org.muslim.app.feature.tasbih.R
 import org.muslim.app.feature.tasbih.data.TasbihRepository
 
@@ -73,11 +72,11 @@ class MisbahaWidget : GlanceAppWidget() {
                 )
                 Spacer(GlanceModifier.height(6.dp))
                 Text(
-                    text = state.count.toArabicIndic(),
+                    text = state.count.toString(),
                     style = TextStyle(color = ColorProvider(DayForeground), fontSize = 34.sp, fontWeight = FontWeight.Bold),
                 )
                 Text(
-                    text = "/ ${state.target.toArabicIndic()}",
+                    text = "/ ${state.target.toString()}",
                     style = TextStyle(color = ColorProvider(DayAccent), fontSize = 13.sp),
                 )
                 Spacer(GlanceModifier.height(8.dp))

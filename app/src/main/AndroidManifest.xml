@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- No permissions yet. Per the privacy-first principle, permissions are
-         requested just-in-time when a feature actually needs them. -->
+    <!-- Required for every optional download (recitation audio, extra adhan
+         sounds, translation/tafsir packs). All downloads are user-initiated. -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MuslimApplication"
