@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="permission_notifications">Notifications</string>
+    <string name="permission_notifications_desc">Adhan alerts, reminders, daily adhkar, hadith and ayah of the day</string>
+    <string name="permission_location">Location</string>
+    <string name="permission_location_desc">Accurate prayer times, Qibla direction and nearby mosques via GPS</string>
+    <string name="permission_exact_alarms">Exact alarms</string>
+    <string name="permission_exact_alarms_desc">Play the adhan and prayer reminders at exactly the right time</string>
+    <string name="permission_overlay">Display over other apps</string>
+    <string name="permission_overlay_desc">Show adhkar above other apps while you use them</string>
+    <string name="permission_dnd">Do Not Disturb</string>
+    <string name="permission_dnd_desc">Mute sound automatically during prayer without interruption</string>
+    <string name="permission_boot">Start on boot</string>
+    <string name="permission_boot_desc">Reschedule reminders automatically after the device restarts</string>
+    <string name="permission_vibrate">Vibration</string>
+    <string name="permission_vibrate_desc">Haptic feedback in the tasbih and notifications</string>
+</resources>

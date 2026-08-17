@@ -79,4 +79,6 @@
     <string name="quran_download_in_progress">Downloading in the background…</string>
     <string name="quran_download_done">Download complete</string>
     <string name="quran_download_failed">Download failed</string>
+    <string name="quran_recitation_download_all">Download whole Quran for this reciter</string>
+    <string name="quran_recitation_download_ayah">Download current ayah</string>
 </resources>

@@ -13,6 +13,11 @@ import org.muslim.app.core.common.prayer.PrayerAdjustments
  */
 data class PrayerSettings(
     val method: CalculationMethod = CalculationMethod.MuslimWorldLeague,
+    /**
+     * True once the user picked a calculation method themselves — the
+     * region-based auto-suggestion then never overrides their choice.
+     */
+    val methodChosenManually: Boolean = false,
     /** Fajr/Isha angles when [method] is [CalculationMethod.Custom]. */
     val customFajrAngle: Double = 18.0,
     val customIshaAngle: Double = 17.0,

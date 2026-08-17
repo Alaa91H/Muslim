@@ -1,16 +1,13 @@
 package org.muslim.app
 
-import android.Manifest
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.getValue
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.EntryPoint
@@ -22,6 +19,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.muslim.app.core.notifications.NotificationChannels
+import org.muslim.app.core.permissions.AppPermission
+import org.muslim.app.core.permissions.PermissionManager
 import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
@@ -47,6 +46,9 @@ class MainActivity : ComponentActivity() {
 
     @Inject
     lateinit var adhanScheduler: AdhanScheduler
+
+    @Inject
+    lateinit var permissionManager: PermissionManager
 
     /** Tab requested by an App Shortcut (`muslim://times` etc.), else home. */
     private val targetRoute = MutableStateFlow(ROUTE_HOME)
@@ -105,11 +107,11 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun requestNotificationPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
-            ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) !=
-            PackageManager.PERMISSION_GRANTED
-        ) {
-            requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 0)
+        if (permissionManager.canRequest(AppPermission.Notifications)) {
+            requestPermissions(
+                arrayOf(AppPermission.Notifications.runtimePermission!!),
+                REQUEST_NOTIFICATIONS,
+            )
         }
     }
 
@@ -121,6 +123,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private companion object {
+        const val REQUEST_NOTIFICATIONS = 100
         const val ROUTE_HOME = "home"
         const val ROUTE_TIMES = "times"
         const val ROUTE_QIBLA = "qibla"

@@ -18,6 +18,9 @@ interface QuranRepository {
 
     fun observeSurah(surahNumber: Int): Flow<List<Ayah>>
 
+    /** Surah number → ordered global ayah numbers (whole-mushaf downloads). */
+    suspend fun allSurahRanges(): Map<Int, List<Int>>
+
     /** Full-text search over the normalized Uthmani text. */
     suspend fun search(rawQuery: String): List<Ayah>
 

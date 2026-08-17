@@ -39,6 +39,7 @@ include(":core:core-datastore")
 include(":core:core-network")
 include(":core:core-notifications")
 include(":core:core-location")
+include(":core:core-permissions")
 
 // Feature modules (added incrementally per the 8-phase roadmap)
 include(":feature:feature-prayer-times")

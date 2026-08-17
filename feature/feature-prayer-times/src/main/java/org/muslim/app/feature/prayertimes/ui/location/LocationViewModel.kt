@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.muslim.app.core.location.LocationProvider
 import org.muslim.app.feature.prayertimes.data.CitiesRepository
+import org.muslim.app.core.common.prayer.CalculationMethod
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.SelectedLocation
 import org.muslim.app.feature.prayertimes.domain.City
@@ -45,9 +46,12 @@ class LocationViewModel @Inject constructor(
     val messages = MutableStateFlow<Message?>(null)
 
     /** Saves a city from the offline database. */
-    fun selectCity(city: City) = save(
-        SelectedLocation(name = city.displayName, latitude = city.latitude, longitude = city.longitude, timeZone = city.timeZone),
-    )
+    fun selectCity(city: City) {
+        save(
+            SelectedLocation(name = city.displayName, latitude = city.latitude, longitude = city.longitude, timeZone = city.timeZone),
+            regionHint = city.country,
+        )
+    }
 
     /** Validates and saves manually entered coordinates. Returns true on success. */
     fun saveManual(latitudeText: String, longitudeText: String): Boolean {
@@ -95,11 +99,21 @@ class LocationViewModel @Inject constructor(
         messages.value = null
     }
 
-    private fun save(location: SelectedLocation) {
+    private fun save(location: SelectedLocation, regionHint: String? = null) {
         viewModelScope.launch {
             val current = repository.settings.first()
-            repository.save(current.copy(location = location))
-            scheduler.schedule(current.copy(location = location))
+            // First-time region default: adopt the officially used method of
+            // the chosen country until the user customizes it themselves.
+            val settings = if (regionHint != null && !current.methodChosenManually) {
+                current.copy(
+                    location = location,
+                    method = CalculationMethod.suggestedFor(regionHint),
+                )
+            } else {
+                current.copy(location = location)
+            }
+            repository.save(settings)
+            scheduler.schedule(settings)
             // The home-screen widget shows the next prayer for this location.
             PrayerTimesWidget().updateAll(context)
             messages.value = Message.Saved

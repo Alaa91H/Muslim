@@ -14,6 +14,7 @@ import androidx.compose.material3.FilterChip
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -50,6 +51,7 @@ fun QiblaScreen(
     latitude: Double,
     longitude: Double,
     locationName: String,
+    onOpenMosques: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
@@ -82,7 +84,7 @@ fun QiblaScreen(
         )
         Spacer(Modifier.height(16.dp))
 
-        Row {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             FilterChip(
                 selected = viewMode == QiblaViewMode.Compass,
                 onClick = { viewMode = QiblaViewMode.Compass },
@@ -94,6 +96,12 @@ fun QiblaScreen(
                 onClick = { viewMode = QiblaViewMode.Map },
                 label = { Text(stringResource(R.string.qibla_mode_map)) },
             )
+            if (onOpenMosques != null) {
+                Spacer(Modifier.size(8.dp))
+                TextButton(onClick = onOpenMosques) {
+                    Text(stringResource(R.string.qibla_open_mosques))
+                }
+            }
         }
         Spacer(Modifier.height(16.dp))
 

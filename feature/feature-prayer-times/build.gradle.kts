@@ -40,6 +40,7 @@ dependencies {
     implementation(project(":core:core-network"))
     implementation(project(":core:core-notifications"))
     implementation(project(":core:core-location"))
+    implementation(project(":core:core-permissions"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)

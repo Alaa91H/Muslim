@@ -20,10 +20,16 @@ data class CompassHeading(
 )
 
 /**
- * Feeds the phone's heading via the accelerometer + magnetometer rotation
- * matrix. Sensors are only active while this composable is composed — the
- * compass never runs in the background (battery principle, PROJECT_PROMPT.md
- * §7).
+ * Feeds the phone's heading for the qibla compass.
+ *
+ * Preferred source: the fused [Sensor.TYPE_ROTATION_VECTOR] — modern handsets
+ * fuse gyroscope + accelerometer + magnetometer on-device, giving a far more
+ * stable heading than raw sensors (the requested gyro-based precision).
+ * Devices without it fall back to the classic accelerometer + magnetometer
+ * rotation matrix.
+ *
+ * Sensors run only while this composable is composed — never in the
+ * background (battery principle, PROJECT_PROMPT.md §7).
  */
 @Composable
 fun rememberCompassHeading(): State<CompassHeading> {
@@ -34,50 +40,74 @@ fun rememberCompassHeading(): State<CompassHeading> {
 
     DisposableEffect(context) {
         val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        val accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-        val magneticField = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
 
+        val rotationMatrix = FloatArray(9)
+        val remapped = FloatArray(9)
+        val orientation = FloatArray(3)
         val gravity = FloatArray(3)
         val geomagnetic = FloatArray(3)
-        val rotation = FloatArray(9)
-        val orientation = FloatArray(3)
         var hasGravity = false
         var hasMagnetic = false
+
+        fun emit(matrix: FloatArray) {
+            // Screen-up remap so the dial follows the natural device posture.
+            if (SensorManager.remapCoordinateSystem(
+                    matrix,
+                    SensorManager.AXIS_X,
+                    SensorManager.AXIS_Z,
+                    remapped,
+                )
+            ) {
+                SensorManager.getOrientation(remapped, orientation)
+                // orientation[0]: azimuth in radians from magnetic north (-π..π).
+                val azimuth = (((orientation[0] / PI * 180.0) % 360.0 + 360.0) % 360.0).toFloat()
+                state.value = state.value.copy(heading = azimuth)
+            }
+        }
 
         val listener = object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent) {
                 when (event.sensor.type) {
+                    Sensor.TYPE_ROTATION_VECTOR -> {
+                        SensorManager.getRotationMatrixFromVector(rotationMatrix, event.values)
+                        emit(rotationMatrix)
+                    }
                     Sensor.TYPE_ACCELEROMETER -> {
                         event.values.copyInto(gravity)
                         hasGravity = true
+                        emitLegacy()
                     }
                     Sensor.TYPE_MAGNETIC_FIELD -> {
                         event.values.copyInto(geomagnetic)
                         hasMagnetic = true
+                        emitLegacy()
                     }
                 }
+            }
+
+            private fun emitLegacy() {
                 if (hasGravity && hasMagnetic &&
-                    SensorManager.getRotationMatrix(rotation, null, gravity, geomagnetic)
+                    SensorManager.getRotationMatrix(rotationMatrix, null, gravity, geomagnetic)
                 ) {
-                    SensorManager.getOrientation(rotation, orientation)
-                    // orientation[0] is the azimuth in radians from magnetic north (-π..π).
-                    val azimuth = ((orientation[0] / PI * 180).toFloat() % 360 + 360) % 360
-                    state.value = CompassHeading(
-                        heading = azimuth,
-                        accuracy = state.value.accuracy,
-                    )
+                    emit(rotationMatrix)
                 }
             }
 
             override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-                if (sensor?.type == Sensor.TYPE_MAGNETIC_FIELD) {
-                    state.value = state.value.copy(accuracy = accuracy)
-                }
+                state.value = state.value.copy(accuracy = accuracy)
             }
         }
 
-        sensorManager.registerListener(listener, accelerometer, SensorManager.SENSOR_DELAY_UI)
-        sensorManager.registerListener(listener, magneticField, SensorManager.SENSOR_DELAY_UI)
+        val rotationVector = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)
+        val sensors: List<Sensor> = if (rotationVector != null) {
+            listOf(rotationVector)
+        } else {
+            listOfNotNull(
+                sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+                sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),
+            )
+        }
+        sensors.forEach { sensorManager.registerListener(listener, it, SensorManager.SENSOR_DELAY_UI) }
 
         onDispose {
             sensorManager.unregisterListener(listener)

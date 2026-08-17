@@ -40,6 +40,7 @@ import org.muslim.app.feature.adhkar.ui.AdhkarScreen
 import org.muslim.app.feature.hadith.ui.HadithScreen
 import org.muslim.app.feature.learn.ui.LearnScreen
 import org.muslim.app.feature.prayertimes.ui.times.PrayerTimesScreen
+import org.muslim.app.feature.qibla.ui.MosqueFinderScreen
 import org.muslim.app.feature.qibla.ui.QiblaScreen
 import org.muslim.app.feature.quran.ui.BookmarksScreen
 import org.muslim.app.feature.ramadan.ui.RamadanScreen
@@ -50,6 +51,7 @@ import org.muslim.app.feature.quran.ui.SurahListScreen
 import org.muslim.app.feature.reference.ui.ReferenceScreen
 import org.muslim.app.feature.settings.AboutScreen
 import org.muslim.app.feature.settings.NotificationSettingsScreen
+import org.muslim.app.feature.settings.PermissionsScreen
 import org.muslim.app.feature.settings.PrivacyScreen
 import org.muslim.app.feature.settings.SettingsScreen
 import org.muslim.app.feature.tasbih.ui.TasbihScreen
@@ -75,6 +77,7 @@ private const val BOOKMARKS_ROUTE = "quran/bookmarks"
 private const val SETTINGS_ROUTE = "settings"
 private const val PRAYER_SETTINGS_ROUTE = "settings/prayer"
 private const val NOTIFICATIONS_ROUTE = "settings/notifications"
+private const val PERMISSIONS_ROUTE = "settings/permissions"
 private const val ABOUT_ROUTE = "settings/about"
 private const val PRIVACY_ROUTE = "settings/privacy"
 private const val HADITH_ROUTE = "hadith"
@@ -85,6 +88,7 @@ private const val ZAKAT_ROUTE = "zakat"
 private const val LEARN_ROUTE = "learn"
 private const val REFERENCE_ROUTE = "reference"
 private const val QURAN_DOWNLOADS_ROUTE = "quran/downloads"
+private const val MOSQUES_ROUTE = "qibla/mosques"
 
 @Composable
 fun MuslimApp(
@@ -210,8 +214,17 @@ fun MuslimApp(
                             latitude = selected.latitude,
                             longitude = selected.longitude,
                             locationName = selected.name,
+                            onOpenMosques = { navController.navigate(MOSQUES_ROUTE) },
                         )
                     }
+                }
+                composable(MOSQUES_ROUTE) {
+                    val selected = location
+                    MosqueFinderScreen(
+                        latitude = selected?.latitude,
+                        longitude = selected?.longitude,
+                        onBack = { navController.popBackStack() },
+                    )
                 }
                 composable("more") {
                     MoreScreen(
@@ -231,6 +244,7 @@ fun MuslimApp(
                         onBack = { navController.popBackStack() },
                         onOpenPrayerSettings = { navController.navigate(PRAYER_SETTINGS_ROUTE) },
                         onOpenNotifications = { navController.navigate(NOTIFICATIONS_ROUTE) },
+                        onOpenPermissions = { navController.navigate(PERMISSIONS_ROUTE) },
                         onOpenAbout = { navController.navigate(ABOUT_ROUTE) },
                         onOpenPrivacy = { navController.navigate(PRIVACY_ROUTE) },
                         onLanguageChanged = onLanguageChanged,
@@ -238,6 +252,9 @@ fun MuslimApp(
                 }
                 composable(NOTIFICATIONS_ROUTE) {
                     NotificationSettingsScreen(onBack = { navController.popBackStack() })
+                }
+                composable(PERMISSIONS_ROUTE) {
+                    PermissionsScreen(onBack = { navController.popBackStack() })
                 }
                 composable(HADITH_ROUTE) {
                     HadithScreen(onBack = { navController.popBackStack() })

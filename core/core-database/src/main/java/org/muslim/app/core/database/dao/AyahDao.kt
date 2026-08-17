@@ -21,6 +21,13 @@ interface AyahDao {
     @Query("SELECT COUNT(*) FROM ayahs")
     suspend fun count(): Int
 
+    /** Surah number → ordered global ayah numbers (for whole-mushaf downloads). */
+    @Query("SELECT surahNumber, globalNumber FROM ayahs ORDER BY globalNumber")
+    suspend fun allSurahAyahPairs(): List<SurahAyahPair>
+
     @Insert
     suspend fun insertAll(ayahs: List<AyahEntity>)
 }
+
+/** Projection row for [AyahDao.allSurahAyahPairs]. */
+data class SurahAyahPair(val surahNumber: Int, val globalNumber: Int)

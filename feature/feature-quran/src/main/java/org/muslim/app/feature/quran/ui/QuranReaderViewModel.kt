@@ -19,6 +19,9 @@ import kotlinx.coroutines.launch
 import org.muslim.app.feature.quran.data.QuranAudioPlayer
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.data.QuranSupplementRepository
+import org.muslim.app.feature.quran.data.DownloadRequest
+import org.muslim.app.feature.quran.data.DownloadScope
+import org.muslim.app.feature.quran.data.QuranDownloadManager
 import org.muslim.app.feature.quran.data.RecitationQueueItem
 import org.muslim.app.feature.quran.data.RecitationRepository
 import org.muslim.app.feature.quran.domain.Ayah
@@ -41,6 +44,7 @@ class QuranReaderViewModel @Inject constructor(
     private val prefsRepository: QuranPrefsRepository,
     private val supplementRepository: QuranSupplementRepository,
     private val recitationRepository: RecitationRepository,
+    private val downloadManager: QuranDownloadManager,
     private val audioPlayer: QuranAudioPlayer,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
@@ -190,6 +194,44 @@ class QuranReaderViewModel @Inject constructor(
             _downloading.value = false
             _downloadProgress.value = null
         }
+    }
+
+    /**
+     * Downloads the ENTIRE mushaf (all 114 surahs) for the selected reciter
+     * in the background (foreground service + progress notification).
+     */
+    fun downloadWholeQuran() {
+        val reciter = selectedReciter.value
+        downloadManager.enqueue(
+            DownloadRequest(
+                id = "full-${reciter.id}-${System.currentTimeMillis()}",
+                reciterId = reciter.id,
+                reciterName = reciter.name,
+                scope = DownloadScope.FullQuran,
+                surahNumber = null,
+                globalNumber = null,
+                label = "القرآن الكريم كاملًا",
+                totalBytes = reciter.estimatedBytesPerAyah() * 6236L,
+            )
+        )
+    }
+
+    /** Downloads just the currently highlighted ayah (single-ayah granularity). */
+    fun downloadCurrentAyah() {
+        val ayah = currentAyah.value ?: uiState.value.ayahs.firstOrNull() ?: return
+        val reciter = selectedReciter.value
+        downloadManager.enqueue(
+            DownloadRequest(
+                id = "ayah-${ayah.globalNumber}-${reciter.id}-${System.currentTimeMillis()}",
+                reciterId = reciter.id,
+                reciterName = reciter.name,
+                scope = DownloadScope.Ayah,
+                surahNumber = ayah.surahNumber,
+                globalNumber = ayah.globalNumber,
+                label = "الآية ${ayah.surahNumber}:${ayah.numberInSurah}",
+                totalBytes = reciter.estimatedBytesPerAyah(),
+            )
+        )
     }
 
     /**

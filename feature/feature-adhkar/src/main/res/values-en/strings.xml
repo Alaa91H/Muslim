@@ -11,6 +11,9 @@
     <string name="adhkar_category_food">Eating</string>
     <string name="adhkar_category_travel">Travel</string>
     <string name="adhkar_category_general">General supplications</string>
+    <string name="adhkar_category_dua_quranic">Qur\'anic duas</string>
+    <string name="adhkar_category_dua_daily">Daily-life duas</string>
+    <string name="adhkar_category_dua_occasion">Occasion duas</string>
     <string name="adhkar_repetition_label">Repeat: %1$s</string>
     <string name="adhkar_complete">Done</string>
     <string name="adhkar_reset">Reset counter</string>

@@ -35,6 +35,25 @@
     <string name="settings_privacy">سياسة الخصوصية</string>
     <string name="settings_privacy_desc">كيف نتعامل مع بياناتك: لا تتبّع، البيانات تبقى على جهازك</string>
 
+    <string name="permissions_title">الأذونات</string>
+    <plurals name="permissions_summary">
+        <item quantity="one">%1$d من %2$d أذونات ممنوحة</item>
+        <item quantity="two">%1$d من %2$d أذونات ممنوحة</item>
+        <item quantity="few">%1$d من %2$d أذونات ممنوحة</item>
+        <item quantity="many">%1$d من %2$d أذونات ممنوحة</item>
+        <item quantity="other">%1$d من %2$d أذونات ممنوحة</item>
+    </plurals>
+    <string name="permissions_all_granted">جميع الأذونات ممنوحة — التطبيق يعمل بكامل طاقته</string>
+    <string name="permissions_missing_hint">منح الأذونات الناقصة يضمن عمل الأذان والتذكيرات بدقة</string>
+    <string name="permissions_granted">ممنوح</string>
+    <string name="permissions_denied">غير ممنوح</string>
+    <string name="permissions_required">مطلوب من الإعدادات</string>
+    <string name="permissions_not_applicable">غير مطلوب على هذا الجهاز</string>
+    <string name="permissions_grant">منح</string>
+    <string name="permissions_enable">تفعيل</string>
+    <string name="permissions_open_settings">الإعدادات</string>
+    <string name="settings_permissions">الأذونات</string>
+    <string name="settings_permissions_desc">إدارة أذونات التطبيق ومزايا النظام</string>
     <string name="settings_section_about">حول التطبيق</string>
     <string name="settings_about">حول مسلم</string>
     <string name="settings_about_desc">النسخة، الترخيص، والمبادئ</string>

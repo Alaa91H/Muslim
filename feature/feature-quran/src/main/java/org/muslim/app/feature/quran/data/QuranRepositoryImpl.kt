@@ -162,6 +162,10 @@ class QuranRepositoryImpl @Inject constructor(
         ayahCount = ayahCount,
     )
 
+    override suspend fun allSurahRanges(): Map<Int, List<Int>> =
+        ayahDao.allSurahAyahPairs()
+            .groupBy({ it.surahNumber }, { it.globalNumber })
+
     private fun AyahEntity.toDomain() = Ayah(
         globalNumber = globalNumber,
         surahNumber = surahNumber,

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="permission_notifications">الإشعارات</string>
+    <string name="permission_notifications_desc">تنبيهات الأذان والتذكيرات وأذكار اليوم وحديث اليوم وآية اليوم</string>
+    <string name="permission_location">الموقع</string>
+    <string name="permission_location_desc">تحديد أوقات الصلاة واتجاه القبلة ومواقع المساجد بدقة عبر GPS</string>
+    <string name="permission_exact_alarms">المنبّهات الدقيقة</string>
+    <string name="permission_exact_alarms_desc">تشغيل الأذان وتذكيرات الصلاة في وقتها المحدد بدقة</string>
+    <string name="permission_overlay">الطبقة العائمة</string>
+    <string name="permission_overlay_desc">عرض الأذكار فوق التطبيقات الأخرى أثناء الاستخدام</string>
+    <string name="permission_dnd">عدم الإزعاج</string>
+    <string name="permission_dnd_desc">كتم الصوت تلقائيًا أثناء الصلاة دون مقاطعة</string>
+    <string name="permission_boot">التشغيل التلقائي</string>
+    <string name="permission_boot_desc">إعادة جدولة التذكيرات تلقائيًا بعد إعادة تشغيل الجهاز</string>
+    <string name="permission_vibrate">الاهتزاز</string>
+    <string name="permission_vibrate_desc">الاهتزاز في المسبحة والإشعارات</string>
+</resources>

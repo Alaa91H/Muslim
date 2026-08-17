@@ -36,6 +36,7 @@ class PrayerSettingsRepository @Inject constructor(
     val settings: Flow<PrayerSettings> = context.prayerSettingsDataStore.data.map { prefs ->
         PrayerSettings(
             method = enumOr(prefs[Keys.METHOD], CalculationMethod.MuslimWorldLeague),
+            methodChosenManually = prefs[Keys.METHOD_MANUAL] ?: false,
             customFajrAngle = prefs[Keys.CUSTOM_FAJR]?.toDouble() ?: 18.0,
             customIshaAngle = prefs[Keys.CUSTOM_ISHA]?.toDouble() ?: 17.0,
             asrMethod = enumOr(prefs[Keys.ASR], AsrMethod.Standard),
@@ -81,6 +82,7 @@ class PrayerSettingsRepository @Inject constructor(
     suspend fun save(newSettings: PrayerSettings) {
         context.prayerSettingsDataStore.edit { prefs ->
             prefs[Keys.METHOD] = newSettings.method.name
+            prefs[Keys.METHOD_MANUAL] = newSettings.methodChosenManually
             prefs[Keys.CUSTOM_FAJR] = newSettings.customFajrAngle.toFloat()
             prefs[Keys.CUSTOM_ISHA] = newSettings.customIshaAngle.toFloat()
             prefs[Keys.ASR] = newSettings.asrMethod.name
@@ -137,6 +139,7 @@ class PrayerSettingsRepository @Inject constructor(
 
     private object Keys {
         val METHOD = stringPreferencesKey("calculation_method")
+        val METHOD_MANUAL = booleanPreferencesKey("method_chosen_manually")
         val CUSTOM_FAJR = floatPreferencesKey("custom_fajr_angle")
         val CUSTOM_ISHA = floatPreferencesKey("custom_isha_angle")
         val ASR = stringPreferencesKey("asr_method")

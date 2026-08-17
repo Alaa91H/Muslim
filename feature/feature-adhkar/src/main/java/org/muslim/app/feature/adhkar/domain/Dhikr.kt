@@ -30,7 +30,10 @@ enum class DhikrCategory(
     Waking("waking", R.string.adhkar_category_waking),
     Food("food", R.string.adhkar_category_food),
     Travel("travel", R.string.adhkar_category_travel),
-    General("general", R.string.adhkar_category_general);
+    General("general", R.string.adhkar_category_general),
+    DuaQuranic("dua_quranic", R.string.adhkar_category_dua_quranic),
+    DuaDaily("dua_daily", R.string.adhkar_category_dua_daily),
+    DuaOccasion("dua_occasion", R.string.adhkar_category_dua_occasion);
 
     companion object {
         fun fromId(id: String): DhikrCategory = entries.firstOrNull { it.id == id } ?: General

@@ -39,11 +39,12 @@ private data class AdhkarSeedItem(
 @Singleton
 class AdhkarRepository @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val duasRepository: DuasRepository,
 ) {
 
     private val json: Json = Json { ignoreUnknownKeys = true }
 
-    private val cached: List<Dhikr> by lazy { load() }
+    private val cached: List<Dhikr> by lazy { load() + duasRepository.allDuas }
 
     /** All adhkar, ordered by the seed file. */
     fun observeAdhkar(): Flow<List<Dhikr>> = kotlinx.coroutines.flow.flowOf(cached)

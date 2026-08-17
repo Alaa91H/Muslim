@@ -79,4 +79,6 @@
     <string name="quran_download_in_progress">جارٍ التنزيل في الخلفية…</string>
     <string name="quran_download_done">اكتمل التنزيل</string>
     <string name="quran_download_failed">تعذّر التنزيل</string>
+    <string name="quran_recitation_download_all">تنزيل المصحف كاملًا لهذا القارئ</string>
+    <string name="quran_recitation_download_ayah">تنزيل الآية الحالية</string>
 </resources>

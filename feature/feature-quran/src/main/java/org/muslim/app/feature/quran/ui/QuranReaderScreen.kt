@@ -2,6 +2,7 @@ package org.muslim.app.feature.quran.ui
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -454,6 +455,8 @@ fun QuranReaderScreen(
                 onRepeatChanged = { repeatCount = it },
                 onSelectReciter = viewModel::selectReciter,
                 onDownload = viewModel::downloadCurrentSurah,
+                onDownloadWholeQuran = viewModel::downloadWholeQuran,
+                onDownloadCurrentAyah = viewModel::downloadCurrentAyah,
                 onPlayWholeSurah = { viewModel.playWholeSurah(repeatCount) },
                 onPrevious = viewModel::previousAyah,
                 onNext = viewModel::nextAyah,
@@ -530,6 +533,8 @@ private fun RecitationBar(
     onRepeatChanged: (Int) -> Unit,
     onSelectReciter: (Reciter) -> Unit,
     onDownload: () -> Unit,
+    onDownloadWholeQuran: () -> Unit = {},
+    onDownloadCurrentAyah: () -> Unit = {},
     onPlayWholeSurah: () -> Unit,
     onPrevious: () -> Unit,
     onNext: () -> Unit,
@@ -596,6 +601,15 @@ private fun RecitationBar(
                             tint = if (downloaded) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                     }
+                }
+            }
+
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                TextButton(onClick = onDownloadWholeQuran) {
+                    Text(stringResource(R.string.quran_recitation_download_all))
+                }
+                TextButton(onClick = onDownloadCurrentAyah) {
+                    Text(stringResource(R.string.quran_recitation_download_ayah))
                 }
             }
 

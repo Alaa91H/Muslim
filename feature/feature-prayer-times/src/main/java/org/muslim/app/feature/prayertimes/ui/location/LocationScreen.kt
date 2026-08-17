@@ -1,9 +1,10 @@
 package org.muslim.app.feature.prayertimes.ui.location
 
-import android.Manifest
-import android.content.pm.PackageManager
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import dagger.hilt.android.EntryPointAccessors
+import org.muslim.app.core.permissions.AppPermission
+import org.muslim.app.core.permissions.PermissionEntryPoint
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -64,9 +65,9 @@ fun LocationScreen(
     val gpsFailedText = stringResource(R.string.location_gps_failed)
 
     val permissionLauncher = rememberLauncherForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { granted ->
-        if (granted) viewModel.useGps() else viewModel.gpsDenied()
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) { result ->
+        if (result.values.any { it }) viewModel.useGps() else viewModel.gpsDenied()
     }
 
     LaunchedEffect(message) {
@@ -110,11 +111,18 @@ fun LocationScreen(
 
             OutlinedButton(
                 onClick = {
-                    val granted = ContextCompat.checkSelfPermission(
-                        context, Manifest.permission.ACCESS_FINE_LOCATION,
-                    ) == PackageManager.PERMISSION_GRANTED
+                    val entryPoint = EntryPointAccessors.fromApplication(
+                        context.applicationContext,
+                        PermissionEntryPoint::class.java,
+                    )
+                    val granted = entryPoint.permissionManager()
+                        .isGranted(AppPermission.Location)
                     if (granted) viewModel.useGps() else {
-                        permissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+                        permissionLauncher.launch(
+                            entryPoint.permissionManager()
+                                .runtimeRequestArray(AppPermission.Location)
+                                ?: arrayOf(),
+                        )
                     }
                 },
                 modifier = Modifier.fillMaxWidth(),

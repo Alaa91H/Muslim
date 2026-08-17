@@ -42,7 +42,8 @@ class PrayerSettingsViewModel @Inject constructor(
     private val _downloadProgress = MutableStateFlow<Map<Prayer, Float>>(emptyMap())
     val downloadProgress: StateFlow<Map<Prayer, Float>> = _downloadProgress.asStateFlow()
 
-    fun setMethod(method: CalculationMethod) = update { it.copy(method = method) }
+    fun setMethod(method: CalculationMethod) =
+        update { it.copy(method = method, methodChosenManually = true) }
 
     fun setCustomFajrAngle(angle: Double) = update { it.copy(customFajrAngle = angle) }
 

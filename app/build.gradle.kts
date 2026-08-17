@@ -120,6 +120,7 @@ dependencies {
     implementation(project(":core:core-common"))
     implementation(project(":core:core-datastore"))
     implementation(project(":core:core-notifications"))
+    implementation(project(":core:core-permissions"))
     implementation(project(":core:core-location"))
     implementation(project(":feature:feature-prayer-times"))
     implementation(project(":feature:feature-qibla"))

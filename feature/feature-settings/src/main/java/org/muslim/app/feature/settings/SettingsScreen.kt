@@ -17,6 +17,7 @@ import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.LightMode
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.Palette
@@ -79,12 +80,13 @@ private val startTabOptions = listOf(
 fun SettingsScreen(
     onOpenPrayerSettings: () -> Unit,
     onOpenNotifications: () -> Unit,
+    onOpenPermissions: () -> Unit,
     onOpenAbout: () -> Unit,
     onOpenPrivacy: () -> Unit,
     onLanguageChanged: () -> Unit,
+    modifier: Modifier = Modifier,
     /** Back affordance when opened as a sub-screen (from the More hub). */
     onBack: (() -> Unit)? = null,
-    modifier: Modifier = Modifier,
     viewModel: SettingsViewModel = hiltViewModel(),
 ) {
     val preferences by viewModel.preferences.collectAsStateWithLifecycle()
@@ -261,6 +263,16 @@ fun SettingsScreen(
                     leadingContent = { Icon(Icons.Filled.NotificationsActive, contentDescription = null) },
                     trailingContent = { Chevron() },
                     modifier = Modifier.clickable(onClick = onOpenNotifications),
+                )
+            }
+
+            item {
+                ListItem(
+                    headlineContent = { Text(stringResource(R.string.settings_permissions)) },
+                    supportingContent = { Text(stringResource(R.string.settings_permissions_desc)) },
+                    leadingContent = { Icon(Icons.Filled.Lock, contentDescription = null) },
+                    trailingContent = { Chevron() },
+                    modifier = Modifier.clickable(onClick = onOpenPermissions),
                 )
             }
 
