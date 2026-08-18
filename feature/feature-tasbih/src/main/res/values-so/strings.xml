@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha dhijitaalka ah - taabo si aad u tiriso</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Taabo si aad u tiriso</string>
+    <string name="tasbih_back">Dib u noqo</string>
+    <string name="tasbih_cancel">Jooji</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Caado</string>
+    <string name="tasbih_custom_target_hint">Geli tirada tirinta (laga bilaabo 1 ilaa 100000)</string>
+    <string name="tasbih_custom_target_title">Deji bartilmaameed gaar ah</string>
+    <string name="tasbih_of_target">ee %1$s</string>
+    <string name="tasbih_reset">Dib u dajin</string>
+    <string name="tasbih_reset_all">Dib u deji dhammaan</string>
+    <string name="tasbih_round_complete">Wareeg buuxa oo dhammaystiran (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Wareegyada: %1$d</string>
+    <string name="tasbih_sound_desc">Daar ringtone ama dhawaaq marka wareeg kasta oo buuxa la dhammeeyo</string>
+    <string name="tasbih_sound_title">Ku dhawaaq bartilmaameed</string>
+    <string name="tasbih_sound_tone_alarm">Digniin</string>
+    <string name="tasbih_sound_tone_notification">Ogeysiinta</string>
+    <string name="tasbih_sound_tone_ringtone">Codka garaaca</string>
+    <string name="tasbih_tap_hint">Taabo goobada si aad u tiriso</string>
+    <string name="tasbih_target_reached">Hadafkii la gaaray - Allaah ha aqbalo</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Maanta\'s wadarta guud: %1$d</string>
+    <string name="tasbih_undo">Ka noqo</string>
+    <string name="tasbih_virtue_label">Fadliga dhikrigan</string>
+    <string name="tasbih_week_stats">7 maalmood ee u dambeeyay</string>
+</resources>

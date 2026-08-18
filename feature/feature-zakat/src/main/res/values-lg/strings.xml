@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Leeta emiwendo mu ngeri ey’otoma</string>
+    <string name="zakat_auto_prices_hint">Bwe kisobozesa, emiwendo gya zaabu ne ffeeza giggibwa ku yintaneeti ne giddamu okuzza obuggya mu ngeri ey’otoma</string>
+    <string name="zakat_back">Okudda emabega</string>
+    <string name="zakat_cash">Ssente enkalu n’okutereka</string>
+    <string name="zakat_clear_history">Ebyafaayo ebitangaavu</string>
+    <string name="zakat_country">Ensi</string>
+    <string name="zakat_country_placeholder">Londa ensi yo ne ssente</string>
+    <string name="zakat_country_section">Ensi &amp; ssente</string>
+    <string name="zakat_currency">Ssente: %1$s</string>
+    <string name="zakat_debts">Amabanja g’obanja (agaggyibwako) .</string>
+    <string name="zakat_due">Zaka egenda okusasulwa (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t okuleeta emiwendo. Kebera omukutu gwo oba ssaako bbeeyi mu ngalo.</string>
+    <string name="zakat_fetch_now">Refresh emiwendo kati</string>
+    <string name="zakat_fetching">Okuleeta emiwendo...</string>
+    <string name="zakat_fitr_persons">Omuwendo gw’abantu b’omu maka</string>
+    <string name="zakat_fitr_saa_value">Omuwendo gwa sa\' emu (emmere enkulu)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Zaka za Fitr zonna awamu: %1$s</string>
+    <string name="zakat_gold_grams">Zaabu (grams) .</string>
+    <string name="zakat_gold_price">Bbeeyi ya zaabu buli gram</string>
+    <string name="zakat_history">Ebyafaayo by’okubalirira</string>
+    <string name="zakat_history_amount">Zaka: %1$s</string>
+    <string name="zakat_history_empty">Tewali kubalirira kutereddwa n\'okutuusa kati.</string>
+    <string name="zakat_investments">Ensimbi eziteekebwamu ssente</string>
+    <string name="zakat_last_updated">Yasembyeyo okutereezebwa: %1$s</string>
+    <string name="zakat_money_section">Zaka ku bugagga</string>
+    <string name="zakat_nisab_gold">Nisab ya zaabu (85g) .</string>
+    <string name="zakat_nisab_met">Nisab etuukiddwaako — zaka esaanira</string>
+    <string name="zakat_nisab_not_met">Wansi wa nisab — tewali zaka esaanira</string>
+    <string name="zakat_nisab_silver">Nisab ya ffeeza (595g) .</string>
+    <string name="zakat_rulings_note">Per the majority (jumhoor): zaabu nisab eri 85g, ffeeza 595g, ate omuwendo guli 2.5%% oluvannyuma lw’okuggyako amabanja agasaanidde. Weebuuze ku mukenkufu alina ebisaanyizo ku misango egy’enjawulo.</string>
+    <string name="zakat_save_result">Teeka mu byafaayo</string>
+    <string name="zakat_silver_grams">Ffeeza (grams) .</string>
+    <string name="zakat_silver_price">Bbeeyi ya ffeeza buli gram</string>
+    <string name="zakat_source_note">Emiwendo gya zaabu/ffeeza okuva ku gold-api.com; Emiwendo gya FX okuva ku open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Eby’obugagga byonna awamu</string>
+    <string name="zakat_trade">Omuwendo gw’ebintu eby’obusuubuzi</string>
+    <string name="zakat_zakatable">Ssente za Zakatable oluvannyuma lw’amabanja</string>
+</resources>

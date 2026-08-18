@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">ފަހަތަށް</string>
+    <string name="reference_no_results">އެއްގޮތް ނަތީޖާއެއް ނެތެވެ</string>
+    <string name="reference_search_hint">މި ފޮތް ހޯއްދަވާ...</string>
+    <string name="reference_title">އިސްލާމިކް ރެފަރެންސް ލައިބްރަރީ</string>
+    <string name="reference_topics_count">މައުޟޫޢުތަކެވެ</string>
+</resources>

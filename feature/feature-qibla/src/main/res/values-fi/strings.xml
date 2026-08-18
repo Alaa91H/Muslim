@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s päässä</string>
+    <string name="mosque_finder_empty">Tältä alueelta ei löytynyt moskeijoita</string>
+    <string name="mosque_finder_error">Haku epäonnistui</string>
+    <string name="mosque_finder_intro">Etsi moskeijoita lähellä sijaintiasi OpenStreetMapin avulla</string>
+    <string name="mosque_finder_no_location">Sijaintia ei ole vielä asetettu. Valitse ensin paikka rukousaikojen asetuksista.</string>
+    <string name="mosque_finder_retry">Yritä uudelleen</string>
+    <string name="mosque_finder_searching">Haetaan…</string>
+    <string name="mosque_finder_title">Läheiset moskeijat</string>
+    <string name="qibla_bearing_cardinal">Qibla suunta: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Kalibroi siirtämällä puhelintasi kahdeksaan</string>
+    <string name="qibla_distance">Etäisyys Mekkaan: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Olet edessäsi Qiblaa 🕋</string>
+    <string name="qibla_gps_error">Tarkkaa korjausta ei saatu. Yritä uudelleen.</string>
+    <string name="qibla_gps_live">Live GPS-sijainti</string>
+    <string name="qibla_gps_refresh">Päivitä sijainti GPS:n avulla</string>
+    <string name="qibla_gps_refreshing">Haetaan…</string>
+    <string name="qibla_heading_degree">Puhelimen otsikko: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Suuri ympyräreitti sijainnistasi Kaabaan – toimii offline-tilassa</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">sinä</string>
+    <string name="qibla_mode_compass">Kompassi</string>
+    <string name="qibla_mode_map">Kartta</string>
+    <string name="qibla_open_mosques">Läheiset moskeijat</string>
+    <string name="qibla_title">Qibla suunta</string>
+    <string name="qibla_turn_left">Käänny vasemmalle %1$.1f°</string>
+    <string name="qibla_turn_right">Käänny oikealle %1$.1f°</string>
+</resources>

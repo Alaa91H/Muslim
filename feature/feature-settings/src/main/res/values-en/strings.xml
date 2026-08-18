@@ -16,9 +16,8 @@
     <string name="settings_reduce_animations_desc">Disable non-essential motion for accessibility</string>
 
     <string name="settings_section_start">Start screen</string>
-    <string name="settings_start_home">Home (prayer times)</string>
+    <string name="settings_start_home">Prayer times</string>
     <string name="settings_start_quran">Quran</string>
-    <string name="settings_start_times">Timetable</string>
     <string name="settings_start_qibla">Qibla</string>
     <string name="settings_start_more">More</string>
 
@@ -92,10 +91,16 @@
     <string name="notif_category_adhkar_desc">Adhkar reminders and the floating overlay</string>
     <string name="notif_category_hadith">Hadith of the day</string>
     <string name="notif_category_hadith_desc">A daily hadith with a reminder of the prophetic guidance</string>
+    <string name="notif_hadith_time">Hadith of the day time</string>
     <string name="notif_permission_title">Allow notifications</string>
     <string name="notif_permission_desc">To receive the adhan and daily reminders, allow the app to show notifications.</string>
     <string name="notif_permission_allow">Allow</string>
     <string name="notif_open_system_settings">System settings</string>
+    <string name="notif_open_channel_settings">Open channel settings</string>
+    <string name="notif_system_channel_status">System channel status</string>
+    <string name="notif_channel_allowed">Allowed</string>
+    <string name="notif_channel_blocked">Blocked by system</string>
+    <string name="notif_channel_not_created">Not set up</string>
     <string name="notif_quiet_title">Quiet hours</string>
     <string name="notif_quiet_desc">Mute all notifications (except the adhan) during the chosen window</string>
     <string name="notif_quiet_start">Start</string>
@@ -107,6 +112,19 @@
     <string name="notif_importance_default">Default</string>
     <string name="notif_importance_high">High</string>
     <string name="notif_badge">App icon badge</string>
+    <string name="notif_countdown_preview_label">Ongoing notification preview</string>
+    <string name="notif_countdown_preview_hint">A permanent notification showing the next prayer and the time remaining, updated live.</string>
+    <string name="notif_preview_next_title">Next adhan: %1$s — %2$s</string>
+    <string name="notif_preview_remaining">Time remaining: %1$s</string>
+    <string name="notif_preview_missed">Missed adhan: %1$s — %2$s</string>
+    <string name="notif_preview_elapsed">Elapsed since adhan: %1$s</string>
+    <string name="notif_preview_no_location">Select your location to show prayer times</string>
+    <string name="notif_preview_prayer_fajr">Fajr</string>
+    <string name="notif_preview_prayer_sunrise">Sunrise</string>
+    <string name="notif_preview_prayer_dhuhr">Dhuhr</string>
+    <string name="notif_preview_prayer_asr">Asr</string>
+    <string name="notif_preview_prayer_maghrib">Maghrib</string>
+    <string name="notif_preview_prayer_isha">Isha</string>
     <string name="notif_show_missed_adhan">Show missed adhan</string>
     <string name="notif_test">Send test notification</string>
     <string name="notif_test_body">This is a test notification from the notification settings.</string>
@@ -117,4 +135,15 @@
     <string name="notif_category_prayer_countdown_desc">A permanent notification showing the next adhan, the time remaining, and the missed adhan</string>
     <string name="notif_category_recitation">Recitation controls</string>
     <string name="notif_category_recitation_desc">A notification with play / pause / stop controls while reciting the Quran</string>
+    <string name="notif_category_hajj">Pilgrim Companion</string>
+    <string name="notif_category_hajj_desc">Daily reminder of the intended rite at its time during the Hajj days</string>
+    <string name="notif_missed_color">Missed adhan line color</string>
+    <string name="notif_missed_color_red">Red</string>
+    <string name="notif_missed_color_orange">Orange</string>
+    <string name="notif_missed_color_amber">Amber</string>
+    <string name="notif_missed_color_green">Green</string>
+    <string name="notif_missed_color_blue">Blue</string>
+    <string name="notif_missed_color_purple">Purple</string>
+    <string name="notif_missed_color_pink">Pink</string>
+    <string name="notif_missed_color_cyan">Cyan</string>
 </resources>

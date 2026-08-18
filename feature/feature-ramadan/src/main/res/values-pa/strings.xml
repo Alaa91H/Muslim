@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">ਪਿੱਛੇ</string>
+    <string name="ramadan_countdown">ਰਮਜ਼ਾਨ %1$s ਦਿਨਾਂ ਵਿੱਚ ਸ਼ੁਰੂ ਹੁੰਦਾ ਹੈ</string>
+    <string name="ramadan_countdown_to_iftar">ਇਫਤਾਰ ਦਾ ਸਮਾਂ: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ਫਜਰ ਦਾ ਸਮਾਂ: %1$s</string>
+    <string name="ramadan_day_of_month">ਰਮਜ਼ਾਨ ਦਾ %1$s ਦਿਨ</string>
+    <string name="ramadan_days_left">%1$s ਦਿਨ ਬਾਕੀ</string>
+    <string name="ramadan_fasting_progress">ਵਰਤ ਰੱਖਣ ਵਾਲੇ ਦਿਨ: %2$s ਵਿੱਚੋਂ %1$s — ਇਸਨੂੰ ਰਿਕਾਰਡ ਕਰਨ ਲਈ ਇੱਕ ਦਿਨ ਟੈਪ ਕਰੋ</string>
+    <string name="ramadan_fasting_tracker">ਤੇਜ਼ ਟਰੈਕਰ</string>
+    <string name="ramadan_hijri_note">ਐਪ-ਵਿਆਪਕ ਹਿਜਰੀ ਐਡਜਸਟਮੈਂਟ ਲਾਗੂ ਹੋਣ ਦੇ ਨਾਲ ਉਮ ਅਲ-ਕੁਰਾ ਕੈਲੰਡਰ ਦੇ ਅਧਾਰ ਤੇ।</string>
+    <string name="ramadan_hijri_year">ਸਾਲ %1$s ਏ</string>
+    <string name="ramadan_iftar">ਇਫਤਾਰ</string>
+    <string name="ramadan_iftar_dua">ਇਫਤਾਰ ਬੇਨਤੀ: "ਹੇ ਅੱਲ੍ਹਾ, ਮੈਂ ਤੁਹਾਡੇ ਲਈ ਵਰਤ ਰੱਖਿਆ ਅਤੇ ਤੁਹਾਡੇ ਪ੍ਰਬੰਧ \'ਤੇ ਮੈਂ ਆਪਣਾ ਵਰਤ ਤੋੜਦਾ ਹਾਂ ..."</string>
+    <string name="ramadan_iftar_time">ਇਫਤਾਰ (ਮਗਰੀਬ) ਦਾ ਸਮਾਂ: %1$s</string>
+    <string name="ramadan_location_required">ਸਮਾਂ ਦੇਖਣ ਲਈ ਪਹਿਲਾਂ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਇੱਕ ਸ਼ਹਿਰ ਚੁਣੋ।</string>
+    <string name="ramadan_minutes">%1$s ਮਿੰਟ</string>
+    <string name="ramadan_notification_iftar_body">ਹੇ ਅੱਲ੍ਹਾ, ਮੈਂ ਤੁਹਾਡੇ ਲਈ ਵਰਤ ਰੱਖਿਆ ਅਤੇ ਤੁਹਾਡੇ ਪ੍ਰਬੰਧ \'ਤੇ ਮੈਂ ਆਪਣਾ ਵਰਤ ਤੋੜਦਾ ਹਾਂ</string>
+    <string name="ramadan_notification_iftar_title">ਇਫਤਾਰ ਦਾ ਸਮਾਂ</string>
+    <string name="ramadan_notification_suhoor_body">ਫਜਰ ਨੇੜੇ ਆ ਰਹੀ ਹੈ - ਆਪਣਾ ਸੁਹੂਰ ਖਾਓ</string>
+    <string name="ramadan_notification_suhoor_title">ਸੁਹੂਰ ਰੀਮਾਈਂਡਰ</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">ਸੁਹੂਰ</string>
+    <string name="ramadan_suhoor_remind_before">ਪਹਿਲਾਂ ਮੈਨੂੰ ਯਾਦ ਕਰਾਓ:</string>
+    <string name="ramadan_suhoor_time">ਸੁਹੂਰ ਦੀ ਸਮਾਪਤੀ (ਫਜਰ): %1$s</string>
+    <string name="ramadan_title">ਰਮਜ਼ਾਨ</string>
+</resources>

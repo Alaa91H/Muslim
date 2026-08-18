@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">穆斯林</string>
+    <string name="more_adhkar">阿德卡</string>
+    <string name="more_adhkar_desc">早上、晚上和祈祷后的阿德卡（adhkar），设有柜台</string>
+    <string name="more_downloads">背诵下载</string>
+    <string name="more_downloads_desc">由您选择的背诵者下载古兰经、阿雅或完整的《古兰经》</string>
+    <string name="more_hadith">圣训</string>
+    <string name="more_hadith_desc">圣训图书馆、当天的搜索和圣训</string>
+    <string name="more_learn">学习</string>
+    <string name="more_learn_desc">分步小净和祈祷指南</string>
+    <string name="more_ramadan">斋月</string>
+    <string name="more_ramadan_desc">封斋节和开斋时间以及禁食追踪器</string>
+    <string name="more_reference">参考图书馆</string>
+    <string name="more_reference_desc">伊斯兰教、西拉和先知简介</string>
+    <string name="more_settings">设置</string>
+    <string name="more_settings_desc">主题、语言、祈祷和宣礼设置</string>
+    <string name="more_tasbih">塔斯比赫</string>
+    <string name="more_tasbih_desc">包含每日历史的数字米巴哈</string>
+    <string name="more_zakat">天课</string>
+    <string name="more_zakat_desc">财富天课和开斋节计算器</string>
+    <string name="scaffold_message">多模块项目框架已准备就绪。\n第 1 阶段 - Adhan、祈祷时间、Qibla 和回历 - 从这里开始。</string>
+    <string name="shortcut_qibla">朝拜</string>
+    <string name="shortcut_qibla_long">朝拜方向</string>
+    <string name="shortcut_settings">设置</string>
+    <string name="shortcut_settings_long">祈祷和宣礼设置</string>
+    <string name="shortcut_times">祈祷时间</string>
+    <string name="shortcut_times_long">今天\'s祈祷时间</string>
+    <string name="tab_home">祈祷时间</string>
+    <string name="tab_more">更多</string>
+    <string name="tab_qibla">朝拜</string>
+    <string name="tab_quran">古兰经</string>
 </resources>

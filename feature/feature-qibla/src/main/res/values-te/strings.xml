@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s దూరంలో</string>
+    <string name="mosque_finder_empty">ఈ పరిధిలో మసీదులు ఏవీ కనుగొనబడలేదు</string>
+    <string name="mosque_finder_error">శోధన విఫలమైంది</string>
+    <string name="mosque_finder_intro">OpenStreetMap ద్వారా మీ స్థానానికి సమీపంలో ఉన్న మసీదులను కనుగొనండి</string>
+    <string name="mosque_finder_no_location">ఇంకా లొకేషన్ సెట్ చేయలేదు. ముందుగా ప్రార్థన సమయాల సెట్టింగ్‌ల నుండి స్థానాన్ని ఎంచుకోండి.</string>
+    <string name="mosque_finder_retry">మళ్లీ ప్రయత్నించండి</string>
+    <string name="mosque_finder_searching">శోధిస్తోంది...</string>
+    <string name="mosque_finder_title">సమీపంలోని మసీదులు</string>
+    <string name="qibla_bearing_cardinal">ఖిబ్లా దిశ: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">క్రమాంకనం చేయడానికి మీ ఫోన్‌ను ఫిగర్-ఎనిమిదిలో తరలించండి</string>
+    <string name="qibla_distance">మక్కాకు దూరం: %1$s</string>
+    <string name="qibla_distance_km">%,.0f కి.మీ</string>
+    <string name="qibla_facing">మీరు ఖిబ్లాకు ఎదురుగా ఉన్నారు</string>
+    <string name="qibla_gps_error">ఖచ్చితమైన పరిష్కారాన్ని పొందడం సాధ్యపడలేదు. దయచేసి మళ్లీ ప్రయత్నించండి.</string>
+    <string name="qibla_gps_live">ప్రత్యక్ష GPS స్థానం</string>
+    <string name="qibla_gps_refresh">GPS ద్వారా స్థానాన్ని రిఫ్రెష్ చేయండి</string>
+    <string name="qibla_gps_refreshing">గుర్తించడం...</string>
+    <string name="qibla_heading_degree">ఫోన్ శీర్షిక: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">మీ స్థానం నుండి కాబాకు గ్రేట్ సర్కిల్ మార్గం — ఆఫ్‌లైన్‌లో పని చేస్తుంది</string>
+    <string name="qibla_map_kaaba">కాబా</string>
+    <string name="qibla_map_you">మీరు</string>
+    <string name="qibla_mode_compass">దిక్సూచి</string>
+    <string name="qibla_mode_map">మ్యాప్</string>
+    <string name="qibla_open_mosques">సమీపంలోని మసీదులు</string>
+    <string name="qibla_title">ఖిబ్లా దిశ</string>
+    <string name="qibla_turn_left">%1$.1f° ఎడమవైపు తిరగండి</string>
+    <string name="qibla_turn_right">కుడివైపు %1$.1f° తిరగండి</string>
+</resources>

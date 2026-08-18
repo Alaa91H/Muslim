@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Umusilamu</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Mu gitondo, ku mugoroba &amp; inyuma y\'amasengesho adhkar n\'ibiharuro</string>
+    <string name="more_downloads">Ivyo gusubiramwo</string>
+    <string name="more_downloads_desc">Gukuraho surah, ayah canke Korowani yuzuye n\'umusomyi wahisemwo</string>
+    <string name="more_hadith">Hadithi</string>
+    <string name="more_hadith_desc">Ububiko bw\'ibitabo bwa hadithi, ubushakashatsi &amp; hadithi y\'uwo musi</string>
+    <string name="more_learn">Iga</string>
+    <string name="more_learn_desc">Intambwe ku yindi wudu n\'amasengesho y\'uburongozi</string>
+    <string name="more_ramadan">Ramadani</string>
+    <string name="more_ramadan_desc">Igihe ca Suhoor na iftar n\'umukurikirana wo kwisonzesha</string>
+    <string name="more_reference">Ububiko bw\'ibitabo</string>
+    <string name="more_reference_desc">Intangamarara y\'ubuyisilamu, Sira &amp; abahanuzi</string>
+    <string name="more_settings">Amagenamiterere</string>
+    <string name="more_settings_desc">Insiguro, ururimi, amasengesho n\'imiterere ya adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha y\'ubuhinga bwa none ifise amateka ya misi yose</string>
+    <string name="more_zakat">Zaka</string>
+    <string name="more_zakat_desc">Zakat ku butunzi n\'umubare wa Fitr</string>
+    <string name="scaffold_message">Igishushanyo c’umugambi w’ibice vyinshi kirateguwe.\nIciciro ca mbere — Adhan, ibihe vy’amasengesho, Qibla, n’ikirangamisi ca Hijri — bitangura hano.</string>
+    <string name="shortcut_qibla">Kibula</string>
+    <string name="shortcut_qibla_long">Uburongozi bwa Kibla</string>
+    <string name="shortcut_settings">Amagenamiterere</string>
+    <string name="shortcut_settings_long">Amasengesho n\'imiterere ya adhan</string>
+    <string name="shortcut_times">Ibihe vy\'amasengesho</string>
+    <string name="shortcut_times_long">Uyu musi\' ibihe vy\'amasengesho</string>
+    <string name="tab_home">Igihe c\'amasengesho</string>
+    <string name="tab_more">Ibindi</string>
+    <string name="tab_qibla">Kibula</string>
+    <string name="tab_quran">Korowani</string>
 </resources>

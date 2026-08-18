@@ -30,6 +30,9 @@ interface AyahFtsDao {
     @Query("SELECT COUNT(*) FROM ayah_fts")
     suspend fun count(): Int
 
+    @Query("DELETE FROM ayah_fts")
+    suspend fun clear()
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(rows: List<AyahFtsEntity>)
 }

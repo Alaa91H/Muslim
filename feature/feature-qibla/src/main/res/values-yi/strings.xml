@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s אַוועק</string>
+    <string name="mosque_finder_empty">קיין מאָסקוועס געפונען אין דעם קייט</string>
+    <string name="mosque_finder_error">זוכן ניט אַנדערש</string>
+    <string name="mosque_finder_intro">געפֿינען מאָסקס לעבן דיין אָרט דורך OpenStreetMap</string>
+    <string name="mosque_finder_no_location">קיין אָרט באַשטימט נאָך. קלייַבן אַ אָרט פֿון די תפילה צייט סעטטינגס ערשטער.</string>
+    <string name="mosque_finder_retry">פרובירט ווידער</string>
+    <string name="mosque_finder_searching">זוכנדיק...</string>
+    <string name="mosque_finder_title">נירביי מאָסקוועס</string>
+    <string name="qibla_bearing_cardinal">קיבלאַ ריכטונג: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">מאַך דיין טעלעפאָן אין אַ פיגור אַכט צו קאַלאַברייט</string>
+    <string name="qibla_distance">דיסטאַנסע צו מאַקקאַה: %1$s</string>
+    <string name="qibla_distance_km">%,.0f קילאמעטער</string>
+    <string name="qibla_facing">איר זענט פייסינג די Qibla 🕋</string>
+    <string name="qibla_gps_error">קען נישט באַקומען אַן פּינטלעך פאַרריכטן. ביטע פּרוּווט ווידער.</string>
+    <string name="qibla_gps_live">לעבן גפּס אָרט</string>
+    <string name="qibla_gps_refresh">דערפרישן אָרט דורך גפּס</string>
+    <string name="qibla_gps_refreshing">לאָקירן...</string>
+    <string name="qibla_heading_degree">טעלעפאָן כעדינג: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">גרויס-קרייַז מאַרשרוט פון דיין אָרט צו די קאַאַבאַ - אַרבעט אָפפלינע</string>
+    <string name="qibla_map_kaaba">קאבא</string>
+    <string name="qibla_map_you">איר</string>
+    <string name="qibla_mode_compass">קאָמפּאַס</string>
+    <string name="qibla_mode_map">מאַפּע</string>
+    <string name="qibla_open_mosques">נירביי מאָסקוועס</string>
+    <string name="qibla_title">קיבלאַ ריכטונג</string>
+    <string name="qibla_turn_left">דריי לינקס %1$.1f°</string>
+    <string name="qibla_turn_right">קער רעכט %1$.1f°</string>
+</resources>

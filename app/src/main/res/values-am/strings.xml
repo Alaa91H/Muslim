@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ሙስሊም</string>
+    <string name="more_adhkar">አድካር</string>
+    <string name="more_adhkar_desc">ጥዋት፣ ምሽት እና ድህረ-ጸሎት አድካር ከቆጣሪዎች ጋር</string>
+    <string name="more_downloads">የንባብ ውርዶች</string>
+    <string name="more_downloads_desc">አንድ ሱራ፣ አንድ አያህ ወይም ሙሉ ቁርዓን ከመረጥከው አንባቢ ጋር አውርድ</string>
+    <string name="more_hadith">ሀዲስ</string>
+    <string name="more_hadith_desc">የእለቱ ሀዲስ ቤተ መጻሕፍት፣ ፍለጋ እና ሀዲስ</string>
+    <string name="more_learn">ተማር</string>
+    <string name="more_learn_desc">የደረጃ በደረጃ ዉዱእ እና የጸሎት መመሪያዎች</string>
+    <string name="more_ramadan">ረመዳን</string>
+    <string name="more_ramadan_desc">የሱሁር እና የኢፍጣር ጊዜዎች እና የጾም መከታተያ</string>
+    <string name="more_reference">የማጣቀሻ ቤተ መጻሕፍት</string>
+    <string name="more_reference_desc">የእስልምና፣ የሲራ እና የነብያት መግቢያ</string>
+    <string name="more_settings">ቅንብሮች</string>
+    <string name="more_settings_desc">ጭብጥ፣ ቋንቋ፣ ጸሎት እና አድሃን መቼቶች</string>
+    <string name="more_tasbih">ተስቢህ</string>
+    <string name="more_tasbih_desc">ዲጂታል ምስባሃ ከዕለታዊ ታሪክ ጋር</string>
+    <string name="more_zakat">ዘካት</string>
+    <string name="more_zakat_desc">ዘካት በሀብት እና ፊጥር ማስያ</string>
+    <string name="scaffold_message">የባለብዙ ሞዱል ፕሮጀክት አጽም ዝግጁ ነው።\nደረጃ 1 - አድሃን፣ የጸሎት ጊዜያት፣ ቂብላ እና የሂጅሪ አቆጣጠር - እዚህ ይጀምራል።</string>
+    <string name="shortcut_qibla">ቂብላ</string>
+    <string name="shortcut_qibla_long">የቂብላ አቅጣጫ</string>
+    <string name="shortcut_settings">ቅንብሮች</string>
+    <string name="shortcut_settings_long">የጸሎት እና የአድሃን መቼቶች</string>
+    <string name="shortcut_times">የጸሎት ጊዜያት</string>
+    <string name="shortcut_times_long">ዛሬ\'ዎቹ የጸሎት ጊዜያት</string>
+    <string name="tab_home">የጸሎት ጊዜያት</string>
+    <string name="tab_more">ተጨማሪ</string>
+    <string name="tab_qibla">ቂብላ</string>
+    <string name="tab_quran">ቁርኣን</string>
 </resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Skaitmeninė misbaha – palieskite, kad suskaičiuotumėte</string>
+    <string name="misbaha_widget_label">Tasbihas</string>
+    <string name="misbaha_widget_tap_hint">Palieskite, kad suskaičiuotumėte</string>
+    <string name="tasbih_back">Atgal</string>
+    <string name="tasbih_cancel">Atšaukti</string>
+    <string name="tasbih_confirm">Gerai</string>
+    <string name="tasbih_custom_target">Pasirinktinis</string>
+    <string name="tasbih_custom_target_hint">Įveskite skaičių skaičių (nuo 1 iki 100 000)</string>
+    <string name="tasbih_custom_target_title">Nustatykite tinkintą tikslą</string>
+    <string name="tasbih_of_target">iš %1$s</string>
+    <string name="tasbih_reset">Nustatyti iš naujo</string>
+    <string name="tasbih_reset_all">Iš naujo nustatyti viską</string>
+    <string name="tasbih_round_complete">Visas turas baigtas (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Raundai: %1$d</string>
+    <string name="tasbih_sound_desc">Paleiskite skambėjimo toną arba toną, kai bus baigtas kiekvienas visas raundas</string>
+    <string name="tasbih_sound_title">Garsas tiksliai</string>
+    <string name="tasbih_sound_tone_alarm">Signalizacija</string>
+    <string name="tasbih_sound_tone_notification">Pranešimas</string>
+    <string name="tasbih_sound_tone_ringtone">Skambėjimo tonas</string>
+    <string name="tasbih_tap_hint">Norėdami suskaičiuoti, palieskite apskritimą</string>
+    <string name="tasbih_target_reached">Tikslas pasiektas – tegul Alachas priima</string>
+    <string name="tasbih_title">Tasbihas</string>
+    <string name="tasbih_total_today">Šiandien iš viso \': %1$d</string>
+    <string name="tasbih_undo">Anuliuoti</string>
+    <string name="tasbih_virtue_label">Šio dhikro dorybė</string>
+    <string name="tasbih_week_stats">Paskutines 7 dienas</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s kude</string>
+    <string name="mosque_finder_empty">Akukho zi-mosque zifunyenwe kolu luhlu</string>
+    <string name="mosque_finder_error">Ukukhangela akuphumelelanga</string>
+    <string name="mosque_finder_intro">Fumana iimosque ezikufutshane nendawo yakho nge-OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Akukho ndawo isetiwe okwangoku. Khetha indawo kumaxesha omthandazo kuqala.</string>
+    <string name="mosque_finder_retry">Zama kwakhona</string>
+    <string name="mosque_finder_searching">Iyakhangela...</string>
+    <string name="mosque_finder_title">Iimosque ezikufuphi</string>
+    <string name="qibla_bearing_cardinal">Ulwalathiso lweQibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f °</string>
+    <string name="qibla_calibrate">Hambisa ifowuni yakho kwinani lesibhozo ukuze ulungelelanise</string>
+    <string name="qibla_distance">Umgama ukuya eMakkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f iikhilomitha</string>
+    <string name="qibla_facing">Ujongene neQibla 🕋</string>
+    <string name="qibla_gps_error">Ayikwazanga ukufumana ukulungiswa okuchanekileyo. Nceda zama kwakhona.</string>
+    <string name="qibla_gps_live">Indawo ehlala iGPS</string>
+    <string name="qibla_gps_refresh">Hlaziya indawo ngeGPS</string>
+    <string name="qibla_gps_refreshing">Iyafumana...</string>
+    <string name="qibla_heading_degree">Isihloko sefowuni: %1$.0f ° (%2$s)</string>
+    <string name="qibla_map_hint">Indlela enkulu yesangqa ukusuka kwindawo yakho ukuya eKaaba - isebenza ngaphandle kweintanethi</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Wena</string>
+    <string name="qibla_mode_compass">Ikhampasi</string>
+    <string name="qibla_mode_map">Imephu</string>
+    <string name="qibla_open_mosques">Iimosque ezikufuphi</string>
+    <string name="qibla_title">Ulwalathiso lweQibla</string>
+    <string name="qibla_turn_left">Jika ekhohlo %1$.1f°</string>
+    <string name="qibla_turn_right">Jika ekunene %1$.1f°</string>
+</resources>

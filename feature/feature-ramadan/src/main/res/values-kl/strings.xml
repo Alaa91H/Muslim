@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Taarsiullugu</string>
+    <string name="ramadan_countdown">Ramadan ullut %1$s-it qaangiuppata aallartittarpoq</string>
+    <string name="ramadan_countdown_to_iftar">Iftarimut piffissaq: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Piffissaq Fajrimut: %1$s</string>
+    <string name="ramadan_day_of_month">Ramadanip ullua %1$s</string>
+    <string name="ramadan_days_left">Ullut %1$s sinnerupput</string>
+    <string name="ramadan_fasting_progress">Ullut faste: %1$s %2$s-iusunit — ulloq ataaseq toqqarlugu allattorsinnaavat</string>
+    <string name="ramadan_fasting_tracker">Faste-mik malinnaasoq</string>
+    <string name="ramadan_hijri_note">Umm al-Qura-p kalendaria tunngavigalugu app-imik tamakkerlugu Hijri-mik naleqqussaaneq atuuttoq.</string>
+    <string name="ramadan_hijri_year">Ukioq %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar-imik qinnuteqaat: "O Allah, Illit pillugu fasteqarpunga aammalu nerisassatit atorlugit fasteqarpunga..."</string>
+    <string name="ramadan_iftar_time">Iftar (maghrib) piffissaq: %1$s</string>
+    <string name="ramadan_location_required">Piffissat takuniarlugit siullermik Instillinger-imi illoqarfik toqqaruk.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, Illit pillugu fasteqarpunga aammalu nerisassatit atorlugit fasteqarpunga</string>
+    <string name="ramadan_notification_iftar_title">Iftar-imut piffissanngorpoq</string>
+    <string name="ramadan_notification_suhoor_body">Fajr qanilliartorpoq — suhoor-ersinnaavutit</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor eqqaamasaqarneq</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Siornatigut eqqaamajuk:</string>
+    <string name="ramadan_suhoor_time">Suhoor naammassivoq (fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

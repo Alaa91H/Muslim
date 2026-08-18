@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Fumana litheko ka bohona</string>
+    <string name="zakat_auto_prices_hint">Ha e lumelletsoe, litheko tsa khauta le silevera li nkuoa inthaneteng ebe li nchafatsoa ka bohona</string>
+    <string name="zakat_back">Morao</string>
+    <string name="zakat_cash">Chelete le lipolokelo</string>
+    <string name="zakat_clear_history">Hlakola nalane</string>
+    <string name="zakat_country">Naha</string>
+    <string name="zakat_country_placeholder">Khetha naha ea heno le chelete</string>
+    <string name="zakat_country_section">Naha le chelete</string>
+    <string name="zakat_currency">Chelete ea chelete: %1$s</string>
+    <string name="zakat_debts">Likoloto tseo u li kolotang (tse tlositsoeng)</string>
+    <string name="zakat_due">Zakat e lefuoang (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t lata litheko. Sheba khokahano ea hau kapa u kenye litheko ka letsoho.</string>
+    <string name="zakat_fetch_now">Hlahisa litheko hona joale</string>
+    <string name="zakat_fetching">E lata litheko...</string>
+    <string name="zakat_fitr_persons">Palo ea litho tsa lelapa</string>
+    <string name="zakat_fitr_saa_value">Boleng ba sa\' e le \'ngoe (lijo tsa mantlha)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Kakaretso ea Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Khauta (ligrama)</string>
+    <string name="zakat_gold_price">Theko ea khauta ka gram</string>
+    <string name="zakat_history">Palo histori</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Ha ho na lipalo tse bolokiloeng hajoale.</string>
+    <string name="zakat_investments">Matsete</string>
+    <string name="zakat_last_updated">E qetetse ho nchafatsoa: %1$s</string>
+    <string name="zakat_money_section">Zakat ka leruo</string>
+    <string name="zakat_nisab_gold">nisab ea khauta (85g)</string>
+    <string name="zakat_nisab_met">The nisab e fihlile - zakat e loketse</string>
+    <string name="zakat_nisab_not_met">Ka tlase ho nisab - ha ho zakat e loketseng</string>
+    <string name="zakat_nisab_silver">Silver nisab (595g)</string>
+    <string name="zakat_rulings_note">Ho ea ka bongata (jumhoor): nisab ea khauta ke 85g, silevera 595g, \'me sekgahla ke 2.5%% ka mor\'a ho hula likoloto tse lokelang. Ikopanye le setsebi se tšoanelehang bakeng sa linyeoe tse khethehileng.</string>
+    <string name="zakat_save_result">Boloka historing</string>
+    <string name="zakat_silver_grams">Silevera (ligrama)</string>
+    <string name="zakat_silver_price">Theko ea silevera ka gram</string>
+    <string name="zakat_source_note">Litheko tsa khauta / silevera ho tloha khauta-api.com; Litefiso tsa FX ho tsoa ho open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Kakaretso ea thepa</string>
+    <string name="zakat_trade">Boleng ba thepa ea khoebo</string>
+    <string name="zakat_zakatable">Chelete ea Zakatable ka mor\'a likoloto</string>
+</resources>

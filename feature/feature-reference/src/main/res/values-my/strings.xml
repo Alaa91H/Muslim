@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">ကျော</string>
+    <string name="reference_no_results">တူညီသောရလဒ်များမရှိပါ။</string>
+    <string name="reference_search_hint">ဤစာအုပ်ကို ရှာပါ...</string>
+    <string name="reference_title">အစ္စလာမ့်ရည်ညွှန်းစာကြည့်တိုက်</string>
+    <string name="reference_topics_count">အကြောင်းအရာများ</string>
+</resources>

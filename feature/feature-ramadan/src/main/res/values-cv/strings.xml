@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Каялла</string>
+    <string name="ramadan_countdown">Рамадан %1$s кунран пуҫланать</string>
+    <string name="ramadan_countdown_to_iftar">Ифтар вӑхӑчӗ: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Фаджр вӑхӑтӗ: %1$s</string>
+    <string name="ramadan_day_of_month">Рамадан уйӑхӗн %1$s кунӗ</string>
+    <string name="ramadan_days_left">%1$s кун юлчӗ</string>
+    <string name="ramadan_fasting_progress">Типӗ тытнӑ кунсем: %1$s %2$s-рен — ӑна ҫырса илме пӗр кун пусӑр</string>
+    <string name="ramadan_fasting_tracker">Типӗ тытмалли трекер</string>
+    <string name="ramadan_hijri_note">Умм аль-Кура календарьне тӗпе хурса, унта пӗтӗм приложенири хиджри тӳрлетӗвӗпе усӑ курнӑ.</string>
+    <string name="ramadan_hijri_year">%1$s ҫул</string>
+    <string name="ramadan_iftar">Ифтар</string>
+    <string name="ramadan_iftar_dua">Ифтар кӗлли: «Эй, Аллах, эпӗ Саншӑн типӗ тытрӑм, Санӑн апат-ҫимӗҫӗпе эпӗ типӗ тытрӑм...»</string>
+    <string name="ramadan_iftar_time">Ифтар (Магриб) вӑхӑчӗ: %1$s</string>
+    <string name="ramadan_location_required">Вӑхӑтсене курма малтан Настройкӑсенче хулана суйласа илӗр.</string>
+    <string name="ramadan_minutes">%1$s мин</string>
+    <string name="ramadan_notification_iftar_body">Эй, Аллах, Саншӑн эпӗ типӗ тытрӑм, Санӑн апат-ҫимӗҫӗпе эпӗ типӗ тытрӑм</string>
+    <string name="ramadan_notification_iftar_title">Ифтар вӑхӑчӗ</string>
+    <string name="ramadan_notification_suhoor_body">Фаджр ҫывхарса килет — сирӗн сухур пултӑр</string>
+    <string name="ramadan_notification_suhoor_title">Сухур аса илтерӗвӗ</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Сухур</string>
+    <string name="ramadan_suhoor_remind_before">Маларах аса илтерӗр-ха:</string>
+    <string name="ramadan_suhoor_time">Сухур вӗҫленет (Фаджр): %1$s</string>
+    <string name="ramadan_title">Рамадан</string>
+</resources>

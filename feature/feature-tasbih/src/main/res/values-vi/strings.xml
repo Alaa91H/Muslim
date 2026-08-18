@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha kỹ thuật số - nhấn để đếm</string>
+    <string name="misbaha_widget_label">tasbih</string>
+    <string name="misbaha_widget_tap_hint">Nhấn để đếm</string>
+    <string name="tasbih_back">Quay lại</string>
+    <string name="tasbih_cancel">Hủy bỏ</string>
+    <string name="tasbih_confirm">được rồi</string>
+    <string name="tasbih_custom_target">tùy chỉnh</string>
+    <string name="tasbih_custom_target_hint">Nhập số đếm (từ 1 đến 100000)</string>
+    <string name="tasbih_custom_target_title">Đặt mục tiêu tùy chỉnh</string>
+    <string name="tasbih_of_target">của %1$s</string>
+    <string name="tasbih_reset">Đặt lại</string>
+    <string name="tasbih_reset_all">Đặt lại tất cả</string>
+    <string name="tasbih_round_complete">Hoàn thành trọn vòng (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Số vòng: %1$d</string>
+    <string name="tasbih_sound_desc">Phát nhạc chuông hoặc âm báo khi hoàn thành mỗi vòng đấu</string>
+    <string name="tasbih_sound_title">Âm thanh đúng mục tiêu</string>
+    <string name="tasbih_sound_tone_alarm">báo động</string>
+    <string name="tasbih_sound_tone_notification">Thông báo</string>
+    <string name="tasbih_sound_tone_ringtone">Nhạc chuông</string>
+    <string name="tasbih_tap_hint">Nhấn vào vòng tròn để đếm</string>
+    <string name="tasbih_target_reached">Đã đạt được mục tiêu - xin Allah chấp nhận</string>
+    <string name="tasbih_title">tasbih</string>
+    <string name="tasbih_total_today">Tổng số hôm nay\': %1$d</string>
+    <string name="tasbih_undo">Hoàn tác</string>
+    <string name="tasbih_virtue_label">Đức hạnh của dhikr này</string>
+    <string name="tasbih_week_stats">7 ngày qua</string>
+</resources>

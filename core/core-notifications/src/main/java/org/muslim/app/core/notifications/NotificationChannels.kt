@@ -39,13 +39,15 @@ object NotificationChannels {
     /** Silent, low-importance channel for the Quran recitation media controls. */
     const val RECITATION = "recitation"
 
+    /** Default-importance channel for the daily Hajj rite reminders ("Pilgrim Companion"). */
+    const val HAJJ = "hajj_reminders"
+
     /**
      * Ensures every channel exists with the app defaults. Idempotent: channels
      * that already exist are left untouched so a manual override the user made
      * in system settings is never reset by a plain app start.
      */
     fun create(context: Context) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
         NotificationCategory.entries.forEach { category ->
             val manager = context.getSystemService(NotificationManager::class.java)
             if (manager.getNotificationChannel(category.channelId) == null) {
@@ -71,7 +73,6 @@ object NotificationChannels {
         prefs: NotificationCategoryPrefs,
         forceRecreate: Boolean = false,
     ) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
         val manager = context.getSystemService(NotificationManager::class.java)
         val existing = manager.getNotificationChannel(category.channelId)
         if (forceRecreate && existing != null && channelDiffers(existing, prefs)) {

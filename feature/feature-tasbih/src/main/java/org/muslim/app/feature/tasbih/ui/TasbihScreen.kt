@@ -1,5 +1,9 @@
 package org.muslim.app.feature.tasbih.ui
 
+import android.content.Context
+import android.media.RingtoneManager
+import android.os.VibrationEffect
+import android.os.Vibrator
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -19,35 +23,59 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.DeleteSweep
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.automirrored.filled.Undo
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.Switch
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.tasbih.R
 import org.muslim.app.feature.tasbih.domain.DailyCount
+import org.muslim.app.feature.tasbih.domain.TargetSoundSettings
+import org.muslim.app.feature.tasbih.domain.TasbihCategory
 import org.muslim.app.feature.tasbih.domain.TasbihPhrase
 import org.muslim.app.feature.tasbih.domain.TasbihState
 import java.time.format.DateTimeFormatter
@@ -57,7 +85,9 @@ private val TARGETS = listOf(33, 99, 100, 1000)
 
 /**
  * Digital misbaha (PROJECT_PROMPT.md §6 Phase 4): tap-to-count with haptic
- * feedback, configurable target and phrase, daily history and a weekly chart.
+ * feedback, an independent counter per dhikr phrase (grouped by category),
+ * the virtue of each dhikr, undo, configurable/custom target, daily totals
+ * and a weekly chart.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -67,10 +97,29 @@ fun TasbihScreen(
     viewModel: TasbihViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val soundSettings by viewModel.targetSoundSettings.collectAsStateWithLifecycle()
     val haptics = LocalHapticFeedback.current
+    val snackbarHostState = remember { SnackbarHostState() }
+    val context = LocalContext.current
+    val roundCompleteFormat = stringResource(R.string.tasbih_round_complete)
+    val currentSoundSettings by rememberUpdatedState(soundSettings)
+    var selectedCategory by remember { mutableStateOf(state.phrase.category) }
+    var showTargetDialog by remember { mutableStateOf(false) }
+
+    // Vibrate + announce + optional tone whenever a full round completes (33/99/100/…).
+    LaunchedEffect(Unit) {
+        viewModel.roundCompleted.collect { event ->
+            vibrateRoundComplete(context)
+            playTargetSound(context, currentSoundSettings)
+            snackbarHostState.showSnackbar(
+                java.lang.String.format(roundCompleteFormat, event.count.toString()),
+            )
+        }
+    }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.tasbih_title)) },
@@ -86,29 +135,29 @@ fun TasbihScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
                 .padding(horizontal = 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Spacer(Modifier.height(8.dp))
 
-            // Phrase selector
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .horizontalScroll(rememberScrollState()),
-                horizontalArrangement = Arrangement.Center,
-            ) {
-                TasbihPhrase.entries.forEach { phrase ->
-                    FilterChip(
-                        selected = state.phrase == phrase,
-                        onClick = { viewModel.setPhrase(phrase) },
-                        label = { Text(phrase.text) },
-                        modifier = Modifier.padding(end = 8.dp),
-                    )
-                }
-            }
+            CategorySelector(
+                selected = selectedCategory,
+                onSelect = { selectedCategory = it },
+            )
 
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(8.dp))
+
+            PhraseSelector(
+                phrases = TasbihPhrase.entries.filter { it.category == selectedCategory },
+                selected = state.phrase,
+                onSelect = {
+                    selectedCategory = it.category
+                    viewModel.setPhrase(it)
+                },
+            )
+
+            Spacer(Modifier.height(20.dp))
 
             // Big tappable counter circle
             Box(
@@ -122,7 +171,13 @@ fun TasbihScreen(
                     },
                 contentAlignment = Alignment.Center,
             ) {
-                CounterRing(progress = if (state.target > 0) state.count.coerceAtMost(state.target).toFloat() / state.target else 0f)
+                CounterRing(
+                    progress = if (state.target > 0) {
+                        state.count.coerceAtMost(state.target).toFloat() / state.target
+                    } else {
+                        0f
+                    },
+                )
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
                         text = state.count.toString(),
@@ -142,20 +197,106 @@ fun TasbihScreen(
                             color = MaterialTheme.colorScheme.primary,
                         )
                     }
+                    if (state.rounds > 0) {
+                        Text(
+                            text = stringResource(R.string.tasbih_rounds, state.rounds.toString()),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onPrimaryContainer,
+                        )
+                    }
                 }
             }
 
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(12.dp))
+            Text(
+                text = state.phrase.text,
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
+            )
+            Spacer(Modifier.height(2.dp))
+            Text(
+                text = state.phrase.transliteration,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center,
+            )
+
+            Spacer(Modifier.height(4.dp))
             Text(
                 text = stringResource(R.string.tasbih_tap_hint),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
 
+            Spacer(Modifier.height(12.dp))
+
+            // Virtue of the selected dhikr
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                ),
+            ) {
+                Column(modifier = Modifier.padding(12.dp)) {
+                    Text(
+                        text = stringResource(R.string.tasbih_virtue_label),
+                        style = MaterialTheme.typography.labelLarge,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        text = state.phrase.virtue,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    )
+                }
+            }
+
+            Spacer(Modifier.height(12.dp))
+
+            // Undo / reset / reset-all actions
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                OutlinedButton(
+                    onClick = viewModel::decrement,
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Icon(Icons.AutoMirrored.Filled.Undo, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Spacer(Modifier.width(6.dp))
+                    Text(stringResource(R.string.tasbih_undo))
+                }
+                OutlinedButton(
+                    onClick = viewModel::reset,
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Icon(Icons.Filled.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Spacer(Modifier.width(6.dp))
+                    Text(stringResource(R.string.tasbih_reset))
+                }
+                OutlinedButton(
+                    onClick = viewModel::resetAll,
+                    modifier = Modifier.weight(1f),
+                ) {
+                    Icon(Icons.Filled.DeleteSweep, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Spacer(Modifier.width(6.dp))
+                    Text(stringResource(R.string.tasbih_reset_all))
+                }
+            }
+
             Spacer(Modifier.height(16.dp))
 
-            // Target selector
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            // Target presets + custom target
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
                 TARGETS.forEach { target ->
                     FilterChip(
                         selected = state.target == target,
@@ -163,22 +304,33 @@ fun TasbihScreen(
                         label = { Text(target.toString()) },
                     )
                 }
+                FilterChip(
+                    selected = state.target !in TARGETS,
+                    onClick = { showTargetDialog = true },
+                    label = { Text(stringResource(R.string.tasbih_custom_target)) },
+                    leadingIcon = {
+                        Icon(Icons.Filled.Edit, contentDescription = null, modifier = Modifier.size(16.dp))
+                    },
+                )
             }
 
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(16.dp))
 
-            Button(
-                onClick = viewModel::reset,
+            // Sound-on-target settings
+            TargetSoundCard(
+                settings = soundSettings,
+                onToggle = viewModel::setTargetSoundEnabled,
+                onSelectTone = viewModel::setTargetSoundTone,
+            )
+
+            Spacer(Modifier.height(20.dp))
+
+            // Stats
+            Text(
+                text = stringResource(R.string.tasbih_total_today, state.totalToday.toString()),
+                style = MaterialTheme.typography.titleSmall,
                 modifier = Modifier.fillMaxWidth(),
-            ) {
-                Icon(Icons.Filled.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
-                Spacer(Modifier.width(8.dp))
-                Text(stringResource(R.string.tasbih_reset))
-            }
-
-            Spacer(Modifier.height(24.dp))
-
-            // Weekly chart
+            )
             Text(
                 text = stringResource(R.string.tasbih_week_stats),
                 style = MaterialTheme.typography.titleMedium,
@@ -186,13 +338,111 @@ fun TasbihScreen(
             )
             Spacer(Modifier.height(8.dp))
             WeeklyChart(
-                days = (state.history + DailyCount(java.time.LocalDate.now(), state.count))
+                days = (state.history + DailyCount(java.time.LocalDate.now(), state.totalToday))
                     .sortedBy { it.date }
                     .takeLast(7),
             )
             Spacer(Modifier.height(24.dp))
         }
     }
+
+    if (showTargetDialog) {
+        CustomTargetDialog(
+            initial = state.target,
+            onConfirm = {
+                showTargetDialog = false
+                viewModel.setTarget(it)
+            },
+            onDismiss = { showTargetDialog = false },
+        )
+    }
+}
+
+@Composable
+private fun CategorySelector(
+    selected: TasbihCategory,
+    onSelect: (TasbihCategory) -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .horizontalScroll(rememberScrollState()),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        TasbihCategory.entries.forEach { category ->
+            FilterChip(
+                selected = selected == category,
+                onClick = { onSelect(category) },
+                label = { Text(category.label) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun PhraseSelector(
+    phrases: List<TasbihPhrase>,
+    selected: TasbihPhrase,
+    onSelect: (TasbihPhrase) -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .horizontalScroll(rememberScrollState()),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        phrases.forEach { phrase ->
+            FilterChip(
+                selected = selected == phrase,
+                onClick = { onSelect(phrase) },
+                label = { Text(phrase.text, maxLines = 1) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun CustomTargetDialog(
+    initial: Int,
+    onConfirm: (Int) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    var text by remember { mutableStateOf(initial.toString()) }
+    val parsed = text.toIntOrNull()
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.tasbih_custom_target_title)) },
+        text = {
+            Column {
+                Text(
+                    text = stringResource(R.string.tasbih_custom_target_hint),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.height(8.dp))
+                OutlinedTextField(
+                    value = text,
+                    onValueChange = { input -> text = input.filter { it.isDigit() }.take(6) },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                    singleLine = true,
+                )
+            }
+        },
+        confirmButton = {
+            TextButton(
+                onClick = { parsed?.let { onConfirm(it.coerceIn(1, 100_000)) } },
+                enabled = parsed != null && parsed > 0,
+            ) {
+                Text(stringResource(R.string.tasbih_confirm))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(R.string.tasbih_cancel))
+            }
+        },
+    )
 }
 
 /** Progress ring drawn behind the count (arc cycles with the target). */
@@ -221,6 +471,85 @@ private fun CounterRing(progress: Float) {
             style = androidx.compose.ui.graphics.drawscope.Stroke(width = stroke),
         )
     }
+}
+
+/** The three system tones offered for the round-complete sound. */
+private data class ToneOption(val id: String, val labelRes: Int)
+
+private val TONE_OPTIONS = listOf(
+    ToneOption(TargetSoundSettings.TONE_NOTIFICATION, R.string.tasbih_sound_tone_notification),
+    ToneOption(TargetSoundSettings.TONE_RINGTONE, R.string.tasbih_sound_tone_ringtone),
+    ToneOption(TargetSoundSettings.TONE_ALARM, R.string.tasbih_sound_tone_alarm),
+)
+
+/** Toggle + tone picker for the optional round-complete sound. */
+@Composable
+private fun TargetSoundCard(
+    settings: TargetSoundSettings,
+    onToggle: (Boolean) -> Unit,
+    onSelectTone: (String) -> Unit,
+) {
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Column(modifier = Modifier.padding(12.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(R.string.tasbih_sound_title),
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                    Text(
+                        text = stringResource(R.string.tasbih_sound_desc),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                Switch(
+                    checked = settings.enabled,
+                    onCheckedChange = onToggle,
+                )
+            }
+            if (settings.enabled) {
+                Spacer(Modifier.height(8.dp))
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState()),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    TONE_OPTIONS.forEach { option ->
+                        FilterChip(
+                            selected = settings.tone == option.id,
+                            onClick = { onSelectTone(option.id) },
+                            label = { Text(stringResource(option.labelRes)) },
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+/** Plays the selected system tone when the round-complete sound is enabled. */
+private fun playTargetSound(context: Context, settings: TargetSoundSettings) {
+    if (!settings.enabled) return
+    val type = when (settings.tone) {
+        TargetSoundSettings.TONE_RINGTONE -> RingtoneManager.TYPE_RINGTONE
+        TargetSoundSettings.TONE_ALARM -> RingtoneManager.TYPE_ALARM
+        else -> RingtoneManager.TYPE_NOTIFICATION
+    }
+    val uri = RingtoneManager.getDefaultUri(type) ?: return
+    RingtoneManager.getRingtone(context, uri)?.play()
+}
+
+/** Distinct double-buzz on a completed round (requires the VIBRATE permission). */
+private fun vibrateRoundComplete(context: Context) {
+    val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
+        ?: return
+    if (!vibrator.hasVibrator()) return
+    vibrator.vibrate(
+        VibrationEffect.createWaveform(longArrayOf(0, 180, 120, 260), -1),
+    )
 }
 
 /** Simple last-7-days bar chart. */

@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Мусульман</string>
+    <string name="more_adhkar">Адхкар</string>
+    <string name="more_adhkar_desc">Райсом, изæр æмæ куывды фæстæ ахкар нымайæнтимæ</string>
+    <string name="more_downloads">Дзырдтæ æрбакаст</string>
+    <string name="more_downloads_desc">Дæ равзæрст кæсæгимæ райс сурæ, ая кæнæ æххæст Хъуыран</string>
+    <string name="more_hadith">Хадис</string>
+    <string name="more_hadith_desc">Хадисы библиотекæ, агурæн æмæ боны хадис</string>
+    <string name="more_learn">Ахуыр</string>
+    <string name="more_learn_desc">Къахдзæфгай уду æмæ куывды фæндагамонæнтæ</string>
+    <string name="more_ramadan">Рамадан</string>
+    <string name="more_ramadan_desc">Сухур æмæ ифтары рæстæг æмæ комдарæны фæдæвзарæг</string>
+    <string name="more_reference">Бæрæггæнæн библиотекæ</string>
+    <string name="more_reference_desc">Ислам, Сирæ æмæ пехуымпартæм базонгæ кæнын</string>
+    <string name="more_settings">Параметртæ</string>
+    <string name="more_settings_desc">Темæ, æвзаг, куывд æмæ азаны уавæртæ</string>
+    <string name="more_tasbih">Тасбих</string>
+    <string name="more_tasbih_desc">Нымæцон мисбаха æрвылбонон историимæ</string>
+    <string name="more_zakat">Закъат</string>
+    <string name="more_zakat_desc">Закъат хъæздыгдзинад æмæ фидры калькуляторыл</string>
+    <string name="scaffold_message">Бирæмодулон проекты скелет у цæттæ.\nФазæ 1 — Азан, куывды рæстæг, Кибла æмæ Хиджры къæлиндар — ам райдайы.</string>
+    <string name="shortcut_qibla">Кибла</string>
+    <string name="shortcut_qibla_long">Киблæйы здæхт</string>
+    <string name="shortcut_settings">Параметртæ</string>
+    <string name="shortcut_settings_long">Куывд æмæ азаны уавæртæ</string>
+    <string name="shortcut_times">Куывды рæстæг</string>
+    <string name="shortcut_times_long">Абон \'-æм азты куывды рæстæг</string>
+    <string name="tab_home">Куывды рæстæг</string>
+    <string name="tab_more">Бæлвырддæр</string>
+    <string name="tab_qibla">Кибла</string>
+    <string name="tab_quran">Хъуыран</string>
 </resources>

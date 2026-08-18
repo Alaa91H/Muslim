@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Chèche pri otomatikman</string>
+    <string name="zakat_auto_prices_hint">Lè yo aktive, pri lò ak ajan yo pran nan entènèt la epi yo rafrechi otomatikman</string>
+    <string name="zakat_back">Retounen</string>
+    <string name="zakat_cash">Lajan Kach ak ekonomi</string>
+    <string name="zakat_clear_history">Klè istwa</string>
+    <string name="zakat_country">Peyi</string>
+    <string name="zakat_country_placeholder">Chwazi peyi w ak lajan w</string>
+    <string name="zakat_country_section">Peyi ak lajan</string>
+    <string name="zakat_currency">Lajan: %1$s</string>
+    <string name="zakat_debts">Dèt ou dwe (dedui)</string>
+    <string name="zakat_due">Zakat akòz (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\' pa t \'kapab chache pri. Tcheke koneksyon ou oswa antre pri a manyèlman.</string>
+    <string name="zakat_fetch_now">Rafrechi pri kounye a</string>
+    <string name="zakat_fetching">Chache pri...</string>
+    <string name="zakat_fitr_persons">Kantite manm fanmi yo</string>
+    <string name="zakat_fitr_saa_value">Valè yon sèl sa\' (manje diskontinu)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Total Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Lò (gram)</string>
+    <string name="zakat_gold_price">Pri lò pou chak gram</string>
+    <string name="zakat_history">Istwa kalkil</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Pa gen okenn kalkil sove ankò.</string>
+    <string name="zakat_investments">Envestisman</string>
+    <string name="zakat_last_updated">Dènye mete ajou: %1$s</string>
+    <string name="zakat_money_section">Zakat sou richès</string>
+    <string name="zakat_nisab_gold">Nisab lò (85g)</string>
+    <string name="zakat_nisab_met">Se nisab la rive - zakat se akòz</string>
+    <string name="zakat_nisab_not_met">Anba nisab la - pa gen zakat akòz</string>
+    <string name="zakat_nisab_silver">Nisab ajan (595g)</string>
+    <string name="zakat_rulings_note">Pou majorite (jumhoor): lò nisab se 85g, ajan 595g, ak pousantaj la se 2.5%% apre dedwi dèt akòz. Konsilte yon entelektyèl kalifye pou ka espesyal.</string>
+    <string name="zakat_save_result">Sove nan listwa</string>
+    <string name="zakat_silver_grams">Ajan (gram)</string>
+    <string name="zakat_silver_price">Pri ajan pou chak gram</string>
+    <string name="zakat_source_note">Pri lò/ajan nan gold-api.com; Pousantaj FX soti nan open.er-api.com</string>
+    <string name="zakat_title">zakat</string>
+    <string name="zakat_total_assets">Byen total</string>
+    <string name="zakat_trade">Komès valè machandiz yo</string>
+    <string name="zakat_zakatable">Zakatable kantite lajan apre dèt</string>
+</resources>

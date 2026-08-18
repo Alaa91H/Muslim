@@ -51,6 +51,7 @@ import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 /**
  * Ramadan mode (PROJECT_PROMPT.md §6 Phase 6): countdowns to suhoor and
@@ -355,5 +356,5 @@ private fun formatCountdown(nowMillis: Long, targetMillis: Long): String {
     val h = (seconds / 3600).toInt()
     val m = ((seconds % 3600) / 60).toInt()
     val s = (seconds % 60).toInt()
-    return String.format("%02d:%02d:%02d", h, m, s)
+    return String.format(Locale.ROOT, "%02d:%02d:%02d", h, m, s)
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Багьаби автоматически росизе</string>
+    <string name="zakat_auto_prices_hint">Когда включен, цены золота и серебра захватываются из интернета и обновляются автоматически</string>
+    <string name="zakat_back">Нахъе</string>
+    <string name="zakat_cash">ГӀарац ва нахърател .</string>
+    <string name="zakat_clear_history">Тарих бацӀцӀад гьабе .</string>
+    <string name="zakat_country">Улка</string>
+    <string name="zakat_country_placeholder">ТӀаса бище дурго улка ва валюта</string>
+    <string name="zakat_country_section">Улка ва валюта</string>
+    <string name="zakat_currency">Валюта: %1$s</string>
+    <string name="zakat_debts">Дуца кьезе кколел налъаби (бахъун)</string>
+    <string name="zakat_due">Закат кьезе кколеб (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Коулдн\'т багьаби рачине. Проверьте соединение или введите цену вручную.</string>
+    <string name="zakat_fetch_now">Гьанже багьаби цӀи гьаре</string>
+    <string name="zakat_fetching">Багьаби рачӀин...</string>
+    <string name="zakat_fitr_persons">Хъизаналъул гӀадамазул къадар .</string>
+    <string name="zakat_fitr_saa_value">Значение одного са\' (аслияб квен)</string>
+    <string name="zakat_fitr_section">Закатул-Фитр</string>
+    <string name="zakat_fitr_total">ГӀаммаб къадар питралъул закагӀат: %1$s</string>
+    <string name="zakat_gold_grams">Месед (граммал)</string>
+    <string name="zakat_gold_price">Меседил багьа цо граммалъухъ</string>
+    <string name="zakat_history">ХӀисаб гьабиялъул тарих .</string>
+    <string name="zakat_history_amount">Закат: %1$s</string>
+    <string name="zakat_history_empty">Жеги хвасар гьарурал хӀисабал гьечӀо.</string>
+    <string name="zakat_investments">Инвестициял</string>
+    <string name="zakat_last_updated">Ахирисеб нухалъ цӀигьабураб: %1$s</string>
+    <string name="zakat_money_section">Бечелъиялда тӀад закагӀат .</string>
+    <string name="zakat_nisab_gold">Меседил нисаб (85г)</string>
+    <string name="zakat_nisab_met">Нисаб щун буго — закагӀат кьезе ккола .</string>
+    <string name="zakat_nisab_not_met">Нисабалда гъоркь — кьезе кколеб закат гьечӀо</string>
+    <string name="zakat_nisab_silver">ГӀарцул нисаб (595гр)</string>
+    <string name="zakat_rulings_note">ГӀемерисезул къадаралда (жумхӀур): меседил нисаб 85г, гӀарцул 595г, ставкаги 2,5%% кьезе кколеб налъи нахъе бахъун хадуб. Хасал хӀужабазда хурхун махщел бугев гӀалимчиясухъе ине ккола.</string>
+    <string name="zakat_save_result">Тарихалде хвасар гьабе</string>
+    <string name="zakat_silver_grams">ГӀарац (граммал)</string>
+    <string name="zakat_silver_price">ГӀарцул багьа цо граммалъухъ .</string>
+    <string name="zakat_source_note">Меседил/гӀарцул багьаби gold-api.com сайталдаса; Валютаялъул курсал open.er-api.com сайталдаса</string>
+    <string name="zakat_title">Закат</string>
+    <string name="zakat_total_assets">ГӀаммаб къадар активазул</string>
+    <string name="zakat_trade">Дармил къайиялъул къимат .</string>
+    <string name="zakat_zakatable">Налъабаздаса хадуб закатаб гӀарац .</string>
+</resources>

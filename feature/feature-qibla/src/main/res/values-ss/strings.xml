@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s</string>
+    <string name="mosque_finder_empty">Kute emamosque latfolakala kulelibanga</string>
+    <string name="mosque_finder_error">Luphenyo lwehlulekile</string>
+    <string name="mosque_finder_intro">Tfola emamosque lasedvute nendzawo yakho ngekusebentisa i-OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Kute indzawo lesetiwe. Khetsa indzawo kusuka kumasethingi etikhatsi temthandazo kucala.</string>
+    <string name="mosque_finder_retry">Phindza uzame</string>
+    <string name="mosque_finder_searching">Ngiyasesha...</string>
+    <string name="mosque_finder_title">Emamoski lasedvute</string>
+    <string name="qibla_bearing_cardinal">Indlela ye-Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Hambisa lucingo lwakho ngesibalo-siphohlongo kute ululinganise</string>
+    <string name="qibla_distance">Libanga leliya eMakkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f emakhilomitha</string>
+    <string name="qibla_facing">Ubhekene ne Qibla 🕋 .</string>
+    <string name="qibla_gps_error">Ayikwatanga kutfola silungiso lesinembile. Sicela uphindze uzame.</string>
+    <string name="qibla_gps_live">Indzawo ye-GPS lebukhoma</string>
+    <string name="qibla_gps_refresh">Vuselela indzawo nge-GPS</string>
+    <string name="qibla_gps_refreshing">Kutfola...</string>
+    <string name="qibla_heading_degree">Sihloko selucingo: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Umzila lomkhulu-loyindingilizi kusuka endzaweni yakho kuya eKaaba — usebenta ngaphandle kwe-inthanethi</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Wena</string>
+    <string name="qibla_mode_compass">Ikhampasi</string>
+    <string name="qibla_mode_map">Libalave</string>
+    <string name="qibla_open_mosques">Emamoski lasedvute</string>
+    <string name="qibla_title">Qibla sicondziso</string>
+    <string name="qibla_turn_left">Jikela ngasencele %1$.1f°</string>
+    <string name="qibla_turn_right">Jikela ngasekudla %1$.1f°</string>
+</resources>

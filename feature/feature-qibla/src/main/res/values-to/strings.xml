@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s mama\'o</string>
+    <string name="mosque_finder_empty">\'Oku \'ikai ha ngaahi mosques \'oku ma\'u \'i he \'atakai ko \'eni .</string>
+    <string name="mosque_finder_error">Naʻe ʻikai lava ʻa e fekumi</string>
+    <string name="mosque_finder_intro">Kumi \'a e ngaahi mosque ofi ki ho feitu\'u \'o fakafou \'i he OpenStreetMap .</string>
+    <string name="mosque_finder_no_location">Te\'eki ke fokotu\'u ha feitu\'u. Fili ha feituʻu mei he ngaahi fokotuʻutuʻu taimi lotú ʻi he ʻuluaki taimí.</string>
+    <string name="mosque_finder_retry">Toe feinga</string>
+    <string name="mosque_finder_searching">Fekumi...</string>
+    <string name="mosque_finder_title">Ngaahi mosque ofi</string>
+    <string name="qibla_bearing_cardinal">Fakahinohino \'o e Kibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Hiki ho\'o telefoni \'i ha fakatata-valu ke calibrate .</string>
+    <string name="qibla_distance">Mama\'o ki Maka: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Koe fehangahangai moe Qibla 🕋 .</string>
+    <string name="qibla_gps_error">Na\'e \'ikai lava ke ma\'u ha fakalelei\'i totonu. Kātaki ʻo toe feinga.</string>
+    <string name="qibla_gps_live">Nofo\'anga GPS mo\'ui</string>
+    <string name="qibla_gps_refresh">Fakafo\'ou \'a e feitu\'u \'o fakafou \'i he GPS</string>
+    <string name="qibla_gps_refreshing">Ko hono kumi...</string>
+    <string name="qibla_heading_degree">ʻUluʻi telefoni: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Hala siakale lahi mei ho feitu\'u ki he Kaaba — ngaue offline .</string>
+    <string name="qibla_map_kaaba">Kapa</string>
+    <string name="qibla_map_you">Ko koe</string>
+    <string name="qibla_mode_compass">Kāpasa</string>
+    <string name="qibla_mode_map">Mape</string>
+    <string name="qibla_open_mosques">Ngaahi mosque ofi</string>
+    <string name="qibla_title">Fakahinohino Qibla</string>
+    <string name="qibla_turn_left">Tafoki ki he toʻohema %1$.1f°</string>
+    <string name="qibla_turn_right">Tafoki ki he toʻomataʻú %1$.1f°</string>
+</resources>

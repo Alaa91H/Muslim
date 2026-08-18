@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Müslüman</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Sayaçlı sabah, akşam ve namaz sonrası ezkar</string>
+    <string name="more_downloads">Okuma indirmeleri</string>
+    <string name="more_downloads_desc">Seçtiğiniz okuyucuyla bir sure, ayet veya Kur\'an\'ın tamamını indirin</string>
+    <string name="more_hadith">Hadis</string>
+    <string name="more_hadith_desc">Hadis kütüphanesi, günün arama ve hadisleri</string>
+    <string name="more_learn">Öğren</string>
+    <string name="more_learn_desc">Adım adım abdest ve dua kılavuzları</string>
+    <string name="more_ramadan">Ramazan</string>
+    <string name="more_ramadan_desc">Sahur ve iftar vakitleri ve oruç takibi</string>
+    <string name="more_reference">Referans Kitaplığı</string>
+    <string name="more_reference_desc">İslam\'a giriş, Siyer ve peygamberler</string>
+    <string name="more_settings">Ayarlar</string>
+    <string name="more_settings_desc">Tema, dil, dua ve ezan ayarları</string>
+    <string name="more_tasbih">tesbih</string>
+    <string name="more_tasbih_desc">Günlük geçmişe sahip dijital misbaha</string>
+    <string name="more_zakat">Zekat</string>
+    <string name="more_zakat_desc">Zenginlik ve Fitr hesaplayıcıda zekat</string>
+    <string name="scaffold_message">Çok modüllü proje iskeleti hazır.\nAşama 1 - Ezan, namaz vakitleri, Kıble ve Hicri takvim - burada başlıyor.</string>
+    <string name="shortcut_qibla">Kıble</string>
+    <string name="shortcut_qibla_long">Kıble yönü</string>
+    <string name="shortcut_settings">Ayarlar</string>
+    <string name="shortcut_settings_long">Dua ve ezan ayarları</string>
+    <string name="shortcut_times">Namaz vakitleri</string>
+    <string name="shortcut_times_long">Bugün\'\'lerin namaz vakitleri</string>
+    <string name="tab_home">Namaz Vakitleri</string>
+    <string name="tab_more">Daha Fazla</string>
+    <string name="tab_qibla">Kıble</string>
+    <string name="tab_quran">Kuran</string>
 </resources>

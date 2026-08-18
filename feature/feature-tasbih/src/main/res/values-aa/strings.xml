@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Xiyitaal misbaha - loowoonuh xag</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Loowoh xag</string>
+    <string name="tasbih_back">Wadirih</string>
+    <string name="tasbih_cancel">Duuga</string>
+    <string name="tasbih_confirm">Meqeh</string>
+    <string name="tasbih_custom_target">madruur</string>
+    <string name="tasbih_custom_target_hint">Loowoh ixxima culusa (1 ilaa 100000)</string>
+    <string name="tasbih_custom_target_title">madruur hadaf daffeesa</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Qagitaak qemmis</string>
+    <string name="tasbih_reset_all">inkih qagitaak daffes</string>
+    <string name="tasbih_round_complete">Inkih yan maroyta yumurruqeh (%1$s)🎉</string>
+    <string name="tasbih_rounds">Maroytit: %1$d</string>
+    <string name="tasbih_sound_desc">Digir kalluuwus xongolo akkek xongolo umman inkih yan maroyta gaba kalta wak</string>
+    <string name="tasbih_sound_title">Xongolo hadafal tan</string>
+    <string name="tasbih_sound_tone_alarm">ugtuma</string>
+    <string name="tasbih_sound_tone_notification">Maysaxxaga</string>
+    <string name="tasbih_sound_tone_ringtone">Kalluwus xongolo</string>
+    <string name="tasbih_tap_hint">Loowoh maroytat xag</string>
+    <string name="tasbih_target_reached">Hadaf gufeh - Yalli oggolaay</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Asaakih ittat: %1$d</string>
+    <string name="tasbih_undo">Gacis</string>
+    <string name="tasbih_virtue_label">Ta zikrik maqaane</string>
+    <string name="tasbih_week_stats">Tatre 7 ayro</string>
+</resources>

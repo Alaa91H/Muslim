@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">belakang</string>
+    <string name="ramadan_countdown">Ramadan bermula dalam %1$s hari</string>
+    <string name="ramadan_countdown_to_iftar">Masa untuk berbuka puasa: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Masa untuk Subuh: %1$s</string>
+    <string name="ramadan_day_of_month">Hari %1$s Ramadhan</string>
+    <string name="ramadan_days_left">%1$s hari lagi</string>
+    <string name="ramadan_fasting_progress">Hari puasa: %1$s daripada %2$s — ketik sehari untuk merakamnya</string>
+    <string name="ramadan_fasting_tracker">Penjejak puasa</string>
+    <string name="ramadan_hijri_note">Berdasarkan kalendar Umm al-Qura dengan pelarasan Hijriah seluruh aplikasi digunakan.</string>
+    <string name="ramadan_hijri_year">Tahun %1$s Hijrah</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Doa buka puasa: "Ya Allah, untuk-Mu aku berpuasa dan atas rezeki-Mu aku berbuka..."</string>
+    <string name="ramadan_iftar_time">Waktu Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Pilih bandar dalam Tetapan dahulu untuk melihat masa.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Ya Allah, untukMu aku berpuasa dan atas rezekiMu aku berbuka</string>
+    <string name="ramadan_notification_iftar_title">Masa untuk iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr semakin hampir — bersahurlah</string>
+    <string name="ramadan_notification_suhoor_title">Peringatan sahur</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">sahur</string>
+    <string name="ramadan_suhoor_remind_before">Ingatkan saya sebelum:</string>
+    <string name="ramadan_suhoor_time">Sahur berakhir (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadhan</string>
+</resources>

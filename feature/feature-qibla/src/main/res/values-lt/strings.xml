@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s atstumu</string>
+    <string name="mosque_finder_empty">Šiame diapazone mečečių nerasta</string>
+    <string name="mosque_finder_error">Paieška nepavyko</string>
+    <string name="mosque_finder_intro">Raskite mečetes netoli savo vietos naudodami OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Vieta dar nenustatyta. Pirmiausia pasirinkite vietą iš maldos laiko nustatymų.</string>
+    <string name="mosque_finder_retry">Bandykite dar kartą</string>
+    <string name="mosque_finder_searching">Ieškoma…</string>
+    <string name="mosque_finder_title">Šalia mečetės</string>
+    <string name="qibla_bearing_cardinal">Qibla kryptis: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Norėdami sukalibruoti, perkelkite telefoną aštuntuku</string>
+    <string name="qibla_distance">Atstumas iki Mekos: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Jūs susiduriate su Qibla 🕋</string>
+    <string name="qibla_gps_error">Nepavyko gauti tikslaus pataisymo. Bandykite dar kartą.</string>
+    <string name="qibla_gps_live">Tiesioginė GPS vieta</string>
+    <string name="qibla_gps_refresh">Atnaujinkite vietą per GPS</string>
+    <string name="qibla_gps_refreshing">Ieškoma…</string>
+    <string name="qibla_heading_degree">Telefono antraštė: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Puikus apskritimo maršrutas iš jūsų vietos į Kaabą – veikia neprisijungus</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Jūs</string>
+    <string name="qibla_mode_compass">Kompasas</string>
+    <string name="qibla_mode_map">Žemėlapis</string>
+    <string name="qibla_open_mosques">Šalia mečetės</string>
+    <string name="qibla_title">Qibla kryptis</string>
+    <string name="qibla_turn_left">Pasukite į kairę %1$.1f°</string>
+    <string name="qibla_turn_right">Pasukite į dešinę %1$.1f°</string>
+</resources>

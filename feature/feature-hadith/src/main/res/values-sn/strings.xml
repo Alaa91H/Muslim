@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Zvose</string>
+    <string name="hadith_back">Back</string>
+    <string name="hadith_bookmark_add">Wedzera bookmark</string>
+    <string name="hadith_bookmark_remove">Bvisa bookmark</string>
+    <string name="hadith_collection_abudawud">Abu Dawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah</string>
+    <string name="hadith_collection_muslim">Muslim</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">Zvimwe</string>
+    <string name="hadith_collection_riyad">Riyadh as-Salihin</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidhi</string>
+    <string name="hadith_daily_notification">Zuva nezuva hadith chiziviso</string>
+    <string name="hadith_daily_notification_desc">Gamuchira hadith mazuva ese</string>
+    <string name="hadith_daily_notification_time">Nguva yekuzivisa</string>
+    <string name="hadith_of_the_day">Hadith yemazuva ano</string>
+    <string name="hadith_preview_hint">Aya ndiwo maratidziro emazuva ese hadith ziviso panguva yayo yakarongwa.</string>
+    <string name="hadith_preview_label">Notification preview</string>
+    <string name="hadith_preview_loading">Kurodha hadith...</string>
+    <string name="hadith_search_hint">Tsvaga hadiths...</string>
+    <string name="hadith_share">Share</string>
+    <string name="hadith_title">Hadith Library</string>
+</resources>

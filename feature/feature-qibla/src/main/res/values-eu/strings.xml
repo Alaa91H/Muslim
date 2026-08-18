@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s urrun</string>
+    <string name="mosque_finder_empty">Ez da meskitarik aurkitu barruti honetan</string>
+    <string name="mosque_finder_error">Bilatu huts egin du</string>
+    <string name="mosque_finder_intro">Aurkitu zure kokapenetik gertu meskitak OpenStreetMap bidez</string>
+    <string name="mosque_finder_no_location">Oraindik ez dago kokapenik ezarri. Aukeratu kokapen bat otoitz orduen ezarpenetatik lehenik.</string>
+    <string name="mosque_finder_retry">Saiatu berriro</string>
+    <string name="mosque_finder_searching">Bilatzen…</string>
+    <string name="mosque_finder_title">Inguruko meskitak</string>
+    <string name="qibla_bearing_cardinal">Qibla norabidea: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Mugitu telefonoa zortziko irudian kalibratzeko</string>
+    <string name="qibla_distance">Mekkarako distantzia: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Qibla aurrean zaude 🕋</string>
+    <string name="qibla_gps_error">Ezin izan da konponketa zehatza lortu. Mesedez, saiatu berriro.</string>
+    <string name="qibla_gps_live">Zuzeneko GPS kokapena</string>
+    <string name="qibla_gps_refresh">Freskatu kokapena GPS bidez</string>
+    <string name="qibla_gps_refreshing">Kokatzen…</string>
+    <string name="qibla_heading_degree">Telefonoaren goiburua: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Ibilbide bikaina zure kokapenetik Kaabara — lineaz kanpo funtzionatzen du</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Zuk</string>
+    <string name="qibla_mode_compass">Iparrorratza</string>
+    <string name="qibla_mode_map">Mapa</string>
+    <string name="qibla_open_mosques">Inguruko meskitak</string>
+    <string name="qibla_title">Qibla norabidea</string>
+    <string name="qibla_turn_left">Biratu ezkerrera %1$.1f°</string>
+    <string name="qibla_turn_right">Biratu eskuinera %1$.1f°</string>
+</resources>

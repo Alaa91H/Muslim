@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Retounen</string>
+    <string name="ramadan_countdown">Ramadan kòmanse nan %1$s jou</string>
+    <string name="ramadan_countdown_to_iftar">Tan pou iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Tan pou Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Jou %1$s Ramadan</string>
+    <string name="ramadan_days_left">%1$s jou ki rete</string>
+    <string name="ramadan_fasting_progress">Jou jèn: %1$s nan %2$s — tape yon jou pou anrejistre li</string>
+    <string name="ramadan_fasting_tracker">Tracker jèn</string>
+    <string name="ramadan_hijri_note">Ki baze sou kalandriye Umm al-Qura ak ajisteman Hijri nan tout aplikasyon an.</string>
+    <string name="ramadan_hijri_year">Ane %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Siplikasyon Iftar: "O Allah, pou ou mwen fè jèn epi sou dispozisyon ou mwen kraze jèn mwen ..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) lè: %1$s</string>
+    <string name="ramadan_location_required">Chwazi yon vil nan Anviwònman an premye pou w wè lè yo.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, pou ou mwen fè jèn epi sou dispozisyon ou mwen kraze jèn mwen an</string>
+    <string name="ramadan_notification_iftar_title">Tan pou iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr ap apwoche - gen suhoor ou</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor rapèl</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Fè m sonje anvan:</string>
+    <string name="ramadan_suhoor_time">Suhoor fini (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

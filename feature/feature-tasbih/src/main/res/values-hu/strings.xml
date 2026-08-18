@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digitális misbaha – érintse meg a számláláshoz</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Koppintson a számláláshoz</string>
+    <string name="tasbih_back">Vissza</string>
+    <string name="tasbih_cancel">Mégse</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Egyedi</string>
+    <string name="tasbih_custom_target_hint">Adja meg a számok számát (1 és 100 000 között)</string>
+    <string name="tasbih_custom_target_title">Állítson be egyéni célt</string>
+    <string name="tasbih_of_target">%1$s-ból</string>
+    <string name="tasbih_reset">Reset</string>
+    <string name="tasbih_reset_all">Összes visszaállítása</string>
+    <string name="tasbih_round_complete">Teljes kör kész (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Kör: %1$d</string>
+    <string name="tasbih_sound_desc">Minden teljes kör befejeztével játsszon le egy csengőhangot vagy hangot</string>
+    <string name="tasbih_sound_title">Hang a célon</string>
+    <string name="tasbih_sound_tone_alarm">Riasztás</string>
+    <string name="tasbih_sound_tone_notification">Értesítés</string>
+    <string name="tasbih_sound_tone_ringtone">Csengőhang</string>
+    <string name="tasbih_tap_hint">Koppintson a körre a számoláshoz</string>
+    <string name="tasbih_target_reached">A cél elérve – Allah fogadja el</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Ma \' összesen: %1$d</string>
+    <string name="tasbih_undo">Visszavonás</string>
+    <string name="tasbih_virtue_label">Ennek a dhikrnek erénye</string>
+    <string name="tasbih_week_stats">Az elmúlt 7 nap</string>
+</resources>

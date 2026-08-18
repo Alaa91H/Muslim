@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Gatii ofumaan fidaa</string>
+    <string name="zakat_auto_prices_hint">Yeroo dandeessifamu gatiin warqee fi meetii interneetii irraa fudhatamee ofumaan haaromfama</string>
+    <string name="zakat_back">Duuba</string>
+    <string name="zakat_cash">Maallaqa maallaqaa fi qusannoo</string>
+    <string name="zakat_clear_history">Seenaa qulqulluu</string>
+    <string name="zakat_country">Biyya</string>
+    <string name="zakat_country_placeholder">Biyya fi maallaqa kee filadhu</string>
+    <string name="zakat_country_section">Biyya &amp; maallaqa</string>
+    <string name="zakat_currency">Maallaqni: %1$s</string>
+    <string name="zakat_debts">Liqii isin irraa hir’ifame (hir’ifame) .</string>
+    <string name="zakat_due">Zakaa kaffalamuu qabu (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t gatii fiduu hin dandeenye. Connection keessan ilaalaa ykn gatii harkaan galchaa.</string>
+    <string name="zakat_fetch_now">Gatii amma haaromsaa</string>
+    <string name="zakat_fetching">Gatii fiduudhaan...</string>
+    <string name="zakat_fitr_persons">Baay’ina miseensota maatii</string>
+    <string name="zakat_fitr_saa_value">Gatii sa\' tokkoo (nyaata ijoo) .</string>
+    <string name="zakat_fitr_section">Zakaa Al-Fixrii</string>
+    <string name="zakat_fitr_total">Waliigala zakaa Fixraa: %1$s</string>
+    <string name="zakat_gold_grams">Warqee (giraama) .</string>
+    <string name="zakat_gold_price">Gatiin warqee giraama tokkoof</string>
+    <string name="zakat_history">Seenaa shallaggii</string>
+    <string name="zakat_history_amount">Zakaa: %1$s</string>
+    <string name="zakat_history_empty">Shallaggiin hanga ammaatti qusatame hin jiru.</string>
+    <string name="zakat_investments">Invastimantii</string>
+    <string name="zakat_last_updated">Yeroo dhumaaf kan fooyya\'e: %1$s</string>
+    <string name="zakat_money_section">Qabeenya irratti Zakaa</string>
+    <string name="zakat_nisab_gold">Nisab warqee (85g) .</string>
+    <string name="zakat_nisab_met">Nisaabni ga’ameera — zakaan ga’uu qaba</string>
+    <string name="zakat_nisab_not_met">Nisaabaa gadii — zakaan hin kaffalamu</string>
+    <string name="zakat_nisab_silver">Nisab meetii (595g) .</string>
+    <string name="zakat_rulings_note">Per the majority (jumhoor): warqee nisab 85g, meetii 595g, fi reetiin 2.5%% erga liqaa malu hir\'isanii booda. Dhimma addaa irratti hayyuu gahumsa qabu mariisisaa.</string>
+    <string name="zakat_save_result">Seenaatti qusadhaa</string>
+    <string name="zakat_silver_grams">Meetii (giraama) .</string>
+    <string name="zakat_silver_price">Gatiin meetii giraama tokkoof</string>
+    <string name="zakat_source_note">Gatiin warqee/meetii gold-api.com irraa; Sadarkaa FX open.er-api.com irraa</string>
+    <string name="zakat_title">Zakaa</string>
+    <string name="zakat_total_assets">Qabeenya waliigalaa</string>
+    <string name="zakat_trade">Gatii meeshaalee daldalaa</string>
+    <string name="zakat_zakatable">Maallaqa zakatable liqaa booda</string>
+</resources>

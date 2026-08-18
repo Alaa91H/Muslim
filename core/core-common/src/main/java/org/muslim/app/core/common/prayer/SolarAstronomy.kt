@@ -12,6 +12,7 @@ import kotlin.math.PI
 import kotlin.math.pow
 import kotlin.math.roundToInt
 import kotlin.math.sin
+import kotlin.math.sqrt
 import kotlin.math.tan
 
 /** Converts degrees to radians. */
@@ -281,8 +282,12 @@ internal class SolarTime(private val date: LocalDate, private val coordinates: C
             solar.apparentSiderealTime,
             solar.rightAscension,
         )
-        // Standard refraction + solar disc radius for sunrise/sunset (-0.833°).
-        val solarAltitude = -50.0 / 60.0
+        // Standard refraction + solar disc radius for sunrise/sunset (-0.833°),
+        // plus the horizon dip caused by elevation above sea level — the higher
+        // the location, the earlier the sun appears to rise and the later it
+        // sets. Formula per praytimes.org (the project's reference):
+        //   α = -0.8333 - 0.0347·√h  (h = elevation in meters)
+        val solarAltitude = -(50.0 / 60.0) - 0.0347 * sqrt(coordinates.elevation.coerceAtLeast(0.0))
         transit = SolarAstronomy.correctedTransit(
             approximateTransit, coordinates.longitude,
             solar.apparentSiderealTime, solar.rightAscension,

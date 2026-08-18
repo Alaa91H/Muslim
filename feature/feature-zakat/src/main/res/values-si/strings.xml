@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">මිල ගණන් ස්වයංක්‍රීයව ලබා ගන්න</string>
+    <string name="zakat_auto_prices_hint">සබල කළ විට, රන් සහ රිදී මිල අන්තර්ජාලයෙන් ලබාගෙන ස්වයංක්‍රීයව නැවුම් වේ</string>
+    <string name="zakat_back">ආපසු</string>
+    <string name="zakat_cash">මුදල් සහ ඉතිරිකිරීම්</string>
+    <string name="zakat_clear_history">ඉතිහාසය පැහැදිලි කරන්න</string>
+    <string name="zakat_country">රට</string>
+    <string name="zakat_country_placeholder">ඔබේ රට සහ මුදල් තෝරන්න</string>
+    <string name="zakat_country_section">රට සහ මුදල්</string>
+    <string name="zakat_currency">මුදල්: %1$s</string>
+    <string name="zakat_debts">ඔබ ගෙවිය යුතු ණය (අඩු කර ඇත)</string>
+    <string name="zakat_due">සකාත් ගෙවිය යුතු (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'t මිල ගණන් ලබා ගත නොහැකි විය. ඔබගේ සම්බන්ධතාවය පරීක්ෂා කරන්න හෝ මිල අතින් ඇතුල් කරන්න.</string>
+    <string name="zakat_fetch_now">දැන් මිල ගණන් නැවුම් කරන්න</string>
+    <string name="zakat_fetching">මිල ගණන් ලබා ගනිමින්...</string>
+    <string name="zakat_fitr_persons">පවුලේ සාමාජිකයන් සංඛ්යාව</string>
+    <string name="zakat_fitr_saa_value">sa\' (ප්‍රධාන ආහාර) එකක වටිනාකම</string>
+    <string name="zakat_fitr_section">සකාත් අල්-ෆිතර්</string>
+    <string name="zakat_fitr_total">මුළු Fitr සකාත්: %1$s</string>
+    <string name="zakat_gold_grams">රන් (ග්‍රෑම්)</string>
+    <string name="zakat_gold_price">ග්‍රෑම් එකකට රන් මිල</string>
+    <string name="zakat_history">ගණනය කිරීමේ ඉතිහාසය</string>
+    <string name="zakat_history_amount">සකාත්: %1$s</string>
+    <string name="zakat_history_empty">තවමත් සුරකින ලද ගණනය කිරීම් නොමැත.</string>
+    <string name="zakat_investments">ආයෝජන</string>
+    <string name="zakat_last_updated">අවසන් වරට යාවත්කාලීන කළේ: %1$s</string>
+    <string name="zakat_money_section">ධනය මත සකාත්</string>
+    <string name="zakat_nisab_gold">රන් නිසාබ් (ග්‍රෑම් 85)</string>
+    <string name="zakat_nisab_met">නිසාබ් ළඟා වී ඇත - සකාත් ලැබිය යුතුය</string>
+    <string name="zakat_nisab_not_met">නිසාබ්ට පහළින් - සකාත් ගෙවිය යුතු නැත</string>
+    <string name="zakat_nisab_silver">රිදී නිසාබ් (ග්‍රෑම් 595)</string>
+    <string name="zakat_rulings_note">බහුතරය අනුව (jumhoor): රන් නිසාබ් 85g, රිදී 595g, සහ නියමිත ණය අඩු කිරීමෙන් පසු අනුපාතය 2.5%% වේ. විශේෂ අවස්ථා සඳහා සුදුසුකම් ලත් විශාරදයෙකුගෙන් විමසන්න.</string>
+    <string name="zakat_save_result">ඉතිහාසයට සුරකින්න</string>
+    <string name="zakat_silver_grams">රිදී (ග්‍රෑම්)</string>
+    <string name="zakat_silver_price">ග්‍රෑම් එකකට රිදී මිල</string>
+    <string name="zakat_source_note">Gold-api.com වෙතින් රන්/රිදී මිල ගණන්; open.er-api.com වෙතින් FX ගාස්තු</string>
+    <string name="zakat_title">සකාත්</string>
+    <string name="zakat_total_assets">මුළු වත්කම්</string>
+    <string name="zakat_trade">වෙළඳ භාණ්ඩ වටිනාකම</string>
+    <string name="zakat_zakatable">ණයට පසු සකාත් කළ හැකි මුදල</string>
+</resources>

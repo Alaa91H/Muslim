@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Kozonga sima</string>
+    <string name="ramadan_countdown">Ramadan ebandi na mikolo %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Ntango ya iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Ntango ya kokende na Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Mokolo %1$s ya Ramadan</string>
+    <string name="ramadan_days_left">Mikolo %1$s etikali</string>
+    <string name="ramadan_fasting_progress">Mikolo ya kokila bilei: %1$s ya %2$s — finá mokolo moko mpo na kokoma yango</string>
+    <string name="ramadan_fasting_tracker">Molandi ya kokila bilei</string>
+    <string name="ramadan_hijri_note">Na kotalela calendrier ya Umm al-Qura na ajustement ya Hijri ya app mobimba oyo esalemi.</string>
+    <string name="ramadan_hijri_year">Mobu %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Libondeli ya Iftar: "Ee Allah, mpo na Yo nakilaki bilei mpe na bilei na Yo nazali kobuka bilei na ngai..."</string>
+    <string name="ramadan_iftar_time">Ntango ya Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Pona liboso engumba moko na Paramètres mpo na komona ngonga.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, mpo na Yo na jelaki bilei mpe na bilei na Yo nazali ko jeûne na ngai</string>
+    <string name="ramadan_notification_iftar_title">Tango ya iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr azali kopusana — zala na suhoor na yo</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor bokundoli</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor ezali bongo</string>
+    <string name="ramadan_suhoor_remind_before">Kundolisa ngai liboso:</string>
+    <string name="ramadan_suhoor_time">Suhoor esukaka (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan na mokolo ya Ramadan</string>
+</resources>

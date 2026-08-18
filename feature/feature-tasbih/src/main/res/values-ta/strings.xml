@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">டிஜிட்டல் மிஸ்பாஹா - எண்ணுவதற்கு தட்டவும்</string>
+    <string name="misbaha_widget_label">தஸ்பிஹ்</string>
+    <string name="misbaha_widget_tap_hint">எண்ணுவதற்கு தட்டவும்</string>
+    <string name="tasbih_back">மீண்டும்</string>
+    <string name="tasbih_cancel">ரத்து செய்</string>
+    <string name="tasbih_confirm">சரி</string>
+    <string name="tasbih_custom_target">தனிப்பயன்</string>
+    <string name="tasbih_custom_target_hint">எண்ணிக்கையின் எண்ணிக்கையை உள்ளிடவும் (1 முதல் 100000 வரை)</string>
+    <string name="tasbih_custom_target_title">தனிப்பயன் இலக்கை அமைக்கவும்</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">மீட்டமை</string>
+    <string name="tasbih_reset_all">அனைத்தையும் மீட்டமைக்கவும்</string>
+    <string name="tasbih_round_complete">முழு சுற்று முடிந்தது (%1$s) 🎉</string>
+    <string name="tasbih_rounds">சுற்றுகள்: %1$d</string>
+    <string name="tasbih_sound_desc">ஒவ்வொரு முழு சுற்று முடிந்ததும் ரிங்டோன் அல்லது டோனை இயக்கவும்</string>
+    <string name="tasbih_sound_title">இலக்கில் ஒலி</string>
+    <string name="tasbih_sound_tone_alarm">அலாரம்</string>
+    <string name="tasbih_sound_tone_notification">அறிவிப்பு</string>
+    <string name="tasbih_sound_tone_ringtone">ரிங்டோன்</string>
+    <string name="tasbih_tap_hint">எண்ண வட்டத்தைத் தட்டவும்</string>
+    <string name="tasbih_target_reached">இலக்கை அடைந்தது - அல்லாஹ் ஏற்றுக்கொள்வானாக</string>
+    <string name="tasbih_title">தஸ்பிஹ்</string>
+    <string name="tasbih_total_today">இன்று\'கள் மொத்தம்: %1$d</string>
+    <string name="tasbih_undo">செயல்தவிர்</string>
+    <string name="tasbih_virtue_label">இந்த திக்ரின் சிறப்பு</string>
+    <string name="tasbih_week_stats">கடந்த 7 நாட்கள்</string>
+</resources>

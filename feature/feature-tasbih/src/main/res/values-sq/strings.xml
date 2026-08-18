@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha dixhitale — prekni për të numëruar</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Trokit për të numëruar</string>
+    <string name="tasbih_back">Mbrapa</string>
+    <string name="tasbih_cancel">Anulo</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Me porosi</string>
+    <string name="tasbih_custom_target_hint">Futni numrin e numërimeve (nga 1 në 100000)</string>
+    <string name="tasbih_custom_target_title">Vendosni një objektiv të personalizuar</string>
+    <string name="tasbih_of_target">prej %1$s</string>
+    <string name="tasbih_reset">Rivendos</string>
+    <string name="tasbih_reset_all">Rivendos të gjitha</string>
+    <string name="tasbih_round_complete">Raundi i plotë i kompletuar (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Rrumbullakët: %1$d</string>
+    <string name="tasbih_sound_desc">Luaj një zile ose ton kur të përfundojë çdo raund i plotë</string>
+    <string name="tasbih_sound_title">Tingulli në objektiv</string>
+    <string name="tasbih_sound_tone_alarm">Alarmi</string>
+    <string name="tasbih_sound_tone_notification">Njoftimi</string>
+    <string name="tasbih_sound_tone_ringtone">Zile</string>
+    <string name="tasbih_tap_hint">Prekni rrethin për të numëruar</string>
+    <string name="tasbih_target_reached">Qëllimi u arrit - Allahu e pranoftë</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Sot \' gjithsej: %1$d</string>
+    <string name="tasbih_undo">Zhbër</string>
+    <string name="tasbih_virtue_label">Virtyti i këtij dhikri</string>
+    <string name="tasbih_week_stats">7 ditët e fundit</string>
+</resources>

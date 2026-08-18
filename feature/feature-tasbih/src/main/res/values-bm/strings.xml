@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — i bolo digi walasa ka jate</string>
+    <string name="misbaha_widget_label">Tasbih ye</string>
+    <string name="misbaha_widget_tap_hint">I bolo digi walisa ka jate kɛ</string>
+    <string name="tasbih_back">Kɔfɛ</string>
+    <string name="tasbih_cancel">Cancel (Kalan) kɛ</string>
+    <string name="tasbih_confirm">OK ye</string>
+    <string name="tasbih_custom_target">Laada</string>
+    <string name="tasbih_custom_target_hint">Jateden hakɛ sɛbɛn (ka bɔ 1 la ka se 100000 ma) .</string>
+    <string name="tasbih_custom_target_title">Laɲini dɔ sigi sen kan min bɛ kɛ ka kɛɲɛ ni i yɛrɛ sago ye</string>
+    <string name="tasbih_of_target">ka %1$s ye</string>
+    <string name="tasbih_reset">Segin-ka-bɔnye kɛ</string>
+    <string name="tasbih_reset_all">Segin bɛɛ la</string>
+    <string name="tasbih_round_complete">Ronde dafalen dafalen (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Laminiw: %1$d</string>
+    <string name="tasbih_sound_desc">Aw bɛ fɔlikan walima ton dɔ fɔ ni ron dafalen kelen-kelen bɛɛ banna</string>
+    <string name="tasbih_sound_title">Mankan bɛ kɛ laɲini kan</string>
+    <string name="tasbih_sound_tone_alarm">Alarm (alarm) ye</string>
+    <string name="tasbih_sound_tone_notification">Ladɔnniyali</string>
+    <string name="tasbih_sound_tone_ringtone">Mankan min bɛ fɔ</string>
+    <string name="tasbih_tap_hint">Aw bɛ sɛrɛkili digi walasa ka jate kɛ</string>
+    <string name="tasbih_target_reached">Laɲini sera — Allah ka sɔn</string>
+    <string name="tasbih_title">Tasbih ye</string>
+    <string name="tasbih_total_today">Bi\'w bɛɛ lajɛlen ye %1$d ye</string>
+    <string name="tasbih_undo">Undo (Undo) la</string>
+    <string name="tasbih_virtue_label">Nin zikiri in ka ɲumanya</string>
+    <string name="tasbih_week_stats">Tile 7 labanw</string>
+</resources>

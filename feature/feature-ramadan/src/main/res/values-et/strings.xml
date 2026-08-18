@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Tagasi</string>
+    <string name="ramadan_countdown">Ramadan algab %1$s päeva pärast</string>
+    <string name="ramadan_countdown_to_iftar">Aeg iftarini: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Aeg Fajrini: %1$s</string>
+    <string name="ramadan_day_of_month">Ramadaani päev %1$s</string>
+    <string name="ramadan_days_left">%1$s päeva on jäänud</string>
+    <string name="ramadan_fasting_progress">Paastupäevad: %1$s/%2$s – puudutage päeva selle salvestamiseks</string>
+    <string name="ramadan_fasting_tracker">Paastumise jälgija</string>
+    <string name="ramadan_hijri_note">Põhineb Umm al-Qura kalendril, millele on rakendatud kogu rakendust hõlmav Hijri korrigeerimine.</string>
+    <string name="ramadan_hijri_year">Aasta %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftari anumine: "Oo Jumal, ma paastusin teie pärast ja teie abiga katkestan oma paastu ..."</string>
+    <string name="ramadan_iftar_time">Iftari (Maghribi) aeg: %1$s</string>
+    <string name="ramadan_location_required">Kellaaegade nägemiseks valige seadetes esmalt linn.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Oo Jumal, Sinu pärast ma paastusin ja Sinu ettenägemisel katkestan oma paastu</string>
+    <string name="ramadan_notification_iftar_title">Iftari aeg</string>
+    <string name="ramadan_notification_suhoor_body">Fajr läheneb – võta oma suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Suhoori meeldetuletus</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Tuleta mulle enne meelde:</string>
+    <string name="ramadan_suhoor_time">Suhoori otsad (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

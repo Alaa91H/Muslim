@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Ҳама</string>
+    <string name="hadith_back">Бозгашт</string>
+    <string name="hadith_bookmark_add">Иловаи хатчӯб</string>
+    <string name="hadith_bookmark_remove">Хатчӯбро хориҷ кунед</string>
+    <string name="hadith_collection_abudawud">Абу Довуд</string>
+    <string name="hadith_collection_bukhari">Ал-Бухорӣ</string>
+    <string name="hadith_collection_ibnmajah">Ибни Моҷа</string>
+    <string name="hadith_collection_muslim">мусулмон</string>
+    <string name="hadith_collection_nasai">Ан-Наса\'и</string>
+    <string name="hadith_collection_nawawi">Ан-Нававӣ 40</string>
+    <string name="hadith_collection_other">Дигар</string>
+    <string name="hadith_collection_riyad">Риёз ас-Солихин</string>
+    <string name="hadith_collection_tirmidhi">Ат-Тирмизи</string>
+    <string name="hadith_daily_notification">Огоҳии ҳаррӯзаи ҳадис</string>
+    <string name="hadith_daily_notification_desc">Ҳар рӯз ҳадис бигиред</string>
+    <string name="hadith_daily_notification_time">Вақти огоҳӣ</string>
+    <string name="hadith_of_the_day">Хадиси руз</string>
+    <string name="hadith_preview_hint">Ҳамин тавр огоҳии ҳаррӯзаи ҳадис дар вақти таъиншуда пайдо мешавад.</string>
+    <string name="hadith_preview_label">Пешнамоиши огоҳинома</string>
+    <string name="hadith_preview_loading">Loading the hadis...</string>
+    <string name="hadith_search_hint">Ҷустуҷӯи ҳадис...</string>
+    <string name="hadith_share">Мубодила</string>
+    <string name="hadith_title">Китобхонаи Ҳадис</string>
+</resources>

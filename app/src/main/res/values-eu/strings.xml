@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Musulman</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Goizean, arratsaldean eta otoitz osteko adhkar kontagailuekin</string>
+    <string name="more_downloads">Errezitazioaren deskarga</string>
+    <string name="more_downloads_desc">Deskargatu sura bat, aiah bat edo Koran osoa hautatutako errezitatzailearekin</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Hadith liburutegia, bilaketa eta eguneko hadithak</string>
+    <string name="more_learn">Ikasi</string>
+    <string name="more_learn_desc">Urratsez urrats wudu eta otoitz gidak</string>
+    <string name="more_ramadan">Ramadana</string>
+    <string name="more_ramadan_desc">Suhoor eta iftar denborak eta barau-jarraitzailea</string>
+    <string name="more_reference">Erreferentzia Liburutegia</string>
+    <string name="more_reference_desc">Islamaren sarrera, Sira eta profetak</string>
+    <string name="more_settings">Ezarpenak</string>
+    <string name="more_settings_desc">Gaia, hizkuntza, otoitza eta adhan ezarpenak</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha digitala eguneroko historiarekin</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat aberastasuna eta Fitr kalkulagailuan</string>
+    <string name="scaffold_message">Modulu anitzeko proiektuaren hezurdura prest dago.\n1. Fasea — Adhan, otoitz denborak, Qibla eta Hijri egutegia — hemen hasten da.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla norabidea</string>
+    <string name="shortcut_settings">Ezarpenak</string>
+    <string name="shortcut_settings_long">Otoitza eta adhan ezarpenak</string>
+    <string name="shortcut_times">Otoitz denborak</string>
+    <string name="shortcut_times_long">Gaur \'s otoitz orduak</string>
+    <string name="tab_home">Otoitz Orduak</string>
+    <string name="tab_more">Gehiago</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Korana</string>
 </resources>

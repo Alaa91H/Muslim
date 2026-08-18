@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Fof</string>
+    <string name="hadith_back">Caggal</string>
+    <string name="hadith_bookmark_add">Ɓeydu heen maande</string>
+    <string name="hadith_bookmark_remove">Ittu maande</string>
+    <string name="hadith_collection_abudawud">Abuu Daawuuda</string>
+    <string name="hadith_collection_bukhari">Al-Bukhaari</string>
+    <string name="hadith_collection_ibnmajah">Ibnu Maajah</string>
+    <string name="hadith_collection_muslim">Juulɗo</string>
+    <string name="hadith_collection_nasai">An-Naasa\'i</string>
+    <string name="hadith_collection_nawawi">Nawawi 40</string>
+    <string name="hadith_collection_other">Woɗɓe</string>
+    <string name="hadith_collection_riyad">Riyaad biyeteeɗo Saalihin</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmisiy</string>
+    <string name="hadith_daily_notification">Notifikaasiyoŋ hadiis ñalnde kala</string>
+    <string name="hadith_daily_notification_desc">Jaɓɓaade heen hadiis ñalnde kala</string>
+    <string name="hadith_daily_notification_time">Waktu humpito</string>
+    <string name="hadith_of_the_day">Hadiis ñalnde heen</string>
+    <string name="hadith_preview_hint">Ko noon humpito hadiis ñalnde kala feeñirta e sahaa mum.</string>
+    <string name="hadith_preview_label">Yiyngo humpito</string>
+    <string name="hadith_preview_loading">Loading hadiis...</string>
+    <string name="hadith_search_hint">Yiylo hadisaaji...</string>
+    <string name="hadith_share">Renndinde</string>
+    <string name="hadith_title">Defterdu Hadiis</string>
+</resources>

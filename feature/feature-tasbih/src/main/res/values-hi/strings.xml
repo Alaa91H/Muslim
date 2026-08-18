@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">डिजिटल मिस्बाहा - गिनने के लिए टैप करें</string>
+    <string name="misbaha_widget_label">तस्बीह</string>
+    <string name="misbaha_widget_tap_hint">गिनने के लिए टैप करें</string>
+    <string name="tasbih_back">वापस</string>
+    <string name="tasbih_cancel">रद्द करें</string>
+    <string name="tasbih_confirm">ठीक है</string>
+    <string name="tasbih_custom_target">कस्टम</string>
+    <string name="tasbih_custom_target_hint">गिनती की संख्या दर्ज करें (1 से 100000 तक)</string>
+    <string name="tasbih_custom_target_title">एक कस्टम लक्ष्य निर्धारित करें</string>
+    <string name="tasbih_of_target">%1$s का</string>
+    <string name="tasbih_reset">रीसेट करें</string>
+    <string name="tasbih_reset_all">सभी रीसेट करें</string>
+    <string name="tasbih_round_complete">पूरा राउंड पूरा (%1$s) 🎉</string>
+    <string name="tasbih_rounds">राउंड: %1$d</string>
+    <string name="tasbih_sound_desc">प्रत्येक पूर्ण राउंड पूरा होने पर रिंगटोन या टोन बजाएं</string>
+    <string name="tasbih_sound_title">लक्ष्य पर ध्वनि</string>
+    <string name="tasbih_sound_tone_alarm">अलार्म</string>
+    <string name="tasbih_sound_tone_notification">अधिसूचना</string>
+    <string name="tasbih_sound_tone_ringtone">रिंगटोन</string>
+    <string name="tasbih_tap_hint">गिनने के लिए वृत्त को टैप करें</string>
+    <string name="tasbih_target_reached">लक्ष्य पूरा हो गया - अल्लाह स्वीकार करे</string>
+    <string name="tasbih_title">तस्बीह</string>
+    <string name="tasbih_total_today">आज \' कुल: %1$d</string>
+    <string name="tasbih_undo">पूर्ववत करें</string>
+    <string name="tasbih_virtue_label">इस धिक्कार का गुण</string>
+    <string name="tasbih_week_stats">पिछले 7 दिन</string>
+</resources>

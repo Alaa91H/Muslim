@@ -17,6 +17,7 @@ data class City(
     val latitude: Double,
     val longitude: Double,
     val timeZone: String,
+    val elevation: Double = 0.0,
 ) {
     val displayName: String get() = nameArabic.ifBlank { name }
 }

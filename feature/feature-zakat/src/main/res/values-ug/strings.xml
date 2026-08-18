@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">باھانى ئاپتوماتىك ئېلىڭ</string>
+    <string name="zakat_auto_prices_hint">قوزغىتىلغاندا ، ئالتۇن ۋە كۈمۈش باھاسى توردىن ئېلىنىپ ئاپتوماتىك يېڭىلىنىدۇ</string>
+    <string name="zakat_back">قايتىش</string>
+    <string name="zakat_cash">نەق پۇل ۋە ئامانەت</string>
+    <string name="zakat_clear_history">تارىخنى ئېنىقلاش</string>
+    <string name="zakat_country">دۆلەت</string>
+    <string name="zakat_country_placeholder">دۆلىتىڭىزنى ۋە پۇلىڭىزنى تاللاڭ</string>
+    <string name="zakat_country_section">دۆلەت ۋە پۇل</string>
+    <string name="zakat_currency">پۇل: %1$s</string>
+    <string name="zakat_debts">قەرزىڭىز (تۇتۇپ قېلىنىدۇ)</string>
+    <string name="zakat_due">زاكات قەرەلى (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">باھاسى \'t. ئۇلىنىشىڭىزنى تەكشۈرۈپ بېقىڭ ياكى باھانى قولدا كىرگۈزۈڭ.</string>
+    <string name="zakat_fetch_now">ھازىر باھانى يېڭىلاڭ</string>
+    <string name="zakat_fetching">باھاغا ئېرىشىش…</string>
+    <string name="zakat_fitr_persons">ئائىلە ئەزالىرىنىڭ سانى</string>
+    <string name="zakat_fitr_saa_value">بىر sa\' نىڭ قىممىتى (ئاساسلىق يېمەكلىك)</string>
+    <string name="zakat_fitr_section">زاكات ئەل فىتىر</string>
+    <string name="zakat_fitr_total">ئومۇمىي Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">ئالتۇن (گرام)</string>
+    <string name="zakat_gold_price">ھەر گرام ئالتۇن باھاسى</string>
+    <string name="zakat_history">ھېسابلاش تارىخى</string>
+    <string name="zakat_history_amount">زاكات: %1$s</string>
+    <string name="zakat_history_empty">ھازىرچە ساقلانغان ھېسابلاش يوق.</string>
+    <string name="zakat_investments">مەبلەغ سېلىش</string>
+    <string name="zakat_last_updated">ئاخىرقى يېڭىلانغان ۋاقتى: %1$s</string>
+    <string name="zakat_money_section">بايلىق ئۈستىدە زاكات</string>
+    <string name="zakat_nisab_gold">ئالتۇن نىساب (85g)</string>
+    <string name="zakat_nisab_met">نىسابقا يەتتى - زاكات ۋاقتى توشتى</string>
+    <string name="zakat_nisab_not_met">نىسابنىڭ ئاستىدا - زاكات ۋاقتى يوق</string>
+    <string name="zakat_nisab_silver">كۈمۈش نىساب (595g)</string>
+    <string name="zakat_rulings_note">كۆپ ساندىكى كىشىلەر (jumhoor): ئالتۇن نىساب 85g ، كۈمۈش 595g ، قەرزىنى تۇتۇپ قالغاندىن كېيىن ئۆسۈم نىسبىتى 2.5%%. ئالاھىدە ئەھۋاللار ئۈچۈن لاياقەتلىك ئالىمدىن مەسلىھەت سوراڭ.</string>
+    <string name="zakat_save_result">تارىخقا ساقلاڭ</string>
+    <string name="zakat_silver_grams">كۈمۈش (گرام)</string>
+    <string name="zakat_silver_price">ھەر گرامنىڭ كۈمۈش باھاسى</string>
+    <string name="zakat_source_note">Gold-api.com دىن ئالتۇن / كۈمۈش باھاسى Open.er-api.com دىن FX نىسبىتى</string>
+    <string name="zakat_title">زاكات</string>
+    <string name="zakat_total_assets">ئومۇمىي مۈلۈك</string>
+    <string name="zakat_trade">سودا مال قىممىتى</string>
+    <string name="zakat_zakatable">قەرزدىن كېيىنكى زاكات سوممىسى</string>
+</resources>

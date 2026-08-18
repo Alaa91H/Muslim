@@ -85,6 +85,18 @@ enum class AppPermission(
         R.string.permission_vibrate,
         R.string.permission_vibrate_desc,
         Kind.Normal,
+    ),
+
+    /**
+     * Battery optimization exemption — keeps prayer times, adhan and
+     * reminders alive around the clock on OEM devices that aggressively
+     * kill background work (Android 6+).
+     */
+    BatteryOptimization(
+        R.string.permission_battery_optimization,
+        R.string.permission_battery_optimization_desc,
+        Kind.SpecialAccess,
+        minSdk = Build.VERSION_CODES.M,
     );
 
     enum class Kind { Runtime, SpecialAccess, Normal }

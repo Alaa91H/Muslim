@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Iġbor il-prezzijiet awtomatikament</string>
+    <string name="zakat_auto_prices_hint">Meta jkun attivat, il-prezzijiet tad-deheb u tal-fidda jinġabru mill-internet u jiġu aggornati awtomatikament</string>
+    <string name="zakat_back">Lura</string>
+    <string name="zakat_cash">Flus u tfaddil</string>
+    <string name="zakat_clear_history">Storja ċara</string>
+    <string name="zakat_country">Pajjiż</string>
+    <string name="zakat_country_placeholder">Agħżel pajjiżek u l-munita</string>
+    <string name="zakat_country_section">Pajjiż u munita</string>
+    <string name="zakat_currency">Munita: %1$s</string>
+    <string name="zakat_debts">Djun li għandek (imnaqqsa)</string>
+    <string name="zakat_due">Zakat dovut (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ma setgħetx \'t iġġib il-prezzijiet. Iċċekkja l-konnessjoni tiegħek jew daħħal il-prezz manwalment.</string>
+    <string name="zakat_fetch_now">Aġġorna l-prezzijiet issa</string>
+    <string name="zakat_fetching">Qed niġbru l-prezzijiet...</string>
+    <string name="zakat_fitr_persons">Numru ta\' membri tal-familja</string>
+    <string name="zakat_fitr_saa_value">Valur ta\' sa\' wieħed (ikel bażiku)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Total Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Deheb (grammi)</string>
+    <string name="zakat_gold_price">Prezz tad-deheb għal kull gramma</string>
+    <string name="zakat_history">Storja tal-kalkolu</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Għadu l-ebda kalkoli salvati.</string>
+    <string name="zakat_investments">Investimenti</string>
+    <string name="zakat_last_updated">Aġġornata l-aħħar: %1$s</string>
+    <string name="zakat_money_section">Zakat fuq il-ġid</string>
+    <string name="zakat_nisab_gold">Nisab tad-deheb (85g)</string>
+    <string name="zakat_nisab_met">Is-nisab jintlaħaq - zakat huwa dovut</string>
+    <string name="zakat_nisab_not_met">Taħt in-nisab - l-ebda zakat dovut</string>
+    <string name="zakat_nisab_silver">Nisab tal-fidda (595g)</string>
+    <string name="zakat_rulings_note">Għal kull maġġoranza (jumhoor): nisab tad-deheb huwa 85g, fidda 595g, u r-rata hija 2.5%% wara li tnaqqas id-djun dovuti. Ikkonsulta studjuż kwalifikat għal każijiet speċjali.</string>
+    <string name="zakat_save_result">Ħlief għall-istorja</string>
+    <string name="zakat_silver_grams">Fidda (grammi)</string>
+    <string name="zakat_silver_price">Prezz tal-fidda għal kull gramma</string>
+    <string name="zakat_source_note">Prezzijiet tad-deheb/fidda minn gold-api.com; Rati FX minn open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Assi totali</string>
+    <string name="zakat_trade">Il-valur tal-merkanzija kummerċjali</string>
+    <string name="zakat_zakatable">Ammont Zakatabbli wara d-djun</string>
+</resources>

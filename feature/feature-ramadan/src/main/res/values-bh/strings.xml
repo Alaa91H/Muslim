@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">वापस आ गइल</string>
+    <string name="ramadan_countdown">रमजान के शुरुआत %1$s दिन में होला</string>
+    <string name="ramadan_countdown_to_iftar">इफ्तार तक के समय : %1$s बा</string>
+    <string name="ramadan_countdown_to_suhoor">Time to Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">रमजान के दिन %1$s</string>
+    <string name="ramadan_days_left">%1$s days remaining</string>
+    <string name="ramadan_fasting_progress">उपवास के दिन: %2$s में से %1$s — एकरा के रिकॉर्ड करे खातिर एक दिन के टैप करीं</string>
+    <string name="ramadan_fasting_tracker">उपवास के ट्रैकर बा</string>
+    <string name="ramadan_hijri_note">उम्म अल-कुरा कैलेंडर के आधार पर ऐप-वाइड हिजरी समायोजन लागू कइल गइल बा।</string>
+    <string name="ramadan_hijri_year">साल %1$s हिजरी के बा</string>
+    <string name="ramadan_iftar">इफ्तार के बा</string>
+    <string name="ramadan_iftar_dua">इफ्तार के दुआ: "हे अल्लाह, तोहरा खातिर हम रोजा रखले बानी आ तोहरा रिज़्ज़ट पर हम आपन रोजा तोड़त बानी..."</string>
+    <string name="ramadan_iftar_time">इफ्तार (मगरीब) के समय : %1$s बा</string>
+    <string name="ramadan_location_required">समय देखे खातिर पहिले सेटिंग में कवनो शहर चुनीं।</string>
+    <string name="ramadan_minutes">%1$s मिनट के बा</string>
+    <string name="ramadan_notification_iftar_body">हे अल्लाह, तोहरा खातिर हम रोजा रखले बानी आ तोहरा रिज़्ज़ट पर हम आपन रोजा तोड़त बानी</string>
+    <string name="ramadan_notification_iftar_title">इफ्तार के समय बा</string>
+    <string name="ramadan_notification_suhoor_body">फजर नजदीक आ रहल बा — आपन सुहूर करऽ</string>
+    <string name="ramadan_notification_suhoor_title">सुहूर याद दिलावत बानी</string>
+    <string name="ramadan_starts_on">%1$s — %2$s के बा</string>
+    <string name="ramadan_suhoor">सुहूर के बा</string>
+    <string name="ramadan_suhoor_remind_before">पहिले याद दिआवल जाव:</string>
+    <string name="ramadan_suhoor_time">सुहूर समाप्त हो जाला (फजर): %1$s</string>
+    <string name="ramadan_title">रमजान के बा</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Zpět</string>
+    <string name="reference_no_results">Žádné odpovídající výsledky</string>
+    <string name="reference_search_hint">Prohledat tuto knihu…</string>
+    <string name="reference_title">Islámská referenční knihovna</string>
+    <string name="reference_topics_count">témata</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Kuvutuka</string>
+    <string name="ramadan_countdown">Ramadan ke yantika na bilumbu %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Ntangu ya kusala iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Ntangu ya Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Kilumbu ya %1$s ya Ramadan</string>
+    <string name="ramadan_days_left">Bilumbu %1$s me bikala</string>
+    <string name="ramadan_fasting_progress">Bilumbu ya kubuya kudya: %1$s ya %2$s — simba kilumbu mosi sambu na kusonika yo .</string>
+    <string name="ramadan_fasting_tracker">Tracker ya kubuya kudya</string>
+    <string name="ramadan_hijri_note">Na kutadila manaka ya Umm al-Qura ti nsoba ya Hijri ya appli ya mvimba yina bo me sadila.</string>
+    <string name="ramadan_hijri_year">Mvula %1$s T.B.</string>
+    <string name="ramadan_iftar">iftar</string>
+    <string name="ramadan_iftar_dua">Kubondila Iftar: "O Allah, sambu na Nge mono me buya madia mpi na nzila ya bima na Nge mono ke buya madia..."</string>
+    <string name="ramadan_iftar_time">Ntangu ya Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Pona ntete mbanza mosi na Parametre sambu na kumona bangunga.</string>
+    <string name="ramadan_minutes">Minuta %1$s</string>
+    <string name="ramadan_notification_iftar_body">O Allah, sambu na nge mono me buya madia mpi na bima na nge mono ke buya madia .</string>
+    <string name="ramadan_notification_iftar_title">Ntangu ya iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr ke na kufinama — sala suhoor na nge .</string>
+    <string name="ramadan_notification_suhoor_title">Ngibuka ya Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhour</string>
+    <string name="ramadan_suhoor_remind_before">Yibusa mono na ntwala:</string>
+    <string name="ramadan_suhoor_time">Suhour ke suka (fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

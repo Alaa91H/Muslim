@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Baya</string>
+    <string name="ramadan_countdown">Ramadan yana farawa a cikin kwanaki %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Lokacin buda baki: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Lokacin Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Ranar %1$s na Ramadan</string>
+    <string name="ramadan_days_left">saura kwanaki %1$s</string>
+    <string name="ramadan_fasting_progress">Kwanakin azumi: %1$s na %2$s - matsa rana don rikodin shi</string>
+    <string name="ramadan_fasting_tracker">Mai bin azumi</string>
+    <string name="ramadan_hijri_note">Dangane da kalandar Umm al-Qura tare da aiwatar da gyara Hijiriyya mai fa\'ida.</string>
+    <string name="ramadan_hijri_year">Shekara ta %1$sAH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Addu\'ar buda baki: "Ya Allah domin Kai na yi azumi, kuma a kan arzikinka na yi buda baki."</string>
+    <string name="ramadan_iftar_time">Lokacin buda baki (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Zaɓi birni a cikin Saituna da farko don ganin lokutan.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Ya Allah don Kai na yi azumi, kuma a kan arzikinka na yi buda baki</string>
+    <string name="ramadan_notification_iftar_title">Lokacin buda baki</string>
+    <string name="ramadan_notification_suhoor_body">Fajr yana gabatowa - kuyi sahur</string>
+    <string name="ramadan_notification_suhoor_title">Tunasarwar Suhur</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhur</string>
+    <string name="ramadan_suhoor_remind_before">Tunatar da ni kafin:</string>
+    <string name="ramadan_suhoor_time">Sahur ya ƙare (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

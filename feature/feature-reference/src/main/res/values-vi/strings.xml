@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Quay lại</string>
+    <string name="reference_no_results">Không có kết quả phù hợp</string>
+    <string name="reference_search_hint">Tìm kiếm cuốn sách này…</string>
+    <string name="reference_title">Thư viện tham khảo Hồi giáo</string>
+    <string name="reference_topics_count">chủ đề</string>
+</resources>

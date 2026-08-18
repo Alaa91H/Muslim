@@ -3,6 +3,17 @@
     <string name="zakat_title">الزكاة</string>
     <string name="zakat_back">رجوع</string>
     <string name="zakat_money_section">زكاة المال</string>
+    <string name="zakat_country_section">الدولة والعملة</string>
+    <string name="zakat_country">الدولة</string>
+    <string name="zakat_country_placeholder">اختر دولتك وعملتك</string>
+    <string name="zakat_auto_prices">جلب الأسعار تلقائيًا</string>
+    <string name="zakat_auto_prices_hint">عند التفعيل تُجلب أسعار الذهب والفضة من الإنترنت وتُحدَّث تلقائيًا</string>
+    <string name="zakat_fetch_now">تحديث الأسعار الآن</string>
+    <string name="zakat_fetching">جارٍ جلب الأسعار…</string>
+    <string name="zakat_fetch_failed">تعذّر جلب الأسعار. تحقق من اتصالك بالإنترنت أو أدخل السعر يدويًا.</string>
+    <string name="zakat_last_updated">آخر تحديث: %1$s</string>
+    <string name="zakat_currency">العملة: %1$s</string>
+    <string name="zakat_source_note">أسعار الذهب والفضة من gold-api.com، وأسعار الصرف من open.er-api.com</string>
     <string name="zakat_cash">النقد والمدخرات</string>
     <string name="zakat_gold_grams">الذهب (جرام)</string>
     <string name="zakat_gold_price">سعر جرام الذهب</string>

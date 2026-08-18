@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Itzuli</string>
+    <string name="ramadan_countdown">Ramadana %1$s egunetan hasten da</string>
+    <string name="ramadan_countdown_to_iftar">Iftar egiteko denbora: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Fajr-era joateko ordua: %1$s</string>
+    <string name="ramadan_day_of_month">Ramadan %1$s eguna</string>
+    <string name="ramadan_days_left">%1$s egun falta dira</string>
+    <string name="ramadan_fasting_progress">Barau egunak: %1$s/%2$s - sakatu egun bat grabatzeko</string>
+    <string name="ramadan_fasting_tracker">Barauaren jarraitzailea</string>
+    <string name="ramadan_hijri_note">Umm al-Qura egutegian oinarrituta, aplikazio osorako Hijri doikuntza aplikatuta.</string>
+    <string name="ramadan_hijri_year">%1$s AH urtea</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar erregu: "O Allah, Zuregatik barau egin dut eta zure hornidurarekin baraua hautsi dut..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) ordua: %1$s</string>
+    <string name="ramadan_location_required">Aukeratu hiri bat Ezarpenetan lehenik orduak ikusteko.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Ai, Ala, zuregatik barau egin nuen eta zure xedapenarekin baraua hausten dut</string>
+    <string name="ramadan_notification_iftar_title">Iftar egiteko garaia</string>
+    <string name="ramadan_notification_suhoor_body">Fajr hurbiltzen ari da - hartu zure suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor oroigarria</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Gogoratu aurretik:</string>
+    <string name="ramadan_suhoor_time">Suhoor amaierak (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadana</string>
+</resources>

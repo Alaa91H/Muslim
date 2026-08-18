@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">自动获取价格</string>
+    <string name="zakat_auto_prices_hint">启用后，黄金和白银的价格将从互联网获取并自动刷新</string>
+    <string name="zakat_back">返回</string>
+    <string name="zakat_cash">现金和储蓄</string>
+    <string name="zakat_clear_history">清除历史记录</string>
+    <string name="zakat_country">国家</string>
+    <string name="zakat_country_placeholder">选择您的国家和货币</string>
+    <string name="zakat_country_section">国家和货币</string>
+    <string name="zakat_currency">货币：%1$s</string>
+    <string name="zakat_debts">您所欠的债务（已扣除）</string>
+    <string name="zakat_due">应付天课 (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">无法获取价格。检查您的连接或手动输入价格。</string>
+    <string name="zakat_fetch_now">立即刷新价格</string>
+    <string name="zakat_fetching">正在获取价格...</string>
+    <string name="zakat_fitr_persons">家庭成员人数</string>
+    <string name="zakat_fitr_saa_value">一份价值sa\'（主食）</string>
+    <string name="zakat_fitr_section">开斋捐</string>
+    <string name="zakat_fitr_total">开斋天课总额：%1$s</string>
+    <string name="zakat_gold_grams">金（克）</string>
+    <string name="zakat_gold_price">每克黄金价格</string>
+    <string name="zakat_history">计算历史</string>
+    <string name="zakat_history_amount">天课：%1$s</string>
+    <string name="zakat_history_empty">尚未保存计算。</string>
+    <string name="zakat_investments">投资</string>
+    <string name="zakat_last_updated">最后更新：%1$s</string>
+    <string name="zakat_money_section">关于财富的天课</string>
+    <string name="zakat_nisab_gold">金尼萨布 (85g)</string>
+    <string name="zakat_nisab_met">已达到 nisab — 天课到期</string>
+    <string name="zakat_nisab_not_met">低于 nisab — 无需缴纳天课</string>
+    <string name="zakat_nisab_silver">银尼萨布 (595g)</string>
+    <string name="zakat_rulings_note">根据多数（jumhoor）：黄金nisab为85克，白银595克，扣除到期债务后利率为2.5%%。特殊情况请咨询合格的学者。</string>
+    <string name="zakat_save_result">保存到历史记录</string>
+    <string name="zakat_silver_grams">银（克）</string>
+    <string name="zakat_silver_price">每克白银价格</string>
+    <string name="zakat_source_note">黄金/白银价格来自gold-api.com；来自 open.er-api.com 的外汇汇率</string>
+    <string name="zakat_title">天课</string>
+    <string name="zakat_total_assets">总资产</string>
+    <string name="zakat_trade">贸易货物价值</string>
+    <string name="zakat_zakatable">债务后可扎卡金额</string>
+</resources>

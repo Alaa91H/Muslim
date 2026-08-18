@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">กลับ</string>
+    <string name="reference_no_results">ไม่มีผลลัพธ์ที่ตรงกัน</string>
+    <string name="reference_search_hint">ค้นหาหนังสือเล่มนี้...</string>
+    <string name="reference_title">ห้องสมุดอ้างอิงอิสลาม</string>
+    <string name="reference_topics_count">หัวข้อ</string>
+</resources>

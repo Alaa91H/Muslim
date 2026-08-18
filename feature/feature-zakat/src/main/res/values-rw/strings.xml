@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Shakisha ibiciro mu buryo bwikora</string>
+    <string name="zakat_auto_prices_hint">Iyo bishobotse, ibiciro bya zahabu na feza bivanwa kuri enterineti kandi bigahita bisubirwamo</string>
+    <string name="zakat_back">Inyuma</string>
+    <string name="zakat_cash">Amafaranga no kuzigama</string>
+    <string name="zakat_clear_history">Sobanura amateka</string>
+    <string name="zakat_country">Igihugu</string>
+    <string name="zakat_country_placeholder">Hitamo igihugu cyawe nifaranga</string>
+    <string name="zakat_country_section">Igihugu &amp; Ifaranga</string>
+    <string name="zakat_currency">Ifaranga: %1$s</string>
+    <string name="zakat_debts">Amadeni ugomba kwishyura (yakuweho)</string>
+    <string name="zakat_due">Zakat igomba (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ntushobora \'t kuzana ibiciro. Reba aho uhurira cyangwa wandike igiciro intoki.</string>
+    <string name="zakat_fetch_now">Ongera ibiciro ubu</string>
+    <string name="zakat_fetching">Kuzana ibiciro…</string>
+    <string name="zakat_fitr_persons">Umubare w\'abagize umuryango</string>
+    <string name="zakat_fitr_saa_value">Agaciro ka sa\' (ibiryo by\'ibanze)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Fitr zakat zose: %1$s</string>
+    <string name="zakat_gold_grams">Zahabu (garama)</string>
+    <string name="zakat_gold_price">Igiciro cya zahabu kuri garama</string>
+    <string name="zakat_history">Amateka yo kubara</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Nta mibare yabitswe kugeza ubu.</string>
+    <string name="zakat_investments">Ishoramari</string>
+    <string name="zakat_last_updated">Ibiherutse kuvugururwa: %1$s</string>
+    <string name="zakat_money_section">Zakat ku butunzi</string>
+    <string name="zakat_nisab_gold">Nisab Zahabu (85g)</string>
+    <string name="zakat_nisab_met">Nisab iragerwaho - zakat igomba</string>
+    <string name="zakat_nisab_not_met">Munsi ya nisab - nta zakat igomba</string>
+    <string name="zakat_nisab_silver">Ifeza nisab (595g)</string>
+    <string name="zakat_rulings_note">Kuri benshi (jumhoor): zahabu nisab ni 85g, ifeza 595g, naho igipimo ni 2.5%% nyuma yo gukuramo imyenda ikwiye. Baza intiti yujuje ibisabwa kubibazo bidasanzwe.</string>
+    <string name="zakat_save_result">Bika amateka</string>
+    <string name="zakat_silver_grams">Ifeza (garama)</string>
+    <string name="zakat_silver_price">Igiciro cya feza kuri garama</string>
+    <string name="zakat_source_note">Ibiciro bya zahabu / ifeza biva muri zahabu-api.com; Ibiciro bya FX kuva gufungura.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Umutungo wose</string>
+    <string name="zakat_trade">Ubucuruzi agaciro</string>
+    <string name="zakat_zakatable">Amafaranga ya Zakatable nyuma yimyenda</string>
+</resources>

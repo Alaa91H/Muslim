@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Ku tlhelela endzhaku</string>
+    <string name="ramadan_countdown">Ramadan yi sungula hi masiku ya %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Nkarhi wo ya eka iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Nkarhi wo ya eFajr: %1$s</string>
+    <string name="ramadan_day_of_month">Siku ra %1$s ra Ramadan</string>
+    <string name="ramadan_days_left">Ku sale masiku ya %1$s</string>
+    <string name="ramadan_fasting_progress">Masiku yo titsona swakudya: %1$s ya %2$s — khoma siku ku ri rhekhoda</string>
+    <string name="ramadan_fasting_tracker">Mulandzeri wa ku titsona swakudya</string>
+    <string name="ramadan_hijri_note">Hi ku ya hi khalendara ya Umm al-Qura na ku lulamisiwa ka Hijri ka app-wide loku tirhisiweke.</string>
+    <string name="ramadan_hijri_year">Lembe ra %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Xikombelo xa Iftar: "O Allah, hikwalaho ka Wena ndzi titsone swakudya naswona hi mphakelo wa Wena ndzi tshika ku titsona swakudya..."</string>
+    <string name="ramadan_iftar_time">Nkarhi wa Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Hlawula doroba eka Settings ku sungula ku vona minkarhi.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, hikwalaho ka Wena ndzi titsone swakudya naswona hi mphakelo wa Wena ndzi titsona swakudya</string>
+    <string name="ramadan_notification_iftar_title">Nkarhi wa iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr u tshinela — va na suhoor ya wena</string>
+    <string name="ramadan_notification_suhoor_title">Xitsundzuxo xa Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Ndzi tsundzuxe emahlweni ka:</string>
+    <string name="ramadan_suhoor_time">Makumu ya Suhoor (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

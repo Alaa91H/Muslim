@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">ډیجیټل مصباح - د شمیرلو لپاره ټایپ کړئ</string>
+    <string name="misbaha_widget_label">تسبیح</string>
+    <string name="misbaha_widget_tap_hint">د شمیرلو لپاره ټایپ کړئ</string>
+    <string name="tasbih_back">شاته</string>
+    <string name="tasbih_cancel">لغوه کړئ</string>
+    <string name="tasbih_confirm">سمه ده</string>
+    <string name="tasbih_custom_target">دودیز</string>
+    <string name="tasbih_custom_target_hint">د شمیرو شمیر داخل کړئ (له 1 څخه تر 100000 پورې)</string>
+    <string name="tasbih_custom_target_title">یو دودیز هدف وټاکئ</string>
+    <string name="tasbih_of_target">د %1$s څخه</string>
+    <string name="tasbih_reset">بیا تنظیم کړئ</string>
+    <string name="tasbih_reset_all">ټول بیا تنظیم کړئ</string>
+    <string name="tasbih_round_complete">بشپړ پړاو بشپړ شوی (%1$s) 🎉</string>
+    <string name="tasbih_rounds">دورې: %1$d</string>
+    <string name="tasbih_sound_desc">کله چې هر پړاو بشپړ شي یو رینګ ټون یا ټون غږ کړئ</string>
+    <string name="tasbih_sound_title">په هدف غږ</string>
+    <string name="tasbih_sound_tone_alarm">الارم</string>
+    <string name="tasbih_sound_tone_notification">خبرتیا</string>
+    <string name="tasbih_sound_tone_ringtone">رېنګ ټون</string>
+    <string name="tasbih_tap_hint">د شمیرلو لپاره دایره ټایپ کړئ</string>
+    <string name="tasbih_target_reached">هدف ته ورسید - الله دې قبول کړي</string>
+    <string name="tasbih_title">تسبیح</string>
+    <string name="tasbih_total_today">نن \'s ټولټال: %1$d</string>
+    <string name="tasbih_undo">بیرته راګرځول</string>
+    <string name="tasbih_virtue_label">د دې ذکر فضیلت</string>
+    <string name="tasbih_week_stats">وروستۍ 7 ورځې</string>
+</resources>

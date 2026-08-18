@@ -48,7 +48,14 @@ internal object AdhkarNotifications {
      * bubble opens [AdhkarBubbleActivity], which auto-folds after the duration;
      * the notification is cancelled at the same time so the bubble disappears.
      */
-    fun showPeriodicReminder(context: Context, dhikr: Dhikr, durationSeconds: Int) {
+    fun showPeriodicReminder(
+        context: Context,
+        dhikr: Dhikr,
+        durationSeconds: Int,
+        backgroundColor: Int = 0xE6282830.toInt(),
+        cornerRadiusDp: Int = 20,
+        fontSizeSp: Int = 22,
+    ) {
         NotificationChannels.create(context)
         val bubbleIntent = PendingIntent.getActivity(
             context,
@@ -58,6 +65,9 @@ internal object AdhkarNotifications {
                 putExtra(AdhkarBubbleActivity.EXTRA_TRANSLATION, dhikr.translation)
                 putExtra(AdhkarBubbleActivity.EXTRA_SOURCE, dhikr.source)
                 putExtra(AdhkarBubbleActivity.EXTRA_DURATION_SECONDS, durationSeconds)
+                putExtra(AdhkarBubbleActivity.EXTRA_BG_COLOR, backgroundColor)
+                putExtra(AdhkarBubbleActivity.EXTRA_CORNER_RADIUS_DP, cornerRadiusDp)
+                putExtra(AdhkarBubbleActivity.EXTRA_FONT_SIZE_SP, fontSizeSp)
             },
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )

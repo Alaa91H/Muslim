@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">무슬림</string>
+    <string name="more_adhkar">아드카르</string>
+    <string name="more_adhkar_desc">카운터가 있는 아침, 저녁 및 기도 후 adhkar</string>
+    <string name="more_downloads">암송 다운로드</string>
+    <string name="more_downloads_desc">선택한 암송자와 함께 수라, 아야 또는 꾸란 전체를 다운로드하세요.</string>
+    <string name="more_hadith">하디스</string>
+    <string name="more_hadith_desc">하디스 라이브러리, 검색 및 오늘의 하디스</string>
+    <string name="more_learn">배우다</string>
+    <string name="more_learn_desc">단계별 우두 및 기도 가이드</string>
+    <string name="more_ramadan">라마단</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar 시간 및 단식 추적기</string>
+    <string name="more_reference">참조 라이브러리</string>
+    <string name="more_reference_desc">이슬람, 시라, 선지자 소개</string>
+    <string name="more_settings">설정</string>
+    <string name="more_settings_desc">테마, 언어, 기도 및 아단 설정</string>
+    <string name="more_tasbih">타스비</string>
+    <string name="more_tasbih_desc">매일의 역사가 담긴 디지털 미스바하</string>
+    <string name="more_zakat">자카트</string>
+    <string name="more_zakat_desc">부와 Fitr 계산기에 대한 Zakat</string>
+    <string name="scaffold_message">다중 모듈 프로젝트 뼈대가 준비되었습니다. \n1단계 — Adhan, 기도 시간, Qibla 및 Hijri 달력 —이 여기에서 시작됩니다.</string>
+    <string name="shortcut_qibla">키블라</string>
+    <string name="shortcut_qibla_long">키블라 방향</string>
+    <string name="shortcut_settings">설정</string>
+    <string name="shortcut_settings_long">기도 및 아단 설정</string>
+    <string name="shortcut_times">기도 시간</string>
+    <string name="shortcut_times_long">오늘\'년대 기도 시간</string>
+    <string name="tab_home">기도 시간</string>
+    <string name="tab_more">더보기</string>
+    <string name="tab_qibla">키블라</string>
+    <string name="tab_quran">꾸란</string>
 </resources>

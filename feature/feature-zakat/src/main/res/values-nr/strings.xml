@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Thola amanani ngokuzenzakalelako</string>
+    <string name="zakat_auto_prices_hint">Lokha nayivunyelwe, intengo yegolide nesiliva ithathwa ku-inthanethi bese ivuselelwa ngokuzenzakalelako</string>
+    <string name="zakat_back">Emuva</string>
+    <string name="zakat_cash">Imali nemali ebekiweko</string>
+    <string name="zakat_clear_history">Sula umlando</string>
+    <string name="zakat_country">Inarha</string>
+    <string name="zakat_country_placeholder">Khetha inarha yakho nemali</string>
+    <string name="zakat_country_section">Inarha nemali</string>
+    <string name="zakat_currency">Imali: %1$s</string>
+    <string name="zakat_debts">Izikwelede ozikolodako (zidonsiwe)</string>
+    <string name="zakat_due">I-Zakat efaneleko (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Bengingakwazi ukuthola amanani. Hlola ukuxhumana kwakho nofana ufake intengo ngesandla.</string>
+    <string name="zakat_fetch_now">Vuselela intengo kwanje</string>
+    <string name="zakat_fetching">Ukuthola amanani...</string>
+    <string name="zakat_fitr_persons">Inani lamalunga womndeni</string>
+    <string name="zakat_fitr_saa_value">Inani le-sa\' eyodwa (ukudla okuyinhloko)</string>
+    <string name="zakat_fitr_section">I-Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">I-Fitr zakat epheleleko: %1$s</string>
+    <string name="zakat_gold_grams">Igolide (amagremu)</string>
+    <string name="zakat_gold_price">Intengo yegolide ngegremu</string>
+    <string name="zakat_history">Umlando wokubala</string>
+    <string name="zakat_history_amount">I-Zakat: %1$s</string>
+    <string name="zakat_history_empty">Akukho zibalo ezilondoloziweko okwamanje.</string>
+    <string name="zakat_investments">Ukutjala imali</string>
+    <string name="zakat_last_updated">Ukubuyekezwa kokugcina: %1$s</string>
+    <string name="zakat_money_section">I-Zakat emnothweni</string>
+    <string name="zakat_nisab_gold">I-nisab yegolide (85g)</string>
+    <string name="zakat_nisab_met">I-nisab ifinyelelwe — i-zakat ifanele</string>
+    <string name="zakat_nisab_not_met">Ngaphasi kwe-nisab — akukho zakat efaneleko</string>
+    <string name="zakat_nisab_silver">Isiliva nisab (595g)</string>
+    <string name="zakat_rulings_note">Ngokuya kwenengi (i-jumhoor): i-nisab yegolide ngu-85g, isiliva ngu-595g, begodu izinga lingu-2.5%% ngemva kokudonsa izikwelede ezifaneleko. Bonana nesazi esifaneleko malungana namacala akhethekileko.</string>
+    <string name="zakat_save_result">Londoloza emlandwini</string>
+    <string name="zakat_silver_grams">Isiliva (amagremu)</string>
+    <string name="zakat_silver_price">Intengo yesiliva ngegremu</string>
+    <string name="zakat_source_note">Intengo yegolide/yesiliva evela ku-gold-api.com; Amazinga we-FX avela ku-open.er-api.com</string>
+    <string name="zakat_title">I-Zakat</string>
+    <string name="zakat_total_assets">Inani lepahla</string>
+    <string name="zakat_trade">Inani lempahla yokurhweba</string>
+    <string name="zakat_zakatable">Inani elibhadelwako ngemva kwezikwelede</string>
+</resources>

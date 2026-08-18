@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Buscar preços automaticamente</string>
+    <string name="zakat_auto_prices_hint">Quando ativado, os preços do ouro e da prata são obtidos na Internet e atualizados automaticamente</string>
+    <string name="zakat_back">Voltar</string>
+    <string name="zakat_cash">Dinheiro e poupança</string>
+    <string name="zakat_clear_history">Limpar histórico</string>
+    <string name="zakat_country">País</string>
+    <string name="zakat_country_placeholder">Escolha seu país e moeda</string>
+    <string name="zakat_country_section">País e moeda</string>
+    <string name="zakat_currency">Moeda: %1$s</string>
+    <string name="zakat_debts">Dívidas que você deve (deduzidas)</string>
+    <string name="zakat_due">Zakat devido (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t buscar preços. Verifique sua conexão ou insira o preço manualmente.</string>
+    <string name="zakat_fetch_now">Atualizar preços agora</string>
+    <string name="zakat_fetching">Buscando preços…</string>
+    <string name="zakat_fitr_persons">Número de membros da família</string>
+    <string name="zakat_fitr_saa_value">Valor de um sa\' (alimento básico)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Total Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Ouro (gramas)</string>
+    <string name="zakat_gold_price">Preço do ouro por grama</string>
+    <string name="zakat_history">Histórico de cálculo</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Nenhum cálculo salvo ainda.</string>
+    <string name="zakat_investments">Investimentos</string>
+    <string name="zakat_last_updated">Última atualização: %1$s</string>
+    <string name="zakat_money_section">Zakat sobre riqueza</string>
+    <string name="zakat_nisab_gold">Nisab dourado (85g)</string>
+    <string name="zakat_nisab_met">O nisab foi alcançado – o zakat é devido</string>
+    <string name="zakat_nisab_not_met">Abaixo do nisab – nenhum zakat devido</string>
+    <string name="zakat_nisab_silver">Nisab de prata (595g)</string>
+    <string name="zakat_rulings_note">Para a maioria (jumhoor): o nisab de ouro custa 85g, a prata 595g e a taxa é 2,5%% após dedução das dívidas vencidas. Consulte um estudioso qualificado para casos especiais.</string>
+    <string name="zakat_save_result">Salvar no histórico</string>
+    <string name="zakat_silver_grams">Prata (gramas)</string>
+    <string name="zakat_silver_price">Preço da prata por grama</string>
+    <string name="zakat_source_note">Preços de ouro/prata em gold-api.com; Taxas de câmbio de open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Ativos totais</string>
+    <string name="zakat_trade">Valor dos bens comerciais</string>
+    <string name="zakat_zakatable">Valor Zakatable após dívidas</string>
+</resources>

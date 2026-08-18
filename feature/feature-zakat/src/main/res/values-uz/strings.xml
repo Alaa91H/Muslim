@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Narxlarni avtomatik ravishda oling</string>
+    <string name="zakat_auto_prices_hint">Yoqilganda oltin va kumush narxlari internetdan olinadi va avtomatik ravishda yangilanadi</string>
+    <string name="zakat_back">Orqaga</string>
+    <string name="zakat_cash">Naqd pul va jamg\'arma</string>
+    <string name="zakat_clear_history">Tarixni tozalash</string>
+    <string name="zakat_country">Mamlakat</string>
+    <string name="zakat_country_placeholder">Mamlakatingiz va valyutangizni tanlang</string>
+    <string name="zakat_country_section">Mamlakat va valyuta</string>
+    <string name="zakat_currency">Valyuta: %1$s</string>
+    <string name="zakat_debts">Qarzlaringiz (tutilgan)</string>
+    <string name="zakat_due">Zakot muddati (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Narxlarni \'t olish mumkin edi. Ulanishingizni tekshiring yoki narxni qo\'lda kiriting.</string>
+    <string name="zakat_fetch_now">Narxlarni hozir yangilang</string>
+    <string name="zakat_fetching">Narxlar olinmoqda…</string>
+    <string name="zakat_fitr_persons">Oila a\'zolari soni</string>
+    <string name="zakat_fitr_saa_value">Bittaning qiymati \' (asosiy oziq-ovqat)</string>
+    <string name="zakat_fitr_section">Fitr zakoti</string>
+    <string name="zakat_fitr_total">Fitr zakotining jami: %1$s</string>
+    <string name="zakat_gold_grams">Oltin (gramm)</string>
+    <string name="zakat_gold_price">Bir gramm oltin narxi</string>
+    <string name="zakat_history">Hisoblash tarixi</string>
+    <string name="zakat_history_amount">Zakot: %1$s</string>
+    <string name="zakat_history_empty">Hali hech qanday hisob-kitoblar saqlanmagan.</string>
+    <string name="zakat_investments">Investitsiyalar</string>
+    <string name="zakat_last_updated">Oxirgi yangilangan: %1$s</string>
+    <string name="zakat_money_section">Boylikning zakoti</string>
+    <string name="zakat_nisab_gold">Oltin nisob (85 g)</string>
+    <string name="zakat_nisab_met">Nisobga yetdi — zakot vojibdir</string>
+    <string name="zakat_nisab_not_met">Nisob ostida - zakot berilmaydi</string>
+    <string name="zakat_nisab_silver">Kumush nisob (595 g)</string>
+    <string name="zakat_rulings_note">Koʻpchilik (jumhurlar) uchun: oltin nisob 85 gr, kumush 595 gr, stavkasi esa toʻlanadigan qarzlar chegirib tashlangandan keyin 2,5%%. Maxsus holatlar uchun malakali olim bilan maslahatlashing.</string>
+    <string name="zakat_save_result">Tarixga saqlash</string>
+    <string name="zakat_silver_grams">Kumush (gramm)</string>
+    <string name="zakat_silver_price">Bir gramm uchun kumush narxi</string>
+    <string name="zakat_source_note">gold-api.com dan oltin/kumush narxlari; Open.er-api.com dan valyuta kurslari</string>
+    <string name="zakat_title">Zakot</string>
+    <string name="zakat_total_assets">Jami aktivlar</string>
+    <string name="zakat_trade">Savdo tovarlari qiymati</string>
+    <string name="zakat_zakatable">Qarzlardan keyin zakot qilinadigan miqdor</string>
+</resources>

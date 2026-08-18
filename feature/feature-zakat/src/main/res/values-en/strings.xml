@@ -3,6 +3,17 @@
     <string name="zakat_title">Zakat</string>
     <string name="zakat_back">Back</string>
     <string name="zakat_money_section">Zakat on wealth</string>
+    <string name="zakat_country_section">Country &amp; currency</string>
+    <string name="zakat_country">Country</string>
+    <string name="zakat_country_placeholder">Choose your country and currency</string>
+    <string name="zakat_auto_prices">Fetch prices automatically</string>
+    <string name="zakat_auto_prices_hint">When enabled, gold and silver prices are fetched from the internet and refreshed automatically</string>
+    <string name="zakat_fetch_now">Refresh prices now</string>
+    <string name="zakat_fetching">Fetching prices…</string>
+    <string name="zakat_fetch_failed">Couldn\'t fetch prices. Check your connection or enter the price manually.</string>
+    <string name="zakat_last_updated">Last updated: %1$s</string>
+    <string name="zakat_currency">Currency: %1$s</string>
+    <string name="zakat_source_note">Gold/silver prices from gold-api.com; FX rates from open.er-api.com</string>
     <string name="zakat_cash">Cash and savings</string>
     <string name="zakat_gold_grams">Gold (grams)</string>
     <string name="zakat_gold_price">Gold price per gram</string>

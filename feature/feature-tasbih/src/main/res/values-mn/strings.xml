@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Дижитал мисбаха — тоолохын тулд товшино уу</string>
+    <string name="misbaha_widget_label">Тасбих</string>
+    <string name="misbaha_widget_tap_hint">Тоолохын тулд товшино уу</string>
+    <string name="tasbih_back">Буцах</string>
+    <string name="tasbih_cancel">Цуцлах</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Захиалгат</string>
+    <string name="tasbih_custom_target_hint">Тооцооллын тоог оруулна уу (1-ээс 100000 хүртэл)</string>
+    <string name="tasbih_custom_target_title">Тусгай зорилт тавь</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Дахин тохируулах</string>
+    <string name="tasbih_reset_all">Бүгдийг дахин тохируулах</string>
+    <string name="tasbih_round_complete">Бүтэн тойрог иж бүрэн (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Дугаар: %1$d</string>
+    <string name="tasbih_sound_desc">Бүтэн тойрог бүр дууссаны дараа хонхны ая эсвэл аяыг тоглуулаарай</string>
+    <string name="tasbih_sound_title">Зорилтот дээр дуугарна</string>
+    <string name="tasbih_sound_tone_alarm">Сэрүүлэг</string>
+    <string name="tasbih_sound_tone_notification">Мэдэгдэл</string>
+    <string name="tasbih_sound_tone_ringtone">Хонхны дуу</string>
+    <string name="tasbih_tap_hint">Тоолохын тулд тойрог дээр товшино уу</string>
+    <string name="tasbih_target_reached">Зорилгодоо хүрсэн - Аллах хүлээн зөвшөөрөх болтугай</string>
+    <string name="tasbih_title">Тасбих</string>
+    <string name="tasbih_total_today">Өнөөдөр \' нийт: %1$d</string>
+    <string name="tasbih_undo">Буцаах</string>
+    <string name="tasbih_virtue_label">Энэхүү зикрийн буян</string>
+    <string name="tasbih_week_stats">Сүүлийн 7 хоног</string>
+</resources>

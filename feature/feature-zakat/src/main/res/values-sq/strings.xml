@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Merr çmimet automatikisht</string>
+    <string name="zakat_auto_prices_hint">Kur aktivizohet, çmimet e arit dhe të argjendit merren nga interneti dhe rifreskohen automatikisht</string>
+    <string name="zakat_back">Mbrapa</string>
+    <string name="zakat_cash">Paratë e gatshme dhe kursimet</string>
+    <string name="zakat_clear_history">Pastro historinë</string>
+    <string name="zakat_country">Vendi</string>
+    <string name="zakat_country_placeholder">Zgjidhni vendin dhe monedhën tuaj</string>
+    <string name="zakat_country_section">Vendi dhe monedha</string>
+    <string name="zakat_currency">Monedha: %1$s</string>
+    <string name="zakat_debts">Borxhet që keni (të zbritura)</string>
+    <string name="zakat_due">Zekati i paguar (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Nuk mund të merrja çmime \'. Kontrolloni lidhjen tuaj ose vendosni çmimin me dorë.</string>
+    <string name="zakat_fetch_now">Rifresko çmimet tani</string>
+    <string name="zakat_fetching">Po merren çmimet…</string>
+    <string name="zakat_fitr_persons">Numri i anëtarëve të familjes</string>
+    <string name="zakat_fitr_saa_value">Vlera e një sa\' (ushqimi kryesor)</string>
+    <string name="zakat_fitr_section">Zekatul-Fitr</string>
+    <string name="zakat_fitr_total">Gjithsej zekati i fitrit: %1$s</string>
+    <string name="zakat_gold_grams">Ar (gram)</string>
+    <string name="zakat_gold_price">Çmimi i arit për gram</string>
+    <string name="zakat_history">Historia e llogaritjes</string>
+    <string name="zakat_history_amount">Zekati: %1$s</string>
+    <string name="zakat_history_empty">Nuk ka ende llogaritje të ruajtura.</string>
+    <string name="zakat_investments">Investimet</string>
+    <string name="zakat_last_updated">Përditësimi i fundit: %1$s</string>
+    <string name="zakat_money_section">Zekati i pasurisë</string>
+    <string name="zakat_nisab_gold">Nisabi ari (85 g)</string>
+    <string name="zakat_nisab_met">Nisabi është arritur - zekati i takon</string>
+    <string name="zakat_nisab_not_met">Poshtë nisabit - nuk ka zekat</string>
+    <string name="zakat_nisab_silver">Nisabi argjendi (595 g)</string>
+    <string name="zakat_rulings_note">Për shumicën (xhumhur): nisabi i arit është 85 g, argjendi 595 g, dhe norma është 2.5%% pas zbritjes së borxheve. Konsultohuni me një studiues të kualifikuar për raste të veçanta.</string>
+    <string name="zakat_save_result">Ruaj në histori</string>
+    <string name="zakat_silver_grams">Argjend (gram)</string>
+    <string name="zakat_silver_price">Çmimi i argjendit për gram</string>
+    <string name="zakat_source_note">Çmimet e arit/argjendit nga gold-api.com; Normat e FX nga open.er-api.com</string>
+    <string name="zakat_title">Zekati</string>
+    <string name="zakat_total_assets">Totali i aktiveve</string>
+    <string name="zakat_trade">Vlera e mallrave tregtare</string>
+    <string name="zakat_zakatable">Shuma e zekatit pas borxheve</string>
+</resources>

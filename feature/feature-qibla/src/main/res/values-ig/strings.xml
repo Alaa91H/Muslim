@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s pụọ</string>
+    <string name="mosque_finder_empty">Ọnweghị ụlọ alakụba ahụrụ na mpaghara a</string>
+    <string name="mosque_finder_error">Ọchụchọ adaghị</string>
+    <string name="mosque_finder_intro">Chọta alakụba dị nso ebe ị nọ site na OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Enweghị ebe edobere. Buru ụzọ họrọ ọnọdụ site na ntọala oge ekpere.</string>
+    <string name="mosque_finder_retry">Gbalịa ọzọ</string>
+    <string name="mosque_finder_searching">Na-achọ…</string>
+    <string name="mosque_finder_title">Ụlọ alakụba dị nso</string>
+    <string name="qibla_bearing_cardinal">Ntuziaka Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Bugharịa ekwentị gị n\'ọnụọgụgụ-asatọ ka ọ hazie</string>
+    <string name="qibla_distance">Anya na Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Ị na-eche ihu Qibla 🕋</string>
+    <string name="qibla_gps_error">Enweghị ike ịnweta mmezi ziri ezi. Biko nwaa ọzọ.</string>
+    <string name="qibla_gps_live">Ọnọdụ GPS dị ndụ</string>
+    <string name="qibla_gps_refresh">Weghachite ọnọdụ site na GPS</string>
+    <string name="qibla_gps_refreshing">Na-achọta…</string>
+    <string name="qibla_heading_degree">Isi ekwentị: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Ụzọ okirikiri dị ukwuu site na ọnọdụ gị gaa Kaaba - na-arụ ọrụ na-anọghị n\'ịntanetị</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Ị</string>
+    <string name="qibla_mode_compass">Kompas</string>
+    <string name="qibla_mode_map">Maapụ</string>
+    <string name="qibla_open_mosques">Ụlọ alakụba dị nso</string>
+    <string name="qibla_title">Ntuziaka Qibla</string>
+    <string name="qibla_turn_left">Tụgharịa aka ekpe %1$.1f°</string>
+    <string name="qibla_turn_right">Tụgharịa aka nri %1$.1f°</string>
+</resources>

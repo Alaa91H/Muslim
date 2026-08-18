@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Sækja verð sjálfkrafa</string>
+    <string name="zakat_auto_prices_hint">Þegar það er virkt er verð á gulli og silfri sótt af internetinu og endurnýjað sjálfkrafa</string>
+    <string name="zakat_back">Til baka</string>
+    <string name="zakat_cash">Handbært fé og sparnaður</string>
+    <string name="zakat_clear_history">Hreinsa sögu</string>
+    <string name="zakat_country">Land</string>
+    <string name="zakat_country_placeholder">Veldu land og gjaldmiðil</string>
+    <string name="zakat_country_section">Land &amp; gjaldmiðill</string>
+    <string name="zakat_currency">Gjaldmiðill: %1$s</string>
+    <string name="zakat_debts">Skuldir sem þú skuldar (dregnar frá)</string>
+    <string name="zakat_due">Zakat á gjalddaga (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Gat ekki náð í verð fyrir \'. Athugaðu tenginguna þína eða sláðu inn verðið handvirkt.</string>
+    <string name="zakat_fetch_now">Endurnýjaðu verð núna</string>
+    <string name="zakat_fetching">Sækir verð…</string>
+    <string name="zakat_fitr_persons">Fjöldi fjölskyldumeðlima</string>
+    <string name="zakat_fitr_saa_value">Verðmæti einn sa\' (heftimatur)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Samtals fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Gull (grömm)</string>
+    <string name="zakat_gold_price">Gullverð á gramm</string>
+    <string name="zakat_history">Saga útreikninga</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Engir vistaðir útreikningar ennþá.</string>
+    <string name="zakat_investments">Fjárfestingar</string>
+    <string name="zakat_last_updated">Síðast uppfært: %1$s</string>
+    <string name="zakat_money_section">Zakat um auð</string>
+    <string name="zakat_nisab_gold">Gull nisab (85g)</string>
+    <string name="zakat_nisab_met">Nisab er náð - zakat er væntanlegt</string>
+    <string name="zakat_nisab_not_met">Fyrir neðan nisab - engin zakat vegna</string>
+    <string name="zakat_nisab_silver">Silfur nisab (595g)</string>
+    <string name="zakat_rulings_note">Á meirihluta (jumhoor): gull nisab er 85g, silfur 595g, og hlutfallið er 2.5%% að frádregnum gjaldfallnum skuldum. Ráðfærðu þig við hæfan fræðimann í sérstökum tilvikum.</string>
+    <string name="zakat_save_result">Vista í sögu</string>
+    <string name="zakat_silver_grams">Silfur (grömm)</string>
+    <string name="zakat_silver_price">Silfurverð á gramm</string>
+    <string name="zakat_source_note">Gull/silfur verð frá gold-api.com; Gjaldeyrisvextir frá open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Heildareignir</string>
+    <string name="zakat_trade">Verðmæti vöruskipta</string>
+    <string name="zakat_zakatable">Zakatable upphæð eftir skuldir</string>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Bōk wōnāān ko make</string>
+    <string name="zakat_auto_prices_hint">Ñe ej kōmmane, gold im silver ko rej bōk jen internet eo im rej make bar kōkāāl</string>
+    <string name="zakat_back">Jeblak</string>
+    <string name="zakat_cash">Jāān im kōjparok</string>
+    <string name="zakat_clear_history">Bwebwenato eo ealikar</string>
+    <string name="zakat_country">Aelōñ</string>
+    <string name="zakat_country_placeholder">Kālet aelōñ eo am im jāān eo am</string>
+    <string name="zakat_country_section">Aelōñ im jāān</string>
+    <string name="zakat_currency">Jāān: %1$s</string>
+    <string name="zakat_debts">M̧uri ko kwoj aikuji (kar bōkļo̧k)</string>
+    <string name="zakat_due">Zakat due (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ejjab maroñ in bōk wōnāān ko. Lale koneek eo am ak likit wōnan ilo am make.</string>
+    <string name="zakat_fetch_now">Kōkāāl wōnāān kiiō</string>
+    <string name="zakat_fetching">Bōktok wōnāān ko...</string>
+    <string name="zakat_fitr_persons">Oran ro uwaan baamle eo</string>
+    <string name="zakat_fitr_saa_value">Aorōk in juon sa\' (mōñā eo elaptata)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Oran Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Gold (grams)</string>
+    <string name="zakat_gold_price">Wōnan gold juon gram</string>
+    <string name="zakat_history">Bwebwenato in kalōk</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Ejelok kalōk ko kar kōjparoki kiõ.</string>
+    <string name="zakat_investments">Investment ko</string>
+    <string name="zakat_last_updated">Āliktata kar kōkāāl: %1$s</string>
+    <string name="zakat_money_section">Zakat ion mweiuk</string>
+    <string name="zakat_nisab_gold">Gold nisab (85g)</string>
+    <string name="zakat_nisab_met">Nisab eo ej tōbrak — zakat ej aikuj</string>
+    <string name="zakat_nisab_not_met">Iumin nisab eo — ejelok zakat ej aikuj</string>
+    <string name="zakat_nisab_silver">Silver nisab (595g)</string>
+    <string name="zakat_rulings_note">Ekkar ñan elaptata (jumhoor): gold nisab ej 85g, silver 595g, im joñan ej 2.5%% elikin an kar jolok mweiuk ko. Kajjitōk ippān juon rimāletlet eo emāletlet kōn case ko reļļap.</string>
+    <string name="zakat_save_result">Kōjparok ilo bwebwenato</string>
+    <string name="zakat_silver_grams">Silver (grams)</string>
+    <string name="zakat_silver_price">Wōnan silver juon gram</string>
+    <string name="zakat_source_note">wōnan gold/silver jen gold-api.com; FX rates jen open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Aolepān men ko mweiuk</string>
+    <string name="zakat_trade">Aorōk in wiakake men ko</string>
+    <string name="zakat_zakatable">Joñan eo emaron in wiakake elikin mweiuk ko</string>
+</resources>

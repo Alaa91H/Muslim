@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s cintǝ</string>
+    <string name="mosque_finder_empty">Na adəlan mashidiwa təbandənyi</string>
+    <string name="mosque_finder_error">Kulashi teyero</string>
+    <string name="mosque_finder_intro">Mashidiwa karəngə nanəmyen OpenStreetMap men</string>
+    <string name="mosque_finder_no_location">Kuwamiyayi na gǝnatǝnyi. Na karne suro loktu salaben buro salakkin.</string>
+    <string name="mosque_finder_retry">Waltǝm jarabne</string>
+    <string name="mosque_finder_searching">Kulashi...</string>
+    <string name="mosque_finder_title">Mashidiwa karunguye</string>
+    <string name="qibla_bearing_cardinal">Zawal qiblabe: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Wayanǝmdǝ suro lamba-uskuben gǝrne calibrate diwo nankaro</string>
+    <string name="qibla_distance">Nəmcintə Makkabe: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Nyiye Qibla dǝga wujin 🕋 .</string>
+    <string name="qibla_gps_error">Raksǝ awo kalkal sǝbandǝnyi. Martǝne waltǝ jarabne.</string>
+    <string name="qibla_gps_live">Na GPSbe</string>
+    <string name="qibla_gps_refresh">Na GPS men bəlintəgə</string>
+    <string name="qibla_gps_refreshing">Matə...</string>
+    <string name="qibla_heading_degree">Sa wayabe: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Diwal korkori kura nadən səta Kaabaro lejin — offlinelan cidajin</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Nyi</string>
+    <string name="qibla_mode_compass">Komfas</string>
+    <string name="qibla_mode_map">Taswira</string>
+    <string name="qibla_open_mosques">Mashidiwa karunguye</string>
+    <string name="qibla_title">Zawal Qiblabe</string>
+    <string name="qibla_turn_left">Wofilaro kawartǝ %1$.1f°</string>
+    <string name="qibla_turn_right">Kǝmburam %1$.1f°</string>
+</resources>

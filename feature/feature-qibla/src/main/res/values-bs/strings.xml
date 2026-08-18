@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s daleko</string>
+    <string name="mosque_finder_empty">U ovom području nije pronađena nijedna džamija</string>
+    <string name="mosque_finder_error">Pretraga nije uspjela</string>
+    <string name="mosque_finder_intro">Pronađite džamije u blizini svoje lokacije putem OpenStreetMap-a</string>
+    <string name="mosque_finder_no_location">Lokacija još nije postavljena. Prvo odaberite lokaciju iz postavki vremena molitve.</string>
+    <string name="mosque_finder_retry">Pokušajte ponovo</string>
+    <string name="mosque_finder_searching">Pretraživanje…</string>
+    <string name="mosque_finder_title">Džamije u blizini</string>
+    <string name="qibla_bearing_cardinal">Smjer Qible: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Pomjerite telefon u osmicu da kalibrirate</string>
+    <string name="qibla_distance">Udaljenost do Mekke: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Suočeni ste sa Qiblom 🕋</string>
+    <string name="qibla_gps_error">Nije moguće dobiti tačan popravak. Molimo pokušajte ponovo.</string>
+    <string name="qibla_gps_live">GPS lokacija uživo</string>
+    <string name="qibla_gps_refresh">Osvježite lokaciju putem GPS-a</string>
+    <string name="qibla_gps_refreshing">Lociranje…</string>
+    <string name="qibla_heading_degree">Naslov telefona: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Ruta velikog kruga od vaše lokacije do Kaabe — radi van mreže</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Vi</string>
+    <string name="qibla_mode_compass">Kompas</string>
+    <string name="qibla_mode_map">Mapa</string>
+    <string name="qibla_open_mosques">Džamije u blizini</string>
+    <string name="qibla_title">Qibla smjer</string>
+    <string name="qibla_turn_left">Skrenite lijevo %1$.1f°</string>
+    <string name="qibla_turn_right">Skrenite desno %1$.1f°</string>
+</resources>

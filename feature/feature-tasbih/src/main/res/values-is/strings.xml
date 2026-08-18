@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Stafræn misbaha - bankaðu til að telja</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Ýttu til að telja</string>
+    <string name="tasbih_back">Til baka</string>
+    <string name="tasbih_cancel">Hætta við</string>
+    <string name="tasbih_confirm">Allt í lagi</string>
+    <string name="tasbih_custom_target">Sérsniðin</string>
+    <string name="tasbih_custom_target_hint">Sláðu inn fjölda talninga (frá 1 til 100000)</string>
+    <string name="tasbih_custom_target_title">Settu sérsniðið markmið</string>
+    <string name="tasbih_of_target">af %1$s</string>
+    <string name="tasbih_reset">Endurstilla</string>
+    <string name="tasbih_reset_all">Endurstilla allt</string>
+    <string name="tasbih_round_complete">Heilri umferð lokið (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Umferðir: %1$d</string>
+    <string name="tasbih_sound_desc">Spilaðu hringitón eða tón þegar hverri heilri umferð er lokið</string>
+    <string name="tasbih_sound_title">Hljóð á skotmarki</string>
+    <string name="tasbih_sound_tone_alarm">Viðvörun</string>
+    <string name="tasbih_sound_tone_notification">Tilkynning</string>
+    <string name="tasbih_sound_tone_ringtone">Hringitónn</string>
+    <string name="tasbih_tap_hint">Pikkaðu á hringinn til að telja</string>
+    <string name="tasbih_target_reached">Markmiði náð - megi Allah samþykkja</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Í dag \' alls: %1$d</string>
+    <string name="tasbih_undo">Afturkalla</string>
+    <string name="tasbih_virtue_label">Dyggð þessa dhikr</string>
+    <string name="tasbih_week_stats">Síðustu 7 dagar</string>
+</resources>

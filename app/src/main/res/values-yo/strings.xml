@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Mùsùlùmí</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Owurọ, irọlẹ &amp; adhkar lẹhin adura pẹlu awọn iṣiro</string>
+    <string name="more_downloads">Awọn igbasilẹ kika</string>
+    <string name="more_downloads_desc">Ṣe igbasilẹ surah kan, ayah kan tabi Al-Qur’an ni kikun pẹlu oluka ti o yan</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Ibi ikawe Hadith, wiwa &amp; hadith ti ọjọ naa</string>
+    <string name="more_learn">Kọ ẹkọ</string>
+    <string name="more_learn_desc">Wudu Igbesẹ-igbesẹ &amp; Awọn itọsọna adura</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Suhoor &amp; awọn akoko iftar ati olutọpa ãwẹ</string>
+    <string name="more_reference">Itọkasi Library</string>
+    <string name="more_reference_desc">Ifihan si Islam, awọn Sira &amp; awọn woli</string>
+    <string name="more_settings">Eto</string>
+    <string name="more_settings_desc">Akori, ede, adura &amp; eto adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digital misbaha pẹlu ojoojumọ itan</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat lori oro &amp; Fitr iṣiro</string>
+    <string name="scaffold_message">Egungun ise agbese multi-module ti šetan.\nIpele 1 - Adhan, awọn akoko adura, Qibla, ati kalẹnda Hijri - bẹrẹ nibi.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla itọsọna</string>
+    <string name="shortcut_settings">Eto</string>
+    <string name="shortcut_settings_long">Adura &amp; adhan eto</string>
+    <string name="shortcut_times">Awọn akoko adura</string>
+    <string name="shortcut_times_long">Loni\'s akoko adura</string>
+    <string name="tab_home">Igba Adura</string>
+    <string name="tab_more">Die e sii</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Al-Qur’an</string>
 </resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Foki</string>
+    <string name="ramadan_countdown">\'Oku kamata \'a e Ramadan \'i he \'aho \'e %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Taimi ki he iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Taimi ki he Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">\'Aho %1$s \'o e Lamatani</string>
+    <string name="ramadan_days_left">Toe \'aho \'e %1$s</string>
+    <string name="ramadan_fasting_progress">Fasting days: %1$s of %2$s — tap a day to record it</string>
+    <string name="ramadan_fasting_tracker">Ko e muimui\'i \'aukai</string>
+    <string name="ramadan_hijri_note">Makatu\'unga \'i he tohimāhina \'o e Umm al-Qura mo e fakatonutonu \'o e Hijri app-wide \'oku faka\'aonga\'i.</string>
+    <string name="ramadan_hijri_year">Ta\'u %1$s AH .</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar kole: "\'E Allah, ma\'au na\'a ku \'aukai pea \'i Ho\'o me\'akai \'oku ou maumau\'i \'eku \'aukai..."</string>
+    <string name="ramadan_iftar_time">Taimi ʻo e ʻIftā (Makalipi): %1$s</string>
+    <string name="ramadan_location_required">Fili ha kolo ʻi he Settings ʻuluaki ke ke sio ki he ngaahi taimí.</string>
+    <string name="ramadan_minutes">%1$s miniti</string>
+    <string name="ramadan_notification_iftar_body">\'E Allah, koe\'uhi ko Koe na\'a ku \'aukai pea \'i Ho\'o me\'akai \'oku ou maumau\'i \'eku \'aukai .</string>
+    <string name="ramadan_notification_iftar_title">Taimi ki he iftar .</string>
+    <string name="ramadan_notification_suhoor_body">\'Oku ofi mai \'a e Fajr — fai ho\'o suhoor .</string>
+    <string name="ramadan_notification_suhoor_title">Fakamanatu Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhua</string>
+    <string name="ramadan_suhoor_remind_before">Fakamanatu mai kimu\'a:</string>
+    <string name="ramadan_suhoor_time">ʻOku ʻosi ʻa e ʻaho ʻo e ʻaho (Fajr): %1$s</string>
+    <string name="ramadan_title">Lamatani</string>
+</resources>

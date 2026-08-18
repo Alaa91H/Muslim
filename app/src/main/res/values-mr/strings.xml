@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">मुस्लिम</string>
+    <string name="more_adhkar">अधिकार</string>
+    <string name="more_adhkar_desc">काउंटरसह सकाळ, संध्याकाळ आणि प्रार्थनाोत्तर अधकार</string>
+    <string name="more_downloads">पठण डाउनलोड</string>
+    <string name="more_downloads_desc">आपल्या निवडलेल्या पाठकांसह एक सुरा, एक आयया किंवा पूर्ण कुराण डाउनलोड करा</string>
+    <string name="more_hadith">हदीस</string>
+    <string name="more_hadith_desc">हदीस लायब्ररी, शोध आणि दिवसाची हदीस</string>
+    <string name="more_learn">शिका</string>
+    <string name="more_learn_desc">चरण-दर-चरण वुडू आणि प्रार्थना मार्गदर्शक</string>
+    <string name="more_ramadan">रमजान</string>
+    <string name="more_ramadan_desc">सुहूर आणि इफ्तार वेळा आणि उपवास ट्रॅकर</string>
+    <string name="more_reference">संदर्भ ग्रंथालय</string>
+    <string name="more_reference_desc">इस्लाम, सिरा आणि पैगंबरांचा परिचय</string>
+    <string name="more_settings">सेटिंग्ज</string>
+    <string name="more_settings_desc">थीम, भाषा, प्रार्थना आणि अजान सेटिंग्ज</string>
+    <string name="more_tasbih">तस्बिह</string>
+    <string name="more_tasbih_desc">दैनिक इतिहासासह डिजिटल मिसबाह</string>
+    <string name="more_zakat">जकात</string>
+    <string name="more_zakat_desc">संपत्ती आणि फितर कॅल्क्युलेटरवर जकात</string>
+    <string name="scaffold_message">मल्टी-मॉड्यूल प्रोजेक्ट स्केलेटन तयार आहे.\nफेज 1 — अजान, प्रार्थना वेळा, किब्ला आणि हिजरी कॅलेंडर — येथून सुरू होते.</string>
+    <string name="shortcut_qibla">किब्ला</string>
+    <string name="shortcut_qibla_long">किबला दिशा</string>
+    <string name="shortcut_settings">सेटिंग्ज</string>
+    <string name="shortcut_settings_long">प्रार्थना आणि अजान सेटिंग्ज</string>
+    <string name="shortcut_times">प्रार्थनेच्या वेळा</string>
+    <string name="shortcut_times_long">आज \'s प्रार्थना वेळा</string>
+    <string name="tab_home">प्रार्थनेच्या वेळा</string>
+    <string name="tab_more">अधिक</string>
+    <string name="tab_qibla">किब्ला</string>
+    <string name="tab_quran">कुराण</string>
 </resources>

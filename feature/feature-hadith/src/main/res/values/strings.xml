@@ -7,6 +7,10 @@
     <string name="hadith_of_the_day">حديث اليوم</string>
     <string name="hadith_daily_notification">إشعار حديث اليوم</string>
     <string name="hadith_daily_notification_desc">إشعار يومي بحديث من المجموعة</string>
+    <string name="hadith_preview_label">معاينة الإشعار</string>
+    <string name="hadith_preview_hint">هكذا يظهر إشعار حديث اليوم عند وقته المحدد.</string>
+    <string name="hadith_preview_loading">جارٍ تحميل الحديث…</string>
+    <string name="hadith_daily_notification_time">وقت الإشعار</string>
     <string name="hadith_share">مشاركة</string>
     <string name="hadith_bookmark_add">إضافة علامة</string>
     <string name="hadith_bookmark_remove">إزالة العلامة</string>

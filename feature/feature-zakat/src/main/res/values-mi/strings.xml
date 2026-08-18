@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Tikina aunoa nga utu</string>
+    <string name="zakat_auto_prices_hint">Ina whakahohea, ka tikina nga utu koura me te hiriwa mai i te ipurangi ka whakahou aunoa</string>
+    <string name="zakat_back">Whakamuri</string>
+    <string name="zakat_cash">Te putea me te penapena</string>
+    <string name="zakat_clear_history">Maamaa te hitori</string>
+    <string name="zakat_country">Whenua</string>
+    <string name="zakat_country_placeholder">Whiriwhiria to whenua me to moni</string>
+    <string name="zakat_country_section">Whenua me te moni</string>
+    <string name="zakat_currency">Moni: %1$s</string>
+    <string name="zakat_debts">Nga nama kei a koe (kua tangohia)</string>
+    <string name="zakat_due">Ka utua te takoha (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ka taea e \' te tiki utu. Tirohia to hononga, whakauruhia ranei te utu.</string>
+    <string name="zakat_fetch_now">Whakahouhia nga utu inaianei</string>
+    <string name="zakat_fetching">Tiki utu…</string>
+    <string name="zakat_fitr_persons">Te maha o nga mema o te whanau</string>
+    <string name="zakat_fitr_saa_value">Te uara o te kotahi sa\' (kai matua)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Tapeke Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Koura (karamu)</string>
+    <string name="zakat_gold_price">Te utu koura mo ia karamu</string>
+    <string name="zakat_history">Hītori tātai</string>
+    <string name="zakat_history_amount">Taaka: %1$s</string>
+    <string name="zakat_history_empty">Kaore ano kia tiakina nga tatauranga.</string>
+    <string name="zakat_investments">Nga haumi</string>
+    <string name="zakat_last_updated">Whakahoutanga whakamutunga: %1$s</string>
+    <string name="zakat_money_section">Zakat i runga i te taonga</string>
+    <string name="zakat_nisab_gold">Nisab koura (85g)</string>
+    <string name="zakat_nisab_met">Kua tae te nisab - kua tika te zakat</string>
+    <string name="zakat_nisab_not_met">I raro i te nisab - kaore he zakat e tika ana</string>
+    <string name="zakat_nisab_silver">Nisab Hiriwa (595g)</string>
+    <string name="zakat_rulings_note">Mo te nuinga (jumhoor): 85g koura, hiriwa 595g, a ko te reiti he 2.5%% i muri i te tangohanga o nga nama nama. Korero ki tetahi tohunga mohio mo nga keehi motuhake.</string>
+    <string name="zakat_save_result">Tiakina ki te hitori</string>
+    <string name="zakat_silver_grams">Hiriwa (karamu)</string>
+    <string name="zakat_silver_price">Utu hiriwa mo ia karamu</string>
+    <string name="zakat_source_note">Nga utu koura/hiriwa mai i gold-api.com; Reiti FX mai i open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Tapeke rawa</string>
+    <string name="zakat_trade">Te uara o nga taonga hokohoko</string>
+    <string name="zakat_zakatable">Te rahinga taakaa i muri i nga nama</string>
+</resources>

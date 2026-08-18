@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Të gjitha</string>
+    <string name="hadith_back">Mbrapa</string>
+    <string name="hadith_bookmark_add">Shto faqerojtës</string>
+    <string name="hadith_bookmark_remove">Hiq faqerojtësin</string>
+    <string name="hadith_collection_abudawud">Ebu Davudi</string>
+    <string name="hadith_collection_bukhari">El-Buhariu</string>
+    <string name="hadith_collection_ibnmajah">Ibn Maxhe</string>
+    <string name="hadith_collection_muslim">musliman</string>
+    <string name="hadith_collection_nasai">En-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">En-Nevevi 40</string>
+    <string name="hadith_collection_other">Të tjera</string>
+    <string name="hadith_collection_riyad">Riad es-Salihin</string>
+    <string name="hadith_collection_tirmidhi">Et-Tirmidhiu</string>
+    <string name="hadith_daily_notification">Njoftimi ditor i hadithit</string>
+    <string name="hadith_daily_notification_desc">Merrni një hadith çdo ditë</string>
+    <string name="hadith_daily_notification_time">Koha e njoftimit</string>
+    <string name="hadith_of_the_day">Hadithi i ditës</string>
+    <string name="hadith_preview_hint">Kështu shfaqet njoftimi ditor i hadithit në orarin e caktuar.</string>
+    <string name="hadith_preview_label">Pamja paraprake e njoftimit</string>
+    <string name="hadith_preview_loading">Duke ngarkuar hadithin…</string>
+    <string name="hadith_search_hint">Kërkoni hadithe…</string>
+    <string name="hadith_share">Shpërndaje</string>
+    <string name="hadith_title">Biblioteka e Hadithit</string>
+</resources>

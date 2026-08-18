@@ -11,8 +11,9 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 /** Base receiver that re-computes the alarm schedule. */
-abstract class RescheduleReceiver : BroadcastReceiver() {
+abstract class RescheduleReceiver(private val validActions: Set<String>) : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
+        if (intent.action !in validActions) return
         val entryPoint = EntryPointAccessors.fromApplication(
             context.applicationContext, AdhanEntryPoint::class.java,
         )
@@ -31,6 +32,7 @@ abstract class RescheduleReceiver : BroadcastReceiver() {
  */
 class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
+        if (intent.action != Intent.ACTION_BOOT_COMPLETED) return
         val entryPoint = EntryPointAccessors.fromApplication(
             context.applicationContext, AdhanEntryPoint::class.java,
         )
@@ -45,7 +47,9 @@ class BootReceiver : BroadcastReceiver() {
 }
 
 /** Re-schedules alarms when the timezone or clock changes. */
-class TimeChangeReceiver : RescheduleReceiver()
+class TimeChangeReceiver : RescheduleReceiver(
+    setOf(Intent.ACTION_TIMEZONE_CHANGED, Intent.ACTION_TIME_CHANGED),
+)
 
 /** Intent actions this module's receivers listen to. */
 object RescheduleActions {

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">সব</string>
+    <string name="hadith_back">ব্যাক</string>
+    <string name="hadith_bookmark_add">বুকমার্ক যোগ করুন</string>
+    <string name="hadith_bookmark_remove">বুকমার্ক সরান</string>
+    <string name="hadith_collection_abudawud">আবু দাউদ</string>
+    <string name="hadith_collection_bukhari">আল-বুখারী</string>
+    <string name="hadith_collection_ibnmajah">ইবনে মাজাহ</string>
+    <string name="hadith_collection_muslim">মুসলিম</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">আন-নওয়াবী 40</string>
+    <string name="hadith_collection_other">অন্যান্য</string>
+    <string name="hadith_collection_riyad">রিয়াদ আস-সালিহীন</string>
+    <string name="hadith_collection_tirmidhi">আত-তিরমিযী</string>
+    <string name="hadith_daily_notification">দৈনিক হাদিস বিজ্ঞপ্তি</string>
+    <string name="hadith_daily_notification_desc">প্রতিদিন একটি হাদিস গ্রহণ করুন</string>
+    <string name="hadith_daily_notification_time">বিজ্ঞপ্তির সময়</string>
+    <string name="hadith_of_the_day">দিনের হাদিস</string>
+    <string name="hadith_preview_hint">এভাবেই প্রতিদিনের হাদিস বিজ্ঞপ্তি তার নির্ধারিত সময়ে উপস্থিত হয়।</string>
+    <string name="hadith_preview_label">বিজ্ঞপ্তির পূর্বরূপ</string>
+    <string name="hadith_preview_loading">হাদিস লোড হচ্ছে...</string>
+    <string name="hadith_search_hint">হাদিস অনুসন্ধান করুন...</string>
+    <string name="hadith_share">শেয়ার করুন</string>
+    <string name="hadith_title">হাদিস লাইব্রেরি</string>
+</resources>

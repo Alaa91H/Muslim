@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">ھەممىسى</string>
+    <string name="hadith_back">قايتىش</string>
+    <string name="hadith_bookmark_add">خەتكۈچ قوشۇڭ</string>
+    <string name="hadith_bookmark_remove">خەتكۈچنى ئۆچۈرۈڭ</string>
+    <string name="hadith_collection_abudawud">ئەبۇ داۋۇد</string>
+    <string name="hadith_collection_bukhari">بۇخارى</string>
+    <string name="hadith_collection_ibnmajah">ئىبنى ماجە</string>
+    <string name="hadith_collection_muslim">مۇسۇلمان</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">باشقىلىرى</string>
+    <string name="hadith_collection_riyad">رىياد ئەس-سالىخىن</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidhi</string>
+    <string name="hadith_daily_notification">كۈندىلىك ھەدىس ئۇقتۇرۇشى</string>
+    <string name="hadith_daily_notification_desc">ھەر كۈنى بىر ھەدىس قوبۇل قىلىڭ</string>
+    <string name="hadith_daily_notification_time">ئۇقتۇرۇش ۋاقتى</string>
+    <string name="hadith_of_the_day">شۇ كۈندىكى ھەدىس</string>
+    <string name="hadith_preview_hint">كۈندىلىك ھەدىس ئۇقتۇرۇشى بەلگىلەنگەن ۋاقىتتا مانا مۇشۇنداق كۆرۈنىدۇ.</string>
+    <string name="hadith_preview_label">ئۇقتۇرۇشنى ئالدىن كۆرۈش</string>
+    <string name="hadith_preview_loading">ھەدىسنى يۈكلەۋاتىدۇ…</string>
+    <string name="hadith_search_hint">ھەدىسلەرنى ئىزدەش…</string>
+    <string name="hadith_share">ھەمبەھىرلەش</string>
+    <string name="hadith_title">ھەدىس كۈتۈپخانىسى</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Lesu tale</string>
+    <string name="ramadan_countdown">Ramadan e tekivu ena %1$s na siga</string>
+    <string name="ramadan_countdown_to_iftar">Tiempo de iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Gauna ki na Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Día %1$s de Ramadán</string>
+    <string name="ramadan_days_left">%1$s na siga vo</string>
+    <string name="ramadan_fasting_progress">Fasting days: %1$s of %2$s — tap a day to record it</string>
+    <string name="ramadan_fasting_tracker">Tracker de ayuno</string>
+    <string name="ramadan_hijri_note">Yavutaki ena ivolanivula ni Umm al-Qura kei na veisau ni Hijri raraba ni app e vakayagataki.</string>
+    <string name="ramadan_hijri_year">Yabaki %1$s A.K.</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar kerekere: "O Allah, me baleti Kemuni au a lolo ka ena Nomuni veivakarautaki au a musuka na noqu lolo ..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) tiempo: %1$s</string>
+    <string name="ramadan_location_required">Digitaka e dua na koro ena ituvatuva taumada mo raica na gauna.</string>
+    <string name="ramadan_minutes">%1$s na miniti</string>
+    <string name="ramadan_notification_iftar_body">O Allah, me baleti Kemuni au sa lolo ka ena Nomuni veivakarautaki au sa musuka na noqu lolo .</string>
+    <string name="ramadan_notification_iftar_title">Gauna ni iftar</string>
+    <string name="ramadan_notification_suhoor_body">Sa voleka mai na Fajr — me nomu suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Vakananumi ni Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhour</string>
+    <string name="ramadan_suhoor_remind_before">Vakananuma vei au ni bera:</string>
+    <string name="ramadan_suhoor_time">%1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

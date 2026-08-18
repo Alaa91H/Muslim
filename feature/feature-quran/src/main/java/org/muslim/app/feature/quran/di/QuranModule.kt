@@ -14,6 +14,7 @@ import org.muslim.app.core.database.dao.SurahDao
 import org.muslim.app.core.database.dao.TafsirDao
 import org.muslim.app.core.database.dao.TranslationDao
 import org.muslim.app.feature.quran.data.MediaPlayerAudioEngine
+import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.data.QuranRepositoryImpl
 import org.muslim.app.feature.quran.data.RecitationEngineFactory
 import org.muslim.app.feature.quran.domain.QuranRepository
@@ -59,5 +60,6 @@ object QuranModule {
         ayahDao: AyahDao,
         ayahFtsDao: AyahFtsDao,
         bookmarkDao: BookmarkDao,
-    ): QuranRepository = QuranRepositoryImpl(context, surahDao, ayahDao, ayahFtsDao, bookmarkDao)
+        prefs: QuranPrefsRepository,
+    ): QuranRepository = QuranRepositoryImpl(context, surahDao, ayahDao, ayahFtsDao, bookmarkDao, prefs)
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Hundi</string>
+    <string name="hadith_back">Duuba</string>
+    <string name="hadith_bookmark_add">Bookmark itti dabali</string>
+    <string name="hadith_bookmark_remove">Bookmark haqi</string>
+    <string name="hadith_collection_abudawud">Abuu Daawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhaariin</string>
+    <string name="hadith_collection_ibnmajah">Ibnu Maajaah</string>
+    <string name="hadith_collection_muslim">Muslima</string>
+    <string name="hadith_collection_nasai">An-Nasaa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawiin 40</string>
+    <string name="hadith_collection_other">Kan biroo</string>
+    <string name="hadith_collection_riyad">Riyaad as-Salihin jedhamtu</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidhitti</string>
+    <string name="hadith_daily_notification">Beeksisa hadiisa guyyaa guyyaa</string>
+    <string name="hadith_daily_notification_desc">Guyyaa guyyaan hadiisa tokko argadhu</string>
+    <string name="hadith_daily_notification_time">Yeroo beeksisa</string>
+    <string name="hadith_of_the_day">Hadiisa guyyaa</string>
+    <string name="hadith_preview_hint">Beeksisni hadiisa guyyaa guyyaa sa’aatii beellamameetti akkasitti mul’ata.</string>
+    <string name="hadith_preview_label">Durargii beeksisa</string>
+    <string name="hadith_preview_loading">Hadiisa fe\'aa jira...</string>
+    <string name="hadith_search_hint">Hadiisa barbaadi...</string>
+    <string name="hadith_share">Share godhaa</string>
+    <string name="hadith_title">Mana Kitaabaa Hadiisa</string>
+</resources>

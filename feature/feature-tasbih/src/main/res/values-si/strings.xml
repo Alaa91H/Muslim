@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">ඩිජිටල් මිස්බහා - ගණන් කිරීමට තට්ටු කරන්න</string>
+    <string name="misbaha_widget_label">තස්බිහ්</string>
+    <string name="misbaha_widget_tap_hint">ගණන් කිරීමට තට්ටු කරන්න</string>
+    <string name="tasbih_back">ආපසු</string>
+    <string name="tasbih_cancel">අවලංගු කරන්න</string>
+    <string name="tasbih_confirm">හරි</string>
+    <string name="tasbih_custom_target">අභිරුචි</string>
+    <string name="tasbih_custom_target_hint">ගණන් කිරීම් ගණන ඇතුළත් කරන්න (1 සිට 100000 දක්වා)</string>
+    <string name="tasbih_custom_target_title">අභිරුචි ඉලක්කයක් සකසන්න</string>
+    <string name="tasbih_of_target">%1$s කි</string>
+    <string name="tasbih_reset">යළි පිහිටුවන්න</string>
+    <string name="tasbih_reset_all">සියල්ල නැවත සකසන්න</string>
+    <string name="tasbih_round_complete">සම්පූර්ණ වටය සම්පූර්ණයි (%1$s) 🎉</string>
+    <string name="tasbih_rounds">වට: %1$d</string>
+    <string name="tasbih_sound_desc">සෑම සම්පූර්ණ වටයක්ම අවසන් වූ විට නාද රටාවක් හෝ නාදයක් වාදනය කරන්න</string>
+    <string name="tasbih_sound_title">ඉලක්කය මත ශබ්දය</string>
+    <string name="tasbih_sound_tone_alarm">අනතුරු ඇඟවීම</string>
+    <string name="tasbih_sound_tone_notification">දැනුම්දීම</string>
+    <string name="tasbih_sound_tone_ringtone">නාද රටා</string>
+    <string name="tasbih_tap_hint">ගණන් කිරීමට කවය තට්ටු කරන්න</string>
+    <string name="tasbih_target_reached">ඉලක්කය කරා - අල්ලාහ් පිළිගනීවා</string>
+    <string name="tasbih_title">තස්බිහ්</string>
+    <string name="tasbih_total_today">අද \'s එකතුව: %1$d</string>
+    <string name="tasbih_undo">අහෝසි කරන්න</string>
+    <string name="tasbih_virtue_label">මෙම දික්ර්හි ගුණය</string>
+    <string name="tasbih_week_stats">පසුගිය දින 7</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Vhuya</string>
+    <string name="ramadan_countdown">Ramadan i thoma nga maduvha a %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Tshifhinga tsha u ita iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Tshifhinga tsha u swika Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Duvha la vhu %1$s la Ramadan</string>
+    <string name="ramadan_days_left">Ho sala maduvha a %1$s</string>
+    <string name="ramadan_fasting_progress">Fasting days: %1$s of %2$s — tap a day to record it</string>
+    <string name="ramadan_fasting_tracker">Tshitevheli tsha u ḓidzima zwiḽiwa</string>
+    <string name="ramadan_hijri_note">U bva kha khalenda ya Umm al-Qura na tshanduko ya Hijri ya app yoṱhe yo shumiswaho.</string>
+    <string name="ramadan_hijri_year">Ṅwaha wa %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar khumbelo: "O Allah, nga nṱhani hawe ndo ḓidzima zwiḽiwa nahone nga ndugiselelo dzau ndi ḓidzima zwiḽiwa..."</string>
+    <string name="ramadan_iftar_time">Tshifhinga tsha Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Khethani ḓorobo kha Settings u thoma u itela u vhona zwifhinga.</string>
+    <string name="ramadan_minutes">miniti ya %1$s</string>
+    <string name="ramadan_notification_iftar_body">O Allah, nga nṱhani hawe ndo ḓidzima zwiḽiwa nahone nga ndugiselelo dzau ndi ḓidzima zwiḽiwa .</string>
+    <string name="ramadan_notification_iftar_title">Tshifhinga tsha iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr i khou sendela — vha na suhoor yavho .</string>
+    <string name="ramadan_notification_suhoor_title">Humbudzo ya Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Ni nkhumbudze phanḓa:</string>
+    <string name="ramadan_suhoor_time">Ḓuvha ḽi fhela (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

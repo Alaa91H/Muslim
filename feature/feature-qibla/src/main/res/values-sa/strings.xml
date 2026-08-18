@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s दूरम्</string>
+    <string name="mosque_finder_empty">अस्मिन् श्रेण्यां मस्जिदाः न प्राप्यन्ते</string>
+    <string name="mosque_finder_error">अन्वेषणं विफलम् अभवत्</string>
+    <string name="mosque_finder_intro">OpenStreetMap मार्गेण स्वस्थानस्य समीपे मस्जिदाः अन्वेष्टुम्</string>
+    <string name="mosque_finder_no_location">अद्यापि स्थानं निर्धारितं नास्ति। प्रथमं प्रार्थनासमयसेटिंग् तः स्थानं चिनुत।</string>
+    <string name="mosque_finder_retry">पुनः प्रयासं कुर्वन्तु</string>
+    <string name="mosque_finder_searching">अन्वेषणं कुर्वन्...</string>
+    <string name="mosque_finder_title">समीपस्थाः मस्जिदाः</string>
+    <string name="qibla_bearing_cardinal">किब्ला दिशा: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">मापनार्थं स्वस्य दूरभाषं चित्राष्टौ चालयन्तु</string>
+    <string name="qibla_distance">मक्का तक की दूरी : %1$s</string>
+    <string name="qibla_distance_km">%,.0f कि.मी</string>
+    <string name="qibla_facing">त्वं किब्ला 🕋 सम्मुखीभवसि</string>
+    <string name="qibla_gps_error">समीचीनं निश्चयं प्राप्तुं न शक्तवान्। कृपया पुनः प्रयासं कुर्वन्तु।</string>
+    <string name="qibla_gps_live">लाइव जीपीएस स्थान</string>
+    <string name="qibla_gps_refresh">जीपीएस मार्गेण स्थानं ताजगीं कुर्वन्तु</string>
+    <string name="qibla_gps_refreshing">स्थानं ज्ञात्वा...</string>
+    <string name="qibla_heading_degree">दूरभाष शीर्षकम् : %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">भवतः स्थानात् काबापर्यन्तं महान्-वृत्तमार्गः — अफलाइनरूपेण कार्यं करोति</string>
+    <string name="qibla_map_kaaba">काबा</string>
+    <string name="qibla_map_you">त्वं</string>
+    <string name="qibla_mode_compass">कम्पासः</string>
+    <string name="qibla_mode_map">नक्शा</string>
+    <string name="qibla_open_mosques">समीपस्थाः मस्जिदाः</string>
+    <string name="qibla_title">किब्ला दिक्</string>
+    <string name="qibla_turn_left">वामभागे %1$.1f° गच्छन्तु</string>
+    <string name="qibla_turn_right">दक्षिणं %1$.1f° भ्रमतु</string>
+</resources>

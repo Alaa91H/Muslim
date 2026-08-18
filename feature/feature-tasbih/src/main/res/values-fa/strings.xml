@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">مصباح دیجیتال - برای شمارش ضربه بزنید</string>
+    <string name="misbaha_widget_label">تسبیح</string>
+    <string name="misbaha_widget_tap_hint">برای شمارش ضربه بزنید</string>
+    <string name="tasbih_back">برگشت</string>
+    <string name="tasbih_cancel">لغو کنید</string>
+    <string name="tasbih_confirm">باشه</string>
+    <string name="tasbih_custom_target">سفارشی</string>
+    <string name="tasbih_custom_target_hint">تعداد شمارش ها را وارد کنید (از 1 تا 100000)</string>
+    <string name="tasbih_custom_target_title">یک هدف سفارشی تعیین کنید</string>
+    <string name="tasbih_of_target">از %1$s</string>
+    <string name="tasbih_reset">بازنشانی کنید</string>
+    <string name="tasbih_reset_all">همه را بازنشانی کنید</string>
+    <string name="tasbih_round_complete">دور کامل کامل (%1$s) 🎉</string>
+    <string name="tasbih_rounds">دور: %1$d</string>
+    <string name="tasbih_sound_desc">هنگامی که هر دور کامل کامل شد، یک آهنگ زنگ یا آهنگ پخش کنید</string>
+    <string name="tasbih_sound_title">صدا روی هدف</string>
+    <string name="tasbih_sound_tone_alarm">زنگ هشدار</string>
+    <string name="tasbih_sound_tone_notification">اطلاع رسانی</string>
+    <string name="tasbih_sound_tone_ringtone">آهنگ زنگ</string>
+    <string name="tasbih_tap_hint">برای شمارش روی دایره ضربه بزنید</string>
+    <string name="tasbih_target_reached">به هدف رسید - خداوند قبول کند</string>
+    <string name="tasbih_title">تسبیح</string>
+    <string name="tasbih_total_today">امروز\'s مجموع: %1$d</string>
+    <string name="tasbih_undo">واگرد</string>
+    <string name="tasbih_virtue_label">فضیلت این ذکر</string>
+    <string name="tasbih_week_stats">7 روز گذشته</string>
+</resources>

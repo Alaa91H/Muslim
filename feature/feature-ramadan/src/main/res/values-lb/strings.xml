@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Zréck</string>
+    <string name="ramadan_countdown">De Ramadan fänkt an %1$s Deeg un</string>
+    <string name="ramadan_countdown_to_iftar">Zäit ze iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Zäit bis Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Dag %1$s vum Ramadan</string>
+    <string name="ramadan_days_left">%1$s Deeg bleiwen</string>
+    <string name="ramadan_fasting_progress">Fasting Deeg: %1$s vun %2$s - tippt en Dag fir et opzehuelen</string>
+    <string name="ramadan_fasting_tracker">Fasting Tracker</string>
+    <string name="ramadan_hijri_note">Baséierend op dem Umm al-Qura Kalenner mat der App-breet Hijri Upassung applizéiert.</string>
+    <string name="ramadan_hijri_year">Joer %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar Ukënnegung: "O Allah, fir Iech hunn ech gefast an op Är Versuergung briechen ech meng Fasten ..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) Zäit: %1$s</string>
+    <string name="ramadan_location_required">Wielt eng Stad an Astellungen als éischt fir d\'Zäiten ze gesinn.</string>
+    <string name="ramadan_minutes">%1$s Min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, fir Dech hunn ech gefast an op Denger Versuergung briechen ech meng Fast</string>
+    <string name="ramadan_notification_iftar_title">Zäit fir Iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr kënnt no - huelt Äre Suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor Erënnerung</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Erënnert mech virdrun:</string>
+    <string name="ramadan_suhoor_time">Suhoor endet (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

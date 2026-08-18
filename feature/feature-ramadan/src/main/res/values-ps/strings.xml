@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">شاته</string>
+    <string name="ramadan_countdown">روژه په %1$s ورځو کې پیل کیږي</string>
+    <string name="ramadan_countdown_to_iftar">د افطار وخت: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">د فجر وخت: %1$s</string>
+    <string name="ramadan_day_of_month">د روژې %1$s ورځ</string>
+    <string name="ramadan_days_left">%1$s ورځې پاتې دي</string>
+    <string name="ramadan_fasting_progress">د روژې ورځې: د %2$s څخه %1$s - د ثبتولو لپاره یوه ورځ ټایپ کړئ</string>
+    <string name="ramadan_fasting_tracker">د چټک تعقیبونکی</string>
+    <string name="ramadan_hijri_note">د ام القری تقویم پراساس د اپلیکیشن پراخه هجري تنظیم سره پلي شوی.</string>
+    <string name="ramadan_hijri_year">کال %1$s هجري</string>
+    <string name="ramadan_iftar">افطار</string>
+    <string name="ramadan_iftar_dua">د افطار دعا: ای الله ستا لپاره مې روژه نیولې او ستا په رزق مې روژه ماته کړه...</string>
+    <string name="ramadan_iftar_time">د افطار (مغرب) وخت: %1$s</string>
+    <string name="ramadan_location_required">د وختونو لیدلو لپاره لومړی په ترتیباتو کې ښار غوره کړئ.</string>
+    <string name="ramadan_minutes">%1$s دقیقې</string>
+    <string name="ramadan_notification_iftar_body">ای الله زه ستا لپاره روژه نیسم او ستا په رزق روژه ماتوم</string>
+    <string name="ramadan_notification_iftar_title">د افطار وخت</string>
+    <string name="ramadan_notification_suhoor_body">فجر را نزدی دی - سحری وکړه</string>
+    <string name="ramadan_notification_suhoor_title">د سحر یادونه</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">سحر</string>
+    <string name="ramadan_suhoor_remind_before">مخکې مې یادونه وکړه:</string>
+    <string name="ramadan_suhoor_time">د سحر پای (فجر): %1$s</string>
+    <string name="ramadan_title">روژه</string>
+</resources>

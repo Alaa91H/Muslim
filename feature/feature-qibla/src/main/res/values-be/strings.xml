@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s прэч</string>
+    <string name="mosque_finder_empty">Мячэці ў гэтым дыяпазоне не знойдзены</string>
+    <string name="mosque_finder_error">Пошук не атрымаўся</string>
+    <string name="mosque_finder_intro">Знайдзіце мячэці побач з вашым месцазнаходжаннем праз OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Месца яшчэ не ўстаноўлена. Спачатку выберыце месца ў наладах часу малітвы.</string>
+    <string name="mosque_finder_retry">Паўтарыць</string>
+    <string name="mosque_finder_searching">Пошук...</string>
+    <string name="mosque_finder_title">Побач мячэці</string>
+    <string name="qibla_bearing_cardinal">Напрамак Кіблы: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Перамясціце тэлефон у выглядзе васьмёркі, каб адкалібраваць</string>
+    <string name="qibla_distance">Адлегласць да Мекі: %1$s</string>
+    <string name="qibla_distance_km">%,.0f км</string>
+    <string name="qibla_facing">Вы стаіце тварам да Кіблы 🕋</string>
+    <string name="qibla_gps_error">Не ўдалося атрымаць дакладнае выпраўленне. Калі ласка, паспрабуйце яшчэ раз.</string>
+    <string name="qibla_gps_live">Жывое месцазнаходжанне GPS</string>
+    <string name="qibla_gps_refresh">Абнавіць месцазнаходжанне праз GPS</string>
+    <string name="qibla_gps_refreshing">Вызначэнне месцазнаходжання…</string>
+    <string name="qibla_heading_degree">Тэлефонны загаловак: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Вялікі кругавы маршрут ад вашага месцазнаходжання да Каабы — працуе ў аўтаномным рэжыме</string>
+    <string name="qibla_map_kaaba">Кааба</string>
+    <string name="qibla_map_you">Вы</string>
+    <string name="qibla_mode_compass">компас</string>
+    <string name="qibla_mode_map">Карта</string>
+    <string name="qibla_open_mosques">Побач мячэці</string>
+    <string name="qibla_title">Кірунак Кіблы</string>
+    <string name="qibla_turn_left">Павярніце налева %1$.1f°</string>
+    <string name="qibla_turn_right">Павярніце направа %1$.1f°</string>
+</resources>

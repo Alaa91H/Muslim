@@ -1,5 +1,6 @@
 package org.muslim.app.core.network
 
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -32,6 +33,10 @@ class FileDownloader @Inject constructor(
     /**
      * Streams [url] into [destination] (resumable). Reports progress as a
      * fraction 0..1 via [onProgress] on the calling coroutine's context.
+     *
+     * Coroutine cancellation is re-thrown (not converted to [Result.Failure])
+     * so pausing a download actually stops it at the next ayah boundary while
+     * keeping the `.part` file for a later resume.
      */
     suspend fun download(
         url: String,
@@ -84,6 +89,33 @@ class FileDownloader @Inject constructor(
                 }
                 Result.Success(destination)
             }
-        }.getOrElse { Result.Failure(it) }
+        }.getOrElse {
+            if (it is CancellationException) throw it
+            Result.Failure(it)
+        }
+    }
+
+    /**
+     * Resolves the actual remote file size without downloading it, using a
+     * one-byte Range request (`bytes=0-0`) whose `Content-Range` header reports
+     * the total length. Falls back to `Content-Length` for servers that answer
+     * the probe with a full response. Returns null when the size is unknown
+     * (chunked transfer or a non-range-capable server).
+     */
+    suspend fun contentLength(url: String): Long? = withContext(Dispatchers.IO) {
+        try {
+            val request = Request.Builder().url(url).header("Range", "bytes=0-0").get().build()
+            client.newCall(request).execute().use { response ->
+                val totalFromRange = response.header("Content-Range")
+                    ?.substringAfter('/')
+                    ?.toLongOrNull()
+                (totalFromRange ?: response.header("Content-Length")?.toLongOrNull())
+                    ?.takeIf { it > 0 }
+            }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (_: Exception) {
+            null
+        }
     }
 }

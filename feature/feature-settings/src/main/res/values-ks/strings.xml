@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="about_version">%1$s</string>
     <string name="app_name">مسلمان</string>
+    <string name="notif_preview_elapsed">%1$s</string>
+    <string name="notif_preview_missed">%1$s %2$s</string>
+    <string name="notif_preview_next_title">%1$s %2$s</string>
+    <string name="notif_preview_remaining">%1$s</string>
 </resources>

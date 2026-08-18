@@ -189,6 +189,26 @@ class NotificationPrefsRepositoryTest {
         assertThat(repository.showMissedAdhan.first()).isTrue()
     }
 
+    @Test
+    fun `missedAdhanColor defaults to red and persists the chosen color`() = runTest {
+        assertThat(repository.missedAdhanColor.first()).isEqualTo(MissedAdhanColors.DEFAULT)
+        repository.setMissedAdhanColor(MissedAdhanColors.OPTIONS[2].argb)
+        assertThat(repository.missedAdhanColor.first()).isEqualTo(MissedAdhanColors.OPTIONS[2].argb)
+        repository.setMissedAdhanColor(0xFF1E88E5.toInt())
+        assertThat(repository.missedAdhanColor.first()).isEqualTo(0xFF1E88E5.toInt())
+    }
+
+    @Test
+    fun `every palette color maps back to a unique option`() {
+        val argbs = MissedAdhanColors.OPTIONS.map { it.argb }
+        assertThat(argbs.distinct()).hasSize(MissedAdhanColors.OPTIONS.size)
+        argbs.forEach { argb ->
+            assertThat(MissedAdhanColors.byArgb(argb)).isNotNull()
+            assertThat(MissedAdhanColors.byArgb(argb)!!.argb).isEqualTo(argb)
+        }
+        assertThat(MissedAdhanColors.byArgb(0x123456)).isNull()
+    }
+
     // -------------------------------------------------------- channel application
 
     @Test

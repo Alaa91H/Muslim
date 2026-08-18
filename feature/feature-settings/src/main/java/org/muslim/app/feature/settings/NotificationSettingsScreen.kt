@@ -6,7 +6,12 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -31,6 +36,7 @@ import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.ExpandMore
+import androidx.compose.material.icons.filled.LocationCity
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -44,6 +50,7 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -58,20 +65,27 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.notifications.MissedAdhanColors
+import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.NotificationCategoryPrefs
 import org.muslim.app.core.notifications.NotificationImportance
 import org.muslim.app.core.notifications.QuietHours
 import org.muslim.app.feature.settings.R
+import java.time.LocalTime
 
 /**
  * Master notification manager (PROJECT_PROMPT.md §3.3): a single switch per
@@ -90,16 +104,22 @@ fun NotificationSettingsScreen(
     val preferences by viewModel.preferences.collectAsStateWithLifecycle()
     val quietHours by viewModel.quietHours.collectAsStateWithLifecycle()
     val showMissedAdhan by viewModel.showMissedAdhan.collectAsStateWithLifecycle()
+    val missedAdhanColor by viewModel.missedAdhanColor.collectAsStateWithLifecycle()
+    val dailyHadithTimeMinutes by viewModel.dailyHadithTimeMinutes.collectAsStateWithLifecycle()
+    val countdownPreview by viewModel.countdownPreview.collectAsStateWithLifecycle()
     val context = LocalContext.current
     val permissionGranted = remember { mutableStateOf(viewModel.notificationPermissionGranted()) }
+    var channelStatuses by remember { mutableStateOf(viewModel.channelStatuses()) }
 
-    // Refresh the permission flag whenever the screen is resumed so a grant
-    // made in the system dialog is reflected immediately.
+    // Refresh the permission flag and every channel's system status whenever
+    // the screen is resumed, so a change made in the system settings is
+    // reflected immediately.
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
             if (event == Lifecycle.Event.ON_RESUME) {
                 permissionGranted.value = viewModel.notificationPermissionGranted()
+                channelStatuses = viewModel.channelStatuses()
             }
         }
         lifecycleOwner.lifecycle.addObserver(observer)
@@ -112,6 +132,7 @@ fun NotificationSettingsScreen(
 
     var showStartPicker by remember { mutableStateOf(false) }
     var showEndPicker by remember { mutableStateOf(false) }
+    var showHadithTimePicker by remember { mutableStateOf(false) }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -170,6 +191,13 @@ fun NotificationSettingsScreen(
                     onSystemSettings = viewModel::openSystemNotificationSettings,
                     showMissedAdhan = showMissedAdhan,
                     onToggleShowMissedAdhan = viewModel::setShowMissedAdhan,
+                    missedAdhanColor = missedAdhanColor,
+                    onSelectMissedAdhanColor = viewModel::setMissedAdhanColor,
+                    dailyHadithTime = dailyHadithTimeMinutes,
+                    onDailyHadithTimeClick = { showHadithTimePicker = true },
+                    channelStatus = channelStatuses[category] ?: SystemChannelStatus.NotCreated,
+                    onOpenChannelSettings = { viewModel.openSystemChannelSettings(category) },
+                    countdownPreview = countdownPreview,
                 )
             }
         }
@@ -195,6 +223,17 @@ fun NotificationSettingsScreen(
                 viewModel.setQuietEndMinutes(it)
             },
             onDismiss = { showEndPicker = false },
+        )
+    }
+    if (showHadithTimePicker) {
+        TimePickerDialog(
+            title = stringResource(R.string.notif_hadith_time),
+            initialMinutes = dailyHadithTimeMinutes,
+            onConfirm = {
+                showHadithTimePicker = false
+                viewModel.setDailyHadithTimeMinutes(it)
+            },
+            onDismiss = { showHadithTimePicker = false },
         )
     }
 }
@@ -282,6 +321,123 @@ private fun QuietHoursCard(
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
+/** Formats a countdown in HH:MM:SS (Western digits). */
+private fun formatCountdown(totalSeconds: Long): String {
+    val h = totalSeconds / 3600
+    val m = (totalSeconds % 3600) / 60
+    val sec = totalSeconds % 60
+    return String.format(java.util.Locale.ROOT, "%02d:%02d:%02d", h, m, sec)
+}
+
+/** Formats a prayer time as HH:MM (Western digits, locale-independent). */
+private fun formatPreviewTime(time: LocalTime): String =
+    String.format(java.util.Locale.ROOT, "%02d:%02d", time.hour, time.minute)
+
+private fun prayerNameRes(prayer: Prayer): Int = when (prayer) {
+    Prayer.Fajr -> R.string.notif_preview_prayer_fajr
+    Prayer.Sunrise -> R.string.notif_preview_prayer_sunrise
+    Prayer.Dhuhr -> R.string.notif_preview_prayer_dhuhr
+    Prayer.Asr -> R.string.notif_preview_prayer_asr
+    Prayer.Maghrib -> R.string.notif_preview_prayer_maghrib
+    Prayer.Isha -> R.string.notif_preview_prayer_isha
+}
+
+/**
+ * Live preview of the permanent next-adhan countdown notification, mirroring
+ * [org.muslim.app.feature.prayertimes.notifications.NextAdhanNotifications]:
+ * the real next prayer with its time and a live countdown, plus the missed
+ * adhan line in the user-chosen color. Dims when the category is disabled.
+ */
+@Composable
+private fun CountdownNotificationPreview(
+    preview: CountdownPreview,
+    enabled: Boolean,
+    showMissed: Boolean,
+    missedColor: Int,
+) {
+    Column(
+        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(
+            text = stringResource(R.string.notif_countdown_preview_label),
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Spacer(Modifier.height(6.dp))
+        Surface(
+            shape = RoundedCornerShape(16.dp),
+            color = MaterialTheme.colorScheme.surfaceContainerHighest,
+            modifier = Modifier
+                .fillMaxWidth()
+                .alpha(if (enabled) 1f else 0.45f),
+        ) {
+            Row(
+                modifier = Modifier.padding(horizontal = 14.dp, vertical = 12.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Icon(
+                    Icons.Filled.Timer,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(24.dp),
+                )
+                Spacer(Modifier.width(12.dp))
+                Column(modifier = Modifier.weight(1f)) {
+                    if (!preview.hasLocation || preview.nextPrayer == null) {
+                        Text(
+                            text = stringResource(R.string.notif_preview_no_location),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    } else {
+                        Text(
+                            text = stringResource(
+                                R.string.notif_preview_next_title,
+                                stringResource(prayerNameRes(preview.nextPrayer)),
+                                formatPreviewTime(preview.nextPrayerAt ?: LocalTime.MIDNIGHT),
+                            ),
+                            style = MaterialTheme.typography.labelLarge,
+                            fontWeight = FontWeight.SemiBold,
+                        )
+                        Spacer(Modifier.height(2.dp))
+                        Text(
+                            text = stringResource(R.string.notif_preview_remaining, formatCountdown(preview.remainingSeconds)),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                        if (showMissed && preview.missedPrayer != null && preview.missedPrayerAt != null) {
+                            Spacer(Modifier.height(4.dp))
+                            Text(
+                                text = stringResource(
+                                    R.string.notif_preview_missed,
+                                    stringResource(prayerNameRes(preview.missedPrayer)),
+                                    formatPreviewTime(preview.missedPrayerAt),
+                                ),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = Color(missedColor),
+                            )
+                            if (preview.elapsedSeconds > 0) {
+                                Text(
+                                    text = stringResource(R.string.notif_preview_elapsed, formatCountdown(preview.elapsedSeconds)),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = Color(missedColor),
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = stringResource(R.string.notif_countdown_preview_hint),
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
 @Composable
 private fun NotificationCategoryCard(
     category: NotificationCategory,
@@ -295,6 +451,13 @@ private fun NotificationCategoryCard(
     onSystemSettings: () -> Unit,
     showMissedAdhan: Boolean = true,
     onToggleShowMissedAdhan: (Boolean) -> Unit = {},
+    missedAdhanColor: Int = org.muslim.app.core.notifications.MissedAdhanColors.DEFAULT,
+    onSelectMissedAdhanColor: (Int) -> Unit = {},
+    dailyHadithTime: Int = 8 * 60,
+    onDailyHadithTimeClick: () -> Unit = {},
+    channelStatus: SystemChannelStatus = SystemChannelStatus.NotCreated,
+    onOpenChannelSettings: () -> Unit = {},
+    countdownPreview: CountdownPreview? = null,
 ) {
     var expanded by remember { mutableStateOf(false) }
     Card(
@@ -329,6 +492,10 @@ private fun NotificationCategoryCard(
                         .fillMaxWidth()
                         .padding(start = 16.dp, end = 16.dp, bottom = 12.dp),
                 ) {
+                    SystemChannelStatusRow(
+                        status = channelStatus,
+                        onOpenSettings = onOpenChannelSettings,
+                    )
                     SettingRow(
                         label = stringResource(R.string.notif_sound),
                         checked = prefs.soundEnabled,
@@ -349,6 +516,26 @@ private fun NotificationCategoryCard(
                             label = stringResource(R.string.notif_show_missed_adhan),
                             checked = showMissedAdhan,
                             onCheckedChange = onToggleShowMissedAdhan,
+                        )
+                        if (showMissedAdhan) {
+                            MissedColorPicker(
+                                selectedArgb = missedAdhanColor,
+                                onSelect = onSelectMissedAdhanColor,
+                            )
+                        }
+                        countdownPreview?.let { preview ->
+                            CountdownNotificationPreview(
+                                preview = preview,
+                                enabled = prefs.enabled,
+                                showMissed = showMissedAdhan,
+                                missedColor = missedAdhanColor,
+                            )
+                        }
+                    }
+                    if (category == NotificationCategory.HadithDaily) {
+                        HadithTimeRow(
+                            minutes = dailyHadithTime,
+                            onClick = onDailyHadithTimeClick,
                         )
                     }
                     Spacer(Modifier.height(8.dp))
@@ -392,6 +579,135 @@ private fun NotificationCategoryCard(
         }
     }
     HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
+}
+
+@Composable
+private fun MissedColorPicker(
+    selectedArgb: Int,
+    onSelect: (Int) -> Unit,
+) {
+    val selectedOption = MissedAdhanColors.byArgb(selectedArgb)
+    Column(modifier = Modifier.padding(top = 8.dp)) {
+        Text(
+            text = stringResource(R.string.notif_missed_color),
+            style = MaterialTheme.typography.labelLarge,
+        )
+        Spacer(Modifier.height(6.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            MissedAdhanColors.OPTIONS.forEach { option ->
+                val isSelected = option.argb == selectedArgb
+                Box(
+                    modifier = Modifier
+                        .size(30.dp)
+                        .then(
+                            if (isSelected) {
+                                Modifier.border(
+                                    width = 3.dp,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    shape = CircleShape,
+                                )
+                            } else {
+                                Modifier
+                            },
+                        )
+                        .clickable { onSelect(option.argb) },
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(if (isSelected) 22.dp else 26.dp)
+                            .background(Color(option.argb), CircleShape),
+                    )
+                }
+            }
+        }
+        Spacer(Modifier.height(6.dp))
+        Text(
+            text = selectedOption?.let { stringResource(missedColorLabelRes(it.id)) }
+                ?: stringResource(missedColorLabelRes(MissedAdhanColors.OPTIONS.first().id)),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
+private fun missedColorLabelRes(id: String): Int = when (id) {
+    "red" -> R.string.notif_missed_color_red
+    "orange" -> R.string.notif_missed_color_orange
+    "amber" -> R.string.notif_missed_color_amber
+    "green" -> R.string.notif_missed_color_green
+    "blue" -> R.string.notif_missed_color_blue
+    "purple" -> R.string.notif_missed_color_purple
+    "pink" -> R.string.notif_missed_color_pink
+    "cyan" -> R.string.notif_missed_color_cyan
+    else -> R.string.notif_missed_color_red
+}
+
+@Composable
+private fun HadithTimeRow(
+    minutes: Int,
+    onClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = stringResource(R.string.notif_hadith_time),
+            style = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.weight(1f),
+        )
+        OutlinedButton(onClick = onClick) {
+            Text(timeLabel(minutes))
+        }
+    }
+}
+
+@Composable
+private fun SystemChannelStatusRow(
+    status: SystemChannelStatus,
+    onOpenSettings: () -> Unit,
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text = stringResource(R.string.notif_system_channel_status),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
+                text = stringResource(systemChannelStatusLabelRes(status)),
+                style = MaterialTheme.typography.bodyLarge,
+                color = systemChannelStatusColor(status),
+            )
+        }
+        TextButton(onClick = onOpenSettings) {
+            Icon(
+                Icons.Filled.Settings,
+                contentDescription = null,
+                modifier = Modifier.size(16.dp),
+            )
+            Spacer(Modifier.width(4.dp))
+            Text(stringResource(R.string.notif_open_channel_settings))
+        }
+    }
+    Spacer(Modifier.height(8.dp))
+}
+
+@Composable
+private fun systemChannelStatusColor(status: SystemChannelStatus): Color = when (status) {
+    SystemChannelStatus.Allowed -> Color(0xFF2E7D32)
+    SystemChannelStatus.Blocked -> MaterialTheme.colorScheme.error
+    SystemChannelStatus.NotCreated -> MaterialTheme.colorScheme.onSurfaceVariant
+}
+
+private fun systemChannelStatusLabelRes(status: SystemChannelStatus): Int = when (status) {
+    SystemChannelStatus.Allowed -> R.string.notif_channel_allowed
+    SystemChannelStatus.Blocked -> R.string.notif_channel_blocked
+    SystemChannelStatus.NotCreated -> R.string.notif_channel_not_created
 }
 
 @Composable
@@ -458,6 +774,7 @@ private fun categoryIcon(category: NotificationCategory): ImageVector = when (ca
     NotificationCategory.HadithDaily -> Icons.Filled.Book
     NotificationCategory.PrayerCountdown -> Icons.Filled.Timer
     NotificationCategory.Recitation -> Icons.AutoMirrored.Filled.PlaylistPlay
+    NotificationCategory.Hajj -> Icons.Filled.LocationCity
 }
 
 @Composable
@@ -470,6 +787,7 @@ private fun categoryLabelRes(category: NotificationCategory): Int = when (catego
     NotificationCategory.HadithDaily -> R.string.notif_category_hadith
     NotificationCategory.PrayerCountdown -> R.string.notif_category_prayer_countdown
     NotificationCategory.Recitation -> R.string.notif_category_recitation
+    NotificationCategory.Hajj -> R.string.notif_category_hajj
 }
 
 @Composable
@@ -482,6 +800,7 @@ private fun categoryDescriptionRes(category: NotificationCategory): Int = when (
     NotificationCategory.HadithDaily -> R.string.notif_category_hadith_desc
     NotificationCategory.PrayerCountdown -> R.string.notif_category_prayer_countdown_desc
     NotificationCategory.Recitation -> R.string.notif_category_recitation_desc
+    NotificationCategory.Hajj -> R.string.notif_category_hajj_desc
 }
 
 @Composable

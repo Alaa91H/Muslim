@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s дур</string>
+    <string name="mosque_finder_empty">Дар ин давра ягон масҷид ёфт нашуд</string>
+    <string name="mosque_finder_error">Ҷустуҷӯ муваффақ нашуд</string>
+    <string name="mosque_finder_intro">Масҷидҳоро дар наздикии макони худ тавассути OpenStreetMap пайдо кунед</string>
+    <string name="mosque_finder_no_location">Ҳанӯз ҷойгиршавӣ муқаррар карда нашудааст. Аввал аз танзимоти вақтҳои намоз ҷойеро интихоб кунед.</string>
+    <string name="mosque_finder_retry">Аз нав кӯшиш кунед</string>
+    <string name="mosque_finder_searching">Ҷустуҷӯ…</string>
+    <string name="mosque_finder_title">Масҷидҳои наздик</string>
+    <string name="qibla_bearing_cardinal">Самти қибла: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Телефони худро бо рақами ҳашт барои калибрченкунӣ ҳаракат кунед</string>
+    <string name="qibla_distance">Масофа то Макка: %1$s</string>
+    <string name="qibla_distance_km">%,.0f км</string>
+    <string name="qibla_facing">Шумо рӯ ба сӯи қибла 🕋 ҳастед</string>
+    <string name="qibla_gps_error">Ислоҳоти дақиқ пайдо карда натавонист. Лутфан бори дигар кӯшиш кунед.</string>
+    <string name="qibla_gps_live">Ҷойгиршавии мустақими GPS</string>
+    <string name="qibla_gps_refresh">Ҷойгиршавӣ тавассути GPS навсозӣ кунед</string>
+    <string name="qibla_gps_refreshing">Ҷойгиршавӣ…</string>
+    <string name="qibla_heading_degree">Сарлавҳаи телефон: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Масири бузурги доира аз макони шумо то Каъба — офлайн кор мекунад</string>
+    <string name="qibla_map_kaaba">Каъба</string>
+    <string name="qibla_map_you">Шумо</string>
+    <string name="qibla_mode_compass">Компас</string>
+    <string name="qibla_mode_map">Харита</string>
+    <string name="qibla_open_mosques">Масҷидҳои наздик</string>
+    <string name="qibla_title">Самти қибла</string>
+    <string name="qibla_turn_left">%1$.1f° чап гардед</string>
+    <string name="qibla_turn_right">%1$.1f° рост гардед</string>
+</resources>

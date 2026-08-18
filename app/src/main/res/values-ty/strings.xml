@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Te po\'ipo\'i, te ahiahi, e te pureraa i muri mai i te adhkar e te mau counter</string>
+    <string name="more_downloads">Te mau tai\'oraa</string>
+    <string name="more_downloads_desc">Tikiake i te hoê surah, te hoê ayah, aore ra te Quran taatoa e ta outou taata i maiti</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Te fare buka Hadith, te imiraa e te hadith o te mahana</string>
+    <string name="more_learn">A haapii</string>
+    <string name="more_learn_desc">Te mau arata\'iraa wudu e te pure taahiraa-i-taahiraa</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Te mau taime Suhoor e te iftar e te mau taime no te haapaeraa maa</string>
+    <string name="more_reference">Fare buka</string>
+    <string name="more_reference_desc">Te hoê omuaraa parau no ni\'a i te Islam, te Sira, e te mau peropheta</string>
+    <string name="more_settings">Te mau faanahoraa</string>
+    <string name="more_settings_desc">Te mau faanahoraa no te tumu parau, te reo, te pure e te adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Te mau misbah digital e te aamu o te mau mahana atoa</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat i ni\'a i te moni e te rave\'a tata\'uraa Fitr</string>
+    <string name="scaffold_message">Ua ineine te afata o te opuaraa e rave rahi.\nTe tuhaa 1 — Adhan, te mau taime pure, te Qibla, e te ava\'e Hijri —e haamata ïa i ô nei.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Te a\'oraa Qibla</string>
+    <string name="shortcut_settings">Te mau faanahoraa</string>
+    <string name="shortcut_settings_long">Te mau faanahoraa no te pure e te adhan</string>
+    <string name="shortcut_times">Te mau taime pure</string>
+    <string name="shortcut_times_long">Te mau taime pureraa i teie mahana\'</string>
+    <string name="tab_home">Te mau taime pure</string>
+    <string name="tab_more">Hau atu â</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

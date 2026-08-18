@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Retounen</string>
+    <string name="reference_no_results">Pa gen rezilta matche</string>
+    <string name="reference_search_hint">Chèche liv sa...</string>
+    <string name="reference_title">Bibliyotèk Referans Islamik</string>
+    <string name="reference_topics_count">sijè</string>
+</resources>

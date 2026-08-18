@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">ব্যাক</string>
+    <string name="ramadan_countdown">%1$s দিনে রমজান শুরু হয়</string>
+    <string name="ramadan_countdown_to_iftar">ইফতারের সময়: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ফজরের সময়: %1$s</string>
+    <string name="ramadan_day_of_month">%1$s রমজানের দিন</string>
+    <string name="ramadan_days_left">%1$s দিন বাকি</string>
+    <string name="ramadan_fasting_progress">উপবাসের দিনগুলি: %2$s-এর %1$s - এটি রেকর্ড করতে একটি দিন ট্যাপ করুন</string>
+    <string name="ramadan_fasting_tracker">ফাস্টিং ট্র্যাকার</string>
+    <string name="ramadan_hijri_note">উম্ম আল-কুরা ক্যালেন্ডারের উপর ভিত্তি করে অ্যাপ-ব্যাপী হিজরি সমন্বয় প্রয়োগ করা হয়েছে।</string>
+    <string name="ramadan_hijri_year">সাল %1$s হি</string>
+    <string name="ramadan_iftar">ইফতার</string>
+    <string name="ramadan_iftar_dua">ইফতারের দোয়া: "হে আল্লাহ, আমি তোমার জন্য রোজা রেখেছি এবং তোমারই রিযিকে আমি আমার রোজা ভঙ্গ করি..."</string>
+    <string name="ramadan_iftar_time">ইফতার (মাগরিব) সময়: %1$s</string>
+    <string name="ramadan_location_required">সময় দেখতে প্রথমে সেটিংসে একটি শহর বেছে নিন।</string>
+    <string name="ramadan_minutes">%1$s মিনিট</string>
+    <string name="ramadan_notification_iftar_body">হে আল্লাহ, তোমার জন্যই আমি রোজা রেখেছি এবং তোমারই রিযিকে আমি রোজা ভঙ্গ করেছি</string>
+    <string name="ramadan_notification_iftar_title">ইফতারের সময়</string>
+    <string name="ramadan_notification_suhoor_body">ফজর ঘনিয়ে আসছে—সেহরী নাও</string>
+    <string name="ramadan_notification_suhoor_title">সুহুর অনুস্মারক</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">সুহুর</string>
+    <string name="ramadan_suhoor_remind_before">আগে আমাকে মনে করিয়ে দিন:</string>
+    <string name="ramadan_suhoor_time">সুহুর শেষ (ফজর): %1$s</string>
+    <string name="ramadan_title">রমজান</string>
+</resources>

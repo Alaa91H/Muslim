@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digitalna misbaha — tapnite za štetje</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tapnite za štetje</string>
+    <string name="tasbih_back">Nazaj</string>
+    <string name="tasbih_cancel">Prekliči</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Po meri</string>
+    <string name="tasbih_custom_target_hint">Vnesite število štetij (od 1 do 100000)</string>
+    <string name="tasbih_custom_target_title">Nastavite cilj po meri</string>
+    <string name="tasbih_of_target">od %1$s</string>
+    <string name="tasbih_reset">Ponastavi</string>
+    <string name="tasbih_reset_all">Ponastavi vse</string>
+    <string name="tasbih_round_complete">Celoten krog dokončan (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Krogi: %1$d</string>
+    <string name="tasbih_sound_desc">Predvajajte zvonjenje ali ton, ko je vsak krog končan</string>
+    <string name="tasbih_sound_title">Zvok na cilju</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Obvestilo</string>
+    <string name="tasbih_sound_tone_ringtone">Melodija zvonjenja</string>
+    <string name="tasbih_tap_hint">Tapnite krog za štetje</string>
+    <string name="tasbih_target_reached">Cilj dosežen - naj Allah sprejme</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Danes \' skupaj: %1$d</string>
+    <string name="tasbih_undo">Razveljavi</string>
+    <string name="tasbih_virtue_label">Vrlina tega dhikra</string>
+    <string name="tasbih_week_stats">Zadnjih 7 dni</string>
+</resources>

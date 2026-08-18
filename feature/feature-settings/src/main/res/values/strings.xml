@@ -16,9 +16,8 @@
     <string name="settings_reduce_animations_desc">إيقاف الحركات غير الضرورية لتفضيلات إتاحة الوصول</string>
 
     <string name="settings_section_start">الشاشة الافتتاحية</string>
-    <string name="settings_start_home">الرئيسية (أوقات الصلاة)</string>
+    <string name="settings_start_home">أوقات الصلاة</string>
     <string name="settings_start_quran">المصحف</string>
-    <string name="settings_start_times">جدول المواقيت</string>
     <string name="settings_start_qibla">القبلة</string>
     <string name="settings_start_more">المزيد</string>
 
@@ -95,10 +94,16 @@
     <string name="notif_category_adhkar_desc">تذكيرات الأذكار والرسالة العائمة</string>
     <string name="notif_category_hadith">حديث اليوم</string>
     <string name="notif_category_hadith_desc">حديث يومي مع تذكير بالهدي النبوي</string>
+    <string name="notif_hadith_time">وقت إشعار حديث اليوم</string>
     <string name="notif_permission_title">السماح بالإشعارات</string>
     <string name="notif_permission_desc">للحصول على الأذان والتذكيرات اليومية، اسمح للتطبيق بعرض الإشعارات.</string>
     <string name="notif_permission_allow">السماح</string>
     <string name="notif_open_system_settings">إعدادات النظام</string>
+    <string name="notif_open_channel_settings">فتح إعدادات القناة</string>
+    <string name="notif_system_channel_status">حالة قناة النظام</string>
+    <string name="notif_channel_allowed">مسموحة</string>
+    <string name="notif_channel_blocked">محظورة من النظام</string>
+    <string name="notif_channel_not_created">غير مهيأة</string>
     <string name="notif_quiet_title">ساعات الهدوء</string>
     <string name="notif_quiet_desc">كتم كل الإشعارات (ما عدا الأذان) خلال الفترة المحددة</string>
     <string name="notif_quiet_start">البداية</string>
@@ -110,6 +115,19 @@
     <string name="notif_importance_default">متوسطة</string>
     <string name="notif_importance_high">عالية</string>
     <string name="notif_badge">شارة أيقونة التطبيق</string>
+    <string name="notif_countdown_preview_label">معاينة الإشعار الدائم</string>
+    <string name="notif_countdown_preview_hint">إشعار دائم يعرض الصلاة القادمة والوقت المتبقي، ويُحدَّث مباشرة.</string>
+    <string name="notif_preview_next_title">الأذان التالي: %1$s — %2$s</string>
+    <string name="notif_preview_remaining">الوقت المتبقي: %1$s</string>
+    <string name="notif_preview_missed">الأذان الفائت: %1$s — %2$s</string>
+    <string name="notif_preview_elapsed">مضى على الأذان: %1$s</string>
+    <string name="notif_preview_no_location">حدّد موقعك لعرض مواقيت الصلاة</string>
+    <string name="notif_preview_prayer_fajr">الفجر</string>
+    <string name="notif_preview_prayer_sunrise">الشروق</string>
+    <string name="notif_preview_prayer_dhuhr">الظهر</string>
+    <string name="notif_preview_prayer_asr">العصر</string>
+    <string name="notif_preview_prayer_maghrib">المغرب</string>
+    <string name="notif_preview_prayer_isha">العشاء</string>
     <string name="notif_show_missed_adhan">إظهار الأذان الفائت</string>
     <string name="notif_test">إرسال إشعار تجريبي</string>
     <string name="notif_test_body">هذا إشعار تجريبي من إعدادات الإشعارات.</string>
@@ -120,4 +138,15 @@
     <string name="notif_category_prayer_countdown_desc">إشعار دائم يعرض الأذان التالي والوقت المتبقي والأذان الفائت</string>
     <string name="notif_category_recitation">التحكم في التلاوة</string>
     <string name="notif_category_recitation_desc">إشعار بأزرار تشغيل/إيقاف/إغلاق أثناء تلاوة القرآن</string>
+    <string name="notif_category_hajj">مصاحبة الحاج</string>
+    <string name="notif_category_hajj_desc">تذكير يومي بالمنسك المقصود في وقته خلال أيام الحج</string>
+    <string name="notif_missed_color">لون سطر الأذان الفائت</string>
+    <string name="notif_missed_color_red">أحمر</string>
+    <string name="notif_missed_color_orange">برتقالي</string>
+    <string name="notif_missed_color_amber">كهرماني</string>
+    <string name="notif_missed_color_green">أخضر</string>
+    <string name="notif_missed_color_blue">أزرق</string>
+    <string name="notif_missed_color_purple">بنفسجي</string>
+    <string name="notif_missed_color_pink">وردي</string>
+    <string name="notif_missed_color_cyan">سماوي</string>
 </resources>

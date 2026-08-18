@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Taeao, afiafi &amp; uma le tatalo adhkar ma fata</string>
+    <string name="more_downloads">Toe sii mai le tauloto</string>
+    <string name="more_downloads_desc">Tikia se surah, se papa po\'o le Quran atoa ma lau tauloto filifilia</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Faletusi Hadith, su\'esu\'e &amp; hadith o le aso</string>
+    <string name="more_learn">Aoao</string>
+    <string name="more_learn_desc">Laasaga ta\'i la\'asaga wudu &amp; ta\'iala tatalo</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar taimi ma le anapogi tracker</string>
+    <string name="more_reference">Faletusi Fa\'asinomaga</string>
+    <string name="more_reference_desc">Folasaga ia Islama, le Sira &amp; le au perofeta</string>
+    <string name="more_settings">Fa\'atonu</string>
+    <string name="more_settings_desc">Autu, gagana, tatalo &amp; fa\'atonuga azan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Fa\'amatalaga fa\'atekinolosi ma tala fa\'asolopito o aso uma</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat i luga o le tamaoaiga &amp; Fitr calculator</string>
+    <string name="scaffold_message">Ua saunia le auivi o le tele-module project.\nVaega 1 - Adhan, taimi tatalo, Qibla, ma le kalena Hijri - amata iinei.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Ituaiga Qibla</string>
+    <string name="shortcut_settings">Fa\'atonu</string>
+    <string name="shortcut_settings_long">Fa\'atonuga tatalo &amp; azan</string>
+    <string name="shortcut_times">Taimi tatalo</string>
+    <string name="shortcut_times_long">I aso nei \' taimi tatalo</string>
+    <string name="tab_home">Taimi Tatalo</string>
+    <string name="tab_more">E sili atu</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

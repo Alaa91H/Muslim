@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Нахъе</string>
+    <string name="ramadan_countdown">Рамазан моцӀ байбихьула %1$s къоялдасан .</string>
+    <string name="ramadan_countdown_to_iftar">Ифтар гьабизе заман: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Пажралъул заман: %1$s</string>
+    <string name="ramadan_day_of_month">Рамазан моцӀалъул %1$s къо</string>
+    <string name="ramadan_days_left">%1$s къо хутӀана</string>
+    <string name="ramadan_fasting_progress">Fasting days: %1$s of %2$s — tap a day to record it</string>
+    <string name="ramadan_fasting_tracker">КӀал биччаялъул трекер</string>
+    <string name="ramadan_hijri_note">На основе календаря Умму аль-Куры с применяемой корректировкой хижри по всей приложении.</string>
+    <string name="ramadan_hijri_year">Сон %1$s гь.</string>
+    <string name="ramadan_iftar">Ифтар</string>
+    <string name="ramadan_iftar_dua">Ифтаралъул дугӀа: «Я Аллагь, Дуе гӀоло дица кӀал ккуна ва Дур ризкъиялдалъун дица кӀал биччана...»</string>
+    <string name="ramadan_iftar_time">Ифтар (магӀриб) заман: %1$s</string>
+    <string name="ramadan_location_required">Заман бихьизе ккани, цин Настройкабазда шагьар тӀаса бище.</string>
+    <string name="ramadan_minutes">%1$s мин.</string>
+    <string name="ramadan_notification_iftar_body">Я Аллагь, Дуе гӀоло дица кӀал бана ва Дур ризкъиялда тӀад дица кӀал биччана</string>
+    <string name="ramadan_notification_iftar_title">Ифтар гьабизе заман щвана .</string>
+    <string name="ramadan_notification_suhoor_body">Фажр гӀагарлъулеб бугин — нужерго сухӀур гьабе</string>
+    <string name="ramadan_notification_suhoor_title">Сухур ракӀалде щвезабулеб</string>
+    <string name="ramadan_starts_on">%1$s — %2$s гь.</string>
+    <string name="ramadan_suhoor">Сухур</string>
+    <string name="ramadan_suhoor_remind_before">Цебе ракӀалде щвезабе:</string>
+    <string name="ramadan_suhoor_time">СухӀур лъугӀула (Фажр): %1$s</string>
+    <string name="ramadan_title">Рамазан моцӀ</string>
+</resources>

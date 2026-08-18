@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Akiru prezojn aŭtomate</string>
+    <string name="zakat_auto_prices_hint">Kiam ĝi estas ebligita, oraj kaj arĝentaj prezoj estas prenitaj el la interreto kaj aŭtomate refreŝigitaj</string>
+    <string name="zakat_back">Reen</string>
+    <string name="zakat_cash">Kontantmono kaj ŝparaĵoj</string>
+    <string name="zakat_clear_history">Klarigi historion</string>
+    <string name="zakat_country">Lando</string>
+    <string name="zakat_country_placeholder">Elektu vian landon kaj valuton</string>
+    <string name="zakat_country_section">Lando &amp; valuto</string>
+    <string name="zakat_currency">Valuto: %1$s</string>
+    <string name="zakat_debts">Ŝuldoj, kiujn vi ŝuldas (subtrahitaj)</string>
+    <string name="zakat_due">Zakat pagenda (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ne\' ne povus akiri prezojn. Kontrolu vian konekton aŭ enigu la prezon permane.</string>
+    <string name="zakat_fetch_now">Refreŝigu prezojn nun</string>
+    <string name="zakat_fetching">Alportante prezojn...</string>
+    <string name="zakat_fitr_persons">Nombro de familianoj</string>
+    <string name="zakat_fitr_saa_value">Valoro de unu sa\' (baza manĝaĵo)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Sumo Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Oro (gramoj)</string>
+    <string name="zakat_gold_price">Ora prezo por gramo</string>
+    <string name="zakat_history">Historio de kalkulado</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Ankoraŭ neniuj konservitaj kalkuloj.</string>
+    <string name="zakat_investments">Investoj</string>
+    <string name="zakat_last_updated">Laste ĝisdatigita: %1$s</string>
+    <string name="zakat_money_section">Zakat pri riĉeco</string>
+    <string name="zakat_nisab_gold">Ora nisab (85 g)</string>
+    <string name="zakat_nisab_met">La nisab estas atingita - zakat estas pagenda</string>
+    <string name="zakat_nisab_not_met">Sub la nisab — neniu zakat ŝuldata</string>
+    <string name="zakat_nisab_silver">Arĝenta nisab (595 g)</string>
+    <string name="zakat_rulings_note">Por la plimulto (jumhoor): ora nisab estas 85g, arĝento 595g, kaj la kurzo estas 2.5%% post detraho de ŝuldoj. Konsultu kvalifikitan akademiulon por specialaj kazoj.</string>
+    <string name="zakat_save_result">Konservu al la historio</string>
+    <string name="zakat_silver_grams">Arĝento (gramoj)</string>
+    <string name="zakat_silver_price">Arĝenta prezo por gramo</string>
+    <string name="zakat_source_note">Prezoj de oro/arĝento de gold-api.com; FX-kurzoj de open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Totalaj aktivoj</string>
+    <string name="zakat_trade">Komerco de varoj valoro</string>
+    <string name="zakat_zakatable">Zakatable kvanto post ŝuldoj</string>
+</resources>

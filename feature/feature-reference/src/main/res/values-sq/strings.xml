@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Mbrapa</string>
+    <string name="reference_no_results">Nuk ka rezultate që përputhen</string>
+    <string name="reference_search_hint">Kërkoni këtë libër…</string>
+    <string name="reference_title">Biblioteka e Referencave Islame</string>
+    <string name="reference_topics_count">temave</string>
+</resources>

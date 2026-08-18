@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="about_version">Bersyon %1$s</string>
     <string name="app_name">Muslim</string>
+    <string name="notif_preview_elapsed">Lumipas mula noong adhan: %1$s</string>
+    <string name="notif_preview_missed">Hindi nasagot na adhan: %1$s — %2$s</string>
+    <string name="notif_preview_next_title">Susunod na adhan: %1$s — %2$s</string>
+    <string name="notif_preview_remaining">Oras na natitira: %1$s</string>
 </resources>

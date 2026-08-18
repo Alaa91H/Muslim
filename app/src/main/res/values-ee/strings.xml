@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar ƒe nya</string>
+    <string name="more_adhkar_desc">Ŋdi, fiẽ &amp; gbedodoɖa megbe adhkar kple counters</string>
+    <string name="more_downloads">Nuxexlẽ ƒe kɔpiwo</string>
+    <string name="more_downloads_desc">Wɔ surah, ayah alo Quran bliboa ƒe kɔpi kple nuxlẽla si nètia</string>
+    <string name="more_hadith">Hadith ƒe nyawo</string>
+    <string name="more_hadith_desc">Hadith agbalẽdzraɖoƒe, didi &amp; hadith si le ŋkekea me</string>
+    <string name="more_learn">Srɔ̃ nu</string>
+    <string name="more_learn_desc">Afɔɖeɖe ɖesiaɖe wudu &amp; gbedodoɖa mɔfiamewo</string>
+    <string name="more_ramadan">Ramadan ƒe ɣeyiɣia me</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar ɣeyiɣiwo kple nutsitsidɔ tracker</string>
+    <string name="more_reference">Numekugbalẽdzraɖoƒe</string>
+    <string name="more_reference_desc">Islam, Sira &amp; nyagblɔɖilawo ƒe ŋgɔdonya</string>
+    <string name="more_settings">Ðoɖowo</string>
+    <string name="more_settings_desc">Tanya, gbegbɔgblɔ, gbedodoɖa &amp; adhan ɖoɖowo</string>
+    <string name="more_tasbih">Tasbih ƒe ŋkɔ</string>
+    <string name="more_tasbih_desc">Digital misbaha kple gbesiagbe ŋutinya</string>
+    <string name="more_zakat">Zakat ƒe nuɖuɖu</string>
+    <string name="more_zakat_desc">Zakat le kesinɔnuwo &amp; Fitr akɔntabubumɔ̃ dzi</string>
+    <string name="scaffold_message">Multi-module project skeleton la sɔ gbe.\nAkpa 1 — Adhan, gbedodoɖa ɣeyiɣiwo, Qibla, kple Hijri ɣletigbalẽ — dze egɔme tso afisia.</string>
+    <string name="shortcut_qibla">Qibla ƒe ŋkɔ</string>
+    <string name="shortcut_qibla_long">Qibla ƒe mɔfiame</string>
+    <string name="shortcut_settings">Ðoɖowo</string>
+    <string name="shortcut_settings_long">Gbedodoɖa &amp; adhan ƒe ɖoɖowo</string>
+    <string name="shortcut_times">Gbedodoɖaɣiwo</string>
+    <string name="shortcut_times_long">Egbea\' ƒe gbedodoɖa ɣeyiɣiwo</string>
+    <string name="tab_home">Gbedodoɖa Ɣeyiɣiwo</string>
+    <string name="tab_more">Nu geɖe wu</string>
+    <string name="tab_qibla">Qibla ƒe ŋkɔ</string>
+    <string name="tab_quran">Quran</string>
 </resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_version">Versi %1$s</string>
+    <string name="app_name">Muslim</string>
+    <string name="notif_preview_elapsed">Berlalu sejak adzan: %1$s</string>
+    <string name="notif_preview_missed">Adzan yang terlewat: %1$s — %2$s</string>
+    <string name="notif_preview_next_title">Adzan berikutnya: %1$s — %2$s</string>
+    <string name="notif_preview_remaining">Sisa waktu: %1$s</string>
+</resources>

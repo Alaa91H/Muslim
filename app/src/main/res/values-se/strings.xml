@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslima</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Iđit-, eahket- ja maŋŋelrohkosa adhkar mas leat lohkkit</string>
+    <string name="more_downloads">Desiterema neahttasiiddut</string>
+    <string name="more_downloads_desc">Viežže sura, ayah dahje olles Korana iežat válljejuvvon lohkkiin</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Hadith-girjerádju, ohcan ja beaivvi hadith</string>
+    <string name="more_learn">Oahpa</string>
+    <string name="more_learn_desc">lávkkiid mielde wudu ja rohkosrávvagat</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Suhoor- ja iftar-áiggit ja fástačuovvu</string>
+    <string name="more_reference">Referánsagirjerádju</string>
+    <string name="more_reference_desc">Islama, Sira ja profehtaid álggaheapmi</string>
+    <string name="more_settings">Ásahusat</string>
+    <string name="more_settings_desc">Fáddá, giella, rohkos ja adhan-ásahusat</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digitála misbaha mas lea beaivválaš historjá</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat riggodagaid ja fitr rehkenastima</string>
+    <string name="scaffold_message">Máŋggamodula prošeakta lea gárvvis.\nVuosttaš dássi — Adhan, rohkosáiggit, Qibla ja Hijri-kaleandar — álgá dáppe.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla čujuhus</string>
+    <string name="shortcut_settings">Ásahusat</string>
+    <string name="shortcut_settings_long">Rohkos ja adhan-ásahusat</string>
+    <string name="shortcut_times">Rohkosáiggit</string>
+    <string name="shortcut_times_long">Odne\'-logu rohkosáiggit</string>
+    <string name="tab_home">Rohkosáiggit</string>
+    <string name="tab_more">Eanet</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Korana</string>
 </resources>

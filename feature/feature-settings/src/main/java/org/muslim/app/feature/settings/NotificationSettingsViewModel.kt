@@ -15,15 +15,48 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import org.muslim.app.core.common.prayer.Coordinates
+import org.muslim.app.core.common.prayer.NextPrayer
+import org.muslim.app.core.common.prayer.Prayer
+import org.muslim.app.core.common.prayer.PrayerTimesCalculator
+import org.muslim.app.core.datastore.prayer.PrayerSettings
+import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
+import org.muslim.app.core.datastore.prayer.toPrayerParameters
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.NotificationCategoryPrefs
 import org.muslim.app.core.notifications.NotificationImportance
+import org.muslim.app.core.notifications.MissedAdhanColors
 import org.muslim.app.core.notifications.NotificationPrefsRepository
 import org.muslim.app.core.notifications.QuietHours
+import org.muslim.app.feature.hadith.data.HadithOfTheDayScheduler
+import org.muslim.app.feature.hadith.data.HadithPrefsRepository
+import org.muslim.app.feature.learn.data.HajjCompanionScheduler
 import org.muslim.app.feature.settings.R
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalTime
+import java.time.ZoneId
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
+
+/** Real OS-level state of one Android notification channel. */
+enum class SystemChannelStatus { Allowed, Blocked, NotCreated }
+
+/** Live snapshot shown in the countdown-notification preview. */
+data class CountdownPreview(
+    val hasLocation: Boolean = false,
+    val nextPrayer: Prayer? = null,
+    val nextPrayerAt: LocalTime? = null,
+    val remainingSeconds: Long = 0,
+    val missedPrayer: Prayer? = null,
+    val missedPrayerAt: LocalTime? = null,
+    val elapsedSeconds: Long = 0,
+)
 
 /**
  * Unified notification manager (PROJECT_PROMPT.md §3.3). One switch per
@@ -36,6 +69,9 @@ import javax.inject.Inject
 class NotificationSettingsViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val prefsRepository: NotificationPrefsRepository,
+    private val hadithPrefsRepository: HadithPrefsRepository,
+    private val prayerSettingsRepository: PrayerSettingsRepository,
+    private val calculator: PrayerTimesCalculator,
 ) : ViewModel() {
 
     val preferences: StateFlow<Map<NotificationCategory, NotificationCategoryPrefs>> =
@@ -54,6 +90,72 @@ class NotificationSettingsViewModel @Inject constructor(
         prefsRepository.showMissedAdhan
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
 
+    val missedAdhanColor: StateFlow<Int> =
+        prefsRepository.missedAdhanColor
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), MissedAdhanColors.DEFAULT)
+
+    private val secondTicker = flow {
+        while (true) {
+            emit(Unit)
+            delay(1_000)
+        }
+    }
+
+    /**
+     * Live snapshot of the permanent next-adhan countdown notification,
+     * recomputed every second while the screen is open: the real next prayer
+     * from the saved location plus the missed adhan (when one exists).
+     */
+    val countdownPreview: StateFlow<CountdownPreview> =
+        combine(prayerSettingsRepository.settings, secondTicker) { settings, _ ->
+            computeCountdown(settings)
+        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), CountdownPreview())
+
+    private fun computeCountdown(settings: PrayerSettings): CountdownPreview {
+        val location = settings.location ?: return CountdownPreview(hasLocation = false)
+        val zone = ZoneId.of(location.timeZone)
+        val now = System.currentTimeMillis()
+        val today = Instant.ofEpochMilli(now).atZone(zone).toLocalDate()
+        val coordinates = Coordinates(location.latitude, location.longitude, location.elevation)
+        val params = settings.toPrayerParameters()
+        val todayResult = calculator.compute(
+            today, coordinates, params, zone, settings.asrMethod, settings.adjustments,
+        )
+        var next = NextPrayer.nextPrayer(todayResult.epochMillis, now)
+        if (next == null) {
+            next = NextPrayer.nextPrayer(
+                calculator.compute(
+                    today.plusDays(1), coordinates, params, zone, settings.asrMethod, settings.adjustments,
+                ).epochMillis,
+                now,
+            )
+        }
+        val missed = todayResult.epochMillis
+            .filterValues { it <= now }
+            .maxByOrNull { it.value }
+        return CountdownPreview(
+            hasLocation = true,
+            nextPrayer = next?.prayer,
+            nextPrayerAt = next?.atEpochMillis?.let { Instant.ofEpochMilli(it).atZone(zone).toLocalTime() },
+            remainingSeconds = next?.let { (it.atEpochMillis - now) / 1_000L } ?: 0,
+            missedPrayer = missed?.key,
+            missedPrayerAt = missed?.value?.let { Instant.ofEpochMilli(it).atZone(zone).toLocalTime() },
+            elapsedSeconds = missed?.let { (now - it.value) / 1_000L } ?: 0,
+        )
+    }
+
+    /**
+     * Daily hadith-of-the-day notification time, in minutes from midnight.
+     * Mirrors the picker in the hadith screen so both stay in sync.
+     */
+    val dailyHadithTimeMinutes: StateFlow<Int> =
+        hadithPrefsRepository.dailyNotificationTimeMinutes
+            .stateIn(
+                viewModelScope,
+                SharingStarted.WhileSubscribed(5_000),
+                HadithPrefsRepository.DEFAULT_NOTIFICATION_TIME_MINUTES,
+            )
+
     /** True when the app may post notifications (always true below Android 13). */
     fun notificationPermissionGranted(): Boolean =
         Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
@@ -62,6 +164,15 @@ class NotificationSettingsViewModel @Inject constructor(
 
     fun setEnabled(category: NotificationCategory, enabled: Boolean) = launch {
         prefsRepository.setEnabled(category, enabled)
+        // The Pilgrim Companion is a mode, not just a channel: enabling it
+        // schedules its daily reminder; disabling it cancels the job.
+        if (category == NotificationCategory.Hajj) {
+            if (enabled) {
+                HajjCompanionScheduler.schedule(context)
+            } else {
+                HajjCompanionScheduler.cancel(context)
+            }
+        }
     }
 
     fun setSoundEnabled(category: NotificationCategory, enabled: Boolean) = launch {
@@ -82,6 +193,18 @@ class NotificationSettingsViewModel @Inject constructor(
 
     fun setShowMissedAdhan(show: Boolean) = launch {
         prefsRepository.setShowMissedAdhan(show)
+    }
+
+    /** Persists the new daily-hadith time and re-schedules when it is enabled. */
+    fun setDailyHadithTimeMinutes(minutes: Int) = launch {
+        hadithPrefsRepository.setDailyNotificationTimeMinutes(minutes)
+        if (hadithPrefsRepository.dailyNotificationEnabled.first()) {
+            HadithOfTheDayScheduler.schedule(context, minutes)
+        }
+    }
+
+    fun setMissedAdhanColor(color: Int) = launch {
+        prefsRepository.setMissedAdhanColor(color)
     }
 
     fun setQuietHoursEnabled(enabled: Boolean) = launch {
@@ -116,6 +239,36 @@ class NotificationSettingsViewModel @Inject constructor(
         runCatching { context.startActivity(intent) }
     }
 
+    /**
+     * Reads the live OS state of [category]'s channel: blocked when the
+     * notification permission is denied (Android 13+) or when the channel's
+     * importance was set to "none" in system settings.
+     */
+    fun systemChannelStatus(category: NotificationCategory): SystemChannelStatus {
+        if (!notificationPermissionGranted()) return SystemChannelStatus.Blocked
+        val manager = context.getSystemService(NotificationManager::class.java)
+        val channel = manager.getNotificationChannel(category.channelId)
+            ?: return SystemChannelStatus.NotCreated
+        return if (channel.importance == NotificationManager.IMPORTANCE_NONE) {
+            SystemChannelStatus.Blocked
+        } else {
+            SystemChannelStatus.Allowed
+        }
+    }
+
+    /** Snapshot of every category's system channel status (for the screen). */
+    fun channelStatuses(): Map<NotificationCategory, SystemChannelStatus> =
+        NotificationCategory.entries.associateWith { systemChannelStatus(it) }
+
+    /** Opens the system settings for [category]'s specific channel. */
+    fun openSystemChannelSettings(category: NotificationCategory) {
+        val intent = Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
+            .putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
+            .putExtra(Settings.EXTRA_CHANNEL_ID, category.channelId)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        runCatching { context.startActivity(intent) }
+    }
+
     private fun launch(block: suspend () -> Unit) {
         viewModelScope.launch { block() }
     }
@@ -129,6 +282,7 @@ class NotificationSettingsViewModel @Inject constructor(
         NotificationCategory.HadithDaily -> R.string.notif_category_hadith
         NotificationCategory.PrayerCountdown -> R.string.notif_category_prayer_countdown
         NotificationCategory.Recitation -> R.string.notif_category_recitation
+        NotificationCategory.Hajj -> R.string.notif_category_hajj
     }
 
     private companion object {

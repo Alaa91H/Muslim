@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Semua</string>
+    <string name="hadith_back">belakang</string>
+    <string name="hadith_bookmark_add">Tambah penanda halaman</string>
+    <string name="hadith_bookmark_remove">Alih keluar penanda halaman</string>
+    <string name="hadith_collection_abudawud">Abu Dawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibnu Majah</string>
+    <string name="hadith_collection_muslim">Muslim</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">Lain-lain</string>
+    <string name="hadith_collection_riyad">Riyadh as-Salihin</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidzi</string>
+    <string name="hadith_daily_notification">Pemberitahuan hadis harian</string>
+    <string name="hadith_daily_notification_desc">Terima hadis setiap hari</string>
+    <string name="hadith_daily_notification_time">Masa pemberitahuan</string>
+    <string name="hadith_of_the_day">Hadis hari ini</string>
+    <string name="hadith_preview_hint">Ini adalah bagaimana pemberitahuan hadith harian muncul pada masa yang dijadualkan.</string>
+    <string name="hadith_preview_label">Pratonton pemberitahuan</string>
+    <string name="hadith_preview_loading">Memuatkan hadis…</string>
+    <string name="hadith_search_hint">Cari hadis…</string>
+    <string name="hadith_share">Kongsi</string>
+    <string name="hadith_title">Perpustakaan Hadis</string>
+</resources>

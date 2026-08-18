@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Tåtte</string>
+    <string name="ramadan_countdown">I Ramadan ha tutuhon gi %1$s na diha siha</string>
+    <string name="ramadan_countdown_to_iftar">tiempo para iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Oras para Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Ha\'åni %1$s gi Ramadan</string>
+    <string name="ramadan_days_left">%1$s dihas ha\'</string>
+    <string name="ramadan_fasting_progress">Ha\'åni ni\' manma\'å\'ñao: %1$s gi %2$s — tåya\' un diha para un rikohi</string>
+    <string name="ramadan_fasting_tracker">Fasting tracker</string>
+    <string name="ramadan_hijri_note">Ma fa\'tinas gi i kalendarion Umm al-Qura ni\' ma aplika i Hijri na inadåpta gi todu i app.</string>
+    <string name="ramadan_hijri_year">Sakkan %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar na tinayuyot: "O Allah, para Hagu na hu ayuyuna yan gi i probision-mu hu na\'suha i ayuyuna-hu..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) ora: %1$s</string>
+    <string name="ramadan_location_required">Pulan un siudå gi i Settings fine\'nina para un li\'e\' i ora siha.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, para hagu na hu ayuyuna yan put i probision-mu hu na\'suha i ayuyuna-hu</string>
+    <string name="ramadan_notification_iftar_title">tiempo para iftar</string>
+    <string name="ramadan_notification_suhoor_body">esta måtto i Fajr — na\'i i suhoor-mu</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor na rikårasion</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Na\'hasso yu\' antes:</string>
+    <string name="ramadan_suhoor_time">Suhoor ends (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

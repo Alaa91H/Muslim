@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Hepsi</string>
+    <string name="hadith_back">Geri</string>
+    <string name="hadith_bookmark_add">Yer işareti ekle</string>
+    <string name="hadith_bookmark_remove">Yer işaretini kaldır</string>
+    <string name="hadith_collection_abudawud">Ebu Davud</string>
+    <string name="hadith_collection_bukhari">El-Buhari</string>
+    <string name="hadith_collection_ibnmajah">İbn Mâce</string>
+    <string name="hadith_collection_muslim">Müslüman</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">Nevevî 40</string>
+    <string name="hadith_collection_other">Diğer</string>
+    <string name="hadith_collection_riyad">Riyad es-Salihin</string>
+    <string name="hadith_collection_tirmidhi">Tirmizi</string>
+    <string name="hadith_daily_notification">Günlük hadis bildirimi</string>
+    <string name="hadith_daily_notification_desc">Her gün bir hadis alın</string>
+    <string name="hadith_daily_notification_time">Bildirim zamanı</string>
+    <string name="hadith_of_the_day">günün hadisi</string>
+    <string name="hadith_preview_hint">Günlük hadis tebliği bu şekilde planlandığı saatte görünür.</string>
+    <string name="hadith_preview_label">Bildirim önizlemesi</string>
+    <string name="hadith_preview_loading">Hadis yükleniyor…</string>
+    <string name="hadith_search_hint">Hadisleri araştırın…</string>
+    <string name="hadith_share">Paylaş</string>
+    <string name="hadith_title">Hadis Kütüphanesi</string>
+</resources>

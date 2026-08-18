@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Musulman</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar de matin, de ser e de pòst-pregària amb de comptadors</string>
+    <string name="more_downloads">Telecargaments de recitacion</string>
+    <string name="more_downloads_desc">Telecargatz una sura, una aya o l\'Alcoran complet amb vòstre recitator causit</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Bibliotèca de Hadith, recèrca &amp; hadith del jorn</string>
+    <string name="more_learn">Aprene</string>
+    <string name="more_learn_desc">Guidas de wudu e de pregària pas a pas</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Los tempses de suhoor e d\'iftar e lo seguidor de june</string>
+    <string name="more_reference">Bibliotèca de referéncia</string>
+    <string name="more_reference_desc">Introduccion a l\'islam, la Sira &amp; los profètas</string>
+    <string name="more_settings">Paramètres</string>
+    <string name="more_settings_desc">Paramètres de tèma, lenga, pregària e adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha numerica amb l\'istòria quotidiana</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat sus la riquesa e la calculadoira de Fitr</string>
+    <string name="scaffold_message">L\'esqueleta del projècte multimodul es prèsta.\nLa fasa 1 — Adhan, temps de pregària, Qibla, e lo calendièr Hijri — comença aicí.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Direccion del Qibla</string>
+    <string name="shortcut_settings">Paramètres</string>
+    <string name="shortcut_settings_long">Paramètres de pregària e d\'adhan</string>
+    <string name="shortcut_times">Temps de pregària</string>
+    <string name="shortcut_times_long">Uèi \' temps de pregària</string>
+    <string name="tab_home">Temps de pregària</string>
+    <string name="tab_more">Mai</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Coran</string>
 </resources>

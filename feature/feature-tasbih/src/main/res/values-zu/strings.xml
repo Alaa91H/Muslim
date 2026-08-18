@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">I-Digital misbaha — thepha ukuze ubale</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Thepha ukuze ubale</string>
+    <string name="tasbih_back">Emuva</string>
+    <string name="tasbih_cancel">Khansela</string>
+    <string name="tasbih_confirm">KULUNGILE</string>
+    <string name="tasbih_custom_target">Ngokwezifiso</string>
+    <string name="tasbih_custom_target_hint">Faka inombolo yokubala (kusuka ku-1 kuye ku-100000)</string>
+    <string name="tasbih_custom_target_title">Setha okuphokophelwe ngokwezifiso</string>
+    <string name="tasbih_of_target">ku-%1$s</string>
+    <string name="tasbih_reset">Setha kabusha</string>
+    <string name="tasbih_reset_all">Setha kabusha konke</string>
+    <string name="tasbih_round_complete">Umjikelezo ogcwele uphelele (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Imijikelezo: %1$d</string>
+    <string name="tasbih_sound_desc">Dlala iringithoni noma ithoni uma umzuliswano ngamunye ogcwele usuqediwe</string>
+    <string name="tasbih_sound_title">Umsindo ekuqondisweni</string>
+    <string name="tasbih_sound_tone_alarm">I-alamu</string>
+    <string name="tasbih_sound_tone_notification">Isaziso</string>
+    <string name="tasbih_sound_tone_ringtone">Iringithoni</string>
+    <string name="tasbih_tap_hint">Thepha umbuthano ukuze ubale</string>
+    <string name="tasbih_target_reached">Umgomo ufinyelelwe - sengathi u-Allah angamukela</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Namuhla\'s inani: %1$d</string>
+    <string name="tasbih_undo">Hlehlisa</string>
+    <string name="tasbih_virtue_label">Ubuhle bale dhikr</string>
+    <string name="tasbih_week_stats">Izinsuku ezingu-7 ezedlule</string>
+</resources>

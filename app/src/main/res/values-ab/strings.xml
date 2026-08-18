@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Муслим</string>
+    <string name="more_adhkar">Адҳкар</string>
+    <string name="more_adhkar_desc">Ашьыжь, ахәылбыҽха, анамазшьҭахьтәи адҳкар аҳасабгақәа рыла</string>
+    <string name="more_downloads">Аԥхьара ақәгара</string>
+    <string name="more_downloads_desc">Иалхыз аԥхьаҩ дицны асур, аиа, мамзаргьы Аҟәырҟан зегьы хҩылаа</string>
+    <string name="more_hadith">Аҳадис</string>
+    <string name="more_hadith_desc">Аҳадисқәа рбиблиотека, аԥшаара &amp; амш аҳадисқәа</string>
+    <string name="more_learn">Аҵара</string>
+    <string name="more_learn_desc">Шьаҿа-шьаҿала аудуи аныҳәаратә мҩақәҵагақәеи</string>
+    <string name="more_ramadan">Рамадан</string>
+    <string name="more_ramadan_desc">Суҳур &amp; ифтар аамҭақәеи ачгара ашьҭаҵаҩи</string>
+    <string name="more_reference">Адырраҭаратә библиотека</string>
+    <string name="more_reference_desc">Аԥсылманра алагамҭа, Сиреи аԥааимбарцәеи</string>
+    <string name="more_settings">Архиарақәа</string>
+    <string name="more_settings_desc">Атема, абызшәа, аныҳәара, азан архиарақәа</string>
+    <string name="more_tasbih">Аҭасбиҳ</string>
+    <string name="more_tasbih_desc">Есыҽнытәи аҭоурых змоу адиджиталтә мисбаха</string>
+    <string name="more_zakat">Азакаҭ</string>
+    <string name="more_zakat_desc">Амазара азы азакаҭ &amp; Афитр аҳасабга</string>
+    <string name="scaffold_message">Модульрацәалатәи апроект аскелет мазеиуп.\nАԥхьатәи афаза — Азан, анамаз аамҭақәа, Ақыбла, Ҳиџьритәи амзар — абра иалагоит.</string>
+    <string name="shortcut_qibla">Ақыбла</string>
+    <string name="shortcut_qibla_long">Ақыбла ахырхарҭа</string>
+    <string name="shortcut_settings">Архиарақәа</string>
+    <string name="shortcut_settings_long">Аныҳәареи адҳани рырхиара</string>
+    <string name="shortcut_times">Аныҳәара аамҭақәа</string>
+    <string name="shortcut_times_long">Иахьа\'-тәи ашықәсқәа рзы аныҳәара аамҭақәа</string>
+    <string name="tab_home">Аныҳәара аамҭақәа</string>
+    <string name="tab_more">Еиҳаны</string>
+    <string name="tab_qibla">Ақыбла</string>
+    <string name="tab_quran">Аҟәырҟан</string>
 </resources>

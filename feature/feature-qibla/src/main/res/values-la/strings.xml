@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s away</string>
+    <string name="mosque_finder_empty">Non in hac range meschitis</string>
+    <string name="mosque_finder_error">Quaerere defecit</string>
+    <string name="mosque_finder_intro">Inveni meschitis prope locum tuum per OpenStretMap</string>
+    <string name="mosque_finder_no_location">Nulla sed posuere nisi. Locum ex orationis tempore primo occasus elige.</string>
+    <string name="mosque_finder_retry">Retry</string>
+    <string name="mosque_finder_searching">Investigatio…</string>
+    <string name="mosque_finder_title">Prope mosques</string>
+    <string name="qibla_bearing_cardinal">Qibla direction: %1$s</string>
+    <string name="qibla_bearing_degree">%1$.0f°</string>
+    <string name="qibla_calibrate">Movere phone figura octo ad calibrate</string>
+    <string name="qibla_distance">Spatium ad Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Adversus Qibla</string>
+    <string name="qibla_gps_error">Non potuit accurate statuere. Quaeso, iterum conare.</string>
+    <string name="qibla_gps_live">Vivamus GPS loco</string>
+    <string name="qibla_gps_refresh">Renovare locum per GPS</string>
+    <string name="qibla_gps_refreshing">Locare…</string>
+    <string name="qibla_heading_degree">Telephonum mobile: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Magnus circulus via a loco tuo ad Kaaba - operatur offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Tu</string>
+    <string name="qibla_mode_compass">Compass</string>
+    <string name="qibla_mode_map">Map</string>
+    <string name="qibla_open_mosques">Prope mosques</string>
+    <string name="qibla_title">Qibla directionem</string>
+    <string name="qibla_turn_left">Convertere ad sinistram %1$.1f°</string>
+    <string name="qibla_turn_right">Dextram %1$.1f°</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha fakakomipiuta — lomiʻi ke lau .</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Lomiʻi ke lau</string>
+    <string name="tasbih_back">Foki</string>
+    <string name="tasbih_cancel">Kaniseli</string>
+    <string name="tasbih_confirm">Sai</string>
+    <string name="tasbih_custom_target">Anga-maheni</string>
+    <string name="tasbih_custom_target_hint">Fakahu \'a e lahi \'o e ngaahi lau (mei he 1 ki he 100000)</string>
+    <string name="tasbih_custom_target_title">Fokotuʻu ha taumuʻa angamaheni .</string>
+    <string name="tasbih_of_target">\'o e %1$s</string>
+    <string name="tasbih_reset">Toe fakafoki</string>
+    <string name="tasbih_reset_all">Toe fakafoki kotoa</string>
+    <string name="tasbih_round_complete">Takai kakato kakato (%1$s) 🎉 .</string>
+    <string name="tasbih_rounds">Ngaahi takai: %1$d</string>
+    <string name="tasbih_sound_desc">Tā ha leʻo pe leʻo ʻi he taimi ʻoku ʻosi ai ʻa e takai kakato takitaha .</string>
+    <string name="tasbih_sound_title">Le\'o \'i he taumu\'a</string>
+    <string name="tasbih_sound_tone_alarm">Fakatokanga</string>
+    <string name="tasbih_sound_tone_notification">Fakatokanga</string>
+    <string name="tasbih_sound_tone_ringtone">Leʻo Tangi</string>
+    <string name="tasbih_tap_hint">Lomiʻi ʻa e takaí ke lau .</string>
+    <string name="tasbih_target_reached">Taumuʻa kuo aʻusia — ʻofa ke tali ʻe Allah .</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Ko e fakakatoa \'o e \'aho ni: %1$d</string>
+    <string name="tasbih_undo">Fakafoki</string>
+    <string name="tasbih_virtue_label">Ko e angama\'a \'o e dhikr ko \'eni .</string>
+    <string name="tasbih_week_stats">\'Aho \'e 7 fakamuimuitaha</string>
+</resources>

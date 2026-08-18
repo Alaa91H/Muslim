@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Na\'i i price siha automatiku</string>
+    <string name="zakat_auto_prices_hint">Yanggen ma na\'setbe, i presion oro yan plåta ma chule\' ginen i internet ya ma na\'lå\'la\' ta\'lo</string>
+    <string name="zakat_back">Tåtte</string>
+    <string name="zakat_cash">Salape\' yan salåppe\'</string>
+    <string name="zakat_clear_history">Klaru na estoria</string>
+    <string name="zakat_country">Nasion</string>
+    <string name="zakat_country_placeholder">Pulan i nasion-mu yan i salåppe\'-mu</string>
+    <string name="zakat_country_section">Nasion yan salåppe\'</string>
+    <string name="zakat_currency">Salåpe\': %1$s</string>
+    <string name="zakat_debts">I dibi siha ni\' un dibi (ma\'apasi)</string>
+    <string name="zakat_due">Zakat due (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ti siña hu sodda\' i price siha. Chek i koneksion-mu pat tuge\' i salåpe\' gi kannai-mu.</string>
+    <string name="zakat_fetch_now">Na\'lå\'la\' i price siha på\'go</string>
+    <string name="zakat_fetching">Manma\'ayek i price siha…</string>
+    <string name="zakat_fitr_persons">Numero na familia</string>
+    <string name="zakat_fitr_saa_value">I balotu-ña un sa\' (nengkanno\')</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Todu i Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Oro (gramos)</string>
+    <string name="zakat_gold_price">I presion oro gi kada gramo</string>
+    <string name="zakat_history">I historian i kinalkulasion</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Ti ma na\'setbe i kalkulasion siha på\'go.</string>
+    <string name="zakat_investments">Inbetsion siha</string>
+    <string name="zakat_last_updated">Uttimo na inadelanta: %1$s</string>
+    <string name="zakat_money_section">Zakat gi i riku</string>
+    <string name="zakat_nisab_gold">Nisab ni\' oron (85g)</string>
+    <string name="zakat_nisab_met">I nisab esta måtto — debi di u ma\'apasi i zakat</string>
+    <string name="zakat_nisab_not_met">Gi papa\' i nisab — taya\' zakat debi di u ma\'apasi</string>
+    <string name="zakat_nisab_silver">Nisab salape\' (595g)</string>
+    <string name="zakat_rulings_note">Gi i mas meggai (jumhoor): i nisab ni\' oro 85g, i salape\' 595g, yan i rinikohen salåppe\' 2.5%% despues di ma na\'suha i dibi siha. Kuentusi un kualifikao na eskolar put i espesiåt na kason siha.</string>
+    <string name="zakat_save_result">Na\'setbe gi i historian-ña</string>
+    <string name="zakat_silver_grams">salape\' (gramos)</string>
+    <string name="zakat_silver_price">I salåpe\' salape\' gi kada gramo</string>
+    <string name="zakat_source_note">I presion oro/plåta ginen gold-api.com; FX rates ginen open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Todu i aset siha</string>
+    <string name="zakat_trade">I balotu i gå\'ga\' siha</string>
+    <string name="zakat_zakatable">I kantidån salåppe\' ni\' siña ma\'apåsi despues di i dibi siha</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s karullapi</string>
+    <string name="mosque_finder_empty">Kay cordillerapiqa manam mezquitakuna tarikunchu</string>
+    <string name="mosque_finder_error">Maskay mana atikurqachu</string>
+    <string name="mosque_finder_intro">OpenStreetMap nisqawan maypi kasqayki qayllapi mezquitakunata maskay</string>
+    <string name="mosque_finder_no_location">Manaraqmi maypi kasqan churasqachu. Ñawpaqtaqa mañakuy pachakuna churasqamanta maypi kasqaykita akllay.</string>
+    <string name="mosque_finder_retry">Wakmanta kallpachakuy</string>
+    <string name="mosque_finder_searching">Maskaspa...</string>
+    <string name="mosque_finder_title">Chay qayllapi mezquitakuna</string>
+    <string name="qibla_bearing_cardinal">Qibla dirección: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f° nisqa</string>
+    <string name="qibla_calibrate">Telefonoykita pusaq siqipi kuyuchiy calibración ruwanaykipaq</string>
+    <string name="qibla_distance">Makkah llaqtamanta karu: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Qamqa Qibla 🕋 uyayuq kachkanki</string>
+    <string name="qibla_gps_error">Mana chiqan allichayta tariyta atirqanchu. Ama hina kaspa, hukmanta kallpachakuy.</string>
+    <string name="qibla_gps_live">Kawsaq GPS tarikuy</string>
+    <string name="qibla_gps_refresh">GPS nisqawan maypi kasqanmanta musuqyachiy</string>
+    <string name="qibla_gps_refreshing">Tarispa...</string>
+    <string name="qibla_heading_degree">Telefono umalliq: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Hatun-muyu ñan maypi kasqaykimanta Kaaba kaqman — mana tinkisqa llamk\'an</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Qam</string>
+    <string name="qibla_mode_compass">Brújula nisqa</string>
+    <string name="qibla_mode_map">Mapa</string>
+    <string name="qibla_open_mosques">Chay qayllapi mezquitakuna</string>
+    <string name="qibla_title">Qibla dirección</string>
+    <string name="qibla_turn_left">Lloq\'eman kutiy %1$.1f°</string>
+    <string name="qibla_turn_right">Pañaman kutiy %1$.1f°</string>
+</resources>

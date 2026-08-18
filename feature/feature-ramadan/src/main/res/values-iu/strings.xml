@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">ᐅᑎᕐᓗᑎᑦ</string>
+    <string name="ramadan_countdown">ᕌᒪᑕᓐ ᐱᒋᐊᕐᓂᐊᖅᑐᖅ ᐅᓪᓗᐃᑦ %1$s ᐊᓂᒍᖅᐸᑕ</string>
+    <string name="ramadan_countdown_to_iftar">ᓯᕿᙳᔭᖅ ᐃᕝᑕᕐᒧᑦ: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ᓯᕿᙳᔭᖅ ᕚᔾᒧᑦ: %1$s</string>
+    <string name="ramadan_day_of_month">ᐅᓪᓗᖅ %1$s ᕌᒪᑕᓐᒥ</string>
+    <string name="ramadan_days_left">%1$s ᐅᓪᓗᐃᑦ ᐊᒥᐊᒃᑯᖃᖅᐳᑦ</string>
+    <string name="ramadan_fasting_progress">ᓂᕆᑦᑕᐃᓕᒪᓂᕐᒧᑦ ᐅᓪᓗᐃᑦ: %1$s %2$s-ᓂᑦ — ᓇᕿᓪᓗᒍ ᐅᓪᓗᖅ ᑎᑎᕋᕐᓂᐊᕐᓗᒍ</string>
+    <string name="ramadan_fasting_tracker">ᓂᕆᑦᑕᐃᓕᓂᕐᒧᑦ ᖃᐅᔨᒪᔾᔪᑎ</string>
+    <string name="ramadan_hijri_note">ᒪᓕᒃᑐᒋᑦ Umm al-Qura ᐅᓪᓗᖅᓯᐅᑎᖏᑦ ᑕᐃᒃᑯᐊ ᕼᐃᔾᕆ ᐋᖅᑭᒋᐊᖅᑕᐅᓯᒪᓪᓗᑎᒃ.</string>
+    <string name="ramadan_hijri_year">ᐊᕐᕌᒍ %1$s ᐊᕼ</string>
+    <string name="ramadan_iftar">ᐃᕝᑕᕐ</string>
+    <string name="ramadan_iftar_dua">ᐃᕝᑕᕐ ᑐᒃᓯᐊᕐᓂᖅ: "ᐊᓚ, ᐃᓕᖕᓄᑦ ᓂᕆᑦᑕᐃᓕᓚᐅᖅᐳᖓ ᐊᒻᒪ ᓂᕿᒋᔭᕐᓄᑦ ᓂᕆᑦᑕᐃᓕᓚᐅᖅᐳᖓ..."</string>
+    <string name="ramadan_iftar_time">ᐃᕝᑕᕐ (ᒪᒍᕆᑉ) ᐃᑲᕐᕋᖓ: %1$s</string>
+    <string name="ramadan_location_required">ᓂᕈᐊᕐᓗᒍ ᓄᓇᓕᐸᐅᔭᖅ ᐋᖅᑭᒃᓯᒪᓂᖏᓐᓂ ᓯᕗᓪᓕᖅᐹᒥ ᑕᑯᓂᐊᕐᓗᒋᑦ ᓯᕿᙳᔭᐃᑦ.</string>
+    <string name="ramadan_minutes">%1$s ᒥᓂᑦ</string>
+    <string name="ramadan_notification_iftar_body">ᐋᓚ, ᐃᓕᖕᓄᑦ ᓂᕆᑦᑕᐃᓕᓚᐅᖅᐳᖓ ᐊᒻᒪ ᓂᕆᔭᒃᓴᕆᔭᕐᓄᑦ ᓂᕆᑦᑕᐃᓕᓚᐅᖅᐳᖓ</string>
+    <string name="ramadan_notification_iftar_title">ᐃᕝᑕᕐᒨᖓᓕᖅᐳᖅ</string>
+    <string name="ramadan_notification_suhoor_body">Fajr ᖃᓪᓕᕙᓪᓕᐊᓕᖅᐳᖅ — ᓱᕼᐅᐊᖃᕆᑦ</string>
+    <string name="ramadan_notification_suhoor_title">ᓱᕼᐅᕐᒧᑦ ᐃᖅᑲᐃᑎᑦᑎᔾᔪᑎ</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">ᓱᕼᐅᕐ</string>
+    <string name="ramadan_suhoor_remind_before">ᐃᖅᑲᐃᑎᓚᐅᓐᖓ ᓯᕗᓂᐊᒍᑦ:</string>
+    <string name="ramadan_suhoor_time">ᓱᕼᐅᕐ ᐃᓱᓕᑉᐳᖅ (ᕙᔾ): %1$s</string>
+    <string name="ramadan_title">ᕋᒪᑕᓐ</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s vakayawa</string>
+    <string name="mosque_finder_empty">E sega ni kune e dua na valenilotu ena vanua oqo</string>
+    <string name="mosque_finder_error">E sega ni rawa na vakasaqaqara</string>
+    <string name="mosque_finder_intro">Vaqara na valenilotu volekata na nomu vanua ena mape ni gaunisala dolavi</string>
+    <string name="mosque_finder_no_location">Se bera ni vakarautaki na vanua. Digitaka taumada e dua na vanua mai na ituvatuva ni gauna ni masu.</string>
+    <string name="mosque_finder_retry">Tovolea tale</string>
+    <string name="mosque_finder_searching">Vakasaqaqara...</string>
+    <string name="mosque_finder_title">Mosques voleka</string>
+    <string name="qibla_bearing_cardinal">Veidusimaki ni qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Toso na nomu talevoni ena dua na iwiliwili-walu me calibrate .</string>
+    <string name="qibla_distance">Na yawa ki Maka: %1$s</string>
+    <string name="qibla_distance_km">%,.0f kilomita</string>
+    <string name="qibla_facing">O sa sotava tiko na Qibla 🕋 .</string>
+    <string name="qibla_gps_error">E sega ni rawa ni rawata e dua na veivakadodonutaki dodonu. Kerekere mo tovolea tale.</string>
+    <string name="qibla_gps_live">Vanua ni GPS bula</string>
+    <string name="qibla_gps_refresh">Vakavoutaka na vanua ena GPS</string>
+    <string name="qibla_gps_refreshing">Vaqara...</string>
+    <string name="qibla_heading_degree">Ulutaga ni talevoni: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Sala levu-wavoki mai na nomu vanua ki na Kaaba — cakacaka ena initaneti .</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">O iko</string>
+    <string name="qibla_mode_compass">Kampasi</string>
+    <string name="qibla_mode_map">Mape</string>
+    <string name="qibla_open_mosques">Mosques voleka</string>
+    <string name="qibla_title">Veidusimaki ni qibla</string>
+    <string name="qibla_turn_left">Vuki ki na imawi %1$.1f°</string>
+    <string name="qibla_turn_right">Vuki ki na imatau %1$.1f°</string>
+</resources>

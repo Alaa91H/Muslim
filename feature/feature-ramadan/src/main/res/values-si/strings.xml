@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">ආපසු</string>
+    <string name="ramadan_countdown">රාමසාන් ආරම්භය දින %1$s කි</string>
+    <string name="ramadan_countdown_to_iftar">ඉෆ්තාර් සඳහා වේලාව: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ෆජ්ර් වෙත වේලාව: %1$s</string>
+    <string name="ramadan_day_of_month">රාමසාන් දිනය %1$s</string>
+    <string name="ramadan_days_left">දින %1$s ඉතිරිව ඇත</string>
+    <string name="ramadan_fasting_progress">නිරාහාර දින: %1$s න් %2$s — එය පටිගත කිරීමට දිනකට තට්ටු කරන්න</string>
+    <string name="ramadan_fasting_tracker">නිරාහාර ට්රැකර්</string>
+    <string name="ramadan_hijri_note">Umm al-Qura දින දර්ශනය මත පදනම්ව යෙදුම-පුළුල් Hijri ගැලපීම යොදන ලදී.</string>
+    <string name="ramadan_hijri_year">වසර %1$s AH</string>
+    <string name="ramadan_iftar">ඉෆ්තාර්</string>
+    <string name="ramadan_iftar_dua">ඉෆ්තාර් අයැදීම: "අල්ලාහ්, ඔබ වෙනුවෙන් මම නිරාහාරව සිටියෙමි, ඔබගේ සැපයුම මත මම මගේ උපවාසය බිඳ දමමි..."</string>
+    <string name="ramadan_iftar_time">ඉෆ්තාර් (මග්රිබ්) වේලාව: %1$s</string>
+    <string name="ramadan_location_required">වේලාවන් බැලීමට පළමුව සැකසීම් තුළ නගරයක් තෝරන්න.</string>
+    <string name="ramadan_minutes">විනාඩි %1$s</string>
+    <string name="ramadan_notification_iftar_body">අල්ලාහ්, ඔබ වෙනුවෙන් මම උපවාස කළ අතර ඔබේ සැපයුම මත මම මගේ උපවාසය කඩ කරමි</string>
+    <string name="ramadan_notification_iftar_title">ඉෆ්තාර් සඳහා කාලය</string>
+    <string name="ramadan_notification_suhoor_body">ෆජ්ර් ළඟා වෙමින් තිබේ - ඔබේ සුහූර් කරන්න</string>
+    <string name="ramadan_notification_suhoor_title">සුහූර් මතක් කිරීම</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">සුහූර්</string>
+    <string name="ramadan_suhoor_remind_before">මට කලින් මතක් කරන්න:</string>
+    <string name="ramadan_suhoor_time">සුහූර් අවසන් (ෆජ්ර්): %1$s</string>
+    <string name="ramadan_title">රාමසාන්</string>
+</resources>

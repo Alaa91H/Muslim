@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="qibla_title">Qibla direction</string>
-    <string name="qibla_bearing">Qibla direction: %1$.1f°</string>
-    <string name="qibla_heading">Phone heading: %1$.1f°</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_cardinal">Qibla direction: %1$s</string>
+    <string name="qibla_heading_degree">Phone heading: %1$.0f° (%2$s)</string>
     <string name="qibla_facing">You are facing the Qibla 🕋</string>
     <string name="qibla_turn_right">Turn right %1$.1f°</string>
     <string name="qibla_turn_left">Turn left %1$.1f°</string>
@@ -15,6 +16,10 @@
     <string name="qibla_map_kaaba">Kaaba</string>
     <string name="qibla_map_hint">Great-circle route from your location to the Kaaba — works offline</string>
     <string name="qibla_open_mosques">Nearby mosques</string>
+    <string name="qibla_gps_refresh">Refresh location via GPS</string>
+    <string name="qibla_gps_refreshing">Locating…</string>
+    <string name="qibla_gps_error">Could not get an accurate fix. Please try again.</string>
+    <string name="qibla_gps_live">Live GPS location</string>
     <string name="mosque_finder_title">Nearby mosques</string>
     <string name="mosque_finder_intro">Find mosques near your location via OpenStreetMap</string>
     <string name="mosque_finder_no_location">No location set yet. Choose a location from prayer times settings first.</string>
@@ -23,4 +28,4 @@
     <string name="mosque_finder_retry">Retry</string>
     <string name="mosque_finder_empty">No mosques found in this range</string>
     <string name="mosque_finder_distance">%s away</string>
-</resources>
+</resources>

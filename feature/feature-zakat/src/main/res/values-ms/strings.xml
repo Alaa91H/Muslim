@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Dapatkan harga secara automatik</string>
+    <string name="zakat_auto_prices_hint">Apabila didayakan, harga emas dan perak diambil daripada internet dan dimuat semula secara automatik</string>
+    <string name="zakat_back">belakang</string>
+    <string name="zakat_cash">Wang tunai dan simpanan</string>
+    <string name="zakat_clear_history">Kosongkan sejarah</string>
+    <string name="zakat_country">Negara</string>
+    <string name="zakat_country_placeholder">Pilih negara dan mata wang anda</string>
+    <string name="zakat_country_section">Negara &amp; mata wang</string>
+    <string name="zakat_currency">Mata wang: %1$s</string>
+    <string name="zakat_debts">Hutang yang anda berhutang (dipotong)</string>
+    <string name="zakat_due">Zakat kena bayar (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Bolehkah \'t mendapatkan harga. Semak sambungan anda atau masukkan harga secara manual.</string>
+    <string name="zakat_fetch_now">Muat semula harga sekarang</string>
+    <string name="zakat_fetching">Mengambil harga…</string>
+    <string name="zakat_fitr_persons">Bilangan ahli keluarga</string>
+    <string name="zakat_fitr_saa_value">Nilai satu sa\' (makanan ruji)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Jumlah zakat Fitri: %1$s</string>
+    <string name="zakat_gold_grams">Emas (gram)</string>
+    <string name="zakat_gold_price">Harga emas segram</string>
+    <string name="zakat_history">Sejarah pengiraan</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Tiada pengiraan disimpan lagi.</string>
+    <string name="zakat_investments">Pelaburan</string>
+    <string name="zakat_last_updated">Kemas kini terakhir: %1$s</string>
+    <string name="zakat_money_section">Zakat harta</string>
+    <string name="zakat_nisab_gold">Nisab emas (85g)</string>
+    <string name="zakat_nisab_met">Nisab telah dicapai - zakat telah ditunaikan</string>
+    <string name="zakat_nisab_not_met">Di bawah nisab - tiada zakat</string>
+    <string name="zakat_nisab_silver">Nisab perak (595g)</string>
+    <string name="zakat_rulings_note">Mengikut majoriti (jumhoor): nisab emas ialah 85g, perak 595g, dan kadarnya ialah 2.5%% selepas ditolak hutang yang perlu dibayar. Rujuk ulama yang berkelayakan untuk kes-kes khas.</string>
+    <string name="zakat_save_result">Simpan ke dalam sejarah</string>
+    <string name="zakat_silver_grams">Perak (gram)</string>
+    <string name="zakat_silver_price">Harga perak segram</string>
+    <string name="zakat_source_note">Harga emas/perak dari gold-api.com; Kadar FX daripada open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Jumlah aset</string>
+    <string name="zakat_trade">Nilai barang dagangan</string>
+    <string name="zakat_zakatable">Jumlah yang boleh dizakatkan selepas hutang</string>
+</resources>

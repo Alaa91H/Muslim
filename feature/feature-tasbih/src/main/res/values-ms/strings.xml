@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Kesalahan digital — ketik untuk mengira</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Ketik untuk mengira</string>
+    <string name="tasbih_back">belakang</string>
+    <string name="tasbih_cancel">Batal</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Adat</string>
+    <string name="tasbih_custom_target_hint">Masukkan bilangan kiraan (dari 1 hingga 100000)</string>
+    <string name="tasbih_custom_target_title">Tetapkan sasaran tersuai</string>
+    <string name="tasbih_of_target">sebanyak %1$s</string>
+    <string name="tasbih_reset">Tetapkan semula</string>
+    <string name="tasbih_reset_all">Tetapkan semula semua</string>
+    <string name="tasbih_round_complete">Pusingan penuh lengkap (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Pusingan: %1$d</string>
+    <string name="tasbih_sound_desc">Mainkan nada dering atau nada apabila setiap pusingan penuh selesai</string>
+    <string name="tasbih_sound_title">Bunyi pada sasaran</string>
+    <string name="tasbih_sound_tone_alarm">Penggera</string>
+    <string name="tasbih_sound_tone_notification">Pemberitahuan</string>
+    <string name="tasbih_sound_tone_ringtone">Nada dering</string>
+    <string name="tasbih_tap_hint">Ketik bulatan untuk mengira</string>
+    <string name="tasbih_target_reached">Matlamat tercapai - semoga Allah menerima</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Jumlah hari ini \': %1$d</string>
+    <string name="tasbih_undo">Buat asal</string>
+    <string name="tasbih_virtue_label">Keutamaan zikir ini</string>
+    <string name="tasbih_week_stats">7 hari lepas</string>
+</resources>

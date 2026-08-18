@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Arrish</string>
+    <string name="ramadan_countdown">T\'eh toshiaght ayns %1$s laa</string>
+    <string name="ramadan_countdown_to_iftar">Am gys iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Am gys Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Laa %1$s jeh Ramadan</string>
+    <string name="ramadan_days_left">%1$s laa er-mayrn</string>
+    <string name="ramadan_fasting_progress">Laghyn fastee: %1$s jeh %2$s — tappee yn laa dy scrieu eh</string>
+    <string name="ramadan_fasting_tracker">Tracker fastee</string>
+    <string name="ramadan_hijri_note">Bunait er y laghyn-lhee Umm al-Qura lesh y rheynn Hijri app-wide er ny chur stiagh.</string>
+    <string name="ramadan_hijri_year">Bleeantyn %1$s H.C.</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar appeal: "O Allah, son dty hrooid t\'ou er n\'yannoo m\'fast as er dty hrooid t\'ou er n\'yannoo m\'fast..."</string>
+    <string name="ramadan_iftar_time">Oor Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Taght ard-valley ayns Settings arragh dy akin ny traaghyn.</string>
+    <string name="ramadan_minutes">%1$s min.</string>
+    <string name="ramadan_notification_iftar_body">O Allah, son dty hrooid ren mee fastee as er dty hrooid ta mee brishey my fastee</string>
+    <string name="ramadan_notification_iftar_title">Am son iftar</string>
+    <string name="ramadan_notification_suhoor_body">Ta Fajr er-gerrey — jean dty suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Cur-my-ner Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor;</string>
+    <string name="ramadan_suhoor_remind_before">Cur coontey dou roish:</string>
+    <string name="ramadan_suhoor_time">%1$s</string>
+    <string name="ramadan_title">Ramadan;</string>
+</resources>

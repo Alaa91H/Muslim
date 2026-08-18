@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">ተመለስ</string>
+    <string name="reference_no_results">ምንም ተዛማጅ ውጤቶች የሉም</string>
+    <string name="reference_search_hint">ይህንን መጽሐፍ ፈልግ…</string>
+    <string name="reference_title">ኢስላማዊ ማጣቀሻ ቤተ መጻሕፍት</string>
+    <string name="reference_topics_count">ርዕሶች</string>
+</resources>

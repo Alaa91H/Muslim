@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha – trykk for å telle</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Trykk for å telle</string>
+    <string name="tasbih_back">Tilbake</string>
+    <string name="tasbih_cancel">Avbryt</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Egendefinert</string>
+    <string name="tasbih_custom_target_hint">Skriv inn antall tellinger (fra 1 til 100 000)</string>
+    <string name="tasbih_custom_target_title">Angi et tilpasset mål</string>
+    <string name="tasbih_of_target">av %1$s</string>
+    <string name="tasbih_reset">Tilbakestill</string>
+    <string name="tasbih_reset_all">Tilbakestill alle</string>
+    <string name="tasbih_round_complete">Full runde komplett (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Runder: %1$d</string>
+    <string name="tasbih_sound_desc">Spill en ringetone eller tone når hver hele runde er fullført</string>
+    <string name="tasbih_sound_title">Lyd på mål</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Varsling</string>
+    <string name="tasbih_sound_tone_ringtone">Ringetone</string>
+    <string name="tasbih_tap_hint">Trykk på sirkelen for å telle</string>
+    <string name="tasbih_target_reached">Målet nådd - måtte Allah akseptere</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Totalt i dag \': %1$d</string>
+    <string name="tasbih_undo">Angre</string>
+    <string name="tasbih_virtue_label">Dyd av denne dhikr</string>
+    <string name="tasbih_week_stats">Siste 7 dager</string>
+</resources>

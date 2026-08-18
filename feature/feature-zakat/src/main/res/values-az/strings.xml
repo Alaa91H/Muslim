@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Qiymətləri avtomatik əldə edin</string>
+    <string name="zakat_auto_prices_hint">Aktivləşdirildikdə, qızıl və gümüş qiymətləri internetdən götürülür və avtomatik olaraq yenilənir</string>
+    <string name="zakat_back">Geri</string>
+    <string name="zakat_cash">Nağd pul və əmanət</string>
+    <string name="zakat_clear_history">Tarixi təmizləyin</string>
+    <string name="zakat_country">ölkə</string>
+    <string name="zakat_country_placeholder">Ölkənizi və valyutanızı seçin</string>
+    <string name="zakat_country_section">Ölkə və valyuta</string>
+    <string name="zakat_currency">Valyuta: %1$s</string>
+    <string name="zakat_debts">Borclu olduğunuz borclar (çıxılmış)</string>
+    <string name="zakat_due">Zəkat (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'t qiymətləri əldə etmək mümkün deyil. Bağlantınızı yoxlayın və ya qiyməti əl ilə daxil edin.</string>
+    <string name="zakat_fetch_now">Qiymətləri indi yeniləyin</string>
+    <string name="zakat_fetching">Qiymətlər gətirilir...</string>
+    <string name="zakat_fitr_persons">Ailə üzvlərinin sayı</string>
+    <string name="zakat_fitr_saa_value">Bir sa\' (əsas qida) dəyəri</string>
+    <string name="zakat_fitr_section">Fitrə zəkatı</string>
+    <string name="zakat_fitr_total">Fitrə zəkatı cəmi: %1$s</string>
+    <string name="zakat_gold_grams">Qızıl (qram)</string>
+    <string name="zakat_gold_price">Qızılın qramının qiyməti</string>
+    <string name="zakat_history">Hesablama tarixi</string>
+    <string name="zakat_history_amount">Zəkat: %1$s</string>
+    <string name="zakat_history_empty">Saxlanmış hesablamalar hələ yoxdur.</string>
+    <string name="zakat_investments">İnvestisiyalar</string>
+    <string name="zakat_last_updated">Son yeniləmə: %1$s</string>
+    <string name="zakat_money_section">Var-dövlətin zəkatı</string>
+    <string name="zakat_nisab_gold">Qızıl nisab (85 q)</string>
+    <string name="zakat_nisab_met">Nisab çatdı - zəkat lazımdır</string>
+    <string name="zakat_nisab_not_met">Nisabdan aşağı - zəkat yoxdur</string>
+    <string name="zakat_nisab_silver">Gümüş nisab (595 q)</string>
+    <string name="zakat_rulings_note">Əksərliyə (cümhura): nisab qızıl 85 q, gümüş 595 q, borclar çıxıldıqdan sonra 2.5%%-dir. Xüsusi hallar üçün ixtisaslı alimlə məsləhətləşin.</string>
+    <string name="zakat_save_result">Tarixdə saxla</string>
+    <string name="zakat_silver_grams">Gümüş (qram)</string>
+    <string name="zakat_silver_price">Bir qram gümüşün qiyməti</string>
+    <string name="zakat_source_note">gold-api.com saytından qızıl/gümüş qiymətləri; open.er-api.com saytından valyuta məzənnələri</string>
+    <string name="zakat_title">Zəkat</string>
+    <string name="zakat_total_assets">Ümumi aktivlər</string>
+    <string name="zakat_trade">Ticarət mallarının dəyəri</string>
+    <string name="zakat_zakatable">Borclardan sonra zəkat verilə bilən məbləğ</string>
+</resources>

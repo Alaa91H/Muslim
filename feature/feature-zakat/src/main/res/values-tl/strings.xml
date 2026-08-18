@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Awtomatikong kunin ang mga presyo</string>
+    <string name="zakat_auto_prices_hint">Kapag pinagana, ang mga presyo ng ginto at pilak ay kinukuha mula sa internet at awtomatikong nire-refresh</string>
+    <string name="zakat_back">Bumalik</string>
+    <string name="zakat_cash">Cash at ipon</string>
+    <string name="zakat_clear_history">I-clear ang kasaysayan</string>
+    <string name="zakat_country">Bansa</string>
+    <string name="zakat_country_placeholder">Piliin ang iyong bansa at pera</string>
+    <string name="zakat_country_section">Bansa at pera</string>
+    <string name="zakat_currency">Salapi: %1$s</string>
+    <string name="zakat_debts">Mga utang na iyong inutang (binawas)</string>
+    <string name="zakat_due">Zakat na dapat bayaran (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Puwedeng \'t makuha ang mga presyo. Suriin ang iyong koneksyon o manu-manong ilagay ang presyo.</string>
+    <string name="zakat_fetch_now">I-refresh ang mga presyo ngayon</string>
+    <string name="zakat_fetching">Kinukuha ang mga presyo…</string>
+    <string name="zakat_fitr_persons">Bilang ng mga miyembro ng pamilya</string>
+    <string name="zakat_fitr_saa_value">Halaga ng isang sa\' (staple food)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Kabuuang Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Ginto (gramo)</string>
+    <string name="zakat_gold_price">Presyo ng ginto kada gramo</string>
+    <string name="zakat_history">Kasaysayan ng pagkalkula</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Wala pang naka-save na kalkulasyon.</string>
+    <string name="zakat_investments">Mga pamumuhunan</string>
+    <string name="zakat_last_updated">Huling na-update: %1$s</string>
+    <string name="zakat_money_section">Zakat sa kayamanan</string>
+    <string name="zakat_nisab_gold">Gold nisab (85g)</string>
+    <string name="zakat_nisab_met">Ang nisab ay naabot - ang zakat ay dapat bayaran</string>
+    <string name="zakat_nisab_not_met">Sa ibaba ng nisab — walang zakat na dapat bayaran</string>
+    <string name="zakat_nisab_silver">Silver nisab (595g)</string>
+    <string name="zakat_rulings_note">Ayon sa karamihan (jumhoor): ang gold nisab ay 85g, silver 595g, at ang rate ay 2.5%% pagkatapos ibawas ang mga dapat bayaran. Kumonsulta sa isang kwalipikadong iskolar para sa mga espesyal na kaso.</string>
+    <string name="zakat_save_result">I-save sa kasaysayan</string>
+    <string name="zakat_silver_grams">Pilak (gramo)</string>
+    <string name="zakat_silver_price">Presyo ng pilak kada gramo</string>
+    <string name="zakat_source_note">Mga presyo ng ginto/pilak mula sa gold-api.com; Mga rate ng FX mula sa open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Kabuuang mga asset</string>
+    <string name="zakat_trade">Halaga ng kalakal sa kalakalan</string>
+    <string name="zakat_zakatable">Zakatable na halaga pagkatapos ng mga utang</string>
+</resources>

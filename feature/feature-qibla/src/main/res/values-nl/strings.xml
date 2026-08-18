@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s weg</string>
+    <string name="mosque_finder_empty">Geen moskeeën gevonden in dit bereik</string>
+    <string name="mosque_finder_error">Zoeken mislukt</string>
+    <string name="mosque_finder_intro">Vind moskeeën in de buurt van uw locatie via OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Nog geen locatie ingesteld. Kies eerst een locatie uit de gebedstijdeninstellingen.</string>
+    <string name="mosque_finder_retry">Opnieuw proberen</string>
+    <string name="mosque_finder_searching">Zoeken…</string>
+    <string name="mosque_finder_title">Moskeeën in de buurt</string>
+    <string name="qibla_bearing_cardinal">Qibla-richting: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Beweeg uw telefoon in een achtvorm om te kalibreren</string>
+    <string name="qibla_distance">Afstand tot Mekka: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Je kijkt uit op de Qibla 🕋</string>
+    <string name="qibla_gps_error">Kon geen nauwkeurige oplossing krijgen. Probeer het opnieuw.</string>
+    <string name="qibla_gps_live">Live GPS-locatie</string>
+    <string name="qibla_gps_refresh">Locatie vernieuwen via GPS</string>
+    <string name="qibla_gps_refreshing">Lokaliseren…</string>
+    <string name="qibla_heading_degree">Telefoonrichting: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Grote cirkelroute vanaf uw locatie naar de Kaaba - werkt offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Jij</string>
+    <string name="qibla_mode_compass">Kompas</string>
+    <string name="qibla_mode_map">Kaart</string>
+    <string name="qibla_open_mosques">Moskeeën in de buurt</string>
+    <string name="qibla_title">Qibla-richting</string>
+    <string name="qibla_turn_left">Sla linksaf %1$.1f°</string>
+    <string name="qibla_turn_right">Sla rechtsaf %1$.1f°</string>
+</resources>

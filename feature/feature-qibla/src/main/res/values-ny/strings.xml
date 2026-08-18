@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s okha</string>
+    <string name="mosque_finder_empty">Palibe mizikiti yomwe yapezeka mgululi</string>
+    <string name="mosque_finder_error">Kusaka kwalephera</string>
+    <string name="mosque_finder_intro">Pezani mizikiti pafupi ndi komwe muli kudzera pa OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Palibe malo omwe akhazikitsidwa. Sankhani malo kuchokera pa nthawi ya pemphero kaye.</string>
+    <string name="mosque_finder_retry">Yesaninso</string>
+    <string name="mosque_finder_searching">Kufufuza...</string>
+    <string name="mosque_finder_title">Misikiti yapafupi</string>
+    <string name="qibla_bearing_cardinal">Qibla njira: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Sunthani foni yanu mu chiwerengero chachisanu ndi chitatu kuti muyese</string>
+    <string name="qibla_distance">Mtunda kupita ku Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f Km</string>
+    <string name="qibla_facing">Mukuyang\'anizana ndi Qibla 🕋</string>
+    <string name="qibla_gps_error">Sitinathe kukonza bwino. Chonde yesaninso.</string>
+    <string name="qibla_gps_live">Malo amoyo a GPS</string>
+    <string name="qibla_gps_refresh">Tsitsani malo kudzera pa GPS</string>
+    <string name="qibla_gps_refreshing">Mukupeza…</string>
+    <string name="qibla_heading_degree">Mutu wafoni: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Njira yozungulira kuchokera komwe muli kupita ku Kaaba - imagwira ntchito popanda intaneti</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Inu</string>
+    <string name="qibla_mode_compass">Kampasi</string>
+    <string name="qibla_mode_map">Mapu</string>
+    <string name="qibla_open_mosques">Misikiti yapafupi</string>
+    <string name="qibla_title">Njira ya Qibla</string>
+    <string name="qibla_turn_left">Tembenukira kumanzere %1$.1f°</string>
+    <string name="qibla_turn_right">Tembenukira kumanja %1$.1f°</string>
+</resources>

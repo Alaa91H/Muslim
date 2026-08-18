@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s de distància</string>
+    <string name="mosque_finder_empty">Cap de mosquèa pas trobada dins aquel airal</string>
+    <string name="mosque_finder_error">La recèrca a fracassat</string>
+    <string name="mosque_finder_intro">Trobatz de mosquèas prèp de vòstre emplaçament via OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Pas encara d\'emplaçament definit. Causissètz d\'en primièr un emplaçament dins los paramètres dels temps de pregària.</string>
+    <string name="mosque_finder_retry">Tornatz ensajar</string>
+    <string name="mosque_finder_searching">Cercar...</string>
+    <string name="mosque_finder_title">Mosquèas pròchas</string>
+    <string name="qibla_bearing_cardinal">Direccion del quibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Desplaçatz vòstre telefòn dins una chifra-uèch per calibrar</string>
+    <string name="qibla_distance">Distància a Meca: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Estas frente a la Qibla 🕋 .</string>
+    <string name="qibla_gps_error">Poguèt pas obténer una correccion precisa. Ensajatz tornarmai.</string>
+    <string name="qibla_gps_live">Emplaçament GPS en dirècte</string>
+    <string name="qibla_gps_refresh">Actualizar l\'emplaçament via GPS</string>
+    <string name="qibla_gps_refreshing">Localizacion...</string>
+    <string name="qibla_heading_degree">Entèsta del telefòn : %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Rota de grand cercle dempuèi vòstre emplaçament a la Kaaba — fonciona fòra linha</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Tu</string>
+    <string name="qibla_mode_compass">Brújula</string>
+    <string name="qibla_mode_map">Mapa</string>
+    <string name="qibla_open_mosques">Mosquèas pròchas</string>
+    <string name="qibla_title">Direccion del Qibla</string>
+    <string name="qibla_turn_left">Viratz a esquèrra %1$.1f°</string>
+    <string name="qibla_turn_right">Viratz a drecha %1$.1f°</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">پیچھے</string>
+    <string name="ramadan_countdown">رمضان %1$s دنوں میں شروع ہوتا ہے۔</string>
+    <string name="ramadan_countdown_to_iftar">افطار کا وقت: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">فجر کا وقت: %1$s</string>
+    <string name="ramadan_day_of_month">%1$s رمضان المبارک کا دن</string>
+    <string name="ramadan_days_left">%1$s دن باقی ہیں۔</string>
+    <string name="ramadan_fasting_progress">روزے کے دن: %2$s میں سے %1$s - اسے ریکارڈ کرنے کے لیے ایک دن کو تھپتھپائیں</string>
+    <string name="ramadan_fasting_tracker">فاسٹنگ ٹریکر</string>
+    <string name="ramadan_hijri_note">ام القراء کیلنڈر کی بنیاد پر ایپ وسیع ہجری ایڈجسٹمنٹ لاگو کیا گیا ہے۔</string>
+    <string name="ramadan_hijri_year">سال %1$s ہجری</string>
+    <string name="ramadan_iftar">افطار</string>
+    <string name="ramadan_iftar_dua">افطار کی دعا: "اے اللہ میں نے تیرے لیے روزہ رکھا اور تیرے ہی رزق پر افطار کیا..."</string>
+    <string name="ramadan_iftar_time">افطار (مغرب) کا وقت: %1$s</string>
+    <string name="ramadan_location_required">اوقات دیکھنے کے لیے پہلے سیٹنگز میں شہر کا انتخاب کریں۔</string>
+    <string name="ramadan_minutes">%1$s منٹ</string>
+    <string name="ramadan_notification_iftar_body">اے اللہ میں نے تیرے لیے روزہ رکھا اور تیرے ہی رزق پر افطار کیا۔</string>
+    <string name="ramadan_notification_iftar_title">افطاری کا وقت</string>
+    <string name="ramadan_notification_suhoor_body">فجر قریب آ رہی ہے - سحری کرو</string>
+    <string name="ramadan_notification_suhoor_title">سحری کی یاد دہانی</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">سحری</string>
+    <string name="ramadan_suhoor_remind_before">پہلے مجھے یاد دلائیں:</string>
+    <string name="ramadan_suhoor_time">سحری ختم (فجر): %1$s</string>
+    <string name="ramadan_title">رمضان</string>
+</resources>

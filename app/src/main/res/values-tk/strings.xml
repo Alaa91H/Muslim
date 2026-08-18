@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Musulman</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Ertir, agşam we namazdan soňky adhkar hasaplaýjylar bilen</string>
+    <string name="more_downloads">Okaň</string>
+    <string name="more_downloads_desc">Saýlanan okaýjyňyz bilen bir süre, aýat ýa-da doly Gurhany göçürip alyň</string>
+    <string name="more_hadith">Hadys</string>
+    <string name="more_hadith_desc">Hadys kitaphanasy, gözleg we günüň hadyslary</string>
+    <string name="more_learn">Öwreniň</string>
+    <string name="more_learn_desc">Stepdimme-taharet we doga gollanmalary</string>
+    <string name="more_ramadan">Remezan</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar wagtlary we agyz bekleýji</string>
+    <string name="more_reference">Salgy kitaphanasy</string>
+    <string name="more_reference_desc">Yslam, Sira we pygamberler bilen tanyşlyk</string>
+    <string name="more_settings">Sazlamalar</string>
+    <string name="more_settings_desc">Mowzuk, dil, doga we adhan sazlamalary</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Gündelik taryhy bilen sanly misbaha</string>
+    <string name="more_zakat">Zekat</string>
+    <string name="more_zakat_desc">Baýlyk we Fitr kalkulýatory</string>
+    <string name="scaffold_message">Köp modully taslama skeleti taýýar.</string>
+    <string name="shortcut_qibla">Kibla</string>
+    <string name="shortcut_qibla_long">Kibla ugry</string>
+    <string name="shortcut_settings">Sazlamalar</string>
+    <string name="shortcut_settings_long">Namaz we adhan sazlamalary</string>
+    <string name="shortcut_times">Namaz wagtlary</string>
+    <string name="shortcut_times_long">Şu gün \'-nji ýyllaryň doga wagtlary</string>
+    <string name="tab_home">Namaz wagtlary</string>
+    <string name="tab_more">Has köp</string>
+    <string name="tab_qibla">Kibla</string>
+    <string name="tab_quran">Kuran</string>
 </resources>

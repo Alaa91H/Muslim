@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ቀርቷል።</string>
+    <string name="mosque_finder_empty">በዚህ ክልል ውስጥ ምንም መስጊዶች አልተገኙም።</string>
+    <string name="mosque_finder_error">ፍለጋ አልተሳካም።</string>
+    <string name="mosque_finder_intro">በOpenStreetMap በኩል ባሉበት አካባቢ መስጊዶችን ያግኙ</string>
+    <string name="mosque_finder_no_location">እስካሁን ምንም አካባቢ አልተዘጋጀም። መጀመሪያ ከጸሎት ጊዜ ቅንጅቶች ውስጥ ቦታን ምረጥ።</string>
+    <string name="mosque_finder_retry">እንደገና ይሞክሩ</string>
+    <string name="mosque_finder_searching">በመፈለግ ላይ…</string>
+    <string name="mosque_finder_title">በአቅራቢያ ያሉ መስጊዶች</string>
+    <string name="qibla_bearing_cardinal">የቂብላ አቅጣጫ፡ %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">ለማስተካከል ስልክዎን በስእል-ስምንት ይውሰዱት።</string>
+    <string name="qibla_distance">ወደ መካህ ያለው ርቀት፡ %1$s</string>
+    <string name="qibla_distance_km">%,.0f ኪ.ሜ</string>
+    <string name="qibla_facing">ወደ ቂብላ እየተጋፈጡ ነው 🕋</string>
+    <string name="qibla_gps_error">ትክክለኛ ጥገና ማግኘት አልተቻለም። እባክህ እንደገና ሞክር።</string>
+    <string name="qibla_gps_live">የቀጥታ ጂፒኤስ አካባቢ</string>
+    <string name="qibla_gps_refresh">አካባቢን በጂፒኤስ ያድሱ</string>
+    <string name="qibla_gps_refreshing">በማግኘት ላይ…</string>
+    <string name="qibla_heading_degree">የስልክ ርዕስ፡ %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">ከአካባቢዎ ወደ ካባ የሚወስደው ትልቅ ክብ መንገድ - ከመስመር ውጭ ይሰራል</string>
+    <string name="qibla_map_kaaba">ካባ</string>
+    <string name="qibla_map_you">አንተ</string>
+    <string name="qibla_mode_compass">ኮምፓስ</string>
+    <string name="qibla_mode_map">ካርታ</string>
+    <string name="qibla_open_mosques">በአቅራቢያ ያሉ መስጊዶች</string>
+    <string name="qibla_title">የቂብላ አቅጣጫ</string>
+    <string name="qibla_turn_left">ወደ ግራ %1$.1f° ይታጠፉ</string>
+    <string name="qibla_turn_right">ወደ ቀኝ %1$.1f° ይታጠፉ</string>
+</resources>

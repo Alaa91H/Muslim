@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Kasalahan digital — ketok pikeun ngitung</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Ketok pikeun ngitung</string>
+    <string name="tasbih_back">Balik deui</string>
+    <string name="tasbih_cancel">Ngabolaykeun</string>
+    <string name="tasbih_confirm">OKÉ</string>
+    <string name="tasbih_custom_target">Adat</string>
+    <string name="tasbih_custom_target_hint">Lebetkeun jumlah cacah (tina 1 dugi ka 100000)</string>
+    <string name="tasbih_custom_target_title">Setel udagan khusus</string>
+    <string name="tasbih_of_target">tina %1$s</string>
+    <string name="tasbih_reset">Reset</string>
+    <string name="tasbih_reset_all">Reset sadayana</string>
+    <string name="tasbih_round_complete">Babak lengkep lengkep (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Babak: %1$d</string>
+    <string name="tasbih_sound_desc">Puterkeun rington atanapi nada nalika unggal babak lengkep réngsé</string>
+    <string name="tasbih_sound_title">Sora dina udagan</string>
+    <string name="tasbih_sound_tone_alarm">Alarem</string>
+    <string name="tasbih_sound_tone_notification">Bewara</string>
+    <string name="tasbih_sound_tone_ringtone">Nada dering</string>
+    <string name="tasbih_tap_hint">Ketok bunderan pikeun ngitung</string>
+    <string name="tasbih_target_reached">Tujuanana dicapai - mugia Allah nampi</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Kiwari \'s total: %1$d</string>
+    <string name="tasbih_undo">Ngabolaykeun</string>
+    <string name="tasbih_virtue_label">Kautamaan dzikir ieu</string>
+    <string name="tasbih_week_stats">7 poé panungtungan</string>
+</resources>

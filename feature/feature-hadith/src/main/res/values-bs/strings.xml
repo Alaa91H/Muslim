@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Sve</string>
+    <string name="hadith_back">Nazad</string>
+    <string name="hadith_bookmark_add">Dodaj oznaku</string>
+    <string name="hadith_bookmark_remove">Ukloni oznaku</string>
+    <string name="hadith_collection_abudawud">Abu Dawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah</string>
+    <string name="hadith_collection_muslim">Musliman</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">Ostalo</string>
+    <string name="hadith_collection_riyad">Riyadh as-Salihin</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmizi</string>
+    <string name="hadith_daily_notification">Dnevno obavještenje o hadisu</string>
+    <string name="hadith_daily_notification_desc">Primajte hadis svaki dan</string>
+    <string name="hadith_daily_notification_time">Vrijeme obavještenja</string>
+    <string name="hadith_of_the_day">Hadis dana</string>
+    <string name="hadith_preview_hint">Ovako se pojavljuje dnevna hadiska obavijest u zakazano vrijeme.</string>
+    <string name="hadith_preview_label">Pregled obavještenja</string>
+    <string name="hadith_preview_loading">Učitavanje hadisa…</string>
+    <string name="hadith_search_hint">Pretražite hadise…</string>
+    <string name="hadith_share">Dijeli</string>
+    <string name="hadith_title">Hadith Library</string>
+</resources>

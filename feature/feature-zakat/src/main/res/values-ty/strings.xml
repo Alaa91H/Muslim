@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">A imi noa i te mau hoo</string>
+    <string name="zakat_auto_prices_hint">Ia faatiahia ana\'e, e noaa mai te mau hooraa auro e te ario i nia i te Internet e e faaapî - noa - hia</string>
+    <string name="zakat_back">Ho\'i</string>
+    <string name="zakat_cash">Te moni e te moni haaputu</string>
+    <string name="zakat_clear_history">A tamâ i te aamu</string>
+    <string name="zakat_country">Fenua</string>
+    <string name="zakat_country_placeholder">A maiti i to outou fenua e to outou moni</string>
+    <string name="zakat_country_section">Fenua &amp; moni</string>
+    <string name="zakat_currency">Moni: %1$s</string>
+    <string name="zakat_debts">Te mau tarahu ta outou e aufau (tapea)</string>
+    <string name="zakat_due">Zakat (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Eita te \' e hoo mai i te mau hoo. Hi\'opo\'a i to outou taairaa e aore râ, a tomo i te hoo na roto i te rima.</string>
+    <string name="zakat_fetch_now">A faaapî i te mau hoo i teie nei</string>
+    <string name="zakat_fetching">Te imiraa i te mau hoo...</string>
+    <string name="zakat_fitr_persons">Te numera o te mau melo o te utuafare</string>
+    <string name="zakat_fitr_saa_value">Te faufaa o te hoê sa\' (maa matamua)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Te taatoaraa o te zakat: %1$s</string>
+    <string name="zakat_gold_grams">Auro (karamu)</string>
+    <string name="zakat_gold_price">Te hoo auro i te gram</string>
+    <string name="zakat_history">Aamu o te tata\'uraa</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Aita â e tata\'uraa i tape\'ahia.</string>
+    <string name="zakat_investments">Te mau tuuraa moni</string>
+    <string name="zakat_last_updated">Faahou hopea: %1$s</string>
+    <string name="zakat_money_section">Zakat i ni\'a i te moni</string>
+    <string name="zakat_nisab_gold">Nisab auro (85g)</string>
+    <string name="zakat_nisab_met">Ua naeahia te nisab — ua titauhia te zakat</string>
+    <string name="zakat_nisab_not_met">I raro a\'e i te nisab — aita e zakat</string>
+    <string name="zakat_nisab_silver">Te moni ario (595g)</string>
+    <string name="zakat_rulings_note">Ia au i te rahiraa o te taata (jumhoor): e 85g auro, e 595g ario, e te faito e 2.5%% i muri a\'e i te iritiraa i te mau tarahu. A ani i te hoê taata aravihi no te mau tupuraa taa ê.</string>
+    <string name="zakat_save_result">Haapa\'o i te aamu</string>
+    <string name="zakat_silver_grams">Te moni (karamu)</string>
+    <string name="zakat_silver_price">Te hoo ario i te gram</string>
+    <string name="zakat_source_note">Te mau hoo auro/ario no roto mai i te gold-api.com; Te mau faito FX no roto mai i te open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Te taatoaraa o te mau tao\'a</string>
+    <string name="zakat_trade">Te faufaaraa o te mau tao\'a tapihooraa</string>
+    <string name="zakat_zakatable">Te moni tarahu i muri a\'e i te mau tarahu</string>
+</resources>

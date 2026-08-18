@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muçulmano</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar matinal, noturno e pós-oração com contadores</string>
+    <string name="more_downloads">Downloads de recitações</string>
+    <string name="more_downloads_desc">Baixe uma surata, uma aia ou o Alcorão completo com o recitador escolhido</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Biblioteca Hadith, pesquisa e hadith do dia</string>
+    <string name="more_learn">Aprenda</string>
+    <string name="more_learn_desc">Guias passo a passo de wudu e oração</string>
+    <string name="more_ramadan">Ramadã</string>
+    <string name="more_ramadan_desc">Tempos Suhoor e iftar e rastreador de jejum</string>
+    <string name="more_reference">Biblioteca de Referência</string>
+    <string name="more_reference_desc">Introdução ao Islã, a Sira e os profetas</string>
+    <string name="more_settings">Configurações</string>
+    <string name="more_settings_desc">Configurações de tema, idioma, oração e adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha digital com história diária</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat na calculadora de riqueza e Fitr</string>
+    <string name="scaffold_message">O esqueleto do projeto multimódulo está pronto.\nA Fase 1 - Adhan, momentos de oração, Qibla e o calendário islâmico - começa aqui.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Direção Qibla</string>
+    <string name="shortcut_settings">Configurações</string>
+    <string name="shortcut_settings_long">Configurações de oração e adhan</string>
+    <string name="shortcut_times">Momentos de oração</string>
+    <string name="shortcut_times_long">Hoje\' momentos de oração</string>
+    <string name="tab_home">Tempos de oração</string>
+    <string name="tab_more">Mais</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Alcorão</string>
 </resources>

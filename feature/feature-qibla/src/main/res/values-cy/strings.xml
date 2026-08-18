@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s i ffwrdd</string>
+    <string name="mosque_finder_empty">Ni chanfuwyd mosgiau yn yr ystod hon</string>
+    <string name="mosque_finder_error">Methodd y chwilio</string>
+    <string name="mosque_finder_intro">Dewch o hyd i fosgiau ger eich lleoliad trwy OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Dim lleoliad wedi\'i osod eto. Dewiswch leoliad o osodiadau amseroedd gweddi yn gyntaf.</string>
+    <string name="mosque_finder_retry">Ceisiwch eto</string>
+    <string name="mosque_finder_searching">Wrthi\'n chwilio…</string>
+    <string name="mosque_finder_title">Mosgiau cyfagos</string>
+    <string name="qibla_bearing_cardinal">Cyfeiriad Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Symudwch eich ffôn mewn ffigur wyth i\'w raddnodi</string>
+    <string name="qibla_distance">Pellter i Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Rydych chi\'n wynebu\'r Qibla 🕋</string>
+    <string name="qibla_gps_error">Methu cael ateb cywir. Ceisiwch eto.</string>
+    <string name="qibla_gps_live">Lleoliad GPS byw</string>
+    <string name="qibla_gps_refresh">Adnewyddu lleoliad trwy GPS</string>
+    <string name="qibla_gps_refreshing">Wrthi\'n lleoli…</string>
+    <string name="qibla_heading_degree">Pennawd ffôn: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Llwybr cylch gwych o\'ch lleoliad i\'r Kaaba - yn gweithio all-lein</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Ti</string>
+    <string name="qibla_mode_compass">Cwmpawd</string>
+    <string name="qibla_mode_map">Map</string>
+    <string name="qibla_open_mosques">Mosgiau cyfagos</string>
+    <string name="qibla_title">Cyfeiriad Qibla</string>
+    <string name="qibla_turn_left">Trowch i\'r chwith %1$.1f°</string>
+    <string name="qibla_turn_right">Trowch i\'r dde %1$.1f°</string>
+</resources>

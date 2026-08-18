@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">རྒྱབ་ལོག།</string>
+    <string name="ramadan_countdown">ར་མ་དཱན་ %1$s ཉིན་གྲངས་ནང་འགོ་བཙུགས།</string>
+    <string name="ramadan_countdown_to_iftar">ཨིཕ་ཊར་གྱི་དུས་ཚོད།: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ཕ་ཇར་གྱི་དུས་ཚོད།: %1$s</string>
+    <string name="ramadan_day_of_month">ཉིན་མོ་ %1$s ར་མ་དན།</string>
+    <string name="ramadan_days_left">ཉིན%1$sལྷག་ཡོད།</string>
+    <string name="ramadan_fasting_progress">Fasting days: %1$s of %2$s — tap a day to record it</string>
+    <string name="ramadan_fasting_tracker">ཟས་བཅད་རྗེས་འདེད་པ།</string>
+    <string name="ramadan_hijri_note">ཨེཔ་-ཝའིཌ་ཧི་ཇི་རི་བདེ་སྒྲིག་འཇུག་སྤྱོད་འབད་མི་ ཨུམ་ཨཱལ་ཀུ་ར་ཟླ་ཐོ་ལུ་གཞི་བཞག་སྟེ་ཨིན།</string>
+    <string name="ramadan_hijri_year">ལོ %1$s ཧཱི།</string>
+    <string name="ramadan_iftar">ཨིཕ་ཏར།</string>
+    <string name="ramadan_iftar_dua">ཨིཕ་ཏར་གྱི་སྨོན་ལམ་: "ཨོ་ཨཱལ་ལཱ་ ཁྱོད་ཀྱི་དོན་ལུ་ ང་གིས་ ཟས་བཅད་འབད་ཡི།</string>
+    <string name="ramadan_iftar_time">ཨིཕ་ཏར་ (མག་རིབ) དུས་ཚོད།: %1$s</string>
+    <string name="ramadan_location_required">དུས་ཚོད་ཚུ་བལྟ་ནི་ལུ་ དང་པ་རང་ སྒྲིག་སྟངས་ཚུ་ནང་ ཁྲོམ་ཚོགས་ཅིག་གདམ་ཁ་རྐྱབས།</string>
+    <string name="ramadan_minutes">%1$s མིན།</string>
+    <string name="ramadan_notification_iftar_body">ཁྱོད་ཀྱི་དོན་ལུ་ ང་གིས་ ཟས་བཅད་འབད་ཡི།</string>
+    <string name="ramadan_notification_iftar_title">ཨིཕ་ཊར་གྱི་དུས་ཚོད།</string>
+    <string name="ramadan_notification_suhoor_body">ཕ་ཇར་འབྱུང་བཞིན་འདུག — ཁྱོད་ཀྱི་སུ་ཧོར་ཡོད།</string>
+    <string name="ramadan_notification_suhoor_title">སུ་ཧོར་དྲན་སྐུལ།</string>
+    <string name="ramadan_starts_on">%1$s — %2$s དང་།</string>
+    <string name="ramadan_suhoor">སུ་ཧོར།</string>
+    <string name="ramadan_suhoor_remind_before">ཧེ་མ་ང་ལུ་དྲན་སྐུལ་འབད།</string>
+    <string name="ramadan_suhoor_time">སུ་ཧོར་མཇུག་བསྡུ་ (Fajr): %1$s</string>
+    <string name="ramadan_title">ར་མ་དཱན།</string>
+</resources>

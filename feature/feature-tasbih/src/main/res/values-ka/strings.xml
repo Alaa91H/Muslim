@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">ციფრული მისბაჰა — შეეხეთ დასათვლელად</string>
+    <string name="misbaha_widget_label">ტასბიჰ</string>
+    <string name="misbaha_widget_tap_hint">შეეხეთ დასათვლელად</string>
+    <string name="tasbih_back">უკან</string>
+    <string name="tasbih_cancel">გაუქმება</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">საბაჟო</string>
+    <string name="tasbih_custom_target_hint">შეიყვანეთ დათვლების რაოდენობა (1-დან 100000-მდე)</string>
+    <string name="tasbih_custom_target_title">დააყენეთ საბაჟო მიზანი</string>
+    <string name="tasbih_of_target">%1$s-დან</string>
+    <string name="tasbih_reset">გადატვირთვა</string>
+    <string name="tasbih_reset_all">გადატვირთეთ ყველა</string>
+    <string name="tasbih_round_complete">სრული რაუნდი (%1$s) 🎉</string>
+    <string name="tasbih_rounds">რაუნდი: %1$d</string>
+    <string name="tasbih_sound_desc">დაუკარით ზარის მელოდია ან მელოდია ყოველი სრული რაუნდის დასრულებისას</string>
+    <string name="tasbih_sound_title">ხმა მიზანში</string>
+    <string name="tasbih_sound_tone_alarm">განგაში</string>
+    <string name="tasbih_sound_tone_notification">შეტყობინება</string>
+    <string name="tasbih_sound_tone_ringtone">ზარის მელოდია</string>
+    <string name="tasbih_tap_hint">დასათვლელად შეეხეთ წრეს</string>
+    <string name="tasbih_target_reached">მიზანი მიღწეულია - ღმერთმა მიიღოს</string>
+    <string name="tasbih_title">ტასბიჰ</string>
+    <string name="tasbih_total_today">დღეს \' სულ: %1$d</string>
+    <string name="tasbih_undo">გაუქმება</string>
+    <string name="tasbih_virtue_label">ამ დჰიქრის სათნოება</string>
+    <string name="tasbih_week_stats">ბოლო 7 დღე</string>
+</resources>

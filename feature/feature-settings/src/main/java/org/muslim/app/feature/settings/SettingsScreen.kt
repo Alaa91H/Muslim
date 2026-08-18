@@ -65,7 +65,6 @@ private data class StartTabOption(val route: String, val labelRes: Int)
 private val startTabOptions = listOf(
     StartTabOption("home", R.string.settings_start_home),
     StartTabOption("quran", R.string.settings_start_quran),
-    StartTabOption("times", R.string.settings_start_times),
     StartTabOption("qibla", R.string.settings_start_qibla),
     StartTabOption("more", R.string.settings_start_more),
 )

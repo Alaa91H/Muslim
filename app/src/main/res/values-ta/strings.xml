@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">முஸ்லிம்</string>
+    <string name="more_adhkar">அத்கார்</string>
+    <string name="more_adhkar_desc">கவுண்டர்களுடன் காலை, மாலை &amp; பிரார்த்தனைக்குப் பிந்தைய அத்கார்</string>
+    <string name="more_downloads">பாராயணம் பதிவிறக்கங்கள்</string>
+    <string name="more_downloads_desc">நீங்கள் தேர்ந்தெடுத்த ஓதுபவருடன் ஒரு சூரா, ஒரு அயா அல்லது முழு குர்ஆனையும் பதிவிறக்கவும்</string>
+    <string name="more_hadith">ஹதீஸ்</string>
+    <string name="more_hadith_desc">ஹதீஸ் நூலகம், தேடல் &amp; அன்றைய ஹதீஸ்</string>
+    <string name="more_learn">கற்றுக்கொள்ளுங்கள்</string>
+    <string name="more_learn_desc">படிப்படியான வுடு &amp; பிரார்த்தனை வழிகாட்டிகள்</string>
+    <string name="more_ramadan">ரமலான்</string>
+    <string name="more_ramadan_desc">சுஹூர் &amp; இப்தார் நேரங்கள் மற்றும் நோன்பு கண்காணிப்பாளர்</string>
+    <string name="more_reference">குறிப்பு நூலகம்</string>
+    <string name="more_reference_desc">இஸ்லாம், சீரா மற்றும் தீர்க்கதரிசிகள் பற்றிய அறிமுகம்</string>
+    <string name="more_settings">அமைப்புகள்</string>
+    <string name="more_settings_desc">தீம், மொழி, பிரார்த்தனை &amp; அதான் அமைப்புகள்</string>
+    <string name="more_tasbih">தஸ்பிஹ்</string>
+    <string name="more_tasbih_desc">தினசரி வரலாற்றுடன் டிஜிட்டல் மிஸ்பாஹா</string>
+    <string name="more_zakat">ஜகாத்</string>
+    <string name="more_zakat_desc">செல்வத்தின் மீதான ஜகாத் &amp; ஃபித்ர் கால்குலேட்டர்</string>
+    <string name="scaffold_message">பல தொகுதி திட்ட எலும்புக்கூடு தயாராக உள்ளது.\nகட்டம் 1 — அதான், பிரார்த்தனை நேரம், கிப்லா மற்றும் ஹிஜ்ரி காலண்டர் — இங்கே தொடங்குகிறது.</string>
+    <string name="shortcut_qibla">கிப்லா</string>
+    <string name="shortcut_qibla_long">கிப்லா திசை</string>
+    <string name="shortcut_settings">அமைப்புகள்</string>
+    <string name="shortcut_settings_long">பிரார்த்தனை மற்றும் அதான் அமைப்புகள்</string>
+    <string name="shortcut_times">பிரார்த்தனை நேரங்கள்</string>
+    <string name="shortcut_times_long">இன்று\'s பிரார்த்தனை நேரங்கள்</string>
+    <string name="tab_home">பிரார்த்தனை நேரங்கள்</string>
+    <string name="tab_more">மேலும்</string>
+    <string name="tab_qibla">கிப்லா</string>
+    <string name="tab_quran">குர்ஆன்</string>
 </resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Înapoi</string>
+    <string name="reference_no_results">Niciun rezultat potrivit</string>
+    <string name="reference_search_hint">Căutați această carte...</string>
+    <string name="reference_title">Biblioteca islamică de referință</string>
+    <string name="reference_topics_count">subiecte</string>
+</resources>

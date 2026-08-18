@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">මුස්ලිම්</string>
+    <string name="more_adhkar">අද්කාර්</string>
+    <string name="more_adhkar_desc">කවුන්ටර සහිත උදෑසන, සවස සහ යාච්ඤාවෙන් පසු adhkar</string>
+    <string name="more_downloads">පාරායනය බාගැනීම්</string>
+    <string name="more_downloads_desc">ඔබ තෝරාගත් පාරායනය කරන්නා සමඟ සූරතයක්, අයා හෝ සම්පූර්ණ කුර්ආනය බාගන්න</string>
+    <string name="more_hadith">හදීස්</string>
+    <string name="more_hadith_desc">දවසේ හදීස් පුස්තකාලය, සෙවීම සහ හදීස්</string>
+    <string name="more_learn">ඉගෙන ගන්න</string>
+    <string name="more_learn_desc">පියවරෙන් පියවර වුඩු සහ යාඥා මාර්ගෝපදේශ</string>
+    <string name="more_ramadan">රාමසාන්</string>
+    <string name="more_ramadan_desc">සුහූර් සහ ඉෆ්තාර් වේලාවන් සහ උපවාස ට්රැකර්</string>
+    <string name="more_reference">විමර්ශන පුස්තකාලය</string>
+    <string name="more_reference_desc">ඉස්ලාම්, සිරා සහ අනාගතවක්තෘවරුන් පිළිබඳ හැඳින්වීම</string>
+    <string name="more_settings">සැකසීම්</string>
+    <string name="more_settings_desc">තේමාව, භාෂාව, යාච්ඤාව සහ අදාන් සැකසුම්</string>
+    <string name="more_tasbih">තස්බිහ්</string>
+    <string name="more_tasbih_desc">දෛනික ඉතිහාසය සමඟ ඩිජිටල් මිස්බහා</string>
+    <string name="more_zakat">සකාත්</string>
+    <string name="more_zakat_desc">ධනය මත සකාත් සහ Fitr කැල්කියුලේටරය</string>
+    <string name="scaffold_message">බහු-මොඩියුල ව්‍යාපෘති ඇටසැකිල්ල සුදානම්ය.\nPhase 1 — අදාන්, යාඥා වේලාවන්, කිබ්ලා සහ හිජ්රි දින දර්ශනය — මෙතැනින් ආරම්භ වේ.</string>
+    <string name="shortcut_qibla">කිබ්ලා</string>
+    <string name="shortcut_qibla_long">කිබ්ලා දිශාව</string>
+    <string name="shortcut_settings">සැකසීම්</string>
+    <string name="shortcut_settings_long">යාඥා සහ අදාන් සැකසුම්</string>
+    <string name="shortcut_times">යාඥා වේලාවන්</string>
+    <string name="shortcut_times_long">අද \'s යාච්ඤාවේ වේලාවන්</string>
+    <string name="tab_home">යාඥා වේලාවන්</string>
+    <string name="tab_more">තවත්</string>
+    <string name="tab_qibla">කිබ්ලා</string>
+    <string name="tab_quran">කුරානය</string>
 </resources>

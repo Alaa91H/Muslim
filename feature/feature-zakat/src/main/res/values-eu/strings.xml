@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Eskuratu prezioak automatikoki</string>
+    <string name="zakat_auto_prices_hint">Gaituta dagoenean, urrezko eta zilarrezko prezioak Internetetik lortzen dira eta automatikoki freskatzen dira</string>
+    <string name="zakat_back">Itzuli</string>
+    <string name="zakat_cash">Dirua eta aurrezkia</string>
+    <string name="zakat_clear_history">Garbitu historia</string>
+    <string name="zakat_country">Herrialdea</string>
+    <string name="zakat_country_placeholder">Aukeratu zure herrialdea eta moneta</string>
+    <string name="zakat_country_section">Herrialdea eta moneta</string>
+    <string name="zakat_currency">Moneta: %1$s</string>
+    <string name="zakat_debts">Zor dituzun zorrak (kenduta)</string>
+    <string name="zakat_due">Zakat zor (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ezin izan dira \' prezioak eskuratu. Egiaztatu zure konexioa edo sartu prezioa eskuz.</string>
+    <string name="zakat_fetch_now">Freskatu prezioak orain</string>
+    <string name="zakat_fetching">Prezioak eskuratzen…</string>
+    <string name="zakat_fitr_persons">Familiako kide kopurua</string>
+    <string name="zakat_fitr_saa_value">Sa\' baten balioa (oinarrizko elikagaiak)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Fitr zakat guztira: %1$s</string>
+    <string name="zakat_gold_grams">Urrea (gramo)</string>
+    <string name="zakat_gold_price">Urrearen prezioa gramo bakoitzeko</string>
+    <string name="zakat_history">Kalkuluen historia</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Oraindik ez dago gordetako kalkulurik.</string>
+    <string name="zakat_investments">Inbertsioak</string>
+    <string name="zakat_last_updated">Azken eguneratzea: %1$s</string>
+    <string name="zakat_money_section">Zakat aberastasunaren gainean</string>
+    <string name="zakat_nisab_gold">Urrezko nisab (85 g)</string>
+    <string name="zakat_nisab_met">Nisab iristen da - zakat zor da</string>
+    <string name="zakat_nisab_not_met">nisab-aren azpian - ez dago zakat</string>
+    <string name="zakat_nisab_silver">Zilarrezko nisab (595 g)</string>
+    <string name="zakat_rulings_note">Gehiengoaren arabera (jumhoor): urrezko nisab 85 g da, zilarra 595 g, eta tasa 2,5%% da zorrak kenduta. Kontsultatu aditu kualifikatu bati kasu berezietarako.</string>
+    <string name="zakat_save_result">Gorde historian</string>
+    <string name="zakat_silver_grams">Zilarra (gramo)</string>
+    <string name="zakat_silver_price">Zilarrezko prezioa gramo bakoitzeko</string>
+    <string name="zakat_source_note">Urre/zilar prezioak gold-api.com webgunetik; FX tasak open.er-api.com webgunetik</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Aktiboak guztira</string>
+    <string name="zakat_trade">Merkataritza ondasunen balioa</string>
+    <string name="zakat_zakatable">Zorren ondoren zenbateko zakagarria</string>
+</resources>

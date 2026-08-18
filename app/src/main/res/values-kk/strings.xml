@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Мұсылман</string>
+    <string name="more_adhkar">Адхкар</string>
+    <string name="more_adhkar_desc">Таңертеңгілік, кешкі және намаздан кейін есептегіштері бар зікірлер</string>
+    <string name="more_downloads">Қайта жүктеулер</string>
+    <string name="more_downloads_desc">Таңдалған оқушымен сүрені, аятты немесе толық Құранды жүктеп алыңыз</string>
+    <string name="more_hadith">Хадис</string>
+    <string name="more_hadith_desc">Хадистер кітапханасы, іздеу және күннің хадистері</string>
+    <string name="more_learn">Үйрену</string>
+    <string name="more_learn_desc">Қадамдық дәрет пен намазға арналған нұсқаулықтар</string>
+    <string name="more_ramadan">Рамазан</string>
+    <string name="more_ramadan_desc">Сухур және ифтар уақыттары және ораза ұстаушы</string>
+    <string name="more_reference">Анықтамалық кітапхана</string>
+    <string name="more_reference_desc">Исламмен, Сирамен және пайғамбарлармен таныстыру</string>
+    <string name="more_settings">Параметрлер</string>
+    <string name="more_settings_desc">Тақырып, тіл, намаз және азан параметрлері</string>
+    <string name="more_tasbih">Тасбих</string>
+    <string name="more_tasbih_desc">Күнделікті тарихы бар сандық мисбаха</string>
+    <string name="more_zakat">Зекет</string>
+    <string name="more_zakat_desc">Байлық пен фитр калькуляторындағы зекет</string>
+    <string name="scaffold_message">Көп модульді жобаның қаңқасы дайын.\n1-кезең — азан, намаз уақыттары, құбыла және хижри күнтізбесі — осы жерден басталады.</string>
+    <string name="shortcut_qibla">Қыбла</string>
+    <string name="shortcut_qibla_long">Қыбла бағыты</string>
+    <string name="shortcut_settings">Параметрлер</string>
+    <string name="shortcut_settings_long">Намаз және азан параметрлері</string>
+    <string name="shortcut_times">Намаз уақыттары</string>
+    <string name="shortcut_times_long">Бүгін \' намаз уақыты</string>
+    <string name="tab_home">Намаз уақыттары</string>
+    <string name="tab_more">Көбірек</string>
+    <string name="tab_qibla">Қыбла</string>
+    <string name="tab_quran">Құран</string>
 </resources>

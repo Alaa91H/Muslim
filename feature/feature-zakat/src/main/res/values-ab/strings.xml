@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Ахәқәа автоматикала раагара</string>
+    <string name="zakat_auto_prices_hint">Аус анауа, ахьи араӡни рыхәқәа интернет аҟынтәи иааганы автоматла ирҿыцхоит</string>
+    <string name="zakat_back">Шьҭахьҟа</string>
+    <string name="zakat_cash">Аԥарақәеи аԥараҵәахқәеи</string>
+    <string name="zakat_clear_history">Аҭоурых еилгатәуп</string>
+    <string name="zakat_country">Атәыла</string>
+    <string name="zakat_country_placeholder">Иалышәх шәтәыла, шәԥара</string>
+    <string name="zakat_country_section">Атәыла &amp; аԥара</string>
+    <string name="zakat_currency">Аԥара: %1$s</string>
+    <string name="zakat_debts">Уара иуқәу ауалқәа (иаԥыххоит)</string>
+    <string name="zakat_due">Азакат ашәара (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'т ахәқәа раагара алшом. Уеиқәыршәара гәаҭа ма ахә напыла иҭагала.</string>
+    <string name="zakat_fetch_now">Ахәқәа рҿыцтәуп уажәы</string>
+    <string name="zakat_fetching">Ахәқәа раагара...</string>
+    <string name="zakat_fitr_persons">Аҭаацәа рхыԥхьаӡара</string>
+    <string name="zakat_fitr_saa_value">Аӡәы sa\' (чыс хада)</string>
+    <string name="zakat_fitr_section">Азакаҭ аль-фитр</string>
+    <string name="zakat_fitr_total">Афитр закаҭ зегьы: %1$s</string>
+    <string name="zakat_gold_grams">Ахьы (граммқәа)</string>
+    <string name="zakat_gold_price">Ахьы граммк ахә</string>
+    <string name="zakat_history">Аԥхьаӡара аҭоурых</string>
+    <string name="zakat_history_amount">Азакат: %1$s</string>
+    <string name="zakat_history_empty">Макьана еиқәырхам аҳасабрақәа.</string>
+    <string name="zakat_investments">Аинвестициақәа</string>
+    <string name="zakat_last_updated">Аҵыхәтәантәи аҿыцра: %1$s</string>
+    <string name="zakat_money_section">Амазара азакаҭ</string>
+    <string name="zakat_nisab_gold">Ахьтәы нисаб (85г)</string>
+    <string name="zakat_nisab_met">Нисаб наӡеит — азакаҭ ақәҵатәуп</string>
+    <string name="zakat_nisab_not_met">Нисаб ҵаҟа — азакаҭ ҟалаӡом</string>
+    <string name="zakat_nisab_silver">Араӡын нисаб (595г)</string>
+    <string name="zakat_rulings_note">Еиҳараҩык рзы (џьумҳур): ахьы нисаб 85г, араӡын 595г, насгьы аԥаратә ставка 2.5%% ауп, ауалқәа анҭырхлак ашьҭахь. Иҷыдоу аҭагылазаашьақәа рзы иҟәыӷоу аҵарауаҩ шәиацәажәа.</string>
+    <string name="zakat_save_result">Аҭоурых аҿы еиқәырхатәуп</string>
+    <string name="zakat_silver_grams">Араӡын (граммқәа)</string>
+    <string name="zakat_silver_price">Араӡын граммк ахә</string>
+    <string name="zakat_source_note">Ахьы/аӡын ахәқәа gold-api.com аҟынтә; Авалюта ахәқәа open.er-api.com аҟынтәи</string>
+    <string name="zakat_title">Азакаҭ</string>
+    <string name="zakat_total_assets">Активқәа зегьы</string>
+    <string name="zakat_trade">Ахәаахәҭратә тауарқәа рыхә</string>
+    <string name="zakat_zakatable">Ауалқәа рышьҭахь азакататә ԥара</string>
+</resources>

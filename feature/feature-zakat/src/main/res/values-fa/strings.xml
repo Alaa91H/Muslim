@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">واکشی قیمت ها به صورت خودکار</string>
+    <string name="zakat_auto_prices_hint">وقتی فعال باشد، قیمت‌های طلا و نقره از اینترنت دریافت می‌شوند و به‌طور خودکار به روز می‌شوند</string>
+    <string name="zakat_back">برگشت</string>
+    <string name="zakat_cash">پول نقد و پس انداز</string>
+    <string name="zakat_clear_history">پاک کردن تاریخچه</string>
+    <string name="zakat_country">کشور</string>
+    <string name="zakat_country_placeholder">کشور و واحد پول خود را انتخاب کنید</string>
+    <string name="zakat_country_section">کشور و واحد پول</string>
+    <string name="zakat_currency">واحد پول: %1$s</string>
+    <string name="zakat_debts">بدهی های شما (کسر شده)</string>
+    <string name="zakat_due">زکات واریز (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">نمی توان \' تن قیمت ها را واکشی کرد. اتصال خود را بررسی کنید یا قیمت را به صورت دستی وارد کنید.</string>
+    <string name="zakat_fetch_now">اکنون قیمت ها را به روز کنید</string>
+    <string name="zakat_fetching">واکشی قیمت…</string>
+    <string name="zakat_fitr_persons">تعداد اعضای خانواده</string>
+    <string name="zakat_fitr_saa_value">ارزش یک عدد sa\' (غذای اصلی)</string>
+    <string name="zakat_fitr_section">زکات فطره</string>
+    <string name="zakat_fitr_total">کل زکات فطره: %1$s</string>
+    <string name="zakat_gold_grams">طلا (گرم)</string>
+    <string name="zakat_gold_price">قیمت هر گرم طلا</string>
+    <string name="zakat_history">تاریخچه محاسبات</string>
+    <string name="zakat_history_amount">زکات: %1$s</string>
+    <string name="zakat_history_empty">هنوز محاسبات ذخیره شده ای وجود ندارد.</string>
+    <string name="zakat_investments">سرمایه گذاری ها</string>
+    <string name="zakat_last_updated">آخرین به روز رسانی: %1$s</string>
+    <string name="zakat_money_section">زکات مال</string>
+    <string name="zakat_nisab_gold">نصاب طلا (85 گرم)</string>
+    <string name="zakat_nisab_met">نصاب رسیده - زکات واجب است</string>
+    <string name="zakat_nisab_not_met">زیر نصاب - زکات ندارد</string>
+    <string name="zakat_nisab_silver">نصاب نقره ای (595 گرم)</string>
+    <string name="zakat_rulings_note">در اکثریت (جمهور): نصاب طلا 85 گرم، نقره 595 گرم و پس از کسر بدهی 2.5%% می باشد. برای موارد خاص با یک محقق واجد شرایط مشورت کنید.</string>
+    <string name="zakat_save_result">ذخیره در تاریخ</string>
+    <string name="zakat_silver_grams">نقره (گرم)</string>
+    <string name="zakat_silver_price">قیمت نقره هر گرم</string>
+    <string name="zakat_source_note">قیمت طلا/نقره از gold-api.com; نرخ FX از open.er-api.com</string>
+    <string name="zakat_title">زکات</string>
+    <string name="zakat_total_assets">کل دارایی ها</string>
+    <string name="zakat_trade">ارزش کالاهای تجاری</string>
+    <string name="zakat_zakatable">مبلغ زکات پس از بدهی</string>
+</resources>

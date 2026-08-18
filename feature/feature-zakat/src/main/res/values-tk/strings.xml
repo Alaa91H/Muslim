@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Bahalary awtomatiki alyň</string>
+    <string name="zakat_auto_prices_hint">Işledilende altyn-kümüş bahalary internetden alynýar we awtomatiki usulda täzelenýär</string>
+    <string name="zakat_back">Yzyna</string>
+    <string name="zakat_cash">Nagt we tygşytlamak</string>
+    <string name="zakat_clear_history">Taryhy aýdyň</string>
+    <string name="zakat_country">Countryurt</string>
+    <string name="zakat_country_placeholder">Countryurduňyzy we walýutaňyzy saýlaň</string>
+    <string name="zakat_country_section">&amp; Urt we walýuta</string>
+    <string name="zakat_currency">Walýuta: %1$s</string>
+    <string name="zakat_debts">Siziň bergiňiz (aýyrylýar)</string>
+    <string name="zakat_due">Zekat tölemeli (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'t alyp bolmaýar. Baglanyşygyňyzy barlaň ýa-da bahany el bilen giriziň.</string>
+    <string name="zakat_fetch_now">Indi bahalary täzeläň</string>
+    <string name="zakat_fetching">Bahalary almak…</string>
+    <string name="zakat_fitr_persons">Maşgala agzalarynyň sany</string>
+    <string name="zakat_fitr_saa_value">Bir sa\' (esasy iýmit)</string>
+    <string name="zakat_fitr_section">Zekat al-Fitr</string>
+    <string name="zakat_fitr_total">Jemi Fitr zekaty: %1$s</string>
+    <string name="zakat_gold_grams">Altyn (gram)</string>
+    <string name="zakat_gold_price">Bir gram üçin altyn bahasy</string>
+    <string name="zakat_history">Hasaplama taryhy</string>
+    <string name="zakat_history_amount">Zekat: %1$s</string>
+    <string name="zakat_history_empty">Entek ýatda saklanan hasaplamalar ýok.</string>
+    <string name="zakat_investments">Maýa goýumlary</string>
+    <string name="zakat_last_updated">Iň soňky täzelenen: %1$s</string>
+    <string name="zakat_money_section">Zekat</string>
+    <string name="zakat_nisab_gold">Altyn nisab (85g)</string>
+    <string name="zakat_nisab_met">Nisab ýetildi - zekat bermeli</string>
+    <string name="zakat_nisab_not_met">Nisabyň aşagynda - zekat ýok</string>
+    <string name="zakat_nisab_silver">Kümüş nisab (595g)</string>
+    <string name="zakat_rulings_note">Köplük üçin (jumhoor): altyn nisab 85g, kümüş 595g, bergilerini aýyrandan soň bolsa 2,5%%. Specialörite ýagdaýlar üçin ökde hünärli alym bilen maslahatlaşyň.</string>
+    <string name="zakat_save_result">Taryha ýazdyryň</string>
+    <string name="zakat_silver_grams">Kümüş (gram)</string>
+    <string name="zakat_silver_price">Bir gram üçin kümüş bahasy</string>
+    <string name="zakat_source_note">Gold-api.com-dan altyn / kümüş bahalar; Open.er-api.com sahypasyndan FX nyrhlary</string>
+    <string name="zakat_title">Zekat</string>
+    <string name="zakat_total_assets">Jemi aktiwler</string>
+    <string name="zakat_trade">Söwda harytlarynyň gymmaty</string>
+    <string name="zakat_zakatable">Karzlardan soň zekatable mukdar</string>
+</resources>

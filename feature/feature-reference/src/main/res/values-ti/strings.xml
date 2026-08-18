@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">ንድሕሪት ተመሊስና።</string>
+    <string name="reference_no_results">ዝሰማማዕ ውጽኢት የለን</string>
+    <string name="reference_search_hint">ኣብዛ መጽሓፍ ድለዩ...</string>
+    <string name="reference_title">እስላማዊ መወከሲ ቤተ መጻሕፍቲ</string>
+    <string name="reference_topics_count">ኣርእስታት ዝሓዘ እዩ።</string>
+</resources>

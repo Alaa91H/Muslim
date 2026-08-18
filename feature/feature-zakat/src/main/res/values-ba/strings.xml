@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Хаҡтарҙы автоматик рәүештә алыу</string>
+    <string name="zakat_auto_prices_hint">Ҡасан өҫтөндә, алтын һәм көмөш хаҡтар интернеттан алынған һәм автоматик рәүештә яңыртыла .</string>
+    <string name="zakat_back">Артҡа</string>
+    <string name="zakat_cash">Аҡса һәм һаҡлыҡ</string>
+    <string name="zakat_clear_history">Тарихты асыҡлау</string>
+    <string name="zakat_country">Ил .</string>
+    <string name="zakat_country_placeholder">Һеҙҙең илде һәм валютаны һайлағыҙ</string>
+    <string name="zakat_country_section">Ил һәм валюта</string>
+    <string name="zakat_currency">Валюта: %1$s</string>
+    <string name="zakat_debts">Бурыстар һеҙгә бурыслы (алып алынған)</string>
+    <string name="zakat_due">Зәкәт (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'т хаҡтарҙы килтерергә мөмкин түгел. Һеҙҙең тоташыуҙы тикшерергә йәки хаҡты ҡул менән индерергә.</string>
+    <string name="zakat_fetch_now">Хәҙер үк хаҡтарҙы яңыртығыҙ</string>
+    <string name="zakat_fetching">Хаҡтарҙы алыу...</string>
+    <string name="zakat_fitr_persons">Ғаилә ағзалары һаны .</string>
+    <string name="zakat_fitr_saa_value">Ҡиммәте бер са\' (төп аҙыҡ-түлек)</string>
+    <string name="zakat_fitr_section">Зәкәт әл-Фитр</string>
+    <string name="zakat_fitr_total">Дөйөм фитр зәкәте: %1$s</string>
+    <string name="zakat_gold_grams">Алтын (грамм)</string>
+    <string name="zakat_gold_price">Бер грамм алтындың хаҡы .</string>
+    <string name="zakat_history">Иҫәпләү тарихы</string>
+    <string name="zakat_history_amount">Зәкәт: %1$s</string>
+    <string name="zakat_history_empty">Әлегә һаҡланған иҫәп-хисап юҡ.</string>
+    <string name="zakat_investments">Инвестициялар</string>
+    <string name="zakat_last_updated">Һуңғы яңыртыу: %1$s</string>
+    <string name="zakat_money_section">Байлыҡҡа зәкәт .</string>
+    <string name="zakat_nisab_gold">Алтын нисаб (85г)</string>
+    <string name="zakat_nisab_met">Нисабҡа ирешкән — зәҡәт тейешле .</string>
+    <string name="zakat_nisab_not_met">Нисабтан түбәнерәк — түләнергә тейешле зәҡәт юҡ</string>
+    <string name="zakat_nisab_silver">Көмөш нисаб (595г)</string>
+    <string name="zakat_rulings_note">Күпселек өсөн (джумхур): алтын нисаб 85г, көмөш 595г, ә ставкаһы 2,5%% тейешле бурыстарҙы өҫтәп ташлағандан һуң. Махсус осраҡтар өсөн квалификациялы ғалим менән кәңәшләшегеҙ.</string>
+    <string name="zakat_save_result">Тарихҡа һаҡлау</string>
+    <string name="zakat_silver_grams">Көмөш (грамм)</string>
+    <string name="zakat_silver_price">Бер грамм көмөш хаҡы .</string>
+    <string name="zakat_source_note">Алтын/көмөш хаҡтары алтын-api.com; Валюта ставкалары асыҡ.er-api.com</string>
+    <string name="zakat_title">Зәҡәт .</string>
+    <string name="zakat_total_assets">Дөйөм активтар</string>
+    <string name="zakat_trade">Сауҙа тауарының хаҡы .</string>
+    <string name="zakat_zakatable">Бурыстарҙан һуң зәкәт суммаһы</string>
+</resources>

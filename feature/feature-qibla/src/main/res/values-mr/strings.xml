@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s दूर</string>
+    <string name="mosque_finder_empty">या रेंजमध्ये मशिदी आढळल्या नाहीत</string>
+    <string name="mosque_finder_error">शोध अयशस्वी</string>
+    <string name="mosque_finder_intro">OpenStreetMap द्वारे तुमच्या स्थानाजवळील मशिदी शोधा</string>
+    <string name="mosque_finder_no_location">अद्याप कोणतेही स्थान सेट केलेले नाही. प्रथम प्रार्थना वेळा सेटिंग्जमधून एक स्थान निवडा.</string>
+    <string name="mosque_finder_retry">पुन्हा प्रयत्न करा</string>
+    <string name="mosque_finder_searching">शोधत आहे...</string>
+    <string name="mosque_finder_title">जवळच्या मशिदी</string>
+    <string name="qibla_bearing_cardinal">किबला दिशा: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">कॅलिब्रेट करण्यासाठी तुमचा फोन आकृती-आठ मध्ये हलवा</string>
+    <string name="qibla_distance">मक्केपर्यंतचे अंतर: %1$s</string>
+    <string name="qibla_distance_km">%,.0f किमी</string>
+    <string name="qibla_facing">तुम्ही किब्लाकडे तोंड करत आहात 🕋</string>
+    <string name="qibla_gps_error">अचूक निराकरण मिळू शकले नाही. कृपया पुन्हा प्रयत्न करा.</string>
+    <string name="qibla_gps_live">थेट जीपीएस स्थान</string>
+    <string name="qibla_gps_refresh">GPS द्वारे स्थान रिफ्रेश करा</string>
+    <string name="qibla_gps_refreshing">शोधत आहे...</string>
+    <string name="qibla_heading_degree">फोन शीर्षक: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">तुमच्या स्थानापासून काबा पर्यंतचा मोठा-वर्तुळ मार्ग — ऑफलाइन कार्य करतो</string>
+    <string name="qibla_map_kaaba">काबा</string>
+    <string name="qibla_map_you">आपण</string>
+    <string name="qibla_mode_compass">होकायंत्र</string>
+    <string name="qibla_mode_map">नकाशा</string>
+    <string name="qibla_open_mosques">जवळच्या मशिदी</string>
+    <string name="qibla_title">किबला दिशा</string>
+    <string name="qibla_turn_left">डावीकडे वळा %1$.1f°</string>
+    <string name="qibla_turn_right">उजवीकडे वळा %1$.1f°</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s weg</string>
+    <string name="mosque_finder_empty">Gein moskeeje te vinde in dit gebied</string>
+    <string name="mosque_finder_error">Zeuk is mislök</string>
+    <string name="mosque_finder_intro">Vind moskeeje in de buurt vaan eur locatie via OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Nog gein locatie ingesteld. Kies iers un locatie oet de insjtellinge vaan de gebedstied.</string>
+    <string name="mosque_finder_retry">Probeer nog ummer</string>
+    <string name="mosque_finder_searching">Op zeuk…</string>
+    <string name="mosque_finder_title">Moskeeje in de buurt</string>
+    <string name="qibla_bearing_cardinal">Qiblarichting: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Verplaats eur tillefoon in un figuur-acht um te kalibrere</string>
+    <string name="qibla_distance">Aafstand tot Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Geer kiekt op de Qibla 🕋</string>
+    <string name="qibla_gps_error">Kon gein nauwkeurige oplossing kriege. Probeer nog ummer.</string>
+    <string name="qibla_gps_live">Live GPS-locatie</string>
+    <string name="qibla_gps_refresh">Vernuie de locatie via GPS</string>
+    <string name="qibla_gps_refreshing">Locatie...</string>
+    <string name="qibla_heading_degree">Telefoonkop: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Groete cirkelroute vaan eur locatie nao de Kaaba — werkt offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Gij</string>
+    <string name="qibla_mode_compass">Kompas</string>
+    <string name="qibla_mode_map">Kaart</string>
+    <string name="qibla_open_mosques">Moskeeje in de buurt</string>
+    <string name="qibla_title">Qibla-richting</string>
+    <string name="qibla_turn_left">Draai links %1$.1f°</string>
+    <string name="qibla_turn_right">Draai rechs %1$.1f°</string>
+</resources>

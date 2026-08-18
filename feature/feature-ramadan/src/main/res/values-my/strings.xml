@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">ကျော</string>
+    <string name="ramadan_countdown">ရမဿွာန်သည် ရက်ပေါင်း %1$s တွင် စတင်သည်။</string>
+    <string name="ramadan_countdown_to_iftar">iftar အတွက် အချိန်- %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Fajr သို့ အချိန်- %1$s</string>
+    <string name="ramadan_day_of_month">ရမ်ဇာန်လ၏နေ့ %1$s</string>
+    <string name="ramadan_days_left">ရက်ပေါင်း %1$s ကျန်ပါသည်။</string>
+    <string name="ramadan_fasting_progress">အစာရှောင်ရက်များ- %2$s ၏ %1$s — မှတ်တမ်းတင်ရန် တစ်ရက်ကို နှိပ်ပါ။</string>
+    <string name="ramadan_fasting_tracker">အစာရှောင်ခြင်း tracker</string>
+    <string name="ramadan_hijri_note">app-wide Hijri ချိန်ညှိမှုဖြင့် Umm al-Qura ပြက္ခဒိန်ကို အခြေခံထားသည်။</string>
+    <string name="ramadan_hijri_year">တစ်နှစ် %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">အိဖ်တာ အသနားခံစာ– “အို အလ္လာဟ်အရှင်မြတ်၊ အကျွန်ုပ်အရှင်မြတ်သည် အစာရှောင်ခြင်းအလို့ငှာလည်းကောင်း၊ ကိုယ်တော်၏ ပေးကမ်းချက်အတိုင်း ကျွန်ုပ်အစာရှောင်ခြင်းအား ချိုးဖျက်ပါ၏...”</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) အချိန်: %1$s</string>
+    <string name="ramadan_location_required">အချိန်များကိုကြည့်ရန် ဦးစွာ ဆက်တင်များတွင် မြို့တစ်မြို့ကို ရွေးပါ။</string>
+    <string name="ramadan_minutes">%1$s မိနစ်</string>
+    <string name="ramadan_notification_iftar_body">အို အလ္လာဟ်အရှင်မြတ်၊ အကြောင်းမူကား၊ ငါအရှင်မြတ်သည် ငါအရှင်မြတ်အား အစာရှောင်ခဲ့ပြီး၊ အသင်တို့၏ ပေးကမ်းချက်ဖြင့် ငါ၏ အစာရှောင်ခြင်းကို ချိုးဖျက်ခဲ့သည်။</string>
+    <string name="ramadan_notification_iftar_title">iftar အတွက်အချိန်</string>
+    <string name="ramadan_notification_suhoor_body">Fajr နီးလာပါပြီ — မင်းရဲ့ suhoor လုပ်လိုက်ပါ။</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor သတိပေးချက်</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">ငါ့ကိုအရင်သတိပေးပါ။</string>
+    <string name="ramadan_suhoor_time">Suhoor အဆုံး (Fajr): %1$s</string>
+    <string name="ramadan_title">ရမ်ဇာန်</string>
+</resources>

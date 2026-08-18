@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Бүгд</string>
+    <string name="hadith_back">Буцах</string>
+    <string name="hadith_bookmark_add">Хавчуурга нэмэх</string>
+    <string name="hadith_bookmark_remove">Хавчуурга арилгах</string>
+    <string name="hadith_collection_abudawud">Абу Давуд</string>
+    <string name="hadith_collection_bukhari">Аль-Бухари</string>
+    <string name="hadith_collection_ibnmajah">Ибн Мажа</string>
+    <string name="hadith_collection_muslim">Мусульман</string>
+    <string name="hadith_collection_nasai">Ан-Наса\'i</string>
+    <string name="hadith_collection_nawawi">Ан-Навави 40</string>
+    <string name="hadith_collection_other">Бусад</string>
+    <string name="hadith_collection_riyad">Рияд ас-Салихин</string>
+    <string name="hadith_collection_tirmidhi">Ат-Тирмизи</string>
+    <string name="hadith_daily_notification">Хадисын өдөр тутмын мэдэгдэл</string>
+    <string name="hadith_daily_notification_desc">Өдөр бүр хадис хүлээн авах</string>
+    <string name="hadith_daily_notification_time">Мэдэгдлийн хугацаа</string>
+    <string name="hadith_of_the_day">Тухайн үеийн хадис</string>
+    <string name="hadith_preview_hint">Өдөр тутмын хадисийн мэдэгдэл товлосон цагтаа ингэж гарч ирдэг.</string>
+    <string name="hadith_preview_label">Мэдэгдлийг урьдчилан харах</string>
+    <string name="hadith_preview_loading">Хадисыг ачаалж байна...</string>
+    <string name="hadith_search_hint">Хадис хайх...</string>
+    <string name="hadith_share">Хуваалцах</string>
+    <string name="hadith_title">Хадисын номын сан</string>
+</resources>

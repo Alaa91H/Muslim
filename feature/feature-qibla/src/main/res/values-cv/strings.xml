@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s аяккарах</string>
+    <string name="mosque_finder_empty">Ку диапазонра мечӗтсем ҫук</string>
+    <string name="mosque_finder_error">Шырав ӑнӑҫсӑр пулнӑ</string>
+    <string name="mosque_finder_intro">OpenStreetMap урлӑ хӑвӑр пурӑнакан вырӑн ҫывӑхӗнчи мечӗтсене тупӑр</string>
+    <string name="mosque_finder_no_location">Хальлӗхе вырӑн палӑртман-ха. Малтан кӗлӗ вӑхӑчӗн настройкисенчен вырӑн суйласа илӗр.</string>
+    <string name="mosque_finder_retry">Тепӗр хут тытӑнса пӑхӑр</string>
+    <string name="mosque_finder_searching">Шырав...</string>
+    <string name="mosque_finder_title">Ҫывӑхри мечӗтсем</string>
+    <string name="qibla_bearing_cardinal">Кибла ҫулӗ: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Калибровка тума телефона сакӑр цифра ҫине куҫарӑр</string>
+    <string name="qibla_distance">Расстояние до Макки: %1$s</string>
+    <string name="qibla_distance_km">%,.0f км</string>
+    <string name="qibla_facing">Эсир кибла еннелле пӑхатӑр 🕋</string>
+    <string name="qibla_gps_error">Тӗрӗс тӳрлетӳ тупаймарӑм. Тархасшӑн, тепӗр хут тытӑнса пӑхӑр.</string>
+    <string name="qibla_gps_live">Чӗрӗ GPS вырӑнӗ</string>
+    <string name="qibla_gps_refresh">GPS урлӑ вырӑна ҫӗнетӗр</string>
+    <string name="qibla_gps_refreshing">Вырӑн...</string>
+    <string name="qibla_heading_degree">Телефон ячӗ: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Сирӗн вырӑнтан Кааба патне ҫитичченхи пысӑк ҫаврашка ҫулӗ — офлайн ӗҫлет</string>
+    <string name="qibla_map_kaaba">Кааба</string>
+    <string name="qibla_map_you">Эсир</string>
+    <string name="qibla_mode_compass">Компас</string>
+    <string name="qibla_mode_map">Карта</string>
+    <string name="qibla_open_mosques">Ҫывӑхри мечӗтсем</string>
+    <string name="qibla_title">Кибла енӗ</string>
+    <string name="qibla_turn_left">Сулахай еннелле пӑрӑнӑр %1$.1f°</string>
+    <string name="qibla_turn_right">Сылтӑмалла пӑрӑнӑр %1$.1f°</string>
+</resources>

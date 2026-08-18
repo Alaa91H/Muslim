@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha ya dijithale — tobetsa go bala</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Konya go bala</string>
+    <string name="tasbih_back">Morago</string>
+    <string name="tasbih_cancel">Khansela</string>
+    <string name="tasbih_confirm">Go siame</string>
+    <string name="tasbih_custom_target">Tlwaelo</string>
+    <string name="tasbih_custom_target_hint">Tsenya palo ya dipalo (go tswa go 1 go ya go 100000)</string>
+    <string name="tasbih_custom_target_title">Seta se se ikaeletsweng</string>
+    <string name="tasbih_of_target">ya %1$s</string>
+    <string name="tasbih_reset">Seta gape</string>
+    <string name="tasbih_reset_all">Seta tsotlhe gape</string>
+    <string name="tasbih_round_complete">Tikologo e e tletseng e weditswe (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Ditikologo: %1$d</string>
+    <string name="tasbih_sound_desc">Tshameka modumo kgotsa modumo fa tikologo nngwe le nngwe e e tletseng e weditswe</string>
+    <string name="tasbih_sound_title">Modumo o mo setlhopheng</string>
+    <string name="tasbih_sound_tone_alarm">Alamo</string>
+    <string name="tasbih_sound_tone_notification">Kitsiso</string>
+    <string name="tasbih_sound_tone_ringtone">Modumo wa go letsa</string>
+    <string name="tasbih_tap_hint">Konya sediko go bala</string>
+    <string name="tasbih_target_reached">Mokgele o fitlheletswe — a Allah a amogele</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Gompieno \' palogotlhe: %1$d</string>
+    <string name="tasbih_undo">Dirolola</string>
+    <string name="tasbih_virtue_label">Bontle jwa dhikr eno</string>
+    <string name="tasbih_week_stats">Malatsi a le 7 a a fetileng</string>
+</resources>

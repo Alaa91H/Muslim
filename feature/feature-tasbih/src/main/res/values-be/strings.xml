@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Лічбавая місбаха — націсніце, каб палічыць</string>
+    <string name="misbaha_widget_label">тасбіх</string>
+    <string name="misbaha_widget_tap_hint">Націсніце, каб палічыць</string>
+    <string name="tasbih_back">Назад</string>
+    <string name="tasbih_cancel">Адмяніць</string>
+    <string name="tasbih_confirm">добра</string>
+    <string name="tasbih_custom_target">Прыстасаваныя</string>
+    <string name="tasbih_custom_target_hint">Увядзіце колькасць адлікаў (ад 1 да 100000)</string>
+    <string name="tasbih_custom_target_title">Усталюйце карыстальніцкую мэту</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Скінуць</string>
+    <string name="tasbih_reset_all">Скінуць усе</string>
+    <string name="tasbih_round_complete">Поўны раунд завершаны (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Раунды: %1$d</string>
+    <string name="tasbih_sound_desc">Прайгравайце рынгтон або мелодыю пасля завяршэння кожнага поўнага раунда</string>
+    <string name="tasbih_sound_title">Гук у мэта</string>
+    <string name="tasbih_sound_tone_alarm">Сігналізацыя</string>
+    <string name="tasbih_sound_tone_notification">Апавяшчэнне</string>
+    <string name="tasbih_sound_tone_ringtone">Рынгтон</string>
+    <string name="tasbih_tap_hint">Націсніце круг, каб падлічыць</string>
+    <string name="tasbih_target_reached">Мэта дасягнута — хай прыме Алах</string>
+    <string name="tasbih_title">тасбіх</string>
+    <string name="tasbih_total_today">Сёння\' усяго: %1$d</string>
+    <string name="tasbih_undo">Адмяніць</string>
+    <string name="tasbih_virtue_label">Годнасць гэтага зікр</string>
+    <string name="tasbih_week_stats">Апошнія 7 дзён</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha - matsa don ƙidaya</string>
+    <string name="misbaha_widget_label">Tasbihi</string>
+    <string name="misbaha_widget_tap_hint">Matsa don ƙidaya</string>
+    <string name="tasbih_back">Baya</string>
+    <string name="tasbih_cancel">Soke</string>
+    <string name="tasbih_confirm">Yayi</string>
+    <string name="tasbih_custom_target">Custom</string>
+    <string name="tasbih_custom_target_hint">Shigar da adadin ƙidaya (daga 1 zuwa 100000)</string>
+    <string name="tasbih_custom_target_title">Saita manufa ta al\'ada</string>
+    <string name="tasbih_of_target">na %1$s</string>
+    <string name="tasbih_reset">Sake saiti</string>
+    <string name="tasbih_reset_all">Sake saita duka</string>
+    <string name="tasbih_round_complete">Cikakken zagaye cikakke (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Saukewa: %1$d</string>
+    <string name="tasbih_sound_desc">Kunna sautin ringi ko sautin ringi lokacin da aka kammala kowane cikakken zagaye</string>
+    <string name="tasbih_sound_title">Sauti akan manufa</string>
+    <string name="tasbih_sound_tone_alarm">Ƙararrawa</string>
+    <string name="tasbih_sound_tone_notification">Sanarwa</string>
+    <string name="tasbih_sound_tone_ringtone">Sautin ringi</string>
+    <string name="tasbih_tap_hint">Matsa da\'irar don ƙidaya</string>
+    <string name="tasbih_target_reached">Burin da ya kai – Allah Ya karba</string>
+    <string name="tasbih_title">Tasbihi</string>
+    <string name="tasbih_total_today">Yau\'s duka: %1$d</string>
+    <string name="tasbih_undo">Gyara</string>
+    <string name="tasbih_virtue_label">Falalar wannan zikiri</string>
+    <string name="tasbih_week_stats">Kwanaki 7 na ƙarshe</string>
+</resources>

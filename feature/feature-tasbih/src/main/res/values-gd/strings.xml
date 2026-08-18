@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha didseatach - tap gus cunntadh</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tap air gus cunntadh</string>
+    <string name="tasbih_back">Air ais</string>
+    <string name="tasbih_cancel">Sguir dheth</string>
+    <string name="tasbih_confirm">ceart gu leòr</string>
+    <string name="tasbih_custom_target">Gnàthach</string>
+    <string name="tasbih_custom_target_hint">Cuir a-steach àireamh nan cunntasan (bho 1 gu 100000)</string>
+    <string name="tasbih_custom_target_title">Suidhich targaid àbhaisteach</string>
+    <string name="tasbih_of_target">de %1$s</string>
+    <string name="tasbih_reset">Ath-shuidhich</string>
+    <string name="tasbih_reset_all">Ath-shuidhich a h-uile</string>
+    <string name="tasbih_round_complete">Cuairt slàn crìochnaichte (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Cuairtean: %1$d</string>
+    <string name="tasbih_sound_desc">Cluich glag-fòn no tòna nuair a bhios gach cuairt slàn deiseil</string>
+    <string name="tasbih_sound_title">Fuaim air an targaid</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Fios</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Tap air a’ chearcall airson cunntadh</string>
+    <string name="tasbih_target_reached">Amas air a ruighinn - faodaidh Allah gabhail ris</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">An-diugh \'n iomlan: %1$d</string>
+    <string name="tasbih_undo">Neo-dhèanamh</string>
+    <string name="tasbih_virtue_label">Buadh an dhikr seo</string>
+    <string name="tasbih_week_stats">7 làithean mu dheireadh</string>
+</resources>

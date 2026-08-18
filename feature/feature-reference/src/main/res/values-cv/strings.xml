@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Каялла</string>
+    <string name="reference_no_results">Пӗр пек результатсем ҫук</string>
+    <string name="reference_search_hint">Ҫак кӗнекене шыраса тупӑр...</string>
+    <string name="reference_title">Ислам справочникӗсен библиотеки</string>
+    <string name="reference_topics_count">темӑсем</string>
+</resources>

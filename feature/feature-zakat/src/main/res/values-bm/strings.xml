@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Aw bɛ sɔngɔw lase aw yɛrɛ ma</string>
+    <string name="zakat_auto_prices_hint">Ni a daminɛna, sanu ni warijɛ sɔngɔw bɛ bɔ ɛntɛrinɛti kan, ka segin u yɛrɛ ma</string>
+    <string name="zakat_back">Kɔfɛ</string>
+    <string name="zakat_cash">Wari ni warimara</string>
+    <string name="zakat_clear_history">Tariku jɛlen</string>
+    <string name="zakat_country">Jamana</string>
+    <string name="zakat_country_placeholder">I ka jamana ni i ka wari sugandi</string>
+    <string name="zakat_country_section">Jamana &amp; wari</string>
+    <string name="zakat_currency">Wari: %1$s ye</string>
+    <string name="zakat_debts">I ka juru minnu bɛ i la (u bɛ bɔ) .</string>
+    <string name="zakat_due">Zaka min ka kan ka sara (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t ka sɔngɔw lase. Aw ye aw ka jɛgɛnsira lajɛ walima ka sɔngɔ sɛbɛn aw bolo fɛ.</string>
+    <string name="zakat_fetch_now">Refresh sɔngɔw sisan</string>
+    <string name="zakat_fetching">Fetching sɔngɔw...</string>
+    <string name="zakat_fitr_persons">Denbaya kɔnɔmɔgɔw hakɛ</string>
+    <string name="zakat_fitr_saa_value">Sa\' kelen nafa (dumuni nafama) .</string>
+    <string name="zakat_fitr_section">Zakati al-Fitiri ye</string>
+    <string name="zakat_fitr_total">Fitiri zaka bɛɛ lajɛlen: %1$s</string>
+    <string name="zakat_gold_grams">Sanu (garamu) .</string>
+    <string name="zakat_gold_price">Sanu sɔngɔ garamu kelen na</string>
+    <string name="zakat_history">Jatebla tariku</string>
+    <string name="zakat_history_amount">Zaka: %1$s ye</string>
+    <string name="zakat_history_empty">Jatebla ma mara fɔlɔ.</string>
+    <string name="zakat_investments">Investissement (waridonw) ye</string>
+    <string name="zakat_last_updated">A laban kɛra: %1$s</string>
+    <string name="zakat_money_section">Zaka bɛ nafolo kan</string>
+    <string name="zakat_nisab_gold">Sanu nisab (85g) .</string>
+    <string name="zakat_nisab_met">Nisab sera — zaka ka kan</string>
+    <string name="zakat_nisab_not_met">Nisab duguma — zaka tɛ kɛ</string>
+    <string name="zakat_nisab_silver">Nisab warijɛ (595g) .</string>
+    <string name="zakat_rulings_note">Per the majority (jumhoor): sanu nisab ye 85g ye, warijɛ ye 595g ye, ani a hakɛ ye 2,5%% ye juruw bɔlen kɔfɛ. Aw bɛ taa dɔnnikɛla ŋana dɔ fɛ ko kɛrɛnkɛrɛnnenw ko la.</string>
+    <string name="zakat_save_result">Aw ye a mara tariku kɔnɔ</string>
+    <string name="zakat_silver_grams">Warijɛ (garamu) .</string>
+    <string name="zakat_silver_price">Warijɛ sɔngɔ garamu kelen na</string>
+    <string name="zakat_source_note">Sanu/wari sɔngɔw ka bɔ sanu-api.com la; FX hakɛw bɔra open.er-api.com kan</string>
+    <string name="zakat_title">Zakati</string>
+    <string name="zakat_total_assets">Nafolo bɛɛ lajɛlen</string>
+    <string name="zakat_trade">Jagofɛnw nafa</string>
+    <string name="zakat_zakatable">Zakatable hakɛ juruw kɔfɛ</string>
+</resources>

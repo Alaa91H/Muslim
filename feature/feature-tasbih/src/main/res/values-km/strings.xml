@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">ឌីជីថល misbaha — ចុចដើម្បីរាប់</string>
+    <string name="misbaha_widget_label">តាសប៊ី</string>
+    <string name="misbaha_widget_tap_hint">ប៉ះដើម្បីរាប់</string>
+    <string name="tasbih_back">ត្រឡប់មកវិញ</string>
+    <string name="tasbih_cancel">បោះបង់</string>
+    <string name="tasbih_confirm">យល់ព្រម</string>
+    <string name="tasbih_custom_target">ផ្ទាល់ខ្លួន</string>
+    <string name="tasbih_custom_target_hint">បញ្ចូលចំនួនរាប់ (ពី 1 ដល់ 100000)</string>
+    <string name="tasbih_custom_target_title">កំណត់គោលដៅផ្ទាល់ខ្លួន</string>
+    <string name="tasbih_of_target">នៃ %1$s</string>
+    <string name="tasbih_reset">កំណត់ឡើងវិញ</string>
+    <string name="tasbih_reset_all">កំណត់ឡើងវិញទាំងអស់។</string>
+    <string name="tasbih_round_complete">ពេញមួយជុំ (%1$s) 🎉</string>
+    <string name="tasbih_rounds">ជុំ: %1$d</string>
+    <string name="tasbih_sound_desc">ចាក់សំឡេងរោទ៍ ឬសំឡេងរោទ៍ នៅពេលជុំពេញនីមួយៗត្រូវបានបញ្ចប់</string>
+    <string name="tasbih_sound_title">សំឡេងនៅលើគោលដៅ</string>
+    <string name="tasbih_sound_tone_alarm">សំឡេងរោទិ៍</string>
+    <string name="tasbih_sound_tone_notification">សេចក្តីជូនដំណឹង</string>
+    <string name="tasbih_sound_tone_ringtone">សំឡេងរោទ៍</string>
+    <string name="tasbih_tap_hint">ប៉ះរង្វង់ដើម្បីរាប់</string>
+    <string name="tasbih_target_reached">គោលដៅបានដល់ - សូមអល់ឡោះទទួលយក</string>
+    <string name="tasbih_title">តាសប៊ី</string>
+    <string name="tasbih_total_today">ថ្ងៃនេះ \'s សរុប: %1$d</string>
+    <string name="tasbih_undo">មិនធ្វើវិញ</string>
+    <string name="tasbih_virtue_label">គុណធម៌នៃ dhikr នេះ។</string>
+    <string name="tasbih_week_stats">7 ថ្ងៃចុងក្រោយ</string>
+</resources>

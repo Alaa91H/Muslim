@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Mamati mamati — pato ki te tatau</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tap ki te tatau</string>
+    <string name="tasbih_back">Whakamuri</string>
+    <string name="tasbih_cancel">Whakakore</string>
+    <string name="tasbih_confirm">pai</string>
+    <string name="tasbih_custom_target">Ritenga</string>
+    <string name="tasbih_custom_target_hint">Whakauruhia te maha o nga kaute (mai i te 1 ki te 100000)</string>
+    <string name="tasbih_custom_target_title">Whakaritehia he whaainga ritenga</string>
+    <string name="tasbih_of_target">o %1$s</string>
+    <string name="tasbih_reset">Tautuhi Anō</string>
+    <string name="tasbih_reset_all">Tautuhi katoa</string>
+    <string name="tasbih_round_complete">Kua oti te rauna katoa (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Rauna: %1$d</string>
+    <string name="tasbih_sound_desc">Whakatangihia he orooro, he oro ranei ina oti ia rauna katoa</string>
+    <string name="tasbih_sound_title">Oro i runga i te whaainga</string>
+    <string name="tasbih_sound_tone_alarm">Whakaoho</string>
+    <string name="tasbih_sound_tone_notification">Panuitanga</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Patohia te porowhita hei tatau</string>
+    <string name="tasbih_target_reached">Kua tutuki te whainga — kia whakaae a Allah</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">I tenei ra \'s tapeke: %1$d</string>
+    <string name="tasbih_undo">Wetekina</string>
+    <string name="tasbih_virtue_label">Te mana o tenei dhikr</string>
+    <string name="tasbih_week_stats">7 ra whakamutunga</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">กลับ</string>
+    <string name="ramadan_countdown">รอมฎอนเริ่มต้นใน %1$s วัน</string>
+    <string name="ramadan_countdown_to_iftar">เวลาละศีลอด: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">เวลาถึงฟัจร์: %1$s</string>
+    <string name="ramadan_day_of_month">วันที่ %1$s รอมฎอน</string>
+    <string name="ramadan_days_left">เหลือเวลาอีก %1$s วัน</string>
+    <string name="ramadan_fasting_progress">วันถือศีลอด: %1$s จาก %2$s — แตะวันเพื่อบันทึก</string>
+    <string name="ramadan_fasting_tracker">เครื่องติดตามการถือศีลอด</string>
+    <string name="ramadan_hijri_note">ขึ้นอยู่กับปฏิทิน Umm al-Qura ที่ใช้การปรับฮิจเราะห์ทั่วทั้งแอป</string>
+    <string name="ramadan_hijri_year">ปี %1$s อา</string>
+    <string name="ramadan_iftar">อิฟตาร์</string>
+    <string name="ramadan_iftar_dua">คำวิงวอนของการละศีลอด: “โอ้อัลลอฮฺ ฉันได้ถือศีลอดเพื่อพระองค์ และด้วยปัจจัยยังชีพของพระองค์ ฉันได้ละศีลอดของฉัน…”</string>
+    <string name="ramadan_iftar_time">เวลาละศีลอด (มักริบ): %1$s</string>
+    <string name="ramadan_location_required">เลือกเมืองในการตั้งค่าก่อนเพื่อดูเวลา</string>
+    <string name="ramadan_minutes">%1$s นาที</string>
+    <string name="ramadan_notification_iftar_body">โอ้ อัลลอฮ์ ฉันได้ถือศีลอดเพื่อพระองค์ และฉันได้ละศีลอดของฉันด้วยปัจจัยยังชีพของพระองค์</string>
+    <string name="ramadan_notification_iftar_title">ถึงเวลาละศีลอด</string>
+    <string name="ramadan_notification_suhoor_body">ฟัจร์ใกล้เข้ามาแล้ว — ซูโฮร์ของคุณเถอะ</string>
+    <string name="ramadan_notification_suhoor_title">คำเตือนซูฮูร</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">ซูโฮร์</string>
+    <string name="ramadan_suhoor_remind_before">เตือนฉันก่อน:</string>
+    <string name="ramadan_suhoor_time">สิ้นสุดซูโฮร์ (ฟัจร์): %1$s</string>
+    <string name="ramadan_title">รอมฎอน</string>
+</resources>

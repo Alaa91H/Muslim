@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s maqan</string>
+    <string name="mosque_finder_empty">Wax masaajid ah lagama helin xadkan</string>
+    <string name="mosque_finder_error">Raadinta waa fashilantay</string>
+    <string name="mosque_finder_intro">Ka hel masaajidda u dhow goobtaada adigoo adeegsanaya OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Wali meel looma dhigin Marka hore ka dooro meel laga soo bilaabo wakhtiga salaadda.</string>
+    <string name="mosque_finder_retry">Isku day</string>
+    <string name="mosque_finder_searching">Raadinta…</string>
+    <string name="mosque_finder_title">Masaajidada u dhow</string>
+    <string name="qibla_bearing_cardinal">Jihada Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">U guuri taleefankaaga sawir-sideed si aad u cabbirto</string>
+    <string name="qibla_distance">Masaafada Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Qiblada ayaad ku wajahantahay 🕋</string>
+    <string name="qibla_gps_error">Ma helin hagaajin sax ah Fadlan isku day mar kale</string>
+    <string name="qibla_gps_live">Goobta GPS-ka tooska ah</string>
+    <string name="qibla_gps_refresh">Ku cusboonaysii goobta adoo adeegsanaya GPS</string>
+    <string name="qibla_gps_refreshing">Helitaanka…</string>
+    <string name="qibla_heading_degree">Ciwaanka taleefanka: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Waddada goobaabin weyn oo ka timaada goobtaada ilaa Kacbada - waxay ku shaqeysaa offline</string>
+    <string name="qibla_map_kaaba">Kacbada</string>
+    <string name="qibla_map_you">Adiga</string>
+    <string name="qibla_mode_compass">Compass</string>
+    <string name="qibla_mode_map">Maab</string>
+    <string name="qibla_open_mosques">Masaajidada u dhow</string>
+    <string name="qibla_title">Qibla jihada</string>
+    <string name="qibla_turn_left">Bidix u leexo %1$.1f°</string>
+    <string name="qibla_turn_right">Midig u leexo %1$.1f°</string>
+</resources>

@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar ya tongo, ya mpokwa &amp; sima ya losambo na ba compteurs</string>
+    <string name="more_downloads">Ba téléchargements ya récitation</string>
+    <string name="more_downloads_desc">Télécharger surah, ayah to Coran mobimba na réciter oyo oponi</string>
+    <string name="more_hadith">Hadith (Hadith) oyo</string>
+    <string name="more_hadith_desc">Bibliothèque ya Hadith, recherche &amp; hadith ya mokolo</string>
+    <string name="more_learn">Yekola</string>
+    <string name="more_learn_desc">Etape na litambe wudu &amp; ba guides ya losambo</string>
+    <string name="more_ramadan">Ramadan na mokolo ya Ramadan</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar heures na tracker ya jeûne</string>
+    <string name="more_reference">Bibliothèque ya ba références</string>
+    <string name="more_reference_desc">Introduction na Islam, ba Sira &amp; ba prophètes</string>
+    <string name="more_settings">Ba paramètres</string>
+    <string name="more_settings_desc">Thème, langue, losambo &amp; ba paramètres ya adhan</string>
+    <string name="more_tasbih">Tasbih, oyo azali</string>
+    <string name="more_tasbih_desc">Misbaha numérique na histoire ya mokolo na mokolo</string>
+    <string name="more_zakat">Zakat ezali</string>
+    <string name="more_zakat_desc">Zakat na bomengo &amp; calculateur ya Fitr</string>
+    <string name="scaffold_message">Skeleton ya projet multi-modules ezali prêt.\nPhase 1 — Adhan, tango ya losambo, Qibla, mpe calendrier ya Hijri — ebandi awa.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla direction</string>
+    <string name="shortcut_settings">Ba paramètres</string>
+    <string name="shortcut_settings_long">Losambo &amp; ba paramètres ya adhan</string>
+    <string name="shortcut_times">Bantango ya mabondeli</string>
+    <string name="shortcut_times_long">Lelo\'s tango ya losambo</string>
+    <string name="tab_home">Ntango ya mabondeli</string>
+    <string name="tab_more">Mingi koleka</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Coran</string>
 </resources>

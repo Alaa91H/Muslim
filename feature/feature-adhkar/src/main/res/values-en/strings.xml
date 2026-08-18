@@ -24,9 +24,20 @@
     <string name="adhkar_overlay_desc">A small card with the chosen dhikr appears above any app and disappears automatically after the duration you set.</string>
     <string name="adhkar_overlay_grant_permission">Grant overlay permission</string>
     <string name="adhkar_overlay_permission_hint">Opens the system settings that allow the app to draw over other apps.</string>
+    <string name="adhkar_overlay_alpha">Opacity: %1$d%%</string>
+    <string name="adhkar_overlay_reset">Reset to default appearance</string>
+    <string name="adhkar_overlay_appearance">Bubble appearance</string>
+    <string name="adhkar_overlay_bg_color">Background colour</string>
+    <string name="adhkar_overlay_corner_radius">Corner radius</string>
+    <string name="adhkar_overlay_corner_radius_value">%1$d dp</string>
+    <string name="adhkar_overlay_font_size">Font size</string>
+    <string name="adhkar_overlay_font_size_value">%1$d</string>
     <string name="adhkar_overlay_duration">Display duration</string>
     <string name="adhkar_overlay_duration_value">%1$d seconds</string>
     <string name="adhkar_overlay_test">Try it now</string>
+    <string name="adhkar_overlay_preview_label">Floating message preview</string>
+    <string name="adhkar_overlay_preview_dismiss">Auto-dismisses after %1$s seconds</string>
+    <string name="adhkar_overlay_preview_loading">Loading…</string>
     <string name="adhkar_overlay_notification_title">Dhikr</string>
     <string name="adhkar_overlay_notification_text">Adhkar message</string>
     <string name="adhkar_customize_title">Customize visible adhkar</string>
@@ -34,7 +45,11 @@
     <string name="adhkar_morning_reminder">Morning adhkar reminder</string>
     <string name="adhkar_evening_reminder">Evening adhkar reminder</string>
     <string name="adhkar_reminder_time">Time</string>
+    <string name="adhkar_reminder_preview_label">Preview: %1$s</string>
+    <string name="adhkar_reminder_preview_hint">This is how the adhkar reminder notification appears at its scheduled time.</string>
     <string name="adhkar_reminder_notification_title">Adhkar reminder</string>
+    <string name="adhkar_morning_evening_notification">Morning and evening adhkar notification</string>
+    <string name="adhkar_morning_evening_notification_desc">A daily reminder for the morning and evening adhkar at the times set in the settings.</string>
 
     <string name="adhkar_periodic_section">Periodic reminder</string>
     <string name="adhkar_periodic_toggle">Enable periodic reminder</string>
@@ -47,4 +62,9 @@
     <string name="adhkar_periodic_window_start">Start</string>
     <string name="adhkar_periodic_window_end">End</string>
     <string name="adhkar_periodic_notification_title">Adhkar reminder</string>
+
+
+    <string name="adhkar_favorites">Favorites</string>
+    <string name="adhkar_add_favorite">Add to favorites</string>
+    <string name="adhkar_remove_favorite">Remove from favorites</string>
 </resources>

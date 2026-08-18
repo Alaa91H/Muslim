@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Мусульман</string>
+    <string name="more_adhkar">Адкар</string>
+    <string name="more_adhkar_desc">Рытъя, рытъя &amp; молитва бӧрын адхкар счётчикъясӧн</string>
+    <string name="more_downloads">Декламация скачивайтӧм .</string>
+    <string name="more_downloads_desc">Скачайтӧй сура, аят либӧ тыр Коран ас бӧрйӧм лыддьысьыськӧд .</string>
+    <string name="more_hadith">Хадис</string>
+    <string name="more_hadith_desc">Хадис библиотека, корсьӧм &amp; лунся хадис</string>
+    <string name="more_learn">Велӧд</string>
+    <string name="more_learn_desc">Пошаговӧй вуду &amp; молитва нуӧдӧм .</string>
+    <string name="more_ramadan">Рамадан</string>
+    <string name="more_ramadan_desc">Сухур &amp; ифтар кад да пост трекер .</string>
+    <string name="more_reference">Справочник библиотека</string>
+    <string name="more_reference_desc">Ислам йылысь тӧдмасьӧм, Сира &amp; пророкъяс .</string>
+    <string name="more_settings">Настройкаяс</string>
+    <string name="more_settings_desc">Тема, кыв, молитва да азан лӧсьӧдӧм</string>
+    <string name="more_tasbih">Тасбих</string>
+    <string name="more_tasbih_desc">Цифрӧвӧй мисбаха быдлунъя историяӧн .</string>
+    <string name="more_zakat">Закат</string>
+    <string name="more_zakat_desc">Озырлун вылӧ закат &amp; Фитр калькулятор .</string>
+    <string name="scaffold_message">Уна модульа проектлӧн скелетыс дась.\nТані заводитчӧ 1-ӧд тшупӧд — Азан, молитва кадъяс, кибла, хиджри календарь.</string>
+    <string name="shortcut_qibla">Кибла</string>
+    <string name="shortcut_qibla_long">Кибла туйвизь .</string>
+    <string name="shortcut_settings">Настройкаяс</string>
+    <string name="shortcut_settings_long">Молитва да азан лӧсьӧдӧм .</string>
+    <string name="shortcut_times">Молитва кадъяс .</string>
+    <string name="shortcut_times_long">Талун\'-ӧд воясся молитва кадъяс .</string>
+    <string name="tab_home">Молитва кадъяс .</string>
+    <string name="tab_more">Ещӧ</string>
+    <string name="tab_qibla">Кибла</string>
+    <string name="tab_quran">Коран</string>
 </resources>

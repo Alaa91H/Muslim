@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Вайны донъяс автоматическöя .</string>
+    <string name="zakat_auto_prices_hint">Кор сійӧ лоӧ лэдзӧма, зарни да эзысь донъяс босьтӧны интернетысь да выльмӧдӧны автоматическӧй ногӧн .</string>
+    <string name="zakat_back">Бӧр</string>
+    <string name="zakat_cash">Наличнӧй да чӧжӧс .</string>
+    <string name="zakat_clear_history">Гӧгӧрвоана история .</string>
+    <string name="zakat_country">Страна</string>
+    <string name="zakat_country_placeholder">Бӧрйы ассьыд странатӧ да сьӧмтӧ .</string>
+    <string name="zakat_country_section">Страна да сьӧм</string>
+    <string name="zakat_currency">Валюта: %1$s</string>
+    <string name="zakat_debts">Долгъяс тіянлы колӧны (вычисляйтчӧны) .</string>
+    <string name="zakat_due">Закат мынтыны (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Мог\'т вайны донъяс. Прӧверитӧй ассьыныд йитӧднытӧ либӧ гижӧй донсӧ киӧн.</string>
+    <string name="zakat_fetch_now">Ӧні донъяс выльмӧдӧй .</string>
+    <string name="zakat_fetching">Донъяс вайӧм...</string>
+    <string name="zakat_fitr_persons">Семьяын олысь лыд .</string>
+    <string name="zakat_fitr_saa_value">Ӧти са\' дон (шӧр сёян)</string>
+    <string name="zakat_fitr_section">Закат аль-Фитр</string>
+    <string name="zakat_fitr_total">Ставнас фитр закат: %1$s</string>
+    <string name="zakat_gold_grams">Зарни (грамм) .</string>
+    <string name="zakat_gold_price">Зарни дон грамм вылӧ .</string>
+    <string name="zakat_history">Расчётнӧй история .</string>
+    <string name="zakat_history_amount">Закат: %1$s шайт.</string>
+    <string name="zakat_history_empty">Некутшӧм видзӧм расчётъяс абу на.</string>
+    <string name="zakat_investments">Инвестицияяс .</string>
+    <string name="zakat_last_updated">Бӧръяысь йӧзӧдӧма: %1$s</string>
+    <string name="zakat_money_section">Озырлун вылӧ закат .</string>
+    <string name="zakat_nisab_gold">Зарни нисаб (85г) .</string>
+    <string name="zakat_nisab_met">Нисаб локтӧ — закат колӧ .</string>
+    <string name="zakat_nisab_not_met">Нисаб улын — закат оз ков .</string>
+    <string name="zakat_nisab_silver">Серебряный нисаб (595г)</string>
+    <string name="zakat_rulings_note">Унджык лыд серти (джумхур): зарни нисаб 85г, эзысь 595г, а ставкаыс 2,5%% тырмымӧн мынтӧмъяс мынтӧм бӧрын. Торъя случайяс кузя шыӧдчыны квалифицированнӧй учёнӧй дорӧ.</string>
+    <string name="zakat_save_result">Сохранитны историяӧ .</string>
+    <string name="zakat_silver_grams">Сьӧм (граммъяс) .</string>
+    <string name="zakat_silver_price">Сьӧм дон грамм вылӧ .</string>
+    <string name="zakat_source_note">Зарни/зарни донъяс gold-api.com сайтысь; Валюта ставкаяс восьса.er-api.com сайтысь .</string>
+    <string name="zakat_title">Закат</string>
+    <string name="zakat_total_assets">Став эмбурыс .</string>
+    <string name="zakat_trade">Торговля тӧвар дон .</string>
+    <string name="zakat_zakatable">Долгъяс бӧрын заката сьӧм .</string>
+</resources>

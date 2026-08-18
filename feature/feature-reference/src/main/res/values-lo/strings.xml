@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">ກັບຄືນໄປບ່ອນ</string>
+    <string name="reference_no_results">ບໍ່ມີຜົນໄດ້ຮັບທີ່ກົງກັນ</string>
+    <string name="reference_search_hint">ຊອກຫາປຶ້ມນີ້...</string>
+    <string name="reference_title">ຫໍສະໝຸດອິດສະລາມ</string>
+    <string name="reference_topics_count">ຫົວຂໍ້</string>
+</resources>

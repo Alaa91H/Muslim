@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Musulmà</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar al matí, al vespre i després de la pregària amb comptadors</string>
+    <string name="more_downloads">Descàrregues de recitació</string>
+    <string name="more_downloads_desc">Baixeu una sura, un ayah o l\'Alcorà complet amb el recitador escollit</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Biblioteca de hadiz, cerca i hadit del dia</string>
+    <string name="more_learn">Aprèn</string>
+    <string name="more_learn_desc">Guies d\'oració i wudu pas a pas</string>
+    <string name="more_ramadan">Ramadà</string>
+    <string name="more_ramadan_desc">Suhoor i temps d\'iftar i rastrejador de dejuni</string>
+    <string name="more_reference">Biblioteca de referència</string>
+    <string name="more_reference_desc">Introducció a l\'Islam, la Sira i els profetes</string>
+    <string name="more_settings">Configuració</string>
+    <string name="more_settings_desc">Configuració de tema, idioma, pregària i adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha digital amb història diària</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat sobre riquesa i calculadora Fitr</string>
+    <string name="scaffold_message">L\'esquelet del projecte multimòdul està a punt. \nLa fase 1: Adhan, temps de pregària, Qibla i calendari Hijri, comença aquí.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Direcció de la Qibla</string>
+    <string name="shortcut_settings">Configuració</string>
+    <string name="shortcut_settings_long">Configuració d\'oració i adhan</string>
+    <string name="shortcut_times">Temps de pregària</string>
+    <string name="shortcut_times_long">Avui \' hores de pregària</string>
+    <string name="tab_home">Temps de pregària</string>
+    <string name="tab_more">Més</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Alcorà</string>
 </resources>

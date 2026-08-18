@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">مسلم</string>
+    <string name="more_adhkar">ادھار</string>
+    <string name="more_adhkar_desc">صبح، شام اور بعد از نماز اذکار کاؤنٹرز کے ساتھ</string>
+    <string name="more_downloads">تلاوت ڈاؤن لوڈز</string>
+    <string name="more_downloads_desc">اپنے منتخب قاری کے ساتھ کوئی سورہ، کوئی آیت یا مکمل قرآن ڈاؤن لوڈ کریں۔</string>
+    <string name="more_hadith">حدیث</string>
+    <string name="more_hadith_desc">حدیث لائبریری، تلاش اور دن کی حدیث</string>
+    <string name="more_learn">سیکھیں۔</string>
+    <string name="more_learn_desc">مرحلہ وار وضو اور نماز کے رہنما</string>
+    <string name="more_ramadan">رمضان</string>
+    <string name="more_ramadan_desc">سحری اور افطاری کے اوقات اور روزہ رکھنے والا</string>
+    <string name="more_reference">حوالہ لائبریری</string>
+    <string name="more_reference_desc">اسلام، سیرت اور انبیاء کا تعارف</string>
+    <string name="more_settings">ترتیبات</string>
+    <string name="more_settings_desc">تھیم، زبان، نماز اور اذان کی ترتیبات</string>
+    <string name="more_tasbih">تسبیح</string>
+    <string name="more_tasbih_desc">روزانہ کی تاریخ کے ساتھ ڈیجیٹل مصباح</string>
+    <string name="more_zakat">زکوٰۃ</string>
+    <string name="more_zakat_desc">مال پر زکوٰۃ اور فطرہ کیلکولیٹر</string>
+    <string name="scaffold_message">ملٹی ماڈیول پروجیکٹ سکیلیٹن تیار ہے۔ \nفیز 1 — اذان، نماز کے اوقات، قبلہ، اور ہجری کیلنڈر — یہاں سے شروع ہوتا ہے۔</string>
+    <string name="shortcut_qibla">قبلہ</string>
+    <string name="shortcut_qibla_long">قبلہ رخ</string>
+    <string name="shortcut_settings">ترتیبات</string>
+    <string name="shortcut_settings_long">نماز اور اذان کی ترتیب</string>
+    <string name="shortcut_times">نماز کے اوقات</string>
+    <string name="shortcut_times_long">آج نماز کے \' اوقات</string>
+    <string name="tab_home">نماز کے اوقات</string>
+    <string name="tab_more">مزید</string>
+    <string name="tab_qibla">قبلہ</string>
+    <string name="tab_quran">قرآن</string>
 </resources>

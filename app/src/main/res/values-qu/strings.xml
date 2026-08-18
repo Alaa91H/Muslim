@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar sutiyuq runa</string>
+    <string name="more_adhkar_desc">Paqarin, ch’isi &amp; mañakuy qhepa adhkar contadorkunawan</string>
+    <string name="more_downloads">Recitación nisqamanta descargakuna</string>
+    <string name="more_downloads_desc">Huk surah, huk ayah utaq hunt\'asqa Quran akllasqayki reciterwan uraykachiy</string>
+    <string name="more_hadith">Hadith nisqa</string>
+    <string name="more_hadith_desc">Hadith biblioteca, maskay &amp; hadith p\'unchawmanta</string>
+    <string name="more_learn">Yachay</string>
+    <string name="more_learn_desc">Paso a paso wudu &amp; mañakuy pusaqkuna</string>
+    <string name="more_ramadan">Ramadán killapi</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar pachakuna hinaspa ayuno qatiq</string>
+    <string name="more_reference">Referencia Biblioteca</string>
+    <string name="more_reference_desc">Islam, Sira &amp; profetakunamanta riqsichiy</string>
+    <string name="more_settings">Ajustes nisqa</string>
+    <string name="more_settings_desc">Tema, simi, mañakuy &amp; adhan churaykuna</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digital misbaha sapa punchaw historiawan</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat sobre riqueza &amp; Fitr calculadora nisqamanta</string>
+    <string name="scaffold_message">Chay achka módulo nisqa proyectopa esqueletonqa listoñam kachkan.\nFase 1 — Adhan, mañakuy pachakuna, Qibla, hinaspa Hijri calendario — kaypi qallarin.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla dirección</string>
+    <string name="shortcut_settings">Ajustes nisqa</string>
+    <string name="shortcut_settings_long">Mañakuy &amp; adhan churaykuna</string>
+    <string name="shortcut_times">Mañakuy pachakuna</string>
+    <string name="shortcut_times_long">Kunan\'s mañakuy pachakuna</string>
+    <string name="tab_home">Mañakuy pachakuna</string>
+    <string name="tab_more">Astawan</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

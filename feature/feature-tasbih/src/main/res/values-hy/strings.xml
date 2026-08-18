@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Թվային միսբահա — հպեք՝ հաշվելու համար</string>
+    <string name="misbaha_widget_label">Թասբիհ</string>
+    <string name="misbaha_widget_tap_hint">Հպեք՝ հաշվելու համար</string>
+    <string name="tasbih_back">Ետ</string>
+    <string name="tasbih_cancel">Չեղարկել</string>
+    <string name="tasbih_confirm">Լավ</string>
+    <string name="tasbih_custom_target">Պատվերով</string>
+    <string name="tasbih_custom_target_hint">Մուտքագրեք հաշվարկների քանակը (1-ից մինչև 100000)</string>
+    <string name="tasbih_custom_target_title">Սահմանեք հատուկ թիրախ</string>
+    <string name="tasbih_of_target">%1$s-ից</string>
+    <string name="tasbih_reset">Վերականգնել</string>
+    <string name="tasbih_reset_all">Վերականգնել բոլորը</string>
+    <string name="tasbih_round_complete">Ամբողջական փուլը (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Կլոր՝ %1$d</string>
+    <string name="tasbih_sound_desc">Յուրաքանչյուր ամբողջական փուլի ավարտից հետո նվագարկեք զանգ կամ հնչերանգ</string>
+    <string name="tasbih_sound_title">Ձայն թիրախի վրա</string>
+    <string name="tasbih_sound_tone_alarm">Ահազանգ</string>
+    <string name="tasbih_sound_tone_notification">Ծանուցում</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Հպեք շրջանակին՝ հաշվելու համար</string>
+    <string name="tasbih_target_reached">Նպատակը հասավ, թող Ալլահը ընդունի</string>
+    <string name="tasbih_title">Թասբիհ</string>
+    <string name="tasbih_total_today">Այսօր \'-ականների ընդհանուր թիվը՝ %1$d</string>
+    <string name="tasbih_undo">Հետարկել</string>
+    <string name="tasbih_virtue_label">Այս դիքրի առաքինությունը</string>
+    <string name="tasbih_week_stats">Վերջին 7 օրը</string>
+</resources>

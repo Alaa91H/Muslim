@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Automātiski ielādēt cenas</string>
+    <string name="zakat_auto_prices_hint">Kad tas ir iespējots, zelta un sudraba cenas tiek iegūtas no interneta un automātiski atsvaidzinātas</string>
+    <string name="zakat_back">Atpakaļ</string>
+    <string name="zakat_cash">Skaidra nauda un ietaupījumi</string>
+    <string name="zakat_clear_history">Notīrīt vēsturi</string>
+    <string name="zakat_country">Valsts</string>
+    <string name="zakat_country_placeholder">Izvēlieties savu valsti un valūtu</string>
+    <string name="zakat_country_section">Valsts un valūta</string>
+    <string name="zakat_currency">Valūta: %1$s</string>
+    <string name="zakat_debts">Parādi, ko esat parādā (atskaitīti)</string>
+    <string name="zakat_due">Zakat maksājums (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Nevarēja \'t iegūt cenas. Pārbaudiet savienojumu vai ievadiet cenu manuāli.</string>
+    <string name="zakat_fetch_now">Atsvaidziniet cenas tūlīt</string>
+    <string name="zakat_fetching">Notiek cenu iegūšana…</string>
+    <string name="zakat_fitr_persons">Ģimenes locekļu skaits</string>
+    <string name="zakat_fitr_saa_value">Viena sa\' vērtība (pamatpārtika)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Kopā Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Zelts (gramos)</string>
+    <string name="zakat_gold_price">Zelta cena par gramu</string>
+    <string name="zakat_history">Aprēķinu vēsture</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Vēl nav saglabātu aprēķinu.</string>
+    <string name="zakat_investments">Investīcijas</string>
+    <string name="zakat_last_updated">Pēdējo reizi atjaunināts: %1$s</string>
+    <string name="zakat_money_section">Zakat par bagātību</string>
+    <string name="zakat_nisab_gold">Zelta nisabs (85g)</string>
+    <string name="zakat_nisab_met">Nisabs ir sasniegts — zakat ir jāmaksā</string>
+    <string name="zakat_nisab_not_met">Zem nisab — nav jāmaksā zakat</string>
+    <string name="zakat_nisab_silver">Sudraba nisabs (595g)</string>
+    <string name="zakat_rulings_note">Lielākajai daļai (jumhoor): zelta nisabs ir 85 g, sudrabs 595 g, un likme ir 2,5%% pēc parādu atskaitīšanas. Īpašos gadījumos konsultējieties ar kvalificētu zinātnieku.</string>
+    <string name="zakat_save_result">Saglabāt vēsturē</string>
+    <string name="zakat_silver_grams">Sudrabs (gramos)</string>
+    <string name="zakat_silver_price">Sudraba cena par gramu</string>
+    <string name="zakat_source_note">Zelta/sudraba cenas no gold-api.com; FX kursi no open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Kopējie aktīvi</string>
+    <string name="zakat_trade">Tirdzniecības preču vērtība</string>
+    <string name="zakat_zakatable">Zakatable summa pēc parādiem</string>
+</resources>

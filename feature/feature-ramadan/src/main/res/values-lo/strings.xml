@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">ກັບຄືນໄປບ່ອນ</string>
+    <string name="ramadan_countdown">Ramadan ເລີ່ມຕົ້ນໃນ %1$s ມື້</string>
+    <string name="ramadan_countdown_to_iftar">ເວລາໄປ iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ເວລາໄປ Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">ວັນ %1$s ຂອງ Ramadan</string>
+    <string name="ramadan_days_left">ຍັງເຫຼືອ %1$s ມື້</string>
+    <string name="ramadan_fasting_progress">ມື້ຖືສິນອົດອາຫານ: %1$s ຂອງ %2$s — ແຕະຕໍ່ມື້ເພື່ອບັນທຶກມັນ</string>
+    <string name="ramadan_fasting_tracker">ບົບຕິດຕາມລຸດໄວ</string>
+    <string name="ramadan_hijri_note">ອີງ​ຕາມ​ປະ​ຕິ​ທິນ Umm al-Qura ທີ່​ມີ​ການ​ປັບ​ຕົວ Hijri ທົ່ວ app ໄດ້​ນໍາ​ໃຊ້​.</string>
+    <string name="ramadan_hijri_year">ປີ %1$sAH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">ຄໍາອ້ອນວອນຂອງ Iftar: "ໂອ້ Allah, ສໍາລັບພຣະອົງ, ຂ້າພະເຈົ້າໄດ້ຖືສິນອົດອາຫານແລະການສະຫນອງຂອງທ່ານ, ຂ້າພະເຈົ້າທໍາລາຍການອົດອາຫານຂອງຂ້າພະເຈົ້າ ... "</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) ເວລາ: %1$s</string>
+    <string name="ramadan_location_required">ເລືອກເມືອງໃນການຕັ້ງຄ່າກ່ອນເພື່ອເບິ່ງເວລາ.</string>
+    <string name="ramadan_minutes">%1$s ນ</string>
+    <string name="ramadan_notification_iftar_body">ໂອ້ Allah, ສໍາລັບເຈົ້າ, ຂ້າພະເຈົ້າໄດ້ຖືສິນອົດອາຫານແລະການສະຫນອງຂອງທ່ານ, ຂ້າພະເຈົ້າທໍາລາຍໄວຂອງຂ້າພະເຈົ້າ</string>
+    <string name="ramadan_notification_iftar_title">ເວລາສໍາລັບ iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr ໃກ້ເຂົ້າມາແລ້ວ — ມີ suhoor ຂອງທ່ານ</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor ເຕືອນ</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">ຊູໂຮ</string>
+    <string name="ramadan_suhoor_remind_before">ເຕືອນຂ້ອຍກ່ອນ:</string>
+    <string name="ramadan_suhoor_time">Suhoor ສິ້ນສຸດ (Fajr): %1$s</string>
+    <string name="ramadan_title">ຣາມາດານ</string>
+</resources>

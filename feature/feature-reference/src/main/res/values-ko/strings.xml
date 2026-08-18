@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">뒤로</string>
+    <string name="reference_no_results">일치하는 결과가 없습니다</string>
+    <string name="reference_search_hint">이 책을 검색해 보세요…</string>
+    <string name="reference_title">이슬람 참고 도서관</string>
+    <string name="reference_topics_count">주제</string>
+</resources>

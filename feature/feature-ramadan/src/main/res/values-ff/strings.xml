@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Caggal</string>
+    <string name="ramadan_countdown">Koorka fuɗɗotoo ko e balɗe %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Waktu iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Waktuuji juulde: %1$s</string>
+    <string name="ramadan_day_of_month">Ñalawma %1$s lewru koorka</string>
+    <string name="ramadan_days_left">Balɗe %1$s ina heddii</string>
+    <string name="ramadan_fasting_progress">Ñalɗi koorka : %1$s e %2$s — tappu ñalawma ngam winndude ɗum</string>
+    <string name="ramadan_fasting_tracker">Rewrude e koorka</string>
+    <string name="ramadan_hijri_note">Tuugnaade e limlebbi Umm al-Qura e njuɓɓudi Hijri app-wide huutoraa.</string>
+    <string name="ramadan_hijri_year">Hitaande %1$s Hijriya</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Duwaawu Iftar: "Yaa Allah, ngam aan mi hoori, dow rizki ma mi ɗon fooɗa koorka am..."</string>
+    <string name="ramadan_iftar_time">Waktu iftar (magrib) : %1$s</string>
+    <string name="ramadan_location_required">Suɓo wuro e nder Cuɓe ko adii ngam yiyde waktuuji ɗii.</string>
+    <string name="ramadan_minutes">%1$s ko hojom</string>
+    <string name="ramadan_notification_iftar_body">Yaa Allah ngam maa mi hoori, dow rizki ma mi footi koorka am</string>
+    <string name="ramadan_notification_iftar_title">Wakkati iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr ina ɓadii — jogo suhoor maa</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor siftorde</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suurooru</string>
+    <string name="ramadan_suhoor_remind_before">Siftor am ko adii:</string>
+    <string name="ramadan_suhoor_time">Suuhura ina joofna (juurirde): %1$s</string>
+    <string name="ramadan_title">Ramadaan</string>
+</resources>

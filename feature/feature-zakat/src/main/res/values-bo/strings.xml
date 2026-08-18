@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">རིན་གོང་རང་འགུལ་གྱིས་ལེན་པ།</string>
+    <string name="zakat_auto_prices_hint">ལྕོགས་ཅན་བཟོས་ན་གསེར་དང་དངུལ་གྱི་རིན་གོང་དྲ་རྒྱ་ནས་བླངས་ནས་རང་འགུལ་གྱིས་གསར་བརྗེ་བྱེད།</string>
+    <string name="zakat_back">ཕྱིར་ལོག</string>
+    <string name="zakat_cash">དངུལ་དང་གསོག་དངུལ་དང༌།</string>
+    <string name="zakat_clear_history">ལོ་རྒྱུས་གསལ་བ།</string>
+    <string name="zakat_country">རྒྱལ་ཁབ།</string>
+    <string name="zakat_country_placeholder">རང་གི་རྒྱལ་ཁབ་དང་དངུལ་ལོར་འདེམས།</string>
+    <string name="zakat_country_section">རྒྱལ་ཁབ་དང་དངུལ་ལོར།</string>
+    <string name="zakat_currency">དངུལ་ལོར། %1$s</string>
+    <string name="zakat_debts">ཁྱེད་ལ་ཡོད་པའི་བུ་ལོན།</string>
+    <string name="zakat_due">ཟ་ཀ་ཊི་སྤྲོད་དགོས་པ། (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">རིན་གོང་\'tལེན་ཐུབ་ཀྱི་མ་རེད། ཁྱེད་རང་གི་མཐུད་ཁ་ཞིབ་བཤེར་བྱེད་པའམ་ཡང་ན་རིན་གོང་ལག་ཐོག་ནས་བླུགས་རོགས།</string>
+    <string name="zakat_fetch_now">ད་ལྟ་རིན་གོང་གསར་པ་བཟོས།</string>
+    <string name="zakat_fetching">རིན་གོང་ལེན་བཞིན་ཡོད།</string>
+    <string name="zakat_fitr_persons">ཁྱིམ་མིའི་གྲངས།</string>
+    <string name="zakat_fitr_saa_value">རིན་ཐང་ sa\'(ཟས་རིགས་གཙོ་བོ)གཅིག་གི་རིན་ཐང་།</string>
+    <string name="zakat_fitr_section">ཟ་ཀཏ་ཨལ་ཕི་ཏར།</string>
+    <string name="zakat_fitr_total">བསྡོམས་པས་ཕིཏར་ཛ་ཀཊ་%1$s</string>
+    <string name="zakat_gold_grams">གསེར་(གྷ་རམ)</string>
+    <string name="zakat_gold_price">གསེར་གྱི་རིན་གོང་གྷ་རམ་རེ།</string>
+    <string name="zakat_history">རྩིས་རྒྱག་ལོ་རྒྱུས།</string>
+    <string name="zakat_history_amount">ཟ་ཀཊ་: %1$s</string>
+    <string name="zakat_history_empty">ད་དུང་རྩིས་རྒྱག་ཉར་ཚགས་བྱས་མེད།</string>
+    <string name="zakat_investments">མ་རྩ་འཇོག་པ།</string>
+    <string name="zakat_last_updated">མཐའ་མའི་ཁ་སྐོང་: %1$s</string>
+    <string name="zakat_money_section">རྒྱུ་ནོར་ལ་ཟ་ཀ་ཏ།</string>
+    <string name="zakat_nisab_gold">གསེར་གྱི་ནི་སབ་(85g)</string>
+    <string name="zakat_nisab_met">ནི་སབ་ལ་སླེབས་ཟིན། ཟ་ཀཏ་སྤྲོད་དགོས།</string>
+    <string name="zakat_nisab_not_met">ནི་སབ་ཀྱི་འོག་ལ། ཟ་ཀཊ་སྤྲོད་དགོས་མེད།</string>
+    <string name="zakat_nisab_silver">དངུལ་གྱི་ནི་སབ་(595g)</string>
+    <string name="zakat_rulings_note">མང་ཆེ་བ་ལ་(ཇུམ་ཧོར་)གསེར་གྱི་ནི་སབ་ནི་85gདང་། དངུལ་གྱི་595gཡིན། དམིགས་བསལ་གནས་ཚུལ་ལ་ཆེད་ལས་ཤེས་ལྡན་པ་ཞིག་ལ་གྲོས་བསྡུར་བྱེད་དགོས། %%</string>
+    <string name="zakat_save_result">ལོ་རྒྱུས་ནང་ཉར་ཚགས་བྱས།</string>
+    <string name="zakat_silver_grams">དངུལ་(གྷ་རམ)།</string>
+    <string name="zakat_silver_price">དངུལ་གྷ་རམ་རེར་རིན་གོང་།</string>
+    <string name="zakat_source_note">gold-api.com ནས་གསེར་/དངུལ་གྱི་རིན་གོང་དང་། དངུལ་བུན་རིན་གོང་ open.er-api.com ནས</string>
+    <string name="zakat_title">ཟ་ཀཊ།</string>
+    <string name="zakat_total_assets">རྒྱུ་ནོར་བསྡོམས་འབོར།</string>
+    <string name="zakat_trade">ཚོང་ཟོག་གི་རིན་ཐང་།</string>
+    <string name="zakat_zakatable">བུ་ལོན་རྗེས་ཀྱི་ཟ་ཀ་ཆོག་པའི་དངུལ་འབོར།</string>
+</resources>

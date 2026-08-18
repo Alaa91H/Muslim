@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha niverel — pouezit evit kontañ</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Klikañ evit kontañ</string>
+    <string name="tasbih_back">En-dro</string>
+    <string name="tasbih_cancel">Nullañ</string>
+    <string name="tasbih_confirm">Mat eo</string>
+    <string name="tasbih_custom_target">Personelaet</string>
+    <string name="tasbih_custom_target_hint">Lakait an niver a gontadennoù (eus 1 da 100000)</string>
+    <string name="tasbih_custom_target_title">Lakaat ur pal personelaet</string>
+    <string name="tasbih_of_target">eus %1$s</string>
+    <string name="tasbih_reset">Adderaouekaat</string>
+    <string name="tasbih_reset_all">Adderaouekaat an holl</string>
+    <string name="tasbih_round_complete">Tro leun echu (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Troioù : %1$d</string>
+    <string name="tasbih_sound_desc">Senit ur sonerezh pe un ton pa vez echuet pep tro leun</string>
+    <string name="tasbih_sound_title">Son war ar pal</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Kemennadenn</string>
+    <string name="tasbih_sound_tone_ringtone">Sonerezh</string>
+    <string name="tasbih_tap_hint">Pouezit war ar c\'helc\'h evit kontañ</string>
+    <string name="tasbih_target_reached">Pal tizhet — ra vo degemeret gant Allah</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Hiziv \' en holl : %1$d</string>
+    <string name="tasbih_undo">Dizober</string>
+    <string name="tasbih_virtue_label">Vertuz an dhikr-mañ</string>
+    <string name="tasbih_week_stats">7 devezh diwezhañ</string>
+</resources>

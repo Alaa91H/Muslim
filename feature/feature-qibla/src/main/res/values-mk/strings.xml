@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s далеку</string>
+    <string name="mosque_finder_empty">Не се најдени џамии во овој опсег</string>
+    <string name="mosque_finder_error">Пребарувањето не успеа</string>
+    <string name="mosque_finder_intro">Најдете џамии во близина на вашата локација преку OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Сè уште нема поставено локација. Прво изберете локација од поставките за време на молитва.</string>
+    <string name="mosque_finder_retry">Обидете се повторно</string>
+    <string name="mosque_finder_searching">Се бара…</string>
+    <string name="mosque_finder_title">Околните џамии</string>
+    <string name="qibla_bearing_cardinal">Насока Кибла: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Поместете го телефонот во бројка осум за да го калибрирате</string>
+    <string name="qibla_distance">Растојание до Мека: %1$s</string>
+    <string name="qibla_distance_km">%,.0f км</string>
+    <string name="qibla_facing">Вие сте свртени кон Кибла 🕋</string>
+    <string name="qibla_gps_error">Не може да се добие точна поправка. Ве молиме обидете се повторно.</string>
+    <string name="qibla_gps_live">GPS локација во живо</string>
+    <string name="qibla_gps_refresh">Освежете ја локацијата преку GPS</string>
+    <string name="qibla_gps_refreshing">Се лоцира…</string>
+    <string name="qibla_heading_degree">Наслов на телефонот: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Маршрута со голем круг од вашата локација до Каба - работи офлајн</string>
+    <string name="qibla_map_kaaba">Кааба</string>
+    <string name="qibla_map_you">Вие</string>
+    <string name="qibla_mode_compass">Компас</string>
+    <string name="qibla_mode_map">Карта</string>
+    <string name="qibla_open_mosques">Околните џамии</string>
+    <string name="qibla_title">насока Кибла</string>
+    <string name="qibla_turn_left">Свртете лево %1$.1f°</string>
+    <string name="qibla_turn_right">Свртете надесно %1$.1f°</string>
+</resources>

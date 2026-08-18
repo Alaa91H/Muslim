@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Talgild misbah — trýst á fyri at telja</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Trýst fyri at telja</string>
+    <string name="tasbih_back">Aftur</string>
+    <string name="tasbih_cancel">Avlýs</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Sersniðgivið</string>
+    <string name="tasbih_custom_target_hint">Skriva talið av teljingum (frá 1 til 100000)</string>
+    <string name="tasbih_custom_target_title">Set eitt sersniðgivið mark</string>
+    <string name="tasbih_of_target">av %1$s</string>
+    <string name="tasbih_reset">Nullstilla</string>
+    <string name="tasbih_reset_all">Nullstilla alt</string>
+    <string name="tasbih_round_complete">Fult umfar liðugt (%1$s) 🎉 .</string>
+    <string name="tasbih_rounds">Umfør: %1$d</string>
+    <string name="tasbih_sound_desc">Spæl ringtón ella tónalag, tá hvørt fult umfar er liðugt</string>
+    <string name="tasbih_sound_title">Ljóð á markinum</string>
+    <string name="tasbih_sound_tone_alarm">Alarmur</string>
+    <string name="tasbih_sound_tone_notification">Fráboðan</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtón</string>
+    <string name="tasbih_tap_hint">Trýst á sirkulin fyri at telja</string>
+    <string name="tasbih_target_reached">Málið nátt — má Allah góðtaka</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Í dag\'s tilsamans: %1$d</string>
+    <string name="tasbih_undo">Angra</string>
+    <string name="tasbih_virtue_label">Dygd av hesum dhikr</string>
+    <string name="tasbih_week_stats">Seinastu 7 dagarnar</string>
+</resources>

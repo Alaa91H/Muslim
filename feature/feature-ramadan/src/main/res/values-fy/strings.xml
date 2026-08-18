@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Werom</string>
+    <string name="ramadan_countdown">Ramadan begjint yn %1$s dagen</string>
+    <string name="ramadan_countdown_to_iftar">Tiid nei iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Tiid nei Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Dei %1$s fan Ramadan</string>
+    <string name="ramadan_days_left">%1$s dagen oer</string>
+    <string name="ramadan_fasting_progress">Fêste dagen: %1$s fan %2$s - tik op in dei om it op te nimmen</string>
+    <string name="ramadan_fasting_tracker">Fasting tracker</string>
+    <string name="ramadan_hijri_note">Op grûn fan \'e Umm al-Qura-kalinder mei de app-wide Hijri-oanpassing tapast.</string>
+    <string name="ramadan_hijri_year">Jier %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar smeeking: "O Allah, foar Jo fêste ik en op jo foarried brek ik myn fêsten ..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) tiid: %1$s</string>
+    <string name="ramadan_location_required">Kies earst in stêd yn Ynstellings om de tiden te sjen.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, foar Jo fêste ik en op Jo foarsjenning brek ik myn fêst</string>
+    <string name="ramadan_notification_iftar_title">Tiid foar iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr komt tichterby - hawwe jo suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor herinnering</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Herinner my earder:</string>
+    <string name="ramadan_suhoor_time">Suhoor einiget (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ekule</string>
+    <string name="mosque_finder_empty">Ku hava timosque leti kumekaka eka ndhawu leyi</string>
+    <string name="mosque_finder_error">Ku lavisisa ku tsandzekile</string>
+    <string name="mosque_finder_intro">Kuma ti mosque ekusuhi na ndhawu ya wena hi ku tirhisa OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Ku hava ndhawu leyi vekiweke ku fikela sweswi. Hlawula ndhawu eka swiyimiso swa minkarhi ya xikhongelo ku sungula.</string>
+    <string name="mosque_finder_retry">Ringeta nakambe</string>
+    <string name="mosque_finder_searching">Ku lavisisa...</string>
+    <string name="mosque_finder_title">Timosque ta le kusuhi</string>
+    <string name="qibla_bearing_cardinal">Qibla nkongomiso: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Susa foni ya wena eka figure-eight ku calibrate</string>
+    <string name="qibla_distance">Ku ya eMakkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">U langutane na Qibla 🕋</string>
+    <string name="qibla_gps_error">A swi swi kotanga ku kuma ku lulamisiwa loku kongomeke. Hi kombela u ringeta nakambe.</string>
+    <string name="qibla_gps_live">Ndhawu ya GPS leyi hanyaka</string>
+    <string name="qibla_gps_refresh">Ku pfuxeta ndhawu hi ku tirhisa GPS</string>
+    <string name="qibla_gps_refreshing">Ku kuma ndhawu...</string>
+    <string name="qibla_heading_degree">Nhlokomhaka ya riqingho: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Great-circle route kusuka eka ndzhawu ya wena kuya e Kaaba — yi tirha offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Wena</string>
+    <string name="qibla_mode_compass">Khampasi</string>
+    <string name="qibla_mode_map">Mepe</string>
+    <string name="qibla_open_mosques">Timosque ta le kusuhi</string>
+    <string name="qibla_title">Qibla nkongomiso</string>
+    <string name="qibla_turn_left">Jikela eximatsini %1$.1f°</string>
+    <string name="qibla_turn_right">Jikela exineneni %1$.1f°</string>
+</resources>

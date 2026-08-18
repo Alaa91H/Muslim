@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">ডিজিটাল মিসবাহ — গণনা করতে ট্যাপ করুন</string>
+    <string name="misbaha_widget_label">তসবিহ</string>
+    <string name="misbaha_widget_tap_hint">গণনা করতে আলতো চাপুন</string>
+    <string name="tasbih_back">ব্যাক</string>
+    <string name="tasbih_cancel">বাতিল করুন</string>
+    <string name="tasbih_confirm">ঠিক আছে</string>
+    <string name="tasbih_custom_target">কাস্টম</string>
+    <string name="tasbih_custom_target_hint">গণনার সংখ্যা লিখুন (1 থেকে 100000 পর্যন্ত)</string>
+    <string name="tasbih_custom_target_title">একটি কাস্টম লক্ষ্য সেট করুন</string>
+    <string name="tasbih_of_target">%1$s এর</string>
+    <string name="tasbih_reset">রিসেট করুন</string>
+    <string name="tasbih_reset_all">সব রিসেট করুন</string>
+    <string name="tasbih_round_complete">সম্পূর্ণ রাউন্ড সম্পূর্ণ (%1$s) 🎉</string>
+    <string name="tasbih_rounds">রাউন্ডস: %1$d</string>
+    <string name="tasbih_sound_desc">প্রতিটি রাউন্ড সম্পূর্ণ হলে একটি রিংটোন বা টোন বাজান</string>
+    <string name="tasbih_sound_title">লক্ষ্যে শব্দ</string>
+    <string name="tasbih_sound_tone_alarm">এলার্ম</string>
+    <string name="tasbih_sound_tone_notification">বিজ্ঞপ্তি</string>
+    <string name="tasbih_sound_tone_ringtone">রিংটোন</string>
+    <string name="tasbih_tap_hint">গণনা করতে বৃত্তে আলতো চাপুন</string>
+    <string name="tasbih_target_reached">লক্ষ্যে পৌঁছেছি - আল্লাহ কবুল করুন</string>
+    <string name="tasbih_title">তসবিহ</string>
+    <string name="tasbih_total_today">আজ \'s মোট: %1$d</string>
+    <string name="tasbih_undo">পূর্বাবস্থায় ফেরান</string>
+    <string name="tasbih_virtue_label">এই যিকিরের ফজিলত</string>
+    <string name="tasbih_week_stats">গত ৭ দিন</string>
+</resources>

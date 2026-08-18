@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Nyuma</string>
+    <string name="ramadan_countdown">Ramadhani huanza ndani ya siku %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Muda wa iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Muda wa Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Siku ya %1$s ya Ramadhani</string>
+    <string name="ramadan_days_left">Siku %1$s zimesalia</string>
+    <string name="ramadan_fasting_progress">Siku za kufunga: %1$s kati ya %2$s - gusa siku ili kurekodi</string>
+    <string name="ramadan_fasting_tracker">Mfuatiliaji wa kufunga</string>
+    <string name="ramadan_hijri_note">Kulingana na kalenda ya Umm al-Qura na marekebisho ya Hijri yanatumika katika programu.</string>
+    <string name="ramadan_hijri_year">Mwaka %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Dua ya Iftar: “Ewe Mwenyezi Mungu, kwa ajili Yako nimefunga na kwa riziki Yako nafungua…”</string>
+    <string name="ramadan_iftar_time">Wakati wa Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Chagua jiji katika Mipangilio kwanza ili uone saa.</string>
+    <string name="ramadan_minutes">Dakika %1$s</string>
+    <string name="ramadan_notification_iftar_body">Ee Mwenyezi Mungu, kwa ajili Yako nimefunga na kwa riziki Yako nafungua</string>
+    <string name="ramadan_notification_iftar_title">Muda wa iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr inakaribia - kuwa na suhuor yako</string>
+    <string name="ramadan_notification_suhoor_title">Mawaidha ya Suhoor</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Nikumbushe kabla:</string>
+    <string name="ramadan_suhoor_time">Mwisho wa Suhoor (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadhani</string>
+</resources>

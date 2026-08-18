@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — epoko eipapa hag̃ua</string>
+    <string name="misbaha_widget_label">Tasbih rehegua</string>
+    <string name="misbaha_widget_tap_hint">Epoko reipapa hag̃ua</string>
+    <string name="tasbih_back">Ojevy jey</string>
+    <string name="tasbih_cancel">Ombogue</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Jepokuaa</string>
+    <string name="tasbih_custom_target_hint">Emoinge mboýpa ojeipapa (1 guive 100000 peve) .</string>
+    <string name="tasbih_custom_target_title">Emohenda peteĩ meta personalizada</string>
+    <string name="tasbih_of_target">de %1$s. Ñe’ẽpoty ha ñe’ẽpoty</string>
+    <string name="tasbih_reset">Reset jey</string>
+    <string name="tasbih_reset_all">Emoĩjey opaite mba’e</string>
+    <string name="tasbih_round_complete">Ronda completa oñemohu\'ã (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Ojere: %1$d. Ñe’ẽpoty ha ñe’ẽpoty</string>
+    <string name="tasbih_sound_desc">Embopu peteĩ tono de llamada térã tono oñembotývo káda ronda completa</string>
+    <string name="tasbih_sound_title">Sonido pe blanco-pe</string>
+    <string name="tasbih_sound_tone_alarm">Alarma rehegua</string>
+    <string name="tasbih_sound_tone_notification">Marandu</string>
+    <string name="tasbih_sound_tone_ringtone">Ñe’ẽpu</string>
+    <string name="tasbih_tap_hint">Epoko pe círculo rehe reipapa hagua</string>
+    <string name="tasbih_target_reached">Meta oñeguahẽva — tohape Allah oasepta</string>
+    <string name="tasbih_title">Tasbih rehegua</string>
+    <string name="tasbih_total_today">Ko’áĝa\'s total: %1$d</string>
+    <string name="tasbih_undo">Deshacer</string>
+    <string name="tasbih_virtue_label">Virtud ko dhikr rehegua</string>
+    <string name="tasbih_week_stats">7 ára ohasávape</string>
+</resources>

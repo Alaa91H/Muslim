@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">ಹಿಂದೆ</string>
+    <string name="ramadan_countdown">ರಂಜಾನ್ %1$s ದಿನಗಳಲ್ಲಿ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ</string>
+    <string name="ramadan_countdown_to_iftar">ಇಫ್ತಾರ್‌ಗೆ ಸಮಯ: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ಫಜ್ರ್‌ಗೆ ಸಮಯ: %1$s</string>
+    <string name="ramadan_day_of_month">ರಂಜಾನ್ ದಿನ %1$s</string>
+    <string name="ramadan_days_left">%1$s ದಿನಗಳು ಉಳಿದಿವೆ</string>
+    <string name="ramadan_fasting_progress">ಉಪವಾಸದ ದಿನಗಳು: %1$s ರಲ್ಲಿ %2$s — ಅದನ್ನು ರೆಕಾರ್ಡ್ ಮಾಡಲು ಒಂದು ದಿನ ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+    <string name="ramadan_fasting_tracker">ಉಪವಾಸ ಟ್ರ್ಯಾಕರ್</string>
+    <string name="ramadan_hijri_note">ಅಪ್ಲಿಕೇಶನ್-ವ್ಯಾಪಕವಾದ ಹಿಜ್ರಿ ಹೊಂದಾಣಿಕೆಯೊಂದಿಗೆ ಉಮ್ ಅಲ್-ಕುರಾ ಕ್ಯಾಲೆಂಡರ್ ಅನ್ನು ಆಧರಿಸಿದೆ.</string>
+    <string name="ramadan_hijri_year">ವರ್ಷ %1$s AH</string>
+    <string name="ramadan_iftar">ಇಫ್ತಾರ್</string>
+    <string name="ramadan_iftar_dua">ಇಫ್ತಾರ್ ಪ್ರಾರ್ಥನೆ: "ಓ ಅಲ್ಲಾ, ನಿನಗಾಗಿ ನಾನು ಉಪವಾಸ ಮಾಡಿದ್ದೇನೆ ಮತ್ತು ನಿಮ್ಮ ನಿಬಂಧನೆಯ ಮೇಲೆ ನಾನು ನನ್ನ ಉಪವಾಸವನ್ನು ಮುರಿಯುತ್ತೇನೆ ..."</string>
+    <string name="ramadan_iftar_time">ಇಫ್ತಾರ್ (ಮಗ್ರಿಬ್) ಸಮಯ: %1$s</string>
+    <string name="ramadan_location_required">ಸಮಯವನ್ನು ನೋಡಲು ಮೊದಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ನಗರವನ್ನು ಆಯ್ಕೆಮಾಡಿ.</string>
+    <string name="ramadan_minutes">%1$s ನಿಮಿಷ</string>
+    <string name="ramadan_notification_iftar_body">ಓ ಅಲ್ಲಾ, ನಿನಗಾಗಿ ನಾನು ಉಪವಾಸ ಮಾಡಿದ್ದೇನೆ ಮತ್ತು ನಿನ್ನ ನಿಬಂಧನೆಯ ಮೇರೆಗೆ ನನ್ನ ಉಪವಾಸವನ್ನು ಮುರಿಯುತ್ತೇನೆ</string>
+    <string name="ramadan_notification_iftar_title">ಇಫ್ತಾರ್ ಸಮಯ</string>
+    <string name="ramadan_notification_suhoor_body">ಫಜ್ರ್ ಸಮೀಪಿಸುತ್ತಿದೆ - ನಿಮ್ಮ ಸುಹೂರ್</string>
+    <string name="ramadan_notification_suhoor_title">ಸುಹೂರ್ ಜ್ಞಾಪನೆ</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">ಸುಹೂರ್</string>
+    <string name="ramadan_suhoor_remind_before">ಮೊದಲು ನನಗೆ ನೆನಪಿಸಿ:</string>
+    <string name="ramadan_suhoor_time">ಸುಹೂರ್ ಕೊನೆಗೊಳ್ಳುತ್ತದೆ (ಫಜ್ರ್): %1$s</string>
+    <string name="ramadan_title">ರಂಜಾನ್</string>
+</resources>

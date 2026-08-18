@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">ფასების ავტომატურად მიღება</string>
+    <string name="zakat_auto_prices_hint">როდესაც ჩართულია, ოქროსა და ვერცხლის ფასების მიღება ხდება ინტერნეტიდან და ავტომატურად განახლდება</string>
+    <string name="zakat_back">უკან</string>
+    <string name="zakat_cash">ნაღდი ფული და დანაზოგი</string>
+    <string name="zakat_clear_history">ისტორიის გასუფთავება</string>
+    <string name="zakat_country">ქვეყანა</string>
+    <string name="zakat_country_placeholder">აირჩიეთ თქვენი ქვეყანა და ვალუტა</string>
+    <string name="zakat_country_section">ქვეყანა და ვალუტა</string>
+    <string name="zakat_currency">ვალუტა: %1$s</string>
+    <string name="zakat_debts">თქვენი ვალი (გამოქვითული)</string>
+    <string name="zakat_due">გადასახდელი ზაქათი (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'t ფასის მოპოვება ვერ მოხერხდა. შეამოწმეთ კავშირი ან ხელით შეიყვანეთ ფასი.</string>
+    <string name="zakat_fetch_now">განაახლეთ ფასები ახლავე</string>
+    <string name="zakat_fetching">ფასების მიღება…</string>
+    <string name="zakat_fitr_persons">ოჯახის წევრების რაოდენობა</string>
+    <string name="zakat_fitr_saa_value">ერთი sa\' (ძირითადი საკვები) ღირებულება</string>
+    <string name="zakat_fitr_section">ზაქათ ალ-ფიტრი</string>
+    <string name="zakat_fitr_total">სულ ფიტრი ზაქათი: %1$s</string>
+    <string name="zakat_gold_grams">ოქრო (გრამი)</string>
+    <string name="zakat_gold_price">ოქროს ფასი გრამზე</string>
+    <string name="zakat_history">გაანგარიშების ისტორია</string>
+    <string name="zakat_history_amount">ზაქათი: %1$s</string>
+    <string name="zakat_history_empty">ჯერ არ არის შენახული გამოთვლები.</string>
+    <string name="zakat_investments">ინვესტიციები</string>
+    <string name="zakat_last_updated">ბოლო განახლება: %1$s</string>
+    <string name="zakat_money_section">ზაქათი სიმდიდრეზე</string>
+    <string name="zakat_nisab_gold">ოქროს ნისაბი (85გრ)</string>
+    <string name="zakat_nisab_met">ნისაბამდე მიღწეულია - ზაქათი დადებულია</string>
+    <string name="zakat_nisab_not_met">ნისაბის ქვემოთ - არავითარი ზაქათი</string>
+    <string name="zakat_nisab_silver">ვერცხლის ნისაბი (595გრ)</string>
+    <string name="zakat_rulings_note">უმრავლესობის მიხედვით (ჯუმჰური): ოქროს ნისაბია 85გრ, ვერცხლის 595გრ, ხოლო კურსი 2,5%% ვალების გამოქვითვის შემდეგ. განსაკუთრებული შემთხვევებისთვის მიმართეთ კვალიფიციურ მეცნიერს.</string>
+    <string name="zakat_save_result">ისტორიაში შენახვა</string>
+    <string name="zakat_silver_grams">ვერცხლი (გრამი)</string>
+    <string name="zakat_silver_price">ვერცხლის ფასი გრამზე</string>
+    <string name="zakat_source_note">ოქროს/ვერცხლის ფასები gold-api.com-დან; FX განაკვეთები open.er-api.com-დან</string>
+    <string name="zakat_title">ზაქათი</string>
+    <string name="zakat_total_assets">მთლიანი აქტივები</string>
+    <string name="zakat_trade">სავაჭრო საქონლის ღირებულება</string>
+    <string name="zakat_zakatable">დავალიანების შემდეგ ზაქათა თანხა</string>
+</resources>

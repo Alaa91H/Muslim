@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">ყველა</string>
+    <string name="hadith_back">უკან</string>
+    <string name="hadith_bookmark_add">დაამატეთ სანიშნე</string>
+    <string name="hadith_bookmark_remove">ამოიღეთ სანიშნე</string>
+    <string name="hadith_collection_abudawud">აბუ დაუდი</string>
+    <string name="hadith_collection_bukhari">ალ-ბუხარი</string>
+    <string name="hadith_collection_ibnmajah">იბნ მაჯა</string>
+    <string name="hadith_collection_muslim">მაჰმადიანი</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">ან-ნავავი 40</string>
+    <string name="hadith_collection_other">სხვა</string>
+    <string name="hadith_collection_riyad">რიად ას-სალიჰინი</string>
+    <string name="hadith_collection_tirmidhi">ათ-თირმიდი</string>
+    <string name="hadith_daily_notification">ყოველდღიური ჰადისის შეტყობინება</string>
+    <string name="hadith_daily_notification_desc">მიიღეთ ჰადისი ყოველდღე</string>
+    <string name="hadith_daily_notification_time">შეტყობინების დრო</string>
+    <string name="hadith_of_the_day">დღის ჰადისი</string>
+    <string name="hadith_preview_hint">ასე ჩნდება ყოველდღიური ჰადისის შეტყობინება დანიშნულ დროს.</string>
+    <string name="hadith_preview_label">შეტყობინების გადახედვა</string>
+    <string name="hadith_preview_loading">იტვირთება ჰადისი…</string>
+    <string name="hadith_search_hint">მოძებნეთ ჰადიდები…</string>
+    <string name="hadith_share">გააზიარეთ</string>
+    <string name="hadith_title">ჰადისის ბიბლიოთეკა</string>
+</resources>

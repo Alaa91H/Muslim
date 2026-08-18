@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Hommikune, õhtune ja palvejärgne adhkar loenduritega</string>
+    <string name="more_downloads">Etenduste allalaadimine</string>
+    <string name="more_downloads_desc">Laadige valitud lugeriga alla suura, ayah või kogu Koraan</string>
+    <string name="more_hadith">hadith</string>
+    <string name="more_hadith_desc">Hadithi raamatukogu, otsing ja päeva hadith</string>
+    <string name="more_learn">Õppige</string>
+    <string name="more_learn_desc">Samm-sammult wudu ja palvejuhised</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Suhoori ja iftari ajad ning paastujälgija</string>
+    <string name="more_reference">Teaberaamatukogu</string>
+    <string name="more_reference_desc">Sissejuhatus islami, Sira ja prohvetite juurde</string>
+    <string name="more_settings">Seaded</string>
+    <string name="more_settings_desc">Teema, keele, palve ja adhani seaded</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digitaalne misbaha igapäevase ajalooga</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat rikkuse ja Fitr kalkulaatori kohta</string>
+    <string name="scaffold_message">Mitme mooduliga projekti skelett on valmis. \nEsimene faas – Adhan, palveajad, Qibla ja Hijri kalender – algab siit.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla suund</string>
+    <string name="shortcut_settings">Seaded</string>
+    <string name="shortcut_settings_long">Palve ja adhani seaded</string>
+    <string name="shortcut_times">Palveajad</string>
+    <string name="shortcut_times_long">Täna \' palveaega</string>
+    <string name="tab_home">Palveajad</string>
+    <string name="tab_more">Rohkem</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Koraan</string>
 </resources>

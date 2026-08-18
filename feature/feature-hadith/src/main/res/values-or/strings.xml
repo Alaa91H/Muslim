@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">ସମସ୍ତ</string>
+    <string name="hadith_back">ପଛକୁ</string>
+    <string name="hadith_bookmark_add">ବୁକମାର୍କ ଯୋଡନ୍ତୁ |</string>
+    <string name="hadith_bookmark_remove">ବୁକମାର୍କ ଅପସାରଣ କରନ୍ତୁ |</string>
+    <string name="hadith_collection_abudawud">ଆବୁ ଦ ud ଦ</string>
+    <string name="hadith_collection_bukhari">ଅଲ-ବୁଖାରୀ |</string>
+    <string name="hadith_collection_ibnmajah">ଇବନ୍ ମାଜା</string>
+    <string name="hadith_collection_muslim">ମୁସଲମାନ</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">ଅନ୍ୟମାନେ |</string>
+    <string name="hadith_collection_riyad">ରିୟାଦ ଆସ-ସାଲିହିନ୍ |</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidhi</string>
+    <string name="hadith_daily_notification">ଦ Daily ନିକ ହାଡିସ୍ ବିଜ୍ଞପ୍ତି |</string>
+    <string name="hadith_daily_notification_desc">ପ୍ରତିଦିନ ଏକ ହାଦିଦ ଗ୍ରହଣ କରନ୍ତୁ |</string>
+    <string name="hadith_daily_notification_time">ବିଜ୍ଞପ୍ତି ସମୟ |</string>
+    <string name="hadith_of_the_day">ଦିନର ହାଦିସ୍ |</string>
+    <string name="hadith_preview_hint">ଏହିପରି ଭାବରେ ଦ daily ନିକ ହାଡିସ୍ ବିଜ୍ଞପ୍ତି ନିର୍ଦ୍ଧାରିତ ସମୟରେ ଦେଖାଯାଏ |</string>
+    <string name="hadith_preview_label">ବିଜ୍ଞପ୍ତି ପୂର୍ବାବଲୋକନ |</string>
+    <string name="hadith_preview_loading">ହାଡିସ୍ ଲୋଡ୍ କରୁଛି…</string>
+    <string name="hadith_search_hint">ହାଡିସ୍ ସନ୍ଧାନ…</string>
+    <string name="hadith_share">ଅଂଶୀଦାର କରନ୍ତୁ |</string>
+    <string name="hadith_title">ହାଡିସ୍ ଲାଇବ୍ରେରୀ |</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbahaaji dijital — tap ngam limde</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tappu ngam limde</string>
+    <string name="tasbih_back">Caggal</string>
+    <string name="tasbih_cancel">Woppu</string>
+    <string name="tasbih_confirm">Okay</string>
+    <string name="tasbih_custom_target">Aada</string>
+    <string name="tasbih_custom_target_hint">Winndu limoore limre (gila 1 haa 100000) .</string>
+    <string name="tasbih_custom_target_title">Set target keeriiɗo</string>
+    <string name="tasbih_of_target">ko %1$s</string>
+    <string name="tasbih_reset">Resndo</string>
+    <string name="tasbih_reset_all">Reset fof</string>
+    <string name="tasbih_round_complete">Ronde timmunde timmunde (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Rogereeji: %1$d</string>
+    <string name="tasbih_sound_desc">Fiyde tonngoode walla tonngoode so kala ronndo timmungo timmaani</string>
+    <string name="tasbih_sound_title">Sonngo e dow tarde</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Noddaango</string>
+    <string name="tasbih_sound_tone_ringtone">Toɓɓere gonnde</string>
+    <string name="tasbih_tap_hint">Tappu taarik ngam limde</string>
+    <string name="tasbih_target_reached">Faandaare yettiima — yoo Alla jaɓ</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Hannde\'s fof: %1$d</string>
+    <string name="tasbih_undo">Woppu</string>
+    <string name="tasbih_virtue_label">Nafoore ndee dhikr</string>
+    <string name="tasbih_week_stats">Balɗe 7 ɓennuɗe</string>
+</resources>

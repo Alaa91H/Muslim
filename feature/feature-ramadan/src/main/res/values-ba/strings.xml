@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Артҡа</string>
+    <string name="ramadan_countdown">Рамаҙан айы %1$s көндә башлана .</string>
+    <string name="ramadan_countdown_to_iftar">Ифтарға ваҡыт: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Фәжргә тиклемге ваҡыт: %1$s</string>
+    <string name="ramadan_day_of_month">Рамаҙан айының %1$s көнө .</string>
+    <string name="ramadan_days_left">%1$s көн ҡалды</string>
+    <string name="ramadan_fasting_progress">Fasting days: %1$s of %2$s — tap a day to record it</string>
+    <string name="ramadan_fasting_tracker">Ураҙа тотоу трекеры</string>
+    <string name="ramadan_hijri_note">Өммө әл-Ҡөрьән календарына нигеҙләнеп, ҡушымта-киң һижри көйләү ҡулланыла.</string>
+    <string name="ramadan_hijri_year">Һижри %1$s йыл.</string>
+    <string name="ramadan_iftar">Ифтар .</string>
+    <string name="ramadan_iftar_dua">Ифтар доғаһы: "Йә Аллаһ, Һинең өсөн ураҙа тоттом, Һинең ризығың менән ауыҙ астым..."</string>
+    <string name="ramadan_iftar_time">Ифтар (мағриб) ваҡыты: %1$s</string>
+    <string name="ramadan_location_required">Ваҡыттарҙы күрер өсөн тәүҙә Настройкаларҙа ҡаланы һайлағыҙ.</string>
+    <string name="ramadan_minutes">%1$s мин</string>
+    <string name="ramadan_notification_iftar_body">Йә Аллаһ, Һинең өсөн мин ураҙа тоттом һәм Һинең ризығың менән ауыҙ астым</string>
+    <string name="ramadan_notification_iftar_title">Ифтар ваҡыты .</string>
+    <string name="ramadan_notification_suhoor_body">Фәжр яҡынлаша — сәхәрегеҙ булһын</string>
+    <string name="ramadan_notification_suhoor_title">Сәхәр иҫкә төшөрөү</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Сәхәр</string>
+    <string name="ramadan_suhoor_remind_before">Алдан иҫкә төшөрөгөҙ:</string>
+    <string name="ramadan_suhoor_time">Сәхәр тамамлана (Фәжр): %1$s</string>
+    <string name="ramadan_title">Рамаҙан .</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_version">ווערסיע %1$s</string>
+    <string name="app_name">מוסולמען</string>
+    <string name="notif_preview_elapsed">דורכגעגאנגען זינט אַדישאַן: %1$s</string>
+    <string name="notif_preview_missed">געפעלט: %1$s — %2$s</string>
+    <string name="notif_preview_next_title">ווייַטער: %1$s — %2$s</string>
+    <string name="notif_preview_remaining">נאָך צייט: %1$s</string>
+</resources>

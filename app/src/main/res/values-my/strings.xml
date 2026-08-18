@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">မွတ်စလင်</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">ကောင်တာများနှင့်အတူနံနက်၊ ညနေနှင့်ဆုတောင်းပြီးနောက် adhkar</string>
+    <string name="more_downloads">ရွတ်ဆိုဒေါင်းလုဒ်များ</string>
+    <string name="more_downloads_desc">သင်၏ရွေးချယ်ထားသော ရွတ်ဆိုသူနှင့်အတူ စူရဟ်၊ အိုင်ယာ သို့မဟုတ် ကုရ်အာန်အပြည့်အစုံကို ဒေါင်းလုဒ်လုပ်ပါ။</string>
+    <string name="more_hadith">ဟဒီးစ်</string>
+    <string name="more_hadith_desc">Hadith စာကြည့်တိုက်၊ ရှာဖွေမှုနှင့်နေ့၏ hadith</string>
+    <string name="more_learn">လေ့လာပါ။</string>
+    <string name="more_learn_desc">အဆင့်ဆင့် wudu &amp; ဆုတောင်းလမ်းညွှန်များ</string>
+    <string name="more_ramadan">ရမ်ဇာန်</string>
+    <string name="more_ramadan_desc">Suhoor နှင့် iftar အချိန်များနှင့် အစာရှောင်ခြင်း ခြေရာခံကိရိယာ</string>
+    <string name="more_reference">ရည်ညွှန်းစာကြည့်တိုက်</string>
+    <string name="more_reference_desc">အစ္စလမ်ဘာသာ၊ Sira နှင့် ပရောဖက်များအကြောင်း မိတ်ဆက်</string>
+    <string name="more_settings">ဆက်တင်များ</string>
+    <string name="more_settings_desc">အပြင်အဆင်၊ ဘာသာစကား၊ ဆုတောင်းခြင်းနှင့် adhan ဆက်တင်များ</string>
+    <string name="more_tasbih">တက်ဗိ</string>
+    <string name="more_tasbih_desc">နေ့စဉ်မှတ်တမ်းနှင့်အတူဒစ်ဂျစ်တယ် misbaha</string>
+    <string name="more_zakat">ဇကာတ်</string>
+    <string name="more_zakat_desc">ကြွယ်ဝမှုနှင့် Fitr ဂဏန်းတွက်စက်ပေါ်တွင် Zakat</string>
+    <string name="scaffold_message">Multi-module ပရောဂျက်အရိုးစုသည် အဆင်သင့်ဖြစ်ပါပြီ။\nPhase 1 — Adhan၊ ဆုတောင်းချိန်၊ Qibla နှင့် Hijri ပြက္ခဒိန် — ဤနေရာတွင် စတင်ပါသည်။</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla ဦးတည်ချက်</string>
+    <string name="shortcut_settings">ဆက်တင်များ</string>
+    <string name="shortcut_settings_long">ဆုတောင်းခြင်းနှင့် adhan ဆက်တင်များ</string>
+    <string name="shortcut_times">ဆုတောင်းချိန်</string>
+    <string name="shortcut_times_long">ယနေ့ \'s ဆုတောင်းကြိမ်</string>
+    <string name="tab_home">ဆုတောင်းအချိန်များ</string>
+    <string name="tab_more">ပို</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">ကုရ်အာန်</string>
 </resources>

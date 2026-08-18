@@ -10,12 +10,22 @@
     <string name="quran_font_larger">Larger font</string>
 
     <!-- Search -->
+    <string name="quran_more_actions">More actions</string>
+    <string name="quran_font_size">Font size</string>
+    <string name="quran_keep_screen_on">Keep screen on while reading and reciting</string>
     <string name="quran_search">Search</string>
     <string name="quran_search_hint">Search the Quran…</string>
     <string name="quran_search_prompt">Type a word or phrase to search the whole mushaf (offline).</string>
     <string name="quran_search_empty">No matching results</string>
     <string name="quran_search_ref">%1$s:%2$s</string>
-    <string name="quran_search_summary">Found %1$d mentions across %2$d ayahs</string>
+    <string name="quran_search_summary">The word occurs %1$d times in %2$d ayahs across %3$d surahs</string>
+    <string name="quran_search_prefix">Root search (prefix)</string>
+    <string name="quran_search_exact">Exact word</string>
+    <string name="quran_search_where">Where it occurs (by surah)</string>
+    <string name="quran_search_surah_item">%1$d. %2$s</string>
+    <string name="quran_search_occurrences">%1$d times</string>
+    <string name="quran_search_history">Recent searches</string>
+    <string name="quran_search_history_clear">Clear</string>
     <string name="quran_details">Surah details</string>
     <string name="quran_details_close">Close</string>
     <string name="quran_details_type">Type</string>
@@ -74,6 +84,7 @@
     <string name="quran_download_ayah_number">Ayah number</string>
     <string name="quran_download_full_hint">All surahs (6236 ayahs) will download in the background, resumable later.</string>
     <string name="quran_download_size_estimate">Approximate size: %1$s</string>
+    <string name="quran_download_size_verified">Verified size: %1$s</string>
     <string name="quran_download_size_unknown">Enter a valid surah to see the approximate size</string>
     <string name="quran_download_start">Start download</string>
     <string name="quran_download_cancel">Cancel</string>
@@ -81,12 +92,14 @@
     <string name="quran_downloads_none">No downloads yet</string>
     <string name="quran_download_status_queued">Queued</string>
     <string name="quran_download_status_downloading">Downloading</string>
+    <string name="quran_download_status_paused">Paused</string>
     <string name="quran_download_status_completed">Completed</string>
     <string name="quran_download_status_failed">Failed</string>
     <string name="quran_download_channel">Recitation downloads</string>
     <string name="quran_download_in_progress">Downloading in the background…</string>
     <string name="quran_download_done">Download complete</string>
     <string name="quran_download_failed">Download failed</string>
+    <string name="quran_download_restoring">Resuming downloads…</string>
 
     <!-- Recitation control notification -->
     <string name="quran_recitation_notif_title">%1$s · Ayah %2$d</string>
@@ -108,6 +121,10 @@
     <string name="quran_download_night_waiting">Will start at night — window %1$s</string>
     <string name="quran_download_night_only">Night-only downloads</string>
     <string name="quran_download_night_hint">Downloads start automatically inside the window %1$s (saves data and battery)</string>
+    <string name="quran_download_night_window_title">Night download window</string>
+    <string name="quran_download_night_start">Start</string>
+    <string name="quran_download_night_end">End</string>
+    <string name="quran_download_pause">Pause</string>
     <string name="quran_download_reciter_state">Downloaded for this reciter: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_download_delete_surah">Delete downloaded surah</string>
@@ -124,4 +141,15 @@
     <string name="quran_mini_surah_ayah">%1$s (%2$d) · Ayah %3$d</string>
 
     <string name="quran_stop_at_end_of_mushaf">Stop automatically at the end of the mushaf</string>
+
+
+    <string name="quran_frequency_title">Quran Word Frequency</string>
+    <string name="quran_frequency_loading">Counting word frequency…</string>
+    <string name="quran_frequency_total_words">Total words</string>
+    <string name="quran_frequency_unique_words">Unique words</string>
+    <string name="quran_frequency_ayahs">Ayahs</string>
+    <string name="quran_frequency_top_header">Top 50 most frequent words</string>
+    <string name="quran_frequency_allah">The word Allah (الله) occurs %1$d times in its standalone form</string>
+    <string name="quran_frequency_footnote">Counted from the bundled mushaf text after stripping diacritics and recitation marks and folding the alef-wasla (ٱ to ا). Words are counted as written; prefixed forms (wallah, billah, lillah) are separate entries.</string>
+    <string name="quran_frequency_open">Quran word frequency</string>
 </resources>

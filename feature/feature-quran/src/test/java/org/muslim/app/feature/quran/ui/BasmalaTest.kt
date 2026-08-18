@@ -45,4 +45,15 @@ class BasmalaTest {
     fun `the basmala constant normalizes to the canonical form`() {
         assertThat(ArabicText.normalize(BASMALA)).isEqualTo("بسم الله الرحمن الرحيم")
     }
+
+    @Test
+    fun `the ornament is the rub el hizb symbol`() {
+        assertThat(MUSHAF_ORNAMENT).isEqualTo("۞")
+        assertThat(MUSHAF_ORNAMENT.length).isEqualTo(1)
+    }
+
+    @Test
+    fun `the ornament is not part of the basmala text`() {
+        assertThat(BASMALA.contains(MUSHAF_ORNAMENT)).isFalse()
+    }
 }

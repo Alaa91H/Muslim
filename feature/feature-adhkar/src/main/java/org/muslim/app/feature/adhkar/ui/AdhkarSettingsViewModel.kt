@@ -6,8 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -16,6 +18,7 @@ import org.muslim.app.feature.adhkar.data.AdhkarPrefsRepository
 import org.muslim.app.feature.adhkar.data.AdhkarReminderScheduler
 import org.muslim.app.feature.adhkar.data.PeriodicAdhkarReminderScheduler
 import org.muslim.app.feature.adhkar.data.AdhkarRepository
+import org.muslim.app.feature.adhkar.domain.Dhikr
 import org.muslim.app.feature.adhkar.overlay.AdhkarOverlayService
 import javax.inject.Inject
 
@@ -31,12 +34,18 @@ class AdhkarSettingsViewModel @Inject constructor(
     val prefs: StateFlow<AdhkarPrefs> = prefsRepository.prefs
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), AdhkarPrefs())
 
+    /** A sample dhikr rendered in the floating-message preview. */
+    private val _previewDhikr = MutableStateFlow<Dhikr?>(null)
+    val previewDhikr: StateFlow<Dhikr?> = _previewDhikr.asStateFlow()
+
     init {
-        // Re-arm reminders whenever the app starts (covers the reboot-free gap).
+        // Re-arm reminders whenever the app starts (covers the reboot-free gap)
+        // and load a sample dhikr for the live overlay preview.
         viewModelScope.launch {
             val current = prefsRepository.prefs.first()
             scheduler.schedule(current)
             periodicScheduler.schedule(current)
+            _previewDhikr.value = adhkarRepository.randomDhikr(null, current.disabledDhikrIds)
         }
     }
 
@@ -47,6 +56,21 @@ class AdhkarSettingsViewModel @Inject constructor(
 
     fun setOverlayDurationSeconds(seconds: Int) =
         save { prefsRepository.setOverlayDurationSeconds(seconds) }
+
+    fun setOverlayBackgroundColor(rgb: Int) =
+        save { prefsRepository.setOverlayBackgroundColor(rgb) }
+
+    fun setOverlayBackgroundAlpha(alpha: Int) =
+        save { prefsRepository.setOverlayBackgroundAlpha(alpha) }
+
+    fun resetOverlayAppearance() =
+        save { prefsRepository.resetOverlayAppearance() }
+
+    fun setOverlayCornerRadiusDp(radius: Int) =
+        save { prefsRepository.setOverlayCornerRadiusDp(radius) }
+
+    fun setOverlayFontSizeSp(size: Int) =
+        save { prefsRepository.setOverlayFontSizeSp(size) }
 
     fun setMorningReminder(enabled: Boolean, hour: Int, minute: Int) =
         save { prefsRepository.setMorningReminder(enabled, hour, minute) }
@@ -72,7 +96,14 @@ class AdhkarSettingsViewModel @Inject constructor(
             val current = prefsRepository.prefs.first()
             if (!Settings.canDrawOverlays(context)) return@launch
             val dhikr = adhkarRepository.randomDhikr(null, current.disabledDhikrIds) ?: return@launch
-            AdhkarOverlayService.start(context, dhikr, current.overlayDurationSeconds)
+            AdhkarOverlayService.start(
+                context,
+                dhikr,
+                current.overlayDurationSeconds,
+                current.overlayBackgroundColor,
+                current.overlayCornerRadiusDp,
+                current.overlayFontSizeSp,
+            )
         }
     }
 

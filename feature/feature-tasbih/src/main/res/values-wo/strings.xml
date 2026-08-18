@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha numérique — bës ngir lim</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Bësal ngir lim</string>
+    <string name="tasbih_back">Dellu</string>
+    <string name="tasbih_cancel">Fomm</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Personalisé</string>
+    <string name="tasbih_custom_target_hint">Bindal limu lim yi (daale ko ci 1 ba 100000)</string>
+    <string name="tasbih_custom_target_title">Defar ab mébet</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Reset</string>
+    <string name="tasbih_reset_all">Reset lépp</string>
+    <string name="tasbih_round_complete">Rond bi matna (%1$s) 🎉</string>
+    <string name="tasbih_rounds">%1$d</string>
+    <string name="tasbih_sound_desc">Def benn sonnerie wala son su tour bu nekk jeexee</string>
+    <string name="tasbih_sound_title">Son ci target</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">yëgle</string>
+    <string name="tasbih_sound_tone_ringtone">Sonnerie</string>
+    <string name="tasbih_tap_hint">Bësal cercle bi ngir lim</string>
+    <string name="tasbih_target_reached">Mébet bi yegsi na — Yalna Yàlla nangu</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">tay \' ci lëmm: %1$d</string>
+    <string name="tasbih_undo">Delloosi</string>
+    <string name="tasbih_virtue_label">Njariñu dhikr bii</string>
+    <string name="tasbih_week_stats">fan yu mujj</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Ne nyinaa</string>
+    <string name="hadith_back">San akyi</string>
+    <string name="hadith_bookmark_add">Fa bookmark ka ho</string>
+    <string name="hadith_bookmark_remove">Yi bookmark no fi hɔ</string>
+    <string name="hadith_collection_abudawud">Abu Dawud na ɔkyerɛwee</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari na ɔkyerɛwee</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah na ɔkyerɛwee</string>
+    <string name="hadith_collection_muslim">Muslimfoɔ</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i na ɛyɛ adwuma</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40 na ɔkyerɛwee</string>
+    <string name="hadith_collection_other">Afoforo nso</string>
+    <string name="hadith_collection_riyad">Riyadh sɛ-Salihin na ɛwɔ hɔ</string>
+    <string name="hadith_collection_tirmidhi">Wɔ-Tirmidhi na ɛwɔ hɔ</string>
+    <string name="hadith_daily_notification">Da biara da hadith amanneɛbɔ</string>
+    <string name="hadith_daily_notification_desc">Nya hadith da biara da</string>
+    <string name="hadith_daily_notification_time">Bere a wɔde bɔ amanneɛ</string>
+    <string name="hadith_of_the_day">Hadith a ɛwɔ da no mu</string>
+    <string name="hadith_preview_hint">Eyi ne sɛnea da biara da hadith amanneɛbɔ no pue wɔ ne bere a wɔahyɛ no mu.</string>
+    <string name="hadith_preview_label">Amanneɛbɔ ho nhwɛso</string>
+    <string name="hadith_preview_loading">Loading hadith no a wɔde ahyɛ mu...</string>
+    <string name="hadith_search_hint">Hwehwɛ hadiths mu...</string>
+    <string name="hadith_share">Kyɛ</string>
+    <string name="hadith_title">Hadith Nhomakorabea</string>
+</resources>

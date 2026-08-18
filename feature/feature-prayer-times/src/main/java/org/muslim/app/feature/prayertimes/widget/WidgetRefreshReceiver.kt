@@ -17,6 +17,12 @@ import kotlinx.coroutines.launch
 class WidgetRefreshReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
+        if (intent.action !in setOf(
+                Intent.ACTION_BOOT_COMPLETED,
+                Intent.ACTION_TIMEZONE_CHANGED,
+                Intent.ACTION_TIME_CHANGED,
+                Intent.ACTION_DATE_CHANGED,
+            )) return
         val pendingResult = goAsync()
         CoroutineScope(Dispatchers.IO).launch {
             try {

@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Ekuseni, kusihlwa &amp; adhkar ngemuva kwemthandazo ngetibalo</string>
+    <string name="more_downloads">Kulandvwa kwekuphindzaphindza</string>
+    <string name="more_downloads_desc">Landa i-surah, i-ayah noma i-Quran lephelele nemfundzi wakho lomkhetsile</string>
+    <string name="more_hadith">I-Hadith</string>
+    <string name="more_hadith_desc">Umtapo we-Hadith, kusesha &amp; i-hadith yelusuku</string>
+    <string name="more_learn">Fundza</string>
+    <string name="more_learn_desc">Sinyatselo ngesinyatselo wudu &amp; ticondziso temthandazo</string>
+    <string name="more_ramadan">I-Ramadan</string>
+    <string name="more_ramadan_desc">Tikhatsi te-Suhoor ne-iftar kanye nemlandzeleli wekuzila</string>
+    <string name="more_reference">Umtapolwati Wetikhombo</string>
+    <string name="more_reference_desc">Singeniso sebuSulumane, iSira &amp; baphrofethi</string>
+    <string name="more_settings">Tilungiselelo</string>
+    <string name="more_settings_desc">Ingcikitsi, lulwimi, umthandazo &amp; emasethingi e-adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">I-misbaha yedijithali lenemlandvo wamalanga onkhe</string>
+    <string name="more_zakat">Izakathi</string>
+    <string name="more_zakat_desc">Zakat ngemcebo &amp; Fitr sibalo</string>
+    <string name="scaffold_message">I-skeleton yephrojekthi lenemojuli leminyenti ilungile.\nSigaba 1 — Adhan, tikhatsi temthandazo, Qibla, kanye nekhalenda ye-Hijri — icala lapha.</string>
+    <string name="shortcut_qibla">iQibla</string>
+    <string name="shortcut_qibla_long">Qibla sicondziso</string>
+    <string name="shortcut_settings">Tilungiselelo</string>
+    <string name="shortcut_settings_long">Umthandazo &amp; emasethingi e-adhan</string>
+    <string name="shortcut_times">Tikhatsi temthandazo</string>
+    <string name="shortcut_times_long">Namuhla\'s tikhatsi temthandazo</string>
+    <string name="tab_home">Tikhatsi Temthandazo</string>
+    <string name="tab_more">Lokunyenti</string>
+    <string name="tab_qibla">iQibla</string>
+    <string name="tab_quran">I-Quran</string>
 </resources>

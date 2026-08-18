@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — tẹ ni kia kia lati ka</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Fọwọ ba lati ka</string>
+    <string name="tasbih_back">Pada</string>
+    <string name="tasbih_cancel">Fagilee</string>
+    <string name="tasbih_confirm">O DARA</string>
+    <string name="tasbih_custom_target">Aṣa</string>
+    <string name="tasbih_custom_target_hint">Tẹ nọmba awọn iṣiro sii (lati 1 si 100000)</string>
+    <string name="tasbih_custom_target_title">Ṣeto ibi-afẹde aṣa</string>
+    <string name="tasbih_of_target">ti %1$s</string>
+    <string name="tasbih_reset">Tunto</string>
+    <string name="tasbih_reset_all">Tun gbogbo rẹ to</string>
+    <string name="tasbih_round_complete">Ipari ni kikun (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Awọn iyipo: %1$d</string>
+    <string name="tasbih_sound_desc">Mu ohun orin ipe tabi ohun orin ṣiṣẹ nigbati iyipo ni kikun ba ti pari</string>
+    <string name="tasbih_sound_title">Ohun lori afojusun</string>
+    <string name="tasbih_sound_tone_alarm">Itaniji</string>
+    <string name="tasbih_sound_tone_notification">Iwifunni</string>
+    <string name="tasbih_sound_tone_ringtone">Ohun orin ipe</string>
+    <string name="tasbih_tap_hint">Fọwọ ba Circle lati ka</string>
+    <string name="tasbih_target_reached">Ifojusi de - ki Allah gba</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Loni\'s lapapọ: %1$d</string>
+    <string name="tasbih_undo">Yipada</string>
+    <string name="tasbih_virtue_label">Iwa ti dhikr yii</string>
+    <string name="tasbih_week_stats">Awọn ọjọ 7 kẹhin</string>
+</resources>

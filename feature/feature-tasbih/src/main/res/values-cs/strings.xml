@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digitální misbaha – klepnutím započítejte</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Klepnutím započítejte</string>
+    <string name="tasbih_back">Zpět</string>
+    <string name="tasbih_cancel">Zrušit</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Vlastní</string>
+    <string name="tasbih_custom_target_hint">Zadejte počet počtů (od 1 do 100 000)</string>
+    <string name="tasbih_custom_target_title">Nastavte si vlastní cíl</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Resetovat</string>
+    <string name="tasbih_reset_all">Resetovat vše</string>
+    <string name="tasbih_round_complete">Kompletní kolo kompletní (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Náboje: %1$d</string>
+    <string name="tasbih_sound_desc">Po dokončení každého celého kola zahrajte vyzváněcí tón nebo tón</string>
+    <string name="tasbih_sound_title">Zvuk na cíl</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Oznámení</string>
+    <string name="tasbih_sound_tone_ringtone">Vyzváněcí tón</string>
+    <string name="tasbih_tap_hint">Chcete-li počítat, klepněte na kruh</string>
+    <string name="tasbih_target_reached">Cíl dosažen - kéž Alláh přijme</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Dnes celkem \': %1$d</string>
+    <string name="tasbih_undo">Vrátit zpět</string>
+    <string name="tasbih_virtue_label">Ctnost tohoto dhikr</string>
+    <string name="tasbih_week_stats">Posledních 7 dní</string>
+</resources>

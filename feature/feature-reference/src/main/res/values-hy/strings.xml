@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Ետ</string>
+    <string name="reference_no_results">Համապատասխան արդյունքներ չկան</string>
+    <string name="reference_search_hint">Որոնել այս գիրքը…</string>
+    <string name="reference_title">Իսլամական տեղեկատու գրադարան</string>
+    <string name="reference_topics_count">թեմաներ</string>
+</resources>

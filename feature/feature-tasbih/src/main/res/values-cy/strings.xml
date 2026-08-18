@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha digidol - tapiwch i gyfrif</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tapiwch i gyfrif</string>
+    <string name="tasbih_back">Yn ol</string>
+    <string name="tasbih_cancel">Canslo</string>
+    <string name="tasbih_confirm">iawn</string>
+    <string name="tasbih_custom_target">Custom</string>
+    <string name="tasbih_custom_target_hint">Rhowch nifer y cyfrifon (o 1 i 100000)</string>
+    <string name="tasbih_custom_target_title">Gosod targed personol</string>
+    <string name="tasbih_of_target">o %1$s</string>
+    <string name="tasbih_reset">Ailosod</string>
+    <string name="tasbih_reset_all">Ailosod y cyfan</string>
+    <string name="tasbih_round_complete">Rownd lawn wedi\'i chwblhau (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Rowndiau: %1$d</string>
+    <string name="tasbih_sound_desc">Chwarae tôn ffôn neu dôn pan fydd pob rownd lawn wedi\'i chwblhau</string>
+    <string name="tasbih_sound_title">Sain ar darged</string>
+    <string name="tasbih_sound_tone_alarm">Larwm</string>
+    <string name="tasbih_sound_tone_notification">Hysbysu</string>
+    <string name="tasbih_sound_tone_ringtone">Tôn ffôn</string>
+    <string name="tasbih_tap_hint">Tapiwch y cylch i gyfrif</string>
+    <string name="tasbih_target_reached">Cyrhaeddwyd y nod - bydded i Allah dderbyn</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Cyfanswm heddiw \'s: %1$d</string>
+    <string name="tasbih_undo">Dadwneud</string>
+    <string name="tasbih_virtue_label">Rhinwedd y dhikr hwn</string>
+    <string name="tasbih_week_stats">7 diwrnod diwethaf</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digitála misbaha — deaddilat lohkat</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Deadde lohkat</string>
+    <string name="tasbih_back">Ruovttoluotta</string>
+    <string name="tasbih_cancel">Heaittihit</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Eaktodáhtolaš</string>
+    <string name="tasbih_custom_target_hint">Čále lohkamiid logu (1 rájes gitta 100000 rádjái)</string>
+    <string name="tasbih_custom_target_title">Bija iešheanalaš mihttomeari</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Nuppástuhttit</string>
+    <string name="tasbih_reset_all">Nuppástuhttit buot</string>
+    <string name="tasbih_round_complete">Olles vuorru lea gárvvis (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Vuorru: %1$d</string>
+    <string name="tasbih_sound_desc">Čuojahit riŋgešuoŋa dahje jietnadaga go juohke olles vuorru lea čađahuvvon</string>
+    <string name="tasbih_sound_title">Jietna ulbmilii</string>
+    <string name="tasbih_sound_tone_alarm">Álarm</string>
+    <string name="tasbih_sound_tone_notification">Dieđiheapmi</string>
+    <string name="tasbih_sound_tone_ringtone">Riŋgenjietna</string>
+    <string name="tasbih_tap_hint">Deadde sirkusa lohkat</string>
+    <string name="tasbih_target_reached">Mihttomearri olahuvvon — Allah dohkkehivččii</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Odne\'s oktiibuot: %1$d</string>
+    <string name="tasbih_undo">Heaittihit</string>
+    <string name="tasbih_virtue_label">Dán dhikr árvu</string>
+    <string name="tasbih_week_stats">Maŋimuš 7 beaivvi</string>
+</resources>

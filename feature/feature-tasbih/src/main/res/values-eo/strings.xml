@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Cifereca misbaha — frapeti por kalkuli</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Frapu por kalkuli</string>
+    <string name="tasbih_back">Reen</string>
+    <string name="tasbih_cancel">Nuligi</string>
+    <string name="tasbih_confirm">Bone</string>
+    <string name="tasbih_custom_target">Kutimo</string>
+    <string name="tasbih_custom_target_hint">Enigu la nombron da kalkuloj (de 1 ĝis 100000)</string>
+    <string name="tasbih_custom_target_title">Agordu propran celon</string>
+    <string name="tasbih_of_target">de %1$s</string>
+    <string name="tasbih_reset">Restarigi</string>
+    <string name="tasbih_reset_all">Restarigi ĉion</string>
+    <string name="tasbih_round_complete">Plena rondo kompleta (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Rondoj: %1$d</string>
+    <string name="tasbih_sound_desc">Ludu ringtonon aŭ tonon kiam ĉiu plena rondo finiĝas</string>
+    <string name="tasbih_sound_title">Soni ĉe celo</string>
+    <string name="tasbih_sound_tone_alarm">Alarmo</string>
+    <string name="tasbih_sound_tone_notification">Sciigo</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Frapu la cirklon por kalkuli</string>
+    <string name="tasbih_target_reached">Celo atingita — Alaho akceptu</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Hodiaŭ \'-aj jaroj entute: %1$d</string>
+    <string name="tasbih_undo">Malfari</string>
+    <string name="tasbih_virtue_label">Virto de ĉi tiu dhikr</string>
+    <string name="tasbih_week_stats">Lastaj 7 tagoj</string>
+</resources>

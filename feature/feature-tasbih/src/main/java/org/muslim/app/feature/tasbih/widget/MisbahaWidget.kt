@@ -105,7 +105,8 @@ class MisbahaIncrementAction : ActionCallback {
             context.applicationContext,
             MisbahaWidgetEntryPoint::class.java,
         ).tasbihRepository()
-        repository.increment()
+        val state = repository.state.first()
+        repository.increment(state.phrase)
         MisbahaWidget.update(context)
     }
 }

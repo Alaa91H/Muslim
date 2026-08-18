@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Kembali</string>
+    <string name="reference_no_results">Tidak ada hasil yang cocok</string>
+    <string name="reference_search_hint">Telusuri buku ini…</string>
+    <string name="reference_title">Perpustakaan Referensi Islam</string>
+    <string name="reference_topics_count">topik</string>
+</resources>

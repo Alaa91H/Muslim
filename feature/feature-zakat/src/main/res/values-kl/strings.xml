@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Akit nammineerluni pissarsiarisinnaavatit</string>
+    <string name="zakat_auto_prices_hint">Atorneqarsinnaappat kuultip sølvillu akii internetimiit tiguneqartarput, nammineerlunilu nutarterneqartarlutik</string>
+    <string name="zakat_back">Taarsiullugu</string>
+    <string name="zakat_cash">Aningaasat aamma sipaarniutit</string>
+    <string name="zakat_clear_history">Oqaluttuaq ersarissumik</string>
+    <string name="zakat_country">Nuna</string>
+    <string name="zakat_country_placeholder">Nunat aningaasallu toqqaruk</string>
+    <string name="zakat_country_section">Nuna &amp; aningaasat</string>
+    <string name="zakat_currency">Aningaasat: %1$s</string>
+    <string name="zakat_debts">Akiitsut akiitsoqarfigisatit (aallaavittut)</string>
+    <string name="zakat_due">Zakat akiligassaq (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Akit \'t pissarsiarineqarsinnaanngillat. Attaveqaatit misissukkit imaluunniit aki manuelt allattukkit.</string>
+    <string name="zakat_fetch_now">Akit maanna nutarterlugit</string>
+    <string name="zakat_fetching">Akit pissarsiarineqarnerat...</string>
+    <string name="zakat_fitr_persons">Ilaqutariit amerlassusaat</string>
+    <string name="zakat_fitr_saa_value">Ataatsip nalinga sa\' (nerisassat pingaarnerit)</string>
+    <string name="zakat_fitr_section">Zakat Fitri</string>
+    <string name="zakat_fitr_total">Fitr-zakat katillugit: %1$s</string>
+    <string name="zakat_gold_grams">Kuulti (grammit)</string>
+    <string name="zakat_gold_price">Guldip akia grammimut</string>
+    <string name="zakat_history">Naatsorsuinermi oqaluttuassartaq</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Naatsorsuutit suli annaanneqanngillat.</string>
+    <string name="zakat_investments">Aningaasaliinerit</string>
+    <string name="zakat_last_updated">Kingullermik nutarterneqartoq: %1$s</string>
+    <string name="zakat_money_section">Pisuussutsimut Zakat</string>
+    <string name="zakat_nisab_gold">Kuulti nisab (85g)</string>
+    <string name="zakat_nisab_met">Nisab-i tikippoq — zakat-i pissaaq</string>
+    <string name="zakat_nisab_not_met">Nisab-ip ataani — zakat-imik akiliisoqanngilaq</string>
+    <string name="zakat_nisab_silver">Nisab sølviusoq (595g)</string>
+    <string name="zakat_rulings_note">Amerlanerussuteqartut naapertorlugit (jumhoor): kuulti nisab tassaavoq 85g, sølvi 595g, aammalu akiitsoq tassaavoq 2,5%% akiitsut akiligassat ilanngaatigereerlugit. Immikkut ittumik suliassanut ilisimatuumik piginnaasalimmik tusarniaagit.</string>
+    <string name="zakat_save_result">Oqaluttuarisaanermut allattorlugu</string>
+    <string name="zakat_silver_grams">Sølvi (grammit)</string>
+    <string name="zakat_silver_price">Sølv-ip akia grammimut</string>
+    <string name="zakat_source_note">Kuulti/sølvip akii kuulti-api.com-imiit; FX-it open.er-api.com-imiit</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Pigisat katillugit</string>
+    <string name="zakat_trade">Niuernermi nioqqutissat nalinga</string>
+    <string name="zakat_zakatable">Akiitsut kingorna zakaterneqarsinnaasoq</string>
+</resources>

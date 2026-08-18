@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">ንድሕሪት ተመሊስና።</string>
+    <string name="ramadan_countdown">ሮሞዳን ኣብ %1$s መዓልቲ ይጅምር</string>
+    <string name="ramadan_countdown_to_iftar">ክሳብ ኢፍታር ዝበጽሕ ግዜ፡ %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ናብ ፋጅር ዝወስድ ግዜ፡ %1$s</string>
+    <string name="ramadan_day_of_month">መዓልቲ %1$s ናይ ሮሞዳን</string>
+    <string name="ramadan_days_left">%1$s መዓልታት ተሪፍዎ ኣሎ።</string>
+    <string name="ramadan_fasting_progress">መዓልታት ጾም፡ %1$s ካብ %2$s — ንሓንቲ መዓልቲ ምጥዋቕ ክትምዝግባ</string>
+    <string name="ramadan_fasting_tracker">ናይ ጾም መከታተሊ</string>
+    <string name="ramadan_hijri_note">ኣብ ዓውደ ኣዋርሕ ኡም ኣል-ቁራ ዝተመርኮሰ ምስቲ ኣፕ-ዓቐን ምትዕርራይ ሂጅሪ ዝተተግበረ።</string>
+    <string name="ramadan_hijri_year">ዓመት %1$s ዓ.ም</string>
+    <string name="ramadan_iftar">ኢፍታር</string>
+    <string name="ramadan_iftar_dua">ልመና ኢፍታር፡ "ኦ ኣላህ ምእንታኻ እየ ጾም፡ ኣብ ስንቂካ ድማ ጾመይ ኣቋሪጸ..."</string>
+    <string name="ramadan_iftar_time">ናይ ኢፍታር (መግሪብ) ሰዓት፡ %1$s</string>
+    <string name="ramadan_location_required">ሰዓታት ንምርኣይ መጀመርታ ኣብ Settings ከተማ ምረጽ።</string>
+    <string name="ramadan_minutes">%1$s ደቒቕ</string>
+    <string name="ramadan_notification_iftar_body">ኦ ኣላህ ምእንታኻ ጾምኩ ኣብ ስንቅኻ ድማ ጾመይ ይፈርስ</string>
+    <string name="ramadan_notification_iftar_title">ናይ ኢፍታር ግዜ</string>
+    <string name="ramadan_notification_suhoor_body">ፋጅር ይቐርብ ኣሎ — ሱሆርካ ይሃልኻ</string>
+    <string name="ramadan_notification_suhoor_title">ሱሁር መዘኻኸሪ</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">ሱሁር</string>
+    <string name="ramadan_suhoor_remind_before">ቅድሚ ሕጂ ኣዘኻኽሩኒ፤</string>
+    <string name="ramadan_suhoor_time">ሱሁር ይውድእ (ፋጅር): %1$s</string>
+    <string name="ramadan_title">ሮሞዳን</string>
+</resources>

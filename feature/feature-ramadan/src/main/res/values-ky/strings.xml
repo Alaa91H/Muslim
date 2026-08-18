@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Артка</string>
+    <string name="ramadan_countdown">Рамазан %1$s күндөн кийин башталат</string>
+    <string name="ramadan_countdown_to_iftar">Ифтар убактысы: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Таңга чейинки убакыт: %1$s</string>
+    <string name="ramadan_day_of_month">Рамазан айынын %1$s күнү</string>
+    <string name="ramadan_days_left">%1$s күн калды</string>
+    <string name="ramadan_fasting_progress">Орозо күндөрү: %2$s ичинен %1$s — жаздыруу үчүн бир күндү таптаңыз</string>
+    <string name="ramadan_fasting_tracker">Орозо кармоочу</string>
+    <string name="ramadan_hijri_note">Умм аль-Кура календарына негизделген, колдонмо боюнча хижрий тууралоо колдонулган.</string>
+    <string name="ramadan_hijri_year">%1$s хижрий жылы</string>
+    <string name="ramadan_iftar">ифтар</string>
+    <string name="ramadan_iftar_dua">Ифтар дубасы: "Аллахым, Сен үчүн орозо кармадым жана Сенин ырыскың менен ооз ачтым..."</string>
+    <string name="ramadan_iftar_time">Ифтар (шам) убактысы: %1$s</string>
+    <string name="ramadan_location_required">Убакытты көрүү үчүн алгач Жөндөөлөрдөн шаарды тандаңыз.</string>
+    <string name="ramadan_minutes">%1$s мин</string>
+    <string name="ramadan_notification_iftar_body">Оо Аллахым, Сен үчүн орозо кармадым жана Сенин ырыскың менен ооз ачтым</string>
+    <string name="ramadan_notification_iftar_title">Ифтар убактысы</string>
+    <string name="ramadan_notification_suhoor_body">Багымдат жакындап калды - сухуруңузду өткөрүңүз</string>
+    <string name="ramadan_notification_suhoor_title">Сухур эскертүүсү</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Сухур</string>
+    <string name="ramadan_suhoor_remind_before">Мага мурун эскертип кой:</string>
+    <string name="ramadan_suhoor_time">Сухур аяктайт (Багымдат): %1$s</string>
+    <string name="ramadan_title">Рамазан</string>
+</resources>

@@ -10,4 +10,24 @@
     <string name="misbaha_widget_label">المسبحة</string>
     <string name="misbaha_widget_description">مسبحة إلكترونية — اضغط للعدّ</string>
     <string name="misbaha_widget_tap_hint">اضغط للعدّ</string>
+    <string name="tasbih_undo">تراجع</string>
+    <string name="tasbih_reset_all">تصفير الكل</string>
+    <string name="tasbih_custom_target">هدف مخصص</string>
+    <string name="tasbih_custom_target_title">تحديد هدف مخصص</string>
+    <string name="tasbih_custom_target_hint">أدخل عدد التسبيحات (من 1 إلى 100000)</string>
+    <string name="tasbih_confirm">موافق</string>
+    <string name="tasbih_cancel">إلغاء</string>
+    <string name="tasbih_virtue_label">فضل الذكر</string>
+    <string name="tasbih_total_today">إجمالي اليوم: %1$d</string>
+    <string name="tasbih_rounds">الجولات: %1$d</string>
+
+
+    <string name="tasbih_round_complete">أتممت جولة كاملة (%1$s) 🎉</string>
+
+
+    <string name="tasbih_sound_title">نغمة عند بلوغ الهدف</string>
+    <string name="tasbih_sound_desc">تشغيل رنين أو نغمة عند إتمام كل جولة كاملة</string>
+    <string name="tasbih_sound_tone_notification">نغمة الإشعار</string>
+    <string name="tasbih_sound_tone_ringtone">رنين الهاتف</string>
+    <string name="tasbih_sound_tone_alarm">نغمة المنبه</string>
 </resources>

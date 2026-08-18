@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Zia ngere ni automatiquement</string>
+    <string name="zakat_auto_prices_hint">Tongana a zi ni, a yeke mû ngere ti lor na ti argent na ndö ti internet na a yeke kiri na ni na place ni .</string>
+    <string name="zakat_back">Back .</string>
+    <string name="zakat_cash">Nginza na nginza so a bata .</string>
+    <string name="zakat_clear_history">Zia mbaï ni polele .</string>
+    <string name="zakat_country">Kodoro</string>
+    <string name="zakat_country_placeholder">Soro kodoro ti mo nga na nginza ti mo .</string>
+    <string name="zakat_country_section">Kodoro &amp; nginza</string>
+    <string name="zakat_currency">Nginza ti nginza: %1$s</string>
+    <string name="zakat_debts">Abon so mo yeke na ni (a zi ni)</string>
+    <string name="zakat_due">Zakat so a lingbi ti futa (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">A lingbi ti wara \'t ti wara ngere. Bâ connexion ti mo wala sû ngere ni na maboko.</string>
+    <string name="zakat_fetch_now">A kiri a leke ngere ni fadeso .</string>
+    <string name="zakat_fetching">Ti wara a prix...</string>
+    <string name="zakat_fitr_persons">Wungo ti azo ti sewa ni .</string>
+    <string name="zakat_fitr_saa_value">Valeur ti mbeni sa\' (kobe ti tongo nda ni)</string>
+    <string name="zakat_fitr_section">Zakat ti kobe</string>
+    <string name="zakat_fitr_total">Zakat ti Fitr kue: %1$s</string>
+    <string name="zakat_gold_grams">Lor (gramme)</string>
+    <string name="zakat_gold_price">Ngere ti lor na gramme oko oko .</string>
+    <string name="zakat_history">Mbaï ti calcul .</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">A bata acalcul ni pëpe.</string>
+    <string name="zakat_investments">A-investissement</string>
+    <string name="zakat_last_updated">A leke ni: %1$s</string>
+    <string name="zakat_money_section">Zakat na ndo ti mosoro .</string>
+    <string name="zakat_nisab_gold">Nisab ti lor (85g)</string>
+    <string name="zakat_nisab_met">Nisab ni asi — zakat ni ayeke .</string>
+    <string name="zakat_nisab_not_met">Na gbe ti nisab — a lingbi a futa zakat pëpe .</string>
+    <string name="zakat_nisab_silver">Nisab ti argent (595g)</string>
+    <string name="zakat_rulings_note">Na lege ti mingi ti azo (jumhoor): nisab ti lor ayeke 85g, argent ayeke 595g, na wungo ni ayeke 2,5%% na peko ti so a zi abon so a lingbi a futa. Bâ mbeni wandara so ahinga kua nzoni ndali ti ambeni ye so ayeke nde.</string>
+    <string name="zakat_save_result">Bata ni na yâ ti mbaï</string>
+    <string name="zakat_silver_grams">Argent (gramme)</string>
+    <string name="zakat_silver_price">Argent ayeke na gramme oko oko .</string>
+    <string name="zakat_source_note">A futa lor/argent na ndo ti lor-api.com; A-taux ti FX so alondo na open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Wungo ti aye kue</string>
+    <string name="zakat_trade">Valeur ti akota ye ti dengo buze</string>
+    <string name="zakat_zakatable">Zakatable wungo ti nginza na peko ti bon .</string>
+</resources>

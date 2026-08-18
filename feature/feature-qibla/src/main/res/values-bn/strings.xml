@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s দূরে</string>
+    <string name="mosque_finder_empty">এই পরিসরে কোন মসজিদ পাওয়া যায়নি</string>
+    <string name="mosque_finder_error">অনুসন্ধান ব্যর্থ হয়েছে</string>
+    <string name="mosque_finder_intro">OpenStreetMap এর মাধ্যমে আপনার অবস্থানের কাছাকাছি মসজিদ খুঁজুন</string>
+    <string name="mosque_finder_no_location">এখনও কোনো অবস্থান সেট করা হয়নি। প্রথমে নামাজের সময় সেটিংস থেকে একটি অবস্থান চয়ন করুন।</string>
+    <string name="mosque_finder_retry">আবার চেষ্টা করুন</string>
+    <string name="mosque_finder_searching">অনুসন্ধান করা হচ্ছে...</string>
+    <string name="mosque_finder_title">কাছাকাছি মসজিদ</string>
+    <string name="qibla_bearing_cardinal">কিবলা দিক: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">ক্যালিব্রেট করতে আপনার ফোনটিকে একটি চিত্র-আট-এ সরান</string>
+    <string name="qibla_distance">মক্কার দূরত্ব: %1$s</string>
+    <string name="qibla_distance_km">%,.0f কিমি</string>
+    <string name="qibla_facing">আপনি কিবলার দিকে মুখ করে আছেন 🕋</string>
+    <string name="qibla_gps_error">একটি সঠিক সমাধান পেতে পারেনি. আবার চেষ্টা করুন.</string>
+    <string name="qibla_gps_live">লাইভ জিপিএস অবস্থান</string>
+    <string name="qibla_gps_refresh">GPS এর মাধ্যমে অবস্থান রিফ্রেশ করুন</string>
+    <string name="qibla_gps_refreshing">সনাক্ত করা হচ্ছে...</string>
+    <string name="qibla_heading_degree">ফোন শিরোনাম: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">আপনার অবস্থান থেকে কাবা পর্যন্ত গ্রেট সার্কেল রুট — অফলাইনে কাজ করে</string>
+    <string name="qibla_map_kaaba">কাবা</string>
+    <string name="qibla_map_you">আপনি</string>
+    <string name="qibla_mode_compass">কম্পাস</string>
+    <string name="qibla_mode_map">মানচিত্র</string>
+    <string name="qibla_open_mosques">কাছাকাছি মসজিদ</string>
+    <string name="qibla_title">কিবলা দিক</string>
+    <string name="qibla_turn_left">বাম দিকে ঘুরুন %1$.1f°</string>
+    <string name="qibla_turn_right">ডানদিকে ঘুরুন %1$.1f°</string>
+</resources>

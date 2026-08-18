@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Բոլորը</string>
+    <string name="hadith_back">Ետ</string>
+    <string name="hadith_bookmark_add">Ավելացնել էջանիշ</string>
+    <string name="hadith_bookmark_remove">Հեռացնել էջանիշը</string>
+    <string name="hadith_collection_abudawud">Աբու Դաուդ</string>
+    <string name="hadith_collection_bukhari">Ալ-Բուխարի</string>
+    <string name="hadith_collection_ibnmajah">Իբն Մաջա</string>
+    <string name="hadith_collection_muslim">մահմեդական</string>
+    <string name="hadith_collection_nasai">Ան-Նասա\'i</string>
+    <string name="hadith_collection_nawawi">Ան-Նավավի 40</string>
+    <string name="hadith_collection_other">Այլ</string>
+    <string name="hadith_collection_riyad">Ռիադ աս-Սալիհին</string>
+    <string name="hadith_collection_tirmidhi">Աթ-Տիրմիդի</string>
+    <string name="hadith_daily_notification">Հադիսի ամենօրյա ծանուցում</string>
+    <string name="hadith_daily_notification_desc">Ամեն օր հադիս ստացեք</string>
+    <string name="hadith_daily_notification_time">Ծանուցման ժամանակը</string>
+    <string name="hadith_of_the_day">Օրվա հադիս</string>
+    <string name="hadith_preview_hint">Ահա թե ինչպես է հայտնվում ամենօրյա հադիսի ծանուցումը իր նախատեսված ժամին:</string>
+    <string name="hadith_preview_label">Ծանուցման նախադիտում</string>
+    <string name="hadith_preview_loading">Հադիսի բեռնում…</string>
+    <string name="hadith_search_hint">Որոնել հադիսներ…</string>
+    <string name="hadith_share">Կիսվել</string>
+    <string name="hadith_title">Հադիսների գրադարան</string>
+</resources>

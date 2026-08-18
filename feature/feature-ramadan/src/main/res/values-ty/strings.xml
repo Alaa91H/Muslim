@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Ho\'i</string>
+    <string name="ramadan_countdown">E haamata te Ramadan i muri a\'e e %1$s mahana</string>
+    <string name="ramadan_countdown_to_iftar">Te taime no te faaoti: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Te taime no te Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Te mahana %1$s no Ramadan</string>
+    <string name="ramadan_days_left">%1$s mahana i toe</string>
+    <string name="ramadan_fasting_progress">Fasting days: %1$s of %2$s — tap a day to record it</string>
+    <string name="ramadan_fasting_tracker">Taata hi\'opo\'a i te maa</string>
+    <string name="ramadan_hijri_note">Ia au i te ava\'e Umm al-Qura, ua faaohipahia te tauiraa Hijri na te ara.</string>
+    <string name="ramadan_hijri_year">Matahiti %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Te taparuraa Iftar: "E Allah, ua haapae vau i te maa no Oe, e ua haapae au i ta\'u haapaeraa maa i ni\'a i ta oe maa..."</string>
+    <string name="ramadan_iftar_time">Taime: %1$s</string>
+    <string name="ramadan_location_required">No te hi\'o i te mau taime, a maiti na mua i te hoê oire i roto i te mau Ta\'iraa.</string>
+    <string name="ramadan_minutes">%1$s minuti</string>
+    <string name="ramadan_notification_iftar_body">E Allah, ua haapae vau i te maa no Oe, e ua haapae au i ta\'u haapaeraa maa i ni\'a i ta oe maa</string>
+    <string name="ramadan_notification_iftar_title">Te taime no te iftar</string>
+    <string name="ramadan_notification_suhoor_body">Te fatata maira te Fajr - a rave i ta outou suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Te haamana\'oraa Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">A haamana\'o mai ia\'u na mua\'tu:</string>
+    <string name="ramadan_suhoor_time">Te hopea o te Suhoor (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

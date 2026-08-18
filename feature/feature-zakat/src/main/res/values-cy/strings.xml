@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Nôl prisiau yn awtomatig</string>
+    <string name="zakat_auto_prices_hint">Pan fyddant wedi\'u galluogi, mae prisiau aur ac arian yn cael eu nôl o\'r rhyngrwyd a\'u hadnewyddu\'n awtomatig</string>
+    <string name="zakat_back">Yn ol</string>
+    <string name="zakat_cash">Arian parod ac arbedion</string>
+    <string name="zakat_clear_history">Hanes clir</string>
+    <string name="zakat_country">Gwlad</string>
+    <string name="zakat_country_placeholder">Dewiswch eich gwlad ac arian cyfred</string>
+    <string name="zakat_country_section">Gwlad ac arian cyfred</string>
+    <string name="zakat_currency">Arian cyfred: %1$s</string>
+    <string name="zakat_debts">Dyledion sy\'n ddyledus gennych (wedi\'u tynnu)</string>
+    <string name="zakat_due">Zakat yn ddyledus (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t nôl prisiau. Gwiriwch eich cysylltiad neu nodwch y pris â llaw.</string>
+    <string name="zakat_fetch_now">Adnewyddu prisiau nawr</string>
+    <string name="zakat_fetching">Wrthi\'n nôl prisiau…</string>
+    <string name="zakat_fitr_persons">Nifer aelodau\'r teulu</string>
+    <string name="zakat_fitr_saa_value">Gwerth un sa\' (bwyd stwffwl)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Cyfanswm Fitr yn ôl: %1$s</string>
+    <string name="zakat_gold_grams">Aur (gramau)</string>
+    <string name="zakat_gold_price">Pris aur y gram</string>
+    <string name="zakat_history">Hanes cyfrifo</string>
+    <string name="zakat_history_amount">Cyfanswm: %1$s</string>
+    <string name="zakat_history_empty">Dim cyfrifiadau wedi\'u cadw eto.</string>
+    <string name="zakat_investments">Buddsoddiadau</string>
+    <string name="zakat_last_updated">Wedi\'i ddiweddaru ddiwethaf: %1$s</string>
+    <string name="zakat_money_section">Zakat ar gyfoeth</string>
+    <string name="zakat_nisab_gold">nisab aur (85g)</string>
+    <string name="zakat_nisab_met">Cyrhaeddir y nisab—zakat yn ddyledus</string>
+    <string name="zakat_nisab_not_met">O dan y nisab - dim zakat yn ddyledus</string>
+    <string name="zakat_nisab_silver">Nisab arian (595g)</string>
+    <string name="zakat_rulings_note">Fesul y mwyafrif (jumhoor): nisab aur yw 85g, arian 595g, a\'r gyfradd yw 2.5%% ar ôl didynnu dyledion dyledus. Ymgynghorwch ag ysgolhaig cymwys ar gyfer achosion arbennig.</string>
+    <string name="zakat_save_result">Cadw i hanes</string>
+    <string name="zakat_silver_grams">Arian (gramau)</string>
+    <string name="zakat_silver_price">Pris arian fesul gram</string>
+    <string name="zakat_source_note">Prisiau aur/arian o gold-api.com; Cyfraddau FX o open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Cyfanswm asedau</string>
+    <string name="zakat_trade">Gwerth nwyddau masnach</string>
+    <string name="zakat_zakatable">Swm Zakatable ar ôl dyledion</string>
+</resources>

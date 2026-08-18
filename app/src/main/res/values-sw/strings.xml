@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Mwislamu</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar ya asubuhi, jioni na baada ya sala yenye vihesabio</string>
+    <string name="more_downloads">Vipakuliwa vya kukariri</string>
+    <string name="more_downloads_desc">Pakua surah, aya au Quran kamili ukitumia msomaji uliyemchagua</string>
+    <string name="more_hadith">Hadithi</string>
+    <string name="more_hadith_desc">Maktaba ya Hadith, utafutaji &amp; hadith za siku</string>
+    <string name="more_learn">Jifunze</string>
+    <string name="more_learn_desc">Udhu wa hatua kwa hatua na miongozo ya maombi</string>
+    <string name="more_ramadan">Ramadhani</string>
+    <string name="more_ramadan_desc">Saa za Suhoor &amp; iftar na kifuatiliaji cha kufunga</string>
+    <string name="more_reference">Maktaba ya Marejeleo</string>
+    <string name="more_reference_desc">Utangulizi wa Uislamu, Sira na Mitume</string>
+    <string name="more_settings">Mipangilio</string>
+    <string name="more_settings_desc">Mandhari, lugha, maombi na mipangilio ya adhana</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digital misbaha yenye historia ya kila siku</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zaka ya utajiri na kikokotoo cha Fitr</string>
+    <string name="scaffold_message">Mifupa ya mradi wa moduli nyingi iko tayari.\nAwamu ya 1 - Adhana, nyakati za maombi, Qibla, na kalenda ya Hijri - inaanzia hapa.</string>
+    <string name="shortcut_qibla">Kibla</string>
+    <string name="shortcut_qibla_long">Mwelekeo wa Qibla</string>
+    <string name="shortcut_settings">Mipangilio</string>
+    <string name="shortcut_settings_long">Mipangilio ya maombi na adhana</string>
+    <string name="shortcut_times">Nyakati za maombi</string>
+    <string name="shortcut_times_long">nyakati za maombi za leo\'</string>
+    <string name="tab_home">Nyakati za Maombi</string>
+    <string name="tab_more">Zaidi</string>
+    <string name="tab_qibla">Kibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

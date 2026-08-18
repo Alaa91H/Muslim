@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Msilamu</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">M\'mawa, madzulo &amp; pambuyo popemphera adhkar yokhala ndi zowerengera</string>
+    <string name="more_downloads">Kutsitsa kobwerezabwereza</string>
+    <string name="more_downloads_desc">Tsitsani surah, ayah kapena Korani yonse ndi wowerenga wanu wosankhidwa</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Library ya Hadith, kufufuza &amp; hadith ya tsikulo</string>
+    <string name="more_learn">Phunzirani</string>
+    <string name="more_learn_desc">Udhu wapang\'onopang\'ono &amp; maupangiri a mapemphero</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Nthawi za Suhoor &amp; iftar ndi tracker yosala kudya</string>
+    <string name="more_reference">Reference Library</string>
+    <string name="more_reference_desc">Chiyambi cha Chisilamu, Sira &amp; Aneneri</string>
+    <string name="more_settings">Zokonda</string>
+    <string name="more_settings_desc">Mutu, chinenero, pemphero &amp; zoikamo adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digital misbaha yokhala ndi mbiri yatsiku ndi tsiku</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat pa chuma &amp; Fitr calculator</string>
+    <string name="scaffold_message">Mafupa a pulojekiti yamitundu yambiri ali okonzeka.\nPhase 1 - Adhan, nthawi ya mapemphero, Qibla, ndi kalendala ya Hijri - ikuyamba apa.</string>
+    <string name="shortcut_qibla">Chibela</string>
+    <string name="shortcut_qibla_long">Njira ya Qibla</string>
+    <string name="shortcut_settings">Zokonda</string>
+    <string name="shortcut_settings_long">Pemphero &amp; zokonda za adhan</string>
+    <string name="shortcut_times">Nthawi za mapemphero</string>
+    <string name="shortcut_times_long">Masiku ano\'s nthawi zamapemphero</string>
+    <string name="tab_home">Nthawi za Mapemphero</string>
+    <string name="tab_more">Zambiri</string>
+    <string name="tab_qibla">Chibela</string>
+    <string name="tab_quran">Korani</string>
 </resources>

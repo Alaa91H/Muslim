@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Юха</string>
+    <string name="ramadan_countdown">Рамадан бутт %1$s де даьлча долало .</string>
+    <string name="ramadan_countdown_to_iftar">Ифтар дан хан: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Рузбан хан: %1$s</string>
+    <string name="ramadan_day_of_month">Рамадан беттан %1$s-гӀа де</string>
+    <string name="ramadan_days_left">%1$s де дисина</string>
+    <string name="ramadan_fasting_progress">Fasting days: %1$s of %2$s — tap a day to record it</string>
+    <string name="ramadan_fasting_tracker">Марха кхабаран трекер</string>
+    <string name="ramadan_hijri_note">Уммул-Къуръан рузманан буха тӀехь, апп-шуьйра хӀижрин нисдар лелош.</string>
+    <string name="ramadan_hijri_year">Шо %1$s хиджр.</string>
+    <string name="ramadan_iftar">Ифтар</string>
+    <string name="ramadan_iftar_dua">Ифтаран доӀа: «Я АллахӀ, Хьан дуьхьа марха кхаьбна ас, Хьан рицкъанна тӀехь марха доху ас...»</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) time: %1$s</string>
+    <string name="ramadan_location_required">Настройкашкахь хьалха гӀала харжа, хенаш ган.</string>
+    <string name="ramadan_minutes">%1$s мин</string>
+    <string name="ramadan_notification_iftar_body">Йа АллахӀ, Хьан дуьхьа кхаьбна ас марха, Хьан рицкъа тӀехь марха доху ас</string>
+    <string name="ramadan_notification_iftar_title">Ифтар дан хан .</string>
+    <string name="ramadan_notification_suhoor_body">Фажр гергадогӀуш ду — хьайн сухьур хилийта</string>
+    <string name="ramadan_notification_suhoor_title">Сухьур дагадоуьйтуш</string>
+    <string name="ramadan_starts_on">%1$s — %2$s .</string>
+    <string name="ramadan_suhoor">Сухур</string>
+    <string name="ramadan_suhoor_remind_before">Хьалха дагадоуьйту:</string>
+    <string name="ramadan_suhoor_time">Сухьур чекхдолу (фаджр): %1$s</string>
+    <string name="ramadan_title">Рамадан бутт</string>
+</resources>

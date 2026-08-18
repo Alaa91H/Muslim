@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbah digital — pato\'i no te tai\'o</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Pato no te tai\'o</string>
+    <string name="tasbih_back">Ho\'i</string>
+    <string name="tasbih_cancel">Faaore</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Peu tumu</string>
+    <string name="tasbih_custom_target_hint">A tomo i te numera o te mau numera (mai te 1 e tae atu i te 100000)</string>
+    <string name="tasbih_custom_target_title">A haamau i te hoê fâ matauhia</string>
+    <string name="tasbih_of_target">o te %1$s</string>
+    <string name="tasbih_reset">Faahou faahou</string>
+    <string name="tasbih_reset_all">A faaho\'i faahou i te mau mea atoa</string>
+    <string name="tasbih_round_complete">Ua oti te poro\'i taatoa (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Te mau taahiraa: %1$d</string>
+    <string name="tasbih_sound_desc">Ia oti ana\'e te mau taahiraa atoa, a faata\'i i te hoê reo aore ra te hoê reo</string>
+    <string name="tasbih_sound_title">Te reo i ni\'a i te fâ</string>
+    <string name="tasbih_sound_tone_alarm">Alam</string>
+    <string name="tasbih_sound_tone_notification">Faaararaa</string>
+    <string name="tasbih_sound_tone_ringtone">Reo</string>
+    <string name="tasbih_tap_hint">Pato i te porohita no te tai\'o</string>
+    <string name="tasbih_target_reached">Ua naeahia te tapao - ia farii Allah</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Te taatoaraa o teie mahana: %1$d</string>
+    <string name="tasbih_undo">Faaora</string>
+    <string name="tasbih_virtue_label">Te huru maitai o teie dhikr</string>
+    <string name="tasbih_week_stats">mahana i ma\'iri</string>
+</resources>

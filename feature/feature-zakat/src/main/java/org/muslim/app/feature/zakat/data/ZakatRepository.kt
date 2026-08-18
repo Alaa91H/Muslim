@@ -1,6 +1,7 @@
 package org.muslim.app.feature.zakat.data
 
 import android.content.Context
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.doublePreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -30,11 +31,18 @@ data class ZakatPreferences(
     val lastInput: ZakatInput = ZakatInput(),
     val fitrSaaValue: Double = 25.0,
     val history: List<ZakatHistoryEntry> = emptyList(),
+    /** ISO 3166-1 alpha-2 country code chosen for local-currency pricing. */
+    val countryCode: String = "",
+    /** True when live metal prices are fetched (and refreshed) automatically. */
+    val autoPrices: Boolean = false,
+    /** ISO timestamp of the last successful live-price fetch, if any. */
+    val lastUpdatedAt: String? = null,
 )
 
 /**
  * Persists zakat inputs, the manual gold/silver prices (offline-first per
- * §6 Phase 7 — network updates are optional) and the yearly history.
+ * §6 Phase 7 — network updates are optional), the chosen country/currency for
+ * the global calculator and the yearly history.
  */
 @Singleton
 class ZakatRepository @Inject constructor(
@@ -59,6 +67,9 @@ class ZakatRepository @Inject constructor(
             history = runCatching {
                 json.decodeFromString<List<ZakatHistoryEntry>>(prefs[Keys.HISTORY] ?: "[]")
             }.getOrDefault(emptyList()),
+            countryCode = prefs[Keys.COUNTRY] ?: "",
+            autoPrices = prefs[Keys.AUTO_PRICES] ?: false,
+            lastUpdatedAt = prefs[Keys.LAST_UPDATED],
         )
     }
 
@@ -77,6 +88,28 @@ class ZakatRepository @Inject constructor(
 
     suspend fun saveFitrSaaValue(value: Double) {
         context.zakatDataStore.edit { prefs -> prefs[Keys.FITR_SAA] = value }
+    }
+
+    /** Remembers the user's country (ISO 3166-1 alpha-2) for FX pricing. */
+    suspend fun saveCountry(code: String) {
+        context.zakatDataStore.edit { prefs -> prefs[Keys.COUNTRY] = code }
+    }
+
+    /** Turns automatic live-price fetching on or off. */
+    suspend fun setAutoPrices(enabled: Boolean) {
+        context.zakatDataStore.edit { prefs -> prefs[Keys.AUTO_PRICES] = enabled }
+    }
+
+    /**
+     * Persists the live per-gram prices fetched from the network, together with
+     * the provider timestamp, so the calculator works offline afterwards.
+     */
+    suspend fun saveLivePrices(goldPerGram: Double, silverPerGram: Double, updatedAt: String?) {
+        context.zakatDataStore.edit { prefs ->
+            prefs[Keys.GOLD_PRICE] = goldPerGram
+            prefs[Keys.SILVER_PRICE] = silverPerGram
+            if (updatedAt != null) prefs[Keys.LAST_UPDATED] = updatedAt
+        }
     }
 
     suspend fun addHistoryEntry(zakatableAmount: Double, zakatDue: Double) {
@@ -107,5 +140,8 @@ class ZakatRepository @Inject constructor(
         val DEBTS = doublePreferencesKey("debts")
         val FITR_SAA = doublePreferencesKey("fitr_saa")
         val HISTORY = stringPreferencesKey("history")
+        val COUNTRY = stringPreferencesKey("country_code")
+        val AUTO_PRICES = booleanPreferencesKey("auto_prices")
+        val LAST_UPDATED = stringPreferencesKey("last_updated_at")
     }
 }

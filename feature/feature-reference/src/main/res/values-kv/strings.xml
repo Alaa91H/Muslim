@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Бӧр</string>
+    <string name="reference_no_results">Некутшӧм ӧткодь результатъяс абуӧсь .</string>
+    <string name="reference_search_hint">Корсь тайӧ небӧгсӧ...</string>
+    <string name="reference_title">Исламскӧй справочник библиотека .</string>
+    <string name="reference_topics_count">темаяс</string>
+</resources>

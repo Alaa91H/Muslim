@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s kuro</string>
+    <string name="mosque_finder_empty">Ko si awọn mọṣalaṣi ti a rii ni sakani yii</string>
+    <string name="mosque_finder_error">Iwadi kuna</string>
+    <string name="mosque_finder_intro">Wa awọn mọṣalaṣi nitosi ipo rẹ nipasẹ OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Ko si ipo ti a ṣeto sibẹsibẹ. Yan ipo kan lati awọn eto akoko adura ni akọkọ.</string>
+    <string name="mosque_finder_retry">Tun gbiyanju</string>
+    <string name="mosque_finder_searching">Ṣiṣawari…</string>
+    <string name="mosque_finder_title">Awọn mọṣalaṣi nitosi</string>
+    <string name="qibla_bearing_cardinal">Ilana Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Gbe foonu rẹ ni nọmba-mẹjọ lati ṣe iwọntunwọnsi</string>
+    <string name="qibla_distance">Ijinna si Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">O dojukọ Qibla 🕋</string>
+    <string name="qibla_gps_error">Ko le ri atunṣe to peye. Jọwọ gbiyanju lẹẹkansi.</string>
+    <string name="qibla_gps_live">Ipo GPS Live</string>
+    <string name="qibla_gps_refresh">Tun ipo nipasẹ GPS</string>
+    <string name="qibla_gps_refreshing">Nwá…</string>
+    <string name="qibla_heading_degree">Akọle foonu: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Ona-yipo nla lati ipo rẹ si Kaaba — ṣiṣẹ offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Iwọ</string>
+    <string name="qibla_mode_compass">Kompasi</string>
+    <string name="qibla_mode_map">Maapu</string>
+    <string name="qibla_open_mosques">Awọn mọṣalaṣi nitosi</string>
+    <string name="qibla_title">Qibla itọsọna</string>
+    <string name="qibla_turn_left">Yipada si osi %1$.1f°</string>
+    <string name="qibla_turn_right">Yipada si ọtun %1$.1f°</string>
+</resources>

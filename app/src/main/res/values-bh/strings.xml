@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">मुसलमान</string>
+    <string name="more_adhkar">अधकर के ह</string>
+    <string name="more_adhkar_desc">सबेरे, शाम &amp; नमाज के बाद के अधकार काउंटर के साथ</string>
+    <string name="more_downloads">पाठ डाउनलोड हो जाला</string>
+    <string name="more_downloads_desc">अपना चुनल पाठक से कवनो सूरह, आयत भा पूरा कुरान डाउनलोड करीं</string>
+    <string name="more_hadith">हदीस के बा</string>
+    <string name="more_hadith_desc">हदीस लाइब्रेरी, खोज &amp; दिन के हदीस</string>
+    <string name="more_learn">सीख लीं</string>
+    <string name="more_learn_desc">स्टेप-बाय-स्टेप वूडू &amp; प्रार्थना के गाइड बा</string>
+    <string name="more_ramadan">रमजान के बा</string>
+    <string name="more_ramadan_desc">सुहूर &amp; इफ्तार के समय आ फास्टिंग ट्रैकर</string>
+    <string name="more_reference">संदर्भ पुस्तकालय के बा</string>
+    <string name="more_reference_desc">इस्लाम, सीरा &amp; नबी लोग के परिचय</string>
+    <string name="more_settings">सेटिंग्स के बारे में बतावल गइल बा</string>
+    <string name="more_settings_desc">थीम, भाषा, प्रार्थना &amp; अधान सेटिंग्स के बारे में बतावल गइल बा</string>
+    <string name="more_tasbih">तसबीह के बा</string>
+    <string name="more_tasbih_desc">दैनिक इतिहास के साथ डिजिटल मिसबाहा</string>
+    <string name="more_zakat">जकात के बा</string>
+    <string name="more_zakat_desc">धन &amp; फितर कैलकुलेटर पर जकात</string>
+    <string name="scaffold_message">बहु-मॉड्यूल प्रोजेक्ट कंकाल तैयार बा।\nचरण 1 — अधान, नमाज के समय, किबला, आ हिजरी कैलेंडर — इहाँ से शुरू होला।</string>
+    <string name="shortcut_qibla">किबला के बा</string>
+    <string name="shortcut_qibla_long">किबला के दिशा में बा</string>
+    <string name="shortcut_settings">सेटिंग्स के बारे में बतावल गइल बा</string>
+    <string name="shortcut_settings_long">प्रार्थना &amp; अधन सेटिंग्स के बा</string>
+    <string name="shortcut_times">प्रार्थना के समय होला</string>
+    <string name="shortcut_times_long">आज\' के दशक के नमाज के समय</string>
+    <string name="tab_home">प्रार्थना के समय बा</string>
+    <string name="tab_more">अउरी बा</string>
+    <string name="tab_qibla">किबला के बा</string>
+    <string name="tab_quran">कुरान के ह</string>
 </resources>

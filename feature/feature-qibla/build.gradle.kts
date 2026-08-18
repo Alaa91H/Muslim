@@ -30,9 +30,13 @@ dependencies {
     implementation(project(":core:core-ui"))
     implementation(project(":core:core-common"))
     implementation(project(":core:core-location"))
+    implementation(project(":core:core-permissions"))
 
     // Mosque finder: Overpass JSON over OkHttp
     implementation(libs.okhttp)
+
+    // OpenStreetMap rendering (MapLibre GL Native — free, no API key)
+    implementation(libs.maplibre.android)
     implementation(libs.kotlinx.serialization.json)
 
     implementation(platform(libs.androidx.compose.bom))

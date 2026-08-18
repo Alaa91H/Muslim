@@ -58,7 +58,7 @@ data class PrayerCountdownData(
             }
 
             val zone = ZoneId.of(location.timeZone)
-            val coordinates = Coordinates(location.latitude, location.longitude)
+            val coordinates = Coordinates(location.latitude, location.longitude, location.elevation)
             val params = settings.toPrayerParameters()
             val today = Instant.ofEpochMilli(nowMillis).atZone(zone).toLocalDate()
 

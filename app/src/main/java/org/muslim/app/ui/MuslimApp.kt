@@ -7,7 +7,6 @@ import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.MoreHoriz
-import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -39,13 +38,13 @@ import org.muslim.app.feature.prayertimes.ui.settings.PrayerSettingsScreen
 import org.muslim.app.feature.adhkar.ui.AdhkarScreen
 import org.muslim.app.feature.hadith.ui.HadithScreen
 import org.muslim.app.feature.learn.ui.LearnScreen
-import org.muslim.app.feature.prayertimes.ui.times.PrayerTimesScreen
 import org.muslim.app.feature.qibla.ui.MosqueFinderScreen
 import org.muslim.app.feature.qibla.ui.QiblaScreen
 import org.muslim.app.feature.quran.ui.BookmarksScreen
 import org.muslim.app.feature.ramadan.ui.RamadanScreen
 import org.muslim.app.feature.quran.ui.QuranDownloadsScreen
 import org.muslim.app.feature.quran.ui.QuranReaderScreen
+import org.muslim.app.feature.quran.ui.QuranWordFrequencyScreen
 import org.muslim.app.feature.quran.ui.SearchScreen
 import org.muslim.app.feature.quran.ui.SurahListScreen
 import org.muslim.app.feature.reference.ui.ReferenceScreen
@@ -66,7 +65,6 @@ private data class Tab(
 private val tabs = listOf(
     Tab("home", R.string.tab_home, Icons.Default.Home),
     Tab("quran", R.string.tab_quran, Icons.AutoMirrored.Filled.MenuBook),
-    Tab("times", R.string.tab_times, Icons.Default.Schedule),
     Tab("qibla", R.string.tab_qibla, Icons.Default.Explore),
     Tab("more", R.string.tab_more, Icons.Default.MoreHoriz),
 )
@@ -74,6 +72,7 @@ private val tabs = listOf(
 private const val READER_ROUTE = "quran/reader"
 private const val SEARCH_ROUTE = "quran/search"
 private const val BOOKMARKS_ROUTE = "quran/bookmarks"
+private const val QURAN_FREQUENCY_ROUTE = "quran/frequency"
 private const val SETTINGS_ROUTE = "settings"
 private const val PRAYER_SETTINGS_ROUTE = "settings/prayer"
 private const val NOTIFICATIONS_ROUTE = "settings/notifications"
@@ -169,10 +168,14 @@ fun MuslimApp(
                         onOpenSurah = { number -> navController.navigate("$READER_ROUTE/$number") },
                         onOpenSearch = { navController.navigate(SEARCH_ROUTE) },
                         onOpenBookmarks = { navController.navigate(BOOKMARKS_ROUTE) },
+                        onOpenWordFrequency = { navController.navigate(QURAN_FREQUENCY_ROUTE) },
                         onResumeReading = { surah, global ->
                             navController.navigate("$READER_ROUTE/$surah?ayah=$global")
                         },
                     )
+                }
+                composable(QURAN_FREQUENCY_ROUTE) {
+                    QuranWordFrequencyScreen(onBack = { navController.popBackStack() })
                 }
                 composable(SEARCH_ROUTE) {
                     SearchScreen(
@@ -201,9 +204,6 @@ fun MuslimApp(
                     ),
                 ) {
                     QuranReaderScreen(onBack = { navController.popBackStack() })
-                }
-                composable("times") {
-                    PrayerTimesScreen()
                 }
                 composable("qibla") {
                     val selected = location

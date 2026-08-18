@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar ya mo mosong, ya maitseboa le ya morago ga thapelo e e nang le dibadi</string>
+    <string name="more_downloads">Ditaisololo tsa go boeletsa</string>
+    <string name="more_downloads_desc">Laisolola surah, ayah kgotsa Quran ka botlalo le mmadi yo o mo tlhophileng</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Laeborari ya dihadith, patlisiso le hadith ya letsatsi</string>
+    <string name="more_learn">Ithute</string>
+    <string name="more_learn_desc">Dikaelo tsa wudu le thapelo tsa kgato ka kgato</string>
+    <string name="more_ramadan">Ramadane</string>
+    <string name="more_ramadan_desc">Dinako tsa Suhoor le iftar le sediriswa sa go itima dijo</string>
+    <string name="more_reference">Laeborari ya Ditshupiso</string>
+    <string name="more_reference_desc">Matseno a Boiselamo, Sira le baporofeti</string>
+    <string name="more_settings">Diseting</string>
+    <string name="more_settings_desc">Setlhogo, puo, thapelo le dipeakanyo tsa adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha ya dijithale e e nang le hisetori ya letsatsi le letsatsi</string>
+    <string name="more_zakat">Zakate</string>
+    <string name="more_zakat_desc">Zakat mo khumong le khalekhuleita ya Fitr</string>
+    <string name="scaffold_message">Lerapo la porojeke ya dimojulu tse dintsi le siame.\nKgato 1 — Adhan, dinako tsa thapelo, Qibla, le khalendara ya Hijri — e simolola fano.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Tsela ya Qibla</string>
+    <string name="shortcut_settings">Diseting</string>
+    <string name="shortcut_settings_long">Dipeakanyo tsa thapelo le adhan</string>
+    <string name="shortcut_times">Dinako tsa thapelo</string>
+    <string name="shortcut_times_long">Dinako tsa thapelo tsa bo\' tsa gompieno</string>
+    <string name="tab_home">Dinako tsa Thapelo</string>
+    <string name="tab_more">Tse dingwe</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

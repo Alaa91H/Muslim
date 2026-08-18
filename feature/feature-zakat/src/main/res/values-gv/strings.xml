@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Fetch priceyn dy h-automagh</string>
+    <string name="zakat_auto_prices_hint">Nush t\'eh er ny choyrt, t\'ad jannoo ymmyd jeh priceyn oor as airh veih\'n internet as t\'ad er nyn ghlenney dy h-automagh</string>
+    <string name="zakat_back">Arrish</string>
+    <string name="zakat_cash">Argid as sparran</string>
+    <string name="zakat_clear_history">Taishbyney tashtey</string>
+    <string name="zakat_country">Çheer.</string>
+    <string name="zakat_country_placeholder">Taght dty çheer as dty airgey</string>
+    <string name="zakat_country_section">Twoaie &amp; airgey</string>
+    <string name="zakat_currency">Argid: %1$s</string>
+    <string name="zakat_debts">Fiammyn ta ayd (er nyn goyrt magh)</string>
+    <string name="zakat_due">Zakat ry-gheddyn (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Cha row \'t ry-gheddyn priceyn. Check dty cheshaght ny cuir stiagh y price lesh laue.</string>
+    <string name="zakat_fetch_now">Refresh priceyn nish</string>
+    <string name="zakat_fetching">Ta priceyn ry-gheddyn...</string>
+    <string name="zakat_fitr_persons">Lhiasaghey ny mraane jeh\'n teihll</string>
+    <string name="zakat_fitr_saa_value">Ard-valley un sa\' (bioagh bun-sthie)</string>
+    <string name="zakat_fitr_section">Zakat yn Fitr</string>
+    <string name="zakat_fitr_total">Zakat Fitr ooilley: %1$s</string>
+    <string name="zakat_gold_grams">Oor (grammyn)</string>
+    <string name="zakat_gold_price">Priis oor dagh gram</string>
+    <string name="zakat_history">Taishbyney reiht</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Cha nel rieughid erbee er ny scanshoil foast.</string>
+    <string name="zakat_investments">Taishbyney</string>
+    <string name="zakat_last_updated">Yn aght s\'jerree: %1$s</string>
+    <string name="zakat_money_section">Zakat er berchys</string>
+    <string name="zakat_nisab_gold">Nisab oor (85g)</string>
+    <string name="zakat_nisab_met">Ta\'n nisab er ny choyrt — ta\'n zakat er ny choyrt .</string>
+    <string name="zakat_nisab_not_met">Fo\'n nisab — cha nel zakat erbee</string>
+    <string name="zakat_nisab_silver">Nisab argid (595g)</string>
+    <string name="zakat_rulings_note">Per y chooid smoo (jumhoor): ta nisab oor 85g, argid 595g, as y red 2.5%% erreish da ny fialyn ry-hoi y chur magh. Cur-my-ner scholar scanshoil son caghlaaghyn speisialta.</string>
+    <string name="zakat_save_result">Save gys tashtey</string>
+    <string name="zakat_silver_grams">Argid (grammyn)</string>
+    <string name="zakat_silver_price">Priis argid dagh gram</string>
+    <string name="zakat_source_note">Priceyn oor/argid veih oor-api.com; Reihyn FX veih open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Towse immeeaght</string>
+    <string name="zakat_trade">Ard-valley marchagh</string>
+    <string name="zakat_zakatable">Suim Zakatable erreish da fiammyn</string>
+</resources>

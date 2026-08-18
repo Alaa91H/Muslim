@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">ဒစ်ဂျစ်တယ် misbaha — ရေတွက်ရန် တို့ပါ။</string>
+    <string name="misbaha_widget_label">တက်ဗိ</string>
+    <string name="misbaha_widget_tap_hint">ရေတွက်ရန် တို့ပါ။</string>
+    <string name="tasbih_back">ကျော</string>
+    <string name="tasbih_cancel">မလုပ်တော့</string>
+    <string name="tasbih_confirm">အိုကေ</string>
+    <string name="tasbih_custom_target">စိတ်ကြိုက်</string>
+    <string name="tasbih_custom_target_hint">အရေအတွက်ကို ထည့်ပါ (1 မှ 100000)</string>
+    <string name="tasbih_custom_target_title">စိတ်ကြိုက်ပစ်မှတ်တစ်ခု သတ်မှတ်ပါ။</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">ပြန်လည်သတ်မှတ်ပါ။</string>
+    <string name="tasbih_reset_all">အားလုံးကို ပြန်လည်သတ်မှတ်ပါ။</string>
+    <string name="tasbih_round_complete">လုံးပြည့် (%1$s) 🎉 အပြည့်အစုံ</string>
+    <string name="tasbih_rounds">အဝိုင်း: %1$d</string>
+    <string name="tasbih_sound_desc">အဝိုင်းတစ်ခုစီပြီးသွားသောအခါ ဖုန်းမြည်သံ သို့မဟုတ် အသံကိုဖွင့်ပါ။</string>
+    <string name="tasbih_sound_title">ပစ်မှတ်ကို အသံထွက်တယ်။</string>
+    <string name="tasbih_sound_tone_alarm">နှိုးစက်</string>
+    <string name="tasbih_sound_tone_notification">အသိပေးချက်</string>
+    <string name="tasbih_sound_tone_ringtone">ဖုန်းမြည်သံ</string>
+    <string name="tasbih_tap_hint">ရေတွက်ရန် စက်ဝိုင်းကို နှိပ်ပါ။</string>
+    <string name="tasbih_target_reached">ပန်းတိုင်ရောက်ပါစေ- အလ္လာဟ်အရှင်မြတ်လက်ခံပါစေ။</string>
+    <string name="tasbih_title">တက်ဗိ</string>
+    <string name="tasbih_total_today">ယနေ့ \'s စုစုပေါင်း: %1$d</string>
+    <string name="tasbih_undo">မလုပ်တော့</string>
+    <string name="tasbih_virtue_label">ဤဒိကရိ၏သီလ</string>
+    <string name="tasbih_week_stats">လွန်ခဲ့သော 7 ရက်</string>
+</resources>

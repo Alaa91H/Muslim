@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Emuva</string>
+    <string name="ramadan_countdown">I-Ramadan icala ngemalanga langu-%1$s</string>
+    <string name="ramadan_countdown_to_iftar">Sikhatsi se-iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Sikhatsi sekuya eFajr: %1$s</string>
+    <string name="ramadan_day_of_month">Lilanga lesi-%1$s le-Ramadan</string>
+    <string name="ramadan_days_left">Kusele emalanga langu %1$s</string>
+    <string name="ramadan_fasting_progress">Fasting days: %1$s of %2$s — tap a day to record it</string>
+    <string name="ramadan_fasting_tracker">Umlandzeleli wekuzila</string>
+    <string name="ramadan_hijri_note">Kususelwa kukhalenda ye-Umm al-Qura ngekulungiswa kwe-Hijri ye-app-wide kusetjentisiwe.</string>
+    <string name="ramadan_hijri_year">Umnyaka %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar kuncusa: "O Allah, ngawe ngazila futsi ngekuphakela kwakho ngiphula kuzila kwami..."</string>
+    <string name="ramadan_iftar_time">Sikhatsi se-Iftar (seMghrib): %1$s</string>
+    <string name="ramadan_location_required">Khetsa lidolobha ku Settings kucala kute ubone tikhatsi.</string>
+    <string name="ramadan_minutes">%1$s imizuzu</string>
+    <string name="ramadan_notification_iftar_body">O Allah, ngenca yakho ngazila futsi ngekuphakela kwakho ngiphula kuzila kwami</string>
+    <string name="ramadan_notification_iftar_title">Sikhatsi se-iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr uyasondzela — ube ne suhoor yakho .</string>
+    <string name="ramadan_notification_suhoor_title">Sikhumbuto se Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">I-Shoor</string>
+    <string name="ramadan_suhoor_remind_before">Ngikhumbute ngaphambili:</string>
+    <string name="ramadan_suhoor_time">Kuphela kweLilanga (Fajr): %1$s</string>
+    <string name="ramadan_title">I-Ramadan</string>
+</resources>

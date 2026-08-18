@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Mbrapa</string>
+    <string name="ramadan_countdown">Ramazani fillon në %1$s ditë</string>
+    <string name="ramadan_countdown_to_iftar">Koha për iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Koha e sabahut: %1$s</string>
+    <string name="ramadan_day_of_month">Dita %1$s e Ramazanit</string>
+    <string name="ramadan_days_left">Kanë mbetur edhe %1$s ditë</string>
+    <string name="ramadan_fasting_progress">Ditët e agjërimit: %1$s nga %2$s — prekni një ditë për ta regjistruar</string>
+    <string name="ramadan_fasting_tracker">Gjurmues i agjërimit</string>
+    <string name="ramadan_hijri_note">Bazuar në kalendarin Umm al-Qura me përshtatjen e hixhrit në të gjithë aplikacionin.</string>
+    <string name="ramadan_hijri_year">Viti %1$s Hixhri</string>
+    <string name="ramadan_iftar">Iftari</string>
+    <string name="ramadan_iftar_dua">Lutja e iftarit: “O Allah, për Ty agjërova dhe me furnizimin Tënd e prish agjërimin…”</string>
+    <string name="ramadan_iftar_time">Koha e iftarit: %1$s</string>
+    <string name="ramadan_location_required">Zgjidhni fillimisht një qytet te "Cilësimet" për të parë oraret.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, për Ty agjërova dhe me furnizimin Tënd e prish agjërimin</string>
+    <string name="ramadan_notification_iftar_title">Koha për iftar</string>
+    <string name="ramadan_notification_suhoor_body">Sabahu po afron - bëni syfyrin</string>
+    <string name="ramadan_notification_suhoor_title">Përkujtim për syfyr</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Syfyr</string>
+    <string name="ramadan_suhoor_remind_before">Më kujto më parë:</string>
+    <string name="ramadan_suhoor_time">Përfundon syfyr (Sabah): %1$s</string>
+    <string name="ramadan_title">Ramazani</string>
+</resources>

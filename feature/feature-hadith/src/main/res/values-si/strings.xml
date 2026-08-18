@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">සියල්ල</string>
+    <string name="hadith_back">ආපසු</string>
+    <string name="hadith_bookmark_add">පිටු සලකුණ එක් කරන්න</string>
+    <string name="hadith_bookmark_remove">පිටු සලකුණ ඉවත් කරන්න</string>
+    <string name="hadith_collection_abudawud">අබු දාවුද්</string>
+    <string name="hadith_collection_bukhari">අල්-බුහාරි</string>
+    <string name="hadith_collection_ibnmajah">ඉබ්නු මාජා</string>
+    <string name="hadith_collection_muslim">මුස්ලිම්</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">අන්-නවවි 40</string>
+    <string name="hadith_collection_other">වෙනත්</string>
+    <string name="hadith_collection_riyad">රියාද් අස්-සාලිහින්</string>
+    <string name="hadith_collection_tirmidhi">තිර්මිදි</string>
+    <string name="hadith_daily_notification">දිනපතා හදීස් නිවේදනය</string>
+    <string name="hadith_daily_notification_desc">සෑම දිනකම හදීසයක් ලබා ගන්න</string>
+    <string name="hadith_daily_notification_time">දැනුම්දීමේ වේලාව</string>
+    <string name="hadith_of_the_day">දවසේ හදීස්</string>
+    <string name="hadith_preview_hint">දෛනික හදීස් නිවේදනය නියමිත වේලාවට දිස්වන්නේ එලෙස ය.</string>
+    <string name="hadith_preview_label">දැනුම්දීම් පෙරදසුන</string>
+    <string name="hadith_preview_loading">හදීසය පූරණය කරමින්...</string>
+    <string name="hadith_search_hint">හදීස් සොයන්න...</string>
+    <string name="hadith_share">බෙදාගන්න</string>
+    <string name="hadith_title">හදීස් පුස්තකාලය</string>
+</resources>

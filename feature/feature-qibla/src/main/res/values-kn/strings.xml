@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ದೂರದಲ್ಲಿದೆ</string>
+    <string name="mosque_finder_empty">ಈ ವ್ಯಾಪ್ತಿಯಲ್ಲಿ ಯಾವುದೇ ಮಸೀದಿಗಳು ಕಂಡುಬಂದಿಲ್ಲ</string>
+    <string name="mosque_finder_error">ಹುಡುಕಾಟ ವಿಫಲವಾಗಿದೆ</string>
+    <string name="mosque_finder_intro">OpenStreetMap ಮೂಲಕ ನಿಮ್ಮ ಸ್ಥಳದ ಬಳಿ ಮಸೀದಿಗಳನ್ನು ಹುಡುಕಿ</string>
+    <string name="mosque_finder_no_location">ಇನ್ನೂ ಯಾವುದೇ ಸ್ಥಳವನ್ನು ಹೊಂದಿಸಲಾಗಿಲ್ಲ. ಮೊದಲು ಪ್ರಾರ್ಥನೆ ಸಮಯದ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ಸ್ಥಳವನ್ನು ಆರಿಸಿ.</string>
+    <string name="mosque_finder_retry">ಮರುಪ್ರಯತ್ನಿಸಿ</string>
+    <string name="mosque_finder_searching">ಹುಡುಕಲಾಗುತ್ತಿದೆ...</string>
+    <string name="mosque_finder_title">ಹತ್ತಿರದ ಮಸೀದಿಗಳು</string>
+    <string name="qibla_bearing_cardinal">ಕಿಬ್ಲಾ ನಿರ್ದೇಶನ: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">ಮಾಪನಾಂಕ ನಿರ್ಣಯಿಸಲು ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಅಂಕಿ-ಎಂಟರಲ್ಲಿ ಸರಿಸಿ</string>
+    <string name="qibla_distance">ಮಕ್ಕಾಗೆ ದೂರ: %1$s</string>
+    <string name="qibla_distance_km">%,.0f ಕಿಮೀ</string>
+    <string name="qibla_facing">ನೀವು ಕಿಬ್ಲಾವನ್ನು ಎದುರಿಸುತ್ತಿರುವಿರಿ 🕋</string>
+    <string name="qibla_gps_error">ನಿಖರವಾದ ಪರಿಹಾರವನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="qibla_gps_live">ಲೈವ್ GPS ಸ್ಥಳ</string>
+    <string name="qibla_gps_refresh">GPS ಮೂಲಕ ಸ್ಥಳವನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡಿ</string>
+    <string name="qibla_gps_refreshing">ಪತ್ತೆ ಮಾಡಲಾಗುತ್ತಿದೆ...</string>
+    <string name="qibla_heading_degree">ಫೋನ್ ಶಿರೋನಾಮೆ: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">ನಿಮ್ಮ ಸ್ಥಳದಿಂದ ಕಾಬಾಕ್ಕೆ ಗ್ರೇಟ್-ಸರ್ಕಲ್ ಮಾರ್ಗ - ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ</string>
+    <string name="qibla_map_kaaba">ಕಾಬಾ</string>
+    <string name="qibla_map_you">ನೀವು</string>
+    <string name="qibla_mode_compass">ದಿಕ್ಸೂಚಿ</string>
+    <string name="qibla_mode_map">ನಕ್ಷೆ</string>
+    <string name="qibla_open_mosques">ಹತ್ತಿರದ ಮಸೀದಿಗಳು</string>
+    <string name="qibla_title">ಕಿಬ್ಲಾ ನಿರ್ದೇಶನ</string>
+    <string name="qibla_turn_left">ಎಡಕ್ಕೆ %1$.1f° ತಿರುಗಿ</string>
+    <string name="qibla_turn_right">ಬಲಕ್ಕೆ %1$.1f° ತಿರುಗಿ</string>
+</resources>

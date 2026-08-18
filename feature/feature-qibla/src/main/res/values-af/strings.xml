@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s weg</string>
+    <string name="mosque_finder_empty">Geen moskees in hierdie reeks gevind nie</string>
+    <string name="mosque_finder_error">Soek het misluk</string>
+    <string name="mosque_finder_intro">Vind moskees naby jou ligging via OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Nog geen ligging gestel nie. Kies eers \'n ligging uit gebedstye instellings.</string>
+    <string name="mosque_finder_retry">Probeer weer</string>
+    <string name="mosque_finder_searching">Soek tans …</string>
+    <string name="mosque_finder_title">Nabygeleë moskees</string>
+    <string name="qibla_bearing_cardinal">Qibla-rigting: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Beweeg jou foon in \'n syfer-agt om te kalibreer</string>
+    <string name="qibla_distance">Afstand na Mekka: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Jy staar die Qibla 🕋 in die gesig</string>
+    <string name="qibla_gps_error">Kon nie \'n akkurate oplossing kry nie. Probeer asseblief weer.</string>
+    <string name="qibla_gps_live">Regstreekse GPS-ligging</string>
+    <string name="qibla_gps_refresh">Verfris ligging via GPS</string>
+    <string name="qibla_gps_refreshing">Besoek tans …</string>
+    <string name="qibla_heading_degree">Foonopskrif: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Groot-sirkelroete vanaf jou ligging na die Kaaba - werk vanlyn</string>
+    <string name="qibla_map_kaaba">Kaäba</string>
+    <string name="qibla_map_you">Jy</string>
+    <string name="qibla_mode_compass">Kompas</string>
+    <string name="qibla_mode_map">Kaart</string>
+    <string name="qibla_open_mosques">Nabygeleë moskees</string>
+    <string name="qibla_title">Qibla rigting</string>
+    <string name="qibla_turn_left">Draai links %1$.1f°</string>
+    <string name="qibla_turn_right">Draai regs %1$.1f°</string>
+</resources>

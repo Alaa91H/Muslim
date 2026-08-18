@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Λήψη τιμών αυτόματα</string>
+    <string name="zakat_auto_prices_hint">Όταν είναι ενεργοποιημένη, οι τιμές χρυσού και ασημιού λαμβάνονται από το διαδίκτυο και ανανεώνονται αυτόματα</string>
+    <string name="zakat_back">Πίσω</string>
+    <string name="zakat_cash">Μετρητά και αποταμιεύσεις</string>
+    <string name="zakat_clear_history">Εκκαθάριση ιστορικού</string>
+    <string name="zakat_country">Χώρα</string>
+    <string name="zakat_country_placeholder">Επιλέξτε τη χώρα και το νόμισμά σας</string>
+    <string name="zakat_country_section">Χώρα &amp; νόμισμα</string>
+    <string name="zakat_currency">Νόμισμα: %1$s</string>
+    <string name="zakat_debts">Χρέη που οφείλετε (αφαιρούνται)</string>
+    <string name="zakat_due">Οφειλόμενο Ζακάτ (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Δεν ήταν δυνατή η ανάκτηση τιμών \'. Ελέγξτε τη σύνδεσή σας ή εισαγάγετε την τιμή με μη αυτόματο τρόπο.</string>
+    <string name="zakat_fetch_now">Ανανεώστε τις τιμές τώρα</string>
+    <string name="zakat_fetching">Λήψη τιμών…</string>
+    <string name="zakat_fitr_persons">Αριθμός μελών της οικογένειας</string>
+    <string name="zakat_fitr_saa_value">Αξία ενός sa\' (βασικό φαγητό)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Σύνολο ζακάτ Fitr: %1$s</string>
+    <string name="zakat_gold_grams">Χρυσός (γραμμάρια)</string>
+    <string name="zakat_gold_price">Τιμή χρυσού ανά γραμμάριο</string>
+    <string name="zakat_history">Ιστορικό υπολογισμών</string>
+    <string name="zakat_history_amount">Ζακάτ: %1$s</string>
+    <string name="zakat_history_empty">Δεν υπάρχουν ακόμη αποθηκευμένοι υπολογισμοί.</string>
+    <string name="zakat_investments">Επενδύσεις</string>
+    <string name="zakat_last_updated">Τελευταία ενημέρωση: %1$s</string>
+    <string name="zakat_money_section">Ζακάτ στον πλούτο</string>
+    <string name="zakat_nisab_gold">Χρυσό νισάμπ (85 γρ.)</string>
+    <string name="zakat_nisab_met">Το νισάμπ έχει φτάσει — το ζακάτ οφείλεται</string>
+    <string name="zakat_nisab_not_met">Κάτω από το νισάμπ — δεν οφείλεται ζακάτ</string>
+    <string name="zakat_nisab_silver">Ασημί νισάμπ (595 γρ.)</string>
+    <string name="zakat_rulings_note">Ανά πλειοψηφία (jumhoor): το χρυσάμπ είναι 85 γραμμάρια, το ασήμι 595 γραμμάρια και το ποσοστό είναι 2,5%% μετά την αφαίρεση των οφειλών. Συμβουλευτείτε έναν εξειδικευμένο μελετητή για ειδικές περιπτώσεις.</string>
+    <string name="zakat_save_result">Αποθήκευση στην ιστορία</string>
+    <string name="zakat_silver_grams">Ασήμι (γραμμάρια)</string>
+    <string name="zakat_silver_price">Τιμή ασήμι ανά γραμμάριο</string>
+    <string name="zakat_source_note">Τιμές χρυσού/ασημιού από το gold-api.com. Τιμές συναλλάγματος από το open.er-api.com</string>
+    <string name="zakat_title">Ζακάτ</string>
+    <string name="zakat_total_assets">Σύνολο ενεργητικού</string>
+    <string name="zakat_trade">Αξία εμπορικών αγαθών</string>
+    <string name="zakat_zakatable">Ζητούμενο ποσό μετά τα χρέη</string>
+</resources>

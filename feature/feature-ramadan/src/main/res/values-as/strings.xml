@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">পিছলৈ ঘূৰি আহিল</string>
+    <string name="ramadan_countdown">%1$s দিনত ৰমজান আৰম্ভ হয়</string>
+    <string name="ramadan_countdown_to_iftar">iftar কৰাৰ সময়: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ফজৰলৈ যোৱাৰ সময়: %1$s</string>
+    <string name="ramadan_day_of_month">ৰমজানৰ %1$s দিন</string>
+    <string name="ramadan_days_left">%1$s দিন বাকী আছে</string>
+    <string name="ramadan_fasting_progress">উপবাসৰ দিন: %2$s ৰ %1$s — ইয়াক ৰেকৰ্ড কৰিবলৈ এটা দিন টেপ কৰক</string>
+    <string name="ramadan_fasting_tracker">উপবাস ট্ৰেকাৰ</string>
+    <string name="ramadan_hijri_note">উম্ম আল-কুৰা কেলেণ্ডাৰৰ ওপৰত ভিত্তি কৰি এপ-ব্যাপী হিজৰী সালসলনি প্ৰয়োগ কৰা হৈছে।</string>
+    <string name="ramadan_hijri_year">বছৰ %1$s AH</string>
+    <string name="ramadan_iftar">ইফতাৰ</string>
+    <string name="ramadan_iftar_dua">ইফতাৰৰ প্ৰাৰ্থনা: "হে আল্লাহ, তোমাৰ বাবে মই ৰোজা ৰাখিলোঁ আৰু তোমাৰ ৰচনাত মই মোৰ ৰোজা ভংগ কৰিলোঁ..."</string>
+    <string name="ramadan_iftar_time">ইফতাৰ (মাগৰিব) সময়: %1$s</string>
+    <string name="ramadan_location_required">সময় চাবলৈ প্ৰথমে ছেটিংছত এখন চহৰ বাছক।</string>
+    <string name="ramadan_minutes">%1$s নূন্যতম</string>
+    <string name="ramadan_notification_iftar_body">হে আল্লাহ, তোমাৰ কাৰণে মই ৰোজা ৰাখিলোঁ আৰু তোমাৰ ৰচনাত মই মোৰ ৰোজা ভংগ কৰো</string>
+    <string name="ramadan_notification_iftar_title">ইফতাৰৰ সময়</string>
+    <string name="ramadan_notification_suhoor_body">ফজৰ ওচৰ চাপি আহিছে — আপোনাৰ সুহুৰ হওক</string>
+    <string name="ramadan_notification_suhoor_title">সুহুৰ সোঁৱৰাই দিয়া</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">সুহুৰ</string>
+    <string name="ramadan_suhoor_remind_before">আগতে মোক সোঁৱৰাই দিয়ক:</string>
+    <string name="ramadan_suhoor_time">সুহুৰৰ শেষ (ফজৰ): %1$s</string>
+    <string name="ramadan_title">ৰমজান</string>
+</resources>

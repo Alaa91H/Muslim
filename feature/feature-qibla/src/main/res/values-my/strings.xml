@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ကွာ</string>
+    <string name="mosque_finder_empty">ဤအကွာအဝေးတွင် ဗလီများကိုမတွေ့ပါ။</string>
+    <string name="mosque_finder_error">ရှာဖွေမှု မအောင်မြင်ပါ။</string>
+    <string name="mosque_finder_intro">OpenStreetMap မှတစ်ဆင့် သင့်တည်နေရာအနီးရှိ ဗလီများကို ရှာပါ။</string>
+    <string name="mosque_finder_no_location">နေရာမသတ်မှတ်ရသေးဘူး။ ဆုတောင်းချိန်ဆက်တင်များမှ တည်နေရာကို ဦးစွာရွေးချယ်ပါ။</string>
+    <string name="mosque_finder_retry">ပြန်ကြိုးစားပါ။</string>
+    <string name="mosque_finder_searching">ရှာဖွေနေသည်...</string>
+    <string name="mosque_finder_title">အနီးနားရှိ ဗလီများ</string>
+    <string name="qibla_bearing_cardinal">Qibla ဦးတည်ချက်- %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">ချိန်ညှိရန် သင့်ဖုန်းကို ပုံ-ရှစ်ဖြင့် ရွှေ့ပါ။</string>
+    <string name="qibla_distance">မက္ကာမြို့အကွာအဝေး: %1$s</string>
+    <string name="qibla_distance_km">%,.0f ကီလိုမီတာ</string>
+    <string name="qibla_facing">သင် Qibla 🕋 နှင့်ရင်ဆိုင်နေရသည်။</string>
+    <string name="qibla_gps_error">တိကျသော ပြုပြင်မှုကို မရနိုင်ပါ။ ထပ်စမ်းကြည့်ပါ။</string>
+    <string name="qibla_gps_live">တိုက်ရိုက် GPS တည်နေရာ</string>
+    <string name="qibla_gps_refresh">GPS မှတစ်ဆင့် တည်နေရာကို ပြန်လည်စတင်ပါ။</string>
+    <string name="qibla_gps_refreshing">တည်နေရာ…</string>
+    <string name="qibla_heading_degree">ဖုန်းခေါင်းစဉ်- %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">သင့်တည်နေရာမှ Kaaba သို့ Great-circle လမ်းကြောင်း — အော့ဖ်လိုင်းအလုပ်လုပ်သည်။</string>
+    <string name="qibla_map_kaaba">ကဘ</string>
+    <string name="qibla_map_you">မင်း</string>
+    <string name="qibla_mode_compass">သံလိုက်အိမ်မြှောင်</string>
+    <string name="qibla_mode_map">မြေပုံ</string>
+    <string name="qibla_open_mosques">အနီးနားရှိ ဗလီများ</string>
+    <string name="qibla_title">Qibla ဦးတည်ချက်</string>
+    <string name="qibla_turn_left">ဘယ်ဘက် %1$.1f° ကွေ့ပါ။</string>
+    <string name="qibla_turn_right">ညာဘက် %1$.1f° ကွေ့ပါ။</string>
+</resources>

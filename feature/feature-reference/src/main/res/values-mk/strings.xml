@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Назад</string>
+    <string name="reference_no_results">Нема резултати кои се совпаѓаат</string>
+    <string name="reference_search_hint">Пребарајте ја оваа книга…</string>
+    <string name="reference_title">Исламска референтна библиотека</string>
+    <string name="reference_topics_count">теми</string>
+</resources>

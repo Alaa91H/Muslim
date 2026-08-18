@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">نرخونه په اتوماتيک ډول ترلاسه کړئ</string>
+    <string name="zakat_auto_prices_hint">کله چې فعال شي، د سرو زرو او سپینو زرو بیې له انټرنیټ څخه اخیستل کیږي او په اتوماتيک ډول تازه کیږي</string>
+    <string name="zakat_back">شاته</string>
+    <string name="zakat_cash">نغدي او سپما</string>
+    <string name="zakat_clear_history">تاریخ پاک کړئ</string>
+    <string name="zakat_country">هیواد</string>
+    <string name="zakat_country_placeholder">خپل هیواد او اسعارو غوره کړئ</string>
+    <string name="zakat_country_section">هیواد او اسعارو</string>
+    <string name="zakat_currency">اسعار: %1$s</string>
+    <string name="zakat_debts">هغه پورونه چې تاسو یې ورکوئ (منقول)</string>
+    <string name="zakat_due">د زکات واجبات (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">نشي کولی \'t نرخونه ترلاسه کړي. خپل پیوستون چیک کړئ یا قیمت په لاسي ډول دننه کړئ.</string>
+    <string name="zakat_fetch_now">اوس نرخونه تازه کړئ</string>
+    <string name="zakat_fetching">نرخونه ترلاسه کول…</string>
+    <string name="zakat_fitr_persons">د کورنۍ د غړو شمیر</string>
+    <string name="zakat_fitr_saa_value">د یو صاع \' ارزښت</string>
+    <string name="zakat_fitr_section">زکات الفطر</string>
+    <string name="zakat_fitr_total">د فطر ټول زکات: %1$s</string>
+    <string name="zakat_gold_grams">سره زر (ګرام)</string>
+    <string name="zakat_gold_price">د سرو زرو قیمت په هر ګرام</string>
+    <string name="zakat_history">د محاسبې تاریخ</string>
+    <string name="zakat_history_amount">زکات: %1$s</string>
+    <string name="zakat_history_empty">تر اوسه هیڅ خوندي شوي حسابونه ندي.</string>
+    <string name="zakat_investments">پانګه اچونه</string>
+    <string name="zakat_last_updated">وروستی تازه: %1$s</string>
+    <string name="zakat_money_section">د مال زکات</string>
+    <string name="zakat_nisab_gold">د سرو زرو نصاب (85 ګرامه)</string>
+    <string name="zakat_nisab_met">نصاب پای ته رسیدلی - زکات واجب دی</string>
+    <string name="zakat_nisab_not_met">د نصاب لاندې - زکات نشته</string>
+    <string name="zakat_nisab_silver">د سپینو زرو نصاب (595 ګرامه)</string>
+    <string name="zakat_rulings_note">د اکثريت (جمهور) له مخې: د سرو زرو نصاب 85 ګرامه، د سپينو زرو 595 ګرامه، او د واجبو پورونو له کمولو وروسته نرخ 2.5%% دی. د ځانګړو قضیو لپاره د وړ عالم سره مشوره وکړئ.</string>
+    <string name="zakat_save_result">تاریخ ته خوندي کړئ</string>
+    <string name="zakat_silver_grams">سپین زر (ګرام)</string>
+    <string name="zakat_silver_price">د سرو زرو قیمت په هر ګرام</string>
+    <string name="zakat_source_note">د سرو زرو / سپینو زرو قیمتونه د gold-api.com څخه؛ د open.er-api.com څخه د FX نرخونه</string>
+    <string name="zakat_title">زکات</string>
+    <string name="zakat_total_assets">ټوله شتمني</string>
+    <string name="zakat_trade">د سوداګریزو توکو ارزښت</string>
+    <string name="zakat_zakatable">له پورونو وروسته د زکات وړ مقدار</string>
+</resources>

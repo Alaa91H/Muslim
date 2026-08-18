@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s atu</string>
+    <string name="mosque_finder_empty">Karekau he whare karakia i kitea i tenei awhe</string>
+    <string name="mosque_finder_error">I rahua te rapu</string>
+    <string name="mosque_finder_intro">Kimihia nga whare karakia e tata ana ki to waahi ma te OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Kaore ano kia tautuhia he waahi. Whiriwhiria he waahi mai i nga tautuhinga wa inoi i te tuatahi.</string>
+    <string name="mosque_finder_retry">Ngana ano</string>
+    <string name="mosque_finder_searching">Kei te rapu…</string>
+    <string name="mosque_finder_title">Ko nga whare karakia e tata ana</string>
+    <string name="qibla_bearing_cardinal">Te aronga kipi: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Nukuhia to waea ki te whika-waru hei whakatika</string>
+    <string name="qibla_distance">Tawhiti ki Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Kei te anga koe ki te Qibla 🕋</string>
+    <string name="qibla_gps_error">Kaore i taea te whakatika tika. Me ngana ano.</string>
+    <string name="qibla_gps_live">Tauwāhi GPS ora</string>
+    <string name="qibla_gps_refresh">Whakahouhia te waahi ma te GPS</string>
+    <string name="qibla_gps_refreshing">Kei te kimi…</string>
+    <string name="qibla_heading_degree">Pane waea: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Te ara porowhita nui mai i to waahi ki te Kaaba — mahi tuimotu</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Ko koe</string>
+    <string name="qibla_mode_compass">Kāpehu</string>
+    <string name="qibla_mode_map">Mapi</string>
+    <string name="qibla_open_mosques">Ko nga whare karakia e tata ana</string>
+    <string name="qibla_title">Te aronga kipi</string>
+    <string name="qibla_turn_left">Tahuri maui %1$.1f°</string>
+    <string name="qibla_turn_right">Tahuri matau %1$.1f°</string>
+</resources>

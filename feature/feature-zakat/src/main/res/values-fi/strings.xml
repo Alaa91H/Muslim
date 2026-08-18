@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Hae hinnat automaattisesti</string>
+    <string name="zakat_auto_prices_hint">Kun tämä on käytössä, kullan ja hopean hinnat noudetaan Internetistä ja päivitetään automaattisesti</string>
+    <string name="zakat_back">Takaisin</string>
+    <string name="zakat_cash">Käteistä ja säästöjä</string>
+    <string name="zakat_clear_history">Tyhjennä historia</string>
+    <string name="zakat_country">Maa</string>
+    <string name="zakat_country_placeholder">Valitse maasi ja valuuttasi</string>
+    <string name="zakat_country_section">Maa ja valuutta</string>
+    <string name="zakat_currency">Valuutta: %1$s</string>
+    <string name="zakat_debts">Velat, jotka olet velkaa (vähennetty)</string>
+    <string name="zakat_due">Erääntyvä Zakat (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ei voitu hakea hintoja \'t. Tarkista yhteys tai syötä hinta manuaalisesti.</string>
+    <string name="zakat_fetch_now">Päivitä hinnat nyt</string>
+    <string name="zakat_fetching">Haetaan hintoja…</string>
+    <string name="zakat_fitr_persons">Perheenjäsenten lukumäärä</string>
+    <string name="zakat_fitr_saa_value">Yhden sa\' arvo (perusruoka)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Kokonaishinta: %1$s</string>
+    <string name="zakat_gold_grams">Kulta (grammaa)</string>
+    <string name="zakat_gold_price">Kullan hinta per gramma</string>
+    <string name="zakat_history">Laskentahistoria</string>
+    <string name="zakat_history_amount">Hinta: %1$s</string>
+    <string name="zakat_history_empty">Ei vielä tallennettuja laskelmia.</string>
+    <string name="zakat_investments">Investoinnit</string>
+    <string name="zakat_last_updated">Viimeksi päivitetty: %1$s</string>
+    <string name="zakat_money_section">Zakat rikkaudesta</string>
+    <string name="zakat_nisab_gold">Kultainen nisabi (85 g)</string>
+    <string name="zakat_nisab_met">Nisab on saavutettu - zakat on määrä</string>
+    <string name="zakat_nisab_not_met">Nisabin alapuolella – ei zakat-maksua</string>
+    <string name="zakat_nisab_silver">Hopeinen nisabi (595 g)</string>
+    <string name="zakat_rulings_note">Suurin osa (jumhoor): kulta-nisab on 85 g, hopea 595 g ja korko on 2,5%% erääntyvien velkojen vähentämisen jälkeen. Ota yhteyttä pätevään tutkijaan erikoistapauksissa.</string>
+    <string name="zakat_save_result">Tallenna historiaan</string>
+    <string name="zakat_silver_grams">Hopea (grammaa)</string>
+    <string name="zakat_silver_price">Hopean hinta per gramma</string>
+    <string name="zakat_source_note">Kullan/hopean hinnat osoitteessa gold-api.com; Valuuttakurssit osoitteessa open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Varat yhteensä</string>
+    <string name="zakat_trade">Kaupan tavaran arvo</string>
+    <string name="zakat_zakatable">Zakatable summa velkojen jälkeen</string>
+</resources>

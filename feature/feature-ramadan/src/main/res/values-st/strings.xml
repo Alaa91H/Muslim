@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Morao</string>
+    <string name="ramadan_countdown">Ramadan e qala ka matsatsi a %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Nako ea ho tloha: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Nako ea ho fihla ho Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Letsatsi la %1$s la Ramadan</string>
+    <string name="ramadan_days_left">%1$s matsatsi a setseng</string>
+    <string name="ramadan_fasting_progress">Matsatsi a ho itima lijo: %1$s ea %2$s - tlanya letsatsi ho e rekota</string>
+    <string name="ramadan_fasting_tracker">Tracker ea ho itima lijo</string>
+    <string name="ramadan_hijri_note">E ipapisitse le almanaka ea Umm al-Qura e nang le phetoho e akaretsang ea Hijri e sebelisitsoeng.</string>
+    <string name="ramadan_hijri_year">Selemo sa %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar: "O Allah, ke ile ka itima lijo ka lebaka la Hao, \'me ka phano ea Hao ke itima lijo ..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) nako: %1$s</string>
+    <string name="ramadan_location_required">Khetha toropo ho Litlhophiso ho qala ka ho bona linako.</string>
+    <string name="ramadan_minutes">%1$s mets</string>
+    <string name="ramadan_notification_iftar_body">Oho Allah, ke ile ka itima lijo ka lebaka la Hao, \'me ka lebaka la lijo tsa Hao ke qeta ho itima lijo</string>
+    <string name="ramadan_notification_iftar_title">Ke nako ea iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr e ntse e atamela - e-ba le suhoor ea hau</string>
+    <string name="ramadan_notification_suhoor_title">Khopotso ea Suhoor</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Nkhopotse pele:</string>
+    <string name="ramadan_suhoor_time">Suhoor ends (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

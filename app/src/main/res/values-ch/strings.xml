@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar gi pupuengi, pupuengi yan despues di tinayuyot yan i kontåt siha</string>
+    <string name="more_downloads">I ma\'pos na tinige\'</string>
+    <string name="more_downloads_desc">Na\'hålom un surah, un ayah pat i enteru na Quran ginen i tinaitai-mu ni\' un ayek</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Hadith na libråriu, inaligao yan hadith gi i ha\'åni</string>
+    <string name="more_learn">Fanå\'gue</string>
+    <string name="more_learn_desc">Guiya i wudu yan tinayuyot kada pas</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">I tiempon suhoor yan iftar yan i tracker ni\' ma\'a\'atan</string>
+    <string name="more_reference">Librarian Referensia</string>
+    <string name="more_reference_desc">Introduksion put Islam, i Sira yan i prufeta siha</string>
+    <string name="more_settings">Setbisio siha</string>
+    <string name="more_settings_desc">Tema, lengguåhi, tinayuyot yan adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha digital yan i estoria kada diha</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat gi i riku yan i kalkuladot Fitr</string>
+    <string name="scaffold_message">I prohekton multi-module esta listo.\nI fine\'nina na fase — Adhan, tiempon tinayuyot, Qibla, yan i kalendarion Hijri — ha tutuhon guini.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">direksion Qibla</string>
+    <string name="shortcut_settings">Setbisio siha</string>
+    <string name="shortcut_settings_long">I tinayuyot yan i adhan</string>
+    <string name="shortcut_times">Oran tinayuyot</string>
+    <string name="shortcut_times_long">På\'go na \' na tiempon tinayuyot</string>
+    <string name="tab_home">Oras Tinayuyot</string>
+    <string name="tab_more">Mas</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

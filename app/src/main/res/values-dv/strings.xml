@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">މުސްލިމް</string>
+    <string name="more_adhkar">އަދްކާރު އެވެ</string>
+    <string name="more_adhkar_desc">ހެނދުނު، ހަވީރު &amp; ނަމާދަށްފަހު އަދުކާރު ކައުންޓަރުތަކާއެކު</string>
+    <string name="more_downloads">ކިޔެވުން ޑައުންލޯޑް ކުރުން</string>
+    <string name="more_downloads_desc">ސޫރަތެއް، އާޔަތެއް ނުވަތަ ފުރިހަމަ ޤުރުއާން އެއް ތިމާ ހޮވާ ކިޔަވާ މީހާއާއެކު ޑައުންލޯޑް ކޮށްލައްވާށެވެ</string>
+    <string name="more_hadith">ޙަދީޘްފުޅެވެ</string>
+    <string name="more_hadith_desc">ޙަދީޘް ލައިބްރަރީ، ސަރޗް &amp; ދުވަހުގެ ޙަދީޘް</string>
+    <string name="more_learn">ދަސްކުރާށެވެ</string>
+    <string name="more_learn_desc">ސްޓެޕް ބައި ސްޓެޕް ވުޑޫ &amp; ނަމާދު ގައިޑްސް</string>
+    <string name="more_ramadan">ރަމަޟާންމަހު</string>
+    <string name="more_ramadan_desc">ސުހޫރު &amp; އިފްތާރު ގަޑިތަކާއި ރޯދަ ޓްރެކަރ</string>
+    <string name="more_reference">ރެފަރެންސް ލައިބްރަރީ</string>
+    <string name="more_reference_desc">އިސްލާމްދީނާއި، ސީރާ &amp; ނަބިއްޔުންނަށް ތަޢާރަފްވުން</string>
+    <string name="more_settings">ސެޓިންގސް</string>
+    <string name="more_settings_desc">ތީމް، ބަސް، ދުޢާ &amp; އަދަން ސެޓިންގްސް</string>
+    <string name="more_tasbih">ތަސްބީހެވެ</string>
+    <string name="more_tasbih_desc">ދުވަހުން ދުވަހަށް ތާރީޚާ އެކު ދިރާގު މިސްބަހާ</string>
+    <string name="more_zakat">ޒަކާތެވެ</string>
+    <string name="more_zakat_desc">މުއްސަނދިކަމުގެ މައްޗަށް ޒަކާތް &amp; ފިތުރު ކެލްކިއުލޭޓަރ</string>
+    <string name="scaffold_message">މަލްޓި މޮޑިއުލް ޕްރޮޖެކްޓް ސްކެލެޓަން ތައްޔާރުވެއްޖެއެވެ.\nފޭސް 1 — އަޟާން، ނަމާދު ވަގުތު، ޤިބްލާ، އަދި ހިޖުރީ ކަލަންޑަރ — މިތަނުން ފެށެއެވެ.</string>
+    <string name="shortcut_qibla">ޤިބްލާ އެވެ</string>
+    <string name="shortcut_qibla_long">ޤިބްލާ މިސްރާބު</string>
+    <string name="shortcut_settings">ސެޓިންގސް</string>
+    <string name="shortcut_settings_long">ނަމާދު &amp; އަދަން ސެޓިންގްސް</string>
+    <string name="shortcut_times">ނަމާދު ވަގުތުތަކެވެ</string>
+    <string name="shortcut_times_long">މިއަދު\' ގެ ނަމާދު ވަގުތުތަކެވެ</string>
+    <string name="tab_home">ނަމާދު ވަގުތުތަކެވެ</string>
+    <string name="tab_more">އިތުރަށް...</string>
+    <string name="tab_qibla">ޤިބްލާ އެވެ</string>
+    <string name="tab_quran">ޤުރުއާން</string>
 </resources>

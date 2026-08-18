@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">డిజిటల్ మిస్బాహా — లెక్కించడానికి నొక్కండి</string>
+    <string name="misbaha_widget_label">తస్బిహ్</string>
+    <string name="misbaha_widget_tap_hint">లెక్కించడానికి నొక్కండి</string>
+    <string name="tasbih_back">వెనుకకు</string>
+    <string name="tasbih_cancel">రద్దు చేయి</string>
+    <string name="tasbih_confirm">సరే</string>
+    <string name="tasbih_custom_target">కస్టమ్</string>
+    <string name="tasbih_custom_target_hint">గణనల సంఖ్యను నమోదు చేయండి (1 నుండి 100000 వరకు)</string>
+    <string name="tasbih_custom_target_title">అనుకూల లక్ష్యాన్ని సెట్ చేయండి</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">రీసెట్ చేయండి</string>
+    <string name="tasbih_reset_all">అన్నింటినీ రీసెట్ చేయండి</string>
+    <string name="tasbih_round_complete">పూర్తి రౌండ్ పూర్తయింది (%1$s) 🎉</string>
+    <string name="tasbih_rounds">రౌండ్లు: %1$d</string>
+    <string name="tasbih_sound_desc">ప్రతి పూర్తి రౌండ్ పూర్తయినప్పుడు రింగ్‌టోన్ లేదా టోన్‌ను ప్లే చేయండి</string>
+    <string name="tasbih_sound_title">లక్ష్యంపై ధ్వని</string>
+    <string name="tasbih_sound_tone_alarm">అలారం</string>
+    <string name="tasbih_sound_tone_notification">నోటిఫికేషన్</string>
+    <string name="tasbih_sound_tone_ringtone">రింగ్‌టోన్</string>
+    <string name="tasbih_tap_hint">లెక్కించడానికి సర్కిల్‌ను నొక్కండి</string>
+    <string name="tasbih_target_reached">లక్ష్యం చేరుకుంది - అల్లా అంగీకరించాలి</string>
+    <string name="tasbih_title">తస్బిహ్</string>
+    <string name="tasbih_total_today">ఈరోజు\'లు మొత్తం: %1$d</string>
+    <string name="tasbih_undo">అన్డు</string>
+    <string name="tasbih_virtue_label">ఈ దిక్ర్ యొక్క పుణ్యం</string>
+    <string name="tasbih_week_stats">గత 7 రోజులు</string>
+</resources>

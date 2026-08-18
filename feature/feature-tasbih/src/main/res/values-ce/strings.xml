@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Цифровой мисбаха — тап дагардан</string>
+    <string name="misbaha_widget_label">Тасбихь</string>
+    <string name="misbaha_widget_tap_hint">Дагардан хьажа .</string>
+    <string name="tasbih_back">Юха</string>
+    <string name="tasbih_cancel">Юхаяккха</string>
+    <string name="tasbih_confirm">ХӀан-хӀа</string>
+    <string name="tasbih_custom_target">Ӏадат</string>
+    <string name="tasbih_custom_target_hint">Дагардаран терахь язде (1-чуьра 100000 кхаччалц)</string>
+    <string name="tasbih_custom_target_title">Хьалха Ӏалашо хӀоттае .</string>
+    <string name="tasbih_of_target">%1$s хир ду</string>
+    <string name="tasbih_reset">Сброс</string>
+    <string name="tasbih_reset_all">Дерриге а юхаметтахӀоттаде</string>
+    <string name="tasbih_round_complete">Полный раунд полный (%1$s) 🎉 .</string>
+    <string name="tasbih_rounds">Раундаш: %1$d</string>
+    <string name="tasbih_sound_desc">ХӀора дуьззина раунд чекхъяьлча рингтон я тон локху .</string>
+    <string name="tasbih_sound_title">Зевне Ӏалашонца .</string>
+    <string name="tasbih_sound_tone_alarm">Сигнал</string>
+    <string name="tasbih_sound_tone_notification">Хаам бар</string>
+    <string name="tasbih_sound_tone_ringtone">Звонок</string>
+    <string name="tasbih_tap_hint">Дагардан гона тӀе хьажа .</string>
+    <string name="tasbih_target_reached">Ӏалашо кхаьчна — Дала къобал дойла</string>
+    <string name="tasbih_title">Тасбихь</string>
+    <string name="tasbih_total_today">Тахана\'с дерриге а: %1$d</string>
+    <string name="tasbih_undo">Юхаяккха</string>
+    <string name="tasbih_virtue_label">Оцу зикран дозалла .</string>
+    <string name="tasbih_week_stats">ТӀаьххьара 7 де</string>
+</resources>

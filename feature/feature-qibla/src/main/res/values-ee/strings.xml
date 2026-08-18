@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ƒe didime</string>
+    <string name="mosque_finder_empty">Womekpɔ mosque aɖeke le togbɛ sia me o</string>
+    <string name="mosque_finder_error">Didi do kpo nu</string>
+    <string name="mosque_finder_intro">Di mosque siwo te ɖe afi si nèle ŋu to OpenStreetMap dzi</string>
+    <string name="mosque_finder_no_location">Womeɖo teƒe aɖeke haɖe o. Tia teƒe aɖe tso gbedodoɖaɣiwo ƒe ɖoɖowo me gbã.</string>
+    <string name="mosque_finder_retry">Gadze agbagba ake</string>
+    <string name="mosque_finder_searching">Didi be...</string>
+    <string name="mosque_finder_title">Mosque siwo te ɖe afima ŋu</string>
+    <string name="qibla_bearing_cardinal">Qibla ƒe mɔfiame: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f° ƒe ƒuƒoƒo</string>
+    <string name="qibla_calibrate">Ʋu wò fon la ɖe xexlẽdzesi enyi me be wòaɖɔe ɖo</string>
+    <string name="qibla_distance">Adzɔge tso Makkah gbɔ: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Miele ŋgɔ na Qibla 🕋</string>
+    <string name="qibla_gps_error">Mete ŋu kpɔ ɖɔɖɔɖo si sɔ pɛpɛpɛ o. Taflatse gadze agbagba ake.</string>
+    <string name="qibla_gps_live">GPS ƒe teƒe si le agbe</string>
+    <string name="qibla_gps_refresh">Gbugbɔ teƒea to GPS dzi</string>
+    <string name="qibla_gps_refreshing">Teƒe si wole...</string>
+    <string name="qibla_heading_degree">Telefon ƒe tanya: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Mɔ gã-ƒo xlã tso teƒe si nèle yi Kaaba — wɔa dɔ le internet dzi</string>
+    <string name="qibla_map_kaaba">Kaaba ƒe nya</string>
+    <string name="qibla_map_you">Wòe</string>
+    <string name="qibla_mode_compass">Kɔmpasi</string>
+    <string name="qibla_mode_map">Anyigbatata</string>
+    <string name="qibla_open_mosques">Mosque siwo te ɖe afima ŋu</string>
+    <string name="qibla_title">Qibla ƒe mɔfiame</string>
+    <string name="qibla_turn_left">Trɔ ɖe miame %1$.1f°</string>
+    <string name="qibla_turn_right">Trɔ ɖe ɖusime %1$.1f°</string>
+</resources>

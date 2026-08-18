@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Ooilley</string>
+    <string name="hadith_back">Arrish</string>
+    <string name="hadith_bookmark_add">Cur cowrey-leabhar rish</string>
+    <string name="hadith_bookmark_remove">Cur stiagh bookmark</string>
+    <string name="hadith_collection_abudawud">Abu Dawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhaari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah;</string>
+    <string name="hadith_collection_muslim">Moslem</string>
+    <string name="hadith_collection_nasai">An-Nasa \'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">Elley</string>
+    <string name="hadith_collection_riyad">Riyad as Salihin</string>
+    <string name="hadith_collection_tirmidhi">Ec Tirmidhi</string>
+    <string name="hadith_daily_notification">Fockle hadith laa as laa</string>
+    <string name="hadith_daily_notification_desc">Gheiney hadith gagh laa</string>
+    <string name="hadith_daily_notification_time">Am foillsey</string>
+    <string name="hadith_of_the_day">Hadith y laa .</string>
+    <string name="hadith_preview_hint">Ta shen myr ta\'n foill hadith laa as laa ry-akin ec y traa t\'eh er ny choyrt.</string>
+    <string name="hadith_preview_label">Roish-ghoaill foill</string>
+    <string name="hadith_preview_loading">Loading y hadith...</string>
+    <string name="hadith_search_hint">Clasht hadiths...</string>
+    <string name="hadith_share">Rheynn</string>
+    <string name="hadith_title">Leighlann Hadith</string>
+</resources>

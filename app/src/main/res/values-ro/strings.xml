@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Musulman</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar de dimineață, de seară și de după rugăciune cu contoare</string>
+    <string name="more_downloads">Descărcări de recitare</string>
+    <string name="more_downloads_desc">Descărcați o sură, o aya sau întregul Coran cu recitatorul ales</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Biblioteca de hadith, căutare și hadith a zilei</string>
+    <string name="more_learn">Învață</string>
+    <string name="more_learn_desc">Ghiduri pas cu pas pentru wudu și rugăciune</string>
+    <string name="more_ramadan">Ramadanul</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar time și post tracker</string>
+    <string name="more_reference">Biblioteca de referință</string>
+    <string name="more_reference_desc">Introducere în Islam, Sira și profeți</string>
+    <string name="more_settings">Setări</string>
+    <string name="more_settings_desc">Setări pentru temă, limbă, rugăciune și adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha digitală cu istorie zilnică</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat pe avere și calculator Fitr</string>
+    <string name="scaffold_message">Scheletul proiectului cu mai multe module este gata.\nFaza 1 — Adhan, orele de rugăciune, Qibla și calendarul Hijri — începe aici.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Direcția Qibla</string>
+    <string name="shortcut_settings">Setări</string>
+    <string name="shortcut_settings_long">Setări de rugăciune și adhan</string>
+    <string name="shortcut_times">Orele de rugăciune</string>
+    <string name="shortcut_times_long">Astăzi \' de ori de rugăciune</string>
+    <string name="tab_home">Timp de rugăciune</string>
+    <string name="tab_more">Mai mult</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Coranul</string>
 </resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">ధరలను స్వయంచాలకంగా పొందండి</string>
+    <string name="zakat_auto_prices_hint">ప్రారంభించబడినప్పుడు, బంగారం మరియు వెండి ధరలు ఇంటర్నెట్ నుండి పొందబడతాయి మరియు స్వయంచాలకంగా రిఫ్రెష్ చేయబడతాయి</string>
+    <string name="zakat_back">వెనుకకు</string>
+    <string name="zakat_cash">నగదు మరియు పొదుపు</string>
+    <string name="zakat_clear_history">చరిత్రను క్లియర్ చేయండి</string>
+    <string name="zakat_country">దేశం</string>
+    <string name="zakat_country_placeholder">మీ దేశం మరియు కరెన్సీని ఎంచుకోండి</string>
+    <string name="zakat_country_section">దేశం &amp; కరెన్సీ</string>
+    <string name="zakat_currency">కరెన్సీ: %1$s</string>
+    <string name="zakat_debts">మీరు చెల్లించాల్సిన అప్పులు (తగ్గించబడ్డాయి)</string>
+    <string name="zakat_due">జకాత్ బకాయి (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'t ధరలను పొందలేకపోయింది. మీ కనెక్షన్‌ని తనిఖీ చేయండి లేదా ధరను మాన్యువల్‌గా నమోదు చేయండి.</string>
+    <string name="zakat_fetch_now">ఇప్పుడే ధరలను రిఫ్రెష్ చేయండి</string>
+    <string name="zakat_fetching">ధరలను పొందుతోంది…</string>
+    <string name="zakat_fitr_persons">కుటుంబ సభ్యుల సంఖ్య</string>
+    <string name="zakat_fitr_saa_value">ఒక sa\' విలువ (ప్రధాన ఆహారం)</string>
+    <string name="zakat_fitr_section">జకాత్ అల్-ఫితర్</string>
+    <string name="zakat_fitr_total">మొత్తం ఫితర్ జకాత్: %1$s</string>
+    <string name="zakat_gold_grams">బంగారం (గ్రాములు)</string>
+    <string name="zakat_gold_price">గ్రాముకు బంగారం ధర</string>
+    <string name="zakat_history">గణన చరిత్ర</string>
+    <string name="zakat_history_amount">జకాత్: %1$s</string>
+    <string name="zakat_history_empty">ఇంకా సేవ్ చేయబడిన లెక్కలు లేవు.</string>
+    <string name="zakat_investments">పెట్టుబడులు</string>
+    <string name="zakat_last_updated">చివరిగా నవీకరించబడింది: %1$s</string>
+    <string name="zakat_money_section">సంపదపై జకాత్</string>
+    <string name="zakat_nisab_gold">బంగారు నిసాబ్ (85గ్రా)</string>
+    <string name="zakat_nisab_met">నిసాబ్ చేరుకుంది - జకాత్ చెల్లించాల్సి ఉంటుంది</string>
+    <string name="zakat_nisab_not_met">నిసాబ్ క్రింద - జకాత్ చెల్లించాల్సిన అవసరం లేదు</string>
+    <string name="zakat_nisab_silver">వెండి నిసాబ్ (595గ్రా)</string>
+    <string name="zakat_rulings_note">మెజారిటీ ప్రకారం (జుమ్‌హూర్): బంగారం నిసాబ్ 85గ్రా, వెండి 595గ్రా మరియు బకాయి ఉన్న అప్పులను తీసివేసిన తర్వాత రేటు 2.5%%. ప్రత్యేక కేసుల కోసం అర్హత కలిగిన పండితుడిని సంప్రదించండి.</string>
+    <string name="zakat_save_result">చరిత్రకు సేవ్ చేయండి</string>
+    <string name="zakat_silver_grams">వెండి (గ్రాములు)</string>
+    <string name="zakat_silver_price">గ్రాముకు వెండి ధర</string>
+    <string name="zakat_source_note">Gold-api.com నుండి బంగారం/వెండి ధరలు; open.er-api.com నుండి FX రేట్లు</string>
+    <string name="zakat_title">జకాత్</string>
+    <string name="zakat_total_assets">మొత్తం ఆస్తులు</string>
+    <string name="zakat_trade">వాణిజ్య వస్తువుల విలువ</string>
+    <string name="zakat_zakatable">అప్పుల తర్వాత జకాటబుల్ మొత్తం</string>
+</resources>

@@ -5,6 +5,15 @@
          sounds, translation/tafsir packs). All downloads are user-initiated. -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- Keep the device awake while a background service/alarm receiver does
+         short work (adhan playback, downloads, notification refresh). -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Ask the user to exempt the app from battery optimization so prayer
+         times, adhan and reminders stay reliable around the clock on OEM
+         devices that aggressively kill background work. -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
     <application
         android:name=".MuslimApplication"
         android:allowBackup="true"

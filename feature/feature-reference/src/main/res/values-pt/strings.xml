@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Voltar</string>
+    <string name="reference_no_results">Nenhum resultado correspondente</string>
+    <string name="reference_search_hint">Pesquise este livro…</string>
+    <string name="reference_title">Biblioteca de Referência Islâmica</string>
+    <string name="reference_topics_count">tópicos</string>
+</resources>

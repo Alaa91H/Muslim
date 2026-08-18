@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Бусалба</string>
+    <string name="more_adhkar">Адхкар</string>
+    <string name="more_adhkar_desc">Ӏуьйранна, суьйранна &amp; ламазал тӀаьхьа азкар с счетчикашца</string>
+    <string name="more_downloads">Дешар скачать дан .</string>
+    <string name="more_downloads_desc">Хьайна хаьржинчу дешархочуьнца сурат, аят я дуьззина Къуръан скачать де</string>
+    <string name="more_hadith">Хьадис</string>
+    <string name="more_hadith_desc">Хадисийн библиотека, лехамаш &amp; дийнан хьадис</string>
+    <string name="more_learn">Ӏамаде</string>
+    <string name="more_learn_desc">ГӀулч-гӀулч йоккхуш вуду &amp; ламазан хьехам</string>
+    <string name="more_ramadan">Рамадан бутт</string>
+    <string name="more_ramadan_desc">Сухур &amp; ифтар хан и марха трекер</string>
+    <string name="more_reference">Справочник библиотека</string>
+    <string name="more_reference_desc">Бусалба дин а, Сира а, пайхамарш а довзийтар</string>
+    <string name="more_settings">Настройкаш</string>
+    <string name="more_settings_desc">Тема, мотт, доӀа &amp; азан настройкаш</string>
+    <string name="more_tasbih">Тасбихь</string>
+    <string name="more_tasbih_desc">Цифровой мисбаха со денна историца .</string>
+    <string name="more_zakat">Закат</string>
+    <string name="more_zakat_desc">Закат на богатстве &amp; Фитр калькулятор</string>
+    <string name="scaffold_message">Дуккха а модулийн проектан скелет кийча ю.\n1-ра фаза — Азан, ламазан хенаш, къибла, ХӀижрин рузма — кхузахь дӀайолало.</string>
+    <string name="shortcut_qibla">Къибла</string>
+    <string name="shortcut_qibla_long">Къибла агӀо</string>
+    <string name="shortcut_settings">Настройкаш</string>
+    <string name="shortcut_settings_long">Ламаз а, азан а настройкаш</string>
+    <string name="shortcut_times">Ламазан хенаш .</string>
+    <string name="shortcut_times_long">Тахана\'ш ламаз хан</string>
+    <string name="tab_home">Ламазан хенаш</string>
+    <string name="tab_more">Кхин дӀа</string>
+    <string name="tab_qibla">Къибла</string>
+    <string name="tab_quran">Къуръан .</string>
 </resources>

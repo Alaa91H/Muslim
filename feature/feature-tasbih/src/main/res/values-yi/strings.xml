@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">דיגיטאַל מיסבאַהאַ - צאַפּן צו ציילן</string>
+    <string name="misbaha_widget_label">טאַסביה</string>
+    <string name="misbaha_widget_tap_hint">צאַפּן צו ציילן</string>
+    <string name="tasbih_back">צוריק</string>
+    <string name="tasbih_cancel">באָטל מאַכן</string>
+    <string name="tasbih_confirm">גוט</string>
+    <string name="tasbih_custom_target">מנהג</string>
+    <string name="tasbih_custom_target_hint">אַרייַן די נומער פון קאַונץ (פון 1 צו 100000)</string>
+    <string name="tasbih_custom_target_title">שטעלן אַ מנהג ציל</string>
+    <string name="tasbih_of_target">פון %1$s</string>
+    <string name="tasbih_reset">באַשטעטיק</string>
+    <string name="tasbih_reset_all">באַשטעטיק אַלע</string>
+    <string name="tasbih_round_complete">גאַנץ קייַלעכיק גאַנץ (%1$s) 🎉</string>
+    <string name="tasbih_rounds">ראָונדס: %1$d</string>
+    <string name="tasbih_sound_desc">שפּיל אַ רינגטאָנע אָדער טאָן ווען יעדער פול קייַלעכיק איז געענדיקט</string>
+    <string name="tasbih_sound_title">געזונט אויף ציל</string>
+    <string name="tasbih_sound_tone_alarm">שרעק</string>
+    <string name="tasbih_sound_tone_notification">אָנזאָג</string>
+    <string name="tasbih_sound_tone_ringtone">רינגטאָנע</string>
+    <string name="tasbih_tap_hint">צאַפּן אויף די קרייַז צו ציילן</string>
+    <string name="tasbih_target_reached">ציל דערגרייכט - זאל אַלאַ אָננעמען</string>
+    <string name="tasbih_title">טאַסביה</string>
+    <string name="tasbih_total_today">הייַנט \' ס גאַנץ: %1$d</string>
+    <string name="tasbih_undo">ופמאַכן</string>
+    <string name="tasbih_virtue_label">מייַלע פון דעם דהיקר</string>
+    <string name="tasbih_week_stats">לעצטע 7 טעג</string>
+</resources>

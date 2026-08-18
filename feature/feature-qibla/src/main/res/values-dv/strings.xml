@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ދުރުގައެވެ</string>
+    <string name="mosque_finder_empty">މި ރޭންޖުން މިސްކިތެއް ނުފެނެއެވެ</string>
+    <string name="mosque_finder_error">ހޯދުން ނާކާމިޔާބުވިއެވެ</string>
+    <string name="mosque_finder_intro">އޮޕަންސްޓްރީޓްމެޕް މެދުވެރިކޮށް ތިމާ ހުންނަ ތަނެއް ކައިރީގައި ހުންނަ މިސްކިތްތައް ހޯދާށެވެ</string>
+    <string name="mosque_finder_no_location">އަދި ލޮކޭޝަން ސެޓެއް ނެތެވެ. ފުރަތަމަ ނަމާދު ވަގުތުތަކުގެ ސެޓިންގްސް އިން ތަނެއް ހޮވާށެވެ.</string>
+    <string name="mosque_finder_retry">އަލުން މަސައްކަތް ކުރާށެވެ</string>
+    <string name="mosque_finder_searching">ހޯދަމުންދަނީ...</string>
+    <string name="mosque_finder_title">ކައިރީގައި ހުންނަ މިސްކިތްތަކެވެ</string>
+    <string name="qibla_bearing_cardinal">ޤިބްލާ މިސްރާބު: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f° އެވެ</string>
+    <string name="qibla_calibrate">ކެލިބްރޭޓް ކުރުމަށްޓަކައި ފޯނު ފިގަރ-އެއިޓް އެއްގައި ގެންދާށެވެ</string>
+    <string name="qibla_distance">މައްކާއާ ދެމެދުގެ ދުރުމިން: %1$s އެވެ</string>
+    <string name="qibla_distance_km">%,.0f ކިލޯމީޓަރު</string>
+    <string name="qibla_facing">ތިޔަ ކުރިމަތިވަނީ ޤިބްލާ 🕋 އާއެވެ</string>
+    <string name="qibla_gps_error">ޞައްޙަ ފިކްސްއެއް ނުލިބުނެވެ. އަނެއްކާވެސް މަސައްކަތް ކުރައްވާށެވެ.</string>
+    <string name="qibla_gps_live">ލައިވް ޖީޕީއެސް ލޮކޭޝަން</string>
+    <string name="qibla_gps_refresh">ޖީޕީއެސް މެދުވެރިކޮށް ލޮކޭޝަން ރިފްރެޝް ކުރުން</string>
+    <string name="qibla_gps_refreshing">ލޮކޭޓް ކުރަމުން...</string>
+    <string name="qibla_heading_degree">ފޯނު ސުރުޚީ: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">ތިމާގެ ލޮކޭޝަނުން ކައާބާއަށް ގްރޭޓް ސަރކަލް ރޫޓް — އޮފްލައިންކޮށް މަސައްކަތް ކުރެއެވެ</string>
+    <string name="qibla_map_kaaba">ކަޢުބާއެވެ</string>
+    <string name="qibla_map_you">ކަލޭ...</string>
+    <string name="qibla_mode_compass">ކޮމްޕަސް އެވެ</string>
+    <string name="qibla_mode_map">މެޕް</string>
+    <string name="qibla_open_mosques">ކައިރީގައި ހުންނަ މިސްކިތްތަކެވެ</string>
+    <string name="qibla_title">ޤިބްލާ މިސްރާބު</string>
+    <string name="qibla_turn_left">ކަނާތްފަރާތަށް %1$.1f° އެނބުރިލާށެވެ</string>
+    <string name="qibla_turn_right">ކަނާތްފަރާތަށް އެނބުރި %1$.1f°</string>
+</resources>

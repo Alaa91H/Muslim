@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Back .</string>
+    <string name="ramadan_countdown">Ramadan ayeke to nda ni na lango %1$s .</string>
+    <string name="ramadan_countdown_to_iftar">Ngoi ti iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Ngoi ti Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Lango %1$s ti Ramadan</string>
+    <string name="ramadan_days_left">A ngbâ lango %1$s</string>
+    <string name="ramadan_fasting_progress">Fasting days: %1$s of %2$s — tap a day to record it</string>
+    <string name="ramadan_fasting_tracker">Jeûne ti gingo ye</string>
+    <string name="ramadan_hijri_note">A luti na ndo ti calendrier ti Umm al-Qura na appli-wide ti Hijri so a sara kua na ni.</string>
+    <string name="ramadan_hijri_year">Ngu %1$s H.C.</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Sambela ti Iftar: "O Allah, teti Mo mbi mû jeûne na na ndo ti kobe ti Mo mbi fâ jeûne ti mbi..."</string>
+    <string name="ramadan_iftar_time">Ngoi ti Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Soro mbeni gbata na yâ ti Paramètres kozoni ti bâ angoi ni.</string>
+    <string name="ramadan_minutes">penze-ngbonga %1$s</string>
+    <string name="ramadan_notification_iftar_body">O Allah, ndali ti Mo mbi mû jeûne nga na ndo ti kobe ti Mo mbi fâ jeûne ti mbi .</string>
+    <string name="ramadan_notification_iftar_title">Ngoi ti iftar .</string>
+    <string name="ramadan_notification_suhoor_body">Fajr ayeke pusu nduru — sara suhoor ti mo .</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor ti dabe ti zo</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhour</string>
+    <string name="ramadan_suhoor_remind_before">Dabe ti mbi kozoni:</string>
+    <string name="ramadan_suhoor_time">Suhour ahunzi (fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

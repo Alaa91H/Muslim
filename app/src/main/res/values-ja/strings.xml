@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ムスリム</string>
+    <string name="more_adhkar">アドゥカル</string>
+    <string name="more_adhkar_desc">朝、夕方、礼拝後のアドカル（カウンターあり）</string>
+    <string name="more_downloads">朗読ダウンロード</string>
+    <string name="more_downloads_desc">選択した朗読者とともにスーラ、アーヤ、またはコーラン全文をダウンロードします</string>
+    <string name="more_hadith">ハディース</string>
+    <string name="more_hadith_desc">ハディース ライブラリ、検索とその日のハディース</string>
+    <string name="more_learn">学ぶ</string>
+    <string name="more_learn_desc">ステップバイステップのウドゥーと祈りのガイド</string>
+    <string name="more_ramadan">ラマダン</string>
+    <string name="more_ramadan_desc">スフールとイフタールの時間と断食トラッカー</string>
+    <string name="more_reference">参考ライブラリ</string>
+    <string name="more_reference_desc">イスラム教、シラ族、預言者についての紹介</string>
+    <string name="more_settings">設定</string>
+    <string name="more_settings_desc">テーマ、言語、祈り、アザーンの設定</string>
+    <string name="more_tasbih">タスビ</string>
+    <string name="more_tasbih_desc">毎日の履歴を含むデジタルミスバハ</string>
+    <string name="more_zakat">ザカート</string>
+    <string name="more_zakat_desc">富と Fitr 計算機に関するザカート</string>
+    <string name="scaffold_message">マルチモジュール プロジェクトのスケルトンが完成しました。\nフェーズ 1 — アザーン、礼拝時間、キブラ、ヒジュラ暦 — がここから始まります。</string>
+    <string name="shortcut_qibla">キブラ</string>
+    <string name="shortcut_qibla_long">キブラの方向</string>
+    <string name="shortcut_settings">設定</string>
+    <string name="shortcut_settings_long">祈りとアザーンの設定</string>
+    <string name="shortcut_times">祈りの時間</string>
+    <string name="shortcut_times_long">今日の祈りの時間は\'回です</string>
+    <string name="tab_home">祈りの時間</string>
+    <string name="tab_more">もっと見る</string>
+    <string name="tab_qibla">キブラ</string>
+    <string name="tab_quran">コーラン</string>
 </resources>

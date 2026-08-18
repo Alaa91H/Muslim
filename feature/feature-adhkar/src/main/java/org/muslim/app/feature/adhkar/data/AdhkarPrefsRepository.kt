@@ -24,8 +24,18 @@ data class AdhkarPrefs(
     val overlayEnabled: Boolean = true,
     /** Seconds the floating message stays visible (default 5). */
     val overlayDurationSeconds: Int = 5,
+    /** Overlay card background colour (ARGB; alpha baked in). */
+    val overlayBackgroundColor: Int = 0xE6282830.toInt(),
+    /** Overlay card background alpha 0..255 (default 230, matching the original card). */
+    val overlayBackgroundAlpha: Int = 230,
+    /** Overlay card corner radius in dp (0 = square, 40 = fully rounded). */
+    val overlayCornerRadiusDp: Int = 20,
+    /** Overlay Arabic text size in sp. */
+    val overlayFontSizeSp: Int = 22,
     /** Dhikr ids the user disabled; an absent id means "enabled". */
     val disabledDhikrIds: Set<Long> = emptySet(),
+    /** Dhikr ids the user pinned as favorites (shown at the top of the list). */
+    val favoriteDhikrIds: Set<Long> = emptySet(),
     /** Daily morning adhkar reminder (default 06:00). */
     val morningReminderEnabled: Boolean = false,
     val morningHour: Int = 6,
@@ -48,6 +58,16 @@ data class AdhkarPrefs(
     val periodicReminderWindowEndMinute: Int = 0,
 ) {
     fun isDhikrEnabled(id: Long): Boolean = id !in disabledDhikrIds
+
+    fun isDhikrFavorite(id: Long): Boolean = id in favoriteDhikrIds
+
+    /**
+     * True when at least one of the daily morning/evening adhkar reminders is
+     * enabled. This is the single master switch shown on the adhkar home
+     * screen; the underlying per-slot flags keep their individual settings.
+     */
+    val morningEveningReminderEnabled: Boolean
+        get() = morningReminderEnabled || eveningReminderEnabled
 }
 
 @Singleton
@@ -59,7 +79,21 @@ class AdhkarPrefsRepository @Inject constructor(
         AdhkarPrefs(
             overlayEnabled = p[Keys.OVERLAY_ENABLED] ?: true,
             overlayDurationSeconds = (p[Keys.OVERLAY_DURATION] ?: 5).coerceIn(1, 600),
+            overlayBackgroundColor = (p[Keys.OVERLAY_BG_COLOR] ?: 0xE6282830.toInt()).let { stored ->
+                // Backward compatible: alpha comes from its own key, falling back
+                // to the alpha baked into the stored ARGB colour.
+                val alpha = p[Keys.OVERLAY_BG_ALPHA] ?: ((stored ushr 24) and 0xFF)
+                (alpha shl 24) or (stored and 0xFFFFFF)
+            },
+            overlayBackgroundAlpha = (p[Keys.OVERLAY_BG_ALPHA]
+                ?: ((p[Keys.OVERLAY_BG_COLOR] ?: 0xE6282830.toInt()) ushr 24) and 0xFF)
+                .coerceIn(0, 255),
+            overlayCornerRadiusDp = (p[Keys.OVERLAY_CORNER_RADIUS] ?: 20).coerceIn(0, 48),
+            overlayFontSizeSp = (p[Keys.OVERLAY_FONT_SIZE] ?: 22).coerceIn(14, 36),
             disabledDhikrIds = (p[Keys.DISABLED_DHIKR_IDS] ?: emptySet())
+                .mapNotNull { it.toLongOrNull() }
+                .toSet(),
+            favoriteDhikrIds = (p[Keys.FAVORITE_DHIKR_IDS] ?: emptySet())
                 .mapNotNull { it.toLongOrNull() }
                 .toSet(),
             morningReminderEnabled = p[Keys.MORNING_ENABLED] ?: false,
@@ -84,10 +118,43 @@ class AdhkarPrefsRepository @Inject constructor(
     suspend fun setOverlayDurationSeconds(seconds: Int) =
         edit { it[Keys.OVERLAY_DURATION] = seconds.coerceIn(1, 600) }
 
+    suspend fun setOverlayBackgroundColor(rgb: Int) = edit { prefs ->
+        // The picker supplies an opaque RGB; keep the user's current alpha.
+        val alpha = prefs[Keys.OVERLAY_BG_ALPHA] ?: 230
+        prefs[Keys.OVERLAY_BG_COLOR] = (alpha shl 24) or (rgb and 0xFFFFFF)
+    }
+
+    suspend fun setOverlayBackgroundAlpha(alpha: Int) = edit { prefs ->
+        val a = alpha.coerceIn(0, 255)
+        val argb = prefs[Keys.OVERLAY_BG_COLOR] ?: 0xE6282830.toInt()
+        prefs[Keys.OVERLAY_BG_ALPHA] = a
+        prefs[Keys.OVERLAY_BG_COLOR] = (a shl 24) or (argb and 0xFFFFFF)
+    }
+
+    /** Restores the original overlay card look (colour, radius, font size). */
+    suspend fun resetOverlayAppearance() = edit { prefs ->
+        prefs.remove(Keys.OVERLAY_BG_COLOR)
+        prefs.remove(Keys.OVERLAY_BG_ALPHA)
+        prefs.remove(Keys.OVERLAY_CORNER_RADIUS)
+        prefs.remove(Keys.OVERLAY_FONT_SIZE)
+    }
+
+    suspend fun setOverlayCornerRadiusDp(radius: Int) =
+        edit { it[Keys.OVERLAY_CORNER_RADIUS] = radius.coerceIn(0, 48) }
+
+    suspend fun setOverlayFontSizeSp(size: Int) =
+        edit { it[Keys.OVERLAY_FONT_SIZE] = size.coerceIn(14, 36) }
+
     suspend fun setDhikrEnabled(id: Long, enabled: Boolean) = edit { prefs ->
         val current = prefs[Keys.DISABLED_DHIKR_IDS] ?: emptySet()
         prefs[Keys.DISABLED_DHIKR_IDS] =
             if (enabled) current - id.toString() else current + id.toString()
+    }
+
+    suspend fun setDhikrFavorite(id: Long, favorite: Boolean) = edit { prefs ->
+        val current = prefs[Keys.FAVORITE_DHIKR_IDS] ?: emptySet()
+        prefs[Keys.FAVORITE_DHIKR_IDS] =
+            if (favorite) current + id.toString() else current - id.toString()
     }
 
     suspend fun setMorningReminder(enabled: Boolean, hour: Int, minute: Int) = edit {
@@ -129,7 +196,12 @@ class AdhkarPrefsRepository @Inject constructor(
     private object Keys {
         val OVERLAY_ENABLED = booleanPreferencesKey("overlay_enabled")
         val OVERLAY_DURATION = intPreferencesKey("overlay_duration_seconds")
+        val OVERLAY_BG_COLOR = intPreferencesKey("overlay_bg_color")
+        val OVERLAY_BG_ALPHA = intPreferencesKey("overlay_bg_alpha")
+        val OVERLAY_CORNER_RADIUS = intPreferencesKey("overlay_corner_radius_dp")
+        val OVERLAY_FONT_SIZE = intPreferencesKey("overlay_font_size_sp")
         val DISABLED_DHIKR_IDS = stringSetPreferencesKey("disabled_dhikr_ids")
+        val FAVORITE_DHIKR_IDS = stringSetPreferencesKey("favorite_dhikr_ids")
         val MORNING_ENABLED = booleanPreferencesKey("morning_reminder_enabled")
         val MORNING_HOUR = intPreferencesKey("morning_reminder_hour")
         val MORNING_MINUTE = intPreferencesKey("morning_reminder_minute")

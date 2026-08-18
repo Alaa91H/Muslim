@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">दाम अपने आप ले आवल जाला</string>
+    <string name="zakat_auto_prices_hint">जब सक्षम होला त सोना चांदी के दाम इंटरनेट से ले आवल जाला आ अपने आप रिफ्रेश हो जाला</string>
+    <string name="zakat_back">वापस आ गइल</string>
+    <string name="zakat_cash">नकदी आ बचत के काम होला</string>
+    <string name="zakat_clear_history">इतिहास साफ होखे के चाहीं</string>
+    <string name="zakat_country">देश के बा</string>
+    <string name="zakat_country_placeholder">आपन देश आ मुद्रा चुनीं</string>
+    <string name="zakat_country_section">देश &amp; मुद्रा के बा</string>
+    <string name="zakat_currency">मुद्रा: %1$s के बा</string>
+    <string name="zakat_debts">रउरा पर जवन कर्जा बा (कटावल)</string>
+    <string name="zakat_due">देय जकात (2.5%%): %1$s के बा</string>
+    <string name="zakat_fetch_failed">Couldn\'t दाम ले आवल जा सकेला। आपन कनेक्शन के जांच करीं भा मैन्युअल रूप से दाम दर्ज करीं.</string>
+    <string name="zakat_fetch_now">अब दाम ताजा कर लीं</string>
+    <string name="zakat_fetching">दाम ले आवे के बा...</string>
+    <string name="zakat_fitr_persons">परिवार के सदस्यन के संख्या</string>
+    <string name="zakat_fitr_saa_value">एक sa\' (मुख्य भोजन) के मूल्य</string>
+    <string name="zakat_fitr_section">जकात अल फितर के नाम से जानल जाला</string>
+    <string name="zakat_fitr_total">कुल फितर जकात : %1$s बा</string>
+    <string name="zakat_gold_grams">सोना (ग्राम) के बा।</string>
+    <string name="zakat_gold_price">सोना के दाम प्रति ग्राम बा</string>
+    <string name="zakat_history">गणना के इतिहास के बारे में बतावल गइल बा</string>
+    <string name="zakat_history_amount">जकात : %1$s के बा</string>
+    <string name="zakat_history_empty">अबहीं ले कवनो सेव कइल गणना नइखे भइल.</string>
+    <string name="zakat_investments">निवेश के बा</string>
+    <string name="zakat_last_updated">अंतिम बेर अपडेट भइल: %1$s</string>
+    <string name="zakat_money_section">धन पर जकात दिहल गइल</string>
+    <string name="zakat_nisab_gold">सोना के निसाब (85g) के बा।</string>
+    <string name="zakat_nisab_met">निसाब पहुँच गइल बा — जकात देबे के बा</string>
+    <string name="zakat_nisab_not_met">निसाब के नीचे — कवनो जकात के बकाया ना</string>
+    <string name="zakat_nisab_silver">चांदी के निसाब (595g) के बा।</string>
+    <string name="zakat_rulings_note">बहुमत (जुमहूर) के प्रति: सोना के निसाब 85g, चांदी के 595g, अवुरी बकाया कर्जा काटला के बाद दर 2.5%% बा। विशेष मामिला खातिर कवनो योग्य विद्वान से सलाह लीं.</string>
+    <string name="zakat_save_result">इतिहास में बचाईं</string>
+    <string name="zakat_silver_grams">चांदी (ग्राम) के बा।</string>
+    <string name="zakat_silver_price">चांदी के दाम प्रति ग्राम बा</string>
+    <string name="zakat_source_note">सोना/चांदी के दाम सोना-एपीआई डॉट कॉम से; open.er-api.com से एफएक्स दर बा</string>
+    <string name="zakat_title">जकात के बा</string>
+    <string name="zakat_total_assets">कुल संपत्ति के बा</string>
+    <string name="zakat_trade">व्यापारिक सामान के मूल्य के बा</string>
+    <string name="zakat_zakatable">कर्ज के बाद जकाटेबल राशि</string>
+</resources>

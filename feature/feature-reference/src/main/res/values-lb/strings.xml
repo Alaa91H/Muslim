@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Zréck</string>
+    <string name="reference_no_results">Keng passende Resultater</string>
+    <string name="reference_search_hint">Sicht dëst Buch ...</string>
+    <string name="reference_title">Islamesch Referenzbibliothéik</string>
+    <string name="reference_topics_count">Themen</string>
+</resources>

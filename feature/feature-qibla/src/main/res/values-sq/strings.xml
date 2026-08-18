@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s larg</string>
+    <string name="mosque_finder_empty">Nuk u gjetën xhami në këtë varg</string>
+    <string name="mosque_finder_error">Kërkimi dështoi</string>
+    <string name="mosque_finder_intro">Gjeni xhami pranë vendndodhjes tuaj nëpërmjet OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Nuk është caktuar ende vendndodhja. Fillimisht zgjidhni një vendndodhje nga cilësimet e kohës së lutjes.</string>
+    <string name="mosque_finder_retry">Provo sërish</string>
+    <string name="mosque_finder_searching">Po kërkon…</string>
+    <string name="mosque_finder_title">Xhamitë aty pranë</string>
+    <string name="qibla_bearing_cardinal">Drejtimi i Kiblës: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Lëvizni telefonin tuaj në një figurë-tetë për ta kalibruar</string>
+    <string name="qibla_distance">Largësia në Mekke: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Jeni me fytyrë nga Kibla 🕋</string>
+    <string name="qibla_gps_error">Nuk mund të merrej një rregullim i saktë. Ju lutemi provoni përsëri.</string>
+    <string name="qibla_gps_live">Vendndodhja e drejtpërdrejtë GPS</string>
+    <string name="qibla_gps_refresh">Rifresko vendndodhjen përmes GPS</string>
+    <string name="qibla_gps_refreshing">Po lokalizohet…</string>
+    <string name="qibla_heading_degree">Titulli i telefonit: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Rruga me rreth të madh nga vendndodhja juaj në Qabe — funksionon jashtë linje</string>
+    <string name="qibla_map_kaaba">Qabeja</string>
+    <string name="qibla_map_you">Ju</string>
+    <string name="qibla_mode_compass">Kompas</string>
+    <string name="qibla_mode_map">Harta</string>
+    <string name="qibla_open_mosques">Xhamitë aty pranë</string>
+    <string name="qibla_title">Drejtimi i Kiblës</string>
+    <string name="qibla_turn_left">Ktheni majtas %1$.1f°</string>
+    <string name="qibla_turn_right">Ktheni djathtas %1$.1f°</string>
+</resources>

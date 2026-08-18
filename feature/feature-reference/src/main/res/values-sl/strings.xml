@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Nazaj</string>
+    <string name="reference_no_results">Ni ustreznih rezultatov</string>
+    <string name="reference_search_hint">Išči v tej knjigi ...</string>
+    <string name="reference_title">Islamska referenčna knjižnica</string>
+    <string name="reference_topics_count">teme</string>
+</resources>

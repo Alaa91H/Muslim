@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Mangwanani, manheru &amp; mushure memunamato adhkar ine zviverengero</string>
+    <string name="more_downloads">Recitation downloads</string>
+    <string name="more_downloads_desc">Dhawunirodha surah, ayah kana iyo Korani yakazara neyako yakasarudzwa inoverenga</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Hadith raibhurari, kutsvaga &amp; hadith yezuva</string>
+    <string name="more_learn">Dzidza</string>
+    <string name="more_learn_desc">Nhanho-ne-nhanho wudhu &amp; minamato madhairekitori</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar nguva uye yekutsanya tracker</string>
+    <string name="more_reference">Reference Library</string>
+    <string name="more_reference_desc">Nhanganyaya kuIslam, the Sira &amp; the prophets</string>
+    <string name="more_settings">Settings</string>
+    <string name="more_settings_desc">Theme, mutauro, munamato &amp; adhan marongero</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digital misbaha ine nhoroondo yemazuva ese</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat pahupfumi &amp; Fitr Calculator</string>
+    <string name="scaffold_message">Maraka epurojekiti yemamodule akawanda agadzirira.\nChikamu chekutanga - Adhan, nguva dzeminamato, Qibla, nekarenda yeHijri - inotangira pano.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla direction</string>
+    <string name="shortcut_settings">Settings</string>
+    <string name="shortcut_settings_long">Munamato &amp; adhan marongero</string>
+    <string name="shortcut_times">Nguva dzekunyengetera</string>
+    <string name="shortcut_times_long">Nhasi\'s nguva dzeminamato</string>
+    <string name="tab_home">Nguva dzekunyengetera</string>
+    <string name="tab_more">Zvimwe</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

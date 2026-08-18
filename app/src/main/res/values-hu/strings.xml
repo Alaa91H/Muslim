@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muzulmán</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Reggel, este és ima utáni adhkar számlálókkal</string>
+    <string name="more_downloads">Szavalat letöltések</string>
+    <string name="more_downloads_desc">Töltsön le egy szúrát, egy ayah-t vagy a teljes Koránt a választott szavalóval</string>
+    <string name="more_hadith">hadísz</string>
+    <string name="more_hadith_desc">Hadísz könyvtár, keresés és a nap hadísza</string>
+    <string name="more_learn">Tanulj</string>
+    <string name="more_learn_desc">Lépésről lépésre wudu és ima útmutatók</string>
+    <string name="more_ramadan">Ramadán</string>
+    <string name="more_ramadan_desc">Suhoor és iftar idők és böjtkövető</string>
+    <string name="more_reference">Referenciakönyvtár</string>
+    <string name="more_reference_desc">Bevezetés az iszlámba, a Szírába és a prófétákba</string>
+    <string name="more_settings">Beállítások elemre</string>
+    <string name="more_settings_desc">Téma, nyelv, ima és adhan beállítások</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digitális misbaha napi előzményekkel</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat a vagyon és Fitr számológép</string>
+    <string name="scaffold_message">A több modulból álló projektváz készen áll.\nAz 1. fázis – Adhan, imaidők, Qibla és a Hijri naptár – itt kezdődik.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla irány</string>
+    <string name="shortcut_settings">Beállítások elemre</string>
+    <string name="shortcut_settings_long">Ima és adhan beállítások</string>
+    <string name="shortcut_times">Ima idők</string>
+    <string name="shortcut_times_long">Ma \' imaidőszak</string>
+    <string name="tab_home">Imaidők</string>
+    <string name="tab_more">Többet</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Korán</string>
 </resources>

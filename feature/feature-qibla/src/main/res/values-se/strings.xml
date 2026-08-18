@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s eret</string>
+    <string name="mosque_finder_empty">Dán guovllus eai gávdno moskeat</string>
+    <string name="mosque_finder_error">Ohcan ii lihkostuvvan</string>
+    <string name="mosque_finder_intro">Gávnnat moskeijaid lahka du báikki OpenStreetMap bokte</string>
+    <string name="mosque_finder_no_location">Ii leat vuos mearriduvvon báiki. Vállje vuos báikki rohkosáiggiid njuolggadusain.</string>
+    <string name="mosque_finder_retry">Geahččal ođđasit</string>
+    <string name="mosque_finder_searching">Ohcan...</string>
+    <string name="mosque_finder_title">Lagamus moskeat</string>
+    <string name="qibla_bearing_cardinal">Qibla čujuhus: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Sirdde telefovnna figuvra-guhtta sisa vai sáhtát kalibreret</string>
+    <string name="qibla_distance">Gaska Makkai: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Don leat Kibla ovddabealde 🕋</string>
+    <string name="qibla_gps_error">Ii nagodan oažžut dárkilis čovdosa. Geahččal fas.</string>
+    <string name="qibla_gps_live">Njuolggo GPS-báiki</string>
+    <string name="qibla_gps_refresh">Ođasmahttit báikki GPS bokte</string>
+    <string name="qibla_gps_refreshing">Gávdnan…</string>
+    <string name="qibla_heading_degree">Telefovdnačujuhus: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Stuora sirkusa mátki du báikkis Kaabai — doaibmá offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Don</string>
+    <string name="qibla_mode_compass">Kompássa</string>
+    <string name="qibla_mode_map">Kárta</string>
+    <string name="qibla_open_mosques">Lagamus moskeat</string>
+    <string name="qibla_title">Qibla čujuhus</string>
+    <string name="qibla_turn_left">Váldde olgešbeallái %1$.1f°</string>
+    <string name="qibla_turn_right">Váldde olgešbeallái %1$.1f°</string>
+</resources>

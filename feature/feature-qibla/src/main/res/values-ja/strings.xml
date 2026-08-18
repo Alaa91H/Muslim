@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s離れたところ</string>
+    <string name="mosque_finder_empty">この範囲内にモスクは見つかりませんでした</string>
+    <string name="mosque_finder_error">検索に失敗しました</string>
+    <string name="mosque_finder_intro">OpenStreetMap で現在地近くのモスクを探す</string>
+    <string name="mosque_finder_no_location">まだ場所は設定されていません。まず礼拝時間の設定から場所を選択します。</string>
+    <string name="mosque_finder_retry">再試行</string>
+    <string name="mosque_finder_searching">検索中…</string>
+    <string name="mosque_finder_title">近くのモスク</string>
+    <string name="qibla_bearing_cardinal">キブラ方向: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">携帯電話を 8 の字に動かして調整します</string>
+    <string name="qibla_distance">メッカまでの距離: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">あなたはキブラに面しています 🕋</string>
+    <string name="qibla_gps_error">正確な修正を得ることができませんでした。もう一度試してください。</string>
+    <string name="qibla_gps_live">ライブGPS位置情報</string>
+    <string name="qibla_gps_refresh">GPS 経由で位置情報を更新する</string>
+    <string name="qibla_gps_refreshing">探しています…</string>
+    <string name="qibla_heading_degree">電話の機首方位: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">現在地からカーバ神殿までの大圏ルート — オフラインで動作します</string>
+    <string name="qibla_map_kaaba">カーバ神殿</string>
+    <string name="qibla_map_you">あなた</string>
+    <string name="qibla_mode_compass">コンパス</string>
+    <string name="qibla_mode_map">地図</string>
+    <string name="qibla_open_mosques">近くのモスク</string>
+    <string name="qibla_title">キブラの方向</string>
+    <string name="qibla_turn_left">左折%1$.1f°</string>
+    <string name="qibla_turn_right">右折%1$.1f°</string>
+</resources>

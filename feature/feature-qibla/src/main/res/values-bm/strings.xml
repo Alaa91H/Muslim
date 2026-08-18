@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s bɛ yen</string>
+    <string name="mosque_finder_empty">Misiri si ma Sɔrɔ o yɔrɔ in na</string>
+    <string name="mosque_finder_error">Ɲini ma ɲɛ</string>
+    <string name="mosque_finder_intro">Misiriw ɲini i sigiyɔrɔ kɛrɛfɛ OpenStreetMap fɛ</string>
+    <string name="mosque_finder_no_location">Yɔrɔ si ma sigi fɔlɔ. Yɔrɔ dɔ sugandi delili waatiw sigicogo la fɔlɔ.</string>
+    <string name="mosque_finder_retry">Aw ye a lajɛ kokura</string>
+    <string name="mosque_finder_searching">Ɲini...</string>
+    <string name="mosque_finder_title">Misiri minnu bɛ kɛrɛfɛ</string>
+    <string name="qibla_bearing_cardinal">Qibla ɲɛsinna: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f° ye</string>
+    <string name="qibla_calibrate">Aw bɛ aw ka telefɔni lamaga ja 8 la walasa ka a kalibre</string>
+    <string name="qibla_distance">Janya ni Makkah ye %1$s ye</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Aw bɛ ka ɲɛsin Qibla 🕋 ma</string>
+    <string name="qibla_gps_error">A ma se ka ɲɛnabɔli tigitigi sɔrɔ. Aw ye aw jija ka segin a kan.</string>
+    <string name="qibla_gps_live">GPS yɔrɔ ɲɛnama</string>
+    <string name="qibla_gps_refresh">Yɔrɔ kura ye GPS fɛ</string>
+    <string name="qibla_gps_refreshing">Yɔrɔ sɔrɔli...</string>
+    <string name="qibla_heading_degree">Telefɔni tɔgɔ: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Great-circle sira ka bɔ i sigiyɔrɔ la ka taa Kaaba — a bɛ baara kɛ offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Aw ye</string>
+    <string name="qibla_mode_compass">Boussole (Boussole) ye</string>
+    <string name="qibla_mode_map">Karta</string>
+    <string name="qibla_open_mosques">Misiri minnu bɛ kɛrɛfɛ</string>
+    <string name="qibla_title">Qibla ɲɛsincogo</string>
+    <string name="qibla_turn_left">Aw bɛ wuli ka taa kinin fɛ %1$.1f°</string>
+    <string name="qibla_turn_right">Aw bɛ wuli ka taa kinin fɛ %1$.1f°</string>
+</resources>

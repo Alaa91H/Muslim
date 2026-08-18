@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">ห่างออกไป %s</string>
+    <string name="mosque_finder_empty">ไม่พบมัสยิดในบริเวณนี้</string>
+    <string name="mosque_finder_error">การค้นหาล้มเหลว</string>
+    <string name="mosque_finder_intro">ค้นหามัสยิดใกล้ตำแหน่งของคุณผ่าน OpenStreetMap</string>
+    <string name="mosque_finder_no_location">ยังไม่ได้กำหนดสถานที่ เลือกสถานที่จากการตั้งค่าเวลาละหมาดก่อน</string>
+    <string name="mosque_finder_retry">ลองอีกครั้ง</string>
+    <string name="mosque_finder_searching">กำลังค้นหา...</string>
+    <string name="mosque_finder_title">มัสยิดใกล้เคียง</string>
+    <string name="qibla_bearing_cardinal">ทิศทางกิบลัต: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">ขยับโทรศัพท์ของคุณในรูปเลขแปดเพื่อปรับเทียบ</string>
+    <string name="qibla_distance">Distance to Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f กม</string>
+    <string name="qibla_facing">คุณกำลังเผชิญหน้ากับกิบลัต 🕋</string>
+    <string name="qibla_gps_error">ไม่สามารถแก้ไขให้ถูกต้องได้ โปรดลองอีกครั้ง</string>
+    <string name="qibla_gps_live">ตำแหน่ง GPS สด</string>
+    <string name="qibla_gps_refresh">รีเฟรชตำแหน่งผ่าน GPS</string>
+    <string name="qibla_gps_refreshing">กำลังค้นหา...</string>
+    <string name="qibla_heading_degree">ส่วนหัวของโทรศัพท์: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">เส้นทางวงเวียนใหญ่จากตำแหน่งของคุณไปยังกะอบะห — ทำงานแบบออฟไลน์</string>
+    <string name="qibla_map_kaaba">กะอบะห</string>
+    <string name="qibla_map_you">คุณ</string>
+    <string name="qibla_mode_compass">เข็มทิศ</string>
+    <string name="qibla_mode_map">แผนที่</string>
+    <string name="qibla_open_mosques">มัสยิดใกล้เคียง</string>
+    <string name="qibla_title">ทิศทางกิบลัต</string>
+    <string name="qibla_turn_left">เลี้ยวซ้าย %1$.1f°</string>
+    <string name="qibla_turn_right">เลี้ยวขวา %1$.1f°</string>
+</resources>

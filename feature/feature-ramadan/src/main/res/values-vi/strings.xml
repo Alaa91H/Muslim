@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Quay lại</string>
+    <string name="ramadan_countdown">Tháng Ramadan bắt đầu sau %1$s ngày</string>
+    <string name="ramadan_countdown_to_iftar">Thời gian đến iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Thời gian tới Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Ngày thứ %1$s của tháng Ramadan</string>
+    <string name="ramadan_days_left">Còn lại %1$s ngày</string>
+    <string name="ramadan_fasting_progress">Ngày ăn chay: %1$s trên %2$s - nhấn vào một ngày để ghi lại</string>
+    <string name="ramadan_fasting_tracker">Theo dõi nhịn ăn</string>
+    <string name="ramadan_hijri_note">Dựa trên lịch Umm al-Qura có áp dụng điều chỉnh Hijri trên toàn ứng dụng.</string>
+    <string name="ramadan_hijri_year">Năm %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Lời cầu nguyện của Iftar: "Hỡi Allah, vì Ngài, tôi đã nhịn ăn và theo sự cung cấp của Ngài, tôi nhịn ăn..."</string>
+    <string name="ramadan_iftar_time">Thời gian Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Trước tiên hãy chọn một thành phố trong Cài đặt để xem giờ.</string>
+    <string name="ramadan_minutes">%1$s phút</string>
+    <string name="ramadan_notification_iftar_body">Ôi Allah, vì Ngài, tôi đã nhịn ăn và theo sự cung cấp của Ngài, tôi nhịn ăn</string>
+    <string name="ramadan_notification_iftar_title">Đã đến lúc ăn iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr đang đến gần - chúc bạn vui vẻ</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor nhắc nhở</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Nhắc tôi trước:</string>
+    <string name="ramadan_suhoor_time">Suhoor kết thúc (Fajr): %1$s</string>
+    <string name="ramadan_title">tháng chay Ramadan</string>
+</resources>

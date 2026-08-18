@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — ແຕະເພື່ອນັບ</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">ແຕະເພື່ອນັບ</string>
+    <string name="tasbih_back">ກັບຄືນໄປບ່ອນ</string>
+    <string name="tasbih_cancel">ຍົກເລີກ</string>
+    <string name="tasbih_confirm">ຕົກລົງ</string>
+    <string name="tasbih_custom_target">ກຳນົດເອງ</string>
+    <string name="tasbih_custom_target_hint">ໃສ່ຈໍານວນການນັບ (ຈາກ 1 ຫາ 100000)</string>
+    <string name="tasbih_custom_target_title">ກໍານົດເປົ້າຫມາຍທີ່ກໍາຫນົດເອງ</string>
+    <string name="tasbih_of_target">ຂອງ %1$s</string>
+    <string name="tasbih_reset">ຣີເຊັດ</string>
+    <string name="tasbih_reset_all">ຣີເຊັດທັງໝົດ</string>
+    <string name="tasbih_round_complete">ຄົບຮອບ (%1$s) 🎉</string>
+    <string name="tasbih_rounds">ຮອບ: %1$d</string>
+    <string name="tasbih_sound_desc">ຫຼິ້ນສຽງເອີ້ນເຂົ້າ ຫຼືສຽງດັງເມື່ອແຕ່ລະຮອບສຳເລັດແລ້ວ</string>
+    <string name="tasbih_sound_title">ສຽງ​ໃນ​ເປົ້າ​ຫມາຍ​</string>
+    <string name="tasbih_sound_tone_alarm">ປຸກ</string>
+    <string name="tasbih_sound_tone_notification">ແຈ້ງການ</string>
+    <string name="tasbih_sound_tone_ringtone">ຣິງໂທນ</string>
+    <string name="tasbih_tap_hint">ແຕະວົງມົນເພື່ອນັບ</string>
+    <string name="tasbih_target_reached">ບັນລຸເປົ້າຫມາຍ - ອາດຈະ Allah ຍອມຮັບ</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">ມື້ນີ້\'s ທັງໝົດ: %1$d</string>
+    <string name="tasbih_undo">ຍົກເລີກ</string>
+    <string name="tasbih_virtue_label">ຄຸນງາມຄວາມດີຂອງ dhikr ນີ້</string>
+    <string name="tasbih_week_stats">7 ມື້ທີ່ຜ່ານມາ</string>
+</resources>

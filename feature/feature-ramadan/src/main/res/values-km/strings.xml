@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">ត្រឡប់មកវិញ</string>
+    <string name="ramadan_countdown">បុណ្យរ៉ាម៉ាដានចាប់ផ្តើមនៅក្នុង %1$s ថ្ងៃ។</string>
+    <string name="ramadan_countdown_to_iftar">ពេលវេលាទៅ iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ពេលវេលាទៅ Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">ថ្ងៃ %1$s នៃបុណ្យរ៉ាម៉ាដាន</string>
+    <string name="ramadan_days_left">នៅសល់ %1$s ថ្ងៃ។</string>
+    <string name="ramadan_fasting_progress">ថ្ងៃតមអាហារ៖ %1$s នៃ %2$s — ចុចក្នុងមួយថ្ងៃដើម្បីកត់ត្រាវា</string>
+    <string name="ramadan_fasting_tracker">កម្មវិធីតាមដានការតមអាហារ</string>
+    <string name="ramadan_hijri_note">ផ្អែកលើប្រតិទិន Umm al-Qura ជាមួយនឹងការកែតម្រូវ Hijri ទូទាំងកម្មវិធីបានអនុវត្ត។</string>
+    <string name="ramadan_hijri_year">ឆ្នាំ %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">ការអង្វររបស់ Iftar : "ឱ អល់ឡោះ ខ្ញុំបានតមអាហារសម្រាប់អ្នក ហើយខ្ញុំបានលះបង់ការតមអាហាររបស់ខ្ញុំ ... "</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) ពេលវេលា: %1$s</string>
+    <string name="ramadan_location_required">ជ្រើសរើសទីក្រុងនៅក្នុងការកំណត់ជាមុនសិន ដើម្បីមើលម៉ោង។</string>
+    <string name="ramadan_minutes">%1$s នាទី</string>
+    <string name="ramadan_notification_iftar_body">ឱអល់ឡោះ ចំពោះអ្នក ខ្ញុំបានតមអាហារ ហើយនៅលើការផ្តល់របស់ទ្រង់ ខ្ញុំបានបំបែកការតមអាហាររបស់ខ្ញុំ</string>
+    <string name="ramadan_notification_iftar_title">ពេលវេលាសម្រាប់ iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr ជិតមកដល់ហើយ — សុំ suhoor របស់អ្នក។</string>
+    <string name="ramadan_notification_suhoor_title">ការរំលឹក Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">ស៊ូហូ</string>
+    <string name="ramadan_suhoor_remind_before">រំលឹកខ្ញុំជាមុន៖</string>
+    <string name="ramadan_suhoor_time">Suhoor បញ្ចប់ (Fajr): %1$s</string>
+    <string name="ramadan_title">រ៉ាម៉ាដាន</string>
+</resources>

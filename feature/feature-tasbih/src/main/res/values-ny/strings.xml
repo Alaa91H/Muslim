@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha - dinani kuti muwerenge</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Dinani kuti muwerenge</string>
+    <string name="tasbih_back">Kubwerera</string>
+    <string name="tasbih_cancel">Letsani</string>
+    <string name="tasbih_confirm">Chabwino</string>
+    <string name="tasbih_custom_target">Mwambo</string>
+    <string name="tasbih_custom_target_hint">Lowetsani ziwerengero (kuyambira 1 mpaka 100000)</string>
+    <string name="tasbih_custom_target_title">Khazikitsani chandamale</string>
+    <string name="tasbih_of_target">ku %1$s</string>
+    <string name="tasbih_reset">Bwezerani</string>
+    <string name="tasbih_reset_all">Bwezerani zonse</string>
+    <string name="tasbih_round_complete">Kuzungulira kwathunthu (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Kuzungulira: %1$d</string>
+    <string name="tasbih_sound_desc">Sewerani toni kapena toni iliyonse ikamalizidwa</string>
+    <string name="tasbih_sound_title">Kumveka pa chandamale</string>
+    <string name="tasbih_sound_tone_alarm">Alamu</string>
+    <string name="tasbih_sound_tone_notification">Chidziwitso</string>
+    <string name="tasbih_sound_tone_ringtone">Nyimbo Zamafoni</string>
+    <string name="tasbih_tap_hint">Dinani bwalo kuti muwerenge</string>
+    <string name="tasbih_target_reached">Cholinga chakwaniritsidwa - Mulungu avomereze</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Masiku ano\'s onse: %1$d</string>
+    <string name="tasbih_undo">Bwezerani</string>
+    <string name="tasbih_virtue_label">Ubwino wa dhikr iyi</string>
+    <string name="tasbih_week_stats">Masiku 7 omaliza</string>
+</resources>

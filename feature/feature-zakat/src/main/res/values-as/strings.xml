@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">দামবোৰ স্বয়ংক্ৰিয়ভাৱে আনিব</string>
+    <string name="zakat_auto_prices_hint">সক্ষম হ’লে সোণ আৰু ৰূপৰ দাম ইণ্টাৰনেটৰ পৰা আনি স্বয়ংক্ৰিয়ভাৱে সতেজ কৰা হয়</string>
+    <string name="zakat_back">পিছলৈ ঘূৰি আহিল</string>
+    <string name="zakat_cash">নগদ ধন আৰু সঞ্চয়</string>
+    <string name="zakat_clear_history">ইতিহাস স্পষ্ট</string>
+    <string name="zakat_country">দেশ</string>
+    <string name="zakat_country_placeholder">নিজৰ দেশ আৰু মুদ্ৰা বাছি লওক</string>
+    <string name="zakat_country_section">দেশ আৰু মুদ্ৰা</string>
+    <string name="zakat_currency">মুদ্ৰা: %1$s</string>
+    <string name="zakat_debts">আপুনি পাবলগীয়া ঋণ (কৰ্তন কৰা)</string>
+    <string name="zakat_due">জাকাতৰ প্ৰাপ্য (২.৫%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t দাম আনিব পৰা নাছিল। আপোনাৰ সংযোগ পৰীক্ষা কৰক বা মূল্য নিজে সুমুৱাওক।</string>
+    <string name="zakat_fetch_now">এতিয়াই দাম সতেজ কৰক</string>
+    <string name="zakat_fetching">মূল্য আনা...</string>
+    <string name="zakat_fitr_persons">পৰিয়ালৰ সদস্যৰ সংখ্যা</string>
+    <string name="zakat_fitr_saa_value">এটা sa\' (মূল খাদ্য) ৰ মূল্য</string>
+    <string name="zakat_fitr_section">জাকাত আল-ফিতৰ</string>
+    <string name="zakat_fitr_total">মুঠ ফিতৰ জাকাত: %1$s</string>
+    <string name="zakat_gold_grams">সোণ (গ্ৰাম)</string>
+    <string name="zakat_gold_price">প্ৰতি গ্ৰাম সোণৰ মূল্য</string>
+    <string name="zakat_history">গণনাৰ ইতিহাস</string>
+    <string name="zakat_history_amount">জাকাত: %1$s</string>
+    <string name="zakat_history_empty">এতিয়াও কোনো সংৰক্ষিত গণনা নাই।</string>
+    <string name="zakat_investments">বিনিয়োগ</string>
+    <string name="zakat_last_updated">শেষবাৰৰ বাবে আপডেট কৰা হৈছে: %1$s</string>
+    <string name="zakat_money_section">ধনৰ ওপৰত জাকাত</string>
+    <string name="zakat_nisab_gold">সোণৰ নিছাব (৮৫গ্ৰাম)</string>
+    <string name="zakat_nisab_met">নিছাব পোৱা যায় — জাকাত পাবলগীয়া হয়</string>
+    <string name="zakat_nisab_not_met">নিছাবৰ তলত — কোনো জাকাতৰ প্ৰাপ্য নহয়</string>
+    <string name="zakat_nisab_silver">ৰূপালী নিছাব (৫৯৫গ্ৰাম)</string>
+    <string name="zakat_rulings_note">সংখ্যাগৰিষ্ঠৰ প্ৰতি (জুমহুৰ): সোণৰ নিছাব ৮৫গ্ৰাম, ৰূপৰ ৫৯৫গ্ৰাম, আৰু প্ৰাপ্য ঋণ কৰ্তনৰ পিছত হাৰ ২.৫%%। বিশেষ ক্ষেত্ৰত এজন যোগ্য পণ্ডিতৰ পৰামৰ্শ লওক।</string>
+    <string name="zakat_save_result">ইতিহাসত সংৰক্ষণ কৰক</string>
+    <string name="zakat_silver_grams">ৰূপ (গ্ৰাম)</string>
+    <string name="zakat_silver_price">প্ৰতি গ্ৰাম ৰূপৰ দাম</string>
+    <string name="zakat_source_note">gold-api.com ৰ পৰা সোণ/ৰূপৰ মূল্য; open.er-api.com ৰ পৰা FX ৰেট</string>
+    <string name="zakat_title">জাকাত</string>
+    <string name="zakat_total_assets">মুঠ সম্পত্তি</string>
+    <string name="zakat_trade">বাণিজ্যিক সামগ্ৰীৰ মূল্য</string>
+    <string name="zakat_zakatable">ঋণৰ পিছত জাকাটেবল পৰিমাণ</string>
+</resources>

@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import org.muslim.app.feature.tasbih.domain.DailyCount
 import org.muslim.app.feature.tasbih.domain.TasbihCounter
+import org.muslim.app.feature.tasbih.domain.TargetSoundSettings
 import org.muslim.app.feature.tasbih.domain.TasbihPhrase
 import org.muslim.app.feature.tasbih.domain.TasbihState
 import java.time.LocalDate
@@ -19,50 +20,80 @@ import javax.inject.Singleton
 private val Context.tasbihDataStore by preferencesDataStore(name = "tasbih_prefs")
 
 /**
- * Misbaha state (PROJECT_PROMPT.md §6 Phase 4): current count with automatic
- * daily roll-over, configurable target, selected phrase and a rolling daily
- * history — all persisted on-device in DataStore.
+ * Misbaha state (PROJECT_PROMPT.md §6 Phase 4): an independent daily counter
+ * per dhikr phrase (so switching phrases never loses progress), a configurable
+ * target, undo, per-phrase reset, and a rolling daily history of totals.
  */
 @Singleton
 class TasbihRepository @Inject constructor(
     @ApplicationContext private val context: Context,
 ) {
 
+    /** Sound-on-target preferences (toggle + chosen system tone). */
+    val targetSoundSettings: Flow<TargetSoundSettings> = context.tasbihDataStore.data.map { prefs ->
+        TargetSoundSettings(
+            enabled = prefs[Keys.SOUND_ENABLED] ?: false,
+            tone = prefs[Keys.SOUND_TONE] ?: TargetSoundSettings.TONE_NOTIFICATION,
+        )
+    }
+
+    suspend fun setTargetSoundEnabled(enabled: Boolean) {
+        context.tasbihDataStore.edit { prefs -> prefs[Keys.SOUND_ENABLED] = enabled }
+    }
+
+    suspend fun setTargetSoundTone(tone: String) {
+        context.tasbihDataStore.edit { prefs -> prefs[Keys.SOUND_TONE] = tone }
+    }
+
     val state: Flow<TasbihState> = context.tasbihDataStore.data.map { prefs ->
         val today = LocalDate.now()
-        val storedCount = prefs[Keys.COUNT] ?: 0
+        val storedCounts = decodeCounts(prefs[Keys.COUNTS])
         val storedDate = prefs[Keys.DATE]?.let { runCatching { LocalDate.parse(it) }.getOrNull() } ?: today
         TasbihState(
-            count = TasbihCounter.effectiveCount(storedCount, storedDate, today),
+            counts = TasbihCounter.effectiveCounts(storedCounts, storedDate, today),
             target = prefs[Keys.TARGET] ?: DEFAULT_TARGET,
             phrase = TasbihPhrase.entries.getOrElse(prefs[Keys.PHRASE] ?: 0) { TasbihPhrase.SubhanAllah },
             history = decodeHistory(prefs[Keys.HISTORY]),
         )
     }
 
-    suspend fun increment() {
+    suspend fun increment(phrase: TasbihPhrase) {
         context.tasbihDataStore.edit { prefs ->
             val today = LocalDate.now()
-            val storedCount = prefs[Keys.COUNT] ?: 0
+            val storedCounts = decodeCounts(prefs[Keys.COUNTS])
             val storedDate = prefs[Keys.DATE]?.let { runCatching { LocalDate.parse(it) }.getOrNull() } ?: today
-            val result = TasbihCounter.increment(storedCount, storedDate, today, decodeHistory(prefs[Keys.HISTORY]))
-            prefs[Keys.COUNT] = result.count
+            val result = TasbihCounter.increment(
+                storedCounts, storedDate, today, decodeHistory(prefs[Keys.HISTORY]), phrase,
+            )
+            prefs[Keys.COUNTS] = encodeCounts(result.counts)
             prefs[Keys.DATE] = result.date.toString()
             prefs[Keys.HISTORY] = encodeHistory(result.history)
         }
     }
 
-    suspend fun reset() {
+    suspend fun decrement(phrase: TasbihPhrase) {
         context.tasbihDataStore.edit { prefs ->
             val today = LocalDate.now()
-            val storedCount = prefs[Keys.COUNT] ?: 0
-            val storedDate = prefs[Keys.DATE]?.let { runCatching { LocalDate.parse(it) }.getOrNull() } ?: today
-            if (storedCount > 0) {
-                val rolled = (listOf(DailyCount(storedDate, storedCount)) + decodeHistory(prefs[Keys.HISTORY])).take(30)
-                prefs[Keys.HISTORY] = encodeHistory(rolled)
-            }
-            prefs[Keys.COUNT] = 0
+            val effective = effectiveCounts(prefs, today)
+            prefs[Keys.COUNTS] = encodeCounts(TasbihCounter.decrement(effective, phrase))
             prefs[Keys.DATE] = today.toString()
+        }
+    }
+
+    suspend fun reset(phrase: TasbihPhrase) {
+        context.tasbihDataStore.edit { prefs ->
+            val today = LocalDate.now()
+            val effective = effectiveCounts(prefs, today)
+            prefs[Keys.COUNTS] = encodeCounts(TasbihCounter.resetPhrase(effective, phrase))
+            prefs[Keys.DATE] = today.toString()
+        }
+    }
+
+    /** Zeroes every phrase's counter (the active phrase and all others). */
+    suspend fun resetAll() {
+        context.tasbihDataStore.edit { prefs ->
+            prefs[Keys.COUNTS] = ""
+            prefs[Keys.DATE] = LocalDate.now().toString()
         }
     }
 
@@ -73,6 +104,30 @@ class TasbihRepository @Inject constructor(
     suspend fun setPhrase(phrase: TasbihPhrase) {
         context.tasbihDataStore.edit { prefs -> prefs[Keys.PHRASE] = phrase.ordinal }
     }
+
+    /** The active daily counters, normalized for [today] (empty on a new day). */
+    private fun effectiveCounts(
+        prefs: androidx.datastore.preferences.core.MutablePreferences,
+        today: LocalDate,
+    ): Map<TasbihPhrase, Int> {
+        val stored = decodeCounts(prefs[Keys.COUNTS])
+        val storedDate = prefs[Keys.DATE]?.let { runCatching { LocalDate.parse(it) }.getOrNull() } ?: today
+        return TasbihCounter.effectiveCounts(stored, storedDate, today)
+    }
+
+    private fun encodeCounts(counts: Map<TasbihPhrase, Int>): String =
+        counts.entries.joinToString(";") { "${it.key.ordinal}:${it.value}" }
+
+    private fun decodeCounts(raw: String?): Map<TasbihPhrase, Int> =
+        raw.orEmpty().split(";").mapNotNull { entry ->
+            if (entry.isEmpty()) return@mapNotNull null
+            val parts = entry.split(":")
+            if (parts.size != 2) return@mapNotNull null
+            val phrase = TasbihPhrase.entries.getOrNull(parts[0].toIntOrNull() ?: return@mapNotNull null)
+                ?: return@mapNotNull null
+            val count = parts[1].toIntOrNull() ?: return@mapNotNull null
+            phrase to count
+        }.toMap()
 
     private fun encodeHistory(history: List<DailyCount>): String =
         history.joinToString(";") { "${it.date}|${it.count}" }
@@ -86,11 +141,13 @@ class TasbihRepository @Inject constructor(
         }
 
     private object Keys {
-        val COUNT = intPreferencesKey("count")
+        val COUNTS = stringPreferencesKey("counts")
         val DATE = stringPreferencesKey("date")
         val TARGET = intPreferencesKey("target")
         val PHRASE = intPreferencesKey("phrase")
         val HISTORY = stringPreferencesKey("history")
+        val SOUND_ENABLED = androidx.datastore.preferences.core.booleanPreferencesKey("sound_on_target_enabled")
+        val SOUND_TONE = stringPreferencesKey("sound_on_target_tone")
     }
 
     companion object {

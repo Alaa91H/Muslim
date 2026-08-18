@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha - ICTUS numerare</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">ICTUS numerare</string>
+    <string name="tasbih_back">Retro</string>
+    <string name="tasbih_cancel">Cancel</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Consuetudinem</string>
+    <string name="tasbih_custom_target_hint">Intra numerum comitum (ex 1 ad (C))</string>
+    <string name="tasbih_custom_target_title">Consuetudo pone target</string>
+    <string name="tasbih_of_target">of %1$s</string>
+    <string name="tasbih_reset">Reset</string>
+    <string name="tasbih_reset_all">Reset omnia</string>
+    <string name="tasbih_round_complete">Plena per integram (%1$s)</string>
+    <string name="tasbih_rounds">Rounds: %1$d</string>
+    <string name="tasbih_sound_desc">Ludere a ringtone vel sono, cum quisque plenum circum efficitur</string>
+    <string name="tasbih_sound_title">Sana in scopum</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Notification</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Tap in circulo numerare</string>
+    <string name="tasbih_target_reached">Pervenit finis - ut Allah accipere</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Today\'s total: %1$d</string>
+    <string name="tasbih_undo">Undo</string>
+    <string name="tasbih_virtue_label">Virtus huius dhikr</string>
+    <string name="tasbih_week_stats">Novissime VII diebus</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">An holl</string>
+    <string name="hadith_back">En-dro</string>
+    <string name="hadith_bookmark_add">Ouzhpennañ ur sined</string>
+    <string name="hadith_bookmark_remove">Dilemel ar sinedoù</string>
+    <string name="hadith_collection_abudawud">Abu Dawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah</string>
+    <string name="hadith_collection_muslim">Muzulman</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">Arall</string>
+    <string name="hadith_collection_riyad">Riyadh as-Salihin</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidi</string>
+    <string name="hadith_daily_notification">Kemenn hadith pemdeziek</string>
+    <string name="hadith_daily_notification_desc">Resev un hadith bemdez</string>
+    <string name="hadith_daily_notification_time">Eur ar c\'hemenn</string>
+    <string name="hadith_of_the_day">Hadith an deiz</string>
+    <string name="hadith_preview_hint">Evel-se e teu war wel ar c\'hemenn hadith pemdeziek d\'e eur rakwelet.</string>
+    <string name="hadith_preview_label">Rakweledenn ar c\'hemennadennoù</string>
+    <string name="hadith_preview_loading">O kargañ an hadith...</string>
+    <string name="hadith_search_hint">Klask haditoù...</string>
+    <string name="hadith_share">Rannañ</string>
+    <string name="hadith_title">Levraoueg Hadith</string>
+</resources>

@@ -56,9 +56,23 @@ class PeriodicAdhkarReminderReceiver : BroadcastReceiver() {
                 ?: return@launch
 
             if (prefs.overlayEnabled && Settings.canDrawOverlays(appContext)) {
-                AdhkarOverlayService.start(appContext, dhikr, prefs.overlayDurationSeconds)
+                AdhkarOverlayService.start(
+                    appContext,
+                    dhikr,
+                    prefs.overlayDurationSeconds,
+                    prefs.overlayBackgroundColor,
+                    prefs.overlayCornerRadiusDp,
+                    prefs.overlayFontSizeSp,
+                )
             } else {
-                AdhkarNotifications.showPeriodicReminder(appContext, dhikr, prefs.overlayDurationSeconds)
+                AdhkarNotifications.showPeriodicReminder(
+                    appContext,
+                    dhikr,
+                    prefs.overlayDurationSeconds,
+                    prefs.overlayBackgroundColor,
+                    prefs.overlayCornerRadiusDp,
+                    prefs.overlayFontSizeSp,
+                )
             }
         }
     }

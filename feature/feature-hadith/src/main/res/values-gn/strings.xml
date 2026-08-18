@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Opavave</string>
+    <string name="hadith_back">Ojevy jey</string>
+    <string name="hadith_bookmark_add">Oñemoĩve peteĩ marcador</string>
+    <string name="hadith_bookmark_remove">Oipe’a marcador</string>
+    <string name="hadith_collection_abudawud">Abu Dawud rehegua</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari rehegua</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah rehegua</string>
+    <string name="hadith_collection_muslim">Musulmán</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i rehegua</string>
+    <string name="hadith_collection_nawawi">An-Nawawi rehegua 40</string>
+    <string name="hadith_collection_other">Ambue</string>
+    <string name="hadith_collection_riyad">Riad-pe ha\'e-Salihin</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidhi-pe</string>
+    <string name="hadith_daily_notification">Marandu hadith ára ha ára</string>
+    <string name="hadith_daily_notification_desc">Ehupyty peteĩ hadith ára ha ára</string>
+    <string name="hadith_daily_notification_time">Marandu aravo</string>
+    <string name="hadith_of_the_day">Hadith ára rehegua</string>
+    <string name="hadith_preview_hint">Péicha ojekuaa marandu hadith ára ha ára oîva hora programada-pe.</string>
+    <string name="hadith_preview_label">Marandu jehechaukarã</string>
+    <string name="hadith_preview_loading">Ojekargávo pe hadith...</string>
+    <string name="hadith_search_hint">Ojeporeka umi hadith rehe...</string>
+    <string name="hadith_share">Compartir</string>
+    <string name="hadith_title">Biblioteca Hadith rehegua</string>
+</resources>

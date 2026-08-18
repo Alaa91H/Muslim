@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar y voghrey, y voghrey &amp; lurg y phadjer lesh counteryn</string>
+    <string name="more_downloads">Lught-chleayshyn</string>
+    <string name="more_downloads_desc">Lurg surah, ayah ny yn Quran immeeaght lesh y reciter t\'ou er reih</string>
+    <string name="more_hadith">Hadith;</string>
+    <string name="more_hadith_desc">Leibrey Hadith, ronsaghey &amp; hadith y laa</string>
+    <string name="more_learn">Immeeaght</string>
+    <string name="more_learn_desc">Guideyn wudu as padjer cam-by-cam</string>
+    <string name="more_ramadan">Ramadan;</string>
+    <string name="more_ramadan_desc">Ushtaghyn suhoor as iftar as tracker fastee</string>
+    <string name="more_reference">Leighlann Tastey</string>
+    <string name="more_reference_desc">Roish-ymmyd jeh\'n Islam, y Sira &amp; ny phadeyryn</string>
+    <string name="more_settings">Roishtyn</string>
+    <string name="more_settings_desc">Soilshaghyn theme, çhengey, padjer as adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbah digitagh lesh tashtey laa as laa</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat er berchys &amp; reiht Fitr</string>
+    <string name="scaffold_message">\nPhase 1 — Adhan, traaghyn padjer, Qibla, as y laa-lhee Hijri — t\'eh toshiaght ec shoh.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Stiurey Qibla</string>
+    <string name="shortcut_settings">Roishtyn</string>
+    <string name="shortcut_settings_long">Soilshaghyn padjer as adhan</string>
+    <string name="shortcut_times">Traaghyn padjer</string>
+    <string name="shortcut_times_long">Ta\'n laa shoh \'s traa padjer</string>
+    <string name="tab_home">Traaghyn Padjer</string>
+    <string name="tab_more">More</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

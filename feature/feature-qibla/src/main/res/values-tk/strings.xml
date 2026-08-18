@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s uzaklykda</string>
+    <string name="mosque_finder_empty">Bu aralykda hiç bir metjit tapylmady</string>
+    <string name="mosque_finder_error">Gözleg başa barmady</string>
+    <string name="mosque_finder_intro">OpenStreetMap arkaly ýerleşýän ýeriňizdäki metjitleri tapyň</string>
+    <string name="mosque_finder_no_location">Entek ýer ýok. Ilki bilen namaz wagtynyň sazlamalaryndan ýer saýlaň.</string>
+    <string name="mosque_finder_retry">Gaýtadan synanyşyň</string>
+    <string name="mosque_finder_searching">Gözleg…</string>
+    <string name="mosque_finder_title">Golaýda metjitler</string>
+    <string name="qibla_bearing_cardinal">Kibla ugry: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f °</string>
+    <string name="qibla_calibrate">Kalibrlemek üçin telefonyňyzy sekiz şekilde süýşüriň</string>
+    <string name="qibla_distance">Mekgä çenli aralyk: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Qibla with bilen ýüzbe-ýüz bolýarsyňyz</string>
+    <string name="qibla_gps_error">Takyk düzediş alyp bolmady Gaýtadan synanyşmagyňyzy haýyş edýäris.</string>
+    <string name="qibla_gps_live">Göni GPS ýerleşişi</string>
+    <string name="qibla_gps_refresh">GPS arkaly ýerleşişi täzeläň</string>
+    <string name="qibla_gps_refreshing">Ingerleşýän…</string>
+    <string name="qibla_heading_degree">Telefon sözbaşy: %1$.0f ° (%2$s)</string>
+    <string name="qibla_map_hint">Locationeriňizden Kaaba çenli uly tegelek ýol - awtonom görnüşde işleýär</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Sen</string>
+    <string name="qibla_mode_compass">Kompas</string>
+    <string name="qibla_mode_map">Karta</string>
+    <string name="qibla_open_mosques">Golaýda metjitler</string>
+    <string name="qibla_title">Kibla ugry</string>
+    <string name="qibla_turn_left">Çepe öwrüliň %1$.1f °</string>
+    <string name="qibla_turn_right">Saga %1$.1f ° öwrüliň</string>
+</resources>

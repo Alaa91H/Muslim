@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Indietro</string>
+    <string name="ramadan_countdown">Il Ramadan inizia tra %1$s giorni</string>
+    <string name="ramadan_countdown_to_iftar">Tempo per l\'iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Tempo per Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Giorno %1$s del Ramadan</string>
+    <string name="ramadan_days_left">%1$s giorni rimanenti</string>
+    <string name="ramadan_fasting_progress">Giorni di digiuno: %1$s di %2$s: tocca un giorno per registrarlo</string>
+    <string name="ramadan_fasting_tracker">Monitoraggio del digiuno</string>
+    <string name="ramadan_hijri_note">Basato sul calendario Umm al-Qura con la regolazione Hijri applicata a livello di app.</string>
+    <string name="ramadan_hijri_year">Anno %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Supplica Iftar: "O Allah, per Te ho digiunato e grazie alla Tua provvidenza interrompo il mio digiuno..."</string>
+    <string name="ramadan_iftar_time">Orario dell\'Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Scegli prima una città in Impostazioni per vedere gli orari.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, per Te ho digiunato e grazie alla Tua provvista interrompo il mio digiuno</string>
+    <string name="ramadan_notification_iftar_title">È ora dell\'iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr si sta avvicinando: prendi il tuo suhur</string>
+    <string name="ramadan_notification_suhoor_title">Promemoria Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhur</string>
+    <string name="ramadan_suhoor_remind_before">Ricordamelo prima:</string>
+    <string name="ramadan_suhoor_time">Suhoor termina (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

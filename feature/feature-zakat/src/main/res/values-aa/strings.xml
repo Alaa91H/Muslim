@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Melleb sissikuk bah</string>
+    <string name="zakat_auto_prices_hint">ugsen wak, dahab kee lakqok melleb interneetik yamaatem kee sissikuk yaqusbuseenim</string>
+    <string name="zakat_back">Wadirih</string>
+    <string name="zakat_cash">Lakqo kee daagisso</string>
+    <string name="zakat_clear_history">Aydaadu qaddos</string>
+    <string name="zakat_country">Baaxo</string>
+    <string name="zakat_country_placeholder">Isi baaxoo kee lakqo doorit.</string>
+    <string name="zakat_country_section">Baaxo kee lakqo</string>
+    <string name="zakat_currency">Lakqo: %1$s</string>
+    <string name="zakat_debts">Atu abuudussah tan mogo (daggowteh)</string>
+    <string name="zakat_due">zakaata (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'t melleb baaham duudah. isi angaaraw cubbus hinnay melleb gabat culus.</string>
+    <string name="zakat_fetch_now">Melleb away uqusbus</string>
+    <string name="zakat_fetching">Melleb bahiyya...</string>
+    <string name="zakat_fitr_persons">Buxâ marih adoytiitih ixxima</string>
+    <string name="zakat_fitr_saa_value">Inki sa\' melleb (leynâ maaqo)</string>
+    <string name="zakat_fitr_section">Zakaatal Fitri</string>
+    <string name="zakat_fitr_total">Amolladih Fitri zakaata: %1$s</string>
+    <string name="zakat_gold_grams">Dahab (giraam)</string>
+    <string name="zakat_gold_price">Dahab melleb inki giraam</string>
+    <string name="zakat_history">Cisab aydaadu</string>
+    <string name="zakat_history_amount">zakaata: %1$s</string>
+    <string name="zakat_history_empty">Uxih daanisen cisaabisitte matan.</string>
+    <string name="zakat_investments">midriino</string>
+    <string name="zakat_last_updated">Illacaboh asqassaabe: %1$s</string>
+    <string name="zakat_money_section">Maalal zakaata</string>
+    <string name="zakat_nisab_gold">dahab nisaab (85g)</string>
+    <string name="zakat_nisab_met">nisab gufeh yan - zakaat yakkem faxximta</string>
+    <string name="zakat_nisab_not_met">nisabak gubal - zakaat mali</string>
+    <string name="zakat_nisab_silver">Lakqo nisaab (595g)</string>
+    <string name="zakat_rulings_note">Mango marih addal (jumhoor): dahab nisab 85g, lakqo 595g, kee 2.5%% takke lakqoh lakqoh lakqoh lakqoh lakqoh lakqoh lakqoh lakqo. baxsa le caagiidah mexxat le mixig essera.</string>
+    <string name="zakat_save_result">Aydaadul daagis</string>
+    <string name="zakat_silver_grams">Lakqo (giraam)</string>
+    <string name="zakat_silver_price">Lakqok giraam melleb</string>
+    <string name="zakat_source_note">dahab/lakqoh melleb dahab-api.com; FX caddo fakimit.er-api.com</string>
+    <string name="zakat_title">Zakaat</string>
+    <string name="zakat_total_assets">Ittat tan ikoyta</string>
+    <string name="zakat_trade">kabxah uwwaytih caddo</string>
+    <string name="zakat_zakatable">mogok lakal zakaatah tan lakqo</string>
+</resources>

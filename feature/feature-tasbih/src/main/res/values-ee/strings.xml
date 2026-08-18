@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — zi edzi be nàxlẽe</string>
+    <string name="misbaha_widget_label">Tasbih ƒe ŋkɔ</string>
+    <string name="misbaha_widget_tap_hint">Zi edzi be nàxlẽe</string>
+    <string name="tasbih_back">Trɔ yi megbe</string>
+    <string name="tasbih_cancel">Te fli ɖe eme</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Dekɔnu</string>
+    <string name="tasbih_custom_target_hint">Ŋlɔ xexlẽdzesiawo ƒe xexlẽme (tso 1 va ɖo 100000) .</string>
+    <string name="tasbih_custom_target_title">Ðo taɖodzinu si nèdi be yeawɔ</string>
+    <string name="tasbih_of_target">ƒe %1$s</string>
+    <string name="tasbih_reset">Gbugbɔ ɖoe</string>
+    <string name="tasbih_reset_all">Gbugbɔ ɖo wo katã</string>
+    <string name="tasbih_round_complete">Blibo bliboa wu enu (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Kplɔ̃ɖoɖowo: %1$d</string>
+    <string name="tasbih_sound_desc">Ƒo gbeɖiɖi alo gbeɖiɖi aɖe ne wowu ƒoƒo blibo ɖesiaɖe nu</string>
+    <string name="tasbih_sound_title">Gbeɖiɖi le taɖodzinua dzi</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Nyatakaka</string>
+    <string name="tasbih_sound_tone_ringtone">Gbeɖiɖi ƒe ɖiɖi</string>
+    <string name="tasbih_tap_hint">Zi gotagome la dzi be nàxlẽe</string>
+    <string name="tasbih_target_reached">Taɖodzinu si gbɔ woɖo — Allah naxɔe</string>
+    <string name="tasbih_title">Tasbih ƒe ŋkɔ</string>
+    <string name="tasbih_total_today">Egbea\' ƒe ƒuƒoƒo: %1$d</string>
+    <string name="tasbih_undo">Trɔ asi le eŋu</string>
+    <string name="tasbih_virtue_label">Dhikr sia ƒe nɔnɔme nyui</string>
+    <string name="tasbih_week_stats">Ŋkeke 7 mamlɛawo</string>
+</resources>

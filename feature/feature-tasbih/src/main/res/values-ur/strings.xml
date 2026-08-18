@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">ڈیجیٹل مصباح - گننے کے لیے تھپتھپائیں۔</string>
+    <string name="misbaha_widget_label">تسبیح</string>
+    <string name="misbaha_widget_tap_hint">گننے کے لیے تھپتھپائیں۔</string>
+    <string name="tasbih_back">پیچھے</string>
+    <string name="tasbih_cancel">منسوخ کریں۔</string>
+    <string name="tasbih_confirm">ٹھیک ہے</string>
+    <string name="tasbih_custom_target">حسب ضرورت</string>
+    <string name="tasbih_custom_target_hint">شمار کی تعداد درج کریں (1 سے 100000 تک)</string>
+    <string name="tasbih_custom_target_title">اپنی مرضی کے مطابق ہدف مقرر کریں۔</string>
+    <string name="tasbih_of_target">%1$s کا</string>
+    <string name="tasbih_reset">دوبارہ ترتیب دیں۔</string>
+    <string name="tasbih_reset_all">سب کو ری سیٹ کریں۔</string>
+    <string name="tasbih_round_complete">مکمل راؤنڈ مکمل (%1$s) 🎉</string>
+    <string name="tasbih_rounds">راؤنڈز: %1$d</string>
+    <string name="tasbih_sound_desc">ہر مکمل راؤنڈ مکمل ہونے پر رنگ ٹون یا ٹون چلائیں۔</string>
+    <string name="tasbih_sound_title">نشانے پر آواز</string>
+    <string name="tasbih_sound_tone_alarm">الارم</string>
+    <string name="tasbih_sound_tone_notification">اطلاع</string>
+    <string name="tasbih_sound_tone_ringtone">رنگ ٹون</string>
+    <string name="tasbih_tap_hint">گننے کے لیے دائرے کو تھپتھپائیں۔</string>
+    <string name="tasbih_target_reached">منزل پہنچ گئی - اللہ قبول فرمائے</string>
+    <string name="tasbih_title">تسبیح</string>
+    <string name="tasbih_total_today">آج کل \'s: %1$d</string>
+    <string name="tasbih_undo">کالعدم</string>
+    <string name="tasbih_virtue_label">اس ذکر کی فضیلت</string>
+    <string name="tasbih_week_stats">آخری 7 دن</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Ĉiuj</string>
+    <string name="hadith_back">Reen</string>
+    <string name="hadith_bookmark_add">Aldonu legosignon</string>
+    <string name="hadith_bookmark_remove">Forigi legosignon</string>
+    <string name="hadith_collection_abudawud">Abu Dawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah</string>
+    <string name="hadith_collection_muslim">islamano</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">Aliaj</string>
+    <string name="hadith_collection_riyad">Rijado as-Salihin</string>
+    <string name="hadith_collection_tirmidhi">Ĉe-Tirmidhi</string>
+    <string name="hadith_daily_notification">Ĉiutaga sciigo pri Hadito</string>
+    <string name="hadith_daily_notification_desc">Ricevu Haditon ĉiutage</string>
+    <string name="hadith_daily_notification_time">Tempo de sciigo</string>
+    <string name="hadith_of_the_day">Hadito de la tago</string>
+    <string name="hadith_preview_hint">Jen kiel la ĉiutaga hadito-sciigo aperas en sia planita tempo.</string>
+    <string name="hadith_preview_label">Antaŭrigardo pri sciigo</string>
+    <string name="hadith_preview_loading">Ŝarĝante la Hadito...</string>
+    <string name="hadith_search_hint">Serĉu haditojn...</string>
+    <string name="hadith_share">Kunhavigi</string>
+    <string name="hadith_title">Biblioteko de Hadito</string>
+</resources>

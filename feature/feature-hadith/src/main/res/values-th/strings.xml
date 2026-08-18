@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">ทั้งหมด</string>
+    <string name="hadith_back">กลับ</string>
+    <string name="hadith_bookmark_add">เพิ่มบุ๊กมาร์ก</string>
+    <string name="hadith_bookmark_remove">ลบบุ๊กมาร์ก</string>
+    <string name="hadith_collection_abudawud">อบู ดาวูด</string>
+    <string name="hadith_collection_bukhari">อัล-บุคอรี</string>
+    <string name="hadith_collection_ibnmajah">อิบนุ มาญะฮ์</string>
+    <string name="hadith_collection_muslim">มุสลิม</string>
+    <string name="hadith_collection_nasai">อัน-นาซ่า\'i</string>
+    <string name="hadith_collection_nawawi">อันนาวาวี 40</string>
+    <string name="hadith_collection_other">อื่นๆ</string>
+    <string name="hadith_collection_riyad">ริยาดห์ อัส-ซาลิฮิน</string>
+    <string name="hadith_collection_tirmidhi">อัต-ติรมีซี</string>
+    <string name="hadith_daily_notification">การแจ้งเตือนหะดีษรายวัน</string>
+    <string name="hadith_daily_notification_desc">รับสุนัตทุกวัน</string>
+    <string name="hadith_daily_notification_time">เวลาแจ้ง</string>
+    <string name="hadith_of_the_day">หะดีษประจำวันนี้</string>
+    <string name="hadith_preview_hint">นี่คือลักษณะที่การแจ้งเตือนหะดีษรายวันปรากฏขึ้นตามเวลาที่กำหนด</string>
+    <string name="hadith_preview_label">ตัวอย่างการแจ้งเตือน</string>
+    <string name="hadith_preview_loading">กำลังโหลดสุนัต...</string>
+    <string name="hadith_search_hint">ค้นหาสุนัต...</string>
+    <string name="hadith_share">แบ่งปัน</string>
+    <string name="hadith_title">ห้องสมุดหะดีษ</string>
+</resources>

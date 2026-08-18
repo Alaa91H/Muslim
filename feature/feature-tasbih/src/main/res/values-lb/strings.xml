@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital Misbaha - Tippen fir ze zielen</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tippen fir ze zielen</string>
+    <string name="tasbih_back">Zréck</string>
+    <string name="tasbih_cancel">Ofbriechen</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Benotzerdefinéiert</string>
+    <string name="tasbih_custom_target_hint">Gitt d\'Zuel vun den Zuelen un (vun 1 bis 100000)</string>
+    <string name="tasbih_custom_target_title">Setzt e personaliséierten Zil</string>
+    <string name="tasbih_of_target">vun %1$s</string>
+    <string name="tasbih_reset">Zerécksetzen</string>
+    <string name="tasbih_reset_all">Alles zrécksetzen</string>
+    <string name="tasbih_round_complete">Voll Ronn komplett (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Ronnen: %1$d</string>
+    <string name="tasbih_sound_desc">Spillt e Ringtone oder Toun wann all voll Ronn fäerdeg ass</string>
+    <string name="tasbih_sound_title">Sound op Zil</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Notifikatioun</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Tippen op de Krees fir ze zielen</string>
+    <string name="tasbih_target_reached">Zil erreecht - kann Allah akzeptéieren</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Haut \'s Ganzen: %1$d</string>
+    <string name="tasbih_undo">Undoen</string>
+    <string name="tasbih_virtue_label">Virtue vun dëser dhikr</string>
+    <string name="tasbih_week_stats">Déi lescht 7 Deeg</string>
+</resources>

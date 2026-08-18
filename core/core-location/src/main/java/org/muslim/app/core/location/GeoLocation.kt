@@ -4,6 +4,8 @@ package org.muslim.app.core.location
 data class GeoLocation(
     val latitude: Double,
     val longitude: Double,
+    /** Meters above mean sea level when the fix provides it; null when unknown. */
+    val altitude: Double? = null,
 )
 
 /**

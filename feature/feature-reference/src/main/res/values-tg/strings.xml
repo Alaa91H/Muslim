@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Бозгашт</string>
+    <string name="reference_no_results">Натоиҷи мувофиқ нест</string>
+    <string name="reference_search_hint">Ҷустуҷӯи ин китоб…</string>
+    <string name="reference_title">Китобхонаи истинодҳои исломӣ</string>
+    <string name="reference_topics_count">мавзӯъҳо</string>
+</resources>

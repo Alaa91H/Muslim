@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">मुस्लिम</string>
+    <string name="more_adhkar">अधकार</string>
+    <string name="more_adhkar_desc">सुबह, शाम और प्रार्थना के बाद काउंटरों के साथ पालन</string>
+    <string name="more_downloads">सस्वर पाठ डाउनलोड</string>
+    <string name="more_downloads_desc">अपने चुने हुए पाठक के साथ एक सूरा, एक आयत या पूर्ण कुरान डाउनलोड करें</string>
+    <string name="more_hadith">हदीस</string>
+    <string name="more_hadith_desc">हदीस पुस्तकालय, आज की खोज और हदीस</string>
+    <string name="more_learn">जानें</string>
+    <string name="more_learn_desc">चरण-दर-चरण वुज़ू और प्रार्थना मार्गदर्शिकाएँ</string>
+    <string name="more_ramadan">रमज़ान</string>
+    <string name="more_ramadan_desc">सुहूर और इफ्तार का समय और उपवास ट्रैकर</string>
+    <string name="more_reference">संदर्भ पुस्तकालय</string>
+    <string name="more_reference_desc">इस्लाम, सीरा और पैगंबरों का परिचय</string>
+    <string name="more_settings">सेटिंग्स</string>
+    <string name="more_settings_desc">थीम, भाषा, प्रार्थना और अज़ान सेटिंग्स</string>
+    <string name="more_tasbih">तस्बीह</string>
+    <string name="more_tasbih_desc">दैनिक इतिहास के साथ डिजिटल मिस्बाहा</string>
+    <string name="more_zakat">जकात</string>
+    <string name="more_zakat_desc">धन और फ़ित्र कैलकुलेटर पर ज़कात</string>
+    <string name="scaffold_message">मल्टी-मॉड्यूल प्रोजेक्ट कंकाल तैयार है। \n चरण 1 - अज़ान, प्रार्थना का समय, किबला और हिजरी कैलेंडर - यहां से शुरू होता है।</string>
+    <string name="shortcut_qibla">किबला</string>
+    <string name="shortcut_qibla_long">किबला दिशा</string>
+    <string name="shortcut_settings">सेटिंग्स</string>
+    <string name="shortcut_settings_long">प्रार्थना और अज़ान सेटिंग</string>
+    <string name="shortcut_times">प्रार्थना का समय</string>
+    <string name="shortcut_times_long">आज\' का प्रार्थना समय</string>
+    <string name="tab_home">प्रार्थना का समय</string>
+    <string name="tab_more">अधिक</string>
+    <string name="tab_qibla">किबला</string>
+    <string name="tab_quran">कुरान</string>
 </resources>

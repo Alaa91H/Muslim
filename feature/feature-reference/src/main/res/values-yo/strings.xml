@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Pada</string>
+    <string name="reference_no_results">Ko si awọn esi ti o baamu</string>
+    <string name="reference_search_hint">Wa iwe yii…</string>
+    <string name="reference_title">Islam Reference Library</string>
+    <string name="reference_topics_count">awọn koko-ọrọ</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha numérique — appuyez pour compter</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Appuyez pour compter</string>
+    <string name="tasbih_back">Retour</string>
+    <string name="tasbih_cancel">Annuler</string>
+    <string name="tasbih_confirm">D\'accord</string>
+    <string name="tasbih_custom_target">Personnalisé</string>
+    <string name="tasbih_custom_target_hint">Entrez le nombre de comptes (de 1 à 100 000)</string>
+    <string name="tasbih_custom_target_title">Définir un objectif personnalisé</string>
+    <string name="tasbih_of_target">de %1$s</string>
+    <string name="tasbih_reset">Réinitialiser</string>
+    <string name="tasbih_reset_all">Tout réinitialiser</string>
+    <string name="tasbih_round_complete">Tour complet terminé (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Tours : %1$d</string>
+    <string name="tasbih_sound_desc">Jouez une sonnerie ou une tonalité lorsque chaque tour complet est terminé</string>
+    <string name="tasbih_sound_title">Le son est au rendez-vous</string>
+    <string name="tasbih_sound_tone_alarm">Alarme</string>
+    <string name="tasbih_sound_tone_notification">Notification</string>
+    <string name="tasbih_sound_tone_ringtone">Sonnerie</string>
+    <string name="tasbih_tap_hint">Appuyez sur le cercle pour compter</string>
+    <string name="tasbih_target_reached">Objectif atteint – qu’Allah l’agrée</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Aujourd\'hui\'s total : %1$d</string>
+    <string name="tasbih_undo">Annuler</string>
+    <string name="tasbih_virtue_label">Vertu de ce dhikr</string>
+    <string name="tasbih_week_stats">7 derniers jours</string>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Kauta mai na isau vakataki koya</string>
+    <string name="zakat_auto_prices_hint">Ni sa vakatarai, na koula kei na siliva na isau e fetched mai na initaneti ka vakavoutaki vakataki koya .</string>
+    <string name="zakat_back">Lesu tale</string>
+    <string name="zakat_cash">Na ilavo kei na ilavo maroroi</string>
+    <string name="zakat_clear_history">Vakamatatataka na itukutuku makawa</string>
+    <string name="zakat_country">Vanua</string>
+    <string name="zakat_country_placeholder">Digitaka na nomu vanua kei na ilavo .</string>
+    <string name="zakat_country_section">Vanua &amp; ilavo</string>
+    <string name="zakat_currency">Lavo: %1$s</string>
+    <string name="zakat_debts">Dinau o dinautaka (musuki)</string>
+    <string name="zakat_due">Zakat dodonu me saumi (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">E sega ni rawa ni kauta mai na isau. Raica na nomu veitaratara se vakacuruma na isau ena liga.</string>
+    <string name="zakat_fetch_now">Vakavoutaka na isau ena gauna oqo</string>
+    <string name="zakat_fetching">Kauta mai na isau...</string>
+    <string name="zakat_fitr_persons">Wiliwili ni lewe ni vuvale .</string>
+    <string name="zakat_fitr_saa_value">Valor de un sa\' (comida básica)</string>
+    <string name="zakat_fitr_section">Saka ni Fitiri</string>
+    <string name="zakat_fitr_total">Na i sau taucoko: %1$s</string>
+    <string name="zakat_gold_grams">Koula (karamu)</string>
+    <string name="zakat_gold_price">Na isau ni koula ena dua na karamu</string>
+    <string name="zakat_history">Na itukutuku ni wiliwili</string>
+    <string name="zakat_history_amount">Saka: %1$s</string>
+    <string name="zakat_history_empty">Se bera ni maroroi na iwiliwili.</string>
+    <string name="zakat_investments">Vakatubuilavo</string>
+    <string name="zakat_last_updated">iOtioti ni vakavoui: %1$s</string>
+    <string name="zakat_money_section">Zakat ena iyau .</string>
+    <string name="zakat_nisab_gold">Nisab koula (85g)</string>
+    <string name="zakat_nisab_met">Sa yaco mai na nisab — sa dodonu me saumi na zakat .</string>
+    <string name="zakat_nisab_not_met">Ena ruku ni nisab — sega ni dua na zakat dodonu .</string>
+    <string name="zakat_nisab_silver">Nisab siliva (595g)</string>
+    <string name="zakat_rulings_note">Ena levu (jumhoor): koula nisab e 85g, siliva 595g, kei na iwiliwili e 2.5%% ni oti na kena musuki na dinau dodonu. Raica e dua na vuku kilai levu me baleta na kisi vakatabakidua.</string>
+    <string name="zakat_save_result">Maroroya ki na itukutuku makawa</string>
+    <string name="zakat_silver_grams">Siliva (karamu)</string>
+    <string name="zakat_silver_price">Na isau ni siliva ena dua na karamu</string>
+    <string name="zakat_source_note">Na isau ni koula/siliva mai na gold-api.com; Na isau ni FX mai na dolavi.er-api.com</string>
+    <string name="zakat_title">Saka</string>
+    <string name="zakat_total_assets">Iwiliwili taucoko ni iyau</string>
+    <string name="zakat_trade">Na isau ni iyaya ni veivoli</string>
+    <string name="zakat_zakatable">Na ilavo e rawa ni saumi ni oti na dinau</string>
+</resources>

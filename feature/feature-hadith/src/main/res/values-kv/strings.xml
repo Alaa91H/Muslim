@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Ставыс .</string>
+    <string name="hadith_back">Бӧр</string>
+    <string name="hadith_bookmark_add">Содты закладка .</string>
+    <string name="hadith_bookmark_remove">Закладка лэдзӧм .</string>
+    <string name="hadith_collection_abudawud">Абу Дауд</string>
+    <string name="hadith_collection_bukhari">Аль-Бухари</string>
+    <string name="hadith_collection_ibnmajah">Ибн Маджа</string>
+    <string name="hadith_collection_muslim">Муслун</string>
+    <string name="hadith_collection_nasai">Ан-Наса\'и</string>
+    <string name="hadith_collection_nawawi">Ан-Навави 40 во.</string>
+    <string name="hadith_collection_other">Мукӧд .</string>
+    <string name="hadith_collection_riyad">Эр-Рияд ас-Салихин</string>
+    <string name="hadith_collection_tirmidhi">Ат-Тирмизи</string>
+    <string name="hadith_daily_notification">Быд лунъя хадис йылысь юӧртан .</string>
+    <string name="hadith_daily_notification_desc">Быд лун босьтны хадис .</string>
+    <string name="hadith_daily_notification_time">Уведомление кад .</string>
+    <string name="hadith_of_the_day">Лунся хадис .</string>
+    <string name="hadith_preview_hint">Тадзи быд лунъя хадис йылысь юӧртӧм петӧ аслас урчитӧм кадӧ.</string>
+    <string name="hadith_preview_label">Уведомление видлалӧм .</string>
+    <string name="hadith_preview_loading">Загрузка хадис...</string>
+    <string name="hadith_search_hint">Корсьны хадисъяс...</string>
+    <string name="hadith_share">Делитчыны</string>
+    <string name="hadith_title">Хадис библиотека .</string>
+</resources>

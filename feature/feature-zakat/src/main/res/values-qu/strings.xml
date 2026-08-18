@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Kikinmanta chaninkunata apamuy</string>
+    <string name="zakat_auto_prices_hint">Atichisqa kaptinqa, quri qullqi chaninkuna internetmanta hurqusqa kanku chaymanta kikillanmanta musuqyachisqa kanku</string>
+    <string name="zakat_back">Kutiy</string>
+    <string name="zakat_cash">Qullqiwan qullqi waqaychaywan</string>
+    <string name="zakat_clear_history">Ch’uya historia</string>
+    <string name="zakat_country">Llaqta</string>
+    <string name="zakat_country_placeholder">Llaqtaykita, qolqeykitapas akllay</string>
+    <string name="zakat_country_section">Llaqta &amp; qullqi</string>
+    <string name="zakat_currency">Qullqi: %1$s</string>
+    <string name="zakat_debts">Manukuna (deducisqa) .</string>
+    <string name="zakat_due">Zaka debido (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t preciokunata apamuyta. T\'inkisqaykita qhaway utaq makiwan chanin qillqay.</string>
+    <string name="zakat_fetch_now">Kunanpacha preciokunata musuqyachiy</string>
+    <string name="zakat_fetching">Preciokunata apamuspa...</string>
+    <string name="zakat_fitr_persons">Hayka ayllu runakuna</string>
+    <string name="zakat_fitr_saa_value">Huk sa\' (mikhuy mikhuy) chaniyuq.</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr sutiyuq runa</string>
+    <string name="zakat_fitr_total">Llapan Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Quri (gramos) .</string>
+    <string name="zakat_gold_price">Quripa chanin sapa gramo</string>
+    <string name="zakat_history">Yupaymanta willakuy</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Manaraqmi waqaychasqa yupaykuna.</string>
+    <string name="zakat_investments">Inversiones nisqakuna</string>
+    <string name="zakat_last_updated">Qhipa musuqchasqa: %1$s</string>
+    <string name="zakat_money_section">Qhapaq kaymanta zakat</string>
+    <string name="zakat_nisab_gold">Quri nisab (85g) .</string>
+    <string name="zakat_nisab_met">Nisab nisqaman chayasqaña — zakat nisqataqmi kanan</string>
+    <string name="zakat_nisab_not_met">Nisabpa urayninpi — mana zakat debechu</string>
+    <string name="zakat_nisab_silver">Qullqimanta nisab (595g) .</string>
+    <string name="zakat_rulings_note">Per mayoría (jumhoor): quri nisab 85g, qullqi 595g, tasataq 2,5%% debido manukunata qichusqamanta. Casos especiales nisqapaq allin yachaq runawan rimanakuy.</string>
+    <string name="zakat_save_result">Historiaman waqaychay</string>
+    <string name="zakat_silver_grams">Qullqi (gramos) .</string>
+    <string name="zakat_silver_price">Qullqipa chanin sapa gramo</string>
+    <string name="zakat_source_note">Quri/qullqi chaninkuna gold-api.com nisqamanta; FX tarifakuna open.er-api.com nisqamanta</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Llapan kaqninkuna</string>
+    <string name="zakat_trade">Qhatuy bienes valor</string>
+    <string name="zakat_zakatable">Zakatable qolqe manukuy qhepaman</string>
+</resources>

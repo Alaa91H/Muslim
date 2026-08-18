@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">ዲጂታል ምስባሃ - ለመቁጠር መታ ያድርጉ</string>
+    <string name="misbaha_widget_label">ተስቢህ</string>
+    <string name="misbaha_widget_tap_hint">ለመቁጠር መታ ያድርጉ</string>
+    <string name="tasbih_back">ተመለስ</string>
+    <string name="tasbih_cancel">ሰርዝ</string>
+    <string name="tasbih_confirm">እሺ</string>
+    <string name="tasbih_custom_target">ብጁ</string>
+    <string name="tasbih_custom_target_hint">የቁጥር ብዛት አስገባ (ከ1 እስከ 100000)</string>
+    <string name="tasbih_custom_target_title">ብጁ ኢላማ ያዘጋጁ</string>
+    <string name="tasbih_of_target">ከ %1$s</string>
+    <string name="tasbih_reset">ዳግም አስጀምር</string>
+    <string name="tasbih_reset_all">ሁሉንም ዳግም አስጀምር</string>
+    <string name="tasbih_round_complete">ሙሉ ዙር ተጠናቀቀ (%1$s) 🎉</string>
+    <string name="tasbih_rounds">ዙር፡ %1$d</string>
+    <string name="tasbih_sound_desc">እያንዳንዱ ሙሉ ዙር ሲጠናቀቅ የስልክ ጥሪ ድምፅ ወይም ድምጽ ያጫውቱ</string>
+    <string name="tasbih_sound_title">ዒላማ ላይ ድምጽ</string>
+    <string name="tasbih_sound_tone_alarm">ማንቂያ</string>
+    <string name="tasbih_sound_tone_notification">ማስታወቂያ</string>
+    <string name="tasbih_sound_tone_ringtone">የስልክ ጥሪ ድምፅ</string>
+    <string name="tasbih_tap_hint">ለመቁጠር ክበቡን መታ ያድርጉ</string>
+    <string name="tasbih_target_reached">ግብ ላይ ደረሰ - አላህ ይቀበል</string>
+    <string name="tasbih_title">ተስቢህ</string>
+    <string name="tasbih_total_today">ዛሬ\'ዎች ጠቅላላ: %1$d</string>
+    <string name="tasbih_undo">ቀልብስ</string>
+    <string name="tasbih_virtue_label">የዚህ ዚክር በጎነት</string>
+    <string name="tasbih_week_stats">ያለፉት 7 ቀናት</string>
+</resources>

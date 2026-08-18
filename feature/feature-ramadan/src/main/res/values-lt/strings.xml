@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Atgal</string>
+    <string name="ramadan_countdown">Ramadanas prasideda po %1$s dienų</string>
+    <string name="ramadan_countdown_to_iftar">Laikas iki iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Laikas iki Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">%1$s Ramadano diena</string>
+    <string name="ramadan_days_left">Liko %1$s dienų</string>
+    <string name="ramadan_fasting_progress">Pasninko dienos: %1$s iš %2$s – palieskite dieną, kad ją įrašytumėte</string>
+    <string name="ramadan_fasting_tracker">Pasninko stebėjimo priemonė</string>
+    <string name="ramadan_hijri_note">Remiantis Umm al-Qura kalendoriumi su pritaikytu visos programos Hijri koregavimu.</string>
+    <string name="ramadan_hijri_year">Metai %1$s AH</string>
+    <string name="ramadan_iftar">Iftaras</string>
+    <string name="ramadan_iftar_dua">Iftaro prašymas: „O, Allahai, aš pasninkauju dėl tavęs ir Tavo parūpinimu nutraukiu savo pasninką...“</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) laikas: %1$s</string>
+    <string name="ramadan_location_required">Pirmiausia nustatymuose pasirinkite miestą, kad pamatytumėte laiką.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Dieve, pasninkauju dėl Tavęs ir Tavo pastangomis sulaužau savo pasninką</string>
+    <string name="ramadan_notification_iftar_title">Laikas iftarui</string>
+    <string name="ramadan_notification_suhoor_body">Fajr artėja – turėk savo suhorą</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor priminimas</string>
+    <string name="ramadan_starts_on">%1$s – %2$s</string>
+    <string name="ramadan_suhoor">Suhooras</string>
+    <string name="ramadan_suhoor_remind_before">Priminti man prieš:</string>
+    <string name="ramadan_suhoor_time">Suhoor galai (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadanas</string>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Načíst ceny automaticky</string>
+    <string name="zakat_auto_prices_hint">Je-li povoleno, ceny zlata a stříbra se načítají z internetu a automaticky se obnovují</string>
+    <string name="zakat_back">Zpět</string>
+    <string name="zakat_cash">Hotovost a úspory</string>
+    <string name="zakat_clear_history">Vymazat historii</string>
+    <string name="zakat_country">země</string>
+    <string name="zakat_country_placeholder">Vyberte svou zemi a měnu</string>
+    <string name="zakat_country_section">Země a měna</string>
+    <string name="zakat_currency">Měna: %1$s</string>
+    <string name="zakat_debts">Dluhy, které dlužíte (odečteno)</string>
+    <string name="zakat_due">Splatný zakat (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Nemohl načíst ceny \' t. Zkontrolujte připojení nebo zadejte cenu ručně.</string>
+    <string name="zakat_fetch_now">Aktualizujte ceny nyní</string>
+    <string name="zakat_fetching">Načítání cen…</string>
+    <string name="zakat_fitr_persons">Počet členů rodiny</string>
+    <string name="zakat_fitr_saa_value">Hodnota jednoho sa\' (základní potravina)</string>
+    <string name="zakat_fitr_section">Zakát al-Fitr</string>
+    <string name="zakat_fitr_total">Celkem Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">zlato (gramy)</string>
+    <string name="zakat_gold_price">Cena zlata za gram</string>
+    <string name="zakat_history">Historie výpočtů</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Zatím žádné uložené výpočty.</string>
+    <string name="zakat_investments">Investice</string>
+    <string name="zakat_last_updated">Poslední aktualizace: %1$s</string>
+    <string name="zakat_money_section">Zakat na bohatství</string>
+    <string name="zakat_nisab_gold">Zlatý nisab (85 g)</string>
+    <string name="zakat_nisab_met">nisab je dosažen — zakát je splatný</string>
+    <string name="zakat_nisab_not_met">Pod nisabem – žádný zakat</string>
+    <string name="zakat_nisab_silver">Stříbrný nisab (595 g)</string>
+    <string name="zakat_rulings_note">Pro většinu (jumhoor): zlatý nisab je 85 g, stříbro 595 g a kurz je 2,5%% po odečtení splatných dluhů. Ve speciálních případech se poraďte s kvalifikovaným odborníkem.</string>
+    <string name="zakat_save_result">Uložit do historie</string>
+    <string name="zakat_silver_grams">Stříbro (gramy)</string>
+    <string name="zakat_silver_price">Cena stříbra za gram</string>
+    <string name="zakat_source_note">Ceny zlata/stříbra od gold-api.com; Směnné kurzy z open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Celková aktiva</string>
+    <string name="zakat_trade">Obchodní hodnota zboží</string>
+    <string name="zakat_zakatable">Zakatabilní částka po dluzích</string>
+</resources>

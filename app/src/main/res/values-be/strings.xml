@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Мусульманін</string>
+    <string name="more_adhkar">Адхкар</string>
+    <string name="more_adhkar_desc">Ранішні, вячэрні і паслямалітоўны адхкар са лічыльнікамі</string>
+    <string name="more_downloads">Спампаваць дэкламацыі</string>
+    <string name="more_downloads_desc">Спампуйце суру, аят або поўны Каран з абраным чытальнікам</string>
+    <string name="more_hadith">хадысе</string>
+    <string name="more_hadith_desc">Бібліятэка хадысаў, пошук і хадысы дня</string>
+    <string name="more_learn">вучыцца</string>
+    <string name="more_learn_desc">Пакрокавыя інструкцыі па вуду і малітве</string>
+    <string name="more_ramadan">Рамадан</string>
+    <string name="more_ramadan_desc">Час сухура і іфтара і трэкер паста</string>
+    <string name="more_reference">Даведачная бібліятэка</string>
+    <string name="more_reference_desc">Уводзіны ў іслам, Сіру і прарокаў</string>
+    <string name="more_settings">Налады</string>
+    <string name="more_settings_desc">Налады тэмы, мовы, малітвы і азана</string>
+    <string name="more_tasbih">тасбіх</string>
+    <string name="more_tasbih_desc">Лічбавая місбаха з штодзённай гісторыяй</string>
+    <string name="more_zakat">Закят</string>
+    <string name="more_zakat_desc">Закят на багацце і фітр калькулятар</string>
+    <string name="scaffold_message">Шматмодульны каркас праекта гатовы.\nФаза 1 — Азан, час малітвы, Кібла і каляндар Хіджры — пачынаецца тут.</string>
+    <string name="shortcut_qibla">Кібла</string>
+    <string name="shortcut_qibla_long">Кірунак Кіблы</string>
+    <string name="shortcut_settings">Налады</string>
+    <string name="shortcut_settings_long">Налады малітвы і азана</string>
+    <string name="shortcut_times">Час малітвы</string>
+    <string name="shortcut_times_long">Сёння час малітвы \'</string>
+    <string name="tab_home">Час малітвы</string>
+    <string name="tab_more">больш</string>
+    <string name="tab_qibla">Кібла</string>
+    <string name="tab_quran">Каран</string>
 </resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s de distància</string>
+    <string name="mosque_finder_empty">No s\'han trobat mesquites en aquest rang</string>
+    <string name="mosque_finder_error">La cerca ha fallat</string>
+    <string name="mosque_finder_intro">Trobeu mesquites a prop de la vostra ubicació mitjançant OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Encara no s\'ha establert cap ubicació. Trieu primer una ubicació de la configuració de l\'hora d\'oració.</string>
+    <string name="mosque_finder_retry">Torna-ho a provar</string>
+    <string name="mosque_finder_searching">S\'està cercant…</string>
+    <string name="mosque_finder_title">Mesquites properes</string>
+    <string name="qibla_bearing_cardinal">Direcció de la Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Moveu el telèfon en una figura vuit per calibrar-lo</string>
+    <string name="qibla_distance">Distància fins a La Meca: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Esteu davant la Qibla 🕋</string>
+    <string name="qibla_gps_error">No s\'ha pogut obtenir una correcció precisa. Si us plau, torna-ho a provar.</string>
+    <string name="qibla_gps_live">Localització GPS en directe</string>
+    <string name="qibla_gps_refresh">Actualitzar la ubicació mitjançant GPS</string>
+    <string name="qibla_gps_refreshing">Localitzant…</string>
+    <string name="qibla_heading_degree">Encapçalament del telèfon: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Ruta de gran cercle des de la vostra ubicació fins a la Kaaba: funciona fora de línia</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">tu</string>
+    <string name="qibla_mode_compass">Brúixola</string>
+    <string name="qibla_mode_map">Mapa</string>
+    <string name="qibla_open_mosques">Mesquites properes</string>
+    <string name="qibla_title">Direcció de la Qibla</string>
+    <string name="qibla_turn_left">Gireu a l\'esquerra %1$.1f°</string>
+    <string name="qibla_turn_right">Gireu a la dreta %1$.1f°</string>
+</resources>

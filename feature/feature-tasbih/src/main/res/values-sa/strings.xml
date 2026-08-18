@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">अङ्कीयमिस्बाहा — गणयितुं ट्याप् कुर्वन्तु</string>
+    <string name="misbaha_widget_label">तस्बिः</string>
+    <string name="misbaha_widget_tap_hint">गणयितुं ट्याप् कुर्वन्तु</string>
+    <string name="tasbih_back">पृष्ठतः</string>
+    <string name="tasbih_cancel">रद्दं कुर्वन्तु</string>
+    <string name="tasbih_confirm">ठीकम्</string>
+    <string name="tasbih_custom_target">प्रथा</string>
+    <string name="tasbih_custom_target_hint">गणनानां संख्यां प्रविशतु (1 तः 100000 पर्यन्तं)</string>
+    <string name="tasbih_custom_target_title">कस्टम् लक्ष्यं सेट् कुर्वन्तु</string>
+    <string name="tasbih_of_target">%1$s इत्यस्य</string>
+    <string name="tasbih_reset">पुनः सेट् करें</string>
+    <string name="tasbih_reset_all">सर्वाणि पुनः सेट् कुर्वन्तु</string>
+    <string name="tasbih_round_complete">पूर्ण गोल सम्पन्न (%1$s) 🎉</string>
+    <string name="tasbih_rounds">गोल : %1$d</string>
+    <string name="tasbih_sound_desc">प्रत्येकं पूर्णपरिक्रमं समाप्तं भवति तदा रिंगटोनं वा स्वरं वा वादयन्तु</string>
+    <string name="tasbih_sound_title">लक्ष्ये ध्वनिः</string>
+    <string name="tasbih_sound_tone_alarm">अलार्म</string>
+    <string name="tasbih_sound_tone_notification">अधिसूचना</string>
+    <string name="tasbih_sound_tone_ringtone">रिंगटोन</string>
+    <string name="tasbih_tap_hint">गणयितुं वृत्तं ट्याप् कुर्वन्तु</string>
+    <string name="tasbih_target_reached">लक्ष्यं प्राप्तम् — अल्लाहः स्वीकारं करोतु</string>
+    <string name="tasbih_title">तस्बिः</string>
+    <string name="tasbih_total_today">अद्य\'s कुल: %1$d</string>
+    <string name="tasbih_undo">पूर्ववत</string>
+    <string name="tasbih_virtue_label">अस्य ज़िक्रस्य गुणः</string>
+    <string name="tasbih_week_stats">गत ७ दिवस</string>
+</resources>

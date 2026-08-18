@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">رەقەملىك misbaha - ساناش ئۈچۈن چېكىڭ</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">ساناپ بېقىڭ</string>
+    <string name="tasbih_back">قايتىش</string>
+    <string name="tasbih_cancel">بىكار قىلىش</string>
+    <string name="tasbih_confirm">ماقۇل</string>
+    <string name="tasbih_custom_target">Custom</string>
+    <string name="tasbih_custom_target_hint">سان سانىنى كىرگۈزۈڭ (1 دىن 100000 غىچە)</string>
+    <string name="tasbih_custom_target_title">ئىختىيارى نىشان بەلگىلەڭ</string>
+    <string name="tasbih_of_target">of %1$s</string>
+    <string name="tasbih_reset">ئەسلىگە قايتۇرۇش</string>
+    <string name="tasbih_reset_all">ھەممىنى ئەسلىگە كەلتۈرۈڭ</string>
+    <string name="tasbih_round_complete">تولۇق يۇمىلاق تامام (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Round: %1$d</string>
+    <string name="tasbih_sound_desc">ھەر بىر ئايلانما مۇسابىقە ئاخىرلاشقاندا قوڭغۇراق ياكى ئاھاڭ چېلىڭ</string>
+    <string name="tasbih_sound_title">نىشاندىكى ئاۋاز</string>
+    <string name="tasbih_sound_tone_alarm">ئاگاھلاندۇرۇش</string>
+    <string name="tasbih_sound_tone_notification">ئۇقتۇرۇش</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">ساناش ئۈچۈن چەمبىرەكنى چېكىڭ</string>
+    <string name="tasbih_target_reached">نىشانغا يەتتى - ئاللاھ قوبۇل قىلسۇن</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">بۈگۈن \' ئومۇمىي: %1$d</string>
+    <string name="tasbih_undo">ئەمەلدىن قالدۇرۇش</string>
+    <string name="tasbih_virtue_label">بۇ زىكرىنىڭ پەزىلىتى</string>
+    <string name="tasbih_week_stats">ئاخىرقى 7 كۈن</string>
+</resources>

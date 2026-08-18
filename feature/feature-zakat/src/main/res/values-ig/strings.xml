@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Weta ọnụ ahịa na-akpaghị aka</string>
+    <string name="zakat_auto_prices_hint">Mgbe enyere ya aka, a na-enweta ọnụ ahịa ọla edo na ọlaọcha na ịntanetị wee nweta ume na-akpaghị aka</string>
+    <string name="zakat_back">Azu</string>
+    <string name="zakat_cash">Ego na ego</string>
+    <string name="zakat_clear_history">Kpochapụ akụkọ ihe mere eme</string>
+    <string name="zakat_country">Obodo</string>
+    <string name="zakat_country_placeholder">Họrọ obodo gị na ego gị</string>
+    <string name="zakat_country_section">Obodo &amp; ego</string>
+    <string name="zakat_currency">Ego: %1$s</string>
+    <string name="zakat_debts">Ụgwọ ndị i ji (wepụrụ)</string>
+    <string name="zakat_due">Zakat ruru (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Enweghị ike ị nweta ọnụ ahịa \'. Lelee njikọ gị ma ọ bụ jiri aka tinye ọnụ ahịa.</string>
+    <string name="zakat_fetch_now">Weghachite ọnụ ahịa ugbu a</string>
+    <string name="zakat_fetching">Na-ebuta ọnụ ahịa…</string>
+    <string name="zakat_fitr_persons">Ọnụọgụ nke ndị òtù ezinụlọ</string>
+    <string name="zakat_fitr_saa_value">Uru nke otu sa\' (nri siri ike)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">ngụkọta Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Gold (gram)</string>
+    <string name="zakat_gold_price">Ọnụ ego ọla edo kwa gram</string>
+    <string name="zakat_history">Akụkọ mgbako</string>
+    <string name="zakat_history_amount">Ọnụ ego: %1$s</string>
+    <string name="zakat_history_empty">Enweghị mgbako echekwara.</string>
+    <string name="zakat_investments">Ntinye ego</string>
+    <string name="zakat_last_updated">emelitere ikpeazụ: %1$s</string>
+    <string name="zakat_money_section">Zakat na akụ na ụba</string>
+    <string name="zakat_nisab_gold">Gold nisab (85g)</string>
+    <string name="zakat_nisab_met">The nisab ruru - zakat ruru</string>
+    <string name="zakat_nisab_not_met">N\'okpuru nisab - enweghị zakat ruru</string>
+    <string name="zakat_nisab_silver">Silver nisab (595g)</string>
+    <string name="zakat_rulings_note">Maka ọtụtụ (jumhoor): nisab ọla edo bụ 85g, ọlaọcha 595g, na ọnụego ya bụ 2.5%% ka ewepụrụ ụgwọ ndị kwesịrị ekwesị. Kpọtụrụ onye ọkà mmụta tozuru etozu maka ikpe pụrụ iche.</string>
+    <string name="zakat_save_result">Chekwaa na akụkọ ihe mere eme</string>
+    <string name="zakat_silver_grams">Ọlaọcha (gram)</string>
+    <string name="zakat_silver_price">Ọnụ ego ọlaọcha kwa gram</string>
+    <string name="zakat_source_note">Ọnụ ahịa ọla edo/ọlaọcha sitere na gold-api.com; Ọnụ ego FX sitere na open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Mgbakọta akụ</string>
+    <string name="zakat_trade">Ahịa ngwaahịa uru</string>
+    <string name="zakat_zakatable">Ego efu mgbe ụgwọ</string>
+</resources>

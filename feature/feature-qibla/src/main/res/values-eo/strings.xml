@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s for</string>
+    <string name="mosque_finder_empty">Neniuj moskeoj trovitaj en ĉi tiu intervalo</string>
+    <string name="mosque_finder_error">Serĉo malsukcesis</string>
+    <string name="mosque_finder_intro">Trovu moskeojn proksime de via loko per OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Ankoraŭ neniu loko fiksita. Elektu lokon el la agordoj de preĝtempoj unue.</string>
+    <string name="mosque_finder_retry">Reprovi</string>
+    <string name="mosque_finder_searching">Serĉante…</string>
+    <string name="mosque_finder_title">Proksimaj moskeoj</string>
+    <string name="qibla_bearing_cardinal">Qibla direkto: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Movu vian telefonon en oko por kalibri</string>
+    <string name="qibla_distance">Distanco al Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Vi alfrontas la Ĉiblon 🕋</string>
+    <string name="qibla_gps_error">Ne eblis ricevi precizan solvon. Bonvolu provi denove.</string>
+    <string name="qibla_gps_live">Viva GPS-loko</string>
+    <string name="qibla_gps_refresh">Refreŝigu lokon per GPS</string>
+    <string name="qibla_gps_refreshing">Lokante…</string>
+    <string name="qibla_heading_degree">Telefontitolo: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Grandcirkla itinero de via loko al Kaaba — funkcias eksterrete</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Vi</string>
+    <string name="qibla_mode_compass">Kompaso</string>
+    <string name="qibla_mode_map">Mapo</string>
+    <string name="qibla_open_mosques">Proksimaj moskeoj</string>
+    <string name="qibla_title">Kibla direkto</string>
+    <string name="qibla_turn_left">Turnu maldekstren %1$.1f°</string>
+    <string name="qibla_turn_right">Turnu dekstren %1$.1f°</string>
+</resources>

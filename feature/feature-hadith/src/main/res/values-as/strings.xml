@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">সকলো</string>
+    <string name="hadith_back">পিছলৈ ঘূৰি আহিল</string>
+    <string name="hadith_bookmark_add">বুকমাৰ্ক যোগ কৰক</string>
+    <string name="hadith_bookmark_remove">বুকমাৰ্ক আঁতৰাওক</string>
+    <string name="hadith_collection_abudawud">আবু দাউদ</string>
+    <string name="hadith_collection_bukhari">আল-বুখাৰী</string>
+    <string name="hadith_collection_ibnmajah">ইবনে মাজাহ</string>
+    <string name="hadith_collection_muslim">মুছলমান</string>
+    <string name="hadith_collection_nasai">এন-নাছা৯৯৭০০০০০০i</string>
+    <string name="hadith_collection_nawawi">আন-নাৱাৱী ৪০</string>
+    <string name="hadith_collection_other">অন্যান্য</string>
+    <string name="hadith_collection_riyad">ৰিয়াদ আছ-ছালিহিন</string>
+    <string name="hadith_collection_tirmidhi">আত-তিৰমিধি</string>
+    <string name="hadith_daily_notification">দৈনিক হাদীছৰ অধিসূচনা</string>
+    <string name="hadith_daily_notification_desc">প্ৰতিদিনে এটা হাদীছ লাভ কৰক</string>
+    <string name="hadith_daily_notification_time">অধিসূচনাৰ সময়</string>
+    <string name="hadith_of_the_day">দিনৰ হাদীছ</string>
+    <string name="hadith_preview_hint">এনেদৰেই দৈনিক হাদীছৰ অধিসূচনা নিজৰ নিৰ্ধাৰিত সময়ত প্ৰকাশ পায়।</string>
+    <string name="hadith_preview_label">জাননীৰ পূৰ্বদৰ্শন</string>
+    <string name="hadith_preview_loading">হাদীছ লোড কৰা হৈছে...</string>
+    <string name="hadith_search_hint">হাদীছ অনুসন্ধান...</string>
+    <string name="hadith_share">শ্বেয়াৰ কৰক</string>
+    <string name="hadith_title">হাদীছ পুথিভঁৰাল</string>
+</resources>

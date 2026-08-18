@@ -24,9 +24,20 @@
     <string name="adhkar_overlay_desc">تظهر رسالة صغيرة بالذكر المختار فوق أي تطبيق وتختفي تلقائيًا بعد المدة التي تحددها.</string>
     <string name="adhkar_overlay_grant_permission">منح إذن العرض فوق التطبيقات</string>
     <string name="adhkar_overlay_permission_hint">يُفتح إعداد النظام للسماح للتطبيق بالعرض فوق التطبيقات الأخرى.</string>
+    <string name="adhkar_overlay_alpha">الشفافية: %1$d%%</string>
+    <string name="adhkar_overlay_reset">إعادة تعيين الشكل الافتراضي</string>
+    <string name="adhkar_overlay_appearance">تخصيص شكل الرسالة</string>
+    <string name="adhkar_overlay_bg_color">لون الخلفية</string>
+    <string name="adhkar_overlay_corner_radius">استدارة الزوايا</string>
+    <string name="adhkar_overlay_corner_radius_value">%1$d dp</string>
+    <string name="adhkar_overlay_font_size">حجم الخط</string>
+    <string name="adhkar_overlay_font_size_value">%1$d</string>
     <string name="adhkar_overlay_duration">مدة الظهور</string>
     <string name="adhkar_overlay_duration_value">%1$d ثانية</string>
     <string name="adhkar_overlay_test">تجربة الرسالة الآن</string>
+    <string name="adhkar_overlay_preview_label">معاينة الرسالة العائمة</string>
+    <string name="adhkar_overlay_preview_dismiss">تختفي تلقائيًا بعد %1$s ثانية</string>
+    <string name="adhkar_overlay_preview_loading">جارٍ التحميل…</string>
     <string name="adhkar_overlay_notification_title">ذكر</string>
     <string name="adhkar_overlay_notification_text">رسالة الأذكار</string>
     <string name="adhkar_customize_title">تخصيص الأذكار الظاهرة</string>
@@ -34,7 +45,11 @@
     <string name="adhkar_morning_reminder">تذكير أذكار الصباح</string>
     <string name="adhkar_evening_reminder">تذكير أذكار المساء</string>
     <string name="adhkar_reminder_time">الوقت</string>
+    <string name="adhkar_reminder_preview_label">معاينة: %1$s</string>
+    <string name="adhkar_reminder_preview_hint">هكذا يظهر إشعار تذكير الأذكار عند وقته المحدد.</string>
     <string name="adhkar_reminder_notification_title">تذكير الأذكار</string>
+    <string name="adhkar_morning_evening_notification">إشعار أذكار الصباح والمساء</string>
+    <string name="adhkar_morning_evening_notification_desc">تذكير يومي بأذكار الصباح والمساء في الوقتين المحددين من الإعدادات.</string>
 
     <string name="adhkar_periodic_section">التذكير الدوري</string>
     <string name="adhkar_periodic_toggle">تفعيل التذكير الدوري</string>
@@ -47,4 +62,9 @@
     <string name="adhkar_periodic_window_start">البداية</string>
     <string name="adhkar_periodic_window_end">النهاية</string>
     <string name="adhkar_periodic_notification_title">تذكير الأذكار</string>
+
+
+    <string name="adhkar_favorites">المفضلة</string>
+    <string name="adhkar_add_favorite">إضافة إلى المفضلة</string>
+    <string name="adhkar_remove_favorite">إزالة من المفضلة</string>
 </resources>

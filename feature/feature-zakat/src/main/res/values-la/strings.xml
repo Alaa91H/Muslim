@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Da automatice pretium</string>
+    <string name="zakat_auto_prices_hint">Cum enabled, aurum et argentum pretium ab interrete evocantur et automatice reficiuntur</string>
+    <string name="zakat_back">Retro</string>
+    <string name="zakat_cash">Cash ac peculi</string>
+    <string name="zakat_clear_history">Patet historia</string>
+    <string name="zakat_country">Patria</string>
+    <string name="zakat_country_placeholder">Elige patria et monetæ</string>
+    <string name="zakat_country_section">Patria &amp; monetæ</string>
+    <string name="zakat_currency">Currency: %1$s</string>
+    <string name="zakat_debts">Debita, debes (detracta)</string>
+    <string name="zakat_due">Zakat due (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Possen\'t pretium arcessere. Compesce connexionem vel manually pretium intrare.</string>
+    <string name="zakat_fetch_now">Renovare pretium nunc</string>
+    <string name="zakat_fetching">Pretium pretium…</string>
+    <string name="zakat_fitr_persons">Numerus familiae membra</string>
+    <string name="zakat_fitr_saa_value">Valorem unius sa\' (sapulae)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Total Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Aurum (P.)</string>
+    <string name="zakat_gold_price">Aurum pretium per gram</string>
+    <string name="zakat_history">Computus historia</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Calculationes nondum servatae sunt.</string>
+    <string name="zakat_investments">Investments</string>
+    <string name="zakat_last_updated">Last updated: %1$s</string>
+    <string name="zakat_money_section">Zakat in divitiis</string>
+    <string name="zakat_nisab_gold">Aurum nisab (85g)</string>
+    <string name="zakat_nisab_met">Nisab ventum est - zakat est debitum</string>
+    <string name="zakat_nisab_not_met">Infra nisab - no zakat due</string>
+    <string name="zakat_nisab_silver">Argentum nisab (595g)</string>
+    <string name="zakat_rulings_note">Per plures (jumhoor): aurum nisab 85g, argentum 595g, et rate est 2.5%% deductis debitis debitis. Con- sultum idoneum ad causas speciales.</string>
+    <string name="zakat_save_result">Salvum ad historiam</string>
+    <string name="zakat_silver_grams">Argenti (P.)</string>
+    <string name="zakat_silver_price">Argenti pretium per gram</string>
+    <string name="zakat_source_note">Aurum/argentum pretia ex auro-api.com; FX rates ex open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Summa bonorum</string>
+    <string name="zakat_trade">Negotiatio bona valorem</string>
+    <string name="zakat_zakatable">Zakatable moles post debita</string>
+</resources>

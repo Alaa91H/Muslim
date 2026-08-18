@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_version">גרסה %1$s</string>
+    <string name="app_name">מוסלמי</string>
+    <string name="notif_preview_elapsed">חלף מאז adhan: %1$s</string>
+    <string name="notif_preview_missed">adhan שפוספס: %1$s — %2$s</string>
+    <string name="notif_preview_next_title">הקוד הבא: %1$s — %2$s</string>
+    <string name="notif_preview_remaining">זמן שנותר: %1$s</string>
+</resources>

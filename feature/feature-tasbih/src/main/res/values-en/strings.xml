@@ -10,4 +10,24 @@
     <string name="misbaha_widget_label">Tasbih</string>
     <string name="misbaha_widget_description">Digital misbaha — tap to count</string>
     <string name="misbaha_widget_tap_hint">Tap to count</string>
+    <string name="tasbih_undo">Undo</string>
+    <string name="tasbih_reset_all">Reset all</string>
+    <string name="tasbih_custom_target">Custom</string>
+    <string name="tasbih_custom_target_title">Set a custom target</string>
+    <string name="tasbih_custom_target_hint">Enter the number of counts (from 1 to 100000)</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_cancel">Cancel</string>
+    <string name="tasbih_virtue_label">Virtue of this dhikr</string>
+    <string name="tasbih_total_today">Today\'s total: %1$d</string>
+    <string name="tasbih_rounds">Rounds: %1$d</string>
+
+
+    <string name="tasbih_round_complete">Full round complete (%1$s) 🎉</string>
+
+
+    <string name="tasbih_sound_title">Sound on target</string>
+    <string name="tasbih_sound_desc">Play a ringtone or tone when each full round is completed</string>
+    <string name="tasbih_sound_tone_notification">Notification</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
 </resources>

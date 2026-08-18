@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">ኩሉ...</string>
+    <string name="hadith_back">ንድሕሪት ተመሊስና።</string>
+    <string name="hadith_bookmark_add">ዕልባት ምውሳኽ</string>
+    <string name="hadith_bookmark_remove">ዕልባት ኣወግድ</string>
+    <string name="hadith_collection_abudawud">ኣቡ ዳውድ</string>
+    <string name="hadith_collection_bukhari">ኣልቡኻሪ</string>
+    <string name="hadith_collection_ibnmajah">ኢብን ማጃህ</string>
+    <string name="hadith_collection_muslim">ኣስላማይ</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">ኣን-ናዋዊ 40</string>
+    <string name="hadith_collection_other">ካልእ</string>
+    <string name="hadith_collection_riyad">ሪያድ ኣስ-ሳሊሂን።</string>
+    <string name="hadith_collection_tirmidhi">ኣብ-ትርሚድሂ</string>
+    <string name="hadith_daily_notification">መዓልታዊ ሓዲስ መፍለጢ</string>
+    <string name="hadith_daily_notification_desc">መዓልታዊ ሓዲስ ተቐበል</string>
+    <string name="hadith_daily_notification_time">ናይ መፍለጢ ግዜ</string>
+    <string name="hadith_of_the_day">ሓዲስ ናይቲ ዕለት</string>
+    <string name="hadith_preview_hint">እቲ መዓልታዊ መፍለጢ ሓዲስ ኣብ ዝተመደበሉ ሰዓት ብኸምዚ እዩ ዝረአ።</string>
+    <string name="hadith_preview_label">ቅድመ ምርኢት መፍለጢ</string>
+    <string name="hadith_preview_loading">ሓዲስ ኣብ ምጽዓን...</string>
+    <string name="hadith_search_hint">ሓዲስ ድለዩ...</string>
+    <string name="hadith_share">ሼር ምግባር</string>
+    <string name="hadith_title">ቤተ መጻሕፍቲ ሓዲስ</string>
+</resources>

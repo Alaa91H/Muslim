@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar rehegua</string>
+    <string name="more_adhkar_desc">Pyhareve, ka\'aru &amp; ñembo\'e rire adhkar orekóva contador</string>
+    <string name="more_downloads">Umi descarga recitación rehegua</string>
+    <string name="more_downloads_desc">Emboguejy peteĩ surah, peteĩ ayah térã Corán henyhẽva nde recitador reiporavóva ndive</string>
+    <string name="more_hadith">Hadith rehegua</string>
+    <string name="more_hadith_desc">Hadith biblioteca, búsqueda &amp; hadith ára rehegua</string>
+    <string name="more_learn">Eaprende</string>
+    <string name="more_learn_desc">Paso a paso wudu &amp; guías de oración rehegua</string>
+    <string name="more_ramadan">Ramadán-pe</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar aravo ha rastreador de ayuno</string>
+    <string name="more_reference">Biblioteca de Referencia rehegua</string>
+    <string name="more_reference_desc">Introducción Islam, umi Sira &amp; umi profeta-kuéra rehegua</string>
+    <string name="more_settings">Ñemboheko</string>
+    <string name="more_settings_desc">Tema, ñe\'ẽ, ñembo\'e &amp; adhan ñemohenda</string>
+    <string name="more_tasbih">Tasbih rehegua</string>
+    <string name="more_tasbih_desc">Misbaha digital orekóva tembiasa ára ha ára</string>
+    <string name="more_zakat">Zakat rehegua</string>
+    <string name="more_zakat_desc">Zakat riqueza rehegua &amp; calculadora Fitr rehegua</string>
+    <string name="scaffold_message">Pe esqueleto proyecto multimódulo rehegua oĩma listo.\nFase 1 — Adhan, ñembo’e aravo, Qibla, ha Hijri calendario — oñepyrũ ko’ápe.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla dirección rehegua</string>
+    <string name="shortcut_settings">Ñemboheko</string>
+    <string name="shortcut_settings_long">Ñembo’e &amp; adhan ñemohenda</string>
+    <string name="shortcut_times">Ñembo’e ára</string>
+    <string name="shortcut_times_long">Ko árape\'s ñembo\'e aravo</string>
+    <string name="tab_home">Ñembo’e Aravo</string>
+    <string name="tab_more">Hetave mba’e</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Corán rehegua</string>
 </resources>

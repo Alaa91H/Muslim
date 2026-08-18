@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">مسلمان</string>
+    <string name="more_adhkar">اَڌڪار</string>
+    <string name="more_adhkar_desc">صبح، شام ۽ بعد جي نماز ڳڻپيوڪر سان گڏ</string>
+    <string name="more_downloads">تلاوت ڊائون لوڊ</string>
+    <string name="more_downloads_desc">ڊائون لوڊ ڪريو هڪ سورت، هڪ آيت يا مڪمل قرآن پنهنجي چونڊيل تلاوت ڪندڙ سان</string>
+    <string name="more_hadith">حديث</string>
+    <string name="more_hadith_desc">حديث لائبريري، اڄ جي ڳولا ۽ حديث</string>
+    <string name="more_learn">سکيو</string>
+    <string name="more_learn_desc">قدم بہ قدم وضو ۽ نماز ھدايتون</string>
+    <string name="more_ramadan">رمضان</string>
+    <string name="more_ramadan_desc">سحري ۽ افطار جا وقت ۽ روزو رکڻ وارو</string>
+    <string name="more_reference">حوالو لائبريري</string>
+    <string name="more_reference_desc">اسلام، سيرت ۽ انبياء جو تعارف</string>
+    <string name="more_settings">سيٽنگون</string>
+    <string name="more_settings_desc">موضوع، ٻولي، نماز ۽ اذان سيٽنگون</string>
+    <string name="more_tasbih">تسبيح</string>
+    <string name="more_tasbih_desc">ڊجيٽل مصباح روزاني تاريخ سان</string>
+    <string name="more_zakat">زڪوات</string>
+    <string name="more_zakat_desc">مال تي زڪوات ۽ فطر جو حساب ڪندڙ</string>
+    <string name="scaffold_message">ملٽي ماڊل پروجيڪٽ اسڪيليٽ تيار آهي. \n فيز 1 — اذان، نماز جا وقت، قبله، ۽ هجري ڪئلينڊر — هتي شروع ٿئي ٿو.</string>
+    <string name="shortcut_qibla">قبله</string>
+    <string name="shortcut_qibla_long">قبلي طرف</string>
+    <string name="shortcut_settings">سيٽنگون</string>
+    <string name="shortcut_settings_long">نماز ۽ اذان جي ترتيب</string>
+    <string name="shortcut_times">نماز جا وقت</string>
+    <string name="shortcut_times_long">اڄ \' نماز جا وقت</string>
+    <string name="tab_home">نماز جا وقت</string>
+    <string name="tab_more">وڌيڪ</string>
+    <string name="tab_qibla">قبله</string>
+    <string name="tab_quran">قرآن</string>
 </resources>

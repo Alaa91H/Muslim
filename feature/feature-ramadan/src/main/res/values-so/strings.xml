@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Dib u noqo</string>
+    <string name="ramadan_countdown">Ramadaanku wuxuu bilaabmayaa %1$s maalmood</string>
+    <string name="ramadan_countdown_to_iftar">Waqtiga la afurayo: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Waqtiga Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Maalinta %1$s ee Ramadaan</string>
+    <string name="ramadan_days_left">%1$s maalmood ayaa hadhay</string>
+    <string name="ramadan_fasting_progress">Maalmaha Soonka: %1$s ee %2$s - taabo maalin si aad u duubto</string>
+    <string name="ramadan_fasting_tracker">Raadraaca soonka</string>
+    <string name="ramadan_hijri_note">Iyada oo ku saleysan jadwalka Umm al-Qura oo leh app-ballaaran hagaajinta Hijri ayaa lagu dabaqay.</string>
+    <string name="ramadan_hijri_year">Sanadkii %1$s Hijriyada</string>
+    <string name="ramadan_iftar">Afur</string>
+    <string name="ramadan_iftar_dua">Ducada afurka: "Allow adiga ayaan kuu soomay arsaaqdaadana waan ku afuray"</string>
+    <string name="ramadan_iftar_time">Waqtiga Afurka (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Marka hore ka dooro magaalo Settings si aad u aragto wakhtiyada.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Allow adaan ku soomay arsaaqdaadana waan ku afuray</string>
+    <string name="ramadan_notification_iftar_title">Waqtiga afurka</string>
+    <string name="ramadan_notification_suhoor_body">Fajr baa soo dhow - suxuur</string>
+    <string name="ramadan_notification_suhoor_title">Xusuusin Suxuur</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suxuur</string>
+    <string name="ramadan_suhoor_remind_before">Horta i xasuusi:</string>
+    <string name="ramadan_suhoor_time">Suxuurtu waxay ku dhammaatay (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadaan</string>
+</resources>

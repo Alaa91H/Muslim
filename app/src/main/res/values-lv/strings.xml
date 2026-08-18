@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Musulmanis</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Rīta, vakara un pēclūgšanas adhkar ar skaitītājiem</string>
+    <string name="more_downloads">Deklamācijas lejupielādes</string>
+    <string name="more_downloads_desc">Lejupielādējiet suru, aju vai pilnu Korānu ar izvēlēto deklamētāju</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Hadith bibliotēka, meklēšana un dienas hadīts</string>
+    <string name="more_learn">Uzziniet</string>
+    <string name="more_learn_desc">Soli pa solim wudu un lūgšanu ceļveži</string>
+    <string name="more_ramadan">Ramadāns</string>
+    <string name="more_ramadan_desc">Suhoor un iftar laiki un badošanās izsekotājs</string>
+    <string name="more_reference">Uzziņu bibliotēka</string>
+    <string name="more_reference_desc">Ievads islāmā, Sīrā un praviešiem</string>
+    <string name="more_settings">Iestatījumi</string>
+    <string name="more_settings_desc">Tēma, valoda, lūgšana un Adhan iestatījumi</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digitālā misbaha ar ikdienas vēsturi</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat par bagātību un Fitr kalkulatoru</string>
+    <string name="scaffold_message">Vairāku moduļu projekta skelets ir gatavs.\n1. fāze — Adhan, lūgšanu laiki, Kibla un Hijri kalendārs — sākas šeit.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Kiblas virziens</string>
+    <string name="shortcut_settings">Iestatījumi</string>
+    <string name="shortcut_settings_long">Lūgšanu un Adhan iestatījumi</string>
+    <string name="shortcut_times">Lūgšanu laiki</string>
+    <string name="shortcut_times_long">Šodien \' lūgšanu laiki</string>
+    <string name="tab_home">Lūgšanu laiki</string>
+    <string name="tab_more">Vairāk</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Korāns</string>
 </resources>

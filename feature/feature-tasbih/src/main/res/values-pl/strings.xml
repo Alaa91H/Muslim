@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Cyfrowa misbaha — dotknij, aby policzyć</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Kliknij, aby policzyć</string>
+    <string name="tasbih_back">Powrót</string>
+    <string name="tasbih_cancel">Anuluj</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Niestandardowe</string>
+    <string name="tasbih_custom_target_hint">Wprowadź liczbę zliczeń (od 1 do 100000)</string>
+    <string name="tasbih_custom_target_title">Ustaw cel niestandardowy</string>
+    <string name="tasbih_of_target">z %1$s</string>
+    <string name="tasbih_reset">Zresetuj</string>
+    <string name="tasbih_reset_all">Zresetuj wszystko</string>
+    <string name="tasbih_round_complete">Pełna runda ukończona (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Rundy: %1$d</string>
+    <string name="tasbih_sound_desc">Odtwórz dzwonek lub sygnał po zakończeniu każdej pełnej rundy</string>
+    <string name="tasbih_sound_title">Dźwięk na cel</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Powiadomienie</string>
+    <string name="tasbih_sound_tone_ringtone">Dzwonek</string>
+    <string name="tasbih_tap_hint">Kliknij kółko, aby policzyć</string>
+    <string name="tasbih_target_reached">Cel osiągnięty — niech Allah się zgodzi</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Dzisiaj łącznie \': %1$d</string>
+    <string name="tasbih_undo">Cofnij</string>
+    <string name="tasbih_virtue_label">Cnota tego dhikr</string>
+    <string name="tasbih_week_stats">Ostatnie 7 dni</string>
+</resources>

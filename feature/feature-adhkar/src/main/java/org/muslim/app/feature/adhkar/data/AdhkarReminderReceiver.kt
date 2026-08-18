@@ -45,7 +45,14 @@ class AdhkarReminderReceiver : BroadcastReceiver() {
                 if (dhikr != null) {
                     val overlayGranted = Settings.canDrawOverlays(appContext)
                     if (prefs.overlayEnabled && overlayGranted) {
-                        AdhkarOverlayService.start(appContext, dhikr, prefs.overlayDurationSeconds)
+                        AdhkarOverlayService.start(
+                            appContext,
+                            dhikr,
+                            prefs.overlayDurationSeconds,
+                            prefs.overlayBackgroundColor,
+                            prefs.overlayCornerRadiusDp,
+                            prefs.overlayFontSizeSp,
+                        )
                     } else {
                         AdhkarNotifications.showReminder(appContext, dhikr)
                     }

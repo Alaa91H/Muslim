@@ -38,6 +38,7 @@ class QuranRepositoryImpl @Inject constructor(
     private val ayahDao: AyahDao,
     private val ayahFtsDao: AyahFtsDao,
     private val bookmarkDao: BookmarkDao,
+    private val prefs: QuranPrefsRepository,
 ) : QuranRepository {
 
     private val seeded = AtomicBoolean(false)
@@ -47,14 +48,21 @@ class QuranRepositoryImpl @Inject constructor(
         if (seeded.get()) return
         seedMutex.withLock {
             if (seeded.get()) return
-            if (surahDao.count() == 0 && ayahDao.count() == 0) {
+            val needsImport = surahDao.count() == 0 && ayahDao.count() == 0
+            val ftsStale = prefs.ftsIndexStale.first()
+            if (needsImport || ftsStale) {
                 val surahs = QuranAssetParser.parseSurahs(readAssetText("quran_surahs.json"))
                 val ayahs = context.assets.open("quran_ayahs.txt")
                     .bufferedReader(Charsets.UTF_8)
                     .use { QuranAssetParser.parseAyahs(it) }
-                surahDao.insertAll(surahs)
-                ayahDao.insertAll(ayahs)
-                if (ayahFtsDao.count() == 0) {
+                if (needsImport) {
+                    surahDao.insertAll(surahs)
+                    ayahDao.insertAll(ayahs)
+                }
+                // Rebuild the search index whenever the normalization changed
+                // (or on first import) so prefix searches stay accurate.
+                if (ayahFtsDao.count() == 0 || ftsStale) {
+                    ayahFtsDao.clear()
                     ayahFtsDao.insertAll(
                         ayahs.map {
                             AyahFtsEntity(
@@ -66,6 +74,7 @@ class QuranRepositoryImpl @Inject constructor(
                         }
                     )
                 }
+                prefs.markFtsIndexCurrent()
             }
             seeded.set(true)
         }
@@ -84,6 +93,11 @@ class QuranRepositoryImpl @Inject constructor(
     override fun observeSurah(surahNumber: Int): Flow<List<Ayah>> = flow {
         ensureSeeded()
         emitAll(ayahDao.observeSurah(surahNumber).map { list -> list.map { it.toDomain() } })
+    }
+
+    override suspend fun allAyahs(): List<Ayah> {
+        ensureSeeded()
+        return ayahDao.observeAll().first().map { it.toDomain() }
     }
 
     override suspend fun ayahByGlobal(globalNumber: Int): Ayah? {

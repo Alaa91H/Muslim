@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digitale misbaha — tik om te tellen</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tik om te tellen</string>
+    <string name="tasbih_back">Terug</string>
+    <string name="tasbih_cancel">Annuleer</string>
+    <string name="tasbih_confirm">Oké</string>
+    <string name="tasbih_custom_target">Aangepast</string>
+    <string name="tasbih_custom_target_hint">Voer het aantal tellingen in (van 1 tot 100.000)</string>
+    <string name="tasbih_custom_target_title">Stel een aangepast doel in</string>
+    <string name="tasbih_of_target">van %1$s</string>
+    <string name="tasbih_reset">Opnieuw instellen</string>
+    <string name="tasbih_reset_all">Alles resetten</string>
+    <string name="tasbih_round_complete">Volledige ronde compleet (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Rondes: %1$d</string>
+    <string name="tasbih_sound_desc">Speel een beltoon of toon wanneer elke volledige ronde is voltooid</string>
+    <string name="tasbih_sound_title">Geluid op doel</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Kennisgeving</string>
+    <string name="tasbih_sound_tone_ringtone">Beltoon</string>
+    <string name="tasbih_tap_hint">Tik op de cirkel om te tellen</string>
+    <string name="tasbih_target_reached">Doel bereikt – moge Allah het accepteren</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Totaal \' vandaag: %1$d</string>
+    <string name="tasbih_undo">Ongedaan maken</string>
+    <string name="tasbih_virtue_label">Deugd van deze dhikr</string>
+    <string name="tasbih_week_stats">Laatste 7 dagen</string>
+</resources>

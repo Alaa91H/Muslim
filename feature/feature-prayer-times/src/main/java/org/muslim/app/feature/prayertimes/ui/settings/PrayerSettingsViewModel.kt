@@ -15,12 +15,23 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.muslim.app.core.common.prayer.AdhanSoundOption
 import org.muslim.app.core.common.prayer.AsrMethod
+import org.muslim.app.core.common.prayer.Coordinates
+import org.muslim.app.core.common.prayer.NextPrayer
+import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import org.muslim.app.core.common.prayer.CalculationMethod
 import org.muslim.app.core.common.prayer.HighLatitudeRule
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
+import org.muslim.app.core.datastore.prayer.toPrayerParameters
 import androidx.glance.appwidget.updateAll
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalTime
+import java.time.ZoneId
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flow
 import org.muslim.app.feature.prayertimes.notifications.AdhanPlaybackService
 import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
 import org.muslim.app.feature.prayertimes.notifications.NextAdhanService
@@ -34,10 +45,50 @@ class PrayerSettingsViewModel @Inject constructor(
     private val repository: PrayerSettingsRepository,
     private val scheduler: AdhanScheduler,
     private val soundRepository: AdhanSoundRepository,
+    private val calculator: PrayerTimesCalculator,
 ) : ViewModel() {
 
     val settings: StateFlow<PrayerSettings> =
         repository.settings.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), PrayerSettings())
+
+    private val minuteTicker = flow {
+        while (true) {
+            emit(Unit)
+            delay(60_000)
+        }
+    }
+
+    /**
+     * The real next prayer (name + local time) computed from the saved location,
+     * refreshed every minute. Drives the live adhan notification preview.
+     */
+    val nextPrayerPreview: StateFlow<Pair<Prayer, LocalTime>?> =
+        combine(repository.settings, minuteTicker) { settings, _ -> computeNextPrayer(settings) }
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
+
+    private fun computeNextPrayer(settings: PrayerSettings): Pair<Prayer, LocalTime>? {
+        val location = settings.location ?: return null
+        val zone = ZoneId.of(location.timeZone)
+        val now = System.currentTimeMillis()
+        val today = Instant.ofEpochMilli(now).atZone(zone).toLocalDate()
+        val coordinates = Coordinates(location.latitude, location.longitude, location.elevation)
+        val params = settings.toPrayerParameters()
+        var next = NextPrayer.nextPrayer(
+            calculator.compute(today, coordinates, params, zone, settings.asrMethod, settings.adjustments).epochMillis,
+            now,
+        )
+        if (next == null) {
+            next = NextPrayer.nextPrayer(
+                calculator.compute(
+                    today.plusDays(1), coordinates, params, zone, settings.asrMethod, settings.adjustments,
+                ).epochMillis,
+                now,
+            )
+        }
+        return next?.let {
+            it.prayer to Instant.ofEpochMilli(it.atEpochMillis).atZone(zone).toLocalTime()
+        }
+    }
 
     /** Download progress (0..1) per prayer, present only while downloading. */
     private val _downloadProgress = MutableStateFlow<Map<Prayer, Float>>(emptyMap())
@@ -66,8 +117,10 @@ class PrayerSettingsViewModel @Inject constructor(
         it.copy(adhanSounds = it.adhanSounds + (prayer to option))
     }
 
-    /** Selects which bundled (offline) recording plays by default. */
-    fun setBundledAdhanSound(id: String) = update { it.copy(bundledAdhanSound = id) }
+    /** Selects the bundled (offline) recording for a single prayer (default Makkah). */
+    fun setBundledAdhanSound(prayer: Prayer, id: String) = update {
+        it.copy(bundledAdhanSounds = it.bundledAdhanSounds + (prayer to id))
+    }
 
     fun setAdhanVolume(volume: Int) = update { it.copy(adhanVolume = volume.coerceIn(0, 100)) }
 
@@ -108,7 +161,8 @@ class PrayerSettingsViewModel @Inject constructor(
                 soundOption = current.adhanSounds[prayer] ?: AdhanSoundOption.Default,
                 volumePercent = current.adhanVolume,
                 soundPath = soundPath,
-                bundledSoundId = current.bundledAdhanSound,
+                bundledSoundId = current.bundledAdhanSounds[prayer]
+                    ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID,
             )
         }
     }

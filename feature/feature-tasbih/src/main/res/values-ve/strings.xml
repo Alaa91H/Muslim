@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha ya digiṱali — thepa u vhala .</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Kha vha ṋaṋise u vhala</string>
+    <string name="tasbih_back">Vhuya</string>
+    <string name="tasbih_cancel">Khansela</string>
+    <string name="tasbih_confirm">Zwo luga</string>
+    <string name="tasbih_custom_target">Mukhwa</string>
+    <string name="tasbih_custom_target_hint">Kha vha ṅwale nomboro ya mbalo (u bva kha 1 u ya kha 100000)</string>
+    <string name="tasbih_custom_target_title">Setha tshipikwa tsho khetheaho</string>
+    <string name="tasbih_of_target">ya %1$s</string>
+    <string name="tasbih_reset">Setha hafhu</string>
+    <string name="tasbih_reset_all">Reset zwothe</string>
+    <string name="tasbih_round_complete">Round yo fhelelaho yo fhela (%1$s) 🎉 .</string>
+    <string name="tasbih_rounds">Round: %1$d</string>
+    <string name="tasbih_sound_desc">Tambani ringtone kana thoni musi round inwe na inwe yo fhelelaho yo no fhela .</string>
+    <string name="tasbih_sound_title">Mubvumo kha tshipikwa</string>
+    <string name="tasbih_sound_tone_alarm">Aḽamu</string>
+    <string name="tasbih_sound_tone_notification">Nḓivhadzo</string>
+    <string name="tasbih_sound_tone_ringtone">Thoni ya u lila</string>
+    <string name="tasbih_tap_hint">Kha vha ṋaṋise kha tshidimela u itela u vhala</string>
+    <string name="tasbih_target_reached">Tshipikwa tsho swikelelwa — ngavhe Allah a tshi ṱanganedza .</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Namusi\' dzothe: %1$d</string>
+    <string name="tasbih_undo">Undo</string>
+    <string name="tasbih_virtue_label">Vhuḓi ha dhikr iyi .</string>
+    <string name="tasbih_week_stats">Maḓuvha a 7 o fhiraho</string>
+</resources>

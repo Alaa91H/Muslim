@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Mu awọn idiyele laifọwọyi</string>
+    <string name="zakat_auto_prices_hint">Nigbati o ba mu ṣiṣẹ, awọn idiyele goolu ati fadaka ni a mu lati intanẹẹti ati isọdọtun laifọwọyi</string>
+    <string name="zakat_back">Pada</string>
+    <string name="zakat_cash">Owo ati ifowopamọ</string>
+    <string name="zakat_clear_history">Ko itan-akọọlẹ kuro</string>
+    <string name="zakat_country">Orilẹ-ede</string>
+    <string name="zakat_country_placeholder">Yan orilẹ-ede rẹ ati owo</string>
+    <string name="zakat_country_section">Orilẹ-ede &amp; owo</string>
+    <string name="zakat_currency">Owo: %1$s</string>
+    <string name="zakat_debts">Awọn gbese ti o jẹ (yokuro)</string>
+    <string name="zakat_due">Zakat nitori (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ko le gba awọn idiyele \'. Ṣayẹwo asopọ rẹ tabi tẹ idiyele sii pẹlu ọwọ.</string>
+    <string name="zakat_fetch_now">Sọ awọn idiyele ni bayi</string>
+    <string name="zakat_fetching">Ngba awọn idiyele…</string>
+    <string name="zakat_fitr_persons">Nọmba awọn ọmọ ẹgbẹ ẹbi</string>
+    <string name="zakat_fitr_saa_value">Iye sa\' (ounjẹ pataki)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Lapapọ Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Wura (awọn giramu)</string>
+    <string name="zakat_gold_price">Gold owo fun giramu</string>
+    <string name="zakat_history">Itan iṣiro</string>
+    <string name="zakat_history_amount">Zaka: %1$s</string>
+    <string name="zakat_history_empty">Ko si awọn iṣiro ti o fipamọ sibẹsibẹ.</string>
+    <string name="zakat_investments">Awọn idoko-owo</string>
+    <string name="zakat_last_updated">Imudojuiwọn to kẹhin: %1$s</string>
+    <string name="zakat_money_section">Zakat lori oro</string>
+    <string name="zakat_nisab_gold">Nisabu goolu (85g)</string>
+    <string name="zakat_nisab_met">Nisab ti de - zakat jẹ nitori</string>
+    <string name="zakat_nisab_not_met">Ni isalẹ nisab - ko si zakat nitori</string>
+    <string name="zakat_nisab_silver">Fadaka nisabu (595g)</string>
+    <string name="zakat_rulings_note">Fun ọpọlọpọ (jumhoor): nisab goolu jẹ 85g, fadaka 595g, ati pe oṣuwọn jẹ 2.5%% lẹhin yiyọkuro awọn gbese to tọ. Kan si alagbawo ọmọ-iwe ti o peye fun awọn ọran pataki.</string>
+    <string name="zakat_save_result">Fipamọ si itan-akọọlẹ</string>
+    <string name="zakat_silver_grams">Fadaka (awọn giramu)</string>
+    <string name="zakat_silver_price">Fadaka owo fun giramu</string>
+    <string name="zakat_source_note">Awọn owo goolu / fadaka lati gold-api.com; Awọn oṣuwọn FX lati open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Lapapọ dukia</string>
+    <string name="zakat_trade">Iṣowo iye owo</string>
+    <string name="zakat_zakatable">Zakatable iye lẹhin ti awọn gbese</string>
+</resources>

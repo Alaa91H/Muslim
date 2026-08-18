@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s kaugusel</string>
+    <string name="mosque_finder_empty">Selles piirkonnas ei leitud ühtegi mošeed</string>
+    <string name="mosque_finder_error">Otsing ebaõnnestus</string>
+    <string name="mosque_finder_intro">Otsige OpenStreetMapi kaudu oma asukoha lähedal olevaid mošeesid</string>
+    <string name="mosque_finder_no_location">Asukoht pole veel määratud. Valige esmalt palveaegade seadetest asukoht.</string>
+    <string name="mosque_finder_retry">Proovi uuesti</string>
+    <string name="mosque_finder_searching">Otsimine…</string>
+    <string name="mosque_finder_title">Läheduses mošeed</string>
+    <string name="qibla_bearing_cardinal">Qibla suund: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Kalibreerimiseks liigutage oma telefoni kaheksakujuliselt</string>
+    <string name="qibla_distance">Kaugus Mekkast: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Olete silmitsi Qiblaga 🕋</string>
+    <string name="qibla_gps_error">Täpset parandust ei õnnestunud saada. Palun proovi uuesti.</string>
+    <string name="qibla_gps_live">GPS-i reaalajas asukoht</string>
+    <string name="qibla_gps_refresh">Värskendage asukohta GPS-i kaudu</string>
+    <string name="qibla_gps_refreshing">Otsimine…</string>
+    <string name="qibla_heading_degree">Telefoni pealkiri: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Suure ringiga marsruut teie asukohast Kaabasse — töötab võrguühenduseta</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Sina</string>
+    <string name="qibla_mode_compass">Kompass</string>
+    <string name="qibla_mode_map">Kaart</string>
+    <string name="qibla_open_mosques">Läheduses mošeed</string>
+    <string name="qibla_title">Qibla suund</string>
+    <string name="qibla_turn_left">Pöörake vasakule %1$.1f°</string>
+    <string name="qibla_turn_right">Pöörake paremale %1$.1f°</string>
+</resources>

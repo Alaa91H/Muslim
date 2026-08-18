@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Umusilamu</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Igitondo, nimugoroba &amp; nyuma yisengesho adhkar hamwe na compteur</string>
+    <string name="more_downloads">Ibikururwa</string>
+    <string name="more_downloads_desc">Kuramo sura, ayah cyangwa Qor\'an yuzuye hamwe numusomyi wahisemo</string>
+    <string name="more_hadith">Hadithi</string>
+    <string name="more_hadith_desc">Isomero rya Hadithi, shakisha &amp; Hadithi yumunsi</string>
+    <string name="more_learn">Iga</string>
+    <string name="more_learn_desc">Intambwe ku yindi wudu &amp; kuyobora amasengesho</string>
+    <string name="more_ramadan">Ramazani</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar ibihe hamwe no kwiyiriza ubusa</string>
+    <string name="more_reference">Isomero</string>
+    <string name="more_reference_desc">Intangiriro kuri Islamu, Sira &amp; abahanuzi</string>
+    <string name="more_settings">Igenamiterere</string>
+    <string name="more_settings_desc">Insanganyamatsiko, ururimi, amasengesho &amp; adhan igenamigambi</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digital misbaha hamwe namateka ya buri munsi</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat kubutunzi &amp; Kubara Fitr</string>
+    <string name="scaffold_message">Umushinga skeleti-module myinshi iriteguye.\nIcyiciro cya 1 - Adhan, ibihe byo gusenga, Qibla, na kalendari ya Hijri - bitangirira hano.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Icyerekezo cya Qibla</string>
+    <string name="shortcut_settings">Igenamiterere</string>
+    <string name="shortcut_settings_long">Amasengesho &amp; igenamiterere rya adhan</string>
+    <string name="shortcut_times">Igihe cyo gusenga</string>
+    <string name="shortcut_times_long">Uyu munsi \'s amasengesho</string>
+    <string name="tab_home">Ibihe by\'amasengesho</string>
+    <string name="tab_more">Ibindi</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Qor\'an</string>
 </resources>

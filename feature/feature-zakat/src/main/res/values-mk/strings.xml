@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Добивајте ги цените автоматски</string>
+    <string name="zakat_auto_prices_hint">Кога е овозможено, цените на златото и среброто се преземаат од интернет и автоматски се освежуваат</string>
+    <string name="zakat_back">Назад</string>
+    <string name="zakat_cash">Готовина и заштеди</string>
+    <string name="zakat_clear_history">Исчистете ја историјата</string>
+    <string name="zakat_country">Земја</string>
+    <string name="zakat_country_placeholder">Изберете ја вашата земја и валута</string>
+    <string name="zakat_country_section">Земја и валута</string>
+    <string name="zakat_currency">Валута: %1$s</string>
+    <string name="zakat_debts">Долгови што ги должите (одбиени)</string>
+    <string name="zakat_due">Доспеан зекат (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Не можев \' не да ги достигнам цените. Проверете ја вашата врска или внесете ја цената рачно.</string>
+    <string name="zakat_fetch_now">Освежете ги цените сега</string>
+    <string name="zakat_fetching">Се преземаат цените…</string>
+    <string name="zakat_fitr_persons">Број на членови на семејството</string>
+    <string name="zakat_fitr_saa_value">Вредност на еден sa\' (главна храна)</string>
+    <string name="zakat_fitr_section">Зекат ал-фитр</string>
+    <string name="zakat_fitr_total">Вкупен фитр зекат: %1$s</string>
+    <string name="zakat_gold_grams">Злато (грамови)</string>
+    <string name="zakat_gold_price">Цена на златото по грам</string>
+    <string name="zakat_history">Историја на пресметки</string>
+    <string name="zakat_history_amount">Зекат: %1$s</string>
+    <string name="zakat_history_empty">Сè уште нема зачувани пресметки.</string>
+    <string name="zakat_investments">Инвестиции</string>
+    <string name="zakat_last_updated">Последно ажурирање: %1$s</string>
+    <string name="zakat_money_section">Зекат на богатството</string>
+    <string name="zakat_nisab_gold">Златен нисаб (85 g)</string>
+    <string name="zakat_nisab_met">Нисабот е постигнат - доспева зекат</string>
+    <string name="zakat_nisab_not_met">Под нисабот - нема должен зекат</string>
+    <string name="zakat_nisab_silver">Сребрен нисаб (595 g)</string>
+    <string name="zakat_rulings_note">Според мнозинството (џумхур): златниот нисаб е 85 g, среброто 595 g, а стапката е 2,5%% по одбивањето на достасаните долгови. Консултирајте се со квалификуван научник за посебни случаи.</string>
+    <string name="zakat_save_result">Зачувај во историјата</string>
+    <string name="zakat_silver_grams">Сребро (грамови)</string>
+    <string name="zakat_silver_price">Цена на сребро за грам</string>
+    <string name="zakat_source_note">Цени на злато/сребро од gold-api.com; Девизни стапки од open.er-api.com</string>
+    <string name="zakat_title">Зекат</string>
+    <string name="zakat_total_assets">Вкупни средства</string>
+    <string name="zakat_trade">Вредност на трговската стока</string>
+    <string name="zakat_zakatable">Износот што може да се бара по долгови</string>
+</resources>

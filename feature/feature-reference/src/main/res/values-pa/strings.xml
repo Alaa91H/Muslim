@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">ਪਿੱਛੇ</string>
+    <string name="reference_no_results">ਕੋਈ ਮੇਲ ਖਾਂਦੇ ਨਤੀਜੇ ਨਹੀਂ ਹਨ</string>
+    <string name="reference_search_hint">ਇਸ ਕਿਤਾਬ ਨੂੰ ਖੋਜੋ…</string>
+    <string name="reference_title">ਇਸਲਾਮੀ ਹਵਾਲਾ ਲਾਇਬ੍ਰੇਰੀ</string>
+    <string name="reference_topics_count">ਵਿਸ਼ੇ</string>
+</resources>

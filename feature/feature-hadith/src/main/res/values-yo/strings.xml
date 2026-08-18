@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Gbogbo</string>
+    <string name="hadith_back">Pada</string>
+    <string name="hadith_bookmark_add">Fi bukumaaki kun</string>
+    <string name="hadith_bookmark_remove">Yọ bukumaaki kuro</string>
+    <string name="hadith_collection_abudawud">Abu Dawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah</string>
+    <string name="hadith_collection_muslim">Musulumi</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">Omiiran</string>
+    <string name="hadith_collection_riyad">Riyadh as-Salihin</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidhi</string>
+    <string name="hadith_daily_notification">Ifitonileti hadith ojoojumọ</string>
+    <string name="hadith_daily_notification_desc">Gba hadith ni gbogbo ọjọ</string>
+    <string name="hadith_daily_notification_time">Akoko iwifunni</string>
+    <string name="hadith_of_the_day">Hadith ti ọjọ</string>
+    <string name="hadith_preview_hint">Eyi ni bii ifitonileti hadith ojoojumọ ṣe han ni akoko ti a ṣeto.</string>
+    <string name="hadith_preview_label">Awotẹlẹ iwifunni</string>
+    <string name="hadith_preview_loading">Nkojọpọ hadisi…</string>
+    <string name="hadith_search_hint">Wa awọn hadith…</string>
+    <string name="hadith_share">Pinpin</string>
+    <string name="hadith_title">Ibi ikawe Hadith</string>
+</resources>

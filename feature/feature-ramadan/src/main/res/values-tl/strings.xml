@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Bumalik</string>
+    <string name="ramadan_countdown">Nagsisimula ang Ramadan sa %1$s araw</string>
+    <string name="ramadan_countdown_to_iftar">Oras sa iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Oras sa Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Araw %1$s ng Ramadan</string>
+    <string name="ramadan_days_left">%1$s araw ang natitira</string>
+    <string name="ramadan_fasting_progress">Mga araw ng pag-aayuno: %1$s ng %2$s — i-tap ang isang araw para i-record ito</string>
+    <string name="ramadan_fasting_tracker">Tagasubaybay ng pag-aayuno</string>
+    <string name="ramadan_hijri_note">Batay sa kalendaryong Umm al-Qura na may inilapat na pagsasaayos ng Hijri sa buong app.</string>
+    <string name="ramadan_hijri_year">Taon %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Pagsusumamo ng Iftar: "O Allah, para sa Iyo ako nag-ayuno at sa Iyong panustos ay sinisira ko ang aking pag-aayuno..."</string>
+    <string name="ramadan_iftar_time">Oras ng Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Pumili muna ng lungsod sa Mga Setting para makita ang mga oras.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, para sa Iyo ako nag-ayuno at sa Iyong panustos ay sinisira ko ang aking pag-aayuno</string>
+    <string name="ramadan_notification_iftar_title">Oras na para sa iftar</string>
+    <string name="ramadan_notification_suhoor_body">Malapit na ang Fajr — mag suhoor ka</string>
+    <string name="ramadan_notification_suhoor_title">Paalala sa sahur</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Paalalahanan ako bago:</string>
+    <string name="ramadan_suhoor_time">Matatapos ang Suhoor (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Ojevy jey</string>
+    <string name="ramadan_countdown">Ramadán oñepyrũ %1$s ára</string>
+    <string name="ramadan_countdown_to_iftar">Aravo iftar peve: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Aravo Fajr peve: %1$s</string>
+    <string name="ramadan_day_of_month">Ára %1$s Ramadán-pe</string>
+    <string name="ramadan_days_left">Hemby %1$s ára</string>
+    <string name="ramadan_fasting_progress">Ára ayuno: %1$s de %2$s — epoko peteĩ ára rehe ehai hag̃ua</string>
+    <string name="ramadan_fasting_tracker">Rastreador de ayuno rehegua</string>
+    <string name="ramadan_hijri_note">Oñemopyendáva calendario Umm al-Qura orekóva ajuste Hijri app pukukue ojeaplika.</string>
+    <string name="ramadan_hijri_year">Ary %1$s AH</string>
+    <string name="ramadan_iftar">Iftar rehegua</string>
+    <string name="ramadan_iftar_dua">Iftar ñembo\'e: "O Allah, Nde rehehápe aajuna ha Nde provision rehe aity che ayuno..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) aravo: %1$s</string>
+    <string name="ramadan_location_required">Eiporavo raẽ peteĩ táva Ñembohekorãme rehecha hag̃ua aravo.</string>
+    <string name="ramadan_minutes">%1$s aravo’i</string>
+    <string name="ramadan_notification_iftar_body">O Allah, Nde rehehápe aajuna ha Ne provision rehe aity che ayuno</string>
+    <string name="ramadan_notification_iftar_title">Aravo iftar-pe guarã</string>
+    <string name="ramadan_notification_suhoor_body">Fajr oñemboja hína — eguereko nde suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor mandu’arã</string>
+    <string name="ramadan_starts_on">%1$s — %2$s rehegua</string>
+    <string name="ramadan_suhoor">Suhoor rehegua</string>
+    <string name="ramadan_suhoor_remind_before">Chemomandu’a mboyve:</string>
+    <string name="ramadan_suhoor_time">Suhoor opa (Fajr): %1$s. Ñe’ẽpoty ha ñe’ẽpoty</string>
+    <string name="ramadan_title">Ramadán-pe</string>
+</resources>

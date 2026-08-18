@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">सब के...</string>
+    <string name="hadith_back">वापस आ गइल</string>
+    <string name="hadith_bookmark_add">बुकमार्क जोड़ल जाला</string>
+    <string name="hadith_bookmark_remove">बुकमार्क हटा दिहल जाव</string>
+    <string name="hadith_collection_abudawud">अबू दाऊद के ह</string>
+    <string name="hadith_collection_bukhari">अल-बुखारी के ह</string>
+    <string name="hadith_collection_ibnmajah">इब्न मजाह के ह</string>
+    <string name="hadith_collection_muslim">मुसलमान के ह</string>
+    <string name="hadith_collection_nasai">एन-नासा\'आई के बा</string>
+    <string name="hadith_collection_nawawi">अन-नवावी 40 के बा</string>
+    <string name="hadith_collection_other">दोसरा के बा</string>
+    <string name="hadith_collection_riyad">रियाद अस-सालिहिन के बा</string>
+    <string name="hadith_collection_tirmidhi">अत-तिरमिधि के बा</string>
+    <string name="hadith_daily_notification">रोज हदीस के सूचना दिहल जाला</string>
+    <string name="hadith_daily_notification_desc">रोज एक हदीस पाये</string>
+    <string name="hadith_daily_notification_time">अधिसूचना के समय बा</string>
+    <string name="hadith_of_the_day">दिन के हदीस के बा</string>
+    <string name="hadith_preview_hint">रोजाना के हदीस के अधिसूचना अपना निर्धारित समय प अईसने आवेला।</string>
+    <string name="hadith_preview_label">सूचना के पूर्वावलोकन कइल जाला</string>
+    <string name="hadith_preview_loading">हदीस लोड हो रहल बा...</string>
+    <string name="hadith_search_hint">हदीस खोजल जाव...</string>
+    <string name="hadith_share">शेयर करीं</string>
+    <string name="hadith_title">हदीस लाइब्रेरी के ह</string>
+</resources>

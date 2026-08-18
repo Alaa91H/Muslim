@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Matsheloni, madekwana &amp; nga murahu ha thabelo adhkar na zwivhalo</string>
+    <string name="more_downloads">U ṱalutshedzela</string>
+    <string name="more_downloads_desc">Kha vha dawuniḽoude surah, ayah kana Quran yo fhelelaho na muvhali we vha mu nanga</string>
+    <string name="more_hadith">Hadithi</string>
+    <string name="more_hadith_desc">Laiburari ya hadith, ṱhoḓisiso &amp; hadith ya ḓuvha</string>
+    <string name="more_learn">Gudani</string>
+    <string name="more_learn_desc">Vhukando nga vhukando ha wudu &amp; thabelo</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Zwifhinga zwa Suhoor na iftar na tshiṱirathedzhi tsha u ḓidzima zwiḽiwa</string>
+    <string name="more_reference">Laiburari ya Referensi</string>
+    <string name="more_reference_desc">Marangaphanḓa a Islam, vha Sira &amp; vhaporofita</string>
+    <string name="more_settings">Zwishumiswa</string>
+    <string name="more_settings_desc">Thero, luambo, thabelo &amp; zwishumiswa zwa adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha ya digital ine ya vha na ḓivhazwakale ya ḓuvha ḽiṅwe na ḽiṅwe .</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat kha lupfumo &amp; khaḽukhuḽetha ya Fitr</string>
+    <string name="scaffold_message">Muṱoḓo wa phurojeke ya moduḽu nnzhi wo no lugela.\nLuṱa lwa 1 — Adhan, zwifhinga zwa thabelo, Qibla, na khalenda ya Hijri — zwi thoma henefha.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Nḓila ya Qibla</string>
+    <string name="shortcut_settings">Zwishumiswa</string>
+    <string name="shortcut_settings_long">Thabelo &amp; zwishumiswa zwa adhan</string>
+    <string name="shortcut_times">Zwifhinga zwa thabelo</string>
+    <string name="shortcut_times_long">Namusi\'s zwifhinga zwa thabelo</string>
+    <string name="tab_home">Zwifhinga zwa Thabelo</string>
+    <string name="tab_more">Zwinzhi</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

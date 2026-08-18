@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ਦੂਰ</string>
+    <string name="mosque_finder_empty">ਇਸ ਰੇਂਜ ਵਿੱਚ ਕੋਈ ਮਸਜਿਦਾਂ ਨਹੀਂ ਮਿਲਦੀਆਂ</string>
+    <string name="mosque_finder_error">ਖੋਜ ਅਸਫਲ ਰਹੀ</string>
+    <string name="mosque_finder_intro">OpenStreetMap ਰਾਹੀਂ ਆਪਣੇ ਸਥਾਨ ਦੇ ਨੇੜੇ ਮਸਜਿਦਾਂ ਲੱਭੋ</string>
+    <string name="mosque_finder_no_location">ਹਾਲੇ ਕੋਈ ਟਿਕਾਣਾ ਸੈੱਟ ਨਹੀਂ ਕੀਤਾ ਗਿਆ। ਪਹਿਲਾਂ ਪ੍ਰਾਰਥਨਾ ਦੇ ਸਮੇਂ ਦੀਆਂ ਸੈਟਿੰਗਾਂ ਵਿੱਚੋਂ ਇੱਕ ਸਥਾਨ ਚੁਣੋ।</string>
+    <string name="mosque_finder_retry">ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
+    <string name="mosque_finder_searching">ਖੋਜ ਰਿਹਾ ਹੈ...</string>
+    <string name="mosque_finder_title">ਨੇੜੇ ਦੀਆਂ ਮਸਜਿਦਾਂ</string>
+    <string name="qibla_bearing_cardinal">ਕਿਬਲਾ ਦਿਸ਼ਾ: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">ਕੈਲੀਬਰੇਟ ਕਰਨ ਲਈ ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਇੱਕ ਚਿੱਤਰ-ਅੱਠ ਵਿੱਚ ਲੈ ਜਾਓ</string>
+    <string name="qibla_distance">ਮੱਕਾ ਦੀ ਦੂਰੀ: %1$s</string>
+    <string name="qibla_distance_km">%,.0f ਕਿਲੋਮੀਟਰ</string>
+    <string name="qibla_facing">ਤੁਸੀਂ ਕਿਬਲੇ ਵੱਲ ਮੂੰਹ ਕਰ ਰਹੇ ਹੋ 🕋</string>
+    <string name="qibla_gps_error">ਇੱਕ ਸਹੀ ਹੱਲ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="qibla_gps_live">ਲਾਈਵ GPS ਟਿਕਾਣਾ</string>
+    <string name="qibla_gps_refresh">GPS ਰਾਹੀਂ ਟਿਕਾਣਾ ਤਾਜ਼ਾ ਕਰੋ</string>
+    <string name="qibla_gps_refreshing">ਪਤਾ ਲਗਾਇਆ ਜਾ ਰਿਹਾ ਹੈ...</string>
+    <string name="qibla_heading_degree">ਫ਼ੋਨ ਸਿਰਲੇਖ: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">ਤੁਹਾਡੇ ਟਿਕਾਣੇ ਤੋਂ ਕਾਬਾ ਤੱਕ ਦਾ ਵਿਸ਼ਾਲ-ਚੱਕਰ ਵਾਲਾ ਰਸਤਾ — ਔਫਲਾਈਨ ਕੰਮ ਕਰਦਾ ਹੈ</string>
+    <string name="qibla_map_kaaba">ਕਾਬਾ</string>
+    <string name="qibla_map_you">ਤੁਹਾਨੂੰ</string>
+    <string name="qibla_mode_compass">ਕੰਪਾਸ</string>
+    <string name="qibla_mode_map">ਨਕਸ਼ਾ</string>
+    <string name="qibla_open_mosques">ਨੇੜੇ ਦੀਆਂ ਮਸਜਿਦਾਂ</string>
+    <string name="qibla_title">ਕਿਬਲਾ ਦਿਸ਼ਾ</string>
+    <string name="qibla_turn_left">ਖੱਬੇ ਪਾਸੇ ਮੁੜੋ %1$.1f°</string>
+    <string name="qibla_turn_right">ਸੱਜੇ ਮੁੜੋ %1$.1f°</string>
+</resources>

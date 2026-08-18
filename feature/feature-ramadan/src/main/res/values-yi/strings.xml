@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">צוריק</string>
+    <string name="ramadan_countdown">ראַמאַדאַן הייבט זיך אן אין %1$s טעג</string>
+    <string name="ramadan_countdown_to_iftar">Time to iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Time to Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Day %1$s of Ramadan</string>
+    <string name="ramadan_days_left">%1$s days remaining</string>
+    <string name="ramadan_fasting_progress">פאסטן טעג: %1$s פון %2$s - צאַפּן אַ טאָג צו רעקאָרדירן עס</string>
+    <string name="ramadan_fasting_tracker">פאַסטינג טראַקער</string>
+    <string name="ramadan_hijri_note">באַזירט אויף די Umm al-Qura קאַלענדאַר מיט די אַפּ-ברייט אַדזשאַסטמאַנט פון Hijri.</string>
+    <string name="ramadan_hijri_year">Year %1$s AH</string>
+    <string name="ramadan_iftar">יפטאר</string>
+    <string name="ramadan_iftar_dua">יפטאַר געבעט: "אָ אַלאַ, פֿאַר דיר איך געפאסט און אויף דיין טנייַ איך ברעכן מיין פעסט ..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) צייט: %1$s</string>
+    <string name="ramadan_location_required">קלייַבן אַ שטאָט אין סעטטינגס ערשטער צו זען די צייט.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">אָ אַלאַ, פֿאַר דיר איך געפאסט און אויף דיין טנייַ איך ברעכן מיין פעסט</string>
+    <string name="ramadan_notification_iftar_title">צייט פֿאַר יפטאַר</string>
+    <string name="ramadan_notification_suhoor_body">פאַדזשר איז אַפּראָוטשינג - האָבן דיין סוהאָר</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor דערמאָנונג</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">דערמאנט מיר פריער:</string>
+    <string name="ramadan_suhoor_time">סוהאָר ענדס (פאַדזשר): %1$s</string>
+    <string name="ramadan_title">ראַמאַדאַן</string>
+</resources>

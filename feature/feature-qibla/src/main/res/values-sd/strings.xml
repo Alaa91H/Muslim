@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s پري</string>
+    <string name="mosque_finder_empty">هن سلسلي ۾ ڪا به مسجد نه ملي</string>
+    <string name="mosque_finder_error">ڳولا ناڪام</string>
+    <string name="mosque_finder_intro">OpenStreetMap ذريعي پنھنجي جڳھ جي ويجھو مسجدون ڳولھيو</string>
+    <string name="mosque_finder_no_location">اڃان تائين ڪو به هنڌ مقرر نه ڪيو ويو آهي. پهرين نماز جي وقت جي سيٽنگن مان هڪ هنڌ چونڊيو.</string>
+    <string name="mosque_finder_retry">ٻيهر ڪوشش ڪريو</string>
+    <string name="mosque_finder_searching">ڳولهي رهيو آهي…</string>
+    <string name="mosque_finder_title">ڀرسان مسجدون</string>
+    <string name="qibla_bearing_cardinal">قبلي طرف: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">پنھنجي فون کي ھڪڙي شڪل ۾ منتقل ڪريو-اٺ ۾ حساب ڪرڻ لاء</string>
+    <string name="qibla_distance">مڪي کان فاصلو: %1$s</string>
+    <string name="qibla_distance_km">%,.0f ڪلوميٽر</string>
+    <string name="qibla_facing">توهان قبله جي طرف منهن ڪري رهيا آهيو 🕋</string>
+    <string name="qibla_gps_error">صحيح اصلاح حاصل نه ٿي سگهي. مهرباني ڪري ٻيهر ڪوشش ڪريو.</string>
+    <string name="qibla_gps_live">لائيو GPS مقام</string>
+    <string name="qibla_gps_refresh">GPS ذريعي جڳھ کي تازو ڪريو</string>
+    <string name="qibla_gps_refreshing">ڳولهي رهيو آهي…</string>
+    <string name="qibla_heading_degree">فون سرنگ: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">توهان جي مقام کان ڪعبي تائين وڏو دائرو رستو — آف لائن ڪم ڪري ٿو</string>
+    <string name="qibla_map_kaaba">ڪعبو</string>
+    <string name="qibla_map_you">توهان</string>
+    <string name="qibla_mode_compass">کمپاس</string>
+    <string name="qibla_mode_map">نقشو</string>
+    <string name="qibla_open_mosques">ڀرسان مسجدون</string>
+    <string name="qibla_title">قبلي طرف</string>
+    <string name="qibla_turn_left">کاٻي پاسي موڙ %1$.1f°</string>
+    <string name="qibla_turn_right">ساڄي موڙ %1$.1f°</string>
+</resources>

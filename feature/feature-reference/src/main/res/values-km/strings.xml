@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">ត្រឡប់មកវិញ</string>
+    <string name="reference_no_results">គ្មានលទ្ធផលដែលត្រូវគ្នា។</string>
+    <string name="reference_search_hint">ស្វែងរកសៀវភៅនេះ…</string>
+    <string name="reference_title">បណ្ណាល័យឯកសារយោងអ៊ីស្លាម</string>
+    <string name="reference_topics_count">ប្រធានបទ</string>
+</resources>

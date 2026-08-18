@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">سڀ</string>
+    <string name="hadith_back">پوئتي</string>
+    <string name="hadith_bookmark_add">بک مارڪ شامل ڪريو</string>
+    <string name="hadith_bookmark_remove">بک مارڪ هٽايو</string>
+    <string name="hadith_collection_abudawud">ابوداؤد</string>
+    <string name="hadith_collection_bukhari">البخاري</string>
+    <string name="hadith_collection_ibnmajah">ابن ماجه</string>
+    <string name="hadith_collection_muslim">مسلمان</string>
+    <string name="hadith_collection_nasai">اين-ناسا\'i</string>
+    <string name="hadith_collection_nawawi">النبوي 40</string>
+    <string name="hadith_collection_other">ٻيو</string>
+    <string name="hadith_collection_riyad">رياض الصالحين</string>
+    <string name="hadith_collection_tirmidhi">ترمذي</string>
+    <string name="hadith_daily_notification">روزاني حديث جي اطلاع</string>
+    <string name="hadith_daily_notification_desc">هر روز هڪ حديث حاصل ڪريو</string>
+    <string name="hadith_daily_notification_time">نوٽيفڪيشن جو وقت</string>
+    <string name="hadith_of_the_day">ڏينهن جي حديث</string>
+    <string name="hadith_preview_hint">اهڙيءَ طرح روزاني حديث جي اطلاع پنهنجي مقرر وقت تي ظاهر ٿيندي آهي.</string>
+    <string name="hadith_preview_label">نوٽيفڪيشن جو ڏيک</string>
+    <string name="hadith_preview_loading">حديث کي لوڊ ڪندي...</string>
+    <string name="hadith_search_hint">احاديث جي ڳولا ڪريو...</string>
+    <string name="hadith_share">حصيداري ڪريو</string>
+    <string name="hadith_title">حديث لائبريري</string>
+</resources>

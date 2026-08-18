@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digitālā misbaha — pieskarieties, lai skaitītu</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Pieskarieties, lai skaitītu</string>
+    <string name="tasbih_back">Atpakaļ</string>
+    <string name="tasbih_cancel">Atcelt</string>
+    <string name="tasbih_confirm">Labi</string>
+    <string name="tasbih_custom_target">Pielāgots</string>
+    <string name="tasbih_custom_target_hint">Ievadiet skaitīšanas skaitu (no 1 līdz 100 000)</string>
+    <string name="tasbih_custom_target_title">Iestatiet pielāgotu mērķi</string>
+    <string name="tasbih_of_target">no %1$s</string>
+    <string name="tasbih_reset">Atiestatīt</string>
+    <string name="tasbih_reset_all">Atiestatīt visu</string>
+    <string name="tasbih_round_complete">Pilna kārta pabeigta (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Kārtas: %1$d</string>
+    <string name="tasbih_sound_desc">Atskaņojiet zvana signālu vai signālu, kad ir pabeigta katra pilna kārta</string>
+    <string name="tasbih_sound_title">Skaņa uz mērķi</string>
+    <string name="tasbih_sound_tone_alarm">Signalizācija</string>
+    <string name="tasbih_sound_tone_notification">Paziņojums</string>
+    <string name="tasbih_sound_tone_ringtone">Zvana signāls</string>
+    <string name="tasbih_tap_hint">Pieskarieties aplim, lai skaitītu</string>
+    <string name="tasbih_target_reached">Mērķis sasniegts — lai Allāhs pieņem</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Šodien \' kopā: %1$d</string>
+    <string name="tasbih_undo">Atsaukt</string>
+    <string name="tasbih_virtue_label">Šī dhikra tikumība</string>
+    <string name="tasbih_week_stats">Pēdējās 7 dienas</string>
+</resources>

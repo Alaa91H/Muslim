@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Înapoi</string>
+    <string name="ramadan_countdown">Ramadanul începe în %1$s de zile</string>
+    <string name="ramadan_countdown_to_iftar">Timp până la iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Timp până la Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Ziua %1$s de Ramadan</string>
+    <string name="ramadan_days_left">Au mai rămas %1$s de zile</string>
+    <string name="ramadan_fasting_progress">Zile de post: %1$s din %2$s — atingeți o zi pentru a o înregistra</string>
+    <string name="ramadan_fasting_tracker">Urmăritor de post</string>
+    <string name="ramadan_hijri_note">Bazat pe calendarul Umm al-Qura cu ajustarea Hijri la nivelul aplicației aplicată.</string>
+    <string name="ramadan_hijri_year">Anul %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Cererea Iftar: „O, Allah, pentru Tine am postit și cu ajutorul Tale îmi rup postul…”</string>
+    <string name="ramadan_iftar_time">Ora Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Alegeți mai întâi un oraș în Setări pentru a vedea orele.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O, Allah, pentru Tine am postit și cu ajutorul Tale îmi rup postul</string>
+    <string name="ramadan_notification_iftar_title">E timpul pentru iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr se apropie - ia-ți suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Memento Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Amintește-mi înainte:</string>
+    <string name="ramadan_suhoor_time">Suhoor se termină (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadanul</string>
+</resources>

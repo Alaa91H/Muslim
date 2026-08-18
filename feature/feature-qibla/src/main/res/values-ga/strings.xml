@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s shiúl</string>
+    <string name="mosque_finder_empty">Níor aimsíodh aon moscanna sa raon seo</string>
+    <string name="mosque_finder_error">Theip ar an gcuardach</string>
+    <string name="mosque_finder_intro">Aimsigh moscanna in aice le do shuíomh trí OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Níl aon suíomh socraithe fós. Roghnaigh suíomh ó shocruithe amanna urnaí ar dtús.</string>
+    <string name="mosque_finder_retry">Bain triail eile as</string>
+    <string name="mosque_finder_searching">Ag cuardach…</string>
+    <string name="mosque_finder_title">Moscanna in aice láimhe</string>
+    <string name="qibla_bearing_cardinal">Treo Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Bog do ghuthán i bhfíor-ocht chun é a chalabrú</string>
+    <string name="qibla_distance">Fad go Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Tá tú ag tabhairt aghaidh ar an Qibla 🕋</string>
+    <string name="qibla_gps_error">Níorbh fhéidir réiteach cruinn a fháil. Bain triail eile as.</string>
+    <string name="qibla_gps_live">Suíomh GPS beo</string>
+    <string name="qibla_gps_refresh">Íosluchtaigh suíomh trí gps</string>
+    <string name="qibla_gps_refreshing">Á lonnú…</string>
+    <string name="qibla_heading_degree">Ceannteideal gutháin: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Bealach iontach ciorcail ó do shuíomh go dtí an Kaaba — oibríonn sé as líne</string>
+    <string name="qibla_map_kaaba">Cába</string>
+    <string name="qibla_map_you">tu</string>
+    <string name="qibla_mode_compass">Compás</string>
+    <string name="qibla_mode_map">Léarscáil</string>
+    <string name="qibla_open_mosques">Moscanna in aice láimhe</string>
+    <string name="qibla_title">Treoir Qibla</string>
+    <string name="qibla_turn_left">Cas ar chlé %1$.1f°</string>
+    <string name="qibla_turn_right">Cas ar dheis %1$.1f°</string>
+</resources>

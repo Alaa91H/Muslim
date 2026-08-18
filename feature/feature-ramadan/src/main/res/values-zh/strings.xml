@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">返回</string>
+    <string name="ramadan_countdown">斋月从 %1$s 天开始</string>
+    <string name="ramadan_countdown_to_iftar">开斋时间：%1$s</string>
+    <string name="ramadan_countdown_to_suhoor">晨曦时间：%1$s</string>
+    <string name="ramadan_day_of_month">斋月第 %1$s 天</string>
+    <string name="ramadan_days_left">剩余 %1$s 天</string>
+    <string name="ramadan_fasting_progress">禁食天数：%2$s 中的 %1$s — 点击某一天进行记录</string>
+    <string name="ramadan_fasting_tracker">禁食追踪器</string>
+    <string name="ramadan_hijri_note">基于 Umm al-Qura 日历，并应用了应用程序范围的 Hijri 调整。</string>
+    <string name="ramadan_hijri_year">年份 %1$s 啊</string>
+    <string name="ramadan_iftar">开斋饭</string>
+    <string name="ramadan_iftar_dua">开斋祈求：“真主啊，我为你封斋，并根据你的规定我开斋……”</string>
+    <string name="ramadan_iftar_time">开斋节（Maghrib）时间：%1$s</string>
+    <string name="ramadan_location_required">首先在“设置”中选择一个城市以查看时间。</string>
+    <string name="ramadan_minutes">%1$s分钟</string>
+    <string name="ramadan_notification_iftar_body">安拉啊，我为你封斋，并根据你的规定我开斋</string>
+    <string name="ramadan_notification_iftar_title">开斋饭时间</string>
+    <string name="ramadan_notification_suhoor_body">晨礼即将来临——封斋吧</string>
+    <string name="ramadan_notification_suhoor_title">封斋提醒</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">封斋节</string>
+    <string name="ramadan_suhoor_remind_before">之前提醒我一下：</string>
+    <string name="ramadan_suhoor_time">封斋结束（Fajr）：%1$s</string>
+    <string name="ramadan_title">斋月</string>
+</resources>

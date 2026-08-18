@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s μακριά</string>
+    <string name="mosque_finder_empty">Δεν βρέθηκαν τζαμιά σε αυτήν την περιοχή</string>
+    <string name="mosque_finder_error">Η αναζήτηση απέτυχε</string>
+    <string name="mosque_finder_intro">Βρείτε τζαμιά κοντά στην τοποθεσία σας μέσω του OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Δεν έχει οριστεί ακόμη τοποθεσία. Επιλέξτε πρώτα μια τοποθεσία από τις ρυθμίσεις ωρών προσευχής.</string>
+    <string name="mosque_finder_retry">Επανάληψη</string>
+    <string name="mosque_finder_searching">Αναζήτηση…</string>
+    <string name="mosque_finder_title">Κοντινά τζαμιά</string>
+    <string name="qibla_bearing_cardinal">Κατεύθυνση Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Μετακινήστε το τηλέφωνό σας σε σχήμα οκτώ για βαθμονόμηση</string>
+    <string name="qibla_distance">Απόσταση από τη Μέκκα: %1$s</string>
+    <string name="qibla_distance_km">%,.0f χλμ</string>
+    <string name="qibla_facing">Είστε στραμμένοι προς την Qibla 🕋</string>
+    <string name="qibla_gps_error">Δεν ήταν δυνατή η ακριβής διόρθωση. Δοκιμάστε ξανά.</string>
+    <string name="qibla_gps_live">Ζωντανή τοποθεσία GPS</string>
+    <string name="qibla_gps_refresh">Ανανέωση τοποθεσίας μέσω GPS</string>
+    <string name="qibla_gps_refreshing">Εντοπισμός…</string>
+    <string name="qibla_heading_degree">Επικεφαλίδα τηλεφώνου: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Διαδρομή μεγάλου κύκλου από την τοποθεσία σας προς την Κάαμπα — λειτουργεί εκτός σύνδεσης</string>
+    <string name="qibla_map_kaaba">Κάαμπα</string>
+    <string name="qibla_map_you">Εσύ</string>
+    <string name="qibla_mode_compass">Πυξίδα</string>
+    <string name="qibla_mode_map">Χάρτης</string>
+    <string name="qibla_open_mosques">Κοντινά τζαμιά</string>
+    <string name="qibla_title">Κατεύθυνση Qibla</string>
+    <string name="qibla_turn_left">Στρίψτε αριστερά %1$.1f°</string>
+    <string name="qibla_turn_right">Στρίψτε δεξιά %1$.1f°</string>
+</resources>

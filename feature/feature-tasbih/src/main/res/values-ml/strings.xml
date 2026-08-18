@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">ഡിജിറ്റൽ മിസ്ബാഹ - എണ്ണാൻ ടാപ്പ് ചെയ്യുക</string>
+    <string name="misbaha_widget_label">തസ്ബിഹ്</string>
+    <string name="misbaha_widget_tap_hint">എണ്ണാൻ ടാപ്പ് ചെയ്യുക</string>
+    <string name="tasbih_back">തിരികെ</string>
+    <string name="tasbih_cancel">റദ്ദാക്കുക</string>
+    <string name="tasbih_confirm">ശരി</string>
+    <string name="tasbih_custom_target">കസ്റ്റം</string>
+    <string name="tasbih_custom_target_hint">എണ്ണങ്ങളുടെ എണ്ണം നൽകുക (1 മുതൽ 100000 വരെ)</string>
+    <string name="tasbih_custom_target_title">ഒരു ഇഷ്‌ടാനുസൃത ലക്ഷ്യം സജ്ജമാക്കുക</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">പുനഃസജ്ജമാക്കുക</string>
+    <string name="tasbih_reset_all">എല്ലാം റീസെറ്റ് ചെയ്യുക</string>
+    <string name="tasbih_round_complete">പൂർണ്ണ റൗണ്ട് പൂർത്തിയായി (%1$s) 🎉</string>
+    <string name="tasbih_rounds">റൗണ്ടുകൾ: %1$d</string>
+    <string name="tasbih_sound_desc">ഓരോ മുഴുവൻ റൗണ്ടും പൂർത്തിയാകുമ്പോൾ ഒരു റിംഗ്‌ടോണോ ടോണോ പ്ലേ ചെയ്യുക</string>
+    <string name="tasbih_sound_title">ലക്ഷ്യത്തിലെ ശബ്ദം</string>
+    <string name="tasbih_sound_tone_alarm">അലാറം</string>
+    <string name="tasbih_sound_tone_notification">അറിയിപ്പ്</string>
+    <string name="tasbih_sound_tone_ringtone">റിംഗ്ടോൺ</string>
+    <string name="tasbih_tap_hint">എണ്ണാൻ സർക്കിളിൽ ടാപ്പ് ചെയ്യുക</string>
+    <string name="tasbih_target_reached">ലക്ഷ്യത്തിലെത്തി - അല്ലാഹു സ്വീകരിക്കട്ടെ</string>
+    <string name="tasbih_title">തസ്ബിഹ്</string>
+    <string name="tasbih_total_today">ഇന്ന്\'കൾ ആകെ: %1$d</string>
+    <string name="tasbih_undo">പഴയപടിയാക്കുക</string>
+    <string name="tasbih_virtue_label">ഈ ദിക്റിൻ്റെ പുണ്യം</string>
+    <string name="tasbih_week_stats">കഴിഞ്ഞ 7 ദിവസം</string>
+</resources>

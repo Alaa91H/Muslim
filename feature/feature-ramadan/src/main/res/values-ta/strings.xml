@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">மீண்டும்</string>
+    <string name="ramadan_countdown">ரமலான் %1$s நாட்களில் தொடங்குகிறது</string>
+    <string name="ramadan_countdown_to_iftar">இப்தார் செய்ய நேரம்: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ஃபஜ்ருக்கு நேரம்: %1$s</string>
+    <string name="ramadan_day_of_month">ரமலான் %1$s நாள்</string>
+    <string name="ramadan_days_left">%1$s நாட்கள் மீதமுள்ளன</string>
+    <string name="ramadan_fasting_progress">உண்ணாவிரத நாட்கள்: %1$s of %2$s — பதிவு செய்ய ஒரு நாள் தட்டவும்</string>
+    <string name="ramadan_fasting_tracker">உண்ணாவிரத கண்காணிப்பாளர்</string>
+    <string name="ramadan_hijri_note">உம் அல் குரா நாட்காட்டியின் அடிப்படையில், ஆப்-அளவிலான ஹிஜ்ரி சரிசெய்தல் பயன்படுத்தப்பட்டது.</string>
+    <string name="ramadan_hijri_year">ஆண்டு %1$s AH</string>
+    <string name="ramadan_iftar">இப்தார்</string>
+    <string name="ramadan_iftar_dua">இப்தார் பிரார்த்தனை: "யா அல்லாஹ், உனக்காக நான் நோன்பு நோற்றேன், உனது உணவின் பேரில் நோன்பை முறித்துக் கொள்கிறேன்..."</string>
+    <string name="ramadan_iftar_time">இப்தார் (மக்ரிப்) நேரம்: %1$s</string>
+    <string name="ramadan_location_required">நேரத்தைப் பார்க்க, அமைப்புகளில் ஒரு நகரத்தைத் தேர்வுசெய்யவும்.</string>
+    <string name="ramadan_minutes">%1$s நிமிடம்</string>
+    <string name="ramadan_notification_iftar_body">யா அல்லாஹ், உனக்காக நான் நோன்பு நோற்றேன், உனது உணவின் பேரில் நோன்பை முறிக்கிறேன்</string>
+    <string name="ramadan_notification_iftar_title">இப்தாருக்கான நேரம்</string>
+    <string name="ramadan_notification_suhoor_body">ஃபஜ்ர் நெருங்கி வருகிறது - உங்கள் சுஹுர்</string>
+    <string name="ramadan_notification_suhoor_title">சுஹூர் நினைவூட்டல்</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">சுஹூர்</string>
+    <string name="ramadan_suhoor_remind_before">முன்பு எனக்கு நினைவூட்டு:</string>
+    <string name="ramadan_suhoor_time">சுஹூர் முடிவடைகிறது (ஃபஜ்ர்): %1$s</string>
+    <string name="ramadan_title">ரமலான்</string>
+</resources>

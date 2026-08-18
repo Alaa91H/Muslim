@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Fetch \'otometiki \'a e ngaahi totongi</string>
+    <string name="zakat_auto_prices_hint">\'I he taimi \'oku faka\'ata ai, \'Oku fetched \'a e totongi \'o e koula mo e siliva mei he \'initaneti pea fakafo\'ou \'otometiki .</string>
+    <string name="zakat_back">Foki</string>
+    <string name="zakat_cash">Pa\'anga mo e pa\'anga tanaki .</string>
+    <string name="zakat_clear_history">Hisitōlia mahino .</string>
+    <string name="zakat_country">Fonua</string>
+    <string name="zakat_country_placeholder">Fili ho fonua mo e pa\'anga .</string>
+    <string name="zakat_country_section">Fonua &amp; pa\'anga</string>
+    <string name="zakat_currency">Pa\'anga: %1$s</string>
+    <string name="zakat_debts">Ngaahi moʻua ʻokú ke moʻua ki ai (toʻo)</string>
+    <string name="zakat_due">Sakate \'oku totonu ke totongi (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'E lava ke\'t \'omi \'a e ngaahi totongi. Vakai\'i ho\'o fehokotaki\'anga pe fakahu \'a e totongi \'i he nima.</string>
+    <string name="zakat_fetch_now">Fakafo\'ou \'a e ngaahi totongi he taimi ni</string>
+    <string name="zakat_fetching">Fetching ngaahi totongi...</string>
+    <string name="zakat_fitr_persons">Fika \'o e kau mēmipa \'o e fāmilí .</string>
+    <string name="zakat_fitr_saa_value">Mahu\'inga \'o e sa\' \'e taha (me\'akai tefito)</string>
+    <string name="zakat_fitr_section">Zakat ʻo e Fiti</string>
+    <string name="zakat_fitr_total">Fakakatoa \'o e Sakate \'o e Fitr: %1$s</string>
+    <string name="zakat_gold_grams">Koula (kalami)</string>
+    <string name="zakat_gold_price">Totongi koula ki he kalama .</string>
+    <string name="zakat_history">Hisitōlia ʻo e fikaʻí</string>
+    <string name="zakat_history_amount">Sakate: %1$s</string>
+    <string name="zakat_history_empty">\'Oku te\'eki ke fakahaofi ha ngaahi fakafuofua.</string>
+    <string name="zakat_investments">Ngaahi \'inivesimeni</string>
+    <string name="zakat_last_updated">Fakamuimuitaha: %1$s</string>
+    <string name="zakat_money_section">Zakat ki he koloa .</string>
+    <string name="zakat_nisab_gold">Nisab koula (85g)</string>
+    <string name="zakat_nisab_met">Kuo a\'u ki he nisab — \'oku totonu ke totongi \'a e zakat .</string>
+    <string name="zakat_nisab_not_met">\'I lalo \'i he nisab — \'ikai ha zakat \'oku totongi .</string>
+    <string name="zakat_nisab_silver">Nisapi siliva (595g)</string>
+    <string name="zakat_rulings_note">Per tokolahi (jumhoor): koula nisab ko e 85g, siliva 595g, pea ko e tu\'unga ko e 2.5%% hili hono to\'o \'o e ngaahi mo\'ua totonu. Fetu‘utaki ki ha mataotao taau ki he ngaahi keisi makehé.</string>
+    <string name="zakat_save_result">Tauhi ki he hisitōliá</string>
+    <string name="zakat_silver_grams">Siliva (kalami)</string>
+    <string name="zakat_silver_price">Totongi siliva ki he kalama .</string>
+    <string name="zakat_source_note">Koula/siliva totongi mei he koula-api.com; Ngaahi totongi FX mei he fakaava.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Fakakatoa \'o e ngaahi koloa</string>
+    <string name="zakat_trade">Mahu\'inga \'o e koloa fefakatau\'aki</string>
+    <string name="zakat_zakatable">Zakatable pa\'anga hili \'a e ngaahi mo\'ua .</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Torna</string>
+    <string name="ramadan_countdown">Ramadan principia in %1$s ghjorni</string>
+    <string name="ramadan_countdown_to_iftar">Tempu di iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Tempu à Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">U ghjornu %1$s di Ramadan</string>
+    <string name="ramadan_days_left">Restanu %1$s ghjorni</string>
+    <string name="ramadan_fasting_progress">Ghjorni di digiunu: %1$s di %2$s - tocca un ghjornu per arregistrallu</string>
+    <string name="ramadan_fasting_tracker">Tracker di digiunu</string>
+    <string name="ramadan_hijri_note">Basatu nantu à u calendariu Umm al-Qura cù l\'aghjustamentu Hijri in tutta l\'app applicata.</string>
+    <string name="ramadan_hijri_year">Annu %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Supplicazione Iftar: "O Allah, per tè aghju digiunatu è nantu à a vostra pruvisione interrompu u mo digiunu ..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) tempu: %1$s</string>
+    <string name="ramadan_location_required">Sceglite prima una cità in Settings per vede i tempi.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, per tè aghju digiunatu è nantu à a vostra pruvisione interrompu u mo digiunu</string>
+    <string name="ramadan_notification_iftar_title">U tempu di iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr si avvicina - avete u vostru suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor ricordu</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Ricordatemi prima:</string>
+    <string name="ramadan_suhoor_time">Suhoor finisce (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

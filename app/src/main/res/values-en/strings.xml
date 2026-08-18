@@ -4,9 +4,8 @@
     <string name="scaffold_message">The multi-module project skeleton is ready.\nPhase 1 — Adhan, prayer times, Qibla, and the Hijri calendar — starts here.</string>
 
     <!-- Bottom navigation tabs -->
-    <string name="tab_home">Home</string>
+    <string name="tab_home">Prayer Times</string>
     <string name="tab_quran">Quran</string>
-    <string name="tab_times">Times</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_more">More</string>
 

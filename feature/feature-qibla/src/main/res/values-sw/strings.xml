@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s mbali</string>
+    <string name="mosque_finder_empty">Hakuna misikiti iliyopatikana katika safu hii</string>
+    <string name="mosque_finder_error">Utafutaji haukufaulu</string>
+    <string name="mosque_finder_intro">Pata misikiti karibu na eneo lako kupitia OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Bado hakuna eneo lililowekwa. Chagua eneo kutoka kwa mipangilio ya nyakati za maombi kwanza.</string>
+    <string name="mosque_finder_retry">Jaribu tena</string>
+    <string name="mosque_finder_searching">Inatafuta...</string>
+    <string name="mosque_finder_title">Misikiti iliyo karibu</string>
+    <string name="qibla_bearing_cardinal">Mwelekeo wa Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Sogeza simu yako katika nambari ya nane ili kurekebisha</string>
+    <string name="qibla_distance">Umbali wa Makka: %1$s</string>
+    <string name="qibla_distance_km">Kilomita %,.0f</string>
+    <string name="qibla_facing">Unaelekea Qibla 🕋</string>
+    <string name="qibla_gps_error">Haikuweza kupata marekebisho sahihi. Tafadhali jaribu tena.</string>
+    <string name="qibla_gps_live">Mahali pa kuishi GPS</string>
+    <string name="qibla_gps_refresh">Onyesha upya eneo kupitia GPS</string>
+    <string name="qibla_gps_refreshing">Inatafuta...</string>
+    <string name="qibla_heading_degree">Kichwa cha simu: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Njia ya mduara mkubwa kutoka eneo lako hadi Kaaba - inafanya kazi nje ya mtandao</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Wewe</string>
+    <string name="qibla_mode_compass">Dira</string>
+    <string name="qibla_mode_map">Ramani</string>
+    <string name="qibla_open_mosques">Misikiti iliyo karibu</string>
+    <string name="qibla_title">Mwelekeo wa Qibla</string>
+    <string name="qibla_turn_left">Beta kushoto %1$.1f°</string>
+    <string name="qibla_turn_right">Beta kulia %1$.1f°</string>
+</resources>

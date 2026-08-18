@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Kuma minxavo hi ku tisungulela</string>
+    <string name="zakat_auto_prices_hint">Loko swi pfuriwile, minxavo ya nsuku na silivhere yi tekiwa eka inthanete ivi yi pfuxetiwa hi ku tisungulela</string>
+    <string name="zakat_back">Ku tlhelela endzhaku</string>
+    <string name="zakat_cash">Mali na ku hlayisa mali</string>
+    <string name="zakat_clear_history">Matimu lama nga erivaleni</string>
+    <string name="zakat_country">Tiko</string>
+    <string name="zakat_country_placeholder">Hlawula tiko ra wena ni mali ya wena</string>
+    <string name="zakat_country_section">Tiko &amp; mali</string>
+    <string name="zakat_currency">Mali ya kona: %1$s</string>
+    <string name="zakat_debts">Swikweleti leswi u swi kolotaka (swi hungutiwile) .</string>
+    <string name="zakat_due">Zakat leyi faneleke ku hakeriwa (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t ku teka minxavo. Languta vuhlanganisi bya wena kutani u nghenisa nxavo hi voko.</string>
+    <string name="zakat_fetch_now">Pfuxeta minxavo sweswi</string>
+    <string name="zakat_fetching">Ku lata minxavo...</string>
+    <string name="zakat_fitr_persons">Nhlayo ya swirho swa ndyangu</string>
+    <string name="zakat_fitr_saa_value">Ntsengo wa sa\' yin’we (swakudya swa nkoka) .</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr u vula leswaku</string>
+    <string name="zakat_fitr_total">Nhlayo hinkwayo ya zakat ya Fitr: %1$s</string>
+    <string name="zakat_gold_grams">Nsuku (tigramu) .</string>
+    <string name="zakat_gold_price">Ntsengo wa nsuku hi gram</string>
+    <string name="zakat_history">Matimu ya xibalo</string>
+    <string name="zakat_history_amount">Zakat: %1$s ya xibalo</string>
+    <string name="zakat_history_empty">Ku hava swibalo leswi hlayisiweke ku fikela sweswi.</string>
+    <string name="zakat_investments">Vuvekisi</string>
+    <string name="zakat_last_updated">Ku pfuxetiwa ko hetelela: %1$s</string>
+    <string name="zakat_money_section">Zakat eka rifuwo</string>
+    <string name="zakat_nisab_gold">Nisab ya nsuku (85g) .</string>
+    <string name="zakat_nisab_met">Nisab yi fikeleriwile — zakat yi fanele ku hakeriwa</string>
+    <string name="zakat_nisab_not_met">Ehansi ka nisab — ku hava zakat leyi faneleke</string>
+    <string name="zakat_nisab_silver">Nisab ya silivhere (595g) .</string>
+    <string name="zakat_rulings_note">Hi vunyingi (jumhoor): gold nisab i 85g, silver 595g, naswona mpimo i 2.5%% endzhaku ko susa swikweleti leswi faneleke. Vulavula ni xidyondzi lexi fanelekaka eka timhaka to hlawuleka.</string>
+    <string name="zakat_save_result">Hlayisa eka matimu</string>
+    <string name="zakat_silver_grams">Silivhere (tigiramu) .</string>
+    <string name="zakat_silver_price">Ntsengo wa silivhere hi gram</string>
+    <string name="zakat_source_note">Minxavo ya nsuku/silivhere ku suka eka gold-api.com; Tihakelo ta FX ku suka eka open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Nhundzu hinkwayo</string>
+    <string name="zakat_trade">Nkoka wa nhundzu ya mabindzu</string>
+    <string name="zakat_zakatable">Mali ya Zakatable endzhaku ka swikweleti</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Диджиталтә мисбаха — аԥхьаӡаразы ақәыӷәӷәара</string>
+    <string name="misbaha_widget_label">Аҭасбиҳ</string>
+    <string name="misbaha_widget_tap_hint">Иақәыӷәӷәа аԥхьаӡаразы</string>
+    <string name="tasbih_back">Шьҭахьҟа</string>
+    <string name="tasbih_cancel">Аԥыхра</string>
+    <string name="tasbih_confirm">Иҟалоит</string>
+    <string name="tasbih_custom_target">Аҷыдаратә</string>
+    <string name="tasbih_custom_target_hint">Иҭажәгал аԥхьаӡарақәа рхыԥхьаӡара (1 инаркны 100000 рҟынӡа)</string>
+    <string name="tasbih_custom_target_title">Ишьақәыргылатәуп иҷыдоу ахықәкы</string>
+    <string name="tasbih_of_target">%1$s рҟынтә</string>
+    <string name="tasbih_reset">Аиҭашьақәыргылара</string>
+    <string name="tasbih_reset_all">Зегьы еиҭашьақәыргылатәуп</string>
+    <string name="tasbih_round_complete">Араунд зегьы хыркәшоуп (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Акәыршарақәа: %1$d</string>
+    <string name="tasbih_sound_desc">Араунд зегьы аныхыркәшахалак, аҵәаабжь ма абжьы арҳәа</string>
+    <string name="tasbih_sound_title">Ахықәкы аҟны абжьы</string>
+    <string name="tasbih_sound_tone_alarm">Агәҽанҵара</string>
+    <string name="tasbih_sound_tone_notification">Ардырра</string>
+    <string name="tasbih_sound_tone_ringtone">Аҵәҵәабжьы</string>
+    <string name="tasbih_tap_hint">Аԥхьаӡаразы агьежь уақәыӷәӷәа</string>
+    <string name="tasbih_target_reached">Ахықәкы наӡеит — Аллаҳ идикылааит</string>
+    <string name="tasbih_title">Аҭасбиҳ</string>
+    <string name="tasbih_total_today">Иахьа\'с зегьы: %1$d</string>
+    <string name="tasbih_undo">Аԥыхра</string>
+    <string name="tasbih_virtue_label">Абри аџьикр аҟазшьа бзиа</string>
+    <string name="tasbih_week_stats">Аҵыхәтәантәи 7 мшы</string>
+</resources>

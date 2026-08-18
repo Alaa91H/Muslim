@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s air falbh</string>
+    <string name="mosque_finder_empty">Chan eil mosg air an lorg san raon seo</string>
+    <string name="mosque_finder_error">Dh\'fhàillig an rannsachadh</string>
+    <string name="mosque_finder_intro">Lorg mosg faisg air d’ àite tro OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Chan eil àite air a shuidheachadh fhathast. Tagh àite bho shuidheachaidhean amannan ùrnaigh an toiseach.</string>
+    <string name="mosque_finder_retry">Feuch a-rithist</string>
+    <string name="mosque_finder_searching">A’ lorg…</string>
+    <string name="mosque_finder_title">Mosg faisg air làimh</string>
+    <string name="qibla_bearing_cardinal">Stiùireadh Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Gluais am fòn agad ann am figear-ochd gus a chalpachadh</string>
+    <string name="qibla_distance">Astar gu Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Tha thu an aghaidh an Qibla 🕋</string>
+    <string name="qibla_gps_error">Cha b’ urrainn dhuinn fuasgladh ceart fhaighinn. Feuch ris a-rithist.</string>
+    <string name="qibla_gps_live">Àite GPS beò</string>
+    <string name="qibla_gps_refresh">Luchdaich a-nuas suidheachadh tro gps</string>
+    <string name="qibla_gps_refreshing">A’ suidheachadh…</string>
+    <string name="qibla_heading_degree">Ceann fòn: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Slighe mòr cearcall bhon àite agad chun Kaaba - ag obair far-loidhne</string>
+    <string name="qibla_map_kaaba">Caaba</string>
+    <string name="qibla_map_you">Tha thu</string>
+    <string name="qibla_mode_compass">Compass</string>
+    <string name="qibla_mode_map">Mapa</string>
+    <string name="qibla_open_mosques">Mosg faisg air làimh</string>
+    <string name="qibla_title">Stiùireadh Qibla</string>
+    <string name="qibla_turn_left">Tionndaidh gu do làimh chlì %1$.1f°</string>
+    <string name="qibla_turn_right">Tionndaidh gu deas %1$.1f°</string>
+</resources>

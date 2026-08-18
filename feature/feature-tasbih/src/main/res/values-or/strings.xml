@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">ଡିଜିଟାଲ୍ ମିସବାହା - ଗଣିବାକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ |</string>
+    <string name="misbaha_widget_label">ତସବିହ |</string>
+    <string name="misbaha_widget_tap_hint">ଗଣନା କରିବାକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ |</string>
+    <string name="tasbih_back">ପଛକୁ</string>
+    <string name="tasbih_cancel">ବାତିଲ୍ କରନ୍ତୁ |</string>
+    <string name="tasbih_confirm">ଠିକ ଅଛି |</string>
+    <string name="tasbih_custom_target">କଷ୍ଟମ୍</string>
+    <string name="tasbih_custom_target_hint">ଗଣନା ସଂଖ୍ୟା ପ୍ରବେଶ କରନ୍ତୁ (1 ରୁ 100000 ପର୍ଯ୍ୟନ୍ତ)</string>
+    <string name="tasbih_custom_target_title">ଏକ କଷ୍ଟମ୍ ଟାର୍ଗେଟ୍ ସେଟ୍ କରନ୍ତୁ |</string>
+    <string name="tasbih_of_target">%1$s ର</string>
+    <string name="tasbih_reset">ପୁନ et ସେଟ୍ କରନ୍ତୁ |</string>
+    <string name="tasbih_reset_all">ସମସ୍ତ ପୁନ Res ସେଟ୍ କରନ୍ତୁ |</string>
+    <string name="tasbih_round_complete">ପୂର୍ଣ୍ଣ ରାଉଣ୍ଡ ସମ୍ପୂର୍ଣ୍ଣ (%1$s) 🎉</string>
+    <string name="tasbih_rounds">ରାଉଣ୍ଡ: %1$d</string>
+    <string name="tasbih_sound_desc">ପ୍ରତ୍ୟେକ ପୂର୍ଣ୍ଣ ରାଉଣ୍ଡ ସମାପ୍ତ ହେଲେ ଏକ ରିଙ୍ଗଟୋନ୍ କିମ୍ବା ସ୍ୱର ବଜାନ୍ତୁ |</string>
+    <string name="tasbih_sound_title">ଟାର୍ଗେଟରେ ଶବ୍ଦ |</string>
+    <string name="tasbih_sound_tone_alarm">ଆଲାର୍ମ</string>
+    <string name="tasbih_sound_tone_notification">ବିଜ୍ଞପ୍ତି</string>
+    <string name="tasbih_sound_tone_ringtone">ରିଙ୍ଗଟୋନ୍ |</string>
+    <string name="tasbih_tap_hint">ଗଣନା କରିବାକୁ ବୃତ୍ତକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ |</string>
+    <string name="tasbih_target_reached">ଲକ୍ଷ୍ୟ ପହ reached ୍ଚିଗଲା - ଆଲ୍ଲା ଗ୍ରହଣ କରନ୍ତୁ |</string>
+    <string name="tasbih_title">ତସବିହ |</string>
+    <string name="tasbih_total_today">ଆଜି \'s ମୋଟ: %1$d |</string>
+    <string name="tasbih_undo">ପୂର୍ବବତ୍ କରନ୍ତୁ |</string>
+    <string name="tasbih_virtue_label">ଏହି ଧିକର ଗୁଣ |</string>
+    <string name="tasbih_week_stats">ଗତ 7 ଦିନ |</string>
+</resources>

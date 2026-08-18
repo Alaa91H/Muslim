@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — jakthapiñatakix ch’iqt’añamawa</string>
+    <string name="misbaha_widget_label">Tasbih ukax mä juk’a pachanakanwa</string>
+    <string name="misbaha_widget_tap_hint">Jakhuñatakix ch’iqt’añamawa</string>
+    <string name="tasbih_back">Qhipäxaru</string>
+    <string name="tasbih_cancel">Cancelar sañ muni</string>
+    <string name="tasbih_confirm">Ukhamajj walikïskiwa</string>
+    <string name="tasbih_custom_target">Costumbre ukax mä costumbre ukhamawa</string>
+    <string name="tasbih_custom_target_hint">Jakhuwinak qillqt’aña (1 ukat 100000 ukjakama) .</string>
+    <string name="tasbih_custom_target_title">Mä costumbre meta uñt’ayaña</string>
+    <string name="tasbih_of_target">ukatxa %1$s ukhawa</string>
+    <string name="tasbih_reset">Ukax mä juk’a pachanakanwa</string>
+    <string name="tasbih_reset_all">Taqi kunas wasitat utt’ayaña</string>
+    <string name="tasbih_round_complete">Phuqa muyu tukuyata (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Ukax akham sañ muni: %1$d</string>
+    <string name="tasbih_sound_desc">Sapa phuqhat muyuntat tukuyatat mä tono jan ukax tono phust’añamawa</string>
+    <string name="tasbih_sound_title">Sonido ukax mä meta ukankiwa</string>
+    <string name="tasbih_sound_tone_alarm">Alarma</string>
+    <string name="tasbih_sound_tone_notification">Yatiyawi</string>
+    <string name="tasbih_sound_tone_ringtone">Ukax mä juk’a pachanakanwa</string>
+    <string name="tasbih_tap_hint">Jakhuñatakixa muyu tuqiru ch’iqt’añawa</string>
+    <string name="tasbih_target_reached">Amtäwix purintäna — Allah ukax katuqañapawa</string>
+    <string name="tasbih_title">Tasbih ukax mä juk’a pachanakanwa</string>
+    <string name="tasbih_total_today">Jichhürunakanx\'s taqpachax: %1$d</string>
+    <string name="tasbih_undo">Ukax mä juk’a pachanakanwa</string>
+    <string name="tasbih_virtue_label">Virtud ukax aka dhikr</string>
+    <string name="tasbih_week_stats">Qhipa 7 urunaka</string>
+</resources>

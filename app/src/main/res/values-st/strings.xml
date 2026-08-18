@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Hoseng, mantsiboea le ka mor\'a thapelo adhkar e nang le li-counter</string>
+    <string name="more_downloads">Likopi tsa ho khoasolla</string>
+    <string name="more_downloads_desc">Khoasolla surah, ayah kapa Quran e felletseng ka \'muelli eo u mo khethileng</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Laeborari ea Hadith, batla &amp; hadith ea letsatsi</string>
+    <string name="more_learn">Ithute</string>
+    <string name="more_learn_desc">Mohato ka mohato wudu &amp; tataiso ea thapelo</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Linako tsa Suhoor &amp; iftar le tracker ea ho itima lijo</string>
+    <string name="more_reference">Laebrari ea Litšupiso</string>
+    <string name="more_reference_desc">Selelekela ho Islam, Sira le baprofeta</string>
+    <string name="more_settings">Litlhophiso</string>
+    <string name="more_settings_desc">Theme, puo, thapelo &amp; litlhophiso tsa adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digital misbaha e nang le nalane ea letsatsi le letsatsi</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat ka leruo &amp; sebali sa Fitr</string>
+    <string name="scaffold_message">Masapo a skeleton a li-module tse ngata a se a lokile.\nMohato oa 1 - Adhan, linako tsa thapelo, Qibla, le almanaka ea Hijri - e qala mona.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla tataiso</string>
+    <string name="shortcut_settings">Litlhophiso</string>
+    <string name="shortcut_settings_long">Litlhophiso tsa thapelo le adhan</string>
+    <string name="shortcut_times">Linako tsa thapelo</string>
+    <string name="shortcut_times_long">Kajeno \'s linako tsa thapelo</string>
+    <string name="tab_home">Linako Tsa Thapelo</string>
+    <string name="tab_more">Tse ling</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

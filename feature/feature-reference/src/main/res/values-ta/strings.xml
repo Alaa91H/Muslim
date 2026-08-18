@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">மீண்டும்</string>
+    <string name="reference_no_results">பொருந்தக்கூடிய முடிவுகள் இல்லை</string>
+    <string name="reference_search_hint">இந்த புத்தகத்தை தேடு…</string>
+    <string name="reference_title">இஸ்லாமிய குறிப்பு நூலகம்</string>
+    <string name="reference_topics_count">தலைப்புகள்</string>
+</resources>

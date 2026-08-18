@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">རྒྱབ་ལོག།</string>
+    <string name="reference_no_results">མཐུན་པའི་གྲུབ་འབྲས་མེད།</string>
+    <string name="reference_search_hint">དེབ་འདི་འཚོལ་ཞིབ་འབད།</string>
+    <string name="reference_title">ཨིསི་ལམ་གྱི་གཞི་གྲངས་དཔེ་མཛོད།</string>
+    <string name="reference_topics_count">དོན་ཚན།</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — khoma ku hlayela</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Thepha ku hlayela</string>
+    <string name="tasbih_back">Ku tlhelela endzhaku</string>
+    <string name="tasbih_cancel">Khansela</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Mukhuva wa ntolovelo</string>
+    <string name="tasbih_custom_target_hint">Nghenisa nhlayo ya swibalo (ku suka eka 1 ku ya eka 100000) .</string>
+    <string name="tasbih_custom_target_title">Veka xikongomelo xa ntolovelo</string>
+    <string name="tasbih_of_target">ya %1$s</string>
+    <string name="tasbih_reset">Seta nakambe</string>
+    <string name="tasbih_reset_all">Seta hinkwaswo nakambe</string>
+    <string name="tasbih_round_complete">Xirhendzevutani lexi heleleke xi hetisekile (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Swirhendzevutani: %1$d</string>
+    <string name="tasbih_sound_desc">Tlanga mpfumawulo kumbe thoni loko xirhendzevutana xin’wana ni xin’wana lexi heleleke xi hetiwile</string>
+    <string name="tasbih_sound_title">Mpfumawulo eka xikongomelo</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Xitiviso</string>
+    <string name="tasbih_sound_tone_ringtone">Rito ra mpfumawulo</string>
+    <string name="tasbih_tap_hint">Khoma xirhendzevutana leswaku u hlayela</string>
+    <string name="tasbih_target_reached">Pakani yi fikeleriwile — onge Allah a nga amukela</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Namuntlha\'s nhlayo hinkwayo: %1$d</string>
+    <string name="tasbih_undo">Ku tlherisela endzhaku</string>
+    <string name="tasbih_virtue_label">Vunene bya dhikr leyi</string>
+    <string name="tasbih_week_stats">Masiku ya 7 yo hetelela</string>
+</resources>

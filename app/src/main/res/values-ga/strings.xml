@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Moslamach</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Maidin, tráthnóna &amp; iar-urnaí adhkar le cuntair</string>
+    <string name="more_downloads">Íoslódáil aiste ar aithriseoireacht</string>
+    <string name="more_downloads_desc">Íoslódáil surah, ayah nó an Quran iomlán le do aithriseoir roghnaithe</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Leabharlann Hadith, cuardaigh &amp; hadith an lae</string>
+    <string name="more_learn">Foghlaim</string>
+    <string name="more_learn_desc">wudu &amp; treoracha paidir céim ar chéim</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Amanna suhoor &amp; iftar agus lorgaire troscadh</string>
+    <string name="more_reference">Leabharlann Tagartha</string>
+    <string name="more_reference_desc">Cur i láthair Ioslam, an Sira agus na fáithe</string>
+    <string name="more_settings">Socruithe</string>
+    <string name="more_settings_desc">Socruithe téama, teanga, paidir &amp; adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha digiteach le stair laethúil</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat ar áireamhán saibhreas &amp; Fitr</string>
+    <string name="scaffold_message">Tá creatlach an tionscadail ilmhodúil réidh.\nCéim 1 — Adhan, amanna urnaí, Qibla, agus féilire Hijri — a thosaíonn anseo.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Treoir Qibla</string>
+    <string name="shortcut_settings">Socruithe</string>
+    <string name="shortcut_settings_long">Socruithe urnaí &amp; adhan</string>
+    <string name="shortcut_times">Amanna urnaí</string>
+    <string name="shortcut_times_long">Sa lá atá inniu \'í amanna paidir</string>
+    <string name="tab_home">Amanna Paidir</string>
+    <string name="tab_more">Tuilleadh</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digitalimik misbaha — naatsorsorniarlugu toqqaruk</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Naatsorsuinissamut tooruk</string>
+    <string name="tasbih_back">Taarsiullugu</string>
+    <string name="tasbih_cancel">Unitsigit</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Tulluusimaarneq</string>
+    <string name="tasbih_custom_target_hint">Naatsorsuinerit amerlassusaat allattukkit (1-imiit 100000-imut)</string>
+    <string name="tasbih_custom_target_title">Anguniagaq naleqqussagaasoq inissiguk</string>
+    <string name="tasbih_of_target">%1$s-inik</string>
+    <string name="tasbih_reset">Nutarterineq</string>
+    <string name="tasbih_reset_all">Tamarmik nutarterlugit</string>
+    <string name="tasbih_round_complete">Runde tamakkerlugu naammassineqarpoq (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Runde: %1$d</string>
+    <string name="tasbih_sound_desc">Runde tamakkerlugu tamakkerlugu naammassineqarpat ringtone imaluunniit tone nipilersorlugu</string>
+    <string name="tasbih_sound_title">Nipit mål-imiittut</string>
+    <string name="tasbih_sound_tone_alarm">Alarmi</string>
+    <string name="tasbih_sound_tone_notification">Nalunaarutiginninneq</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Naatsorsueqqissaarnissamut cirkel tooruk</string>
+    <string name="tasbih_target_reached">Anguniagaq anguneqarpoq — Allahip akuerisinnaavaa</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Ullumikkut\'-it katillugit: %1$d</string>
+    <string name="tasbih_undo">Utertitsineq</string>
+    <string name="tasbih_virtue_label">Dhikr-ip taassuma pitsaassusaa</string>
+    <string name="tasbih_week_stats">Ullut kingulliit 7-it</string>
+</resources>

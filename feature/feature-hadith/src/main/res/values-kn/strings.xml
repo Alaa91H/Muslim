@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">ಎಲ್ಲಾ</string>
+    <string name="hadith_back">ಹಿಂದೆ</string>
+    <string name="hadith_bookmark_add">ಬುಕ್ಮಾರ್ಕ್ ಸೇರಿಸಿ</string>
+    <string name="hadith_bookmark_remove">ಬುಕ್ಮಾರ್ಕ್ ತೆಗೆದುಹಾಕಿ</string>
+    <string name="hadith_collection_abudawud">ಅಬು ದಾವೂದ್</string>
+    <string name="hadith_collection_bukhari">ಅಲ್-ಬುಖಾರಿ</string>
+    <string name="hadith_collection_ibnmajah">ಇಬ್ನ್ ಮಾಜಾ</string>
+    <string name="hadith_collection_muslim">ಮುಸ್ಲಿಂ</string>
+    <string name="hadith_collection_nasai">ಆನ್-ನಾಸಾ\'i</string>
+    <string name="hadith_collection_nawawi">ಅನ್-ನವಾವಿ 40</string>
+    <string name="hadith_collection_other">ಇತರೆ</string>
+    <string name="hadith_collection_riyad">ರಿಯಾದ್ ಅಸ್-ಸಾಲಿಹಿನ್</string>
+    <string name="hadith_collection_tirmidhi">ಅತ್-ತಿರ್ಮಿದಿ</string>
+    <string name="hadith_daily_notification">ದೈನಂದಿನ ಹದೀಸ್ ಅಧಿಸೂಚನೆ</string>
+    <string name="hadith_daily_notification_desc">ಪ್ರತಿದಿನ ಹದೀಸ್ ಸ್ವೀಕರಿಸಿ</string>
+    <string name="hadith_daily_notification_time">ಅಧಿಸೂಚನೆ ಸಮಯ</string>
+    <string name="hadith_of_the_day">ದಿನದ ಹದೀಸ್</string>
+    <string name="hadith_preview_hint">ದಿನನಿತ್ಯದ ಹದೀಸ್ ಅಧಿಸೂಚನೆಯು ಅದರ ನಿಗದಿತ ಸಮಯದಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುವುದು ಹೀಗೆ.</string>
+    <string name="hadith_preview_label">ಅಧಿಸೂಚನೆ ಪೂರ್ವವೀಕ್ಷಣೆ</string>
+    <string name="hadith_preview_loading">ಹದೀಸ್ ಅನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...</string>
+    <string name="hadith_search_hint">ಹದೀಸ್‌ಗಳನ್ನು ಹುಡುಕಿ...</string>
+    <string name="hadith_share">ಹಂಚಿಕೊಳ್ಳಿ</string>
+    <string name="hadith_title">ಹದೀಸ್ ಲೈಬ್ರರಿ</string>
+</resources>

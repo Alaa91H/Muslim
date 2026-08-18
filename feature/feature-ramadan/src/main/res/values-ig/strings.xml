@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Azu</string>
+    <string name="ramadan_countdown">Ramadan na-amalite na %1$s ụbọchị</string>
+    <string name="ramadan_countdown_to_iftar">Oge ịkwụ ụgwọ: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Oge iji gaa Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Ụbọchị %1$s nke Ramadan</string>
+    <string name="ramadan_days_left">%1$s ụbọchị fọdụrụ</string>
+    <string name="ramadan_fasting_progress">Ụbọchị ibu ọnụ: %1$s nke %2$s - kpatụ otu ụbọchị ka ịdekọ ya</string>
+    <string name="ramadan_fasting_tracker">Onye na-ebu ọnụ</string>
+    <string name="ramadan_hijri_note">Dabere na kalenda Umm al-Qura jiri mmezi Hijri dị ngwa etinyere.</string>
+    <string name="ramadan_hijri_year">Afọ %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Arịrịọ Iftar: "O Allah, n\'ihi na gị ka m buworo ọnụ, na nri gị ka m na-agbaji ọnụ."</string>
+    <string name="ramadan_iftar_time">Oge Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Họrọ obodo na Ntọala buru ụzọ hụ oge.</string>
+    <string name="ramadan_minutes">%1$s nkeji</string>
+    <string name="ramadan_notification_iftar_body">O Allah, maka Gi ka m buworo ọnụ, na nri gị ka m na-agbaji ọnụ</string>
+    <string name="ramadan_notification_iftar_title">Oge iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr na-abịaru nso - nwee nri ụtụtụ gị</string>
+    <string name="ramadan_notification_suhoor_title">Ncheta Suhoor</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Chetara m tupu:</string>
+    <string name="ramadan_suhoor_time">Suhoor kwụsịrị (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

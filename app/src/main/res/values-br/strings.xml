@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muzulman</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Beure, noz &amp; adhkar goude ar bedenn gant kontoù</string>
+    <string name="more_downloads">Pellgargadennoù displegadennoù</string>
+    <string name="more_downloads_desc">Pellgargit ur surah, un ayah pe ar C\'horan klok gant ho lenner dibabet</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Levraoueg Hadith, enklask &amp; Hadith an deiz</string>
+    <string name="more_learn">Deskiñ</string>
+    <string name="more_learn_desc">Titouroù pazenn-ha-pazenn evit ar wudu hag ar bedenn</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Eurioù Suhoor &amp; Iftar ha heulier ar yun</string>
+    <string name="more_reference">Levraoueg daveoù</string>
+    <string name="more_reference_desc">Digoradur d\'an Islam, d\'ar Sira ha d\'ar brofeded</string>
+    <string name="more_settings">Arventennoù</string>
+    <string name="more_settings_desc">Arventennoù tem, yezh, pedenn ha adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha niverel gant istor pemdeziek</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat war ar pinvidigezh hag ar jediñ Fitr</string>
+    <string name="scaffold_message">Prest eo skeul ar raktres liesvodul.\nAmañ e krog ar prantad 1 — Adhan, amzer ar bedenn, Qibla, hag an deiziadur Hijri.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Tu ar c\'hibla</string>
+    <string name="shortcut_settings">Arventennoù</string>
+    <string name="shortcut_settings_long">Arventennoù ar bedenn hag an adhan</string>
+    <string name="shortcut_times">Amzer ar bedenn</string>
+    <string name="shortcut_times_long">Amzeroù pediñ hiziv an deiz \'</string>
+    <string name="tab_home">Amzer ar bedenn</string>
+    <string name="tab_more">Muioc\'h</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Koran</string>
 </resources>

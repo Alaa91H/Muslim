@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Retour</string>
+    <string name="ramadan_countdown">Le Ramadan commence dans %1$s jours</string>
+    <string name="ramadan_countdown_to_iftar">Heure de l\'iftar : %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Heure du Fajr : %1$s</string>
+    <string name="ramadan_day_of_month">Jour %1$s du Ramadan</string>
+    <string name="ramadan_days_left">%1$s jours restants</string>
+    <string name="ramadan_fasting_progress">Jours de jeûne : %1$s sur %2$s — appuyez sur un jour pour l\'enregistrer</string>
+    <string name="ramadan_fasting_tracker">Suivi du jeûne</string>
+    <string name="ramadan_hijri_note">Basé sur le calendrier Umm al-Qura avec l\'ajustement Hijri à l\'échelle de l\'application appliqué.</string>
+    <string name="ramadan_hijri_year">Année %1$sAH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Supplication de l\'Iftar : « Ô Allah, pour Toi j\'ai jeûné et grâce à Ta provision je romps mon jeûne… »</string>
+    <string name="ramadan_iftar_time">Heure de l\'Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Choisissez d\'abord une ville dans Paramètres pour voir les heures.</string>
+    <string name="ramadan_minutes">%1$s minutes</string>
+    <string name="ramadan_notification_iftar_body">Ô Allah, pour Toi j\'ai jeûné et grâce à Ta provision je romps mon jeûne</string>
+    <string name="ramadan_notification_iftar_title">C\'est l\'heure de l\'iftar</string>
+    <string name="ramadan_notification_suhoor_body">Le Fajr approche – faites votre suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Rappel du Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhour</string>
+    <string name="ramadan_suhoor_remind_before">Rappelez-moi avant :</string>
+    <string name="ramadan_suhoor_time">Fin du Suhoor (Fajr) : %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

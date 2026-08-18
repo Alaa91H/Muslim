@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Moien, Owend &amp; Post-Gebied Adhkar mat Schalter</string>
+    <string name="more_downloads">Rezitatioun Downloads</string>
+    <string name="more_downloads_desc">Luet eng Surah, eng Ayah oder de komplette Koran erof mat Ärem gewielte Reciter</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Hadith Bibliothéik, Sich &amp; Hadith vum Dag</string>
+    <string name="more_learn">Léieren</string>
+    <string name="more_learn_desc">Schrëtt-fir-Schrëtt wudu &amp; Gebiedsguiden</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar Zäiten a Fasting Tracker</string>
+    <string name="more_reference">Referenzbibliothéik</string>
+    <string name="more_reference_desc">Aféierung zum Islam, d\'Sira an d\'Prophéiten</string>
+    <string name="more_settings">Astellungen</string>
+    <string name="more_settings_desc">Thema, Sprooch, Gebied &amp; Adhan Astellunge</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digital Misbaha mat alldeegleche Geschicht</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat op Räichtum &amp; Fitr Rechner</string>
+    <string name="scaffold_message">De Multi-Modul Projet Skelett ass prett.\nPhase 1 - Adhan, Gebiedszäiten, Qibla, an den Hijri Kalenner - fänkt hei un.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla Richtung</string>
+    <string name="shortcut_settings">Astellungen</string>
+    <string name="shortcut_settings_long">Gebied &amp; Adhan Astellunge</string>
+    <string name="shortcut_times">Gebiedszäiten</string>
+    <string name="shortcut_times_long">Haut \'s Gebiedszäiten</string>
+    <string name="tab_home">Gebetszeiten</string>
+    <string name="tab_more">Méi</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Koran</string>
 </resources>

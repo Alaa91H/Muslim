@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s lwen</string>
+    <string name="mosque_finder_empty">Pa gen moske yo jwenn nan seri sa a</string>
+    <string name="mosque_finder_error">Rechèch echwe</string>
+    <string name="mosque_finder_intro">Jwenn moske toupre kote w ye atravè OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Pa gen kote yo mete ankò. Chwazi yon kote nan paramèt lè lapriyè an premye.</string>
+    <string name="mosque_finder_retry">Eseye ankò</string>
+    <string name="mosque_finder_searching">Chèche…</string>
+    <string name="mosque_finder_title">Moske ki tou pre</string>
+    <string name="qibla_bearing_cardinal">Direksyon Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Deplase telefòn ou nan yon figi-uit pou kalibre</string>
+    <string name="qibla_distance">Distans Mekka: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Ou ap fè fas a Qibla 🕋</string>
+    <string name="qibla_gps_error">Pa t \'kapab jwenn yon ranje egzat. Tanpri eseye ankò.</string>
+    <string name="qibla_gps_live">Live GPS kote</string>
+    <string name="qibla_gps_refresh">Rafrechi kote yo atravè GPS</string>
+    <string name="qibla_gps_refreshing">Lokalize…</string>
+    <string name="qibla_heading_degree">Tèt telefòn: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Wout gwo-sèk soti nan kote ou ye a Kaaba a - travay offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Ou menm</string>
+    <string name="qibla_mode_compass">Bousòl</string>
+    <string name="qibla_mode_map">Kat jeyografik</string>
+    <string name="qibla_open_mosques">Moske ki tou pre</string>
+    <string name="qibla_title">Direksyon Qibla</string>
+    <string name="qibla_turn_left">Vire agoch ​​%1$.1f°</string>
+    <string name="qibla_turn_right">Vire adwat %1$.1f°</string>
+</resources>

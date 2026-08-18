@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Ututu, mgbede &amp; mgbe ekpere gachara adhkar nwere counter</string>
+    <string name="more_downloads">Nbudata mkpọgharị</string>
+    <string name="more_downloads_desc">Budata surah, ayah ma ọ bụ Quran zuru oke na onye na-agụ akwụkwọ gị họọrọ</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Ọbá akwụkwọ Hadith, ọchụchọ &amp; hadith nke ụbọchị</string>
+    <string name="more_learn">Mụta</string>
+    <string name="more_learn_desc">Wudu nzọụkwụ-site-nzọụkwụ &amp; ntụzịaka ekpere</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Oge Suhoor &amp; Iftar na onye na-ebu ọnụ</string>
+    <string name="more_reference">Akwụkwọ ntụaka</string>
+    <string name="more_reference_desc">Okwu mmalite nke Islam, ndị Sira na ndị amụma</string>
+    <string name="more_settings">Ntọala</string>
+    <string name="more_settings_desc">Isiokwu, asụsụ, ekpere na ntọala adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digital misbaha nwere akụkọ kwa ụbọchị</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat na akụ na ụba na mgbako Fitr</string>
+    <string name="scaffold_message">Ọkpụkpụ oru ngo nke multi-modul adịla njikere.\nNkebi nke 1 - Adhan, oge ekpere, Qibla na kalenda Hijri - malitere ebe a.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Ntuziaka Qibla</string>
+    <string name="shortcut_settings">Ntọala</string>
+    <string name="shortcut_settings_long">Ekpere &amp; adhan ntọala</string>
+    <string name="shortcut_times">Oge ekpere</string>
+    <string name="shortcut_times_long">Oge ekpere taa \'s</string>
+    <string name="tab_home">Oge Ekpere</string>
+    <string name="tab_more">Ọzọ</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

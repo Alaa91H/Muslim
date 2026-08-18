@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Hankige hinnad automaatselt</string>
+    <string name="zakat_auto_prices_hint">Kui see on lubatud, hangitakse kulla ja hõbeda hinnad Internetist ja värskendatakse automaatselt</string>
+    <string name="zakat_back">Tagasi</string>
+    <string name="zakat_cash">Sularaha ja säästud</string>
+    <string name="zakat_clear_history">Tühjenda ajalugu</string>
+    <string name="zakat_country">Riik</string>
+    <string name="zakat_country_placeholder">Valige oma riik ja valuuta</string>
+    <string name="zakat_country_section">Riik ja valuuta</string>
+    <string name="zakat_currency">Valuuta: %1$s</string>
+    <string name="zakat_debts">Võlad, mida võlgnete (mahaarvatud)</string>
+    <string name="zakat_due">Tasumine (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Hindu ei saanud \'t hankida. Kontrollige ühendust või sisestage hind käsitsi.</string>
+    <string name="zakat_fetch_now">Värskendage hindu kohe</string>
+    <string name="zakat_fetching">Hindade toomine…</string>
+    <string name="zakat_fitr_persons">Pereliikmete arv</string>
+    <string name="zakat_fitr_saa_value">Ühe sa\' väärtus (põhitoit)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Fitr zakat kokku: %1$s</string>
+    <string name="zakat_gold_grams">Kuld (grammides)</string>
+    <string name="zakat_gold_price">Kulla hind grammi kohta</string>
+    <string name="zakat_history">Arvutuste ajalugu</string>
+    <string name="zakat_history_amount">Maksumus: %1$s</string>
+    <string name="zakat_history_empty">Salvestatud arvutusi pole veel.</string>
+    <string name="zakat_investments">Investeeringud</string>
+    <string name="zakat_last_updated">Viimati värskendatud: %1$s</string>
+    <string name="zakat_money_section">Zakat rikkusest</string>
+    <string name="zakat_nisab_gold">Kuldne nisab (85g)</string>
+    <string name="zakat_nisab_met">Nisab on saavutatud - zakat on tähtaeg</string>
+    <string name="zakat_nisab_not_met">Allpool nisabi — zakat ei tasu</string>
+    <string name="zakat_nisab_silver">Hõbedane nisab (595g)</string>
+    <string name="zakat_rulings_note">Enamiku kohta (jumhoor): kuldne nisab on 85 g, hõbe 595 g ja määr on 2,5%% pärast tasumisele kuuluvate võlgade mahaarvamist. Erijuhtudel konsulteerige kvalifitseeritud teadlasega.</string>
+    <string name="zakat_save_result">Salvesta ajalukku</string>
+    <string name="zakat_silver_grams">Hõbe (grammides)</string>
+    <string name="zakat_silver_price">Hõbeda hind grammi kohta</string>
+    <string name="zakat_source_note">Kulla/hõbeda hinnad saidilt gold-api.com; Valuutakursid saidilt open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Varad kokku</string>
+    <string name="zakat_trade">Kauba väärtus</string>
+    <string name="zakat_zakatable">Zakatable summa pärast võlgu</string>
+</resources>

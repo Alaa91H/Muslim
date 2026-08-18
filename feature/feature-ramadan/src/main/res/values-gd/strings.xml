@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Air ais</string>
+    <string name="ramadan_countdown">Bidh Ramadan a’ tòiseachadh ann an %1$s latha</string>
+    <string name="ramadan_countdown_to_iftar">Ùine gu iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Uair gu Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Latha %1$s de Ramadan</string>
+    <string name="ramadan_days_left">%1$s latha air fhàgail</string>
+    <string name="ramadan_fasting_progress">Làithean fastachd: %1$s de %2$s - tap air latha airson a chlàradh</string>
+    <string name="ramadan_fasting_tracker">Lorgaire luaths</string>
+    <string name="ramadan_hijri_note">Stèidhichte air mìosachan Umm al-Qura leis an atharrachadh Hijri air feadh na h-aplacaid air a chuir an sàs.</string>
+    <string name="ramadan_hijri_year">Bliadhna %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Guidheachas Iftar: "O Allah, air do shon-sa rinn mi trasgadh agus air do sholar bidh mi a \'briseadh mo luath ..."</string>
+    <string name="ramadan_iftar_time">Ùine Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Tagh baile-mòr ann an Settings an toiseach gus na h-amannan fhaicinn.</string>
+    <string name="ramadan_minutes">%1$s mionaid</string>
+    <string name="ramadan_notification_iftar_body">O Dhia, air do shon-sa rinn mi trasg, agus air do sholus brisidh mi mo thraisg</string>
+    <string name="ramadan_notification_iftar_title">Uair airson iftar</string>
+    <string name="ramadan_notification_suhoor_body">Tha Fajr a’ tighinn faisg - faigh do shuhoor</string>
+    <string name="ramadan_notification_suhoor_title">Cuimhneachan suhoor</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Cuimhnich dhomh ro-làimh:</string>
+    <string name="ramadan_suhoor_time">Suhoor a’ tighinn gu crìch (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

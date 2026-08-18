@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Санариптик мисбаха — эсептөө үчүн таптаңыз</string>
+    <string name="misbaha_widget_label">Тасбих</string>
+    <string name="misbaha_widget_tap_hint">Эсептөө үчүн таптаңыз</string>
+    <string name="tasbih_back">Артка</string>
+    <string name="tasbih_cancel">Жокко чыгаруу</string>
+    <string name="tasbih_confirm">макул</string>
+    <string name="tasbih_custom_target">Ыңгайлаштырылган</string>
+    <string name="tasbih_custom_target_hint">Сандардын санын киргизиңиз (1ден 100000ге чейин)</string>
+    <string name="tasbih_custom_target_title">Ыңгайлаштырылган максатты коюңуз</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Калыбына келтирүү</string>
+    <string name="tasbih_reset_all">Баарын баштапкы абалга келтирүү</string>
+    <string name="tasbih_round_complete">Толук тур толук (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Раунд: %1$d</string>
+    <string name="tasbih_sound_desc">Ар бир толук раунд аяктаганда рингтон же обон ойнотуңуз</string>
+    <string name="tasbih_sound_title">Максатка үн</string>
+    <string name="tasbih_sound_tone_alarm">Ойготкуч</string>
+    <string name="tasbih_sound_tone_notification">Эскертме</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Саноо үчүн чөйрөнү таптаңыз</string>
+    <string name="tasbih_target_reached">Максатына жетти - Аллах кабыл кылсын</string>
+    <string name="tasbih_title">Тасбих</string>
+    <string name="tasbih_total_today">Бүгүнкү күндө \'с жалпы: %1$d</string>
+    <string name="tasbih_undo">Жок кылуу</string>
+    <string name="tasbih_virtue_label">Бул зикирдин пазилети</string>
+    <string name="tasbih_week_stats">Акыркы 7 күн</string>
+</resources>

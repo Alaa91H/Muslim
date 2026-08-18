@@ -43,6 +43,14 @@ class HadithViewModel @Inject constructor(
     val dailyNotificationEnabled: StateFlow<Boolean> = prefsRepository.dailyNotificationEnabled
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
 
+    /** Daily notification time, in minutes from midnight. */
+    val dailyNotificationTimeMinutes: StateFlow<Int> = prefsRepository.dailyNotificationTimeMinutes
+        .stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(5_000),
+            HadithPrefsRepository.DEFAULT_NOTIFICATION_TIME_MINUTES,
+        )
+
     private val _daily = MutableStateFlow<Hadith?>(null)
     val daily: StateFlow<Hadith?> = _daily
 
@@ -62,10 +70,14 @@ class HadithViewModel @Inject constructor(
 
     init {
         // Schedule the daily hadith notification only when the user has it
-        // enabled (default on). The worker re-checks the flag as a guard.
+        // enabled (default on), at the stored time. The worker re-checks the
+        // flag as a guard.
         viewModelScope.launch {
             if (prefsRepository.dailyNotificationEnabled.first()) {
-                HadithOfTheDayScheduler.schedule(context)
+                HadithOfTheDayScheduler.schedule(
+                    context,
+                    prefsRepository.dailyNotificationTimeMinutes.first(),
+                )
             }
             _daily.value = repository.hadithOfTheDay()
         }
@@ -83,9 +95,22 @@ class HadithViewModel @Inject constructor(
         viewModelScope.launch {
             prefsRepository.setDailyNotificationEnabled(enabled)
             if (enabled) {
-                HadithOfTheDayScheduler.schedule(context)
+                HadithOfTheDayScheduler.schedule(
+                    context,
+                    prefsRepository.dailyNotificationTimeMinutes.first(),
+                )
             } else {
                 HadithOfTheDayScheduler.cancel(context)
+            }
+        }
+    }
+
+    /** Persists the new time and re-schedules the daily notification. */
+    fun setDailyNotificationTimeMinutes(minutes: Int) {
+        viewModelScope.launch {
+            prefsRepository.setDailyNotificationTimeMinutes(minutes)
+            if (prefsRepository.dailyNotificationEnabled.first()) {
+                HadithOfTheDayScheduler.schedule(context, minutes)
             }
         }
     }

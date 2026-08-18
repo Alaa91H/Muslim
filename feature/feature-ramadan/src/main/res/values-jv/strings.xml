@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Mbalik</string>
+    <string name="ramadan_countdown">Ramadhan diwiwiti ing %1$s dina</string>
+    <string name="ramadan_countdown_to_iftar">Wektu kanggo buka puasa: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Wektu kanggo Subuh: %1$s</string>
+    <string name="ramadan_day_of_month">Dina %1$s Ramadhan</string>
+    <string name="ramadan_days_left">%1$s dina isih</string>
+    <string name="ramadan_fasting_progress">Dina pasa: %1$s saka %2$s - tutul dina kanggo ngrekam</string>
+    <string name="ramadan_fasting_tracker">Tracker pasa</string>
+    <string name="ramadan_hijri_note">Adhedhasar kalender Umm al-Qura kanthi imbuhan Hijriah app-wide diterapake.</string>
+    <string name="ramadan_hijri_year">Taun %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Doa buka puasa: "Ya Allah, kanggo Panjenengan aku pasa lan ing rizki Panjenengan aku buka puasa..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) wektu: %1$s</string>
+    <string name="ramadan_location_required">Pilih kutha ing Setelan dhisik kanggo ndeleng wektu.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Ya Allah, kanggo Panjenengan aku pasa lan ing rizki Panjenengan aku break pasa</string>
+    <string name="ramadan_notification_iftar_title">Wektu kanggo iftar</string>
+    <string name="ramadan_notification_suhoor_body">Subuh wis nyedhak - sahur</string>
+    <string name="ramadan_notification_suhoor_title">Pangeling sahur</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">sahur</string>
+    <string name="ramadan_suhoor_remind_before">Elinga sadurunge:</string>
+    <string name="ramadan_suhoor_time">Sahur rampung (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadhan</string>
+</resources>

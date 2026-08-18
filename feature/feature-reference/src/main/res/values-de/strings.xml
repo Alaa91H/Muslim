@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Zurück</string>
+    <string name="reference_no_results">Keine passenden Ergebnisse</string>
+    <string name="reference_search_hint">Dieses Buch durchsuchen…</string>
+    <string name="reference_title">Islamische Referenzbibliothek</string>
+    <string name="reference_topics_count">Themen</string>
+</resources>

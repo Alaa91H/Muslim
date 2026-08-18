@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Recuperar los prètzs automaticament</string>
+    <string name="zakat_auto_prices_hint">Quand es activat, los prètzs de l\'aur e de l\'argent son preses d\'internet e actualizats automaticament</string>
+    <string name="zakat_back">Enrè</string>
+    <string name="zakat_cash">Espèça e estalvis</string>
+    <string name="zakat_clear_history">Escafar l\'istoric</string>
+    <string name="zakat_country">País</string>
+    <string name="zakat_country_placeholder">Causissètz vòstre país e moneda</string>
+    <string name="zakat_country_section">País e moneda</string>
+    <string name="zakat_currency">Moneda: %1$s</string>
+    <string name="zakat_debts">Deutes que devètz (dedusits)</string>
+    <string name="zakat_due">Zakat degut (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Podiái pas trobar de prètzs. Verificatz vòstra connexion o picatz lo prètz manualament.</string>
+    <string name="zakat_fetch_now">Actualizatz los prètzs ara</string>
+    <string name="zakat_fetching">Recuperant los prètzs...</string>
+    <string name="zakat_fitr_persons">Nombre de membres de la familha</string>
+    <string name="zakat_fitr_saa_value">Valor de una sa\' (alimentacion de base)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Zakat Fitr total: %1$s</string>
+    <string name="zakat_gold_grams">Òr (gramas)</string>
+    <string name="zakat_gold_price">Prètz d\'aur per grama</string>
+    <string name="zakat_history">Istoric de calcul</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Pas encara de calcul enregistrat.</string>
+    <string name="zakat_investments">Investiments</string>
+    <string name="zakat_last_updated">Darrièra mesa a jorn: %1$s</string>
+    <string name="zakat_money_section">Zakat sus la riquesa</string>
+    <string name="zakat_nisab_gold">Nisab d\'aur (85g)</string>
+    <string name="zakat_nisab_met">Lo nisab es atench — la zakat es deguda</string>
+    <string name="zakat_nisab_not_met">En dejós del nisab — pas de zakat degut</string>
+    <string name="zakat_nisab_silver">Nisab d\'argent (595g)</string>
+    <string name="zakat_rulings_note">Segon la majoritat (jumhoor): lo nisab d\'aur es de 85g, l\'argent de 595g, e lo taus es de 2,5%% après aver deduch los detz. Consultatz un erudit qualificat per de cases especials.</string>
+    <string name="zakat_save_result">Enregistrar dins l\'istoric</string>
+    <string name="zakat_silver_grams">Argent (gramas)</string>
+    <string name="zakat_silver_price">Prètz de l\'argent per grama</string>
+    <string name="zakat_source_note">Preus d\'aur/argent de gold-api.com; Tarifas de cambiar de open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Total d\'actius</string>
+    <string name="zakat_trade">Valor de bens de comèrci</string>
+    <string name="zakat_zakatable">Montant zakatable après los deutes</string>
+</resources>

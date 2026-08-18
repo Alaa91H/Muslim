@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Íosluchtaigh praghsanna go huathoibríoch</string>
+    <string name="zakat_auto_prices_hint">Nuair a bhíonn siad cumasaithe, faightear praghsanna óir agus airgid ón Idirlíon agus déantar iad a athnuachan go huathoibríoch</string>
+    <string name="zakat_back">Ar ais</string>
+    <string name="zakat_cash">Airgead tirim agus coigilteas</string>
+    <string name="zakat_clear_history">Glan stair</string>
+    <string name="zakat_country">Tír</string>
+    <string name="zakat_country_placeholder">Roghnaigh do thír agus airgeadra</string>
+    <string name="zakat_country_section">Tír &amp; airgeadra</string>
+    <string name="zakat_currency">Airgeadra: %1$s</string>
+    <string name="zakat_debts">Fiacha atá ort (asbhainte)</string>
+    <string name="zakat_due">Zakat dlite (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t praghsanna a fháil. Seiceáil do nasc nó cuir isteach an praghas de láimh.</string>
+    <string name="zakat_fetch_now">Praghsanna a athnuachan anois</string>
+    <string name="zakat_fetching">Praghsanna á bhfáil…</string>
+    <string name="zakat_fitr_persons">Líon na mball teaghlaigh</string>
+    <string name="zakat_fitr_saa_value">Luach amháin sa\' (stáplacha bia)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Iomlán Fitr Zakat: %1$s</string>
+    <string name="zakat_gold_grams">Óir (gram)</string>
+    <string name="zakat_gold_price">Praghas óir in aghaidh gach graim</string>
+    <string name="zakat_history">Stair ríomha</string>
+    <string name="zakat_history_amount">Uimhir: %1$s</string>
+    <string name="zakat_history_empty">Níl aon ríomhaireachtaí sábháilte go fóill.</string>
+    <string name="zakat_investments">Infheistíochtaí</string>
+    <string name="zakat_last_updated">Nuashonrú is déanaí: %1$s</string>
+    <string name="zakat_money_section">Zakat ar shaibhreas</string>
+    <string name="zakat_nisab_gold">Nisab óir (85g)</string>
+    <string name="zakat_nisab_met">Baintear an nisab amach - tá zakat dlite</string>
+    <string name="zakat_nisab_not_met">Thíos an nisab - níl aon zakat dlite</string>
+    <string name="zakat_nisab_silver">Nisab airgid (595g)</string>
+    <string name="zakat_rulings_note">In aghaidh an chuid is mó (jumhoor): Is é nisab óir 85g, airgead 595g, agus is é an ráta 2.5%% tar éis fiacha dlite a asbhaint. Téigh i gcomhairle le scoláire cáilithe le haghaidh cásanna speisialta.</string>
+    <string name="zakat_save_result">Sábháil sa stair</string>
+    <string name="zakat_silver_grams">Airgead (gram)</string>
+    <string name="zakat_silver_price">Praghas airgid in aghaidh gach graim</string>
+    <string name="zakat_source_note">Praghsanna óir/airgid ó gold-api.com; Rátaí FX ó open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Sócmhainní iomlána</string>
+    <string name="zakat_trade">Luach earraí trádála</string>
+    <string name="zakat_zakatable">Suim Zakatable tar éis fiacha</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s preč</string>
+    <string name="mosque_finder_empty">V tomto rozsahu sa nenašli žiadne mešity</string>
+    <string name="mosque_finder_error">Vyhľadávanie zlyhalo</string>
+    <string name="mosque_finder_intro">Nájdite mešity v blízkosti vašej polohy cez OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Zatiaľ nie je nastavená žiadna poloha. Najprv vyberte miesto z nastavení modlitebných časov.</string>
+    <string name="mosque_finder_retry">Skúste to znova</string>
+    <string name="mosque_finder_searching">Hľadá sa…</string>
+    <string name="mosque_finder_title">Blízke mešity</string>
+    <string name="qibla_bearing_cardinal">Smer Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Kalibráciu vykonáte posunutím telefónu o číslo osem</string>
+    <string name="qibla_distance">Vzdialenosť do Mekky: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Stojíte pred Qibla 🕋</string>
+    <string name="qibla_gps_error">Nepodarilo sa získať presnú opravu. Skúste to znova.</string>
+    <string name="qibla_gps_live">Živá poloha GPS</string>
+    <string name="qibla_gps_refresh">Obnovte polohu pomocou GPS</string>
+    <string name="qibla_gps_refreshing">Hľadá sa…</string>
+    <string name="qibla_heading_degree">Smer telefónu: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Trasa po veľkom okruhu z vašej polohy do Kaaby — funguje offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">vy</string>
+    <string name="qibla_mode_compass">Kompas</string>
+    <string name="qibla_mode_map">Mapa</string>
+    <string name="qibla_open_mosques">Blízke mešity</string>
+    <string name="qibla_title">Smer Qibla</string>
+    <string name="qibla_turn_left">Odbočte doľava o %1$.1f°</string>
+    <string name="qibla_turn_right">Odbočte doprava o %1$.1f°</string>
+</resources>

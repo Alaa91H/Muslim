@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — yupayta ñit\'iy</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Yupanaykipaq ñit’iy</string>
+    <string name="tasbih_back">Kutiy</string>
+    <string name="tasbih_cancel">Cancelar</string>
+    <string name="tasbih_confirm">ALLINMI</string>
+    <string name="tasbih_custom_target">Costumbre</string>
+    <string name="tasbih_custom_target_hint">Yupaykunata qillqay (1manta 100000kama) .</string>
+    <string name="tasbih_custom_target_title">Sapanchasqa meta nisqa churay</string>
+    <string name="tasbih_of_target">de %1$s</string>
+    <string name="tasbih_reset">Reset nisqa</string>
+    <string name="tasbih_reset_all">Tukuyta kutichiy</string>
+    <string name="tasbih_round_complete">Tukuy muyu hunt\'asqa (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Muyukuna: %1$d</string>
+    <string name="tasbih_sound_desc">Sapa hunt’a muyuta tukuptinku huk tonota utaq tonota tocay</string>
+    <string name="tasbih_sound_title">T’uqyay on target</string>
+    <string name="tasbih_sound_tone_alarm">Alarma</string>
+    <string name="tasbih_sound_tone_notification">Willakuy</string>
+    <string name="tasbih_sound_tone_ringtone">Tono de llamada</string>
+    <string name="tasbih_tap_hint">Yupanaykipaq muyuta ñit’iy</string>
+    <string name="tasbih_target_reached">Meta chayasqa — Allah chaskichun</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Kunan punchaw\'kuna llapanpi: %1$d</string>
+    <string name="tasbih_undo">Deshacer</string>
+    <string name="tasbih_virtue_label">Kay dhikrpa virtudnin</string>
+    <string name="tasbih_week_stats">Qhipa 7 p’unchawkuna</string>
+</resources>

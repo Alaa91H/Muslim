@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">San akyi</string>
+    <string name="ramadan_countdown">Ramadan fi ase wɔ nnafua %1$s mu</string>
+    <string name="ramadan_countdown_to_iftar">Bere a wɔde kɔ iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Bere a wɔde kɔ Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Ramadan da a ɛtɔ so %1$s</string>
+    <string name="ramadan_days_left">Nnafua %1$s na aka</string>
+    <string name="ramadan_fasting_progress">Mmuadadi nna: %1$s of %2$s — tap da koro na kyerɛw</string>
+    <string name="ramadan_fasting_tracker">Mmuadadi tracker</string>
+    <string name="ramadan_hijri_note">Ɛgyina Umm al-Qura kalenda so a wɔde app-wide Hijri nsakraeɛ no dii dwuma.</string>
+    <string name="ramadan_hijri_year">Afe %1$s AH</string>
+    <string name="ramadan_iftar">Iftar a wɔde di dwuma</string>
+    <string name="ramadan_iftar_dua">Iftar nkotɔsrɛ: "O Allah, Wo nti na midii mmuada na Wo nsiesiei so na mibubu me mmuada..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) bere: %1$s</string>
+    <string name="ramadan_location_required">Di kan paw kurow bi wɔ Settings mu na woahu mmere no.</string>
+    <string name="ramadan_minutes">%1$s simma</string>
+    <string name="ramadan_notification_iftar_body">O Allah, Wo nti na midii mmuada na Wo nsiesiei so na mitwa me mmuada</string>
+    <string name="ramadan_notification_iftar_title">Bere a wɔde yɛ iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr rebɛn — nya wo suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor nkaebɔ</string>
+    <string name="ramadan_starts_on">%1$s — %2$s. Ɔde ne nsa kyerɛɛ ne so</string>
+    <string name="ramadan_suhoor">Suhoor na ɔkyerɛwee</string>
+    <string name="ramadan_suhoor_remind_before">Kae me ansa na:</string>
+    <string name="ramadan_suhoor_time">Suhoor awiei (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan a ɛwɔ hɔ</string>
+</resources>

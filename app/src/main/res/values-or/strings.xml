@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ମୁସଲିମ</string>
+    <string name="more_adhkar">ଅଦକର |</string>
+    <string name="more_adhkar_desc">କାଉଣ୍ଟର ସହିତ ସକାଳ, ସନ୍ଧ୍ୟା ଏବଂ ପ୍ରାର୍ଥନା ପରବର୍ତ୍ତୀ ଆଡ୍କର |</string>
+    <string name="more_downloads">ପଠନ ଡାଉନଲୋଡ୍ |</string>
+    <string name="more_downloads_desc">ତୁମର ମନୋନୀତ ପାଠକ ସହିତ ଏକ ସୁରା, ଏକ ଆୟା କିମ୍ବା ପୂର୍ଣ୍ଣ କୁରାନ ଡାଉନଲୋଡ୍ କର |</string>
+    <string name="more_hadith">ହାଦିସ୍ |</string>
+    <string name="more_hadith_desc">ହାଡିସ୍ ଲାଇବ୍ରେରୀ, ଦିନର ସନ୍ଧାନ ଏବଂ ହାଡିସ୍ |</string>
+    <string name="more_learn">ଶିଖନ୍ତୁ |</string>
+    <string name="more_learn_desc">ପର୍ଯ୍ୟାୟ କ୍ରମେ ୱୁଡୁ ଏବଂ ପ୍ରାର୍ଥନା ଗାଇଡ୍ |</string>
+    <string name="more_ramadan">ରମଜାନ |</string>
+    <string name="more_ramadan_desc">ସୁହୋର ଏବଂ ଇଫତାର ସମୟ ଏବଂ ଉପବାସ ଟ୍ରାକର୍ |</string>
+    <string name="more_reference">ସନ୍ଦର୍ଭ ଲାଇବ୍ରେରୀ |</string>
+    <string name="more_reference_desc">ଇସଲାମ, ସିରା ଏବଂ ଭବିଷ୍ୟ‌ଦ୍‌ବକ୍ତାମାନଙ୍କର ପରିଚୟ |</string>
+    <string name="more_settings">ସେଟିଂସମୂହ</string>
+    <string name="more_settings_desc">ଥିମ୍, ଭାଷା, ପ୍ରାର୍ଥନା ଏବଂ ଆଦନ ସେଟିଙ୍ଗ୍ |</string>
+    <string name="more_tasbih">ତସବିହ |</string>
+    <string name="more_tasbih_desc">ଦ daily ନିକ ଇତିହାସ ସହିତ ଡିଜିଟାଲ୍ ମିସବାହା |</string>
+    <string name="more_zakat">ଜାକତ୍ |</string>
+    <string name="more_zakat_desc">ଧନ ଏବଂ ଫିଟ୍ କାଲକୁଲେଟର ଉପରେ ଜାକତ୍ |</string>
+    <string name="scaffold_message">ମଲ୍ଟି-ମଡ୍ୟୁଲ୍ ପ୍ରୋଜେକ୍ଟ କଙ୍କାଳ ପ୍ରସ୍ତୁତ | \n ଫେଜ୍ 1 - ଆଦନ, ପ୍ରାର୍ଥନା ସମୟ, କିବଲା, ଏବଂ ହିଜ୍ରି କ୍ୟାଲେଣ୍ଡର - ଏଠାରେ ଆରମ୍ଭ |</string>
+    <string name="shortcut_qibla">କିବଲା |</string>
+    <string name="shortcut_qibla_long">କିବଲା ଦିଗ |</string>
+    <string name="shortcut_settings">ସେଟିଂସମୂହ</string>
+    <string name="shortcut_settings_long">ପ୍ରାର୍ଥନା ଏବଂ ଆଦନ ସେଟିଂସମୂହ |</string>
+    <string name="shortcut_times">ପ୍ରାର୍ଥନା ସମୟ</string>
+    <string name="shortcut_times_long">ଆଜି \'s ପ୍ରାର୍ଥନା ସମୟ |</string>
+    <string name="tab_home">ପ୍ରାର୍ଥନା ସମୟ</string>
+    <string name="tab_more">ଅଧିକ</string>
+    <string name="tab_qibla">କିବଲା |</string>
+    <string name="tab_quran">କୁରାନ</string>
 </resources>

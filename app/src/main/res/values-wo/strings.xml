@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Suba, guddi &amp; ginaaw ñaan adhkar ak kontuwaar</string>
+    <string name="more_downloads">Téléchargements de récitation</string>
+    <string name="more_downloads_desc">Yebbi benn surah, benn ayat wala benn Al Quran bu mat sëkk ak ki lay jàng</string>
+    <string name="more_hadith">Xasida</string>
+    <string name="more_hadith_desc">Bibliothèque de hadith, recherche &amp; hadith du jour</string>
+    <string name="more_learn">Jàng</string>
+    <string name="more_learn_desc">Wudu &amp; ñaan jéego ci jéego</string>
+    <string name="more_ramadan">koor</string>
+    <string name="more_ramadan_desc">Suhoor ak iftar ak toppukaayu liggéey</string>
+    <string name="more_reference">Bibliothèque de référence</string>
+    <string name="more_reference_desc">Duggal ci Islaam, Sira &amp; yonent yi</string>
+    <string name="more_settings">Jekkal</string>
+    <string name="more_settings_desc">Tema, làkk, ñaan ak jekkal adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbah dijital ak jaar-jaar bis bu nekk</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat ci alal &amp; kalkulatër Fitr</string>
+    <string name="scaffold_message">\n Faas 1 — Adhan, waxtu ñaan, Qibla, ak kalandriye Hijri — mingi tàmbali fii.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">jubluwaayu qibla</string>
+    <string name="shortcut_settings">Jekkal</string>
+    <string name="shortcut_settings_long">Paramètres de prière et d\'adhan</string>
+    <string name="shortcut_times">Waxtu ñaan</string>
+    <string name="shortcut_times_long">tay \' waxtu ñaan</string>
+    <string name="tab_home">Waxtu ñaan</string>
+    <string name="tab_more">Leneen</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Al Quran</string>
 </resources>

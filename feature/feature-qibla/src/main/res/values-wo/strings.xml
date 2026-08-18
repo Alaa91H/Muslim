@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s</string>
+    <string name="mosque_finder_empty">Amul benn Juma buñu fekk ci barab bii</string>
+    <string name="mosque_finder_error">Seetug bi lajj</string>
+    <string name="mosque_finder_intro">Wut Juma yi gëna jege sa barab jaaraleko ci OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Ba leegi amagul benn barab. Tannal barab ci jekkal waxtu ñaan yi njëkk.</string>
+    <string name="mosque_finder_retry">Jéemaat</string>
+    <string name="mosque_finder_searching">Seetug...</string>
+    <string name="mosque_finder_title">Juma yi ci wetam</string>
+    <string name="qibla_bearing_cardinal">Direction qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Toxal sa telefon ci lim-8 ngir kalibre</string>
+    <string name="qibla_distance">Distance à Makkah : %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Yaa ngi jàkkarloo ak Qibla bi 🕋 .</string>
+    <string name="qibla_gps_error">Mënu ñu am saafara bu jaar yoon. Jéemaat.</string>
+    <string name="qibla_gps_live">Barab GPS ci saasi</string>
+    <string name="qibla_gps_refresh">Yeesal barab bi jaaraleko ci GPS</string>
+    <string name="qibla_gps_refreshing">Gis...</string>
+    <string name="qibla_heading_degree">Boppu telefon bi: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Yoonu circle bu mag biy joge ci sa barab dem ci Kaaba — dafay dox ci biti</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Yaw</string>
+    <string name="qibla_mode_compass">Busol</string>
+    <string name="qibla_mode_map">Kaart</string>
+    <string name="qibla_open_mosques">Juma yi ci wetam</string>
+    <string name="qibla_title">jubluwaayu qibla</string>
+    <string name="qibla_turn_left">wëlbatiku ci cammoy %1$.1f°</string>
+    <string name="qibla_turn_right">wëlbatiku ci ndeyjoor %1$.1f°</string>
+</resources>

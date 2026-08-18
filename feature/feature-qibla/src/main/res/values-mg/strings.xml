@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s avy</string>
+    <string name="mosque_finder_empty">Tsy misy moske hita ao amin\'io faritra io</string>
+    <string name="mosque_finder_error">Tsy nahomby ny fikarohana</string>
+    <string name="mosque_finder_intro">Mitadiava moske akaikin\'ny toerana misy anao amin\'ny alàlan\'ny OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Tsy mbola misy toerana voapetraka. Misafidiana toerana iray avy amin\'ny firafitry ny fotoam-bavaka aloha.</string>
+    <string name="mosque_finder_retry">Andramo indray</string>
+    <string name="mosque_finder_searching">Mikaroka…</string>
+    <string name="mosque_finder_title">Moske akaiky</string>
+    <string name="qibla_bearing_cardinal">Kibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Alefaso amin\'ny tarehimarika valo ny findainao mba hanitsy</string>
+    <string name="qibla_distance">Halavany mankany La Mecque: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Miatrika ny Qibla ianao 🕋</string>
+    <string name="qibla_gps_error">Tsy afaka nahazo fanitsiana marina. Andramo indray azafady.</string>
+    <string name="qibla_gps_live">Toerana GPS mivantana</string>
+    <string name="qibla_gps_refresh">Havaozy ny toerana amin\'ny alàlan\'ny GPS</string>
+    <string name="qibla_gps_refreshing">Mitady…</string>
+    <string name="qibla_heading_degree">Lohatenin\'ny finday: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Lalana boribory lehibe avy amin\'ny toerana misy anao mankany Kaaba — miasa ivelan\'ny aterineto</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Ianao</string>
+    <string name="qibla_mode_compass">Kompas</string>
+    <string name="qibla_mode_map">Sarintany</string>
+    <string name="qibla_open_mosques">Moske akaiky</string>
+    <string name="qibla_title">Kiblat tari-dalana</string>
+    <string name="qibla_turn_left">Mihodina miankavia %1$.1f°</string>
+    <string name="qibla_turn_right">Mihodina miankavanana %1$.1f°</string>
+</resources>

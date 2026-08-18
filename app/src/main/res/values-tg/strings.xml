@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Муслим</string>
+    <string name="more_adhkar">Адҳкор</string>
+    <string name="more_adhkar_desc">Зикрҳои саҳар, шом ва пас аз намоз бо ҳисобкунакҳо</string>
+    <string name="more_downloads">Зеркашиҳои қироат</string>
+    <string name="more_downloads_desc">Сура, оят ё пурраи Қуръонро бо хонандаи интихобкардаи худ зеркашӣ кунед</string>
+    <string name="more_hadith">Хадис</string>
+    <string name="more_hadith_desc">Китобхонаи ҳадис, ҷустуҷӯ ва ҳадиси рӯз</string>
+    <string name="more_learn">Омӯзед</string>
+    <string name="more_learn_desc">Дастурҳои қадам ба қадам таҳорат ва намоз</string>
+    <string name="more_ramadan">Рамазон</string>
+    <string name="more_ramadan_desc">Вақтҳои суҳуру ифтор ва пайгирии рӯза</string>
+    <string name="more_reference">Китобхонаи маълумотнома</string>
+    <string name="more_reference_desc">Муқаддима бо Ислом, Сира ва паёмбарон</string>
+    <string name="more_settings">Танзимотҳо</string>
+    <string name="more_settings_desc">Танзимоти мавзӯъ, забон, намоз ва азон</string>
+    <string name="more_tasbih">Тасбих</string>
+    <string name="more_tasbih_desc">Misbaha рақамӣ бо таърихи ҳаррӯза</string>
+    <string name="more_zakat">Закот</string>
+    <string name="more_zakat_desc">Закот оид ба сарват ва ҳисобкунаки Фитр</string>
+    <string name="scaffold_message">Скелети лоиҳаи бисёрмодул омода аст.\nМарҳилаи 1 — Азон, вақти намоз, қибла ва тақвими ҳиҷрӣ аз ин ҷо оғоз мешавад.</string>
+    <string name="shortcut_qibla">Қибла</string>
+    <string name="shortcut_qibla_long">Самти қибла</string>
+    <string name="shortcut_settings">Танзимотҳо</string>
+    <string name="shortcut_settings_long">Танзимоти намоз ва азон</string>
+    <string name="shortcut_times">Вақтҳои намоз</string>
+    <string name="shortcut_times_long">Имрӯз \' вақти намоз</string>
+    <string name="tab_home">Вакти Намоз</string>
+    <string name="tab_more">Бештар</string>
+    <string name="tab_qibla">Қибла</string>
+    <string name="tab_quran">Қуръон</string>
 </resources>

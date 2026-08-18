@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Preise automatisch abrufen</string>
+    <string name="zakat_auto_prices_hint">Bei Aktivierung werden die Gold- und Silberpreise aus dem Internet abgerufen und automatisch aktualisiert</string>
+    <string name="zakat_back">Zurück</string>
+    <string name="zakat_cash">Bargeld und Ersparnisse</string>
+    <string name="zakat_clear_history">Klare Geschichte</string>
+    <string name="zakat_country">Land</string>
+    <string name="zakat_country_placeholder">Wählen Sie Ihr Land und Ihre Währung</string>
+    <string name="zakat_country_section">Land und Währung</string>
+    <string name="zakat_currency">Währung: %1$s</string>
+    <string name="zakat_debts">Schulden, die Sie schulden (abgezogen)</string>
+    <string name="zakat_due">Fälliger Zakat (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Konnte \'t Preise abrufen. Überprüfen Sie Ihre Verbindung oder geben Sie den Preis manuell ein.</string>
+    <string name="zakat_fetch_now">Jetzt Preise aktualisieren</string>
+    <string name="zakat_fetching">Preise werden abgerufen…</string>
+    <string name="zakat_fitr_persons">Anzahl der Familienmitglieder</string>
+    <string name="zakat_fitr_saa_value">Wert einer sa\' (Grundnahrungsmittel)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Gesamt-Fitr-Zakat: %1$s</string>
+    <string name="zakat_gold_grams">Gold (Gramm)</string>
+    <string name="zakat_gold_price">Goldpreis pro Gramm</string>
+    <string name="zakat_history">Berechnungsverlauf</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Noch keine gespeicherten Berechnungen.</string>
+    <string name="zakat_investments">Investitionen</string>
+    <string name="zakat_last_updated">Letzte Aktualisierung: %1$s</string>
+    <string name="zakat_money_section">Zakat für Reichtum</string>
+    <string name="zakat_nisab_gold">Gold-Nisab (85g)</string>
+    <string name="zakat_nisab_met">Der Nisab ist erreicht – Zakat ist fällig</string>
+    <string name="zakat_nisab_not_met">Unterhalb des Nisab ist keine Zakat fällig</string>
+    <string name="zakat_nisab_silver">Silberner Nisab (595g)</string>
+    <string name="zakat_rulings_note">Pro Mehrheit (Jumhoor): Gold-Nisab beträgt 85 g, Silber 595 g, und der Kurs beträgt 2,5%% nach Abzug fälliger Schulden. Wenden Sie sich in besonderen Fällen an einen qualifizierten Wissenschaftler.</string>
+    <string name="zakat_save_result">Im Verlauf speichern</string>
+    <string name="zakat_silver_grams">Silber (Gramm)</string>
+    <string name="zakat_silver_price">Silberpreis pro Gramm</string>
+    <string name="zakat_source_note">Gold-/Silberpreise von gold-api.com; Wechselkurse von open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Gesamtvermögen</string>
+    <string name="zakat_trade">Wert der Handelsware</string>
+    <string name="zakat_zakatable">Abgabepflichtiger Betrag nach Schulden</string>
+</resources>

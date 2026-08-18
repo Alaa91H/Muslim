@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Enrere</string>
+    <string name="reference_no_results">No hi ha resultats coincidents</string>
+    <string name="reference_search_hint">Cerca en aquest llibre...</string>
+    <string name="reference_title">Biblioteca de referència islàmica</string>
+    <string name="reference_topics_count">temes</string>
+</resources>

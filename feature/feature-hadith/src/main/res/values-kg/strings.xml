@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Nionso</string>
+    <string name="hadith_back">Kuvutuka</string>
+    <string name="hadith_bookmark_add">Yika marque-page</string>
+    <string name="hadith_bookmark_remove">Katula kidimbu</string>
+    <string name="hadith_collection_abudawud">Abu Dawudi</string>
+    <string name="hadith_collection_bukhari">Bukari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah</string>
+    <string name="hadith_collection_muslim">Muzuluma</string>
+    <string name="hadith_collection_nasai">Nasa \'i</string>
+    <string name="hadith_collection_nawawi">Nawawi 40</string>
+    <string name="hadith_collection_other">Yankaka</string>
+    <string name="hadith_collection_riyad">Riyad bonso Salihin</string>
+    <string name="hadith_collection_tirmidhi">Tirmidi</string>
+    <string name="hadith_daily_notification">Nsangu ya hadith ya konso kilumbu</string>
+    <string name="hadith_daily_notification_desc">Yamba hadith konso kilumbu .</string>
+    <string name="hadith_daily_notification_time">Ntangu ya nsangu</string>
+    <string name="hadith_of_the_day">Hadith ya kilumbu</string>
+    <string name="hadith_preview_hint">Yai mutindu nsangu ya hadith ya konso kilumbu kemonanaka na ntangu na yo ya bo metulaka.</string>
+    <string name="hadith_preview_label">Kumona na ntwala ya nsangu</string>
+    <string name="hadith_preview_loading">Kutula hadith...</string>
+    <string name="hadith_search_hint">Sosa ba hadith...</string>
+    <string name="hadith_share">Kabula</string>
+    <string name="hadith_title">Biblioteke ya Hadith</string>
+</resources>

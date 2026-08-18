@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">תביא מחירים באופן אוטומטי</string>
+    <string name="zakat_auto_prices_hint">כאשר מופעל, מחירי זהב וכסף נשלפים מהאינטרנט ומתרעננים אוטומטית</string>
+    <string name="zakat_back">חזרה</string>
+    <string name="zakat_cash">מזומן וחסכון</string>
+    <string name="zakat_clear_history">נקה היסטוריה</string>
+    <string name="zakat_country">מדינה</string>
+    <string name="zakat_country_placeholder">בחר את המדינה והמטבע שלך</string>
+    <string name="zakat_country_section">מדינה ומטבע</string>
+    <string name="zakat_currency">מטבע: %1$s</string>
+    <string name="zakat_debts">חובות שאתה חייב (בניכוי)</string>
+    <string name="zakat_due">זכאת בשל (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">לא יכול היה להביא מחירים \'. בדוק את החיבור שלך או הזן את המחיר באופן ידני.</string>
+    <string name="zakat_fetch_now">רענן מחירים עכשיו</string>
+    <string name="zakat_fetching">מביא מחירים...</string>
+    <string name="zakat_fitr_persons">מספר בני המשפחה</string>
+    <string name="zakat_fitr_saa_value">ערך של sa\' אחת (מזון בסיסי)</string>
+    <string name="zakat_fitr_section">זכת אל פיטר</string>
+    <string name="zakat_fitr_total">סך הכל Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">זהב (גרם)</string>
+    <string name="zakat_gold_price">מחיר זהב לגרם</string>
+    <string name="zakat_history">היסטוריית חישובים</string>
+    <string name="zakat_history_amount">זכאת: %1$s</string>
+    <string name="zakat_history_empty">עדיין אין חישובים שמורים.</string>
+    <string name="zakat_investments">השקעות</string>
+    <string name="zakat_last_updated">עודכן לאחרונה: %1$s</string>
+    <string name="zakat_money_section">זכאת על עושר</string>
+    <string name="zakat_nisab_gold">ניסאב זהב (85 גרם)</string>
+    <string name="zakat_nisab_met">הגיע הניסאב - זכאת מגיע</string>
+    <string name="zakat_nisab_not_met">מתחת לניסאב - אין זכאת בשל</string>
+    <string name="zakat_nisab_silver">ניסאב כסף (595 גרם)</string>
+    <string name="zakat_rulings_note">לפי הרוב (ג\'ומהור): ניסאב זהב הוא 85 גרם, כסף 595 גרם, והשיעור הוא 2.5%% לאחר ניכוי חובות. התייעץ עם מלומד מוסמך למקרים מיוחדים.</string>
+    <string name="zakat_save_result">שמור בהיסטוריה</string>
+    <string name="zakat_silver_grams">כסף (גרם)</string>
+    <string name="zakat_silver_price">מחיר כסף לגרם</string>
+    <string name="zakat_source_note">מחירי זהב/כסף מ- gold-api.com; שערי FX מאת open.er-api.com</string>
+    <string name="zakat_title">זכאת</string>
+    <string name="zakat_total_assets">סך הנכסים</string>
+    <string name="zakat_trade">ערך סחורות סחר</string>
+    <string name="zakat_zakatable">סכום זכאות לאחר חובות</string>
+</resources>

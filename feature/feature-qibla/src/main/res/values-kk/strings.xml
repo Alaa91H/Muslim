@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s қашықтықта</string>
+    <string name="mosque_finder_empty">Бұл аумақта мешіттер табылмады</string>
+    <string name="mosque_finder_error">Іздеу сәтсіз аяқталды</string>
+    <string name="mosque_finder_intro">OpenStreetMap арқылы орналасқан жеріңізге жақын мешіттерді табыңыз</string>
+    <string name="mosque_finder_no_location">Орын әлі орнатылмаған. Алдымен намаз уақытының параметрлерінен орынды таңдаңыз.</string>
+    <string name="mosque_finder_retry">Қайталап көріңіз</string>
+    <string name="mosque_finder_searching">Іздеуде…</string>
+    <string name="mosque_finder_title">Маңайдағы мешіттер</string>
+    <string name="qibla_bearing_cardinal">Қыбла бағыты: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Калибрлеу үшін телефонды сегіз фигураға жылжытыңыз</string>
+    <string name="qibla_distance">Меккеге дейінгі қашықтық: %1$s</string>
+    <string name="qibla_distance_km">%,.0f км</string>
+    <string name="qibla_facing">Сіз құбылаға қарап тұрсыз🕋</string>
+    <string name="qibla_gps_error">Нақты түзету мүмкін болмады. Қайталап көріңіз.</string>
+    <string name="qibla_gps_live">Тікелей GPS орны</string>
+    <string name="qibla_gps_refresh">GPS арқылы орынды жаңартыңыз</string>
+    <string name="qibla_gps_refreshing">Орналасқан жері…</string>
+    <string name="qibla_heading_degree">Телефон тақырыбы: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Орналасқан жеріңізден Қағбаға дейінгі үлкен шеңберлі маршрут — желіден тыс жұмыс істейді</string>
+    <string name="qibla_map_kaaba">Қағба</string>
+    <string name="qibla_map_you">Сіз</string>
+    <string name="qibla_mode_compass">Компас</string>
+    <string name="qibla_mode_map">Карта</string>
+    <string name="qibla_open_mosques">Маңайдағы мешіттер</string>
+    <string name="qibla_title">Қыбла бағыты</string>
+    <string name="qibla_turn_left">Солға %1$.1f° бұрылыңыз</string>
+    <string name="qibla_turn_right">Оңға %1$.1f° бұрылыңыз</string>
+</resources>

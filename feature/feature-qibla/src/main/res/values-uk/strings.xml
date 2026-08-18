@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s далеко</string>
+    <string name="mosque_finder_empty">Мечетей у цьому діапазоні не знайдено</string>
+    <string name="mosque_finder_error">Пошук не вдалося</string>
+    <string name="mosque_finder_intro">Знайдіть мечеті поблизу свого місця за допомогою OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Місце ще не встановлено. Спочатку виберіть місце в налаштуваннях часу молитви.</string>
+    <string name="mosque_finder_retry">Повторіть спробу</string>
+    <string name="mosque_finder_searching">Пошук…</string>
+    <string name="mosque_finder_title">Поруч мечеті</string>
+    <string name="qibla_bearing_cardinal">Напрямок Кібли: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Перемістіть телефон у вигляді вісімки, щоб відкалібрувати</string>
+    <string name="qibla_distance">Відстань до Мекки: %1$s</string>
+    <string name="qibla_distance_km">%,.0f км</string>
+    <string name="qibla_facing">Ви стоїте обличчям до Кібли 🕋</string>
+    <string name="qibla_gps_error">Не вдалося отримати точне виправлення. Спробуйте ще раз.</string>
+    <string name="qibla_gps_live">Живе місцеположення GPS</string>
+    <string name="qibla_gps_refresh">Оновити місцезнаходження за допомогою GPS</string>
+    <string name="qibla_gps_refreshing">Пошук...</string>
+    <string name="qibla_heading_degree">Телефонний напрямок: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Великий круговий маршрут від вашого місця розташування до Кааби — працює офлайн</string>
+    <string name="qibla_map_kaaba">Кааба</string>
+    <string name="qibla_map_you">Ви</string>
+    <string name="qibla_mode_compass">компас</string>
+    <string name="qibla_mode_map">Карта</string>
+    <string name="qibla_open_mosques">Поруч мечеті</string>
+    <string name="qibla_title">Напрямок Кібли</string>
+    <string name="qibla_turn_left">Поверніть ліворуч на %1$.1f°</string>
+    <string name="qibla_turn_right">Поверніть праворуч на %1$.1f°</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha diġitali — taptap biex tgħodd</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tektek biex tgħodd</string>
+    <string name="tasbih_back">Lura</string>
+    <string name="tasbih_cancel">Ikkanċella</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Custom</string>
+    <string name="tasbih_custom_target_hint">Daħħal in-numru ta\' għadd (minn 1 sa 100000)</string>
+    <string name="tasbih_custom_target_title">Issettja mira tad-dwana</string>
+    <string name="tasbih_of_target">ta’ %1$s</string>
+    <string name="tasbih_reset">Irrisettja</string>
+    <string name="tasbih_reset_all">Irrisettja kollox</string>
+    <string name="tasbih_round_complete">Round sħiħ komplut (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Rounds: %1$d</string>
+    <string name="tasbih_sound_desc">Ilgħab ringtone jew tone meta titlesta kull rawnd sħiħ</string>
+    <string name="tasbih_sound_title">Ħoss fil-mira</string>
+    <string name="tasbih_sound_tone_alarm">Allarm</string>
+    <string name="tasbih_sound_tone_notification">Notifika</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Tektek iċ-ċirku biex tgħodd</string>
+    <string name="tasbih_target_reached">Għan milħuq - Allah jaċċetta</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Total tal-lum \': %1$d</string>
+    <string name="tasbih_undo">Ħoll</string>
+    <string name="tasbih_virtue_label">Virtù ta \'dan id-dhikr</string>
+    <string name="tasbih_week_stats">L-aħħar 7 ijiem</string>
+</resources>

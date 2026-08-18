@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Récupérer automatiquement les prix</string>
+    <string name="zakat_auto_prices_hint">Lorsqu\'ils sont activés, les prix de l\'or et de l\'argent sont récupérés sur Internet et actualisés automatiquement.</string>
+    <string name="zakat_back">Retour</string>
+    <string name="zakat_cash">Argent liquide et épargne</string>
+    <string name="zakat_clear_history">Effacer l\'historique</string>
+    <string name="zakat_country">Pays</string>
+    <string name="zakat_country_placeholder">Choisissez votre pays et votre devise</string>
+    <string name="zakat_country_section">Pays et devise</string>
+    <string name="zakat_currency">Devise : %1$s</string>
+    <string name="zakat_debts">Dettes que vous devez (déduites)</string>
+    <string name="zakat_due">Zakat due (2,5%%) : %1$s</string>
+    <string name="zakat_fetch_failed">Impossible d\'obtenir des prix de \'t. Vérifiez votre connexion ou saisissez le prix manuellement.</string>
+    <string name="zakat_fetch_now">Actualiser les prix maintenant</string>
+    <string name="zakat_fetching">Récupérer les prix…</string>
+    <string name="zakat_fitr_persons">Nombre de membres de la famille</string>
+    <string name="zakat_fitr_saa_value">Valeur d\'un sa\' (aliment de base)</string>
+    <string name="zakat_fitr_section">Zakât al-Fitr</string>
+    <string name="zakat_fitr_total">Total de la zakat Fitr : %1$s</string>
+    <string name="zakat_gold_grams">Or (grammes)</string>
+    <string name="zakat_gold_price">Prix de l\'or par gramme</string>
+    <string name="zakat_history">Historique des calculs</string>
+    <string name="zakat_history_amount">Zakât : %1$s</string>
+    <string name="zakat_history_empty">Aucun calcul enregistré pour l\'instant.</string>
+    <string name="zakat_investments">Investissements</string>
+    <string name="zakat_last_updated">Dernière mise à jour : %1$s</string>
+    <string name="zakat_money_section">Zakat sur la richesse</string>
+    <string name="zakat_nisab_gold">Nisab d\'or (85g)</string>
+    <string name="zakat_nisab_met">Le nisab est atteint – la zakat est due</string>
+    <string name="zakat_nisab_not_met">En dessous du nisab – pas de zakat due</string>
+    <string name="zakat_nisab_silver">Nisab d\'argent (595g)</string>
+    <string name="zakat_rulings_note">Selon la majorité (jumhoor) : le nisab d\'or est de 85 g, l\'argent de 595 g et le taux est de 2,5%% après déduction des dettes dues. Consultez un spécialiste qualifié pour les cas particuliers.</string>
+    <string name="zakat_save_result">Enregistrer dans l\'historique</string>
+    <string name="zakat_silver_grams">Argent (grammes)</string>
+    <string name="zakat_silver_price">Prix de l\'argent au gramme</string>
+    <string name="zakat_source_note">Prix de l’or/argent sur gold-api.com ; Taux de change de open.er-api.com</string>
+    <string name="zakat_title">Zakât</string>
+    <string name="zakat_total_assets">Actif total</string>
+    <string name="zakat_trade">Valeur des biens commerciaux</string>
+    <string name="zakat_zakatable">Montant zakatable après dettes</string>
+</resources>

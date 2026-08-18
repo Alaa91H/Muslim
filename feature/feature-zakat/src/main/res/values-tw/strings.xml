@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Fa nneɛma bo no ara kwa</string>
+    <string name="zakat_auto_prices_hint">Sɛ wɔma ɛyɛ adwuma a, wɔfa sika kɔkɔɔ ne dwetɛ bo fi intanɛt so na wɔyɛ no foforo ankasa</string>
+    <string name="zakat_back">San akyi</string>
+    <string name="zakat_cash">Sika ne sika a wɔde sie</string>
+    <string name="zakat_clear_history">Abakɔsɛm a emu da hɔ</string>
+    <string name="zakat_country">Ɔman</string>
+    <string name="zakat_country_placeholder">Paw wo man ne wo sika</string>
+    <string name="zakat_country_section">Ɔman &amp; sika</string>
+    <string name="zakat_currency">Sika a wɔde yɛ adwuma: %1$s</string>
+    <string name="zakat_debts">Ɛka a wode (wɔatwa mu) .</string>
+    <string name="zakat_due">Zakat a ɛsɛ sɛ wotua (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t amfa nneɛma bo aba. Hwɛ wo connection no anaa fa nsa kyerɛw bo no.</string>
+    <string name="zakat_fetch_now">Fa nneɛma bo yɛ foforo mprempren</string>
+    <string name="zakat_fetching">Fetching nneɛma bo...</string>
+    <string name="zakat_fitr_persons">Abusua no mufo dodow</string>
+    <string name="zakat_fitr_saa_value">Bo a ɛsom wɔ sa\' (aduan titiriw) biako so .</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr a ɔkyerɛwee</string>
+    <string name="zakat_fitr_total">Fitr zakat nyinaa: %1$s</string>
+    <string name="zakat_gold_grams">Sika kɔkɔɔ (gram) .</string>
+    <string name="zakat_gold_price">Sika kɔkɔɔ bo yɛ gram biara</string>
+    <string name="zakat_history">Nkontaabu abakɔsɛm</string>
+    <string name="zakat_history_amount">Zakat: %1$s na ɛwɔ hɔ</string>
+    <string name="zakat_history_empty">Akontaabu biara nni hɔ a wɔakora so de besi nnɛ.</string>
+    <string name="zakat_investments">Sika a wɔde hyɛ mu</string>
+    <string name="zakat_last_updated">Nea etwa to a wɔyɛɛ no foforo: %1$s</string>
+    <string name="zakat_money_section">Zakat a ɛfa ahonyadeɛ ho</string>
+    <string name="zakat_nisab_gold">Sika kɔkɔɔ nisab (85g) .</string>
+    <string name="zakat_nisab_met">Nisab no adu — zakat no yɛ nea ɛsɛ</string>
+    <string name="zakat_nisab_not_met">Nisab ase — zakat biara nni hɔ a ɛsɛ sɛ wotua</string>
+    <string name="zakat_nisab_silver">Dwetɛ nisab (595g) .</string>
+    <string name="zakat_rulings_note">Per the majority (jumhoor): sika kɔkɔɔ nisab yɛ 85g, dwetɛ 595g, na ne bo yɛ 2.5%% bere a wɔayi ɛka a ɛsɛ sɛ wotua no afi mu akyi. Hwɛ ɔbenfo bi a ɔfata wɔ nsɛm titiriw ho.</string>
+    <string name="zakat_save_result">Fa sie wɔ abakɔsɛm mu</string>
+    <string name="zakat_silver_grams">Dwetɛ (gram) .</string>
+    <string name="zakat_silver_price">Dwetɛ bo wɔ gram biara mu</string>
+    <string name="zakat_source_note">Sika kɔkɔɔ/dwetɛ bo a efi gold-api.com; FX rates fi open.er-api.com so</string>
+    <string name="zakat_title">Zakat a wɔde di dwuma</string>
+    <string name="zakat_total_assets">Agyapade a ɛwɔ hɔ nyinaa</string>
+    <string name="zakat_trade">Aguadi nneɛma bo</string>
+    <string name="zakat_zakatable">Zakatable sika akyi ɛka</string>
+</resources>

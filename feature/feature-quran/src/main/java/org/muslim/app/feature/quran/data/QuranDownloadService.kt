@@ -36,7 +36,8 @@ import javax.inject.Inject
  *
  * Night-only downloads (التحميل الليلي) are parked with a `WaitingNight`
  * status and an exact alarm at the window start, so the transfer begins
- * automatically inside the configured window (default 23:00–05:00).
+ * automatically inside the configured window (default 23:00–05:00). Pausing
+ * keeps the partial `.part` files; resuming continues from where it stopped.
  */
 @AndroidEntryPoint
 class QuranDownloadService : Service() {
@@ -55,37 +56,70 @@ class QuranDownloadService : Service() {
         when (intent?.action) {
             ACTION_START -> {
                 val request = parseRequest(intent) ?: return START_NOT_STICKY
-                ensureChannel()
-                // Night-held tasks re-delivered by the alarm must not re-park
-                // forever; upsert so the UI always sees the task.
-                manager.upsert(
-                    DownloadTaskUi(
-                        id = request.id,
-                        label = request.label,
-                        reciterName = request.reciterName,
-                        progress = 0f,
-                        downloadedBytes = 0L,
-                        totalBytes = request.totalBytes,
-                        status = DownloadStatus.Queued,
-                    )
-                )
-                startForeground(
-                    NOTIFICATION_ID,
-                    buildNotification(request.label, 0, 0L, request.totalBytes),
-                )
-                jobs[request.id]?.cancel()
-                jobs[request.id] = scope.launch { run(request) }
+                start(request)
+                return START_REDELIVER_INTENT
+            }
+            ACTION_PAUSE -> {
+                val id = intent.getStringExtra(EXTRA_ID) ?: return START_NOT_STICKY
+                jobs.remove(id)?.cancel()
+                cancelNightAlarm(id)
+                manager.update(id) { it.copy(status = DownloadStatus.Paused) }
+                maybeStop()
+                return START_NOT_STICKY
+            }
+            ACTION_RESUME -> {
+                val id = intent.getStringExtra(EXTRA_ID) ?: return START_NOT_STICKY
+                val request = manager.requestById(id) ?: return START_NOT_STICKY
+                start(request)
                 return START_REDELIVER_INTENT
             }
             ACTION_CANCEL -> {
                 val id = intent.getStringExtra(EXTRA_ID) ?: return START_NOT_STICKY
                 jobs.remove(id)?.cancel()
+                cancelNightAlarm(id)
+                val request = manager.requestById(id)
+                if (request != null) {
+                    scope.launch { deletePartials(request) }
+                }
                 manager.update(id) { it.copy(status = DownloadStatus.Failed) }
                 maybeStop()
                 return START_NOT_STICKY
             }
+            ACTION_RESTORE -> {
+                ensureChannel()
+                startForeground(NOTIFICATION_ID, buildRestoreNotification())
+                scope.launch {
+                    manager.restore()
+                    maybeStop()
+                }
+                return START_NOT_STICKY
+            }
         }
         return START_NOT_STICKY
+    }
+
+    private fun start(request: DownloadRequest) {
+        ensureChannel()
+        // Night-held tasks re-delivered by the alarm must not re-park forever;
+        // upsert so the UI always sees the task, preserving prior progress.
+        val current = manager.tasks.value.firstOrNull { it.id == request.id }
+        manager.upsert(
+            DownloadTaskUi(
+                id = request.id,
+                label = request.label,
+                reciterName = request.reciterName,
+                progress = current?.progress ?: 0f,
+                downloadedBytes = current?.downloadedBytes ?: 0L,
+                totalBytes = request.totalBytes,
+                status = DownloadStatus.Queued,
+            )
+        )
+        startForeground(
+            NOTIFICATION_ID,
+            buildNotification(request.label, 0, current?.downloadedBytes ?: 0L, request.totalBytes),
+        )
+        jobs[request.id]?.cancel()
+        jobs[request.id] = scope.launch { run(request) }
     }
 
     private suspend fun run(request: DownloadRequest) {
@@ -128,20 +162,8 @@ class QuranDownloadService : Service() {
         val openAt = NightDownloadWindow.nextOpenMillis(
             System.currentTimeMillis(), ZoneId.systemDefault(), windowStart,
         )
-        val openIntent = Intent(this, QuranDownloadService::class.java).apply {
-            action = ACTION_START
-            putExtra(EXTRA_ID, request.id)
-            putExtra(EXTRA_RECITER_ID, request.reciterId)
-            putExtra(EXTRA_RECITER_NAME, request.reciterName)
-            putExtra(EXTRA_SCOPE, request.scope.name)
-            putExtra(EXTRA_SURAH, request.surahNumber ?: -1)
-            putExtra(EXTRA_GLOBAL, request.globalNumber ?: -1)
-            putExtra(EXTRA_LABEL, request.label)
-            putExtra(EXTRA_TOTAL_BYTES, request.totalBytes)
-            putExtra(EXTRA_NIGHT_ONLY, true)
-        }
         val pending = PendingIntent.getService(
-            this, request.id.hashCode(), openIntent,
+            this, request.id.hashCode(), startIntent(this, request.copy(nightOnly = true)),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
         val alarm = getSystemService(AlarmManager::class.java)
@@ -163,6 +185,24 @@ class QuranDownloadService : Service() {
         val start = prefsRepository.nightDownloadStart.first()
         val end = prefsRepository.nightDownloadEnd.first()
         return NightDownloadWindow.contains(System.currentTimeMillis(), ZoneId.systemDefault(), start, end)
+    }
+
+    /** Removes any in-flight `.part` files for the cancelled request's scope. */
+    private suspend fun deletePartials(request: DownloadRequest) {
+        val surah = if (request.scope == DownloadScope.FullQuran) null else request.surahNumber
+        recitationRepository.deletePartials(request.reciterId, surah)
+    }
+
+    /** Cancels the exact alarm armed for a night-held or deferred task. */
+    private fun cancelNightAlarm(id: String) {
+        val alarm = getSystemService(AlarmManager::class.java)
+        val pending = PendingIntent.getService(
+            this,
+            id.hashCode(),
+            Intent(this, QuranDownloadService::class.java).apply { action = ACTION_START },
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+        )
+        alarm.cancel(pending)
     }
 
     private suspend fun downloadAyah(reciter: Reciter, request: DownloadRequest): FileDownloader.Result {
@@ -262,7 +302,16 @@ class QuranDownloadService : Service() {
         return builder.build()
     }
 
-    /** Parked night-only download: shows when the window opens (23:00–05:00). */
+    /** Transient notification shown while a reboot restore re-arms the queue. */
+    private fun buildRestoreNotification(): Notification =
+        NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_download_notification)
+            .setContentTitle(getString(R.string.quran_download_restoring))
+            .setOngoing(true)
+            .setOnlyAlertOnce(true)
+            .build()
+
+    /** Parked night-only download: shows when the window opens. */
     private fun buildNightNotification(label: String, startMinutes: Int, endMinutes: Int): Notification {
         val contentIntent = PendingIntent.getActivity(
             this,
@@ -327,7 +376,10 @@ class QuranDownloadService : Service() {
         private const val CHANNEL_ID = "quran_downloads"
         private const val NOTIFICATION_ID = 7100
         const val ACTION_START = "org.muslim.app.feature.quran.download.START"
+        const val ACTION_PAUSE = "org.muslim.app.feature.quran.download.PAUSE"
+        const val ACTION_RESUME = "org.muslim.app.feature.quran.download.RESUME"
         const val ACTION_CANCEL = "org.muslim.app.feature.quran.download.CANCEL"
+        const val ACTION_RESTORE = "org.muslim.app.feature.quran.download.RESTORE"
         const val EXTRA_ID = "extra_id"
         const val EXTRA_RECITER_ID = "extra_reciter_id"
         const val EXTRA_RECITER_NAME = "extra_reciter_name"
@@ -337,5 +389,20 @@ class QuranDownloadService : Service() {
         const val EXTRA_LABEL = "extra_label"
         const val EXTRA_TOTAL_BYTES = "extra_total_bytes"
         const val EXTRA_NIGHT_ONLY = "extra_night_only"
+
+        /** Builds the ACTION_START intent that (re)delivers [request]. */
+        fun startIntent(context: Context, request: DownloadRequest): Intent =
+            Intent(context, QuranDownloadService::class.java).apply {
+                action = ACTION_START
+                putExtra(EXTRA_ID, request.id)
+                putExtra(EXTRA_RECITER_ID, request.reciterId)
+                putExtra(EXTRA_RECITER_NAME, request.reciterName)
+                putExtra(EXTRA_SCOPE, request.scope.name)
+                putExtra(EXTRA_SURAH, request.surahNumber ?: -1)
+                putExtra(EXTRA_GLOBAL, request.globalNumber ?: -1)
+                putExtra(EXTRA_LABEL, request.label)
+                putExtra(EXTRA_TOTAL_BYTES, request.totalBytes)
+                putExtra(EXTRA_NIGHT_ONLY, request.nightOnly)
+            }
     }
 }

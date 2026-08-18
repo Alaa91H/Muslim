@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s attālumā</string>
+    <string name="mosque_finder_empty">Šajā diapazonā nav atrasta neviena mošeja</string>
+    <string name="mosque_finder_error">Meklēšana neizdevās</string>
+    <string name="mosque_finder_intro">Atrodiet mošejas netālu no savas atrašanās vietas, izmantojot OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Atrašanās vieta vēl nav iestatīta. Vispirms izvēlieties vietu no lūgšanu laiku iestatījumiem.</string>
+    <string name="mosque_finder_retry">Mēģiniet vēlreiz</string>
+    <string name="mosque_finder_searching">Notiek meklēšana…</string>
+    <string name="mosque_finder_title">Blakus mošejas</string>
+    <string name="qibla_bearing_cardinal">Qibla virziens: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Lai veiktu kalibrēšanu, pārvietojiet tālruni astoņu skaitli</string>
+    <string name="qibla_distance">Attālums līdz Mekai: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Jūs esat pretī Kiblai 🕋</string>
+    <string name="qibla_gps_error">Nevarēja iegūt precīzu labojumu. Lūdzu, mēģiniet vēlreiz.</string>
+    <string name="qibla_gps_live">Tiešā GPS atrašanās vieta</string>
+    <string name="qibla_gps_refresh">Atsvaidzināt atrašanās vietu, izmantojot GPS</string>
+    <string name="qibla_gps_refreshing">Notiek atrašanās vietas noteikšana…</string>
+    <string name="qibla_heading_degree">Tālruņa virsraksts: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Lielisks apļa maršruts no jūsu atrašanās vietas uz Kaabu — darbojas bezsaistē</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Tu</string>
+    <string name="qibla_mode_compass">Kompass</string>
+    <string name="qibla_mode_map">Karte</string>
+    <string name="qibla_open_mosques">Blakus mošejas</string>
+    <string name="qibla_title">Kiblas virziens</string>
+    <string name="qibla_turn_left">Pagriezieties pa kreisi %1$.1f°</string>
+    <string name="qibla_turn_right">Pagriezieties pa labi par %1$.1f°</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s தொலைவில்</string>
+    <string name="mosque_finder_empty">இந்த வரம்பில் மசூதிகள் எதுவும் இல்லை</string>
+    <string name="mosque_finder_error">தேடல் தோல்வியடைந்தது</string>
+    <string name="mosque_finder_intro">OpenStreetMap மூலம் உங்கள் இருப்பிடத்திற்கு அருகிலுள்ள மசூதிகளைக் கண்டறியவும்</string>
+    <string name="mosque_finder_no_location">இன்னும் இடம் அமைக்கப்படவில்லை. பிரார்த்தனை நேர அமைப்புகளில் இருந்து முதலில் ஒரு இடத்தைத் தேர்ந்தெடுக்கவும்.</string>
+    <string name="mosque_finder_retry">மீண்டும் முயற்சிக்கவும்</string>
+    <string name="mosque_finder_searching">தேடுகிறது…</string>
+    <string name="mosque_finder_title">அருகிலுள்ள மசூதிகள்</string>
+    <string name="qibla_bearing_cardinal">கிப்லா திசை: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">அளவீடு செய்ய உங்கள் மொபைலை எண்-எட்டில் நகர்த்தவும்</string>
+    <string name="qibla_distance">மக்காவிற்கு தூரம்: %1$s</string>
+    <string name="qibla_distance_km">%,.0f கி.மீ</string>
+    <string name="qibla_facing">நீங்கள் கிப்லாவை எதிர்கொள்கிறீர்கள்</string>
+    <string name="qibla_gps_error">துல்லியமான தீர்வைப் பெற முடியவில்லை. மீண்டும் முயற்சிக்கவும்.</string>
+    <string name="qibla_gps_live">நேரடி ஜிபிஎஸ் இடம்</string>
+    <string name="qibla_gps_refresh">ஜிபிஎஸ் மூலம் இருப்பிடத்தைப் புதுப்பிக்கவும்</string>
+    <string name="qibla_gps_refreshing">இருப்பிடம்…</string>
+    <string name="qibla_heading_degree">தொலைபேசி தலைப்பு: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">உங்கள் இருப்பிடத்திலிருந்து காபாவிற்குச் செல்லும் பெரிய வட்டப் பாதை - ஆஃப்லைனில் வேலை செய்கிறது</string>
+    <string name="qibla_map_kaaba">காபா</string>
+    <string name="qibla_map_you">நீங்கள்</string>
+    <string name="qibla_mode_compass">திசைகாட்டி</string>
+    <string name="qibla_mode_map">வரைபடம்</string>
+    <string name="qibla_open_mosques">அருகிலுள்ள மசூதிகள்</string>
+    <string name="qibla_title">கிப்லா திசை</string>
+    <string name="qibla_turn_left">இடதுபுறம் திரும்பவும் %1$.1f°</string>
+    <string name="qibla_turn_right">வலதுபுறம் திரும்பவும் %1$.1f°</string>
+</resources>

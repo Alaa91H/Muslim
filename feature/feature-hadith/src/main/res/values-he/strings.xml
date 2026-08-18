@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">הכל</string>
+    <string name="hadith_back">חזרה</string>
+    <string name="hadith_bookmark_add">הוסף סימניה</string>
+    <string name="hadith_bookmark_remove">הסר את הסימניה</string>
+    <string name="hadith_collection_abudawud">אבו דאוד</string>
+    <string name="hadith_collection_bukhari">אל-בוכרי</string>
+    <string name="hadith_collection_ibnmajah">אבן מג\'ה</string>
+    <string name="hadith_collection_muslim">מוסלמי</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">אן-נאווי 40</string>
+    <string name="hadith_collection_other">אחר</string>
+    <string name="hadith_collection_riyad">ריאד אס-סליחין</string>
+    <string name="hadith_collection_tirmidhi">אט-טירמידי</string>
+    <string name="hadith_daily_notification">הודעת חדית\' יומית</string>
+    <string name="hadith_daily_notification_desc">קבל חדית\' כל יום</string>
+    <string name="hadith_daily_notification_time">זמן הודעה</string>
+    <string name="hadith_of_the_day">החדית\' של היום</string>
+    <string name="hadith_preview_hint">כך מופיעה הודעת החדית\' היומית בזמן שנקבע לה.</string>
+    <string name="hadith_preview_label">תצוגה מקדימה של התראות</string>
+    <string name="hadith_preview_loading">טוען את החדית\'...</string>
+    <string name="hadith_search_hint">חפש בחדית\'ים...</string>
+    <string name="hadith_share">שתף</string>
+    <string name="hadith_title">ספריית חדית\'</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Qhipäxaru</string>
+    <string name="ramadan_countdown">Ramadan begins in %1$s days</string>
+    <string name="ramadan_countdown_to_iftar">Iftar ukar puriñ pacha: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Fajr markar puriñ pacha: %1$s</string>
+    <string name="ramadan_day_of_month">Ramadán urux %1$s urunak saraqataruw purini</string>
+    <string name="ramadan_days_left">%1$s urunaka qhipararaki</string>
+    <string name="ramadan_fasting_progress">Ayuno urunaka: %1$s de %2$s — mä uru ch’iqt’aña grabañataki</string>
+    <string name="ramadan_fasting_tracker">Ayunañ arknaqaña</string>
+    <string name="ramadan_hijri_note">Umm al-Qura calendario ukarjam app-wide Hijri ukan chiqañchäwipampi.</string>
+    <string name="ramadan_hijri_year">Ukax %1$s AH marawa</string>
+    <string name="ramadan_iftar">Iftar ukax mä juk’a pachanakanwa</string>
+    <string name="ramadan_iftar_dua">Iftar mayiwi: "Oh Allah, jumatakiw ayunawayta ukat juman manq\'añanakamaruw ayunawayta..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) pachax: %1$s ukhawa</string>
+    <string name="ramadan_location_required">Nayraqatax Configuración ukan mä marka ajlliñamawa pachanak uñjañataki.</string>
+    <string name="ramadan_minutes">%1$s ukat juk’ampinaka</string>
+    <string name="ramadan_notification_iftar_body">O Allah, Juma laykux ayunawayta ukat juman manq’añanakamaruw ayunawayta</string>
+    <string name="ramadan_notification_iftar_title">Iftar lurañataki pacha</string>
+    <string name="ramadan_notification_suhoor_body">Fajr jak’achasiski — suhoor ukax utjañapawa</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor amtawi</string>
+    <string name="ramadan_starts_on">%1$s — %2$s uka jakhuna</string>
+    <string name="ramadan_suhoor">Suhoor ukax mä juk’a pachanakanwa</string>
+    <string name="ramadan_suhoor_remind_before">Nayraqat amtayapxita:</string>
+    <string name="ramadan_suhoor_time">Suhoor ends (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadán urunxa</string>
+</resources>

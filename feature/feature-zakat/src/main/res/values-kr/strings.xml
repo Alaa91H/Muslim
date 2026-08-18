@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Farashi kǝlanzǝn sǝbandǝ</string>
+    <string name="zakat_auto_prices_hint">Loktu yitagattəgənaro waljiya, taman dinarbe-a liwulabe-adə intanetten gotin kuru kəlanzəlaro bəlintin</string>
+    <string name="zakat_back">Ngawo</string>
+    <string name="zakat_cash">Kungǝna-a kuru gǝnatǝ-a</string>
+    <string name="zakat_clear_history">Gargam cinne</string>
+    <string name="zakat_country">Lardǝ</string>
+    <string name="zakat_country_placeholder">Lardǝnǝmma kuru kungǝnanǝmma karne</string>
+    <string name="zakat_country_section">Lardǝ &amp; kungǝna</string>
+    <string name="zakat_currency">Kungəna: %1$s</string>
+    <string name="zakat_debts">Kusuwu nyiro tǝkǝnama (gotǝna)</string>
+    <string name="zakat_due">Zakat duwo (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Raksə \'t farashi gojin. Connectionnǝm kulasne au tamandǝ muskon yike.</string>
+    <string name="zakat_fetch_now">Farashi bəlintəgə</string>
+    <string name="zakat_fetching">Tamandǝ gotǝ...</string>
+    <string name="zakat_fitr_persons">Adadu am fatobe</string>
+    <string name="zakat_fitr_saa_value">Daraja falbe sa\' (kəmbu kəske)</string>
+    <string name="zakat_fitr_section">Zakat fitribe</string>
+    <string name="zakat_fitr_total">Jimla Zakat Fitrbe: %1$s</string>
+    <string name="zakat_gold_grams">Dinar (gram)</string>
+    <string name="zakat_gold_price">Tamandǝ dinarbe gram falbe</string>
+    <string name="zakat_history">Gargam somtəbe</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Kuwamiyayi somtə gənatəna ba.</string>
+    <string name="zakat_investments">Zar yiko</string>
+    <string name="zakat_last_updated">Dareram lan: %1$s</string>
+    <string name="zakat_money_section">Zakat kǝla arzǝnyiben</string>
+    <string name="zakat_nisab_gold">Nisab dinarbe (85g)</string>
+    <string name="zakat_nisab_met">Nisabdə nazəgəna — zakatdə wajib</string>
+    <string name="zakat_nisab_not_met">Cidiya nisabben — zakat ba</string>
+    <string name="zakat_nisab_silver">Nisab liwulabe (595g)</string>
+    <string name="zakat_rulings_note">Kambosoro (jumhoor): dinar nisab də 85g, liwula 595g, kuru adadudə 2.5%% ngawo kusuwuwa gotənayen. Malǝm ngǝla-ngǝla-a wuzǝ lamarra taganasbe nankaro.</string>
+    <string name="zakat_save_result">Gargamro gənanəmin</string>
+    <string name="zakat_silver_grams">Liwula (gram)</string>
+    <string name="zakat_silver_price">Tamani liwulabe gram falye</string>
+    <string name="zakat_source_note">Farashi dinar/liwulabe dinar-api.com lan; Adadu FXbedə na.er-api.comben</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Jimla kadaribe</string>
+    <string name="zakat_trade">Daraja kare kasuwube</string>
+    <string name="zakat_zakatable">Zakatin ngawo kusuwuben</string>
+</resources>

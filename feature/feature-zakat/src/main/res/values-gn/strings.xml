@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Egueru umi precio ijeheguiete</string>
+    <string name="zakat_auto_prices_hint">Ojeactiva jave, ojegueru internet-gui óro ha pláta repy ha oñembopyahu ijeheguiete</string>
+    <string name="zakat_back">Ojevy jey</string>
+    <string name="zakat_cash">Efectivo ha ahorro rehegua</string>
+    <string name="zakat_clear_history">Tembiasakue hesakãva</string>
+    <string name="zakat_country">Tetã</string>
+    <string name="zakat_country_placeholder">Eiporavo ne retã ha viru</string>
+    <string name="zakat_country_section">Tetã &amp; viru rehegua</string>
+    <string name="zakat_currency">Viru: %1$s. Ñe’ẽpoty ha ñe’ẽpoty</string>
+    <string name="zakat_debts">Umi deuda redevéva (ojededucíva) .</string>
+    <string name="zakat_due">Zaka ojepagáva (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ndaikatúi\'t ogueru umi precio. Ehecháke ne joaju térã emoinge nde repykue nde po rupive.</string>
+    <string name="zakat_fetch_now">Ombopyahu umi precio ko\'ágã</string>
+    <string name="zakat_fetching">Ojegueru haguã umi precio...</string>
+    <string name="zakat_fitr_persons">Mboy hogayguakuérapa oĩ</string>
+    <string name="zakat_fitr_saa_value">Peteĩ sa\' (tembi’u tenondegua) repykue .</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr rehegua</string>
+    <string name="zakat_fitr_total">Zakat Fitr rehegua tuichakue: %1$s</string>
+    <string name="zakat_gold_grams">Oro (gramos) .</string>
+    <string name="zakat_gold_price">Oro repy peteĩ gramo rehe</string>
+    <string name="zakat_history">Tembiasakue cálculo rehegua</string>
+    <string name="zakat_history_amount">Zakat: %1$s rehegua</string>
+    <string name="zakat_history_empty">Ndaipóri gueteri cálculo oñeñongatúva.</string>
+    <string name="zakat_investments">Inversiones rehegua</string>
+    <string name="zakat_last_updated">Oñemoambue ipahaitépe: %1$s</string>
+    <string name="zakat_money_section">Zakat riqueza rehegua</string>
+    <string name="zakat_nisab_gold">Oro nisab (85g) .</string>
+    <string name="zakat_nisab_met">Pe nisab oñeguahẽ — zakat ojepagava’erã</string>
+    <string name="zakat_nisab_not_met">Nisab guýpe — ndaipóri zakat ojepagáva</string>
+    <string name="zakat_nisab_silver">Nisab plata rehegua (595g) .</string>
+    <string name="zakat_rulings_note">Por la mayoría (jumhoor): nisab de oro ha\'e 85g, plata 595g, ha tasa ha\'e 2,5%% ojeipe\'a rire umi deuda vencido. Eñeporandúke peteĩ karai arandu ikatupyrývape umi káso espesiálpe g̃uarã.</string>
+    <string name="zakat_save_result">Eñongatu tembiasápe</string>
+    <string name="zakat_silver_grams">Pláta (gramos) .</string>
+    <string name="zakat_silver_price">Plata repy peteĩ gramo rehe</string>
+    <string name="zakat_source_note">Oro/plata repykue oro-api.com-gui; Umi tasa FX open.er-api.com guive</string>
+    <string name="zakat_title">Zakat rehegua</string>
+    <string name="zakat_total_assets">Total umi activo rehegua</string>
+    <string name="zakat_trade">Mba’erepy ñemu rehegua valor</string>
+    <string name="zakat_zakatable">Monto zakatable umi deuda rire</string>
+</resources>

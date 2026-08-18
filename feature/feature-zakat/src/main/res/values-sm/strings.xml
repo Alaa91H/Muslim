@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Aumai tau otometi</string>
+    <string name="zakat_auto_prices_hint">A mafai, e aumai tau auro ma siliva mai luga ole initaneti ma toe fa\'afou otometi</string>
+    <string name="zakat_back">Tua</string>
+    <string name="zakat_cash">Tinoitupe ma sefe</string>
+    <string name="zakat_clear_history">Fa\'amanino tala fa\'asolopito</string>
+    <string name="zakat_country">Atunuu</string>
+    <string name="zakat_country_placeholder">Filifili lou atunuu ma le tupe</string>
+    <string name="zakat_country_section">Atunu\'u &amp; tupe</string>
+    <string name="zakat_currency">Tupe: %1$s</string>
+    <string name="zakat_debts">O aitalafu e te nofo aitalafu (toesea)</string>
+    <string name="zakat_due">Zakat e tatau ona totogi (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">E mafai e \'t ona maua tau. Siaki lau feso\'ota\'iga pe fa\'aulu ma le lima le tau.</string>
+    <string name="zakat_fetch_now">Toe fa\'afou tau nei</string>
+    <string name="zakat_fetching">Aumai tau…</string>
+    <string name="zakat_fitr_persons">Numera o tagata o le aiga</string>
+    <string name="zakat_fitr_saa_value">Tau o le tasi sa\' (mea\'ai masani)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Aofa\'i Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Auro (kalama)</string>
+    <string name="zakat_gold_price">Tau auro ile kalama</string>
+    <string name="zakat_history">Tala\'aga fa\'atatau</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Leai se fa\'atatauga sefe i le taimi nei.</string>
+    <string name="zakat_investments">Tupe teu faafaigaluega</string>
+    <string name="zakat_last_updated">Fa\'afouga mulimuli: %1$s</string>
+    <string name="zakat_money_section">Zakat i le tamaoaiga</string>
+    <string name="zakat_nisab_gold">Nisab auro (85g)</string>
+    <string name="zakat_nisab_met">Ua ausia le nisab - ua tatau ona zakat</string>
+    <string name="zakat_nisab_not_met">I lalo ifo o le nisab - leai se zakat e tatau</string>
+    <string name="zakat_nisab_silver">Nisab siliva (595g)</string>
+    <string name="zakat_rulings_note">Mo le toatele (jumhoor): auro nisab e 85g, siliva 595g, ma le fua faatatau o le 2.5%% ina ua uma ona toesea aitalafu tatau. Fa\'afeso\'ota\'i se sikola agavaa mo mataupu fa\'apitoa.</string>
+    <string name="zakat_save_result">Faasaoina i le talafaasolopito</string>
+    <string name="zakat_silver_grams">siliva (kalama)</string>
+    <string name="zakat_silver_price">Tau siliva ile kalama</string>
+    <string name="zakat_source_note">Tau auro/siliva mai gold-api.com; FX fua faatatau mai open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Aofa\'i aseta</string>
+    <string name="zakat_trade">Fefa\'ataua\'iga tau o oloa</string>
+    <string name="zakat_zakatable">Ole tau ole Zakatable pe a uma aitalafu</string>
+</resources>

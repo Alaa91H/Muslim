@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Yn ol</string>
+    <string name="ramadan_countdown">Ramadan yn dechrau mewn %1$s diwrnod</string>
+    <string name="ramadan_countdown_to_iftar">Amser i iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Amser i Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Diwrnod %1$s o Ramadan</string>
+    <string name="ramadan_days_left">%1$s diwrnod ar ôl</string>
+    <string name="ramadan_fasting_progress">Dyddiau ymprydio: %1$s o %2$s - tapiwch ddiwrnod i\'w recordio</string>
+    <string name="ramadan_fasting_tracker">Traciwr ymprydio</string>
+    <string name="ramadan_hijri_note">Yn seiliedig ar galendr Umm al-Qura gyda\'r addasiad Hijri ar draws yr ap wedi\'i gymhwyso.</string>
+    <string name="ramadan_hijri_year">Blwyddyn %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Ymbil Iftar: "O Allah, drosot ti yr ymprydiais ac ar dy ddarpariaeth di yr wyf yn torri fy ympryd ..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) amser: %1$s</string>
+    <string name="ramadan_location_required">Dewiswch ddinas yn y Gosodiadau yn gyntaf i weld yr amseroedd.</string>
+    <string name="ramadan_minutes">%1$s mun</string>
+    <string name="ramadan_notification_iftar_body">O Allah, drosot ti yr ymprydiais ac ar dy ddarpariaeth di yr wyf yn torri fy ympryd</string>
+    <string name="ramadan_notification_iftar_title">Amser i iftar</string>
+    <string name="ramadan_notification_suhoor_body">Mae Fajr yn nesau—cael eich suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Nodyn atgoffa suhoor</string>
+    <string name="ramadan_starts_on">%1$s-%2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Atgoffwch fi cyn:</string>
+    <string name="ramadan_suhoor_time">Suhoor yn dod i ben (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

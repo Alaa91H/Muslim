@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Kubwerera</string>
+    <string name="ramadan_countdown">Ramadan imayamba masiku %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Nthawi: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Nthawi yopita ku Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Tsiku %1$s la Ramadan</string>
+    <string name="ramadan_days_left">%1$s masiku atsala</string>
+    <string name="ramadan_fasting_progress">Masiku osala kudya: %1$s ya %2$s - dinani tsiku kuti mulembe</string>
+    <string name="ramadan_fasting_tracker">Kusala kudya</string>
+    <string name="ramadan_hijri_note">Kutengera ndi kalendala ya Umm al-Qura yokhala ndi kusintha kwa Hijri komwe kumagwiritsidwa ntchito.</string>
+    <string name="ramadan_hijri_year">Chaka cha %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Kupemphera kwa Iftar: "O, Allah, chifukwa cha Inu ndidasala, ndipo chifukwa cha riziki lanu ndaswali ..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) nthawi: %1$s</string>
+    <string name="ramadan_location_required">Sankhani mzinda mu Zochunira kaye kuti muwone nthawi.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O, Allah, chifukwa cha Inu ndidasala, ndipo chifukwa cha riziki lanu ndaswali</string>
+    <string name="ramadan_notification_iftar_title">Nthawi ya iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr ikuyandikira - khalani ndi suhuor yanu</string>
+    <string name="ramadan_notification_suhoor_title">Chikumbutso champhamvu</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Ndikumbutseni kale:</string>
+    <string name="ramadan_suhoor_time">Kutha kwa Suhoor (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

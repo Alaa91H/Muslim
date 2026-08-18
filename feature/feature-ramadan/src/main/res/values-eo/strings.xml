@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Reen</string>
+    <string name="ramadan_countdown">Ramadano komenciĝas en %1$s tagoj</string>
+    <string name="ramadan_countdown_to_iftar">Tempo al iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Tempo al Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Tago %1$s de Ramadano</string>
+    <string name="ramadan_days_left">%1$s tagoj restas</string>
+    <string name="ramadan_fasting_progress">Fastaj tagoj: %1$s el %2$s — frapu tagon por registri ĝin</string>
+    <string name="ramadan_fasting_tracker">Fasta spuristo</string>
+    <string name="ramadan_hijri_note">Surbaze de la kalendaro Umm al-Qura kun la aplikata Hijri-alĝustigo.</string>
+    <string name="ramadan_hijri_year">Jaro %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar petego: "Ho Alaho, por Vi mi fastis kaj laŭ Via provizo mi interrompas mian faston..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) tempo: %1$s</string>
+    <string name="ramadan_location_required">Elektu urbon en Agordoj unue por vidi la tempojn.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Ho Allah, pro Vi mi fastis kaj sur Via provizo mi rompas mian faston</string>
+    <string name="ramadan_notification_iftar_title">Tempo por iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr alproksimiĝas — havu vian suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor rememorigilo</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Rememorigu min antaŭe:</string>
+    <string name="ramadan_suhoor_time">Suhoor finiĝas (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadano</string>
+</resources>

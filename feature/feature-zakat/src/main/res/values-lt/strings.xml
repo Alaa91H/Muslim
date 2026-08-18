@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Automatiškai gauti kainas</string>
+    <string name="zakat_auto_prices_hint">Kai įjungta, aukso ir sidabro kainos gaunamos iš interneto ir atnaujinamos automatiškai</string>
+    <string name="zakat_back">Atgal</string>
+    <string name="zakat_cash">Grynieji pinigai ir santaupos</string>
+    <string name="zakat_clear_history">Išvalyti istoriją</string>
+    <string name="zakat_country">Šalis</string>
+    <string name="zakat_country_placeholder">Pasirinkite šalį ir valiutą</string>
+    <string name="zakat_country_section">Šalis ir valiuta</string>
+    <string name="zakat_currency">Valiuta: %1$s</string>
+    <string name="zakat_debts">Jūsų skolos (išskaitytos)</string>
+    <string name="zakat_due">Mokėtinas užmokestis (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Nepavyko gauti \'t kainų. Patikrinkite ryšį arba įveskite kainą rankiniu būdu.</string>
+    <string name="zakat_fetch_now">Atnaujinkite kainas dabar</string>
+    <string name="zakat_fetching">Gaunamos kainos…</string>
+    <string name="zakat_fitr_persons">Šeimos narių skaičius</string>
+    <string name="zakat_fitr_saa_value">Vieno sa\' vertė (pagrindinis maistas)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Iš viso: %1$s</string>
+    <string name="zakat_gold_grams">Auksas (gramais)</string>
+    <string name="zakat_gold_price">Aukso kaina už gramą</string>
+    <string name="zakat_history">Skaičiavimo istorija</string>
+    <string name="zakat_history_amount">Mokestis: %1$s</string>
+    <string name="zakat_history_empty">Dar nėra išsaugotų skaičiavimų.</string>
+    <string name="zakat_investments">Investicijos</string>
+    <string name="zakat_last_updated">Paskutinį kartą atnaujinta: %1$s</string>
+    <string name="zakat_money_section">Zakat apie turtus</string>
+    <string name="zakat_nisab_gold">Auksinis nizabas (85 g)</string>
+    <string name="zakat_nisab_met">Nisabas pasiektas - zakat turi būti</string>
+    <string name="zakat_nisab_not_met">Žemiau nisabo – be zakato</string>
+    <string name="zakat_nisab_silver">Sidabrinis nizabas (595 g)</string>
+    <string name="zakat_rulings_note">Daugumai (jumhoor): auksinis nisabas yra 85 g, sidabras 595 g, o kursas yra 2,5%%, atskaičius mokėtinas skolas. Ypatingais atvejais pasitarkite su kvalifikuotu mokslininku.</string>
+    <string name="zakat_save_result">Išsaugoti istorijoje</string>
+    <string name="zakat_silver_grams">Sidabras (gramais)</string>
+    <string name="zakat_silver_price">Sidabro kaina už gramą</string>
+    <string name="zakat_source_note">Aukso/sidabro kainos iš gold-api.com; FX kursai iš open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Iš viso turto</string>
+    <string name="zakat_trade">Prekybos prekių vertė</string>
+    <string name="zakat_zakatable">Zakatable suma po skolų</string>
+</resources>

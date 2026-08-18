@@ -36,7 +36,13 @@ class FusedLocationProvider(context: Context) : LocationProvider {
         val location = withTimeoutOrNull(15_000) {
             awaitLocation()
         }
-        location?.let { GeoLocation(it.latitude, it.longitude) }
+        location?.let {
+            GeoLocation(
+                latitude = it.latitude,
+                longitude = it.longitude,
+                altitude = if (it.hasAltitude()) it.altitude else null,
+            )
+        }
     }
 
     // Permission is checked in [currentLocation] before this is invoked; the

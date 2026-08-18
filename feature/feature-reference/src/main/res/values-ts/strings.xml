@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Ku tlhelela endzhaku</string>
+    <string name="reference_no_results">Ku hava mbuyelo lowu fambelanaka</string>
+    <string name="reference_search_hint">Secha buku leyi...</string>
+    <string name="reference_title">Layiburari ya Swikombo swa Vuislem</string>
+    <string name="reference_topics_count">tinhlokomhaka</string>
+</resources>

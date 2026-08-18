@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s дард</string>
+    <string name="mosque_finder_empty">Ацы арæны нæй мæзджыдтæ</string>
+    <string name="mosque_finder_error">Агурæн нæ рауад</string>
+    <string name="mosque_finder_intro">Ссарут мæзджыдтæ уæ бынатмæ хæстæг OpenStreetMap-ы фæрцы</string>
+    <string name="mosque_finder_no_location">Нырма бынат бæрæггонд нæу. Фыццаг равзарут бынат куывды рæстæджы параметртæй.</string>
+    <string name="mosque_finder_retry">Ногæй бафæлвар</string>
+    <string name="mosque_finder_searching">Агурын...</string>
+    <string name="mosque_finder_title">Хæстæг мæзджыдтæ</string>
+    <string name="qibla_bearing_cardinal">Киблайы здæхт: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Дæ телефон æрæвæр астмæ, цæмæй йæ калибровкæ кæнай</string>
+    <string name="qibla_distance">Дæрддзæг Меккæмæ: %1$s</string>
+    <string name="qibla_distance_km">%,.0f км</string>
+    <string name="qibla_facing">Ды дæ цæст кæныс къиблæмæ 🕋</string>
+    <string name="qibla_gps_error">Нæ бантыст раст æрбæстон кæнын. Дæ хорзæхæй, ногæй бафæлвар.</string>
+    <string name="qibla_gps_live">Комкоммæ GPS бынат</string>
+    <string name="qibla_gps_refresh">GPS-ы фæрцы бынат ног кæнын</string>
+    <string name="qibla_gps_refreshing">Ссарут...</string>
+    <string name="qibla_heading_degree">Телефоны сæргонд: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Стыр тымбылæджы фæндаг уæ бынатæй Каабæмæ — кусы офлайны</string>
+    <string name="qibla_map_kaaba">Кааба</string>
+    <string name="qibla_map_you">Ды</string>
+    <string name="qibla_mode_compass">Компас</string>
+    <string name="qibla_mode_map">Картæ</string>
+    <string name="qibla_open_mosques">Хæстæг мæзджыдтæ</string>
+    <string name="qibla_title">Киблæйы здæхт</string>
+    <string name="qibla_turn_left">Галиуырдыгæй здæх %1$.1f°</string>
+    <string name="qibla_turn_right">Рахизырдæм здæх %1$.1f°</string>
+</resources>

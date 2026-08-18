@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Wutal njëg yi ci saasi</string>
+    <string name="zakat_auto_prices_hint">Suñu ko amalee, njëgi wurus ak xaalis dañuy jëlee ci net bi ba noppi yeesal ci saasi</string>
+    <string name="zakat_back">Dellu</string>
+    <string name="zakat_cash">Xaalis ak dencukaay</string>
+    <string name="zakat_clear_history">Futti jaar-jaar</string>
+    <string name="zakat_country">Réew</string>
+    <string name="zakat_country_placeholder">Tannal sa réew ak sa xaalis</string>
+    <string name="zakat_country_section">Réew &amp; xaalis</string>
+    <string name="zakat_currency">Devise: %1$s</string>
+    <string name="zakat_debts">Bor yi nga wara am (dagg)</string>
+    <string name="zakat_due">Zakat bi wara fay (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Mënu \'t jël njëg yi. Saytu sa koneksioŋ wala nga dugal njëg bi ak sa loxo.</string>
+    <string name="zakat_fetch_now">Yeesal njëg yi leegi</string>
+    <string name="zakat_fetching">Dañuy jël njëg yi...</string>
+    <string name="zakat_fitr_persons">Limu nit ñi ci njaboot gi</string>
+    <string name="zakat_fitr_saa_value">benn sa\' (ñam bu njëkk)</string>
+    <string name="zakat_fitr_section">Zakatul Fitr</string>
+    <string name="zakat_fitr_total">Zakatu Fitr bi: %1$s</string>
+    <string name="zakat_gold_grams">Wurus (gram)</string>
+    <string name="zakat_gold_price">Njëg wurus ci gram bu nekk</string>
+    <string name="zakat_history">Taarixu xayma</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Ba leegi amul xayma yuñ denc.</string>
+    <string name="zakat_investments">Dugal xaalis</string>
+    <string name="zakat_last_updated">Dañu mujjee yeesal: %1$s</string>
+    <string name="zakat_money_section">Zakat ci alal</string>
+    <string name="zakat_nisab_gold">Nisab or (85g)</string>
+    <string name="zakat_nisab_met">Nisab bi yegsi na — zakat bi yegsi na</string>
+    <string name="zakat_nisab_not_met">Ci suufu nisab - amul zakat buñu wara fay</string>
+    <string name="zakat_nisab_silver">Nisab argent (595g)</string>
+    <string name="zakat_rulings_note">Lu gëna bari (jumhoor): wurus nisab mooy 85g, xaalis 595g, te njëg bi mooy 2.5%% ginaaw ñu dindi bor yi. Xoolaatal ab gëstukat bu xarañ ci mbir yu amul fenn.</string>
+    <string name="zakat_save_result">Sanc ci jaar-jaar</string>
+    <string name="zakat_silver_grams">xaalis (gram)</string>
+    <string name="zakat_silver_price">Njëg xaalis ci gram bu nekk</string>
+    <string name="zakat_source_note">Njëg wurus/xaalis ci gold-api.com; Tarif FX yu bawoo ci open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Tolluwaayu alal ji</string>
+    <string name="zakat_trade">Valeur de marchandise</string>
+    <string name="zakat_zakatable">Xaalis buñu mëna zakate ginaaw bor yi</string>
+</resources>

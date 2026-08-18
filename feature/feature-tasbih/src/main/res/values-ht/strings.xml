@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — tape pou konte</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tape pou konte</string>
+    <string name="tasbih_back">Retounen</string>
+    <string name="tasbih_cancel">Anile</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Custom</string>
+    <string name="tasbih_custom_target_hint">Antre kantite konte (de 1 a 100000)</string>
+    <string name="tasbih_custom_target_title">Mete yon sib koutim</string>
+    <string name="tasbih_of_target">nan %1$s</string>
+    <string name="tasbih_reset">Reyajiste</string>
+    <string name="tasbih_reset_all">Reyajiste tout</string>
+    <string name="tasbih_round_complete">Wòn konplè konplè (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Jij: %1$d</string>
+    <string name="tasbih_sound_desc">Jwe yon sonri oswa yon ton lè chak wonn konplè fini</string>
+    <string name="tasbih_sound_title">Son sou sib</string>
+    <string name="tasbih_sound_tone_alarm">Alam</string>
+    <string name="tasbih_sound_tone_notification">Notifikasyon</string>
+    <string name="tasbih_sound_tone_ringtone">Sonnerie</string>
+    <string name="tasbih_tap_hint">Tape sèk la pou konte</string>
+    <string name="tasbih_target_reached">Objektif atenn - se pou Allah aksepte</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Jodi a \'s total: %1$d</string>
+    <string name="tasbih_undo">Defèt</string>
+    <string name="tasbih_virtue_label">Vèti dhikr sa a</string>
+    <string name="tasbih_week_stats">7 dènye jou</string>
+</resources>

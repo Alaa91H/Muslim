@@ -13,6 +13,9 @@ interface QuranRepository {
     /** Fetches one ayah by its global number (ayah-of-the-day, quick lookup). */
     suspend fun ayahByGlobal(globalNumber: Int): Ayah?
 
+    /** All ayahs in global order (whole-mushaf statistics like word frequency). */
+    suspend fun allAyahs(): List<Ayah>
+
     /** Metadata of a single surah (for the reader header). */
     fun observeSurahMetadata(surahNumber: Int): Flow<Surah?>
 

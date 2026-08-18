@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">אַלע</string>
+    <string name="hadith_back">צוריק</string>
+    <string name="hadith_bookmark_add">לייג לייענ - צייכן</string>
+    <string name="hadith_bookmark_remove">אַראָפּנעמען לייענ - צייכן</string>
+    <string name="hadith_collection_abudawud">אבו דאוד</string>
+    <string name="hadith_collection_bukhari">על בוכארי</string>
+    <string name="hadith_collection_ibnmajah">אבן מאַדזשאַה</string>
+    <string name="hadith_collection_muslim">מוסלים</string>
+    <string name="hadith_collection_nasai">אַ-נאַסאַ\'י</string>
+    <string name="hadith_collection_nawawi">אַן-נאַוואַווי 40</string>
+    <string name="hadith_collection_other">אנדערע</string>
+    <string name="hadith_collection_riyad">ריאד אסאליהין</string>
+    <string name="hadith_collection_tirmidhi">אט-תירמידהי</string>
+    <string name="hadith_daily_notification">טעגלעך האַדיטה אָנזאָג</string>
+    <string name="hadith_daily_notification_desc">באַקומען אַ האַדיטה יעדער טאָג</string>
+    <string name="hadith_daily_notification_time">אָנזאָג צייט</string>
+    <string name="hadith_of_the_day">האַדיטה פון דעם טאָג</string>
+    <string name="hadith_preview_hint">דאָס איז ווי די טעגלעך האַדיטה אָנזאָג איז געוויזן אין זיין סקעדזשולד צייט.</string>
+    <string name="hadith_preview_label">אָנזאָג פאָרויסיקע ווייַזונג</string>
+    <string name="hadith_preview_loading">לאָודינג די האַדיטה ...</string>
+    <string name="hadith_search_hint">זוכן האַדיטהס ...</string>
+    <string name="hadith_share">ייַנטיילן</string>
+    <string name="hadith_title">האַדיטה ביבליאָטעק</string>
+</resources>

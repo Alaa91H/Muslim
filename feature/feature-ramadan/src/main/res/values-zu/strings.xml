@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Emuva</string>
+    <string name="ramadan_countdown">I-Ramadan iqala ezinsukwini ezingu-%1$s</string>
+    <string name="ramadan_countdown_to_iftar">Isikhathi se-iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Isikhathi se-Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Usuku %1$s lweRamadan</string>
+    <string name="ramadan_days_left">%1$s izinsuku ezisele</string>
+    <string name="ramadan_fasting_progress">Izinsuku zokuzila: %1$s kwezingu-%2$s — thepha usuku ukuze ukurekhode</string>
+    <string name="ramadan_fasting_tracker">I-tracker yokuzila ukudla</string>
+    <string name="ramadan_hijri_note">Ngokusekelwe ekhalendeni le-Umm al-Qura elinokulungiswa okubanzi kwe-Hijri yohlelo lokusebenza.</string>
+    <string name="ramadan_hijri_year">Unyaka %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Ukunxusa kwe-Iftar: "O Allah, ngizile ukudla ngenxa Yakho futhi ngokupha Kwakho ngikhumula inzilo yami..."</string>
+    <string name="ramadan_iftar_time">Isikhathi se-Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Khetha idolobha kokuthi Izilungiselelo kuqala ukuze ubone izikhathi.</string>
+    <string name="ramadan_minutes">%1$s imiz</string>
+    <string name="ramadan_notification_iftar_body">O Allah, ngizile ukudla ngenxa Yakho futhi ngokupha Kwakho ngikhumula inzilo yami</string>
+    <string name="ramadan_notification_iftar_title">Isikhathi se-iftar</string>
+    <string name="ramadan_notification_suhoor_body">I-Fajr iyasondela - yiba ne-suhoor yakho</string>
+    <string name="ramadan_notification_suhoor_title">Isikhumbuzi se-Suhoor</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Ngikhumbuze ngaphambili:</string>
+    <string name="ramadan_suhoor_time">I-Suhoor iphela (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

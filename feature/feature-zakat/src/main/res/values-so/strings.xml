@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Si otomaatig ah u soo hel qiimayaasha</string>
+    <string name="zakat_auto_prices_hint">Marka la furo, qiimaha dahabka iyo qalinka ayaa laga soo qaataa intarneedka oo si toos ah ayaa loo cusbooneysiiyaa</string>
+    <string name="zakat_back">Dib u noqo</string>
+    <string name="zakat_cash">Lacag caddaan ah iyo kayd</string>
+    <string name="zakat_clear_history">Nadiifi taariikhda</string>
+    <string name="zakat_country">Dalka</string>
+    <string name="zakat_country_placeholder">Dooro dalkaaga iyo lacagtaada</string>
+    <string name="zakat_country_section">Dalka &amp; lacagta</string>
+    <string name="zakat_currency">Lacagta: %1$s</string>
+    <string name="zakat_debts">Deymaha lagugu leeyahay (laga jaray)</string>
+    <string name="zakat_due">Sakada ku waajibtay (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Miyaan \'t qiimaha Hubi xidhiidhkaaga ama geli qiimaha gacanta.</string>
+    <string name="zakat_fetch_now">Dib u cusboonaysii qiimaha hadda</string>
+    <string name="zakat_fetching">Soo dejinta qiimaha…</string>
+    <string name="zakat_fitr_persons">Tirada xubnaha qoyska</string>
+    <string name="zakat_fitr_saa_value">Qiimaha hal sa\' (cuntada daruuriga ah)</string>
+    <string name="zakat_fitr_section">Sakaatul Fitriga</string>
+    <string name="zakat_fitr_total">Wadarta sakada Fitriga: %1$s</string>
+    <string name="zakat_gold_grams">Dahab (gram)</string>
+    <string name="zakat_gold_price">Qiimaha dahabka halkii garaam</string>
+    <string name="zakat_history">Taariikhda xisaabinta</string>
+    <string name="zakat_history_amount">Sakada: %1$s</string>
+    <string name="zakat_history_empty">Wali xisaabo lama kaydin</string>
+    <string name="zakat_investments">Maalgelinta</string>
+    <string name="zakat_last_updated">Markii ugu dambeysay ee la cusbooneysiiyay: %1$s</string>
+    <string name="zakat_money_section">Zakada xoolaha</string>
+    <string name="zakat_nisab_gold">Nisab dahab ah (85g)</string>
+    <string name="zakat_nisab_met">Nisaabkii waa la gaadhay - sakada ayaa la leeyahay</string>
+    <string name="zakat_nisab_not_met">Nisabka hoostiisa - sako la\'aan</string>
+    <string name="zakat_nisab_silver">Nisab qalin ah (595g)</string>
+    <string name="zakat_rulings_note">Inta badan (jumxoor): nisab dahab ah waa 85g, qalin 595g, iyo qiimihiisu waa 2.5%% ka dib markii laga jaray deymaha. La tasho aqoonyahan aqoon u leh kiisaska gaarka ah.</string>
+    <string name="zakat_save_result">Ku keydi taariikhda</string>
+    <string name="zakat_silver_grams">Silver (gram)</string>
+    <string name="zakat_silver_price">Qiimaha qalinka ah halkii garaam</string>
+    <string name="zakat_source_note">Qiimaha dahabka/silver ee gold-api.com; Qiimaha FX laga bilaabo open.er-api.com</string>
+    <string name="zakat_title">Sakada</string>
+    <string name="zakat_total_assets">Wadarta hantida</string>
+    <string name="zakat_trade">Qiimaha badeecada</string>
+    <string name="zakat_zakatable">Qadarka la bixin karo deynta ka dib</string>
+</resources>

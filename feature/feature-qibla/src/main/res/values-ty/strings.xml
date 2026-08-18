@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s</string>
+    <string name="mosque_finder_empty">Aita e mosques i itehia i roto i teie vahi</string>
+    <string name="mosque_finder_error">Aita te imiraa i manuïa</string>
+    <string name="mosque_finder_intro">A imi i te mau mosques i piha\'i iho i to outou vahi maoti te OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Aita â i haamauhia te hoê vahi. A ma\'iti na mua i te hoê vahi i roto i te mau taime pureraa.</string>
+    <string name="mosque_finder_retry">A tamata faahou</string>
+    <string name="mosque_finder_searching">Te imiraa...</string>
+    <string name="mosque_finder_title">Te mau mosques fatata mai</string>
+    <string name="qibla_bearing_cardinal">%1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">A afa\'i i ta outou niuniu i roto i te hoê hoho\'a-va\'u no te faaafaro</string>
+    <string name="qibla_distance">Te atea i Makka: %1$s</string>
+    <string name="qibla_distance_km">%,.0f kilometera</string>
+    <string name="qibla_facing">Te faaruru ra outou i te Qibla 🕋</string>
+    <string name="qibla_gps_error">Aita i ti\'a ia farii i te hoê tata\'uraa tano. A tamata faahou na.</string>
+    <string name="qibla_gps_live">Te vahi GPS ora</string>
+    <string name="qibla_gps_refresh">Faahou i te vahi na roto i te GPS</string>
+    <string name="qibla_gps_refreshing">Te imiraa...</string>
+    <string name="qibla_heading_degree">Upoo parau niuniu: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">E ohipa te e\'a poro rahi mai to outou vahi e tae atu i te Kaaba</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Oe</string>
+    <string name="qibla_mode_compass">Tapona</string>
+    <string name="qibla_mode_map">Map</string>
+    <string name="qibla_open_mosques">Te mau mosques fatata mai</string>
+    <string name="qibla_title">Te a\'oraa Qibla</string>
+    <string name="qibla_turn_left">Tahuri i te pae aui %1$.1f°</string>
+    <string name="qibla_turn_right">Tahuri i te pae atau %1$.1f°</string>
+</resources>

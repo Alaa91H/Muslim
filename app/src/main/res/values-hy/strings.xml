@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Մուսուլման</string>
+    <string name="more_adhkar">Ադքար</string>
+    <string name="more_adhkar_desc">Առավոտյան, երեկոյան և հետաղոթքից հետո ադհքար՝ հաշվիչներով</string>
+    <string name="more_downloads">Ասմունքի ներբեռնումներ</string>
+    <string name="more_downloads_desc">Ներբեռնեք սուրա, այա կամ ամբողջական Ղուրանը ձեր ընտրած ասմունքողի հետ</string>
+    <string name="more_hadith">Հադիս</string>
+    <string name="more_hadith_desc">Հադիսների գրադարան, որոնում և օրվա հադիսներ</string>
+    <string name="more_learn">Սովորեք</string>
+    <string name="more_learn_desc">Քայլ առ քայլ վուդու և աղոթքի ուղեցույցներ</string>
+    <string name="more_ramadan">Ռամադան</string>
+    <string name="more_ramadan_desc">Սուհուրի և իֆթարի ժամանակներ և ծոմապահության հետքեր</string>
+    <string name="more_reference">Տեղեկատու գրադարան</string>
+    <string name="more_reference_desc">Ներածություն իսլամին, Սիրային և մարգարեներին</string>
+    <string name="more_settings">Կարգավորումներ</string>
+    <string name="more_settings_desc">Թեման, լեզուն, աղոթքը և ադանի կարգավորումները</string>
+    <string name="more_tasbih">Թասբիհ</string>
+    <string name="more_tasbih_desc">Թվային միսբախա ամենօրյա պատմության հետ</string>
+    <string name="more_zakat">Զաքաթ</string>
+    <string name="more_zakat_desc">Զաքաթ հարստության և Ֆիթրի հաշվիչ</string>
+    <string name="scaffold_message">Բազմամոդուլային նախագծի կմախքը պատրաստ է:\nՓուլ 1 — Ադան, աղոթքի ժամեր, Քիբլա և հիջրի օրացույց — սկսվում է այստեղ:</string>
+    <string name="shortcut_qibla">Քիբլա</string>
+    <string name="shortcut_qibla_long">Քիբլայի ուղղություն</string>
+    <string name="shortcut_settings">Կարգավորումներ</string>
+    <string name="shortcut_settings_long">Աղոթքի և ազանի կարգավորումներ</string>
+    <string name="shortcut_times">Աղոթքի ժամանակներ</string>
+    <string name="shortcut_times_long">Այսօր \'-ականների աղոթքի ժամանակները</string>
+    <string name="tab_home">Աղոթքի ժամանակներ</string>
+    <string name="tab_more">Ավելին</string>
+    <string name="tab_qibla">Քիբլա</string>
+    <string name="tab_quran">Ղուրան</string>
 </resources>

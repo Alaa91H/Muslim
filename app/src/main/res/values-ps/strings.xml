@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">مسلمان</string>
+    <string name="more_adhkar">اډکار</string>
+    <string name="more_adhkar_desc">سهار، ماښام او د لمانځه څخه وروسته اذکار د شمېرونکو سره</string>
+    <string name="more_downloads">تلاوت کول</string>
+    <string name="more_downloads_desc">یو سورت، یو آیت یا بشپړ قرآن د خپل غوره شوي تلاوت کونکي سره ډاونلوډ کړئ</string>
+    <string name="more_hadith">حدیث</string>
+    <string name="more_hadith_desc">د حدیث کتابتون، لټون او د ورځې حدیث</string>
+    <string name="more_learn">زده کړه</string>
+    <string name="more_learn_desc">ګام په ګام اودس او د لمانځه لارښوونې</string>
+    <string name="more_ramadan">روژه</string>
+    <string name="more_ramadan_desc">د سحر او افطار وختونه او د روژې تعقیبونکی</string>
+    <string name="more_reference">د حوالې کتابتون</string>
+    <string name="more_reference_desc">د اسلام، سیرت او پیغمبرانو پیژندنه</string>
+    <string name="more_settings">ترتیبات</string>
+    <string name="more_settings_desc">موضوع، ژبه، د لمانځه او اذان ترتیبات</string>
+    <string name="more_tasbih">تسبیح</string>
+    <string name="more_tasbih_desc">ډیجیټل مصباح د ورځني تاریخ سره</string>
+    <string name="more_zakat">زکات</string>
+    <string name="more_zakat_desc">د مال زکات او د فطر حساب کوونکی</string>
+    <string name="scaffold_message">د ملټي ماډل پروژې سکیلټون چمتو دی. \nپړاو 1 – اذان، د لمانځه وختونه، قبله او د هجري تقویم – دلته پیل کیږي.</string>
+    <string name="shortcut_qibla">قبله</string>
+    <string name="shortcut_qibla_long">د قبلې طرف</string>
+    <string name="shortcut_settings">ترتیبات</string>
+    <string name="shortcut_settings_long">د لمانځه او اذان ترتیبات</string>
+    <string name="shortcut_times">د لمانځه وختونه</string>
+    <string name="shortcut_times_long">نن د لمانځه وخت \'</string>
+    <string name="tab_home">د لمانځه وختونه</string>
+    <string name="tab_more">نور</string>
+    <string name="tab_qibla">قبله</string>
+    <string name="tab_quran">قرآن</string>
 </resources>

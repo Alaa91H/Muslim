@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha ya dijiti - gusa ili kuhesabu</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Gusa ili kuhesabu</string>
+    <string name="tasbih_back">Nyuma</string>
+    <string name="tasbih_cancel">Ghairi</string>
+    <string name="tasbih_confirm">Sawa</string>
+    <string name="tasbih_custom_target">Desturi</string>
+    <string name="tasbih_custom_target_hint">Ingiza idadi ya hesabu (kutoka 1 hadi 100000)</string>
+    <string name="tasbih_custom_target_title">Weka lengo maalum</string>
+    <string name="tasbih_of_target">ya %1$s</string>
+    <string name="tasbih_reset">Weka upya</string>
+    <string name="tasbih_reset_all">Weka upya zote</string>
+    <string name="tasbih_round_complete">Mzunguko kamili umekamilika (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Mzunguko: %1$d</string>
+    <string name="tasbih_sound_desc">Cheza mlio wa simu au toni wakati kila duru kamili imekamilika</string>
+    <string name="tasbih_sound_title">Sauti kwenye lengo</string>
+    <string name="tasbih_sound_tone_alarm">Kengele</string>
+    <string name="tasbih_sound_tone_notification">Arifa</string>
+    <string name="tasbih_sound_tone_ringtone">Mlio wa simu</string>
+    <string name="tasbih_tap_hint">Gonga mduara ili kuhesabu</string>
+    <string name="tasbih_target_reached">Lengo lililofikiwa - Mwenyezi Mungu alikubali</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Jumla ya leo\': %1$d</string>
+    <string name="tasbih_undo">Tendua</string>
+    <string name="tasbih_virtue_label">Fadhila za dhikr hii</string>
+    <string name="tasbih_week_stats">Siku 7 zilizopita</string>
+</resources>

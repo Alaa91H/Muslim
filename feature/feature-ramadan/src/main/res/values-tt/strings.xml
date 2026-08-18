@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Кире</string>
+    <string name="ramadan_countdown">Рамазан ае %1$s көннән башлана</string>
+    <string name="ramadan_countdown_to_iftar">Ифтар вакыты: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Фаҗрга вакыт: %1$s</string>
+    <string name="ramadan_day_of_month">Рамазан аеның %1$s көне</string>
+    <string name="ramadan_days_left">%1$s көн калды</string>
+    <string name="ramadan_fasting_progress">Ураза көннәре: %2$s %1$s - аны яздырыр өчен көнгә басыгыз</string>
+    <string name="ramadan_fasting_tracker">Ураза эзләүчесе</string>
+    <string name="ramadan_hijri_note">Умм әл-Кура календаре нигезендә Hijri кушымтасы киң кулланылган.</string>
+    <string name="ramadan_hijri_year">%1$s ел</string>
+    <string name="ramadan_iftar">Ифтар</string>
+    <string name="ramadan_iftar_dua">Ифтар ялваруы: "Йә Алла, синең өчен мин ураза тоттым, синең ризалыгың белән уразамны бозам ..."</string>
+    <string name="ramadan_iftar_time">Ифтар (Магриб) вакыты: %1$s</string>
+    <string name="ramadan_location_required">Вакытны күрү өчен башта көйләүләрдә шәһәр сайлагыз.</string>
+    <string name="ramadan_minutes">%1$s мин</string>
+    <string name="ramadan_notification_iftar_body">Йә Аллаһ, Синең өчен ураза тоттым, синең ризалыгың белән уразамны бозам</string>
+    <string name="ramadan_notification_iftar_title">Ифтар өчен вакыт</string>
+    <string name="ramadan_notification_suhoor_body">Фаҗр якынлаша - сезнең сухорыгыз бар</string>
+    <string name="ramadan_notification_suhoor_title">Сухор искә төшерү</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Сухор</string>
+    <string name="ramadan_suhoor_remind_before">Моңа кадәр искә төшерегез:</string>
+    <string name="ramadan_suhoor_time">Сухор бетә (Фажр): %1$s</string>
+    <string name="ramadan_title">Рамазан ае</string>
+</resources>

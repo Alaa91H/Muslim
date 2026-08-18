@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Pada</string>
+    <string name="ramadan_countdown">Ramadan bẹrẹ ni %1$s ọjọ</string>
+    <string name="ramadan_countdown_to_iftar">Akoko iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Akoko lati Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Ọjọ %1$s ti Ramadan</string>
+    <string name="ramadan_days_left">O ku ọjọ %1$s</string>
+    <string name="ramadan_fasting_progress">Awọn ọjọ ãwẹ: %1$s ti %2$s - tẹ ni ọjọ kan lati gbasilẹ</string>
+    <string name="ramadan_fasting_tracker">Olutọpa ãwẹ</string>
+    <string name="ramadan_hijri_note">Da lori kalẹnda Umm al-Qura pẹlu atunṣe Hijri jakejado app ti a lo.</string>
+    <string name="ramadan_hijri_year">Odun %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Ẹbẹ Iftar: "Irẹ Olohun, fun Ọ ni mo gba awẹ ati lori ipese Rẹ ni mo ti bu awẹ mi..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) akoko: %1$s</string>
+    <string name="ramadan_location_required">Yan ilu kan ni Eto akọkọ lati wo awọn akoko.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Olohun, fun O ni mo gba awe ati lori ipese Re ni mo bu aawe mi</string>
+    <string name="ramadan_notification_iftar_title">Akoko fun iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr n sunmọ - ṣe suhoor rẹ</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor olurannileti</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhur</string>
+    <string name="ramadan_suhoor_remind_before">Ranti mi ṣaaju:</string>
+    <string name="ramadan_suhoor_time">Suhoor pari (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

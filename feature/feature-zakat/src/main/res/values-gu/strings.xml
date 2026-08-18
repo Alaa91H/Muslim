@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">આપમેળે કિંમતો મેળવો</string>
+    <string name="zakat_auto_prices_hint">જ્યારે સક્ષમ હોય, ત્યારે સોના અને ચાંદીના ભાવ ઇન્ટરનેટ પરથી મેળવવામાં આવે છે અને આપમેળે રિફ્રેશ થાય છે</string>
+    <string name="zakat_back">પાછળ</string>
+    <string name="zakat_cash">રોકડ અને બચત</string>
+    <string name="zakat_clear_history">ઇતિહાસ સાફ કરો</string>
+    <string name="zakat_country">દેશ</string>
+    <string name="zakat_country_placeholder">તમારો દેશ અને ચલણ પસંદ કરો</string>
+    <string name="zakat_country_section">દેશ અને ચલણ</string>
+    <string name="zakat_currency">ચલણ: %1$s</string>
+    <string name="zakat_debts">તમારા દેવાં (કપાત)</string>
+    <string name="zakat_due">જકાત બાકી (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">કિંમતો \'t મેળવી શકાઈ નથી. તમારું કનેક્શન તપાસો અથવા મેન્યુઅલી કિંમત દાખલ કરો.</string>
+    <string name="zakat_fetch_now">હવે કિંમતો તાજી કરો</string>
+    <string name="zakat_fetching">કિંમતો મેળવી રહ્યાં છીએ…</string>
+    <string name="zakat_fitr_persons">પરિવારના સભ્યોની સંખ્યા</string>
+    <string name="zakat_fitr_saa_value">એક sa\' ની કિંમત (મુખ્ય ખોરાક)</string>
+    <string name="zakat_fitr_section">જકાત અલ-ફિત્ર</string>
+    <string name="zakat_fitr_total">કુલ ફિત્ર જકાત: %1$s</string>
+    <string name="zakat_gold_grams">સોનું (ગ્રામ)</string>
+    <string name="zakat_gold_price">સોનાની કિંમત પ્રતિ ગ્રામ</string>
+    <string name="zakat_history">ગણતરી ઇતિહાસ</string>
+    <string name="zakat_history_amount">જકાત: %1$s</string>
+    <string name="zakat_history_empty">હજુ સુધી કોઈ સાચવેલ ગણતરીઓ નથી.</string>
+    <string name="zakat_investments">રોકાણો</string>
+    <string name="zakat_last_updated">છેલ્લે અપડેટ કર્યું: %1$s</string>
+    <string name="zakat_money_section">સંપત્તિ પર જકાત</string>
+    <string name="zakat_nisab_gold">ગોલ્ડ નિસાબ (85 ગ્રામ)</string>
+    <string name="zakat_nisab_met">નિસાબ પહોંચી ગયો છે - જકાત બાકી છે</string>
+    <string name="zakat_nisab_not_met">નિસાબની નીચે - કોઈ જકાત બાકી નથી</string>
+    <string name="zakat_nisab_silver">સિલ્વર નિસાબ (595 ગ્રામ)</string>
+    <string name="zakat_rulings_note">બહુમતી (જુમ્હૂર) દીઠ: સોનાનો નિસાબ 85 ગ્રામ, ચાંદી 595 ગ્રામ છે અને બાકી દેવું બાદ કર્યા પછી દર 2.5%% છે. વિશેષ કેસો માટે લાયક વિદ્વાનની સલાહ લો.</string>
+    <string name="zakat_save_result">ઇતિહાસમાં સાચવો</string>
+    <string name="zakat_silver_grams">ચાંદી (ગ્રામ)</string>
+    <string name="zakat_silver_price">પ્રતિ ગ્રામ ચાંદીના ભાવ</string>
+    <string name="zakat_source_note">gold-api.com પરથી સોના/ચાંદીના ભાવ; open.er-api.com પરથી FX દરો</string>
+    <string name="zakat_title">જકાત</string>
+    <string name="zakat_total_assets">કુલ સંપત્તિ</string>
+    <string name="zakat_trade">વેપાર માલનું મૂલ્ય</string>
+    <string name="zakat_zakatable">દેવા પછી જકાતપાત્ર રકમ</string>
+</resources>

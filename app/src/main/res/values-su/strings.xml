@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Isuk-isuk, sore &amp; pas-sholat adhkar kalawan counters</string>
+    <string name="more_downloads">Undeuran bacaan</string>
+    <string name="more_downloads_desc">Unduh surah, ayat atanapi Quran lengkep sareng qari anu anjeun pilih</string>
+    <string name="more_hadith">Hadits</string>
+    <string name="more_hadith_desc">Perpustakaan hadits, pilarian &amp; hadits poé</string>
+    <string name="more_learn">Diajar</string>
+    <string name="more_learn_desc">Léngkah-léngkah wudu &amp; pituduh solat</string>
+    <string name="more_ramadan">Ramadhan</string>
+    <string name="more_ramadan_desc">Waktu sahur &amp; buka puasa sareng tracker puasa</string>
+    <string name="more_reference">Perpustakaan Rujukan</string>
+    <string name="more_reference_desc">Pengantar Islam, Sira &amp; para nabi</string>
+    <string name="more_settings">Setélan</string>
+    <string name="more_settings_desc">Téma, basa, solat &amp; setting adzan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">misbaha digital kalawan sajarah sapopoé</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat kabeungharan &amp; kalkulator Fitri</string>
+    <string name="scaffold_message">Rorongkong proyék multi-modul geus siap.\nFase 1 — Adzan, waktu solat, Kiblat, jeung kalénder Hijriah — dimimitian di dieu.</string>
+    <string name="shortcut_qibla">Kiblat</string>
+    <string name="shortcut_qibla_long">Arah kiblat</string>
+    <string name="shortcut_settings">Setélan</string>
+    <string name="shortcut_settings_long">Setélan solat &amp; adzan</string>
+    <string name="shortcut_times">Waktu solat</string>
+    <string name="shortcut_times_long">Dinten ayeuna \' waktos sholat</string>
+    <string name="tab_home">Waktos Sholat</string>
+    <string name="tab_more">Langkung</string>
+    <string name="tab_qibla">Kiblat</string>
+    <string name="tab_quran">Quran</string>
 </resources>

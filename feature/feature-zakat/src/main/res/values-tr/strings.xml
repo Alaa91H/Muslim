@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Fiyatları otomatik olarak getir</string>
+    <string name="zakat_auto_prices_hint">Etkinleştirildiğinde altın ve gümüş fiyatları internetten alınır ve otomatik olarak yenilenir</string>
+    <string name="zakat_back">Geri</string>
+    <string name="zakat_cash">Nakit ve tasarruf</string>
+    <string name="zakat_clear_history">Geçmişi temizle</string>
+    <string name="zakat_country">Ülke</string>
+    <string name="zakat_country_placeholder">Ülkenizi ve para biriminizi seçin</string>
+    <string name="zakat_country_section">Ülke ve para birimi</string>
+    <string name="zakat_currency">Para birimi: %1$s</string>
+    <string name="zakat_debts">Borçlu olduğunuz borçlar (kesinti)</string>
+    <string name="zakat_due">Ödenmesi gereken zekat (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Fiyatlar getirilemedi. Bağlantınızı kontrol edin veya fiyatı manuel olarak girin.</string>
+    <string name="zakat_fetch_now">Fiyatları şimdi yenile</string>
+    <string name="zakat_fetching">Fiyatlar getiriliyor…</string>
+    <string name="zakat_fitr_persons">Aile üyesi sayısı</string>
+    <string name="zakat_fitr_saa_value">Bir sa\' değeri (temel gıda)</string>
+    <string name="zakat_fitr_section">Fitr Zekâtı</string>
+    <string name="zakat_fitr_total">Toplam Fitre zekatı: %1$s</string>
+    <string name="zakat_gold_grams">Altın (gram)</string>
+    <string name="zakat_gold_price">Altının gram fiyatı</string>
+    <string name="zakat_history">Hesaplama geçmişi</string>
+    <string name="zakat_history_amount">Zekat: %1$s</string>
+    <string name="zakat_history_empty">Henüz kayıtlı hesaplama yok.</string>
+    <string name="zakat_investments">Yatırımlar</string>
+    <string name="zakat_last_updated">Son güncelleme: %1$s</string>
+    <string name="zakat_money_section">Zenginliğin Zekâtı</string>
+    <string name="zakat_nisab_gold">Altın nisap (85g)</string>
+    <string name="zakat_nisab_met">Nisaba ulaşıldı, zekâtın ödenmesi gerekiyor</string>
+    <string name="zakat_nisab_not_met">Nisabın altında - zekât ödenmez</string>
+    <string name="zakat_nisab_silver">Gümüş nisap (595g)</string>
+    <string name="zakat_rulings_note">Çoğunluğa (jumhoor) göre: altın nisabı 85 gr, gümüş 595 gr olup, vadesi gelen borçlar düşüldükten sonra oranı 2,5%%\'dir. Özel durumlar için nitelikli bir bilim adamına danışın.</string>
+    <string name="zakat_save_result">Geçmişe kaydet</string>
+    <string name="zakat_silver_grams">Gümüş (gram)</string>
+    <string name="zakat_silver_price">Gümüşün gram fiyatı</string>
+    <string name="zakat_source_note">gold-api.com\'dan altın/gümüş fiyatları; open.er-api.com\'dan döviz kurları</string>
+    <string name="zakat_title">Zekat</string>
+    <string name="zakat_total_assets">Toplam varlıklar</string>
+    <string name="zakat_trade">Ticari malların değeri</string>
+    <string name="zakat_zakatable">Borçlardan sonra zekat miktarı</string>
+</resources>

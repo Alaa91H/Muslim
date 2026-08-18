@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ឆ្ងាយ</string>
+    <string name="mosque_finder_empty">រកមិនឃើញវិហារអ៊ីស្លាមនៅក្នុងជួរនេះទេ។</string>
+    <string name="mosque_finder_error">ការស្វែងរកបានបរាជ័យ</string>
+    <string name="mosque_finder_intro">ស្វែងរកវិហារអ៊ីស្លាមនៅជិតទីតាំងរបស់អ្នកតាមរយៈ OpenStreetMap</string>
+    <string name="mosque_finder_no_location">មិនទាន់កំណត់ទីតាំងនៅឡើយទេ។ ជ្រើសរើសទីតាំងពីការកំណត់ម៉ោងអធិស្ឋានជាមុនសិន។</string>
+    <string name="mosque_finder_retry">ព្យាយាមម្តងទៀត</string>
+    <string name="mosque_finder_searching">កំពុងស្វែងរក...</string>
+    <string name="mosque_finder_title">វិហារអ៊ីស្លាមនៅជិត</string>
+    <string name="qibla_bearing_cardinal">ទិសដៅ Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">ផ្លាស់ទីទូរសព្ទរបស់អ្នកក្នុងរូបភាពទីប្រាំបី ដើម្បីធ្វើការក្រិតតាមខ្នាត</string>
+    <string name="qibla_distance">ចម្ងាយទៅ Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f គីឡូម៉ែត្រ</string>
+    <string name="qibla_facing">អ្នកកំពុងប្រឈមមុខនឹង Qibla 🕋</string>
+    <string name="qibla_gps_error">មិនអាចទទួលបានការជួសជុលត្រឹមត្រូវទេ។ សូមព្យាយាមម្តងទៀត។</string>
+    <string name="qibla_gps_live">ទីតាំង GPS ផ្ទាល់</string>
+    <string name="qibla_gps_refresh">ផ្ទុកទីតាំងឡើងវិញតាមរយៈ GPS</string>
+    <string name="qibla_gps_refreshing">កំពុងកំណត់ទីតាំង...</string>
+    <string name="qibla_heading_degree">ក្បាលទូរសព្ទ៖ %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">ផ្លូវរង្វង់ធំពីទីតាំងរបស់អ្នកទៅ Kaaba — ដំណើរការដោយគ្មានអ៊ីនធឺណិត</string>
+    <string name="qibla_map_kaaba">កាបា</string>
+    <string name="qibla_map_you">អ្នក</string>
+    <string name="qibla_mode_compass">ត្រីវិស័យ</string>
+    <string name="qibla_mode_map">ផែនទី</string>
+    <string name="qibla_open_mosques">វិហារអ៊ីស្លាមនៅជិត</string>
+    <string name="qibla_title">ទិសដៅ Qibla</string>
+    <string name="qibla_turn_left">បត់ឆ្វេង %1$.1f°</string>
+    <string name="qibla_turn_right">បត់ស្តាំ %1$.1f°</string>
+</resources>

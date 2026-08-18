@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ntama</string>
+    <string name="mosque_finder_empty">Ata mosquée mosi ve me monana na kisika yai</string>
+    <string name="mosque_finder_error">Kusosa me nunga ve</string>
+    <string name="mosque_finder_intro">Sosa ba mosquée pene-pene ya kisika na nge na nzila ya OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Ka vena fulu ko kiasikidiswa. Pona ntete kisika mosi na kati ya bangunga ya bisambu.</string>
+    <string name="mosque_finder_retry">Meka diaka</string>
+    <string name="mosque_finder_searching">Kusosa...</string>
+    <string name="mosque_finder_title">Ba mosquée ya pene-pene</string>
+    <string name="qibla_bearing_cardinal">Nzila ya Kibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Tula telefone na nge na kifwanisu-nana sambu na kusala calibration .</string>
+    <string name="qibla_distance">Ntama tii na Mekka: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Nge ke talana na Qibla 🕋 .</string>
+    <string name="qibla_gps_error">Ke balendi baka nsunzula yasikididi ko. Meka diaka.</string>
+    <string name="qibla_gps_live">Kisika ya GPS ya ke zinga</string>
+    <string name="qibla_gps_refresh">Vutula kisika na nzila ya GPS</string>
+    <string name="qibla_gps_refreshing">Kusosa kisika...</string>
+    <string name="qibla_heading_degree">Ntu-diambu ya telefone: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Nzila ya nene ya serkle katuka na kisika na nge tii na Kaaba — ke salaka kukonda nzila</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Nge</string>
+    <string name="qibla_mode_compass">Busole</string>
+    <string name="qibla_mode_map">Karte</string>
+    <string name="qibla_open_mosques">Ba mosquée ya pene-pene</string>
+    <string name="qibla_title">Nzila ya Qibla</string>
+    <string name="qibla_turn_left">Baluka na diboko ya kimama %1$.1f°</string>
+    <string name="qibla_turn_right">Baluka na diboko ya kitata %1$.1f°</string>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Bihayan bixweber bistînin</string>
+    <string name="zakat_auto_prices_hint">Dema ku çalak be, bihayên zêr û zîv ji înternetê têne wergirtin û bixweber têne nûve kirin</string>
+    <string name="zakat_back">Vegere</string>
+    <string name="zakat_cash">Cash û teserifê</string>
+    <string name="zakat_clear_history">Dîrokê paqij bike</string>
+    <string name="zakat_country">Welat</string>
+    <string name="zakat_country_placeholder">Welat û pereyê xwe hilbijêrin</string>
+    <string name="zakat_country_section">Welat &amp; dirav</string>
+    <string name="zakat_currency">Dirav: %1$s</string>
+    <string name="zakat_debts">Deynên ku hûn deyndar in (derxistin)</string>
+    <string name="zakat_due">Zekatê heq (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Nikaribû \'t bihayan bistîne. Têkiliya xwe kontrol bikin an bihayê bi destan têkevin.</string>
+    <string name="zakat_fetch_now">Niha bihayên nûve bikin</string>
+    <string name="zakat_fetching">Bihayan distîne…</string>
+    <string name="zakat_fitr_persons">Hejmara endamên malbatê</string>
+    <string name="zakat_fitr_saa_value">Nirxa yek sa\' (xwarina bingehîn)</string>
+    <string name="zakat_fitr_section">Zekatê Fitrê</string>
+    <string name="zakat_fitr_total">Tevahiya zekatê fitrê: %1$s</string>
+    <string name="zakat_gold_grams">Zêr (gram)</string>
+    <string name="zakat_gold_price">Bihayê zêr per gram</string>
+    <string name="zakat_history">Dîroka hesabkirinê</string>
+    <string name="zakat_history_amount">Zekat: %1$s</string>
+    <string name="zakat_history_empty">Hesabên xilaskirî hîn tune.</string>
+    <string name="zakat_investments">Investments</string>
+    <string name="zakat_last_updated">Rojanekirina dawî: %1$s</string>
+    <string name="zakat_money_section">Zekatê dewlemendiyê</string>
+    <string name="zakat_nisab_gold">Nîsaba zêr (85g)</string>
+    <string name="zakat_nisab_met">Nisab gihîştiye - zekatê ye</string>
+    <string name="zakat_nisab_not_met">Di bin nîsab de - zekat tune</string>
+    <string name="zakat_nisab_silver">Nîsaba zîv (595g)</string>
+    <string name="zakat_rulings_note">Li gor piraniyê (cumhûr): nisaba zêr 85 gram, zîv 595 gram û piştî jêkirina deynan 2.5%% e. Ji bo rewşên taybetî bi zanyarek jêhatî bişêwirin.</string>
+    <string name="zakat_save_result">Ji dîrokê re xilas bike</string>
+    <string name="zakat_silver_grams">Zîv (gram)</string>
+    <string name="zakat_silver_price">Bihayê zîv per gram</string>
+    <string name="zakat_source_note">Buhayên zêr / zîv ji gold-api.com; Rêjeyên FX ji open.er-api.com</string>
+    <string name="zakat_title">Zekat</string>
+    <string name="zakat_total_assets">Total hebûnên</string>
+    <string name="zakat_trade">Nirxa tiştên bazirganî</string>
+    <string name="zakat_zakatable">Mîqdara zekatî piştî deynan</string>
+</resources>

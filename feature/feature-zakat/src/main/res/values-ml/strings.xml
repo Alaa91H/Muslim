@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">വിലകൾ സ്വയമേവ ലഭ്യമാക്കുക</string>
+    <string name="zakat_auto_prices_hint">പ്രവർത്തനക്ഷമമാക്കുമ്പോൾ, സ്വർണ്ണത്തിൻ്റെയും വെള്ളിയുടെയും വിലകൾ ഇൻ്റർനെറ്റിൽ നിന്ന് ലഭ്യമാക്കുകയും യാന്ത്രികമായി പുതുക്കുകയും ചെയ്യുന്നു</string>
+    <string name="zakat_back">തിരികെ</string>
+    <string name="zakat_cash">പണവും സമ്പാദ്യവും</string>
+    <string name="zakat_clear_history">ചരിത്രം മായ്‌ക്കുക</string>
+    <string name="zakat_country">രാജ്യം</string>
+    <string name="zakat_country_placeholder">നിങ്ങളുടെ രാജ്യവും കറൻസിയും തിരഞ്ഞെടുക്കുക</string>
+    <string name="zakat_country_section">രാജ്യവും കറൻസിയും</string>
+    <string name="zakat_currency">കറൻസി: %1$s</string>
+    <string name="zakat_debts">നിങ്ങൾ നൽകേണ്ട കടങ്ങൾ (കുറച്ചു)</string>
+    <string name="zakat_due">സകാത്ത് നൽകാനുള്ളത് (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'t വിലകൾ ലഭ്യമാക്കാൻ കഴിഞ്ഞില്ല. നിങ്ങളുടെ കണക്ഷൻ പരിശോധിക്കുക അല്ലെങ്കിൽ വില നേരിട്ട് നൽകുക.</string>
+    <string name="zakat_fetch_now">ഇപ്പോൾ വില പുതുക്കുക</string>
+    <string name="zakat_fetching">വിലകൾ ലഭ്യമാക്കുന്നു...</string>
+    <string name="zakat_fitr_persons">കുടുംബാംഗങ്ങളുടെ എണ്ണം</string>
+    <string name="zakat_fitr_saa_value">ഒന്നിൻ്റെ മൂല്യം sa\' (പ്രധാന ഭക്ഷണം)</string>
+    <string name="zakat_fitr_section">സകാത്തുൽ ഫിത്തർ</string>
+    <string name="zakat_fitr_total">ആകെ ഫിത്ർ സകാത്ത്: %1$s</string>
+    <string name="zakat_gold_grams">സ്വർണ്ണം (ഗ്രാം)</string>
+    <string name="zakat_gold_price">ഗ്രാമിന് സ്വർണ്ണ വില</string>
+    <string name="zakat_history">കണക്കുകൂട്ടൽ ചരിത്രം</string>
+    <string name="zakat_history_amount">സകാത്ത്: %1$s</string>
+    <string name="zakat_history_empty">ഇതുവരെ സംരക്ഷിച്ച കണക്കുകളൊന്നുമില്ല.</string>
+    <string name="zakat_investments">നിക്ഷേപങ്ങൾ</string>
+    <string name="zakat_last_updated">അവസാനം അപ്ഡേറ്റ് ചെയ്തത്: %1$s</string>
+    <string name="zakat_money_section">സമ്പത്തിൻ്റെ സകാത്ത്</string>
+    <string name="zakat_nisab_gold">സ്വർണ്ണ നിസാബ് (85 ഗ്രാം)</string>
+    <string name="zakat_nisab_met">നിസാബ് എത്തി - സകാത്ത് നൽകണം</string>
+    <string name="zakat_nisab_not_met">നിസാബിന് താഴെ - സകാത്ത് നൽകേണ്ടതില്ല</string>
+    <string name="zakat_nisab_silver">സിൽവർ നിസാബ് (595 ഗ്രാം)</string>
+    <string name="zakat_rulings_note">ഭൂരിപക്ഷത്തിന് (ജുംഹൂർ): സ്വർണ്ണ നിസാബ് 85 ഗ്രാം, വെള്ളി 595 ഗ്രാം, കുടിശ്ശികയുള്ള കടങ്ങൾ കുറച്ചതിന് ശേഷം നിരക്ക് 2.5%% ആണ്. പ്രത്യേക കേസുകൾക്കായി യോഗ്യനായ ഒരു പണ്ഡിതനെ സമീപിക്കുക.</string>
+    <string name="zakat_save_result">ചരിത്രത്തിലേക്ക് സംരക്ഷിക്കുക</string>
+    <string name="zakat_silver_grams">വെള്ളി (ഗ്രാം)</string>
+    <string name="zakat_silver_price">ഗ്രാമിന് വെള്ളി വില</string>
+    <string name="zakat_source_note">Gold-api.com-ൽ നിന്നുള്ള സ്വർണ്ണം/വെള്ളി വിലകൾ; open.er-api.com-ൽ നിന്നുള്ള FX നിരക്കുകൾ</string>
+    <string name="zakat_title">സകാത്ത്</string>
+    <string name="zakat_total_assets">ആകെ ആസ്തികൾ</string>
+    <string name="zakat_trade">വ്യാപാര വസ്തുക്കളുടെ മൂല്യം</string>
+    <string name="zakat_zakatable">കടങ്ങൾക്ക് ശേഷം സകാത്ത് തുക</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Фæстæмæ</string>
+    <string name="ramadan_countdown">Рамадан райдайы %1$s боны фæстæ</string>
+    <string name="ramadan_countdown_to_iftar">Ифтары рæстæг: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Фаджры рæстæг: %1$s</string>
+    <string name="ramadan_day_of_month">Рамаданы %1$s бон</string>
+    <string name="ramadan_days_left">%1$s бон ма баззад</string>
+    <string name="ramadan_fasting_progress">Комдарæн бонтæ: %1$s %2$s-æй — æрцауындзут иу бон, цæмæй йæ ныффыссат</string>
+    <string name="ramadan_fasting_tracker">Комдарæн фæдæвзарæг</string>
+    <string name="ramadan_hijri_note">Умм аль-Курайы къæлиндары бындурыл, æппæт æфтуаны хиджрийы æгъдауæй æххæстгонд.</string>
+    <string name="ramadan_hijri_year">Афæдз %1$s н.</string>
+    <string name="ramadan_iftar">Ифтар</string>
+    <string name="ramadan_iftar_dua">Ифтары лæгъстæ: «О Аллах, Дæу тыххæй ком дардтон æмæ Дæ хъæздыгдзинадыл ком дарын...»</string>
+    <string name="ramadan_iftar_time">Ифтар (Магриб) рæстæг: %1$s</string>
+    <string name="ramadan_location_required">Фыццаг равзарут горæт Настройкæты, цæмæй фенат рæстæг.</string>
+    <string name="ramadan_minutes">%1$s мин</string>
+    <string name="ramadan_notification_iftar_body">О Аллах, Дæу тыххæй ком дардтон æмæ Дæ хойрагæй ком дарын</string>
+    <string name="ramadan_notification_iftar_title">Ифтары рæстæг</string>
+    <string name="ramadan_notification_suhoor_body">Фаджр æввахс кæны — уæ сухур</string>
+    <string name="ramadan_notification_suhoor_title">Сухур зæрдылдарæн</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Сухур</string>
+    <string name="ramadan_suhoor_remind_before">Раздæр мын мæ зæрдыл æрлæууын кæн:</string>
+    <string name="ramadan_suhoor_time">Сухуры кæрон (Фаджр): %1$s</string>
+    <string name="ramadan_title">Рамадан</string>
+</resources>

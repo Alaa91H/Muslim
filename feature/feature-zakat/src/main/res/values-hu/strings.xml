@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Az árak automatikus lekérése</string>
+    <string name="zakat_auto_prices_hint">Ha engedélyezve van, az arany és ezüst árait lekéri az internetről, és automatikusan frissül</string>
+    <string name="zakat_back">Vissza</string>
+    <string name="zakat_cash">Készpénz és megtakarítás</string>
+    <string name="zakat_clear_history">Törölje az előzményeket</string>
+    <string name="zakat_country">Ország</string>
+    <string name="zakat_country_placeholder">Válassza ki az országot és a pénznemet</string>
+    <string name="zakat_country_section">Ország és pénznem</string>
+    <string name="zakat_currency">Pénznem: %1$s</string>
+    <string name="zakat_debts">Tartozásod (levonva)</string>
+    <string name="zakat_due">Zakat esedékes (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\' t nem tudta lekérni az árakat. Ellenőrizze a kapcsolatot, vagy adja meg az árat manuálisan.</string>
+    <string name="zakat_fetch_now">Frissítse az árakat most</string>
+    <string name="zakat_fetching">Árak lekérése…</string>
+    <string name="zakat_fitr_persons">Családtagok száma</string>
+    <string name="zakat_fitr_saa_value">Egy sa\' értéke (alapélelmiszer)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Összes Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Arany (gramm)</string>
+    <string name="zakat_gold_price">Az arany ára grammonként</string>
+    <string name="zakat_history">Számítási előzmények</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Még nincsenek mentett számítások.</string>
+    <string name="zakat_investments">Beruházások</string>
+    <string name="zakat_last_updated">Utolsó frissítés: %1$s</string>
+    <string name="zakat_money_section">Zakat a gazdagságról</string>
+    <string name="zakat_nisab_gold">Arany nisab (85g)</string>
+    <string name="zakat_nisab_met">A nisab elérve – zakat esedékes</string>
+    <string name="zakat_nisab_not_met">A nisab alatt – nem kell zakatot fizetni</string>
+    <string name="zakat_nisab_silver">Ezüst nisab (595g)</string>
+    <string name="zakat_rulings_note">A többség szerint (jumhoor): az arany nisab 85 g, az ezüst 595 g, az árfolyam pedig 2,5%% az esedékes tartozások levonása után. Speciális esetekben forduljon szakképzett tudóshoz.</string>
+    <string name="zakat_save_result">Mentés a történelembe</string>
+    <string name="zakat_silver_grams">ezüst (gramm)</string>
+    <string name="zakat_silver_price">Ezüst ár grammonként</string>
+    <string name="zakat_source_note">Arany/ezüst árak a gold-api.com oldalról; Devizaárfolyamok az open.er-api.com webhelyről</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Összes eszköz</string>
+    <string name="zakat_trade">Kereskedelmi áruk értéke</string>
+    <string name="zakat_zakatable">Zakatálható összeg az adósságok után</string>
+</resources>

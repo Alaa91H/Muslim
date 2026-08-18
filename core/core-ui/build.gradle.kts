@@ -27,6 +27,9 @@ dependencies {
     implementation(project(":core:core-design-system"))
     implementation(project(":core:core-common"))
 
+    // OpenStreetMap rendering (MapLibre GL Native — no API key, no Google services)
+    implementation(libs.maplibre.android)
+
     implementation(libs.androidx.core.ktx)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)

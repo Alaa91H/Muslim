@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Yn ol</string>
+    <string name="reference_no_results">Dim canlyniadau cyfatebol</string>
+    <string name="reference_search_hint">Chwiliwch am y llyfr hwn…</string>
+    <string name="reference_title">Llyfrgell Gyfeirio Islamaidd</string>
+    <string name="reference_topics_count">pynciau</string>
+</resources>

@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">ʻAtaka</string>
+    <string name="more_adhkar_desc">Pongipongi, efiafi &amp; hili \'a e lotu adhkar mo e ngaahi lau\'itohi</string>
+    <string name="more_downloads">Ngaahi download \'o e lau</string>
+    <string name="more_downloads_desc">Download ha surah, ha ayah pe ko e Quran kakato mo ho\'o tokotaha lau kuo ke fili .</string>
+    <string name="more_hadith">Hatisi</string>
+    <string name="more_hadith_desc">Hadith laipeli, kumi &amp; hadith \'o e \'aho .</string>
+    <string name="more_learn">Ako</string>
+    <string name="more_learn_desc">Ngaahi fakahinohino fakasitepu ki he wudu &amp; lotu .</string>
+    <string name="more_ramadan">Lamatani</string>
+    <string name="more_ramadan_desc">Suhoor &amp; taimi iftar mo e muimui\'i \'aukai .</string>
+    <string name="more_reference">Laipeli Maʻuʻanga Tokoni</string>
+    <string name="more_reference_desc">Fakafe\'iloaki ki he \'Isilami, \'a e Sira &amp; kau palofita</string>
+    <string name="more_settings">Ngaahi fokotuʻutuʻu</string>
+    <string name="more_settings_desc">Kaveinga, lea, lotu &amp; ngaahi tu\'unga \'o e adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha fakakomipiuta mo e hisitōlia fakaʻaho .</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat \'i he koloa &amp; Fitr me\'a fakafuofua .</string>
+    <string name="scaffold_message">\'Oku mateuteu \'a e hui \'o e poloseki \'o e ngaahi module lahi.\nKonga 1 — Adhan, taimi lotu, Qibla, mo e tohimāhina Hijri — \'oku kamata heni.</string>
+    <string name="shortcut_qibla">Qipula</string>
+    <string name="shortcut_qibla_long">Fakahinohino Qibla</string>
+    <string name="shortcut_settings">Ngaahi fokotuʻutuʻu</string>
+    <string name="shortcut_settings_long">Lotu &amp; adhan fokotu\'utu\'u</string>
+    <string name="shortcut_times">Ngaahi taimi lotu .</string>
+    <string name="shortcut_times_long">Ko e taimi lotu \'o e \'aho ni\'s</string>
+    <string name="tab_home">Taimi Lotu .</string>
+    <string name="tab_more">Lahi ange</string>
+    <string name="tab_qibla">Qipula</string>
+    <string name="tab_quran">Quran</string>
 </resources>

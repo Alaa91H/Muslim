@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">მუსლიმი</string>
+    <string name="more_adhkar">ადჰკარი</string>
+    <string name="more_adhkar_desc">დილის, საღამოს და ლოცვის შემდგომი ადჰკარი მრიცხველებით</string>
+    <string name="more_downloads">რეციდირების ჩამოტვირთვები</string>
+    <string name="more_downloads_desc">ჩამოტვირთეთ სურა, აია ან სრული ყურანი თქვენს მიერ არჩეულ წაკითხულთან ერთად</string>
+    <string name="more_hadith">ჰადისი</string>
+    <string name="more_hadith_desc">ჰადისის ბიბლიოთეკა, ძიება და დღის ჰადისი</string>
+    <string name="more_learn">ისწავლე</string>
+    <string name="more_learn_desc">ნაბიჯ-ნაბიჯ ვუდუს და ლოცვის სახელმძღვანელო</string>
+    <string name="more_ramadan">რამადანი</string>
+    <string name="more_ramadan_desc">სუჰურის და იფტარის დრო და მარხვის ტრეკერი</string>
+    <string name="more_reference">საცნობარო ბიბლიოთეკა</string>
+    <string name="more_reference_desc">შესავალი ისლამში, სირასა და წინასწარმეტყველებში</string>
+    <string name="more_settings">პარამეტრები</string>
+    <string name="more_settings_desc">თემა, ენა, ლოცვა და ადანის პარამეტრები</string>
+    <string name="more_tasbih">ტასბიჰ</string>
+    <string name="more_tasbih_desc">ციფრული მისბაჰა ყოველდღიური ისტორიით</string>
+    <string name="more_zakat">ზაქათი</string>
+    <string name="more_zakat_desc">ზაქათი სიმდიდრეზე და ფიტრზე კალკულატორი</string>
+    <string name="scaffold_message">მრავალმოდული პროექტის ჩონჩხი მზად არის.\nფაზა 1 - ადანი, ლოცვის დრო, ქიბლა და ჰიჯრის კალენდარი - იწყება აქ.</string>
+    <string name="shortcut_qibla">ქიბლა</string>
+    <string name="shortcut_qibla_long">ქიბლა მიმართულება</string>
+    <string name="shortcut_settings">პარამეტრები</string>
+    <string name="shortcut_settings_long">ლოცვისა და ადანის პარამეტრები</string>
+    <string name="shortcut_times">ლოცვის დრო</string>
+    <string name="shortcut_times_long">დღეს \'-იანი წლების ლოცვა</string>
+    <string name="tab_home">ლოცვის დრო</string>
+    <string name="tab_more">მეტი</string>
+    <string name="tab_qibla">ქიბლა</string>
+    <string name="tab_quran">ყურანი</string>
 </resources>

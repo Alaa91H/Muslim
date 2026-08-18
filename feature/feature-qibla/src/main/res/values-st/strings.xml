@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ho tloha moo</string>
+    <string name="mosque_finder_empty">Ha ho li-mosque tse fumanehang sebakeng sena</string>
+    <string name="mosque_finder_error">Ho batla ho hlolehile</string>
+    <string name="mosque_finder_intro">Fumana li-mosque tse haufi le sebaka sa hau ka OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Ha ho na sebaka se behiloeng. Khetha sebaka ho tsoa ho litlhophiso tsa linako tsa thapelo pele.</string>
+    <string name="mosque_finder_retry">Leka hape</string>
+    <string name="mosque_finder_searching">E batla...</string>
+    <string name="mosque_finder_title">Mamosleme a haufi</string>
+    <string name="qibla_bearing_cardinal">Qibla tataiso: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Tsamaisa fono ea hau ka palo-robeli ho e lokisa</string>
+    <string name="qibla_distance">Sebaka ho ea Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">U tobane le Qibla 🕋</string>
+    <string name="qibla_gps_error">Ha e khone ho fumana tokiso e nepahetseng. Ka kopo, leka hape.</string>
+    <string name="qibla_gps_live">Sebaka sa GPS se phelang</string>
+    <string name="qibla_gps_refresh">Nchafatsa sebaka ka GPS</string>
+    <string name="qibla_gps_refreshing">E batla…</string>
+    <string name="qibla_heading_degree">Sehlooho sa mohala: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Tsela e kholo ea ho tloha sebakeng sa hau ho ea Kaaba - e sebetsa ntle le marang-rang</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Wena</string>
+    <string name="qibla_mode_compass">Sesupa-tsela</string>
+    <string name="qibla_mode_map">\'Mapa</string>
+    <string name="qibla_open_mosques">Mamosleme a haufi</string>
+    <string name="qibla_title">Qibla tataiso</string>
+    <string name="qibla_turn_left">Jikela ka ho le letšehali %1$.1f°</string>
+    <string name="qibla_turn_right">Jikela ka ho le letona %1$.1f°</string>
+</resources>

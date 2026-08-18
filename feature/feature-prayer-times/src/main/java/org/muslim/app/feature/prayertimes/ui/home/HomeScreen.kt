@@ -1,6 +1,9 @@
 package org.muslim.app.feature.prayertimes.ui.home
 
+import android.content.Context
+import android.content.Intent
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -8,24 +11,34 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -47,6 +60,8 @@ fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
+
+    val context = LocalContext.current
 
     Column(
         modifier = modifier
@@ -187,6 +202,152 @@ fun HomeScreen(
                 }
             }
         }
+
+        Spacer(Modifier.height(12.dp))
+
+        // ---- Day navigation + share + daily/monthly toggle ----
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            IconButton(onClick = viewModel::previousDay) {
+                Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = stringResource(R.string.times_previous_day))
+            }
+            Column(modifier = Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = state.selectedDate.format(localDateFormatter),
+                    style = MaterialTheme.typography.titleMedium,
+                )
+                state.hijri?.let {
+                    Text(
+                        text = it.formatArabicLong(),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+            }
+            IconButton(onClick = viewModel::nextDay) {
+                Icon(Icons.AutoMirrored.Filled.KeyboardArrowLeft, contentDescription = stringResource(R.string.times_next_day))
+            }
+        }
+
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+            horizontalArrangement = Arrangement.End,
+        ) {
+            OutlinedButton(
+                onClick = { shareDailyTimes(context, state) },
+                enabled = state.isValid,
+            ) {
+                Text(stringResource(R.string.times_share))
+            }
+            Spacer(Modifier.width(8.dp))
+            OutlinedButton(onClick = viewModel::toggleMonthly) {
+                Text(stringResource(if (state.monthly) R.string.times_daily else R.string.times_monthly))
+            }
+        }
+
+        if (state.monthly) {
+            MonthlyGrid(state)
+        }
+
         Spacer(Modifier.height(16.dp))
+    }
+}
+
+/** Shares the selected day's prayer times as plain text via the share sheet. */
+private fun shareDailyTimes(context: Context, state: HomeViewModel.UiState) {
+    if (!state.isValid) return
+    val label = { prayer: Prayer -> context.getString(prayerLabelRes(prayer)) }
+    val lines = buildList {
+        add(context.getString(R.string.times_export_header, state.selectedDate.format(localDateFormatter)))
+        if (state.hasLocation) add(context.getString(R.string.times_export_location, state.locationName))
+        add("")
+        Prayer.entries.forEach { prayer ->
+            state.times[prayer]?.let { add("${label(prayer)}: ${it.format(localTimeFormatter)}") }
+        }
+    }
+
+    val share = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.times_export_subject))
+        putExtra(Intent.EXTRA_TEXT, lines.joinToString("\n"))
+    }
+    val chooser = Intent.createChooser(share, context.getString(R.string.times_share))
+    runCatching { context.startActivity(chooser) }
+}
+
+/** Monthly grid of fajr/maghrib times, like a printed yearly timetable. */
+@Composable
+private fun MonthlyGrid(state: HomeViewModel.UiState) {
+    val daysOfWeek = listOf(
+        stringResource(R.string.times_week_sat),
+        stringResource(R.string.times_week_sun),
+        stringResource(R.string.times_week_mon),
+        stringResource(R.string.times_week_tue),
+        stringResource(R.string.times_week_wed),
+        stringResource(R.string.times_week_thu),
+        stringResource(R.string.times_week_fri),
+    )
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Row(modifier = Modifier.fillMaxWidth()) {
+            daysOfWeek.forEach { day ->
+                Text(
+                    text = day,
+                    modifier = Modifier.weight(1f),
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+        Spacer(Modifier.height(4.dp))
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(7),
+            modifier = Modifier.height(380.dp),
+        ) {
+            val firstDayOfWeekIndex = state.month.atDay(1).dayOfWeek.value % 7
+            items(state.monthDays.size + firstDayOfWeekIndex) { index ->
+                val dayIndex = index - firstDayOfWeekIndex
+                if (dayIndex < 0) {
+                    Box(Modifier.padding(2.dp))
+                } else {
+                    MonthCell(state.monthDays[dayIndex])
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun MonthCell(day: HomeViewModel.DayTimes) {
+    Column(
+        modifier = Modifier
+            .padding(2.dp)
+            .fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(
+            text = day.hijriDay.toString(),
+            style = MaterialTheme.typography.labelLarge,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        Text(
+            text = day.date.dayOfMonth.toString(),
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        day.fajr?.let {
+            Text(
+                text = it.format(localTimeFormatter),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurface,
+            )
+        }
+        day.maghrib?.let {
+            Text(
+                text = it.format(localTimeFormatter),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurface,
+            )
+        }
     }
 }

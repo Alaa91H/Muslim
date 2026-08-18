@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s van</string>
+    <string name="mosque_finder_empty">Ebben a tartományban nem található mecset</string>
+    <string name="mosque_finder_error">A keresés sikertelen</string>
+    <string name="mosque_finder_intro">Keressen mecseteket a tartózkodási helye közelében az OpenStreetMap segítségével</string>
+    <string name="mosque_finder_no_location">Még nincs beállítva hely. Először válasszon egy helyet az áhítatok beállításai közül.</string>
+    <string name="mosque_finder_retry">Próbálja újra</string>
+    <string name="mosque_finder_searching">Keresés…</string>
+    <string name="mosque_finder_title">A közelben mecsetek</string>
+    <string name="qibla_bearing_cardinal">Qibla irány: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">A kalibráláshoz mozgassa a telefont egy nyolcas számmal</string>
+    <string name="qibla_distance">Távolság Mekkától: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">A Qiblával állsz szemben 🕋</string>
+    <string name="qibla_gps_error">Nem sikerült pontos javítást kapni. Kérjük, próbálja újra.</string>
+    <string name="qibla_gps_live">Élő GPS hely</string>
+    <string name="qibla_gps_refresh">Helyfrissítés GPS-en keresztül</string>
+    <string name="qibla_gps_refreshing">Helymeghatározás…</string>
+    <string name="qibla_heading_degree">Telefon címsora: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Nagy körút az Ön tartózkodási helyétől a Kába felé – offline módban működik</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Te</string>
+    <string name="qibla_mode_compass">Iránytű</string>
+    <string name="qibla_mode_map">Térkép</string>
+    <string name="qibla_open_mosques">A közelben mecsetek</string>
+    <string name="qibla_title">Qibla irány</string>
+    <string name="qibla_turn_left">Forduljon balra %1$.1f°-kal</string>
+    <string name="qibla_turn_right">Forduljon jobbra %1$.1f°-kal</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s na ɛwɔ hɔ</string>
+    <string name="mosque_finder_empty">Wohuu asɔredan biara wɔ saa beae yi</string>
+    <string name="mosque_finder_error">Hwehwɛ no antumi</string>
+    <string name="mosque_finder_intro">Hwehwɛ asɔredan a ɛbɛn wo beae no denam OpenStreetMap so</string>
+    <string name="mosque_finder_no_location">Beae biara nni hɔ a wɔahyɛ da de besi nnɛ. Paw beae bi fi mpaebɔ bere nhyehyɛe mu kan.</string>
+    <string name="mosque_finder_retry">San bɔ mmɔden bio</string>
+    <string name="mosque_finder_searching">Hwehwɛ...</string>
+    <string name="mosque_finder_title">Asɔredan ahorow a ɛbɛn hɔ</string>
+    <string name="qibla_bearing_cardinal">Qibla akwankyerɛ: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f° na ɛyɛ</string>
+    <string name="qibla_calibrate">Fa wo fon no kɔ figure-eight mu na ama ayɛ calibrate</string>
+    <string name="qibla_distance">Ɔkwan a ɛda Makkah ntam: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Worehyia Qibla 🕋</string>
+    <string name="qibla_gps_error">Antumi annye nsiesie a edi mu. Yɛsrɛ sɛ sɔ hwɛ bio.</string>
+    <string name="qibla_gps_live">Live GPS beae a ɛwɔ</string>
+    <string name="qibla_gps_refresh">Fa GPS so kɔ beae no foforo</string>
+    <string name="qibla_gps_refreshing">Beae a wobɛhwehwɛ...</string>
+    <string name="qibla_heading_degree">Telefon asɛmti: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Great-circle kwan a efi wo beae kɔ Kaaba — yɛ adwuma offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Wo</string>
+    <string name="qibla_mode_compass">Kɔmpase a wɔde yɛ adwuma</string>
+    <string name="qibla_mode_map">Asase mfonini</string>
+    <string name="qibla_open_mosques">Asɔredan ahorow a ɛbɛn hɔ</string>
+    <string name="qibla_title">Qibla akwankyerɛ</string>
+    <string name="qibla_turn_left">Dan kɔ benkum %1$.1f°</string>
+    <string name="qibla_turn_right">Dan kɔ nifa %1$.1f°</string>
+</resources>

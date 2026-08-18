@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Emva</string>
+    <string name="ramadan_countdown">IRamadan iqala kwiintsuku ezingama-%1$s</string>
+    <string name="ramadan_countdown_to_iftar">Ixesha ukuya iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Ixesha lokuya kwiFajr: %1$s</string>
+    <string name="ramadan_day_of_month">Usuku lwe-%1$s lweRamadan</string>
+    <string name="ramadan_days_left">%1$s iintsuku eziseleyo</string>
+    <string name="ramadan_fasting_progress">Iintsuku zokuzila ukutya: %1$s ye-%2$s - cofa usuku ukuyirekhoda</string>
+    <string name="ramadan_fasting_tracker">Ukuzila ukutya</string>
+    <string name="ramadan_hijri_note">Ngokusekwe kwikhalenda ye-Umm al-Qura kunye nohlengahlengiso olubanzi lwe-Hijri olusetyenziswayo.</string>
+    <string name="ramadan_hijri_year">Unyaka %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Isibongozo se-Iftar: "Owu Allah, ndazila ukutya ngenxa yakho kwaye ngokubonelela kwaKho ndophula ukuzila kwam..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) ixesha: %1$s</string>
+    <string name="ramadan_location_required">Khetha isixeko kwiiSetingi kuqala ukuze ubone amaxesha.</string>
+    <string name="ramadan_minutes">%1$s imiz</string>
+    <string name="ramadan_notification_iftar_body">Owu Allah, ngenxa yaKho ndizile ukutya kwaye ngenxa yokubonelela kwaKho ndiqhawula ukutya kwam</string>
+    <string name="ramadan_notification_iftar_title">Ixesha le-iftar</string>
+    <string name="ramadan_notification_suhoor_body">I-Fajr iyasondela - yiba ne-suhoor yakho</string>
+    <string name="ramadan_notification_suhoor_title">Isikhumbuzo esimnandi</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Ndikhumbuze ngaphambili:</string>
+    <string name="ramadan_suhoor_time">Isiphelo seSuhoor (Fajr): %1$s</string>
+    <string name="ramadan_title">eRamadan</string>
+</resources>

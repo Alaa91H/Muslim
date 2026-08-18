@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Morago</string>
+    <string name="ramadan_countdown">Ramadan e simolola mo malatsing a le %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Nako ya iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Nako ya Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Letsatsi la bo %1$s la Ramadane</string>
+    <string name="ramadan_days_left">Go setse malatsi a le %1$s</string>
+    <string name="ramadan_fasting_progress">Fasting days: %1$s of %2$s — tap a day to record it</string>
+    <string name="ramadan_fasting_tracker">Selatedi sa go itima dijo</string>
+    <string name="ramadan_hijri_note">E theilwe mo khalendareng ya Umm al-Qura e e nang le phetolo ya Hijri e e dirisiwang ka bophara ya app.</string>
+    <string name="ramadan_hijri_year">Ngwaga wa %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Kopo ya Iftar: "O Allah, ke itimile dijo ka ntlha ya gago mme ke itima dijo ka tlamelo ya gago..."</string>
+    <string name="ramadan_iftar_time">Nako ya Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Tlhopha toropo mo Diseting pele go bona dinako.</string>
+    <string name="ramadan_minutes">Metsotso e le %1$s</string>
+    <string name="ramadan_notification_iftar_body">O Allah, ke itimile dijo ka ntlha ya gago mme ke itima dijo ka tlamelo ya gago</string>
+    <string name="ramadan_notification_iftar_title">Nako ya iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr e a atamela — nna le suhoor ya gago</string>
+    <string name="ramadan_notification_suhoor_title">Kgopotso ya Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhura</string>
+    <string name="ramadan_suhoor_remind_before">Nkgopotse pele:</string>
+    <string name="ramadan_suhoor_time">Suhour e fela (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadane</string>
+</resources>

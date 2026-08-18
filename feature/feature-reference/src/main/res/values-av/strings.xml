@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Нахъе</string>
+    <string name="reference_no_results">Данде кколел хӀасилал гьечӀо</string>
+    <string name="reference_search_hint">Гьаб тӀехьалда балагье...</string>
+    <string name="reference_title">Исламияб справочникалъул библиотека</string>
+    <string name="reference_topics_count">темаби;</string>
+</resources>

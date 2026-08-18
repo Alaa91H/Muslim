@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">חזרה</string>
+    <string name="ramadan_countdown">הרמדאן מתחיל בעוד %1$s ימים</string>
+    <string name="ramadan_countdown_to_iftar">זמן לאיפטאר: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">זמן לפאג\'ר: %1$s</string>
+    <string name="ramadan_day_of_month">יום %1$s לרמדאן</string>
+    <string name="ramadan_days_left">נותרו %1$s ימים</string>
+    <string name="ramadan_fasting_progress">ימי צום: %1$s מתוך %2$s - הקש על יום כדי להקליט אותו</string>
+    <string name="ramadan_fasting_tracker">גשש בצום</string>
+    <string name="ramadan_hijri_note">מבוסס על לוח השנה של אום אל-קורה עם התאמת ההיג\'רי בכל האפליקציה.</string>
+    <string name="ramadan_hijri_year">שנה %1$s AH</string>
+    <string name="ramadan_iftar">איפטר</string>
+    <string name="ramadan_iftar_dua">תחנון איפטר: "הו אללה, בשבילך צמתי ועל הפרנסה שלך אני שובר את צום..."</string>
+    <string name="ramadan_iftar_time">זמן איפטר (מגריב): %1$s</string>
+    <string name="ramadan_location_required">תחילה בחר עיר בהגדרות כדי לראות את הזמנים.</string>
+    <string name="ramadan_minutes">%1$s דקות</string>
+    <string name="ramadan_notification_iftar_body">הו אללה, בשבילך צמתי ועל הפרנסה שלך אני שובר את צום</string>
+    <string name="ramadan_notification_iftar_title">הגיע הזמן לאיפטאר</string>
+    <string name="ramadan_notification_suhoor_body">פאג\'ר מתקרב - קח את הסוהור שלך</string>
+    <string name="ramadan_notification_suhoor_title">תזכורת סוחור</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">סוחור</string>
+    <string name="ramadan_suhoor_remind_before">תזכיר לי לפני:</string>
+    <string name="ramadan_suhoor_time">סוהור מסתיים (פג\'ר): %1$s</string>
+    <string name="ramadan_title">רמדאן</string>
+</resources>

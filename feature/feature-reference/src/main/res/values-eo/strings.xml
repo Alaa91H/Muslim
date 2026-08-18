@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Reen</string>
+    <string name="reference_no_results">Neniuj kongruaj rezultoj</string>
+    <string name="reference_search_hint">Serĉu ĉi tiun libron...</string>
+    <string name="reference_title">Islama Referenca Biblioteko</string>
+    <string name="reference_topics_count">temoj</string>
+</resources>

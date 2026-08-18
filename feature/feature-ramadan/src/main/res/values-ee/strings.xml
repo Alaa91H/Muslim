@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Trɔ yi megbe</string>
+    <string name="ramadan_countdown">Ramadan dzea egɔme le ŋkeke %1$s me</string>
+    <string name="ramadan_countdown_to_iftar">Ɣeyiɣi si woatsɔ awɔ iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Ɣeyiɣi si woatsɔ ayi Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Ramadan ƒe Ŋkeke %1$s</string>
+    <string name="ramadan_days_left">Ŋkeke %1$s susɔ</string>
+    <string name="ramadan_fasting_progress">Nutsitsidɔ ŋkekewo: %1$s le %2$s me — zi ŋkeke ɖeka dzi be nàlée ɖe mɔ̃ dzi</string>
+    <string name="ramadan_fasting_tracker">Nutsitsidɔ ƒe tracker</string>
+    <string name="ramadan_hijri_note">Wotue ɖe Umm al-Qura ƒe ɣletigbalẽ dzi kple Hijri ƒe asitɔtrɔ si wowɔ le app-katã me.</string>
+    <string name="ramadan_hijri_year">Ƒe %1$s AH</string>
+    <string name="ramadan_iftar">Iftar, si nye Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar ƒe kukuɖeɖe: "O Allah, Wò tae metsi nu dɔ eye le Wò nuɖuɖu dzi la, metso nye nutsitsidɔ..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) ƒe ɣeyiɣi: %1$s</string>
+    <string name="ramadan_location_required">Tia du aɖe le Settings me gbã be nàkpɔ ɣeyiɣiawo.</string>
+    <string name="ramadan_minutes">%1$s ƒe miniti</string>
+    <string name="ramadan_notification_iftar_body">O Allah, Wò tae metsi nu dɔ eye le Wò nuɖuɖu dzi la, medzudzɔa nye nutsitsidɔ</string>
+    <string name="ramadan_notification_iftar_title">Ɣeyiɣi si woawɔ iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr le tetem ɖe eŋu — na wò suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor ŋkuɖodzinya</string>
+    <string name="ramadan_starts_on">%1$s — %2$s ƒe xexlẽme</string>
+    <string name="ramadan_suhoor">Suhoor ƒe nya</string>
+    <string name="ramadan_suhoor_remind_before">Ðo ŋku edzi nam do ŋgɔ be:</string>
+    <string name="ramadan_suhoor_time">Suhoor ƒe nuwuwu (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan ƒe ɣeyiɣia me</string>
+</resources>

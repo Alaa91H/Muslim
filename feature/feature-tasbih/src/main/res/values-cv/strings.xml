@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Цифра мисбаха — шутлама пусӑр</string>
+    <string name="misbaha_widget_label">Тасбих</string>
+    <string name="misbaha_widget_tap_hint">Шутлама пусӑр</string>
+    <string name="tasbih_back">Каялла</string>
+    <string name="tasbih_cancel">Пӑрахӑҫла</string>
+    <string name="tasbih_confirm">Юрать</string>
+    <string name="tasbih_custom_target">Ятарлӑ</string>
+    <string name="tasbih_custom_target_hint">Шутлавсен шутне кӗртӗр (1-рен пуҫласа 100000 таран)</string>
+    <string name="tasbih_custom_target_title">Ятарлӑ тӗллев лартӑр</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Сброс</string>
+    <string name="tasbih_reset_all">Пурне те ҫӗнӗрен ларт</string>
+    <string name="tasbih_round_complete">Пӗтӗм ҫаврашка вӗҫленнӗ (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Турсем: %1$d</string>
+    <string name="tasbih_sound_desc">Кашни тулли тур вӗҫленсен рингтон е тон выляса илӗр</string>
+    <string name="tasbih_sound_title">Тӗллев ҫинче сасӑ</string>
+    <string name="tasbih_sound_tone_alarm">Тревога</string>
+    <string name="tasbih_sound_tone_notification">Пӗлтерӳ</string>
+    <string name="tasbih_sound_tone_ringtone">Шӑнкӑрав сасси</string>
+    <string name="tasbih_tap_hint">Шутлама ҫаврашка ҫине пусӑр</string>
+    <string name="tasbih_target_reached">Тӗллеве пурнӑҫланӑ — Аллах йышӑнтӑр</string>
+    <string name="tasbih_title">Тасбих</string>
+    <string name="tasbih_total_today">Паян\'сем пурӗ: %1$d</string>
+    <string name="tasbih_undo">Каялла тавӑр</string>
+    <string name="tasbih_virtue_label">Ҫак зикрӑн ырӑлӑхӗ</string>
+    <string name="tasbih_week_stats">Юлашки 7 кун</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Артка</string>
+    <string name="reference_no_results">Дал келген натыйжалар жок</string>
+    <string name="reference_search_hint">Бул китепти издөө…</string>
+    <string name="reference_title">Ислам маалымдама китепканасы</string>
+    <string name="reference_topics_count">темалар</string>
+</resources>

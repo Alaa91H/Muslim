@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Kollha</string>
+    <string name="hadith_back">Lura</string>
+    <string name="hadith_bookmark_add">Żid bookmark</string>
+    <string name="hadith_bookmark_remove">Neħħi bookmark</string>
+    <string name="hadith_collection_abudawud">Abu Dawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah</string>
+    <string name="hadith_collection_muslim">Musulmani</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">Oħrajn</string>
+    <string name="hadith_collection_riyad">Riyadh as-Salihin</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidhi</string>
+    <string name="hadith_daily_notification">Notifika hadith kuljum</string>
+    <string name="hadith_daily_notification_desc">Irċievi hadith kuljum</string>
+    <string name="hadith_daily_notification_time">Ħin tan-notifika</string>
+    <string name="hadith_of_the_day">Hadith tal-ġurnata</string>
+    <string name="hadith_preview_hint">Dan huwa kif in-notifika tal-hadith ta \'kuljum tidher fil-ħin skedat tagħha.</string>
+    <string name="hadith_preview_label">Preview tan-notifika</string>
+    <string name="hadith_preview_loading">Tagħbija l-hadith...</string>
+    <string name="hadith_search_hint">Fittex il-hadiths...</string>
+    <string name="hadith_share">Aqsam</string>
+    <string name="hadith_title">Librerija Hadith</string>
+</resources>

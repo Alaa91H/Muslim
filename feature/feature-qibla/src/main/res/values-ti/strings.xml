@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ርሒቑ ይርከብ።</string>
+    <string name="mosque_finder_empty">ኣብዚ ሬንጅ ዝኾነ መሳጊድ ኣይተረኽበን።</string>
+    <string name="mosque_finder_error">ምድላይ ኣይተዓወተን</string>
+    <string name="mosque_finder_intro">ኣብ ጥቓ ዘለኻዮ ቦታ ዝርከቡ መሳጊድ ብመንገዲ OpenStreetMap ርኸብ</string>
+    <string name="mosque_finder_no_location">ገና ቦታ ኣይተቐመጠን። መጀመርታ ካብ ቅጥዕታት ግዜ ጸሎት ቦታ ምረጽ።</string>
+    <string name="mosque_finder_retry">ዳግማይ ፈትን።</string>
+    <string name="mosque_finder_searching">ምድላይ...</string>
+    <string name="mosque_finder_title">ኣብ ቀረባ ዝርከቡ መሳጊድ</string>
+    <string name="qibla_bearing_cardinal">ኣንፈት ቂብላ፡ %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f° ዝብል እዩ።</string>
+    <string name="qibla_calibrate">ስልክኻ ኣብ ፊግር-ሸሞንተ ኣንቀሳቕሳ ንኽትዕቅን።</string>
+    <string name="qibla_distance">ርሕቀት ናብ መካ፡ %1$s</string>
+    <string name="qibla_distance_km">%,.0f ኪ.ሜ</string>
+    <string name="qibla_facing">ምስ ቂብላ 🕋 ገጢምኩም ኣለኹም</string>
+    <string name="qibla_gps_error">ቅኑዕ ምእራም ክረክብ ኣይከኣለን። በጃኹም ደጊምኩም ፈትኑ።</string>
+    <string name="qibla_gps_live">ቀጥታዊ ጂፒኤስ ቦታ</string>
+    <string name="qibla_gps_refresh">ብጂፒኤስ ኣቢልካ ቦታ ምሕዳስ</string>
+    <string name="qibla_gps_refreshing">ምድላይ...</string>
+    <string name="qibla_heading_degree">ኣርእስቲ ቴሌፎን፡ %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">ካብቲ ዘለኻዮ ቦታ ናብ ካዕባ ዝወስድ ዓቢ-ዓንኬል መስመር — ካብ መስመር ወጻኢ ይሰርሕ</string>
+    <string name="qibla_map_kaaba">ካዕባ</string>
+    <string name="qibla_map_you">ንስኻ...</string>
+    <string name="qibla_mode_compass">ኮምፓስ</string>
+    <string name="qibla_mode_map">ካርታ</string>
+    <string name="qibla_open_mosques">ኣብ ቀረባ ዝርከቡ መሳጊድ</string>
+    <string name="qibla_title">ኣንፈት ቂብላ</string>
+    <string name="qibla_turn_left">ንጸጋም %1$.1f° ምጥዋይ</string>
+    <string name="qibla_turn_right">ንየማን %1$.1f° ምጥዋይ</string>
+</resources>

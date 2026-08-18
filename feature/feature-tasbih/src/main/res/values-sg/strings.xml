@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha ti numérique — tap ti diko wungo ti aye .</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Zia ti diko wungo ni .</string>
+    <string name="tasbih_back">Back .</string>
+    <string name="tasbih_cancel">Annuler</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Coutume</string>
+    <string name="tasbih_custom_target_hint">Zia wungo ti azo so a diko wungo ti ala (ti londo na 1 ti si na 100000) .</string>
+    <string name="tasbih_custom_target_title">Zia mbeni ye so mo ye ti sara .</string>
+    <string name="tasbih_of_target">of %1$s</string>
+    <string name="tasbih_reset">Réinitialiser</string>
+    <string name="tasbih_reset_all">Réinitialiser ni kue .</string>
+    <string name="tasbih_round_complete">Ronde ni kue (%1$s) 🎉 .</string>
+    <string name="tasbih_rounds">Rounds: %1$d</string>
+    <string name="tasbih_sound_desc">Zia mbeni son wala mbeni ton na ngoi so tour oko oko kue ahunzi awe .</string>
+    <string name="tasbih_sound_title">Son na cible .</string>
+    <string name="tasbih_sound_tone_alarm">Alarme</string>
+    <string name="tasbih_sound_tone_notification">Fango tënë</string>
+    <string name="tasbih_sound_tone_ringtone">Sonnerie</string>
+    <string name="tasbih_tap_hint">Zia cercle ni ti diko wungo ni .</string>
+    <string name="tasbih_target_reached">Goal ni asi awe — zia si Allah ayeda .</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Laso wungo ti azo \' kue: %1$d</string>
+    <string name="tasbih_undo">Undo</string>
+    <string name="tasbih_virtue_label">Virtue ti dhikr so .</string>
+    <string name="tasbih_week_stats">Lango 7 so ahon</string>
+</resources>

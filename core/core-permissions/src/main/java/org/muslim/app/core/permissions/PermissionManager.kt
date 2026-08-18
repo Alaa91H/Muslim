@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
+import android.os.PowerManager
 import android.provider.Settings
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
@@ -59,7 +60,9 @@ class PermissionManager @Inject constructor(
      * app access that cannot be granted through a runtime dialog. Returns
      * null for runtime/normal permissions and for unsupported API levels.
      */
-    @SuppressLint("InlinedApi")
+    // Battery exemption is core to an adhan / prayer-reminder app (an
+    // alarm-clock-like use case that Play policy permits).
+    @SuppressLint("InlinedApi", "BatteryLife")
     fun systemSettingsIntent(permission: AppPermission): Intent? {
         if (permission.kind != AppPermission.Kind.SpecialAccess) return null
         if (Build.VERSION.SDK_INT < permission.minSdk) return null
@@ -75,6 +78,10 @@ class PermissionManager @Inject constructor(
             )
             AppPermission.NotificationPolicy -> Intent(
                 Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS,
+            )
+            AppPermission.BatteryOptimization -> Intent(
+                Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
+                "package:$packageName".toUri(),
             )
             else -> null
         }
@@ -124,6 +131,10 @@ class PermissionManager @Inject constructor(
             AppPermission.NotificationPolicy -> {
                 val manager = context.getSystemService(NotificationManager::class.java)
                 manager.isNotificationPolicyAccessGranted
+            }
+            AppPermission.BatteryOptimization -> {
+                val powerManager = context.getSystemService(PowerManager::class.java)
+                powerManager.isIgnoringBatteryOptimizations(context.packageName)
             }
             else -> true
         }

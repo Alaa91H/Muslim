@@ -27,6 +27,7 @@ enum class BundledAdhanSound(val id: String) {
     Saber("saber"),
     SharifDoman("sharif_doman"),
     YusufIslam("yusuf_islam"),
+    UmayyadDamascus("umayyad_damascus"),
     ;
 
     companion object {

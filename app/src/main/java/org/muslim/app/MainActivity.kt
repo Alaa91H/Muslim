@@ -107,10 +107,13 @@ class MainActivity : ComponentActivity() {
     private fun routeFromIntent(intent: Intent?): String {
         val data = intent?.data?.toString().orEmpty()
         return when {
-            data.startsWith("muslim://times") -> ROUTE_TIMES
+            // The standalone times page was merged into the home tab ("أوقات
+            // الصلاة"), so the old times shortcut now opens the home tab.
+            data.startsWith("muslim://times") -> ROUTE_HOME
             data.startsWith("muslim://qibla") -> ROUTE_QIBLA
             data.startsWith("muslim://settings") -> ROUTE_SETTINGS
             data.startsWith("muslim://hadith") -> ROUTE_HADITH
+            data.startsWith("muslim://learn") -> ROUTE_LEARN
             else -> ROUTE_HOME
         }
     }
@@ -134,9 +137,9 @@ class MainActivity : ComponentActivity() {
     private companion object {
         const val REQUEST_NOTIFICATIONS = 100
         const val ROUTE_HOME = "home"
-        const val ROUTE_TIMES = "times"
         const val ROUTE_QIBLA = "qibla"
         const val ROUTE_SETTINGS = "settings"
         const val ROUTE_HADITH = "hadith"
+        const val ROUTE_LEARN = "learn"
     }
 }

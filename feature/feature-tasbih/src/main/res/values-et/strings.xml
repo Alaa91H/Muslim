@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digitaalne misbaha – puudutage loendamiseks</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Puudutage loendamiseks</string>
+    <string name="tasbih_back">Tagasi</string>
+    <string name="tasbih_cancel">Tühista</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Kohandatud</string>
+    <string name="tasbih_custom_target_hint">Sisestage loenduste arv (1 kuni 100 000)</string>
+    <string name="tasbih_custom_target_title">Määrake kohandatud sihtmärk</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Lähtesta</string>
+    <string name="tasbih_reset_all">Lähtesta kõik</string>
+    <string name="tasbih_round_complete">Täisring läbi (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Ringid: %1$d</string>
+    <string name="tasbih_sound_desc">Kui iga täisring on lõppenud, esitage helin või helin</string>
+    <string name="tasbih_sound_title">Heli sihtmärgile</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Teavitus</string>
+    <string name="tasbih_sound_tone_ringtone">Helin</string>
+    <string name="tasbih_tap_hint">Loendamiseks puudutage ringi</string>
+    <string name="tasbih_target_reached">Eesmärk saavutatud – olgu Jumal selle vastu</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Täna \' kokku: %1$d</string>
+    <string name="tasbih_undo">Võta tagasi</string>
+    <string name="tasbih_virtue_label">Selle dhikri voorus</string>
+    <string name="tasbih_week_stats">Viimased 7 päeva</string>
+</resources>

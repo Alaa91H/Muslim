@@ -50,7 +50,7 @@ class RamadanScheduler @Inject constructor(
 
         val todayResult = calculator.compute(
             date = today,
-            coordinates = Coordinates(location.latitude, location.longitude),
+            coordinates = Coordinates(location.latitude, location.longitude, location.elevation),
             parameters = params,
             timeZone = zone,
             asrMethod = prayerSettings.asrMethod,
@@ -58,7 +58,7 @@ class RamadanScheduler @Inject constructor(
         )
         val tomorrowResult = calculator.compute(
             date = tomorrow,
-            coordinates = Coordinates(location.latitude, location.longitude),
+            coordinates = Coordinates(location.latitude, location.longitude, location.elevation),
             parameters = params,
             timeZone = zone,
             asrMethod = prayerSettings.asrMethod,

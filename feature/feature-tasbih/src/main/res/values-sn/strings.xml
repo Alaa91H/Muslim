@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — tora kuverenga</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tinya kuti uverenge</string>
+    <string name="tasbih_back">Back</string>
+    <string name="tasbih_cancel">Cancel</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Custom</string>
+    <string name="tasbih_custom_target_hint">Isa nhamba yezviverengero (kubva pa1 kusvika pa100000)</string>
+    <string name="tasbih_custom_target_title">Isa chinangwa chetsika</string>
+    <string name="tasbih_of_target">ye%1$s</string>
+    <string name="tasbih_reset">Reset</string>
+    <string name="tasbih_reset_all">Reset zvese</string>
+    <string name="tasbih_round_complete">Kutenderera kwakazara kwakazara (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Kutenderera: %1$d</string>
+    <string name="tasbih_sound_desc">Ridza toni kana toni kana kutenderera kwega kwega kwapera</string>
+    <string name="tasbih_sound_title">Inzwi pane chinangwa</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Notification</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Tokonya denderedzwa kuverenga</string>
+    <string name="tasbih_target_reached">Chinangwa chasvika - dai Allah vagamuchira</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Nhasi\'s yakazara: %1$d</string>
+    <string name="tasbih_undo">Undo</string>
+    <string name="tasbih_virtue_label">Hunhu hwedhikr iyi</string>
+    <string name="tasbih_week_stats">Mazuva manomwe apfuura</string>
+</resources>

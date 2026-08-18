@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Müsəlman</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Səhər, axşam və namazdan sonra sayğaclarla zikr</string>
+    <string name="more_downloads">Qiraət yükləmələri</string>
+    <string name="more_downloads_desc">Seçdiyiniz qiraətçi ilə bir surə, ayə və ya tam Quran yükləyin</string>
+    <string name="more_hadith">hədis</string>
+    <string name="more_hadith_desc">Hədis kitabxanası, axtarış və günün hədisi</string>
+    <string name="more_learn">Öyrən</string>
+    <string name="more_learn_desc">Addım-addım dəstəmaz və dua təlimatları</string>
+    <string name="more_ramadan">Ramazan</string>
+    <string name="more_ramadan_desc">Sahur və iftar vaxtları və oruc izləyicisi</string>
+    <string name="more_reference">İstinad Kitabxanası</string>
+    <string name="more_reference_desc">İslama, Siraya və peyğəmbərlərə giriş</string>
+    <string name="more_settings">Parametrlər</string>
+    <string name="more_settings_desc">Mövzu, dil, dua və azan parametrləri</string>
+    <string name="more_tasbih">Təsbih</string>
+    <string name="more_tasbih_desc">Gündəlik tarixə malik rəqəmsal misbaha</string>
+    <string name="more_zakat">Zəkat</string>
+    <string name="more_zakat_desc">Sərvət və Fitr kalkulyatorunun zəkatı</string>
+    <string name="scaffold_message">Çox modullu layihə skeleti hazırdır.\nMərhələ 1 — Azan, namaz vaxtları, qiblə və hicri təqvim — burada başlayır.</string>
+    <string name="shortcut_qibla">qiblə</string>
+    <string name="shortcut_qibla_long">Qiblə istiqaməti</string>
+    <string name="shortcut_settings">Parametrlər</string>
+    <string name="shortcut_settings_long">Namaz və azan parametrləri</string>
+    <string name="shortcut_times">Namaz vaxtları</string>
+    <string name="shortcut_times_long">Bu gün \'s namaz vaxtları</string>
+    <string name="tab_home">Namaz vaxtları</string>
+    <string name="tab_more">Daha çox</string>
+    <string name="tab_qibla">qiblə</string>
+    <string name="tab_quran">Quran</string>
 </resources>

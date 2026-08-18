@@ -1,17 +1,21 @@
 package org.muslim.app.feature.qibla.ui
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material.icons.filled.MyLocation
+import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -37,6 +41,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import dagger.hilt.android.lifecycle.HiltViewModel
+import org.maplibre.android.camera.CameraPosition
+import org.maplibre.android.geometry.LatLng
+import org.muslim.app.core.ui.map.OsmMapView
+import org.muslim.app.core.ui.map.addPinMarker
 import org.muslim.app.feature.qibla.R
 import org.muslim.app.feature.qibla.data.Mosque
 import org.muslim.app.feature.qibla.data.MosqueFinderRepository
@@ -111,6 +119,41 @@ fun MosqueFinderScreen(
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
+            }
+            if (latitude != null && longitude != null) {
+                item {
+                    Box(Modifier.fillMaxWidth().height(240.dp)) {
+                        OsmMapView(
+                            modifier = Modifier.fillMaxSize(),
+                            initialCamera = CameraPosition.Builder()
+                                .target(LatLng(latitude, longitude))
+                                .zoom(13.0)
+                                .build(),
+                            key = viewModel.mosques,
+                            onMapReady = { map ->
+                                map.addPinMarker("user", LatLng(latitude, longitude), "#1E88E5")
+                                viewModel.mosques.forEachIndexed { index, mosque ->
+                                    map.addPinMarker(
+                                        "mosque_$index",
+                                        LatLng(mosque.latitude, mosque.longitude),
+                                        "#2E7D32",
+                                    )
+                                }
+                            },
+                        )
+                        FilledTonalIconButton(
+                            onClick = { viewModel.search(latitude, longitude) },
+                            modifier = Modifier
+                                .align(Alignment.TopEnd)
+                                .padding(12.dp),
+                        ) {
+                            Icon(
+                                Icons.Default.MyLocation,
+                                contentDescription = stringResource(R.string.mosque_finder_retry),
+                            )
+                        }
+                    }
+                }
             }
             if (latitude == null || longitude == null) {
                 item {

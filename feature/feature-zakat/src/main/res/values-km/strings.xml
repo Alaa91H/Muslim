@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">ប្រមូលតម្លៃដោយស្វ័យប្រវត្តិ</string>
+    <string name="zakat_auto_prices_hint">នៅពេលបើកដំណើរការ តម្លៃមាស និងប្រាក់ត្រូវបានទាញយកពីអ៊ីនធឺណិត ហើយផ្ទុកឡើងវិញដោយស្វ័យប្រវត្តិ</string>
+    <string name="zakat_back">ត្រឡប់មកវិញ</string>
+    <string name="zakat_cash">សាច់ប្រាក់ និងការសន្សំ</string>
+    <string name="zakat_clear_history">ជម្រះប្រវត្តិ</string>
+    <string name="zakat_country">ប្រទេស</string>
+    <string name="zakat_country_placeholder">ជ្រើសរើសប្រទេស និងរូបិយប័ណ្ណរបស់អ្នក។</string>
+    <string name="zakat_country_section">ប្រទេស និងរូបិយប័ណ្ណ</string>
+    <string name="zakat_currency">រូបិយប័ណ្ណ៖ %1$s</string>
+    <string name="zakat_debts">បំណុលដែលអ្នកជំពាក់ (កាត់ចេញ)</string>
+    <string name="zakat_due">Zakat ដល់កំណត់ (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">មិន​អាច​ទាញ​យក​តម្លៃ។ ពិនិត្យការតភ្ជាប់របស់អ្នក ឬបញ្ចូលតម្លៃដោយដៃ។</string>
+    <string name="zakat_fetch_now">ធ្វើឱ្យតម្លៃឡើងវិញឥឡូវនេះ</string>
+    <string name="zakat_fetching">កំពុងទៅយកតម្លៃ...</string>
+    <string name="zakat_fitr_persons">ចំនួនសមាជិកគ្រួសារ</string>
+    <string name="zakat_fitr_saa_value">តម្លៃ 1 sa\' (អាហារសំខាន់)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">សរុប Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">មាស (ក្រាម)</string>
+    <string name="zakat_gold_price">តម្លៃមាសក្នុងមួយក្រាម</string>
+    <string name="zakat_history">ប្រវត្តិនៃការគណនា</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">មិនទាន់មានការគណនាដែលបានរក្សាទុកនៅឡើយទេ។</string>
+    <string name="zakat_investments">ការវិនិយោគ</string>
+    <string name="zakat_last_updated">អាប់ដេតចុងក្រោយ៖ %1$s</string>
+    <string name="zakat_money_section">Zakat លើទ្រព្យសម្បត្តិ</string>
+    <string name="zakat_nisab_gold">មាសនីសាប (៨៥ ក្រាម)</string>
+    <string name="zakat_nisab_met">នីសាបត្រូវបានឈានដល់ - zakat ដល់ពេលកំណត់</string>
+    <string name="zakat_nisab_not_met">ខាងក្រោម nisab - គ្មាន zakat ដល់ពេល</string>
+    <string name="zakat_nisab_silver">ប្រាក់ nisab (595 ក្រាម)</string>
+    <string name="zakat_rulings_note">ក្នុងមួយភាគច្រើន (jumhoor): មាស nisab គឺ 85g ប្រាក់ 595g និងអត្រាគឺ 2.5%% បន្ទាប់ពីកាត់បំណុលដល់កំណត់។ ពិគ្រោះជាមួយអ្នកប្រាជ្ញដែលមានលក្ខណៈសម្បត្តិគ្រប់គ្រាន់សម្រាប់ករណីពិសេស។</string>
+    <string name="zakat_save_result">រក្សាទុកក្នុងប្រវត្តិសាស្ត្រ</string>
+    <string name="zakat_silver_grams">ប្រាក់ (ក្រាម)</string>
+    <string name="zakat_silver_price">តម្លៃប្រាក់ក្នុងមួយក្រាម</string>
+    <string name="zakat_source_note">តម្លៃមាស/ប្រាក់ពី gold-api.com; អត្រា FX ពី open.er-api.com</string>
+    <string name="zakat_title">ហ្សាកាត</string>
+    <string name="zakat_total_assets">ទ្រព្យសម្បត្តិសរុប</string>
+    <string name="zakat_trade">តម្លៃពាណិជ្ជកម្ម</string>
+    <string name="zakat_zakatable">ចំនួន Zakatable បន្ទាប់ពីបំណុល</string>
+</resources>

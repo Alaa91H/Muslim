@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Tua</string>
+    <string name="ramadan_countdown">Ramadan amata ile %1$s aso</string>
+    <string name="ramadan_countdown_to_iftar">Taimi i le iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Taimi i le Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Aso %1$s o Ramadan</string>
+    <string name="ramadan_days_left">%1$s aso o totoe</string>
+    <string name="ramadan_fasting_progress">Aso anapogi: %1$s o le %2$s - tap le aso e faʻamaumau ai</string>
+    <string name="ramadan_fasting_tracker">Su\'e anapogi</string>
+    <string name="ramadan_hijri_note">Faʻavae i luga o le kalena Umm al-Qura faʻatasi ai ma le faʻaogaina o le faʻaogaina o le Hijri.</string>
+    <string name="ramadan_hijri_year">Tausaga %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar ole tatalo: "Le Atua e, mo oe na ou anapogi ma i luga o lau meaalofa ou te momotu ai laʻu anapogi ..."</string>
+    <string name="ramadan_iftar_time">Taimi Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Filifili muamua se aai ile Fa\'atonu e va\'ai taimi.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Le Atua e, mo Oe na ou anapogi ai ma o lau meaalofa ou te momotu ai laʻu anapogi</string>
+    <string name="ramadan_notification_iftar_title">Taimi mo le iftar</string>
+    <string name="ramadan_notification_suhoor_body">Ua lata mai le Fajr - fai lau suhour</string>
+    <string name="ramadan_notification_suhoor_title">Faamanatu Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Faamanatu mai muamua:</string>
+    <string name="ramadan_suhoor_time">Fa\'ai\'u Suhoor (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

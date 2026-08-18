@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Ukax mä juk’a pachanakanwa</string>
+    <string name="zakat_auto_prices_hint">Kunawsatix ch’amanchatäki ukhax quri qullqix internet uksat apsutawa ukatx automáticamente machaqar tukuyatarakiwa</string>
+    <string name="zakat_back">Qhipäxaru</string>
+    <string name="zakat_cash">Qullqi ukatxa qullqi imaña</string>
+    <string name="zakat_clear_history">Qhana sarnaqäwi</string>
+    <string name="zakat_country">Marka</string>
+    <string name="zakat_country_placeholder">Marka ukat qullqi ajlliñamawa</string>
+    <string name="zakat_country_section">Marka &amp; qullqi</string>
+    <string name="zakat_currency">Qullqix akhamawa: %1$s</string>
+    <string name="zakat_debts">Manunaka manütapa (deducida) .</string>
+    <string name="zakat_due">Zakat ukax (2,5%%): %1$s ukhawa</string>
+    <string name="zakat_fetch_failed">Couldn\'t ukax mä juk’a pachanakanwa. Conexión uñakipt’aña jan ukax manualmente precio ukar qillqt’aña.</string>
+    <string name="zakat_fetch_now">Jichhax precios ukanakax machaqar tukuyatawa</string>
+    <string name="zakat_fetching">Precios ukanak apsuñax...</string>
+    <string name="zakat_fitr_persons">Jakhuwi familiankirinaka</string>
+    <string name="zakat_fitr_saa_value">Mä sa\' (manq’a manq’añanaka) valoraniwa.</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr ukax mä juk’a pachanakanwa</string>
+    <string name="zakat_fitr_total">Taqi Fitr zakat ukax %1$s ukhawa</string>
+    <string name="zakat_gold_grams">Quri (gramos) 1.1.</string>
+    <string name="zakat_gold_price">Quri qullqixa sapa gramo ukankiwa</string>
+    <string name="zakat_history">Jakhuwi sarnaqäwi</string>
+    <string name="zakat_history_amount">Zakat ukax %1$s ukhawa</string>
+    <string name="zakat_history_empty">Janiw kuna jakhüwinakas qhispiyatäkiti.</string>
+    <string name="zakat_investments">Inversiones ukanaka</string>
+    <string name="zakat_last_updated">Qhipa uñakipata: %1$s</string>
+    <string name="zakat_money_section">Zakat ukax qamirïñ tuqitwa</string>
+    <string name="zakat_nisab_gold">Quri nisab (85g) ukat juk’ampinaka.</string>
+    <string name="zakat_nisab_met">Nisab ukax purinxiwa — zakat ukax wakisiwa</string>
+    <string name="zakat_nisab_not_met">Nisab ukanx — janiw zakat ukax wakiskiti</string>
+    <string name="zakat_nisab_silver">Qullqi tuqit nisab (595g) .</string>
+    <string name="zakat_rulings_note">Per mayoría (jumhoor): quri nisab ukax 85g, qullqi 595g, ukatx tasa ukax 2,5%% ukhawa debido manunak apsuñ tukuyatat. Casos especiales ukanakatakix mä yatxatat yatxatiriruw jiskt’asiñama.</string>
+    <string name="zakat_save_result">Historia ukar imañamawa</string>
+    <string name="zakat_silver_grams">Qullqi (gramos) 1.1.</string>
+    <string name="zakat_silver_price">Qullqix sapa gramo ukan aljatawa</string>
+    <string name="zakat_source_note">Quri/qullqi qullqix gold-api.com ukan uñt’ayatawa; FX ukax open.er-api.com ukan uñt’ayatawa</string>
+    <string name="zakat_title">Zakat ukax wali askiwa</string>
+    <string name="zakat_total_assets">Taqi yänaka</string>
+    <string name="zakat_trade">Aljañ yänakax wali askiwa</string>
+    <string name="zakat_zakatable">Zakatable qullqix manunakat qhipatxa</string>
+</resources>

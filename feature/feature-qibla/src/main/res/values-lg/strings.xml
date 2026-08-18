@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ewala</string>
+    <string name="mosque_finder_empty">Tewali mizikiti gisangibwa mu bbanga lino</string>
+    <string name="mosque_finder_error">Okunoonya kulemereddwa</string>
+    <string name="mosque_finder_intro">Funa emizikiti okumpi n\'ekifo kyo ng\'oyita mu OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Tewali kifo kiteekeddwawo n\'okutuusa kati. Sooka olonde ekifo okuva mu nteekateeka z’ebiseera by’okusaba.</string>
+    <string name="mosque_finder_retry">Ddamu gezaako</string>
+    <string name="mosque_finder_searching">Okunoonya...</string>
+    <string name="mosque_finder_title">Emizikiti egy’okumpi</string>
+    <string name="qibla_bearing_cardinal">Obulagirizi bwa Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Tambuza essimu yo mu figure-eight okusobola okukalibira</string>
+    <string name="qibla_distance">Engendo okutuuka e Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Otunudde mu Qibla 🕋</string>
+    <string name="qibla_gps_error">Teyasobodde kufuna kutereeza kutuufu. Nsaba oddemu ogezeeko.</string>
+    <string name="qibla_gps_live">Ekifo kya GPS ekitereevu</string>
+    <string name="qibla_gps_refresh">Okuzza obuggya ekifo ng\'oyita mu GPS</string>
+    <string name="qibla_gps_refreshing">Okuzuula...</string>
+    <string name="qibla_heading_degree">Omutwe gw\'essimu: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Great-circle route okuva mu kifo kyo okutuuka e Kaaba — ekola offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Ggwe</string>
+    <string name="qibla_mode_compass">Kampasi</string>
+    <string name="qibla_mode_map">Maapu</string>
+    <string name="qibla_open_mosques">Emizikiti egy’okumpi</string>
+    <string name="qibla_title">Obulagirizi bwa Qibla</string>
+    <string name="qibla_turn_left">Kyukira ku kkono %1$.1f°</string>
+    <string name="qibla_turn_right">Kyukira ku ddyo %1$.1f°</string>
+</resources>

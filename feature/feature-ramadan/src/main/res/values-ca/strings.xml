@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Enrere</string>
+    <string name="ramadan_countdown">El Ramadà comença en %1$s dies</string>
+    <string name="ramadan_countdown_to_iftar">Temps d\'iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Temps per Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Dia %1$s de Ramadà</string>
+    <string name="ramadan_days_left">Queden %1$s dies</string>
+    <string name="ramadan_fasting_progress">Dies de dejuni: %1$s de %2$s: toqueu un dia per gravar-lo</string>
+    <string name="ramadan_fasting_tracker">Seguidor de dejuni</string>
+    <string name="ramadan_hijri_note">Basat en el calendari Umm al-Qura amb l\'ajust de Hijri a tota l\'aplicació aplicat.</string>
+    <string name="ramadan_hijri_year">Any %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Suplicació Iftar: "Oh Allah, per tu he dejunat i amb la teva disposició he trencat el meu dejuni..."</string>
+    <string name="ramadan_iftar_time">Hora Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Trieu primer una ciutat a Configuració per veure els horaris.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Oh Allah, per Tu he dejunat i amb la teva disposició trenco el meu dejuni</string>
+    <string name="ramadan_notification_iftar_title">Temps d\'iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr s\'acosta, pren el teu suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Recordatori de Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Recorda\'m abans:</string>
+    <string name="ramadan_suhoor_time">Suhoor acaba (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadà</string>
+</resources>

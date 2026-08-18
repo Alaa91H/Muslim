@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s משם</string>
+    <string name="mosque_finder_empty">לא נמצאו מסגדים בטווח זה</string>
+    <string name="mosque_finder_error">החיפוש נכשל</string>
+    <string name="mosque_finder_intro">מצא מסגדים בקרבת מיקומך באמצעות OpenStreetMap</string>
+    <string name="mosque_finder_no_location">עדיין לא הוגדר מיקום. תחילה בחר מיקום מהגדרות זמני התפילה.</string>
+    <string name="mosque_finder_retry">נסה שוב</string>
+    <string name="mosque_finder_searching">מחפש...</string>
+    <string name="mosque_finder_title">מסגדים בקרבת מקום</string>
+    <string name="qibla_bearing_cardinal">כיוון קיבלה: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">הזז את הטלפון שלך בדמות שמונה כדי לכייל</string>
+    <string name="qibla_distance">מרחק למכה: %1$s</string>
+    <string name="qibla_distance_km">%,.0f ק"מ</string>
+    <string name="qibla_facing">אתה עומד מול הקיבלה 🕋</string>
+    <string name="qibla_gps_error">לא ניתן היה לקבל תיקון מדויק. אנא נסה שוב.</string>
+    <string name="qibla_gps_live">מיקום GPS חי</string>
+    <string name="qibla_gps_refresh">רענון מיקום באמצעות GPS</string>
+    <string name="qibla_gps_refreshing">מאתר...</string>
+    <string name="qibla_heading_degree">כותרת הטלפון: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">מסלול מעגל גדול מהמיקום שלך לכעבה - עובד במצב לא מקוון</string>
+    <string name="qibla_map_kaaba">כעבה</string>
+    <string name="qibla_map_you">אתה</string>
+    <string name="qibla_mode_compass">מצפן</string>
+    <string name="qibla_mode_map">מפה</string>
+    <string name="qibla_open_mosques">מסגדים בקרבת מקום</string>
+    <string name="qibla_title">כיוון קיבלה</string>
+    <string name="qibla_turn_left">פנה שמאלה %1$.1f°</string>
+    <string name="qibla_turn_right">פנה ימינה %1$.1f°</string>
+</resources>

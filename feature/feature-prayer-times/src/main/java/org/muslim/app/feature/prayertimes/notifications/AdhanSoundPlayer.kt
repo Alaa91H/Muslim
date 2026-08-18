@@ -5,7 +5,7 @@ import android.media.AudioAttributes
 import android.media.AudioFormat
 import android.media.AudioTrack
 import android.media.MediaPlayer
-import android.net.Uri
+import androidx.core.net.toUri
 import dagger.hilt.android.qualifiers.ApplicationContext
 import org.muslim.app.core.common.prayer.BundledAdhanSound
 import java.io.File
@@ -46,7 +46,7 @@ class AdhanSoundPlayer @Inject constructor(
         )
         player.setDataSource(
             context,
-            Uri.parse("android.resource://${context.packageName}/$resId"),
+            "android.resource://${context.packageName}/$resId".toUri(),
         )
         player.setOnPreparedListener { p ->
             p.setVolume(0f, 0f)
@@ -181,6 +181,7 @@ class AdhanSoundPlayer @Inject constructor(
         BundledAdhanSound.Saber -> org.muslim.app.feature.prayertimes.R.raw.adhan_saber
         BundledAdhanSound.SharifDoman -> org.muslim.app.feature.prayertimes.R.raw.adhan_sharif_doman
         BundledAdhanSound.YusufIslam -> org.muslim.app.feature.prayertimes.R.raw.adhan_yusuf_islam
+        BundledAdhanSound.UmayyadDamascus -> org.muslim.app.feature.prayertimes.R.raw.adhan_umayyad_damascus
     }
 
     private companion object {

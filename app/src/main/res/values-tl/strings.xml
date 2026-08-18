@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Umaga, gabi at post-prayer adhkar na may mga counter</string>
+    <string name="more_downloads">Mga download ng recitation</string>
+    <string name="more_downloads_desc">Mag-download ng surah, ayah o buong Quran gamit ang napili mong reciter</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Hadith library, paghahanap at hadith ng araw</string>
+    <string name="more_learn">Matuto</string>
+    <string name="more_learn_desc">Step-by-step na wudu at mga gabay sa pagdarasal</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Suhoor at iftar times at fasting tracker</string>
+    <string name="more_reference">Sanggunian Library</string>
+    <string name="more_reference_desc">Panimula sa Islam, ang Sira at ang mga propeta</string>
+    <string name="more_settings">Mga setting</string>
+    <string name="more_settings_desc">Mga setting ng tema, wika, panalangin at adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digital misbaha na may pang-araw-araw na kasaysayan</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat sa kayamanan at Fitr calculator</string>
+    <string name="scaffold_message">Handa na ang multi-module project skeleton.\nPhase 1 — Adhan, mga oras ng panalangin, Qibla, at ang kalendaryong Hijri — ay nagsisimula dito.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">direksyon ng Qibla</string>
+    <string name="shortcut_settings">Mga setting</string>
+    <string name="shortcut_settings_long">Mga setting ng panalangin at adhan</string>
+    <string name="shortcut_times">Mga oras ng panalangin</string>
+    <string name="shortcut_times_long">Ngayon\'s na mga oras ng panalangin</string>
+    <string name="tab_home">Oras ng Panalangin</string>
+    <string name="tab_more">Higit pa</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

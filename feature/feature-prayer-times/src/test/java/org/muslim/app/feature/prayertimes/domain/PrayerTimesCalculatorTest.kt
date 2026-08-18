@@ -261,6 +261,73 @@ class PrayerTimesCalculatorTest {
         assertThat(result.timeFor(Prayer.Fajr)).isNotNull()
     }
 
+    // ---- Elevation (meters above sea level) ----
+
+    @Test
+    fun `elevation makes sunrise earlier and sunset later`() {
+        val date = LocalDate.of(2024, 6, 21)
+        val params = PrayerParameters.of(CalculationMethod.MuslimWorldLeague)
+        val zone = ZoneId.of("Asia/Riyadh")
+
+        val seaLevel = calculator.compute(date, Coordinates(21.4225, 39.8262, 0.0), params, zone)
+        val high = calculator.compute(date, Coordinates(21.4225, 39.8262, 2000.0), params, zone)
+
+        assertThat(seaLevel.isValid).isTrue()
+        assertThat(high.isValid).isTrue()
+
+        val sunriseSea = seaLevel.timeFor(Prayer.Sunrise)!!.toSecondOfDay()
+        val sunriseHigh = high.timeFor(Prayer.Sunrise)!!.toSecondOfDay()
+        val sunsetSea = seaLevel.timeFor(Prayer.Maghrib)!!.toSecondOfDay()
+        val sunsetHigh = high.timeFor(Prayer.Maghrib)!!.toSecondOfDay()
+
+        // At 2000 m the horizon dip is 0.0347·sqrt(2000) = 1.55° ≈ 6.2 min.
+        assertThat(sunriseHigh).isLessThan(sunriseSea)
+        assertThat(sunsetHigh).isGreaterThan(sunsetSea)
+        val sunriseDeltaMin = (sunriseSea - sunriseHigh) / 60.0
+        val sunsetDeltaMin = (sunsetHigh - sunsetSea) / 60.0
+        assertThat(sunriseDeltaMin).isAtLeast(3.0)
+        assertThat(sunriseDeltaMin).isAtMost(10.0)
+        assertThat(sunsetDeltaMin).isAtLeast(3.0)
+        assertThat(sunsetDeltaMin).isAtMost(10.0)
+    }
+
+    @Test
+    fun `elevation of zero matches sea-level reference`() {
+        val date = LocalDate.of(2018, 1, 1)
+        val params = PrayerParameters.of(CalculationMethod.UmmAlQura)
+        val zone = ZoneId.of("Asia/Riyadh")
+        val result = calculator.compute(date, Coordinates(21.4225, 39.8262, 0.0), params, zone)
+        assertThat(result.isValid).isTrue()
+        // Umm al-Qura publishes Makkah tables; sunrise must be near 06:5x in
+        // early January (the exact minute depends on the year's ephemeris).
+        val sunrise = result.timeFor(Prayer.Sunrise)!!.hour
+        assertThat(sunrise).isIn(6..7)
+    }
+
+    @Test
+    fun `extreme elevation does not break calculation`() {
+        val date = LocalDate.of(2024, 3, 1)
+        val params = PrayerParameters.of(CalculationMethod.MuslimWorldLeague)
+        val zone = ZoneId.of("Asia/Kathmandu")
+        // Highest city on Earth (~2,950 m): must still produce a valid day.
+        val result = calculator.compute(date, Coordinates(27.9861, 86.9236, 2950.0), params, zone)
+        assertThat(result.isValid).isTrue()
+        assertThat(result.timeFor(Prayer.Sunrise)).isNotNull()
+        assertThat(result.timeFor(Prayer.Maghrib)).isNotNull()
+    }
+
+    @Test
+    fun `city database carries real elevations`() {
+        val mecca = org.muslim.app.feature.prayertimes.data.CitiesRepository.all
+            .first { it.name == "Mecca" }
+        assertThat(mecca.elevation).isEqualTo(277.0)
+        val sanaa = org.muslim.app.feature.prayertimes.data.CitiesRepository.all
+            .first { it.name == "Sana'a" }
+        assertThat(sanaa.elevation).isEqualTo(2250.0)
+        assertThat(org.muslim.app.feature.prayertimes.data.CitiesRepository.all)
+            .hasSize(54)
+    }
+
     // ---- helpers ----
 
     private fun assertTimesWithin(

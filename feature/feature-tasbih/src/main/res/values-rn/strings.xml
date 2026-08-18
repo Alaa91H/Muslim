@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha y\'ubuhinga bwa none — ushireko kugira ngo ubare</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Kanda kugira ubare</string>
+    <string name="tasbih_back">Inyuma</string>
+    <string name="tasbih_cancel">Gukuraho</string>
+    <string name="tasbih_confirm">Sawa</string>
+    <string name="tasbih_custom_target">Umugenzo</string>
+    <string name="tasbih_custom_target_hint">Injira umubare w\'ibiharuro (kuva kuri 1 gushika kuri 100000)</string>
+    <string name="tasbih_custom_target_title">Gushinga intego</string>
+    <string name="tasbih_of_target">of %1$s</string>
+    <string name="tasbih_reset">Gusubiramwo</string>
+    <string name="tasbih_reset_all">Gusubiramwo vyose</string>
+    <string name="tasbih_round_complete">Urugendo rwose rwarangiye (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Rounds: %1$d</string>
+    <string name="tasbih_sound_desc">Vuza ijwi canke ijwi igihe igice cose cuzuye kirangiye</string>
+    <string name="tasbih_sound_title">Ijwi riri ku ntumbero</string>
+    <string name="tasbih_sound_tone_alarm">Inkengeri</string>
+    <string name="tasbih_sound_tone_notification">Itangazo</string>
+    <string name="tasbih_sound_tone_ringtone">Ijwi ry\'indirimbo</string>
+    <string name="tasbih_tap_hint">Kanda ku nziga kugira ubare</string>
+    <string name="tasbih_target_reached">Intumbero irashitse — Allah yemere</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Uyu musi \'s yose hamwe: %1$d</string>
+    <string name="tasbih_undo">Gusubiramwo</string>
+    <string name="tasbih_virtue_label">Ivyiza vy\'iyi dhikr</string>
+    <string name="tasbih_week_stats">Iminsi 7 iheze</string>
+</resources>

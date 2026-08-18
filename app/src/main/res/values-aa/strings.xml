@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adkar</string>
+    <string name="more_adhkar_desc">Maacaay, bar kee salaatak lakal adhkar loowo luk</string>
+    <string name="more_downloads">Kawsi obsiyyitte</string>
+    <string name="more_downloads_desc">Oobis suuraay, inki ayaata hinnay inkih yan qhur-aan isih doorte takriye lih</string>
+    <string name="more_hadith">Cadiis</string>
+    <string name="more_hadith_desc">Cadiis laybireeri, kusaq kee ayroh cadiis</string>
+    <string name="more_learn">barit</string>
+    <string name="more_learn_desc">Caddo-caddoh wuduu kee salat miracsenta</string>
+    <string name="more_ramadan">Ramadhaan</string>
+    <string name="more_ramadan_desc">Suhur kee iftar uddur kee soom kattaata</string>
+    <string name="more_reference">Mangeelâ Kitoobah buxa</string>
+    <string name="more_reference_desc">Islaaminnaay, Sira kee farmoytit culma</string>
+    <string name="more_settings">guddaaqa</string>
+    <string name="more_settings_desc">ximmo, af, dooqa kee azaan guddaaqa</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Xijitaal misbah ayro aydaadu luk</string>
+    <string name="more_zakat">Zakaat</string>
+    <string name="more_zakat_desc">Gaddal Zakaat kee Fitr cisab</string>
+    <string name="scaffold_message">Mango module cugaysoh skeleton bicsen.\nFazi 1 — Adhan, salat wakti, Qibla, kee Hijrih ayro — takkel qimbisele.</string>
+    <string name="shortcut_qibla">qibla</string>
+    <string name="shortcut_qibla_long">Qibla afkan</string>
+    <string name="shortcut_settings">guddaaqa</string>
+    <string name="shortcut_settings_long">Dooqaa kee azaan guddaaqa</string>
+    <string name="shortcut_times">Salat uddur</string>
+    <string name="shortcut_times_long">Asaaku \' salat uddur</string>
+    <string name="tab_home">Salat wakti</string>
+    <string name="tab_more">Ossotinah</string>
+    <string name="tab_qibla">qibla</string>
+    <string name="tab_quran">Kur\'aan</string>
 </resources>

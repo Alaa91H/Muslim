@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Orqaga</string>
+    <string name="reference_no_results">Mos natijalar topilmadi</string>
+    <string name="reference_search_hint">Bu kitobni qidiring…</string>
+    <string name="reference_title">Islomiy ma\'lumot kutubxonasi</string>
+    <string name="reference_topics_count">mavzular</string>
+</resources>

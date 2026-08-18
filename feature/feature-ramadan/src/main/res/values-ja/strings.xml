@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">戻る</string>
+    <string name="ramadan_countdown">ラマダンは %1$s 日後に始まります</string>
+    <string name="ramadan_countdown_to_iftar">イフタールまでの時間: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ファジルまでの時間: %1$s</string>
+    <string name="ramadan_day_of_month">ラマダン月 %1$s 日目</string>
+    <string name="ramadan_days_left">残り %1$s 日</string>
+    <string name="ramadan_fasting_progress">断食日: %1$s/%2$s — 日をタップして記録します</string>
+    <string name="ramadan_fasting_tracker">断食トラッカー</string>
+    <string name="ramadan_hijri_note">ウンム・アル・クーラのカレンダーに基づいており、アプリ全体にヒジュラ語の調整が適用されています。</string>
+    <string name="ramadan_hijri_year">年 %1$s AH</string>
+    <string name="ramadan_iftar">イフタール</string>
+    <string name="ramadan_iftar_dua">イフタールの嘆願: 「アッラーよ、私はあなたのために断食をしましたが、あなたの規定により断食を破ります…」</string>
+    <string name="ramadan_iftar_time">イフタール (マグリブ) 時間: %1$s</string>
+    <string name="ramadan_location_required">まず設定で都市を選択して時間を確認します。</string>
+    <string name="ramadan_minutes">%1$s分</string>
+    <string name="ramadan_notification_iftar_body">おおアッラーよ、私はあなたのために断食をしました、そしてあなたの規定により私は断食を破ります</string>
+    <string name="ramadan_notification_iftar_title">イフタールの時間</string>
+    <string name="ramadan_notification_suhoor_body">ファジルが近づいています — スフールを持ってください</string>
+    <string name="ramadan_notification_suhoor_title">スフールリマインダー</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">スフール</string>
+    <string name="ramadan_suhoor_remind_before">前に思い出してください:</string>
+    <string name="ramadan_suhoor_time">スフールエンド (ファジル): %1$s</string>
+    <string name="ramadan_title">ラマダン</string>
+</resources>

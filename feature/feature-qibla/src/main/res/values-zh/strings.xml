@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s 远</string>
+    <string name="mosque_finder_empty">此范围内未找到清真寺</string>
+    <string name="mosque_finder_error">搜索失败</string>
+    <string name="mosque_finder_intro">通过 OpenStreetMap 查找您所在位置附近的清真寺</string>
+    <string name="mosque_finder_no_location">尚未设定地点。首先从祈祷时间设置中选择一个位置。</string>
+    <string name="mosque_finder_retry">重试</string>
+    <string name="mosque_finder_searching">正在寻找...</string>
+    <string name="mosque_finder_title">附近的清真寺</string>
+    <string name="qibla_bearing_cardinal">朝拜方向：%1$s</string>
+    <string name="qibla_bearing_degree">🕋%1$.0f°</string>
+    <string name="qibla_calibrate">将手机呈 8 字形移动以进行校准</string>
+    <string name="qibla_distance">到麦加的距离： %1$s</string>
+    <string name="qibla_distance_km">%,.0f 公里</string>
+    <string name="qibla_facing">你面对朝拜🕋</string>
+    <string name="qibla_gps_error">无法获得准确的修复。请再试一次。</string>
+    <string name="qibla_gps_live">实时 GPS 位置</string>
+    <string name="qibla_gps_refresh">通过 GPS 刷新位置</string>
+    <string name="qibla_gps_refreshing">正在定位…</string>
+    <string name="qibla_heading_degree">手机航向：%1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">从您所在位置到天房的大圆路线 — 离线工作</string>
+    <string name="qibla_map_kaaba">天房</string>
+    <string name="qibla_map_you">你</string>
+    <string name="qibla_mode_compass">指南针</string>
+    <string name="qibla_mode_map">地图</string>
+    <string name="qibla_open_mosques">附近的清真寺</string>
+    <string name="qibla_title">朝拜方向</string>
+    <string name="qibla_turn_left">左转 %1$.1f°</string>
+    <string name="qibla_turn_right">右转 %1$.1f°</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s di distanza</string>
+    <string name="mosque_finder_empty">Nisuna moschea truvata in questa gamma</string>
+    <string name="mosque_finder_error">A ricerca hà fiascatu</string>
+    <string name="mosque_finder_intro">Truvate moschee vicinu à a vostra situazione via OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Nisun locu stabilitu ancora. Sceglite prima un locu da i paràmetri di i tempi di preghiera.</string>
+    <string name="mosque_finder_retry">Riprova</string>
+    <string name="mosque_finder_searching">Ricerca…</string>
+    <string name="mosque_finder_title">Moschee vicinu</string>
+    <string name="qibla_bearing_cardinal">Direzzione Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Move u vostru telefunu in una figura ottu per calibre</string>
+    <string name="qibla_distance">Distanza da a Mecca: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Avete di fronte à a Qibla 🕋</string>
+    <string name="qibla_gps_error">Ùn pudia micca ottene una correzione precisa. Per piacè pruvate di novu.</string>
+    <string name="qibla_gps_live">Locu GPS in diretta</string>
+    <string name="qibla_gps_refresh">Refresh locu via GPS</string>
+    <string name="qibla_gps_refreshing">Situazione…</string>
+    <string name="qibla_heading_degree">Intestazione di u telefunu: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Percorsu di grande circondu da a vostra situazione à a Kaaba - funziona offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Tu</string>
+    <string name="qibla_mode_compass">Bussola</string>
+    <string name="qibla_mode_map">Mappa</string>
+    <string name="qibla_open_mosques">Moschee vicinu</string>
+    <string name="qibla_title">Direzzione di Qibla</string>
+    <string name="qibla_turn_left">Gira a manca %1$.1f°</string>
+    <string name="qibla_turn_right">Gira a diritta %1$.1f°</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Sanly misbaha - sanamak üçin basyň</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Hasaplamak üçin basyň</string>
+    <string name="tasbih_back">Yzyna</string>
+    <string name="tasbih_cancel">Elatyr</string>
+    <string name="tasbih_confirm">Bolýar</string>
+    <string name="tasbih_custom_target">Omörite</string>
+    <string name="tasbih_custom_target_hint">Hasap sanyny giriziň (1-den 100000-e çenli)</string>
+    <string name="tasbih_custom_target_title">Customörite nyşan belläň</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Täzeden düzmek</string>
+    <string name="tasbih_reset_all">Hemmesini täzeden düz</string>
+    <string name="tasbih_round_complete">Doly tegelek (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Tapgyrlar: %1$d</string>
+    <string name="tasbih_sound_desc">Her doly tegelek gutarandan soň jaň ýa-da heň çalyň</string>
+    <string name="tasbih_sound_title">Nyşana ses</string>
+    <string name="tasbih_sound_tone_alarm">Duýduryş</string>
+    <string name="tasbih_sound_tone_notification">Duýduryş</string>
+    <string name="tasbih_sound_tone_ringtone">Jyňňyrdaýan ses</string>
+    <string name="tasbih_tap_hint">Hasaplamak üçin tegelege basyň</string>
+    <string name="tasbih_target_reached">Maksada ýetildi - Alla kabul etsin</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Häzirki wagtda \'s jemi: %1$d</string>
+    <string name="tasbih_undo">Yza gaýtar</string>
+    <string name="tasbih_virtue_label">Bu dikriň fazyleti</string>
+    <string name="tasbih_week_stats">Soňky 7 gün</string>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Recupera i prezzi automaticamente</string>
+    <string name="zakat_auto_prices_hint">Quando abilitato, i prezzi dell\'oro e dell\'argento vengono recuperati da Internet e aggiornati automaticamente</string>
+    <string name="zakat_back">Indietro</string>
+    <string name="zakat_cash">Contanti e risparmi</string>
+    <string name="zakat_clear_history">Cancella cronologia</string>
+    <string name="zakat_country">Paese</string>
+    <string name="zakat_country_placeholder">Scegli il tuo Paese e la tua valuta</string>
+    <string name="zakat_country_section">Paese e valuta</string>
+    <string name="zakat_currency">Valuta: %1$s</string>
+    <string name="zakat_debts">Debiti dovuti (detratti)</string>
+    <string name="zakat_due">Zakat dovuto (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Impossibile\' recuperare i prezzi. Controlla la tua connessione o inserisci il prezzo manualmente.</string>
+    <string name="zakat_fetch_now">Aggiorna i prezzi adesso</string>
+    <string name="zakat_fetching">Recupero prezzi…</string>
+    <string name="zakat_fitr_persons">Numero di membri della famiglia</string>
+    <string name="zakat_fitr_saa_value">Valore di un sa\' (alimento di base)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Totale Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Oro (grammi)</string>
+    <string name="zakat_gold_price">Prezzo dell\'oro al grammo</string>
+    <string name="zakat_history">Cronologia dei calcoli</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Nessun calcolo ancora salvato.</string>
+    <string name="zakat_investments">Investimenti</string>
+    <string name="zakat_last_updated">Ultimo aggiornamento: %1$s</string>
+    <string name="zakat_money_section">Zakat sulla ricchezza</string>
+    <string name="zakat_nisab_gold">Nisab dorato (85g)</string>
+    <string name="zakat_nisab_met">Il nisab viene raggiunto: la zakat è dovuta</string>
+    <string name="zakat_nisab_not_met">Al di sotto del nisab: nessuna zakat dovuta</string>
+    <string name="zakat_nisab_silver">Nisab argento (595g)</string>
+    <string name="zakat_rulings_note">Secondo la maggioranza (jumhoor): il nisab d\'oro è 85 g, l\'argento 595 g e il tasso è 2,5%% dopo aver detratto i debiti scaduti. Consultare uno studioso qualificato per casi particolari.</string>
+    <string name="zakat_save_result">Salva nella cronologia</string>
+    <string name="zakat_silver_grams">Argento (grammi)</string>
+    <string name="zakat_silver_price">Prezzo dell\'argento al grammo</string>
+    <string name="zakat_source_note">Prezzi oro/argento da gold-api.com; Tassi FX da open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Patrimonio totale</string>
+    <string name="zakat_trade">Valore dei beni commerciali</string>
+    <string name="zakat_zakatable">Importo rimborsabile dopo i debiti</string>
+</resources>

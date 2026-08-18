@@ -65,6 +65,14 @@ class NotificationPrefsRepository @Inject constructor(
     val showMissedAdhan: Flow<Boolean> =
         store.data.map { stored -> stored[Keys.SHOW_MISSED_ADHAN] ?: true }
 
+    /**
+     * ARGB color of the missed-adhan line in the permanent countdown
+     * notification. Defaults to red ([MissedAdhanColors.DEFAULT]); the user
+     * may pick any color from the palette in the notification settings.
+     */
+    val missedAdhanColor: Flow<Int> =
+        store.data.map { stored -> stored[Keys.MISSED_ADHAN_COLOR] ?: MissedAdhanColors.DEFAULT }
+
     /** Current prefs for one category (defaults apply when unset). */
     suspend fun prefsFor(category: NotificationCategory): NotificationCategoryPrefs =
         prefs.first()[category] ?: category.defaultPrefs()
@@ -131,6 +139,13 @@ class NotificationPrefsRepository @Inject constructor(
         }
     }
 
+    /** Persists the color of the missed-adhan line in the countdown notification. */
+    suspend fun setMissedAdhanColor(color: Int) {
+        store.edit { stored ->
+            stored[Keys.MISSED_ADHAN_COLOR] = color
+        }
+    }
+
     /** True when [atMillis] falls inside the quiet-hours window. */
     suspend fun isQuietHourActive(atMillis: Long = System.currentTimeMillis()): Boolean {
         val hours = quietHours.first()
@@ -174,6 +189,7 @@ class NotificationPrefsRepository @Inject constructor(
 
         val QUIET_ENABLED = booleanPreferencesKey("notification_quiet_enabled")
         val SHOW_MISSED_ADHAN = booleanPreferencesKey("notification_show_missed_adhan")
+        val MISSED_ADHAN_COLOR = intPreferencesKey("notification_missed_adhan_color")
         val QUIET_START = intPreferencesKey("notification_quiet_start")
         val QUIET_END = intPreferencesKey("notification_quiet_end")
     }

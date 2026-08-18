@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar esuk, sore &amp; sawise sholat karo counter</string>
+    <string name="more_downloads">Ngundhuh wacan</string>
+    <string name="more_downloads_desc">Ngundhuh surat, ayat utawa Quran lengkap karo wong sing maca sing dipilih</string>
+    <string name="more_hadith">Hadits</string>
+    <string name="more_hadith_desc">Pustaka Hadith, telusuran &amp; hadits dina</string>
+    <string name="more_learn">sinau</string>
+    <string name="more_learn_desc">Langkah-langkah wudhu &amp; pandhuan shalat</string>
+    <string name="more_ramadan">Ramadhan</string>
+    <string name="more_ramadan_desc">Wektu sahur &amp; buka puasa lan nglacak pasa</string>
+    <string name="more_reference">Pustaka Referensi</string>
+    <string name="more_reference_desc">Pengantar Islam, Sira &amp; para nabi</string>
+    <string name="more_settings">Setelan</string>
+    <string name="more_settings_desc">Tema, basa, pandonga &amp; setelan adzan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha digital kanthi riwayat saben dina</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat kasugihan &amp; kalkulator Fitri</string>
+    <string name="scaffold_message">Rangka proyek multi-modul wis siyap.\nFase 1 — Adzan, wektu shalat, Kiblat, lan kalender Hijriyah — diwiwiti ing kene.</string>
+    <string name="shortcut_qibla">Kiblat</string>
+    <string name="shortcut_qibla_long">arah kiblat</string>
+    <string name="shortcut_settings">Setelan</string>
+    <string name="shortcut_settings_long">Setelan sholat &amp; adzan</string>
+    <string name="shortcut_times">Wektu sholat</string>
+    <string name="shortcut_times_long">Dina iki \' wektu sholat</string>
+    <string name="tab_home">Wektu Sholat</string>
+    <string name="tab_more">liyane</string>
+    <string name="tab_qibla">Kiblat</string>
+    <string name="tab_quran">Quran</string>
 </resources>

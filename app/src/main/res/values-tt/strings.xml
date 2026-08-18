@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Мөселман</string>
+    <string name="more_adhkar">Адхкар</string>
+    <string name="more_adhkar_desc">Таң, кич һәм намаздан соң адхар счетчиклар белән</string>
+    <string name="more_downloads">Йөкләү</string>
+    <string name="more_downloads_desc">Сайланган укучы белән сүрә, аять яки тулы Коръәнне йөкләү</string>
+    <string name="more_hadith">Хәдис</string>
+    <string name="more_hadith_desc">Хәдис китапханәсе, эзләү һәм көн хәдисе</string>
+    <string name="more_learn">Өйрән</string>
+    <string name="more_learn_desc">Адым саен тылсым һәм дога күрсәтмәләре</string>
+    <string name="more_ramadan">Рамазан ае</string>
+    <string name="more_ramadan_desc">Сухур &amp; ифтар вакытлары һәм ураза эзләүчесе</string>
+    <string name="more_reference">Белешмә китапханә</string>
+    <string name="more_reference_desc">Ислам, Сира һәм пәйгамбәрләр белән таныштыру</string>
+    <string name="more_settings">Көйләүләр</string>
+    <string name="more_settings_desc">Тема, тел, дога һәм адхан көйләүләре</string>
+    <string name="more_tasbih">Тасбих</string>
+    <string name="more_tasbih_desc">Көндәлек тарих белән санлы мисбаха</string>
+    <string name="more_zakat">Зәкәт</string>
+    <string name="more_zakat_desc">Байлык һәм Фитр калькуляторы буенча зәкәт</string>
+    <string name="scaffold_message">Күп модульле проект скелеты әзер.\n Фаза 1 - Азан, дога вакыты, Кибла, һәм Хиҗри календаре - моннан башлана.</string>
+    <string name="shortcut_qibla">Кибла</string>
+    <string name="shortcut_qibla_long">Кибла юнәлеше</string>
+    <string name="shortcut_settings">Көйләүләр</string>
+    <string name="shortcut_settings_long">Дога һәм адхан көйләүләре</string>
+    <string name="shortcut_times">Дога вакыты</string>
+    <string name="shortcut_times_long">Бүген \'-нче еллар дога вакыты</string>
+    <string name="tab_home">Дога вакыты</string>
+    <string name="tab_more">Күбрәк</string>
+    <string name="tab_qibla">Кибла</string>
+    <string name="tab_quran">Коръән</string>
 </resources>

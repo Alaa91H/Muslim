@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar ukax mä juk’a pachanakanwa</string>
+    <string name="more_adhkar_desc">Alwa, jayp’u &amp; post-oración adhkar ukax contadores ukanakampi</string>
+    <string name="more_downloads">Recitación ukax apkatatawa</string>
+    <string name="more_downloads_desc">Mä surah, mä ayah jan ukax Quran phuqhat apsuñamawa ajllit recitador ukampi</string>
+    <string name="more_hadith">Hadith ukax mä juk’a pachanakanwa</string>
+    <string name="more_hadith_desc">Hadith biblioteca, thakhi &amp; hadith uka uru</string>
+    <string name="more_learn">Yatxatapxañani</string>
+    <string name="more_learn_desc">Paso a paso wudu &amp; oración guias ukanakaw utji</string>
+    <string name="more_ramadan">Ramadán urunxa</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar pachanaka ukat ayuno tracker</string>
+    <string name="more_reference">Biblioteca de Referencias ukax mä juk’a pachanakanwa</string>
+    <string name="more_reference_desc">Islam, Sira &amp; profetanakar uñt’ayaña</string>
+    <string name="more_settings">Ukax mä juk’a pachanakanwa</string>
+    <string name="more_settings_desc">Tema, aru, mayisiña &amp; adhan ukan utt’ayatanaka</string>
+    <string name="more_tasbih">Tasbih ukax mä juk’a pachanakanwa</string>
+    <string name="more_tasbih_desc">Digital misbaha ukax sapa uru sarnaqäwimpiw uñt’ayasi</string>
+    <string name="more_zakat">Zakat ukax wali askiwa</string>
+    <string name="more_zakat_desc">Zakat ukax qamirïña &amp; Fitr calculadora</string>
+    <string name="scaffold_message">Walja módulo proyecto esqueleto ukax wakicht’atawa.\nFase 1 — Adhan, oración pachanaka, Qibla, ukat calendario Hijri — aka chiqan qalltawayi.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla dirección</string>
+    <string name="shortcut_settings">Ukax mä juk’a pachanakanwa</string>
+    <string name="shortcut_settings_long">Oración &amp; adhan ukan utt’ayatanakapa</string>
+    <string name="shortcut_times">Oracionan pachanakapa</string>
+    <string name="shortcut_times_long">Jichhürunakan\' maranakan mayisiñ pachanaka</string>
+    <string name="tab_home">Mayisiñ pachanaka</string>
+    <string name="tab_more">Juk’ampi</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran ukax mä juk’a pachanakanwa</string>
 </resources>

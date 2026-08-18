@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ມຸດສະລິມ</string>
+    <string name="more_adhkar">ແອດກາ</string>
+    <string name="more_adhkar_desc">ຕອນເຊົ້າ, ຕອນແລງ &amp; ຫລັງການອະທິດຖານ adhkar ກັບເຄົາເຕີ</string>
+    <string name="more_downloads">ດາວໂຫຼດບົດບັນຍາຍ</string>
+    <string name="more_downloads_desc">ດາວໂຫລດ Surah, ayah ຫຼື Quran ເຕັມທີ່ມີນັກຂຽນທີ່ທ່ານເລືອກ</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">ຫໍ​ສະ​ຫມຸດ Hadith​, ການ​ຄົ້ນ​ຫາ​ແລະ hadith ຂອງ​ມື້​</string>
+    <string name="more_learn">ຮຽນຮູ້</string>
+    <string name="more_learn_desc">ຂັ້ນຕອນໂດຍຂັ້ນຕອນ wudu &amp; ຄູ່ມືການອະທິຖານ</string>
+    <string name="more_ramadan">ຣາມາດານ</string>
+    <string name="more_ramadan_desc">ເວລາ Suhoor ແລະ iftar ແລະຕົວຕິດຕາມການອົດອາຫານ</string>
+    <string name="more_reference">ຫໍສະໝຸດອ້າງອີງ</string>
+    <string name="more_reference_desc">ການແນະນໍາກ່ຽວກັບ Islam, Sira ແລະສາດສະດາ</string>
+    <string name="more_settings">ການຕັ້ງຄ່າ</string>
+    <string name="more_settings_desc">ຫົວຂໍ້, ພາສາ, ການອະທິຖານ ແລະການຕັ້ງຄ່າ adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">misbaha ດິຈິຕອນທີ່ມີປະຫວັດສາດປະຈໍາວັນ</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat ກ່ຽວກັບຄວາມຮັ່ງມີ &amp; ເຄື່ອງຄິດເລກ Fitr</string>
+    <string name="scaffold_message">ໂຄງກະດູກຫຼາຍໂມດູນພ້ອມແລ້ວ.\nໄລຍະ 1 — Adhan, ເວລາອະທິຖານ, Qibla, ແລະປະຕິທິນ Hijri — ເລີ່ມຕົ້ນທີ່ນີ້.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">ທິດ​ທາງ Qibla​</string>
+    <string name="shortcut_settings">ການຕັ້ງຄ່າ</string>
+    <string name="shortcut_settings_long">ການ​ຕັ້ງ​ຄ່າ​ການ​ອະ​ທິ​ຖານ​ແລະ adhan​</string>
+    <string name="shortcut_times">ເວລາອະທິຖານ</string>
+    <string name="shortcut_times_long">ມື້ນີ້\'s ເວລາອະທິຖານ</string>
+    <string name="tab_home">ເວລາອະທິຖານ</string>
+    <string name="tab_more">ເພີ່ມເຕີມ</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

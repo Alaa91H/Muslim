@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Бааларды автоматтык түрдө алуу</string>
+    <string name="zakat_auto_prices_hint">Иштетилгенде, алтын жана күмүш баалары интернеттен алынып, автоматтык түрдө жаңыртылат</string>
+    <string name="zakat_back">Артка</string>
+    <string name="zakat_cash">Накталай акча жана аманат</string>
+    <string name="zakat_clear_history">Таржымал тазалоо</string>
+    <string name="zakat_country">Өлкө</string>
+    <string name="zakat_country_placeholder">Өлкөңүздү жана валютаңызды тандаңыз</string>
+    <string name="zakat_country_section">Өлкө жана валюта</string>
+    <string name="zakat_currency">Валюта: %1$s</string>
+    <string name="zakat_debts">Карызыңыз (чечимделген)</string>
+    <string name="zakat_due">Зекет керек (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'т бааларды ала алган жок. Туташууңузду текшериңиз же бааны кол менен киргизиңиз.</string>
+    <string name="zakat_fetch_now">Бааларды азыр жаңыртыңыз</string>
+    <string name="zakat_fetching">Баалар алынууда…</string>
+    <string name="zakat_fitr_persons">Үй-бүлө мүчөлөрүнүн саны</string>
+    <string name="zakat_fitr_saa_value">Бир са\' наркы (негизги тамак-аш)</string>
+    <string name="zakat_fitr_section">Зекет аль-Фитр</string>
+    <string name="zakat_fitr_total">Фитир зекетинин жалпы суммасы: %1$s</string>
+    <string name="zakat_gold_grams">Алтын (грамм)</string>
+    <string name="zakat_gold_price">1 грамм алтындын баасы</string>
+    <string name="zakat_history">Эсептөө тарыхы</string>
+    <string name="zakat_history_amount">Зекет: %1$s</string>
+    <string name="zakat_history_empty">Сакталган эсептөөлөр жок.</string>
+    <string name="zakat_investments">Инвестициялар</string>
+    <string name="zakat_last_updated">Акыркы жаңыртылган: %1$s</string>
+    <string name="zakat_money_section">Байлыктын зекети</string>
+    <string name="zakat_nisab_gold">Алтын нисаб (85г)</string>
+    <string name="zakat_nisab_met">Нисаба жетти — зекет керек</string>
+    <string name="zakat_nisab_not_met">Нисабдан төмөн - зекет талап кылынбайт</string>
+    <string name="zakat_nisab_silver">Күмүш нисаб (595г)</string>
+    <string name="zakat_rulings_note">Көпчүлүк (жумхур) үчүн: алтын нисаб 85г, күмүш 595г, ал эми ставкасы 2,5%% төлөнүүчү карызды алып салгандан кийин. Өзгөчө учурларда квалификациялуу окумуштуудан кеңеш алыңыз.</string>
+    <string name="zakat_save_result">Тарыхка сактоо</string>
+    <string name="zakat_silver_grams">Күмүш (грамм)</string>
+    <string name="zakat_silver_price">Бир грамм күмүш баасы</string>
+    <string name="zakat_source_note">gold-api.com сайтынан алтын/күмүш баалары; Open.er-api.com сайтынан FX курстары</string>
+    <string name="zakat_title">Зекет</string>
+    <string name="zakat_total_assets">Жалпы активдер</string>
+    <string name="zakat_trade">Соода товарларынын баасы</string>
+    <string name="zakat_zakatable">Карыздан кийин зекет берилүүчү сумма</string>
+</resources>

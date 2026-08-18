@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Ruovttoluotta</string>
+    <string name="reference_no_results">Eai ovttalágan bohtosat</string>
+    <string name="reference_search_hint">Ohcat dán girjji...</string>
+    <string name="reference_title">Islamlaš referánsagirjerádju</string>
+    <string name="reference_topics_count">fáttát</string>
+</resources>

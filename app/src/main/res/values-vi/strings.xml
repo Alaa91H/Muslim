@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar buổi sáng, buổi tối và sau cầu nguyện với quầy</string>
+    <string name="more_downloads">Tải xuống ngâm thơ</string>
+    <string name="more_downloads_desc">Tải xuống surah, ayah hoặc Kinh Qur\'an đầy đủ với người đọc thuộc lòng bạn đã chọn</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Thư viện Hadith, tìm kiếm &amp; hadith trong ngày</string>
+    <string name="more_learn">Tìm hiểu</string>
+    <string name="more_learn_desc">Hướng dẫn cầu nguyện và wudu từng bước</string>
+    <string name="more_ramadan">tháng chay Ramadan</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar thời gian và theo dõi ăn chay</string>
+    <string name="more_reference">Thư viện tham khảo</string>
+    <string name="more_reference_desc">Giới thiệu về Hồi giáo, Sira và các nhà tiên tri</string>
+    <string name="more_settings">Cài đặt</string>
+    <string name="more_settings_desc">Cài đặt chủ đề, ngôn ngữ, cầu nguyện và adhan</string>
+    <string name="more_tasbih">tasbih</string>
+    <string name="more_tasbih_desc">Misbaha kỹ thuật số với lịch sử hàng ngày</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat trên máy tính sự giàu có &amp; Fitr</string>
+    <string name="scaffold_message">Khung dự án nhiều mô-đun đã sẵn sàng.\nGiai đoạn 1 — Adhan, thời gian cầu nguyện, Qibla và lịch Hijri — bắt đầu tại đây.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">hướng Qibla</string>
+    <string name="shortcut_settings">Cài đặt</string>
+    <string name="shortcut_settings_long">Cài đặt cầu nguyện &amp; adhan</string>
+    <string name="shortcut_times">thời gian cầu nguyện</string>
+    <string name="shortcut_times_long">Hôm nay\' giây cầu nguyện</string>
+    <string name="tab_home">thời gian cầu nguyện</string>
+    <string name="tab_more">Thêm</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Kinh Qur\'an</string>
 </resources>

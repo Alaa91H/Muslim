@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — koona ku kubala</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Koona ku kubala</string>
+    <string name="tasbih_back">Okudda emabega</string>
+    <string name="tasbih_cancel">Sazaamu</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Empisa</string>
+    <string name="tasbih_custom_target_hint">Yingiza omuwendo gw\'okubala (okuva ku 1 okutuuka ku 100000)</string>
+    <string name="tasbih_custom_target_title">Teekawo ekiruubirirwa eky’enjawulo</string>
+    <string name="tasbih_of_target">wa %1$s</string>
+    <string name="tasbih_reset">Okuddamu okuteekawo</string>
+    <string name="tasbih_reset_all">Reset byonna</string>
+    <string name="tasbih_round_complete">Laawundi enzijuvu ewedde (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Laawundi: %1$d</string>
+    <string name="tasbih_sound_desc">Kuba eddoboozi oba tone nga buli lawundi enzijuvu ewedde</string>
+    <string name="tasbih_sound_title">Eddoboozi ku kigendererwa</string>
+    <string name="tasbih_sound_tone_alarm">Alaamu</string>
+    <string name="tasbih_sound_tone_notification">Okutegeeza</string>
+    <string name="tasbih_sound_tone_ringtone">Eddoboozi ly\'essimu</string>
+    <string name="tasbih_tap_hint">Koona ku nkulungo okubala</string>
+    <string name="tasbih_target_reached">Ekiruubirirwa kituuse — Allah akkirize</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Leero\'s omugatte: %1$d</string>
+    <string name="tasbih_undo">Okuzzaawo</string>
+    <string name="tasbih_virtue_label">Empisa ennungi ya dhikr eno</string>
+    <string name="tasbih_week_stats">Ennaku 7 ezisembyeyo</string>
+</resources>

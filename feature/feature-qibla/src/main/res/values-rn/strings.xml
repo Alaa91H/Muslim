@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s kure</string>
+    <string name="mosque_finder_empty">Nta misigiti iboneka muri uru rutonde</string>
+    <string name="mosque_finder_error">Ubushakashatsi bwananiwe</string>
+    <string name="mosque_finder_intro">Rondera imisigiti iri hafi y\'aho uri biciye ku ikarita y\'ibarabara yuguruye</string>
+    <string name="mosque_finder_no_location">Nta hantu hashizweho. Hitamwo ahantu mu bihe vy’amasengesho mbere.</string>
+    <string name="mosque_finder_retry">Subira ugerageze</string>
+    <string name="mosque_finder_searching">Gushaka...</string>
+    <string name="mosque_finder_title">Imisigiti iri hafi</string>
+    <string name="qibla_bearing_cardinal">Uburongozi bwa kibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Kwimurira telefone yawe mu gishushanyo c\'umunani kugira ngo uyitunganye</string>
+    <string name="qibla_distance">Urugendo rwo kuja i Makka: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Murabana na Kibla 🕋 .</string>
+    <string name="qibla_gps_error">Ntiyashobora kuronka igisubizo nyaco. Ndagusavye wongere ugerageze.</string>
+    <string name="qibla_gps_live">Aho GPS iri</string>
+    <string name="qibla_gps_refresh">Gusubiramwo ahantu biciye kuri GPS</string>
+    <string name="qibla_gps_refreshing">Kurondera aho...</string>
+    <string name="qibla_heading_degree">Umutwe wa telefone: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Inzira y\'uruziga runini iva aho uri ija kuri Kaaba — ikora ata murongo</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Wewe</string>
+    <string name="qibla_mode_compass">Busole</string>
+    <string name="qibla_mode_map">Ikarata</string>
+    <string name="qibla_open_mosques">Imisigiti iri hafi</string>
+    <string name="qibla_title">Uburongozi bwa Kibla</string>
+    <string name="qibla_turn_left">Hindukira ibubamfu %1$.1f°</string>
+    <string name="qibla_turn_right">Hindukira iburyo %1$.1f°</string>
+</resources>

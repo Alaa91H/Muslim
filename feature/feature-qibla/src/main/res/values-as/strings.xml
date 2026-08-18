@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s দূৰত</string>
+    <string name="mosque_finder_empty">এই ৰেঞ্জত কোনো মছজিদ পোৱা নাযায়</string>
+    <string name="mosque_finder_error">সন্ধান বিফল হ\'ল</string>
+    <string name="mosque_finder_intro">OpenStreetMap ৰ জৰিয়তে আপোনাৰ স্থানৰ ওচৰৰ মছজিদ বিচাৰি উলিয়াওক</string>
+    <string name="mosque_finder_no_location">এতিয়াও কোনো স্থান নিৰ্ধাৰণ কৰা হোৱা নাই। প্ৰথমে প্ৰাৰ্থনাৰ সময়ৰ ছেটিংছৰ পৰা এটা স্থান বাছক।</string>
+    <string name="mosque_finder_retry">পুনৰ চেষ্টা কৰক</string>
+    <string name="mosque_finder_searching">Searching...</string>
+    <string name="mosque_finder_title">ওচৰৰ মছজিদ</string>
+    <string name="qibla_bearing_cardinal">কিবলা দিশ: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">মানাংকন কৰিবলৈ আপোনাৰ ফোনটো এটা ফিগাৰ-আঠত লৈ যাওক</string>
+    <string name="qibla_distance">মক্কালৈ দূৰত্ব: %1$s</string>
+    <string name="qibla_distance_km">%,.0f কি.মি</string>
+    <string name="qibla_facing">আপুনি কিবলা 🕋 ৰ সন্মুখত আছে</string>
+    <string name="qibla_gps_error">সঠিক সমাধান পাব পৰা নগ\'ল। অনুগ্ৰহ কৰি পুনৰ চেষ্টা কৰক।</string>
+    <string name="qibla_gps_live">লাইভ জিপিএছ স্থান</string>
+    <string name="qibla_gps_refresh">জিপিএছৰ জৰিয়তে স্থান সতেজ কৰক</string>
+    <string name="qibla_gps_refreshing">অবস্থান...</string>
+    <string name="qibla_heading_degree">ফোন শিৰোনাম: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">আপোনাৰ স্থানৰ পৰা কাবালৈ গ্ৰেট-চাৰ্কল ৰুট — অফলাইন কাম কৰে</string>
+    <string name="qibla_map_kaaba">কাবা</string>
+    <string name="qibla_map_you">তুমি</string>
+    <string name="qibla_mode_compass">কম্পাছ</string>
+    <string name="qibla_mode_map">মানচিত্ৰ</string>
+    <string name="qibla_open_mosques">ওচৰৰ মছজিদ</string>
+    <string name="qibla_title">কিবলা দিশ</string>
+    <string name="qibla_turn_left">বাওঁফালে ঘূৰি যাওক %1$.1f°</string>
+    <string name="qibla_turn_right">সোঁফালে ঘূৰি %1$.1f°</string>
+</resources>

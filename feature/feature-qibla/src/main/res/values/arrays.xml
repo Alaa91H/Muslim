@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="qibla_cardinal_directions">
+        <item>شمال</item>
+        <item>شمال شرق</item>
+        <item>شرق</item>
+        <item>جنوب شرق</item>
+        <item>جنوب</item>
+        <item>جنوب غرب</item>
+        <item>غرب</item>
+        <item>شمال غرب</item>
+    </string-array>
+</resources>

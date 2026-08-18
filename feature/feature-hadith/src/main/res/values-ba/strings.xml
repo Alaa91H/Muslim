@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Барыһы ла</string>
+    <string name="hadith_back">Артҡа</string>
+    <string name="hadith_bookmark_add">Закладка өҫтәү</string>
+    <string name="hadith_bookmark_remove">Закладканы алып ташлау</string>
+    <string name="hadith_collection_abudawud">Әбү Дауыт .</string>
+    <string name="hadith_collection_bukhari">Әл-Бохари</string>
+    <string name="hadith_collection_ibnmajah">Ибн Мәжәх .</string>
+    <string name="hadith_collection_muslim">Мосолман .</string>
+    <string name="hadith_collection_nasai">Ан-Наса\'и</string>
+    <string name="hadith_collection_nawawi">Ән-Нәүәви 40</string>
+    <string name="hadith_collection_other">Башҡа</string>
+    <string name="hadith_collection_riyad">Эр-Рияд ас-Салихин</string>
+    <string name="hadith_collection_tirmidhi">Әт-Тирмиҙи</string>
+    <string name="hadith_daily_notification">Көндәлек хәҙис хәбәр итеү</string>
+    <string name="hadith_daily_notification_desc">Көн һайын хәҙис алығыҙ .</string>
+    <string name="hadith_daily_notification_time">Хәбәр итеү ваҡыты</string>
+    <string name="hadith_of_the_day">Көн хәҙистәре .</string>
+    <string name="hadith_preview_hint">Көндәлек хәҙис хәбәр итеүе үҙенең билдәләнгән ваҡытында шулай күренә.</string>
+    <string name="hadith_preview_label">Хәбәр итеүҙе алдан ҡарау</string>
+    <string name="hadith_preview_loading">Хәҙисте тейәп...</string>
+    <string name="hadith_search_hint">Хәҙистәр эҙләү...</string>
+    <string name="hadith_share">Таҡлашыу</string>
+    <string name="hadith_title">Хәҙистәр китапханаһы</string>
+</resources>

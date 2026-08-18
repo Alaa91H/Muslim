@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslamach</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Madainn, feasgar &amp; post-ùrnaigh adhkar le cunntairean</string>
+    <string name="more_downloads">Aithrisean luchdadh a-nuas</string>
+    <string name="more_downloads_desc">Luchdaich sìos surah, ayah no an Quran slàn leis an neach-aithris a thagh thu</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Leabharlann hadith, lorg agus hadith an latha an-asgaidh</string>
+    <string name="more_learn">Ionnsaich</string>
+    <string name="more_learn_desc">Stiùireadh wudu &amp; ùrnaigh ceum air cheum</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Amannan suhoor &amp; iftar agus rianadair luaths</string>
+    <string name="more_reference">Leabharlann Iomraidh</string>
+    <string name="more_reference_desc">Ro-ràdh do Islam, an Sira &amp; na fàidhean</string>
+    <string name="more_settings">Suidhichidhean</string>
+    <string name="more_settings_desc">Cuspair, cànan, ùrnaigh &amp; adhan suidheachadh</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digital Misbaha le eachdraidh làitheil</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat air àireamhair beairteas &amp; Fitr</string>
+    <string name="scaffold_message">Tha cnàimhneach a’ phròiseict ioma-mhodal deiseil.\nPhase 1 - Adhan, amannan ùrnaigh, Qibla, agus mìosachan Hijri - a’ tòiseachadh an seo.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Stiùireadh Qibla</string>
+    <string name="shortcut_settings">Suidhichidhean</string>
+    <string name="shortcut_settings_long">Suidheachadh ùrnaigh &amp; adhan</string>
+    <string name="shortcut_times">Amannan ùrnaigh</string>
+    <string name="shortcut_times_long">An-diugh amannan ùrnaigh \'</string>
+    <string name="tab_home">Amannan Ùrnuigh</string>
+    <string name="tab_more">Tuilleadh</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

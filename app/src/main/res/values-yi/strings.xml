@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">מוסולמען</string>
+    <string name="app_name">מוסלים</string>
+    <string name="more_adhkar">אַדהקאַר</string>
+    <string name="more_adhkar_desc">מאָרגן, אָוונט &amp; נאָך-תפילה אַדהקאַר מיט קאָונטערס</string>
+    <string name="more_downloads">רעסיטאַטיאָן דאַונלאָודז</string>
+    <string name="more_downloads_desc">אראפקאפיע אַ סוראַה, אַ ייַאַה אָדער די פול קווראַן מיט דיין אויסדערוויילטע רעסיטער</string>
+    <string name="more_hadith">חדיטה</string>
+    <string name="more_hadith_desc">האַדיטה ביבליאָטעק, זוכן און האַדיטה פון דעם טאָג</string>
+    <string name="more_learn">לערן</string>
+    <string name="more_learn_desc">שריט-פֿאַר-שריט ווודו &amp; תפילה פירער</string>
+    <string name="more_ramadan">ראַמאַדאַן</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar צייט און פאַסטן טראַקער</string>
+    <string name="more_reference">רעפערענץ ביבליאָטעק</string>
+    <string name="more_reference_desc">הקדמה צו איסלאם, די סיראַ און די נביאים</string>
+    <string name="more_settings">סעטטינגס</string>
+    <string name="more_settings_desc">טעמע, שפּראַך, תפילה און אַדהאַן סעטטינגס</string>
+    <string name="more_tasbih">טאַסביה</string>
+    <string name="more_tasbih_desc">דיגיטאַל מיסבאַהאַ מיט טעגלעך געשיכטע</string>
+    <string name="more_zakat">זאקאט</string>
+    <string name="more_zakat_desc">Zakat אויף עשירות &amp; Fitr קאַלקולאַטאָר</string>
+    <string name="scaffold_message">די מאַלטי-מאָדולע פּרויעקט סקעלעט איז גרייט.\nפאַסע 1 - אַדהאַן, תפילה צייט, קיבלאַ און די הידזשרי קאַלענדאַר - סטאַרץ דאָ.</string>
+    <string name="shortcut_qibla">קיבלאַ</string>
+    <string name="shortcut_qibla_long">קיבלאַ ריכטונג</string>
+    <string name="shortcut_settings">סעטטינגס</string>
+    <string name="shortcut_settings_long">תפילה און אַדהאַן סעטטינגס</string>
+    <string name="shortcut_times">תפילה צייט</string>
+    <string name="shortcut_times_long">הייַנט \' ס תפילה צייט</string>
+    <string name="tab_home">תפילה צייט</string>
+    <string name="tab_more">מער</string>
+    <string name="tab_qibla">קיבלאַ</string>
+    <string name="tab_quran">קווראַן</string>
 </resources>

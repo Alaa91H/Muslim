@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Haol prijze automatisch op</string>
+    <string name="zakat_auto_prices_hint">Wienie ingeschakeld, weure goud- en zilverprijze vaan ‘t internet gehaold en automatisch vernieuwd</string>
+    <string name="zakat_back">Terug</string>
+    <string name="zakat_cash">Contant geld en spaargeld</string>
+    <string name="zakat_clear_history">Dudelike gesjiedenis</string>
+    <string name="zakat_country">Land</string>
+    <string name="zakat_country_placeholder">Kies eur land en munt</string>
+    <string name="zakat_country_section">Land &amp; munt</string>
+    <string name="zakat_currency">Munt: %1$s</string>
+    <string name="zakat_debts">Sjölde die geer schuldig ziet (aafgetrokke)</string>
+    <string name="zakat_due">Zakat verschuldig (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Kon \'prijze neet ophaole. Controleer eur verbinding of voer de pries handmatig in.</string>
+    <string name="zakat_fetch_now">Vernuie de prijze noe</string>
+    <string name="zakat_fetching">Prijze ophaole...</string>
+    <string name="zakat_fitr_persons">Aantal familielede</string>
+    <string name="zakat_fitr_saa_value">Waarde vaan eine sa\' (baalvoedsel)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Totaal Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Goud (gram)</string>
+    <string name="zakat_gold_price">Goudpries per gram</string>
+    <string name="zakat_history">Berekeningsgesjiedenis</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Nog gein opgeslage berekeninge.</string>
+    <string name="zakat_investments">Investeringe</string>
+    <string name="zakat_last_updated">Lets bijgewerk: %1$s</string>
+    <string name="zakat_money_section">Zakat op riekdom</string>
+    <string name="zakat_nisab_gold">Gouwe nisab (85g)</string>
+    <string name="zakat_nisab_met">De nisab is bereik — de zakat is verschuldig</string>
+    <string name="zakat_nisab_not_met">Ónder de nisab — gein zakat verschuldig</string>
+    <string name="zakat_nisab_silver">Zilver nisab (595g)</string>
+    <string name="zakat_rulings_note">Volgens de mierderheid (jumhoor): gouwe nisab is 85g, zilver 595g, en de tarief is 2,5%% nao aaftrèkking vaan verschuldigde sjölde. Raadpleeg ‘n gekwalificeerde gelierde veur speciaole gevalle.</string>
+    <string name="zakat_save_result">Opsjlaon in de gesjiedenis</string>
+    <string name="zakat_silver_grams">Zilver (gram)</string>
+    <string name="zakat_silver_price">Zilverprijs per gram</string>
+    <string name="zakat_source_note">Goud/zilverprijze vaan gold-api.com; FX-tarieve vaan open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Totaal bezittinge</string>
+    <string name="zakat_trade">Handelsgoederewaarde</string>
+    <string name="zakat_zakatable">Zakatable bedrag nao sjölde</string>
+</resources>

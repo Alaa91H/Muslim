@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Kõik</string>
+    <string name="hadith_back">Tagasi</string>
+    <string name="hadith_bookmark_add">Lisa järjehoidja</string>
+    <string name="hadith_bookmark_remove">Eemalda järjehoidja</string>
+    <string name="hadith_collection_abudawud">Abu Dawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah</string>
+    <string name="hadith_collection_muslim">moslem</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">muud</string>
+    <string name="hadith_collection_riyad">Riyadh as-Salihin</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidhi</string>
+    <string name="hadith_daily_notification">Igapäevane haditi teatis</string>
+    <string name="hadith_daily_notification_desc">Saate iga päev haditit</string>
+    <string name="hadith_daily_notification_time">Teavitamise aeg</string>
+    <string name="hadith_of_the_day">Päeva hadith</string>
+    <string name="hadith_preview_hint">Nii ilmub igapäevane hadithiteatis ettenähtud ajal.</string>
+    <string name="hadith_preview_label">Teavituse eelvaade</string>
+    <string name="hadith_preview_loading">Hadithi laadimine…</string>
+    <string name="hadith_search_hint">Hadithide otsimine…</string>
+    <string name="hadith_share">Jaga</string>
+    <string name="hadith_title">Hadithi raamatukogu</string>
+</resources>

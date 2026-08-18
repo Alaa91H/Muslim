@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Mataka, yakavi &amp; adhkar ni oti na masu kei na kauta</string>
+    <string name="more_downloads">Lavetaki ni wiliwili</string>
+    <string name="more_downloads_desc">Lavetaka e dua na surah, e dua na ayah se na Quran taucoko kei na nomu dauwiliwili digitaki</string>
+    <string name="more_hadith">Hadici</string>
+    <string name="more_hadith_desc">Hadith biblioteca, búsqueda &amp; hadith del día</string>
+    <string name="more_learn">Vuli</string>
+    <string name="more_learn_desc">Na idusidusi ni wudu &amp; masu ena veikalawa</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Tiempos de suhoor y iftar y seguidor de ayuno</string>
+    <string name="more_reference">Valenivola ni iVoladusidusi</string>
+    <string name="more_reference_desc">Na ivakamacala taumada ni lotu Musilimi, na Sira &amp; na parofita</string>
+    <string name="more_settings">Tuvatuva</string>
+    <string name="more_settings_desc">Ulutaga, vosa, masu &amp; ituvatuva ni adhan</string>
+    <string name="more_tasbih">Tasibi</string>
+    <string name="more_tasbih_desc">Misbaha digitaki kei na itukutuku ni veisiga</string>
+    <string name="more_zakat">Saka</string>
+    <string name="more_zakat_desc">Zakat ena iyau &amp; Fitr dauvakadidike</string>
+    <string name="scaffold_message">Sa vakarau tu na sui ni cakacaka e vuqa na kena iwasewase.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Veidusimaki ni qibla</string>
+    <string name="shortcut_settings">Tuvatuva</string>
+    <string name="shortcut_settings_long">Masu kei na ituvatuva ni adhan</string>
+    <string name="shortcut_times">Gauna ni masumasu .</string>
+    <string name="shortcut_times_long">Gauna ni masumasu nikua\'s</string>
+    <string name="tab_home">Gauna ni Masumasu .</string>
+    <string name="tab_more">Levu cake</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Koran</string>
 </resources>

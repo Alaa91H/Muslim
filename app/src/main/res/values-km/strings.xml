@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">មូស្លីម</string>
+    <string name="more_adhkar">អាដកា</string>
+    <string name="more_adhkar_desc">ពេលព្រឹក ល្ងាច និងក្រោយការអធិស្ឋាន adhkar ជាមួយនឹងបញ្ជរ</string>
+    <string name="more_downloads">ការទាញយកសូត្រ</string>
+    <string name="more_downloads_desc">ទាញយក Surah មួយ ayah ឬគម្ពីគូរ៉ាពេញលេញជាមួយអ្នកសូត្រដែលអ្នកបានជ្រើសរើស</string>
+    <string name="more_hadith">ហាឌីត</string>
+    <string name="more_hadith_desc">បណ្ណាល័យ Hadith ការស្វែងរក &amp; hadith នៃថ្ងៃ</string>
+    <string name="more_learn">រៀន</string>
+    <string name="more_learn_desc">ជំហានដោយជំហាន wudu &amp; មគ្គុទេសក៍ការអធិស្ឋាន</string>
+    <string name="more_ramadan">រ៉ាម៉ាដាន</string>
+    <string name="more_ramadan_desc">ពេលវេលា Suhoor និង iftar និងកម្មវិធីតាមដានការតមអាហារ</string>
+    <string name="more_reference">បណ្ណាល័យឯកសារយោង</string>
+    <string name="more_reference_desc">ការណែនាំអំពីសាសនាឥស្លាម ស៊ីរ៉ា និងព្យាការី</string>
+    <string name="more_settings">ការកំណត់</string>
+    <string name="more_settings_desc">ប្រធានបទ ភាសា ការអធិស្ឋាន និងការកំណត់ adhan</string>
+    <string name="more_tasbih">តាសប៊ី</string>
+    <string name="more_tasbih_desc">misbaha ឌីជីថលជាមួយនឹងប្រវត្តិប្រចាំថ្ងៃ</string>
+    <string name="more_zakat">ហ្សាកាត</string>
+    <string name="more_zakat_desc">Zakat នៅលើទ្រព្យសម្បត្តិ &amp; Fitr គណនា</string>
+    <string name="scaffold_message">គ្រោងគម្រោងពហុម៉ូឌុលគឺរួចរាល់ហើយ។\nដំណាក់កាលទី 1 — Adhan ម៉ោងអធិស្ឋាន Qibla និង Hijri calendar — ចាប់ផ្តើមនៅទីនេះ។</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">ទិសដៅ Qibla</string>
+    <string name="shortcut_settings">ការកំណត់</string>
+    <string name="shortcut_settings_long">ការកំណត់ការអធិស្ឋាន និងអាដាន់</string>
+    <string name="shortcut_times">ពេលវេលាអធិស្ឋាន</string>
+    <string name="shortcut_times_long">ថ្ងៃនេះ \'s ដងអធិស្ឋាន</string>
+    <string name="tab_home">ពេលវេលាអធិស្ឋាន</string>
+    <string name="tab_more">ច្រើនទៀត</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">គម្ពីគូរ៉ា</string>
 </resources>

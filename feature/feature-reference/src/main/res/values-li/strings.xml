@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Terug</string>
+    <string name="reference_no_results">Geen euvereinkommende resultate</string>
+    <string name="reference_search_hint">Zoek in dit book…</string>
+    <string name="reference_title">Islamitische referentiebibliotheek</string>
+    <string name="reference_topics_count">oonderwerpe</string>
+</resources>

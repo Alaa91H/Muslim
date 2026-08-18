@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Dijital misbaha — saymak için dokunun</string>
+    <string name="misbaha_widget_label">tesbih</string>
+    <string name="misbaha_widget_tap_hint">Saymak için dokunun</string>
+    <string name="tasbih_back">Geri</string>
+    <string name="tasbih_cancel">İptal</string>
+    <string name="tasbih_confirm">tamam</string>
+    <string name="tasbih_custom_target">Özel</string>
+    <string name="tasbih_custom_target_hint">Sayım sayısını girin (1\'den 100000\'e kadar)</string>
+    <string name="tasbih_custom_target_title">Özel bir hedef belirleyin</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Sıfırla</string>
+    <string name="tasbih_reset_all">Tümünü sıfırla</string>
+    <string name="tasbih_round_complete">Tam tur tamamlandı (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Tur sayısı: %1$d</string>
+    <string name="tasbih_sound_desc">Her tur tamamlandığında bir zil sesi veya ton çalın</string>
+    <string name="tasbih_sound_title">Hedefe ulaşan ses</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Bildirim</string>
+    <string name="tasbih_sound_tone_ringtone">Zil sesi</string>
+    <string name="tasbih_tap_hint">Saymak için daireye dokunun</string>
+    <string name="tasbih_target_reached">Hedefe ulaşıldı Allah kabul etsin</string>
+    <string name="tasbih_title">tesbih</string>
+    <string name="tasbih_total_today">Bugünün toplamı\': %1$d</string>
+    <string name="tasbih_undo">Geri al</string>
+    <string name="tasbih_virtue_label">Bu zikrin fazileti</string>
+    <string name="tasbih_week_stats">Son 7 gün</string>
+</resources>

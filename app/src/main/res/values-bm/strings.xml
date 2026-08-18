@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Musilimi</string>
+    <string name="more_adhkar">Adhkar ye</string>
+    <string name="more_adhkar_desc">Sɔgɔma, wula &amp; delili kɔfɛ adhkar ni jatebɔlanw</string>
+    <string name="more_downloads">Recitation telesarsew</string>
+    <string name="more_downloads_desc">Sura, ayah walima Kuranɛ dafalen telesarse ni i ka kalanden sugandilen ye</string>
+    <string name="more_hadith">Hadisi</string>
+    <string name="more_hadith_desc">Hadisa gafemarayɔrɔ, ɲinini &amp; hadisi don</string>
+    <string name="more_learn">Kalan kɛ</string>
+    <string name="more_learn_desc">Wudu &amp; delili ɲɛminɛbagaw senfɛ-senfɛ</string>
+    <string name="more_ramadan">Ramadan na</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar waatiw ani sunɔgɔ sira</string>
+    <string name="more_reference">Kitabumaraso min bɛ wele ko Reference Library</string>
+    <string name="more_reference_desc">Silamɛya daminɛ, Sira &amp; kiraw</string>
+    <string name="more_settings">Segin-ka-bɔnyew</string>
+    <string name="more_settings_desc">Barokun, kan, delili &amp; adhan sigicogo</string>
+    <string name="more_tasbih">Tasbih ye</string>
+    <string name="more_tasbih_desc">Misbaha numérique ni don o don tariku</string>
+    <string name="more_zakat">Zakati</string>
+    <string name="more_zakat_desc">Zakat kan nafolo &amp; Fitr jatebɔlan</string>
+    <string name="scaffold_message">Porozɛ min bɛ kɛ ni modulu caman ye, o labɛnnen don.\nFase 1 — Adhan, delili waatiw, Qibla, ani Hijri kalandriya — bɛ daminɛ yan.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla ɲɛsincogo</string>
+    <string name="shortcut_settings">Segin-ka-bɔnyew</string>
+    <string name="shortcut_settings_long">Delili &amp; adhan sigicogo</string>
+    <string name="shortcut_times">Delili waatiw</string>
+    <string name="shortcut_times_long">Bi\'w delili waatiw</string>
+    <string name="tab_home">Delili Waati</string>
+    <string name="tab_more">Ka tɛmɛ o kan</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Kuranɛ</string>
 </resources>

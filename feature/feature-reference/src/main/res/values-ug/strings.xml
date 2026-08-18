@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">قايتىش</string>
+    <string name="reference_no_results">ماس كېلىدىغان نەتىجە يوق</string>
+    <string name="reference_search_hint">بۇ كىتابنى ئىزدەڭ…</string>
+    <string name="reference_title">ئىسلام پايدىلىنىش كۈتۈپخانىسى</string>
+    <string name="reference_topics_count">تېما</string>
+</resources>

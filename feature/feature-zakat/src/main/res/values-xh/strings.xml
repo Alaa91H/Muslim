@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Fumana amaxabiso ngokuzenzekelayo</string>
+    <string name="zakat_auto_prices_hint">Xa yenziwe yasebenza, amaxabiso egolide nawesilivere alandwa kwi-intanethi kwaye ahlaziywe ngokuzenzekelayo</string>
+    <string name="zakat_back">Emva</string>
+    <string name="zakat_cash">Imali kunye nokugcinwa</string>
+    <string name="zakat_clear_history">Imbali ecacileyo</string>
+    <string name="zakat_country">Ilizwe</string>
+    <string name="zakat_country_placeholder">Khetha ilizwe lakho kunye nemali</string>
+    <string name="zakat_country_section">Ilizwe &amp; nemali</string>
+    <string name="zakat_currency">Imali: %1$s</string>
+    <string name="zakat_debts">Amatyala owatyalayo (atsaliwe)</string>
+    <string name="zakat_due">Zakat kufuneka (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t ukulanda amaxabiso. Jonga umdibaniso wakho okanye ufake ixabiso ngesandla.</string>
+    <string name="zakat_fetch_now">Hlaziya amaxabiso ngoku</string>
+    <string name="zakat_fetching">Ilanda amaxabiso...</string>
+    <string name="zakat_fitr_persons">Inani lamalungu osapho</string>
+    <string name="zakat_fitr_saa_value">Ixabiso le-sa\' enye (ukutya okusisiseko)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Iyonke iFitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Igolide (iigram)</string>
+    <string name="zakat_gold_price">ixabiso Gold ngegram</string>
+    <string name="zakat_history">Imbali yokubala</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Akukho zibalo zigciniweyo okwangoku.</string>
+    <string name="zakat_investments">Utyalo-mali</string>
+    <string name="zakat_last_updated">Igqityelwe ukuhlaziywa: %1$s</string>
+    <string name="zakat_money_section">Zakat ngobutyebi</string>
+    <string name="zakat_nisab_gold">I-nisab yegolide (85g)</string>
+    <string name="zakat_nisab_met">I-nisab ifikelelwa - i-zakat ifanelekile</string>
+    <string name="zakat_nisab_not_met">Ngaphantsi kwe-nisab - akukho zakat ngenxa</string>
+    <string name="zakat_nisab_silver">I-nisab yesilivere (595g)</string>
+    <string name="zakat_rulings_note">Ngobuninzi (jumhoor): igolide inisab yi85g, isilivere 595g, kwaye ireyithi yi-2.5%% emva kokutsalwa kwamatyala afunekayo. Qhagamshelana nesifundiswa esiqeqeshelwe iimeko ezithile.</string>
+    <string name="zakat_save_result">Gcina kwimbali</string>
+    <string name="zakat_silver_grams">Isilivere (iigram)</string>
+    <string name="zakat_silver_price">Ixabiso lesilivere ngegram</string>
+    <string name="zakat_source_note">Amaxabiso egolide/isilivere evela kwigolide-api.com; FX amaxabiso ukusuka open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Ii-asethi zizonke</string>
+    <string name="zakat_trade">Ixabiso lempahla yorhwebo</string>
+    <string name="zakat_zakatable">Imali yeZakatable emva kwamatyala</string>
+</resources>

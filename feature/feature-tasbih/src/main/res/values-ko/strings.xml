@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">디지털 미스바하(Digital misbaha) — 탭하여 계산</string>
+    <string name="misbaha_widget_label">타스비</string>
+    <string name="misbaha_widget_tap_hint">탭하여 계산</string>
+    <string name="tasbih_back">뒤로</string>
+    <string name="tasbih_cancel">취소</string>
+    <string name="tasbih_confirm">알았어</string>
+    <string name="tasbih_custom_target">맞춤</string>
+    <string name="tasbih_custom_target_hint">횟수를 입력하세요(1~100000).</string>
+    <string name="tasbih_custom_target_title">맞춤 타겟 설정</string>
+    <string name="tasbih_of_target">%1$s 중</string>
+    <string name="tasbih_reset">재설정</string>
+    <string name="tasbih_reset_all">모두 재설정</string>
+    <string name="tasbih_round_complete">전체 라운드 완료(%1$s) 🎉</string>
+    <string name="tasbih_rounds">라운드: %1$d</string>
+    <string name="tasbih_sound_desc">각 라운드가 완료되면 벨소리나 신호음을 재생합니다.</string>
+    <string name="tasbih_sound_title">목표물에 소리가 난다</string>
+    <string name="tasbih_sound_tone_alarm">알람</string>
+    <string name="tasbih_sound_tone_notification">알림</string>
+    <string name="tasbih_sound_tone_ringtone">벨소리</string>
+    <string name="tasbih_tap_hint">계산하려면 원을 탭하세요.</string>
+    <string name="tasbih_target_reached">목표 달성 — 알라께서 이를 받아들이실 수 있습니다</string>
+    <string name="tasbih_title">타스비</string>
+    <string name="tasbih_total_today">오늘 총\'개: %1$d</string>
+    <string name="tasbih_undo">실행 취소</string>
+    <string name="tasbih_virtue_label">이 dhikr의 미덕</string>
+    <string name="tasbih_week_stats">지난 7일</string>
+</resources>

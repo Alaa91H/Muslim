@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s لرې</string>
+    <string name="mosque_finder_empty">په دې لړ کې هیڅ جومات نه دی موندل شوی</string>
+    <string name="mosque_finder_error">لټون ناکام شو</string>
+    <string name="mosque_finder_intro">د OpenStreetMap له لارې خپل ځای ته نږدې جوماتونه ومومئ</string>
+    <string name="mosque_finder_no_location">تر اوسه کوم ځای نه دی ټاکل شوی. لومړی د لمانځه وخت تنظیماتو څخه یو ځای غوره کړئ.</string>
+    <string name="mosque_finder_retry">بیا هڅه وکړئ</string>
+    <string name="mosque_finder_searching">لټون…</string>
+    <string name="mosque_finder_title">نږدې جوماتونه</string>
+    <string name="qibla_bearing_cardinal">قبله سمت: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">د کیلیبریټ کولو لپاره خپل تلیفون په اتم شکل کې حرکت وکړئ</string>
+    <string name="qibla_distance">له مکې څخه واټن: %1$s</string>
+    <string name="qibla_distance_km">%,.0f کیلومتره</string>
+    <string name="qibla_facing">ته قبلې ته مخامخ یې 🕋</string>
+    <string name="qibla_gps_error">دقیق سمون نشي ترلاسه کولی. مهرباني وکړئ بیا هڅه وکړئ.</string>
+    <string name="qibla_gps_live">د ژوندی GPS موقعیت</string>
+    <string name="qibla_gps_refresh">د GPS له لارې ځای تازه کړئ</string>
+    <string name="qibla_gps_refreshing">موندل…</string>
+    <string name="qibla_heading_degree">د تلیفون سرلیک: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">ستاسو له موقعیت څخه کعبې ته د لوی حلقې لاره — آفلاین کار کوي</string>
+    <string name="qibla_map_kaaba">کعبه</string>
+    <string name="qibla_map_you">تاسو</string>
+    <string name="qibla_mode_compass">کمپاس</string>
+    <string name="qibla_mode_map">نقشه</string>
+    <string name="qibla_open_mosques">نږدې جوماتونه</string>
+    <string name="qibla_title">د قبلې طرف</string>
+    <string name="qibla_turn_left">کیڼ لور ته وګرځئ %1$.1f°</string>
+    <string name="qibla_turn_right">ښي خوا ته وګرځئ %1$.1f°</string>
+</resources>

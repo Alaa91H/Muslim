@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslimus</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Mane, vespere &amp; post-precatio adhkar cum calculis</string>
+    <string name="more_downloads">Recitatio downloads</string>
+    <string name="more_downloads_desc">Download surah, ayah vel plenum Quran cum recitatoribus electis tuis</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Bibliotheca Hadith, quaerere &amp; hadith diei</string>
+    <string name="more_learn">Disce</string>
+    <string name="more_learn_desc">Gradus wudu &amp; orationis ducibus</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Suhoor &amp; Ifta tempora &amp; jejunia venato</string>
+    <string name="more_reference">Relatio Library</string>
+    <string name="more_reference_desc">Introductio ad Islam, Siram &amp; Prophetas</string>
+    <string name="more_settings">Occasus</string>
+    <string name="more_settings_desc">Theme, lingua, oratio &amp; occasus adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digital misbaha cum cotidiana historia</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat in divitiis &amp; Fitr calculator</string>
+    <string name="scaffold_message">Multi-module project osseus est paratus.\nPhase 1 - Adhan, oratio tempora, Qibla, et Hijri calendarium - hic incipit.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla directionem</string>
+    <string name="shortcut_settings">Occasus</string>
+    <string name="shortcut_settings_long">Oratio &amp; adhan occasus</string>
+    <string name="shortcut_times">Orationis tempora</string>
+    <string name="shortcut_times_long">Hodie\'s orationis temporibus</string>
+    <string name="tab_home">Orationis tempora</string>
+    <string name="tab_more">More</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

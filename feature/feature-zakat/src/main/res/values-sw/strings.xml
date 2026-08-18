@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Leta bei kiotomatiki</string>
+    <string name="zakat_auto_prices_hint">Inapowashwa, bei za dhahabu na fedha huchukuliwa kutoka kwa mtandao na kusasishwa kiotomatiki</string>
+    <string name="zakat_back">Nyuma</string>
+    <string name="zakat_cash">Fedha na akiba</string>
+    <string name="zakat_clear_history">Futa historia</string>
+    <string name="zakat_country">Nchi</string>
+    <string name="zakat_country_placeholder">Chagua nchi yako na sarafu</string>
+    <string name="zakat_country_section">Nchi na sarafu</string>
+    <string name="zakat_currency">Fedha: %1$s</string>
+    <string name="zakat_debts">Madeni unayodaiwa (yanayokatwa)</string>
+    <string name="zakat_due">Zakat inadaiwa (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Haikuweza\'t kupata bei. Angalia muunganisho wako au uweke bei wewe mwenyewe.</string>
+    <string name="zakat_fetch_now">Onyesha upya bei sasa</string>
+    <string name="zakat_fetching">Inaleta bei...</string>
+    <string name="zakat_fitr_persons">Idadi ya wanafamilia</string>
+    <string name="zakat_fitr_saa_value">Thamani ya sa\' moja (chakula kikuu)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Jumla ya zakat ya Fitr: %1$s</string>
+    <string name="zakat_gold_grams">Dhahabu (gramu)</string>
+    <string name="zakat_gold_price">Bei ya dhahabu kwa gramu</string>
+    <string name="zakat_history">Historia ya hesabu</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Bado hakuna mahesabu yaliyohifadhiwa.</string>
+    <string name="zakat_investments">Uwekezaji</string>
+    <string name="zakat_last_updated">Ilisasishwa mwisho: %1$s</string>
+    <string name="zakat_money_section">Zaka ya utajiri</string>
+    <string name="zakat_nisab_gold">Nisab ya dhahabu (85g)</string>
+    <string name="zakat_nisab_met">Nisab imefikiwa - zakat inadaiwa</string>
+    <string name="zakat_nisab_not_met">Chini ya nisab - hakuna zakat inayodaiwa</string>
+    <string name="zakat_nisab_silver">Nisab ya fedha (595g)</string>
+    <string name="zakat_rulings_note">Kwa wingi (jumhoor): dhahabu nisab ni 85g, fedha 595g, na kiwango ni 2.5%% baada ya kukata madeni yanayodaiwa. Wasiliana na mwanachuoni aliyehitimu kwa kesi maalum.</string>
+    <string name="zakat_save_result">Hifadhi kwenye historia</string>
+    <string name="zakat_silver_grams">Fedha (gramu)</string>
+    <string name="zakat_silver_price">Bei ya fedha kwa gramu</string>
+    <string name="zakat_source_note">Bei za dhahabu/fedha kutoka gold-api.com; Viwango vya FX kutoka open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Jumla ya mali</string>
+    <string name="zakat_trade">Thamani ya bidhaa za biashara</string>
+    <string name="zakat_zakatable">Kiasi cha Zaka baada ya deni</string>
+</resources>

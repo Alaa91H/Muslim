@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">தானாகவே விலைகளைப் பெறவும்</string>
+    <string name="zakat_auto_prices_hint">இயக்கப்பட்டால், தங்கம் மற்றும் வெள்ளி விலைகள் இணையத்திலிருந்து பெறப்பட்டு தானாகவே புதுப்பிக்கப்படும்</string>
+    <string name="zakat_back">மீண்டும்</string>
+    <string name="zakat_cash">பணம் மற்றும் சேமிப்பு</string>
+    <string name="zakat_clear_history">தெளிவான வரலாறு</string>
+    <string name="zakat_country">நாடு</string>
+    <string name="zakat_country_placeholder">உங்கள் நாட்டையும் நாணயத்தையும் தேர்வு செய்யவும்</string>
+    <string name="zakat_country_section">நாடு &amp; நாணயம்</string>
+    <string name="zakat_currency">நாணயம்: %1$s</string>
+    <string name="zakat_debts">நீங்கள் செலுத்த வேண்டிய கடன்கள் (கழிக்கப்பட்டது)</string>
+    <string name="zakat_due">ஜகாத் நிலுவைத் தொகை (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'t விலைகளைப் பெற முடியவில்லை. உங்கள் இணைப்பைச் சரிபார்க்கவும் அல்லது விலையை கைமுறையாக உள்ளிடவும்.</string>
+    <string name="zakat_fetch_now">இப்போது விலைகளைப் புதுப்பிக்கவும்</string>
+    <string name="zakat_fetching">விலைகளைப் பெறுகிறது…</string>
+    <string name="zakat_fitr_persons">குடும்ப உறுப்பினர்களின் எண்ணிக்கை</string>
+    <string name="zakat_fitr_saa_value">ஒரு sa\' மதிப்பு (முக்கிய உணவு)</string>
+    <string name="zakat_fitr_section">ஜகாத் அல் பித்ர்</string>
+    <string name="zakat_fitr_total">மொத்த ஃபித்ர் ஜகாத்: %1$s</string>
+    <string name="zakat_gold_grams">தங்கம் (கிராம்)</string>
+    <string name="zakat_gold_price">ஒரு கிராம் தங்கம் விலை</string>
+    <string name="zakat_history">கணக்கீடு வரலாறு</string>
+    <string name="zakat_history_amount">ஜகாத்: %1$s</string>
+    <string name="zakat_history_empty">இதுவரை சேமிக்கப்பட்ட கணக்கீடுகள் இல்லை.</string>
+    <string name="zakat_investments">முதலீடுகள்</string>
+    <string name="zakat_last_updated">கடைசியாக புதுப்பிக்கப்பட்டது: %1$s</string>
+    <string name="zakat_money_section">செல்வத்தின் மீது ஜகாத்</string>
+    <string name="zakat_nisab_gold">தங்க நிசாப் (85 கிராம்)</string>
+    <string name="zakat_nisab_met">நிஸாப் அடைந்து விட்டது - ஜகாத் செலுத்த வேண்டும்</string>
+    <string name="zakat_nisab_not_met">நிஸாபின் கீழ் - ஜகாத் இல்லை</string>
+    <string name="zakat_nisab_silver">வெள்ளி நிசாப் (595 கிராம்)</string>
+    <string name="zakat_rulings_note">பெரும்பான்மைக்கு (ஜூம்ஹூர்): தங்கம் நிசாப் 85 கிராம், வெள்ளி 595 கிராம், மற்றும் நிலுவைத் தொகையைக் கழித்த பிறகு விகிதம் 2.5%%. சிறப்பு வழக்குகளுக்கு தகுதியான அறிஞரை அணுகவும்.</string>
+    <string name="zakat_save_result">வரலாற்றில் சேமிக்கவும்</string>
+    <string name="zakat_silver_grams">வெள்ளி (கிராம்)</string>
+    <string name="zakat_silver_price">ஒரு கிராம் வெள்ளி விலை</string>
+    <string name="zakat_source_note">Gold-api.com இலிருந்து தங்கம்/வெள்ளி விலைகள்; open.er-api.com இலிருந்து FX கட்டணங்கள்</string>
+    <string name="zakat_title">ஜகாத்</string>
+    <string name="zakat_total_assets">மொத்த சொத்துக்கள்</string>
+    <string name="zakat_trade">வர்த்தக பொருட்களின் மதிப்பு</string>
+    <string name="zakat_zakatable">கடன்களுக்குப் பிறகு ஜகாத் தொகை</string>
+</resources>

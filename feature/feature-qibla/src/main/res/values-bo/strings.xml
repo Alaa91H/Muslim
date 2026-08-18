@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ཐག་རིང་།</string>
+    <string name="mosque_finder_empty">ཁྱབ་ཁོངས་འདིར་ཁ་ཆེའི་ལྷ་ཁང་རྙེད་མེད།</string>
+    <string name="mosque_finder_error">འཚོལ་ཞིབ་ལམ་ལྷོང་མ་བྱུང་།</string>
+    <string name="mosque_finder_intro">ཁ་ཕྱེ་བའི་སྲང་ལམ་ས་ཁྲ་བརྒྱུད་ནས་ཁྱེད་རང་གི་ས་གནས་ཀྱི་ཉེ་འགྲམ་གྱི་ཁ་ཆེའི་ལྷ་ཁང་འཚོལ་རོགས།</string>
+    <string name="mosque_finder_no_location">ད་དུང་ས་གནས་གཏན་འཁེལ་བྱས་མེད། དང་པོ་སྨོན་ལམ་གྱི་དུས་ཚོད་སྒྲིག་སྟངས་ནས་ས་ཆ་འདེམས།</string>
+    <string name="mosque_finder_retry">ཡང་བསྐྱར་ཚོད་ལྟ་བྱེད་པ།</string>
+    <string name="mosque_finder_searching">འཚོལ་བཞིན་ཡོད།</string>
+    <string name="mosque_finder_title">ཉེ་འགྲམ་གྱི་ཁ་ཆེའི་ལྷ་ཁང་།</string>
+    <string name="qibla_bearing_cardinal">ཁིབ་ལའི་ཁ་ཕྱོགས། %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°།</string>
+    <string name="qibla_calibrate">ཁྱེད་རང་གི་ཁ་པར་དེ་ཚད་གཞི་བརྒྱད་ཀྱི་ནང་དུ་སྤོ་རུ་བཅུག་རོགས།</string>
+    <string name="qibla_distance">མཀ་ཀ་བར་གྱི་ལམ་ཐིག %1$s</string>
+    <string name="qibla_distance_km">%,.0f སྤྱི་ལེ།</string>
+    <string name="qibla_facing">ཁྱེད་རང་ཁིབ་ལ་ལ་ཁ་གཏད་གཅོག་གི་ཡོད།</string>
+    <string name="qibla_gps_error">བཟོ་བཅོས་ཏག་ཏག་ཅིག་ཐོབ་མ་ཐུབ། ཡང་བསྐྱར་ཚོད་ལྟ་གནང་རོགས།</string>
+    <string name="qibla_gps_live">ཐད་གཏོང་GPSས་གནས།</string>
+    <string name="qibla_gps_refresh">GPS བརྒྱུད་ནས་ས་གནས་གསར་བརྗེ་བྱེད་པ།</string>
+    <string name="qibla_gps_refreshing">གནས་ཡུལ་འཚོལ་ཞིབ།</string>
+    <string name="qibla_heading_degree">ཁ་པར་ཁ་བྱང་། %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">ཁྱེད་རང་གི་ས་གནས་ནས་ཀ་བྷ་བར་གྱི་སྒོར་ཐིག་ཆེན་པོའི་ལམ་ཐིག དྲ་རྒྱའི་ཕྱི་རོལ་དུ་ལས་ཀ་བྱེད་ཀྱི་ཡོད།</string>
+    <string name="qibla_map_kaaba">ཀ་བ་</string>
+    <string name="qibla_map_you">ཁྱེད་རང་།</string>
+    <string name="qibla_mode_compass">ཕྱོགས་སྟོན་འཁོར་ལོ།</string>
+    <string name="qibla_mode_map">ས་ཁྲ།</string>
+    <string name="qibla_open_mosques">ཉེ་འགྲམ་གྱི་ཁ་ཆེའི་ལྷ་ཁང་།</string>
+    <string name="qibla_title">ཀིབ་ལའི་ཕྱོགས།</string>
+    <string name="qibla_turn_left">གཡོན་ཕྱོགས་སུ་ %1$.1f° བསྒྱུར།</string>
+    <string name="qibla_turn_right">གཡས་སུ་ %1$.1f° བསྒྱུར།</string>
+</resources>

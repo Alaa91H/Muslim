@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">ተመለስ</string>
+    <string name="ramadan_countdown">ረመዳን በ%1$s ቀናት ውስጥ ይጀምራል</string>
+    <string name="ramadan_countdown_to_iftar">የኢፍጣር ጊዜ፡- %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">የፈጅር ጊዜ፡ %1$s</string>
+    <string name="ramadan_day_of_month">የረመዳን %1$s ቀን</string>
+    <string name="ramadan_days_left">%1$s ቀናት ይቀራሉ</string>
+    <string name="ramadan_fasting_progress">የጾም ቀናት: %1$s ከ %2$s - ለመቅረጽ አንድ ቀን መታ ያድርጉ</string>
+    <string name="ramadan_fasting_tracker">የጾም መከታተያ</string>
+    <string name="ramadan_hijri_note">በኡሙ አል-ቁራ አቆጣጠር መሰረት በመተግበሪያ-ሰፊ ሂጅሪ ማስተካከያ ተተግብሯል።</string>
+    <string name="ramadan_hijri_year">%1$s ዓ.ም</string>
+    <string name="ramadan_iftar">ኢፍጣር</string>
+    <string name="ramadan_iftar_dua">የኢፍጣር ልመና፡- "አላህ ሆይ ላንተ ፆምኩአለሁ በሲሳይህ ላይ ፆምያለው..."</string>
+    <string name="ramadan_iftar_time">ኢፍጣር (መግሪብ) ጊዜ፡ %1$s</string>
+    <string name="ramadan_location_required">ሰዓቱን ለማየት በመጀመሪያ በቅንብሮች ውስጥ ከተማ ይምረጡ።</string>
+    <string name="ramadan_minutes">%1$s ደቂቃ</string>
+    <string name="ramadan_notification_iftar_body">አሏህ ሆይ ላንተ ፆሜአለሁ በሲሳይም ፆምያለው</string>
+    <string name="ramadan_notification_iftar_title">የኢፍጣር ጊዜ</string>
+    <string name="ramadan_notification_suhoor_body">ፈጅር እየቀረበ ነው - ሱሁር ያድርጉ</string>
+    <string name="ramadan_notification_suhoor_title">የሱሁር አስታዋሽ</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">ሱሁር</string>
+    <string name="ramadan_suhoor_remind_before">ከዚህ በፊት አስታውሰኝ፡-</string>
+    <string name="ramadan_suhoor_time">ሱሁር ያበቃል (ፈጅር)፡ %1$s</string>
+    <string name="ramadan_title">ረመዳን</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Буцах</string>
+    <string name="ramadan_countdown">Рамадан %1$s хоногийн дараа эхэлдэг</string>
+    <string name="ramadan_countdown_to_iftar">Ифтар болох цаг: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Өглөөний цаг: %1$s</string>
+    <string name="ramadan_day_of_month">Рамадан сарын %1$s өдөр</string>
+    <string name="ramadan_days_left">%1$s хоног үлдлээ</string>
+    <string name="ramadan_fasting_progress">Мацаг барих өдрүүд: %2$s-ийн %1$s - нэг өдрийг дарж бичээрэй.</string>
+    <string name="ramadan_fasting_tracker">Мацаг баригч</string>
+    <string name="ramadan_hijri_note">Умм аль-Кура хуанли дээр үндэслэсэн, аппликешн даяар хижри тохируулга хийсэн.</string>
+    <string name="ramadan_hijri_year">МЭӨ %1$s он</string>
+    <string name="ramadan_iftar">Ифтар</string>
+    <string name="ramadan_iftar_dua">Ифтар залбирал: "Бурхан минь, би Таны төлөө мацаг барьж, Таны өгсөнөөр мацаг барьлаа ..."</string>
+    <string name="ramadan_iftar_time">Ифтар (Магриб) цаг: %1$s</string>
+    <string name="ramadan_location_required">Цагийг харахын тулд эхлээд Тохиргооноос хотыг сонгоно уу.</string>
+    <string name="ramadan_minutes">%1$s мин</string>
+    <string name="ramadan_notification_iftar_body">Өө, Бурхан минь, би Таны төлөө мацаг барьж, Таны өгсөнөөр мацаг барьж байна</string>
+    <string name="ramadan_notification_iftar_title">Ифтар хийх цаг</string>
+    <string name="ramadan_notification_suhoor_body">Өглөө ойртож байна - сухураа уугаарай</string>
+    <string name="ramadan_notification_suhoor_title">Сухорын сануулга</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Сухоор</string>
+    <string name="ramadan_suhoor_remind_before">Өмнө нь надад сануул:</string>
+    <string name="ramadan_suhoor_time">Сухорын төгсгөл (фажр): %1$s</string>
+    <string name="ramadan_title">Рамадан</string>
+</resources>

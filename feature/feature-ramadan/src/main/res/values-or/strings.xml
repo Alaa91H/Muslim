@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">ପଛକୁ</string>
+    <string name="ramadan_countdown">%1$s ଦିନରେ ରମଜାନ ଆରମ୍ଭ |</string>
+    <string name="ramadan_countdown_to_iftar">ଇଫତାର ସମୟ: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ଫଜ୍ର ସମୟ: %1$s</string>
+    <string name="ramadan_day_of_month">ରମଜାନର %1$s ଦିନ |</string>
+    <string name="ramadan_days_left">%1$s ଦିନ ବାକି ଅଛି |</string>
+    <string name="ramadan_fasting_progress">ଉପବାସ ଦିନ: %2$s ର %1$s - ଏହାକୁ ରେକର୍ଡ କରିବା ପାଇଁ ଗୋଟିଏ ଦିନ ଟ୍ୟାପ୍ କରନ୍ତୁ |</string>
+    <string name="ramadan_fasting_tracker">ଉପବାସ ଟ୍ରାକର୍</string>
+    <string name="ramadan_hijri_note">ଆପ୍ ୱାଇଡ୍ ହିଜ୍ରି ଆଡଜଷ୍ଟମେଣ୍ଟ୍ ସହିତ ଉମ୍ ଅଲ-କୁରା କ୍ୟାଲେଣ୍ଡର ଉପରେ ଆଧାର କରି |</string>
+    <string name="ramadan_hijri_year">ବର୍ଷ %1$s AH</string>
+    <string name="ramadan_iftar">ଇଫତାର</string>
+    <string name="ramadan_iftar_dua">ଇଫତାର ନିବେଦନ: "ହେ ଆଲ୍ଲା, ତୁମ ପାଇଁ ମୁଁ ଉପବାସ କଲି ଏବଂ ତୁମର ବ୍ୟବସ୍ଥାରେ ମୁଁ ମୋର ଉପବାସ ଭାଙ୍ଗିଲି ..."</string>
+    <string name="ramadan_iftar_time">ଇଫତାର (ମାଗ୍ରିବ୍) ସମୟ: %1$s |</string>
+    <string name="ramadan_location_required">ସମୟ ଦେଖିବା ପାଇଁ ପ୍ରଥମେ ସେଟିଂସମୂହରେ ଏକ ସହର ବାଛନ୍ତୁ |</string>
+    <string name="ramadan_minutes">%1$s ମିନିଟ୍</string>
+    <string name="ramadan_notification_iftar_body">ହେ ଆଲ୍ଲା, ତୁମ ପାଇଁ ମୁଁ ଉପବାସ କଲି ଏବଂ ତୁମର ବ୍ୟବସ୍ଥାରେ ମୁଁ ମୋର ଉପବାସ ଭାଙ୍ଗିଲି |</string>
+    <string name="ramadan_notification_iftar_title">ଇଫତାର ପାଇଁ ସମୟ |</string>
+    <string name="ramadan_notification_suhoor_body">ଫଜ୍ର ନିକଟତର ହେଉଛି - ତୁମର ସୁହୋର ଅଛି |</string>
+    <string name="ramadan_notification_suhoor_title">ସୁହୋର ସ୍ମାରକ |</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">ସୁହୋର |</string>
+    <string name="ramadan_suhoor_remind_before">ମୋତେ ପୂର୍ବରୁ ମନେରଖ:</string>
+    <string name="ramadan_suhoor_time">ସୁହୋର ସମାପ୍ତ (ଫଜ୍ର): %1$s |</string>
+    <string name="ramadan_title">ରମଜାନ |</string>
+</resources>

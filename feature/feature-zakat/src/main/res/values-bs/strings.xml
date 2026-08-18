@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Automatski dohvati cijene</string>
+    <string name="zakat_auto_prices_hint">Kada je omogućeno, cijene zlata i srebra se preuzimaju s interneta i automatski osvježavaju</string>
+    <string name="zakat_back">Nazad</string>
+    <string name="zakat_cash">Gotovina i štednja</string>
+    <string name="zakat_clear_history">Obriši historiju</string>
+    <string name="zakat_country">Država</string>
+    <string name="zakat_country_placeholder">Odaberite svoju zemlju i valutu</string>
+    <string name="zakat_country_section">Država i valuta</string>
+    <string name="zakat_currency">Valuta: %1$s</string>
+    <string name="zakat_debts">Dugovi koje dugujete (odbijeni)</string>
+    <string name="zakat_due">Dospjeli zekat (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ne mogu \'t dohvatiti cijene. Provjerite vezu ili ručno unesite cijenu.</string>
+    <string name="zakat_fetch_now">Osvježite cijene sada</string>
+    <string name="zakat_fetching">Preuzimanje cijena…</string>
+    <string name="zakat_fitr_persons">Broj članova porodice</string>
+    <string name="zakat_fitr_saa_value">Vrijednost jednog sa\' (osnovna hrana)</string>
+    <string name="zakat_fitr_section">Zekat al-Fitr</string>
+    <string name="zakat_fitr_total">Ukupan Fitr zekat: %1$s</string>
+    <string name="zakat_gold_grams">zlato (grami)</string>
+    <string name="zakat_gold_price">Cijena zlata po gramu</string>
+    <string name="zakat_history">Istorija kalkulacije</string>
+    <string name="zakat_history_amount">Zekat: %1$s</string>
+    <string name="zakat_history_empty">Još nema sačuvanih proračuna.</string>
+    <string name="zakat_investments">Investicije</string>
+    <string name="zakat_last_updated">Posljednje ažurirano: %1$s</string>
+    <string name="zakat_money_section">Zekat na imetak</string>
+    <string name="zakat_nisab_gold">Zlatni nisab (85g)</string>
+    <string name="zakat_nisab_met">Nisab je dostignut — zekat je dospio</string>
+    <string name="zakat_nisab_not_met">Ispod nisaba — zekat se ne plaća</string>
+    <string name="zakat_nisab_silver">Srebrni nisab (595g)</string>
+    <string name="zakat_rulings_note">Po većini (jumhoor): zlatni nisab je 85g, srebrni 595g, a stopa je 2,5%% nakon odbitka dospjelih dugova. Za posebne slučajeve obratite se kvalifikovanom naučniku.</string>
+    <string name="zakat_save_result">Sačuvaj u historiju</string>
+    <string name="zakat_silver_grams">Srebro (grami)</string>
+    <string name="zakat_silver_price">Cijena srebra po gramu</string>
+    <string name="zakat_source_note">Cijene zlata/srebra sa gold-api.com; FX kursevi sa open.er-api.com</string>
+    <string name="zakat_title">Zekat</string>
+    <string name="zakat_total_assets">Ukupna imovina</string>
+    <string name="zakat_trade">Vrijednost trgovinske robe</string>
+    <string name="zakat_zakatable">Zakatan iznos nakon dugova</string>
+</resources>

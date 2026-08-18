@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Prizen automatysk ophelje</string>
+    <string name="zakat_auto_prices_hint">As ynskeakele, wurde goud- en sulverprizen fan it ynternet helle en automatysk ferfarske</string>
+    <string name="zakat_back">Werom</string>
+    <string name="zakat_cash">Cash en besparring</string>
+    <string name="zakat_clear_history">Histoarje wiskje</string>
+    <string name="zakat_country">Lân</string>
+    <string name="zakat_country_placeholder">Kies jo lân en muntienheid</string>
+    <string name="zakat_country_section">Lân &amp; faluta</string>
+    <string name="zakat_currency">Jildfoarm: %1$s</string>
+    <string name="zakat_debts">Skulden dy\'t jo skuldich binne (ôfrekkene)</string>
+    <string name="zakat_due">Zakat due (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Koe \'t prizen ophelje. Kontrolearje jo ferbining of fier de priis manuell yn.</string>
+    <string name="zakat_fetch_now">Ferfarskje prizen no</string>
+    <string name="zakat_fetching">Prizen ophelje...</string>
+    <string name="zakat_fitr_persons">Oantal famyljeleden</string>
+    <string name="zakat_fitr_saa_value">Wearde fan ien sa\' (haad iten)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Totale Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Goud (gram)</string>
+    <string name="zakat_gold_price">Goudpriis per gram</string>
+    <string name="zakat_history">Berekkening skiednis</string>
+    <string name="zakat_history_amount">Oantal: %1$s</string>
+    <string name="zakat_history_empty">Noch gjin bewarre berekkeningen.</string>
+    <string name="zakat_investments">Ynvestearingen</string>
+    <string name="zakat_last_updated">Lêst bywurke: %1$s</string>
+    <string name="zakat_money_section">Zakat op rykdom</string>
+    <string name="zakat_nisab_gold">Gouden nisab (85g)</string>
+    <string name="zakat_nisab_met">De nisab is berikt - zakat is te krijen</string>
+    <string name="zakat_nisab_not_met">Under de nisab - gjin zakat due</string>
+    <string name="zakat_nisab_silver">Sulveren nisab (595g)</string>
+    <string name="zakat_rulings_note">Per de mearderheid (jumhoor): goud nisab is 85g, sulver 595g, en it taryf is 2,5%% nei ôftrek fan skulden. Rieplachtsje in kwalifisearre gelearde foar spesjale gefallen.</string>
+    <string name="zakat_save_result">Bewarje yn skiednis</string>
+    <string name="zakat_silver_grams">Sulver (grams)</string>
+    <string name="zakat_silver_price">Sulver priis per gram</string>
+    <string name="zakat_source_note">Goud / sulver prizen út gold-api.com; FX tariven fan open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Totale aktiva</string>
+    <string name="zakat_trade">Trade guod wearde</string>
+    <string name="zakat_zakatable">Zakatable bedrach nei skulden</string>
+</resources>

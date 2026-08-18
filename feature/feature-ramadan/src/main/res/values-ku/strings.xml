@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Vegere</string>
+    <string name="ramadan_countdown">Remezanê di %1$s rojan de dest pê dike</string>
+    <string name="ramadan_countdown_to_iftar">Dema fitarê: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Dema Fecrê: %1$s</string>
+    <string name="ramadan_day_of_month">Roja %1$s ya Remezanê</string>
+    <string name="ramadan_days_left">%1$s roj mane</string>
+    <string name="ramadan_fasting_progress">Rojên rojiyê: %1$s ji %2$s - rojekê bikirtînin da ku wê tomar bikin</string>
+    <string name="ramadan_fasting_tracker">şopgera rojiyê</string>
+    <string name="ramadan_hijri_note">Li ser bingeha salnameya Umm al-Qura bi verastkirina Hijrî ya li seranserê sepanê hatî sepandin.</string>
+    <string name="ramadan_hijri_year">Sala %1$s hicrî</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Nimêja îftarê: "Ya Xwedê min ji bo te rojî girt û bi rizqê te ez rojîya xwe dişkînim."</string>
+    <string name="ramadan_iftar_time">Dema Îftarê (Mexrib): %1$s</string>
+    <string name="ramadan_location_required">Pêşî di Mîhengan de bajarek hilbijêrin da ku demjimêran bibînin.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Ya Xuda, min ji bo te rojî girt û bi rizqê te ez rojiya xwe dişkînim</string>
+    <string name="ramadan_notification_iftar_title">Dema fitarê ye</string>
+    <string name="ramadan_notification_suhoor_body">Cejna Fecrê nêzîk dibe - suhrê we hebe</string>
+    <string name="ramadan_notification_suhoor_title">Bîranîna suhûrê</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Berî min bîne bîra min:</string>
+    <string name="ramadan_suhoor_time">Sufûr qediya (fecr): %1$s</string>
+    <string name="ramadan_title">Remezan</string>
+</resources>

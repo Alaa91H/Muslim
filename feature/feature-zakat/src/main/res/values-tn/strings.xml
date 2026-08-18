@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Tsaya ditlhwatlhwa ka go itirisa</string>
+    <string name="zakat_auto_prices_hint">Fa e kgontshitswe, ditlhwatlhwa tsa gauta le selefera di tsewa mo inthaneteng mme di ntšhafadiwa ka go itirisa</string>
+    <string name="zakat_back">Morago</string>
+    <string name="zakat_cash">Madi a a seatleng le dipoloko</string>
+    <string name="zakat_clear_history">Phimola hisetori</string>
+    <string name="zakat_country">Naga</string>
+    <string name="zakat_country_placeholder">Tlhopha naga ya gago le madi</string>
+    <string name="zakat_country_section">Naga le madi</string>
+    <string name="zakat_currency">Madi: %1$s</string>
+    <string name="zakat_debts">Dikoloto tse o di kolotang (di a gogwa)</string>
+    <string name="zakat_due">Zakat e e tshwanetseng go duelwa (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">A ke ka kgona go tsaya ditlhwatlhwa. Tlhola kgolagano ya gago kgotsa tsenya tlhwatlhwa ka seatla.</string>
+    <string name="zakat_fetch_now">Ntšhwafatsa ditlhwatlhwa jaanong</string>
+    <string name="zakat_fetching">Go tsaya ditlhwatlhwa...</string>
+    <string name="zakat_fitr_persons">Palo ya maloko a lelapa</string>
+    <string name="zakat_fitr_saa_value">Boleng jwa sa\' e le nngwe (dijo tsa konokono)</string>
+    <string name="zakat_fitr_section">Zakate ya Lejelo</string>
+    <string name="zakat_fitr_total">Palogotlhe ya zakate ya Fitr: %1$s</string>
+    <string name="zakat_gold_grams">Gauta (digerama)</string>
+    <string name="zakat_gold_price">Tlhwatlhwa ya gauta ka gerama</string>
+    <string name="zakat_history">Hisitori ya go balelela</string>
+    <string name="zakat_history_amount">Zakate: %1$s</string>
+    <string name="zakat_history_empty">Ga go ise go bolokwe dipalelo.</string>
+    <string name="zakat_investments">Dipeeletso</string>
+    <string name="zakat_last_updated">E tlhabolotswe labofelo: %1$s</string>
+    <string name="zakat_money_section">Zakat mo khumong</string>
+    <string name="zakat_nisab_gold">Nisab ya gauta (85g)</string>
+    <string name="zakat_nisab_met">Nisab e fitlheletswe — zakat e tshwanetse</string>
+    <string name="zakat_nisab_not_met">Ka fa tlase ga nisab — ga go na zakat e e tshwanetseng</string>
+    <string name="zakat_nisab_silver">Nisab ya selefera (595g)</string>
+    <string name="zakat_rulings_note">Ka bontsi (jumhoor): nisab ya gauta ke 85g, selefera ke 595g, mme seelo ke 2.5%% morago ga go goga melato e e tshwanetseng. Buisana le moithuti yo o tshwanelegang mo dikgetseng tse di kgethegileng.</string>
+    <string name="zakat_save_result">Boloka mo hisitoring</string>
+    <string name="zakat_silver_grams">Selefera (digerama)</string>
+    <string name="zakat_silver_price">Tlhwatlhwa ya selefera ka gerama</string>
+    <string name="zakat_source_note">Ditlhwatlhwa tsa gauta/selefera go tswa go gold-api.com; Ditlhwatlhwa tsa FX go tswa go open.er-api.com</string>
+    <string name="zakat_title">Zakate</string>
+    <string name="zakat_total_assets">Palogotlhe ya matlotlo</string>
+    <string name="zakat_trade">Boleng jwa dithoto tsa kgwebisano</string>
+    <string name="zakat_zakatable">Madi a a ka duelwang morago ga dikoloto</string>
+</resources>

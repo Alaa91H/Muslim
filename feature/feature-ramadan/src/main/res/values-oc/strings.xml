@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Enrè</string>
+    <string name="ramadan_countdown">Ramadan comença dins %1$s jorns</string>
+    <string name="ramadan_countdown_to_iftar">Temps d\'iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Temps de Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Dia %1$s de Ramadán</string>
+    <string name="ramadan_days_left">%1$s jorns demòran</string>
+    <string name="ramadan_fasting_progress">Jorns de june: %1$s de %2$s — picatz un jorn per l\'enregistrar</string>
+    <string name="ramadan_fasting_tracker">Rastrejaire de june</string>
+    <string name="ramadan_hijri_note">Basat sul calendièr Umm al-Qura amb l\'ajustament Hijri aplicat a l\'ensems de l\'aplicacion.</string>
+    <string name="ramadan_hijri_year">An %1$s h.</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Suplicacion d\'Iftar: "O Allah, per Tu ai dejunat e sus ta provision rompi mon dejun..."</string>
+    <string name="ramadan_iftar_time">Temps d\'Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Causissètz d\'en primièr una vila dins los Paramètres per veire los oraris.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, per tu ai dejunat e sus ta provision rompe mon june</string>
+    <string name="ramadan_notification_iftar_title">Temps de l\'iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr s\'apròcha — fasètz vòstre suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Rapèl de Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Me remembratz abans:</string>
+    <string name="ramadan_suhoor_time">Suhoor ends (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

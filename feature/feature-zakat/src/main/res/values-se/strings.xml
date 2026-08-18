@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Háhkat hattiid automáhtalaččat</string>
+    <string name="zakat_auto_prices_hint">Go lea álggahuvvon, de golle- ja silbahattit viežžojuvvojit interneahtas ja ođasmahttojuvvojit automáhtalaččat</string>
+    <string name="zakat_back">Ruovttoluotta</string>
+    <string name="zakat_cash">Ruhta ja seastit</string>
+    <string name="zakat_clear_history">Čielggas historjá</string>
+    <string name="zakat_country">Riika</string>
+    <string name="zakat_country_placeholder">Vállje iežat riikka ja valuta</string>
+    <string name="zakat_country_section">Riika ja valuta</string>
+    <string name="zakat_currency">Ruhta: %1$s</string>
+    <string name="zakat_debts">Vealggit maid leat máksán (geahpeduvvon)</string>
+    <string name="zakat_due">Zakat mii galgá máksojuvvot (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ii sáhttán \' háhkat hattiid. Dárkkis oktavuođa dahje čále hatti ieš.</string>
+    <string name="zakat_fetch_now">Ođasmahtte hattiid dál</string>
+    <string name="zakat_fetching">Háhkan hattiid...</string>
+    <string name="zakat_fitr_persons">Bearašlahtuid lohku</string>
+    <string name="zakat_fitr_saa_value">Árvu ovtta sa\' (váldoborramuš)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Oktiibuot Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Golli (grámma)</string>
+    <string name="zakat_gold_price">Golli haddi grámmas</string>
+    <string name="zakat_history">Rehkenastinhistorjá</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Eai leat vuos vurkejuvvon rehkenastimat.</string>
+    <string name="zakat_investments">Investeremat</string>
+    <string name="zakat_last_updated">Maŋimuš ođasmahtton: %1$s</string>
+    <string name="zakat_money_section">Zakat riggodagas</string>
+    <string name="zakat_nisab_gold">Golli nisab (85g)</string>
+    <string name="zakat_nisab_met">Nisab lea olahuvvon — zakat lea máksojuvvon</string>
+    <string name="zakat_nisab_not_met">Nisab vuolábealde — ii leat zakat</string>
+    <string name="zakat_nisab_silver">Silba nisab (595g)</string>
+    <string name="zakat_rulings_note">Eanetlogu mielde (jumhoor): golli nisab lea 85g, silba 595g, ja haddi lea 2,5%% maŋŋel go leat váldán eret máksojuvvon vealggi. Ráđđádallat gelbbolaš dutkiin erenoamáš áššiid birra.</string>
+    <string name="zakat_save_result">Várre historjái</string>
+    <string name="zakat_silver_grams">Silba (grámma)</string>
+    <string name="zakat_silver_price">Silbahaddi juohke grámmas</string>
+    <string name="zakat_source_note">Golli/silba haddi gold-api.com:s; FX-kurssat open.er-api.com:s</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Oktiibuot opmodat</string>
+    <string name="zakat_trade">Gávpegálvvuid árvu</string>
+    <string name="zakat_zakatable">Zakatable supmi maŋŋel vealggi</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Taqi kunasa</string>
+    <string name="hadith_back">Qhipäxaru</string>
+    <string name="hadith_bookmark_add">Marka uñt’ayaña</string>
+    <string name="hadith_bookmark_remove">Marka uñt’ayaña</string>
+    <string name="hadith_collection_abudawud">Abu Dawud sat jilataw ukham luräna</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari ukax mä juk’a pachanakanwa</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah sat chachajj ukhamänwa</string>
+    <string name="hadith_collection_muslim">Musulmán</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i ukat juk’ampinaka</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40 ukat juk’ampinaka</string>
+    <string name="hadith_collection_other">Yaqhanaka</string>
+    <string name="hadith_collection_riyad">Riyad markanx ukax-Salihin</string>
+    <string name="hadith_collection_tirmidhi">Ukajj Tirmidhi satänwa</string>
+    <string name="hadith_daily_notification">Sapa uru hadith yatiyawi</string>
+    <string name="hadith_daily_notification_desc">Sapa uruw mä hadith katuqañama</string>
+    <string name="hadith_daily_notification_time">Yatiyawi pacha</string>
+    <string name="hadith_of_the_day">Uka urux Hadith ukax wali askiwa</string>
+    <string name="hadith_preview_hint">Ukhamaw sapa uru hadith yatiyawix uñsti kuna pachatix wakicht’atäki uka pachana.</string>
+    <string name="hadith_preview_label">Yatiyawi nayraqata uñakipaña</string>
+    <string name="hadith_preview_loading">Uka hadith ukar apkatañataki...</string>
+    <string name="hadith_search_hint">Hadiths ukanakat thaqhapxam...</string>
+    <string name="hadith_share">Compartir</string>
+    <string name="hadith_title">Hadith Biblioteca ukat juk’ampinaka</string>
+</resources>

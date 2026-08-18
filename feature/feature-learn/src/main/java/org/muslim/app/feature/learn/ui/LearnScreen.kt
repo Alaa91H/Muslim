@@ -2,6 +2,7 @@ package org.muslim.app.feature.learn.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,11 +17,25 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.filled.AccountBalance
 import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.Bathtub
 import androidx.compose.material.icons.filled.BeachAccess
+import androidx.compose.material.icons.filled.Book
+import androidx.compose.material.icons.filled.Checklist
 import androidx.compose.material.icons.filled.ChildCare
 import androidx.compose.material.icons.filled.FormatListNumbered
+import androidx.compose.material.icons.filled.LocalFlorist
+import androidx.compose.material.icons.filled.Loop
+import androidx.compose.material.icons.filled.Mosque
+import androidx.compose.material.icons.filled.Place
+import androidx.compose.material.icons.filled.Restaurant
+import androidx.compose.material.icons.filled.Schedule
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.StarBorder
+import androidx.compose.material.icons.filled.VerifiedUser
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.filled.WaterDrop
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -39,39 +54,83 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.LearnContent
 import org.muslim.app.feature.learn.domain.LearnTopic
 
 private val topicIcons = mapOf(
+    "pillars_islam" to Icons.Filled.Mosque,
+    "pillars_iman" to Icons.Filled.Book,
     "wudu" to Icons.Filled.WaterDrop,
     "ghusl" to Icons.Filled.Bathtub,
     "tayammum" to Icons.Filled.BeachAccess,
     "salah" to Icons.Filled.AutoStories,
-    "special" to Icons.AutoMirrored.Filled.MenuBook,
+    "salah_arkan" to Icons.Filled.Checklist,
+    "salah_times" to Icons.Filled.Schedule,
+    "adhan" to Icons.AutoMirrored.Filled.VolumeUp,
+    "shurut" to Icons.Filled.VerifiedUser,
+    "nullifiers" to Icons.Filled.Warning,
+    "rawatib" to Icons.Filled.Loop,
     "rakats" to Icons.Filled.FormatListNumbered,
+    "special" to Icons.AutoMirrored.Filled.MenuBook,
+    "fasting" to Icons.Filled.Restaurant,
+    "zakat" to Icons.Filled.AccountBalance,
+    "funeral" to Icons.Filled.LocalFlorist,
     "madhhab" to Icons.Filled.ChildCare,
 )
 
+@Composable
+private fun categoryTitleRes(category: String): Int = when (category) {
+    LearnContent.CATEGORY_FAITH -> R.string.learn_category_faith
+    LearnContent.CATEGORY_TAHARA -> R.string.learn_category_tahara
+    LearnContent.CATEGORY_SALAH -> R.string.learn_category_salah
+    LearnContent.CATEGORY_IBADAH -> R.string.learn_category_ibadah
+    LearnContent.CATEGORY_REFERENCE -> R.string.learn_category_reference
+    else -> R.string.learn_category_reference
+}
+
 /**
- * Learning hub (PROJECT_PROMPT.md §6 Phase 5): step-by-step guides for
- * wudu, ghusl, tayammum and the daily prayers, special prayers, the rak'ah
- * reference table and a neutral madhhab differences overview.
+ * Learning hub (PROJECT_PROMPT.md §6 Phase 5): a complete, indexed learning
+ * reference — the pillars of Islam and faith, purification (wudu / ghusl /
+ * tayammum), the prayer in full detail (conditions, times, adhan, pillars,
+ * nullifiers, rawatib, special prayers, rak'ah table), fasting, zakat,
+ * funerals and a neutral madhhab differences overview.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LearnScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
+    viewModel: LearnViewModel = hiltViewModel(),
 ) {
     var selected by remember { mutableStateOf<LearnTopic?>(null) }
+    var showNames by remember { mutableStateOf(false) }
+    var showHajj by remember { mutableStateOf(false) }
+    val favoriteIds by viewModel.favoriteIds.collectAsStateWithLifecycle()
     val topic = selected
+
+    if (showNames) {
+        NamesOfAllahScreen(
+            onBack = { showNames = false },
+            modifier = modifier,
+        )
+        return
+    }
+
+    if (showHajj) {
+        HajjUmrahScreen(
+            onBack = { showHajj = false },
+            modifier = modifier,
+        )
+        return
+    }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -90,13 +149,35 @@ fun LearnScreen(
                         )
                     }
                 },
+                actions = {
+                    if (topic != null) {
+                        val isFav = topic.id in favoriteIds
+                        IconButton(onClick = { viewModel.toggleFavorite(topic.id) }) {
+                            Icon(
+                                imageVector = if (isFav) Icons.Filled.Star else Icons.Outlined.StarBorder,
+                                contentDescription = stringResource(
+                                    if (isFav) R.string.learn_remove_favorite else R.string.learn_add_favorite
+                                ),
+                                tint = if (isFav) {
+                                    MaterialTheme.colorScheme.primary
+                                } else {
+                                    MaterialTheme.colorScheme.onSurfaceVariant
+                                },
+                            )
+                        }
+                    }
+                },
             )
         },
     ) { innerPadding ->
         if (topic == null) {
             TopicList(
+                favoriteIds = favoriteIds,
+                onToggleFavorite = viewModel::toggleFavorite,
                 modifier = Modifier.padding(innerPadding),
                 onOpen = { selected = it },
+                onOpenNames = { showNames = true },
+                onOpenHajj = { showHajj = true },
             )
         } else {
             GuideContent(
@@ -108,39 +189,156 @@ fun LearnScreen(
 }
 
 @Composable
-private fun TopicList(modifier: Modifier = Modifier, onOpen: (LearnTopic) -> Unit) {
+private fun TopicList(
+    favoriteIds: Set<String>,
+    onToggleFavorite: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    onOpen: (LearnTopic) -> Unit,
+    onOpenNames: () -> Unit,
+    onOpenHajj: () -> Unit,
+) {
+    val favoriteTopics = LearnContent.topics.filter { it.id in favoriteIds }
     LazyColumn(modifier = modifier.fillMaxSize()) {
-        items(LearnContent.topics, key = { it.id }) { topic ->
+        item(key = "names_of_allah") {
             ListItem(
-                headlineContent = { Text(stringResource(topic.titleRes)) },
-                supportingContent = { Text(stringResource(topic.subtitleRes)) },
+                headlineContent = { Text(stringResource(R.string.learn_topic_names_of_allah)) },
+                supportingContent = { Text(stringResource(R.string.learn_topic_names_of_allah_sub)) },
                 leadingContent = {
                     Surface(
                         shape = CircleShape,
-                        color = MaterialTheme.colorScheme.secondaryContainer,
+                        color = MaterialTheme.colorScheme.tertiaryContainer,
                     ) {
                         Icon(
-                            imageVector = topicIcons[topic.id] ?: Icons.AutoMirrored.Filled.MenuBook,
+                            imageVector = Icons.Filled.Star,
                             contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onSecondaryContainer,
+                            tint = MaterialTheme.colorScheme.onTertiaryContainer,
                             modifier = Modifier.padding(8.dp).size(20.dp),
                         )
                     }
                 },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clickable { onOpen(topic) },
+                    .clickable { onOpenNames() },
             )
             HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
         }
+        item(key = "hajj_umrah") {
+            ListItem(
+                headlineContent = { Text(stringResource(R.string.learn_topic_hajj)) },
+                supportingContent = { Text(stringResource(R.string.learn_topic_hajj_sub)) },
+                leadingContent = {
+                    Surface(
+                        shape = CircleShape,
+                        color = MaterialTheme.colorScheme.tertiaryContainer,
+                    ) {
+                        Icon(
+                            imageVector = Icons.Filled.Place,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onTertiaryContainer,
+                            modifier = Modifier.padding(8.dp).size(20.dp),
+                        )
+                    }
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onOpenHajj() },
+            )
+            HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+        }
+        if (favoriteTopics.isNotEmpty()) {
+            item(key = "favorites_header") {
+                CategoryHeader(title = stringResource(R.string.learn_favorites_header))
+            }
+            items(favoriteTopics, key = { "favorite_${it.id}" }) { topic ->
+                TopicListItem(
+                    topic = topic,
+                    isFavorite = true,
+                    onToggleFavorite = onToggleFavorite,
+                    onOpen = onOpen,
+                )
+                HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+            }
+        }
+        val byCategory = LearnContent.topics.groupBy { it.category }
+        LearnContent.categoryOrder.forEach { category ->
+            val topics = byCategory[category].orEmpty()
+            if (topics.isEmpty()) return@forEach
+            item(key = "category_$category") {
+                CategoryHeader(title = stringResource(categoryTitleRes(category)))
+            }
+            items(topics, key = { it.id }) { topic ->
+                TopicListItem(
+                    topic = topic,
+                    isFavorite = topic.id in favoriteIds,
+                    onToggleFavorite = onToggleFavorite,
+                    onOpen = onOpen,
+                )
+                HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+            }
+        }
     }
+}
+
+@Composable
+private fun TopicListItem(
+    topic: LearnTopic,
+    isFavorite: Boolean,
+    onToggleFavorite: (String) -> Unit,
+    onOpen: (LearnTopic) -> Unit,
+) {
+    ListItem(
+        headlineContent = { Text(stringResource(topic.titleRes)) },
+        supportingContent = { Text(stringResource(topic.subtitleRes)) },
+        leadingContent = {
+            Surface(
+                shape = CircleShape,
+                color = MaterialTheme.colorScheme.secondaryContainer,
+            ) {
+                Icon(
+                    imageVector = topicIcons[topic.id] ?: Icons.AutoMirrored.Filled.MenuBook,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
+                    modifier = Modifier.padding(8.dp).size(20.dp),
+                )
+            }
+        },
+        trailingContent = {
+            IconButton(onClick = { onToggleFavorite(topic.id) }) {
+                Icon(
+                    imageVector = if (isFavorite) Icons.Filled.Star else Icons.Outlined.StarBorder,
+                    contentDescription = stringResource(
+                        if (isFavorite) R.string.learn_remove_favorite else R.string.learn_add_favorite
+                    ),
+                    tint = if (isFavorite) {
+                        MaterialTheme.colorScheme.primary
+                    } else {
+                        MaterialTheme.colorScheme.onSurfaceVariant
+                    },
+                )
+            }
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onOpen(topic) },
+    )
+}
+
+@Composable
+private fun CategoryHeader(title: String) {
+    Text(
+        text = title,
+        style = MaterialTheme.typography.labelLarge,
+        fontWeight = FontWeight.Bold,
+        color = MaterialTheme.colorScheme.primary,
+        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 4.dp),
+    )
 }
 
 @Composable
 private fun GuideContent(topic: LearnTopic, modifier: Modifier = Modifier) {
     LazyColumn(
         modifier = modifier.fillMaxSize(),
-        contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 24.dp),
+        contentPadding = PaddingValues(bottom = 24.dp),
     ) {
         itemsIndexed(topic.steps) { index, step ->
             Card(

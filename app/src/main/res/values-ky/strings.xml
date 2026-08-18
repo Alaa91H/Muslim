@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Мусулман</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Эртең менен, кечинде жана намаздан кийин эсептегичтер менен зикир</string>
+    <string name="more_downloads">Окуяларды жүктөп алуу</string>
+    <string name="more_downloads_desc">Сиз тандаган окурман менен сүрөөнү, аятты же толук Куранды жүктөп алыңыз</string>
+    <string name="more_hadith">Хадис</string>
+    <string name="more_hadith_desc">Хадис китепканасы, издөө жана күндүн хадиси</string>
+    <string name="more_learn">Үйрөнүү</string>
+    <string name="more_learn_desc">Этап-этабы менен даарат жана намаз көрсөтмөлөрү</string>
+    <string name="more_ramadan">Рамазан</string>
+    <string name="more_ramadan_desc">Сухур жана ифтар убакыттары жана орозо кармоочу</string>
+    <string name="more_reference">Маалымат китепканасы</string>
+    <string name="more_reference_desc">Ислам, Сира жана пайгамбарларга киришүү</string>
+    <string name="more_settings">Орнотуулар</string>
+    <string name="more_settings_desc">Тема, тил, намаз жана азан жөндөөлөрү</string>
+    <string name="more_tasbih">Тасбих</string>
+    <string name="more_tasbih_desc">Күнүмдүк тарыхы менен санариптик мисбаха</string>
+    <string name="more_zakat">Зекет</string>
+    <string name="more_zakat_desc">Байлыктын зекети жана фитир калькулятору</string>
+    <string name="scaffold_message">Көп модулдуу долбоордун скелети даяр.\n1-этап — Азан, намаз убактылары, кыбыла жана хижрий календары — ушул жерден башталат.</string>
+    <string name="shortcut_qibla">Кыбыла</string>
+    <string name="shortcut_qibla_long">Кыбыла багыты</string>
+    <string name="shortcut_settings">Орнотуулар</string>
+    <string name="shortcut_settings_long">Намаз жана азан орнотуулары</string>
+    <string name="shortcut_times">Намаз убакыттары</string>
+    <string name="shortcut_times_long">Бүгүнкү күндө \' намаз убактысы</string>
+    <string name="tab_home">Намаз убакыттары</string>
+    <string name="tab_more">Дагы</string>
+    <string name="tab_qibla">Кыбыла</string>
+    <string name="tab_quran">Куран</string>
 </resources>

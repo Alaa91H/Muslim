@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s mombyry</string>
+    <string name="mosque_finder_empty">Ndaipóri mezquita ojejuhúva ko rango-pe</string>
+    <string name="mosque_finder_error">Ojeporeka ndoikói</string>
+    <string name="mosque_finder_intro">Eheka mezquita hi’aguĩva nde reimehápe OpenStreetMap rupive</string>
+    <string name="mosque_finder_no_location">Ndaipóri gueteri ubicación oñemoĩva. Eiporavo peteĩ tenda umi ñembo’e aravo ñemboheko apytégui raẽ.</string>
+    <string name="mosque_finder_retry">Eñeha’ã jey</string>
+    <string name="mosque_finder_searching">Ojehekávo...</string>
+    <string name="mosque_finder_title">Mezquita hi’aguĩva</string>
+    <string name="qibla_bearing_cardinal">Qibla dirección: %1$s. Ñe’ẽpoty ha ñe’ẽpoty</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f° rehegua</string>
+    <string name="qibla_calibrate">Emoinge ne teléfono peteĩ figura-ocho-pe recalibra hag̃ua</string>
+    <string name="qibla_distance">Makkah peve mombyry: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Peẽ peñembohovake hína pe Qibla 🕋 rehe</string>
+    <string name="qibla_gps_error">Ndaikatúi ohupyty peteĩ arreglo hekopete. Eñeha’ã jey.</string>
+    <string name="qibla_gps_live">GPS en vivo ñemohenda</string>
+    <string name="qibla_gps_refresh">Ombopyahu ubicación GPS rupive</string>
+    <string name="qibla_gps_refreshing">Ojejuhúvo...</string>
+    <string name="qibla_heading_degree">Teléfono rubro: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Ruta tuicha círculo nde reimehágui Kaaba peve — omba’apo offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Nde</string>
+    <string name="qibla_mode_compass">Brújula rehegua</string>
+    <string name="qibla_mode_map">Mapa</string>
+    <string name="qibla_open_mosques">Mezquita hi’aguĩva</string>
+    <string name="qibla_title">Qibla dirección rehegua</string>
+    <string name="qibla_turn_left">Ejere akatúa gotyo %1$.1f°</string>
+    <string name="qibla_turn_right">Ejere akatúa gotyo %1$.1f°</string>
+</resources>

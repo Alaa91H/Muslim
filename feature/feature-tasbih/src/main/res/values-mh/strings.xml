@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — tōpar ñan bwine</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tōpar ñan bwine</string>
+    <string name="tasbih_back">Jeblak</string>
+    <string name="tasbih_cancel">Kanne</string>
+    <string name="tasbih_confirm">Emmōn</string>
+    <string name="tasbih_custom_target">Custom</string>
+    <string name="tasbih_custom_target_hint">Kōlla oran oran ko (jen 1 ñan 100000)</string>
+    <string name="tasbih_custom_target_title">Kōmmane juon am target</string>
+    <string name="tasbih_of_target">an %1$s</string>
+    <string name="tasbih_reset">Bar kōmmane</string>
+    <string name="tasbih_reset_all">Bar kōmmane aolep</string>
+    <string name="tasbih_round_complete">Eṃōj an dedeḷọk (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Round ko: %1$d</string>
+    <string name="tasbih_sound_desc">Kōjan̄jan̄ juon ringtone ak tone n̄e kajjojo round ej dedeļo̧k</string>
+    <string name="tasbih_sound_title">Ainikien ilo target</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Kōjjeļā</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Jibwe circle eo ñan bwine</string>
+    <string name="tasbih_target_reached">Mejenkajjik eo emoj tōbrak — Allah en bōk</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Rainin\'s oran: %1$d</string>
+    <string name="tasbih_undo">Undo</string>
+    <string name="tasbih_virtue_label">Emman in dhikr in</string>
+    <string name="tasbih_week_stats">7 raan ko remotlok</string>
+</resources>

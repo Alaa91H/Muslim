@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Okudda emabega</string>
+    <string name="ramadan_countdown">Ramadhan etandika mu nnaku %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Obudde okutuuka ku iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Obudde okutuuka e Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Olunaku %1$s mu Ramadhan</string>
+    <string name="ramadan_days_left">Ebula ennaku %1$s</string>
+    <string name="ramadan_fasting_progress">Ennaku z’okusiiba: %1$s ku %2$s — koona ku lunaku okulukwata</string>
+    <string name="ramadan_fasting_tracker">Omulondozi w\'okusiiba</string>
+    <string name="ramadan_hijri_note">Okusinziira ku kalenda ya Umm al-Qura nga ennongoosereza ya Hijri mu app yonna ekozesebwa.</string>
+    <string name="ramadan_hijri_year">Omwaka %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Okwegayirira kwa Iftar: "Ayi Allah, ku lwa Ggwe nasiiba era ku mmere yo nsiiba..."</string>
+    <string name="ramadan_iftar_time">Obudde bwa Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Sooka londa ekibuga mu Settings olabe ebiseera.</string>
+    <string name="ramadan_minutes">%1$s eddakiika</string>
+    <string name="ramadan_notification_iftar_body">Ayi Allah, ku lwa Ggwe nasiiba era ku bugagga bwo nsiiba</string>
+    <string name="ramadan_notification_iftar_title">Ekiseera kya iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr asemberera — beera ne suhoor yo</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor okujjukiza</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Nzijukiza nga tonnaba:</string>
+    <string name="ramadan_suhoor_time">Suhoor ekoma (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadhan</string>
+</resources>

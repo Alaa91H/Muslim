@@ -54,6 +54,7 @@ class PrayerSettingsRepository @Inject constructor(
                 latitude = prefs[Keys.LOCATION_LAT] ?: 0.0,
                 longitude = prefs[Keys.LOCATION_LNG] ?: 0.0,
                 timeZone = prefs[Keys.LOCATION_ZONE] ?: java.util.TimeZone.getDefault().id,
+                elevation = prefs[Keys.LOCATION_ELEVATION] ?: 0.0,
             ).takeIf { prefs[Keys.LOCATION_NAME] != null },
             adhanEnabled = prefs[Keys.ADHAN_ENABLED] ?: true,
             vibrateEnabled = prefs[Keys.VIBRATE_ENABLED] ?: true,
@@ -70,7 +71,11 @@ class PrayerSettingsRepository @Inject constructor(
                 }
                 .toMap(),
             adhanVolume = prefs[Keys.ADHAN_VOLUME] ?: 100,
-            bundledAdhanSound = prefs[Keys.BUNDLED_ADHAN_SOUND] ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID,
+            bundledAdhanSounds = Prayer.entries
+                .mapNotNull { prayer ->
+                    prefs[Keys.bundledSoundFor(prayer)]?.let { prayer to it }
+                }
+                .toMap(),
             reminderMinutes = prefs[Keys.REMINDER_MINUTES] ?: 10,
             dndEnabled = prefs[Keys.DND_ENABLED] ?: false,
             dndDurationMinutes = (prefs[Keys.DND_DURATION] ?: 10).coerceIn(1, 180),
@@ -103,11 +108,13 @@ class PrayerSettingsRepository @Inject constructor(
                 prefs[Keys.LOCATION_LAT] = location.latitude
                 prefs[Keys.LOCATION_LNG] = location.longitude
                 prefs[Keys.LOCATION_ZONE] = location.timeZone
+                prefs[Keys.LOCATION_ELEVATION] = location.elevation
             } else {
                 prefs.remove(Keys.LOCATION_NAME)
                 prefs.remove(Keys.LOCATION_LAT)
                 prefs.remove(Keys.LOCATION_LNG)
                 prefs.remove(Keys.LOCATION_ZONE)
+                prefs.remove(Keys.LOCATION_ELEVATION)
             }
             prefs[Keys.ADHAN_ENABLED] = newSettings.adhanEnabled
             prefs[Keys.VIBRATE_ENABLED] = newSettings.vibrateEnabled
@@ -121,7 +128,10 @@ class PrayerSettingsRepository @Inject constructor(
                 }
             }
             prefs[Keys.ADHAN_VOLUME] = newSettings.adhanVolume
-            prefs[Keys.BUNDLED_ADHAN_SOUND] = newSettings.bundledAdhanSound
+            Prayer.entries.forEach { prayer ->
+                prefs[Keys.bundledSoundFor(prayer)] =
+                    newSettings.bundledAdhanSounds[prayer] ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID
+            }
             prefs[Keys.REMINDER_MINUTES] = newSettings.reminderMinutes
             prefs[Keys.DND_ENABLED] = newSettings.dndEnabled
             prefs[Keys.DND_DURATION] = newSettings.dndDurationMinutes
@@ -154,10 +164,12 @@ class PrayerSettingsRepository @Inject constructor(
         val LOCATION_LAT = doublePreferencesKey("location_latitude")
         val LOCATION_LNG = doublePreferencesKey("location_longitude")
         val LOCATION_ZONE = stringPreferencesKey("location_timezone")
+        val LOCATION_ELEVATION = doublePreferencesKey("location_elevation")
         val ADHAN_ENABLED = booleanPreferencesKey("adhan_enabled")
         val VIBRATE_ENABLED = booleanPreferencesKey("vibrate_enabled")
         val ADHAN_VOLUME = intPreferencesKey("adhan_volume")
-        val BUNDLED_ADHAN_SOUND = stringPreferencesKey("bundled_adhan_sound")
+        fun bundledSoundFor(prayer: Prayer): Preferences.Key<String> =
+            stringPreferencesKey("bundled_adhan_sound_${prayer.name.lowercase()}")
         val REMINDER_MINUTES = intPreferencesKey("reminder_minutes")
         val DND_ENABLED = booleanPreferencesKey("dnd_enabled")
         val DND_DURATION = intPreferencesKey("dnd_duration_minutes")

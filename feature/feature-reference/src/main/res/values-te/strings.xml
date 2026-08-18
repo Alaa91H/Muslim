@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">వెనుకకు</string>
+    <string name="reference_no_results">సరిపోలే ఫలితాలు లేవు</string>
+    <string name="reference_search_hint">ఈ పుస్తకాన్ని శోధించండి...</string>
+    <string name="reference_title">ఇస్లామిక్ రిఫరెన్స్ లైబ్రరీ</string>
+    <string name="reference_topics_count">విషయాలు</string>
+</resources>

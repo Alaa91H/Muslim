@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">ເອົາລາຄາອັດຕະໂນມັດ</string>
+    <string name="zakat_auto_prices_hint">ເມື່ອເປີດໃຊ້ແລ້ວ, ລາຄາຄຳ ແລະເງິນຈະຖືກດຶງມາຈາກອິນເຕີເນັດ ແລະໂຫຼດຂໍ້ມູນຄືນໃໝ່ໂດຍອັດຕະໂນມັດ</string>
+    <string name="zakat_back">ກັບຄືນໄປບ່ອນ</string>
+    <string name="zakat_cash">ເງິນສົດ ແລະເງິນຝາກປະຢັດ</string>
+    <string name="zakat_clear_history">ລຶບລ້າງປະຫວັດ</string>
+    <string name="zakat_country">ປະເທດ</string>
+    <string name="zakat_country_placeholder">ເລືອກປະເທດແລະສະກຸນເງິນຂອງທ່ານ</string>
+    <string name="zakat_country_section">ປະເທດ &amp; ສະກຸນເງິນ</string>
+    <string name="zakat_currency">ສະກຸນເງິນ: %1$s</string>
+    <string name="zakat_debts">ໜີ້​ສິນ​ທີ່​ເຈົ້າ​ເປັນ​ໜີ້ (ຫັກ​ແລ້ວ)</string>
+    <string name="zakat_due">Zakat due (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">ບໍ່ສາມາດດຶງລາຄາໄດ້. ກວດເບິ່ງການເຊື່ອມຕໍ່ຂອງທ່ານຫຼືໃສ່ລາຄາດ້ວຍຕົນເອງ.</string>
+    <string name="zakat_fetch_now">ໂຫຼດລາຄາຄືນໃໝ່ດຽວນີ້</string>
+    <string name="zakat_fetching">ກຳລັງດຶງລາຄາ...</string>
+    <string name="zakat_fitr_persons">ຈໍານວນສະມາຊິກຄອບຄົວ</string>
+    <string name="zakat_fitr_saa_value">ຄຸນຄ່າຂອງໜຶ່ງຊາ\' (ອາຫານຫຼັກ)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">ທັງໝົດ Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">ຄໍາ (ກຼາມ)</string>
+    <string name="zakat_gold_price">ລາຄາຄໍາຕໍ່ກຼາມ</string>
+    <string name="zakat_history">ປະຫວັດການຄິດໄລ່</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">ບໍ່ມີການຄິດໄລ່ທີ່ບັນທຶກໄວ້ເທື່ອ.</string>
+    <string name="zakat_investments">ການລົງທຶນ</string>
+    <string name="zakat_last_updated">ອັບເດດລ່າສຸດ: %1$s</string>
+    <string name="zakat_money_section">Zakat ກ່ຽວກັບຄວາມຮັ່ງມີ</string>
+    <string name="zakat_nisab_gold">ທອງຄຳ (85g)</string>
+    <string name="zakat_nisab_met">nisab ແມ່ນບັນລຸໄດ້ - zakat ແມ່ນເນື່ອງມາຈາກ</string>
+    <string name="zakat_nisab_not_met">ຂ້າງລຸ່ມນີ້ nisab - ບໍ່ມີ zakat ເນື່ອງຈາກ</string>
+    <string name="zakat_nisab_silver">ເງິນ nisab (595g)</string>
+    <string name="zakat_rulings_note">ໂດຍສ່ວນໃຫຍ່ (jumhoor): ຄໍາ nisab ແມ່ນ 85g, ເງິນ 595g, ແລະອັດຕາແມ່ນ 2.5%% ຫຼັງຈາກຫັກຫນີ້ສິນ. ປຶກສາຫາລືກັບນັກວິຊາການທີ່ມີຄຸນວຸດທິສໍາລັບກໍລະນີພິເສດ.</string>
+    <string name="zakat_save_result">ບັນທຶກໃສ່ປະຫວັດ</string>
+    <string name="zakat_silver_grams">ເງິນ (ກຼາມ)</string>
+    <string name="zakat_silver_price">ລາຄາເງິນຕໍ່ກຼາມ</string>
+    <string name="zakat_source_note">ລາຄາຄຳ/ເງິນຈາກ gold-api.com; ອັດຕາ FX ຈາກ open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">ຊັບສິນທັງໝົດ</string>
+    <string name="zakat_trade">ມູນຄ່າການຄ້າ</string>
+    <string name="zakat_zakatable">ຈໍານວນ Zakatable ຫຼັງຈາກຫນີ້ສິນ</string>
+</resources>

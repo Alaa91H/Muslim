@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Adtapout ar prizioù ent emgefre</string>
+    <string name="zakat_auto_prices_hint">Pa vez gweredekaet e vez tennet prizioù an aour hag an arc\'hant diwar internet ha nevesaet ent emgefre</string>
+    <string name="zakat_back">En-dro</string>
+    <string name="zakat_cash">Arc\'hant ha espern</string>
+    <string name="zakat_clear_history">Sklaeraat an istor</string>
+    <string name="zakat_country">Bro</string>
+    <string name="zakat_country_placeholder">Dibabit ho bro hag ho moneiz</string>
+    <string name="zakat_country_section">Bro &amp; moneiz</string>
+    <string name="zakat_currency">Moneiz : %1$s</string>
+    <string name="zakat_debts">Dleoù a dleit (tennet)</string>
+    <string name="zakat_due">Zakat dleet (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ne c\'hellfe ket \' kaout prizioù. Gwiriit ho kevreadenn pe lakait ar priz dre zorn.</string>
+    <string name="zakat_fetch_now">Freskaat ar prizioù bremañ</string>
+    <string name="zakat_fetching">O tapout prizioù...</string>
+    <string name="zakat_fitr_persons">Niver a izili eus ar familh</string>
+    <string name="zakat_fitr_saa_value">Talvoudegezh ur sa\' (boued diazez)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Zakat Fitr en holl : %1$s</string>
+    <string name="zakat_gold_grams">Aour (grammoù)</string>
+    <string name="zakat_gold_price">Priz an aour dre gramm</string>
+    <string name="zakat_history">Istor ar jediñ</string>
+    <string name="zakat_history_amount">Zakat : %1$s</string>
+    <string name="zakat_history_empty">Jediñ ebet bet enrollet c\'hoazh.</string>
+    <string name="zakat_investments">Arc\'hantaouiñ</string>
+    <string name="zakat_last_updated">Hizivaet da ziwezhañ : %1$s</string>
+    <string name="zakat_money_section">Zakat war ar pinvidigezh</string>
+    <string name="zakat_nisab_gold">Nisab aour (85g)</string>
+    <string name="zakat_nisab_met">Erruet eo an nisab — dleet eo ar zakat</string>
+    <string name="zakat_nisab_not_met">Dindan an nisab — zakat ebet dleet</string>
+    <string name="zakat_nisab_silver">Nisab arc\'hant (595g)</string>
+    <string name="zakat_rulings_note">Hervez an darn vrasañ (jumhoor) : 85g eo an nisab aour, 595g an arc\'hant, hag ar feur a zo 2,5%% goude bezañ tennet an dleoù dleet. Goulennit ali ur skoliad barrek evit an traoù ispisial.</string>
+    <string name="zakat_save_result">Enrollañ en istor</string>
+    <string name="zakat_silver_grams">Arc\'hant (grammoù)</string>
+    <string name="zakat_silver_price">Priz an arc\'hant dre gramm</string>
+    <string name="zakat_source_note">Prizioù aour/arc\'hant diwar gold-api.com ; Prizioù FX eus open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Holl madoù</string>
+    <string name="zakat_trade">Talvoudegezh ar madoù kenwerzh</string>
+    <string name="zakat_zakatable">Sammad arc\'hantaouiñ goude an dleoù</string>
+</resources>

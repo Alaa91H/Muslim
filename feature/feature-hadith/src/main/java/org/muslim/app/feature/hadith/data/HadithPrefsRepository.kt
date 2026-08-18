@@ -39,6 +39,18 @@ class HadithPrefsRepository @Inject constructor(
         }
     }
 
+    /** The daily notification time, in minutes from midnight (default 08:00). */
+    val dailyNotificationTimeMinutes: Flow<Int> =
+        context.hadithPrefsDataStore.data.map { prefs ->
+            prefs[Keys.DAILY_NOTIFICATION_TIME] ?: DEFAULT_NOTIFICATION_TIME_MINUTES
+        }
+
+    suspend fun setDailyNotificationTimeMinutes(minutes: Int) {
+        context.hadithPrefsDataStore.edit { prefs ->
+            prefs[Keys.DAILY_NOTIFICATION_TIME] = minutes.coerceIn(0, 23 * 60 + 59)
+        }
+    }
+
     suspend fun setSeedVersion(version: Int) {
         context.hadithPrefsDataStore.edit { prefs ->
             prefs[Keys.SEED_VERSION] = version
@@ -65,5 +77,11 @@ class HadithPrefsRepository @Inject constructor(
         val BOOKMARKS = stringSetPreferencesKey("hadith_bookmarks")
         val SEED_VERSION = intPreferencesKey("hadith_seed_version")
         val DAILY_NOTIFICATION = booleanPreferencesKey("hadith_daily_notification")
+        val DAILY_NOTIFICATION_TIME = intPreferencesKey("hadith_daily_notification_time")
+    }
+
+    companion object {
+        /** Default daily-hadith notification time: 08:00 (minutes from midnight). */
+        const val DEFAULT_NOTIFICATION_TIME_MINUTES = 8 * 60
     }
 }

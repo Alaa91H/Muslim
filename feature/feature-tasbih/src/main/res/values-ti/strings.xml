@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">ዲጂታል ሚስባሃ — ንምቑጻር ምጥዋቕ</string>
+    <string name="misbaha_widget_label">ታስቢህ</string>
+    <string name="misbaha_widget_tap_hint">ንምቑጻር ጠውቕ</string>
+    <string name="tasbih_back">ንድሕሪት ተመሊስና።</string>
+    <string name="tasbih_cancel">ስርዝ ድልዝ</string>
+    <string name="tasbih_confirm">እሺ</string>
+    <string name="tasbih_custom_target">ልምዲ</string>
+    <string name="tasbih_custom_target_hint">ቁጽሪ ቆጸራታት ኣእቱ (ካብ 1 ክሳብ 100000)</string>
+    <string name="tasbih_custom_target_title">ብሕታዊ ዕላማ ኣቐምጥ</string>
+    <string name="tasbih_of_target">ናይ %1$s</string>
+    <string name="tasbih_reset">ዳግማይ ምትካል</string>
+    <string name="tasbih_reset_all">ንኹሉ ዳግማይ ኣቐምጦ</string>
+    <string name="tasbih_round_complete">ሙሉእ ዙርያ ተዛዚሙ (%1$s) 🎉</string>
+    <string name="tasbih_rounds">ዙርያታት፡ %1$d</string>
+    <string name="tasbih_sound_desc">ነፍሲ ወከፍ ምሉእ ዙርያ ምስ ተዛዘመ ድምጺ ወይ ቃና ተጻወት።</string>
+    <string name="tasbih_sound_title">ድምጺ ኣብ ዕላማ</string>
+    <string name="tasbih_sound_tone_alarm">ኣላርም</string>
+    <string name="tasbih_sound_tone_notification">መፍለጢ</string>
+    <string name="tasbih_sound_tone_ringtone">ድምጺ ጻውዒት።</string>
+    <string name="tasbih_tap_hint">ንምቑጻር ነቲ ዓንኬል ጠውቕ</string>
+    <string name="tasbih_target_reached">ዕላማ ተበጺሑ — ኣላህ ይቕበሎ</string>
+    <string name="tasbih_title">ታስቢህ</string>
+    <string name="tasbih_total_today">ሎሚ\'ታት ጠቕላላ: %1$d</string>
+    <string name="tasbih_undo">ንድሕሪት ምምላስ</string>
+    <string name="tasbih_virtue_label">ጽቡቕ ባህሪ ናይዚ ዚክሪ</string>
+    <string name="tasbih_week_stats">ዝሓለፉ 7 መዓልታት</string>
+</resources>

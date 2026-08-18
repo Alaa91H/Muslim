@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha digitale - tocca per cuntà</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Toccate per cuntà</string>
+    <string name="tasbih_back">Torna</string>
+    <string name="tasbih_cancel">Cancella</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Custom</string>
+    <string name="tasbih_custom_target_hint">Inserite u numeru di cunti (da 1 à 100000)</string>
+    <string name="tasbih_custom_target_title">Stabbilisce un target persunalizatu</string>
+    <string name="tasbih_of_target">di %1$s</string>
+    <string name="tasbih_reset">Resettate</string>
+    <string name="tasbih_reset_all">Resetta tuttu</string>
+    <string name="tasbih_round_complete">Turnu cumpletu cumpletu (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Rounds: %1$d</string>
+    <string name="tasbih_sound_desc">Ghjucà una suoneria o un tonu quandu ogni turnu cumpletu hè cumpletu</string>
+    <string name="tasbih_sound_title">Sonu nantu à u mira</string>
+    <string name="tasbih_sound_tone_alarm">Alarma</string>
+    <string name="tasbih_sound_tone_notification">Notificazione</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Toccate u cerculu per cuntà</string>
+    <string name="tasbih_target_reached">Scopu ghjuntu - chì Allah accettà</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Oghje \' totali: %1$d</string>
+    <string name="tasbih_undo">Annulla</string>
+    <string name="tasbih_virtue_label">A virtù di stu dhikr</string>
+    <string name="tasbih_week_stats">Ultimi 7 ghjorni</string>
+</resources>

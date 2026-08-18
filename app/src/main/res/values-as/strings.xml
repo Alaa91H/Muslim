@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">মুছলিম</string>
+    <string name="more_adhkar">আধকৰ</string>
+    <string name="more_adhkar_desc">ৰাতিপুৱা, সন্ধিয়া &amp; প্ৰাৰ্থনাৰ পিছৰ আধকাৰ কাউণ্টাৰৰ সৈতে</string>
+    <string name="more_downloads">আবৃত্তি ডাউনলোড</string>
+    <string name="more_downloads_desc">আপোনাৰ নিৰ্বাচিত পাঠকৰ সৈতে এটা চুৰা, আয়াহ বা সম্পূৰ্ণ কোৰআন ডাউনলোড কৰক</string>
+    <string name="more_hadith">হাদীছ</string>
+    <string name="more_hadith_desc">হাদীছ লাইব্ৰেৰী, search &amp; দিনৰ হাদীছ</string>
+    <string name="more_learn">শিকক</string>
+    <string name="more_learn_desc">ষ্টেপ-বাই-ষ্টেপ ৱুডু আৰু প্ৰাৰ্থনাৰ গাইড</string>
+    <string name="more_ramadan">ৰমজান</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar সময় আৰু fasting tracker</string>
+    <string name="more_reference">ৰেফাৰেন্স লাইব্ৰেৰী</string>
+    <string name="more_reference_desc">ইছলাম, চিৰা &amp; নবীসকলৰ পৰিচয়</string>
+    <string name="more_settings">ছেটিংছ</string>
+    <string name="more_settings_desc">থিম, ভাষা, প্ৰাৰ্থনা &amp; আধন ছেটিংছ</string>
+    <string name="more_tasbih">তছবিহ</string>
+    <string name="more_tasbih_desc">দৈনন্দিন ইতিহাসৰ সৈতে ডিজিটেল মিছবাহা</string>
+    <string name="more_zakat">জাকাত</string>
+    <string name="more_zakat_desc">ধন আৰু ফিটৰ কেলকুলেটৰৰ ওপৰত জাকাত</string>
+    <string name="scaffold_message">বহু-মডিউল প্ৰকল্পৰ কংকাল সাজু হৈছে।\nপৰ্যায় ১ — আধান, নামাজৰ সময়, কিবলা, আৰু হিজৰী কেলেণ্ডাৰ — ইয়াৰ পৰা আৰম্ভ হয়।</string>
+    <string name="shortcut_qibla">কিবলা</string>
+    <string name="shortcut_qibla_long">কিবলা দিশ</string>
+    <string name="shortcut_settings">ছেটিংছ</string>
+    <string name="shortcut_settings_long">প্ৰাৰ্থনা আৰু আধন ছেটিংছ</string>
+    <string name="shortcut_times">প্ৰাৰ্থনাৰ সময়</string>
+    <string name="shortcut_times_long">আজি\'s প্ৰাৰ্থনাৰ সময়</string>
+    <string name="tab_home">প্ৰাৰ্থনাৰ সময়</string>
+    <string name="tab_more">অধিক</string>
+    <string name="tab_qibla">কিবলা</string>
+    <string name="tab_quran">কোৰআন</string>
 </resources>

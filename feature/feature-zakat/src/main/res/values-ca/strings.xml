@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Obteniu preus automàticament</string>
+    <string name="zakat_auto_prices_hint">Quan està activat, els preus de l\'or i la plata s\'obtenen d\'Internet i s\'actualitzen automàticament</string>
+    <string name="zakat_back">Enrere</string>
+    <string name="zakat_cash">Efectiu i estalvi</string>
+    <string name="zakat_clear_history">Esborra l\'historial</string>
+    <string name="zakat_country">País</string>
+    <string name="zakat_country_placeholder">Trieu el vostre país i moneda</string>
+    <string name="zakat_country_section">País i moneda</string>
+    <string name="zakat_currency">Moneda: %1$s</string>
+    <string name="zakat_debts">Deutes que tens (deduïts)</string>
+    <string name="zakat_due">Zakat pendent (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">No es podrien obtenir els preus \'. Comproveu la vostra connexió o introduïu el preu manualment.</string>
+    <string name="zakat_fetch_now">Actualitza els preus ara</string>
+    <string name="zakat_fetching">S\'estan obtenint preus…</string>
+    <string name="zakat_fitr_persons">Nombre de membres de la família</string>
+    <string name="zakat_fitr_saa_value">Valor d\'un sa\' (aliment bàsic)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Fitr zakat total: %1$s</string>
+    <string name="zakat_gold_grams">Or (grams)</string>
+    <string name="zakat_gold_price">Preu de l\'or per gram</string>
+    <string name="zakat_history">Historial de càlculs</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Encara no hi ha càlculs desats.</string>
+    <string name="zakat_investments">Inversions</string>
+    <string name="zakat_last_updated">Última actualització: %1$s</string>
+    <string name="zakat_money_section">Zakat sobre la riquesa</string>
+    <string name="zakat_nisab_gold">Nisab d\'or (85 g)</string>
+    <string name="zakat_nisab_met">S\'aconsegueix el nisab: el zakat és degut</string>
+    <string name="zakat_nisab_not_met">Per sota del nisab — no deu zakat</string>
+    <string name="zakat_nisab_silver">Nisab de plata (595 g)</string>
+    <string name="zakat_rulings_note">Per a la majoria (jumhoor): el nisab d\'or és de 85 g, de plata de 595 g i la taxa és de 2,5%% després de deduir els deutes vençuts. Consulteu un estudiós qualificat per a casos especials.</string>
+    <string name="zakat_save_result">Guardar a la història</string>
+    <string name="zakat_silver_grams">Plata (grams)</string>
+    <string name="zakat_silver_price">Preu de plata per gram</string>
+    <string name="zakat_source_note">Preus d\'or/plata de gold-api.com; Taxes de canvi de open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Actius totals</string>
+    <string name="zakat_trade">Valor comercial de mercaderies</string>
+    <string name="zakat_zakatable">Import pagable després dels deutes</string>
+</resources>

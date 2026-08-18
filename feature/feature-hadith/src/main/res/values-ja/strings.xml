@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">すべて</string>
+    <string name="hadith_back">戻る</string>
+    <string name="hadith_bookmark_add">ブックマークを追加する</string>
+    <string name="hadith_bookmark_remove">ブックマークを削除する</string>
+    <string name="hadith_collection_abudawud">アブ・ダウド</string>
+    <string name="hadith_collection_bukhari">アル・ブハーリ</string>
+    <string name="hadith_collection_ibnmajah">イブン・マジャ</string>
+    <string name="hadith_collection_muslim">イスラム教徒</string>
+    <string name="hadith_collection_nasai">アンナサ\'i</string>
+    <string name="hadith_collection_nawawi">アンナワウィ 40</string>
+    <string name="hadith_collection_other">その他</string>
+    <string name="hadith_collection_riyad">サリヒンとしてのリヤド</string>
+    <string name="hadith_collection_tirmidhi">アト・ティルミディ</string>
+    <string name="hadith_daily_notification">毎日のハディース通知</string>
+    <string name="hadith_daily_notification_desc">毎日ハディースを受け取る</string>
+    <string name="hadith_daily_notification_time">通知時間</string>
+    <string name="hadith_of_the_day">その日のハディース</string>
+    <string name="hadith_preview_hint">これは、毎日のハディース通知がスケジュールされた時間に表示される方法です。</string>
+    <string name="hadith_preview_label">通知プレビュー</string>
+    <string name="hadith_preview_loading">ハディースをロード中…</string>
+    <string name="hadith_search_hint">ハディースを検索…</string>
+    <string name="hadith_share">シェアする</string>
+    <string name="hadith_title">ハディース図書館</string>
+</resources>

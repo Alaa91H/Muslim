@@ -10,12 +10,22 @@
     <string name="quran_font_larger">تكبير الخط</string>
 
     <!-- Search -->
+    <string name="quran_more_actions">مزيد من الخيارات</string>
+    <string name="quran_font_size">حجم الخط</string>
+    <string name="quran_keep_screen_on">إبقاء الشاشة مضاءة أثناء القراءة والتلاوة</string>
     <string name="quran_search">البحث</string>
     <string name="quran_search_hint">ابحث في القرآن…</string>
     <string name="quran_search_prompt">اكتب كلمة أو عبارة للبحث في المصحف كاملًا (دون إنترنت).</string>
     <string name="quran_search_empty">لا توجد نتائج مطابقة</string>
     <string name="quran_search_ref">%1$s:%2$s</string>
-    <string name="quran_search_summary">وُجدت الكلمة في %1$d موضعًا ضمن %2$d آية</string>
+    <string name="quran_search_summary">ذُكرت الكلمة %1$d مرة في %2$d آية و %3$d سورة</string>
+    <string name="quran_search_prefix">بحث جذري (بادئة)</string>
+    <string name="quran_search_exact">بحث دقيق (كلمة كاملة)</string>
+    <string name="quran_search_where">أين ذُكرت؟ (حسب السور)</string>
+    <string name="quran_search_surah_item">%1$d. %2$s</string>
+    <string name="quran_search_occurrences">%1$d مرة</string>
+    <string name="quran_search_history">عمليات البحث الأخيرة</string>
+    <string name="quran_search_history_clear">مسح الكل</string>
     <string name="quran_details">تفاصيل السورة</string>
     <string name="quran_details_close">إغلاق</string>
     <string name="quran_details_type">النوع</string>
@@ -74,6 +84,7 @@
     <string name="quran_download_ayah_number">رقم الآية</string>
     <string name="quran_download_full_hint">سيتم تنزيل كل السور (6236 آية) في الخلفية، مع إمكانية الاستكمال لاحقًا.</string>
     <string name="quran_download_size_estimate">الحجم التقريبي: %1$s</string>
+    <string name="quran_download_size_verified">الحجم الفعلي (مُتحقق منه): %1$s</string>
     <string name="quran_download_size_unknown">أدخل سورة صحيحة لمعرفة الحجم التقريبي</string>
     <string name="quran_download_start">بدء التحميل</string>
     <string name="quran_download_cancel">إلغاء</string>
@@ -81,12 +92,14 @@
     <string name="quran_downloads_none">لا توجد تنزيلات بعد</string>
     <string name="quran_download_status_queued">في الانتظار</string>
     <string name="quran_download_status_downloading">جارٍ التنزيل</string>
+    <string name="quran_download_status_paused">متوقف مؤقتًا</string>
     <string name="quran_download_status_completed">اكتمل</string>
     <string name="quran_download_status_failed">فشل</string>
     <string name="quran_download_channel">تنزيلات التلاوة</string>
     <string name="quran_download_in_progress">جارٍ التنزيل في الخلفية…</string>
     <string name="quran_download_done">اكتمل التنزيل</string>
     <string name="quran_download_failed">تعذّر التنزيل</string>
+    <string name="quran_download_restoring">جارٍ استئناف التحميلات…</string>
 
     <!-- Recitation control notification -->
     <string name="quran_recitation_notif_title">%1$s · الآية %2$d</string>
@@ -108,6 +121,10 @@
     <string name="quran_download_night_waiting">سيبدأ التحميل ليلًا — النافذة %1$s</string>
     <string name="quran_download_night_only">التحميل الليلي فقط</string>
     <string name="quran_download_night_hint">يبدأ التحميل تلقائيًا داخل النافذة %1$s (توفيرًا للبيانات والبطارية)</string>
+    <string name="quran_download_night_window_title">نافذة التحميل الليلي</string>
+    <string name="quran_download_night_start">البداية</string>
+    <string name="quran_download_night_end">النهاية</string>
+    <string name="quran_download_pause">إيقاف مؤقت</string>
     <string name="quran_download_reciter_state">المحلَّى للقارئ: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d سورة · %2$d آية · %3$s</string>
     <string name="quran_download_delete_surah">حذف السورة المحمّلة</string>
@@ -124,4 +141,15 @@
     <string name="quran_mini_surah_ayah">%1$s (%2$d) · الآية %3$d</string>
 
     <string name="quran_stop_at_end_of_mushaf">إيقاف تلقائي عند نهاية المصحف</string>
+
+
+    <string name="quran_frequency_title">التردد اللغوي للقرآن</string>
+    <string name="quran_frequency_loading">جارٍ حساب تردد الكلمات…</string>
+    <string name="quran_frequency_total_words">إجمالي الكلمات</string>
+    <string name="quran_frequency_unique_words">كلمات فريدة</string>
+    <string name="quran_frequency_ayahs">الآيات</string>
+    <string name="quran_frequency_top_header">أكثر 50 كلمة تكرارًا</string>
+    <string name="quran_frequency_allah">لفظ الجلالة (الله) ورد %1$d مرة بالصيغة المفردة</string>
+    <string name="quran_frequency_footnote">الإحصاء من نص المصحف المضمن بعد إزالة التشكيل وعلامات التلاوة ودمج ألف الوصل (ٱ ← ا). الكلمات تُعدُّ بالصيغة المكتوبة، فالصيغ الموصولة (والله، بالله، لله…) تُعدُّ كلمات مستقلة.</string>
+    <string name="quran_frequency_open">التردد اللغوي للقرآن</string>
 </resources>

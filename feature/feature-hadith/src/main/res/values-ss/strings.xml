@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Konkhe</string>
+    <string name="hadith_back">Emuva</string>
+    <string name="hadith_bookmark_add">Ngeta ibhukhimaki</string>
+    <string name="hadith_bookmark_remove">Susa ibhukhimaki</string>
+    <string name="hadith_collection_abudawud">Abu Dawudi</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah</string>
+    <string name="hadith_collection_muslim">MaSulumane</string>
+    <string name="hadith_collection_nasai">I-Nasa \'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">Lokunye</string>
+    <string name="hadith_collection_riyad">I-Riyadh njenge-Salihin</string>
+    <string name="hadith_collection_tirmidhi">E-Thirmidhi</string>
+    <string name="hadith_daily_notification">Satiso se-hadith yansuku zonke</string>
+    <string name="hadith_daily_notification_desc">Tfola i-hadith onkhe malanga</string>
+    <string name="hadith_daily_notification_time">Sikhatsi sesatiso</string>
+    <string name="hadith_of_the_day">Hadith yelusuku</string>
+    <string name="hadith_preview_hint">Lena yindlela satiso se-hadith yansuku tonkhe lesivela ngayo ngesikhatsi sayo lesihleliwe.</string>
+    <string name="hadith_preview_label">Kubuka ngaphambilini kwesatiso</string>
+    <string name="hadith_preview_loading">Kulayisha le hadith...</string>
+    <string name="hadith_search_hint">Sesha ema hadith...</string>
+    <string name="hadith_share">Yabelana</string>
+    <string name="hadith_title">Umtapo wema Hadith</string>
+</resources>

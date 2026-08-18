@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Wote</string>
+    <string name="hadith_back">Nyuma</string>
+    <string name="hadith_bookmark_add">Ongeza alamisho</string>
+    <string name="hadith_bookmark_remove">Ondoa alamisho</string>
+    <string name="hadith_collection_abudawud">Abu Dawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah</string>
+    <string name="hadith_collection_muslim">Muislamu</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">Nyingine</string>
+    <string name="hadith_collection_riyad">Riyadh as-Salihin</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidhi</string>
+    <string name="hadith_daily_notification">Arifa ya hadith ya kila siku</string>
+    <string name="hadith_daily_notification_desc">Pokea hadith kila siku</string>
+    <string name="hadith_daily_notification_time">Muda wa arifa</string>
+    <string name="hadith_of_the_day">Hadiyth ya siku</string>
+    <string name="hadith_preview_hint">Hivi ndivyo taarifa ya Hadith ya kila siku inavyoonekana kwa wakati wake uliopangwa.</string>
+    <string name="hadith_preview_label">Onyesho la kukagua arifa</string>
+    <string name="hadith_preview_loading">Inapakia hadith...</string>
+    <string name="hadith_search_hint">Tafuta hadith...</string>
+    <string name="hadith_share">Shiriki</string>
+    <string name="hadith_title">Maktaba ya Hadithi</string>
+</resources>

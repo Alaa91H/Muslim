@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">ཕྱིར་ལོག</string>
+    <string name="ramadan_countdown">ར་མ་ཏན་ཉིན་%1$sནང་འགོ་ཚུགས་པ་རེད།</string>
+    <string name="ramadan_countdown_to_iftar">ཨིཕ་ཏར་གྱི་དུས་ཚོད། %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ཕ་ཇར་གྱི་དུས་ཚོད། %1$s</string>
+    <string name="ramadan_day_of_month">ར་མ་ཏན་གྱི་ཉིན་མོ་%1$s།</string>
+    <string name="ramadan_days_left">ཉིན%1$sལྷག་ཡོད།</string>
+    <string name="ramadan_fasting_progress">Fasting days: %1$s of %2$s — tap a day to record it</string>
+    <string name="ramadan_fasting_tracker">ཟས་བཅད་རྗེས་འདེད་བྱེད་མཁན།</string>
+    <string name="ramadan_hijri_note">ཨུམ་ཨལ་ཀུ་ར་ཟླ་ཐོ་ལ་གཞི་བཅོལ་ནས་ཨེཔ་ཡོངས་རྫོགས་ཀྱི་ཧི་ཇི་རི་བསྒྱུར་བཅོས་བཀོལ་སྤྱོད་བྱས།</string>
+    <string name="ramadan_hijri_year">སྤྱི་ལོ%1$sལོར།</string>
+    <string name="ramadan_iftar">ཨིཕ་ཏར།</string>
+    <string name="ramadan_iftar_dua">ཨིཕ་ཏར་གྱི་སྨོན་ལམ། "ཨོ་ཨ་ལཱ་ཧ། ཁྱེད་ཀྱི་ཆེད་དུ་ངས་ཟས་བཅད་བྱས་པ་དང་ཁྱེད་ཀྱི་ཟས་བཅད་ལ་ཟས་བཅད་པ་ཡིན།"</string>
+    <string name="ramadan_iftar_time">ཨིཕ་ཏར་(མག་རིབ་)དུས་ཚོད་:%1$s</string>
+    <string name="ramadan_location_required">དུས་ཚོད་ལྟ་བར་སྔོན་ལ་སྒྲིག་སྟངས་ནང་གྲོང་ཁྱེར་ཞིག་འདེམས།</string>
+    <string name="ramadan_minutes">སྐར་མ་%1$s།</string>
+    <string name="ramadan_notification_iftar_body">ཨོ་ཨ་ལཱ་ཧ། ཁྱེད་ཀྱི་ཆེད་དུ་ངས་ཟས་བཅད་བྱས་པ་དང་ཁྱེད་ཀྱི་ཟས་བཅད་ལ་བརྟེན་ནས་ཟས་བཅད་པ་ཡིན།</string>
+    <string name="ramadan_notification_iftar_title">ཨིཕ་ཏར་གྱི་དུས་ཚོད།</string>
+    <string name="ramadan_notification_suhoor_body">ཕ་ཇར་ཉེ་འགྲམ་དུ་སླེབས་འདུག ཁྱེད་རང་གི་སུ་ཧོར་ཟ་རོགས།</string>
+    <string name="ramadan_notification_suhoor_title">སུ་ཧོར་དྲན་སྐུལ།</string>
+    <string name="ramadan_starts_on">%1$s — %2$s དང་།</string>
+    <string name="ramadan_suhoor">སུ་ཧོར།</string>
+    <string name="ramadan_suhoor_remind_before">སྔོན་ལ་དྲན་སྐུལ་བྱེད་རོགས།</string>
+    <string name="ramadan_suhoor_time">སུ་ཧོར་མཇུག་སྒྲིལ། (ཕ་ཇར་): %1$s</string>
+    <string name="ramadan_title">ར་མ་དཱན།</string>
+</resources>

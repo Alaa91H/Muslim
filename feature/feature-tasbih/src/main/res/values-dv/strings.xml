@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">ޑިޖިޓަލް މިސްބަހާ — ގުނަން ޓަޕް ކުރާށެވެ</string>
+    <string name="misbaha_widget_label">ތަސްބީހެވެ</string>
+    <string name="misbaha_widget_tap_hint">ގުނަން ޓަޕް ކުރާށެވެ</string>
+    <string name="tasbih_back">ފަހަތަށް</string>
+    <string name="tasbih_cancel">ކެންސަލް ކުރުން</string>
+    <string name="tasbih_confirm">އޯކޭ</string>
+    <string name="tasbih_custom_target">ކަސްޓަމް</string>
+    <string name="tasbih_custom_target_hint">ގުނާފައިވާ އަދަދު (1 އިން 100000 އަށް) ލިޔެލާށެވެ.</string>
+    <string name="tasbih_custom_target_title">ކަސްޓަމް ޓާގެޓެއް ކަނޑައަޅާށެވެ</string>
+    <string name="tasbih_of_target">ގެ %1$s އެވެ</string>
+    <string name="tasbih_reset">ރީސެޓް ކުރުން</string>
+    <string name="tasbih_reset_all">ހުރިހާ އެއްޗެއް ރީސެޓް ކުރާށެވެ</string>
+    <string name="tasbih_round_complete">ފުލް ރައުންޑް ފުރިހަމަ (%1$s) 🎉</string>
+    <string name="tasbih_rounds">ބުރުތައް: %1$d</string>
+    <string name="tasbih_sound_desc">ކޮންމެ ފުލް ރައުންޑެއް ނިމުމުން ރިންގްޓޯން ނުވަތަ ޓޯނެއް ކުޅެން ޖެހެއެވެ</string>
+    <string name="tasbih_sound_title">އަމާޒުގައި އަޑު އިވޭނެއެވެ</string>
+    <string name="tasbih_sound_tone_alarm">އެލާމް</string>
+    <string name="tasbih_sound_tone_notification">ނޮޓިފިކޭޝަން</string>
+    <string name="tasbih_sound_tone_ringtone">ރިންގްޓޯން އެވެ</string>
+    <string name="tasbih_tap_hint">ގުނަން ސަރކަލް އަށް ފިތާލާށެވެ</string>
+    <string name="tasbih_target_reached">ލަނޑުދަނޑިއަކަށް ވާސިލްވެއްޖެ — الله ތަޢާލާ ޤަބޫލުކުރައްވާށި</string>
+    <string name="tasbih_title">ތަސްބީހެވެ</string>
+    <string name="tasbih_total_today">މިއަދު\' ގެ ޖުމްލަ: %1$d</string>
+    <string name="tasbih_undo">އަންޑޯ</string>
+    <string name="tasbih_virtue_label">މި ޛިކުރުގެ ފަޟީޙަތެވެ</string>
+    <string name="tasbih_week_stats">މިދިޔަ 7 ދުވަހު</string>
+</resources>

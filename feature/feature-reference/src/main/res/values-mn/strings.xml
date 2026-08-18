@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Буцах</string>
+    <string name="reference_no_results">Тохирох илэрц алга</string>
+    <string name="reference_search_hint">Энэ номноос хайх...</string>
+    <string name="reference_title">Исламын лавлах номын сан</string>
+    <string name="reference_topics_count">сэдвүүд</string>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Preluați automat prețurile</string>
+    <string name="zakat_auto_prices_hint">Când este activat, prețurile aurului și argintului sunt preluate de pe internet și reîmprospătate automat</string>
+    <string name="zakat_back">Înapoi</string>
+    <string name="zakat_cash">Numerar și economii</string>
+    <string name="zakat_clear_history">Ștergeți istoricul</string>
+    <string name="zakat_country">Țara</string>
+    <string name="zakat_country_placeholder">Alegeți țara și moneda dvs</string>
+    <string name="zakat_country_section">Țara și moneda</string>
+    <string name="zakat_currency">Moneda: %1$s</string>
+    <string name="zakat_debts">Datorii pe care le datorați (deduse)</string>
+    <string name="zakat_due">Zakat datorat (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Nu \' nu au putut aduce prețuri. Verificați conexiunea sau introduceți manual prețul.</string>
+    <string name="zakat_fetch_now">Actualizați prețurile acum</string>
+    <string name="zakat_fetching">Se aduc prețuri…</string>
+    <string name="zakat_fitr_persons">Numărul de membri ai familiei</string>
+    <string name="zakat_fitr_saa_value">Valoarea unui sa\' (aliment de bază)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Total Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Aur (grame)</string>
+    <string name="zakat_gold_price">Prețul aurului pe gram</string>
+    <string name="zakat_history">Istoricul calculelor</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Încă nu au fost salvate calcule.</string>
+    <string name="zakat_investments">Investiții</string>
+    <string name="zakat_last_updated">Ultima actualizare: %1$s</string>
+    <string name="zakat_money_section">Zakat despre bogăție</string>
+    <string name="zakat_nisab_gold">Nisab de aur (85g)</string>
+    <string name="zakat_nisab_met">Se ajunge la nisab — se datorează zakat</string>
+    <string name="zakat_nisab_not_met">Sub nisab — fără zakat datorat</string>
+    <string name="zakat_nisab_silver">Nisab de argint (595g)</string>
+    <string name="zakat_rulings_note">Pentru majoritatea (jumhoor): aur nisab este 85g, argint 595g, iar rata este de 2,5%% după deducerea datoriilor scadente. Consultați un savant calificat pentru cazuri speciale.</string>
+    <string name="zakat_save_result">Salvați în istorie</string>
+    <string name="zakat_silver_grams">Argint (grame)</string>
+    <string name="zakat_silver_price">Prețul argintului pe gram</string>
+    <string name="zakat_source_note">Prețuri aur/argint de la gold-api.com; Ratele valutare de la open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Total active</string>
+    <string name="zakat_trade">Valoarea mărfurilor comerciale</string>
+    <string name="zakat_zakatable">Suma recuperabilă după datorii</string>
+</resources>

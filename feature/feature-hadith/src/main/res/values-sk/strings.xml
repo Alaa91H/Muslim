@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Všetky</string>
+    <string name="hadith_back">Späť</string>
+    <string name="hadith_bookmark_add">Pridať záložku</string>
+    <string name="hadith_bookmark_remove">Odstrániť záložku</string>
+    <string name="hadith_collection_abudawud">Abu Dawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah</string>
+    <string name="hadith_collection_muslim">moslimský</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">Iné</string>
+    <string name="hadith_collection_riyad">Rijád as-Salihin</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidhi</string>
+    <string name="hadith_daily_notification">Denné oznamovanie hadísov</string>
+    <string name="hadith_daily_notification_desc">Dostávajte hadís každý deň</string>
+    <string name="hadith_daily_notification_time">Čas upozornenia</string>
+    <string name="hadith_of_the_day">Hadís dňa</string>
+    <string name="hadith_preview_hint">Takto sa zobrazuje denné upozornenie hadísov v plánovanom čase.</string>
+    <string name="hadith_preview_label">Ukážka upozornenia</string>
+    <string name="hadith_preview_loading">Načítava sa hadís…</string>
+    <string name="hadith_search_hint">Hľadaj hadísy…</string>
+    <string name="hadith_share">zdieľať</string>
+    <string name="hadith_title">Hadísová knižnica</string>
+</resources>

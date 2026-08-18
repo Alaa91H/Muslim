@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Retro</string>
+    <string name="ramadan_countdown">Ramadan incipit in %1$s dierum</string>
+    <string name="ramadan_countdown_to_iftar">Tempus ad iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Tempus ad Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Dies %1$s Ramadan</string>
+    <string name="ramadan_days_left">%1$s reliquiis diebus</string>
+    <string name="ramadan_fasting_progress">Dies ieiunii: %1$s de %2$s — diem tap ad recordandum</string>
+    <string name="ramadan_fasting_tracker">Ieiunium venato</string>
+    <string name="ramadan_hijri_note">Fundatur in kalendario Umm al-Qura cum app-lato Hijri temperatio applicata.</string>
+    <string name="ramadan_hijri_year">Annus %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Ifta supplicatio: "O Allah, pro te ieiunavi et pro provisione tua ieiunium meum frango…"</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) time: %1$s</string>
+    <string name="ramadan_location_required">Elige urbem in Occasus primum videre tempora.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, ad te ieiunavi, et in provisione tua ieiunium meum frango</string>
+    <string name="ramadan_notification_iftar_title">Tempus iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr appropinquat - habere suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor admonitio</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">ante me admone;</string>
+    <string name="ramadan_suhoor_time">Suhoor fines (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

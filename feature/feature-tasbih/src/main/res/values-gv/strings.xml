@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha digitagh — tappee dy choontey</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tap dy choontey</string>
+    <string name="tasbih_back">Arrish</string>
+    <string name="tasbih_cancel">Cur-my-ner</string>
+    <string name="tasbih_confirm">OK;</string>
+    <string name="tasbih_custom_target">Custom</string>
+    <string name="tasbih_custom_target_hint">Cur stiagh yn earroo dy choontey (veih 1 gys 100000)</string>
+    <string name="tasbih_custom_target_title">Cur target custom</string>
+    <string name="tasbih_of_target">dy %1$s</string>
+    <string name="tasbih_reset">Reset reesht</string>
+    <string name="tasbih_reset_all">Reset ooilley</string>
+    <string name="tasbih_round_complete">Rond immeeaght cliaghtey (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Rounds: %1$d</string>
+    <string name="tasbih_sound_desc">Cleaysh tonn ny tonn tra t\'ad cliaghtey gagh round immeeaght</string>
+    <string name="tasbih_sound_title">Sound er target</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Fockle;</string>
+    <string name="tasbih_sound_tone_ringtone">Tonney-chleaysh</string>
+    <string name="tasbih_tap_hint">Tap er y chiark dy choontey</string>
+    <string name="tasbih_target_reached">Goal er ny choyrt — lhig da Allah y ghoaill</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">\'s \'sy laa jiu: %1$d</string>
+    <string name="tasbih_undo">Goaill-rish</string>
+    <string name="tasbih_virtue_label">Virtue y dhikr shoh</string>
+    <string name="tasbih_week_stats">laa er-dy-henney</string>
+</resources>

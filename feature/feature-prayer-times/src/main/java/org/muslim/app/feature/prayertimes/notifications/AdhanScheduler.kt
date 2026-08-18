@@ -58,7 +58,7 @@ class AdhanScheduler @Inject constructor(
         for (date in listOf(LocalDate.now(zone), LocalDate.now(zone).plusDays(1))) {
             val result = calculator.compute(
                 date = date,
-                coordinates = Coordinates(location.latitude, location.longitude),
+                coordinates = Coordinates(location.latitude, location.longitude, location.elevation),
                 parameters = params,
                 timeZone = zone,
                 asrMethod = settings.asrMethod,

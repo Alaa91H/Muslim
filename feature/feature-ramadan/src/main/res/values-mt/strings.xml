@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Lura</string>
+    <string name="ramadan_countdown">Ramadan jibda f\'%1$s jum</string>
+    <string name="ramadan_countdown_to_iftar">Ħin biex iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Time to Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Jum %1$s tar-Ramadan</string>
+    <string name="ramadan_days_left">Fadal %1$s jum</string>
+    <string name="ramadan_fasting_progress">Ġranet ta\' sawm: %1$s minn %2$s — tektek ġurnata biex tirreġistraha</string>
+    <string name="ramadan_fasting_tracker">Tracker tas-sawm</string>
+    <string name="ramadan_hijri_note">Ibbażat fuq il-kalendarju Umm al-Qura bl-aġġustament Hijri madwar l-app applikat.</string>
+    <string name="ramadan_hijri_year">Sena %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Supplikazzjoni Iftar: "O Allah, għalik sajjt u bil-provvediment Tiegħek inkissir is-sawm tiegħi..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) time: %1$s</string>
+    <string name="ramadan_location_required">Agħżel belt fis-Settings l-ewwel biex tara l-ħinijiet.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, għalik sajjt u fuq il-provvediment Tiegħek inkissir is-sawm tiegħi</string>
+    <string name="ramadan_notification_iftar_title">Ħin għall-iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr qed joqrob — ħu s-suhoor tiegħek</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor tfakkira</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Fakkarni qabel:</string>
+    <string name="ramadan_suhoor_time">Suhoor jispiċċa (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

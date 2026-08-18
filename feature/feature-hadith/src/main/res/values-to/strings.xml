@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Katoa</string>
+    <string name="hadith_back">Foki</string>
+    <string name="hadith_bookmark_add">Tānaki atu ha fakaʻilonga tohi</string>
+    <string name="hadith_bookmark_remove">Toʻo ʻa e fakaʻilonga tohí</string>
+    <string name="hadith_collection_abudawud">ʻApu Tauti</string>
+    <string name="hadith_collection_bukhari">ʻAla-Pukali</string>
+    <string name="hadith_collection_ibnmajah">ʻIpini Majah</string>
+    <string name="hadith_collection_muslim">Mosilemi</string>
+    <string name="hadith_collection_nasai">Ko e Nasa\'i</string>
+    <string name="hadith_collection_nawawi">ʻAni-Nauā 40</string>
+    <string name="hadith_collection_other">Kehe</string>
+    <string name="hadith_collection_riyad">Liyati ko-Salihini</string>
+    <string name="hadith_collection_tirmidhi">ʻI-Tilimiti</string>
+    <string name="hadith_daily_notification">Fakatokanga faka\'aho \'o e hadith .</string>
+    <string name="hadith_daily_notification_desc">Ma\'u ha hadith \'i he \'aho kotoa pe .</string>
+    <string name="hadith_daily_notification_time">Taimi fakatokanga</string>
+    <string name="hadith_of_the_day">Hadith \'o e \'aho .</string>
+    <string name="hadith_preview_hint">Ko e founga eni \'oku \'asi mai ai \'a e fakatokanga faka\'aho \'o e hadith \'i hono taimi kuo fakataimitēpile\'i.</string>
+    <string name="hadith_preview_label">Tomu\'a vakai\'i \'o e fakatokanga</string>
+    <string name="hadith_preview_loading">Ko hono uta \'o e hadith...</string>
+    <string name="hadith_search_hint">Fekumi ki he ngaahi hadith...</string>
+    <string name="hadith_share">Vahevahe</string>
+    <string name="hadith_title">Laipeli Hatith</string>
+</resources>

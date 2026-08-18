@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Pigliate i prezzi automaticamente</string>
+    <string name="zakat_auto_prices_hint">Quandu hè attivatu, i prezzi d\'oru è d\'argentu sò pigliati da Internet è rinfrescati automaticamente</string>
+    <string name="zakat_back">Torna</string>
+    <string name="zakat_cash">Cash è risparmiu</string>
+    <string name="zakat_clear_history">Storia chjaru</string>
+    <string name="zakat_country">Paese</string>
+    <string name="zakat_country_placeholder">Sceglite u vostru paese è a valuta</string>
+    <string name="zakat_country_section">Paese è valuta</string>
+    <string name="zakat_currency">Valuta: %1$s</string>
+    <string name="zakat_debts">Debiti chì devi (deduttu)</string>
+    <string name="zakat_due">Zakat dovutu (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Puderia \' ùn pò piglià i prezzi. Verificate a vostra cunnessione o inserite u prezzu manualmente.</string>
+    <string name="zakat_fetch_now">Refresh prezzi avà</string>
+    <string name="zakat_fetching">Riceve i prezzi...</string>
+    <string name="zakat_fitr_persons">Numero di membri di a famiglia</string>
+    <string name="zakat_fitr_saa_value">Valore di un sa\' (alimentu di base)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Total Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">d\'oru (grammi)</string>
+    <string name="zakat_gold_price">Prezzu d\'oru per grammu</string>
+    <string name="zakat_history">Storia di u calculu</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Nisun calculu salvatu ancora.</string>
+    <string name="zakat_investments">Investimenti</string>
+    <string name="zakat_last_updated">Ultima aghjurnata: %1$s</string>
+    <string name="zakat_money_section">Zakat nantu à a ricchezza</string>
+    <string name="zakat_nisab_gold">Nisab d\'oru (85 g)</string>
+    <string name="zakat_nisab_met">U nisab hè righjuntu - zakat hè dovutu</string>
+    <string name="zakat_nisab_not_met">Sottu u nisab - no zakat due</string>
+    <string name="zakat_nisab_silver">nisab d\'argentu (595 g)</string>
+    <string name="zakat_rulings_note">Per a maiuranza (jumhoor): nisab d\'oru hè 85g, argentu 595g, è a tarifa hè 2.5%% dopu à deduce i debiti dovuti. Cunsultate un studiosu qualificatu per casi speciali.</string>
+    <string name="zakat_save_result">Salvà à a storia</string>
+    <string name="zakat_silver_grams">argentu (grammi)</string>
+    <string name="zakat_silver_price">Prezzo d\'argentu per grammu</string>
+    <string name="zakat_source_note">Prezzi d\'oru / argentu da gold-api.com; Tariffe FX da open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Assi totali</string>
+    <string name="zakat_trade">Valore di merchenzie cummerciale</string>
+    <string name="zakat_zakatable">A quantità di Zakatable dopu à i debiti</string>
+</resources>

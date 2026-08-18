@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Back</string>
+    <string name="ramadan_countdown">Ramadan inotanga mumazuva %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Nguva yeiftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Nguva yeFajr: %1$s</string>
+    <string name="ramadan_day_of_month">Zuva %1$s reRamadan</string>
+    <string name="ramadan_days_left">%1$s mazuva asara</string>
+    <string name="ramadan_fasting_progress">Mazuva ekutsanya: %1$s ye%2$s - tora zuva kuti uirekodhe</string>
+    <string name="ramadan_fasting_tracker">Kutsanya tracker</string>
+    <string name="ramadan_hijri_note">Zvichienderana nekarenda yeUmm al-Qura ine app-wide Hijri gadziriso yakashandiswa.</string>
+    <string name="ramadan_hijri_year">Gore %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar mukuteterera: "O Allah, ndakatsanyira Imi uye pakupa kwenyu ndinopwanya kutsanya kwangu ..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) nguva: %1$s</string>
+    <string name="ramadan_location_required">Sarudza guta muZvirongwa kutanga kuti uone nguva.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, nekuda Kwemi ndakatsanyira uye nekupa kwenyu ndinosiya kutsanya</string>
+    <string name="ramadan_notification_iftar_title">Inguva ye iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr yave kusvika - iva neshuho yako</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor chiyeuchidzo</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Ndiyeuchidze zvisati zvaitika:</string>
+    <string name="ramadan_suhoor_time">Suhoor inopera (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

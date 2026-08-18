@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s દૂર</string>
+    <string name="mosque_finder_empty">આ શ્રેણીમાં કોઈ મસ્જિદો મળી નથી</string>
+    <string name="mosque_finder_error">શોધ નિષ્ફળ</string>
+    <string name="mosque_finder_intro">OpenStreetMap દ્વારા તમારા સ્થાનની નજીકની મસ્જિદો શોધો</string>
+    <string name="mosque_finder_no_location">હજુ સુધી કોઈ સ્થાન સેટ કર્યું નથી. પ્રથમ પ્રાર્થના સમય સેટિંગ્સમાંથી સ્થાન પસંદ કરો.</string>
+    <string name="mosque_finder_retry">ફરી પ્રયાસ કરો</string>
+    <string name="mosque_finder_searching">શોધી રહ્યાં છીએ...</string>
+    <string name="mosque_finder_title">નજીકની મસ્જિદો</string>
+    <string name="qibla_bearing_cardinal">કિબલા દિશા: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">માપાંકિત કરવા માટે તમારા ફોનને આકૃતિ-આઠમાં ખસેડો</string>
+    <string name="qibla_distance">મક્કાનું અંતર: %1$s</string>
+    <string name="qibla_distance_km">%,.0f કિમી</string>
+    <string name="qibla_facing">તમે કિબલાનો સામનો કરી રહ્યાં છો 🕋</string>
+    <string name="qibla_gps_error">સચોટ સુધારો મેળવી શકાયો નથી. કૃપા કરીને ફરી પ્રયાસ કરો.</string>
+    <string name="qibla_gps_live">જીવંત જીપીએસ સ્થાન</string>
+    <string name="qibla_gps_refresh">જીપીએસ દ્વારા સ્થાન તાજું કરો</string>
+    <string name="qibla_gps_refreshing">શોધી રહ્યું છે...</string>
+    <string name="qibla_heading_degree">ફોનનું મથાળું: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">તમારા સ્થાનથી કાબા સુધીનો મહાન-વર્તુળ માર્ગ — ઑફલાઇન કાર્ય કરે છે</string>
+    <string name="qibla_map_kaaba">કાબા</string>
+    <string name="qibla_map_you">તમે</string>
+    <string name="qibla_mode_compass">હોકાયંત્ર</string>
+    <string name="qibla_mode_map">નકશો</string>
+    <string name="qibla_open_mosques">નજીકની મસ્જિદો</string>
+    <string name="qibla_title">કિબલા દિશા</string>
+    <string name="qibla_turn_left">ડાબે %1$.1f° વળો</string>
+    <string name="qibla_turn_right">જમણે %1$.1f° વળો</string>
+</resources>

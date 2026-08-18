@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">തിരികെ</string>
+    <string name="reference_no_results">പൊരുത്തപ്പെടുന്ന ഫലങ്ങളൊന്നുമില്ല</string>
+    <string name="reference_search_hint">ഈ പുസ്തകം തിരയൂ...</string>
+    <string name="reference_title">ഇസ്ലാമിക് റഫറൻസ് ലൈബ്രറി</string>
+    <string name="reference_topics_count">വിഷയങ്ങൾ</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha digitala — sakatu zenbatzeko</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Sakatu zenbatzeko</string>
+    <string name="tasbih_back">Itzuli</string>
+    <string name="tasbih_cancel">Utzi</string>
+    <string name="tasbih_confirm">Ados</string>
+    <string name="tasbih_custom_target">Pertsonalizatua</string>
+    <string name="tasbih_custom_target_hint">Sartu zenbatzen kopurua (1etik 100.000ra)</string>
+    <string name="tasbih_custom_target_title">Ezarri helburu pertsonalizatu bat</string>
+    <string name="tasbih_of_target">%1$skoa</string>
+    <string name="tasbih_reset">Berrezarri</string>
+    <string name="tasbih_reset_all">Berrezarri dena</string>
+    <string name="tasbih_round_complete">Txanda osoa (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Txandak: %1$d</string>
+    <string name="tasbih_sound_desc">Erreproduzitu dei-tonu edo tonu bat txanda osoa amaitzen denean</string>
+    <string name="tasbih_sound_title">Soinua helburuan</string>
+    <string name="tasbih_sound_tone_alarm">Alarma</string>
+    <string name="tasbih_sound_tone_notification">Jakinarazpena</string>
+    <string name="tasbih_sound_tone_ringtone">Dei-tonua</string>
+    <string name="tasbih_tap_hint">Sakatu zirkulua zenbatzeko</string>
+    <string name="tasbih_target_reached">Helburua lortu da - Ala onar dezala</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Gaurko \' hamarkada guztira: %1$d</string>
+    <string name="tasbih_undo">Desegin</string>
+    <string name="tasbih_virtue_label">dhikr honen bertutea</string>
+    <string name="tasbih_week_stats">Azken 7 egunak</string>
+</resources>

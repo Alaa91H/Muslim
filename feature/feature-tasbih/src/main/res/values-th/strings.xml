@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">ความผิดพลาดทางดิจิทัล — แตะเพื่อนับ</string>
+    <string name="misbaha_widget_label">ตัสบีห์</string>
+    <string name="misbaha_widget_tap_hint">แตะเพื่อนับ</string>
+    <string name="tasbih_back">กลับ</string>
+    <string name="tasbih_cancel">ยกเลิก</string>
+    <string name="tasbih_confirm">ตกลง</string>
+    <string name="tasbih_custom_target">กำหนดเอง</string>
+    <string name="tasbih_custom_target_hint">ป้อนจำนวนนับ (ตั้งแต่ 1 ถึง 100,000)</string>
+    <string name="tasbih_custom_target_title">กำหนดเป้าหมายที่กำหนดเอง</string>
+    <string name="tasbih_of_target">จำนวน %1$s</string>
+    <string name="tasbih_reset">รีเซ็ต</string>
+    <string name="tasbih_reset_all">รีเซ็ตทั้งหมด</string>
+    <string name="tasbih_round_complete">ครบรอบ (%1$s) 🎉</string>
+    <string name="tasbih_rounds">รอบ: %1$d</string>
+    <string name="tasbih_sound_desc">เล่นเสียงเรียกเข้าหรือโทนเสียงเมื่อเล่นครบแต่ละรอบ</string>
+    <string name="tasbih_sound_title">เสียงเข้าเป้า</string>
+    <string name="tasbih_sound_tone_alarm">ปลุก</string>
+    <string name="tasbih_sound_tone_notification">การแจ้งเตือน</string>
+    <string name="tasbih_sound_tone_ringtone">ริงโทน</string>
+    <string name="tasbih_tap_hint">แตะวงกลมเพื่อนับ</string>
+    <string name="tasbih_target_reached">บรรลุเป้าหมายแล้ว - ขออัลลอฮ์ทรงตอบรับ</string>
+    <string name="tasbih_title">ตัสบีห์</string>
+    <string name="tasbih_total_today">วันนี้ทั้งหมด \': %1$d</string>
+    <string name="tasbih_undo">เลิกทำ</string>
+    <string name="tasbih_virtue_label">อานิสงส์ของดิกรินี้</string>
+    <string name="tasbih_week_stats">7 วันที่ผ่านมา</string>
+</resources>

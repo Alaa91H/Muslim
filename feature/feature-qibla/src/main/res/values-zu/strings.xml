@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s kude</string>
+    <string name="mosque_finder_empty">Awekho ama-mosque atholakele kulobu bubanzi</string>
+    <string name="mosque_finder_error">Ukusesha kuhlulekile</string>
+    <string name="mosque_finder_intro">Thola ama-mosque eduze nendawo yakho nge-OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Ayikho indawo esethiwe okwamanje. Khetha indawo kuzilungiselelo zezikhathi zomkhuleko kuqala.</string>
+    <string name="mosque_finder_retry">Zama futhi</string>
+    <string name="mosque_finder_searching">Iyasesha...</string>
+    <string name="mosque_finder_title">Ama-mosque aseduze</string>
+    <string name="qibla_bearing_cardinal">Isiqondiso se-Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Hambisa ifoni yakho ibe yisishiyagalombili ukuze ulinganise</string>
+    <string name="qibla_distance">Ibanga eliya eMakkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Ubhekene neQibla 🕋</string>
+    <string name="qibla_gps_error">Ayikwazanga ukuthola ukulungiswa okunembile. Sicela uzame futhi.</string>
+    <string name="qibla_gps_live">Indawo ye-GPS ebukhoma</string>
+    <string name="qibla_gps_refresh">Vuselela indawo nge-GPS</string>
+    <string name="qibla_gps_refreshing">Ithola…</string>
+    <string name="qibla_heading_degree">Isihloko sefoni: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Umzila owumjikelezo omkhulu osuka endaweni yakho uye e-Kaaba — usebenza ungaxhunyiwe ku-inthanethi</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Wena</string>
+    <string name="qibla_mode_compass">Ikhampasi</string>
+    <string name="qibla_mode_map">Imephu</string>
+    <string name="qibla_open_mosques">Ama-mosque aseduze</string>
+    <string name="qibla_title">Isiqondiso se-Qibla</string>
+    <string name="qibla_turn_left">Jikela kwesokunxele %1$.1f°</string>
+    <string name="qibla_turn_right">Jikela kwesokudla %1$.1f°</string>
+</resources>

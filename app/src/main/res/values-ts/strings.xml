@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar ya mixo, nimadyambu &amp; endzhaku ka xikhongelo na tikhawuntara</string>
+    <string name="more_downloads">Ku hlayiwa ka swilo leswi dawunilodiwaka</string>
+    <string name="more_downloads_desc">Download surah, ayah kumbe Quran leyi heleleke na muhlayi wa wena loyi u n’wi hlawuleke</string>
+    <string name="more_hadith">Hadith ya Xitsonga</string>
+    <string name="more_hadith_desc">Layiburari ya ti-hadith, ku lavisisa &amp; hadith ya siku</string>
+    <string name="more_learn">Dyondza</string>
+    <string name="more_learn_desc">Swiletelo swa wudu &amp; swikhongelo swa magoza hi magoza</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Minkarhi ya Suhoor &amp; iftar na fasting tracker</string>
+    <string name="more_reference">Layiburari ya Swikombo</string>
+    <string name="more_reference_desc">Xingheniso xa Islam, the Sira &amp; vaprofeta</string>
+    <string name="more_settings">Switirhisiwa</string>
+    <string name="more_settings_desc">Theme, ririmi, xikhongelo &amp; swiyimiso swa adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digital misbaha na matimu ya siku na siku</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat eka rifuwo &amp; Fitr calculator</string>
+    <string name="scaffold_message">Xirhendzevutani xa phurojeke ya timodyuli to tala xi lunghekile.\nXiyenge xa ​​1 — Adhan, minkarhi ya xikhongelo, Qibla, na khalendara ya Hijri — yi sungula laha.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla nkongomiso</string>
+    <string name="shortcut_settings">Switirhisiwa</string>
+    <string name="shortcut_settings_long">Swiyimiso swa xikhongelo &amp; adhan</string>
+    <string name="shortcut_times">Minkarhi ya xikhongelo</string>
+    <string name="shortcut_times_long">Namuntlha\'s minkarhi ya xikhongelo</string>
+    <string name="tab_home">Minkarhi ya Xikhongelo</string>
+    <string name="tab_more">Swin’wana</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

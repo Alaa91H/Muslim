@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s के दूरी पर बा</string>
+    <string name="mosque_finder_empty">एह रेंज में कवनो मस्जिद ना मिलल</string>
+    <string name="mosque_finder_error">खोज फेल हो गइल</string>
+    <string name="mosque_finder_intro">ओपनस्ट्रीटमैप के माध्यम से अपना स्थान के नजदीक के मस्जिद खोजीं</string>
+    <string name="mosque_finder_no_location">अबहीं ले कवनो लोकेशन सेट नइखे भइल. पहिले प्रार्थना के समय सेटिंग से कवनो स्थान चुनीं।</string>
+    <string name="mosque_finder_retry">दोबारा कोशिश करीं</string>
+    <string name="mosque_finder_searching">खोजत बानी...</string>
+    <string name="mosque_finder_title">पास के मस्जिद बा</string>
+    <string name="qibla_bearing_cardinal">किबला के दिशा: %1$s बा</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f° के बा</string>
+    <string name="qibla_calibrate">कैलिब्रेट करे खातिर अपना फोन के फिगर-आठ में ले जाईं</string>
+    <string name="qibla_distance">मक्का से दूरी: %1$s बा</string>
+    <string name="qibla_distance_km">%,.0f किमी के बा</string>
+    <string name="qibla_facing">रउरा किबला 🕋 के सामना कर रहल बानी</string>
+    <string name="qibla_gps_error">सही फिक्स ना मिल पावल. कृपया दोबारा कोशिश करीं।</string>
+    <string name="qibla_gps_live">लाइव जीपीएस लोकेशन के बा</string>
+    <string name="qibla_gps_refresh">जीपीएस के माध्यम से लोकेशन रिफ्रेश करीं</string>
+    <string name="qibla_gps_refreshing">पता लगावल जा रहल बा...</string>
+    <string name="qibla_heading_degree">फोन के शीर्षक: %1$.0f° (%2$s) बा।</string>
+    <string name="qibla_map_hint">अपना लोकेशन से काबा तक के ग्रेट-सर्कल रूट — ऑफलाइन काम करेला</string>
+    <string name="qibla_map_kaaba">काबा के बा</string>
+    <string name="qibla_map_you">रउरा सभे के...</string>
+    <string name="qibla_mode_compass">कम्पास के बा</string>
+    <string name="qibla_mode_map">नक्शा के बा</string>
+    <string name="qibla_open_mosques">पास के मस्जिद बा</string>
+    <string name="qibla_title">किबला के दिशा में बा</string>
+    <string name="qibla_turn_left">बाईं ओर मुड़ें %1$.1f°</string>
+    <string name="qibla_turn_right">दाहिने मुड़ें %1$.1f°</string>
+</resources>

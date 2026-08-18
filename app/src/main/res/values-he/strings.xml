@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">מוסלמי</string>
+    <string name="more_adhkar">אדקאר</string>
+    <string name="more_adhkar_desc">אחקר בוקר, ערב ואחרי תפילה עם דלפקים</string>
+    <string name="more_downloads">הורדות דקלומים</string>
+    <string name="more_downloads_desc">הורד סורה, איה או הקוראן המלא עם הקוראן שבחרת</string>
+    <string name="more_hadith">חדית\'</string>
+    <string name="more_hadith_desc">ספריית חדית\', חיפוש וחדית\' של היום</string>
+    <string name="more_learn">למד</string>
+    <string name="more_learn_desc">מדריכי wudu ותפילה שלב אחר שלב</string>
+    <string name="more_ramadan">רמדאן</string>
+    <string name="more_ramadan_desc">זמני Suhoor &amp; iftar ומעקב אחר צום</string>
+    <string name="more_reference">ספריית עזר</string>
+    <string name="more_reference_desc">מבוא לאסלאם, הסירה והנביאים</string>
+    <string name="more_settings">הגדרות</string>
+    <string name="more_settings_desc">הגדרות נושא, שפה, תפילה ואדהאן</string>
+    <string name="more_tasbih">טסביח</string>
+    <string name="more_tasbih_desc">מיסבחה דיגיטלית עם היסטוריה יומיומית</string>
+    <string name="more_zakat">זכאת</string>
+    <string name="more_zakat_desc">מחשבון Zakat on Wealth &amp; Fitr</string>
+    <string name="scaffold_message">שלד הפרויקט הרב-מודולי מוכן.\nשלב 1 - אדהאן, זמני תפילה, קיבלה ולוח השנה ההיג\'רי - מתחיל כאן.</string>
+    <string name="shortcut_qibla">קיבלה</string>
+    <string name="shortcut_qibla_long">כיוון קיבלה</string>
+    <string name="shortcut_settings">הגדרות</string>
+    <string name="shortcut_settings_long">הגדרות תפילה ואדהאן</string>
+    <string name="shortcut_times">זמני תפילה</string>
+    <string name="shortcut_times_long">היום \' זמני תפילה</string>
+    <string name="tab_home">זמני תפילה</string>
+    <string name="tab_more">עוד</string>
+    <string name="tab_qibla">קיבלה</string>
+    <string name="tab_quran">קוראן</string>
 </resources>

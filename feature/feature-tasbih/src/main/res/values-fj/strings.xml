@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha digitaki — tabaka me wiliki</string>
+    <string name="misbaha_widget_label">Tasibi</string>
+    <string name="misbaha_widget_tap_hint">Tabaka mo wilika</string>
+    <string name="tasbih_back">Lesu tale</string>
+    <string name="tasbih_cancel">Bokoca</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Vakatovotovo</string>
+    <string name="tasbih_custom_target_hint">Vakacuruma na iwiliwili ni wiliwili (mai na 1 ki na 100000)</string>
+    <string name="tasbih_custom_target_title">Tuvanaka e dua na takete vakaitaukei</string>
+    <string name="tasbih_of_target">ni %1$s</string>
+    <string name="tasbih_reset">Vakavoutaka</string>
+    <string name="tasbih_reset_all">Vakavoutaka na veika kece</string>
+    <string name="tasbih_round_complete">Ronda completa completa (%1$s) 🎉 .</string>
+    <string name="tasbih_rounds">Rauta: %1$d</string>
+    <string name="tasbih_sound_desc">Qitotaka e dua na rorogo ni qiri se rorogo ni sa oti na rauni taucoko yadua .</string>
+    <string name="tasbih_sound_title">Rogo ena takete</string>
+    <string name="tasbih_sound_tone_alarm">Alamu</string>
+    <string name="tasbih_sound_tone_notification">Vakaraitaki</string>
+    <string name="tasbih_sound_tone_ringtone">Domo ni qiri</string>
+    <string name="tasbih_tap_hint">Tabaka na maliwa lala me wiliki .</string>
+    <string name="tasbih_target_reached">Takete sa rawati — me ciqoma o Allah .</string>
+    <string name="tasbih_title">Tasibi</string>
+    <string name="tasbih_total_today">Nikua \' taucoko: %1$d</string>
+    <string name="tasbih_undo">Vakasuka</string>
+    <string name="tasbih_virtue_label">Na itovo vinaka ni dhikr oqo</string>
+    <string name="tasbih_week_stats">iOtioti ni 7 na siga</string>
+</resources>

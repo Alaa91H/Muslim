@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Vissza</string>
+    <string name="reference_no_results">Nincsenek megfelelő eredmények</string>
+    <string name="reference_search_hint">Keresse ezt a könyvet…</string>
+    <string name="reference_title">Islamic Reference Library</string>
+    <string name="reference_topics_count">témákat</string>
+</resources>

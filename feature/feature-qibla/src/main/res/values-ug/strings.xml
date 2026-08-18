@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s away</string>
+    <string name="mosque_finder_empty">بۇ دائىرىدە ھېچقانداق مەسچىت تېپىلمىدى</string>
+    <string name="mosque_finder_error">ئىزدەش مەغلۇپ بولدى</string>
+    <string name="mosque_finder_intro">OpenStreetMap ئارقىلىق ئورنىڭىزغا يېقىن مەسچىتلەرنى تېپىڭ</string>
+    <string name="mosque_finder_no_location">تېخى ئورۇن بېكىتىلمىدى. ئالدى بىلەن دۇئا ۋاقتى تەڭشەكلىرىدىن ئورۇن تاللاڭ.</string>
+    <string name="mosque_finder_retry">قايتا سىناڭ</string>
+    <string name="mosque_finder_searching">ئىزدەش…</string>
+    <string name="mosque_finder_title">يېقىندىكى مەسچىتلەر</string>
+    <string name="qibla_bearing_cardinal">قىبلا يۆنىلىشى: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f °</string>
+    <string name="qibla_calibrate">تېلېفونىڭىزنى سەككىز خانىلىق سان بىلەن يۆتكەڭ</string>
+    <string name="qibla_distance">مەككە بىلەن بولغان ئارىلىقى: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">سىز قىبلىغا دۇچ كېلىسىز</string>
+    <string name="qibla_gps_error">توغرا تۈزىتىشكە ئېرىشەلمىدى. قايتا سىناڭ.</string>
+    <string name="qibla_gps_live">نەق مەيدان GPS ئورنى</string>
+    <string name="qibla_gps_refresh">GPS ئارقىلىق ئورۇننى يېڭىلاڭ</string>
+    <string name="qibla_gps_refreshing">Locating…</string>
+    <string name="qibla_heading_degree">تېلېفون ماۋزۇسى: %1$.0f ° (%2$s)</string>
+    <string name="qibla_map_hint">ئورنىڭىزدىن كاباغا بارىدىغان چوڭ چەمبەر يولى - تورسىز ئىشلەيدۇ</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">سەن</string>
+    <string name="qibla_mode_compass">Compass</string>
+    <string name="qibla_mode_map">خەرىتە</string>
+    <string name="qibla_open_mosques">يېقىندىكى مەسچىتلەر</string>
+    <string name="qibla_title">قىبلە يۆنىلىشى</string>
+    <string name="qibla_turn_left">سولغا بۇرۇلۇش %1$.1f °</string>
+    <string name="qibla_turn_right">ئوڭغا بۇرۇلۇش %1$.1f °</string>
+</resources>

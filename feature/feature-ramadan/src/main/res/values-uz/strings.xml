@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Orqaga</string>
+    <string name="ramadan_countdown">Ramazon %1$s kundan keyin boshlanadi</string>
+    <string name="ramadan_countdown_to_iftar">Iftorlik vaqti: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Bomdod vaqti: %1$s</string>
+    <string name="ramadan_day_of_month">Ramazon oyining %1$s kuni</string>
+    <string name="ramadan_days_left">%1$s kun qoldi</string>
+    <string name="ramadan_fasting_progress">Ro\'za kunlari: %2$s dan %1$s - yozib olish uchun bir kunni bosing</string>
+    <string name="ramadan_fasting_tracker">Ro\'za kuzatuvchisi</string>
+    <string name="ramadan_hijri_note">Umm al-Qura taqvimiga asoslanib, ilova boʻylab hijriy sozlash qoʻllanilgan.</string>
+    <string name="ramadan_hijri_year">%1$s hijriy yil</string>
+    <string name="ramadan_iftar">Iftorlik</string>
+    <string name="ramadan_iftar_dua">Iftorlik duosi: "Allohim, Sen uchun ro\'za tutdim va Sening rizqing bilan iftor qildim..."</string>
+    <string name="ramadan_iftar_time">Iftorlik vaqti: %1$s</string>
+    <string name="ramadan_location_required">Vaqtlarni ko‘rish uchun avval Sozlamalar orqali shaharni tanlang.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Allohim, Sen uchun ro\'za tutdim va Sening rizqing bilan iftor qildim</string>
+    <string name="ramadan_notification_iftar_title">Iftorlik vaqti</string>
+    <string name="ramadan_notification_suhoor_body">Bomdod yaqinlashmoqda - sahuringizni qiling</string>
+    <string name="ramadan_notification_suhoor_title">Sahur haqida eslatma</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhur</string>
+    <string name="ramadan_suhoor_remind_before">Oldindan eslatib qo\'ying:</string>
+    <string name="ramadan_suhoor_time">Sahurning tugashi (bomdod): %1$s</string>
+    <string name="ramadan_title">Ramazon</string>
+</resources>

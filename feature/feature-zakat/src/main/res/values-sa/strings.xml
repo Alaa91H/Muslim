@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">मूल्यानि स्वयमेव आनयन्तु</string>
+    <string name="zakat_auto_prices_hint">यदा सक्षमं भवति तदा अन्तर्जालतः सुवर्णरजतमूल्यानि आनयन्ति, स्वयमेव ताजगीकृतानि च भवन्ति</string>
+    <string name="zakat_back">पृष्ठतः</string>
+    <string name="zakat_cash">नगदं बचतं च</string>
+    <string name="zakat_clear_history">इतिहासं स्पष्टं कुरुत</string>
+    <string name="zakat_country">देश</string>
+    <string name="zakat_country_placeholder">स्वदेशं मुद्रां च चिनुत</string>
+    <string name="zakat_country_section">देश &amp; मुद्रा</string>
+    <string name="zakat_currency">मुद्रा: %1$s</string>
+    <string name="zakat_debts">भवतः ऋणानि (कटौतिः) २.</string>
+    <string name="zakat_due">देय जकात (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t मूल्यानि आनयितुं। स्वस्य संयोजनं पश्यन्तु अथवा मूल्यं स्वहस्तेन प्रविशन्तु।</string>
+    <string name="zakat_fetch_now">अधुना मूल्यानि ताजगीं कुर्वन्तु</string>
+    <string name="zakat_fetching">मूल्यानि आनयन्...</string>
+    <string name="zakat_fitr_persons">परिवारस्य सदस्यानां संख्या</string>
+    <string name="zakat_fitr_saa_value">एकस्य sa\' (मुख्यभोजनस्य) मूल्यम्</string>
+    <string name="zakat_fitr_section">जकात अल-फितर</string>
+    <string name="zakat_fitr_total">कुल फितर जकात : %1$s</string>
+    <string name="zakat_gold_grams">सुवर्ण (ग्राम) २.</string>
+    <string name="zakat_gold_price">प्रतिग्रामं सुवर्णस्य मूल्यम्</string>
+    <string name="zakat_history">गणना इतिहास</string>
+    <string name="zakat_history_amount">जकात : %1$s</string>
+    <string name="zakat_history_empty">अद्यापि रक्षितानि गणनानि नास्ति।</string>
+    <string name="zakat_investments">निवेशाः</string>
+    <string name="zakat_last_updated">अन्तिम अपडेट: %1$s</string>
+    <string name="zakat_money_section">धनस्य उपरि जकात</string>
+    <string name="zakat_nisab_gold">सुवर्ण निसाब (८५ग्रम्) २.</string>
+    <string name="zakat_nisab_met">निसाबः प्राप्यते — जकातः देयः</string>
+    <string name="zakat_nisab_not_met">निसाबस्य अधः — जकातस्य देयम् नास्ति</string>
+    <string name="zakat_nisab_silver">रजत निसाब (५९५g) २.</string>
+    <string name="zakat_rulings_note">बहुमतं प्रति (jumhoor): सुवर्णस्य निसाबः ८५g, रजतस्य ५९५g, तथा च देयऋणानां कटौतीं कृत्वा दरः २.५%% भवति । विशेषप्रकरणानाम् कृते योग्यविद्वान् सल्लाहं कुर्वन्तु।</string>
+    <string name="zakat_save_result">इतिहासे रक्षतु</string>
+    <string name="zakat_silver_grams">रजत (ग्राम) २.</string>
+    <string name="zakat_silver_price">प्रतिग्रामं रजतस्य मूल्यम्</string>
+    <string name="zakat_source_note">gold-api.com इत्यस्मात् सुवर्णस्य/रजतस्य मूल्यानि; open.er-api.com इत्यस्मात् FX दराः</string>
+    <string name="zakat_title">जकात</string>
+    <string name="zakat_total_assets">कुल सम्पत्ति</string>
+    <string name="zakat_trade">व्यापार माल मूल्य</string>
+    <string name="zakat_zakatable">ऋणानां पश्चात् जकाटेबल राशि</string>
+</resources>

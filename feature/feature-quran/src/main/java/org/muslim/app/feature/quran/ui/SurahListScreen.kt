@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Search
@@ -43,6 +44,7 @@ fun SurahListScreen(
     onOpenSurah: (Int) -> Unit,
     onOpenSearch: () -> Unit,
     onOpenBookmarks: () -> Unit,
+    onOpenWordFrequency: () -> Unit,
     onResumeReading: (surahNumber: Int, globalNumber: Int) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: SurahListViewModel = hiltViewModel(),
@@ -67,6 +69,12 @@ fun SurahListScreen(
                 Icon(
                     Icons.Filled.Bookmark,
                     contentDescription = stringResource(R.string.quran_bookmarks),
+                )
+            }
+            IconButton(onClick = onOpenWordFrequency) {
+                Icon(
+                    Icons.Filled.BarChart,
+                    contentDescription = stringResource(R.string.quran_frequency_open),
                 )
             }
         }

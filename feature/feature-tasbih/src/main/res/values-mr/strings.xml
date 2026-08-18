@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">डिजिटल मिसबाह - मोजण्यासाठी टॅप करा</string>
+    <string name="misbaha_widget_label">तस्बिह</string>
+    <string name="misbaha_widget_tap_hint">मोजण्यासाठी टॅप करा</string>
+    <string name="tasbih_back">मागे</string>
+    <string name="tasbih_cancel">रद्द करा</string>
+    <string name="tasbih_confirm">ठीक आहे</string>
+    <string name="tasbih_custom_target">सानुकूल</string>
+    <string name="tasbih_custom_target_hint">गणांची संख्या प्रविष्ट करा (1 ते 100000 पर्यंत)</string>
+    <string name="tasbih_custom_target_title">सानुकूल लक्ष्य सेट करा</string>
+    <string name="tasbih_of_target">%1$s चे</string>
+    <string name="tasbih_reset">रीसेट करा</string>
+    <string name="tasbih_reset_all">सर्व रीसेट करा</string>
+    <string name="tasbih_round_complete">पूर्ण फेरी पूर्ण (%1$s) 🎉</string>
+    <string name="tasbih_rounds">फेऱ्या: %1$d</string>
+    <string name="tasbih_sound_desc">प्रत्येक पूर्ण फेरी पूर्ण झाल्यावर रिंगटोन किंवा टोन वाजवा</string>
+    <string name="tasbih_sound_title">लक्ष्यावर आवाज</string>
+    <string name="tasbih_sound_tone_alarm">गजर</string>
+    <string name="tasbih_sound_tone_notification">सूचना</string>
+    <string name="tasbih_sound_tone_ringtone">रिंगटोन</string>
+    <string name="tasbih_tap_hint">मोजण्यासाठी मंडळावर टॅप करा</string>
+    <string name="tasbih_target_reached">ध्येय गाठले - अल्लाह स्वीकार करो</string>
+    <string name="tasbih_title">तस्बिह</string>
+    <string name="tasbih_total_today">आज एकूण \': %1$d</string>
+    <string name="tasbih_undo">पूर्ववत करा</string>
+    <string name="tasbih_virtue_label">या धिकाराचे पुण्य</string>
+    <string name="tasbih_week_stats">शेवटचे ७ दिवस</string>
+</resources>

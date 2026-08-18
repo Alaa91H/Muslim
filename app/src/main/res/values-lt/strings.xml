@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Musulmonas</string>
+    <string name="more_adhkar">Adhkaras</string>
+    <string name="more_adhkar_desc">Rytinis, vakarinis ir po maldos adhkar su skaitikliais</string>
+    <string name="more_downloads">Deklamacijos atsisiuntimai</string>
+    <string name="more_downloads_desc">Atsisiųskite surą, ayah arba visą Koraną su pasirinktu deklamuotoju</string>
+    <string name="more_hadith">Haditas</string>
+    <string name="more_hadith_desc">Hadith biblioteka, paieška ir dienos hadisas</string>
+    <string name="more_learn">Mokykis</string>
+    <string name="more_learn_desc">Žingsnis po žingsnio wudu ir maldos vadovai</string>
+    <string name="more_ramadan">Ramadanas</string>
+    <string name="more_ramadan_desc">Suhoor ir iftar laikai ir badavimo stebėjimo priemonė</string>
+    <string name="more_reference">Nuorodų biblioteka</string>
+    <string name="more_reference_desc">Įvadas į islamą, Sirą ir pranašus</string>
+    <string name="more_settings">Nustatymai</string>
+    <string name="more_settings_desc">Temos, kalbos, maldos ir adhano nustatymai</string>
+    <string name="more_tasbih">Tasbihas</string>
+    <string name="more_tasbih_desc">Skaitmeninė misbaha su kasdiene istorija</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat apie turto ir Fitr skaičiuoklę</string>
+    <string name="scaffold_message">Kelių modulių projekto skeletas paruoštas.\n1 etapas – Adhanas, maldos laikai, Qibla ir Hijri kalendorius – prasideda čia.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla kryptis</string>
+    <string name="shortcut_settings">Nustatymai</string>
+    <string name="shortcut_settings_long">Maldos ir adhano nustatymai</string>
+    <string name="shortcut_times">Maldos laikai</string>
+    <string name="shortcut_times_long">Šiandien \' maldos kartų</string>
+    <string name="tab_home">Maldos laikai</string>
+    <string name="tab_more">Daugiau</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Koranas</string>
 </resources>

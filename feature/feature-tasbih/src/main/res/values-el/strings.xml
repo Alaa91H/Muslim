@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Ψηφιακό misbaha — πατήστε για μέτρηση</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Πατήστε για μέτρηση</string>
+    <string name="tasbih_back">Πίσω</string>
+    <string name="tasbih_cancel">Ακύρωση</string>
+    <string name="tasbih_confirm">ΟΚ</string>
+    <string name="tasbih_custom_target">Προσαρμοσμένο</string>
+    <string name="tasbih_custom_target_hint">Εισαγάγετε τον αριθμό των μετρήσεων (από 1 έως 100000)</string>
+    <string name="tasbih_custom_target_title">Ορίστε έναν προσαρμοσμένο στόχο</string>
+    <string name="tasbih_of_target">από %1$s</string>
+    <string name="tasbih_reset">Επαναφορά</string>
+    <string name="tasbih_reset_all">Επαναφορά όλων</string>
+    <string name="tasbih_round_complete">Πλήρης κύκλος (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Γύροι: %1$d</string>
+    <string name="tasbih_sound_desc">Παίξτε έναν ήχο κλήσης ή έναν ήχο όταν ολοκληρωθεί κάθε πλήρης γύρος</string>
+    <string name="tasbih_sound_title">Ήχος στο στόχο</string>
+    <string name="tasbih_sound_tone_alarm">Συναγερμός</string>
+    <string name="tasbih_sound_tone_notification">Ειδοποίηση</string>
+    <string name="tasbih_sound_tone_ringtone">Ήχος κλήσης</string>
+    <string name="tasbih_tap_hint">Πατήστε τον κύκλο για μέτρηση</string>
+    <string name="tasbih_target_reached">Ο στόχος επιτεύχθηκε - ο Αλλάχ να δεχτεί</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Σήμερα \' συνολικά: %1$d</string>
+    <string name="tasbih_undo">Αναίρεση</string>
+    <string name="tasbih_virtue_label">Αρετή αυτού του ντικρ</string>
+    <string name="tasbih_week_stats">Τελευταίες 7 μέρες</string>
+</resources>

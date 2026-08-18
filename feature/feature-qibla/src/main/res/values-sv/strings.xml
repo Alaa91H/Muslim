@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s bort</string>
+    <string name="mosque_finder_empty">Inga moskéer hittades i det här området</string>
+    <string name="mosque_finder_error">Sökningen misslyckades</string>
+    <string name="mosque_finder_intro">Hitta moskéer nära din plats via OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Ingen plats angiven ännu. Välj en plats från inställningarna för bönetider först.</string>
+    <string name="mosque_finder_retry">Försök igen</string>
+    <string name="mosque_finder_searching">Söker...</string>
+    <string name="mosque_finder_title">Moskéer i närheten</string>
+    <string name="qibla_bearing_cardinal">Qibla riktning: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Flytta din telefon i en åttasiffra för att kalibrera</string>
+    <string name="qibla_distance">Avstånd till Mecka: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Du står inför Qibla 🕋</string>
+    <string name="qibla_gps_error">Kunde inte få en exakt korrigering. Försök igen.</string>
+    <string name="qibla_gps_live">Live GPS-position</string>
+    <string name="qibla_gps_refresh">Uppdatera plats via GPS</string>
+    <string name="qibla_gps_refreshing">Hittar...</string>
+    <string name="qibla_heading_degree">Telefonrubrik: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Rutt i en rund cirkel från din plats till Kaaba — fungerar offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Du</string>
+    <string name="qibla_mode_compass">Kompass</string>
+    <string name="qibla_mode_map">Karta</string>
+    <string name="qibla_open_mosques">Moskéer i närheten</string>
+    <string name="qibla_title">Qibla riktning</string>
+    <string name="qibla_turn_left">Sväng vänster %1$.1f°</string>
+    <string name="qibla_turn_right">Sväng höger %1$.1f°</string>
+</resources>

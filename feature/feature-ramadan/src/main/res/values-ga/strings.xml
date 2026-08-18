@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Ar ais</string>
+    <string name="ramadan_countdown">Tosaíonn Ramadan i %1$s lá</string>
+    <string name="ramadan_countdown_to_iftar">Am chun iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Am go Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Lá %1$s de Ramadan</string>
+    <string name="ramadan_days_left">%1$s lá fágtha</string>
+    <string name="ramadan_fasting_progress">Laethanta troscadh: %1$s de %2$s - tapáil lá chun é a thaifeadadh</string>
+    <string name="ramadan_fasting_tracker">Lorgaire troscadh</string>
+    <string name="ramadan_hijri_note">Bunaithe ar fhéilire Umm al-Qura agus an coigeartú Hijri ar fud na haipe i bhfeidhm.</string>
+    <string name="ramadan_hijri_year">Bliain %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iarraidh Iftar: "O Allah, rinne mé troscadh ar do shon agus ar do sholáthar brisim mo thras ..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) am: %1$s</string>
+    <string name="ramadan_location_required">Roghnaigh cathair sna Socruithe ar dtús chun na hamanna a fheiceáil.</string>
+    <string name="ramadan_minutes">%1$s nóim</string>
+    <string name="ramadan_notification_iftar_body">O Allah, ar do shon rinne mé troscadh agus ar do sholáthar brisim mo thrascadh</string>
+    <string name="ramadan_notification_iftar_title">Am le haghaidh iftar</string>
+    <string name="ramadan_notification_suhoor_body">Tá Fajr ag druidim - bíodh do shuhoor agat</string>
+    <string name="ramadan_notification_suhoor_title">Meabhrúchán suhoor</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Cuir i gcuimhne dom roimh:</string>
+    <string name="ramadan_suhoor_time">Críochnaíonn Suhoor (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

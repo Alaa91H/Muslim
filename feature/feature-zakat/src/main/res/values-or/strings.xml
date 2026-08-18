@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">ସ୍ୱୟଂଚାଳିତ ଭାବରେ ମୂଲ୍ୟ ଆଣନ୍ତୁ |</string>
+    <string name="zakat_auto_prices_hint">ସକ୍ଷମ ହେଲେ, ସୁନା ଏବଂ ରୂପା ମୂଲ୍ୟ ଇଣ୍ଟରନେଟରୁ ଅଣାଯାଇ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ସତେଜ ହୁଏ |</string>
+    <string name="zakat_back">ପଛକୁ</string>
+    <string name="zakat_cash">ନଗଦ ଏବଂ ସଞ୍ଚୟ</string>
+    <string name="zakat_clear_history">ଇତିହାସ ସଫା କରନ୍ତୁ |</string>
+    <string name="zakat_country">ଦେଶ</string>
+    <string name="zakat_country_placeholder">ଆପଣଙ୍କର ଦେଶ ଏବଂ ମୁଦ୍ରା ବାଛନ୍ତୁ |</string>
+    <string name="zakat_country_section">ଦେଶ ଏବଂ ମୁଦ୍ରା</string>
+    <string name="zakat_currency">ମୁଦ୍ରା: %1$s</string>
+    <string name="zakat_debts">ତୁମର we ଣ (କଟାଯାଇଥିବା)</string>
+    <string name="zakat_due">ଜାକତ୍ ଦେୟ (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'t ମୂଲ୍ୟ ଆଣିବା ସମ୍ଭବ ନୁହେଁ | ଆପଣଙ୍କର ସଂଯୋଗ ଯାଞ୍ଚ କରନ୍ତୁ କିମ୍ବା ମୂଲ୍ୟକୁ ହସ୍ତକୃତ ଭାବରେ ପ୍ରବେଶ କରନ୍ତୁ |</string>
+    <string name="zakat_fetch_now">ବର୍ତ୍ତମାନ ମୂଲ୍ୟ ସତେଜ କରନ୍ତୁ |</string>
+    <string name="zakat_fetching">ମୂଲ୍ୟ ଆଣିବା…</string>
+    <string name="zakat_fitr_persons">ପରିବାର ସଦସ୍ୟଙ୍କ ସଂଖ୍ୟା</string>
+    <string name="zakat_fitr_saa_value">ଗୋଟିଏ sa\' ର ମୂଲ୍ୟ (ମୁଖ୍ୟ ଖାଦ୍ୟ)</string>
+    <string name="zakat_fitr_section">ଜାକତ ଅଲ-ଫିଟର |</string>
+    <string name="zakat_fitr_total">ମୋଟ ଫିଟ୍ ଜାକେଟ୍: %1$s</string>
+    <string name="zakat_gold_grams">ସୁନା (ଗ୍ରାମ)</string>
+    <string name="zakat_gold_price">ପ୍ରତି ଗ୍ରାମରେ ସୁନା ମୂଲ୍ୟ |</string>
+    <string name="zakat_history">ଗଣନା ଇତିହାସ</string>
+    <string name="zakat_history_amount">ଜାକତ୍: %1$s</string>
+    <string name="zakat_history_empty">ଏପର୍ଯ୍ୟନ୍ତ କ saved ଣସି ସଞ୍ଚିତ ଗଣନା ନାହିଁ |</string>
+    <string name="zakat_investments">ବିନିଯୋଗ |</string>
+    <string name="zakat_last_updated">ଶେଷ ଅଦ୍ୟତନ: %1$s</string>
+    <string name="zakat_money_section">ଧନ ଉପରେ ଜାକତ୍ |</string>
+    <string name="zakat_nisab_gold">ସୁନା ନିସାବ (85g)</string>
+    <string name="zakat_nisab_met">ନିସାବ ପହଞ୍ଚିଛି - ଜାକତ ହେବାର ଅଛି |</string>
+    <string name="zakat_nisab_not_met">ନିସାବ ତଳେ - ଜାକତ ଦେବାର ନାହିଁ |</string>
+    <string name="zakat_nisab_silver">ରୂପା ନିସାବ (595g)</string>
+    <string name="zakat_rulings_note">ସଂଖ୍ୟା କିମ୍ବା ପ୍ରତୀକ ସହିତ ଅକ୍ଷର ମଧ୍ଯ ବ୍ୟବହାର କରି। ବିଶେଷ ମାମଲା ପାଇଁ ଜଣେ ଯୋଗ୍ୟ ପଣ୍ଡିତଙ୍କ ସହିତ ପରାମର୍ଶ କରନ୍ତୁ | %%</string>
+    <string name="zakat_save_result">ଇତିହାସକୁ ସଞ୍ଚୟ କରନ୍ତୁ |</string>
+    <string name="zakat_silver_grams">ରୂପା (ଗ୍ରାମ)</string>
+    <string name="zakat_silver_price">ପ୍ରତି ଗ୍ରାମରେ ରୂପା ମୂଲ୍ୟ |</string>
+    <string name="zakat_source_note">Gold-api.com ରୁ ସୁନା / ରୂପା ମୂଲ୍ୟ; Open.er-api.com ରୁ FX ହାର |</string>
+    <string name="zakat_title">ଜାକତ୍ |</string>
+    <string name="zakat_total_assets">ସମୁଦାୟ ସମ୍ପତ୍ତି |</string>
+    <string name="zakat_trade">ବାଣିଜ୍ୟ ଦ୍ରବ୍ୟର ମୂଲ୍ୟ |</string>
+    <string name="zakat_zakatable">Deb ଣ ପରେ ଜାକେଟେବଲ୍ ରାଶି |</string>
+</resources>

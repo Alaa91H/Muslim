@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">ທັງໝົດ</string>
+    <string name="hadith_back">ກັບຄືນໄປບ່ອນ</string>
+    <string name="hadith_bookmark_add">ເພີ່ມບຸກມາກ</string>
+    <string name="hadith_bookmark_remove">ເອົາບຸກມາກອອກ</string>
+    <string name="hadith_collection_abudawud">Abu Dawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah</string>
+    <string name="hadith_collection_muslim">ມຸດສະລິມ</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">ອານ-ນາວາລີ 40</string>
+    <string name="hadith_collection_other">ອື່ນໆ</string>
+    <string name="hadith_collection_riyad">Riyadh as-Salihin</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidhi</string>
+    <string name="hadith_daily_notification">ແຈ້ງ​ການ hadith ປະ​ຈໍາ​ວັນ​</string>
+    <string name="hadith_daily_notification_desc">ໄດ້ຮັບ hadith ທຸກໆມື້</string>
+    <string name="hadith_daily_notification_time">ເວລາແຈ້ງການ</string>
+    <string name="hadith_of_the_day">Hadith ຂອງ​ມື້​</string>
+    <string name="hadith_preview_hint">ນີ້ແມ່ນວິທີການແຈ້ງການ hadith ປະຈໍາວັນປະກົດຂຶ້ນໃນເວລາທີ່ກໍານົດຂອງຕົນ.</string>
+    <string name="hadith_preview_label">ຕົວຢ່າງການແຈ້ງເຕືອນ</string>
+    <string name="hadith_preview_loading">ກຳລັງໂຫລດ hadith...</string>
+    <string name="hadith_search_hint">ຊອກຫາ hadiths…</string>
+    <string name="hadith_share">ແບ່ງປັນ</string>
+    <string name="hadith_title">ຫໍສະຫມຸດ Hadith</string>
+</resources>

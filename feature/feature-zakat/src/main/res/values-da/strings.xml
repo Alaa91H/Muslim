@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Hent priser automatisk</string>
+    <string name="zakat_auto_prices_hint">Når det er aktiveret, hentes guld- og sølvpriserne fra internettet og opdateres automatisk</string>
+    <string name="zakat_back">Tilbage</string>
+    <string name="zakat_cash">Kontanter og opsparing</string>
+    <string name="zakat_clear_history">Ryd historik</string>
+    <string name="zakat_country">Land</string>
+    <string name="zakat_country_placeholder">Vælg dit land og din valuta</string>
+    <string name="zakat_country_section">Land og valuta</string>
+    <string name="zakat_currency">Valuta: %1$s</string>
+    <string name="zakat_debts">Gæld du skylder (fratrukket)</string>
+    <string name="zakat_due">Zakat forfalden (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Kunne ikke \' hente priser. Tjek din forbindelse eller indtast prisen manuelt.</string>
+    <string name="zakat_fetch_now">Opdater priserne nu</string>
+    <string name="zakat_fetching">Henter priser...</string>
+    <string name="zakat_fitr_persons">Antal familiemedlemmer</string>
+    <string name="zakat_fitr_saa_value">Værdi af én sa\' (grundfødevarer)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Total Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Guld (gram)</string>
+    <string name="zakat_gold_price">Guldpris per gram</string>
+    <string name="zakat_history">Beregningshistorik</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Ingen gemte beregninger endnu.</string>
+    <string name="zakat_investments">Investeringer</string>
+    <string name="zakat_last_updated">Sidst opdateret: %1$s</string>
+    <string name="zakat_money_section">Zakat om rigdom</string>
+    <string name="zakat_nisab_gold">Guld nisab (85 g)</string>
+    <string name="zakat_nisab_met">Nisab er nået - zakat forfalder</string>
+    <string name="zakat_nisab_not_met">Under nisab - ingen zakat på grund</string>
+    <string name="zakat_nisab_silver">Sølv nisab (595 g)</string>
+    <string name="zakat_rulings_note">Per flertallet (jumhoor): guld nisab er 85g, sølv 595g, og kursen er 2,5%% efter fradrag af forfalden gæld. Kontakt en kvalificeret forsker i særlige tilfælde.</string>
+    <string name="zakat_save_result">Gem i historikken</string>
+    <string name="zakat_silver_grams">Sølv (gram)</string>
+    <string name="zakat_silver_price">Sølvpris pr. gram</string>
+    <string name="zakat_source_note">Guld/sølv priser fra gold-api.com; Valutakurser fra open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Samlede aktiver</string>
+    <string name="zakat_trade">Handelsvareværdi</string>
+    <string name="zakat_zakatable">Zakatable beløb efter gæld</string>
+</resources>

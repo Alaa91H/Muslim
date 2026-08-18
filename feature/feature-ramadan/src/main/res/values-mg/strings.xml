@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Miverina</string>
+    <string name="ramadan_countdown">Manomboka amin\'ny %1$s andro ny Ramadany</string>
+    <string name="ramadan_countdown_to_iftar">Fotoana hanaovana iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Fotoana amin\'ny Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Andro %1$s amin\'ny Ramadany</string>
+    <string name="ramadan_days_left">%1$s andro sisa</string>
+    <string name="ramadan_fasting_progress">Andro fifadian-kanina: %1$s amin\'ny %2$s - kitiho isan\'andro handrakitra izany</string>
+    <string name="ramadan_fasting_tracker">Tracker fifadian-kanina</string>
+    <string name="ramadan_hijri_note">Miorina amin\'ny kalandrie Umm al-Qura miaraka amin\'ny fanitsiana Hijri manerana ny fampiharana ampiharina.</string>
+    <string name="ramadan_hijri_year">Taona %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar: "Ry Allah, ho Anao aho no nifady hanina ary amin\'ny sakafonao no andehanako ny fifadian-kanina..."</string>
+    <string name="ramadan_iftar_time">Fotoana Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Misafidiana tanàna iray ao amin\'ny Settings aloha hahitana ny fotoana.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Andriamanitra ô, ho Anao aho no nifady hanina ary noho ny vatsy Anao no tapaka ny fifadian-kanina</string>
+    <string name="ramadan_notification_iftar_title">Fotoana iftar</string>
+    <string name="ramadan_notification_suhoor_body">Efa antomotra ny Fajr — manaova suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Fampahatsiahivana Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Ampahatsiahivo ahy aloha:</string>
+    <string name="ramadan_suhoor_time">Mifarana ny Suhoor (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

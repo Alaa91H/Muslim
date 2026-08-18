@@ -20,6 +20,8 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
@@ -30,6 +32,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -91,7 +94,10 @@ private fun AdhkarLibraryContent(
     viewModel: AdhkarViewModel = hiltViewModel(),
 ) {
     val adhkar by viewModel.adhkar.collectAsStateWithLifecycle()
+    val favorites by viewModel.favorites.collectAsStateWithLifecycle()
+    val favoriteIds by viewModel.favoriteIds.collectAsStateWithLifecycle()
     val selectedCategory by viewModel.selectedCategory.collectAsStateWithLifecycle()
+    val morningEveningReminderEnabled by viewModel.morningEveningReminderEnabled.collectAsStateWithLifecycle()
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -138,14 +144,63 @@ private fun AdhkarLibraryContent(
                 }
             }
             Spacer(Modifier.height(8.dp))
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(R.string.adhkar_morning_evening_notification),
+                        style = MaterialTheme.typography.bodyMedium,
+                    )
+                    Text(
+                        text = stringResource(R.string.adhkar_morning_evening_notification_desc),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                Switch(
+                    checked = morningEveningReminderEnabled,
+                    onCheckedChange = viewModel::setMorningEveningReminderEnabled,
+                )
+            }
+
+            Spacer(Modifier.height(8.dp))
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(bottom = 24.dp),
             ) {
+                if (favorites.isNotEmpty()) {
+                    item(key = "favorites-header") {
+                        Text(
+                            text = stringResource(R.string.adhkar_favorites),
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.SemiBold,
+                            color = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                        )
+                    }
+                    items(favorites, key = { "fav-${it.id}" }) { dhikr ->
+                        DhikrCard(
+                            dhikr = dhikr,
+                            count = viewModel.count(dhikr.id).collectAsStateWithLifecycle(),
+                            isFavorite = dhikr.id in favoriteIds,
+                            onToggleFavorite = { viewModel.toggleFavorite(dhikr.id) },
+                            onIncrement = { viewModel.increment(dhikr.id) },
+                            onReset = { viewModel.reset(dhikr.id) },
+                        )
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+                    }
+                }
                 items(adhkar, key = { it.id }) { dhikr ->
                     DhikrCard(
                         dhikr = dhikr,
                         count = viewModel.count(dhikr.id).collectAsStateWithLifecycle(),
+                        isFavorite = dhikr.id in favoriteIds,
+                        onToggleFavorite = { viewModel.toggleFavorite(dhikr.id) },
                         onIncrement = { viewModel.increment(dhikr.id) },
                         onReset = { viewModel.reset(dhikr.id) },
                     )
@@ -160,6 +215,8 @@ private fun AdhkarLibraryContent(
 private fun DhikrCard(
     dhikr: Dhikr,
     count: androidx.compose.runtime.State<Int>,
+    isFavorite: Boolean,
+    onToggleFavorite: () -> Unit,
     onIncrement: () -> Unit,
     onReset: () -> Unit,
 ) {
@@ -173,11 +230,29 @@ private fun DhikrCard(
             .padding(horizontal = 16.dp, vertical = 8.dp),
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                text = dhikr.arabic,
-                style = MaterialTheme.typography.bodyLarge.copy(fontSize = 20.sp),
+            Row(
                 modifier = Modifier.fillMaxWidth(),
-            )
+                verticalAlignment = Alignment.Top,
+            ) {
+                Text(
+                    text = dhikr.arabic,
+                    style = MaterialTheme.typography.bodyLarge.copy(fontSize = 20.sp),
+                    modifier = Modifier.weight(1f),
+                )
+                IconButton(onClick = onToggleFavorite) {
+                    Icon(
+                        imageVector = if (isFavorite) Icons.Filled.Star else Icons.Outlined.StarBorder,
+                        contentDescription = stringResource(
+                            if (isFavorite) R.string.adhkar_remove_favorite else R.string.adhkar_add_favorite,
+                        ),
+                        tint = if (isFavorite) {
+                            MaterialTheme.colorScheme.primary
+                        } else {
+                            MaterialTheme.colorScheme.onSurfaceVariant
+                        },
+                    )
+                }
+            }
             dhikr.virtue?.let { virtue ->
                 Spacer(Modifier.height(8.dp))
                 Text(

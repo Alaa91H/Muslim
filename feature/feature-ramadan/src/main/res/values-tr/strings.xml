@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Geri</string>
+    <string name="ramadan_countdown">Ramazan %1$s gün sonra başlıyor</string>
+    <string name="ramadan_countdown_to_iftar">İftar vakti: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Sabah vakti: %1$s</string>
+    <string name="ramadan_day_of_month">Ramazanın %1$s. günü</string>
+    <string name="ramadan_days_left">%1$s gün kaldı</string>
+    <string name="ramadan_fasting_progress">Oruç günleri: %1$s / %2$s — kaydetmek için bir güne dokunun</string>
+    <string name="ramadan_fasting_tracker">Oruç takipçisi</string>
+    <string name="ramadan_hijri_note">Uygulama genelinde Hicri ayarlamanın uygulandığı Ümmü\'l-Kura takvimini temel alır.</string>
+    <string name="ramadan_hijri_year">Yıl %1$s H.</string>
+    <string name="ramadan_iftar">İftar</string>
+    <string name="ramadan_iftar_dua">İftar duası: "Allah\'ım, senin için oruç tuttum ve senin rızkınla iftar ediyorum..."</string>
+    <string name="ramadan_iftar_time">İftar (Akşam) vakti: %1$s</string>
+    <string name="ramadan_location_required">Saatleri görmek için önce Ayarlar\'dan bir şehir seçin.</string>
+    <string name="ramadan_minutes">%1$s dk</string>
+    <string name="ramadan_notification_iftar_body">Allah\'ım senin için oruç tuttum ve senin rızkınla iftar ediyorum</string>
+    <string name="ramadan_notification_iftar_title">İftar vakti</string>
+    <string name="ramadan_notification_suhoor_body">Sabah yaklaşıyor, sahurunuzu yapın</string>
+    <string name="ramadan_notification_suhoor_title">Sahur hatırlatıcısı</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Sahur</string>
+    <string name="ramadan_suhoor_remind_before">Daha önce hatırlat:</string>
+    <string name="ramadan_suhoor_time">Sahur bitiş tarihi (Sabah): %1$s</string>
+    <string name="ramadan_title">Ramazan</string>
+</resources>

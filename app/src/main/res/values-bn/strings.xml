@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">মুসলিম</string>
+    <string name="more_adhkar">আধকার</string>
+    <string name="more_adhkar_desc">কাউন্টার সহ সকাল, সন্ধ্যা এবং পরে প্রার্থনা</string>
+    <string name="more_downloads">আবৃত্তি ডাউনলোড</string>
+    <string name="more_downloads_desc">আপনার নির্বাচিত তেলাওয়াতকারীর সাথে একটি সূরা, একটি আয়াত বা সম্পূর্ণ কুরআন ডাউনলোড করুন</string>
+    <string name="more_hadith">হাদিস</string>
+    <string name="more_hadith_desc">হাদিস লাইব্রেরি, অনুসন্ধান ও দিনের হাদিস</string>
+    <string name="more_learn">শিখুন</string>
+    <string name="more_learn_desc">ধাপে ধাপে ওযু এবং প্রার্থনা নির্দেশিকা</string>
+    <string name="more_ramadan">রমজান</string>
+    <string name="more_ramadan_desc">সুহুর এবং ইফতারের সময় এবং রোজার ট্র্যাকার</string>
+    <string name="more_reference">রেফারেন্স লাইব্রেরি</string>
+    <string name="more_reference_desc">ইসলাম, সিরা ও নবীদের পরিচিতি</string>
+    <string name="more_settings">সেটিংস</string>
+    <string name="more_settings_desc">থিম, ভাষা, প্রার্থনা এবং আযান সেটিংস</string>
+    <string name="more_tasbih">তসবিহ</string>
+    <string name="more_tasbih_desc">প্রতিদিনের ইতিহাস নিয়ে ডিজিটাল মিসবাহ</string>
+    <string name="more_zakat">যাকাত</string>
+    <string name="more_zakat_desc">সম্পদের উপর যাকাত এবং ফিতর ক্যালকুলেটর</string>
+    <string name="scaffold_message">মাল্টি-মডিউল প্রজেক্টের কঙ্কাল প্রস্তুত। \nপর্যায় 1 — আযান, নামাজের সময়, কিবলা এবং হিজরি ক্যালেন্ডার — এখানে শুরু হয়।</string>
+    <string name="shortcut_qibla">কিবলা</string>
+    <string name="shortcut_qibla_long">কিবলা দিক</string>
+    <string name="shortcut_settings">সেটিংস</string>
+    <string name="shortcut_settings_long">নামাজ ও আযান সেটিং</string>
+    <string name="shortcut_times">নামাজের সময়</string>
+    <string name="shortcut_times_long">আজ \'s নামাজের সময়</string>
+    <string name="tab_home">নামাজের সময়</string>
+    <string name="tab_more">আরও</string>
+    <string name="tab_qibla">কিবলা</string>
+    <string name="tab_quran">কুরআন</string>
 </resources>

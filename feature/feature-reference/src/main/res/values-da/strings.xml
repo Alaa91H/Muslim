@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Tilbage</string>
+    <string name="reference_no_results">Ingen matchende resultater</string>
+    <string name="reference_search_hint">Søg i denne bog...</string>
+    <string name="reference_title">Islamisk referencebibliotek</string>
+    <string name="reference_topics_count">emner</string>
+</resources>

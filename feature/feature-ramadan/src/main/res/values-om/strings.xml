@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Duuba</string>
+    <string name="ramadan_countdown">Ramadaanni guyyaa %1$s booda jalqaba</string>
+    <string name="ramadan_countdown_to_iftar">Yeroo hanga ifxaa: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Yeroo Fajrii: %1$s</string>
+    <string name="ramadan_day_of_month">Guyyaa %1$s Ramadaanaa</string>
+    <string name="ramadan_days_left">Guyyoota %1$stu hafe</string>
+    <string name="ramadan_fasting_progress">Guyyoota soomaa: %1$s keessaa %2$s — guyyaa tokko tuquun waraabi</string>
+    <string name="ramadan_fasting_tracker">Sooma hordofaa</string>
+    <string name="ramadan_hijri_note">Kaalaandarii Umm al-Quraa irratti hundaa\'uun sirreeffamni Hijrii app guutuu hojiirra oole.</string>
+    <string name="ramadan_hijri_year">Bara %1$s Hijira</string>
+    <string name="ramadan_iftar">Ifxaara</string>
+    <string name="ramadan_iftar_dua">Kadhannaa Ifxaaraa: "Yaa Rabbi Siif soomeen rizqii kee irrattis sooma koo nan cabsa..."</string>
+    <string name="ramadan_iftar_time">Yeroo Ifxaa (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Yeroo ilaaluuf dursa Settings keessatti magaalaa filadhu.</string>
+    <string name="ramadan_minutes">%1$s daqiiqaa</string>
+    <string name="ramadan_notification_iftar_body">Yaa Rabbi Siif soomeen rizqii kee irrattis sooma koo nan cabsa</string>
+    <string name="ramadan_notification_iftar_title">Yeroo ifxaa</string>
+    <string name="ramadan_notification_suhoor_body">Fajr dhiyaachaa jira — suhoor keessan qabaadhaa</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor yaadachiisa</string>
+    <string name="ramadan_starts_on">%1$s — %2$s irratti kan argamu</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Duraan na yaadachiisaa:</string>
+    <string name="ramadan_suhoor_time">Suhoor xumura (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadaana</string>
+</resources>

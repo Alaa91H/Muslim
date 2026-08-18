@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Nyuma</string>
+    <string name="reference_no_results">Hakuna matokeo yanayolingana</string>
+    <string name="reference_search_hint">Tafuta kitabu hiki...</string>
+    <string name="reference_title">Maktaba ya Marejeleo ya Kiislamu</string>
+    <string name="reference_topics_count">mada</string>
+</resources>

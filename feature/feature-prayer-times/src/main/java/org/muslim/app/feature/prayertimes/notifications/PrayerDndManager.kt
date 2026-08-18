@@ -4,6 +4,7 @@ import android.app.AlarmManager
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
+import androidx.core.content.edit
 import android.content.Intent
 import android.os.Build
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -57,10 +58,10 @@ class PrayerDndManager @Inject constructor(
 
         val alreadyActive = prefs.getBoolean(KEY_ACTIVE, false)
         if (!alreadyActive) {
-            prefs.edit()
-                .putInt(KEY_PREVIOUS, current)
-                .putBoolean(KEY_ACTIVE, true)
-                .apply()
+            prefs.edit {
+                putInt(KEY_PREVIOUS, current)
+                putBoolean(KEY_ACTIVE, true)
+            }
         }
         runCatching { notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALARMS) }
         scheduleRestore(durationMinutes.coerceIn(1, 180))
@@ -71,7 +72,7 @@ class PrayerDndManager @Inject constructor(
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return
         val previous = prefs.getInt(KEY_PREVIOUS, NotificationManager.INTERRUPTION_FILTER_ALL)
         runCatching { notificationManager.setInterruptionFilter(previous) }
-        prefs.edit().remove(KEY_ACTIVE).remove(KEY_PREVIOUS).apply()
+        prefs.edit { remove(KEY_ACTIVE); remove(KEY_PREVIOUS) }
         alarmManager.cancel(restorePendingIntent())
     }
 

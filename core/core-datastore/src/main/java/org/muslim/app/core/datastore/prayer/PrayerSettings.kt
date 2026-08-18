@@ -39,11 +39,12 @@ data class PrayerSettings(
     /** Master adhan playback volume, 0..100. */
     val adhanVolume: Int = 100,
     /**
-     * Which bundled recording to play by default (see
+     * Per-prayer bundled recording id (see
      * [org.muslim.app.core.common.prayer.BundledAdhanSound]); always
-     * available offline since it ships inside the APK.
+     * available offline since it ships inside the APK. Absent keys default to
+     * Makkah for every prayer.
      */
-    val bundledAdhanSound: String = org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID,
+    val bundledAdhanSounds: Map<Prayer, String> = emptyMap(),
     /** Minutes before the prayer to remind; 0 disables the reminder. */
     val reminderMinutes: Int = 10,
     /**
@@ -63,4 +64,5 @@ data class SelectedLocation(
     val latitude: Double,
     val longitude: Double,
     val timeZone: String,
+    val elevation: Double = 0.0,
 )

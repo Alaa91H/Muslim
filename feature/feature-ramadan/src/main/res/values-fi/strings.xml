@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Takaisin</string>
+    <string name="ramadan_countdown">Ramadan alkaa %1$s päivän kuluttua</string>
+    <string name="ramadan_countdown_to_iftar">Aika iftariin: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Aika Fajriin: %1$s</string>
+    <string name="ramadan_day_of_month">Ramadanin päivä %1$s</string>
+    <string name="ramadan_days_left">%1$s päivää jäljellä</string>
+    <string name="ramadan_fasting_progress">Paastopäivät: %1$s/%2$s – napauta päivää tallentaaksesi sen</string>
+    <string name="ramadan_fasting_tracker">Paaston seurantalaite</string>
+    <string name="ramadan_hijri_note">Perustuu Umm al-Qura -kalenteriin, jossa on käytössä koko sovelluksen kattava Hijri-säätö.</string>
+    <string name="ramadan_hijri_year">Vuosi %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar-rukous: "Oi Allah, sinun vuoksesi minä paastoin ja sinun varauksellasi rikon paastoni..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) aika: %1$s</string>
+    <string name="ramadan_location_required">Valitse ensin kaupunki asetuksista nähdäksesi ajat.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Oi Allah, sinun vuoksesi minä paastoin ja sinun varauksellasi rikon paastoni</string>
+    <string name="ramadan_notification_iftar_title">Iftarin aika</string>
+    <string name="ramadan_notification_suhoor_body">Fajr lähestyy – nauti suhooristasi</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor muistutus</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Muistuta minua ennen:</string>
+    <string name="ramadan_suhoor_time">Suhoor päättyy (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha דיגיטלי - הקש כדי לספור</string>
+    <string name="misbaha_widget_label">טסביח</string>
+    <string name="misbaha_widget_tap_hint">הקש כדי לספור</string>
+    <string name="tasbih_back">חזרה</string>
+    <string name="tasbih_cancel">בטל</string>
+    <string name="tasbih_confirm">בסדר</string>
+    <string name="tasbih_custom_target">מותאם אישית</string>
+    <string name="tasbih_custom_target_hint">הזן את מספר הספירות (מ-1 עד 100000)</string>
+    <string name="tasbih_custom_target_title">הגדר יעד מותאם אישית</string>
+    <string name="tasbih_of_target">של %1$s</string>
+    <string name="tasbih_reset">אפס</string>
+    <string name="tasbih_reset_all">אפס הכל</string>
+    <string name="tasbih_round_complete">סבב מלא הושלם (%1$s) 🎉</string>
+    <string name="tasbih_rounds">סיבובים: %1$d</string>
+    <string name="tasbih_sound_desc">השמע רינגטון או צליל כאשר כל סיבוב מלא הושלם</string>
+    <string name="tasbih_sound_title">צליל על המטרה</string>
+    <string name="tasbih_sound_tone_alarm">אזעקה</string>
+    <string name="tasbih_sound_tone_notification">הודעה</string>
+    <string name="tasbih_sound_tone_ringtone">רינגטון</string>
+    <string name="tasbih_tap_hint">הקש על המעגל כדי לספור</string>
+    <string name="tasbih_target_reached">המטרה הושגה - שאללה יקבל</string>
+    <string name="tasbih_title">טסביח</string>
+    <string name="tasbih_total_today">היום סך הכל \': %1$d</string>
+    <string name="tasbih_undo">בטל</string>
+    <string name="tasbih_virtue_label">סגולה של דהיקר זה</string>
+    <string name="tasbih_week_stats">7 ימים אחרונים</string>
+</resources>

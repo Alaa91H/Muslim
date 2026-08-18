@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">തിരികെ</string>
+    <string name="ramadan_countdown">%1$s ദിവസങ്ങളിൽ റമദാൻ ആരംഭിക്കുന്നു</string>
+    <string name="ramadan_countdown_to_iftar">ഇഫ്താറിനുള്ള സമയം: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">ഫജ്റിലേക്കുള്ള സമയം: %1$s</string>
+    <string name="ramadan_day_of_month">റമദാനിലെ %1$s ദിവസം</string>
+    <string name="ramadan_days_left">%1$s ദിവസങ്ങൾ ശേഷിക്കുന്നു</string>
+    <string name="ramadan_fasting_progress">ഉപവാസ ദിനങ്ങൾ: %1$s / %2$s — ഇത് റെക്കോർഡ് ചെയ്യാൻ ഒരു ദിവസം ടാപ്പ് ചെയ്യുക</string>
+    <string name="ramadan_fasting_tracker">ഫാസ്റ്റിംഗ് ട്രാക്കർ</string>
+    <string name="ramadan_hijri_note">ഉമ്മുൽ ഖുറ കലണ്ടറിനെ അടിസ്ഥാനമാക്കി, ആപ്പ്-വൈഡ് ഹിജ്‌രി ക്രമീകരണം പ്രയോഗിച്ചു.</string>
+    <string name="ramadan_hijri_year">വർഷം %1$s ഹിജ്റ</string>
+    <string name="ramadan_iftar">ഇഫ്താർ</string>
+    <string name="ramadan_iftar_dua">ഇഫ്താർ പ്രാർത്ഥന: "അല്ലാഹുവേ, നിനക്കു വേണ്ടി ഞാൻ നോമ്പനുഷ്ഠിച്ചു, നിൻ്റെ ഉപാധിയിൽ ഞാൻ നോമ്പ് മുറിക്കുന്നു..."</string>
+    <string name="ramadan_iftar_time">ഇഫ്താർ (മഗ്രിബ്) സമയം: %1$s</string>
+    <string name="ramadan_location_required">സമയം കാണുന്നതിന് ആദ്യം ക്രമീകരണത്തിൽ ഒരു നഗരം തിരഞ്ഞെടുക്കുക.</string>
+    <string name="ramadan_minutes">%1$s മിനിറ്റ്</string>
+    <string name="ramadan_notification_iftar_body">അല്ലാഹുവേ, നിനക്കു വേണ്ടി ഞാൻ നോമ്പനുഷ്ഠിക്കുകയും നിൻ്റെ ഉപാധിയാൽ ഞാൻ നോമ്പ് മുറിക്കുകയും ചെയ്തു</string>
+    <string name="ramadan_notification_iftar_title">ഇഫ്താറിനുള്ള സമയം</string>
+    <string name="ramadan_notification_suhoor_body">ഫജ്ർ അടുക്കുന്നു - നിങ്ങളുടെ സുഹൂർ</string>
+    <string name="ramadan_notification_suhoor_title">സുഹൂർ ഓർമ്മപ്പെടുത്തൽ</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">സുഹൂർ</string>
+    <string name="ramadan_suhoor_remind_before">മുമ്പ് എന്നെ ഓർമ്മിപ്പിക്കുക:</string>
+    <string name="ramadan_suhoor_time">സുഹൂർ അവസാനിക്കുന്നു (ഫജ്ർ): %1$s</string>
+    <string name="ramadan_title">റമദാൻ</string>
+</resources>

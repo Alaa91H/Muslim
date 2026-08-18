@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">全部</string>
+    <string name="hadith_back">返回</string>
+    <string name="hadith_bookmark_add">添加书签</string>
+    <string name="hadith_bookmark_remove">删除书签</string>
+    <string name="hadith_collection_abudawud">阿布达乌德</string>
+    <string name="hadith_collection_bukhari">布哈里圣训集</string>
+    <string name="hadith_collection_ibnmajah">伊本·马贾</string>
+    <string name="hadith_collection_muslim">穆斯林</string>
+    <string name="hadith_collection_nasai">美国宇航局\'i</string>
+    <string name="hadith_collection_nawawi">安-纳瓦维 40</string>
+    <string name="hadith_collection_other">其他</string>
+    <string name="hadith_collection_riyad">利雅得萨利欣</string>
+    <string name="hadith_collection_tirmidhi">铁密济</string>
+    <string name="hadith_daily_notification">每日圣训通知</string>
+    <string name="hadith_daily_notification_desc">每天收到圣训</string>
+    <string name="hadith_daily_notification_time">通知时间</string>
+    <string name="hadith_of_the_day">当日圣训</string>
+    <string name="hadith_preview_hint">这就是每日圣训通知在预定时间出现的方式。</string>
+    <string name="hadith_preview_label">通知预览</string>
+    <string name="hadith_preview_loading">正在加载圣训...</string>
+    <string name="hadith_search_hint">搜索圣训...</string>
+    <string name="hadith_share">分享</string>
+    <string name="hadith_title">圣训图书馆</string>
+</resources>

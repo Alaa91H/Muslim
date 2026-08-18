@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Visi</string>
+    <string name="hadith_back">Atgal</string>
+    <string name="hadith_bookmark_add">Pridėti žymę</string>
+    <string name="hadith_bookmark_remove">Pašalinti žymę</string>
+    <string name="hadith_collection_abudawud">Abu Dawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah</string>
+    <string name="hadith_collection_muslim">musulmonas</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">Kita</string>
+    <string name="hadith_collection_riyad">Rijadas kaip Salihinas</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidhi</string>
+    <string name="hadith_daily_notification">Kasdieninis haditų pranešimas</string>
+    <string name="hadith_daily_notification_desc">Kiekvieną dieną gaukite haditą</string>
+    <string name="hadith_daily_notification_time">Pranešimo laikas</string>
+    <string name="hadith_of_the_day">Dienos haditas</string>
+    <string name="hadith_preview_hint">Taip kasdieninis haditų pranešimas pasirodo numatytu laiku.</string>
+    <string name="hadith_preview_label">Pranešimo peržiūra</string>
+    <string name="hadith_preview_loading">Įkeliamas hadis…</string>
+    <string name="hadith_search_hint">Ieškoti haditų…</string>
+    <string name="hadith_share">Dalintis</string>
+    <string name="hadith_title">Hadith biblioteka</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s зайтай</string>
+    <string name="mosque_finder_empty">Энэ мужид лалын сүм олдсонгүй</string>
+    <string name="mosque_finder_error">Хайлт амжилтгүй боллоо</string>
+    <string name="mosque_finder_intro">OpenStreetMap ашиглан өөрийн байршилд ойрхон сүмүүдийг олоорой</string>
+    <string name="mosque_finder_no_location">Байршлыг хараахан тохируулаагүй байна. Залбирлын цагийн тохиргооноос эхлээд байршлыг сонгоно уу.</string>
+    <string name="mosque_finder_retry">Дахин оролдоно уу</string>
+    <string name="mosque_finder_searching">Хайж байна...</string>
+    <string name="mosque_finder_title">Ойролцоох сүмүүд</string>
+    <string name="qibla_bearing_cardinal">Кибла чиглэл: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Шалгалт тохируулахын тулд утсаа наймны дүрд шилжүүлээрэй</string>
+    <string name="qibla_distance">Макка хүртэлх зай: %1$s</string>
+    <string name="qibla_distance_km">%,.0f км</string>
+    <string name="qibla_facing">Та Кибла руу 🕋 тулж байна</string>
+    <string name="qibla_gps_error">Нарийвчилсан засвар авч чадсангүй. Дахин оролдоно уу.</string>
+    <string name="qibla_gps_live">GPS-ийн шууд байршил</string>
+    <string name="qibla_gps_refresh">GPS-ээр байршлыг сэргээнэ үү</string>
+    <string name="qibla_gps_refreshing">Байршуулж байна…</string>
+    <string name="qibla_heading_degree">Утасны гарчиг: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Таны байршлаас Кааба хүртэлх том тойргийн зам нь офлайнаар ажилладаг</string>
+    <string name="qibla_map_kaaba">Кааба</string>
+    <string name="qibla_map_you">Та</string>
+    <string name="qibla_mode_compass">Луужин</string>
+    <string name="qibla_mode_map">Газрын зураг</string>
+    <string name="qibla_open_mosques">Ойролцоох сүмүүд</string>
+    <string name="qibla_title">Кибла чиглэл</string>
+    <string name="qibla_turn_left">%1$.1f° зүүн тийш эргэ</string>
+    <string name="qibla_turn_right">%1$.1f° баруун тийш эргэ</string>
+</resources>

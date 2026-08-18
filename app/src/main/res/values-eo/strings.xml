@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Islamano</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Mateno, vespero &amp; post-preĝo adhkar kun vendotabloj</string>
+    <string name="more_downloads">Deklamado elŝutas</string>
+    <string name="more_downloads_desc">Elŝutu suraon, ajon aŭ la plenan Koranon per via elektita deklamanto</string>
+    <string name="more_hadith">Hadito</string>
+    <string name="more_hadith_desc">Hadito-biblioteko, serĉo kaj hadito de la tago</string>
+    <string name="more_learn">Lernu</string>
+    <string name="more_learn_desc">Paŝo post paŝo wudu kaj preĝgvidistoj</string>
+    <string name="more_ramadan">Ramadano</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar tempoj kaj fasta spuristo</string>
+    <string name="more_reference">Biblioteko de referenco</string>
+    <string name="more_reference_desc">Enkonduko al Islamo, la Sira &amp; la profetoj</string>
+    <string name="more_settings">Agordoj</string>
+    <string name="more_settings_desc">Temo, lingvo, preĝo kaj adhan-agordoj</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Cifereca misbaha kun ĉiutaga historio</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat pri riĉeco kaj Fitr-kalkulilo</string>
+    <string name="scaffold_message">La plurmodula projektoskeleto estas preta.\nFazo 1 — Adhan, preĝtempoj, Ĉiblo, kaj la Hijri-kalendaro — komenciĝas ĉi tie.</string>
+    <string name="shortcut_qibla">Ĉiblo</string>
+    <string name="shortcut_qibla_long">Kibla direkto</string>
+    <string name="shortcut_settings">Agordoj</string>
+    <string name="shortcut_settings_long">Preĝo kaj adhan-agordoj</string>
+    <string name="shortcut_times">Preĝtempoj</string>
+    <string name="shortcut_times_long">Hodiaŭ \'-aj jaroj de preĝo</string>
+    <string name="tab_home">Preĝaj Tempoj</string>
+    <string name="tab_more">Pli</string>
+    <string name="tab_qibla">Ĉiblo</string>
+    <string name="tab_quran">Korano</string>
 </resources>

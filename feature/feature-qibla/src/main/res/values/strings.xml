@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="qibla_title">اتجاه القبلة</string>
-    <string name="qibla_bearing">اتجاه القبلة: %1$.1f°</string>
-    <string name="qibla_heading">اتجاه هاتفك: %1$.1f°</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_bearing_cardinal">اتجاه القبلة: %1$s</string>
+    <string name="qibla_heading_degree">اتجاه هاتفك: %1$.0f° (%2$s)</string>
     <string name="qibla_facing">أنت متجه نحو القبلة 🕋</string>
     <string name="qibla_turn_right">أدر هاتفك يمينًا %1$.1f°</string>
     <string name="qibla_turn_left">أدر هاتفك يسارًا %1$.1f°</string>
@@ -15,6 +16,10 @@
     <string name="qibla_map_kaaba">الكعبة</string>
     <string name="qibla_map_hint">خط مستقيم (دائرة عظمى) من موقعك إلى الكعبة — بدون إنترنت</string>
     <string name="qibla_open_mosques">المساجد القريبة</string>
+    <string name="qibla_gps_refresh">تحديث الموقع عبر GPS</string>
+    <string name="qibla_gps_refreshing">جارٍ تحديد الموقع…</string>
+    <string name="qibla_gps_error">تعذّر الحصول على موقع دقيق. حاول مرة أخرى.</string>
+    <string name="qibla_gps_live">موقع GPS حي</string>
     <string name="mosque_finder_title">مساجد قريبة</string>
     <string name="mosque_finder_intro">ابحث عن المساجد القريبة من موقعك عبر خريطة OpenStreetMap</string>
     <string name="mosque_finder_no_location">لم يتم تحديد موقع بعد. اختر موقعًا من إعدادات المواقيت أولًا.</string>
@@ -23,4 +28,4 @@
     <string name="mosque_finder_retry">إعادة المحاولة</string>
     <string name="mosque_finder_empty">لم يتم العثور على مساجد في هذا النطاق</string>
     <string name="mosque_finder_distance">%s بعيدًا</string>
-</resources>
+</resources>

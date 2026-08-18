@@ -42,6 +42,26 @@ class RecitationRepository @Inject constructor(
         withContext(Dispatchers.IO) { fileFor(reciterId, surahNumber, globalNumber).exists() }
 
     /**
+     * Resolves the actual on-server size (bytes) of one ayah's audio via a
+     * ranged probe (`bytes=0-0`), so download sizes are verified rather than
+     * estimated. Returns null when the server doesn't report a length.
+     */
+    suspend fun verifiedAyahSize(reciter: Reciter, surahNumber: Int, ayahNumberInSurah: Int): Long? =
+        fileDownloader.contentLength(reciter.urlFor(surahNumber, ayahNumberInSurah))
+
+    /** Deletes in-flight `.part` files for [reciterId] (optionally one surah). */
+    suspend fun deletePartials(reciterId: String, surahNumber: Int?): Unit =
+        withContext(Dispatchers.IO) {
+            val base = if (surahNumber != null) {
+                File(reciterDir(reciterId), surahNumber.toString())
+            } else {
+                reciterDir(reciterId)
+            }
+            if (!base.exists()) return@withContext
+            base.walkTopDown().filter { it.name.endsWith(".part") }.forEach { it.delete() }
+        }
+
+    /**
      * Downloads the whole surah for [reciter]. [ayahs] maps in-surah numbers
      * to global numbers. Reports aggregate progress (0..1).
      */

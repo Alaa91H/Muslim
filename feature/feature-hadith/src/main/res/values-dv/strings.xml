@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">ހުރިހާ...</string>
+    <string name="hadith_back">ފަހަތަށް</string>
+    <string name="hadith_bookmark_add">ބުކްމާކް އިތުރުކުރުން</string>
+    <string name="hadith_bookmark_remove">ބުކްމާކް ނައްތާލާށެވެ</string>
+    <string name="hadith_collection_abudawud">އަބޫ ދާއޫދު އެވެ</string>
+    <string name="hadith_collection_bukhari">އަލްބުޚާރީ އެވެ</string>
+    <string name="hadith_collection_ibnmajah">އިބްނު މާޖާ އެވެ</string>
+    <string name="hadith_collection_muslim">މުސްލިމް އެވެ</string>
+    <string name="hadith_collection_nasai">އަން-ނާސާ\'އައި</string>
+    <string name="hadith_collection_nawawi">އަން-ނަވާވީ 40</string>
+    <string name="hadith_collection_other">އެހެން...</string>
+    <string name="hadith_collection_riyad">ރިޔާދު އައްސާލިހީން އެވެ</string>
+    <string name="hadith_collection_tirmidhi">އަތު-ތިރްމީދީ އެވެ</string>
+    <string name="hadith_daily_notification">ކޮންމެ ދުވަހަކު ޙަދީޘް އެންގުމެވެ</string>
+    <string name="hadith_daily_notification_desc">ކޮންމެ ދުވަހަކު ޙަދީޘެއް ލިބުން</string>
+    <string name="hadith_daily_notification_time">ނޮޓިފިކޭޝަން ގަޑި</string>
+    <string name="hadith_of_the_day">ދުވަހުގެ ޙަދީޘް</string>
+    <string name="hadith_preview_hint">މިއީ ކޮންމެ ދުވަހަކު ޙަދީޘް ނޮޓިފިކޭޝަން އޭގެ ޝެޑިއުލް ގަޑިއަށް ފެންނަ ގޮތެވެ.</string>
+    <string name="hadith_preview_label">ނޮޓިފިކޭޝަން ޕްރިވިއު</string>
+    <string name="hadith_preview_loading">ޙަދީޘް ލޯޑް ކުރަމުން...</string>
+    <string name="hadith_search_hint">ޙަދީޘް ހޯދުން...</string>
+    <string name="hadith_share">ޝެއާ ކުރާށެވެ</string>
+    <string name="hadith_title">ޙަދީޘް ލައިބްރަރީ</string>
+</resources>

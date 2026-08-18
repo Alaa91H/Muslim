@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಬೆಲೆಗಳನ್ನು ಪಡೆಯಿರಿ</string>
+    <string name="zakat_auto_prices_hint">ಸಕ್ರಿಯಗೊಳಿಸಿದಾಗ, ಚಿನ್ನ ಮತ್ತು ಬೆಳ್ಳಿ ಬೆಲೆಗಳನ್ನು ಇಂಟರ್ನೆಟ್‌ನಿಂದ ಪಡೆಯಲಾಗುತ್ತದೆ ಮತ್ತು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ರಿಫ್ರೆಶ್ ಮಾಡಲಾಗುತ್ತದೆ</string>
+    <string name="zakat_back">ಹಿಂದೆ</string>
+    <string name="zakat_cash">ನಗದು ಮತ್ತು ಉಳಿತಾಯ</string>
+    <string name="zakat_clear_history">ಇತಿಹಾಸವನ್ನು ತೆರವುಗೊಳಿಸಿ</string>
+    <string name="zakat_country">ದೇಶ</string>
+    <string name="zakat_country_placeholder">ನಿಮ್ಮ ದೇಶ ಮತ್ತು ಕರೆನ್ಸಿ ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="zakat_country_section">ದೇಶ ಮತ್ತು ಕರೆನ್ಸಿ</string>
+    <string name="zakat_currency">ಕರೆನ್ಸಿ: %1$s</string>
+    <string name="zakat_debts">ನೀವು ನೀಡಬೇಕಾದ ಸಾಲಗಳು (ಕಡಿತಗೊಳಿಸಲಾಗಿದೆ)</string>
+    <string name="zakat_due">ಜಕಾತ್ ಬಾಕಿ (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'t ಬೆಲೆಗಳನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ನಿಮ್ಮ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ ಅಥವಾ ಬೆಲೆಯನ್ನು ಹಸ್ತಚಾಲಿತವಾಗಿ ನಮೂದಿಸಿ.</string>
+    <string name="zakat_fetch_now">ಈಗ ಬೆಲೆಗಳನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡಿ</string>
+    <string name="zakat_fetching">ಬೆಲೆಗಳನ್ನು ಪಡೆಯಲಾಗುತ್ತಿದೆ...</string>
+    <string name="zakat_fitr_persons">ಕುಟುಂಬದ ಸದಸ್ಯರ ಸಂಖ್ಯೆ</string>
+    <string name="zakat_fitr_saa_value">ಒಂದು sa\' ಮೌಲ್ಯ (ಪ್ರಧಾನ ಆಹಾರ)</string>
+    <string name="zakat_fitr_section">ಝಕಾತ್ ಅಲ್-ಫಿತ್ರ್</string>
+    <string name="zakat_fitr_total">ಒಟ್ಟು ಫಿತ್ರ್ ಝಕಾತ್: %1$s</string>
+    <string name="zakat_gold_grams">ಚಿನ್ನ (ಗ್ರಾಂ)</string>
+    <string name="zakat_gold_price">ಪ್ರತಿ ಗ್ರಾಂ ಚಿನ್ನದ ಬೆಲೆ</string>
+    <string name="zakat_history">ಲೆಕ್ಕಾಚಾರದ ಇತಿಹಾಸ</string>
+    <string name="zakat_history_amount">ಝಕಾತ್: %1$s</string>
+    <string name="zakat_history_empty">ಇನ್ನೂ ಉಳಿಸಿದ ಲೆಕ್ಕಾಚಾರಗಳಿಲ್ಲ.</string>
+    <string name="zakat_investments">ಹೂಡಿಕೆಗಳು</string>
+    <string name="zakat_last_updated">ಕೊನೆಯದಾಗಿ ನವೀಕರಿಸಲಾಗಿದೆ: %1$s</string>
+    <string name="zakat_money_section">ಸಂಪತ್ತಿನ ಮೇಲೆ ಝಕಾತ್</string>
+    <string name="zakat_nisab_gold">ಚಿನ್ನದ ನಿಸಾಬ್ (85 ಗ್ರಾಂ)</string>
+    <string name="zakat_nisab_met">ನಿಸಾಬ್ ತಲುಪಿದೆ - ಝಕಾತ್ ಬಾಕಿಯಿದೆ</string>
+    <string name="zakat_nisab_not_met">ನಿಸಾಬ್ ಕೆಳಗೆ - ಯಾವುದೇ ಝಕಾತ್ ಬಾಕಿ ಇಲ್ಲ</string>
+    <string name="zakat_nisab_silver">ಬೆಳ್ಳಿ ನಿಸಾಬ್ (595 ಗ್ರಾಂ)</string>
+    <string name="zakat_rulings_note">ಬಹುಮತಕ್ಕೆ (ಜುಮ್ಹೂರ್): ಚಿನ್ನದ ನಿಸಾಬ್ 85 ಗ್ರಾಂ, ಬೆಳ್ಳಿ 595 ಗ್ರಾಂ, ಮತ್ತು ಬಾಕಿ ಸಾಲಗಳನ್ನು ಕಡಿತಗೊಳಿಸಿದ ನಂತರ ದರವು 2.5%% ಆಗಿದೆ. ವಿಶೇಷ ಪ್ರಕರಣಗಳಿಗೆ ಅರ್ಹ ವಿದ್ವಾಂಸರನ್ನು ಸಂಪರ್ಕಿಸಿ.</string>
+    <string name="zakat_save_result">ಇತಿಹಾಸಕ್ಕೆ ಉಳಿಸಿ</string>
+    <string name="zakat_silver_grams">ಬೆಳ್ಳಿ (ಗ್ರಾಂ)</string>
+    <string name="zakat_silver_price">ಪ್ರತಿ ಗ್ರಾಂ ಬೆಳ್ಳಿ ಬೆಲೆ</string>
+    <string name="zakat_source_note">Gold-api.com ನಿಂದ ಚಿನ್ನ/ಬೆಳ್ಳಿ ಬೆಲೆಗಳು; open.er-api.com ನಿಂದ FX ದರಗಳು</string>
+    <string name="zakat_title">ಝಕಾತ್</string>
+    <string name="zakat_total_assets">ಒಟ್ಟು ಸ್ವತ್ತುಗಳು</string>
+    <string name="zakat_trade">ವ್ಯಾಪಾರ ಸರಕುಗಳ ಮೌಲ್ಯ</string>
+    <string name="zakat_zakatable">ಸಾಲಗಳ ನಂತರ ಝಕಾಟಬಲ್ ಮೊತ್ತ</string>
+</resources>

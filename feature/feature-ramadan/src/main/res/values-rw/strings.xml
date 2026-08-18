@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Inyuma</string>
+    <string name="ramadan_countdown">Ramazani itangira muminsi %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Igihe cyo iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Igihe cya Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Umunsi %1$s wa Ramadhan</string>
+    <string name="ramadan_days_left">Hasigaye iminsi %1$s</string>
+    <string name="ramadan_fasting_progress">Iminsi yo kwiyiriza: %1$s ya %2$s - kanda kumunsi kugirango uyandike</string>
+    <string name="ramadan_fasting_tracker">Gukurikirana igisibo</string>
+    <string name="ramadan_hijri_note">Ukurikije kalendari ya Umm al-Qura hamwe na porogaramu ya Hijri yose ikoreshwa.</string>
+    <string name="ramadan_hijri_year">Umwaka %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Kwinginga kwa Iftar: "Ayi Allah, kubwawe nisonzesheje kandi ku byo utanze, nsiba igisibo cyanjye…"</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) igihe: %1$s</string>
+    <string name="ramadan_location_required">Hitamo umujyi muri Igenamiterere ubanze urebe ibihe.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Ayi Allah, kubwawe niyirije ubusa kandi kubyo utanze ndarenga igisibo cyanjye</string>
+    <string name="ramadan_notification_iftar_title">Igihe cya iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr iregereje - gira suhoor yawe</string>
+    <string name="ramadan_notification_suhoor_title">Kwibutsa Suhoor</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Unyibutse mbere:</string>
+    <string name="ramadan_suhoor_time">Suhoor irangira (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramazani</string>
+</resources>

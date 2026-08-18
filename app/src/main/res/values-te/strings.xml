@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ముస్లిం</string>
+    <string name="more_adhkar">అద్కార్</string>
+    <string name="more_adhkar_desc">కౌంటర్లతో ఉదయం, సాయంత్రం &amp; ప్రార్థన అనంతర అద్కార్</string>
+    <string name="more_downloads">పారాయణ డౌన్‌లోడ్‌లు</string>
+    <string name="more_downloads_desc">మీరు ఎంచుకున్న రీడర్‌తో సూరా, అయా లేదా పూర్తి ఖురాన్‌ని డౌన్‌లోడ్ చేసుకోండి</string>
+    <string name="more_hadith">హదీసు</string>
+    <string name="more_hadith_desc">హదీత్ లైబ్రరీ, శోధన &amp; ఆనాటి హదీసులు</string>
+    <string name="more_learn">నేర్చుకో</string>
+    <string name="more_learn_desc">దశల వారీ వూడు &amp; ప్రార్థన మార్గదర్శకాలు</string>
+    <string name="more_ramadan">రంజాన్</string>
+    <string name="more_ramadan_desc">సుహూర్ &amp; ఇఫ్తార్ సమయాలు మరియు ఉపవాస ట్రాకర్</string>
+    <string name="more_reference">రిఫరెన్స్ లైబ్రరీ</string>
+    <string name="more_reference_desc">ఇస్లాం, సిరా &amp; ప్రవక్తల పరిచయం</string>
+    <string name="more_settings">సెట్టింగ్‌లు</string>
+    <string name="more_settings_desc">థీమ్, భాష, ప్రార్థన &amp; అధాన్ సెట్టింగ్‌లు</string>
+    <string name="more_tasbih">తస్బిహ్</string>
+    <string name="more_tasbih_desc">రోజువారీ చరిత్రతో డిజిటల్ మిస్బాహా</string>
+    <string name="more_zakat">జకాత్</string>
+    <string name="more_zakat_desc">సంపదపై జకాత్ &amp; ఫితర్ కాలిక్యులేటర్</string>
+    <string name="scaffold_message">బహుళ-మాడ్యూల్ ప్రాజెక్ట్ అస్థిపంజరం సిద్ధంగా ఉంది.\nఫేజ్ 1 — అధాన్, ప్రార్థన సమయాలు, ఖిబ్లా మరియు హిజ్రీ క్యాలెండర్ — ఇక్కడ ప్రారంభమవుతుంది.</string>
+    <string name="shortcut_qibla">ఖిబ్లా</string>
+    <string name="shortcut_qibla_long">ఖిబ్లా దిశ</string>
+    <string name="shortcut_settings">సెట్టింగ్‌లు</string>
+    <string name="shortcut_settings_long">ప్రార్థన &amp; అధాన్ సెట్టింగ్‌లు</string>
+    <string name="shortcut_times">ప్రార్థన సమయాలు</string>
+    <string name="shortcut_times_long">ఈరోజు\'ల ప్రార్థన సమయాలు</string>
+    <string name="tab_home">ప్రార్థన సమయాలు</string>
+    <string name="tab_more">మరిన్ని</string>
+    <string name="tab_qibla">ఖిబ్లా</string>
+    <string name="tab_quran">ఖురాన్</string>
 </resources>

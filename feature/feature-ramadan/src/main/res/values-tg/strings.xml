@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Бозгашт</string>
+    <string name="ramadan_countdown">Рамазон пас аз %1$s рӯз оғоз мешавад</string>
+    <string name="ramadan_countdown_to_iftar">Вақти ифтор: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Вақт то субҳ: %1$s</string>
+    <string name="ramadan_day_of_month">Рӯзи %1$s моҳи Рамазон</string>
+    <string name="ramadan_days_left">%1$s рӯз боқӣ мондааст</string>
+    <string name="ramadan_fasting_progress">Рӯзҳои рӯзадор: %1$s аз %2$s - барои сабт кардани он як рӯзро клик кунед</string>
+    <string name="ramadan_fasting_tracker">Назоратчии рӯза</string>
+    <string name="ramadan_hijri_note">Бар асоси тақвими Умм ал-Қуро бо тасҳеҳи ҳиҷрии саросари барнома.</string>
+    <string name="ramadan_hijri_year">Соли %1$s ҳиҷрӣ</string>
+    <string name="ramadan_iftar">ифтор</string>
+    <string name="ramadan_iftar_dua">Дуъои ифтор: «Худоё, барои Ту рӯза гирифтам ва ба ризқи Ту ифтор кардам...».</string>
+    <string name="ramadan_iftar_time">Вакти ифтор: %1$s</string>
+    <string name="ramadan_location_required">Барои дидани вақтҳо аввал дар Танзимот шаҳреро интихоб кунед.</string>
+    <string name="ramadan_minutes">%1$s мин</string>
+    <string name="ramadan_notification_iftar_body">Худоё, барои Ту рӯза гирифтам ва ба ризқи Ту ифтор кардам</string>
+    <string name="ramadan_notification_iftar_title">Вақти ифтор</string>
+    <string name="ramadan_notification_suhoor_body">Фаҷр наздик мешавад - саҳарӣ кунед</string>
+    <string name="ramadan_notification_suhoor_title">Ёдоварии саҳар</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Сухур</string>
+    <string name="ramadan_suhoor_remind_before">Пештар ба ман хотиррасон кунед:</string>
+    <string name="ramadan_suhoor_time">Саҳор ба охир мерасад (бомдод): %1$s</string>
+    <string name="ramadan_title">Рамазон</string>
+</resources>

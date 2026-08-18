@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Musulman</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar du matin, du soir et après la prière avec compteurs</string>
+    <string name="more_downloads">Téléchargements de récitation</string>
+    <string name="more_downloads_desc">Téléchargez une sourate, un verset ou le Coran complet avec le récitant de votre choix</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Bibliothèque de hadiths, recherche et hadith du jour</string>
+    <string name="more_learn">Apprendre</string>
+    <string name="more_learn_desc">Guides de wudu et de prière étape par étape</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Horaires du Suhoor et de l\'iftar et suivi du jeûne</string>
+    <string name="more_reference">Bibliothèque de référence</string>
+    <string name="more_reference_desc">Introduction à l\'Islam, à la Sira et aux prophètes</string>
+    <string name="more_settings">Paramètres</string>
+    <string name="more_settings_desc">Paramètres de thème, de langue, de prière et d\'adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha numérique avec historique quotidien</string>
+    <string name="more_zakat">Zakât</string>
+    <string name="more_zakat_desc">Zakat sur le calculateur de richesse et Fitr</string>
+    <string name="scaffold_message">Le squelette du projet multi-modules est prêt.\nLa phase 1 – Adhan, heures de prière, Qibla et calendrier Hijri – commence ici.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Direction de la Qibla</string>
+    <string name="shortcut_settings">Paramètres</string>
+    <string name="shortcut_settings_long">Paramètres de prière et d\'adhan</string>
+    <string name="shortcut_times">Horaires de prière</string>
+    <string name="shortcut_times_long">Aujourd\'hui\' heures de prière</string>
+    <string name="tab_home">Horaires de prière</string>
+    <string name="tab_more">Plus</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Coran</string>
 </resources>

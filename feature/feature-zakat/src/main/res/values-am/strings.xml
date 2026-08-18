@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">ዋጋዎችን በራስ-ሰር ያግኙ</string>
+    <string name="zakat_auto_prices_hint">ሲነቃ የወርቅ እና የብር ዋጋዎች ከበይነመረቡ ይወሰዳሉ እና በራስ-ሰር ይታደሳሉ</string>
+    <string name="zakat_back">ተመለስ</string>
+    <string name="zakat_cash">ገንዘብ እና ቁጠባ</string>
+    <string name="zakat_clear_history">ታሪክ አጽዳ</string>
+    <string name="zakat_country">ሀገር</string>
+    <string name="zakat_country_placeholder">የእርስዎን አገር እና ምንዛሬ ይምረጡ</string>
+    <string name="zakat_country_section">ሀገር እና ምንዛሬ</string>
+    <string name="zakat_currency">ምንዛሪ፡ %1$s</string>
+    <string name="zakat_debts">ያለብዎት እዳዎች (ተቀነሰ)</string>
+    <string name="zakat_due">ዘካት ክፍያ (2.5%%)፡ %1$s</string>
+    <string name="zakat_fetch_failed">\'t ዋጋዎችን ማምጣት አልተቻለም። ግንኙነትዎን ያረጋግጡ ወይም ዋጋውን በእጅ ያስገቡ።</string>
+    <string name="zakat_fetch_now">ዋጋዎችን አሁን ያድሱ</string>
+    <string name="zakat_fetching">ዋጋዎችን በማምጣት ላይ…</string>
+    <string name="zakat_fitr_persons">የቤተሰብ አባላት ብዛት</string>
+    <string name="zakat_fitr_saa_value">የአንድ sa\' (ዋና ምግብ) ዋጋ</string>
+    <string name="zakat_fitr_section">ዘካተል ፊጥር</string>
+    <string name="zakat_fitr_total">ጠቅላላ ፊጥር ዘካት፡ %1$s</string>
+    <string name="zakat_gold_grams">ወርቅ (ግራም)</string>
+    <string name="zakat_gold_price">የወርቅ ዋጋ በአንድ ግራም</string>
+    <string name="zakat_history">የሂሳብ ታሪክ</string>
+    <string name="zakat_history_amount">ዘካት፡ %1$s</string>
+    <string name="zakat_history_empty">እስካሁን ምንም የተቀመጡ ስሌቶች የሉም።</string>
+    <string name="zakat_investments">ኢንቨስትመንቶች</string>
+    <string name="zakat_last_updated">ለመጨረሻ ጊዜ የተሻሻለው: %1$s</string>
+    <string name="zakat_money_section">በሀብት ላይ ዘካ</string>
+    <string name="zakat_nisab_gold">ወርቅ ኒሳብ (85 ግ)</string>
+    <string name="zakat_nisab_met">ኒሳቡ ደረሰ - ዘካት አለባት</string>
+    <string name="zakat_nisab_not_met">ከኒሳብ በታች - ዘካ የለም</string>
+    <string name="zakat_nisab_silver">የብር ኒሳብ (595 ግ)</string>
+    <string name="zakat_rulings_note">ለብዙሃኑ (ጁምሁር)፡ የወርቅ ኒሳብ 85 ግራም፣ ብር 595 ግራም ነው፣ እና ዕዳው ከተቀነሰ በኋላ መጠኑ 2.5%% ነው። ለልዩ ጉዳዮች ብቁ የሆነ ምሁርን ያማክሩ።</string>
+    <string name="zakat_save_result">ወደ ታሪክ አስቀምጥ</string>
+    <string name="zakat_silver_grams">ብር (ግራም)</string>
+    <string name="zakat_silver_price">የብር ዋጋ በአንድ ግራም</string>
+    <string name="zakat_source_note">የወርቅ / የብር ዋጋዎች ከ gold-api.com; የ FX ተመኖች ከ open.er-api.com</string>
+    <string name="zakat_title">ዘካት</string>
+    <string name="zakat_total_assets">ጠቅላላ ንብረቶች</string>
+    <string name="zakat_trade">የንግድ ዕቃዎች ዋጋ</string>
+    <string name="zakat_zakatable">ከዕዳዎች በኋላ የሚከፈል መጠን</string>
+</resources>

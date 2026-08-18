@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">স্বয়ংক্রিয়ভাবে দাম আনুন</string>
+    <string name="zakat_auto_prices_hint">সক্রিয় করা হলে, ইন্টারনেট থেকে সোনা এবং রূপার দাম আনা হয় এবং স্বয়ংক্রিয়ভাবে রিফ্রেশ হয়</string>
+    <string name="zakat_back">ব্যাক</string>
+    <string name="zakat_cash">নগদ এবং সঞ্চয়</string>
+    <string name="zakat_clear_history">ইতিহাস পরিষ্কার করুন</string>
+    <string name="zakat_country">দেশ</string>
+    <string name="zakat_country_placeholder">আপনার দেশ এবং মুদ্রা চয়ন করুন</string>
+    <string name="zakat_country_section">দেশ ও মুদ্রা</string>
+    <string name="zakat_currency">মুদ্রা: %1$s</string>
+    <string name="zakat_debts">আপনার পাওনা ঋণ (কাটা)</string>
+    <string name="zakat_due">যাকাত বকেয়া (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'t দাম আনতে পারেনি। আপনার সংযোগ পরীক্ষা করুন বা ম্যানুয়ালি মূল্য লিখুন।</string>
+    <string name="zakat_fetch_now">এখন দাম রিফ্রেশ করুন</string>
+    <string name="zakat_fetching">দাম আনা হচ্ছে...</string>
+    <string name="zakat_fitr_persons">পরিবারের সদস্য সংখ্যা</string>
+    <string name="zakat_fitr_saa_value">এক টাকার মূল্য \' (প্রধান খাদ্য)</string>
+    <string name="zakat_fitr_section">জাকাতুল ফিতর</string>
+    <string name="zakat_fitr_total">মোট ফিতর যাকাতঃ %1$s</string>
+    <string name="zakat_gold_grams">সোনা (গ্রাম)</string>
+    <string name="zakat_gold_price">প্রতি গ্রাম সোনার দাম</string>
+    <string name="zakat_history">গণনার ইতিহাস</string>
+    <string name="zakat_history_amount">যাকাতঃ %1$s</string>
+    <string name="zakat_history_empty">এখনও কোন সংরক্ষিত গণনা.</string>
+    <string name="zakat_investments">বিনিয়োগ</string>
+    <string name="zakat_last_updated">সর্বশেষ আপডেট: %1$s</string>
+    <string name="zakat_money_section">সম্পদের উপর যাকাত</string>
+    <string name="zakat_nisab_gold">সোনার নিসাব (85 গ্রাম)</string>
+    <string name="zakat_nisab_met">নিসাব পৌঁছে গেছে - যাকাত ওয়াজিব</string>
+    <string name="zakat_nisab_not_met">নিসাবের নিচে — যাকাত নেই</string>
+    <string name="zakat_nisab_silver">সিলভার নিসাব (595 গ্রাম)</string>
+    <string name="zakat_rulings_note">সংখ্যাগরিষ্ঠ (জুমহুর): স্বর্ণের নিসাব 85 গ্রাম, রৌপ্য 595 গ্রাম, এবং বকেয়া দেনা বাদ দেওয়ার পরে হার 2.5%%। বিশেষ ক্ষেত্রে একজন যোগ্য পণ্ডিতের সাথে পরামর্শ করুন।</string>
+    <string name="zakat_save_result">ইতিহাসে সংরক্ষণ করুন</string>
+    <string name="zakat_silver_grams">রূপা (গ্রাম)</string>
+    <string name="zakat_silver_price">প্রতি গ্রাম রূপার দাম</string>
+    <string name="zakat_source_note">gold-api.com থেকে সোনা/রূপার দাম; open.er-api.com থেকে এফএক্স রেট</string>
+    <string name="zakat_title">যাকাত</string>
+    <string name="zakat_total_assets">মোট সম্পদ</string>
+    <string name="zakat_trade">বাণিজ্য পণ্য মূল্য</string>
+    <string name="zakat_zakatable">ঋণের পরে যাকাতযোগ্য পরিমাণ</string>
+</resources>

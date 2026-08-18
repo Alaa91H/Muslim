@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -16,9 +17,12 @@ import org.muslim.app.core.datastore.prayer.toPrayerParameters
 import org.muslim.app.core.common.prayer.Coordinates
 import org.muslim.app.core.common.prayer.NextPrayer
 import org.muslim.app.core.common.prayer.Prayer
+import org.muslim.app.core.common.prayer.PrayerParameters
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import java.time.Instant
+import java.time.LocalDate
 import java.time.LocalTime
+import java.time.YearMonth
 import java.time.ZoneId
 import javax.inject.Inject
 
@@ -28,6 +32,14 @@ class HomeViewModel @Inject constructor(
     private val calculator: PrayerTimesCalculator,
 ) : ViewModel() {
 
+    /** One day's condensed times for the monthly grid. */
+    data class DayTimes(
+        val date: LocalDate,
+        val hijriDay: Int,
+        val fajr: LocalTime?,
+        val maghrib: LocalTime?,
+    )
+
     data class UiState(
         val hasLocation: Boolean = false,
         val locationName: String = "",
@@ -35,8 +47,15 @@ class HomeViewModel @Inject constructor(
         val nextPrayer: Prayer? = null,
         val nextPrayerAt: LocalTime? = null,
         val countdownSeconds: Long = 0,
+        /** Times of the day currently selected (today by default). */
         val times: Map<Prayer, LocalTime> = emptyMap(),
         val isValid: Boolean = false,
+        /** Date whose times are shown; user can step through days. */
+        val selectedDate: LocalDate = LocalDate.now(),
+        /** Whether the monthly grid is shown instead of the daily list. */
+        val monthly: Boolean = false,
+        val month: YearMonth = YearMonth.now(),
+        val monthDays: List<DayTimes> = emptyList(),
     )
 
     private val clock = flow {
@@ -46,19 +65,25 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    val uiState: StateFlow<UiState> =
-        combine(settingsRepository.settings, clock) { settings, now -> compute(settings, now) }
-            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), UiState())
+    private val selectedDate = MutableStateFlow(LocalDate.now())
+    private val monthly = MutableStateFlow(false)
 
-    private fun compute(settings: PrayerSettings, now: Long): UiState {
-        val location = settings.location ?: return UiState()
+    val uiState: StateFlow<UiState> =
+        combine(settingsRepository.settings, clock, selectedDate, monthly) { settings, now, date, isMonthly ->
+            compute(settings, now, date, isMonthly)
+        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), UiState())
+
+    private fun compute(settings: PrayerSettings, now: Long, date: LocalDate, isMonthly: Boolean): UiState {
+        val location = settings.location ?: return UiState(selectedDate = date, monthly = isMonthly, month = YearMonth.from(date))
         val zone = ZoneId.of(location.timeZone)
         val today = Instant.ofEpochMilli(now).atZone(zone).toLocalDate()
-        val coordinates = Coordinates(location.latitude, location.longitude)
+        val coordinates = Coordinates(location.latitude, location.longitude, location.elevation)
         val params = settings.toPrayerParameters()
 
-        val result = calculator.compute(today, coordinates, params, zone, settings.asrMethod, settings.adjustments)
+        val result = calculator.compute(date, coordinates, params, zone, settings.asrMethod, settings.adjustments)
 
+        // The countdown always tracks the REAL next prayer (from now), even
+        // while the user browses a different day's times below.
         var next = NextPrayer.nextPrayer(result.epochMillis, now)
         if (next == null) {
             val tomorrowResult = calculator.compute(
@@ -66,16 +91,65 @@ class HomeViewModel @Inject constructor(
             )
             if (tomorrowResult.isValid) next = NextPrayer.nextPrayer(tomorrowResult.epochMillis, now)
         }
+        // When the user browsed away from today, keep showing the true next
+        // prayer by recomputing against "today" instead of the selected date.
+        if (date != today) {
+            val todayResult = calculator.compute(today, coordinates, params, zone, settings.asrMethod, settings.adjustments)
+            next = NextPrayer.nextPrayer(todayResult.epochMillis, now)
+                ?: calculator.compute(
+                    today.plusDays(1), coordinates, params, zone, settings.asrMethod, settings.adjustments,
+                ).let { NextPrayer.nextPrayer(it.epochMillis, now) }
+        }
 
         return UiState(
             hasLocation = true,
             locationName = location.name,
-            hijri = HijriDate.from(today, settings.hijriAdjustment),
+            hijri = runCatching { HijriDate.from(date, settings.hijriAdjustment) }.getOrNull(),
             nextPrayer = next?.prayer,
             nextPrayerAt = next?.atEpochMillis?.let { Instant.ofEpochMilli(it).atZone(zone).toLocalTime() },
             countdownSeconds = next?.let { NextPrayer.countdownSeconds(it.atEpochMillis, now) } ?: 0,
             times = result.times,
             isValid = result.isValid,
+            selectedDate = date,
+            monthly = isMonthly,
+            month = YearMonth.from(date),
+            monthDays = if (isMonthly) {
+                monthGrid(YearMonth.from(date), coordinates, params, zone, settings)
+            } else {
+                emptyList()
+            },
         )
+    }
+
+    fun previousDay() {
+        selectedDate.value = selectedDate.value.minusDays(1)
+    }
+
+    fun nextDay() {
+        selectedDate.value = selectedDate.value.plusDays(1)
+    }
+
+    fun toggleMonthly() {
+        monthly.value = !monthly.value
+    }
+
+    private fun monthGrid(
+        month: YearMonth,
+        coordinates: Coordinates,
+        params: PrayerParameters,
+        zone: ZoneId,
+        settings: PrayerSettings,
+    ): List<DayTimes> {
+        return (1..month.lengthOfMonth()).map { day ->
+            val date = month.atDay(day)
+            val result = calculator.compute(date, coordinates, params, zone, settings.asrMethod, settings.adjustments)
+            val hijri = runCatching { HijriDate.from(date, settings.hijriAdjustment) }.getOrNull()
+            DayTimes(
+                date = date,
+                hijriDay = hijri?.day ?: day,
+                fajr = result.timeFor(Prayer.Fajr),
+                maghrib = result.timeFor(Prayer.Maghrib),
+            )
+        }
     }
 }

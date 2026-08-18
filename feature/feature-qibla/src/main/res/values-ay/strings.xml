@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ukharuw puri</string>
+    <string name="mosque_finder_empty">Janiw kuna mezquitas ukanakas aka rango ukan jikxataskiti</string>
+    <string name="mosque_finder_error">Uka thaqhañax janiw phuqhaskänti</string>
+    <string name="mosque_finder_intro">OpenStreetMap tuqiw kawkhantix jikxataskta uka jak’an mezquitas ukanakax jikxatasi</string>
+    <string name="mosque_finder_no_location">Janiw mä chiqax jichhakamax utt’ayatäkiti. Nayraqatax mä chiqawj ajlliñ horas de oración ukanakat.</string>
+    <string name="mosque_finder_retry">Wasitat yantʼañamawa</string>
+    <string name="mosque_finder_searching">Uñakipt’añataki...</string>
+    <string name="mosque_finder_title">Uka jak’an mezquitas ukanaka</string>
+    <string name="qibla_bearing_cardinal">Qibla dirección: %1$s uka jakhuru</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f° ukat juk’ampinaka</string>
+    <string name="qibla_calibrate">Teléfono ukarux mä figura-llätunk ukar apkatañamawa calibración lurañataki</string>
+    <string name="qibla_distance">Makkah markar puriñkamax: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Jumax Qibla 🕋 uñkatasktaxa</string>
+    <string name="qibla_gps_error">Janiw mä chiqap askichäw jikxataskänti. Ukhamaraki, mayampi yant’apxañani.</string>
+    <string name="qibla_gps_live">GPS ukan jakawipa</string>
+    <string name="qibla_gps_refresh">GPS tuqiw uñt’ayasi</string>
+    <string name="qibla_gps_refreshing">Ukax...</string>
+    <string name="qibla_heading_degree">Telefono p’iqinchawi: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Jach’a muyu thakhix kawkhantix jikxataskta ukat Kaaba ukar puriñkama — jan internetan irnaqaski</string>
+    <string name="qibla_map_kaaba">Kaaba ukat juk’ampinaka</string>
+    <string name="qibla_map_you">Jumax</string>
+    <string name="qibla_mode_compass">Brújula ukampi</string>
+    <string name="qibla_mode_map">Mapa</string>
+    <string name="qibla_open_mosques">Uka jak’an mezquitas ukanaka</string>
+    <string name="qibla_title">Qibla dirección</string>
+    <string name="qibla_turn_left">Ch’iqa tuqiru kutt’aña %1$.1f°</string>
+    <string name="qibla_turn_right">Ch’iqa tuqiru kutt’aña %1$.1f°</string>
+</resources>

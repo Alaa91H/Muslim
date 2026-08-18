@@ -18,6 +18,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Alarm
+import androidx.compose.material.icons.filled.BatteryFull
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Circle
 import androidx.compose.material.icons.filled.GpsFixed
@@ -278,4 +279,5 @@ private fun permissionIcon(permission: AppPermission): ImageVector = when (permi
     AppPermission.NotificationPolicy -> Icons.Filled.Lock
     AppPermission.BootCompleted -> Icons.Filled.Power
     AppPermission.Vibrate -> Icons.Filled.Vibration
+    AppPermission.BatteryOptimization -> Icons.Filled.BatteryFull
 }

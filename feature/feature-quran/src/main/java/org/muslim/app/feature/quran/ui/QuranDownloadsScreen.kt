@@ -16,6 +16,8 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Pause
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenuItem
@@ -53,7 +55,10 @@ import org.muslim.app.feature.quran.data.DownloadStatus
 import org.muslim.app.feature.quran.data.DownloadTaskUi
 import java.util.Locale
 
-/** Downloads hub: choose scope + reciter, see sizes, and track background progress. */
+/** 30-minute increments across a full day, as minutes from midnight. */
+private val nightTimeOptions: List<Int> = (0 until 24 * 60 step 30).toList()
+
+/** Downloads hub: choose scope + reciter, see verified sizes, and track background progress. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun QuranDownloadsScreen(
@@ -66,6 +71,7 @@ fun QuranDownloadsScreen(
     val surahInput by viewModel.surahInput.collectAsStateWithLifecycle()
     val ayahInput by viewModel.ayahInput.collectAsStateWithLifecycle()
     val estimateBytes by viewModel.estimateBytes.collectAsStateWithLifecycle()
+    val verifiedBytes by viewModel.verifiedBytes.collectAsStateWithLifecycle()
     val tasks by viewModel.tasks.collectAsStateWithLifecycle()
     val nightOnly by viewModel.nightOnly.collectAsStateWithLifecycle()
     val nightWindowStart by viewModel.nightWindowStart.collectAsStateWithLifecycle()
@@ -165,18 +171,28 @@ fun QuranDownloadsScreen(
 
             Spacer(Modifier.height(12.dp))
 
-            if (estimateBytes != null) {
-                Text(
-                    text = stringResource(R.string.quran_download_size_estimate, formatBytes(estimateBytes!!)),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-            } else {
-                Text(
-                    text = stringResource(R.string.quran_download_size_unknown),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+            when {
+                verifiedBytes != null -> {
+                    Text(
+                        text = stringResource(R.string.quran_download_size_verified, formatBytes(verifiedBytes!!)),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+                estimateBytes != null -> {
+                    Text(
+                        text = stringResource(R.string.quran_download_size_estimate, formatBytes(estimateBytes!!)),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+                else -> {
+                    Text(
+                        text = stringResource(R.string.quran_download_size_unknown),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
             }
 
             Spacer(Modifier.height(12.dp))
@@ -205,6 +221,33 @@ fun QuranDownloadsScreen(
                     checked = nightOnly,
                     onCheckedChange = viewModel::setNightOnly,
                 )
+            }
+
+            if (nightOnly) {
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = stringResource(R.string.quran_download_night_window_title),
+                    style = MaterialTheme.typography.titleSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                Spacer(Modifier.height(4.dp))
+                Row {
+                    TimeDropdown(
+                        label = stringResource(R.string.quran_download_night_start),
+                        selectedMinutes = nightWindowStart,
+                        options = nightTimeOptions,
+                        onSelected = viewModel::setNightWindowStart,
+                        modifier = Modifier.weight(1f),
+                    )
+                    Spacer(Modifier.width(12.dp))
+                    TimeDropdown(
+                        label = stringResource(R.string.quran_download_night_end),
+                        selectedMinutes = nightWindowEnd,
+                        options = nightTimeOptions,
+                        onSelected = viewModel::setNightWindowEnd,
+                        modifier = Modifier.weight(1f),
+                    )
+                }
             }
 
             Spacer(Modifier.height(12.dp))
@@ -244,7 +287,12 @@ fun QuranDownloadsScreen(
                 )
             } else {
                 tasks.forEach { task ->
-                    TaskRow(task = task, onCancel = { viewModel.cancel(task.id) })
+                    TaskRow(
+                        task = task,
+                        onPause = { viewModel.pause(task.id) },
+                        onResume = { viewModel.resume(task.id) },
+                        onCancel = { viewModel.cancel(task.id) },
+                    )
                     Spacer(Modifier.height(8.dp))
                 }
             }
@@ -334,8 +382,52 @@ private fun ReciterDropdown(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun TaskRow(task: DownloadTaskUi, onCancel: () -> Unit) {
+private fun TimeDropdown(
+    label: String,
+    selectedMinutes: Int,
+    options: List<Int>,
+    onSelected: (Int) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    var expanded by remember { mutableStateOf(false) }
+    ExposedDropdownMenuBox(
+        expanded = expanded,
+        onExpandedChange = { expanded = it },
+        modifier = modifier,
+    ) {
+        OutlinedTextField(
+            value = formatMinutes(selectedMinutes),
+            onValueChange = {},
+            readOnly = true,
+            label = { Text(label) },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
+        )
+        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+            options.forEach { minutes ->
+                DropdownMenuItem(
+                    text = { Text(formatMinutes(minutes)) },
+                    onClick = {
+                        expanded = false
+                        onSelected(minutes)
+                    },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun TaskRow(
+    task: DownloadTaskUi,
+    onPause: () -> Unit,
+    onResume: () -> Unit,
+    onCancel: () -> Unit,
+) {
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(12.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -356,10 +448,30 @@ private fun TaskRow(task: DownloadTaskUi, onCancel: () -> Unit) {
                         else -> MaterialTheme.colorScheme.onSurfaceVariant
                     },
                 )
-                if (task.status == DownloadStatus.Queued || task.status == DownloadStatus.Downloading) {
-                    IconButton(onClick = onCancel) {
-                        Icon(Icons.Filled.Close, contentDescription = stringResource(R.string.quran_download_cancel))
+                when (task.status) {
+                    DownloadStatus.Downloading,
+                    DownloadStatus.Queued -> {
+                        IconButton(onClick = onPause) {
+                            Icon(Icons.Filled.Pause, contentDescription = stringResource(R.string.quran_download_pause))
+                        }
+                        IconButton(onClick = onCancel) {
+                            Icon(Icons.Filled.Close, contentDescription = stringResource(R.string.quran_download_cancel))
+                        }
                     }
+                    DownloadStatus.Paused -> {
+                        IconButton(onClick = onResume) {
+                            Icon(Icons.Filled.PlayArrow, contentDescription = stringResource(R.string.quran_download_resume))
+                        }
+                        IconButton(onClick = onCancel) {
+                            Icon(Icons.Filled.Close, contentDescription = stringResource(R.string.quran_download_cancel))
+                        }
+                    }
+                    DownloadStatus.WaitingNight -> {
+                        IconButton(onClick = onCancel) {
+                            Icon(Icons.Filled.Close, contentDescription = stringResource(R.string.quran_download_cancel))
+                        }
+                    }
+                    else -> Unit
                 }
             }
             if (task.status == DownloadStatus.Downloading || task.status == DownloadStatus.Queued) {
@@ -378,6 +490,7 @@ private fun statusLabel(status: DownloadStatus): String = stringResource(
     when (status) {
         DownloadStatus.Queued -> R.string.quran_download_status_queued
         DownloadStatus.Downloading -> R.string.quran_download_status_downloading
+        DownloadStatus.Paused -> R.string.quran_download_status_paused
         DownloadStatus.WaitingNight -> R.string.quran_download_night_status
         DownloadStatus.Completed -> R.string.quran_download_status_completed
         DownloadStatus.Failed -> R.string.quran_download_status_failed
@@ -473,7 +586,9 @@ private fun ReciterStateSection(
 }
 
 /** Formats minutes-from-midnight as "HH:MM". */
-private fun formatWindow(startMinutes: Int, endMinutes: Int): String {
-    fun fmt(min: Int) = String.format(java.util.Locale.ROOT, "%02d:%02d", min / 60, min % 60)
-    return "${fmt(startMinutes)} – ${fmt(endMinutes)}"
-}
+private fun formatMinutes(minutes: Int): String =
+    String.format(java.util.Locale.ROOT, "%02d:%02d", minutes / 60, minutes % 60)
+
+/** Formats a window as "HH:MM – HH:MM". */
+private fun formatWindow(startMinutes: Int, endMinutes: Int): String =
+    "${formatMinutes(startMinutes)} – ${formatMinutes(endMinutes)}"

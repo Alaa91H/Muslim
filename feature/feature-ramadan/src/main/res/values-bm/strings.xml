@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Kɔfɛ</string>
+    <string name="ramadan_countdown">Ramadan bɛ daminɛ tile %1$s kɔnɔ</string>
+    <string name="ramadan_countdown_to_iftar">Waati min bɛ se iftar ma: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Fajr waati: %1$s</string>
+    <string name="ramadan_day_of_month">Ramadan tile %1$s</string>
+    <string name="ramadan_days_left">tile %1$s tora</string>
+    <string name="ramadan_fasting_progress">Sunɔgɔ donw: %1$s ka bɔ %2$s la — tile kelen digi walasa k’a sɛbɛn</string>
+    <string name="ramadan_fasting_tracker">Sunɔgɔ ka tugu-tugu-ɲɔgɔn kɔ</string>
+    <string name="ramadan_hijri_note">A sinsinnen bɛ Umm al-Qura kalandriya kan ni app-wide Hijri ladilanni ye min kɛra.</string>
+    <string name="ramadan_hijri_year">San %1$s sàn</string>
+    <string name="ramadan_iftar">Iftar (Iftari) ye</string>
+    <string name="ramadan_iftar_dua">Iftar delili: "E Allah, ne ye sunɔgɔ i kosɔn ani i ka balo kan ne ye n ka sunɔgɔ tiɲɛ..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) waati: %1$s</string>
+    <string name="ramadan_location_required">Dugu dɔ sugandi Settings kɔnɔ fɔlɔ walasa ka waatiw ye.</string>
+    <string name="ramadan_minutes">%1$s miniti</string>
+    <string name="ramadan_notification_iftar_body">Ala, i kosɔn ne ye sunɔgɔ ani i ka balo kan ne bɛ n ka sunɔgɔ tiɲɛ</string>
+    <string name="ramadan_notification_iftar_title">Iftar waati</string>
+    <string name="ramadan_notification_suhoor_body">Fajr bɛ ka surunya — i ka suhoor sɔrɔ</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor hakilijigin</string>
+    <string name="ramadan_starts_on">%1$s — %2$s. Bamako, Mali</string>
+    <string name="ramadan_suhoor">Suhoor ye</string>
+    <string name="ramadan_suhoor_remind_before">Aw ye n hakili jigin ka kɔn o ɲɛ:</string>
+    <string name="ramadan_suhoor_time">Suhoor labanw (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan na</string>
+</resources>

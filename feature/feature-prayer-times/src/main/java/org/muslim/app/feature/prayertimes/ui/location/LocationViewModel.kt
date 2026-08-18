@@ -49,7 +49,13 @@ class LocationViewModel @Inject constructor(
     /** Saves a city from the offline database. */
     fun selectCity(city: City) {
         save(
-            SelectedLocation(name = city.displayName, latitude = city.latitude, longitude = city.longitude, timeZone = city.timeZone),
+            SelectedLocation(
+                name = city.displayName,
+                latitude = city.latitude,
+                longitude = city.longitude,
+                timeZone = city.timeZone,
+                elevation = city.elevation,
+            ),
             regionHint = city.country,
         )
     }
@@ -86,6 +92,7 @@ class LocationViewModel @Inject constructor(
                         latitude = geo.latitude,
                         longitude = geo.longitude,
                         timeZone = TimeZone.getDefault().id,
+                        elevation = geo.altitude ?: 0.0,
                     )
                 )
             }

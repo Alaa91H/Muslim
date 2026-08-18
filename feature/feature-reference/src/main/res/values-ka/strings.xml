@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">უკან</string>
+    <string name="reference_no_results">შესატყვისი შედეგები არ არის</string>
+    <string name="reference_search_hint">მოძებნეთ ეს წიგნი…</string>
+    <string name="reference_title">ისლამური საცნობარო ბიბლიოთეკა</string>
+    <string name="reference_topics_count">თემები</string>
+</resources>

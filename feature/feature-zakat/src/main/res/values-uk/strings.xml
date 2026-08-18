@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Отримати ціни автоматично</string>
+    <string name="zakat_auto_prices_hint">Якщо ввімкнено, ціни на золото та срібло отримуються з Інтернету й оновлюються автоматично</string>
+    <string name="zakat_back">Назад</string>
+    <string name="zakat_cash">Готівка та заощадження</string>
+    <string name="zakat_clear_history">Очистити історію</string>
+    <string name="zakat_country">Країна</string>
+    <string name="zakat_country_placeholder">Виберіть країну та валюту</string>
+    <string name="zakat_country_section">Країна та валюта</string>
+    <string name="zakat_currency">Валюта: %1$s</string>
+    <string name="zakat_debts">Ваші борги (вираховуються)</string>
+    <string name="zakat_due">Закят до сплати (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldnn\'t отримати ціни. Перевірте підключення або введіть ціну вручну.</string>
+    <string name="zakat_fetch_now">Оновити ціни зараз</string>
+    <string name="zakat_fetching">Отримання цін…</string>
+    <string name="zakat_fitr_persons">Кількість членів сім\'ї</string>
+    <string name="zakat_fitr_saa_value">Вартість одного sa\' (основний продукт харчування)</string>
+    <string name="zakat_fitr_section">Закят аль-Фітр</string>
+    <string name="zakat_fitr_total">Загальний Фітр закят: %1$s</string>
+    <string name="zakat_gold_grams">Золото (грами)</string>
+    <string name="zakat_gold_price">Ціна золота за грам</string>
+    <string name="zakat_history">Історія розрахунків</string>
+    <string name="zakat_history_amount">Закят: %1$s</string>
+    <string name="zakat_history_empty">Ще немає збережених розрахунків.</string>
+    <string name="zakat_investments">Інвестиції</string>
+    <string name="zakat_last_updated">Останнє оновлення: %1$s</string>
+    <string name="zakat_money_section">Закят на багатство</string>
+    <string name="zakat_nisab_gold">Золотий нісаб (85г)</string>
+    <string name="zakat_nisab_met">Нісаб досягнуто — закят належить</string>
+    <string name="zakat_nisab_not_met">Нижче нісаб — закят не належить</string>
+    <string name="zakat_nisab_silver">Срібний нісаб (595г)</string>
+    <string name="zakat_rulings_note">Згідно з більшістю (jumhoor): золото нізаб становить 85 г, срібло 595 г, а курс становить 2,5%% після вирахування належних боргів. Зверніться до кваліфікованого вченого в особливих випадках.</string>
+    <string name="zakat_save_result">Зберегти в історію</string>
+    <string name="zakat_silver_grams">Срібло (грами)</string>
+    <string name="zakat_silver_price">Ціна срібла за грам</string>
+    <string name="zakat_source_note">Ціни на золото/срібло від gold-api.com; Курси валют від open.er-api.com</string>
+    <string name="zakat_title">Закят</string>
+    <string name="zakat_total_assets">Загальні активи</string>
+    <string name="zakat_trade">Вартість торгових товарів</string>
+    <string name="zakat_zakatable">Сума, що підлягає зарахуванню після боргів</string>
+</resources>

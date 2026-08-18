@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Jeblak</string>
+    <string name="ramadan_countdown">Ramadan ej jino ilo %1$s raan ko</string>
+    <string name="ramadan_countdown_to_iftar">Iien ñan iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Iien ñan Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Ran %1$s in Ramadan</string>
+    <string name="ramadan_days_left">%1$s raan ko rej bed wōt</string>
+    <string name="ramadan_fasting_progress">Ran in jitlok: %1$s in %2$s — tōpar juon raan ñan am rekoote</string>
+    <string name="ramadan_fasting_tracker">Fasting tracker</string>
+    <string name="ramadan_hijri_note">Ekkar ñan Umm al-Qura calendar eo ippāñ app-wide Hijri adjustment eo kar kōjerbale.</string>
+    <string name="ramadan_hijri_year">yio %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar akweļap: "O Allah, kin Kwe iar jitlok im kin men ko Am iar rupe aō jitlok..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) ien: %1$s</string>
+    <string name="ramadan_location_required">Kālet juon jikin kwelok ilo Settings mokta ñan lale ien ko.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, kin Kwe iar jitloñ im kin men ko Am iar rupe aō jitlok</string>
+    <string name="ramadan_notification_iftar_title">Iien ñan iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr ej epaaktok — kōmman am suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Kakememej in Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Kakememej iō mokta:</string>
+    <string name="ramadan_suhoor_time">Suhoor ej jemlok (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

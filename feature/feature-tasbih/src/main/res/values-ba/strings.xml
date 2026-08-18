@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Цифрлы мисбаһа — тап һанарға</string>
+    <string name="misbaha_widget_label">Тәсбих</string>
+    <string name="misbaha_widget_tap_hint">Һанау өсөн баҫығыҙ</string>
+    <string name="tasbih_back">Артҡа</string>
+    <string name="tasbih_cancel">Юҡҡа сығарыу</string>
+    <string name="tasbih_confirm">Ярай</string>
+    <string name="tasbih_custom_target">Ҡулланыусы</string>
+    <string name="tasbih_custom_target_hint">Һандар һанын индерегеҙ (1-ҙән 100000-гә тиклем)</string>
+    <string name="tasbih_custom_target_title">Ҡулланыусы маҡсат ҡуйыу</string>
+    <string name="tasbih_of_target">%1$s һум</string>
+    <string name="tasbih_reset">Сброс</string>
+    <string name="tasbih_reset_all">Барыһын да ҡайтанан тергеҙеү</string>
+    <string name="tasbih_round_complete">Тулы түңәрәк тамамланды (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Турҙары: %1$d</string>
+    <string name="tasbih_sound_desc">Һәр тулы тур тамамланғанда рингтон уйнай йәки тон .</string>
+    <string name="tasbih_sound_title">Тауыш маҡсатҡа</string>
+    <string name="tasbih_sound_tone_alarm">Сигнализация</string>
+    <string name="tasbih_sound_tone_notification">Хәбәр итеү</string>
+    <string name="tasbih_sound_tone_ringtone">Рингтон</string>
+    <string name="tasbih_tap_hint">Һанау өсөн түңәрәккә баҫығыҙ</string>
+    <string name="tasbih_target_reached">Маҡсатҡа ирешелде — Аллаһы Тәғәлә ҡабул итһен</string>
+    <string name="tasbih_title">Тәсбих</string>
+    <string name="tasbih_total_today">Бөгөн \' йылдар дөйөм: %1$d</string>
+    <string name="tasbih_undo">Кире ҡайтарыу</string>
+    <string name="tasbih_virtue_label">Был зекерҙең фазиләте .</string>
+    <string name="tasbih_week_stats">Һуңғы 7 көн</string>
+</resources>

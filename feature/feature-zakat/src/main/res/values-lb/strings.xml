@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Fänkt Präisser automatesch</string>
+    <string name="zakat_auto_prices_hint">Wann aktivéiert, ginn d\'Gold- a Sëlwerpräisser vum Internet gesammelt an automatesch erfrëscht</string>
+    <string name="zakat_back">Zréck</string>
+    <string name="zakat_cash">Cash an spueren</string>
+    <string name="zakat_clear_history">Kloer Geschicht</string>
+    <string name="zakat_country">Land</string>
+    <string name="zakat_country_placeholder">Wielt Äert Land a Währung</string>
+    <string name="zakat_country_section">Land &amp; Währung</string>
+    <string name="zakat_currency">Währung: %1$s</string>
+    <string name="zakat_debts">Scholden déi Dir schëlleg sidd (ofgezunn)</string>
+    <string name="zakat_due">Zakat wéinst (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Konnt \'t Präisser erofhuelen. Kontrolléiert Är Verbindung oder gitt de Präis manuell.</string>
+    <string name="zakat_fetch_now">Frësch Präisser elo</string>
+    <string name="zakat_fetching">Präisser sichen…</string>
+    <string name="zakat_fitr_persons">Zuel vu Familljememberen</string>
+    <string name="zakat_fitr_saa_value">Wäert vun engem sa\' (Happeführung)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Total Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Gold (Gram)</string>
+    <string name="zakat_gold_price">Gold Präis pro Gramm</string>
+    <string name="zakat_history">Berechnung Geschicht</string>
+    <string name="zakat_history_amount">Zuel: %1$s</string>
+    <string name="zakat_history_empty">Keng gespäichert Berechnungen nach.</string>
+    <string name="zakat_investments">Investitiounen</string>
+    <string name="zakat_last_updated">Lescht aktualiséiert: %1$s</string>
+    <string name="zakat_money_section">Zakat op Räichtum</string>
+    <string name="zakat_nisab_gold">Gold Nisab (85g)</string>
+    <string name="zakat_nisab_met">Den Nisab ass erreecht - Zakat ass wéinst</string>
+    <string name="zakat_nisab_not_met">Ënnert der nisab - nee zakat wéinst</string>
+    <string name="zakat_nisab_silver">Sëlwer Nisab (595g)</string>
+    <string name="zakat_rulings_note">Per Majoritéit (Jumhoor): Gold Nisab ass 85g, Sëlwer 595g, an den Taux ass 2.5%% nom Ofzuch vu verpflichte Scholden. Consultéiert e qualifizéierte Geléiert fir speziell Fäll.</string>
+    <string name="zakat_save_result">Späichert an d\'Geschicht</string>
+    <string name="zakat_silver_grams">Sëlwer (Gram)</string>
+    <string name="zakat_silver_price">Sëlwer Präis pro Gramm</string>
+    <string name="zakat_source_note">Gold / Sëlwer Präisser vun gold-api.com; FX Tariffer vun open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Total Verméigen</string>
+    <string name="zakat_trade">Handel Wueren Wäert</string>
+    <string name="zakat_zakatable">Zakatable Betrag no Scholden</string>
+</resources>

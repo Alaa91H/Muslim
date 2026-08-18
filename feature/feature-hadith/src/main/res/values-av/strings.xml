@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Киналго</string>
+    <string name="hadith_back">Нахъе</string>
+    <string name="hadith_bookmark_add">Добавить закладку</string>
+    <string name="hadith_bookmark_remove">Удалить закладку</string>
+    <string name="hadith_collection_abudawud">Абу Давуд</string>
+    <string name="hadith_collection_bukhari">Аль-Бухари</string>
+    <string name="hadith_collection_ibnmajah">Ибн Мажагь .</string>
+    <string name="hadith_collection_muslim">Бусурман</string>
+    <string name="hadith_collection_nasai">Ан-Наса\'и</string>
+    <string name="hadith_collection_nawawi">Ан-Навави 40 гь.</string>
+    <string name="hadith_collection_other">Цогидал .</string>
+    <string name="hadith_collection_riyad">Эр-Рияд ас-Салихин</string>
+    <string name="hadith_collection_tirmidhi">Ат-Тирмизи</string>
+    <string name="hadith_daily_notification">Щибаб къоялъул хӀадисалъул лъазаби .</string>
+    <string name="hadith_daily_notification_desc">Щибаб къоялъ хӀадис къабул гьабе .</string>
+    <string name="hadith_daily_notification_time">Лъазабиялъул заман</string>
+    <string name="hadith_of_the_day">Къоялъул хӀадис .</string>
+    <string name="hadith_preview_hint">Гьедин загьирлъула щибаб къойил хӀадисалъул лъазаби жинцаго бихьизабараб заманалда.</string>
+    <string name="hadith_preview_label">Уведомление цебеккунго бихьизе</string>
+    <string name="hadith_preview_loading">Загрузка хӀадиса...</string>
+    <string name="hadith_search_hint">ХӀадисал ралагье...</string>
+    <string name="hadith_share">Бикьизе</string>
+    <string name="hadith_title">ХӀадисазул библиотека</string>
+</resources>

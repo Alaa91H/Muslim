@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha digiteach - tapáil chun comhaireamh</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tapáil chun comhaireamh</string>
+    <string name="tasbih_back">Ar ais</string>
+    <string name="tasbih_cancel">Cealaigh</string>
+    <string name="tasbih_confirm">ceart go leor</string>
+    <string name="tasbih_custom_target">Saincheaptha</string>
+    <string name="tasbih_custom_target_hint">Cuir isteach líon na n-áireamh (ó 1 go 100000)</string>
+    <string name="tasbih_custom_target_title">Socraigh sprioc saincheaptha</string>
+    <string name="tasbih_of_target">de %1$s</string>
+    <string name="tasbih_reset">Athshocraigh</string>
+    <string name="tasbih_reset_all">Athshocraigh go léir</string>
+    <string name="tasbih_round_complete">Babhta iomlán críochnaithe (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Babhtaí: %1$d</string>
+    <string name="tasbih_sound_desc">Seinn glao gutháin nó ton nuair a bheidh gach babhta iomlán críochnaithe</string>
+    <string name="tasbih_sound_title">Fuaim ar an sprioc</string>
+    <string name="tasbih_sound_tone_alarm">Aláram</string>
+    <string name="tasbih_sound_tone_notification">Fógra</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Tapáil an ciorcal le comhaireamh</string>
+    <string name="tasbih_target_reached">Sprioc bainte amach - féadfaidh Allah glacadh leis</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Inniu \'s iomlán: %1$d</string>
+    <string name="tasbih_undo">Cealaigh</string>
+    <string name="tasbih_virtue_label">De bhua an dhikr seo</string>
+    <string name="tasbih_week_stats">7 lá seo caite</string>
+</resources>

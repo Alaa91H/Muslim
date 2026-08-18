@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s unna</string>
+    <string name="mosque_finder_empty">Ingen moskeer funnet i dette området</string>
+    <string name="mosque_finder_error">Søk mislyktes</string>
+    <string name="mosque_finder_intro">Finn moskeer i nærheten av din plassering via OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Ingen plassering angitt ennå. Velg et sted fra bønnetidsinnstillingene først.</string>
+    <string name="mosque_finder_retry">Prøv på nytt</string>
+    <string name="mosque_finder_searching">Søker …</string>
+    <string name="mosque_finder_title">Moskeer i nærheten</string>
+    <string name="qibla_bearing_cardinal">Qibla-retning: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Flytt telefonen i et åttetal for å kalibrere</string>
+    <string name="qibla_distance">Avstand til Mekka: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Du står overfor Qibla 🕋</string>
+    <string name="qibla_gps_error">Kunne ikke få en nøyaktig løsning. Vennligst prøv igjen.</string>
+    <string name="qibla_gps_live">Live GPS-posisjon</string>
+    <string name="qibla_gps_refresh">Oppdater posisjon via GPS</string>
+    <string name="qibla_gps_refreshing">Finner …</string>
+    <string name="qibla_heading_degree">Telefonoverskrift: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Flott sirkelrute fra posisjonen din til Kabaen – fungerer offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Du</string>
+    <string name="qibla_mode_compass">Kompass</string>
+    <string name="qibla_mode_map">Kart</string>
+    <string name="qibla_open_mosques">Moskeer i nærheten</string>
+    <string name="qibla_title">Qibla retning</string>
+    <string name="qibla_turn_left">Sving til venstre %1$.1f°</string>
+    <string name="qibla_turn_right">Sving til høyre %1$.1f°</string>
+</resources>

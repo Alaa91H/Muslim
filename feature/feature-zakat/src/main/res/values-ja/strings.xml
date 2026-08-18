@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">価格を自動的に取得する</string>
+    <string name="zakat_auto_prices_hint">有効にすると、金と銀の価格がインターネットから取得され、自動的に更新されます。</string>
+    <string name="zakat_back">戻る</string>
+    <string name="zakat_cash">現金と貯蓄</string>
+    <string name="zakat_clear_history">履歴をクリアする</string>
+    <string name="zakat_country">国</string>
+    <string name="zakat_country_placeholder">国と通貨を選択してください</string>
+    <string name="zakat_country_section">国と通貨</string>
+    <string name="zakat_currency">通貨: %1$s</string>
+    <string name="zakat_debts">あなたが負っている借金（控除）</string>
+    <string name="zakat_due">ザカート期限 (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'トンの価格を取得できませんでした。接続を確認するか、価格を手動で入力してください。</string>
+    <string name="zakat_fetch_now">今すぐ価格を更新してください</string>
+    <string name="zakat_fetching">価格を取得中…</string>
+    <string name="zakat_fitr_persons">家族の人数</string>
+    <string name="zakat_fitr_saa_value">sa\'（主食）1個の価値</string>
+    <string name="zakat_fitr_section">ザカート・アル・フィトル</string>
+    <string name="zakat_fitr_total">合計 Fitr ザカート: %1$s</string>
+    <string name="zakat_gold_grams">金（グラム）</string>
+    <string name="zakat_gold_price">グラムあたりの金価格</string>
+    <string name="zakat_history">計算履歴</string>
+    <string name="zakat_history_amount">ザカート: %1$s</string>
+    <string name="zakat_history_empty">保存された計算はまだありません。</string>
+    <string name="zakat_investments">投資</string>
+    <string name="zakat_last_updated">最終更新日: %1$s</string>
+    <string name="zakat_money_section">富に関するザカート</string>
+    <string name="zakat_nisab_gold">ゴールドニサブ(85g)</string>
+    <string name="zakat_nisab_met">ニサブに達しました — ザカートの期限が来ました</string>
+    <string name="zakat_nisab_not_met">ニサブ以下 — ザカートはありません</string>
+    <string name="zakat_nisab_silver">シルバーニサブ (595g)</string>
+    <string name="zakat_rulings_note">大多数 (jumhoor) 当たり: 金ニサブは 85g、銀は 595g、債務を差し引いたレートは 2.5%% です。特別な場合については、資格のある学者に相談してください。</string>
+    <string name="zakat_save_result">履歴に保存</string>
+    <string name="zakat_silver_grams">シルバー（グラム）</string>
+    <string name="zakat_silver_price">グラムあたりの銀の価格</string>
+    <string name="zakat_source_note">gold-api.com からの金/銀の価格。 open.er-api.com の為替レート</string>
+    <string name="zakat_title">ザカート</string>
+    <string name="zakat_total_assets">総資産</string>
+    <string name="zakat_trade">交易品の価値</string>
+    <string name="zakat_zakatable">債務後のZakatable金額</string>
+</resources>

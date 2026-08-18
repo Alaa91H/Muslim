@@ -31,6 +31,15 @@
     <string name="times_export_header">مواقيت الصلاة — %1$s</string>
     <string name="times_export_location">الموقع: %1$s</string>
     <string name="times_export_subject">مواقيت الصلاة</string>
+    <string name="times_previous_day">اليوم السابق</string>
+    <string name="times_next_day">اليوم التالي</string>
+    <string name="times_week_sat">سبت</string>
+    <string name="times_week_sun">أحد</string>
+    <string name="times_week_mon">اثنين</string>
+    <string name="times_week_tue">ثلاثاء</string>
+    <string name="times_week_wed">أربعاء</string>
+    <string name="times_week_thu">خميس</string>
+    <string name="times_week_fri">جمعة</string>
 
     <!-- Calculation methods -->
     <string name="method_mwl">رابطة العالم الإسلامي</string>
@@ -65,6 +74,10 @@
     <string name="settings_adjustments">التعديل اليدوي (بالدقائق)</string>
     <string name="settings_adhan">الأذان والتنبيهات</string>
     <string name="settings_adhan_enabled">تفعيل الأذان</string>
+    <string name="settings_reminder_preview_hint">هكذا يظهر إشعار التذكير قبل الصلاة بالمدة التي تحددها.</string>
+    <string name="settings_adhan_preview_label">معاينة إشعار الأذان</string>
+    <string name="settings_adhan_preview_hint">هكذا يظهر الإشعار عند دخول وقت الصلاة، ويُحدَّث تلقائيًا حسب الصلاة القادمة.</string>
+    <string name="settings_adhan_preview_no_location">حدد الموقع أولاً لعرض الصلاة القادمة</string>
     <string name="settings_vibrate">الاهتزاز</string>
     <string name="settings_reminder">التذكير قبل الصلاة</string>
     <string name="settings_reminder_off">بدون تذكير</string>
@@ -75,7 +88,6 @@
     <string name="adhan_option_silent">صامت</string>
     <string name="settings_volume">مستوى الصوت</string>
     <string name="settings_preview">معاينة الأذان</string>
-    <string name="settings_bundled_adhan">صوت الأذان المضمّن (بدون تحميل)</string>
     <string name="bundled_adhan_makkah">أذان مكة</string>
     <string name="bundled_adhan_abdul_basit">أذان عبد الباسط</string>
     <string name="bundled_adhan_minshawi">أذان المنشاوي</string>
@@ -108,6 +120,10 @@
     <!-- Location -->
     <string name="location_title">اختيار الموقع</string>
     <string name="location_search_hint">ابحث عن مدينة…</string>
+    <string name="location_map_section">اختيار من الخريطة</string>
+    <string name="location_map_hint">اضغط على أي نقطة في الخريطة لاختيار موقعك ثم اضغط حفظ</string>
+    <string name="location_map_selected">الموقع المحدد: %1$.4f، %2$.4f</string>
+    <string name="location_map_save_selected">حفظ الموقع المحدد</string>
     <string name="location_manual">إدخال الإحداثيات يدويًا</string>
     <string name="location_latitude">خط العرض</string>
     <string name="location_longitude">خط الطول</string>
@@ -135,6 +151,7 @@
     <string name="next_adhan_notification_title">الأذان التالي: %1$s — %2$s</string>
     <string name="next_adhan_remaining">الوقت المتبقي: %1$s</string>
     <string name="next_adhan_missed">الأذان الفائت: %1$s — %2$s</string>
+    <string name="next_adhan_elapsed">مضى على الأذان: %1$s</string>
     <string name="next_adhan_no_location">حدِّد موقعك لعرض مواقيت الصلاة</string>
 
     <string name="bundled_adhan_madinah">أذان المدينة</string>
@@ -151,6 +168,14 @@
     <string name="bundled_adhan_saber">أذان صابر</string>
     <string name="bundled_adhan_sharif_doman">أذان شريف دومان</string>
     <string name="bundled_adhan_yusuf_islam">أذان يوسف إسلام</string>
+    <string name="bundled_adhan_umayyad_damascus">أذان الجامع الأموي بدمشق</string>
 
     <string name="settings_listen">استماع</string>
+    <string name="settings_adhan_customize">تخصيص</string>
+    <string name="settings_adhan_customize_title">تخصيص أذان %1$s</string>
+    <string name="settings_adhan_alert_type">نوع التنبيه</string>
+    <string name="settings_adhan_sound_choice">اختيار الصوت</string>
+    <string name="settings_adhan_confirm">موافق</string>
+    <string name="settings_adhan_cancel">إلغاء</string>
+    <string name="settings_adhan_sound_summary">%1$s · %2$s</string>
 </resources>

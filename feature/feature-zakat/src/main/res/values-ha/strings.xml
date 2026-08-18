@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Dauki farashin ta atomatik</string>
+    <string name="zakat_auto_prices_hint">Lokacin da aka kunna, ana debo farashin zinariya da azurfa daga intanit kuma ana sabunta su ta atomatik</string>
+    <string name="zakat_back">Baya</string>
+    <string name="zakat_cash">Cash da tanadi</string>
+    <string name="zakat_clear_history">Share tarihi</string>
+    <string name="zakat_country">Ƙasa</string>
+    <string name="zakat_country_placeholder">Zaɓi ƙasarku da kuɗin ku</string>
+    <string name="zakat_country_section">Kasa &amp; kudin</string>
+    <string name="zakat_currency">Kudin: %1$s</string>
+    <string name="zakat_debts">Bashi da kuke bin (cire)</string>
+    <string name="zakat_due">Zakkah (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ba za a iya samun farashin \' ba. Bincika haɗin ku ko shigar da farashin da hannu.</string>
+    <string name="zakat_fetch_now">Sabunta farashin yanzu</string>
+    <string name="zakat_fetching">Ana samun farashi…</string>
+    <string name="zakat_fitr_persons">Adadin yan uwa</string>
+    <string name="zakat_fitr_saa_value">Darajar sa\' (abinci na yau da kullun)</string>
+    <string name="zakat_fitr_section">Zakkaatul Fitr</string>
+    <string name="zakat_fitr_total">Total Fitr zakka: %1$s</string>
+    <string name="zakat_gold_grams">Zinariya (grams)</string>
+    <string name="zakat_gold_price">Farashin zinari a kowace gram</string>
+    <string name="zakat_history">Tarihin lissafin</string>
+    <string name="zakat_history_amount">Zakka: %1$s</string>
+    <string name="zakat_history_empty">Babu ajiyar lissafi tukuna.</string>
+    <string name="zakat_investments">Zuba jari</string>
+    <string name="zakat_last_updated">Ƙarshe na ƙarshe: %1$s</string>
+    <string name="zakat_money_section">Zakka akan dukiya</string>
+    <string name="zakat_nisab_gold">Nisabi na zinariya (85g)</string>
+    <string name="zakat_nisab_met">Ana isa ga nisabi - zakka</string>
+    <string name="zakat_nisab_not_met">A kasa da nisabi - babu zakka</string>
+    <string name="zakat_nisab_silver">Azurfa nisab (595g)</string>
+    <string name="zakat_rulings_note">Ga mafi rinjaye (jumhoor): nisab na zinariya shine 85g, azurfa 595g, kuma adadin shine 2.5%% bayan cire basussuka. Tuntuɓi wani ƙwararren malami don lokuta na musamman.</string>
+    <string name="zakat_save_result">Ajiye zuwa tarihi</string>
+    <string name="zakat_silver_grams">Azurfa (grams)</string>
+    <string name="zakat_silver_price">Farashin Azurfa a kowace gram</string>
+    <string name="zakat_source_note">Farashin zinari/azurfa daga gold-api.com; Farashin FX daga open.er-api.com</string>
+    <string name="zakat_title">Zakka</string>
+    <string name="zakat_total_assets">Jimlar kadarorin</string>
+    <string name="zakat_trade">Kimar kayan ciniki</string>
+    <string name="zakat_zakatable">Adadin zakka bayan bashi</string>
+</resources>

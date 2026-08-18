@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Miozolmana</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar maraina, hariva &amp; aorian\'ny vavaka misy kaontera</string>
+    <string name="more_downloads">Fisintonana fanononana</string>
+    <string name="more_downloads_desc">Misintona surah, ayah na Korany feno miaraka amin\'ny mpamaky nofidinao</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Tranomboky Hadith, fikarohana &amp; hadita androany</string>
+    <string name="more_learn">Mianara</string>
+    <string name="more_learn_desc">Torolàlana momba ny wudu &amp; vavaka</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Fotoan\'ny Suhoor &amp; Iftar ary mpanaraka ny fifadian-kanina</string>
+    <string name="more_reference">Tranomboky fanondro</string>
+    <string name="more_reference_desc">Fampidirana ny finoana silamo, ny Sira &amp; ny mpaminany</string>
+    <string name="more_settings">Settings</string>
+    <string name="more_settings_desc">Lohahevitra, fiteny, vavaka &amp; fandrindrana adhana</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">misbaha nomerika misy tantara isan\'andro</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat amin\'ny harena &amp; Fitr kajy</string>
+    <string name="scaffold_message">Efa vonona ny taolam-paty maro-module.\nFizarana 1 — Adhan, fotoam-bavaka, Qibla ary ny kalandrie Hijri — manomboka eto.</string>
+    <string name="shortcut_qibla">Kibla</string>
+    <string name="shortcut_qibla_long">Kiblat tari-dalana</string>
+    <string name="shortcut_settings">Settings</string>
+    <string name="shortcut_settings_long">Fandaharana vavaka &amp; adhana</string>
+    <string name="shortcut_times">Fotoam-bavaka</string>
+    <string name="shortcut_times_long">Fotoam-bavaka \' izao</string>
+    <string name="tab_home">Fotoam-bavaka</string>
+    <string name="tab_more">More</string>
+    <string name="tab_qibla">Kibla</string>
+    <string name="tab_quran">CORAN</string>
 </resources>

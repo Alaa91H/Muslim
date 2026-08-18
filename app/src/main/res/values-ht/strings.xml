@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Mizilman</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Maten, aswè &amp; apre lapriyè adhkar ak kontwa</string>
+    <string name="more_downloads">Telechajman resitasyon</string>
+    <string name="more_downloads_desc">Telechaje yon soure, yon Ayah oswa koran konplè a ak resite ou chwazi a</string>
+    <string name="more_hadith">Adith</string>
+    <string name="more_hadith_desc">Bibliyotèk Hadith, rechèch ak Hadith nan jounen an</string>
+    <string name="more_learn">Aprann</string>
+    <string name="more_learn_desc">Etap-pa-etap wudu ak gid lapriyè</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar fwa ak tracker jèn</string>
+    <string name="more_reference">Bibliyotèk referans</string>
+    <string name="more_reference_desc">Entwodiksyon nan Islam, Sira a ak pwofèt yo</string>
+    <string name="more_settings">Anviwònman</string>
+    <string name="more_settings_desc">Tèm, langaj, lapriyè ak anviwònman adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha dijital ak istwa chak jou</string>
+    <string name="more_zakat">zakat</string>
+    <string name="more_zakat_desc">Zakat sou richès &amp; Fitr kalkilatris</string>
+    <string name="scaffold_message">Kilè eskèlèt pwojè milti-modil la pare.\nFaz 1 — Adhan, tan lapriyè, Qibla, ak kalandriye Hijri a — kòmanse isit la.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Direksyon Qibla</string>
+    <string name="shortcut_settings">Anviwònman</string>
+    <string name="shortcut_settings_long">Lapriyè ak anviwònman adhan</string>
+    <string name="shortcut_times">Tan lapriyè</string>
+    <string name="shortcut_times_long">Jodi a \' fwa lapriyè</string>
+    <string name="tab_home">Tan Lapriyè</string>
+    <string name="tab_more">Plis</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Koran</string>
 </resources>

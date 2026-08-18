@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Ստացեք գները ավտոմատ կերպով</string>
+    <string name="zakat_auto_prices_hint">Երբ միացված է, ոսկու և արծաթի գները վերցվում են ինտերնետից և ինքնաբերաբար թարմացվում</string>
+    <string name="zakat_back">Ետ</string>
+    <string name="zakat_cash">Կանխիկ և խնայողություններ</string>
+    <string name="zakat_clear_history">Մաքրել պատմությունը</string>
+    <string name="zakat_country">Երկիր</string>
+    <string name="zakat_country_placeholder">Ընտրեք ձեր երկիրը և արժույթը</string>
+    <string name="zakat_country_section">Երկիր և արժույթ</string>
+    <string name="zakat_currency">Արժույթը՝ %1$s</string>
+    <string name="zakat_debts">Ձեր ունեցած պարտքերը (հանված)</string>
+    <string name="zakat_due">Վճարվող զաքաթ (2.5%%)՝ %1$s</string>
+    <string name="zakat_fetch_failed">Չի կարող \'t գներ բերել: Ստուգեք ձեր կապը կամ ձեռքով մուտքագրեք գինը:</string>
+    <string name="zakat_fetch_now">Թարմացրեք գները հիմա</string>
+    <string name="zakat_fetching">Գների առբերում…</string>
+    <string name="zakat_fitr_persons">Ընտանիքի անդամների թիվը</string>
+    <string name="zakat_fitr_saa_value">Մեկ sa\' (հիմնական սնունդ) արժեքը</string>
+    <string name="zakat_fitr_section">Զաքաթ ալ-Ֆիտր</string>
+    <string name="zakat_fitr_total">Ֆիտր ընդհանուր զաքաթ՝ %1$s</string>
+    <string name="zakat_gold_grams">Ոսկի (գրամ)</string>
+    <string name="zakat_gold_price">Ոսկու գինը մեկ գրամի դիմաց</string>
+    <string name="zakat_history">Հաշվարկների պատմություն</string>
+    <string name="zakat_history_amount">Զաքաթ՝ %1$s</string>
+    <string name="zakat_history_empty">Պահված հաշվարկներ դեռ չկան:</string>
+    <string name="zakat_investments">Ներդրումներ</string>
+    <string name="zakat_last_updated">Վերջին թարմացումը՝ %1$s</string>
+    <string name="zakat_money_section">Զաքաթ հարստության վրա</string>
+    <string name="zakat_nisab_gold">Ոսկու նիսաբ (85 գ)</string>
+    <string name="zakat_nisab_met">Նիսաբը հասել է — զաքաթը վճարվում է</string>
+    <string name="zakat_nisab_not_met">Նիսաբից ներքև՝ զաքաթ չկա</string>
+    <string name="zakat_nisab_silver">Արծաթյա նիսաբ (595 գ)</string>
+    <string name="zakat_rulings_note">Մեծամասնության համար (ջումհուր)՝ ոսկու նիսաբը 85գ է, արծաթը՝ 595գ, իսկ տոկոսադրույքը կազմում է 2,5%% պարտքերը հանելուց հետո: Հատուկ դեպքերի համար դիմեք որակավորված գիտնականի:</string>
+    <string name="zakat_save_result">Պահպանել պատմության մեջ</string>
+    <string name="zakat_silver_grams">Արծաթ (գրամ)</string>
+    <string name="zakat_silver_price">Արծաթի գինը մեկ գրամի համար</string>
+    <string name="zakat_source_note">Ոսկու/արծաթի գները gold-api.com-ից; Արտարժույթի փոխարժեքներ open.er-api.com-ից</string>
+    <string name="zakat_title">Զաքաթ</string>
+    <string name="zakat_total_assets">Ընդհանուր ակտիվներ</string>
+    <string name="zakat_trade">Առևտրային ապրանքների արժեքը</string>
+    <string name="zakat_zakatable">Պարտքերից հետո զաքաթելի գումար</string>
+</resources>

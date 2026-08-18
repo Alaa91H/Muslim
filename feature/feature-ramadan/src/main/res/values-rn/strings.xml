@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Inyuma</string>
+    <string name="ramadan_countdown">Ramadhani itanguye mu misi %1$s</string>
+    <string name="ramadan_countdown_to_iftar">Igihe co gufungura iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Igihe co gushika ku musi mukuru: %1$s</string>
+    <string name="ramadan_day_of_month">Umusi wa %1$s wa Ramadani</string>
+    <string name="ramadan_days_left">Hasigaye imisi %1$s</string>
+    <string name="ramadan_fasting_progress">Fasting days: %1$s of %2$s — tap a day to record it</string>
+    <string name="ramadan_fasting_tracker">Ugukurikirana kwisonzesha</string>
+    <string name="ramadan_hijri_note">Ishingiye ku kirangamisi ca Umm al-Qura hakoreshejwe uguhindura kwa Hijri kw’iporogarama yose.</string>
+    <string name="ramadan_hijri_year">Umwaka %1$s H</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Isengesho ry\'Iftar: "Ewe Allah, ni Wewe nisonzesheje kandi ku vyo umpaye nisonzesheje..."</string>
+    <string name="ramadan_iftar_time">Igihe c\'Iftar: %1$s</string>
+    <string name="ramadan_location_required">Hitamwo igisagara mu Mitunganyirize mbere kugira ngo ubone amasaha.</string>
+    <string name="ramadan_minutes">Iminota %1$s</string>
+    <string name="ramadan_notification_iftar_body">Ewe Allah, ni Wewe nisonzesheje kandi ku vyo wampaye nisonzesha</string>
+    <string name="ramadan_notification_iftar_title">Igihe ca iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr iriko iraza — ugire suhoor yawe</string>
+    <string name="ramadan_notification_suhoor_title">Ivyibutsa vya Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhour</string>
+    <string name="ramadan_suhoor_remind_before">Nimwibutse imbere:</string>
+    <string name="ramadan_suhoor_time">Suhour irahera (Fajri): %1$s</string>
+    <string name="ramadan_title">Ramadani</string>
+</resources>

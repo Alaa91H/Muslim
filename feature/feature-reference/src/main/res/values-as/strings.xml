@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">পিছলৈ ঘূৰি আহিল</string>
+    <string name="reference_no_results">কোনো মিল থকা ফলাফল নাই</string>
+    <string name="reference_search_hint">এই বইখন সন্ধান কৰক...</string>
+    <string name="reference_title">ইছলামিক ৰেফাৰেন্স লাইব্ৰেৰী</string>
+    <string name="reference_topics_count">বিষয়সমূহ</string>
+</resources>

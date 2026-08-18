@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">U dzhia mitengo nga vhuḓiitisi</string>
+    <string name="zakat_auto_prices_hint">Musi zwo vulea, mitengo ya musuku na siliva i dzhiiwa kha inthanethe nahone ya vusuludzwa nga vhuḓiitisi .</string>
+    <string name="zakat_back">Vhuya</string>
+    <string name="zakat_cash">Tshelede na u vhulunga</string>
+    <string name="zakat_clear_history">Kha vha bvise ḓivhazwakale</string>
+    <string name="zakat_country">Shango</string>
+    <string name="zakat_country_placeholder">Khethani shango ḽaṋu na tshelede</string>
+    <string name="zakat_country_section">Shango &amp; tshelede</string>
+    <string name="zakat_currency">Tshelede: %1$s</string>
+    <string name="zakat_debts">Zwikolodo zwine na zwi koloda (zwi bviswa)</string>
+    <string name="zakat_due">Zakat ine ya tea u badelwa (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Ndi nga \'t u dzhia mitengo. Sedzani vhuṱumani haṋu kana ni ṅwale mutengo nga tshanḓa.</string>
+    <string name="zakat_fetch_now">Mitengo ya u vusuludza zwino</string>
+    <string name="zakat_fetching">U dzhia mitengo...</string>
+    <string name="zakat_fitr_persons">Tshivhalo tsha mirado ya muta</string>
+    <string name="zakat_fitr_saa_value">Mutengo wa sa\' nthihi (zwiḽiwa zwa ndeme)</string>
+    <string name="zakat_fitr_section">Zakathi ya Fiṱiri</string>
+    <string name="zakat_fitr_total">Zakat yothe ya Fitr: %1$s</string>
+    <string name="zakat_gold_grams">Musuku (giramu)</string>
+    <string name="zakat_gold_price">Mutengo wa musuku nga giramu</string>
+    <string name="zakat_history">Ḓivhazwakale ya mbalo</string>
+    <string name="zakat_history_amount">Zakathi: %1$s</string>
+    <string name="zakat_history_empty">Ahuna mbalo dzo vhulungwaho.</string>
+    <string name="zakat_investments">Vhubindudzi</string>
+    <string name="zakat_last_updated">U fhedzisela u khwiniswa: %1$s</string>
+    <string name="zakat_money_section">Zakat kha lupfumo .</string>
+    <string name="zakat_nisab_gold">Nisab ya musuku (85g)</string>
+    <string name="zakat_nisab_met">Nisab yo swika — zakat yo swika .</string>
+    <string name="zakat_nisab_not_met">Nga fhasi ha nisab — a hu na zakat ine ya tea u badelwa .</string>
+    <string name="zakat_nisab_silver">Nisab ya siliva (595g)</string>
+    <string name="zakat_rulings_note">Nga vhunzhi (jumhoor): nisab ya musuku ndi 85g, silivhere 595g, na tshikalo ndi 2.5%% nga murahu ha musi ho no bviswa zwikolodo zwine zwa fanela u badelwa. Vhudzisani mugudi o faneleaho kha milandu yo khetheaho.</string>
+    <string name="zakat_save_result">Vhulunga kha ḓivhazwakale</string>
+    <string name="zakat_silver_grams">Siḽivhere (giramu)</string>
+    <string name="zakat_silver_price">Mutengo wa siliva nga giramu .</string>
+    <string name="zakat_source_note">Mitengo ya musuku/siliva u bva kha musuku-api.com; Mitengo ya FX u bva kha vula.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Thundu dzoṱhe</string>
+    <string name="zakat_trade">Ndeme ya thundu dza mbambadzo</string>
+    <string name="zakat_zakatable">Tshelede ine ya nga zaka nga murahu ha zwikolodo .</string>
+</resources>

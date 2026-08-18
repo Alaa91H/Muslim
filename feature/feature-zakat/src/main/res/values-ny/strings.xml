@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Tengani mitengo yokha</string>
+    <string name="zakat_auto_prices_hint">Ikayatsidwa, mitengo yagolide ndi siliva imatengedwa pa intaneti ndikutsitsimutsidwa zokha</string>
+    <string name="zakat_back">Kubwerera</string>
+    <string name="zakat_cash">Ndalama ndi ndalama</string>
+    <string name="zakat_clear_history">Chotsani mbiri</string>
+    <string name="zakat_country">Dziko</string>
+    <string name="zakat_country_placeholder">Sankhani dziko lanu ndi ndalama</string>
+    <string name="zakat_country_section">Dziko &amp; ndalama</string>
+    <string name="zakat_currency">Ndalama: %1$s</string>
+    <string name="zakat_debts">Ngongole zomwe muli nazo (zochotsedwa)</string>
+    <string name="zakat_due">Zakat yoperekedwa (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Cann\'t kutenga mitengo. Yang\'anani kulumikizidwa kwanu kapena lowetsani mtengo pamanja.</string>
+    <string name="zakat_fetch_now">Tsitsani mitengo tsopano</string>
+    <string name="zakat_fetching">Kutenga mitengo…</string>
+    <string name="zakat_fitr_persons">Chiwerengero cha achibale</string>
+    <string name="zakat_fitr_saa_value">Mtengo wa sa\' (chakudya chachikulu)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Total Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Golide (magalamu)</string>
+    <string name="zakat_gold_price">Mtengo wa golide pa gramu</string>
+    <string name="zakat_history">Mbiri yowerengera</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Palibe zowerengera zosungidwa pano.</string>
+    <string name="zakat_investments">Investments</string>
+    <string name="zakat_last_updated">Kusinthidwa komaliza: %1$s</string>
+    <string name="zakat_money_section">Zakat pa chuma</string>
+    <string name="zakat_nisab_gold">Nsapato zagolide (85g)</string>
+    <string name="zakat_nisab_met">nisab yafika - zakat ikuyenera</string>
+    <string name="zakat_nisab_not_met">Pansi pa nisab - palibe zakat yoyenera</string>
+    <string name="zakat_nisab_silver">Silver nisab (595g)</string>
+    <string name="zakat_rulings_note">Pa unyinji (jumhoor): golide nisab ndi 85g, siliva 595g, ndipo mtengo wake ndi 2.5%% mutachotsa ngongole zomwe muyenera kulipira. Funsani katswiri wodziwa bwino milandu yapadera.</string>
+    <string name="zakat_save_result">Sungani ku mbiri</string>
+    <string name="zakat_silver_grams">Siliva (magalamu)</string>
+    <string name="zakat_silver_price">Mtengo wa siliva pa gramu</string>
+    <string name="zakat_source_note">Mitengo ya golide/siliva kuchokera ku golidi-api.com; Mitengo ya FX kuchokera ku open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Katundu wonse</string>
+    <string name="zakat_trade">Mtengo wa malonda</string>
+    <string name="zakat_zakatable">Ndalama zopezeka pambuyo pa ngongole</string>
+</resources>

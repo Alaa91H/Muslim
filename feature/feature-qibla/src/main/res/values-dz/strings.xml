@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ཐག་རིང་།</string>
+    <string name="mosque_finder_empty">ཁྱབ་ཁོངས་འདི་ནང་ཁ་ཆེའི་ལྷ་ཁང་མེད།</string>
+    <string name="mosque_finder_error">འཚོལ་ཞིབ་འཐུས་ཤོར་འབྱུང་ཡོདཔ།</string>
+    <string name="mosque_finder_intro">ཁྱོད་རའི་ས་གནས་ཀྱི་ཉེ་འདབས་ལུ་ཡོད་པའི་ཁ་ཆེའི་ལྷ་ཁང་ཚུ་ OpenStreetMap བརྒྱུད་དེ་འཚོལ།</string>
+    <string name="mosque_finder_no_location">ད་ལྟོ་ཡང་ས་གནས་གཞི་སྒྲིག་མ་འབད་བས། དང་པ་སྨོན་ལམ་དུས་ཚོད་སྒྲིག་སྟངས་ཚུ་ལས་ ས་གནས་གདམ་ཁ་རྐྱབས།</string>
+    <string name="mosque_finder_retry">ཡང་བསྐྱར་འབད་རྩོལ་བསྐྱེད།</string>
+    <string name="mosque_finder_searching">འཚོལ་ཞིབ་འབད་དོ།</string>
+    <string name="mosque_finder_title">ཉེ་འདབས་ཀྱི་ཁ་ཆེའི་ལྷ་ཁང་།</string>
+    <string name="qibla_bearing_cardinal">ཀིབ་ལ་ཁ་ཕྱོགས།: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°།</string>
+    <string name="qibla_calibrate">ཚད་འཇལ་ནིའི་དོན་ལུ་ ཁྱོད་རའི་ཁ་པར་འདི་ པར་རིས་བརྒྱད་ནང་སྤོ་བཤུད་འབད།</string>
+    <string name="qibla_distance">མཀ་ཀ་བར་ཐག་རིང་ཚད།: %1$s</string>
+    <string name="qibla_distance_km">%,.0f ཀི་ལོ་མི་ཊར།</string>
+    <string name="qibla_facing">ཁྱོད་ཀིབ་ལ་ལུ་གདོང་གཏད་དེ་ཡོདཔ་ཨིན། 🕋</string>
+    <string name="qibla_gps_error">ནོར་བཅོས་གཏན་གཏན་ཅིག་ཐོབ་མ་ཚུགས། ལོག་སྟེ་འབད་རྩོལ་བསྐྱེད་གནང་།</string>
+    <string name="qibla_gps_live">དངོས་ཡོད་ཇི་པི་ཨེས་གནས་ཁོངས།</string>
+    <string name="qibla_gps_refresh">ཇི་པི་ཨེསི་བརྒྱུད་དེ་ གནས་ཁོངས་གསརཔ་བཟོ།</string>
+    <string name="qibla_gps_refreshing">གནས་ས་བཟོ་དོ།</string>
+    <string name="qibla_heading_degree">ཁ་པར་ཁ་བྱང་། %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">ཁྱོད་ཀྱི་ས་གནས་ལས་ ཀ་བ་ལུ་ སྒོར་ཐིག་སྦོམ་གྱི་ལམ་ལུགས — ཡོངས་འབྲེལ་ནང་ལཱ་འབདཝ་ཨིན།</string>
+    <string name="qibla_map_kaaba">ཀ་བ་</string>
+    <string name="qibla_map_you">ཁྱོད།</string>
+    <string name="qibla_mode_compass">ཕྱོགས་སྟོན་འཁོར་ལོ།</string>
+    <string name="qibla_mode_map">ས་ཁྲ།</string>
+    <string name="qibla_open_mosques">ཉེ་འདབས་ཀྱི་ཁ་ཆེའི་ལྷ་ཁང་།</string>
+    <string name="qibla_title">ཀིབ་ལའི་ཕྱོགས།</string>
+    <string name="qibla_turn_left">གཡོན་ཕྱོགས་སུ་ %1$.1f° བསྒྱུར།</string>
+    <string name="qibla_turn_right">གཡས་སུ་ %1$.1f° བསྒྱུར།</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha numérique — finá mpo na kotánga</string>
+    <string name="misbaha_widget_label">Tasbih, oyo azali</string>
+    <string name="misbaha_widget_tap_hint">Finá mpo na kotánga</string>
+    <string name="tasbih_back">Kozonga sima</string>
+    <string name="tasbih_cancel">Annuler</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Momeseno ya kosala</string>
+    <string name="tasbih_custom_target_hint">Tyá motango ya botángi (kobanda na 1 tii 100000) .</string>
+    <string name="tasbih_custom_target_title">Tyá cible oyo olingi</string>
+    <string name="tasbih_of_target">ya %1$s</string>
+    <string name="tasbih_reset">Réinitialiser lisusu</string>
+    <string name="tasbih_reset_all">Réinitialiser nionso</string>
+    <string name="tasbih_round_complete">Ronde mobimba esili (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Ba tours: %1$d</string>
+    <string name="tasbih_sound_desc">Beta sonnerie to ton tango tour moko na moko ya mobimba esili</string>
+    <string name="tasbih_sound_title">Son na cible</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Liyebisi</string>
+    <string name="tasbih_sound_tone_ringtone">Mongongo ya kobenga</string>
+    <string name="tasbih_tap_hint">Finá na sɛrklɛ yango mpo na kotánga</string>
+    <string name="tasbih_target_reached">Mokano ekokisami — tika ete Allah andima</string>
+    <string name="tasbih_title">Tasbih, oyo azali</string>
+    <string name="tasbih_total_today">Lelo\'s total: %1$d</string>
+    <string name="tasbih_undo">Kozongisa nsima</string>
+    <string name="tasbih_virtue_label">Virtue ya dhikr oyo</string>
+    <string name="tasbih_week_stats">Mikolo 7 oyo eleki</string>
+</resources>

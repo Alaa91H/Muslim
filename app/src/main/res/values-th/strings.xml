@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">มุสลิม</string>
+    <string name="more_adhkar">อัธการ์</string>
+    <string name="more_adhkar_desc">อัซคาร์เช้า เย็น และหลังสวดมนต์พร้อมเคาน์เตอร์</string>
+    <string name="more_downloads">ดาวน์โหลดบทบรรยาย</string>
+    <string name="more_downloads_desc">ดาวน์โหลด Surah, Ayah หรืออัลกุรอานฉบับเต็มพร้อมกับผู้อ่านที่คุณเลือก</string>
+    <string name="more_hadith">หะดีษ</string>
+    <string name="more_hadith_desc">ห้องสมุดหะดีษ การค้นหา และหะดีษประจำวัน</string>
+    <string name="more_learn">เรียนรู้</string>
+    <string name="more_learn_desc">คำแนะนำ wudu และคำอธิษฐานทีละขั้นตอน</string>
+    <string name="more_ramadan">รอมฎอน</string>
+    <string name="more_ramadan_desc">เวลา Suhoor และศีลอดและตัวติดตามการอดอาหาร</string>
+    <string name="more_reference">ห้องสมุดอ้างอิง</string>
+    <string name="more_reference_desc">ความรู้เบื้องต้นเกี่ยวกับศาสนาอิสลาม พระศิระ และผู้เผยพระวจนะ</string>
+    <string name="more_settings">การตั้งค่า</string>
+    <string name="more_settings_desc">ธีม ภาษา การอธิษฐาน และการตั้งค่าอาซาน</string>
+    <string name="more_tasbih">ตัสบีห์</string>
+    <string name="more_tasbih_desc">misbaha ดิจิทัลพร้อมประวัติประจำวัน</string>
+    <string name="more_zakat">ซะกาต</string>
+    <string name="more_zakat_desc">ซะกาตกับเครื่องคิดเลขความมั่งคั่งและฟิตริ</string>
+    <string name="scaffold_message">โครงกระดูกโครงการหลายโมดูลพร้อมแล้ว \nระยะที่ 1 — อาธาน เวลาละหมาด กิบลัต และปฏิทินฮิจเราะห์ — เริ่มต้นที่นี่</string>
+    <string name="shortcut_qibla">กิบลัต</string>
+    <string name="shortcut_qibla_long">ทิศทางกิบลัต</string>
+    <string name="shortcut_settings">การตั้งค่า</string>
+    <string name="shortcut_settings_long">การตั้งค่าคำอธิษฐานและอาซาน</string>
+    <string name="shortcut_times">เวลาสวดมนต์</string>
+    <string name="shortcut_times_long">วันนี้เวลาละหมาด \' ครั้ง</string>
+    <string name="tab_home">เวลาละหมาด</string>
+    <string name="tab_more">เพิ่มเติม</string>
+    <string name="tab_qibla">กิบลัต</string>
+    <string name="tab_quran">อัลกุรอาน</string>
 </resources>

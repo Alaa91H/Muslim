@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Μουσουλμάνος</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Πρωί, βράδυ &amp; μετά την προσευχή adhkar με πάγκους</string>
+    <string name="more_downloads">Λήψεις απαγγελίας</string>
+    <string name="more_downloads_desc">Κατεβάστε μια σούρα, ένα ayah ή το πλήρες Κοράνι με τον εκφωνητή που επιλέξατε</string>
+    <string name="more_hadith">Χαντίθ</string>
+    <string name="more_hadith_desc">Βιβλιοθήκη Χαντίθ, αναζήτηση &amp; Χαντίθ της ημέρας</string>
+    <string name="more_learn">Μάθετε</string>
+    <string name="more_learn_desc">Βήμα-βήμα οδηγοί wudu και προσευχής</string>
+    <string name="more_ramadan">Ραμαζάνι</string>
+    <string name="more_ramadan_desc">Ώρες Suhoor &amp; Iftar και tracker νηστείας</string>
+    <string name="more_reference">Βιβλιοθήκη Αναφοράς</string>
+    <string name="more_reference_desc">Εισαγωγή στο Ισλάμ, τη Σίρα και τους προφήτες</string>
+    <string name="more_settings">Ρυθμίσεις</string>
+    <string name="more_settings_desc">Ρυθμίσεις θέματος, γλώσσας, προσευχής και adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Ψηφιακή misbaha με καθημερινή ιστορία</string>
+    <string name="more_zakat">Ζακάτ</string>
+    <string name="more_zakat_desc">Αριθμομηχανή Zakat για τον πλούτο και το Fitr</string>
+    <string name="scaffold_message">Ο σκελετός του έργου πολλών ενοτήτων είναι έτοιμος.\nΗ Φάση 1 — Adhan, ώρες προσευχής, Qibla και το ημερολόγιο Hijri — ξεκινά εδώ.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Κατεύθυνση Qibla</string>
+    <string name="shortcut_settings">Ρυθμίσεις</string>
+    <string name="shortcut_settings_long">Ρυθμίσεις προσευχής και αντάν</string>
+    <string name="shortcut_times">Ώρες προσευχής</string>
+    <string name="shortcut_times_long">Σήμερα \' ώρες προσευχής</string>
+    <string name="tab_home">Ώρες προσευχής</string>
+    <string name="tab_more">Περισσότερα</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Κοράνι</string>
 </resources>

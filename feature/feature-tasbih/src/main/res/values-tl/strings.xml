@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — i-tap para mabilang</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">I-tap para magbilang</string>
+    <string name="tasbih_back">Bumalik</string>
+    <string name="tasbih_cancel">Kanselahin</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Custom</string>
+    <string name="tasbih_custom_target_hint">Ilagay ang bilang ng mga bilang (mula 1 hanggang 100000)</string>
+    <string name="tasbih_custom_target_title">Magtakda ng custom na target</string>
+    <string name="tasbih_of_target">ng %1$s</string>
+    <string name="tasbih_reset">I-reset</string>
+    <string name="tasbih_reset_all">I-reset lahat</string>
+    <string name="tasbih_round_complete">Kumpleto na ang buong round (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Mga Round: %1$d</string>
+    <string name="tasbih_sound_desc">Magpatugtog ng ringtone o tono kapag nakumpleto ang bawat buong round</string>
+    <string name="tasbih_sound_title">Tunog sa target</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Abiso</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">I-tap ang bilog para magbilang</string>
+    <string name="tasbih_target_reached">Naabot ang layunin - tanggapin nawa ng Allah</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Ngayon\'s kabuuan: %1$d</string>
+    <string name="tasbih_undo">I-undo</string>
+    <string name="tasbih_virtue_label">Kabutihan ng dhikr na ito</string>
+    <string name="tasbih_week_stats">Huling 7 araw</string>
+</resources>

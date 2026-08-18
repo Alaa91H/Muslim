@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">En-dro</string>
+    <string name="ramadan_countdown">Kregiñ a ra Ramadan a-benn %1$s devezh</string>
+    <string name="ramadan_countdown_to_iftar">Amzer da iftar : %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Amzer da Fajr : %1$s</string>
+    <string name="ramadan_day_of_month">Devezh %1$s ar Ramadan</string>
+    <string name="ramadan_days_left">%1$s devezh a chom</string>
+    <string name="ramadan_fasting_progress">Deizioù yun : %1$s eus %2$s — pouezit war un devezh evit enrollañ anezhañ</string>
+    <string name="ramadan_fasting_tracker">Heulier ar yun</string>
+    <string name="ramadan_hijri_note">Diazezet war an deiziadur Umm al-Qura gant ar c\'hemm Hijri evit an arload a-bezh.</string>
+    <string name="ramadan_hijri_year">Bloavezh %1$s H.H.</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Goulenn Iftar : "O Allah, evidoc\'h em eus yunet ha war ho pourvezioù em eus torret ma yun..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) eur : %1$s</string>
+    <string name="ramadan_location_required">Dibabit ur gêr en Arventennoù da gentañ evit gwelet an eurioù.</string>
+    <string name="ramadan_minutes">%1$s munutenn</string>
+    <string name="ramadan_notification_iftar_body">O Allah, evidoc\'h em eus yunet ha war ho pourvezioù em eus torret ma yun</string>
+    <string name="ramadan_notification_iftar_title">Amzer evit an iftar</string>
+    <string name="ramadan_notification_suhoor_body">Tostaat a ra Fajr — lakait ho suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Soñj Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Lakait ac\'hanon da soñjal a-raok :</string>
+    <string name="ramadan_suhoor_time">Suhoor ends (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

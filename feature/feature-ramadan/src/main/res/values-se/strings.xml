@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Ruovttoluotta</string>
+    <string name="ramadan_countdown">Ramadan álgá %1$s beaivvi geahčen</string>
+    <string name="ramadan_countdown_to_iftar">Áigi iftarii: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Áigi Fajrii: %1$s</string>
+    <string name="ramadan_day_of_month">Ramadana %1$s beaivi</string>
+    <string name="ramadan_days_left">%1$s beaivvi fas</string>
+    <string name="ramadan_fasting_progress">Fastabeaivvit: %1$s %2$s:s — deaddilat beaivvi govvet dan</string>
+    <string name="ramadan_fasting_tracker">Fastačuovvu</string>
+    <string name="ramadan_hijri_note">Umm al-Qura kaleandara vuođul mas lea app-viidosaš Hijri-heiveheapmi.</string>
+    <string name="ramadan_hijri_year">Jahki %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar-rohkos: "O Allah, du ovddas mun fástudin ja du borramušain mun botken fástu..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) áigi: %1$s</string>
+    <string name="ramadan_location_required">Vállje vuos gávpoga Settings:as vai oainnát áiggiid.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, du ovddas mun fástudin ja du borramušain mun botken fástu</string>
+    <string name="ramadan_notification_iftar_title">Áigi iftarii</string>
+    <string name="ramadan_notification_suhoor_body">Fajr lea lahka — váldde du suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor muittuhus</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Muitte mu ovdal:</string>
+    <string name="ramadan_suhoor_time">Suhoor ends (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Шьҭахьҟа</string>
+    <string name="ramadan_countdown">Рамадан мшы %1$s рышьҭахь иалагоит</string>
+    <string name="ramadan_countdown_to_iftar">Аифтар аамҭа: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Аамҭа: %1$s</string>
+    <string name="ramadan_day_of_month">Рамадан амш %1$s</string>
+    <string name="ramadan_days_left">Иаанхаз амшқәа %1$s</string>
+    <string name="ramadan_fasting_progress">Ачгара амшқәа: %1$s %2$s рҟынтә — амш еиқәыӷәӷәа уи аҭаҩразы</string>
+    <string name="ramadan_fasting_tracker">Ачгара ашьҭаҵага</string>
+    <string name="ramadan_hijri_note">Умм аль-Қьуреи амзаԥхьаӡага шьаҭас иҟаҵаны, апликациа зегьы иаҵанакуа Ҳиџьритә еиқәыршәара ахархәара аманы.</string>
+    <string name="ramadan_hijri_year">Ашықәс %1$s ҳ.</string>
+    <string name="ramadan_iftar">Аифтар</string>
+    <string name="ramadan_iftar_dua">Ифтартә ҳәара: "Иа Аллаҳ, Уара узы сычгеит, Уара уразҟы ала сычгара ԥысҵәоит..."</string>
+    <string name="ramadan_iftar_time">Ифтар (Магриб) аамҭа: %1$s</string>
+    <string name="ramadan_location_required">Аамҭақәа рбаразы раԥхьа Аиқәыршәарақәа рҟны ақалақь алхтәуп.</string>
+    <string name="ramadan_minutes">%1$s мин</string>
+    <string name="ramadan_notification_iftar_body">Иа, Аллаҳ, Уара узыҳәан сычгеит, Уара иумаз аразҟы ала счгоит</string>
+    <string name="ramadan_notification_iftar_title">Аифтар аамҭа</string>
+    <string name="ramadan_notification_suhoor_body">Афаџьр ааигәахоит — шәсаҳур ҟашәҵа</string>
+    <string name="ramadan_notification_suhoor_title">Асаҳур агәаларшәара</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Асуҳур</string>
+    <string name="ramadan_suhoor_remind_before">Уаанӡа исгәалашәыршәа:</string>
+    <string name="ramadan_suhoor_time">Суҳур нҵәоит (Фаџьр): %1$s</string>
+    <string name="ramadan_title">Рамадан</string>
+</resources>

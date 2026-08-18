@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Musulmano</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adhkar mattutino, serale e post-preghiera con contatori</string>
+    <string name="more_downloads">Download di recitazioni</string>
+    <string name="more_downloads_desc">Scarica una sura, un versetto o il Corano completo con il recitatore che hai scelto</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Biblioteca di Hadith, ricerca e hadith del giorno</string>
+    <string name="more_learn">Impara</string>
+    <string name="more_learn_desc">Guide passo passo al wudu e alla preghiera</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Tempi di Suhoor e Iftar e monitoraggio del digiuno</string>
+    <string name="more_reference">Biblioteca di riferimento</string>
+    <string name="more_reference_desc">Introduzione all\'Islam, alla Sira e ai profeti</string>
+    <string name="more_settings">Impostazioni</string>
+    <string name="more_settings_desc">Impostazioni di tema, lingua, preghiera e adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha digitale con la storia quotidiana</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat sulla ricchezza e sul calcolatore Fitr</string>
+    <string name="scaffold_message">Lo scheletro del progetto multi-modulo è pronto.\nLa Fase 1 — Adhan, tempi di preghiera, Qibla e calendario Hijri — inizia qui.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Direzione Qibla</string>
+    <string name="shortcut_settings">Impostazioni</string>
+    <string name="shortcut_settings_long">Impostazioni di preghiera e adhan</string>
+    <string name="shortcut_times">Tempi di preghiera</string>
+    <string name="shortcut_times_long">Tempi di preghiera di oggi\'</string>
+    <string name="tab_home">Tempi di preghiera</string>
+    <string name="tab_more">Di più</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Corano</string>
 </resources>

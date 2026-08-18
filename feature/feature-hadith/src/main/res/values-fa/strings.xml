@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">همه</string>
+    <string name="hadith_back">برگشت</string>
+    <string name="hadith_bookmark_add">اضافه کردن نشانک</string>
+    <string name="hadith_bookmark_remove">حذف نشانک</string>
+    <string name="hadith_collection_abudawud">ابو داود</string>
+    <string name="hadith_collection_bukhari">البخاری</string>
+    <string name="hadith_collection_ibnmajah">ابن ماجه</string>
+    <string name="hadith_collection_muslim">مسلمان</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">النووی ۴۰</string>
+    <string name="hadith_collection_other">دیگر</string>
+    <string name="hadith_collection_riyad">ریاض الصالحین</string>
+    <string name="hadith_collection_tirmidhi">ترمذی</string>
+    <string name="hadith_daily_notification">اطلاعیه حدیث روزانه</string>
+    <string name="hadith_daily_notification_desc">هر روز یک حدیث دریافت کنید</string>
+    <string name="hadith_daily_notification_time">زمان اطلاع رسانی</string>
+    <string name="hadith_of_the_day">حدیث روز</string>
+    <string name="hadith_preview_hint">اینگونه است که ابلاغ حدیث روزانه در زمان مقرر ظاهر می شود.</string>
+    <string name="hadith_preview_label">پیش نمایش اعلان</string>
+    <string name="hadith_preview_loading">در حال بارگیری حدیث…</string>
+    <string name="hadith_search_hint">جستجو در احادیث…</string>
+    <string name="hadith_share">به اشتراک بگذارید</string>
+    <string name="hadith_title">کتابخانه حدیث</string>
+</resources>

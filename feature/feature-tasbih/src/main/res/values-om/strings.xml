@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — lakkaa\'uuf tuqi</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Lakkaa\'uuf tuqi</string>
+    <string name="tasbih_back">Duuba</string>
+    <string name="tasbih_cancel">Haquu</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Aadaa</string>
+    <string name="tasbih_custom_target_hint">Lakkoofsa lakkaawwii (1 irraa hanga 100000) galchi .</string>
+    <string name="tasbih_custom_target_title">Galma amala saagi</string>
+    <string name="tasbih_of_target">kan %1$s ta’e</string>
+    <string name="tasbih_reset">Reset gochuu</string>
+    <string name="tasbih_reset_all">Hundaa deebisaa</string>
+    <string name="tasbih_round_complete">Marsaan guutuu xumurame (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Marsaa: %1$d</string>
+    <string name="tasbih_sound_desc">Tokkoon tokkoon marsaa guutuu yeroo xumuramu sagalee bilbilaa ykn sagalee taphachiisi</string>
+    <string name="tasbih_sound_title">Sagalee galma irratti</string>
+    <string name="tasbih_sound_tone_alarm">Alaarmii</string>
+    <string name="tasbih_sound_tone_notification">Beeksisa</string>
+    <string name="tasbih_sound_tone_ringtone">Sagalee bilbilaa</string>
+    <string name="tasbih_tap_hint">Lakkaa\'uuf geengoo tuqi</string>
+    <string name="tasbih_target_reached">Galma ga’ame — Rabbiin haa qeebalu</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Har\'a\'s waliigala: %1$d</string>
+    <string name="tasbih_undo">Deebisuu</string>
+    <string name="tasbih_virtue_label">Safuu dhikrii kanaa</string>
+    <string name="tasbih_week_stats">Guyyoota 7 darban</string>
+</resources>

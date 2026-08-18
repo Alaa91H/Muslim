@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Vyose</string>
+    <string name="hadith_back">Inyuma</string>
+    <string name="hadith_bookmark_add">Kwongera akamenyetso</string>
+    <string name="hadith_bookmark_remove">Kuraho ikimenyetso</string>
+    <string name="hadith_collection_abudawud">Abu Dawudi</string>
+    <string name="hadith_collection_bukhari">Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibnu Maja</string>
+    <string name="hadith_collection_muslim">Umuyisilamu</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">Ibindi</string>
+    <string name="hadith_collection_riyad">Riyadi nk\'i Salihini</string>
+    <string name="hadith_collection_tirmidhi">Ati-Tirmidi</string>
+    <string name="hadith_daily_notification">Imenyekanisha rya hadithi ku musi</string>
+    <string name="hadith_daily_notification_desc">Uronke hadithi buri musi .</string>
+    <string name="hadith_daily_notification_time">Igihe co kumenyesha</string>
+    <string name="hadith_of_the_day">Hadithi y\'umunsi</string>
+    <string name="hadith_preview_hint">Uko ni ko itangazo rya hadithi ry’umusi ku musi riboneka ku gihe ryategekanijwe.</string>
+    <string name="hadith_preview_label">Itangazo ry\'itangazo</string>
+    <string name="hadith_preview_loading">Gushiramwo hadithi...</string>
+    <string name="hadith_search_hint">Gushaka hadithi...</string>
+    <string name="hadith_share">Gusangira</string>
+    <string name="hadith_title">Ububiko bw\'ibitabu bwa Hadithi</string>
+</resources>

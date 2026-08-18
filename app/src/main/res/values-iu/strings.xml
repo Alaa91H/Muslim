@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">ᐊᑦᑲᕐ</string>
+    <string name="more_adhkar_desc">ᐅᓪᓛᒃᑯᑦ, ᐅᓐᓄᒃᑯᑦ ᐊᒻᒪ ᑐᒃᓯᐊᕐᓂᐅᑉ ᑭᖑᓂᐊᓂ adhkar ᓵᖃᖅᑐᓂ</string>
+    <string name="more_downloads">ᐅᖃᓕᒫᕐᓂᖅ ᖃᕆᑕᐅᔭᒃᑯᑦ ᑎᒍᔭᐅᔪᓐᓇᖅᑐᑦ</string>
+    <string name="more_downloads_desc">ᒥᓇᕆᓗᒍ ᓱᕋ, ᐊᔭ ᐅᕝᕙᓘᓐᓃᑦ ᐃᓗᐃᒃᑲᖅ ᑯᕌᓐ ᓂᕈᐊᖅᑕᕐᓄᑦ ᐅᖃᓕᒫᖅᑎᒧᑦ</string>
+    <string name="more_hadith">ᕼᐊᑎᔅ</string>
+    <string name="more_hadith_desc">ᕼᐊᑎᔅ ᐅᖃᓕᒫᒐᖃᕐᕕᒃ, ᕿᓂᕐᓂᖅ ᐊᒻᒪ ᕼᐊᑎᔅ ᐅᓪᓗᒥ</string>
+    <string name="more_learn">ᐃᓕᑦᑎᓂᖅ</string>
+    <string name="more_learn_desc">ᓇᓪᓕᑭᑕᕐᓗᒋᑦ ᕘᑐ ᐊᒻᒪ ᑐᒃᓯᐊᕐᓂᕐᒧᑦ ᐊᑐᐊᒐᐃᑦ</string>
+    <string name="more_ramadan">ᕋᒪᑕᓐ</string>
+    <string name="more_ramadan_desc">ᓱᕼᐅᕐ ᐊᒻᒪ ᐃᕝᑕᕐ ᐃᑲᕐᕋᖏᑦ ᐊᒻᒪ ᓂᕆᑦᑕᐃᓕᒪᓂᕐᒧᑦ ᖃᐅᔨᒪᔾᔪᑎ</string>
+    <string name="more_reference">ᐅᖃᓕᒫᒐᖃᕐᕕᒃ</string>
+    <string name="more_reference_desc">ᓇᓗᓇᐃᔭᐃᓂᖅ ᐃᔅᓚᒻᒧᑦ, ᓯᕋ ᐊᒻᒪ ᑭᒡᓕᓯᓂᐊᖅᑏᑦ</string>
+    <string name="more_settings">ᐋᖅᑭᒃᓯᒪᓂᖏᑦ</string>
+    <string name="more_settings_desc">ᑕᐃᒎᓯᖅ, ᐅᖃᐅᓯᖅ, ᑐᒃᓯᐊᕐᓂᖅ ᐊᒻᒪ ᑐᒃᓯᐊᕐᓂᖅ ᐋᖅᑭᒃᓯᒪᓂᖏᑦ</string>
+    <string name="more_tasbih">ᑕᔅᐱ</string>
+    <string name="more_tasbih_desc">ᖃᕆᑕᐅᔭᒃᑯᑦ ᒥᔅᐸᕼᐊ ᖃᐅᑕᒫᑦ ᖃᓄᐃᓐᓂᐅᕙᒃᑐᓂᒃ</string>
+    <string name="more_zakat">ᔮᑲᑦ</string>
+    <string name="more_zakat_desc">ᔮᑲᑦ ᐱᖁᑎᕐᔪᐊᓄᑦ ᐊᒻᒪ ᕕᑐ ᓈᓴᐅᓯᕆᔾᔪᑎ</string>
+    <string name="scaffold_message">ᐊᒥᓱᓄᑦ ᑲᑎᙵᔪᓄᑦ ᐱᓕᕆᐊᒃᓴᓄᑦ ᓴᐅᓂᖏᑦ ᐊᑐᐃᓐᓇᐅᓕᖅᑐᑦ.\nᐱᒋᐊᕐᓂᖓ ᓯᕗᓪᓕᖅᐹᖅ — ᐊᑕᓐ, ᑐᒃᓯᐊᕐᓇᐃᑦ, ᑭᑉᓚ, ᐊᒻᒪᓗ ᕼᐃᔾᕆ ᐅᓪᓗᖅᓯᐅᑎ — ᐱᒋᐊᕐᓂᐊᖅᑐᖅ ᐅᕙᓂ.</string>
+    <string name="shortcut_qibla">ᕿᑉᓚ</string>
+    <string name="shortcut_qibla_long">ᕿᑉᓚ ᑐᑭᒧᐊᒍᑎᖓ</string>
+    <string name="shortcut_settings">ᐋᖅᑭᒃᓯᒪᓂᖏᑦ</string>
+    <string name="shortcut_settings_long">ᑐᒃᓯᐊᕐᓂᖅ ᐊᒻᒪ ᐊᑕᓐ ᐋᖅᑭᒃᓯᒪᓂᖏᑦ</string>
+    <string name="shortcut_times">ᑐᒃᓯᐊᕐᓇᐅᑎᓪᓗᒍ</string>
+    <string name="shortcut_times_long">ᐅᓪᓗᒥ ᑐᒃᓯᐊᕐᓇᐅᓂᐊᖅᑐᑦ</string>
+    <string name="tab_home">ᑐᒃᓯᐊᕐᓇᐃᑦ</string>
+    <string name="tab_more">ᓱᓕᒃᑲᓐᓂᖅ</string>
+    <string name="tab_qibla">ᕿᑉᓚ</string>
+    <string name="tab_quran">ᑯᕌᓐ</string>
 </resources>

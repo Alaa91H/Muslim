@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Адкар</string>
+    <string name="more_adhkar_desc">Радал, къаси ва какдаса хадуб азкар с счетчиками</string>
+    <string name="more_downloads">ЦӀалиялъул скачиваниял .</string>
+    <string name="more_downloads_desc">Скачать суру, аят или полный Коран с выбранным читателем</string>
+    <string name="more_hadith">ХӀадис</string>
+    <string name="more_hadith_desc">Хадисазул библиотека, поиск &amp; хадис дня</string>
+    <string name="more_learn">Лъай</string>
+    <string name="more_learn_desc">Пошаговые руководства вуду и молитвы</string>
+    <string name="more_ramadan">Рамазан моцӀ</string>
+    <string name="more_ramadan_desc">Сухур &amp; ифтаралъул заман ва кӀал биччаялъул трекер</string>
+    <string name="more_reference">Справочная библиотека</string>
+    <string name="more_reference_desc">Исламалъулгун лъай-хъвай гьаби, Сира ва аварагзаби</string>
+    <string name="more_settings">Настройки</string>
+    <string name="more_settings_desc">Тема, мацӀ, как ва азаналъул настройкаби</string>
+    <string name="more_tasbih">ТасбихӀ</string>
+    <string name="more_tasbih_desc">Цифровой мисбаха с ежедневной историей</string>
+    <string name="more_zakat">Закат</string>
+    <string name="more_zakat_desc">Закат на богатство &amp; Калькулятор фитра</string>
+    <string name="scaffold_message">ГӀемермодулазулаб проекталъул скелет хӀадурго рагӀула.\nФаза 1 — Азан, какил заман, къибла, ва гьижрияб календарь — байбихьула гьаниб.</string>
+    <string name="shortcut_qibla">Къибла</string>
+    <string name="shortcut_qibla_long">Къиблаялъул рахъ .</string>
+    <string name="shortcut_settings">Настройки</string>
+    <string name="shortcut_settings_long">Как ва азаналъул настройкаби</string>
+    <string name="shortcut_times">Какил заманал .</string>
+    <string name="shortcut_times_long">Жакъа\'с какил заман</string>
+    <string name="tab_home">Какалъул заман .</string>
+    <string name="tab_more">Дагьабги</string>
+    <string name="tab_qibla">Къибла</string>
+    <string name="tab_quran">Къуръан</string>
 </resources>

@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Мюсюлманин</string>
+    <string name="more_adhkar">Адкар</string>
+    <string name="more_adhkar_desc">Сутрин, вечер и след молитва adhkar с броячи</string>
+    <string name="more_downloads">Изтегляне на рецитация</string>
+    <string name="more_downloads_desc">Изтеглете сура, ая или пълния Коран с избрания от вас рецитатор</string>
+    <string name="more_hadith">Хадис</string>
+    <string name="more_hadith_desc">Библиотека с хадиси, търсене и хадиси на деня</string>
+    <string name="more_learn">Научете</string>
+    <string name="more_learn_desc">Ръководства за уду и молитва стъпка по стъпка</string>
+    <string name="more_ramadan">Рамадан</string>
+    <string name="more_ramadan_desc">Сухур и ифтар времена и проследяване на гладуване</string>
+    <string name="more_reference">Справочна библиотека</string>
+    <string name="more_reference_desc">Въведение в исляма, Сира и пророците</string>
+    <string name="more_settings">Настройки</string>
+    <string name="more_settings_desc">Настройки за тема, език, молитва и езан</string>
+    <string name="more_tasbih">тасбих</string>
+    <string name="more_tasbih_desc">Цифрова мисбаха с ежедневна история</string>
+    <string name="more_zakat">зекят</string>
+    <string name="more_zakat_desc">Zakat върху богатството и калкулатор Fitr</string>
+    <string name="scaffold_message">Скелетът на многомодулния проект е готов.\nФаза 1 — Езан, времена за молитва, Кибла и календарът Хиджра — започва тук.</string>
+    <string name="shortcut_qibla">Кибла</string>
+    <string name="shortcut_qibla_long">Посока на Qibla</string>
+    <string name="shortcut_settings">Настройки</string>
+    <string name="shortcut_settings_long">Настройки за молитва и езан</string>
+    <string name="shortcut_times">Времена за молитва</string>
+    <string name="shortcut_times_long">Днес\' времена за молитва</string>
+    <string name="tab_home">Времена за молитва</string>
+    <string name="tab_more">повече</string>
+    <string name="tab_qibla">Кибла</string>
+    <string name="tab_quran">Коран</string>
 </resources>

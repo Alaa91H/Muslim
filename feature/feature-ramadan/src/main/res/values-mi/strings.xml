@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Whakamuri</string>
+    <string name="ramadan_countdown">Ka timata a Ramadan i te %1$s ra</string>
+    <string name="ramadan_countdown_to_iftar">Te wa ki te iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Wā ki te Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Ra %1$s o Ramadan</string>
+    <string name="ramadan_days_left">%1$s ra e toe ana</string>
+    <string name="ramadan_fasting_progress">Nga ra nohopuku: %1$s o te %2$s — pato i te ra ki te tuhi</string>
+    <string name="ramadan_fasting_tracker">Aroturuki nohopuku</string>
+    <string name="ramadan_hijri_note">I runga i te maramataka Umm al-Qura me te tono whakatikatika Hijri whanui i tono.</string>
+    <string name="ramadan_hijri_year">Tau %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Ko te inoi Iftar: "E te Atua, mou ahau i nohopuku ai, i runga i tau kai ka whati ahau i taku nohopuku..."</string>
+    <string name="ramadan_iftar_time">Wā Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Kōwhirihia he taone i roto i nga Tautuhinga i te tuatahi kia kite i nga wa.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">E te Atua, mou ahau i nohopuku ai, i runga i tou kai ka whati ahau i taku nohopuku</string>
+    <string name="ramadan_notification_iftar_title">Te wa mo te iftar</string>
+    <string name="ramadan_notification_suhoor_body">Kei te tata mai te omaoma — kai to omaoma</string>
+    <string name="ramadan_notification_suhoor_title">Te whakamaumahara o te Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Huhua</string>
+    <string name="ramadan_suhoor_remind_before">Whakamaharatia ahau i mua:</string>
+    <string name="ramadan_suhoor_time">Ka mutu te Suhoor (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

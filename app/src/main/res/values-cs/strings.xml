@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Ranní, večerní a pomodlitební adhkar s počítadly</string>
+    <string name="more_downloads">Recitace ke stažení</string>
+    <string name="more_downloads_desc">Stáhněte si súru, ayah nebo celý Korán s vámi vybraným recitátorem</string>
+    <string name="more_hadith">hadísy</string>
+    <string name="more_hadith_desc">Knihovna hadísů, hledání a hadísy dne</string>
+    <string name="more_learn">Učte se</string>
+    <string name="more_learn_desc">Průvodce wudu a modlitba krok za krokem</string>
+    <string name="more_ramadan">Ramadán</string>
+    <string name="more_ramadan_desc">Časy Suhoor a iftar a sledovač půstu</string>
+    <string name="more_reference">Referenční knihovna</string>
+    <string name="more_reference_desc">Úvod do islámu, Síra a proroci</string>
+    <string name="more_settings">Nastavení</string>
+    <string name="more_settings_desc">Nastavení motivu, jazyka, modlitby a adhanu</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Digitální misbaha s každodenní historií</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat na bohatství a kalkulačka Fitr</string>
+    <string name="scaffold_message">Kostra projektu s více moduly je připravena. \nFáze 1 — Adhan, modlitební časy, Qibla a kalendář Hijri — začíná zde.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Směr Qibla</string>
+    <string name="shortcut_settings">Nastavení</string>
+    <string name="shortcut_settings_long">Nastavení modlitby a adhanu</string>
+    <string name="shortcut_times">Modlitební časy</string>
+    <string name="shortcut_times_long">Dnes \' modlitebních časů</string>
+    <string name="tab_home">Modlitební časy</string>
+    <string name="tab_more">více</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Korán</string>
 </resources>

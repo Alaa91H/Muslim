@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s</string>
+    <string name="mosque_finder_empty">Ga go na dimoseke tse di fitlhelwang mo lefelong leno</string>
+    <string name="mosque_finder_error">Patlo e paletswe</string>
+    <string name="mosque_finder_intro">Batla dimoseke gaufi le lefelo la gago ka OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Ga go ise go tlhomiwe lefelo. Tlhopha lefelo mo dipeakanyong tsa dinako tsa thapelo pele.</string>
+    <string name="mosque_finder_retry">Leka gape</string>
+    <string name="mosque_finder_searching">Ke a batla...</string>
+    <string name="mosque_finder_title">Dimoseke tse di gaufi</string>
+    <string name="qibla_bearing_cardinal">Tsela ya Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Sutisa founo ya gago ka palo-robedi go tlhomamisa</string>
+    <string name="qibla_distance">Sekgala go ya kwa Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">O lebagane le Qibla 🕋 .</string>
+    <string name="qibla_gps_error">Ga ke a kgona go bona paakanyo e e nepagetseng. Tsweetswee leka gape.</string>
+    <string name="qibla_gps_live">Lefelo la GPS ka tlhamalalo</string>
+    <string name="qibla_gps_refresh">Ntšhwafatsa lefelo ka GPS</string>
+    <string name="qibla_gps_refreshing">Go batla...</string>
+    <string name="qibla_heading_degree">Setlhogo sa founo: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Tsela ya sediko se segolo go tswa kwa lefelong la gago go ya kwa Kaaba — e dira ntle le inthanete</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Wena</string>
+    <string name="qibla_mode_compass">Khampase</string>
+    <string name="qibla_mode_map">Mmapa</string>
+    <string name="qibla_open_mosques">Dimoseke tse di gaufi</string>
+    <string name="qibla_title">Tsela ya Qibla</string>
+    <string name="qibla_turn_left">Retologela ka fa molemeng %1$.1f°</string>
+    <string name="qibla_turn_right">Retologela ka fa mojeng %1$.1f°</string>
+</resources>

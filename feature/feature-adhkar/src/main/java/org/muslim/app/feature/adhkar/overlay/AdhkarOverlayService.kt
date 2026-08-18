@@ -5,6 +5,7 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.graphics.PixelFormat
+import android.graphics.drawable.GradientDrawable
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
@@ -48,6 +49,11 @@ class AdhkarOverlayService : Service() {
         val source = intent?.getStringExtra(EXTRA_SOURCE).orEmpty()
         val durationSeconds = (intent?.getIntExtra(EXTRA_DURATION_SECONDS, DEFAULT_DURATION_SECONDS) ?: DEFAULT_DURATION_SECONDS)
             .coerceIn(1, 600)
+        val backgroundColor = intent?.getIntExtra(EXTRA_BG_COLOR, DEFAULT_BG_COLOR) ?: DEFAULT_BG_COLOR
+        val cornerRadiusDp = (intent?.getIntExtra(EXTRA_CORNER_RADIUS_DP, DEFAULT_CORNER_RADIUS_DP)
+            ?: DEFAULT_CORNER_RADIUS_DP).coerceIn(0, 48)
+        val fontSizeSp = (intent?.getIntExtra(EXTRA_FONT_SIZE_SP, DEFAULT_FONT_SIZE_SP) ?: DEFAULT_FONT_SIZE_SP)
+            .coerceIn(14, 36)
 
         NotificationChannels.create(this)
         startForeground(NOTIFICATION_ID, foregroundNotification(arabic))
@@ -57,16 +63,23 @@ class AdhkarOverlayService : Service() {
             return START_NOT_STICKY
         }
 
-        showOverlay(arabic, translation, source)
+        showOverlay(arabic, translation, source, backgroundColor, cornerRadiusDp, fontSizeSp)
         handler.removeCallbacks(dismissRunnable)
         handler.postDelayed(dismissRunnable, durationSeconds * 1_000L)
         return START_NOT_STICKY
     }
 
     /** Renders the dhikr card and attaches it to the window manager. */
-    private fun showOverlay(arabic: String, translation: String, source: String) {
+    private fun showOverlay(
+        arabic: String,
+        translation: String,
+        source: String,
+        backgroundColor: Int,
+        cornerRadiusDp: Int,
+        fontSizeSp: Int,
+    ) {
         removeOverlay()
-        val view = buildOverlayView(arabic, translation, source)
+        val view = buildOverlayView(arabic, translation, source, backgroundColor, cornerRadiusDp, fontSizeSp)
         overlayView = view
         val params = WindowManager.LayoutParams(
             WindowManager.LayoutParams.WRAP_CONTENT,
@@ -84,12 +97,23 @@ class AdhkarOverlayService : Service() {
             .onFailure { stopSelf() }
     }
 
-    private fun buildOverlayView(arabic: String, translation: String, source: String): View {
+    private fun buildOverlayView(
+        arabic: String,
+        translation: String,
+        source: String,
+        backgroundColor: Int,
+        cornerRadiusDp: Int,
+        fontSizeSp: Int,
+    ): View {
         val density = resources.displayMetrics.density
         val column = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             gravity = Gravity.CENTER
-            setBackgroundResource(R.drawable.adhkar_overlay_bg)
+            background = GradientDrawable().apply {
+                cornerRadius = cornerRadiusDp * density
+                setColor(backgroundColor)
+                setStroke((1 * density).toInt(), 0x33FFFFFF.toInt())
+            }
             setOnClickListener { stopSelf() }
         }
         val padding = (16 * density).toInt()
@@ -97,7 +121,7 @@ class AdhkarOverlayService : Service() {
 
         column.addView(TextView(this).apply {
             text = arabic
-            textSize = 22f
+            textSize = fontSizeSp.toFloat()
             setTextColor(0xFFFFFFFF.toInt())
             gravity = Gravity.CENTER
             setTypeface(null, android.graphics.Typeface.BOLD)
@@ -109,7 +133,7 @@ class AdhkarOverlayService : Service() {
         if (translation.isNotBlank()) {
             column.addView(TextView(this).apply {
                 text = translation
-                textSize = 14f
+                textSize = (fontSizeSp - 8).coerceAtLeast(12).toFloat()
                 setTextColor(0xFFB8BEC9.toInt())
                 gravity = Gravity.CENTER
                 setPadding(0, (6 * density).toInt(), 0, 0)
@@ -121,7 +145,7 @@ class AdhkarOverlayService : Service() {
         if (source.isNotBlank()) {
             column.addView(TextView(this).apply {
                 text = source
-                textSize = 12f
+                textSize = (fontSizeSp - 10).coerceAtLeast(10).toFloat()
                 setTextColor(0xFF8A93A3.toInt())
                 gravity = Gravity.CENTER
                 setPadding(0, (8 * density).toInt(), 0, 0)
@@ -158,19 +182,39 @@ class AdhkarOverlayService : Service() {
     companion object {
         const val NOTIFICATION_ID = 3001
         const val DEFAULT_DURATION_SECONDS = 5
+        val DEFAULT_BG_COLOR: Int = 0xE6282830.toInt()
+        const val DEFAULT_CORNER_RADIUS_DP = 20
+        const val DEFAULT_FONT_SIZE_SP = 22
 
         private const val EXTRA_ARABIC = "extra_arabic"
         private const val EXTRA_TRANSLATION = "extra_translation"
         private const val EXTRA_SOURCE = "extra_source"
         private const val EXTRA_DURATION_SECONDS = "extra_duration_seconds"
+        private const val EXTRA_BG_COLOR = "extra_bg_color"
+        private const val EXTRA_CORNER_RADIUS_DP = "extra_corner_radius_dp"
+        private const val EXTRA_FONT_SIZE_SP = "extra_font_size_sp"
 
-        /** Shows [dhikr] above all apps for [durationSeconds]; dismisses on tap. */
-        fun start(context: Context, dhikr: Dhikr, durationSeconds: Int) {
+        /**
+         * Shows [dhikr] above all apps for [durationSeconds]; dismisses on tap.
+         * Appearance (background colour, corner radius, font size) can be tuned
+         * from the adhkar settings and is applied to the real overlay card.
+         */
+        fun start(
+            context: Context,
+            dhikr: Dhikr,
+            durationSeconds: Int,
+            backgroundColor: Int = DEFAULT_BG_COLOR,
+            cornerRadiusDp: Int = DEFAULT_CORNER_RADIUS_DP,
+            fontSizeSp: Int = DEFAULT_FONT_SIZE_SP,
+        ) {
             val intent = Intent(context, AdhkarOverlayService::class.java)
                 .putExtra(EXTRA_ARABIC, dhikr.arabic)
                 .putExtra(EXTRA_TRANSLATION, dhikr.translation)
                 .putExtra(EXTRA_SOURCE, dhikr.source)
                 .putExtra(EXTRA_DURATION_SECONDS, durationSeconds)
+                .putExtra(EXTRA_BG_COLOR, backgroundColor)
+                .putExtra(EXTRA_CORNER_RADIUS_DP, cornerRadiusDp)
+                .putExtra(EXTRA_FONT_SIZE_SP, fontSizeSp)
             context.startForegroundService(intent)
         }
     }

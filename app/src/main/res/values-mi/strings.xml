@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Te ata, te ahiahi me te adhkar i muri i te karakia me nga porotiti</string>
+    <string name="more_downloads">Tangohanga taki</string>
+    <string name="more_downloads_desc">Tikiakehia he surah, he papa, he Quran katoa ranei me te kaikorero i whiriwhiria e koe</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Wharepukapuka Hadith, rapu me te hadith o te ra</string>
+    <string name="more_learn">Ako</string>
+    <string name="more_learn_desc">Te wudu me nga kaiarahi inoi</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Ko nga wa o te Suhoor me te iftar me te kaiwhai nohopuku</string>
+    <string name="more_reference">Puna Tohutoro</string>
+    <string name="more_reference_desc">Introduction to Ihirama, te Sira &amp; nga poropiti</string>
+    <string name="more_settings">Tautuhinga</string>
+    <string name="more_settings_desc">Te kaupapa, te reo, te karakia me te ahana</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Mibaha mamati me te hitori o ia ra</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Ko te takoha mo te taonga me te taatai Fitr</string>
+    <string name="scaffold_message">Kua reri te anga kōiwi kaupapa-maha.\nWahanga 1 — Adhan, wa inoi, Kibla, me te maramataka Hijri — ka timata i konei.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Te aronga kipi</string>
+    <string name="shortcut_settings">Tautuhinga</string>
+    <string name="shortcut_settings_long">Te pure &amp; te azan</string>
+    <string name="shortcut_times">Nga wa inoi</string>
+    <string name="shortcut_times_long">I tenei ra \' nga wa inoi</string>
+    <string name="tab_home">Nga Wa inoi</string>
+    <string name="tab_more">Ētahi atu</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

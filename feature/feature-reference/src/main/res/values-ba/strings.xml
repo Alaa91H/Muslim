@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Артҡа</string>
+    <string name="reference_no_results">Тап килгән һөҙөмтәләр юҡ</string>
+    <string name="reference_search_hint">Был китапты эҙләгеҙ...</string>
+    <string name="reference_title">Ислам белешмә китапханаһы</string>
+    <string name="reference_topics_count">темалар .</string>
+</resources>

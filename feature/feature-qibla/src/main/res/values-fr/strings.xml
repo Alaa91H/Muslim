@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s loin</string>
+    <string name="mosque_finder_empty">Aucune mosquée trouvée dans cette gamme</string>
+    <string name="mosque_finder_error">La recherche a échoué</string>
+    <string name="mosque_finder_intro">Trouvez des mosquées près de chez vous via OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Aucun emplacement défini pour l\'instant. Choisissez d\'abord un emplacement dans les paramètres des heures de prière.</string>
+    <string name="mosque_finder_retry">Réessayer</string>
+    <string name="mosque_finder_searching">Recherche…</string>
+    <string name="mosque_finder_title">Mosquées à proximité</string>
+    <string name="qibla_bearing_cardinal">Direction Qibla : %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Déplacez votre téléphone en forme de huit pour calibrer</string>
+    <string name="qibla_distance">Distance jusqu’à La Mecque : %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Vous êtes face à la Qibla 🕋</string>
+    <string name="qibla_gps_error">Impossible d\'obtenir une solution précise. Veuillez réessayer.</string>
+    <string name="qibla_gps_live">Localisation GPS en direct</string>
+    <string name="qibla_gps_refresh">Actualiser l\'emplacement via GPS</string>
+    <string name="qibla_gps_refreshing">Localisation…</string>
+    <string name="qibla_heading_degree">Cap du téléphone : %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Itinéraire grand cercle depuis votre position jusqu\'à la Kaaba — fonctionne hors ligne</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Vous</string>
+    <string name="qibla_mode_compass">Boussole</string>
+    <string name="qibla_mode_map">Carte</string>
+    <string name="qibla_open_mosques">Mosquées à proximité</string>
+    <string name="qibla_title">Direction de la Qibla</string>
+    <string name="qibla_turn_left">Tourner à gauche %1$.1f°</string>
+    <string name="qibla_turn_right">Tourner à droite %1$.1f°</string>
+</resources>

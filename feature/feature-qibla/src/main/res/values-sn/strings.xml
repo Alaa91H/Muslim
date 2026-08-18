@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s kure</string>
+    <string name="mosque_finder_empty">Hapana mamosque anowanikwa munzvimbo iyi</string>
+    <string name="mosque_finder_error">Kutsvaga kwakundikana</string>
+    <string name="mosque_finder_intro">Tsvaga mamosque padyo nenzvimbo yako kuburikidza neOpenStreetMap</string>
+    <string name="mosque_finder_no_location">Hapasati paiswa nzvimbo. Sarudza nzvimbo kubva pazvirongwa zvenguva dzemunamato kutanga.</string>
+    <string name="mosque_finder_retry">Edza zvakare</string>
+    <string name="mosque_finder_searching">Kutsvaga...</string>
+    <string name="mosque_finder_title">Mamosque ari pedyo</string>
+    <string name="qibla_bearing_cardinal">Qibla nzira: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Fambisa foni yako munhamba-sere kuti uenzanise</string>
+    <string name="qibla_distance">Kusvika kuMakkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Wakatarisana neQibla 🕋</string>
+    <string name="qibla_gps_error">Hatina kukwanisa kugadzirisa. Ndapota edza zvakare.</string>
+    <string name="qibla_gps_live">Rarama GPS nzvimbo</string>
+    <string name="qibla_gps_refresh">Dzorera nzvimbo kuburikidza neGPS</string>
+    <string name="qibla_gps_refreshing">Kutsvaga…</string>
+    <string name="qibla_heading_degree">Musoro werunhare: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Nzira huru-yedenderedzwa kubva kunzvimbo yako kuenda kuKaaba - inoshanda kunze kwenyika</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Iwe</string>
+    <string name="qibla_mode_compass">Compass</string>
+    <string name="qibla_mode_map">Map</string>
+    <string name="qibla_open_mosques">Mamosque ari pedyo</string>
+    <string name="qibla_title">Qibla direction</string>
+    <string name="qibla_turn_left">Tendeukira kuruboshwe %1$.1f°</string>
+    <string name="qibla_turn_right">Enda kurudyi %1$.1f°</string>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">자동으로 가격 가져오기</string>
+    <string name="zakat_auto_prices_hint">활성화되면 금과 은 가격을 인터넷에서 가져와 자동으로 새로 고쳐집니다.</string>
+    <string name="zakat_back">뒤로</string>
+    <string name="zakat_cash">현금 및 저축</string>
+    <string name="zakat_clear_history">기록 지우기</string>
+    <string name="zakat_country">국가</string>
+    <string name="zakat_country_placeholder">국가와 통화를 선택하세요</string>
+    <string name="zakat_country_section">국가 및 통화</string>
+    <string name="zakat_currency">통화: %1$s</string>
+    <string name="zakat_debts">당신이 빚진 빚 (공제)</string>
+    <string name="zakat_due">자카트 만기일(2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">가격을 가져올 수 없습니다. 연결을 확인하거나 가격을 수동으로 입력하세요.</string>
+    <string name="zakat_fetch_now">지금 가격 새로고침</string>
+    <string name="zakat_fetching">가격을 가져오는 중…</string>
+    <string name="zakat_fitr_persons">가족 수</string>
+    <string name="zakat_fitr_saa_value">sa\'(주식) 1개의 가치</string>
+    <string name="zakat_fitr_section">자카트 알피트르</string>
+    <string name="zakat_fitr_total">총 피트르 자카트: %1$s</string>
+    <string name="zakat_gold_grams">금(그램)</string>
+    <string name="zakat_gold_price">그램당 금 가격</string>
+    <string name="zakat_history">계산 내역</string>
+    <string name="zakat_history_amount">자카트: %1$s</string>
+    <string name="zakat_history_empty">아직 저장된 계산이 없습니다.</string>
+    <string name="zakat_investments">투자</string>
+    <string name="zakat_last_updated">마지막 업데이트: %1$s</string>
+    <string name="zakat_money_section">부에 대한 자카트</string>
+    <string name="zakat_nisab_gold">골드 니삽(85g)</string>
+    <string name="zakat_nisab_met">니삽(nisab)에 도달했습니다 — 자카트(zakat)가 마감되었습니다</string>
+    <string name="zakat_nisab_not_met">nisab 아래 - 자카트 사용 불가</string>
+    <string name="zakat_nisab_silver">실버 니삽 (595g)</string>
+    <string name="zakat_rulings_note">다수당(줌후르): 금 니삽은 85g, 은 595g이며, 만기 부채를 공제한 후 이율은 2.5%%입니다. 특별한 경우에는 자격을 갖춘 학자에게 문의하십시오.</string>
+    <string name="zakat_save_result">기록에 저장</string>
+    <string name="zakat_silver_grams">은(그램)</string>
+    <string name="zakat_silver_price">그램당 은 가격</string>
+    <string name="zakat_source_note">gold-api.com의 금/은 가격; open.er-api.com의 FX 환율</string>
+    <string name="zakat_title">자카트</string>
+    <string name="zakat_total_assets">총 자산</string>
+    <string name="zakat_trade">무역품 가치</string>
+    <string name="zakat_zakatable">부채 후 Zakatable 금액</string>
+</resources>

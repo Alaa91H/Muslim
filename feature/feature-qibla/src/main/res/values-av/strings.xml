@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s рикӀкӀад</string>
+    <string name="mosque_finder_empty">В этом ареале не найдено мечети</string>
+    <string name="mosque_finder_error">ЦӀех-рех гьабизе кӀвечӀо</string>
+    <string name="mosque_finder_intro">Дурго бакӀалда аскӀор ругел мажгитал рате OpenStreetMapалдасан</string>
+    <string name="mosque_finder_no_location">Жеги бакӀ чӀезабун гьечӀо. Цин какил заманалъул настройкабаздаса бакӀ тӀаса бище.</string>
+    <string name="mosque_finder_retry">ЦӀидасан хӀалбихье</string>
+    <string name="mosque_finder_searching">ЦӀех-рех гьабулеб...</string>
+    <string name="mosque_finder_title">АскӀор ругел мажгитал .</string>
+    <string name="qibla_bearing_cardinal">Къиблаялъул рахъ: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Калибровка гьабизе дурго телефон микьго цифраялда бахъе</string>
+    <string name="qibla_distance">Расстояние до Макки: %1$s</string>
+    <string name="qibla_distance_km">%,.0f км</string>
+    <string name="qibla_facing">Нуж къиблаялде руссун руго 🕋 .</string>
+    <string name="qibla_gps_error">МухӀканаб битӀизабизе кӀвечӀо. Цоги нухалъ хӀалбихье.</string>
+    <string name="qibla_gps_live">ЧӀагояб GPS бакӀ</string>
+    <string name="qibla_gps_refresh">GPS хӀалтӀизабун бакӀ цӀигьабе</string>
+    <string name="qibla_gps_refreshing">БакӀ балагьи...</string>
+    <string name="qibla_heading_degree">Телефоналъул бетӀер: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Маршрут большого круга от вашего местоположения до Каабы — работает в автономном режиме</string>
+    <string name="qibla_map_kaaba">КагӀба</string>
+    <string name="qibla_map_you">Мун</string>
+    <string name="qibla_mode_compass">Компас</string>
+    <string name="qibla_mode_map">Карта</string>
+    <string name="qibla_open_mosques">АскӀор ругел мажгитал .</string>
+    <string name="qibla_title">Къиблаялъул рахъ .</string>
+    <string name="qibla_turn_left">КвегӀаб рахъалдехун свере %1$.1f°</string>
+    <string name="qibla_turn_right">Кваранаб рахъалдехун свере %1$.1f°</string>
+</resources>

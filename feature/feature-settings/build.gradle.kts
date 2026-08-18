@@ -46,6 +46,8 @@ dependencies {
     implementation(project(":core:core-datastore"))
     implementation(project(":core:core-notifications"))
     implementation(project(":core:core-permissions"))
+    implementation(project(":feature:feature-hadith"))
+    implementation(project(":feature:feature-learn"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)

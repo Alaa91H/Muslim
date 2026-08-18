@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">પાછળ</string>
+    <string name="reference_no_results">કોઈ મેળ ખાતા પરિણામો નથી</string>
+    <string name="reference_search_hint">આ પુસ્તક શોધો…</string>
+    <string name="reference_title">ઇસ્લામિક સંદર્ભ પુસ્તકાલય</string>
+    <string name="reference_topics_count">વિષયો</string>
+</resources>

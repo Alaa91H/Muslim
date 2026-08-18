@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">뒤로</string>
+    <string name="ramadan_countdown">라마단은 %1$s일 후에 시작됩니다.</string>
+    <string name="ramadan_countdown_to_iftar">iftar까지의 시간: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">파즈르까지의 시간: %1$s</string>
+    <string name="ramadan_day_of_month">라마단 %1$s일</string>
+    <string name="ramadan_days_left">%1$s일 남음</string>
+    <string name="ramadan_fasting_progress">단식일: %2$s 중 %1$s — 기록하려면 하루를 탭하세요.</string>
+    <string name="ramadan_fasting_tracker">단식 추적기</string>
+    <string name="ramadan_hijri_note">앱 전체에 회교식 조정이 적용된 Umm al-Qura 달력을 기반으로 합니다.</string>
+    <string name="ramadan_hijri_year">년 %1$s AH</string>
+    <string name="ramadan_iftar">이프타르</string>
+    <string name="ramadan_iftar_dua">이프타르 간구: "오 알라, 나는 당신을 위해 금식했고 당신의 공급에 따라 금식을 깨뜨렸습니다..."</string>
+    <string name="ramadan_iftar_time">이프타르(마그리브) 시간: %1$s</string>
+    <string name="ramadan_location_required">시간을 보려면 먼저 설정에서 도시를 선택하세요.</string>
+    <string name="ramadan_minutes">%1$s분</string>
+    <string name="ramadan_notification_iftar_body">오 알라, 나는 당신을 위해 단식했고 당신의 공급에 따라 단식을 깨뜨렸습니다.</string>
+    <string name="ramadan_notification_iftar_title">이프타르의 시간</string>
+    <string name="ramadan_notification_suhoor_body">Fajr가 다가오고 있습니다. 즐거운 시간을 보내세요</string>
+    <string name="ramadan_notification_suhoor_title">수후르 알림</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">수후르</string>
+    <string name="ramadan_suhoor_remind_before">이전에 알림:</string>
+    <string name="ramadan_suhoor_time">수후르 종료(Fajr): %1$s</string>
+    <string name="ramadan_title">라마단</string>
+</resources>

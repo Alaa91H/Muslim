@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Назад</string>
+    <string name="reference_no_results">Нет соответствующих результатов</string>
+    <string name="reference_search_hint">Искать эту книгу…</string>
+    <string name="reference_title">Исламская справочная библиотека</string>
+    <string name="reference_topics_count">темы</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">पृष्ठतः</string>
+    <string name="ramadan_countdown">रमजानस्य आरम्भः %1$s दिवसेषु भवति</string>
+    <string name="ramadan_countdown_to_iftar">इफ्तारं यावत् समयः %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">फजर तक समय : %1$s</string>
+    <string name="ramadan_day_of_month">रमजानस्य %1$s दिवसः</string>
+    <string name="ramadan_days_left">%1$s दिवसाः अवशिष्टाः</string>
+    <string name="ramadan_fasting_progress">उपवासदिनानि: %2$s इत्यस्य %1$s — तत् अभिलेखयितुं एकं दिवसं ट्याप् कुर्वन्तु</string>
+    <string name="ramadan_fasting_tracker">उपवास ट्रैकर</string>
+    <string name="ramadan_hijri_note">उम्म अल-कुरा-पञ्चाङ्गस्य आधारेण एप्-व्यापी हिजरी-समायोजनं प्रयुक्तम् ।</string>
+    <string name="ramadan_hijri_year">वर्ष %1$s हिजरी</string>
+    <string name="ramadan_iftar">इफ्तार</string>
+    <string name="ramadan_iftar_dua">इफ्तारस्य याचना: "हे अल्लाह, भवतः कृते अहं उपवासं कृतवान् भवतः प्रावधानेन च अहं उपवासं भङ्गयामि..."</string>
+    <string name="ramadan_iftar_time">इफ्तार (मगरिब) समय : %1$s</string>
+    <string name="ramadan_location_required">समयं द्रष्टुं प्रथमं सेटिंग्स् मध्ये नगरं चिनोतु ।</string>
+    <string name="ramadan_minutes">%1$s मि</string>
+    <string name="ramadan_notification_iftar_body">हे अल्लाह, भवतः कृते अहं उपवासं कृतवान्, भवतः प्रावधानेन अहं मम उपवासं भङ्गं करोमि</string>
+    <string name="ramadan_notification_iftar_title">इफ्तारस्य समयः</string>
+    <string name="ramadan_notification_suhoor_body">फजरः समीपं गच्छति — भवतः सुहूर् भवतु</string>
+    <string name="ramadan_notification_suhoor_title">सुहूर् स्मरण</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">सुहूर्</string>
+    <string name="ramadan_suhoor_remind_before">पूर्वं स्मर्यताम् : १.</string>
+    <string name="ramadan_suhoor_time">सुहूर समाप्त (फजर): %1$s</string>
+    <string name="ramadan_title">रमजान</string>
+</resources>

@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Mysliman</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Adkari i mëngjesit, i mbrëmjes dhe pas namazit me sportele</string>
+    <string name="more_downloads">Shkarkimet e recitimeve</string>
+    <string name="more_downloads_desc">Shkarkoni një sure, një ajet ose një Kuran të plotë me recituesin tuaj të zgjedhur</string>
+    <string name="more_hadith">Hadithi</string>
+    <string name="more_hadith_desc">Biblioteka e hadithit, kërkimi dhe hadithi i ditës</string>
+    <string name="more_learn">Mësoni</string>
+    <string name="more_learn_desc">Udhëzues hap pas hapi abdes dhe lutje</string>
+    <string name="more_ramadan">Ramazani</string>
+    <string name="more_ramadan_desc">Kohët e syfyrit dhe iftarit dhe gjurmuesi i agjërimit</string>
+    <string name="more_reference">Biblioteka e referencës</string>
+    <string name="more_reference_desc">Hyrje në Islam, Sira dhe profetët</string>
+    <string name="more_settings">Cilësimet</string>
+    <string name="more_settings_desc">Cilësimet e temës, gjuhës, lutjes dhe ezanit</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha dixhitale me histori të përditshme</string>
+    <string name="more_zakat">Zekati</string>
+    <string name="more_zakat_desc">Llogaritësi i zekatit të pasurisë dhe fitrit</string>
+    <string name="scaffold_message">Skeleti i projektit me shumë module është gati.\nFaza 1 — Ezani, kohët e namazit, Kibla dhe kalendari Hixhri — fillon këtu.</string>
+    <string name="shortcut_qibla">Kibla</string>
+    <string name="shortcut_qibla_long">Drejtimi i Kiblës</string>
+    <string name="shortcut_settings">Cilësimet</string>
+    <string name="shortcut_settings_long">Cilësimet e namazit dhe ezanit</string>
+    <string name="shortcut_times">Kohët e namazit</string>
+    <string name="shortcut_times_long">Kohët e lutjes së sotme \'</string>
+    <string name="tab_home">Kohët e lutjes</string>
+    <string name="tab_more">Më shumë</string>
+    <string name="tab_qibla">Kibla</string>
+    <string name="tab_quran">Kurani</string>
 </resources>

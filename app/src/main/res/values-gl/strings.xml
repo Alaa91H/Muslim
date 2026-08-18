@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Musulmán</string>
+    <string name="more_adhkar">Adkar</string>
+    <string name="more_adhkar_desc">Adhkar de mañá, noite e post-oración con contadores</string>
+    <string name="more_downloads">Descargas de recitación</string>
+    <string name="more_downloads_desc">Descarga unha sura, un áiah ou o Corán completo co recitador escollido</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Biblioteca de Hadith, busca e Hadith do día</string>
+    <string name="more_learn">Aprende</string>
+    <string name="more_learn_desc">Guías de oración e wudu paso a paso</string>
+    <string name="more_ramadan">Ramadán</string>
+    <string name="more_ramadan_desc">Tempos de suhoor e iftar e rastreador de xaxún</string>
+    <string name="more_reference">Biblioteca de referencia</string>
+    <string name="more_reference_desc">Introdución ao Islam, a Sira e os profetas</string>
+    <string name="more_settings">Configuración</string>
+    <string name="more_settings_desc">Configuración de tema, idioma, oración e adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha dixital con historia diaria</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Calculadora Zakat sobre riqueza e Fitr</string>
+    <string name="scaffold_message">O esqueleto do proxecto de varios módulos está listo.\nA fase 1: Adhan, tempos de oración, Qibla e calendario Hijri, comeza aquí.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Dirección Qibla</string>
+    <string name="shortcut_settings">Configuración</string>
+    <string name="shortcut_settings_long">Configuración de oración e adhan</string>
+    <string name="shortcut_times">Tempos de oración</string>
+    <string name="shortcut_times_long">Hoxe \' tempos de oración</string>
+    <string name="tab_home">Tempos de oración</string>
+    <string name="tab_more">Máis</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Corán</string>
 </resources>

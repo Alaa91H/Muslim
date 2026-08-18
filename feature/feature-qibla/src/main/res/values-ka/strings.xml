@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s დაშორებით</string>
+    <string name="mosque_finder_empty">ამ დიაპაზონში მეჩეთები არ მოიძებნა</string>
+    <string name="mosque_finder_error">ძიება ვერ მოხერხდა</string>
+    <string name="mosque_finder_intro">იპოვეთ მეჩეთები თქვენს მდებარეობასთან ახლოს OpenStreetMap-ის საშუალებით</string>
+    <string name="mosque_finder_no_location">მდებარეობა ჯერ არ არის მითითებული. ჯერ ლოცვის დროის პარამეტრებიდან აირჩიეთ მდებარეობა.</string>
+    <string name="mosque_finder_retry">ხელახლა სცადეთ</string>
+    <string name="mosque_finder_searching">ძიება…</string>
+    <string name="mosque_finder_title">ახლომდებარე მეჩეთები</string>
+    <string name="qibla_bearing_cardinal">ქიბლა მიმართულება: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">გადაიტანეთ ტელეფონი რვა ფიგურაში დასაკალიბრებლად</string>
+    <string name="qibla_distance">მანძილი მექამდე: %1$s</string>
+    <string name="qibla_distance_km">%,.0f კმ</string>
+    <string name="qibla_facing">ქიბლასკენ ხარ 🕋</string>
+    <string name="qibla_gps_error">ზუსტი შესწორება ვერ მივიღე. გთხოვთ, სცადოთ ხელახლა.</string>
+    <string name="qibla_gps_live">ცოცხალი GPS მდებარეობა</string>
+    <string name="qibla_gps_refresh">განაახლეთ მდებარეობა GPS-ის საშუალებით</string>
+    <string name="qibla_gps_refreshing">მიმდინარეობს მდებარეობა…</string>
+    <string name="qibla_heading_degree">ტელეფონის სათაური: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">დიდი წრის მარშრუტი თქვენი მდებარეობიდან ქააბამდე — მუშაობს ხაზგარეშე</string>
+    <string name="qibla_map_kaaba">ქააბა</string>
+    <string name="qibla_map_you">შენ</string>
+    <string name="qibla_mode_compass">კომპასი</string>
+    <string name="qibla_mode_map">რუკა</string>
+    <string name="qibla_open_mosques">ახლომდებარე მეჩეთები</string>
+    <string name="qibla_title">ქიბლა მიმართულება</string>
+    <string name="qibla_turn_left">მოუხვიეთ მარცხნივ %1$.1f°</string>
+    <string name="qibla_turn_right">მოუხვიეთ მარჯვნივ %1$.1f°</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — tap raha manisa</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tsindrio raha manisa</string>
+    <string name="tasbih_back">Miverina</string>
+    <string name="tasbih_cancel">Manafoana</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Custom</string>
+    <string name="tasbih_custom_target_hint">Ampidiro ny isan\'ny isa (1 ka hatramin\'ny 100000)</string>
+    <string name="tasbih_custom_target_title">Mametraha tanjona manokana</string>
+    <string name="tasbih_of_target">ny %1$s</string>
+    <string name="tasbih_reset">Avereno</string>
+    <string name="tasbih_reset_all">Avereno daholo</string>
+    <string name="tasbih_round_complete">Fihodinana feno (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Fihodinana: %1$d</string>
+    <string name="tasbih_sound_desc">Alefaso ringtone na feo rehefa vita ny fihodinana feno</string>
+    <string name="tasbih_sound_title">Feo amin\'ny tanjona</string>
+    <string name="tasbih_sound_tone_alarm">Fanairana</string>
+    <string name="tasbih_sound_tone_notification">Fampandrenesana</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Peho ny faribolana hanisa</string>
+    <string name="tasbih_target_reached">Tanteraka ny tanjona — eken\'i Allah</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Ankehitriny \'s totalin\'ny: %1$d</string>
+    <string name="tasbih_undo">Esory</string>
+    <string name="tasbih_virtue_label">Ny hatsaran\'ity dhikr ity</string>
+    <string name="tasbih_week_stats">7 andro farany</string>
+</resources>

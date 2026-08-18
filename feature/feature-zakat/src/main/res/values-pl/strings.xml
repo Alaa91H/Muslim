@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Pobieraj ceny automatycznie</string>
+    <string name="zakat_auto_prices_hint">Po włączeniu ceny złota i srebra są pobierane z Internetu i automatycznie odświeżane</string>
+    <string name="zakat_back">Powrót</string>
+    <string name="zakat_cash">Gotówka i oszczędności</string>
+    <string name="zakat_clear_history">Wyczyść historię</string>
+    <string name="zakat_country">Kraj</string>
+    <string name="zakat_country_placeholder">Wybierz swój kraj i walutę</string>
+    <string name="zakat_country_section">Kraj i waluta</string>
+    <string name="zakat_currency">Waluta: %1$s</string>
+    <string name="zakat_debts">Dług, który jesteś winien (odliczony)</string>
+    <string name="zakat_due">Zakat należny (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Nie można\'t uzyskać cen. Sprawdź swoje połączenie lub wprowadź cenę ręcznie.</string>
+    <string name="zakat_fetch_now">Odśwież ceny już teraz</string>
+    <string name="zakat_fetching">Pobieram ceny…</string>
+    <string name="zakat_fitr_persons">Liczba członków rodziny</string>
+    <string name="zakat_fitr_saa_value">Wartość jednego sa\' (podstawowego pożywienia)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Razem Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Złoto (gramy)</string>
+    <string name="zakat_gold_price">Cena złota za gram</string>
+    <string name="zakat_history">Historia obliczeń</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Nie ma jeszcze zapisanych obliczeń.</string>
+    <string name="zakat_investments">Inwestycje</string>
+    <string name="zakat_last_updated">Ostatnia aktualizacja: %1$s</string>
+    <string name="zakat_money_section">Zakat bogactwa</string>
+    <string name="zakat_nisab_gold">Złoty nisab (85g)</string>
+    <string name="zakat_nisab_met">Osiągnięto nisab – przypada termin zakat</string>
+    <string name="zakat_nisab_not_met">Poniżej nisabu – nie ma zakatu</string>
+    <string name="zakat_nisab_silver">Srebrny nisab (595g)</string>
+    <string name="zakat_rulings_note">W przeliczeniu na większość (jumhoor): złoty nisab wynosi 85 g, srebrny 595 g, a stawka wynosi 2,5%% po odliczeniu wymagalnych długów. W szczególnych przypadkach skonsultuj się z wykwalifikowanym naukowcem.</string>
+    <string name="zakat_save_result">Zapisz w historii</string>
+    <string name="zakat_silver_grams">Srebro (gramy)</string>
+    <string name="zakat_silver_price">Cena srebra za gram</string>
+    <string name="zakat_source_note">Ceny złota/srebra z gold-api.com; Kursy walut z open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Aktywa ogółem</string>
+    <string name="zakat_trade">Wartość towarów handlowych</string>
+    <string name="zakat_zakatable">Zakatable kwota po długach</string>
+</resources>

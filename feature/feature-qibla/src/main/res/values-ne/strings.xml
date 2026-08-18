@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s टाढा</string>
+    <string name="mosque_finder_empty">यस दायरामा कुनै मस्जिदहरू फेला परेनन्</string>
+    <string name="mosque_finder_error">खोज असफल भयो</string>
+    <string name="mosque_finder_intro">OpenStreetMap मार्फत आफ्नो स्थान नजिकैको मस्जिदहरू फेला पार्नुहोस्</string>
+    <string name="mosque_finder_no_location">अहिलेसम्म कुनै स्थान सेट गरिएको छैन। पहिले प्रार्थना समय सेटिङहरूबाट एउटा स्थान छान्नुहोस्।</string>
+    <string name="mosque_finder_retry">पुन: प्रयास गर्नुहोस्</string>
+    <string name="mosque_finder_searching">खोज्दै…</string>
+    <string name="mosque_finder_title">नजिकैका मस्जिदहरू</string>
+    <string name="qibla_bearing_cardinal">किब्ला दिशा: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">क्यालिब्रेट गर्न आफ्नो फोनलाई फिगर-आठमा सार्नुहोस्</string>
+    <string name="qibla_distance">मक्काको दूरी: %1$s</string>
+    <string name="qibla_distance_km">%,.0f किमी</string>
+    <string name="qibla_facing">तपाईं किब्ला 🕋 सामना गर्दै हुनुहुन्छ</string>
+    <string name="qibla_gps_error">सही समाधान प्राप्त गर्न सकेन। कृपया पुन: प्रयास गर्नुहोस्।</string>
+    <string name="qibla_gps_live">प्रत्यक्ष जीपीएस स्थान</string>
+    <string name="qibla_gps_refresh">GPS मार्फत स्थान ताजा गर्नुहोस्</string>
+    <string name="qibla_gps_refreshing">पत्ता लगाउँदै...</string>
+    <string name="qibla_heading_degree">फोन शीर्षक: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">तपाईंको स्थानबाट काबा सम्मको ठूलो सर्कल मार्ग — अफलाइन काम गर्दछ</string>
+    <string name="qibla_map_kaaba">काबा</string>
+    <string name="qibla_map_you">तपाईं</string>
+    <string name="qibla_mode_compass">कम्पास</string>
+    <string name="qibla_mode_map">नक्सा</string>
+    <string name="qibla_open_mosques">नजिकैका मस्जिदहरू</string>
+    <string name="qibla_title">किब्ला दिशा</string>
+    <string name="qibla_turn_left">बायाँ घुम्नुहोस् %1$.1f°</string>
+    <string name="qibla_turn_right">दायाँ घुम्नुहोस् %1$.1f°</string>
+</resources>

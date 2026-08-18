@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Nazad</string>
+    <string name="ramadan_countdown">Ramazan počinje za %1$s dana</string>
+    <string name="ramadan_countdown_to_iftar">Vrijeme za iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Vrijeme do Fadžra: %1$s</string>
+    <string name="ramadan_day_of_month">Dan %1$s Ramazana</string>
+    <string name="ramadan_days_left">Preostalo %1$s dana</string>
+    <string name="ramadan_fasting_progress">Dani posta: %1$s od %2$s — dodirnite dan da ga snimite</string>
+    <string name="ramadan_fasting_tracker">Fast tracker</string>
+    <string name="ramadan_hijri_note">Zasnovano na kalendaru Umm al-Qura s primijenjenim hidžretskim prilagođavanjem za cijelu aplikaciju.</string>
+    <string name="ramadan_hijri_year">Year %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftarska dova: "O Allahu, zbog Tebe sam postio i na Tvojoj opskrbi prekidam post..."</string>
+    <string name="ramadan_iftar_time">Iftar (magrib) vrijeme: %1$s</string>
+    <string name="ramadan_location_required">Prvo odaberite grad u Postavkama da vidite vremena.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allahu, zbog Tebe sam postio i na Tvojoj opskrbi prekidam post</string>
+    <string name="ramadan_notification_iftar_title">Vrijeme je za iftar</string>
+    <string name="ramadan_notification_suhoor_body">Približava se sajam — uzmite svoj suhur</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor podsjetnik</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Podsjeti me prije:</string>
+    <string name="ramadan_suhoor_time">Suhor završava (fadžr): %1$s</string>
+    <string name="ramadan_title">Ramazan</string>
+</resources>

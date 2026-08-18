@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">ดึงราคาโดยอัตโนมัติ</string>
+    <string name="zakat_auto_prices_hint">เมื่อเปิดใช้งาน ราคาทองคำและเงินจะถูกดึงมาจากอินเทอร์เน็ตและรีเฟรชโดยอัตโนมัติ</string>
+    <string name="zakat_back">กลับ</string>
+    <string name="zakat_cash">เงินสดและเงินออม</string>
+    <string name="zakat_clear_history">ล้างประวัติ</string>
+    <string name="zakat_country">ประเทศ</string>
+    <string name="zakat_country_placeholder">เลือกประเทศและสกุลเงินของคุณ</string>
+    <string name="zakat_country_section">ประเทศและสกุลเงิน</string>
+    <string name="zakat_currency">สกุลเงิน: %1$s</string>
+    <string name="zakat_debts">หนี้ที่คุณเป็นหนี้ (หัก)</string>
+    <string name="zakat_due">ซะกาตครบกำหนด (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">สามารถดึงราคาได้ \'t ตรวจสอบการเชื่อมต่อของคุณหรือป้อนราคาด้วยตนเอง</string>
+    <string name="zakat_fetch_now">รีเฟรชราคาตอนนี้</string>
+    <string name="zakat_fetching">กำลังเรียกราคา...</string>
+    <string name="zakat_fitr_persons">จำนวนสมาชิกในครอบครัว</string>
+    <string name="zakat_fitr_saa_value">มูลค่าหนึ่ง sa\' (อาหารหลัก)</string>
+    <string name="zakat_fitr_section">ซะกาต อัล-ฟิตริ</string>
+    <string name="zakat_fitr_total">จำนวนฟิตริซะกาตทั้งหมด: %1$s</string>
+    <string name="zakat_gold_grams">ทองคำ (กรัม)</string>
+    <string name="zakat_gold_price">ราคาทองคำต่อกรัม</string>
+    <string name="zakat_history">ประวัติการคำนวณ</string>
+    <string name="zakat_history_amount">ซะกาต: %1$s</string>
+    <string name="zakat_history_empty">ยังไม่มีการคำนวณที่บันทึกไว้</string>
+    <string name="zakat_investments">การลงทุน</string>
+    <string name="zakat_last_updated">อัปเดตล่าสุด: %1$s</string>
+    <string name="zakat_money_section">ซะกาตกับความมั่งคั่ง</string>
+    <string name="zakat_nisab_gold">โกลด์นิซับ (85g)</string>
+    <string name="zakat_nisab_met">ถึงนิซับแล้ว — ซะกาตถึงกำหนดแล้ว</string>
+    <string name="zakat_nisab_not_met">ต่ำกว่านิซับ — ไม่มีซะกาตครบกำหนด</string>
+    <string name="zakat_nisab_silver">ซิลเวอร์นิซับ (595g)</string>
+    <string name="zakat_rulings_note">ตามคนส่วนใหญ่ (ญุมฮูร์): ทองคำนิซับคือ 85 กรัม เงิน 595 กรัม และอัตราคือ 2.5%% หลังจากหักหนี้ที่ถึงกำหนดชำระแล้ว ปรึกษานักวิชาการที่มีคุณสมบัติเหมาะสมสำหรับกรณีพิเศษ</string>
+    <string name="zakat_save_result">บันทึกลงในประวัติศาสตร์</string>
+    <string name="zakat_silver_grams">เงิน (กรัม)</string>
+    <string name="zakat_silver_price">ราคาเงินต่อกรัม</string>
+    <string name="zakat_source_note">ราคาทองคำ/เงินจาก gold-api.com; อัตรา FX จาก open.er-api.com</string>
+    <string name="zakat_title">ซะกาต</string>
+    <string name="zakat_total_assets">สินทรัพย์รวม</string>
+    <string name="zakat_trade">มูลค่าการค้าสินค้า</string>
+    <string name="zakat_zakatable">จำนวนซะกาตหลังการชำระหนี้</string>
+</resources>

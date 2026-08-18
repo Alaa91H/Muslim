@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">戻る</string>
+    <string name="reference_no_results">一致する結果はありません</string>
+    <string name="reference_search_hint">この本を検索…</string>
+    <string name="reference_title">イスラム参考図書館</string>
+    <string name="reference_topics_count">トピックス</string>
+</resources>

@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Musulmon</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Ertalab, kechqurun va namozdan keyin hisoblagichlar bilan zikr</string>
+    <string name="more_downloads">Qiroat yuklab olish</string>
+    <string name="more_downloads_desc">Siz tanlagan qori bilan sura, oyat yoki toʻliq Qurʼonni yuklab oling</string>
+    <string name="more_hadith">Hadis</string>
+    <string name="more_hadith_desc">Hadis kutubxonasi, qidiruv va kun hadislari</string>
+    <string name="more_learn">O\'rganing</string>
+    <string name="more_learn_desc">Bosqichma-bosqich tahorat va namoz bo\'yicha qo\'llanmalar</string>
+    <string name="more_ramadan">Ramazon</string>
+    <string name="more_ramadan_desc">Sahur va iftor vaqtlari va ro\'za kuzatuvchisi</string>
+    <string name="more_reference">Ma\'lumot kutubxonasi</string>
+    <string name="more_reference_desc">Islomga kirish, sira va payg\'ambarlar</string>
+    <string name="more_settings">Sozlamalar</string>
+    <string name="more_settings_desc">Mavzu, til, namoz va azon sozlamalari</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Kundalik tarixga ega raqamli misbaha</string>
+    <string name="more_zakat">Zakot</string>
+    <string name="more_zakat_desc">Boylik zakot va Fitr kalkulyatori</string>
+    <string name="scaffold_message">Ko‘p modulli loyiha skeleti tayyor.\n1-bosqich — Azon, namoz vaqtlari, qibla va hijriy taqvim shu yerda boshlanadi.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla yo\'nalishi</string>
+    <string name="shortcut_settings">Sozlamalar</string>
+    <string name="shortcut_settings_long">Namoz va azon sozlamalari</string>
+    <string name="shortcut_times">Namoz vaqtlari</string>
+    <string name="shortcut_times_long">Bugun \' namoz vaqti</string>
+    <string name="tab_home">Namoz vaqtlari</string>
+    <string name="tab_more">Batafsil</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Qur\'on</string>
 </resources>

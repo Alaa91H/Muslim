@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Πίσω</string>
+    <string name="ramadan_countdown">Το Ραμαζάνι ξεκινάει σε %1$s ημέρες</string>
+    <string name="ramadan_countdown_to_iftar">Χρόνος για το ιφτάρ: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Χρόνος για το Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Ημέρα %1$s του Ραμαζανιού</string>
+    <string name="ramadan_days_left">Απομένουν %1$s ημέρες</string>
+    <string name="ramadan_fasting_progress">Μέρες νηστείας: %1$s από %2$s — πατήστε την ημέρα για να το καταγράψετε</string>
+    <string name="ramadan_fasting_tracker">Ιχνηλάτης νηστείας</string>
+    <string name="ramadan_hijri_note">Με βάση το ημερολόγιο Umm al-Qura με εφαρμογή της προσαρμογής Hijri σε όλη την εφαρμογή.</string>
+    <string name="ramadan_hijri_year">Έτος %1$s AH</string>
+    <string name="ramadan_iftar">Ιφτάρ</string>
+    <string name="ramadan_iftar_dua">Παράκληση για Ιφτάρ: «Ω Αλλάχ, για Σένα νήστεψα και με την προμήθεια Σου διακόπτω τη νηστεία μου…»</string>
+    <string name="ramadan_iftar_time">Ώρα Iftar (Maghrib): %1$s</string>
+    <string name="ramadan_location_required">Επιλέξτε πρώτα μια πόλη στις Ρυθμίσεις για να δείτε τις ώρες.</string>
+    <string name="ramadan_minutes">%1$s λεπτά</string>
+    <string name="ramadan_notification_iftar_body">Ω Αλλάχ, για Σένα νήστεψα και με την προμήθεια Σου διακόπτω τη νηστεία μου</string>
+    <string name="ramadan_notification_iftar_title">Ώρα για ιφτάρ</string>
+    <string name="ramadan_notification_suhoor_body">Το Fajr πλησιάζει — πάρτε το suhoor σας</string>
+    <string name="ramadan_notification_suhoor_title">Υπενθύμιση Suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Θύμισέ μου πριν:</string>
+    <string name="ramadan_suhoor_time">Suhoor ends (Fajr): %1$s</string>
+    <string name="ramadan_title">Ραμαζάνι</string>
+</resources>

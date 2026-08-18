@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — tap na kan</string>
+    <string name="misbaha_widget_label">Tasbih na ɛyɛ</string>
+    <string name="misbaha_widget_tap_hint">Klik so na kan</string>
+    <string name="tasbih_back">San akyi</string>
+    <string name="tasbih_cancel">Twa mu</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Amanne kwan so</string>
+    <string name="tasbih_custom_target_hint">Hyehyɛ dodow a wɔkan (efi 1 kosi 100000) .</string>
+    <string name="tasbih_custom_target_title">Fa botae bi a wopɛ si hɔ</string>
+    <string name="tasbih_of_target">a ɛyɛ %1$s</string>
+    <string name="tasbih_reset">Reset no bio</string>
+    <string name="tasbih_reset_all">Reset ne nyinaa</string>
+    <string name="tasbih_round_complete">Full round awie (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Nkɔmmɔbɔ: %1$d</string>
+    <string name="tasbih_sound_desc">Bɔ ringtone anaa tone bere a wɔawie round biara a edi mũ no</string>
+    <string name="tasbih_sound_title">Nnyigyei a ɛwɔ botae so</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Amanneɛbɔ</string>
+    <string name="tasbih_sound_tone_ringtone">Nnyigyei a wɔbɔ</string>
+    <string name="tasbih_tap_hint">Klik kurukuruwa no so na kan</string>
+    <string name="tasbih_target_reached">Botaeɛ a wɔadu ho — Allah nnye ntom</string>
+    <string name="tasbih_title">Tasbih na ɛyɛ</string>
+    <string name="tasbih_total_today">Ɛnnɛ\'s nyinaa: %1$d</string>
+    <string name="tasbih_undo">Undo no fi hɔ</string>
+    <string name="tasbih_virtue_label">Su pa a ɛwɔ saa dhikr yi mu</string>
+    <string name="tasbih_week_stats">Nnafua 7 a etwa to</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Allemaal</string>
+    <string name="hadith_back">Terug</string>
+    <string name="hadith_bookmark_add">Bladwijzer toevoegen</string>
+    <string name="hadith_bookmark_remove">Bladwijzer verwijderen</string>
+    <string name="hadith_collection_abudawud">Aboe Dawud</string>
+    <string name="hadith_collection_bukhari">Al-Bukhari</string>
+    <string name="hadith_collection_ibnmajah">Ibn Majah</string>
+    <string name="hadith_collection_muslim">Moslim</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">An-Nawawi 40</string>
+    <string name="hadith_collection_other">Anders</string>
+    <string name="hadith_collection_riyad">Riyad as-Salihin</string>
+    <string name="hadith_collection_tirmidhi">At-Tirmidhi</string>
+    <string name="hadith_daily_notification">Dagelijkse hadith-melding</string>
+    <string name="hadith_daily_notification_desc">Ontvang elke dag een hadith</string>
+    <string name="hadith_daily_notification_time">Notificatie tijd</string>
+    <string name="hadith_of_the_day">Hadith van de dag</string>
+    <string name="hadith_preview_hint">Dit is hoe de dagelijkse hadith-melding op de geplande tijd verschijnt.</string>
+    <string name="hadith_preview_label">Meldingsvoorbeeld</string>
+    <string name="hadith_preview_loading">De hadith laden...</string>
+    <string name="hadith_search_hint">Zoek hadiths...</string>
+    <string name="hadith_share">Deel</string>
+    <string name="hadith_title">Hadith-bibliotheek</string>
+</resources>

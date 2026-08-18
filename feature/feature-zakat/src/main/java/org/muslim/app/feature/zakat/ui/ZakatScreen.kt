@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
@@ -14,22 +15,34 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Save
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuAnchorType
+import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -37,13 +50,15 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.zakat.R
+import org.muslim.app.feature.zakat.domain.CountryCurrency
 import java.text.NumberFormat
 import java.time.LocalDate
 
 /**
  * Zakat calculator (PROJECT_PROMPT.md §6 Phase 7): money zakat with nisab
- * check, fitr zakat and a yearly history. Works fully offline — gold/silver
- * prices are entered manually (network updates are an optional future step).
+ * check, fitr zakat and a yearly history. Global by country/currency — gold
+ * and silver prices can be fetched live (gold-api.com + open.er-api.com) or
+ * entered manually, and everything is cached for offline use.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -75,6 +90,10 @@ fun ZakatScreen(
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 16.dp),
         ) {
+            CountrySection(state, viewModel)
+            Spacer(Modifier.height(16.dp))
+            HorizontalDivider()
+            Spacer(Modifier.height(12.dp))
             Text(
                 text = stringResource(R.string.zakat_money_section),
                 style = MaterialTheme.typography.titleMedium,
@@ -99,6 +118,158 @@ fun ZakatScreen(
             )
             Spacer(Modifier.height(24.dp))
         }
+    }
+}
+
+@Composable
+private fun CountrySection(state: ZakatUiState, viewModel: ZakatViewModel) {
+    Text(
+        text = stringResource(R.string.zakat_country_section),
+        style = MaterialTheme.typography.titleMedium,
+    )
+    Spacer(Modifier.height(8.dp))
+    CountryDropdown(
+        selected = state.selectedCountry,
+        countries = state.countries,
+        onSelected = viewModel::selectCountry,
+    )
+    Spacer(Modifier.height(8.dp))
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Column(Modifier.weight(1f)) {
+            Text(
+                text = stringResource(R.string.zakat_auto_prices),
+                style = MaterialTheme.typography.bodyLarge,
+            )
+            Text(
+                text = stringResource(R.string.zakat_auto_prices_hint),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        Switch(
+            checked = state.autoPrices,
+            onCheckedChange = viewModel::setAutoPrices,
+        )
+    }
+    Spacer(Modifier.height(8.dp))
+    Button(
+        onClick = viewModel::fetchPrices,
+        enabled = state.selectedCountry != null && !state.isFetching,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        if (state.isFetching) {
+            CircularProgressIndicator(
+                modifier = Modifier.size(18.dp),
+                strokeWidth = 2.dp,
+            )
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.zakat_fetching))
+        } else {
+            Icon(Icons.Filled.Refresh, contentDescription = null, modifier = Modifier.size(18.dp))
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.zakat_fetch_now))
+        }
+    }
+    if (state.fetchFailed) {
+        Spacer(Modifier.height(6.dp))
+        Text(
+            text = stringResource(R.string.zakat_fetch_failed),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.error,
+        )
+    }
+    if (state.lastUpdatedAt != null) {
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = stringResource(R.string.zakat_last_updated, formatUpdatedAt(state.lastUpdatedAt)),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+    if (state.currencyCode.isNotEmpty()) {
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = stringResource(
+                R.string.zakat_currency,
+                "${state.currencySymbol} ${state.currencyCode}".trim(),
+            ),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+    Spacer(Modifier.height(4.dp))
+    Text(
+        text = stringResource(R.string.zakat_source_note),
+        style = MaterialTheme.typography.labelSmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun CountryDropdown(
+    selected: CountryCurrency?,
+    countries: List<CountryCurrency>,
+    onSelected: (String) -> Unit,
+) {
+    var expanded by remember { mutableStateOf(false) }
+    ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
+        OutlinedTextField(
+            value = selected?.let { countryDisplayName(it) } ?: "",
+            onValueChange = {},
+            readOnly = true,
+            label = { Text(stringResource(R.string.zakat_country)) },
+            placeholder = { Text(stringResource(R.string.zakat_country_placeholder)) },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
+        )
+        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+            countries.forEach { option ->
+                DropdownMenuItem(
+                    text = {
+                        Column {
+                            Text(countryDisplayName(option))
+                            Text(
+                                text = "${option.currency} · ${option.symbol}",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    },
+                    onClick = {
+                        expanded = false
+                        onSelected(option.code)
+                    },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun countryDisplayName(country: CountryCurrency): String {
+    val configuration = LocalConfiguration.current
+    val arabic = configuration.locales[0]?.language == "ar"
+    return if (arabic) country.nameArabic else country.nameEnglish
+}
+
+private fun formatUpdatedAt(raw: String?): String {
+    if (raw.isNullOrBlank()) return ""
+    return runCatching {
+        java.time.OffsetDateTime.parse(raw).toLocalDateTime().toString().replace('T', ' ')
+    }.getOrElse {
+        runCatching {
+            java.time.Instant.parse(raw)
+                .atZone(java.time.ZoneId.systemDefault())
+                .toLocalDateTime()
+                .toString()
+                .replace('T', ' ')
+        }.getOrDefault(raw)
     }
 }
 
@@ -233,7 +404,7 @@ private fun FitrSection(state: ZakatUiState, viewModel: ZakatViewModel, formatte
 
 @Composable
 private fun HistorySection(state: ZakatUiState, viewModel: ZakatViewModel, formatter: NumberFormat) {
-    Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
+    Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
         Text(
             text = stringResource(R.string.zakat_history),
             style = MaterialTheme.typography.titleMedium,

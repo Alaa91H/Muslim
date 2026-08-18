@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Цифровая мисбаха — нажмите, чтобы посчитать</string>
+    <string name="misbaha_widget_label">Тасбих</string>
+    <string name="misbaha_widget_tap_hint">Нажмите, чтобы посчитать</string>
+    <string name="tasbih_back">Назад</string>
+    <string name="tasbih_cancel">Отмена</string>
+    <string name="tasbih_confirm">ОК</string>
+    <string name="tasbih_custom_target">Пользовательский</string>
+    <string name="tasbih_custom_target_hint">Введите количество отсчетов (от 1 до 100000)</string>
+    <string name="tasbih_custom_target_title">Установите собственную цель</string>
+    <string name="tasbih_of_target">из %1$s</string>
+    <string name="tasbih_reset">Сброс</string>
+    <string name="tasbih_reset_all">Сбросить все</string>
+    <string name="tasbih_round_complete">Полный раунд завершен (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Раундов: %1$d</string>
+    <string name="tasbih_sound_desc">Воспроизведение мелодии или сигнала после завершения каждого полного раунда.</string>
+    <string name="tasbih_sound_title">Звук в цель</string>
+    <string name="tasbih_sound_tone_alarm">Сигнализация</string>
+    <string name="tasbih_sound_tone_notification">Уведомление</string>
+    <string name="tasbih_sound_tone_ringtone">Рингтон</string>
+    <string name="tasbih_tap_hint">Нажмите на кружок, чтобы посчитать</string>
+    <string name="tasbih_target_reached">Цель достигнута, да примет Аллах</string>
+    <string name="tasbih_title">Тасбих</string>
+    <string name="tasbih_total_today">Сегодня\'с всего: %1$d</string>
+    <string name="tasbih_undo">Отменить</string>
+    <string name="tasbih_virtue_label">Достоинство этого зикра</string>
+    <string name="tasbih_week_stats">Последние 7 дней</string>
+</resources>

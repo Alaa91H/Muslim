@@ -105,6 +105,14 @@ class QuranReaderViewModel @Inject constructor(
         prefsRepository.setReaderFontSize(sp)
     }
 
+    /** Keep the screen awake while the reader is open (and during recitation). */
+    val keepScreenOn: StateFlow<Boolean> = prefsRepository.keepScreenOn
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
+
+    fun setKeepScreenOn(enabled: Boolean) = viewModelScope.launch {
+        prefsRepository.setKeepScreenOn(enabled)
+    }
+
     /** Called as the user scrolls; advances the khatma progress monotonically. */
     fun advanceReadThrough(globalNumber: Int) = viewModelScope.launch {
         prefsRepository.advanceReadThrough(globalNumber)
@@ -329,6 +337,13 @@ class QuranReaderViewModel @Inject constructor(
         ayahs: List<Ayah>,
         repeatCount: Int,
         continuous: Boolean = false,
+        /**
+         * Whether finishing the queue may auto-advance to the next surah.
+         * Only "whole surah" + "بدون توقف" (continuous) advances past the
+         * current surah; "إلى نهاية السورة" always stops at the surah end
+         * even when the repeat option is continuous.
+         */
+        allowAdvanceToNextSurah: Boolean = true,
     ) {
         if (ayahs.isEmpty() || _downloading.value) return
         viewModelScope.launch {
@@ -355,7 +370,7 @@ class QuranReaderViewModel @Inject constructor(
             val continuousMode = continuous || repeatCount <= 0
             val effectiveRepeat = if (continuousMode) 1 else repeatCount.coerceAtLeast(1)
             audioPlayer.onQueueCompleted =
-                if (continuousMode) { { advanceToNextSurah() } } else null
+                if (continuousMode && allowAdvanceToNextSurah) { { advanceToNextSurah() } } else null
             audioPlayer.playQueue(
                 items,
                 startIndex = 0,
@@ -393,7 +408,8 @@ class QuranReaderViewModel @Inject constructor(
     fun playFromAyah(ayah: Ayah, repeatCount: Int) {
         val ayahs = uiState.value.ayahs
         val start = ayahs.indexOfFirst { it.globalNumber == ayah.globalNumber }.coerceAtLeast(0)
-        playQueueOf(ayahs.drop(start), repeatCount)
+        // Stops at the end of THIS surah — never auto-advances to the next one.
+        playQueueOf(ayahs.drop(start), repeatCount, allowAdvanceToNextSurah = false)
     }
 
     /** Plays only [ayah], repeating it [repeatCount] times (memorisation). */

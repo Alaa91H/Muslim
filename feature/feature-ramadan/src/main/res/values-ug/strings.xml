@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">قايتىش</string>
+    <string name="ramadan_countdown">رامىزان %1$s كۈندە باشلىنىدۇ</string>
+    <string name="ramadan_countdown_to_iftar">ئىپتار ۋاقتى: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">فاجرغا بېرىش ۋاقتى: %1$s</string>
+    <string name="ramadan_day_of_month">رامىزاننىڭ %1$s كۈنى</string>
+    <string name="ramadan_days_left">%1$s كۈن قالدى</string>
+    <string name="ramadan_fasting_progress">روزا تۇتۇش كۈنلىرى: %2$s نىڭ %1$s - كۈنىگە چېكىپ ئۇنى خاتىرىلەڭ</string>
+    <string name="ramadan_fasting_tracker">روزا تۇتقۇچى</string>
+    <string name="ramadan_hijri_note">پۈتۈن ئۆمرىدە ھىجرى تەڭشەش قوللىنىلغان Umm al-Qura كالېندارىغا ئاساسەن.</string>
+    <string name="ramadan_hijri_year">%1$s AH</string>
+    <string name="ramadan_iftar">ئىپتار</string>
+    <string name="ramadan_iftar_dua">ئىپتار دۇئا: «ئى ئاللاھ ، سەن ئۈچۈن روزا تۇتتىم ، سېنىڭ رىزقىڭ بىلەن روزا تۇتتىم…».</string>
+    <string name="ramadan_iftar_time">ئىپتار (Maghrib) ۋاقتى: %1$s</string>
+    <string name="ramadan_location_required">ۋاقىتنى كۆرۈش ئۈچۈن ئالدى بىلەن تەڭشەكتىكى شەھەرنى تاللاڭ.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">ئى ئاللاھ ، سەن ئۈچۈن روزا تۇتتىم ، سېنىڭ رىزقىڭ بىلەن روزا تۇتتىم</string>
+    <string name="ramadan_notification_iftar_title">ئىپتار ۋاقتى</string>
+    <string name="ramadan_notification_suhoor_body">فاجر يېقىنلاپ قالدى - سوخۇنىڭىز بار</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor ئەسكەرتىش</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">ئىلگىرى ماڭا ئەسكەرتىپ قويۇڭ:</string>
+    <string name="ramadan_suhoor_time">Suhoor ئاخىرلىشىدۇ (Fajr): %1$s</string>
+    <string name="ramadan_title">رامىزان</string>
+</resources>

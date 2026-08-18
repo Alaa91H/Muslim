@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">མུ་སུ་ལིམ</string>
+    <string name="more_adhkar">ཨ་དྷ་ཀར།</string>
+    <string name="more_adhkar_desc">དྲོ་པ་དང་ཕྱི་རུ་ དེ་ལས་ སྨོན་ལམ་བཏབ་པའི་ཤུལ་ལས་ གྱངས་ཁ་ཚུ་དང་གཅིག་ཁར་</string>
+    <string name="more_downloads">བཀླགས་ཕབ་ལེན།</string>
+    <string name="more_downloads_desc">ཁྱོད་རའི་གདམ་ཁ་རྐྱབ་མི་ ལྷག་མི་དང་གཅིག་ཁར་ སུ་ར་དང་ ཨ་ཡ་ ཡང་ན་ ཀུ་རཱན་ཆ་ཚང་ཕབ་ལེན་འབད།</string>
+    <string name="more_hadith">ཧ་དིས།</string>
+    <string name="more_hadith_desc">ཧ་ཌིསི་དཔེ་མཛོད། འཚོལ་ཞིབ་དང་ཉིན་མོའི་ཧ་ཌིས།</string>
+    <string name="more_learn">ལྷབ།</string>
+    <string name="more_learn_desc">གོམ་པ་རེ་རེ་བཞིན་དུ་ wudu &amp; སྨོན་ལམ་ལམ་སྟོན།</string>
+    <string name="more_ramadan">ར་མ་དཱན།</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar དུས་ཚོད་དང་ ཟས་བཅད་རྗེས་འདེད།</string>
+    <string name="more_reference">དཔྱད་གཞིའི་དཔེ་མཛོད།</string>
+    <string name="more_reference_desc">ཨིསི་ལམ་གྱི་ངོ་སྤྲོད། སི་ར་དང་ལུང་སྟོན་པ།</string>
+    <string name="more_settings">སྒྲིག་སྟངས་ཚུ།</string>
+    <string name="more_settings_desc">བརྗོད་དོན་དང་སྐད་ཡིག སྨོན་ལམ་དང་ཨ་དྷན་སྒྲིག་སྟངས།</string>
+    <string name="more_tasbih">ཏས་བི་ཧ།</string>
+    <string name="more_tasbih_desc">ཉིན་བསྟར་གྱི་ལོ་རྒྱུས་ཡོད་པའི་ཌི་ཇི་ཊལ་མི་སི་བྷ་ཧ།</string>
+    <string name="more_zakat">ཟ་ཀཊ།</string>
+    <string name="more_zakat_desc">རྒྱུ་ནོར་དང་ ཕིཊར་རྩིས་འཕྲུལ་གྱི་ཐོག་ལུ་ ཟ་ཀཊ།</string>
+    <string name="scaffold_message">ལས་འགུལ་གྱི་རུས་སྒྲོམ་འདི་གྲ་སྒྲིག་ཡོདཔ་ཨིན།\nPhase 1 — ཨ་དྷན་དང་སྨོན་ལམ་གྱི་དུས་ཚོད་ ཀིབ་ལ་ དེ་ལས་ ཧི་ཇི་རི་ཟླ་ཐོ་ཚུ་ ནཱ་ལས་འགོ་བཙུགསཔ་ཨིན།</string>
+    <string name="shortcut_qibla">ཀིབ་ལ།</string>
+    <string name="shortcut_qibla_long">ཀིབ་ལའི་ཕྱོགས།</string>
+    <string name="shortcut_settings">སྒྲིག་སྟངས་ཚུ།</string>
+    <string name="shortcut_settings_long">སྨོན་ལམ་དང་ཨ་དྷན་སྒྲིག་སྟངས།</string>
+    <string name="shortcut_times">སྨོན་ལམ་གྱི་དུས་ཚོད།</string>
+    <string name="shortcut_times_long">དེ་རིང་\'sསྨོན་ལམ་དུས་ཚོད།</string>
+    <string name="tab_home">སྨོན་ལམ་དུས་ཚོད།</string>
+    <string name="tab_more">དེ་ལས་མང༌།</string>
+    <string name="tab_qibla">ཀིབ་ལ།</string>
+    <string name="tab_quran">ཀུ་རཱན་</string>
 </resources>

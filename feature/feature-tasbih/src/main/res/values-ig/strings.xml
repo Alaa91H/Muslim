@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — kpatụ ka ịgụọ</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Pịa ka ịgụọ</string>
+    <string name="tasbih_back">Azu</string>
+    <string name="tasbih_cancel">Kagbuo</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Omenala</string>
+    <string name="tasbih_custom_target_hint">Tinye ọnụọgụgụ (site na 1 ruo 100000)</string>
+    <string name="tasbih_custom_target_title">Tọọ ebumnuche omenala</string>
+    <string name="tasbih_of_target">nke %1$s</string>
+    <string name="tasbih_reset">Tọgharia</string>
+    <string name="tasbih_reset_all">Tọgharịa ihe niile</string>
+    <string name="tasbih_round_complete">Zuru ezu okirikiri (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Agba: %1$d</string>
+    <string name="tasbih_sound_desc">Kpọọ ụdaolu ma ọ bụ ụda mgbe agbachara nke ọ bụla zuru ezu</string>
+    <string name="tasbih_sound_title">Ụda na ebumnuche</string>
+    <string name="tasbih_sound_tone_alarm">Oti mkpu</string>
+    <string name="tasbih_sound_tone_notification">ngosi</string>
+    <string name="tasbih_sound_tone_ringtone">Ụda ụda</string>
+    <string name="tasbih_tap_hint">Kpatụ okirikiri ka ịgụọ</string>
+    <string name="tasbih_target_reached">Ebumnuche ruru - ka Allah nabata</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Taa \'s ngụkọta: %1$d</string>
+    <string name="tasbih_undo">Megharịa</string>
+    <string name="tasbih_virtue_label">Omume ọma nke dhikr a</string>
+    <string name="tasbih_week_stats">Ụbọchị 7 gara aga</string>
+</resources>

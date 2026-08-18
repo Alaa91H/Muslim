@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">Æппæт</string>
+    <string name="hadith_back">Фæстæмæ</string>
+    <string name="hadith_bookmark_add">Бафтау нысангæнæн</string>
+    <string name="hadith_bookmark_remove">Нысан аиуварс кæнын</string>
+    <string name="hadith_collection_abudawud">Абу Дауд</string>
+    <string name="hadith_collection_bukhari">Аль-Бухари</string>
+    <string name="hadith_collection_ibnmajah">Ибн Маджа</string>
+    <string name="hadith_collection_muslim">Пысылмон</string>
+    <string name="hadith_collection_nasai">Ан-Наса\'и</string>
+    <string name="hadith_collection_nawawi">Ан-Навави 40</string>
+    <string name="hadith_collection_other">Æндæр</string>
+    <string name="hadith_collection_riyad">Эр-Рияд ас-Салихин</string>
+    <string name="hadith_collection_tirmidhi">Ат-Тирмидхи</string>
+    <string name="hadith_daily_notification">Æрвылбонон хадисы хъусынгæнинаг</string>
+    <string name="hadith_daily_notification_desc">Алы бон дæр райс хадис</string>
+    <string name="hadith_daily_notification_time">Фидыды рæстæг</string>
+    <string name="hadith_of_the_day">Боны хадис</string>
+    <string name="hadith_preview_hint">Афтæ фæзыны æрвылбонон хадисы хъусынгæнинаг йæ нысангонд рæстæджы.</string>
+    <string name="hadith_preview_label">Фидыды развæлгъау равдыст</string>
+    <string name="hadith_preview_loading">Хадис æрбакæнын...</string>
+    <string name="hadith_search_hint">Агур хадис...</string>
+    <string name="hadith_share">Дих кæнын</string>
+    <string name="hadith_title">Хадисы библиотекæ</string>
+</resources>

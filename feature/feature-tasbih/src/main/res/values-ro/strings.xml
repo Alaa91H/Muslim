@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha digitală — atingeți pentru a număra</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Atingeți pentru a număra</string>
+    <string name="tasbih_back">Înapoi</string>
+    <string name="tasbih_cancel">Anulează</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Personalizat</string>
+    <string name="tasbih_custom_target_hint">Introduceți numărul de numărări (de la 1 la 100000)</string>
+    <string name="tasbih_custom_target_title">Setați o țintă personalizată</string>
+    <string name="tasbih_of_target">de %1$s</string>
+    <string name="tasbih_reset">Resetați</string>
+    <string name="tasbih_reset_all">Resetați toate</string>
+    <string name="tasbih_round_complete">Runda completă completă (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Runde: %1$d</string>
+    <string name="tasbih_sound_desc">Redați un ton de apel sau un ton când fiecare rundă completă este finalizată</string>
+    <string name="tasbih_sound_title">Sună la țintă</string>
+    <string name="tasbih_sound_tone_alarm">Alarmă</string>
+    <string name="tasbih_sound_tone_notification">Notificare</string>
+    <string name="tasbih_sound_tone_ringtone">Ton de apel</string>
+    <string name="tasbih_tap_hint">Atinge cercul pentru a număra</string>
+    <string name="tasbih_target_reached">Scopul atins – Allah să accepte</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Astăzi, \' de ani: %1$d</string>
+    <string name="tasbih_undo">Anulați</string>
+    <string name="tasbih_virtue_label">Virtutea acestui dhikr</string>
+    <string name="tasbih_week_stats">Ultimele 7 zile</string>
+</resources>

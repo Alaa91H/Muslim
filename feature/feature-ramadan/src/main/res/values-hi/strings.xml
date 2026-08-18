@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">वापस</string>
+    <string name="ramadan_countdown">रमज़ान %1$s दिनों में शुरू होता है</string>
+    <string name="ramadan_countdown_to_iftar">इफ्तार का समय: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">फज्र का समय: %1$s</string>
+    <string name="ramadan_day_of_month">रमज़ान का दिन %1$s</string>
+    <string name="ramadan_days_left">%1$s दिन शेष हैं</string>
+    <string name="ramadan_fasting_progress">उपवास के दिन: %2$s में से %1$s - इसे रिकॉर्ड करने के लिए एक दिन टैप करें</string>
+    <string name="ramadan_fasting_tracker">उपवास ट्रैकर</string>
+    <string name="ramadan_hijri_note">उम्म अल-क़ुरा कैलेंडर के आधार पर ऐप-व्यापी हिजरी समायोजन लागू किया गया।</string>
+    <string name="ramadan_hijri_year">वर्ष %1$s एएच</string>
+    <string name="ramadan_iftar">इफ्तार</string>
+    <string name="ramadan_iftar_dua">इफ्तार की दुआ: "हे अल्लाह, मैंने तेरे लिए रोज़ा रखा और तेरे प्रावधान पर मैं अपना रोज़ा तोड़ता हूँ..."</string>
+    <string name="ramadan_iftar_time">इफ्तार (मग़रिब) का समय: %1$s</string>
+    <string name="ramadan_location_required">समय देखने के लिए सबसे पहले सेटिंग में एक शहर चुनें।</string>
+    <string name="ramadan_minutes">%1$s मिनट</string>
+    <string name="ramadan_notification_iftar_body">हे अल्लाह, मैंने तेरे लिए रोज़ा रखा और तेरे प्रावधान पर मैं अपना रोज़ा तोड़ता हूँ</string>
+    <string name="ramadan_notification_iftar_title">इफ्तार का समय</string>
+    <string name="ramadan_notification_suhoor_body">फज्र आ रहा है - अपना सुहूर लो</string>
+    <string name="ramadan_notification_suhoor_title">सुहूर अनुस्मारक</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">सुहूर</string>
+    <string name="ramadan_suhoor_remind_before">मुझे पहले याद दिलाएं:</string>
+    <string name="ramadan_suhoor_time">सुहूर समाप्त (फज्र): %1$s</string>
+    <string name="ramadan_title">रमज़ान</string>
+</resources>

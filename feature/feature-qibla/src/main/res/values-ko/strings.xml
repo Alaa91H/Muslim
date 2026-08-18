@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s 거리</string>
+    <string name="mosque_finder_empty">이 범위에는 모스크가 없습니다.</string>
+    <string name="mosque_finder_error">검색 실패</string>
+    <string name="mosque_finder_intro">OpenStreetMap을 통해 현재 위치 근처의 모스크를 찾아보세요</string>
+    <string name="mosque_finder_no_location">아직 설정된 위치가 없습니다. 먼저 기도 시간 설정에서 위치를 선택하세요.</string>
+    <string name="mosque_finder_retry">재시도</string>
+    <string name="mosque_finder_searching">검색 중…</string>
+    <string name="mosque_finder_title">인근 모스크</string>
+    <string name="qibla_bearing_cardinal">Qibla 방향: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">보정하려면 휴대전화를 8자 모양으로 움직여 보세요.</string>
+    <string name="qibla_distance">메카까지의 거리: %1$s</string>
+    <string name="qibla_distance_km">%,.0fkm</string>
+    <string name="qibla_facing">당신은 Qibla 🕋를 마주하고 있습니다.</string>
+    <string name="qibla_gps_error">정확한 수정을 얻을 수 없습니다. 다시 시도해 주세요.</string>
+    <string name="qibla_gps_live">실시간 GPS 위치</string>
+    <string name="qibla_gps_refresh">GPS를 통해 위치 새로고침</string>
+    <string name="qibla_gps_refreshing">찾는 중…</string>
+    <string name="qibla_heading_degree">전화 제목: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">현재 위치에서 Kaaba까지의 대권 경로 — 오프라인으로 작동</string>
+    <string name="qibla_map_kaaba">카바</string>
+    <string name="qibla_map_you">당신</string>
+    <string name="qibla_mode_compass">나침반</string>
+    <string name="qibla_mode_map">지도</string>
+    <string name="qibla_open_mosques">인근 모스크</string>
+    <string name="qibla_title">키블라 방향</string>
+    <string name="qibla_turn_left">%1$.1f° 좌회전하세요</string>
+    <string name="qibla_turn_right">우회전 %1$.1f°</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Dellu</string>
+    <string name="ramadan_countdown">Koor moy tambali si %1$s fan</string>
+    <string name="ramadan_countdown_to_iftar">Waxtu iftar: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Waxtu Fajr: %1$s</string>
+    <string name="ramadan_day_of_month">Jous %1$s du koor koor</string>
+    <string name="ramadan_days_left">%1$s fan des</string>
+    <string name="ramadan_fasting_progress">Bisu liggéey: %1$s ci %2$s — bësal benn bis ngir enregistre ko</string>
+    <string name="ramadan_fasting_tracker">toppukaayu woor</string>
+    <string name="ramadan_hijri_note">Dafa sukkandikoo ci almanaaku Umm al-Qura ak coppite yiñ def ci app bi yépp.</string>
+    <string name="ramadan_hijri_year">At %1$s g.h.</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Ñaanu Iftar: "Yalla, ci yaw laa fas, ci sa dundal laa fas sama fas..."</string>
+    <string name="ramadan_iftar_time">Waxtu magrib: %1$s</string>
+    <string name="ramadan_location_required">Tannal benn dëkk ci Jekkal yi ngir gis waxtu yi.</string>
+    <string name="ramadan_minutes">%1$s simili</string>
+    <string name="ramadan_notification_iftar_body">Yallah nak Yaw laa woor te ci Sa wërsëg laay koor</string>
+    <string name="ramadan_notification_iftar_title">Waxtu iftar</string>
+    <string name="ramadan_notification_suhoor_body">Fajr mingi jegesi — am sa suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Rappel suhoor</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Fàttalal ma bu njëkk:</string>
+    <string name="ramadan_suhoor_time">Suhour jeexna (fajr): %1$s</string>
+    <string name="ramadan_title">koor</string>
+</resources>

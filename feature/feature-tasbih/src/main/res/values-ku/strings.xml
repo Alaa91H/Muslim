@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha dîjîtal - ji bo hejmartinê bikirtînin</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Ji bo hejmartinê bikirtînin</string>
+    <string name="tasbih_back">Vegere</string>
+    <string name="tasbih_cancel">Betal bike</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Custom</string>
+    <string name="tasbih_custom_target_hint">Hejmara jimartinê binivîse (ji 1 heta 100000)</string>
+    <string name="tasbih_custom_target_title">Armancek xwerû destnîşan bikin</string>
+    <string name="tasbih_of_target">ji %1$s</string>
+    <string name="tasbih_reset">Reset</string>
+    <string name="tasbih_reset_all">Hemî reset bike</string>
+    <string name="tasbih_round_complete">Tevahiya dora temam (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Dor: %1$d</string>
+    <string name="tasbih_sound_desc">Dema ku her gera tevahî qediya, zengilek an awazek bileyze</string>
+    <string name="tasbih_sound_title">Deng li ser hedefê</string>
+    <string name="tasbih_sound_tone_alarm">Alarm</string>
+    <string name="tasbih_sound_tone_notification">Notification</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Ji bo jimartinê dor bikirtînin</string>
+    <string name="tasbih_target_reached">Armanc gihîştiye - Xwedê qebûl bike</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Îro \' gişt: %1$d</string>
+    <string name="tasbih_undo">Undo</string>
+    <string name="tasbih_virtue_label">Fezîleta vê zikrê</string>
+    <string name="tasbih_week_stats">7 rojên dawî</string>
+</resources>

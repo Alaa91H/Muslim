@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Wadirih</string>
+    <string name="ramadan_countdown">Ramadhaan %1$s ayrok addat qimbisele.</string>
+    <string name="ramadan_countdown_to_iftar">iftarah uddur: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Qasiirih uddur: %1$s</string>
+    <string name="ramadan_day_of_month">Ramadhaanak heele heele ayro %1$s.</string>
+    <string name="ramadan_days_left">%1$s ayrok raqte</string>
+    <string name="ramadan_fasting_progress">Soom ayroora: %1$s ak %2$s- xag ayro tasjiilih</string>
+    <string name="ramadan_fasting_tracker">Soom kattaata</string>
+    <string name="ramadan_hijri_note">Umm al-Qurah aysalul rakitak app-fidin Hijrih massos abbinoowele.</string>
+    <string name="ramadan_hijri_year">Liggida %1$sH</string>
+    <string name="ramadan_iftar">Iftaar</string>
+    <string name="ramadan_iftar_dua">Iftar xaaqo: "Yalla, anu koh soomeeh, ku rizqil soom afle..."</string>
+    <string name="ramadan_iftar_time">iftaar (maghrib) uddur: %1$s</string>
+    <string name="ramadan_location_required">wakti tabluh naharak farmo addat magaala door.</string>
+    <string name="ramadan_minutes">%1$s minit</string>
+    <string name="ramadan_notification_iftar_body">Yallaw koh soomeeh ku rizqel soom afle.</string>
+    <string name="ramadan_notification_iftar_title">Iftaar wakti</string>
+    <string name="ramadan_notification_suhoor_body">Fajri xayyooweh yan - isi suhur haysit</string>
+    <string name="ramadan_notification_suhoor_title">Suqur kassiisi</string>
+    <string name="ramadan_starts_on">%1$s--%2$s</string>
+    <string name="ramadan_suhoor">Suucuur</string>
+    <string name="ramadan_suhoor_remind_before">naharal yoo kassiis:</string>
+    <string name="ramadan_suhoor_time">sucuur gaba kalti (cuuri): %1$s</string>
+    <string name="ramadan_title">Ramadhaan</string>
+</resources>

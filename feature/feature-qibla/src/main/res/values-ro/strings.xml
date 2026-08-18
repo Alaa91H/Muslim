@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s distanță</string>
+    <string name="mosque_finder_empty">Nu s-au găsit moschei în această zonă</string>
+    <string name="mosque_finder_error">Căutarea a eșuat</string>
+    <string name="mosque_finder_intro">Găsiți moschei în apropierea locației dvs. prin OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Nu a fost stabilită încă o locație. Alegeți mai întâi o locație din setările orelor de rugăciune.</string>
+    <string name="mosque_finder_retry">Reîncercați</string>
+    <string name="mosque_finder_searching">Se caută…</string>
+    <string name="mosque_finder_title">Moschei din apropiere</string>
+    <string name="qibla_bearing_cardinal">Direcția Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Mutați telefonul într-o cifră opt pentru a-l calibra</string>
+    <string name="qibla_distance">Distanța până la Mecca: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Te confrunți cu Qibla 🕋</string>
+    <string name="qibla_gps_error">Nu s-a putut obține o remediere precisă. Vă rugăm să încercați din nou.</string>
+    <string name="qibla_gps_live">Locație GPS live</string>
+    <string name="qibla_gps_refresh">Actualizează locația prin GPS</string>
+    <string name="qibla_gps_refreshing">Se localizează…</string>
+    <string name="qibla_heading_degree">Titlul telefonului: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Rută cu cerc mare de la locația dvs. la Kaaba — funcționează offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">tu</string>
+    <string name="qibla_mode_compass">busola</string>
+    <string name="qibla_mode_map">Harta</string>
+    <string name="qibla_open_mosques">Moschei din apropiere</string>
+    <string name="qibla_title">Direcția Qibla</string>
+    <string name="qibla_turn_left">Virați la stânga %1$.1f°</string>
+    <string name="qibla_turn_right">Virați la dreapta %1$.1f°</string>
+</resources>

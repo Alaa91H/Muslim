@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — tap e faitau</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tap e faitau</string>
+    <string name="tasbih_back">Tua</string>
+    <string name="tasbih_cancel">Fa\'aleaogaina</string>
+    <string name="tasbih_confirm">Ua lelei</string>
+    <string name="tasbih_custom_target">Aganuu</string>
+    <string name="tasbih_custom_target_hint">Ulufale le numera o faitauga (mai le 1 i le 100000)</string>
+    <string name="tasbih_custom_target_title">Seti se aga masani</string>
+    <string name="tasbih_of_target">e %1$s</string>
+    <string name="tasbih_reset">Toe setiina</string>
+    <string name="tasbih_reset_all">Toe seti uma</string>
+    <string name="tasbih_round_complete">Maea le taamilosaga atoa (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Ta\'amilosaga: %1$d</string>
+    <string name="tasbih_sound_desc">Ta\'alo se leo po\'o se leo pe a mae\'a ta\'amilosaga ta\'itasi</string>
+    <string name="tasbih_sound_title">Leo i luga o le sini</string>
+    <string name="tasbih_sound_tone_alarm">Alalaga</string>
+    <string name="tasbih_sound_tone_notification">Faasilasilaga</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Tap le li\'o e faitau</string>
+    <string name="tasbih_target_reached">Na ausia le sini - ia talia e Allah</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Ole aso nei \' le aofaʻi: %1$d</string>
+    <string name="tasbih_undo">Tatala</string>
+    <string name="tasbih_virtue_label">Le lelei o lenei dhikr</string>
+    <string name="tasbih_week_stats">7 aso mulimuli</string>
+</resources>

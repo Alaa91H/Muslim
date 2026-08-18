@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Enrè</string>
+    <string name="reference_no_results">Pas de resultats correspondents</string>
+    <string name="reference_search_hint">Cercatz aqueste libre...</string>
+    <string name="reference_title">Bibliotèca de referéncia islamica</string>
+    <string name="reference_topics_count">tèmas</string>
+</resources>

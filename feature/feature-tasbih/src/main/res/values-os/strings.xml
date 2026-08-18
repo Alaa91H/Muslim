@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Нымæцон мисбаха — нымайынæн æрцауындзут</string>
+    <string name="misbaha_widget_label">Тасбих</string>
+    <string name="misbaha_widget_tap_hint">Банымайынæн æрцауындзут</string>
+    <string name="tasbih_back">Фæстæмæ</string>
+    <string name="tasbih_cancel">Æрлæууын кæнын</string>
+    <string name="tasbih_confirm">Хорз</string>
+    <string name="tasbih_custom_target">Æмбæлон</string>
+    <string name="tasbih_custom_target_hint">Бафыссут нымæц нымæц (1-æй 100000-мæ)</string>
+    <string name="tasbih_custom_target_title">Сæвæрут æмбæлон нысан</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Сног кæнын</string>
+    <string name="tasbih_reset_all">Æппæт дæр сног кæнын</string>
+    <string name="tasbih_round_complete">Æххæст раунд æххæст (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Раундтæ: %1$d</string>
+    <string name="tasbih_sound_desc">Алы æххæст раунд дæр куы фæуа, уæд ацæгъд рингтон кæнæ тон</string>
+    <string name="tasbih_sound_title">Хъæлæс нысаныл</string>
+    <string name="tasbih_sound_tone_alarm">Тревогæ</string>
+    <string name="tasbih_sound_tone_notification">Хъусынгæнинаг</string>
+    <string name="tasbih_sound_tone_ringtone">Рингтон</string>
+    <string name="tasbih_tap_hint">Банымайынæн æрцауындзут тымбылæг</string>
+    <string name="tasbih_target_reached">Нысанмæ æрхæццæ — Аллах райсæд</string>
+    <string name="tasbih_title">Тасбих</string>
+    <string name="tasbih_total_today">Абон\' æдæппæтæй: %1$d</string>
+    <string name="tasbih_undo">Æрæвæрын</string>
+    <string name="tasbih_virtue_label">Ацы зикры хорздзинад</string>
+    <string name="tasbih_week_stats">Фæстаг 7 боны</string>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">कीमतें स्वचालित रूप से प्राप्त करें</string>
+    <string name="zakat_auto_prices_hint">सक्षम होने पर, सोने और चांदी की कीमतें इंटरनेट से प्राप्त की जाती हैं और स्वचालित रूप से ताज़ा हो जाती हैं</string>
+    <string name="zakat_back">वापस</string>
+    <string name="zakat_cash">नकद और बचत</string>
+    <string name="zakat_clear_history">स्पष्ट इतिहास</string>
+    <string name="zakat_country">देश</string>
+    <string name="zakat_country_placeholder">अपना देश और मुद्रा चुनें</string>
+    <string name="zakat_country_section">देश और मुद्रा</string>
+    <string name="zakat_currency">मुद्रा: %1$s</string>
+    <string name="zakat_debts">आपके द्वारा देय ऋण (कटौती)</string>
+    <string name="zakat_due">जकात देय (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Cann\'t मूल्य प्राप्त कर सका। अपना कनेक्शन जांचें या कीमत मैन्युअल रूप से दर्ज करें।</string>
+    <string name="zakat_fetch_now">अभी कीमतें ताज़ा करें</string>
+    <string name="zakat_fetching">कीमतें प्राप्त की जा रही हैं...</string>
+    <string name="zakat_fitr_persons">परिवार के सदस्यों की संख्या</string>
+    <string name="zakat_fitr_saa_value">एक sa\' का मूल्य (मुख्य भोजन)</string>
+    <string name="zakat_fitr_section">ज़कात अल-फितर</string>
+    <string name="zakat_fitr_total">कुल फ़ित्र ज़कात: %1$s</string>
+    <string name="zakat_gold_grams">सोना (ग्राम)</string>
+    <string name="zakat_gold_price">सोने की कीमत प्रति ग्राम</string>
+    <string name="zakat_history">गणना इतिहास</string>
+    <string name="zakat_history_amount">ज़कात: %1$s</string>
+    <string name="zakat_history_empty">अभी तक कोई गणना सहेजी नहीं गई है.</string>
+    <string name="zakat_investments">निवेश</string>
+    <string name="zakat_last_updated">अंतिम अद्यतन: %1$s</string>
+    <string name="zakat_money_section">धन पर जकात</string>
+    <string name="zakat_nisab_gold">सोना निसाब (85 ग्राम)</string>
+    <string name="zakat_nisab_met">निसाब पहुँच गया है - ज़कात देय है</string>
+    <string name="zakat_nisab_not_met">निसाब से नीचे - कोई जकात देय नहीं</string>
+    <string name="zakat_nisab_silver">सिल्वर निसाब (595 ग्राम)</string>
+    <string name="zakat_rulings_note">बहुमत के अनुसार (जम्हूर): सोना निसाब 85 ग्राम, चांदी 595 ग्राम, और बकाया ऋण घटाने के बाद दर 2.5%% है। विशेष मामलों के लिए किसी योग्य विद्वान से परामर्श लें।</string>
+    <string name="zakat_save_result">इतिहास में सहेजें</string>
+    <string name="zakat_silver_grams">चाँदी (ग्राम)</string>
+    <string name="zakat_silver_price">चांदी की कीमत प्रति ग्राम</string>
+    <string name="zakat_source_note">gold-api.com से सोने/चांदी की कीमतें; Open.er-api.com से एफएक्स दरें</string>
+    <string name="zakat_title">जकात</string>
+    <string name="zakat_total_assets">कुल संपत्ति</string>
+    <string name="zakat_trade">व्यापारिक वस्तुओं का मूल्य</string>
+    <string name="zakat_zakatable">ऋण के बाद ज़कातयोग्य राशि</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Ետ</string>
+    <string name="ramadan_countdown">Ռամադանը սկսվում է %1$s օրից</string>
+    <string name="ramadan_countdown_to_iftar">Իֆթարի ժամանակը` %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Ժամանակը մինչև Ֆաջր՝ %1$s</string>
+    <string name="ramadan_day_of_month">Ռամադան %1$s օր</string>
+    <string name="ramadan_days_left">Մնաց %1$s օր</string>
+    <string name="ramadan_fasting_progress">Պահքի օրեր՝ %1$s-ը %2$s-ից — կտտացրեք օրը՝ ձայնագրելու համար</string>
+    <string name="ramadan_fasting_tracker">Ծոմապահության հետքեր</string>
+    <string name="ramadan_hijri_note">Հիմք ընդունելով Umm al-Qura օրացույցը, որի վրա կիրառվում է ամբողջ հավելվածի հիջրի ճշգրտումը:</string>
+    <string name="ramadan_hijri_year">Տարեթիվ %1$s Հիջ</string>
+    <string name="ramadan_iftar">Իֆթար</string>
+    <string name="ramadan_iftar_dua">Իֆթարի աղաչանք. «Ո՛վ Ալլահ, ես ծոմ եմ պահում քեզ համար և քո տրամադրությամբ ես ընդհատում եմ իմ ծոմը…»:</string>
+    <string name="ramadan_iftar_time">Իֆթար (Մաղրիբ) ժամը՝ %1$s</string>
+    <string name="ramadan_location_required">Ժամերը տեսնելու համար սկզբում ընտրեք քաղաքը Կարգավորումներում:</string>
+    <string name="ramadan_minutes">%1$s րոպե</string>
+    <string name="ramadan_notification_iftar_body">Ով Ալլահ, ես ծոմ եմ պահել քեզ համար և քո տրամադրությամբ ընդհատում եմ իմ ծոմը</string>
+    <string name="ramadan_notification_iftar_title">Իֆթարի ժամանակն է</string>
+    <string name="ramadan_notification_suhoor_body">Մոտենում է Ֆաջրը</string>
+    <string name="ramadan_notification_suhoor_title">Սուհուրի հիշեցում</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Սուհուր</string>
+    <string name="ramadan_suhoor_remind_before">Հիշեցրու ինձ նախկինում.</string>
+    <string name="ramadan_suhoor_time">Սուհուրի ավարտը (Ֆաջր)՝ %1$s</string>
+    <string name="ramadan_title">Ռամադան</string>
+</resources>

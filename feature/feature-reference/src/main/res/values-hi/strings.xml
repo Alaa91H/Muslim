@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">वापस</string>
+    <string name="reference_no_results">कोई मेल खाता परिणाम नहीं</string>
+    <string name="reference_search_hint">यह पुस्तक खोजें...</string>
+    <string name="reference_title">इस्लामी संदर्भ पुस्तकालय</string>
+    <string name="reference_topics_count">विषय</string>
+</resources>

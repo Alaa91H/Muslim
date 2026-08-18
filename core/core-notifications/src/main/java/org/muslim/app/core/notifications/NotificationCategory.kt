@@ -146,6 +146,13 @@ enum class NotificationCategory(
         NotificationChannels.RECITATION, defaultEnabled = true,
         defaultImportance = NotificationImportance.Low, defaultSound = false, defaultVibrate = false, defaultBadge = false,
         nameRes = R.string.channel_recitation, descriptionRes = R.string.channel_recitation_desc,
+    ),
+
+    /** Daily Hajj rite reminders ("Pilgrim Companion") during Dhul-Hijjah 8-13. */
+    Hajj(
+        NotificationChannels.HAJJ, defaultEnabled = false,
+        defaultImportance = NotificationImportance.Default, defaultSound = true, defaultVibrate = true, defaultBadge = true,
+        nameRes = R.string.channel_hajj, descriptionRes = R.string.channel_hajj_desc,
     );
 
     /** The defaults the app ships with for this category. */

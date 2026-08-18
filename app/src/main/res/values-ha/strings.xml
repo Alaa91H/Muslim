@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Musulmi</string>
+    <string name="more_adhkar">Adkar</string>
+    <string name="more_adhkar_desc">Safiya, maraice &amp; bayan sallah adhkar tare da kirga</string>
+    <string name="more_downloads">Zazzagewar karatun</string>
+    <string name="more_downloads_desc">Zazzage sura, aya ko cikakkiyar alqurani tare da zaɓaɓɓen karatun ku</string>
+    <string name="more_hadith">Hadisi</string>
+    <string name="more_hadith_desc">Laburaren Hadisi, bincike &amp; hadisi na ranar</string>
+    <string name="more_learn">Koyi</string>
+    <string name="more_learn_desc">Wudu mataki-mataki &amp; jagorar sallah</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">lokutan Suhur &amp; buda baki da kuma duban azumi</string>
+    <string name="more_reference">Littafin Magana</string>
+    <string name="more_reference_desc">Gabatarwa ga Musulunci, Sira &amp; annabawa</string>
+    <string name="more_settings">Saituna</string>
+    <string name="more_settings_desc">Jigo, harshe, addu\'a &amp; saitunan adhan</string>
+    <string name="more_tasbih">Tasbihi</string>
+    <string name="more_tasbih_desc">Misbaha na dijital tare da tarihin yau da kullun</string>
+    <string name="more_zakat">Zakka</string>
+    <string name="more_zakat_desc">Zakkar dukiya &amp; kalkuleta ta Fitr</string>
+    <string name="scaffold_message">An shirya kwarangwal na aiki mai nau\'i-nau\'i.\nPhase 1 - Adhan, lokutan sallah, alqibla, da kalandar Hijiriyya - a nan aka fara.</string>
+    <string name="shortcut_qibla">Alqibla</string>
+    <string name="shortcut_qibla_long">Hanyar alqibla</string>
+    <string name="shortcut_settings">Saituna</string>
+    <string name="shortcut_settings_long">Saitunan Sallah &amp; adhan</string>
+    <string name="shortcut_times">Lokutan sallah</string>
+    <string name="shortcut_times_long">Yau\'s lokutan sallah</string>
+    <string name="tab_home">Lokutan Sallah</string>
+    <string name="tab_more">Ƙari</string>
+    <string name="tab_qibla">Alqibla</string>
+    <string name="tab_quran">Alqur\'ani</string>
 </resources>

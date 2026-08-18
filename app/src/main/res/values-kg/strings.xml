@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Na suka, na nkokila mpi na nima ya kisambu adhkar ti bakonti</string>
+    <string name="more_downloads">Ba nsangu ya bo me baka</string>
+    <string name="more_downloads_desc">Baka surah mosi, ayah mosi to Coran ya mvimba ti muntu yina nge me pona</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Biblioteke ya ba hadith, kusosa &amp; ba hadith ya kilumbu</string>
+    <string name="more_learn">Longuka</string>
+    <string name="more_learn_desc">Malongi ya wudu &amp; ya bisambu ya kitambi na kitambi</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Bantangu ya Suhoor mpi ya iftar mpi nzila ya kubuya kudya</string>
+    <string name="more_reference">Biblioteke ya Bansosa</string>
+    <string name="more_reference_desc">Ntubilu ya Islam, Sira &amp; baprofete .</string>
+    <string name="more_settings">Baparametre</string>
+    <string name="more_settings_desc">Ntu-dyambu, ndinga, kisambu mpi baparametre ya adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha ya digitale ti disolo ya konso kilumbu</string>
+    <string name="more_zakat">Zaka</string>
+    <string name="more_zakat_desc">Zakat na kimvwama &amp; calculatrice ya Fitr</string>
+    <string name="scaffold_message">\nFase 1 — Adhan, ntangu ya kisambu, Qibla, mpi manaka ya Hijri — ke yantika awa.</string>
+    <string name="shortcut_qibla">Kibla</string>
+    <string name="shortcut_qibla_long">Nzila ya Qibla</string>
+    <string name="shortcut_settings">Baparametre</string>
+    <string name="shortcut_settings_long">Parametre ya kisambu mpi ya adhan</string>
+    <string name="shortcut_times">Ntangu ya kisambu</string>
+    <string name="shortcut_times_long">Bubu yai\' ntangu ya bisambu</string>
+    <string name="tab_home">Ntangu ya kisambu</string>
+    <string name="tab_more">Mambu mingi</string>
+    <string name="tab_qibla">Kibla</string>
+    <string name="tab_quran">Quoran</string>
 </resources>

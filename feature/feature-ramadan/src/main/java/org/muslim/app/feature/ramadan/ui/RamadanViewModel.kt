@@ -59,7 +59,7 @@ object RamadanTimes {
         suhoorMinutesBefore: Int,
     ): Result {
         val location = prayerSettings.location ?: return Result(null, null, null, null)
-        val coordinates = Coordinates(location.latitude, location.longitude)
+        val coordinates = Coordinates(location.latitude, location.longitude, location.elevation)
         val params = if (prayerSettings.method == CalculationMethod.Custom) {
             PrayerParameters(
                 method = CalculationMethod.Custom,

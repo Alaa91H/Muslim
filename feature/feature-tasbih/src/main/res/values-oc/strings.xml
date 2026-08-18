@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha numerica — picatz per comptar</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Picatz per comptar</string>
+    <string name="tasbih_back">Enrè</string>
+    <string name="tasbih_cancel">Anullar</string>
+    <string name="tasbih_confirm">D\'acòrdi</string>
+    <string name="tasbih_custom_target">Personalizat</string>
+    <string name="tasbih_custom_target_hint">Picatz lo nombre de comptes (de 1 a 100000)</string>
+    <string name="tasbih_custom_target_title">Definir una tòca personalizada</string>
+    <string name="tasbih_of_target">de %1$s</string>
+    <string name="tasbih_reset">Reïnicializar</string>
+    <string name="tasbih_reset_all">Reïnicializar tot</string>
+    <string name="tasbih_round_complete">Tonda completa completa (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Rondas: %1$d</string>
+    <string name="tasbih_sound_desc">Jòga un sonèl o un ton quand cada torn complet es completat</string>
+    <string name="tasbih_sound_title">Son sus cibla</string>
+    <string name="tasbih_sound_tone_alarm">Alarma</string>
+    <string name="tasbih_sound_tone_notification">Notificacion</string>
+    <string name="tasbih_sound_tone_ringtone">Sonar</string>
+    <string name="tasbih_tap_hint">Picatz lo cercle per comptar</string>
+    <string name="tasbih_target_reached">Objectiu atench — qu\'Allah accepte</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Uèi\' total: %1$d</string>
+    <string name="tasbih_undo">Desfar</string>
+    <string name="tasbih_virtue_label">Vertut d\'aqueste dhikr</string>
+    <string name="tasbih_week_stats">Darrièr 7 jorns</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">पछाडि</string>
+    <string name="reference_no_results">कुनै मिल्दो परिणामहरू छैनन्</string>
+    <string name="reference_search_hint">यो पुस्तक खोज्नुहोस्…</string>
+    <string name="reference_title">इस्लामिक सन्दर्भ पुस्तकालय</string>
+    <string name="reference_topics_count">विषयहरू</string>
+</resources>

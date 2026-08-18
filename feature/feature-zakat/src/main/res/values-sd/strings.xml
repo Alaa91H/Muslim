@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">خودڪار قيمتون حاصل ڪريو</string>
+    <string name="zakat_auto_prices_hint">فعال ٿيڻ تي، سون ۽ چانديءَ جون قيمتون انٽرنيٽ تان حاصل ڪيون وينديون آهن ۽ پاڻمرادو تازو ٿي وينديون آهن</string>
+    <string name="zakat_back">پوئتي</string>
+    <string name="zakat_cash">نقد ۽ بچت</string>
+    <string name="zakat_clear_history">صاف تاريخ</string>
+    <string name="zakat_country">ملڪ</string>
+    <string name="zakat_country_placeholder">پنھنجو ملڪ ۽ ڪرنسي چونڊيو</string>
+    <string name="zakat_country_section">ملڪ ۽ ڪرنسي</string>
+    <string name="zakat_currency">ڪرنسي: %1$s</string>
+    <string name="zakat_debts">قرض جيڪي توهان تي واجب الادا آهن (ڪٽايو)</string>
+    <string name="zakat_due">زڪوات واجب (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'t قيمتون حاصل ڪري سگھيا. پنھنجو ڪنيڪشن چيڪ ڪريو يا دستي طور قيمت داخل ڪريو.</string>
+    <string name="zakat_fetch_now">هاڻ قيمتن کي تازو ڪريو</string>
+    <string name="zakat_fetching">قيمتون حاصل ڪرڻ…</string>
+    <string name="zakat_fitr_persons">خاندان جي ميمبرن جو تعداد</string>
+    <string name="zakat_fitr_saa_value">هڪ sa\' جي قيمت (اسٽيپل کاڌو)</string>
+    <string name="zakat_fitr_section">زڪوات الفطر</string>
+    <string name="zakat_fitr_total">ڪل فطر جي زڪوات: %1$s</string>
+    <string name="zakat_gold_grams">سون (گرام)</string>
+    <string name="zakat_gold_price">سون جي قيمت في گرام</string>
+    <string name="zakat_history">حساب ڪتاب جي تاريخ</string>
+    <string name="zakat_history_amount">زڪوات: %1$s</string>
+    <string name="zakat_history_empty">اڃان تائين ڪو به محفوظ ڪيل حساب ناهي.</string>
+    <string name="zakat_investments">سيڙپڪاري</string>
+    <string name="zakat_last_updated">آخري ڀيرو اپڊيٽ ڪيو ويو: %1$s</string>
+    <string name="zakat_money_section">مال تي زڪوات</string>
+    <string name="zakat_nisab_gold">سون جو نصاب (85 گرام)</string>
+    <string name="zakat_nisab_met">نصاب پهچي چڪو آهي - زڪوات واجب آهي</string>
+    <string name="zakat_nisab_not_met">نصاب کان هيٺ - زڪوات واجب ناهي</string>
+    <string name="zakat_nisab_silver">چاندي جو نصاب (595 گرام)</string>
+    <string name="zakat_rulings_note">في اڪثريت (جمھور): سون جو نصاب 85 گرام، چاندي 595 گرام، ۽ واجب قرضن کي ڪٽڻ کان پوء شرح 2.5%% آھي. خاص ڪيسن لاء هڪ قابل عالم سان صلاح ڪريو.</string>
+    <string name="zakat_save_result">تاريخ ۾ محفوظ ڪريو</string>
+    <string name="zakat_silver_grams">چاندي (گرام)</string>
+    <string name="zakat_silver_price">چاندي جي قيمت في گرام</string>
+    <string name="zakat_source_note">سون/چاندي جون قيمتون gold-api.com کان؛ open.er-api.com کان FX جي شرح</string>
+    <string name="zakat_title">زڪوات</string>
+    <string name="zakat_total_assets">ڪل اثاثو</string>
+    <string name="zakat_trade">واپار جي سامان جي قيمت</string>
+    <string name="zakat_zakatable">زڪوات جي رقم قرض کان پوء</string>
+</resources>

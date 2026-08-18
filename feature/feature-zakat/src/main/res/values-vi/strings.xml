@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Tự động lấy giá</string>
+    <string name="zakat_auto_prices_hint">Khi được bật, giá vàng và bạc sẽ được lấy từ internet và tự động làm mới</string>
+    <string name="zakat_back">Quay lại</string>
+    <string name="zakat_cash">Tiền mặt và tiết kiệm</string>
+    <string name="zakat_clear_history">Xóa lịch sử</string>
+    <string name="zakat_country">Quốc gia</string>
+    <string name="zakat_country_placeholder">Chọn quốc gia và đơn vị tiền tệ của bạn</string>
+    <string name="zakat_country_section">Quốc gia và tiền tệ</string>
+    <string name="zakat_currency">Tiền tệ: %1$s</string>
+    <string name="zakat_debts">Các khoản nợ bạn nợ (đã khấu trừ)</string>
+    <string name="zakat_due">Zakat đến hạn (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Không thể\'t lấy giá. Kiểm tra kết nối của bạn hoặc nhập giá theo cách thủ công.</string>
+    <string name="zakat_fetch_now">Làm mới giá ngay bây giờ</string>
+    <string name="zakat_fetching">Đang tìm nạp giá…</string>
+    <string name="zakat_fitr_persons">Số lượng thành viên gia đình</string>
+    <string name="zakat_fitr_saa_value">Giá trị một sa\' (thực phẩm thiết yếu)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Tổng số zakat Fitr: %1$s</string>
+    <string name="zakat_gold_grams">Vàng (gram)</string>
+    <string name="zakat_gold_price">Giá vàng mỗi gram</string>
+    <string name="zakat_history">Lịch sử tính toán</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Chưa có phép tính nào được lưu.</string>
+    <string name="zakat_investments">Đầu tư</string>
+    <string name="zakat_last_updated">Cập nhật lần cuối: %1$s</string>
+    <string name="zakat_money_section">Zakat cho sự giàu có</string>
+    <string name="zakat_nisab_gold">Vàng nisab (85g)</string>
+    <string name="zakat_nisab_met">Đã đạt được nisab - zakat sắp đến hạn</string>
+    <string name="zakat_nisab_not_met">Dưới đồng nisab — không phải trả zakat</string>
+    <string name="zakat_nisab_silver">Bạc nisab (595g)</string>
+    <string name="zakat_rulings_note">Theo đa số (jumhoor): vàng nisab là 85g, bạc 595g, tỷ giá là 2,5%% sau khi trừ đi các khoản nợ đến hạn. Tham khảo ý kiến ​​​​của một học giả có trình độ cho các trường hợp đặc biệt.</string>
+    <string name="zakat_save_result">Lưu vào lịch sử</string>
+    <string name="zakat_silver_grams">Bạc (gram)</string>
+    <string name="zakat_silver_price">Giá bạc mỗi gram</string>
+    <string name="zakat_source_note">Giá vàng/bạc từ gold-api.com; Tỷ giá hối đoái từ open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Tổng tài sản</string>
+    <string name="zakat_trade">Giá trị hàng hóa thương mại</string>
+    <string name="zakat_zakatable">Số tiền có thể Zakat sau khi trả nợ</string>
+</resources>

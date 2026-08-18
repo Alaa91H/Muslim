@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">مۇسۇلمان</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">ئەتىگەنلىك ، كەچلىك ۋە دۇئادىن كېيىنكى پەشتاقلار بىلەن بىللە</string>
+    <string name="more_downloads">قىرائەت چۈشۈرۈش</string>
+    <string name="more_downloads_desc">تاللىغان قىرائىتىڭىز بىلەن بىر ئايەت ، ئايەت ياكى تولۇق قۇرئان چۈشۈرۈڭ</string>
+    <string name="more_hadith">ھەدىس</string>
+    <string name="more_hadith_desc">ھەدىس كۈتۈپخانىسى ، شۇ كۈندىكى ئىزدەش ۋە ھەدىس</string>
+    <string name="more_learn">ئۆگىنىڭ</string>
+    <string name="more_learn_desc">قەدەممۇ-قەدەم ۋۇدۇ ۋە دۇئا قوللانمىلىرى</string>
+    <string name="more_ramadan">رامىزان</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar ۋاقتى ۋە روزا تۇتقۇچى</string>
+    <string name="more_reference">پايدىلىنىش ئامبىرى</string>
+    <string name="more_reference_desc">ئىسلامغا ، سىرا ۋە پەيغەمبەرلەرگە تونۇشتۇرۇش</string>
+    <string name="more_settings">تەڭشەك</string>
+    <string name="more_settings_desc">تېما ، تىل ، دۇئا ۋە ئەزان تەڭشەكلىرى</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">كۈندىلىك تارىخ بىلەن رەقەملىك خاتالىق</string>
+    <string name="more_zakat">زاكات</string>
+    <string name="more_zakat_desc">بايلىق ۋە Fitr ھېسابلىغۇچتىكى زاكات</string>
+    <string name="scaffold_message">كۆپ مودۇللۇق تۈر ئىسكىلىت تەييار.</string>
+    <string name="shortcut_qibla">قىبلە</string>
+    <string name="shortcut_qibla_long">قىبلە يۆنىلىشى</string>
+    <string name="shortcut_settings">تەڭشەك</string>
+    <string name="shortcut_settings_long">دۇئا ۋە ئەزان تەڭشەكلىرى</string>
+    <string name="shortcut_times">ناماز ۋاقتى</string>
+    <string name="shortcut_times_long">بۈگۈن \'s ناماز ۋاقتى</string>
+    <string name="tab_home">ناماز ۋاقتى</string>
+    <string name="tab_more">تېخىمۇ كۆپ</string>
+    <string name="tab_qibla">قىبلە</string>
+    <string name="tab_quran">قۇرئان</string>
 </resources>

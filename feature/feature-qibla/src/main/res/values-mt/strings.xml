@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s bogħod</string>
+    <string name="mosque_finder_empty">L-ebda moskej misjuba f\'din il-firxa</string>
+    <string name="mosque_finder_error">It-tfittxija falliet</string>
+    <string name="mosque_finder_intro">Sib moskej ħdejn il-post tiegħek permezz ta\' OpenStreetMap</string>
+    <string name="mosque_finder_no_location">S\'issa m\'hemmx post stabbilit. Agħżel post mill-issettjar tal-ħinijiet tat-talb l-ewwel.</string>
+    <string name="mosque_finder_retry">Ipprova mill-ġdid</string>
+    <string name="mosque_finder_searching">Qed tfittex...</string>
+    <string name="mosque_finder_title">Moskej fil-qrib</string>
+    <string name="qibla_bearing_cardinal">Direzzjoni tal-Qibla: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Mexxi t-telefon tiegħek f\'figura-tmienja biex tikkalibra</string>
+    <string name="qibla_distance">Distanza għal Makkah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Qed tiffaċċja l-Qibla 🕋</string>
+    <string name="qibla_gps_error">Ma setgħetx tikseb soluzzjoni preċiża. Jekk jogħġbok erġa\' pprova.</string>
+    <string name="qibla_gps_live">Post GPS ħajjin</string>
+    <string name="qibla_gps_refresh">Aġġorna l-post permezz tal-GPS</string>
+    <string name="qibla_gps_refreshing">Insibu...</string>
+    <string name="qibla_heading_degree">Intestatura tat-telefown: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Rotta taċ-ċirku kbir mill-lokalità tiegħek sal-Kaaba — taħdem offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Inti</string>
+    <string name="qibla_mode_compass">Boxxla</string>
+    <string name="qibla_mode_map">Mappa</string>
+    <string name="qibla_open_mosques">Moskej fil-qrib</string>
+    <string name="qibla_title">Direzzjoni tal-Qibla</string>
+    <string name="qibla_turn_left">Dawwar ix-xellug %1$.1f°</string>
+    <string name="qibla_turn_right">Dawwar il-lemin %1$.1f°</string>
+</resources>

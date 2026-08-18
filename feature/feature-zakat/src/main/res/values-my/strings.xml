@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">စျေးနှုန်းများအလိုအလျောက်ရယူပါ။</string>
+    <string name="zakat_auto_prices_hint">ဖွင့်ထားသောအခါတွင်၊ ရွှေနှင့် ငွေစျေးနှုန်းများကို အင်တာနက်မှ ထုတ်ယူပြီး အလိုအလျောက် ပြန်လည်စတင်သည်။</string>
+    <string name="zakat_back">ကျော</string>
+    <string name="zakat_cash">ငွေသားနှင့် စုဆောင်းငွေ</string>
+    <string name="zakat_clear_history">သမိုင်းကိုရှင်းလင်းပါ။</string>
+    <string name="zakat_country">တိုင်းပြည်</string>
+    <string name="zakat_country_placeholder">သင်၏နိုင်ငံနှင့်ငွေကြေးကိုရွေးချယ်ပါ။</string>
+    <string name="zakat_country_section">နိုင်ငံနှင့်ငွေကြေး</string>
+    <string name="zakat_currency">ငွေကြေး: %1$s</string>
+    <string name="zakat_debts">အကြွေးများ (နုတ်ယူထား)၊</string>
+    <string name="zakat_due">Zakat ကြောင့် (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">စျေးနှုန်းများကို မရယူနိုင်ပါ။ သင့်ချိတ်ဆက်မှုကို စစ်ဆေးပါ သို့မဟုတ် စျေးနှုန်းကို ကိုယ်တိုင်ထည့်ပါ။</string>
+    <string name="zakat_fetch_now">စျေးနှုန်းများကို ယခု ပြန်လည်စတင်ပါ။</string>
+    <string name="zakat_fetching">စျေးနှုန်းများကို ရယူနေသည်...</string>
+    <string name="zakat_fitr_persons">မိသားစုဝင်အရေအတွက်</string>
+    <string name="zakat_fitr_saa_value">တစ်လုံး၏တန်ဖိုးမှာ ၉၉၇၀၀၀၀ (အဓိကအစားအစာ)၊</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">စုစုပေါင်း Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">ရွှေ (ဂရမ်)၊</string>
+    <string name="zakat_gold_price">ရွှေတစ်ဂရမ်ဈေး</string>
+    <string name="zakat_history">တွက်ချက်မှုသမိုင်း</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">သိမ်းဆည်းထားသော တွက်ချက်မှုများ မရှိသေးပါ။</string>
+    <string name="zakat_investments">ရင်းနှီးမြှုပ်နှံမှုများ</string>
+    <string name="zakat_last_updated">နောက်ဆုံးမွမ်းမံမှု- %1$s</string>
+    <string name="zakat_money_section">Zakat ကြွယ်ဝမှု</string>
+    <string name="zakat_nisab_gold">ရွှေ nisab (85 ဂရမ်)</string>
+    <string name="zakat_nisab_met">နိစ္စရောက်သည်- ဇကာသ်ရောက်ပြီ။</string>
+    <string name="zakat_nisab_not_met">nisab ၏အောက်တွင် - zakat ကြောင့်မဖြစ်ပါ။</string>
+    <string name="zakat_nisab_silver">ငွေရောင် nisab (595 ဂရမ်)</string>
+    <string name="zakat_rulings_note">အများစုအတွက် (jumhoor)- ရွှေ nisab သည် 85 ဂရမ်၊ ငွေ 595 ဂရမ်ဖြစ်ပြီး အကြွေးဆပ်ပြီးနောက် 2.5%% ဖြစ်သည်။ အထူးကိစ္စရပ်များအတွက် အရည်အချင်းပြည့်မီသော ပညာရှင်နှင့် တိုင်ပင်ပါ။</string>
+    <string name="zakat_save_result">သမိုင်းတွင်သိမ်းဆည်းပါ။</string>
+    <string name="zakat_silver_grams">ငွေ (ဂရမ်)၊</string>
+    <string name="zakat_silver_price">ငွေတစ်ဂရမ်နှုန်း</string>
+    <string name="zakat_source_note">gold-api.com မှ ရွှေ/ငွေ စျေးနှုန်းများ open.er-api.com မှ FX နှုန်းထားများ</string>
+    <string name="zakat_title">ဇကာတ်</string>
+    <string name="zakat_total_assets">စုစုပေါင်းပိုင်ဆိုင်မှု</string>
+    <string name="zakat_trade">ကုန်သွယ်မှုတန်ဖိုး</string>
+    <string name="zakat_zakatable">ကြွေးပြီးနောက် Zakatable ပမာဏ</string>
+</resources>

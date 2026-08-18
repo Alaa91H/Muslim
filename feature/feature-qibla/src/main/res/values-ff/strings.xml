@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ina woɗɗi</string>
+    <string name="mosque_finder_empty">Alaa juulirɗe tawaaɗe e ndeeɗoo dingiral</string>
+    <string name="mosque_finder_error">Njiylawu oo dañaani</string>
+    <string name="mosque_finder_intro">Yiytu juulirɗe sara nokku maa e laawol OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Alaa nokku toɗɗaaɗo tawo. Suɓo nokku e nder dottaaɗe waktuuji juulde ko adii.</string>
+    <string name="mosque_finder_retry">Enndu kadi</string>
+    <string name="mosque_finder_searching">Yiylaade...</string>
+    <string name="mosque_finder_title">Juulirɗe saraaji</string>
+    <string name="qibla_bearing_cardinal">Tiitoonde kiblaa: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Moƴƴin telefoŋ maa e limre-joyaɓere ngam kalibraade</string>
+    <string name="qibla_distance">Woɗɗude Makka: %1$s</string>
+    <string name="qibla_distance_km">%,.0f kiloomeeteer</string>
+    <string name="qibla_facing">Aɗa fadi Qibla 🕋</string>
+    <string name="qibla_gps_error">Waawaa heɓde feere laaɓtunde. Tiiɗno enndu kadi.</string>
+    <string name="qibla_gps_live">Nokku GPS gonɗo e nguurndam</string>
+    <string name="qibla_gps_refresh">Hesɗitin nokku oo e GPS</string>
+    <string name="qibla_gps_refreshing">Nokkude...</string>
+    <string name="qibla_heading_degree">Tiitoonde telefoŋ: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Laawol cirkel mawngol ummoraade e nokku maa haa e Kaaba — ina gollira tawa aɗa woni e laylaytol</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Aan</string>
+    <string name="qibla_mode_compass">Busol</string>
+    <string name="qibla_mode_map">Kartal</string>
+    <string name="qibla_open_mosques">Juulirɗe saraaji</string>
+    <string name="qibla_title">Tiitoonde Qibla</string>
+    <string name="qibla_turn_left">Jippaa nano %1$.1f°</string>
+    <string name="qibla_turn_right">Jippaa nyaamo %1$.1f°</string>
+</resources>

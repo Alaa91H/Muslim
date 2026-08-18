@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">ዋጋታት ብኣውቶማቲክ ኣምጽኡ</string>
+    <string name="zakat_auto_prices_hint">ምስ ዝኽፈት ዋጋታት ወርቅን ብሩርን ካብ ኢንተርነት ይመጽእ እሞ ብኣውቶማቲክ ይሕደስ</string>
+    <string name="zakat_back">ንድሕሪት ተመሊስና።</string>
+    <string name="zakat_cash">ጥረ ገንዘብን ዕቋርን</string>
+    <string name="zakat_clear_history">ንጹር ታሪኽ</string>
+    <string name="zakat_country">ሃገር</string>
+    <string name="zakat_country_placeholder">ሃገርካን ባጤራኻን ምረጽ</string>
+    <string name="zakat_country_section">ሃገር &amp; ባጤራ</string>
+    <string name="zakat_currency">ባጤራ፡ %1$s</string>
+    <string name="zakat_debts">ዕዳ ዘለካ (ዝተቖርጸ)</string>
+    <string name="zakat_due">ዘካት ዝኽፈል (2.5%%)፦ %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t ዋጋታት ኣምጺኡ። ምትእስሳርካ መርምር ወይ ድማ ብኢድካ ዋጋ ኣእቱ።</string>
+    <string name="zakat_fetch_now">ሕጂ ዋጋታት ኣሐድሱ</string>
+    <string name="zakat_fetching">ዋጋታት ምምጻእ...</string>
+    <string name="zakat_fitr_persons">ብዝሒ ኣባላት ስድራቤት</string>
+    <string name="zakat_fitr_saa_value">ዋጋ ሓደ sa\' (ቀንዲ መግቢ)</string>
+    <string name="zakat_fitr_section">ዘካት ኣልፊጥር</string>
+    <string name="zakat_fitr_total">ጠቕላላ ፊትሮ ዘካት፡ %1$s</string>
+    <string name="zakat_gold_grams">ወርቂ (ግራም)</string>
+    <string name="zakat_gold_price">ዋጋ ወርቂ ንሓደ ግራም</string>
+    <string name="zakat_history">ታሪኽ ስሌት</string>
+    <string name="zakat_history_amount">ዘካት፡ %1$s</string>
+    <string name="zakat_history_empty">ገና ዝተዓቀበ ስሌታት የለን።</string>
+    <string name="zakat_investments">ወፍሪታት</string>
+    <string name="zakat_last_updated">መወዳእታ ዝተሓደሰሉ: %1$s</string>
+    <string name="zakat_money_section">ዘካት ኣብ ልዕሊ ሃብቲ</string>
+    <string name="zakat_nisab_gold">ወርቂ ኒሳብ (85ግ)</string>
+    <string name="zakat_nisab_met">እቲ ኒሳብ ተበጺሑ — ዘካት ይኽፈል</string>
+    <string name="zakat_nisab_not_met">ኣብ ትሕቲ ኒሳብ — ዘካት ዝኽፈል የለን</string>
+    <string name="zakat_nisab_silver">ብሩር ኒሳብ (595ግ)</string>
+    <string name="zakat_rulings_note">በብዝሒ (jumhoor): ወርቂ ኒሳብ 85g, ብሩር 595g, እቲ መጠን ድማ 2.5%% ድሕሪ ምጉዳል ግቡእ ዕዳ እዩ። ንፍሉይ ጉዳያት ብቑዕ ምሁር ተወከስ።</string>
+    <string name="zakat_save_result">ናብ ታሪኽ ኣድሕን</string>
+    <string name="zakat_silver_grams">ብሩር (ግራም)</string>
+    <string name="zakat_silver_price">ዋጋ ብሩር ንሓደ ግራም</string>
+    <string name="zakat_source_note">ዋጋታት ወርቂ/ብሩር ካብ gold-api.com፤ ናይ FX ደረጃታት ካብ open.er-api.com</string>
+    <string name="zakat_title">ዘካት።</string>
+    <string name="zakat_total_assets">ጠቕላላ ንብረት</string>
+    <string name="zakat_trade">ንግዳዊ ኣቑሑት ዋጋ</string>
+    <string name="zakat_zakatable">ድሕሪ ዕዳታት ዘካተብል መጠን ገንዘብ</string>
+</resources>

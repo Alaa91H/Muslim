@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Yzyna</string>
+    <string name="ramadan_countdown">Remezan %1$s günden başlaýar</string>
+    <string name="ramadan_countdown_to_iftar">Iftar wagty: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Fajr wagty: %1$s</string>
+    <string name="ramadan_day_of_month">Remezan aýynyň %1$s güni</string>
+    <string name="ramadan_days_left">%1$s gün galdy</string>
+    <string name="ramadan_fasting_progress">Oraza günleri: %2$s-den %1$s - ýazga almak üçin bir günde basyň</string>
+    <string name="ramadan_fasting_tracker">Oraza yzarlaýjy</string>
+    <string name="ramadan_hijri_note">Umm al-Kura senenamasyna esaslanyp, programma boýunça Hijri düzedişi ulanylýar.</string>
+    <string name="ramadan_hijri_year">%1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar dilegi: "Allaha Allah, seniň üçin agyz bekledim, seniň naharyň bilen agyz bekleýärin ..."</string>
+    <string name="ramadan_iftar_time">Iftar (Magrib) wagty: %1$s</string>
+    <string name="ramadan_location_required">Wagtlary görmek üçin ilki bilen Sazlamalarda şäher saýlaň.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">Allaha Allah, seniň üçin agyz bekledim, seniň agyz bekledim</string>
+    <string name="ramadan_notification_iftar_title">Iftar wagty</string>
+    <string name="ramadan_notification_suhoor_body">Fajr ýakynlaşýar - özüňizi alyň</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor ýatlatmasy</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Ozal ýatlatyň:</string>
+    <string name="ramadan_suhoor_time">Suhoor gutarýar (Fajr): %1$s</string>
+    <string name="ramadan_title">Remezan</string>
+</resources>

@@ -71,6 +71,7 @@ class NextAdhanService : Service() {
             val enabled = notificationPrefs.isEnabled(NotificationCategory.PrayerCountdown)
             val quietActive = notificationPrefs.isQuietHourActive(now)
             val showMissed = notificationPrefs.showMissedAdhan.first()
+            val missedColor = notificationPrefs.missedAdhanColor.first()
             val settings = settingsRepository.settings.first()
             val data = PrayerCountdownData.compute(settings, calculator, now)
 
@@ -89,7 +90,7 @@ class NextAdhanService : Service() {
             val manager = getSystemService(NotificationManager::class.java)
             manager.notify(
                 NextAdhanNotifications.NEXT_ADHAN_NOTIFICATION_ID,
-                NextAdhanNotifications.build(this@NextAdhanService, data, showMissed),
+                NextAdhanNotifications.build(this@NextAdhanService, data, showMissed, missedColor),
             )
             handler.postDelayed({ tick() }, TICK_MILLIS)
         }
@@ -150,7 +151,15 @@ class NextAdhanService : Service() {
             missedPrayer = null, missedPrayerAt = null, elapsedSeconds = 0,
         )
 
-        private const val TICK_MILLIS = 60_000L
+        /**
+         * Refresh cadence. One second keeps the countdown/count-up timers
+         * visibly live; the notification is only ever updated in place
+         * (same id, [androidx.core.app.NotificationCompat.Builder.setOnlyAlertOnce]),
+         * so the cost is a small text rebuild — far cheaper than keeping the
+         * CPU awake via exact alarms. Quiet hours and the enabled toggle
+         * still stop the service entirely, so no work happens when hidden.
+         */
+        private const val TICK_MILLIS = 1_000L
         private const val RESTART_REQUEST_CODE = 9001
 
         fun start(context: Context) {

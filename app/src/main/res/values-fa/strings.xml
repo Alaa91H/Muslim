@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">مسلمان</string>
+    <string name="more_adhkar">ادهکار</string>
+    <string name="more_adhkar_desc">اذکار صبح، عصر و بعد از نماز با پیشخوان</string>
+    <string name="more_downloads">دانلود تلاوت</string>
+    <string name="more_downloads_desc">یک سوره، یک آیه یا یک قرآن کامل را با قاری انتخابی خود دانلود کنید</string>
+    <string name="more_hadith">حدیث</string>
+    <string name="more_hadith_desc">کتابخانه حدیث، جستجو و احادیث روز</string>
+    <string name="more_learn">یاد بگیرید</string>
+    <string name="more_learn_desc">راهنمای گام به گام وضو و دعا</string>
+    <string name="more_ramadan">رمضان</string>
+    <string name="more_ramadan_desc">ساعت سحری و افطار و ردیاب روزه</string>
+    <string name="more_reference">کتابخانه مرجع</string>
+    <string name="more_reference_desc">مقدمه ای بر اسلام، سیره و پیامبران</string>
+    <string name="more_settings">تنظیمات</string>
+    <string name="more_settings_desc">تنظیمات تم، زبان، دعا و اذان</string>
+    <string name="more_tasbih">تسبیح</string>
+    <string name="more_tasbih_desc">مصباح دیجیتال با تاریخچه روزانه</string>
+    <string name="more_zakat">زکات</string>
+    <string name="more_zakat_desc">ماشین حساب زکات مال و فطر</string>
+    <string name="scaffold_message">اسکلت پروژه چند ماژول آماده است.\n فاز 1 - اذان، اوقات نماز، قبله و تقویم هجری - از اینجا شروع می شود.</string>
+    <string name="shortcut_qibla">قبله</string>
+    <string name="shortcut_qibla_long">جهت قبله</string>
+    <string name="shortcut_settings">تنظیمات</string>
+    <string name="shortcut_settings_long">تنظیمات نماز و اذان</string>
+    <string name="shortcut_times">اوقات نماز</string>
+    <string name="shortcut_times_long">اوقات نماز امروز \'</string>
+    <string name="tab_home">اوقات نماز</string>
+    <string name="tab_more">بیشتر</string>
+    <string name="tab_qibla">قبله</string>
+    <string name="tab_quran">قرآن</string>
 </resources>

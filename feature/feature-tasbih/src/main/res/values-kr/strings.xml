@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha zamanbe — isaftəro tapne</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Komtəro tapne</string>
+    <string name="tasbih_back">Ngawo</string>
+    <string name="tasbih_cancel">Daptə</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Ada</string>
+    <string name="tasbih_custom_target_hint">Lamba isawubedəga yike (1lan səta 100000ro saadəna)</string>
+    <string name="tasbih_custom_target_title">Nganza kǝlanzǝn gǝnane</string>
+    <string name="tasbih_of_target">suro %1$s</string>
+    <string name="tasbih_reset">Waltǝm yasa</string>
+    <string name="tasbih_reset_all">Samma waltǝm yasa</string>
+    <string name="tasbih_round_complete">Kokorrata samma tamotǝna (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Korkori: %1$d</string>
+    <string name="tasbih_sound_desc">Kowo ringtone au tone lan bowotin sa round woson tamotiya</string>
+    <string name="tasbih_sound_title">Kowo nganzatənadən</string>
+    <string name="tasbih_sound_tone_alarm">Alama</string>
+    <string name="tasbih_sound_tone_notification">Warmatǝgǝ</string>
+    <string name="tasbih_sound_tone_ringtone">Kowo Ringbe</string>
+    <string name="tasbih_tap_hint">Korkoridǝga ratne isaftǝro</string>
+    <string name="tasbih_target_reached">Məradə nazəgəna — Allahye kasatsə</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Kudə \' jumla: %1$d</string>
+    <string name="tasbih_undo">Ngawo</string>
+    <string name="tasbih_virtue_label">Nǝmngǝla dhikr adǝbe</string>
+    <string name="tasbih_week_stats">Kawu 7 dareye</string>
+</resources>

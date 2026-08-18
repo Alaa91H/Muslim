@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Мехаш автоматически схьаэца</string>
+    <string name="zakat_auto_prices_hint">ДӀахӀоттийча, дешин а, детин а мехаш интернетера схьа а оьций, автоматически карлабоху</string>
+    <string name="zakat_back">Юха</string>
+    <string name="zakat_cash">Ахча а, ахча гулдар а .</string>
+    <string name="zakat_clear_history">ЦӀена истори .</string>
+    <string name="zakat_country">Мохк</string>
+    <string name="zakat_country_placeholder">Хьайн пачхьалкх а, ахча а харжа .</string>
+    <string name="zakat_country_section">Пачхьалкх а, ахча а</string>
+    <string name="zakat_currency">Валюта: %1$s</string>
+    <string name="zakat_debts">Хьуна тӀехь долу декхарш (дӀадаьхна)</string>
+    <string name="zakat_due">ДӀадала дезаш долу закат (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Коулдн\'т кхача мехаш. Хьайн зӀе хьажа я мах куьйга язбе.</string>
+    <string name="zakat_fetch_now">ХӀинца мехаш карладаха</string>
+    <string name="zakat_fetching">Мехаш схьаоьцуш...</string>
+    <string name="zakat_fitr_persons">Доьзалан декъашхойн терахь .</string>
+    <string name="zakat_fitr_saa_value">Цхьана са\' (коьрта кхача) мах бу</string>
+    <string name="zakat_fitr_section">Закат аль-Фитру</string>
+    <string name="zakat_fitr_total">Дерриге а Фитр закат: %1$s</string>
+    <string name="zakat_gold_grams">Деши (грамм)</string>
+    <string name="zakat_gold_price">Дешин мах цхьана граммах</string>
+    <string name="zakat_history">ХӀоттаман истори .</string>
+    <string name="zakat_history_amount">Закат: %1$s ахча ду</string>
+    <string name="zakat_history_empty">Цкъачунна лардина хьесапаш дац.</string>
+    <string name="zakat_investments">Инвестицеш яр</string>
+    <string name="zakat_last_updated">ТӀаьххьара хийцамаш бина: %1$s</string>
+    <string name="zakat_money_section">Даьхни тӀера закат .</string>
+    <string name="zakat_nisab_gold">Деши нисаб (85г)</string>
+    <string name="zakat_nisab_met">Нисаб тӀекхаьчна — закат дала деза .</string>
+    <string name="zakat_nisab_not_met">Нисаб лахахь — ца деза закат</string>
+    <string name="zakat_nisab_silver">Серебряный нисаб (595г)</string>
+    <string name="zakat_rulings_note">Дукхахболчарна (джумхӀур): дешин нисаб 85г, дети 595г, ткъа ставка 2,5%% ю, догӀу декхарш дӀадаьхначул тӀаьхьа. Къаьсттина гӀуллакхашна говзачу Ӏеламстага дагавала.</string>
+    <string name="zakat_save_result">Исторехь ларде .</string>
+    <string name="zakat_silver_grams">Дети (грамм)</string>
+    <string name="zakat_silver_price">Детин мах цхьана граммах .</string>
+    <string name="zakat_source_note">Дешин/детин мехаш gold-api.com сайта тӀера; Валютан курсаш open.er-api.com сайт тӀера</string>
+    <string name="zakat_title">Закат</string>
+    <string name="zakat_total_assets">Дерриге а активаш</string>
+    <string name="zakat_trade">Йохк-эцаран сурсатийн мах .</string>
+    <string name="zakat_zakatable">Декхарш дӀадаьхначул тӀаьхьа закатан барам</string>
+</resources>

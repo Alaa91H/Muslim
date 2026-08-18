@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s iroh</string>
+    <string name="mosque_finder_empty">Ta rakaakayal masjid mageytima.</string>
+    <string name="mosque_finder_error">Goranto raddeh</string>
+    <string name="mosque_finder_intro">Fakut tan gitih kartal ku aracak xaqut tan masjiditte gonnis</string>
+    <string name="mosque_finder_no_location">Arac madaffeyna awakâ fanah. Qimbol salat uddur kobxiseynak arac doora.</string>
+    <string name="mosque_finder_retry">Qagitaak gibbata</string>
+    <string name="mosque_finder_searching">Goranto...</string>
+    <string name="mosque_finder_title">Xayikkel tan masjiiditte</string>
+    <string name="qibla_bearing_cardinal">qibla afkan: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">isi silki esgey muuci-bacaar massossuh</string>
+    <string name="qibla_distance">Makka fanah baxxo: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Qiblat foocat katan 🕋 .</string>
+    <string name="qibla_gps_error">Gitah yan massos geyam maduuda. Ku maganak qagitaak gibbat.</string>
+    <string name="qibla_gps_live">Saanih GPS arac</string>
+    <string name="qibla_gps_refresh">GPS gitaak arac uqusbus</string>
+    <string name="qibla_gps_refreshing">Goranto...</string>
+    <string name="qibla_heading_degree">Silki ammunta: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">kaxxa maroh giti ku aracaak Kaaba fan - firtak iroh taamita</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Koo</string>
+    <string name="qibla_mode_compass">kompaas</string>
+    <string name="qibla_mode_map">nokorta</string>
+    <string name="qibla_open_mosques">Xayikkel tan masjiiditte</string>
+    <string name="qibla_title">Qibla afkan</string>
+    <string name="qibla_turn_left">Gural makkim %1$.1f°</string>
+    <string name="qibla_turn_right">Migdi gabuuk makkim %1$.1f°</string>
+</resources>

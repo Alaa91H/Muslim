@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — tåmpe para un kuenta</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Påtta para un kuenta</string>
+    <string name="tasbih_back">Tåtte</string>
+    <string name="tasbih_cancel">Kansela</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Kustumbre</string>
+    <string name="tasbih_custom_target_hint">Na\'halom i numeron i kuentos (ginen 1 asta 100000)</string>
+    <string name="tasbih_custom_target_title">Na\'setbe un kustumbren punta</string>
+    <string name="tasbih_of_target">gi %1$s</string>
+    <string name="tasbih_reset">Na\'lå\'la\' ta\'lo</string>
+    <string name="tasbih_reset_all">Na\'lå\'la\' ta\'lo todu</string>
+    <string name="tasbih_round_complete">Todu i ronda kumple (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Ronda siha: %1$d</string>
+    <string name="tasbih_sound_desc">Tuge\' un ringtone pat un tono yanggen ma kumple kada ronda</string>
+    <string name="tasbih_sound_title">Sunidu gi i punta</string>
+    <string name="tasbih_sound_tone_alarm">Alarma</string>
+    <string name="tasbih_sound_tone_notification">Notifikasion</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Laknos i siñat para un kuenta</string>
+    <string name="tasbih_target_reached">Ma na\'setbe i minalago\'-ña — si Allah ha ayek</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">På\'go\'s todu: %1$d</string>
+    <string name="tasbih_undo">Na\'suha</string>
+    <string name="tasbih_virtue_label">I minaolek este na dhikr</string>
+    <string name="tasbih_week_stats">Uttimo na 7 dihas</string>
+</resources>

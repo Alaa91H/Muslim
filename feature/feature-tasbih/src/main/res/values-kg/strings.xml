@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha ya dijital — simba sambu na kutanga .</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Fina sambu na kutanga</string>
+    <string name="tasbih_back">Kuvutuka</string>
+    <string name="tasbih_cancel">Katula</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Kuyidika</string>
+    <string name="tasbih_custom_target_hint">Sonika ntalu ya bantu (banda na 1 tii na 100000)</string>
+    <string name="tasbih_custom_target_title">Tula lukanu mosi ya nge me yidika</string>
+    <string name="tasbih_of_target">ya %1$s</string>
+    <string name="tasbih_reset">Kuvutula</string>
+    <string name="tasbih_reset_all">Restaurer nionso</string>
+    <string name="tasbih_round_complete">Ronde ya mvimba me manisa (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Ba nziunga: %1$d</string>
+    <string name="tasbih_sound_desc">Beno bula sonnerie to ton ntangu konso nziunga ya mvimba me mana .</string>
+    <string name="tasbih_sound_title">Makelele na lukanu</string>
+    <string name="tasbih_sound_tone_alarm">Alarme</string>
+    <string name="tasbih_sound_tone_notification">Luzayisu</string>
+    <string name="tasbih_sound_tone_ringtone">Sonnerie</string>
+    <string name="tasbih_tap_hint">Fina na serkle sambu na kutanga</string>
+    <string name="tasbih_target_reached">Lukanu me lungana — bika Allah kundima .</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Bubu yai \' na kimvuka: %1$d</string>
+    <string name="tasbih_undo">Katula</string>
+    <string name="tasbih_virtue_label">Kikalulu ya dhikr yai</string>
+    <string name="tasbih_week_stats">Bilumbu 7 ya nsuka</string>
+</resources>

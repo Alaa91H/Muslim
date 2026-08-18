@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Ngawo</string>
+    <string name="ramadan_countdown">Ramadan də kawu %1$s lan badijin</string>
+    <string name="ramadan_countdown_to_iftar">Loktu iftarbe: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Loktu Fajrbe: %1$s</string>
+    <string name="ramadan_day_of_month">Yim Ramadanbe kən %1$s</string>
+    <string name="ramadan_days_left">Kawu %1$s gafsǝna</string>
+    <string name="ramadan_fasting_progress">Kawu kəmbu: %1$s suro %2$s — yim fal dəga gotə</string>
+    <string name="ramadan_fasting_tracker">Nzumbu zamtǝma</string>
+    <string name="ramadan_hijri_note">Futu kalanda Umm al-Quraben app-wide Hijribe faidatənadən.</string>
+    <string name="ramadan_hijri_year">Saa %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar duwa: "Ya Allah, nyi nankaro puasanyi kuru rizqin nyiro puasanyi..."</string>
+    <string name="ramadan_iftar_time">Loktu Iftarbe (Maghribbe): %1$s</string>
+    <string name="ramadan_location_required">Bərni karne suro Settingsben buro salakkin loktuwadə rumin.</string>
+    <string name="ramadan_minutes">minti %1$s</string>
+    <string name="ramadan_notification_iftar_body">Ya Allah, nyi nankaro puasanyi kuru rizqin nyiro puasanyi kamga</string>
+    <string name="ramadan_notification_iftar_title">Loktu iftarbe</string>
+    <string name="ramadan_notification_suhoor_body">Fajr karəngəzəna — suhoornəm</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor taktə</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Suhuur</string>
+    <string name="ramadan_suhoor_remind_before">Kawu wuro taktəgəne:</string>
+    <string name="ramadan_suhoor_time">Suhuur dajin (Sajiri): %1$s</string>
+    <string name="ramadan_title">Ramadan</string>
+</resources>

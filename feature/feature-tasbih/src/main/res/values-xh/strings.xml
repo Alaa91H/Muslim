@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — cofa ukubala</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Cofa ukubala</string>
+    <string name="tasbih_back">Emva</string>
+    <string name="tasbih_cancel">Rhoxisa</string>
+    <string name="tasbih_confirm">KULUNGILE</string>
+    <string name="tasbih_custom_target">Isiko</string>
+    <string name="tasbih_custom_target_hint">Faka inani lamanani (ukusuka ku-1 ukuya kwi-100000)</string>
+    <string name="tasbih_custom_target_title">Misela ekujoliswe kuko</string>
+    <string name="tasbih_of_target">ye%1$s</string>
+    <string name="tasbih_reset">Lungisa kwakhona</string>
+    <string name="tasbih_reset_all">Lungisa zonke</string>
+    <string name="tasbih_round_complete">Umjikelo opheleleyo ugqityiwe (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Imijikelo: %1$d</string>
+    <string name="tasbih_sound_desc">Dlala iringithoni okanye ithowuni xa umjikelo ngamnye opheleleyo ugqityiwe</string>
+    <string name="tasbih_sound_title">Isandi kwindawo ekujoliswe kuyo</string>
+    <string name="tasbih_sound_tone_alarm">Ialarm</string>
+    <string name="tasbih_sound_tone_notification">Isaziso</string>
+    <string name="tasbih_sound_tone_ringtone">Iringithoni</string>
+    <string name="tasbih_tap_hint">Cofa isangqa ukubala</string>
+    <string name="tasbih_target_reached">Injongo ifikelelwe - wanga uAllah angavuma</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Namhlanje\'s iyonke: %1$d</string>
+    <string name="tasbih_undo">qhaqha</string>
+    <string name="tasbih_virtue_label">Ukulunga kwale dhikr</string>
+    <string name="tasbih_week_stats">Iintsuku ezi-7 ezidlulileyo</string>
+</resources>

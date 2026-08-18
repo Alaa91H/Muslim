@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha — tlanya ho bala</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Tlanya ho bala</string>
+    <string name="tasbih_back">Morao</string>
+    <string name="tasbih_cancel">Hlakola</string>
+    <string name="tasbih_confirm">Ho lokile</string>
+    <string name="tasbih_custom_target">Tloaelo</string>
+    <string name="tasbih_custom_target_hint">Kenya palo ea lipalo (ho tloha ho 1 ho isa ho 100000)</string>
+    <string name="tasbih_custom_target_title">Ipehele sepheo se ikhethileng</string>
+    <string name="tasbih_of_target">ea %1$s</string>
+    <string name="tasbih_reset">Seta bocha</string>
+    <string name="tasbih_reset_all">Seta tsohle bocha</string>
+    <string name="tasbih_round_complete">Potoloho e felletseng e felile (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Lipotoloho: %1$d</string>
+    <string name="tasbih_sound_desc">Bapala molumo o llang kapa molumo ha potoloho e \'ngoe le e \'ngoe e felletseng e felile</string>
+    <string name="tasbih_sound_title">Modumo o lebileng</string>
+    <string name="tasbih_sound_tone_alarm">Alamo</string>
+    <string name="tasbih_sound_tone_notification">Tsebiso</string>
+    <string name="tasbih_sound_tone_ringtone">Molumo o llang</string>
+    <string name="tasbih_tap_hint">Tlanya selikalikoe ho bala</string>
+    <string name="tasbih_target_reached">Sepheo se fihletsoe - eka Allah a ka amohela</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Kajeno\'s kakaretso: %1$d</string>
+    <string name="tasbih_undo">Etsolla</string>
+    <string name="tasbih_virtue_label">Bokhabane ba dhikr ena</string>
+    <string name="tasbih_week_stats">Matsatsi a 7 a fetileng</string>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Үнэ автоматаар татах</string>
+    <string name="zakat_auto_prices_hint">Идэвхжүүлсэн үед алт, мөнгөний үнийг интернетээс авч автоматаар шинэчилнэ</string>
+    <string name="zakat_back">Буцах</string>
+    <string name="zakat_cash">Бэлэн мөнгө ба хадгаламж</string>
+    <string name="zakat_clear_history">Түүхийг цэвэрлэх</string>
+    <string name="zakat_country">Улс</string>
+    <string name="zakat_country_placeholder">Өөрийн улс, мөнгөн тэмдэгтийг сонгоно уу</string>
+    <string name="zakat_country_section">Улс ба валют</string>
+    <string name="zakat_currency">Валют: %1$s</string>
+    <string name="zakat_debts">Таны төлөх өр (суутгасан)</string>
+    <string name="zakat_due">Закат төлөх хугацаа (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'т үнэ авах боломжтой. Холболтоо шалгах эсвэл үнийг гараар оруулна уу.</string>
+    <string name="zakat_fetch_now">Одоо үнийг шинэчил</string>
+    <string name="zakat_fetching">Үнэ авчирч байна...</string>
+    <string name="zakat_fitr_persons">Гэр бүлийн гишүүдийн тоо</string>
+    <string name="zakat_fitr_saa_value">Нэг са\' үнэ (үндсэн хүнсний бүтээгдэхүүн)</string>
+    <string name="zakat_fitr_section">Закат аль-Фитр</string>
+    <string name="zakat_fitr_total">Фитрийн нийт зекат: %1$s</string>
+    <string name="zakat_gold_grams">Алт (грамм)</string>
+    <string name="zakat_gold_price">Нэг грамм алтны үнэ</string>
+    <string name="zakat_history">Тооцооллын түүх</string>
+    <string name="zakat_history_amount">Закат: %1$s</string>
+    <string name="zakat_history_empty">Хадгалсан тооцоо хараахан алга.</string>
+    <string name="zakat_investments">Хөрөнгө оруулалт</string>
+    <string name="zakat_last_updated">Хамгийн сүүлд шинэчилсэн: %1$s</string>
+    <string name="zakat_money_section">Эд хөрөнгийн зекат</string>
+    <string name="zakat_nisab_gold">Алтан нисаб (85 гр)</string>
+    <string name="zakat_nisab_met">Нисаба хүрсэн - закат авах ёстой</string>
+    <string name="zakat_nisab_not_met">Нисабаас доош - закат төлөхгүй</string>
+    <string name="zakat_nisab_silver">Мөнгөн нисаб (595 гр)</string>
+    <string name="zakat_rulings_note">Мажоритар (жумхор): алтны нисаб 85 гр, мөнгө 595 гр, төлөх ёстой өрийг хасаад 2.5%% байна. Онцгой тохиолдолд мэргэшсэн эрдэмтэнтэй зөвлөлд.</string>
+    <string name="zakat_save_result">Түүхэнд хадгалах</string>
+    <string name="zakat_silver_grams">Мөнгө (грамм)</string>
+    <string name="zakat_silver_price">Нэг грамм мөнгөний үнэ</string>
+    <string name="zakat_source_note">gold-api.com сайтаас алт/мөнгөний үнэ; open.er-api.com сайтаас валютын ханш</string>
+    <string name="zakat_title">Закат</string>
+    <string name="zakat_total_assets">Нийт хөрөнгө</string>
+    <string name="zakat_trade">Худалдааны барааны үнэ цэнэ</string>
+    <string name="zakat_zakatable">Зээлийн хэмжээ нь өрийн дараа</string>
+</resources>

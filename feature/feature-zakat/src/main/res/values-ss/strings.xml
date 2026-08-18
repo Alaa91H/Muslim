@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Tfola tintsengo ngekuzenzakalela</string>
+    <string name="zakat_auto_prices_hint">Uma inikwe emandla, emanani eligolide nelisiliva ayalandvwa ku-inthanethi bese ayavuselelwa ngekuzenzakalela .</string>
+    <string name="zakat_back">Emuva</string>
+    <string name="zakat_cash">Imali lesesandleni kanye nemali leyongiwe</string>
+    <string name="zakat_clear_history">Susa umlandvo</string>
+    <string name="zakat_country">Live</string>
+    <string name="zakat_country_placeholder">Khetsa live lakho kanye nemali yakho</string>
+    <string name="zakat_country_section">Live &amp; imali</string>
+    <string name="zakat_currency">Imali: %1$s</string>
+    <string name="zakat_debts">Tikweleti lotikweletako (letidonswako)</string>
+    <string name="zakat_due">I-Zakat lefanele (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Angeke yini \'t kulandza emanani. Hlola uxhumano lwakho noma ufake intengo ngesandla.</string>
+    <string name="zakat_fetch_now">Vuselela tintsengo nyalo</string>
+    <string name="zakat_fetching">Kulandza tintsengo...</string>
+    <string name="zakat_fitr_persons">Linani lemalunga emndeni</string>
+    <string name="zakat_fitr_saa_value">Inani le-sa\' yinye (kudla lokuyinhloko)</string>
+    <string name="zakat_fitr_section">I-Zakat ye-Fitr</string>
+    <string name="zakat_fitr_total">Imali lephelele ye-Fitr: %1$s</string>
+    <string name="zakat_gold_grams">Ligolide (emagremu)</string>
+    <string name="zakat_gold_price">Intsengo yeligolide ngeligremu</string>
+    <string name="zakat_history">Umlandvo wekubala</string>
+    <string name="zakat_history_amount">Izakathi: %1$s</string>
+    <string name="zakat_history_empty">Kute tibalo letigcinwe kwanyalo.</string>
+    <string name="zakat_investments">Lutjalomali</string>
+    <string name="zakat_last_updated">Kugcine kubuyeketwa: %1$s</string>
+    <string name="zakat_money_section">Zakat ngemcebo .</string>
+    <string name="zakat_nisab_gold">Nisab weligolide (85g)</string>
+    <string name="zakat_nisab_met">I nisab ifinyelelwa — zakat kufanele .</string>
+    <string name="zakat_nisab_not_met">Ngezansi kwe nisab — kute i-zakat lefanele .</string>
+    <string name="zakat_nisab_silver">Nisab yesiliva (595g)</string>
+    <string name="zakat_rulings_note">Ngebantfu labanyenti (jumhoor): nisab weligolide ngu 85g, isiliva ngu 595g, futsi lizinga ngu 2.5%% ngemuva kwekususa tikweleti letifanele. Tihlanganise nesazi lesifanelekako emacaleni lakhetsekile.</string>
+    <string name="zakat_save_result">Gcina emlandvweni</string>
+    <string name="zakat_silver_grams">Isiliva (emagremu)</string>
+    <string name="zakat_silver_price">Intsengo yesiliva ngegremu</string>
+    <string name="zakat_source_note">Intsengo yeligolide/yesiliva kusuka kugolide-api.com; Emazinga e-FX kusuka ku-open.er-api.com</string>
+    <string name="zakat_title">Izakathi</string>
+    <string name="zakat_total_assets">Linani selilonkhe letimphahla</string>
+    <string name="zakat_trade">Linani letimphahla tekuhweba</string>
+    <string name="zakat_zakatable">Inani le Zakable ngemuva kwetikweleti</string>
+</resources>

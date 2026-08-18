@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">数字 Misbaha — 点击计数</string>
+    <string name="misbaha_widget_label">塔斯比赫</string>
+    <string name="misbaha_widget_tap_hint">点击计数</string>
+    <string name="tasbih_back">返回</string>
+    <string name="tasbih_cancel">取消</string>
+    <string name="tasbih_confirm">好的</string>
+    <string name="tasbih_custom_target">定制</string>
+    <string name="tasbih_custom_target_hint">输入计数（从 1 到 100000）</string>
+    <string name="tasbih_custom_target_title">设置自定义目标</string>
+    <string name="tasbih_of_target">共 %1$s</string>
+    <string name="tasbih_reset">重置</string>
+    <string name="tasbih_reset_all">全部重置</string>
+    <string name="tasbih_round_complete">完整回合已完成 (%1$s) 🎉</string>
+    <string name="tasbih_rounds">轮数：%1$d</string>
+    <string name="tasbih_sound_desc">每一轮完成时播放铃声或提示音</string>
+    <string name="tasbih_sound_title">声音瞄准目标</string>
+    <string name="tasbih_sound_tone_alarm">报警</string>
+    <string name="tasbih_sound_tone_notification">通知</string>
+    <string name="tasbih_sound_tone_ringtone">铃声</string>
+    <string name="tasbih_tap_hint">点击圆圈即可计数</string>
+    <string name="tasbih_target_reached">目标已达成——愿真主接受</string>
+    <string name="tasbih_title">塔斯比赫</string>
+    <string name="tasbih_total_today">今日\'s 总计：%1$d</string>
+    <string name="tasbih_undo">撤消</string>
+    <string name="tasbih_virtue_label">此迪克尔的功德</string>
+    <string name="tasbih_week_stats">过去 7 天</string>
+</resources>

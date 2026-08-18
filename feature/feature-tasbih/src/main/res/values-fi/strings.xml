@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digitaalinen misbaha – napauta laskeaksesi</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Napauta laskeaksesi</string>
+    <string name="tasbih_back">Takaisin</string>
+    <string name="tasbih_cancel">Peruuta</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Mukautettu</string>
+    <string name="tasbih_custom_target_hint">Syötä lukujen määrä (1 - 100 000)</string>
+    <string name="tasbih_custom_target_title">Aseta mukautettu kohde</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Nollaa</string>
+    <string name="tasbih_reset_all">Nollaa kaikki</string>
+    <string name="tasbih_round_complete">Täysi kierros valmis (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Kierrokset: %1$d</string>
+    <string name="tasbih_sound_desc">Toista soittoääni tai ääni, kun jokainen täysi kierros on suoritettu</string>
+    <string name="tasbih_sound_title">Ääni kohteena</string>
+    <string name="tasbih_sound_tone_alarm">Hälytys</string>
+    <string name="tasbih_sound_tone_notification">Ilmoitus</string>
+    <string name="tasbih_sound_tone_ringtone">Soittoääni</string>
+    <string name="tasbih_tap_hint">Napauta ympyrää laskeaksesi</string>
+    <string name="tasbih_target_reached">Tavoite saavutettu – hyväksykoon Allah</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Tänään \' yhteensä: %1$d</string>
+    <string name="tasbih_undo">Kumoa</string>
+    <string name="tasbih_virtue_label">Tämän dhikrin hyve</string>
+    <string name="tasbih_week_stats">Viimeiset 7 päivää</string>
+</resources>

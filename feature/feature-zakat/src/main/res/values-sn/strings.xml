@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Tora mitengo wega</string>
+    <string name="zakat_auto_prices_hint">Kana yagoneswa, mitengo yegoridhe neyesirivha inotorwa kubva painternet uye inozorodzwa otomatiki</string>
+    <string name="zakat_back">Back</string>
+    <string name="zakat_cash">Mari uye kuchengetedza</string>
+    <string name="zakat_clear_history">Bvisa nhoroondo</string>
+    <string name="zakat_country">Nyika</string>
+    <string name="zakat_country_placeholder">Sarudza nyika yako uye mari</string>
+    <string name="zakat_country_section">Nyika &amp; mari</string>
+    <string name="zakat_currency">Mari: %1$s</string>
+    <string name="zakat_debts">Zvikwereti zvaunokwereta (zvakabviswa)</string>
+    <string name="zakat_due">Zakat inofanirwa (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Haikwanise\'t kutora mitengo. Tarisa kubatana kwako kana kuisa mutengo iwe pachako.</string>
+    <string name="zakat_fetch_now">Gadzirisa mitengo izvozvi</string>
+    <string name="zakat_fetching">Kutsvaga mitengo...</string>
+    <string name="zakat_fitr_persons">Nhamba yenhengo dzemhuri</string>
+    <string name="zakat_fitr_saa_value">Kukosha kweimwe sa\' (chikafu chechikafu)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Total Fitr zakat: %1$s</string>
+    <string name="zakat_gold_grams">Ndarama (magiramu)</string>
+    <string name="zakat_gold_price">Mutengo wegoridhe pagiramu</string>
+    <string name="zakat_history">Nhoroondo yekuverenga</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Hapana maverengero akachengetwa.</string>
+    <string name="zakat_investments">Investments</string>
+    <string name="zakat_last_updated">Yakapedzisira kugadziridzwa: %1$s</string>
+    <string name="zakat_money_section">Zakat paupfumi</string>
+    <string name="zakat_nisab_gold">Ndarama yegoridhe (85g)</string>
+    <string name="zakat_nisab_met">Iyo nisab inosvikwa - zakat yakafanira</string>
+    <string name="zakat_nisab_not_met">Pazasi penisab - hapana zakat yakakodzera</string>
+    <string name="zakat_nisab_silver">Silver nisab (595g)</string>
+    <string name="zakat_rulings_note">Pakati pehuwandu (jumhoor): goridhe nisab i85g, sirivheri 595g, uye muyero i2.5%% mushure mekubvisa zvikwereti. Bvunza mudzidzi ane ruzivo nezvenyaya dzakakosha.</string>
+    <string name="zakat_save_result">Chengetedza kunhoroondo</string>
+    <string name="zakat_silver_grams">Sirivha (magiramu)</string>
+    <string name="zakat_silver_price">Sirivha mutengo pagiramu</string>
+    <string name="zakat_source_note">Mitengo yegoridhe/sirivheri kubva kugoridhe-api.com; FX mitengo kubva open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Total assets</string>
+    <string name="zakat_trade">Kutengeserana zvinhu ukoshi</string>
+    <string name="zakat_zakatable">Zakatable mari mushure mezvikwereti</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s दूर</string>
+    <string name="mosque_finder_empty">इस सीमा में कोई मस्जिद नहीं मिली</string>
+    <string name="mosque_finder_error">खोज विफल रही</string>
+    <string name="mosque_finder_intro">OpenStreetMap के माध्यम से अपने स्थान के निकट मस्जिदें ढूंढें</string>
+    <string name="mosque_finder_no_location">अभी तक कोई स्थान निर्धारित नहीं है. पहले प्रार्थना समय सेटिंग से एक स्थान चुनें।</string>
+    <string name="mosque_finder_retry">पुनः प्रयास करें</string>
+    <string name="mosque_finder_searching">खोज रहे हैं...</string>
+    <string name="mosque_finder_title">आसपास की मस्जिदें</string>
+    <string name="qibla_bearing_cardinal">किबला दिशा: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">अंशांकन करने के लिए अपने फ़ोन को आकृति-आठ में ले जाएँ</string>
+    <string name="qibla_distance">मक्का से दूरी: %1$s</string>
+    <string name="qibla_distance_km">%,.0f किमी</string>
+    <string name="qibla_facing">आप किबला 🕋 का सामना कर रहे हैं</string>
+    <string name="qibla_gps_error">सटीक समाधान नहीं मिल सका. कृपया पुन: प्रयास करें।</string>
+    <string name="qibla_gps_live">लाइव जीपीएस लोकेशन</string>
+    <string name="qibla_gps_refresh">जीपीएस के माध्यम से स्थान ताज़ा करें</string>
+    <string name="qibla_gps_refreshing">पता लगाया जा रहा है...</string>
+    <string name="qibla_heading_degree">फ़ोन शीर्षक: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">आपके स्थान से काबा तक ग्रेट-सर्कल मार्ग - ऑफ़लाइन काम करता है</string>
+    <string name="qibla_map_kaaba">काबा</string>
+    <string name="qibla_map_you">आप</string>
+    <string name="qibla_mode_compass">दिशा सूचक यंत्र</string>
+    <string name="qibla_mode_map">मानचित्र</string>
+    <string name="qibla_open_mosques">आसपास की मस्जिदें</string>
+    <string name="qibla_title">किबला दिशा</string>
+    <string name="qibla_turn_left">बाएँ मुड़ें %1$.1f°</string>
+    <string name="qibla_turn_right">दाएं मुड़ें %1$.1f°</string>
+</resources>

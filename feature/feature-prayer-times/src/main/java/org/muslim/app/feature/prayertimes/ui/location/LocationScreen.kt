@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -43,6 +44,9 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.maplibre.android.geometry.LatLng
+import org.muslim.app.core.ui.map.OsmMapView
+import org.muslim.app.core.ui.map.addPinMarker
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.feature.prayertimes.domain.City
 
@@ -59,6 +63,7 @@ fun LocationScreen(
 
     var latitudeText by remember { mutableStateOf("") }
     var longitudeText by remember { mutableStateOf("") }
+    var pickedPoint by remember { mutableStateOf<LatLng?>(null) }
 
     val invalidText = stringResource(R.string.location_invalid)
     val gpsDeniedText = stringResource(R.string.location_gps_denied)
@@ -104,6 +109,52 @@ fun LocationScreen(
             Spacer(Modifier.height(8.dp))
 
             LazyColumn(modifier = Modifier.weight(1f)) {
+                item(key = "map_header") {
+                    Text(
+                        text = stringResource(R.string.location_map_section),
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        text = stringResource(R.string.location_map_hint),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Spacer(Modifier.height(8.dp))
+                    Box(Modifier.fillMaxWidth().height(260.dp)) {
+                        OsmMapView(
+                            modifier = Modifier.fillMaxSize(),
+                            key = pickedPoint,
+                            onMapClick = { point -> pickedPoint = point },
+                            onMapReady = { map ->
+                                pickedPoint?.let { map.addPinMarker("picked", it, "#1E88E5") }
+                            },
+                        )
+                    }
+                    pickedPoint?.let { point ->
+                        Spacer(Modifier.height(8.dp))
+                        Text(
+                            text = stringResource(R.string.location_map_selected, point.latitude, point.longitude),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurface,
+                        )
+                        Spacer(Modifier.height(8.dp))
+                        Button(
+                            onClick = {
+                                if (viewModel.saveManual(
+                                        point.latitude.toString(),
+                                        point.longitude.toString(),
+                                    )
+                                ) onSaved()
+                            },
+                            modifier = Modifier.fillMaxWidth(),
+                        ) {
+                            Text(stringResource(R.string.location_map_save_selected))
+                        }
+                    }
+                    Spacer(Modifier.height(16.dp))
+                }
                 items(results, key = { it.name }) { city ->
                     CityRow(city) { viewModel.selectCity(city) }
                 }

@@ -2,13 +2,26 @@ package org.muslim.app
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import org.muslim.app.feature.quran.data.QuranDownloadManager
+import javax.inject.Inject
 
 /**
  * Application entry point.
- *
- * NOTE: "Muslim" (مسلم) is a provisional working title — the final name is
- * still to be decided (see PROJECT_PROMPT.md). Renaming this class and the app
- * label is a one-line change in each place.
  */
 @HiltAndroidApp
-class MuslimApplication : Application()
+class MuslimApplication : Application() {
+
+    @Inject lateinit var quranDownloadManager: QuranDownloadManager
+
+    override fun onCreate() {
+        super.onCreate()
+        // Resume any queued recitation downloads that survived a process death
+        // (also covered by the boot receiver after a full device reboot).
+        CoroutineScope(Dispatchers.IO).launch {
+            quranDownloadManager.restore()
+        }
+    }
+}

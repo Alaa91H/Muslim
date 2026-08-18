@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">デジタルミスバハ — タップして数える</string>
+    <string name="misbaha_widget_label">タスビ</string>
+    <string name="misbaha_widget_tap_hint">タップして数えます</string>
+    <string name="tasbih_back">戻る</string>
+    <string name="tasbih_cancel">キャンセル</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">カスタム</string>
+    <string name="tasbih_custom_target_hint">カウント数を入力します (1 ～ 100000)</string>
+    <string name="tasbih_custom_target_title">カスタムターゲットを設定する</string>
+    <string name="tasbih_of_target">%1$sのうち</string>
+    <string name="tasbih_reset">リセット</string>
+    <string name="tasbih_reset_all">すべてリセット</string>
+    <string name="tasbih_round_complete">フルラウンド完了 (%1$s) 🎉</string>
+    <string name="tasbih_rounds">ラウンド: %1$d</string>
+    <string name="tasbih_sound_desc">各ラウンドが完了すると着信音または着信音を再生します</string>
+    <string name="tasbih_sound_title">狙い通りの音</string>
+    <string name="tasbih_sound_tone_alarm">アラーム</string>
+    <string name="tasbih_sound_tone_notification">お知らせ</string>
+    <string name="tasbih_sound_tone_ringtone">着信音</string>
+    <string name="tasbih_tap_hint">円をタップしてカウントします</string>
+    <string name="tasbih_target_reached">目標達成 — アッラーが受け入れてくださいますように</string>
+    <string name="tasbih_title">タスビ</string>
+    <string name="tasbih_total_today">今日\'の合計: %1$d</string>
+    <string name="tasbih_undo">元に戻す</string>
+    <string name="tasbih_virtue_label">このディクルの美徳</string>
+    <string name="tasbih_week_stats">過去 7 日間</string>
+</resources>

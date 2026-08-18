@@ -5,7 +5,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
+import androidx.core.net.toUri
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import dagger.hilt.EntryPoint
@@ -58,7 +58,7 @@ class AyahOfTheDayWorker(
             0,
             Intent().apply {
                 setClassName(applicationContext, MAIN_ACTIVITY)
-                data = Uri.parse("muslim://quran")
+                data = "muslim://quran".toUri()
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
             },
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,

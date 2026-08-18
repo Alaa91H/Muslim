@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Raqamli misbaha — hisoblash uchun bosing</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Hisoblash uchun bosing</string>
+    <string name="tasbih_back">Orqaga</string>
+    <string name="tasbih_cancel">Bekor qilish</string>
+    <string name="tasbih_confirm">OK</string>
+    <string name="tasbih_custom_target">Maxsus</string>
+    <string name="tasbih_custom_target_hint">Hisoblar sonini kiriting (1 dan 100000 gacha)</string>
+    <string name="tasbih_custom_target_title">Shaxsiy maqsadni belgilang</string>
+    <string name="tasbih_of_target">%1$s dan</string>
+    <string name="tasbih_reset">Qayta tiklash</string>
+    <string name="tasbih_reset_all">Hammasini tiklash</string>
+    <string name="tasbih_round_complete">To\'liq tur yakunlandi (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Turlar: %1$d</string>
+    <string name="tasbih_sound_desc">Har bir toʻliq raund tugagach, qoʻngʻiroq ohangi yoki ohangini oʻynang</string>
+    <string name="tasbih_sound_title">Maqsadda ovoz</string>
+    <string name="tasbih_sound_tone_alarm">Signal</string>
+    <string name="tasbih_sound_tone_notification">Bildirishnoma</string>
+    <string name="tasbih_sound_tone_ringtone">Ringtone</string>
+    <string name="tasbih_tap_hint">Hisoblash uchun doira ustiga bosing</string>
+    <string name="tasbih_target_reached">Maqsadga erishildi - Alloh qabul qilsin</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Bugun \'s jami: %1$d</string>
+    <string name="tasbih_undo">Bekor qilish</string>
+    <string name="tasbih_virtue_label">Bu zikrning fazilati</string>
+    <string name="tasbih_week_stats">Oxirgi 7 kun</string>
+</resources>

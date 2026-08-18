@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Мисбаҳаи рақамӣ — барои ҳисоб клик кунед</string>
+    <string name="misbaha_widget_label">Тасбих</string>
+    <string name="misbaha_widget_tap_hint">Барои ҳисоб клик кунед</string>
+    <string name="tasbih_back">Бозгашт</string>
+    <string name="tasbih_cancel">Бекор кардан</string>
+    <string name="tasbih_confirm">Хуб</string>
+    <string name="tasbih_custom_target">Фармоишгар</string>
+    <string name="tasbih_custom_target_hint">Шумораи ҳисобҳоро ворид кунед (аз 1 то 100000)</string>
+    <string name="tasbih_custom_target_title">Ҳадафи фармоишӣ таъин кунед</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Бозсозӣ</string>
+    <string name="tasbih_reset_all">Ҳамаро аз нав танзим кунед</string>
+    <string name="tasbih_round_complete">Давраи пурра (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Давраҳо: %1$d</string>
+    <string name="tasbih_sound_desc">Вақте ки ҳар як даври пурра ба анҷом мерасад, оҳанги занг ё оҳангро навозед</string>
+    <string name="tasbih_sound_title">Садо ба ҳадаф</string>
+    <string name="tasbih_sound_tone_alarm">Огоҳӣ</string>
+    <string name="tasbih_sound_tone_notification">Огоҳинома</string>
+    <string name="tasbih_sound_tone_ringtone">Оҳанги занг</string>
+    <string name="tasbih_tap_hint">Барои ҳисоб кардан давраро клик кунед</string>
+    <string name="tasbih_target_reached">Мақсад етди – Аллоҳ қабул қилсин</string>
+    <string name="tasbih_title">Тасбих</string>
+    <string name="tasbih_total_today">Имрӯз \'с умумӣ: %1$d</string>
+    <string name="tasbih_undo">Бекор кардан</string>
+    <string name="tasbih_virtue_label">Фазилати ин зикр</string>
+    <string name="tasbih_week_stats">7 рӯзи охир</string>
+</resources>

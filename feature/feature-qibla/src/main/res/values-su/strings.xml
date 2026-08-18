@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s jauh</string>
+    <string name="mosque_finder_empty">Taya masjid kapanggih dina rentang ieu</string>
+    <string name="mosque_finder_error">Pilarian gagal</string>
+    <string name="mosque_finder_intro">Milarian masjid caket lokasi anjeun ngalangkungan OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Teu acan aya lokasina. Pilih lokasi tina setélan waktos solat heula.</string>
+    <string name="mosque_finder_retry">Coba deui</string>
+    <string name="mosque_finder_searching">Pilarian…</string>
+    <string name="mosque_finder_title">Deukeut masjid</string>
+    <string name="qibla_bearing_cardinal">Arah Kiblat: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Pindahkeun telepon anjeun dina angka-dalapan pikeun ngakalibrasi</string>
+    <string name="qibla_distance">Jarak ka Mekah: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Anjeun nuju nyanghareupan kiblat 🕋</string>
+    <string name="qibla_gps_error">Teu tiasa kéngingkeun perbaikan anu akurat. Mangga cobian deui.</string>
+    <string name="qibla_gps_live">Lokasi GPS Live</string>
+    <string name="qibla_gps_refresh">Refresh lokasi liwat GPS</string>
+    <string name="qibla_gps_refreshing">Panggihan…</string>
+    <string name="qibla_heading_degree">Judul telepon: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Rute bunderan hébat ti lokasi anjeun ka Ka\'bah - jalan offline</string>
+    <string name="qibla_map_kaaba">Ka\'bah</string>
+    <string name="qibla_map_you">Anjeun</string>
+    <string name="qibla_mode_compass">Kompas</string>
+    <string name="qibla_mode_map">Harita</string>
+    <string name="qibla_open_mosques">Deukeut masjid</string>
+    <string name="qibla_title">Arah kiblat</string>
+    <string name="qibla_turn_left">Belok ka kénca %1$.1f°</string>
+    <string name="qibla_turn_right">Belok ka katuhu %1$.1f°</string>
+</resources>

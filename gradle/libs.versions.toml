@@ -33,6 +33,9 @@ hiltNavigationCompose = "1.4.0"
 # Location
 playServicesLocation = "21.4.0"
 
+# Maps (OpenStreetMap — MapLibre GL Native, actively maintained)
+maplibreGl = "13.5.0"
+
 # Kotlin ecosystem
 coroutines = "1.11.0"
 kotlinxSerialization = "1.11.0"
@@ -88,6 +91,9 @@ hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-com
 
 # --- Location ---
 google-play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
+
+# --- Maps (OpenStreetMap via MapLibre GL Native) ---
+maplibre-android = { group = "org.maplibre.gl", name = "android-sdk", version.ref = "maplibreGl" }
 
 # --- Kotlin ecosystem ---
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }

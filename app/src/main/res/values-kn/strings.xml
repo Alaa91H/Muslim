@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ಮುಸ್ಲಿಂ</string>
+    <string name="more_adhkar">ಅಧ್ಕರ್</string>
+    <string name="more_adhkar_desc">ಕೌಂಟರ್‌ಗಳೊಂದಿಗೆ ಬೆಳಿಗ್ಗೆ, ಸಂಜೆ ಮತ್ತು ಪ್ರಾರ್ಥನೆಯ ನಂತರದ ಅಡ್ಕಾರ್</string>
+    <string name="more_downloads">ಪಠಣ ಡೌನ್‌ಲೋಡ್‌ಗಳು</string>
+    <string name="more_downloads_desc">ನೀವು ಆಯ್ಕೆ ಮಾಡಿದ ಪಠಿಸುವವರೊಂದಿಗೆ ಸೂರಾ, ಅಯಾ ಅಥವಾ ಪೂರ್ಣ ಕುರಾನ್ ಅನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ</string>
+    <string name="more_hadith">ಹದೀಸ್</string>
+    <string name="more_hadith_desc">ಹದೀಸ್ ಲೈಬ್ರರಿ, ಹುಡುಕಾಟ ಮತ್ತು ದಿನದ ಹದೀಸ್</string>
+    <string name="more_learn">ಕಲಿಯಿರಿ</string>
+    <string name="more_learn_desc">ಹಂತ-ಹಂತದ ವುಡು ಮತ್ತು ಪ್ರಾರ್ಥನೆ ಮಾರ್ಗದರ್ಶಿಗಳು</string>
+    <string name="more_ramadan">ರಂಜಾನ್</string>
+    <string name="more_ramadan_desc">ಸುಹೂರ್ ಮತ್ತು ಇಫ್ತಾರ್ ಸಮಯಗಳು ಮತ್ತು ಉಪವಾಸ ಟ್ರ್ಯಾಕರ್</string>
+    <string name="more_reference">ಉಲ್ಲೇಖ ಗ್ರಂಥಾಲಯ</string>
+    <string name="more_reference_desc">ಇಸ್ಲಾಂ, ಸಿರಾ ಮತ್ತು ಪ್ರವಾದಿಗಳ ಪರಿಚಯ</string>
+    <string name="more_settings">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
+    <string name="more_settings_desc">ಥೀಮ್, ಭಾಷೆ, ಪ್ರಾರ್ಥನೆ ಮತ್ತು ಅಧಾನ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
+    <string name="more_tasbih">ತಸ್ಬಿಹ್</string>
+    <string name="more_tasbih_desc">ದೈನಂದಿನ ಇತಿಹಾಸದೊಂದಿಗೆ ಡಿಜಿಟಲ್ ಮಿಸ್ಬಾಹಾ</string>
+    <string name="more_zakat">ಝಕಾತ್</string>
+    <string name="more_zakat_desc">ಸಂಪತ್ತಿನ ಮೇಲೆ ಝಕಾತ್ ಮತ್ತು ಫಿತರ್ ಕ್ಯಾಲ್ಕುಲೇಟರ್</string>
+    <string name="scaffold_message">ಬಹು-ಮಾಡ್ಯೂಲ್ ಪ್ರಾಜೆಕ್ಟ್ ಅಸ್ಥಿಪಂಜರವು ಸಿದ್ಧವಾಗಿದೆ.\nಹಂತ 1 — ಅಧಾನ್, ಪ್ರಾರ್ಥನಾ ಸಮಯಗಳು, ಕಿಬ್ಲಾ ಮತ್ತು ಹಿಜ್ರಿ ಕ್ಯಾಲೆಂಡರ್ — ಇಲ್ಲಿ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ.</string>
+    <string name="shortcut_qibla">ಕಿಬ್ಲಾ</string>
+    <string name="shortcut_qibla_long">ಕಿಬ್ಲಾ ನಿರ್ದೇಶನ</string>
+    <string name="shortcut_settings">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
+    <string name="shortcut_settings_long">ಪ್ರಾರ್ಥನೆ ಮತ್ತು ಅಧಾನ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
+    <string name="shortcut_times">ಪ್ರಾರ್ಥನೆ ಸಮಯಗಳು</string>
+    <string name="shortcut_times_long">ಇಂದು\'s ಪ್ರಾರ್ಥನೆ ಸಮಯಗಳು</string>
+    <string name="tab_home">ಪ್ರೇಯರ್ ಟೈಮ್ಸ್</string>
+    <string name="tab_more">ಇನ್ನಷ್ಟು</string>
+    <string name="tab_qibla">ಕಿಬ್ಲಾ</string>
+    <string name="tab_quran">ಕುರಾನ್</string>
 </resources>

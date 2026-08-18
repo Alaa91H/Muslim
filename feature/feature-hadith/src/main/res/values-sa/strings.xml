@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">सर्वे</string>
+    <string name="hadith_back">पृष्ठतः</string>
+    <string name="hadith_bookmark_add">पुस्तकचिह्नं योजयन्तु</string>
+    <string name="hadith_bookmark_remove">बुकमार्कं निष्कासयन्तु</string>
+    <string name="hadith_collection_abudawud">अबू दाऊद</string>
+    <string name="hadith_collection_bukhari">अल-बुखारी</string>
+    <string name="hadith_collection_ibnmajah">इब्न मजाः</string>
+    <string name="hadith_collection_muslim">मुस्लिम</string>
+    <string name="hadith_collection_nasai">अन-नासा९९७०००००इ</string>
+    <string name="hadith_collection_nawawi">अन-नवावी ४०</string>
+    <string name="hadith_collection_other">अन्ये</string>
+    <string name="hadith_collection_riyad">रियाध अस-सालिहिन्</string>
+    <string name="hadith_collection_tirmidhi">अत-तिर्मिधि</string>
+    <string name="hadith_daily_notification">दैनिक हदीस सूचना</string>
+    <string name="hadith_daily_notification_desc">प्रतिदिनं एकं हदीसं प्राप्नुवन्तु</string>
+    <string name="hadith_daily_notification_time">अधिसूचना समय</string>
+    <string name="hadith_of_the_day">दिनस्य हदीसः</string>
+    <string name="hadith_preview_hint">दैनिकहदीससूचना स्वस्य निर्धारितसमये एवम् एव दृश्यते।</string>
+    <string name="hadith_preview_label">अधिसूचना पूर्वावलोकन</string>
+    <string name="hadith_preview_loading">हदीस लोडिंग...</string>
+    <string name="hadith_search_hint">हदीस खोजें...</string>
+    <string name="hadith_share">शेयर करें</string>
+    <string name="hadith_title">हदीस पुस्तकालय</string>
+</resources>

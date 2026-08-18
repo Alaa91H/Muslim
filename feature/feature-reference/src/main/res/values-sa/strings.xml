@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">पृष्ठतः</string>
+    <string name="reference_no_results">न मेलनं परिणामः</string>
+    <string name="reference_search_hint">एतत् पुस्तकं अन्वेष्टुम्...</string>
+    <string name="reference_title">इस्लामिक सन्दर्भ पुस्तकालय</string>
+    <string name="reference_topics_count">विषयाः</string>
+</resources>

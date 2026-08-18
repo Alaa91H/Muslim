@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">I-adhkar yangekuseni, yangebusuku nangemva komthandazo enamakhawunta</string>
+    <string name="more_downloads">Ukulandwa kokuphindaphinda</string>
+    <string name="more_downloads_desc">Landa i-surah, i-ayah nofana i-Quran epheleleko nomfundi omkhethileko</string>
+    <string name="more_hadith">I-Hadith</string>
+    <string name="more_hadith_desc">Umtapo we-Hadith, ukusesha &amp; i-hadith yelanga</string>
+    <string name="more_learn">Funda</string>
+    <string name="more_learn_desc">Imihlahlandlela ye-wudu nemithandazo yegadango ngegadango</string>
+    <string name="more_ramadan">I-Ramadan</string>
+    <string name="more_ramadan_desc">Isikhathi se-Suhoor ne-iftar kanye nomlandeleli wokuzila ukudla</string>
+    <string name="more_reference">Ilayibhrari yereferensi</string>
+    <string name="more_reference_desc">Isingeniso se-Islam, i-Sira nabaphorofidi</string>
+    <string name="more_settings">Amasethingi</string>
+    <string name="more_settings_desc">Ummongo, ilimi, umthandazo namasethingi we-adhan</string>
+    <string name="more_tasbih">I-Tasbih</string>
+    <string name="more_tasbih_desc">I-misbaha yedijithali enomlando wangamalanga</string>
+    <string name="more_zakat">I-Zakat</string>
+    <string name="more_zakat_desc">I-Zakat yomnotho ne-Fitr yokubala</string>
+    <string name="scaffold_message">Ithambo lephrojekthi yamamojuli amanengi sele lilungile.\nIsigaba 1 — i-Adhan, isikhathi somthandazo, i-Qibla, nekhalenda le-Hijri — ithoma lapha.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Indlela ye-Qibla</string>
+    <string name="shortcut_settings">Amasethingi</string>
+    <string name="shortcut_settings_long">Umthandazo namasethingi we-adhan</string>
+    <string name="shortcut_times">Isikhathi somthandazo</string>
+    <string name="shortcut_times_long">Isikhathi somthandazo sanamhlanjesi\'</string>
+    <string name="tab_home">Isikhathi sokuthandaza</string>
+    <string name="tab_more">Okunye</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">I-Quran</string>
 </resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s væk</string>
+    <string name="mosque_finder_empty">Ingen moskeer fundet i dette område</string>
+    <string name="mosque_finder_error">Søgning mislykkedes</string>
+    <string name="mosque_finder_intro">Find moskeer i nærheden af din placering via OpenStreetMap</string>
+    <string name="mosque_finder_no_location">Der er ikke angivet en placering endnu. Vælg først et sted fra indstillingerne for bedetider.</string>
+    <string name="mosque_finder_retry">Prøv igen</string>
+    <string name="mosque_finder_searching">Søger...</string>
+    <string name="mosque_finder_title">Moskeer i nærheden</string>
+    <string name="qibla_bearing_cardinal">Qibla retning: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Flyt din telefon i et ottetal for at kalibrere</string>
+    <string name="qibla_distance">Afstand til Mekka: %1$s</string>
+    <string name="qibla_distance_km">%,.0f km</string>
+    <string name="qibla_facing">Du står over for Qibla 🕋</string>
+    <string name="qibla_gps_error">Kunne ikke få en præcis rettelse. Prøv venligst igen.</string>
+    <string name="qibla_gps_live">Live GPS-placering</string>
+    <string name="qibla_gps_refresh">Opdater placering via GPS</string>
+    <string name="qibla_gps_refreshing">Finder...</string>
+    <string name="qibla_heading_degree">Telefonoverskrift: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Stor-cirkel rute fra din placering til Kaaba — fungerer offline</string>
+    <string name="qibla_map_kaaba">Kaaba</string>
+    <string name="qibla_map_you">Dig</string>
+    <string name="qibla_mode_compass">Kompas</string>
+    <string name="qibla_mode_map">Kort</string>
+    <string name="qibla_open_mosques">Moskeer i nærheden</string>
+    <string name="qibla_title">Qibla retning</string>
+    <string name="qibla_turn_left">Drej til venstre %1$.1f°</string>
+    <string name="qibla_turn_right">Drej til højre %1$.1f°</string>
+</resources>

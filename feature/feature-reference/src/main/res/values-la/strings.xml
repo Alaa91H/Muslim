@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Retro</string>
+    <string name="reference_no_results">Non matching eventus</string>
+    <string name="reference_search_hint">Quaere hunc librum…</string>
+    <string name="reference_title">Islamica Reference Library</string>
+    <string name="reference_topics_count">thema</string>
+</resources>

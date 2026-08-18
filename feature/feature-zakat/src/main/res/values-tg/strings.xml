@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Нархҳоро ба таври худкор гиред</string>
+    <string name="zakat_auto_prices_hint">Ҳангоми фаъол шудан, нархҳои тилло ва нуқра аз интернет гирифта мешаванд ва ба таври худкор нав карда мешаванд</string>
+    <string name="zakat_back">Бозгашт</string>
+    <string name="zakat_cash">Пули нақд ва пасандоз</string>
+    <string name="zakat_clear_history">Таърихро тоза кунед</string>
+    <string name="zakat_country">кишвар</string>
+    <string name="zakat_country_placeholder">Кишвар ва пули худро интихоб кунед</string>
+    <string name="zakat_country_section">Кишвар ва асъор</string>
+    <string name="zakat_currency">Асъор: %1$s</string>
+    <string name="zakat_debts">Қарзҳои шумо қарздор (тарҳ)</string>
+    <string name="zakat_due">Закоти лозим (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">\'т нарх гирифтан мумкин буд. Пайвасти худро санҷед ё нархро дастӣ ворид кунед.</string>
+    <string name="zakat_fetch_now">Ҳоло нархҳоро нав кунед</string>
+    <string name="zakat_fetching">Гирифтани нархҳо…</string>
+    <string name="zakat_fitr_persons">Шумораи аъзоёни оила</string>
+    <string name="zakat_fitr_saa_value">Арзиши як са\' (хӯроки асосӣ)</string>
+    <string name="zakat_fitr_section">Закоти Фитр</string>
+    <string name="zakat_fitr_total">Ҷамъи закоти Фитр: %1$s</string>
+    <string name="zakat_gold_grams">Тилло (грамм)</string>
+    <string name="zakat_gold_price">Нархи тилло барои як грамм</string>
+    <string name="zakat_history">Таърихи ҳисоб</string>
+    <string name="zakat_history_amount">Закот: %1$s</string>
+    <string name="zakat_history_empty">Ҳанӯз ҳисобҳои захирашуда нест.</string>
+    <string name="zakat_investments">Сармоягузориҳо</string>
+    <string name="zakat_last_updated">Охирин навсозӣ: %1$s</string>
+    <string name="zakat_money_section">Закоти мол</string>
+    <string name="zakat_nisab_gold">Нисоби тиллоӣ (85г)</string>
+    <string name="zakat_nisab_met">Нисоб расид — закот воҷиб аст</string>
+    <string name="zakat_nisab_not_met">Поёни нисоб — закот нест</string>
+    <string name="zakat_nisab_silver">Нисоби нуқра (595г)</string>
+    <string name="zakat_rulings_note">Барои аксарият (ҷумҳур): нисоби тилло 85 грамм, нуқра 595 грамм ва қурби пас аз тарҳи қарзи мӯҳлатдор 2,5%% аст. Барои ҳолатҳои махсус бо донишманди соҳибихтисос машварат кунед.</string>
+    <string name="zakat_save_result">Дар таърих захира кунед</string>
+    <string name="zakat_silver_grams">Нуқра (грамм)</string>
+    <string name="zakat_silver_price">Нархи нуқра барои як грамм</string>
+    <string name="zakat_source_note">Нархи тилло/нуқра аз gold-api.com; Қурбҳои асъор аз open.er-api.com</string>
+    <string name="zakat_title">Закот</string>
+    <string name="zakat_total_assets">Ҳаҷми дороиҳо</string>
+    <string name="zakat_trade">Арзиши молҳои тиҷоратӣ</string>
+    <string name="zakat_zakatable">Маблағи закот пас аз қарз</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Πίσω</string>
+    <string name="reference_no_results">Δεν υπάρχουν αποτελέσματα που να ταιριάζουν</string>
+    <string name="reference_search_hint">Αναζητήστε αυτό το βιβλίο…</string>
+    <string name="reference_title">Ισλαμική βιβλιοθήκη αναφοράς</string>
+    <string name="reference_topics_count">θέματα</string>
+</resources>

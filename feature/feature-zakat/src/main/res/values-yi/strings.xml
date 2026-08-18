@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">באַקומען פּרייז אויטאָמאַטיש</string>
+    <string name="zakat_auto_prices_hint">ווען ענייבאַלד, גאָלד און זילבער פּרייסאַז זענען געבראכט פון די אינטערנעט און דערקוויקט אויטאָמאַטיש</string>
+    <string name="zakat_back">צוריק</string>
+    <string name="zakat_cash">געלט און סייווינגז</string>
+    <string name="zakat_clear_history">קלאָר געשיכטע</string>
+    <string name="zakat_country">לאַנד</string>
+    <string name="zakat_country_placeholder">קלייַבן דיין לאַנד און קראַנטקייַט</string>
+    <string name="zakat_country_section">מדינה &amp; קראַנטקייַט</string>
+    <string name="zakat_currency">קראַנטקייַט: %1$s</string>
+    <string name="zakat_debts">דעץ איר שולדיק געווען (דידאַקטיד)</string>
+    <string name="zakat_due">זאַקאַט רעכט (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">קען \' ט ברענגען פּרייסאַז. קאָנטראָלירן דיין קשר אָדער אַרייַן די פּרייַז מאַניואַלי.</string>
+    <string name="zakat_fetch_now">דערפרישן פּרייסיז איצט</string>
+    <string name="zakat_fetching">באַקומען פּרייזן…</string>
+    <string name="zakat_fitr_persons">נומער פון משפּחה מיטגלידער</string>
+    <string name="zakat_fitr_saa_value">ווערט פון איין סאַ\' (העפטן עסנוואַרג)</string>
+    <string name="zakat_fitr_section">זַכָּאת אֶל פִּיטר</string>
+    <string name="zakat_fitr_total">גאַנץ פיטער פּאַקאַט: %1$s</string>
+    <string name="zakat_gold_grams">גאָלד (גראַם)</string>
+    <string name="zakat_gold_price">גאָלד פּרייַז פּער גראַם</string>
+    <string name="zakat_history">חשבון געשיכטע</string>
+    <string name="zakat_history_amount">נומער: %1$s</string>
+    <string name="zakat_history_empty">נאָך קיין געראטעוועטע חשבונות.</string>
+    <string name="zakat_investments">ינוועסטמאַנץ</string>
+    <string name="zakat_last_updated">לעצטע דערהייַנטיקט: %1$s</string>
+    <string name="zakat_money_section">זַכָּאת עַל הָעוֹשר</string>
+    <string name="zakat_nisab_gold">גאָלד ניסאַב (85 ג)</string>
+    <string name="zakat_nisab_met">דער ניסאַב איז דערגרייכט - זאַקאַט איז רעכט</string>
+    <string name="zakat_nisab_not_met">ונטער דער ניסאַב — קיין זאַקאַט רעכט</string>
+    <string name="zakat_nisab_silver">זילבער ניסאַב (595 ג)</string>
+    <string name="zakat_rulings_note">פּער די מערהייַט (דזשומהואָר): גאָלד ניסאַב איז 85 ג, זילבער 595 ג, און דער קורס איז 2.5%% נאָך דידאַקטינג רעכט דעץ. באַראַטנ זיך אַ קוואַלאַפייד געלערנטער פֿאַר ספּעציעל קאַסעס.</string>
+    <string name="zakat_save_result">היט צו געשיכטע</string>
+    <string name="zakat_silver_grams">זילבער (גראַם)</string>
+    <string name="zakat_silver_price">זילבער פּרייַז פּער גראַם</string>
+    <string name="zakat_source_note">גאָלד / זילבער פּרייסיז פון gold-api.com; FX ראַטעס פֿון open.er-api.com</string>
+    <string name="zakat_title">זאקאט</string>
+    <string name="zakat_total_assets">גאַנץ אַסעץ</string>
+    <string name="zakat_trade">האַנדל סכוירע ווערט</string>
+    <string name="zakat_zakatable">זאַקאַטאַבאַל סומע נאָך דעץ</string>
+</resources>

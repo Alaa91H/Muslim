@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Цифрӧвӧй мисбаха — кран да лыддьыны .</string>
+    <string name="misbaha_widget_label">Тасбих</string>
+    <string name="misbaha_widget_tap_hint">Нажмите, медым лыддьыны .</string>
+    <string name="tasbih_back">Бӧр</string>
+    <string name="tasbih_cancel">Отмена</string>
+    <string name="tasbih_confirm">Ок</string>
+    <string name="tasbih_custom_target">Кастом</string>
+    <string name="tasbih_custom_target_hint">Пыртӧй лыдпасъяслысь лыдсӧ (1-сянь 100000-ӧдз) .</string>
+    <string name="tasbih_custom_target_title">Став йӧзлы лӧсялана мог .</string>
+    <string name="tasbih_of_target">%1$s шайт</string>
+    <string name="tasbih_reset">Сброс</string>
+    <string name="tasbih_reset_all">Сбросить ставсӧ .</string>
+    <string name="tasbih_round_complete">Став гӧгрӧс тыртӧм (%1$s) 🎉 .</string>
+    <string name="tasbih_rounds">Гӧгӧрвоана: %1$d</string>
+    <string name="tasbih_sound_desc">Ворсӧй звӧнокӧн либӧ тонӧн, кор быд тыр раунд помасьӧ .</string>
+    <string name="tasbih_sound_title">Звук на цели .</string>
+    <string name="tasbih_sound_tone_alarm">Тревога</string>
+    <string name="tasbih_sound_tone_notification">Уведомление</string>
+    <string name="tasbih_sound_tone_ringtone">Рингтон</string>
+    <string name="tasbih_tap_hint">Нажмите круг вылӧ, медым лыддьыны .</string>
+    <string name="tasbih_target_reached">Цель тырис — медым Аллах примитіс .</string>
+    <string name="tasbih_title">Тасбих</string>
+    <string name="tasbih_total_today">Талун\'с ставнас: %1$d</string>
+    <string name="tasbih_undo">Отмена</string>
+    <string name="tasbih_virtue_label">Доброта тайӧ зикр .</string>
+    <string name="tasbih_week_stats">Бӧръя 7 лун</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Цифровой мисбаха — кран, чтобы считать</string>
+    <string name="misbaha_widget_label">ТасбихӀ</string>
+    <string name="misbaha_widget_tap_hint">РикӀкӀине квер хъвазе</string>
+    <string name="tasbih_back">Нахъе</string>
+    <string name="tasbih_cancel">Нахъе бахъизе</string>
+    <string name="tasbih_confirm">ЛъикӀ</string>
+    <string name="tasbih_custom_target">ГӀадатияб</string>
+    <string name="tasbih_custom_target_hint">Введите количество счетов (от 1 до 100000)</string>
+    <string name="tasbih_custom_target_title">Задайте пользовательскую цель</string>
+    <string name="tasbih_of_target">%1$s гъурщидаса</string>
+    <string name="tasbih_reset">Сброс</string>
+    <string name="tasbih_reset_all">Сбросить все</string>
+    <string name="tasbih_round_complete">ТӀубараб тур лъугӀана (%1$s) 🎉 .</string>
+    <string name="tasbih_rounds">Раундал: %1$d</string>
+    <string name="tasbih_sound_desc">Щибаб тӀубараб тур лъугӀараб мехалъ рингтон яги тон ахӀе .</string>
+    <string name="tasbih_sound_title">Гьаракь нишаналда .</string>
+    <string name="tasbih_sound_tone_alarm">Сигнал</string>
+    <string name="tasbih_sound_tone_notification">Уведомление</string>
+    <string name="tasbih_sound_tone_ringtone">Рингтон</string>
+    <string name="tasbih_tap_hint">РикӀкӀине гургинлъиялда квер хъвазе .</string>
+    <string name="tasbih_target_reached">Мурад щвана — Аллагьас къабул гьабеги</string>
+    <string name="tasbih_title">ТасбихӀ</string>
+    <string name="tasbih_total_today">Жакъа\'с гӀаммаб къагӀидаялъ: %1$d</string>
+    <string name="tasbih_undo">Нахъе буссинабизе</string>
+    <string name="tasbih_virtue_label">Гьаб зикруялъул лъикӀлъи .</string>
+    <string name="tasbih_week_stats">Ахирисеб 7 къо</string>
+</resources>

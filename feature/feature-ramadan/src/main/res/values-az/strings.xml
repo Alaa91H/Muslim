@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Geri</string>
+    <string name="ramadan_countdown">Ramazan %1$s gündə başlayır</string>
+    <string name="ramadan_countdown_to_iftar">İftar vaxtı: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Sübhə qədər vaxt: %1$s</string>
+    <string name="ramadan_day_of_month">Ramazan ayının %1$s günü</string>
+    <string name="ramadan_days_left">%1$s gün qalıb</string>
+    <string name="ramadan_fasting_progress">Oruc günləri: %2$s-dən %1$s - qeyd etmək üçün bir günə toxunun</string>
+    <string name="ramadan_fasting_tracker">Oruc izləyicisi</string>
+    <string name="ramadan_hijri_note">Tətbiq miqyasında hicri tənzimləmə tətbiq olunan Umm əl-Qura təqviminə əsaslanır.</string>
+    <string name="ramadan_hijri_year">Hicri %1$s il</string>
+    <string name="ramadan_iftar">iftar</string>
+    <string name="ramadan_iftar_dua">İftar duası: "Allahım, Sənin üçün oruc tutdum və Sənin ruzi ilə iftar etdim..."</string>
+    <string name="ramadan_iftar_time">İftar (Mağrib) vaxtı: %1$s</string>
+    <string name="ramadan_location_required">Saatları görmək üçün əvvəlcə Parametrlərdə şəhər seçin.</string>
+    <string name="ramadan_minutes">%1$s dəq</string>
+    <string name="ramadan_notification_iftar_body">İlahi, Sənin üçün oruc tutdum və Sənin verdiyin ruzi ilə iftar etdim</string>
+    <string name="ramadan_notification_iftar_title">İftar vaxtıdır</string>
+    <string name="ramadan_notification_suhoor_body">Sübh yaxınlaşır - sahurunuzu yeyin</string>
+    <string name="ramadan_notification_suhoor_title">Sahur xatırlatma</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Sahur</string>
+    <string name="ramadan_suhoor_remind_before">Mənə əvvəl xatırlat:</string>
+    <string name="ramadan_suhoor_time">Sahur bitər (Sübh): %1$s</string>
+    <string name="ramadan_title">Ramazan</string>
+</resources>

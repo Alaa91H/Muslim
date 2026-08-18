@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Vissza</string>
+    <string name="ramadan_countdown">A ramadán %1$s nap múlva kezdődik</string>
+    <string name="ramadan_countdown_to_iftar">Iftarig eltelt idő: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Fajr-ig tartó idő: %1$s</string>
+    <string name="ramadan_day_of_month">Ramadán %1$s napja</string>
+    <string name="ramadan_days_left">%1$s nap van hátra</string>
+    <string name="ramadan_fasting_progress">Böjtnapok: %1$s/%2$s – érintsen meg egy napot a felvételhez</string>
+    <string name="ramadan_fasting_tracker">Böjtkövető</string>
+    <string name="ramadan_hijri_note">Az Umm al-Qura naptár alapján, az alkalmazásra kiterjedő Hijri korrekcióval.</string>
+    <string name="ramadan_hijri_year">Évjárat %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar könyörgés: "Ó Allah, érted böjtöltem, és a Te gondoskodásodra megszegem a böjtömet..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) idő: %1$s</string>
+    <string name="ramadan_location_required">Az időpontok megtekintéséhez először válasszon várost a Beállításokban.</string>
+    <string name="ramadan_minutes">%1$s perc</string>
+    <string name="ramadan_notification_iftar_body">Ó Allah, érted böjtöltem, és a Te gondoskodásodra megszegem a böjtömet</string>
+    <string name="ramadan_notification_iftar_title">Ideje az iftarnak</string>
+    <string name="ramadan_notification_suhoor_body">Fajr közeledik – legyen a suhoor</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor emlékeztető</string>
+    <string name="ramadan_starts_on">%1$s – %2$s</string>
+    <string name="ramadan_suhoor">Suhoor</string>
+    <string name="ramadan_suhoor_remind_before">Emlékeztess előtte:</string>
+    <string name="ramadan_suhoor_time">Suhoor végek (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadán</string>
+</resources>

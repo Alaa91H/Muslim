@@ -27,6 +27,15 @@
     <string name="times_export_header">Prayer times — %1$s</string>
     <string name="times_export_location">Location: %1$s</string>
     <string name="times_export_subject">Prayer times</string>
+    <string name="times_previous_day">Previous day</string>
+    <string name="times_next_day">Next day</string>
+    <string name="times_week_sat">Sat</string>
+    <string name="times_week_sun">Sun</string>
+    <string name="times_week_mon">Mon</string>
+    <string name="times_week_tue">Tue</string>
+    <string name="times_week_wed">Wed</string>
+    <string name="times_week_thu">Thu</string>
+    <string name="times_week_fri">Fri</string>
 
     <!-- Calculation methods -->
     <string name="method_mwl">Muslim World League</string>
@@ -60,6 +69,10 @@
     <string name="settings_adjustments">Manual adjustments (minutes)</string>
     <string name="settings_adhan">Adhan &amp; reminders</string>
     <string name="settings_adhan_enabled">Enable Adhan</string>
+    <string name="settings_reminder_preview_hint">This is how the reminder notification appears before the prayer with the lead time you set.</string>
+    <string name="settings_adhan_preview_label">Adhan notification preview</string>
+    <string name="settings_adhan_preview_hint">This is how the notification appears when a prayer time begins. It updates automatically with the next prayer.</string>
+    <string name="settings_adhan_preview_no_location">Select a location to show the next prayer</string>
     <string name="settings_vibrate">Vibration</string>
     <string name="settings_reminder">Reminder before prayer</string>
     <string name="settings_reminder_off">No reminder</string>
@@ -70,7 +83,6 @@
     <string name="adhan_option_silent">Silent</string>
     <string name="settings_volume">Volume</string>
     <string name="settings_preview">Preview adhan</string>
-    <string name="settings_bundled_adhan">Bundled adhan sound (offline)</string>
     <string name="bundled_adhan_makkah">Makkah adhan</string>
     <string name="bundled_adhan_abdul_basit">Abdul Basit adhan</string>
     <string name="bundled_adhan_minshawi">Minshawi adhan</string>
@@ -102,6 +114,10 @@
 
     <string name="location_title">Choose location</string>
     <string name="location_search_hint">Search for a city…</string>
+    <string name="location_map_section">Pick from the map</string>
+    <string name="location_map_hint">Tap any point on the map to choose your location, then save</string>
+    <string name="location_map_selected">Selected location: %1$.4f, %2$.4f</string>
+    <string name="location_map_save_selected">Save selected location</string>
     <string name="location_manual">Enter coordinates manually</string>
     <string name="location_latitude">Latitude</string>
     <string name="location_longitude">Longitude</string>
@@ -127,6 +143,7 @@
     <string name="next_adhan_notification_title">Next Adhan: %1$s — %2$s</string>
     <string name="next_adhan_remaining">Time remaining: %1$s</string>
     <string name="next_adhan_missed">Missed Adhan: %1$s — %2$s</string>
+    <string name="next_adhan_elapsed">Since Adhan: %1$s</string>
     <string name="next_adhan_no_location">Set your location to see prayer times</string>
 
     <string name="bundled_adhan_madinah">Madinah adhan</string>
@@ -143,6 +160,14 @@
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
+    <string name="bundled_adhan_umayyad_damascus">Umayyad Mosque (Damascus) adhan</string>
 
     <string name="settings_listen">Listen</string>
+    <string name="settings_adhan_customize">Customize</string>
+    <string name="settings_adhan_customize_title">Customize %1$s adhan</string>
+    <string name="settings_adhan_alert_type">Alert type</string>
+    <string name="settings_adhan_sound_choice">Choose sound</string>
+    <string name="settings_adhan_confirm">OK</string>
+    <string name="settings_adhan_cancel">Cancel</string>
+    <string name="settings_adhan_sound_summary">%1$s · %2$s</string>
 </resources>

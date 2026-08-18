@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Санлы мисбаха - санарга басыгыз</string>
+    <string name="misbaha_widget_label">Тасбих</string>
+    <string name="misbaha_widget_tap_hint">Санарга басыгыз</string>
+    <string name="tasbih_back">Кире</string>
+    <string name="tasbih_cancel">Баш тарту</string>
+    <string name="tasbih_confirm">Ярар</string>
+    <string name="tasbih_custom_target">Гадәт</string>
+    <string name="tasbih_custom_target_hint">Санау санын кертегез (1 дән 100000гә кадәр)</string>
+    <string name="tasbih_custom_target_title">Заказлы максат куегыз</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">Бетерү</string>
+    <string name="tasbih_reset_all">Барысын да кире кайтару</string>
+    <string name="tasbih_round_complete">Тулы тур тулы (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Раундлар: %1$d</string>
+    <string name="tasbih_sound_desc">Fullәр тулы тур тәмамлангач, рингтон яки тон уйнагыз</string>
+    <string name="tasbih_sound_title">Максатта тавыш</string>
+    <string name="tasbih_sound_tone_alarm">Сигнализация</string>
+    <string name="tasbih_sound_tone_notification">Хәбәр</string>
+    <string name="tasbih_sound_tone_ringtone">Кыңгырау</string>
+    <string name="tasbih_tap_hint">Санау өчен түгәрәккә басыгыз</string>
+    <string name="tasbih_target_reached">Максатка ирешелде - Алла кабул итсен</string>
+    <string name="tasbih_title">Тасбих</string>
+    <string name="tasbih_total_today">Бүген барлыгы \'s: %1$d</string>
+    <string name="tasbih_undo">Кире кайтару</string>
+    <string name="tasbih_virtue_label">Бу зикрнең сыйфаты</string>
+    <string name="tasbih_week_stats">Соңгы 7 көн</string>
+</resources>

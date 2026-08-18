@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">ପଛକୁ</string>
+    <string name="reference_no_results">କ match ଣସି ମେଳ ଖାଉଥିବା ଫଳାଫଳ ନାହିଁ |</string>
+    <string name="reference_search_hint">ଏହି ପୁସ୍ତକ ଖୋଜ…</string>
+    <string name="reference_title">ଇସଲାମିକ୍ ରେଫରେନ୍ସ ଲାଇବ୍ରେରୀ |</string>
+    <string name="reference_topics_count">ବିଷୟଗୁଡିକ |</string>
+</resources>

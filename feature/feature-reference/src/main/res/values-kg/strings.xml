@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reference_back">Kuvutuka</string>
+    <string name="reference_no_results">Ba mvutu ya ke wakana ve</string>
+    <string name="reference_search_hint">Sosa mukanda yai...</string>
+    <string name="reference_title">Biblioteke ya Bansosa ya Bamizilma</string>
+    <string name="reference_topics_count">masolo</string>
+</resources>

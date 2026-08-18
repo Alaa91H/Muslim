@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_adhkar">Adkar</string>
+    <string name="more_adhkar_desc">Subaxa, maqribka &amp; salaada kadib axarka oo leh miisaska</string>
+    <string name="more_downloads">Soodejisyada akhrinta</string>
+    <string name="more_downloads_desc">Soo deji suurad, aayad ama quraanka oo dhan adiga iyo akhriyaha aad dooratay</string>
+    <string name="more_hadith">Xadiiska</string>
+    <string name="more_hadith_desc">Maktabaddii Xadiiska, goobidda &amp; xadiiska maalinta</string>
+    <string name="more_learn">Baro</string>
+    <string name="more_learn_desc">Tallaabo-tallaabo wudu &amp; hagayaasha salaadda</string>
+    <string name="more_ramadan">Ramadaan</string>
+    <string name="more_ramadan_desc">Waqtiyada Suxuurta &amp; afurka iyo raadraaca soonka</string>
+    <string name="more_reference">Maktabadda Tixraaca</string>
+    <string name="more_reference_desc">Hordhac Islaamka, Siirada &amp; Nabiyada</string>
+    <string name="more_settings">Dejinta</string>
+    <string name="more_settings_desc">Mawduuca, luqadda, ducada &amp; dejinta adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha Digital oo leh taariikh maalmeed</string>
+    <string name="more_zakat">Sakada</string>
+    <string name="more_zakat_desc">Sakada maalka &amp; xisaabiyaha Fitriga</string>
+    <string name="scaffold_message">Qalfoofka mashruuca module-ka badan ayaa diyaar ah.\nWejiga 1 -Adhan, waqtiyada salaadaha, Qibla, iyo kalandarka Hijriyada - halkan ka bilaabmaa.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Qibla jihada</string>
+    <string name="shortcut_settings">Dejinta</string>
+    <string name="shortcut_settings_long">Ducada &amp; goobaha adhan</string>
+    <string name="shortcut_times">Waqtiyada salaadda</string>
+    <string name="shortcut_times_long">Maanta\' waqtiyada salaadaha</string>
+    <string name="tab_home">Waqtiyada Salaadda</string>
+    <string name="tab_more">Wax badan</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quraanka</string>
 </resources>

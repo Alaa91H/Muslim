@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ሙስሊም</string>
+    <string name="more_adhkar">ኣድካር</string>
+    <string name="more_adhkar_desc">ንግሆ፣ ምሸት &amp; ድሕሪ ጸሎት ኣድካር ምስ ቆጸራታት</string>
+    <string name="more_downloads">ሪሲቴሽን ዳውንሎድ</string>
+    <string name="more_downloads_desc">ሱራ፡ ኣያ ወይ ምሉእ ቁርኣን ምስቲ ዝመረጽካዮ ቀባኢ ኣውርድ</string>
+    <string name="more_hadith">ሓዲስ</string>
+    <string name="more_hadith_desc">ሓዲስ ቤተ መጻሕፍቲ, search &amp; ሓዲስ ናይቲ ዕለት</string>
+    <string name="more_learn">ተማሃሩ</string>
+    <string name="more_learn_desc">ደረጃ ብደረጃ ውዱ &amp; መምርሒ ጸሎት</string>
+    <string name="more_ramadan">ሮሞዳን</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar times ከምኡ ውን ናይ ጾም መከታተሊ</string>
+    <string name="more_reference">መወከሲ ቤተ መጻሕፍቲ</string>
+    <string name="more_reference_desc">መእተዊ ምስ እስልምና፣ ሲራ &amp; ነብያት</string>
+    <string name="more_settings">ቅጥዕታት</string>
+    <string name="more_settings_desc">ቴማ፡ ቋንቋ፡ ጸሎት &amp; ኣድሃን ቅጥዕታት</string>
+    <string name="more_tasbih">ታስቢህ</string>
+    <string name="more_tasbih_desc">ዲጂታል ሚስባሃ ምስ ዕለታዊ ታሪኽ</string>
+    <string name="more_zakat">ዘካት።</string>
+    <string name="more_zakat_desc">ዘካት ኣብ ሃብቲ &amp; ፊትሮ ካልኩሌተር</string>
+    <string name="scaffold_message">እቲ ብዙሕ ሞዱላት ዘለዎ ፕሮጀክት ዓጽሚ ድሉው እዩ።\nምዕራፍ 1 — ኣድሃን፡ ግዜ ጸሎት፡ ቂብላ፡ ከምኡ’ውን ኣቆጻጽራ ሂጅሪ — ካብዚ ይጅምር።</string>
+    <string name="shortcut_qibla">ቂብላ</string>
+    <string name="shortcut_qibla_long">ኣንፈት ቂብላ</string>
+    <string name="shortcut_settings">ቅጥዕታት</string>
+    <string name="shortcut_settings_long">ጸሎት &amp; ኣድሃን ቅጥዕታት</string>
+    <string name="shortcut_times">ናይ ጸሎት ግዜ</string>
+    <string name="shortcut_times_long">ናይ ሎሚ\'ታት ናይ ጸሎት ግዜ</string>
+    <string name="tab_home">ናይ ጸሎት ግዜ</string>
+    <string name="tab_more">ተወሳኺ</string>
+    <string name="tab_qibla">ቂብላ</string>
+    <string name="tab_quran">ቁርኣን</string>
 </resources>

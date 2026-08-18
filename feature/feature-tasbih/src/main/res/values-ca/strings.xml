@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Misbaha digital: toqueu per comptar</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Toca per comptar</string>
+    <string name="tasbih_back">Enrere</string>
+    <string name="tasbih_cancel">Cancel·la</string>
+    <string name="tasbih_confirm">D\'acord</string>
+    <string name="tasbih_custom_target">Personalitzat</string>
+    <string name="tasbih_custom_target_hint">Introduïu el nombre de recomptes (de 1 a 100.000)</string>
+    <string name="tasbih_custom_target_title">Estableix un objectiu personalitzat</string>
+    <string name="tasbih_of_target">de %1$s</string>
+    <string name="tasbih_reset">Restableix</string>
+    <string name="tasbih_reset_all">Restableix-ho tot</string>
+    <string name="tasbih_round_complete">Ronda completa completa (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Rondes: %1$d</string>
+    <string name="tasbih_sound_desc">Reprodueix un to o un to quan s\'hagi completat cada ronda completa</string>
+    <string name="tasbih_sound_title">So a l\'objectiu</string>
+    <string name="tasbih_sound_tone_alarm">Alarma</string>
+    <string name="tasbih_sound_tone_notification">Notificació</string>
+    <string name="tasbih_sound_tone_ringtone">To de trucada</string>
+    <string name="tasbih_tap_hint">Toca el cercle per comptar</string>
+    <string name="tasbih_target_reached">Objectiu assolit: que Allah accepti</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Total d\'avui \' dècades: %1$d</string>
+    <string name="tasbih_undo">Desfer</string>
+    <string name="tasbih_virtue_label">Virtut d\'aquest dhikr</string>
+    <string name="tasbih_week_stats">Últims 7 dies</string>
+</resources>

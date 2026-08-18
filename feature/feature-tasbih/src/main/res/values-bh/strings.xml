@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">डिजिटल मिसबाहा — गिनती करे खातिर टैप करीं</string>
+    <string name="misbaha_widget_label">तसबीह के बा</string>
+    <string name="misbaha_widget_tap_hint">गिनती करे खातिर टैप करीं</string>
+    <string name="tasbih_back">वापस आ गइल</string>
+    <string name="tasbih_cancel">रद्द कर दिहल जाव</string>
+    <string name="tasbih_confirm">ठीक बा</string>
+    <string name="tasbih_custom_target">कस्टम के बा</string>
+    <string name="tasbih_custom_target_hint">गिनती के संख्या दर्ज करीं (1 से 100000 तक)</string>
+    <string name="tasbih_custom_target_title">एगो कस्टम टारगेट तय करीं</string>
+    <string name="tasbih_of_target">के %1$s के बा</string>
+    <string name="tasbih_reset">रीसेट हो गइल बा</string>
+    <string name="tasbih_reset_all">सब के रीसेट करीं</string>
+    <string name="tasbih_round_complete">पूरा राउंड पूरा (%1$s) 🎉</string>
+    <string name="tasbih_rounds">दौर : %1$d के बा</string>
+    <string name="tasbih_sound_desc">हर पूरा राउंड पूरा होखला पर रिंगटोन भा टोन बजाईं</string>
+    <string name="tasbih_sound_title">निशाना पर आवाज़ बा</string>
+    <string name="tasbih_sound_tone_alarm">अलार्म बा</string>
+    <string name="tasbih_sound_tone_notification">अधिसूचना के बा</string>
+    <string name="tasbih_sound_tone_ringtone">रिंगटोन के बा</string>
+    <string name="tasbih_tap_hint">गिनती करे खातिर घेरा पर टैप करीं</string>
+    <string name="tasbih_target_reached">लक्ष्य पहुँच गइल — अल्लाह कबूल करस</string>
+    <string name="tasbih_title">तसबीह के बा</string>
+    <string name="tasbih_total_today">आज\' के कुल: %1$d बा</string>
+    <string name="tasbih_undo">पूर्ववत करीं</string>
+    <string name="tasbih_virtue_label">एह ज़िकर के गुण</string>
+    <string name="tasbih_week_stats">पिछला 7 दिन के बा</string>
+</resources>

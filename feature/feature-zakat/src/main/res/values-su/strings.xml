@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Dipulut harga otomatis</string>
+    <string name="zakat_auto_prices_hint">Nalika diaktipkeun, harga emas sareng pérak dicandak tina internét sareng disegerkeun sacara otomatis</string>
+    <string name="zakat_back">Balik deui</string>
+    <string name="zakat_cash">Kas jeung tabungan</string>
+    <string name="zakat_clear_history">Hapus sajarah</string>
+    <string name="zakat_country">Nagara</string>
+    <string name="zakat_country_placeholder">Pilih nagara sareng mata uang anjeun</string>
+    <string name="zakat_country_section">Nagara &amp; mata uang</string>
+    <string name="zakat_currency">Mata Artos: %1$s</string>
+    <string name="zakat_debts">Hutang anjeun (dipotong)</string>
+    <string name="zakat_due">Zakat wajib (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Tiasa \' t dipulut harga. Pariksa sambungan anjeun atanapi lebetkeun harga sacara manual.</string>
+    <string name="zakat_fetch_now">Refresh harga ayeuna</string>
+    <string name="zakat_fetching">Ngutip harga…</string>
+    <string name="zakat_fitr_persons">Jumlah anggota kulawarga</string>
+    <string name="zakat_fitr_saa_value">Nilai hiji sa\' (dahareun pokok)</string>
+    <string name="zakat_fitr_section">Zakat fitrah</string>
+    <string name="zakat_fitr_total">Jumlah zakat fitrah: %1$s</string>
+    <string name="zakat_gold_grams">Emas (gram)</string>
+    <string name="zakat_gold_price">Harga emas per gram</string>
+    <string name="zakat_history">Sajarah itungan</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Henteu aya itungan anu disimpen.</string>
+    <string name="zakat_investments">Investasi</string>
+    <string name="zakat_last_updated">Panungtungan diropéa: %1$s</string>
+    <string name="zakat_money_section">Zakat kana harta</string>
+    <string name="zakat_nisab_gold">Nisab emas (85g)</string>
+    <string name="zakat_nisab_met">Nisab geus ngahontal - zakat geus dibayar</string>
+    <string name="zakat_nisab_not_met">Sahandapeun nisab - teu aya zakat</string>
+    <string name="zakat_nisab_silver">Nisab pérak (595g)</string>
+    <string name="zakat_rulings_note">Per mayoritas (jumhoor): emas nisab 85g, pérak 595g, jeung ongkosna 2,5%% sanggeus dikurangan hutang. Taroskeun ka sarjana anu mumpuni pikeun kasus khusus.</string>
+    <string name="zakat_save_result">Simpen kana sajarah</string>
+    <string name="zakat_silver_grams">pérak (gram)</string>
+    <string name="zakat_silver_price">Harga pérak per gram</string>
+    <string name="zakat_source_note">Harga emas/perak ti emas-api.com; Tarif FX ti open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Total aset</string>
+    <string name="zakat_trade">Nilai barang dagang</string>
+    <string name="zakat_zakatable">Jumlah Zakatable sanggeus hutang</string>
+</resources>

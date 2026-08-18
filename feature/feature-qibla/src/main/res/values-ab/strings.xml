@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s хара</string>
+    <string name="mosque_finder_empty">Ари араион аҟны аџьаамақәа ыҟаӡам</string>
+    <string name="mosque_finder_error">Аԥшаара алымшеит</string>
+    <string name="mosque_finder_intro">Уахьыҟоу азааигәара аџьаамақәа ԥшаа OpenStreetMap ала</string>
+    <string name="mosque_finder_no_location">Макьаназы аҭыԥ шьақәыргылам. Раԥхьа аныҳәара аамҭақәа рҟынтәи аҭыԥ алхтәуп.</string>
+    <string name="mosque_finder_retry">Аиҭаԥышәара</string>
+    <string name="mosque_finder_searching">Аԥшаара...</string>
+    <string name="mosque_finder_title">Ааигәа иҟоу аџьаамақәа</string>
+    <string name="qibla_bearing_cardinal">Ақыбла ахырхарҭа: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
+    <string name="qibla_calibrate">Акалибровказы уҭел аа-тәи асахьаҿы ииагатәуп</string>
+    <string name="qibla_distance">Маккаҟа абжьаӡара: %1$s</string>
+    <string name="qibla_distance_km">%,.0f км</string>
+    <string name="qibla_facing">Уара ақыбла уаҿаԥшуеит 🕋</string>
+    <string name="qibla_gps_error">Ииашоу ашьақәыргылара аԥшаара ауам. Ҳаҳәоит даҽазнык шәҽазышәшәа.</string>
+    <string name="qibla_gps_live">Ишыҟаҵәҟьоу GPS аҭыԥ</string>
+    <string name="qibla_gps_refresh">Ирҿыцтәуп аҭыԥ GPS ала</string>
+    <string name="qibla_gps_refreshing">Аԥшаара...</string>
+    <string name="qibla_heading_degree">Аҭел ахы: %1$.0f° (%2$s)</string>
+    <string name="qibla_map_hint">Агьежь ду уахьыҟоу аҟынтәи Каабаҟа амҩа — офлаин аус ауеит</string>
+    <string name="qibla_map_kaaba">Кааба</string>
+    <string name="qibla_map_you">Уара</string>
+    <string name="qibla_mode_compass">Акомпас</string>
+    <string name="qibla_mode_map">Ахсаала</string>
+    <string name="qibla_open_mosques">Ааигәа иҟоу аџьаамақәа</string>
+    <string name="qibla_title">Ақыбла ахырхарҭа</string>
+    <string name="qibla_turn_left">Армарахь уаҵәи %1$.1f°</string>
+    <string name="qibla_turn_right">Арӷьарахь иагьежь %1$.1f°</string>
+</resources>

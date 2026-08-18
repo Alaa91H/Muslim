@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Alao ho azy ny vidiny</string>
+    <string name="zakat_auto_prices_hint">Rehefa alefa dia alaina amin\'ny Internet ny vidin\'ny volamena sy volafotsy ary havaozina ho azy</string>
+    <string name="zakat_back">Miverina</string>
+    <string name="zakat_cash">Vola sy tahiry</string>
+    <string name="zakat_clear_history">Fafao ny tantara</string>
+    <string name="zakat_country">Firenena</string>
+    <string name="zakat_country_placeholder">Fidio ny firenenao sy ny vola</string>
+    <string name="zakat_country_section">Firenena &amp; vola</string>
+    <string name="zakat_currency">Vola: %1$s</string>
+    <string name="zakat_debts">Ny trosa anananao (esorina)</string>
+    <string name="zakat_due">Zakat tokony ho (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Afaka \'t ny vidiny. Jereo ny fifandraisanao na ampidiro amin\'ny tanana ny vidiny.</string>
+    <string name="zakat_fetch_now">Havaozy ny vidiny izao</string>
+    <string name="zakat_fetching">Maka vidiny…</string>
+    <string name="zakat_fitr_persons">Isan\'ny mpianakavy</string>
+    <string name="zakat_fitr_saa_value">Sanda iray sa\' (sakafo fototra)</string>
+    <string name="zakat_fitr_section">Zakat al-Fitr</string>
+    <string name="zakat_fitr_total">Total Zaka Fitr: %1$s</string>
+    <string name="zakat_gold_grams">Volamena (grama)</string>
+    <string name="zakat_gold_price">Vidin\'ny volamena isaky ny grama</string>
+    <string name="zakat_history">Tantara kajy</string>
+    <string name="zakat_history_amount">Zakat: %1$s</string>
+    <string name="zakat_history_empty">Tsy mbola misy kajy voatahiry.</string>
+    <string name="zakat_investments">Fampiasam-bola</string>
+    <string name="zakat_last_updated">Nohavaozina farany: %1$s</string>
+    <string name="zakat_money_section">Zakat amin\'ny harena</string>
+    <string name="zakat_nisab_gold">Nisab volamena (85g)</string>
+    <string name="zakat_nisab_met">Tonga ny nisab — tokony ho tonga ny zakat</string>
+    <string name="zakat_nisab_not_met">Eo ambanin\'ny nisab - tsy misy zakat</string>
+    <string name="zakat_nisab_silver">Volafotsy nisab (595g)</string>
+    <string name="zakat_rulings_note">Ho an\'ny maro an\'isa (jumhoor): nisab volamena dia 85g, volafotsy 595g, ary ny tahan\'ny dia 2.5%% rehefa avy nesorina ny trosa. Miresaha amin\'ny manam-pahaizana mahafeno fepetra momba ny tranga manokana.</string>
+    <string name="zakat_save_result">Hiverina any amin\'ny history</string>
+    <string name="zakat_silver_grams">Volafotsy (grama)</string>
+    <string name="zakat_silver_price">Vidiny volafotsy isaky ny grama</string>
+    <string name="zakat_source_note">Vidin\'ny volamena/volafotsy avy amin\'ny gold-api.com; Ny tahan\'ny FX avy amin\'ny open.er-api.com</string>
+    <string name="zakat_title">Zakat</string>
+    <string name="zakat_total_assets">Total fananana</string>
+    <string name="zakat_trade">Sanda ara-barotra</string>
+    <string name="zakat_zakatable">Vola azo zakaina aorian\'ny trosa</string>
+</resources>

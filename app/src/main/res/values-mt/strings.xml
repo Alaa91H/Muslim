@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Musulman</string>
+    <string name="more_adhkar">Adhkar</string>
+    <string name="more_adhkar_desc">Filgħodu, filgħaxija u wara t-talb adhkar bil-bankijiet</string>
+    <string name="more_downloads">Reċitazzjoni downloads</string>
+    <string name="more_downloads_desc">Niżżel surah, ayah jew il-Koran sħiħ bir-reċitatur magħżul tiegħek</string>
+    <string name="more_hadith">Hadith</string>
+    <string name="more_hadith_desc">Librerija tal-Hadith, tfittxija u hadith tal-ġurnata</string>
+    <string name="more_learn">Tgħallem</string>
+    <string name="more_learn_desc">Gwidi ta\' wudu u talb pass pass</string>
+    <string name="more_ramadan">Ramadan</string>
+    <string name="more_ramadan_desc">Suhoor &amp; iftar ħinijiet u tracker sawm</string>
+    <string name="more_reference">Librerija ta\' Referenza</string>
+    <string name="more_reference_desc">Introduzzjoni għall-Islam, is-Sira u l-profeti</string>
+    <string name="more_settings">Settings</string>
+    <string name="more_settings_desc">Tema, lingwa, talb u settings adhan</string>
+    <string name="more_tasbih">Tasbih</string>
+    <string name="more_tasbih_desc">Misbaha diġitali bi storja ta\' kuljum</string>
+    <string name="more_zakat">Zakat</string>
+    <string name="more_zakat_desc">Zakat fuq kalkolatur tal-ġid u Fitr</string>
+    <string name="scaffold_message">L-iskeletru tal-proġett b\'ħafna moduli huwa lest.\nFażi 1 — Adhan, ħinijiet tat-talb, Qibla, u l-kalendarju Hijri — tibda hawn.</string>
+    <string name="shortcut_qibla">Qibla</string>
+    <string name="shortcut_qibla_long">Direzzjoni tal-Qibla</string>
+    <string name="shortcut_settings">Settings</string>
+    <string name="shortcut_settings_long">Talb u settings adhan</string>
+    <string name="shortcut_times">Ħinijiet tat-talb</string>
+    <string name="shortcut_times_long">Illum \' ħinijiet tat-talb</string>
+    <string name="tab_home">Ħinijiet tat-Talb</string>
+    <string name="tab_more">Aktar</string>
+    <string name="tab_qibla">Qibla</string>
+    <string name="tab_quran">Quran</string>
 </resources>

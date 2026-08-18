@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">Digital misbaha - kanda kubara</string>
+    <string name="misbaha_widget_label">Tasbih</string>
+    <string name="misbaha_widget_tap_hint">Kanda kubara</string>
+    <string name="tasbih_back">Inyuma</string>
+    <string name="tasbih_cancel">Kureka</string>
+    <string name="tasbih_confirm">Nibyo</string>
+    <string name="tasbih_custom_target">Custom</string>
+    <string name="tasbih_custom_target_hint">Injiza umubare (kuva 1 kugeza 100000)</string>
+    <string name="tasbih_custom_target_title">Shiraho intego yihariye</string>
+    <string name="tasbih_of_target">ya %1$s</string>
+    <string name="tasbih_reset">Gusubiramo</string>
+    <string name="tasbih_reset_all">Ongera usubize byose</string>
+    <string name="tasbih_round_complete">Uruziga rwuzuye (%1$s) 🎉</string>
+    <string name="tasbih_rounds">Icyiciro: %1$d</string>
+    <string name="tasbih_sound_desc">Kina impeta cyangwa amajwi iyo buri cyiciro cyuzuye kirangiye</string>
+    <string name="tasbih_sound_title">Ijwi ku ntego</string>
+    <string name="tasbih_sound_tone_alarm">Imenyesha</string>
+    <string name="tasbih_sound_tone_notification">Kumenyesha</string>
+    <string name="tasbih_sound_tone_ringtone">Impeta</string>
+    <string name="tasbih_tap_hint">Kanda uruziga kugirango ubare</string>
+    <string name="tasbih_target_reached">Intego yageze - Allah yemeye</string>
+    <string name="tasbih_title">Tasbih</string>
+    <string name="tasbih_total_today">Uyu munsi\'s yose hamwe: %1$d</string>
+    <string name="tasbih_undo">Kuraho</string>
+    <string name="tasbih_virtue_label">Imico myiza ya dhikr</string>
+    <string name="tasbih_week_stats">Iminsi 7 ishize</string>
+</resources>

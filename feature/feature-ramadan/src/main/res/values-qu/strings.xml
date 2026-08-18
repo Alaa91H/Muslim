@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Kutiy</string>
+    <string name="ramadan_countdown">Ramadán qallarikun %1$s p\'unchawkunapi</string>
+    <string name="ramadan_countdown_to_iftar">Iftarkama pacha: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Fajr llaqtaman rinapaq pacha: %1$s</string>
+    <string name="ramadan_day_of_month">Ramadán killapa %1$s punchawnin</string>
+    <string name="ramadan_days_left">%1$s p\'unchaw puchuq</string>
+    <string name="ramadan_fasting_progress">Ayuna p\'unchawkuna: %1$s %2$s kaqmanta — huk p\'unchawta ñit\'iy chayta grabanaykipaq</string>
+    <string name="ramadan_fasting_tracker">Ayuno qatiq</string>
+    <string name="ramadan_hijri_note">Umm al-Qura calendario nisqapi hapipakuspa, chay app-wide Hijri allichaywan churasqa.</string>
+    <string name="ramadan_hijri_year">Wata %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Iftar mañakuy: "O Allah, Qamraykum ayunarqani hinaspam provisionnikipi ayunoyta pakini..."</string>
+    <string name="ramadan_iftar_time">Iftar (Maghrib) pacha: %1$s</string>
+    <string name="ramadan_location_required">Ñawpaqta Ajustes nisqapi huk llaqtata akllay pachakunata qhawanaykipaq.</string>
+    <string name="ramadan_minutes">%1$s min</string>
+    <string name="ramadan_notification_iftar_body">O Allah, Qamraykum ayunarqani hinaspam provisionnikipi ayunoyta pakini</string>
+    <string name="ramadan_notification_iftar_title">Iftarpaq pacha</string>
+    <string name="ramadan_notification_suhoor_body">Fajr asuykamuchkan — suhoorniykita hap’iy</string>
+    <string name="ramadan_notification_suhoor_title">Suhoor yuyarichiy</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">Suhoor sutiyuq runa</string>
+    <string name="ramadan_suhoor_remind_before">Ñawpaqta yuyarichiway:</string>
+    <string name="ramadan_suhoor_time">Suhoor tukukun (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadán killapi</string>
+</resources>

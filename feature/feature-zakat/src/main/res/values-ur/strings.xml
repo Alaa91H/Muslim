@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">قیمتیں خود بخود حاصل کریں۔</string>
+    <string name="zakat_auto_prices_hint">فعال ہونے پر، سونے اور چاندی کی قیمتیں انٹرنیٹ سے حاصل کی جاتی ہیں اور خود بخود تازہ ہوجاتی ہیں۔</string>
+    <string name="zakat_back">پیچھے</string>
+    <string name="zakat_cash">نقد اور بچت</string>
+    <string name="zakat_clear_history">تاریخ صاف کریں۔</string>
+    <string name="zakat_country">ملک</string>
+    <string name="zakat_country_placeholder">اپنا ملک اور کرنسی منتخب کریں۔</string>
+    <string name="zakat_country_section">ملک اور کرنسی</string>
+    <string name="zakat_currency">کرنسی: %1$s</string>
+    <string name="zakat_debts">آپ پر واجب الادا قرض (کٹو)</string>
+    <string name="zakat_due">واجب الادا زکوٰۃ (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">قیمتیں \'t حاصل کی جا سکیں۔ اپنا کنکشن چیک کریں یا دستی طور پر قیمت درج کریں۔</string>
+    <string name="zakat_fetch_now">ابھی قیمتیں تازہ کریں۔</string>
+    <string name="zakat_fetching">قیمتیں حاصل کی جا رہی ہیں…</string>
+    <string name="zakat_fitr_persons">خاندان کے افراد کی تعداد</string>
+    <string name="zakat_fitr_saa_value">ایک صاع \' کی قیمت (اسٹیپل فوڈ)</string>
+    <string name="zakat_fitr_section">زکوۃ الفطر</string>
+    <string name="zakat_fitr_total">کل فطرہ زکوٰۃ: %1$s</string>
+    <string name="zakat_gold_grams">سونا (گرام)</string>
+    <string name="zakat_gold_price">سونے کی قیمت فی گرام</string>
+    <string name="zakat_history">حساب کتاب کی تاریخ</string>
+    <string name="zakat_history_amount">زکوٰۃ: %1$s</string>
+    <string name="zakat_history_empty">ابھی تک کوئی محفوظ شدہ حساب کتاب نہیں ہے۔</string>
+    <string name="zakat_investments">سرمایہ کاری</string>
+    <string name="zakat_last_updated">آخری بار اپ ڈیٹ کیا گیا: %1$s</string>
+    <string name="zakat_money_section">مال پر زکوٰۃ</string>
+    <string name="zakat_nisab_gold">سونے کا نصاب (85 گرام)</string>
+    <string name="zakat_nisab_met">نصاب پہنچ گیا - زکوٰۃ واجب ہے۔</string>
+    <string name="zakat_nisab_not_met">نصاب کے نیچے - زکوٰۃ واجب نہیں۔</string>
+    <string name="zakat_nisab_silver">چاندی کا نصاب (595 گرام)</string>
+    <string name="zakat_rulings_note">فی اکثریت (جمہور): سونے کا نصاب 85 گرام، چاندی 595 گرام، اور واجب الادا قرضوں کو منہا کرنے کے بعد شرح 2.5%% ہے۔ خصوصی معاملات کے لیے کسی مستند عالم سے رجوع کریں۔</string>
+    <string name="zakat_save_result">تاریخ میں محفوظ کریں۔</string>
+    <string name="zakat_silver_grams">چاندی (گرام)</string>
+    <string name="zakat_silver_price">چاندی کی قیمت فی گرام</string>
+    <string name="zakat_source_note">gold-api.com سے سونے/چاندی کی قیمتیں؛ open.er-api.com سے ایف ایکس ریٹس</string>
+    <string name="zakat_title">زکوٰۃ</string>
+    <string name="zakat_total_assets">کل اثاثے</string>
+    <string name="zakat_trade">تجارتی سامان کی قیمت</string>
+    <string name="zakat_zakatable">قرض کے بعد زکوٰۃ کی رقم</string>
+</resources>

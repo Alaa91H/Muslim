@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="misbaha_widget_description">ಡಿಜಿಟಲ್ ಮಿಸ್ಬಾಹ - ಎಣಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+    <string name="misbaha_widget_label">ತಸ್ಬಿಹ್</string>
+    <string name="misbaha_widget_tap_hint">ಎಣಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+    <string name="tasbih_back">ಹಿಂದೆ</string>
+    <string name="tasbih_cancel">ರದ್ದುಮಾಡು</string>
+    <string name="tasbih_confirm">ಸರಿ</string>
+    <string name="tasbih_custom_target">ಕಸ್ಟಮ್</string>
+    <string name="tasbih_custom_target_hint">ಎಣಿಕೆಗಳ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ (1 ರಿಂದ 100000 ವರೆಗೆ)</string>
+    <string name="tasbih_custom_target_title">ಕಸ್ಟಮ್ ಗುರಿಯನ್ನು ಹೊಂದಿಸಿ</string>
+    <string name="tasbih_of_target">%1$s</string>
+    <string name="tasbih_reset">ಮರುಹೊಂದಿಸಿ</string>
+    <string name="tasbih_reset_all">ಎಲ್ಲವನ್ನೂ ಮರುಹೊಂದಿಸಿ</string>
+    <string name="tasbih_round_complete">ಪೂರ್ಣ ಸುತ್ತು ಪೂರ್ಣಗೊಂಡಿದೆ (%1$s) 🎉</string>
+    <string name="tasbih_rounds">ಸುತ್ತುಗಳು: %1$d</string>
+    <string name="tasbih_sound_desc">ಪ್ರತಿ ಪೂರ್ಣ ಸುತ್ತು ಪೂರ್ಣಗೊಂಡಾಗ ರಿಂಗ್‌ಟೋನ್ ಅಥವಾ ಟೋನ್ ಪ್ಲೇ ಮಾಡಿ</string>
+    <string name="tasbih_sound_title">ಗುರಿಯ ಮೇಲೆ ಧ್ವನಿ</string>
+    <string name="tasbih_sound_tone_alarm">ಅಲಾರಂ</string>
+    <string name="tasbih_sound_tone_notification">ಅಧಿಸೂಚನೆ</string>
+    <string name="tasbih_sound_tone_ringtone">ರಿಂಗ್ಟೋನ್</string>
+    <string name="tasbih_tap_hint">ಎಣಿಸಲು ವೃತ್ತವನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+    <string name="tasbih_target_reached">ಗುರಿ ತಲುಪಿದೆ - ಅಲ್ಲಾ ಸ್ವೀಕರಿಸಲಿ</string>
+    <string name="tasbih_title">ತಸ್ಬಿಹ್</string>
+    <string name="tasbih_total_today">ಇಂದು\'ಗಳು ಒಟ್ಟು: %1$d</string>
+    <string name="tasbih_undo">ರದ್ದುಮಾಡು</string>
+    <string name="tasbih_virtue_label">ಈ ಧಿಕ್ರ್ನ ಪುಣ್ಯ</string>
+    <string name="tasbih_week_stats">ಕಳೆದ 7 ದಿನಗಳು</string>
+</resources>

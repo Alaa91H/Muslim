@@ -2,7 +2,7 @@ package org.muslim.app.feature.prayertimes.ui.settings
 
 import android.app.AlarmManager
 import android.content.Intent
-import android.net.Uri
+import androidx.core.net.toUri
 import android.os.Build
 import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,7 +20,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Alarm
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Remove
@@ -40,6 +43,7 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Slider
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -50,11 +54,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.prayertimes.R
@@ -65,7 +73,9 @@ import org.muslim.app.core.common.prayer.CalculationMethod
 import org.muslim.app.core.common.prayer.HighLatitudeRule
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.datastore.prayer.PrayerSettings
+import org.muslim.app.feature.prayertimes.ui.localTimeFormatter
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
+import java.time.LocalTime
 
 @Composable
 fun PrayerSettingsScreen(
@@ -78,6 +88,7 @@ fun PrayerSettingsScreen(
 
     var pendingSoundPrayer by remember { mutableStateOf<Prayer?>(null) }
     var downloadPrayer by remember { mutableStateOf<Prayer?>(null) }
+    var customizingPrayer by remember { mutableStateOf<Prayer?>(null) }
     val filePicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         uri?.let { selected -> pendingSoundPrayer?.let { viewModel.setCustomSound(it, selected) } }
         pendingSoundPrayer = null
@@ -122,6 +133,20 @@ fun PrayerSettingsScreen(
 
         SectionHeader(stringResource(R.string.settings_adhan))
         SwitchRow(stringResource(R.string.settings_adhan_enabled), settings.adhanEnabled, viewModel::setAdhanEnabled)
+
+        val nextPrayer by viewModel.nextPrayerPreview.collectAsStateWithLifecycle()
+        AdhanNotificationPreview(
+            prayer = nextPrayer?.first,
+            time = nextPrayer?.second,
+            enabled = settings.adhanEnabled,
+        )
+
+        ReminderNotificationPreview(
+            prayer = nextPrayer?.first,
+            minutesBefore = settings.reminderMinutes,
+            enabled = settings.adhanEnabled && settings.reminderMinutes > 0,
+        )
+
         SwitchRow(stringResource(R.string.settings_vibrate), settings.vibrateEnabled, viewModel::setVibrateEnabled)
         ReminderDropdown(settings.reminderMinutes) { viewModel.setReminderMinutes(it) }
 
@@ -159,10 +184,14 @@ fun PrayerSettingsScreen(
 
         SectionHeader(stringResource(R.string.settings_adhan_sound))
         Prayer.entries.filter { it != Prayer.Sunrise }.forEach { prayer ->
-            AdhanSoundDropdown(
+            val option = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default
+            val soundId = settings.bundledAdhanSounds[prayer]
+                ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID
+            AdhanSoundRow(
                 prayer = prayer,
-                current = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
-                onSelected = { viewModel.setAdhanSound(prayer, it) },
+                option = option,
+                sound = BundledAdhanSound.fromId(soundId),
+                onCustomize = { customizingPrayer = prayer },
             )
             CustomSoundRow(
                 prayer = prayer,
@@ -176,6 +205,23 @@ fun PrayerSettingsScreen(
                 onClear = { viewModel.clearCustomSound(prayer) },
             )
         }
+        customizingPrayer?.let { prayer ->
+            AdhanCustomizeDialog(
+                prayer = prayer,
+                option = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
+                sound = BundledAdhanSound.fromId(
+                    settings.bundledAdhanSounds[prayer]
+                        ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID
+                ),
+                onPreview = { viewModel.previewBundled(it) },
+                onDismiss = { customizingPrayer = null },
+                onConfirm = { chosenOption, chosenSound ->
+                    viewModel.setAdhanSound(prayer, chosenOption)
+                    viewModel.setBundledAdhanSound(prayer, chosenSound.id)
+                    customizingPrayer = null
+                },
+            )
+        }
         downloadPrayer?.let { prayer ->
             DownloadSoundDialog(
                 prayer = prayer,
@@ -185,21 +231,6 @@ fun PrayerSettingsScreen(
                     downloadPrayer = null
                 },
             )
-        }
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            BundledSoundDropdown(
-                current = BundledAdhanSound.fromId(settings.bundledAdhanSound),
-                onSelected = { viewModel.setBundledAdhanSound(it.id) },
-                modifier = Modifier.weight(1f),
-            )
-            IconButton(
-                onClick = { viewModel.previewBundled(BundledAdhanSound.fromId(settings.bundledAdhanSound)) },
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.PlayArrow,
-                    contentDescription = stringResource(R.string.settings_listen),
-                )
-            }
         }
         VolumeRow(volume = settings.adhanVolume, onChanged = viewModel::setAdhanVolume)
         OutlinedButton(
@@ -251,6 +282,151 @@ fun PrayerSettingsScreen(
         )
 
         Spacer(Modifier.height(24.dp))
+    }
+}
+
+/**
+ * Live preview of the adhan notification, mirroring
+ * [org.muslim.app.feature.prayertimes.notifications.AdhanNotifications.adhanNotification]:
+ * small icon, title and the real next prayer name/time (computed from the saved
+ * location, refreshed every minute). Dims when adhan is disabled.
+ */
+@Composable
+private fun AdhanNotificationPreview(
+    prayer: Prayer?,
+    time: LocalTime?,
+    enabled: Boolean,
+) {
+    Column(
+        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(
+            text = stringResource(R.string.settings_adhan_preview_label),
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Spacer(Modifier.height(6.dp))
+        Surface(
+            shape = androidx.compose.foundation.shape.RoundedCornerShape(16.dp),
+            color = MaterialTheme.colorScheme.surfaceContainerHighest,
+            modifier = Modifier
+                .fillMaxWidth()
+                .alpha(if (enabled) 1f else 0.45f),
+        ) {
+            Row(
+                modifier = Modifier.padding(horizontal = 14.dp, vertical = 12.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Icon(
+                    Icons.Filled.NotificationsActive,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(24.dp),
+                )
+                Spacer(Modifier.width(12.dp))
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(R.string.adhan_notification_title),
+                        style = MaterialTheme.typography.labelLarge,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                    Spacer(Modifier.height(2.dp))
+                    Text(
+                        text = if (prayer == null) {
+                            stringResource(R.string.settings_adhan_preview_no_location)
+                        } else {
+                            stringResource(R.string.prayer_name, stringResource(prayerLabelRes(prayer)))
+                        },
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+                if (time != null) {
+                    Text(
+                        text = time.format(localTimeFormatter),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+        }
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = stringResource(R.string.settings_adhan_preview_hint),
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
+/**
+ * Live preview of the prayer reminder notification, mirroring
+ * [org.muslim.app.feature.prayertimes.notifications.AdhanNotifications.showReminder]:
+ * alarm icon, title and the next prayer with the configured lead minutes.
+ * Dims when the reminder is disabled (0 minutes or adhan off).
+ */
+@Composable
+private fun ReminderNotificationPreview(
+    prayer: Prayer?,
+    minutesBefore: Int,
+    enabled: Boolean,
+) {
+    Column(
+        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Surface(
+            shape = androidx.compose.foundation.shape.RoundedCornerShape(16.dp),
+            color = MaterialTheme.colorScheme.surfaceContainerHighest,
+            modifier = Modifier
+                .fillMaxWidth()
+                .alpha(if (enabled) 1f else 0.45f),
+        ) {
+            Row(
+                modifier = Modifier.padding(horizontal = 14.dp, vertical = 12.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Icon(
+                    Icons.Filled.Alarm,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(24.dp),
+                )
+                Spacer(Modifier.width(12.dp))
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(R.string.reminder_title),
+                        style = MaterialTheme.typography.labelLarge,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                    Spacer(Modifier.height(2.dp))
+                    Text(
+                        text = if (prayer == null) {
+                            stringResource(R.string.settings_adhan_preview_no_location)
+                        } else {
+                            stringResource(
+                                R.string.reminder_message,
+                                stringResource(prayerLabelRes(prayer)),
+                                minutesBefore,
+                            )
+                        },
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+            }
+        }
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = stringResource(R.string.settings_reminder_preview_hint),
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
     }
 }
 
@@ -311,72 +487,127 @@ private fun StepperRow(label: String, value: Int, onChanged: (Int) -> Unit) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun AdhanSoundDropdown(
+private fun AdhanSoundRow(
     prayer: Prayer,
-    current: AdhanSoundOption,
-    onSelected: (AdhanSoundOption) -> Unit,
+    option: AdhanSoundOption,
+    sound: BundledAdhanSound,
+    onCustomize: () -> Unit,
 ) {
-    var expanded by remember { mutableStateOf(false) }
-    ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
-        OutlinedTextField(
-            value = stringResource(adhanOptionLabelRes(current)),
-            onValueChange = {},
-            readOnly = true,
-            label = { Text(stringResource(prayerLabelRes(prayer))) },
-            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 4.dp)
-                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
-        )
-        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-            AdhanSoundOption.entries.forEach { option ->
-                DropdownMenuItem(
-                    text = { Text(stringResource(adhanOptionLabelRes(option))) },
-                    onClick = {
-                        expanded = false
-                        onSelected(option)
-                    },
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp)
+            .clickable(onClick = onCustomize),
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = stringResource(prayerLabelRes(prayer)),
+                    style = MaterialTheme.typography.titleSmall,
+                )
+                Spacer(Modifier.height(2.dp))
+                Text(
+                    text = stringResource(
+                        R.string.settings_adhan_sound_summary,
+                        stringResource(adhanOptionLabelRes(option)),
+                        stringResource(bundledSoundLabelRes(sound)),
+                    ),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
+            Icon(
+                imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
+                contentDescription = stringResource(R.string.settings_adhan_customize),
+            )
         }
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+/** Alert dialog to customise one prayer's adhan: sound + alert type, with live preview. */
 @Composable
-private fun BundledSoundDropdown(
-    current: BundledAdhanSound,
-    onSelected: (BundledAdhanSound) -> Unit,
-    modifier: Modifier = Modifier,
+private fun AdhanCustomizeDialog(
+    prayer: Prayer,
+    option: AdhanSoundOption,
+    sound: BundledAdhanSound,
+    onPreview: (BundledAdhanSound) -> Unit,
+    onDismiss: () -> Unit,
+    onConfirm: (AdhanSoundOption, BundledAdhanSound) -> Unit,
 ) {
-    var expanded by remember { mutableStateOf(false) }
-    ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }, modifier = modifier) {
-        OutlinedTextField(
-            value = stringResource(bundledSoundLabelRes(current)),
-            onValueChange = {},
-            readOnly = true,
-            label = { Text(stringResource(R.string.settings_bundled_adhan)) },
-            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 4.dp)
-                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
-        )
-        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-            BundledAdhanSound.entries.forEach { sound ->
-                DropdownMenuItem(
-                    text = { Text(stringResource(bundledSoundLabelRes(sound))) },
-                    onClick = {
-                        expanded = false
-                        onSelected(sound)
-                    },
+    var chosenOption by remember { mutableStateOf(option) }
+    var chosenSound by remember { mutableStateOf(sound) }
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.settings_adhan_customize_title, stringResource(prayerLabelRes(prayer)))) },
+        text = {
+            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+                Text(
+                    text = stringResource(R.string.settings_adhan_alert_type),
+                    style = MaterialTheme.typography.titleSmall,
+                    color = MaterialTheme.colorScheme.primary,
                 )
+                AdhanSoundOption.entries.forEach { entry ->
+                    RadioRow(
+                        label = stringResource(adhanOptionLabelRes(entry)),
+                        selected = chosenOption == entry,
+                        onClick = { chosenOption = entry },
+                    )
+                }
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = stringResource(R.string.settings_adhan_sound_choice),
+                    style = MaterialTheme.typography.titleSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                BundledAdhanSound.entries.forEach { entry ->
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                chosenSound = entry
+                                onPreview(entry)
+                            }
+                            .padding(vertical = 2.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        RadioButton(
+                            selected = chosenSound == entry,
+                            onClick = {
+                                chosenSound = entry
+                                onPreview(entry)
+                            },
+                        )
+                        Text(
+                            text = stringResource(bundledSoundLabelRes(entry)),
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.weight(1f),
+                        )
+                        IconButton(onClick = { onPreview(entry) }) {
+                            Icon(
+                                imageVector = Icons.Filled.PlayArrow,
+                                contentDescription = stringResource(R.string.settings_listen),
+                            )
+                        }
+                    }
+                }
             }
-        }
-    }
+        },
+        confirmButton = {
+            TextButton(onClick = { onConfirm(chosenOption, chosenSound) }) {
+                Text(stringResource(R.string.settings_adhan_confirm))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(R.string.settings_adhan_cancel))
+            }
+        },
+    )
 }
 
 @Composable
@@ -398,6 +629,14 @@ private fun bundledSoundLabelRes(sound: BundledAdhanSound): Int = when (sound) {
     BundledAdhanSound.Saber -> R.string.bundled_adhan_saber
     BundledAdhanSound.SharifDoman -> R.string.bundled_adhan_sharif_doman
     BundledAdhanSound.YusufIslam -> R.string.bundled_adhan_yusuf_islam
+    BundledAdhanSound.UmayyadDamascus -> R.string.bundled_adhan_umayyad_damascus
+}
+
+@Composable
+private fun adhanOptionLabelRes(option: AdhanSoundOption): Int = when (option) {
+    AdhanSoundOption.Default -> R.string.adhan_option_default
+    AdhanSoundOption.VibrateOnly -> R.string.adhan_option_vibrate
+    AdhanSoundOption.Silent -> R.string.adhan_option_silent
 }
 
 @Composable
@@ -426,20 +665,13 @@ private fun VolumeRow(volume: Int, onChanged: (Int) -> Unit) {
 }
 
 @Composable
-private fun adhanOptionLabelRes(option: AdhanSoundOption): Int = when (option) {
-    AdhanSoundOption.Default -> R.string.adhan_option_default
-    AdhanSoundOption.VibrateOnly -> R.string.adhan_option_vibrate
-    AdhanSoundOption.Silent -> R.string.adhan_option_silent
-}
-
-@Composable
 private fun BatterySettingsButton() {
     val context = LocalContext.current
     Button(onClick = {
         // Opens the system battery-optimization list for this app. No special
         // permission needed (unlike ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).
         val intent = Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS)
-            .setData(Uri.parse("package:${context.packageName}"))
+            .setData("package:${context.packageName}".toUri())
         runCatching { context.startActivity(intent) }
     }) {
         Text(stringResource(R.string.settings_battery_open))
@@ -471,7 +703,7 @@ private fun ExactAlarmButton() {
                 runCatching {
                     context.startActivity(
                         Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM)
-                            .setData(Uri.parse("package:${context.packageName}")),
+                            .setData("package:${context.packageName}".toUri()),
                     )
                 }
             },

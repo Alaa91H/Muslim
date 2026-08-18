@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hadith_all">அனைத்து</string>
+    <string name="hadith_back">மீண்டும்</string>
+    <string name="hadith_bookmark_add">புக்மார்க்கைச் சேர்க்கவும்</string>
+    <string name="hadith_bookmark_remove">புக்மார்க்கை அகற்று</string>
+    <string name="hadith_collection_abudawud">அபு தாவூத்</string>
+    <string name="hadith_collection_bukhari">அல்-புகாரி</string>
+    <string name="hadith_collection_ibnmajah">இப்னு மாஜா</string>
+    <string name="hadith_collection_muslim">முஸ்லிம்</string>
+    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nawawi">அன்-நவாவி 40</string>
+    <string name="hadith_collection_other">மற்றவை</string>
+    <string name="hadith_collection_riyad">ரியாத் அஸ்-சாலிஹீன்</string>
+    <string name="hadith_collection_tirmidhi">அத்-திர்மிதி</string>
+    <string name="hadith_daily_notification">தினசரி ஹதீஸ் அறிவிப்பு</string>
+    <string name="hadith_daily_notification_desc">ஒவ்வொரு நாளும் ஒரு ஹதீஸைப் பெறுங்கள்</string>
+    <string name="hadith_daily_notification_time">அறிவிப்பு நேரம்</string>
+    <string name="hadith_of_the_day">அன்றைய ஹதீஸ்</string>
+    <string name="hadith_preview_hint">தினசரி ஹதீஸ் அறிவிப்பு அதன் திட்டமிடப்பட்ட நேரத்தில் இப்படித்தான் தோன்றும்.</string>
+    <string name="hadith_preview_label">அறிவிப்பு முன்னோட்டம்</string>
+    <string name="hadith_preview_loading">ஹதீஸை ஏற்றுகிறது...</string>
+    <string name="hadith_search_hint">ஹதீஸ்களைத் தேடுங்கள்...</string>
+    <string name="hadith_share">பகிரவும்</string>
+    <string name="hadith_title">ஹதீஸ் நூலகம்</string>
+</resources>

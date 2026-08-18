@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">უკან</string>
+    <string name="ramadan_countdown">რამადანი იწყება %1$s დღეში</string>
+    <string name="ramadan_countdown_to_iftar">იფტარამდე დრო: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">დრო ფაჯრამდე: %1$s</string>
+    <string name="ramadan_day_of_month">რამადანის %1$s დღე</string>
+    <string name="ramadan_days_left">დარჩენილია %1$s დღე</string>
+    <string name="ramadan_fasting_progress">მარხვის დღეები: %1$s %2$s-დან — შეეხეთ დღეში ჩასაწერად</string>
+    <string name="ramadan_fasting_tracker">მარხვის ტრეკერი</string>
+    <string name="ramadan_hijri_note">უმ ალ-ყურას კალენდარზე დაყრდნობით, აპლიკაციის მასშტაბით ჰიჯრის კორექტირებით.</string>
+    <string name="ramadan_hijri_year">წელი %1$s ახ.წ</string>
+    <string name="ramadan_iftar">იფტარი</string>
+    <string name="ramadan_iftar_dua">იფტარის ლოცვა: "ო, ალლაჰ, შენთვის ვიმარხულე და შენი ზრუნვით ვარღვევ მარხვას..."</string>
+    <string name="ramadan_iftar_time">იფტარი (მაღრიბი) დრო: %1$s</string>
+    <string name="ramadan_location_required">ჯერ აირჩიეთ ქალაქი პარამეტრებიდან, რომ ნახოთ დრო.</string>
+    <string name="ramadan_minutes">%1$s წთ</string>
+    <string name="ramadan_notification_iftar_body">ო, ალლაჰ, შენთვის ვმარხულობდი და შენი ზრუნვით ვარღვევ მარხვას</string>
+    <string name="ramadan_notification_iftar_title">იფტარის დროა</string>
+    <string name="ramadan_notification_suhoor_body">ფაჯრი ახლოვდება - მიირთვით სუჰური</string>
+    <string name="ramadan_notification_suhoor_title">სუჰურის შეხსენება</string>
+    <string name="ramadan_starts_on">%1$s — %2$s</string>
+    <string name="ramadan_suhoor">სუჰური</string>
+    <string name="ramadan_suhoor_remind_before">ადრე შემახსენე:</string>
+    <string name="ramadan_suhoor_time">სუჰური მთავრდება (ფაჯრი): %1$s</string>
+    <string name="ramadan_title">რამადანი</string>
+</resources>

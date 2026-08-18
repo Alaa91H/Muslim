@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mosque_finder_distance">%s ଦୂରରେ |</string>
+    <string name="mosque_finder_empty">ଏହି ପରିସରରେ କ No ଣସି ମସଜିଦ ମିଳିଲା ନାହିଁ |</string>
+    <string name="mosque_finder_error">ସନ୍ଧାନ ବିଫଳ ହେଲା |</string>
+    <string name="mosque_finder_intro">OpenStreetMap ମାଧ୍ୟମରେ ଆପଣଙ୍କ ଅବସ୍ଥାନ ନିକଟରେ ମସଜିଦ ଖୋଜ |</string>
+    <string name="mosque_finder_no_location">ଏପର୍ଯ୍ୟନ୍ତ କ location ଣସି ଅବସ୍ଥାନ ସେଟ୍ ହୋଇନାହିଁ | ପ୍ରଥମେ ପ୍ରାର୍ଥନା ସମୟ ସେଟିଂସମୂହରୁ ଏକ ସ୍ଥାନ ବାଛନ୍ତୁ |</string>
+    <string name="mosque_finder_retry">ପୁନ ry ଚେଷ୍ଟା କରନ୍ତୁ |</string>
+    <string name="mosque_finder_searching">ଖୋଜୁଛି…</string>
+    <string name="mosque_finder_title">ନିକଟସ୍ଥ ମସଜିଦ</string>
+    <string name="qibla_bearing_cardinal">କିବଲା ଦିଗ: %1$s</string>
+    <string name="qibla_bearing_degree">🕋 %1$.0f °</string>
+    <string name="qibla_calibrate">କାଲିବ୍ରେଟ୍ କରିବାକୁ ଆପଣଙ୍କ ଫୋନକୁ ଏକ ଚିତ୍ର-ଆଠରେ ଘୁଞ୍ଚାନ୍ତୁ |</string>
+    <string name="qibla_distance">ମକ୍କା ପର୍ଯ୍ୟନ୍ତ ଦୂରତା: %1$s |</string>
+    <string name="qibla_distance_km">%,.0f କିମି |</string>
+    <string name="qibla_facing">ଆପଣ କିବଲା facing ସାମ୍ନା କରୁଛନ୍ତି |</string>
+    <string name="qibla_gps_error">ଏକ ସଠିକ୍ ସମାଧାନ ପାଇପାରିଲା ନାହିଁ | ଦୟାକରି ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ |</string>
+    <string name="qibla_gps_live">ଲାଇଭ୍ ଜିପିଏସ୍ ଅବସ୍ଥାନ |</string>
+    <string name="qibla_gps_refresh">GPS ମାଧ୍ୟମରେ ଅବସ୍ଥାନ ସତେଜ କରନ୍ତୁ |</string>
+    <string name="qibla_gps_refreshing">ଅବସ୍ଥାନ…</string>
+    <string name="qibla_heading_degree">ଫୋନ୍ ହେଡିଙ୍ଗ୍: %1$.0f ° (%2$s)</string>
+    <string name="qibla_map_hint">ଆପଣଙ୍କ ଅବସ୍ଥାନରୁ କାବା ପର୍ଯ୍ୟନ୍ତ ଗ୍ରେଟ୍-ସର୍କଲ୍ ମାର୍ଗ - ଅଫଲାଇନରେ କାମ କରେ |</string>
+    <string name="qibla_map_kaaba">କାବା |</string>
+    <string name="qibla_map_you">ତୁମେ</string>
+    <string name="qibla_mode_compass">କମ୍ପାସ୍ |</string>
+    <string name="qibla_mode_map">ମାନଚିତ୍ର</string>
+    <string name="qibla_open_mosques">ନିକଟସ୍ଥ ମସଜିଦ</string>
+    <string name="qibla_title">କିବଲା ଦିଗ |</string>
+    <string name="qibla_turn_left">ବାମକୁ %1$.1f ° ବୁଲାନ୍ତୁ |</string>
+    <string name="qibla_turn_right">ଡାହାଣକୁ %1$.1f ° ବୁଲାନ୍ତୁ |</string>
+</resources>

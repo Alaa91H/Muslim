@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Хаксене автоматла илсе килӗр</string>
+    <string name="zakat_auto_prices_hint">Ӗҫлеттернӗ чухне ылтӑнпа кӗмӗл хакӗсене интернетран илсе автоматла майпа ҫӗнетеҫҫӗ</string>
+    <string name="zakat_back">Каялла</string>
+    <string name="zakat_cash">Укҫа тата перекет</string>
+    <string name="zakat_clear_history">Истори уҫӑмлӑ</string>
+    <string name="zakat_country">Ҫӗршыв</string>
+    <string name="zakat_country_placeholder">Хӑвӑрӑн ҫӗршыва тата валютӑна суйласа илӗр</string>
+    <string name="zakat_country_section">Ҫӗршыв тата валюта</string>
+    <string name="zakat_currency">Валюта: %1$s</string>
+    <string name="zakat_debts">Сирӗн парӑмсем (чарса юлнӑ)</string>
+    <string name="zakat_due">Закат (2,5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Хаксене \' илсе килеймерӗм. Хӑвӑрӑн ҫыхӑнӑва тӗрӗслӗр е хака алӑпа кӗртӗр.</string>
+    <string name="zakat_fetch_now">Хаксене халех ҫӗнетӗр</string>
+    <string name="zakat_fetching">Хаксене илсе килни...</string>
+    <string name="zakat_fitr_persons">Ҫемье членӗсен шучӗ</string>
+    <string name="zakat_fitr_saa_value">Пӗр са\' (тӗп апат-ҫимӗҫ) хакӗ</string>
+    <string name="zakat_fitr_section">Закат аль-Фитр</string>
+    <string name="zakat_fitr_total">Пӗтӗмӗшле фитр закат: %1$s</string>
+    <string name="zakat_gold_grams">Ылтӑн (грамм)</string>
+    <string name="zakat_gold_price">Пӗр грамм ылтӑн хакӗ</string>
+    <string name="zakat_history">Шутлав историйӗ</string>
+    <string name="zakat_history_amount">Закат: %1$s</string>
+    <string name="zakat_history_empty">Хальлӗхе упранӑ шутлавсем ҫук-ха.</string>
+    <string name="zakat_investments">Инвестицисем</string>
+    <string name="zakat_last_updated">Юлашки хут ҫӗнетнӗ: %1$s</string>
+    <string name="zakat_money_section">Пуянлӑх ҫине закат</string>
+    <string name="zakat_nisab_gold">Ылтӑн нисаб (85г)</string>
+    <string name="zakat_nisab_met">Нисаб ҫитнӗ — закат тивӗҫлӗ</string>
+    <string name="zakat_nisab_not_met">Нисабран аяларах — закат ҫук</string>
+    <string name="zakat_nisab_silver">Кӗмӗл нисаб (595г)</string>
+    <string name="zakat_rulings_note">Ытларахӑшӗ шучӗпе (джумхур): ылтӑн нисаб 85 г, кӗмӗл 595 г, тата ставка 2,5%%, тивӗҫлӗ парӑмсене кӑларса пӑрахнӑ хыҫҫӑн. Ятарлӑ тӗслӗхсем пирки квалификациллӗ ӑсчахпа канашлӑр.</string>
+    <string name="zakat_save_result">Историе упрӑр</string>
+    <string name="zakat_silver_grams">Кӗмӗл (грамм)</string>
+    <string name="zakat_silver_price">Пӗр грамм кӗмӗл хакӗ</string>
+    <string name="zakat_source_note">ылтӑн/кӗмӗл хакӗсем gold-api.com сайтран; open.er-api.com сайтри валюта ставкисем</string>
+    <string name="zakat_title">Закат</string>
+    <string name="zakat_total_assets">Пӗтӗмӗшле пурлӑх</string>
+    <string name="zakat_trade">Суту-илӳ таварӗсен хакӗ</string>
+    <string name="zakat_zakatable">Парӑмсем хыҫҫӑн заката виҫи</string>
+</resources>

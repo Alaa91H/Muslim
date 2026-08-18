@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">އަގުތައް އޮޓޮމެޓިކުން ގެނައުން</string>
+    <string name="zakat_auto_prices_hint">އެނެބަލް ކުރުމުން ރަނާއި ރިހިގެ އަގުތައް އިންޓަނެޓުން ގެނެސް އޮޓޮމެޓިކުން ރިފްރެޝް ކުރެވެ އެވެ</string>
+    <string name="zakat_back">ފަހަތަށް</string>
+    <string name="zakat_cash">ކޭޝް އާއި ސޭވިންގްސް އެވެ</string>
+    <string name="zakat_clear_history">ސާފު ތާރީޚެއް</string>
+    <string name="zakat_country">ޤައުމު</string>
+    <string name="zakat_country_placeholder">ތިމާގެ ޤައުމާއި ފައިސާ ހޮވާށެވެ</string>
+    <string name="zakat_country_section">ޤައުމު &amp; ފައިސާ</string>
+    <string name="zakat_currency">ފައިސާ: %1$s</string>
+    <string name="zakat_debts">ދައްކަންޖެހޭ ދަރަނިތައް (އުނިކޮށްފައި)</string>
+    <string name="zakat_due">ޒަކާތް ދައްކަންޖެހޭ (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Couldn\'t އަގުތައް ގެންނަން. ކަނެކްޝަން ޗެކްކުރުން ނުވަތަ އަގު އަމިއްލައަށް ލިޔެލާށެވެ.</string>
+    <string name="zakat_fetch_now">އަގުތައް މިހާރު ރިފްރެޝް ކޮށްލާށެވެ</string>
+    <string name="zakat_fetching">އަގުތައް ގެނެސްގެން...</string>
+    <string name="zakat_fitr_persons">އާއިލާގެ މެމްބަރުންގެ އަދަދު</string>
+    <string name="zakat_fitr_saa_value">އެއް sa\' (ސްޓޭޕްލް ފުޑް) ގެ އަގު</string>
+    <string name="zakat_fitr_section">ޒަކާތުލް ފިތުރު އެވެ</string>
+    <string name="zakat_fitr_total">ޖުމްލަ ފިތުރު ޒަކާތް: %1$s</string>
+    <string name="zakat_gold_grams">ރަން (ގްރާމް)</string>
+    <string name="zakat_gold_price">ގްރާމަކަށް ރަނުގެ އަގު</string>
+    <string name="zakat_history">ހިސާބުކުރުމުގެ ތާރީޚެވެ</string>
+    <string name="zakat_history_amount">ޒަކާތް: %1$s އެވެ</string>
+    <string name="zakat_history_empty">އަދި ސޭވްކޮށްފައިވާ ހިސާބުތަކެއް ނެތެވެ.</string>
+    <string name="zakat_investments">އިންވެސްޓްމަންޓްތައް</string>
+    <string name="zakat_last_updated">އެންމެ ފަހުން އަޕްޑޭޓް ކުރެވުނީ: %1$s އެވެ</string>
+    <string name="zakat_money_section">މުއްސަނދިކަމުގެ މައްޗަށް ޒަކާތް</string>
+    <string name="zakat_nisab_gold">ރަން ނިސާބް (85ގ)</string>
+    <string name="zakat_nisab_met">ނިސާބަށް ވާސިލްވެއްޖެ — ޒަކާތް ލިބެންޖެހޭ</string>
+    <string name="zakat_nisab_not_met">ނިސާބުގެ ތިރީގައި — ޒަކާތް ނުދައްކައެވެ</string>
+    <string name="zakat_nisab_silver">ރިހި ނިސާބް (595ގ)</string>
+    <string name="zakat_rulings_note">މެޖޯރިޓީ (ޖުމްހޫރު) އަށް ބަލާއިރު: ރަން ނިސާބަކީ 85ގ، ރިހި 595ގ، އަދި ދައްކަންޖެހޭ ދަރަނިތައް އުނިކުރުމަށްފަހު ރޭޓަކީ 2.5%% އެވެ. ޚާއްޞަ މައްސަލަތަކަށް ޤާބިލް އިލްމުވެރިއެއްގެ މަޝްވަރާ ހޯދުން.</string>
+    <string name="zakat_save_result">ތާރީޚަށް ރައްކާކުރާށެވެ</string>
+    <string name="zakat_silver_grams">ރިހި (ގްރާމް)</string>
+    <string name="zakat_silver_price">ގްރާމަކަށް ރިހި އަގު</string>
+    <string name="zakat_source_note">ރަން/ރިހިގެ އަގުތައް gold-api.com އިން؛ އެފްއެކްސް ރޭޓްތައް open.er-api.com އިން ލިބޭނެ އެވެ</string>
+    <string name="zakat_title">ޒަކާތެވެ</string>
+    <string name="zakat_total_assets">ޖުމްލަ އެސެޓް</string>
+    <string name="zakat_trade">ވިޔަފާރީގެ މުދަލުގެ އަގު</string>
+    <string name="zakat_zakatable">ދަރަނިތަކަށްފަހު ޒަކާތްކުރެވޭ އަދަދެވެ</string>
+</resources>

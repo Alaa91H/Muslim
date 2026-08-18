@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ramadan_back">Balik deui</string>
+    <string name="ramadan_countdown">Ramadan dimimitian dina %1$s poé</string>
+    <string name="ramadan_countdown_to_iftar">Waktos pikeun buka puasa: %1$s</string>
+    <string name="ramadan_countdown_to_suhoor">Waktos ka Subuh: %1$s</string>
+    <string name="ramadan_day_of_month">Poé %1$s Ramadhan</string>
+    <string name="ramadan_days_left">%1$s poé sésana</string>
+    <string name="ramadan_fasting_progress">Poé puasa: %1$s tina %2$s - ketok sadinten pikeun ngarékam éta</string>
+    <string name="ramadan_fasting_tracker">Puasa tracker</string>
+    <string name="ramadan_hijri_note">Dumasar kana kalénder Ummu al-Qura kalayan panyesuaian Hijriah aplikasi-lega diterapkeun.</string>
+    <string name="ramadan_hijri_year">Taun %1$s AH</string>
+    <string name="ramadan_iftar">Iftar</string>
+    <string name="ramadan_iftar_dua">Doa buka puasa: "Ya Allah, kanggo Anjeun abdi saum sareng kana rezeki anjeun abdi buka puasa..."</string>
+    <string name="ramadan_iftar_time">Puasa (Maghrib) waktos: %1$s</string>
+    <string name="ramadan_location_required">Pilih kota dina Setélan heula pikeun ningali waktosna.</string>
+    <string name="ramadan_minutes">%1$s mnt</string>
+    <string name="ramadan_notification_iftar_body">Ya Allah, karana Anjeun abdi saum sareng ka rizki Anjeun abdi buka puasa</string>
+    <string name="ramadan_notification_iftar_title">Wanci buka puasa</string>
+    <string name="ramadan_notification_suhoor_body">Subuh geus ngadeukeutan - sahur anjeun</string>
+    <string name="ramadan_notification_suhoor_title">Panginget sahur</string>
+    <string name="ramadan_starts_on">%1$s - %2$s</string>
+    <string name="ramadan_suhoor">Sahur</string>
+    <string name="ramadan_suhoor_remind_before">Ngingetkeun kuring sateuacan:</string>
+    <string name="ramadan_suhoor_time">Sahur réngsé (Fajr): %1$s</string>
+    <string name="ramadan_title">Ramadhan</string>
+</resources>

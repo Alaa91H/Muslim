@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">മുസ്ലിം</string>
+    <string name="more_adhkar">അധ്കർ</string>
+    <string name="more_adhkar_desc">രാവിലെയും വൈകുന്നേരവും പ്രാർത്ഥനാ ശേഷവും കൗണ്ടറുകൾ സഹിതം</string>
+    <string name="more_downloads">പാരായണം ഡൗൺലോഡുകൾ</string>
+    <string name="more_downloads_desc">നിങ്ങൾ തിരഞ്ഞെടുത്ത പാരായണക്കാരൻ ഉപയോഗിച്ച് ഒരു സൂറ, ഒരു ആയത്ത് അല്ലെങ്കിൽ മുഴുവൻ ഖുറാനും ഡൗൺലോഡ് ചെയ്യുക</string>
+    <string name="more_hadith">ഹദീസ്</string>
+    <string name="more_hadith_desc">ഹദീസ് ലൈബ്രറി, തിരയൽ &amp; അന്നത്തെ ഹദീസ്</string>
+    <string name="more_learn">പഠിക്കുക</string>
+    <string name="more_learn_desc">ഘട്ടം ഘട്ടമായുള്ള വുഡു &amp; പ്രാർത്ഥന ഗൈഡുകൾ</string>
+    <string name="more_ramadan">റമദാൻ</string>
+    <string name="more_ramadan_desc">സുഹൂർ &amp; ഇഫ്താർ സമയങ്ങളും നോമ്പ് ട്രാക്കറും</string>
+    <string name="more_reference">റഫറൻസ് ലൈബ്രറി</string>
+    <string name="more_reference_desc">ഇസ്‌ലാം, സിറ, പ്രവാചകന്മാർ എന്നിവയിലേക്കുള്ള ആമുഖം</string>
+    <string name="more_settings">ക്രമീകരണങ്ങൾ</string>
+    <string name="more_settings_desc">തീം, ഭാഷ, പ്രാർത്ഥന, അധാൻ ക്രമീകരണങ്ങൾ</string>
+    <string name="more_tasbih">തസ്ബിഹ്</string>
+    <string name="more_tasbih_desc">ദൈനംദിന ചരിത്രമുള്ള ഡിജിറ്റൽ മിസ്ബഹ</string>
+    <string name="more_zakat">സകാത്ത്</string>
+    <string name="more_zakat_desc">സമ്പത്തിൻ്റെ സകാത്തും ഫിത്തർ കാൽക്കുലേറ്ററും</string>
+    <string name="scaffold_message">മൾട്ടി-മൊഡ്യൂൾ പ്രോജക്റ്റ് അസ്ഥികൂടം തയ്യാറാണ്.\nഘട്ടം 1 - അദാൻ, പ്രാർത്ഥന സമയം, ഖിബ്ല, ഹിജ്‌രി കലണ്ടർ എന്നിവ ഇവിടെ ആരംഭിക്കുന്നു.</string>
+    <string name="shortcut_qibla">ഖിബ്ല</string>
+    <string name="shortcut_qibla_long">ഖിബ്ല ദിശ</string>
+    <string name="shortcut_settings">ക്രമീകരണങ്ങൾ</string>
+    <string name="shortcut_settings_long">പ്രാർത്ഥന, അദാൻ ക്രമീകരണങ്ങൾ</string>
+    <string name="shortcut_times">പ്രാർത്ഥന സമയങ്ങൾ</string>
+    <string name="shortcut_times_long">ഇന്ന് \' പ്രാർത്ഥന സമയം</string>
+    <string name="tab_home">പ്രാർത്ഥന സമയം</string>
+    <string name="tab_more">കൂടുതൽ</string>
+    <string name="tab_qibla">ഖിബ്ല</string>
+    <string name="tab_quran">ഖുർആൻ</string>
 </resources>

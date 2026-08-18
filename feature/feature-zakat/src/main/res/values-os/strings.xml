@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zakat_auto_prices">Æргътæ автоматикон æгъдауæй æрбахæссут</string>
+    <string name="zakat_auto_prices_hint">Куы æххæстгонд цæуы, уæд сызгъæрин æмæ æвзист æргътæ ист цæуынц интернетæй æмæ сног вæййынц автоматикон æгъдауæй</string>
+    <string name="zakat_back">Фæстæмæ</string>
+    <string name="zakat_cash">Æхца æмæ æфтиæгтæ</string>
+    <string name="zakat_clear_history">Бæлвырд истори</string>
+    <string name="zakat_country">Бæстæ</string>
+    <string name="zakat_country_placeholder">Равзарут уæ бæстæ æмæ æхца</string>
+    <string name="zakat_country_section">Бæстæ æмæ æхца</string>
+    <string name="zakat_currency">Æхца: %1$s</string>
+    <string name="zakat_debts">Хæстæ, кæцытæ дæм ис (ист)</string>
+    <string name="zakat_due">Закъат (2.5%%): %1$s</string>
+    <string name="zakat_fetch_failed">Нæ бон нæ уыд æргътæ æрбахæссын. Сбæрæг кæнут уæ бастдзинад кæнæ бафыссут аргъ къухæй.</string>
+    <string name="zakat_fetch_now">Æргътæ ныртæккæ сног кæнут</string>
+    <string name="zakat_fetching">Æргътæ æрбахæссын...</string>
+    <string name="zakat_fitr_persons">Бинонты нымæц</string>
+    <string name="zakat_fitr_saa_value">Иу са\' аргъ (сæйраг хæринаг)</string>
+    <string name="zakat_fitr_section">Закат аль-Фитр</string>
+    <string name="zakat_fitr_total">Æдæппæт Фитры закат: %1$s</string>
+    <string name="zakat_gold_grams">Сызгъæрин (граммтæ)</string>
+    <string name="zakat_gold_price">Згъæры аргъ иу граммæн</string>
+    <string name="zakat_history">Нымæцон истори</string>
+    <string name="zakat_history_amount">Закъат: %1$s</string>
+    <string name="zakat_history_empty">Нырма хъахъхъæд нымадтæ нæй.</string>
+    <string name="zakat_investments">Инвестицитæ</string>
+    <string name="zakat_last_updated">Фæстаг хатт ноггонд: %1$s</string>
+    <string name="zakat_money_section">Хъæздыгдзинадыл закъат</string>
+    <string name="zakat_nisab_gold">Згъæр нисаб (85г)</string>
+    <string name="zakat_nisab_met">Нисабмæ æрхæццæ — закат æмбæлы</string>
+    <string name="zakat_nisab_not_met">Нисабæй дæлдæр — закат нæ хъæуы</string>
+    <string name="zakat_nisab_silver">Æвзист нисаб (595г)</string>
+    <string name="zakat_rulings_note">Фылдæр хаймæ гæсгæ (джумхур): сызгъæрин нисаб у 85г, æвзист 595г, æмæ йæ аргъ у 2.5%% æмбæлон хæстæ рахицæн кæныны фæстæ. Сæрмагонд цауты тыххæй бадзур квалификациджын ахуыргондмæ.</string>
+    <string name="zakat_save_result">Хъахъхъæнын историмæ</string>
+    <string name="zakat_silver_grams">Æвзист (граммтæ)</string>
+    <string name="zakat_silver_price">Æвзист аргъ иу граммæн</string>
+    <string name="zakat_source_note">Сыгъзæрин/æвзист æргътæ gold-api.com-æй; Æхцайы аргъ open.er-api.com-æй</string>
+    <string name="zakat_title">Закъат</string>
+    <string name="zakat_total_assets">Æдæппæт активтæ</string>
+    <string name="zakat_trade">Базарадон товарты аргъ</string>
+    <string name="zakat_zakatable">Хæсты фæстæ æнæмæнгхъæуæг суммæ</string>
+</resources>
