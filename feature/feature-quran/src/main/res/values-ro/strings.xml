@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Numărul Ayah</string>
     <string name="quran_download_cancel">Anulează</string>
     <string name="quran_download_channel">Descărcări de recitare</string>
-    <string name="quran_download_current_ayah">Actuala aia</string>
-    <string name="quran_download_current_surah">Sura actuală</string>
     <string name="quran_download_delete">Ștergeți</string>
     <string name="quran_download_delete_confirm">Ștergeți descărcările?</string>
     <string name="quran_download_delete_confirm_message">Sunetul descărcat va fi eliminat definitiv de pe dispozitiv.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Așteptând noaptea</string>
     <string name="quran_download_night_waiting">Va începe noaptea — fereastra %1$s</string>
     <string name="quran_download_night_window_title">Fereastra de descărcare de noapte</string>
-    <string name="quran_download_options_title">Opțiuni de descărcare</string>
     <string name="quran_download_pause">Pauză</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Descărcat pentru acest reciter: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d sure · %2$d versuri · %3$s</string>
-    <string name="quran_download_reciter_title">Selectați recitatorul</string>
     <string name="quran_download_restoring">Se reia descărcările…</string>
     <string name="quran_download_resume">Reluați</string>
     <string name="quran_download_scope_ayah">Aia</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Întrerupt</string>
     <string name="quran_download_status_queued">În coadă</string>
     <string name="quran_download_surah_number">Numărul surei (1–114)</string>
-    <string name="quran_downloaded">Descărcat</string>
     <string name="quran_downloads_active_title">Descărcări curente și trecute</string>
+    <string name="quran_downloads_summary_title">Total descărcat</string>
+    <string name="quran_downloads_summary">%1$d sure · %2$d versuri · %3$s</string>
     <string name="quran_downloads_none">Nicio descărcare încă</string>
     <string name="quran_downloads_title">Descărcări</string>
     <string name="quran_font_larger">Font mai mare</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Sfântul Coran</string>
+    <string name="quran_download_reciter_header">Descărcat: %1$d ayahs · %2$s</string>
 </resources>

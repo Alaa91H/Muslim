@@ -30,4 +30,22 @@
     <string name="tab_more">Juk’ampi</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Quran ukax mä juk’a pachanakanwa</string>
+    <string name="more_section_worship">Yupaychaña</string>
+    <string name="more_section_knowledge">Yatiñanaka</string>
+    <string name="more_section_tools">Herramientas ukanaka</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل ukax mä juk’a pachanakanwa</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Jan suyt’ata pantjasiwi</string>
+    <string name="crash_fatal_message">Kunas jan walt’ayataw uñjasiwayi ukat app ukax sayt’awayiwa. Ukax wasitat qalltaspawa jan ukax jist’antatarakiwa.</string>
+    <string name="crash_recoverable_message">Kunas jan walt’ayataw uñjasiwayi, ukampis uka app apnaqaskakismawa.</string>
+    <string name="crash_restart">Wasitat qalltaña</string>
+    <string name="crash_close">Jist’antaña</string>
+    <string name="crash_dismiss">Ukhama sarantaskakiwa</string>
 </resources>

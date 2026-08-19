@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah uimhir</string>
     <string name="quran_download_cancel">Cealaigh</string>
     <string name="quran_download_channel">Íoslódáil aiste ar aithriseoireacht</string>
-    <string name="quran_download_current_ayah">Ayah reatha</string>
-    <string name="quran_download_current_surah">Surah reatha</string>
     <string name="quran_download_delete">Scrios</string>
     <string name="quran_download_delete_confirm">An bhfuil fonn ort íoslódálacha a scriosadh?</string>
     <string name="quran_download_delete_confirm_message">Bainfear an fhuaim íoslódála de do ghléas go buan.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Ag fanacht leis an oíche</string>
     <string name="quran_download_night_waiting">Tosóidh an oíche - fuinneog %1$s</string>
     <string name="quran_download_night_window_title">Fuinneog oíche íoslódáil</string>
-    <string name="quran_download_options_title">Roghanna íoslódáil</string>
     <string name="quran_download_pause">Sos</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Íosluchtaigh le haghaidh an aithriseora seo: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Roghnaigh aithriseoir</string>
     <string name="quran_download_restoring">Íoslódálacha á atosú…</string>
     <string name="quran_download_resume">Atosaigh</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Sos</string>
     <string name="quran_download_status_queued">Ciúáilte</string>
     <string name="quran_download_surah_number">Uimhir Shurah (1–114)</string>
-    <string name="quran_downloaded">Íosluchtaithe</string>
     <string name="quran_downloads_active_title">Íosluchtaigh reatha agus san am atá caite</string>
+    <string name="quran_downloads_summary_title">Iomlán íosluchtaithe</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Gan íoslódálacha fós</string>
     <string name="quran_downloads_title">Íoslódálacha</string>
     <string name="quran_font_larger">Cló níos mó</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">méid: %1$s</string>
     <string name="quran_title">An Quran Naofa</string>
+    <string name="quran_download_reciter_header">Íoslódáil: %1$d ayahs · %2$s</string>
 </resources>

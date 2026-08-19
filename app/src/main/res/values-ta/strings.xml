@@ -30,4 +30,22 @@
     <string name="tab_more">மேலும்</string>
     <string name="tab_qibla">கிப்லா</string>
     <string name="tab_quran">குர்ஆன்</string>
+    <string name="more_section_worship">வழிபாடு</string>
+    <string name="more_section_knowledge">அறிவு</string>
+    <string name="more_section_tools">கருவிகள்</string>
+    <string name="more_section_app">ஆப்</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى அவு லாஸ்ஃபல். يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة ஆவு துலஸ் லாட்அமல் புத்தன் அன்ட்ரன்ட்</string>
+    <string name="crash_title">எதிர்பாராத பிழை</string>
+    <string name="crash_fatal_message">ஏதோ தவறாகிவிட்டது, பயன்பாடு நிறுத்தப்பட்டது. நீங்கள் அதை மறுதொடக்கம் செய்யலாம் அல்லது மூடலாம்.</string>
+    <string name="crash_recoverable_message">ஏதோ தவறாகிவிட்டது, ஆனால் நீங்கள் தொடர்ந்து பயன்பாட்டைப் பயன்படுத்தலாம்.</string>
+    <string name="crash_restart">மறுதொடக்கம்</string>
+    <string name="crash_close">மூடு</string>
+    <string name="crash_dismiss">தொடரவும்</string>
 </resources>

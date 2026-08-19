@@ -6,4 +6,10 @@
     <string name="notif_preview_missed">Adzan yang terlewat: %1$s — %2$s</string>
     <string name="notif_preview_next_title">Adzan berikutnya: %1$s — %2$s</string>
     <string name="notif_preview_remaining">Sisa waktu: %1$s</string>
+    <string name="settings_section_time_format">Format waktu</string>
+    <string name="settings_time_12">12 jam (AM/PM)</string>
+    <string name="settings_time_24">24 jam</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">Layanan Pelanggan</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات…)</string>
 </resources>

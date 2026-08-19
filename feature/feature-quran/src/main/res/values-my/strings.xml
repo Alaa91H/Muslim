@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah နံပါတ်</string>
     <string name="quran_download_cancel">မလုပ်တော့</string>
     <string name="quran_download_channel">ရွတ်ဆိုဒေါင်းလုဒ်များ</string>
-    <string name="quran_download_current_ayah">လက်ရှိ အာယာ</string>
-    <string name="quran_download_current_surah">လက်ရှိစူရာဟ်</string>
     <string name="quran_download_delete">ဖျက်ပါ။</string>
     <string name="quran_download_delete_confirm">ဒေါင်းလုဒ်များကို ဖျက်မလား။</string>
     <string name="quran_download_delete_confirm_message">ဒေါင်းလုဒ်လုပ်ထားသော အသံကို သင့်စက်မှ အပြီးတိုင်ဖယ်ရှားပါမည်။</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">ညစောင့်</string>
     <string name="quran_download_night_waiting">- window %1$s ညအချိန်တွင် စတင်ပါမည်။</string>
     <string name="quran_download_night_window_title">ညက ဒေါင်းလုဒ်လုပ်ထားတဲ့ ဝင်းဒိုး</string>
-    <string name="quran_download_options_title">ဒေါင်းလုဒ်ရွေးချယ်မှုများ</string>
     <string name="quran_download_pause">ခဏရပ်ပါ။</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">ဤရွတ်ဆိုသူအတွက် ဒေါင်းလုဒ်လုပ်ထားသည်- %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d စူရာဟ် · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">ရွတ်ဆိုသူကို ရွေးပါ။</string>
     <string name="quran_download_restoring">ဒေါင်းလုဒ်များ ပြန်လည်စတင်နေသည်...</string>
     <string name="quran_download_resume">ကိုယ်ရေးရာဇဝင်</string>
     <string name="quran_download_scope_ayah">အာယာ</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">ရပ်ထားသည်။</string>
     <string name="quran_download_status_queued">တန်းစီနေသည်။</string>
     <string name="quran_download_surah_number">စူရဟ်နံပါတ် (၁-၁၁၄)</string>
-    <string name="quran_downloaded">ဒေါင်းလုဒ်လုပ်ထားသည်။</string>
     <string name="quran_downloads_active_title">လက်ရှိနှင့် ယခင်ဒေါင်းလုဒ်များ</string>
+    <string name="quran_downloads_summary_title">စုစုပေါင်းဒေါင်းလုဒ်လုပ်ထားသည်။</string>
+    <string name="quran_downloads_summary">%1$d စူရာဟ် · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">ဒေါင်းလုဒ်များမရသေးပါ။</string>
     <string name="quran_downloads_title">ဒေါင်းလုဒ်များ</string>
     <string name="quran_font_larger">ပိုကြီးတဲ့ဖောင့်</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">စူရဟ် %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">ကျမ်းတော်မြတ်ကုရ်အာန်</string>
+    <string name="quran_download_reciter_header">ဒေါင်းလုဒ်လုပ်ထားသည်- %1$d ayahs · %2$s</string>
 </resources>

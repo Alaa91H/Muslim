@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah-p normua</string>
     <string name="quran_download_cancel">Unitsigit</string>
     <string name="quran_download_channel">Oqaluttuarisaanermi download-it</string>
-    <string name="quran_download_current_ayah">Ullumikkut ayah</string>
-    <string name="quran_download_current_surah">Ullumikkut surah</string>
     <string name="quran_download_delete">Piiaruk</string>
     <string name="quran_download_delete_confirm">Aallaasersornerit piiaruk?</string>
     <string name="quran_download_delete_confirm_message">Nipit aaneqarsimasut atortumiit piujuartumik peerneqassapput.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Unnuk utaqqivoq</string>
     <string name="quran_download_night_waiting">Unnukkut aallartissaaq — igalaaq %1$s</string>
     <string name="quran_download_night_window_title">Unnuk download-imik igalaaq</string>
-    <string name="quran_download_options_title">Aallaasersornissamut periarfissat</string>
     <string name="quran_download_pause">Pause</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Oqaluttuarisaanermut una aaneqarsimasoq: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d sura · %2$d ayat · %3$s</string>
-    <string name="quran_download_reciter_title">Reciter toqqarlugu</string>
     <string name="quran_download_restoring">Aallakaatitsinerit aallarteqqippagut...</string>
     <string name="quran_download_resume">CV</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Pauseqarpoq</string>
     <string name="quran_download_status_queued">Tulleq</string>
     <string name="quran_download_surah_number">Sura-p normua (1–114)</string>
-    <string name="quran_downloaded">Aaneqarsimasoq</string>
     <string name="quran_downloads_active_title">Ullumikkut aamma siornatigut download-ersimasut</string>
+    <string name="quran_downloads_summary_title">Katillugit aaneqarsimapput</string>
+    <string name="quran_downloads_summary">%1$d sura · %2$d ayat · %3$s</string>
     <string name="quran_downloads_none">Suli download-ertoqanngilaq</string>
     <string name="quran_downloads_title">Aallaasersornerit</string>
     <string name="quran_font_larger">Annertunerusumik allagartaq</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Korani Illernartoq</string>
+    <string name="quran_download_reciter_header">Aaneqarsimasoq: %1$d ayat · %2$s</string>
 </resources>

@@ -30,4 +30,22 @@
     <string name="tab_more">ተወሳኺ</string>
     <string name="tab_qibla">ቂብላ</string>
     <string name="tab_quran">ቁርኣን</string>
+    <string name="more_section_worship">ኣምልኾ</string>
+    <string name="more_section_knowledge">ፍልጠት</string>
+    <string name="more_section_tools">መሳርሒታት</string>
+    <string name="more_section_app">ኣፕ</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">ዘይተጸበናዮ ጌጋ</string>
+    <string name="crash_fatal_message">ገለ ነገር ተጋግዩ እቲ ኣፕ ደው ኢሉ። ዳግማይ ክትጅምሮ ወይ ክትዓጽዎ ትኽእል ኢኻ።</string>
+    <string name="crash_recoverable_message">ገለ ነገር ተጋግዩ፡ ግን ነቲ ኣፕ ክትጥቀመሉ ክትቅጽል ትኽእል ኢኻ።</string>
+    <string name="crash_restart">ዳግማይ ጀምር</string>
+    <string name="crash_close">ዕጸዎ።</string>
+    <string name="crash_dismiss">ቀጽል</string>
 </resources>

@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Asɛmti</string>
     <string name="settings_theme_system">Nhyehyɛe</string>
     <string name="settings_title">Nsiesiei a Wɔde Yɛ Adwuma</string>
+    <string name="settings_section_time_format">Bere nhyehyɛe</string>
+    <string name="settings_time_12">Nnɔnhwerew 12 (AM/PM) .</string>
+    <string name="settings_time_24">nnɔnhwerew 24 na wɔde yɛ adwuma</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات...)</string>
 </resources>

@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">阿亚号</string>
     <string name="quran_download_cancel">取消</string>
     <string name="quran_download_channel">背诵下载</string>
-    <string name="quran_download_current_ayah">当前阿亚</string>
-    <string name="quran_download_current_surah">当前古兰经</string>
     <string name="quran_download_delete">删除</string>
     <string name="quran_download_delete_confirm">删除下载内容？</string>
     <string name="quran_download_delete_confirm_message">下载的音频将从您的设备中永久删除。</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">等待夜晚</string>
     <string name="quran_download_night_waiting">将于晚上开始 — 窗口 %1$s</string>
     <string name="quran_download_night_window_title">夜间下载窗口</string>
-    <string name="quran_download_options_title">下载选项</string>
     <string name="quran_download_pause">暂停</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">为本朗诵者下载：%1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d 古兰经 · %2$d 阿耶斯 · %3$s</string>
-    <string name="quran_download_reciter_title">选择朗诵者</string>
     <string name="quran_download_restoring">正在恢复下载...</string>
     <string name="quran_download_resume">简历</string>
     <string name="quran_download_scope_ayah">阿亚</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">已暂停</string>
     <string name="quran_download_status_queued">排队</string>
     <string name="quran_download_surah_number">古兰经编号 (1–114)</string>
-    <string name="quran_downloaded">已下载</string>
     <string name="quran_downloads_active_title">当前和过去的下载</string>
+    <string name="quran_downloads_summary_title">下载总量</string>
+    <string name="quran_downloads_summary">%1$d 古兰经 · %2$d 阿耶斯 · %3$s</string>
     <string name="quran_downloads_none">还没有下载</string>
     <string name="quran_downloads_title">下载</string>
     <string name="quran_font_larger">更大的字体</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">古兰经 %1$d</string>
     <string name="quran_tafsir_source">塔夫西尔：%1$s</string>
     <string name="quran_title">神圣的《古兰经》</string>
+    <string name="quran_download_reciter_header">下载: %1$d ayahs · %2$s</string>
 </resources>

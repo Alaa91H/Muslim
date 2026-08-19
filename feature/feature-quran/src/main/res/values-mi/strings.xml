@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">tau Ayah</string>
     <string name="quran_download_cancel">Whakakore</string>
     <string name="quran_download_channel">Tangohanga taki</string>
-    <string name="quran_download_current_ayah">Papa o naianei</string>
-    <string name="quran_download_current_surah">Surah o naianei</string>
     <string name="quran_download_delete">Mukua</string>
     <string name="quran_download_delete_confirm">Mukua nga tikiake?</string>
     <string name="quran_download_delete_confirm_message">Ko te ororongo kua tikiakehia ka tangohia tuturu mai i to taputapu.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">E tatari ana mo te po</string>
     <string name="quran_download_night_waiting">Ka timata i te po — matapihi %1$s</string>
     <string name="quran_download_night_window_title">Matapihi tango po</string>
-    <string name="quran_download_options_title">Kōwhiringa tango</string>
     <string name="quran_download_pause">Tatari</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">I tikiakehia mo tenei kaikawe korero: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surah · %2$d papa · %3$s</string>
-    <string name="quran_download_reciter_title">Tīpakohia te kaikorero</string>
     <string name="quran_download_restoring">Kei te tango ake ano…</string>
     <string name="quran_download_resume">Anō</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Kua whakataa</string>
     <string name="quran_download_status_queued">Tūtira</string>
     <string name="quran_download_surah_number">Tau Surah (1–114)</string>
-    <string name="quran_downloaded">Kua tikiakehia</string>
     <string name="quran_downloads_active_title">Ko nga tikiake o naianei me o mua</string>
+    <string name="quran_downloads_summary_title">Katoa kua tikiakehia</string>
+    <string name="quran_downloads_summary">%1$d surah · %2$d papa · %3$s</string>
     <string name="quran_downloads_none">Karekau he tikiake</string>
     <string name="quran_downloads_title">Tikiake</string>
     <string name="quran_font_larger">Momotuhi nui ake</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Ko te Quran Tapu</string>
+    <string name="quran_download_reciter_header">Tikina ake: %1$d papa · %2$s</string>
 </resources>

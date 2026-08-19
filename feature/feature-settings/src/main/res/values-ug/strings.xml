@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">باشتېما</string>
     <string name="settings_theme_system">سىستېما</string>
     <string name="settings_title">تەڭشەك</string>
+    <string name="settings_section_time_format">ۋاقىت فورماتى</string>
+    <string name="settings_time_12">12-سائەت (AM / PM)</string>
+    <string name="settings_time_24">24 سائەت</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب سامق كان شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب سامق كان شاشة المزيد (العبادات ، العلم ، الأدوات…)</string>
 </resources>

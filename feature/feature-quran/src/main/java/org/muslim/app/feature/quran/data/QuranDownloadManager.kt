@@ -69,6 +69,7 @@ data class PersistedDownload(
 data class DownloadTaskUi(
     val id: String,
     val label: String,
+    val reciterId: String,
     val reciterName: String,
     val progress: Float,
     val downloadedBytes: Long,
@@ -104,6 +105,7 @@ class QuranDownloadManager @Inject constructor(
             DownloadTaskUi(
                 id = request.id,
                 label = request.label,
+                reciterId = request.reciterId,
                 reciterName = request.reciterName,
                 progress = 0f,
                 downloadedBytes = 0L,
@@ -169,6 +171,7 @@ class QuranDownloadManager @Inject constructor(
                     DownloadTaskUi(
                         id = p.request.id,
                         label = p.request.label,
+                        reciterId = p.request.reciterId,
                         reciterName = p.request.reciterName,
                         progress = p.progress,
                         downloadedBytes = p.downloadedBytes,

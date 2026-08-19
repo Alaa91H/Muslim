@@ -21,6 +21,7 @@ import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import org.muslim.app.core.common.prayer.CalculationMethod
 import org.muslim.app.core.common.prayer.HighLatitudeRule
 import org.muslim.app.core.common.prayer.Prayer
+import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.toPrayerParameters
@@ -32,6 +33,7 @@ import java.time.ZoneId
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import org.muslim.app.feature.prayertimes.notifications.AdhanPlaybackService
 import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
 import org.muslim.app.feature.prayertimes.notifications.NextAdhanService
@@ -46,10 +48,17 @@ class PrayerSettingsViewModel @Inject constructor(
     private val scheduler: AdhanScheduler,
     private val soundRepository: AdhanSoundRepository,
     private val calculator: PrayerTimesCalculator,
+    private val appPreferencesRepository: AppPreferencesRepository,
 ) : ViewModel() {
 
     val settings: StateFlow<PrayerSettings> =
         repository.settings.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), PrayerSettings())
+
+    /** The app-wide 12/24-hour clock chosen in Settings (default 12h). */
+    val use24h: StateFlow<Boolean> =
+        appPreferencesRepository.preferences
+            .map { it.timeFormat24h }
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
     private val minuteTicker = flow {
         while (true) {

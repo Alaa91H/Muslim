@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">አያ ቁጥር</string>
     <string name="quran_download_cancel">ሰርዝ</string>
     <string name="quran_download_channel">የንባብ ውርዶች</string>
-    <string name="quran_download_current_ayah">የአሁኑ አያ</string>
-    <string name="quran_download_current_surah">የአሁኑ ሱራ</string>
     <string name="quran_download_delete">ሰርዝ</string>
     <string name="quran_download_delete_confirm">ውርዶች ይሰረዙ?</string>
     <string name="quran_download_delete_confirm_message">የወረደው ኦዲዮ እስከመጨረሻው ከመሣሪያዎ ይወገዳል።</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">ሌሊት በመጠበቅ ላይ</string>
     <string name="quran_download_night_waiting">ምሽት ላይ ይጀምራል - መስኮት %1$s</string>
     <string name="quran_download_night_window_title">የምሽት ማውረድ መስኮት</string>
-    <string name="quran_download_options_title">የማውረድ አማራጮች</string>
     <string name="quran_download_pause">ለአፍታ አቁም</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">ለዚህ አንባቢ፡ %1$s ወርዷል</string>
     <string name="quran_download_reciter_state_detail">%1$d ሱራዎች · %2$d አያህ · %3$s</string>
-    <string name="quran_download_reciter_title">አስማሚ ይምረጡ</string>
     <string name="quran_download_restoring">ማውረዶችን ከቆመበት በመቀጠል ላይ…</string>
     <string name="quran_download_resume">ከቆመበት ቀጥል</string>
     <string name="quran_download_scope_ayah">አያህ</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">ባለበት ቆሟል</string>
     <string name="quran_download_status_queued">ተሰልፏል</string>
     <string name="quran_download_surah_number">ሱራ ቁጥር (1-114)</string>
-    <string name="quran_downloaded">ወርዷል</string>
     <string name="quran_downloads_active_title">የአሁን እና ያለፉ ውርዶች</string>
+    <string name="quran_downloads_summary_title">ጠቅላላ የወረዱ</string>
+    <string name="quran_downloads_summary">%1$d ሱራዎች · %2$d አያህ · %3$s</string>
     <string name="quran_downloads_none">እስካሁን ምንም ማውረድ የለም።</string>
     <string name="quran_downloads_title">ውርዶች</string>
     <string name="quran_font_larger">ትልቅ ቅርጸ-ቁምፊ</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">ሱራ %1$d</string>
     <string name="quran_tafsir_source">ተፍሲር፡ %1$s</string>
     <string name="quran_title">ቅዱስ ቁርኣን</string>
+    <string name="quran_download_reciter_header">የወረደው፡ %1$d አያህ · %2$s</string>
 </resources>

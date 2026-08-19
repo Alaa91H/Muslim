@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Mandhari</string>
     <string name="settings_theme_system">Mfumo</string>
     <string name="settings_title">Mipangilio</string>
+    <string name="settings_section_time_format">Umbizo la wakati</string>
+    <string name="settings_time_12">Saa 12 (AM/PM)</string>
+    <string name="settings_time_24">Saa 24</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">Maelezo ya ترتيب أقسام شاشة المزيد (العبادات, العلم, الأدوات…)</string>
 </resources>

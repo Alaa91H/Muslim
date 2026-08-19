@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah අංකය</string>
     <string name="quran_download_cancel">අවලංගු කරන්න</string>
     <string name="quran_download_channel">පාරායනය බාගැනීම්</string>
-    <string name="quran_download_current_ayah">වත්මන් අය්යා</string>
-    <string name="quran_download_current_surah">වත්මන් සූරතය</string>
     <string name="quran_download_delete">මකන්න</string>
     <string name="quran_download_delete_confirm">බාගැනීම් මකන්නද?</string>
     <string name="quran_download_delete_confirm_message">බාගත් ශ්‍රව්‍ය ඔබේ උපාංගයෙන් ස්ථිරවම ඉවත් කරනු ඇත.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">රෑ වෙනකම් බලාගෙන ඉන්නවා</string>
     <string name="quran_download_night_waiting">රාත්රියේදී ආරම්භ වනු ඇත - කවුළුව %1$s</string>
     <string name="quran_download_night_window_title">රාත්‍රී බාගැනීම් කවුළුව</string>
-    <string name="quran_download_options_title">බාගත විකල්ප</string>
     <string name="quran_download_pause">නවත්වන්න</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">මෙම පාඨකයා සඳහා බාගත කර ඇත: %1$s</string>
     <string name="quran_download_reciter_state_detail">සූරත %1$d · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">කියවන්නා තෝරන්න</string>
     <string name="quran_download_restoring">බාගැනීම් නැවත ආරම්භ කරමින්...</string>
     <string name="quran_download_resume">නැවත ආරම්භ කරන්න</string>
     <string name="quran_download_scope_ayah">අය්යා</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">විරාම කළා</string>
     <string name="quran_download_status_queued">පෝලිමේ</string>
     <string name="quran_download_surah_number">සූරා අංකය (1–114)</string>
-    <string name="quran_downloaded">බාගත කර ඇත</string>
     <string name="quran_downloads_active_title">වත්මන් සහ අතීත බාගැනීම්</string>
+    <string name="quran_downloads_summary_title">සම්පූර්ණ බාගත කර ඇත</string>
+    <string name="quran_downloads_summary">සූරත %1$d · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">තවම බාගැනීම් නැත</string>
     <string name="quran_downloads_title">බාගැනීම්</string>
     <string name="quran_font_larger">විශාල අකුරු</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">සූරත %1$d</string>
     <string name="quran_tafsir_source">තෆ්සීර්: %1$s</string>
     <string name="quran_title">ශුද්ධ වූ කුර්ආනය</string>
+    <string name="quran_download_reciter_header">බාගත්: %1$d ayahs · %2$s</string>
 </resources>

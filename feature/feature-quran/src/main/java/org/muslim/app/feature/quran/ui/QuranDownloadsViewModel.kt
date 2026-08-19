@@ -244,6 +244,30 @@ class QuranDownloadsViewModel @Inject constructor(
         _refreshTrigger.value = _refreshTrigger.value + 1
     }
 
+    /**
+     * Totals across every reciter: how much audio is downloaded on disk.
+     * Re-scanned whenever a download finishes/fails or a delete happens
+     * (the same trigger that refreshes the per-reciter state).
+     */
+    val totalSummary: StateFlow<TotalDownloadSummary> = _refreshTrigger
+        .flatMapLatest { _ ->
+            flow { emit(summarizeAllReciters()) }
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), TotalDownloadSummary(0, 0, 0L))
+
+    private suspend fun summarizeAllReciters(): TotalDownloadSummary {
+        var ayahs = 0L
+        val surahs = mutableSetOf<Int>()
+        var bytes = 0L
+        for (reciter in Reciter.Bundled) {
+            val state = recitationRepository.downloadState(reciter.id)
+            ayahs += state.downloadedAyahs
+            surahs += state.surahCounts.keys
+            bytes += state.totalBytes
+        }
+        return TotalDownloadSummary(ayahs, surahs.size, bytes)
+    }
+
     private fun estimate(
         reciter: Reciter,
         scope: DownloadScope,
@@ -282,3 +306,11 @@ class QuranDownloadsViewModel @Inject constructor(
         const val TOTAL_AYAHS = 6236L
     }
 }
+
+/** How much recitation audio is downloaded across all reciters, at a glance. */
+data class TotalDownloadSummary(
+    val downloadedAyahs: Long,
+    /** Distinct surahs covered by at least one reciter (union). */
+    val downloadedSurahs: Int,
+    val totalBytes: Long,
+)

@@ -80,6 +80,7 @@ fun HadithScreen(
     val collection by viewModel.collection.collectAsStateWithLifecycle()
     val dailyNotificationEnabled by viewModel.dailyNotificationEnabled.collectAsStateWithLifecycle()
     val dailyNotificationTimeMinutes by viewModel.dailyNotificationTimeMinutes.collectAsStateWithLifecycle()
+    val use24h by viewModel.use24h.collectAsStateWithLifecycle()
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -127,6 +128,7 @@ fun HadithScreen(
             }
 
             HadithNotificationPreview(
+                use24h = use24h,
                 hadith = daily,
                 timeMinutes = dailyNotificationTimeMinutes,
                 enabled = dailyNotificationEnabled,
@@ -134,6 +136,7 @@ fun HadithScreen(
 
             if (dailyNotificationEnabled) {
                 HadithTimeDropdown(
+                    use24h = use24h,
                     selectedMinutes = dailyNotificationTimeMinutes,
                     options = hadithTimeOptions,
                     onSelected = viewModel::setDailyNotificationTimeMinutes,
@@ -203,6 +206,7 @@ private fun HadithNotificationPreview(
     hadith: Hadith?,
     timeMinutes: Int,
     enabled: Boolean,
+    use24h: Boolean,
 ) {
     Column(
         modifier = Modifier
@@ -252,7 +256,7 @@ private fun HadithNotificationPreview(
                 }
                 Spacer(Modifier.width(12.dp))
                 Text(
-                    text = formatHadithTime(timeMinutes),
+                    text = formatHadithTime(timeMinutes, use24h),
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -273,6 +277,7 @@ private fun HadithTimeDropdown(
     selectedMinutes: Int,
     options: List<Int>,
     onSelected: (Int) -> Unit,
+    use24h: Boolean,
     modifier: Modifier = Modifier,
 ) {
     var expanded by remember { mutableStateOf(false) }
@@ -282,7 +287,7 @@ private fun HadithTimeDropdown(
         modifier = modifier,
     ) {
         OutlinedTextField(
-            value = formatHadithTime(selectedMinutes),
+            value = formatHadithTime(selectedMinutes, use24h),
             onValueChange = {},
             readOnly = true,
             label = { Text(stringResource(R.string.hadith_daily_notification_time)) },
@@ -294,7 +299,7 @@ private fun HadithTimeDropdown(
         ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
             options.forEach { minutes ->
                 DropdownMenuItem(
-                    text = { Text(formatHadithTime(minutes)) },
+                    text = { Text(formatHadithTime(minutes, use24h)) },
                     onClick = {
                         expanded = false
                         onSelected(minutes)
@@ -306,8 +311,8 @@ private fun HadithTimeDropdown(
 }
 
 /** Formats minutes-from-midnight as "HH:MM". */
-private fun formatHadithTime(minutes: Int): String =
-    String.format(java.util.Locale.ROOT, "%02d:%02d", minutes / 60, minutes % 60)
+private fun formatHadithTime(minutes: Int, use24h: Boolean): String =
+    org.muslim.app.core.common.time.TimeFormats.formatMinutes(minutes, use24h)
 
 @Composable
 private fun DailyHadithCard(

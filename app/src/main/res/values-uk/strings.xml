@@ -30,4 +30,22 @@
     <string name="tab_more">більше</string>
     <string name="tab_qibla">Кібла</string>
     <string name="tab_quran">Коран</string>
+    <string name="more_section_worship">Богослужіння</string>
+    <string name="more_section_knowledge">Знання</string>
+    <string name="more_section_tools">Інструменти</string>
+    <string name="more_section_app">додаток</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Несподівана помилка</string>
+    <string name="crash_fatal_message">Щось пішло не так, і програма зупинилася. Ви можете перезапустити його або закрити.</string>
+    <string name="crash_recoverable_message">Щось пішло не так, але ви можете продовжувати користуватися додатком.</string>
+    <string name="crash_restart">Перезапустіть</string>
+    <string name="crash_close">Закрити</string>
+    <string name="crash_dismiss">Продовжити</string>
 </resources>

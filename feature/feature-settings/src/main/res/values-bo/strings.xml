@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">བརྗོད་གཞི།</string>
     <string name="settings_theme_system">ལམ་ལུགས།</string>
     <string name="settings_title">སྒྲིག་སྟངས།</string>
+    <string name="settings_section_time_format">དུས་ཚོད་ཀྱི་རྣམ་པ།</string>
+    <string name="settings_time_12">ཆུ་ཚོད་12(སྔ་དྲོ།)</string>
+    <string name="settings_time_24">ཆུ་ཚོད་24རིང་།</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات...)</string>
 </resources>

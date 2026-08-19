@@ -30,4 +30,22 @@
     <string name="tab_more">കൂടുതൽ</string>
     <string name="tab_qibla">ഖിബ്ല</string>
     <string name="tab_quran">ഖുർആൻ</string>
+    <string name="more_section_worship">ആരാധന</string>
+    <string name="more_section_knowledge">അറിവ്</string>
+    <string name="more_section_tools">ഉപകരണങ്ങൾ</string>
+    <string name="more_section_app">ആപ്പ്</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى അല്ലെങ്കിൽ لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط മാദിൻ</string>
+    <string name="crash_title">അപ്രതീക്ഷിത പിശക്</string>
+    <string name="crash_fatal_message">എന്തോ കുഴപ്പം സംഭവിച്ചു, ആപ്പ് നിലച്ചു. നിങ്ങൾക്ക് ഇത് പുനരാരംഭിക്കുകയോ അടയ്ക്കുകയോ ചെയ്യാം.</string>
+    <string name="crash_recoverable_message">എന്തോ കുഴപ്പം സംഭവിച്ചു, പക്ഷേ നിങ്ങൾക്ക് ആപ്പ് ഉപയോഗിക്കുന്നത് തുടരാം.</string>
+    <string name="crash_restart">പുനരാരംഭിക്കുക</string>
+    <string name="crash_close">അടയ്ക്കുക</string>
+    <string name="crash_dismiss">തുടരുക</string>
 </resources>

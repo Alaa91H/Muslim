@@ -30,4 +30,22 @@
     <string name="tab_more">Più</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Coran</string>
+    <string name="more_section_worship">Adurà</string>
+    <string name="more_section_knowledge">Cunniscenza</string>
+    <string name="more_section_tools">Strumenti</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Errore inesperu</string>
+    <string name="crash_fatal_message">Qualcosa hè andatu male è l\'app si firmò. Pudete riavvia o chjude.</string>
+    <string name="crash_recoverable_message">Qualcosa hè andatu male, ma pudete cuntinuà aduprà l\'app.</string>
+    <string name="crash_restart">Riavvia</string>
+    <string name="crash_close">Chiudi</string>
+    <string name="crash_dismiss">Cuntinuà</string>
 </resources>

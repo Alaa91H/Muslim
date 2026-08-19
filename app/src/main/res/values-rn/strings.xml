@@ -30,4 +30,22 @@
     <string name="tab_more">Ibindi</string>
     <string name="tab_qibla">Kibula</string>
     <string name="tab_quran">Korowani</string>
+    <string name="more_section_worship">Gusenga</string>
+    <string name="more_section_knowledge">Ubumenyi</string>
+    <string name="more_section_tools">Ibikoresho</string>
+    <string name="more_section_app">Porogaramu</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أوة لتعمل بدون إن دولترنت</string>
+    <string name="crash_title">Ikosa ritari ryitezwe</string>
+    <string name="crash_fatal_message">Hari ikintu cabaye nabi maze app irahagarara. Ushobora kuyisubiramwo canke ukayifunga.</string>
+    <string name="crash_recoverable_message">Hari ikintu cabaye nabi, ariko urashobora kuguma ukoresha iyo porogarama.</string>
+    <string name="crash_restart">Gusubira gutangura</string>
+    <string name="crash_close">Gufunga</string>
+    <string name="crash_dismiss">Bandanya</string>
 </resources>

@@ -20,6 +20,9 @@
     <string name="settings_start_quran">Quran</string>
     <string name="settings_start_qibla">Qibla</string>
     <string name="settings_start_more">More</string>
+    <string name="settings_section_time_format">Time format</string>
+    <string name="settings_time_12">12-hour (AM/PM)</string>
+    <string name="settings_time_24">24-hour</string>
 
     <string name="settings_section_language">Language</string>
     <string name="settings_language_system">System default</string>
@@ -29,6 +32,10 @@
     <string name="settings_section_prayer">Prayer &amp; Adhan</string>
     <string name="settings_prayer_section">Prayer &amp; adhan settings</string>
     <string name="settings_prayer_section_desc">Calculation method, madhab, manual adjustments, adhan sounds and reminders</string>
+
+    <string name="settings_section_more">More screen</string>
+    <string name="settings_more_order">More screen section order</string>
+    <string name="settings_more_order_desc">Customize the order of the More screen sections (Worship, Knowledge, Tools…)</string>
 
     <string name="settings_section_data">Data &amp; privacy</string>
     <string name="settings_privacy">Privacy policy</string>

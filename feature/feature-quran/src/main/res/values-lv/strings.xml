@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah numurs</string>
     <string name="quran_download_cancel">Atcelt</string>
     <string name="quran_download_channel">Deklamācijas lejupielādes</string>
-    <string name="quran_download_current_ayah">Pašreizējā ayah</string>
-    <string name="quran_download_current_surah">Pašreizējā sura</string>
     <string name="quran_download_delete">Dzēst</string>
     <string name="quran_download_delete_confirm">Vai dzēst lejupielādes?</string>
     <string name="quran_download_delete_confirm_message">Lejupielādētais audio tiks neatgriezeniski noņemts no jūsu ierīces.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Gaidu nakti</string>
     <string name="quran_download_night_waiting">Sāksies naktī — logs %1$s</string>
     <string name="quran_download_night_window_title">Nakts lejupielādes logs</string>
-    <string name="quran_download_options_title">Lejupielādes iespējas</string>
     <string name="quran_download_pause">Pauze</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Lejupielādēts šim deklamējam: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Izvēlieties deklamētāju</string>
     <string name="quran_download_restoring">Notiek lejupielāžu atsākšana…</string>
     <string name="quran_download_resume">Atsākt</string>
     <string name="quran_download_scope_ayah">Ājā</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Pauzēts</string>
     <string name="quran_download_status_queued">Rindā</string>
     <string name="quran_download_surah_number">Sūras numurs (1–114)</string>
-    <string name="quran_downloaded">Lejupielādēts</string>
     <string name="quran_downloads_active_title">Pašreizējās un iepriekšējās lejupielādes</string>
+    <string name="quran_downloads_summary_title">Kopā lejupielādēts</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Vēl nav nevienas lejupielādes</string>
     <string name="quran_downloads_title">Lejupielādes</string>
     <string name="quran_font_larger">Lielāks fonts</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Svētais Korāns</string>
+    <string name="quran_download_reciter_header">Lejupielādēts: %1$d ayahs · %2$s</string>
 </resources>

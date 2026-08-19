@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah número</string>
     <string name="quran_download_cancel">Ombogue</string>
     <string name="quran_download_channel">Umi descarga recitación rehegua</string>
-    <string name="quran_download_current_ayah">Ko\'ágãgua ayah</string>
-    <string name="quran_download_current_surah">Surah ko’áĝagua</string>
     <string name="quran_download_delete">Ombogue</string>
     <string name="quran_download_delete_confirm">¿Embogue umi descarga?</string>
     <string name="quran_download_delete_confirm_message">Pe audio ojegueru va’ekue ojeipe’áta tapiaite nde tembipuru’ígui.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Oha’arõvo pyhare</string>
     <string name="quran_download_night_waiting">Oñepyrũta pyhare — ventána %1$s</string>
     <string name="quran_download_night_window_title">Pyhare descarga ventána</string>
-    <string name="quran_download_options_title">Umi opción descarga rehegua</string>
     <string name="quran_download_pause">Epytu’u</string>
     <string name="quran_download_percent">%1$d%% rehegua</string>
     <string name="quran_download_reciter_state">Ojegueru ko reciter-pe guarã: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d sura · %2$d ayah · %3$s</string>
-    <string name="quran_download_reciter_title">Eiporavo recitador</string>
     <string name="quran_download_restoring">Oñepyrũ jeývo umi descarga...</string>
     <string name="quran_download_resume">Currículum rehegua</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Opytu’u’imi</string>
     <string name="quran_download_status_queued">Oĩ fila-pe</string>
     <string name="quran_download_surah_number">Surah papapy (1–114) .</string>
-    <string name="quran_downloaded">Ojegueru</string>
     <string name="quran_downloads_active_title">Umi descarga ko’áĝagua ha yma guaréva</string>
+    <string name="quran_downloads_summary_title">Total ojegueru va’ekue</string>
+    <string name="quran_downloads_summary">%1$d sura · %2$d ayah · %3$s</string>
     <string name="quran_downloads_none">Ndaipóri gueteri descarga</string>
     <string name="quran_downloads_title">Umi descarga rehegua</string>
     <string name="quran_font_larger">Fuente tuichavéva</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d rehegua</string>
     <string name="quran_tafsir_source">Tafsir: %1$s. Ñe’ẽpoty ha ñe’ẽpoty</string>
     <string name="quran_title">Corán marangatu</string>
+    <string name="quran_download_reciter_header">Ojegueru: %1$d ayahs · %2$s</string>
 </resources>

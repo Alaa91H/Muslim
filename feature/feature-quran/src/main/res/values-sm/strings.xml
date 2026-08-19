@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Numera Ayah</string>
     <string name="quran_download_cancel">Fa\'aleaogaina</string>
     <string name="quran_download_channel">Toe sii mai le tauloto</string>
-    <string name="quran_download_current_ayah">Papa o lo\'o iai nei</string>
-    <string name="quran_download_current_surah">Surah i le taimi nei</string>
     <string name="quran_download_delete">Aveese</string>
     <string name="quran_download_delete_confirm">Ave\'ese download?</string>
     <string name="quran_download_delete_confirm_message">O le leo na sii mai o le a aveesea tumau mai lau masini.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Faatalitali mo le po</string>
     <string name="quran_download_night_waiting">E amata i le po - faamalama %1$s</string>
     <string name="quran_download_night_window_title">Faamalama download i le po</string>
-    <string name="quran_download_options_title">Filifiliga download</string>
     <string name="quran_download_pause">Taofi</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">La\'u mai mo lenei fai tauloto: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surah · %2$d ayah · %3$s</string>
-    <string name="quran_download_reciter_title">Filifili le tauloto</string>
     <string name="quran_download_restoring">Toe fa\'aauau le la\'uina o laiga...</string>
     <string name="quran_download_resume">Toe amata</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Taofi</string>
     <string name="quran_download_status_queued">Tuli</string>
     <string name="quran_download_surah_number">Numera sura (1–114)</string>
-    <string name="quran_downloaded">Si\'itia</string>
     <string name="quran_downloads_active_title">Lafoga o lo\'o iai nei ma taimi ua tuana\'i</string>
+    <string name="quran_downloads_summary_title">Aofa\'i la\'uina</string>
+    <string name="quran_downloads_summary">%1$d surah · %2$d ayah · %3$s</string>
     <string name="quran_downloads_none">Leai se la\'u mai i lalo</string>
     <string name="quran_downloads_title">Si\'itia</string>
     <string name="quran_font_larger">Tele vaitusi</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Le Quran Paia</string>
+    <string name="quran_download_reciter_header">Sii mai: %1$d ayahs · %2$s</string>
 </resources>

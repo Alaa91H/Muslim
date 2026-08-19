@@ -30,4 +30,22 @@
     <string name="tab_more">Ọzọ</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Quran</string>
+    <string name="more_section_worship">Ofufe</string>
+    <string name="more_section_knowledge">Ọmụma</string>
+    <string name="more_section_tools">Ngwa</string>
+    <string name="more_section_app">Ngwa</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">ngwa</string>
+    <string name="more_offline_maps">خرائط بدون Nwelite</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Njehie a na-atụghị anya ya</string>
+    <string name="crash_fatal_message">Ọ nwere ihe na-ezighi ezi ma ngwa ahụ kwụsịrị. Ị nwere ike ịmalitegharị ya ma ọ bụ mechie ya.</string>
+    <string name="crash_recoverable_message">Ọ nwere ihe adịghị mma, mana ị nwere ike ịga n\'ihu na-eji ngwa ahụ.</string>
+    <string name="crash_restart">Malitegharịa ekwentị</string>
+    <string name="crash_close">Mechie</string>
+    <string name="crash_dismiss">Gaa n\'ihu</string>
 </resources>

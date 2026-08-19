@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Тема</string>
     <string name="settings_theme_system">Система</string>
     <string name="settings_title">Көйләүләр</string>
+    <string name="settings_section_time_format">Вакыт форматы</string>
+    <string name="settings_time_12">12 сәгать (AM / PM)</string>
+    <string name="settings_time_24">24 сәгать</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب سامقران شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب سامقران شاشة المزيد (العبادات ، العلم ، الأدوات…)</string>
 </resources>

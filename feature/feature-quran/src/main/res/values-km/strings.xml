@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">លេខ Ayah</string>
     <string name="quran_download_cancel">បោះបង់</string>
     <string name="quran_download_channel">ការទាញយកសូត្រ</string>
-    <string name="quran_download_current_ayah">អាយ៉ៃបច្ចុប្បន្ន</string>
-    <string name="quran_download_current_surah">Surah បច្ចុប្បន្ន</string>
     <string name="quran_download_delete">លុប</string>
     <string name="quran_download_delete_confirm">លុបការទាញយក?</string>
     <string name="quran_download_delete_confirm_message">សំឡេងដែលបានទាញយកនឹងត្រូវបានយកចេញជាអចិន្ត្រៃយ៍ពីឧបករណ៍របស់អ្នក។</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">រង់ចាំយប់</string>
     <string name="quran_download_night_waiting">នឹងចាប់ផ្តើមនៅពេលយប់ - បង្អួច %1$s</string>
     <string name="quran_download_night_window_title">បង្អួចទាញយកពេលយប់</string>
-    <string name="quran_download_options_title">ជម្រើសទាញយក</string>
     <string name="quran_download_pause">ផ្អាក</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">ទាញយកសម្រាប់អ្នកសូត្រនេះ៖ %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d Surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">ជ្រើសរើសអ្នកសូត្រ</string>
     <string name="quran_download_restoring">កំពុងបន្តការទាញយក...</string>
     <string name="quran_download_resume">បន្ត</string>
     <string name="quran_download_scope_ayah">អាយ៉ា</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">ផ្អាក</string>
     <string name="quran_download_status_queued">បានតម្រង់ជួរ</string>
     <string name="quran_download_surah_number">លេខ Surah (1-114)</string>
-    <string name="quran_downloaded">បានទាញយក</string>
     <string name="quran_downloads_active_title">ការទាញយកបច្ចុប្បន្ន និងអតីតកាល</string>
+    <string name="quran_downloads_summary_title">បានទាញយកសរុប</string>
+    <string name="quran_downloads_summary">%1$d Surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">មិនមានការទាញយកនៅឡើយទេ</string>
     <string name="quran_downloads_title">ការទាញយក</string>
     <string name="quran_font_larger">ពុម្ពអក្សរធំជាង</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">គម្ពីគូរ៉ា</string>
+    <string name="quran_download_reciter_header">បានទាញយក៖ %1$d ayahs · %2$s</string>
 </resources>

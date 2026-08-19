@@ -11,8 +11,10 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.feature.adhkar.data.AdhkarPrefs
 import org.muslim.app.feature.adhkar.data.AdhkarPrefsRepository
 import org.muslim.app.feature.adhkar.data.AdhkarReminderScheduler
@@ -29,10 +31,17 @@ class AdhkarSettingsViewModel @Inject constructor(
     private val adhkarRepository: AdhkarRepository,
     private val scheduler: AdhkarReminderScheduler,
     private val periodicScheduler: PeriodicAdhkarReminderScheduler,
+    private val appPreferencesRepository: AppPreferencesRepository,
 ) : ViewModel() {
 
     val prefs: StateFlow<AdhkarPrefs> = prefsRepository.prefs
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), AdhkarPrefs())
+
+    /** The app-wide 12/24-hour clock chosen in Settings (default 12h). */
+    val use24h: StateFlow<Boolean> =
+        appPreferencesRepository.preferences
+            .map { it.timeFormat24h }
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
     /** A sample dhikr rendered in the floating-message preview. */
     private val _previewDhikr = MutableStateFlow<Dhikr?>(null)

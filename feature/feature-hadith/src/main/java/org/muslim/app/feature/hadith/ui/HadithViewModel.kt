@@ -12,10 +12,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.feature.hadith.data.HadithOfTheDayScheduler
 import org.muslim.app.feature.hadith.data.HadithPrefsRepository
 import org.muslim.app.feature.hadith.data.HadithRepository
@@ -29,7 +31,14 @@ class HadithViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val repository: HadithRepository,
     private val prefsRepository: HadithPrefsRepository,
+    private val appPreferencesRepository: AppPreferencesRepository,
 ) : ViewModel() {
+
+    /** The app-wide 12/24-hour clock chosen in Settings (default 12h). */
+    val use24h: StateFlow<Boolean> =
+        appPreferencesRepository.preferences
+            .map { it.timeFormat24h }
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
     private val _query = MutableStateFlow("")
     val query: StateFlow<String> = _query

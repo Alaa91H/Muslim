@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah nimewo</string>
     <string name="quran_download_cancel">Anile</string>
     <string name="quran_download_channel">Telechajman resitasyon</string>
-    <string name="quran_download_current_ayah">Aktyèl ayah</string>
-    <string name="quran_download_current_surah">Soure aktyèl la</string>
     <string name="quran_download_delete">Efase</string>
     <string name="quran_download_delete_confirm">Efase telechajman yo?</string>
     <string name="quran_download_delete_confirm_message">Odyo telechaje a pral retire nèt ale nan aparèy ou an.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Ap tann lannwit</string>
     <string name="quran_download_night_waiting">Ap kòmanse nan mitan lannwit - fenèt %1$s</string>
     <string name="quran_download_night_window_title">Fenèt telechaje lannwit</string>
-    <string name="quran_download_options_title">Telechaje opsyon</string>
     <string name="quran_download_pause">Pran yon poz</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Telechaje pou reciter sa a: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d sourates · %2$d sourates · %3$s</string>
-    <string name="quran_download_reciter_title">Chwazi reciter</string>
     <string name="quran_download_restoring">Rekòmanse telechaje yo...</string>
     <string name="quran_download_resume">Rezime</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Poz</string>
     <string name="quran_download_status_queued">Nan keu</string>
     <string name="quran_download_surah_number">Nimewo Sura (1–114)</string>
-    <string name="quran_downloaded">Telechaje</string>
     <string name="quran_downloads_active_title">Telechajman aktyèl ak sot pase yo</string>
+    <string name="quran_downloads_summary_title">Total telechaje</string>
+    <string name="quran_downloads_summary">%1$d sourates · %2$d sourates · %3$s</string>
     <string name="quran_downloads_none">Pa gen telechajman ankò</string>
     <string name="quran_downloads_title">Telechajman</string>
     <string name="quran_font_larger">Pi gwo font</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Soure %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Sentespri koran an</string>
+    <string name="quran_download_reciter_header">Telechaje: %1$d ayahs · %2$s</string>
 </resources>

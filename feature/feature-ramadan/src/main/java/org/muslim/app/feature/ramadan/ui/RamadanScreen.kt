@@ -65,6 +65,7 @@ fun RamadanScreen(
     viewModel: RamadanViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val use24h by viewModel.use24h.collectAsStateWithLifecycle()
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -88,9 +89,9 @@ fun RamadanScreen(
         ) {
             RamadanHeaderCard(state)
             Spacer(Modifier.height(12.dp))
-            IftarCard(state, viewModel)
+            IftarCard(state, viewModel, use24h)
             Spacer(Modifier.height(12.dp))
-            SuhoorCard(state, viewModel)
+            SuhoorCard(state, viewModel, use24h)
             Spacer(Modifier.height(16.dp))
             FastingTracker(
                 info = state.info,
@@ -165,7 +166,7 @@ private fun RamadanHeaderCard(state: RamadanUiState) {
 }
 
 @Composable
-private fun IftarCard(state: RamadanUiState, viewModel: RamadanViewModel) {
+private fun IftarCard(state: RamadanUiState, viewModel: RamadanViewModel, use24h: Boolean) {
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -188,7 +189,7 @@ private fun IftarCard(state: RamadanUiState, viewModel: RamadanViewModel) {
             Spacer(Modifier.height(8.dp))
             state.iftarTime?.let { time ->
                 Text(
-                    text = stringResource(R.string.ramadan_iftar_time, formatTime(time)),
+                    text = stringResource(R.string.ramadan_iftar_time, formatTime(time, use24h)),
                     style = MaterialTheme.typography.bodyLarge,
                 )
             }
@@ -215,7 +216,7 @@ private fun IftarCard(state: RamadanUiState, viewModel: RamadanViewModel) {
 }
 
 @Composable
-private fun SuhoorCard(state: RamadanUiState, viewModel: RamadanViewModel) {
+private fun SuhoorCard(state: RamadanUiState, viewModel: RamadanViewModel, use24h: Boolean) {
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -238,7 +239,7 @@ private fun SuhoorCard(state: RamadanUiState, viewModel: RamadanViewModel) {
             Spacer(Modifier.height(8.dp))
             state.suhoorTime?.let { time ->
                 Text(
-                    text = stringResource(R.string.ramadan_suhoor_time, formatTime(time)),
+                    text = stringResource(R.string.ramadan_suhoor_time, formatTime(time, use24h)),
                     style = MaterialTheme.typography.bodyLarge,
                 )
             }
@@ -345,8 +346,8 @@ private fun DayCell(dayNumber: Int, fasted: Boolean, isToday: Boolean, onClick: 
     }
 }
 
-private fun formatTime(time: LocalTime): String =
-    time.format(DateTimeFormatter.ofPattern("HH:mm"))
+private fun formatTime(time: LocalTime, use24h: Boolean): String =
+    org.muslim.app.core.common.time.TimeFormats.formatTime(time, use24h)
 
 private fun formatDate(date: LocalDate): String =
     date.format(DateTimeFormatter.ofPattern("dd/MM"))

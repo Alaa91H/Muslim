@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Omulamwa</string>
     <string name="settings_theme_system">Enkola</string>
     <string name="settings_title">Enteekateeka</string>
+    <string name="settings_section_time_format">Enkola y’obudde</string>
+    <string name="settings_time_12">essaawa 12 (AM/PM)</string>
+    <string name="settings_time_24">essaawa 24</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات...)</string>
 </resources>

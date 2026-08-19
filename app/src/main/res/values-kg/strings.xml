@@ -30,4 +30,22 @@
     <string name="tab_more">Mambu mingi</string>
     <string name="tab_qibla">Kibla</string>
     <string name="tab_quran">Quoran</string>
+    <string name="more_section_worship">Lusambu</string>
+    <string name="more_section_knowledge">Nzayilu</string>
+    <string name="more_section_tools">Bisadilu</string>
+    <string name="more_section_app">Application</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أوة لتعمل بدون إن دولترنت</string>
+    <string name="crash_title">Kifu ya kukonda kuvingila</string>
+    <string name="crash_fatal_message">Kima mosi kusalamaka ve mpi appli yina kutelamaka. Nge lenda yantika yo diaka to kukanga yo.</string>
+    <string name="crash_recoverable_message">Diambu mosi me salama ve mbote, kansi nge lenda landa kusadila appli yina.</string>
+    <string name="crash_restart">Yantika diaka</string>
+    <string name="crash_close">Kanga</string>
+    <string name="crash_dismiss">Landa</string>
 </resources>

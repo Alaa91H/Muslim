@@ -30,4 +30,22 @@
     <string name="tab_more">更多</string>
     <string name="tab_qibla">朝拜</string>
     <string name="tab_quran">古兰经</string>
+    <string name="more_section_worship">敬拜</string>
+    <string name="more_section_knowledge">知识</string>
+    <string name="more_section_tools">工具</string>
+    <string name="more_section_app">应用程序</string>
+    <string name="more_order_title">🇨🇳 🇨🇳 🇨🇳</string>
+    <string name="more_order_hint">”敬请注意。</string>
+    <string name="more_order_reset">阿拉伯语</string>
+    <string name="more_order_move_up">❗️❗️❗️❗️❗️❗️❗️❗️❗️</string>
+    <string name="more_order_move_down">❗️❗️❗️❗️❗️❗️❗️❗️</string>
+    <string name="more_order_back">噗噗噗</string>
+    <string name="more_offline_maps">离线地图</string>
+    <string name="more_offline_maps_desc">暂无说明，留下第一条！</string>
+    <string name="crash_title">意外错误</string>
+    <string name="crash_fatal_message">出了点问题，应用程序停止了。您可以重新启动它或关闭它。</string>
+    <string name="crash_recoverable_message">出了点问题，但您可以继续使用该应用程序。</string>
+    <string name="crash_restart">重新启动</string>
+    <string name="crash_close">关闭</string>
+    <string name="crash_dismiss">继续</string>
 </resources>

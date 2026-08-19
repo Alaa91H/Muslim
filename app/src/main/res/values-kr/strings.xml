@@ -30,4 +30,22 @@
     <string name="tab_more">Gade</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Alquran</string>
+    <string name="more_section_worship">Ibada</string>
+    <string name="more_section_knowledge">Ilmu</string>
+    <string name="more_section_tools">Karewa cidabe</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو لتعمل بدون دولترنت</string>
+    <string name="crash_title">Taltǝ tǝmatǝnyi</string>
+    <string name="crash_fatal_message">Awolagǝ sǝtǝnyi kuru app dǝ dawono. Rangnǝm waltǝ baditin au zamin.</string>
+    <string name="crash_recoverable_message">Awolagǝ sǝtǝnyi, amma raksǝ app dǝga faidatǝmin.</string>
+    <string name="crash_restart">Waltǝm badine</string>
+    <string name="crash_close">Zakkatə</string>
+    <string name="crash_dismiss">Gozagǝ kowo</string>
 </resources>

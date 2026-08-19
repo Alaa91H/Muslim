@@ -30,4 +30,22 @@
     <string name="tab_more">Batafsil</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Qur\'on</string>
+    <string name="more_section_worship">Ibodat qilish</string>
+    <string name="more_section_knowledge">Bilim</string>
+    <string name="more_section_tools">Asboblar</string>
+    <string name="more_section_app">Ilova</string>
+    <string name="more_order_title">tartyb ạ̉qsạm ạlmzyd</string>
+    <string name="more_order_hint">ạstkẖdm ạlạ̉shm ltḥryk kl qsm lạ̉ʿly̱ ạ̉w lạ̉sfl. yuṭbaqaq ạltrtyb mbạsẖrẗ ʿly̱̱ sẖạsẗ ạlmzyd.</string>
+    <string name="more_order_reset">ạstʿạdẗ ạltrtyb ạftrạḶy</string>
+    <string name="more_order_move_up">tḥryk lạ̉ʿly̱</string>
+    <string name="more_order_move_down">tḥryk lạlfl</string>
+    <string name="more_order_back">rjwʿ</string>
+    <string name="more_offline_maps">kẖrạạṭ bdun ạntrnt</string>
+    <string name="more_offline_maps_desc">tḥmyl kẖrạỷ mdynẗ ạ̉w dulẗ ltʿml bdun ạ̉ntrnt</string>
+    <string name="crash_title">Kutilmagan xato</string>
+    <string name="crash_fatal_message">Nimadir xato ketdi va ilova to‘xtab qoldi. Siz uni qayta ishga tushirishingiz yoki yopishingiz mumkin.</string>
+    <string name="crash_recoverable_message">Nimadir xato ketdi, lekin ilovadan foydalanishda davom etishingiz mumkin.</string>
+    <string name="crash_restart">Qayta ishga tushirish</string>
+    <string name="crash_close">Yopish</string>
+    <string name="crash_dismiss">Davom eting</string>
 </resources>

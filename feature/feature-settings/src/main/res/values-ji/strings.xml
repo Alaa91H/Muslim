@@ -6,4 +6,10 @@
     <string name="notif_preview_missed">געפעלט: %1$s — %2$s</string>
     <string name="notif_preview_next_title">ווייַטער: %1$s — %2$s</string>
     <string name="notif_preview_remaining">נאָך צייט: %1$s</string>
+    <string name="settings_section_time_format">צייט פֿאָרמאַט</string>
+    <string name="settings_time_12">12 שעה (AM/PM)</string>
+    <string name="settings_time_24">24-שעה</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات, العلم, أدوات…)</string>
 </resources>

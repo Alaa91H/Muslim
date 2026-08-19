@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">အပြင်အဆင်</string>
     <string name="settings_theme_system">စနစ်</string>
     <string name="settings_title">ဆက်တင်များ</string>
+    <string name="settings_section_time_format">အချိန်ပုံစံ</string>
+    <string name="settings_time_12">12 နာရီ (AM/PM)</string>
+    <string name="settings_time_24">၂၄ နာရီ</string>
+    <string name="settings_section_more">شاشة عرض المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة عرض المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة عرض المزيد (العبادات, العلم, الأدوات…)</string>
 </resources>

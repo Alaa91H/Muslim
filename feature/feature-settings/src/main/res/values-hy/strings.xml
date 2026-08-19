@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Թեմա</string>
     <string name="settings_theme_system">Համակարգ</string>
     <string name="settings_title">Կարգավորումներ</string>
+    <string name="settings_section_time_format">Ժամանակի ձևաչափ</string>
+    <string name="settings_time_12">12 ժամ (AM/PM)</string>
+    <string name="settings_time_24">24-ժամյա</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتیب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات, العلم, الأدوات…)</string>
 </resources>

@@ -199,7 +199,7 @@ fun TasbihScreen(
                     }
                     if (state.rounds > 0) {
                         Text(
-                            text = stringResource(R.string.tasbih_rounds, state.rounds.toString()),
+                            text = stringResource(R.string.tasbih_rounds, state.rounds),
                             style = MaterialTheme.typography.labelMedium,
                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                         )
@@ -327,7 +327,7 @@ fun TasbihScreen(
 
             // Stats
             Text(
-                text = stringResource(R.string.tasbih_total_today, state.totalToday.toString()),
+                text = stringResource(R.string.tasbih_total_today, state.totalToday),
                 style = MaterialTheme.typography.titleSmall,
                 modifier = Modifier.fillMaxWidth(),
             )
@@ -544,8 +544,7 @@ private fun playTargetSound(context: Context, settings: TargetSoundSettings) {
 
 /** Distinct double-buzz on a completed round (requires the VIBRATE permission). */
 private fun vibrateRoundComplete(context: Context) {
-    val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
-        ?: return
+    val vibrator = context.getSystemService(Vibrator::class.java) ?: return
     if (!vibrator.hasVibrator()) return
     vibrator.vibrate(
         VibrationEffect.createWaveform(longArrayOf(0, 180, 120, 260), -1),

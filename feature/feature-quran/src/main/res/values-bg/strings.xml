@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Номер на ая</string>
     <string name="quran_download_cancel">Отказ</string>
     <string name="quran_download_channel">Изтегляне на рецитация</string>
-    <string name="quran_download_current_ayah">Актуален аят</string>
-    <string name="quran_download_current_surah">Актуална сура</string>
     <string name="quran_download_delete">Изтриване</string>
     <string name="quran_download_delete_confirm">Изтриване на изтеглянията?</string>
     <string name="quran_download_delete_confirm_message">Изтегленото аудио ще бъде премахнато за постоянно от вашето устройство.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">В очакване на нощта</string>
     <string name="quran_download_night_waiting">Ще започне през нощта — прозорец %1$s</string>
     <string name="quran_download_night_window_title">Нощен прозорец за изтегляне</string>
-    <string name="quran_download_options_title">Опции за изтегляне</string>
     <string name="quran_download_pause">Пауза</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Изтеглени за този рецитатор: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d сури · %2$d аята · %3$s</string>
-    <string name="quran_download_reciter_title">Изберете рецитатор</string>
     <string name="quran_download_restoring">Изтеглянията се възобновяват...</string>
     <string name="quran_download_resume">Резюме</string>
     <string name="quran_download_scope_ayah">ая</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">На пауза</string>
     <string name="quran_download_status_queued">На опашка</string>
     <string name="quran_download_surah_number">Номер на сурата (1–114)</string>
-    <string name="quran_downloaded">Изтеглено</string>
     <string name="quran_downloads_active_title">Текущи и минали изтегляния</string>
+    <string name="quran_downloads_summary_title">Общо изтеглено</string>
+    <string name="quran_downloads_summary">%1$d сури · %2$d аята · %3$s</string>
     <string name="quran_downloads_none">Все още няма изтегляния</string>
     <string name="quran_downloads_title">Изтегляния</string>
     <string name="quran_font_larger">По-голям шрифт</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Сура %1$d</string>
     <string name="quran_tafsir_source">Тефсир: %1$s</string>
     <string name="quran_title">Свещеният Коран</string>
+    <string name="quran_download_reciter_header">Изтеглено: %1$d аята · %2$s</string>
 </resources>

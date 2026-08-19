@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">ஐயா எண்</string>
     <string name="quran_download_cancel">ரத்து செய்</string>
     <string name="quran_download_channel">பாராயணம் பதிவிறக்கங்கள்</string>
-    <string name="quran_download_current_ayah">தற்போதைய ஐயா</string>
-    <string name="quran_download_current_surah">தற்போதைய சூரா</string>
     <string name="quran_download_delete">நீக்கு</string>
     <string name="quran_download_delete_confirm">பதிவிறக்கங்களை நீக்கவா?</string>
     <string name="quran_download_delete_confirm_message">பதிவிறக்கம் செய்யப்பட்ட ஆடியோ உங்கள் சாதனத்திலிருந்து நிரந்தரமாக அகற்றப்படும்.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">இரவுக்காக காத்திருக்கிறேன்</string>
     <string name="quran_download_night_waiting">இரவில் தொடங்கும் - சாளரம் %1$s</string>
     <string name="quran_download_night_window_title">இரவு பதிவிறக்க சாளரம்</string>
-    <string name="quran_download_options_title">பதிவிறக்க விருப்பங்கள்</string>
     <string name="quran_download_pause">இடைநிறுத்தம்</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">இந்த வாசிப்பாளருக்காக பதிவிறக்கம் செய்யப்பட்டது: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d சூராக்கள் · %2$d அயாக்கள் · %3$s</string>
-    <string name="quran_download_reciter_title">வாசிப்பவரைத் தேர்ந்தெடுக்கவும்</string>
     <string name="quran_download_restoring">பதிவிறக்கங்களை மீண்டும் தொடங்குகிறது…</string>
     <string name="quran_download_resume">ரெஸ்யூம்</string>
     <string name="quran_download_scope_ayah">ஐயா</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">இடைநிறுத்தப்பட்டது</string>
     <string name="quran_download_status_queued">வரிசையில் நிற்கிறது</string>
     <string name="quran_download_surah_number">சூரா எண் (1–114)</string>
-    <string name="quran_downloaded">பதிவிறக்கம் செய்யப்பட்டது</string>
     <string name="quran_downloads_active_title">தற்போதைய மற்றும் கடந்த பதிவிறக்கங்கள்</string>
+    <string name="quran_downloads_summary_title">மொத்தம் பதிவிறக்கம் செய்யப்பட்டது</string>
+    <string name="quran_downloads_summary">%1$d சூராக்கள் · %2$d அயாக்கள் · %3$s</string>
     <string name="quran_downloads_none">இன்னும் பதிவிறக்கங்கள் இல்லை</string>
     <string name="quran_downloads_title">பதிவிறக்கங்கள்</string>
     <string name="quran_font_larger">பெரிய எழுத்துரு</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">சூரா %1$d</string>
     <string name="quran_tafsir_source">தஃப்சீர்: %1$s</string>
     <string name="quran_title">புனித குர்ஆன்</string>
+    <string name="quran_download_reciter_header">பதிவிறக்கம் செய்யப்பட்டது: %1$d அயாக்கள் · %2$s</string>
 </resources>

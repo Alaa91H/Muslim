@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah jakhuwi</string>
     <string name="quran_download_cancel">Cancelar sañ muni</string>
     <string name="quran_download_channel">Recitación ukax apkatatawa</string>
-    <string name="quran_download_current_ayah">Jichha pacha ayah</string>
-    <string name="quran_download_current_surah">Jichha pacha surah</string>
     <string name="quran_download_delete">Chhaqtayaña</string>
     <string name="quran_download_delete_confirm">¿Descargas ukanaka chhaqtayaña?</string>
     <string name="quran_download_delete_confirm_message">Uka apaqtʼat audiojj wiñayatakiw dispositivomat apsutäni.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Arumax suyt’aña</string>
     <string name="quran_download_night_waiting">Arumanakax qalltasini — ventana %1$s</string>
     <string name="quran_download_night_window_title">Arumax descarga ventana</string>
-    <string name="quran_download_options_title">Uñakipt’añataki amtanaka</string>
     <string name="quran_download_pause">Mä jukʼa samartʼañamawa</string>
     <string name="quran_download_percent">%1$d%% uka jakhuru</string>
     <string name="quran_download_reciter_state">Aka recitador ukatakix apkatatawa: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d sura · %2$d ayah · %3$s</string>
-    <string name="quran_download_reciter_title">Reciter ajlliñamawa</string>
     <string name="quran_download_restoring">Jichhax descargas ukanakax qalltasina...</string>
     <string name="quran_download_resume">Currículum ukax mä juk’a pachanakanwa</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Mä juk’a samart’aña</string>
     <string name="quran_download_status_queued">Filaruw uñt’ayasi</string>
     <string name="quran_download_surah_number">Surah jakhu (1–114) ukat juk’ampinaka.</string>
-    <string name="quran_downloaded">Ukax apkatatawa</string>
     <string name="quran_downloads_active_title">Jichha pacha ukat nayra apkatatanaka</string>
+    <string name="quran_downloads_summary_title">Taqi kunas apkatatawa</string>
+    <string name="quran_downloads_summary">%1$d sura · %2$d ayah · %3$s</string>
     <string name="quran_downloads_none">Janiw kuna descargas ukanakas utjkiti</string>
     <string name="quran_downloads_title">Ukax mä juk’a pachanakanwa</string>
     <string name="quran_font_larger">Jach’a qillqatanaka</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d uka qillqatanwa</string>
     <string name="quran_tafsir_source">Tafsir: %1$s ukat juk’ampinaka</string>
     <string name="quran_title">Qullan Quran qillqata</string>
+    <string name="quran_download_reciter_header">Uñt’ayata: %1$d ayahs · %2$s</string>
 </resources>

@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah number</string>
     <string name="quran_download_cancel">Cancel</string>
     <string name="quran_download_channel">Recitation downloads</string>
-    <string name="quran_download_current_ayah">Current ayah</string>
-    <string name="quran_download_current_surah">Current surah</string>
     <string name="quran_download_delete">Delete</string>
     <string name="quran_download_delete_confirm">Delete downloads?</string>
     <string name="quran_download_delete_confirm_message">Odhiyo yakadhawunirodha ichabviswa zvachose kubva pamudziyo wako.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Kumirira husiku</string>
     <string name="quran_download_night_waiting">Ichatanga husiku - hwindo %1$s</string>
     <string name="quran_download_night_window_title">Husiku hwekurodha hwindo</string>
-    <string name="quran_download_options_title">Dhaunirodha sarudzo</string>
     <string name="quran_download_pause">Pause</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Dhaunirodhwa kune ino reciter: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Sarudza reciter</string>
     <string name="quran_download_restoring">Tiri kutangazve kudhaunirodha…</string>
     <string name="quran_download_resume">Resume</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Paused</string>
     <string name="quran_download_status_queued">Queued</string>
     <string name="quran_download_surah_number">Nhamba yeSurah (1–114)</string>
-    <string name="quran_downloaded">Downloaded</string>
     <string name="quran_downloads_active_title">Zvazvino uye zvekare</string>
+    <string name="quran_downloads_summary_title">Zvose zvakadhaunirodwa</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Hapana zvekudhaunirodwa parizvino</string>
     <string name="quran_downloads_title">Vadivelu Comedy Downloads</string>
     <string name="quran_font_larger">Mafonti makuru</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Korani Tsvene</string>
+    <string name="quran_download_reciter_header">Yakatorwa: %1$d ayahs · %2$s</string>
 </resources>

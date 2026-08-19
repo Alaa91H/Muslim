@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Thème</string>
     <string name="settings_theme_system">Système</string>
     <string name="settings_title">Paramètres</string>
+    <string name="settings_section_time_format">Format de l\'heure</string>
+    <string name="settings_time_12">12 heures (AM/PM)</string>
+    <string name="settings_time_24">24 heures</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات…)</string>
 </resources>

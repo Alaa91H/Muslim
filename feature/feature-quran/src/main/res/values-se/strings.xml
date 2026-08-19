@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah nummir</string>
     <string name="quran_download_cancel">Heaittihit</string>
     <string name="quran_download_channel">Desiterema neahttasiiddut</string>
-    <string name="quran_download_current_ayah">Dálá ayah</string>
-    <string name="quran_download_current_surah">Dálá sura</string>
     <string name="quran_download_delete">Slette</string>
     <string name="quran_download_delete_confirm">Slettet neahttasiidduid?</string>
     <string name="quran_download_delete_confirm_message">Láddejuvvon jietna váldojuvvo eret bissovaččat du rusttegis.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Vuordit ija</string>
     <string name="quran_download_night_waiting">Álgá eahkedis — uvssa %1$s</string>
     <string name="quran_download_night_window_title">Neahttasiidu</string>
-    <string name="quran_download_options_title">Viežžanvejolašvuođat</string>
     <string name="quran_download_pause">Bisánan</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Dán lohkki várás lea viežžan: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Vállje lohkki</string>
     <string name="quran_download_restoring">Álggahit fas neahttasiidduid...</string>
     <string name="quran_download_resume">CV</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Bissehuvvon</string>
     <string name="quran_download_status_queued">Vuorus</string>
     <string name="quran_download_surah_number">Surah nummir (1–114)</string>
-    <string name="quran_downloaded">Viežžan</string>
     <string name="quran_downloads_active_title">Dálá ja ovddeš neahttasiiddut</string>
+    <string name="quran_downloads_summary_title">Oktiibuot viežžan</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Ii leat vuos viežžan</string>
     <string name="quran_downloads_title">Laddamat</string>
     <string name="quran_font_larger">Stuorát čállinvuohki</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Bassi Korana</string>
+    <string name="quran_download_reciter_header">Viežžan: %1$d ayahs · %2$s</string>
 </resources>

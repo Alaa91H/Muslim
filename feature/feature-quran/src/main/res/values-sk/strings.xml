@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah číslo</string>
     <string name="quran_download_cancel">Zrušiť</string>
     <string name="quran_download_channel">Recitačné sťahovanie</string>
-    <string name="quran_download_current_ayah">Aktuálne ayah</string>
-    <string name="quran_download_current_surah">Súčasná súra</string>
     <string name="quran_download_delete">Odstrániť</string>
     <string name="quran_download_delete_confirm">Odstrániť stiahnuté súbory?</string>
     <string name="quran_download_delete_confirm_message">Stiahnutý zvuk bude natrvalo odstránený z vášho zariadenia.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Čakanie na noc</string>
     <string name="quran_download_night_waiting">Spustí sa v noci — okno %1$s</string>
     <string name="quran_download_night_window_title">Okno nočného sťahovania</string>
-    <string name="quran_download_options_title">Možnosti sťahovania</string>
     <string name="quran_download_pause">Pauza</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Stiahnuté pre tohto recitátora: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d súr · %2$d ájov · %3$s</string>
-    <string name="quran_download_reciter_title">Vyberte recitátora</string>
     <string name="quran_download_restoring">Obnovuje sa sťahovanie…</string>
     <string name="quran_download_resume">Obnoviť</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Pozastavené</string>
     <string name="quran_download_status_queued">Vo fronte</string>
     <string name="quran_download_surah_number">Číslo súry (1 – 114)</string>
-    <string name="quran_downloaded">Stiahnuté</string>
     <string name="quran_downloads_active_title">Aktuálne a minulé stiahnuté súbory</string>
+    <string name="quran_downloads_summary_title">Celkom stiahnutý</string>
+    <string name="quran_downloads_summary">%1$d súr · %2$d ájov · %3$s</string>
     <string name="quran_downloads_none">Zatiaľ žiadne sťahovanie</string>
     <string name="quran_downloads_title">sťahovanie</string>
     <string name="quran_font_larger">Väčšie písmo</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Súra %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Svätý Korán</string>
+    <string name="quran_download_reciter_header">Stiahnuté: %1$d Ájov · %2$s</string>
 </resources>

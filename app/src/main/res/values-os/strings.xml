@@ -30,4 +30,22 @@
     <string name="tab_more">Бæлвырддæр</string>
     <string name="tab_qibla">Кибла</string>
     <string name="tab_quran">Хъуыран</string>
+    <string name="more_section_worship">Кувын</string>
+    <string name="more_section_knowledge">Зонындзинæдтæ</string>
+    <string name="more_section_tools">Кусæнгæрзтæ</string>
+    <string name="more_section_app">Æфтуан</string>
+    <string name="more_order_title">ترتيب أقم المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتح كل хуызы لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحفظ لأعلى</string>
+    <string name="more_order_move_down">تح</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل إنترنت</string>
+    <string name="crash_title">Æнæнхъæлæджы рæдыд</string>
+    <string name="crash_fatal_message">Цыдæр æвзæр рауад æмæ приложени æрлæууыд. Дæ бон у йæ ногæй райдайын кæнæ йæ сæхгæнын.</string>
+    <string name="crash_recoverable_message">Цыдæр æвзæр рауад, фæлæ уæ бон у дарддæр пайда кæнын приложенийæ.</string>
+    <string name="crash_restart">Ногæй райдай</string>
+    <string name="crash_close">Сæхгæнын</string>
+    <string name="crash_dismiss">Дарддæр</string>
 </resources>

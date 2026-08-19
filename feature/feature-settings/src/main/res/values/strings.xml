@@ -20,6 +20,9 @@
     <string name="settings_start_quran">المصحف</string>
     <string name="settings_start_qibla">القبلة</string>
     <string name="settings_start_more">المزيد</string>
+    <string name="settings_section_time_format">نظام الوقت</string>
+    <string name="settings_time_12">12 ساعة (صباحًا/مساءً)</string>
+    <string name="settings_time_24">24 ساعة</string>
 
     <string name="settings_section_language">اللغة</string>
     <string name="settings_language_system">حسب النظام</string>
@@ -29,6 +32,10 @@
     <string name="settings_section_prayer">الصلاة والأذان</string>
     <string name="settings_prayer_section">إعدادات الصلاة والأذان</string>
     <string name="settings_prayer_section_desc">طريقة الحساب، المذهب، تعديل الأوقات، أصوات الأذان والتنبيهات</string>
+
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات…)</string>
 
     <string name="settings_section_data">البيانات والخصوصية</string>
     <string name="settings_privacy">سياسة الخصوصية</string>

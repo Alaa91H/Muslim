@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah broj</string>
     <string name="quran_download_cancel">Otkaži</string>
     <string name="quran_download_channel">Preuzimanja recitacija</string>
-    <string name="quran_download_current_ayah">Current ayah</string>
-    <string name="quran_download_current_surah">Trenutna sura</string>
     <string name="quran_download_delete">Izbriši</string>
     <string name="quran_download_delete_confirm">Izbrisati preuzimanja?</string>
     <string name="quran_download_delete_confirm_message">Preuzeti audio zapis će biti trajno uklonjen s vašeg uređaja.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Čekam noć</string>
     <string name="quran_download_night_waiting">Počeće noću — prozor %1$s</string>
     <string name="quran_download_night_window_title">Noćni prozor za preuzimanje</string>
-    <string name="quran_download_options_title">Opcije preuzimanja</string>
     <string name="quran_download_pause">Pauza</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Preuzeto za ovog recitatora: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d sura · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Odaberite recitatora</string>
     <string name="quran_download_restoring">Nastavak preuzimanja…</string>
     <string name="quran_download_resume">Nastavi</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Pauzirano</string>
     <string name="quran_download_status_queued">U redu</string>
     <string name="quran_download_surah_number">Sura broj (1–114)</string>
-    <string name="quran_downloaded">Preuzeto</string>
     <string name="quran_downloads_active_title">Trenutna i prošla preuzimanja</string>
+    <string name="quran_downloads_summary_title">Ukupno preuzeto</string>
+    <string name="quran_downloads_summary">%1$d sura · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Još nema preuzimanja</string>
     <string name="quran_downloads_title">Preuzimanja</string>
     <string name="quran_font_larger">Veći font</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sura %1$d</string>
     <string name="quran_tafsir_source">Tefsir: %1$s</string>
     <string name="quran_title">Časni Kur\'an</string>
+    <string name="quran_download_reciter_header">Preuzeto: %1$d ayahs · %2$s</string>
 </resources>

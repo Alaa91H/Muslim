@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah àireamh</string>
     <string name="quran_download_cancel">Sguir dheth</string>
     <string name="quran_download_channel">Aithrisean luchdadh a-nuas</string>
-    <string name="quran_download_current_ayah">Ayah an-dràsta</string>
-    <string name="quran_download_current_surah">Surah an-dràsta</string>
     <string name="quran_download_delete">Sguab às</string>
     <string name="quran_download_delete_confirm">Sguab às an luchdachadh sìos?</string>
     <string name="quran_download_delete_confirm_message">Thèid an fhuaim a chaidh a luchdachadh sìos a thoirt air falbh gu buan bhon inneal agad.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">A \'feitheamh airson na h-oidhche</string>
     <string name="quran_download_night_waiting">Tòisichidh e air an oidhche - uinneag %1$s</string>
     <string name="quran_download_night_window_title">An uinneag oidhche luchdadh a-nuas</string>
-    <string name="quran_download_options_title">Roghainnean luchdachadh sìos</string>
     <string name="quran_download_pause">Stad</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Air a luchdachadh sìos airson an aithris seo: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Tagh neach-aithris</string>
     <string name="quran_download_restoring">A’ tòiseachadh air luchdachadh sìos…</string>
     <string name="quran_download_resume">Ath-thòisich</string>
     <string name="quran_download_scope_ayah">Seadh</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Stad</string>
     <string name="quran_download_status_queued">ciudha</string>
     <string name="quran_download_surah_number">Àireamh Surah (1–114)</string>
-    <string name="quran_downloaded">Air a luchdachadh sìos</string>
     <string name="quran_downloads_active_title">Luchdaich a-nuas an-dràsta agus san àm a dh\'fhalbh</string>
+    <string name="quran_downloads_summary_title">Gu h-iomlan air a luchdachadh sìos</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Gun luchdachadh sìos fhathast</string>
     <string name="quran_downloads_title">Luchdaich sìos</string>
     <string name="quran_font_larger">Cruth-clò nas motha</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Àireamh: %1$s</string>
     <string name="quran_title">An Quran Naomh</string>
+    <string name="quran_download_reciter_header">Air a luchdachadh sìos: %1$d ayahs · %2$s</string>
 </resources>

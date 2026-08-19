@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Unin tel</string>
     <string name="settings_theme_system">System</string>
     <string name="settings_title">Jekjek ko</string>
+    <string name="settings_section_time_format">Wāween iien</string>
+    <string name="settings_time_12">12-awa (jibboñ/jota)</string>
+    <string name="settings_time_24">24-awa</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقت شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخيص ترتيب أقم شاشة المزيد (العبادات، العلم، الأدوات…)</string>
 </resources>

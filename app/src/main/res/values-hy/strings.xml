@@ -30,4 +30,22 @@
     <string name="tab_more">Ավելին</string>
     <string name="tab_qibla">Քիբլա</string>
     <string name="tab_quran">Ղուրան</string>
+    <string name="more_section_worship">Երկրպագություն</string>
+    <string name="more_section_knowledge">Գիտելիք</string>
+    <string name="more_section_tools">Գործիքներ</string>
+    <string name="more_section_app">Հավելված</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط առանց ինտերնետի</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل առանց ինտերնետի</string>
+    <string name="crash_title">Անսպասելի սխալ</string>
+    <string name="crash_fatal_message">Սխալ առաջացավ, և հավելվածը դադարեց: Դուք կարող եք վերագործարկել այն կամ փակել այն:</string>
+    <string name="crash_recoverable_message">Սխալ առաջացավ, բայց դուք կարող եք շարունակել օգտագործել հավելվածը:</string>
+    <string name="crash_restart">Վերագործարկեք</string>
+    <string name="crash_close">Փակել</string>
+    <string name="crash_dismiss">Շարունակեք</string>
 </resources>

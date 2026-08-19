@@ -30,4 +30,22 @@
     <string name="tab_more">Thêm</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Kinh Qur\'an</string>
+    <string name="more_section_worship">thờ cúng</string>
+    <string name="more_section_knowledge">Kiến thức</string>
+    <string name="more_section_tools">Công cụ</string>
+    <string name="more_section_app">ứng dụng</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">Đây là một trong những điều tốt nhất mà bạn có thể làm. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">جوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">Công ty cung cấp dịch vụ hỗ trợ tài chính cho bạn</string>
+    <string name="crash_title">Lỗi không mong muốn</string>
+    <string name="crash_fatal_message">Đã xảy ra lỗi và ứng dụng đã dừng lại. Bạn có thể khởi động lại nó hoặc đóng nó.</string>
+    <string name="crash_recoverable_message">Đã xảy ra lỗi nhưng bạn có thể tiếp tục sử dụng ứng dụng.</string>
+    <string name="crash_restart">Khởi động lại</string>
+    <string name="crash_close">Đóng</string>
+    <string name="crash_dismiss">Tiếp tục</string>
 </resources>

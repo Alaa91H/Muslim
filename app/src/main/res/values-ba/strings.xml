@@ -30,4 +30,22 @@
     <string name="tab_more">Тағы ла</string>
     <string name="tab_qibla">Ҡибла</string>
     <string name="tab_quran">Ҡөрьән</string>
+    <string name="more_section_worship">Ғибәҙәт ҡылыу .</string>
+    <string name="more_section_knowledge">Белем .</string>
+    <string name="more_section_tools">Ҡоралдар</string>
+    <string name="more_section_app">Ҡушымта</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">ҡулланырға мөмкин. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">ғәмәлгә ашырыу</string>
+    <string name="more_order_move_up">таһарик өсөн</string>
+    <string name="more_order_move_down">рәхәт өсөн</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏،‏</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو لتعمل بدون إن دولترنت</string>
+    <string name="crash_title">Көтөлмәгән хата</string>
+    <string name="crash_fatal_message">Нимәлер дөрөҫ булманы, ҡушымта туҡтаны. Һеҙ уны яңынан башлап йәки ябып була.</string>
+    <string name="crash_recoverable_message">Нимәлер дөрөҫ булманы, әммә ҡушымтаны ҡулланыуҙы дауам итергә мөмкин.</string>
+    <string name="crash_restart">Перезапуск</string>
+    <string name="crash_close">Ябыҡ</string>
+    <string name="crash_dismiss">Дауам итеү</string>
 </resources>

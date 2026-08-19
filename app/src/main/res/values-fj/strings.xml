@@ -30,4 +30,22 @@
     <string name="tab_more">Levu cake</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Koran</string>
+    <string name="more_section_worship">Sokalou</string>
+    <string name="more_section_knowledge">Kila</string>
+    <string name="more_section_tools">Iyaya ni cakacaka</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">Na ivakarau ni bula</string>
+    <string name="more_order_move_up">Taurika sega ni kilai</string>
+    <string name="more_order_move_down">تحريك آسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون مدون</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أوة لتعمل بدون دولترنت</string>
+    <string name="crash_title">Cala sega ni namaki</string>
+    <string name="crash_fatal_message">E dua na ka e cala ka sa mai cegu na app. E rawa ni o tekivutaka tale se sogota.</string>
+    <string name="crash_recoverable_message">E dua na ka e cala, ia e rawa ni o vakayagataka tiko ga na app.</string>
+    <string name="crash_restart">Tekivu tale</string>
+    <string name="crash_close">Voleka</string>
+    <string name="crash_dismiss">Tomana tiko</string>
 </resources>

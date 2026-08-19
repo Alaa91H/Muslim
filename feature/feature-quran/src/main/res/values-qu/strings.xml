@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah yupay</string>
     <string name="quran_download_cancel">Cancelar</string>
     <string name="quran_download_channel">Recitación nisqamanta descargakuna</string>
-    <string name="quran_download_current_ayah">Kunan ayah</string>
-    <string name="quran_download_current_surah">Kunan surah</string>
     <string name="quran_download_delete">Borrar</string>
     <string name="quran_download_delete_confirm">¿Descargas nisqakunata chinkachiy?</string>
     <string name="quran_download_delete_confirm_message">Chay uraykachisqa uyariyqa wiñaypaqmi dispositivoykimanta hurqusqa kanqa.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Tuta suyaspa</string>
     <string name="quran_download_night_waiting">Tutamanta qallarinqa — ventana %1$s</string>
     <string name="quran_download_night_window_title">Tuta uraykachina ventana</string>
-    <string name="quran_download_options_title">Descarga akllanakuna</string>
     <string name="quran_download_pause">Pausay</string>
     <string name="quran_download_percent">%1$d%% nisqapi</string>
     <string name="quran_download_reciter_state">Kay rimaqpaq uraykachisqa: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d sura · %2$d ayah · %3$s</string>
-    <string name="quran_download_reciter_title">Reciter nisqapi akllay</string>
     <string name="quran_download_restoring">Yapamanta uraykachiykunata qallarispa...</string>
     <string name="quran_download_resume">Currículum nisqa ruway</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Pausasqa</string>
     <string name="quran_download_status_queued">Filapi churasqa</string>
     <string name="quran_download_surah_number">Surah yupay (1–114) .</string>
-    <string name="quran_downloaded">Descargasqa</string>
     <string name="quran_downloads_active_title">Kunan pacha, ñawpaq uraykachisqakuna</string>
+    <string name="quran_downloads_summary_title">Llapan uraykachisqa</string>
+    <string name="quran_downloads_summary">%1$d sura · %2$d ayah · %3$s</string>
     <string name="quran_downloads_none">Manaraqmi descargakuna kanchu</string>
     <string name="quran_downloads_title">Descargas nisqakuna</string>
     <string name="quran_font_larger">Aswan hatun qillqa</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d nisqapi</string>
     <string name="quran_tafsir_source">Tafsir: %1$s nisqa</string>
     <string name="quran_title">Santo Quran</string>
+    <string name="quran_download_reciter_header">Descargar: %1$d ayahs · %2$s</string>
 </resources>

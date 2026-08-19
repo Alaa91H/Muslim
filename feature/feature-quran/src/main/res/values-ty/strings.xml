@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Te numera Ayah</string>
     <string name="quran_download_cancel">Faaore</string>
     <string name="quran_download_channel">Te mau tai\'oraa</string>
-    <string name="quran_download_current_ayah">Ayah i teie nei</string>
-    <string name="quran_download_current_surah">Surah i teie nei</string>
     <string name="quran_download_delete">Tamau</string>
     <string name="quran_download_delete_confirm">Tamau i te mau download?</string>
     <string name="quran_download_delete_confirm_message">E iriti - ê - hia te mau reo i download mai i nia i ta outou mauhaa apî.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Te tia\'iraa i te pô</string>
     <string name="quran_download_night_waiting">E haamata i te pô — matapihi %1$s</string>
     <string name="quran_download_night_window_title">Matapihi download i te pô</string>
-    <string name="quran_download_options_title">Tikiake i nga ma\'itiraa</string>
     <string name="quran_download_pause">Taere</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Ua tikihia mai no teie buka: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d ara · %2$d ara · %3$s</string>
-    <string name="quran_download_reciter_title">Ma\'iti i te taata tai\'o</string>
     <string name="quran_download_restoring">Te faaho\'i-faahou-raa mai i te mau download...</string>
     <string name="quran_download_resume">Ho\'i faahou</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Ua faaea</string>
     <string name="quran_download_status_queued">Queued</string>
     <string name="quran_download_surah_number">Te numera o te surah (1–114)</string>
-    <string name="quran_downloaded">Tikiakehia</string>
     <string name="quran_downloads_active_title">Te mau download i teie nei e i ma\'iri a\'e nei</string>
+    <string name="quran_downloads_summary_title">Te taatoaraa o te mau mea</string>
+    <string name="quran_downloads_summary">%1$d ara · %2$d ara · %3$s</string>
     <string name="quran_downloads_none">Aita â i download</string>
     <string name="quran_downloads_title">Te mau download</string>
     <string name="quran_font_larger">Font rahi a\'e</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">%1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Te Quran Mo\'a</string>
+    <string name="quran_download_reciter_header">Tikiakehia mai: %1$d ara · %2$s</string>
 </resources>

@@ -30,4 +30,22 @@
     <string name="tab_more">Tse dingwe</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Quran</string>
+    <string name="more_section_worship">Kobamelo</string>
+    <string name="more_section_knowledge">Kitso</string>
+    <string name="more_section_tools">Didirisiwa</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">tlhakatlhakano</string>
+    <string name="more_order_move_up">Taharik gonne</string>
+    <string name="more_order_move_down">حريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">go tsenelela</string>
+    <string name="more_offline_maps_desc">😂😂😂😂😂</string>
+    <string name="crash_title">Phoso e e sa lebelelwang</string>
+    <string name="crash_fatal_message">Sengwe se ne sa senyega mme app ya ema. O ka e simolola gape kgotsa wa e tswala.</string>
+    <string name="crash_recoverable_message">Go na le sengwe se se sa tsamayang sentle, mme o ka nna wa dirisa app eno.</string>
+    <string name="crash_restart">Simolola gape</string>
+    <string name="crash_close">Tswala</string>
+    <string name="crash_dismiss">Tswelela</string>
 </resources>

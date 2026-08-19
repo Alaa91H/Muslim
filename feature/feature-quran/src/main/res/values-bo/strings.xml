@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">ཨ་ཡ་ཨང་།</string>
     <string name="quran_download_cancel">ཆ་མེད་གཏོང་བ།</string>
     <string name="quran_download_channel">གྱེར་འདོན་ཕབ་ལེན།</string>
-    <string name="quran_download_current_ayah">ད་ལྟའི་ཨཱ་ཡཱ།</string>
-    <string name="quran_download_current_surah">ད་ལྟའི་སུ་ར།</string>
     <string name="quran_download_delete">སུབ་པ།</string>
     <string name="quran_download_delete_confirm">ཕབ་ལེན་རྣམས་སུབ་དམ།</string>
     <string name="quran_download_delete_confirm_message">ཕབ་ལེན་བྱས་པའི་སྒྲ་དེ་ཁྱེད་ཀྱི་ཡོ་ཆས་ནས་གཏན་འཇགས་མེད་པར་བཟོ་རྒྱུ་རེད།</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">མཚན་མོ་སྒུག་པ།</string>
     <string name="quran_download_night_waiting">མཚན་མོར་འགོ་འཛུགས་རྒྱུ་ཡིན། སྒེའུ་ཁུང་%1$s</string>
     <string name="quran_download_night_window_title">མཚན་མོའི་ཕབ་ལེན་སྒེའུ་ཁུང་།</string>
-    <string name="quran_download_options_title">ཕབ་ལེན་གདམ་ག།</string>
     <string name="quran_download_pause">མཚམས་འཇོག་པ།</string>
     <string name="quran_download_percent">%1$d%%།</string>
     <string name="quran_download_reciter_state">ཀློག་མཁན་འདིའི་ཆེད་དུ་ཕབ་ལེན་བྱས།: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surah · %2$d ཨ་ཡཱ་ · %3$s</string>
-    <string name="quran_download_reciter_title">ཀློག་པ་པོ་འདེམས།</string>
     <string name="quran_download_restoring">ཕབ་ལེན་སླར་གསོ་བྱེད་བཞིན་ཡོད།</string>
     <string name="quran_download_resume">ལོ་རྒྱུས་མདོར་བསྡུས།</string>
     <string name="quran_download_scope_ayah">ཨ་ཡ།</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">མཚམས་འཇོག་བྱས།</string>
     <string name="quran_download_status_queued">གྲལ་བསྒྲིགས།</string>
     <string name="quran_download_surah_number">སུ་ར་ཨང་གྲངས་(1–114)</string>
-    <string name="quran_downloaded">ཕབ་ལེན་བྱས།</string>
     <string name="quran_downloads_active_title">ད་ལྟ་དང་སྔོན་གྱི་ཕབ་ལེན།</string>
+    <string name="quran_downloads_summary_title">བསྡོམས་པས་ཕབ་ལེན་བྱས་ཟིན།</string>
+    <string name="quran_downloads_summary">%1$d surah · %2$d ཨ་ཡཱ་ · %3$s</string>
     <string name="quran_downloads_none">ད་དུང་ཕབ་ལེན་བྱས་མེད།</string>
     <string name="quran_downloads_title">ཕབ་ལེན།</string>
     <string name="quran_font_larger">ཡིག་གཟུགས་ཆེ་བ།</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">སུ་ར་ %1$d དང་།</string>
     <string name="quran_tafsir_source">ཏཕ་སིར་: %1$s</string>
     <string name="quran_title">ཁ་ཆེའི་དཔེ་ཆ།</string>
+    <string name="quran_download_reciter_header">ཕབ་ལེན་བྱས།: %1$d ayahs · %2$s</string>
 </resources>

@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah nummer</string>
     <string name="quran_download_cancel">Avbryt</string>
     <string name="quran_download_channel">Recitation nedladdningar</string>
-    <string name="quran_download_current_ayah">Aktuell ayah</string>
-    <string name="quran_download_current_surah">Nuvarande sura</string>
     <string name="quran_download_delete">Ta bort</string>
     <string name="quran_download_delete_confirm">Ta bort nedladdningar?</string>
     <string name="quran_download_delete_confirm_message">Det nedladdade ljudet kommer att tas bort permanent från din enhet.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Väntar på natten</string>
     <string name="quran_download_night_waiting">Startar på natten — fönster %1$s</string>
     <string name="quran_download_night_window_title">Nattnedladdningsfönster</string>
-    <string name="quran_download_options_title">Nedladdningsalternativ</string>
     <string name="quran_download_pause">Pausa</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Nedladdat för denna reciter: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Välj reciter</string>
     <string name="quran_download_restoring">Återupptar nedladdningar...</string>
     <string name="quran_download_resume">Återuppta</string>
     <string name="quran_download_scope_ayah">Aja</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Pausad</string>
     <string name="quran_download_status_queued">I kö</string>
     <string name="quran_download_surah_number">Surah nummer (1–114)</string>
-    <string name="quran_downloaded">Nedladdat</string>
     <string name="quran_downloads_active_title">Aktuella och tidigare nedladdningar</string>
+    <string name="quran_downloads_summary_title">Totalt nedladdade</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Inga nedladdningar ännu</string>
     <string name="quran_downloads_title">Nedladdningar</string>
     <string name="quran_font_larger">Större typsnitt</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Den heliga Koranen</string>
+    <string name="quran_download_reciter_header">Nedladdat: %1$d ayahs · %2$s</string>
 </resources>

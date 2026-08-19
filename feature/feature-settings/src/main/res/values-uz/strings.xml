@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Mavzu</string>
     <string name="settings_theme_system">Tizim</string>
     <string name="settings_title">Sozlamalar</string>
+    <string name="settings_section_time_format">Vaqt formati</string>
+    <string name="settings_time_12">12 soat (soat/soat)</string>
+    <string name="settings_time_24">24 soat</string>
+    <string name="settings_section_more">sẖạsẗ ạlmzyd</string>
+    <string name="settings_more_order">tartyb ạ̉qsạm sẖạsẗ ạlmzyd</string>
+    <string name="settings_more_order_desc">tkẖṣyạ trtyb ạ̉qsạm sẖạsẗ ạlmzyd (ạlʿbạdạt, ạlʿlm, ạlạ̉dwạt…)</string>
 </resources>

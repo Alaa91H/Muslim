@@ -54,11 +54,6 @@
 
     <!-- Recitation -->
     <string name="quran_reciter">Reciter</string>
-    <string name="quran_download_reciter_title">Select reciter</string>
-    <string name="quran_download_options_title">Download options</string>
-    <string name="quran_download_current_ayah">Current ayah</string>
-    <string name="quran_download_current_surah">Current surah</string>
-    <string name="quran_downloaded">Downloaded</string>
     <string name="quran_play_ayah">Play ayah</string>
     <string name="quran_repeat">Repeat</string>
     <string name="quran_next_ayah">Next ayah</string>
@@ -89,6 +84,8 @@
     <string name="quran_download_start">Start download</string>
     <string name="quran_download_cancel">Cancel</string>
     <string name="quran_downloads_active_title">Current and past downloads</string>
+    <string name="quran_downloads_summary_title">Total downloaded</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">No downloads yet</string>
     <string name="quran_download_status_queued">Queued</string>
     <string name="quran_download_status_downloading">Downloading</string>
@@ -126,6 +123,7 @@
     <string name="quran_download_night_end">End</string>
     <string name="quran_download_pause">Pause</string>
     <string name="quran_download_reciter_state">Downloaded for this reciter: %1$s</string>
+    <string name="quran_download_reciter_header">Downloaded: %1$d ayahs · %2$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_download_delete_surah">Delete downloaded surah</string>
     <string name="quran_download_delete_reciter">Delete all downloads for this reciter</string>

@@ -46,7 +46,7 @@ import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.feature.prayertimes.ui.formatCountdown
 import org.muslim.app.feature.prayertimes.ui.localDateFormatter
-import org.muslim.app.feature.prayertimes.ui.localTimeFormatter
+import org.muslim.app.core.common.time.TimeFormats
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 
 /**
@@ -60,6 +60,7 @@ fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
+    val use24h by viewModel.use24h.collectAsStateWithLifecycle()
 
     val context = LocalContext.current
 
@@ -141,7 +142,7 @@ fun HomeScreen(
                 Row(verticalAlignment = Alignment.Bottom) {
                     state.nextPrayerAt?.let { at ->
                         Text(
-                            text = at.format(localTimeFormatter),
+                            text = at.format(TimeFormats.timeFormatter(use24h)),
                             style = MaterialTheme.typography.headlineMedium,
                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                         )
@@ -193,7 +194,7 @@ fun HomeScreen(
                         Spacer(Modifier.weight(1f))
                         state.times[prayer]?.let { time ->
                             Text(
-                                text = time.format(localTimeFormatter),
+                                text = time.format(TimeFormats.timeFormatter(use24h)),
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = if (prayer == state.nextPrayer) FontWeight.Bold else FontWeight.Normal,
                             )
@@ -233,7 +234,7 @@ fun HomeScreen(
             horizontalArrangement = Arrangement.End,
         ) {
             OutlinedButton(
-                onClick = { shareDailyTimes(context, state) },
+                onClick = { shareDailyTimes(context, state, use24h) },
                 enabled = state.isValid,
             ) {
                 Text(stringResource(R.string.times_share))
@@ -245,7 +246,7 @@ fun HomeScreen(
         }
 
         if (state.monthly) {
-            MonthlyGrid(state)
+            MonthlyGrid(state, use24h)
         }
 
         Spacer(Modifier.height(16.dp))
@@ -253,7 +254,7 @@ fun HomeScreen(
 }
 
 /** Shares the selected day's prayer times as plain text via the share sheet. */
-private fun shareDailyTimes(context: Context, state: HomeViewModel.UiState) {
+private fun shareDailyTimes(context: Context, state: HomeViewModel.UiState, use24h: Boolean) {
     if (!state.isValid) return
     val label = { prayer: Prayer -> context.getString(prayerLabelRes(prayer)) }
     val lines = buildList {
@@ -261,7 +262,7 @@ private fun shareDailyTimes(context: Context, state: HomeViewModel.UiState) {
         if (state.hasLocation) add(context.getString(R.string.times_export_location, state.locationName))
         add("")
         Prayer.entries.forEach { prayer ->
-            state.times[prayer]?.let { add("${label(prayer)}: ${it.format(localTimeFormatter)}") }
+            state.times[prayer]?.let { add("${label(prayer)}: ${it.format(TimeFormats.timeFormatter(use24h))}") }
         }
     }
 
@@ -276,7 +277,7 @@ private fun shareDailyTimes(context: Context, state: HomeViewModel.UiState) {
 
 /** Monthly grid of fajr/maghrib times, like a printed yearly timetable. */
 @Composable
-private fun MonthlyGrid(state: HomeViewModel.UiState) {
+private fun MonthlyGrid(state: HomeViewModel.UiState, use24h: Boolean) {
     val daysOfWeek = listOf(
         stringResource(R.string.times_week_sat),
         stringResource(R.string.times_week_sun),
@@ -309,7 +310,7 @@ private fun MonthlyGrid(state: HomeViewModel.UiState) {
                 if (dayIndex < 0) {
                     Box(Modifier.padding(2.dp))
                 } else {
-                    MonthCell(state.monthDays[dayIndex])
+                    MonthCell(state.monthDays[dayIndex], use24h)
                 }
             }
         }
@@ -317,7 +318,7 @@ private fun MonthlyGrid(state: HomeViewModel.UiState) {
 }
 
 @Composable
-private fun MonthCell(day: HomeViewModel.DayTimes) {
+private fun MonthCell(day: HomeViewModel.DayTimes, use24h: Boolean) {
     Column(
         modifier = Modifier
             .padding(2.dp)
@@ -337,14 +338,14 @@ private fun MonthCell(day: HomeViewModel.DayTimes) {
         )
         day.fajr?.let {
             Text(
-                text = it.format(localTimeFormatter),
+                text = it.format(TimeFormats.timeFormatter(use24h)),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurface,
             )
         }
         day.maghrib?.let {
             Text(
-                text = it.format(localTimeFormatter),
+                text = it.format(TimeFormats.timeFormatter(use24h)),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurface,
             )

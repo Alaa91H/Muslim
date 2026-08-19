@@ -30,6 +30,9 @@ dependencies {
     // OpenStreetMap rendering (MapLibre GL Native — no API key, no Google services)
     implementation(libs.maplibre.android)
 
+    // Custom User-Agent for MapLibre's tile requests (OpenFreeMap policy).
+    implementation(libs.okhttp)
+
     implementation(libs.androidx.core.ktx)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -40,4 +43,6 @@ dependencies {
     implementation(libs.androidx.compose.material3.adaptive)
 
     implementation(libs.androidx.lifecycle.runtime.compose)
+
+    testImplementation(libs.junit)
 }

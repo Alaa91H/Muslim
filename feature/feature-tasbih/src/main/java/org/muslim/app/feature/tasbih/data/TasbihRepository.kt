@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import org.muslim.app.feature.tasbih.domain.DailyCount
 import org.muslim.app.feature.tasbih.domain.TasbihCounter
@@ -30,12 +31,16 @@ class TasbihRepository @Inject constructor(
 ) {
 
     /** Sound-on-target preferences (toggle + chosen system tone). */
-    val targetSoundSettings: Flow<TargetSoundSettings> = context.tasbihDataStore.data.map { prefs ->
-        TargetSoundSettings(
-            enabled = prefs[Keys.SOUND_ENABLED] ?: false,
-            tone = prefs[Keys.SOUND_TONE] ?: TargetSoundSettings.TONE_NOTIFICATION,
-        )
-    }
+    val targetSoundSettings: Flow<TargetSoundSettings> = context.tasbihDataStore.data
+        .map { prefs ->
+            TargetSoundSettings(
+                enabled = prefs[Keys.SOUND_ENABLED] ?: false,
+                tone = prefs[Keys.SOUND_TONE] ?: TargetSoundSettings.TONE_NOTIFICATION,
+            )
+        }
+        // Corrupt persisted data (e.g. written by an older version) must never
+        // crash the screen on entry; fall back to the defaults instead.
+        .catch { emit(TargetSoundSettings(false, TargetSoundSettings.TONE_NOTIFICATION)) }
 
     suspend fun setTargetSoundEnabled(enabled: Boolean) {
         context.tasbihDataStore.edit { prefs -> prefs[Keys.SOUND_ENABLED] = enabled }
@@ -45,17 +50,20 @@ class TasbihRepository @Inject constructor(
         context.tasbihDataStore.edit { prefs -> prefs[Keys.SOUND_TONE] = tone }
     }
 
-    val state: Flow<TasbihState> = context.tasbihDataStore.data.map { prefs ->
-        val today = LocalDate.now()
-        val storedCounts = decodeCounts(prefs[Keys.COUNTS])
-        val storedDate = prefs[Keys.DATE]?.let { runCatching { LocalDate.parse(it) }.getOrNull() } ?: today
-        TasbihState(
-            counts = TasbihCounter.effectiveCounts(storedCounts, storedDate, today),
-            target = prefs[Keys.TARGET] ?: DEFAULT_TARGET,
-            phrase = TasbihPhrase.entries.getOrElse(prefs[Keys.PHRASE] ?: 0) { TasbihPhrase.SubhanAllah },
-            history = decodeHistory(prefs[Keys.HISTORY]),
-        )
-    }
+    val state: Flow<TasbihState> = context.tasbihDataStore.data
+        .map { prefs ->
+            val today = LocalDate.now()
+            val storedCounts = decodeCounts(prefs[Keys.COUNTS])
+            val storedDate = prefs[Keys.DATE]?.let { runCatching { LocalDate.parse(it) }.getOrNull() } ?: today
+            TasbihState(
+                counts = TasbihCounter.effectiveCounts(storedCounts, storedDate, today),
+                target = prefs[Keys.TARGET] ?: DEFAULT_TARGET,
+                phrase = TasbihPhrase.entries.getOrElse(prefs[Keys.PHRASE] ?: 0) { TasbihPhrase.SubhanAllah },
+                history = decodeHistory(prefs[Keys.HISTORY]),
+            )
+        }
+        // Corrupt persisted data must never crash the misbaha on entry.
+        .catch { emit(TasbihState(emptyMap(), DEFAULT_TARGET, TasbihPhrase.SubhanAllah, emptyList())) }
 
     suspend fun increment(phrase: TasbihPhrase) {
         context.tasbihDataStore.edit { prefs ->

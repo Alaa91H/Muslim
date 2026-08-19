@@ -30,4 +30,22 @@
     <string name="tab_more">Meer</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Koran</string>
+    <string name="more_section_worship">Aanbidding</string>
+    <string name="more_section_knowledge">Kennis</string>
+    <string name="more_section_tools">Gereedschap</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">De beste manier om dit te doen</string>
+    <string name="more_order_hint">Zorg ervoor dat het apparaat niet goed werkt. Zorg ervoor dat het apparaat niet goed werkt.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">Dit is het geval</string>
+    <string name="more_order_move_down">Dit is het geval</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">Zorg ervoor dat u uw geld terugkrijgt</string>
+    <string name="crash_title">Onverwachte fout</string>
+    <string name="crash_fatal_message">Er ging iets mis en de app stopte. U kunt het opnieuw opstarten of afsluiten.</string>
+    <string name="crash_recoverable_message">Er is iets misgegaan, maar je kunt de app blijven gebruiken.</string>
+    <string name="crash_restart">Opnieuw opstarten</string>
+    <string name="crash_close">Sluiten</string>
+    <string name="crash_dismiss">Ga door</string>
 </resources>

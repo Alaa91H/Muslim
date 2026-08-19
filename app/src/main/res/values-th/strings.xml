@@ -30,4 +30,22 @@
     <string name="tab_more">เพิ่มเติม</string>
     <string name="tab_qibla">กิบลัต</string>
     <string name="tab_quran">อัลกุรอาน</string>
+    <string name="more_section_worship">บูชา</string>
+    <string name="more_section_knowledge">ความรู้</string>
+    <string name="more_section_tools">เครื่องมือ</string>
+    <string name="more_section_app">แอพ</string>
+    <string name="more_order_title">ترتيب اقسام المزيد</string>
+    <string name="more_order_hint">استكدم الاسهم لتحريك كل قسم لاعلى او لاسلل. يَتبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافترادي</string>
+    <string name="more_order_move_up">تحريك لاعلى</string>
+    <string name="more_order_move_down">تحريك لاسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">کرائل بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل كرائل مدينة او دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">ข้อผิดพลาดที่ไม่คาดคิด</string>
+    <string name="crash_fatal_message">เกิดข้อผิดพลาดและแอปหยุดทำงาน คุณสามารถรีสตาร์ทหรือปิดได้</string>
+    <string name="crash_recoverable_message">มีข้อผิดพลาดเกิดขึ้น แต่คุณสามารถใช้แอปต่อไปได้</string>
+    <string name="crash_restart">รีสตาร์ท</string>
+    <string name="crash_close">ปิด</string>
+    <string name="crash_dismiss">ดำเนินการต่อ</string>
 </resources>

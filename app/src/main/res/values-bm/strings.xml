@@ -30,4 +30,22 @@
     <string name="tab_more">Ka tɛmɛ o kan</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Kuranɛ</string>
+    <string name="more_section_worship">Bato kɛ</string>
+    <string name="more_section_knowledge">Dɔnniya</string>
+    <string name="more_section_tools">Baarakɛminɛnw</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Misali min ma labɛn</string>
+    <string name="crash_fatal_message">Fɛn dɔ ma ɲɛ ani appli (application) in jɔra. Aw bɛ se k’a daminɛ kokura walima k’a datugu.</string>
+    <string name="crash_recoverable_message">Fɛn dɔ ma ɲɛ, nka i bɛ se ka to ka baara kɛ ni appli ye.</string>
+    <string name="crash_restart">A daminɛ kokura</string>
+    <string name="crash_close">A da tugu</string>
+    <string name="crash_dismiss">Aw bɛ taa a fɛ</string>
 </resources>

@@ -30,4 +30,22 @@
     <string name="tab_more">ᓱᓕᒃᑲᓐᓂᖅ</string>
     <string name="tab_qibla">ᕿᑉᓚ</string>
     <string name="tab_quran">ᑯᕌᓐ</string>
+    <string name="more_section_worship">ᑐᒃᓯᐊᕐᓂᖅ</string>
+    <string name="more_section_knowledge">ᖃᐅᔨᒪᓂᖅ</string>
+    <string name="more_section_tools">ᓴᓇᕐᕈᑎᑦ</string>
+    <string name="more_section_app">ᖃᕆᑕᐅᔭᒃᑯᑦ ᑐᒃᓯᕋᐅᑎ</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">اᓲ ᐊسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">‏‏‏‏‏‌‏‏</string>
+    <string name="more_order_move_up">ᐅᕼᐊᕆᒃ ᐊᓴᓕ</string>
+    <string name="more_order_move_down">ᕼᐊᕆᒃ لأسفل</string>
+    <string name="more_order_back">رجᐅ</string>
+    <string name="more_offline_maps">ᖃᕋᐃط ᐹᑐᓐ</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أوة لتعمل بدون إن دولترنت</string>
+    <string name="crash_title">ᓂᕆᐅᓇᙱᑦᑐᖅ ᑕᒻᒪᖅᓯᒪᔪᖅ</string>
+    <string name="crash_fatal_message">ᓱᓇᑐᐃᓐᓇᖅ ᑕᒻᒪᓚᐅᕐᒪᑦ ᐊᒻᒪᓗ ᖃᕋᓴᐅᔭᒃᑯᑦ ᑐᒃᓯᕋᐅᑎ ᓄᖅᑲᓚᐅᕐᒪᑦ. ᐱᒋᐊᒃᑲᓐᓂᕈᓐᓇᖅᑕᐃᑦ ᐅᕝᕙᓘᓐᓃᑦ ᒪᑐᓗᒍ.</string>
+    <string name="crash_recoverable_message">ᑕᒻᒪᖅᑐᖃᓚᐅᕐᒪᑦ, ᑭᓯᐊᓂ ᐊᑐᐃᓐᓇᕈᓐᓇᖅᑕᐃᑦ ᖃᕆᑕᐅᔭᒃᑯᑦ ᑐᒃᓯᕋᐅᑎ.</string>
+    <string name="crash_restart">ᐱᒋᐊᒃᑲᓐᓂᕐᓗᒍ</string>
+    <string name="crash_close">ᒪᑐᓗᒍ</string>
+    <string name="crash_dismiss">ᑲᔪᓯᔪᖅ</string>
 </resources>

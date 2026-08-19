@@ -30,4 +30,22 @@
     <string name="tab_more">Дагьабги</string>
     <string name="tab_qibla">Къибла</string>
     <string name="tab_quran">Къуръан</string>
+    <string name="more_section_worship">ГӀибадат .</string>
+    <string name="more_section_knowledge">Лъай .</string>
+    <string name="more_section_tools">Алатал</string>
+    <string name="more_section_app">Приложение</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">тархик لأцеляй</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أوة لتعمل بدون إن دولترنت</string>
+    <string name="crash_title">РакӀалдаго гьечӀеб гъалатӀ</string>
+    <string name="crash_fatal_message">Цо жо мекъи ккана ва приложение чӀун хутӀана. Нужеца гьеб цӀидасан байбихьизе бегьула яги къазе бегьула.</string>
+    <string name="crash_recoverable_message">Цо жо мекъи ккана, амма нужеца гьеб приложение хӀалтӀизабизе бегьула.</string>
+    <string name="crash_restart">ЦӀидасан байбихьизе</string>
+    <string name="crash_close">Къазе</string>
+    <string name="crash_dismiss">Халат бахъинабизе</string>
 </resources>

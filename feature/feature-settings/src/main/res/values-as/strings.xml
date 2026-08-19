@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">থিম</string>
     <string name="settings_theme_system">ব্যৱস্থাপ্ৰণালী</string>
     <string name="settings_title">ছেটিংছ</string>
+    <string name="settings_section_time_format">সময়ৰ বিন্যাস</string>
+    <string name="settings_time_12">১২ ঘণ্টীয়া (AM/PM)</string>
+    <string name="settings_time_24">২৪ ঘণ্টীয়া</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات...)</string>
 </resources>

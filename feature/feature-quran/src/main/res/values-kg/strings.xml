@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Nimero ya Ayah</string>
     <string name="quran_download_cancel">Katula</string>
     <string name="quran_download_channel">Ba nsangu ya bo me baka</string>
-    <string name="quran_download_current_ayah">Ayah ya sesepi</string>
-    <string name="quran_download_current_surah">Surah ya sesepi</string>
     <string name="quran_download_delete">Kufwa</string>
     <string name="quran_download_delete_confirm">Kufwa bima ya bo me baka?</string>
     <string name="quran_download_delete_confirm_message">E audio obaka, ikatulwa yakwele mvu muna telefone aku.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Kuvingila mpimpa</string>
     <string name="quran_download_night_waiting">Ta yantika na mpimpa — fenetre %1$s</string>
     <string name="quran_download_night_window_title">Fenêtre ya kubaka bima na mpimpa</string>
-    <string name="quran_download_options_title">Ba options ya kubaka</string>
     <string name="quran_download_pause">Pema</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Kubaka sambu na mutangi yai: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d · %2$d ayas · %3$s</string>
-    <string name="quran_download_reciter_title">Pona muntu ke tanga</string>
     <string name="quran_download_restoring">Kuvutukila kubaka...</string>
     <string name="quran_download_resume">Kuvutukila</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Kupema</string>
     <string name="quran_download_status_queued">Ndonga</string>
     <string name="quran_download_surah_number">Nimero ya Sura (1-114)</string>
-    <string name="quran_downloaded">Bo me baka yo</string>
     <string name="quran_downloads_active_title">Ba téléchargement ya ntangu yayi mpe ya ntama</string>
+    <string name="quran_downloads_summary_title">Ntalu ya bo me baka</string>
+    <string name="quran_downloads_summary">%1$d · %2$d ayas · %3$s</string>
     <string name="quran_downloads_none">Ata kima mosi ve</string>
     <string name="quran_downloads_title">Kubaka</string>
     <string name="quran_font_larger">Fonte ya nene</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Quoran ya santu</string>
+    <string name="quran_download_reciter_header">Bo me baka yo: baya %1$d · %2$s</string>
 </resources>

@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Umxholo</string>
     <string name="settings_theme_system">Inkqubo</string>
     <string name="settings_title">Iisetingi</string>
+    <string name="settings_section_time_format">Ubume bexesha</string>
+    <string name="settings_time_12">Iiyure eziyi-12 (AM/PM)</string>
+    <string name="settings_time_24">Iiyure ezingama-24</string>
+    <string name="settings_section_more">umfanekiso weskrini</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات, العلم, الأدوات…)</string>
 </resources>

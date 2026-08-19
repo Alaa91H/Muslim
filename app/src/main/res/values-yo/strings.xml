@@ -30,4 +30,22 @@
     <string name="tab_more">Die e sii</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Al-Qur’an</string>
+    <string name="more_section_worship">Ìjọsìn</string>
+    <string name="more_section_knowledge">Imọye</string>
+    <string name="more_section_tools">Awọn irinṣẹ</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Aṣiṣe airotẹlẹ</string>
+    <string name="crash_fatal_message">Nkankan ti ko tọ ati pe app naa duro. O le tun bẹrẹ tabi pa a.</string>
+    <string name="crash_recoverable_message">Nkankan ti ko tọ, ṣugbọn o le tẹsiwaju lilo app naa.</string>
+    <string name="crash_restart">Tun bẹrẹ</string>
+    <string name="crash_close">Sunmọ</string>
+    <string name="crash_dismiss">Tesiwaju</string>
 </resources>

@@ -30,4 +30,22 @@
     <string name="tab_more">Higit pa</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Quran</string>
+    <string name="more_section_worship">Pagsamba</string>
+    <string name="more_section_knowledge">Kaalaman</string>
+    <string name="more_section_tools">Mga gamit</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Hindi inaasahang error</string>
+    <string name="crash_fatal_message">Nagkaproblema at huminto ang app. Maaari mo itong i-restart o isara.</string>
+    <string name="crash_recoverable_message">Nagkaproblema, ngunit maaari mong patuloy na gamitin ang app.</string>
+    <string name="crash_restart">I-restart</string>
+    <string name="crash_close">Isara</string>
+    <string name="crash_dismiss">Magpatuloy</string>
 </resources>

@@ -54,11 +54,6 @@
 
     <!-- Recitation -->
     <string name="quran_reciter">القارئ</string>
-    <string name="quran_download_reciter_title">اختيار القارئ</string>
-    <string name="quran_download_options_title">خيارات التحميل</string>
-    <string name="quran_download_current_ayah">الآية الحالية</string>
-    <string name="quran_download_current_surah">السورة الحالية</string>
-    <string name="quran_downloaded">تم التنزيل</string>
     <string name="quran_play_ayah">تشغيل الآية</string>
     <string name="quran_repeat">تكرار</string>
     <string name="quran_next_ayah">الآية التالية</string>
@@ -89,6 +84,8 @@
     <string name="quran_download_start">بدء التحميل</string>
     <string name="quran_download_cancel">إلغاء</string>
     <string name="quran_downloads_active_title">التنزيلات الحالية والسابقة</string>
+    <string name="quran_downloads_summary_title">إجمالي المحمّل</string>
+    <string name="quran_downloads_summary">%1$d سورة · %2$d آية · %3$s</string>
     <string name="quran_downloads_none">لا توجد تنزيلات بعد</string>
     <string name="quran_download_status_queued">في الانتظار</string>
     <string name="quran_download_status_downloading">جارٍ التنزيل</string>
@@ -126,6 +123,7 @@
     <string name="quran_download_night_end">النهاية</string>
     <string name="quran_download_pause">إيقاف مؤقت</string>
     <string name="quran_download_reciter_state">المحلَّى للقارئ: %1$s</string>
+    <string name="quran_download_reciter_header">المحمّل: %1$d آية · %2$s</string>
     <string name="quran_download_reciter_state_detail">%1$d سورة · %2$d آية · %3$s</string>
     <string name="quran_download_delete_surah">حذف السورة المحمّلة</string>
     <string name="quran_download_delete_reciter">حذف كل تحميلات هذا القارئ</string>

@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Uka tuqitxa</string>
     <string name="settings_theme_system">Sistema ukaxa</string>
     <string name="settings_title">Ukax mä juk’a pachanakanwa</string>
+    <string name="settings_section_time_format">Pacha formato ukaxa</string>
+    <string name="settings_time_12">12 pacha (AM/PM) .</string>
+    <string name="settings_time_24">24 pachanakawa</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات...)</string>
 </resources>

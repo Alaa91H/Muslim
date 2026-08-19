@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Uimmir Ayah</string>
     <string name="quran_download_cancel">Cur-my-ner</string>
     <string name="quran_download_channel">Lught-chleayshyn</string>
-    <string name="quran_download_current_ayah">Ayah nish</string>
-    <string name="quran_download_current_surah">Surah nish</string>
     <string name="quran_download_delete">Smooinee</string>
     <string name="quran_download_delete_confirm">Smooinee er downloadyn?</string>
     <string name="quran_download_delete_confirm_message">Ta\'n clashtyn t\'er ny lhoobey er ny chur ersooyl dy bragh veih\'n innid.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Feaysley son oie</string>
     <string name="quran_download_night_waiting">T\'eh toshiaght \'sy ghrian — fenee %1$s</string>
     <string name="quran_download_night_window_title">Fuinneig download oie</string>
-    <string name="quran_download_options_title">Roghyn luagh</string>
     <string name="quran_download_pause">Pause;</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Lught-reill son y lioar shoh: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surah · %2$d ayah · %3$s</string>
-    <string name="quran_download_reciter_title">Tagh yn reciter</string>
     <string name="quran_download_restoring">Reayll y lhoobey...</string>
     <string name="quran_download_resume">Reesht</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Pause</string>
     <string name="quran_download_status_queued">Cur-my-ner</string>
     <string name="quran_download_surah_number">Sura (1-114)</string>
-    <string name="quran_downloaded">Lhiasaghey</string>
     <string name="quran_downloads_active_title">Downloadyn nish as roish</string>
+    <string name="quran_downloads_summary_title">Total er ny lhoobey</string>
+    <string name="quran_downloads_summary">%1$d surah · %2$d ayah · %3$s</string>
     <string name="quran_downloads_none">Cha nel lusaghey erbee foast</string>
     <string name="quran_downloads_title">Lurgaghyn</string>
     <string name="quran_font_larger">Font ny smoo</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Yn Quran Nasaragh</string>
+    <string name="quran_download_reciter_header">Lught-thie: %1$d ayahs · %2$s</string>
 </resources>

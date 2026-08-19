@@ -30,4 +30,22 @@
     <string name="tab_more">Elaplok</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Quran</string>
+    <string name="more_section_worship">Kabuñ</string>
+    <string name="more_section_knowledge">Jelalokjen</string>
+    <string name="more_section_tools">Kein jerbal ko</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">ترتيب أقت المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتح كل kain لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تح کم لأعلى</string>
+    <string name="more_order_move_down">تحول لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل إنترنت</string>
+    <string name="crash_title">Bōd eo ejjab kōtmene kake</string>
+    <string name="crash_fatal_message">Juon men ear jab jimwe im app eo ear bōjrak. Kwomaroñ bar jinoe ak kilōke.</string>
+    <string name="crash_recoverable_message">Ewōr juon men ear jab jimwe, ak kwomaroñ in kajerbal wōt app eo.</string>
+    <string name="crash_restart">Bar jinoe</string>
+    <string name="crash_close">Kilōk</string>
+    <string name="crash_dismiss">Wōnm̧aanļo̧k wōt</string>
 </resources>

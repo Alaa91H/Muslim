@@ -68,7 +68,9 @@ fun ZakatScreen(
     viewModel: ZakatViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    val formatter = NumberFormat.getNumberInstance()
+    // Always western digits (never Arabic-Indic), regardless of the device
+    // locale — this is a project-wide rule (see Digits in core-common).
+    val formatter = NumberFormat.getNumberInstance(java.util.Locale.ENGLISH)
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -300,7 +302,13 @@ private fun NumberField(
     OutlinedTextField(
         value = if (value == 0.0) "" else formatter.format(value),
         onValueChange = { raw ->
-            val cleaned = raw.replace(',', '.').filter { it.isDigit() || it == '.' }
+            // Normalize Arabic-Indic/Persian digits (produced by some locale
+            // keyboards) to western ones first, then keep only digits and a
+            // single decimal point. Without this, typing in Arabic locales
+            // produced digits that toDoubleOrNull() rejected and the field
+            // silently dropped characters.
+            val western = org.muslim.app.core.common.text.Digits.toWesternDigits(raw)
+            val cleaned = western.replace(',', '.').filter { it.isDigit() || it == '.' }
             onValueChange(cleaned.toDoubleOrNull() ?: 0.0)
         },
         label = { Text(label) },
@@ -388,7 +396,12 @@ private fun FitrSection(state: ZakatUiState, viewModel: ZakatViewModel, formatte
     NumberField(stringResource(R.string.zakat_fitr_saa_value), state.fitrSaaValue, formatter, viewModel::setFitrSaaValue)
     OutlinedTextField(
         value = state.fitrPersons.toString(),
-        onValueChange = { raw -> raw.toIntOrNull()?.let(viewModel::setFitrPersons) },
+        onValueChange = { raw ->
+            org.muslim.app.core.common.text.Digits.toWesternDigits(raw)
+                .filter { it.isDigit() }
+                .toIntOrNull()
+                ?.let(viewModel::setFitrPersons)
+        },
         label = { Text(stringResource(R.string.zakat_fitr_persons)) },
         singleLine = true,
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),

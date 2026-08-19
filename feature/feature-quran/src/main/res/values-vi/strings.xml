@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Số Ayah</string>
     <string name="quran_download_cancel">Hủy bỏ</string>
     <string name="quran_download_channel">Tải xuống ngâm thơ</string>
-    <string name="quran_download_current_ayah">hiện tại ayah</string>
-    <string name="quran_download_current_surah">Surah hiện tại</string>
     <string name="quran_download_delete">Xóa</string>
     <string name="quran_download_delete_confirm">Xóa nội dung tải xuống?</string>
     <string name="quran_download_delete_confirm_message">Âm thanh đã tải xuống sẽ bị xóa vĩnh viễn khỏi thiết bị của bạn.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Chờ đêm</string>
     <string name="quran_download_night_waiting">Sẽ bắt đầu vào ban đêm - cửa sổ %1$s</string>
     <string name="quran_download_night_window_title">Cửa sổ tải xuống ban đêm</string>
-    <string name="quran_download_options_title">Tùy chọn tải xuống</string>
     <string name="quran_download_pause">Tạm dừng</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Đã tải xuống cho người đọc này: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surah · %2$d ayah · %3$s</string>
-    <string name="quran_download_reciter_title">Chọn người đọc</string>
     <string name="quran_download_restoring">Đang tiếp tục tải xuống…</string>
     <string name="quran_download_resume">Tiếp tục</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Đã tạm dừng</string>
     <string name="quran_download_status_queued">Đã xếp hàng</string>
     <string name="quran_download_surah_number">Số Surah (1–114)</string>
-    <string name="quran_downloaded">Đã tải xuống</string>
     <string name="quran_downloads_active_title">Tải xuống hiện tại và trước đây</string>
+    <string name="quran_downloads_summary_title">Tổng số lượt tải xuống</string>
+    <string name="quran_downloads_summary">%1$d surah · %2$d ayah · %3$s</string>
     <string name="quran_downloads_none">Chưa có lượt tải xuống nào</string>
     <string name="quran_downloads_title">Tải xuống</string>
     <string name="quran_font_larger">Phông chữ lớn hơn</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Kinh Qur\'an Thánh</string>
+    <string name="quran_download_reciter_header">Đã tải xuống: %1$d ayah · %2$s</string>
 </resources>

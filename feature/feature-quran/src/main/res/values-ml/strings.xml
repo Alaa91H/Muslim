@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">ആയ നമ്പർ</string>
     <string name="quran_download_cancel">റദ്ദാക്കുക</string>
     <string name="quran_download_channel">പാരായണം ഡൗൺലോഡുകൾ</string>
-    <string name="quran_download_current_ayah">നിലവിലെ ആയ</string>
-    <string name="quran_download_current_surah">നിലവിലെ സൂറത്ത്</string>
     <string name="quran_download_delete">ഇല്ലാതാക്കുക</string>
     <string name="quran_download_delete_confirm">ഡൗൺലോഡുകൾ ഇല്ലാതാക്കണോ?</string>
     <string name="quran_download_delete_confirm_message">ഡൗൺലോഡ് ചെയ്‌ത ഓഡിയോ നിങ്ങളുടെ ഉപകരണത്തിൽ നിന്ന് ശാശ്വതമായി നീക്കം ചെയ്യപ്പെടും.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">രാത്രി കാത്തിരിക്കുന്നു</string>
     <string name="quran_download_night_waiting">രാത്രിയിൽ ആരംഭിക്കും - വിൻഡോ %1$s</string>
     <string name="quran_download_night_window_title">രാത്രി ഡൗൺലോഡ് വിൻഡോ</string>
-    <string name="quran_download_options_title">ഡൗൺലോഡ് ഓപ്ഷനുകൾ</string>
     <string name="quran_download_pause">താൽക്കാലികമായി നിർത്തുക</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">ഈ വായനക്കാരനായി ഡൗൺലോഡ് ചെയ്തത്: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d സൂറകൾ · %2$d ആയത്തുകൾ · %3$s</string>
-    <string name="quran_download_reciter_title">വായനക്കാരനെ തിരഞ്ഞെടുക്കുക</string>
     <string name="quran_download_restoring">ഡൗൺലോഡുകൾ പുനരാരംഭിക്കുന്നു...</string>
     <string name="quran_download_resume">പുനരാരംഭിക്കുക</string>
     <string name="quran_download_scope_ayah">ആയഃ</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">താൽക്കാലികമായി നിർത്തി</string>
     <string name="quran_download_status_queued">ക്യൂവിൽ</string>
     <string name="quran_download_surah_number">സൂറ നമ്പർ (1–114)</string>
-    <string name="quran_downloaded">ഡൗൺലോഡ് ചെയ്തു</string>
     <string name="quran_downloads_active_title">നിലവിലുള്ളതും പഴയതുമായ ഡൗൺലോഡുകൾ</string>
+    <string name="quran_downloads_summary_title">ആകെ ഡൗൺലോഡ് ചെയ്തു</string>
+    <string name="quran_downloads_summary">%1$d സൂറകൾ · %2$d ആയത്തുകൾ · %3$s</string>
     <string name="quran_downloads_none">ഇതുവരെ ഡൗൺലോഡുകളൊന്നുമില്ല</string>
     <string name="quran_downloads_title">ഡൗൺലോഡുകൾ</string>
     <string name="quran_font_larger">വലിയ ഫോണ്ട്</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">സൂറ %1$d</string>
     <string name="quran_tafsir_source">തഫ്സീർ: %1$s</string>
     <string name="quran_title">വിശുദ്ധ ഖുർആൻ</string>
+    <string name="quran_download_reciter_header">ഡൗൺലോഡ് ചെയ്‌തത്: %1$d ആയങ്ങൾ · %2$s</string>
 </resources>

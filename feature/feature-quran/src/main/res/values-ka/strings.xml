@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">აიას ნომერი</string>
     <string name="quran_download_cancel">გაუქმება</string>
     <string name="quran_download_channel">რეციდირების ჩამოტვირთვები</string>
-    <string name="quran_download_current_ayah">მიმდინარე აია</string>
-    <string name="quran_download_current_surah">მიმდინარე სურა</string>
     <string name="quran_download_delete">წაშლა</string>
     <string name="quran_download_delete_confirm">წაშალოთ ჩამოტვირთვები?</string>
     <string name="quran_download_delete_confirm_message">ჩამოტვირთული აუდიო სამუდამოდ წაიშლება თქვენი მოწყობილობიდან.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">ღამის მოლოდინში</string>
     <string name="quran_download_night_waiting">დაიწყება ღამით - ფანჯარა %1$s</string>
     <string name="quran_download_night_window_title">ღამის ჩამოტვირთვის ფანჯარა</string>
-    <string name="quran_download_options_title">ჩამოტვირთვის პარამეტრები</string>
     <string name="quran_download_pause">პაუზა</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">ჩამოტვირთულია ამ მოთხრობისთვის: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d სურა · %2$d აია · %3$s</string>
-    <string name="quran_download_reciter_title">ამომკითხავის არჩევა</string>
     <string name="quran_download_restoring">ჩამოტვირთვების განახლება…</string>
     <string name="quran_download_resume">რეზიუმე</string>
     <string name="quran_download_scope_ayah">აიაჰ</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">შეჩერდა</string>
     <string name="quran_download_status_queued">რიგში დადგა</string>
     <string name="quran_download_surah_number">სურა ნომერი (1–114)</string>
-    <string name="quran_downloaded">ჩამოტვირთულია</string>
     <string name="quran_downloads_active_title">მიმდინარე და წარსული ჩამოტვირთვები</string>
+    <string name="quran_downloads_summary_title">სულ ჩამოტვირთულია</string>
+    <string name="quran_downloads_summary">%1$d სურა · %2$d აია · %3$s</string>
     <string name="quran_downloads_none">ჩამოტვირთვები ჯერ არ არის</string>
     <string name="quran_downloads_title">ჩამოტვირთვები</string>
     <string name="quran_font_larger">უფრო დიდი შრიფტი</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">სურა %1$d</string>
     <string name="quran_tafsir_source">ტაფსირი: %1$s</string>
     <string name="quran_title">წმინდა ყურანი</string>
+    <string name="quran_download_reciter_header">გადმოწერილი: %1$d აია · %2$s</string>
 </resources>

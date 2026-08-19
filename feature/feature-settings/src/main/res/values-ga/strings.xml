@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Téama</string>
     <string name="settings_theme_system">Córas</string>
     <string name="settings_title">Socruithe</string>
+    <string name="settings_section_time_format">Formáid ama</string>
+    <string name="settings_time_12">12 uair an chloig (AM/PM)</string>
+    <string name="settings_time_24">24-uair</string>
+    <string name="settings_section_more">اشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">‎</string>
 </resources>

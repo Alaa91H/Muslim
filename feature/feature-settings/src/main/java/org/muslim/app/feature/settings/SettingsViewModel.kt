@@ -34,6 +34,10 @@ class SettingsViewModel @Inject constructor(
 
     fun setStartTab(route: String) = launch { appPreferencesRepository.setStartTab(route) }
 
+    fun setTimeFormat24h(use24h: Boolean) = launch { appPreferencesRepository.setTimeFormat24h(use24h) }
+
+    fun setMoreSectionOrder(order: List<String>) = launch { appPreferencesRepository.setMoreSectionOrder(order) }
+
     /**
      * Suspends until the new language is persisted, so the caller can safely
      * recreate the activity afterwards without a read race.

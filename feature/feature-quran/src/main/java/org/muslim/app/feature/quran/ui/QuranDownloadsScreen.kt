@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -34,11 +36,15 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -46,8 +52,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.foundation.layout.size
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import kotlinx.coroutines.launch
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.data.DownloadScope
@@ -66,7 +74,6 @@ fun QuranDownloadsScreen(
     modifier: Modifier = Modifier,
     viewModel: QuranDownloadsViewModel = hiltViewModel(),
 ) {
-    val reciter by viewModel.selectedReciter.collectAsStateWithLifecycle()
     val scope by viewModel.scope.collectAsStateWithLifecycle()
     val surahInput by viewModel.surahInput.collectAsStateWithLifecycle()
     val ayahInput by viewModel.ayahInput.collectAsStateWithLifecycle()
@@ -79,6 +86,22 @@ fun QuranDownloadsScreen(
     val reciterState by viewModel.reciterState.collectAsStateWithLifecycle()
     var confirmDeleteSurah by remember { mutableStateOf<Int?>(null) }
     var confirmDeleteReciter by remember { mutableStateOf(false) }
+    val totalSummary by viewModel.totalSummary.collectAsStateWithLifecycle()
+    val selectedReciterId by viewModel.selectedReciterId.collectAsStateWithLifecycle()
+    val reciters = viewModel.reciters
+
+    // One page per reciter: swipe between reciters or tap a tab. The active
+    // page becomes the selected (persisted) download target.
+    val pagerState = rememberPagerState(pageCount = { reciters.size })
+    val coroutineScope = rememberCoroutineScope()
+    LaunchedEffect(selectedReciterId) {
+        val initial = reciters.indexOfFirst { it.id == selectedReciterId }
+        if (initial >= 0 && initial != pagerState.currentPage) pagerState.scrollToPage(initial)
+    }
+    LaunchedEffect(pagerState.currentPage) {
+        val pageReciter = reciters.getOrNull(pagerState.currentPage) ?: return@LaunchedEffect
+        if (pageReciter.id != selectedReciterId) viewModel.selectReciter(pageReciter.id)
+    }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -96,208 +119,246 @@ fun QuranDownloadsScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
-                .padding(horizontal = 16.dp)
-                .verticalScroll(rememberScrollState()),
+                .padding(innerPadding),
         ) {
-            ReciterDropdown(
-                selected = reciter,
-                reciters = viewModel.reciters,
-                onSelected = viewModel::selectReciter,
-            )
+            // Everything downloaded across all reciters, at a glance.
+            TotalSummaryCard(summary = totalSummary)
 
-            Spacer(Modifier.height(12.dp))
-
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalAlignment = Alignment.CenterVertically,
+            PrimaryScrollableTabRow(
+                selectedTabIndex = pagerState.currentPage.coerceIn(0, reciters.size - 1),
+                edgePadding = 8.dp,
             ) {
-                FilterChip(
-                    selected = scope == DownloadScope.Ayah,
-                    onClick = { viewModel.setScope(DownloadScope.Ayah) },
-                    label = { Text(stringResource(R.string.quran_download_scope_ayah)) },
-                )
-                FilterChip(
-                    selected = scope == DownloadScope.Surah,
-                    onClick = { viewModel.setScope(DownloadScope.Surah) },
-                    label = { Text(stringResource(R.string.quran_download_scope_surah)) },
-                )
-                FilterChip(
-                    selected = scope == DownloadScope.FullQuran,
-                    onClick = { viewModel.setScope(DownloadScope.FullQuran) },
-                    label = { Text(stringResource(R.string.quran_download_scope_full)) },
-                )
+                reciters.forEachIndexed { index, option ->
+                    Tab(
+                        selected = pagerState.currentPage == index,
+                        onClick = { coroutineScope.launch { pagerState.animateScrollToPage(index) } },
+                        text = {
+                            Text(
+                                text = option.name,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                            )
+                        },
+                    )
+                }
             }
 
-            Spacer(Modifier.height(12.dp))
+            HorizontalPager(
+                state = pagerState,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .weight(1f),
+            ) { pageIndex ->
+                val pageReciter = reciters[pageIndex]
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState())
+                        .padding(horizontal = 16.dp),
+                ) {
+                    Spacer(Modifier.height(12.dp))
 
-            when (scope) {
-                DownloadScope.Ayah -> {
-                    Row {
-                        OutlinedTextField(
-                            value = surahInput,
-                            onValueChange = viewModel::setSurahInput,
-                            label = { Text(stringResource(R.string.quran_download_surah_number)) },
-                            singleLine = true,
-                            modifier = Modifier.weight(1f),
+                    // Immediate per-reciter summary in the page header: how
+                    // many ayahs are on disk for this reciter and their size.
+                    ReciterHeaderSummary(
+                        state = reciterState,
+                        reciterName = pageReciter.name,
+                    )
+
+                    Spacer(Modifier.height(12.dp))
+
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        FilterChip(
+                            selected = scope == DownloadScope.Ayah,
+                            onClick = { viewModel.setScope(DownloadScope.Ayah) },
+                            label = { Text(stringResource(R.string.quran_download_scope_ayah)) },
                         )
-                        Spacer(Modifier.width(12.dp))
-                        OutlinedTextField(
-                            value = ayahInput,
-                            onValueChange = viewModel::setAyahInput,
-                            label = { Text(stringResource(R.string.quran_download_ayah_number)) },
-                            singleLine = true,
-                            modifier = Modifier.weight(1f),
+                        FilterChip(
+                            selected = scope == DownloadScope.Surah,
+                            onClick = { viewModel.setScope(DownloadScope.Surah) },
+                            label = { Text(stringResource(R.string.quran_download_scope_surah)) },
+                        )
+                        FilterChip(
+                            selected = scope == DownloadScope.FullQuran,
+                            onClick = { viewModel.setScope(DownloadScope.FullQuran) },
+                            label = { Text(stringResource(R.string.quran_download_scope_full)) },
                         )
                     }
-                }
-                DownloadScope.Surah -> {
-                    OutlinedTextField(
-                        value = surahInput,
-                        onValueChange = viewModel::setSurahInput,
-                        label = { Text(stringResource(R.string.quran_download_surah_number)) },
-                        singleLine = true,
+
+                    Spacer(Modifier.height(12.dp))
+
+                    when (scope) {
+                        DownloadScope.Ayah -> {
+                            Row {
+                                OutlinedTextField(
+                                    value = surahInput,
+                                    onValueChange = viewModel::setSurahInput,
+                                    label = { Text(stringResource(R.string.quran_download_surah_number)) },
+                                    singleLine = true,
+                                    modifier = Modifier.weight(1f),
+                                )
+                                Spacer(Modifier.width(12.dp))
+                                OutlinedTextField(
+                                    value = ayahInput,
+                                    onValueChange = viewModel::setAyahInput,
+                                    label = { Text(stringResource(R.string.quran_download_ayah_number)) },
+                                    singleLine = true,
+                                    modifier = Modifier.weight(1f),
+                                )
+                            }
+                        }
+                        DownloadScope.Surah -> {
+                            OutlinedTextField(
+                                value = surahInput,
+                                onValueChange = viewModel::setSurahInput,
+                                label = { Text(stringResource(R.string.quran_download_surah_number)) },
+                                singleLine = true,
+                                modifier = Modifier.fillMaxWidth(),
+                            )
+                        }
+                        DownloadScope.FullQuran -> {
+                            Text(
+                                text = stringResource(R.string.quran_download_full_hint),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    }
+
+                    Spacer(Modifier.height(12.dp))
+
+                    when {
+                        verifiedBytes != null -> {
+                            Text(
+                                text = stringResource(R.string.quran_download_size_verified, formatBytes(verifiedBytes!!)),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.primary,
+                            )
+                        }
+                        estimateBytes != null -> {
+                            Text(
+                                text = stringResource(R.string.quran_download_size_estimate, formatBytes(estimateBytes!!)),
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.primary,
+                            )
+                        }
+                        else -> {
+                            Text(
+                                text = stringResource(R.string.quran_download_size_unknown),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    }
+
+                    Spacer(Modifier.height(12.dp))
+
+                    // Night-only downloads (التحميل الليلي): defer the transfer
+                    // to the configured window to save data and battery.
+                    Row(
                         modifier = Modifier.fillMaxWidth(),
-                    )
-                }
-                DownloadScope.FullQuran -> {
-                    Text(
-                        text = stringResource(R.string.quran_download_full_hint),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-            }
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Column(Modifier.weight(1f)) {
+                            Text(
+                                text = stringResource(R.string.quran_download_night_only),
+                                style = MaterialTheme.typography.bodyLarge,
+                            )
+                            Text(
+                                text = stringResource(
+                                    R.string.quran_download_night_hint,
+                                    formatWindow(nightWindowStart, nightWindowEnd),
+                                ),
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                        Switch(
+                            checked = nightOnly,
+                            onCheckedChange = viewModel::setNightOnly,
+                        )
+                    }
 
-            Spacer(Modifier.height(12.dp))
+                    if (nightOnly) {
+                        Spacer(Modifier.height(8.dp))
+                        Text(
+                            text = stringResource(R.string.quran_download_night_window_title),
+                            style = MaterialTheme.typography.titleSmall,
+                            color = MaterialTheme.colorScheme.primary,
+                        )
+                        Spacer(Modifier.height(4.dp))
+                        Row {
+                            TimeDropdown(
+                                label = stringResource(R.string.quran_download_night_start),
+                                selectedMinutes = nightWindowStart,
+                                options = nightTimeOptions,
+                                onSelected = viewModel::setNightWindowStart,
+                                modifier = Modifier.weight(1f),
+                            )
+                            Spacer(Modifier.width(12.dp))
+                            TimeDropdown(
+                                label = stringResource(R.string.quran_download_night_end),
+                                selectedMinutes = nightWindowEnd,
+                                options = nightTimeOptions,
+                                onSelected = viewModel::setNightWindowEnd,
+                                modifier = Modifier.weight(1f),
+                            )
+                        }
+                    }
 
-            when {
-                verifiedBytes != null -> {
+                    Spacer(Modifier.height(12.dp))
+
+                    Button(
+                        onClick = viewModel::startDownload,
+                        enabled = estimateBytes != null,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Text(stringResource(R.string.quran_download_start))
+                    }
+
+                    Spacer(Modifier.height(24.dp))
+
+                    // What is already downloaded for this reciter's page.
+                    ReciterStateSection(
+                        state = reciterState,
+                        onDeleteSurah = { confirmDeleteSurah = it },
+                        onDeleteReciter = { confirmDeleteReciter = true },
+                    )
+
+                    Spacer(Modifier.height(24.dp))
+
                     Text(
-                        text = stringResource(R.string.quran_download_size_verified, formatBytes(verifiedBytes!!)),
-                        style = MaterialTheme.typography.bodyMedium,
+                        text = stringResource(R.string.quran_downloads_active_title),
+                        style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.primary,
-                    )
-                }
-                estimateBytes != null -> {
-                    Text(
-                        text = stringResource(R.string.quran_download_size_estimate, formatBytes(estimateBytes!!)),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.primary,
-                    )
-                }
-                else -> {
-                    Text(
-                        text = stringResource(R.string.quran_download_size_unknown),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-            }
-
-            Spacer(Modifier.height(12.dp))
-
-            // Night-only downloads (التحميل الليلي): defer the transfer to the
-            // configured window to save data and battery.
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Column(Modifier.weight(1f)) {
-                    Text(
-                        text = stringResource(R.string.quran_download_night_only),
-                        style = MaterialTheme.typography.bodyLarge,
-                    )
-                    Text(
-                        text = stringResource(
-                            R.string.quran_download_night_hint,
-                            formatWindow(nightWindowStart, nightWindowEnd),
-                        ),
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-                Switch(
-                    checked = nightOnly,
-                    onCheckedChange = viewModel::setNightOnly,
-                )
-            }
-
-            if (nightOnly) {
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    text = stringResource(R.string.quran_download_night_window_title),
-                    style = MaterialTheme.typography.titleSmall,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-                Spacer(Modifier.height(4.dp))
-                Row {
-                    TimeDropdown(
-                        label = stringResource(R.string.quran_download_night_start),
-                        selectedMinutes = nightWindowStart,
-                        options = nightTimeOptions,
-                        onSelected = viewModel::setNightWindowStart,
-                        modifier = Modifier.weight(1f),
-                    )
-                    Spacer(Modifier.width(12.dp))
-                    TimeDropdown(
-                        label = stringResource(R.string.quran_download_night_end),
-                        selectedMinutes = nightWindowEnd,
-                        options = nightTimeOptions,
-                        onSelected = viewModel::setNightWindowEnd,
-                        modifier = Modifier.weight(1f),
-                    )
-                }
-            }
-
-            Spacer(Modifier.height(12.dp))
-
-            Button(
-                onClick = viewModel::startDownload,
-                enabled = estimateBytes != null,
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(stringResource(R.string.quran_download_start))
-            }
-
-            Spacer(Modifier.height(24.dp))
-
-            // What is already downloaded for the selected reciter (per-reciter
-            // state instead of only the current surah's flag).
-            ReciterStateSection(
-                state = reciterState,
-                onDeleteSurah = { confirmDeleteSurah = it },
-                onDeleteReciter = { confirmDeleteReciter = true },
-            )
-
-            Spacer(Modifier.height(24.dp))
-
-            Text(
-                text = stringResource(R.string.quran_downloads_active_title),
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.primary,
-            )
-            Spacer(Modifier.height(8.dp))
-
-            if (tasks.isEmpty()) {
-                Text(
-                    text = stringResource(R.string.quran_downloads_none),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            } else {
-                tasks.forEach { task ->
-                    TaskRow(
-                        task = task,
-                        onPause = { viewModel.pause(task.id) },
-                        onResume = { viewModel.resume(task.id) },
-                        onCancel = { viewModel.cancel(task.id) },
                     )
                     Spacer(Modifier.height(8.dp))
+
+                    val pageTasks = tasks.filter { it.reciterId == pageReciter.id }
+                    if (pageTasks.isEmpty()) {
+                        Text(
+                            text = stringResource(R.string.quran_downloads_none),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    } else {
+                        pageTasks.forEach { task ->
+                            TaskRow(
+                                task = task,
+                                onPause = { viewModel.pause(task.id) },
+                                onResume = { viewModel.resume(task.id) },
+                                onCancel = { viewModel.cancel(task.id) },
+                            )
+                            Spacer(Modifier.height(8.dp))
+                        }
+                    }
+
+                    Spacer(Modifier.height(24.dp))
                 }
             }
-
-            Spacer(Modifier.height(24.dp))
         }
     }
 
@@ -345,45 +406,6 @@ fun QuranDownloadsScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun ReciterDropdown(
-    selected: org.muslim.app.feature.quran.domain.Reciter,
-    reciters: List<org.muslim.app.feature.quran.domain.Reciter>,
-    onSelected: (String) -> Unit,
-) {
-    var expanded by remember { mutableStateOf(false) }
-    ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
-        OutlinedTextField(
-            value = selected.name,
-            onValueChange = {},
-            readOnly = true,
-            label = { Text(stringResource(R.string.quran_reciter)) },
-            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-            modifier = Modifier
-                .fillMaxWidth()
-                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
-        )
-        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-            reciters.forEach { option ->
-                DropdownMenuItem(
-                    text = {
-                        Column {
-                            Text(option.name)
-                            Text(
-                                text = option.style,
-                                style = MaterialTheme.typography.labelSmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                        }
-                    },
-                    onClick = { expanded = false; onSelected(option.id) },
-                )
-            }
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
 private fun TimeDropdown(
     label: String,
     selectedMinutes: Int,
@@ -415,6 +437,45 @@ private fun TimeDropdown(
                         expanded = false
                         onSelected(minutes)
                     },
+                )
+            }
+        }
+    }
+}
+
+/** Summary of all downloaded recitation audio across every reciter. */
+@Composable
+private fun TotalSummaryCard(summary: TotalDownloadSummary) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(
+                imageVector = Icons.Filled.CheckCircle,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+            )
+            Spacer(Modifier.width(12.dp))
+            Column {
+                Text(
+                    text = stringResource(R.string.quran_downloads_summary_title),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Text(
+                    text = stringResource(
+                        R.string.quran_downloads_summary,
+                        summary.downloadedSurahs,
+                        summary.downloadedAyahs,
+                        formatBytes(summary.totalBytes),
+                    ),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.primary,
                 )
             }
         }
@@ -507,6 +568,52 @@ internal fun formatBytes(bytes: Long): String {
         unit++
     }
     return String.format(Locale.ROOT, if (unit == 0) "%.0f %s" else "%.1f %s", value, units[unit])
+}
+
+/**
+ * Compact header summary shown at the top of each reciter's page: the number
+ * of ayahs already downloaded for that reciter and their total size, so the
+ * user sees the state immediately without scrolling to the bottom.
+ */
+@Composable
+private fun ReciterHeaderSummary(
+    state: org.muslim.app.feature.quran.data.ReciterDownloadState?,
+    reciterName: String,
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(
+                imageVector = Icons.Filled.CheckCircle,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(20.dp),
+            )
+            Spacer(Modifier.width(10.dp))
+            Column(Modifier.weight(1f)) {
+                Text(
+                    text = reciterName,
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Text(
+                    text = stringResource(
+                        R.string.quran_download_reciter_header,
+                        state?.downloadedAyahs ?: 0,
+                        formatBytes(state?.totalBytes ?: 0L),
+                    ),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
+        }
+    }
 }
 
 /**

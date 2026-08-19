@@ -30,4 +30,22 @@
     <string name="tab_more">Astawan</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Quran</string>
+    <string name="more_section_worship">Yupaychay</string>
+    <string name="more_section_knowledge">Yachay</string>
+    <string name="more_section_tools">Herramientakuna</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Mana suyasqa pantay</string>
+    <string name="crash_fatal_message">Imapas mana allintachu rirqa, chaymi app sayarurqa. Wakmanta qallariyta atinki utaq wichq\'ayta atinki.</string>
+    <string name="crash_recoverable_message">Imapas mana allinchu karqan, ichaqa chay app nisqawanmi yanapachikuwaq.</string>
+    <string name="crash_restart">Wakmanta qallariy</string>
+    <string name="crash_close">Wichqay</string>
+    <string name="crash_dismiss">Hinallayá ruway</string>
 </resources>

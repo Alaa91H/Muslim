@@ -19,7 +19,15 @@
     <string name="qibla_gps_refresh">تحديث الموقع عبر GPS</string>
     <string name="qibla_gps_refreshing">جارٍ تحديد الموقع…</string>
     <string name="qibla_gps_error">تعذّر الحصول على موقع دقيق. حاول مرة أخرى.</string>
-    <string name="qibla_gps_live">موقع GPS حي</string>
+    <string name="qibla_gps_live">موقع GPS حي</string>
+    <string name="qibla_dir_n">شمال</string>
+    <string name="qibla_dir_ne">شمال شرق</string>
+    <string name="qibla_dir_e">شرق</string>
+    <string name="qibla_dir_se">جنوب شرق</string>
+    <string name="qibla_dir_s">جنوب</string>
+    <string name="qibla_dir_sw">جنوب غرب</string>
+    <string name="qibla_dir_w">غرب</string>
+    <string name="qibla_dir_nw">شمال غرب</string>
     <string name="mosque_finder_title">مساجد قريبة</string>
     <string name="mosque_finder_intro">ابحث عن المساجد القريبة من موقعك عبر خريطة OpenStreetMap</string>
     <string name="mosque_finder_no_location">لم يتم تحديد موقع بعد. اختر موقعًا من إعدادات المواقيت أولًا.</string>
@@ -28,4 +36,33 @@
     <string name="mosque_finder_retry">إعادة المحاولة</string>
     <string name="mosque_finder_empty">لم يتم العثور على مساجد في هذا النطاق</string>
     <string name="mosque_finder_distance">%s بعيدًا</string>
+    <string name="mosque_finder_close">إغلاق</string>
+
+    <!-- Offline maps download -->
+    <string name="offline_maps_title">خرائط بدون إنترنت</string>
+    <string name="offline_maps_back">رجوع</string>
+    <string name="offline_maps_add">إضافة منطقة للتحميل</string>
+    <string name="offline_maps_empty">لا توجد مناطق محمّلة بعد. حمّل مدينة أو دولة أو منطقة مخصصة لتعمل الخرائط بدون إنترنت.</string>
+    <string name="offline_maps_downloaded">المناطق المحمّلة</string>
+    <string name="offline_maps_delete">حذف</string>
+    <string name="offline_maps_delete_all">حذف الكل</string>
+    <string name="offline_maps_delete_all_confirm_title">حذف كل الخرائط المحمّلة؟</string>
+    <string name="offline_maps_delete_all_confirm_body">ستُحذف كل المناطق المحمّلة من الجهاز ولن تعمل الخرائط بدون إنترنت بعد الآن.</string>
+    <string name="offline_maps_cancel">إلغاء</string>
+    <string name="offline_maps_summary_title">الخرائط بدون إنترنت</string>
+    <string name="offline_maps_summary_body">%1$d من %2$d مناطق مكتملة · %3$s محمّلة</string>
+    <string name="offline_maps_downloading">جارٍ تحميل %1$s… %2$d٪</string>
+    <string name="offline_maps_region_meta">%1$s · %2$s</string>
+    <string name="offline_maps_region_progress">جارٍ التحميل… %1$d٪</string>
+    <string name="offline_maps_region_ready">جاهزة — تعمل بدون إنترنت</string>
+    <string name="offline_maps_tab_city">مدينة</string>
+    <string name="offline_maps_tab_country">دولة</string>
+    <string name="offline_maps_tab_custom">مكان مخصص</string>
+    <string name="offline_maps_size_estimate">الحجم التقريبي: %1$s</string>
+    <string name="offline_maps_download">تحميل</string>
+    <string name="offline_maps_custom_hint">اضغط على الخريطة لتحديد المركز، ثم حمّل المنطقة المحيطة به.</string>
+    <string name="offline_maps_custom_name">اسم المنطقة</string>
+    <string name="offline_maps_custom_selected">المركز المحدد: %1$.2f, %2$.2f</string>
+    <string name="offline_maps_custom_tap">اضغط على الخريطة لتحديد المركز</string>
+    <string name="offline_maps_custom_default_name">منطقة مخصصة</string>
 </resources>

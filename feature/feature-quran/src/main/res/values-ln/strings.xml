@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah motango</string>
     <string name="quran_download_cancel">Annuler</string>
     <string name="quran_download_channel">Ba téléchargements ya récitation</string>
-    <string name="quran_download_current_ayah">Ayah ya lelo</string>
-    <string name="quran_download_current_surah">Surah ya lelo</string>
     <string name="quran_download_delete">Bolongola</string>
     <string name="quran_download_delete_confirm">Kolongola ba téléchargements?</string>
     <string name="quran_download_delete_confirm_message">Audio oyo ozwi ekolongolama mpo na libela na aparɛyi na yo.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Kozela butu</string>
     <string name="quran_download_night_waiting">Ekobanda na butu — fenêtre %1$s</string>
     <string name="quran_download_night_window_title">Fenêtre ya téléchargement ya butu</string>
-    <string name="quran_download_options_title">Ba options ya téléchargement</string>
     <string name="quran_download_pause">Pemá mwa moke</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Téléchargé pona réciter oyo: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Pona motángi</string>
     <string name="quran_download_restoring">Kozongela ba téléchargements...</string>
     <string name="quran_download_resume">Kozongela mosala</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Apemaki mwa moke</string>
     <string name="quran_download_status_queued">Bazali kosala molɔngɔ</string>
     <string name="quran_download_surah_number">Motango ya Surah (1–114) .</string>
-    <string name="quran_downloaded">Ba téléchargé</string>
     <string name="quran_downloads_active_title">Ba téléchargements ya lelo mpe ya kala</string>
+    <string name="quran_downloads_summary_title">Total oyo ba téléchargé</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Ba téléchargements moko te nanu</string>
     <string name="quran_downloads_title">Ba téléchargements</string>
     <string name="quran_font_larger">Font ya monene koleka</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d. Ezali na ntina mingi</string>
     <string name="quran_tafsir_source">Tafsir: %1$s. Ezali na mbongo te</string>
     <string name="quran_title">Coran Mosantu</string>
+    <string name="quran_download_reciter_header">Télécharged: %1$d ayahs · %2$s</string>
 </resources>

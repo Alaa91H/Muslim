@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Темæ</string>
     <string name="settings_theme_system">Системæ</string>
     <string name="settings_title">Параметртæ</string>
+    <string name="settings_section_time_format">Рæстæджы формат</string>
+    <string name="settings_time_12">12-сахаты (райсом/æхсæв)</string>
+    <string name="settings_time_24">24-сахатон</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقم شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخيص ترتيب أقم شاشة المزيد (العبادات، العلم، الأدوات…)</string>
 </resources>

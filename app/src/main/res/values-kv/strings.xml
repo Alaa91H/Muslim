@@ -30,4 +30,22 @@
     <string name="tab_more">Ещӧ</string>
     <string name="tab_qibla">Кибла</string>
     <string name="tab_quran">Коран</string>
+    <string name="more_section_worship">Поклонение .</string>
+    <string name="more_section_knowledge">Тӧдӧмлунъяс .</string>
+    <string name="more_section_tools">Инструментъяс</string>
+    <string name="more_section_app">Приложение</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم асهم لتحرик كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة вылын شاشة المزيد.</string>
+    <string name="more_order_reset">‏‎‎‎‎‎‎‎‎‎‎․․</string>
+    <string name="more_order_move_up">тархик абу</string>
+    <string name="more_order_move_down">حرик لأسفل</string>
+    <string name="more_order_back">ргöд</string>
+    <string name="more_offline_maps">خرائط بدون إنترнт</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أوة لتعمل بدون إن دولترنت</string>
+    <string name="crash_title">Виччысьтӧм ӧшыбка .</string>
+    <string name="crash_fatal_message">Мыйкӧ лои да приложениеыс дугдіс. Позьӧ сійӧс выльысь заводитны либӧ бырӧдны.</string>
+    <string name="crash_recoverable_message">Мыйкӧ лоис омӧля, но позьӧ кольны приложениеӧн вӧдитчӧм.</string>
+    <string name="crash_restart">Перезапуск</string>
+    <string name="crash_close">Матысса</string>
+    <string name="crash_dismiss">Водзӧ</string>
 </resources>

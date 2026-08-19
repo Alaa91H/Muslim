@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">विषय के बा</string>
     <string name="settings_theme_system">सिस्टम के बा</string>
     <string name="settings_title">सेटिंग्स के बारे में बतावल गइल बा</string>
+    <string name="settings_section_time_format">समय के प्रारूप के बा</string>
+    <string name="settings_time_12">12 घंटा (एएम/पीएम) के बा।</string>
+    <string name="settings_time_24">24 घंटा के बा</string>
+    <string name="settings_section_more">شاشة المزيد के बा</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد के बा</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات...)</string>
 </resources>

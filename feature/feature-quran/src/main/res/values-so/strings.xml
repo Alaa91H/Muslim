@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">nambarka aayadda</string>
     <string name="quran_download_cancel">Jooji</string>
     <string name="quran_download_channel">Soodejisyada akhrinta</string>
-    <string name="quran_download_current_ayah">aayadda hadda</string>
-    <string name="quran_download_current_surah">Suuradda hadda</string>
     <string name="quran_download_delete">Tirtir</string>
     <string name="quran_download_delete_confirm">Ma tirtirtaa soo dejinta?</string>
     <string name="quran_download_delete_confirm_message">Codka la soo dejiyey ayaa si joogto ah looga saari doonaa qalabkaaga.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Sugitaanka habeenka</string>
     <string name="quran_download_night_waiting">Wuxuu bilaaban doonaa habeenkii - daaqada %1$s</string>
     <string name="quran_download_night_window_title">Daaqadda soo dejinta habeenkii</string>
-    <string name="quran_download_options_title">Soo daji ikhtiyaarada</string>
     <string name="quran_download_pause">Jooji</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Loo soo dejiyay akhriyahaan: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d suuradood · %2$d aayadaha · %3$s</string>
-    <string name="quran_download_reciter_title">Dooro akhriye</string>
     <string name="quran_download_restoring">Dib u bilaabaya soo dejinta…</string>
     <string name="quran_download_resume">Dib u bilaw</string>
     <string name="quran_download_scope_ayah">Ayay</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Hakin</string>
     <string name="quran_download_status_queued">Kuyuu galay</string>
     <string name="quran_download_surah_number">Suuradda nambarka (1-114)</string>
-    <string name="quran_downloaded">La soo dejiyay</string>
     <string name="quran_downloads_active_title">Soodejintii hadda iyo kuwii hore</string>
+    <string name="quran_downloads_summary_title">Wadarta la soo dejiyay</string>
+    <string name="quran_downloads_summary">%1$d suuradood · %2$d aayadaha · %3$s</string>
     <string name="quran_downloads_none">Wali lama soo dejin</string>
     <string name="quran_downloads_title">Soo dejinta</string>
     <string name="quran_font_larger">Far ka weyn</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Suuradda %1$d</string>
     <string name="quran_tafsir_source">Tafsiir: %1$s</string>
     <string name="quran_title">Quraanka kariimka ah</string>
+    <string name="quran_download_reciter_header">La soo degay: %1$d aayadaha · %2$s</string>
 </resources>

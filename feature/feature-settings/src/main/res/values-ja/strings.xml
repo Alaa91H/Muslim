@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">テーマ</string>
     <string name="settings_theme_system">システム</string>
     <string name="settings_title">設定</string>
+    <string name="settings_section_time_format">時刻形式</string>
+    <string name="settings_time_12">12時間制（午前/午後）</string>
+    <string name="settings_time_24">24時間対応</string>
+    <string name="settings_section_more">और देखें</string>
+    <string name="settings_more_order">ログイン して翻訳を追加する</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات…)</string>
 </resources>

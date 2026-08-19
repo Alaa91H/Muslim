@@ -30,4 +30,22 @@
     <string name="tab_more">Tuilleadh</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Quran</string>
+    <string name="more_section_worship">Adhradh</string>
+    <string name="more_section_knowledge">Eolas</string>
+    <string name="more_section_tools">Uirlisí</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">رتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">Íoslódáil an cluiche</string>
+    <string name="more_order_move_down">Íoslódáil an cluiche</string>
+    <string name="more_order_back">marbh</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">حميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Earráid gan choinne</string>
+    <string name="crash_fatal_message">Chuaigh rud éigin mícheart agus stop an aip. Is féidir leat é a atosú nó é a dhúnadh.</string>
+    <string name="crash_recoverable_message">Chuaigh rud éigin mícheart, ach is féidir leat leanúint ar aghaidh ag baint úsáide as an aip.</string>
+    <string name="crash_restart">Atosaigh</string>
+    <string name="crash_close">Dún</string>
+    <string name="crash_dismiss">Lean ort</string>
 </resources>

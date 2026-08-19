@@ -30,4 +30,22 @@
     <string name="tab_more">अधिक</string>
     <string name="tab_qibla">किब्ला</string>
     <string name="tab_quran">कुराण</string>
+    <string name="more_section_worship">उपासना</string>
+    <string name="more_section_knowledge">ज्ञान</string>
+    <string name="more_section_tools">साधने</string>
+    <string name="more_section_app">ॲप</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">संपर्क करा</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">अनपेक्षित त्रुटी</string>
+    <string name="crash_fatal_message">काहीतरी चूक झाली आणि ॲप थांबला. तुम्ही ते रीस्टार्ट करू शकता किंवा बंद करू शकता.</string>
+    <string name="crash_recoverable_message">काहीतरी चूक झाली, परंतु तुम्ही ॲप वापरणे सुरू ठेवू शकता.</string>
+    <string name="crash_restart">रीस्टार्ट करा</string>
+    <string name="crash_close">बंद करा</string>
+    <string name="crash_dismiss">चालू ठेवा</string>
 </resources>

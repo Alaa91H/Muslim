@@ -30,4 +30,22 @@
     <string name="tab_more">Muioc\'h</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Koran</string>
+    <string name="more_section_worship">Azeulerezh</string>
+    <string name="more_section_knowledge">Anaoudegezh</string>
+    <string name="more_section_tools">Ostilhoù</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">ترتيب أقيق المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتح كل seurt لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحول لأعلى</string>
+    <string name="more_order_move_down">تحول لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل إنترنت</string>
+    <string name="crash_title">Fazi dic\'hortoz</string>
+    <string name="crash_fatal_message">Un dra bennak a zo aet en-dro fall hag an arload a zo paouezet. Gallout a rit adloc\'hañ anezhañ pe serriñ anezhañ.</string>
+    <string name="crash_recoverable_message">Un dra bennak a zo aet en-dro fall, met gallout a rit kenderc\'hel da implijout an arload.</string>
+    <string name="crash_restart">Adloc\'hañ</string>
+    <string name="crash_close">Serriñ</string>
+    <string name="crash_dismiss">Kenderc\'hel</string>
 </resources>

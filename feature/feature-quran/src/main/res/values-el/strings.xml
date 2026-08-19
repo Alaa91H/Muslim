@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah αριθμός</string>
     <string name="quran_download_cancel">Ακύρωση</string>
     <string name="quran_download_channel">Λήψεις απαγγελίας</string>
-    <string name="quran_download_current_ayah">Τρέχουσα αγιά</string>
-    <string name="quran_download_current_surah">Τρέχουσα σούρα</string>
     <string name="quran_download_delete">Διαγραφή</string>
     <string name="quran_download_delete_confirm">Διαγραφή λήψεων;</string>
     <string name="quran_download_delete_confirm_message">Ο ήχος που κατεβάσατε θα αφαιρεθεί οριστικά από τη συσκευή σας.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Περιμένοντας τη νύχτα</string>
     <string name="quran_download_night_waiting">Θα ξεκινήσει τη νύχτα — παράθυρο %1$s</string>
     <string name="quran_download_night_window_title">Παράθυρο νυχτερινής λήψης</string>
-    <string name="quran_download_options_title">Επιλογές λήψης</string>
     <string name="quran_download_pause">Παύση</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Λήφθηκε για αυτόν τον απαγγελέα: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d σούρες · %2$d αγιές · %3$s</string>
-    <string name="quran_download_reciter_title">Επιλέξτε απαγγέλλοντα</string>
     <string name="quran_download_restoring">Συνέχιση λήψεων…</string>
     <string name="quran_download_resume">Βιογραφικό</string>
     <string name="quran_download_scope_ayah">Άγια</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Σε παύση</string>
     <string name="quran_download_status_queued">Σε ουρά</string>
     <string name="quran_download_surah_number">Σούρα αριθμός (1–114)</string>
-    <string name="quran_downloaded">Λήψη</string>
     <string name="quran_downloads_active_title">Τρέχουσες και προηγούμενες λήψεις</string>
+    <string name="quran_downloads_summary_title">Σύνολο λήψης</string>
+    <string name="quran_downloads_summary">%1$d σούρες · %2$d αγιές · %3$s</string>
     <string name="quran_downloads_none">Δεν υπάρχουν ακόμη λήψεις</string>
     <string name="quran_downloads_title">Λήψεις</string>
     <string name="quran_font_larger">Μεγαλύτερη γραμματοσειρά</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Σούρα %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Το Ιερό Κοράνι</string>
+    <string name="quran_download_reciter_header">Λήφθηκαν: %1$d ayahs · %2$s</string>
 </resources>

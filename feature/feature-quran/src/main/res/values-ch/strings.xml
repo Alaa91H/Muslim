@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">numeron Ayah</string>
     <string name="quran_download_cancel">Kansela</string>
     <string name="quran_download_channel">I ma\'pos na tinige\'</string>
-    <string name="quran_download_current_ayah">Ayah på\'go</string>
-    <string name="quran_download_current_surah">Surah på\'go</string>
     <string name="quran_download_delete">Na\'suha</string>
     <string name="quran_download_delete_confirm">Na\'suha i ma\'apåsi?</string>
     <string name="quran_download_delete_confirm_message">I audio ni\' ma\'download para u ma\'apasi gi i dipattamenton-mu.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Manhahasso para i puengi</string>
     <string name="quran_download_night_waiting">Para u tutuhon gi puengi — bentana %1$s</string>
     <string name="quran_download_night_window_title">I bentanå-ña i puengi</string>
-    <string name="quran_download_options_title">I option siha para i ma\'download</string>
     <string name="quran_download_pause">Pause</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Ma na\'halom para este na kånta: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Pili i kåntadot</string>
     <string name="quran_download_restoring">Ha tutuhon ta\'lo i dinidåklåda siha…</string>
     <string name="quran_download_resume">Resume</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Ma\'apase</string>
     <string name="quran_download_status_queued">Manma\'a\'atan</string>
     <string name="quran_download_surah_number">numeron Surah (1–114)</string>
-    <string name="quran_downloaded">Ma na\'halom</string>
     <string name="quran_downloads_active_title">På\'go yan i manmaloffan na dinididi\'</string>
+    <string name="quran_downloads_summary_title">Todu i ma\'download</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Ti ma na\'halom på\'go</string>
     <string name="quran_downloads_title">Ma na\'halom</string>
     <string name="quran_font_larger">Mas dangkolo na letra</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">I Sagradu na Quran</string>
+    <string name="quran_download_reciter_header">Ma na\'halom: %1$d ayahs · %2$s</string>
 </resources>

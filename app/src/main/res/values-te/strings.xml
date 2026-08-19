@@ -30,4 +30,22 @@
     <string name="tab_more">మరిన్ని</string>
     <string name="tab_qibla">ఖిబ్లా</string>
     <string name="tab_quran">ఖురాన్</string>
+    <string name="more_section_worship">పూజించండి</string>
+    <string name="more_section_knowledge">జ్ఞానం</string>
+    <string name="more_section_tools">ఉపకరణాలు</string>
+    <string name="more_section_app">యాప్</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى అవు లాస్ఫెల్. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة و دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">ఊహించని లోపం</string>
+    <string name="crash_fatal_message">ఏదో తప్పు జరిగింది మరియు యాప్ ఆగిపోయింది. మీరు దీన్ని పునఃప్రారంభించవచ్చు లేదా మూసివేయవచ్చు.</string>
+    <string name="crash_recoverable_message">ఏదో తప్పు జరిగింది, కానీ మీరు యాప్‌ని ఉపయోగించడం కొనసాగించవచ్చు.</string>
+    <string name="crash_restart">పునఃప్రారంభించండి</string>
+    <string name="crash_close">మూసివేయి</string>
+    <string name="crash_dismiss">కొనసాగించు</string>
 </resources>

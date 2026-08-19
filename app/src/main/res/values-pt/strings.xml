@@ -30,4 +30,22 @@
     <string name="tab_more">Mais</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Alcorão</string>
+    <string name="more_section_worship">Adoração</string>
+    <string name="more_section_knowledge">Conhecimento</string>
+    <string name="more_section_tools">Ferramentas</string>
+    <string name="more_section_app">Aplicativo</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">Verifique se o produto está funcionando corretamente e se você não tiver tempo para isso. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة, e دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Erro inesperado</string>
+    <string name="crash_fatal_message">Algo deu errado e o aplicativo parou. Você pode reiniciá-lo ou fechá-lo.</string>
+    <string name="crash_recoverable_message">Algo deu errado, mas você pode continuar usando o aplicativo.</string>
+    <string name="crash_restart">Reiniciar</string>
+    <string name="crash_close">Fechar</string>
+    <string name="crash_dismiss">Continuar</string>
 </resources>

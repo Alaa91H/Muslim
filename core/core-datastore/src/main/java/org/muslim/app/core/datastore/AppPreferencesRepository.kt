@@ -33,6 +33,8 @@ class AppPreferencesRepository @Inject constructor(
             languageCode = prefs[Keys.LANGUAGE] ?: AppPreferences.SYSTEM_LANGUAGE,
             reduceAnimations = prefs[Keys.REDUCE_ANIMATIONS] ?: false,
             startTab = prefs[Keys.START_TAB] ?: AppPreferences.START_TAB_HOME,
+            timeFormat24h = prefs[Keys.TIME_FORMAT_24H] ?: false,
+            moreSectionOrder = AppPreferences.decodeSectionOrder(prefs[Keys.MORE_SECTION_ORDER]),
         )
     }
 
@@ -51,6 +53,22 @@ class AppPreferencesRepository @Inject constructor(
 
     suspend fun setStartTab(route: String) = edit { prefs -> prefs[Keys.START_TAB] = route }
 
+    suspend fun setTimeFormat24h(use24h: Boolean) {
+        edit { prefs -> prefs[Keys.TIME_FORMAT_24H] = use24h }
+        // Synchronous mirror so background services/widgets can format without
+        // an async DataStore read (same pattern as the language mirror).
+        timeFormatMirror.edit { putBoolean(Keys.TIME_FORMAT_24H.name, use24h) }
+    }
+
+    /** Persists the user-defined order of the "More" hub sections. */
+    suspend fun setMoreSectionOrder(order: List<String>) {
+        edit { prefs -> prefs[Keys.MORE_SECTION_ORDER] = order.joinToString(",") }
+    }
+
+    /** Blocking read of the 24-hour flag, safe for services and widget workers. */
+    fun readTimeFormat24hSync(): Boolean =
+        timeFormatMirror.getBoolean(Keys.TIME_FORMAT_24H.name, false)
+
     /** Blocking read of the persisted language, safe for [android.app.Activity.attachBaseContext]. */
     fun readLanguageSync(): String =
         languageMirror.getString(Keys.LANGUAGE.name, AppPreferences.SYSTEM_LANGUAGE)
@@ -63,11 +81,16 @@ class AppPreferencesRepository @Inject constructor(
     private val languageMirror: SharedPreferences
         get() = context.getSharedPreferences("app_locale", Context.MODE_PRIVATE)
 
+    private val timeFormatMirror: SharedPreferences
+        get() = context.getSharedPreferences("app_time_format", Context.MODE_PRIVATE)
+
     private object Keys {
         val THEME_MODE = stringPreferencesKey("theme_mode")
         val DYNAMIC_COLOR = booleanPreferencesKey("dynamic_color")
         val LANGUAGE = stringPreferencesKey("language")
         val REDUCE_ANIMATIONS = booleanPreferencesKey("reduce_animations")
         val START_TAB = stringPreferencesKey("start_tab")
+        val TIME_FORMAT_24H = booleanPreferencesKey("time_format_24h")
+        val MORE_SECTION_ORDER = stringPreferencesKey("more_section_order")
     }
 }

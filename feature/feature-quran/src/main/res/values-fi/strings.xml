@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah numero</string>
     <string name="quran_download_cancel">Peruuta</string>
     <string name="quran_download_channel">Lausuntojen lataukset</string>
-    <string name="quran_download_current_ayah">Nykyinen ayah</string>
-    <string name="quran_download_current_surah">Nykyinen suura</string>
     <string name="quran_download_delete">Poista</string>
     <string name="quran_download_delete_confirm">Poistetaanko lataukset?</string>
     <string name="quran_download_delete_confirm_message">Ladattu ääni poistetaan pysyvästi laitteeltasi.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Yötä odotellessa</string>
     <string name="quran_download_night_waiting">Alkaa yöllä — ikkuna %1$s</string>
     <string name="quran_download_night_window_title">Yön latausikkuna</string>
-    <string name="quran_download_options_title">Latausvaihtoehdot</string>
     <string name="quran_download_pause">Tauko</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Ladattu tälle lausujalle: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d suuraa · %2$d ayaaa · %3$s</string>
-    <string name="quran_download_reciter_title">Valitse lausuja</string>
     <string name="quran_download_restoring">Jatketaan latauksia…</string>
     <string name="quran_download_resume">Jatka</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Keskeytetty</string>
     <string name="quran_download_status_queued">Jonossa</string>
     <string name="quran_download_surah_number">Suura numero (1–114)</string>
-    <string name="quran_downloaded">Ladattu</string>
     <string name="quran_downloads_active_title">Nykyiset ja aiemmat lataukset</string>
+    <string name="quran_downloads_summary_title">Ladattu yhteensä</string>
+    <string name="quran_downloads_summary">%1$d suuraa · %2$d ayaaa · %3$s</string>
     <string name="quran_downloads_none">Ei vielä latauksia</string>
     <string name="quran_downloads_title">Lataukset</string>
     <string name="quran_font_larger">Isompi fontti</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Pyhä Koraani</string>
+    <string name="quran_download_reciter_header">Ladattu: %1$d ayahia · %2$s</string>
 </resources>

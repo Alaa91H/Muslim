@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Аиах број</string>
     <string name="quran_download_cancel">Откажи</string>
     <string name="quran_download_channel">Преузимања рецитација</string>
-    <string name="quran_download_current_ayah">Цуррент аиах</string>
-    <string name="quran_download_current_surah">Тренутна сура</string>
     <string name="quran_download_delete">Избриши</string>
     <string name="quran_download_delete_confirm">Избрисати преузимања?</string>
     <string name="quran_download_delete_confirm_message">Преузети аудио запис ће бити трајно уклоњен са вашег уређаја.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Чека ноћ</string>
     <string name="quran_download_night_waiting">Почеће ноћу — прозор %1$s</string>
     <string name="quran_download_night_window_title">Ноћни прозор за преузимање</string>
-    <string name="quran_download_options_title">Опције преузимања</string>
     <string name="quran_download_pause">Пауза</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Преузето за овог рецитатора: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d сура · %2$d аиахс · %3$s</string>
-    <string name="quran_download_reciter_title">Изаберите рецитатора</string>
     <string name="quran_download_restoring">Наставак преузимања…</string>
     <string name="quran_download_resume">Настави</string>
     <string name="quran_download_scope_ayah">Аиах</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Паузирано</string>
     <string name="quran_download_status_queued">У реду чекања</string>
     <string name="quran_download_surah_number">Сура број (1–114)</string>
-    <string name="quran_downloaded">Преузето</string>
     <string name="quran_downloads_active_title">Тренутна и прошла преузимања</string>
+    <string name="quran_downloads_summary_title">Укупно преузето</string>
+    <string name="quran_downloads_summary">%1$d сура · %2$d аиахс · %3$s</string>
     <string name="quran_downloads_none">Још нема преузимања</string>
     <string name="quran_downloads_title">Преузимања</string>
     <string name="quran_font_larger">Већи фонт</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Сура %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Часни Кур\'ан</string>
+    <string name="quran_download_reciter_header">Преузето: %1$d аиахс · %2$s</string>
 </resources>

@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah naba</string>
     <string name="quran_download_cancel">Bokoca</string>
     <string name="quran_download_channel">Lavetaki ni wiliwili</string>
-    <string name="quran_download_current_ayah">Ayah ena gauna oqo</string>
-    <string name="quran_download_current_surah">Surah ena gauna oqo</string>
     <string name="quran_download_delete">Bokoca</string>
     <string name="quran_download_delete_confirm">Bokoca na lavetaki?</string>
     <string name="quran_download_delete_confirm_message">Na rorogo e lavetaki ena kau tani vakadua mai na nomu misini.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Waraka tiko na bogi</string>
     <string name="quran_download_night_waiting">Ena tekivu ena bogi — katubaleka %1$s</string>
     <string name="quran_download_night_window_title">Katubaleka ni lavetaki ni bogi</string>
-    <string name="quran_download_options_title">Lavetaka na digidigi</string>
     <string name="quran_download_pause">Cegu</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Lavetaki me baleta na dauwiliwili oqo: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayas · %3$s</string>
-    <string name="quran_download_reciter_title">Digitaka na dauwiliwili</string>
     <string name="quran_download_restoring">Tomani tale na lavetaki...</string>
     <string name="quran_download_resume">Tomana tale</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Cegu</string>
     <string name="quran_download_status_queued">Laini</string>
     <string name="quran_download_surah_number">Na naba ni Sura (1–114)</string>
-    <string name="quran_downloaded">Lavetaki</string>
     <string name="quran_downloads_active_title">Na lavetaki ni gauna oqo kei na sa oti</string>
+    <string name="quran_downloads_summary_title">Taucoko ni lavetaki</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayas · %3$s</string>
     <string name="quran_downloads_none">Se bera ni lavetaki</string>
     <string name="quran_downloads_title">Lavetaki</string>
     <string name="quran_font_larger">Levu cake na matanivola</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Na Quran Tabu .</string>
+    <string name="quran_download_reciter_header">Lavetaki mai: %1$d ayas · %2$s</string>
 </resources>

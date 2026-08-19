@@ -89,6 +89,7 @@ fun AdhkarSettingsScreen(
 ) {
     val prefs by viewModel.prefs.collectAsStateWithLifecycle()
     val previewDhikr by viewModel.previewDhikr.collectAsStateWithLifecycle()
+    val use24h by viewModel.use24h.collectAsStateWithLifecycle()
     val context = LocalContext.current
 
     Scaffold(
@@ -204,6 +205,7 @@ fun AdhkarSettingsScreen(
             )
 
             ReminderNotificationPreview(
+                use24h = use24h,
                 title = stringResource(R.string.adhkar_morning_reminder),
                 dhikr = previewDhikr,
                 hour = prefs.morningHour,
@@ -224,6 +226,7 @@ fun AdhkarSettingsScreen(
             )
 
             ReminderNotificationPreview(
+                use24h = use24h,
                 title = stringResource(R.string.adhkar_evening_reminder),
                 dhikr = previewDhikr,
                 hour = prefs.eveningHour,
@@ -616,6 +619,7 @@ private fun ReminderNotificationPreview(
     hour: Int,
     minute: Int,
     enabled: Boolean,
+    use24h: Boolean,
 ) {
     Column(
         modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
@@ -662,7 +666,7 @@ private fun ReminderNotificationPreview(
                 }
                 Spacer(Modifier.width(12.dp))
                 Text(
-                    text = String.format(java.util.Locale.ROOT, "%02d:%02d", hour, minute),
+                    text = org.muslim.app.core.common.time.TimeFormats.formatMinutes(hour * 60 + minute, use24h),
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )

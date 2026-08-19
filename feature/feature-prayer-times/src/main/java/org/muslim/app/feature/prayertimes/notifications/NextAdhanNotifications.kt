@@ -13,7 +13,7 @@ import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.feature.prayertimes.domain.PrayerCountdownData
 import org.muslim.app.feature.prayertimes.domain.formatCountdown
-import org.muslim.app.feature.prayertimes.ui.localTimeFormatter
+import org.muslim.app.core.common.time.TimeFormats
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 
 /**
@@ -35,12 +35,13 @@ internal object NextAdhanNotifications {
         data: PrayerCountdownData,
         showMissed: Boolean = true,
         missedColor: Int = org.muslim.app.core.notifications.MissedAdhanColors.DEFAULT,
+        use24h: Boolean = false,
     ): Notification {
         val title = if (data.hasLocation && data.nextPrayer != null) {
             context.getString(
                 R.string.next_adhan_notification_title,
                 context.getString(prayerLabelRes(data.nextPrayer)),
-                localTimeFormatter.format(data.nextPrayerAt),
+                TimeFormats.timeFormatter(use24h).format(data.nextPrayerAt),
             )
         } else {
             context.getString(R.string.next_adhan_no_location)
@@ -59,7 +60,7 @@ internal object NextAdhanNotifications {
                     context.getString(
                         R.string.next_adhan_missed,
                         context.getString(prayerLabelRes(missed)),
-                        localTimeFormatter.format(data.missedPrayerAt),
+                        TimeFormats.timeFormatter(use24h).format(data.missedPrayerAt),
                     ),
                 )
                 // Live count-up: how long ago the missed adhan sounded.

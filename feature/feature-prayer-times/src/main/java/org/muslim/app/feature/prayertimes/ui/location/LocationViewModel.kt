@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.muslim.app.core.location.LocationProvider
+import org.muslim.app.core.location.RegionNameResolver
 import org.muslim.app.feature.prayertimes.data.CitiesRepository
 import org.muslim.app.core.common.prayer.CalculationMethod
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
@@ -31,6 +32,7 @@ class LocationViewModel @Inject constructor(
     private val repository: PrayerSettingsRepository,
     private val locationProvider: LocationProvider,
     private val scheduler: AdhanScheduler,
+    private val regionNameResolver: RegionNameResolver,
 ) : ViewModel() {
 
     sealed interface Message {
@@ -88,7 +90,7 @@ class LocationViewModel @Inject constructor(
             } else {
                 save(
                     SelectedLocation(
-                        name = "gps",
+                        name = resolveRegionName(geo.latitude, geo.longitude),
                         latitude = geo.latitude,
                         longitude = geo.longitude,
                         timeZone = TimeZone.getDefault().id,
@@ -97,6 +99,35 @@ class LocationViewModel @Inject constructor(
                 )
             }
         }
+    }
+
+    /**
+     * Resolves a display name for GPS coordinates so the home screen shows
+     * the area instead of "gps": online reverse-geocode first, then the
+     * nearest offline city, then a coordinate label.
+     */
+    private suspend fun resolveRegionName(latitude: Double, longitude: Double): String {
+        regionNameResolver.resolve(latitude, longitude)?.let { return it }
+        nearestCity(latitude, longitude)?.let { return it }
+        return "$latitude, $longitude"
+    }
+
+    /** Returns the nearest offline city's display name within ~150 km, else null. */
+    private fun nearestCity(latitude: Double, longitude: Double): String? {
+        var best: City? = null
+        var bestDistanceSq = Double.MAX_VALUE
+        for (city in CitiesRepository.all) {
+            val dLat = city.latitude - latitude
+            val dLon = city.longitude - longitude
+            val d = dLat * dLat + dLon * dLon
+            if (d < bestDistanceSq) {
+                bestDistanceSq = d
+                best = city
+            }
+        }
+        // ~1.35 degrees ~= 150 km; beyond that the match would be misleading.
+        val thresholdSq = 1.35 * 1.35
+        return best?.takeIf { bestDistanceSq <= thresholdSq }?.displayName
     }
 
     fun gpsDenied() {

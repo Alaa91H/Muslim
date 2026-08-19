@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Thema</string>
     <string name="settings_theme_system">Systeem</string>
     <string name="settings_title">Instellingen</string>
+    <string name="settings_section_time_format">Tijdformaat</string>
+    <string name="settings_time_12">12 uur (AM/PM)</string>
+    <string name="settings_time_24">24 uur per dag</string>
+    <string name="settings_section_more">Dit is het geval</string>
+    <string name="settings_more_order">De beste manier om dit te doen</string>
+    <string name="settings_more_order_desc">Het gebruik van een apparaat (zoals het gebruik van…)</string>
 </resources>

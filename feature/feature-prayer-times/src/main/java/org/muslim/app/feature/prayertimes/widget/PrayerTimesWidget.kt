@@ -38,6 +38,7 @@ import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.flow.first
 import org.muslim.app.feature.prayertimes.R
+import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
@@ -64,13 +65,14 @@ class PrayerTimesWidget : GlanceAppWidget() {
             context.applicationContext, PrayerTimesWidgetEntryPoint::class.java,
         )
         val settings = entryPoint.settingsRepository().settings.first()
+        val use24h = entryPoint.appPreferencesRepository().readTimeFormat24hSync()
         val data = PrayerTimesWidgetData.compute(
             settings = settings,
             calculator = entryPoint.calculator(),
             nowMillis = System.currentTimeMillis(),
         )
         provideContent {
-            WidgetRoot(data)
+            WidgetRoot(data, use24h)
         }
     }
 
@@ -104,6 +106,7 @@ suspend fun refreshPrayerTimesWidgets(context: Context) {
 interface PrayerTimesWidgetEntryPoint {
     fun settingsRepository(): PrayerSettingsRepository
     fun calculator(): PrayerTimesCalculator
+    fun appPreferencesRepository(): AppPreferencesRepository
 }
 
 // ---- Colors (deep-green Muslim surface + mint accent, see Color.kt) ----
@@ -119,7 +122,7 @@ private val PrayerNames = listOf(Prayer.Fajr, Prayer.Dhuhr, Prayer.Asr, Prayer.M
 // ---- Root: picks the layout for the current bucket size ----
 
 @Composable
-private fun WidgetRoot(data: PrayerTimesWidgetData) {
+private fun WidgetRoot(data: PrayerTimesWidgetData, use24h: Boolean) {
     val size = LocalSize.current
     val openApp = PrayerTimesWidget.openAppIntent(LocalContext.current)
     val modifier = GlanceModifier
@@ -132,11 +135,11 @@ private fun WidgetRoot(data: PrayerTimesWidgetData) {
         if (!data.hasLocation) {
             NoLocationContent()
         } else if (size.height >= 200.dp) {
-            LargeContent(data)
+            LargeContent(data, use24h)
         } else if (size.width >= 150.dp) {
-            MediumContent(data)
+            MediumContent(data, use24h)
         } else {
-            CompactContent(data)
+            CompactContent(data, use24h)
         }
     }
 }
@@ -164,7 +167,7 @@ private fun NoLocationContent() {
 // ---- Compact (110×110): next prayer name, time, countdown ----
 
 @Composable
-private fun CompactContent(data: PrayerTimesWidgetData) {
+private fun CompactContent(data: PrayerTimesWidgetData, use24h: Boolean) {
     val context = LocalContext.current
     Column(verticalAlignment = Alignment.CenterVertically, modifier = GlanceModifier.fillMaxSize()) {
         Text(
@@ -175,7 +178,7 @@ private fun CompactContent(data: PrayerTimesWidgetData) {
         )
         Spacer(GlanceModifier.height(2.dp))
         Text(
-            text = data.nextPrayerAt?.let { TimeFormats.short(it) } ?: "—",
+            text = data.nextPrayerAt?.let { TimeFormats.short(it, use24h) } ?: "—",
             style = TextStyle(fontSize = 15.sp, fontWeight = FontWeight.Bold, color = WidgetAccent, textAlign = TextAlign.Center),
             maxLines = 1,
         )
@@ -191,7 +194,7 @@ private fun CompactContent(data: PrayerTimesWidgetData) {
 // ---- Medium (180×180): adds location + a compact five-times grid ----
 
 @Composable
-private fun MediumContent(data: PrayerTimesWidgetData) {
+private fun MediumContent(data: PrayerTimesWidgetData, use24h: Boolean) {
     val context = LocalContext.current
     Column(modifier = GlanceModifier.fillMaxSize(), verticalAlignment = Alignment.CenterVertically) {
         Row(modifier = GlanceModifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
@@ -216,7 +219,7 @@ private fun MediumContent(data: PrayerTimesWidgetData) {
                 modifier = GlanceModifier.defaultWeight(),
             )
             Text(
-                text = data.nextPrayerAt?.let { TimeFormats.short(it) } ?: "—",
+                text = data.nextPrayerAt?.let { TimeFormats.short(it, use24h) } ?: "—",
                 style = TextStyle(fontSize = 17.sp, fontWeight = FontWeight.Bold, color = WidgetAccent),
                 maxLines = 1,
             )
@@ -228,14 +231,14 @@ private fun MediumContent(data: PrayerTimesWidgetData) {
             maxLines = 1,
         )
         Spacer(GlanceModifier.height(8.dp))
-        PrayerTimesGrid(data)
+        PrayerTimesGrid(data, use24h)
     }
 }
 
 // ---- Large (250×250): full table with the next prayer highlighted ----
 
 @Composable
-private fun LargeContent(data: PrayerTimesWidgetData) {
+private fun LargeContent(data: PrayerTimesWidgetData, use24h: Boolean) {
     val context = LocalContext.current
     Column(modifier = GlanceModifier.fillMaxSize()) {
         Row(modifier = GlanceModifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
@@ -254,7 +257,7 @@ private fun LargeContent(data: PrayerTimesWidgetData) {
             }
             Column(horizontalAlignment = Alignment.End) {
                 Text(
-                    text = data.nextPrayerAt?.let { TimeFormats.short(it) } ?: "—",
+                    text = data.nextPrayerAt?.let { TimeFormats.short(it, use24h) } ?: "—",
                     style = TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold, color = WidgetAccent),
                     maxLines = 1,
                 )
@@ -267,7 +270,7 @@ private fun LargeContent(data: PrayerTimesWidgetData) {
             }
         }
         Spacer(GlanceModifier.height(14.dp))
-        PrayerTimesTable(data)
+        PrayerTimesTable(data, use24h)
         Spacer(GlanceModifier.height(8.dp))
         Text(
             text = data.locationName,
@@ -282,17 +285,17 @@ private fun LargeContent(data: PrayerTimesWidgetData) {
 
 /** Compact two-row grid of today's five times (used by the medium size). */
 @Composable
-private fun PrayerTimesGrid(data: PrayerTimesWidgetData) {
+private fun PrayerTimesGrid(data: PrayerTimesWidgetData, use24h: Boolean) {
     val context = LocalContext.current
     Column(modifier = GlanceModifier.fillMaxWidth()) {
-        PrayerTimesGridRow(context, data, PrayerNames.subList(0, 3))
+        PrayerTimesGridRow(context, data, use24h, PrayerNames.subList(0, 3))
         Spacer(GlanceModifier.height(4.dp))
-        PrayerTimesGridRow(context, data, PrayerNames.subList(3, 5))
+        PrayerTimesGridRow(context, data, use24h, PrayerNames.subList(3, 5))
     }
 }
 
 @Composable
-private fun PrayerTimesGridRow(context: Context, data: PrayerTimesWidgetData, prayers: List<Prayer>) {
+private fun PrayerTimesGridRow(context: Context, data: PrayerTimesWidgetData, use24h: Boolean, prayers: List<Prayer>) {
     Row(modifier = GlanceModifier.fillMaxWidth()) {
         prayers.forEach { prayer ->
             Column(
@@ -305,7 +308,7 @@ private fun PrayerTimesGridRow(context: Context, data: PrayerTimesWidgetData, pr
                     maxLines = 1,
                 )
                 Text(
-                    text = data.times[prayer]?.let { TimeFormats.short(it) } ?: "—",
+                    text = data.times[prayer]?.let { TimeFormats.short(it, use24h) } ?: "—",
                     style = TextStyle(fontSize = 12.sp, fontWeight = FontWeight.Medium, color = WidgetOnBg),
                     maxLines = 1,
                 )
@@ -316,7 +319,7 @@ private fun PrayerTimesGridRow(context: Context, data: PrayerTimesWidgetData, pr
 
 /** Full five-row table, highlighting the next prayer (used by the large size). */
 @Composable
-private fun PrayerTimesTable(data: PrayerTimesWidgetData) {
+private fun PrayerTimesTable(data: PrayerTimesWidgetData, use24h: Boolean) {
     val context = LocalContext.current
     Column(modifier = GlanceModifier.fillMaxWidth()) {
         PrayerNames.forEach { prayer ->
@@ -339,7 +342,7 @@ private fun PrayerTimesTable(data: PrayerTimesWidgetData) {
                     modifier = GlanceModifier.defaultWeight(),
                 )
                 Text(
-                    text = data.times[prayer]?.let { TimeFormats.short(it) } ?: "—",
+                    text = data.times[prayer]?.let { TimeFormats.short(it, use24h) } ?: "—",
                     style = TextStyle(
                         fontSize = 14.sp,
                         fontWeight = if (isNext) FontWeight.Bold else FontWeight.Normal,
@@ -364,6 +367,6 @@ internal fun prayerNameRes(prayer: Prayer): Int = when (prayer) {
 
 /** Short "HH:mm" formatting for a prayer time. */
 internal object TimeFormats {
-    private val shortFormatter = java.time.format.DateTimeFormatter.ofPattern("HH:mm")
-    fun short(time: java.time.LocalTime): String = time.format(shortFormatter)
+    fun short(time: java.time.LocalTime, use24h: Boolean): String =
+        org.muslim.app.core.common.time.TimeFormats.formatTime(time, use24h)
 }

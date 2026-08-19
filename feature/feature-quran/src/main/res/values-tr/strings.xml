@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayet numarası</string>
     <string name="quran_download_cancel">İptal</string>
     <string name="quran_download_channel">Okuma indirmeleri</string>
-    <string name="quran_download_current_ayah">Mevcut ayet</string>
-    <string name="quran_download_current_surah">Güncel sure</string>
     <string name="quran_download_delete">Sil</string>
     <string name="quran_download_delete_confirm">İndirilenler silinsin mi?</string>
     <string name="quran_download_delete_confirm_message">İndirilen ses cihazınızdan kalıcı olarak kaldırılacaktır.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Geceyi bekliyorum</string>
     <string name="quran_download_night_waiting">Gece başlayacak — pencere %1$s</string>
     <string name="quran_download_night_window_title">Gece indirme penceresi</string>
-    <string name="quran_download_options_title">İndirme seçenekleri</string>
     <string name="quran_download_pause">Duraklat</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Bu okuyucu için indirildi: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d sure · %2$d ayet · %3$s</string>
-    <string name="quran_download_reciter_title">Okuyucuyu seçin</string>
     <string name="quran_download_restoring">İndirme işlemleri devam ettiriliyor…</string>
     <string name="quran_download_resume">Devam et</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Duraklatıldı</string>
     <string name="quran_download_status_queued">Sıraya alındı</string>
     <string name="quran_download_surah_number">Sure numarası (1–114)</string>
-    <string name="quran_downloaded">İndirildi</string>
     <string name="quran_downloads_active_title">Mevcut ve geçmiş indirmeler</string>
+    <string name="quran_downloads_summary_title">Toplam indirilenler</string>
+    <string name="quran_downloads_summary">%1$d sure · %2$d ayet · %3$s</string>
     <string name="quran_downloads_none">Henüz indirme yok</string>
     <string name="quran_downloads_title">İndirilenler</string>
     <string name="quran_font_larger">Daha büyük yazı tipi</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">%1$d Suresi</string>
     <string name="quran_tafsir_source">Tefsir: %1$s</string>
     <string name="quran_title">Kur\'an-ı Kerim</string>
+    <string name="quran_download_reciter_header">İndirilen: %1$d ayet · %2$s</string>
 </resources>

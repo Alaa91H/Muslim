@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Tem</string>
     <string name="settings_theme_system">Reizhiad</string>
     <string name="settings_title">Arventennoù</string>
+    <string name="settings_section_time_format">Furmad eur</string>
+    <string name="settings_time_12">12 eurvezh (beure/noz)</string>
+    <string name="settings_time_24">24 eurvezh</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقصشة المزيد</string>
+    <string name="settings_more_order_desc">تخيص ترتيب أقم شاشة المزيد (العبادات، العلم، الأدوات…)</string>
 </resources>

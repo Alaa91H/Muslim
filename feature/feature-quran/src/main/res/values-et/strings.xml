@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah number</string>
     <string name="quran_download_cancel">Tühista</string>
     <string name="quran_download_channel">Etenduste allalaadimine</string>
-    <string name="quran_download_current_ayah">Praegune ayah</string>
-    <string name="quran_download_current_surah">Praegune suura</string>
     <string name="quran_download_delete">Kustuta</string>
     <string name="quran_download_delete_confirm">Kas kustutada allalaadimised?</string>
     <string name="quran_download_delete_confirm_message">Allalaaditud heli eemaldatakse teie seadmest jäädavalt.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Oodates ööd</string>
     <string name="quran_download_night_waiting">Algab öösel — aken %1$s</string>
     <string name="quran_download_night_window_title">Öine allalaadimise aken</string>
-    <string name="quran_download_options_title">Allalaadimisvalikud</string>
     <string name="quran_download_pause">Paus</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Selle esitaja jaoks alla laaditud: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d ayahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Valige ettelugeja</string>
     <string name="quran_download_restoring">Allalaadimiste jätkamine…</string>
     <string name="quran_download_resume">Jätka</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Peatatud</string>
     <string name="quran_download_status_queued">Järjekorras</string>
     <string name="quran_download_surah_number">Suura number (1–114)</string>
-    <string name="quran_downloaded">Alla laaditud</string>
     <string name="quran_downloads_active_title">Praegused ja varasemad allalaadimised</string>
+    <string name="quran_downloads_summary_title">Allalaaditud kokku</string>
+    <string name="quran_downloads_summary">%1$d ayahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Allalaadimisi pole veel</string>
     <string name="quran_downloads_title">Allalaadimised</string>
     <string name="quran_font_larger">Suurem font</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Suura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Püha Koraan</string>
+    <string name="quran_download_reciter_header">Allalaaditud: %1$d ayahs · %2$s</string>
 </resources>

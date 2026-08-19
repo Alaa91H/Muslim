@@ -30,4 +30,22 @@
     <string name="tab_more">повече</string>
     <string name="tab_qibla">Кибла</string>
     <string name="tab_quran">Коран</string>
+    <string name="more_section_worship">Поклонение</string>
+    <string name="more_section_knowledge">знание</string>
+    <string name="more_section_tools">Инструменти</string>
+    <string name="more_section_app">Приложение</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Неочаквана грешка</string>
+    <string name="crash_fatal_message">Нещо се обърка и приложението спря. Можете да го рестартирате или затворите.</string>
+    <string name="crash_recoverable_message">Нещо се обърка, но можете да продължите да използвате приложението.</string>
+    <string name="crash_restart">Рестартирайте</string>
+    <string name="crash_close">затвори</string>
+    <string name="crash_dismiss">Продължи</string>
 </resources>

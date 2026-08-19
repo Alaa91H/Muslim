@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah nûmer</string>
     <string name="quran_download_cancel">Ofbrekke</string>
     <string name="quran_download_channel">Resitaasje downloads</string>
-    <string name="quran_download_current_ayah">Aktuele ayah</string>
-    <string name="quran_download_current_surah">Aktuele surah</string>
     <string name="quran_download_delete">Wiskje</string>
     <string name="quran_download_delete_confirm">Downloads wiskje?</string>
     <string name="quran_download_delete_confirm_message">De ynladen audio sil permanint fuortsmiten wurde fan jo apparaat.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Wachtsje op nacht</string>
     <string name="quran_download_night_waiting">Sil nachts begjinne - finster %1$s</string>
     <string name="quran_download_night_window_title">Nacht download finster</string>
-    <string name="quran_download_options_title">Download opsjes</string>
     <string name="quran_download_pause">Pause</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Ynladen foar dizze reciter: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Selektearje reciter</string>
     <string name="quran_download_restoring">Downloads ferfetsje…</string>
     <string name="quran_download_resume">Ferfetsje</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Pauzearre</string>
     <string name="quran_download_status_queued">Wachtrige</string>
     <string name="quran_download_surah_number">Soera nûmer (1-114)</string>
-    <string name="quran_downloaded">Downloaded</string>
     <string name="quran_downloads_active_title">Aktuele en ferline downloads</string>
+    <string name="quran_downloads_summary_title">Totaal ynladen</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Noch gjin downloads</string>
     <string name="quran_downloads_title">Downloads</string>
     <string name="quran_font_larger">Grutter lettertype</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">De Hillige Koran</string>
+    <string name="quran_download_reciter_header">Ynladen: %1$d ayahs · %2$s</string>
 </resources>

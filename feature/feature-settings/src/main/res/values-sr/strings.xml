@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Тема</string>
     <string name="settings_theme_system">Систем</string>
     <string name="settings_title">Подешавања</string>
+    <string name="settings_section_time_format">Формат времена</string>
+    <string name="settings_time_12">12 сати (преподне/по подне)</string>
+    <string name="settings_time_24">24 сата</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب اقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب اقسام شاشة المزيد (العبادات, العلم, الادوات…)</string>
 </resources>

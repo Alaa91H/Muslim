@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Lakkoofsa Ayyaanaa</string>
     <string name="quran_download_cancel">Haquu</string>
     <string name="quran_download_channel">Dubbii buufachuu</string>
-    <string name="quran_download_current_ayah">Ayyaana ammaa</string>
-    <string name="quran_download_current_surah">Suuraa ammaa</string>
     <string name="quran_download_delete">Haquu</string>
     <string name="quran_download_delete_confirm">Downloads haquu?</string>
     <string name="quran_download_delete_confirm_message">Sagaleen buufame meeshaa keessan irraa dhaabbataadhaan ni haqama.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Halkan eegaa</string>
     <string name="quran_download_night_waiting">Halkan irraa ni jalqaba — foddaa %1$s</string>
     <string name="quran_download_night_window_title">Halkan buufachuu window</string>
-    <string name="quran_download_options_title">Filannoowwan buufachuu</string>
     <string name="quran_download_pause">Yeroo muraasaaf dhaabbadhu</string>
     <string name="quran_download_percent">%1$d%% irratti kan argamu</string>
     <string name="quran_download_reciter_state">Dubbisaa kanaaf kan buufame: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d suuraa · %2$d aayaa · %3$s</string>
-    <string name="quran_download_reciter_title">Reciter filadhu</string>
     <string name="quran_download_restoring">Buufachuuf deebi\'ee jalqabuu...</string>
     <string name="quran_download_resume">Irra deebi\'ii jalqabuu</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Yeroo muraasaaf dhaabbate</string>
     <string name="quran_download_status_queued">Tarree keessa jiru</string>
     <string name="quran_download_surah_number">Lakkoofsa suuraa (1–114) .</string>
-    <string name="quran_downloaded">Buufameera</string>
     <string name="quran_downloads_active_title">Buufannaa yeroo ammaa fi kan darbe</string>
+    <string name="quran_downloads_summary_title">Waliigala buufame</string>
+    <string name="quran_downloads_summary">%1$d suuraa · %2$d aayaa · %3$s</string>
     <string name="quran_downloads_none">Ammatti buufachuun hin jiru</string>
     <string name="quran_downloads_title">Downloads</string>
     <string name="quran_font_larger">Qubee guddaa</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Suuraa %1$d</string>
     <string name="quran_tafsir_source">Tafsiira: %1$s</string>
     <string name="quran_title">Qur\'aana Qulqulluu</string>
+    <string name="quran_download_reciter_header">Buufame: %1$d aayoota · %2$s</string>
 </resources>

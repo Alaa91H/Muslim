@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">అయ్యా సంఖ్య</string>
     <string name="quran_download_cancel">రద్దు చేయి</string>
     <string name="quran_download_channel">పారాయణ డౌన్‌లోడ్‌లు</string>
-    <string name="quran_download_current_ayah">ప్రస్తుత అయ్యా</string>
-    <string name="quran_download_current_surah">ప్రస్తుత సూరా</string>
     <string name="quran_download_delete">తొలగించు</string>
     <string name="quran_download_delete_confirm">డౌన్‌లోడ్‌లను తొలగించాలా?</string>
     <string name="quran_download_delete_confirm_message">డౌన్‌లోడ్ చేయబడిన ఆడియో మీ పరికరం నుండి శాశ్వతంగా తీసివేయబడుతుంది.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">రాత్రి కోసం వేచి ఉంది</string>
     <string name="quran_download_night_waiting">రాత్రి ప్రారంభమవుతుంది — విండో %1$s</string>
     <string name="quran_download_night_window_title">రాత్రి డౌన్‌లోడ్ విండో</string>
-    <string name="quran_download_options_title">డౌన్‌లోడ్ ఎంపికలు</string>
     <string name="quran_download_pause">పాజ్ చేయండి</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">ఈ రీసైటర్ కోసం డౌన్‌లోడ్ చేయబడింది: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d సూరాలు · %2$d అయాలు · %3$s</string>
-    <string name="quran_download_reciter_title">రీసైటర్‌ని ఎంచుకోండి</string>
     <string name="quran_download_restoring">డౌన్‌లోడ్‌లను పునఃప్రారంభిస్తోంది…</string>
     <string name="quran_download_resume">పునఃప్రారంభించండి</string>
     <string name="quran_download_scope_ayah">అయ్యః</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">పాజ్ చేయబడింది</string>
     <string name="quran_download_status_queued">క్యూలో నిలిచారు</string>
     <string name="quran_download_surah_number">సూరా సంఖ్య (1–114)</string>
-    <string name="quran_downloaded">డౌన్‌లోడ్ చేయబడింది</string>
     <string name="quran_downloads_active_title">ప్రస్తుత మరియు గత డౌన్‌లోడ్‌లు</string>
+    <string name="quran_downloads_summary_title">మొత్తం డౌన్‌లోడ్ చేయబడింది</string>
+    <string name="quran_downloads_summary">%1$d సూరాలు · %2$d అయాలు · %3$s</string>
     <string name="quran_downloads_none">ఇంకా డౌన్‌లోడ్‌లు లేవు</string>
     <string name="quran_downloads_title">డౌన్‌లోడ్‌లు</string>
     <string name="quran_font_larger">పెద్ద ఫాంట్</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">సూరా %1$d</string>
     <string name="quran_tafsir_source">తఫ్సీర్: %1$s</string>
     <string name="quran_title">పవిత్ర ఖురాన్</string>
+    <string name="quran_download_reciter_header">డౌన్‌లోడ్ చేయబడింది: %1$d అయాలు · %2$s</string>
 </resources>

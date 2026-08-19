@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Tema</string>
     <string name="settings_theme_system">Sistema nisqa</string>
     <string name="settings_title">Ajustes nisqa</string>
+    <string name="settings_section_time_format">Tiempo formato nisqa</string>
+    <string name="settings_time_12">12 pacha (AM/PM) .</string>
+    <string name="settings_time_24">24 pacha</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات...)</string>
 </resources>

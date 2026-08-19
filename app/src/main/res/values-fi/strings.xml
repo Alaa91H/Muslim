@@ -30,4 +30,22 @@
     <string name="tab_more">Lisää</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Koraani</string>
+    <string name="more_section_worship">Palvonta</string>
+    <string name="more_section_knowledge">Tietoa</string>
+    <string name="more_section_tools">Työkalut</string>
+    <string name="more_section_app">Sovellus</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Odottamaton virhe</string>
+    <string name="crash_fatal_message">Jotain meni pieleen ja sovellus pysähtyi. Voit käynnistää sen uudelleen tai sulkea sen.</string>
+    <string name="crash_recoverable_message">Jotain meni pieleen, mutta voit jatkaa sovelluksen käyttöä.</string>
+    <string name="crash_restart">Käynnistä uudelleen</string>
+    <string name="crash_close">Sulje</string>
+    <string name="crash_dismiss">Jatka</string>
 </resources>

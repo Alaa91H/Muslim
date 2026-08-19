@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material3.FilledTonalIconButton
@@ -43,7 +44,9 @@ import kotlinx.coroutines.launch
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.maplibre.android.camera.CameraPosition
 import org.maplibre.android.geometry.LatLng
+import org.muslim.app.core.ui.map.MapMarker
 import org.muslim.app.core.ui.map.OsmMapView
+import org.muslim.app.core.ui.map.addMosqueMarkers
 import org.muslim.app.core.ui.map.addPinMarker
 import org.muslim.app.feature.qibla.R
 import org.muslim.app.feature.qibla.data.Mosque
@@ -61,16 +64,25 @@ class MosqueFinderViewModel @Inject constructor(
         private set
     var error by mutableStateOf<String?>(null)
         private set
+    var selectedMosque by mutableStateOf<Mosque?>(null)
+        private set
 
     fun search(latitude: Double, longitude: Double) {
         viewModelScope.launch {
             loading = true
             error = null
             runCatching { repository.nearby(latitude, longitude) }
-                .onSuccess { mosques = it }
+                .onSuccess {
+                    mosques = it
+                    selectedMosque = null
+                }
                 .onFailure { error = it.message }
             loading = false
         }
+    }
+
+    fun selectMosque(mosque: Mosque?) {
+        selectedMosque = mosque
     }
 }
 
@@ -132,14 +144,27 @@ fun MosqueFinderScreen(
                             key = viewModel.mosques,
                             onMapReady = { map ->
                                 map.addPinMarker("user", LatLng(latitude, longitude), "#1E88E5")
-                                viewModel.mosques.forEachIndexed { index, mosque ->
-                                    map.addPinMarker(
-                                        "mosque_$index",
-                                        LatLng(mosque.latitude, mosque.longitude),
-                                        "#2E7D32",
-                                    )
-                                }
+                                map.addMosqueMarkers(
+                                    viewModel.mosques.map { mosque ->
+                                        MapMarker(
+                                            id = "${mosque.latitude}_${mosque.longitude}",
+                                            point = LatLng(mosque.latitude, mosque.longitude),
+                                            name = mosque.name,
+                                            distanceMeters = mosque.distanceMeters,
+                                        )
+                                    },
+                                )
                             },
+                            symbolLayerIds = listOf("mosque-markers"),
+                            onSymbolClick = { feature ->
+                                val markerId = feature.getStringProperty("markerId")
+                                viewModel.selectMosque(
+                                    viewModel.mosques.firstOrNull {
+                                        "${it.latitude}_${it.longitude}" == markerId
+                                    },
+                                )
+                            },
+                            onMapClick = { viewModel.selectMosque(null) },
                         )
                         FilledTonalIconButton(
                             onClick = { viewModel.search(latitude, longitude) },
@@ -151,6 +176,49 @@ fun MosqueFinderScreen(
                                 Icons.Default.MyLocation,
                                 contentDescription = stringResource(R.string.mosque_finder_retry),
                             )
+                        }
+                        viewModel.selectedMosque?.let { mosque ->
+                            Card(
+                                modifier = Modifier
+                                    .align(Alignment.BottomCenter)
+                                    .fillMaxWidth()
+                                    .padding(12.dp),
+                            ) {
+                                Row(
+                                    Modifier.padding(horizontal = 14.dp, vertical = 10.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                ) {
+                                    Icon(
+                                        Icons.Default.LocationOn,
+                                        contentDescription = null,
+                                        tint = MaterialTheme.colorScheme.primary,
+                                    )
+                                    Column(
+                                        Modifier
+                                            .weight(1f)
+                                            .padding(horizontal = 12.dp),
+                                    ) {
+                                        Text(
+                                            mosque.name,
+                                            style = MaterialTheme.typography.titleMedium,
+                                        )
+                                        Text(
+                                            stringResource(
+                                                R.string.mosque_finder_distance,
+                                                formatDistance(mosque.distanceMeters),
+                                            ),
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        )
+                                    }
+                                    IconButton(onClick = { viewModel.selectMosque(null) }) {
+                                        Icon(
+                                            Icons.Default.Close,
+                                            contentDescription = stringResource(R.string.mosque_finder_close),
+                                        )
+                                    }
+                                }
+                            }
                         }
                     }
                 }

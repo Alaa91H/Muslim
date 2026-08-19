@@ -12,6 +12,7 @@ import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Info
@@ -69,6 +70,14 @@ private val startTabOptions = listOf(
     StartTabOption("more", R.string.settings_start_more),
 )
 
+/** The app-wide clock system: 12-hour (default) or 24-hour. */
+private data class TimeFormatOption(val use24h: Boolean, val labelRes: Int)
+
+private val timeFormatOptions = listOf(
+    TimeFormatOption(false, R.string.settings_time_12),
+    TimeFormatOption(true, R.string.settings_time_24),
+)
+
 /**
  * Central settings hub (PROJECT_PROMPT.md §6 "وحدة الإعدادات العامة").
  * Cross-feature sections (prayer & adhan) are reached via app-level
@@ -84,6 +93,7 @@ fun SettingsScreen(
     onOpenPrivacy: () -> Unit,
     onLanguageChanged: () -> Unit,
     modifier: Modifier = Modifier,
+    onOpenMoreOrder: () -> Unit = {},
     /** Back affordance when opened as a sub-screen (from the More hub). */
     onBack: (() -> Unit)? = null,
     viewModel: SettingsViewModel = hiltViewModel(),
@@ -197,6 +207,42 @@ fun SettingsScreen(
             }
 
             item { HorizontalDivider() }
+            item { SectionHeader(stringResource(R.string.settings_section_time_format)) }
+
+            item {
+                Column(Modifier.selectableGroup()) {
+                    timeFormatOptions.forEach { option ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .selectable(
+                                    selected = preferences.timeFormat24h == option.use24h,
+                                    onClick = { viewModel.setTimeFormat24h(option.use24h) },
+                                )
+                                .padding(horizontal = 16.dp, vertical = 12.dp),
+                        ) {
+                            Icon(
+                                imageVector = Icons.Filled.Schedule,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                            Text(
+                                text = stringResource(option.labelRes),
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .padding(start = 16.dp),
+                                style = MaterialTheme.typography.bodyLarge,
+                            )
+                            RadioButton(
+                                selected = preferences.timeFormat24h == option.use24h,
+                                onClick = { viewModel.setTimeFormat24h(option.use24h) },
+                            )
+                        }
+                    }
+                }
+            }
+
+            item { HorizontalDivider() }
             item { SectionHeader(stringResource(R.string.settings_section_language)) }
 
             item {
@@ -240,6 +286,19 @@ fun SettingsScreen(
                         }
                     }
                 }
+            }
+
+            item { HorizontalDivider() }
+            item { SectionHeader(stringResource(R.string.settings_section_more)) }
+
+            item {
+                ListItem(
+                    headlineContent = { Text(stringResource(R.string.settings_more_order)) },
+                    supportingContent = { Text(stringResource(R.string.settings_more_order_desc)) },
+                    leadingContent = { Icon(Icons.Filled.ExpandLess, contentDescription = null) },
+                    trailingContent = { Chevron() },
+                    modifier = Modifier.clickable(onClick = onOpenMoreOrder),
+                )
             }
 
             item { HorizontalDivider() }

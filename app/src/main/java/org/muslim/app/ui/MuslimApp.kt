@@ -30,6 +30,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import org.muslim.app.BuildConfig
 import org.muslim.app.R
+import org.muslim.app.crash.CrashReportDialog
 import org.muslim.app.core.datastore.AppThemeMode
 import org.muslim.app.core.ui.theme.AppTheme
 import org.muslim.app.feature.prayertimes.ui.home.HomeScreen
@@ -39,6 +40,7 @@ import org.muslim.app.feature.adhkar.ui.AdhkarScreen
 import org.muslim.app.feature.hadith.ui.HadithScreen
 import org.muslim.app.feature.learn.ui.LearnScreen
 import org.muslim.app.feature.qibla.ui.MosqueFinderScreen
+import org.muslim.app.feature.qibla.ui.OfflineMapsScreen
 import org.muslim.app.feature.qibla.ui.QiblaScreen
 import org.muslim.app.feature.quran.ui.BookmarksScreen
 import org.muslim.app.feature.ramadan.ui.RamadanScreen
@@ -77,6 +79,7 @@ private const val SETTINGS_ROUTE = "settings"
 private const val PRAYER_SETTINGS_ROUTE = "settings/prayer"
 private const val NOTIFICATIONS_ROUTE = "settings/notifications"
 private const val PERMISSIONS_ROUTE = "settings/permissions"
+private const val MORE_ORDER_ROUTE = "settings/more-order"
 private const val ABOUT_ROUTE = "settings/about"
 private const val PRIVACY_ROUTE = "settings/privacy"
 private const val HADITH_ROUTE = "hadith"
@@ -88,6 +91,7 @@ private const val LEARN_ROUTE = "learn"
 private const val REFERENCE_ROUTE = "reference"
 private const val QURAN_DOWNLOADS_ROUTE = "quran/downloads"
 private const val MOSQUES_ROUTE = "qibla/mosques"
+private const val OFFLINE_MAPS_ROUTE = "qibla/offline-maps"
 
 @Composable
 fun MuslimApp(
@@ -203,7 +207,10 @@ fun MuslimApp(
                         },
                     ),
                 ) {
-                    QuranReaderScreen(onBack = { navController.popBackStack() })
+                    QuranReaderScreen(
+                            onBack = { navController.popBackStack() },
+                            onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
+                        )
                 }
                 composable("qibla") {
                     val selected = location
@@ -237,7 +244,12 @@ fun MuslimApp(
                         onOpenLearn = { navController.navigate(LEARN_ROUTE) },
                         onOpenReference = { navController.navigate(REFERENCE_ROUTE) },
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
+                        onOpenOfflineMaps = { navController.navigate(OFFLINE_MAPS_ROUTE) },
+                        sectionOrder = preferences.moreSectionOrder,
                     )
+                }
+                composable(OFFLINE_MAPS_ROUTE) {
+                    OfflineMapsScreen(onBack = { navController.popBackStack() })
                 }
                 composable(SETTINGS_ROUTE) {
                     SettingsScreen(
@@ -247,8 +259,12 @@ fun MuslimApp(
                         onOpenPermissions = { navController.navigate(PERMISSIONS_ROUTE) },
                         onOpenAbout = { navController.navigate(ABOUT_ROUTE) },
                         onOpenPrivacy = { navController.navigate(PRIVACY_ROUTE) },
+                        onOpenMoreOrder = { navController.navigate(MORE_ORDER_ROUTE) },
                         onLanguageChanged = onLanguageChanged,
                     )
+                }
+                composable(MORE_ORDER_ROUTE) {
+                    MoreOrderScreen(onBack = { navController.popBackStack() })
                 }
                 composable(NOTIFICATIONS_ROUTE) {
                     NotificationSettingsScreen(onBack = { navController.popBackStack() })
@@ -297,5 +313,6 @@ fun MuslimApp(
                 }
             }
         }
+        CrashReportDialog()
     }
 }

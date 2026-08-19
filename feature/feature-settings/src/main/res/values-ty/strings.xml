@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Te tumu parau</string>
     <string name="settings_theme_system">Faanahoraa</string>
     <string name="settings_title">Te mau faanahoraa</string>
+    <string name="settings_section_time_format">Te faanahoraa o te taime</string>
+    <string name="settings_time_12">12 hora (AM/PM)</string>
+    <string name="settings_time_24">hora</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">(العبادات، العلم، الأدوات...)</string>
 </resources>

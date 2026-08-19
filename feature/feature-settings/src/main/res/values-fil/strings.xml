@@ -6,4 +6,7 @@
     <string name="notif_preview_missed">Hindi nasagot na adhan: %1$s — %2$s</string>
     <string name="notif_preview_next_title">Susunod na adhan: %1$s — %2$s</string>
     <string name="notif_preview_remaining">Oras na natitira: %1$s</string>
+    <string name="settings_section_time_format">Format ng oras</string>
+    <string name="settings_time_12">12 oras (AM/PM)</string>
+    <string name="settings_time_24">24 na oras</string>
 </resources>

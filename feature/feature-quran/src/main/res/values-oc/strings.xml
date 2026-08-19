@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah numèro</string>
     <string name="quran_download_cancel">Anullar</string>
     <string name="quran_download_channel">Telecargaments de recitacion</string>
-    <string name="quran_download_current_ayah">Ayah actual</string>
-    <string name="quran_download_current_surah">Soura actuala</string>
     <string name="quran_download_delete">Suprimir</string>
     <string name="quran_download_delete_confirm">Suprimir los telecargaments?</string>
     <string name="quran_download_delete_confirm_message">L\'àudio telecargat serà definitivament suprimit de vòstre periferic.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">En esperant la nuèch</string>
     <string name="quran_download_night_waiting">Començarà de nuèch — fenèstra %1$s</string>
     <string name="quran_download_night_window_title">Fenèstra de telecargament de nuèch</string>
-    <string name="quran_download_options_title">Opcions de telecargament</string>
     <string name="quran_download_pause">Pausa</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Telecargat per aqueste recitador: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Seleccionar lo recitator</string>
     <string name="quran_download_restoring">Reprene los telecargaments...</string>
     <string name="quran_download_resume">CV</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Pausada</string>
     <string name="quran_download_status_queued">En cola</string>
     <string name="quran_download_surah_number">Sora numèro (1-114)</string>
-    <string name="quran_downloaded">Telecargat</string>
     <string name="quran_downloads_active_title">Telecargaments actuals e passats</string>
+    <string name="quran_downloads_summary_title">Total telecargat</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Pas encara de telecargament</string>
     <string name="quran_downloads_title">Telecargaments</string>
     <string name="quran_font_larger">Poliça mai granda</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Soura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Lo Sant Alcoran</string>
+    <string name="quran_download_reciter_header">Telecargat: %1$d ayahs · %2$s</string>
 </resources>

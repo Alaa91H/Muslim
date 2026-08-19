@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">아야번호</string>
     <string name="quran_download_cancel">취소</string>
     <string name="quran_download_channel">암송 다운로드</string>
-    <string name="quran_download_current_ayah">현재 아야</string>
-    <string name="quran_download_current_surah">현재 수라</string>
     <string name="quran_download_delete">삭제</string>
     <string name="quran_download_delete_confirm">다운로드를 삭제하시겠습니까?</string>
     <string name="quran_download_delete_confirm_message">다운로드한 오디오는 기기에서 영구적으로 제거됩니다.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">밤을 기다리며</string>
     <string name="quran_download_night_waiting">밤에 시작됩니다 — 창 %1$s</string>
     <string name="quran_download_night_window_title">야간 다운로드 창</string>
-    <string name="quran_download_options_title">다운로드 옵션</string>
     <string name="quran_download_pause">일시중지</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">이 암송자를 위해 다운로드됨: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d 수라 · %2$d 아야 · %3$s</string>
-    <string name="quran_download_reciter_title">암송자 선택</string>
     <string name="quran_download_restoring">다운로드를 재개하는 중…</string>
     <string name="quran_download_resume">이력서</string>
     <string name="quran_download_scope_ayah">아야</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">일시중지됨</string>
     <string name="quran_download_status_queued">대기 중</string>
     <string name="quran_download_surah_number">수라 번호(1–114)</string>
-    <string name="quran_downloaded">다운로드됨</string>
     <string name="quran_downloads_active_title">현재 및 과거 다운로드</string>
+    <string name="quran_downloads_summary_title">총 다운로드 수</string>
+    <string name="quran_downloads_summary">%1$d 수라 · %2$d 아야 · %3$s</string>
     <string name="quran_downloads_none">아직 다운로드가 없습니다.</string>
     <string name="quran_downloads_title">다운로드</string>
     <string name="quran_font_larger">더 큰 글꼴</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">수라 %1$d</string>
     <string name="quran_tafsir_source">타프시르: %1$s</string>
     <string name="quran_title">신성한 꾸란</string>
+    <string name="quran_download_reciter_header">다운로드 횟수: %1$d 아야 · %2$s</string>
 </resources>

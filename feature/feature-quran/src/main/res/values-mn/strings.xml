@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ая тоо</string>
     <string name="quran_download_cancel">Цуцлах</string>
     <string name="quran_download_channel">Уншлага татаж авах</string>
-    <string name="quran_download_current_ayah">Одоогийн ая</string>
-    <string name="quran_download_current_surah">Одоогийн сур</string>
     <string name="quran_download_delete">Устгах</string>
     <string name="quran_download_delete_confirm">Татаж авсан файлуудыг устгах уу?</string>
     <string name="quran_download_delete_confirm_message">Татаж авсан аудио таны төхөөрөмжөөс бүрмөсөн устах болно.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Шөнө хүлээж байна</string>
     <string name="quran_download_night_waiting">Шөнө эхэлнэ — цонх %1$s</string>
     <string name="quran_download_night_window_title">Шөнийн татаж авах цонх</string>
-    <string name="quran_download_options_title">Татаж авах сонголтууд</string>
     <string name="quran_download_pause">Түр зогсоох</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Энэ уншлагчид татаж авсан: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d сур · %2$d ая · %3$s</string>
-    <string name="quran_download_reciter_title">Уншигч сонгох</string>
     <string name="quran_download_restoring">Татаж авах ажиллагааг үргэлжлүүлж байна...</string>
     <string name="quran_download_resume">Үргэлжлэл</string>
     <string name="quran_download_scope_ayah">Аяа</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Түр зогсоосон</string>
     <string name="quran_download_status_queued">Дараалалд орсон</string>
     <string name="quran_download_surah_number">Сураны дугаар (1–114)</string>
-    <string name="quran_downloaded">Татаж авсан</string>
     <string name="quran_downloads_active_title">Одоогийн болон өмнөх татан авалтууд</string>
+    <string name="quran_downloads_summary_title">Нийт татагдсан</string>
+    <string name="quran_downloads_summary">%1$d сур · %2$d ая · %3$s</string>
     <string name="quran_downloads_none">Одоогоор татагдсан зүйл алга</string>
     <string name="quran_downloads_title">Татаж авсан зүйлс</string>
     <string name="quran_font_larger">Илүү том фонт</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Сура %1$d</string>
     <string name="quran_tafsir_source">Тафсир: %1$s</string>
     <string name="quran_title">Ариун Коран судар</string>
+    <string name="quran_download_reciter_header">Татаж авсан: %1$d ayahs · %2$s</string>
 </resources>

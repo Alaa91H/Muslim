@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">آیہ نمبر</string>
     <string name="quran_download_cancel">لغوه کړئ</string>
     <string name="quran_download_channel">تلاوت کول</string>
-    <string name="quran_download_current_ayah">اوسنی آیت</string>
-    <string name="quran_download_current_surah">اوسنی سورت</string>
     <string name="quran_download_delete">ړنګول</string>
     <string name="quran_download_delete_confirm">ډاونلوډونه حذف کړئ؟</string>
     <string name="quran_download_delete_confirm_message">ډاونلوډ شوی آډیو به د تل لپاره ستاسو له وسیلې څخه لرې شي.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">د شپې انتظار</string>
     <string name="quran_download_night_waiting">په شپه کې به پیل شي - کړکۍ %1$s</string>
     <string name="quran_download_night_window_title">د شپې ډاونلوډ کړکۍ</string>
-    <string name="quran_download_options_title">اختیارونه ډاونلوډ کړئ</string>
     <string name="quran_download_pause">وقفه</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">د دې تلاوت کونکي لپاره ډاونلوډ شوی: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d سورتونه · %2$d ايتونه · %3$s</string>
-    <string name="quran_download_reciter_title">تلاوت کوونکی غوره کړئ</string>
     <string name="quran_download_restoring">ډاونلوډونه بیا پیلول…</string>
     <string name="quran_download_resume">بیا پیل کړئ</string>
     <string name="quran_download_scope_ayah">آیه</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">ودریدل</string>
     <string name="quran_download_status_queued">کتار</string>
     <string name="quran_download_surah_number">سورت نمبر (۱-۱۱۴)</string>
-    <string name="quran_downloaded">ډاونلوډ شوی</string>
     <string name="quran_downloads_active_title">اوسني او تیر ډاونلوډونه</string>
+    <string name="quran_downloads_summary_title">ټول ډاونلوډ شوی</string>
+    <string name="quran_downloads_summary">%1$d سورتونه · %2$d ايتونه · %3$s</string>
     <string name="quran_downloads_none">تر اوسه هیڅ ډاونلوډ نه دی شوی</string>
     <string name="quran_downloads_title">ډاونلوډونه</string>
     <string name="quran_font_larger">لوی فونټ</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">سوره %1$d</string>
     <string name="quran_tafsir_source">تفسیر: %1$s</string>
     <string name="quran_title">قران کریم</string>
+    <string name="quran_download_reciter_header">کښته شوی: %1$d آیات · %2$s</string>
 </resources>

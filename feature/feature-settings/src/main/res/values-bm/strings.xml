@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Barokun</string>
     <string name="settings_theme_system">Sistɛmu (Système) ye</string>
     <string name="settings_title">Segin-ka-bɔnyew</string>
+    <string name="settings_section_time_format">Waati cogoya</string>
+    <string name="settings_time_12">Lɛrɛ 12 (Sɔgɔma/H)</string>
+    <string name="settings_time_24">Lɛrɛ 24 kɔnɔ</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات...)</string>
 </resources>

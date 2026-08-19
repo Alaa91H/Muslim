@@ -8,6 +8,7 @@ import androidx.datastore.preferences.core.stringSetPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -75,7 +76,8 @@ class AdhkarPrefsRepository @Inject constructor(
     @ApplicationContext private val context: Context,
 ) {
 
-    val prefs: Flow<AdhkarPrefs> = context.adhkarPrefsDataStore.data.map { p ->
+    val prefs: Flow<AdhkarPrefs> = context.adhkarPrefsDataStore.data
+        .map { p ->
         AdhkarPrefs(
             overlayEnabled = p[Keys.OVERLAY_ENABLED] ?: true,
             overlayDurationSeconds = (p[Keys.OVERLAY_DURATION] ?: 5).coerceIn(1, 600),
@@ -111,7 +113,10 @@ class AdhkarPrefsRepository @Inject constructor(
             periodicReminderWindowEndHour = (p[Keys.PERIODIC_WINDOW_END_HOUR] ?: 17).coerceIn(0, 23),
             periodicReminderWindowEndMinute = (p[Keys.PERIODIC_WINDOW_END_MINUTE] ?: 0).coerceIn(0, 59),
         )
-    }
+        }
+        // Corrupt persisted data (e.g. written by an older version) must never
+        // crash the adhkar screen on entry; fall back to the defaults instead.
+        .catch { emit(AdhkarPrefs()) }
 
     suspend fun setOverlayEnabled(enabled: Boolean) = edit { it[Keys.OVERLAY_ENABLED] = enabled }
 

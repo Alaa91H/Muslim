@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Mowzuk</string>
     <string name="settings_theme_system">Ulgam</string>
     <string name="settings_title">Sazlamalar</string>
+    <string name="settings_section_time_format">Wagt formaty</string>
+    <string name="settings_time_12">12 sagat (AM / PM)</string>
+    <string name="settings_time_24">24 sagat</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب سامقران شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقران شاشة المزيد (العبادات ، العلم ، الأدوات…)</string>
 </resources>

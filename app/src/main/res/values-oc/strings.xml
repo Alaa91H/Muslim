@@ -30,4 +30,22 @@
     <string name="tab_more">Mai</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Coran</string>
+    <string name="more_section_worship">Adoracion</string>
+    <string name="more_section_knowledge">Coneissença</string>
+    <string name="more_section_tools">Aisinas</string>
+    <string name="more_section_app">Aplicacion</string>
+    <string name="more_order_title">ترتيب أقم المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتح كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحصیل لأعلى</string>
+    <string name="more_order_move_down">تحول لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل إنترنت</string>
+    <string name="crash_title">Error inesperada</string>
+    <string name="crash_fatal_message">Quicòm s\'es marrit e l\'aplicacion s\'arrestèt. Lo podètz tornar aviar o tampar.</string>
+    <string name="crash_recoverable_message">Quicòm s\'es pas passat, mas podètz contunhar d\'utilizar l\'aplicacion.</string>
+    <string name="crash_restart">Reaviar</string>
+    <string name="crash_close">Barrar</string>
+    <string name="crash_dismiss">Contunhar</string>
 </resources>

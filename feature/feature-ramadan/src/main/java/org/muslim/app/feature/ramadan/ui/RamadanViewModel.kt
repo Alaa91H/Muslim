@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.muslim.app.core.common.prayer.CalculationMethod
@@ -16,6 +17,7 @@ import org.muslim.app.core.common.prayer.Coordinates
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.common.prayer.PrayerParameters
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
+import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.feature.ramadan.data.RamadanRepository
@@ -100,7 +102,14 @@ class RamadanViewModel @Inject constructor(
     private val ramadanRepository: RamadanRepository,
     private val calculator: PrayerTimesCalculator,
     private val scheduler: RamadanScheduler,
+    private val appPreferencesRepository: AppPreferencesRepository,
 ) : ViewModel() {
+
+    /** The app-wide 12/24-hour clock chosen in Settings (default 12h). */
+    val use24h: StateFlow<Boolean> =
+        appPreferencesRepository.preferences
+            .map { it.timeFormat24h }
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
     private val ticker = flow {
         while (true) {

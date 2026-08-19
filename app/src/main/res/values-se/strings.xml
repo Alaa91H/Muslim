@@ -30,4 +30,22 @@
     <string name="tab_more">Eanet</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Korana</string>
+    <string name="more_section_worship">Ipmilbálvalus</string>
+    <string name="more_section_knowledge">Diehtu</string>
+    <string name="more_section_tools">Reaiddut</string>
+    <string name="more_section_app">Áppa</string>
+    <string name="more_order_title">ترتيب أقم المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتح كل مختلف لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحصیل لأعلى</string>
+    <string name="more_order_move_down">تحصیل لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل إنترنت</string>
+    <string name="crash_title">Vuorddekeahtes meattáhus</string>
+    <string name="crash_fatal_message">Juoga manai boastut ja áppa bisánii. Sáhtát álggahit dan ođđasit dahje giddet dan.</string>
+    <string name="crash_recoverable_message">Juoga manai boastut, muhto sáhtát joatkit geavahit áppa.</string>
+    <string name="crash_restart">Ođđasit álggahit</string>
+    <string name="crash_close">Gidde</string>
+    <string name="crash_dismiss">Joatkit</string>
 </resources>

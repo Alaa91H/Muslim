@@ -30,4 +30,22 @@
     <string name="tab_more">Подробнее</string>
     <string name="tab_qibla">Кибла</string>
     <string name="tab_quran">Коран</string>
+    <string name="more_section_worship">Поклонение</string>
+    <string name="more_section_knowledge">Знания</string>
+    <string name="more_section_tools">Инструменты</string>
+    <string name="more_section_app">Приложение</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">Он сказал: يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">Он выступил в роли президента США в Вашингтоне.</string>
+    <string name="crash_title">Неожиданная ошибка</string>
+    <string name="crash_fatal_message">Что-то пошло не так и приложение остановилось. Вы можете перезапустить его или закрыть.</string>
+    <string name="crash_recoverable_message">Что-то пошло не так, но вы можете продолжать использовать приложение.</string>
+    <string name="crash_restart">Перезапустить</string>
+    <string name="crash_close">Закрыть</string>
+    <string name="crash_dismiss">Продолжить</string>
 </resources>

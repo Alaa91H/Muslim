@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Nomoro ea Ayah</string>
     <string name="quran_download_cancel">Hlakola</string>
     <string name="quran_download_channel">Likopi tsa ho khoasolla</string>
-    <string name="quran_download_current_ayah">Ayah ea hona joale</string>
-    <string name="quran_download_current_surah">Surah ea kajeno</string>
     <string name="quran_download_delete">Hlakola</string>
     <string name="quran_download_delete_confirm">Hlakola downloads?</string>
     <string name="quran_download_delete_confirm_message">Mongolo o jarollotsoeng o tla tlosoa ka ho sa feleng sesebelisoa sa hau.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Ho lebella bosiu</string>
     <string name="quran_download_night_waiting">E tla qala bosiu - fensetere %1$s</string>
     <string name="quran_download_night_window_title">Fesetere ea ho jarolla bosiu</string>
-    <string name="quran_download_options_title">Likhetho tsa ho jarolla</string>
     <string name="quran_download_pause">Khutsa</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">E jarollotsoe bakeng sa morekisi enoa: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Khetha reciter</string>
     <string name="quran_download_restoring">E tsoela pele ho khoasolla…</string>
     <string name="quran_download_resume">Qala hape</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">E emisitsoe</string>
     <string name="quran_download_status_queued">E moleng</string>
     <string name="quran_download_surah_number">Nomoro ea Surah (1-114)</string>
-    <string name="quran_downloaded">E jarollotsoe</string>
     <string name="quran_downloads_active_title">Lisebelisoa tsa hajoale le tsa nakong e fetileng</string>
+    <string name="quran_downloads_summary_title">Kakaretso e jarollotsoeng</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Ha hona tse jarollotsoeng hajoale</string>
     <string name="quran_downloads_title">Lisebelisoa</string>
     <string name="quran_font_larger">Fonte e kholoanyane</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tlhaloso: %1$s</string>
     <string name="quran_title">Quran e Halalelang</string>
+    <string name="quran_download_reciter_header">E jarollotsoe: %1$d ayahs · %2$s</string>
 </resources>

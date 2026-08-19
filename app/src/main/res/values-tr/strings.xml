@@ -30,4 +30,22 @@
     <string name="tab_more">Daha Fazla</string>
     <string name="tab_qibla">Kıble</string>
     <string name="tab_quran">Kuran</string>
+    <string name="more_section_worship">İbadet</string>
+    <string name="more_section_knowledge">Bilgi</string>
+    <string name="more_section_tools">Araçlar</string>
+    <string name="more_section_app">Uygulama</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">Bu, en azından bir kez daha yapılması gereken bir şey. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">Ana Sayfa</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">حميل خرائط مدينة veya دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Beklenmeyen hata</string>
+    <string name="crash_fatal_message">Bir şeyler ters gitti ve uygulama durduruldu. Yeniden başlatabilir veya kapatabilirsiniz.</string>
+    <string name="crash_recoverable_message">Bir sorun oluştu ancak uygulamayı kullanmaya devam edebilirsiniz.</string>
+    <string name="crash_restart">Yeniden başlat</string>
+    <string name="crash_close">Kapat</string>
+    <string name="crash_dismiss">Devam et</string>
 </resources>

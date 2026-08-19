@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Umubare wa Ayah</string>
     <string name="quran_download_cancel">Gukuraho</string>
     <string name="quran_download_channel">Ivyo gusubiramwo</string>
-    <string name="quran_download_current_ayah">ayah ubu</string>
-    <string name="quran_download_current_surah">Sura y\'ubu</string>
     <string name="quran_download_delete">Gufuta</string>
     <string name="quran_download_delete_confirm">Gukuraho ivyo wavuyeko?</string>
     <string name="quran_download_delete_confirm_message">Amajwi mwaronse azokurwa ku gikoresho cawe ubuziraherezo.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Kurindira ijoro</string>
     <string name="quran_download_night_waiting">Bizotangura mw’ijoro — idirisha %1$s</string>
     <string name="quran_download_night_window_title">Idirisha ryo gukuraho ijoro</string>
-    <string name="quran_download_options_title">Amahitamwo yo gukuraho</string>
     <string name="quran_download_pause">Hagarika</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Ivyo vyavuye kuri uwu musomyi: %1$s</string>
     <string name="quran_download_reciter_state_detail">amasora %1$d · amaya %2$d · %3$s</string>
-    <string name="quran_download_reciter_title">Hitamwo umusomyi</string>
     <string name="quran_download_restoring">Gusubira gukuraho...</string>
     <string name="quran_download_resume">Gusubiramwo</string>
     <string name="quran_download_scope_ayah">Yaya</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Hahagaze</string>
     <string name="quran_download_status_queued">Ku murongo</string>
     <string name="quran_download_surah_number">Igitigiri c\'isura (1-114)</string>
-    <string name="quran_downloaded">Vyakuweho</string>
     <string name="quran_downloads_active_title">Ivyo ubu n\'ivya kera</string>
+    <string name="quran_downloads_summary_title">Igitigiri cose cavuye kuri interineti</string>
+    <string name="quran_downloads_summary">amasora %1$d · amaya %2$d · %3$s</string>
     <string name="quran_downloads_none">Ntavyo vyamanuwe</string>
     <string name="quran_downloads_title">Ivyo gukuraho</string>
     <string name="quran_font_larger">Imyandikire nini</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Korowani nyeranda</string>
+    <string name="quran_download_reciter_header">Vyakuweho: amayasi %1$d · %2$s</string>
 </resources>

@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah nummer</string>
     <string name="quran_download_cancel">Annuleer</string>
     <string name="quran_download_channel">Recitatie downloaden</string>
-    <string name="quran_download_current_ayah">Huidige aya</string>
-    <string name="quran_download_current_surah">Huidige soera</string>
     <string name="quran_download_delete">Verwijderen</string>
     <string name="quran_download_delete_confirm">Downloads verwijderen?</string>
     <string name="quran_download_delete_confirm_message">De gedownloade audio wordt permanent van uw apparaat verwijderd.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Wachten op de nacht</string>
     <string name="quran_download_night_waiting">Start \'s nachts - venster %1$s</string>
     <string name="quran_download_night_window_title">Nachtelijke downloadvenster</string>
-    <string name="quran_download_options_title">Downloadopties</string>
     <string name="quran_download_pause">Pauze</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Gedownload voor deze voordrager: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d soera\'s · %2$d ayah\'s · %3$s</string>
-    <string name="quran_download_reciter_title">Selecteer voordrager</string>
     <string name="quran_download_restoring">Downloads hervatten…</string>
     <string name="quran_download_resume">Hervatten</string>
     <string name="quran_download_scope_ayah">Jaa</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Gepauzeerd</string>
     <string name="quran_download_status_queued">In de wachtrij</string>
     <string name="quran_download_surah_number">Soera-nummer (1–114)</string>
-    <string name="quran_downloaded">Gedownload</string>
     <string name="quran_downloads_active_title">Huidige en eerdere downloads</string>
+    <string name="quran_downloads_summary_title">Totaal gedownload</string>
+    <string name="quran_downloads_summary">%1$d soera\'s · %2$d ayah\'s · %3$s</string>
     <string name="quran_downloads_none">Nog geen downloads</string>
     <string name="quran_downloads_title">Downloads</string>
     <string name="quran_font_larger">Groter lettertype</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Soera %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">De Heilige Koran</string>
+    <string name="quran_download_reciter_header">Gedownload: %1$d ayahs · %2$s</string>
 </resources>

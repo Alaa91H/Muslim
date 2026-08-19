@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">ଆୟା ସଂଖ୍ୟା</string>
     <string name="quran_download_cancel">ବାତିଲ୍ କରନ୍ତୁ |</string>
     <string name="quran_download_channel">ପଠନ ଡାଉନଲୋଡ୍ |</string>
-    <string name="quran_download_current_ayah">ସାମ୍ପ୍ରତିକ ଆୟ</string>
-    <string name="quran_download_current_surah">ସାମ୍ପ୍ରତିକ ସୁରା |</string>
     <string name="quran_download_delete">ବିଲୋପ କରନ୍ତୁ |</string>
     <string name="quran_download_delete_confirm">ଡାଉନଲୋଡ୍ ବିଲୋପ କରିବେ କି?</string>
     <string name="quran_download_delete_confirm_message">ଡାଉନଲୋଡ୍ ହୋଇଥିବା ଅଡିଓ ଆପଣଙ୍କ ଡିଭାଇସରୁ ସବୁଦିନ ପାଇଁ ଅପସାରିତ ହେବ |</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">ରାତି ଅପେକ୍ଷା</string>
     <string name="quran_download_night_waiting">ରାତିରେ ଆରମ୍ଭ ହେବ - ୱିଣ୍ଡୋ %1$s |</string>
     <string name="quran_download_night_window_title">ରାତି ଡାଉନଲୋଡ୍ ୱିଣ୍ଡୋ |</string>
-    <string name="quran_download_options_title">ବିକଳ୍ପଗୁଡିକ ଡାଉନଲୋଡ୍ କରନ୍ତୁ |</string>
     <string name="quran_download_pause">ବିରାମ</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">ଏହି ପାଠକ ପାଇଁ ଡାଉନଲୋଡ୍ ହୋଇଛି: %1$s |</string>
     <string name="quran_download_reciter_state_detail">%1$d ସୁରା · %2$d ଆୟାହ · %3$s |</string>
-    <string name="quran_download_reciter_title">ପାଠକ ଚୟନ କରନ୍ତୁ |</string>
     <string name="quran_download_restoring">ଡାଉନଲୋଡ୍ ଆରମ୍ଭ କରିବା…</string>
     <string name="quran_download_resume">ପୁନ ume କାର୍ଯ୍ୟ ଆରମ୍ଭ କରନ୍ତୁ |</string>
     <string name="quran_download_scope_ayah">ଆୟା</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">ବିରତ |</string>
     <string name="quran_download_status_queued">ଧାଡିରେ |</string>
     <string name="quran_download_surah_number">ସୁରା ସଂଖ୍ୟା (୧ –- ୧))</string>
-    <string name="quran_downloaded">ଡାଉନଲୋଡ୍ ହୋଇଛି |</string>
     <string name="quran_downloads_active_title">ସାମ୍ପ୍ରତିକ ଏବଂ ଅତୀତ ଡାଉନଲୋଡ୍ |</string>
+    <string name="quran_downloads_summary_title">ସମୁଦାୟ ଡାଉନଲୋଡ୍ ହୋଇଛି |</string>
+    <string name="quran_downloads_summary">%1$d ସୁରା · %2$d ଆୟାହ · %3$s |</string>
     <string name="quran_downloads_none">ଏପର୍ଯ୍ୟନ୍ତ କ download ଣସି ଡାଉନଲୋଡ୍ ନାହିଁ |</string>
     <string name="quran_downloads_title">ଡାଉନଲୋଡ୍ |</string>
     <string name="quran_font_larger">ବଡ଼ ଫଣ୍ଟ |</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">ସୁରା %1$d</string>
     <string name="quran_tafsir_source">ତଫସୀର: %1$s</string>
     <string name="quran_title">ପବିତ୍ର କୁରାନ |</string>
+    <string name="quran_download_reciter_header">ଡାଉନଲୋଡ୍ ହୋଇଛି: %1$d ayahs · %2$s</string>
 </resources>

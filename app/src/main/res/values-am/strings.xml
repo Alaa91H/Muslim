@@ -30,4 +30,22 @@
     <string name="tab_more">ተጨማሪ</string>
     <string name="tab_qibla">ቂብላ</string>
     <string name="tab_quran">ቁርኣን</string>
+    <string name="more_section_worship">አምልኮ</string>
+    <string name="more_section_knowledge">እውቀት</string>
+    <string name="more_section_tools">መሳሪያዎች</string>
+    <string name="more_section_app">መተግበሪያ</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">ያልተጠበቀ ስህተት</string>
+    <string name="crash_fatal_message">የሆነ ችግር ተፈጥሯል እና መተግበሪያው ቆሟል። እንደገና ማስጀመር ወይም መዝጋት ይችላሉ።</string>
+    <string name="crash_recoverable_message">የሆነ ችግር ተፈጥሯል፣ ግን መተግበሪያውን መጠቀም መቀጠል ይችላሉ።</string>
+    <string name="crash_restart">ዳግም አስጀምር</string>
+    <string name="crash_close">ዝጋ</string>
+    <string name="crash_dismiss">ቀጥል</string>
 </resources>

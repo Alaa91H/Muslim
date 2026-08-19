@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Mutu</string>
     <string name="settings_theme_system">Dongosolo</string>
     <string name="settings_title">Zokonda</string>
+    <string name="settings_section_time_format">Mtundu wa nthawi</string>
+    <string name="settings_time_12">Maola 12 (AM/PM)</string>
+    <string name="settings_time_24">24 maola</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات, العلم, الأدوات…)</string>
 </resources>

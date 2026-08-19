@@ -30,4 +30,22 @@
     <string name="tab_more">Tuilleadh</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Quran</string>
+    <string name="more_section_worship">Adhradh</string>
+    <string name="more_section_knowledge">Eòlas</string>
+    <string name="more_section_tools">Innealan</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">Luchdaich sìos an-asgaidh</string>
+    <string name="more_order_move_down">Luchdaich sìos an-asgaidh</string>
+    <string name="more_order_back">marbh</string>
+    <string name="more_offline_maps">Mar a tha e ag ràdh,</string>
+    <string name="more_offline_maps_desc">Luchdaich a-nuas an t-sreath</string>
+    <string name="crash_title">Mearachd ris nach robh dùil</string>
+    <string name="crash_fatal_message">Chaidh rudeigin ceàrr agus stad an aplacaid. Faodaidh tu ath-thòiseachadh no dùnadh e.</string>
+    <string name="crash_recoverable_message">Chaidh rudeigin ceàrr, ach faodaidh tu cumail a’ cleachdadh an aplacaid.</string>
+    <string name="crash_restart">Ath-thòisich</string>
+    <string name="crash_close">Dùin</string>
+    <string name="crash_dismiss">Lean air adhart</string>
 </resources>

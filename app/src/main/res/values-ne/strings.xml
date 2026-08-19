@@ -30,4 +30,22 @@
     <string name="tab_more">थप</string>
     <string name="tab_qibla">किब्ला</string>
     <string name="tab_quran">कुरान</string>
+    <string name="more_section_worship">पूजा</string>
+    <string name="more_section_knowledge">ज्ञान</string>
+    <string name="more_section_tools">उपकरणहरू</string>
+    <string name="more_section_app">एप</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد।</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">सम्पर्क गर्नुहोस्</string>
+    <string name="more_offline_maps">खराईत बदन इन्टरनेट</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">अनपेक्षित त्रुटि</string>
+    <string name="crash_fatal_message">केही गडबड भयो र एप रोकियो। तपाईं यसलाई पुन: सुरु वा बन्द गर्न सक्नुहुन्छ।</string>
+    <string name="crash_recoverable_message">केही गडबड भयो, तर तपाईं एप प्रयोग गरिराख्न सक्नुहुन्छ।</string>
+    <string name="crash_restart">पुन: सुरु गर्नुहोस्</string>
+    <string name="crash_close">बन्द गर्नुहोस्</string>
+    <string name="crash_dismiss">जारी राख्नुहोस्</string>
 </resources>

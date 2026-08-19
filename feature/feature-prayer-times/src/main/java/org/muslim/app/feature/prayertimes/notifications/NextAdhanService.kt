@@ -18,6 +18,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
+import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.notifications.NotificationCategory
@@ -45,6 +46,7 @@ class NextAdhanService : Service() {
     @Inject lateinit var settingsRepository: PrayerSettingsRepository
     @Inject lateinit var calculator: PrayerTimesCalculator
     @Inject lateinit var notificationPrefs: NotificationPrefsRepository
+    @Inject lateinit var appPreferencesRepository: AppPreferencesRepository
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
     private val handler = Handler(Looper.getMainLooper())
@@ -57,7 +59,11 @@ class NextAdhanService : Service() {
         // Must post quickly after startForegroundService; refreshed by the ticker.
         startForeground(
             NextAdhanNotifications.NEXT_ADHAN_NOTIFICATION_ID,
-            NextAdhanNotifications.build(this, lastData ?: EMPTY),
+            NextAdhanNotifications.build(
+                this,
+                lastData ?: EMPTY,
+                use24h = appPreferencesRepository.readTimeFormat24hSync(),
+            ),
         )
         cancelRestartAlarm()
         tick()
@@ -90,7 +96,13 @@ class NextAdhanService : Service() {
             val manager = getSystemService(NotificationManager::class.java)
             manager.notify(
                 NextAdhanNotifications.NEXT_ADHAN_NOTIFICATION_ID,
-                NextAdhanNotifications.build(this@NextAdhanService, data, showMissed, missedColor),
+                NextAdhanNotifications.build(
+                    this@NextAdhanService,
+                    data,
+                    showMissed,
+                    missedColor,
+                    use24h = appPreferencesRepository.readTimeFormat24hSync(),
+                ),
             )
             handler.postDelayed({ tick() }, TICK_MILLIS)
         }

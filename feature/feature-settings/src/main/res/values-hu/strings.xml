@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">téma</string>
     <string name="settings_theme_system">Rendszer</string>
     <string name="settings_title">Beállítások elemre</string>
+    <string name="settings_section_time_format">Időformátum</string>
+    <string name="settings_time_12">12 óra (AM/PM)</string>
+    <string name="settings_time_24">24 órás</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الادلم، الاتم…)</string>
 </resources>

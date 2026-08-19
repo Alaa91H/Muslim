@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Тема</string>
     <string name="settings_theme_system">Система</string>
     <string name="settings_title">Настройкӑсем</string>
+    <string name="settings_section_time_format">Вӑхӑт форматӗ</string>
+    <string name="settings_time_12">12-сехет (ирхине/каҫхине)</string>
+    <string name="settings_time_24">24-сехет</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقم شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخيص ترتيب أقم شاشة المزيد (العبادات، العلم، الأدوات…)</string>
 </resources>

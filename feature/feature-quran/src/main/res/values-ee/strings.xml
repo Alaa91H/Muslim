@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah xexlẽdzesi</string>
     <string name="quran_download_cancel">Te fli ɖe eme</string>
     <string name="quran_download_channel">Nuxexlẽ ƒe kɔpiwo</string>
-    <string name="quran_download_current_ayah">Ayah si li fifia</string>
-    <string name="quran_download_current_surah">Surah si li fifia</string>
     <string name="quran_download_delete">Tsɔe ƒu gbe</string>
     <string name="quran_download_delete_confirm">Tsɔ nusiwo woɖe ɖe go la tutu?</string>
     <string name="quran_download_delete_confirm_message">Woaɖe odio si nèɖe la ɖa le wò mɔ̃a dzi tegbee.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Zã lalam</string>
     <string name="quran_download_night_waiting">Adze egɔme le zã me — fesre %1$s</string>
     <string name="quran_download_night_window_title">Zã me download ƒe fesre</string>
-    <string name="quran_download_options_title">Tiatia siwo nàte ŋu awɔ kɔpi le</string>
     <string name="quran_download_pause">Tsɔe tɔ vie</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Woɖee na nuxlẽla sia: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surah · %2$d ayah · %3$s</string>
-    <string name="quran_download_reciter_title">Tia nyagblɔla</string>
     <string name="quran_download_restoring">Gbugbɔ dze kɔpiwɔwɔ gɔme...</string>
     <string name="quran_download_resume">Gbugbɔ dze egɔme</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Wotɔ vie</string>
     <string name="quran_download_status_queued">Woɖo fli ɖe fli me</string>
     <string name="quran_download_surah_number">Surah ƒe xexlẽdzesi (1–114) .</string>
-    <string name="quran_downloaded">Woɖee ɖe go</string>
     <string name="quran_downloads_active_title">Nusiwo woɖe ɖe go fifia kple esiwo va yi</string>
+    <string name="quran_downloads_summary_title">Wo katã ƒe kɔpi</string>
+    <string name="quran_downloads_summary">%1$d surah · %2$d ayah · %3$s</string>
     <string name="quran_downloads_none">Womewɔ kɔpi aɖeke haɖe o</string>
     <string name="quran_downloads_title">Nusiwo woate ŋu awɔ kɔpi na</string>
     <string name="quran_font_larger">Ŋɔŋlɔdzesi si lolo wu</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d ƒe xexlẽme</string>
     <string name="quran_tafsir_source">Tafsir: %1$s ƒe xexlẽme</string>
     <string name="quran_title">Quran Kɔkɔe la</string>
+    <string name="quran_download_reciter_header">Woɖee ɖe go: %1$d ayahs · %2$s</string>
 </resources>

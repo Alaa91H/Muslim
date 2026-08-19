@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">مسلم</string>
+    <string name="more_order_title">أقسام الترتيب المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم للدفع أو للجميع. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">ضبط الذاكرة الافتراضية</string>
+    <string name="more_order_move_up">الذي يدفع</string>
+    <string name="more_order_move_down">إلى الأبد</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">خطأ غير متوقع</string>
+    <string name="crash_fatal_message">حدث خطأ ما وتوقف التطبيق. يمكنك إعادة تشغيله أو إغلاقه.</string>
+    <string name="crash_recoverable_message">حدث خطأ ما، ولكن يمكنك الاستمرار في استخدام التطبيق.</string>
+    <string name="crash_restart">إعادة التشغيل</string>
+    <string name="crash_close">إغلاق</string>
+    <string name="crash_dismiss">متابعة</string>
 </resources>

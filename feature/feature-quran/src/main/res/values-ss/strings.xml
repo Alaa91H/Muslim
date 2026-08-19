@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Inombolo ye-Ayah</string>
     <string name="quran_download_cancel">Khansela</string>
     <string name="quran_download_channel">Kulandvwa kwekuphindzaphindza</string>
-    <string name="quran_download_current_ayah">Ayah lamanje</string>
-    <string name="quran_download_current_surah">Surah yamanje</string>
     <string name="quran_download_delete">Cisha</string>
     <string name="quran_download_delete_confirm">Cisha lokulandzile?</string>
     <string name="quran_download_delete_confirm_message">Umsindvo lolandvwako utawususwa unomphela kudivayisi yakho.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Kulindzelwe busuku</string>
     <string name="quran_download_night_waiting">Kutawucala ebusuku — lifasitelo %1$s</string>
     <string name="quran_download_night_window_title">Lifasitelo lekulandza ebusuku</string>
-    <string name="quran_download_options_title">Tintfo letingakhetfwa kulandza</string>
     <string name="quran_download_pause">Yema kancane</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Kulandzelwe lomfundzisi: %1$s</string>
     <string name="quran_download_reciter_state_detail">Ema- surah langu-%1$d · ema-ayah langu-%2$d · %3$s</string>
-    <string name="quran_download_reciter_title">Khetsa umfundzisi</string>
     <string name="quran_download_restoring">Kuphindze kulandzelwe...</string>
     <string name="quran_download_resume">Cala kabusha</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Kumiswe kancane</string>
     <string name="quran_download_status_queued">Kulayiniwe</string>
     <string name="quran_download_surah_number">Inombolo yeSura (1-114)</string>
-    <string name="quran_downloaded">Kulandvwe</string>
     <string name="quran_downloads_active_title">Lokulandvwako kwanyalo nalokwendlulile</string>
+    <string name="quran_downloads_summary_title">Linani selilonkhe lekulandzelwe</string>
+    <string name="quran_downloads_summary">Ema- surah langu-%1$d · ema-ayah langu-%2$d · %3$s</string>
     <string name="quran_downloads_none">Kute lokulandvwako</string>
     <string name="quran_downloads_title">Lokulandvwako</string>
     <string name="quran_font_larger">Ifonti lenkhulu</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Lisura %1$d</string>
     <string name="quran_tafsir_source">I-Tafsir: %1$s</string>
     <string name="quran_title">I Quran Lengcwele</string>
+    <string name="quran_download_reciter_header">Kulandvwe: ema-aya langu-%1$d · %2$s</string>
 </resources>

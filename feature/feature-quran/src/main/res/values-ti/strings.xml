@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">ኣያ ቁጽሪ</string>
     <string name="quran_download_cancel">ስርዝ ድልዝ</string>
     <string name="quran_download_channel">ሪሲቴሽን ዳውንሎድ</string>
-    <string name="quran_download_current_ayah">ናይ ሕጂ ኣያ</string>
-    <string name="quran_download_current_surah">እዋናዊ ሱራ</string>
     <string name="quran_download_delete">ምድምሳስ</string>
     <string name="quran_download_delete_confirm">ዳውንሎድ ምድምሳስ?</string>
     <string name="quran_download_delete_confirm_message">እቲ ዝወረደ ድምጺ ካብ መሳርሒኻ ንሓዋሩ ክእለ እዩ።</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">ለይቲ ምጽባይ</string>
     <string name="quran_download_night_waiting">ብለይቲ ክጅምር እዩ — መስኮት %1$s</string>
     <string name="quran_download_night_window_title">ናይ ለይቲ ምውራድ መስኮት።</string>
-    <string name="quran_download_options_title">ናይ ምውራድ ኣማራጺታት</string>
     <string name="quran_download_pause">ደው በሉ።</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">ነዚ ኣንባቢ ዝወረደ: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d ሱራ · %2$d ኣያ · %3$s</string>
-    <string name="quran_download_reciter_title">ረሲተር ምረጽ</string>
     <string name="quran_download_restoring">ዳግመ ምጅማር ዳውንሎድ...</string>
     <string name="quran_download_resume">ዳግመ-ምጅማር</string>
     <string name="quran_download_scope_ayah">ኣያ</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">ደው ኢሉ</string>
     <string name="quran_download_status_queued">ሪጋ ተሰሪዑ</string>
     <string name="quran_download_surah_number">ሱራ ቁጽሪ (1–114)</string>
-    <string name="quran_downloaded">ዳውንሎድ ተገይሩሉ።</string>
     <string name="quran_downloads_active_title">ህሉውን ሕሉፍን ዳውንሎድ</string>
+    <string name="quran_downloads_summary_title">ጠቕላላ ዝወረደ</string>
+    <string name="quran_downloads_summary">%1$d ሱራ · %2$d ኣያ · %3$s</string>
     <string name="quran_downloads_none">ገና ዝኾነ ዳውንሎድ የለን</string>
     <string name="quran_downloads_title">ዳውንሎድ ምግባር</string>
     <string name="quran_font_larger">ዝዓበየ ቅርጺ ፊደል</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">ሱራ %1$d</string>
     <string name="quran_tafsir_source">ታፍሲር፡ %1$s</string>
     <string name="quran_title">ቅዱስ ቁርኣን</string>
+    <string name="quran_download_reciter_header">Downloaded: %1$d ኣያታት · %2$s</string>
 </resources>

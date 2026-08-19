@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">ଥିମ୍</string>
     <string name="settings_theme_system">ସିଷ୍ଟମ୍ |</string>
     <string name="settings_title">ସେଟିଂସମୂହ</string>
+    <string name="settings_section_time_format">ସମୟ ଫର୍ମାଟ୍ |</string>
+    <string name="settings_time_12">12-ଘଣ୍ଟା (AM / PM)</string>
+    <string name="settings_time_24">24-ଘଣ୍ଟା |</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب سامقران شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقران شاشة المزيد (العبادات ، العلم ، الأدوات…)</string>
 </resources>

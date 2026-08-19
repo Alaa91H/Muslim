@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah number</string>
     <string name="quran_download_cancel">Kanne</string>
     <string name="quran_download_channel">Recitation downloads</string>
-    <string name="quran_download_current_ayah">Ayah eo kiõ</string>
-    <string name="quran_download_current_surah">Surah eo kiõ</string>
     <string name="quran_download_delete">Jolok</string>
     <string name="quran_download_delete_confirm">Jolok download ko?</string>
     <string name="quran_download_delete_confirm_message">Audio eo emoj an download enaj jako jen device eo am.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Kōttar boñ</string>
     <string name="quran_download_night_waiting">Enaj jino ilo boñ — window %1$s</string>
     <string name="quran_download_night_window_title">Wintō in bōk ilo boñ</string>
-    <string name="quran_download_options_title">Kālet ko ñan bōk</string>
     <string name="quran_download_pause">Bōjrak</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Kar bōk ñan ri jeje in: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Kālet ri-kōnono</string>
     <string name="quran_download_restoring">Bar jinoe download ko...</string>
     <string name="quran_download_resume">Bar jinoe</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Eṃōj bōjrak</string>
     <string name="quran_download_status_queued">Ej pād ilo laajrak</string>
     <string name="quran_download_surah_number">Surah number (1–114)</string>
-    <string name="quran_downloaded">Kar bōk</string>
     <string name="quran_downloads_active_title">Download ko kiiō im ko remootlok</string>
+    <string name="quran_downloads_summary_title">Aolepān kar bōktok</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Ejelok download ko kiõ</string>
     <string name="quran_downloads_title">Download ko</string>
     <string name="quran_font_larger">Font eo elaplok</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Quran eo ekwojarjar</string>
+    <string name="quran_download_reciter_header">kar bōk: %1$d ayahs · %2$s</string>
 </resources>

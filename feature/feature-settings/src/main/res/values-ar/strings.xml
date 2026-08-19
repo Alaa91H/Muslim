@@ -6,4 +6,7 @@
     <string name="notif_preview_missed">الأذان الفائت: %1$s — %2$s</string>
     <string name="notif_preview_next_title">الأذان التالي: %1$s — %2$s</string>
     <string name="notif_preview_remaining">الوقت المتبقي: %1$s</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">تقسيم أقسام الشاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص أقسام شاشة المزيد (العبادات، العلم، الأدوات…)</string>
 </resources>

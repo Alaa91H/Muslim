@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">आह नंबर बा</string>
     <string name="quran_download_cancel">रद्द कर दिहल जाव</string>
     <string name="quran_download_channel">पाठ डाउनलोड हो जाला</string>
-    <string name="quran_download_current_ayah">वर्तमान आयत के बा</string>
-    <string name="quran_download_current_surah">वर्तमान सूरह के बा</string>
     <string name="quran_download_delete">हटा दिहल गइल बा</string>
     <string name="quran_download_delete_confirm">डाउनलोड के हटावे के बा?</string>
     <string name="quran_download_delete_confirm_message">डाउनलोड भईल ऑडियो आपके डिवाइस से हमेशा खाती हटा दिहल जाई।</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">रात के इंतजार करत बानी</string>
     <string name="quran_download_night_waiting">रात में शुरू होई — खिड़की %1$s</string>
     <string name="quran_download_night_window_title">रात के डाउनलोड विंडो</string>
-    <string name="quran_download_options_title">डाउनलोड के विकल्प बा</string>
     <string name="quran_download_pause">रुक जाइए</string>
     <string name="quran_download_percent">%1$d%% के बा</string>
     <string name="quran_download_reciter_state">एह पाठक खातिर डाउनलोड कइल गइल: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d सूरह · %2$d आयत · %3$s के बा</string>
-    <string name="quran_download_reciter_title">पाठक के चयन करीं</string>
     <string name="quran_download_restoring">डाउनलोड के फेर से शुरू हो रहल बा...</string>
     <string name="quran_download_resume">रिज्यूमे के बा</string>
     <string name="quran_download_scope_ayah">अयह के बा</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">रुक गइलन</string>
     <string name="quran_download_status_queued">कतार में लागल बा</string>
     <string name="quran_download_surah_number">सूरह संख्या (1-114) के बा।</string>
-    <string name="quran_downloaded">डाउनलोड हो गइल बा</string>
     <string name="quran_downloads_active_title">वर्तमान आ पिछला डाउनलोड भइल बा</string>
+    <string name="quran_downloads_summary_title">कुल डाउनलोड भइल बा</string>
+    <string name="quran_downloads_summary">%1$d सूरह · %2$d आयत · %3$s के बा</string>
     <string name="quran_downloads_none">अबहीं ले कवनो डाउनलोड नइखे भइल</string>
     <string name="quran_downloads_title">डाउनलोड हो गइल बा</string>
     <string name="quran_font_larger">बड़का फॉन्ट के बा</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">सूरह %1$d के बा</string>
     <string name="quran_tafsir_source">तफसीर : %1$s के बा</string>
     <string name="quran_title">पवित्र कुरान के बारे में बतावल गइल बा</string>
+    <string name="quran_download_reciter_header">डाउनलोड भइल: %1$d आयत · %2$s</string>
 </resources>

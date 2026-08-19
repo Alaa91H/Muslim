@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Mata duree</string>
     <string name="settings_theme_system">Sirna</string>
     <string name="settings_title">Sajoo</string>
+    <string name="settings_section_time_format">Akkaataa yeroo</string>
+    <string name="settings_time_12">Sa\'aatii 12 (AM/PM)</string>
+    <string name="settings_time_24">Sa\'aatii 24-sa\'aa</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات...)</string>
 </resources>

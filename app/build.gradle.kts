@@ -111,6 +111,10 @@ android {
         // remaining UI strings are curated in ar/en and intentionally fall
         // back to the default (Arabic) in other locales.
         disable += "MissingTranslation"
+        // The project logs through android.util.Log; Timber is not a declared
+        // dependency, the check only fires because some transitive dependency
+        // pulls it onto the classpath.
+        disable += "LogNotTimber"
     }
 }
 

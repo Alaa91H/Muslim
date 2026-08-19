@@ -30,4 +30,22 @@
     <string name="tab_more">Më shumë</string>
     <string name="tab_qibla">Kibla</string>
     <string name="tab_quran">Kurani</string>
+    <string name="more_section_worship">adhurimi</string>
+    <string name="more_section_knowledge">Njohuri</string>
+    <string name="more_section_tools">Mjetet</string>
+    <string name="more_section_app">Aplikacioni</string>
+    <string name="more_order_title">تريب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">Rejuع</string>
+    <string name="more_offline_maps">خرائط pa internet</string>
+    <string name="more_offline_maps_desc">Shkarko خرائط مدينة أو دولة لتعمل pa internet</string>
+    <string name="crash_title">Gabim i papritur</string>
+    <string name="crash_fatal_message">Diçka shkoi keq dhe aplikacioni u ndal. Mund ta rinisni ose ta mbyllni.</string>
+    <string name="crash_recoverable_message">Diçka shkoi keq, por ju mund të vazhdoni të përdorni aplikacionin.</string>
+    <string name="crash_restart">Rinis</string>
+    <string name="crash_close">Mbylle</string>
+    <string name="crash_dismiss">Vazhdoni</string>
 </resources>

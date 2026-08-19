@@ -30,4 +30,22 @@
     <string name="tab_more">अउरी बा</string>
     <string name="tab_qibla">किबला के बा</string>
     <string name="tab_quran">कुरान के ह</string>
+    <string name="more_section_worship">पूजा कइल जाला</string>
+    <string name="more_section_knowledge">ज्ञान के बा</string>
+    <string name="more_section_tools">औजार के बारे में बतावल गइल बा</string>
+    <string name="more_section_app">ऐप के बा</string>
+    <string name="more_order_title">ترتيب أقسام المزيد के बा</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد के बा।</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي के बारे में बतावल गइल बा</string>
+    <string name="more_order_move_up">تحريك لأعلى के बा</string>
+    <string name="more_order_move_down">تحريك لأسفل के बा</string>
+    <string name="more_order_back">رجوع के बा</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت के बारे में बतावल गइल बा</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">अप्रत्याशित गलती हो गइल बा</string>
+    <string name="crash_fatal_message">कुछ गड़बड़ हो गईल अवुरी ऐप बंद हो गईल। रउआँ एकरा के दोबारा शुरू कर सकेनी भा बंद कर सकेनी।</string>
+    <string name="crash_recoverable_message">कुछ गड़बड़ हो गईल, लेकिन आप ए ऐप के इस्तेमाल करत रह सकतानी।</string>
+    <string name="crash_restart">फेर से शुरू कर दीं</string>
+    <string name="crash_close">बंद कर दीं</string>
+    <string name="crash_dismiss">जारी बा</string>
 </resources>

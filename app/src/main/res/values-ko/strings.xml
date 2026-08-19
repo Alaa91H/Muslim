@@ -30,4 +30,22 @@
     <string name="tab_more">더보기</string>
     <string name="tab_qibla">키블라</string>
     <string name="tab_quran">꾸란</string>
+    <string name="more_section_worship">예배</string>
+    <string name="more_section_knowledge">지식</string>
+    <string name="more_section_tools">도구</string>
+    <string name="more_section_app">앱</string>
+    <string name="more_order_title">트위터의 내용</string>
+    <string name="more_order_hint">이 질문은 당신의 생각과 일치합니다. يُبَّق الترتيب مباهرة على جاهة المجيد.</string>
+    <string name="more_order_reset">질병 예방 조치</string>
+    <string name="more_order_move_up">당신의 이야기를 들어보세요</string>
+    <string name="more_order_move_down">공부하다</string>
+    <string name="more_order_back">로저</string>
+    <string name="more_offline_maps">بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل ائص مدينة 또는 لتعمل بdon إنترntet</string>
+    <string name="crash_title">예상치 못한 오류</string>
+    <string name="crash_fatal_message">문제가 발생하여 앱이 중지되었습니다. 다시 시작하거나 닫을 수 있습니다.</string>
+    <string name="crash_recoverable_message">문제가 발생했지만 앱을 계속 사용할 수 있습니다.</string>
+    <string name="crash_restart">다시 시작</string>
+    <string name="crash_close">닫기</string>
+    <string name="crash_dismiss">계속</string>
 </resources>

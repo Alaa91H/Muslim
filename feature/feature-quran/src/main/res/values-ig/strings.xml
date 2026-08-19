@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Nọmba akara</string>
     <string name="quran_download_cancel">Kagbuo</string>
     <string name="quran_download_channel">Nbudata mkpọgharị</string>
-    <string name="quran_download_current_ayah">Ayah dị ugbu a</string>
-    <string name="quran_download_current_surah">Surah dị ugbu a</string>
     <string name="quran_download_delete">Hichapụ</string>
     <string name="quran_download_delete_confirm">Hichapụ nbudata?</string>
     <string name="quran_download_delete_confirm_message">A ga-ewepụ ọdịyo ebudatara na ngwaọrụ gị kpamkpam.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Na-eche abalị</string>
     <string name="quran_download_night_waiting">Ga-amalite n\'abalị - window %1$s</string>
     <string name="quran_download_night_window_title">Window nbudata abalị</string>
-    <string name="quran_download_options_title">Budata nhọrọ</string>
     <string name="quran_download_pause">Kwụsịtụ</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Ebudoro maka onye na-agụ akwụkwọ a: %1$s</string>
     <string name="quran_download_reciter_state_detail">Surah %1$d · %2$d Ayah · %3$s</string>
-    <string name="quran_download_reciter_title">Họrọ onye na-agụ akwụkwọ</string>
     <string name="quran_download_restoring">Na-amaliteghachi nbudata…</string>
     <string name="quran_download_resume">maliteghachi</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Akwụsịla</string>
     <string name="quran_download_status_queued">kwụ n\'ahịrị</string>
     <string name="quran_download_surah_number">Nọmba Surah (1–114)</string>
-    <string name="quran_downloaded">Ebudata</string>
     <string name="quran_downloads_active_title">Nbudata dị ugbu a na nke gara aga</string>
+    <string name="quran_downloads_summary_title">Mkpokọta ebudatara</string>
+    <string name="quran_downloads_summary">Surah %1$d · %2$d Ayah · %3$s</string>
     <string name="quran_downloads_none">Enweghị nbudata ma</string>
     <string name="quran_downloads_title">Nbudata</string>
     <string name="quran_font_larger">Ederede buru ibu</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Nọmba ederede: %1$s</string>
     <string name="quran_title">Akwụkwọ Nsọ</string>
+    <string name="quran_download_reciter_header">ebudatara: %1$d ayahs · %2$s</string>
 </resources>

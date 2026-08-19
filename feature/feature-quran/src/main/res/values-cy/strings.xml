@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Rhif Ayah</string>
     <string name="quran_download_cancel">Canslo</string>
     <string name="quran_download_channel">Lawrlwythiadau llefaru</string>
-    <string name="quran_download_current_ayah">Ayah presennol</string>
-    <string name="quran_download_current_surah">Surah cyfredol</string>
     <string name="quran_download_delete">Dileu</string>
     <string name="quran_download_delete_confirm">Dileu lawrlwythiadau?</string>
     <string name="quran_download_delete_confirm_message">Bydd y sain wedi\'i lawrlwytho yn cael ei dynnu\'n barhaol o\'ch dyfais.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Aros am y nos</string>
     <string name="quran_download_night_waiting">Bydd yn dechrau gyda\'r nos - ffenestr %1$s</string>
     <string name="quran_download_night_window_title">Ffenestr lawrlwytho nos</string>
-    <string name="quran_download_options_title">Opsiynau lawrlwytho</string>
     <string name="quran_download_pause">Oedwch</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Wedi\'i lawrlwytho ar gyfer y recriwtiwr hwn: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Dewiswch adroddwr</string>
     <string name="quran_download_restoring">Wrthi\'n ailddechrau lawrlwytho…</string>
     <string name="quran_download_resume">Ail-ddechrau</string>
     <string name="quran_download_scope_ayah">Ystyr geiriau: Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Wedi seibio</string>
     <string name="quran_download_status_queued">Ciwio</string>
     <string name="quran_download_surah_number">Rhif Surah (1–114)</string>
-    <string name="quran_downloaded">Wedi\'i lawrlwytho</string>
     <string name="quran_downloads_active_title">Lawrlwythiadau cyfredol a gorffennol</string>
+    <string name="quran_downloads_summary_title">Cyfanswm wedi\'i lawrlwytho</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Dim lawrlwythiadau eto</string>
     <string name="quran_downloads_title">Lawrlwythiadau</string>
     <string name="quran_font_larger">Ffont mwy</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Y Quran Sanctaidd</string>
+    <string name="quran_download_reciter_header">Lawrlwythwyd: %1$d ayahs · %2$s</string>
 </resources>

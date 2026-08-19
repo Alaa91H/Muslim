@@ -339,11 +339,15 @@ class QuranReaderViewModel @Inject constructor(
         continuous: Boolean = false,
         /**
          * Whether finishing the queue may auto-advance to the next surah.
-         * Only "whole surah" + "بدون توقف" (continuous) advances past the
-         * current surah; "إلى نهاية السورة" always stops at the surah end
-         * even when the repeat option is continuous.
+         * "إلى نهاية القرآن" always advances (it is the whole mushaf); the
+         * other ranges advance only in "بدون توقف" continuous playback.
          */
-        allowAdvanceToNextSurah: Boolean = true,
+        advanceToNext: Boolean = false,
+        /**
+         * The run is "to the end of the Quran": stop at surah 114 instead of
+         * wrapping back to Al-Fatiha.
+         */
+        toEndOfQuran: Boolean = false,
     ) {
         if (ayahs.isEmpty() || _downloading.value) return
         viewModelScope.launch {
@@ -370,51 +374,54 @@ class QuranReaderViewModel @Inject constructor(
             val continuousMode = continuous || repeatCount <= 0
             val effectiveRepeat = if (continuousMode) 1 else repeatCount.coerceAtLeast(1)
             audioPlayer.onQueueCompleted =
-                if (continuousMode && allowAdvanceToNextSurah) { { advanceToNextSurah() } } else null
+                if (advanceToNext) { { advanceToNextSurah(effectiveRepeat, toEndOfQuran) } } else null
             audioPlayer.playQueue(
                 items,
                 startIndex = 0,
                 repeatCount = effectiveRepeat,
-                continuous = continuousMode,
+                continuous = advanceToNext,
             )
         }
     }
 
     /**
-     * Continuous mode ("without stopping"): the queue just finished, so move
-     * to the next surah and keep playing, wrapping from 114 back to 1 so the
-     * recitation never stops. Called from the audio player's completion path.
+     * A queue finished (its last item completed): move to the next surah and
+     * keep playing. "إلى نهاية القرآن" runs stop at surah 114; other
+     * continuous runs wrap 114 -> 1 unless the user chose to stop at the end
+     * of the mushaf. Called from the audio player's completion path.
      */
-    private fun advanceToNextSurah() {
-        if (_surahNumber.value >= 114 && _continuousStopAtEnd.value) {
-            // Reached the end of the mushaf and the user chose to stop there
-            // instead of wrapping back to Al-Fatiha.
-            audioPlayer.stop()
-            return
-        }
-        val next = if (_surahNumber.value >= 114) 1 else _surahNumber.value + 1
+    private fun advanceToNextSurah(repeat: Int, toEndOfQuran: Boolean) {
+        val next = nextSurahForAdvance(_surahNumber.value, toEndOfQuran, _continuousStopAtEnd.value)
+            ?: run {
+                audioPlayer.stop()
+                return
+            }
         _surahNumber.value = next
         viewModelScope.launch {
             val ayahs = repository.observeSurah(next).first()
-            playQueueOf(ayahs, repeatCount = 1, continuous = true)
+            // Carry the same per-ayah repeat and end-of-Quran rule into the
+            // next surah so the whole run keeps the user's settings.
+            playQueueOf(ayahs, repeat, advanceToNext = true, toEndOfQuran = toEndOfQuran)
         }
     }
 
     /**
-     * Continuous playback: plays [ayah] then auto-advances through the rest
-     * of the surah. Missing audio is downloaded (with progress) first, so
-     * playback then works fully offline.
+     * "من الآية إلى نهاية القرآن": plays [ayah] then auto-advances through
+     * the rest of the surah AND every following surah until the end of the
+     * mushaf (surah 114), where playback stops. Missing audio is downloaded
+     * (with progress) first, so playback then works fully offline.
      */
     fun playFromAyah(ayah: Ayah, repeatCount: Int) {
         val ayahs = uiState.value.ayahs
         val start = ayahs.indexOfFirst { it.globalNumber == ayah.globalNumber }.coerceAtLeast(0)
-        // Stops at the end of THIS surah — never auto-advances to the next one.
-        playQueueOf(ayahs.drop(start), repeatCount, allowAdvanceToNextSurah = false)
+        playQueueOf(ayahs.drop(start), repeatCount, advanceToNext = true, toEndOfQuran = true)
     }
 
     /** Plays only [ayah], repeating it [repeatCount] times (memorisation). */
     fun playSingleAyah(ayah: Ayah, repeatCount: Int) {
-        playQueueOf(listOf(ayah), repeatCount)
+        // "بدون توقف" continuous playback keeps moving through the mushaf;
+        // finite repeats stay on the single ayah.
+        playQueueOf(listOf(ayah), repeatCount, advanceToNext = repeatCount <= 0)
     }
 
     /** Applies the reader's chosen [range] to playback starting at [ayah]. */
@@ -427,12 +434,13 @@ class QuranReaderViewModel @Inject constructor(
     }
 
     /**
-     * Plays the whole surah continuously from the first ayah to the last,
-     * applying the same per-ayah [repeatCount] before each advance.
+     * Plays the whole current surah from the first ayah to the last, applying
+     * the same per-ayah [repeatCount]; stops at the end of the surah.
      */
     fun playWholeSurah(repeatCount: Int) {
-        val first = uiState.value.ayahs.firstOrNull() ?: return
-        playFromAyah(first, repeatCount)
+        val ayahs = uiState.value.ayahs
+        if (ayahs.isEmpty()) return
+        playQueueOf(ayahs, repeatCount)
     }
 
     fun pausePlayback() = audioPlayer.pause()
@@ -469,3 +477,15 @@ class QuranReaderViewModel @Inject constructor(
         }
     }
 }
+
+/**
+ * Decides where playback advances once the current surah's queue finishes.
+ * Returns the next surah number, or null when playback must stop: either a
+ * "to the end of the Quran" run reached surah 114, or continuous playback is
+ * set to stop at the end of the mushaf instead of wrapping.
+ */
+internal fun nextSurahForAdvance(currentSurah: Int, toEndOfQuran: Boolean, stopAtEnd: Boolean): Int? {
+    if (currentSurah >= 114) return if (toEndOfQuran || stopAtEnd) null else 1
+    return currentSurah + 1
+}
+

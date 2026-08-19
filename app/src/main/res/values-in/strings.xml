@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Muslim</string>
+    <string name="more_section_worship">Ibadah</string>
+    <string name="more_section_knowledge">Pengetahuan</string>
+    <string name="more_section_tools">Alat</string>
+    <string name="more_section_app">Aplikasi</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">Layanan Pelanggan</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">Layanan Pelanggan</string>
+    <string name="more_offline_maps_desc">Perlindungan Lingkungan dan Perlindungan Hutang</string>
+    <string name="crash_title">Kesalahan yang tidak terduga</string>
+    <string name="crash_fatal_message">Ada yang tidak beres dan aplikasi berhenti. Anda dapat memulai ulang atau menutupnya.</string>
+    <string name="crash_recoverable_message">Ada yang tidak beres, namun Anda tetap dapat menggunakan aplikasi tersebut.</string>
+    <string name="crash_restart">Mulai ulang</string>
+    <string name="crash_close">Tutup</string>
+    <string name="crash_dismiss">Lanjutkan</string>
 </resources>

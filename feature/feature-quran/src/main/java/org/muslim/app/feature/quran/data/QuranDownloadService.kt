@@ -107,6 +107,7 @@ class QuranDownloadService : Service() {
             DownloadTaskUi(
                 id = request.id,
                 label = request.label,
+                reciterId = request.reciterId,
                 reciterName = request.reciterName,
                 progress = current?.progress ?: 0f,
                 downloadedBytes = current?.downloadedBytes ?: 0L,

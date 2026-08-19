@@ -18,6 +18,9 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import org.muslim.app.crash.AppError
+import org.muslim.app.crash.AppErrorBus
+import org.muslim.app.crash.CrashLogStore
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.core.permissions.AppPermission
 import org.muslim.app.core.permissions.PermissionManager
@@ -75,6 +78,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
+        // Surface the persisted fatal crash (from the auto-relaunch) once.
+        showPreviousCrashIfAny()
+
         NotificationChannels.create(this)
         requestNotificationPermission()
         lifecycleScope.launch {
@@ -116,6 +122,13 @@ class MainActivity : ComponentActivity() {
             data.startsWith("muslim://learn") -> ROUTE_LEARN
             else -> ROUTE_HOME
         }
+    }
+
+    /** Re-reads the persisted fatal crash and shows the elegant error dialog once. */
+    private fun showPreviousCrashIfAny() {
+        val report = CrashLogStore.readLatest(this) ?: return
+        CrashLogStore.clear(this)
+        AppErrorBus.show(AppError(detail = report, fatal = true))
     }
 
     private fun requestNotificationPermission() {

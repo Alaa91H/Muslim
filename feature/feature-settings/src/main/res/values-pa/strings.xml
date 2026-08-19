@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">ਥੀਮ</string>
     <string name="settings_theme_system">ਸਿਸਟਮ</string>
     <string name="settings_title">ਸੈਟਿੰਗਾਂ</string>
+    <string name="settings_section_time_format">ਸਮਾਂ ਫਾਰਮੈਟ</string>
+    <string name="settings_time_12">12-ਘੰਟੇ (AM/PM)</string>
+    <string name="settings_time_24">24-ਘੰਟੇ</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات…)</string>
 </resources>

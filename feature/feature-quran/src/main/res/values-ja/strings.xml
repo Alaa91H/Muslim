@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">アヤ番号</string>
     <string name="quran_download_cancel">キャンセル</string>
     <string name="quran_download_channel">朗読ダウンロード</string>
-    <string name="quran_download_current_ayah">現在のアヤ</string>
-    <string name="quran_download_current_surah">現在のスーラ</string>
     <string name="quran_download_delete">削除</string>
     <string name="quran_download_delete_confirm">ダウンロードを削除しますか?</string>
     <string name="quran_download_delete_confirm_message">ダウンロードしたオーディオはデバイスから完全に削除されます。</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">夜を待っています</string>
     <string name="quran_download_night_waiting">夜に開始します — ウィンドウ %1$s</string>
     <string name="quran_download_night_window_title">夜間ダウンロードウィンドウ</string>
-    <string name="quran_download_options_title">ダウンロードオプション</string>
     <string name="quran_download_pause">一時停止</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">この朗読家用にダウンロードされました: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d スーラ · %2$d アヤ · %3$s</string>
-    <string name="quran_download_reciter_title">朗読者を選択してください</string>
     <string name="quran_download_restoring">ダウンロードを再開しています…</string>
     <string name="quran_download_resume">再開</string>
     <string name="quran_download_scope_ayah">アヤ</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">一時停止中</string>
     <string name="quran_download_status_queued">キューに入れられました</string>
     <string name="quran_download_surah_number">スーラ番号 (1 ～ 114)</string>
-    <string name="quran_downloaded">ダウンロード済み</string>
     <string name="quran_downloads_active_title">現在および過去のダウンロード</string>
+    <string name="quran_downloads_summary_title">ダウンロード総数</string>
+    <string name="quran_downloads_summary">%1$d スーラ · %2$d アヤ · %3$s</string>
     <string name="quran_downloads_none">まだダウンロードはありません</string>
     <string name="quran_downloads_title">ダウンロード</string>
     <string name="quran_font_larger">大きなフォント</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">スーラ %1$d</string>
     <string name="quran_tafsir_source">タフシル: %1$s</string>
     <string name="quran_title">聖コーラン</string>
+    <string name="quran_download_reciter_header">ダウンロード済み: %1$d アヤ · %2$s</string>
 </resources>

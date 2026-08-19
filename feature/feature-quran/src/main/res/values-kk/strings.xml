@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ая саны</string>
     <string name="quran_download_cancel">Болдырмау</string>
     <string name="quran_download_channel">Қайта жүктеулер</string>
-    <string name="quran_download_current_ayah">Қазіргі аят</string>
-    <string name="quran_download_current_surah">Қазіргі сүре</string>
     <string name="quran_download_delete">Жою</string>
     <string name="quran_download_delete_confirm">Жүктеп алынғандарды жою керек пе?</string>
     <string name="quran_download_delete_confirm_message">Жүктеп алынған аудио құрылғыңыздан біржола жойылады.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Түнді күту</string>
     <string name="quran_download_night_waiting">Түнде басталады — терезе %1$s</string>
     <string name="quran_download_night_window_title">Түнгі жүктеп алу терезесі</string>
-    <string name="quran_download_options_title">Жүктеп алу опциялары</string>
     <string name="quran_download_pause">Кідірту</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Бұл жатқа үшін жүктелген: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d сүре · %2$d аят · %3$s</string>
-    <string name="quran_download_reciter_title">Оқушыны таңдаңыз</string>
     <string name="quran_download_restoring">Жүктеп алулар жалғасуда…</string>
     <string name="quran_download_resume">Резюме</string>
     <string name="quran_download_scope_ayah">Ая</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Кідіртілді</string>
     <string name="quran_download_status_queued">Кезекте</string>
     <string name="quran_download_surah_number">Сүре саны (1-114)</string>
-    <string name="quran_downloaded">Жүктеп алынды</string>
     <string name="quran_downloads_active_title">Ағымдағы және бұрынғы жүктеулер</string>
+    <string name="quran_downloads_summary_title">Барлығы жүктеп алынды</string>
+    <string name="quran_downloads_summary">%1$d сүре · %2$d аят · %3$s</string>
     <string name="quran_downloads_none">Әлі жүктеп алынғандар жоқ</string>
     <string name="quran_downloads_title">Жүктеулер</string>
     <string name="quran_font_larger">Үлкенірек шрифт</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">%1$d сүресі</string>
     <string name="quran_tafsir_source">Тафсир: %1$s</string>
     <string name="quran_title">Қасиетті Құран</string>
+    <string name="quran_download_reciter_header">Жүктелген: %1$d аят · %2$s</string>
 </resources>

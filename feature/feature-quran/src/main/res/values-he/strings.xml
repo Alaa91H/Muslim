@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">מספר איה</string>
     <string name="quran_download_cancel">בטל</string>
     <string name="quran_download_channel">הורדות דקלומים</string>
-    <string name="quran_download_current_ayah">איה נוכחי</string>
-    <string name="quran_download_current_surah">סורה נוכחית</string>
     <string name="quran_download_delete">מחק</string>
     <string name="quran_download_delete_confirm">למחוק הורדות?</string>
     <string name="quran_download_delete_confirm_message">האודיו שהורד יוסר לצמיתות מהמכשיר שלך.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">מחכה ללילה</string>
     <string name="quran_download_night_waiting">יתחיל בלילה - חלון %1$s</string>
     <string name="quran_download_night_window_title">חלון הורדת לילה</string>
-    <string name="quran_download_options_title">אפשרויות הורדה</string>
     <string name="quran_download_pause">השהה</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">הורדה עבור מדקלם זה: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d סורות · %2$d ayas · %3$s</string>
-    <string name="quran_download_reciter_title">בחר מדקלם</string>
     <string name="quran_download_restoring">ממשיך את ההורדות...</string>
     <string name="quran_download_resume">קורות חיים</string>
     <string name="quran_download_scope_ayah">איאה</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">מושהה</string>
     <string name="quran_download_status_queued">בתור</string>
     <string name="quran_download_surah_number">מספר סורה (1-114)</string>
-    <string name="quran_downloaded">הורד</string>
     <string name="quran_downloads_active_title">הורדות נוכחיות וקודמות</string>
+    <string name="quran_downloads_summary_title">סה"כ הורדו</string>
+    <string name="quran_downloads_summary">%1$d סורות · %2$d ayas · %3$s</string>
     <string name="quran_downloads_none">עדיין אין הורדות</string>
     <string name="quran_downloads_title">הורדות</string>
     <string name="quran_font_larger">גופן גדול יותר</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">סורה %1$d</string>
     <string name="quran_tafsir_source">תפסיר: %1$s</string>
     <string name="quran_title">הקוראן הקדוש</string>
+    <string name="quran_download_reciter_header">הורדה: %1$d איה · %2$s</string>
 </resources>

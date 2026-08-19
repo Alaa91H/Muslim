@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ая номеры</string>
     <string name="quran_download_cancel">Баш тарту</string>
     <string name="quran_download_channel">Йөкләү</string>
-    <string name="quran_download_current_ayah">Хәзерге аять</string>
-    <string name="quran_download_current_surah">Хәзерге сүрә</string>
     <string name="quran_download_delete">Бетерү</string>
     <string name="quran_download_delete_confirm">Йөкләүләрне бетерегез?</string>
     <string name="quran_download_delete_confirm_message">Йөкләнгән аудио сезнең җайланмадан мәңгегә чыгарылачак.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Төн көтә</string>
     <string name="quran_download_night_waiting">Төнлә башланачак - тәрәзә %1$s</string>
     <string name="quran_download_night_window_title">Төнге йөкләү тәрәзәсе</string>
-    <string name="quran_download_options_title">Йөкләү вариантлары</string>
     <string name="quran_download_pause">Пауза</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Бу укучы өчен йөкләнде: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d сүрәсе · %2$d аях · %3$s</string>
-    <string name="quran_download_reciter_title">Укучыны сайлагыз</string>
     <string name="quran_download_restoring">Йөкләүләрне дәвам итү…</string>
     <string name="quran_download_resume">Резюме</string>
     <string name="quran_download_scope_ayah">Ая</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Пауза</string>
     <string name="quran_download_status_queued">Чират</string>
     <string name="quran_download_surah_number">Сүрә саны (1–114)</string>
-    <string name="quran_downloaded">Йөкләнде</string>
     <string name="quran_downloads_active_title">Хәзерге һәм үткән йөкләүләр</string>
+    <string name="quran_downloads_summary_title">Барлыгы йөкләнде</string>
+    <string name="quran_downloads_summary">%1$d сүрәсе · %2$d аях · %3$s</string>
     <string name="quran_downloads_none">Йөкләүләр юк</string>
     <string name="quran_downloads_title">Йөкләүләр</string>
     <string name="quran_font_larger">Зур шрифт</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">%1$d сүрәсе</string>
     <string name="quran_tafsir_source">Тафсир: %1$s</string>
     <string name="quran_title">Изге Коръән</string>
+    <string name="quran_download_reciter_header">Йөкләнде: %1$d аях · %2$s</string>
 </resources>

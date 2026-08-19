@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Рақами айё</string>
     <string name="quran_download_cancel">Бекор кардан</string>
     <string name="quran_download_channel">Зеркашиҳои қироат</string>
-    <string name="quran_download_current_ayah">Ояти ҷорӣ</string>
-    <string name="quran_download_current_surah">Сураи ҷорӣ</string>
     <string name="quran_download_delete">Нобуд кунед</string>
     <string name="quran_download_delete_confirm">Боргириҳоро нест кунед?</string>
     <string name="quran_download_delete_confirm_message">Аудиои зеркашидашуда аз дастгоҳи шумо ба таври доимӣ нест карда мешавад.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Интизори шаб</string>
     <string name="quran_download_night_waiting">Шабона сар мешавад — тиреза %1$s</string>
     <string name="quran_download_night_window_title">Равзанаи зеркашии шабона</string>
-    <string name="quran_download_options_title">Имконоти зеркашӣ</string>
     <string name="quran_download_pause">Таваққуф</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Барои ин хонанда бор карда шудааст: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d сура · %2$d оят · %3$s</string>
-    <string name="quran_download_reciter_title">Хонандаро интихоб кунед</string>
     <string name="quran_download_restoring">Идомаи зеркашиҳо…</string>
     <string name="quran_download_resume">Давом додан</string>
     <string name="quran_download_scope_ayah">Айё</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Таваққуф карда шуд</string>
     <string name="quran_download_status_queued">Дар навбат</string>
     <string name="quran_download_surah_number">Сураи рақами (1–114)</string>
-    <string name="quran_downloaded">Боргиришуда</string>
     <string name="quran_downloads_active_title">Зеркашиҳои ҷорӣ ва гузашта</string>
+    <string name="quran_downloads_summary_title">Ҳамагӣ зеркашӣ карда шуд</string>
+    <string name="quran_downloads_summary">%1$d сура · %2$d оят · %3$s</string>
     <string name="quran_downloads_none">Ҳанӯз боргирӣ нест</string>
     <string name="quran_downloads_title">Боргириҳо</string>
     <string name="quran_font_larger">Шрифти калонтар</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Сура %1$d</string>
     <string name="quran_tafsir_source">Тафсир: %1$s</string>
     <string name="quran_title">Қуръони Карим</string>
+    <string name="quran_download_reciter_header">Боргиришуда: %1$d оят · %2$s</string>
 </resources>

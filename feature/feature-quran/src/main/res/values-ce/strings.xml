@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Айат лоьмар 1 .</string>
     <string name="quran_download_cancel">Юхаяккха</string>
     <string name="quran_download_channel">Дешар скачать дан .</string>
-    <string name="quran_download_current_ayah">ХӀинцалера аят</string>
-    <string name="quran_download_current_surah">ХӀинцалера сурат .</string>
     <string name="quran_download_delete">Удалить</string>
     <string name="quran_download_delete_confirm">Удалить скачать йина?</string>
     <string name="quran_download_delete_confirm_message">Схьаэцна аудио хьан аппарат тӀера гуттаренна а дӀаяьккхина хир ю.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Буьйсане сатуьйсуш .</string>
     <string name="quran_download_night_waiting">Буьйсанна дӀадолор ду — кор %1$s</string>
     <string name="quran_download_night_window_title">Буьйсанна скачать кор</string>
-    <string name="quran_download_options_title">Скачать варианташ .</string>
     <string name="quran_download_pause">СоцунгӀа</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">ХӀокху ешархочунна скачать дина: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d сур · %2$d аят · %3$s</string>
-    <string name="quran_download_reciter_title">Дешархо схьахаржа .</string>
     <string name="quran_download_restoring">Юха а дӀадолош ду скачать деш...</string>
     <string name="quran_download_resume">Резюме</string>
     <string name="quran_download_scope_ayah">Аяхь</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">СоцунгӀа хилла</string>
     <string name="quran_download_status_queued">РогӀехь</string>
     <string name="quran_download_surah_number">Сурат номер (1–114)</string>
-    <string name="quran_downloaded">Схьаэцна</string>
     <string name="quran_downloads_active_title">ХӀинцалера а, хьалха хилла а скачать .</string>
+    <string name="quran_downloads_summary_title">Дерриге а хьалаэцна</string>
+    <string name="quran_downloads_summary">%1$d сур · %2$d аят · %3$s</string>
     <string name="quran_downloads_none">Цкъачунна скачать ца йина .</string>
     <string name="quran_downloads_title">Скачать деш</string>
     <string name="quran_font_larger">Йоккха шрифт</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Сура %1$d</string>
     <string name="quran_tafsir_source">Тафсир: %1$s ахча</string>
     <string name="quran_title">Сийлахь Къуръан .</string>
+    <string name="quran_download_reciter_header">Скачано: %1$d аят · %2$s</string>
 </resources>

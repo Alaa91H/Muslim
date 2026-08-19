@@ -13,10 +13,44 @@ data class AppPreferences(
     val reduceAnimations: Boolean = false,
     /** Navigation route shown as the start destination (default: prayer-times home). */
     val startTab: String = START_TAB_HOME,
+    /** 12-hour vs 24-hour clock for every time shown in the app (default 12h). */
+    val timeFormat24h: Boolean = false,
+    /**
+     * Order in which the sections of the "More" hub are rendered, as a list of
+     * [MORE_SECTION] ids. Default: worship → knowledge → tools → app.
+     */
+    val moreSectionOrder: List<String> = DEFAULT_MORE_SECTION_ORDER,
 ) {
     companion object {
         const val SYSTEM_LANGUAGE = "system"
         const val START_TAB_HOME = "home"
+
+        /** The four "More" hub section ids, in their default order. */
+        val DEFAULT_MORE_SECTION_ORDER = listOf(
+            MORE_SECTION_WORSHIP,
+            MORE_SECTION_KNOWLEDGE,
+            MORE_SECTION_TOOLS,
+            MORE_SECTION_APP,
+        )
+
+        const val MORE_SECTION_WORSHIP = "worship"
+        const val MORE_SECTION_KNOWLEDGE = "knowledge"
+        const val MORE_SECTION_TOOLS = "tools"
+        const val MORE_SECTION_APP = "app"
+
+        /**
+         * Decodes a persisted comma-separated section order into a full, valid
+         * 4-item list. Unknown ids are dropped and any known section missing
+         * from the stored value is appended, so a corrupt/old value still
+         * yields a complete order.
+         */
+        fun decodeSectionOrder(raw: String?): List<String> {
+            if (raw.isNullOrBlank()) return DEFAULT_MORE_SECTION_ORDER
+            val parsed = raw.split(',').map { it.trim() }.filter { it.isNotEmpty() }
+            val result = parsed.filter { it in DEFAULT_MORE_SECTION_ORDER }.distinct().toMutableList()
+            DEFAULT_MORE_SECTION_ORDER.forEach { if (it !in result) result.add(it) }
+            return result
+        }
     }
 }
 

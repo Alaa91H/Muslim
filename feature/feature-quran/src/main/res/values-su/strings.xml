@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Nomer Ayah</string>
     <string name="quran_download_cancel">Ngabolaykeun</string>
     <string name="quran_download_channel">Undeuran bacaan</string>
-    <string name="quran_download_current_ayah">Ayah ayeuna</string>
-    <string name="quran_download_current_surah">Surah ayeuna</string>
     <string name="quran_download_delete">Hapus</string>
     <string name="quran_download_delete_confirm">Hapus undeuran?</string>
     <string name="quran_download_delete_confirm_message">Audio nu diundeur bakal dihapus permanén tina alat Anjeun.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Ngadagoan peuting</string>
     <string name="quran_download_night_waiting">Bakal ngamimitian peuting - jandela %1$s</string>
     <string name="quran_download_night_window_title">Peuting download jandela</string>
-    <string name="quran_download_options_title">Pilihan download</string>
     <string name="quran_download_pause">Reureuh</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Diundeur pikeun reciter ieu: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surat · %2$d ayat · %3$s</string>
-    <string name="quran_download_reciter_title">Pilih reciter</string>
     <string name="quran_download_restoring">Neruskeun unduhan…</string>
     <string name="quran_download_resume">neruskeun deui</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Direureuhkeun</string>
     <string name="quran_download_status_queued">Ngantri</string>
     <string name="quran_download_surah_number">Surah nomer (1–114)</string>
-    <string name="quran_downloaded">Diunduh</string>
     <string name="quran_downloads_active_title">Undeuran ayeuna sareng baheula</string>
+    <string name="quran_downloads_summary_title">Total diundeur</string>
+    <string name="quran_downloads_summary">%1$d surat · %2$d ayat · %3$s</string>
     <string name="quran_downloads_none">Henteu aya undeuran acan</string>
     <string name="quran_downloads_title">Undeuran</string>
     <string name="quran_font_larger">Font gedé</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Qur\'an Suci</string>
+    <string name="quran_download_reciter_header">Diundeur: %1$d ayahs · %2$s</string>
 </resources>

@@ -19,7 +19,15 @@
     <string name="qibla_gps_refresh">Refresh location via GPS</string>
     <string name="qibla_gps_refreshing">Locating…</string>
     <string name="qibla_gps_error">Could not get an accurate fix. Please try again.</string>
-    <string name="qibla_gps_live">Live GPS location</string>
+    <string name="qibla_gps_live">Live GPS location</string>
+    <string name="qibla_dir_n">North</string>
+    <string name="qibla_dir_ne">Northeast</string>
+    <string name="qibla_dir_e">East</string>
+    <string name="qibla_dir_se">Southeast</string>
+    <string name="qibla_dir_s">South</string>
+    <string name="qibla_dir_sw">Southwest</string>
+    <string name="qibla_dir_w">West</string>
+    <string name="qibla_dir_nw">Northwest</string>
     <string name="mosque_finder_title">Nearby mosques</string>
     <string name="mosque_finder_intro">Find mosques near your location via OpenStreetMap</string>
     <string name="mosque_finder_no_location">No location set yet. Choose a location from prayer times settings first.</string>
@@ -28,4 +36,33 @@
     <string name="mosque_finder_retry">Retry</string>
     <string name="mosque_finder_empty">No mosques found in this range</string>
     <string name="mosque_finder_distance">%s away</string>
+    <string name="mosque_finder_close">Close</string>
+
+    <!-- Offline maps download -->
+    <string name="offline_maps_title">Offline maps</string>
+    <string name="offline_maps_back">Back</string>
+    <string name="offline_maps_add">Add area to download</string>
+    <string name="offline_maps_empty">No areas downloaded yet. Download a city, a country, or a custom area so maps work without internet.</string>
+    <string name="offline_maps_downloaded">Downloaded areas</string>
+    <string name="offline_maps_delete">Delete</string>
+    <string name="offline_maps_delete_all">Delete all</string>
+    <string name="offline_maps_delete_all_confirm_title">Delete all downloaded maps?</string>
+    <string name="offline_maps_delete_all_confirm_body">All downloaded areas will be removed from this device and maps will no longer work offline.</string>
+    <string name="offline_maps_cancel">Cancel</string>
+    <string name="offline_maps_summary_title">Offline maps</string>
+    <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
+    <string name="offline_maps_downloading">Downloading %1$s… %2$d%%</string>
+    <string name="offline_maps_region_meta">%1$s · %2$s</string>
+    <string name="offline_maps_region_progress">Downloading… %1$d%%</string>
+    <string name="offline_maps_region_ready">Ready — works offline</string>
+    <string name="offline_maps_tab_city">City</string>
+    <string name="offline_maps_tab_country">Country</string>
+    <string name="offline_maps_tab_custom">Custom area</string>
+    <string name="offline_maps_size_estimate">Estimated size: %1$s</string>
+    <string name="offline_maps_download">Download</string>
+    <string name="offline_maps_custom_hint">Tap the map to pick the center, then download the area around it.</string>
+    <string name="offline_maps_custom_name">Area name</string>
+    <string name="offline_maps_custom_selected">Selected center: %1$.2f, %2$.2f</string>
+    <string name="offline_maps_custom_tap">Tap the map to pick the center</string>
+    <string name="offline_maps_custom_default_name">Custom area</string>
 </resources>

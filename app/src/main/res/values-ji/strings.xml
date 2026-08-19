@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">מוסולמען</string>
+    <string name="more_section_worship">דינען</string>
+    <string name="more_section_knowledge">וויסן</string>
+    <string name="more_section_tools">מכשירים</string>
+    <string name="more_section_app">אַפּ</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">אומגעריכט טעות</string>
+    <string name="crash_fatal_message">עפּעס איז פאַלש און די אַפּ סטאַפּט. איר קענען ריסטאַרט עס אָדער פאַרמאַכן עס.</string>
+    <string name="crash_recoverable_message">עפּעס איז פאַלש, אָבער איר קענען פאָרזעצן ניצן די אַפּ.</string>
+    <string name="crash_restart">ריסטאַרט</string>
+    <string name="crash_close">נאָענט</string>
+    <string name="crash_dismiss">פאָרזעצן</string>
 </resources>

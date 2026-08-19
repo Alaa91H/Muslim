@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Tema</string>
     <string name="settings_theme_system">Sistemi</string>
     <string name="settings_title">Cilësimet</string>
+    <string name="settings_section_time_format">Formati i kohës</string>
+    <string name="settings_time_12">12-orëshe (PAM/PM)</string>
+    <string name="settings_time_24">24-orëshe</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">تريب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات, العلم, الأدوات…)</string>
 </resources>

@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">chủ đề</string>
     <string name="settings_theme_system">Hệ thống</string>
     <string name="settings_title">Cài đặt</string>
+    <string name="settings_section_time_format">Định dạng thời gian</string>
+    <string name="settings_time_12">12 giờ (Sáng/Chiều)</string>
+    <string name="settings_time_24">24 giờ</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات…)</string>
 </resources>

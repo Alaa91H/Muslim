@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Numero ng Ayah</string>
     <string name="quran_download_cancel">Kanselahin</string>
     <string name="quran_download_channel">Mga download ng recitation</string>
-    <string name="quran_download_current_ayah">Kasalukuyang ayah</string>
-    <string name="quran_download_current_surah">Kasalukuyang surah</string>
     <string name="quran_download_delete">Tanggalin</string>
     <string name="quran_download_delete_confirm">Tanggalin ang mga download?</string>
     <string name="quran_download_delete_confirm_message">Ang na-download na audio ay permanenteng aalisin sa iyong device.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Naghihintay ng gabi</string>
     <string name="quran_download_night_waiting">Magsisimula sa gabi — window %1$s</string>
     <string name="quran_download_night_window_title">Window sa pag-download ng gabi</string>
-    <string name="quran_download_options_title">Mga opsyon sa pag-download</string>
     <string name="quran_download_pause">I-pause</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Na-download para sa reciter na ito: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surah · %2$d ama · %3$s</string>
-    <string name="quran_download_reciter_title">Pumili ng reciter</string>
     <string name="quran_download_restoring">Ipinagpapatuloy ang mga pag-download…</string>
     <string name="quran_download_resume">Ipagpatuloy</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Naka-pause</string>
     <string name="quran_download_status_queued">Nakapila</string>
     <string name="quran_download_surah_number">Numero ng Surah (1–114)</string>
-    <string name="quran_downloaded">Na-download</string>
     <string name="quran_downloads_active_title">Kasalukuyan at nakaraang mga pag-download</string>
+    <string name="quran_downloads_summary_title">Kabuuang na-download</string>
+    <string name="quran_downloads_summary">%1$d surah · %2$d ama · %3$s</string>
     <string name="quran_downloads_none">Wala pang mga download</string>
     <string name="quran_downloads_title">Mga download</string>
     <string name="quran_font_larger">Mas malaking font</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Ang Banal na Quran</string>
+    <string name="quran_download_reciter_header">Na-download: %1$d mga ayah · %2$s</string>
 </resources>

@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah númer</string>
     <string name="quran_download_cancel">Hætta við</string>
     <string name="quran_download_channel">Upplestrar niðurhal</string>
-    <string name="quran_download_current_ayah">Núverandi ayah</string>
-    <string name="quran_download_current_surah">Núverandi súra</string>
     <string name="quran_download_delete">Eyða</string>
     <string name="quran_download_delete_confirm">Eyða niðurhali?</string>
     <string name="quran_download_delete_confirm_message">Hljóðið sem hlaðið er niður verður varanlega fjarlægt úr tækinu þínu.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Beðið eftir nóttinni</string>
     <string name="quran_download_night_waiting">Byrjar á kvöldin — gluggi %1$s</string>
     <string name="quran_download_night_window_title">Gluggi til að sækja nætur</string>
-    <string name="quran_download_options_title">Niðurhalsvalkostir</string>
     <string name="quran_download_pause">Gera hlé</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Hlaðið niður fyrir þennan upplesara: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d súrur · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Veldu upplesara</string>
     <string name="quran_download_restoring">Heldur niðurhali áfram...</string>
     <string name="quran_download_resume">Halda áfram</string>
     <string name="quran_download_scope_ayah">Jájá</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Gert hlé</string>
     <string name="quran_download_status_queued">Í biðröð</string>
     <string name="quran_download_surah_number">Surah númer (1–114)</string>
-    <string name="quran_downloaded">Hlaðið niður</string>
     <string name="quran_downloads_active_title">Núverandi og fyrri niðurhal</string>
+    <string name="quran_downloads_summary_title">Samtals niðurhal</string>
+    <string name="quran_downloads_summary">%1$d súrur · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Ekkert niðurhal ennþá</string>
     <string name="quran_downloads_title">Niðurhal</string>
     <string name="quran_font_larger">Stærra leturgerð</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Heilagur Kóraninn</string>
+    <string name="quran_download_reciter_header">Sótt: %1$d ayahs · %2$s</string>
 </resources>

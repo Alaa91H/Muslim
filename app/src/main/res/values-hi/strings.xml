@@ -30,4 +30,22 @@
     <string name="tab_more">अधिक</string>
     <string name="tab_qibla">किबला</string>
     <string name="tab_quran">कुरान</string>
+    <string name="more_section_worship">पूजा</string>
+    <string name="more_section_knowledge">ज्ञान</string>
+    <string name="more_section_tools">उपकरण</string>
+    <string name="more_section_app">ऐप</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">एक वर्ष से अधिक समय पहले एक वर्ष से अधिक समय तक। यह एक अच्छा विचार है।</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">धन्यवाद</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">धन्यवाद</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">अप्रत्याशित त्रुटि</string>
+    <string name="crash_fatal_message">कुछ ग़लत हुआ और ऐप बंद हो गया. आप इसे पुनः प्रारंभ या बंद कर सकते हैं.</string>
+    <string name="crash_recoverable_message">कुछ गलत हो गया, लेकिन आप ऐप का उपयोग जारी रख सकते हैं।</string>
+    <string name="crash_restart">पुनः प्रारंभ करें</string>
+    <string name="crash_close">बंद करें</string>
+    <string name="crash_dismiss">जारी रखें</string>
 </resources>

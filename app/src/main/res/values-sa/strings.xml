@@ -30,4 +30,22 @@
     <string name="tab_more">अधिकम्</string>
     <string name="tab_qibla">किबला</string>
     <string name="tab_quran">कुरान</string>
+    <string name="more_section_worship">पूजा</string>
+    <string name="more_section_knowledge">ज्ञानम्</string>
+    <string name="more_section_tools">साधनम्</string>
+    <string name="more_section_app">अप्</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">अप्रत्याशितदोषः</string>
+    <string name="crash_fatal_message">किमपि भ्रष्टं जातं तदा एप् स्थगितम्। पुनः आरभ्य पिधातुं वा शक्नुवन्ति ।</string>
+    <string name="crash_recoverable_message">किमपि भ्रष्टं जातम्, परन्तु भवान् एप् उपयुज्यमानं भवितुं शक्नोति।</string>
+    <string name="crash_restart">पुनः आरभत</string>
+    <string name="crash_close">निमील्यताम्</string>
+    <string name="crash_dismiss">निरन्तरं कुर्वन्तु</string>
 </resources>

@@ -28,6 +28,20 @@
     <string name="more_reference_desc">Introduction to Islam, the Sira &amp; the prophets</string>
     <string name="more_downloads">Recitation downloads</string>
     <string name="more_downloads_desc">Download a surah, an ayah or the full Quran with your chosen reciter</string>
+    <string name="more_offline_maps">Offline maps</string>
+    <string name="more_offline_maps_desc">Download city or country maps to work without internet</string>
+    <string name="more_section_worship">Worship</string>
+    <string name="more_section_knowledge">Knowledge</string>
+    <string name="more_section_tools">Tools</string>
+    <string name="more_section_app">App</string>
+
+    <!-- More hub section order customization -->
+    <string name="more_order_title">More hub section order</string>
+    <string name="more_order_hint">Use the arrows to move each section up or down. The order applies to the More screen immediately.</string>
+    <string name="more_order_reset">Restore default order</string>
+    <string name="more_order_move_up">Move up</string>
+    <string name="more_order_move_down">Move down</string>
+    <string name="more_order_back">Back</string>
 
     <!-- App shortcuts (long-press the launcher icon) -->
     <string name="shortcut_times">Prayer times</string>
@@ -36,4 +50,12 @@
     <string name="shortcut_qibla_long">Qibla direction</string>
     <string name="shortcut_settings">Settings</string>
     <string name="shortcut_settings_long">Prayer &amp; adhan settings</string>
+
+    <!-- Unhandled-exception crash dialog -->
+    <string name="crash_title">Unexpected error</string>
+    <string name="crash_fatal_message">Something went wrong and the app stopped. You can restart it or close it.</string>
+    <string name="crash_recoverable_message">Something went wrong, but you can keep using the app.</string>
+    <string name="crash_restart">Restart</string>
+    <string name="crash_close">Close</string>
+    <string name="crash_dismiss">Continue</string>
 </resources>

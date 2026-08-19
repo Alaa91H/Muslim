@@ -4,15 +4,15 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
@@ -21,7 +21,9 @@ import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.Calculate
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.NightsStay
+import androidx.compose.material.icons.filled.School
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
@@ -50,13 +52,19 @@ private data class MoreEntry(
     val onClick: () -> Unit,
 )
 
+private data class MoreSection(
+    val id: String,
+    val titleRes: Int,
+    val entries: List<MoreEntry>,
+)
+
 /**
  * The "More" hub (المزيد): every secondary feature lives here so the primary
  * navigation stays at the recommended 3–5 destinations. Settings also lives
  * here as a sub-screen (the `muslim://settings` shortcut still works).
  *
- * Rendered as an adaptive grid: one column on phones and two or more columns
- * on tablets / wide windows (driven by `GridCells.Adaptive`).
+ * Grouped into themed sections and rendered as compact rows so the hub reads
+ * as an organized list rather than a scattered, oversized grid.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -71,34 +79,72 @@ fun MoreScreen(
     onOpenReference: () -> Unit,
     onOpenDownloads: () -> Unit,
     modifier: Modifier = Modifier,
+    onOpenOfflineMaps: () -> Unit = {},
+    /** User-customized section order (ids from [org.muslim.app.core.datastore.AppPreferences]). */
+    sectionOrder: List<String> = org.muslim.app.core.datastore.AppPreferences.DEFAULT_MORE_SECTION_ORDER,
 ) {
-    val entries = listOf(
-        MoreEntry(R.string.more_reference, R.string.more_reference_desc, Icons.Filled.Star, onOpenReference),
-        MoreEntry(R.string.more_settings, R.string.more_settings_desc, Icons.Filled.Settings, onOpenSettings),
-        MoreEntry(R.string.more_hadith, R.string.more_hadith_desc, Icons.AutoMirrored.Filled.MenuBook, onOpenHadith),
-        MoreEntry(R.string.more_adhkar, R.string.more_adhkar_desc, Icons.Filled.Favorite, onOpenAdhkar),
-        MoreEntry(R.string.more_tasbih, R.string.more_tasbih_desc, Icons.Filled.AutoStories, onOpenTasbih),
-        MoreEntry(R.string.more_ramadan, R.string.more_ramadan_desc, Icons.Filled.NightsStay, onOpenRamadan),
-        MoreEntry(R.string.more_zakat, R.string.more_zakat_desc, Icons.Filled.Calculate, onOpenZakat),
-        MoreEntry(R.string.more_learn, R.string.more_learn_desc, Icons.AutoMirrored.Filled.MenuBook, onOpenLearn),
-        MoreEntry(R.string.more_downloads, R.string.more_downloads_desc, Icons.Filled.Download, onOpenDownloads),
+    val sectionsById = mapOf(
+        org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_WORSHIP to MoreSection(
+            org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_WORSHIP,
+            R.string.more_section_worship,
+            listOf(
+                MoreEntry(R.string.more_adhkar, R.string.more_adhkar_desc, Icons.Filled.Favorite, onOpenAdhkar),
+                MoreEntry(R.string.more_tasbih, R.string.more_tasbih_desc, Icons.Filled.AutoStories, onOpenTasbih),
+                MoreEntry(R.string.more_ramadan, R.string.more_ramadan_desc, Icons.Filled.NightsStay, onOpenRamadan),
+            ),
+        ),
+        org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_KNOWLEDGE to MoreSection(
+            org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_KNOWLEDGE,
+            R.string.more_section_knowledge,
+            listOf(
+                MoreEntry(R.string.more_hadith, R.string.more_hadith_desc, Icons.AutoMirrored.Filled.MenuBook, onOpenHadith),
+                MoreEntry(R.string.more_learn, R.string.more_learn_desc, Icons.Filled.School, onOpenLearn),
+                MoreEntry(R.string.more_reference, R.string.more_reference_desc, Icons.Filled.Star, onOpenReference),
+            ),
+        ),
+        org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_TOOLS to MoreSection(
+            org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_TOOLS,
+            R.string.more_section_tools,
+            listOf(
+                MoreEntry(R.string.more_zakat, R.string.more_zakat_desc, Icons.Filled.Calculate, onOpenZakat),
+                MoreEntry(R.string.more_downloads, R.string.more_downloads_desc, Icons.Filled.Download, onOpenDownloads),
+                MoreEntry(R.string.more_offline_maps, R.string.more_offline_maps_desc, Icons.Filled.Map, onOpenOfflineMaps),
+            ),
+        ),
+        org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_APP to MoreSection(
+            org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_APP,
+            R.string.more_section_app,
+            listOf(
+                MoreEntry(R.string.more_settings, R.string.more_settings_desc, Icons.Filled.Settings, onOpenSettings),
+            ),
+        ),
     )
+    val sections = sectionOrder.mapNotNull { sectionsById[it] }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = { TopAppBar(title = { Text(stringResource(R.string.tab_more)) }) },
     ) { innerPadding ->
-        LazyVerticalGrid(
-            columns = GridCells.Adaptive(minSize = 200.dp),
+        LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding),
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            items(entries, key = { it.titleRes }) { entry ->
-                MoreCard(entry)
+            sections.forEach { section ->
+                item(key = "header_${section.titleRes}") {
+                    Text(
+                        text = stringResource(section.titleRes),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.primary,
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier.padding(top = 8.dp, bottom = 2.dp),
+                    )
+                }
+                items(section.entries, key = { it.titleRes }) { entry ->
+                    MoreCard(entry)
+                }
             }
         }
     }
@@ -114,7 +160,10 @@ private fun MoreCard(entry: MoreEntry) {
             containerColor = MaterialTheme.colorScheme.surface,
         ),
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
+        Row(
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
             Surface(
                 shape = CircleShape,
                 color = MaterialTheme.colorScheme.secondaryContainer,
@@ -123,31 +172,30 @@ private fun MoreCard(entry: MoreEntry) {
                     imageVector = entry.icon,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onSecondaryContainer,
-                    modifier = Modifier.padding(10.dp).size(22.dp),
+                    modifier = Modifier.padding(9.dp).size(20.dp),
                 )
             }
-            Spacer(Modifier.height(12.dp))
-            Text(
-                text = stringResource(entry.titleRes),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-            Spacer(Modifier.height(2.dp))
-            Text(
-                text = stringResource(entry.subtitleRes),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-            )
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.width(14.dp))
+            Column(Modifier.weight(1f)) {
+                Text(
+                    text = stringResource(entry.titleRes),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Text(
+                    text = stringResource(entry.subtitleRes),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.align(Alignment.End),
             )
         }
     }

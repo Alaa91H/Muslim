@@ -30,4 +30,22 @@
     <string name="tab_more">もっと見る</string>
     <string name="tab_qibla">キブラ</string>
     <string name="tab_quran">コーラン</string>
+    <string name="more_section_worship">礼拝</string>
+    <string name="more_section_knowledge">知識</string>
+    <string name="more_section_tools">ツール</string>
+    <string name="more_section_app">アプリ</string>
+    <string name="more_order_title">ログインしてください。</string>
+    <string name="more_order_hint">ありがとうございます。 ُطبَّق الترتيب مباشرة على شاشة المزيد。</string>
+    <string name="more_order_reset">और देखें</string>
+    <string name="more_order_move_up">翻訳する</string>
+    <string name="more_order_move_down">翻訳する</string>
+    <string name="more_order_back">いいえ</string>
+    <string name="more_offline_maps">認証済み</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">予期しないエラー</string>
+    <string name="crash_fatal_message">問題が発生し、アプリが停止しました。再起動することも、閉じることもできます。</string>
+    <string name="crash_recoverable_message">問題が発生しましたが、アプリは引き続き使用できます。</string>
+    <string name="crash_restart">再起動</string>
+    <string name="crash_close">閉じる</string>
+    <string name="crash_dismiss">続ける</string>
 </resources>

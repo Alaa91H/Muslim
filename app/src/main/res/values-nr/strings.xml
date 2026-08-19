@@ -30,4 +30,22 @@
     <string name="tab_more">Okunye</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">I-Quran</string>
+    <string name="more_section_worship">Ukukhonza</string>
+    <string name="more_section_knowledge">Ilwazi</string>
+    <string name="more_section_tools">Amathulusi</string>
+    <string name="more_section_app">I-app</string>
+    <string name="more_order_title">ترتيب أقم المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتح كل hlobo لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحول لأعلى</string>
+    <string name="more_order_move_down">تحول لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط از إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل إنترنت</string>
+    <string name="crash_title">Iphutha elingakalindelwa</string>
+    <string name="crash_fatal_message">Kukhona okungahambi kuhle begodu i-app yema. Ungayiqalisa godu nofana uyivale.</string>
+    <string name="crash_recoverable_message">Kukhona okungahambi kuhle, kodwana ungaragela phambili nokusebenzisa i-app.</string>
+    <string name="crash_restart">Qalisa kabutjha</string>
+    <string name="crash_close">Vala</string>
+    <string name="crash_dismiss">Ragela phambili</string>
 </resources>

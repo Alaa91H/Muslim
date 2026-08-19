@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Nomer bapak</string>
     <string name="quran_download_cancel">Batal</string>
     <string name="quran_download_channel">Ngundhuh wacan</string>
-    <string name="quran_download_current_ayah">Bapak saiki</string>
-    <string name="quran_download_current_surah">Surah saiki</string>
     <string name="quran_download_delete">Mbusak</string>
     <string name="quran_download_delete_confirm">Mbusak undhuhan?</string>
     <string name="quran_download_delete_confirm_message">Audio sing diundhuh bakal dibusak kanthi permanen saka piranti sampeyan.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Nunggu wengi</string>
     <string name="quran_download_night_waiting">Bakal diwiwiti ing wayah wengi - jendhela %1$s</string>
     <string name="quran_download_night_window_title">Window download wengi</string>
-    <string name="quran_download_options_title">Pilihan download</string>
     <string name="quran_download_pause">ngaso</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Diundhuh kanggo reciter iki: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surat · %2$d ayah · %3$s</string>
-    <string name="quran_download_reciter_title">Pilih reciter</string>
     <string name="quran_download_restoring">Diterusake download…</string>
     <string name="quran_download_resume">Resume</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Ngaso</string>
     <string name="quran_download_status_queued">antri</string>
     <string name="quran_download_surah_number">Surah nomer (1–114)</string>
-    <string name="quran_downloaded">Diundhuh</string>
     <string name="quran_downloads_active_title">Download saiki lan kepungkur</string>
+    <string name="quran_downloads_summary_title">Total diundhuh</string>
+    <string name="quran_downloads_summary">%1$d surat · %2$d ayah · %3$s</string>
     <string name="quran_downloads_none">Durung download</string>
     <string name="quran_downloads_title">Ngundhuh</string>
     <string name="quran_font_larger">Font luwih gedhe</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surah %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Quran Suci</string>
+    <string name="quran_download_reciter_header">Diundhuh: %1$d bapak · %2$s</string>
 </resources>

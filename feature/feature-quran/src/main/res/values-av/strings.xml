@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Аят номер 1 .</string>
     <string name="quran_download_cancel">Нахъе бахъизе</string>
     <string name="quran_download_channel">ЦӀалиялъул скачиваниял .</string>
-    <string name="quran_download_current_ayah">Гьанжесеб аят .</string>
-    <string name="quran_download_current_surah">Жакъасеб сурат .</string>
     <string name="quran_download_delete">Удалить</string>
     <string name="quran_download_delete_confirm">Загрузкаби тӀагӀинаризе?</string>
     <string name="quran_download_delete_confirm_message">Загруженный аудио будет навсегда удален с вашего устройства.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Къаси балагьун чӀун</string>
     <string name="quran_download_night_waiting">Начнется ночью — окно %1$s</string>
     <string name="quran_download_night_window_title">Къаси скачать горду</string>
-    <string name="quran_download_options_title">Варианты скачивания</string>
     <string name="quran_download_pause">Пауза</string>
     <string name="quran_download_percent">%1$d%% гь.</string>
     <string name="quran_download_reciter_state">Скачано для этого читателя: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d сур · %2$d аят · %3$s</string>
-    <string name="quran_download_reciter_title">ТӀаса бище цӀалулев чи .</string>
     <string name="quran_download_restoring">ЦӀидасан скачать гьаби...</string>
     <string name="quran_download_resume">Резюме</string>
     <string name="quran_download_scope_ayah">Аях</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Лъугьана</string>
     <string name="quran_download_status_queued">Иргаялда</string>
     <string name="quran_download_surah_number">Сураялъул номер (1–114)</string>
-    <string name="quran_downloaded">Скачать гьабуна</string>
     <string name="quran_downloads_active_title">ГьабсагӀаталда ва цебе букӀараб скачивание</string>
+    <string name="quran_downloads_summary_title">ГӀаммаб къадар скачать</string>
+    <string name="quran_downloads_summary">%1$d сур · %2$d аят · %3$s</string>
     <string name="quran_downloads_none">Жеги скачать гьабичӀо</string>
     <string name="quran_downloads_title">Загрузки</string>
     <string name="quran_font_larger">КӀудияб шрифт</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Сура %1$d.</string>
     <string name="quran_tafsir_source">Тафсир: %1$s</string>
     <string name="quran_title">Хирияб Къуръан .</string>
+    <string name="quran_download_reciter_header">Скачано: %1$d аят · %2$s</string>
 </resources>

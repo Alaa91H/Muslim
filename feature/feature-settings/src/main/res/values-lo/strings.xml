@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">ຫົວຂໍ້</string>
     <string name="settings_theme_system">ລະບົບ</string>
     <string name="settings_title">ການຕັ້ງຄ່າ</string>
+    <string name="settings_section_time_format">ຮູບແບບເວລາ</string>
+    <string name="settings_time_12">12 ຊົ່ວໂມງ (AM/PM)</string>
+    <string name="settings_time_24">24 ຊົ່ວໂມງ</string>
+    <string name="settings_section_more">عرض المزيد من</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة عرض المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة عرض المزيد (العبادات, العلم, الأدوات…)</string>
 </resources>

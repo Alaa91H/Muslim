@@ -102,6 +102,7 @@ fun NotificationSettingsScreen(
     viewModel: NotificationSettingsViewModel = hiltViewModel(),
 ) {
     val preferences by viewModel.preferences.collectAsStateWithLifecycle()
+    val use24h by viewModel.use24h.collectAsStateWithLifecycle()
     val quietHours by viewModel.quietHours.collectAsStateWithLifecycle()
     val showMissedAdhan by viewModel.showMissedAdhan.collectAsStateWithLifecycle()
     val missedAdhanColor by viewModel.missedAdhanColor.collectAsStateWithLifecycle()
@@ -172,6 +173,7 @@ fun NotificationSettingsScreen(
             }
             item {
                 QuietHoursCard(
+                    use24h = use24h,
                     quietHours = quietHours,
                     onToggle = viewModel::setQuietHoursEnabled,
                     onStartClick = { showStartPicker = true },
@@ -180,6 +182,7 @@ fun NotificationSettingsScreen(
             }
             items(NotificationCategory.entries) { category ->
                 NotificationCategoryCard(
+                    use24h = use24h,
                     category = category,
                     prefs = preferences[category] ?: category.defaultPrefs(),
                     onToggleEnabled = { viewModel.setEnabled(category, it) },
@@ -276,6 +279,7 @@ private fun PermissionBanner(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun QuietHoursCard(
+    use24h: Boolean,
     quietHours: QuietHours,
     onToggle: (Boolean) -> Unit,
     onStartClick: () -> Unit,
@@ -305,13 +309,13 @@ private fun QuietHoursCard(
                     OutlinedButton(onClick = onStartClick, modifier = Modifier.weight(1f)) {
                         Text(
                             stringResource(R.string.notif_quiet_start) + "  " +
-                                timeLabel(quietHours.startMinutes),
+                                timeLabel(quietHours.startMinutes, use24h),
                         )
                     }
                     OutlinedButton(onClick = onEndClick, modifier = Modifier.weight(1f)) {
                         Text(
                             stringResource(R.string.notif_quiet_end) + "  " +
-                                timeLabel(quietHours.endMinutes),
+                                timeLabel(quietHours.endMinutes, use24h),
                         )
                     }
                 }
@@ -330,8 +334,8 @@ private fun formatCountdown(totalSeconds: Long): String {
 }
 
 /** Formats a prayer time as HH:MM (Western digits, locale-independent). */
-private fun formatPreviewTime(time: LocalTime): String =
-    String.format(java.util.Locale.ROOT, "%02d:%02d", time.hour, time.minute)
+private fun formatPreviewTime(time: LocalTime, use24h: Boolean): String =
+    org.muslim.app.core.common.time.TimeFormats.formatTime(time, use24h)
 
 private fun prayerNameRes(prayer: Prayer): Int = when (prayer) {
     Prayer.Fajr -> R.string.notif_preview_prayer_fajr
@@ -354,6 +358,7 @@ private fun CountdownNotificationPreview(
     enabled: Boolean,
     showMissed: Boolean,
     missedColor: Int,
+    use24h: Boolean,
 ) {
     Column(
         modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
@@ -395,7 +400,7 @@ private fun CountdownNotificationPreview(
                             text = stringResource(
                                 R.string.notif_preview_next_title,
                                 stringResource(prayerNameRes(preview.nextPrayer)),
-                                formatPreviewTime(preview.nextPrayerAt ?: LocalTime.MIDNIGHT),
+                                formatPreviewTime(preview.nextPrayerAt ?: LocalTime.MIDNIGHT, use24h),
                             ),
                             style = MaterialTheme.typography.labelLarge,
                             fontWeight = FontWeight.SemiBold,
@@ -412,7 +417,7 @@ private fun CountdownNotificationPreview(
                                 text = stringResource(
                                     R.string.notif_preview_missed,
                                     stringResource(prayerNameRes(preview.missedPrayer)),
-                                    formatPreviewTime(preview.missedPrayerAt),
+                                    formatPreviewTime(preview.missedPrayerAt, use24h),
                                 ),
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = Color(missedColor),
@@ -440,6 +445,7 @@ private fun CountdownNotificationPreview(
 
 @Composable
 private fun NotificationCategoryCard(
+    use24h: Boolean,
     category: NotificationCategory,
     prefs: NotificationCategoryPrefs,
     onToggleEnabled: (Boolean) -> Unit,
@@ -525,6 +531,7 @@ private fun NotificationCategoryCard(
                         }
                         countdownPreview?.let { preview ->
                             CountdownNotificationPreview(
+                                use24h = use24h,
                                 preview = preview,
                                 enabled = prefs.enabled,
                                 showMissed = showMissedAdhan,
@@ -534,6 +541,7 @@ private fun NotificationCategoryCard(
                     }
                     if (category == NotificationCategory.HadithDaily) {
                         HadithTimeRow(
+                            use24h = use24h,
                             minutes = dailyHadithTime,
                             onClick = onDailyHadithTimeClick,
                         )
@@ -645,6 +653,7 @@ private fun missedColorLabelRes(id: String): Int = when (id) {
 
 @Composable
 private fun HadithTimeRow(
+    use24h: Boolean,
     minutes: Int,
     onClick: () -> Unit,
 ) {
@@ -658,7 +667,7 @@ private fun HadithTimeRow(
             modifier = Modifier.weight(1f),
         )
         OutlinedButton(onClick = onClick) {
-            Text(timeLabel(minutes))
+            Text(timeLabel(minutes, use24h))
         }
     }
 }
@@ -759,10 +768,8 @@ private fun TimePickerDialog(
     )
 }
 
-private fun timeLabel(minutes: Int): String {
-    val safe = ((minutes % 1440) + 1440) % 1440
-    return String.format(java.util.Locale.US, "%02d:%02d", safe / 60, safe % 60)
-}
+private fun timeLabel(minutes: Int, use24h: Boolean): String =
+    org.muslim.app.core.common.time.TimeFormats.formatMinutes(minutes, use24h)
 
 @Composable
 private fun categoryIcon(category: NotificationCategory): ImageVector = when (category) {

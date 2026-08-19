@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.serialization.Serializable
@@ -55,7 +56,10 @@ class AdhkarRepository @Inject constructor(
 
     /** Persisted count for [dhikrId] (default 0). */
     fun observeCount(dhikrId: Long): Flow<Int> =
-        context.adhkarDataStore.data.map { prefs -> prefs[countKey(dhikrId)] ?: 0 }
+        context.adhkarDataStore.data
+            .map { prefs -> prefs[countKey(dhikrId)] ?: 0 }
+            // Corrupt persisted data must never crash the adhkar library on entry.
+            .catch { emit(0) }
 
     suspend fun increment(dhikrId: Long) {
         context.adhkarDataStore.edit { prefs ->

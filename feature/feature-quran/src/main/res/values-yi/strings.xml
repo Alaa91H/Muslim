@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">אַהה נומער</string>
     <string name="quran_download_cancel">באָטל מאַכן</string>
     <string name="quran_download_channel">רעסיטאַטיאָן דאַונלאָודז</string>
-    <string name="quran_download_current_ayah">איצטיקע</string>
-    <string name="quran_download_current_surah">איצטיקע סוראַה</string>
     <string name="quran_download_delete">ויסמעקן</string>
     <string name="quran_download_delete_confirm">ויסמעקן דאַונלאָודז?</string>
     <string name="quran_download_delete_confirm_message">די דאַונלאָודיד אַודיאָ וועט זיין פּערמאַנאַנטלי אַוועקגענומען פון דיין מיטל.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">ווארטן פֿאַר נאַכט</string>
     <string name="quran_download_night_waiting">וועט אָנהייבן בייַ נאַכט - פֿענצטער %1$s</string>
     <string name="quran_download_night_window_title">נאַכט אראפקאפיע פֿענצטער</string>
-    <string name="quran_download_options_title">אראפקאפיע אָפּציעס</string>
     <string name="quran_download_pause">פּויזע</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">דאַונלאָודיד פֿאַר דעם רעסיטער: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d סוראַהס · %2$d אַאַהס · %3$s</string>
-    <string name="quran_download_reciter_title">אויסקלייַבן רעסיטער</string>
     <string name="quran_download_restoring">רעסומינג דאַונלאָודז…</string>
     <string name="quran_download_resume">נעמענ זיכ ווידער</string>
     <string name="quran_download_scope_ayah">יאָ</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">פּאַוזד</string>
     <string name="quran_download_status_queued">אין ריי</string>
     <string name="quran_download_surah_number">סוראַה נומער (1-114)</string>
-    <string name="quran_downloaded">דאַונלאָודיד</string>
     <string name="quran_downloads_active_title">איצטיקע און פאַרגאַנגענהייט דאַונלאָודז</string>
+    <string name="quran_downloads_summary_title">גאַנץ דאַונלאָודיד</string>
+    <string name="quran_downloads_summary">%1$d סוראַהס · %2$d אַאַהס · %3$s</string>
     <string name="quran_downloads_none">קיין דאַונלאָודז נאָך</string>
     <string name="quran_downloads_title">דאַונלאָודז</string>
     <string name="quran_font_larger">גרעסערע שריפֿט</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">סוראַה %1$d</string>
     <string name="quran_tafsir_source">נומער: %1$s</string>
     <string name="quran_title">דער הייליקער קווראַן</string>
+    <string name="quran_download_reciter_header">דאַונלאָודיד: %1$d ייַס · %2$s</string>
 </resources>

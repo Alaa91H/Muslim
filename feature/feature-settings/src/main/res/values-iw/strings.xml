@@ -6,4 +6,10 @@
     <string name="notif_preview_missed">adhan שפוספס: %1$s — %2$s</string>
     <string name="notif_preview_next_title">הקוד הבא: %1$s — %2$s</string>
     <string name="notif_preview_remaining">זמן שנותר: %1$s</string>
+    <string name="settings_section_time_format">פורמט זמן</string>
+    <string name="settings_time_12">12 שעות (AM/PM)</string>
+    <string name="settings_time_24">24 שעות</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات…)</string>
 </resources>

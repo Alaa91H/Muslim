@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Numri i ajetit</string>
     <string name="quran_download_cancel">Anulo</string>
     <string name="quran_download_channel">Shkarkimet e recitimeve</string>
-    <string name="quran_download_current_ayah">Ajet aktual</string>
-    <string name="quran_download_current_surah">Surja aktuale</string>
     <string name="quran_download_delete">Fshije</string>
     <string name="quran_download_delete_confirm">Të fshihen shkarkimet?</string>
     <string name="quran_download_delete_confirm_message">Audioja e shkarkuar do të hiqet përgjithmonë nga pajisja juaj.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Në pritje të natës</string>
     <string name="quran_download_night_waiting">Do të fillojë natën - dritarja %1$s</string>
     <string name="quran_download_night_window_title">Dritarja e shkarkimit të natës</string>
-    <string name="quran_download_options_title">Opsionet e shkarkimit</string>
     <string name="quran_download_pause">Ndalo</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Të shkarkuara për këtë recitues: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d sure · %2$d ajete · %3$s</string>
-    <string name="quran_download_reciter_title">Zgjidhni recituesin</string>
     <string name="quran_download_restoring">Po rifillon shkarkimet…</string>
     <string name="quran_download_resume">Rezyme</string>
     <string name="quran_download_scope_ayah">Ajah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Në pauzë</string>
     <string name="quran_download_status_queued">Në radhë</string>
     <string name="quran_download_surah_number">Surja numër (1–114)</string>
-    <string name="quran_downloaded">U shkarkua</string>
     <string name="quran_downloads_active_title">Shkarkimet aktuale dhe të kaluara</string>
+    <string name="quran_downloads_summary_title">Gjithsej i shkarkuar</string>
+    <string name="quran_downloads_summary">%1$d sure · %2$d ajete · %3$s</string>
     <string name="quran_downloads_none">Nuk ka shkarkime ende</string>
     <string name="quran_downloads_title">Shkarkimet</string>
     <string name="quran_font_larger">Shkronja më e madhe</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Surja %1$d</string>
     <string name="quran_tafsir_source">Tefsir: %1$s</string>
     <string name="quran_title">Kurani Famëlartë</string>
+    <string name="quran_download_reciter_header">Shkarkuar: %1$d ajete · %2$s</string>
 </resources>

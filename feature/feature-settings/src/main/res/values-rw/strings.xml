@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Insanganyamatsiko</string>
     <string name="settings_theme_system">Sisitemu</string>
     <string name="settings_title">Igenamiterere</string>
+    <string name="settings_section_time_format">Imiterere yigihe</string>
+    <string name="settings_time_12">Amasaha 12 (AM / PM)</string>
+    <string name="settings_time_24">Amasaha 24</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب سامق تارىخ شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أق تارىخ شاشة المزيد (العبادات ، العلم ، الأدوات…)</string>
 </resources>

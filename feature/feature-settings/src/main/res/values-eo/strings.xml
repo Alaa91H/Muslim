@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">Temo</string>
     <string name="settings_theme_system">Sistemo</string>
     <string name="settings_title">Agordoj</string>
+    <string name="settings_section_time_format">Tempoformato</string>
+    <string name="settings_time_12">12-horo (AM/PM)</string>
+    <string name="settings_time_24">24-horo</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات...)</string>
 </resources>

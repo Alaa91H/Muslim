@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah nimɔrɔ</string>
     <string name="quran_download_cancel">Cancel (Kalan) kɛ</string>
     <string name="quran_download_channel">Recitation telesarsew</string>
-    <string name="quran_download_current_ayah">Sisan ayah</string>
-    <string name="quran_download_current_surah">Sisan sura</string>
     <string name="quran_download_delete">Delete (Bɔ) kɛ</string>
     <string name="quran_download_delete_confirm">Téléchargements (téléchargements) bɔli wa?</string>
     <string name="quran_download_delete_confirm_message">Odio min bɛ telesarse, o bɛna bɔ i ka minɛn kɔnɔ kudayi.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Su makɔnɔni</string>
     <string name="quran_download_night_waiting">A bɛna daminɛ su fɛ — finɛtiri %1$s</string>
     <string name="quran_download_night_window_title">Su fɛ telesarse fensɛn</string>
-    <string name="quran_download_options_title">Telesarse sugandiliw</string>
     <string name="quran_download_pause">Aw ye aw jɔ dɔɔnin</string>
     <string name="quran_download_percent">%1$d%% ye</string>
     <string name="quran_download_reciter_state">Telesarse kɛra nin kalanbaga in ye: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d sura · %2$d aya · %3$s</string>
-    <string name="quran_download_reciter_title">Reciter sugandi</string>
     <string name="quran_download_restoring">Téléchargements daminɛ kokura...</string>
     <string name="quran_download_resume">Aw ye a daminɛ kokura</string>
     <string name="quran_download_scope_ayah">Ayah ye</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">A ye a jɔ dɔɔnin</string>
     <string name="quran_download_status_queued">Layidu talen don</string>
     <string name="quran_download_surah_number">Sura nimɔrɔ (1–114) .</string>
-    <string name="quran_downloaded">Télécharger</string>
     <string name="quran_downloads_active_title">Téléchargement minnu bɛ kɛ sisan ani minnu kɛra ka tɛmɛ</string>
+    <string name="quran_downloads_summary_title">Total telechargé</string>
+    <string name="quran_downloads_summary">%1$d sura · %2$d aya · %3$s</string>
     <string name="quran_downloads_none">Téléchargement si ma sɔrɔ fɔlɔ</string>
     <string name="quran_downloads_title">Téléchargements (Téléchargements).</string>
     <string name="quran_font_larger">Sɛbɛnni belebeleba</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sura %1$d ye</string>
     <string name="quran_tafsir_source">Tafsiri: %1$s ye</string>
     <string name="quran_title">Kuranɛ senuma</string>
+    <string name="quran_download_reciter_header">Télécharger: %1$d ayah · %2$s</string>
 </resources>

@@ -8,6 +8,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
+import org.muslim.app.core.common.HttpAgents
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.math.atan2
@@ -47,7 +48,22 @@ private data class OverpassElement(
 @Singleton
 class MosqueFinderRepository @Inject constructor() {
 
-    private val client = OkHttpClient()
+    /** Public Overpass endpoints tried in order (the main one is often overloaded). */
+    private val OVERPASS_ENDPOINTS = listOf(
+        "https://overpass-api.de/api/interpreter",
+        "https://overpass.kumi.systems/api/interpreter",
+        "https://overpass.private.coffee/api/interpreter",
+    )
+
+    private val client = OkHttpClient.Builder()
+        .addInterceptor { chain ->
+            chain.proceed(
+                chain.request().newBuilder()
+                    .header("User-Agent", HttpAgents.APP_USER_AGENT)
+                    .build(),
+            )
+        }
+        .build()
     private val json = Json { ignoreUnknownKeys = true }
 
     /**
@@ -65,12 +81,29 @@ class MosqueFinderRepository @Inject constructor() {
             out center 60;
         """.trimIndent()
 
+        var failure: Exception? = null
+        for (endpoint in OVERPASS_ENDPOINTS) {
+            try {
+                return@withContext fetch(endpoint, query, latitude, longitude)
+            } catch (e: Exception) {
+                failure = e
+            }
+        }
+        throw failure ?: IllegalStateException("No Overpass endpoint configured")
+    }
+
+    private fun fetch(
+        endpoint: String,
+        query: String,
+        latitude: Double,
+        longitude: Double,
+    ): List<Mosque> {
         val request = Request.Builder()
-            .url("https://overpass-api.de/api/interpreter")
+            .url(endpoint)
             .post(query.toRequestBody("text/plain".toMediaType()))
             .build()
 
-        client.newCall(request).execute().use { response ->
+        return client.newCall(request).execute().use { response ->
             check(response.isSuccessful) { "HTTP ${response.code}" }
             val body = response.body?.string().orEmpty()
             val parsed = json.decodeFromString<OverpassResponse>(body)

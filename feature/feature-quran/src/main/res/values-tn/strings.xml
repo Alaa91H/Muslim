@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Nomoro ya Ayah</string>
     <string name="quran_download_cancel">Khansela</string>
     <string name="quran_download_channel">Ditaisololo tsa go boeletsa</string>
-    <string name="quran_download_current_ayah">Ayah ya ga jaana</string>
-    <string name="quran_download_current_surah">Surah ya ga jaana</string>
     <string name="quran_download_delete">Phimola</string>
     <string name="quran_download_delete_confirm">Phimola dilo tse di laisolotsweng?</string>
     <string name="quran_download_delete_confirm_message">Modumo o o laisolotsweng o tla tlosediwa ruri mo sedirisweng tsa gago.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Ke emetse bosigo</string>
     <string name="quran_download_night_waiting">E tla simolola bosigo — fensetere %1$s</string>
     <string name="quran_download_night_window_title">Lefensetere la go laisolola bosigo</string>
-    <string name="quran_download_options_title">Ditlhopho tsa laisolola</string>
     <string name="quran_download_pause">Kgaotso</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">E laisololetswe mmuisi yono: %1$s</string>
     <string name="quran_download_reciter_state_detail">Disura di le 1$d · Diaya di le 2$d · %1$d %2$d %3$s</string>
-    <string name="quran_download_reciter_title">Tlhopha mobuisi</string>
     <string name="quran_download_restoring">Go simolola go laisolola gape...</string>
     <string name="quran_download_resume">Resume</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">E emisitswe</string>
     <string name="quran_download_status_queued">Go tsentswe mo moleng</string>
     <string name="quran_download_surah_number">Nomoro ya Sura (1-114)</string>
-    <string name="quran_downloaded">E laisolotswe</string>
     <string name="quran_downloads_active_title">Ditaisololo tsa ga jaana le tsa nako e e fetileng</string>
+    <string name="quran_downloads_summary_title">Palogotlhe e e laisolotsweng</string>
+    <string name="quran_downloads_summary">%1$d سورة · %2$d آية · %3$s</string>
     <string name="quran_downloads_none">Ga go ise go laisololwe</string>
     <string name="quran_downloads_title">Ditaisololo</string>
     <string name="quran_font_larger">Fonto e kgolwane</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Quran e e Boitshepo</string>
+    <string name="quran_download_reciter_header">E laisolotswe: di-aya di le %1$d · %2$s</string>
 </resources>

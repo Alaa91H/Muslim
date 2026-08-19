@@ -30,4 +30,22 @@
     <string name="tab_more">Caalaatti</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Qur\'aana</string>
+    <string name="more_section_worship">Ibaadaa</string>
+    <string name="more_section_knowledge">Beekumsa</string>
+    <string name="more_section_tools">Meeshaalee</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Dogoggora hin eegamne</string>
+    <string name="crash_fatal_message">Wanti tokko dogoggora ta\'ee appichi ni dhaabbate. Irra deebitee jalqabuu ykn cufuu dandeessa.</string>
+    <string name="crash_recoverable_message">Wanti tokko dogoggora ta\'e, garuu appii kana fayyadamuu itti fufuu dandeessu.</string>
+    <string name="crash_restart">Irra deebi\'ii jalqabi</string>
+    <string name="crash_close">Cufi</string>
+    <string name="crash_dismiss">Itti fufaa</string>
 </resources>

@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Lamba Ayahbe</string>
     <string name="quran_download_cancel">Daptə</string>
     <string name="quran_download_channel">Kǝra sagǝdǝna</string>
-    <string name="quran_download_current_ayah">Ayah kǝrmabe</string>
-    <string name="quran_download_current_surah">Surah kərmabe</string>
     <string name="quran_download_delete">Cinne</string>
     <string name="quran_download_delete_confirm">Sagǝdǝnadǝ cinne?</string>
     <string name="quran_download_delete_confirm_message">Audio do download tǝdǝna dǝ suro device yen abadanro tutuluyin.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Bənye jetə</string>
     <string name="quran_download_night_waiting">Bənyelan badijin — window %1$s</string>
     <string name="quran_download_night_window_title">Taga bǝneye</string>
-    <string name="quran_download_options_title">Karnowa downloadbe</string>
     <string name="quran_download_pause">Datə</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Kəratəma adə nankaro: %1$s</string>
     <string name="quran_download_reciter_state_detail">Surawa %1$d · ayawa %2$d · %3$s</string>
-    <string name="quran_download_reciter_title">Kǝratǝma karne</string>
     <string name="quran_download_restoring">Sagǝdǝ waltǝm baditin...</string>
     <string name="quran_download_resume">Badiyaram</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Dawono</string>
     <string name="quran_download_status_queued">Layiro</string>
     <string name="quran_download_surah_number">Lamba surabe (1-114)</string>
-    <string name="quran_downloaded">Sagǝdǝna</string>
     <string name="quran_downloads_active_title">Sagǝdǝna kǝrmabe-a kuru kurebe-a</string>
+    <string name="quran_downloads_summary_title">Jimla sagǝdǝna</string>
+    <string name="quran_downloads_summary">Surawa %1$d · ayawa %2$d · %3$s</string>
     <string name="quran_downloads_none">Kuwa yayi sagǝdǝnyi</string>
     <string name="quran_downloads_title">Sagǝdǝna</string>
     <string name="quran_font_larger">Font kura</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Alquran Tahir</string>
+    <string name="quran_download_reciter_header">Sagǝdǝna: Ayat %1$d · %2$s</string>
 </resources>

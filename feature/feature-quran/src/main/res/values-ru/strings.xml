@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Номер аята</string>
     <string name="quran_download_cancel">Отмена</string>
     <string name="quran_download_channel">Загрузка декламации</string>
-    <string name="quran_download_current_ayah">Текущий аят</string>
-    <string name="quran_download_current_surah">Текущая сура</string>
     <string name="quran_download_delete">Удалить</string>
     <string name="quran_download_delete_confirm">Удалить загрузки?</string>
     <string name="quran_download_delete_confirm_message">Загруженный аудиофайл будет навсегда удален с вашего устройства.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Ожидание ночи</string>
     <string name="quran_download_night_waiting">Начну ночью — окно %1$s.</string>
     <string name="quran_download_night_window_title">Окно ночной загрузки</string>
-    <string name="quran_download_options_title">Варианты загрузки</string>
     <string name="quran_download_pause">Пауза</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Скачано для этого чтеца: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d сур · %2$d аятов · %3$s</string>
-    <string name="quran_download_reciter_title">Выберите чтеца</string>
     <string name="quran_download_restoring">Возобновление загрузки…</string>
     <string name="quran_download_resume">Резюме</string>
     <string name="quran_download_scope_ayah">Ая</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Приостановлено</string>
     <string name="quran_download_status_queued">В очереди</string>
     <string name="quran_download_surah_number">Номер суры (1–114)</string>
-    <string name="quran_downloaded">Скачано</string>
     <string name="quran_downloads_active_title">Текущие и прошлые загрузки</string>
+    <string name="quran_downloads_summary_title">Всего скачано</string>
+    <string name="quran_downloads_summary">%1$d сур · %2$d аятов · %3$s</string>
     <string name="quran_downloads_none">Пока нет загрузок</string>
     <string name="quran_downloads_title">Загрузки</string>
     <string name="quran_font_larger">Более крупный шрифт</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Сура %1$d</string>
     <string name="quran_tafsir_source">Тафсир: %1$s</string>
     <string name="quran_title">Священный Коран</string>
+    <string name="quran_download_reciter_header">Скачано: %1$d аятов · %2$s</string>
 </resources>

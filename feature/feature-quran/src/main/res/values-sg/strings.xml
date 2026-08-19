@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah numéro 1 .</string>
     <string name="quran_download_cancel">Annuler</string>
     <string name="quran_download_channel">Téléchargement ti dikongo mbeti .</string>
-    <string name="quran_download_current_ayah">Ayah ti fadeso</string>
-    <string name="quran_download_current_surah">Surah ti fadeso</string>
     <string name="quran_download_delete">Effacé</string>
     <string name="quran_download_delete_confirm">Effacé a-téléchargement ni?</string>
     <string name="quran_download_delete_confirm_message">A yeke zi ande audio so mo téléchargé ni na yâ ti appareil ti mo biani biani.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Ti ku bï .</string>
     <string name="quran_download_night_waiting">A yeke komanse na bï — fenêtre %1$s .</string>
     <string name="quran_download_night_window_title">Fenêtre ti téléchargement ti bï .</string>
-    <string name="quran_download_options_title">A-option ti téléchargement .</string>
     <string name="quran_download_pause">Pause</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">A téléchargé ni ndali ti azo so ayeke diko mbeti so: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d ti a-oura · %2$d ti a-ayah · %3$s</string>
-    <string name="quran_download_reciter_title">Soro zo ti dikongo mbeti ni .</string>
     <string name="quran_download_restoring">Ti kiri ti téléchargé...</string>
     <string name="quran_download_resume">Resumé</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Pause</string>
     <string name="quran_download_status_queued">A zia molongo</string>
     <string name="quran_download_surah_number">Numéro ti sourate (1 ti si na 114)</string>
-    <string name="quran_downloaded">A téléchargé ni</string>
     <string name="quran_downloads_active_title">A-téléchargement ti fadeso nga na ti ândö .</string>
+    <string name="quran_downloads_summary_title">Azo kue so a téléchargé ni</string>
+    <string name="quran_downloads_summary">%1$d سورة · %2$d آية · %3$s</string>
     <string name="quran_downloads_none">A téléchargé ni encore ape .</string>
     <string name="quran_downloads_title">Téléchargement</string>
     <string name="quran_font_larger">Kota fonte</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sora %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Coran ti nzoni-kue .</string>
+    <string name="quran_download_reciter_header">A téléchargé ni: a-ayat %1$d · %2$s</string>
 </resources>

@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">테마</string>
     <string name="settings_theme_system">시스템</string>
     <string name="settings_title">설정</string>
+    <string name="settings_section_time_format">시간 형식</string>
+    <string name="settings_time_12">12시간(오전/오후)</string>
+    <string name="settings_time_24">24시간</string>
+    <string name="settings_section_more">샤샤샤 메디드</string>
+    <string name="settings_more_order">더 많은 정보를 얻으려면</string>
+    <string name="settings_more_order_desc">تاصيص ترتيب اقسام ashashed المazied (العبادات, العلم, الادوات…)</string>
 </resources>

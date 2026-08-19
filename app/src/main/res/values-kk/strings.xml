@@ -30,4 +30,22 @@
     <string name="tab_more">Көбірек</string>
     <string name="tab_qibla">Қыбла</string>
     <string name="tab_quran">Құран</string>
+    <string name="more_section_worship">Ғибадат ету</string>
+    <string name="more_section_knowledge">Білім</string>
+    <string name="more_section_tools">Құралдар</string>
+    <string name="more_section_app">Қолданба</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
+    <string name="crash_title">Күтпеген қате</string>
+    <string name="crash_fatal_message">Бірдеңе дұрыс болмады және қолданба тоқтады. Оны қайта іске қосуға немесе жабуға болады.</string>
+    <string name="crash_recoverable_message">Бірдеңе дұрыс болмады, бірақ қолданбаны пайдалануды жалғастыра аласыз.</string>
+    <string name="crash_restart">Қайта іске қосыңыз</string>
+    <string name="crash_close">Жабу</string>
+    <string name="crash_dismiss">Жалғастыру</string>
 </resources>

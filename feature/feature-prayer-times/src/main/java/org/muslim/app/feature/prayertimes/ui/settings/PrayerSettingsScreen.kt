@@ -73,7 +73,7 @@ import org.muslim.app.core.common.prayer.CalculationMethod
 import org.muslim.app.core.common.prayer.HighLatitudeRule
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.datastore.prayer.PrayerSettings
-import org.muslim.app.feature.prayertimes.ui.localTimeFormatter
+import org.muslim.app.core.common.time.TimeFormats
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 import java.time.LocalTime
 
@@ -85,6 +85,7 @@ fun PrayerSettingsScreen(
 ) {
     val settings by viewModel.settings.collectAsStateWithLifecycle()
     val downloadProgress by viewModel.downloadProgress.collectAsStateWithLifecycle()
+    val use24h by viewModel.use24h.collectAsStateWithLifecycle()
 
     var pendingSoundPrayer by remember { mutableStateOf<Prayer?>(null) }
     var downloadPrayer by remember { mutableStateOf<Prayer?>(null) }
@@ -136,6 +137,7 @@ fun PrayerSettingsScreen(
 
         val nextPrayer by viewModel.nextPrayerPreview.collectAsStateWithLifecycle()
         AdhanNotificationPreview(
+            use24h = use24h,
             prayer = nextPrayer?.first,
             time = nextPrayer?.second,
             enabled = settings.adhanEnabled,
@@ -296,6 +298,7 @@ private fun AdhanNotificationPreview(
     prayer: Prayer?,
     time: LocalTime?,
     enabled: Boolean,
+    use24h: Boolean,
 ) {
     Column(
         modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
@@ -346,7 +349,7 @@ private fun AdhanNotificationPreview(
                 }
                 if (time != null) {
                     Text(
-                        text = time.format(localTimeFormatter),
+                        text = time.format(TimeFormats.timeFormatter(use24h)),
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )

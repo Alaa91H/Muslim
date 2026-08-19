@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah szám</string>
     <string name="quran_download_cancel">Mégse</string>
     <string name="quran_download_channel">Szavalat letöltések</string>
-    <string name="quran_download_current_ayah">Jelenlegi ayah</string>
-    <string name="quran_download_current_surah">Jelenlegi szúra</string>
     <string name="quran_download_delete">Törölje</string>
     <string name="quran_download_delete_confirm">Törli a letöltéseket?</string>
     <string name="quran_download_delete_confirm_message">A letöltött hanganyag véglegesen eltávolításra kerül az eszközről.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Várva az éjszakát</string>
     <string name="quran_download_night_waiting">Éjszaka indul – ablak %1$s</string>
     <string name="quran_download_night_window_title">Éjszakai letöltési ablak</string>
-    <string name="quran_download_options_title">Letöltési lehetőségek</string>
     <string name="quran_download_pause">Szünet</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Letöltve ehhez a szavalóhoz: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d szúra · %2$d ayah · %3$s</string>
-    <string name="quran_download_reciter_title">Válassza ki a szavalót</string>
     <string name="quran_download_restoring">Letöltések folytatása…</string>
     <string name="quran_download_resume">Folytatás</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Szüneteltetve</string>
     <string name="quran_download_status_queued">Sorban</string>
     <string name="quran_download_surah_number">Szúra szám (1-114)</string>
-    <string name="quran_downloaded">Letöltve</string>
     <string name="quran_downloads_active_title">Jelenlegi és korábbi letöltések</string>
+    <string name="quran_downloads_summary_title">Összesen letöltött</string>
+    <string name="quran_downloads_summary">%1$d szúra · %2$d ayah · %3$s</string>
     <string name="quran_downloads_none">Még nincsenek letöltések</string>
     <string name="quran_downloads_title">Letöltések</string>
     <string name="quran_font_larger">Nagyobb betűtípus</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Szúra %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">A Szent Korán</string>
+    <string name="quran_download_reciter_header">Letöltve: %1$d ayahs · %2$s</string>
 </resources>

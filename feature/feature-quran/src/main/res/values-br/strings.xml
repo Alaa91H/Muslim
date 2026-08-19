@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Niverenn Ayah</string>
     <string name="quran_download_cancel">Nullañ</string>
     <string name="quran_download_channel">Pellgargadennoù displegadennoù</string>
-    <string name="quran_download_current_ayah">Ayah bremañ</string>
-    <string name="quran_download_current_surah">Surah bremañ</string>
     <string name="quran_download_delete">Dilemel</string>
     <string name="quran_download_delete_confirm">Dilemel ar pellgargadurioù ?</string>
     <string name="quran_download_delete_confirm_message">Dilamet e vo ar son pellgarget diouzh ho trevnad da viken.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">O c\'hortoz an noz</string>
     <string name="quran_download_night_waiting">Kregiñ a raio diouzh an noz — prenestr %1$s</string>
     <string name="quran_download_night_window_title">Prenestr pellgargañ an noz</string>
-    <string name="quran_download_options_title">Dibarzhioù pellgargañ</string>
     <string name="quran_download_pause">Paouez</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Pellgarget evit al lenner-mañ : %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Dibab ar c\'hannad</string>
     <string name="quran_download_restoring">Adkregiñ gant ar pellgargadennoù...</string>
     <string name="quran_download_resume">Adkregiñ</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Paouezet</string>
     <string name="quran_download_status_queued">Lakaet e renk</string>
     <string name="quran_download_surah_number">Niverenn Soura (1–114)</string>
-    <string name="quran_downloaded">Pellgarget</string>
     <string name="quran_downloads_active_title">Pellgargadurioù bremañ ha tremenet</string>
+    <string name="quran_downloads_summary_title">Pellgarget en holl</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Pellgargadur ebet c\'hoazh</string>
     <string name="quran_downloads_title">Pellgargadennoù</string>
     <string name="quran_font_larger">Nodrezh brasoc\'h</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Soura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Ar C\'horan Santel</string>
+    <string name="quran_download_reciter_header">Pellgarget : %1$d ayahs · %2$s</string>
 </resources>

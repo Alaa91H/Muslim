@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Inomboro ye-Ayah</string>
     <string name="quran_download_cancel">Khansela</string>
     <string name="quran_download_channel">Ukulandwa kokuphindaphinda</string>
-    <string name="quran_download_current_ayah">I-ayah yamanje</string>
-    <string name="quran_download_current_surah">I-sura yamanje</string>
     <string name="quran_download_delete">Susa</string>
     <string name="quran_download_delete_confirm">Susa ukudawuniloda?</string>
     <string name="quran_download_delete_confirm_message">Umsindo odawunilodiweko uzokususwa unomphela kudivayisi yakho.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Ukulindela ubusuku</string>
     <string name="quran_download_night_waiting">Kuzokuthoma ebusuku — iwindi %1$s</string>
     <string name="quran_download_night_window_title">Ifasitela lokudawuniloda ebusuku</string>
-    <string name="quran_download_options_title">Iindlela zokudawuniloda</string>
     <string name="quran_download_pause">Misa</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Idawunilodwe malungana nomfundi lo: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
-    <string name="quran_download_reciter_title">Khetha umlandi</string>
     <string name="quran_download_restoring">Ukuragela phambili nokudawuniloda...</string>
     <string name="quran_download_resume">Qala kabutjha</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Imisiwe</string>
     <string name="quran_download_status_queued">Ulayiniwe</string>
     <string name="quran_download_surah_number">Inomboro ye-Surah (1–114)</string>
-    <string name="quran_downloaded">Idawunilodiwe</string>
     <string name="quran_downloads_active_title">Ukudawuniloda kwamanje nekwesikhathi esidlulileko</string>
+    <string name="quran_downloads_summary_title">Inani elilandiweko</string>
+    <string name="quran_downloads_summary">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_downloads_none">Akukadawunilodi okwanje</string>
     <string name="quran_downloads_title">Ukudawuniloda</string>
     <string name="quran_font_larger">Ifonti ekulu</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">I-Surah %1$d</string>
     <string name="quran_tafsir_source">I-Tafsir: %1$s</string>
     <string name="quran_title">I-Quran ecwengileko</string>
+    <string name="quran_download_reciter_header">Kulandwe: %1$d ayahs · %2$s</string>
 </resources>

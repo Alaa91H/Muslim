@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Aia numeru</string>
     <string name="quran_download_cancel">Cancella</string>
     <string name="quran_download_channel">Download di recitazione</string>
-    <string name="quran_download_current_ayah">Attuali aia</string>
-    <string name="quran_download_current_surah">Sura attuale</string>
     <string name="quran_download_delete">Sguassà</string>
     <string name="quran_download_delete_confirm">Sguassà i scaricamenti?</string>
     <string name="quran_download_delete_confirm_message">L\'audio telecaricatu serà eliminatu permanentemente da u vostru dispositivu.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Aspittendu a notte</string>
     <string name="quran_download_night_waiting">Cumincià di notte - finestra %1$s</string>
     <string name="quran_download_night_window_title">Finestra di scaricamentu di notte</string>
-    <string name="quran_download_options_title">Opzioni di scaricamentu</string>
     <string name="quran_download_pause">Pausa</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Scaricatu per questu reciter: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d sura · %2$d aia · %3$s</string>
-    <string name="quran_download_reciter_title">Sceglite reciter</string>
     <string name="quran_download_restoring">Ripresa di scaricamentu...</string>
     <string name="quran_download_resume">Curriculum vitae</string>
     <string name="quran_download_scope_ayah">Aia</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">In pausa</string>
     <string name="quran_download_status_queued">In fila</string>
     <string name="quran_download_surah_number">numeru Surah (1-114)</string>
-    <string name="quran_downloaded">Scaricatu</string>
     <string name="quran_downloads_active_title">Download attuali è passati</string>
+    <string name="quran_downloads_summary_title">Total downloaded</string>
+    <string name="quran_downloads_summary">%1$d sura · %2$d aia · %3$s</string>
     <string name="quran_downloads_none">Nisun scaricamentu ancora</string>
     <string name="quran_downloads_title">Downloads</string>
     <string name="quran_font_larger">Font più grande</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">U Sacru Coran</string>
+    <string name="quran_download_reciter_header">Scaricatu: %1$d ayahs · %2$s</string>
 </resources>

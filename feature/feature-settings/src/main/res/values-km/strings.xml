@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">ប្រធានបទ</string>
     <string name="settings_theme_system">ប្រព័ន្ធ</string>
     <string name="settings_title">ការកំណត់</string>
+    <string name="settings_section_time_format">ទម្រង់ពេលវេលា</string>
+    <string name="settings_time_12">12 ម៉ោង (ព្រឹក/ល្ងាច)</string>
+    <string name="settings_time_24">24 ម៉ោង។</string>
+    <string name="settings_section_more">عرض المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة عرض المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة عرض المزيد (العبادات, العلم, الأدوات…)</string>
 </resources>

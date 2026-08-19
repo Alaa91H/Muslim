@@ -30,4 +30,22 @@
     <string name="tab_more">Azo mingi</string>
     <string name="tab_qibla">Qibla</string>
     <string name="tab_quran">Coran</string>
+    <string name="more_section_worship">Vorongo .</string>
+    <string name="more_section_knowledge">Hingango ye</string>
+    <string name="more_section_tools">A-outil</string>
+    <string name="more_section_app">App</string>
+    <string name="more_order_title">ترتيب أقسام المزيد</string>
+    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
+    <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
+    <string name="more_order_move_up">تحريك لأعلى</string>
+    <string name="more_order_move_down">تحريك لأسفل</string>
+    <string name="more_order_back">رجوع</string>
+    <string name="more_offline_maps">خرائط بدون إنترنت</string>
+    <string name="more_offline_maps_desc">تحميل خرائط مدينة أوة لتعمل بدون إن دولترنت</string>
+    <string name="crash_title">Erreur so zo aku tere ti lo na ni pëpe</string>
+    <string name="crash_fatal_message">Mbeni ye asi na appli ni akaï. Mo lingbi ti kiri ti komanse ni wala ti kanga ni.</string>
+    <string name="crash_recoverable_message">Mbeni ye asi, me mo lingbi ti ngbâ ti sara kua na application ni.</string>
+    <string name="crash_restart">Redémarrer</string>
+    <string name="crash_close">Fermé</string>
+    <string name="crash_dismiss">Ngbâ ti sara ni .</string>
 </resources>

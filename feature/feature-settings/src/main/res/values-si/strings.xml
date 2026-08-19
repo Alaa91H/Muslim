@@ -131,4 +131,10 @@
     <string name="settings_theme_mode">තේමාව</string>
     <string name="settings_theme_system">පද්ධතිය</string>
     <string name="settings_title">සැකසීම්</string>
+    <string name="settings_section_time_format">කාල ආකෘතිය</string>
+    <string name="settings_time_12">පැය 12 (පෙ.ව./ප.ව.)</string>
+    <string name="settings_time_24">පැය 24</string>
+    <string name="settings_section_more">شاشة المزيد</string>
+    <string name="settings_more_order">ترتيب أقسام شاشة المزيد</string>
+    <string name="settings_more_order_desc">تخصيص ترتيب أقسام شاشة المزيد (العبادات، العلم، الأدوات...)</string>
 </resources>

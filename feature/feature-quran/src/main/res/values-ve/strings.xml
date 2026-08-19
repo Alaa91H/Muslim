@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah nomboro</string>
     <string name="quran_download_cancel">Khansela</string>
     <string name="quran_download_channel">U ṱalutshedzela</string>
-    <string name="quran_download_current_ayah">Ayah wa zwino</string>
-    <string name="quran_download_current_surah">Surah ya zwino</string>
     <string name="quran_download_delete">Phumula</string>
     <string name="quran_download_delete_confirm">Phumula zwo dawuniḽoudiwaho?</string>
     <string name="quran_download_delete_confirm_message">Audio yo dawuniḽoudiwaho i ḓo bviswa lwa tshoṱhe kha tshishumiswa tshaṋu.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Ro lindela vhusiku .</string>
     <string name="quran_download_night_waiting">Zwi ḓo thoma vhusiku — fasiṱere %1$s</string>
     <string name="quran_download_night_window_title">Fasitere ḽa u ṱalutshedzela vhusiku</string>
-    <string name="quran_download_options_title">Khetho dza u dawuniḽouda</string>
     <string name="quran_download_pause">Imani</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Zwo ṱalutshedzelwaho kha muvhali uyu: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d ya dzisurah · %2$d ya dziaya · %3$s</string>
-    <string name="quran_download_reciter_title">Khethani muvhali</string>
     <string name="quran_download_restoring">U thoma hafhu u dawuniḽouda...</string>
     <string name="quran_download_resume">Kha vha thome hafhu</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">Yo fhumula</string>
     <string name="quran_download_status_queued">Muduba</string>
     <string name="quran_download_surah_number">Nomboro ya Sura (1-114)</string>
-    <string name="quran_downloaded">Zwo dawuniḽoudiwa</string>
     <string name="quran_downloads_active_title">U dawuniḽouda ha zwino na ha kale</string>
+    <string name="quran_downloads_summary_title">Zwoṱhe zwo dawuniḽoudiwa</string>
+    <string name="quran_downloads_summary">%1$d سورة · %2$d آية · %3$s</string>
     <string name="quran_downloads_none">A hu athu u dawuniḽoudiwa</string>
     <string name="quran_downloads_title">Zwo dawuniḽoudiwa</string>
     <string name="quran_font_larger">Fonte khulwane</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Quran Khethwa</string>
+    <string name="quran_download_reciter_header">%1$d ayah · %2$s</string>
 </resources>

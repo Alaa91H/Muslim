@@ -18,8 +18,6 @@
     <string name="quran_download_ayah_number">Ayah número</string>
     <string name="quran_download_cancel">Cancel·la</string>
     <string name="quran_download_channel">Descàrregues de recitació</string>
-    <string name="quran_download_current_ayah">Ai actual</string>
-    <string name="quran_download_current_surah">Sura actual</string>
     <string name="quran_download_delete">Suprimeix</string>
     <string name="quran_download_delete_confirm">Vols suprimir les baixades?</string>
     <string name="quran_download_delete_confirm_message">L\'àudio baixat s\'eliminarà permanentment del dispositiu.</string>
@@ -37,12 +35,10 @@
     <string name="quran_download_night_status">Esperant la nit</string>
     <string name="quran_download_night_waiting">Començarà a la nit: finestra %1$s</string>
     <string name="quran_download_night_window_title">Finestra de descàrrega nocturna</string>
-    <string name="quran_download_options_title">Opcions de descàrrega</string>
     <string name="quran_download_pause">Pausa</string>
     <string name="quran_download_percent">%1$d%%</string>
     <string name="quran_download_reciter_state">Descarregat per a aquest recitador: %1$s</string>
     <string name="quran_download_reciter_state_detail">%1$d sures · %2$d àies · %3$s</string>
-    <string name="quran_download_reciter_title">Seleccioneu el recitador</string>
     <string name="quran_download_restoring">S\'estan reprenent les baixades...</string>
     <string name="quran_download_resume">Currículum</string>
     <string name="quran_download_scope_ayah">Ayah</string>
@@ -58,8 +54,9 @@
     <string name="quran_download_status_paused">En pausa</string>
     <string name="quran_download_status_queued">En cua</string>
     <string name="quran_download_surah_number">Número de la sura (1–114)</string>
-    <string name="quran_downloaded">Descarregat</string>
     <string name="quran_downloads_active_title">Descàrregues actuals i anteriors</string>
+    <string name="quran_downloads_summary_title">Total descarregat</string>
+    <string name="quran_downloads_summary">%1$d sures · %2$d àies · %3$s</string>
     <string name="quran_downloads_none">Encara no hi ha baixades</string>
     <string name="quran_downloads_title">Descàrregues</string>
     <string name="quran_font_larger">Font més gran</string>
@@ -131,4 +128,5 @@
     <string name="quran_surah_number_short">Sura %1$d</string>
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">El Sant Alcorà</string>
+    <string name="quran_download_reciter_header">Descarregat: %1$d ayahs · %2$s</string>
 </resources>

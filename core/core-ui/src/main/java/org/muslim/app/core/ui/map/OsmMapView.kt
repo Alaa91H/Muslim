@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color as AndroidColor
 import android.graphics.Paint
 import android.graphics.Path
+import android.graphics.RectF
 import androidx.core.graphics.createBitmap
 import androidx.core.graphics.toColorInt
 import androidx.compose.runtime.Composable
@@ -24,14 +25,18 @@ import org.maplibre.android.camera.CameraUpdateFactory
 import org.maplibre.android.geometry.LatLng
 import org.maplibre.android.maps.MapLibreMap
 import org.maplibre.android.maps.MapView
+import org.maplibre.android.module.http.HttpRequestUtil
 import org.maplibre.android.style.layers.LineLayer
 import org.maplibre.android.style.layers.Property
 import org.maplibre.android.style.layers.PropertyFactory
 import org.maplibre.android.style.layers.SymbolLayer
 import org.maplibre.android.style.sources.GeoJsonSource
 import org.maplibre.geojson.Feature
+import org.maplibre.geojson.FeatureCollection
 import org.maplibre.geojson.LineString
 import org.maplibre.geojson.Point
+import okhttp3.OkHttpClient
+import org.muslim.app.core.common.HttpAgents
 
 /**
  * Shared OpenStreetMap wrapper (MapLibre GL Native — free, no API key, no
@@ -53,6 +58,19 @@ object OsmMapDefaults {
             .build()
 }
 
+/** OkHttp client that tags every MapLibre request with the app's user agent. */
+private val userAgentHttpClient: OkHttpClient by lazy {
+    OkHttpClient.Builder()
+        .addInterceptor { chain ->
+            chain.proceed(
+                chain.request().newBuilder()
+                    .header("User-Agent", HttpAgents.APP_USER_AGENT)
+                    .build(),
+            )
+        }
+        .build()
+}
+
 /**
  * Compose wrapper around [MapView]. The map is created once and its lifecycle
  * is driven by the nearest [androidx.lifecycle.LifecycleOwner]. [onMapReady]
@@ -68,21 +86,41 @@ fun OsmMapView(
     key: Any? = null,
     onMapReady: (MapLibreMap) -> Unit = {},
     onMapClick: (LatLng) -> Unit = {},
+    /** Fires when a feature in one of [symbolLayerIds] is tapped (e.g. a mosque marker). */
+    onSymbolClick: (Feature) -> Unit = {},
+    /** Layers whose rendered features should be reported via [onSymbolClick] on tap. */
+    symbolLayerIds: List<String> = emptyList(),
 ) {
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
     val currentOnReady by rememberUpdatedState(onMapReady)
     val currentOnClick by rememberUpdatedState(onMapClick)
+    val currentOnSymbolClick by rememberUpdatedState(onSymbolClick)
+    val currentSymbolLayerIds by rememberUpdatedState(symbolLayerIds)
 
     val mapView = remember(context, key) {
         // Must be initialized once before any MapView is created.
         MapLibre.getInstance(context.applicationContext)
+        // Identify the app to OpenFreeMap so tile requests are not blocked (403/406).
+        HttpRequestUtil.setOkHttpClient(userAgentHttpClient)
         MapView(context).apply {
             onCreate(null)
             getMapAsync { map ->
                 map.cameraPosition = initialCamera
                 map.setStyle(styleUri) {
                     map.addOnMapClickListener { point ->
+                        val layerIds = currentSymbolLayerIds
+                        if (layerIds.isNotEmpty()) {
+                            val screenPoint = map.projection.toScreenLocation(point)
+                            val features = map.queryRenderedFeatures(
+                                screenPoint,
+                                *layerIds.toTypedArray(),
+                            )
+                            if (features.isNotEmpty()) {
+                                currentOnSymbolClick(features.first())
+                                return@addOnMapClickListener true
+                            }
+                        }
                         currentOnClick(point)
                         true
                     }
@@ -155,6 +193,89 @@ fun MapLibreMap.addPinMarker(id: String, point: LatLng, colorHex: String) {
             )
         }
     }
+}
+
+/** A tappable map marker (mosque) with its label and distance. */
+data class MapMarker(
+    val id: String,
+    val point: LatLng,
+    val name: String,
+    val distanceMeters: Int,
+)
+
+/**
+ * Adds mosque markers as one GeoJSON-backed symbol layer. Each feature carries
+ * its [MapMarker] id plus "name" and "distance" string properties so callers
+ * can rebuild the tapped marker from [org.maplibre.geojson.Feature] in
+ * `onSymbolClick` without a lookup table. Replaces the layer in place on
+ * subsequent calls (e.g. after a new search).
+ */
+fun MapLibreMap.addMosqueMarkers(markers: List<MapMarker>, layerId: String = "mosque-markers") {
+    if (markers.isEmpty()) return
+    getStyle { style ->
+        val imageName = "mosque_icon"
+        if (style.getImage(imageName) == null) {
+            style.addImage(imageName, makeMosqueBitmap())
+        }
+        val sourceId = "src_$layerId"
+        val features = markers.map { marker ->
+            Feature.fromGeometry(
+                Point.fromLngLat(marker.point.longitude, marker.point.latitude),
+                com.google.gson.JsonObject().apply {
+                    addProperty("name", marker.name)
+                    addProperty("distance", marker.distanceMeters)
+                    addProperty("markerId", marker.id)
+                },
+                marker.id,
+            )
+        }
+        if (style.getSource(sourceId) == null) {
+            style.addSource(GeoJsonSource(sourceId, FeatureCollection.fromFeatures(features)))
+            style.addLayerAbove(
+                SymbolLayer(layerId, sourceId).withProperties(
+                    PropertyFactory.iconImage(imageName),
+                    PropertyFactory.iconSize(1.0f),
+                    PropertyFactory.iconAllowOverlap(true),
+                    PropertyFactory.iconIgnorePlacement(true),
+                ),
+                "waterway-label",
+            )
+        } else {
+            (style.getSource(sourceId) as GeoJsonSource).setGeoJson(
+                FeatureCollection.fromFeatures(features),
+            )
+        }
+    }
+}
+
+/** Draws a mosque silhouette (dome + two minarets) into a bitmap. */
+private fun makeMosqueBitmap(): Bitmap {
+    val size = 64
+    val bitmap = createBitmap(size, size, Bitmap.Config.ARGB_8888)
+    val canvas = Canvas(bitmap)
+    val fill = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = "#2E7D32".toColorInt()
+    }
+    val border = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = AndroidColor.WHITE
+        style = Paint.Style.STROKE
+        strokeWidth = 3f
+    }
+    // Central dome.
+    canvas.drawArc(RectF(22f, 20f, 42f, 40f), 180f, 180f, true, fill)
+    canvas.drawArc(RectF(22f, 20f, 42f, 40f), 180f, 180f, true, border)
+    // Base building.
+    canvas.drawRoundRect(RectF(16f, 38f, 48f, 54f), 4f, 4f, fill)
+    canvas.drawRoundRect(RectF(16f, 38f, 48f, 54f), 4f, 4f, border)
+    // Minarets.
+    canvas.drawRect(14f, 16f, 19f, 40f, fill)
+    canvas.drawRect(14f, 16f, 19f, 40f, border)
+    canvas.drawRect(45f, 16f, 50f, 40f, fill)
+    canvas.drawRect(45f, 16f, 50f, 40f, border)
+    // Minaret caps.
+    canvas.drawCircle(16.5f, 14f, 3f, fill)
+    canvas.drawCircle(47.5f, 14f, 3f, fill)
+    return bitmap
 }
 
 /**
