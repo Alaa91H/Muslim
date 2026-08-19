@@ -35,10 +35,7 @@
     <string name="more_section_tools">Kein jerbal ko</string>
     <string name="more_section_app">App</string>
     <string name="more_order_title">ترتيب أقت المزيد</string>
-    <string name="more_order_hint">استخدم الأسهم لتح كل kain لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
-    <string name="more_order_move_up">تح کم لأعلى</string>
-    <string name="more_order_move_down">تحول لأسفل</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">خرائط إنترنت</string>
     <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل إنترنت</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">Bar jinoe</string>
     <string name="crash_close">Kilōk</string>
     <string name="crash_dismiss">Wōnm̧aanļo̧k wōt</string>
+    <string name="more_order_hint">اضغط مع الستمرار على أي kain واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل kain. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
 </resources>

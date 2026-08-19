@@ -35,10 +35,7 @@
     <string name="more_section_tools">ಪರಿಕರಗಳು</string>
     <string name="more_section_app">ಅಪ್ಲಿಕೇಶನ್</string>
     <string name="more_order_title">ترتيب أقسام المزيد</string>
-    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى au لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
-    <string name="more_order_move_up">تحريك لأعلى</string>
-    <string name="more_order_move_down">ತಹರೀಕ್ ಲಾಸ್ಫಲ್</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">خرائط بدون إنترنت</string>
     <string name="more_offline_maps_desc">ಥಮ್ಮಿಲ್ ಜರಾಸ್ ಮಡಿನಾಸ್ ಅವೂ ಡೂಲಸ್ ಲತ್ಅಮಲ್ ಬುಡೂನ್ ಅಂಟ್ರಾಂತ್</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">ಮರುಪ್ರಾರಂಭಿಸಿ</string>
     <string name="crash_close">ಮುಚ್ಚಿ</string>
     <string name="crash_dismiss">ಮುಂದುವರಿಸಿ</string>
+    <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو خلفاء ك. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
 </resources>

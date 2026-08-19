@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Qərb</string>
     <string name="qibla_dir_nw">Şimal-qərb</string>
     <string name="mosque_finder_close">Bağlayın</string>
+    <string name="offline_maps_search">Şəhər və ya ölkə axtarın...</string>
+    <string name="offline_maps_search_empty">Uyğun nəticə yoxdur</string>
+    <string name="mosque_finder_zoom_in">Yaxınlaşdırın</string>
+    <string name="mosque_finder_zoom_out">Küçült</string>
+    <string name="mosque_finder_nearest">Ən yaxın məscid</string>
 </resources>

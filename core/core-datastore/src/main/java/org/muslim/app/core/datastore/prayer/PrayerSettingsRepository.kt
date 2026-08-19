@@ -71,6 +71,16 @@ class PrayerSettingsRepository @Inject constructor(
                 }
                 .toMap(),
             adhanVolume = prefs[Keys.ADHAN_VOLUME] ?: 100,
+            adhanVolumes = Prayer.entries
+                .mapNotNull { prayer ->
+                    prefs[Keys.adhanVolumeFor(prayer)]?.let { prayer to it.coerceIn(0, 100) }
+                }
+                .toMap(),
+            vibratePerPrayer = Prayer.entries
+                .mapNotNull { prayer ->
+                    prefs[Keys.vibrateFor(prayer)]?.let { prayer to it }
+                }
+                .toMap(),
             bundledAdhanSounds = Prayer.entries
                 .mapNotNull { prayer ->
                     prefs[Keys.bundledSoundFor(prayer)]?.let { prayer to it }
@@ -129,6 +139,20 @@ class PrayerSettingsRepository @Inject constructor(
             }
             prefs[Keys.ADHAN_VOLUME] = newSettings.adhanVolume
             Prayer.entries.forEach { prayer ->
+                val volume = newSettings.adhanVolumes[prayer]
+                if (volume != null) {
+                    prefs[Keys.adhanVolumeFor(prayer)] = volume.coerceIn(0, 100)
+                } else {
+                    prefs.remove(Keys.adhanVolumeFor(prayer))
+                }
+                val vibrate = newSettings.vibratePerPrayer[prayer]
+                if (vibrate != null) {
+                    prefs[Keys.vibrateFor(prayer)] = vibrate
+                } else {
+                    prefs.remove(Keys.vibrateFor(prayer))
+                }
+            }
+            Prayer.entries.forEach { prayer ->
                 prefs[Keys.bundledSoundFor(prayer)] =
                     newSettings.bundledAdhanSounds[prayer] ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID
             }
@@ -168,6 +192,10 @@ class PrayerSettingsRepository @Inject constructor(
         val ADHAN_ENABLED = booleanPreferencesKey("adhan_enabled")
         val VIBRATE_ENABLED = booleanPreferencesKey("vibrate_enabled")
         val ADHAN_VOLUME = intPreferencesKey("adhan_volume")
+        fun adhanVolumeFor(prayer: Prayer): Preferences.Key<Int> =
+            intPreferencesKey("adhan_volume_${prayer.name.lowercase()}")
+        fun vibrateFor(prayer: Prayer): Preferences.Key<Boolean> =
+            booleanPreferencesKey("adhan_vibrate_${prayer.name.lowercase()}")
         fun bundledSoundFor(prayer: Prayer): Preferences.Key<String> =
             stringPreferencesKey("bundled_adhan_sound_${prayer.name.lowercase()}")
         val REMINDER_MINUTES = intPreferencesKey("reminder_minutes")

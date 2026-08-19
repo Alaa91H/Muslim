@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">पश्चिम</string>
     <string name="qibla_dir_nw">वायव्य</string>
     <string name="mosque_finder_close">बंद करा</string>
+    <string name="offline_maps_search">शहर किंवा देश शोधा...</string>
+    <string name="offline_maps_search_empty">कोणतेही जुळणारे परिणाम नाहीत</string>
+    <string name="mosque_finder_zoom_in">झूम वाढवा</string>
+    <string name="mosque_finder_zoom_out">झूम कमी करा</string>
+    <string name="mosque_finder_nearest">जवळची मशीद</string>
 </resources>

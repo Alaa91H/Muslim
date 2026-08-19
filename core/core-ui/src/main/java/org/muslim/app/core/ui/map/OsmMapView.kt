@@ -72,6 +72,32 @@ private val userAgentHttpClient: OkHttpClient by lazy {
 }
 
 /**
+ * Handle to drive a [MapLibreMap] from outside the composable (zoom buttons,
+ * fly-to, …). The map binds itself on ready; calls are safe before that
+ * (no-ops) and after a re-created map re-binds.
+ */
+class MapController {
+    private var map: MapLibreMap? = null
+
+    fun bind(map: MapLibreMap) {
+        this.map = map
+    }
+
+    fun zoomIn() {
+        map?.animateCamera(CameraUpdateFactory.zoomIn(), 300)
+    }
+
+    fun zoomOut() {
+        map?.animateCamera(CameraUpdateFactory.zoomOut(), 300)
+    }
+
+    /** Smoothly moves the camera to [point] at [zoom]. */
+    fun animateTo(point: LatLng, zoom: Double = 12.0) {
+        map?.animateTo(point, zoom)
+    }
+}
+
+/**
  * Compose wrapper around [MapView]. The map is created once and its lifecycle
  * is driven by the nearest [androidx.lifecycle.LifecycleOwner]. [onMapReady]
  * fires after the style finishes loading, which is the safe point to add
@@ -84,6 +110,8 @@ fun OsmMapView(
     styleUri: String = OsmMapDefaults.STYLE_URI,
     /** When this changes the map is recreated — use it to re-apply markers. */
     key: Any? = null,
+    /** Optional handle to drive the map from outside (zoom buttons, fly-to). */
+    controller: MapController? = null,
     onMapReady: (MapLibreMap) -> Unit = {},
     onMapClick: (LatLng) -> Unit = {},
     /** Fires when a feature in one of [symbolLayerIds] is tapped (e.g. a mosque marker). */
@@ -124,6 +152,7 @@ fun OsmMapView(
                         currentOnClick(point)
                         true
                     }
+                    controller?.bind(map)
                     currentOnReady(map)
                 }
             }

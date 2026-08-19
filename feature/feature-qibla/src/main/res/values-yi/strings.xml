@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">מערב</string>
     <string name="qibla_dir_nw">נאָרטוועסט</string>
     <string name="mosque_finder_close">נאָענט</string>
+    <string name="offline_maps_search">זוכן פֿאַר אַ שטאָט אָדער לאַנד ...</string>
+    <string name="offline_maps_search_empty">ניט וואָס ריכטן רעזולטאַטן</string>
+    <string name="mosque_finder_zoom_in">פארגרעסער אין</string>
+    <string name="mosque_finder_zoom_out">פארגרעסער אויס</string>
+    <string name="mosque_finder_nearest">ניראַסט מאָסקווע</string>
 </resources>

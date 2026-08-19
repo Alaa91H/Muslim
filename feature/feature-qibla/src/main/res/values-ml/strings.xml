@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">പടിഞ്ഞാറ്</string>
     <string name="qibla_dir_nw">വടക്കുപടിഞ്ഞാറ്</string>
     <string name="mosque_finder_close">അടയ്ക്കുക</string>
+    <string name="offline_maps_search">ഒരു നഗരത്തിനോ രാജ്യത്തിനോ വേണ്ടി തിരയുക...</string>
+    <string name="offline_maps_search_empty">പൊരുത്തപ്പെടുന്ന ഫലങ്ങളൊന്നുമില്ല</string>
+    <string name="mosque_finder_zoom_in">സൂം ഇൻ ചെയ്യുക</string>
+    <string name="mosque_finder_zoom_out">സൂം ഔട്ട് ചെയ്യുക</string>
+    <string name="mosque_finder_nearest">അടുത്തുള്ള മസ്ജിദ്</string>
 </resources>

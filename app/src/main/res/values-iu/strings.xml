@@ -35,10 +35,7 @@
     <string name="more_section_tools">ᓴᓇᕐᕈᑎᑦ</string>
     <string name="more_section_app">ᖃᕆᑕᐅᔭᒃᑯᑦ ᑐᒃᓯᕋᐅᑎ</string>
     <string name="more_order_title">ترتيب أقسام المزيد</string>
-    <string name="more_order_hint">اᓲ ᐊسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">‏‏‏‏‏‌‏‏</string>
-    <string name="more_order_move_up">ᐅᕼᐊᕆᒃ ᐊᓴᓕ</string>
-    <string name="more_order_move_down">ᕼᐊᕆᒃ لأسفل</string>
     <string name="more_order_back">رجᐅ</string>
     <string name="more_offline_maps">ᖃᕋᐃط ᐹᑐᓐ</string>
     <string name="more_offline_maps_desc">تحميل خرائط مدينة أوة لتعمل بدون إن دولترنت</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">ᐱᒋᐊᒃᑲᓐᓂᕐᓗᒍ</string>
     <string name="crash_close">ᒪᑐᓗᒍ</string>
     <string name="crash_dismiss">ᑲᔪᓯᔪᖅ</string>
+    <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترᑎبه، واستخدم المفتاح لإظهار أو ᐃخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
 </resources>

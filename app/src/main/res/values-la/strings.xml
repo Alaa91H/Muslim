@@ -35,10 +35,7 @@
     <string name="more_section_tools">Tools</string>
     <string name="more_section_app">App</string>
     <string name="more_order_title">ترتيب أقسام المزيد</string>
-    <string name="more_order_hint">. .</string>
     <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
-    <string name="more_order_move_up">تحريك لأعلى</string>
-    <string name="more_order_move_down">تحريك لأسفل</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">خرائط بدون إنترنت</string>
     <string name="more_offline_maps_desc">non est bonum est</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">Sileo</string>
     <string name="crash_close">Close</string>
     <string name="crash_dismiss">continue</string>
+    <string name="more_order_hint">. .</string>
 </resources>

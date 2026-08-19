@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Захад</string>
     <string name="qibla_dir_nw">Паўночна-заходні</string>
     <string name="mosque_finder_close">Блізка</string>
+    <string name="offline_maps_search">Пошук горада ці краіны…</string>
+    <string name="offline_maps_search_empty">Няма адпаведных вынікаў</string>
+    <string name="mosque_finder_zoom_in">Павялічыць</string>
+    <string name="mosque_finder_zoom_out">Паменшыць маштаб</string>
+    <string name="mosque_finder_nearest">Бліжэйшая мячэць</string>
 </resources>

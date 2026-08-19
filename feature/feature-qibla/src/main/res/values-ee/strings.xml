@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Ɣetoɖoƒe</string>
     <string name="qibla_dir_nw">Dzieheɣetoɖoƒe</string>
     <string name="mosque_finder_close">Kloe</string>
+    <string name="offline_maps_search">Di du alo dukɔ aɖe...</string>
+    <string name="offline_maps_search_empty">Nusiwo do tso eme si sɔ kple wo nɔewo aɖeke meli o</string>
+    <string name="mosque_finder_zoom_in">Zoom ɖe edzi</string>
+    <string name="mosque_finder_zoom_out">Zãe ɖe edzi</string>
+    <string name="mosque_finder_nearest">Mosque si te ɖe afima ŋu wu</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">ནུབ་ཕྱོགས།</string>
     <string name="qibla_dir_nw">ནུབ་བྱང་།</string>
     <string name="mosque_finder_close">ཁ་བསྡམས།</string>
+    <string name="offline_maps_search">ཁྲོམ་ཚོགས་ཡང་ན་རྒྱལ་ཁབ་འཚོལ་ཞིབ་འབད།</string>
+    <string name="offline_maps_search_empty">མཐུན་པའི་གྲུབ་འབྲས་མེད།</string>
+    <string name="mosque_finder_zoom_in">ཆེར་བསྐྱེད་འབད།</string>
+    <string name="mosque_finder_zoom_out">རྒྱས་ཟུམ།</string>
+    <string name="mosque_finder_nearest">ཁ་ཆེའི་ལྷ་ཁང་ཉེ་ཤོས།</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Barat</string>
     <string name="qibla_dir_nw">barat laut</string>
     <string name="mosque_finder_close">Tutup</string>
+    <string name="offline_maps_search">Telusuri kota atau negara…</string>
+    <string name="offline_maps_search_empty">Tidak ada hasil yang cocok</string>
+    <string name="mosque_finder_zoom_in">Perbesar</string>
+    <string name="mosque_finder_zoom_out">Perkecil</string>
+    <string name="mosque_finder_nearest">Masjid terdekat</string>
 </resources>

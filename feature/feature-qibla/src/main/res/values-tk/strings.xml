@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Günbatar</string>
     <string name="qibla_dir_nw">Demirgazyk-Günbatar</string>
     <string name="mosque_finder_close">.Akyn</string>
+    <string name="offline_maps_search">Şäher ýa-da ýurt gözläň…</string>
+    <string name="offline_maps_search_empty">Gabat gelýän netijeler ýok</string>
+    <string name="mosque_finder_zoom_in">Ulaltmak</string>
+    <string name="mosque_finder_zoom_out">Ulaltmak</string>
+    <string name="mosque_finder_nearest">Iň ýakyn metjit</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">مغرب</string>
     <string name="qibla_dir_nw">شمال مغرب</string>
     <string name="mosque_finder_close">بند</string>
+    <string name="offline_maps_search">ایک شہر یا ملک تلاش کریں…</string>
+    <string name="offline_maps_search_empty">کوئی مماثل نتائج نہیں ہیں۔</string>
+    <string name="mosque_finder_zoom_in">زوم ان کریں۔</string>
+    <string name="mosque_finder_zoom_out">زوم آؤٹ کریں۔</string>
+    <string name="mosque_finder_nearest">قریب ترین مسجد</string>
 </resources>

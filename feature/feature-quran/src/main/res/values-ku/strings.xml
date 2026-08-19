@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Tefsîr: %1$s</string>
     <string name="quran_title">Qurana Pîroz</string>
     <string name="quran_download_reciter_header">Daxistin: %1$d Ayet · %2$s</string>
+    <string name="quran_download_mushaf_progress">Muşef temam bû: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">Previous</string>
+    <string name="quran_recitation_notif_next">Next</string>
 </resources>

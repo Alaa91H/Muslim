@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Zapad</string>
     <string name="qibla_dir_nw">Northwest</string>
     <string name="mosque_finder_close">Zatvori</string>
+    <string name="offline_maps_search">Potražite grad ili državu…</string>
+    <string name="offline_maps_search_empty">Nema odgovarajućih rezultata</string>
+    <string name="mosque_finder_zoom_in">Uvećajte</string>
+    <string name="mosque_finder_zoom_out">Umanji</string>
+    <string name="mosque_finder_nearest">Najbliža džamija</string>
 </resources>

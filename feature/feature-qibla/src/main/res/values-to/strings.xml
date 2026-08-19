@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Hihifo</string>
     <string name="qibla_dir_nw">Tokelau Hihifo</string>
     <string name="mosque_finder_close">Tāpuni</string>
+    <string name="offline_maps_search">Fekumi ki ha kolo pe fonua...</string>
+    <string name="offline_maps_search_empty">\'Ikai ha ola \'oku fe\'unga</string>
+    <string name="mosque_finder_zoom_in">Fakalahi</string>
+    <string name="mosque_finder_zoom_out">Fakalahi</string>
+    <string name="mosque_finder_nearest">Mosque ofi taha</string>
 </resources>

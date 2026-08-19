@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">West</string>
     <string name="qibla_dir_nw">Northwest</string>
     <string name="mosque_finder_close">Close</string>
+    <string name="offline_maps_search">Tsvaga guta kana nyika…</string>
+    <string name="offline_maps_search_empty">Hapana mhinduro dzinoenderana</string>
+    <string name="mosque_finder_zoom_in">Zoom in</string>
+    <string name="mosque_finder_zoom_out">Zoom out</string>
+    <string name="mosque_finder_nearest">Musikiti wepedyo</string>
 </resources>

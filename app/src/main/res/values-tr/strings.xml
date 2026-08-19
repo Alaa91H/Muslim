@@ -35,10 +35,7 @@
     <string name="more_section_tools">Araçlar</string>
     <string name="more_section_app">Uygulama</string>
     <string name="more_order_title">ترتيب أقسام المزيد</string>
-    <string name="more_order_hint">Bu, en azından bir kez daha yapılması gereken bir şey. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">Ana Sayfa</string>
-    <string name="more_order_move_up">تحريك لأعلى</string>
-    <string name="more_order_move_down">تحريك لأسفل</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">خرائط بدون إنترنت</string>
     <string name="more_offline_maps_desc">حميل خرائط مدينة veya دولة لتعمل بدون إنترنت</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">Yeniden başlat</string>
     <string name="crash_close">Kapat</string>
     <string name="crash_dismiss">Devam et</string>
+    <string name="more_order_hint">Bu durumda, bir kredi kartına ödeme yapmak ve bir sonraki ödemeyi yapmak veya başka bir işlem yapmak zorunda kalacaksınız. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
 </resources>

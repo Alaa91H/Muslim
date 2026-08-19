@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Batı</string>
     <string name="qibla_dir_nw">Kuzeybatı</string>
     <string name="mosque_finder_close">Kapat</string>
+    <string name="offline_maps_search">Bir şehir veya ülke arayın…</string>
+    <string name="offline_maps_search_empty">Eşleşen sonuç yok</string>
+    <string name="mosque_finder_zoom_in">Yakınlaştır</string>
+    <string name="mosque_finder_zoom_out">Uzaklaştır</string>
+    <string name="mosque_finder_nearest">En yakın cami</string>
 </resources>

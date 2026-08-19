@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">ਪੱਛਮ</string>
     <string name="qibla_dir_nw">ਉੱਤਰ-ਪੱਛਮ</string>
     <string name="mosque_finder_close">ਬੰਦ ਕਰੋ</string>
+    <string name="offline_maps_search">ਕਿਸੇ ਸ਼ਹਿਰ ਜਾਂ ਦੇਸ਼ ਦੀ ਖੋਜ ਕਰੋ...</string>
+    <string name="offline_maps_search_empty">ਕੋਈ ਮੇਲ ਖਾਂਦੇ ਨਤੀਜੇ ਨਹੀਂ ਹਨ</string>
+    <string name="mosque_finder_zoom_in">ਜ਼ੂਮ ਇਨ ਕਰੋ</string>
+    <string name="mosque_finder_zoom_out">ਜ਼ੂਮ ਘਟਾਓ</string>
+    <string name="mosque_finder_nearest">ਨਜ਼ਦੀਕੀ ਮਸਜਿਦ</string>
 </resources>

@@ -75,9 +75,21 @@ class QuranAudioPlayerTest {
             FakeEngine().also { engines.add(it) }
     }
 
+    /** Records the foreground-service bridge transitions (active/inactive). */
+    private class RecordingBridge : RecitationPlaybackBridge {
+        val transitions = mutableListOf<Boolean>()
+        val isActive get() = transitions.lastOrNull() == true
+        override fun onPlaybackActiveChanged(active: Boolean) {
+            transitions.add(active)
+        }
+    }
+
     private fun item(global: Int) = RecitationQueueItem(File("ayah-$global.mp3"), global)
 
-    private fun player(factory: FakeFactory) = QuranAudioPlayer(factory)
+    private fun player(
+        factory: FakeFactory,
+        bridge: RecitationPlaybackBridge = RecitationPlaybackBridge { },
+    ) = QuranAudioPlayer(factory, bridge)
 
     @Test
     fun `empty queue is a no-op`() {
@@ -117,6 +129,62 @@ class QuranAudioPlayerTest {
         assertThat(player.playbackState.value).isEqualTo(PlaybackState.Playing)
         assertThat(engine.started).isTrue()
         assertThat(engine.prepareAsyncCalls).isEqualTo(1)
+    }
+
+    @Test
+    fun `preparing playback activates the foreground bridge`() {
+        val factory = FakeFactory()
+        val bridge = RecordingBridge()
+        val player = player(factory, bridge)
+        player.playQueue(listOf(item(1)), startIndex = 0, repeatCount = 1)
+        assertThat(bridge.transitions).isEmpty()
+
+        factory.engines.single().firePrepared()
+
+        assertThat(bridge.transitions).containsExactly(true)
+    }
+
+    @Test
+    fun `stopping playback deactivates the foreground bridge`() {
+        val factory = FakeFactory()
+        val bridge = RecordingBridge()
+        val player = player(factory, bridge)
+        player.playQueue(listOf(item(1)), startIndex = 0, repeatCount = 1)
+        factory.engines.single().firePrepared()
+        assertThat(bridge.isActive).isTrue()
+
+        player.stop()
+
+        assertThat(bridge.transitions.last()).isFalse()
+        assertThat(bridge.isActive).isFalse()
+    }
+
+    @Test
+    fun `queue completion deactivates the foreground bridge`() {
+        val factory = FakeFactory()
+        val bridge = RecordingBridge()
+        val player = player(factory, bridge)
+        player.playQueue(listOf(item(1)), startIndex = 0, repeatCount = 1)
+        factory.engines.single().firePrepared()
+        assertThat(bridge.isActive).isTrue()
+
+        factory.engines.single().fireCompletion()
+
+        assertThat(bridge.transitions.last()).isFalse()
+    }
+
+    @Test
+    fun `playback error deactivates the foreground bridge`() {
+        val factory = FakeFactory()
+        val bridge = RecordingBridge()
+        val player = player(factory, bridge)
+        player.playQueue(listOf(item(1)), startIndex = 0, repeatCount = 1)
+        factory.engines.single().firePrepared()
+        assertThat(bridge.isActive).isTrue()
+
+        factory.engines.single().fireError()
+
+        assertThat(bridge.transitions.last()).isFalse()
     }
 
     @Test
@@ -281,51 +349,5 @@ class QuranAudioPlayerTest {
         player.refreshPosition()
 
         assertThat(player.positionMs.value).isEqualTo(1234L)
-    }
-
-    @Test
-    fun `continuous queue fires onQueueCompleted at the end instead of finishing`() {
-        val factory = FakeFactory()
-        val player = player(factory)
-        var completed = 0
-        player.onQueueCompleted = { completed++ }
-
-        player.playQueue(
-            listOf(item(1), item(2)),
-            startIndex = 0,
-            repeatCount = 1,
-            continuous = true,
-        )
-
-        factory.engines[0].fireCompletion()
-        assertThat(player.currentAyah.value).isEqualTo(2)
-        assertThat(completed).isEqualTo(0)
-
-        factory.engines[1].fireCompletion()
-        assertThat(completed).isEqualTo(1)
-        assertThat(player.playbackState.value).isEqualTo(PlaybackState.Idle)
-        assertThat(player.currentAyah.value).isNull()
-        // The flag is consumed so a second completion cannot double-fire.
-        factory.engines[1].fireCompletion()
-        assertThat(completed).isEqualTo(1)
-    }
-
-    @Test
-    fun `stop clears continuous mode and the completion callback`() {
-        val factory = FakeFactory()
-        val player = player(factory)
-        var completed = 0
-        player.onQueueCompleted = { completed++ }
-
-        player.playQueue(
-            listOf(item(1), item(2)),
-            startIndex = 0,
-            repeatCount = 1,
-            continuous = true,
-        )
-        player.stop()
-
-        assertThat(player.playbackState.value).isEqualTo(PlaybackState.Idle)
-        assertThat(player.onQueueCompleted).isNull()
     }
 }

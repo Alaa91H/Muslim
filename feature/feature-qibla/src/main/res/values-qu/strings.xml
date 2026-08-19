@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Oeste</string>
     <string name="qibla_dir_nw">Noroeste nisqa</string>
     <string name="mosque_finder_close">Wichqay</string>
+    <string name="offline_maps_search">Huk llaqtata utaq suyuta maskay...</string>
+    <string name="offline_maps_search_empty">Mana tupaqnin ruwasqakuna</string>
+    <string name="mosque_finder_zoom_in">Hatunchay</string>
+    <string name="mosque_finder_zoom_out">Huch’uyachiy</string>
+    <string name="mosque_finder_nearest">Aswan qaylla mezquita</string>
 </resources>

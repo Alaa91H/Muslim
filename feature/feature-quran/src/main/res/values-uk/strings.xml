@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Тафсір: %1$s</string>
     <string name="quran_title">Священний Коран</string>
     <string name="quran_download_reciter_header">Завантажено: %1$d аятів · %2$s</string>
+    <string name="quran_download_mushaf_progress">Мусхаф завершено: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">Попередній</string>
+    <string name="quran_recitation_notif_next">Далі</string>
 </resources>

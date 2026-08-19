@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Tây</string>
     <string name="qibla_dir_nw">Tây Bắc</string>
     <string name="mosque_finder_close">Đóng</string>
+    <string name="offline_maps_search">Tìm kiếm thành phố hoặc quốc gia…</string>
+    <string name="offline_maps_search_empty">Không có kết quả phù hợp</string>
+    <string name="mosque_finder_zoom_in">Phóng to</string>
+    <string name="mosque_finder_zoom_out">Thu nhỏ</string>
+    <string name="mosque_finder_nearest">Nhà thờ Hồi giáo gần nhất</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Vest</string>
     <string name="qibla_dir_nw">Avannamut kimmut</string>
     <string name="mosque_finder_close">Qanittoq</string>
+    <string name="offline_maps_search">Illoqarfik nunaluunniit ujarlugu...</string>
+    <string name="offline_maps_search_empty">Nalinginnaasumik inerneqanngilaq</string>
+    <string name="mosque_finder_zoom_in">Zoom-erlugu</string>
+    <string name="mosque_finder_zoom_out">Zoom-erlugu</string>
+    <string name="mosque_finder_nearest">Moskee qaninnerpaaq</string>
 </resources>

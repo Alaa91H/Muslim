@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">ตัฟซีร์: %1$s</string>
     <string name="quran_title">อัลกุรอาน</string>
     <string name="quran_download_reciter_header">ดาวน์โหลดแล้ว: %1$d อายะห์ · %2$s</string>
+    <string name="quran_download_mushaf_progress">มูชาฟเสร็จสมบูรณ์: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">ก่อนหน้า</string>
+    <string name="quran_recitation_notif_next">ถัดไป</string>
 </resources>

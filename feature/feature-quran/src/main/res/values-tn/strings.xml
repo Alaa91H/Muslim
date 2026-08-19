@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Quran e e Boitshepo</string>
     <string name="quran_download_reciter_header">E laisolotswe: di-aya di le %1$d · %2$s</string>
+    <string name="quran_download_mushaf_progress">Mushaf o feletse: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">Tse di fetileng</string>
+    <string name="quran_recitation_notif_next">Se se latelang</string>
 </resources>

@@ -25,8 +25,6 @@ NEW_KEYS = {
         "more_order_title",
         "more_order_hint",
         "more_order_reset",
-        "more_order_move_up",
-        "more_order_move_down",
         "more_order_back",
         "more_offline_maps",
         "more_offline_maps_desc",
@@ -44,6 +42,10 @@ NEW_KEYS = {
     ],
     os.path.join(PROJECT_ROOT, "feature", "feature-quran", "src", "main", "res"): [
         "quran_download_reciter_header",
+        "quran_download_mushaf_progress",
+        "quran_download_surah_fraction",
+        "quran_recitation_notif_previous",
+        "quran_recitation_notif_next",
     ],
     os.path.join(PROJECT_ROOT, "feature", "feature-qibla", "src", "main", "res"): [
         "qibla_dir_n",
@@ -73,6 +75,8 @@ NEW_KEYS = {
         "offline_maps_tab_city",
         "offline_maps_tab_country",
         "offline_maps_tab_custom",
+        "offline_maps_search",
+        "offline_maps_search_empty",
         "offline_maps_size_estimate",
         "offline_maps_download",
         "offline_maps_custom_hint",
@@ -81,6 +85,9 @@ NEW_KEYS = {
         "offline_maps_custom_tap",
         "offline_maps_custom_default_name",
         "mosque_finder_close",
+        "mosque_finder_zoom_in",
+        "mosque_finder_zoom_out",
+        "mosque_finder_nearest",
     ],
 }
 
@@ -96,6 +103,8 @@ STRONG_SPECS = {
     "offline_maps_region_meta": [("{{{1}}}", "%1$s"), ("{{{2}}}", "%2$s")],
     "offline_maps_size_estimate": [("{{{1}}}", "%1$s")],
     "offline_maps_custom_selected": [("{{{1}}}", "%1$.2f"), ("{{{2}}}", "%2$.2f")],
+    "quran_download_mushaf_progress": [("{{{1}}}", "%1$d"), ("{{{2}}}", "%2$d")],
+    "quran_download_surah_fraction": [("{{{1}}}", "%1$d"), ("{{{2}}}", "%2$d")],
 }
 
 

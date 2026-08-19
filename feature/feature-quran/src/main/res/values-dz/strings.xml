@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">ཏཕ་སིར་: %1$s .</string>
     <string name="quran_title">ཁ་ཆེའི་གསུང་རབ།</string>
     <string name="quran_download_reciter_header">ཕབ་ལེན་འབད་ཡོདཔ།: %1$d ayahs · %2$s</string>
+    <string name="quran_download_mushaf_progress">མུ་ཤཕ་ཆ་ཚང་: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">ཧེ་མ།</string>
+    <string name="quran_recitation_notif_next">ཤུལ་མམ།</string>
 </resources>

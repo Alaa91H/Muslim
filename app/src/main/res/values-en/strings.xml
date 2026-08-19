@@ -37,10 +37,7 @@
 
     <!-- More hub section order customization -->
     <string name="more_order_title">More hub section order</string>
-    <string name="more_order_hint">Use the arrows to move each section up or down. The order applies to the More screen immediately.</string>
     <string name="more_order_reset">Restore default order</string>
-    <string name="more_order_move_up">Move up</string>
-    <string name="more_order_move_down">Move down</string>
     <string name="more_order_back">Back</string>
 
     <!-- App shortcuts (long-press the launcher icon) -->

@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Tefsir: %1$s</string>
     <string name="quran_title">Kur\'an-ı Kerim</string>
     <string name="quran_download_reciter_header">İndirilen: %1$d ayet · %2$s</string>
+    <string name="quran_download_mushaf_progress">Mushaf tamamlandı: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">Önceki</string>
+    <string name="quran_recitation_notif_next">Sonraki</string>
 </resources>

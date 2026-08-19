@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Oorun</string>
     <string name="qibla_dir_nw">Northwest</string>
     <string name="mosque_finder_close">Sunmọ</string>
+    <string name="offline_maps_search">Wa ilu tabi orilẹ-ede kan…</string>
+    <string name="offline_maps_search_empty">Ko si awọn esi ti o baamu</string>
+    <string name="mosque_finder_zoom_in">Sun-un sinu</string>
+    <string name="mosque_finder_zoom_out">Sun-un jade</string>
+    <string name="mosque_finder_nearest">Mossalassi to sunmọ</string>
 </resources>

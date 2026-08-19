@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Qhur-aan Yalli.</string>
     <string name="quran_download_reciter_header">oobise: %1$d aceyta · %2$s</string>
+    <string name="quran_download_mushaf_progress">Mushaaf yumurruqeh:%1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">Taturte</string>
+    <string name="quran_recitation_notif_next">Ciggiilaak</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Hirnaange</string>
     <string name="qibla_dir_nw">Fuɗnaange-rewo</string>
     <string name="mosque_finder_close">Uddu</string>
+    <string name="offline_maps_search">Yiylo wuro walla leydi...</string>
+    <string name="offline_maps_search_empty">Alaa njeñtudi nanndundi</string>
+    <string name="mosque_finder_zoom_in">Zoom nder</string>
+    <string name="mosque_finder_zoom_out">Zoom les</string>
+    <string name="mosque_finder_nearest">Juulirde ɓurnde ɓadaade</string>
 </resources>

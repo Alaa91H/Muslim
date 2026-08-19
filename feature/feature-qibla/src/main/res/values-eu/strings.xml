@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Mendebaldea</string>
     <string name="qibla_dir_nw">Ipar-mendebaldea</string>
     <string name="mosque_finder_close">Itxi</string>
+    <string name="offline_maps_search">Bilatu hiri edo herrialde bat...</string>
+    <string name="offline_maps_search_empty">Ez dago bat datorren emaitzarik</string>
+    <string name="mosque_finder_zoom_in">Handitu</string>
+    <string name="mosque_finder_zoom_out">Txikiagotu</string>
+    <string name="mosque_finder_nearest">Hurbilen dagoen meskita</string>
 </resources>

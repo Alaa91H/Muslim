@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Fəte</string>
     <string name="qibla_dir_nw">Yalafǝte</string>
     <string name="mosque_finder_close">Zakkatə</string>
+    <string name="offline_maps_search">Bərni au lardə kulasne...</string>
+    <string name="offline_maps_search_empty">Jaza samunnam ba</string>
+    <string name="mosque_finder_zoom_in">Zoom suro</string>
+    <string name="mosque_finder_zoom_out">Zoom diya</string>
+    <string name="mosque_finder_nearest">Mashidi karǝngǝma</string>
 </resources>

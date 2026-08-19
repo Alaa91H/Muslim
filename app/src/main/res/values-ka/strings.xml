@@ -35,10 +35,7 @@
     <string name="more_section_tools">ხელსაწყოები</string>
     <string name="more_section_app">აპლიკაცია</string>
     <string name="more_order_title">ترتيب أقسام المزيد</string>
-    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
-    <string name="more_order_move_up">წაიკითხეთ</string>
-    <string name="more_order_move_down">წაიკითხეთ ლასფლ</string>
     <string name="more_order_back">رجუع</string>
     <string name="more_offline_maps">ინტერნეტის გარეშე</string>
     <string name="more_offline_maps_desc">ჩამოტვირთეთ ინტერნეტის გარეშე</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">გადატვირთეთ</string>
     <string name="crash_close">დახურვა</string>
     <string name="crash_dismiss">განაგრძეთ</string>
+    <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على შაشة المزيد.</string>
 </resources>

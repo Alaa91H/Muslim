@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Tooa o te râ</string>
     <string name="qibla_dir_nw">Apatoerau Tooa o te râ</string>
     <string name="mosque_finder_close">Kapiti</string>
+    <string name="offline_maps_search">A imi i te hoê oire aore râ fenua...</string>
+    <string name="offline_maps_search_empty">Aita e mau faahopearaa tu\'ati</string>
+    <string name="mosque_finder_zoom_in">Zoom i roto</string>
+    <string name="mosque_finder_zoom_out">Zoom i rapae</string>
+    <string name="mosque_finder_nearest">Mosque fatata roa \' \' e</string>
 </resources>

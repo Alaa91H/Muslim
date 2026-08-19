@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Ouest</string>
     <string name="qibla_dir_nw">Nord-Ouest</string>
     <string name="mosque_finder_close">Fermé</string>
+    <string name="offline_maps_search">Gi mbeni gbata wala mbeni kodoro...</string>
+    <string name="offline_maps_search_empty">Arésultat so alingbi tere ayeke dä pëpe</string>
+    <string name="mosque_finder_zoom_in">Zoom na yâ ni</string>
+    <string name="mosque_finder_zoom_out">Zoom na gbe ni</string>
+    <string name="mosque_finder_nearest">Mosquée so ayeke nduru</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Vestur</string>
     <string name="qibla_dir_nw">Norðvestur</string>
     <string name="mosque_finder_close">Lat aftur</string>
+    <string name="offline_maps_search">Leita eftir einum býi ella landi...</string>
+    <string name="offline_maps_search_empty">Eingi samsvarandi úrslit</string>
+    <string name="mosque_finder_zoom_in">Zooma inn</string>
+    <string name="mosque_finder_zoom_out">Zooma út</string>
+    <string name="mosque_finder_nearest">Nærmasta moska</string>
 </resources>

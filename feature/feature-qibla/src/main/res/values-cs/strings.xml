@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Západ</string>
     <string name="qibla_dir_nw">Severozápad</string>
     <string name="mosque_finder_close">Zavřít</string>
+    <string name="offline_maps_search">Vyhledejte město nebo zemi…</string>
+    <string name="offline_maps_search_empty">Žádné odpovídající výsledky</string>
+    <string name="mosque_finder_zoom_in">Přiblížit</string>
+    <string name="mosque_finder_zoom_out">Oddálit</string>
+    <string name="mosque_finder_nearest">Nejbližší mešita</string>
 </resources>

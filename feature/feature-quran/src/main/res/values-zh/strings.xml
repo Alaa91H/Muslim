@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">塔夫西尔：%1$s</string>
     <string name="quran_title">神圣的《古兰经》</string>
     <string name="quran_download_reciter_header">下载: %1$d ayahs · %2$s</string>
+    <string name="quran_download_mushaf_progress">穆沙夫完成：%1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">上一页</string>
+    <string name="quran_recitation_notif_next">下一步</string>
 </resources>

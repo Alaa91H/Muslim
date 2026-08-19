@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Тафсир: %1$s шайт.</string>
     <string name="quran_title">Вежа Коран .</string>
     <string name="quran_download_reciter_header">Скачайтӧма: %1$d аят · %2$s</string>
+    <string name="quran_download_mushaf_progress">Мушаф тыр: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">Воддза</string>
+    <string name="quran_recitation_notif_next">Водзӧ</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Zachód</string>
     <string name="qibla_dir_nw">Północny zachód</string>
     <string name="mosque_finder_close">Zamknij</string>
+    <string name="offline_maps_search">Wyszukaj miasto lub kraj…</string>
+    <string name="offline_maps_search_empty">Brak pasujących wyników</string>
+    <string name="mosque_finder_zoom_in">Powiększ</string>
+    <string name="mosque_finder_zoom_out">Pomniejsz</string>
+    <string name="mosque_finder_nearest">Najbliższy meczet</string>
 </resources>

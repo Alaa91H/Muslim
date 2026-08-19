@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Малхбузе</string>
     <string name="qibla_dir_nw">Къилба-Малхбузе</string>
     <string name="mosque_finder_close">ДӀакъовла</string>
+    <string name="offline_maps_search">ГӀала я пачхьалкх лаха...</string>
+    <string name="offline_maps_search_empty">Цхьа а нийса догӀу жамӀаш дац</string>
+    <string name="mosque_finder_zoom_in">Зум совъяккха</string>
+    <string name="mosque_finder_zoom_out">Масштаб лахъяран</string>
+    <string name="mosque_finder_nearest">Уггар гергара маьждиг</string>
 </resources>

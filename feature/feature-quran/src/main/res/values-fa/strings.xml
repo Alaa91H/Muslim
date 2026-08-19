@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">تفسیر: %1$s</string>
     <string name="quran_title">قرآن کریم</string>
     <string name="quran_download_reciter_header">دانلود شده: %1$d آیه · %2$s</string>
+    <string name="quran_download_mushaf_progress">مصحف کامل شد: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">قبلی</string>
+    <string name="quran_recitation_notif_next">بعدی</string>
 </resources>

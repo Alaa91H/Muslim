@@ -35,10 +35,7 @@
     <string name="more_section_tools">ツール</string>
     <string name="more_section_app">アプリ</string>
     <string name="more_order_title">ログインしてください。</string>
-    <string name="more_order_hint">ありがとうございます。 ُطبَّق الترتيب مباشرة على شاشة المزيد。</string>
     <string name="more_order_reset">और देखें</string>
-    <string name="more_order_move_up">翻訳する</string>
-    <string name="more_order_move_down">翻訳する</string>
     <string name="more_order_back">いいえ</string>
     <string name="more_offline_maps">認証済み</string>
     <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">再起動</string>
     <string name="crash_close">閉じる</string>
     <string name="crash_dismiss">続ける</string>
+    <string name="more_order_hint">ضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاءうーん。 يُطبَّق التغيير مباشرة على شاشة المزيد。</string>
 </resources>

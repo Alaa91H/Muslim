@@ -297,23 +297,37 @@ private fun AddAreaDialog(
     onDismiss: () -> Unit,
 ) {
     var tab by remember { mutableIntStateOf(0) }
+    var query by remember { mutableStateOf("") }
+    val searching = query.isNotBlank()
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.offline_maps_add)) },
         text = {
             Column {
-                Row {
-                    TabChip(stringResource(R.string.offline_maps_tab_city), tab == 0, Icons.Filled.Place) { tab = 0 }
-                    Spacer(Modifier.width(8.dp))
-                    TabChip(stringResource(R.string.offline_maps_tab_country), tab == 1, Icons.Filled.Public) { tab = 1 }
-                    Spacer(Modifier.width(8.dp))
-                    TabChip(stringResource(R.string.offline_maps_tab_custom), tab == 2, Icons.Filled.Map) { tab = 2 }
-                }
+                OutlinedTextField(
+                    value = query,
+                    onValueChange = { query = it },
+                    label = { Text(stringResource(R.string.offline_maps_search)) },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth(),
+                )
                 Spacer(Modifier.height(12.dp))
-                when (tab) {
-                    0 -> AreaList(viewModel.cities, viewModel, onDismiss)
-                    1 -> AreaList(viewModel.countries, viewModel, onDismiss)
-                    else -> CustomAreaPicker(viewModel, onDismiss)
+                if (searching) {
+                    SearchResults(query = query, viewModel = viewModel, onDismiss = onDismiss)
+                } else {
+                    Row {
+                        TabChip(stringResource(R.string.offline_maps_tab_city), tab == 0, Icons.Filled.Place) { tab = 0 }
+                        Spacer(Modifier.width(8.dp))
+                        TabChip(stringResource(R.string.offline_maps_tab_country), tab == 1, Icons.Filled.Public) { tab = 1 }
+                        Spacer(Modifier.width(8.dp))
+                        TabChip(stringResource(R.string.offline_maps_tab_custom), tab == 2, Icons.Filled.Map) { tab = 2 }
+                    }
+                    Spacer(Modifier.height(12.dp))
+                    when (tab) {
+                        0 -> AreaList(viewModel.cities, viewModel, onDismiss)
+                        1 -> AreaList(viewModel.countries, viewModel, onDismiss)
+                        else -> CustomAreaPicker(viewModel, onDismiss)
+                    }
                 }
             }
         },
@@ -322,6 +336,35 @@ private fun AddAreaDialog(
             TextButton(onClick = onDismiss) { Text(stringResource(R.string.offline_maps_cancel)) }
         },
     )
+}
+
+/**
+ * Free-text search across the bundled city + country presets (by English or
+ * Arabic name) so the user can jump straight to a specific area to download.
+ */
+@Composable
+private fun SearchResults(
+    query: String,
+    viewModel: OfflineMapsViewModel,
+    onDismiss: () -> Unit,
+) {
+    val needle = query.trim()
+    val results = remember(needle) {
+        (viewModel.cities + viewModel.countries).filter { area ->
+            area.name.contains(needle, ignoreCase = true) ||
+                area.nameArabic.contains(needle)
+        }
+    }
+    if (results.isEmpty()) {
+        Text(
+            text = stringResource(R.string.offline_maps_search_empty),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(vertical = 16.dp),
+        )
+    } else {
+        AreaList(results, viewModel, onDismiss)
+    }
 }
 
 @Composable

@@ -2,10 +2,7 @@
 <resources>
     <string name="app_name">مسلم</string>
     <string name="more_order_title">أقسام الترتيب المزيد</string>
-    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم للدفع أو للجميع. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">ضبط الذاكرة الافتراضية</string>
-    <string name="more_order_move_up">الذي يدفع</string>
-    <string name="more_order_move_down">إلى الأبد</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">خرائط بدون إنترنت</string>
     <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل بدون إنترنت</string>
@@ -15,4 +12,5 @@
     <string name="crash_restart">إعادة التشغيل</string>
     <string name="crash_close">إغلاق</string>
     <string name="crash_dismiss">متابعة</string>
+    <string name="more_order_hint">انقر مع عدم وجود أي قسم وسحبه مرة أخرى لترتيبه، وتغيير المفتاح إلى أو إخفاء كل قسم. يُطبَّق الغد مباشرة على شاشة المزيد.</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">ಪಶ್ಚಿಮ</string>
     <string name="qibla_dir_nw">ವಾಯುವ್ಯ</string>
     <string name="mosque_finder_close">ಮುಚ್ಚಿ</string>
+    <string name="offline_maps_search">ನಗರ ಅಥವಾ ದೇಶಕ್ಕಾಗಿ ಹುಡುಕಿ...</string>
+    <string name="offline_maps_search_empty">ಯಾವುದೇ ಹೊಂದಾಣಿಕೆಯ ಫಲಿತಾಂಶಗಳಿಲ್ಲ</string>
+    <string name="mosque_finder_zoom_in">ಜೂಮ್ ಇನ್ ಮಾಡಿ</string>
+    <string name="mosque_finder_zoom_out">ಜೂಮ್ ಔಟ್</string>
+    <string name="mosque_finder_nearest">ಹತ್ತಿರದ ಮಸೀದಿ</string>
 </resources>

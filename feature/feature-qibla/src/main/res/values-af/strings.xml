@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Wes</string>
     <string name="qibla_dir_nw">Noordwes</string>
     <string name="mosque_finder_close">Maak toe</string>
+    <string name="offline_maps_search">Soek vir \'n stad of land …</string>
+    <string name="offline_maps_search_empty">Geen ooreenstemmende resultate nie</string>
+    <string name="mosque_finder_zoom_in">Zoem in</string>
+    <string name="mosque_finder_zoom_out">Zoem uit</string>
+    <string name="mosque_finder_nearest">Naaste moskee</string>
 </resources>

@@ -35,10 +35,7 @@
     <string name="more_section_tools">මෙවලම්</string>
     <string name="more_section_app">යෙදුම</string>
     <string name="more_order_title">ترتيب أقسام المزيد</string>
-    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى හෝ لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
-    <string name="more_order_move_up">تحريك لأعلى</string>
-    <string name="more_order_move_down">تحريك لأسفل</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">خرائط بدون إنترنت</string>
     <string name="more_offline_maps_desc">تحميل خرائط مدينة و دولة لتعمل بدون إنترنت</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">නැවත ආරම්භ කරන්න</string>
     <string name="crash_close">වසන්න</string>
     <string name="crash_dismiss">දිගටම කරගෙන යන්න</string>
+    <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو خلقاء ك. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
 </resources>

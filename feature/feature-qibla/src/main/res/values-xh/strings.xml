@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">eNtshona</string>
     <string name="qibla_dir_nw">Kumntla-ntshona</string>
     <string name="mosque_finder_close">Vala</string>
+    <string name="offline_maps_search">Khangela isixeko okanye ilizwe...</string>
+    <string name="offline_maps_search_empty">Akukho ziphumo zidibanayo</string>
+    <string name="mosque_finder_zoom_in">Andisa</string>
+    <string name="mosque_finder_zoom_out">Sondeza ngaphandle</string>
+    <string name="mosque_finder_nearest">I-mosque ekufutshane</string>
 </resources>

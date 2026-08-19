@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Vhukovhela</string>
     <string name="qibla_dir_nw">Tshipembe vhukovhela</string>
     <string name="mosque_finder_close">Vala</string>
+    <string name="offline_maps_search">Setsha dorobo kana shango...</string>
+    <string name="offline_maps_search_empty">Ahuna mvelelo dzi tshimbilelanaho</string>
+    <string name="mosque_finder_zoom_in">Zoom in</string>
+    <string name="mosque_finder_zoom_out">Zoom nnḓa</string>
+    <string name="mosque_finder_nearest">Mosque wa tsini</string>
 </resources>

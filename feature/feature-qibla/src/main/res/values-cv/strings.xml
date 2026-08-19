@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Хӗвеланӑҫ</string>
     <string name="qibla_dir_nw">Ҫурҫӗр-хӗвеланӑҫ</string>
     <string name="mosque_finder_close">Хуп</string>
+    <string name="offline_maps_search">Хула е ҫӗршыв шырӑр...</string>
+    <string name="offline_maps_search_empty">Пӗр пек результатсем ҫук</string>
+    <string name="mosque_finder_zoom_in">Пысӑклат</string>
+    <string name="mosque_finder_zoom_out">Пысӑклатмалла</string>
+    <string name="mosque_finder_nearest">Чи ҫывӑхри мечӗт</string>
 </resources>

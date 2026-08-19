@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Արեւմուտք</string>
     <string name="qibla_dir_nw">Հյուսիսարևմտյան</string>
     <string name="mosque_finder_close">Փակել</string>
+    <string name="offline_maps_search">Որոնել քաղաք կամ երկիր…</string>
+    <string name="offline_maps_search_empty">Համապատասխան արդյունքներ չկան</string>
+    <string name="mosque_finder_zoom_in">Մեծացնել</string>
+    <string name="mosque_finder_zoom_out">Մեծացնել</string>
+    <string name="mosque_finder_nearest">Մոտակա մզկիթ</string>
 </resources>

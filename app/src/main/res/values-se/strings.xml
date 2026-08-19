@@ -35,10 +35,7 @@
     <string name="more_section_tools">Reaiddut</string>
     <string name="more_section_app">Áppa</string>
     <string name="more_order_title">ترتيب أقم المزيد</string>
-    <string name="more_order_hint">استخدم الأسهم لتح كل مختلف لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
-    <string name="more_order_move_up">تحصیل لأعلى</string>
-    <string name="more_order_move_down">تحصیل لأسفل</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">خرائط إنترنت</string>
     <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل إنترنت</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">Ođđasit álggahit</string>
     <string name="crash_close">Gidde</string>
     <string name="crash_dismiss">Joatkit</string>
+    <string name="more_order_hint">اضغط مع الاستمرار على أي گونه واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء kli sort. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
 </resources>

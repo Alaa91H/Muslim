@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Oèst</string>
     <string name="qibla_dir_nw">Nòrd-oèst</string>
     <string name="mosque_finder_close">Barrar</string>
+    <string name="offline_maps_search">Cercar una vila o un país...</string>
+    <string name="offline_maps_search_empty">Pas de resultats correspondents</string>
+    <string name="mosque_finder_zoom_in">Zoom</string>
+    <string name="mosque_finder_zoom_out">Zoom fòra</string>
+    <string name="mosque_finder_nearest">La mosquèa mai pròcha</string>
 </resources>

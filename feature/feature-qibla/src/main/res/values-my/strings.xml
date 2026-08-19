@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">အနောက်</string>
     <string name="qibla_dir_nw">အနောက်မြောက်</string>
     <string name="mosque_finder_close">ပိတ်လိုက်</string>
+    <string name="offline_maps_search">မြို့ သို့မဟုတ် နိုင်ငံကို ရှာပါ...</string>
+    <string name="offline_maps_search_empty">တူညီသောရလဒ်များမရှိပါ။</string>
+    <string name="mosque_finder_zoom_in">ချဲ့ကြည့်ပါ။</string>
+    <string name="mosque_finder_zoom_out">ချဲ့ကြည့်ပါ။</string>
+    <string name="mosque_finder_nearest">အနီးဆုံးဗလီ</string>
 </resources>

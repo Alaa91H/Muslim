@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Gurhan</string>
     <string name="quran_download_reciter_header">Göçürildi: %1$d aýat · %2$s</string>
+    <string name="quran_download_mushaf_progress">Muşaf gutardy: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">Öňki</string>
+    <string name="quran_recitation_notif_next">Indiki</string>
 </resources>

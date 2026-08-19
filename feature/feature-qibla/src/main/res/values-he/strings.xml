@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">מערב</string>
     <string name="qibla_dir_nw">צפון מערב</string>
     <string name="mosque_finder_close">סגור</string>
+    <string name="offline_maps_search">חפש עיר או מדינה...</string>
+    <string name="offline_maps_search_empty">אין תוצאות תואמות</string>
+    <string name="mosque_finder_zoom_in">התקרב</string>
+    <string name="mosque_finder_zoom_out">זום החוצה</string>
+    <string name="mosque_finder_nearest">המסגד הקרוב ביותר</string>
 </resources>

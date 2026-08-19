@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Tefsir: %1$s</string>
     <string name="quran_title">Kurani Famëlartë</string>
     <string name="quran_download_reciter_header">Shkarkuar: %1$d ajete · %2$s</string>
+    <string name="quran_download_mushaf_progress">Mushafi i përfunduar: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">E mëparshme</string>
+    <string name="quran_recitation_notif_next">Tjetra</string>
 </resources>

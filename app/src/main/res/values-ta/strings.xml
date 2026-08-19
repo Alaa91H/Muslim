@@ -35,10 +35,7 @@
     <string name="more_section_tools">கருவிகள்</string>
     <string name="more_section_app">ஆப்</string>
     <string name="more_order_title">ترتيب أقسام المزيد</string>
-    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى அவு லாஸ்ஃபல். يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
-    <string name="more_order_move_up">تحريك لأعلى</string>
-    <string name="more_order_move_down">تحريك لأسفل</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">خرائط بدون إنترنت</string>
     <string name="more_offline_maps_desc">تحميل خرائط مدينة ஆவு துலஸ் லாட்அமல் புத்தன் அன்ட்ரன்ட்</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">மறுதொடக்கம்</string>
     <string name="crash_close">மூடு</string>
     <string name="crash_dismiss">தொடரவும்</string>
+    <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو خلقاء ك. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
 </resources>

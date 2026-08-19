@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Kinh Qur\'an Thánh</string>
     <string name="quran_download_reciter_header">Đã tải xuống: %1$d ayah · %2$s</string>
+    <string name="quran_download_mushaf_progress">Mushaf hoàn thành: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">trước đó</string>
+    <string name="quran_recitation_notif_next">Tiếp theo</string>
 </resources>

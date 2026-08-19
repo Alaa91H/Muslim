@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Magharibi</string>
     <string name="qibla_dir_nw">Kaskazini Magharibi</string>
     <string name="mosque_finder_close">Funga</string>
+    <string name="offline_maps_search">Tafuta jiji au nchi...</string>
+    <string name="offline_maps_search_empty">Hakuna matokeo yanayolingana</string>
+    <string name="mosque_finder_zoom_in">Vuta karibu</string>
+    <string name="mosque_finder_zoom_out">Kuza nje</string>
+    <string name="mosque_finder_nearest">Msikiti wa karibu</string>
 </resources>

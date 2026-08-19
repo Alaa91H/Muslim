@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Sowwu</string>
     <string name="qibla_dir_nw">nord-ouest</string>
     <string name="mosque_finder_close">Tëj</string>
+    <string name="offline_maps_search">Seetal ab dëkk wala ab réew...</string>
+    <string name="offline_maps_search_empty">Amul njariñ bu méngoo</string>
+    <string name="mosque_finder_zoom_in">Zoom ci</string>
+    <string name="mosque_finder_zoom_out">Wàññi zoom</string>
+    <string name="mosque_finder_nearest">Jumaa ji gëna jege</string>
 </resources>

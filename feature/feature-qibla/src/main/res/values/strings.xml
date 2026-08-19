@@ -37,11 +37,16 @@
     <string name="mosque_finder_empty">لم يتم العثور على مساجد في هذا النطاق</string>
     <string name="mosque_finder_distance">%s بعيدًا</string>
     <string name="mosque_finder_close">إغلاق</string>
+    <string name="mosque_finder_zoom_in">تكبير</string>
+    <string name="mosque_finder_zoom_out">تصغير</string>
+    <string name="mosque_finder_nearest">أقرب مسجد</string>
 
     <!-- Offline maps download -->
     <string name="offline_maps_title">خرائط بدون إنترنت</string>
     <string name="offline_maps_back">رجوع</string>
     <string name="offline_maps_add">إضافة منطقة للتحميل</string>
+    <string name="offline_maps_search">ابحث عن مدينة أو دولة…</string>
+    <string name="offline_maps_search_empty">لا توجد نتائج مطابقة</string>
     <string name="offline_maps_empty">لا توجد مناطق محمّلة بعد. حمّل مدينة أو دولة أو منطقة مخصصة لتعمل الخرائط بدون إنترنت.</string>
     <string name="offline_maps_downloaded">المناطق المحمّلة</string>
     <string name="offline_maps_delete">حذف</string>

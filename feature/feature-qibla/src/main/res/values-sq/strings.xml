@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Perëndimi</string>
     <string name="qibla_dir_nw">Veriperëndimore</string>
     <string name="mosque_finder_close">Mbylle</string>
+    <string name="offline_maps_search">Kërkoni për një qytet ose shtet…</string>
+    <string name="offline_maps_search_empty">Nuk ka rezultate që përputhen</string>
+    <string name="mosque_finder_zoom_in">Zmadhoni</string>
+    <string name="mosque_finder_zoom_out">Zmadhoni</string>
+    <string name="mosque_finder_nearest">Xhamia më e afërt</string>
 </resources>

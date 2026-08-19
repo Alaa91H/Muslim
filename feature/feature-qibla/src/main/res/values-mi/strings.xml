@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Te uru</string>
     <string name="qibla_dir_nw">Te Taitokerau</string>
     <string name="mosque_finder_close">Katia</string>
+    <string name="offline_maps_search">Rapua he taone, whenua ranei…</string>
+    <string name="offline_maps_search_empty">Karekau he hua taurite</string>
+    <string name="mosque_finder_zoom_in">Topa mai</string>
+    <string name="mosque_finder_zoom_out">Topa atu</string>
+    <string name="mosque_finder_nearest">whare Korāna tata</string>
 </resources>

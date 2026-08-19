@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Thiar</string>
     <string name="qibla_dir_nw">Iarthuaisceart</string>
     <string name="mosque_finder_close">Dún</string>
+    <string name="offline_maps_search">Cuardaigh cathair nó tír…</string>
+    <string name="offline_maps_search_empty">Gan torthaí meaitseála</string>
+    <string name="mosque_finder_zoom_in">Súmáil isteach</string>
+    <string name="mosque_finder_zoom_out">Súmáil amach</string>
+    <string name="mosque_finder_nearest">Mosque is gaire</string>
 </resources>

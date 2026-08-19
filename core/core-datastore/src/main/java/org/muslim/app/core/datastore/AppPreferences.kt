@@ -20,6 +20,12 @@ data class AppPreferences(
      * [MORE_SECTION] ids. Default: worship → knowledge → tools → app.
      */
     val moreSectionOrder: List<String> = DEFAULT_MORE_SECTION_ORDER,
+    /**
+     * Sections of the "More" hub the user chose to hide, as a set of
+     * [MORE_SECTION] ids. Hidden sections are skipped when [moreSectionOrder]
+     * is rendered.
+     */
+    val hiddenMoreSections: Set<String> = emptySet(),
 ) {
     companion object {
         const val SYSTEM_LANGUAGE = "system"
@@ -51,6 +57,11 @@ data class AppPreferences(
             DEFAULT_MORE_SECTION_ORDER.forEach { if (it !in result) result.add(it) }
             return result
         }
+
+        /** Decodes a persisted comma-separated set of hidden section ids. */
+        fun decodeHiddenSections(raw: String?): Set<String> =
+            if (raw.isNullOrBlank()) emptySet()
+            else raw.split(',').map { it.trim() }.filter { it in DEFAULT_MORE_SECTION_ORDER }.toSet()
     }
 }
 

@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Inombolo yepholisi: %1$s</string>
     <string name="quran_title">I-Holy Quran</string>
     <string name="quran_download_reciter_header">Ilandiwe: %1$d ama-ayah · %2$s</string>
+    <string name="quran_download_mushaf_progress">I-Mushaf iqediwe: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">Ngaphambilini</string>
+    <string name="quran_recitation_notif_next">Okulandelayo</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Na Wɛsti</string>
     <string name="qibla_dir_nw">Nɔrdi-Wɛsti</string>
     <string name="mosque_finder_close">Bokanga</string>
+    <string name="offline_maps_search">Boluka engumba to mboka...</string>
+    <string name="offline_maps_search_empty">Ba résultats oyo ekokani te</string>
+    <string name="mosque_finder_zoom_in">Zoom na kati</string>
+    <string name="mosque_finder_zoom_out">Zoom na moke</string>
+    <string name="mosque_finder_nearest">Mosquée oyo ezali pene</string>
 </resources>

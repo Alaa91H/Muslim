@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Tafsiir: %1$s</string>
     <string name="quran_title">Quraanka kariimka ah</string>
     <string name="quran_download_reciter_header">La soo degay: %1$d aayadaha · %2$s</string>
+    <string name="quran_download_mushaf_progress">Mushaf complete: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">Hore</string>
+    <string name="quran_recitation_notif_next">Xiga</string>
 </resources>

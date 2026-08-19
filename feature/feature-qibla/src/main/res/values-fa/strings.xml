@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">غرب</string>
     <string name="qibla_dir_nw">شمال غربی</string>
     <string name="mosque_finder_close">بستن</string>
+    <string name="offline_maps_search">جستجو برای شهر یا کشور…</string>
+    <string name="offline_maps_search_empty">نتایج منطبقی وجود ندارد</string>
+    <string name="mosque_finder_zoom_in">بزرگنمایی کنید</string>
+    <string name="mosque_finder_zoom_out">بزرگنمایی کنید</string>
+    <string name="mosque_finder_nearest">نزدیکترین مسجد</string>
 </resources>

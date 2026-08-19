@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">läänes</string>
     <string name="qibla_dir_nw">Loode</string>
     <string name="mosque_finder_close">Sule</string>
+    <string name="offline_maps_search">Otsige linna või riiki…</string>
+    <string name="offline_maps_search_empty">Vastavaid tulemusi pole</string>
+    <string name="mosque_finder_zoom_in">Suumi sisse</string>
+    <string name="mosque_finder_zoom_out">Suumi välja</string>
+    <string name="mosque_finder_nearest">Lähim mošee</string>
 </resources>

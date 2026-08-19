@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Атафсир: %1$s</string>
     <string name="quran_title">Аҟәырҟан ԥшьа</string>
     <string name="quran_download_reciter_header">Иҭагалоуп: %1$d аиа · %2$s</string>
+    <string name="quran_download_mushaf_progress">Мушаф ихыркәшоуп: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">Иаԥхьанеиуа</string>
+    <string name="quran_recitation_notif_next">Анаҩстәи</string>
 </resources>

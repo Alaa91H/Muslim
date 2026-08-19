@@ -35,10 +35,7 @@
     <string name="more_section_tools">Werkzeuge</string>
     <string name="more_section_app">App</string>
     <string name="more_order_title">ترتيب أقسام المزيد</string>
-    <string name="more_order_hint">Sie haben die Möglichkeit, sich die Zeit zu nehmen, in der Sie sich befinden. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
-    <string name="more_order_move_up">تحريك لأعلى</string>
-    <string name="more_order_move_down">تحريك لأسفل</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">خرائط بدون إنترنت</string>
     <string name="more_offline_maps_desc">Finden Sie eine kostenlose App, die Ihnen die Möglichkeit gibt, Ihr Geld zu verdienen</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">Neustart</string>
     <string name="crash_close">Schließen</string>
     <string name="crash_dismiss">Weiter</string>
+    <string name="more_order_hint">Sie müssen wissen, dass Sie sich die Zeit genommen haben, sich die Zeit zu nehmen und sich die Zeit zu nehmen. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
 </resources>

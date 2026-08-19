@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Көнбатыш</string>
     <string name="qibla_dir_nw">Төньяк-Көнбатыш</string>
     <string name="mosque_finder_close">Ябу</string>
+    <string name="offline_maps_search">Шәһәр яки ил эзләү…</string>
+    <string name="offline_maps_search_empty">Бер-берсенә туры килгән нәтиҗәләр юк</string>
+    <string name="mosque_finder_zoom_in">Зурайту</string>
+    <string name="mosque_finder_zoom_out">Зурайту</string>
+    <string name="mosque_finder_nearest">Иң якын мәчет</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">ตะวันตก</string>
     <string name="qibla_dir_nw">ตะวันตกเฉียงเหนือ</string>
     <string name="mosque_finder_close">ปิด</string>
+    <string name="offline_maps_search">ค้นหาเมืองหรือประเทศ...</string>
+    <string name="offline_maps_search_empty">ไม่มีผลลัพธ์ที่ตรงกัน</string>
+    <string name="mosque_finder_zoom_in">ซูมเข้า</string>
+    <string name="mosque_finder_zoom_out">ซูมออก</string>
+    <string name="mosque_finder_nearest">มัสยิดที่ใกล้ที่สุด</string>
 </resources>

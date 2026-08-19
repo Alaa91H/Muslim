@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Rojava</string>
     <string name="qibla_dir_nw">Northwest</string>
     <string name="mosque_finder_close">Close</string>
+    <string name="offline_maps_search">Li bajarek an welatek bigerin…</string>
+    <string name="offline_maps_search_empty">Encamên lihevhatî tune</string>
+    <string name="mosque_finder_zoom_in">Zoom in</string>
+    <string name="mosque_finder_zoom_out">Zoom out</string>
+    <string name="mosque_finder_nearest">Mizgefta herî nêzîk</string>
 </resources>

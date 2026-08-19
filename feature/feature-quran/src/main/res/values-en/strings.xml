@@ -106,6 +106,8 @@
     <string name="quran_recitation_notif_play">Play</string>
     <string name="quran_recitation_notif_pause">Pause</string>
     <string name="quran_recitation_notif_stop">Stop</string>
+    <string name="quran_recitation_notif_previous">Previous</string>
+    <string name="quran_recitation_notif_next">Next</string>
 
     <!-- Meanings/tafsir controls -->
     <string name="quran_supplement_controls">Meanings &amp; Tafsir</string>
@@ -124,6 +126,8 @@
     <string name="quran_download_pause">Pause</string>
     <string name="quran_download_reciter_state">Downloaded for this reciter: %1$s</string>
     <string name="quran_download_reciter_header">Downloaded: %1$d ayahs · %2$s</string>
+    <string name="quran_download_mushaf_progress">Mushaf complete: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_download_delete_surah">Delete downloaded surah</string>
     <string name="quran_download_delete_reciter">Delete all downloads for this reciter</string>

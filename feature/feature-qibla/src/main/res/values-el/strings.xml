@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Δύση</string>
     <string name="qibla_dir_nw">Βορειοδυτικά</string>
     <string name="mosque_finder_close">Κλείσιμο</string>
+    <string name="offline_maps_search">Αναζήτηση πόλης ή χώρας…</string>
+    <string name="offline_maps_search_empty">Δεν υπάρχουν αποτελέσματα που να ταιριάζουν</string>
+    <string name="mosque_finder_zoom_in">Μεγέθυνση</string>
+    <string name="mosque_finder_zoom_out">Σμίκρυνση</string>
+    <string name="mosque_finder_nearest">Πλησιέστερο τζαμί</string>
 </resources>

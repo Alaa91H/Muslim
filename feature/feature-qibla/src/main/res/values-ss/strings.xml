@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Nshonalanga</string>
     <string name="qibla_dir_nw">Enyakatfo nshonalanga</string>
     <string name="mosque_finder_close">Vala</string>
+    <string name="offline_maps_search">Sesha lidolobha noma live...</string>
+    <string name="offline_maps_search_empty">Kute imiphumela lehambisanako</string>
+    <string name="mosque_finder_zoom_in">Sondzeta</string>
+    <string name="mosque_finder_zoom_out">Sondzeta</string>
+    <string name="mosque_finder_nearest">Imoski lesedvute</string>
 </resources>

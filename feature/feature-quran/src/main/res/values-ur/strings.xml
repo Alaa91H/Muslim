@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">تفسیر: %1$s</string>
     <string name="quran_title">قرآن پاک</string>
     <string name="quran_download_reciter_header">ڈاؤن لوڈ کیا گیا: %1$d آیات · %2$s</string>
+    <string name="quran_download_mushaf_progress">مصحف مکمل: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">پچھلا</string>
+    <string name="quran_recitation_notif_next">اگلا</string>
 </resources>

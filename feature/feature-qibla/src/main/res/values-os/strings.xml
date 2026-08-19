@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Ныгуылæн</string>
     <string name="qibla_dir_nw">Цæгат-ныгуылæн</string>
     <string name="mosque_finder_close">Сæхгæнын</string>
+    <string name="offline_maps_search">Агур горæт кæнæ бæстæ...</string>
+    <string name="offline_maps_search_empty">Æмхуызон фæстиуджытæ нæй</string>
+    <string name="mosque_finder_zoom_in">Уæрæхдæр кæнын</string>
+    <string name="mosque_finder_zoom_out">Фæкъаддæр кæнын</string>
+    <string name="mosque_finder_nearest">Хæстæгдæр мæзджыд</string>
 </resources>

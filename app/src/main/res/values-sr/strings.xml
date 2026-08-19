@@ -35,10 +35,7 @@
     <string name="more_section_tools">Алати</string>
     <string name="more_section_app">Апп</string>
     <string name="more_order_title">ترتيب اقسام المزيد</string>
-    <string name="more_order_hint">استخدم الاسهم لتحريك كل قسم لاعلى او لاسفل. يطبق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
-    <string name="more_order_move_up">تحريك لاعلى</string>
-    <string name="more_order_move_down">تحريك لاسفل</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">خرايط بدون انترنت</string>
     <string name="more_offline_maps_desc">تحميل خرايط مدينة او دولة لتعمل بدون انترنت</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">Поново покрени</string>
     <string name="crash_close">Затвори</string>
     <string name="crash_dismiss">Настави</string>
+    <string name="more_order_hint">اضغط مع الاستمرار على اي قسم واسحبه لاعادة ترتيبه, واستخدم المفلى واستخدم المفلت اخفاء كل قسم. يطبق التغيير مباشرة على شاشة المزيد.</string>
 </resources>

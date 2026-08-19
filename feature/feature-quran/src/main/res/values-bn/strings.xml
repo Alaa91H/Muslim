@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">তাফসির: %1$s</string>
     <string name="quran_title">পবিত্র কুরআন</string>
     <string name="quran_download_reciter_header">ডাউনলোড করা হয়েছে: %1$d আয়াত · %2$s</string>
+    <string name="quran_download_mushaf_progress">মুসহাফ সম্পূর্ণ: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">আগের</string>
+    <string name="quran_recitation_notif_next">পরবর্তী</string>
 </resources>

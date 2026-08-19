@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Uburengero</string>
     <string name="qibla_dir_nw">Uburaruko bushira uburengero</string>
     <string name="mosque_finder_close">Gufunga</string>
+    <string name="offline_maps_search">Rondera igisagara canke igihugu...</string>
+    <string name="offline_maps_search_empty">Nta bisubizo bihuye</string>
+    <string name="mosque_finder_zoom_in">Gukuraho</string>
+    <string name="mosque_finder_zoom_out">Gukuraho</string>
+    <string name="mosque_finder_nearest">Umusigiti uri hafi</string>
 </resources>

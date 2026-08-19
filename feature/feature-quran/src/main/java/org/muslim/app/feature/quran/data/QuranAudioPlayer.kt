@@ -29,6 +29,7 @@ data class RecitationQueueItem(
 @Singleton
 class QuranAudioPlayer @Inject constructor(
     private val engineFactory: RecitationEngineFactory,
+    private val playbackBridge: RecitationPlaybackBridge,
 ) {
 
     private var currentEngine: RecitationAudioEngine? = null
@@ -128,6 +129,7 @@ class QuranAudioPlayer @Inject constructor(
         _currentAyah.value = null
         resetProgress()
         updateNavState()
+        playbackBridge.onPlaybackActiveChanged(false)
     }
 
     /** Reads the current media position; called by the UI's progress poller. */
@@ -157,6 +159,9 @@ class QuranAudioPlayer @Inject constructor(
             _durationMs.value = engine.durationMs.toLong()
             _positionMs.value = 0L
             _playbackState.value = PlaybackState.Playing
+            // Keep the process alive in the background: run under the
+            // foreground media service for the whole playback session.
+            playbackBridge.onPlaybackActiveChanged(true)
             engine.start()
         }
         engine.setOnCompletionListener {
@@ -192,6 +197,7 @@ class QuranAudioPlayer @Inject constructor(
             _currentAyah.value = null
             resetProgress()
             updateNavState()
+            playbackBridge.onPlaybackActiveChanged(false)
             callback?.invoke()
             return
         }
@@ -199,6 +205,7 @@ class QuranAudioPlayer @Inject constructor(
         _currentAyah.value = null
         resetProgress()
         updateNavState()
+        playbackBridge.onPlaybackActiveChanged(false)
     }
 
     private fun fail() {
@@ -208,6 +215,7 @@ class QuranAudioPlayer @Inject constructor(
         _currentAyah.value = null
         resetProgress()
         updateNavState()
+        playbackBridge.onPlaybackActiveChanged(false)
     }
 
     private fun releaseEngine() {

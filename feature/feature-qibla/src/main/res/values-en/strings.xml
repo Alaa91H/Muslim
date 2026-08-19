@@ -37,11 +37,16 @@
     <string name="mosque_finder_empty">No mosques found in this range</string>
     <string name="mosque_finder_distance">%s away</string>
     <string name="mosque_finder_close">Close</string>
+    <string name="mosque_finder_zoom_in">Zoom in</string>
+    <string name="mosque_finder_zoom_out">Zoom out</string>
+    <string name="mosque_finder_nearest">Nearest mosque</string>
 
     <!-- Offline maps download -->
     <string name="offline_maps_title">Offline maps</string>
     <string name="offline_maps_back">Back</string>
     <string name="offline_maps_add">Add area to download</string>
+    <string name="offline_maps_search">Search for a city or country…</string>
+    <string name="offline_maps_search_empty">No matching results</string>
     <string name="offline_maps_empty">No areas downloaded yet. Download a city, a country, or a custom area so maps work without internet.</string>
     <string name="offline_maps_downloaded">Downloaded areas</string>
     <string name="offline_maps_delete">Delete</string>

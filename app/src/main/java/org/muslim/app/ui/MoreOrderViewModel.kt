@@ -13,8 +13,10 @@ import org.muslim.app.core.datastore.AppPreferencesRepository
 import javax.inject.Inject
 
 /**
- * Drives the "More hub order" customization screen: exposes the current section
- * order and lets the user move sections up/down or reset to the default.
+ * Drives the "More hub" customization screen: exposes the current section
+ * order + visibility and lets the user reorder (drag & drop) or show/hide
+ * each section. Both are persisted in DataStore and applied live by
+ * [MoreScreen].
  */
 @HiltViewModel
 class MoreOrderViewModel @Inject constructor(
@@ -26,29 +28,33 @@ class MoreOrderViewModel @Inject constructor(
             .map { it.moreSectionOrder }
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), AppPreferences.DEFAULT_MORE_SECTION_ORDER)
 
-    /** Moves the section at [index] one position up (toward the top). */
-    fun moveUp(index: Int) = reorder { current ->
-        if (index <= 0) current else current.toMutableList().also { list ->
-            val item = list.removeAt(index)
-            list.add(index - 1, item)
+    val hiddenSections: StateFlow<Set<String>> =
+        appPreferencesRepository.preferences
+            .map { it.hiddenMoreSections }
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptySet())
+
+    /** Applies a full reorder (used on drag-drop end). */
+    fun setOrder(order: List<String>) {
+        val normalized = AppPreferences.decodeSectionOrder(order.joinToString(","))
+        if (normalized != sectionOrder.value) {
+            viewModelScope.launch { appPreferencesRepository.setMoreSectionOrder(normalized) }
         }
     }
 
-    /** Moves the section at [index] one position down (toward the bottom). */
-    fun moveDown(index: Int) = reorder { current ->
-        if (index >= current.lastIndex) current else current.toMutableList().also { list ->
-            val item = list.removeAt(index)
-            list.add(index + 1, item)
-        }
-    }
-
-    fun reset() = reorder { AppPreferences.DEFAULT_MORE_SECTION_ORDER }
-
-    private fun reorder(transform: (List<String>) -> List<String>) {
+    /** Shows or hides one section. */
+    fun setSectionHidden(sectionId: String, hidden: Boolean) {
         viewModelScope.launch {
-            val current = sectionOrder.value
-            val next = transform(current)
-            if (next != current) appPreferencesRepository.setMoreSectionOrder(next)
+            val next = hiddenSections.value.toMutableSet().apply {
+                if (hidden) add(sectionId) else remove(sectionId)
+            }
+            appPreferencesRepository.setHiddenMoreSections(next)
+        }
+    }
+
+    fun reset() {
+        viewModelScope.launch {
+            appPreferencesRepository.setMoreSectionOrder(AppPreferences.DEFAULT_MORE_SECTION_ORDER)
+            appPreferencesRepository.setHiddenMoreSections(emptySet())
         }
     }
 }

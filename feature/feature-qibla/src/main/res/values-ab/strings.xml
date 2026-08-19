@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Амраҭашәара</string>
     <string name="qibla_dir_nw">Аҩада-мраҭашәара</string>
     <string name="mosque_finder_close">Иарктәуп</string>
+    <string name="offline_maps_search">Ақалақь ма атәыла аԥшаара...</string>
+    <string name="offline_maps_search_empty">Еиқәшәо алҵшәақәа ыҟам</string>
+    <string name="mosque_finder_zoom_in">Аизум арҭбаара</string>
+    <string name="mosque_finder_zoom_out">Амҽхак армаҷра</string>
+    <string name="mosque_finder_nearest">Иааигәоу аџьаама</string>
 </resources>

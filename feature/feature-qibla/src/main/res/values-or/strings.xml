@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">ପଶ୍ଚିମ</string>
     <string name="qibla_dir_nw">ଉତ୍ତର-ପଶ୍ଚିମ</string>
     <string name="mosque_finder_close">ବନ୍ଦ</string>
+    <string name="offline_maps_search">ସହର କିମ୍ବା ଦେଶ ପାଇଁ ଖୋଜ…</string>
+    <string name="offline_maps_search_empty">କ match ଣସି ମେଳ ଖାଉଥିବା ଫଳାଫଳ ନାହିଁ |</string>
+    <string name="mosque_finder_zoom_in">ଜୁମ୍ ଇନ୍ କରନ୍ତୁ |</string>
+    <string name="mosque_finder_zoom_out">ଜୁମ୍ ଆଉଟ୍ କରନ୍ତୁ |</string>
+    <string name="mosque_finder_nearest">ନିକଟସ୍ଥ ମସଜିଦ</string>
 </resources>

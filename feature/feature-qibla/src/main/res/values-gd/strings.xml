@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Iar</string>
     <string name="qibla_dir_nw">Iar-thuath</string>
     <string name="mosque_finder_close">Dùin</string>
+    <string name="offline_maps_search">Lorg baile-mòr no dùthaich…</string>
+    <string name="offline_maps_search_empty">Chan eil toraidhean co-ionnan</string>
+    <string name="mosque_finder_zoom_in">Gluais a-steach</string>
+    <string name="mosque_finder_zoom_out">Gluais a-mach</string>
+    <string name="mosque_finder_nearest">Mosg as fhaisge</string>
 </resources>

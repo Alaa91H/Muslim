@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Mervent</string>
     <string name="qibla_dir_nw">Mervent</string>
     <string name="mosque_finder_close">Serriñ</string>
+    <string name="offline_maps_search">Klask ur gêr pe ur vro...</string>
+    <string name="offline_maps_search_empty">Disoc\'h heñvel ebet</string>
+    <string name="mosque_finder_zoom_in">Zoumañ</string>
+    <string name="mosque_finder_zoom_out">Zoumañ</string>
+    <string name="mosque_finder_nearest">Moskeenn tostañ</string>
 </resources>

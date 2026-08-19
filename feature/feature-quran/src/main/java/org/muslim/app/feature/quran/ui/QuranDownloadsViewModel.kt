@@ -50,6 +50,9 @@ class QuranDownloadsViewModel @Inject constructor(
     val surahs: StateFlow<List<Surah>> = repository.observeSurahs()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
+    /** Total ayahs in the whole mushaf (6236) — used for completion progress. */
+    val totalMushafAyahs: Int = TOTAL_AYAHS.toInt()
+
     val tasks: StateFlow<List<DownloadTaskUi>> = manager.tasks
 
     private val _scope = MutableStateFlow(DownloadScope.Surah)

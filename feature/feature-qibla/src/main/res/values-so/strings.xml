@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Galbeed</string>
     <string name="qibla_dir_nw">Waqooyi galbeed</string>
     <string name="mosque_finder_close">Xir</string>
+    <string name="offline_maps_search">Raadi magaalo ama waddan…</string>
+    <string name="offline_maps_search_empty">Ma jiraan natiijooyin u dhigma</string>
+    <string name="mosque_finder_zoom_in">Soo dhawoow</string>
+    <string name="mosque_finder_zoom_out">Soo dhawoow</string>
+    <string name="mosque_finder_nearest">Masjidka ugu dhow</string>
 </resources>

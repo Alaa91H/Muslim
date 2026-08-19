@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Тафсир: %1$s ахча</string>
     <string name="quran_title">Сийлахь Къуръан .</string>
     <string name="quran_download_reciter_header">Скачано: %1$d аят · %2$s</string>
+    <string name="quran_download_mushaf_progress">Мушаф дуьззина: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d .</string>
+    <string name="quran_recitation_notif_previous">Хьалха</string>
+    <string name="quran_recitation_notif_next">Дагахь</string>
 </resources>

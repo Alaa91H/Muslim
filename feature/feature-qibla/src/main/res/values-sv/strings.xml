@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Väst</string>
     <string name="qibla_dir_nw">Nordväst</string>
     <string name="mosque_finder_close">Stäng</string>
+    <string name="offline_maps_search">Sök efter en stad eller ett land...</string>
+    <string name="offline_maps_search_empty">Inga matchande resultat</string>
+    <string name="mosque_finder_zoom_in">Zooma in</string>
+    <string name="mosque_finder_zoom_out">Zooma ut</string>
+    <string name="mosque_finder_nearest">Närmaste moské</string>
 </resources>

@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.gestures.detectTapGestures
@@ -37,6 +38,7 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.Pause
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Repeat
 import androidx.compose.material.icons.filled.RadioButtonChecked
@@ -123,6 +125,7 @@ import org.muslim.app.feature.quran.data.PlaybackState
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.ReaderTheme
+import org.muslim.app.feature.quran.domain.Reciter
 import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.SurahRevelationData
 
@@ -237,6 +240,7 @@ fun QuranReaderScreen(
     val playbackErrorCount by viewModel.playbackErrorCount.collectAsStateWithLifecycle()
     val positionMs by viewModel.positionMs.collectAsStateWithLifecycle()
     val durationMs by viewModel.durationMs.collectAsStateWithLifecycle()
+    val selectedReciter by viewModel.selectedReciter.collectAsStateWithLifecycle()
     val keepScreenOn by viewModel.keepScreenOn.collectAsStateWithLifecycle()
 
     // Keep the screen lit while the mushaf reader is open (and therefore
@@ -281,13 +285,25 @@ fun QuranReaderScreen(
         }
     }
 
+    // The ayah the user explicitly tapped (تحديد بالضغط). Playback starts here
+    // when set; otherwise pressing play starts from the surah's FIRST ayah,
+    // regardless of which page is currently in view.
+    var userSelectedAyah by remember { mutableStateOf<Int?>(null) }
+
     // Shared play/pause/resume toggle used by both the mini now-playing bar
     // and the full recitation bar.
     val togglePlayback: () -> Unit = {
         when (playbackState) {
             PlaybackState.Playing -> viewModel.pausePlayback()
             PlaybackState.Paused -> viewModel.resumePlayback()
-            PlaybackState.Idle -> currentAyah?.let { viewModel.playAyahWithRange(it, repeatCount, playRange) }
+            PlaybackState.Idle -> {
+                // No explicit tap → start from the surah's first ayah, so
+                // entering a surah and pressing play always begins correctly.
+                val start = userSelectedAyah?.let { global ->
+                    state.ayahs.firstOrNull { it.globalNumber == global }
+                } ?: state.ayahs.firstOrNull()
+                if (start != null) viewModel.playAyahWithRange(start, repeatCount, playRange)
+            }
         }
     }
 
@@ -348,7 +364,7 @@ fun QuranReaderScreen(
         } else {
             if (pageIndex >= 0) pageIndex else 0
         }
-        pagerState.scrollToPage(targetItem)
+        pagerState.animateScrollToPage(targetItem)
         scrolledToInitial = true
     }
 
@@ -368,7 +384,9 @@ fun QuranReaderScreen(
         val pageIndex = pageEntries.indexOfFirst { (_, ayahs) -> ayahs.any { it.globalNumber == target } }
         if (pageIndex < 0) return@LaunchedEffect
         val targetItem = if (isWide) spreadIndexOfPage(pageEntries[pageIndex].key) else pageIndex
-        if (pagerState.currentPage != targetItem) pagerState.scrollToPage(targetItem)
+        // Smooth glide to a far page instead of an instant teleport; the fine
+        // ayah alignment below stays immediate (scrollBy, not animated).
+        if (pagerState.currentPage != targetItem) pagerState.animateScrollToPage(targetItem)
     }
 
     // Phase 2: once the target ayah's on-screen position is measured, scroll
@@ -609,6 +627,7 @@ fun QuranReaderScreen(
                                             // starts from the play button in the
                                             // recitation bar below.
                                             viewModel.currentAyah.value = ayah
+                                            userSelectedAyah = ayah.globalNumber
                                             tappedAyahGlobal = ayah.globalNumber
                                         },
                                     )
@@ -631,6 +650,7 @@ fun QuranReaderScreen(
                                         // starts from the play button in the
                                         // recitation bar below.
                                         viewModel.currentAyah.value = ayah
+                                        userSelectedAyah = ayah.globalNumber
                                         tappedAyahGlobal = ayah.globalNumber
                                     },
                                 )
@@ -655,6 +675,9 @@ fun QuranReaderScreen(
                 onNext = viewModel::nextAyah,
                 onTogglePlayback = togglePlayback,
                 onStop = viewModel::stopPlayback,
+                reciter = selectedReciter,
+                onReciterSelected = viewModel::selectReciter,
+                reciters = Reciter.Bundled,
                 playingSurahName = state.surah?.arabicName.orEmpty(),
                 playingSurahNumber = state.surah?.number ?: 0,
                 playingAyahNumber = playingAyah?.numberInSurah,
@@ -761,6 +784,9 @@ private fun RecitationBar(
     onNext: () -> Unit,
     onTogglePlayback: () -> Unit,
     onStop: () -> Unit,
+    reciter: Reciter,
+    onReciterSelected: (Reciter) -> Unit,
+    reciters: List<Reciter>,
     playingSurahName: String,
     playingSurahNumber: Int,
     playingAyahNumber: Int?,
@@ -771,6 +797,7 @@ private fun RecitationBar(
 ) {
     var repeatMenu by remember { mutableStateOf(false) }
     var rangeMenu by remember { mutableStateOf(false) }
+    var reciterMenu by remember { mutableStateOf(false) }
     Surface(
         color = MaterialTheme.colorScheme.surfaceVariant,
         // Explicit content color keeps every label readable in the reader's
@@ -778,15 +805,69 @@ private fun RecitationBar(
         contentColor = MaterialTheme.colorScheme.onSurface,
     ) {
         Column {
-            // One slim now-playing line: surah/ayah + elapsed/total, so there is
-            // exactly ONE control bar (the mini player is gone).
-            if (playingAyahNumber != null && playbackState != PlaybackState.Idle) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 12.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
+            // One slim now-playing line: reciter chip + surah/ayah + time, so
+            // there is exactly ONE control bar. The reciter name is shown
+            // next to the surah/ayah and is tappable to pick another reciter.
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp, vertical = 2.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                // Reciter chip: tap to open the full reciter picker.
+                Box {
+                    TextButton(
+                        onClick = { reciterMenu = true },
+                        modifier = Modifier.widthIn(max = 150.dp),
+                    ) {
+                        Icon(
+                            imageVector = Icons.Filled.Person,
+                            contentDescription = stringResource(R.string.quran_reciter),
+                            modifier = Modifier.size(16.dp),
+                        )
+                        Spacer(Modifier.width(4.dp))
+                        Text(
+                            text = reciter.name,
+                            style = MaterialTheme.typography.labelMedium,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    }
+                    DropdownMenu(expanded = reciterMenu, onDismissRequest = { reciterMenu = false }) {
+                        reciters.forEach { option ->
+                            DropdownMenuItem(
+                                text = {
+                                    Column {
+                                        Text(
+                                            text = option.name,
+                                            style = MaterialTheme.typography.bodyMedium,
+                                        )
+                                        Text(
+                                            text = option.style,
+                                            style = MaterialTheme.typography.labelSmall,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        )
+                                    }
+                                },
+                                trailingIcon = {
+                                    if (option.id == reciter.id) {
+                                        Icon(
+                                            imageVector = Icons.Filled.Check,
+                                            contentDescription = null,
+                                            modifier = Modifier.size(18.dp),
+                                        )
+                                    }
+                                },
+                                onClick = {
+                                    reciterMenu = false
+                                    onReciterSelected(option)
+                                },
+                            )
+                        }
+                    }
+                }
+                if (playingAyahNumber != null && playbackState != PlaybackState.Idle) {
+                    Spacer(Modifier.width(4.dp))
                     Text(
                         text = stringResource(
                             R.string.quran_mini_surah_ayah,
@@ -805,6 +886,8 @@ private fun RecitationBar(
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
+                } else {
+                    Spacer(Modifier.weight(1f))
                 }
             }
             Row(
@@ -1093,7 +1176,10 @@ private fun MushafPageCard(
                     SpanStyle(background = scheme.primary.copy(alpha = 0.35f))
                 ayah.globalNumber == playingAyahGlobal ->
                     SpanStyle(background = scheme.primary.copy(alpha = 0.22f))
-                ayah.globalNumber == selectedAyahGlobal ->
+                // Suppress the soft selection tint while recitation is playing so
+                // a stale highlight never lingers on the originally-tapped ayah
+                // once the reciter advances to the next ayah.
+                playingAyahGlobal == null && ayah.globalNumber == selectedAyahGlobal ->
                     SpanStyle(background = scheme.primary.copy(alpha = 0.12f))
                 else -> SpanStyle()
             }

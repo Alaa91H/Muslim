@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Запад</string>
     <string name="qibla_dir_nw">Северо-Запад</string>
     <string name="mosque_finder_close">Матысса</string>
+    <string name="offline_maps_search">Корсьны кар либӧ страна...</string>
+    <string name="offline_maps_search_empty">Некутшӧм ӧткодь результатъяс абуӧсь .</string>
+    <string name="mosque_finder_zoom_in">Зум .</string>
+    <string name="mosque_finder_zoom_out">Зум .</string>
+    <string name="mosque_finder_nearest">Медся матысса мöскö</string>
 </resources>

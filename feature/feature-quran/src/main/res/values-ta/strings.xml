@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">தஃப்சீர்: %1$s</string>
     <string name="quran_title">புனித குர்ஆன்</string>
     <string name="quran_download_reciter_header">பதிவிறக்கம் செய்யப்பட்டது: %1$d அயாக்கள் · %2$s</string>
+    <string name="quran_download_mushaf_progress">முஷாஃப் நிறைவு: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">முந்தைய</string>
+    <string name="quran_recitation_notif_next">அடுத்து</string>
 </resources>

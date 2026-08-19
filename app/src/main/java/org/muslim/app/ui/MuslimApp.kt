@@ -246,6 +246,7 @@ fun MuslimApp(
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
                         onOpenOfflineMaps = { navController.navigate(OFFLINE_MAPS_ROUTE) },
                         sectionOrder = preferences.moreSectionOrder,
+                        hiddenSections = preferences.hiddenMoreSections,
                     )
                 }
                 composable(OFFLINE_MAPS_ROUTE) {

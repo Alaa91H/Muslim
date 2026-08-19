@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Lulli</string>
     <string name="qibla_dir_nw">Davvi-Nuorta</string>
     <string name="mosque_finder_close">Gidde</string>
+    <string name="offline_maps_search">Ohcat gávpoga dahje riikka...</string>
+    <string name="offline_maps_search_empty">Eai ovttalágan bohtosat</string>
+    <string name="mosque_finder_zoom_in">Zoom sisa</string>
+    <string name="mosque_finder_zoom_out">Zoom eret</string>
+    <string name="mosque_finder_nearest">Lagamus moskea</string>
 </resources>

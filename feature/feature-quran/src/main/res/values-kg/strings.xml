@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Quoran ya santu</string>
     <string name="quran_download_reciter_header">Bo me baka yo: baya %1$d · %2$s</string>
+    <string name="quran_download_mushaf_progress">Mushaf me manisa: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">Ya me luta</string>
+    <string name="quran_recitation_notif_next">Na nima</string>
 </resources>

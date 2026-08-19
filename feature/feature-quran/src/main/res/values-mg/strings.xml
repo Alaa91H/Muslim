@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Ny Korany Masina</string>
     <string name="quran_download_reciter_header">Nalaina: %1$d ayahs · %2$s</string>
+    <string name="quran_download_mushaf_progress">Mushaf feno: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">Teo aloha</string>
+    <string name="quran_recitation_notif_next">Manaraka</string>
 </resources>

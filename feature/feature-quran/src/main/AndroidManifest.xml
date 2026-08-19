@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Foreground service that keeps recitation playing in the background and
+         exposes it to the system as media (lock screen + notification shade). -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
     <!-- Resume queued downloads automatically after a device reboot. -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
@@ -15,6 +18,12 @@
             android:name=".data.QuranDownloadService"
             android:exported="false"
             android:foregroundServiceType="dataSync" />
+
+        <!-- Hosts the MediaSession + media notification for recitation playback. -->
+        <service
+            android:name=".data.RecitationPlaybackService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
 
         <!-- Actions for the recitation control notification (play/pause/stop). -->
         <receiver

@@ -126,5 +126,10 @@ class AdhanPlaybackService : Service() {
                 context.startService(intent)
             }
         }
+
+        /** Stops any in-progress adhan playback (e.g. a preview). */
+        fun stop(context: Context) {
+            context.stopService(Intent(context, AdhanPlaybackService::class.java))
+        }
     }
 }

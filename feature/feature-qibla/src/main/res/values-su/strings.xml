@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Kulon</string>
     <string name="qibla_dir_nw">Kaler</string>
     <string name="mosque_finder_close">Tutup</string>
+    <string name="offline_maps_search">Milarian kota atanapi nagara…</string>
+    <string name="offline_maps_search_empty">Taya hasil cocog</string>
+    <string name="mosque_finder_zoom_in">Gedekeun</string>
+    <string name="mosque_finder_zoom_out">Zum kaluar</string>
+    <string name="mosque_finder_nearest">Masjid pangdeukeutna</string>
 </resources>

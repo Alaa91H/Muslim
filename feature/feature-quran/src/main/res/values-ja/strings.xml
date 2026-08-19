@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">タフシル: %1$s</string>
     <string name="quran_title">聖コーラン</string>
     <string name="quran_download_reciter_header">ダウンロード済み: %1$d アヤ · %2$s</string>
+    <string name="quran_download_mushaf_progress">ムシャフ完了: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">前へ</string>
+    <string name="quran_recitation_notif_next">次へ</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Запад</string>
     <string name="qibla_dir_nw">северозапад</string>
     <string name="mosque_finder_close">Затвори</string>
+    <string name="offline_maps_search">Потражите град или државу…</string>
+    <string name="offline_maps_search_empty">Нема одговарајућих резултата</string>
+    <string name="mosque_finder_zoom_in">Увећајте</string>
+    <string name="mosque_finder_zoom_out">Умањите</string>
+    <string name="mosque_finder_nearest">Најближа џамија</string>
 </resources>

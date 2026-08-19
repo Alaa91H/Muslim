@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Westen</string>
     <string name="qibla_dir_nw">Nordwesten</string>
     <string name="mosque_finder_close">Schließen</string>
+    <string name="offline_maps_search">Nach einer Stadt oder einem Land suchen…</string>
+    <string name="offline_maps_search_empty">Keine passenden Ergebnisse</string>
+    <string name="mosque_finder_zoom_in">Vergrößern</string>
+    <string name="mosque_finder_zoom_out">Herauszoomen</string>
+    <string name="mosque_finder_nearest">Nächste Moschee</string>
 </resources>

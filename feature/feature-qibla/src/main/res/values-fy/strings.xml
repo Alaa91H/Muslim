@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">West</string>
     <string name="qibla_dir_nw">Noardwest</string>
     <string name="mosque_finder_close">Slút</string>
+    <string name="offline_maps_search">Sykje nei in stêd of lân ...</string>
+    <string name="offline_maps_search_empty">Gjin oerienkommende resultaten</string>
+    <string name="mosque_finder_zoom_in">Zoom yn</string>
+    <string name="mosque_finder_zoom_out">Zoom út</string>
+    <string name="mosque_finder_nearest">Dichtstbijzijnde moskee</string>
 </resources>

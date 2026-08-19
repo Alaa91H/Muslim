@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Dhihaa</string>
     <string name="qibla_dir_nw">Kaaba Dhihaa</string>
     <string name="mosque_finder_close">Cufi</string>
+    <string name="offline_maps_search">Magaalaa ykn biyya barbaadi...</string>
+    <string name="offline_maps_search_empty">Bu\'aan walsimsiisu hin jiru</string>
+    <string name="mosque_finder_zoom_in">Zoom in godhaa</string>
+    <string name="mosque_finder_zoom_out">Xiqqeessaa</string>
+    <string name="mosque_finder_nearest">Masjiida dhiyoo jiru</string>
 </resources>

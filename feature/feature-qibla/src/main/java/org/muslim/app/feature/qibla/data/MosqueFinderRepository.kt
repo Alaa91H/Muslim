@@ -37,7 +37,15 @@ private data class OverpassElement(
     val id: Long = 0,
     val lat: Double = 0.0,
     val lon: Double = 0.0,
+    val center: OverpassCenter? = null,
     val tags: Map<String, String> = emptyMap(),
+)
+
+/** Ways/relations report their geometry center instead of lat/lon. */
+@Serializable
+private data class OverpassCenter(
+    val lat: Double = 0.0,
+    val lon: Double = 0.0,
 )
 
 /**
@@ -75,10 +83,21 @@ class MosqueFinderRepository @Inject constructor() {
         longitude: Double,
         radiusMeters: Int = 5000,
     ): List<Mosque> = withContext(Dispatchers.IO) {
+        // Queries both point mosques (nodes) and building outlines (ways) so
+        // the finder works in every corner of the world, not just where
+        // mosques happen to be mapped as single nodes. `out center` returns
+        // the centroid for ways.
         val query = """
             [out:json][timeout:25];
-            node["amenity"="place_of_worship"]["religion"="muslim"](around:$radiusMeters,$latitude,$longitude);
-            out center 60;
+            (
+              node["amenity"="place_of_worship"]["religion"="muslim"](around:$radiusMeters,$latitude,$longitude);
+              way["amenity"="place_of_worship"]["religion"="muslim"](around:$radiusMeters,$latitude,$longitude);
+              node["building"="mosque"](around:$radiusMeters,$latitude,$longitude);
+              way["building"="mosque"](around:$radiusMeters,$latitude,$longitude);
+              node["amenity"="mosque"](around:$radiusMeters,$latitude,$longitude);
+              way["amenity"="mosque"](around:$radiusMeters,$latitude,$longitude);
+            );
+            out center 120;
         """.trimIndent()
 
         var failure: Exception? = null
@@ -108,20 +127,28 @@ class MosqueFinderRepository @Inject constructor() {
             val body = response.body?.string().orEmpty()
             val parsed = json.decodeFromString<OverpassResponse>(body)
             parsed.elements
-                .filter { it.type == "node" && it.lat != 0.0 && it.lon != 0.0 }
-                .map { element ->
-                    val d = haversineMeters(latitude, longitude, element.lat, element.lon)
+                .mapNotNull { element ->
+                    val lat = element.lat
+                    val lon = element.lon
+                    val (effLat, effLon) = when {
+                        lat != 0.0 && lon != 0.0 -> lat to lon
+                        element.center != null && element.center.lat != 0.0 -> element.center.lat to element.center.lon
+                        else -> return@mapNotNull null
+                    }
+                    val d = haversineMeters(latitude, longitude, effLat, effLon)
                     Mosque(
                         name = element.tags["name"]
                             ?: element.tags["name:ar"]
                             ?: element.tags["name:en"]
+                            ?: element.tags["name:fr"]
                             ?: "مسجد",
-                        latitude = element.lat,
-                        longitude = element.lon,
+                        latitude = effLat,
+                        longitude = effLon,
                         distanceMeters = d.toInt(),
-                        bearingFromUser = initialBearing(latitude, longitude, element.lat, element.lon),
+                        bearingFromUser = initialBearing(latitude, longitude, effLat, effLon),
                     )
                 }
+                .distinctBy { "%.5f,%.5f".format(it.latitude, it.longitude) }
                 .sortedBy { it.distanceMeters }
         }
     }

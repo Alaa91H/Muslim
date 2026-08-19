@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Hiar</string>
     <string name="qibla_dir_nw">Hiar-Twoaie</string>
     <string name="mosque_finder_close">Dloie</string>
+    <string name="offline_maps_search">Lhig da ard-valley ny ard-valley...</string>
+    <string name="offline_maps_search_empty">Cha nel toshiaghtyn co-chosney</string>
+    <string name="mosque_finder_zoom_in">Zoom stiagh</string>
+    <string name="mosque_finder_zoom_out">Zoom magh</string>
+    <string name="mosque_finder_nearest">Moskee ny s\'niessey</string>
 </resources>

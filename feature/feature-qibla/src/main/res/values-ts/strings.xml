@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Vupela-dyambu</string>
     <string name="qibla_dir_nw">N’walungu-vupela-dyambu</string>
     <string name="mosque_finder_close">Pfala</string>
+    <string name="offline_maps_search">Ku lavisisa doroba kumbe tiko...</string>
+    <string name="offline_maps_search_empty">Ku hava mbuyelo lowu fambelanaka</string>
+    <string name="mosque_finder_zoom_in">Zoom in</string>
+    <string name="mosque_finder_zoom_out">Zoom out</string>
+    <string name="mosque_finder_nearest">Mosque ya le kusuhi</string>
 </resources>

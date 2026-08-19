@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Ayro korma</string>
     <string name="qibla_dir_nw">Kilbatti ayro korma</string>
     <string name="mosque_finder_close">Alifa</string>
+    <string name="offline_maps_search">Magaala akkek baaxo gorrisa...</string>
+    <string name="offline_maps_search_empty">ittat axawah tan xalootitte matan</string>
+    <string name="mosque_finder_zoom_in">zoom addat</string>
+    <string name="mosque_finder_zoom_out">Zoom iroh</string>
+    <string name="mosque_finder_nearest">Xayi masjid</string>
 </resources>

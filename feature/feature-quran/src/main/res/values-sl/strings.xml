@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">Sveti Koran</string>
     <string name="quran_download_reciter_header">Preneseno: %1$d ajetov · %2$s</string>
+    <string name="quran_download_mushaf_progress">Mushaf končan: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">Prejšnja</string>
+    <string name="quran_recitation_notif_next">Naprej</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Захід</string>
     <string name="qibla_dir_nw">Північний захід</string>
     <string name="mosque_finder_close">Закрити</string>
+    <string name="offline_maps_search">Пошук міста чи країни…</string>
+    <string name="offline_maps_search_empty">Немає відповідних результатів</string>
+    <string name="mosque_finder_zoom_in">Збільшити</string>
+    <string name="mosque_finder_zoom_out">Зменшити масштаб</string>
+    <string name="mosque_finder_nearest">Найближча мечеть</string>
 </resources>

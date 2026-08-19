@@ -35,10 +35,7 @@
     <string name="more_section_tools">Åmot siha</string>
     <string name="more_section_app">App</string>
     <string name="more_order_title">ترتيب أقخ المزيد</string>
-    <string name="more_order_hint">استخدم الأسهم لتح كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
-    <string name="more_order_move_up">تحصیل لأعلى</string>
-    <string name="more_order_move_down">تحصیل لأسفل</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">خرائط ب إنترنت</string>
     <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل إنترنت</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">Na\'lå\'la\' ta\'lo</string>
     <string name="crash_close">Påpa\'</string>
     <string name="crash_dismiss">Sige</string>
+    <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
 </resources>

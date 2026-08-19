@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">West</string>
     <string name="qibla_dir_nw">غەربىي شىمال</string>
     <string name="mosque_finder_close">تاقاش</string>
+    <string name="offline_maps_search">شەھەر ياكى دۆلەت ئىزدە…</string>
+    <string name="offline_maps_search_empty">ماس كېلىدىغان نەتىجە يوق</string>
+    <string name="mosque_finder_zoom_in">چوڭايتىش</string>
+    <string name="mosque_finder_zoom_out">چوڭايتىڭ</string>
+    <string name="mosque_finder_nearest">ئەڭ يېقىن مەسچىت</string>
 </resources>

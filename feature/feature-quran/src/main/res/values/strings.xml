@@ -106,6 +106,8 @@
     <string name="quran_recitation_notif_play">تشغيل</string>
     <string name="quran_recitation_notif_pause">إيقاف مؤقت</string>
     <string name="quran_recitation_notif_stop">إيقاف</string>
+    <string name="quran_recitation_notif_previous">السابقة</string>
+    <string name="quran_recitation_notif_next">التالية</string>
 
     <!-- Meanings/tafsir controls -->
     <string name="quran_supplement_controls">المعاني والتفسير</string>
@@ -124,6 +126,8 @@
     <string name="quran_download_pause">إيقاف مؤقت</string>
     <string name="quran_download_reciter_state">المحلَّى للقارئ: %1$s</string>
     <string name="quran_download_reciter_header">المحمّل: %1$d آية · %2$s</string>
+    <string name="quran_download_mushaf_progress">اكتمال المصحف: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_download_reciter_state_detail">%1$d سورة · %2$d آية · %3$s</string>
     <string name="quran_download_delete_surah">حذف السورة المحمّلة</string>
     <string name="quran_download_delete_reciter">حذف كل تحميلات هذا القارئ</string>

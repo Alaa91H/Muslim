@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Vest</string>
     <string name="qibla_dir_nw">Nordvest</string>
     <string name="mosque_finder_close">Luk</string>
+    <string name="offline_maps_search">Søg efter en by eller et land...</string>
+    <string name="offline_maps_search_empty">Ingen matchende resultater</string>
+    <string name="mosque_finder_zoom_in">Zoom ind</string>
+    <string name="mosque_finder_zoom_out">Zoom ud</string>
+    <string name="mosque_finder_nearest">Nærmeste moske</string>
 </resources>

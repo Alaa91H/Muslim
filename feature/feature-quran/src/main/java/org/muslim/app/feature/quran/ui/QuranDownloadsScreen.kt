@@ -88,7 +88,9 @@ fun QuranDownloadsScreen(
     var confirmDeleteReciter by remember { mutableStateOf(false) }
     val totalSummary by viewModel.totalSummary.collectAsStateWithLifecycle()
     val selectedReciterId by viewModel.selectedReciterId.collectAsStateWithLifecycle()
+    val surahs by viewModel.surahs.collectAsStateWithLifecycle()
     val reciters = viewModel.reciters
+    val surahAyahTotals = remember(surahs) { surahs.associate { it.number to it.ayahCount } }
 
     // One page per reciter: swipe between reciters or tap a tab. The active
     // page becomes the selected (persisted) download target.
@@ -163,6 +165,8 @@ fun QuranDownloadsScreen(
                     ReciterHeaderSummary(
                         state = reciterState,
                         reciterName = pageReciter.name,
+                        totalMushafAyahs = viewModel.totalMushafAyahs,
+                        onDeleteReciter = { confirmDeleteReciter = true },
                     )
 
                     Spacer(Modifier.height(12.dp))
@@ -324,6 +328,7 @@ fun QuranDownloadsScreen(
                     // What is already downloaded for this reciter's page.
                     ReciterStateSection(
                         state = reciterState,
+                        surahAyahTotals = surahAyahTotals,
                         onDeleteSurah = { confirmDeleteSurah = it },
                         onDeleteReciter = { confirmDeleteReciter = true },
                     )
@@ -579,7 +584,11 @@ internal fun formatBytes(bytes: Long): String {
 private fun ReciterHeaderSummary(
     state: org.muslim.app.feature.quran.data.ReciterDownloadState?,
     reciterName: String,
+    totalMushafAyahs: Int,
+    onDeleteReciter: () -> Unit,
 ) {
+    val downloaded = state?.downloadedAyahs ?: 0
+    val progress = if (totalMushafAyahs > 0) downloaded.toFloat() / totalMushafAyahs else 0f
     Card(
         modifier = Modifier.fillMaxWidth(),
     ) {
@@ -605,11 +614,41 @@ private fun ReciterHeaderSummary(
                 Text(
                     text = stringResource(
                         R.string.quran_download_reciter_header,
-                        state?.downloadedAyahs ?: 0,
+                        downloaded,
                         formatBytes(state?.totalBytes ?: 0L),
                     ),
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.primary,
+                )
+                Spacer(Modifier.height(6.dp))
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    LinearProgressIndicator(
+                        progress = { progress.coerceIn(0f, 1f) },
+                        modifier = Modifier
+                            .weight(1f)
+                            .height(6.dp),
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Text(
+                        text = stringResource(
+                            R.string.quran_download_mushaf_progress,
+                            downloaded,
+                            totalMushafAyahs,
+                        ),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+            Spacer(Modifier.width(8.dp))
+            IconButton(
+                onClick = onDeleteReciter,
+                enabled = downloaded > 0,
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Delete,
+                    contentDescription = stringResource(R.string.quran_download_delete_reciter),
+                    tint = MaterialTheme.colorScheme.error,
                 )
             }
         }
@@ -624,6 +663,7 @@ private fun ReciterHeaderSummary(
 @Composable
 private fun ReciterStateSection(
     state: org.muslim.app.feature.quran.data.ReciterDownloadState?,
+    surahAyahTotals: Map<Int, Int>,
     onDeleteSurah: (Int) -> Unit,
     onDeleteReciter: () -> Unit,
 ) {
@@ -654,29 +694,47 @@ private fun ReciterStateSection(
     )
     Spacer(Modifier.height(8.dp))
     current.surahCounts.forEach { (surahNumber, ayahs) ->
-        Row(
+        val total = surahAyahTotals[surahNumber] ?: ayahs
+        val fraction = if (total > 0) ayahs.toFloat() / total else 0f
+        Column(
             modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
-            verticalAlignment = Alignment.CenterVertically,
         ) {
-            Icon(
-                imageVector = Icons.Filled.CheckCircle,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.size(18.dp),
-            )
-            Spacer(Modifier.width(8.dp))
-            Text(
-                text = stringResource(R.string.quran_surah_number_short, surahNumber) + " · $ayahs",
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.weight(1f),
-            )
-            IconButton(onClick = { onDeleteSurah(surahNumber) }) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
                 Icon(
-                    imageVector = Icons.Filled.Delete,
-                    contentDescription = stringResource(R.string.quran_download_delete_surah),
-                    tint = MaterialTheme.colorScheme.error,
+                    imageVector = Icons.Filled.CheckCircle,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(18.dp),
                 )
+                Spacer(Modifier.width(8.dp))
+                Text(
+                    text = stringResource(R.string.quran_surah_number_short, surahNumber),
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.weight(1f),
+                )
+                Text(
+                    text = stringResource(R.string.quran_download_surah_fraction, ayahs, total),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                IconButton(onClick = { onDeleteSurah(surahNumber) }) {
+                    Icon(
+                        imageVector = Icons.Filled.Delete,
+                        contentDescription = stringResource(R.string.quran_download_delete_surah),
+                        tint = MaterialTheme.colorScheme.error,
+                    )
+                }
             }
+            LinearProgressIndicator(
+                progress = { fraction.coerceIn(0f, 1f) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(4.dp)
+                    .padding(start = 26.dp, top = 2.dp),
+            )
         }
     }
     Spacer(Modifier.height(4.dp))

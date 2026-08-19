@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">서쪽</string>
     <string name="qibla_dir_nw">북서쪽</string>
     <string name="mosque_finder_close">닫기</string>
+    <string name="offline_maps_search">도시나 국가를 검색하세요…</string>
+    <string name="offline_maps_search_empty">일치하는 결과가 없습니다</string>
+    <string name="mosque_finder_zoom_in">확대</string>
+    <string name="mosque_finder_zoom_out">축소</string>
+    <string name="mosque_finder_nearest">가장 가까운 모스크</string>
 </resources>

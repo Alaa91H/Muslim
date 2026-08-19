@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Gorllewin</string>
     <string name="qibla_dir_nw">Gogledd-orllewin</string>
     <string name="mosque_finder_close">Cau</string>
+    <string name="offline_maps_search">Chwilio am ddinas neu wlad…</string>
+    <string name="offline_maps_search_empty">Dim canlyniadau cyfatebol</string>
+    <string name="mosque_finder_zoom_in">Chwyddo i mewn</string>
+    <string name="mosque_finder_zoom_out">Chwyddo allan</string>
+    <string name="mosque_finder_nearest">Mosg agosaf</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">西</string>
     <string name="qibla_dir_nw">西北</string>
     <string name="mosque_finder_close">关闭</string>
+    <string name="offline_maps_search">搜索城市或国家...</string>
+    <string name="offline_maps_search_empty">没有匹配结果</string>
+    <string name="mosque_finder_zoom_in">放大</string>
+    <string name="mosque_finder_zoom_out">缩小</string>
+    <string name="mosque_finder_nearest">最近的清真寺</string>
 </resources>

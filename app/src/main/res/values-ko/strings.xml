@@ -35,10 +35,7 @@
     <string name="more_section_tools">도구</string>
     <string name="more_section_app">앱</string>
     <string name="more_order_title">트위터의 내용</string>
-    <string name="more_order_hint">이 질문은 당신의 생각과 일치합니다. يُبَّق الترتيب مباهرة على جاهة المجيد.</string>
     <string name="more_order_reset">질병 예방 조치</string>
-    <string name="more_order_move_up">당신의 이야기를 들어보세요</string>
-    <string name="more_order_move_down">공부하다</string>
     <string name="more_order_back">로저</string>
     <string name="more_offline_maps">بدون إنترنت</string>
     <string name="more_offline_maps_desc">تحميل ائص مدينة 또는 لتعمل بdon إنترntet</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">다시 시작</string>
     <string name="crash_close">닫기</string>
     <string name="crash_dismiss">계속</string>
+    <string name="more_order_hint">이 질문은 당신이 생각하는 것보다 훨씬 더 많은 것을 의미합니다. يُبَّق التجيير مباسرة على جاهة المجيد.</string>
 </resources>

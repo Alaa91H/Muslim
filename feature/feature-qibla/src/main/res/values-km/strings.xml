@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">ខាងលិច</string>
     <string name="qibla_dir_nw">ភាគពាយ័ព្យ</string>
     <string name="mosque_finder_close">បិទ</string>
+    <string name="offline_maps_search">ស្វែងរកទីក្រុង ឬប្រទេស...</string>
+    <string name="offline_maps_search_empty">គ្មានលទ្ធផលដែលត្រូវគ្នា។</string>
+    <string name="mosque_finder_zoom_in">ពង្រីក</string>
+    <string name="mosque_finder_zoom_out">ពង្រីក</string>
+    <string name="mosque_finder_nearest">វិហារអ៊ីស្លាមដែលនៅជិតបំផុត។</string>
 </resources>

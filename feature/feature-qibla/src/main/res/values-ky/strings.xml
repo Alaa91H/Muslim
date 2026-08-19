@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Батыш</string>
     <string name="qibla_dir_nw">Түндүк-батыш</string>
     <string name="mosque_finder_close">Жабуу</string>
+    <string name="offline_maps_search">Шаарды же өлкөнү издөө…</string>
+    <string name="offline_maps_search_empty">Дал келген натыйжалар жок</string>
+    <string name="mosque_finder_zoom_in">Чоңойтуу</string>
+    <string name="mosque_finder_zoom_out">Кичирейтүү</string>
+    <string name="mosque_finder_nearest">Эң жакын мечит</string>
 </resources>

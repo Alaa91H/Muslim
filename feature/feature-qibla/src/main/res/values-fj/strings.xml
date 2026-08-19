@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Tokalau</string>
     <string name="qibla_dir_nw">Vualiku-i-Ra</string>
     <string name="mosque_finder_close">Voleka</string>
+    <string name="offline_maps_search">Vakasaqara e dua na koro se vanua...</string>
+    <string name="offline_maps_search_empty">Sega ni dua na macala veiganiti</string>
+    <string name="mosque_finder_zoom_in">Vakarabailevutaka</string>
+    <string name="mosque_finder_zoom_out">Vakarabailevutaka</string>
+    <string name="mosque_finder_nearest">Mosque voleka duadua</string>
 </resources>

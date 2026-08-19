@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Ovest</string>
     <string name="qibla_dir_nw">Norduvestu</string>
     <string name="mosque_finder_close">Chiudi</string>
+    <string name="offline_maps_search">Cerca una cità o un paese...</string>
+    <string name="offline_maps_search_empty">Nisun risultatu currispondente</string>
+    <string name="mosque_finder_zoom_in">Zoom in</string>
+    <string name="mosque_finder_zoom_out">Zoom out</string>
+    <string name="mosque_finder_nearest">A moschea più vicina</string>
 </resources>

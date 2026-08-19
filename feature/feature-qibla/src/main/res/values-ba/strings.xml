@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Көнбайыш</string>
     <string name="qibla_dir_nw">Төньяҡ-көнбайыш</string>
     <string name="mosque_finder_close">Ябыҡ</string>
+    <string name="offline_maps_search">Ҡала йәки ил эҙләү...</string>
+    <string name="offline_maps_search_empty">Тап килгән һөҙөмтәләр юҡ</string>
+    <string name="mosque_finder_zoom_in">Ҙурайтыу</string>
+    <string name="mosque_finder_zoom_out">Ҡыҫҡартыу</string>
+    <string name="mosque_finder_nearest">Яҡындағы мәсет .</string>
 </resources>

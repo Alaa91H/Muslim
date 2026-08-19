@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Rietumi</string>
     <string name="qibla_dir_nw">Ziemeļrietumi</string>
     <string name="mosque_finder_close">Aizvērt</string>
+    <string name="offline_maps_search">Meklēt pilsētu vai valsti…</string>
+    <string name="offline_maps_search_empty">Nav atbilstošu rezultātu</string>
+    <string name="mosque_finder_zoom_in">Pietuvināt</string>
+    <string name="mosque_finder_zoom_out">Tālināt</string>
+    <string name="mosque_finder_nearest">Tuvākā mošeja</string>
 </resources>

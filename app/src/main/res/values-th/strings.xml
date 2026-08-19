@@ -35,10 +35,7 @@
     <string name="more_section_tools">เครื่องมือ</string>
     <string name="more_section_app">แอพ</string>
     <string name="more_order_title">ترتيب اقسام المزيد</string>
-    <string name="more_order_hint">استكدم الاسهم لتحريك كل قسم لاعلى او لاسلل. يَتبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">استعادة الترتيب الافترادي</string>
-    <string name="more_order_move_up">تحريك لاعلى</string>
-    <string name="more_order_move_down">تحريك لاسفل</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">کرائل بدون إنترنت</string>
     <string name="more_offline_maps_desc">تحميل كرائل مدينة او دولة لتعمل بدون إنترنت</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">รีสตาร์ท</string>
     <string name="crash_close">ปิด</string>
     <string name="crash_dismiss">ดำเนินการต่อ</string>
+    <string name="more_order_hint">اجگ مع الاستمرار على اي قسم واسحبه لإعادة ترتيبه, واستكدم المفتاح لإظهار او اسحباء كل قسم. يَتبَّق التجيير مباشرة على شاشة المزيد.</string>
 </resources>

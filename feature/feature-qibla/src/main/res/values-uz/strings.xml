@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">G\'arbiy</string>
     <string name="qibla_dir_nw">Shimoli-g\'arbiy</string>
     <string name="mosque_finder_close">Yopish</string>
+    <string name="offline_maps_search">Shahar yoki mamlakatni qidiring…</string>
+    <string name="offline_maps_search_empty">Mos natijalar topilmadi</string>
+    <string name="mosque_finder_zoom_in">Kattalashtirish</string>
+    <string name="mosque_finder_zoom_out">Kichraytirish</string>
+    <string name="mosque_finder_nearest">Eng yaqin masjid</string>
 </resources>

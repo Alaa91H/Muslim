@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Sanlagu</string>
     <string name="qibla_dir_nw">Sanlagu</string>
     <string name="mosque_finder_close">Påpa\'</string>
+    <string name="offline_maps_search">Fanli\'e\' un siudå pat un nasion...</string>
+    <string name="offline_maps_search_empty">Ti parehu i risulta siha</string>
+    <string name="mosque_finder_zoom_in">Na\'lå\'la\'</string>
+    <string name="mosque_finder_zoom_out">Na\'ma\'lak</string>
+    <string name="mosque_finder_nearest">I mas åpmam na moske</string>
 </resources>

@@ -82,6 +82,8 @@ fun MoreScreen(
     onOpenOfflineMaps: () -> Unit = {},
     /** User-customized section order (ids from [org.muslim.app.core.datastore.AppPreferences]). */
     sectionOrder: List<String> = org.muslim.app.core.datastore.AppPreferences.DEFAULT_MORE_SECTION_ORDER,
+    /** Sections the user chose to hide (ids from [org.muslim.app.core.datastore.AppPreferences]). */
+    hiddenSections: Set<String> = emptySet(),
 ) {
     val sectionsById = mapOf(
         org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_WORSHIP to MoreSection(
@@ -119,7 +121,7 @@ fun MoreScreen(
             ),
         ),
     )
-    val sections = sectionOrder.mapNotNull { sectionsById[it] }
+    val sections = sectionOrder.filter { it !in hiddenSections }.mapNotNull { sectionsById[it] }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),

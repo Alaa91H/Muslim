@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Inti jalant tuqiru</string>
     <string name="qibla_dir_nw">Noroeste uksanxa</string>
     <string name="mosque_finder_close">Jist’antaña</string>
+    <string name="offline_maps_search">Mä markar jan ukax mä markar thaqhapxam...</string>
+    <string name="offline_maps_search_empty">Janiw mä kipka resultados utjkiti</string>
+    <string name="mosque_finder_zoom_in">Ukax mä jach’a uñacht’äwiwa</string>
+    <string name="mosque_finder_zoom_out">Ukax mä jach’a uñacht’äwiwa</string>
+    <string name="mosque_finder_nearest">Mezquita jak’ankiwa</string>
 </resources>

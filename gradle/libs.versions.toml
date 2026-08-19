@@ -14,6 +14,7 @@ activityCompose = "1.13.0"
 lifecycle = "2.11.0"
 navigationCompose = "2.9.8"
 window = "1.5.1"
+media = "1.7.0"
 
 # Compose (BOM pins all androidx.compose.* modules together)
 composeBom = "2026.08.00"
@@ -57,6 +58,7 @@ robolectric = "4.16.1"
 [libraries]
 # --- AndroidX core ---
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-media = { group = "androidx.media", name = "media", version.ref = "media" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
 androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }

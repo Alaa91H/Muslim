@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">西</string>
     <string name="qibla_dir_nw">北西部</string>
     <string name="mosque_finder_close">閉じる</string>
+    <string name="offline_maps_search">都市または国を検索…</string>
+    <string name="offline_maps_search_empty">一致する結果はありません</string>
+    <string name="mosque_finder_zoom_in">ズームイン</string>
+    <string name="mosque_finder_zoom_out">ズームアウト</string>
+    <string name="mosque_finder_nearest">最寄りのモスク</string>
 </resources>

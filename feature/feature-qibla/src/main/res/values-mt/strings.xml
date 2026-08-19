@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Punent</string>
     <string name="qibla_dir_nw">Majjistral</string>
     <string name="mosque_finder_close">Agħlaq</string>
+    <string name="offline_maps_search">Fittex għal belt jew pajjiż...</string>
+    <string name="offline_maps_search_empty">Ebda riżultati li jaqblu</string>
+    <string name="mosque_finder_zoom_in">Zoom in</string>
+    <string name="mosque_finder_zoom_out">Zoom out</string>
+    <string name="mosque_finder_nearest">L-eqreb moskea</string>
 </resources>

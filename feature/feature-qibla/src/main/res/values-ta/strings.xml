@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">மேற்கு</string>
     <string name="qibla_dir_nw">வடமேற்கு</string>
     <string name="mosque_finder_close">மூடு</string>
+    <string name="offline_maps_search">நகரம் அல்லது நாட்டைத் தேடுங்கள்...</string>
+    <string name="offline_maps_search_empty">பொருந்தக்கூடிய முடிவுகள் இல்லை</string>
+    <string name="mosque_finder_zoom_in">பெரிதாக்கவும்</string>
+    <string name="mosque_finder_zoom_out">பெரிதாக்கவும்</string>
+    <string name="mosque_finder_nearest">அருகில் உள்ள மசூதி</string>
 </resources>

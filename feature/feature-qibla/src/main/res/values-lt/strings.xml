@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Vakarai</string>
     <string name="qibla_dir_nw">Šiaurės vakarai</string>
     <string name="mosque_finder_close">Uždaryti</string>
+    <string name="offline_maps_search">Ieškokite miesto ar šalies…</string>
+    <string name="offline_maps_search_empty">Nėra atitinkančių rezultatų</string>
+    <string name="mosque_finder_zoom_in">Priartinti</string>
+    <string name="mosque_finder_zoom_out">Nutolinti</string>
+    <string name="mosque_finder_nearest">Artimiausia mečetė</string>
 </resources>

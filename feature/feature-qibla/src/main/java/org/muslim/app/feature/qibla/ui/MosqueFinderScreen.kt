@@ -5,17 +5,22 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.MyLocation
+import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -44,6 +49,7 @@ import kotlinx.coroutines.launch
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.maplibre.android.camera.CameraPosition
 import org.maplibre.android.geometry.LatLng
+import org.muslim.app.core.ui.map.MapController
 import org.muslim.app.core.ui.map.MapMarker
 import org.muslim.app.core.ui.map.OsmMapView
 import org.muslim.app.core.ui.map.addMosqueMarkers
@@ -74,7 +80,9 @@ class MosqueFinderViewModel @Inject constructor(
             runCatching { repository.nearby(latitude, longitude) }
                 .onSuccess {
                     mosques = it
-                    selectedMosque = null
+                    // Surface the nearest mosque immediately so the user never
+                    // has to hunt for it in the list.
+                    selectedMosque = it.minByOrNull { mosque -> mosque.distanceMeters }
                 }
                 .onFailure { error = it.message }
             loading = false
@@ -134,7 +142,9 @@ fun MosqueFinderScreen(
             }
             if (latitude != null && longitude != null) {
                 item {
-                    Box(Modifier.fillMaxWidth().height(240.dp)) {
+                    val mapController = remember { MapController() }
+                    val nearest = viewModel.mosques.minByOrNull { it.distanceMeters }
+                    Box(Modifier.fillMaxWidth().height(300.dp)) {
                         OsmMapView(
                             modifier = Modifier.fillMaxSize(),
                             initialCamera = CameraPosition.Builder()
@@ -142,6 +152,7 @@ fun MosqueFinderScreen(
                                 .zoom(13.0)
                                 .build(),
                             key = viewModel.mosques,
+                            controller = mapController,
                             onMapReady = { map ->
                                 map.addPinMarker("user", LatLng(latitude, longitude), "#1E88E5")
                                 map.addMosqueMarkers(
@@ -166,6 +177,27 @@ fun MosqueFinderScreen(
                             },
                             onMapClick = { viewModel.selectMosque(null) },
                         )
+                        // Zoom controls + refresh (map stays fully usable in
+                        // scrollable screens via explicit buttons).
+                        Column(
+                            modifier = Modifier
+                                .align(Alignment.TopStart)
+                                .padding(12.dp),
+                            verticalArrangement = Arrangement.spacedBy(8.dp),
+                        ) {
+                            FilledTonalIconButton(onClick = { mapController.zoomIn() }) {
+                                Icon(
+                                    Icons.Filled.Add,
+                                    contentDescription = stringResource(R.string.mosque_finder_zoom_in),
+                                )
+                            }
+                            FilledTonalIconButton(onClick = { mapController.zoomOut() }) {
+                                Icon(
+                                    Icons.Filled.Remove,
+                                    contentDescription = stringResource(R.string.mosque_finder_zoom_out),
+                                )
+                            }
+                        }
                         FilledTonalIconButton(
                             onClick = { viewModel.search(latitude, longitude) },
                             modifier = Modifier
@@ -176,6 +208,25 @@ fun MosqueFinderScreen(
                                 Icons.Default.MyLocation,
                                 contentDescription = stringResource(R.string.mosque_finder_retry),
                             )
+                        }
+                        nearest?.let { mosque ->
+                            TextButton(
+                                onClick = {
+                                    mapController.animateTo(LatLng(mosque.latitude, mosque.longitude), 15.0)
+                                    viewModel.selectMosque(mosque)
+                                },
+                                modifier = Modifier
+                                    .align(Alignment.TopCenter)
+                                    .padding(12.dp),
+                            ) {
+                                Icon(
+                                    Icons.Default.LocationOn,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(16.dp),
+                                )
+                                Spacer(Modifier.width(4.dp))
+                                Text(stringResource(R.string.mosque_finder_nearest))
+                            }
                         }
                         viewModel.selectedMosque?.let { mosque ->
                             Card(

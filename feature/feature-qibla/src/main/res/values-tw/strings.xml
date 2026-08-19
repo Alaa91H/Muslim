@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Atɔe fam</string>
     <string name="qibla_dir_nw">Atifi fam Atɔe</string>
     <string name="mosque_finder_close">Bɛto mu</string>
+    <string name="offline_maps_search">Hwehwɛ kurow anaa ɔman bi...</string>
+    <string name="offline_maps_search_empty">Nea efii mu bae a ɛne ne ho hyia biara nni hɔ</string>
+    <string name="mosque_finder_zoom_in">Zoom wɔ mu</string>
+    <string name="mosque_finder_zoom_out">Zoom ketewaa bi</string>
+    <string name="mosque_finder_nearest">Asɔredan a ɛbɛn hɔ sen biara</string>
 </resources>

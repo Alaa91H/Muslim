@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">ተፍሲር፡ %1$s</string>
     <string name="quran_title">ቅዱስ ቁርኣን</string>
     <string name="quran_download_reciter_header">የወረደው፡ %1$d አያህ · %2$s</string>
+    <string name="quran_download_mushaf_progress">Mushaf complete: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">ቀዳሚ</string>
+    <string name="quran_recitation_notif_next">ቀጥሎ</string>
 </resources>

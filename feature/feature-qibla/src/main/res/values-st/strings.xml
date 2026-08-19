@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Bophirimela</string>
     <string name="qibla_dir_nw">Leboya-bophirimela</string>
     <string name="mosque_finder_close">Koala</string>
+    <string name="offline_maps_search">Batla toropo kapa naha...</string>
+    <string name="offline_maps_search_empty">Ha ho liphetho tse nyallanang</string>
+    <string name="mosque_finder_zoom_in">Atometsa</string>
+    <string name="mosque_finder_zoom_out">Atolosa</string>
+    <string name="mosque_finder_nearest">Mamosleme a haufi</string>
 </resources>

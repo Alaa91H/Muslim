@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Tlebi fɛ</string>
     <string name="qibla_dir_nw">Worodugu-tlebi fɛ</string>
     <string name="mosque_finder_close">A da tugu</string>
+    <string name="offline_maps_search">Dugu walima jamana dɔ ɲini...</string>
+    <string name="offline_maps_search_empty">A ma sɔrɔ min bɛ bɛn ɲɔgɔn ma</string>
+    <string name="mosque_finder_zoom_in">Zoom in (yɔrɔ caman) kɛ</string>
+    <string name="mosque_finder_zoom_out">Zoom out (Dɔgɔtɔrɔso).</string>
+    <string name="mosque_finder_nearest">Misiri min ka surun</string>
 </resources>

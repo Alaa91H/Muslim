@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">لویدیځ</string>
     <string name="qibla_dir_nw">شمال لویدیځ</string>
     <string name="mosque_finder_close">تړل</string>
+    <string name="offline_maps_search">د یو ښار یا هیواد لټون…</string>
+    <string name="offline_maps_search_empty">هیڅ مطابقت نلري</string>
+    <string name="mosque_finder_zoom_in">زوم ان</string>
+    <string name="mosque_finder_zoom_out">زوم بهر</string>
+    <string name="mosque_finder_nearest">نږدې جومات</string>
 </resources>

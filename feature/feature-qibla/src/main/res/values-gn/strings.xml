@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Kuarahyreike gotyo</string>
     <string name="qibla_dir_nw">Noroeste gotyo</string>
     <string name="mosque_finder_close">Oñemboty</string>
+    <string name="offline_maps_search">Eheka peteĩ táva térã tetã...</string>
+    <string name="offline_maps_search_empty">Ndaipóri resultado ojoajúva</string>
+    <string name="mosque_finder_zoom_in">Embotuichave</string>
+    <string name="mosque_finder_zoom_out">Emboguejy michĩmi</string>
+    <string name="mosque_finder_nearest">Mezquita hi’aguĩvéva</string>
 </resources>

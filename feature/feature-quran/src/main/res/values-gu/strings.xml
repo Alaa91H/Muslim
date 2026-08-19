@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">તફસીરઃ %1$s</string>
     <string name="quran_title">પવિત્ર કુરાન</string>
     <string name="quran_download_reciter_header">ડાઉનલોડ કરેલ: %1$d આયા · %2$s</string>
+    <string name="quran_download_mushaf_progress">મુશફ પૂર્ણ: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">ગત</string>
+    <string name="quran_recitation_notif_next">આગળ</string>
 </resources>

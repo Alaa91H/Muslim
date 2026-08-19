@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Nyugat</string>
     <string name="qibla_dir_nw">Északnyugat</string>
     <string name="mosque_finder_close">Bezárás</string>
+    <string name="offline_maps_search">Keressen várost vagy országot…</string>
+    <string name="offline_maps_search_empty">Nincsenek megfelelő eredmények</string>
+    <string name="mosque_finder_zoom_in">Nagyítás</string>
+    <string name="mosque_finder_zoom_out">Kicsinyítés</string>
+    <string name="mosque_finder_nearest">Legközelebbi mecset</string>
 </resources>

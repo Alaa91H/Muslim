@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Yamma</string>
     <string name="qibla_dir_nw">Arewa maso yamma</string>
     <string name="mosque_finder_close">Kusa</string>
+    <string name="offline_maps_search">Nemo birni ko ƙasa…</string>
+    <string name="offline_maps_search_empty">Babu sakamako da ya dace</string>
+    <string name="mosque_finder_zoom_in">Zuƙowa</string>
+    <string name="mosque_finder_zoom_out">Zuƙowa waje</string>
+    <string name="mosque_finder_nearest">Masallaci mafi kusa</string>
 </resources>

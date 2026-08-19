@@ -111,7 +111,7 @@ class AdhanScheduler @Inject constructor(
             .putExtra(AdhanAlarmReceiver.EXTRA_PRAYER, prayer.name)
             .putExtra(AdhanAlarmReceiver.EXTRA_IS_REMINDER, isReminder)
             .putExtra(AdhanAlarmReceiver.EXTRA_SOUND_OPTION, (settings.adhanSounds[prayer] ?: AdhanSoundOption.Default).name)
-            .putExtra(AdhanAlarmReceiver.EXTRA_VOLUME, settings.adhanVolume)
+            .putExtra(AdhanAlarmReceiver.EXTRA_VOLUME, settings.adhanVolumeFor(prayer))
         val requestCode = prayer.ordinal + (if (isReminder) 100 else 0)
         return PendingIntent.getBroadcast(
             context, requestCode, intent,

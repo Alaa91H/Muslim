@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">પશ્ચિમ</string>
     <string name="qibla_dir_nw">ઉત્તરપશ્ચિમ</string>
     <string name="mosque_finder_close">બંધ કરો</string>
+    <string name="offline_maps_search">શહેર અથવા દેશ માટે શોધો...</string>
+    <string name="offline_maps_search_empty">કોઈ મેળ ખાતા પરિણામો નથી</string>
+    <string name="mosque_finder_zoom_in">ઝૂમ ઇન કરો</string>
+    <string name="mosque_finder_zoom_out">ઝૂમ આઉટ કરો</string>
+    <string name="mosque_finder_nearest">નજીકની મસ્જિદ</string>
 </resources>

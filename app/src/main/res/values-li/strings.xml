@@ -35,10 +35,7 @@
     <string name="more_section_tools">Gereidschappe</string>
     <string name="more_section_app">App</string>
     <string name="more_order_title">ترتيب أقم المزيد</string>
-    <string name="more_order_hint">استخدم الأسهم لتح كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
-    <string name="more_order_move_up">تحول لأعلى</string>
-    <string name="more_order_move_down">تح لأسفل</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">خرائط از إنترنت</string>
     <string name="more_offline_maps_desc">تحميل خرائط مدينة أو دولة لتعمل إنترنت</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">Herstarte</string>
     <string name="crash_close">Sluite</string>
     <string name="crash_dismiss">Gaon door</string>
+    <string name="more_order_hint">اضغط مع الاستمرار على أي نوع واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل klas. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
 </resources>

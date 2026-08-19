@@ -17,6 +17,8 @@ import org.muslim.app.feature.quran.data.MediaPlayerAudioEngine
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.data.QuranRepositoryImpl
 import org.muslim.app.feature.quran.data.RecitationEngineFactory
+import org.muslim.app.feature.quran.data.RecitationPlaybackBridge
+import org.muslim.app.feature.quran.data.RecitationPlaybackServiceBridge
 import org.muslim.app.feature.quran.domain.QuranRepository
 import javax.inject.Singleton
 
@@ -51,6 +53,12 @@ object QuranModule {
     @Singleton
     fun provideRecitationEngineFactory(): RecitationEngineFactory =
         MediaPlayerAudioEngine.Factory()
+
+    @Provides
+    @Singleton
+    fun provideRecitationPlaybackBridge(
+        @ApplicationContext context: Context,
+    ): RecitationPlaybackBridge = RecitationPlaybackServiceBridge(context)
 
     @Provides
     @Singleton

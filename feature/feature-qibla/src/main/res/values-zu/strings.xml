@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Entshonalanga</string>
     <string name="qibla_dir_nw">Enyakatho-ntshonalanga</string>
     <string name="mosque_finder_close">Vala</string>
+    <string name="offline_maps_search">Sesha idolobhakazi noma izwe...</string>
+    <string name="offline_maps_search_empty">Ayikho imiphumela efanayo</string>
+    <string name="mosque_finder_zoom_in">Sondeza isithombe</string>
+    <string name="mosque_finder_zoom_out">Hlehlisa isithombe</string>
+    <string name="mosque_finder_nearest">I-mosque eseduze</string>
 </resources>

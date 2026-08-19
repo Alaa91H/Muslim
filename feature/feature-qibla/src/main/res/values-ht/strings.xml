@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Lwès</string>
     <string name="qibla_dir_nw">Nòdwès</string>
     <string name="mosque_finder_close">Fèmen</string>
+    <string name="offline_maps_search">Chèche yon vil oswa yon peyi...</string>
+    <string name="offline_maps_search_empty">Pa gen rezilta matche</string>
+    <string name="mosque_finder_zoom_in">Zoom nan</string>
+    <string name="mosque_finder_zoom_out">Zoom deyò</string>
+    <string name="mosque_finder_nearest">Moske ki pi pre</string>
 </resources>

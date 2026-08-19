@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">තෆ්සීර්: %1$s</string>
     <string name="quran_title">ශුද්ධ වූ කුර්ආනය</string>
     <string name="quran_download_reciter_header">බාගත්: %1$d ayahs · %2$s</string>
+    <string name="quran_download_mushaf_progress">මුෂාෆ් සම්පූර්ණයි: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">පෙර</string>
+    <string name="quran_recitation_notif_next">ඊළඟට</string>
 </resources>

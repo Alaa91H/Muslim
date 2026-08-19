@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Bophirima</string>
     <string name="qibla_dir_nw">Bokonebophirima</string>
     <string name="mosque_finder_close">Tswala</string>
+    <string name="offline_maps_search">Batla toropo kgotsa naga...</string>
+    <string name="offline_maps_search_empty">Ga go na dipholo tse di tshwanang</string>
+    <string name="mosque_finder_zoom_in">Go atolosetsa</string>
+    <string name="mosque_finder_zoom_out">Zoom fokotsega</string>
+    <string name="mosque_finder_nearest">Mosque o o gaufi</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Ғарб</string>
     <string name="qibla_dir_nw">Шимолу гарбй</string>
     <string name="mosque_finder_close">Пӯшед</string>
+    <string name="offline_maps_search">Ҷустуҷӯи шаҳр ё кишвар…</string>
+    <string name="offline_maps_search_empty">Натоиҷи мувофиқ нест</string>
+    <string name="mosque_finder_zoom_in">Масштаб кардан</string>
+    <string name="mosque_finder_zoom_out">Масоҳат кардан</string>
+    <string name="mosque_finder_nearest">Наздиктарин масҷид</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">ހުޅަނގަށް</string>
     <string name="qibla_dir_nw">ހުޅަނގު އުތުރުންނެވެ</string>
     <string name="mosque_finder_close">ބަންދުކޮށްލާށެވެ</string>
+    <string name="offline_maps_search">ސިޓީއެއް ނުވަތަ ގައުމެއް ހޯދުމަށް...</string>
+    <string name="offline_maps_search_empty">އެއްގޮތް ނަތީޖާއެއް ނެތެވެ</string>
+    <string name="mosque_finder_zoom_in">ޒޫމް އިން ކޮށްލާށެވެ</string>
+    <string name="mosque_finder_zoom_out">ޒޫމް އައުޓް ކޮށްލާށެވެ</string>
+    <string name="mosque_finder_nearest">އެންމެ ކައިރީގައި ހުންނަ މިސްކިތެވެ</string>
 </resources>

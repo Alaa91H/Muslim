@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Okcidenta</string>
     <string name="qibla_dir_nw">Nordokcidento</string>
     <string name="mosque_finder_close">Fermu</string>
+    <string name="offline_maps_search">Serĉu urbon aŭ landon...</string>
+    <string name="offline_maps_search_empty">Neniuj kongruaj rezultoj</string>
+    <string name="mosque_finder_zoom_in">Zoom en</string>
+    <string name="mosque_finder_zoom_out">Zomi malproksimigi</string>
+    <string name="mosque_finder_nearest">Plej proksima moskeo</string>
 </resources>

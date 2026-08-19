@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">West</string>
     <string name="qibla_dir_nw">Northwest</string>
     <string name="mosque_finder_close">Mechie</string>
+    <string name="offline_maps_search">Chọọ obodo ma ọ bụ obodo…</string>
+    <string name="offline_maps_search_empty">Enweghị nsonaazụ dabara</string>
+    <string name="mosque_finder_zoom_in">Bugharịa</string>
+    <string name="mosque_finder_zoom_out">Wepụ ya</string>
+    <string name="mosque_finder_nearest">Ụlọ alakụba kacha nso</string>
 </resources>

@@ -43,9 +43,9 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 AdhanPlaybackService.start(
                     context = appContext,
                     prayer = prayer,
-                    vibrate = settings.vibrateEnabled,
+                    vibrate = settings.vibrateFor(prayer),
                     soundOption = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
-                    volumePercent = settings.adhanVolume,
+                    volumePercent = settings.adhanVolumeFor(prayer),
                     soundPath = soundPath,
                     bundledSoundId = settings.bundledAdhanSounds[prayer]
                         ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID,

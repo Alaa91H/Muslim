@@ -35,10 +35,7 @@
     <string name="more_section_tools">Công cụ</string>
     <string name="more_section_app">ứng dụng</string>
     <string name="more_order_title">ترتيب أقسام المزيد</string>
-    <string name="more_order_hint">Đây là một trong những điều tốt nhất mà bạn có thể làm. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
-    <string name="more_order_move_up">تحريك لأعلى</string>
-    <string name="more_order_move_down">تحريك لأسفل</string>
     <string name="more_order_back">جوع</string>
     <string name="more_offline_maps">خرائط بدون إنترنت</string>
     <string name="more_offline_maps_desc">Công ty cung cấp dịch vụ hỗ trợ tài chính cho bạn</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">Khởi động lại</string>
     <string name="crash_close">Đóng</string>
     <string name="crash_dismiss">Tiếp tục</string>
+    <string name="more_order_hint">Một trong những điều tốt nhất bạn có thể làm để có được một công cụ tuyệt vời Ờ. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
 </resources>

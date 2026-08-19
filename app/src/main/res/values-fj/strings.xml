@@ -35,10 +35,7 @@
     <string name="more_section_tools">Iyaya ni cakacaka</string>
     <string name="more_section_app">App</string>
     <string name="more_order_title">ترتيب أقسام المزيد</string>
-    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">Na ivakarau ni bula</string>
-    <string name="more_order_move_up">Taurika sega ni kilai</string>
-    <string name="more_order_move_down">تحريك آسفل</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">خرائط بدون مدون</string>
     <string name="more_offline_maps_desc">تحميل خرائط مدينة أوة لتعمل بدون دولترنت</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">Tekivu tale</string>
     <string name="crash_close">Voleka</string>
     <string name="crash_dismiss">Tomana tiko</string>
+    <string name="more_order_hint">اضغط مع الاستمرار ena dua na قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
 </resources>

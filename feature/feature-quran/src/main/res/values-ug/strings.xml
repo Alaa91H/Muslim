@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">تەفسىر: %1$s</string>
     <string name="quran_title">قۇرئان كەرىم</string>
     <string name="quran_download_reciter_header">چۈشۈرۈلگەن: %1$d ئايەت · %2$s</string>
+    <string name="quran_download_mushaf_progress">مۇشاف تولۇق: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">ئالدىنقى</string>
+    <string name="quran_recitation_notif_next">كېيىنكى</string>
 </resources>

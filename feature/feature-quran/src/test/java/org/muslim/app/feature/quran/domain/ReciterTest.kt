@@ -37,4 +37,35 @@ class ReciterTest {
             assertThat(reciter.estimatedBytesPerAyah()).isAtLeast(1L)
         }
     }
+
+    @Test
+    fun bundledReciters_haveNoDuplicateIds() {
+        val ids = Reciter.Bundled.map { it.id }
+        assertThat(ids.distinct()).containsExactlyElementsIn(ids)
+    }
+
+    @Test
+    fun bundledReciters_keepOnlyBestQualityPerReciterStyle() {
+        // No two entries may share (name + style label): lower-bitrate
+        // duplicates of the same recitation were removed in favour of the
+        // best quality variant ("اختر ذو الجودة الافضل واحذف التكرار").
+        val keys = Reciter.Bundled.map { it.name to it.style }
+        assertThat(keys.distinct()).containsExactlyElementsIn(keys)
+        Reciter.Bundled.groupBy { it.name to it.style }.values.forEach { group ->
+            assertThat(group.maxOf { it.bitrateKbps }).isEqualTo(group.first().bitrateKbps)
+        }
+    }
+
+    @Test
+    fun bundledReciters_folderNamesFollowServerSpelling() {
+        // Every bundled folder must follow the live server's naming; a typo
+        // yields HTTP 404 and silently broken downloads. Guards known bad
+        // spellings so they can never be reintroduced.
+        val folders = Reciter.Bundled.map { reciter ->
+            reciter.urlTemplate.removePrefix("https://everyayah.com/data/").removeSuffix("/{surah}{ayah}.mp3")
+        }
+        assertThat(folders).doesNotContain("Maher_AlMuaiqly_128kbps")
+        assertThat(folders).doesNotContain("")
+        assertThat(folders.map { it.lowercase() }.distinct().size).isEqualTo(folders.size)
+    }
 }

@@ -36,8 +36,13 @@ data class PrayerSettings(
      * it replaces the bundled synthesised tone for that prayer.
      */
     val adhanSoundFiles: Map<Prayer, String> = emptyMap(),
-    /** Master adhan playback volume, 0..100. */
+    /** Default adhan playback volume (0..100) used when a prayer has no override. */
     val adhanVolume: Int = 100,
+    /**
+     * Per-prayer volume override (0..100); absent keys fall back to
+     * [adhanVolume], so every prayer is individually tunable.
+     */
+    val adhanVolumes: Map<Prayer, Int> = emptyMap(),
     /**
      * Per-prayer bundled recording id (see
      * [org.muslim.app.core.common.prayer.BundledAdhanSound]); always
@@ -45,6 +50,11 @@ data class PrayerSettings(
      * Makkah for every prayer.
      */
     val bundledAdhanSounds: Map<Prayer, String> = emptyMap(),
+    /**
+     * Per-prayer vibration override; absent keys fall back to
+     * [vibrateEnabled], so every prayer is individually tunable.
+     */
+    val vibratePerPrayer: Map<Prayer, Boolean> = emptyMap(),
     /** Minutes before the prayer to remind; 0 disables the reminder. */
     val reminderMinutes: Int = 10,
     /**
@@ -56,7 +66,15 @@ data class PrayerSettings(
     val dndDurationMinutes: Int = 10,
     /** App-wide manual Hijri day adjustment (±). */
     val hijriAdjustment: Int = 0,
-)
+) {
+    /** Resolves the effective adhan volume for [prayer]. */
+    fun adhanVolumeFor(prayer: Prayer): Int =
+        adhanVolumes[prayer]?.coerceIn(0, 100) ?: adhanVolume
+
+    /** Resolves whether vibration is enabled for [prayer]. */
+    fun vibrateFor(prayer: Prayer): Boolean =
+        vibratePerPrayer[prayer] ?: vibrateEnabled
+}
 
 /** The user's chosen location (city, GPS fix, or manual coordinates). */
 data class SelectedLocation(

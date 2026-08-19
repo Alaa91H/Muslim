@@ -22,6 +22,8 @@ internal object AdhanNotifications {
             .setContentText(context.getString(R.string.prayer_name, context.getString(prayerNameRes(prayer))))
             .setStyle(NotificationCompat.BigTextStyle())
             .setCategory(NotificationCompat.CATEGORY_ALARM)
+            // Persistent: cannot be swiped away while the adhan is ringing.
+            .setOngoing(true)
             .setAutoCancel(false)
             .build()
 

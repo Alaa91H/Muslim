@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">पश्चिम के ह</string>
     <string name="qibla_dir_nw">उत्तर पश्चिम के बा</string>
     <string name="mosque_finder_close">बंद कर दीं</string>
+    <string name="offline_maps_search">कवनो शहर भा देश के खोज करीं...</string>
+    <string name="offline_maps_search_empty">कवनो मिलान रिजल्ट ना मिलल</string>
+    <string name="mosque_finder_zoom_in">ज़ूम इन कर के देखल जाव</string>
+    <string name="mosque_finder_zoom_out">ज़ूम आउट कर दीं</string>
+    <string name="mosque_finder_nearest">नजदीकी मस्जिद के बा</string>
 </resources>

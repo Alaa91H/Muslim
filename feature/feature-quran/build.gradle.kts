@@ -60,6 +60,10 @@ dependencies {
     // Daily "ayah of the day" notification
     implementation(libs.androidx.work.runtime.ktx)
 
+    // MediaSessionCompat + MediaStyle — the recitation is exposed to the system
+    // as media so it shows on the lock screen and in the notification shade.
+    implementation(libs.androidx.media)
+
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.truth)

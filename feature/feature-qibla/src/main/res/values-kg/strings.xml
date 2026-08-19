@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Westi</string>
     <string name="qibla_dir_nw">Nord-Ouest</string>
     <string name="mosque_finder_close">Kanga</string>
+    <string name="offline_maps_search">Sosa mbanza to insi...</string>
+    <string name="offline_maps_search_empty">Ba mvutu ya ke wakana ve</string>
+    <string name="mosque_finder_zoom_in">Kumisa nene</string>
+    <string name="mosque_finder_zoom_out">Zoom fioti</string>
+    <string name="mosque_finder_nearest">Mosquée ya pene-pene</string>
 </resources>

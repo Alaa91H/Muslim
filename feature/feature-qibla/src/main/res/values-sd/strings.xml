@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">اولهه</string>
     <string name="qibla_dir_nw">اتر اولهه</string>
     <string name="mosque_finder_close">بند</string>
+    <string name="offline_maps_search">شهر يا ملڪ جي ڳولا ڪريو...</string>
+    <string name="offline_maps_search_empty">ڪي به ملندڙ نتيجا</string>
+    <string name="mosque_finder_zoom_in">وڏو ڪريو</string>
+    <string name="mosque_finder_zoom_out">وڏو ڪريو</string>
+    <string name="mosque_finder_nearest">ويجھي مسجد</string>
 </resources>

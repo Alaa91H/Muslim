@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">ຕາເວັນຕົກ</string>
     <string name="qibla_dir_nw">ຕາເວັນຕົກສຽງເໜືອ</string>
     <string name="mosque_finder_close">ປິດ</string>
+    <string name="offline_maps_search">ຊອກຫາເມືອງ ຫຼືປະເທດ...</string>
+    <string name="offline_maps_search_empty">ບໍ່ມີຜົນໄດ້ຮັບທີ່ກົງກັນ</string>
+    <string name="mosque_finder_zoom_in">ຊູມເຂົ້າ</string>
+    <string name="mosque_finder_zoom_out">ຊູມອອກ</string>
+    <string name="mosque_finder_nearest">mosque ທີ່ໃກ້ທີ່ສຸດ</string>
 </resources>

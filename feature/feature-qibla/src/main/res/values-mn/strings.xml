@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Баруун</string>
     <string name="qibla_dir_nw">Баруун хойд</string>
     <string name="mosque_finder_close">Хаах</string>
+    <string name="offline_maps_search">Хот эсвэл улс хайх...</string>
+    <string name="offline_maps_search_empty">Тохирох илэрц алга</string>
+    <string name="mosque_finder_zoom_in">Томруулах</string>
+    <string name="mosque_finder_zoom_out">Жижигрүүлэх</string>
+    <string name="mosque_finder_nearest">Хамгийн ойрын сүм</string>
 </resources>

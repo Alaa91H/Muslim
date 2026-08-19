@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">ምዕራብ</string>
     <string name="qibla_dir_nw">ሰሜን ምዕራብ</string>
     <string name="mosque_finder_close">ዝጋ</string>
+    <string name="offline_maps_search">ከተማን ወይም ሀገርን ፈልግ…</string>
+    <string name="offline_maps_search_empty">ምንም ተዛማጅ ውጤቶች የሉም</string>
+    <string name="mosque_finder_zoom_in">አሳንስ</string>
+    <string name="mosque_finder_zoom_out">አሳንስ</string>
+    <string name="mosque_finder_nearest">ቅርብ መስጊድ</string>
 </resources>

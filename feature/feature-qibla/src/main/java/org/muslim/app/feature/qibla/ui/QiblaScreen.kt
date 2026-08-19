@@ -2,7 +2,14 @@ package org.muslim.app.feature.qibla.ui
 
 import android.content.Context
 import android.hardware.SensorManager
+import android.media.AudioManager
+import android.media.ToneGenerator
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.os.VibratorManager
 import android.view.Surface
 import android.view.WindowManager
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -126,6 +133,15 @@ fun QiblaScreen(
 
     val cardinalNames = stringArrayResource(R.array.qibla_cardinal_directions)
     fun cardinal(degrees: Double): String = cardinalNames[(((degrees + 22.5) / 45.0).toInt() % 8 + 8) % 8]
+
+    // Haptic pulse + short confirmation beep the moment the phone faces the qibla.
+    var wasFacingQibla by remember { mutableStateOf(false) }
+    LaunchedEffect(facingQibla) {
+        if (facingQibla && !wasFacingQibla) {
+            triggerQiblaFeedback(context)
+        }
+        wasFacingQibla = facingQibla
+    }
 
     val permissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
@@ -322,6 +338,7 @@ private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier 
     val northColor = MaterialTheme.colorScheme.error
     val qiblaColor = Color(0xFFD4A017)
     val tickColor = MaterialTheme.colorScheme.onSurfaceVariant
+    val labelColor = MaterialTheme.colorScheme.onSurfaceVariant
     val rimColor = MaterialTheme.colorScheme.outline
 
     // Smooth dial motion — the needle glides instead of jumping.
@@ -332,31 +349,68 @@ private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier 
     )
 
     val textMeasurer = rememberTextMeasurer()
-    val kaabaStyle = remember { TextStyle(fontSize = 40.sp) }
+    val kaabaStyle = remember { TextStyle(fontSize = 34.sp) }
     val kaabaLayout = remember(textMeasurer) {
         textMeasurer.measure(AnnotatedString("🕋"), kaabaStyle)
+    }
+    // Degree numbers every 30° around the rim, oriented radially like a real compass.
+    val degreeStyle = remember { TextStyle(fontSize = 13.sp, fontWeight = FontWeight.Bold) }
+    val degreeLayouts = remember(textMeasurer) {
+        (0 until 360 step 30).associateWith { deg ->
+            textMeasurer.measure(AnnotatedString(deg.toString()), degreeStyle)
+        }
+    }
+    // Cardinal letters replace the numbers at the four main points.
+    val cardinalStyle = remember { TextStyle(fontSize = 16.sp, fontWeight = FontWeight.Bold) }
+    val cardinalLayouts = remember(textMeasurer) {
+        mapOf(
+            0 to textMeasurer.measure(AnnotatedString("N"), cardinalStyle),
+            90 to textMeasurer.measure(AnnotatedString("E"), cardinalStyle),
+            180 to textMeasurer.measure(AnnotatedString("S"), cardinalStyle),
+            270 to textMeasurer.measure(AnnotatedString("W"), cardinalStyle),
+        )
     }
 
     Canvas(modifier = modifier) {
         val center = Offset(size.width / 2, size.height / 2)
-        val radius = min(size.width, size.height) / 2 - 8.dp.toPx()
+        // Extra margin so the Kaaba marker (drawn outside the rim) never clips.
+        val radius = min(size.width, size.height) / 2 - 38.dp.toPx()
 
         // Rim
         drawCircle(color = rimColor, radius = radius, style = Stroke(3.dp.toPx()))
         drawCircle(
             color = rimColor.copy(alpha = 0.3f),
-            radius = radius * 0.92f,
+            radius = radius * 0.96f,
             style = Stroke(1.dp.toPx()),
         )
 
         // The rose rotates so its north tick points to true north.
         rotate(degrees = -animatedHeading, pivot = center) {
-            // Cardinal ticks (0° = north at top).
+            // Degree numbers + cardinal letters, radially oriented.
+            for (deg in 0 until 360 step 30) {
+                val layout = cardinalLayouts[deg] ?: degreeLayouts.getValue(deg)
+                val a = Math.toRadians(deg.toDouble())
+                val labelRadius = radius * 0.80f
+                val pos = Offset(
+                    center.x + (labelRadius * sin(a)).toFloat() - layout.size.width / 2f,
+                    center.y - (labelRadius * cos(a)).toFloat() - layout.size.height / 2f,
+                )
+                // Keep each glyph upright relative to the dial (its top points
+                // outward along the radius, exactly like a real compass rose).
+                rotate(
+                    degrees = deg.toFloat(),
+                    pivot = Offset(pos.x + layout.size.width / 2f, pos.y + layout.size.height / 2f),
+                ) {
+                    drawText(layout, topLeft = pos, color = if (deg == 0) northColor else labelColor)
+                }
+            }
+
+            // Cardinal ticks (longer at the four main points).
             for (i in 0 until 4) {
                 val angle = i * 90.0
                 val isNorth = i == 0
-                val outer = radius * if (isNorth) 0.92f else 0.80f
-                val inner = radius * 0.66f
+                val outer = radius * if (isNorth) 0.98f else 0.90f
+                val inner = radius * 0.70f
                 val a = Math.toRadians(angle)
                 drawLine(
                     color = if (isNorth) northColor else tickColor,
@@ -368,27 +422,30 @@ private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier 
                         center.x + (outer * sin(a)).toFloat(),
                         center.y - (outer * cos(a)).toFloat(),
                     ),
-                    strokeWidth = if (isNorth) 6.dp.toPx() else 3.dp.toPx(),
+                    strokeWidth = if (isNorth) 5.dp.toPx() else 2.5.dp.toPx(),
                 )
             }
 
-            // Qibla marker (gold needle + Kaaba emoji) at the bearing.
+            // Gold qibla needle at the bearing (rotates with the dial).
             rotate(degrees = bearing.toFloat(), pivot = center) {
                 drawLine(
                     color = qiblaColor,
                     start = Offset(center.x, center.y - radius * 0.55f),
-                    end = Offset(center.x, center.y - radius * 0.92f),
-                    strokeWidth = 7.dp.toPx(),
-                )
-                drawText(
-                    textLayoutResult = kaabaLayout,
-                    topLeft = Offset(
-                        center.x - kaabaLayout.size.width / 2f,
-                        center.y - radius * 0.72f - kaabaLayout.size.height / 2f,
-                    ),
+                    end = Offset(center.x, center.y - radius * 0.94f),
+                    strokeWidth = 6.dp.toPx(),
                 )
             }
         }
+
+        // The Kaaba marker rides the rim at the dial-relative bearing but is
+        // always drawn upright (never tilted) and outside the compass circle.
+        val dialAngle = Math.toRadians(bearing - animatedHeading)
+        val markerRadius = radius * 1.10f
+        val markerPos = Offset(
+            center.x + (markerRadius * sin(dialAngle)).toFloat() - kaabaLayout.size.width / 2f,
+            center.y - (markerRadius * cos(dialAngle)).toFloat() - kaabaLayout.size.height / 2f,
+        )
+        drawText(kaabaLayout, topLeft = markerPos)
 
         // Fixed indicator at the top: the phone's forward direction.
         val indicator = Path().apply {
@@ -398,5 +455,28 @@ private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier 
             close()
         }
         drawPath(indicator, color = northColor)
+    }
+}
+
+/**
+ * Haptic pulse + short confirmation beep fired once when the phone first
+ * aligns with the qibla (then again only after the user turns away).
+ */
+private fun triggerQiblaFeedback(context: Context) {
+    val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        (context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as? VibratorManager)?.defaultVibrator
+    } else {
+        @Suppress("DEPRECATION")
+        context.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
+    }
+    if (vibrator?.hasVibrator() == true) {
+        runCatching {
+            vibrator.vibrate(VibrationEffect.createOneShot(120, VibrationEffect.DEFAULT_AMPLITUDE))
+        }
+    }
+    runCatching {
+        val tone = ToneGenerator(AudioManager.STREAM_NOTIFICATION, 85)
+        tone.startTone(ToneGenerator.TONE_PROP_BEEP2, 150)
+        Handler(Looper.getMainLooper()).postDelayed({ tone.release() }, 400)
     }
 }

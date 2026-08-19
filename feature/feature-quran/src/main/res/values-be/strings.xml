@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Тэфсір: %1$s</string>
     <string name="quran_title">Святы Каран</string>
     <string name="quran_download_reciter_header">Спампавана: %1$d аятаў · %2$s</string>
+    <string name="quran_download_mushaf_progress">Мусхаф завершаны: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">Папярэдні</string>
+    <string name="quran_recitation_notif_next">Далей</string>
 </resources>

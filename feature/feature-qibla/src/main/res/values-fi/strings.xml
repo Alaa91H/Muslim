@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">länteen</string>
     <string name="qibla_dir_nw">Luoteis</string>
     <string name="mosque_finder_close">Sulje</string>
+    <string name="offline_maps_search">Hae kaupunkia tai maata…</string>
+    <string name="offline_maps_search_empty">Ei vastaavia tuloksia</string>
+    <string name="mosque_finder_zoom_in">Lähennä</string>
+    <string name="mosque_finder_zoom_out">Loitonna</string>
+    <string name="mosque_finder_nearest">Lähin moskeija</string>
 </resources>

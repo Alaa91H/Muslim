@@ -35,10 +35,7 @@
     <string name="more_section_tools">ابزار</string>
     <string name="more_section_app">برنامه</string>
     <string name="more_order_title">ترتيب أقسام المزيد</string>
-    <string name="more_order_hint">استخدم الأسهم لتحريك كل قسم لأعلى أو لأسفل. يُطبَّق الترتيب مباشرة على شاشة المزيد.</string>
     <string name="more_order_reset">استعادة الترتيب الافتراضي</string>
-    <string name="more_order_move_up">تحريك لأعلى</string>
-    <string name="more_order_move_down">تحريك لأسفل</string>
     <string name="more_order_back">رجوع</string>
     <string name="more_offline_maps">خرائط بدون اینترنت</string>
     <string name="more_offline_maps_desc">تحميل خراط مدينة أو دولة لتعمل بدون اينترنت</string>
@@ -48,4 +45,5 @@
     <string name="crash_restart">راه اندازی مجدد</string>
     <string name="crash_close">بستن</string>
     <string name="crash_dismiss">ادامه دهید</string>
+    <string name="more_order_hint">اضغط مع الاستمرار علی أی قسم واصحبه لإعادة ترتیبه، واستخدم المفتاح لإظهار أو اخفاء كل قسم. یُطبَّق التغییر مباشرة علی شاشة المزید.</string>
 </resources>

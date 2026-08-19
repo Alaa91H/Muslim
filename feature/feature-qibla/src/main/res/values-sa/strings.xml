@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">पश्चिमाम्</string>
     <string name="qibla_dir_nw">वायव्य</string>
     <string name="mosque_finder_close">निमील्यताम्</string>
+    <string name="offline_maps_search">नगरं वा देशं वा अन्वेष्टुम्...</string>
+    <string name="offline_maps_search_empty">न मेलनं परिणामः</string>
+    <string name="mosque_finder_zoom_in">जूम इन करें</string>
+    <string name="mosque_finder_zoom_out">जूम आउट् कुर्वन्तु</string>
+    <string name="mosque_finder_nearest">समीपस्थं मस्जिदम्</string>
 </resources>

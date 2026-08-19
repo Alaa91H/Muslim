@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Kanluran</string>
     <string name="qibla_dir_nw">Northwest</string>
     <string name="mosque_finder_close">Isara</string>
+    <string name="offline_maps_search">Maghanap ng lungsod o bansa…</string>
+    <string name="offline_maps_search_empty">Walang tugmang resulta</string>
+    <string name="mosque_finder_zoom_in">Mag-zoom in</string>
+    <string name="mosque_finder_zoom_out">Mag-zoom out</string>
+    <string name="mosque_finder_nearest">Pinakamalapit na mosque</string>
 </resources>

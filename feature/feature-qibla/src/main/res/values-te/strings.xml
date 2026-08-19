@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">వెస్ట్</string>
     <string name="qibla_dir_nw">వాయువ్య</string>
     <string name="mosque_finder_close">మూసివేయి</string>
+    <string name="offline_maps_search">నగరం లేదా దేశం కోసం శోధించండి...</string>
+    <string name="offline_maps_search_empty">సరిపోలే ఫలితాలు లేవు</string>
+    <string name="mosque_finder_zoom_in">జూమ్ ఇన్ చేయండి</string>
+    <string name="mosque_finder_zoom_out">జూమ్ అవుట్ చేయండి</string>
+    <string name="mosque_finder_nearest">సమీప మసీదు</string>
 </resources>

@@ -22,6 +22,8 @@ class RecitationActionReceiver : BroadcastReceiver() {
             .audioPlayer()
         when (intent.action) {
             ACTION_PLAY_PAUSE -> if (player.isPlaying) player.pause() else player.resume()
+            ACTION_NEXT -> player.next()
+            ACTION_PREVIOUS -> player.previous()
             ACTION_STOP -> player.stop()
         }
     }
@@ -34,6 +36,8 @@ class RecitationActionReceiver : BroadcastReceiver() {
 
     companion object {
         const val ACTION_PLAY_PAUSE = "org.muslim.app.quran.action.PLAY_PAUSE"
+        const val ACTION_NEXT = "org.muslim.app.quran.action.NEXT"
+        const val ACTION_PREVIOUS = "org.muslim.app.quran.action.PREVIOUS"
         const val ACTION_STOP = "org.muslim.app.quran.action.STOP"
     }
 }

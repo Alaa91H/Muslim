@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">ምዕራብ</string>
     <string name="qibla_dir_nw">ሰሜናዊ ምዕራብ</string>
     <string name="mosque_finder_close">ዕጸዎ።</string>
+    <string name="offline_maps_search">ከተማ ወይ ሃገር ድለዩ...</string>
+    <string name="offline_maps_search_empty">ዝሰማማዕ ውጽኢት የለን</string>
+    <string name="mosque_finder_zoom_in">ዙም ኢን</string>
+    <string name="mosque_finder_zoom_out">ዙም ኣውት ግበር</string>
+    <string name="mosque_finder_nearest">ዝቐረበ መስጊድ</string>
 </resources>

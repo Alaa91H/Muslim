@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">ਤਫ਼ਸੀਰ: %1$s</string>
     <string name="quran_title">ਪਵਿੱਤਰ ਕੁਰਾਨ</string>
     <string name="quran_download_reciter_header">ਡਾਊਨਲੋਡ ਕੀਤਾ: %1$d ਆਇਤਾਂ · %2$s</string>
+    <string name="quran_download_mushaf_progress">ਮੁਸ਼ੱਫ਼ ਸੰਪੂਰਨ: %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">ਪਿਛਲਾ</string>
+    <string name="quran_recitation_notif_next">ਅੱਗੇ</string>
 </resources>

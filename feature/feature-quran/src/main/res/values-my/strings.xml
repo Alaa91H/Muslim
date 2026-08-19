@@ -129,4 +129,8 @@
     <string name="quran_tafsir_source">Tafsir: %1$s</string>
     <string name="quran_title">ကျမ်းတော်မြတ်ကုရ်အာန်</string>
     <string name="quran_download_reciter_header">ဒေါင်းလုဒ်လုပ်ထားသည်- %1$d ayahs · %2$s</string>
+    <string name="quran_download_mushaf_progress">မူရှာဖ် ပြီးပါပြီ- %1$d / %2$d</string>
+    <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_recitation_notif_previous">အရင်</string>
+    <string name="quran_recitation_notif_next">နောက်တစ်ခု</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">დასავლეთი</string>
     <string name="qibla_dir_nw">ჩრდილო-დასავლეთი</string>
     <string name="mosque_finder_close">დახურვა</string>
+    <string name="offline_maps_search">მოძებნეთ ქალაქი ან ქვეყანა…</string>
+    <string name="offline_maps_search_empty">შესატყვისი შედეგები არ არის</string>
+    <string name="mosque_finder_zoom_in">მასშტაბირება</string>
+    <string name="mosque_finder_zoom_out">მასშტაბირება</string>
+    <string name="mosque_finder_nearest">უახლოესი მეჩეთი</string>
 </resources>

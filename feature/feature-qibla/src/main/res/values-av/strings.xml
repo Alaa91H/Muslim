@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Магъриб</string>
     <string name="qibla_dir_nw">Шималиябгун-бакътӀерхьул</string>
     <string name="mosque_finder_close">Къазе</string>
+    <string name="offline_maps_search">Шагьар яги улка балагье...</string>
+    <string name="offline_maps_search_empty">Данде кколел хӀасилал гьечӀо</string>
+    <string name="mosque_finder_zoom_in">Зум гьаби</string>
+    <string name="mosque_finder_zoom_out">Масштаб дагьлъизабизе</string>
+    <string name="mosque_finder_nearest">АскӀоб бугеб мажгит</string>
 </resources>

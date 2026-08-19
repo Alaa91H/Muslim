@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Kumadzulo</string>
     <string name="qibla_dir_nw">Kumpoto chakumadzulo</string>
     <string name="mosque_finder_close">Tsekani</string>
+    <string name="offline_maps_search">Sakani mzinda kapena dziko…</string>
+    <string name="offline_maps_search_empty">Palibe zotsatira zofanana</string>
+    <string name="mosque_finder_zoom_in">Onerani pafupi</string>
+    <string name="mosque_finder_zoom_out">Onetsani kutali</string>
+    <string name="mosque_finder_nearest">Mzikiti wapafupi</string>
 </resources>

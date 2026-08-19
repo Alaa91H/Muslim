@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">බටහිර</string>
     <string name="qibla_dir_nw">වයඹ</string>
     <string name="mosque_finder_close">වසන්න</string>
+    <string name="offline_maps_search">නගරයක් හෝ රටක් සොයන්න...</string>
+    <string name="offline_maps_search_empty">ගැළපෙන ප්‍රතිඵල නැත</string>
+    <string name="mosque_finder_zoom_in">විශාලනය කරන්න</string>
+    <string name="mosque_finder_zoom_out">විශාලනය කරන්න</string>
+    <string name="mosque_finder_nearest">ළඟම ඇති මුස්ලිම් පල්ලිය</string>
 </resources>

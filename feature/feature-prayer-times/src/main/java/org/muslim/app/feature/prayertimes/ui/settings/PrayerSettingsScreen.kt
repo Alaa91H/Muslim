@@ -48,7 +48,9 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -93,6 +95,11 @@ fun PrayerSettingsScreen(
     val filePicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         uri?.let { selected -> pendingSoundPrayer?.let { viewModel.setCustomSound(it, selected) } }
         pendingSoundPrayer = null
+    }
+
+    // Stop any adhan preview when leaving this screen (back or navigation).
+    DisposableEffect(Unit) {
+        onDispose { viewModel.stopPreview() }
     }
 
     Column(
@@ -149,7 +156,6 @@ fun PrayerSettingsScreen(
             enabled = settings.adhanEnabled && settings.reminderMinutes > 0,
         )
 
-        SwitchRow(stringResource(R.string.settings_vibrate), settings.vibrateEnabled, viewModel::setVibrateEnabled)
         ReminderDropdown(settings.reminderMinutes) { viewModel.setReminderMinutes(it) }
 
         SectionHeader(stringResource(R.string.settings_dnd))
@@ -215,11 +221,19 @@ fun PrayerSettingsScreen(
                     settings.bundledAdhanSounds[prayer]
                         ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID
                 ),
-                onPreview = { viewModel.previewBundled(it) },
-                onDismiss = { customizingPrayer = null },
-                onConfirm = { chosenOption, chosenSound ->
+                volume = settings.adhanVolumeFor(prayer),
+                vibrate = settings.vibrateFor(prayer),
+                onPreview = { viewModel.previewBundled(prayer, it) },
+                onDismiss = {
+                    viewModel.stopPreview()
+                    customizingPrayer = null
+                },
+                onConfirm = { chosenOption, chosenSound, chosenVolume, chosenVibrate ->
                     viewModel.setAdhanSound(prayer, chosenOption)
                     viewModel.setBundledAdhanSound(prayer, chosenSound.id)
+                    viewModel.setAdhanVolume(prayer, chosenVolume)
+                    viewModel.setVibrateEnabled(prayer, chosenVibrate)
+                    viewModel.stopPreview()
                     customizingPrayer = null
                 },
             )
@@ -234,7 +248,6 @@ fun PrayerSettingsScreen(
                 },
             )
         }
-        VolumeRow(volume = settings.adhanVolume, onChanged = viewModel::setAdhanVolume)
         OutlinedButton(
             onClick = { viewModel.previewAdhan(Prayer.Fajr) },
             modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
@@ -531,18 +544,25 @@ private fun AdhanSoundRow(
     }
 }
 
-/** Alert dialog to customise one prayer's adhan: sound + alert type, with live preview. */
+/**
+ * Alert dialog to fully customise one prayer's adhan: alert type, sound,
+ * per-prayer volume and per-prayer vibration, with live preview.
+ */
 @Composable
 private fun AdhanCustomizeDialog(
     prayer: Prayer,
     option: AdhanSoundOption,
     sound: BundledAdhanSound,
+    volume: Int,
+    vibrate: Boolean,
     onPreview: (BundledAdhanSound) -> Unit,
     onDismiss: () -> Unit,
-    onConfirm: (AdhanSoundOption, BundledAdhanSound) -> Unit,
+    onConfirm: (AdhanSoundOption, BundledAdhanSound, Int, Boolean) -> Unit,
 ) {
     var chosenOption by remember { mutableStateOf(option) }
     var chosenSound by remember { mutableStateOf(sound) }
+    var chosenVolume by remember { mutableIntStateOf(volume) }
+    var chosenVibrate by remember { mutableStateOf(vibrate) }
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -598,10 +618,17 @@ private fun AdhanCustomizeDialog(
                         }
                     }
                 }
+                Spacer(Modifier.height(8.dp))
+                VolumeRow(volume = chosenVolume, onChanged = { chosenVolume = it })
+                SwitchRow(
+                    label = stringResource(R.string.settings_vibrate),
+                    checked = chosenVibrate,
+                    onCheckedChange = { chosenVibrate = it },
+                )
             }
         },
         confirmButton = {
-            TextButton(onClick = { onConfirm(chosenOption, chosenSound) }) {
+            TextButton(onClick = { onConfirm(chosenOption, chosenSound, chosenVolume, chosenVibrate) }) {
                 Text(stringResource(R.string.settings_adhan_confirm))
             }
         },

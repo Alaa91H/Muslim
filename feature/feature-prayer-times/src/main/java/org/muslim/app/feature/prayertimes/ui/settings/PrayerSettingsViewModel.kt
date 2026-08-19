@@ -122,6 +122,11 @@ class PrayerSettingsViewModel @Inject constructor(
 
     fun setVibrateEnabled(enabled: Boolean) = update { it.copy(vibrateEnabled = enabled) }
 
+    /** Per-prayer vibration override; every prayer can vibrate independently. */
+    fun setVibrateEnabled(prayer: Prayer, enabled: Boolean) = update {
+        it.copy(vibratePerPrayer = it.vibratePerPrayer + (prayer to enabled))
+    }
+
     fun setAdhanSound(prayer: Prayer, option: AdhanSoundOption) = update {
         it.copy(adhanSounds = it.adhanSounds + (prayer to option))
     }
@@ -133,6 +138,16 @@ class PrayerSettingsViewModel @Inject constructor(
 
     fun setAdhanVolume(volume: Int) = update { it.copy(adhanVolume = volume.coerceIn(0, 100)) }
 
+    /** Per-prayer adhan volume override (0..100). */
+    fun setAdhanVolume(prayer: Prayer, volume: Int) = update {
+        it.copy(adhanVolumes = it.adhanVolumes + (prayer to volume.coerceIn(0, 100)))
+    }
+
+    /** Stops any adhan preview currently playing. */
+    fun stopPreview() {
+        AdhanPlaybackService.stop(context)
+    }
+
     fun setReminderMinutes(minutes: Int) = update { it.copy(reminderMinutes = minutes) }
 
     fun setDndEnabled(enabled: Boolean) = update { it.copy(dndEnabled = enabled) }
@@ -141,16 +156,16 @@ class PrayerSettingsViewModel @Inject constructor(
 
     fun setHijriAdjustment(days: Int) = update { it.copy(hijriAdjustment = days) }
 
-    /** Plays a bundled adhan recording directly so the user can hear it before choosing. */
-    fun previewBundled(sound: org.muslim.app.core.common.prayer.BundledAdhanSound) {
+    /** Plays a bundled adhan recording at [prayer]'s volume so the user can preview it. */
+    fun previewBundled(prayer: Prayer, sound: org.muslim.app.core.common.prayer.BundledAdhanSound) {
         val current = settings.value
         viewModelScope.launch {
             AdhanPlaybackService.start(
                 context = context,
-                prayer = Prayer.Fajr,
+                prayer = prayer,
                 vibrate = false,
                 soundOption = AdhanSoundOption.Default,
-                volumePercent = current.adhanVolume,
+                volumePercent = current.adhanVolumeFor(prayer),
                 soundPath = null,
                 bundledSoundId = sound.id,
             )
@@ -166,9 +181,9 @@ class PrayerSettingsViewModel @Inject constructor(
             AdhanPlaybackService.start(
                 context = context,
                 prayer = prayer,
-                vibrate = current.vibrateEnabled,
+                vibrate = current.vibrateFor(prayer),
                 soundOption = current.adhanSounds[prayer] ?: AdhanSoundOption.Default,
-                volumePercent = current.adhanVolume,
+                volumePercent = current.adhanVolumeFor(prayer),
                 soundPath = soundPath,
                 bundledSoundId = current.bundledAdhanSounds[prayer]
                     ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID,

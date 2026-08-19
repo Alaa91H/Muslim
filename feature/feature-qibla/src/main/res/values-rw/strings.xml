@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Iburengerazuba</string>
     <string name="qibla_dir_nw">Amajyaruguru y\'Uburengerazuba</string>
     <string name="mosque_finder_close">Funga</string>
+    <string name="offline_maps_search">Shakisha umujyi cyangwa igihugu…</string>
+    <string name="offline_maps_search_empty">Nta bisubizo bihuye</string>
+    <string name="mosque_finder_zoom_in">Kwegera</string>
+    <string name="mosque_finder_zoom_out">Kwegera</string>
+    <string name="mosque_finder_nearest">Umusigiti wegereye</string>
 </resources>

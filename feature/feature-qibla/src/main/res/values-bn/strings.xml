@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">পশ্চিম</string>
     <string name="qibla_dir_nw">উত্তর-পশ্চিম</string>
     <string name="mosque_finder_close">বন্ধ</string>
+    <string name="offline_maps_search">একটি শহর বা দেশের জন্য অনুসন্ধান করুন...</string>
+    <string name="offline_maps_search_empty">কোন মিল ফলাফল</string>
+    <string name="mosque_finder_zoom_in">জুম ইন করুন</string>
+    <string name="mosque_finder_zoom_out">জুম আউট করুন</string>
+    <string name="mosque_finder_nearest">নিকটতম মসজিদ</string>
 </resources>

@@ -63,4 +63,9 @@
     <string name="qibla_dir_w">Tjingalanga</string>
     <string name="qibla_dir_nw">Tlhagwini-Tjingalanga</string>
     <string name="mosque_finder_close">Vala</string>
+    <string name="offline_maps_search">Setjha idorobha nofana inarha...</string>
+    <string name="offline_maps_search_empty">Akukho miphumela efanako</string>
+    <string name="mosque_finder_zoom_in">Sondeza</string>
+    <string name="mosque_finder_zoom_out">Sondeza</string>
+    <string name="mosque_finder_nearest">I-mosque eseduze</string>
 </resources>
