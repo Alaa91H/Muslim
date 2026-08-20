@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Blaenorol</string>
     <string name="quran_recitation_notif_next">Nesaf</string>
+    <string name="quran_download_playback_title">Wrthi\'n lawrlwytho %1$s</string>
+    <string name="quran_download_playback_detail">Mae %1$s wedi gadael · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Gorchymyn Mushaf</string>
+    <string name="quran_download_sort_completion">Erbyn cwblhau</string>
+    <string name="quran_downloads_coverage_title">Sylw Surah ar draws adroddwyr</string>
+    <string name="quran_downloads_coverage_overall">Mushaf llawn ar draws adroddwyr</string>
+    <string name="quran_downloads_coverage_empty">Dim sain wedi\'i lawrlwytho eto</string>
+    <string name="quran_pause_notif_listener">Seibio llefaru ar hysbysiadau</string>
+    <string name="quran_reciter_changed_title">Reciter wedi newid</string>
+    <string name="quran_reciter_changed_message">Stopiwyd chwarae oherwydd bod yr ystod yn rhedeg i ddiwedd y Qur\'an. Dechrau eto gyda %1$s?</string>
+    <string name="quran_reciter_restart">Dechreuwch eto</string>
+    <string name="quran_reciter_not_now">Ddim nawr</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">Müsüriň umumy gözleg gullugy</string>
     <string name="method_france">Fransiýa (UOIF)</string>
     <string name="method_isna">ISNA (Demirgazyk Amerika)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Yslam ylymlary uniwersiteti, Karaçi</string>
     <string name="method_kuwait">Kuweýt</string>
     <string name="method_moonsighting">Aý gözegçilik komiteti</string>
     <string name="method_mwl">Musulman dünýä ligasy</string>
     <string name="method_qatar">Katar</string>
     <string name="method_singapore">Singapur</string>
-    <string name="method_tehran">Tähran Geofizika instituty</string>
     <string name="method_turkey">Diyanet Türkiýe</string>
     <string name="method_umm_al_qura">Umm al-Kura (Mekge)</string>
     <string name="next_adhan_elapsed">Adandan bäri: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Wagtlary hasaplap bolmaýar</string>
     <string name="widget_prayer_times_description">Indiki doga sanamak bilen</string>
     <string name="widget_prayer_times_label">Namaz wagtlary</string>
+    <string name="settings_adhan_volume_vibrate">Sesi %1$s · Wibrasiýa %2$s</string>
+    <string name="settings_adhan_vibrate_on">Işlediň</string>
+    <string name="settings_adhan_vibrate_off">Öçürilen</string>
+    <string name="settings_preview_stop">Öňünden görmegi bes ediň</string>
+    <string name="settings_method_automatic">Awtomat (ýerleşýän ýeri boýunça)</string>
+    <string name="settings_method_automatic_desc">Programma, ýurduňyza we ýerleşýän ýeriňize baglylykda iň amatly usuly saýlaýar; usuly islendik wagt el bilen saýlap bilersiňiz.</string>
+    <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
 </resources>

@@ -46,4 +46,12 @@
     <string name="crash_close">Cufi</string>
     <string name="crash_dismiss">Itti fufaa</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Qur\'aana keessa sakatta\'aa</string>
+    <string name="more_quran_search_desc">Jecha tokko, yeroo meeqa akka mul’atu fi eessatti akka mul’atu barbaadi</string>
+    <string name="more_quran_frequency">Irra deddeebiin jecha Quraanaa</string>
+    <string name="more_quran_frequency_desc">Mushaaf guutuu keessatti jechoota baay’inaan dubbataman</string>
+    <string name="more_pause_on_notifications">Beeksisa irratti dubbisuu dhaabuu</string>
+    <string name="more_pause_on_notifications_desc">Yeroo beeksisni, bilbilaan ykn miidiyaan biroo taphatu yeroo gabaabaaf dubbisuun ni dhaabata</string>
+    <string name="more_pause_notifications_enabled">Dandeessifame — qindaa\'inoota sirnaa banuuf tuqi</string>
+    <string name="more_pause_notifications_disabled">Hanqifame — dandeessisuuf tuqi</string>
 </resources>

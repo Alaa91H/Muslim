@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Ngaphambilini</string>
     <string name="quran_recitation_notif_next">Lokulandzelako</string>
+    <string name="quran_download_playback_title">Kulandvwa %1$s</string>
+    <string name="quran_download_playback_detail">%1$s ngesencele · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">I-oda laMushaf</string>
+    <string name="quran_download_sort_completion">Ngekucedza</string>
+    <string name="quran_downloads_coverage_title">Kuhlanganiswa kwe Surah kubo bonkhe labafundzako</string>
+    <string name="quran_downloads_coverage_overall">Mushaf logcwele kubo bonkhe labafundzako</string>
+    <string name="quran_downloads_coverage_empty">Kute umsindvo lolandvwako</string>
+    <string name="quran_pause_notif_listener">Misa kufundza ngetatiso</string>
+    <string name="quran_reciter_changed_title">Umfundzisi ushintjiwe</string>
+    <string name="quran_reciter_changed_message">Kudlala kwama ngoba uhla lugijima kuze kube sekupheleni kweQuran. Cala futsi nge %1$s?</string>
+    <string name="quran_reciter_restart">Cala futsi</string>
+    <string name="quran_reciter_not_now">Hhayi manje</string>
 </resources>

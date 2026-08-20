@@ -23,4 +23,5 @@
     <string name="hadith_search_hint">Busca hadices...</string>
     <string name="hadith_share">Compartir</string>
     <string name="hadith_title">Biblioteca Hadith</string>
+    <string name="hadith_copy">Copiar</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">エジプト総測量局</string>
     <string name="method_france">フランス (UOIF)</string>
     <string name="method_isna">ISNA (北米)</string>
-    <string name="method_jafari">ジャファリ</string>
     <string name="method_karachi">イスラム科学大学、カラチ</string>
     <string name="method_kuwait">クウェート</string>
     <string name="method_moonsighting">月見委員会</string>
     <string name="method_mwl">イスラム世界連盟</string>
     <string name="method_qatar">カタール</string>
     <string name="method_singapore">シンガポール</string>
-    <string name="method_tehran">テヘラン地球物理研究所</string>
     <string name="method_turkey">ディヤネット・トルコ</string>
     <string name="method_umm_al_qura">ウンム・アル・クーラ (メッカ)</string>
     <string name="next_adhan_elapsed">アザーン以降: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">時間を計算できません</string>
     <string name="widget_prayer_times_description">カウントダウン付きの次の祈り</string>
     <string name="widget_prayer_times_label">祈りの時間</string>
+    <string name="settings_adhan_volume_vibrate">音量 %1$s · 振動 %2$s</string>
+    <string name="settings_adhan_vibrate_on">オン</string>
+    <string name="settings_adhan_vibrate_off">オフ</string>
+    <string name="settings_preview_stop">プレビューを停止する</string>
+    <string name="settings_method_automatic">自動（場所による）</string>
+    <string name="settings_method_automatic_desc">アプリはあなたの国と場所に基づいて最適な方法を自動的に選択します。いつでも手動で方法を選択できます。</string>
+    <string name="settings_preview_for_prayer">%1$s アザーンをプレビューする</string>
 </resources>

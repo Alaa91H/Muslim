@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Sebelumnya</string>
     <string name="quran_recitation_notif_next">Selanjutnya</string>
+    <string name="quran_download_playback_title">Mengunduh %1$s</string>
+    <string name="quran_download_playback_detail">%1$s kiri · %2$s/dtk</string>
+    <string name="quran_download_sort_mushaf">pesanan mushaf</string>
+    <string name="quran_download_sort_completion">Setelah selesai</string>
+    <string name="quran_downloads_coverage_title">Cakupan surat di seluruh pembaca</string>
+    <string name="quran_downloads_coverage_overall">Mushaf lengkap di seluruh qari</string>
+    <string name="quran_downloads_coverage_empty">Belum ada audio yang diunduh</string>
+    <string name="quran_pause_notif_listener">Jeda pembacaan pada notifikasi</string>
+    <string name="quran_reciter_changed_title">Pembacanya berubah</string>
+    <string name="quran_reciter_changed_message">Pemutaran dihentikan karena rentangnya mencapai akhir Al-Quran. Mulai lagi dengan %1$s?</string>
+    <string name="quran_reciter_restart">Mulai lagi</string>
+    <string name="quran_reciter_not_now">Tidak sekarang</string>
 </resources>

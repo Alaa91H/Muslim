@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egyptenimi misissuinermut oqartussaasoq</string>
     <string name="method_france">Frankrigimi (UOIF)</string>
     <string name="method_isna">ISNA (Amerika Avannarlermi)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Islamimik ilisimatusarnermik ilinniarfik, Karachi</string>
     <string name="method_kuwait">Kuwaitimi</string>
     <string name="method_moonsighting">Qaammammut Ataatsimiititaliaq</string>
     <string name="method_mwl">Muslimit nunarsuarmi ligaat</string>
     <string name="method_qatar">Qatarimi</string>
     <string name="method_singapore">Singapuurimi</string>
-    <string name="method_tehran">Teheranimi Geofysikkimik ilinniarfimmi</string>
     <string name="method_turkey">Diyanet Tyrkiami</string>
     <string name="method_umm_al_qura">Ummul-Qura (Makka)</string>
     <string name="next_adhan_elapsed">Adhanimiit: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Piffissat naatsorsorsinnaanngilai</string>
     <string name="widget_prayer_times_description">Qinnuteqaat tulleq countdown-imik</string>
     <string name="widget_prayer_times_label">Qinusarnermi piffissat</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Sajuppillatsitsineq %2$s</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Siullermeerneq unitsiguk</string>
+    <string name="settings_method_automatic">Automatisk (sumiiffiit malillugit)</string>
+    <string name="settings_method_automatic_desc">App-ip nunat sumiiffillu tunngavigalugit periuseq naleqqunnerpaaq nammineerluni toqqartarpaa; suli qanorluunniit piffissaqarluni periuseq manuelt toqqassinnaavat.</string>
+    <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
 </resources>

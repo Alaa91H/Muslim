@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Çheer.</string>
     <string name="offline_maps_tab_custom">Smooinaght custom</string>
     <string name="offline_maps_download">Lurgaghey</string>
-    <string name="offline_maps_custom_hint">Tap y map dy pickey y center, as download y rannagh mygeayrt.</string>
+    <string name="offline_maps_custom_hint">Pan as zoom y map dy frame yn ard-valley taitnyssagh; t\'eh ry-hickyraghey y frame. Reih y leddyn rish y slider.</string>
     <string name="offline_maps_custom_name">Ennym yn ard;</string>
-    <string name="offline_maps_custom_tap">Tap er y map dy ghoaill y mhean</string>
+    <string name="offline_maps_custom_tap">Mow yn map dy reih yn ard</string>
     <string name="offline_maps_custom_default_name">Smooinaght custom</string>
     <string name="offline_maps_summary_body">%1$d jeh %2$d slystaghyn cliaghtey · %3$s er ny lhoobey</string>
     <string name="offline_maps_downloading">Lhiasaghey %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom stiagh</string>
     <string name="mosque_finder_zoom_out">Zoom magh</string>
     <string name="mosque_finder_nearest">Moskee ny s\'niessey</string>
+    <string name="mosque_finder_go_to">Gow rish.</string>
+    <string name="mosque_finder_find_nearest">Lhig da\'n moskee ny s\'niessey</string>
+    <string name="mosque_finder_expanding">Ta shiu jannoo ymmyd jeh %1$s...</string>
+    <string name="offline_maps_custom_width">Leed y slyst (graddyn)</string>
+    <string name="offline_maps_storage_warning">Stoo low — agh %1$s saor</string>
+    <string name="offline_maps_storage_delete_largest">Cur magh yn rannagh smoo (%1$s · %2$s)</string>
 </resources>

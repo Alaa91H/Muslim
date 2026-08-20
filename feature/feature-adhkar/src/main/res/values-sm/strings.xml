@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar tulaga</string>
     <string name="adhkar_show_translation">Faaali le faaliliuga</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopi</string>
+    <string name="adhkar_share">Faasoa</string>
+    <string name="adhkar_overlay_short_only">Fa\'aaoga na\'o le adhkar puupuu</string>
+    <string name="adhkar_overlay_short_only_desc">Filifili adhkar e fetaui ma le tasi pe lua laina ina ia tumau le manino o le pulupulu opeopea ma faigofie ona faitau.</string>
+    <string name="adhkar_overlay_tap_hint">Oomi le pulu e fa\'ate\'a vave.</string>
 </resources>

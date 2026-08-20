@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Taumada</string>
     <string name="quran_recitation_notif_next">Tarava</string>
+    <string name="quran_download_playback_title">Lavetaki tiko %1$s</string>
+    <string name="quran_download_playback_detail">%1$s imawi · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Ota ni Mushaf</string>
+    <string name="quran_download_sort_completion">Ena kena vakacavari</string>
+    <string name="quran_downloads_coverage_title">Na veivakabulabulataki ni Surah vei ira na dauwiliwili</string>
+    <string name="quran_downloads_coverage_overall">Mushaf taucoko ena veivanua kecega</string>
+    <string name="quran_downloads_coverage_empty">Se bera ni lavetaki na rorogo</string>
+    <string name="quran_pause_notif_listener">Cegu na wiliwili ena veivakadeitaki</string>
+    <string name="quran_reciter_changed_title">Veisau na dauwiliwili</string>
+    <string name="quran_reciter_changed_message">E cegu na vakatagi baleta ni cici na rabailevu ki na icavacava ni Quran. Tekivu tale ena %1$s?</string>
+    <string name="quran_reciter_restart">Tekivu tale</string>
+    <string name="quran_reciter_not_now">Sega ena gauna oqo</string>
 </resources>

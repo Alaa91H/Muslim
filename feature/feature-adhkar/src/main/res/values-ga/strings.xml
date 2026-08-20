@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Socruithe Adhkar</string>
     <string name="adhkar_show_translation">Taispeáin aistriúchán</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Cóip</string>
+    <string name="adhkar_share">Comhroinn</string>
+    <string name="adhkar_overlay_short_only">Bain úsáid as adhkar gearr amháin</string>
+    <string name="adhkar_overlay_short_only_desc">Roghnaigh adhkar a oireann líne nó dhó ionas go bhfanann an mboilgeog ar snámh soiléir agus éasca le léamh.</string>
+    <string name="adhkar_overlay_tap_hint">Tapáil an mboilgeog chun é a dhíbhe láithreach.</string>
 </resources>

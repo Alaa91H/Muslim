@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Anterior</string>
     <string name="quran_recitation_notif_next">În continuare</string>
+    <string name="quran_download_playback_title">Se descarcă %1$s</string>
+    <string name="quran_download_playback_detail">%1$s au rămas · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Ordinul Mushaf</string>
+    <string name="quran_download_sort_completion">Prin completare</string>
+    <string name="quran_downloads_coverage_title">Acoperirea surei între recitatori</string>
+    <string name="quran_downloads_coverage_overall">Mushaf plin între recitatori</string>
+    <string name="quran_downloads_coverage_empty">Nu s-a descărcat încă audio</string>
+    <string name="quran_pause_notif_listener">Întrerupeți recitarea în notificări</string>
+    <string name="quran_reciter_changed_title">Recitatorul s-a schimbat</string>
+    <string name="quran_reciter_changed_message">Redarea s-a oprit deoarece intervalul se întinde până la sfârșitul Coranului. Începeți din nou cu %1$s?</string>
+    <string name="quran_reciter_restart">Începe din nou</string>
+    <string name="quran_reciter_not_now">Nu acum</string>
 </resources>

@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Nayraqat amtayapxita:</string>
     <string name="ramadan_suhoor_time">Suhoor ends (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadán urunxa</string>
+    <string name="ramadan_notify_outside">Ramadán anqäxan amtawinaka</string>
+    <string name="ramadan_notify_outside_desc">Iftar ukat suhoor alertas ukax Ramadán ukanx automáticamentew apnaqasi; ukax ch’amanchañax yaqha phaxsinakanx jupanakarux nayrar sartayañapatakiw yanapt’i.</string>
 </resources>

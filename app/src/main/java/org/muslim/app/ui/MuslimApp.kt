@@ -1,5 +1,7 @@
 package org.muslim.app.ui
 
+import android.content.Intent
+import android.provider.Settings
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -16,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
@@ -55,6 +58,7 @@ import org.muslim.app.feature.settings.NotificationSettingsScreen
 import org.muslim.app.feature.settings.PermissionsScreen
 import org.muslim.app.feature.settings.PrivacyScreen
 import org.muslim.app.feature.settings.SettingsScreen
+import org.muslim.app.feature.settings.update.UpdateScreen
 import org.muslim.app.feature.tasbih.ui.TasbihScreen
 import org.muslim.app.feature.zakat.ui.ZakatScreen
 
@@ -71,6 +75,10 @@ private val tabs = listOf(
     Tab("more", R.string.tab_more, Icons.Default.MoreHoriz),
 )
 
+/** Returns [preferred] if it is one of the real tab routes, else "home". */
+private fun startDestinationFor(preferred: String): String =
+    if (tabs.any { it.route == preferred }) preferred else "home"
+
 private const val READER_ROUTE = "quran/reader"
 private const val SEARCH_ROUTE = "quran/search"
 private const val BOOKMARKS_ROUTE = "quran/bookmarks"
@@ -82,6 +90,7 @@ private const val PERMISSIONS_ROUTE = "settings/permissions"
 private const val MORE_ORDER_ROUTE = "settings/more-order"
 private const val ABOUT_ROUTE = "settings/about"
 private const val PRIVACY_ROUTE = "settings/privacy"
+private const val UPDATE_ROUTE = "settings/update"
 private const val HADITH_ROUTE = "hadith"
 private const val ADHKAR_ROUTE = "adhkar"
 private const val TASBIH_ROUTE = "tasbih"
@@ -97,12 +106,20 @@ private const val OFFLINE_MAPS_ROUTE = "qibla/offline-maps"
 fun MuslimApp(
     modifier: Modifier = Modifier,
     initialRoute: String = "home",
+    /**
+     * The user-chosen start tab, snapshotted once at cold start (see
+     * [org.muslim.app.MainActivity]). It is read on the very first composition
+     * and never re-read reactively, so changing it in Settings does **not**
+     * navigate to it — the choice applies on the next app launch only.
+     */
+    initialStartTab: String = "home",
     onLanguageChanged: () -> Unit = {},
 ) {
     val navController = rememberNavController()
     val viewModel: MainViewModel = hiltViewModel()
     val location by viewModel.location.collectAsStateWithLifecycle()
     val preferences by viewModel.appPreferences.collectAsStateWithLifecycle()
+    val context = LocalContext.current
 
     // Route to the tab requested by an App Shortcut (cold start or onNewIntent).
     LaunchedEffect(initialRoute) {
@@ -152,16 +169,11 @@ fun MuslimApp(
                 }
             },
         ) { innerPadding ->
-            // The user-chosen start tab (default: prayer-times home), validated
-            // against the real tab routes so a stale value can never crash.
-            val startDestination = if (tabs.any { it.route == preferences.startTab }) {
-                preferences.startTab
-            } else {
-                "home"
-            }
             NavHost(
+                // The user-chosen start tab (default: prayer-times home), validated
+                // against the real tab routes so a stale value can never crash.
+                startDestination = startDestinationFor(initialStartTab),
                 navController = navController,
-                startDestination = startDestination,
                 modifier = Modifier.padding(innerPadding),
             ) {
                 composable("home") {
@@ -244,6 +256,13 @@ fun MuslimApp(
                         onOpenLearn = { navController.navigate(LEARN_ROUTE) },
                         onOpenReference = { navController.navigate(REFERENCE_ROUTE) },
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
+                        onOpenQuranSearch = { navController.navigate(SEARCH_ROUTE) },
+                        onOpenQuranFrequency = { navController.navigate(QURAN_FREQUENCY_ROUTE) },
+                        onOpenNotificationListenerSettings = {
+                            context.startActivity(
+                                Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS),
+                            )
+                        },
                         onOpenOfflineMaps = { navController.navigate(OFFLINE_MAPS_ROUTE) },
                         sectionOrder = preferences.moreSectionOrder,
                         hiddenSections = preferences.hiddenMoreSections,
@@ -261,6 +280,7 @@ fun MuslimApp(
                         onOpenAbout = { navController.navigate(ABOUT_ROUTE) },
                         onOpenPrivacy = { navController.navigate(PRIVACY_ROUTE) },
                         onOpenMoreOrder = { navController.navigate(MORE_ORDER_ROUTE) },
+                        onOpenUpdates = { navController.navigate(UPDATE_ROUTE) },
                         onLanguageChanged = onLanguageChanged,
                     )
                 }
@@ -308,6 +328,9 @@ fun MuslimApp(
                 }
                 composable(PRIVACY_ROUTE) {
                     PrivacyScreen(onBack = { navController.popBackStack() })
+                }
+                composable(UPDATE_ROUTE) {
+                    UpdateScreen(onBack = { navController.popBackStack() })
                 }
                 composable("location") {
                     LocationScreen(onSaved = { navController.popBackStack() })

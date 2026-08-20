@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">gosodiadau Adhkar</string>
     <string name="adhkar_show_translation">Dangos cyfieithiad</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Copi</string>
+    <string name="adhkar_share">Rhannu</string>
+    <string name="adhkar_overlay_short_only">Defnyddiwch adhkar byr yn unig</string>
+    <string name="adhkar_overlay_short_only_desc">Dewiswch adhkar sy\'n ffitio un neu ddwy linell fel bod y swigen arnofio yn aros yn glir ac yn hawdd i\'w ddarllen.</string>
+    <string name="adhkar_overlay_tap_hint">Tapiwch y swigen i\'w ddiswyddo ar unwaith.</string>
 </resources>

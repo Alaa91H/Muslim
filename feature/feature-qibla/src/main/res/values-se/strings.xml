@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Riika</string>
     <string name="offline_maps_tab_custom">Eaktodáhtolaš guovlu</string>
     <string name="offline_maps_download">Viežže</string>
-    <string name="offline_maps_custom_hint">Deaddilat kártta vai beasat válljet guovddáža, ja de viežžat guovllu dan birrasis.</string>
+    <string name="offline_maps_custom_hint">Panne ja zoomet kártta nu ahte sáhtát rámmahit dan guovllu maid háliidat; rámma ođasmahttojuvvo automáhtalaččat. Heive viidodaga čujuhusain.</string>
     <string name="offline_maps_custom_name">Guovllu namma</string>
-    <string name="offline_maps_custom_tap">Deaddilat kártta vai válljet guovddáža</string>
+    <string name="offline_maps_custom_tap">Sirdde kártta vai beasat válljet guovllu</string>
     <string name="offline_maps_custom_default_name">Eaktodáhtolaš guovlu</string>
     <string name="offline_maps_summary_body">%1$d %2$d guovlluin gárvvistuvvon · %3$s viežžan</string>
     <string name="offline_maps_downloading">Laddamin %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom sisa</string>
     <string name="mosque_finder_zoom_out">Zoom eret</string>
     <string name="mosque_finder_nearest">Lagamus moskea</string>
+    <string name="mosque_finder_go_to">Váldde dan</string>
+    <string name="mosque_finder_find_nearest">Gávnnat lagamus moskea</string>
+    <string name="mosque_finder_expanding">Ohcan %1$s siskkobealde…</string>
+    <string name="offline_maps_custom_width">Areála viidodat (gráda)</string>
+    <string name="offline_maps_storage_warning">Unnán vurkensadji — dušše %1$s nuvttá</string>
+    <string name="offline_maps_storage_delete_largest">Slette stuorámus guovllu (%1$s · %2$s)</string>
 </resources>

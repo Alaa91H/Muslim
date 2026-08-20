@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Cài đặt Adhkar</string>
     <string name="adhkar_show_translation">Hiển thị bản dịch</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Sao chép</string>
+    <string name="adhkar_share">Chia sẻ</string>
+    <string name="adhkar_overlay_short_only">Chỉ sử dụng adhkar ngắn</string>
+    <string name="adhkar_overlay_short_only_desc">Chọn adhkar vừa với một hoặc hai dòng để bong bóng nổi luôn rõ ràng và dễ đọc.</string>
+    <string name="adhkar_overlay_tap_hint">Nhấn vào bong bóng để loại bỏ nó ngay lập tức.</string>
 </resources>

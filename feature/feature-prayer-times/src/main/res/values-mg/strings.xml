@@ -46,14 +46,12 @@
     <string name="method_egyptian">Manampahefana Ambony Ejiptiana momba ny fanadihadiana</string>
     <string name="method_france">Frantsa (UOIF)</string>
     <string name="method_isna">ISNA (Amerika Avaratra)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">University of Islamic Sciences, Karachi</string>
     <string name="method_kuwait">Koety</string>
     <string name="method_moonsighting">Komitim-pandinihana ny volana</string>
     <string name="method_mwl">Ligy Mondial Muslim</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapour</string>
-    <string name="method_tehran">Tehran Institute of Geophysics</string>
     <string name="method_turkey">Diyanet Turkey</string>
     <string name="method_umm_al_qura">Omm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Hatramin\'ny Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Tsy afaka kajy ny fotoana</string>
     <string name="widget_prayer_times_description">Vavaka manaraka miaraka amin\'ny fanisana</string>
     <string name="widget_prayer_times_label">Fotoam-bavaka</string>
+    <string name="settings_adhan_volume_vibrate">Boky %1$s · Vibration %2$s</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Miala</string>
+    <string name="settings_preview_stop">Atsaharo ny fijerena</string>
+    <string name="settings_method_automatic">Automatic (amin\'ny toerana)</string>
+    <string name="settings_method_automatic_desc">Ny fampiharana dia misafidy ny fomba mety indrindra mifototra amin\'ny firenenao sy ny toerana misy anao; mbola afaka misafidy fomba iray ianao amin\'ny fotoana rehetra.</string>
+    <string name="settings_preview_for_prayer">Preview %1$s adhana</string>
 </resources>

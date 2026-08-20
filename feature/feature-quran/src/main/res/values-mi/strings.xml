@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Tuhinga o mua</string>
     <string name="quran_recitation_notif_next">Panuku</string>
+    <string name="quran_download_playback_title">Tikiake ana %1$s</string>
+    <string name="quran_download_playback_detail">%1$s maui · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Ota Mushaf</string>
+    <string name="quran_download_sort_completion">Na te otinga</string>
+    <string name="quran_downloads_coverage_title">Te kapinga Surah puta noa i nga kai korero</string>
+    <string name="quran_downloads_coverage_overall">Katoa mushaf puta noa i nga kai korero</string>
+    <string name="quran_downloads_coverage_empty">Kaore ano kia tikiakehia nga ororongo</string>
+    <string name="quran_pause_notif_listener">Whakatatarihia te korero i runga i nga whakamohiotanga</string>
+    <string name="quran_reciter_changed_title">Ka huri te kai korero</string>
+    <string name="quran_reciter_changed_message">Ka mutu te purei na te mea ka rere te awhe ki te mutunga o te Quran. Tīmata anō mā %1$s?</string>
+    <string name="quran_reciter_restart">Tīmata anō</string>
+    <string name="quran_reciter_not_now">Kaua inaianei</string>
 </resources>

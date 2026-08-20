@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Адкаралъул настройкаби</string>
     <string name="adhkar_show_translation">Таржама бихьизе</string>
     <string name="adhkar_title">Адкар</string>
+    <string name="adhkar_copy">Копия</string>
+    <string name="adhkar_share">Бикьизе</string>
+    <string name="adhkar_overlay_short_only">Къокъаб адхӀар хӀалтӀизабе гӀицӀго .</string>
+    <string name="adhkar_overlay_short_only_desc">ТӀаса бище цо-кӀиго мухъалда данде кколеб адхӀар, гьединлъидал лъелго унеб пузырь бацӀцӀадаб ва цӀализе бигьаяб букӀине.</string>
+    <string name="adhkar_overlay_tap_hint">ГьебсагӀатго гьеб нахъе бахъизе ккани, кьабизе ккола пузырькалда.</string>
 </resources>

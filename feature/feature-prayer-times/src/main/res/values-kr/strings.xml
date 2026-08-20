@@ -46,14 +46,12 @@
     <string name="method_egyptian">Hukuma kulashibe lardǝ Egyptbe</string>
     <string name="method_france">Faransa (UOIF)</string>
     <string name="method_isna">ISNA (Amerika Yalabe)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Jamiya kimiya Islambe, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Komiti Kǝmbal kurube</string>
     <string name="method_mwl">Kǝla Dunya Musulummabe</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapura</string>
-    <string name="method_tehran">Moranti Tehranbe Ilmu Fiziyabe</string>
     <string name="method_turkey">Diyanet Turkibe</string>
     <string name="method_umm_al_qura">Ummu al-Qurabe (Makka)</string>
     <string name="next_adhan_elapsed">Tun Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Loktuwa somtinba</string>
     <string name="widget_prayer_times_description">Sala fuwube isawu-a</string>
     <string name="widget_prayer_times_label">Loktu salabe</string>
+    <string name="settings_adhan_volume_vibrate">Nəmngəwu %1$s · Sartə %2$s</string>
+    <string name="settings_adhan_vibrate_on">Kəla</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Kulashi dapne</string>
+    <string name="settings_method_automatic">Otomatik (nalan)</string>
+    <string name="settings_method_automatic_desc">App dəye duluwu do zauro ngəla dəga gojin kəlanzəlaro lardənzə-a nanzə-a lan; kuwamiyayi raktǝ layi muskon karnǝmin loktu yayen.</string>
+    <string name="settings_preview_for_prayer">Kulashi %1$s adanbe</string>
 </resources>

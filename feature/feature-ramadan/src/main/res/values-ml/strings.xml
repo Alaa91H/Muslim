@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">മുമ്പ് എന്നെ ഓർമ്മിപ്പിക്കുക:</string>
     <string name="ramadan_suhoor_time">സുഹൂർ അവസാനിക്കുന്നു (ഫജ്ർ): %1$s</string>
     <string name="ramadan_title">റമദാൻ</string>
+    <string name="ramadan_notify_outside">റമദാനിന് പുറത്തുള്ള ഓർമ്മപ്പെടുത്തലുകൾ</string>
+    <string name="ramadan_notify_outside_desc">റമദാനിൽ ഇഫ്താർ, സുഹൂർ അലേർട്ടുകൾ സ്വയമേവ പ്രവർത്തിക്കുന്നു; ഇത് പ്രാപ്തമാക്കുന്നത് അവരെ മറ്റ് മാസങ്ങളിൽ നിലനിർത്തുന്നു.</string>
 </resources>

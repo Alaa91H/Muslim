@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Fàttalal ma bu njëkk:</string>
     <string name="ramadan_suhoor_time">Suhour jeexna (fajr): %1$s</string>
     <string name="ramadan_title">koor</string>
+    <string name="ramadan_notify_outside">Ay fàttali ci biti Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Iftar ak suhoor dañuy tàmbali ci saasi ci weeru Ramadan; loolu moo leen di may ñu wéy ci yeneen weer yi.</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar postavke</string>
     <string name="adhkar_show_translation">Prikaži prijevod</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopiraj</string>
+    <string name="adhkar_share">Podijelite</string>
+    <string name="adhkar_overlay_short_only">Koristite samo kratki adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Odaberite adhkar koji odgovara jednom ili dva retka kako bi lebdeći oblačić ostao jasan i lak za čitanje.</string>
+    <string name="adhkar_overlay_tap_hint">Dodirnite oblačić da biste ga odmah odbacili.</string>
 </resources>

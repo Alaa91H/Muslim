@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Baaxo</string>
     <string name="offline_maps_tab_custom">madruur arac</string>
     <string name="offline_maps_download">Oobis</string>
-    <string name="offline_maps_custom_hint">Fanteena ugussuh karta xag, tokkeek dariifal tan dariifa oobis.</string>
+    <string name="offline_maps_custom_hint">Atu faxxah tan arac massossuh karta paan kee zoom; tukkusat sissikuk asqassaabe. massos fidna lih sombolooloc.</string>
     <string name="offline_maps_custom_name">Dariifa migaq</string>
-    <string name="offline_maps_custom_tap">Fanteena ugussuh karta xag</string>
+    <string name="offline_maps_custom_tap">karta esgey dariifa doortuh</string>
     <string name="offline_maps_custom_default_name">madruur arac</string>
     <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
     <string name="offline_maps_downloading">Downloading %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">zoom addat</string>
     <string name="mosque_finder_zoom_out">Zoom iroh</string>
     <string name="mosque_finder_nearest">Xayi masjid</string>
+    <string name="mosque_finder_go_to">teetih gex</string>
+    <string name="mosque_finder_find_nearest">xayi masjid gorrisa.</string>
+    <string name="mosque_finder_expanding">Searching within %1$s…</string>
+    <string name="offline_maps_custom_width">Dariifa fidna (digrii)</string>
+    <string name="offline_maps_storage_warning">addah tan kobxisso - dubuk %1$s currik</string>
+    <string name="offline_maps_storage_delete_largest">kaxxa rakaakay duuga (%1$s · %2$s)</string>
 </resources>

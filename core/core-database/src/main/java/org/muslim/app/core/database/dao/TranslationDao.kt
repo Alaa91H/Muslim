@@ -21,7 +21,6 @@ interface TranslationDao {
     @Query("SELECT COUNT(*) FROM translations WHERE language = :language")
     suspend fun countForLanguage(language: String): Int
 
-    /** Installed translation languages (BCP-47 tags), for the reader picker. */
     @Query("SELECT DISTINCT language FROM translations ORDER BY language")
     fun observeLanguages(): Flow<List<String>>
 

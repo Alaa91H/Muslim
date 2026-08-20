@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Tuleta mulle enne meelde:</string>
     <string name="ramadan_suhoor_time">Suhoori otsad (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Meeldetuletused väljaspool ramadaani</string>
+    <string name="ramadan_notify_outside_desc">Iftari ja suhoori märguanded käivituvad ramadaani ajal automaatselt; selle lubamine hoiab neid ka teistel kuudel.</string>
 </resources>

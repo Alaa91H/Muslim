@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">ކުރިން</string>
     <string name="quran_recitation_notif_next">ދެން</string>
+    <string name="quran_download_playback_title">ޑައުންލޯޑް ކުރަނީ %1$s</string>
+    <string name="quran_download_playback_detail">%1$s ކަނާތް · %2$s/ސ</string>
+    <string name="quran_download_sort_mushaf">މުޝަފްގެ އަމުރު</string>
+    <string name="quran_download_sort_completion">ނިންމުމުންނެވެ</string>
+    <string name="quran_downloads_coverage_title">ކީރިތިވެރިންގެ މެދުގައި ސޫރަތް ކަވަރޭޖް ކުރުން</string>
+    <string name="quran_downloads_coverage_overall">ކިޔަވާ މީހުންގެ ތެރެއިން ފުލް މުޝަފް</string>
+    <string name="quran_downloads_coverage_empty">އަދި އޯޑިއޯއެއް ޑައުންލޯޑް ނުކުރެވެއެވެ</string>
+    <string name="quran_pause_notif_listener">ނޮޓިފިކޭޝަންތަކުގައި ކިޔެވުން މަޑުޖައްސާލާށެވެ</string>
+    <string name="quran_reciter_changed_title">ރެސިޓަރ ބަދަލުވެއްޖެއެވެ</string>
+    <string name="quran_reciter_changed_message">ޕްލޭބެކް ހުއްޓުނީ ޤުރުއާނުގެ ނިމުމާއި ހަމައަށް ރޭންޖް ދުއްވާތީއެވެ. %1$s އިން އަލުން ފެށުން؟</string>
+    <string name="quran_reciter_restart">އަލުން ފަށާށެވެ</string>
+    <string name="quran_reciter_not_now">މިހާރު ނޫން</string>
 </resources>

@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Ko adii</string>
     <string name="quran_recitation_notif_next">Ko arata</string>
+    <string name="quran_download_playback_title">Sosde %1$s</string>
+    <string name="quran_download_playback_detail">%1$s left · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf yamiroore</string>
+    <string name="quran_download_sort_completion">E timminde</string>
+    <string name="quran_downloads_coverage_title">Suura coverage e nder janngooɓe</string>
+    <string name="quran_downloads_coverage_overall">Mushaf timmuɗo e nder janngooɓe</string>
+    <string name="quran_downloads_coverage_empty">Alaa audio ƴettaa tawo</string>
+    <string name="quran_pause_notif_listener">Jokku janngugol e dow humpitooji</string>
+    <string name="quran_reciter_changed_title">Jannguɗo oo wayliima</string>
+    <string name="quran_reciter_changed_message">Pijirlooji ɗii ngoppitaa sabu range oo ina doga haa e joofnirde Quraana. Fuɗɗoraade kadi e %1$s?</string>
+    <string name="quran_reciter_restart">Fuɗɗoo kadi</string>
+    <string name="quran_reciter_not_now">Wonaa jooni</string>
 </resources>

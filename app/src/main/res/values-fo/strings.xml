@@ -46,4 +46,12 @@
     <string name="crash_close">Lat aftur</string>
     <string name="crash_dismiss">Halt fram</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Leita í Koranini</string>
+    <string name="more_quran_search_desc">Finn eitt orð, hvussu ofta tað kemur fyri og hvar</string>
+    <string name="more_quran_frequency">Koran orðtíttleiki</string>
+    <string name="more_quran_frequency_desc">Tey tíðastu orðini í øllum mushaf .</string>
+    <string name="more_pause_on_notifications">Steðga upplestrinum á fráboðanum</string>
+    <string name="more_pause_on_notifications_desc">Upplestur steðgar stutt, tá fráboðan, ring ella annar miðil spælir</string>
+    <string name="more_pause_notifications_enabled">Virkt — trýst á fyri at opna skipanarinnstillingar</string>
+    <string name="more_pause_notifications_disabled">Sløkt — trýst á fyri at virkja</string>
 </resources>

@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Ҫӗршыв</string>
     <string name="offline_maps_tab_custom">Ятарлӑ лаптӑк</string>
     <string name="offline_maps_download">Скачать</string>
-    <string name="offline_maps_custom_hint">Карттӑ ҫине пусса центрне суйласа илӗр, унтан ун таврашӗнчи лаптӑка скачать тӑвӑр.</string>
+    <string name="offline_maps_custom_hint">Карттӑна панорама тата пысӑклатса хӑвӑр кирлӗ лаптӑка ӳкерӗр; кадр хӑй тӗллӗнех ҫӗнелет. Слайдерпа сарлакӑшне тӳрлетӗр.</string>
     <string name="offline_maps_custom_name">Район ячӗ</string>
-    <string name="offline_maps_custom_tap">Вӑтаҫӗрне суйласа илме карттӑ ҫине пусӑр</string>
+    <string name="offline_maps_custom_tap">Карттӑна куҫарса лаптӑка суйласа илӗр</string>
     <string name="offline_maps_custom_default_name">Ятарлӑ лаптӑк</string>
     <string name="offline_maps_summary_body">%1$d %2$d лаптӑкӗ тулли · %3$s скачать</string>
     <string name="offline_maps_downloading">%1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Пысӑклат</string>
     <string name="mosque_finder_zoom_out">Пысӑклатмалла</string>
     <string name="mosque_finder_nearest">Чи ҫывӑхри мечӗт</string>
+    <string name="mosque_finder_go_to">Ун патне кайӑр</string>
+    <string name="mosque_finder_find_nearest">Ҫывӑхри мечӗте тупӑр</string>
+    <string name="mosque_finder_expanding">%1$s ӑшӗнче шыратӑп...</string>
+    <string name="offline_maps_custom_width">Площадь сарлакӑшӗ (градуссем)</string>
+    <string name="offline_maps_storage_warning">Пӗчӗк упрамалли вырӑн — %1$s ҫеҫ тӳлевсӗр</string>
+    <string name="offline_maps_storage_delete_largest">Чи пысӑк региона пӗтер (%1$s · %2$s)</string>
 </resources>

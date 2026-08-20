@@ -46,4 +46,12 @@
     <string name="crash_close">ބަންދުކޮށްލާށެވެ</string>
     <string name="crash_dismiss">ކުރިއަށް ގެންދަވާ</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">ޤުރުއާން ހޯދާށެވެ</string>
+    <string name="more_quran_search_desc">ލަފުޒެއް، ކިހާ ގިނައިން ފެންނަނީ ކޮންތަނެއްތޯ ހޯދާށެވެ</string>
+    <string name="more_quran_frequency">ޤުރުއާން ލަފުޒު ގިނަވުން</string>
+    <string name="more_quran_frequency_desc">މުޅި މުޝައްފުގައި އެންމެ ގިނައިން ކިޔާ ލަފުޒުތަކެވެ</string>
+    <string name="more_pause_on_notifications">ނޮޓިފިކޭޝަންތަކުގައި ކިޔެވުން މަޑުޖައްސާލާށެވެ</string>
+    <string name="more_pause_on_notifications_desc">ނޮޓިފިކޭޝަނެއް، ރިންގެއް ނުވަތަ އެހެން މީޑިއާއެއް ކުޅޭއިރު ކިޔެވުން ކުޑައިރުކޮޅަކު މަޑުޖައްސާލައެވެ</string>
+    <string name="more_pause_notifications_enabled">އެނެބަލްޑް — ސިސްޓަމް ސެޓިންގސް ހުޅުވުމަށް ޓެޕް ކުރާށެވެ</string>
+    <string name="more_pause_notifications_disabled">ޑިސެބަލްޑް — އެނެބަލް ކުރުމަށް ޓެޕް ކުރާށެވެ</string>
 </resources>

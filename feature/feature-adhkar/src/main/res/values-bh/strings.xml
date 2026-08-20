@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">अढ़कर सेटिंग्स के बा</string>
     <string name="adhkar_show_translation">अनुवाद देखावल जाव</string>
     <string name="adhkar_title">अधकर के ह</string>
+    <string name="adhkar_copy">कॉपी कइल जा सकेला</string>
+    <string name="adhkar_share">शेयर करीं</string>
+    <string name="adhkar_overlay_short_only">खाली छोट अधकार के प्रयोग करीं</string>
+    <string name="adhkar_overlay_short_only_desc">एक दू लाइन में फिट होखे वाला अधकर चुनीं जेहसे कि बहत बुलबुला साफ आ पढ़े में आसान रहे.</string>
+    <string name="adhkar_overlay_tap_hint">तुरंत खारिज करे खातिर बुलबुला के टैप करीं।</string>
 </resources>

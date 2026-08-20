@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar sozlamalari</string>
     <string name="adhkar_show_translation">Tarjimani ko\'rsatish</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Nusxalash</string>
+    <string name="adhkar_share">Ulashish</string>
+    <string name="adhkar_overlay_short_only">Faqat qisqa adhkardan foydalaning</string>
+    <string name="adhkar_overlay_short_only_desc">Bir yoki ikkita qatorga mos keladigan adhkarni tanlang, shunda suzuvchi pufakcha aniq va o\'qilishi oson.</string>
+    <string name="adhkar_overlay_tap_hint">Uni darhol yopish uchun pufakchaga teging.</string>
 </resources>

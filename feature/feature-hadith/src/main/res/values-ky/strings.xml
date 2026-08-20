@@ -23,4 +23,5 @@
     <string name="hadith_search_hint">Хадистерди издөө…</string>
     <string name="hadith_share">Бөлүшүү</string>
     <string name="hadith_title">Хадис китепканасы</string>
+    <string name="hadith_copy">Көчүрмө</string>
 </resources>

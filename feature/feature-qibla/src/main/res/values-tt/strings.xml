@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Ил</string>
     <string name="offline_maps_tab_custom">Махсус мәйдан</string>
     <string name="offline_maps_download">Йөкләү</string>
-    <string name="offline_maps_custom_hint">Centerзәкне сайлау өчен картага басыгыз, аннары аның тирәсен йөкләгез.</string>
+    <string name="offline_maps_custom_hint">Сез теләгән мәйданны ясау өчен картаны табыгыз һәм зурайтыгыз. кадр автоматик рәвештә яңартыла. Слайдер белән киңлекне көйләгез.</string>
     <string name="offline_maps_custom_name">Район исеме</string>
-    <string name="offline_maps_custom_tap">Centerзәкне сайлау өчен картага басыгыз</string>
+    <string name="offline_maps_custom_tap">Районны сайлау өчен картаны күчерегез</string>
     <string name="offline_maps_custom_default_name">Махсус мәйдан</string>
     <string name="offline_maps_summary_body">%1$d %2$d өлкәләр тулы · %3$s йөкләнде</string>
     <string name="offline_maps_downloading">Йөкләү %1$s… %2$d %%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Зурайту</string>
     <string name="mosque_finder_zoom_out">Зурайту</string>
     <string name="mosque_finder_nearest">Иң якын мәчет</string>
+    <string name="mosque_finder_go_to">Барыгыз</string>
+    <string name="mosque_finder_find_nearest">Иң якын мәчетне табыгыз</string>
+    <string name="mosque_finder_expanding">Searching within %1$s…</string>
+    <string name="offline_maps_custom_width">Район киңлеге (градус)</string>
+    <string name="offline_maps_storage_warning">Түбән саклау - %1$s бушлай</string>
+    <string name="offline_maps_storage_delete_largest">Иң зур төбәкне бетерегез (%1$s · %2$s)</string>
 </resources>

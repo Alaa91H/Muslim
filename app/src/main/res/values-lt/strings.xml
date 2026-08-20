@@ -46,4 +46,12 @@
     <string name="crash_close">Uždaryti</string>
     <string name="crash_dismiss">Tęsti</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيب٧دمتخس تخس واسحبه لإعادة المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Ieškokite Korano</string>
+    <string name="more_quran_search_desc">Raskite žodį, kaip dažnai jis pasirodo ir kur</string>
+    <string name="more_quran_frequency">Korano žodžių dažnis</string>
+    <string name="more_quran_frequency_desc">Dažniausi žodžiai visame mushaf</string>
+    <string name="more_pause_on_notifications">Pristabdykite pranešimų deklamavimą</string>
+    <string name="more_pause_on_notifications_desc">Deklamavimas trumpam sustoja, kai paleidžiamas pranešimas, skambutis ar kita medija</string>
+    <string name="more_pause_notifications_enabled">Įjungta – palieskite, kad atidarytumėte sistemos nustatymus</string>
+    <string name="more_pause_notifications_disabled">Išjungta – bakstelėkite, kad įjungtumėte</string>
 </resources>

@@ -47,6 +47,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.DivineName
 import org.muslim.app.feature.learn.domain.NamesOfAllahContent
@@ -64,6 +65,9 @@ fun NamesOfAllahScreen(
 ) {
     var selected by remember { mutableStateOf<DivineName?>(null) }
     val name = selected
+
+    // English fallback hidden for Arabic UI (each language shows its own texts).
+    val showEnglishFallback = AppLanguage.showEnglishFallback()
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -89,6 +93,7 @@ fun NamesOfAllahScreen(
         } else {
             NameDetail(
                 name = name,
+                showEnglishFallback = showEnglishFallback,
                 onPrevious = { NamesOfAllahContent.byNumber(name.number - 1)?.let { selected = it } },
                 onNext = { NamesOfAllahContent.byNumber(name.number + 1)?.let { selected = it } },
                 modifier = Modifier.padding(innerPadding),
@@ -223,6 +228,7 @@ private fun NamesList(
 @Composable
 private fun NameDetail(
     name: DivineName,
+    showEnglishFallback: Boolean,
     onPrevious: () -> Unit,
     onNext: () -> Unit,
     modifier: Modifier = Modifier,
@@ -292,12 +298,14 @@ private fun NameDetail(
                         fontWeight = FontWeight.SemiBold,
                         color = MaterialTheme.colorScheme.primary,
                     )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        text = name.meaningEn,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
+                    if (showEnglishFallback) {
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            text = name.meaningEn,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 },
             )
         }
@@ -310,14 +318,16 @@ private fun NameDetail(
                         text = name.explanationAr,
                         style = MaterialTheme.typography.bodyLarge,
                     )
-                    Spacer(Modifier.height(10.dp))
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
-                    Spacer(Modifier.height(10.dp))
-                    Text(
-                        text = name.explanationEn,
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
+                    if (showEnglishFallback) {
+                        Spacer(Modifier.height(10.dp))
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+                        Spacer(Modifier.height(10.dp))
+                        Text(
+                            text = name.explanationEn,
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 },
             )
         }
@@ -341,20 +351,22 @@ private fun NameDetail(
                         textAlign = TextAlign.Center,
                         modifier = Modifier.fillMaxWidth(),
                     )
-                    Spacer(Modifier.height(12.dp))
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
-                    Spacer(Modifier.height(12.dp))
-                    Text(
-                        text = name.evidenceEn,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        text = name.evidenceRefEn,
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.primary,
-                    )
+                    if (showEnglishFallback) {
+                        Spacer(Modifier.height(12.dp))
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+                        Spacer(Modifier.height(12.dp))
+                        Text(
+                            text = name.evidenceEn,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                        Spacer(Modifier.height(4.dp))
+                        Text(
+                            text = name.evidenceRefEn,
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.primary,
+                        )
+                    }
                 },
             )
         }

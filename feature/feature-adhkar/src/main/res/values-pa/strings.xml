@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">ਅਧਕਾਰ ਸੈਟਿੰਗਾਂ</string>
     <string name="adhkar_show_translation">ਅਨੁਵਾਦ ਦਿਖਾਓ</string>
     <string name="adhkar_title">ਅਧਕਾਰ</string>
+    <string name="adhkar_copy">ਕਾਪੀ ਕਰੋ</string>
+    <string name="adhkar_share">ਸ਼ੇਅਰ ਕਰੋ</string>
+    <string name="adhkar_overlay_short_only">ਲਘੂ ਅਧਕਾਰ ਦੀ ਹੀ ਵਰਤੋਂ ਕਰੋ</string>
+    <string name="adhkar_overlay_short_only_desc">ਅਧਕਾਰ ਚੁਣੋ ਜੋ ਇੱਕ ਜਾਂ ਦੋ ਲਾਈਨਾਂ ਵਿੱਚ ਫਿੱਟ ਹੋਵੇ ਤਾਂ ਕਿ ਫਲੋਟਿੰਗ ਬੁਲਬੁਲਾ ਸਾਫ਼ ਅਤੇ ਪੜ੍ਹਨ ਵਿੱਚ ਆਸਾਨ ਰਹੇ।</string>
+    <string name="adhkar_overlay_tap_hint">ਇਸ ਨੂੰ ਤੁਰੰਤ ਖਾਰਜ ਕਰਨ ਲਈ ਬੁਲਬੁਲੇ \'ਤੇ ਟੈਪ ਕਰੋ।</string>
 </resources>

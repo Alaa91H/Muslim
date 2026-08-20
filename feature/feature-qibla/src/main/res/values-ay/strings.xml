@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Marka</string>
     <string name="offline_maps_tab_custom">Área costumbre ukaxa</string>
     <string name="offline_maps_download">Ukax mä juk’a pachanakanwa</string>
-    <string name="offline_maps_custom_hint">Mapa tuqiru ch’iqt’aña marka ajlliñatakiwa, ukatxa uka jak’a chiqaru apkatañamawa.</string>
+    <string name="offline_maps_custom_hint">Pan ukat zoom ukax mapa ukarux enmarcar kawkhantix munkta uka chiqan; uka marco ukax automáticamente machaqar tukuyatawa. Uka ancho ukaxa deslizador ukampiwa chiqañchaña.</string>
     <string name="offline_maps_custom_name">Área sutini</string>
-    <string name="offline_maps_custom_tap">Mapa tuqiru ch’iqt’aña marka taypina ajlliñatakiwa</string>
+    <string name="offline_maps_custom_tap">Mapa tuqiruxa uka chiqa ajlliñatakiwa</string>
     <string name="offline_maps_custom_default_name">Área costumbre ukaxa</string>
     <string name="offline_maps_summary_body">%1$d %2$d chiqanakan tukuyata · %3$s apkatata</string>
     <string name="offline_maps_downloading">Uñakipt’añataki %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Ukax mä jach’a uñacht’äwiwa</string>
     <string name="mosque_finder_zoom_out">Ukax mä jach’a uñacht’äwiwa</string>
     <string name="mosque_finder_nearest">Mezquita jak’ankiwa</string>
+    <string name="mosque_finder_go_to">Ukar sarañamawa</string>
+    <string name="mosque_finder_find_nearest">Jak’a mezquita ukar jikxatañamawa</string>
+    <string name="mosque_finder_expanding">%1$s ukan thaqhaña...</string>
+    <string name="offline_maps_custom_width">Área ancho (grados) ukaxa 1.1.</string>
+    <string name="offline_maps_storage_warning">Jisk’a imaña — ukaxa %1$s ukhakiwa</string>
+    <string name="offline_maps_storage_delete_largest">Jach’a suyu chhaqtayaña (%1$s · %2$s)</string>
 </resources>

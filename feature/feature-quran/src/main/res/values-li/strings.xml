@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Vorige</string>
     <string name="quran_recitation_notif_next">Volgende</string>
+    <string name="quran_download_playback_title">%1$s downloade</string>
+    <string name="quran_download_playback_detail">%1$s links · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf-bevel</string>
+    <string name="quran_download_sort_completion">Door voltooiing</string>
+    <string name="quran_downloads_coverage_title">Soerah-dekking euver reciters</string>
+    <string name="quran_downloads_coverage_overall">Volledige mushaf euver de reciters</string>
+    <string name="quran_downloads_coverage_empty">Nog gein audio gedownload</string>
+    <string name="quran_pause_notif_listener">Pauze recitatie op meldingen</string>
+    <string name="quran_reciter_changed_title">Reciter is veranderd</string>
+    <string name="quran_reciter_changed_message">De afspeel is gestop umdat ‘t bereik loop tot ‘t ind vaan de Koran. Weer beginne mit %1$s?</string>
+    <string name="quran_reciter_restart">Begin weer</string>
+    <string name="quran_reciter_not_now">Noe neet</string>
 </resources>

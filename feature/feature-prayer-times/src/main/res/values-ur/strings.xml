@@ -46,14 +46,12 @@
     <string name="method_egyptian">مصری جنرل اتھارٹی آف سروے</string>
     <string name="method_france">فرانس (UOIF)</string>
     <string name="method_isna">ISNA (شمالی امریکہ)</string>
-    <string name="method_jafari">جعفری</string>
     <string name="method_karachi">جامعہ اسلامیہ، کراچی</string>
     <string name="method_kuwait">کویت</string>
     <string name="method_moonsighting">چاند دیکھنے والی کمیٹی</string>
     <string name="method_mwl">مسلم ورلڈ لیگ</string>
     <string name="method_qatar">قطر</string>
     <string name="method_singapore">سنگاپور</string>
-    <string name="method_tehran">تہران انسٹی ٹیوٹ آف جیو فزکس</string>
     <string name="method_turkey">دیانیت ترکی</string>
     <string name="method_umm_al_qura">ام القریٰ (مکہ)</string>
     <string name="next_adhan_elapsed">اذان کے بعد سے: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">اوقات کا حساب لگانے سے قاصر</string>
     <string name="widget_prayer_times_description">اگلی نماز الٹی گنتی کے ساتھ</string>
     <string name="widget_prayer_times_label">نماز کے اوقات</string>
+    <string name="settings_adhan_volume_vibrate">والیوم %1$s · کمپن %2$s</string>
+    <string name="settings_adhan_vibrate_on">پر</string>
+    <string name="settings_adhan_vibrate_off">آف</string>
+    <string name="settings_preview_stop">پیش نظارہ بند کریں۔</string>
+    <string name="settings_method_automatic">خودکار (مقام کے لحاظ سے)</string>
+    <string name="settings_method_automatic_desc">ایپ آپ کے ملک اور مقام کی بنیاد پر خود بخود موزوں ترین طریقہ منتخب کرتی ہے۔ آپ اب بھی کسی بھی وقت دستی طور پر کوئی طریقہ منتخب کر سکتے ہیں۔</string>
+    <string name="settings_preview_for_prayer">پیش نظارہ %1$s اذان</string>
 </resources>

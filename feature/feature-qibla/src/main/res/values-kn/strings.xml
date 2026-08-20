@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">ದೇಶ</string>
     <string name="offline_maps_tab_custom">ಕಸ್ಟಮ್ ಪ್ರದೇಶ</string>
     <string name="offline_maps_download">ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ</string>
-    <string name="offline_maps_custom_hint">ಕೇಂದ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಲು ನಕ್ಷೆಯನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ, ನಂತರ ಅದರ ಸುತ್ತಲಿನ ಪ್ರದೇಶವನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ.</string>
+    <string name="offline_maps_custom_hint">ನಿಮಗೆ ಬೇಕಾದ ಪ್ರದೇಶವನ್ನು ಫ್ರೇಮ್ ಮಾಡಲು ನಕ್ಷೆಯನ್ನು ಪ್ಯಾನ್ ಮಾಡಿ ಮತ್ತು ಜೂಮ್ ಮಾಡಿ; ಫ್ರೇಮ್ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ನವೀಕರಿಸುತ್ತದೆ. ಸ್ಲೈಡರ್ನೊಂದಿಗೆ ಅಗಲವನ್ನು ಹೊಂದಿಸಿ.</string>
     <string name="offline_maps_custom_name">ಪ್ರದೇಶದ ಹೆಸರು</string>
-    <string name="offline_maps_custom_tap">ಕೇಂದ್ರವನ್ನು ಆಯ್ಕೆ ಮಾಡಲು ನಕ್ಷೆಯನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+    <string name="offline_maps_custom_tap">ಪ್ರದೇಶವನ್ನು ಆಯ್ಕೆ ಮಾಡಲು ನಕ್ಷೆಯನ್ನು ಸರಿಸಿ</string>
     <string name="offline_maps_custom_default_name">ಕಸ್ಟಮ್ ಪ್ರದೇಶ</string>
     <string name="offline_maps_summary_body">%2$d ಪ್ರದೇಶಗಳಲ್ಲಿ %1$d ಪೂರ್ಣಗೊಂಡಿದೆ · %3$s ಡೌನ್‌ಲೋಡ್ ಮಾಡಲಾಗಿದೆ</string>
     <string name="offline_maps_downloading">ಡೌನ್‌ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">ಜೂಮ್ ಇನ್ ಮಾಡಿ</string>
     <string name="mosque_finder_zoom_out">ಜೂಮ್ ಔಟ್</string>
     <string name="mosque_finder_nearest">ಹತ್ತಿರದ ಮಸೀದಿ</string>
+    <string name="mosque_finder_go_to">ಅದಕ್ಕೆ ಹೋಗು</string>
+    <string name="mosque_finder_find_nearest">ಹತ್ತಿರದ ಮಸೀದಿಯನ್ನು ಹುಡುಕಿ</string>
+    <string name="mosque_finder_expanding">%1$s ಒಳಗೆ ಹುಡುಕಲಾಗುತ್ತಿದೆ…</string>
+    <string name="offline_maps_custom_width">ಪ್ರದೇಶದ ಅಗಲ (ಡಿಗ್ರಿ)</string>
+    <string name="offline_maps_storage_warning">ಕಡಿಮೆ ಸಂಗ್ರಹಣೆ - ಕೇವಲ %1$s ಉಚಿತ</string>
+    <string name="offline_maps_storage_delete_largest">ದೊಡ್ಡ ಪ್ರದೇಶವನ್ನು ಅಳಿಸಿ (%1$s · %2$s)</string>
 </resources>

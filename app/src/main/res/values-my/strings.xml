@@ -46,4 +46,12 @@
     <string name="crash_close">ပိတ်လိုက်</string>
     <string name="crash_dismiss">ဆက်ရန်</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة عرض المزيد</string>
+    <string name="more_quran_search">ကုရ်အာန်ကိုရှာဖွေပါ။</string>
+    <string name="more_quran_search_desc">စကားလုံးတစ်လုံး၊ ဘယ်နှစ်ကြိမ်ပေါ်လာပြီး ဘယ်မှာလဲ။</string>
+    <string name="more_quran_frequency">ကုရ်အာန် စကားလုံး အကြိမ်ရေ</string>
+    <string name="more_quran_frequency_desc">မုရှဖ်တစ်ခုလုံးတွင် အသုံးအများဆုံးစကားလုံးများ</string>
+    <string name="more_pause_on_notifications">အကြောင်းကြားချက်များပေါ်တွင် ရွတ်ဆိုခြင်းကို ခေတ္တရပ်ပါ။</string>
+    <string name="more_pause_on_notifications_desc">အကြောင်းကြားချက်၊ အသံမြည်ခြင်း သို့မဟုတ် အခြားမီဒီယာတစ်ခုဖွင့်သည့်အခါ ရွတ်ဆိုခြင်းသည် ခေတ္တရပ်သည်။</string>
+    <string name="more_pause_notifications_enabled">ဖွင့်ထားသည် — စနစ်ဆက်တင်များကိုဖွင့်ရန် နှိပ်ပါ။</string>
+    <string name="more_pause_notifications_disabled">ပိတ်ထားသည် — ဖွင့်ရန် နှိပ်ပါ။</string>
 </resources>

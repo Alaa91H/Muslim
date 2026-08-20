@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">국가</string>
     <string name="offline_maps_tab_custom">맞춤 영역</string>
     <string name="offline_maps_download">다운로드</string>
-    <string name="offline_maps_custom_hint">지도를 탭하여 중심을 선택한 다음 주변 지역을 다운로드하세요.</string>
+    <string name="offline_maps_custom_hint">지도를 이동 및 확대/축소하여 원하는 영역의 프레임을 지정하세요. 프레임이 자동으로 업데이트됩니다. 슬라이더로 너비를 조정합니다.</string>
     <string name="offline_maps_custom_name">지역명</string>
-    <string name="offline_maps_custom_tap">지도를 탭하여 중심을 선택하세요.</string>
+    <string name="offline_maps_custom_tap">지도를 움직여 지역을 선택하세요.</string>
     <string name="offline_maps_custom_default_name">맞춤 영역</string>
     <string name="offline_maps_summary_body">%2$d개 영역 중 %1$d개 완료 · %3$s개 다운로드됨</string>
     <string name="offline_maps_downloading">%1$s 다운로드 중… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">확대</string>
     <string name="mosque_finder_zoom_out">축소</string>
     <string name="mosque_finder_nearest">가장 가까운 모스크</string>
+    <string name="mosque_finder_go_to">그것으로 이동</string>
+    <string name="mosque_finder_find_nearest">가장 가까운 모스크 찾기</string>
+    <string name="mosque_finder_expanding">%1$s 내에서 검색 중…</string>
+    <string name="offline_maps_custom_width">영역 너비(도)</string>
+    <string name="offline_maps_storage_warning">낮은 저장 공간 — %1$s만 무료</string>
+    <string name="offline_maps_storage_delete_largest">가장 큰 지역 삭제(%1$s · %2$s)</string>
 </resources>

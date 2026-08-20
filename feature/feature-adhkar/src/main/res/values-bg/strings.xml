@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Настройки на Adhkar</string>
     <string name="adhkar_show_translation">Показване на превода</string>
     <string name="adhkar_title">Адкар</string>
+    <string name="adhkar_copy">копие</string>
+    <string name="adhkar_share">Споделете</string>
+    <string name="adhkar_overlay_short_only">Използвайте само кратък adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Изберете adhkar, който отговаря на един или два реда, така че плаващият балон да остане ясен и лесен за четене.</string>
+    <string name="adhkar_overlay_tap_hint">Докоснете балончето, за да го отхвърлите незабавно.</string>
 </resources>

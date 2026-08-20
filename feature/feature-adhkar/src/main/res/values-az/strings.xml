@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar parametrləri</string>
     <string name="adhkar_show_translation">Tərcüməni göstərin</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopyalayın</string>
+    <string name="adhkar_share">Paylaşın</string>
+    <string name="adhkar_overlay_short_only">Yalnız qısa adhkar istifadə edin</string>
+    <string name="adhkar_overlay_short_only_desc">Bir və ya iki sətirə uyğun gələn adhkar seçin ki, üzən qabarcıq aydın və oxunması asan olsun.</string>
+    <string name="adhkar_overlay_tap_hint">Dərhal ləğv etmək üçün qabarcığa toxunun.</string>
 </resources>

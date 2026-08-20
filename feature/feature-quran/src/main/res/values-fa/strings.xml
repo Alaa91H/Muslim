@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">قبلی</string>
     <string name="quran_recitation_notif_next">بعدی</string>
+    <string name="quran_download_playback_title">در حال دانلود %1$s</string>
+    <string name="quran_download_playback_detail">%1$s باقی مانده · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">دستور مصحف</string>
+    <string name="quran_download_sort_completion">با تکمیل</string>
+    <string name="quran_downloads_coverage_title">پوشش سوره در میان قاریان</string>
+    <string name="quran_downloads_coverage_overall">مصحف کامل در میان قاریان</string>
+    <string name="quran_downloads_coverage_empty">هنوز صوتی دانلود نشده است</string>
+    <string name="quran_pause_notif_listener">توقف تلاوت در اعلان‌ها</string>
+    <string name="quran_reciter_changed_title">قاری عوض شد</string>
+    <string name="quran_reciter_changed_message">پخش متوقف شد زیرا محدوده تا انتهای قرآن است. دوباره با %1$s شروع شود؟</string>
+    <string name="quran_reciter_restart">دوباره شروع کن</string>
+    <string name="quran_reciter_not_now">الان نه</string>
 </resources>

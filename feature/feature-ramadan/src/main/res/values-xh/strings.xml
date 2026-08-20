@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Ndikhumbuze ngaphambili:</string>
     <string name="ramadan_suhoor_time">Isiphelo seSuhoor (Fajr): %1$s</string>
     <string name="ramadan_title">eRamadan</string>
+    <string name="ramadan_notify_outside">Izikhumbuzo ngaphandle kweRamadan</string>
+    <string name="ramadan_notify_outside_desc">Izaziso ze-iftar kunye ne-suhoor zisebenza ngokuzenzekelayo ngexesha leRamadan; ukwenza oku kubenza baqhubeke kwezinye iinyanga.</string>
 </resources>

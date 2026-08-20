@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Firenena</string>
     <string name="offline_maps_tab_custom">Faritra mahazatra</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">Tsindrio ny sari-tany hifidianana ny foibe, dia alaivo ny faritra manodidina azy.</string>
+    <string name="offline_maps_custom_hint">Sokafy ary zoomo ny sarintany mba handrafetana ny faritra tianao; ny frame dia manavao ho azy. Ampifanaraho amin\'ny slider ny sakany.</string>
     <string name="offline_maps_custom_name">Anaran\'ny faritra</string>
-    <string name="offline_maps_custom_tap">Tsindrio ny sarintany hifidianana ny afovoany</string>
+    <string name="offline_maps_custom_tap">Afindrao ny sarintany mba hisafidianana ny faritra</string>
     <string name="offline_maps_custom_default_name">Faritra mahazatra</string>
     <string name="offline_maps_summary_body">%1$d amin\'ny %2$d faritra feno · %3$s alaina</string>
     <string name="offline_maps_downloading">Misintona %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom in</string>
     <string name="mosque_finder_zoom_out">Zoom out</string>
     <string name="mosque_finder_nearest">Moske akaiky indrindra</string>
+    <string name="mosque_finder_go_to">Mandehana any</string>
+    <string name="mosque_finder_find_nearest">Mitadiava moske akaiky indrindra</string>
+    <string name="mosque_finder_expanding">Mikaroka ao anatin\'ny %1$s…</string>
+    <string name="offline_maps_custom_width">Sakan\'ny faritra (diretra)</string>
+    <string name="offline_maps_storage_warning">Fitehirizana ambany - %1$s maimaim-poana</string>
+    <string name="offline_maps_storage_delete_largest">Fafao ny faritra lehibe indrindra (%1$s · %2$s)</string>
 </resources>

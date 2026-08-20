@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Страна</string>
     <string name="offline_maps_tab_custom">Пользовательская область</string>
     <string name="offline_maps_download">Скачать</string>
-    <string name="offline_maps_custom_hint">Коснитесь карты, чтобы выбрать центр, а затем загрузите область вокруг него.</string>
+    <string name="offline_maps_custom_hint">Панорамируйте и масштабируйте карту, чтобы выделить нужную область; рамка обновляется автоматически. Отрегулируйте ширину с помощью ползунка.</string>
     <string name="offline_maps_custom_name">Название региона</string>
-    <string name="offline_maps_custom_tap">Коснитесь карты, чтобы выбрать центр</string>
+    <string name="offline_maps_custom_tap">Переместите карту, чтобы выбрать область</string>
     <string name="offline_maps_custom_default_name">Пользовательская область</string>
     <string name="offline_maps_summary_body">%1$d из %2$d областей выполнено · %3$s загружено</string>
     <string name="offline_maps_downloading">Загрузка %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Увеличить масштаб</string>
     <string name="mosque_finder_zoom_out">Уменьшить масштаб</string>
     <string name="mosque_finder_nearest">Ближайшая мечеть</string>
+    <string name="mosque_finder_go_to">Перейти к этому</string>
+    <string name="mosque_finder_find_nearest">Найти ближайшую мечеть</string>
+    <string name="mosque_finder_expanding">Поиск в %1$s…</string>
+    <string name="offline_maps_custom_width">Ширина зоны (градусы)</string>
+    <string name="offline_maps_storage_warning">Мало места — всего %1$s бесплатно</string>
+    <string name="offline_maps_storage_delete_largest">Удалить самый большой регион (%1$s · %2$s)</string>
 </resources>

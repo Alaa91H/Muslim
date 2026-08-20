@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">ኣድካር ቅጥዕታት</string>
     <string name="adhkar_show_translation">ትርጉም ኣርእዩ</string>
     <string name="adhkar_title">ኣድካር</string>
+    <string name="adhkar_copy">ቅዳሕ</string>
+    <string name="adhkar_share">ሼር ምግባር</string>
+    <string name="adhkar_overlay_short_only">ሓጺር ኣድካር ጥራይ ተጠቐም</string>
+    <string name="adhkar_overlay_short_only_desc">እቲ ዝንሳፈፍ ፍንጣጣ ንጹርን ንንባብ ቀሊልን ንኽጸንሕ ሓደ ወይ ክልተ መስመራት ዝሰማማዕ ኣድካር ምረጽ።</string>
+    <string name="adhkar_overlay_tap_hint">ነቲ ቡምባ ብቕጽበት ንምስጓግ ምጥዋቕ።</string>
 </resources>

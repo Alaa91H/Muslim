@@ -18,4 +18,6 @@
     <string name="channel_recitation_desc">أزرار التشغيل والإيقاف لتلاوة القرآن الكريم</string>
     <string name="channel_hajj">مصاحبة الحاج</string>
     <string name="channel_hajj_desc">تذكير يومي بالمنسك المقصود في وقته خلال أيام الحج</string>
+    <string name="channel_app_update">تحديثات التطبيق</string>
+    <string name="channel_app_update_desc">إشعار عند توفّر نسخة جديدة من التطبيق</string>
 </resources>

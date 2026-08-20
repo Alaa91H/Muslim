@@ -190,6 +190,13 @@ class RamadanViewModel @Inject constructor(
         // Re-read the latest settings and re-schedule the alarms.
         val prayerSettings = prayerSettingsRepository.settings.first()
         val ramadan = ramadanRepository.settings.first()
-        scheduler.schedule(prayerSettings, ramadan.suhoorMinutesBefore)
+        scheduler.schedule(prayerSettings, ramadan)
+    }
+
+    fun setNotifyOutsideRamadan(enabled: Boolean) {
+        viewModelScope.launch {
+            ramadanRepository.setNotifyOutsideRamadan(enabled)
+            reschedule()
+        }
     }
 }

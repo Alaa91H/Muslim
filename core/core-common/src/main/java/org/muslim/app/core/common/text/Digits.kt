@@ -37,4 +37,12 @@ object Digits {
             }
         }
     }
+
+    /**
+     * Normalizes [text] to western digits and keeps only the 0-9 characters.
+     * Ideal for whole-number input fields (tasbih target, dates, counters):
+     * whatever digits the keyboard produces (Arabic-Indic ٠١٢٣…, Persian
+     * ۰۱۲۳…) the result always parses with `toIntOrNull()`.
+     */
+    fun onlyDigits(text: String): String = toWesternDigits(text).filter(Char::isDigit)
 }

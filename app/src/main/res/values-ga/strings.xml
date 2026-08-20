@@ -46,4 +46,12 @@
     <string name="crash_close">Dún</string>
     <string name="crash_dismiss">Lean ort</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واحبه لإعادة ترتيبه، وادمتتر لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Cuardaigh an Quran</string>
+    <string name="more_quran_search_desc">Faigh focal, cé chomh minic is a fheictear é agus cén áit</string>
+    <string name="more_quran_frequency">Minicíocht focal Quran</string>
+    <string name="more_quran_frequency_desc">Na focail is minice sa mushaf iomlán</string>
+    <string name="more_pause_on_notifications">Cuir aithris ar fhógraí ar sos</string>
+    <string name="more_pause_on_notifications_desc">Cuirtear sosanna gairide ar an aithris nuair a bhíonn fógra, fáinne nó meáin eile ar siúl</string>
+    <string name="more_pause_notifications_enabled">Cumasaithe - tapáil chun socruithe an chórais a oscailt</string>
+    <string name="more_pause_notifications_disabled">Díchumasaithe - tapáil chun é a chumasú</string>
 </resources>

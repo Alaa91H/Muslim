@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Whakamaharatia ahau i mua:</string>
     <string name="ramadan_suhoor_time">Ka mutu te Suhoor (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Whakamaumahara i waho o Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Ka rere aunoa nga matohi Iftar me te suhoor i te wa o Ramadan; ma te whakaahei ka haere tonu ratou i etahi atu marama.</string>
 </resources>

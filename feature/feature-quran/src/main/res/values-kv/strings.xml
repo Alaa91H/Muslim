@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Воддза</string>
     <string name="quran_recitation_notif_next">Водзӧ</string>
+    <string name="quran_download_playback_title">Скачайтӧм %1$s</string>
+    <string name="quran_download_playback_detail">%1$s лэччис · %2$s/с</string>
+    <string name="quran_download_sort_mushaf">Мушаф приказ</string>
+    <string name="quran_download_sort_completion">Помалӧм серти .</string>
+    <string name="quran_downloads_coverage_title">Сура тыртӧм лыддьысьяс костын .</string>
+    <string name="quran_downloads_coverage_overall">Тулыс мушаф кузя лыддьысьысьяс .</string>
+    <string name="quran_downloads_coverage_empty">Аудио абу на лэдзӧма .</string>
+    <string name="quran_pause_notif_listener">Уведомлениеяс вылын лыддьӧм пауза .</string>
+    <string name="quran_reciter_changed_title">Декламатор вежсис .</string>
+    <string name="quran_reciter_changed_message">Воспроизведение дугдіс сыысь, мый диапазоныс мунӧ Коран помӧдз. Заводитны выльысь %1$s?</string>
+    <string name="quran_reciter_restart">Заводитны выльысь .</string>
+    <string name="quran_reciter_not_now">Абу ӧні .</string>
 </resources>

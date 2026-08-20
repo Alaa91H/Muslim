@@ -13,4 +13,12 @@
     <string name="crash_close">إغلاق</string>
     <string name="crash_dismiss">متابعة</string>
     <string name="more_order_hint">انقر مع عدم وجود أي قسم وسحبه مرة أخرى لترتيبه، وتغيير المفتاح إلى أو إخفاء كل قسم. يُطبَّق الغد مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">ابحث في القرآن</string>
+    <string name="more_quran_search_desc">ابحث عن كلمة وعدد مرات ظهورها وأين</string>
+    <string name="more_quran_frequency">تردد كلمات القرآن</string>
+    <string name="more_quran_frequency_desc">أكثر الكلمات تكرارا في المصحف كله</string>
+    <string name="more_pause_on_notifications">وقفة تلاوة على الإخطارات</string>
+    <string name="more_pause_on_notifications_desc">تتوقف التلاوة مؤقتًا لفترة وجيزة عند تشغيل إشعار أو رنين أو وسائط أخرى</string>
+    <string name="more_pause_notifications_enabled">ممكّن — انقر لفتح إعدادات النظام</string>
+    <string name="more_pause_notifications_disabled">معطل - انقر للتمكين</string>
 </resources>

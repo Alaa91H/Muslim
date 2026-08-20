@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">paràmetri Adhkar</string>
     <string name="adhkar_show_translation">Mostra a traduzzione</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Copia</string>
+    <string name="adhkar_share">sparte</string>
+    <string name="adhkar_overlay_short_only">Aduprate solu adhkar brevi</string>
+    <string name="adhkar_overlay_short_only_desc">Sceglite adhkar chì si adatta à una o duie linee per chì a bolla flottante resta chjara è faciule da leghje.</string>
+    <string name="adhkar_overlay_tap_hint">Toccate a bolla per scaccià immediatamente.</string>
 </resources>

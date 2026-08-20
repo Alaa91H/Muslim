@@ -46,14 +46,12 @@
     <string name="method_egyptian">Мисралъул цӀех-рехалъул генералияб идара</string>
     <string name="method_france">Франция (УОИФ)</string>
     <string name="method_isna">ISNA (Шималияб Америка)</string>
-    <string name="method_jafari">Джафари</string>
     <string name="method_karachi">Исламалъул гӀелмабазул университет, Карачи</string>
     <string name="method_kuwait">Кувейт</string>
     <string name="method_moonsighting">МоцӀрол рихьулел комитет</string>
     <string name="method_mwl">Бусурбабазул дунялалъул лига</string>
     <string name="method_qatar">Катар</string>
     <string name="method_singapore">Сингапур</string>
-    <string name="method_tehran">Тегераналъул геофизикаялъул институт</string>
     <string name="method_turkey">Диянет Турция</string>
     <string name="method_umm_al_qura">Умму ал-Къура (Макка)</string>
     <string name="next_adhan_elapsed">Азаналдаса нахъе: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Заман хӀисаб гьабизе кӀоларо</string>
     <string name="widget_prayer_times_description">Хадусеб как нахъе рикӀкӀенгун .</string>
     <string name="widget_prayer_times_label">Какил заманал .</string>
+    <string name="settings_adhan_volume_vibrate">Громкость %1$s · Вибрация %2$s</string>
+    <string name="settings_adhan_vibrate_on">На .</string>
+    <string name="settings_adhan_vibrate_off">Свинабун</string>
+    <string name="settings_preview_stop">Цебеккунго балагьи чӀезабизе</string>
+    <string name="settings_method_automatic">Автоматияб (бакӀалда рекъон)</string>
+    <string name="settings_method_automatic_desc">Приложениялъ автоматически тӀаса бищула бищунго данде кколеб къагӀида, дур улкаялъул ва бакӀалъул кьучӀалда; нужеца жеги бокьараб мехалъ квералъ къагӀида тӀаса бищизе бегьула.</string>
+    <string name="settings_preview_for_prayer">Предварительный просмотр %1$s азан</string>
 </resources>

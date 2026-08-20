@@ -87,7 +87,44 @@ class MosqueFinderRepository @Inject constructor() {
         // the finder works in every corner of the world, not just where
         // mosques happen to be mapped as single nodes. `out center` returns
         // the centroid for ways.
-        val query = """
+        val query = buildQuery(latitude, longitude, radiusMeters)
+        var failure: Exception? = null
+        for (endpoint in OVERPASS_ENDPOINTS) {
+            try {
+                return@withContext fetch(endpoint, query, latitude, longitude)
+            } catch (e: Exception) {
+                failure = e
+            }
+        }
+        throw failure ?: IllegalStateException("No Overpass endpoint configured")
+    }
+
+    /**
+     * Finds the nearest mosques by widening the search radius automatically
+     * (1 km → 1 000 km) until at least one mosque is found, so a user in a
+     * remote area still gets a result without guessing a radius. Returns the
+     * list from the first radius that yields matches.
+     */
+    suspend fun nearbyNearest(
+        latitude: Double,
+        longitude: Double,
+        onRadiusKm: suspend (Int) -> Unit = {},
+    ): List<Mosque> = withContext(Dispatchers.IO) {
+        val radiiKm = listOf(1, 3, 5, 10, 25, 50, 100, 250, 500, 1000)
+        for (radiusKm in radiiKm) {
+            onRadiusKm(radiusKm)
+            val found = nearby(latitude, longitude, radiusKm * 1000)
+            if (found.isNotEmpty()) return@withContext found
+        }
+        emptyList()
+    }
+
+    private fun buildQuery(latitude: Double, longitude: Double, radiusMeters: Int): String =
+        // Queries both point mosques (nodes) and building outlines (ways) so
+        // the finder works in every corner of the world, not just where
+        // mosques happen to be mapped as single nodes. `out center` returns
+        // the centroid for ways.
+        """
             [out:json][timeout:25];
             (
               node["amenity"="place_of_worship"]["religion"="muslim"](around:$radiusMeters,$latitude,$longitude);
@@ -99,17 +136,6 @@ class MosqueFinderRepository @Inject constructor() {
             );
             out center 120;
         """.trimIndent()
-
-        var failure: Exception? = null
-        for (endpoint in OVERPASS_ENDPOINTS) {
-            try {
-                return@withContext fetch(endpoint, query, latitude, longitude)
-            } catch (e: Exception) {
-                failure = e
-            }
-        }
-        throw failure ?: IllegalStateException("No Overpass endpoint configured")
-    }
 
     private fun fetch(
         endpoint: String,

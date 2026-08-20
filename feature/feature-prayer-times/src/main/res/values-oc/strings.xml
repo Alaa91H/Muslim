@@ -46,14 +46,12 @@
     <string name="method_egyptian">Autoritat Generala d\'Enquèsta Egipciana</string>
     <string name="method_france">França (UOIF)</string>
     <string name="method_isna">ISNA (Amèrica del Nòrd)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Universitat de las Sciéncias Islamicas, Karachi</string>
     <string name="method_kuwait">Koweït</string>
     <string name="method_moonsighting">Comitat d\'avistament de la luna</string>
     <string name="method_mwl">Liga Mondiala Musulmana</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapor</string>
-    <string name="method_tehran">Institut de Geofisica de Teheran</string>
     <string name="method_turkey">Diyanet Turquia</string>
     <string name="method_umm_al_qura">Umm al-Qura (Mecca)</string>
     <string name="next_adhan_elapsed">Dempuèi l\'Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Impossible de calcular los tempses</string>
     <string name="widget_prayer_times_description">Pregària seguenta amb compte enrè</string>
     <string name="widget_prayer_times_label">Temps de pregària</string>
+    <string name="settings_adhan_volume_vibrate">Volum %1$s · Vibracion %2$s</string>
+    <string name="settings_adhan_vibrate_on">Sus</string>
+    <string name="settings_adhan_vibrate_off">Desactivat</string>
+    <string name="settings_preview_stop">Arrestar l\'apercebut</string>
+    <string name="settings_method_automatic">Automatic (per emplaçament)</string>
+    <string name="settings_method_automatic_desc">L\'aplicacion causís automaticament lo metòde mai adaptat en foncion de vòstre país e localizacion; podètz encara causir un metòde manualament a tot moment.</string>
+    <string name="settings_preview_for_prayer">Apercebut %1$s adhan</string>
 </resources>

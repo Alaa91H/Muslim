@@ -46,4 +46,12 @@
     <string name="crash_close">Dloie</string>
     <string name="crash_dismiss">Lesh er</string>
     <string name="more_order_hint">استخدم الاستمرار على أي ضغط قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Lhig da\'n Quran</string>
+    <string name="more_quran_search_desc">Faigh fockle, cre\'n aght ta\'n fockle ry-akin as c\'raad</string>
+    <string name="more_quran_frequency">Frequency fockle Quran</string>
+    <string name="more_quran_frequency_desc">Yn fockle s\'cosoylagh \'sy mushaf ooilley</string>
+    <string name="more_pause_on_notifications">Pause y ghra er fysseree</string>
+    <string name="more_pause_on_notifications_desc">Ta\'n recitation staydys gorrym tra ta fys, ring ny median elley cloie</string>
+    <string name="more_pause_notifications_enabled">Currit — tap dy foshley soilshaghyn y system</string>
+    <string name="more_pause_notifications_disabled">Dymmyrchagh — tap dy chur stiagh</string>
 </resources>

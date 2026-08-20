@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Cuir i gcuimhne dom roimh:</string>
     <string name="ramadan_suhoor_time">Críochnaíonn Suhoor (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Meabhrúcháin lasmuigh de Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Ritheann foláirimh Iftar agus suhoor go huathoibríoch le linn Ramadan; rud a chumasaíonn seo coinníonn siad ag imeacht i míonna eile.</string>
 </resources>

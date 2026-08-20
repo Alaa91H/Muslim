@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">کشور</string>
     <string name="offline_maps_tab_custom">منطقه سفارشی</string>
     <string name="offline_maps_download">دانلود کنید</string>
-    <string name="offline_maps_custom_hint">برای انتخاب مرکز، روی نقشه ضربه بزنید، سپس منطقه اطراف آن را دانلود کنید.</string>
+    <string name="offline_maps_custom_hint">نقشه را حرکت دهید و بزرگنمایی کنید تا منطقه مورد نظرتان را قاب کنید. قاب به طور خودکار به روز می شود. عرض را با نوار لغزنده تنظیم کنید.</string>
     <string name="offline_maps_custom_name">نام منطقه</string>
-    <string name="offline_maps_custom_tap">برای انتخاب مرکز، روی نقشه ضربه بزنید</string>
+    <string name="offline_maps_custom_tap">برای انتخاب منطقه، نقشه را حرکت دهید</string>
     <string name="offline_maps_custom_default_name">منطقه سفارشی</string>
     <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
     <string name="offline_maps_downloading">در حال دانلود %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">بزرگنمایی کنید</string>
     <string name="mosque_finder_zoom_out">بزرگنمایی کنید</string>
     <string name="mosque_finder_nearest">نزدیکترین مسجد</string>
+    <string name="mosque_finder_go_to">برو سراغش</string>
+    <string name="mosque_finder_find_nearest">نزدیکترین مسجد را پیدا کنید</string>
+    <string name="mosque_finder_expanding">در حال جستجو در %1$s…</string>
+    <string name="offline_maps_custom_width">عرض منطقه (درجه)</string>
+    <string name="offline_maps_storage_warning">فضای ذخیره سازی کم - فقط %1$s رایگان</string>
+    <string name="offline_maps_storage_delete_largest">حذف بزرگترین منطقه (%1$s · %2$s)</string>
 </resources>

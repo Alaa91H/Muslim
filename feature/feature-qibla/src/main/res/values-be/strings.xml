@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Краіна</string>
     <string name="offline_maps_tab_custom">Карыстальніцкая зона</string>
     <string name="offline_maps_download">Спампаваць</string>
-    <string name="offline_maps_custom_hint">Дакраніцеся да карты, каб выбраць цэнтр, затым загрузіце вобласць вакол яго.</string>
+    <string name="offline_maps_custom_hint">Панарамаванне і маштабаванне карты, каб аформіць вобласць, якую вы хочаце; кадр абнаўляецца аўтаматычна. Адрэгулюйце шырыню паўзунком.</string>
     <string name="offline_maps_custom_name">Назва раёна</string>
-    <string name="offline_maps_custom_tap">Дакраніцеся да карты, каб выбраць цэнтр</string>
+    <string name="offline_maps_custom_tap">Перамясціце карту, каб выбраць вобласць</string>
     <string name="offline_maps_custom_default_name">Карыстальніцкая зона</string>
     <string name="offline_maps_summary_body">%1$d з %2$d абласцей выканана · %3$s спампавана</string>
     <string name="offline_maps_downloading">Спампоўка %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Павялічыць</string>
     <string name="mosque_finder_zoom_out">Паменшыць маштаб</string>
     <string name="mosque_finder_nearest">Бліжэйшая мячэць</string>
+    <string name="mosque_finder_go_to">Ідзіце да гэтага</string>
+    <string name="mosque_finder_find_nearest">Знайдзіце бліжэйшую мячэць</string>
+    <string name="mosque_finder_expanding">Пошук у %1$s…</string>
+    <string name="offline_maps_custom_width">Шырыня вобласці (градусы)</string>
+    <string name="offline_maps_storage_warning">Мала сховішча — бясплатна толькі %1$s</string>
+    <string name="offline_maps_storage_delete_largest">Выдаліць самы вялікі рэгіён (%1$s · %2$s)</string>
 </resources>

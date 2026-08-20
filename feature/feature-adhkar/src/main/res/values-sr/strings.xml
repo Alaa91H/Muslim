@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Адхкар подешавања</string>
     <string name="adhkar_show_translation">Прикажи превод</string>
     <string name="adhkar_title">Адхкар</string>
+    <string name="adhkar_copy">Копирај</string>
+    <string name="adhkar_share">Схаре</string>
+    <string name="adhkar_overlay_short_only">Користите само кратки адхкар</string>
+    <string name="adhkar_overlay_short_only_desc">Одаберите адхкар који одговара једној или две линије тако да плутајући балон остане јасан и лак за читање.</string>
+    <string name="adhkar_overlay_tap_hint">Додирните облачић да бисте га одмах одбацили.</string>
 </resources>

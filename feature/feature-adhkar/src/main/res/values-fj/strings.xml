@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Na ituvatuva ni Adhkar</string>
     <string name="adhkar_show_translation">Vakaraitaka na vakadewa</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopi</string>
+    <string name="adhkar_share">Wasea</string>
+    <string name="adhkar_overlay_short_only">Vakayagataka ga na adhkar lekaleka</string>
+    <string name="adhkar_overlay_short_only_desc">Digitaka na adhkar e veiganiti kei na dua se rua na laini me matata tiko kina na buloko ni luvu ka rawarawa me wiliki.</string>
+    <string name="adhkar_overlay_tap_hint">Tabaka na buloko me vakasuka sara ga.</string>
 </resources>

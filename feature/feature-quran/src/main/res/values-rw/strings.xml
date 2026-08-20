@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Mbere</string>
     <string name="quran_recitation_notif_next">Ibikurikira</string>
+    <string name="quran_download_playback_title">Gukuramo %1$s</string>
+    <string name="quran_download_playback_detail">%1$s ibumoso · %2$s / s</string>
+    <string name="quran_download_sort_mushaf">Mushaf</string>
+    <string name="quran_download_sort_completion">Kurangiza</string>
+    <string name="quran_downloads_coverage_title">Sura ikwirakwizwa mubasoma</string>
+    <string name="quran_downloads_coverage_overall">Mushaf yuzuye kubasoma</string>
+    <string name="quran_downloads_coverage_empty">Nta majwi yakuweho</string>
+    <string name="quran_pause_notif_listener">Kuruhuka gusoma kubimenyeshwa</string>
+    <string name="quran_reciter_changed_title">Umusomyi yarahindutse</string>
+    <string name="quran_reciter_changed_message">Gukina byarahagaze kuko intera igera kumpera ya Koran. Ongera utangire na %1$s?</string>
+    <string name="quran_reciter_restart">Ongera utangire</string>
+    <string name="quran_reciter_not_now">Ntabwo ari ubu</string>
 </resources>

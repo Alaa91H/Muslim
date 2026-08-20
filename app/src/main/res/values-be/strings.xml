@@ -46,4 +46,12 @@
     <string name="crash_close">Блізка</string>
     <string name="crash_dismiss">Працягнуць</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Пошук у Каране</string>
+    <string name="more_quran_search_desc">Знайдзіце слова, як часта яно сустракаецца і дзе</string>
+    <string name="more_quran_frequency">Частата слоў Карана</string>
+    <string name="more_quran_frequency_desc">Самыя частыя словы ва ўсім мусхафе</string>
+    <string name="more_pause_on_notifications">Прыпыніць чытанне ў апавяшчэннях</string>
+    <string name="more_pause_on_notifications_desc">Дэкламацыя ненадоўга прыпыняецца пры прайграванні апавяшчэння, званка або іншага носьбіта</string>
+    <string name="more_pause_notifications_enabled">Уключана — націсніце, каб адкрыць налады сістэмы</string>
+    <string name="more_pause_notifications_disabled">Адключана — націсніце, каб уключыць</string>
 </resources>

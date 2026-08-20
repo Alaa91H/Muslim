@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Unyibutse mbere:</string>
     <string name="ramadan_suhoor_time">Suhoor irangira (Fajr): %1$s</string>
     <string name="ramadan_title">Ramazani</string>
+    <string name="ramadan_notify_outside">Kwibutsa hanze ya Ramadhan</string>
+    <string name="ramadan_notify_outside_desc">Iftar na suhoor imenyesha ikora mu buryo bwikora muri Ramadhan; kubishobora bikomeza kugenda mumezi yandi.</string>
 </resources>

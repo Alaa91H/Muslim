@@ -46,14 +46,12 @@
     <string name="method_egyptian">Panguwasa Umum Survey Mesir</string>
     <string name="method_france">Prancis (UOIF)</string>
     <string name="method_isna">ISNA (Amerika Utara)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Universitas Ilmu Islam, Karawang</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Panitia Rembulan</string>
     <string name="method_mwl">Liga Muslim Donya</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapura</string>
-    <string name="method_tehran">Institut Geofisika Tehran</string>
     <string name="method_turkey">Diyanet Turkey</string>
     <string name="method_umm_al_qura">Ummul Qura (Mekah)</string>
     <string name="next_adhan_elapsed">Wiwit Adzan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ora bisa ngetung kaping</string>
     <string name="widget_prayer_times_description">Pandonga sabanjure kanthi countdown</string>
     <string name="widget_prayer_times_label">Wektu sholat</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Getaran %2$s</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Mati</string>
+    <string name="settings_preview_stop">Mungkasi pratinjau</string>
+    <string name="settings_method_automatic">Otomatis (miturut lokasi)</string>
+    <string name="settings_method_automatic_desc">Aplikasi milih cara sing paling cocog kanthi otomatis adhedhasar negara lan lokasi sampeyan; sampeyan isih bisa milih cara kanthi manual kapan wae.</string>
+    <string name="settings_preview_for_prayer">Pratinjau %1$s adzan</string>
 </resources>

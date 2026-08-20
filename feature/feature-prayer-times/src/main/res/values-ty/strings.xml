@@ -46,14 +46,12 @@
     <string name="method_egyptian">Te mana rahi no te uiuiraa mana\'o no Egypt</string>
     <string name="method_france">Farani (UOIF)</string>
     <string name="method_isna">ISNA (Amerika Apatoerau)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Karachi, te fare haapiiraa tuatoru no te mau ite Islama</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Te tomite no te hi\'opo\'araa i te ava\'e</string>
     <string name="method_mwl">Te Totaiete o te Ao Mahometa</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapour</string>
-    <string name="method_tehran">Te fare haapiiraa tuatoru no Tehran</string>
     <string name="method_turkey">Diyanet Turekia</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Mai te Adhan mai â: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Aita e ti\'a ia tata\'u i te mau taime</string>
     <string name="widget_prayer_times_description">Te pure i muri iho e te tai\'oraa</string>
     <string name="widget_prayer_times_label">Te mau taime pure</string>
+    <string name="settings_adhan_volume_vibrate">Te buka %1$s · Te aueueraa fenua %2$s</string>
+    <string name="settings_adhan_vibrate_on">I ni\'a</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Tape\'a i te hi\'opo\'araa</string>
+    <string name="settings_method_automatic">Aunoa (na te vahi)</string>
+    <string name="settings_method_automatic_desc">Ia au i to outou fenua e to outou vahi, e maiti noa te faanahoraa i te ravea maitai roa \' \' e; E nehenehe â outou e maiti i te hoê ravea na roto i te rima i te mau taime atoa.</string>
+    <string name="settings_preview_for_prayer">Hi\'opo\'araa %1$s adhan</string>
 </resources>

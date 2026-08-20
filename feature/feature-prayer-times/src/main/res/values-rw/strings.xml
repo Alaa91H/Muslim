@@ -46,14 +46,12 @@
     <string name="method_egyptian">Ubuyobozi bukuru bwa Misiri</string>
     <string name="method_france">Ubufaransa (UOIF)</string>
     <string name="method_isna">ISNA (Amerika y\'Amajyaruguru)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Kaminuza yubumenyi bwa kisilamu, Karachi</string>
     <string name="method_kuwait">Koweti</string>
     <string name="method_moonsighting">Komite ishinzwe ukwezi</string>
     <string name="method_mwl">Umuryango w’abayisilamu</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Ikigo cya Tehran Institute of Geophysics</string>
     <string name="method_turkey">Diyanet Turukiya</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Kuva Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ntibishobora kubara ibihe</string>
     <string name="widget_prayer_times_description">Isengesho rikurikira hamwe no kubara</string>
     <string name="widget_prayer_times_label">Igihe cyo gusenga</string>
+    <string name="settings_adhan_volume_vibrate">Umubumbe %1$s · Kunyeganyega %2$s</string>
+    <string name="settings_adhan_vibrate_on">Kuri</string>
+    <string name="settings_adhan_vibrate_off">Hanze</string>
+    <string name="settings_preview_stop">Hagarika kureba</string>
+    <string name="settings_method_automatic">Automatic (ukurikije ahantu)</string>
+    <string name="settings_method_automatic_desc">Porogaramu itoranya uburyo bukwiye mu buryo bwikora ukurikije igihugu cyawe n\'aho uherereye; urashobora guhitamo uburyo bwintoki igihe icyo aricyo cyose.</string>
+    <string name="settings_preview_for_prayer">Reba %1$s adhan</string>
 </resources>

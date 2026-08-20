@@ -46,4 +46,12 @@
     <string name="crash_close">Pechar</string>
     <string name="crash_dismiss">Continuar</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفلإاظواح إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Busca no Corán</string>
+    <string name="more_quran_search_desc">Busca unha palabra, con que frecuencia aparece e onde</string>
+    <string name="more_quran_frequency">Frecuencia das palabras do Corán</string>
+    <string name="more_quran_frequency_desc">As palabras máis frecuentes en todo o mushaf</string>
+    <string name="more_pause_on_notifications">Pausa a recitación nas notificacións</string>
+    <string name="more_pause_on_notifications_desc">O recitado detense brevemente cando se reproduce unha notificación, un toque ou outros medios</string>
+    <string name="more_pause_notifications_enabled">Activado: toque para abrir a configuración do sistema</string>
+    <string name="more_pause_notifications_disabled">Desactivado: toque para activalo</string>
 </resources>

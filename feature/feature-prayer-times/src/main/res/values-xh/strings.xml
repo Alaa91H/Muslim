@@ -46,14 +46,12 @@
     <string name="method_egyptian">UGunyaziwe Jikelele waseYiputa woPhando</string>
     <string name="method_france">EFransi (UOIF)</string>
     <string name="method_isna">ISNA (kuMntla Melika)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">IYunivesithi yeSayensi yamaSilamsi, eKarachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">IKomiti yokujonga inyanga</string>
     <string name="method_mwl">I-Muslim World League</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">eSingapore</string>
-    <string name="method_tehran">Iziko leTehran leGeophysics</string>
     <string name="method_turkey">Diyanet Turkey</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Ukususela kwi-Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Akukwazeki ukubala amaxesha</string>
     <string name="widget_prayer_times_description">Umthandazo olandelayo kunye nokubala</string>
     <string name="widget_prayer_times_label">Amaxesha omthandazo</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Vibration %2$s</string>
+    <string name="settings_adhan_vibrate_on">Vula</string>
+    <string name="settings_adhan_vibrate_off">Cimile</string>
+    <string name="settings_preview_stop">Misa umboniso</string>
+    <string name="settings_method_automatic">Iyazenzekela (ngendawo)</string>
+    <string name="settings_method_automatic_desc">I-app ikhetha eyona ndlela ifanelekileyo ngokuzenzekelayo ngokusekelwe kwilizwe lakho kunye nendawo; usenokukhetha indlela ngesandla nangaliphi na ixesha.</string>
+    <string name="settings_preview_for_prayer">Jonga kwangaphambili %1$s i-adhan</string>
 </resources>

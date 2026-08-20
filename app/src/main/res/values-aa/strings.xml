@@ -46,4 +46,12 @@
     <string name="crash_close">Alifa</string>
     <string name="crash_dismiss">Bisoh edde inxic</string>
     <string name="more_order_hint">ا مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Kuran fokkay.</string>
+    <string name="more_quran_search_desc">Qangara gorris, magideh adda tanbulleem kee ankel tanbulleem</string>
+    <string name="more_quran_frequency">Kur\'aan qangarah qagaaqagu</string>
+    <string name="more_quran_frequency_desc">mango qangor qagaaqagitak inkih tan mushaaf</string>
+    <string name="more_pause_on_notifications">Maysaxxagal kawsiyyi soolis</string>
+    <string name="more_pause_on_notifications_desc">Maysaxxagaay, ferranto akkek gersi ratteemah digran wak kawsi uxxuuk soola</string>
+    <string name="more_pause_notifications_enabled">ugteh - maknay farmooma faktuh xag</string>
+    <string name="more_pause_notifications_disabled">alif - xag ugtuh</string>
 </resources>

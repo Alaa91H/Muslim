@@ -23,4 +23,5 @@
     <string name="hadith_search_hint">Корсьны хадисъяс...</string>
     <string name="hadith_share">Делитчыны</string>
     <string name="hadith_title">Хадис библиотека .</string>
+    <string name="hadith_copy">Копируйтны</string>
 </resources>

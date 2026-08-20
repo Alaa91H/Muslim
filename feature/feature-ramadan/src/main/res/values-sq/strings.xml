@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Më kujto më parë:</string>
     <string name="ramadan_suhoor_time">Përfundon syfyr (Sabah): %1$s</string>
     <string name="ramadan_title">Ramazani</string>
+    <string name="ramadan_notify_outside">Përkujtime jashtë Ramazanit</string>
+    <string name="ramadan_notify_outside_desc">Alarmet për iftar dhe syfyr funksionojnë automatikisht gjatë Ramazanit; duke e mundësuar këtë i mban ato në muajt e tjerë.</string>
 </resources>

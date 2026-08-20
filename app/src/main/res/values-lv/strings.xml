@@ -46,4 +46,12 @@
     <string name="crash_close">Aizvērt</string>
     <string name="crash_dismiss">Turpināt</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيب٧دمتيب٧دو المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Meklēt Korānu</string>
+    <string name="more_quran_search_desc">Atrodiet vārdu, cik bieži un kur tas parādās</string>
+    <string name="more_quran_frequency">Korāna vārdu biežums</string>
+    <string name="more_quran_frequency_desc">Visbiežāk sastopamie vārdi visā mushafā</string>
+    <string name="more_pause_on_notifications">Apturiet paziņojumu deklamēšanu</string>
+    <string name="more_pause_on_notifications_desc">Kad tiek atskaņots paziņojums, zvans vai cita multivide, deklamēšana uz īsu brīdi tiek apturēta</string>
+    <string name="more_pause_notifications_enabled">Iespējots — pieskarieties, lai atvērtu sistēmas iestatījumus</string>
+    <string name="more_pause_notifications_disabled">Atspējots — pieskarieties, lai iespējotu</string>
 </resources>

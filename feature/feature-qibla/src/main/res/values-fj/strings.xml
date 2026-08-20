@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Vanua</string>
     <string name="offline_maps_tab_custom">Vanua vakaitaukei</string>
     <string name="offline_maps_download">Lavetaka</string>
-    <string name="offline_maps_custom_hint">Tabaka na mape mo digitaka na lomadonu, qai lavetaka na vanua e wavolita.</string>
+    <string name="offline_maps_custom_hint">Pan ka vakalevutaka na mape me vakarautaka na vanua o vinakata; na frame e vakavoutaki vakataki koya. Veisautaka na rabailevu kei na slider.</string>
     <string name="offline_maps_custom_name">Yaca ni vanua</string>
-    <string name="offline_maps_custom_tap">Tabaka na mape mo digitaka na lomadonu</string>
+    <string name="offline_maps_custom_tap">Toso na mape me digitaki kina na vanua .</string>
     <string name="offline_maps_custom_default_name">Vanua vakaitaukei</string>
     <string name="offline_maps_summary_body">%1$d ni %2$d vanua taucoko · %3$s lavetaki</string>
     <string name="offline_maps_downloading">Lavetaki tiko %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Vakarabailevutaka</string>
     <string name="mosque_finder_zoom_out">Vakarabailevutaka</string>
     <string name="mosque_finder_nearest">Mosque voleka duadua</string>
+    <string name="mosque_finder_go_to">Lako kina</string>
+    <string name="mosque_finder_find_nearest">Vaqara na valenilotu voleka duadua</string>
+    <string name="mosque_finder_expanding">Vakasaqaqara ena loma ni %1$s...</string>
+    <string name="offline_maps_custom_width">Raba ni vanua (digiri)</string>
+    <string name="offline_maps_storage_warning">Maroroi lailai — duadua ga %1$s galala</string>
+    <string name="offline_maps_storage_delete_largest">Bokoca na yasana levu duadua (%1$s · %2$s)</string>
 </resources>

@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Ymave guare</string>
     <string name="quran_recitation_notif_next">Upe rire</string>
+    <string name="quran_download_playback_title">Ojegueru %1$s</string>
+    <string name="quran_download_playback_detail">%1$s oheja · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf rembiapoukapy</string>
+    <string name="quran_download_sort_completion">Oñemohu’ãvo</string>
+    <string name="quran_downloads_coverage_title">Surah cobertura opavave recitador-kuéra rupi</string>
+    <string name="quran_downloads_coverage_overall">Mushaf henyhẽva umi recitador-kuéra rupi</string>
+    <string name="quran_downloads_coverage_empty">Ndaipóri gueteri audio ojegueru va\'ekue</string>
+    <string name="quran_pause_notif_listener">Pausa recitación umi notificación rehe</string>
+    <string name="quran_reciter_changed_title">Reciter oñemoambue</string>
+    <string name="quran_reciter_changed_message">Ojejoko pe ñembopu pe rango oho haguére Corán paha peve. Eñepyrũ jey %1$s ndive?</string>
+    <string name="quran_reciter_restart">Eñepyrũ jey</string>
+    <string name="quran_reciter_not_now">Ndaha\'éi ko\'ágã</string>
 </resources>

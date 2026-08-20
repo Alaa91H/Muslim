@@ -46,4 +46,12 @@
     <string name="crash_close">Închide</string>
     <string name="crash_dismiss">Continuă</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفلإظحوفت إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Căutați în Coran</string>
+    <string name="more_quran_search_desc">Găsiți un cuvânt, cât de des apare și unde</string>
+    <string name="more_quran_frequency">Frecvența cuvintelor Coranului</string>
+    <string name="more_quran_frequency_desc">Cele mai frecvente cuvinte din tot mushaf</string>
+    <string name="more_pause_on_notifications">Întrerupeți recitarea în notificări</string>
+    <string name="more_pause_on_notifications_desc">Recitarea se întrerupe pentru o scurtă pauză atunci când este redată o notificare, un apel sau un alt conținut media</string>
+    <string name="more_pause_notifications_enabled">Activat — atingeți pentru a deschide setările sistemului</string>
+    <string name="more_pause_notifications_disabled">Dezactivat — atingeți pentru a activa</string>
 </resources>

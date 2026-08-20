@@ -62,10 +62,14 @@
     <string name="quran_stop_playback">Stop playback</string>
     <string name="quran_play_range">Playback range</string>
     <string name="quran_range_single_ayah">Single ayah</string>
-    <string name="quran_range_to_end">To end of surah</string>
+    <string name="quran_range_to_end">To the end of the Quran</string>
+    <string name="quran_reciter_changed_title">Reciter changed</string>
+    <string name="quran_reciter_changed_message">Playback stopped because the range runs to the end of the Quran. Start again with %1$s?</string>
+    <string name="quran_reciter_restart">Start again</string>
+    <string name="quran_reciter_not_now">Not now</string>
     <string name="quran_range_whole_surah">Whole surah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end_short">To end</string>
+    <string name="quran_range_to_end_short">To the end of the Mushaf</string>
     <string name="quran_range_whole_surah_short">Surah</string>
     <string name="quran_repeat_continuous">Continuous</string>
     <string name="quran_playback_error">Could not play audio — check your connection and try again</string>
@@ -106,6 +110,7 @@
     <string name="quran_recitation_notif_play">Play</string>
     <string name="quran_recitation_notif_pause">Pause</string>
     <string name="quran_recitation_notif_stop">Stop</string>
+    <string name="quran_pause_notif_listener">Pause recitation on notifications</string>
     <string name="quran_recitation_notif_previous">Previous</string>
     <string name="quran_recitation_notif_next">Next</string>
 
@@ -117,6 +122,8 @@
 
     <!-- Night downloads & management -->
     <string name="quran_download_percent">%1$d%%</string>
+    <string name="quran_download_playback_title">Downloading %1$s</string>
+    <string name="quran_download_playback_detail">%1$s left · %2$s/s</string>
     <string name="quran_download_night_waiting">Will start at night — window %1$s</string>
     <string name="quran_download_night_only">Night-only downloads</string>
     <string name="quran_download_night_hint">Downloads start automatically inside the window %1$s (saves data and battery)</string>
@@ -128,6 +135,11 @@
     <string name="quran_download_reciter_header">Downloaded: %1$d ayahs · %2$s</string>
     <string name="quran_download_mushaf_progress">Mushaf complete: %1$d / %2$d</string>
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_download_sort_mushaf">Mushaf order</string>
+    <string name="quran_download_sort_completion">By completion</string>
+    <string name="quran_downloads_coverage_title">Surah coverage across reciters</string>
+    <string name="quran_downloads_coverage_overall">Full mushaf across reciters</string>
+    <string name="quran_downloads_coverage_empty">No audio downloaded yet</string>
     <string name="quran_download_reciter_state_detail">%1$d surahs · %2$d ayahs · %3$s</string>
     <string name="quran_download_delete_surah">Delete downloaded surah</string>
     <string name="quran_download_delete_reciter">Delete all downloads for this reciter</string>

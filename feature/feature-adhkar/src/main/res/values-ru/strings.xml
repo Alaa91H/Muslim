@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Настройки Адкара</string>
     <string name="adhkar_show_translation">Показать перевод</string>
     <string name="adhkar_title">Адхкар</string>
+    <string name="adhkar_copy">Копировать</string>
+    <string name="adhkar_share">Поделиться</string>
+    <string name="adhkar_overlay_short_only">Используйте только короткий азкар</string>
+    <string name="adhkar_overlay_short_only_desc">Выберите адкар, который умещается в одну или две строки, чтобы плавающий пузырь оставался четким и легко читаемым.</string>
+    <string name="adhkar_overlay_tap_hint">Нажмите на пузырь, чтобы немедленно закрыть его.</string>
 </resources>

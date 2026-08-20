@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">アダカールの設定</string>
     <string name="adhkar_show_translation">翻訳を表示</string>
     <string name="adhkar_title">アドゥカル</string>
+    <string name="adhkar_copy">コピー</string>
+    <string name="adhkar_share">シェアする</string>
+    <string name="adhkar_overlay_short_only">短い adhkar のみを使用する</string>
+    <string name="adhkar_overlay_short_only_desc">浮いているバブルが鮮明で読みやすいように、1 行または 2 行に収まる adhkar を選択してください。</string>
+    <string name="adhkar_overlay_tap_hint">バブルをタップしてすぐに閉じます。</string>
 </resources>

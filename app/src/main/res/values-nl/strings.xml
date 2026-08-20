@@ -46,4 +46,12 @@
     <string name="crash_close">Sluiten</string>
     <string name="crash_dismiss">Ga door</string>
     <string name="more_order_hint">Zorg ervoor dat u geen geld meer hebt voor het kopen van een product Het apparaat kan niet goed worden gereinigd. Zorg ervoor dat het apparaat niet goed werkt.</string>
+    <string name="more_quran_search">Zoek de Koran</string>
+    <string name="more_quran_search_desc">Zoek een woord, hoe vaak het voorkomt en waar</string>
+    <string name="more_quran_frequency">Frequentie van koranwoorden</string>
+    <string name="more_quran_frequency_desc">De meest voorkomende woorden in de hele mushaf</string>
+    <string name="more_pause_on_notifications">Pauzeer recitatie bij meldingen</string>
+    <string name="more_pause_on_notifications_desc">Het reciteren wordt kort onderbroken wanneer een melding, bel of andere media wordt afgespeeld</string>
+    <string name="more_pause_notifications_enabled">Ingeschakeld: tik om de systeeminstellingen te openen</string>
+    <string name="more_pause_notifications_disabled">Uitgeschakeld: tik om in te schakelen</string>
 </resources>

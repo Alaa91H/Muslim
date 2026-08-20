@@ -46,4 +46,12 @@
     <string name="crash_close">बंद करा</string>
     <string name="crash_dismiss">चालू ठेवा</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">कुराण शोधा</string>
+    <string name="more_quran_search_desc">शब्द शोधा, तो किती वेळा आणि कुठे दिसतो</string>
+    <string name="more_quran_frequency">कुराण शब्द वारंवारता</string>
+    <string name="more_quran_frequency_desc">संपूर्ण मुशाफमध्ये सर्वाधिक वारंवार येणारे शब्द</string>
+    <string name="more_pause_on_notifications">सूचनांवरील पठण थांबवा</string>
+    <string name="more_pause_on_notifications_desc">जेव्हा एखादी सूचना, रिंग किंवा इतर माध्यम वाजते तेव्हा पठण थोडक्यात थांबते</string>
+    <string name="more_pause_notifications_enabled">सक्षम — सिस्टम सेटिंग्ज उघडण्यासाठी टॅप करा</string>
+    <string name="more_pause_notifications_disabled">अक्षम — सक्षम करण्यासाठी टॅप करा</string>
 </resources>

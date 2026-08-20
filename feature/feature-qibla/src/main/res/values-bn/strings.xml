@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">দেশ</string>
     <string name="offline_maps_tab_custom">কাস্টম এলাকা</string>
     <string name="offline_maps_download">ডাউনলোড করুন</string>
-    <string name="offline_maps_custom_hint">কেন্দ্র বাছাই করতে ম্যাপে আলতো চাপুন, তারপর এর চারপাশের এলাকা ডাউনলোড করুন।</string>
+    <string name="offline_maps_custom_hint">আপনি যে অঞ্চলটি চান তা ফ্রেম করতে মানচিত্রটিকে প্যান এবং জুম করুন; ফ্রেম স্বয়ংক্রিয়ভাবে আপডেট হয়। স্লাইডার দিয়ে প্রস্থ সামঞ্জস্য করুন।</string>
     <string name="offline_maps_custom_name">এলাকার নাম</string>
-    <string name="offline_maps_custom_tap">কেন্দ্র বাছাই করতে মানচিত্রে আলতো চাপুন</string>
+    <string name="offline_maps_custom_tap">এলাকা নির্বাচন করতে মানচিত্র সরান</string>
     <string name="offline_maps_custom_default_name">কাস্টম এলাকা</string>
     <string name="offline_maps_summary_body">%2$d এলাকাগুলির মধ্যে %1$d সম্পূর্ণ হয়েছে · %3$s ডাউনলোড হয়েছে৷</string>
     <string name="offline_maps_downloading">ডাউনলোড হচ্ছে %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">জুম ইন করুন</string>
     <string name="mosque_finder_zoom_out">জুম আউট করুন</string>
     <string name="mosque_finder_nearest">নিকটতম মসজিদ</string>
+    <string name="mosque_finder_go_to">এটা যান</string>
+    <string name="mosque_finder_find_nearest">নিকটতম মসজিদ খুঁজুন</string>
+    <string name="mosque_finder_expanding">%1$s এর মধ্যে অনুসন্ধান করা হচ্ছে…</string>
+    <string name="offline_maps_custom_width">এলাকার প্রস্থ (ডিগ্রী)</string>
+    <string name="offline_maps_storage_warning">কম সঞ্চয়স্থান — শুধুমাত্র %1$s বিনামূল্যে</string>
+    <string name="offline_maps_storage_delete_largest">বৃহত্তম অঞ্চল মুছুন (%1$s · %2$s)</string>
 </resources>

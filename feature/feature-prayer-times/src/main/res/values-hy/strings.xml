@@ -46,14 +46,12 @@
     <string name="method_egyptian">Եգիպտոսի հետազոտության գլխավոր վարչություն</string>
     <string name="method_france">Ֆրանսիա (UOIF)</string>
     <string name="method_isna">ISNA (Հյուսիսային Ամերիկա)</string>
-    <string name="method_jafari">Ջաֆարի</string>
     <string name="method_karachi">Իսլամական գիտությունների համալսարան, Կարաչի</string>
     <string name="method_kuwait">Քուվեյթ</string>
     <string name="method_moonsighting">Լուսնի տեսության հանձնաժողով</string>
     <string name="method_mwl">Մահմեդական համաշխարհային լիգա</string>
     <string name="method_qatar">Քաթար</string>
     <string name="method_singapore">Սինգապուր</string>
-    <string name="method_tehran">Թեհրանի երկրաֆիզիկայի ինստիտուտ</string>
     <string name="method_turkey">Diyanet Թուրքիա</string>
     <string name="method_umm_al_qura">Ում ալ-Քուրա (Մաքքա)</string>
     <string name="next_adhan_elapsed">Ադանից սկսած՝ %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Անհնար է հաշվարկել ժամանակները</string>
     <string name="widget_prayer_times_description">Հաջորդ աղոթքը հետհաշվարկով</string>
     <string name="widget_prayer_times_label">Աղոթքի ժամանակներ</string>
+    <string name="settings_adhan_volume_vibrate">Ձայնը %1$s · Վիբրացիա %2$s</string>
+    <string name="settings_adhan_vibrate_on">Միացված է</string>
+    <string name="settings_adhan_vibrate_off">Անջատված</string>
+    <string name="settings_preview_stop">Դադարեցրեք նախադիտումը</string>
+    <string name="settings_method_automatic">Ավտոմատ (ըստ գտնվելու վայրի)</string>
+    <string name="settings_method_automatic_desc">Հավելվածը ավտոմատ կերպով ընտրում է ամենահարմար մեթոդը՝ հիմնվելով ձեր երկրի և գտնվելու վայրի վրա. Դուք դեռ կարող եք ցանկացած ժամանակ ձեռքով մեթոդ ընտրել:</string>
+    <string name="settings_preview_for_prayer">Նախադիտեք %1$s ադանը</string>
 </resources>

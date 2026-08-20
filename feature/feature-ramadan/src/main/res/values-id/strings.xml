@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Ingatkan saya sebelumnya:</string>
     <string name="ramadan_suhoor_time">Sahur berakhir (Subuh): %1$s</string>
     <string name="ramadan_title">Ramadhan</string>
+    <string name="ramadan_notify_outside">Pengingat di luar Ramadhan</string>
+    <string name="ramadan_notify_outside_desc">Peringatan buka puasa dan sahur dijalankan secara otomatis selama Ramadhan; mengaktifkan ini membuat mereka terus berjalan di bulan-bulan lainnya.</string>
 </resources>

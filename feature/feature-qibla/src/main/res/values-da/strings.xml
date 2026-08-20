@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Land</string>
     <string name="offline_maps_tab_custom">Brugerdefineret område</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">Tryk på kortet for at vælge centrum, og download derefter området omkring det.</string>
+    <string name="offline_maps_custom_hint">Panorer og zoom på kortet for at indramme det ønskede område; rammen opdateres automatisk. Juster bredden med skyderen.</string>
     <string name="offline_maps_custom_name">Områdenavn</string>
-    <string name="offline_maps_custom_tap">Tryk på kortet for at vælge centrum</string>
+    <string name="offline_maps_custom_tap">Flyt kortet for at vælge området</string>
     <string name="offline_maps_custom_default_name">Brugerdefineret område</string>
     <string name="offline_maps_summary_body">%1$d af %2$d områder fuldført · %3$s downloadet</string>
     <string name="offline_maps_downloading">Downloader %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom ind</string>
     <string name="mosque_finder_zoom_out">Zoom ud</string>
     <string name="mosque_finder_nearest">Nærmeste moske</string>
+    <string name="mosque_finder_go_to">Gå til det</string>
+    <string name="mosque_finder_find_nearest">Find nærmeste moske</string>
+    <string name="mosque_finder_expanding">Søger inden for %1$s...</string>
+    <string name="offline_maps_custom_width">Områdets bredde (grader)</string>
+    <string name="offline_maps_storage_warning">Lav lagerplads — kun %1$s gratis</string>
+    <string name="offline_maps_storage_delete_largest">Slet største region (%1$s · %2$s)</string>
 </resources>

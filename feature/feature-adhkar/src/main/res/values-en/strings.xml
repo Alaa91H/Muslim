@@ -21,7 +21,9 @@
     <string name="adhkar_settings_title">Adhkar settings</string>
     <string name="adhkar_overlay_section">Floating message</string>
     <string name="adhkar_overlay_toggle">Show adhkar as a message above all apps</string>
-    <string name="adhkar_overlay_desc">A small card with the chosen dhikr appears above any app and disappears automatically after the duration you set.</string>
+    <string name="adhkar_overlay_desc">A short dhikr card appears above any app and disappears after the duration you choose or immediately when tapped.</string>
+    <string name="adhkar_overlay_short_only">Use short adhkar only</string>
+    <string name="adhkar_overlay_short_only_desc">Choose adhkar that fit one or two lines so the floating bubble stays clear and easy to read.</string>
     <string name="adhkar_overlay_grant_permission">Grant overlay permission</string>
     <string name="adhkar_overlay_permission_hint">Opens the system settings that allow the app to draw over other apps.</string>
     <string name="adhkar_overlay_alpha">Opacity: %1$d%%</string>
@@ -35,6 +37,7 @@
     <string name="adhkar_overlay_duration">Display duration</string>
     <string name="adhkar_overlay_duration_value">%1$d seconds</string>
     <string name="adhkar_overlay_test">Try it now</string>
+    <string name="adhkar_overlay_tap_hint">Tap the bubble to dismiss it immediately.</string>
     <string name="adhkar_overlay_preview_label">Floating message preview</string>
     <string name="adhkar_overlay_preview_dismiss">Auto-dismisses after %1$s seconds</string>
     <string name="adhkar_overlay_preview_loading">Loading…</string>
@@ -66,5 +69,7 @@
 
     <string name="adhkar_favorites">Favorites</string>
     <string name="adhkar_add_favorite">Add to favorites</string>
+    <string name="adhkar_copy">Copy</string>
+    <string name="adhkar_share">Share</string>
     <string name="adhkar_remove_favorite">Remove from favorites</string>
 </resources>

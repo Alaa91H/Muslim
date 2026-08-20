@@ -46,4 +46,12 @@
     <string name="crash_close">סגור</string>
     <string name="crash_dismiss">המשך</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">חפש בקוראן</string>
+    <string name="more_quran_search_desc">מצא מילה, באיזו תדירות היא מופיעה ואיפה</string>
+    <string name="more_quran_frequency">תדירות מילות הקוראן</string>
+    <string name="more_quran_frequency_desc">המילים השכיחות ביותר בכל המושאף</string>
+    <string name="more_pause_on_notifications">השהה דקלום בהתראות</string>
+    <string name="more_pause_on_notifications_desc">הדקלום מושהה לזמן קצר כאשר התראה, צלצול או מדיה אחרת מתנגנת</string>
+    <string name="more_pause_notifications_enabled">מופעל - הקש כדי לפתוח את הגדרות המערכת</string>
+    <string name="more_pause_notifications_disabled">מושבת - הקש כדי להפעיל</string>
 </resources>

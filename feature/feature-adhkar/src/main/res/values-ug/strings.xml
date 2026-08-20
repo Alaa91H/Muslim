@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar تەڭشىكى</string>
     <string name="adhkar_show_translation">تەرجىمىنى كۆرسەت</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">كۆچۈرۈڭ</string>
+    <string name="adhkar_share">ھەمبەھىرلەش</string>
+    <string name="adhkar_overlay_short_only">پەقەت قىسقا adhkar نى ئىشلىتىڭ</string>
+    <string name="adhkar_overlay_short_only_desc">بىر ياكى ئىككى قۇرغا ماس كېلىدىغان adkar نى تاللاڭ ، شۇنداق بولغاندا لەيلىمە كۆپۈك سۈزۈك ۋە ئوقۇش ئاسان بولىدۇ.</string>
+    <string name="adhkar_overlay_tap_hint">كۆپۈكنى چېكىپ ئۇنى دەرھال چىقىرىۋېتىڭ.</string>
 </resources>

@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Казьтыштӧй меным водзджык:</string>
     <string name="ramadan_suhoor_time">Сухур помасьӧ (Фаджр): %1$s</string>
     <string name="ramadan_title">Рамадан</string>
+    <string name="ramadan_notify_outside">Рамадан лун кежлӧ казьтылӧмъяс .</string>
+    <string name="ramadan_notify_outside_desc">Ифтар да сухур йылысь юӧртанторъяс уджалӧны автоматическӧй ногӧн Рамадан дырйи; позянлун тайӧ видзӧ найӧс мукӧд тӧлысьясын.</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">അധ്കർ ക്രമീകരണങ്ങൾ</string>
     <string name="adhkar_show_translation">വിവർത്തനം കാണിക്കുക</string>
     <string name="adhkar_title">അധ്കർ</string>
+    <string name="adhkar_copy">പകർത്തുക</string>
+    <string name="adhkar_share">പങ്കിടുക</string>
+    <string name="adhkar_overlay_short_only">ഹ്രസ്വമായ അദ്കാർ മാത്രം ഉപയോഗിക്കുക</string>
+    <string name="adhkar_overlay_short_only_desc">ഒന്നോ രണ്ടോ വരികൾക്ക് അനുയോജ്യമായ അദ്കാർ തിരഞ്ഞെടുക്കുക, അതുവഴി ഫ്ലോട്ടിംഗ് ബബിൾ വ്യക്തവും വായിക്കാൻ എളുപ്പവുമാകും.</string>
+    <string name="adhkar_overlay_tap_hint">ഉടൻ തന്നെ അത് നിരസിക്കാൻ ബബിൾ ടാപ്പ് ചെയ്യുക.</string>
 </resources>

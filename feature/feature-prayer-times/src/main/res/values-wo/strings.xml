@@ -46,14 +46,12 @@
     <string name="method_egyptian">Baŋxaas bu mag biy saytu ci Egypt</string>
     <string name="method_france">France (UOIF)</string>
     <string name="method_isna">ISNA (Amérique du Nord)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Daara bu kawe bu science islamique, Karachi</string>
     <string name="method_kuwait">Koweit</string>
     <string name="method_moonsighting">Komite buy xool weer wi</string>
     <string name="method_mwl">Ligue mondiale musulmane</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapuur</string>
-    <string name="method_tehran">Daaray géophysique bu Tehran</string>
     <string name="method_turkey">Diyanet Turki</string>
     <string name="method_umm_al_qura">Ummul Quura (Makkah)</string>
     <string name="next_adhan_elapsed">depuis adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Mënu xayma waxtu yi</string>
     <string name="widget_prayer_times_description">Ñaan bu ci topp ak lim</string>
     <string name="widget_prayer_times_label">Waxtu ñaan</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Yëngu %2$s</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Def</string>
+    <string name="settings_preview_stop">Taxawal preview bi</string>
+    <string name="settings_method_automatic">Otomatik (ci barab)</string>
+    <string name="settings_method_automatic_desc">App bi dafay tànnee ci saasi anam wi gëna baax ci sa réew ak sa barab; mën nga tànn sa bopp ci anam wu la neex saa yu la neexee.</string>
+    <string name="settings_preview_for_prayer">Xoolaat %1$s azaan</string>
 </resources>

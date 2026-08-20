@@ -46,4 +46,12 @@
     <string name="crash_close">닫기</string>
     <string name="crash_dismiss">계속</string>
     <string name="more_order_hint">이 질문은 당신이 생각하는 것보다 훨씬 더 많은 것을 의미합니다. يُبَّق التجيير مباسرة على جاهة المجيد.</string>
+    <string name="more_quran_search">꾸란 검색</string>
+    <string name="more_quran_search_desc">단어 찾기, 해당 단어가 나타나는 빈도 및 위치</string>
+    <string name="more_quran_frequency">꾸란 단어 빈도</string>
+    <string name="more_quran_frequency_desc">무샤프 전체에서 가장 자주 나오는 단어들</string>
+    <string name="more_pause_on_notifications">알림 시 낭송 일시 중지</string>
+    <string name="more_pause_on_notifications_desc">알림, 벨소리 또는 기타 미디어가 재생되면 암송이 잠시 일시 중지됩니다.</string>
+    <string name="more_pause_notifications_enabled">활성화됨 - 시스템 설정을 열려면 탭하세요.</string>
+    <string name="more_pause_notifications_disabled">비활성화됨 — 활성화하려면 탭하세요.</string>
 </resources>

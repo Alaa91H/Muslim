@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Maa</string>
     <string name="offline_maps_tab_custom">Mukautettu alue</string>
     <string name="offline_maps_download">Lataa</string>
-    <string name="offline_maps_custom_hint">Valitse keskusta napauttamalla karttaa ja lataa sitten sitä ympäröivä alue.</string>
+    <string name="offline_maps_custom_hint">Panoroi ja zoomaa karttaa kehystääksesi haluamasi alueen; kehys päivittyy automaattisesti. Säädä leveyttä liukusäätimellä.</string>
     <string name="offline_maps_custom_name">Alueen nimi</string>
-    <string name="offline_maps_custom_tap">Valitse keskusta napauttamalla karttaa</string>
+    <string name="offline_maps_custom_tap">Valitse alue siirtämällä karttaa</string>
     <string name="offline_maps_custom_default_name">Mukautettu alue</string>
     <string name="offline_maps_summary_body">%1$d/%2$d aluetta valmiina · %3$s ladattu</string>
     <string name="offline_maps_downloading">Ladataan %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Lähennä</string>
     <string name="mosque_finder_zoom_out">Loitonna</string>
     <string name="mosque_finder_nearest">Lähin moskeija</string>
+    <string name="mosque_finder_go_to">Mene siihen</string>
+    <string name="mosque_finder_find_nearest">Etsi lähin moskeija</string>
+    <string name="mosque_finder_expanding">Haetaan kohteesta %1$s…</string>
+    <string name="offline_maps_custom_width">Alueen leveys (astetta)</string>
+    <string name="offline_maps_storage_warning">Vähän tallennustilaa – vain %1$s ilmaiseksi</string>
+    <string name="offline_maps_storage_delete_largest">Poista suurin alue (%1$s · %2$s)</string>
 </resources>

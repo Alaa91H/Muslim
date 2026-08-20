@@ -46,14 +46,12 @@
     <string name="method_egyptian">Maanḓalanga a Egipita a Tsenguluso</string>
     <string name="method_france">Fura (UOIF)</string>
     <string name="method_isna">ISNA (Amerika Tshipembe)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Yunivesithi ya Saintsi ya Vhuislam, Karachi</string>
     <string name="method_kuwait">Kuweiti</string>
     <string name="method_moonsighting">Komiti ya u vhona ṅwedzi</string>
     <string name="method_mwl">Ligi ya Ḽifhasi ya Vhamuslim</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Tshiimiswa tsha Tehran tsha Jiofisika</string>
     <string name="method_turkey">Diyanet Tshiṱirathedzhi</string>
     <string name="method_umm_al_qura">Ummu ya Qura (Makka)</string>
     <string name="next_adhan_elapsed">U bva kha Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">A thi koni u vhalela zwifhinga</string>
     <string name="widget_prayer_times_description">Thabelo i tevhelaho na u vhalela murahu</string>
     <string name="widget_prayer_times_label">Zwifhinga zwa thabelo</string>
+    <string name="settings_adhan_volume_vibrate">Volumu %1$s · U dzinginyea %2$s</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Stop preview</string>
+    <string name="settings_method_automatic">Zwo ḓiitelaho (nga fhethu)</string>
+    <string name="settings_method_automatic_desc">App i nanga nḓila yo teaho vhukuma nga vhuḓiitisi yo thewaho kha shango ḽaṋu na fhethu hune na dzula hone; u nga kha ḓi nanga nḓila nga tshanḓa tshifhinga tshiṅwe na tshiṅwe.</string>
+    <string name="settings_preview_for_prayer">Vhuṱoli %1$s adhan</string>
 </resources>

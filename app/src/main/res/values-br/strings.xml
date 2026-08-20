@@ -46,4 +46,12 @@
     <string name="crash_close">Serriñ</string>
     <string name="crash_dismiss">Kenderc\'hel</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي سورت واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء کل نوع. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Klask er C\'horan</string>
+    <string name="more_quran_search_desc">Kavout ur ger, pegen alies e teu war wel ha pelec\'h</string>
+    <string name="more_quran_frequency">Frekañs ar gerioù er C\'horan</string>
+    <string name="more_quran_frequency_desc">Ar gerioù stankañ er mushaf a-bezh</string>
+    <string name="more_pause_on_notifications">Paouez da zisplegañ ar c\'hemennadennoù</string>
+    <string name="more_pause_on_notifications_desc">Paouez a ra ar c\'hontadennoù pa vez skignet ur gemennadenn, ur son pe ur meziant all</string>
+    <string name="more_pause_notifications_enabled">Gweredekaet — pouezit evit digeriñ arventennoù ar reizhiad</string>
+    <string name="more_pause_notifications_disabled">Diweredekaet — pouezit evit gweredekaat</string>
 </resources>

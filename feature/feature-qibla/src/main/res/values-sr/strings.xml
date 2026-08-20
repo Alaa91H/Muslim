@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Држава</string>
     <string name="offline_maps_tab_custom">Прилагођена област</string>
     <string name="offline_maps_download">Преузми</string>
-    <string name="offline_maps_custom_hint">Додирните мапу да изаберете центар, а затим преузмите област око њега.</string>
+    <string name="offline_maps_custom_hint">Померите и зумирајте мапу да бисте уоквирили област коју желите; оквир се аутоматски ажурира. Подесите ширину помоћу клизача.</string>
     <string name="offline_maps_custom_name">Назив области</string>
-    <string name="offline_maps_custom_tap">Додирните мапу да изаберете центар</string>
+    <string name="offline_maps_custom_tap">Померите мапу да бисте изабрали област</string>
     <string name="offline_maps_custom_default_name">Прилагођена област</string>
     <string name="offline_maps_summary_body">%1$d од %2$d области је завршено · Преузето је %3$s</string>
     <string name="offline_maps_downloading">Преузимање %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Увећајте</string>
     <string name="mosque_finder_zoom_out">Умањите</string>
     <string name="mosque_finder_nearest">Најближа џамија</string>
+    <string name="mosque_finder_go_to">Иди на то</string>
+    <string name="mosque_finder_find_nearest">Пронађите најближу џамију</string>
+    <string name="mosque_finder_expanding">Претраживање у оквиру %1$s…</string>
+    <string name="offline_maps_custom_width">Ширина области (степени)</string>
+    <string name="offline_maps_storage_warning">Мало простора за складиштење — само %1$s бесплатно</string>
+    <string name="offline_maps_storage_delete_largest">Избриши највећи регион (%1$s · %2$s)</string>
 </resources>

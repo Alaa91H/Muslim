@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Потсети ме претходно:</string>
     <string name="ramadan_suhoor_time">Сухур завршува (Фаџр): %1$s</string>
     <string name="ramadan_title">Рамазан</string>
+    <string name="ramadan_notify_outside">Потсетници надвор од Рамазан</string>
+    <string name="ramadan_notify_outside_desc">Известувањата за ифтар и сухур се извршуваат автоматски за време на Рамазан; Овозможувањето на ова ги одржува во други месеци.</string>
 </resources>

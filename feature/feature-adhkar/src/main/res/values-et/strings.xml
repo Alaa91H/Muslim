@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkari seaded</string>
     <string name="adhkar_show_translation">Näita tõlget</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopeeri</string>
+    <string name="adhkar_share">Jaga</string>
+    <string name="adhkar_overlay_short_only">Kasutage ainult lühikest adhkarit</string>
+    <string name="adhkar_overlay_short_only_desc">Valige adhkar, mis mahub ühele või kahele reale, et hõljuv mull jääks selgeks ja kergesti loetavaks.</string>
+    <string name="adhkar_overlay_tap_hint">Puudutage mulli, et sellest kohe loobuda.</string>
 </resources>

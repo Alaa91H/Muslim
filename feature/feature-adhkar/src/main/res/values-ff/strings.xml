@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar ko njuɓɓudi</string>
     <string name="adhkar_show_translation">Hollit firo</string>
     <string name="adhkar_title">Adkar</string>
+    <string name="adhkar_copy">Koppir</string>
+    <string name="adhkar_share">Renndinde</string>
+    <string name="adhkar_overlay_short_only">Huutoro adhkar juutɗo tan</string>
+    <string name="adhkar_overlay_short_only_desc">Suɓo adhkar potɗo e diidi gooto walla ɗiɗi mbele buubaaji ɓuuɓɗi ɗii ina keddoo ina laaɓi, ina weeɓi janngeede.</string>
+    <string name="adhkar_overlay_tap_hint">Tappu buubaaji ɗii ngam ittude ɗi ɗoon e ɗoon.</string>
 </resources>

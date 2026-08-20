@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Kent</string>
     <string name="quran_recitation_notif_next">Da heul</string>
+    <string name="quran_download_playback_title">Downloading %1$s</string>
+    <string name="quran_download_playback_detail">%1$s kleiz · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Urzh Mushaf</string>
+    <string name="quran_download_sort_completion">Dre echuiñ</string>
+    <string name="quran_downloads_coverage_title">Goulennoù ar Sourah etre al lennerien</string>
+    <string name="quran_downloads_coverage_overall">Mushaf leun a-dreuz al lennerion</string>
+    <string name="quran_downloads_coverage_empty">N\'eus bet pellgarget kleweled ebet c\'hoazh</string>
+    <string name="quran_pause_notif_listener">Paouez da zisplegañ ar c\'hemennadennoù</string>
+    <string name="quran_reciter_changed_title">Cheñchet eo bet an embanner</string>
+    <string name="quran_reciter_changed_message">Paouezet eo bet ar c\'hoari rak mont a ra ar c\'hementad betek fin ar C\'horan. Kregiñ en-dro gant %1$s?</string>
+    <string name="quran_reciter_restart">Kregiñ en-dro</string>
+    <string name="quran_reciter_not_now">N\'eo ket bremañ</string>
 </resources>

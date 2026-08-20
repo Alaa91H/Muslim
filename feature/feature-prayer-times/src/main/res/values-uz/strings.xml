@@ -46,14 +46,12 @@
     <string name="method_egyptian">Misr umumiy tadqiqot ma\'muriyati</string>
     <string name="method_france">Frantsiya (UOIF)</string>
     <string name="method_isna">ISNA (Shimoliy Amerika)</string>
-    <string name="method_jafari">Jafariy</string>
     <string name="method_karachi">Islom fanlari universiteti, Karachi</string>
     <string name="method_kuwait">Quvayt</string>
     <string name="method_moonsighting">Oyni kuzatish qo\'mitasi</string>
     <string name="method_mwl">Musulmonlar Jahon Ligasi</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapur</string>
-    <string name="method_tehran">Tehron geofizika instituti</string>
     <string name="method_turkey">Diyanet Turkiya</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makka)</string>
     <string name="next_adhan_elapsed">Azondan beri: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Vaqtni hisoblash imkonsiz</string>
     <string name="widget_prayer_times_description">Ortga hisoblash bilan keyingi ibodat</string>
     <string name="widget_prayer_times_label">Namoz vaqtlari</string>
+    <string name="settings_adhan_volume_vibrate">Ovoz balandligi %1$s · Vibratsiya %2$s</string>
+    <string name="settings_adhan_vibrate_on">Yoniq</string>
+    <string name="settings_adhan_vibrate_off">Oʻchirilgan</string>
+    <string name="settings_preview_stop">Ko‘rib chiqishni to‘xtatish</string>
+    <string name="settings_method_automatic">Avtomatik (joylashuv bo\'yicha)</string>
+    <string name="settings_method_automatic_desc">Ilova mamlakatingiz va joylashuvingiz asosida avtomatik ravishda eng mos usulni tanlaydi; siz hali ham istalgan vaqtda usulni qo\'lda tanlashingiz mumkin.</string>
+    <string name="settings_preview_for_prayer">%1$s azonni oldindan koʻrish</string>
 </resources>

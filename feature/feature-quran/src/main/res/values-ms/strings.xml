@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Sebelumnya</string>
     <string name="quran_recitation_notif_next">Seterusnya</string>
+    <string name="quran_download_playback_title">Memuat turun %1$s</string>
+    <string name="quran_download_playback_detail">%1$s kiri · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Tempahan mushaf</string>
+    <string name="quran_download_sort_completion">Dengan selesai</string>
+    <string name="quran_downloads_coverage_title">Liputan surah merentas qari</string>
+    <string name="quran_downloads_coverage_overall">Mushaf penuh merentasi qari</string>
+    <string name="quran_downloads_coverage_empty">Tiada audio dimuat turun lagi</string>
+    <string name="quran_pause_notif_listener">Jeda bacaan pada pemberitahuan</string>
+    <string name="quran_reciter_changed_title">qari berubah</string>
+    <string name="quran_reciter_changed_message">Main semula dihentikan kerana julat berjalan ke penghujung al-Quran. Mulakan semula dengan %1$s?</string>
+    <string name="quran_reciter_restart">Mula semula</string>
+    <string name="quran_reciter_not_now">bukan sekarang</string>
 </resources>

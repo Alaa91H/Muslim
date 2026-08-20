@@ -46,14 +46,12 @@
     <string name="method_egyptian">Maamulka Guud ee Masaarida ee Sahanka</string>
     <string name="method_france">Faransiiska (UOIF)</string>
     <string name="method_isna">ISNA (Waqooyiga Ameerika)</string>
-    <string name="method_jafari">Jacfari</string>
     <string name="method_karachi">Jaamacadda Culuumta Islaamka, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Guddiga dayax raaca</string>
     <string name="method_mwl">Ururka Muslimiinta Adduunka</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Tehraan Institute of Geophysics</string>
     <string name="method_turkey">Diyanet Turkey</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Tan iyo Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ma xisaabin karo waqtiyada</string>
     <string name="widget_prayer_times_description">Salaadda xigta oo leh tirinta</string>
     <string name="widget_prayer_times_label">Waqtiyada salaadda</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Vibration %2$s</string>
+    <string name="settings_adhan_vibrate_on">Daar</string>
+    <string name="settings_adhan_vibrate_off">Demin</string>
+    <string name="settings_preview_stop">Jooji aragtida</string>
+    <string name="settings_method_automatic">Toos ah (goob ahaan)</string>
+    <string name="settings_method_automatic_desc">App-ka ayaa si toos ah u dooranaya habka ugu habboon ee ku salaysan waddankaaga iyo goobtaada; waxaad weli dooran kartaa hab gacanta wakhti kasta.</string>
+    <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
 </resources>

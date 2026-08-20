@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Saitunan Adhkar</string>
     <string name="adhkar_show_translation">Nuna fassarar</string>
     <string name="adhkar_title">Adkar</string>
+    <string name="adhkar_copy">Kwafi</string>
+    <string name="adhkar_share">Raba</string>
+    <string name="adhkar_overlay_short_only">Yi amfani da gajeriyar adhkar kawai</string>
+    <string name="adhkar_overlay_short_only_desc">Zaɓi adhkar wanda ya dace da layi ɗaya ko biyu don kumfa mai iyo ya tsaya a sarari da sauƙin karantawa.</string>
+    <string name="adhkar_overlay_tap_hint">Matsa kumfa don watsar da shi nan da nan.</string>
 </resources>

@@ -46,4 +46,12 @@
     <string name="crash_close">Κλείσιμο</string>
     <string name="crash_dismiss">Συνέχεια</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Ψάξτε το Κοράνι</string>
+    <string name="more_quran_search_desc">Βρείτε μια λέξη, πόσο συχνά εμφανίζεται και πού</string>
+    <string name="more_quran_frequency">Συχνότητα λέξης Κορανίου</string>
+    <string name="more_quran_frequency_desc">Οι πιο συχνές λέξεις σε όλο το μουσάφ</string>
+    <string name="more_pause_on_notifications">Παύση της απαγγελίας στις ειδοποιήσεις</string>
+    <string name="more_pause_on_notifications_desc">Η απαγγελία διακόπτεται για λίγο όταν αναπαράγεται μια ειδοποίηση, κουδούνισμα ή άλλο μέσο</string>
+    <string name="more_pause_notifications_enabled">Ενεργοποιημένο — πατήστε για να ανοίξετε τις ρυθμίσεις συστήματος</string>
+    <string name="more_pause_notifications_disabled">Απενεργοποιημένο — πατήστε για ενεργοποίηση</string>
 </resources>

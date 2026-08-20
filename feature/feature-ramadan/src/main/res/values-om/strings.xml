@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Duraan na yaadachiisaa:</string>
     <string name="ramadan_suhoor_time">Suhoor xumura (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadaana</string>
+    <string name="ramadan_notify_outside">Yaadachiisa Ramadaanaan alatti</string>
+    <string name="ramadan_notify_outside_desc">Akeekkachiisni Ifxaaraa fi suhoor yeroo Ramadaanaa ofumaan hojjeta; kana dandeessisuun ji’oota biroo keessatti akka itti fufan taasisa.</string>
 </resources>

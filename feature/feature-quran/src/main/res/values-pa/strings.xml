@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">ਪਿਛਲਾ</string>
     <string name="quran_recitation_notif_next">ਅੱਗੇ</string>
+    <string name="quran_download_playback_title">%1$s ਨੂੰ ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
+    <string name="quran_download_playback_detail">%1$s ਬਾਕੀ · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">ਮੁਸ਼ਫ਼ ਦਾ ਹੁਕਮ</string>
+    <string name="quran_download_sort_completion">ਸੰਪੂਰਨ ਕਰਕੇ</string>
+    <string name="quran_downloads_coverage_title">ਪਾਠਕਾਂ ਵਿੱਚ ਸੂਰਾ ਕਵਰੇਜ</string>
+    <string name="quran_downloads_coverage_overall">ਪਾਠ ਕਰਨ ਵਾਲਿਆਂ ਵਿੱਚ ਪੂਰਾ ਮੁਸ਼ੱਫ਼</string>
+    <string name="quran_downloads_coverage_empty">ਅਜੇ ਤੱਕ ਕੋਈ ਆਡੀਓ ਡਾਊਨਲੋਡ ਨਹੀਂ ਕੀਤਾ ਗਿਆ</string>
+    <string name="quran_pause_notif_listener">ਸੂਚਨਾਵਾਂ \'ਤੇ ਪਾਠ ਨੂੰ ਰੋਕੋ</string>
+    <string name="quran_reciter_changed_title">ਪਾਠਕ ਬਦਲ ਗਿਆ</string>
+    <string name="quran_reciter_changed_message">ਪਲੇਬੈਕ ਬੰਦ ਹੋ ਗਿਆ ਹੈ ਕਿਉਂਕਿ ਸੀਮਾ ਕੁਰਾਨ ਦੇ ਅੰਤ ਤੱਕ ਚਲਦੀ ਹੈ। %1$s ਨਾਲ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੀਏ?</string>
+    <string name="quran_reciter_restart">ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ</string>
+    <string name="quran_reciter_not_now">ਹੁਣ ਨਹੀਂ</string>
 </resources>

@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Nagara</string>
     <string name="offline_maps_tab_custom">Daérah adat</string>
     <string name="offline_maps_download">Ngundeur</string>
-    <string name="offline_maps_custom_hint">Ketok peta pikeun milih pusat, teras unduh daérah di sakurilingna.</string>
+    <string name="offline_maps_custom_hint">Pan jeung zum peta pikeun pigura wewengkon nu Anjeun hoyongkeun; pigura apdet otomatis. Saluyukeun lebar kalayan geseran.</string>
     <string name="offline_maps_custom_name">Ngaran wewengkon</string>
-    <string name="offline_maps_custom_tap">Ketok peta pikeun milih pusat</string>
+    <string name="offline_maps_custom_tap">Pindahkeun peta pikeun milih daérah</string>
     <string name="offline_maps_custom_default_name">Daérah adat</string>
     <string name="offline_maps_summary_body">%1$d tina %2$d wewengkon lengkep · %3$s diundeur</string>
     <string name="offline_maps_downloading">Ngundeur %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Gedekeun</string>
     <string name="mosque_finder_zoom_out">Zum kaluar</string>
     <string name="mosque_finder_nearest">Masjid pangdeukeutna</string>
+    <string name="mosque_finder_go_to">Pindah ka dinya</string>
+    <string name="mosque_finder_find_nearest">Manggihan masjid pangdeukeutna</string>
+    <string name="mosque_finder_expanding">Pilarian dina %1$s…</string>
+    <string name="offline_maps_custom_width">Lebar wewengkon (derajat)</string>
+    <string name="offline_maps_storage_warning">gudang low - ngan %1$s bebas</string>
+    <string name="offline_maps_storage_delete_largest">Pupus daérah panggedéna (%1$s · %2$s)</string>
 </resources>

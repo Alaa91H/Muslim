@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">הקודם</string>
     <string name="quran_recitation_notif_next">הבא</string>
+    <string name="quran_download_playback_title">מוריד את %1$s</string>
+    <string name="quran_download_playback_detail">%1$s שמאל · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">סדר מושאף</string>
+    <string name="quran_download_sort_completion">לפי השלמה</string>
+    <string name="quran_downloads_coverage_title">סיקור סורה על פני מדקלמים</string>
+    <string name="quran_downloads_coverage_overall">מוסף מלא על פני מדקלמים</string>
+    <string name="quran_downloads_coverage_empty">עדיין לא הורד אודיו</string>
+    <string name="quran_pause_notif_listener">השהה דקלום בהתראות</string>
+    <string name="quran_reciter_changed_title">הדקלם השתנה</string>
+    <string name="quran_reciter_changed_message">ההשמעה הופסקה מכיוון שהטווח מגיע לסוף הקוראן. להתחיל שוב עם %1$s?</string>
+    <string name="quran_reciter_restart">התחל שוב</string>
+    <string name="quran_reciter_not_now">לא עכשיו</string>
 </resources>

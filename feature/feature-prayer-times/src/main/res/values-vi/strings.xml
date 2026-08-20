@@ -46,14 +46,12 @@
     <string name="method_egyptian">Tổng cục khảo sát Ai Cập</string>
     <string name="method_france">Pháp (UOIF)</string>
     <string name="method_isna">ISNA (Bắc Mỹ)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Đại học Khoa học Hồi giáo, Karachi</string>
     <string name="method_kuwait">Cô-oét</string>
     <string name="method_moonsighting">Ủy ban ngắm trăng</string>
     <string name="method_mwl">Liên đoàn Thế giới Hồi giáo</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Viện Địa vật lý Tehran</string>
     <string name="method_turkey">Diyanet Thổ Nhĩ Kỳ</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Kể từ Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Không thể tính toán thời gian</string>
     <string name="widget_prayer_times_description">Lời cầu nguyện tiếp theo với đếm ngược</string>
     <string name="widget_prayer_times_label">thời gian cầu nguyện</string>
+    <string name="settings_adhan_volume_vibrate">Âm lượng %1$s · Rung %2$s</string>
+    <string name="settings_adhan_vibrate_on">Bật</string>
+    <string name="settings_adhan_vibrate_off">Tắt</string>
+    <string name="settings_preview_stop">Dừng xem trước</string>
+    <string name="settings_method_automatic">Tự động (theo vị trí)</string>
+    <string name="settings_method_automatic_desc">Ứng dụng sẽ tự động chọn phương pháp phù hợp nhất dựa trên quốc gia và vị trí của bạn; bạn vẫn có thể chọn phương pháp thủ công bất kỳ lúc nào.</string>
+    <string name="settings_preview_for_prayer">Xem trước %1$s adhan</string>
 </resources>

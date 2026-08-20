@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Awọn eto Adhkar</string>
     <string name="adhkar_show_translation">Ṣafihan itumọ</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Daakọ</string>
+    <string name="adhkar_share">Pinpin</string>
+    <string name="adhkar_overlay_short_only">Lo adhkar kukuru nikan</string>
+    <string name="adhkar_overlay_short_only_desc">Yan adhkar ti o baamu laini kan tabi meji ki o ti nkuta lilefoofo duro kedere ati rọrun lati ka.</string>
+    <string name="adhkar_overlay_tap_hint">Fọwọ ba nkuta lati yọ kuro lẹsẹkẹsẹ.</string>
 </resources>

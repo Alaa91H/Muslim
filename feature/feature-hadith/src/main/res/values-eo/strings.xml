@@ -23,4 +23,5 @@
     <string name="hadith_search_hint">Serĉu haditojn...</string>
     <string name="hadith_share">Kunhavigi</string>
     <string name="hadith_title">Biblioteko de Hadito</string>
+    <string name="hadith_copy">Kopiu</string>
 </resources>

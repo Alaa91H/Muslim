@@ -46,14 +46,12 @@
     <string name="method_egyptian">Египетскиот генерален орган за истражување</string>
     <string name="method_france">Франција (UOIF)</string>
     <string name="method_isna">ISNA (Северна Америка)</string>
-    <string name="method_jafari">Џафари</string>
     <string name="method_karachi">Универзитетот за исламски науки, Карачи</string>
     <string name="method_kuwait">Кувајт</string>
     <string name="method_moonsighting">Комитет за набљудување на месечината</string>
     <string name="method_mwl">Муслиманска светска лига</string>
     <string name="method_qatar">Катар</string>
     <string name="method_singapore">Сингапур</string>
-    <string name="method_tehran">Техеран Институт за геофизика</string>
     <string name="method_turkey">Дијанет Турција</string>
     <string name="method_umm_al_qura">Ум ал Кура (Мекка)</string>
     <string name="next_adhan_elapsed">Од Азан: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Не може да се пресметаат времињата</string>
     <string name="widget_prayer_times_description">Следна молитва со одбројување</string>
     <string name="widget_prayer_times_label">Време на молитва</string>
+    <string name="settings_adhan_volume_vibrate">Јачина на звук %1$s · Вибрации %2$s</string>
+    <string name="settings_adhan_vibrate_on">Вклучено</string>
+    <string name="settings_adhan_vibrate_off">Исклучено</string>
+    <string name="settings_preview_stop">Стоп за преглед</string>
+    <string name="settings_method_automatic">Автоматски (по локација)</string>
+    <string name="settings_method_automatic_desc">Апликацијата автоматски го избира најсоодветниот метод врз основа на вашата земја и локација; сепак можете да изберете метод рачно во секое време.</string>
+    <string name="settings_preview_for_prayer">Преглед на %1$s азан</string>
 </resources>

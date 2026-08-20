@@ -46,14 +46,12 @@
     <string name="method_egyptian">Otorite jeneral moun peyi Lejip nan Sondaj</string>
     <string name="method_france">Lafrans (UOIF)</string>
     <string name="method_isna">ISNA (Amerik di Nò)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Inivèsite Syans Islamik, Karachi</string>
     <string name="method_kuwait">Kowet</string>
     <string name="method_moonsighting">Komite Moonsighting</string>
     <string name="method_mwl">Lig Mondyal Mizilman</string>
     <string name="method_qatar">Katar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Teheran Enstiti jeofizik</string>
     <string name="method_turkey">Dyanet Turkey</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Depi Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Pa kapab kalkile fwa</string>
     <string name="widget_prayer_times_description">Pwochen priyè ak dekont</string>
     <string name="widget_prayer_times_label">Tan lapriyè</string>
+    <string name="settings_adhan_volume_vibrate">Volim %1$s · Vibration %2$s</string>
+    <string name="settings_adhan_vibrate_on">Sou</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Sispann preview</string>
+    <string name="settings_method_automatic">Otomatik (pa kote)</string>
+    <string name="settings_method_automatic_desc">Aplikasyon an chwazi metòd ki pi apwopriye a otomatikman selon peyi w ak kote w ye a; ou ka toujou chwazi yon metòd manyèlman nenpòt ki lè.</string>
+    <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
 </resources>

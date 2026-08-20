@@ -46,4 +46,12 @@
     <string name="crash_close">Kloe</string>
     <string name="crash_dismiss">Yi edzi</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Di Quran la me</string>
+    <string name="more_quran_search_desc">Di nya aɖe, zi nenie wòdzena kple afisi wòdzena le</string>
+    <string name="more_quran_frequency">Quran me nyawo zi gbɔ zi geɖe</string>
+    <string name="more_quran_frequency_desc">Nya siwo wozãna zi geɖe wu le mushaf bliboa me</string>
+    <string name="more_pause_on_notifications">Dzudzɔ nuxexlẽ le nyatakakawo me</string>
+    <string name="more_pause_on_notifications_desc">Nuxexlẽ tɔ vie ne nyatakaka, kaƒoƒo alo nyadzɔdzɔgblɔmɔ̃ bubu aɖe le ɖiɖim</string>
+    <string name="more_pause_notifications_enabled">Enabled — zi edzi be nàʋu ɖoɖoa ƒe ɖoɖowo</string>
+    <string name="more_pause_notifications_disabled">Disabled — zi edzi be nàwɔe</string>
 </resources>

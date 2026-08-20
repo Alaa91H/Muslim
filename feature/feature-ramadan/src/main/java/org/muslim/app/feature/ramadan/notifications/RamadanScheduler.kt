@@ -36,8 +36,12 @@ class RamadanScheduler @Inject constructor(
     /**
      * (Re)schedules the next iftar and suhoor alarms. Safe to call whenever
      * settings, location or Ramadan preferences change.
+     *
+     * By default the alarms only fire inside Ramadan (see
+     * [org.muslim.app.feature.ramadan.data.RamadanSettings.notifyOutsideRamadan]);
+     * enabling that flag keeps them running all year.
      */
-    fun schedule(prayerSettings: PrayerSettings, suhoorMinutesBefore: Int) {
+    fun schedule(prayerSettings: PrayerSettings, ramadanSettings: org.muslim.app.feature.ramadan.data.RamadanSettings) {
         val location = prayerSettings.location ?: run {
             cancelAll()
             return
@@ -47,6 +51,11 @@ class RamadanScheduler @Inject constructor(
         val now = System.currentTimeMillis()
         val today = LocalDate.now(zone)
         val tomorrow = today.plusDays(1)
+        val info = org.muslim.app.feature.ramadan.domain.RamadanDates.upcoming(today, prayerSettings.hijriAdjustment)
+        val todayInRamadan = info.isRamadanDay(today)
+        val tomorrowInRamadan = info.isRamadanDay(tomorrow)
+        val outsideEnabled = ramadanSettings.notifyOutsideRamadan
+        val suhoorMinutesBefore = ramadanSettings.suhoorMinutesBefore
 
         val todayResult = calculator.compute(
             date = today,
@@ -67,20 +76,28 @@ class RamadanScheduler @Inject constructor(
 
         cancelAll()
 
-        // Iftar = today's Maghrib (or tomorrow's if already passed).
-        val iftarToday = todayResult.epochMillis[Prayer.Maghrib]
-        if (iftarToday != null && iftarToday > now) {
-            scheduleAlarm(iftarToday, RamadanAlarmReceiver.TYPE_IFTAR)
-        } else {
-            val iftarTomorrow = tomorrowResult.epochMillis[Prayer.Maghrib]
-            if (iftarTomorrow != null) scheduleAlarm(iftarTomorrow, RamadanAlarmReceiver.TYPE_IFTAR)
+        // Iftar = today's Maghrib (or tomorrow's if already passed). Only
+        // fire when today is a Ramadan day, unless the user opted into
+        // year-round reminders.
+        if (todayInRamadan || outsideEnabled) {
+            val iftarToday = todayResult.epochMillis[Prayer.Maghrib]
+            if (iftarToday != null && iftarToday > now) {
+                scheduleAlarm(iftarToday, RamadanAlarmReceiver.TYPE_IFTAR)
+            } else {
+                val iftarTomorrow = tomorrowResult.epochMillis[Prayer.Maghrib]
+                if (iftarTomorrow != null) scheduleAlarm(iftarTomorrow, RamadanAlarmReceiver.TYPE_IFTAR)
+            }
         }
 
-        // Suhoor reminder = tomorrow's Fajr minus the lead time.
-        val fajrTomorrow = tomorrowResult.epochMillis[Prayer.Fajr]
-        if (fajrTomorrow != null) {
-            val reminderAt = fajrTomorrow - suhoorMinutesBefore.coerceAtLeast(0) * 60_000L
-            if (reminderAt > now) scheduleAlarm(reminderAt, RamadanAlarmReceiver.TYPE_SUHOOR)
+        // Suhoor reminder = tomorrow's Fajr minus the lead time. Tomorrow
+        // must be a Ramadan day for the fast to exist, unless the user opted
+        // into year-round reminders.
+        if (tomorrowInRamadan || outsideEnabled) {
+            val fajrTomorrow = tomorrowResult.epochMillis[Prayer.Fajr]
+            if (fajrTomorrow != null) {
+                val reminderAt = fajrTomorrow - suhoorMinutesBefore.coerceAtLeast(0) * 60_000L
+                if (reminderAt > now) scheduleAlarm(reminderAt, RamadanAlarmReceiver.TYPE_SUHOOR)
+            }
         }
     }
 

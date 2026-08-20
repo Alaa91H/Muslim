@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- The update APK is downloaded into the app's external files dir. -->
+    <external-files-path name="update_apk" path="updates/" />
+    <cache-path name="cache" path="." />
+</paths>

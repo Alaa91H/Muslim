@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">देश के बा</string>
     <string name="offline_maps_tab_custom">कस्टम एरिया के बा</string>
     <string name="offline_maps_download">डाउनलोड करीं</string>
-    <string name="offline_maps_custom_hint">केंद्र चुने खातिर नक्शा पर टैप करीं, फिर ओकरा आसपास के इलाका डाउनलोड करीं।</string>
+    <string name="offline_maps_custom_hint">नक्शा के पैन आ ज़ूम क के रउआँ जवन इलाका चाहीं ओकरा के फ्रेम करीं; फ्रेम अपने आप अपडेट हो जाला। स्लाइडर के साथ चौड़ाई समायोजित करीं।</string>
     <string name="offline_maps_custom_name">इलाका के नाम बा</string>
-    <string name="offline_maps_custom_tap">केंद्र चुने खातिर नक्शा पर टैप करीं</string>
+    <string name="offline_maps_custom_tap">इलाका के चयन करे खातिर नक्शा के ले जाईं</string>
     <string name="offline_maps_custom_default_name">कस्टम एरिया के बा</string>
     <string name="offline_maps_summary_body">%1$d के %2$d क्षेत्र पूरा हो गइल · %3$s डाउनलोड हो गइल</string>
     <string name="offline_maps_downloading">डाउनलोड हो रहल बा %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">ज़ूम इन कर के देखल जाव</string>
     <string name="mosque_finder_zoom_out">ज़ूम आउट कर दीं</string>
     <string name="mosque_finder_nearest">नजदीकी मस्जिद के बा</string>
+    <string name="mosque_finder_go_to">एकरा पर जाइए</string>
+    <string name="mosque_finder_find_nearest">नजदीकी मस्जिद के खोज करीं</string>
+    <string name="mosque_finder_expanding">%1$s के भीतर खोज हो रहल बा...</string>
+    <string name="offline_maps_custom_width">क्षेत्रफल के चौड़ाई (डिग्री) के बा।</string>
+    <string name="offline_maps_storage_warning">कम भंडारण — मात्र %1$s मुफ्त बा</string>
+    <string name="offline_maps_storage_delete_largest">सबसे बड़ क्षेत्र (%1$s · %2$s) हटाईं।</string>
 </resources>

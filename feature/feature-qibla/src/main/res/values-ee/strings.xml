@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Dukɔa</string>
     <string name="offline_maps_tab_custom">Nuto si wowɔ ɖe ɖoɖo nu</string>
     <string name="offline_maps_download">Wɔ eƒe kɔpi</string>
-    <string name="offline_maps_custom_hint">Zi anyigbatataa dzi be nàtia titina, emegbe nàɖe nuto si ƒo xlãe la ƒe kɔpi.</string>
+    <string name="offline_maps_custom_hint">Pan anyigbatataa eye nàdzii ɖe edzi be nàwɔ nuto si nèdi la ƒe nɔnɔmetata; frame la wɔa yeyee le eɖokui si. Trɔ asi le kekeme ŋu kple slider la.</string>
     <string name="offline_maps_custom_name">Nutoa ƒe ŋkɔ</string>
-    <string name="offline_maps_custom_tap">Zi anyigbatataa dzi be nàtia titina</string>
+    <string name="offline_maps_custom_tap">Ʋu anyigbatataa be nàtia nuto si me nèle</string>
     <string name="offline_maps_custom_default_name">Nuto si wowɔ ɖe ɖoɖo nu</string>
     <string name="offline_maps_summary_body">%1$d ƒe %2$d nutowo wu enu · %3$s woɖe</string>
     <string name="offline_maps_downloading">Wole %1$s... %2$d%% ƒe kɔpi wɔm.</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom ɖe edzi</string>
     <string name="mosque_finder_zoom_out">Zãe ɖe edzi</string>
     <string name="mosque_finder_nearest">Mosque si te ɖe afima ŋu wu</string>
+    <string name="mosque_finder_go_to">Yi egbɔ</string>
+    <string name="mosque_finder_find_nearest">Di mosque si te ɖe ŋuwò wu</string>
+    <string name="mosque_finder_expanding">Didi le %1$s me...</string>
+    <string name="offline_maps_custom_width">Nutoa ƒe kekeme (degree) .</string>
+    <string name="offline_maps_storage_warning">Nudzraɖoƒe sue — %1$s koe femaxee</string>
+    <string name="offline_maps_storage_delete_largest">Tsɔ nuto gãtɔ (%1$s · %2$s) ɖa</string>
 </resources>

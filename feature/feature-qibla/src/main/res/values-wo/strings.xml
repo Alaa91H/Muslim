@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Réew</string>
     <string name="offline_maps_tab_custom">Barab buñ jagleel</string>
     <string name="offline_maps_download">Yebbi</string>
-    <string name="offline_maps_custom_hint">Bësal kàrt bi ngir tànn digg bi, ba noppi nga yebbi barab bi ko wër.</string>
+    <string name="offline_maps_custom_hint">Panorama nga zoom kàrt bi ngir kaadre barab bi nga bëgg; kadre bi dafay yeesal ci saasi. Defar yaatuwaayam ak gliiseur bi.</string>
     <string name="offline_maps_custom_name">Turu barab bi</string>
-    <string name="offline_maps_custom_tap">Bësal kàrt bi ngir tànn digg bi</string>
+    <string name="offline_maps_custom_tap">Toxal kàrt bi ngir tànn barab bi</string>
     <string name="offline_maps_custom_default_name">Barab buñ jagleel</string>
     <string name="offline_maps_summary_body">%1$d ci %2$d barab yi matna · %3$s yebbi nañu ko</string>
     <string name="offline_maps_downloading">Yebbi %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom ci</string>
     <string name="mosque_finder_zoom_out">Wàññi zoom</string>
     <string name="mosque_finder_nearest">Jumaa ji gëna jege</string>
+    <string name="mosque_finder_go_to">Demal ci</string>
+    <string name="mosque_finder_find_nearest">Wut Jumaa ju gëna jege</string>
+    <string name="mosque_finder_expanding">Seetug ci biir %1$s...</string>
+    <string name="offline_maps_custom_width">Yaatu barab bi (degre)</string>
+    <string name="offline_maps_storage_warning">Dencukaay bu néew — %1$s kese</string>
+    <string name="offline_maps_storage_delete_largest">Delete largest region (%1$s · %2$s)</string>
 </resources>

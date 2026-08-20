@@ -46,14 +46,12 @@
     <string name="method_egyptian">Autoridad General Egipto-pegua Encuesta rehegua</string>
     <string name="method_france">Francia (UOIF) .</string>
     <string name="method_isna">ISNA (Yvateamérika) .</string>
-    <string name="method_jafari">Jafari rehegua</string>
     <string name="method_karachi">Mbo’ehaovusu Ciencias Islámicas, Karachi-pe</string>
     <string name="method_kuwait">Kuwait-pe</string>
     <string name="method_moonsighting">Comité de Jasy jehecha rehegua</string>
     <string name="method_mwl">Liga Mundial Musulmana rehegua</string>
     <string name="method_qatar">Qatar-pe</string>
     <string name="method_singapore">Singapur-pe</string>
-    <string name="method_tehran">Teherán Instituto de Geofísica rehegua</string>
     <string name="method_turkey">Diyanet Turquía rehegua</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah) Ñe\'ẽpoty ha ñe\'ẽpoty .</string>
     <string name="next_adhan_elapsed">Adhan guive: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ndaikatúi okalkula umi aravo</string>
     <string name="widget_prayer_times_description">Ñembo’e oúva cuenta regresiva reheve</string>
     <string name="widget_prayer_times_label">Ñembo’e ára</string>
+    <string name="settings_adhan_volume_vibrate">Volumen %1$s · Ñemboryrýi %2$s .</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Ojejoko jehechaukarã</string>
+    <string name="settings_method_automatic">Automático (ubicación rupive) .</string>
+    <string name="settings_method_automatic_desc">Pe app oiporavo ijeheguiete pe método iporãvéva oñemopyendáva nde retã ha moõpa oĩ; ikatu gueteri reiporavo peteĩ método nde po rupive oimeraẽ jave.</string>
+    <string name="settings_preview_for_prayer">Tembiecharã %1$s adhan</string>
 </resources>

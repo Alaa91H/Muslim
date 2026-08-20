@@ -46,4 +46,12 @@
     <string name="crash_close">Chiudi</string>
     <string name="crash_dismiss">Cuntinuà</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتدم المفتاظ واسعادة إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Cerca in u Quran</string>
+    <string name="more_quran_search_desc">Truvate una parolla, quantu spessu appare è induve</string>
+    <string name="more_quran_frequency">Frequenza di e parolle Coran</string>
+    <string name="more_quran_frequency_desc">E parolle più frequenti in tuttu u mushaf</string>
+    <string name="more_pause_on_notifications">Pausa a recitazione nantu à e notificazioni</string>
+    <string name="more_pause_on_notifications_desc">A recitazione si ferma brevemente quandu una notificazione, un anellu o un altru media riproduce</string>
+    <string name="more_pause_notifications_enabled">Abilitatu - tocca per apre i paràmetri di u sistema</string>
+    <string name="more_pause_notifications_disabled">Disabilitatu - tocca per attivà</string>
 </resources>

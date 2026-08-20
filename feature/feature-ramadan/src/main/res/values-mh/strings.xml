@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Kakememej iō mokta:</string>
     <string name="ramadan_suhoor_time">Suhoor ej jemlok (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Reminders outside Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Iftar im suhoor alert ko rej jerbal ilo ien Ramadan; enabling this keeps them going in other months.</string>
 </resources>

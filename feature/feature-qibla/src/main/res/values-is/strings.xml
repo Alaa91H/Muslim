@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Land</string>
     <string name="offline_maps_tab_custom">Sérsniðið svæði</string>
     <string name="offline_maps_download">Sækja</string>
-    <string name="offline_maps_custom_hint">Pikkaðu á kortið til að velja miðjuna og sæktu síðan svæðið í kringum það.</string>
+    <string name="offline_maps_custom_hint">Pantaðu og aðdráttur á kortinu til að ramma inn svæðið sem þú vilt; ramminn uppfærist sjálfkrafa. Stilltu breiddina með sleðann.</string>
     <string name="offline_maps_custom_name">Svæðisheiti</string>
-    <string name="offline_maps_custom_tap">Tap the map to pick the center</string>
+    <string name="offline_maps_custom_tap">Færðu kortið til að velja svæðið</string>
     <string name="offline_maps_custom_default_name">Sérsniðið svæði</string>
     <string name="offline_maps_summary_body">%1$d af %2$d svæðum lokið · %3$s sótt</string>
     <string name="offline_maps_downloading">Sækir %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Aðdráttur</string>
     <string name="mosque_finder_zoom_out">Aðdráttur út</string>
     <string name="mosque_finder_nearest">Næsta moska</string>
+    <string name="mosque_finder_go_to">Farðu í það</string>
+    <string name="mosque_finder_find_nearest">Finndu næstu mosku</string>
+    <string name="mosque_finder_expanding">Leitar innan %1$s...</string>
+    <string name="offline_maps_custom_width">Svæðisbreidd (gráður)</string>
+    <string name="offline_maps_storage_warning">Lítið geymslupláss — aðeins %1$s ókeypis</string>
+    <string name="offline_maps_storage_delete_largest">Eyða stærsta svæðinu (%1$s · %2$s)</string>
 </resources>

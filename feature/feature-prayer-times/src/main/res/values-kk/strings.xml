@@ -46,14 +46,12 @@
     <string name="method_egyptian">Египеттің жалпы шолу органы</string>
     <string name="method_france">Франция (UOIF)</string>
     <string name="method_isna">ISNA (Солтүстік Америка)</string>
-    <string name="method_jafari">Джафари</string>
     <string name="method_karachi">Ислам ғылымдары университеті, Карачи</string>
     <string name="method_kuwait">Кувейт</string>
     <string name="method_moonsighting">Айды бақылау комитеті</string>
     <string name="method_mwl">Әлемдік мұсылмандар лигасы</string>
     <string name="method_qatar">Катар</string>
     <string name="method_singapore">Сингапур</string>
-    <string name="method_tehran">Тегеран геофизика институты</string>
     <string name="method_turkey">Дианет Түркия</string>
     <string name="method_umm_al_qura">Умм әл-Құра (Мекке)</string>
     <string name="next_adhan_elapsed">Азаннан бері: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Уақытты есептеу мүмкін емес</string>
     <string name="widget_prayer_times_description">Кері санақпен келесі дұға</string>
     <string name="widget_prayer_times_label">Намаз уақыттары</string>
+    <string name="settings_adhan_volume_vibrate">Дыбыс %1$s · Діріл %2$s</string>
+    <string name="settings_adhan_vibrate_on">Қосулы</string>
+    <string name="settings_adhan_vibrate_off">Өшірулі</string>
+    <string name="settings_preview_stop">Алдын ала қарауды тоқтату</string>
+    <string name="settings_method_automatic">Автоматты (орналасқан жері бойынша)</string>
+    <string name="settings_method_automatic_desc">Қолданба сіздің еліңізге және орналасқан жеріңізге байланысты ең қолайлы әдісті автоматты түрде таңдайды; кез келген уақытта әдісті қолмен таңдай аласыз.</string>
+    <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
 </resources>

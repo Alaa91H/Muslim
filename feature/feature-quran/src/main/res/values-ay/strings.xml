@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d Ukax mä juk’a pachanakanwa.</string>
     <string name="quran_recitation_notif_previous">Nayra</string>
     <string name="quran_recitation_notif_next">Ukxarusti</string>
+    <string name="quran_download_playback_title">Ukax %1$s ukankiwa.</string>
+    <string name="quran_download_playback_detail">%1$s ch’iqa · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf ukax mä kamachiwa</string>
+    <string name="quran_download_sort_completion">Tukuyañampi</string>
+    <string name="quran_downloads_coverage_title">Surah ukan uñt’ayawipax recitadores ukanakan uñt’ayatawa</string>
+    <string name="quran_downloads_coverage_overall">Phuqat mushaf ukax recitadores ukanakan</string>
+    <string name="quran_downloads_coverage_empty">Janiw kuna audios jichhakamax apkatatäkiti</string>
+    <string name="quran_pause_notif_listener">Yatiyawinakan recitación samart’aña</string>
+    <string name="quran_reciter_changed_title">Reciter ukax mayjt’awayiwa</string>
+    <string name="quran_reciter_changed_message">Playback ukax sayt’atawa kunatix rango ukax Quran tukuykamaw t’ijti. %1$s ukampi wasitat qalltaña?</string>
+    <string name="quran_reciter_restart">Mayampi qalltaña</string>
+    <string name="quran_reciter_not_now">Janiw jichhajj ukhamäkiti</string>
 </resources>

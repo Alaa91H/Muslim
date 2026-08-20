@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Taturte</string>
     <string name="quran_recitation_notif_next">Ciggiilaak</string>
+    <string name="quran_download_playback_title">%1$s oobisak geytima</string>
+    <string name="quran_download_playback_detail">%1$s gural · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf amri</string>
+    <string name="quran_download_sort_completion">gaba kalti</string>
+    <string name="quran_downloads_coverage_title">Suurat alif takriye maral</string>
+    <string name="quran_downloads_coverage_overall">Kibnele mushaf takrayo</string>
+    <string name="quran_downloads_coverage_empty">Uxih xongolo oobisinna</string>
+    <string name="quran_pause_notif_listener">Maysaxxagal kawsiyyi soolis</string>
+    <string name="quran_reciter_changed_title">Kawse milaagimeh</string>
+    <string name="quran_reciter_changed_message">Qagitaak digir sooleh kah kinnim rakaakay Qur\'aanak ellecabo fan gexa. Qagitaak %1$s lih qimbis?</string>
+    <string name="quran_reciter_restart">Qagitak qimbis</string>
+    <string name="quran_reciter_not_now">Away hinna</string>
 </resources>

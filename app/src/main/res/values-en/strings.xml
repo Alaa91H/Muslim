@@ -11,6 +11,14 @@
 
     <!-- More hub entries -->
     <string name="more_settings">Settings</string>
+    <string name="more_quran_search">Search the Quran</string>
+    <string name="more_quran_search_desc">Find a word, how often it appears and where</string>
+    <string name="more_quran_frequency">Quran word frequency</string>
+    <string name="more_quran_frequency_desc">The most frequent words in the whole mushaf</string>
+    <string name="more_pause_on_notifications">Pause recitation on notifications</string>
+    <string name="more_pause_on_notifications_desc">Recitation pauses briefly when a notification, ring or other media plays</string>
+    <string name="more_pause_notifications_enabled">Enabled — tap to open system settings</string>
+    <string name="more_pause_notifications_disabled">Disabled — tap to enable</string>
     <string name="more_settings_desc">Theme, language, prayer &amp; adhan settings</string>
     <string name="more_hadith">Hadith</string>
     <string name="more_hadith_desc">Hadith library, search &amp; hadith of the day</string>

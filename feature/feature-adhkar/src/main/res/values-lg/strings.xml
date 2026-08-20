@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Ensengeka za Adhkar</string>
     <string name="adhkar_show_translation">Laga okuvvuunula</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Koppa</string>
+    <string name="adhkar_share">Gabanako</string>
+    <string name="adhkar_overlay_short_only">Kozesa adhkar ennyimpi yokka</string>
+    <string name="adhkar_overlay_short_only_desc">Londa adhkar ezituuka ku layini emu oba bbiri olwo ekiwujjo ekitengejja ne kisigala nga kitangaavu era nga kyangu okusoma.</string>
+    <string name="adhkar_overlay_tap_hint">Koona ku bubble okugigoba amangu ddala.</string>
 </resources>

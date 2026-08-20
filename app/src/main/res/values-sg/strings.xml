@@ -46,4 +46,12 @@
     <string name="crash_close">Fermé</string>
     <string name="crash_dismiss">Ngbâ ti sara ni .</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Gi na yâ ti Coran .</string>
+    <string name="more_quran_search_desc">Gi mbeni tënë, fani oke la a sigigi dä nga na ndo wa .</string>
+    <string name="more_quran_frequency">Coran tënë ti fréquence</string>
+    <string name="more_quran_frequency_desc">Atënë so ayeke si mingi na yâ ti mushaf ni kue .</string>
+    <string name="more_pause_on_notifications">Pause ti dikongo mbeti na ndo ti a-avis</string>
+    <string name="more_pause_on_notifications_desc">Dikongo ye ayeke luti kete na ngoi so mbeni notification, mbeni son wala mbeni ye nde ayeke toto .</string>
+    <string name="more_pause_notifications_enabled">A zi ni — pika ndo ti zi a-paramètre ti système ni .</string>
+    <string name="more_pause_notifications_disabled">A kanga lege na ni — pika ndo ti .</string>
 </resources>

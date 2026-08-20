@@ -46,14 +46,12 @@
     <string name="method_egyptian">הרשות הכללית המצרית לסקר</string>
     <string name="method_france">צרפת (UOIF)</string>
     <string name="method_isna">ISNA (צפון אמריקה)</string>
-    <string name="method_jafari">ג\'עפרי</string>
     <string name="method_karachi">האוניברסיטה למדעי האסלאם, קראצ\'י</string>
     <string name="method_kuwait">כווית</string>
     <string name="method_moonsighting">ועדת צפיית ירח</string>
     <string name="method_mwl">הליגה העולמית המוסלמית</string>
     <string name="method_qatar">קטאר</string>
     <string name="method_singapore">סינגפור</string>
-    <string name="method_tehran">מכון טהרן לגיאופיזיקה</string>
     <string name="method_turkey">דיאנט טורקיה</string>
     <string name="method_umm_al_qura">אום אל-קוראה (מכה)</string>
     <string name="next_adhan_elapsed">מאז אדהן: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">לא ניתן לחשב זמנים</string>
     <string name="widget_prayer_times_description">תפילה הבאה עם ספירה לאחור</string>
     <string name="widget_prayer_times_label">זמני תפילה</string>
+    <string name="settings_adhan_volume_vibrate">עוצמת קול %1$s · רטט %2$s</string>
+    <string name="settings_adhan_vibrate_on">פועל</string>
+    <string name="settings_adhan_vibrate_off">כבוי</string>
+    <string name="settings_preview_stop">עצור את התצוגה המקדימה</string>
+    <string name="settings_method_automatic">אוטומטי (לפי מיקום)</string>
+    <string name="settings_method_automatic_desc">האפליקציה בוחרת את השיטה המתאימה ביותר באופן אוטומטי בהתבסס על המדינה והמיקום שלך; אתה עדיין יכול לבחור שיטה ידנית בכל עת.</string>
+    <string name="settings_preview_for_prayer">תצוגה מקדימה של %1$s adhan</string>
 </resources>

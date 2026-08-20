@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Алдан иҫкә төшөрөгөҙ:</string>
     <string name="ramadan_suhoor_time">Сәхәр тамамлана (Фәжр): %1$s</string>
     <string name="ramadan_title">Рамаҙан .</string>
+    <string name="ramadan_notify_outside">Рамаҙандан тыш иҫкәртмәләр</string>
+    <string name="ramadan_notify_outside_desc">Рамаҙан айында ифтар һәм сәхәр тураһында иҫкәртмәләр автоматик рәүештә эшләй; был мөмкинлек бирә, уларҙы башҡа айҙарҙа ла йөрөтә.</string>
 </resources>

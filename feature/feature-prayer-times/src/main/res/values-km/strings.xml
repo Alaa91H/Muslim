@@ -46,14 +46,12 @@
     <string name="method_egyptian">អាជ្ញាធរ​ទូទៅ​អេហ្ស៊ីប​នៃ​ការ​អង្កេត</string>
     <string name="method_france">ប្រទេសបារាំង (UOIF)</string>
     <string name="method_isna">ISNA (អាមេរិកខាងជើង)</string>
-    <string name="method_jafari">ចាហ្វារី</string>
     <string name="method_karachi">សាកលវិទ្យាល័យវិទ្យាសាស្រ្តអ៊ីស្លាម ការ៉ាជី</string>
     <string name="method_kuwait">គុយវ៉ែត</string>
     <string name="method_moonsighting">គណៈកម្មាធិការមើលព្រះច័ន្ទ</string>
     <string name="method_mwl">សម្ព័ន្ធពិភពលោកមូស្លីម</string>
     <string name="method_qatar">កាតា</string>
     <string name="method_singapore">សិង្ហបុរី</string>
-    <string name="method_tehran">វិទ្យាស្ថានភូគព្ភសាស្ត្រ Tehran</string>
     <string name="method_turkey">ឌីយ៉ាណែត តួកគី</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">ចាប់តាំងពី Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">មិនអាចគណនាពេលវេលាបានទេ។</string>
     <string name="widget_prayer_times_description">ការអធិស្ឋានបន្ទាប់ជាមួយនឹងការរាប់ថយក្រោយ</string>
     <string name="widget_prayer_times_label">ពេលវេលាអធិស្ឋាន</string>
+    <string name="settings_adhan_volume_vibrate">កម្រិតសំឡេង %1$s · រំញ័រ %2$s</string>
+    <string name="settings_adhan_vibrate_on">បើក</string>
+    <string name="settings_adhan_vibrate_off">បិទ</string>
+    <string name="settings_preview_stop">បញ្ឈប់ការមើលជាមុន</string>
+    <string name="settings_method_automatic">ស្វ័យប្រវត្តិ (តាមទីតាំង)</string>
+    <string name="settings_method_automatic_desc">កម្មវិធីនេះជ្រើសរើសវិធីសាស្ត្រដែលសមស្របបំផុតដោយស្វ័យប្រវត្តិដោយផ្អែកលើប្រទេស និងទីតាំងរបស់អ្នក។ អ្នកនៅតែអាចជ្រើសរើសវិធីសាស្រ្តដោយដៃនៅពេលណាក៏បាន។</string>
+    <string name="settings_preview_for_prayer">មើលជាមុន %1$s adhan</string>
 </resources>

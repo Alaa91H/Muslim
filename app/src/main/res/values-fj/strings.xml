@@ -46,4 +46,12 @@
     <string name="crash_close">Voleka</string>
     <string name="crash_dismiss">Tomana tiko</string>
     <string name="more_order_hint">اضغط مع الاستمرار ena dua na قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Vakasaqara na Quran .</string>
+    <string name="more_quran_search_desc">Vaqara e dua na vosa, na kena dau basika kei na vanua .</string>
+    <string name="more_quran_frequency">Quran vosa vakawasoma</string>
+    <string name="more_quran_frequency_desc">Na vosa e dau vakayagataki vakalevu duadua ena mushaf taucoko .</string>
+    <string name="more_pause_on_notifications">Cegu na wiliwili ena veivakadeitaki</string>
+    <string name="more_pause_on_notifications_desc">Na wiliwili e cegu vakalekaleka ni sa vakatagitaki e dua na itukutuku, mama se so tale na itukutuku .</string>
+    <string name="more_pause_notifications_enabled">Vakatarai — tabaka me dolava na ituvatuva ni ivakarau .</string>
+    <string name="more_pause_notifications_disabled">Vakacacani — tabaka me rawa kina</string>
 </resources>

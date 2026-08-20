@@ -46,14 +46,12 @@
     <string name="method_egyptian">ઇજિપ્તીયન જનરલ ઓથોરિટી ઓફ સર્વે</string>
     <string name="method_france">ફ્રાન્સ (UOIF)</string>
     <string name="method_isna">ISNA (ઉત્તર અમેરિકા)</string>
-    <string name="method_jafari">જાફરી</string>
     <string name="method_karachi">ઇસ્લામિક સાયન્સ યુનિવર્સિટી, કરાચી</string>
     <string name="method_kuwait">કુવૈત</string>
     <string name="method_moonsighting">ચંદ્રદર્શન સમિતિ</string>
     <string name="method_mwl">મુસ્લિમ વર્લ્ડ લીગ</string>
     <string name="method_qatar">કતાર</string>
     <string name="method_singapore">સિંગાપુર</string>
-    <string name="method_tehran">તેહરાન ઇન્સ્ટિટ્યુટ ઑફ જીઓફિઝિક્સ</string>
     <string name="method_turkey">ડાયનેટ તુર્કી</string>
     <string name="method_umm_al_qura">ઉમ્મ અલ-કુરા (મક્કા)</string>
     <string name="next_adhan_elapsed">અધાનથી: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">સમયની ગણતરી કરવામાં અસમર્થ</string>
     <string name="widget_prayer_times_description">કાઉન્ટડાઉન સાથે આગામી પ્રાર્થના</string>
     <string name="widget_prayer_times_label">પ્રાર્થનાના સમય</string>
+    <string name="settings_adhan_volume_vibrate">વોલ્યુમ %1$s · કંપન %2$s</string>
+    <string name="settings_adhan_vibrate_on">ચાલુ</string>
+    <string name="settings_adhan_vibrate_off">બંધ</string>
+    <string name="settings_preview_stop">પૂર્વાવલોકન રોકો</string>
+    <string name="settings_method_automatic">સ્વચાલિત (સ્થાન દ્વારા)</string>
+    <string name="settings_method_automatic_desc">એપ્લિકેશન તમારા દેશ અને સ્થાનના આધારે આપમેળે સૌથી યોગ્ય પદ્ધતિ પસંદ કરે છે; તમે હજુ પણ કોઈપણ સમયે જાતે પદ્ધતિ પસંદ કરી શકો છો.</string>
+    <string name="settings_preview_for_prayer">પૂર્વાવલોકન %1$s અધાન</string>
 </resources>

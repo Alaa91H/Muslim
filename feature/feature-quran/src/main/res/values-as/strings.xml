@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">পূৰ্বৰ</string>
     <string name="quran_recitation_notif_next">ইয়াৰ পিছত</string>
+    <string name="quran_download_playback_title">ডাউনলোড কৰা হৈছে %1$s</string>
+    <string name="quran_download_playback_detail">%1$s বাওঁফালে · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">মুছাফৰ আদেশ</string>
+    <string name="quran_download_sort_completion">সম্পূৰ্ণ কৰি</string>
+    <string name="quran_downloads_coverage_title">আবৃত্তিকাৰীৰ মাজত চুৰাৰ কভাৰেজ</string>
+    <string name="quran_downloads_coverage_overall">আবৃত্তিকাৰৰ মাজেৰে সম্পূৰ্ণ মুছাফ</string>
+    <string name="quran_downloads_coverage_empty">এতিয়াও কোনো অডিঅ\' ডাউনলোড কৰা হোৱা নাই</string>
+    <string name="quran_pause_notif_listener">অধিসূচনাৰ ওপৰত আবৃত্তি বন্ধ কৰক</string>
+    <string name="quran_reciter_changed_title">আবৃত্তিকাৰী সলনি হ’ল</string>
+    <string name="quran_reciter_changed_message">প্লেবেক বন্ধ হৈ গ’ল কাৰণ ৰেঞ্জ কোৰআনৰ শেষলৈকে চলি থাকে। %1$s ৰ সৈতে পুনৰ আৰম্ভ কৰক?</string>
+    <string name="quran_reciter_restart">আকৌ আৰম্ভ কৰক</string>
+    <string name="quran_reciter_not_now">এতিয়া নহয়</string>
 </resources>

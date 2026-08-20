@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egyptyske Algemiene Autoriteit fan Survey</string>
     <string name="method_france">Frankryk (UOIF)</string>
     <string name="method_isna">ISNA (Noard-Amearika)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Universiteit fan Islamityske Wittenskippen, Karachi</string>
     <string name="method_kuwait">Koeweit</string>
     <string name="method_moonsighting">Moonsighting Komitee</string>
     <string name="method_mwl">Muslim World League</string>
     <string name="method_qatar">Katar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Teheran Institute of Geophysics</string>
     <string name="method_turkey">Diyanet Turkije</string>
     <string name="method_umm_al_qura">Umm al-Kora (Makkah)</string>
     <string name="next_adhan_elapsed">Sûnt Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Koe net berekkenje tiden</string>
     <string name="widget_prayer_times_description">Folgjende gebed mei countdown</string>
     <string name="widget_prayer_times_label">Gebedstiden</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Vibraasje %2$s</string>
+    <string name="settings_adhan_vibrate_on">Oan</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Stopje foarbyld</string>
+    <string name="settings_method_automatic">Automatysk (troch lokaasje)</string>
+    <string name="settings_method_automatic_desc">De app kiest de meast geskikte metoade automatysk op basis fan jo lân en lokaasje; jo kinne noch altyd in metoade manuell kieze.</string>
+    <string name="settings_preview_for_prayer">Foarbyld %1$s adhan</string>
 </resources>

@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Naha</string>
     <string name="offline_maps_tab_custom">Sebaka sa moetlo</string>
     <string name="offline_maps_download">Khoasolla</string>
-    <string name="offline_maps_custom_hint">Tlanya \'mapa ho khetha setsi, ebe u khoasolla sebaka se se potileng.</string>
+    <string name="offline_maps_custom_hint">Tsamaisa \'mapa ho theha sebaka seo u se batlang; foreime e nchafatsa ka bo eona. Fetola bophara ka selaete.</string>
     <string name="offline_maps_custom_name">Lebitso la sebaka</string>
-    <string name="offline_maps_custom_tap">Tlanya \'mapa ho khetha setsi</string>
+    <string name="offline_maps_custom_tap">Tsamaisa \'mapa ho khetha sebaka</string>
     <string name="offline_maps_custom_default_name">Sebaka sa moetlo</string>
     <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
     <string name="offline_maps_downloading">E khoasolla %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Atometsa</string>
     <string name="mosque_finder_zoom_out">Atolosa</string>
     <string name="mosque_finder_nearest">Mamosleme a haufi</string>
+    <string name="mosque_finder_go_to">E-ea ho eona</string>
+    <string name="mosque_finder_find_nearest">Fumana mosque e haufi</string>
+    <string name="mosque_finder_expanding">E batla ka hare ho %1$s...</string>
+    <string name="offline_maps_custom_width">Bophara ba sebaka (degrees)</string>
+    <string name="offline_maps_storage_warning">Polokelo e tlase - ke %1$s feela mahala</string>
+    <string name="offline_maps_storage_delete_largest">Hlakola sebaka se seholo ka ho fetisisa (%1$s · %2$s)</string>
 </resources>

@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Atunuu</string>
     <string name="offline_maps_tab_custom">Nofoaga fa\'aleaganu\'u</string>
     <string name="offline_maps_download">La\'u mai</string>
-    <string name="offline_maps_custom_hint">Oomi le faafanua e filifili ai le ogatotonu, ona sii mai lea o le vaega o loo siomia ai.</string>
+    <string name="offline_maps_custom_hint">Fa\'asolo ma fa\'asolo le fa\'afanua e fa\'avaa ai le vaega e te mana\'o ai; e otometi ona fa\'afouina le fa\'avaa. Fetuuna\'i le lautele i le fa\'ase\'e.</string>
     <string name="offline_maps_custom_name">Igoa o le eria</string>
-    <string name="offline_maps_custom_tap">Oomi le faafanua e filifili ai le ogatotonu</string>
+    <string name="offline_maps_custom_tap">Fa\'asolo le fa\'afanua e filifili ai le eria</string>
     <string name="offline_maps_custom_default_name">Nofoaga fa\'aleaganu\'u</string>
     <string name="offline_maps_summary_body">%1$d o %2$d vaega ua mae\'a · %3$s na sii mai</string>
     <string name="offline_maps_downloading">La\'uina %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Sa\'o i totonu</string>
     <string name="mosque_finder_zoom_out">Fa\'ate\'a ese</string>
     <string name="mosque_finder_nearest">Faletapuai lata ane</string>
+    <string name="mosque_finder_go_to">Alu i ai</string>
+    <string name="mosque_finder_find_nearest">Su\'e faletapuai lata ane</string>
+    <string name="mosque_finder_expanding">Su\'e i totonu %1$s...</string>
+    <string name="offline_maps_custom_width">Lautele o le eria (tikeri)</string>
+    <string name="offline_maps_storage_warning">E maualalo le teuina - na\'o %1$s fua</string>
+    <string name="offline_maps_storage_delete_largest">Ave\'ese le itulagi tele (%1$s · %2$s)</string>
 </resources>

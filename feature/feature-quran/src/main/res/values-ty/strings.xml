@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Na mua \' tu</string>
     <string name="quran_recitation_notif_next">I muri iho</string>
+    <string name="quran_download_playback_title">Te titau-manihini-raa %1$s</string>
+    <string name="quran_download_playback_detail">%1$s aui · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Faaueraa a Mushaf</string>
+    <string name="quran_download_sort_completion">I te hopea</string>
+    <string name="quran_downloads_coverage_title">Te mau faaiteraa no ni\'a i te Surah</string>
+    <string name="quran_downloads_coverage_overall">Mushaf taatoa i roto i te mau reciter</string>
+    <string name="quran_downloads_coverage_empty">Aita â e faaroo i downloadhia</string>
+    <string name="quran_pause_notif_listener">A tapea i te taioraa i te mau faaararaa</string>
+    <string name="quran_reciter_changed_title">Ua tauihia te taata tai\'o</string>
+    <string name="quran_reciter_changed_message">Ua tapeahia te hautiraa no te mea e tae roa \' tu te faito i te hopea o te Quran. Tīmata faahou na roto i te %1$s?</string>
+    <string name="quran_reciter_restart">Haamata faahou</string>
+    <string name="quran_reciter_not_now">Aita i teie nei</string>
 </resources>

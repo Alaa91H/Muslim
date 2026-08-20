@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">ቀዳሚ</string>
     <string name="quran_recitation_notif_next">ቀጥሎ</string>
+    <string name="quran_download_playback_title">Downloading %1$s</string>
+    <string name="quran_download_playback_detail">%1$s left · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">የሙስሓፍ ትዕዛዝ</string>
+    <string name="quran_download_sort_completion">በማጠናቀቅ</string>
+    <string name="quran_downloads_coverage_title">የሱራ ሽፋን በሁሉም አንባቢዎች ላይ</string>
+    <string name="quran_downloads_coverage_overall">ሙሉ ሙሻፍ በአንባቢዎች ላይ</string>
+    <string name="quran_downloads_coverage_empty">እስካሁን ምንም ኦዲዮ አልወረደም።</string>
+    <string name="quran_pause_notif_listener">በማሳወቂያዎች ላይ ማንበብን ለአፍታ ያቁሙ</string>
+    <string name="quran_reciter_changed_title">ሪሲተር ተለውጧል</string>
+    <string name="quran_reciter_changed_message">Playback stopped because the range runs to the end of the Quran. Start again with %1$s?</string>
+    <string name="quran_reciter_restart">እንደገና ጀምር</string>
+    <string name="quran_reciter_not_now">አሁን አይደለም</string>
 </resources>

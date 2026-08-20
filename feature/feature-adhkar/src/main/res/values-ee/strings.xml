@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar ƒe ɖoɖowo</string>
     <string name="adhkar_show_translation">Fia gbegɔmeɖeɖe</string>
     <string name="adhkar_title">Adhkar ƒe nya</string>
+    <string name="adhkar_copy">Kpɔ eƒe kɔpi</string>
+    <string name="adhkar_share">Mamã</string>
+    <string name="adhkar_overlay_short_only">Zã adhkar kpuiwo ɖeɖeko</string>
+    <string name="adhkar_overlay_short_only_desc">Tia adhkar siwo sɔ ɖe fli ɖeka alo eve nu ale be kuɖɔ si le tsia dzi la nakɔ eye wòaxlẽ bɔbɔe.</string>
+    <string name="adhkar_overlay_tap_hint">Zi bubble la dzi be nàɖee ɖa enumake.</string>
 </resources>

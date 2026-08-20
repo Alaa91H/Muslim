@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Dabe ti mbi kozoni:</string>
     <string name="ramadan_suhoor_time">Suhour ahunzi (fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">A dabe ti ita ti Ramadan .</string>
+    <string name="ramadan_notify_outside_desc">A-alerte ti Iftar na ti suhoor ayeke sala kusala gi tongaso na ngoi ti Ramadan; ti mû lege na ye so ayeke sala si ala ngbâ ti sala kusala na yâ ti ambeni nze nde.</string>
 </resources>

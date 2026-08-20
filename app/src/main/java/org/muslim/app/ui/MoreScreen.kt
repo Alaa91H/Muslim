@@ -18,12 +18,15 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.AutoStories
+import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Calculate
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.NightsStay
+import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.School
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
@@ -39,17 +42,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import org.muslim.app.R
+import org.muslim.app.feature.quran.data.RecitationPauseController
 
 private data class MoreEntry(
     val titleRes: Int,
     val subtitleRes: Int,
     val icon: ImageVector,
     val onClick: () -> Unit,
+    /** Optional dynamic subtitle (e.g. a permission status) replacing [subtitleRes]. */
+    val subtitleText: String? = null,
 )
 
 private data class MoreSection(
@@ -79,12 +86,16 @@ fun MoreScreen(
     onOpenReference: () -> Unit,
     onOpenDownloads: () -> Unit,
     modifier: Modifier = Modifier,
+    onOpenQuranSearch: () -> Unit = {},
+    onOpenQuranFrequency: () -> Unit = {},
+    onOpenNotificationListenerSettings: () -> Unit = {},
     onOpenOfflineMaps: () -> Unit = {},
     /** User-customized section order (ids from [org.muslim.app.core.datastore.AppPreferences]). */
     sectionOrder: List<String> = org.muslim.app.core.datastore.AppPreferences.DEFAULT_MORE_SECTION_ORDER,
     /** Sections the user chose to hide (ids from [org.muslim.app.core.datastore.AppPreferences]). */
     hiddenSections: Set<String> = emptySet(),
 ) {
+    val context = LocalContext.current
     val sectionsById = mapOf(
         org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_WORSHIP to MoreSection(
             org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_WORSHIP,
@@ -102,6 +113,8 @@ fun MoreScreen(
                 MoreEntry(R.string.more_hadith, R.string.more_hadith_desc, Icons.AutoMirrored.Filled.MenuBook, onOpenHadith),
                 MoreEntry(R.string.more_learn, R.string.more_learn_desc, Icons.Filled.School, onOpenLearn),
                 MoreEntry(R.string.more_reference, R.string.more_reference_desc, Icons.Filled.Star, onOpenReference),
+                MoreEntry(R.string.more_quran_search, R.string.more_quran_search_desc, Icons.Filled.Search, onOpenQuranSearch),
+                MoreEntry(R.string.more_quran_frequency, R.string.more_quran_frequency_desc, Icons.Filled.BarChart, onOpenQuranFrequency),
             ),
         ),
         org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_TOOLS to MoreSection(
@@ -118,6 +131,13 @@ fun MoreScreen(
             R.string.more_section_app,
             listOf(
                 MoreEntry(R.string.more_settings, R.string.more_settings_desc, Icons.Filled.Settings, onOpenSettings),
+                MoreEntry(
+                    R.string.more_pause_on_notifications,
+                    R.string.more_pause_on_notifications_desc,
+                    Icons.Filled.NotificationsActive,
+                    onOpenNotificationListenerSettings,
+                    subtitleText = listenerStatus(context),
+                ),
             ),
         ),
     )
@@ -151,6 +171,16 @@ fun MoreScreen(
         }
     }
 }
+
+/** "Notification access granted?" status line for the pause-on-notifications row. */
+@Composable
+private fun listenerStatus(context: android.content.Context): String = stringResource(
+    if (RecitationPauseController.isListenerGranted(context)) {
+        R.string.more_pause_notifications_enabled
+    } else {
+        R.string.more_pause_notifications_disabled
+    },
+)
 
 @Composable
 private fun MoreCard(entry: MoreEntry) {
@@ -187,7 +217,7 @@ private fun MoreCard(entry: MoreEntry) {
                     overflow = TextOverflow.Ellipsis,
                 )
                 Text(
-                    text = stringResource(entry.subtitleRes),
+                    text = entry.subtitleText ?: stringResource(entry.subtitleRes),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,

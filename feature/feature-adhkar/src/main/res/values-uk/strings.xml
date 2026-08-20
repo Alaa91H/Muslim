@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Налаштування Adhkar</string>
     <string name="adhkar_show_translation">Показати переклад</string>
     <string name="adhkar_title">Адкар</string>
+    <string name="adhkar_copy">Копія</string>
+    <string name="adhkar_share">Поділіться</string>
+    <string name="adhkar_overlay_short_only">Використовуйте лише короткий adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Виберіть адхкар, який містить один або два рядки, щоб плаваюча підказка залишалася чіткою та легкою для читання.</string>
+    <string name="adhkar_overlay_tap_hint">Торкніться бульбашки, щоб негайно її закрити.</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Iisetingi ze-Adhkar</string>
     <string name="adhkar_show_translation">Bonisa inguqulelo</string>
     <string name="adhkar_title">I-Adhkar</string>
+    <string name="adhkar_copy">Khuphela</string>
+    <string name="adhkar_share">Yabelana</string>
+    <string name="adhkar_overlay_short_only">Sebenzisa i-adhkar emfutshane kuphela</string>
+    <string name="adhkar_overlay_short_only_desc">Khetha i-adhkar elingana nomgca omnye okanye emibini ukuze iqamza elidadayo lihlale licacile kwaye kulula ukulifunda.</string>
+    <string name="adhkar_overlay_tap_hint">Cofa iqamza ukuze uligxothe ngoko nangoko.</string>
 </resources>

@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">A baya</string>
     <string name="quran_recitation_notif_next">Na gaba</string>
+    <string name="quran_download_playback_title">Downloading %1$s</string>
+    <string name="quran_download_playback_detail">%1$s left · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Musxaf order</string>
+    <string name="quran_download_sort_completion">Ta hanyar kammalawa</string>
+    <string name="quran_downloads_coverage_title">Tafsirin sura a fadin masu karantawa</string>
+    <string name="quran_downloads_coverage_overall">Cikakken mushaf a fadin masu karatu</string>
+    <string name="quran_downloads_coverage_empty">Har yanzu ba a sauke odiyo ba</string>
+    <string name="quran_pause_notif_listener">Dakatar da karatun akan sanarwa</string>
+    <string name="quran_reciter_changed_title">Mai karatu ya canza</string>
+    <string name="quran_reciter_changed_message">Playback stopped because the range runs to the end of the Quran. Start again with %1$s?</string>
+    <string name="quran_reciter_restart">Fara sake</string>
+    <string name="quran_reciter_not_now">Ba yanzu ba</string>
 </resources>

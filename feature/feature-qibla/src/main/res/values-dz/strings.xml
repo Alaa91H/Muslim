@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">རྒྱལ་ཁབ།</string>
     <string name="offline_maps_tab_custom">རང་ལུགས་ས་ཁོངས།</string>
     <string name="offline_maps_download">ཕབ་ལེན།</string>
-    <string name="offline_maps_custom_hint">ལྟེ་བ་འཐུ་ནིའི་དོན་ལུ་ སབ་ཁྲ་འདི་ཨེབ་གཏང་འབད་ཞིནམ་ལས་ དེ་གི་མཐའ་འཁོར་གྱི་ས་ཁོངས་འདི་ཕབ་ལེན་འབད།</string>
+    <string name="offline_maps_custom_hint">ཁྱོད་ལུ་དགོ་པའི་ས་ཁོངས་འདི་གཞི་ཁྲམ་བཟོ་ནི་ལུ་ སབ་ཁྲ་འདི་པེན་དང་རྒྱས་ཟུམ། གཞི་ཁྲམ་འདི་རང་བཞིན་གྱིས་དུས་མཐུན་བཟོཝ་ཨིན། བཤུད་ཕྲ་དང་གཅིག་ཁར་རྒྱ་ཚད་བདེ་སྒྲིག་འབད།</string>
     <string name="offline_maps_custom_name">ས་ཁོངས་ཀྱི་མིང་།</string>
-    <string name="offline_maps_custom_tap">ལྟེ་བ་སེལ་འཐུ་འབད་ནི་ལུ་ ས་ཁྲ་འདི་ཨེབ་གཏང་།</string>
+    <string name="offline_maps_custom_tap">མངའ་ཁོངས་སེལ་འཐུ་འབད་ནིའི་དོན་ལུ་ས་ཁྲ་སྤོ་བཤུད་འབད།</string>
     <string name="offline_maps_custom_default_name">རང་ལུགས་ས་ཁོངས།</string>
     <string name="offline_maps_summary_body">%1$d གི་ %2$d ས་ཁོངས་ཡོངས་རྫོགས་ · %3$s ཕབ་ལེན་བྱས།</string>
     <string name="offline_maps_downloading">%1$s... %2$d%% ཕབ་ལེན་འབད་དོ།</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">ཆེར་བསྐྱེད་འབད།</string>
     <string name="mosque_finder_zoom_out">རྒྱས་ཟུམ།</string>
     <string name="mosque_finder_nearest">ཁ་ཆེའི་ལྷ་ཁང་ཉེ་ཤོས།</string>
+    <string name="mosque_finder_go_to">དེ་ལུ་འགྱོ།</string>
+    <string name="mosque_finder_find_nearest">ཉེ་འདབས་ཀྱི་ཁ་ཆེའི་ལྷ་ཁང་འཚོལ།</string>
+    <string name="mosque_finder_expanding">%1$s ནང་འཁོད་འཚོལ་ཞིབ་འབད་དོ།...</string>
+    <string name="offline_maps_custom_width">ས་ཁོངས་རྒྱ་ཚད་ (ཁུག་ཚད་)</string>
+    <string name="offline_maps_storage_warning">གསོག་འཇོག་དམའ་བ་ — %1$s རྐྱངམ་གཅིག་རིན་མེད།</string>
+    <string name="offline_maps_storage_delete_largest">Delete largest region (%1$s · %2$s)</string>
 </resources>

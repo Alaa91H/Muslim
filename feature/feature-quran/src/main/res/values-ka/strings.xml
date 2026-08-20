@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">წინა</string>
     <string name="quran_recitation_notif_next">შემდეგი</string>
+    <string name="quran_download_playback_title">მიმდინარეობს %1$s ჩამოტვირთვა</string>
+    <string name="quran_download_playback_detail">დარჩა %1$s · %2$s/წმ</string>
+    <string name="quran_download_sort_mushaf">მუშაფის შეკვეთა</string>
+    <string name="quran_download_sort_completion">დასრულებით</string>
+    <string name="quran_downloads_coverage_title">სურას გაშუქება წამკითხავებში</string>
+    <string name="quran_downloads_coverage_overall">სრული მუშაფი დეკლარატორების გასწვრივ</string>
+    <string name="quran_downloads_coverage_empty">აუდიო ჯერ არ არის ჩამოტვირთული</string>
+    <string name="quran_pause_notif_listener">შეტყობინებების გამოთქმის შეჩერება</string>
+    <string name="quran_reciter_changed_title">მომღერალი შეიცვალა</string>
+    <string name="quran_reciter_changed_message">დაკვრა შეწყდა, რადგან დიაპაზონი გადის ყურანის ბოლომდე. თავიდან დავიწყოთ %1$s-ით?</string>
+    <string name="quran_reciter_restart">თავიდან დაიწყე</string>
+    <string name="quran_reciter_not_now">ახლა არა</string>
 </resources>

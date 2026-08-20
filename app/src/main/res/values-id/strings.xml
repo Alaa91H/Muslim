@@ -46,4 +46,12 @@
     <string name="crash_close">Tutup</string>
     <string name="crash_dismiss">Lanjutkan</string>
     <string name="more_order_hint">Peralatan Rumah Tangga yang Dapat Digunakan Kembali إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Cari Alquran</string>
+    <string name="more_quran_search_desc">Temukan sebuah kata, seberapa sering kata itu muncul dan di mana</string>
+    <string name="more_quran_frequency">Frekuensi kata Alquran</string>
+    <string name="more_quran_frequency_desc">Kata-kata yang paling sering muncul di seluruh mushaf</string>
+    <string name="more_pause_on_notifications">Jeda pembacaan pada notifikasi</string>
+    <string name="more_pause_on_notifications_desc">Pengajian dijeda sebentar saat ada notifikasi, dering, atau media lain diputar</string>
+    <string name="more_pause_notifications_enabled">Diaktifkan — ketuk untuk membuka pengaturan sistem</string>
+    <string name="more_pause_notifications_disabled">Dinonaktifkan — ketuk untuk mengaktifkan</string>
 </resources>

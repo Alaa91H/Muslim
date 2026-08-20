@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Atgādināt man iepriekš:</string>
     <string name="ramadan_suhoor_time">Suhoor gali (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadāns</string>
+    <string name="ramadan_notify_outside">Atgādinājumi ārpus Ramadāna</string>
+    <string name="ramadan_notify_outside_desc">Iftar un suhoor brīdinājumi tiek rādīti automātiski Ramadāna laikā; to iespējojot, viņi turpina darboties citos mēnešos.</string>
 </resources>

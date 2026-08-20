@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">దేశం</string>
     <string name="offline_maps_tab_custom">అనుకూల ప్రాంతం</string>
     <string name="offline_maps_download">డౌన్‌లోడ్ చేయండి</string>
-    <string name="offline_maps_custom_hint">కేంద్రాన్ని ఎంచుకోవడానికి మ్యాప్‌ను నొక్కండి, ఆపై దాని చుట్టూ ఉన్న ప్రాంతాన్ని డౌన్‌లోడ్ చేయండి.</string>
+    <string name="offline_maps_custom_hint">మీకు కావలసిన ప్రాంతాన్ని ఫ్రేమ్ చేయడానికి మ్యాప్‌ను ప్యాన్ చేయండి మరియు జూమ్ చేయండి; ఫ్రేమ్ స్వయంచాలకంగా నవీకరించబడుతుంది. స్లయిడర్‌తో వెడల్పును సర్దుబాటు చేయండి.</string>
     <string name="offline_maps_custom_name">ప్రాంతం పేరు</string>
-    <string name="offline_maps_custom_tap">మధ్యలో ఎంచుకోవడానికి మ్యాప్‌ను నొక్కండి</string>
+    <string name="offline_maps_custom_tap">ప్రాంతాన్ని ఎంచుకోవడానికి మ్యాప్‌ని తరలించండి</string>
     <string name="offline_maps_custom_default_name">అనుకూల ప్రాంతం</string>
     <string name="offline_maps_summary_body">%2$d ప్రాంతాలలో %1$d పూర్తయింది · %3$s డౌన్‌లోడ్ చేయబడింది</string>
     <string name="offline_maps_downloading">డౌన్‌లోడ్ చేస్తోంది %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">జూమ్ ఇన్ చేయండి</string>
     <string name="mosque_finder_zoom_out">జూమ్ అవుట్ చేయండి</string>
     <string name="mosque_finder_nearest">సమీప మసీదు</string>
+    <string name="mosque_finder_go_to">దానికి వెళ్ళు</string>
+    <string name="mosque_finder_find_nearest">సమీప మసీదును కనుగొనండి</string>
+    <string name="mosque_finder_expanding">%1$sలో వెతుకుతోంది…</string>
+    <string name="offline_maps_custom_width">ప్రాంతం వెడల్పు (డిగ్రీలు)</string>
+    <string name="offline_maps_storage_warning">తక్కువ నిల్వ — %1$s మాత్రమే ఉచితం</string>
+    <string name="offline_maps_storage_delete_largest">అతిపెద్ద ప్రాంతాన్ని తొలగించండి (%1$s · %2$s)</string>
 </resources>

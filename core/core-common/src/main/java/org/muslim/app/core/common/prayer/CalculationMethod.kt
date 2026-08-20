@@ -44,12 +44,6 @@ enum class CalculationMethod {
     /** ديانت تركيا — Fajr 18°, Isha 17°. */
     Turkey,
 
-    /** معهد الجيوفيزياء بطهران — Fajr 17.7°, Isha 14°, Maghrib angle 4.5°. */
-    Tehran,
-
-    /** الجعفري (الشيعة الاثنا عشرية) — Fajr 16°, Isha 14°, Maghrib angle 4°. */
-    Jafari,
-
     /** فرنسا (UOIF) — Fajr 18°, Isha 17°. */
     France,
 
@@ -78,8 +72,9 @@ enum class CalculationMethod {
                 listOf("Qatar", "قطر").any { r.contains(it, ignoreCase = true) } -> Qatar
                 listOf("Kuwait", "الكويت").any { r.contains(it, ignoreCase = true) } -> Kuwait
                 listOf("Singapore", "سنغافورة", "Malaysia", "ماليزيا", "Indonesia", "إندونيسيا").any { r.contains(it, ignoreCase = true) } -> Singapore
-                listOf("Iran", "إيران").any { r.contains(it, ignoreCase = true) } -> Tehran
                 listOf("UK", "بريطانيا", "Britain", "United Kingdom", "Germany", "ألمانيا", "Europe", "أوروبا").any { r.contains(it, ignoreCase = true) } -> MuslimWorldLeague
+                // Non-Sunni institutes were deliberately removed from the
+                // app; Iran falls back to the global Sunni default.
                 else -> MuslimWorldLeague
             }
         }
@@ -189,18 +184,6 @@ data class PrayerParameters(
                 method = method, fajrAngle = 18.0, ishaAngle = 17.0, ishaMinutes = 0,
                 maghribAngle = null, maghribMinutes = 0, dhuhrMinutes = 0,
                 methodAdjustments = PrayerAdjustments(sunrise = -7, dhuhr = 5, asr = 4, maghrib = 7),
-                highLatitudeRule = null, roundUp = false,
-            )
-            CalculationMethod.Tehran -> PrayerParameters(
-                method = method, fajrAngle = 17.7, ishaAngle = 14.0, ishaMinutes = 0,
-                maghribAngle = 4.5, maghribMinutes = 0, dhuhrMinutes = 0,
-                methodAdjustments = PrayerAdjustments(),
-                highLatitudeRule = null, roundUp = false,
-            )
-            CalculationMethod.Jafari -> PrayerParameters(
-                method = method, fajrAngle = 16.0, ishaAngle = 14.0, ishaMinutes = 0,
-                maghribAngle = 4.0, maghribMinutes = 0, dhuhrMinutes = 0,
-                methodAdjustments = PrayerAdjustments(),
                 highLatitudeRule = null, roundUp = false,
             )
             CalculationMethod.France -> PrayerParameters(

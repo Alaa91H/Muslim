@@ -40,16 +40,43 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 appContext.notificationAllowed(NotificationCategory.Adhan)
             ) {
                 val soundPath = entryPoint.soundRepository().customSoundFile(prayer)?.absolutePath
-                AdhanPlaybackService.start(
-                    context = appContext,
-                    prayer = prayer,
-                    vibrate = settings.vibrateFor(prayer),
-                    soundOption = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
-                    volumePercent = settings.adhanVolumeFor(prayer),
-                    soundPath = soundPath,
-                    bundledSoundId = settings.bundledAdhanSounds[prayer]
-                        ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID,
-                )
+                val bundledSoundId = settings.bundledAdhanSounds[prayer]
+                    ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID
+                val option = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default
+                val vibrate = settings.vibrateFor(prayer)
+                val volume = settings.adhanVolumeFor(prayer)
+                // Prefer the foreground service (keeps ringing in the
+                // background); Android 12+ may block starting it from an
+                // alarm, so fall back to in-process playback — the adhan
+                // must never be missed.
+                val started = runCatching {
+                    AdhanPlaybackService.start(
+                        context = appContext,
+                        prayer = prayer,
+                        vibrate = vibrate,
+                        soundOption = option,
+                        volumePercent = volume,
+                        soundPath = soundPath,
+                        bundledSoundId = bundledSoundId,
+                    )
+                }.isSuccess
+                if (!started) {
+                    val plan = org.muslim.app.core.common.prayer.AdhanPlaybackPlan.plan(
+                        option = option,
+                        hasBundledSound = true,
+                        vibrationEnabled = vibrate,
+                    )
+                    val player = entryPoint.soundPlayer()
+                    when {
+                        plan.playSound && soundPath != null &&
+                            java.io.File(soundPath).exists() ->
+                            player.playFile(java.io.File(soundPath), volume) {}
+                        plan.playSound -> player.playBundled(
+                            org.muslim.app.core.common.prayer.BundledAdhanSound.fromId(bundledSoundId),
+                            volume,
+                        ) {}
+                    }
+                }
                 // Quiet notifications during the prayer (user-configurable).
                 if (settings.dndEnabled) {
                     entryPoint.dndManager().enable(settings.dndDurationMinutes)

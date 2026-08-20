@@ -46,14 +46,12 @@
     <string name="method_egyptian">मिस्र के सर्वेक्षण के जनरल अथॉरिटी के ह</string>
     <string name="method_france">फ्रांस (यूओआईएफ) के बा।</string>
     <string name="method_isna">इसना (उत्तर अमेरिका) के बा।</string>
-    <string name="method_jafari">जफरी के बा</string>
     <string name="method_karachi">इस्लामिक साइंसेज विश्वविद्यालय, कराची के ह</string>
     <string name="method_kuwait">कुवैत में भइल</string>
     <string name="method_moonsighting">चंद्रमा के देखल समिति के ह</string>
     <string name="method_mwl">मुस्लिम वर्ल्ड लीग के ह</string>
     <string name="method_qatar">कतर के ह</string>
     <string name="method_singapore">सिंगापुर के ह</string>
-    <string name="method_tehran">तेहरान भूभौतिकी संस्थान के ह</string>
     <string name="method_turkey">दियानेट तुर्की के ह</string>
     <string name="method_umm_al_qura">उम्म अल-कुरा (मक्का) के बा।</string>
     <string name="next_adhan_elapsed">जब से आधान : %1$s के बा</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">समय के गणना करे में असमर्थ</string>
     <string name="widget_prayer_times_description">उलटी गिनती के साथ अगिला प्रार्थना</string>
     <string name="widget_prayer_times_label">प्रार्थना के समय होला</string>
+    <string name="settings_adhan_volume_vibrate">वॉल्यूम %1$s · कंपन %2$s के बा।</string>
+    <string name="settings_adhan_vibrate_on">पर बा</string>
+    <string name="settings_adhan_vibrate_off">बंद बा</string>
+    <string name="settings_preview_stop">पूर्वावलोकन बंद कर दिहल जाव</string>
+    <string name="settings_method_automatic">स्वचालित (स्थान के हिसाब से)</string>
+    <string name="settings_method_automatic_desc">ऐप आपके देश अवुरी स्थान के आधार प स्वचालित रूप से सबसे उपयुक्त तरीका चुनेला; रउआँ अबहियों कबो भी मैन्युअल रूप से कवनो तरीका चुन सकत बानी।</string>
+    <string name="settings_preview_for_prayer">पूर्वावलोकन %1$s अधान के बा</string>
 </resources>

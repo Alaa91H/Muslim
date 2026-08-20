@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Ρυθμίσεις Adhkar</string>
     <string name="adhkar_show_translation">Εμφάνιση μετάφρασης</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Αντιγραφή</string>
+    <string name="adhkar_share">Κοινή χρήση</string>
+    <string name="adhkar_overlay_short_only">Χρησιμοποιήστε μόνο σύντομο adkar</string>
+    <string name="adhkar_overlay_short_only_desc">Επιλέξτε adhkar που ταιριάζει σε μία ή δύο γραμμές, ώστε η αιωρούμενη φυσαλίδα να παραμένει καθαρή και ευανάγνωστη.</string>
+    <string name="adhkar_overlay_tap_hint">Πατήστε το συννεφάκι για να το απορρίψετε αμέσως.</string>
 </resources>

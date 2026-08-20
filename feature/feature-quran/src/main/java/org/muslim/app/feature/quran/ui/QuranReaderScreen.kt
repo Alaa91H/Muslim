@@ -241,6 +241,9 @@ fun QuranReaderScreen(
     val positionMs by viewModel.positionMs.collectAsStateWithLifecycle()
     val durationMs by viewModel.durationMs.collectAsStateWithLifecycle()
     val selectedReciter by viewModel.selectedReciter.collectAsStateWithLifecycle()
+    val reciterRestartPending by viewModel.reciterRestartPending.collectAsStateWithLifecycle()
+    val downloading by viewModel.downloading.collectAsStateWithLifecycle()
+    val downloadProgress by viewModel.downloadProgress.collectAsStateWithLifecycle()
     val keepScreenOn by viewModel.keepScreenOn.collectAsStateWithLifecycle()
 
     // Keep the screen lit while the mushaf reader is open (and therefore
@@ -352,10 +355,18 @@ fun QuranReaderScreen(
 
     // Scroll to the requested ayah (from search/bookmarks/resume) once loaded.
     var scrolledToInitial by remember { mutableStateOf(false) }
+    // When opening with a target ayah, highlight it and center it vertically
+    // in the viewport (not just bring its page into view). Cleared after the
+    // one-shot centering so normal follow-along takes over.
+    var centerInitialAyah by remember { mutableStateOf(viewModel.initialAyahGlobal > 0) }
+    // The ayah to tint on open (search/bookmark/resume). Separate from
+    // currentAyah because the pager-tracking collector owns that value.
+    var openedTargetGlobal by remember { mutableStateOf<Int?>(null) }
     LaunchedEffect(pageEntries, isWide) {
         if (scrolledToInitial || pageEntries.isEmpty()) return@LaunchedEffect
-        val pageIndex = if (viewModel.initialAyahGlobal > 0) {
-            pageEntries.indexOfFirst { (_, ayahs) -> ayahs.any { it.globalNumber == viewModel.initialAyahGlobal } }
+        val targetGlobal = viewModel.initialAyahGlobal
+        val pageIndex = if (targetGlobal > 0) {
+            pageEntries.indexOfFirst { (_, ayahs) -> ayahs.any { it.globalNumber == targetGlobal } }
         } else {
             -1
         }
@@ -364,15 +375,29 @@ fun QuranReaderScreen(
         } else {
             if (pageIndex >= 0) pageIndex else 0
         }
+        // Wait for the page animation to settle before measuring/centering
+        // the ayah, so the one-shot centering sees a stable layout.
         pagerState.animateScrollToPage(targetItem)
+        if (targetGlobal > 0) {
+            if (state.ayahs.any { it.globalNumber == targetGlobal }) {
+                // Highlight the target ayah and make it the scroll target so
+                // the centering pass below can align it in the viewport.
+                openedTargetGlobal = targetGlobal
+                scrollTargetAyah = targetGlobal
+                centerInitialAyah = true
+                targetAyahRootTopPx = null
+            }
+        }
         scrolledToInitial = true
     }
 
     // Follow-along: keep the recited ayah fully in view. When the playing
     // ayah changes it becomes the scroll target; the page-level jump below
     // brings a far page into composition, and the fine adjustment keeps the
-    // ayah inside a comfortable band while reading.
+    // ayah inside a comfortable band while reading. While the initial
+    // open-target is being centered it must not be clobbered by this.
     LaunchedEffect(currentAudioAyah) {
+        if (currentAudioAyah == null && centerInitialAyah) return@LaunchedEffect
         scrollTargetAyah = currentAudioAyah
         targetAyahRootTopPx = null
     }
@@ -391,18 +416,39 @@ fun QuranReaderScreen(
 
     // Phase 2: once the target ayah's on-screen position is measured, scroll
     // just enough to keep it inside the top/bottom band of the viewport.
+    // On the one-shot initial open (search/bookmark/resume) the ayah is
+    // centered vertically instead, then normal band-following resumes.
     LaunchedEffect(targetAyahRootTopPx, viewportTopPx, viewportHeightPx) {
         val ayahTop = targetAyahRootTopPx ?: return@LaunchedEffect
         if (viewportHeightPx <= 0) return@LaunchedEffect
+        // Only align when the measurement comes from the CURRENT pager page.
+        // While a page-slide animation runs, measurements from the incoming
+        // page are transient — scrolling the old page's scroll state would be
+        // wrong — and the settled measurement that follows triggers this again.
+        val target = scrollTargetAyah ?: return@LaunchedEffect
+        val targetPageIndex = pageEntries.indexOfFirst { (_, ayahs) ->
+            ayahs.any { it.globalNumber == target }
+        }
+        if (targetPageIndex < 0) return@LaunchedEffect
+        val targetItem = if (isWide) spreadIndexOfPage(pageEntries[targetPageIndex].key) else targetPageIndex
+        if (pagerState.currentPage != targetItem) return@LaunchedEffect
         val pad = viewportHeightPx * 0.12f
         val topBound = viewportTopPx + pad
         val bottomBound = viewportTopPx + viewportHeightPx - pad
         val delta = when {
+            centerInitialAyah -> ayahTop - (viewportTopPx + viewportHeightPx / 2f)
             ayahTop < topBound -> ayahTop - topBound
             ayahTop > bottomBound -> ayahTop - bottomBound
             else -> 0f
         }
         if (delta < -2f || delta > 2f) pageScrollStates[pagerState.currentPage]?.scrollBy(delta)
+        if (centerInitialAyah) {
+            // The one-shot centering is done; hand control back to the
+            // follow-along logic (and stop tracking the open target).
+            centerInitialAyah = false
+            scrollTargetAyah = null
+            openedTargetGlobal = null
+        }
     }
 
     // Track the visible page (bookmark/play target) and persist resume + khatma.
@@ -457,6 +503,30 @@ fun QuranReaderScreen(
                     }
                 },
                 actions = {
+                    // While recitation audio is being downloaded (before
+                    // playback starts) show a compact download icon + the
+                    // live percentage in the top bar; it disappears on its
+                    // own once the download finishes.
+                    if (downloading) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                imageVector = Icons.Filled.Download,
+                                contentDescription = stringResource(R.string.quran_download_status_downloading),
+                                tint = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.size(18.dp),
+                            )
+                            Spacer(Modifier.width(4.dp))
+                            val percent = downloadProgress
+                            if (percent != null) {
+                                Text(
+                                    text = "${(percent * 100).toInt().coerceIn(0, 100)}%",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.primary,
+                                )
+                            }
+                        }
+                        Spacer(Modifier.width(4.dp))
+                    }
                     IconButton(onClick = { viewModel.setReaderTheme(theme.next) }) {
                         Icon(
                             imageVector = when (theme) {
@@ -616,6 +686,7 @@ fun QuranReaderScreen(
                                         fontSizeSp = fontSize,
                                         playingAyahGlobal = currentAudioAyah,
                                         selectedAyahGlobal = currentAyah?.globalNumber,
+                                        openedAyahGlobal = openedTargetGlobal,
                                         tappedAyahGlobal = tappedAyahGlobal,
                                         scrollTargetAyahGlobal = scrollTargetAyah,
                                         onAyahRootTopPx = reportAyahTop,
@@ -625,10 +696,14 @@ fun QuranReaderScreen(
                                         onAyahClick = { ayah ->
                                             // Tap only selects the ayah; recitation
                                             // starts from the play button in the
-                                            // recitation bar below.
+                                            // recitation bar below. The selection
+                                            // is also scrolled into view so a
+                                            // tapped ayah never stays off-screen.
                                             viewModel.currentAyah.value = ayah
                                             userSelectedAyah = ayah.globalNumber
                                             tappedAyahGlobal = ayah.globalNumber
+                                            scrollTargetAyah = ayah.globalNumber
+                                            targetAyahRootTopPx = null
                                         },
                                     )
                                 }
@@ -641,6 +716,7 @@ fun QuranReaderScreen(
                                     fontSizeSp = fontSize,
                                     playingAyahGlobal = currentAudioAyah,
                                     selectedAyahGlobal = currentAyah?.globalNumber,
+                                    openedAyahGlobal = openedTargetGlobal,
                                     tappedAyahGlobal = tappedAyahGlobal,
                                     scrollTargetAyahGlobal = scrollTargetAyah,
                                     onAyahRootTopPx = reportAyahTop,
@@ -648,10 +724,14 @@ fun QuranReaderScreen(
                                     onAyahClick = { ayah ->
                                         // Tap only selects the ayah; recitation
                                         // starts from the play button in the
-                                        // recitation bar below.
+                                        // recitation bar below. The selection
+                                        // is also scrolled into view so a
+                                        // tapped ayah never stays off-screen.
                                         viewModel.currentAyah.value = ayah
                                         userSelectedAyah = ayah.globalNumber
                                         tappedAyahGlobal = ayah.globalNumber
+                                        scrollTargetAyah = ayah.globalNumber
+                                        targetAyahRootTopPx = null
                                     },
                                 )
                             }
@@ -693,6 +773,30 @@ fun QuranReaderScreen(
             state.surah?.let { surah ->
                 SurahDetailsDialog(surah = surah, onDismiss = { showDetails = false })
             }
+        }
+        reciterRestartPending?.let { pendingReciter ->
+            AlertDialog(
+                onDismissRequest = viewModel::dismissReciterRestartPrompt,
+                title = { Text(stringResource(R.string.quran_reciter_changed_title)) },
+                text = {
+                    Text(
+                        stringResource(
+                            R.string.quran_reciter_changed_message,
+                            pendingReciter.name,
+                        )
+                    )
+                },
+                confirmButton = {
+                    TextButton(onClick = viewModel::restartAfterReciterChange) {
+                        Text(stringResource(R.string.quran_reciter_restart))
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = viewModel::dismissReciterRestartPrompt) {
+                        Text(stringResource(R.string.quran_reciter_not_now))
+                    }
+                },
+            )
         }
         if (showSupplementControls) {
             SupplementControlsDialog(
@@ -1077,6 +1181,7 @@ private fun MushafSpreadRow(
     fontSizeSp: Float,
     playingAyahGlobal: Int?,
     selectedAyahGlobal: Int?,
+    openedAyahGlobal: Int?,
     tappedAyahGlobal: Int?,
     scrollTargetAyahGlobal: Int?,
     onClickPage: (List<Ayah>) -> Unit,
@@ -1098,6 +1203,7 @@ private fun MushafSpreadRow(
                     fontSizeSp = fontSizeSp,
                     playingAyahGlobal = playingAyahGlobal,
                     selectedAyahGlobal = selectedAyahGlobal,
+                    openedAyahGlobal = openedAyahGlobal,
                     tappedAyahGlobal = tappedAyahGlobal,
                     scrollTargetAyahGlobal = scrollTargetAyahGlobal,
                     onAyahRootTopPx = onAyahRootTopPx,
@@ -1116,6 +1222,7 @@ private fun MushafSpreadRow(
                     fontSizeSp = fontSizeSp,
                     playingAyahGlobal = playingAyahGlobal,
                     selectedAyahGlobal = selectedAyahGlobal,
+                    openedAyahGlobal = openedAyahGlobal,
                     tappedAyahGlobal = tappedAyahGlobal,
                     scrollTargetAyahGlobal = scrollTargetAyahGlobal,
                     onAyahRootTopPx = onAyahRootTopPx,
@@ -1138,6 +1245,7 @@ private fun MushafPageCard(
     fontSizeSp: Float,
     playingAyahGlobal: Int?,
     selectedAyahGlobal: Int?,
+    openedAyahGlobal: Int?,
     tappedAyahGlobal: Int?,
     scrollTargetAyahGlobal: Int?,
     onClick: () -> Unit,
@@ -1176,6 +1284,10 @@ private fun MushafPageCard(
                     SpanStyle(background = scheme.primary.copy(alpha = 0.35f))
                 ayah.globalNumber == playingAyahGlobal ->
                     SpanStyle(background = scheme.primary.copy(alpha = 0.22f))
+                // The ayah opened from search/bookmark/resume is tinted until
+                // it has been centered in the viewport.
+                ayah.globalNumber == openedAyahGlobal ->
+                    SpanStyle(background = scheme.primary.copy(alpha = 0.18f))
                 // Suppress the soft selection tint while recitation is playing so
                 // a stale highlight never lingers on the originally-tapped ayah
                 // once the reciter advances to the next ayah.

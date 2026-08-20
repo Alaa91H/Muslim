@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Elinga sadurunge:</string>
     <string name="ramadan_suhoor_time">Sahur rampung (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadhan</string>
+    <string name="ramadan_notify_outside">Pangeling-eling ing njaba Ramadhan</string>
+    <string name="ramadan_notify_outside_desc">Tandha iftar lan sahur mbukak kanthi otomatis sajrone Ramadhan; mbisakake iki supaya wong-wong mau terus ing sasi liyane.</string>
 </resources>

@@ -1,5 +1,6 @@
 package org.muslim.app.feature.qibla.ui
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,7 +14,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
@@ -27,6 +29,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -72,11 +75,14 @@ class MosqueFinderViewModel @Inject constructor(
         private set
     var selectedMosque by mutableStateOf<Mosque?>(null)
         private set
+    var expandingRadiusKm by mutableStateOf<Int?>(null)
+        private set
 
     fun search(latitude: Double, longitude: Double) {
         viewModelScope.launch {
             loading = true
             error = null
+            expandingRadiusKm = null
             runCatching { repository.nearby(latitude, longitude) }
                 .onSuccess {
                     mosques = it
@@ -85,6 +91,27 @@ class MosqueFinderViewModel @Inject constructor(
                     selectedMosque = it.minByOrNull { mosque -> mosque.distanceMeters }
                 }
                 .onFailure { error = it.message }
+            loading = false
+        }
+    }
+
+    /** Finds the nearest mosque by widening the radius until one is found. */
+    fun searchNearest(latitude: Double, longitude: Double) {
+        viewModelScope.launch {
+            loading = true
+            error = null
+            expandingRadiusKm = 1
+            runCatching {
+                repository.nearbyNearest(latitude, longitude) { radiusKm ->
+                    expandingRadiusKm = radiusKm
+                }
+            }
+                .onSuccess {
+                    mosques = it
+                    selectedMosque = it.minByOrNull { mosque -> mosque.distanceMeters }
+                }
+                .onFailure { error = it.message }
+            expandingRadiusKm = null
             loading = false
         }
     }
@@ -113,6 +140,26 @@ fun MosqueFinderScreen(
         }
     }
 
+    // The bottom list is scrollable so a tapped marker can bring its card
+    // into view and highlight it.
+    val listState = rememberLazyListState()
+
+    // Set when a MAP MARKER is tapped (not when the nearest/auto selection
+    // fires): drives the auto-scroll to the matching card in the list.
+    var pendingScrollMosqueId by remember { mutableStateOf<String?>(null) }
+
+    // Absolute index of the first mosque card inside the LazyColumn
+    // (intro + map come before it; loading/error cards shift it).
+    val mosqueListOffset =
+        2 + (if (viewModel.loading) 1 else 0) + (if (viewModel.error != null) 1 else 0)
+
+    LaunchedEffect(pendingScrollMosqueId, viewModel.mosques) {
+        val id = pendingScrollMosqueId ?: return@LaunchedEffect
+        val index = viewModel.mosques.indexOfFirst { "${it.latitude}_${it.longitude}" == id }
+        if (index >= 0) listState.animateScrollToItem(mosqueListOffset + index)
+        pendingScrollMosqueId = null
+    }
+
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -130,6 +177,7 @@ fun MosqueFinderScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding),
+            state = listState,
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
@@ -141,6 +189,30 @@ fun MosqueFinderScreen(
                 )
             }
             if (latitude != null && longitude != null) {
+                item {
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        OutlinedButton(
+                            onClick = { viewModel.searchNearest(latitude, longitude) },
+                            enabled = !viewModel.loading,
+                            modifier = Modifier.fillMaxWidth(),
+                        ) {
+                            Icon(
+                                Icons.Default.LocationOn,
+                                contentDescription = null,
+                                modifier = Modifier.size(18.dp),
+                            )
+                            Spacer(Modifier.width(8.dp))
+                            Text(
+                                text = viewModel.expandingRadiusKm?.let {
+                                    stringResource(
+                                        R.string.mosque_finder_expanding,
+                                        formatDistance(it * 1000),
+                                    )
+                                } ?: stringResource(R.string.mosque_finder_find_nearest),
+                            )
+                        }
+                    }
+                }
                 item {
                     val mapController = remember { MapController() }
                     val nearest = viewModel.mosques.minByOrNull { it.distanceMeters }
@@ -169,11 +241,13 @@ fun MosqueFinderScreen(
                             symbolLayerIds = listOf("mosque-markers"),
                             onSymbolClick = { feature ->
                                 val markerId = feature.getStringProperty("markerId")
-                                viewModel.selectMosque(
-                                    viewModel.mosques.firstOrNull {
-                                        "${it.latitude}_${it.longitude}" == markerId
-                                    },
-                                )
+                                val mosque = viewModel.mosques.firstOrNull {
+                                    "${it.latitude}_${it.longitude}" == markerId
+                                }
+                                viewModel.selectMosque(mosque)
+                                // Marker tap → highlight + auto-scroll to the
+                                // matching card in the bottom list.
+                                pendingScrollMosqueId = markerId
                             },
                             onMapClick = { viewModel.selectMosque(null) },
                         )
@@ -262,6 +336,20 @@ fun MosqueFinderScreen(
                                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                                         )
                                     }
+                                    TextButton(onClick = {
+                                        mapController.animateTo(
+                                            LatLng(mosque.latitude, mosque.longitude),
+                                            16.0,
+                                        )
+                                    }) {
+                                        Icon(
+                                            Icons.Default.LocationOn,
+                                            contentDescription = null,
+                                            modifier = Modifier.size(16.dp),
+                                        )
+                                        Spacer(Modifier.width(4.dp))
+                                        Text(stringResource(R.string.mosque_finder_go_to))
+                                    }
                                     IconButton(onClick = { viewModel.selectMosque(null) }) {
                                         Icon(
                                             Icons.Default.Close,
@@ -311,8 +399,18 @@ fun MosqueFinderScreen(
                     }
                 }
             }
-            items(viewModel.mosques, key = { it.latitude.toString() + it.longitude }) { mosque ->
-                Card(Modifier.fillMaxWidth()) {
+            itemsIndexed(viewModel.mosques, key = { _, mosque -> mosque.latitude.toString() + mosque.longitude }) { _, mosque ->
+                // The card matching the selected mosque is outlined so a
+                // tapped marker is unmistakably tied to its list entry.
+                val highlighted = viewModel.selectedMosque == mosque
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    border = if (highlighted) {
+                        BorderStroke(2.dp, MaterialTheme.colorScheme.primary)
+                    } else {
+                        null
+                    },
+                ) {
                     Row(
                         Modifier.padding(14.dp),
                         verticalAlignment = Alignment.CenterVertically,

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Tetapan Adhkar</string>
     <string name="adhkar_show_translation">Tunjukkan terjemahan</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">salin</string>
+    <string name="adhkar_share">Kongsi</string>
+    <string name="adhkar_overlay_short_only">Gunakan adhkar pendek sahaja</string>
+    <string name="adhkar_overlay_short_only_desc">Pilih adhkar yang sesuai dengan satu atau dua baris supaya gelembung terapung kekal jelas dan mudah dibaca.</string>
+    <string name="adhkar_overlay_tap_hint">Ketik gelembung untuk mengetepikan dengan segera.</string>
 </resources>

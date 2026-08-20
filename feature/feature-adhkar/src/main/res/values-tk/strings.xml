@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar sazlamalary</string>
     <string name="adhkar_show_translation">Terjime görkez</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Göçüriň</string>
+    <string name="adhkar_share">Paýlaş</string>
+    <string name="adhkar_overlay_short_only">Diňe gysga adhkar ulanyň</string>
+    <string name="adhkar_overlay_short_only_desc">Floüzýän köpürjik düşnükli we okamak aňsat bolar ýaly bir ýa-da iki setire laýyk adhkar saýlaň.</string>
+    <string name="adhkar_overlay_tap_hint">Derrew işden çykarmak üçin köpürge basyň.</string>
 </resources>

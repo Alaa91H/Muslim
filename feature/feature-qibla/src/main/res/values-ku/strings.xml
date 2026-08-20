@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Welat</string>
     <string name="offline_maps_tab_custom">qada Custom</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">Nexşeyê bikirtînin da ku navendê hilbijêrin, dûv re devera li dora wê dakêşin.</string>
+    <string name="offline_maps_custom_hint">Nexşeyê bişopînin û zoom bikin da ku qada ku hûn dixwazin çarçowe bikin; çarçowe bixweber nûve dike. Bi slider firehiyê eyar bikin.</string>
     <string name="offline_maps_custom_name">Navê herêmê</string>
-    <string name="offline_maps_custom_tap">Nexşeyê bikirtînin da ku navendê hilbijêrin</string>
+    <string name="offline_maps_custom_tap">Nexşeyê biguhezînin da ku deverê hilbijêrin</string>
     <string name="offline_maps_custom_default_name">qada Custom</string>
     <string name="offline_maps_summary_body">%1$d ji %2$d deveran temam bûn · %3$s hatin daxistin</string>
     <string name="offline_maps_downloading">Daxistina %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom in</string>
     <string name="mosque_finder_zoom_out">Zoom out</string>
     <string name="mosque_finder_nearest">Mizgefta herî nêzîk</string>
+    <string name="mosque_finder_go_to">Biçe ser wê</string>
+    <string name="mosque_finder_find_nearest">Mizgefta herî nêzîk bibînin</string>
+    <string name="mosque_finder_expanding">Di nav %1$s de digere…</string>
+    <string name="offline_maps_custom_width">Firehiya herêmê (derece)</string>
+    <string name="offline_maps_storage_warning">Hilberîna kêm - tenê %1$s belaş</string>
+    <string name="offline_maps_storage_delete_largest">Navçeya herî mezin jêbirin (%1$s · %2$s)</string>
 </resources>

@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Ndzi tsundzuxe emahlweni ka:</string>
     <string name="ramadan_suhoor_time">Makumu ya Suhoor (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Switsundzuxo ehandle ka Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Switsundzuxo swa Iftar na suhoor swi famba hi ku tisungulela hi nkarhi wa Ramadan; ku endla leswaku leswi swi kota swi endla leswaku va ya emahlweni eka tin’hweti tin’wana.</string>
 </resources>

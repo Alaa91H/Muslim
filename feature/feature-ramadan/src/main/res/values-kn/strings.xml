@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">ಮೊದಲು ನನಗೆ ನೆನಪಿಸಿ:</string>
     <string name="ramadan_suhoor_time">ಸುಹೂರ್ ಕೊನೆಗೊಳ್ಳುತ್ತದೆ (ಫಜ್ರ್): %1$s</string>
     <string name="ramadan_title">ರಂಜಾನ್</string>
+    <string name="ramadan_notify_outside">Reminders outside Ramadan</string>
+    <string name="ramadan_notify_outside_desc">ಇಫ್ತಾರ್ ಮತ್ತು ಸುಹೂರ್ ಎಚ್ಚರಿಕೆಗಳು ರಂಜಾನ್ ಸಮಯದಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ರನ್ ಆಗುತ್ತವೆ; enabling this keeps them going in other months.</string>
 </resources>

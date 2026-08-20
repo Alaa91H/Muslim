@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Nzijukiza nga tonnaba:</string>
     <string name="ramadan_suhoor_time">Suhoor ekoma (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadhan</string>
+    <string name="ramadan_notify_outside">Okujjukiza ebweru wa Ramadhan</string>
+    <string name="ramadan_notify_outside_desc">Okulabula kwa Iftar ne suhoor kutambula butereevu mu Ramadhan; okusobozesa kino kibakuuma nga bagenda mu maaso mu myezi emirala.</string>
 </resources>

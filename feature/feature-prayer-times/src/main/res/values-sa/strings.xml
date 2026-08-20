@@ -46,14 +46,12 @@
     <string name="method_egyptian">मिस्रस्य सर्वेक्षणस्य सामान्यप्राधिकरणम्</string>
     <string name="method_france">फ्रान्स (UOIF) ९.</string>
     <string name="method_isna">इस्ना (उत्तर अमेरिका) २.</string>
-    <string name="method_jafari">जफरी</string>
     <string name="method_karachi">इस्लामिक विज्ञान विश्वविद्यालय, कराची</string>
     <string name="method_kuwait">कुवैत</string>
     <string name="method_moonsighting">चन्द्रदर्शन समिति</string>
     <string name="method_mwl">मुस्लिम विश्व लीग</string>
     <string name="method_qatar">कतार</string>
     <string name="method_singapore">सिङ्गापुर</string>
-    <string name="method_tehran">तेहरान भूभौतिकी संस्थान</string>
     <string name="method_turkey">दियानेत तुर्की</string>
     <string name="method_umm_al_qura">उम्म अल-कुरा (मक्का) ९.</string>
     <string name="next_adhan_elapsed">अधन: %1$s से</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">कालगणना कर्तुं असमर्थः</string>
     <string name="widget_prayer_times_description">उल्टागणना सह अग्रिमः प्रार्थना</string>
     <string name="widget_prayer_times_label">प्रार्थना समय</string>
+    <string name="settings_adhan_volume_vibrate">आयतन %1$s · स्पन्दन %2$s</string>
+    <string name="settings_adhan_vibrate_on">पर</string>
+    <string name="settings_adhan_vibrate_off">अवरम्</string>
+    <string name="settings_preview_stop">पूर्वावलोकनं स्थगयतु</string>
+    <string name="settings_method_automatic">स्वचालितम् (स्थानानुसारम्) २.</string>
+    <string name="settings_method_automatic_desc">एप् भवतः देशस्य स्थानस्य च आधारेण स्वयमेव सर्वाधिकं उपयुक्तं पद्धतिं चिनोति; अद्यापि भवन्तः कदापि हस्तचलितरूपेण विधिं चिन्वितुं शक्नुवन्ति ।</string>
+    <string name="settings_preview_for_prayer">पूर्वावलोकन %1$s अधन</string>
 </resources>

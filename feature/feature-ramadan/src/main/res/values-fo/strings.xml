@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Minn meg á áðrenn:</string>
     <string name="ramadan_suhoor_time">Suhur endar (fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Áminningar uttanfyri Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Iftar- og suhoor-áminningar koyra sjálvvirkandi í Ramadan; at gera hetta møguligt heldur teimum í gongd aðrar mánaðir.</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Адкар настройкаяс .</string>
     <string name="adhkar_show_translation">Петкӧдлы вуджӧдӧм</string>
     <string name="adhkar_title">Адкар</string>
+    <string name="adhkar_copy">Копируйтны</string>
+    <string name="adhkar_share">Делитчыны</string>
+    <string name="adhkar_overlay_short_only">Сӧмын дженьыд адхкарӧн вӧдитчыны .</string>
+    <string name="adhkar_overlay_short_only_desc">Бӧрйы адхкар, коді лӧсялӧ ӧти-кык строкалы, медым лэбысь пузырьыс кольӧ гӧгӧрвоанаӧн да кокниа лыддьыны.</string>
+    <string name="adhkar_overlay_tap_hint">Нажмите пузырь, медым сійӧс пыр жӧ лэдзны.</string>
 </resources>

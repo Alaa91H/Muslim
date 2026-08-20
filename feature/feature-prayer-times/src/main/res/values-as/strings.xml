@@ -46,14 +46,12 @@
     <string name="method_egyptian">ইজিপ্তৰ সাধাৰণ জৰীপ কৰ্তৃপক্ষ</string>
     <string name="method_france">ফ্ৰান্স (UOIF)</string>
     <string name="method_isna">ISNA (উত্তৰ আমেৰিকা)</string>
-    <string name="method_jafari">জাফাৰী</string>
     <string name="method_karachi">ইছলামিক বিজ্ঞান বিশ্ববিদ্যালয়, কৰাচী</string>
     <string name="method_kuwait">কুৱেইট</string>
     <string name="method_moonsighting">চন্দ্ৰদৃষ্টি সমিতি</string>
     <string name="method_mwl">মুছলিম ৱৰ্ল্ড লীগ</string>
     <string name="method_qatar">কাটাৰ</string>
     <string name="method_singapore">ছিংগাপুৰ</string>
-    <string name="method_tehran">তেহৰাণ ইনষ্টিটিউট অৱ জিঅ’ফিজিক্স</string>
     <string name="method_turkey">ডায়ানেট তুৰস্ক</string>
     <string name="method_umm_al_qura">উম্ম আল-কুৰা (মক্কা)</string>
     <string name="next_adhan_elapsed">যিহেতু অধন: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">সময় গণনা কৰিব পৰা নাই</string>
     <string name="widget_prayer_times_description">কাউণ্টডাউনৰ সৈতে পৰৱৰ্তী প্ৰাৰ্থনা</string>
     <string name="widget_prayer_times_label">প্ৰাৰ্থনাৰ সময়</string>
+    <string name="settings_adhan_volume_vibrate">আয়তন %1$s · কম্পন %2$s</string>
+    <string name="settings_adhan_vibrate_on">অন</string>
+    <string name="settings_adhan_vibrate_off">অফ</string>
+    <string name="settings_preview_stop">পূৰ্বদৰ্শন বন্ধ কৰক</string>
+    <string name="settings_method_automatic">স্বয়ংক্ৰিয় (স্থান অনুসৰি)</string>
+    <string name="settings_method_automatic_desc">এপটোৱে আপোনাৰ দেশ আৰু স্থানৰ ওপৰত ভিত্তি কৰি স্বয়ংক্ৰিয়ভাৱে আটাইতকৈ উপযুক্ত পদ্ধতিটো বাছি লয়; আপুনি এতিয়াও যিকোনো সময়তে এটা পদ্ধতি হস্তচালিতভাৱে নিৰ্ব্বাচন কৰিব পাৰে ।</string>
+    <string name="settings_preview_for_prayer">পূৰ্বদৰ্শন %1$s adhan</string>
 </resources>

@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Igihugu</string>
     <string name="offline_maps_tab_custom">Akarere kagenewe</string>
     <string name="offline_maps_download">Gukuraho</string>
-    <string name="offline_maps_custom_hint">Kanda ku ikarata kugira uhitemwo hagati, hanyuma ushireko ahantu hakikije.</string>
+    <string name="offline_maps_custom_hint">Pan na zoom ikarata kugira ngo ushireho akarongo k’aho ushaka; ikadiri ihita ihindura. Tunganya ubwaguke ukoresheje igikoresho co guterera.</string>
     <string name="offline_maps_custom_name">Izina ry\'akarere</string>
-    <string name="offline_maps_custom_tap">Kanda ku ikarita kugira utore hagati</string>
+    <string name="offline_maps_custom_tap">Kwimurira ikarita kugira uhitemwo akarere</string>
     <string name="offline_maps_custom_default_name">Akarere kagenewe</string>
     <string name="offline_maps_summary_body">%1$d y\'ibibanza %2$d vyuzuye · %3$s vyavanwe</string>
     <string name="offline_maps_downloading">Gukuraho %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Gukuraho</string>
     <string name="mosque_finder_zoom_out">Gukuraho</string>
     <string name="mosque_finder_nearest">Umusigiti uri hafi</string>
+    <string name="mosque_finder_go_to">Genda kuri vyo</string>
+    <string name="mosque_finder_find_nearest">Rondera umusigiti uri hafi</string>
+    <string name="mosque_finder_expanding">Gushaka muri %1$s...</string>
+    <string name="offline_maps_custom_width">Ubwaguke bw\'ahantu (degre)</string>
+    <string name="offline_maps_storage_warning">Ububiko buke — %1$s gusa ku buntu</string>
+    <string name="offline_maps_storage_delete_largest">Gukuraho akarere kanini (%1$s · %2$s)</string>
 </resources>

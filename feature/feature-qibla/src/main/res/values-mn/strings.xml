@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Улс</string>
     <string name="offline_maps_tab_custom">Захиалгат бүс</string>
     <string name="offline_maps_download">Татаж авах</string>
-    <string name="offline_maps_custom_hint">Төвийг сонгохын тулд газрын зураг дээр товшоод, түүний эргэн тойрон дахь хэсгийг татаж аваарай.</string>
+    <string name="offline_maps_custom_hint">Хүссэн газраа хүрээлэхийн тулд газрын зургийг гүйлгэж томруулна уу; хүрээ автоматаар шинэчлэгддэг. Өргөнийг гулсагчаар тохируулна уу.</string>
     <string name="offline_maps_custom_name">Бүс нутгийн нэр</string>
-    <string name="offline_maps_custom_tap">Төвийг сонгохын тулд газрын зураг дээр товшино уу</string>
+    <string name="offline_maps_custom_tap">Газар нутгийг сонгохын тулд газрын зургийг зөөнө үү</string>
     <string name="offline_maps_custom_default_name">Захиалгат бүс</string>
     <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
     <string name="offline_maps_downloading">Татаж байна %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Томруулах</string>
     <string name="mosque_finder_zoom_out">Жижигрүүлэх</string>
     <string name="mosque_finder_nearest">Хамгийн ойрын сүм</string>
+    <string name="mosque_finder_go_to">Түүнд оч</string>
+    <string name="mosque_finder_find_nearest">Хамгийн ойрын сүмийг олоорой</string>
+    <string name="mosque_finder_expanding">%1$s дотор хайж байна…</string>
+    <string name="offline_maps_custom_width">Талбайн өргөн (градус)</string>
+    <string name="offline_maps_storage_warning">Хадгалах сан бага — ердөө %1$s үнэгүй</string>
+    <string name="offline_maps_storage_delete_largest">Хамгийн том бүсийг устгах (%1$s · %2$s)</string>
 </resources>

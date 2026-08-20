@@ -46,4 +46,12 @@
     <string name="crash_close">ಮುಚ್ಚಿ</string>
     <string name="crash_dismiss">ಮುಂದುವರಿಸಿ</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو خلفاء ك. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">ಖುರಾನ್ ಅನ್ನು ಹುಡುಕಿ</string>
+    <string name="more_quran_search_desc">ಪದವನ್ನು ಹುಡುಕಿ, ಅದು ಎಷ್ಟು ಬಾರಿ ಮತ್ತು ಎಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ</string>
+    <string name="more_quran_frequency">ಕುರಾನ್ ಪದಗಳ ಆವರ್ತನ</string>
+    <string name="more_quran_frequency_desc">ಇಡೀ ಮುಶಾಫ್‌ನಲ್ಲಿ ಹೆಚ್ಚು ಆಗಾಗ್ಗೆ ಪದಗಳು</string>
+    <string name="more_pause_on_notifications">ಅಧಿಸೂಚನೆಗಳಲ್ಲಿ ಪಠಣವನ್ನು ವಿರಾಮಗೊಳಿಸಿ</string>
+    <string name="more_pause_on_notifications_desc">ಅಧಿಸೂಚನೆ, ರಿಂಗ್ ಅಥವಾ ಇತರ ಮಾಧ್ಯಮ ಪ್ಲೇ ಮಾಡಿದಾಗ ಪಠಣವು ಸಂಕ್ಷಿಪ್ತವಾಗಿ ವಿರಾಮಗೊಳ್ಳುತ್ತದೆ</string>
+    <string name="more_pause_notifications_enabled">ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ - ಸಿಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+    <string name="more_pause_notifications_disabled">ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ - ಸಕ್ರಿಯಗೊಳಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
 </resources>

@@ -69,6 +69,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.feature.adhkar.R
 import org.muslim.app.feature.adhkar.domain.Dhikr
 import org.muslim.app.feature.adhkar.domain.DhikrCategory
@@ -125,6 +126,16 @@ fun AdhkarSettingsScreen(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            SwitchRow(
+                label = stringResource(R.string.adhkar_overlay_short_only),
+                checked = prefs.shortDhikrOnly,
+                onCheckedChange = viewModel::setShortDhikrOnly,
+            )
+            Text(
+                text = stringResource(R.string.adhkar_overlay_short_only_desc),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
             Spacer(Modifier.height(8.dp))
 
             FloatingMessagePreview(
@@ -164,6 +175,12 @@ fun AdhkarSettingsScreen(
                 DurationDropdown(
                     current = prefs.overlayDurationSeconds,
                     onSelected = viewModel::setOverlayDurationSeconds,
+                )
+                Text(
+                    text = stringResource(R.string.adhkar_overlay_tap_hint),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 4.dp),
                 )
                 Spacer(Modifier.height(8.dp))
                 Button(
@@ -343,6 +360,8 @@ private fun FloatingMessagePreview(
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         Spacer(Modifier.height(6.dp))
+        // English fallback hidden for Arabic UI (each language shows its own).
+        val showEnglishFallback = AppLanguage.showEnglishFallback()
         Surface(
             shape = RoundedCornerShape(cornerRadiusDp.dp),
             color = Color(backgroundColor),
@@ -370,8 +389,10 @@ private fun FloatingMessagePreview(
                         color = Color.White,
                         textAlign = TextAlign.Center,
                     )
-                    if (sample.translation.isNotBlank()) {
+                    if (showEnglishFallback && sample.translation.isNotBlank()) {
                         Spacer(Modifier.height(6.dp))
+                        // English fallback hidden for Arabic readers: the bubble
+                        // preview must mirror what the real overlay will show.
                         Text(
                             text = sample.translation,
                             fontSize = (fontSizeSp - 8).coerceAtLeast(12).sp,

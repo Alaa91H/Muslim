@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Нагадаць мне раней:</string>
     <string name="ramadan_suhoor_time">Канец сухуру (фаджр): %1$s</string>
     <string name="ramadan_title">Рамадан</string>
+    <string name="ramadan_notify_outside">Напаміны па-за Рамадана</string>
+    <string name="ramadan_notify_outside_desc">Іфтар і сухур абвесткі запускаюцца аўтаматычна падчас Рамадана; уключэнне гэтага падтрымлівае іх у іншыя месяцы.</string>
 </resources>

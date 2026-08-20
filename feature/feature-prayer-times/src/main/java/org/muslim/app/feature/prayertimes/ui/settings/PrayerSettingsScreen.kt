@@ -22,6 +22,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Alarm
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Add
@@ -49,6 +50,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -88,10 +90,19 @@ fun PrayerSettingsScreen(
     val settings by viewModel.settings.collectAsStateWithLifecycle()
     val downloadProgress by viewModel.downloadProgress.collectAsStateWithLifecycle()
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
+    val isPreviewing by viewModel.isPreviewing.collectAsStateWithLifecycle()
 
     var pendingSoundPrayer by remember { mutableStateOf<Prayer?>(null) }
     var downloadPrayer by remember { mutableStateOf<Prayer?>(null) }
     var customizingPrayer by remember { mutableStateOf<Prayer?>(null) }
+
+    // The prayer whose adhan is currently ringing as a preview. Cleared when
+    // the playback ends on its own (or when the user stops it) so the card
+    // icons and the bottom button always show the correct play/stop state.
+    var previewingPrayer by remember { mutableStateOf<Prayer?>(null) }
+    LaunchedEffect(isPreviewing) {
+        if (!isPreviewing) previewingPrayer = null
+    }
     val filePicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         uri?.let { selected -> pendingSoundPrayer?.let { viewModel.setCustomSound(it, selected) } }
         pendingSoundPrayer = null
@@ -109,8 +120,13 @@ fun PrayerSettingsScreen(
             .padding(horizontal = 16.dp, vertical = 8.dp),
     ) {
         SectionHeader(stringResource(R.string.settings_method))
-        MethodDropdown(settings.method) { viewModel.setMethod(it) }
-        if (settings.method == CalculationMethod.Custom) {
+        MethodDropdown(
+            current = settings.method,
+            isAutomatic = !settings.methodChosenManually,
+            onAutomatic = viewModel::setMethodAutomatic,
+            onSelected = viewModel::setMethod,
+        )
+        if (settings.method == CalculationMethod.Custom && settings.methodChosenManually) {
             CustomAngles(settings, viewModel)
         }
 
@@ -199,6 +215,17 @@ fun PrayerSettingsScreen(
                 prayer = prayer,
                 option = option,
                 sound = BundledAdhanSound.fromId(soundId),
+                volume = settings.adhanVolumeFor(prayer),
+                vibrate = settings.vibrateFor(prayer),
+                previewing = previewingPrayer == prayer,
+                onPreview = {
+                    if (previewingPrayer == prayer) {
+                        viewModel.stopPreview()
+                    } else {
+                        previewingPrayer = prayer
+                        viewModel.previewAdhan(prayer)
+                    }
+                },
                 onCustomize = { customizingPrayer = prayer },
             )
             CustomSoundRow(
@@ -248,11 +275,37 @@ fun PrayerSettingsScreen(
                 },
             )
         }
+        // Preview / stop toggle: the first tap rings the adhan exactly as it
+        // is configured for the next prayer (the one that would actually ring
+        // at adhan time); tapping again while it is ringing stops it.
+        val previewTarget = nextPrayer?.first ?: Prayer.Fajr
         OutlinedButton(
-            onClick = { viewModel.previewAdhan(Prayer.Fajr) },
+            onClick = {
+                if (previewingPrayer != null) {
+                    viewModel.stopPreview()
+                } else {
+                    previewingPrayer = previewTarget
+                    viewModel.previewAdhan(previewTarget)
+                }
+            },
             modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
         ) {
-            Text(stringResource(R.string.settings_preview))
+            Icon(
+                imageVector = if (previewingPrayer != null) Icons.Filled.Stop else Icons.Filled.PlayArrow,
+                contentDescription = null,
+                modifier = Modifier.size(18.dp),
+            )
+            Spacer(Modifier.width(6.dp))
+            Text(
+                if (previewingPrayer != null) {
+                    stringResource(R.string.settings_preview_stop)
+                } else {
+                    stringResource(
+                        R.string.settings_preview_for_prayer,
+                        stringResource(prayerLabelRes(previewTarget)),
+                    )
+                },
+            )
         }
 
         // Transparent guidance, never forced (PROJECT_PROMPT.md §3.5).
@@ -508,6 +561,10 @@ private fun AdhanSoundRow(
     prayer: Prayer,
     option: AdhanSoundOption,
     sound: BundledAdhanSound,
+    volume: Int,
+    vibrate: Boolean,
+    previewing: Boolean,
+    onPreview: () -> Unit,
     onCustomize: () -> Unit,
 ) {
     Card(
@@ -534,6 +591,29 @@ private fun AdhanSoundRow(
                     ),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.height(2.dp))
+                // Per-prayer volume + vibration, shown next to the sound and
+                // alert type so the card summarises the full configuration.
+                Text(
+                    text = stringResource(
+                        R.string.settings_adhan_volume_vibrate,
+                        "$volume%",
+                        stringResource(
+                            if (vibrate) R.string.settings_adhan_vibrate_on else R.string.settings_adhan_vibrate_off,
+                        ),
+                    ),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
+            IconButton(onClick = onPreview, enabled = true) {
+                Icon(
+                    imageVector = if (previewing) Icons.Filled.Stop else Icons.Filled.PlayArrow,
+                    contentDescription = stringResource(
+                        if (previewing) R.string.settings_preview_stop else R.string.settings_preview,
+                    ),
+                    tint = MaterialTheme.colorScheme.primary,
                 )
             }
             Icon(
@@ -744,13 +824,29 @@ private fun ExactAlarmButton() {
     }
 }
 
+/**
+ * Only the officially recognised Sunni calculation methods are offered
+ * (PROJECT_PROMPT.md: "ازل جميع الطرق غير السنية"). Non-Sunni institutes
+ * (e.g. Jafari, Tehran) were deliberately removed from the app.
+ */
+private val SUNNI_METHODS: List<CalculationMethod> = CalculationMethod.entries
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun MethodDropdown(current: CalculationMethod, onSelected: (CalculationMethod) -> Unit) {
+private fun MethodDropdown(
+    current: CalculationMethod,
+    isAutomatic: Boolean,
+    onAutomatic: () -> Unit,
+    onSelected: (CalculationMethod) -> Unit,
+) {
     var expanded by remember { mutableStateOf(false) }
     ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
         OutlinedTextField(
-            value = stringResource(methodLabelRes(current)),
+            value = if (isAutomatic) {
+                stringResource(R.string.settings_method_automatic)
+            } else {
+                stringResource(methodLabelRes(current))
+            },
             onValueChange = {},
             readOnly = true,
             label = { Text(stringResource(R.string.settings_method)) },
@@ -760,7 +856,14 @@ private fun MethodDropdown(current: CalculationMethod, onSelected: (CalculationM
                 .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
         )
         ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-            CalculationMethod.entries.forEach { method ->
+            DropdownMenuItem(
+                text = { Text(stringResource(R.string.settings_method_automatic)) },
+                onClick = {
+                    expanded = false
+                    onAutomatic()
+                },
+            )
+            SUNNI_METHODS.forEach { method ->
                 DropdownMenuItem(
                     text = { Text(stringResource(methodLabelRes(method))) },
                     onClick = {
@@ -870,8 +973,10 @@ private fun CustomAngles(settings: PrayerSettings, viewModel: PrayerSettingsView
     OutlinedTextField(
         value = fajr,
         onValueChange = {
-            fajr = it
-            it.toDoubleOrNull()?.let { angle -> viewModel.setCustomFajrAngle(angle) }
+            // Normalize so Arabic-Indic/Persian digits parse without loss.
+            val western = org.muslim.app.core.common.text.Digits.toWesternDigits(it)
+            fajr = western
+            western.toDoubleOrNull()?.let { angle -> viewModel.setCustomFajrAngle(angle) }
         },
         label = { Text(stringResource(R.string.settings_custom_fajr)) },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
@@ -880,8 +985,10 @@ private fun CustomAngles(settings: PrayerSettings, viewModel: PrayerSettingsView
     OutlinedTextField(
         value = isha,
         onValueChange = {
-            isha = it
-            it.toDoubleOrNull()?.let { angle -> viewModel.setCustomIshaAngle(angle) }
+            // Normalize so Arabic-Indic/Persian digits parse without loss.
+            val western = org.muslim.app.core.common.text.Digits.toWesternDigits(it)
+            isha = western
+            western.toDoubleOrNull()?.let { angle -> viewModel.setCustomIshaAngle(angle) }
         },
         label = { Text(stringResource(R.string.settings_custom_isha)) },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
@@ -902,8 +1009,6 @@ private fun methodLabelRes(method: CalculationMethod): Int = when (method) {
     CalculationMethod.Singapore -> R.string.method_singapore
     CalculationMethod.MoonsightingCommittee -> R.string.method_moonsighting
     CalculationMethod.Turkey -> R.string.method_turkey
-    CalculationMethod.Tehran -> R.string.method_tehran
-    CalculationMethod.Jafari -> R.string.method_jafari
     CalculationMethod.France -> R.string.method_france
     CalculationMethod.Custom -> R.string.settings_custom_method
 }

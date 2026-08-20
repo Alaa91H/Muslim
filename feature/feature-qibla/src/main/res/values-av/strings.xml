@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Улка</string>
     <string name="offline_maps_tab_custom">Заказалъулаб рахъ</string>
     <string name="offline_maps_download">Скачать</string>
-    <string name="offline_maps_custom_hint">Центр тӀаса бищизе картаялда квер хъвазе, цинги гьелда сверухъ бугеб бакӀ скачать гьабизе.</string>
+    <string name="offline_maps_custom_hint">Панорама ва масштаб картаялъул, нужее бокьараб бакӀ рамкабазда лъезе; рамка автоматически цӀилъула. Ползунокалдалъун гӀеблъи рекъезабизе.</string>
     <string name="offline_maps_custom_name">Районалъул цӀар</string>
-    <string name="offline_maps_custom_tap">Центр тӀаса бищизе картаялда квер хъвазе</string>
+    <string name="offline_maps_custom_tap">Карта бахъе, бакӀ тӀаса бищизе</string>
     <string name="offline_maps_custom_default_name">Заказалъулаб рахъ</string>
     <string name="offline_maps_summary_body">%1$d из %2$d районов заполнен · %3$s скачано</string>
     <string name="offline_maps_downloading">Загрузка %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Зум гьаби</string>
     <string name="mosque_finder_zoom_out">Масштаб дагьлъизабизе</string>
     <string name="mosque_finder_nearest">АскӀоб бугеб мажгит</string>
+    <string name="mosque_finder_go_to">Гьелде ине .</string>
+    <string name="mosque_finder_find_nearest">Бищун аскӀоб бугеб мажгит батизе</string>
+    <string name="mosque_finder_expanding">Searching within %1$s…</string>
+    <string name="offline_maps_custom_width">Площадьалъул гӀеблъи (градусал)</string>
+    <string name="offline_maps_storage_warning">ГӀодобегӀанаб бакӀ — гӀицӀго %1$s чӀобого</string>
+    <string name="offline_maps_storage_delete_largest">Удалить самый большой регион (%1$s · %2$s)</string>
 </resources>

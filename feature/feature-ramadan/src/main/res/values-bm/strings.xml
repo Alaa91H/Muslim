@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Aw ye n hakili jigin ka kɔn o ɲɛ:</string>
     <string name="ramadan_suhoor_time">Suhoor labanw (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan na</string>
+    <string name="ramadan_notify_outside">Hakilijiginw Ramadan kɔkan</string>
+    <string name="ramadan_notify_outside_desc">Iftar ni suhoor lasɔminiw bɛ kɛ u yɛrɛma Ramadan waati la; o seko kɛli b’u to ka taa ɲɛ kalo wɛrɛw kɔnɔ.</string>
 </resources>

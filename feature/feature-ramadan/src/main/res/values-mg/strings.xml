@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Ampahatsiahivo ahy aloha:</string>
     <string name="ramadan_suhoor_time">Mifarana ny Suhoor (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Fampahatsiahivana ivelan\'ny Ramadany</string>
+    <string name="ramadan_notify_outside_desc">Ny fampandrenesana Iftar sy Suhoor dia mandeha ho azy mandritra ny Ramadany; ny fampandehanana izany dia mitazona azy ireo amin\'ny volana hafa.</string>
 </resources>

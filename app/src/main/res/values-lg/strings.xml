@@ -46,4 +46,12 @@
     <string name="crash_close">Ggalawo</string>
     <string name="crash_dismiss">Weeyongereyo</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Noonya ku Quran</string>
+    <string name="more_quran_search_desc">Funa ekigambo, emirundi emeka gye kirabika ne wa</string>
+    <string name="more_quran_frequency">Ebigambo bya Quran emirundi mingi</string>
+    <string name="more_quran_frequency_desc">Ebigambo ebisinga okukozesebwa mu mushaf yonna</string>
+    <string name="more_pause_on_notifications">Yimirirako okusoma ku kumanyisibwa</string>
+    <string name="more_pause_on_notifications_desc">Okusoma kuyimirirako katono nga okumanyisibwa, essimu oba emikutu emirala gizannyiddwa</string>
+    <string name="more_pause_notifications_enabled">Enabled — koona okuggulawo ensengeka z\'enkola</string>
+    <string name="more_pause_notifications_disabled">Disabled — koona okusobozesa</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">A-paramètre ti Adhkar</string>
     <string name="adhkar_show_translation">Fa traduction ni</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Copié</string>
+    <string name="adhkar_share">Kasa</string>
+    <string name="adhkar_overlay_short_only">Lo yeke na adhkar gi .</string>
+    <string name="adhkar_overlay_short_only_desc">Soro adhkar so alingbi na molongo oko wala use tongaso si bulle so ayeke huru angbâ polele na a yeke ngangu pëpe ti diko ni.</string>
+    <string name="adhkar_overlay_tap_hint">Tapa ti bubble ni ti zi ni hio.</string>
 </resources>

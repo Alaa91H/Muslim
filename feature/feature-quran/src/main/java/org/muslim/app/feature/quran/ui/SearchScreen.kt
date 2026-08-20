@@ -1,6 +1,8 @@
 package org.muslim.app.feature.quran.ui
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -74,6 +76,7 @@ fun SearchScreen(
     val mode by viewModel.matchMode.collectAsStateWithLifecycle()
     val query by viewModel.query.collectAsStateWithLifecycle()
     val history by viewModel.searchHistory.collectAsStateWithLifecycle()
+    val suggestions by viewModel.suggestions.collectAsStateWithLifecycle()
 
     Column(modifier = modifier.fillMaxSize()) {
         TopAppBar(
@@ -111,6 +114,21 @@ fun SearchScreen(
                 onClick = { viewModel.matchMode.value = QuranWordSearch.MatchMode.EXACT },
                 label = { Text(stringResource(R.string.quran_search_exact)) },
             )
+        }
+
+        // Live autocomplete from the most frequent mushaf words.
+        if (suggestions.isNotEmpty()) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState())
+                    .padding(horizontal = 16.dp, vertical = 4.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                suggestions.forEach { word ->
+                    SuggestionChip(text = word, onClick = { viewModel.applySuggestion(word) })
+                }
+            }
         }
 
         when {
@@ -188,6 +206,16 @@ fun SearchScreen(
             }
         }
     }
+}
+
+/** One live autocomplete suggestion (a frequent mushaf word). */
+@Composable
+private fun SuggestionChip(text: String, onClick: () -> Unit) {
+    FilterChip(
+        selected = false,
+        onClick = onClick,
+        label = { Text(text, style = MaterialTheme.typography.bodyMedium) },
+    )
 }
 
 /** "أين ذُكرت" — expandable per-surah distribution of the matches. */

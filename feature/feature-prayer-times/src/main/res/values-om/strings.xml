@@ -46,14 +46,12 @@
     <string name="method_egyptian">Abbaa Taayitaa Qorannoo Waliigalaa Masrii</string>
     <string name="method_france">Faransaay (UOIF) .</string>
     <string name="method_isna">ISNA (Ameerikaa Kaabaa) .</string>
-    <string name="method_jafari">Jaafarii</string>
     <string name="method_karachi">Yuunivarsiitii Saayinsii Islaamaa, Karaachii</string>
     <string name="method_kuwait">Kuweet</string>
     <string name="method_moonsighting">Koree Ji\'a Arguu</string>
     <string name="method_mwl">Liigii Addunyaa Muslimaa</string>
     <string name="method_qatar">Qaxar</string>
     <string name="method_singapore">Singaapoor</string>
-    <string name="method_tehran">Inistiitiyuutii Ji\'oofiziksii Tehran</string>
     <string name="method_turkey">Diyanet Turkii</string>
     <string name="method_umm_al_qura">Ummu al-Quraa (Makkaa) .</string>
     <string name="next_adhan_elapsed">Erga Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Yeroo shallaguu hin dandeenye</string>
     <string name="widget_prayer_times_description">Kadhannaa itti aanu lakkoofsi gara boodaatti deebi\'ee</string>
     <string name="widget_prayer_times_label">Yeroo kadhannaa</string>
+    <string name="settings_adhan_volume_vibrate">Sagalee %1$s · Raafamni %2$s .</string>
+    <string name="settings_adhan_vibrate_on">Irratti</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Dursa ilaaluu dhaabaa</string>
+    <string name="settings_method_automatic">Ofumaan (bakka itti argamuun) .</string>
+    <string name="settings_method_automatic_desc">Appichi biyyaa fi bakka jirtan irratti hundaa\'uun mala hunda caalaa mijatu ofumaan filata; ammallee yeroo barbaaddetti mala harkaan filachuu dandeessa.</string>
+    <string name="settings_preview_for_prayer">Durargii %1$s adhan</string>
 </resources>

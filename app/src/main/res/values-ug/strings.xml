@@ -46,4 +46,12 @@
     <string name="crash_close">تاقاش</string>
     <string name="crash_dismiss">داۋاملاشتۇر</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه ، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">قۇرئاننى ئىزدەڭ</string>
+    <string name="more_quran_search_desc">بىر سۆز تېپىڭ ، ئۇنىڭ قانچە قېتىم كۆرۈلىدىغانلىقى ۋە قەيەردە</string>
+    <string name="more_quran_frequency">قۇرئان كەرىمنىڭ چاستوتىسى</string>
+    <string name="more_quran_frequency_desc">پۈتكۈل مۇشافتا ئەڭ كۆپ ئۇچرايدىغان سۆزلەر</string>
+    <string name="more_pause_on_notifications">ئۇقتۇرۇشتا ئوقۇشنى توختىتىڭ</string>
+    <string name="more_pause_on_notifications_desc">ئۇقتۇرۇش ، ئۈزۈك ياكى باشقا مېدىيا قويغاندا قىرائەت قىسقا ۋاقىتلىق توختاپ قالىدۇ</string>
+    <string name="more_pause_notifications_enabled">قوزغىتىلغان - سىستېما تەڭشىكىنى ئېچىڭ</string>
+    <string name="more_pause_notifications_disabled">چەكلەنگەن - قوزغىتىش ئۈچۈن چېكىڭ</string>
 </resources>

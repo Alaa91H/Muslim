@@ -63,8 +63,6 @@
     <string name="settings_section_about">حول التطبيق</string>
     <string name="settings_about">حول مسلم</string>
     <string name="settings_about_desc">النسخة، الترخيص، والمبادئ</string>
-    <string name="settings_open_source">مفتوح المصدر</string>
-    <string name="settings_open_source_desc">الترخيص GPLv3 — الكود متاح للجميع</string>
 
     <string name="about_title">حول التطبيق</string>
     <string name="about_version">الإصدار %1$s</string>
@@ -147,6 +145,8 @@
     <string name="notif_category_recitation_desc">إشعار بأزرار تشغيل/إيقاف/إغلاق أثناء تلاوة القرآن</string>
     <string name="notif_category_hajj">مصاحبة الحاج</string>
     <string name="notif_category_hajj_desc">تذكير يومي بالمنسك المقصود في وقته خلال أيام الحج</string>
+    <string name="notif_category_app_update">تحديثات التطبيق</string>
+    <string name="notif_category_app_update_desc">إشعار عند توفّر نسخة جديدة من التطبيق</string>
     <string name="notif_missed_color">لون سطر الأذان الفائت</string>
     <string name="notif_missed_color_red">أحمر</string>
     <string name="notif_missed_color_orange">برتقالي</string>
@@ -156,4 +156,35 @@
     <string name="notif_missed_color_purple">بنفسجي</string>
     <string name="notif_missed_color_pink">وردي</string>
     <string name="notif_missed_color_cyan">سماوي</string>
+
+    <!-- Updates -->
+    <string name="settings_section_updates">التحديثات</string>
+    <string name="settings_updates_check">التحقق من التحديثات</string>
+    <string name="settings_updates_check_desc">فحص دوري لصفحة إصدارات GitHub عند توفّر نسخة جديدة</string>
+    <string name="settings_updates_frequency">وتيرة الفحص</string>
+    <string name="settings_updates_daily">يومي</string>
+    <string name="settings_updates_weekly">أسبوعي</string>
+    <string name="settings_updates_monthly">شهري</string>
+    <string name="settings_updates_check_now">تحقق الآن</string>
+    <string name="settings_updates_open">عرض التحديثات</string>
+    <string name="settings_updates_found">توجد نسخة أحدث: %1$s</string>
+    <string name="settings_updates_latest">أنت على أحدث إصدار.</string>
+    <string name="settings_updates_error">تعذّر التحقق من التحديثات. حاول لاحقًا.</string>
+
+    <!-- Update screen -->
+    <string name="update_title">تحديثات التطبيق</string>
+    <string name="update_checking">جارٍ التحقق من التحديثات…</string>
+    <string name="update_up_to_date">أنت على أحدث إصدار ✅</string>
+    <string name="update_unavailable">تعذّر الوصول إلى صفحة الإصدارات.</string>
+    <string name="update_retry">إعادة المحاولة</string>
+    <string name="update_new_version">النسخة الجديدة %1$s</string>
+    <string name="update_current_version">نسختك الحالية: %1$s</string>
+    <string name="update_changelog">سجل التغييرات</string>
+    <string name="update_no_changelog">لا يوجد وصف لهذا الإصدار.</string>
+    <string name="update_download">تحميل (%1$s)</string>
+    <string name="update_downloading">جارٍ التحميل…</string>
+    <string name="update_installing">يفتح مُثبِّت النظام…</string>
+    <string name="update_download_failed">فشل التحميل — أعد المحاولة</string>
+    <string name="update_available_title">يتوفر تحديث جديد</string>
+    <string name="update_available_text">النسخة %1$s متاحة الآن — اضغط للتحديث</string>
 </resources>

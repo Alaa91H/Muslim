@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar jekkal</string>
     <string name="adhkar_show_translation">Wane tekki làkk</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopie</string>
+    <string name="adhkar_share">Séddoo</string>
+    <string name="adhkar_overlay_short_only">Jëfandikool adhkar bu gàtt rek</string>
+    <string name="adhkar_overlay_short_only_desc">Tannal adhkar bu méngoo ak benn wala ñaari rëdd suko defee bubble biy féey nekk bu leer te neexa lire.</string>
+    <string name="adhkar_overlay_tap_hint">Bësal bubble bi ngir dindi ko ci saasi.</string>
 </resources>

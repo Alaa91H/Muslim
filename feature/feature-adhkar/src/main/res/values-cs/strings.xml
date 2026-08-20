@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Nastavení Adhkar</string>
     <string name="adhkar_show_translation">Zobrazit překlad</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopírovat</string>
+    <string name="adhkar_share">Sdílejte</string>
+    <string name="adhkar_overlay_short_only">Používejte pouze krátké adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Vyberte si adhkar, který se vejde na jednu nebo dvě čáry, takže plovoucí bublina zůstane jasná a snadno čitelná.</string>
+    <string name="adhkar_overlay_tap_hint">Klepnutím na bublinu ji okamžitě zavřete.</string>
 </resources>

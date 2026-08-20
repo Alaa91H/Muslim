@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Sajoo Adhkar</string>
     <string name="adhkar_show_translation">Hiikkaa agarsiisi</string>
     <string name="adhkar_title">Adhkar jedhamuun beekama</string>
+    <string name="adhkar_copy">Koppii godhaa</string>
+    <string name="adhkar_share">Share godhaa</string>
+    <string name="adhkar_overlay_short_only">Adhkar gabaabaa qofa fayyadamaa</string>
+    <string name="adhkar_overlay_short_only_desc">Adhkar sarara tokko ykn lamaaf kan siqu filadhu akka bubbee lola\'u ifa ta\'ee fi dubbisuuf salphaa ta\'ee turuuf.</string>
+    <string name="adhkar_overlay_tap_hint">Bubbee sana tuquun battalumatti kuffisi.</string>
 </resources>

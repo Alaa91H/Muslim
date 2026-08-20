@@ -46,8 +46,13 @@ dependencies {
     implementation(project(":core:core-datastore"))
     implementation(project(":core:core-notifications"))
     implementation(project(":core:core-permissions"))
+    implementation(project(":core:core-network"))
     implementation(project(":feature:feature-hadith"))
     implementation(project(":feature:feature-learn"))
+
+    // Periodic update checks (WorkManager) + the GitHub releases API (OkHttp).
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.okhttp)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -55,6 +60,7 @@ dependencies {
     implementation(libs.androidx.compose.material.icons.extended)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.core.ktx)
 
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)

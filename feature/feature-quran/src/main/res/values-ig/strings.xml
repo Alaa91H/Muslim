@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Nke gara aga</string>
     <string name="quran_recitation_notif_next">Na-esote</string>
+    <string name="quran_download_playback_title">Downloading %1$s</string>
+    <string name="quran_download_playback_detail">%1$s left · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Iji iwu</string>
+    <string name="quran_download_sort_completion">Site na mmecha</string>
+    <string name="quran_downloads_coverage_title">Mkpuchi Surah n\'ofe ndị na-agụ akwụkwọ</string>
+    <string name="quran_downloads_coverage_overall">Mushaf zuru oke gafee ndị na-agụ akwụkwọ</string>
+    <string name="quran_downloads_coverage_empty">Ọnweghị ọdịyo ebudatara ma</string>
+    <string name="quran_pause_notif_listener">kwụsịtụ ịgụgharị na amamọkwa</string>
+    <string name="quran_reciter_changed_title">Reciter gbanwere</string>
+    <string name="quran_reciter_changed_message">Playback stopped because the range runs to the end of the Quran. Start again with %1$s?</string>
+    <string name="quran_reciter_restart">Malite ọzọ</string>
+    <string name="quran_reciter_not_now">Ọ bụghị ugbu a</string>
 </resources>

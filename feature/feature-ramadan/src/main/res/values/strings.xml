@@ -24,4 +24,6 @@
     <string name="ramadan_notification_iftar_body">اللهم لك صمت وعلى رزقك أفطرت</string>
     <string name="ramadan_notification_suhoor_title">تذكير السحور</string>
     <string name="ramadan_notification_suhoor_body">بقي وقت على أذان الفجر — خذ سحورك</string>
+    <string name="ramadan_notify_outside">التنبيهات خارج شهر رمضان</string>
+    <string name="ramadan_notify_outside_desc">أشعار الإفطار والسحور تعمل تلقائيًا في رمضان؛ عند تفعيل هذا الخيار تستمر في الأشهر العادية.</string>
 </resources>

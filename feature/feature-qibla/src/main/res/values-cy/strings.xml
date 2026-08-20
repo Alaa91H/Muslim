@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Gwlad</string>
     <string name="offline_maps_tab_custom">Ardal Custom</string>
     <string name="offline_maps_download">Lawrlwythwch</string>
-    <string name="offline_maps_custom_hint">Tapiwch y map i ddewis y ganolfan, yna lawrlwythwch yr ardal o\'i gwmpas.</string>
+    <string name="offline_maps_custom_hint">Tremio a chwyddo\'r map i fframio\'r ardal rydych chi ei heisiau; mae\'r ffrâm yn diweddaru\'n awtomatig. Addaswch y lled gyda\'r llithrydd.</string>
     <string name="offline_maps_custom_name">Enw ardal</string>
-    <string name="offline_maps_custom_tap">Tapiwch y map i ddewis y ganolfan</string>
+    <string name="offline_maps_custom_tap">Symudwch y map i ddewis yr ardal</string>
     <string name="offline_maps_custom_default_name">Ardal Custom</string>
     <string name="offline_maps_summary_body">%1$d o %2$d ardal wedi\'u cwblhau · %3$s wedi\'u llwytho i lawr</string>
     <string name="offline_maps_downloading">Wrthi\'n llwytho i lawr %1$s… %2$d %%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Chwyddo i mewn</string>
     <string name="mosque_finder_zoom_out">Chwyddo allan</string>
     <string name="mosque_finder_nearest">Mosg agosaf</string>
+    <string name="mosque_finder_go_to">Ewch iddo</string>
+    <string name="mosque_finder_find_nearest">Dewch o hyd i\'r mosg agosaf</string>
+    <string name="mosque_finder_expanding">Chwilio o fewn %1$s…</string>
+    <string name="offline_maps_custom_width">Lled ardal (graddau)</string>
+    <string name="offline_maps_storage_warning">Storfa isel - dim ond %1$s am ddim</string>
+    <string name="offline_maps_storage_delete_largest">Dileu\'r rhanbarth mwyaf (%1$s · %2$s)</string>
 </resources>

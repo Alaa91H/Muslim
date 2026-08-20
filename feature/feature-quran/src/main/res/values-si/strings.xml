@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">පෙර</string>
     <string name="quran_recitation_notif_next">ඊළඟට</string>
+    <string name="quran_download_playback_title">බාගනිමින් %1$s</string>
+    <string name="quran_download_playback_detail">%1$s ඉතිරිය · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">මුෂාෆ් නියෝගය</string>
+    <string name="quran_download_sort_completion">නිම කිරීමෙන්</string>
+    <string name="quran_downloads_coverage_title">පාරායනය කරන්නන් හරහා සූරා ආවරණය</string>
+    <string name="quran_downloads_coverage_overall">පාරායනය කරන්නන් හරහා සම්පූර්ණ මුෂාෆ්</string>
+    <string name="quran_downloads_coverage_empty">තවමත් ශ්‍රව්‍ය බාගත කර නැත</string>
+    <string name="quran_pause_notif_listener">දැනුම්දීම් මත කියවීම විරාම කරන්න</string>
+    <string name="quran_reciter_changed_title">කියවන්නා වෙනස් විය</string>
+    <string name="quran_reciter_changed_message">පරාසය කුරානයේ අවසානය දක්වා දිවෙන නිසා නැවත ධාවනය නතර විය. %1$s සමඟ නැවත ආරම්භ කරන්නද?</string>
+    <string name="quran_reciter_restart">නැවත ආරම්භ කරන්න</string>
+    <string name="quran_reciter_not_now">දැන් නැහැ</string>
 </resources>

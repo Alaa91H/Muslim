@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">قبلاً به من یادآوری کن:</string>
     <string name="ramadan_suhoor_time">سحری پایان فجر: %1$s</string>
     <string name="ramadan_title">رمضان</string>
+    <string name="ramadan_notify_outside">تذکرات خارج از ماه رمضان</string>
+    <string name="ramadan_notify_outside_desc">هشدارهای افطار و سحری به طور خودکار در ماه رمضان اجرا می شود. فعال کردن این امر آنها را در ماه های دیگر ادامه می دهد.</string>
 </resources>

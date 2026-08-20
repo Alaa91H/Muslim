@@ -40,8 +40,8 @@ class AdhkarReminderReceiver : BroadcastReceiver() {
                     AdhkarReminderSlot.Evening -> DhikrCategory.Evening
                 }
                 val dhikr = entryPoint.adhkarRepository()
-                    .randomDhikr(category, prefs.disabledDhikrIds)
-                    ?: entryPoint.adhkarRepository().randomDhikr(null, prefs.disabledDhikrIds)
+                    .randomDhikr(category, prefs.disabledDhikrIds, prefs.shortDhikrOnly)
+                    ?: entryPoint.adhkarRepository().randomDhikr(null, prefs.disabledDhikrIds, prefs.shortDhikrOnly)
                 if (dhikr != null) {
                     val overlayGranted = Settings.canDrawOverlays(appContext)
                     if (prefs.overlayEnabled && overlayGranted) {

@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">ଦେଶ</string>
     <string name="offline_maps_tab_custom">କଷ୍ଟମ୍ କ୍ଷେତ୍ର |</string>
     <string name="offline_maps_download">ଡାଉନଲୋଡ୍ କରନ୍ତୁ |</string>
-    <string name="offline_maps_custom_hint">କେନ୍ଦ୍ର ବାଛିବା ପାଇଁ ମାନଚିତ୍ରକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ, ତାପରେ ଏହାର ଆଖପାଖ ଅଞ୍ଚଳକୁ ଡାଉନଲୋଡ୍ କରନ୍ତୁ |</string>
+    <string name="offline_maps_custom_hint">ଆପଣ ଚାହୁଁଥିବା କ୍ଷେତ୍ରକୁ ଫ୍ରେମ୍ କରିବା ପାଇଁ ମାନଚିତ୍ରକୁ ପ୍ୟାନ୍ ଏବଂ ଜୁମ୍ କରନ୍ତୁ | ଫ୍ରେମ୍ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅଦ୍ୟତନ କରେ | ସ୍ଲାଇଡର୍ ସହିତ ମୋଟେଇ ଆଡଜଷ୍ଟ୍ କରନ୍ତୁ |</string>
     <string name="offline_maps_custom_name">କ୍ଷେତ୍ର ନାମ</string>
-    <string name="offline_maps_custom_tap">କେନ୍ଦ୍ର ବାଛିବା ପାଇଁ ମାନଚିତ୍ର ଟ୍ୟାପ୍ କରନ୍ତୁ |</string>
+    <string name="offline_maps_custom_tap">କ୍ଷେତ୍ର ଚୟନ କରିବାକୁ ମାନଚିତ୍ରକୁ ଘୁଞ୍ଚାନ୍ତୁ |</string>
     <string name="offline_maps_custom_default_name">କଷ୍ଟମ୍ କ୍ଷେତ୍ର |</string>
     <string name="offline_maps_summary_body">%1$d %2$d କ୍ଷେତ୍ରଗୁଡିକ ସମ୍ପୂର୍ଣ୍ଣ · %3$s ଡାଉନଲୋଡ୍ ହୋଇଛି |</string>
     <string name="offline_maps_downloading">%1$s {%2$d %% ଡାଉନଲୋଡ୍ କରୁଛି |</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">ଜୁମ୍ ଇନ୍ କରନ୍ତୁ |</string>
     <string name="mosque_finder_zoom_out">ଜୁମ୍ ଆଉଟ୍ କରନ୍ତୁ |</string>
     <string name="mosque_finder_nearest">ନିକଟସ୍ଥ ମସଜିଦ</string>
+    <string name="mosque_finder_go_to">ଏହାକୁ ଯାଆନ୍ତୁ |</string>
+    <string name="mosque_finder_find_nearest">ନିକଟସ୍ଥ ମସଜିଦ ଖୋଜ |</string>
+    <string name="mosque_finder_expanding">Searching within %1$s…</string>
+    <string name="offline_maps_custom_width">କ୍ଷେତ୍ର ମୋଟେଇ (ଡିଗ୍ରୀ)</string>
+    <string name="offline_maps_storage_warning">କମ୍ ଷ୍ଟୋରେଜ୍ - କେବଳ %1$s ମାଗଣା |</string>
+    <string name="offline_maps_storage_delete_largest">ସର୍ବ ବୃହତ ଅଞ୍ଚଳ ବିଲୋପ କରନ୍ତୁ (%1$s · %2$s)</string>
 </resources>

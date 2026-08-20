@@ -46,4 +46,12 @@
     <string name="crash_close">Påpa\'</string>
     <string name="crash_dismiss">Sige</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Li\'e\' i Quran</string>
+    <string name="more_quran_search_desc">Sodda\' un palabra, taimanu na biåhi na ha a\'a\'paka\' yan håfa na lugat</string>
+    <string name="more_quran_frequency">I frekuensian i palabras gi i Quran</string>
+    <string name="more_quran_frequency_desc">I mas frekuente na palabras gi todu i mushaf</string>
+    <string name="more_pause_on_notifications">Na\'para i tinige\' gi i notisia siha</string>
+    <string name="more_pause_on_notifications_desc">Ma\'apasi i tinige\' yanggen guaha notisia, ring pat otro na media ma\'usa</string>
+    <string name="more_pause_notifications_enabled">Ma\'a\'ñao — laknos para un abri i setbisio siha gi i sistema</string>
+    <string name="more_pause_notifications_disabled">Ma na\'suha — chagi para un na\'siña</string>
 </resources>

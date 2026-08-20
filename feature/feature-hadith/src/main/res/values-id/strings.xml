@@ -23,4 +23,5 @@
     <string name="hadith_search_hint">Cari hadis…</string>
     <string name="hadith_share">Bagikan</string>
     <string name="hadith_title">Perpustakaan Hadits</string>
+    <string name="hadith_copy">Salin</string>
 </resources>

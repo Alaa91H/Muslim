@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Ил .</string>
     <string name="offline_maps_tab_custom">Ҡулланыусы майҙаны</string>
     <string name="offline_maps_download">Скачать</string>
-    <string name="offline_maps_custom_hint">Үҙәкте һайлау өсөн картаға баҫығыҙ, унан һуң уның тирәһендәге ерҙе скачать итегеҙ.</string>
+    <string name="offline_maps_custom_hint">Панорама һәм картаны ҙурайтып, һеҙ теләгән районды рамкаға һалырға; кадр автоматик рәүештә яңыртыла. Киңлеген ползунок менән көйләү.</string>
     <string name="offline_maps_custom_name">Район атамаһы .</string>
-    <string name="offline_maps_custom_tap">Үҙәкте һайлау өсөн картаға баҫығыҙ</string>
+    <string name="offline_maps_custom_tap">Районды һайлау өсөн картаны күсерергә</string>
     <string name="offline_maps_custom_default_name">Ҡулланыусы майҙаны</string>
     <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
     <string name="offline_maps_downloading">Downloading %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Ҙурайтыу</string>
     <string name="mosque_finder_zoom_out">Ҡыҫҡартыу</string>
     <string name="mosque_finder_nearest">Яҡындағы мәсет .</string>
+    <string name="mosque_finder_go_to">Уға барығыҙ .</string>
+    <string name="mosque_finder_find_nearest">Яҡындағы мәсетте табығыҙ .</string>
+    <string name="mosque_finder_expanding">Searching within %1$s…</string>
+    <string name="offline_maps_custom_width">Майҙан киңлеге (градустары)</string>
+    <string name="offline_maps_storage_warning">Түбән һаҡлау — ни бары %1$s бушлай</string>
+    <string name="offline_maps_storage_delete_largest">Иң ҙур төбәкте юйырға (%1$s · %2$s)</string>
 </resources>

@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Land</string>
     <string name="offline_maps_tab_custom">Sersniðgivið øki</string>
     <string name="offline_maps_download">Heinta</string>
-    <string name="offline_maps_custom_hint">Trýst á kortið fyri at velja miðdepilin, og heinta síðani økið rundan um tað.</string>
+    <string name="offline_maps_custom_hint">Panrera og zooma kortið fyri at ramma økið tú ynskir; ramman dagførir seg sjálvvirkandi. Stilla breiddina við rennaranum.</string>
     <string name="offline_maps_custom_name">Økisnavn</string>
-    <string name="offline_maps_custom_tap">Trýst á kortið fyri at velja miðdepilin</string>
+    <string name="offline_maps_custom_tap">Flyt kortið fyri at velja økið</string>
     <string name="offline_maps_custom_default_name">Sersniðgivið øki</string>
     <string name="offline_maps_summary_body">%1$d av %2$d økjum liðugt · %3$s heintað</string>
     <string name="offline_maps_downloading">Heinta %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zooma inn</string>
     <string name="mosque_finder_zoom_out">Zooma út</string>
     <string name="mosque_finder_nearest">Nærmasta moska</string>
+    <string name="mosque_finder_go_to">Far til tað</string>
+    <string name="mosque_finder_find_nearest">Finn nærmastu mosku</string>
+    <string name="mosque_finder_expanding">Leita innanfyri %1$s...</string>
+    <string name="offline_maps_custom_width">Økisbreidd (stig)</string>
+    <string name="offline_maps_storage_warning">Lág goymsla — einans %1$s ókeypis</string>
+    <string name="offline_maps_storage_delete_largest">Strika størsta øki (%1$s · %2$s)</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">Pihak Berkuasa Am Mesir untuk Ukur</string>
     <string name="method_france">Perancis (UOIF)</string>
     <string name="method_isna">ISNA (Amerika Utara)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Universiti Sains Islam, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Jawatankuasa Pandangan Bulan</string>
     <string name="method_mwl">Liga Muslim Dunia</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapura</string>
-    <string name="method_tehran">Institut Geofizik Tehran</string>
     <string name="method_turkey">Diyanet Turki</string>
     <string name="method_umm_al_qura">Ummu al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Sejak Adzan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Tidak dapat mengira masa</string>
     <string name="widget_prayer_times_description">Doa seterusnya dengan undur</string>
     <string name="widget_prayer_times_label">Waktu solat</string>
+    <string name="settings_adhan_volume_vibrate">Kelantangan %1$s · Getaran %2$s</string>
+    <string name="settings_adhan_vibrate_on">hidup</string>
+    <string name="settings_adhan_vibrate_off">Mati</string>
+    <string name="settings_preview_stop">Hentikan pratonton</string>
+    <string name="settings_method_automatic">Automatik (mengikut lokasi)</string>
+    <string name="settings_method_automatic_desc">Apl memilih kaedah yang paling sesuai secara automatik berdasarkan negara dan lokasi anda; anda masih boleh memilih kaedah secara manual pada bila-bila masa.</string>
+    <string name="settings_preview_for_prayer">Pratonton %1$s azan</string>
 </resources>

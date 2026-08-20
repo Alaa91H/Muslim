@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Раздæр мын мæ зæрдыл æрлæууын кæн:</string>
     <string name="ramadan_suhoor_time">Сухуры кæрон (Фаджр): %1$s</string>
     <string name="ramadan_title">Рамадан</string>
+    <string name="ramadan_notify_outside">Reminders outside Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Ифтар æмæ сухуры хъусынгæнинæгтæ кусынц автоматикон æгъдауæй Рамаданы рæстæджы; enabling this keeps them going in other months.</string>
 </resources>

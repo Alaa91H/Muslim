@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egyptisk generalauktoritet för undersökning</string>
     <string name="method_france">Frankrike (UOIF)</string>
     <string name="method_isna">ISNA (Nordamerika)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">University of Islamic Sciences, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Månskådningskommittén</string>
     <string name="method_mwl">Muslimska världsligan</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Teheran Institute of Geophysics</string>
     <string name="method_turkey">Diyanet Turkiet</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Sedan Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Det går inte att beräkna tider</string>
     <string name="widget_prayer_times_description">Nästa bön med nedräkning</string>
     <string name="widget_prayer_times_label">Bönetider</string>
+    <string name="settings_adhan_volume_vibrate">Volym %1$s · Vibration %2$s</string>
+    <string name="settings_adhan_vibrate_on">På</string>
+    <string name="settings_adhan_vibrate_off">Av</string>
+    <string name="settings_preview_stop">Stoppa förhandsgranskningen</string>
+    <string name="settings_method_automatic">Automatisk (efter plats)</string>
+    <string name="settings_method_automatic_desc">Appen väljer den mest lämpliga metoden automatiskt baserat på ditt land och din plats; du kan fortfarande välja en metod manuellt när som helst.</string>
+    <string name="settings_preview_for_prayer">Förhandsgranska %1$s adhan</string>
 </resources>

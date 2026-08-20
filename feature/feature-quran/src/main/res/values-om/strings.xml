@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Duraa</string>
     <string name="quran_recitation_notif_next">Itti aansee</string>
+    <string name="quran_download_playback_title">Buufachuuf %1$s</string>
+    <string name="quran_download_playback_detail">%1$s bitaa · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaaf ajaja</string>
+    <string name="quran_download_sort_completion">Xumura irratti</string>
+    <string name="quran_downloads_coverage_title">Uwwisa suuraa qara’oota hunda keessatti</string>
+    <string name="quran_downloads_coverage_overall">Mushaaf guutuu qara\'toota hunda</string>
+    <string name="quran_downloads_coverage_empty">Sagaleen hanga ammaatti hin buufamne</string>
+    <string name="quran_pause_notif_listener">Beeksisa irratti dubbisuu dhaabuu</string>
+    <string name="quran_reciter_changed_title">Reciter jijjiirame</string>
+    <string name="quran_reciter_changed_message">Taphachuun kan dhaabbate sababiin isaas range hanga dhuma Qur\'aanaatti waan fiiguuf. %1$s tiin irra deebi\'ii jalqabi?</string>
+    <string name="quran_reciter_restart">Ammas jalqabi</string>
+    <string name="quran_reciter_not_now">Amma miti</string>
 </resources>

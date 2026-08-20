@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Previous</string>
     <string name="quran_recitation_notif_next">Dopu</string>
+    <string name="quran_download_playback_title">Scaricamentu %1$s</string>
+    <string name="quran_download_playback_detail">%1$s manca · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Ordine Mushaf</string>
+    <string name="quran_download_sort_completion">Per compiu</string>
+    <string name="quran_downloads_coverage_title">Copertura di Surah à traversu reciters</string>
+    <string name="quran_downloads_coverage_overall">Mushaf pienu à traversu reciters</string>
+    <string name="quran_downloads_coverage_empty">Nisun audio scaricatu ancora</string>
+    <string name="quran_pause_notif_listener">Pausa a recitazione nantu à e notificazioni</string>
+    <string name="quran_reciter_changed_title">Reciter cambiatu</string>
+    <string name="quran_reciter_changed_message">A riproduzione hè stata arrestata perchè a gamma corre finu à a fine di u Quran. Cumincià di novu cù %1$s?</string>
+    <string name="quran_reciter_restart">Cumincià di novu</string>
+    <string name="quran_reciter_not_now">Nun avà</string>
 </resources>

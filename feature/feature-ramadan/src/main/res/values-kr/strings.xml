@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Kawu wuro taktəgəne:</string>
     <string name="ramadan_suhoor_time">Suhuur dajin (Sajiri): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Taktəwa diya Ramadanben</string>
+    <string name="ramadan_notify_outside_desc">Iftar-a suhoor-adə loktu Ramadanben kəlanzalan cidazayin; adəye sandiya kəntawu gadeson lezayin.</string>
 </resources>

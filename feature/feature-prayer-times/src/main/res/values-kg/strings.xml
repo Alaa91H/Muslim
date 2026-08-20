@@ -46,14 +46,12 @@
     <string name="method_egyptian">Mfumu ya nene ya Ezipte ya ke salaka bansosa</string>
     <string name="method_france">France (UOIF)</string>
     <string name="method_isna">ISNA (Amerika ya Nordi)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Nzo-nkanda ya nene ya siansi ya Islam, na Karachi</string>
     <string name="method_kuwait">Koweit</string>
     <string name="method_moonsighting">Komite ya Ke Talaka Ngonda</string>
     <string name="method_mwl">Ligue mondiale musulmane</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapour</string>
-    <string name="method_tehran">Inzo-nkanda ya nene ya Tehran</string>
     <string name="method_turkey">Diyanet</string>
     <string name="method_umm_al_qura">Ummu ya Qura (Makka)</string>
     <string name="next_adhan_elapsed">Banda Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Kukonda kukuka kusala calcul ya bantangu</string>
     <string name="widget_prayer_times_description">Kisambu ya ke landa ti ntalu ya nima</string>
     <string name="widget_prayer_times_label">Ntangu ya kisambu</string>
+    <string name="settings_adhan_volume_vibrate">Volime %1$s · Kunikana %2$s</string>
+    <string name="settings_adhan_vibrate_on">Na</string>
+    <string name="settings_adhan_vibrate_off">Kukanga</string>
+    <string name="settings_preview_stop">Sukisa kutala na ntwala</string>
+    <string name="settings_method_automatic">Yo mosi (na kutadila kisika)</string>
+    <string name="settings_method_automatic_desc">E programa yayi isolanga e mpila isundidi o wete muna mpila yasikididi mun’owu wa nsi ye fulu ozingilanga; nge lenda pona kaka metode mosi na maboko na konso ntangu yina.</string>
+    <string name="settings_preview_for_prayer">Kutala na ntwala %1$s adhan</string>
 </resources>

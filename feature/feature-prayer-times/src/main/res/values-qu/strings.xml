@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egipto nacionpi Autoridad General de Encuesta nisqa</string>
     <string name="method_france">Ransiya (UOIF) .</string>
     <string name="method_isna">ISNA (Urin Awya Yala) .</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Ciencias Islámicas nisqa hatun yachay wasi, Karachi llaqtapi</string>
     <string name="method_kuwait">Kuwait llaqtapi</string>
     <string name="method_moonsighting">Killa Rikuna Comité</string>
     <string name="method_mwl">Liga Mundial Musulmana</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapur llaqtamanta</string>
-    <string name="method_tehran">Teherán llaqtapi Geofísica Yachay Sunturnin</string>
     <string name="method_turkey">Diyanet Turkiya</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah) llaqtapi.</string>
     <string name="next_adhan_elapsed">Adhanmanta pacha: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Mana pachakunata yupayta atispa</string>
     <string name="widget_prayer_times_description">Qatiqnin mañakuy yupay kutichiywan</string>
     <string name="widget_prayer_times_label">Mañakuy pachakuna</string>
+    <string name="settings_adhan_volume_vibrate">Volumen %1$s · Kuyuriy %2$s .</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Ñawpaq qhawayta saqiy</string>
+    <string name="settings_method_automatic">Kikinmanta (maypi kasqanman hina) .</string>
+    <string name="settings_method_automatic_desc">App aswan allin métodota kikillanmanta akllan suyuykiman hina chaymanta maypi kasqaykiman hina; huk métodota makiwan akllayta atikunkiraq mayk\'aqllapas.</string>
+    <string name="settings_preview_for_prayer">Ñawpaq qhaway %1$s adhan</string>
 </resources>

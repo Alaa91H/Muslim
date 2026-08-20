@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">මට කලින් මතක් කරන්න:</string>
     <string name="ramadan_suhoor_time">සුහූර් අවසන් (ෆජ්ර්): %1$s</string>
     <string name="ramadan_title">රාමසාන්</string>
+    <string name="ramadan_notify_outside">රාමදාන් පිටත මතක් කිරීම්</string>
+    <string name="ramadan_notify_outside_desc">ඉෆ්තාර් සහ සුහූර් ඇඟවීම් රාමසාන් සමයේදී ස්වයංක්‍රීයව ක්‍රියාත්මක වේ; මෙය සක්‍රීය කිරීමෙන් ඔවුන් වෙනත් මාසවලදී දිගටම කරගෙන යයි.</string>
 </resources>

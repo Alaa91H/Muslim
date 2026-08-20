@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Ya me luta</string>
     <string name="quran_recitation_notif_next">Na nima</string>
+    <string name="quran_download_playback_title">Kubaka %1$s</string>
+    <string name="quran_download_playback_detail">%1$s me bikala · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Ntuma ya Mushaf</string>
+    <string name="quran_download_sort_completion">Na kumanisa</string>
+    <string name="quran_downloads_coverage_title">Kuzabisa Surah na kati ya bantu yina ke tangaka yo</string>
+    <string name="quran_downloads_coverage_overall">Mushaf ya mvimba na kati ya batangi</string>
+    <string name="quran_downloads_coverage_empty">Bo me baka ntete ve ndinga</string>
+    <string name="quran_pause_notif_listener">Pemisa kutanga na bansangu</string>
+    <string name="quran_reciter_changed_title">Muntu ya ke tangaka me soba</string>
+    <string name="quran_reciter_changed_message">Kubula me mana sambu bandinga ke kwenda tii na nsuka ya Quran. Banda diaka na %1$s?</string>
+    <string name="quran_reciter_restart">Yantika diaka</string>
+    <string name="quran_reciter_not_now">Ntangu yai ve</string>
 </resources>

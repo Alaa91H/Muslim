@@ -46,4 +46,12 @@
     <string name="crash_close">Kanga</string>
     <string name="crash_dismiss">Landa</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Sosa na Quoran</string>
+    <string name="more_quran_search_desc">Sosa ngogo mosi, mbala ikwa yo ke monanaka mpi na wapi .</string>
+    <string name="more_quran_frequency">Mbala ya ngogo ya Quoran</string>
+    <string name="more_quran_frequency_desc">Bangogo yina ke basikaka mingi na mushaf ya mvimba .</string>
+    <string name="more_pause_on_notifications">Pemisa kutanga na bansangu</string>
+    <string name="more_pause_on_notifications_desc">Kutanga ke pemaka mwa fioti ntangu nsangu, ndinga to bima ya nkaka ke bulaka .</string>
+    <string name="more_pause_notifications_enabled">Me kangula — niema sambu na kukangula baparametre ya systeme</string>
+    <string name="more_pause_notifications_disabled">Kukangama — niema sambu na kukangula</string>
 </resources>

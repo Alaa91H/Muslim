@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar-instellinge</string>
     <string name="adhkar_show_translation">Vertaoling toene</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopie</string>
+    <string name="adhkar_share">Deile</string>
+    <string name="adhkar_overlay_short_only">Gebruuk allein korte adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Kies adhkar die op ein of twie lijne pas, zodet de drijvende bubbel helder en gemekkelik te leze blief.</string>
+    <string name="adhkar_overlay_tap_hint">Tik op de bubbel um ‘m direk te verwijdere.</string>
 </resources>

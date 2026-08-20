@@ -267,6 +267,18 @@ private fun SuhoorCard(state: RamadanUiState, viewModel: RamadanViewModel, use24
                     )
                 }
             }
+            Spacer(Modifier.height(6.dp))
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = stringResource(R.string.ramadan_notify_outside),
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.weight(1f),
+                )
+                Switch(
+                    checked = state.settings.notifyOutsideRamadan,
+                    onCheckedChange = viewModel::setNotifyOutsideRamadan,
+                )
+            }
         }
     }
 }

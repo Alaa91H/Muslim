@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Gogoratu aurretik:</string>
     <string name="ramadan_suhoor_time">Suhoor amaierak (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadana</string>
+    <string name="ramadan_notify_outside">Ramadanetik kanpo abisuak</string>
+    <string name="ramadan_notify_outside_desc">Iftar eta suhoor alertak automatikoki exekutatzen dira Ramadanean; hau gaituz gero, beste hilabeteetan mantentzen dira.</string>
 </resources>

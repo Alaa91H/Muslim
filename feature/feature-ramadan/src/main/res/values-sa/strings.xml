@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">पूर्वं स्मर्यताम् : १.</string>
     <string name="ramadan_suhoor_time">सुहूर समाप्त (फजर): %1$s</string>
     <string name="ramadan_title">रमजान</string>
+    <string name="ramadan_notify_outside">रमजानतः बहिः स्मरणानि</string>
+    <string name="ramadan_notify_outside_desc">रमजानस्य समये इफ्तार-सुहूर्-सचेतनाः स्वयमेव चाल्यन्ते; एतत् सक्षमीकरणेन अन्येषु मासेषु तेषां गतिः भवति ।</string>
 </resources>

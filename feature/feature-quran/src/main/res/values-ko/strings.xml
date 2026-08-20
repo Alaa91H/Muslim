@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">이전</string>
     <string name="quran_recitation_notif_next">다음</string>
+    <string name="quran_download_playback_title">%1$s 다운로드 중</string>
+    <string name="quran_download_playback_detail">%1$s 남음 · %2$s/초</string>
+    <string name="quran_download_sort_mushaf">무샤프 주문</string>
+    <string name="quran_download_sort_completion">완료 시</string>
+    <string name="quran_downloads_coverage_title">암송자 전체의 Surah 적용 범위</string>
+    <string name="quran_downloads_coverage_overall">암송자 전체의 무샤프</string>
+    <string name="quran_downloads_coverage_empty">아직 다운로드한 오디오가 없습니다.</string>
+    <string name="quran_pause_notif_listener">알림 시 낭송 일시 중지</string>
+    <string name="quran_reciter_changed_title">암송자가 변경됨</string>
+    <string name="quran_reciter_changed_message">범위가 꾸란의 끝까지 실행되기 때문에 재생이 중지되었습니다. %1$s로 다시 시작하시겠습니까?</string>
+    <string name="quran_reciter_restart">다시 시작</string>
+    <string name="quran_reciter_not_now">지금은 아님</string>
 </resources>

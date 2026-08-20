@@ -46,4 +46,12 @@
     <string name="crash_close">Close</string>
     <string name="crash_dismiss">Enderera mberi</string>
     <string name="more_order_hint">على على على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإظهار أو إخفاء كل قسم. يطبّق التغير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Tsvaga muKorani</string>
+    <string name="more_quran_search_desc">Tsvaga izwi, kuti rinoonekwa kakawanda sei uye kupi</string>
+    <string name="more_quran_frequency">Koran izwi frequency</string>
+    <string name="more_quran_frequency_desc">Mazwi anonyanya kuitika mumushaf yese</string>
+    <string name="more_pause_on_notifications">Imbomira kudzokorora pazviziviso</string>
+    <string name="more_pause_on_notifications_desc">Kudzokorodza kunombomira zvishoma kana chiziviso, mhete kana imwe midhiya ichirira</string>
+    <string name="more_pause_notifications_enabled">Yakagoneswa - tora kuti uvhure masisitimu ehurongwa</string>
+    <string name="more_pause_notifications_disabled">Yakaremara — tonya kuti ugone kugonesa</string>
 </resources>

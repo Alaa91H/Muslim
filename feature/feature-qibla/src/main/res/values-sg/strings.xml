@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Kodoro</string>
     <string name="offline_maps_tab_custom">Zoa ti coutume</string>
     <string name="offline_maps_download">Téléchargé</string>
-    <string name="offline_maps_custom_hint">Zia carte ni ti soro ndo so ayeke na popo ni, na pekoni téléchargé ndo so ayeke na terê ni.</string>
+    <string name="offline_maps_custom_hint">Pan na zoom na ndo ti carte ni ti cadre ndo so mo ye; cadre ni ayeke sara a-update automatiquement. A leke largeur ni na curseur ni.</string>
     <string name="offline_maps_custom_name">Iri ti ndo ni</string>
-    <string name="offline_maps_custom_tap">Zia carte ni ti soro centre ni .</string>
+    <string name="offline_maps_custom_tap">Mo gue na ndo ti carte ni ti soro ndo ni .</string>
     <string name="offline_maps_custom_default_name">Zoa ti coutume</string>
     <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
     <string name="offline_maps_downloading">A yeke téléchargé %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom na yâ ni</string>
     <string name="mosque_finder_zoom_out">Zoom na gbe ni</string>
     <string name="mosque_finder_nearest">Mosquée so ayeke nduru</string>
+    <string name="mosque_finder_go_to">Gue na ndo ni .</string>
+    <string name="mosque_finder_find_nearest">Gi mosquée so ayeke nduru na mo</string>
+    <string name="mosque_finder_expanding">Gingo ye na yâ ti %1$s...</string>
+    <string name="offline_maps_custom_width">Largeur ti ndo ni (degré)</string>
+    <string name="offline_maps_storage_warning">A yeke bata ni — gi %1$s senge senge .</string>
+    <string name="offline_maps_storage_delete_largest">Effacé kota région (%1$s · %2$s)</string>
 </resources>

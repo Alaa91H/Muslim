@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Ðo ŋku edzi nam do ŋgɔ be:</string>
     <string name="ramadan_suhoor_time">Suhoor ƒe nuwuwu (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan ƒe ɣeyiɣia me</string>
+    <string name="ramadan_notify_outside">Ŋkuɖodzinyawo le Ramadan godo</string>
+    <string name="ramadan_notify_outside_desc">Iftar kple suhoor ƒe nuxlɔ̃amewo zɔna le wo ɖokui si le Ramadan me; esia wɔwɔ nana woyia edzi nɔa dɔ wɔm le ɣleti bubuwo me.</string>
 </resources>

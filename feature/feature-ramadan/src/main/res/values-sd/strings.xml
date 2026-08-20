@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">مون کي ياد ڏياريو اڳ:</string>
     <string name="ramadan_suhoor_time">سحري ختم ٿيڻ (فجر): %1$s</string>
     <string name="ramadan_title">رمضان</string>
+    <string name="ramadan_notify_outside">رمضان کان ٻاهر ياد ڏياريندڙ</string>
+    <string name="ramadan_notify_outside_desc">رمضان المبارڪ ۾ افطار ۽ سحري جا الرٽ پاڻمرادو هلندا آهن؛ ان کي فعال ڪرڻ انهن کي ٻين مهينن ۾ جاري رکي ٿو.</string>
 </resources>

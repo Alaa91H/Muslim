@@ -1,9 +1,12 @@
 package org.muslim.app.feature.quran.ui
 
+import android.content.Context
+import android.os.SystemClock
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.isActive
@@ -19,12 +22,14 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import org.muslim.app.feature.quran.data.PlaybackState
 import org.muslim.app.feature.quran.data.QuranAudioPlayer
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.data.QuranSupplementRepository
 import org.muslim.app.feature.quran.data.DownloadRequest
 import org.muslim.app.feature.quran.data.DownloadScope
 import org.muslim.app.feature.quran.data.QuranDownloadManager
+import org.muslim.app.feature.quran.data.RecitationDownloadNotifier
 import org.muslim.app.feature.quran.data.RecitationQueueItem
 import org.muslim.app.feature.quran.data.RecitationRepository
 import org.muslim.app.feature.quran.data.ReciterDownloadState
@@ -44,6 +49,7 @@ enum class RecitationRange { SingleAyah, FromAyahToEnd, WholeSurah }
 @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
 @HiltViewModel
 class QuranReaderViewModel @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val repository: QuranRepository,
     private val prefsRepository: QuranPrefsRepository,
     private val supplementRepository: QuranSupplementRepository,
@@ -52,6 +58,22 @@ class QuranReaderViewModel @Inject constructor(
     private val audioPlayer: QuranAudioPlayer,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
+
+    private val downloadNotifier = RecitationDownloadNotifier(context)
+
+    // Last recitation range/repeat the user played with, so switching the
+    // reciter from the player bar resumes playback with the same settings.
+    private var lastRepeatCount = 1
+    private var lastRange = RecitationRange.FromAyahToEnd
+    private var pendingRestartAyahGlobal: Int? = null
+
+    /** A reciter change interrupted a whole-mushaf run and needs confirmation. */
+    private val _reciterRestartPending = MutableStateFlow<Reciter?>(null)
+    val reciterRestartPending: StateFlow<Reciter?> = _reciterRestartPending.asStateFlow()
+
+    override fun onCleared() {
+        downloadNotifier.dismiss()
+    }
 
     private val initialSurahNumber: Int = savedStateHandle["surahNumber"] ?: 1
 
@@ -144,8 +166,12 @@ class QuranReaderViewModel @Inject constructor(
                     } else {
                         language
                     }
+                    // Prefer the chosen language, but never show an empty panel
+                    // when only other languages are installed — fall back to
+                    // whatever is available so المعاني/التفسير always works.
+                    val forLanguage = translations.filter { it.language == resolved }
                     SupplementUi(
-                        translations = translations.filter { it.language == resolved },
+                        translations = if (forLanguage.isNotEmpty()) forLanguage else translations,
                         tafsir = tafsir,
                     )
                 }
@@ -240,9 +266,12 @@ class QuranReaderViewModel @Inject constructor(
     val playbackErrorCount: StateFlow<Int> = audioPlayer.errorCount
 
     init {
-        // Hydrate the stop-at-end mirror from the persisted value.
+        // Hydrate the stop-at-end mirror from the persisted value, and seed
+        // the meaning/tafsir sample so the supplements panel works even when
+        // the reader is opened directly (without visiting the surah list).
         viewModelScope.launch {
             _continuousStopAtEnd.value = prefsRepository.continuousStopAtEnd.first()
+            supplementRepository.seedSampleIfEmpty()
         }
 
         // Poll the media position while the reader is open so the mini
@@ -270,8 +299,54 @@ class QuranReaderViewModel @Inject constructor(
         }
     }
 
-    fun selectReciter(reciter: Reciter) = viewModelScope.launch {
-        prefsRepository.setSelectedReciterId(reciter.id)
+    /**
+     * Switches the reciter from the player bar. If recitation is active, the
+     * current reciter is stopped first, then the new reciter is applied and
+     * playback resumes from the same ayah with the same range/repeat (its
+     * missing audio is downloaded automatically).
+     */
+    fun selectReciter(reciter: Reciter) {
+        if (reciter.id == selectedReciter.value.id) return
+        val wasActive = when (audioPlayer.playbackState.value) {
+            PlaybackState.Playing, PlaybackState.Paused -> true
+            PlaybackState.Idle -> false
+        }
+        val ayahGlobal = audioPlayer.currentAyah.value
+        val repeat = lastRepeatCount
+        val range = lastRange
+        // A whole-mushaf run is intentionally not resumed against a different
+        // audio source: the queue can already be downloading/advancing across
+        // surahs. Stop it first and ask the user whether to start a fresh run.
+        val requiresRestartConfirmation = wasActive && range == RecitationRange.FromAyahToEnd
+        audioPlayer.stop()
+        pendingRestartAyahGlobal = ayahGlobal
+        viewModelScope.launch {
+            prefsRepository.setSelectedReciterId(reciter.id)
+            if (requiresRestartConfirmation) {
+                _reciterRestartPending.value = reciter
+            } else if (wasActive && ayahGlobal != null) {
+                val ayah = uiState.value.ayahs.firstOrNull { it.globalNumber == ayahGlobal }
+                if (ayah != null) playAyahWithRange(ayah, repeat, range)
+            }
+        }
+    }
+
+    /** Dismisses the restart prompt while leaving the newly selected reciter applied. */
+    fun dismissReciterRestartPrompt() {
+        _reciterRestartPending.value = null
+        pendingRestartAyahGlobal = null
+    }
+
+    /** Starts the selected reciter again from the interrupted ayah. */
+    fun restartAfterReciterChange() {
+        if (_reciterRestartPending.value == null) return
+        val ayahGlobal = pendingRestartAyahGlobal
+        _reciterRestartPending.value = null
+        pendingRestartAyahGlobal = null
+        val ayah = uiState.value.ayahs.firstOrNull { it.globalNumber == ayahGlobal }
+            ?: uiState.value.ayahs.firstOrNull()
+            ?: return
+        playAyahWithRange(ayah, lastRepeatCount, RecitationRange.FromAyahToEnd)
     }
 
     /** Downloads the current surah for the selected reciter. */
@@ -355,13 +430,43 @@ class QuranReaderViewModel @Inject constructor(
 
             _downloading.value = true
             _downloadProgress.value = 0f
+            val startElapsed = SystemClock.elapsedRealtime()
+            var lastNotifiedPercent = -1
             val result = recitationRepository.downloadSurah(
                 reciter,
                 surahNumber.value,
                 ayahs.associate { it.numberInSurah to it.globalNumber },
-            ) { progress -> _downloadProgress.value = progress }
+            ) { progress ->
+                _downloadProgress.value = progress
+                // Live notification: percentage + remaining time + speed.
+                // Skipped at 100% so an already-downloaded surah never flashes
+                // a notification before playback simply starts.
+                if (progress < 1f) {
+                    val percent = (progress * 100).toInt()
+                    if (percent != lastNotifiedPercent) {
+                        lastNotifiedPercent = percent
+                        val elapsedSec = ((SystemClock.elapsedRealtime() - startElapsed) / 1000f).coerceAtLeast(1f)
+                        val total = ayahs.size
+                        val done = (progress * total).toInt().coerceAtMost(total)
+                        val ayahsPerSec = done / elapsedSec
+                        val remainingSec = if (ayahsPerSec > 0f) {
+                            ((total - done) / ayahsPerSec).toLong()
+                        } else {
+                            0L
+                        }
+                        val bytesPerSec = (ayahsPerSec * reciter.estimatedBytesPerAyah()).toLong()
+                        downloadNotifier.show(
+                            surahName = uiState.value.surah?.arabicName.orEmpty(),
+                            percent = percent,
+                            remainingSeconds = remainingSec,
+                            bytesPerSecond = bytesPerSec,
+                        )
+                    }
+                }
+            }
             _downloading.value = false
             _downloadProgress.value = null
+            downloadNotifier.dismiss()
             if (result !is org.muslim.app.core.network.FileDownloader.Result.Success) return@launch
             if (!isActive) return@launch
 
@@ -426,6 +531,10 @@ class QuranReaderViewModel @Inject constructor(
 
     /** Applies the reader's chosen [range] to playback starting at [ayah]. */
     fun playAyahWithRange(ayah: Ayah, repeatCount: Int, range: RecitationRange) {
+        // Remember what the user was playing so a reciter switch from the
+        // player bar can resume the same run with the new reciter.
+        lastRepeatCount = repeatCount
+        lastRange = range
         when (range) {
             RecitationRange.SingleAyah -> playSingleAyah(ayah, repeatCount)
             RecitationRange.FromAyahToEnd -> playFromAyah(ayah, repeatCount)

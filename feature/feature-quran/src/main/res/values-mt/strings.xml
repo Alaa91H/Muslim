@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Preċedenti</string>
     <string name="quran_recitation_notif_next">Li jmiss</string>
+    <string name="quran_download_playback_title">Niżżel %1$s</string>
+    <string name="quran_download_playback_detail">%1$s telaq · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Ordni Mushaf</string>
+    <string name="quran_download_sort_completion">Bit-tlestija</string>
+    <string name="quran_downloads_coverage_title">Kopertura tas-Surah madwar reciters</string>
+    <string name="quran_downloads_coverage_overall">Mushaf sħiħ madwar reciters</string>
+    <string name="quran_downloads_coverage_empty">L-ebda awdjo mniżżel għadu</string>
+    <string name="quran_pause_notif_listener">Waqqaf ir-reċitazzjoni fuq in-notifiki</string>
+    <string name="quran_reciter_changed_title">Reciter inbidel</string>
+    <string name="quran_reciter_changed_message">Il-daqq waqaf minħabba li l-firxa tmur sa tmiem il-Koran. Erġa\' tibda b\'%1$s?</string>
+    <string name="quran_reciter_restart">Ibda mill-ġdid</string>
+    <string name="quran_reciter_not_now">Mhux issa</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">Египетса генеральнӧй геодезическӧй орган .</string>
     <string name="method_france">Франция (УОИФ)</string>
     <string name="method_isna">ISNA (Войвыв Америка) .</string>
-    <string name="method_jafari">Джафари</string>
     <string name="method_karachi">Исламскӧй наукаяс университет, Карачи .</string>
     <string name="method_kuwait">Кувейт</string>
     <string name="method_moonsighting">Лунвывса комитет .</string>
     <string name="method_mwl">Мусульманскӧй мирса лига .</string>
     <string name="method_qatar">Катар</string>
     <string name="method_singapore">Сингапур</string>
-    <string name="method_tehran">Тегеранса геофизика институтын .</string>
     <string name="method_turkey">Диянет Турция .</string>
     <string name="method_umm_al_qura">Умм аль-Кура (Макка) .</string>
     <string name="next_adhan_elapsed">Адансянь: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Некутшӧм кад урчитны оз позь .</string>
     <string name="widget_prayer_times_description">Мӧд молитва ӧтувъя лыддьысьӧмӧн .</string>
     <string name="widget_prayer_times_label">Молитва кадъяс .</string>
+    <string name="settings_adhan_volume_vibrate">Громкость %1$s · Вибрация %2$s</string>
+    <string name="settings_adhan_vibrate_on">На .</string>
+    <string name="settings_adhan_vibrate_off">Выключен</string>
+    <string name="settings_preview_stop">Стоп видлалӧм .</string>
+    <string name="settings_method_automatic">Автоматическӧй (места серти)</string>
+    <string name="settings_method_automatic_desc">Приложение бӧрйӧ медся лӧсялана метод автоматическӧй ногӧн тіян страна да оланін серти; ті верманныд нӧшта бӧрйыны метод киӧн быд кадӧ.</string>
+    <string name="settings_preview_for_prayer">%1$s азан видлалӧм</string>
 </resources>

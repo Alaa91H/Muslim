@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Izwe</string>
     <string name="offline_maps_tab_custom">Indawo yangokwezifiso</string>
     <string name="offline_maps_download">Landa</string>
-    <string name="offline_maps_custom_hint">Thepha imephu ukuze ukhethe isikhungo, bese ulanda indawo esizungezile.</string>
+    <string name="offline_maps_custom_hint">Phena futhi usondeze imephu ukuze uzimele indawo oyifunayo; ifreyimu ibuyekeza ngokuzenzakalelayo. Lungisa ububanzi ngesilayida.</string>
     <string name="offline_maps_custom_name">Igama lendawo</string>
-    <string name="offline_maps_custom_tap">Thepha imephu ukuze ukhethe isikhungo</string>
+    <string name="offline_maps_custom_tap">Hambisa imephu ukuze ukhethe indawo</string>
     <string name="offline_maps_custom_default_name">Indawo yangokwezifiso</string>
     <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
     <string name="offline_maps_downloading">Ilanda %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Sondeza isithombe</string>
     <string name="mosque_finder_zoom_out">Hlehlisa isithombe</string>
     <string name="mosque_finder_nearest">I-mosque eseduze</string>
+    <string name="mosque_finder_go_to">Hamba kuyo</string>
+    <string name="mosque_finder_find_nearest">Thola i-mosque eseduze</string>
+    <string name="mosque_finder_expanding">Isesha ngaphakathi kwe-%1$s...</string>
+    <string name="offline_maps_custom_width">Ububanzi bendawo (amadigri)</string>
+    <string name="offline_maps_storage_warning">Isitoreji esiphansi — kuphela %1$s mahhala</string>
+    <string name="offline_maps_storage_delete_largest">Susa isifunda esikhulu kunazo zonke (%1$s · %2$s)</string>
 </resources>

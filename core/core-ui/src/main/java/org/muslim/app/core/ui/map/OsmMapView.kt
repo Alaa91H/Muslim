@@ -23,9 +23,11 @@ import org.maplibre.android.MapLibre
 import org.maplibre.android.camera.CameraPosition
 import org.maplibre.android.camera.CameraUpdateFactory
 import org.maplibre.android.geometry.LatLng
+import org.maplibre.android.geometry.LatLngBounds
 import org.maplibre.android.maps.MapLibreMap
 import org.maplibre.android.maps.MapView
 import org.maplibre.android.module.http.HttpRequestUtil
+import org.maplibre.android.style.layers.FillLayer
 import org.maplibre.android.style.layers.LineLayer
 import org.maplibre.android.style.layers.Property
 import org.maplibre.android.style.layers.PropertyFactory
@@ -35,6 +37,7 @@ import org.maplibre.geojson.Feature
 import org.maplibre.geojson.FeatureCollection
 import org.maplibre.geojson.LineString
 import org.maplibre.geojson.Point
+import org.maplibre.geojson.Polygon
 import okhttp3.OkHttpClient
 import org.muslim.app.core.common.HttpAgents
 
@@ -95,6 +98,23 @@ class MapController {
     fun animateTo(point: LatLng, zoom: Double = 12.0) {
         map?.animateTo(point, zoom)
     }
+
+    /** Bounds currently visible in the viewport, or null while the map is not ready. */
+    fun visibleBounds(): LatLngBounds? =
+        map?.projection?.visibleRegion?.latLngBounds
+
+    /**
+     * Animates the camera to frame [bounds] with [paddingPx] of padding on
+     * every side (mirrors `fitBounds` in other map SDKs).
+     */
+    fun animateToBounds(bounds: LatLngBounds, paddingPx: Int = 48) {
+        val m = map ?: return
+        val camera = m.getCameraForLatLngBounds(
+            bounds,
+            intArrayOf(paddingPx, paddingPx, paddingPx, paddingPx),
+        ) ?: return
+        m.animateCamera(CameraUpdateFactory.newCameraPosition(camera), 500)
+    }
 }
 
 /**
@@ -118,6 +138,8 @@ fun OsmMapView(
     onSymbolClick: (Feature) -> Unit = {},
     /** Layers whose rendered features should be reported via [onSymbolClick] on tap. */
     symbolLayerIds: List<String> = emptyList(),
+    /** Fires with the visible bounds whenever the camera stops moving (pan/zoom idle). */
+    onCameraIdle: (LatLngBounds) -> Unit = {},
 ) {
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
@@ -125,6 +147,7 @@ fun OsmMapView(
     val currentOnClick by rememberUpdatedState(onMapClick)
     val currentOnSymbolClick by rememberUpdatedState(onSymbolClick)
     val currentSymbolLayerIds by rememberUpdatedState(symbolLayerIds)
+    val currentOnCameraIdle by rememberUpdatedState(onCameraIdle)
 
     val mapView = remember(context, key) {
         // Must be initialized once before any MapView is created.
@@ -151,6 +174,9 @@ fun OsmMapView(
                         }
                         currentOnClick(point)
                         true
+                    }
+                    map.addOnCameraIdleListener {
+                        map.projection.visibleRegion.latLngBounds.let(currentOnCameraIdle)
                     }
                     controller?.bind(map)
                     currentOnReady(map)
@@ -219,6 +245,53 @@ fun MapLibreMap.addPinMarker(id: String, point: LatLng, colorHex: String) {
         } else {
             (style.getSource(sourceId) as GeoJsonSource).setGeoJson(
                 Feature.fromGeometry(Point.fromLngLat(point.longitude, point.latitude)),
+            )
+        }
+    }
+}
+
+/**
+ * Draws a translucent rectangle with a border — the offline-area selection
+ * box. Drawn as a GeoJSON polygon (fill + border line layers); replaced in
+ * place on later calls with the same [id], so panning/zooming the picker can
+ * update the selection live without stacking layers. [fillHex]/[borderHex]
+ * are "#RRGGBB" strings.
+ */
+fun MapLibreMap.addBoundsRect(id: String, bounds: LatLngBounds, fillHex: String, borderHex: String) {
+    val corners = listOf(
+        Point.fromLngLat(bounds.longitudeWest, bounds.latitudeSouth),
+        Point.fromLngLat(bounds.longitudeEast, bounds.latitudeSouth),
+        Point.fromLngLat(bounds.longitudeEast, bounds.latitudeNorth),
+        Point.fromLngLat(bounds.longitudeWest, bounds.latitudeNorth),
+        Point.fromLngLat(bounds.longitudeWest, bounds.latitudeSouth),
+    )
+    getStyle { style ->
+        val fillSourceId = "rect_fill_src_$id"
+        val borderSourceId = "rect_border_src_$id"
+        if (style.getSource(fillSourceId) == null) {
+            style.addSource(GeoJsonSource(fillSourceId, Polygon.fromLngLats(listOf(corners))))
+            style.addLayer(
+                FillLayer("rect_fill_$id", fillSourceId).withProperties(
+                    PropertyFactory.fillColor(fillHex),
+                    PropertyFactory.fillOpacity(0.25f),
+                ),
+            )
+        } else {
+            (style.getSource(fillSourceId) as GeoJsonSource).setGeoJson(
+                Polygon.fromLngLats(listOf(corners)),
+            )
+        }
+        if (style.getSource(borderSourceId) == null) {
+            style.addSource(GeoJsonSource(borderSourceId, LineString.fromLngLats(corners)))
+            style.addLayer(
+                LineLayer("rect_border_$id", borderSourceId).withProperties(
+                    PropertyFactory.lineColor(borderHex),
+                    PropertyFactory.lineWidth(3f),
+                ),
+            )
+        } else {
+            (style.getSource(borderSourceId) as GeoJsonSource).setGeoJson(
+                LineString.fromLngLats(corners),
             )
         }
     }

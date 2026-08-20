@@ -23,4 +23,5 @@
     <string name="hadith_search_hint">Iskanje hadisov ...</string>
     <string name="hadith_share">Delite</string>
     <string name="hadith_title">Knjižnica Hadith</string>
+    <string name="hadith_copy">Kopiraj</string>
 </resources>

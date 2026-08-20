@@ -46,14 +46,12 @@
     <string name="method_egyptian">Mutungamiri Mukuru weEgypt weOngororo</string>
     <string name="method_france">France (UOIF)</string>
     <string name="method_isna">ISNA (North America)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Yunivhesiti yeIslam Sayenzi, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Komiti Yekuona Mwedzi</string>
     <string name="method_mwl">Muslim World League</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Tehran Institute yeGeophysics</string>
     <string name="method_turkey">Vadivelu Comedy Diyanet Turkey</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Kubva Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Hatikwanisi kuverenga nguva</string>
     <string name="widget_prayer_times_description">Munamato unotevera uchiverengera pasi</string>
     <string name="widget_prayer_times_label">Nguva dzekunyengetera</string>
+    <string name="settings_adhan_volume_vibrate">Vhoriyamu %1$s · Vibration %2$s</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Mira kuona</string>
+    <string name="settings_method_automatic">Otomatiki (nenzvimbo)</string>
+    <string name="settings_method_automatic_desc">Iyo app inotora yakanyatsokodzera nzira otomatiki zvichienderana nenyika yako nenzvimbo; iwe unogona kusarudza nzira nemaoko chero nguva.</string>
+    <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
 </resources>

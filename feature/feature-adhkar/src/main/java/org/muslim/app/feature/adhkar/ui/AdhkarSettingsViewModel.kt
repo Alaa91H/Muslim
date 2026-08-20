@@ -54,7 +54,7 @@ class AdhkarSettingsViewModel @Inject constructor(
             val current = prefsRepository.prefs.first()
             scheduler.schedule(current)
             periodicScheduler.schedule(current)
-            _previewDhikr.value = adhkarRepository.randomDhikr(null, current.disabledDhikrIds)
+            _previewDhikr.value = adhkarRepository.randomDhikr(null, current.disabledDhikrIds, current.shortDhikrOnly)
         }
     }
 
@@ -96,6 +96,9 @@ class AdhkarSettingsViewModel @Inject constructor(
     fun setPeriodicReminderCategory(categoryId: String?) =
         save { prefsRepository.setPeriodicReminderCategory(categoryId) }
 
+    fun setShortDhikrOnly(enabled: Boolean) =
+        save { prefsRepository.setShortDhikrOnly(enabled) }
+
     fun setPeriodicReminderWindow(enabled: Boolean, startHour: Int, startMinute: Int, endHour: Int, endMinute: Int) =
         save { prefsRepository.setPeriodicReminderWindow(enabled, startHour, startMinute, endHour, endMinute) }
 
@@ -104,7 +107,7 @@ class AdhkarSettingsViewModel @Inject constructor(
         viewModelScope.launch {
             val current = prefsRepository.prefs.first()
             if (!Settings.canDrawOverlays(context)) return@launch
-            val dhikr = adhkarRepository.randomDhikr(null, current.disabledDhikrIds) ?: return@launch
+            val dhikr = adhkarRepository.randomDhikr(null, current.disabledDhikrIds, current.shortDhikrOnly) ?: return@launch
             AdhkarOverlayService.start(
                 context,
                 dhikr,

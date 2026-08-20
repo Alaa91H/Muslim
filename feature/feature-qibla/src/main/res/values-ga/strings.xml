@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Tír</string>
     <string name="offline_maps_tab_custom">Limistéar saincheaptha</string>
     <string name="offline_maps_download">Íosluchtaigh</string>
-    <string name="offline_maps_custom_hint">Tapáil an léarscáil chun an t-ionad a phiocadh, ansin íoslódáil an limistéar timpeall air.</string>
+    <string name="offline_maps_custom_hint">Pan agus zúmáil an léarscáil chun an limistéar atá uait a fhrámú; nuashonraíonn an fráma go huathoibríoch. Coigeartaigh an leithead leis an sleamhnán.</string>
     <string name="offline_maps_custom_name">Ainm ceantair</string>
-    <string name="offline_maps_custom_tap">Tapáil an léarscáil chun an t-ionad a phiocadh</string>
+    <string name="offline_maps_custom_tap">Bog an léarscáil chun an ceantar a roghnú</string>
     <string name="offline_maps_custom_default_name">Limistéar saincheaptha</string>
     <string name="offline_maps_summary_body">%1$d de %2$d limistéar críochnaithe · %3$s íosluchtaithe</string>
     <string name="offline_maps_downloading">%1$s á íosluchtú… %2$d %%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Súmáil isteach</string>
     <string name="mosque_finder_zoom_out">Súmáil amach</string>
     <string name="mosque_finder_nearest">Mosque is gaire</string>
+    <string name="mosque_finder_go_to">Téigh go dtí é</string>
+    <string name="mosque_finder_find_nearest">Faigh an mosc is gaire</string>
+    <string name="mosque_finder_expanding">Ag cuardach laistigh de %1$s…</string>
+    <string name="offline_maps_custom_width">Leithead an achair (céimeanna)</string>
+    <string name="offline_maps_storage_warning">Stóráil íseal - ach %1$s saor in aisce</string>
+    <string name="offline_maps_storage_delete_largest">Scrios an réigiún is mó (%1$s · %2$s)</string>
 </resources>

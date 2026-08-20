@@ -46,4 +46,12 @@
     <string name="crash_close">Kapat</string>
     <string name="crash_dismiss">Devam et</string>
     <string name="more_order_hint">Bu durumda, bir kredi kartına ödeme yapmak ve bir sonraki ödemeyi yapmak veya başka bir işlem yapmak zorunda kalacaksınız. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Kuran\'ı arayın</string>
+    <string name="more_quran_search_desc">Bir kelimeyi, ne sıklıkta ve nerede göründüğünü bulun</string>
+    <string name="more_quran_frequency">Kuran kelime sıklığı</string>
+    <string name="more_quran_frequency_desc">Mushaf\'ın tamamında en sık kullanılan kelimeler</string>
+    <string name="more_pause_on_notifications">Bildirimlerde okumayı duraklat</string>
+    <string name="more_pause_on_notifications_desc">Bir bildirim, zil sesi veya başka bir medya oynatıldığında okuma kısa süreliğine duraklatılır</string>
+    <string name="more_pause_notifications_enabled">Etkin — sistem ayarlarını açmak için dokunun</string>
+    <string name="more_pause_notifications_disabled">Devre dışı — etkinleştirmek için dokunun</string>
 </resources>

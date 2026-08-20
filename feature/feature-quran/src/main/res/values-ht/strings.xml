@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Previous</string>
     <string name="quran_recitation_notif_next">Next</string>
+    <string name="quran_download_playback_title">Telechaje %1$s</string>
+    <string name="quran_download_playback_detail">%1$s kite · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf lòd</string>
+    <string name="quran_download_sort_completion">Lè fini</string>
+    <string name="quran_downloads_coverage_title">Kouvèti Sura atravè reciters</string>
+    <string name="quran_downloads_coverage_overall">Mushaf konplè atravè reciters</string>
+    <string name="quran_downloads_coverage_empty">Pa gen odyo telechaje ankò</string>
+    <string name="quran_pause_notif_listener">Pran poz resitasyon sou notifikasyon yo</string>
+    <string name="quran_reciter_changed_title">Reciter chanje</string>
+    <string name="quran_reciter_changed_message">Lektur sispann paske seri a kouri nan fen koran an. Kòmanse ankò ak %1$s?</string>
+    <string name="quran_reciter_restart">Kòmanse ankò</string>
+    <string name="quran_reciter_not_now">Pa kounye a</string>
 </resources>

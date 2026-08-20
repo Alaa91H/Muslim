@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Ba paramètres ya Adhkar</string>
     <string name="adhkar_show_translation">Lakisa libongoli</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopi na yango</string>
+    <string name="adhkar_share">Bokabola</string>
+    <string name="adhkar_overlay_short_only">Salelá kaka adhkar ya mokuse</string>
+    <string name="adhkar_overlay_short_only_desc">Pona adhkar oyo ekokani na ligne moko to mibale po bulle flottante ezala claire pe facile ya kotanga.</string>
+    <string name="adhkar_overlay_tap_hint">Finá na bulle mpo na kobwaka yango mbala moko.</string>
 </resources>

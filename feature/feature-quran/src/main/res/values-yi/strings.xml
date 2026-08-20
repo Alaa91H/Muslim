@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">פֿריִערדיקע</string>
     <string name="quran_recitation_notif_next">ווייַטער</string>
+    <string name="quran_download_playback_title">דאַונלאָודינג %1$s</string>
+    <string name="quran_download_playback_detail">%1$s לינקס · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">מושאף סדר</string>
+    <string name="quran_download_sort_completion">דורך קאַמפּלישאַן</string>
+    <string name="quran_downloads_coverage_title">סוראַה קאַווערידזש אַריבער רעסיטערס</string>
+    <string name="quran_downloads_coverage_overall">גאַנץ מוסף אַריבער רעסיטערס</string>
+    <string name="quran_downloads_coverage_empty">קיין אַודיאָ דאַונלאָודיד נאָך</string>
+    <string name="quran_pause_notif_listener">פּויזע רעסיטאַטיאָן אויף נאָוטאַפאַקיישאַנז</string>
+    <string name="quran_reciter_changed_title">רעסיטער האט געביטן</string>
+    <string name="quran_reciter_changed_message">פּלייבאַק פארשטאפט ווייַל די קייט לויפט צו די סוף פון די קווראַן. אָנהייבן ווידער מיט %1$s?</string>
+    <string name="quran_reciter_restart">אָנהייב ווידער</string>
+    <string name="quran_reciter_not_now">נישט איצט</string>
 </resources>

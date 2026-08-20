@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Ülke</string>
     <string name="offline_maps_tab_custom">Özel alan</string>
     <string name="offline_maps_download">İndir</string>
-    <string name="offline_maps_custom_hint">Merkezi seçmek için haritaya dokunun, ardından etrafındaki alanı indirin.</string>
+    <string name="offline_maps_custom_hint">İstediğiniz alanı çerçevelemek için haritayı kaydırın ve yakınlaştırın; çerçeve otomatik olarak güncellenir. Genişliği kaydırıcıyla ayarlayın.</string>
     <string name="offline_maps_custom_name">Alan adı</string>
-    <string name="offline_maps_custom_tap">Merkezi seçmek için haritaya dokunun</string>
+    <string name="offline_maps_custom_tap">Alanı seçmek için haritayı hareket ettirin</string>
     <string name="offline_maps_custom_default_name">Özel alan</string>
     <string name="offline_maps_summary_body">%1$d / %2$d alan tamamlandı · %3$s indirildi</string>
     <string name="offline_maps_downloading">%1$s indiriliyor… %%%2$d</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Yakınlaştır</string>
     <string name="mosque_finder_zoom_out">Uzaklaştır</string>
     <string name="mosque_finder_nearest">En yakın cami</string>
+    <string name="mosque_finder_go_to">Ona git</string>
+    <string name="mosque_finder_find_nearest">En yakın camiyi bul</string>
+    <string name="mosque_finder_expanding">%1$s içinde aranıyor…</string>
+    <string name="offline_maps_custom_width">Alan genişliği (derece)</string>
+    <string name="offline_maps_storage_warning">Düşük depolama alanı — yalnızca %1$s ücretsiz</string>
+    <string name="offline_maps_storage_delete_largest">En büyük bölgeyi sil (%1$s · %2$s)</string>
 </resources>

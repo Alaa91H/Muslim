@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">negara</string>
     <string name="offline_maps_tab_custom">Area khusus</string>
     <string name="offline_maps_download">Ngundhuh</string>
-    <string name="offline_maps_custom_hint">Tutul peta kanggo milih tengah, banjur download area ing sakubenge.</string>
+    <string name="offline_maps_custom_hint">Geser lan zoom peta kanggo pigura area sing dikarepake; pigura nganyari kanthi otomatis. Nyetel jembaré nganggo panggeser.</string>
     <string name="offline_maps_custom_name">Jeneng wilayah</string>
-    <string name="offline_maps_custom_tap">Tutul peta kanggo milih tengah</string>
+    <string name="offline_maps_custom_tap">Pindhah peta kanggo milih wilayah</string>
     <string name="offline_maps_custom_default_name">Area khusus</string>
     <string name="offline_maps_summary_body">%1$d saka %2$d wilayah rampung · %3$s diundhuh</string>
     <string name="offline_maps_downloading">Ngundhuh %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom in</string>
     <string name="mosque_finder_zoom_out">Zoom out</string>
     <string name="mosque_finder_nearest">Masjid paling cedhak</string>
+    <string name="mosque_finder_go_to">Pindhah menyang</string>
+    <string name="mosque_finder_find_nearest">Golek masjid sing paling cedhak</string>
+    <string name="mosque_finder_expanding">Nggoleki ing %1$s…</string>
+    <string name="offline_maps_custom_width">Jembar area (derajat)</string>
+    <string name="offline_maps_storage_warning">Panyimpenan sithik - mung %1$s gratis</string>
+    <string name="offline_maps_storage_delete_largest">Busak wilayah paling gedhe (%1$s · %2$s)</string>
 </resources>

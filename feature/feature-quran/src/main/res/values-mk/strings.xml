@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Претходна</string>
     <string name="quran_recitation_notif_next">Следно</string>
+    <string name="quran_download_playback_title">Се презема %1$s</string>
+    <string name="quran_download_playback_detail">Преостанати %1$s · %2$s/с</string>
+    <string name="quran_download_sort_mushaf">Мушаф ред</string>
+    <string name="quran_download_sort_completion">Со завршување</string>
+    <string name="quran_downloads_coverage_title">Покриеност на сура кај рецитаторите</string>
+    <string name="quran_downloads_coverage_overall">Целосен мушаф меѓу рецитаторите</string>
+    <string name="quran_downloads_coverage_empty">Сè уште нема преземено аудио</string>
+    <string name="quran_pause_notif_listener">Паузирајте го рецитирањето на известувањата</string>
+    <string name="quran_reciter_changed_title">Сменет рецитатор</string>
+    <string name="quran_reciter_changed_message">Репродукцијата запре бидејќи опсегот е до крајот на Куранот. Да се ​​започне повторно со %1$s?</string>
+    <string name="quran_reciter_restart">Започнете повторно</string>
+    <string name="quran_reciter_not_now">Не сега</string>
 </resources>

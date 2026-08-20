@@ -26,6 +26,18 @@ data class AppPreferences(
      * is rendered.
      */
     val hiddenMoreSections: Set<String> = emptySet(),
+    /**
+     * Whether the app checks the GitHub releases page for a newer version.
+     * Off by default; the periodic [AppPreferences.updateCheckFrequency]
+     * worker only runs while this is enabled (and always respects the unified
+     * notification manager for the AppUpdate category).
+     */
+    val updateCheckEnabled: Boolean = false,
+    /**
+     * How often the update check runs when [updateCheckEnabled]: one of
+     * [UPDATE_CHECK_DAILY], [UPDATE_CHECK_WEEKLY], [UPDATE_CHECK_MONTHLY].
+     */
+    val updateCheckFrequency: String = UPDATE_CHECK_DAILY,
 ) {
     companion object {
         const val SYSTEM_LANGUAGE = "system"
@@ -43,6 +55,11 @@ data class AppPreferences(
         const val MORE_SECTION_KNOWLEDGE = "knowledge"
         const val MORE_SECTION_TOOLS = "tools"
         const val MORE_SECTION_APP = "app"
+
+        /** Update-check cadence ids (see [updateCheckFrequency]). */
+        const val UPDATE_CHECK_DAILY = "daily"
+        const val UPDATE_CHECK_WEEKLY = "weekly"
+        const val UPDATE_CHECK_MONTHLY = "monthly"
 
         /**
          * Decodes a persisted comma-separated section order into a full, valid

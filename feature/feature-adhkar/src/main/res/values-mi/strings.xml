@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Tautuhinga Adhkar</string>
     <string name="adhkar_show_translation">Whakaaturia te whakamaoritanga</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Tārua</string>
+    <string name="adhkar_share">Tiria</string>
+    <string name="adhkar_overlay_short_only">Whakamahia te adhkar poto anake</string>
+    <string name="adhkar_overlay_short_only_desc">Kōwhiria te adhkar e pai ana kia kotahi, kia rua ranei nga raina kia noho marama te mirumiru maanu me te ngawari ki te panui.</string>
+    <string name="adhkar_overlay_tap_hint">Patohia te mirumiru kia whakakorea tonutia.</string>
 </resources>

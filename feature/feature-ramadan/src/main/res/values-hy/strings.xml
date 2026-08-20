@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Հիշեցրու ինձ նախկինում.</string>
     <string name="ramadan_suhoor_time">Սուհուրի ավարտը (Ֆաջր)՝ %1$s</string>
     <string name="ramadan_title">Ռամադան</string>
+    <string name="ramadan_notify_outside">Հիշեցումներ Ռամադանից դուրս</string>
+    <string name="ramadan_notify_outside_desc">Իֆթարի և սուհուրի ազդանշաններն ավտոմատ կերպով գործարկվում են Ռամադանի ընթացքում. Սա հնարավորություն տալը նրանց կպահի մյուս ամիսներին:</string>
 </resources>

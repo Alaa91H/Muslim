@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">saméméhna</string>
     <string name="quran_recitation_notif_next">Salajengna</string>
+    <string name="quran_download_playback_title">Ngundeur %1$s</string>
+    <string name="quran_download_playback_detail">%1$s ditinggalkeun · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">pesenan Mushaf</string>
+    <string name="quran_download_sort_completion">Ku réngsé</string>
+    <string name="quran_downloads_coverage_title">Liputan Surah di sakuliah reciters</string>
+    <string name="quran_downloads_coverage_overall">Mushaf pinuh ku para qari</string>
+    <string name="quran_downloads_coverage_empty">Henteu aya audio anu diunduh</string>
+    <string name="quran_pause_notif_listener">Ngareureuhkeun bacaan dina béwara</string>
+    <string name="quran_reciter_changed_title">Reciter robah</string>
+    <string name="quran_reciter_changed_message">Playback dieureunkeun sabab rentang ngalir ka tungtung Quran. Mimitian deui ku %1$s?</string>
+    <string name="quran_reciter_restart">Mimitian deui</string>
+    <string name="quran_reciter_not_now">Henteu ayeuna</string>
 </resources>

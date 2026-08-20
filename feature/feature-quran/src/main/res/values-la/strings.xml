@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Antecedens</string>
     <string name="quran_recitation_notif_next">Proximum</string>
+    <string name="quran_download_playback_title">Downloading %1$s</string>
+    <string name="quran_download_playback_detail">%1$s discessit · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf ordo</string>
+    <string name="quran_download_sort_completion">Per complementum</string>
+    <string name="quran_downloads_coverage_title">Surah coverage per sibus</string>
+    <string name="quran_downloads_coverage_overall">Plena mushaf per sibus</string>
+    <string name="quran_downloads_coverage_empty">No audio downloaded yet</string>
+    <string name="quran_pause_notif_listener">Declina notificationes in recitatione</string>
+    <string name="quran_reciter_changed_title">Reiter mutatum</string>
+    <string name="quran_reciter_changed_message">Playback cessaverunt quia range currit ad finem Quran. Rursus cum %1$s?</string>
+    <string name="quran_reciter_restart">Iterum incipit</string>
+    <string name="quran_reciter_not_now">Non nunc</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">अधकार सेटिंग्स</string>
     <string name="adhkar_show_translation">अनुवादं दर्शयतु</string>
     <string name="adhkar_title">अधकर</string>
+    <string name="adhkar_copy">प्रतिलिपि</string>
+    <string name="adhkar_share">शेयर करें</string>
+    <string name="adhkar_overlay_short_only">लघु अधकार ही प्रयोग करें</string>
+    <string name="adhkar_overlay_short_only_desc">एकं वा द्वयोः वा रेखायोः उपयुक्तं अधकारं चिनुत येन प्लवमानः बुदबुदाः स्पष्टः पठनीयः च तिष्ठति।</string>
+    <string name="adhkar_overlay_tap_hint">तत्क्षणं विसर्जयितुं बुदबुदां ट्याप् कुर्वन्तु।</string>
 </resources>

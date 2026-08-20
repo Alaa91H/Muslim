@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Biyya</string>
     <string name="offline_maps_tab_custom">Naannoo aadaa</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">Giddugaleessa filachuuf kaartaa tuqi, achiis naannoo naannoo isaa jiru buufadhu.</string>
+    <string name="offline_maps_custom_hint">Naannoo barbaadde frame gochuuf kaartaa pan fi guddisuu; furmaanni ofumaan haaromsa. Bal\'ina islaayidaraan sirreessaa.</string>
     <string name="offline_maps_custom_name">Maqaa naannoo</string>
-    <string name="offline_maps_custom_tap">Giddugaleessa filachuuf kaartaa tuqi</string>
+    <string name="offline_maps_custom_tap">Naannoo filachuuf kaartaa sochoosi</string>
     <string name="offline_maps_custom_default_name">Naannoo aadaa</string>
     <string name="offline_maps_summary_body">%1$d naannoo %2$d xumurame · %3$s buufame</string>
     <string name="offline_maps_downloading">Buufachaa jira %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom in godhaa</string>
     <string name="mosque_finder_zoom_out">Xiqqeessaa</string>
     <string name="mosque_finder_nearest">Masjiida dhiyoo jiru</string>
+    <string name="mosque_finder_go_to">Gara isaa deemaa</string>
+    <string name="mosque_finder_find_nearest">Masjiida dhiyoo jiru barbaadi</string>
+    <string name="mosque_finder_expanding">%1$s} keessaa barbaaduu...</string>
+    <string name="offline_maps_custom_width">Bal’ina naannoo (digrii) .</string>
+    <string name="offline_maps_storage_warning">Kuusaa gadi aanaa — %1$s qofa bilisa</string>
+    <string name="offline_maps_storage_delete_largest">Naannoo guddaa haquu (%1$s · %2$s)</string>
 </resources>

@@ -1,5 +1,7 @@
 package org.muslim.app.feature.adhkar.ui
 
+import android.content.ClipData
+import android.content.Intent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
@@ -18,8 +20,10 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material3.Card
@@ -43,6 +47,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -50,6 +55,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.feature.adhkar.R
 import org.muslim.app.feature.adhkar.domain.Dhikr
 import org.muslim.app.feature.adhkar.domain.DhikrCategory
@@ -223,6 +229,24 @@ private fun DhikrCard(
     val currentCount by count
     val haptics = LocalHapticFeedback.current
     val complete = currentCount >= dhikr.repetition
+    val context = LocalContext.current
+    val clipboard = context.getSystemService(android.content.ClipboardManager::class.java)
+    // English fallback is hidden when the UI language is Arabic (each language
+    // shows its own texts — an Arabic reader reads the Arabic original only).
+    val showEnglishFallback = AppLanguage.showEnglishFallback()
+    val shareText = buildString {
+        append(dhikr.arabic)
+        if (showEnglishFallback) append("\n\n").append(dhikr.translation)
+        append("\n\n").append(dhikr.source)
+    }
+    fun copyDhikr() = clipboard?.setPrimaryClip(ClipData.newPlainText("dhikr", shareText))
+    fun shareDhikr() {
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TEXT, shareText)
+        }
+        runCatching { context.startActivity(Intent.createChooser(intent, null)) }
+    }
 
     Card(
         modifier = Modifier
@@ -252,6 +276,20 @@ private fun DhikrCard(
                         },
                     )
                 }
+                IconButton(onClick = ::copyDhikr) {
+                    Icon(
+                        imageVector = Icons.Filled.ContentCopy,
+                        contentDescription = stringResource(R.string.adhkar_copy),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                IconButton(onClick = ::shareDhikr) {
+                    Icon(
+                        imageVector = Icons.Filled.Share,
+                        contentDescription = stringResource(R.string.adhkar_share),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
             }
             dhikr.virtue?.let { virtue ->
                 Spacer(Modifier.height(8.dp))
@@ -261,8 +299,10 @@ private fun DhikrCard(
                     color = MaterialTheme.colorScheme.primary,
                 )
             }
-            Spacer(Modifier.height(6.dp))
-            TranslationToggle(dhikr.translation)
+            if (showEnglishFallback) {
+                Spacer(Modifier.height(6.dp))
+                TranslationToggle(dhikr.translation)
+            }
             Spacer(Modifier.height(10.dp))
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Surface(

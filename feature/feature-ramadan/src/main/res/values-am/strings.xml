@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">ከዚህ በፊት አስታውሰኝ፡-</string>
     <string name="ramadan_suhoor_time">ሱሁር ያበቃል (ፈጅር)፡ %1$s</string>
     <string name="ramadan_title">ረመዳን</string>
+    <string name="ramadan_notify_outside">ከረመዳን ውጭ ያሉ አስታዋሾች</string>
+    <string name="ramadan_notify_outside_desc">የኢፍጣር እና የሱሁር ማንቂያዎች በረመዳን ውስጥ በራስ-ሰር ይሰራሉ; ይህንን ማስቻል በሌሎች ወሮች ውስጥ እንዲቀጥሉ ያደርጋቸዋል።</string>
 </resources>

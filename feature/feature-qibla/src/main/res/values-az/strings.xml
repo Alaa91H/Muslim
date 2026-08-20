@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">ölkə</string>
     <string name="offline_maps_tab_custom">Xüsusi sahə</string>
     <string name="offline_maps_download">Yüklə</string>
-    <string name="offline_maps_custom_hint">Mərkəzi seçmək üçün xəritəyə toxunun, sonra onun ətrafındakı ərazini endirin.</string>
+    <string name="offline_maps_custom_hint">İstədiyiniz ərazini çərçivəyə salmaq üçün xəritəni sürüşdürün və böyüdün; çərçivə avtomatik olaraq yenilənir. Sürgü ilə genişliyi tənzimləyin.</string>
     <string name="offline_maps_custom_name">Ərazi adı</string>
-    <string name="offline_maps_custom_tap">Mərkəzi seçmək üçün xəritəyə toxunun</string>
+    <string name="offline_maps_custom_tap">Ərazini seçmək üçün xəritəni sürüşdürün</string>
     <string name="offline_maps_custom_default_name">Xüsusi sahə</string>
     <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
     <string name="offline_maps_downloading">Endirilir %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Yaxınlaşdırın</string>
     <string name="mosque_finder_zoom_out">Küçült</string>
     <string name="mosque_finder_nearest">Ən yaxın məscid</string>
+    <string name="mosque_finder_go_to">Ona get</string>
+    <string name="mosque_finder_find_nearest">Ən yaxın məscidi tapın</string>
+    <string name="mosque_finder_expanding">%1$s daxilində axtarış edilir...</string>
+    <string name="offline_maps_custom_width">Sahənin eni (dərəcə)</string>
+    <string name="offline_maps_storage_warning">Az yaddaş — cəmi %1$s pulsuz</string>
+    <string name="offline_maps_storage_delete_largest">Ən böyük bölgəni silin (%1$s · %2$s)</string>
 </resources>

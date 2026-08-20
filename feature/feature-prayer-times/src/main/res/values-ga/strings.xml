@@ -46,14 +46,12 @@
     <string name="method_egyptian">Údarás Ginearálta Suirbhé na hÉigipte</string>
     <string name="method_france">An Fhrainc (UOIF)</string>
     <string name="method_isna">ISNA (Meiriceá Thuaidh)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Ollscoil na nEolaíochtaí Ioslamacha, Karachi</string>
     <string name="method_kuwait">Cuáit</string>
     <string name="method_moonsighting">Coiste radharc na gealaí</string>
     <string name="method_mwl">Sraith Moslamach Domhanda</string>
     <string name="method_qatar">Catar</string>
     <string name="method_singapore">Singeapór</string>
-    <string name="method_tehran">Institiúid Geoifisice Tehran</string>
     <string name="method_turkey">Diyanet Tuirc</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Ó Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ní féidir amanna a ríomh</string>
     <string name="widget_prayer_times_description">An chéad paidir eile le comhaireamh síos</string>
     <string name="widget_prayer_times_label">Amanna urnaí</string>
+    <string name="settings_adhan_volume_vibrate">Toirt %1$s · Creathadh %2$s</string>
+    <string name="settings_adhan_vibrate_on">Ar</string>
+    <string name="settings_adhan_vibrate_off">as</string>
+    <string name="settings_preview_stop">Stop réamhamharc</string>
+    <string name="settings_method_automatic">Uathoibríoch (de réir suímh)</string>
+    <string name="settings_method_automatic_desc">Roghnaíonn an aip an modh is oiriúnaí go huathoibríoch bunaithe ar do thír agus ar do shuíomh; is féidir leat modh a roghnú de láimh fós ag am ar bith.</string>
+    <string name="settings_preview_for_prayer">Réamhamharc %1$s adhan</string>
 </resources>

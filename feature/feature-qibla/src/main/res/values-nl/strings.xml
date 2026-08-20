@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Land</string>
     <string name="offline_maps_tab_custom">Aangepast gebied</string>
     <string name="offline_maps_download">Downloaden</string>
-    <string name="offline_maps_custom_hint">Tik op de kaart om het centrum te kiezen en download vervolgens het gebied eromheen.</string>
+    <string name="offline_maps_custom_hint">Pan en zoom de kaart om het gewenste gebied in te kaderen; het frame wordt automatisch bijgewerkt. Pas de breedte aan met de schuifregelaar.</string>
     <string name="offline_maps_custom_name">Gebiedsnaam</string>
-    <string name="offline_maps_custom_tap">Tik op de kaart om het centrum te kiezen</string>
+    <string name="offline_maps_custom_tap">Verplaats de kaart om het gebied te selecteren</string>
     <string name="offline_maps_custom_default_name">Aangepast gebied</string>
     <string name="offline_maps_summary_body">%1$d van %2$d gebieden voltooid · %3$s gedownload</string>
     <string name="offline_maps_downloading">Downloaden van %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom in</string>
     <string name="mosque_finder_zoom_out">Uitzoomen</string>
     <string name="mosque_finder_nearest">Dichtstbijzijnde moskee</string>
+    <string name="mosque_finder_go_to">Ga ernaar toe</string>
+    <string name="mosque_finder_find_nearest">Vind de dichtstbijzijnde moskee</string>
+    <string name="mosque_finder_expanding">Zoeken binnen %1$s…</string>
+    <string name="offline_maps_custom_width">Gebiedsbreedte (graden)</string>
+    <string name="offline_maps_storage_warning">Weinig opslagruimte: slechts %1$s gratis</string>
+    <string name="offline_maps_storage_delete_largest">Grootste regio verwijderen (%1$s · %2$s)</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egyptský všeobecný úrad pre prieskum</string>
     <string name="method_france">Francúzsko (UOIF)</string>
     <string name="method_isna">ISNA (Severná Amerika)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Univerzita islamských vied, Karáčí</string>
     <string name="method_kuwait">Kuvajt</string>
     <string name="method_moonsighting">Výbor pre pozorovanie Mesiaca</string>
     <string name="method_mwl">Moslimská svetová liga</string>
     <string name="method_qatar">Katar</string>
     <string name="method_singapore">Singapur</string>
-    <string name="method_tehran">Teheránsky ústav geofyziky</string>
     <string name="method_turkey">Diyanet Turecko</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makka)</string>
     <string name="next_adhan_elapsed">Od Adhana: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Nie je možné vypočítať časy</string>
     <string name="widget_prayer_times_description">Ďalšia modlitba s odpočítavaním</string>
     <string name="widget_prayer_times_label">Modlitebné časy</string>
+    <string name="settings_adhan_volume_vibrate">Hlasitosť %1$s · Vibrácie %2$s</string>
+    <string name="settings_adhan_vibrate_on">Zapnuté</string>
+    <string name="settings_adhan_vibrate_off">Vypnuté</string>
+    <string name="settings_preview_stop">Zastaviť ukážku</string>
+    <string name="settings_method_automatic">Automaticky (podľa polohy)</string>
+    <string name="settings_method_automatic_desc">Aplikácia vyberie najvhodnejšiu metódu automaticky na základe vašej krajiny a polohy; stále si môžete kedykoľvek vybrať metódu manuálne.</string>
+    <string name="settings_preview_for_prayer">Ukážka %1$s adhan</string>
 </resources>

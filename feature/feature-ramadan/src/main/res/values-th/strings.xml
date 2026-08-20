@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">เตือนฉันก่อน:</string>
     <string name="ramadan_suhoor_time">สิ้นสุดซูโฮร์ (ฟัจร์): %1$s</string>
     <string name="ramadan_title">รอมฎอน</string>
+    <string name="ramadan_notify_outside">คำเตือนนอกเดือนรอมฎอน</string>
+    <string name="ramadan_notify_outside_desc">การแจ้งเตือน Iftar และ suhoor จะทำงานโดยอัตโนมัติในช่วงรอมฎอน การเปิดใช้งานสิ่งนี้จะทำให้พวกเขาดำเนินต่อไปในเดือนอื่นๆ</string>
 </resources>

@@ -46,4 +46,12 @@
     <string name="crash_close">Vala</string>
     <string name="crash_dismiss">Chubeka</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Sesha i-Quran</string>
+    <string name="more_quran_search_desc">Tfola ligama, livela kangakanani futsi kuphi .</string>
+    <string name="more_quran_frequency">Imvamisa yemagama e-Quran</string>
+    <string name="more_quran_frequency_desc">Emagama lavame kakhulu kulo lonkhe mushaf .</string>
+    <string name="more_pause_on_notifications">Misa kufundza ngetatiso</string>
+    <string name="more_pause_on_notifications_desc">Kuphindzaphindza kuma kancane nangabe kudlala satiso, indandatho nobe letinye tintfo tekusakata .</string>
+    <string name="more_pause_notifications_enabled">Kunikwe emandla — thepha kute uvule emasethingi eluhlelo</string>
+    <string name="more_pause_notifications_disabled">Kukhubatekile — thepha kute unikete emandla</string>
 </resources>

@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">ئىلگىرى ماڭا ئەسكەرتىپ قويۇڭ:</string>
     <string name="ramadan_suhoor_time">Suhoor ئاخىرلىشىدۇ (Fajr): %1$s</string>
     <string name="ramadan_title">رامىزان</string>
+    <string name="ramadan_notify_outside">رامىزاننىڭ سىرتىدىكى ئەسكەرتىشلەر</string>
+    <string name="ramadan_notify_outside_desc">رامىزاندا ئىپتار ۋە سوھور ئاگاھلاندۇرۇشى ئاپتوماتىك ئىجرا بولىدۇ بۇنى قوزغىتىش ئۇلارنى باشقا ئايلاردا داۋاملاشتۇرىدۇ.</string>
 </resources>

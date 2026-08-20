@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Хьалха дагадоуьйту:</string>
     <string name="ramadan_suhoor_time">Сухьур чекхдолу (фаджр): %1$s</string>
     <string name="ramadan_title">Рамадан бутт</string>
+    <string name="ramadan_notify_outside">Рамадан беттан арахьара дагадоуьйтуш</string>
+    <string name="ramadan_notify_outside_desc">Ифтар а, сухӀор а автоматически лела Рамадан баттахь; и аьтто баро уьш кхечу беттанашкахь дӀа ца лоцу.</string>
 </resources>

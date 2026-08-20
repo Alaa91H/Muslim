@@ -53,13 +53,13 @@
     <string name="method_singapore">سنغافورة</string>
     <string name="method_moonsighting">لجنة رؤية الهلال</string>
     <string name="method_turkey">ديانت تركيا</string>
-    <string name="method_tehran">معهد الجيوفيزياء بطهران</string>
-    <string name="method_jafari">الجعفري</string>
     <string name="method_france">فرنسا (UOIF)</string>
 
     <!-- Settings -->
     <string name="settings_title">الإعدادات</string>
     <string name="settings_method">طريقة الحساب</string>
+    <string name="settings_method_automatic">تلقائي (حسب الموقع)</string>
+    <string name="settings_method_automatic_desc">يختار التطبيق الطريقة الأنسب تلقائيًا حسب البلد والموقع، مع إمكانية اختيار طريقة يدويًا في أي وقت.</string>
     <string name="settings_custom_method">مخصص</string>
     <string name="settings_custom_fajr">زاوية الفجر</string>
     <string name="settings_custom_isha">زاوية العشاء</string>
@@ -88,6 +88,7 @@
     <string name="adhan_option_silent">صامت</string>
     <string name="settings_volume">مستوى الصوت</string>
     <string name="settings_preview">معاينة الأذان</string>
+    <string name="settings_preview_for_prayer">معاينة أذان %1$s</string>
     <string name="bundled_adhan_makkah">أذان مكة</string>
     <string name="bundled_adhan_abdul_basit">أذان عبد الباسط</string>
     <string name="bundled_adhan_minshawi">أذان المنشاوي</string>
@@ -178,4 +179,8 @@
     <string name="settings_adhan_confirm">موافق</string>
     <string name="settings_adhan_cancel">إلغاء</string>
     <string name="settings_adhan_sound_summary">%1$s · %2$s</string>
+    <string name="settings_adhan_volume_vibrate">الصوت %1$s · اهتزاز %2$s</string>
+    <string name="settings_adhan_vibrate_on">مفعّل</string>
+    <string name="settings_adhan_vibrate_off">معطّل</string>
+    <string name="settings_preview_stop">إيقاف المعاينة</string>
 </resources>

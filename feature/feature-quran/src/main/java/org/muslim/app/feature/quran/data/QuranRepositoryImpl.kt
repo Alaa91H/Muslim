@@ -50,7 +50,11 @@ class QuranRepositoryImpl @Inject constructor(
             if (seeded.get()) return
             val needsImport = surahDao.count() == 0 && ayahDao.count() == 0
             val ftsStale = prefs.ftsIndexStale.first()
-            if (needsImport || ftsStale) {
+            // Rebuild the FTS index when it is empty even if the ayah table is
+            // fine — a device that upgraded from a version without an index (or
+            // had a failed import) would otherwise search an empty table forever.
+            val ftsEmpty = ayahFtsDao.count() == 0
+            if (needsImport || ftsStale || ftsEmpty) {
                 val surahs = QuranAssetParser.parseSurahs(readAssetText("quran_surahs.json"))
                 val ayahs = context.assets.open("quran_ayahs.txt")
                     .bufferedReader(Charsets.UTF_8)

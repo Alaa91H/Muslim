@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar ynstellings</string>
     <string name="adhkar_show_translation">Lit oersetting sjen</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopiearje</string>
+    <string name="adhkar_share">Diele</string>
+    <string name="adhkar_overlay_short_only">Brûk allinich koarte adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Kies adhkar dy\'t passe by ien of twa rigels, sadat de driuwende bel dúdlik en maklik te lêzen bliuwt.</string>
+    <string name="adhkar_overlay_tap_hint">Tik op de bubbel om it direkt te ûntslaan.</string>
 </resources>

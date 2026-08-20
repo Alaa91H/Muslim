@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Ovddeš</string>
     <string name="quran_recitation_notif_next">Boahtte</string>
+    <string name="quran_download_playback_title">Ládden %1$s</string>
+    <string name="quran_download_playback_detail">%1$s olgeš · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf gohččun</string>
+    <string name="quran_download_sort_completion">Go lea gárvvis</string>
+    <string name="quran_downloads_coverage_title">Surah fátmmasteapmi lohkkiid gaskkas</string>
+    <string name="quran_downloads_coverage_overall">Olles mushaf lohkkiid gaskkas</string>
+    <string name="quran_downloads_coverage_empty">Ii leat vuos vurkejuvvon jietna</string>
+    <string name="quran_pause_notif_listener">Bisset lohkama dieđihemiin</string>
+    <string name="quran_reciter_changed_title">Lohkki rievdaduvvui</string>
+    <string name="quran_reciter_changed_message">Čuojaheapmi bisánii go rádji manná gitta Korana loahpa rádjái. Álggat fas %1$s:in?</string>
+    <string name="quran_reciter_restart">Álggat fas</string>
+    <string name="quran_reciter_not_now">Ii dál</string>
 </resources>

@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Roish</string>
     <string name="quran_recitation_notif_next">Next</string>
+    <string name="quran_download_playback_title">Ta %1$s er ny lhoobey</string>
+    <string name="quran_download_playback_detail">%1$s chleaysh · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Ordagh Mushaf</string>
+    <string name="quran_download_sort_completion">Trooid cloie</string>
+    <string name="quran_downloads_coverage_title">Cowrey Surah erskyn lught-leigh</string>
+    <string name="quran_downloads_coverage_overall">Mushaf lane erskyn lught-leigh</string>
+    <string name="quran_downloads_coverage_empty">Cha nel clashtyn er ny lhoobaghey foast</string>
+    <string name="quran_pause_notif_listener">Pause y ghra er fysseree</string>
+    <string name="quran_reciter_changed_title">Reciter er ny chaghlaa</string>
+    <string name="quran_reciter_changed_message">Stooit y playback son ta\'n range ry-hoi rish jerrey y Quran. Toshiaght reesht lesh %1$s?</string>
+    <string name="quran_reciter_restart">Toshiaght reesht</string>
+    <string name="quran_reciter_not_now">Cha nee nish.</string>
 </resources>

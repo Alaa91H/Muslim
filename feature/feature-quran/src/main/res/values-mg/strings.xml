@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Teo aloha</string>
     <string name="quran_recitation_notif_next">Manaraka</string>
+    <string name="quran_download_playback_title">Misintona %1$s</string>
+    <string name="quran_download_playback_detail">%1$s sisa · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">baiko Mushaf</string>
+    <string name="quran_download_sort_completion">Rehefa vita</string>
+    <string name="quran_downloads_coverage_title">Fandrakofana Surah manerana ny mpilaza</string>
+    <string name="quran_downloads_coverage_overall">Mushaf feno manerana ireo mpilaza</string>
+    <string name="quran_downloads_coverage_empty">Mbola tsy misy feo alaina</string>
+    <string name="quran_pause_notif_listener">Atsaharo ny famerenana amin\'ny fampandrenesana</string>
+    <string name="quran_reciter_changed_title">Niova ny mpilaza</string>
+    <string name="quran_reciter_changed_message">Nitsahatra ny famerenam-peo satria mipaka hatrany amin\'ny faran\'ny CORAN ny elanelana. Manomboka amin\'ny %1$s indray?</string>
+    <string name="quran_reciter_restart">Atombohy indray</string>
+    <string name="quran_reciter_not_now">Tsy izao</string>
 </resources>

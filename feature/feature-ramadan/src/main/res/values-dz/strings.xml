@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">ཧེ་མ་ང་ལུ་དྲན་སྐུལ་འབད།</string>
     <string name="ramadan_suhoor_time">སུ་ཧོར་མཇུག་བསྡུ་ (Fajr): %1$s</string>
     <string name="ramadan_title">ར་མ་དཱན།</string>
+    <string name="ramadan_notify_outside">ར་མ་དཱན་གྱི་ཕྱི་ཁར་དྲན་སྐུལ།</string>
+    <string name="ramadan_notify_outside_desc">ར་མ་དཱན་གྱི་སྐབས་ལུ་ ཨིཕ་ཏར་དང་སུ་ཧོར་ཉེན་བརྡ་ཚུ་ རང་བཞིན་གྱིས་འགྱོཝ་ཨིན། འདི་ལྕོགས་ཅན་བཟོ་མི་འདི་གིས་ ཟླཝ་གཞན་ཚུ་ནང་ འགྱོ་བཅུགཔ་ཨིན།</string>
 </resources>

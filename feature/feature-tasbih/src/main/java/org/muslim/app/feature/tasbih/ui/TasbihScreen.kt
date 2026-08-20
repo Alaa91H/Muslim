@@ -320,7 +320,6 @@ fun TasbihScreen(
             TargetSoundCard(
                 settings = soundSettings,
                 onToggle = viewModel::setTargetSoundEnabled,
-                onSelectTone = viewModel::setTargetSoundTone,
             )
 
             Spacer(Modifier.height(20.dp))
@@ -423,7 +422,11 @@ private fun CustomTargetDialog(
                 Spacer(Modifier.height(8.dp))
                 OutlinedTextField(
                     value = text,
-                    onValueChange = { input -> text = input.filter { it.isDigit() }.take(6) },
+                    // Normalize so Arabic-Indic/Persian keyboard digits are
+                    // converted (not dropped) and always parse toIntOrNull().
+                    onValueChange = { input ->
+                        text = org.muslim.app.core.common.text.Digits.onlyDigits(input).take(6)
+                    },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     singleLine = true,
                 )
@@ -473,21 +476,11 @@ private fun CounterRing(progress: Float) {
     }
 }
 
-/** The three system tones offered for the round-complete sound. */
-private data class ToneOption(val id: String, val labelRes: Int)
-
-private val TONE_OPTIONS = listOf(
-    ToneOption(TargetSoundSettings.TONE_NOTIFICATION, R.string.tasbih_sound_tone_notification),
-    ToneOption(TargetSoundSettings.TONE_RINGTONE, R.string.tasbih_sound_tone_ringtone),
-    ToneOption(TargetSoundSettings.TONE_ALARM, R.string.tasbih_sound_tone_alarm),
-)
-
-/** Toggle + tone picker for the optional round-complete sound. */
+/** Toggle for the optional round-complete sound (always the notification tone). */
 @Composable
 private fun TargetSoundCard(
     settings: TargetSoundSettings,
     onToggle: (Boolean) -> Unit,
-    onSelectTone: (String) -> Unit,
 ) {
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(12.dp)) {
@@ -509,36 +502,14 @@ private fun TargetSoundCard(
                     onCheckedChange = onToggle,
                 )
             }
-            if (settings.enabled) {
-                Spacer(Modifier.height(8.dp))
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .horizontalScroll(rememberScrollState()),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    TONE_OPTIONS.forEach { option ->
-                        FilterChip(
-                            selected = settings.tone == option.id,
-                            onClick = { onSelectTone(option.id) },
-                            label = { Text(stringResource(option.labelRes)) },
-                        )
-                    }
-                }
-            }
         }
     }
 }
 
-/** Plays the selected system tone when the round-complete sound is enabled. */
+/** Plays the system notification tone when the round-complete sound is enabled. */
 private fun playTargetSound(context: Context, settings: TargetSoundSettings) {
     if (!settings.enabled) return
-    val type = when (settings.tone) {
-        TargetSoundSettings.TONE_RINGTONE -> RingtoneManager.TYPE_RINGTONE
-        TargetSoundSettings.TONE_ALARM -> RingtoneManager.TYPE_ALARM
-        else -> RingtoneManager.TYPE_NOTIFICATION
-    }
-    val uri = RingtoneManager.getDefaultUri(type) ?: return
+    val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION) ?: return
     RingtoneManager.getRingtone(context, uri)?.play()
 }
 

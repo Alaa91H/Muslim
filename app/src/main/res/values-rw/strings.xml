@@ -46,4 +46,12 @@
     <string name="crash_close">Funga</string>
     <string name="crash_dismiss">Komeza</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه ، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Shakisha Korowani</string>
+    <string name="more_quran_search_desc">Shakisha ijambo, inshuro zigaragara n\'aho ziri</string>
+    <string name="more_quran_frequency">Ijambo rya Korowani inshuro</string>
+    <string name="more_quran_frequency_desc">Amagambo akunze kugaragara muri mushaf yose</string>
+    <string name="more_pause_on_notifications">Kuruhuka gusoma kubimenyeshwa</string>
+    <string name="more_pause_on_notifications_desc">Gusoma birahagarara gato mugihe imenyesha, impeta cyangwa ibindi bitangazamakuru bikina</string>
+    <string name="more_pause_notifications_enabled">Gushoboza - kanda kugirango ufungure sisitemu igenamiterere</string>
+    <string name="more_pause_notifications_disabled">Yahagaritswe - kanda kugirango ushoboze</string>
 </resources>

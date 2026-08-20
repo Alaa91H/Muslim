@@ -46,4 +46,12 @@
     <string name="crash_close">Jist’antaña</string>
     <string name="crash_dismiss">Ukhama sarantaskakiwa</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Quran qillqatan thaqhapxam</string>
+    <string name="more_quran_search_desc">Mä aru jikxataña, qawqha kutis uñsti ukat kawkhans uñsti</string>
+    <string name="more_quran_frequency">Quran arunakax sapa kutiw utji</string>
+    <string name="more_quran_frequency_desc">Taqi mushaf ukan juk’amp uñt’at arunaka</string>
+    <string name="more_pause_on_notifications">Yatiyawinakan recitación samart’aña</string>
+    <string name="more_pause_on_notifications_desc">Recitación ukax mä juk’a samart’iwa kunapachatix mä yatiyawi, anillo jan ukax yaqha medios de comunicación ukanakax phust’atäki ukhaxa</string>
+    <string name="more_pause_notifications_enabled">Ch’amanchatawa — sistema ukan utt’ayatanakap jist’arañatakiw ch’iqt’añama</string>
+    <string name="more_pause_notifications_disabled">Disactivado — ch’iqt’aña ch’amanchañataki</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Amasethingi we-Adhkar</string>
     <string name="adhkar_show_translation">Tjengisa ukutjhugulula</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopisha</string>
+    <string name="adhkar_share">Yabelana</string>
+    <string name="adhkar_overlay_short_only">Sebenzisa i-adhkar emfitjhani kwaphela</string>
+    <string name="adhkar_overlay_short_only_desc">Khetha i-adhkar efanele umugqa owodwa nofana emibili ukwenzela bona ibhamuza elintantako lihlale likhanya begodu libe lula ukulifunda.</string>
+    <string name="adhkar_overlay_tap_hint">Thepha ibhamuza ukulikhipha khonokho.</string>
 </resources>

@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Ti tẹlẹ</string>
     <string name="quran_recitation_notif_next">Itele</string>
+    <string name="quran_download_playback_title">Downloading %1$s</string>
+    <string name="quran_download_playback_detail">%1$s left · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Musaf ibere</string>
+    <string name="quran_download_sort_completion">Nipa Ipari</string>
+    <string name="quran_downloads_coverage_title">Surah agbegbe jakejado reciters</string>
+    <string name="quran_downloads_coverage_overall">Full mushaf kọja reciters</string>
+    <string name="quran_downloads_coverage_empty">Ko si ohun ti a ṣe igbasilẹ sibẹsibẹ</string>
+    <string name="quran_pause_notif_listener">Duro kika lori awọn iwifunni</string>
+    <string name="quran_reciter_changed_title">Reciter yipada</string>
+    <string name="quran_reciter_changed_message">Playback stopped because the range runs to the end of the Quran. Start again with %1$s?</string>
+    <string name="quran_reciter_restart">Bẹrẹ lẹẹkansi</string>
+    <string name="quran_reciter_not_now">Ko bayi</string>
 </resources>

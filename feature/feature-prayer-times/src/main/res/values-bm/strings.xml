@@ -46,14 +46,12 @@
     <string name="method_egyptian">Misira jamana ka sɛgɛsɛgɛli ɲɛmɔgɔba</string>
     <string name="method_france">Faransi (UOIF)</string>
     <string name="method_isna">ISNA (Amerika woroduguyanfan)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Silamɛya dɔnniyaw ka lakɔliso, Karachi</string>
     <string name="method_kuwait">Koweiti</string>
     <string name="method_moonsighting">Kalo lajɛ Komite</string>
     <string name="method_mwl">Silamɛw ka diɲɛ tɔnba</string>
     <string name="method_qatar">Qatar jamana na</string>
     <string name="method_singapore">Singapuri</string>
-    <string name="method_tehran">Tehran ka dugukoloko kalanso</string>
     <string name="method_turkey">Diyanet Turki ye</string>
     <string name="method_umm_al_qura">Ummu al-Qura (Makka) .</string>
     <string name="next_adhan_elapsed">Kabini Adhan: %1$s ye</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Se tɛ ka waatiw jate</string>
     <string name="widget_prayer_times_description">Delili nata ni jatebɔ kɔfɛ</string>
     <string name="widget_prayer_times_label">Delili waatiw</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Yɛrɛyɛrɛli %2$s</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">A’ ye ɲɛjirali dabila</string>
+    <string name="settings_method_automatic">Otomatiki (ka kɛɲɛ ni yɔrɔ ye) .</string>
+    <string name="settings_method_automatic_desc">Application bɛ fɛɛrɛ bɛnnen sugandi a yɛrɛma ka kɛɲɛ ni i ka jamana n’i sigiyɔrɔ ye; aw bɛ se ka fɛɛrɛ dɔ sugandi hali bi bolo la waati o waati.</string>
+    <string name="settings_preview_for_prayer">Ɲɛjirali %1$s adhan</string>
 </resources>

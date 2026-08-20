@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d Ɔde ne nsa kyerɛɛ ne so.</string>
     <string name="quran_recitation_notif_previous">Nea atwam</string>
     <string name="quran_recitation_notif_next">Nea edi hɔ</string>
+    <string name="quran_download_playback_title">Woretwe %1$s.</string>
+    <string name="quran_download_playback_detail">%1$s benkum · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf ahyɛdeɛ</string>
+    <string name="quran_download_sort_completion">Ɛdenam nea wowie so</string>
+    <string name="quran_downloads_coverage_title">Surah a wɔka ho asɛm wɔ akenkanfoɔ nyinaa mu</string>
+    <string name="quran_downloads_coverage_overall">Full mushaf wɔ akenkanfo nyinaa so</string>
+    <string name="quran_downloads_coverage_empty">Wɔntwee ɔdio biara nni hɔ de besi nnɛ</string>
+    <string name="quran_pause_notif_listener">Gyina akenkan mu wɔ amanneɛbɔ ahorow so</string>
+    <string name="quran_reciter_changed_title">Ɔkenkanfo no sesae</string>
+    <string name="quran_reciter_changed_message">Playback gyaee ɛfiri sɛ range no tu mmirika kɔsi Quran no awieeɛ. Fi ase bio wɔ %1$s?</string>
+    <string name="quran_reciter_restart">Fi ase bio</string>
+    <string name="quran_reciter_not_now">Ɛnyɛ mprempren</string>
 </resources>

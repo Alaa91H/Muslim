@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar iestatījumi</string>
     <string name="adhkar_show_translation">Rādīt tulkojumu</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopēt</string>
+    <string name="adhkar_share">Dalīties</string>
+    <string name="adhkar_overlay_short_only">Izmantojiet tikai īsu adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Izvēlieties adhkar, kas atbilst vienai vai divām līnijām, lai peldošais burbulis paliktu skaidrs un viegli lasāms.</string>
+    <string name="adhkar_overlay_tap_hint">Pieskarieties burbulim, lai to nekavējoties noraidītu.</string>
 </resources>

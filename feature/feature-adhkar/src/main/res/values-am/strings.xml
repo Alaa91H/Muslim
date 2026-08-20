@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adkar ቅንብሮች</string>
     <string name="adhkar_show_translation">ትርጉም አሳይ</string>
     <string name="adhkar_title">አድካር</string>
+    <string name="adhkar_copy">ቅዳ</string>
+    <string name="adhkar_share">አጋራ</string>
+    <string name="adhkar_overlay_short_only">አጭር adhkar ብቻ ይጠቀሙ</string>
+    <string name="adhkar_overlay_short_only_desc">ተንሳፋፊው አረፋ ግልጽ እና ለማንበብ ቀላል እንዲሆን ከአንድ ወይም ሁለት መስመር ጋር የሚስማማ adhkar ይምረጡ።</string>
+    <string name="adhkar_overlay_tap_hint">ወዲያውኑ ለማጥፋት አረፋውን መታ ያድርጉት።</string>
 </resources>

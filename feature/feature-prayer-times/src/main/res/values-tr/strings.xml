@@ -46,14 +46,12 @@
     <string name="method_egyptian">Mısır Genel Araştırma Kurumu</string>
     <string name="method_france">Fransa (UOIF)</string>
     <string name="method_isna">ISNA (Kuzey Amerika)</string>
-    <string name="method_jafari">Caferi</string>
     <string name="method_karachi">İslami İlimler Üniversitesi, Karaçi</string>
     <string name="method_kuwait">Kuveyt</string>
     <string name="method_moonsighting">Ay Gözlem Komitesi</string>
     <string name="method_mwl">Müslüman Dünya Ligi</string>
     <string name="method_qatar">Katar</string>
     <string name="method_singapore">Singapur</string>
-    <string name="method_tehran">Tahran Jeofizik Enstitüsü</string>
     <string name="method_turkey">Diyanet Türkiye</string>
     <string name="method_umm_al_qura">Ümmü\'l-Kura (Mekke)</string>
     <string name="next_adhan_elapsed">Ezandan bu yana: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Süreler hesaplanamıyor</string>
     <string name="widget_prayer_times_description">Geri sayımlı sonraki dua</string>
     <string name="widget_prayer_times_label">Namaz vakitleri</string>
+    <string name="settings_adhan_volume_vibrate">Ses seviyesi %1$s · Titreşim %2$s</string>
+    <string name="settings_adhan_vibrate_on">Açık</string>
+    <string name="settings_adhan_vibrate_off">Kapalı</string>
+    <string name="settings_preview_stop">Önizlemeyi durdur</string>
+    <string name="settings_method_automatic">Otomatik (konuma göre)</string>
+    <string name="settings_method_automatic_desc">Uygulama, ülkenize ve konumunuza göre en uygun yöntemi otomatik olarak seçer; yine de istediğiniz zaman manuel olarak bir yöntem seçebilirsiniz.</string>
+    <string name="settings_preview_for_prayer">%1$s ezanını önizle</string>
 </resources>

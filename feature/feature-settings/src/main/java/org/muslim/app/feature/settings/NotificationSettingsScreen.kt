@@ -37,6 +37,7 @@ import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.LocationCity
+import androidx.compose.material.icons.filled.SystemUpdate
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -782,6 +783,7 @@ private fun categoryIcon(category: NotificationCategory): ImageVector = when (ca
     NotificationCategory.PrayerCountdown -> Icons.Filled.Timer
     NotificationCategory.Recitation -> Icons.AutoMirrored.Filled.PlaylistPlay
     NotificationCategory.Hajj -> Icons.Filled.LocationCity
+    NotificationCategory.AppUpdate -> Icons.Filled.SystemUpdate
 }
 
 @Composable
@@ -795,6 +797,7 @@ private fun categoryLabelRes(category: NotificationCategory): Int = when (catego
     NotificationCategory.PrayerCountdown -> R.string.notif_category_prayer_countdown
     NotificationCategory.Recitation -> R.string.notif_category_recitation
     NotificationCategory.Hajj -> R.string.notif_category_hajj
+    NotificationCategory.AppUpdate -> R.string.notif_category_app_update
 }
 
 @Composable
@@ -808,6 +811,7 @@ private fun categoryDescriptionRes(category: NotificationCategory): Int = when (
     NotificationCategory.PrayerCountdown -> R.string.notif_category_prayer_countdown_desc
     NotificationCategory.Recitation -> R.string.notif_category_recitation_desc
     NotificationCategory.Hajj -> R.string.notif_category_hajj_desc
+    NotificationCategory.AppUpdate -> R.string.notif_category_app_update_desc
 }
 
 @Composable

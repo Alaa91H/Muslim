@@ -46,4 +46,12 @@
     <string name="crash_close">Cerrar</string>
     <string name="crash_dismiss">Continuar</string>
     <string name="more_order_hint">Asegúrese de que su teléfono esté limpio y limpio. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Buscar en el Corán</string>
+    <string name="more_quran_search_desc">Encuentra una palabra, con qué frecuencia aparece y dónde</string>
+    <string name="more_quran_frequency">Frecuencia de palabras del Corán</string>
+    <string name="more_quran_frequency_desc">Las palabras más frecuentes en todo el mushaf.</string>
+    <string name="more_pause_on_notifications">Pausar la recitación en las notificaciones</string>
+    <string name="more_pause_on_notifications_desc">La recitación se detiene brevemente cuando se reproduce una notificación, un timbre u otro medio.</string>
+    <string name="more_pause_notifications_enabled">Habilitado: toque para abrir la configuración del sistema</string>
+    <string name="more_pause_notifications_disabled">Deshabilitado: toque para habilitar</string>
 </resources>

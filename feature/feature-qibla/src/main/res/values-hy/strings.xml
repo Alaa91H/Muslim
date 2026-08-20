@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Երկիր</string>
     <string name="offline_maps_tab_custom">Custom area</string>
     <string name="offline_maps_download">Բեռնել</string>
-    <string name="offline_maps_custom_hint">Հպեք քարտեզին՝ կենտրոնն ընտրելու համար, ապա ներբեռնեք դրա շրջակայքը:</string>
+    <string name="offline_maps_custom_hint">Տեղափոխեք և խոշորացրեք քարտեզը՝ ձեր ուզած տարածքը շրջանակելու համար; շրջանակը ինքնաբերաբար թարմացվում է: Լայնությունը կարգավորեք սահիկի օգնությամբ:</string>
     <string name="offline_maps_custom_name">Area name</string>
-    <string name="offline_maps_custom_tap">Հպեք քարտեզին՝ կենտրոնն ընտրելու համար</string>
+    <string name="offline_maps_custom_tap">Տարածքը ընտրելու համար տեղափոխեք քարտեզը</string>
     <string name="offline_maps_custom_default_name">Custom area</string>
     <string name="offline_maps_summary_body">%1$d-ը %2$d տարածքից ավարտված է · %3$s-ը ներբեռնված է</string>
     <string name="offline_maps_downloading">Ներբեռնվում է %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Մեծացնել</string>
     <string name="mosque_finder_zoom_out">Մեծացնել</string>
     <string name="mosque_finder_nearest">Մոտակա մզկիթ</string>
+    <string name="mosque_finder_go_to">Գնացեք դրան</string>
+    <string name="mosque_finder_find_nearest">Գտեք մոտակա մզկիթը</string>
+    <string name="mosque_finder_expanding">Որոնում է %1$s…</string>
+    <string name="offline_maps_custom_width">Տարածքի լայնությունը (աստիճաններ)</string>
+    <string name="offline_maps_storage_warning">Ցածր պահեստավորում — ընդամենը %1$s անվճար</string>
+    <string name="offline_maps_storage_delete_largest">Ջնջել ամենամեծ տարածաշրջանը (%1$s · %2$s)</string>
 </resources>

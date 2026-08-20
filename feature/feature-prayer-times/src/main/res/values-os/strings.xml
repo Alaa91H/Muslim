@@ -46,14 +46,12 @@
     <string name="method_egyptian">Египеты æппæтдунеон бæрæггæнæн орган</string>
     <string name="method_france">Франц (UOIF)</string>
     <string name="method_isna">ISNA (Цæгат Америкæ)</string>
-    <string name="method_jafari">Джафари</string>
     <string name="method_karachi">Исламы зонæдты университет, Карачи</string>
     <string name="method_kuwait">Кувейт</string>
     <string name="method_moonsighting">Мæйы æркасты комитет</string>
     <string name="method_mwl">Пысылмон дунеон лигæ</string>
     <string name="method_qatar">Катар</string>
     <string name="method_singapore">Сингапур</string>
-    <string name="method_tehran">Тегераны геофизикон институт</string>
     <string name="method_turkey">Дианет Турк</string>
     <string name="method_umm_al_qura">Умм аль-Кура (Меккæ)</string>
     <string name="next_adhan_elapsed">Азанæй фæстæмæ: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Рæстæг нымайын нæ бон нæу</string>
     <string name="widget_prayer_times_description">Иннæ куывд нымадимæ</string>
     <string name="widget_prayer_times_label">Куывды рæстæг</string>
+    <string name="settings_adhan_volume_vibrate">Хъæлæс %1$s · Æнкъуыст %2$s</string>
+    <string name="settings_adhan_vibrate_on">Уый тыххæй</string>
+    <string name="settings_adhan_vibrate_off">Æхгæд</string>
+    <string name="settings_preview_stop">Æрлæууын кæнын развæлгъау равдыст</string>
+    <string name="settings_method_automatic">Автоматон (бынатмæ гæсгæ)</string>
+    <string name="settings_method_automatic_desc">Приложени æвзары æппæты æмбæлгæдæр метод автоматикон æгъдауæй уæ бæстæ æмæ бынатмæ гæсгæ; уæддæр уæ бон у равзарын метод къухæй кæцыфæнды рæстæджы дæр.</string>
+    <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
 </resources>

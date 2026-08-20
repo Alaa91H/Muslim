@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Krajina</string>
     <string name="offline_maps_tab_custom">Vlastná oblasť</string>
     <string name="offline_maps_download">Stiahnuť</string>
-    <string name="offline_maps_custom_hint">Klepnutím na mapu vyberte stred a potom si stiahnite oblasť okolo neho.</string>
+    <string name="offline_maps_custom_hint">Posúvajte a približujte mapu tak, aby orámovala oblasť, ktorú chcete; rám sa automaticky aktualizuje. Nastavte šírku pomocou posúvača.</string>
     <string name="offline_maps_custom_name">Názov oblasti</string>
-    <string name="offline_maps_custom_tap">Klepnutím na mapu vyberte stred</string>
+    <string name="offline_maps_custom_tap">Posunutím mapy vyberte oblasť</string>
     <string name="offline_maps_custom_default_name">Vlastná oblasť</string>
     <string name="offline_maps_summary_body">%1$d z %2$d oblastí dokončených · Stiahnuté: %3$s</string>
     <string name="offline_maps_downloading">Sťahuje sa %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Priblížiť</string>
     <string name="mosque_finder_zoom_out">Oddialiť</string>
     <string name="mosque_finder_nearest">Najbližšia mešita</string>
+    <string name="mosque_finder_go_to">Choďte do toho</string>
+    <string name="mosque_finder_find_nearest">Nájdite najbližšiu mešitu</string>
+    <string name="mosque_finder_expanding">Hľadá sa v rámci %1$s…</string>
+    <string name="offline_maps_custom_width">Šírka oblasti (stupne)</string>
+    <string name="offline_maps_storage_warning">Nízky úložný priestor, voľných len %1$s</string>
+    <string name="offline_maps_storage_delete_largest">Odstrániť najväčšiu oblasť (%1$s · %2$s)</string>
 </resources>

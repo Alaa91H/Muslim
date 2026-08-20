@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Mokta</string>
     <string name="quran_recitation_notif_next">tok juon</string>
+    <string name="quran_download_playback_title">Ej bōk %1$s</string>
+    <string name="quran_download_playback_detail">%1$s left · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf order</string>
+    <string name="quran_download_sort_completion">Ilo an kadedelok</string>
+    <string name="quran_downloads_coverage_title">Surah ej kwalok kin ri-riit ro</string>
+    <string name="quran_downloads_coverage_overall">Mushaf eo eobrak ibelakin ri-riit ro</string>
+    <string name="quran_downloads_coverage_empty">Ejelok ainikien kar download kiõ</string>
+    <string name="quran_pause_notif_listener">Bōjrak riit ilo kōjjelā ko</string>
+    <string name="quran_reciter_changed_title">Ri-kōnono eo ear oktak</string>
+    <string name="quran_reciter_changed_message">Ear bōjrak kinke joñan eo ej etal ñan jemlokin Quran eo. Bar jinoe kin %1$s?</string>
+    <string name="quran_reciter_restart">Bar jinoe</string>
+    <string name="quran_reciter_not_now">Jab kiiō</string>
 </resources>

@@ -49,12 +49,12 @@
     <string name="method_singapore">Singapore</string>
     <string name="method_moonsighting">Moonsighting Committee</string>
     <string name="method_turkey">Diyanet Turkey</string>
-    <string name="method_tehran">Tehran Institute of Geophysics</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_france">France (UOIF)</string>
 
     <string name="settings_title">Settings</string>
     <string name="settings_method">Calculation method</string>
+    <string name="settings_method_automatic">Automatic (by location)</string>
+    <string name="settings_method_automatic_desc">The app picks the most suitable method automatically based on your country and location; you can still choose a method manually at any time.</string>
     <string name="settings_custom_method">Custom</string>
     <string name="settings_custom_fajr">Fajr angle</string>
     <string name="settings_custom_isha">Isha angle</string>
@@ -83,6 +83,7 @@
     <string name="adhan_option_silent">Silent</string>
     <string name="settings_volume">Volume</string>
     <string name="settings_preview">Preview adhan</string>
+    <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
     <string name="bundled_adhan_makkah">Makkah adhan</string>
     <string name="bundled_adhan_abdul_basit">Abdul Basit adhan</string>
     <string name="bundled_adhan_minshawi">Minshawi adhan</string>
@@ -170,4 +171,8 @@
     <string name="settings_adhan_confirm">OK</string>
     <string name="settings_adhan_cancel">Cancel</string>
     <string name="settings_adhan_sound_summary">%1$s · %2$s</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Vibration %2$s</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Stop preview</string>
 </resources>

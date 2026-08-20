@@ -46,4 +46,12 @@
     <string name="crash_close">tutup</string>
     <string name="crash_dismiss">teruskan</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Cari al-Quran</string>
+    <string name="more_quran_search_desc">Cari perkataan, kekerapan perkataan itu muncul dan di mana</string>
+    <string name="more_quran_frequency">kekerapan perkataan al-Quran</string>
+    <string name="more_quran_frequency_desc">Perkataan yang paling kerap dalam mushaf keseluruhan</string>
+    <string name="more_pause_on_notifications">Jeda bacaan pada pemberitahuan</string>
+    <string name="more_pause_on_notifications_desc">Bacaan berhenti seketika apabila pemberitahuan, deringan atau media lain dimainkan</string>
+    <string name="more_pause_notifications_enabled">Didayakan — ketik untuk membuka tetapan sistem</string>
+    <string name="more_pause_notifications_disabled">Dilumpuhkan — ketik untuk mendayakan</string>
 </resources>

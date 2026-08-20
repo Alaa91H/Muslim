@@ -23,4 +23,5 @@
     <string name="hadith_search_hint">Ieškoti haditų…</string>
     <string name="hadith_share">Dalintis</string>
     <string name="hadith_title">Hadith biblioteka</string>
+    <string name="hadith_copy">Kopijuoti</string>
 </resources>

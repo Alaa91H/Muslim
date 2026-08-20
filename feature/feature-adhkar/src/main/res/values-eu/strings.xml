@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar ezarpenak</string>
     <string name="adhkar_show_translation">Erakutsi itzulpena</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopiatu</string>
+    <string name="adhkar_share">Partekatu</string>
+    <string name="adhkar_overlay_short_only">Erabili adhkar laburrak soilik</string>
+    <string name="adhkar_overlay_short_only_desc">Aukeratu lerro bat edo bi egokitzen diren adhkar, burbuila mugikorra argi eta erraz irakurtzeko moduan egon dadin.</string>
+    <string name="adhkar_overlay_tap_hint">Sakatu burbuila berehala baztertzeko.</string>
 </resources>

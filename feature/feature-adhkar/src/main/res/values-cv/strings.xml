@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Адхкар настройкисем</string>
     <string name="adhkar_show_translation">Куҫару кӑтарт</string>
     <string name="adhkar_title">Адхкар</string>
+    <string name="adhkar_copy">Копи</string>
+    <string name="adhkar_share">Пайла</string>
+    <string name="adhkar_overlay_short_only">Кӗске adhkar ҫеҫ усӑ курӑр</string>
+    <string name="adhkar_overlay_short_only_desc">Пӗр-икӗ йӗркене юрӑхлӑ adhkar суйласа илӗр, ҫапла вара юхакан хӑмпӑ уҫӑмлӑ та вулама ҫӑмӑл пултӑр.</string>
+    <string name="adhkar_overlay_tap_hint">Ӑна ҫийӗнчех сирсе яма хӑмпӑ ҫине пусмалла.</string>
 </resources>

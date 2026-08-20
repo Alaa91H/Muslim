@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Shango</string>
     <string name="offline_maps_tab_custom">Custom area</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">Kha vha dzhene kha mapa u itela u nanga vhukati, vha kone u dawuniḽouda fhethu ho ṱanganaho nayo.</string>
+    <string name="offline_maps_custom_hint">Pan na zoom mapa u itela u frame fhethu hune na khou ṱoḓa; fureme i a ḓi-vhuyedzedza. U dzudzanya vhuphara nga tshiṱirathedzhi.</string>
     <string name="offline_maps_custom_name">Area name</string>
-    <string name="offline_maps_custom_tap">Kha vha puṱedze mapa u itela u nanga vhukati</string>
+    <string name="offline_maps_custom_tap">Sudzulusani mapa u itela u nanga fhethu .</string>
     <string name="offline_maps_custom_default_name">Custom area</string>
     <string name="offline_maps_summary_body">%1$d ya %2$d fhethu ho fhelelaho · %3$s yo dawuniḽoudiwa</string>
     <string name="offline_maps_downloading">Ndi khou dawuniḽouda %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom in</string>
     <string name="mosque_finder_zoom_out">Zoom nnḓa</string>
     <string name="mosque_finder_nearest">Mosque wa tsini</string>
+    <string name="mosque_finder_go_to">Iyani khayo</string>
+    <string name="mosque_finder_find_nearest">Kha vha wane mosque wa tsini</string>
+    <string name="mosque_finder_expanding">U setsha nga ngomu ha %1$s...</string>
+    <string name="offline_maps_custom_width">Vhuphara ha fhethu (digirii)</string>
+    <string name="offline_maps_storage_warning">Vhudzulo ha fhasi — %1$s fhedzi mahala</string>
+    <string name="offline_maps_storage_delete_largest">Phumula dzingu ḽihulwanesa (%1$s · %2$s)</string>
 </resources>

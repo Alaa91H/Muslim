@@ -46,4 +46,12 @@
     <string name="crash_close">மூடு</string>
     <string name="crash_dismiss">தொடரவும்</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو خلقاء ك. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">குர்ஆனைத் தேடுங்கள்</string>
+    <string name="more_quran_search_desc">ஒரு வார்த்தையைக் கண்டறியவும், அது எவ்வளவு அடிக்கடி தோன்றும், எங்கே</string>
+    <string name="more_quran_frequency">குர்ஆன் வார்த்தை அதிர்வெண்</string>
+    <string name="more_quran_frequency_desc">முழு முஷாஃபிலும் அடிக்கடி வரும் வார்த்தைகள்</string>
+    <string name="more_pause_on_notifications">அறிவிப்புகளில் பாராயணம் செய்வதை இடைநிறுத்தவும்</string>
+    <string name="more_pause_on_notifications_desc">அறிவிப்பு, ரிங் அல்லது பிற மீடியா இயங்கும் போது பாராயணம் சிறிது நேரம் இடைநிறுத்தப்படும்</string>
+    <string name="more_pause_notifications_enabled">இயக்கப்பட்டது - கணினி அமைப்புகளைத் திறக்க தட்டவும்</string>
+    <string name="more_pause_notifications_disabled">முடக்கப்பட்டது - இயக்க தட்டவும்</string>
 </resources>

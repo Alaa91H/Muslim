@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">अघिल्लो</string>
     <string name="quran_recitation_notif_next">अर्को</string>
+    <string name="quran_download_playback_title">डाउनलोड गर्दै %1$s</string>
+    <string name="quran_download_playback_detail">%1$s बाँकी · %2$s/सेकेन्ड</string>
+    <string name="quran_download_sort_mushaf">मुसाफ आदेश</string>
+    <string name="quran_download_sort_completion">पूरा गरेर</string>
+    <string name="quran_downloads_coverage_title">पाठकहरूमा सुरा कवरेज</string>
+    <string name="quran_downloads_coverage_overall">पाठकहरूमा पूर्ण मुसाफ</string>
+    <string name="quran_downloads_coverage_empty">अहिलेसम्म कुनै अडियो डाउनलोड गरिएको छैन</string>
+    <string name="quran_pause_notif_listener">सूचनाहरूमा पठन रोक्नुहोस्</string>
+    <string name="quran_reciter_changed_title">पाठक परिवर्तन भयो</string>
+    <string name="quran_reciter_changed_message">प्लेब्याक रोकियो किनभने दायरा कुरानको अन्त्यसम्म चल्छ। %1$s बाट फेरि सुरु गर्ने हो?</string>
+    <string name="quran_reciter_restart">फेरि सुरु गर्नुहोस्</string>
+    <string name="quran_reciter_not_now">अहिले होइन</string>
 </resources>

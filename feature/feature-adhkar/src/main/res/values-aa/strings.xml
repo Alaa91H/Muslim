@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar guddaaqa</string>
     <string name="adhkar_show_translation">Maqnisso uybulluy</string>
     <string name="adhkar_title">Adkar</string>
+    <string name="adhkar_copy">korraq</string>
+    <string name="adhkar_share">Tabsa</string>
+    <string name="adhkar_overlay_short_only">ux adhkar dubuk doqaysima</string>
+    <string name="adhkar_overlay_short_only_desc">door adhkar too tiya hinnay namma firta tonnal leeh amoh qaafo qaddoowelem kee kawsoonuh sahlinih.</string>
+    <string name="adhkar_overlay_tap_hint">Qaafo xag too wakaak bayissuh.</string>
 </resources>

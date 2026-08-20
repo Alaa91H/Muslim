@@ -46,14 +46,12 @@
     <string name="method_egyptian">Desteya Giştî ya Lêkolînê ya Misrê</string>
     <string name="method_france">Fransa (UOIF)</string>
     <string name="method_isna">ISNA (Amerîkaya Bakur)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Zanîngeha Zanistên Îslamî, Karachi</string>
     <string name="method_kuwait">Kuweyt</string>
     <string name="method_moonsighting">Komîteya Dîtina Heyvê</string>
     <string name="method_mwl">Lîga Cîhanî ya Misilman</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Enstîtuya Jeofîzîkê ya Tehranê</string>
     <string name="method_turkey">Diyanet Tirkiye</string>
     <string name="method_umm_al_qura">Ummul Qura (Mekke)</string>
     <string name="next_adhan_elapsed">Ji Azan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Nikare wextan bihesibîne</string>
     <string name="widget_prayer_times_description">Nimêja paşîn bi hejmartinê</string>
     <string name="widget_prayer_times_label">Demên nimêjê</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Lezandin %2$s</string>
+    <string name="settings_adhan_vibrate_on">Li ser</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Pêşdîtin rawestîne</string>
+    <string name="settings_method_automatic">Otomatîk (li gorî cîhê)</string>
+    <string name="settings_method_automatic_desc">Serlêdan li gorî welat û cîhê we rêbaza herî maqûl bixweber hildibijêre; hûn dîsa jî dikarin di her kêliyê de rêbazek bi destan hilbijêrin.</string>
+    <string name="settings_preview_for_prayer">Pêşdîtina %1$s azan</string>
 </resources>

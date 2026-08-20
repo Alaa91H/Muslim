@@ -46,14 +46,12 @@
     <string name="method_egyptian">اداره کل بررسی مصر</string>
     <string name="method_france">فرانسه (UOIF)</string>
     <string name="method_isna">ایسنا (آمریکای شمالی)</string>
-    <string name="method_jafari">جعفری</string>
     <string name="method_karachi">دانشگاه علوم اسلامی کراچی</string>
     <string name="method_kuwait">کویت</string>
     <string name="method_moonsighting">کمیته ماه رصد</string>
     <string name="method_mwl">لیگ جهانی مسلمانان</string>
     <string name="method_qatar">قطر</string>
     <string name="method_singapore">سنگاپور</string>
-    <string name="method_tehran">موسسه ژئوفیزیک تهران</string>
     <string name="method_turkey">دیانت ترکیه</string>
     <string name="method_umm_al_qura">ام القری (مکه)</string>
     <string name="next_adhan_elapsed">از اذان: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">قادر به محاسبه زمان نیست</string>
     <string name="widget_prayer_times_description">دعای بعدی با شمارش معکوس</string>
     <string name="widget_prayer_times_label">اوقات نماز</string>
+    <string name="settings_adhan_volume_vibrate">میزان صدا %1$s · لرزش %2$s</string>
+    <string name="settings_adhan_vibrate_on">روشن</string>
+    <string name="settings_adhan_vibrate_off">خاموش</string>
+    <string name="settings_preview_stop">توقف پیش نمایش</string>
+    <string name="settings_method_automatic">خودکار (بر اساس مکان)</string>
+    <string name="settings_method_automatic_desc">برنامه مناسب ترین روش را به طور خودکار بر اساس کشور و مکان شما انتخاب می کند. شما همچنان می توانید در هر زمانی روشی را به صورت دستی انتخاب کنید.</string>
+    <string name="settings_preview_for_prayer">پیش نمایش %1$s اذان</string>
 </resources>

@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">پويون</string>
     <string name="quran_recitation_notif_next">اڳيان</string>
+    <string name="quran_download_playback_title">ڊائون لوڊ ڪري رهيو آهي %1$s</string>
+    <string name="quran_download_playback_detail">%1$s کاٻي · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">مصحف جو حڪم</string>
+    <string name="quran_download_sort_completion">مڪمل ٿيڻ سان</string>
+    <string name="quran_downloads_coverage_title">تلاوت ڪندڙن جي وچ ۾ سورت جي ڪوريج</string>
+    <string name="quran_downloads_coverage_overall">تلاوت ڪندڙن ۾ مڪمل مصحف</string>
+    <string name="quran_downloads_coverage_empty">اڃان تائين ڪوبه آڊيو ڊائون لوڊ نه ٿيو آهي</string>
+    <string name="quran_pause_notif_listener">اطلاعن تي تلاوت کي روڪيو</string>
+    <string name="quran_reciter_changed_title">تلاوت ڪندڙ تبديل ٿي ويو</string>
+    <string name="quran_reciter_changed_message">پلے بیک بند ٿي ويو ڇاڪاڻ ته سلسلو قرآن جي آخر تائين هلندو آهي. ٻيهر شروع ڪريو %1$s سان؟</string>
+    <string name="quran_reciter_restart">ٻيهر شروع ڪريو</string>
+    <string name="quran_reciter_not_now">هاڻي نه</string>
 </resources>

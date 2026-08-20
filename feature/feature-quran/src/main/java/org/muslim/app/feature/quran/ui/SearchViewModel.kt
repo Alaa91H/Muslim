@@ -3,6 +3,7 @@ package org.muslim.app.feature.quran.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,6 +17,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import org.muslim.app.feature.quran.data.QuranWordFrequency
 import org.muslim.app.core.common.text.ArabicText
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.data.QuranSearchQuery
@@ -33,6 +35,26 @@ class SearchViewModel @Inject constructor(
 
     val query = MutableStateFlow("")
 
+    /**
+     * Most frequent whole-mushaf word forms (computed once, off the main
+     * thread) — powers the live autocomplete suggestions while typing.
+     */
+    private val topWords = MutableStateFlow<List<String>>(emptyList())
+
+    /**
+     * Autocomplete suggestions: top frequent words that start with the typed
+     * (normalized) query, excluding the exact query itself. Empty while the
+     * query is too short or no suggestions match.
+     */
+    val suggestions: StateFlow<List<String>> = combine(query, topWords) { raw, words ->
+        val needle = ArabicText.normalize(raw.trim())
+        if (needle.length < 2) emptyList()
+        else words.asSequence()
+            .filter { it.startsWith(needle) && it != needle }
+            .take(8)
+            .toList()
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
     private val _searchHistory = MutableStateFlow<List<String>>(emptyList())
 
     /** Recent search queries, newest first (shown when the field is empty). */
@@ -46,6 +68,19 @@ class SearchViewModel @Inject constructor(
         viewModelScope.launch {
             prefsRepository.searchHistory.collect { _searchHistory.value = it }
         }
+        // Precompute the frequent-word list for autocomplete (one full scan).
+        viewModelScope.launch(Dispatchers.Default) {
+            topWords.value = QuranWordFrequency.compute(
+                ayahTexts = repository.allAyahs().map { it.text },
+                topN = 300,
+            ).entries.map { it.word }
+        }
+    }
+
+    /** Applies an autocomplete suggestion (fills the field; the debounced search runs). */
+    fun applySuggestion(word: String) {
+        query.value = word
+        saveCurrentSearch()
     }
 
     /** Commits the current query to the persisted history (IME search / result tap). */

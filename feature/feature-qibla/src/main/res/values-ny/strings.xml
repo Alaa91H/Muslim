@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Dziko</string>
     <string name="offline_maps_tab_custom">Dera lamakonda</string>
     <string name="offline_maps_download">Tsitsani</string>
-    <string name="offline_maps_custom_hint">Dinani mapu kuti musankhe pakati, kenako tsitsani malo ozungulira.</string>
+    <string name="offline_maps_custom_hint">Yendetsani ndikuwonera mapu kuti mukonze malo omwe mukufuna; chimango chimasintha basi. Sinthani m\'lifupi ndi slider.</string>
     <string name="offline_maps_custom_name">Dzina ladera</string>
-    <string name="offline_maps_custom_tap">Dinani mapu kuti musankhe pakati</string>
+    <string name="offline_maps_custom_tap">Sunthani mapu kuti musankhe malo</string>
     <string name="offline_maps_custom_default_name">Dera lamakonda</string>
     <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
     <string name="offline_maps_downloading">Kutsitsa %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Onerani pafupi</string>
     <string name="mosque_finder_zoom_out">Onetsani kutali</string>
     <string name="mosque_finder_nearest">Mzikiti wapafupi</string>
+    <string name="mosque_finder_go_to">Pitani kwa izo</string>
+    <string name="mosque_finder_find_nearest">Pezani mzikiti wapafupi</string>
+    <string name="mosque_finder_expanding">Kusaka mkati mwa %1$s...</string>
+    <string name="offline_maps_custom_width">Dera wide (madigiri)</string>
+    <string name="offline_maps_storage_warning">Zosungirako zochepa - %1$s yokha yaulere</string>
+    <string name="offline_maps_storage_delete_largest">Chotsani dera lalikulu kwambiri (%1$s · %2$s)</string>
 </resources>

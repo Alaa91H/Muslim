@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Impostazioni Adhkar</string>
     <string name="adhkar_show_translation">Mostra la traduzione</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Copia</string>
+    <string name="adhkar_share">Condividi</string>
+    <string name="adhkar_overlay_short_only">Utilizzare solo adhkar breve</string>
+    <string name="adhkar_overlay_short_only_desc">Scegli adhkar che si adatti a una o due righe in modo che la bolla fluttuante rimanga chiara e facile da leggere.</string>
+    <string name="adhkar_overlay_tap_hint">Tocca il fumetto per chiuderlo immediatamente.</string>
 </resources>

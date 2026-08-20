@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egypteschen General Autoritéit vun Survey</string>
     <string name="method_france">Frankräich (UOIF)</string>
     <string name="method_isna">ISNA (Nordamerika)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Universitéit vun Islamesche Wëssenschaften, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Moonsighting Comité</string>
     <string name="method_mwl">Moslem Weltliga</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapur</string>
-    <string name="method_tehran">Teheran Institut fir Geophysik</string>
     <string name="method_turkey">Diyanet Tierkei</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Zënter Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Kann Zäiten net berechnen</string>
     <string name="widget_prayer_times_description">Nächst Gebied mat Countdown</string>
     <string name="widget_prayer_times_label">Gebiedszäiten</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Vibratioun %2$s</string>
+    <string name="settings_adhan_vibrate_on">Op</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Stop Virschau</string>
+    <string name="settings_method_automatic">Automatesch (no Standuert)</string>
+    <string name="settings_method_automatic_desc">D\'App wielt déi gëeegent Method automatesch baséiert op Ärem Land a Standuert; Dir kënnt ëmmer nach eng Method manuell wielen.</string>
+    <string name="settings_preview_for_prayer">Virschau %1$s adhan</string>
 </resources>

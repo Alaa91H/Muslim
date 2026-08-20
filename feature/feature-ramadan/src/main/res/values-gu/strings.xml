@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">પહેલાં મને યાદ કરાવો:</string>
     <string name="ramadan_suhoor_time">સુહુર સમાપ્ત થાય છે (ફજર): %1$s</string>
     <string name="ramadan_title">રમઝાન</string>
+    <string name="ramadan_notify_outside">રમઝાનની બહાર રીમાઇન્ડર્સ</string>
+    <string name="ramadan_notify_outside_desc">રમઝાન દરમિયાન ઇફ્તાર અને સુહૂર ચેતવણી આપમેળે ચાલે છે; આને સક્ષમ કરવાથી તેઓ અન્ય મહિનામાં ચાલુ રહે છે.</string>
 </resources>

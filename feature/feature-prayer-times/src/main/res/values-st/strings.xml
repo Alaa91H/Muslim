@@ -46,14 +46,12 @@
     <string name="method_egyptian">Bolaoli bo Akaretsang ba Liphuputso tsa Egepeta</string>
     <string name="method_france">Fora (UOIF)</string>
     <string name="method_isna">ISNA (Amerika Leboya)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Univesithi ea Islamic Sciences, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Komiti ea Pono ea Khoeli</string>
     <string name="method_mwl">Selekane sa Lefatše sa Mamosleme</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Setsi sa Tehran sa Geophysics</string>
     <string name="method_turkey">Diyanet Turkey</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Ho tloha Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ha e khone ho bala linako</string>
     <string name="widget_prayer_times_description">Thapelo e latelang e nang le ho bala</string>
     <string name="widget_prayer_times_label">Linako tsa thapelo</string>
+    <string name="settings_adhan_volume_vibrate">Phatlalatso %1$s · Vibrate %2$s</string>
+    <string name="settings_adhan_vibrate_on">E butsoe</string>
+    <string name="settings_adhan_vibrate_off">E tima</string>
+    <string name="settings_preview_stop">Emisa ponelopele</string>
+    <string name="settings_method_automatic">Ka ho iketsa (ho ea ka sebaka)</string>
+    <string name="settings_method_automatic_desc">Sesebelisoa se khetha mokhoa o loketseng ka ho fetesisa o ipapisitse le naha ea heno le sebaka; o ntse o ka khetha mokhoa ka letsoho ka nako efe kapa efe.</string>
+    <string name="settings_preview_for_prayer">Sheba esale pele %1$s adhan</string>
 </resources>

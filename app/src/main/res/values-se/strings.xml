@@ -46,4 +46,12 @@
     <string name="crash_close">Gidde</string>
     <string name="crash_dismiss">Joatkit</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي گونه واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء kli sort. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Ohca Korana</string>
+    <string name="more_quran_search_desc">Gávnnat sáni, man dávjá dat boahtá ovdan ja gos</string>
+    <string name="more_quran_frequency">Korana sániid dávjávuohta</string>
+    <string name="more_quran_frequency_desc">Dábáleamos sánit olles mushafas</string>
+    <string name="more_pause_on_notifications">Bisset lohkama dieđihemiin</string>
+    <string name="more_pause_on_notifications_desc">Lohkan bisána oanehaččat go dieđiheapmi, riŋgen dahje eará media čuojahuvvo</string>
+    <string name="more_pause_notifications_enabled">Aktiverejuvvon — deaddilat vai rahpat ortnega njuolggadusaid</string>
+    <string name="more_pause_notifications_disabled">Deaktiverejuvvon — deaddilat vai beasat álggahit</string>
 </resources>

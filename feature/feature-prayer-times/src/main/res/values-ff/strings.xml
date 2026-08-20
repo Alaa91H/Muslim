@@ -46,14 +46,12 @@
     <string name="method_egyptian">Hukuuma kuuɓtodinɗo wiɗto leydi Ejipt</string>
     <string name="method_france">Farayse (UOIF)</string>
     <string name="method_isna">ISNA (Amerik worgo)</string>
-    <string name="method_jafari">Jaafari</string>
     <string name="method_karachi">Duɗal jaaɓi haaɗtirde ganndal lislaam, Karachi</string>
     <string name="method_kuwait">Kuwoyt</string>
     <string name="method_moonsighting">Goomu ƴeewndo lewru</string>
     <string name="method_mwl">Ligue adunaire juulɓe</string>
     <string name="method_qatar">Kataar</string>
     <string name="method_singapore">Singapuur</string>
-    <string name="method_tehran">Duɗal ganndal leydi Teheran</string>
     <string name="method_turkey">Diyanet Turki</string>
     <string name="method_umm_al_qura">Ummuul Quraa (Makka)</string>
     <string name="next_adhan_elapsed">Gila Azaan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Waawaa hiisaade sahaaji</string>
     <string name="widget_prayer_times_description">Duwaawu garoowo e limto</string>
     <string name="widget_prayer_times_label">Wakkatiiji juulde</string>
+    <string name="settings_adhan_volume_vibrate">Ɓooygol %1$s · Dimmbagol %2$s</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Jokku ƴeewndo</string>
+    <string name="settings_method_automatic">Otomatik (e nokku)</string>
+    <string name="settings_method_automatic_desc">App oo suɓotoo ko feere ɓurnde moƴƴude otomatik tuugnaade e leydi maa e nokku maa ; aɗa waawi suɓaade feere haa jooni e junngo kala sahaa.</string>
+    <string name="settings_preview_for_prayer">Yiyngo %1$s adan</string>
 </resources>

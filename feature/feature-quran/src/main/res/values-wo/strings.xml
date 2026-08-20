@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Bi njëkk</string>
     <string name="quran_recitation_notif_next">Next</string>
+    <string name="quran_download_playback_title">Yebbi %1$s</string>
+    <string name="quran_download_playback_detail">%1$s cammoy · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf santaane</string>
+    <string name="quran_download_sort_completion">Suñu ko jeexalee</string>
+    <string name="quran_downloads_coverage_title">Surah ci jàngkat yépp</string>
+    <string name="quran_downloads_coverage_overall">Mushaf bu mat sëkk ci jàngkat yi</string>
+    <string name="quran_downloads_coverage_empty">Ba leegi yebbiwul audio bi</string>
+    <string name="quran_pause_notif_listener">Noppalu jàng ci yëgle yi</string>
+    <string name="quran_reciter_changed_title">Recitatër bi soppiku na</string>
+    <string name="quran_reciter_changed_message">Playback dafa taxaw ndax range bi mingi dem ba ci njeextalu Al Quran. Tàmbaliwaat ak %1$s?</string>
+    <string name="quran_reciter_restart">Tàmbaliwaat</string>
+    <string name="quran_reciter_not_now">Du leegi</string>
 </resources>

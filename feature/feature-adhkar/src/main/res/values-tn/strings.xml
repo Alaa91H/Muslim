@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Diseting tsa Adhkar</string>
     <string name="adhkar_show_translation">Bontsha thanolo</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopolola</string>
+    <string name="adhkar_share">Abelana</string>
+    <string name="adhkar_overlay_short_only">Dirisa adhkar e khutshwane fela</string>
+    <string name="adhkar_overlay_short_only_desc">Tlhopha adhkar e e tshwanelang mola o le mongwe kgotsa e mebedi gore bubble e e phaphametseng e nne e tlhapile e bile e balege bonolo.</string>
+    <string name="adhkar_overlay_tap_hint">Tap the bubble to dismiss it immediately.</string>
 </resources>

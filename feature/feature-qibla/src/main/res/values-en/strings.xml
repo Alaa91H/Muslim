@@ -40,6 +40,9 @@
     <string name="mosque_finder_zoom_in">Zoom in</string>
     <string name="mosque_finder_zoom_out">Zoom out</string>
     <string name="mosque_finder_nearest">Nearest mosque</string>
+    <string name="mosque_finder_go_to">Go to it</string>
+    <string name="mosque_finder_find_nearest">Find nearest mosque</string>
+    <string name="mosque_finder_expanding">Searching within %1$s…</string>
 
     <!-- Offline maps download -->
     <string name="offline_maps_title">Offline maps</string>
@@ -65,9 +68,12 @@
     <string name="offline_maps_tab_custom">Custom area</string>
     <string name="offline_maps_size_estimate">Estimated size: %1$s</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">Tap the map to pick the center, then download the area around it.</string>
+    <string name="offline_maps_custom_hint">Pan and zoom the map to frame the area you want; the frame updates automatically. Adjust the width with the slider.</string>
     <string name="offline_maps_custom_name">Area name</string>
     <string name="offline_maps_custom_selected">Selected center: %1$.2f, %2$.2f</string>
-    <string name="offline_maps_custom_tap">Tap the map to pick the center</string>
+    <string name="offline_maps_custom_tap">Move the map to select the area</string>
     <string name="offline_maps_custom_default_name">Custom area</string>
-</resources>
+    <string name="offline_maps_custom_width">Area width (degrees)</string>
+    <string name="offline_maps_storage_warning">Low storage, only %1$s free</string>
+    <string name="offline_maps_storage_delete_largest">Delete largest region (%1$s · %2$s)</string>
+</resources>

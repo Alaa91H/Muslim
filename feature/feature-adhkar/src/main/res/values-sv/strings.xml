@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar-inställningar</string>
     <string name="adhkar_show_translation">Visa översättning</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopiera</string>
+    <string name="adhkar_share">Dela</string>
+    <string name="adhkar_overlay_short_only">Använd endast kort adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Välj adhkar som passar en eller två linjer så att den flytande bubblan förblir tydlig och lätt att läsa.</string>
+    <string name="adhkar_overlay_tap_hint">Tryck på bubblan för att ta bort den omedelbart.</string>
 </resources>

@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Kozoni</string>
     <string name="quran_recitation_notif_next">Na pekoni</string>
+    <string name="quran_download_playback_title">A yeke téléchargé %1$s</string>
+    <string name="quran_download_playback_detail">%1$s azia · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf amû yanga</string>
+    <string name="quran_download_sort_completion">Na hunzingo ni .</string>
+    <string name="quran_downloads_coverage_title">Surah couverture na popo ti azo so ayeke diko ni .</string>
+    <string name="quran_downloads_coverage_overall">Mushaf kue na ndo ti azo so ayeke diko ni .</string>
+    <string name="quran_downloads_coverage_empty">A téléchargé mbeni audio pëpe .</string>
+    <string name="quran_pause_notif_listener">Pause ti dikongo mbeti na ndo ti a-avis</string>
+    <string name="quran_reciter_changed_title">Zo ti dikongo mbeti ni achangé .</string>
+    <string name="quran_reciter_changed_message">A joué ni ndali ti so range ni ayeke gue juska na nda ti Coran. Ti kiri ti komanse na %1$s?</string>
+    <string name="quran_reciter_restart">Komanse encore .</string>
+    <string name="quran_reciter_not_now">Fadeso pëpe .</string>
 </resources>

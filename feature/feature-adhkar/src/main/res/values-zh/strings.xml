@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">阿德卡设置</string>
     <string name="adhkar_show_translation">显示翻译</string>
     <string name="adhkar_title">阿德卡</string>
+    <string name="adhkar_copy">复制</string>
+    <string name="adhkar_share">分享</string>
+    <string name="adhkar_overlay_short_only">仅使用短 adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">选择适合一两行的 adhkar，以便浮动气泡保持清晰且易于阅读。</string>
+    <string name="adhkar_overlay_tap_hint">点击气泡可立即将其消除。</string>
 </resources>

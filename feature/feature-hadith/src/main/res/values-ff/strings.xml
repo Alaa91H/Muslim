@@ -23,4 +23,5 @@
     <string name="hadith_search_hint">Yiylo hadisaaji...</string>
     <string name="hadith_share">Renndinde</string>
     <string name="hadith_title">Defterdu Hadiis</string>
+    <string name="hadith_copy">Koppir</string>
 </resources>

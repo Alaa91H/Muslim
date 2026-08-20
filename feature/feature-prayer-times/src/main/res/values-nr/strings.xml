@@ -46,14 +46,12 @@
     <string name="method_egyptian">Igunya eliPhezulu lokuHlola le-Egypt</string>
     <string name="method_france">I-France (UOIF)</string>
     <string name="method_isna">I-ISNA (North America)</string>
-    <string name="method_jafari">I-Jafari</string>
     <string name="method_karachi">IYunivesithi yeSayensi yamaSulumane, e-Karachi</string>
     <string name="method_kuwait">I-Kuwait</string>
     <string name="method_moonsighting">IKomidi yokubona inyanga</string>
     <string name="method_mwl">I-Muslim World League</string>
     <string name="method_qatar">I-Qatar</string>
     <string name="method_singapore">I-Singapore</string>
-    <string name="method_tehran">I-Tehran Institute of Geophysics</string>
     <string name="method_turkey">I-Diyanet Turkey</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Kusukela ku-Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Akukghoni ukubala iinkhathi</string>
     <string name="widget_prayer_times_description">Umthandazo olandelako ngokubala</string>
     <string name="widget_prayer_times_label">Isikhathi somthandazo</string>
+    <string name="settings_adhan_volume_vibrate">Ivolumu %1$s · Ukudlidliza %2$s</string>
+    <string name="settings_adhan_vibrate_on">Ngo</string>
+    <string name="settings_adhan_vibrate_off">Vala</string>
+    <string name="settings_preview_stop">Misa ukubuka ngaphambilini</string>
+    <string name="settings_method_automatic">Okuzenzakalelayo (ngokwendawo)</string>
+    <string name="settings_method_automatic_desc">I-app ikhetha indlela efaneleko ngokuzenzakalelako ngokuya ngenarha yakho nendawo yakho; ungakhetha indlela ngesandla nanyana kunini.</string>
+    <string name="settings_preview_for_prayer">Hlola ngaphambilini %1$s adhan</string>
 </resources>

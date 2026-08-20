@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Patria</string>
     <string name="offline_maps_tab_custom">Custom area</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">Tap tabulam decerpit ad centrum, deinde aream circa eam depone.</string>
+    <string name="offline_maps_custom_hint">Pan et zoom mappa condere aream quam vis; the frame updates automatice. Latitudinem accommodare cum labor lapsus.</string>
     <string name="offline_maps_custom_name">Area nomen</string>
-    <string name="offline_maps_custom_tap">Tap in tabula eligo centro</string>
+    <string name="offline_maps_custom_tap">Movere tabula ad eligere aream</string>
     <string name="offline_maps_custom_default_name">Custom area</string>
     <string name="offline_maps_summary_body">%1$d ex %2$d areae integrae · %3$s downloaded</string>
     <string name="offline_maps_downloading">Downloading %1$s…%2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom in</string>
     <string name="mosque_finder_zoom_out">zoom out</string>
     <string name="mosque_finder_nearest">Proxima mosque</string>
+    <string name="mosque_finder_go_to">Ite ad eum</string>
+    <string name="mosque_finder_find_nearest">Proxima invenire mosque</string>
+    <string name="mosque_finder_expanding">Investigatio intra %1$s...</string>
+    <string name="offline_maps_custom_width">Area latitudine (gradus)</string>
+    <string name="offline_maps_storage_warning">Humilis repono - %1$s solum gratis</string>
+    <string name="offline_maps_storage_delete_largest">Maximam regionem delere (%1$s · %2$s)</string>
 </resources>

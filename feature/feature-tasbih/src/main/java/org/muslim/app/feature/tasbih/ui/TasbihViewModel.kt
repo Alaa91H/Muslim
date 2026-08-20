@@ -67,7 +67,4 @@ class TasbihViewModel @Inject constructor(
 
     fun setTargetSoundEnabled(enabled: Boolean) =
         viewModelScope.launch { repository.setTargetSoundEnabled(enabled) }
-
-    fun setTargetSoundTone(tone: String) =
-        viewModelScope.launch { repository.setTargetSoundTone(tone) }
 }

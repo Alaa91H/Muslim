@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar көйләүләре</string>
     <string name="adhkar_show_translation">Тәрҗемә күрсәтү</string>
     <string name="adhkar_title">Адхкар</string>
+    <string name="adhkar_copy">Күчермә</string>
+    <string name="adhkar_share">Бүлешү</string>
+    <string name="adhkar_overlay_short_only">Кыска адхар кулланыгыз</string>
+    <string name="adhkar_overlay_short_only_desc">Бер-ике юлга туры килгән адхарны сайлагыз, шуңа күрә йөзүче күпер ачык һәм уку җиңел булып калсын.</string>
+    <string name="adhkar_overlay_tap_hint">Аны шунда ук җибәрү өчен күпчелеккә басыгыз.</string>
 </resources>

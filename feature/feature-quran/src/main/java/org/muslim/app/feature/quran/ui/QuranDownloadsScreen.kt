@@ -7,8 +7,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
@@ -47,6 +49,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -61,6 +64,7 @@ import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.data.DownloadScope
 import org.muslim.app.feature.quran.data.DownloadStatus
 import org.muslim.app.feature.quran.data.DownloadTaskUi
+import kotlin.math.roundToInt
 import java.util.Locale
 
 /** 30-minute increments across a full day, as minutes from midnight. */
@@ -87,6 +91,8 @@ fun QuranDownloadsScreen(
     var confirmDeleteSurah by remember { mutableStateOf<Int?>(null) }
     var confirmDeleteReciter by remember { mutableStateOf(false) }
     val totalSummary by viewModel.totalSummary.collectAsStateWithLifecycle()
+    val libraryScan by viewModel.libraryScan.collectAsStateWithLifecycle()
+    val surahCoverage by viewModel.surahCoverage.collectAsStateWithLifecycle()
     val selectedReciterId by viewModel.selectedReciterId.collectAsStateWithLifecycle()
     val surahs by viewModel.surahs.collectAsStateWithLifecycle()
     val reciters = viewModel.reciters
@@ -125,6 +131,13 @@ fun QuranDownloadsScreen(
         ) {
             // Everything downloaded across all reciters, at a glance.
             TotalSummaryCard(summary = totalSummary)
+
+            // How full every surah is when all reciters are taken together.
+            SurahCoverageSection(
+                coverages = surahCoverage,
+                activeReciterCount = libraryScan.activeReciterCount,
+                totalMushafAyahs = viewModel.totalMushafAyahs,
+            )
 
             PrimaryScrollableTabRow(
                 selectedTabIndex = pagerState.currentPage.coerceIn(0, reciters.size - 1),
@@ -487,6 +500,104 @@ private fun TotalSummaryCard(summary: TotalDownloadSummary) {
     }
 }
 
+/** How to order the downloaded-surah list. */
+private enum class SurahSort { Mushaf, Completion }
+
+/** Renders a fraction (0..1) as a western-digit percentage, e.g. 0.456 -> "46%". */
+private fun percentText(fraction: Float): String =
+    "${(fraction.coerceIn(0f, 1f) * 100).roundToInt()}%"
+
+/**
+ * Unified fullness indicator at the top of the downloads hub: how complete
+ * each downloaded surah is when every reciter is counted together, plus an
+ * overall mushaf-wide bar. Incomplete surahs come first so the user sees at
+ * a glance which surahs still need finishing for the reciters in use.
+ */
+@Composable
+private fun SurahCoverageSection(
+    coverages: List<SurahCoverage>,
+    activeReciterCount: Int,
+    totalMushafAyahs: Int,
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 4.dp),
+    ) {
+        Column(modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp)) {
+            Text(
+                text = stringResource(R.string.quran_downloads_coverage_title),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Spacer(Modifier.height(6.dp))
+            if (coverages.isEmpty() || activeReciterCount == 0) {
+                Text(
+                    text = stringResource(R.string.quran_downloads_coverage_empty),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            } else {
+                // Overall mushaf-wide fullness across the reciters in use.
+                val libraryAyahs = coverages.sumOf { it.downloadedAyahs.toLong() }
+                val totalSlots = totalMushafAyahs.toLong() * activeReciterCount
+                val overall = if (totalSlots > 0) libraryAyahs.toFloat() / totalSlots else 0f
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = stringResource(R.string.quran_downloads_coverage_overall),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.weight(1f),
+                    )
+                    LinearProgressIndicator(
+                        progress = { overall.coerceIn(0f, 1f) },
+                        modifier = Modifier
+                            .width(96.dp)
+                            .height(6.dp),
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Text(
+                        text = percentText(overall),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+                Spacer(Modifier.height(6.dp))
+                // Per-surah bars (already sorted incomplete-first by the VM).
+                LazyColumn(modifier = Modifier.heightIn(max = 180.dp)) {
+                    items(coverages.size) { index ->
+                        val coverage = coverages[index]
+                        Row(
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 3.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Text(
+                                text = stringResource(R.string.quran_surah_number_short, coverage.surahNumber),
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.width(52.dp),
+                            )
+                            LinearProgressIndicator(
+                                progress = { coverage.fraction },
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .height(4.dp),
+                            )
+                            Spacer(Modifier.width(8.dp))
+                            Text(
+                                text = percentText(coverage.fraction),
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.width(42.dp),
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @Composable
 private fun TaskRow(
     task: DownloadTaskUi,
@@ -630,6 +741,12 @@ private fun ReciterHeaderSummary(
                     )
                     Spacer(Modifier.width(8.dp))
                     Text(
+                        text = percentText(progress),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Text(
                         text = stringResource(
                             R.string.quran_download_mushaf_progress,
                             downloaded,
@@ -693,7 +810,34 @@ private fun ReciterStateSection(
         color = MaterialTheme.colorScheme.primary,
     )
     Spacer(Modifier.height(8.dp))
-    current.surahCounts.forEach { (surahNumber, ayahs) ->
+
+    // Sort the downloaded surahs by mushaf order or by completion (incomplete
+    // first, so the user sees what needs finishing). The choice is remembered.
+    var sortMode by rememberSaveable { mutableStateOf(SurahSort.Mushaf) }
+    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        FilterChip(
+            selected = sortMode == SurahSort.Mushaf,
+            onClick = { sortMode = SurahSort.Mushaf },
+            label = { Text(stringResource(R.string.quran_download_sort_mushaf)) },
+        )
+        FilterChip(
+            selected = sortMode == SurahSort.Completion,
+            onClick = { sortMode = SurahSort.Completion },
+            label = { Text(stringResource(R.string.quran_download_sort_completion)) },
+        )
+    }
+    Spacer(Modifier.height(4.dp))
+
+    val sortedEntries = current.surahCounts.entries.sortedWith(
+        when (sortMode) {
+            SurahSort.Mushaf -> compareBy({ it.key })
+            SurahSort.Completion -> compareBy(
+                { surahAyahTotals[it.key]?.let { total -> it.value.toFloat() / total } ?: 1f },
+                { it.key },
+            )
+        },
+    )
+    sortedEntries.forEach { (surahNumber, ayahs) ->
         val total = surahAyahTotals[surahNumber] ?: ayahs
         val fraction = if (total > 0) ayahs.toFloat() / total else 0f
         Column(
@@ -728,13 +872,23 @@ private fun ReciterStateSection(
                     )
                 }
             }
-            LinearProgressIndicator(
-                progress = { fraction.coerceIn(0f, 1f) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(4.dp)
-                    .padding(start = 26.dp, top = 2.dp),
-            )
+            Row(
+                modifier = Modifier.padding(start = 26.dp, top = 2.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                LinearProgressIndicator(
+                    progress = { fraction.coerceIn(0f, 1f) },
+                    modifier = Modifier
+                        .weight(1f)
+                        .height(4.dp),
+                )
+                Spacer(Modifier.width(8.dp))
+                Text(
+                    text = percentText(fraction),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
         }
     }
     Spacer(Modifier.height(4.dp))

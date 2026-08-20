@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Eyadlulako</string>
     <string name="quran_recitation_notif_next">Okulandelako</string>
+    <string name="quran_download_playback_title">Ukudawuniloda %1$s</string>
+    <string name="quran_download_playback_detail">%1$s kwesokunxele · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">I-oda le-Mushaf</string>
+    <string name="quran_download_sort_completion">Ngokuqeda</string>
+    <string name="quran_downloads_coverage_title">Ukuvezwa kwe-Sura kibo boke abafundi</string>
+    <string name="quran_downloads_coverage_overall">I-mushaf epheleleko kibo boke abafundi</string>
+    <string name="quran_downloads_coverage_empty">Akukadawunilodiwe umdumo okwanje</string>
+    <string name="quran_pause_notif_listener">Misa ukuphindaphinda ezazisweni</string>
+    <string name="quran_reciter_changed_title">Umbizi utjhugulukile</string>
+    <string name="quran_reciter_changed_message">Ukudlala kwajama ngombana ububanzi bufika ekupheleni kwe-Quran. Thoma godu nge-%1$s?</string>
+    <string name="quran_reciter_restart">Thoma godu</string>
+    <string name="quran_reciter_not_now">Hhayi nje</string>
 </resources>

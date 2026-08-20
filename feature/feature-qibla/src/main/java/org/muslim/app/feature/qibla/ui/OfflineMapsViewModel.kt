@@ -12,6 +12,7 @@ import org.maplibre.android.geometry.LatLngBounds
 import org.muslim.app.core.ui.map.OfflineMapArea
 import org.muslim.app.core.ui.map.OfflineMapAreas
 import org.muslim.app.core.ui.map.OfflineMapManager
+import org.muslim.app.core.ui.map.OfflineMapManager.StorageSnapshot
 import org.muslim.app.core.ui.map.OfflineMapRegion
 import javax.inject.Inject
 
@@ -23,6 +24,7 @@ data class OfflineMapsUiState(
     val downloading: Boolean = false,
     val downloadProgress: Float = 0f,
     val downloadName: String? = null,
+    val storage: StorageSnapshot? = null,
 ) {
     val totalBytes: Long get() = regions.sumOf { it.downloadedBytes }
     val completeCount: Int get() = regions.count { it.complete }
@@ -49,13 +51,20 @@ class OfflineMapsViewModel @Inject constructor(
         viewModelScope.launch {
             _state.value = _state.value.copy(loading = true, error = null)
             manager.listRegions { regions ->
-                _state.value = _state.value.copy(regions = regions, loading = false)
+                _state.value = _state.value.copy(
+                    regions = regions,
+                    storage = manager.storageSnapshot(regions),
+                    loading = false,
+                )
             }
         }
     }
 
     /** Estimates the download size for an area, for the pre-download display. */
     fun estimateBytes(area: OfflineMapArea): Long = manager.estimateBytes(area.bounds)
+
+    /** Estimates the download size for a custom bounding box. */
+    fun estimateBoundsBytes(bounds: LatLngBounds): Long = manager.estimateBytes(bounds)
 
     /** Formats a byte count as a human size (KB/MB/GB). */
     fun formatBytes(bytes: Long): String = manager.formatBytes(bytes)
@@ -114,5 +123,11 @@ class OfflineMapsViewModel @Inject constructor(
         viewModelScope.launch {
             manager.deleteAll { refresh() }
         }
+    }
+
+    /** Deletes the largest downloaded region — the suggested low-storage action. */
+    fun deleteLargest() {
+        val largest = _state.value.storage?.largestRegion ?: return
+        delete(largest.id)
     }
 }

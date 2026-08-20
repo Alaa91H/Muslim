@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Roishtyn Adhkar</string>
     <string name="adhkar_show_translation">Soilshaghey aitt</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Coip.</string>
+    <string name="adhkar_share">Rheynn</string>
+    <string name="adhkar_overlay_short_only">Cleays adhkar gearr ny lomarcan</string>
+    <string name="adhkar_overlay_short_only_desc">Choose adhkar ta corrym rish un line ny daa line dy vod y bubble floating staydys soilshey as sheean y leah.</string>
+    <string name="adhkar_overlay_tap_hint">Tap y bubble dy scarrey eh dy kiart.</string>
 </resources>

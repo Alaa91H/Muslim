@@ -2,6 +2,8 @@ package org.muslim.app.feature.adhkar.data
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
+import org.muslim.app.feature.adhkar.domain.Dhikr
+import org.muslim.app.feature.adhkar.domain.DhikrCategory
 
 class AdhkarPrefsTest {
 
@@ -50,6 +52,20 @@ class AdhkarPrefsTest {
     fun `dhikr outside the favorite set is not a favorite`() {
         val prefs = AdhkarPrefs(favoriteDhikrIds = setOf(7))
         assertThat(prefs.isDhikrFavorite(8)).isFalse()
+    }
+
+    @Test
+    fun `short dhikr accepts compact one line text and rejects long text`() {
+        val short = Dhikr(1, DhikrCategory.General, "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ", "", "", 1, null)
+        val long = Dhikr(2, DhikrCategory.General, "كلمة ".repeat(151), "", "", 1, null)
+        assertThat(short.isShort).isTrue()
+        assertThat(long.isShort).isFalse()
+    }
+
+    @Test
+    fun `short dhikr allows two explicit lines`() {
+        val twoLines = Dhikr(3, DhikrCategory.General, "ذكر قصير\nودعاء قصير", "", "", 1, null)
+        assertThat(twoLines.isShort).isTrue()
     }
 
     @Test

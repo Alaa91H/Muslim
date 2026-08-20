@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Ɔman</string>
     <string name="offline_maps_tab_custom">Amanneɛbɔ beae</string>
     <string name="offline_maps_download">Twe</string>
-    <string name="offline_maps_custom_hint">Kɔ asase mfonini no so na paw mfinimfini hɔ, afei twe beae a atwa ho ahyia no.</string>
+    <string name="offline_maps_custom_hint">Pan na zoom map no na fa frame beae a wopɛ no; frame no yɛ foforo ankasa. Fa slider no siesie ne trɛw.</string>
     <string name="offline_maps_custom_name">Mpɔtam hɔ din</string>
-    <string name="offline_maps_custom_tap">Kɔ asase mfonini no so na paw mfinimfini hɔ</string>
+    <string name="offline_maps_custom_tap">Fa asase mfonini no kɔ baabi foforo na paw beae no</string>
     <string name="offline_maps_custom_default_name">Amanneɛbɔ beae</string>
     <string name="offline_maps_summary_body">%1$d a %2$d mmeaeɛ awie · %3$s wɔatwe</string>
     <string name="offline_maps_downloading">Woretwe %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom wɔ mu</string>
     <string name="mosque_finder_zoom_out">Zoom ketewaa bi</string>
     <string name="mosque_finder_nearest">Asɔredan a ɛbɛn hɔ sen biara</string>
+    <string name="mosque_finder_go_to">Kɔ hɔ</string>
+    <string name="mosque_finder_find_nearest">Hwehwɛ asɔredan a ɛbɛn wo</string>
+    <string name="mosque_finder_expanding">Hwehwɛ mu wɔ %1$s...</string>
+    <string name="offline_maps_custom_width">Mpɔtam hɔ trɛw (digrii) .</string>
+    <string name="offline_maps_storage_warning">Low storage, %1$s pɛ na wontua hwee</string>
+    <string name="offline_maps_storage_delete_largest">Popa ɔmantam a ɛso sen biara (%1$s · %2$s)</string>
 </resources>

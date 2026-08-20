@@ -46,4 +46,12 @@
     <string name="crash_close">Жабуу</string>
     <string name="crash_dismiss">Улантуу</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإظهار أو إكس. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Куранды изде</string>
+    <string name="more_quran_search_desc">Сөздү табыңыз, ал канча жолу жана кайда пайда болот</string>
+    <string name="more_quran_frequency">Куран сөз жыштыгы</string>
+    <string name="more_quran_frequency_desc">Бүтүндөй мушафта эң көп айтылган сөздөр</string>
+    <string name="more_pause_on_notifications">Эскертмелерде окууну тындыруу</string>
+    <string name="more_pause_on_notifications_desc">Эскертме, шакек же башка медиа ойнотулганда, окуу кыска убакытка токтойт</string>
+    <string name="more_pause_notifications_enabled">Иштетилген — тутум орнотууларын ачуу үчүн таптаңыз</string>
+    <string name="more_pause_notifications_disabled">Өчүрүлгөн — иштетүү үчүн таптаңыз</string>
 </resources>

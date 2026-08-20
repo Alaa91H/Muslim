@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Fyrra</string>
     <string name="quran_recitation_notif_next">Næsta</string>
+    <string name="quran_download_playback_title">Heinta %1$s</string>
+    <string name="quran_download_playback_detail">%1$s til vinstru · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf skipan</string>
+    <string name="quran_download_sort_completion">Við liðugtgerð</string>
+    <string name="quran_downloads_coverage_title">Surah-dekningur tvørtur um lesarar</string>
+    <string name="quran_downloads_coverage_overall">Fullur mushaf tvørtur um lesarar</string>
+    <string name="quran_downloads_coverage_empty">Einki ljóð er tikið niður enn</string>
+    <string name="quran_pause_notif_listener">Steðga upplestrinum á fráboðanum</string>
+    <string name="quran_reciter_changed_title">Lesari broyttur</string>
+    <string name="quran_reciter_changed_message">Avspælingin steðgaði, tí bilið gongur til endan av Koranini. Byrja aftur við %1$s?</string>
+    <string name="quran_reciter_restart">Byrja aftur</string>
+    <string name="quran_reciter_not_now">Ikki nú</string>
 </resources>

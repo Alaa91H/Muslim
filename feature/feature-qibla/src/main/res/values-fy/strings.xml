@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Lân</string>
     <string name="offline_maps_tab_custom">Oanpaste gebiet</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">Tik op de kaart om it sintrum te kiezen, download dan it gebiet der omhinne.</string>
+    <string name="offline_maps_custom_hint">Pan en zoom de kaart om it gebiet dat jo wolle yn te rammen; it frame updates automatysk. Pas de breedte oan mei de slider.</string>
     <string name="offline_maps_custom_name">Gebietsnamme</string>
-    <string name="offline_maps_custom_tap">Tik op de kaart om it sintrum te kiezen</string>
+    <string name="offline_maps_custom_tap">Ferpleats de kaart om it gebiet te selektearjen</string>
     <string name="offline_maps_custom_default_name">Oanpaste gebiet</string>
     <string name="offline_maps_summary_body">%1$d fan %2$d gebieten kompleet · %3$s ynladen</string>
     <string name="offline_maps_downloading">Download %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom yn</string>
     <string name="mosque_finder_zoom_out">Zoom út</string>
     <string name="mosque_finder_nearest">Dichtstbijzijnde moskee</string>
+    <string name="mosque_finder_go_to">Gean nei it</string>
+    <string name="mosque_finder_find_nearest">Fyn tichtstbye moskee</string>
+    <string name="mosque_finder_expanding">Sykje binnen %1$s...</string>
+    <string name="offline_maps_custom_width">Gebietsbreedte (graden)</string>
+    <string name="offline_maps_storage_warning">Leech opslach - allinich %1$s fergees</string>
+    <string name="offline_maps_storage_delete_largest">Wiskje grutste regio (%1$s · %2$s)</string>
 </resources>

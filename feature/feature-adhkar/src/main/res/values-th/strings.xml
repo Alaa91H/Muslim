@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">การตั้งค่าแอดห์การ์</string>
     <string name="adhkar_show_translation">แสดงคำแปล</string>
     <string name="adhkar_title">อัธการ์</string>
+    <string name="adhkar_copy">คัดลอก</string>
+    <string name="adhkar_share">แบ่งปัน</string>
+    <string name="adhkar_overlay_short_only">ใช้ adhkar สั้นเท่านั้น</string>
+    <string name="adhkar_overlay_short_only_desc">เลือก adhkar ที่พอดีกับหนึ่งหรือสองบรรทัดเพื่อให้ลูกโป่งลอยอยู่ชัดเจนและอ่านง่าย</string>
+    <string name="adhkar_overlay_tap_hint">แตะที่ลูกโป่งเพื่อปิดทันที</string>
 </resources>

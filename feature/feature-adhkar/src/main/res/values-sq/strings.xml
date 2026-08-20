@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Cilësimet e Adhkar</string>
     <string name="adhkar_show_translation">Trego përkthimin</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopjo</string>
+    <string name="adhkar_share">Shpërndaje</string>
+    <string name="adhkar_overlay_short_only">Përdorni vetëm adkar të shkurtër</string>
+    <string name="adhkar_overlay_short_only_desc">Zgjidhni adhkar që përshtaten me një ose dy rreshta në mënyrë që flluska lundruese të mbetet e qartë dhe e lehtë për t\'u lexuar.</string>
+    <string name="adhkar_overlay_tap_hint">Prekni flluskën për ta hequr menjëherë.</string>
 </resources>

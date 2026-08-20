@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar-instellingen</string>
     <string name="adhkar_show_translation">Laat vertaling zien</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopieer</string>
+    <string name="adhkar_share">Deel</string>
+    <string name="adhkar_overlay_short_only">Gebruik alleen korte adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Kies adhkar die op één of twee regels past, zodat de zwevende bel helder en gemakkelijk leesbaar blijft.</string>
+    <string name="adhkar_overlay_tap_hint">Tik op de bel om deze onmiddellijk te sluiten.</string>
 </resources>

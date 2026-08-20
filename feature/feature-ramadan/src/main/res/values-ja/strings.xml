@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">前に思い出してください:</string>
     <string name="ramadan_suhoor_time">スフールエンド (ファジル): %1$s</string>
     <string name="ramadan_title">ラマダン</string>
+    <string name="ramadan_notify_outside">ラマダン期間外のリマインダー</string>
+    <string name="ramadan_notify_outside_desc">イフタールとスフールのアラートはラマダン期間中に自動的に実行されます。これを有効にすると、他の月も継続して実行できます。</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar орнотуулары</string>
     <string name="adhkar_show_translation">Котормосун көрсөтүү</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Көчүрмө</string>
+    <string name="adhkar_share">Бөлүшүү</string>
+    <string name="adhkar_overlay_short_only">Кыска adhkar гана колдонуңуз</string>
+    <string name="adhkar_overlay_short_only_desc">Калкыма көбүк ачык жана окууга оңой болуп калышы үчүн, бир же эки сапка туура келген адхкарды тандаңыз.</string>
+    <string name="adhkar_overlay_tap_hint">Аны дароо жабуу үчүн көбүктү таптаңыз.</string>
 </resources>

@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Өмнө нь надад сануул:</string>
     <string name="ramadan_suhoor_time">Сухорын төгсгөл (фажр): %1$s</string>
     <string name="ramadan_title">Рамадан</string>
+    <string name="ramadan_notify_outside">Рамадан гадуурх сануулга</string>
+    <string name="ramadan_notify_outside_desc">Рамадан сард ифтар, сухорын дохиолол автоматаар ажилладаг; Үүнийг идэвхжүүлснээр тэднийг бусад саруудад үргэлжлүүлнэ.</string>
 </resources>

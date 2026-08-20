@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Ñawpaq</string>
     <string name="quran_recitation_notif_next">Qatiqninpi</string>
+    <string name="quran_download_playback_title">%1$s uraykachiy.</string>
+    <string name="quran_download_playback_detail">%1$s lluq\'i · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf kamachiy</string>
+    <string name="quran_download_sort_completion">Tukuchispa</string>
+    <string name="quran_downloads_coverage_title">Surahpa qataynin tukuy rimaqkunapi</string>
+    <string name="quran_downloads_coverage_overall">Lliw mushaf tukuy recitadores</string>
+    <string name="quran_downloads_coverage_empty">Manaraqmi uyarinapaq uraykachisqachu</string>
+    <string name="quran_pause_notif_listener">Willakuykunapi rimayta samay</string>
+    <string name="quran_reciter_changed_title">Reciter cambiasqa</string>
+    <string name="quran_reciter_changed_message">Pukllayqa sayarqa, chay rango Quranpa tukukuyninkama purisqanrayku. %1$s nisqawan musuqmanta qallariy?</string>
+    <string name="quran_reciter_restart">Hukmanta qallariy</string>
+    <string name="quran_reciter_not_now">Mana kunanchu</string>
 </resources>

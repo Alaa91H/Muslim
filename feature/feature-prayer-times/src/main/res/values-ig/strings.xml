@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egypt General Authority of Survey</string>
     <string name="method_france">France (UOIF)</string>
     <string name="method_isna">ISNA (North America)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Mahadum nke Islamic Sciences, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Kọmitii na-ahụ maka ọnwa</string>
     <string name="method_mwl">Muslim World League</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Tehran Institute of Geophysics</string>
     <string name="method_turkey">Diyanet Turkey</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Kemgbe Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Enweghị ike ịgbakọ oge</string>
     <string name="widget_prayer_times_description">Ekpere na-esote ya na mgbada</string>
     <string name="widget_prayer_times_label">Oge ekpere</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Vibration %2$s</string>
+    <string name="settings_adhan_vibrate_on">Gbanye</string>
+    <string name="settings_adhan_vibrate_off">Gbanyụọ</string>
+    <string name="settings_preview_stop">Kwụsị nlele anya</string>
+    <string name="settings_method_automatic">Akpaaka (site na ọnọdụ)</string>
+    <string name="settings_method_automatic_desc">Ngwa ahụ na-ahọrọ usoro kachasị dabara adaba na-akpaghị aka dabere na obodo na ọnọdụ gị; ị ka nwere ike iji aka họrọ usoro n\'oge ọ bụla.</string>
+    <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
 </resources>

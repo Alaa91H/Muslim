@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Fakamanatu mai kimu\'a:</string>
     <string name="ramadan_suhoor_time">ʻOku ʻosi ʻa e ʻaho ʻo e ʻaho (Fajr): %1$s</string>
     <string name="ramadan_title">Lamatani</string>
+    <string name="ramadan_notify_outside">Ngaahi fakamanatu \'i tu\'a \'i he Ramadan .</string>
+    <string name="ramadan_notify_outside_desc">Iftar mo e suhoor fakatokanga lele \'otometiki lolotonga \'a e Ramadan; ko hono faka‘atā ‘ení ‘okú ne tauhi kinautolu ke nau hokohoko atu ‘i he ngaahi māhina kehé.</string>
 </resources>

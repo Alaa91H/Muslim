@@ -46,4 +46,12 @@
     <string name="crash_close">Tëj</string>
     <string name="crash_dismiss">Wéyal</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Seetal Al Quran</string>
+    <string name="more_quran_search_desc">Wut benn baat, ñaata yoon lay feeñ ak fumu feeñ</string>
+    <string name="more_quran_frequency">Al Quran</string>
+    <string name="more_quran_frequency_desc">Baatu yi gëna bari ci mushaf bi yépp</string>
+    <string name="more_pause_on_notifications">Noppalu jàng ci yëgle yi</string>
+    <string name="more_pause_on_notifications_desc">Recitation dafay noppalu ab diir su amee yëgle, sone wala yeneen media yuy jouer</string>
+    <string name="more_pause_notifications_enabled">Aktiwise — bësal ngir ubbi jekkal sistem bi</string>
+    <string name="more_pause_notifications_disabled">Desactivé — bësal ngir mëna</string>
 </resources>

@@ -46,4 +46,12 @@
     <string name="crash_close">Fermu</string>
     <string name="crash_dismiss">Daŭrigu</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتدم المفتاظ واسحبه لإعادة ترتيبه، إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Serĉu la Koranon</string>
+    <string name="more_quran_search_desc">Trovu vorton, kiom ofte ĝi aperas kaj kie</string>
+    <string name="more_quran_frequency">Vortfrekvenco de Korano</string>
+    <string name="more_quran_frequency_desc">La plej oftaj vortoj en la tuta mushaf</string>
+    <string name="more_pause_on_notifications">Paŭzi deklamadon pri sciigoj</string>
+    <string name="more_pause_on_notifications_desc">Deklamado paŭzas mallonge kiam ludas sciigo, sonoro aŭ alia amaskomunikilaro</string>
+    <string name="more_pause_notifications_enabled">Ebligita — alklaku por malfermi sistemajn agordojn</string>
+    <string name="more_pause_notifications_disabled">Malŝaltita - frapeti por ebligi</string>
 </resources>

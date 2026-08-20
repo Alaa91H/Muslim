@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Roimhe</string>
     <string name="quran_recitation_notif_next">Air adhart</string>
+    <string name="quran_download_playback_title">A\' luchdachadh sìos %1$s</string>
+    <string name="quran_download_playback_detail">Dh\'fhalbh %1$s · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf òrdugh</string>
+    <string name="quran_download_sort_completion">Le bhith a \'crìochnachadh</string>
+    <string name="quran_downloads_coverage_title">Còmhdach Surah thar luchd-aithris</string>
+    <string name="quran_downloads_coverage_overall">Mullach làn thar luchd-aithris</string>
+    <string name="quran_downloads_coverage_empty">Cha deach fuaim a luchdachadh sìos fhathast</string>
+    <string name="quran_pause_notif_listener">Cuir stad air aithris air brathan</string>
+    <string name="quran_reciter_changed_title">Dh’atharraich an neach-aithris</string>
+    <string name="quran_reciter_changed_message">Sguir ath-chluich leis gu bheil an raon a’ ruith gu deireadh a’ Chuan. Tòisich a-rithist le %1$s?</string>
+    <string name="quran_reciter_restart">Tòisich a-rithist</string>
+    <string name="quran_reciter_not_now">Chan ann a-nis</string>
 </resources>

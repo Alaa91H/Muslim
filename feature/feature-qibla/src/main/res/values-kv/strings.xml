@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Страна</string>
     <string name="offline_maps_tab_custom">Заказнӧй район .</string>
     <string name="offline_maps_download">Скачайтны</string>
-    <string name="offline_maps_custom_hint">Нажмите на карту, чтобы выбрать центр, затем скачайте его вокруг района.</string>
+    <string name="offline_maps_custom_hint">Панорама да зум карта, медым рамкаӧ пуктыны колана юкӧн; кадр выльмӧдчӧ автоматическӧй ногӧн. Регулируйтӧй пасьтасӧ ползунокӧн.</string>
     <string name="offline_maps_custom_name">Район ним</string>
-    <string name="offline_maps_custom_tap">Нажмите на карту, чтобы выбрать центр .</string>
+    <string name="offline_maps_custom_tap">Карта вылӧ лэдзӧй , медым бӧрйыны местаясӧ .</string>
     <string name="offline_maps_custom_default_name">Заказнӧй район .</string>
     <string name="offline_maps_summary_body">%1$d %2$d юкӧнъясысь тыртӧм · %3$s лэдзӧма</string>
     <string name="offline_maps_downloading">Скачайтöм %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Зум .</string>
     <string name="mosque_finder_zoom_out">Зум .</string>
     <string name="mosque_finder_nearest">Медся матысса мöскö</string>
+    <string name="mosque_finder_go_to">Мун сы дорӧ .</string>
+    <string name="mosque_finder_find_nearest">Корсьны матысса мӧск .</string>
+    <string name="mosque_finder_expanding">Корсьны %1$s пытшкын...</string>
+    <string name="offline_maps_custom_width">Площадь пасьта (градусъяс) .</string>
+    <string name="offline_maps_storage_warning">Ыджыд хранение — сӧмын %1$s дон босьттӧг .</string>
+    <string name="offline_maps_storage_delete_largest">Удалитны медся ыджыд регион (%1$s · %2$s)</string>
 </resources>

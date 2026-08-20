@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Chemomandu’a mboyve:</string>
     <string name="ramadan_suhoor_time">Suhoor opa (Fajr): %1$s. Ñe’ẽpoty ha ñe’ẽpoty</string>
     <string name="ramadan_title">Ramadán-pe</string>
+    <string name="ramadan_notify_outside">Mandu\'a Ramadán okaháre</string>
+    <string name="ramadan_notify_outside_desc">Umi alerta iftar ha suhoor rehegua oñemboguata ijeheguiete Ramadán aja; ombohapévo péva omantene chupekuéra ambue jasy-pe.</string>
 </resources>

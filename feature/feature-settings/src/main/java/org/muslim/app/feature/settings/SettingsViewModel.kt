@@ -1,15 +1,21 @@
 package org.muslim.app.feature.settings
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.muslim.app.core.datastore.AppPreferences
 import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.AppThemeMode
+import org.muslim.app.feature.settings.update.UpdateCheckScheduler
+import org.muslim.app.feature.settings.update.UpdateChecker
 import javax.inject.Inject
 
 /**
@@ -19,6 +25,7 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val appPreferencesRepository: AppPreferencesRepository,
 ) : ViewModel() {
 
@@ -37,6 +44,46 @@ class SettingsViewModel @Inject constructor(
     fun setTimeFormat24h(use24h: Boolean) = launch { appPreferencesRepository.setTimeFormat24h(use24h) }
 
     fun setMoreSectionOrder(order: List<String>) = launch { appPreferencesRepository.setMoreSectionOrder(order) }
+
+    /**
+     * Enables/disables the periodic update check (off by default). Turning it
+     * on schedules the daily/weekly/monthly worker; turning it off cancels it.
+     */
+    fun setUpdateCheckEnabled(enabled: Boolean) = launch {
+        appPreferencesRepository.setUpdateCheckEnabled(enabled)
+        if (enabled) {
+            UpdateCheckScheduler.schedule(context, preferences.value.updateCheckFrequency)
+        } else {
+            UpdateCheckScheduler.cancel(context)
+        }
+    }
+
+    /** Changes the update-check cadence and re-anchors the periodic job. */
+    fun setUpdateCheckFrequency(frequency: String) = launch {
+        appPreferencesRepository.setUpdateCheckFrequency(frequency)
+        if (preferences.value.updateCheckEnabled) {
+            UpdateCheckScheduler.schedule(context, frequency)
+        }
+    }
+
+    /** Result of the last manual "check now" run (null until one is done). */
+    private val _updateCheckResult = MutableStateFlow<UpdateChecker.Result?>(null)
+    val updateCheckResult: StateFlow<UpdateChecker.Result?> = _updateCheckResult.asStateFlow()
+
+    /**
+     * Runs an immediate check against the GitHub releases page. When a newer
+     * version exists the update-available notification is posted; the caller
+     * (settings screen) opens the update screen for the details.
+     */
+    fun checkForUpdatesNow() = launch {
+        _updateCheckResult.value = null
+        _updateCheckResult.value = UpdateChecker(context).checkAndNotify()
+    }
+
+    /** Clears the last manual-check result (after the UI consumed it). */
+    fun consumeUpdateCheckResult() {
+        _updateCheckResult.value = null
+    }
 
     /**
      * Suspends until the new language is persisted, so the caller can safely

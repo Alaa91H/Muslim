@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Nyika</string>
     <string name="offline_maps_tab_custom">Custom nzvimbo</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">Tokonya mepu kuti usarudze pakati, wozodhawunirodha nzvimbo yakaitenderedza.</string>
+    <string name="offline_maps_custom_hint">Pan uye zoom mepu kuronga nzvimbo yaunoda; iyo furemu inogadziridza otomatiki. Rongedza hupamhi ne slider.</string>
     <string name="offline_maps_custom_name">Zita renzvimbo</string>
-    <string name="offline_maps_custom_tap">Tokonya mepu kuti usarudze pakati</string>
+    <string name="offline_maps_custom_tap">Fambisa mepu kuti usarudze nzvimbo</string>
     <string name="offline_maps_custom_default_name">Custom nzvimbo</string>
     <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
     <string name="offline_maps_downloading">Kudhaunirodha %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom in</string>
     <string name="mosque_finder_zoom_out">Zoom out</string>
     <string name="mosque_finder_nearest">Musikiti wepedyo</string>
+    <string name="mosque_finder_go_to">Enda kwairi</string>
+    <string name="mosque_finder_find_nearest">Tsvaga mosque iri pedyo</string>
+    <string name="mosque_finder_expanding">Kutsvaga mukati me %1$s…</string>
+    <string name="offline_maps_custom_width">Nzvimbo yakafara (madhigirii)</string>
+    <string name="offline_maps_storage_warning">Kuchengetera kwakaderera - %1$s chete yemahara</string>
+    <string name="offline_maps_storage_delete_largest">Delete yakakura nharaunda (%1$s · %2$s)</string>
 </resources>

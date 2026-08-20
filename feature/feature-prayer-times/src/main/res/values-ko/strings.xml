@@ -46,14 +46,12 @@
     <string name="method_egyptian">이집트 총조사국</string>
     <string name="method_france">프랑스 (UOIF)</string>
     <string name="method_isna">ISNA(북미)</string>
-    <string name="method_jafari">자파리</string>
     <string name="method_karachi">카라치 이슬람 과학 대학교</string>
     <string name="method_kuwait">쿠웨이트</string>
     <string name="method_moonsighting">달 관찰 위원회</string>
     <string name="method_mwl">무슬림 월드 리그</string>
     <string name="method_qatar">카타르</string>
     <string name="method_singapore">싱가포르</string>
-    <string name="method_tehran">테헤란 지구물리학 연구소</string>
     <string name="method_turkey">디야넷 터키</string>
     <string name="method_umm_al_qura">움 알 꾸라(메카)</string>
     <string name="next_adhan_elapsed">Adhan 이후: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">시간을 계산할 수 없습니다.</string>
     <string name="widget_prayer_times_description">카운트다운이 포함된 다음 기도</string>
     <string name="widget_prayer_times_label">기도 시간</string>
+    <string name="settings_adhan_volume_vibrate">볼륨 %1$s · 진동 %2$s</string>
+    <string name="settings_adhan_vibrate_on">켜기</string>
+    <string name="settings_adhan_vibrate_off">끄기</string>
+    <string name="settings_preview_stop">미리보기 중지</string>
+    <string name="settings_method_automatic">자동(위치별)</string>
+    <string name="settings_method_automatic_desc">앱은 귀하의 국가와 위치에 따라 가장 적합한 방법을 자동으로 선택합니다. 언제든지 수동으로 방법을 선택할 수 있습니다.</string>
+    <string name="settings_preview_for_prayer">%1$s adhan 미리보기</string>
 </resources>

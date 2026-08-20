@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">देश</string>
     <string name="offline_maps_tab_custom">कस्टम क्षेत्र</string>
     <string name="offline_maps_download">डाउनलोड करें</string>
-    <string name="offline_maps_custom_hint">केन्द्रं चिन्वितुं नक्शां ट्याप् कुर्वन्तु, ततः तस्य परितः क्षेत्रं डाउनलोड् कुर्वन्तु ।</string>
+    <string name="offline_maps_custom_hint">यत् क्षेत्रं भवन्तः इच्छन्ति तस्य फ्रेमं कर्तुं नक्शां पैन् कृत्वा जूम् कुर्वन्तु; फ्रेम स्वयमेव अद्यतनं भवति । स्लाइडर् इत्यनेन विस्तारं समायोजयन्तु ।</string>
     <string name="offline_maps_custom_name">क्षेत्रनाम</string>
-    <string name="offline_maps_custom_tap">केन्द्रं चिन्वितुं नक्शां ट्याप् कुर्वन्तु</string>
+    <string name="offline_maps_custom_tap">क्षेत्रं चयनं कर्तुं नक्शां चालयन्तु</string>
     <string name="offline_maps_custom_default_name">कस्टम क्षेत्र</string>
     <string name="offline_maps_summary_body">%1$d क्षेत्राणां %2$d सम्पन्न · %3$s डाउनलोड</string>
     <string name="offline_maps_downloading">डाउनलोड् करणं %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">जूम इन करें</string>
     <string name="mosque_finder_zoom_out">जूम आउट् कुर्वन्तु</string>
     <string name="mosque_finder_nearest">समीपस्थं मस्जिदम्</string>
+    <string name="mosque_finder_go_to">तत्र गच्छतु</string>
+    <string name="mosque_finder_find_nearest">समीपस्थं मस्जिदं ज्ञातव्यम्</string>
+    <string name="mosque_finder_expanding">%1$s इत्यस्य अन्तः अन्वेषणम्...</string>
+    <string name="offline_maps_custom_width">क्षेत्रविस्तारः (अङ्कः) २.</string>
+    <string name="offline_maps_storage_warning">न्यूनं भण्डारणम्, केवलं %1$s अवशिष्टम्</string>
+    <string name="offline_maps_storage_delete_largest">बृहत्तम क्षेत्र (%1$s · %2$s) अपास्य</string>
 </resources>

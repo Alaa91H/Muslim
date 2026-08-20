@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">රට</string>
     <string name="offline_maps_tab_custom">අභිරුචි ප්රදේශය</string>
     <string name="offline_maps_download">බාගන්න</string>
-    <string name="offline_maps_custom_hint">මධ්‍යස්ථානය තේරීමට සිතියම තට්ටු කරන්න, ඉන්පසු එය අවට ප්‍රදේශය බාගන්න.</string>
+    <string name="offline_maps_custom_hint">ඔබට අවශ්‍ය ප්‍රදේශය රාමු කිරීමට සිතියම පෑන් සහ විශාලනය කරන්න; රාමුව ස්වයංක්රීයව යාවත්කාලීන වේ. ස්ලයිඩරය සමඟ පළල සකසන්න.</string>
     <string name="offline_maps_custom_name">ප්රදේශයේ නම</string>
-    <string name="offline_maps_custom_tap">කේන්ද්‍රය තෝරා ගැනීමට සිතියම තට්ටු කරන්න</string>
+    <string name="offline_maps_custom_tap">ප්‍රදේශය තේරීමට සිතියම ගෙන යන්න</string>
     <string name="offline_maps_custom_default_name">අභිරුචි ප්රදේශය</string>
     <string name="offline_maps_summary_body">ප්‍රදේශ %2$dකින් %1$d සම්පූර්ණයි · %3$s බාගන්නා ලදී</string>
     <string name="offline_maps_downloading">බාගනිමින් %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">විශාලනය කරන්න</string>
     <string name="mosque_finder_zoom_out">විශාලනය කරන්න</string>
     <string name="mosque_finder_nearest">ළඟම ඇති මුස්ලිම් පල්ලිය</string>
+    <string name="mosque_finder_go_to">ඒකට යන්න</string>
+    <string name="mosque_finder_find_nearest">ළඟම ඇති මුස්ලිම් පල්ලිය සොයා ගන්න</string>
+    <string name="mosque_finder_expanding">%1$s තුළ සොයමින්…</string>
+    <string name="offline_maps_custom_width">ප්‍රදේශයේ පළල (අංශක)</string>
+    <string name="offline_maps_storage_warning">අඩු ආචයනය - නොමිලේ %1$s පමණි</string>
+    <string name="offline_maps_storage_delete_largest">විශාලතම කලාපය මකන්න (%1$s · %2$s)</string>
 </resources>

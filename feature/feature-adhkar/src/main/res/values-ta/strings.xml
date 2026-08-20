@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">அட்கார் அமைப்புகள்</string>
     <string name="adhkar_show_translation">மொழிபெயர்ப்பைக் காட்டு</string>
     <string name="adhkar_title">அத்கார்</string>
+    <string name="adhkar_copy">நகலெடுக்கவும்</string>
+    <string name="adhkar_share">பகிரவும்</string>
+    <string name="adhkar_overlay_short_only">குறுகிய அத்கார் மட்டும் பயன்படுத்தவும்</string>
+    <string name="adhkar_overlay_short_only_desc">மிதக்கும் குமிழி தெளிவாகவும் படிக்க எளிதாகவும் இருக்கும், ஒன்று அல்லது இரண்டு வரிகளுக்குப் பொருந்தக்கூடிய அத்காரைத் தேர்ந்தெடுக்கவும்.</string>
+    <string name="adhkar_overlay_tap_hint">குமிழியை உடனடியாக நிராகரிக்க அதைத் தட்டவும்.</string>
 </resources>

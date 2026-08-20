@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Whenua</string>
     <string name="offline_maps_tab_custom">rohe ritenga</string>
     <string name="offline_maps_download">Tikiake</string>
-    <string name="offline_maps_custom_hint">Patohia te mapi hei kowhiri i te pokapū, katahi ka tango i te waahi huri noa.</string>
+    <string name="offline_maps_custom_hint">Pania ka topa te mapi ki te anga i te waahi e hiahia ana koe; ka whakahou aunoa te anga. Whakaritea te whanui me te rēreti.</string>
     <string name="offline_maps_custom_name">Ingoa rohe</string>
-    <string name="offline_maps_custom_tap">Patohia te mapi hei whiriwhiri i te pokapū</string>
+    <string name="offline_maps_custom_tap">Nukuhia te mapi hei kowhiri i te waahi</string>
     <string name="offline_maps_custom_default_name">rohe ritenga</string>
     <string name="offline_maps_summary_body">%1$d o %2$d nga waahi kua oti · %3$s kua tikiake</string>
     <string name="offline_maps_downloading">E tikiake ana %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Topa mai</string>
     <string name="mosque_finder_zoom_out">Topa atu</string>
     <string name="mosque_finder_nearest">whare Korāna tata</string>
+    <string name="mosque_finder_go_to">Haere ki reira</string>
+    <string name="mosque_finder_find_nearest">Kimihia te whare karakia tata</string>
+    <string name="mosque_finder_expanding">Kei te rapu i roto i %1$s…</string>
+    <string name="offline_maps_custom_width">Whānuitanga horahanga (tohu)</string>
+    <string name="offline_maps_storage_warning">He iti te rokiroki — %1$s noa te kore utu</string>
+    <string name="offline_maps_storage_delete_largest">Mukua te rohe nui rawa (%1$s · %2$s)</string>
 </resources>

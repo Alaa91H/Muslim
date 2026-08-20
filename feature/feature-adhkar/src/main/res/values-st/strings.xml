@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Litlhophiso tsa Adhkar</string>
     <string name="adhkar_show_translation">Hlahisa phetolelo</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopitsa</string>
+    <string name="adhkar_share">Arolelana</string>
+    <string name="adhkar_overlay_short_only">Sebelisa adhkar e khuts\'oane feela</string>
+    <string name="adhkar_overlay_short_only_desc">Khetha adhkar e lekanang mola o le mong kapa e \'meli hore bubble e phaphametseng e lule e hlakile ebile ho le bonolo ho e bala.</string>
+    <string name="adhkar_overlay_tap_hint">Tlanya bubble ho e tlosa hanghang.</string>
 </resources>

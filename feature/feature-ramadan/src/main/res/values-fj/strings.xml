@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Vakananuma vei au ni bera:</string>
     <string name="ramadan_suhoor_time">%1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Veivakananumi ena taudaku ni Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Na veivakaroti ni Iftar kei na suhoor e cici vakataki koya ena gauna ni Ramadan; na kena rawa oqo e maroroi ira tiko ena so tale na vula.</string>
 </resources>

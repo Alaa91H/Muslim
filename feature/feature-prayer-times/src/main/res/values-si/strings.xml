@@ -46,14 +46,12 @@
     <string name="method_egyptian">ඊජිප්තු පොදු සමීක්ෂණ අධිකාරිය</string>
     <string name="method_france">ප්‍රංශය (UOIF)</string>
     <string name="method_isna">ISNA (උතුරු ඇමරිකාව)</string>
-    <string name="method_jafari">ජෆාරි</string>
     <string name="method_karachi">ඉස්ලාමීය විද්‍යා විශ්ව විද්‍යාලය, කරච්චි</string>
     <string name="method_kuwait">කුවේට්</string>
     <string name="method_moonsighting">සඳ බැලීමේ කමිටුව</string>
     <string name="method_mwl">මුස්ලිම් ලෝක ලීගය</string>
     <string name="method_qatar">කටාර්</string>
     <string name="method_singapore">සිංගප්පූරුව</string>
-    <string name="method_tehran">ටෙහෙරාන් භූ භෞතික විද්‍යා ආයතනය</string>
     <string name="method_turkey">දියනෙට් තුර්කිය</string>
     <string name="method_umm_al_qura">උම් අල් කුරා (මක්කාව)</string>
     <string name="next_adhan_elapsed">අදාන් සිට: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">වේලාවන් ගණනය කළ නොහැක</string>
     <string name="widget_prayer_times_description">ගණන් කිරීම සමඟ ඊළඟ යාච්ඤාව</string>
     <string name="widget_prayer_times_label">යාඥා වේලාවන්</string>
+    <string name="settings_adhan_volume_vibrate">වෙළුම %1$s · කම්පනය %2$s</string>
+    <string name="settings_adhan_vibrate_on">ක්‍රියාත්මකයි</string>
+    <string name="settings_adhan_vibrate_off">අක්රියයි</string>
+    <string name="settings_preview_stop">පෙරදසුන නවත්වන්න</string>
+    <string name="settings_method_automatic">ස්වයංක්‍රීය (ස්ථානය අනුව)</string>
+    <string name="settings_method_automatic_desc">යෙදුම ඔබගේ රට සහ ස්ථානය මත පදනම්ව ස්වයංක්‍රීයව වඩාත් සුදුසු ක්‍රමය තෝරා ගනී; ඔබට තවමත් ඕනෑම අවස්ථාවක අතින් ක්‍රමයක් තෝරාගත හැක.</string>
+    <string name="settings_preview_for_prayer">පෙරදසුන් %1$s adhan</string>
 </resources>

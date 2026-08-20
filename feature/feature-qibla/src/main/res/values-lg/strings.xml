@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Ensi</string>
     <string name="offline_maps_tab_custom">Ekitundu kya custom</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">Koona ku maapu okulonda wakati, olwo owanule ekitundu ekigyetoolodde.</string>
+    <string name="offline_maps_custom_hint">Pan era zoom maapu okukola frame y’ekitundu ky’oyagala; fuleemu etereeza mu ngeri ey’otoma. Teekateeka obugazi n’ekisumuluzo.</string>
     <string name="offline_maps_custom_name">Erinnya ly’ekitundu</string>
-    <string name="offline_maps_custom_tap">Koona ku maapu okulonda wakati</string>
+    <string name="offline_maps_custom_tap">Tambuza maapu okulonda ekitundu</string>
     <string name="offline_maps_custom_default_name">Ekitundu kya custom</string>
     <string name="offline_maps_summary_body">%1$d ku %2$d ebitundu biwedde · %3$s biwanuliddwa</string>
     <string name="offline_maps_downloading">Okuwanula %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom in</string>
     <string name="mosque_finder_zoom_out">Zoom out</string>
     <string name="mosque_finder_nearest">Omuzikiti ogusinga okumpi</string>
+    <string name="mosque_finder_go_to">Genda ku kyo</string>
+    <string name="mosque_finder_find_nearest">Funa omuzikiti ogukuli okumpi</string>
+    <string name="mosque_finder_expanding">Okunoonya munda mu %1$s...</string>
+    <string name="offline_maps_custom_width">Obugazi bw’ekitundu (diguli) .</string>
+    <string name="offline_maps_storage_warning">Okutereka okutono — %1$s zokka za bwereere</string>
+    <string name="offline_maps_storage_delete_largest">Ssaawo ekitundu ekisinga obunene (%1$s · %2$s)</string>
 </resources>

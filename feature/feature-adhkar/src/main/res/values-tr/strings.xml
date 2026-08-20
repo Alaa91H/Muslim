@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar ayarları</string>
     <string name="adhkar_show_translation">Çeviriyi göster</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopyala</string>
+    <string name="adhkar_share">Paylaş</string>
+    <string name="adhkar_overlay_short_only">Yalnızca kısa adhkar kullanın</string>
+    <string name="adhkar_overlay_short_only_desc">Yüzen baloncuğun net ve okunması kolay kalması için bir veya iki satıra sığan adhkar\'ı seçin.</string>
+    <string name="adhkar_overlay_tap_hint">Hemen kapatmak için baloncuğa dokunun.</string>
 </resources>

@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Do ŋgɔ</string>
     <string name="quran_recitation_notif_next">Eyome</string>
+    <string name="quran_download_playback_title">%1$s ƒe kɔpi wɔwɔ.</string>
+    <string name="quran_download_playback_detail">%1$s miame · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf ƒe sedede</string>
+    <string name="quran_download_sort_completion">To ewuwu me</string>
+    <string name="quran_downloads_coverage_title">Surah ƒe nyatakakawo le nuxlẽlawo dome</string>
+    <string name="quran_downloads_coverage_overall">Mushaf blibo le nuxlẽlawo katã me</string>
+    <string name="quran_downloads_coverage_empty">Womeɖe odio aɖeke ɖe kɔmpiuta dzi haɖe o</string>
+    <string name="quran_pause_notif_listener">Dzudzɔ nuxexlẽ le nyatakakawo me</string>
+    <string name="quran_reciter_changed_title">Reciter trɔ</string>
+    <string name="quran_reciter_changed_message">Wotɔ te ƒoƒo elabena range la ƒua du va ɖoa Quran la ƒe nuwuwu. Dze egɔme ake kple %1$s?</string>
+    <string name="quran_reciter_restart">Dze egɔme ake</string>
+    <string name="quran_reciter_not_now">Menye fifia o</string>
 </resources>

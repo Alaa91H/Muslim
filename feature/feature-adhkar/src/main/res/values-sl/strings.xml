@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Nastavitve Adhkar</string>
     <string name="adhkar_show_translation">Pokaži prevod</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopiraj</string>
+    <string name="adhkar_share">Delite</string>
+    <string name="adhkar_overlay_short_only">Uporabite samo kratek adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Izberite adhkar, ki se prilega eni ali dvema vrsticama, da lebdeči oblaček ostane jasen in lahko berljiv.</string>
+    <string name="adhkar_overlay_tap_hint">Tapnite oblaček, da ga takoj opustite.</string>
 </resources>

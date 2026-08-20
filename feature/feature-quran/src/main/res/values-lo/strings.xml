@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">ທີ່ຜ່ານມາ</string>
     <string name="quran_recitation_notif_next">ຕໍ່ໄປ</string>
+    <string name="quran_download_playback_title">ກຳລັງດາວໂຫຼດ %1$s</string>
+    <string name="quran_download_playback_detail">ຊ້າຍ %1$s · %2$s/ວິ</string>
+    <string name="quran_download_sort_mushaf">ຄໍາສັ່ງ Mushaf</string>
+    <string name="quran_download_sort_completion">ໂດຍສໍາເລັດ</string>
+    <string name="quran_downloads_coverage_title">Surah ກວມເອົາໃນທົ່ວ reciters</string>
+    <string name="quran_downloads_coverage_overall">mushaf ເຕັມໃນທົ່ວ reciters</string>
+    <string name="quran_downloads_coverage_empty">ບໍ່ມີການດາວໂຫຼດສຽງເທື່ອ</string>
+    <string name="quran_pause_notif_listener">ຢຸດການບັນຍາຍໄວ້ຊົ່ວຄາວໃນການແຈ້ງເຕືອນ</string>
+    <string name="quran_reciter_changed_title">Reciter ມີການປ່ຽນແປງ</string>
+    <string name="quran_reciter_changed_message">ການຫຼິ້ນຢຸດຍ້ອນໄລຍະແລ່ນໄປຈົນເຖິງທ້າຍຂອງ Quran. ເລີ່ມຕົ້ນອີກຄັ້ງກັບ %1$s?</string>
+    <string name="quran_reciter_restart">ເລີ່ມຕົ້ນອີກຄັ້ງ</string>
+    <string name="quran_reciter_not_now">ບໍ່ແມ່ນດຽວນີ້</string>
 </resources>

@@ -46,4 +46,12 @@
     <string name="crash_close">Ябу</string>
     <string name="crash_dismiss">Дәвам итегез</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه ، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Коръәнне эзләгез</string>
+    <string name="more_quran_search_desc">Бер сүз табыгыз, ул еш очрый һәм кайда</string>
+    <string name="more_quran_frequency">Коръән сүзенең ешлыгы</string>
+    <string name="more_quran_frequency_desc">Бөтен мушафада иң еш сүзләр</string>
+    <string name="more_pause_on_notifications">Хәбәрләр турында укуны туктатыгыз</string>
+    <string name="more_pause_on_notifications_desc">Хәбәрләр, шалтыратулар яки бүтән медиа уйнаганда уку кыска гына пауза итә</string>
+    <string name="more_pause_notifications_enabled">Эшләтелгән - система көйләнмәләрен ачу өчен басыгыз</string>
+    <string name="more_pause_notifications_disabled">Инвалид - кушу өчен басыгыз</string>
 </resources>

@@ -46,4 +46,12 @@
     <string name="crash_close">Փակել</string>
     <string name="crash_dismiss">Շարունակեք</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Որոնել Ղուրանը</string>
+    <string name="more_quran_search_desc">Գտեք բառ, որքան հաճախ է այն հայտնվում և որտեղ</string>
+    <string name="more_quran_frequency">Ղուրանի բառի հաճախականությունը</string>
+    <string name="more_quran_frequency_desc">Ամենահաճախակի բառերը ամբողջ մուշաֆում</string>
+    <string name="more_pause_on_notifications">Դադարեցնել ասմունքը ծանուցումների վրա</string>
+    <string name="more_pause_on_notifications_desc">Ասմունքը կարճ դադար է տալիս, երբ հնչում է ծանուցում, զանգ կամ այլ լրատվամիջոց</string>
+    <string name="more_pause_notifications_enabled">Միացված է — հպեք՝ համակարգի կարգավորումները բացելու համար</string>
+    <string name="more_pause_notifications_disabled">Անջատված — հպեք՝ միացնելու համար</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">ეგვიპტის გენერალური კვლევის ორგანო</string>
     <string name="method_france">საფრანგეთი (UOIF)</string>
     <string name="method_isna">ISNA (ჩრდილოეთი ამერიკა)</string>
-    <string name="method_jafari">ჯაფარი</string>
     <string name="method_karachi">ისლამური მეცნიერებების უნივერსიტეტი, კარაჩი</string>
     <string name="method_kuwait">ქუვეითი</string>
     <string name="method_moonsighting">მთვარის დათვალიერების კომიტეტი</string>
     <string name="method_mwl">მუსულმანური მსოფლიო ლიგა</string>
     <string name="method_qatar">ყატარი</string>
     <string name="method_singapore">სინგაპური</string>
-    <string name="method_tehran">თეირანის გეოფიზიკის ინსტიტუტი</string>
     <string name="method_turkey">თურქეთის დიანეტი</string>
     <string name="method_umm_al_qura">უმ ალ-ყურა (მაქა)</string>
     <string name="next_adhan_elapsed">ადანის შემდეგ: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">დროის დათვლა შეუძლებელია</string>
     <string name="widget_prayer_times_description">შემდეგი ლოცვა დათვლასთან ერთად</string>
     <string name="widget_prayer_times_label">ლოცვის დრო</string>
+    <string name="settings_adhan_volume_vibrate">მოცულობა %1$s · ვიბრაცია %2$s</string>
+    <string name="settings_adhan_vibrate_on">ჩართულია</string>
+    <string name="settings_adhan_vibrate_off">გამორთულია</string>
+    <string name="settings_preview_stop">გადახედვის შეწყვეტა</string>
+    <string name="settings_method_automatic">ავტომატური (მდებარეობის მიხედვით)</string>
+    <string name="settings_method_automatic_desc">აპლიკაცია ავტომატურად ირჩევს ყველაზე შესაფერის მეთოდს თქვენი ქვეყნისა და მდებარეობის მიხედვით; თქვენ კვლავ შეგიძლიათ აირჩიოთ მეთოდი ხელით ნებისმიერ დროს.</string>
+    <string name="settings_preview_for_prayer">გადახედეთ %1$s ადანს</string>
 </resources>

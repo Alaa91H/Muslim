@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Bro</string>
     <string name="offline_maps_tab_custom">Takad personelaet</string>
     <string name="offline_maps_download">Pellgargañ</string>
-    <string name="offline_maps_custom_hint">Pouezit war ar gartenn evit dibab ar c\'hreiz, ha pellgargit an dachenn tro-dro dezhi.</string>
+    <string name="offline_maps_custom_hint">Skeudenniñ ha brasaat ar gartenn evit frammañ an dachenn a fell deoc\'h ; hizivaat a ra ar framm ent emgefre. Adreizhañ al ledander gant ar gliser.</string>
     <string name="offline_maps_custom_name">Anv an dachenn</string>
-    <string name="offline_maps_custom_tap">Pouezit war ar gartenn evit dibab ar c\'hreiz</string>
+    <string name="offline_maps_custom_tap">Dilec\'hiañ ar gartenn evit dibab an dachenn</string>
     <string name="offline_maps_custom_default_name">Takad personelaet</string>
     <string name="offline_maps_summary_body">%1$d eus %2$d tachenn echu · %3$s pellgarget</string>
     <string name="offline_maps_downloading">O pellgargañ %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoumañ</string>
     <string name="mosque_finder_zoom_out">Zoumañ</string>
     <string name="mosque_finder_nearest">Moskeenn tostañ</string>
+    <string name="mosque_finder_go_to">Mont betek ennañ</string>
+    <string name="mosque_finder_find_nearest">Kavout moskeenn tostañ</string>
+    <string name="mosque_finder_expanding">O klask e-barzh %1$s…</string>
+    <string name="offline_maps_custom_width">Led ar gorread (derez)</string>
+    <string name="offline_maps_storage_warning">Izel eo ar stokañ — %1$s hepken digoust</string>
+    <string name="offline_maps_storage_delete_largest">Dilemel ar rannvro vrasañ (%1$s · %2$s)</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egypt General Authority of Survey</string>
     <string name="method_france">France (UOIF)</string>
     <string name="method_isna">ISNA (North America)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">University in Islamic Sciences, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Kumi in lale allōñ</string>
     <string name="method_mwl">Muslim World League</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Tehran Institute of Geophysics</string>
     <string name="method_turkey">Diyanet Turkey</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Jen Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ejjab maroñ in kōllaajrake ien ko</string>
     <string name="widget_prayer_times_description">Jar eo tok juon ippāñ countdown</string>
     <string name="widget_prayer_times_label">Iien jar ko</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Vibration %2$s</string>
+    <string name="settings_adhan_vibrate_on">Ilo</string>
+    <string name="settings_adhan_vibrate_off">Jako</string>
+    <string name="settings_preview_stop">Bōjrak preview</string>
+    <string name="settings_method_automatic">Ej make wōt (ilo jikin)</string>
+    <string name="settings_method_automatic_desc">App in ej kālet wāween eo emman tata ekkar ñan aelõñ eo am im jikin eo kwoj bed ie; kwomaroñ in kālet juon wewein ilo am make ilo jabdewōt ien.</string>
+    <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
 </resources>

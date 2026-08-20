@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Priminti man prieš:</string>
     <string name="ramadan_suhoor_time">Suhoor galai (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadanas</string>
+    <string name="ramadan_notify_outside">Priminimai už Ramadano ribų</string>
+    <string name="ramadan_notify_outside_desc">Iftar ir suhoor įspėjimai automatiškai paleidžiami per Ramadaną; tai įgalinus, jie gali tęstis kitais mėnesiais.</string>
 </resources>

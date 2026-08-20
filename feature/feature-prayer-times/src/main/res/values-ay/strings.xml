@@ -46,14 +46,12 @@
     <string name="method_egyptian">Autoridad General egipcia de Encuesta ukax mä jach’a uñacht’äwiwa</string>
     <string name="method_france">Francia (UOIF) ukax 1.1.</string>
     <string name="method_isna">ISNA (Norteamérica) ukat jukʼampinaka.</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Ciencias Islámicas jach’a yatiqañ uta, Karachi</string>
     <string name="method_kuwait">Kuwait markanxa</string>
     <string name="method_moonsighting">Phaxsi Uñch’ukiñ Comité</string>
     <string name="method_mwl">Liga Mundial Musulmana ukax mä jach’a uñacht’äwiwa</string>
     <string name="method_qatar">Qatar markanxa</string>
     <string name="method_singapore">Singapur markanxa</string>
-    <string name="method_tehran">Instituto de Geofísica de Teherán ukax mä jach’a yatiqañ utawa</string>
     <string name="method_turkey">Diyanet Turquía markanxa</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah) ukax mä jach’a markawa.</string>
     <string name="next_adhan_elapsed">Kunjamakitix Adhan: %1$s ukhawa</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Janiw pachanak jakthapiñjamäkiti</string>
     <string name="widget_prayer_times_description">Jutïr mayisiñajj jakthapiwimpiw lurasi</string>
     <string name="widget_prayer_times_label">Oracionan pachanakapa</string>
+    <string name="settings_adhan_volume_vibrate">Volumen %1$s · Vibración %2$s Ukax mä juk’a pachanakanwa.</string>
+    <string name="settings_adhan_vibrate_on">Ukatxa</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Nayraqata uñakipaña jaytaña</string>
+    <string name="settings_method_automatic">Automático (kawkhantix utjki ukarjama) .</string>
+    <string name="settings_method_automatic_desc">App ukax juk’amp askïki uka thakhix automáticamente markaman ukhamarak kawkhantix jikxataskta ukarjamaw ajlli; wali ch’amampi mä thakhi ajlliñjamawa kuna pachatixa.</string>
+    <string name="settings_preview_for_prayer">Nayraqata uñakipaña %1$s adhan</string>
 </resources>

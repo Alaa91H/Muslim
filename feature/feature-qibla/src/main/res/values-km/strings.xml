@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">ប្រទេស</string>
     <string name="offline_maps_tab_custom">តំបន់ផ្ទាល់ខ្លួន</string>
     <string name="offline_maps_download">ទាញយក</string>
-    <string name="offline_maps_custom_hint">ប៉ះផែនទីដើម្បីជ្រើសរើសចំណុចកណ្តាល បន្ទាប់មកទាញយកតំបន់ជុំវិញវា។</string>
+    <string name="offline_maps_custom_hint">ពង្រីក និងពង្រីកផែនទី ដើម្បីកំណត់តំបន់ដែលអ្នកចង់បាន។ ស៊ុមធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ។ លៃតម្រូវទទឹងដោយប្រើគ្រាប់រំកិល។</string>
     <string name="offline_maps_custom_name">ឈ្មោះតំបន់</string>
-    <string name="offline_maps_custom_tap">ប៉ះផែនទីដើម្បីជ្រើសរើសកណ្តាល</string>
+    <string name="offline_maps_custom_tap">ផ្លាស់ទីផែនទីដើម្បីជ្រើសរើសតំបន់</string>
     <string name="offline_maps_custom_default_name">តំបន់ផ្ទាល់ខ្លួន</string>
     <string name="offline_maps_summary_body">តំបន់ %1$d នៃ %2$d បានបញ្ចប់ · %3$s បានទាញយក</string>
     <string name="offline_maps_downloading">កំពុងទាញយក %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">ពង្រីក</string>
     <string name="mosque_finder_zoom_out">ពង្រីក</string>
     <string name="mosque_finder_nearest">វិហារអ៊ីស្លាមដែលនៅជិតបំផុត។</string>
+    <string name="mosque_finder_go_to">ទៅវា។</string>
+    <string name="mosque_finder_find_nearest">ស្វែងរកវិហារអ៊ីស្លាមដែលនៅជិតបំផុត។</string>
+    <string name="mosque_finder_expanding">កំពុងស្វែងរកក្នុង %1$s…</string>
+    <string name="offline_maps_custom_width">ទទឹងតំបន់ (ដឺក្រេ)</string>
+    <string name="offline_maps_storage_warning">ទំហំផ្ទុកទាប - ត្រឹមតែ %1$s ឥតគិតថ្លៃ</string>
+    <string name="offline_maps_storage_delete_largest">លុបតំបន់ធំបំផុត (%1$s · %2$s)</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">تنظیمات ادکار</string>
     <string name="adhkar_show_translation">نمایش ترجمه</string>
     <string name="adhkar_title">ادهکار</string>
+    <string name="adhkar_copy">کپی کنید</string>
+    <string name="adhkar_share">به اشتراک بگذارید</string>
+    <string name="adhkar_overlay_short_only">فقط از ادکار کوتاه استفاده کنید</string>
+    <string name="adhkar_overlay_short_only_desc">ادکاری را انتخاب کنید که با یک یا دو خط مناسب باشد تا حباب شناور واضح بماند و به راحتی قابل خواندن باشد.</string>
+    <string name="adhkar_overlay_tap_hint">روی حباب ضربه بزنید تا فوراً آن را رد کنید.</string>
 </resources>

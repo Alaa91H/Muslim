@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Fonua</string>
     <string name="offline_maps_tab_custom">\'Elia angamaheni</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">Lomiʻi ʻa e mapé ke fili ʻa e senitaá, pea download ʻa e feituʻu ʻoku takatakai aí.</string>
+    <string name="offline_maps_custom_hint">Pan mo fakalahi ʻa e mapé ke fakafōtunga ʻa e feituʻu ʻokú ke fie maʻú; \'oku fakafo\'ou \'otometiki \'a e frame. Fakatonutonu ʻa e fālahí ʻaki ʻa e slider.</string>
     <string name="offline_maps_custom_name">Hingoa ʻo e ʻēliá</string>
-    <string name="offline_maps_custom_tap">Lomiʻi ʻa e mapé ke fili ʻa e senitaá .</string>
+    <string name="offline_maps_custom_tap">Ueʻi ʻa e mapé ke fili ʻa e feituʻú .</string>
     <string name="offline_maps_custom_default_name">\'Elia angamaheni</string>
     <string name="offline_maps_summary_body">%1$d \'o e %2$d ngaahi feitu\'u kuo kakato · %3$s kuo download</string>
     <string name="offline_maps_downloading">Ko hono to\'o \'o e %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Fakalahi</string>
     <string name="mosque_finder_zoom_out">Fakalahi</string>
     <string name="mosque_finder_nearest">Mosque ofi taha</string>
+    <string name="mosque_finder_go_to">Alu ki ai .</string>
+    <string name="mosque_finder_find_nearest">Kumi \'a e mosque ofi taha</string>
+    <string name="mosque_finder_expanding">Fekumi \'i loto %1$s...</string>
+    <string name="offline_maps_custom_width">Lalahi ʻo e ʻēliá (tikilī)</string>
+    <string name="offline_maps_storage_warning">Ma\'ulalo \'a e tanaki\'anga — %1$s pe \'oku ta\'etotongi .</string>
+    <string name="offline_maps_storage_delete_largest">Tamate\'i \'a e vahefonua lahi taha (%1$s · %2$s)</string>
 </resources>

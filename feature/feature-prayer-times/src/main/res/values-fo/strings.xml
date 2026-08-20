@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egyptiski almenni kanningarmyndugleikin</string>
     <string name="method_france">Frakland (UOIF)</string>
     <string name="method_isna">ISNA (Norðuramerika)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Háskúlin í islamskum vísindum, Karachi</string>
     <string name="method_kuwait">Kuveit</string>
     <string name="method_moonsighting">Mánanevndin</string>
     <string name="method_mwl">Muslimska heimssamgongan</string>
     <string name="method_qatar">Katar</string>
     <string name="method_singapore">Singapur</string>
-    <string name="method_tehran">Jarðfrøðistovan í Teheran</string>
     <string name="method_turkey">Diyanet Kalkun</string>
     <string name="method_umm_al_qura">Umm al-Kora (Makka)</string>
     <string name="next_adhan_elapsed">Síðani adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ikki ber til at rokna tíðir</string>
     <string name="widget_prayer_times_description">Næsta bøn við niðurteljing</string>
     <string name="widget_prayer_times_label">Bønarløtur .</string>
+    <string name="settings_adhan_volume_vibrate">Ljóðstyrki %1$s · Ristingar %2$s</string>
+    <string name="settings_adhan_vibrate_on">Á</string>
+    <string name="settings_adhan_vibrate_off">Sløkt</string>
+    <string name="settings_preview_stop">Steðga forskoðanini</string>
+    <string name="settings_method_automatic">Sjálvvirkandi (eftir stað)</string>
+    <string name="settings_method_automatic_desc">Appin velur sjálvvirkandi tann hóskandi háttin út frá tínum landi og stað; tú kanst framvegis velja ein hátt manuelt til eina og hvørja tíð.</string>
+    <string name="settings_preview_for_prayer">Undansýning %1$s adhan</string>
 </resources>

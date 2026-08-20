@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Berî min bîne bîra min:</string>
     <string name="ramadan_suhoor_time">Sufûr qediya (fecr): %1$s</string>
     <string name="ramadan_title">Remezan</string>
+    <string name="ramadan_notify_outside">Bîranînên li derveyî Remezanê</string>
+    <string name="ramadan_notify_outside_desc">Di Remezanê de hişyariyên îftar û sihûrê bixweber dimeşin; îmkankirina vê yekê wan di mehên din de berdewam dike.</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">အီဂျစ် အထွေထွေ မြေတိုင်းအာဏာပိုင်</string>
     <string name="method_france">ပြင်သစ် (UOIF)</string>
     <string name="method_isna">ISNA (မြောက်အမေရိက)</string>
-    <string name="method_jafari">ဂျာဖရီ</string>
     <string name="method_karachi">အစ္စလာမ့်သိပ္ပံတက္ကသိုလ်၊ ကရာချိ</string>
     <string name="method_kuwait">ကူဝိတ်</string>
     <string name="method_moonsighting">လကြည့် ကော်မတီ</string>
     <string name="method_mwl">မွတ်စလင်ကမ္ဘာ့အဖွဲ့ချုပ်</string>
     <string name="method_qatar">ကာတာ</string>
     <string name="method_singapore">စင်္ကာပူ</string>
-    <string name="method_tehran">Tehran Institute of Geophysics</string>
     <string name="method_turkey">Diyanet တူရကီ</string>
     <string name="method_umm_al_qura">Umm al-Qura (မက္ကာ)</string>
     <string name="next_adhan_elapsed">Adhan: %1$s ကတည်းက</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">အကြိမ်ရေ မတွက်နိုင်ပါ။</string>
     <string name="widget_prayer_times_description">နောက်နှစ်သစ်မှာ ဆုတောင်းပါ။</string>
     <string name="widget_prayer_times_label">ဆုတောင်းချိန်</string>
+    <string name="settings_adhan_volume_vibrate">အတွဲ %1$s · တုန်ခါမှု %2$s</string>
+    <string name="settings_adhan_vibrate_on">ဂရန်</string>
+    <string name="settings_adhan_vibrate_off">ပိတ်သည်။</string>
+    <string name="settings_preview_stop">အစမ်းကြည့်ရှုခြင်းကို ရပ်လိုက်ပါ။</string>
+    <string name="settings_method_automatic">အလိုအလျောက် (တည်နေရာအားဖြင့်)</string>
+    <string name="settings_method_automatic_desc">အက်ပ်သည် သင့်နိုင်ငံနှင့် တည်နေရာအပေါ် အခြေခံ၍ အသင့်တော်ဆုံးနည်းလမ်းကို အလိုအလျောက် ရွေးချယ်သည်။ နည်းလမ်းတစ်ခုကို အချိန်မရွေး ကိုယ်တိုင်ရွေးချယ်နိုင်ပါသည်။</string>
+    <string name="settings_preview_for_prayer">%1$s adhan ကို အစမ်းကြည့်ပါ။</string>
 </resources>

@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Cuimhnich dhomh ro-làimh:</string>
     <string name="ramadan_suhoor_time">Suhoor a’ tighinn gu crìch (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Cuimhneachain taobh a-muigh Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Bidh rabhaidhean Iftar agus suhoor a’ ruith gu fèin-ghluasadach rè Ramadan; le bhith ga dhèanamh comasach seo a chumail a’ dol ann am mìosan eile.</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">Мысыр генераль тикшеренеүҙәр органы</string>
     <string name="method_france">Франция (УОИФ)</string>
     <string name="method_isna">ISNA (Төньяҡ Америка)</string>
-    <string name="method_jafari">Джафари</string>
     <string name="method_karachi">Ислам фәндәре университеты, Карачи</string>
     <string name="method_kuwait">Кувейт</string>
     <string name="method_moonsighting">Ай күреү комитеты</string>
     <string name="method_mwl">Бөтә донъя мосолмандар лигаһы</string>
     <string name="method_qatar">Катар</string>
     <string name="method_singapore">Сингапур</string>
-    <string name="method_tehran">Тегеран геофизика институты</string>
     <string name="method_turkey">Диянет Төркиә</string>
     <string name="method_umm_al_qura">Өммәл-Ҡөрә (Мәккә)</string>
     <string name="next_adhan_elapsed">Аҙандан бирле: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ваҡыттарҙы иҫәпләп булмай</string>
     <string name="widget_prayer_times_description">Киләһе намаҙ кире һанау менән</string>
     <string name="widget_prayer_times_label">Намаҙ ваҡыты .</string>
+    <string name="settings_adhan_volume_vibrate">Күләм %1$s · Вибрация %2$s</string>
+    <string name="settings_adhan_vibrate_on">Өҫтөндә</string>
+    <string name="settings_adhan_vibrate_off">Һүндерелгән</string>
+    <string name="settings_preview_stop">Алдан ҡарауҙы туҡтатыу</string>
+    <string name="settings_method_automatic">Автоматик (урын буйынса)</string>
+    <string name="settings_method_automatic_desc">Ҡушымта автоматик рәүештә иң ҡулайлы ысулды һайлай, һеҙҙең илгә һәм урынлашҡан урынға ҡарап; һеҙ һаман да теләһә ниндәй ваҡытта ҡул менән ысул һайларға мөмкин.</string>
+    <string name="settings_preview_for_prayer">Алдан ҡарау %1$s аҙан</string>
 </resources>

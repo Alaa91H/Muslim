@@ -24,4 +24,6 @@
     <string name="ramadan_notification_iftar_body">O Allah, for You I fasted and on Your provision I break my fast</string>
     <string name="ramadan_notification_suhoor_title">Suhoor reminder</string>
     <string name="ramadan_notification_suhoor_body">Fajr is approaching — have your suhoor</string>
+    <string name="ramadan_notify_outside">Reminders outside Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Iftar and suhoor alerts run automatically during Ramadan; enabling this keeps them going in other months.</string>
 </resources>

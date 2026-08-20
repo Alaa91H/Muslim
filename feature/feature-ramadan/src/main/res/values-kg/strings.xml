@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Yibusa mono na ntwala:</string>
     <string name="ramadan_suhoor_time">Suhour ke suka (fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Bangibusa na nganda ya Ramadan</string>
+    <string name="ramadan_notify_outside_desc">E nsangu za Iftar ye suhoor zivangamanga mu mpila ya yau kibeni muna lumbu kia Ramadan; kupesa nzila na kusala yo ke salaka nde bo landa kusala na bangonda ya nkaka.</string>
 </resources>

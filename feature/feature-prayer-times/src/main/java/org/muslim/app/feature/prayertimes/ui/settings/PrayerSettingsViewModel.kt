@@ -35,9 +35,11 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import org.muslim.app.feature.prayertimes.notifications.AdhanPlaybackService
+import org.muslim.app.feature.prayertimes.notifications.AdhanPlaybackStatus
 import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
 import org.muslim.app.feature.prayertimes.notifications.NextAdhanService
 import org.muslim.app.feature.prayertimes.notifications.AdhanSoundRepository
+import org.muslim.app.feature.prayertimes.data.CitiesRepository
 import org.muslim.app.feature.prayertimes.widget.PrayerTimesWidget
 import javax.inject.Inject
 
@@ -106,6 +108,30 @@ class PrayerSettingsViewModel @Inject constructor(
     fun setMethod(method: CalculationMethod) =
         update { it.copy(method = method, methodChosenManually = true) }
 
+    /**
+     * Switches back to the automatic method: the best-known method for the
+     * saved location's country is resolved immediately (region-aware), and
+     * future location changes keep re-suggesting until the user picks again.
+     */
+    fun setMethodAutomatic() {
+        val current = settings.value
+        val country = current.location?.let { loc ->
+            CitiesRepository.all
+                .minByOrNull { city ->
+                    val dLat = city.latitude - loc.latitude
+                    val dLon = city.longitude - loc.longitude
+                    dLat * dLat + dLon * dLon
+                }
+                ?.country
+        }
+        val suggested = if (country != null) {
+            CalculationMethod.suggestedFor(country)
+        } else {
+            CalculationMethod.MuslimWorldLeague
+        }
+        update { it.copy(method = suggested, methodChosenManually = false) }
+    }
+
     fun setCustomFajrAngle(angle: Double) = update { it.copy(customFajrAngle = angle) }
 
     fun setCustomIshaAngle(angle: Double) = update { it.copy(customIshaAngle = angle) }
@@ -142,6 +168,9 @@ class PrayerSettingsViewModel @Inject constructor(
     fun setAdhanVolume(prayer: Prayer, volume: Int) = update {
         it.copy(adhanVolumes = it.adhanVolumes + (prayer to volume.coerceIn(0, 100)))
     }
+
+    /** True while an adhan preview is ringing (drives the preview/stop toggle). */
+    val isPreviewing = AdhanPlaybackStatus.isPlaying
 
     /** Stops any adhan preview currently playing. */
     fun stopPreview() {

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar-ásahusat</string>
     <string name="adhkar_show_translation">Čájet jorgalusa</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopiere</string>
+    <string name="adhkar_share">Juogat</string>
+    <string name="adhkar_overlay_short_only">Geavat dušše oanehis adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Vállje adhkar mii heive ovtta dahje guovtti linjái nu ahte vuodján buollin lea čielggas ja álki lohkat.</string>
+    <string name="adhkar_overlay_tap_hint">Deaddilat bubble vai dan heaittihat dakkaviđe.</string>
 </resources>

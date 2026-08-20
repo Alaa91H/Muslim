@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Podsjeti me prije:</string>
     <string name="ramadan_suhoor_time">Suhor završava (fadžr): %1$s</string>
     <string name="ramadan_title">Ramazan</string>
+    <string name="ramadan_notify_outside">Podsjetnici izvan Ramazana</string>
+    <string name="ramadan_notify_outside_desc">Upozorenja iftara i suhura se automatski pokreću tokom Ramazana; omogućavanje ovoga će ih održati u drugim mjesecima.</string>
 </resources>

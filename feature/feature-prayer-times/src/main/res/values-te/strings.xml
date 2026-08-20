@@ -46,14 +46,12 @@
     <string name="method_egyptian">ఈజిప్షియన్ జనరల్ అథారిటీ ఆఫ్ సర్వే</string>
     <string name="method_france">ఫ్రాన్స్ (UOIF)</string>
     <string name="method_isna">ISNA (ఉత్తర అమెరికా)</string>
-    <string name="method_jafari">జాఫారి</string>
     <string name="method_karachi">యూనివర్శిటీ ఆఫ్ ఇస్లామిక్ సైన్సెస్, కరాచీ</string>
     <string name="method_kuwait">కువైట్</string>
     <string name="method_moonsighting">చంద్రదర్శన కమిటీ</string>
     <string name="method_mwl">ముస్లిం వరల్డ్ లీగ్</string>
     <string name="method_qatar">ఖతార్</string>
     <string name="method_singapore">సింగపూర్</string>
-    <string name="method_tehran">టెహ్రాన్ ఇన్స్టిట్యూట్ ఆఫ్ జియోఫిజిక్స్</string>
     <string name="method_turkey">డయానెట్ టర్కీ</string>
     <string name="method_umm_al_qura">ఉమ్ అల్-ఖురా (మక్కా)</string>
     <string name="next_adhan_elapsed">అధాన్ నుండి: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">సమయాలను లెక్కించడం సాధ్యం కాలేదు</string>
     <string name="widget_prayer_times_description">కౌంట్‌డౌన్‌తో తదుపరి ప్రార్థన</string>
     <string name="widget_prayer_times_label">ప్రార్థన సమయాలు</string>
+    <string name="settings_adhan_volume_vibrate">వాల్యూమ్ %1$s · వైబ్రేషన్ %2$s</string>
+    <string name="settings_adhan_vibrate_on">ఆన్</string>
+    <string name="settings_adhan_vibrate_off">ఆఫ్</string>
+    <string name="settings_preview_stop">ప్రివ్యూను ఆపండి</string>
+    <string name="settings_method_automatic">ఆటోమేటిక్ (స్థానం వారీగా)</string>
+    <string name="settings_method_automatic_desc">యాప్ మీ దేశం మరియు స్థానం ఆధారంగా స్వయంచాలకంగా అత్యంత అనుకూలమైన పద్ధతిని ఎంచుకుంటుంది; మీరు ఇప్పటికీ ఏ సమయంలోనైనా మాన్యువల్‌గా పద్ధతిని ఎంచుకోవచ్చు.</string>
+    <string name="settings_preview_for_prayer">ప్రివ్యూ %1$s అధన్</string>
 </resources>

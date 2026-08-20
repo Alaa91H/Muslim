@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar Astellunge</string>
     <string name="adhkar_show_translation">Iwwersetzung weisen</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopie</string>
+    <string name="adhkar_share">Deelen</string>
+    <string name="adhkar_overlay_short_only">Benotzt nëmme kuerz Adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Wielt Adhkar déi op eng oder zwou Zeilen passen sou datt d\'Schwemmblase kloer an einfach ze liesen bleift.</string>
+    <string name="adhkar_overlay_tap_hint">Tippen op d\'Bubble fir se direkt ze entloossen.</string>
 </resources>

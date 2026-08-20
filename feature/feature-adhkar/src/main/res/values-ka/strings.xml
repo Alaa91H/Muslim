@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">ადკარის პარამეტრები</string>
     <string name="adhkar_show_translation">თარგმანის ჩვენება</string>
     <string name="adhkar_title">ადჰკარი</string>
+    <string name="adhkar_copy">კოპირება</string>
+    <string name="adhkar_share">გააზიარეთ</string>
+    <string name="adhkar_overlay_short_only">გამოიყენეთ მხოლოდ მოკლე ადჰკარი</string>
+    <string name="adhkar_overlay_short_only_desc">აირჩიეთ ადჰკარი, რომელიც მოერგება ერთ ან ორ ხაზს, რათა მცურავი ბუშტი დარჩეს ნათელი და ადვილად წასაკითხი.</string>
+    <string name="adhkar_overlay_tap_hint">შეეხეთ ბუშტს, რომ დაუყოვნებლივ გააუქმოთ იგი.</string>
 </resources>

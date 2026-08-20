@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Eddako</string>
     <string name="quran_recitation_notif_next">Ekiddako</string>
+    <string name="quran_download_playback_title">Okuwanula %1$s</string>
+    <string name="quran_download_playback_detail">%1$s kkono · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf alagidde</string>
+    <string name="quran_download_sort_completion">Nga bamalirizza</string>
+    <string name="quran_downloads_coverage_title">Okubikka ku Surah mu basomi bonna</string>
+    <string name="quran_downloads_coverage_overall">Mushaf omujjuvu mu basomi</string>
+    <string name="quran_downloads_coverage_empty">Tewali audio ewanuliddwa n\'okutuusa kati</string>
+    <string name="quran_pause_notif_listener">Yimirirako okusoma ku kumanyisibwa</string>
+    <string name="quran_reciter_changed_title">Omusomi yakyuka</string>
+    <string name="quran_reciter_changed_message">Okuzannya kwayimirira kubanga range eddukira ku nkomerero ya Quran. Tandika nate ne %1$s?</string>
+    <string name="quran_reciter_restart">Tandika nate</string>
+    <string name="quran_reciter_not_now">Si kati</string>
 </resources>

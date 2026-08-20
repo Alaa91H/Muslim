@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">ᐃᖅᑲᐃᑎᓚᐅᓐᖓ ᓯᕗᓂᐊᒍᑦ:</string>
     <string name="ramadan_suhoor_time">ᓱᕼᐅᕐ ᐃᓱᓕᑉᐳᖅ (ᕙᔾ): %1$s</string>
     <string name="ramadan_title">ᕋᒪᑕᓐ</string>
+    <string name="ramadan_notify_outside">ᐃᖅᑲᐃᑎᑦᑎᔾᔪᑎᑦ ᓯᓚᑖᓂ ᕌᒪᑕᓐ</string>
+    <string name="ramadan_notify_outside_desc">Iftar ᐊᒻᒪ suhoor ᖃᐅᔨᒃᑲᐃᔾᔪᑏᑦ ᑲᔪᓯᑎᑕᐅᑲᐅᑎᒋᕙᒃᐳᑦ ᕌᒪᑕᓐᒥ; ᑕᒪᓐᓇ ᐱᔪᓐᓇᖅᑎᑕᐅᑉᐸᑦ ᑲᔪᓯᑎᑕᐅᔪᓐᓇᖅᐳᑦ ᐊᓯᖏᓐᓂᑦ ᑕᖅᑭᓂᑦ.</string>
 </resources>

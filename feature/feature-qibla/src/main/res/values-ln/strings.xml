@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Mboka</string>
     <string name="offline_maps_tab_custom">Zone personnalisée</string>
     <string name="offline_maps_download">Télécharger</string>
-    <string name="offline_maps_custom_hint">Finá na karte mpo na kopona katikati, na nsima télécharger esika oyo ezali zingazinga na yango.</string>
+    <string name="offline_maps_custom_hint">Pan mpe zoom na karte mpo na kosala cadre ya esika oyo olingi; cadre yango ezo mise à jour automatiquement. Bongisa bonene na yango na curseur.</string>
     <string name="offline_maps_custom_name">Nkombo ya esika yango</string>
-    <string name="offline_maps_custom_tap">Finá na karte mpo na kopona katikati</string>
+    <string name="offline_maps_custom_tap">Bokende na karte mpo na kopona esika</string>
     <string name="offline_maps_custom_default_name">Zone personnalisée</string>
     <string name="offline_maps_summary_body">%1$d ya %2$d bisika esili · %3$s ezwami</string>
     <string name="offline_maps_downloading">Kozwa %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom na kati</string>
     <string name="mosque_finder_zoom_out">Zoom na moke</string>
     <string name="mosque_finder_nearest">Mosquée oyo ezali pene</string>
+    <string name="mosque_finder_go_to">Kende epai na yango</string>
+    <string name="mosque_finder_find_nearest">Luka mosquée oyo ezali pene</string>
+    <string name="mosque_finder_expanding">Koluka na kati ya %1$s...</string>
+    <string name="offline_maps_custom_width">Bolai ya etando (degrés) .</string>
+    <string name="offline_maps_storage_warning">Bobombi ya nse — kaka %1$s ofele</string>
+    <string name="offline_maps_storage_delete_largest">Bolongola etuka ya monene (%1$s · %2$s)</string>
 </resources>

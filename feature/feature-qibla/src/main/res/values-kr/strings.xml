@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Lardǝ</string>
     <string name="offline_maps_tab_custom">Na adabe</string>
     <string name="offline_maps_download">Sagǝdǝn</string>
-    <string name="offline_maps_custom_hint">Map dəga tapne dawudə gotə, daji na dərizə kəlzənadə sakə.</string>
+    <string name="offline_maps_custom_hint">Pan kuru zoom mapdǝga na ragǝmadǝga fǝrǝmtǝro; shi frame dǝ kǝlanzǝn bǝlinjin. Slider lan nəm farak dəga ngalwotəgə.</string>
     <string name="offline_maps_custom_name">Su nadəye</string>
-    <string name="offline_maps_custom_tap">Map dəga ratne dawudə gone</string>
+    <string name="offline_maps_custom_tap">Map dǝga gǝrne na dǝga karne</string>
     <string name="offline_maps_custom_default_name">Na adabe</string>
     <string name="offline_maps_summary_body">%1$d suro %2$d nashawa tamotǝna · %3$s sagǝdǝna</string>
     <string name="offline_maps_downloading">%1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom suro</string>
     <string name="mosque_finder_zoom_out">Zoom diya</string>
     <string name="mosque_finder_nearest">Mashidi karǝngǝma</string>
+    <string name="mosque_finder_go_to">Shiro lene</string>
+    <string name="mosque_finder_find_nearest">Mashidi karǝngǝma mane</string>
+    <string name="mosque_finder_expanding">Kulashi suro %1$s...</string>
+    <string name="offline_maps_custom_width">Nəm farak nadəye (digiriwa)</string>
+    <string name="offline_maps_storage_warning">Gənatə gana — %1$s bas degəli</string>
+    <string name="offline_maps_storage_delete_largest">Nasha kuradǝ cinne (%1$s · %2$s)</string>
 </resources>

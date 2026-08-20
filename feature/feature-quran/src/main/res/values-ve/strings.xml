@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Zwo fhiraho</string>
     <string name="quran_recitation_notif_next">Zwi tevhelaho</string>
+    <string name="quran_download_playback_title">Ndi khou dawuniḽouda %1$s</string>
+    <string name="quran_download_playback_detail">%1$s kha tsha monde · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf oda</string>
+    <string name="quran_download_sort_completion">Nga u fhedza</string>
+    <string name="quran_downloads_coverage_title">U katelwa ha Surah kha vhavhali vhoṱhe</string>
+    <string name="quran_downloads_coverage_overall">Mushaf wo fhelelaho kha vhavhali</string>
+    <string name="quran_downloads_coverage_empty">A hu athu dawuniḽoudiwa audio</string>
+    <string name="quran_pause_notif_listener">Imisa u vhala kha nḓivhadzo</string>
+    <string name="quran_reciter_changed_title">Muvhali o shandukiswa</string>
+    <string name="quran_reciter_changed_message">Playback yo ima ngauri range i gidima u swika magumoni a Quran. Thomani hafhu nga %1$s?</string>
+    <string name="quran_reciter_restart">Thomani hafhu</string>
+    <string name="quran_reciter_not_now">A si zwino</string>
 </resources>

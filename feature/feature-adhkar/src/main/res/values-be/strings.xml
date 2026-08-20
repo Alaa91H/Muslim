@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Налады Adhkar</string>
     <string name="adhkar_show_translation">Паказаць пераклад</string>
     <string name="adhkar_title">Адхкар</string>
+    <string name="adhkar_copy">Копія</string>
+    <string name="adhkar_share">Падзяліцеся</string>
+    <string name="adhkar_overlay_short_only">Выкарыстоўвайце толькі кароткі adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Выберыце адхкар, які змяшчае адзін або два радкі, каб плаваючая бурбалка заставалася выразнай і лёгкай для чытання.</string>
+    <string name="adhkar_overlay_tap_hint">Націсніце бурбалку, каб неадкладна закрыць яе.</string>
 </resources>

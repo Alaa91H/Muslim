@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Χώρα</string>
     <string name="offline_maps_tab_custom">Προσαρμοσμένη περιοχή</string>
     <string name="offline_maps_download">Λήψη</string>
-    <string name="offline_maps_custom_hint">Πατήστε το χάρτη για να επιλέξετε το κέντρο και, στη συνέχεια, κάντε λήψη της περιοχής γύρω από αυτόν.</string>
+    <string name="offline_maps_custom_hint">Μετακινήστε και μεγεθύνετε τον χάρτη για να πλαισιώσετε την περιοχή που θέλετε. το πλαίσιο ενημερώνεται αυτόματα. Ρυθμίστε το πλάτος με το ρυθμιστικό.</string>
     <string name="offline_maps_custom_name">Όνομα περιοχής</string>
-    <string name="offline_maps_custom_tap">Πατήστε το χάρτη για να επιλέξετε το κέντρο</string>
+    <string name="offline_maps_custom_tap">Μετακινήστε τον χάρτη για να επιλέξετε την περιοχή</string>
     <string name="offline_maps_custom_default_name">Προσαρμοσμένη περιοχή</string>
     <string name="offline_maps_summary_body">Ολοκληρώθηκαν %1$d από %2$d περιοχές · Λήφθηκαν %3$s</string>
     <string name="offline_maps_downloading">Λήψη %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Μεγέθυνση</string>
     <string name="mosque_finder_zoom_out">Σμίκρυνση</string>
     <string name="mosque_finder_nearest">Πλησιέστερο τζαμί</string>
+    <string name="mosque_finder_go_to">Πηγαίνετε σε αυτό</string>
+    <string name="mosque_finder_find_nearest">Βρείτε το πλησιέστερο τζαμί</string>
+    <string name="mosque_finder_expanding">Αναζήτηση εντός %1$s…</string>
+    <string name="offline_maps_custom_width">Πλάτος περιοχής (μοίρες)</string>
+    <string name="offline_maps_storage_warning">Χαμηλός αποθηκευτικός χώρος — μόνο %1$s δωρεάν</string>
+    <string name="offline_maps_storage_delete_largest">Διαγραφή μεγαλύτερης περιοχής (%1$s · %2$s)</string>
 </resources>

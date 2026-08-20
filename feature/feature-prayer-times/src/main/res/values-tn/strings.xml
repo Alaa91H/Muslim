@@ -46,14 +46,12 @@
     <string name="method_egyptian">Bothatikakaretso jwa Patlisiso jwa Egepeto</string>
     <string name="method_france">Fora (UOIF)</string>
     <string name="method_isna">ISNA (Amerika Bokone)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Yunibesithi ya Disaense tsa Boiselamo, Karachi</string>
     <string name="method_kuwait">Kuwaite</string>
     <string name="method_moonsighting">Komiti ya go Bona Ngwedi</string>
     <string name="method_mwl">Liki ya Lefatshe ya Bamoseleme</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Setheo sa Tehran sa Thutafatshe</string>
     <string name="method_turkey">Diyanete Kalakune</string>
     <string name="method_umm_al_qura">Ummu al-Qura (Makka)</string>
     <string name="next_adhan_elapsed">Fa e sa le Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ga e kgone go balelela dinako</string>
     <string name="widget_prayer_times_description">Thapelo e e latelang e e nang le go bala</string>
     <string name="widget_prayer_times_label">Dinako tsa thapelo</string>
+    <string name="settings_adhan_volume_vibrate">Modumo %1$s · Thoromo %2$s</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Tima</string>
+    <string name="settings_preview_stop">Emisa tebopele</string>
+    <string name="settings_method_automatic">E itirisa (ka lefelo)</string>
+    <string name="settings_method_automatic_desc">App e tlhopha mokgwa o o tshwanelang thata ka go itirisa go ikaegile ka naga ya gago le lefelo le o leng mo go lone; o sa ntse o ka tlhopha mokgwa ka seatla nako nngwe le nngwe.</string>
+    <string name="settings_preview_for_prayer">Tebopele %1$s adhan</string>
 </resources>

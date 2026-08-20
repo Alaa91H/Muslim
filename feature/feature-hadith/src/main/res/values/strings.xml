@@ -12,6 +12,7 @@
     <string name="hadith_preview_loading">جارٍ تحميل الحديث…</string>
     <string name="hadith_daily_notification_time">وقت الإشعار</string>
     <string name="hadith_share">مشاركة</string>
+    <string name="hadith_copy">نسخ</string>
     <string name="hadith_bookmark_add">إضافة علامة</string>
     <string name="hadith_bookmark_remove">إزالة العلامة</string>
 

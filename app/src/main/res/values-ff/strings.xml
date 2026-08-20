@@ -46,4 +46,12 @@
     <string name="crash_close">Uddu</string>
     <string name="crash_dismiss">Jokku</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Yiylo Quraan</string>
+    <string name="more_quran_search_desc">Yiytu konngol, no ngol feeñirta e hol to ngol feeñirta</string>
+    <string name="more_quran_frequency">Quraana konngol keewal</string>
+    <string name="more_quran_frequency_desc">Konnguɗi ɓurɗi heewde e mushaf oo fof</string>
+    <string name="more_pause_on_notifications">Jokku janngugol e dow humpitooji</string>
+    <string name="more_pause_on_notifications_desc">Janngude ina joofna seeɗa so humpito, cirƴam walla media goɗɗo ina fijira</string>
+    <string name="more_pause_notifications_enabled">Softina — tappu ngam udditude dottaaɗe sisteem</string>
+    <string name="more_pause_notifications_disabled">Softinaama — tappu ngam softinde</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar settings</string>
     <string name="adhkar_show_translation">Ratidza shanduro</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Copy</string>
+    <string name="adhkar_share">Share</string>
+    <string name="adhkar_overlay_short_only">Shandisa pfupi adhkar chete</string>
+    <string name="adhkar_overlay_short_only_desc">Sarudza adhkar inokodzera mutsara mumwe kana miviri kuitira kuti bhavhu rinoyangarara rirambe rakajeka uye nyore kuverenga.</string>
+    <string name="adhkar_overlay_tap_hint">Tokonya bubble kuti uzvibvise nekukasika.</string>
 </resources>

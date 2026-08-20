@@ -46,14 +46,12 @@
     <string name="method_egyptian">Ēģiptes vispārējā apsekošanas iestāde</string>
     <string name="method_france">Francija (UOIF)</string>
     <string name="method_isna">ISNA (Ziemeļamerika)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Islāma zinātņu universitāte, Karači</string>
     <string name="method_kuwait">Kuveita</string>
     <string name="method_moonsighting">Moonsighting komiteja</string>
     <string name="method_mwl">Musulmaņu Pasaules līga</string>
     <string name="method_qatar">Katara</string>
     <string name="method_singapore">Singapūra</string>
-    <string name="method_tehran">Teherānas Ģeofizikas institūts</string>
     <string name="method_turkey">Diyanet Turcija</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makka)</string>
     <string name="next_adhan_elapsed">Kopš Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Nevar aprēķināt laikus</string>
     <string name="widget_prayer_times_description">Nākamā lūgšana ar atpakaļskaitīšanu</string>
     <string name="widget_prayer_times_label">Lūgšanu laiki</string>
+    <string name="settings_adhan_volume_vibrate">Skaļums %1$s · Vibrācija %2$s</string>
+    <string name="settings_adhan_vibrate_on">Ieslēgts</string>
+    <string name="settings_adhan_vibrate_off">Izslēgts</string>
+    <string name="settings_preview_stop">Apturēt priekšskatījumu</string>
+    <string name="settings_method_automatic">Automātiski (pēc atrašanās vietas)</string>
+    <string name="settings_method_automatic_desc">Lietotne automātiski izvēlas vispiemērotāko metodi, pamatojoties uz jūsu valsti un atrašanās vietu; jūs joprojām varat izvēlēties metodi manuāli jebkurā laikā.</string>
+    <string name="settings_preview_for_prayer">Priekšskatīt %1$s adhan</string>
 </resources>

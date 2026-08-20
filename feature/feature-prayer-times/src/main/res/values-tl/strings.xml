@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egyptian General Authority of Survey</string>
     <string name="method_france">France (UOIF)</string>
     <string name="method_isna">ISNA (North America)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Unibersidad ng Islamic Sciences, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Moonsighting Committee</string>
     <string name="method_mwl">Muslim World League</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Tehran Institute of Geophysics</string>
     <string name="method_turkey">Diyanet Turkey</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Mula noong Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Hindi makalkula ang mga oras</string>
     <string name="widget_prayer_times_description">Susunod na panalangin na may countdown</string>
     <string name="widget_prayer_times_label">Mga oras ng panalangin</string>
+    <string name="settings_adhan_volume_vibrate">Dami %1$s · Panginginig ng boses %2$s</string>
+    <string name="settings_adhan_vibrate_on">Naka-on</string>
+    <string name="settings_adhan_vibrate_off">Naka-off</string>
+    <string name="settings_preview_stop">Ihinto ang preview</string>
+    <string name="settings_method_automatic">Awtomatiko (ayon sa lokasyon)</string>
+    <string name="settings_method_automatic_desc">Awtomatikong pinipili ng app ang pinakaangkop na paraan batay sa iyong bansa at lokasyon; maaari ka pa ring pumili ng paraan nang manu-mano anumang oras.</string>
+    <string name="settings_preview_for_prayer">I-preview ang %1$s adhan</string>
 </resources>

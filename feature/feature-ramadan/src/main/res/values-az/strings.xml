@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Mənə əvvəl xatırlat:</string>
     <string name="ramadan_suhoor_time">Sahur bitər (Sübh): %1$s</string>
     <string name="ramadan_title">Ramazan</string>
+    <string name="ramadan_notify_outside">Ramazan ayı xaricində xatırlatmalar</string>
+    <string name="ramadan_notify_outside_desc">Ramazan ayında iftar və sahur xəbərdarlığı avtomatik olaraq işləyir; bu, onları digər aylarda da davam etdirir.</string>
 </resources>

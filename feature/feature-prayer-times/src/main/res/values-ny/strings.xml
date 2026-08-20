@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egypt General Authority of Survey</string>
     <string name="method_france">France (UOIF)</string>
     <string name="method_isna">ISNA (North America)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">University of Islamic Sciences, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Komiti Yowona Mwezi</string>
     <string name="method_mwl">Muslim World League</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Tehran Institute of Geophysics</string>
     <string name="method_turkey">Diyanet Turkey</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Kuyambira Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Sitingathe kuwerengera nthawi</string>
     <string name="widget_prayer_times_description">Pemphero lotsatira ndi kuwerengetsa</string>
     <string name="widget_prayer_times_label">Nthawi za mapemphero</string>
+    <string name="settings_adhan_volume_vibrate">Voliyumu %1$s · Kugwedezeka %2$s</string>
+    <string name="settings_adhan_vibrate_on">Yambani</string>
+    <string name="settings_adhan_vibrate_off">Kuzimitsa</string>
+    <string name="settings_preview_stop">Lekani kuwoneratu</string>
+    <string name="settings_method_automatic">Zadzidzidzi (ndi malo)</string>
+    <string name="settings_method_automatic_desc">Pulogalamuyi imasankha njira yoyenera kwambiri yokha kutengera dziko lanu ndi malo; mukhoza kusankha njira pamanja nthawi iliyonse.</string>
+    <string name="settings_preview_for_prayer">Oneranitu %1$s adhan</string>
 </resources>

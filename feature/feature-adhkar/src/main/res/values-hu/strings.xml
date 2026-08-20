@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar beállítások</string>
     <string name="adhkar_show_translation">Fordítás megjelenítése</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Másolás</string>
+    <string name="adhkar_share">Megosztás</string>
+    <string name="adhkar_overlay_short_only">Csak rövid adhkar-t használjon</string>
+    <string name="adhkar_overlay_short_only_desc">Válasszon egy vagy két sorba illeszkedő adhkar-t, így a lebegő buborék tiszta és könnyen olvasható marad.</string>
+    <string name="adhkar_overlay_tap_hint">Érintse meg a buborékot az azonnali elvetéséhez.</string>
 </resources>

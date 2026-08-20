@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Herrialdea</string>
     <string name="offline_maps_tab_custom">Eremu pertsonalizatua</string>
     <string name="offline_maps_download">Deskargatu</string>
-    <string name="offline_maps_custom_hint">Ukitu mapa erdigunea hautatzeko, eta deskargatu inguruko eremua.</string>
+    <string name="offline_maps_custom_hint">Mugitu eta zooma mapa nahi duzun eremua markatzeko; markoa automatikoki eguneratzen da. Egokitu zabalera graduatzailearekin.</string>
     <string name="offline_maps_custom_name">Eremuaren izena</string>
-    <string name="offline_maps_custom_tap">Sakatu mapa erdigunea hautatzeko</string>
+    <string name="offline_maps_custom_tap">Mugitu mapa eremua hautatzeko</string>
     <string name="offline_maps_custom_default_name">Eremu pertsonalizatua</string>
     <string name="offline_maps_summary_body">%1$d/%2$d eremu osatuta · %3$s deskargatu dira</string>
     <string name="offline_maps_downloading">%1$s… %% {%2$d deskargatzen</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Handitu</string>
     <string name="mosque_finder_zoom_out">Txikiagotu</string>
     <string name="mosque_finder_nearest">Hurbilen dagoen meskita</string>
+    <string name="mosque_finder_go_to">Joan zaitez</string>
+    <string name="mosque_finder_find_nearest">Aurkitu hurbilen dagoen meskita</string>
+    <string name="mosque_finder_expanding">%1$s barruan bilatzen…</string>
+    <string name="offline_maps_custom_width">Eremuaren zabalera (gradu)</string>
+    <string name="offline_maps_storage_warning">Biltegiratze baxua: %1$s doakoak bakarrik</string>
+    <string name="offline_maps_storage_delete_largest">Ezabatu eskualde handiena (%1$s · %2$s)</string>
 </resources>

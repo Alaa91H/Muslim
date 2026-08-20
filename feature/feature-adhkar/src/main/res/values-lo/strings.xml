@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">ການຕັ້ງຄ່າ Adhkar</string>
     <string name="adhkar_show_translation">ສະແດງການແປ</string>
     <string name="adhkar_title">ແອດກາ</string>
+    <string name="adhkar_copy">ສຳເນົາ</string>
+    <string name="adhkar_share">ແບ່ງປັນ</string>
+    <string name="adhkar_overlay_short_only">ໃຊ້ adhkar ສັ້ນເທົ່ານັ້ນ</string>
+    <string name="adhkar_overlay_short_only_desc">ເລືອກ adhkar ທີ່ເຫມາະຫນຶ່ງຫຼືສອງເສັ້ນເພື່ອໃຫ້ຟອງລອຍຢູ່ຄົງທີ່ຈະແຈ້ງແລະງ່າຍຕໍ່ການອ່ານ.</string>
+    <string name="adhkar_overlay_tap_hint">ແຕະທີ່ຟອງເພື່ອປິດມັນທັນທີ.</string>
 </resources>

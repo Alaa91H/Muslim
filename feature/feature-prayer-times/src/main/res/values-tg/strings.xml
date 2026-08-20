@@ -46,14 +46,12 @@
     <string name="method_egyptian">Маъмурияти умумии тадқиқоти Миср</string>
     <string name="method_france">Фаронса (UOIF)</string>
     <string name="method_isna">ISNA (Амрикои Шимолӣ)</string>
-    <string name="method_jafari">Ҷаъфарӣ</string>
     <string name="method_karachi">Донишгоҳи илмҳои исломӣ, Карочӣ</string>
     <string name="method_kuwait">Кувайт</string>
     <string name="method_moonsighting">Кумитаи Моҳшиносӣ</string>
     <string name="method_mwl">Лигаи ҷаҳонии мусулмонон</string>
     <string name="method_qatar">Қатар</string>
     <string name="method_singapore">Сингапур</string>
-    <string name="method_tehran">Институти геофизикии Техрон</string>
     <string name="method_turkey">Дианети Туркия</string>
     <string name="method_umm_al_qura">Уммул Қуро (Макка)</string>
     <string name="next_adhan_elapsed">Аз азон: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ҳисоб кардани вақтҳо имконнопазир аст</string>
     <string name="widget_prayer_times_description">Намози навбатӣ бо ҳисоб</string>
     <string name="widget_prayer_times_label">Вақтҳои намоз</string>
+    <string name="settings_adhan_volume_vibrate">Ҳаҷм %1$s · Вибрация %2$s</string>
+    <string name="settings_adhan_vibrate_on">Дар</string>
+    <string name="settings_adhan_vibrate_off">Хомӯш</string>
+    <string name="settings_preview_stop">Пешнамоишро қатъ кунед</string>
+    <string name="settings_method_automatic">Автоматӣ (аз рӯи ҷойгиршавӣ)</string>
+    <string name="settings_method_automatic_desc">Барнома ба таври худкор усули мувофиқро дар асоси кишвар ва макони шумо интихоб мекунад; шумо ба ҳар ҳол метавонед усулро дар вақти дилхоҳ дастӣ интихоб кунед.</string>
+    <string name="settings_preview_for_prayer">Пешнамоиши %1$s азон</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar सेटिंग्ज</string>
     <string name="adhkar_show_translation">भाषांतर दाखवा</string>
     <string name="adhkar_title">अधिकार</string>
+    <string name="adhkar_copy">कॉपी करा</string>
+    <string name="adhkar_share">शेअर करा</string>
+    <string name="adhkar_overlay_short_only">फक्त लहान अधकार वापरा</string>
+    <string name="adhkar_overlay_short_only_desc">एक किंवा दोन ओळींमध्ये बसणारे adhkar निवडा जेणेकरून फ्लोटिंग बबल स्पष्ट आणि वाचण्यास सोपा राहील.</string>
+    <string name="adhkar_overlay_tap_hint">बबल ताबडतोब डिसमिस करण्यासाठी टॅप करा.</string>
 </resources>

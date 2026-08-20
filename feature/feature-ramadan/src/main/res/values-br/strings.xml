@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Lakait ac\'hanon da soñjal a-raok :</string>
     <string name="ramadan_suhoor_time">Suhoor ends (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Kemennadennoù e-maez ar Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Ar c\'hemennadennoù Iftar ha suhoor a ya en-dro ent emgefre e-pad ar Ramadan ; gweredekaat an dra-se a laka anezho da vont en-dro e-pad mizioù all.</string>
 </resources>

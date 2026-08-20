@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Kraj</string>
     <string name="offline_maps_tab_custom">Obszar niestandardowy</string>
     <string name="offline_maps_download">Pobierz</string>
-    <string name="offline_maps_custom_hint">Stuknij mapę, aby wybrać centrum, a następnie pobierz obszar wokół niego.</string>
+    <string name="offline_maps_custom_hint">Przesuwaj i powiększaj mapę, aby wykadrować żądany obszar; ramka aktualizuje się automatycznie. Dostosuj szerokość za pomocą suwaka.</string>
     <string name="offline_maps_custom_name">Nazwa obszaru</string>
-    <string name="offline_maps_custom_tap">Kliknij mapę, aby wybrać centrum</string>
+    <string name="offline_maps_custom_tap">Przesuń mapę, aby wybrać obszar</string>
     <string name="offline_maps_custom_default_name">Obszar niestandardowy</string>
     <string name="offline_maps_summary_body">Ukończono %1$d z %2$d obszarów · Pobrano %3$s</string>
     <string name="offline_maps_downloading">Pobieram %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Powiększ</string>
     <string name="mosque_finder_zoom_out">Pomniejsz</string>
     <string name="mosque_finder_nearest">Najbliższy meczet</string>
+    <string name="mosque_finder_go_to">Idź do tego</string>
+    <string name="mosque_finder_find_nearest">Znajdź najbliższy meczet</string>
+    <string name="mosque_finder_expanding">Wyszukiwanie w ciągu %1$s…</string>
+    <string name="offline_maps_custom_width">Szerokość obszaru (stopnie)</string>
+    <string name="offline_maps_storage_warning">Niskie miejsce na dane — tylko %1$s za darmo</string>
+    <string name="offline_maps_storage_delete_largest">Usuń największy region (%1$s · %2$s)</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">Masarautar Hukumar Bincike ta Masar</string>
     <string name="method_france">Faransa (UOIF)</string>
     <string name="method_isna">ISNA (Arewacin Amurka)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Jami\'ar Kimiyyar Musulunci, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Kwamitin ganin wata</string>
     <string name="method_mwl">Kungiyar Musulmi ta Duniya</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Tehran Institute of Geophysics</string>
     <string name="method_turkey">Diyant Turkey</string>
     <string name="method_umm_al_qura">Ummul Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Tun daga Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Rashin iya lissafin lokuta</string>
     <string name="widget_prayer_times_description">Addu\'a ta gaba tare da kirgawa</string>
     <string name="widget_prayer_times_label">Lokutan sallah</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Vibration %2$s</string>
+    <string name="settings_adhan_vibrate_on">Kunna</string>
+    <string name="settings_adhan_vibrate_off">Kashe</string>
+    <string name="settings_preview_stop">Dakatar da samfoti</string>
+    <string name="settings_method_automatic">Na atomatik (ta wurin wuri)</string>
+    <string name="settings_method_automatic_desc">Ka\'idar tana zaɓar hanya mafi dacewa ta atomatik dangane da ƙasarku da wurin ku; har yanzu kuna iya zaɓar hanya da hannu a kowane lokaci.</string>
+    <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
 </resources>

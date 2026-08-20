@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Ndiyeuchidze zvisati zvaitika:</string>
     <string name="ramadan_suhoor_time">Suhoor inopera (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Zviyeuchidzo kunze kweRamadan</string>
+    <string name="ramadan_notify_outside_desc">Iftar uye suhoor chenjedzo dzinomhanya otomatiki panguva yeRamadan; zvichiita kuti izvi zvirambe zvichienderera mberi mune mimwe mwedzi.</string>
 </resources>

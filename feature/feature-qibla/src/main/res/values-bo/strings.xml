@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">རྒྱལ་ཁབ།</string>
     <string name="offline_maps_tab_custom">སྲོལ་རྒྱུན་ཁུལ།</string>
     <string name="offline_maps_download">ཕབ་ལེན།</string>
-    <string name="offline_maps_custom_hint">ས་ཁྲ་དེ་ལ་རྡེབ་ནས་དབུས་དེ་འདེམས་རྗེས་དེའི་མཐའ་འཁོར་གྱི་ས་ཁུལ་ཕབ་ལེན་བྱེད།</string>
+    <string name="offline_maps_custom_hint">ཁྱེད་ལ་དགོས་པའི་ས་ཁུལ་དེ་སྒྲོམ་གཞི་བཟོ་བར་ས་ཁྲ་དེ་པར་བཤུས་དང་ཆེ་རུ་གཏོང་བ། གཞི་སྒྲོམ་དེ་རང་འགུལ་གྱིས་ཁ་སྐོང་གི་རེད། བཤུད་སྒྲིལ་གྱིས་ཁ་ཞེང་སྙོམ་སྒྲིག་བྱེད།</string>
     <string name="offline_maps_custom_name">ས་ཁོངས་མིང་།</string>
-    <string name="offline_maps_custom_tap">ས་ཁྲ་ལ་རྡེབ་ནས་དཀྱིལ་འཁོར་འདེམས།</string>
+    <string name="offline_maps_custom_tap">ས་ཁྲ་སྤོས་ནས་ས་ཁོངས་འདེམས།</string>
     <string name="offline_maps_custom_default_name">སྲོལ་རྒྱུན་ཁུལ།</string>
     <string name="offline_maps_summary_body">%1$dགི་%2$dས་ཁོངས་ཡོངས་སུ་རྫོགས་པ། · %3$sཕབ་ལེན་བྱས་ཟིན།</string>
     <string name="offline_maps_downloading">%1$s... %2$d%%ཕབ་ལེན་བྱེད་བཞིན་པ།</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">ཆེ་རུ་གཏོང་བ།</string>
     <string name="mosque_finder_zoom_out">ཆེ་རུ་གཏོང་བ།</string>
     <string name="mosque_finder_nearest">ཉེ་འགྲམ་གྱི་ཁ་ཆེའི་ལྷ་ཁང་།</string>
+    <string name="mosque_finder_go_to">དེ་ལ་སོང་།</string>
+    <string name="mosque_finder_find_nearest">ཁ་ཆེའི་ལྷ་ཁང་ཉེ་ཤོས་ཚོལ།</string>
+    <string name="mosque_finder_expanding">%1$sནང་འཚོལ་ཞིབ་བྱེད་བཞིན་ཡོད།</string>
+    <string name="offline_maps_custom_width">རྒྱ་ཁྱོན་གྱི་ཞེང་ཚད་(ཌི་གྷི་རི)</string>
+    <string name="offline_maps_storage_warning">དོས་ཁང་དམའ་བ། རིན་མེད་%1$sལས་མེད།</string>
+    <string name="offline_maps_storage_delete_largest">ས་ཁུལ་ཆེ་ཤོས་སུབ་དགོས། (%1$s · %2$s)</string>
 </resources>

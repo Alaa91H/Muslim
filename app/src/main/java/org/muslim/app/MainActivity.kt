@@ -30,6 +30,7 @@ import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
 import org.muslim.app.feature.prayertimes.notifications.NextAdhanService
 import org.muslim.app.feature.prayertimes.widget.refreshPrayerTimesWidgets
 import org.muslim.app.feature.settings.locale.withAppLocale
+import org.muslim.app.feature.settings.update.UpdateCheckScheduler
 import org.muslim.app.ui.MuslimApp
 import javax.inject.Inject
 
@@ -84,6 +85,14 @@ class MainActivity : ComponentActivity() {
             adhanScheduler.schedule(settings)
             // Keep the permanent next-adhan countdown notification fresh.
             NextAdhanService.start(applicationContext)
+            // Re-anchor the optional update check to the persisted cadence
+            // (daily/weekly/monthly) — or cancel it when the user turned it off.
+            val prefs = appPreferencesRepository.preferences.first()
+            if (prefs.updateCheckEnabled) {
+                UpdateCheckScheduler.schedule(applicationContext, prefs.updateCheckFrequency)
+            } else {
+                UpdateCheckScheduler.cancel(applicationContext)
+            }
         }
         // Every app open refreshes the widget (fresh countdown for the user).
         lifecycleScope.launch {
@@ -92,7 +101,13 @@ class MainActivity : ComponentActivity() {
         targetRoute.value = routeFromIntent(intent)
         setContent {
             val route by targetRoute.collectAsStateWithLifecycle()
-            MuslimApp(initialRoute = route, onLanguageChanged = ::recreate)
+            MuslimApp(
+                initialRoute = route,
+                // Read once per process: changing the start tab in Settings only
+                // persists the choice; it takes effect on the next cold start.
+                initialStartTab = appPreferencesRepository.readStartTabSync(),
+                onLanguageChanged = ::recreate,
+            )
         }
     }
 
@@ -104,12 +119,16 @@ class MainActivity : ComponentActivity() {
 
     /** Maps a `muslim://<tab>` deep link (App Shortcuts) to a navigation route. */
     private fun routeFromIntent(intent: Intent?): String {
+        val explicitRoute = intent?.getStringExtra(EXTRA_ROUTE)
+        if (explicitRoute != null) return explicitRoute
         val data = intent?.data?.toString().orEmpty()
         return when {
             // The standalone times page was merged into the home tab ("أوقات
             // الصلاة"), so the old times shortcut now opens the home tab.
             data.startsWith("muslim://times") -> ROUTE_HOME
             data.startsWith("muslim://qibla") -> ROUTE_QIBLA
+            // The update-available notification opens the in-app update screen.
+            data.startsWith("muslim://settings/update") -> ROUTE_UPDATE
             data.startsWith("muslim://settings") -> ROUTE_SETTINGS
             data.startsWith("muslim://hadith") -> ROUTE_HADITH
             data.startsWith("muslim://learn") -> ROUTE_LEARN
@@ -147,5 +166,7 @@ class MainActivity : ComponentActivity() {
         const val ROUTE_SETTINGS = "settings"
         const val ROUTE_HADITH = "hadith"
         const val ROUTE_LEARN = "learn"
+        const val ROUTE_UPDATE = "settings/update"
+        const val EXTRA_ROUTE = "org.muslim.app.extra.ROUTE"
     }
 }

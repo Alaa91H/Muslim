@@ -36,6 +36,8 @@ class AppPreferencesRepository @Inject constructor(
             timeFormat24h = prefs[Keys.TIME_FORMAT_24H] ?: false,
             moreSectionOrder = AppPreferences.decodeSectionOrder(prefs[Keys.MORE_SECTION_ORDER]),
             hiddenMoreSections = AppPreferences.decodeHiddenSections(prefs[Keys.MORE_SECTION_HIDDEN]),
+            updateCheckEnabled = prefs[Keys.UPDATE_CHECK_ENABLED] ?: false,
+            updateCheckFrequency = prefs[Keys.UPDATE_CHECK_FREQUENCY] ?: AppPreferences.UPDATE_CHECK_DAILY,
         )
     }
 
@@ -47,12 +49,17 @@ class AppPreferencesRepository @Inject constructor(
         edit { prefs -> prefs[Keys.LANGUAGE] = languageCode }
         // Synchronous mirror so attachBaseContext can apply the locale without
         // an async read (DataStore cannot be read synchronously).
-        languageMirror.edit { putString(Keys.LANGUAGE.name, languageCode) }
+        languageMirror.edit { putString(LOCALE_MIRROR_KEY, languageCode) }
     }
 
     suspend fun setReduceAnimations(enabled: Boolean) = edit { prefs -> prefs[Keys.REDUCE_ANIMATIONS] = enabled }
 
-    suspend fun setStartTab(route: String) = edit { prefs -> prefs[Keys.START_TAB] = route }
+    suspend fun setStartTab(route: String) {
+        edit { prefs -> prefs[Keys.START_TAB] = route }
+        // Synchronous mirror so the chosen start tab can be read at launch
+        // without an async DataStore read (same pattern as language/time).
+        startTabMirror.edit { putString("start_tab", route) }
+    }
 
     suspend fun setTimeFormat24h(use24h: Boolean) {
         edit { prefs -> prefs[Keys.TIME_FORMAT_24H] = use24h }
@@ -74,24 +81,52 @@ class AppPreferencesRepository @Inject constructor(
         }
     }
 
+    /** Turns the periodic update check on/off (off by default). */
+    suspend fun setUpdateCheckEnabled(enabled: Boolean) {
+        edit { prefs -> prefs[Keys.UPDATE_CHECK_ENABLED] = enabled }
+    }
+
+    /** Sets the update-check cadence (daily/weekly/monthly). */
+    suspend fun setUpdateCheckFrequency(frequency: String) {
+        edit { prefs -> prefs[Keys.UPDATE_CHECK_FREQUENCY] = frequency }
+    }
+
     /** Blocking read of the 24-hour flag, safe for services and widget workers. */
     fun readTimeFormat24hSync(): Boolean =
         timeFormatMirror.getBoolean(Keys.TIME_FORMAT_24H.name, false)
 
     /** Blocking read of the persisted language, safe for [android.app.Activity.attachBaseContext]. */
     fun readLanguageSync(): String =
-        languageMirror.getString(Keys.LANGUAGE.name, AppPreferences.SYSTEM_LANGUAGE)
+        languageMirror.getString(LOCALE_MIRROR_KEY, AppPreferences.SYSTEM_LANGUAGE)
             ?: AppPreferences.SYSTEM_LANGUAGE
+
+    /**
+     * Blocking read of the chosen start tab, safe for cold start. The mirror
+     * is deliberately read **once** per process so that changing the setting
+     * from Settings only persists the choice instead of navigating there.
+     */
+    fun readStartTabSync(): String =
+        startTabMirror.getString("start_tab", AppPreferences.START_TAB_HOME)
+            ?: AppPreferences.START_TAB_HOME
 
     private suspend fun edit(transform: (androidx.datastore.preferences.core.MutablePreferences) -> Unit) {
         context.appPreferencesDataStore.edit { prefs -> transform(prefs) }
     }
 
     private val languageMirror: SharedPreferences
-        get() = context.getSharedPreferences("app_locale", Context.MODE_PRIVATE)
+        get() = context.getSharedPreferences(LOCALE_MIRROR_FILE, Context.MODE_PRIVATE)
+
+    private val startTabMirror: SharedPreferences
+        get() = context.getSharedPreferences("app_start_tab", Context.MODE_PRIVATE)
 
     private val timeFormatMirror: SharedPreferences
         get() = context.getSharedPreferences("app_time_format", Context.MODE_PRIVATE)
+
+    companion object {
+        /** Mirror file/key for the UI language (see [setLanguage]). */
+        const val LOCALE_MIRROR_FILE = "app_locale"
+        const val LOCALE_MIRROR_KEY = "language"
+    }
 
     private object Keys {
         val THEME_MODE = stringPreferencesKey("theme_mode")
@@ -102,5 +137,7 @@ class AppPreferencesRepository @Inject constructor(
         val TIME_FORMAT_24H = booleanPreferencesKey("time_format_24h")
         val MORE_SECTION_ORDER = stringPreferencesKey("more_section_order")
         val MORE_SECTION_HIDDEN = stringPreferencesKey("more_section_hidden")
+        val UPDATE_CHECK_ENABLED = booleanPreferencesKey("update_check_enabled")
+        val UPDATE_CHECK_FREQUENCY = stringPreferencesKey("update_check_frequency")
     }
 }

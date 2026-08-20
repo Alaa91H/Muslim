@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Цебе ракӀалде щвезабе:</string>
     <string name="ramadan_suhoor_time">СухӀур лъугӀула (Фажр): %1$s</string>
     <string name="ramadan_title">Рамазан моцӀ</string>
+    <string name="ramadan_notify_outside">Рамазан моцӀалдаса къватӀирехун ракӀалде щвеял</string>
+    <string name="ramadan_notify_outside_desc">Ифтаралъул ва сухӀуралъул лъазабиял автоматически унел руго Рамазан моцӀалда; гьеб рес кьейалъ гьел цогидал моцӀаздаги хьвадизарула.</string>
 </resources>

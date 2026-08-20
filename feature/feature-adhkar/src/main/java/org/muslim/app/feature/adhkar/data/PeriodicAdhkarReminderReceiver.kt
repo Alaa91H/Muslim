@@ -51,8 +51,8 @@ class PeriodicAdhkarReminderReceiver : BroadcastReceiver() {
             val category = prefs.periodicReminderCategoryId
                 ?.let(DhikrCategory::fromId)
             val dhikr = entryPoint.adhkarRepository()
-                .randomDhikr(category, prefs.disabledDhikrIds)
-                ?: entryPoint.adhkarRepository().randomDhikr(null, prefs.disabledDhikrIds)
+                .randomDhikr(category, prefs.disabledDhikrIds, prefs.shortDhikrOnly)
+                ?: entryPoint.adhkarRepository().randomDhikr(null, prefs.disabledDhikrIds, prefs.shortDhikrOnly)
                 ?: return@launch
 
             if (prefs.overlayEnabled && Settings.canDrawOverlays(appContext)) {

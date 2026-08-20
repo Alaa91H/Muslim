@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">اختیار کی ترتیبات</string>
     <string name="adhkar_show_translation">ترجمہ دکھائیں۔</string>
     <string name="adhkar_title">ادھار</string>
+    <string name="adhkar_copy">کاپی</string>
+    <string name="adhkar_share">شیئر کریں۔</string>
+    <string name="adhkar_overlay_short_only">صرف مختصر ادھار استعمال کریں۔</string>
+    <string name="adhkar_overlay_short_only_desc">ایک یا دو لائنوں کے فٹ ہونے والے اڈکار کا انتخاب کریں تاکہ تیرتا ہوا بلبلہ صاف اور پڑھنے میں آسان رہے۔</string>
+    <string name="adhkar_overlay_tap_hint">بلبلے کو فوری طور پر برخاست کرنے کے لیے اسے تھپتھپائیں۔</string>
 </resources>

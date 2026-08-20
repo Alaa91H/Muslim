@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">တိုင်းပြည်</string>
     <string name="offline_maps_tab_custom">စိတ်ကြိုက်ဧရိယာ</string>
     <string name="offline_maps_download">ဒေါင်းလုဒ်လုပ်ပါ။</string>
-    <string name="offline_maps_custom_hint">အလယ်ကို ရွေးရန် မြေပုံကို နှိပ်ပါ၊ ထို့နောက် ၎င်းပတ်ပတ်လည် ဧရိယာကို ဒေါင်းလုဒ်လုပ်ပါ။</string>
+    <string name="offline_maps_custom_hint">သင်အလိုရှိသော ဧရိယာဘောင်သို့ မြေပုံကို လှည့်၍ ဇူးမ်ချဲ့ပါ။ frame သည် အလိုအလျောက် update လုပ်သည်။ အကျယ်ကို slider ဖြင့် ချိန်ညှိပါ။</string>
     <string name="offline_maps_custom_name">နယ်မြေအမည်</string>
-    <string name="offline_maps_custom_tap">ဗဟိုကို ရွေးရန် မြေပုံကို တို့ပါ။</string>
+    <string name="offline_maps_custom_tap">ဧရိယာကို ရွေးချယ်ရန် မြေပုံကို ရွှေ့ပါ။</string>
     <string name="offline_maps_custom_default_name">စိတ်ကြိုက်ဧရိယာ</string>
     <string name="offline_maps_summary_body">%1$d ဧရိယာ %2$d} ပြီးမြောက်သည် · %3$s ဒေါင်းလုဒ်လုပ်ထားသည်။</string>
     <string name="offline_maps_downloading">ဒေါင်းလုဒ်လုပ်နေသည် %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">ချဲ့ကြည့်ပါ။</string>
     <string name="mosque_finder_zoom_out">ချဲ့ကြည့်ပါ။</string>
     <string name="mosque_finder_nearest">အနီးဆုံးဗလီ</string>
+    <string name="mosque_finder_go_to">သွားလိုက်ပါ။</string>
+    <string name="mosque_finder_find_nearest">အနီးဆုံးဗလီကိုရှာပါ။</string>
+    <string name="mosque_finder_expanding">%1$s} အတွင်း ရှာဖွေနေသည်...</string>
+    <string name="offline_maps_custom_width">ဧရိယာအကျယ် (ဒီဂရီ)</string>
+    <string name="offline_maps_storage_warning">သိုလှောင်မှုနည်းသည် - %1$s သာ အခမဲ့</string>
+    <string name="offline_maps_storage_delete_largest">အကြီးဆုံးဒေသ (%1$s · %2$s) ကိုဖျက်ပါ</string>
 </resources>

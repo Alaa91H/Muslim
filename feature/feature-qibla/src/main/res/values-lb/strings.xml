@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Land</string>
     <string name="offline_maps_tab_custom">Benotzerdefinéiert Beräich</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">Tippen op d\'Kaart fir den Zentrum ze wielen, download dann d\'Gebitt ronderëm.</string>
+    <string name="offline_maps_custom_hint">Pan a zoomt d\'Kaart fir d\'Gebitt ze cadre déi Dir wëllt; de Frame gëtt automatesch aktualiséiert. Ajustéiert d\'Breet mam Schieber.</string>
     <string name="offline_maps_custom_name">Gebiet Numm</string>
-    <string name="offline_maps_custom_tap">Tippen op d\'Kaart fir den Zentrum ze wielen</string>
+    <string name="offline_maps_custom_tap">Beweegt d\'Kaart fir d\'Gebitt ze wielen</string>
     <string name="offline_maps_custom_default_name">Benotzerdefinéiert Beräich</string>
     <string name="offline_maps_summary_body">%1$d vun %2$d Beräicher komplett · %3$s erofgelueden</string>
     <string name="offline_maps_downloading">Eroflueden %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom an</string>
     <string name="mosque_finder_zoom_out">Auszoomen</string>
     <string name="mosque_finder_nearest">Nächst Moschee</string>
+    <string name="mosque_finder_go_to">Gitt dohinner</string>
+    <string name="mosque_finder_find_nearest">Fannt noosten Moschee</string>
+    <string name="mosque_finder_expanding">Sicht bannent %1$s...</string>
+    <string name="offline_maps_custom_width">Beräich Breet (Grad)</string>
+    <string name="offline_maps_storage_warning">Niddereg Späichere - nëmmen %1$s gratis</string>
+    <string name="offline_maps_storage_delete_largest">Gréisst Regioun läschen (%1$s · %2$s)</string>
 </resources>

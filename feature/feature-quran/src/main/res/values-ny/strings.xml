@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Zam\'mbuyo</string>
     <string name="quran_recitation_notif_next">Kenako</string>
+    <string name="quran_download_playback_title">Kutsitsa %1$s</string>
+    <string name="quran_download_playback_detail">%1$s kumanzere · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf order</string>
+    <string name="quran_download_sort_completion">Pomaliza</string>
+    <string name="quran_downloads_coverage_title">Kufalikira kwa Surayi pa owerenga</string>
+    <string name="quran_downloads_coverage_overall">Mushaf wathunthu kudutsa owerenga</string>
+    <string name="quran_downloads_coverage_empty">Palibe zomvera zomwe zidatsitsidwa</string>
+    <string name="quran_pause_notif_listener">Imani kaye kubwereza pazidziwitso</string>
+    <string name="quran_reciter_changed_title">Reciter yasintha</string>
+    <string name="quran_reciter_changed_message">Kusewerera kunayima chifukwa kuchuluka kwake kumafika kumapeto kwa Quran. Yambaninso ndi %1$s?</string>
+    <string name="quran_reciter_restart">Yambaninso</string>
+    <string name="quran_reciter_not_now">Osati tsopano</string>
 </resources>

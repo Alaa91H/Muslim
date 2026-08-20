@@ -23,4 +23,5 @@
     <string name="hadith_search_hint">A imi i te mau hadith...</string>
     <string name="hadith_share">A faaite</string>
     <string name="hadith_title">Fare buka Hadith</string>
+    <string name="hadith_copy">Copy</string>
 </resources>

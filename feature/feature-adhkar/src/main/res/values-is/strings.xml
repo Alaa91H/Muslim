@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar stillingar</string>
     <string name="adhkar_show_translation">Sýna þýðingu</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Afrita</string>
+    <string name="adhkar_share">Deila</string>
+    <string name="adhkar_overlay_short_only">Notaðu aðeins stutta adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Veldu adhkar sem passa við eina eða tvær línur svo fljótandi kúla haldist skýr og auðvelt að lesa.</string>
+    <string name="adhkar_overlay_tap_hint">Bankaðu á kúluna til að hafna henni strax.</string>
 </resources>

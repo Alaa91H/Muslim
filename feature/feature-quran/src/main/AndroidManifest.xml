@@ -30,6 +30,29 @@
             android:name=".data.RecitationActionReceiver"
             android:exported="false" />
 
+        <!-- Headphone / external media-button handling: routes
+             ACTION_MEDIA_BUTTON presses (play/pause/next on headsets and
+             Bluetooth devices) to the recitation MediaSession. -->
+        <receiver
+            android:name="androidx.media.session.MediaButtonReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Pauses the recitation while soundful notifications are showing
+             (needs Notification access; harmless when not granted). -->
+        <service
+            android:name=".data.RecitationPauseOnNotifications"
+            android:exported="false"
+            android:label="@string/quran_pause_notif_listener"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
         <!-- Restores queued downloads after a device reboot. -->
         <receiver
             android:name=".data.QuranDownloadBootReceiver"

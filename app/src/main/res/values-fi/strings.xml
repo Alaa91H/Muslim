@@ -46,4 +46,12 @@
     <string name="crash_close">Sulje</string>
     <string name="crash_dismiss">Jatka</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيب٧دوتخد واسحبه لإعادة تخخد واسحبه المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Etsi Koraanista</string>
+    <string name="more_quran_search_desc">Etsi sana, kuinka usein se esiintyy ja missä</string>
+    <string name="more_quran_frequency">Koraanin sanan taajuus</string>
+    <string name="more_quran_frequency_desc">Yleisimmät sanat koko mushafissa</string>
+    <string name="more_pause_on_notifications">Keskeytä ilmoitusten lausuminen</string>
+    <string name="more_pause_on_notifications_desc">Lausunto pysähtyy hetkeksi, kun ilmoitus, soittoääni tai muu media toistetaan</string>
+    <string name="more_pause_notifications_enabled">Käytössä — napauta avataksesi järjestelmäasetukset</string>
+    <string name="more_pause_notifications_disabled">Ei käytössä — ota käyttöön napauttamalla</string>
 </resources>

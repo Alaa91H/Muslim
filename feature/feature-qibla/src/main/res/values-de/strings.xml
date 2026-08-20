@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Land</string>
     <string name="offline_maps_tab_custom">Benutzerdefinierter Bereich</string>
     <string name="offline_maps_download">Herunterladen</string>
-    <string name="offline_maps_custom_hint">Tippen Sie auf die Karte, um das Zentrum auszuwählen, und laden Sie dann die Umgebung herunter.</string>
+    <string name="offline_maps_custom_hint">Schwenken und zoomen Sie die Karte, um den gewünschten Bereich einzurahmen. Der Rahmen wird automatisch aktualisiert. Passen Sie die Breite mit dem Schieberegler an.</string>
     <string name="offline_maps_custom_name">Gebietsname</string>
-    <string name="offline_maps_custom_tap">Tippen Sie auf die Karte, um das Zentrum auszuwählen</string>
+    <string name="offline_maps_custom_tap">Bewegen Sie die Karte, um den Bereich auszuwählen</string>
     <string name="offline_maps_custom_default_name">Benutzerdefinierter Bereich</string>
     <string name="offline_maps_summary_body">%1$d von %2$d Gebieten abgeschlossen · %3$s heruntergeladen</string>
     <string name="offline_maps_downloading">%1$s… %2$d%% wird heruntergeladen</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Vergrößern</string>
     <string name="mosque_finder_zoom_out">Herauszoomen</string>
     <string name="mosque_finder_nearest">Nächste Moschee</string>
+    <string name="mosque_finder_go_to">Gehen Sie dorthin</string>
+    <string name="mosque_finder_find_nearest">Finden Sie die nächstgelegene Moschee</string>
+    <string name="mosque_finder_expanding">Suche innerhalb von %1$s…</string>
+    <string name="offline_maps_custom_width">Flächenbreite (Grad)</string>
+    <string name="offline_maps_storage_warning">Geringer Speicherplatz – nur %1$s kostenlos</string>
+    <string name="offline_maps_storage_delete_largest">Größte Region löschen (%1$s · %2$s)</string>
 </resources>

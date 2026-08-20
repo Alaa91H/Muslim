@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Configurações do Adhkar</string>
     <string name="adhkar_show_translation">Mostrar tradução</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Copiar</string>
+    <string name="adhkar_share">Compartilhar</string>
+    <string name="adhkar_overlay_short_only">Use apenas adhkar curto</string>
+    <string name="adhkar_overlay_short_only_desc">Escolha adhkar que caiba em uma ou duas linhas para que a bolha flutuante permaneça clara e fácil de ler.</string>
+    <string name="adhkar_overlay_tap_hint">Toque no balão para descartá-lo imediatamente.</string>
 </resources>

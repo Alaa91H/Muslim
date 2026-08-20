@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Ngikhumbute ngaphambili:</string>
     <string name="ramadan_suhoor_time">Kuphela kweLilanga (Fajr): %1$s</string>
     <string name="ramadan_title">I-Ramadan</string>
+    <string name="ramadan_notify_outside">Tikhumbuto ngaphandle kwe Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Iftar kanye ne suhoor tecwayiso tisebenta ngekuzenzakalela ngesikhatsi se Ramadan; kuniketa emandla loku kubagcina bachubeka kuletinye tinyanga.</string>
 </resources>

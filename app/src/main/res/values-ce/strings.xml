@@ -46,4 +46,12 @@
     <string name="crash_close">ДӀакъовла</string>
     <string name="crash_dismiss">Кхин дӀа а</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Къуръан леха .</string>
+    <string name="more_quran_search_desc">Дош лаха, мел дукха нисло иза, мичахь</string>
+    <string name="more_quran_frequency">Къуръан дешан кесталла .</string>
+    <string name="more_quran_frequency_desc">Ерриг мушафехь уггар дукха нислуш долу дешнаш .</string>
+    <string name="more_pause_on_notifications">Хаамашна тӀехь дешар сацаде</string>
+    <string name="more_pause_on_notifications_desc">Дешар жимма соцунгӀа хуьлу, хаам, зӀе я кхин медиа ловзуш</string>
+    <string name="more_pause_notifications_enabled">ДӀахӀоттийна — хьажа системин настройкаш схьаелла</string>
+    <string name="more_pause_notifications_disabled">ДӀадаьккхина — хьажа дӀахӀотто</string>
 </resources>

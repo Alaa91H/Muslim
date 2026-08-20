@@ -46,4 +46,12 @@
     <string name="crash_close">A da tugu</string>
     <string name="crash_dismiss">Aw bɛ taa a fɛ</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Kuranɛ ɲinini</string>
+    <string name="more_quran_search_desc">Daɲɛ dɔ ɲini, a bɛ bɔ siɲɛ joli ani yɔrɔ min na</string>
+    <string name="more_quran_frequency">Kuranɛ daɲɛw caya</string>
+    <string name="more_quran_frequency_desc">Daɲɛ minnu bɛ fɔ kosɛbɛ mushaf bɛɛ kɔnɔ</string>
+    <string name="more_pause_on_notifications">Lajɔ kalanni na kunnafoniw kan</string>
+    <string name="more_pause_on_notifications_desc">Kalan bɛ jɔ dɔɔnin ni kunnafoni, mankan walima kunnafonidilan wɛrɛw bɛ fɔ</string>
+    <string name="more_pause_notifications_enabled">Enabled — i bolo digi walasa ka sistɛmu sigicogo da wuli</string>
+    <string name="more_pause_notifications_disabled">Disabled — i bolo digi walasa ka se ka baara kɛ</string>
 </resources>

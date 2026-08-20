@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Подсети ме раније:</string>
     <string name="ramadan_suhoor_time">Крајеви сухура (фаџр): %1$s</string>
     <string name="ramadan_title">Рамазан</string>
+    <string name="ramadan_notify_outside">Подсетници ван Рамазана</string>
+    <string name="ramadan_notify_outside_desc">Упозорења ифтара и сухура покрећу се аутоматски током Рамазана; омогућавајући ово, одржава их у другим месецима.</string>
 </resources>

@@ -46,4 +46,12 @@
     <string name="crash_close">بند</string>
     <string name="crash_dismiss">جاری رکھیں</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم۔ يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">قرآن کو تلاش کریں۔</string>
+    <string name="more_quran_search_desc">ایک لفظ تلاش کریں، یہ کتنی بار اور کہاں ظاہر ہوتا ہے۔</string>
+    <string name="more_quran_frequency">قرآنی الفاظ کی تعدد</string>
+    <string name="more_quran_frequency_desc">پورے مصحف میں بکثرت الفاظ</string>
+    <string name="more_pause_on_notifications">نوٹیفیکیشن پر تلاوت روک دیں۔</string>
+    <string name="more_pause_on_notifications_desc">جب کوئی اطلاع، گھنٹی یا دیگر میڈیا چلتا ہے تو تلاوت مختصر طور پر رک جاتی ہے۔</string>
+    <string name="more_pause_notifications_enabled">فعال — سسٹم سیٹنگز کو کھولنے کے لیے تھپتھپائیں۔</string>
+    <string name="more_pause_notifications_disabled">غیر فعال — فعال کرنے کے لیے تھپتھپائیں۔</string>
 </resources>

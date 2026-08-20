@@ -46,4 +46,12 @@
     <string name="crash_close">അടയ്ക്കുക</string>
     <string name="crash_dismiss">തുടരുക</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو خلفاء كم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">ഖുർആൻ അന്വേഷിക്കുക</string>
+    <string name="more_quran_search_desc">ഒരു വാക്ക് കണ്ടെത്തുക, അത് എത്ര തവണ എവിടെയാണ് ദൃശ്യമാകുന്നത്</string>
+    <string name="more_quran_frequency">ഖുറാൻ പദങ്ങളുടെ ആവൃത്തി</string>
+    <string name="more_quran_frequency_desc">മുഴുവൻ മുസ്ഹഫിലെ ഏറ്റവും പതിവ് വാക്കുകൾ</string>
+    <string name="more_pause_on_notifications">അറിയിപ്പുകളിൽ പാരായണം താൽക്കാലികമായി നിർത്തുക</string>
+    <string name="more_pause_on_notifications_desc">ഒരു അറിയിപ്പോ റിംഗോ മറ്റ് മീഡിയയോ പ്ലേ ചെയ്യുമ്പോൾ പാരായണം ഹ്രസ്വമായി നിർത്തുന്നു</string>
+    <string name="more_pause_notifications_enabled">പ്രവർത്തനക്ഷമമാക്കി - സിസ്റ്റം ക്രമീകരണങ്ങൾ തുറക്കാൻ ടാപ്പ് ചെയ്യുക</string>
+    <string name="more_pause_notifications_disabled">പ്രവർത്തനരഹിതമാക്കി - പ്രവർത്തനക്ഷമമാക്കാൻ ടാപ്പുചെയ്യുക</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Танзимоти Adhkar</string>
     <string name="adhkar_show_translation">Нишон додани тарҷума</string>
     <string name="adhkar_title">Адҳкор</string>
+    <string name="adhkar_copy">Нусхабардорӣ</string>
+    <string name="adhkar_share">Мубодила</string>
+    <string name="adhkar_overlay_short_only">Танҳо адҳкари кӯтоҳро истифода баред</string>
+    <string name="adhkar_overlay_short_only_desc">Адҳкореро интихоб кунед, ки як ё ду сатр мувофиқат кунад, то ҳубобчаи шинокунанда равшан ва хондан осон бимонад.</string>
+    <string name="adhkar_overlay_tap_hint">Ҳубобро ламс кунед, то онро фавран рад кунед.</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">Misir Baş Tədqiqat Təşkilatı</string>
     <string name="method_france">Fransa (UOIF)</string>
     <string name="method_isna">ISNA (Şimali Amerika)</string>
-    <string name="method_jafari">Cəfəri</string>
     <string name="method_karachi">İslam Elmləri Universiteti, Karaçi</string>
     <string name="method_kuwait">Küveyt</string>
     <string name="method_moonsighting">Ay Görmə Komitəsi</string>
     <string name="method_mwl">Müsəlman Dünya Liqası</string>
     <string name="method_qatar">Qətər</string>
     <string name="method_singapore">Sinqapur</string>
-    <string name="method_tehran">Tehran Geofizika İnstitutu</string>
     <string name="method_turkey">Diyanet Türkiyə</string>
     <string name="method_umm_al_qura">Ummul-Qura (Məkkə)</string>
     <string name="next_adhan_elapsed">Azandan bəri: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Vaxtı hesablamaq mümkün deyil</string>
     <string name="widget_prayer_times_description">Geri sayma ilə növbəti dua</string>
     <string name="widget_prayer_times_label">Namaz vaxtları</string>
+    <string name="settings_adhan_volume_vibrate">Səs %1$s · Vibrasiya %2$s</string>
+    <string name="settings_adhan_vibrate_on">Aktiv</string>
+    <string name="settings_adhan_vibrate_off">Söndür</string>
+    <string name="settings_preview_stop">Önizləməni dayandırın</string>
+    <string name="settings_method_automatic">Avtomatik (yerə görə)</string>
+    <string name="settings_method_automatic_desc">Proqram ölkənizə və yerinizə əsasən avtomatik olaraq ən uyğun metodu seçir; hələ də istənilən vaxt metodu əl ilə seçə bilərsiniz.</string>
+    <string name="settings_preview_for_prayer">%1$s azan üçün önizləmə</string>
 </resources>

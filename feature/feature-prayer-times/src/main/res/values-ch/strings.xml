@@ -46,14 +46,12 @@
     <string name="method_egyptian">I Gubetnamenton Survey giya Ehipto</string>
     <string name="method_france">Fransia (UOIF)</string>
     <string name="method_isna">ISNA (Notte na Amerika)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Unibetsedåt Siensian Islam, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Kumite ni\' Manli\'e\' i Luna</string>
     <string name="method_mwl">Ligan Mundo Muslim</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">I Instituton Geofisika gi iya Tehran</string>
     <string name="method_turkey">Diyanet Turkey</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Desde Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ti siña hu kalkula i tiempo</string>
     <string name="widget_prayer_times_description">I sigiente na tinayuyot yan kuentos tåtte</string>
     <string name="widget_prayer_times_label">Oran tinayuyot</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Vibration %2$s</string>
+    <string name="settings_adhan_vibrate_on">Gi</string>
+    <string name="settings_adhan_vibrate_off">Ma\'pos</string>
+    <string name="settings_preview_stop">Påra i preview</string>
+    <string name="settings_method_automatic">Automatic (gi i lugat)</string>
+    <string name="settings_method_automatic_desc">I app ha pikura i mas maolek na manera gi i tano\'-mu yan i lugat-mu; siña ha\' un cho\'gue un manera gi todu i tiempo.</string>
+    <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
 </resources>

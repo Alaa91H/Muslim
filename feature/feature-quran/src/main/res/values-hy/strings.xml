@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Նախորդ</string>
     <string name="quran_recitation_notif_next">Հաջորդը</string>
+    <string name="quran_download_playback_title">Ներբեռնվում է %1$s</string>
+    <string name="quran_download_playback_detail">Մնացել է %1$s · %2$s/վ</string>
+    <string name="quran_download_sort_mushaf">Մուշաֆի հրաման</string>
+    <string name="quran_download_sort_completion">Ավարտելով</string>
+    <string name="quran_downloads_coverage_title">Սուրայի լուսաբանում ասմունքողների միջև</string>
+    <string name="quran_downloads_coverage_overall">Ամբողջական մուշաֆ ասմունքողների միջև</string>
+    <string name="quran_downloads_coverage_empty">Աուդիո դեռ չի ներբեռնվել</string>
+    <string name="quran_pause_notif_listener">Դադարեցնել ասմունքը ծանուցումների վրա</string>
+    <string name="quran_reciter_changed_title">Ասմունքողը փոխվել է</string>
+    <string name="quran_reciter_changed_message">Նվագարկումը դադարեց, քանի որ տիրույթը հասնում է մինչև Ղուրանի վերջը: Նորից սկսել %1$s-ով:</string>
+    <string name="quran_reciter_restart">Սկսեք նորից</string>
+    <string name="quran_reciter_not_now">Ոչ հիմա</string>
 </resources>

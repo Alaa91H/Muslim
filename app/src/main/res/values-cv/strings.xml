@@ -46,4 +46,12 @@
     <string name="crash_close">Хуп</string>
     <string name="crash_dismiss">Малалла</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل نوع. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Коранра шыраса тупӑр</string>
+    <string name="more_quran_search_desc">Сӑмах тупӑр, вӑл мӗн чухлӗ тата ӑҫта тӗл пулать</string>
+    <string name="more_quran_frequency">Коран сӑмахӗсен тӑтӑшлӑхӗ</string>
+    <string name="more_quran_frequency_desc">Пӗтӗм мушафра чи тӗл пулакан сӑмахсем</string>
+    <string name="more_pause_on_notifications">Пӗлтерӳсенче вулама чарӑнӑр</string>
+    <string name="more_pause_on_notifications_desc">Пӗлтерӳ, шӑнкӑрав е ытти хатӗр янӑранӑ чухне калани кӗске вӑхӑтлӑха чарӑнать</string>
+    <string name="more_pause_notifications_enabled">Ӗҫлет — тытӑм настройкисене уҫма пусӑр</string>
+    <string name="more_pause_notifications_disabled">Ӗҫлеме чарнӑ — ӗҫлеттерме пусӑр</string>
 </resources>

@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Ел</string>
     <string name="offline_maps_tab_custom">Арнайы аумақ</string>
     <string name="offline_maps_download">Жүктеп алу</string>
-    <string name="offline_maps_custom_hint">Орталықты таңдау үшін картаны түртіңіз, содан кейін оның айналасындағы аумақты жүктеп алыңыз.</string>
+    <string name="offline_maps_custom_hint">Қажетті аумақты жақтау үшін картаны жылжытыңыз және масштабтаңыз; кадр автоматты түрде жаңартылады. Енді жүгірткі арқылы реттеңіз.</string>
     <string name="offline_maps_custom_name">Аудан атауы</string>
-    <string name="offline_maps_custom_tap">Орталықты таңдау үшін картаны түртіңіз</string>
+    <string name="offline_maps_custom_tap">Аймақты таңдау үшін картаны жылжытыңыз</string>
     <string name="offline_maps_custom_default_name">Арнайы аумақ</string>
     <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
     <string name="offline_maps_downloading">Жүктелуде %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Үлкейту</string>
     <string name="mosque_finder_zoom_out">Кішірейту</string>
     <string name="mosque_finder_nearest">Ең жақын мешіт</string>
+    <string name="mosque_finder_go_to">Оған барыңыз</string>
+    <string name="mosque_finder_find_nearest">Ең жақын мешітті табыңыз</string>
+    <string name="mosque_finder_expanding">%1$s ішінде іздеу…</string>
+    <string name="offline_maps_custom_width">Аудан ені (градус)</string>
+    <string name="offline_maps_storage_warning">Жад аз — тек %1$s тегін</string>
+    <string name="offline_maps_storage_delete_largest">Ең үлкен аймақты жою (%1$s · %2$s)</string>
 </resources>

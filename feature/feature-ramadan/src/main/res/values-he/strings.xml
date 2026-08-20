@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">תזכיר לי לפני:</string>
     <string name="ramadan_suhoor_time">סוהור מסתיים (פג\'ר): %1$s</string>
     <string name="ramadan_title">רמדאן</string>
+    <string name="ramadan_notify_outside">תזכורות מחוץ לרמדאן</string>
+    <string name="ramadan_notify_outside_desc">התראות Iftar ו-suhoor פועלות אוטומטית במהלך הרמדאן; מתן אפשרות זו מונעת מהם להמשיך בחודשים אחרים.</string>
 </resources>

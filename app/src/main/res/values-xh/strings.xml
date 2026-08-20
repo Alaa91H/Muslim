@@ -46,4 +46,12 @@
     <string name="crash_close">Vala</string>
     <string name="crash_dismiss">Qhubeka</string>
     <string name="more_order_hint">10 أضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Khangela kwiQuran</string>
+    <string name="more_quran_search_desc">Fumana igama, ukuba livela kangaphi kwaye phi</string>
+    <string name="more_quran_frequency">Quran igama frequency</string>
+    <string name="more_quran_frequency_desc">Awona magama axhaphakileyo kwi mushaf wonke</string>
+    <string name="more_pause_on_notifications">Misa ucengcelezo kwizaziso</string>
+    <string name="more_pause_on_notifications_desc">Ucengcelezo lunqumama ngokufutshane xa kudlala isaziso, iringi okanye enye imidiya</string>
+    <string name="more_pause_notifications_enabled">Vuliwe — cofa ukuvula useto lwesixokelelwano</string>
+    <string name="more_pause_notifications_disabled">Ivaliwe — cofa ukuze uvule</string>
 </resources>

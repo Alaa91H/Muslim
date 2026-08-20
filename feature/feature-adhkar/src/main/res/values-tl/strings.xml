@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Mga setting ng Adhkar</string>
     <string name="adhkar_show_translation">Ipakita ang pagsasalin</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopyahin</string>
+    <string name="adhkar_share">Ibahagi</string>
+    <string name="adhkar_overlay_short_only">Gumamit lamang ng maikling adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Pumili ng adhkar na akma sa isa o dalawang linya upang manatiling malinaw at madaling basahin ang lumulutang na bubble.</string>
+    <string name="adhkar_overlay_tap_hint">I-tap ang bubble upang i-dismiss ito kaagad.</string>
 </resources>

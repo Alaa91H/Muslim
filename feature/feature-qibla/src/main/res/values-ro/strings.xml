@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Țara</string>
     <string name="offline_maps_tab_custom">Zona personalizata</string>
     <string name="offline_maps_download">Descărcați</string>
-    <string name="offline_maps_custom_hint">Atingeți harta pentru a alege centrul, apoi descărcați zona din jurul acesteia.</string>
+    <string name="offline_maps_custom_hint">Deplasați și măriți harta pentru a încadra zona dorită; cadrul se actualizează automat. Reglați lățimea cu glisorul.</string>
     <string name="offline_maps_custom_name">Numele zonei</string>
-    <string name="offline_maps_custom_tap">Atingeți harta pentru a alege centrul</string>
+    <string name="offline_maps_custom_tap">Mutați harta pentru a selecta zona</string>
     <string name="offline_maps_custom_default_name">Zona personalizata</string>
     <string name="offline_maps_summary_body">%1$d din %2$d zone finalizate · %3$s descărcate</string>
     <string name="offline_maps_downloading">Se descarcă %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Măriți</string>
     <string name="mosque_finder_zoom_out">Micșorați</string>
     <string name="mosque_finder_nearest">Cea mai apropiată moschee</string>
+    <string name="mosque_finder_go_to">Du-te la el</string>
+    <string name="mosque_finder_find_nearest">Găsiți cea mai apropiată moschee</string>
+    <string name="mosque_finder_expanding">Se caută în %1$s...</string>
+    <string name="offline_maps_custom_width">Lățimea zonei (grade)</string>
+    <string name="offline_maps_storage_warning">Spațiu de stocare redus - doar %1$s gratuit</string>
+    <string name="offline_maps_storage_delete_largest">Ștergeți cea mai mare regiune (%1$s · %2$s)</string>
 </resources>

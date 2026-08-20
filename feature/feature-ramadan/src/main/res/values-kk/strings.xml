@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Маған бұрын еске түсіріңіз:</string>
     <string name="ramadan_suhoor_time">Сухур аяқталады (Фадж): %1$s</string>
     <string name="ramadan_title">Рамазан</string>
+    <string name="ramadan_notify_outside">Рамазаннан тыс уақыттағы ескертулер</string>
+    <string name="ramadan_notify_outside_desc">Рамазан айында ифтар және сухур ескертулері автоматты түрде іске қосылады; Бұл оларды басқа айларда жалғастырады.</string>
 </resources>

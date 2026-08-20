@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">အရင်</string>
     <string name="quran_recitation_notif_next">နောက်တစ်ခု</string>
+    <string name="quran_download_playback_title">ဒေါင်းလုဒ်လုပ်နေသည် %1$s</string>
+    <string name="quran_download_playback_detail">%1$s ကျန်သည် · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">မူရှာဖ်အမိန့်</string>
+    <string name="quran_download_sort_completion">ပြီးမြောက်ခြင်း။</string>
+    <string name="quran_downloads_coverage_title">စူရဟ် လွှမ်းခြုံ ရွတ်ဆိုသူများ</string>
+    <string name="quran_downloads_coverage_overall">ရွတ်ဆိုသူများအတွက် မုရှဖ်အပြည့်</string>
+    <string name="quran_downloads_coverage_empty">အသံဖိုင်ကို ဒေါင်းလုဒ်မလုပ်ရသေးပါ။</string>
+    <string name="quran_pause_notif_listener">အကြောင်းကြားချက်များပေါ်တွင် ရွတ်ဆိုခြင်းကို ခေတ္တရပ်ပါ။</string>
+    <string name="quran_reciter_changed_title">ရွတ်ဆိုသူ ပြောင်းသွားတယ်။</string>
+    <string name="quran_reciter_changed_message">အကွာအဝေးသည် ကုရ်အာန်၏အဆုံးအထိ လည်ပတ်နေသောကြောင့် ပြန်ဖွင့်ခြင်း ရပ်တန့်သွားသည်။ %1$s ဖြင့် ပြန်စမလား။</string>
+    <string name="quran_reciter_restart">ပြန်စပါ။</string>
+    <string name="quran_reciter_not_now">အခုမှမဟုတ်ဘူး။</string>
 </resources>

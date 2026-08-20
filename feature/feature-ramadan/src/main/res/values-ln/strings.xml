@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Kundolisa ngai liboso:</string>
     <string name="ramadan_suhoor_time">Suhoor esukaka (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan na mokolo ya Ramadan</string>
+    <string name="ramadan_notify_outside">Makundoli libanda ya Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Ba alertes ya Iftar na suhoor esalemaka automatiquement na Ramadan; kopesa nzela na yango esalaka ete bákende liboso na basanza mosusu.</string>
 </resources>

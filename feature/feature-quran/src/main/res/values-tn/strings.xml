@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Tse di fetileng</string>
     <string name="quran_recitation_notif_next">Se se latelang</string>
+    <string name="quran_download_playback_title">Go laisolola %1$s</string>
+    <string name="quran_download_playback_detail">%1$s tlogetswe · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Taelo ya ga Mushaf</string>
+    <string name="quran_download_sort_completion">Ka go fetsa</string>
+    <string name="quran_downloads_coverage_title">Go akaretsa Sura go ralala babadi</string>
+    <string name="quran_downloads_coverage_overall">Mushaf o o tletseng go ralala babuisi</string>
+    <string name="quran_downloads_coverage_empty">Ga go ise go laisololwe modumo</string>
+    <string name="quran_pause_notif_listener">Emisa go boeletsa mo dikitsisong</string>
+    <string name="quran_reciter_changed_title">Mobuisi o fetotswe</string>
+    <string name="quran_reciter_changed_message">Playback e emisitswe ka gore range e tabogela kwa bokhutlong jwa Quran. Simolola gape ka %1$s?</string>
+    <string name="quran_reciter_restart">Simolola gape</string>
+    <string name="quran_reciter_not_now">E seng jaanong</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar སྒྲིག་སྟངས།</string>
     <string name="adhkar_show_translation">སྐད་སྒྱུར་སྟོན།</string>
     <string name="adhkar_title">ཨ་དྷ་ཀར།</string>
+    <string name="adhkar_copy">འདྲ་བཤུས།</string>
+    <string name="adhkar_share">བགོ་བཤའ་བརྐྱབ།</string>
+    <string name="adhkar_overlay_short_only">ཨ་དྷ་ཀར་ཐུང་ཀུ་རྐྱངམ་ཅིག་ལག་ལེན་འཐབ།</string>
+    <string name="adhkar_overlay_short_only_desc">གྱལ་རིམ་གཅིག་དང་གཉིས་ལུ་མཐུན་པའི་ཨ་དྷ་ཀར་གདམ་ཁ་རྐྱབ་སྟེ་ འཕྱོ་བའི་བརྡུང་འཕྲུལ་འདི་ གསལ་ཏོག་ཏོ་དང་ ལྷག་ཚུགསཔ་སྦེ་སྡོད་ཚུགས།</string>
+    <string name="adhkar_overlay_tap_hint">དེ་འཕྲལ་ལས་བཏོན་གཏང་ནི་ལུ་ བརྡུང་ལེན་འདི་ཨེབ་གཏང་།</string>
 </resources>

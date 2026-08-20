@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Алдағы</string>
     <string name="quran_recitation_notif_next">Артабан</string>
+    <string name="quran_download_playback_title">%1$s күсереп алыу</string>
+    <string name="quran_download_playback_detail">%1$s ҡалды · %2$s/с</string>
+    <string name="quran_download_sort_mushaf">Мөшәф бойороғо .</string>
+    <string name="quran_download_sort_completion">Тамамлау буйынса</string>
+    <string name="quran_downloads_coverage_title">Сүрәне уҡыусылар араһында яҡтыртыу</string>
+    <string name="quran_downloads_coverage_overall">Уҡыусылар аша тулы мөшәф</string>
+    <string name="quran_downloads_coverage_empty">Әлегә аудио күсерелмәгән</string>
+    <string name="quran_pause_notif_listener">Хәбәр итеүҙәрҙә уҡыуҙы туҡтатыу</string>
+    <string name="quran_reciter_changed_title">Уҡыусы үҙгәрҙе</string>
+    <string name="quran_reciter_changed_message">Уйнатыу туҡтаны, сөнки диапазон Ҡөрьәндең аҙағына тиклем йүгерә. Яңынан %1$s менән башлағыҙмы?</string>
+    <string name="quran_reciter_restart">Яңынан башлағыҙ .</string>
+    <string name="quran_reciter_not_now">Хәҙер түгел .</string>
 </resources>

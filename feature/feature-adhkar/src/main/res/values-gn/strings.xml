@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar ñemboheko</string>
     <string name="adhkar_show_translation">Ohechauka ñembohasa</string>
     <string name="adhkar_title">Adhkar rehegua</string>
+    <string name="adhkar_copy">Kopia rehegua</string>
+    <string name="adhkar_share">Compartir</string>
+    <string name="adhkar_overlay_short_only">Eipuru adhkar mbykymínte</string>
+    <string name="adhkar_overlay_short_only_desc">Eiporavo adhkar ohóva peteĩ térã mokõi línea-pe ikatu hag̃uáicha pe burbuja otyryrýva opyta hesakã ha ndahasýi ojelee hag̃ua.</string>
+    <string name="adhkar_overlay_tap_hint">Epoko pe burbuja rehe emboyke hag̃ua pya’e.</string>
 </resources>

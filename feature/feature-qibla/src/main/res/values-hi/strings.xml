@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">देश</string>
     <string name="offline_maps_tab_custom">कस्टम क्षेत्र</string>
     <string name="offline_maps_download">डाउनलोड करें</string>
-    <string name="offline_maps_custom_hint">केंद्र चुनने के लिए मानचित्र पर टैप करें, फिर उसके आस-पास का क्षेत्र डाउनलोड करें।</string>
+    <string name="offline_maps_custom_hint">अपने इच्छित क्षेत्र को फ़्रेम करने के लिए मानचित्र को पैन और ज़ूम करें; फ़्रेम स्वचालित रूप से अपडेट हो जाता है. स्लाइडर से चौड़ाई समायोजित करें.</string>
     <string name="offline_maps_custom_name">क्षेत्र का नाम</string>
-    <string name="offline_maps_custom_tap">केंद्र चुनने के लिए मानचित्र पर टैप करें</string>
+    <string name="offline_maps_custom_tap">क्षेत्र का चयन करने के लिए मानचित्र को स्थानांतरित करें</string>
     <string name="offline_maps_custom_default_name">कस्टम क्षेत्र</string>
     <string name="offline_maps_summary_body">%2$d में से %1$d क्षेत्र पूर्ण · %3$s डाउनलोड किया गया</string>
     <string name="offline_maps_downloading">डाउनलोड हो रहा है %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">ज़ूम इन करें</string>
     <string name="mosque_finder_zoom_out">ज़ूम आउट करें</string>
     <string name="mosque_finder_nearest">निकटतम मस्जिद</string>
+    <string name="mosque_finder_go_to">इसके पास जाओ</string>
+    <string name="mosque_finder_find_nearest">निकटतम मस्जिद खोजें</string>
+    <string name="mosque_finder_expanding">%1$s के भीतर खोज रहे हैं...</string>
+    <string name="offline_maps_custom_width">क्षेत्र की चौड़ाई (डिग्री)</string>
+    <string name="offline_maps_storage_warning">कम भंडारण - केवल %1$s निःशुल्क</string>
+    <string name="offline_maps_storage_delete_largest">सबसे बड़ा क्षेत्र हटाएं (%1$s · %2$s)</string>
 </resources>

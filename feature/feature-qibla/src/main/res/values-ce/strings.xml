@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Мохк</string>
     <string name="offline_maps_tab_custom">Къовсамийн меттиг</string>
     <string name="offline_maps_download">Скачать</string>
-    <string name="offline_maps_custom_hint">Карта тӀе хьажа, юккъе схьаэца, тӀаккха цунна гонаха йолу меттиг схьаэца.</string>
+    <string name="offline_maps_custom_hint">Панорама а, масштаб а карта тӀехь хьайна лууш йолу меттиг рамка ян; кадр автоматически карлайоккху. Шуьйралла нисъе ползунокца.</string>
     <string name="offline_maps_custom_name">КӀоштан цӀе</string>
-    <string name="offline_maps_custom_tap">Карта тӀе хьажа, юккъе схьаэца .</string>
+    <string name="offline_maps_custom_tap">Карта дӀасалеладе, меттиг къастош .</string>
     <string name="offline_maps_custom_default_name">Къовсамийн меттиг</string>
     <string name="offline_maps_summary_body">%1$d %2$d меттигаш чекхъяьхна · %3$s скачать</string>
     <string name="offline_maps_downloading">Скачать деш ду %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Зум совъяккха</string>
     <string name="mosque_finder_zoom_out">Масштаб лахъяран</string>
     <string name="mosque_finder_nearest">Уггар гергара маьждиг</string>
+    <string name="mosque_finder_go_to">Цунна тӀе гӀо .</string>
+    <string name="mosque_finder_find_nearest">Уггар гергара маьждиг лаха</string>
+    <string name="mosque_finder_expanding">%1$s чохь лехамаш беш бу...</string>
+    <string name="offline_maps_custom_width">Аренан шуьйралла (градусаш)</string>
+    <string name="offline_maps_storage_warning">Лоха Ӏалашдар — %1$s бен маьрша</string>
+    <string name="offline_maps_storage_delete_largest">Удалить уггар йоккха регион (%1$s · %2$s)</string>
 </resources>

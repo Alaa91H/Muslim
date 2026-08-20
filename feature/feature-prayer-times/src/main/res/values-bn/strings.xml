@@ -46,14 +46,12 @@
     <string name="method_egyptian">মিশরীয় জেনারেল অথরিটি অফ সার্ভে</string>
     <string name="method_france">ফ্রান্স (UOIF)</string>
     <string name="method_isna">ISNA (উত্তর আমেরিকা)</string>
-    <string name="method_jafari">জাফরি</string>
     <string name="method_karachi">ইউনিভার্সিটি অব ইসলামিক সায়েন্সেস, করাচি</string>
     <string name="method_kuwait">কুয়েত</string>
     <string name="method_moonsighting">চাঁদ দেখা কমিটি</string>
     <string name="method_mwl">মুসলিম বিশ্ব লীগ</string>
     <string name="method_qatar">কাতার</string>
     <string name="method_singapore">সিঙ্গাপুর</string>
-    <string name="method_tehran">তেহরান ইনস্টিটিউট অফ জিওফিজিক্স</string>
     <string name="method_turkey">দিয়ানেট তুরস্ক</string>
     <string name="method_umm_al_qura">উম্মুল কুরা (মক্কা)</string>
     <string name="next_adhan_elapsed">আজান থেকে: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">সময় গণনা করতে অক্ষম</string>
     <string name="widget_prayer_times_description">কাউন্টডাউন সহ পরবর্তী প্রার্থনা</string>
     <string name="widget_prayer_times_label">নামাজের সময়</string>
+    <string name="settings_adhan_volume_vibrate">আয়তন %1$s · কম্পন %2$s</string>
+    <string name="settings_adhan_vibrate_on">চালু</string>
+    <string name="settings_adhan_vibrate_off">বন্ধ</string>
+    <string name="settings_preview_stop">প্রিভিউ বন্ধ করুন</string>
+    <string name="settings_method_automatic">স্বয়ংক্রিয় (অবস্থান অনুসারে)</string>
+    <string name="settings_method_automatic_desc">অ্যাপটি আপনার দেশ এবং অবস্থানের উপর ভিত্তি করে স্বয়ংক্রিয়ভাবে সবচেয়ে উপযুক্ত পদ্ধতি বেছে নেয়; আপনি এখনও যে কোনও সময় ম্যানুয়ালি একটি পদ্ধতি বেছে নিতে পারেন।</string>
+    <string name="settings_preview_for_prayer">পূর্বরূপ %1$s আযান</string>
 </resources>

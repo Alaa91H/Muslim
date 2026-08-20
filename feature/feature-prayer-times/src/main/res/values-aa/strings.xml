@@ -46,14 +46,12 @@
     <string name="method_egyptian">Masrik Amoladi Miraaciini acassaale</string>
     <string name="method_france">Faransa (UOIF)</string>
     <string name="method_isna">ISNA (Kiblatti Ameerika)</string>
-    <string name="method_jafari">Jaafari</string>
     <string name="method_karachi">Islaaminna missoh jaamiqata, Karachi</string>
     <string name="method_kuwait">Kuweet</string>
     <string name="method_moonsighting">Alsa mabul makaado</string>
     <string name="method_mwl">Muslimiin Baadak Egla</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapur</string>
-    <string name="method_tehran">Tahraan Ardi-fiiziksih inistitute</string>
     <string name="method_turkey">Diyanet Turki</string>
     <string name="method_umm_al_qura">Qummul-Qura (Makka)</string>
     <string name="next_adhan_elapsed">Acaanaak qemmissa haanam: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Udduura cisaabisaanam maduudumta</string>
     <string name="widget_prayer_times_description">Ciggilta salaata loowo luk</string>
     <string name="widget_prayer_times_label">Salat uddur</string>
+    <string name="settings_adhan_volume_vibrate">xongolo %1$s · diriirigo %2$s</string>
+    <string name="settings_adhan_vibrate_on">Fakut</string>
+    <string name="settings_adhan_vibrate_off">alif</string>
+    <string name="settings_preview_stop">aakam mabul soolis</string>
+    <string name="settings_method_automatic">Sisdikuk (aracak)</string>
+    <string name="settings_method_automatic_desc">App ku baaxo kee aracal rakitak kaxxaam meqeh tan cogda doorta; atu uxih doortam duddah cogda gabah faxe uddur.</string>
+    <string name="settings_preview_for_prayer">Naharsi mabul %1$s adhaan</string>
 </resources>

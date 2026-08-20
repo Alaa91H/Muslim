@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Адкар параметрҙары</string>
     <string name="adhkar_show_translation">Тәржемә күрһәтеү</string>
     <string name="adhkar_title">Аждкар</string>
+    <string name="adhkar_copy">Күсермә</string>
+    <string name="adhkar_share">Таҡлашыу</string>
+    <string name="adhkar_overlay_short_only">Ҡыҫҡа адхкар ғына ҡулланығыҙ</string>
+    <string name="adhkar_overlay_short_only_desc">Һайлау adhkar, тип тура килә бер-ике юл, шулай итеп, йөҙөүсе күпертке асыҡ һәм еңел уҡыу ҡала.</string>
+    <string name="adhkar_overlay_tap_hint">Күбеккә ҡағыла, уны шунда уҡ эштән бушатыу өсөн.</string>
 </resources>

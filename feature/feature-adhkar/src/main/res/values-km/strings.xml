@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">ការកំណត់ Adhkar</string>
     <string name="adhkar_show_translation">បង្ហាញការបកប្រែ</string>
     <string name="adhkar_title">អាដកា</string>
+    <string name="adhkar_copy">ចម្លង</string>
+    <string name="adhkar_share">ចែករំលែក</string>
+    <string name="adhkar_overlay_short_only">ប្រើតែ adhkar ខ្លីប៉ុណ្ណោះ។</string>
+    <string name="adhkar_overlay_short_only_desc">ជ្រើសរើស adhkar ដែលសមនឹងបន្ទាត់មួយ ឬពីរ ដូច្នេះពពុះអណ្តែតនៅច្បាស់ និងងាយស្រួលអាន។</string>
+    <string name="adhkar_overlay_tap_hint">ប៉ះពពុះដើម្បីច្រានចោលភ្លាមៗ។</string>
 </resources>

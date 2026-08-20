@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar-imi inissititerneq</string>
     <string name="adhkar_show_translation">Nutserineq takuuk</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopi</string>
+    <string name="adhkar_share">Dele</string>
+    <string name="adhkar_overlay_short_only">Atorlugu piviusumik adhkar kisiat</string>
+    <string name="adhkar_overlay_short_only_desc">Toqqaruk adhkar linjenik ataatsimik marlunnilluunniit naleqquttunik, taamaalilluni flytende bubble ersarissumik atuarneqarsinnaallunilu.</string>
+    <string name="adhkar_overlay_tap_hint">Bubble-mik tooruk, taanna ingerlaannaq unitsinniarlugu.</string>
 </resources>

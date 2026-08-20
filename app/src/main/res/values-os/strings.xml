@@ -46,4 +46,12 @@
     <string name="crash_close">Сæхгæнын</string>
     <string name="crash_dismiss">Дарддæр</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل хуыз. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Хъуыраны агур</string>
+    <string name="more_quran_search_desc">Ссарут дзырд, цас арæх æмбæлы æмæ кæм</string>
+    <string name="more_quran_frequency">Хъуыраны дзырдты арæхдзинад</string>
+    <string name="more_quran_frequency_desc">Æнæхъæн мушафы арæхдæр дзырдтæ</string>
+    <string name="more_pause_on_notifications">Æрлæууын кæнын хъусынгæнинæгтыл</string>
+    <string name="more_pause_on_notifications_desc">Дзурын цыбыр рæстæгмæ æрлæууы, хъусынгæнинаг, дзæнгæрæг кæнæ æндæр медиа куы райхъуысы, уæд</string>
+    <string name="more_pause_notifications_enabled">Æххæстгонд — æрцауындзут системæйы параметртæ байгом кæнынæн</string>
+    <string name="more_pause_notifications_disabled">Æнæкусгæ — æрцауындзут, цæмæй æххæстгонд æрцæуа</string>
 </resources>

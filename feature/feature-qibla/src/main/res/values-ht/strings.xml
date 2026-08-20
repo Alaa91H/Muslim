@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Peyi</string>
     <string name="offline_maps_tab_custom">Zòn koutim</string>
     <string name="offline_maps_download">Telechaje</string>
-    <string name="offline_maps_custom_hint">Tape kat la pou w chwazi sant la, epi telechaje zòn ki antoure l.</string>
+    <string name="offline_maps_custom_hint">Panne ak rale kat la pou ankadre zòn ou vle a; ankadreman an mete ajou otomatikman. Ajiste lajè a ak kurseur la.</string>
     <string name="offline_maps_custom_name">Non zòn</string>
-    <string name="offline_maps_custom_tap">Tape kat la pou w chwazi sant la</string>
+    <string name="offline_maps_custom_tap">Deplase kat la pou chwazi zòn nan</string>
     <string name="offline_maps_custom_default_name">Zòn koutim</string>
     <string name="offline_maps_summary_body">%1$d nan %2$d zòn konplè · %3$s telechaje</string>
     <string name="offline_maps_downloading">Telechaje %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom nan</string>
     <string name="mosque_finder_zoom_out">Zoom deyò</string>
     <string name="mosque_finder_nearest">Moske ki pi pre</string>
+    <string name="mosque_finder_go_to">Ale nan li</string>
+    <string name="mosque_finder_find_nearest">Jwenn moske ki pi pre</string>
+    <string name="mosque_finder_expanding">Chèche nan %1$s…</string>
+    <string name="offline_maps_custom_width">Lajè zòn (degre)</string>
+    <string name="offline_maps_storage_warning">Depo ki ba - sèlman %1$s gratis</string>
+    <string name="offline_maps_storage_delete_largest">Efase pi gwo rejyon (%1$s · %2$s)</string>
 </resources>

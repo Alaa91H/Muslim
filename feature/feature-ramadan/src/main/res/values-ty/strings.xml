@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">A haamana\'o mai ia\'u na mua\'tu:</string>
     <string name="ramadan_suhoor_time">Te hopea o te Suhoor (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Te mau haamana\'oraa i rapae i te Ramadan</string>
+    <string name="ramadan_notify_outside_desc">I te roaraa o Ramadan, e ohipa noa te mau faaararaa iftar e suhoor; ma te faaohipa i te reira, e tamau noa ratou i te haere i te tahi atu mau ava\'e.</string>
 </resources>

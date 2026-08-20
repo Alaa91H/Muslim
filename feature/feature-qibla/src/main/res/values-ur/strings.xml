@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">ملک</string>
     <string name="offline_maps_tab_custom">حسب ضرورت علاقہ</string>
     <string name="offline_maps_download">ڈاؤن لوڈ کریں۔</string>
-    <string name="offline_maps_custom_hint">مرکز کو منتخب کرنے کے لیے نقشے کو تھپتھپائیں، پھر اس کے آس پاس کا علاقہ ڈاؤن لوڈ کریں۔</string>
+    <string name="offline_maps_custom_hint">اپنے مطلوبہ علاقے کو فریم کرنے کے لیے نقشے کو پین اور زوم کریں۔ فریم خود بخود اپ ڈیٹ ہوجاتا ہے۔ سلائیڈر کے ساتھ چوڑائی کو ایڈجسٹ کریں۔</string>
     <string name="offline_maps_custom_name">علاقے کا نام</string>
-    <string name="offline_maps_custom_tap">مرکز کو منتخب کرنے کے لیے نقشے کو تھپتھپائیں۔</string>
+    <string name="offline_maps_custom_tap">علاقے کو منتخب کرنے کے لیے نقشے کو منتقل کریں۔</string>
     <string name="offline_maps_custom_default_name">حسب ضرورت علاقہ</string>
     <string name="offline_maps_summary_body">%2$d میں سے %1$d علاقے مکمل · %3$s ڈاؤن لوڈ ہو گئے۔</string>
     <string name="offline_maps_downloading">ڈاؤن لوڈ ہو رہا ہے %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">زوم ان کریں۔</string>
     <string name="mosque_finder_zoom_out">زوم آؤٹ کریں۔</string>
     <string name="mosque_finder_nearest">قریب ترین مسجد</string>
+    <string name="mosque_finder_go_to">اس کے پاس جاؤ</string>
+    <string name="mosque_finder_find_nearest">قریب ترین مسجد تلاش کریں۔</string>
+    <string name="mosque_finder_expanding">%1$s کے اندر تلاش کیا جا رہا ہے…</string>
+    <string name="offline_maps_custom_width">رقبہ کی چوڑائی (ڈگری)</string>
+    <string name="offline_maps_storage_warning">کم اسٹوریج — صرف %1$s مفت</string>
+    <string name="offline_maps_storage_delete_largest">سب سے بڑا علاقہ حذف کریں (%1$s · %2$s)</string>
 </resources>

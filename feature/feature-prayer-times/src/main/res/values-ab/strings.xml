@@ -46,14 +46,12 @@
     <string name="method_egyptian">Мысратәи аҭҵааратә усбарҭа Хада</string>
     <string name="method_france">Франциа (UOIF)</string>
     <string name="method_isna">ISNA (Аҩадатәи Америка)</string>
-    <string name="method_jafari">Џьафари</string>
     <string name="method_karachi">Аԥсылмантә ҭҵаарақәа руниверситет, Карачи</string>
     <string name="method_kuwait">Кувеит</string>
     <string name="method_moonsighting">Амзабаратә комитет</string>
     <string name="method_mwl">Аԥсылманцәа Рдунеизегьтәи Алига</string>
     <string name="method_qatar">Катар</string>
     <string name="method_singapore">Сингапур</string>
-    <string name="method_tehran">Тегерантәи агеофизикатә Институт</string>
     <string name="method_turkey">Дианет Ҭырқәтәыла</string>
     <string name="method_umm_al_qura">Умм ал-Қьуреи (Макка)</string>
     <string name="next_adhan_elapsed">Азан инаркны: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Аамҭақәа рыԥхьаӡара ауам</string>
     <string name="widget_prayer_times_description">Анаҩстәи аныҳәара шьҭахьҟа аԥхьаӡарала</string>
     <string name="widget_prayer_times_label">Аныҳәара аамҭақәа</string>
+    <string name="settings_adhan_volume_vibrate">Абжьы %1$s · Адырдырра %2$s</string>
+    <string name="settings_adhan_vibrate_on">Аҿуп</string>
+    <string name="settings_adhan_vibrate_off">Иҿыхуп</string>
+    <string name="settings_preview_stop">Аԥхьахәаԥшра аанкылара</string>
+    <string name="settings_method_automatic">Автоматла (ҭыԥла)</string>
+    <string name="settings_method_automatic_desc">Апрограмма автоматла иалнахуеит еиҳа ианаало аметод, утәылаи уахьыҟоуи инарықәыршәаны; уажәгьы напыла аметод алхра улшоит ианакәызаалакгьы.</string>
+    <string name="settings_preview_for_prayer">Аԥхьахәаԥшра %1$s азан</string>
 </resources>

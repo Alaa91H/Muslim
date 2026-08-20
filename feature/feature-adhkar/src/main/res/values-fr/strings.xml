@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Paramètres Adhkar</string>
     <string name="adhkar_show_translation">Afficher la traduction</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Copier</string>
+    <string name="adhkar_share">Partager</string>
+    <string name="adhkar_overlay_short_only">Utilisez uniquement des adhkar courts</string>
+    <string name="adhkar_overlay_short_only_desc">Choisissez des adhkar qui tiennent sur une ou deux lignes afin que la bulle flottante reste claire et facile à lire.</string>
+    <string name="adhkar_overlay_tap_hint">Appuyez sur la bulle pour la faire disparaître immédiatement.</string>
 </resources>

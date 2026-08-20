@@ -57,15 +57,22 @@ class RamadanAlarmReceiver : BroadcastReceiver() {
             context.applicationContext, RamadanEntryPoint::class.java,
         )
         CoroutineScope(Dispatchers.IO).launch {
-            // Respect the unified notification manager; still re-arm the alarms.
-            if (context.applicationContext.notificationAllowed(NotificationCategory.Ramadan)) {
+            // Respect the unified manager AND the per-type toggles; still
+            // re-arm the alarms either way.
+            val ramadanSettings = entryPoint.ramadanRepository().settings.first()
+            val typeEnabled = when (type) {
+                TYPE_IFTAR -> ramadanSettings.iftarNotificationEnabled
+                else -> ramadanSettings.suhoorReminderEnabled
+            }
+            if (typeEnabled &&
+                context.applicationContext.notificationAllowed(NotificationCategory.Ramadan)
+            ) {
                 entryPoint.notifier().notify(type)
             }
             val prayerSettings = entryPoint.prayerSettingsRepository().settings.first()
-            val ramadanSettings = entryPoint.ramadanRepository().settings.first()
             entryPoint.ramadanScheduler().schedule(
                 prayerSettings = prayerSettings,
-                suhoorMinutesBefore = ramadanSettings.suhoorMinutesBefore,
+                ramadanSettings = ramadanSettings,
             )
         }
     }
@@ -88,7 +95,7 @@ abstract class RamadanRescheduleReceiver : BroadcastReceiver() {
             val ramadanSettings = entryPoint.ramadanRepository().settings.first()
             entryPoint.ramadanScheduler().schedule(
                 prayerSettings = prayerSettings,
-                suhoorMinutesBefore = ramadanSettings.suhoorMinutesBefore,
+                ramadanSettings = ramadanSettings,
             )
         }
     }

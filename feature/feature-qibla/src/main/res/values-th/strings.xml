@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">ประเทศ</string>
     <string name="offline_maps_tab_custom">พื้นที่ที่กำหนดเอง</string>
     <string name="offline_maps_download">ดาวน์โหลด</string>
-    <string name="offline_maps_custom_hint">แตะแผนที่เพื่อเลือกจุดศูนย์กลาง จากนั้นดาวน์โหลดพื้นที่รอบๆ</string>
+    <string name="offline_maps_custom_hint">แพนและซูมแผนที่เพื่อจัดกรอบพื้นที่ที่คุณต้องการ เฟรมจะอัพเดตอัตโนมัติ ปรับความกว้างด้วยแถบเลื่อน</string>
     <string name="offline_maps_custom_name">ชื่อพื้นที่</string>
-    <string name="offline_maps_custom_tap">แตะแผนที่เพื่อเลือกศูนย์กลาง</string>
+    <string name="offline_maps_custom_tap">เลื่อนแผนที่เพื่อเลือกพื้นที่</string>
     <string name="offline_maps_custom_default_name">พื้นที่ที่กำหนดเอง</string>
     <string name="offline_maps_summary_body">เสร็จสิ้นแล้ว %1$d พื้นที่จาก %2$d พื้นที่ · ดาวน์โหลดแล้ว %3$s แห่ง</string>
     <string name="offline_maps_downloading">กำลังดาวน์โหลด %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">ซูมเข้า</string>
     <string name="mosque_finder_zoom_out">ซูมออก</string>
     <string name="mosque_finder_nearest">มัสยิดที่ใกล้ที่สุด</string>
+    <string name="mosque_finder_go_to">ไปที่มัน</string>
+    <string name="mosque_finder_find_nearest">ค้นหามัสยิดที่ใกล้ที่สุด</string>
+    <string name="mosque_finder_expanding">กำลังค้นหาภายใน %1$s…</string>
+    <string name="offline_maps_custom_width">พื้นที่กว้าง (องศา)</string>
+    <string name="offline_maps_storage_warning">พื้นที่เก็บข้อมูลต่ำ — ฟรีเพียง %1$s</string>
+    <string name="offline_maps_storage_delete_largest">ลบขอบเขตที่ใหญ่ที่สุด (%1$s · %2$s)</string>
 </resources>

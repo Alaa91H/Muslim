@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">پہلے مجھے یاد دلائیں:</string>
     <string name="ramadan_suhoor_time">سحری ختم (فجر): %1$s</string>
     <string name="ramadan_title">رمضان</string>
+    <string name="ramadan_notify_outside">رمضان سے باہر کی یاددہانی</string>
+    <string name="ramadan_notify_outside_desc">رمضان المبارک کے دوران افطار اور سحری کے انتباہات خود بخود چلتے ہیں۔ اس کو چالو کرنے سے وہ دوسرے مہینوں میں چلتے رہتے ہیں۔</string>
 </resources>

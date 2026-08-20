@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Nkhopotse pele:</string>
     <string name="ramadan_suhoor_time">Suhoor ends (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Reminders outside Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Litemoso tsa Iftar le tsa suhoor li sebetsa ka bohona nakong ea Ramadan; enabling this keeps them going in other months.</string>
 </resources>

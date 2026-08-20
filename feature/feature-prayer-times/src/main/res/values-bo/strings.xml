@@ -46,14 +46,12 @@
     <string name="method_egyptian">ཨེ་ཅིབ་སྤྱི་ཁྱབ་ལྟ་ཞིབ་ཚད་ལེན་ཅུའུ།</string>
     <string name="method_france">ཧྥ་རན་སི།</string>
     <string name="method_isna">ISNA (བྱང་ཨ་མེ་རི་ཁ)</string>
-    <string name="method_jafari">ཇ་ཕ་རི།</string>
     <string name="method_karachi">ཀ་ར་ཆིའི་ཁ་ཆེའི་ཚན་རིག་སློབ་ཆེན།</string>
     <string name="method_kuwait">ཀུ་ཝེཊ།</string>
     <string name="method_moonsighting">ཟླ་མཚན་ཚོགས་ཆུང་།</string>
     <string name="method_mwl">ཁ་ཆེ་འཛམ་གླིང་མནའ་འབྲེལ།</string>
     <string name="method_qatar">ཁ་ཏར།</string>
     <string name="method_singapore">སིང་གྷ་ཕོར།</string>
-    <string name="method_tehran">ཏེ་ཧྲན་ས་ཁམས་རིག་པའི་སློབ་གླིང་།</string>
     <string name="method_turkey">ཌི་ཡ་ནེཊ་ཐུར་ཁེ།</string>
     <string name="method_umm_al_qura">ཨུམ་ཨལ་ཀུ་ར་ (Makkah)</string>
     <string name="next_adhan_elapsed">ཨ་དྷན་ནས་བཟུང་: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">དུས་ཚོད་རྩིས་རྒྱག་མི་ཐུབ།</string>
     <string name="widget_prayer_times_description">རྗེས་མའི་སྨོན་ལམ་ལོག་རྩིས་དང་བཅས་པ།</string>
     <string name="widget_prayer_times_label">སྨོན་ལམ་དུས་ཚོད།</string>
+    <string name="settings_adhan_volume_vibrate">སྐད་ཤུགས་ %1$s · འདར་འགུལ་ %2$s</string>
+    <string name="settings_adhan_vibrate_on">ཨང༌།</string>
+    <string name="settings_adhan_vibrate_off">ཁ་བསྡམས།</string>
+    <string name="settings_preview_stop">སྔོན་ལྟ་མཚམས་འཇོག་པ།</string>
+    <string name="settings_method_automatic">རང་འགུལ་ཅན་(ས་གནས་ལྟར།)</string>
+    <string name="settings_method_automatic_desc">ཁྱེད་ཀྱི་རྒྱལ་ཁབ་དང་ས་གནས་ལ་གཞི་བཅོལ་ནས་མཉེན་ཆས་དེས་རང་འགུལ་གྱིས་ཐབས་ལམ་འཚམ་ཤོས་འདེམས་ཀྱི་ཡོད། ཁྱོད་ཀྱིས་ད་དུང་དུས་ནམ་ཡང་ཐབས་ལམ་ལག་ཐོག་ནས་འདེམས་ཐུབ།</string>
+    <string name="settings_preview_for_prayer">སྔོན་ལྟ་ %1$s ཁ་ཆེ།</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Configuración de Adkar</string>
     <string name="adhkar_show_translation">Mostrar traducción</string>
     <string name="adhkar_title">adhkar</string>
+    <string name="adhkar_copy">Copiar</string>
+    <string name="adhkar_share">Compartir</string>
+    <string name="adhkar_overlay_short_only">Utilice únicamente adhkar cortos</string>
+    <string name="adhkar_overlay_short_only_desc">Elija adhkar que se ajusten a una o dos líneas para que la burbuja flotante permanezca clara y fácil de leer.</string>
+    <string name="adhkar_overlay_tap_hint">Toque la burbuja para descartarla inmediatamente.</string>
 </resources>

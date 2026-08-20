@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar nisqa churaykuna</string>
     <string name="adhkar_show_translation">T’ikrayta rikuchiy</string>
     <string name="adhkar_title">Adhkar sutiyuq runa</string>
+    <string name="adhkar_copy">Copia</string>
+    <string name="adhkar_share">Compartir</string>
+    <string name="adhkar_overlay_short_only">Utilizar adhkar corto solamente</string>
+    <string name="adhkar_overlay_short_only_desc">Akllay adhkar huk utaq iskay chiruman tupaq chaynapi chay unupi puriq burbuja chuya hinaspa mana sasa ñawinchanapaq hina kananpaq.</string>
+    <string name="adhkar_overlay_tap_hint">Chay burbujata ñit’iy chaylla qarqonaykipaq.</string>
 </resources>

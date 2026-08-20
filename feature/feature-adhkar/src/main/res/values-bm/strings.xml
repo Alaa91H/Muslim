@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar sigicogo</string>
     <string name="adhkar_show_translation">Bamanankan baarakɛcogo jira</string>
     <string name="adhkar_title">Adhkar ye</string>
+    <string name="adhkar_copy">Kopi kɛ</string>
+    <string name="adhkar_share">Aw ka tila</string>
+    <string name="adhkar_overlay_short_only">Aw bɛ adhkar surun dɔrɔn de kɛ</string>
+    <string name="adhkar_overlay_short_only_desc">Aw bɛ adhkar sugandi minnu bɛ bɛn zana kelen walima fila ma walasa bulonba min bɛ panpan, o ka to ka jɛya ani ka kalan nɔgɔya.</string>
+    <string name="adhkar_overlay_tap_hint">Aw bɛ bugun digi walasa k’a gɛn joona.</string>
 </resources>

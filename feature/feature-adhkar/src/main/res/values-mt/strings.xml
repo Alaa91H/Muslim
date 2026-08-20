@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Settings Adhkar</string>
     <string name="adhkar_show_translation">Uri traduzzjoni</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopja</string>
+    <string name="adhkar_share">Aqsam</string>
+    <string name="adhkar_overlay_short_only">Uża adhkar qasir biss</string>
+    <string name="adhkar_overlay_short_only_desc">Agħżel adhkar li jaqbel linja waħda jew tnejn sabiex il-bużżieqa f\'wiċċ l-ilma tibqa\' ċara u faċli biex tinqara.</string>
+    <string name="adhkar_overlay_tap_hint">Tektek il-bużżieqa biex tkeċċiha immedjatament.</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">Αιγυπτιακή Γενική Αρχή Έρευνας</string>
     <string name="method_france">Γαλλία (UOIF)</string>
     <string name="method_isna">ISNA (Βόρεια Αμερική)</string>
-    <string name="method_jafari">Τζαφάρι</string>
     <string name="method_karachi">Πανεπιστήμιο Ισλαμικών Επιστημών, Καράτσι</string>
     <string name="method_kuwait">Κουβέιτ</string>
     <string name="method_moonsighting">Επιτροπή Σελήνης</string>
     <string name="method_mwl">Μουσουλμανικός Παγκόσμιος Σύνδεσμος</string>
     <string name="method_qatar">Κατάρ</string>
     <string name="method_singapore">Σιγκαπούρη</string>
-    <string name="method_tehran">Ινστιτούτο Γεωφυσικής της Τεχεράνης</string>
     <string name="method_turkey">Diyanet Τουρκία</string>
     <string name="method_umm_al_qura">Ουμ αλ-Κούρα (Μάκκα)</string>
     <string name="next_adhan_elapsed">Από το Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Δεν είναι δυνατός ο υπολογισμός των χρόνων</string>
     <string name="widget_prayer_times_description">Επόμενη προσευχή με αντίστροφη μέτρηση</string>
     <string name="widget_prayer_times_label">Ώρες προσευχής</string>
+    <string name="settings_adhan_volume_vibrate">Ένταση %1$s · Δόνηση %2$s</string>
+    <string name="settings_adhan_vibrate_on">Ενεργό</string>
+    <string name="settings_adhan_vibrate_off">Απενεργοποίηση</string>
+    <string name="settings_preview_stop">Διακοπή προεπισκόπησης</string>
+    <string name="settings_method_automatic">Αυτόματο (ανά τοποθεσία)</string>
+    <string name="settings_method_automatic_desc">Η εφαρμογή επιλέγει αυτόματα την καταλληλότερη μέθοδο με βάση τη χώρα και την τοποθεσία σας. μπορείτε ακόμα να επιλέξετε μια μέθοδο με μη αυτόματο τρόπο ανά πάσα στιγμή.</string>
+    <string name="settings_preview_for_prayer">Προεπισκόπηση %1$s adhan</string>
 </resources>

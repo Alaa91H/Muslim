@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Předchozí</string>
     <string name="quran_recitation_notif_next">Další</string>
+    <string name="quran_download_playback_title">Stahování %1$s</string>
+    <string name="quran_download_playback_detail">Zbývá %1$s · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushafův řád</string>
+    <string name="quran_download_sort_completion">Dokončením</string>
+    <string name="quran_downloads_coverage_title">Pokrytí súry napříč recitátory</string>
+    <string name="quran_downloads_coverage_overall">Plný mushaf napříč recitátory</string>
+    <string name="quran_downloads_coverage_empty">Dosud nebyl stažen žádný zvuk</string>
+    <string name="quran_pause_notif_listener">Pozastavit recitaci u oznámení</string>
+    <string name="quran_reciter_changed_title">Recitátor se změnil</string>
+    <string name="quran_reciter_changed_message">Přehrávání se zastavilo, protože rozsah sahá až do konce Koránu. Začít znovu s %1$s?</string>
+    <string name="quran_reciter_restart">Začněte znovu</string>
+    <string name="quran_reciter_not_now">Teď ne</string>
 </resources>

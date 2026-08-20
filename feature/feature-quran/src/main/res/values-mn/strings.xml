@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Өмнөх</string>
     <string name="quran_recitation_notif_next">Дараа нь</string>
+    <string name="quran_download_playback_title">%1$s-г татаж байна</string>
+    <string name="quran_download_playback_detail">%1$s үлдсэн · %2$s/с</string>
+    <string name="quran_download_sort_mushaf">Мушафын захиалга</string>
+    <string name="quran_download_sort_completion">Дуусгаснаар</string>
+    <string name="quran_downloads_coverage_title">Уншигчдад зориулсан Сураг хамрах хүрээ</string>
+    <string name="quran_downloads_coverage_overall">Уншигчдад зориулсан бүрэн mushaf</string>
+    <string name="quran_downloads_coverage_empty">Одоогоор татаж аваагүй байна</string>
+    <string name="quran_pause_notif_listener">Мэдэгдэл дээр уншлагыг түр зогсоох</string>
+    <string name="quran_reciter_changed_title">Уншигч өөрчлөгдсөн</string>
+    <string name="quran_reciter_changed_message">Коран судрын төгсгөл хүртэл үргэлжлэх тул тоглуулахыг зогсоосон. %1$s-ээр дахин эхлэх үү?</string>
+    <string name="quran_reciter_restart">Дахин эхэл</string>
+    <string name="quran_reciter_not_now">Одоо биш</string>
 </resources>

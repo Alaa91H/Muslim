@@ -46,14 +46,12 @@
     <string name="method_egyptian">ଇଜିପ୍ଟର ଜେନେରାଲ୍ ଅଥରିଟି ଅଫ୍ ସର୍ଭେ |</string>
     <string name="method_france">ଫ୍ରାନ୍ସ (UOIF)</string>
     <string name="method_isna">ISNA (ଉତ୍ତର ଆମେରିକା)</string>
-    <string name="method_jafari">ଜାଫାରି |</string>
     <string name="method_karachi">ଇସଲାମିକ୍ ସାଇନ୍ସ ୟୁନିଭରସିଟି, କରାଚି |</string>
     <string name="method_kuwait">କୁଏତ</string>
     <string name="method_moonsighting">ଚନ୍ଦ୍ରଗ୍ରହଣ କମିଟି</string>
     <string name="method_mwl">ମୁସଲିମ୍ ୱାର୍ଲ୍ଡ ଲିଗ୍ |</string>
     <string name="method_qatar">କାତାର</string>
     <string name="method_singapore">ସିଙ୍ଗାପୁର |</string>
-    <string name="method_tehran">ତେହେରାନ ଇନଷ୍ଟିଚ୍ୟୁଟ୍ ଅଫ୍ ଜିଓଫିଜିକ୍ |</string>
     <string name="method_turkey">ଡିଆନେଟ୍ ତୁର୍କୀ |</string>
     <string name="method_umm_al_qura">ଉମ୍ ଅଲ-କୁରା (ମକ୍କା)</string>
     <string name="next_adhan_elapsed">ଆଡନ୍ ଠାରୁ: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">ସମୟ ଗଣିବାକୁ ଅସମର୍ଥ |</string>
     <string name="widget_prayer_times_description">ଗଣନା ସହିତ ପରବର୍ତ୍ତୀ ପ୍ରାର୍ଥନା |</string>
     <string name="widget_prayer_times_label">ପ୍ରାର୍ଥନା ସମୟ</string>
+    <string name="settings_adhan_volume_vibrate">ଭଲ୍ୟୁମ୍ %1$s · କମ୍ପନ %2$s</string>
+    <string name="settings_adhan_vibrate_on">ଅନ୍</string>
+    <string name="settings_adhan_vibrate_off">ବନ୍ଦ</string>
+    <string name="settings_preview_stop">ପୂର୍ବାବଲୋକନ ବନ୍ଦ କରନ୍ତୁ |</string>
+    <string name="settings_method_automatic">ସ୍ୱୟଂଚାଳିତ (ଅବସ୍ଥାନ ଅନୁଯାୟୀ)</string>
+    <string name="settings_method_automatic_desc">ଆପ୍ ଆପଣଙ୍କ ଦେଶ ଏବଂ ଅବସ୍ଥାନ ଉପରେ ଆଧାର କରି ସ୍ୱୟଂଚାଳିତ ଭାବରେ ସବୁଠାରୁ ଉପଯୁକ୍ତ ପଦ୍ଧତି ବାଛିଥାଏ; ଆପଣ ତଥାପି ଯେକ time ଣସି ସମୟରେ ମାନୁଆଲୀ ଭାବରେ ଏକ ପଦ୍ଧତି ବାଛିପାରିବେ |</string>
+    <string name="settings_preview_for_prayer">ପୂର୍ବାବଲୋକନ %1$s ଆଦନ |</string>
 </resources>

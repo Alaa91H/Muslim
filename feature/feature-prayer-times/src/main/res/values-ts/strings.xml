@@ -46,14 +46,12 @@
     <string name="method_egyptian">Vulawuri bya Ndzavisiso bya le Egipta</string>
     <string name="method_france">Furwa (UOIF) .</string>
     <string name="method_isna">ISNA (Amerika N’walungu) .</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Yunivhesiti ya Sayense ya Vuislem, eKarachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Komiti ya ku Vona N’weti</string>
     <string name="method_mwl">Ntwanano wa Misava wa Mamoslem</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Nhlangano wa Geophysics wa le Tehran</string>
     <string name="method_turkey">Diyanet ya le Turkey</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah) .</string>
     <string name="next_adhan_elapsed">Ku sukela eka Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ku tsandzeka ku hlayela minkarhi</string>
     <string name="widget_prayer_times_description">Xikhongelo lexi landzelaka na ku hlayela endzhaku</string>
     <string name="widget_prayer_times_label">Minkarhi ya xikhongelo</string>
+    <string name="settings_adhan_volume_vibrate">Vholumo %1$s · Ku rhurhumela %2$s</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Yima ku languta ka ha ri emahlweni</string>
+    <string name="settings_method_automatic">Xiothomethi (hi ndhawu) .</string>
+    <string name="settings_method_automatic_desc">App yi hlawula ndlela leyi faneleke swinene hi ku tisungulela hi ku ya hi tiko ra wena ni ndhawu ya wena; wa ha swi kota ku hlawula ndlela hi voko nkarhi wihi na wihi.</string>
+    <string name="settings_preview_for_prayer">Xikombiso xa %1$s adhan</string>
 </resources>

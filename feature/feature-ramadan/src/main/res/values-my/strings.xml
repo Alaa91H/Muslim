@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">ငါ့ကိုအရင်သတိပေးပါ။</string>
     <string name="ramadan_suhoor_time">Suhoor အဆုံး (Fajr): %1$s</string>
     <string name="ramadan_title">ရမ်ဇာန်</string>
+    <string name="ramadan_notify_outside">ရမ်ဇာန်ပြင်ပသတိပေးချက်များ</string>
+    <string name="ramadan_notify_outside_desc">Iftar and suhoor alerts run automatically during Ramadan; ယင်းက ၎င်းတို့ကို အခြားလများတွင် ဆက်လက်လုပ်ဆောင်စေသည်။</string>
 </resources>

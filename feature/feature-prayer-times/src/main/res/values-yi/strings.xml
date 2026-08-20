@@ -46,14 +46,12 @@
     <string name="method_egyptian">מצרי אַלגעמיינע אויטאָריטעט פון יבערבליק</string>
     <string name="method_france">פֿראַנקרייַך (UOIF)</string>
     <string name="method_isna">ISNA (צפון אַמעריקע)</string>
-    <string name="method_jafari">דזשאַפאַרי</string>
     <string name="method_karachi">אוניווערסיטעט פון יסלאַמיק ססיענסעס, קאַראַטשי</string>
     <string name="method_kuwait">קוווייט</string>
     <string name="method_moonsighting">םון־זיכט־קאמיטעט</string>
     <string name="method_mwl">מוסלים וועלט ליגע</string>
     <string name="method_qatar">קאַטאַר</string>
     <string name="method_singapore">סינגאַפּאָר</string>
-    <string name="method_tehran">טעהראַן אינסטיטוט פון געאָפיסיקס</string>
     <string name="method_turkey">Diyanet טערקיי</string>
     <string name="method_umm_al_qura">אום אל-קוראַ (מאַקאַה)</string>
     <string name="next_adhan_elapsed">זינט אַדהאַן: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">ניט געקענט אויסרעכענען צייטן</string>
     <string name="widget_prayer_times_description">ווייַטער תפילה מיט קאָונטדאָוון</string>
     <string name="widget_prayer_times_label">תפילה צייט</string>
+    <string name="settings_adhan_volume_vibrate">באַנד %1$s · ווייבריישאַן %2$s</string>
+    <string name="settings_adhan_vibrate_on">אויף</string>
+    <string name="settings_adhan_vibrate_off">אַוועק</string>
+    <string name="settings_preview_stop">האַלטן פאָרויסיקע ווייַזונג</string>
+    <string name="settings_method_automatic">אָטאַמאַטיק (לויט אָרט)</string>
+    <string name="settings_method_automatic_desc">די אַפּ פּיקס די מערסט פּאַסיק אופֿן אויטאָמאַטיש באזירט אויף דיין לאַנד און אָרט; איר קענען נאָך קלייַבן אַ מעטאָד מאַניואַלי אין קיין צייט.</string>
+    <string name="settings_preview_for_prayer">פאָרויסיקע ווייַזונג %1$s אַדהאַן</string>
 </resources>

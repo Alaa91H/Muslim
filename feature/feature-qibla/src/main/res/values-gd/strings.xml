@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Dùthaich</string>
     <string name="offline_maps_tab_custom">Sgìre gnàthaichte</string>
     <string name="offline_maps_download">Luchdaich sìos</string>
-    <string name="offline_maps_custom_hint">Tap air a’ mhapa gus am meadhan a thaghadh, agus an uairsin luchdaich sìos an sgìre timcheall air.</string>
+    <string name="offline_maps_custom_hint">Pan agus gluais am mapa gus an raon a tha thu ag iarraidh a dhealbhadh; Tha am frèam air ùrachadh gu fèin-ghluasadach. Atharraich an leud leis an sleamhnag.</string>
     <string name="offline_maps_custom_name">Ainm na sgìre</string>
-    <string name="offline_maps_custom_tap">Tap air a’ mhapa gus am meadhan a thaghadh</string>
+    <string name="offline_maps_custom_tap">Gluais am mapa gus an sgìre a thaghadh</string>
     <string name="offline_maps_custom_default_name">Sgìre gnàthaichte</string>
     <string name="offline_maps_summary_body">%1$d de %2$d raon crìochnaichte · %3$s air a luchdachadh sìos</string>
     <string name="offline_maps_downloading">A\' luchdadh a-nuas %1$s… %2$d %%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Gluais a-steach</string>
     <string name="mosque_finder_zoom_out">Gluais a-mach</string>
     <string name="mosque_finder_nearest">Mosg as fhaisge</string>
+    <string name="mosque_finder_go_to">Rach thuige</string>
+    <string name="mosque_finder_find_nearest">Lorg am mosg as fhaisge</string>
+    <string name="mosque_finder_expanding">A\' rannsachadh taobh a-staigh %1$s…</string>
+    <string name="offline_maps_custom_width">leud sgìre (ceumannan)</string>
+    <string name="offline_maps_storage_warning">Stòradh ìosal - dìreach %1$s an-asgaidh</string>
+    <string name="offline_maps_storage_delete_largest">Sguab às an roinn as motha (%1$s · %2$s)</string>
 </resources>

@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">আগে আমাকে মনে করিয়ে দিন:</string>
     <string name="ramadan_suhoor_time">সুহুর শেষ (ফজর): %1$s</string>
     <string name="ramadan_title">রমজান</string>
+    <string name="ramadan_notify_outside">রমজানের বাইরের অনুস্মারক</string>
+    <string name="ramadan_notify_outside_desc">রমজানে ইফতার ও সেহরির সতর্কতা স্বয়ংক্রিয়ভাবে চলে; এটি সক্রিয় করা তাদের অন্যান্য মাসে চলতে থাকে।</string>
 </resources>

@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.muslim.app.feature.quran.data.DownloadRequest
@@ -248,27 +249,61 @@ class QuranDownloadsViewModel @Inject constructor(
     }
 
     /**
-     * Totals across every reciter: how much audio is downloaded on disk.
-     * Re-scanned whenever a download finishes/fails or a delete happens
-     * (the same trigger that refreshes the per-reciter state).
+     * One full scan of the on-disk library across every reciter. Re-scanned
+     * whenever a download finishes/fails or a delete happens (the same trigger
+     * that refreshes the per-reciter state). Everything else (totals, surah
+     * coverage) derives from this single pass so the disk is scanned once.
      */
-    val totalSummary: StateFlow<TotalDownloadSummary> = _refreshTrigger
+    val libraryScan: StateFlow<LibraryScan> = _refreshTrigger
         .flatMapLatest { _ ->
-            flow { emit(summarizeAllReciters()) }
+            flow { emit(scanLibrary()) }
         }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), LibraryScan.EMPTY)
+
+    /** Totals across every reciter: how much audio is downloaded on disk. */
+    val totalSummary: StateFlow<TotalDownloadSummary> = libraryScan
+        .map { TotalDownloadSummary(it.downloadedAyahs, it.downloadedSurahs, it.totalBytes) }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), TotalDownloadSummary(0, 0, 0L))
 
-    private suspend fun summarizeAllReciters(): TotalDownloadSummary {
+    /**
+     * How full each surah is when all reciters are taken together: the union of
+     * downloaded ayahs across every reciter, compared against every slot
+     * (ayahs × reciters in use). Sorted by completion ascending so the surahs
+     * that need finishing appear first. Only surahs with any download appear.
+     */
+    val surahCoverage: StateFlow<List<SurahCoverage>> = combine(libraryScan, surahs) { scan, surahList ->
+        val totals = surahList.associate { it.number to it.ayahCount }
+        if (scan.activeReciterCount == 0) return@combine emptyList()
+        scan.perSurahAyahs
+            .mapNotNull { (surahNumber, ayahs) ->
+                val ayahCount = totals[surahNumber] ?: return@mapNotNull null
+                SurahCoverage(
+                    surahNumber = surahNumber,
+                    ayahCount = ayahCount,
+                    downloadedAyahs = ayahs,
+                    totalSlots = ayahCount.toLong() * scan.activeReciterCount,
+                )
+            }
+            .sortedWith(compareBy({ it.fraction }, { it.surahNumber }))
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    private suspend fun scanLibrary(): LibraryScan {
         var ayahs = 0L
         val surahs = mutableSetOf<Int>()
         var bytes = 0L
+        val perSurah = mutableMapOf<Int, Int>()
+        var activeReciters = 0
         for (reciter in Reciter.Bundled) {
             val state = recitationRepository.downloadState(reciter.id)
+            if (state.downloadedAyahs > 0) activeReciters++
             ayahs += state.downloadedAyahs
             surahs += state.surahCounts.keys
             bytes += state.totalBytes
+            state.surahCounts.forEach { (number, count) ->
+                perSurah[number] = (perSurah[number] ?: 0) + count
+            }
         }
-        return TotalDownloadSummary(ayahs, surahs.size, bytes)
+        return LibraryScan(ayahs, surahs.size, bytes, perSurah, activeReciters)
     }
 
     private fun estimate(
@@ -317,3 +352,35 @@ data class TotalDownloadSummary(
     val downloadedSurahs: Int,
     val totalBytes: Long,
 )
+
+/**
+ * One full pass over the on-disk library across every reciter, so totals and
+ * per-surah coverage share the same (single) disk scan.
+ */
+data class LibraryScan(
+    val downloadedAyahs: Long,
+    val downloadedSurahs: Int,
+    val totalBytes: Long,
+    /** surahNumber -> ayahs downloaded across ALL reciters (each reciter counted once). */
+    val perSurahAyahs: Map<Int, Int>,
+    /** How many reciters have at least one ayah on disk. */
+    val activeReciterCount: Int,
+) {
+    companion object {
+        val EMPTY = LibraryScan(0, 0, 0L, emptyMap(), 0)
+    }
+}
+
+/**
+ * How full one surah is across all reciters together: the number of ayah
+ * "slots" (ayahs × active reciters) that are filled on disk.
+ */
+data class SurahCoverage(
+    val surahNumber: Int,
+    val ayahCount: Int,
+    val downloadedAyahs: Int,
+    val totalSlots: Long,
+) {
+    val fraction: Float
+        get() = if (totalSlots > 0) (downloadedAyahs.toFloat() / totalSlots).coerceIn(0f, 1f) else 0f
+}

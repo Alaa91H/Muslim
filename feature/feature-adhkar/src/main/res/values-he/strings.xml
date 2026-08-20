@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">הגדרות Adhkar</string>
     <string name="adhkar_show_translation">הצג תרגום</string>
     <string name="adhkar_title">אדקאר</string>
+    <string name="adhkar_copy">העתק</string>
+    <string name="adhkar_share">שתף</string>
+    <string name="adhkar_overlay_short_only">השתמש ב-adhkar קצר בלבד</string>
+    <string name="adhkar_overlay_short_only_desc">בחר adhkar שמתאימים לקו אחד או שניים כך שהבועה המרחפת תישאר ברורה וקלה לקריאה.</string>
+    <string name="adhkar_overlay_tap_hint">הקש על הבועה כדי לבטל אותה מיד.</string>
 </resources>

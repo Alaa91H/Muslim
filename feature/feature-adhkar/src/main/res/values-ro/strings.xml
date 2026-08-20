@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Setări Adhkar</string>
     <string name="adhkar_show_translation">Afișați traducerea</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Copiere</string>
+    <string name="adhkar_share">Distribuie</string>
+    <string name="adhkar_overlay_short_only">Folosiți numai adhkar scurt</string>
+    <string name="adhkar_overlay_short_only_desc">Alegeți adhkar care se potrivește cu una sau două linii, astfel încât bula plutitoare să rămână clară și ușor de citit.</string>
+    <string name="adhkar_overlay_tap_hint">Atingeți balonul pentru a o închide imediat.</string>
 </resources>

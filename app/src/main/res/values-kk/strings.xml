@@ -46,4 +46,12 @@
     <string name="crash_close">Жабу</string>
     <string name="crash_dismiss">Жалғастыру</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإظهار أو إككى. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Құранды іздеңіз</string>
+    <string name="more_quran_search_desc">Сөзді табыңыз, ол қаншалықты жиі және қайда пайда болады</string>
+    <string name="more_quran_frequency">Құран сөздерінің жиілігі</string>
+    <string name="more_quran_frequency_desc">Бүкіл мусхафта жиі кездесетін сөздер</string>
+    <string name="more_pause_on_notifications">Хабарландыруларда оқуды кідірту</string>
+    <string name="more_pause_on_notifications_desc">Хабарландыру, қоңырау немесе басқа мультимедиа ойнатылып жатқанда, оқу қысқа уақытқа тоқтатылады</string>
+    <string name="more_pause_notifications_enabled">Қосылған — жүйе параметрлерін ашу үшін түртіңіз</string>
+    <string name="more_pause_notifications_disabled">Өшірулі — қосу үшін түртіңіз</string>
 </resources>

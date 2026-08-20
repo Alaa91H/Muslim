@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Алдыңғы</string>
     <string name="quran_recitation_notif_next">Келесі</string>
+    <string name="quran_download_playback_title">Жүктеп алынуда %1$s</string>
+    <string name="quran_download_playback_detail">%1$s қалды · %2$s/с</string>
+    <string name="quran_download_sort_mushaf">Мушаф тәртібі</string>
+    <string name="quran_download_sort_completion">Аяқтау бойынша</string>
+    <string name="quran_downloads_coverage_title">Сүрені оқушылар арасында қамту</string>
+    <string name="quran_downloads_coverage_overall">Қарилар арасында толық мушаф</string>
+    <string name="quran_downloads_coverage_empty">Әлі жүктеп алынған аудио жоқ</string>
+    <string name="quran_pause_notif_listener">Хабарландыруларда оқуды кідірту</string>
+    <string name="quran_reciter_changed_title">Айтушы өзгерді</string>
+    <string name="quran_reciter_changed_message">Ойнату тоқтатылды, себебі ауқым Құранның соңына дейін созылады. %1$s деп қайта бастау керек пе?</string>
+    <string name="quran_reciter_restart">Қайтадан бастаңыз</string>
+    <string name="quran_reciter_not_now">Қазір емес</string>
 </resources>

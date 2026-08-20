@@ -46,14 +46,12 @@
     <string name="method_egyptian">Yn Ard-Sheer Ard-Sheeragh Egyptianagh</string>
     <string name="method_france">Yn Rank (UOIF)</string>
     <string name="method_isna">ISNA (Americk Hwoaie)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Ollooscoill ny Scienceyn Islamagh, Karachi</string>
     <string name="method_kuwait">Kweeit.</string>
     <string name="method_moonsighting">Coonceil Moonighting</string>
     <string name="method_mwl">Coonceil ny Mosleym</string>
     <string name="method_qatar">Qatar;</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Institiud Geophysgagh Tehran</string>
     <string name="method_turkey">Diyanet Turkey</string>
     <string name="method_umm_al_qura">Umm al Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Veih Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Cha nel oo ry-hoiaghey traaghyn</string>
     <string name="widget_prayer_times_description">Padjer er-gerrey lesh countdown</string>
     <string name="widget_prayer_times_label">Traaghyn padjer</string>
+    <string name="settings_adhan_volume_vibrate">Volm %1$s · Creeaght %2$s</string>
+    <string name="settings_adhan_vibrate_on">Er</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Stop ro-akin</string>
+    <string name="settings_method_automatic">Automagh (er-yn-oyr dy vel ynnyd)</string>
+    <string name="settings_method_automatic_desc">Ta\'n app pick y raad s\'cosoylagh automatically er y thalloo as \'sy \'nnyd; t\'ou uss geddyn stiagh \'sy \'moddey\' \'sy laue \'sy traa erbee.</string>
+    <string name="settings_preview_for_prayer">Roish-akin %1$s adhan</string>
 </resources>

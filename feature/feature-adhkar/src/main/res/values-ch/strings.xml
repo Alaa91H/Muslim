@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar na setbisio siha</string>
     <string name="adhkar_show_translation">Fa\'nu\'i i tinige\'</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopia</string>
+    <string name="adhkar_share">Na\'i</string>
+    <string name="adhkar_overlay_short_only">Usa adhkar ha\'</string>
+    <string name="adhkar_overlay_short_only_desc">Na\'i adhkar ni\' fitme gi unu pat dos na liñguahe ya i floating bubble u klaru yan fa\'tinas.</string>
+    <string name="adhkar_overlay_tap_hint">Påtta i bula para un na\'suha ensegidas.</string>
 </resources>

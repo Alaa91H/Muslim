@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d के बा।</string>
     <string name="quran_recitation_notif_previous">पिछला बा</string>
     <string name="quran_recitation_notif_next">आगे के बात बा</string>
+    <string name="quran_download_playback_title">डाउनलोड हो रहल बा %1$s</string>
+    <string name="quran_download_playback_detail">%1$s बाईं ओर · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">मुशफ के आदेश बा</string>
+    <string name="quran_download_sort_completion">पूरा होखला के बाद</string>
+    <string name="quran_downloads_coverage_title">पाठक लोग के बीच सूरह के कवरेज</string>
+    <string name="quran_downloads_coverage_overall">पाठक लोग के पार पूरा मुशफ</string>
+    <string name="quran_downloads_coverage_empty">अबहीं ले कवनो ऑडियो डाउनलोड नइखे भइल</string>
+    <string name="quran_pause_notif_listener">सूचना पर पाठ के रोक दिहल जाव</string>
+    <string name="quran_reciter_changed_title">पाठक बदल गइलन</string>
+    <string name="quran_reciter_changed_message">प्लेबैक बंद हो गइल काहे कि रेंज कुरान के अंत तक चलेला। %1$s से फिर से शुरू करीं?</string>
+    <string name="quran_reciter_restart">फेर से शुरू कर दीं</string>
+    <string name="quran_reciter_not_now">अब ना</string>
 </resources>

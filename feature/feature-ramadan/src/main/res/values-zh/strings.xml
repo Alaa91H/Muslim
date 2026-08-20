@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">之前提醒我一下：</string>
     <string name="ramadan_suhoor_time">封斋结束（Fajr）：%1$s</string>
     <string name="ramadan_title">斋月</string>
+    <string name="ramadan_notify_outside">斋月以外的提醒</string>
+    <string name="ramadan_notify_outside_desc">斋月期间开斋和封斋警报自动运行；启用此功能可以让他们在其他月份继续前进。</string>
 </resources>

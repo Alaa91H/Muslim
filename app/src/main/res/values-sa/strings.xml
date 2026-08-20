@@ -46,4 +46,12 @@
     <string name="crash_close">निमील्यताम्</string>
     <string name="crash_dismiss">निरन्तरं कुर्वन्तु</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">कुरान अन्वेषण करें</string>
+    <string name="more_quran_search_desc">शब्दं अन्वेष्टुम्, कियत्वारं दृश्यते, कुत्र च</string>
+    <string name="more_quran_frequency">कुरान शब्द आवृत्ति</string>
+    <string name="more_quran_frequency_desc">समग्रे मुशफस्य बहुधा शब्दाः</string>
+    <string name="more_pause_on_notifications">सूचनासु पाठं विरामयन्तु</string>
+    <string name="more_pause_on_notifications_desc">यदा सूचना, रङ्गः अन्यः माध्यमः वा वाद्यते तदा पाठः संक्षेपेण विरामं करोति</string>
+    <string name="more_pause_notifications_enabled">सक्षमम् — प्रणालीसेटिंग्स् उद्घाटयितुं ट्याप् कुर्वन्तु</string>
+    <string name="more_pause_notifications_disabled">अक्षमम् — सक्षमीकरणाय ट्याप् कुर्वन्तु</string>
 </resources>

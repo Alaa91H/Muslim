@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">דערמאנט מיר פריער:</string>
     <string name="ramadan_suhoor_time">סוהאָר ענדס (פאַדזשר): %1$s</string>
     <string name="ramadan_title">ראַמאַדאַן</string>
+    <string name="ramadan_notify_outside">רימיינדערז אַרויס ראַמאַדאַן</string>
+    <string name="ramadan_notify_outside_desc">Iftar און suhoor אַלערץ לויפן אויטאָמאַטיש בעשאַס ראַמאַדאַן; געבן דעם האלט זיי געגאנגען אין אנדערע חדשים.</string>
 </resources>

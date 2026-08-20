@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar тохиргоо</string>
     <string name="adhkar_show_translation">Орчуулга харуулах</string>
     <string name="adhkar_title">Адхкар</string>
+    <string name="adhkar_copy">Хуулах</string>
+    <string name="adhkar_share">Хуваалцах</string>
+    <string name="adhkar_overlay_short_only">Зөвхөн богино adhkar ашиглана уу</string>
+    <string name="adhkar_overlay_short_only_desc">Хөвөгч бөмбөлөг тодорхой, уншихад хялбар байхын тулд нэг эсвэл хоёр мөрөнд тохирох adhkar-ыг сонго.</string>
+    <string name="adhkar_overlay_tap_hint">Бөмбөлгийг нэн даруй хаахын тулд товшиж дарна уу.</string>
 </resources>

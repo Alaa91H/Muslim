@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Mipangilio ya Adhkar</string>
     <string name="adhkar_show_translation">Onyesha tafsiri</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Nakili</string>
+    <string name="adhkar_share">Shiriki</string>
+    <string name="adhkar_overlay_short_only">Tumia adhkar fupi pekee</string>
+    <string name="adhkar_overlay_short_only_desc">Chagua adhkar inayolingana na mstari mmoja au miwili ili kiputo kinachoelea kibaki wazi na rahisi kusoma.</string>
+    <string name="adhkar_overlay_tap_hint">Gusa kiputo ili kuiondoa mara moja.</string>
 </resources>

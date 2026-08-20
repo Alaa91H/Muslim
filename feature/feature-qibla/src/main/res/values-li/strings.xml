@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Land</string>
     <string name="offline_maps_tab_custom">Aangepaste gebeed</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">Tik op de kaart um ‘t middelpunt te keze en download daonao ‘t gebeed um ‘t heen.</string>
+    <string name="offline_maps_custom_hint">Panne en zoom de kaart um ‘t gewenste gebeed in ‘n kader te bringe; ‘t kader weert automatisch bijgewerk. Pas de breidte aan mit de schuif.</string>
     <string name="offline_maps_custom_name">Gebiednaom</string>
-    <string name="offline_maps_custom_tap">Tik op de kaart um ‘t middelpunt te keze</string>
+    <string name="offline_maps_custom_tap">Verplaots de kaart um ut gebeed te selecteren</string>
     <string name="offline_maps_custom_default_name">Aangepaste gebeed</string>
     <string name="offline_maps_summary_body">%1$d vaan %2$d gebede voltooid · %3$s gedownload</string>
     <string name="offline_maps_downloading">%1$s downloade… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom in</string>
     <string name="mosque_finder_zoom_out">Zoom oet</string>
     <string name="mosque_finder_nearest">De kortste moskee</string>
+    <string name="mosque_finder_go_to">Go d’r nao</string>
+    <string name="mosque_finder_find_nearest">Vind de dichtstbijzijnde moskee</string>
+    <string name="mosque_finder_expanding">Zoeke binne %1$s…</string>
+    <string name="offline_maps_custom_width">Oppervlaktebreedte (grade)</string>
+    <string name="offline_maps_storage_warning">Weineg opsjlaag — mer %1$s gratis</string>
+    <string name="offline_maps_storage_delete_largest">Verwijder de groetste regio (%1$s · %2$s)</string>
 </resources>

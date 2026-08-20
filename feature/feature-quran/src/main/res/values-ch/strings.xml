@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Manmofo\'na</string>
     <string name="quran_recitation_notif_next">Sigiente</string>
+    <string name="quran_download_playback_title">Hu na\'halom %1$s</string>
+    <string name="quran_download_playback_detail">%1$s left · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf na otden</string>
+    <string name="quran_download_sort_completion">Yanggen ma kumple</string>
+    <string name="quran_downloads_coverage_title">I kubre-ña i Surah gi todu i manma\'estra yan manma\'estro</string>
+    <string name="quran_downloads_coverage_overall">Todu i mushaf gi todu i manma\'estra yan manma\'estro</string>
+    <string name="quran_downloads_coverage_empty">Ti ma na\'halom i audio på\'go</string>
+    <string name="quran_pause_notif_listener">Na\'para i tinige\' gi i notisia siha</string>
+    <string name="quran_reciter_changed_title">Ma na\'lå\'la\' i kånta</string>
+    <string name="quran_reciter_changed_message">Ma na\'para i lina\'la\' sa\' i lina\'la\'-ña asta i uttemo na påtten i Quran. Tutuhon ta\'lo gi %1$s?</string>
+    <string name="quran_reciter_restart">tutuhon ta\'lo</string>
+    <string name="quran_reciter_not_now">Ti på\'go</string>
 </resources>

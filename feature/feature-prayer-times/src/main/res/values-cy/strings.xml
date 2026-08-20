@@ -46,14 +46,12 @@
     <string name="method_egyptian">Awdurdod Arolwg Cyffredinol yr Aifft</string>
     <string name="method_france">Ffrainc (UOIF)</string>
     <string name="method_isna">ISNA (Gogledd America)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Prifysgol y Gwyddorau Islamaidd, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Pwyllgor Goleuo\'r Lleuad</string>
     <string name="method_mwl">Cynghrair Mwslemaidd y Byd</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapôr</string>
-    <string name="method_tehran">Sefydliad Geoffiseg Tehran</string>
     <string name="method_turkey">Diyanet Twrci</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Ers Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Methu cyfrifo amseroedd</string>
     <string name="widget_prayer_times_description">Gweddi nesaf gyda chyfri</string>
     <string name="widget_prayer_times_label">Amseroedd gweddi</string>
+    <string name="settings_adhan_volume_vibrate">Cyfrol %1$s · Dirgryniad %2$s</string>
+    <string name="settings_adhan_vibrate_on">Ar</string>
+    <string name="settings_adhan_vibrate_off">I ffwrdd</string>
+    <string name="settings_preview_stop">Stopio rhagolwg</string>
+    <string name="settings_method_automatic">Awtomatig (yn ôl lleoliad)</string>
+    <string name="settings_method_automatic_desc">Mae\'r ap yn dewis y dull mwyaf addas yn awtomatig yn seiliedig ar eich gwlad a\'ch lleoliad; gallwch barhau i ddewis dull â llaw ar unrhyw adeg.</string>
+    <string name="settings_preview_for_prayer">Rhagolwg %1$s adhan</string>
 </resources>

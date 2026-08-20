@@ -46,14 +46,12 @@
     <string name="method_egyptian">Autoritatea Generală Egipteană de Supraveghere</string>
     <string name="method_france">Franța (UOIF)</string>
     <string name="method_isna">ISNA (America de Nord)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Universitatea de Științe Islamice, Karachi</string>
     <string name="method_kuwait">Kuweit</string>
     <string name="method_moonsighting">Comitetul de observare a lunii</string>
     <string name="method_mwl">Liga Mondială Musulmană</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Institutul de Geofizică din Teheran</string>
     <string name="method_turkey">Diyanet Turcia</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">De la Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Nu se pot calcula timpii</string>
     <string name="widget_prayer_times_description">Următoarea rugăciune cu numărătoare inversă</string>
     <string name="widget_prayer_times_label">Orele de rugăciune</string>
+    <string name="settings_adhan_volume_vibrate">Volum %1$s · Vibrație %2$s</string>
+    <string name="settings_adhan_vibrate_on">Pornit</string>
+    <string name="settings_adhan_vibrate_off">Oprit</string>
+    <string name="settings_preview_stop">Opriți previzualizarea</string>
+    <string name="settings_method_automatic">Automat (după locație)</string>
+    <string name="settings_method_automatic_desc">Aplicația alege automat cea mai potrivită metodă în funcție de țara și locația dvs.; puteți alege în continuare o metodă manual în orice moment.</string>
+    <string name="settings_preview_for_prayer">Previzualizează %1$s adhan</string>
 </resources>

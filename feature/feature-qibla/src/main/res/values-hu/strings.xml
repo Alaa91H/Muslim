@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Ország</string>
     <string name="offline_maps_tab_custom">Egyedi terület</string>
     <string name="offline_maps_download">Letöltés</string>
-    <string name="offline_maps_custom_hint">Koppintson a térképre a központ kiválasztásához, majd töltse le a körülötte lévő területet.</string>
+    <string name="offline_maps_custom_hint">Pásztázzon és nagyítson a térképen a kívánt terület keretezéséhez; a keret automatikusan frissül. Állítsa be a szélességet a csúszkával.</string>
     <string name="offline_maps_custom_name">Terület neve</string>
-    <string name="offline_maps_custom_tap">Érintse meg a térképet a középpont kiválasztásához</string>
+    <string name="offline_maps_custom_tap">Mozgassa a térképet a terület kiválasztásához</string>
     <string name="offline_maps_custom_default_name">Egyedi terület</string>
     <string name="offline_maps_summary_body">%1$d/%2$d terület befejeződött · %3$s letöltve</string>
     <string name="offline_maps_downloading">Letöltés %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Nagyítás</string>
     <string name="mosque_finder_zoom_out">Kicsinyítés</string>
     <string name="mosque_finder_nearest">Legközelebbi mecset</string>
+    <string name="mosque_finder_go_to">Menj rá</string>
+    <string name="mosque_finder_find_nearest">Keresse meg a legközelebbi mecsetet</string>
+    <string name="mosque_finder_expanding">Keresés a következőn belül: %1$s…</string>
+    <string name="offline_maps_custom_width">Terület szélessége (fokban)</string>
+    <string name="offline_maps_storage_warning">Kevés tárhely – csak %1$s ingyenes</string>
+    <string name="offline_maps_storage_delete_largest">A legnagyobb régió törlése (%1$s · %2$s)</string>
 </resources>

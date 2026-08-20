@@ -57,6 +57,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.HajjCategory
 import org.muslim.app.feature.learn.domain.HajjStep
@@ -94,6 +95,10 @@ fun HajjUmrahScreen(
     val currentTopic = topic
     val hajjCheckedSteps by viewModel.hajjCheckedSteps.collectAsStateWithLifecycle()
     val hajjCompanionEnabled by viewModel.hajjCompanionEnabled.collectAsStateWithLifecycle()
+
+    // English renderings are hidden for Arabic UI: each language shows its
+    // own texts — an Arabic reader reads the Arabic content only.
+    val showEnglishFallback = AppLanguage.showEnglishFallback()
 
     val title = when {
         currentTopic != null -> currentTopic!!.title
@@ -139,18 +144,21 @@ fun HajjUmrahScreen(
                     topic = currentTopic!!,
                     checkedSteps = hajjCheckedSteps,
                     onToggleStep = viewModel::toggleHajjStep,
+                    showEnglishFallback = showEnglishFallback,
                     modifier = Modifier.padding(innerPadding),
                 )
             }
             currentCategory != null -> {
                 TopicList(
                     category = currentCategory!!,
+                    showEnglishFallback = showEnglishFallback,
                     modifier = Modifier.padding(innerPadding),
                     onOpen = { topic = it },
                 )
             }
             else -> {
                 CategoryHub(
+                    showEnglishFallback = showEnglishFallback,
                     modifier = Modifier.padding(innerPadding),
                     onOpen = { category = it },
                     onOpenCalculator = { showCalculator = true },
@@ -164,6 +172,7 @@ fun HajjUmrahScreen(
 
 @Composable
 private fun CategoryHub(
+    showEnglishFallback: Boolean,
     modifier: Modifier = Modifier,
     onOpen: (HajjCategory) -> Unit,
     onOpenCalculator: () -> Unit,
@@ -230,12 +239,14 @@ private fun CategoryHub(
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                         Spacer(Modifier.height(2.dp))
-                        Text(
-                            text = stringResource(R.string.hajj_calc_entry_subtitle_en),
-                            style = MaterialTheme.typography.bodySmall,
-                            fontStyle = FontStyle.Italic,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
-                        )
+                        if (showEnglishFallback) {
+                            Text(
+                                text = stringResource(R.string.hajj_calc_entry_subtitle_en),
+                                style = MaterialTheme.typography.bodySmall,
+                                fontStyle = FontStyle.Italic,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
+                            )
+                        }
                     }
                 }
             }
@@ -278,12 +289,14 @@ private fun CategoryHub(
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                         Spacer(Modifier.height(2.dp))
-                        Text(
-                            text = stringResource(R.string.hajj_companion_subtitle_en),
-                            style = MaterialTheme.typography.bodySmall,
-                            fontStyle = FontStyle.Italic,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
-                        )
+                        if (showEnglishFallback) {
+                            Text(
+                                text = stringResource(R.string.hajj_companion_subtitle_en),
+                                style = MaterialTheme.typography.bodySmall,
+                                fontStyle = FontStyle.Italic,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
+                            )
+                        }
                     }
                     Switch(
                         checked = hajjCompanionEnabled,
@@ -330,13 +343,15 @@ private fun CategoryHub(
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
-                        Spacer(Modifier.height(2.dp))
-                        Text(
-                            text = category.titleEn + " · " + category.subtitleEn,
-                            style = MaterialTheme.typography.bodySmall,
-                            fontStyle = FontStyle.Italic,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
-                        )
+                        if (showEnglishFallback) {
+                            Spacer(Modifier.height(2.dp))
+                            Text(
+                                text = category.titleEn + " · " + category.subtitleEn,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontStyle = FontStyle.Italic,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
+                            )
+                        }
                         Spacer(Modifier.height(4.dp))
                         Text(
                             text = stringResource(
@@ -356,6 +371,7 @@ private fun CategoryHub(
 @Composable
 private fun TopicList(
     category: HajjCategory,
+    showEnglishFallback: Boolean,
     modifier: Modifier = Modifier,
     onOpen: (HajjTopic) -> Unit,
 ) {
@@ -375,13 +391,15 @@ private fun TopicList(
                 supportingContent = {
                     Column {
                         Text(topic.summary, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                        Spacer(Modifier.height(2.dp))
-                        Text(
-                            text = topic.summaryEn,
-                            style = MaterialTheme.typography.bodySmall,
-                            fontStyle = FontStyle.Italic,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
-                        )
+                        if (showEnglishFallback) {
+                            Spacer(Modifier.height(2.dp))
+                            Text(
+                                text = topic.summaryEn,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontStyle = FontStyle.Italic,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
+                            )
+                        }
                     }
                 },
                 leadingContent = {
@@ -416,6 +434,7 @@ private fun TopicDetail(
     topic: HajjTopic,
     checkedSteps: Set<String>,
     onToggleStep: (String, Int) -> Unit,
+    showEnglishFallback: Boolean,
     modifier: Modifier = Modifier,
 ) {
     val doneCount = topic.steps.indices.count { "${topic.id}:$it" in checkedSteps }
@@ -437,13 +456,15 @@ private fun TopicDetail(
                     color = MaterialTheme.colorScheme.primary,
                     textAlign = TextAlign.Center,
                 )
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    text = topic.titleEn,
-                    style = MaterialTheme.typography.titleSmall,
-                    fontStyle = FontStyle.Italic,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+                if (showEnglishFallback) {
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        text = topic.titleEn,
+                        style = MaterialTheme.typography.titleSmall,
+                        fontStyle = FontStyle.Italic,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
             }
         }
 
@@ -457,6 +478,7 @@ private fun TopicDetail(
                 step = step,
                 checked = "${topic.id}:$index" in checkedSteps,
                 onCheckedChange = { onToggleStep(topic.id, index) },
+                showEnglishFallback = showEnglishFallback,
             )
         }
 
@@ -484,14 +506,16 @@ private fun TopicDetail(
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSecondaryContainer,
                         )
-                        topic.notesEn?.let { notesEn ->
-                            Spacer(Modifier.height(6.dp))
-                            Text(
-                                text = notesEn,
-                                style = MaterialTheme.typography.bodyMedium,
-                                fontStyle = FontStyle.Italic,
-                                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.85f),
-                            )
+                        if (showEnglishFallback) {
+                            topic.notesEn?.let { notesEn ->
+                                Spacer(Modifier.height(6.dp))
+                                Text(
+                                    text = notesEn,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    fontStyle = FontStyle.Italic,
+                                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.85f),
+                                )
+                            }
                         }
                     }
                 }
@@ -541,6 +565,7 @@ private fun StepCard(
     step: HajjStep,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
+    showEnglishFallback: Boolean,
 ) {
     Card(
         modifier = Modifier
@@ -575,18 +600,20 @@ private fun StepCard(
                 }
                 Spacer(Modifier.width(12.dp))
                 Column(modifier = Modifier.weight(1f)) {
-                    Text(
-                        text = step.title,
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    Text(
-                        text = step.titleEn,
-                        style = MaterialTheme.typography.bodySmall,
-                        fontStyle = FontStyle.Italic,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
+                        Text(
+                            text = step.title,
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold,
+                        )
+                        if (showEnglishFallback) {
+                            Text(
+                                text = step.titleEn,
+                                style = MaterialTheme.typography.bodySmall,
+                                fontStyle = FontStyle.Italic,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    }
                 Checkbox(
                     checked = checked,
                     onCheckedChange = onCheckedChange,
@@ -598,12 +625,14 @@ private fun StepCard(
                 label = stringResource(R.string.hajj_section_what),
                 text = step.what,
             )
-            Spacer(Modifier.height(8.dp))
-            SectionText(
-                label = stringResource(R.string.hajj_section_what_en),
-                text = step.whatEn,
-                italic = true,
-            )
+            if (showEnglishFallback) {
+                Spacer(Modifier.height(8.dp))
+                SectionText(
+                    label = stringResource(R.string.hajj_section_what_en),
+                    text = step.whatEn,
+                    italic = true,
+                )
+            }
 
             step.evidence?.let { evidence ->
                 Spacer(Modifier.height(10.dp))
@@ -614,13 +643,15 @@ private fun StepCard(
                     text = evidence,
                     contentColor = MaterialTheme.colorScheme.primary,
                 )
-                step.evidenceEn?.let { evidenceEn ->
-                    Spacer(Modifier.height(6.dp))
-                    SectionText(
-                        label = stringResource(R.string.hajj_section_evidence_en),
-                        text = evidenceEn,
-                        italic = true,
-                    )
+                if (showEnglishFallback) {
+                    step.evidenceEn?.let { evidenceEn ->
+                        Spacer(Modifier.height(6.dp))
+                        SectionText(
+                            label = stringResource(R.string.hajj_section_evidence_en),
+                            text = evidenceEn,
+                            italic = true,
+                        )
+                    }
                 }
             }
 
@@ -633,14 +664,16 @@ private fun StepCard(
                     text = why,
                     contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
                 )
-                step.whyEn?.let { whyEn ->
-                    Spacer(Modifier.height(6.dp))
-                    SectionText(
-                        label = stringResource(R.string.hajj_section_why_en),
-                        text = whyEn,
-                        italic = true,
-                        contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-                    )
+                if (showEnglishFallback) {
+                    step.whyEn?.let { whyEn ->
+                        Spacer(Modifier.height(6.dp))
+                        SectionText(
+                            label = stringResource(R.string.hajj_section_why_en),
+                            text = whyEn,
+                            italic = true,
+                            contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                        )
+                    }
                 }
             }
 
@@ -653,14 +686,16 @@ private fun StepCard(
                     text = say,
                     contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
                 )
-                step.sayEn?.let { sayEn ->
-                    Spacer(Modifier.height(6.dp))
-                    SectionText(
-                        label = stringResource(R.string.hajj_section_say_en),
-                        text = sayEn,
-                        italic = true,
-                        contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
-                    )
+                if (showEnglishFallback) {
+                    step.sayEn?.let { sayEn ->
+                        Spacer(Modifier.height(6.dp))
+                        SectionText(
+                            label = stringResource(R.string.hajj_section_say_en),
+                            text = sayEn,
+                            italic = true,
+                            contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+                        )
+                    }
                 }
             }
         }

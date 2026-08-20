@@ -173,17 +173,6 @@ class TasbihCounterTest {
     }
 
     @Test
-    fun `target sound tone ids are distinct`() {
-        assertThat(
-            setOf(
-                TargetSoundSettings.TONE_NOTIFICATION,
-                TargetSoundSettings.TONE_RINGTONE,
-                TargetSoundSettings.TONE_ALARM,
-            ),
-        ).hasSize(3)
-    }
-
-    @Test
     fun `dhikr phrases use only western digits`() {
         val arabicIndic = "\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669"
         TasbihPhrase.entries.forEach {

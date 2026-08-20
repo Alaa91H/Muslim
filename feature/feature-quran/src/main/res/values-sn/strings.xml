@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Previous</string>
     <string name="quran_recitation_notif_next">Next</string>
+    <string name="quran_download_playback_title">Kudhaunirodha %1$s</string>
+    <string name="quran_download_playback_detail">%1$s asara · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf order</string>
+    <string name="quran_download_sort_completion">Nokupedza</string>
+    <string name="quran_downloads_coverage_title">Kufukidzwa kweSurah kune vaverengi</string>
+    <string name="quran_downloads_coverage_overall">mushaf yakazara kune vanoverenga</string>
+    <string name="quran_downloads_coverage_empty">Hapasati pave neaudio yakadhaunirodwa</string>
+    <string name="quran_pause_notif_listener">Imbomira kudzokorora pazviziviso</string>
+    <string name="quran_reciter_changed_title">Reciter yakachinja</string>
+    <string name="quran_reciter_changed_message">Kutamba kwakamira nekuti chiyero chinosvika panoperera Quran. Tanga zvakare ne%1$s?</string>
+    <string name="quran_reciter_restart">Tanga zvakare</string>
+    <string name="quran_reciter_not_now">Kwete ikozvino</string>
 </resources>

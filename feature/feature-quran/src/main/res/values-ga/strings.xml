@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Roimhe Seo</string>
     <string name="quran_recitation_notif_next">Ar aghaidh</string>
+    <string name="quran_download_playback_title">%1$s á íosluchtú</string>
+    <string name="quran_download_playback_detail">D\'fhág %1$s · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Ordú Mushaf</string>
+    <string name="quran_download_sort_completion">Trí chríochnú</string>
+    <string name="quran_downloads_coverage_title">Clúdach Surah trasna na n-aithriseoirí</string>
+    <string name="quran_downloads_coverage_overall">Mushaf iomlán trasna na haithriseoirí</string>
+    <string name="quran_downloads_coverage_empty">Níl aon fuaime íosluchtaithe fós</string>
+    <string name="quran_pause_notif_listener">Cuir aithris ar fhógraí ar sos</string>
+    <string name="quran_reciter_changed_title">Reciter athraigh</string>
+    <string name="quran_reciter_changed_message">Stopadh athsheinm toisc go ritheann an raon go dtí deireadh an Quran. Tosaigh arís le %1$s?</string>
+    <string name="quran_reciter_restart">Tosaigh arís</string>
+    <string name="quran_reciter_not_now">Ní anois</string>
 </resources>

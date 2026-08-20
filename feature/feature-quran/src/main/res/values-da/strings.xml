@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Forrige</string>
     <string name="quran_recitation_notif_next">Næste</string>
+    <string name="quran_download_playback_title">Downloader %1$s</string>
+    <string name="quran_download_playback_detail">%1$s venstre · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf ordre</string>
+    <string name="quran_download_sort_completion">Ved afslutning</string>
+    <string name="quran_downloads_coverage_title">Surah-dækning på tværs af recitere</string>
+    <string name="quran_downloads_coverage_overall">Fuld mushaf på tværs af recitere</string>
+    <string name="quran_downloads_coverage_empty">Ingen lyd er downloadet endnu</string>
+    <string name="quran_pause_notif_listener">Pause recitation på notifikationer</string>
+    <string name="quran_reciter_changed_title">Oplæser ændret</string>
+    <string name="quran_reciter_changed_message">Afspilningen stoppede, fordi rækkevidden løber til slutningen af Koranen. Vil du starte igen med %1$s?</string>
+    <string name="quran_reciter_restart">Start igen</string>
+    <string name="quran_reciter_not_now">Ikke nu</string>
 </resources>

@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Пештар ба ман хотиррасон кунед:</string>
     <string name="ramadan_suhoor_time">Саҳор ба охир мерасад (бомдод): %1$s</string>
     <string name="ramadan_title">Рамазон</string>
+    <string name="ramadan_notify_outside">Ёдраскуниҳо берун аз Рамазон</string>
+    <string name="ramadan_notify_outside_desc">Огоҳиҳои ифтор ва саҳар дар моҳи Рамазон ба таври худкор иҷро мешаванд; имкон додани ин онҳоро дар моҳҳои дигар нигоҳ медорад.</string>
 </resources>

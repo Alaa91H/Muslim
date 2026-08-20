@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Land</string>
     <string name="offline_maps_tab_custom">Anpassat område</string>
     <string name="offline_maps_download">Ladda ner</string>
-    <string name="offline_maps_custom_hint">Tryck på kartan för att välja mitten och ladda sedan ned området runt det.</string>
+    <string name="offline_maps_custom_hint">Panorera och zooma kartan för att rama in det område du vill ha; ramen uppdateras automatiskt. Justera bredden med reglaget.</string>
     <string name="offline_maps_custom_name">Områdesnamn</string>
-    <string name="offline_maps_custom_tap">Tryck på kartan för att välja mitten</string>
+    <string name="offline_maps_custom_tap">Flytta kartan för att välja området</string>
     <string name="offline_maps_custom_default_name">Anpassat område</string>
     <string name="offline_maps_summary_body">%1$d av %2$d områden är klara · %3$s nedladdade</string>
     <string name="offline_maps_downloading">Laddar ned %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zooma in</string>
     <string name="mosque_finder_zoom_out">Zooma ut</string>
     <string name="mosque_finder_nearest">Närmaste moské</string>
+    <string name="mosque_finder_go_to">Gå till den</string>
+    <string name="mosque_finder_find_nearest">Hitta närmaste moské</string>
+    <string name="mosque_finder_expanding">Söker inom %1$s...</string>
+    <string name="offline_maps_custom_width">Områdes bredd (grader)</string>
+    <string name="offline_maps_storage_warning">Lågt lagringsutrymme — endast %1$s gratis</string>
+    <string name="offline_maps_storage_delete_largest">Ta bort största regionen (%1$s · %2$s)</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">অধিকার সেটিংস</string>
     <string name="adhkar_show_translation">অনুবাদ দেখান</string>
     <string name="adhkar_title">আধকার</string>
+    <string name="adhkar_copy">কপি</string>
+    <string name="adhkar_share">শেয়ার করুন</string>
+    <string name="adhkar_overlay_short_only">শুধুমাত্র সংক্ষিপ্ত adhkar ব্যবহার করুন</string>
+    <string name="adhkar_overlay_short_only_desc">এক বা দুটি লাইনের সাথে মানানসই অ্যাডকার বেছে নিন যাতে ভাসমান বুদ্বুদটি পরিষ্কার থাকে এবং পড়তে সহজ হয়।</string>
+    <string name="adhkar_overlay_tap_hint">অবিলম্বে এটি খারিজ করতে বুদ্বুদ আলতো চাপুন.</string>
 </resources>

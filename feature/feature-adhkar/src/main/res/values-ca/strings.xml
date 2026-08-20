@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Configuració Adhkar</string>
     <string name="adhkar_show_translation">Mostra la traducció</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Còpia</string>
+    <string name="adhkar_share">Comparteix</string>
+    <string name="adhkar_overlay_short_only">Use short adhkar only</string>
+    <string name="adhkar_overlay_short_only_desc">Trieu adhkar que s\'ajusti a una o dues línies perquè la bombolla flotant es mantingui clara i fàcil de llegir.</string>
+    <string name="adhkar_overlay_tap_hint">Toqueu la bombolla per descartar-la immediatament.</string>
 </resources>

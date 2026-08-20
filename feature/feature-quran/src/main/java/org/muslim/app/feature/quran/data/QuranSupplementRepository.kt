@@ -95,23 +95,43 @@ class QuranSupplementRepository @Inject constructor(
     /** True when the sample development pack is already installed. */
     suspend fun hasSampleTranslation(): Boolean = translationDao.countForLanguage(SAMPLE_LANGUAGE) > 0
 
+    /** True when the sample development tafsir pack is already installed. */
+    suspend fun hasSampleTafsir(): Boolean = tafsirDao.countForSource(SAMPLE_TAFSIR_SOURCE) > 0
+
     /**
-     * Seeds the tiny development sample (Al-Fatiha + Al-Ikhlas). This is UI
-     * scaffolding — production packs are imported separately and reviewed.
+     * Seeds the tiny development samples (Al-Fatiha + Al-Ikhlas translations
+     * and tafsir). This is UI scaffolding — production packs are imported
+     * separately and reviewed.
      */
     suspend fun seedSampleIfEmpty() {
-        if (hasSampleTranslation()) return
+        if (hasSampleTranslation()) {
+            if (!hasSampleTafsir()) seedSampleTafsir()
+            return
+        }
         runCatching {
             val text = context.assets.open(SAMPLE_ASSET).bufferedReader(Charsets.UTF_8).use { it.readText() }
             installTranslationPack(textToTempFile(text))
+        }
+        seedSampleTafsir()
+    }
+
+    private suspend fun seedSampleTafsir() {
+        runCatching {
+            val text = context.assets.open(TAFSIR_SAMPLE_ASSET).bufferedReader(Charsets.UTF_8).use { it.readText() }
+            installTafsirPack(tafsirTextToTempFile(text))
         }
     }
 
     private fun textToTempFile(text: String): File =
         File(context.cacheDir, "sample_translation.json").apply { writeText(text) }
 
+    private fun tafsirTextToTempFile(text: String): File =
+        File(context.cacheDir, "sample_tafsir.json").apply { writeText(text) }
+
     private companion object {
         const val SAMPLE_ASSET = "quran_translations_sample.json"
         const val SAMPLE_LANGUAGE = "en"
+        const val TAFSIR_SAMPLE_ASSET = "quran_tafsir_sample.json"
+        const val SAMPLE_TAFSIR_SOURCE = "Sample"
     }
 }

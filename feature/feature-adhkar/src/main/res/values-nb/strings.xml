@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar-innstillinger</string>
     <string name="adhkar_show_translation">Vis oversettelse</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopier</string>
+    <string name="adhkar_share">Del</string>
+    <string name="adhkar_overlay_short_only">Bruk kun kort adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Velg adhkar som passer til en eller to linjer slik at den flytende boblen forblir klar og lett å lese.</string>
+    <string name="adhkar_overlay_tap_hint">Trykk på boblen for å fjerne den umiddelbart.</string>
 </resources>

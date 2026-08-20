@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">לאַנד</string>
     <string name="offline_maps_tab_custom">מנהג שטח</string>
     <string name="offline_maps_download">אראפקאפיע</string>
-    <string name="offline_maps_custom_hint">צאַפּן אויף די מאַפּע צו קלייַבן דעם צענטער, דאַן אראפקאפיע די געגנט אַרום אים.</string>
+    <string name="offline_maps_custom_hint">פּאַן און פארגרעסער די מאַפּע צו ראַם די געגנט איר ווילן; דער ראַם דערהייַנטיקונגען אויטאָמאַטיש. סטרויערן די ברייט מיט די סליידער.</string>
     <string name="offline_maps_custom_name">געגנט נאָמען</string>
-    <string name="offline_maps_custom_tap">צאַפּן אויף די מאַפּע צו קלייַבן דעם צענטער</string>
+    <string name="offline_maps_custom_tap">מאַך די מאַפּע צו אויסקלייַבן דעם שטח</string>
     <string name="offline_maps_custom_default_name">מנהג שטח</string>
     <string name="offline_maps_summary_body">%1$d פון %2$d געביטן גאַנץ · %3$s דאַונלאָודיד</string>
     <string name="offline_maps_downloading">דאַונלאָודינג %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">פארגרעסער אין</string>
     <string name="mosque_finder_zoom_out">פארגרעסער אויס</string>
     <string name="mosque_finder_nearest">ניראַסט מאָסקווע</string>
+    <string name="mosque_finder_go_to">גיין צו אים</string>
+    <string name="mosque_finder_find_nearest">געפֿינען ניראַסט מאָסקווע</string>
+    <string name="mosque_finder_expanding">זוכן אין %1$s...</string>
+    <string name="offline_maps_custom_width">שטח ברייט (דיגריז)</string>
+    <string name="offline_maps_storage_warning">נידעריק סטאָרידזש - בלויז %1$s פריי</string>
+    <string name="offline_maps_storage_delete_largest">ויסמעקן גרעסטן געגנט (%1$s · %2$s)</string>
 </resources>

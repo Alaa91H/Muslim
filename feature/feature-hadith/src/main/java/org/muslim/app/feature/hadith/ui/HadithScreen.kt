@@ -1,5 +1,6 @@
 package org.muslim.app.feature.hadith.ui
 
+import android.content.ClipData
 import android.content.Intent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -19,6 +20,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material3.Card
@@ -55,6 +57,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.feature.hadith.R
 import org.muslim.app.feature.hadith.domain.Hadith
 import org.muslim.app.feature.hadith.domain.HadithCollection
@@ -369,12 +372,21 @@ private fun HadithCard(
 @Composable
 private fun HadithBody(hadith: Hadith, showTranslation: Boolean = true) {
     val context = LocalContext.current
+    val clipboard = context.getSystemService(android.content.ClipboardManager::class.java)
+    // English fallback is hidden when the UI language is Arabic (each language
+    // shows its own texts — an Arabic reader reads the Arabic original only).
+    val showEnglishFallback = AppLanguage.showEnglishFallback()
+    val shareText = buildString {
+        append(hadith.arabicText)
+        if (showEnglishFallback) append("\n\n").append(hadith.translation)
+        append("\n\n").append(hadith.source)
+    }
     Text(
         text = hadith.arabicText,
         style = MaterialTheme.typography.bodyLarge,
         modifier = Modifier.padding(end = 8.dp),
     )
-    if (showTranslation && hadith.translation.isNotBlank()) {
+    if (showEnglishFallback && showTranslation && hadith.translation.isNotBlank()) {
         Spacer(Modifier.height(6.dp))
         Text(
             text = hadith.translation,
@@ -403,12 +415,18 @@ private fun HadithBody(hadith: Hadith, showTranslation: Boolean = true) {
             modifier = Modifier.padding(start = 8.dp),
         )
         Spacer(Modifier.weight(1f))
+        IconButton(onClick = { clipboard?.setPrimaryClip(ClipData.newPlainText("hadith", shareText)) }) {
+            Icon(
+                Icons.Filled.ContentCopy,
+                contentDescription = stringResource(R.string.hadith_copy),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
         IconButton(
             onClick = {
-                val text = "${hadith.arabicText}\n\n${hadith.source}\n\n${hadith.translation}"
                 val intent = Intent(Intent.ACTION_SEND).apply {
                     type = "text/plain"
-                    putExtra(Intent.EXTRA_TEXT, text)
+                    putExtra(Intent.EXTRA_TEXT, shareText)
                 }
                 runCatching { context.startActivity(Intent.createChooser(intent, null)) }
             },

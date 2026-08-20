@@ -46,14 +46,12 @@
     <string name="method_egyptian">Ikigo ca Misiri kijejwe ubushakashatsi</string>
     <string name="method_france">Ubufaransa (UOIF)</string>
     <string name="method_isna">ISNA (Amerika y\'Uburaruko)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Kaminuza y\'ubuhinga bw\'ubuyisilamu, i Karachi</string>
     <string name="method_kuwait">Koweyiti</string>
     <string name="method_moonsighting">Komite y\'ukureba ukwezi</string>
     <string name="method_mwl">Ishirahamwe ry\'isi yose ry\'abayisilamu</string>
     <string name="method_qatar">Katari</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Ikigo ca Tehran c\'ubuhinga bw\'isi</string>
     <string name="method_turkey">Turikiya</string>
     <string name="method_umm_al_qura">Ummu Kura (Makka)</string>
     <string name="next_adhan_elapsed">Kuva Azani: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ntibishobora kubara ibihe</string>
     <string name="widget_prayer_times_description">Isengesho rikurikira n\'uguharura</string>
     <string name="widget_prayer_times_label">Ibihe vy\'amasengesho</string>
+    <string name="settings_adhan_volume_vibrate">Ijwi %1$s · Uguhungabana %2$s</string>
+    <string name="settings_adhan_vibrate_on">Ku</string>
+    <string name="settings_adhan_vibrate_off">Kuzimya</string>
+    <string name="settings_preview_stop">Hagarika gusuzuma imbere y\'igihe</string>
+    <string name="settings_method_automatic">Ivyikora (bivanye n\'aho biri)</string>
+    <string name="settings_method_automatic_desc">Iyo porogarama itora uburyo bwiza cane ubwayo ishingiye ku gihugu cawe n’aho uri; urashobora guhitamwo uburyo n\'amaboko igihe cose.</string>
+    <string name="settings_preview_for_prayer">Imbere y\'igihe %1$s adhan</string>
 </resources>

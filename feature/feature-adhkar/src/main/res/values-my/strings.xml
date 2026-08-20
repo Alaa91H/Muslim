@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar ဆက်တင်များ</string>
     <string name="adhkar_show_translation">ဘာသာပြန်ပြပါ။</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">ကော်ပီ</string>
+    <string name="adhkar_share">မျှဝေပါ။</string>
+    <string name="adhkar_overlay_short_only">တိုတောင်းသော adhkar ကိုသာသုံးပါ။</string>
+    <string name="adhkar_overlay_short_only_desc">လိုင်းတစ်ခု သို့မဟုတ် နှစ်ခုနှင့် ကိုက်ညီသော adhkar ကို ရွေးချယ်ပါ မျောနေသော ပူဖောင်းသည် ရှင်းရှင်းလင်းလင်းနှင့် ဖတ်ရလွယ်ကူစေသည်။</string>
+    <string name="adhkar_overlay_tap_hint">၎င်းကိုချက်ချင်းပယ်ရန် ပူဖောင်းကို တို့ပါ။</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">아드카르 설정</string>
     <string name="adhkar_show_translation">번역 표시</string>
     <string name="adhkar_title">아드카르</string>
+    <string name="adhkar_copy">복사</string>
+    <string name="adhkar_share">공유</string>
+    <string name="adhkar_overlay_short_only">짧은 adhkar만 사용하세요</string>
+    <string name="adhkar_overlay_short_only_desc">떠다니는 버블이 명확하고 읽기 쉽게 유지되도록 한 줄 또는 두 줄에 맞는 adhkar를 선택하세요.</string>
+    <string name="adhkar_overlay_tap_hint">즉시 해제하려면 풍선을 탭하세요.</string>
 </resources>

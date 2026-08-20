@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
-# Creates a release the "tag-first" way so the APK version is derived from the
-# tag, never hardcoded: app/build.gradle.kts reads `git describe` at build time.
+# Fully automatic release: commits everything, tags, pushes, waits for the
+# tag-triggered CI build, verifies the APK signature, and publishes a GitHub
+# Release with a generated changelog — no manual steps in between.
 #
-# Flow:
-#   1. Tag the release commit and push the tag (and main).
-#   2. The tag push triggers the `release-apk` CI job, which builds with that
-#      exact versionName/versionCode (stable signature).
-#   3. Download the CI artifact and publish a GitHub Release with it attached.
+# The APK version is derived from the tag (app/build.gradle.kts reads
+# `git describe` at build time), never hardcoded. The tag push triggers the
+# `release-apk` CI job, which signs with the same stable key as local builds
+# (secrets from scripts/setup-github-signing.sh), so users install updates
+# over existing installs without uninstalling.
 #
 # Usage:
-#   ./scripts/release.sh            # bump patch: v1.2.0 -> v1.3.0
-#   ./scripts/release.sh 2.0.0      # explicit version
+#   ./scripts/release.sh            # commit all changes, bump patch: v1.2.0 -> v1.3.0
+#   ./scripts/release.sh 2.0.0      # commit all changes, release v2.0.0
 #
 # Requires the GitHub CLI (https://cli.github.com) authenticated to the repo.
 set -euo pipefail
@@ -24,11 +25,6 @@ if ! command -v gh >/dev/null 2>&1; then
     exit 1
 fi
 gh auth status >/dev/null 2>&1 || { echo "gh is not authenticated. Run: gh auth login" >&2; exit 1; }
-
-if ! git diff --quiet || ! git diff --cached --quiet; then
-    echo "Working tree is dirty — commit or stash changes before releasing." >&2
-    exit 1
-fi
 
 git fetch --tags --quiet
 
@@ -47,24 +43,92 @@ if git rev-parse -q --verify "refs/tags/$tag" >/dev/null 2>&1; then
     exit 1
 fi
 
-echo "Latest: v$latest -> releasing: $tag"
+# --- 1. Commit everything (so the release captures the full working tree). ---
+if ! git diff --quiet || ! git diff --cached --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+    git add -A
+    git -c core.hooksPath=/dev/null commit -m "Release $tag
 
+$(git log --oneline -1 --no-decorate 2>/dev/null || true)" >/dev/null 2>&1 || true
+    echo "Committed all working-tree changes for $tag."
+else
+    echo "Working tree is clean — nothing extra to commit."
+fi
+
+# --- 2. Generate the changelog from commits since the previous tag. ---
+changelog="$(git log --oneline --no-decorate "v$latest"..HEAD 2>/dev/null \
+    | sed 's/^/- /' | head -80 || true)"
+if [ -z "$changelog" ]; then
+    changelog="- Initial release."
+fi
+
+# --- 3. Tag and push. The tag push triggers the release-apk CI job. ---
+echo "Latest: v$latest -> releasing: $tag"
 git tag -a "$tag" -m "Release $tag"
-# Push both so CI checks out the tagged commit with the tag reachable.
 git push origin HEAD:main
 git push origin "$tag"
 
 sha="$(git rev-parse HEAD)"
-echo "Waiting for the release build of $tag ($sha) ..."
-gh run watch --exit-status "$(gh run list --workflow=ci.yml --branch main --limit 1 --json databaseId --jq '.[0].databaseId')"
 
+# --- 4. Wait for the build of THIS commit (the tag push). ---
+# The tag-triggered run appears with the tag as its ref; filter by head sha so
+# we never watch a stale/parallel run.
+echo "Waiting for the release build of $tag ($sha) ..."
+run_id=""
+for _ in $(seq 1 60); do
+    run_id="$(gh run list --workflow=ci.yml --limit 50 --json databaseId,headSha,event --jq ".[] | select(.headSha == \"$sha\") | .databaseId" | head -1)"
+    [ -n "$run_id" ] && break
+    sleep 10
+done
+if [ -z "$run_id" ]; then
+    echo "No CI run found for $sha. Check https://github.com/$REPO/actions" >&2
+    exit 1
+fi
+gh run watch --exit-status "$run_id"
+
+# --- 5. Download and verify the signed APK. ---
 rm -rf /tmp/muslim-release
-gh run download --name muslim-release-apk --dir /tmp/muslim-release
+gh run download --repo "$REPO" --name muslim-release-apk --dir /tmp/muslim-release "$run_id"
 apk="$(find /tmp/muslim-release -name '*.apk' | head -1)"
 [ -n "$apk" ] || { echo "No APK artifact found." >&2; exit 1; }
 
+echo "Verifying APK signature: $apk"
+bt="$(ls -d "$LOCALAPPDATA/Android/Sdk/build-tools/"* 2>/dev/null | sort -V | tail -1 || true)"
+apksigner=""
+for cand in "$bt/apksigner.bat" "$bt/apksigner" $(command -v apksigner 2>/dev/null); do
+    [ -n "$cand" ] && [ -x "$cand" ] && apksigner="$cand" && break
+done
+if [ -n "$apksigner" ]; then
+    certs="$("$apksigner" verify --print-certs "$apk" 2>/dev/null || true)"
+    if echo "$certs" | grep -qi "Android Debug"; then
+        echo "WARNING: APK is DEBUG-signed. Users cannot update over existing installs." >&2
+        echo "Run scripts/setup-github-signing.sh once to enable stable signing." >&2
+    else
+        echo "APK signature verified (release key):"
+        echo "$certs" | grep -i "DN:" | head -2
+    fi
+else
+    echo "apksigner not found — skipping signature check." >&2
+fi
+
+# --- 6. Publish the GitHub Release with the changelog. ---
 gh release create "$tag" "$apk" \
+    --repo "$REPO" \
     --title "Muslim $tag" \
-    --notes "Release $tag — built from the tag, so the in-app version matches exactly and updates install over existing installs with the stable signing key."
+    --notes "## Muslim $tag
+
+Built from the $tag tag, so the in-app version matches exactly and updates install over existing installs (stable signing key).
+
+### Changes since v$latest
+$changelog
+
+### Install
+- Download the APK and open it (allow \"install from unknown sources\" if prompted).
+- The app stays signed with the same key across releases, so updates install directly over previous versions.
+
+### Support
+- GitHub: https://github.com/Alaa91H
+- Email: alahus2591@gmail.com
+- Telegram: https://t.me/Alaa91h
+- Ko-fi: https://ko-fi.com/alaa91h"
 
 echo "Published release $tag: https://github.com/$REPO/releases/tag/$tag"

@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Land</string>
     <string name="offline_maps_tab_custom">Pasgemaakte area</string>
     <string name="offline_maps_download">Laai af</string>
-    <string name="offline_maps_custom_hint">Tik die kaart om die middelpunt te kies, en laai dan die area rondom dit af.</string>
+    <string name="offline_maps_custom_hint">Pan en zoem die kaart om die area te raam wat jy wil hê; die raam werk outomaties op. Pas die breedte aan met die skuifbalk.</string>
     <string name="offline_maps_custom_name">Area naam</string>
-    <string name="offline_maps_custom_tap">Tik die kaart om die middelpunt te kies</string>
+    <string name="offline_maps_custom_tap">Beweeg die kaart om die area te kies</string>
     <string name="offline_maps_custom_default_name">Pasgemaakte area</string>
     <string name="offline_maps_summary_body">%1$d van %2$d areas voltooi · %3$s afgelaai</string>
     <string name="offline_maps_downloading">Laai tans %1$s af … %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoem in</string>
     <string name="mosque_finder_zoom_out">Zoem uit</string>
     <string name="mosque_finder_nearest">Naaste moskee</string>
+    <string name="mosque_finder_go_to">Gaan daarheen</string>
+    <string name="mosque_finder_find_nearest">Vind die naaste moskee</string>
+    <string name="mosque_finder_expanding">Soek tans binne %1$s …</string>
+    <string name="offline_maps_custom_width">Gebiedwydte (grade)</string>
+    <string name="offline_maps_storage_warning">Lae berging - slegs %1$s gratis</string>
+    <string name="offline_maps_storage_delete_largest">Vee grootste streek uit (%1$s · %2$s)</string>
 </resources>

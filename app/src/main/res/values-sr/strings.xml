@@ -46,4 +46,12 @@
     <string name="crash_close">Затвори</string>
     <string name="crash_dismiss">Настави</string>
     <string name="more_order_hint">اضغط مع الاستمرار على اي قسم واسحبه لاعادة ترتيبه, واستخدم المفلى واستخدم المفلت اخفاء كل قسم. يطبق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Претражите Кур\'ан</string>
+    <string name="more_quran_search_desc">Пронађите реч, колико често се појављује и где</string>
+    <string name="more_quran_frequency">Учесталост речи у Курану</string>
+    <string name="more_quran_frequency_desc">Најфреквентније речи у целом мусхафу</string>
+    <string name="more_pause_on_notifications">Паузирајте рецитовање на обавештењима</string>
+    <string name="more_pause_on_notifications_desc">Рецитовање се накратко паузира када се репродукује обавештење, звоно или други медиј</string>
+    <string name="more_pause_notifications_enabled">Омогућено — додирните да бисте отворили системска подешавања</string>
+    <string name="more_pause_notifications_disabled">Онемогућено — додирните да бисте омогућили</string>
 </resources>

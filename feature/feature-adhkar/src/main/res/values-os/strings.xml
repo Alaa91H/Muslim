@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Адхкары параметртæ</string>
     <string name="adhkar_show_translation">Равдисын тæлмац</string>
     <string name="adhkar_title">Адхкар</string>
+    <string name="adhkar_copy">Копи</string>
+    <string name="adhkar_share">Дих кæнын</string>
+    <string name="adhkar_overlay_short_only">Пайда кæнут æрмæстдæр цыбыр адхкарæй</string>
+    <string name="adhkar_overlay_short_only_desc">Равзарут ахкар, кæцы æмбæлы иу кæнæ дыууæ рæнхъы, цæмæй ленкгæнæг æртæх уа ирд æмæ æнцон кæсæн.</string>
+    <string name="adhkar_overlay_tap_hint">Æрцауындзут æртæх, цæмæй йæ æвæстиатæй ныууадзат.</string>
 </resources>

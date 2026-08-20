@@ -15,5 +15,6 @@ interface AdhanEntryPoint {
     fun scheduler(): AdhanScheduler
     fun settingsRepository(): PrayerSettingsRepository
     fun soundRepository(): AdhanSoundRepository
+    fun soundPlayer(): AdhanSoundPlayer
     fun dndManager(): PrayerDndManager
 }

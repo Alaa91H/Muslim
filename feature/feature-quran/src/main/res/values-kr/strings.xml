@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Ngawoye</string>
     <string name="quran_recitation_notif_next">Fuwu</string>
+    <string name="quran_download_playback_title">%1$s sagǝdin</string>
+    <string name="quran_download_playback_detail">%1$s wofila · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Amari Mushafbe</string>
+    <string name="quran_download_sort_completion">Tamattǝlan</string>
+    <string name="quran_downloads_coverage_title">Suradə kəratəwu sammason zaktə</string>
+    <string name="quran_downloads_coverage_overall">Mushaf kamil kərawu sammason</string>
+    <string name="quran_downloads_coverage_empty">Kuwamiyayi audio sagǝdǝnyi</string>
+    <string name="quran_pause_notif_listener">Kǝra dǝga dafne kǝla warmatǝgǝben</string>
+    <string name="quran_reciter_changed_title">Kǝratǝmadǝ faltǝna</string>
+    <string name="quran_reciter_changed_message">Playback də dawono dalil range də datəgəram Alquranbero lejin nankaro. Waltǝm %1$s lan badine?</string>
+    <string name="quran_reciter_restart">Waltǝ badine</string>
+    <string name="quran_reciter_not_now">Kǝrma gǝnyi</string>
 </resources>

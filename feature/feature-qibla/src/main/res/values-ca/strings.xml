@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">País</string>
     <string name="offline_maps_tab_custom">Zona personalitzada</string>
     <string name="offline_maps_download">Descarregar</string>
-    <string name="offline_maps_custom_hint">Toqueu el mapa per triar el centre i, a continuació, baixeu l\'àrea que l\'envolta.</string>
+    <string name="offline_maps_custom_hint">Desplaça i apropa el mapa per emmarcar l\'àrea que vulguis; el marc s\'actualitza automàticament. Ajusteu l\'amplada amb el control lliscant.</string>
     <string name="offline_maps_custom_name">Nom de la zona</string>
-    <string name="offline_maps_custom_tap">Toqueu el mapa per triar el centre</string>
+    <string name="offline_maps_custom_tap">Mou el mapa per seleccionar la zona</string>
     <string name="offline_maps_custom_default_name">Zona personalitzada</string>
     <string name="offline_maps_summary_body">%1$d de %2$d àrees completes · %3$s baixades</string>
     <string name="offline_maps_downloading">S\'està baixant %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Apropa</string>
     <string name="mosque_finder_zoom_out">Allunya el zoom</string>
     <string name="mosque_finder_nearest">Mesquita més propera</string>
+    <string name="mosque_finder_go_to">Aneu-hi</string>
+    <string name="mosque_finder_find_nearest">Troba la mesquita més propera</string>
+    <string name="mosque_finder_expanding">S\'està cercant a %1$s…</string>
+    <string name="offline_maps_custom_width">Amplada de l\'àrea (graus)</string>
+    <string name="offline_maps_storage_warning">Emmagatzematge baix: només %1$s gratuïts</string>
+    <string name="offline_maps_storage_delete_largest">Suprimeix la regió més gran (%1$s · %2$s)</string>
 </resources>

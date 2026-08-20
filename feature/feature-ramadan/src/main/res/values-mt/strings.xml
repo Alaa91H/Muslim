@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Fakkarni qabel:</string>
     <string name="ramadan_suhoor_time">Suhoor jispiċċa (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Tfakkiriet barra r-Ramadan</string>
+    <string name="ramadan_notify_outside_desc">It-twissijiet iftar u suhoor jaħdmu awtomatikament matul ir-Ramadan; li tippermetti dan iżżommhom għaddejjin fi xhur oħra.</string>
 </resources>

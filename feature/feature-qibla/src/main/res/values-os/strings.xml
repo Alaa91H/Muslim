@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Бæстæ</string>
     <string name="offline_maps_tab_custom">Æмбæлон фæзуат</string>
     <string name="offline_maps_download">Скачать</string>
-    <string name="offline_maps_custom_hint">Картæйыл æрцауындзут, цæмæй равзарат центр, стæй йæ алыварс цы фæзуат ис, уый райсут.</string>
+    <string name="offline_maps_custom_hint">Картæйы æрбакæнын æмæ йæ стырдæр кæнын, цæмæй дæ фæндон фæзуат æвдыст æрцæуа; кадр ног кæны автоматикон æгъдауæй. Уæрх æрæвæрут слайдерæй.</string>
     <string name="offline_maps_custom_name">Районы ном</string>
-    <string name="offline_maps_custom_tap">Картæйыл бакæсут, цæмæй равзарат центр</string>
+    <string name="offline_maps_custom_tap">Змæлын кæнут картæ, цæмæй равзарат район</string>
     <string name="offline_maps_custom_default_name">Æмбæлон фæзуат</string>
     <string name="offline_maps_summary_body">%1$d %2$d фæзуæттæй æххæст · %3$s æрбакаст</string>
     <string name="offline_maps_downloading">Æрбакæнын %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Уæрæхдæр кæнын</string>
     <string name="mosque_finder_zoom_out">Фæкъаддæр кæнын</string>
     <string name="mosque_finder_nearest">Хæстæгдæр мæзджыд</string>
+    <string name="mosque_finder_go_to">Ацæут æм</string>
+    <string name="mosque_finder_find_nearest">Ссарут хæстæгдæр мæзджыд</string>
+    <string name="mosque_finder_expanding">Агурын %1$s…</string>
+    <string name="offline_maps_custom_width">Фæзуаты уæрх (градустæ)</string>
+    <string name="offline_maps_storage_warning">Нымæцон æвæрæн — æрмæст %1$s æнæаргъ</string>
+    <string name="offline_maps_storage_delete_largest">Сæфын стырдæр регион (%1$s · %2$s)</string>
 </resources>

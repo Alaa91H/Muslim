@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egipto bendroji tyrimų institucija</string>
     <string name="method_france">Prancūzija (UOIF)</string>
     <string name="method_isna">ISNA (Šiaurės Amerika)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Islamo mokslų universitetas, Karačis</string>
     <string name="method_kuwait">Kuveitas</string>
     <string name="method_moonsighting">Mėnulio stebėjimo komitetas</string>
     <string name="method_mwl">Pasaulio musulmonų lyga</string>
     <string name="method_qatar">Kataras</string>
     <string name="method_singapore">Singapūras</string>
-    <string name="method_tehran">Teherano geofizikos institutas</string>
     <string name="method_turkey">Diyanet Turkija</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Nuo Adhano: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Neįmanoma suskaičiuoti laiko</string>
     <string name="widget_prayer_times_description">Kita malda su atgaline atskaita</string>
     <string name="widget_prayer_times_label">Maldos laikai</string>
+    <string name="settings_adhan_volume_vibrate">Garsumas %1$s · Vibracija %2$s</string>
+    <string name="settings_adhan_vibrate_on">Įjungta</string>
+    <string name="settings_adhan_vibrate_off">Išjungta</string>
+    <string name="settings_preview_stop">Sustabdyti peržiūrą</string>
+    <string name="settings_method_automatic">Automatinis (pagal vietą)</string>
+    <string name="settings_method_automatic_desc">Programėlė automatiškai parenka tinkamiausią metodą pagal jūsų šalį ir vietą; vis tiek galite bet kada pasirinkti metodą rankiniu būdu.</string>
+    <string name="settings_preview_for_prayer">Peržiūrėti %1$s adhan</string>
 </resources>

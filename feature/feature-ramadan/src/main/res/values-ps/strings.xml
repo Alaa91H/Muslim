@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">مخکې مې یادونه وکړه:</string>
     <string name="ramadan_suhoor_time">د سحر پای (فجر): %1$s</string>
     <string name="ramadan_title">روژه</string>
+    <string name="ramadan_notify_outside">د رمضان څخه بهر یادونه</string>
+    <string name="ramadan_notify_outside_desc">د روژې په میاشت کې د افطار او سحر خبرتیاوې په اوتومات ډول چلیږي؛ دا فعالول دوی په نورو میاشتو کې دوام کوي.</string>
 </resources>

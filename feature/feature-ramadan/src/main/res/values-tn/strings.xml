@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Nkgopotse pele:</string>
     <string name="ramadan_suhoor_time">Suhour e fela (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadane</string>
+    <string name="ramadan_notify_outside">Dikgopotso kwa ntle ga Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Ditsiboso tsa Iftar le suhoor di tsamaya ka go itirisa ka nako ya Ramadan; go kgontsha seno go dira gore ba tswelele pele mo dikgweding tse dingwe.</string>
 </resources>

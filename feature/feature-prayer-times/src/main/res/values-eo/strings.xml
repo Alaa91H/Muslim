@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egipta Ĝenerala Aŭtoritato de Enketo</string>
     <string name="method_france">Francio (UOIF)</string>
     <string name="method_isna">ISNA (Nordameriko)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Universitato de Islamaj Sciencoj, Karaĉio</string>
     <string name="method_kuwait">Kuvajto</string>
     <string name="method_moonsighting">Komitato pri lunvido</string>
     <string name="method_mwl">Islama Monda Ligo</string>
     <string name="method_qatar">Kataro</string>
     <string name="method_singapore">Singapuro</string>
-    <string name="method_tehran">Teherana Instituto de Geofiziko</string>
     <string name="method_turkey">Diyanet Turkio</string>
     <string name="method_umm_al_qura">Umm al-Qura ( Meko)</string>
     <string name="next_adhan_elapsed">Ekde Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ne eblas kalkuli tempojn</string>
     <string name="widget_prayer_times_description">Sekva preĝo kun retronombrado</string>
     <string name="widget_prayer_times_label">Preĝtempoj</string>
+    <string name="settings_adhan_volume_vibrate">Volumo %1$s · Vibro %2$s</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Malŝaltita</string>
+    <string name="settings_preview_stop">Ĉesu antaŭrigardon</string>
+    <string name="settings_method_automatic">Aŭtomata (laŭ loko)</string>
+    <string name="settings_method_automatic_desc">La apo elektas la plej taŭgan metodon aŭtomate laŭ via lando kaj loko; vi ankoraŭ povas elekti metodon permane iam ajn.</string>
+    <string name="settings_preview_for_prayer">Antaŭrigardu %1$s adhan</string>
 </resources>

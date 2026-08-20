@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">ముందు నాకు గుర్తు చేయండి:</string>
     <string name="ramadan_suhoor_time">సుహూర్ ముగింపులు (ఫజ్ర్): %1$s</string>
     <string name="ramadan_title">రంజాన్</string>
+    <string name="ramadan_notify_outside">Reminders outside Ramadan</string>
+    <string name="ramadan_notify_outside_desc">రంజాన్ సమయంలో ఇఫ్తార్ మరియు సుహూర్ హెచ్చరికలు స్వయంచాలకంగా అమలవుతాయి; దీన్ని ప్రారంభించడం వలన వాటిని ఇతర నెలల్లో కొనసాగించవచ్చు.</string>
 </resources>

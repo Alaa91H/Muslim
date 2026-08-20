@@ -46,4 +46,12 @@
     <string name="crash_close">Bɛto mu</string>
     <string name="crash_dismiss">Toa so</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة المزيد.</string>
+    <string name="more_quran_search">Hwehwɛ Kur’aan mu</string>
+    <string name="more_quran_search_desc">Hwehwɛ asɛmfua bi, mpɛn dodow a epue ne baabi a epue</string>
+    <string name="more_quran_frequency">Kuran asɛmfua mpɛn dodow</string>
+    <string name="more_quran_frequency_desc">Nsɛmfua a wɔtaa ka wɔ mushaf no nyinaa mu</string>
+    <string name="more_pause_on_notifications">Gyina akenkan mu wɔ amanneɛbɔ ahorow so</string>
+    <string name="more_pause_on_notifications_desc">Nkenkan gyina kakra bere a amanneɛbɔ, ring anaa nsɛm ho amanneɛbɔ foforo bi rebɔ no</string>
+    <string name="more_pause_notifications_enabled">Enabled — tap na bue nhyehyɛe nhyehyɛe</string>
+    <string name="more_pause_notifications_disabled">Disabled — tap na ma ɛnyɛ adwuma</string>
 </resources>

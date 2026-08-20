@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Моңа кадәр искә төшерегез:</string>
     <string name="ramadan_suhoor_time">Сухор бетә (Фажр): %1$s</string>
     <string name="ramadan_title">Рамазан ае</string>
+    <string name="ramadan_notify_outside">Рамазан читендә искәртмәләр</string>
+    <string name="ramadan_notify_outside_desc">Iftar and suhoor alerts run automatically during Ramadan; моны эшләү аларны башка айларда дәвам итә.</string>
 </resources>

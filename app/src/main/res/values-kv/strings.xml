@@ -46,4 +46,12 @@
     <string name="crash_close">Матысса</string>
     <string name="crash_dismiss">Водзӧ</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة вылын شاشة المزيد.</string>
+    <string name="more_quran_search">Корсьны Коран .</string>
+    <string name="more_quran_search_desc">Корсь кыв, кымынысь сiйö паныдасьö да кöнi</string>
+    <string name="more_quran_frequency">Коран кыв частота .</string>
+    <string name="more_quran_frequency_desc">Став мушафын медся тшӧкыда паныдасьлысь кывъяс .</string>
+    <string name="more_pause_on_notifications">Уведомлениеяс вылын лыддьӧм пауза .</string>
+    <string name="more_pause_on_notifications_desc">Декламация недыр кежлӧ сувтӧ, кор ворсӧ юӧртантор, звӧнок либӧ мукӧд медиа .</string>
+    <string name="more_pause_notifications_enabled">Включитӧма — шыбитӧй, медым восьтыны системаса настройкаяс .</string>
+    <string name="more_pause_notifications_disabled">Отключен — нажмите, чтобы включить .</string>
 </resources>

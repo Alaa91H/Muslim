@@ -46,14 +46,12 @@
     <string name="method_egyptian">ሓፈሻዊ በዓል መዚ ዳህሳስ ግብጺ</string>
     <string name="method_france">ፈረንሳ (UOIF)</string>
     <string name="method_isna">ኢስና (ሰሜን ኣሜሪካ)</string>
-    <string name="method_jafari">ጃፋሪ</string>
     <string name="method_karachi">ዩኒቨርሲቲ እስላማዊ ሳይንስ ካራቺ</string>
     <string name="method_kuwait">ኩዌት።</string>
     <string name="method_moonsighting">ሽማግለ ምርኣይ ወርሒ</string>
     <string name="method_mwl">ሊግ ዓለም ኣስላም</string>
     <string name="method_qatar">ቀጠር</string>
     <string name="method_singapore">ሲንጋፖር</string>
-    <string name="method_tehran">ኢንስቲትዩት ጂኦፊዚክስ ቴህራን</string>
     <string name="method_turkey">ዲያኔት ቱርኪ</string>
     <string name="method_umm_al_qura">ኡም ኣልቁራ (መካ)</string>
     <string name="next_adhan_elapsed">ካብ ኣድሃን: %1$s ጀሚሩ</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">ግዜታት ምሕሳብ ኣይከኣለን</string>
     <string name="widget_prayer_times_description">ዝቕጽል ጸሎት ምስ ቁጽሪ ንድሕሪት</string>
     <string name="widget_prayer_times_label">ናይ ጸሎት ግዜ</string>
+    <string name="settings_adhan_volume_vibrate">ድምጺ %1$s · ምንቅጥቃጥ %2$s</string>
+    <string name="settings_adhan_vibrate_on">ኣብ...</string>
+    <string name="settings_adhan_vibrate_off">ጠፊኡ</string>
+    <string name="settings_preview_stop">ቅድመ ምርኢት ደው ምባል</string>
+    <string name="settings_method_automatic">ኣውቶማቲክ (ብኣቀማምጣ)</string>
+    <string name="settings_method_automatic_desc">እቲ ኣፕ ብመሰረት ሃገርካን ቦታኻን ብኣውቶማቲክ ዝበለጸ ዝሰማማዕ ኣገባብ ይመርጽ፤ ሕጂ ውን ኣብ ዝኾነ እዋን ብኢድካ ሓደ ሜላ ክትመርጽ ትኽእል ኢኻ።</string>
+    <string name="settings_preview_for_prayer">ቅድመ ምርኢት %1$s adhan</string>
 </resources>

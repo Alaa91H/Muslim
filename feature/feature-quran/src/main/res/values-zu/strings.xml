@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Ngaphambilini</string>
     <string name="quran_recitation_notif_next">Okulandelayo</string>
+    <string name="quran_download_playback_title">Downloading %1$s</string>
+    <string name="quran_download_playback_detail">%1$s okusele · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Oda Mushaf</string>
+    <string name="quran_download_sort_completion">Ngokuqeda</string>
+    <string name="quran_downloads_coverage_title">Ukufakwa kweSurah kuwo wonke ama-reciters</string>
+    <string name="quran_downloads_coverage_overall">I-mushaf ephelele kuwo wonke ama-reciters</string>
+    <string name="quran_downloads_coverage_empty">Awukho umsindo olandiwe okwamanje</string>
+    <string name="quran_pause_notif_listener">Misa isikhashana ukuphindaphinda kuzaziso</string>
+    <string name="quran_reciter_changed_title">I-reciter ishintshile</string>
+    <string name="quran_reciter_changed_message">Ukudlala kumisiwe ngoba ububanzi bufika ekugcineni kwe-Quran. Qala futhi nge-%1$s?</string>
+    <string name="quran_reciter_restart">Qala futhi</string>
+    <string name="quran_reciter_not_now">Hhayi manje</string>
 </resources>

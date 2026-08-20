@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Šalis</string>
     <string name="offline_maps_tab_custom">Tinkinta sritis</string>
     <string name="offline_maps_download">Atsisiųsti</string>
-    <string name="offline_maps_custom_hint">Bakstelėkite žemėlapį, kad pasirinktumėte centrą, tada atsisiųskite sritį aplink jį.</string>
+    <string name="offline_maps_custom_hint">Pasukite ir keiskite žemėlapį, kad įrėmintumėte norimą sritį; kadras atnaujinamas automatiškai. Sureguliuokite plotį slankikliu.</string>
     <string name="offline_maps_custom_name">Rajono pavadinimas</string>
-    <string name="offline_maps_custom_tap">Bakstelėkite žemėlapį, kad pasirinktumėte centrą</string>
+    <string name="offline_maps_custom_tap">Perkelkite žemėlapį, kad pasirinktumėte sritį</string>
     <string name="offline_maps_custom_default_name">Tinkinta sritis</string>
     <string name="offline_maps_summary_body">Užbaigta %1$d iš %2$d sričių · Atsisiųsta %3$s</string>
     <string name="offline_maps_downloading">Atsisiunčiama %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Priartinti</string>
     <string name="mosque_finder_zoom_out">Nutolinti</string>
     <string name="mosque_finder_nearest">Artimiausia mečetė</string>
+    <string name="mosque_finder_go_to">Eik į jį</string>
+    <string name="mosque_finder_find_nearest">Raskite artimiausią mečetę</string>
+    <string name="mosque_finder_expanding">Ieškoma %1$s…</string>
+    <string name="offline_maps_custom_width">Ploto plotis (laipsniais)</string>
+    <string name="offline_maps_storage_warning">Maža saugyklos vietos – tik %1$s nemokama</string>
+    <string name="offline_maps_storage_delete_largest">Ištrinti didžiausią regioną (%1$s · %2$s)</string>
 </resources>

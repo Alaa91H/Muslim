@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Negara</string>
     <string name="offline_maps_tab_custom">Daerah adat</string>
     <string name="offline_maps_download">Unduh</string>
-    <string name="offline_maps_custom_hint">Ketuk peta untuk memilih pusatnya, lalu unduh area di sekitarnya.</string>
+    <string name="offline_maps_custom_hint">Geser dan perbesar peta untuk membingkai area yang Anda inginkan; bingkai diperbarui secara otomatis. Sesuaikan lebarnya dengan penggeser.</string>
     <string name="offline_maps_custom_name">Nama daerah</string>
-    <string name="offline_maps_custom_tap">Ketuk peta untuk memilih pusatnya</string>
+    <string name="offline_maps_custom_tap">Pindahkan peta untuk memilih area</string>
     <string name="offline_maps_custom_default_name">Daerah adat</string>
     <string name="offline_maps_summary_body">%1$d dari %2$d area selesai · %3$s diunduh</string>
     <string name="offline_maps_downloading">Mengunduh %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Perbesar</string>
     <string name="mosque_finder_zoom_out">Perkecil</string>
     <string name="mosque_finder_nearest">Masjid terdekat</string>
+    <string name="mosque_finder_go_to">Pergi ke sana</string>
+    <string name="mosque_finder_find_nearest">Temukan masjid terdekat</string>
+    <string name="mosque_finder_expanding">Mencari dalam %1$s…</string>
+    <string name="offline_maps_custom_width">Lebar area (derajat)</string>
+    <string name="offline_maps_storage_warning">Penyimpanan rendah, hanya %1$s gratis</string>
+    <string name="offline_maps_storage_delete_largest">Hapus wilayah terbesar (%1$s · %2$s)</string>
 </resources>

@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Nimwibutse imbere:</string>
     <string name="ramadan_suhoor_time">Suhour irahera (Fajri): %1$s</string>
     <string name="ramadan_title">Ramadani</string>
+    <string name="ramadan_notify_outside">Ivyibutsa hanze ya Ramadhani</string>
+    <string name="ramadan_notify_outside_desc">Ivyibutsa vy’iftar na suhoor bigenda ubwavyo mu kiringo ca Ramadhani; gushoboza ivyo bituma baguma bagenda mu yindi mezi.</string>
 </resources>

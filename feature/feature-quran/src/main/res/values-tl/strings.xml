@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Nakaraang</string>
     <string name="quran_recitation_notif_next">Susunod</string>
+    <string name="quran_download_playback_title">Dina-download ang %1$s</string>
+    <string name="quran_download_playback_detail">%1$s natitira · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Umorder ng Mushaf</string>
+    <string name="quran_download_sort_completion">Sa pamamagitan ng pagkumpleto</string>
+    <string name="quran_downloads_coverage_title">Saklaw ng Surah sa mga reciter</string>
+    <string name="quran_downloads_coverage_overall">Buong mushaf sa mga reciters</string>
+    <string name="quran_downloads_coverage_empty">Wala pang na-download na audio</string>
+    <string name="quran_pause_notif_listener">I-pause ang pagbigkas sa mga notification</string>
+    <string name="quran_reciter_changed_title">Nagbago ang reciter</string>
+    <string name="quran_reciter_changed_message">Huminto ang pag-playback dahil ang hanay ay tumatakbo hanggang sa dulo ng Quran. Magsimula muli sa %1$s?</string>
+    <string name="quran_reciter_restart">Magsimula muli</string>
+    <string name="quran_reciter_not_now">Hindi ngayon</string>
 </resources>

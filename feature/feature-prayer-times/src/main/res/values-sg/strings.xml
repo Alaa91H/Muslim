@@ -46,14 +46,12 @@
     <string name="method_egyptian">Kota ndokua ti Egypte so ayeke bâ lege ti gingo nda ti ye</string>
     <string name="method_france">France (UOIF)</string>
     <string name="method_isna">ISNA (Amerika ti Mbongo)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Kota da-mbeti ti senda-ye ti Islam, Karachi</string>
     <string name="method_kuwait">Koweït</string>
     <string name="method_moonsighting">Komite ti bango ndo na ndo ti nze .</string>
     <string name="method_mwl">Ligue mondiale musulmane</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapour</string>
-    <string name="method_tehran">Institut ti Géophysique ti Téhéran</string>
     <string name="method_turkey">Diyanet ti Turquie</string>
     <string name="method_umm_al_qura">Umm-al-Qura (Mecque)</string>
     <string name="next_adhan_elapsed">Ti londo na Adhan: azo %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">A lingbi ti diko angoi pëpe .</string>
     <string name="widget_prayer_times_description">Sambela ti peko na compte ti kiringo na peko .</string>
     <string name="widget_prayer_times_label">Ngoi ti sambela .</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Yengingo ti %2$s</string>
+    <string name="settings_adhan_vibrate_on">Na .</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Arrêté aperçu</string>
+    <string name="settings_method_automatic">Automatique (na lege ti ndo)</string>
+    <string name="settings_method_automatic_desc">Application ni ayeke soro kode so alingbi na mo mingi na lege ti kodoro ti mo nga na ndo so mo yeke dä; mo lingbi ti ngbâ ti soro mbeni kode na maboko ti mo na ngoi kue.</string>
+    <string name="settings_preview_for_prayer">Bâ %1$s adhan</string>
 </resources>

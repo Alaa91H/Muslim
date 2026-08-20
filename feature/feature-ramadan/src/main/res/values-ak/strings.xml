@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Kae me ansa na:</string>
     <string name="ramadan_suhoor_time">Suhoor awiei (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan a ɛwɔ hɔ</string>
+    <string name="ramadan_notify_outside">Nkaebɔ a ɛwɔ Ramadan akyi</string>
+    <string name="ramadan_notify_outside_desc">Iftar ne suhoor kɔkɔbɔ ahorow no kɔ so ara kwa wɔ Ramadan mu; eyi a wɔma wotumi yɛ no ma wɔkɔ so yɛ adwuma wɔ asram afoforo mu.</string>
 </resources>

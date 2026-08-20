@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Paramètres Adhkar</string>
     <string name="adhkar_show_translation">Mostrar la traduccion</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Còpia</string>
+    <string name="adhkar_share">Partatjar</string>
+    <string name="adhkar_overlay_short_only">Utilizar l\'adhkar cort sonque</string>
+    <string name="adhkar_overlay_short_only_desc">Causissètz d\'adhkar que s\'adapte a una o doas linhas per que la bombolha flotanta demòre clara e aisida de legir.</string>
+    <string name="adhkar_overlay_tap_hint">Picatz la bombolha per la desrevelhar immediatament.</string>
 </resources>

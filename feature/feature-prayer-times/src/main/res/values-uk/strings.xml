@@ -46,14 +46,12 @@
     <string name="method_egyptian">Головне геодезичне управління Єгипту</string>
     <string name="method_france">Франція (UOIF)</string>
     <string name="method_isna">ISNA (Північна Америка)</string>
-    <string name="method_jafari">Джафарі</string>
     <string name="method_karachi">Університет ісламських наук, Карачі</string>
     <string name="method_kuwait">Кувейт</string>
     <string name="method_moonsighting">Місячний комітет</string>
     <string name="method_mwl">Мусульманська світова ліга</string>
     <string name="method_qatar">Катар</string>
     <string name="method_singapore">Сінгапур</string>
-    <string name="method_tehran">Тегеранський інститут геофізики</string>
     <string name="method_turkey">Діянет Туреччина</string>
     <string name="method_umm_al_qura">Умм аль-Кура (Макка)</string>
     <string name="next_adhan_elapsed">З азану: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Неможливо обчислити час</string>
     <string name="widget_prayer_times_description">Наступна молитва зі зворотним відліком</string>
     <string name="widget_prayer_times_label">Час молитви</string>
+    <string name="settings_adhan_volume_vibrate">Гучність %1$s · Вібрація %2$s</string>
+    <string name="settings_adhan_vibrate_on">Увімкнено</string>
+    <string name="settings_adhan_vibrate_off">Вимкнено</string>
+    <string name="settings_preview_stop">Зупинити попередній перегляд</string>
+    <string name="settings_method_automatic">Автоматично (за місцезнаходженням)</string>
+    <string name="settings_method_automatic_desc">Програма автоматично вибирає найбільш підходящий метод залежно від вашої країни та місця розташування; ви все ще можете будь-коли вибрати метод вручну.</string>
+    <string name="settings_preview_for_prayer">Попередній перегляд %1$s азану</string>
 </resources>

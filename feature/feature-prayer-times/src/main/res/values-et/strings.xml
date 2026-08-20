@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egiptuse uuringute üldamet</string>
     <string name="method_france">Prantsusmaa (UOIF)</string>
     <string name="method_isna">ISNA (Põhja-Ameerika)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Islamiteaduste ülikool, Karachi</string>
     <string name="method_kuwait">Kuveit</string>
     <string name="method_moonsighting">Kuuvaate komitee</string>
     <string name="method_mwl">Moslemite Maailmaliiga</string>
     <string name="method_qatar">Katar</string>
     <string name="method_singapore">Singapur</string>
-    <string name="method_tehran">Teherani Geofüüsika Instituut</string>
     <string name="method_turkey">Diyanet Türgi</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makka)</string>
     <string name="next_adhan_elapsed">Alates Adhanist: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ei saa aegu arvutada</string>
     <string name="widget_prayer_times_description">Järgmine palve koos loendusega</string>
     <string name="widget_prayer_times_label">Palveajad</string>
+    <string name="settings_adhan_volume_vibrate">Helitugevus %1$s · Vibratsioon %2$s</string>
+    <string name="settings_adhan_vibrate_on">Sees</string>
+    <string name="settings_adhan_vibrate_off">Väljas</string>
+    <string name="settings_preview_stop">Peata eelvaade</string>
+    <string name="settings_method_automatic">Automaatne (asukoha järgi)</string>
+    <string name="settings_method_automatic_desc">Rakendus valib teie riigi ja asukoha põhjal automaatselt kõige sobivama meetodi; meetodi saate siiski igal ajal käsitsi valida.</string>
+    <string name="settings_preview_for_prayer">Eelvaade %1$s adhan</string>
 </resources>

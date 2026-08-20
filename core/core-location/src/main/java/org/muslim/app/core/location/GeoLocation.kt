@@ -1,10 +1,14 @@
 package org.muslim.app.core.location
 
-/** A geographic location used for prayer-time and qibla calculations. */
+/**
+ * A geographic location used for prayer-time and qibla calculations.
+ *
+ * @property altitude meters above mean sea level when the fix provides it
+ *   (GPS usually does); null when unknown — callers default to 0.
+ */
 data class GeoLocation(
     val latitude: Double,
     val longitude: Double,
-    /** Meters above mean sea level when the fix provides it; null when unknown. */
     val altitude: Double? = null,
 )
 

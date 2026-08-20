@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">ເຕືອນຂ້ອຍກ່ອນ:</string>
     <string name="ramadan_suhoor_time">Suhoor ສິ້ນສຸດ (Fajr): %1$s</string>
     <string name="ramadan_title">ຣາມາດານ</string>
+    <string name="ramadan_notify_outside">ການແຈ້ງເຕືອນຢູ່ນອກ Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Iftar and suhoor alerts run automatically during Ramadan; ເຮັດໃຫ້ມັນເຮັດໃຫ້ພວກເຂົາໄປຢູ່ໃນເດືອນອື່ນໆ.</string>
 </resources>

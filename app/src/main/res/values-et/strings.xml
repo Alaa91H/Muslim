@@ -46,4 +46,12 @@
     <string name="crash_close">Sule</string>
     <string name="crash_dismiss">Jätka</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيب٧دمتيبهدو المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Otsige Koraanist</string>
+    <string name="more_quran_search_desc">Otsige sõna, kui sageli see ilmub ja kus</string>
+    <string name="more_quran_frequency">Koraani sõnade sagedus</string>
+    <string name="more_quran_frequency_desc">Kõige sagedasemad sõnad kogu mushafis</string>
+    <string name="more_pause_on_notifications">Peatage märguannete esitamine</string>
+    <string name="more_pause_on_notifications_desc">Teate, helina või muu meediumi esitamisel peatub retsiteerimine korraks</string>
+    <string name="more_pause_notifications_enabled">Lubatud – puudutage süsteemiseadete avamiseks</string>
+    <string name="more_pause_notifications_disabled">Keelatud – puudutage lubamiseks</string>
 </resources>

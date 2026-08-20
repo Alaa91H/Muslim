@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Atgoffwch fi cyn:</string>
     <string name="ramadan_suhoor_time">Suhoor yn dod i ben (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Nodiadau atgoffa y tu allan i Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Mae rhybuddion Iftar a suhoor yn rhedeg yn awtomatig yn ystod Ramadan; galluogi hyn yn eu cadw i fynd mewn misoedd eraill.</string>
 </resources>

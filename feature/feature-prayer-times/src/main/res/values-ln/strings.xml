@@ -46,14 +46,12 @@
     <string name="method_egyptian">Autorité générale d’enquête ya Egypte</string>
     <string name="method_france">France (UOIF) .</string>
     <string name="method_isna">ISNA (Amérique du Nord) .</string>
-    <string name="method_jafari">Jafari na likambo yango</string>
     <string name="method_karachi">Iniversite ya siansi ya Islam, na Karachi</string>
     <string name="method_kuwait">Koweït</string>
     <string name="method_moonsighting">Komite ya kotala sanza</string>
     <string name="method_mwl">Ligue mondiale musulmane</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapour</string>
-    <string name="method_tehran">Institut ya géophysique ya Téhéran</string>
     <string name="method_turkey">Diyanet Turquie na mboka</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah) ya mboka.</string>
     <string name="next_adhan_elapsed">Banda Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Kozanga makoki ya kosala calcul ya ba temps</string>
     <string name="widget_prayer_times_description">Losambo oyo elandi na countdown</string>
     <string name="widget_prayer_times_label">Bantango ya mabondeli</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Koningana %2$s</string>
+    <string name="settings_adhan_vibrate_on">Na</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">Tika kotala liboso</string>
+    <string name="settings_method_automatic">Automatique (na kotalela esika oyo ezali) .</string>
+    <string name="settings_method_automatic_desc">Application yango eponaka mayele oyo ebongi mpenza na ndenge ya automatique na kotalela mboka na yo mpe esika ozali; okoki kaka kopona méthode moko na maboko na tango nionso.</string>
+    <string name="settings_preview_for_prayer">Botali liboso %1$s adhan</string>
 </resources>

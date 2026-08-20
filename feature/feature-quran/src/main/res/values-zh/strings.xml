@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">上一页</string>
     <string name="quran_recitation_notif_next">下一步</string>
+    <string name="quran_download_playback_title">正在下载%1$s</string>
+    <string name="quran_download_playback_detail">还剩 %1$s · %2$s/秒</string>
+    <string name="quran_download_sort_mushaf">穆沙夫令</string>
+    <string name="quran_download_sort_completion">完成后</string>
+    <string name="quran_downloads_coverage_title">古兰经朗诵者的覆盖范围</string>
+    <string name="quran_downloads_coverage_overall">朗诵者的完整穆沙夫</string>
+    <string name="quran_downloads_coverage_empty">尚未下载音频</string>
+    <string name="quran_pause_notif_listener">暂停通知背诵</string>
+    <string name="quran_reciter_changed_title">朗诵者已更换</string>
+    <string name="quran_reciter_changed_message">播放停止，因为范围已延伸到《古兰经》的末尾。从 %1$s 重新开始？</string>
+    <string name="quran_reciter_restart">重新开始</string>
+    <string name="quran_reciter_not_now">现在不行</string>
 </resources>

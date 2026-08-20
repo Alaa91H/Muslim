@@ -46,4 +46,12 @@
     <string name="crash_close">Katia</string>
     <string name="crash_dismiss">Haere tonu</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Rapua te Quran</string>
+    <string name="more_quran_search_desc">Kimihia he kupu, e hia nga wa ka puta me te waahi</string>
+    <string name="more_quran_frequency">auau kupu Quran</string>
+    <string name="more_quran_frequency_desc">Ko nga kupu maha i roto i te mushaf katoa</string>
+    <string name="more_pause_on_notifications">Whakatatarihia te korero i runga i nga whakamohiotanga</string>
+    <string name="more_pause_on_notifications_desc">Ka okioki poto te taki i te wa e whakatangihia ana te panui, te tangi, etahi atu papaaoho ranei</string>
+    <string name="more_pause_notifications_enabled">Whakahohe — pato ki te whakatuwhera i nga tautuhinga punaha</string>
+    <string name="more_pause_notifications_disabled">Kua monoa — pato kia taea</string>
 </resources>

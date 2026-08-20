@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">ملڪ</string>
     <string name="offline_maps_tab_custom">ڪسٽم ايريا</string>
     <string name="offline_maps_download">ڊائون لوڊ ڪريو</string>
-    <string name="offline_maps_custom_hint">مرڪز کي چونڊڻ لاءِ نقشي تي ٽيپ ڪريو، پوءِ ان جي چوڌاري واري علائقي کي ڊائون لوڊ ڪريو.</string>
+    <string name="offline_maps_custom_hint">نقشي کي پين ۽ زوم ڪريو ان علائقي کي فريم ڪرڻ لاءِ جيڪو توھان چاھيو ٿا؛ فريم خودڪار طريقي سان اپڊيٽ ڪيو. سلائڊر سان ويڪر کي ترتيب ڏيو.</string>
     <string name="offline_maps_custom_name">علائقي جو نالو</string>
-    <string name="offline_maps_custom_tap">مرڪز کي چونڊڻ لاء نقشي تي ٽيپ ڪريو</string>
+    <string name="offline_maps_custom_tap">علائقي کي چونڊڻ لاء نقشي کي منتقل ڪريو</string>
     <string name="offline_maps_custom_default_name">ڪسٽم ايريا</string>
     <string name="offline_maps_summary_body">%1$d مان %2$d علائقا مڪمل · %3$s ڊائون لوڊ ڪيا ويا</string>
     <string name="offline_maps_downloading">ڊائون لوڊ ٿي رهيو آهي %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">وڏو ڪريو</string>
     <string name="mosque_finder_zoom_out">وڏو ڪريو</string>
     <string name="mosque_finder_nearest">ويجھي مسجد</string>
+    <string name="mosque_finder_go_to">ان ڏانهن وڃو</string>
+    <string name="mosque_finder_find_nearest">ويجھي مسجد ڳولھيو</string>
+    <string name="mosque_finder_expanding">اندر ڳولهي رهيو آهي %1$s…</string>
+    <string name="offline_maps_custom_width">علائقي جي ويڪر (ڊگري)</string>
+    <string name="offline_maps_storage_warning">گھٽ اسٽوريج - صرف %1$s مفت</string>
+    <string name="offline_maps_storage_delete_largest">سڀ کان وڏو علائقو حذف ڪريو (%1$s · %2$s)</string>
 </resources>

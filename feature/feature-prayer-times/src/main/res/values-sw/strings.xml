@@ -46,14 +46,12 @@
     <string name="method_egyptian">Mamlaka Kuu ya Utafiti ya Misri</string>
     <string name="method_france">Ufaransa (UOIF)</string>
     <string name="method_isna">ISNA (Amerika Kaskazini)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Chuo Kikuu cha Sayansi ya Kiislamu, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Kamati ya Uangalizi wa Mwezi</string>
     <string name="method_mwl">Umoja wa Kiislamu Duniani</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Taasisi ya Tehran ya Jiofizikia</string>
     <string name="method_turkey">Diyanet Uturuki</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makka)</string>
     <string name="next_adhan_elapsed">Tangu Adhana: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Haiwezi kuhesabu nyakati</string>
     <string name="widget_prayer_times_description">Sala inayofuata yenye kuhesabu kurudi nyuma</string>
     <string name="widget_prayer_times_label">Nyakati za maombi</string>
+    <string name="settings_adhan_volume_vibrate">Sauti %1$s · Mtetemo %2$s</string>
+    <string name="settings_adhan_vibrate_on">Washa</string>
+    <string name="settings_adhan_vibrate_off">Imezimwa</string>
+    <string name="settings_preview_stop">Acha onyesho la kukagua</string>
+    <string name="settings_method_automatic">Otomatiki (kulingana na eneo)</string>
+    <string name="settings_method_automatic_desc">Programu huchagua njia inayofaa zaidi kiotomatiki kulingana na nchi yako na eneo; bado unaweza kuchagua njia mwenyewe wakati wowote.</string>
+    <string name="settings_preview_for_prayer">Hakiki adhana %1$s</string>
 </resources>

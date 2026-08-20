@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">நாடு</string>
     <string name="offline_maps_tab_custom">தனிப்பயன் பகுதி</string>
     <string name="offline_maps_download">பதிவிறக்கவும்</string>
-    <string name="offline_maps_custom_hint">மையத்தைத் தேர்வுசெய்ய வரைபடத்தைத் தட்டவும், பின்னர் அதைச் சுற்றியுள்ள பகுதியைப் பதிவிறக்கவும்.</string>
+    <string name="offline_maps_custom_hint">நீங்கள் விரும்பும் பகுதியை வடிவமைக்க வரைபடத்தை பான் செய்து பெரிதாக்கவும்; சட்டகம் தானாகவே புதுப்பிக்கப்படும். ஸ்லைடருடன் அகலத்தை சரிசெய்யவும்.</string>
     <string name="offline_maps_custom_name">பகுதியின் பெயர்</string>
-    <string name="offline_maps_custom_tap">மையத்தைத் தேர்ந்தெடுக்க வரைபடத்தைத் தட்டவும்</string>
+    <string name="offline_maps_custom_tap">பகுதியைத் தேர்ந்தெடுக்க வரைபடத்தை நகர்த்தவும்</string>
     <string name="offline_maps_custom_default_name">தனிப்பயன் பகுதி</string>
     <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
     <string name="offline_maps_downloading">பதிவிறக்குகிறது %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">பெரிதாக்கவும்</string>
     <string name="mosque_finder_zoom_out">பெரிதாக்கவும்</string>
     <string name="mosque_finder_nearest">அருகில் உள்ள மசூதி</string>
+    <string name="mosque_finder_go_to">அதற்குச் செல்லுங்கள்</string>
+    <string name="mosque_finder_find_nearest">அருகிலுள்ள மசூதியைக் கண்டறியவும்</string>
+    <string name="mosque_finder_expanding">%1$s க்குள் தேடுகிறது…</string>
+    <string name="offline_maps_custom_width">பகுதி அகலம் (டிகிரி)</string>
+    <string name="offline_maps_storage_warning">குறைந்த சேமிப்பு — %1$s மட்டுமே இலவசம்</string>
+    <string name="offline_maps_storage_delete_largest">மிகப்பெரிய பகுதியை நீக்கு (%1$s · %2$s)</string>
 </resources>

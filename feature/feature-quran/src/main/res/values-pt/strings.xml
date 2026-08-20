@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Anterior</string>
     <string name="quran_recitation_notif_next">Próximo</string>
+    <string name="quran_download_playback_title">Baixando %1$s</string>
+    <string name="quran_download_playback_detail">%1$s restantes · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Ordem Mushaf</string>
+    <string name="quran_download_sort_completion">Por conclusão</string>
+    <string name="quran_downloads_coverage_title">Cobertura da Surata entre recitadores</string>
+    <string name="quran_downloads_coverage_overall">Mushaf completo entre recitadores</string>
+    <string name="quran_downloads_coverage_empty">Nenhum áudio baixado ainda</string>
+    <string name="quran_pause_notif_listener">Pausar a recitação nas notificações</string>
+    <string name="quran_reciter_changed_title">Recitador alterado</string>
+    <string name="quran_reciter_changed_message">A reprodução foi interrompida porque o intervalo vai até o final do Alcorão. Começar de novo com %1$s?</string>
+    <string name="quran_reciter_restart">Começar de novo</string>
+    <string name="quran_reciter_not_now">Agora não</string>
 </resources>

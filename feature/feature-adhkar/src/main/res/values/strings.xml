@@ -21,7 +21,9 @@
     <string name="adhkar_settings_title">إعدادات الأذكار</string>
     <string name="adhkar_overlay_section">الرسالة العائمة</string>
     <string name="adhkar_overlay_toggle">عرض الأذكار كرسالة فوق جميع التطبيقات</string>
-    <string name="adhkar_overlay_desc">تظهر رسالة صغيرة بالذكر المختار فوق أي تطبيق وتختفي تلقائيًا بعد المدة التي تحددها.</string>
+    <string name="adhkar_overlay_desc">تظهر رسالة قصيرة بالذكر المختار فوق أي تطبيق، وتختفي تلقائيًا بعد المدة التي تحددها أو فور الضغط عليها.</string>
+    <string name="adhkar_overlay_short_only">استخدام الأذكار القصيرة فقط</string>
+    <string name="adhkar_overlay_short_only_desc">يختار التذكير أذكارًا مناسبة لسطر واحد أو سطرين حتى تبقى الفقاعة واضحة وسريعة القراءة.</string>
     <string name="adhkar_overlay_grant_permission">منح إذن العرض فوق التطبيقات</string>
     <string name="adhkar_overlay_permission_hint">يُفتح إعداد النظام للسماح للتطبيق بالعرض فوق التطبيقات الأخرى.</string>
     <string name="adhkar_overlay_alpha">الشفافية: %1$d%%</string>
@@ -35,6 +37,7 @@
     <string name="adhkar_overlay_duration">مدة الظهور</string>
     <string name="adhkar_overlay_duration_value">%1$d ثانية</string>
     <string name="adhkar_overlay_test">تجربة الرسالة الآن</string>
+    <string name="adhkar_overlay_tap_hint">يمكن الضغط على الفقاعة لإخفائها فورًا.</string>
     <string name="adhkar_overlay_preview_label">معاينة الرسالة العائمة</string>
     <string name="adhkar_overlay_preview_dismiss">تختفي تلقائيًا بعد %1$s ثانية</string>
     <string name="adhkar_overlay_preview_loading">جارٍ التحميل…</string>
@@ -66,5 +69,7 @@
 
     <string name="adhkar_favorites">المفضلة</string>
     <string name="adhkar_add_favorite">إضافة إلى المفضلة</string>
+    <string name="adhkar_copy">نسخ</string>
+    <string name="adhkar_share">مشاركة</string>
     <string name="adhkar_remove_favorite">إزالة من المفضلة</string>
 </resources>

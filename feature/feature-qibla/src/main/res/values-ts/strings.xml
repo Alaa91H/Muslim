@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Tiko</string>
     <string name="offline_maps_tab_custom">Ndhawu ya ntolovelo</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">Khoma mepe leswaku u hlawula exikarhi, kutani u kopa ndhawu leyi wu rhendzeleke.</string>
+    <string name="offline_maps_custom_hint">Pan u tlhela u kurisa mepe leswaku u fureme ndhawu leyi u yi lavaka; furemu yi pfuxetiwa hi ku tisungulela. Lulamisa ku anama hi xilayidi.</string>
     <string name="offline_maps_custom_name">Vito ra ndhawu</string>
-    <string name="offline_maps_custom_tap">Khoma mepe leswaku u hlawula exikarhi</string>
+    <string name="offline_maps_custom_tap">Susa mepe leswaku u hlawula ndhawu</string>
     <string name="offline_maps_custom_default_name">Ndhawu ya ntolovelo</string>
     <string name="offline_maps_summary_body">%1$d ya %2$d tindhawu leti hetisekeke · %3$s ti dawunilodiwile</string>
     <string name="offline_maps_downloading">Ku dawuniloda %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom in</string>
     <string name="mosque_finder_zoom_out">Zoom out</string>
     <string name="mosque_finder_nearest">Mosque ya le kusuhi</string>
+    <string name="mosque_finder_go_to">Yana eka yona</string>
+    <string name="mosque_finder_find_nearest">Kuma mosque ya le kusuhi</string>
+    <string name="mosque_finder_expanding">Ku lavisisa endzeni ka %1$s...</string>
+    <string name="offline_maps_custom_width">Ku anama ka ndhawu (tidigri) .</string>
+    <string name="offline_maps_storage_warning">Vuhlayiselo bya le hansi — ntsena %1$s mahala</string>
+    <string name="offline_maps_storage_delete_largest">Susa xifundzha lexikulu (%1$s · %2$s)</string>
 </resources>

@@ -153,6 +153,13 @@ enum class NotificationCategory(
         NotificationChannels.HAJJ, defaultEnabled = false,
         defaultImportance = NotificationImportance.Default, defaultSound = true, defaultVibrate = true, defaultBadge = true,
         nameRes = R.string.channel_hajj, descriptionRes = R.string.channel_hajj_desc,
+    ),
+
+    /** App-update availability alerts ("a new version is ready"). */
+    AppUpdate(
+        NotificationChannels.APP_UPDATE, defaultEnabled = true,
+        defaultImportance = NotificationImportance.Default, defaultSound = true, defaultVibrate = false, defaultBadge = true,
+        nameRes = R.string.channel_app_update, descriptionRes = R.string.channel_app_update_desc,
     );
 
     /** The defaults the app ships with for this category. */

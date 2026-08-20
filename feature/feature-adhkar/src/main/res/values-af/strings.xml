@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar instellings</string>
     <string name="adhkar_show_translation">Wys vertaling</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopieer</string>
+    <string name="adhkar_share">Deel</string>
+    <string name="adhkar_overlay_short_only">Gebruik slegs kort adhkar</string>
+    <string name="adhkar_overlay_short_only_desc">Kies adhkar wat een of twee lyne pas sodat die drywende borrel duidelik en maklik leesbaar bly.</string>
+    <string name="adhkar_overlay_tap_hint">Tik die borrel om dit onmiddellik te maak.</string>
 </resources>

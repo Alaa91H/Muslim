@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Mamlakat</string>
     <string name="offline_maps_tab_custom">Maxsus maydon</string>
     <string name="offline_maps_download">Yuklab oling</string>
-    <string name="offline_maps_custom_hint">Markazni tanlash uchun xaritaga teging, so‘ng uning atrofidagi hududni yuklab oling.</string>
+    <string name="offline_maps_custom_hint">O\'zingiz xohlagan hududni ramkalash uchun xaritani panorama va kattalashtirish; ramka avtomatik ravishda yangilanadi. Slayder yordamida kenglikni sozlang.</string>
     <string name="offline_maps_custom_name">Hudud nomi</string>
-    <string name="offline_maps_custom_tap">Markazni tanlash uchun xaritaga teging</string>
+    <string name="offline_maps_custom_tap">Hududni tanlash uchun xaritani siljiting</string>
     <string name="offline_maps_custom_default_name">Maxsus maydon</string>
     <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
     <string name="offline_maps_downloading">Yuklab olinmoqda %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Kattalashtirish</string>
     <string name="mosque_finder_zoom_out">Kichraytirish</string>
     <string name="mosque_finder_nearest">Eng yaqin masjid</string>
+    <string name="mosque_finder_go_to">Unga boring</string>
+    <string name="mosque_finder_find_nearest">Eng yaqin masjidni toping</string>
+    <string name="mosque_finder_expanding">%1$s ichida qidirilmoqda…</string>
+    <string name="offline_maps_custom_width">Hudud kengligi (daraja)</string>
+    <string name="offline_maps_storage_warning">Kam xotira — atigi %1$s bepul</string>
+    <string name="offline_maps_storage_delete_largest">Eng katta hududni oʻchirish (%1$s · %2$s)</string>
 </resources>

@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Lexi nga hundza</string>
     <string name="quran_recitation_notif_next">Endzhaku ka sweswo</string>
+    <string name="quran_download_playback_title">Ku dawuniloda %1$s</string>
+    <string name="quran_download_playback_detail">%1$s ku sala · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf xileriso</string>
+    <string name="quran_download_sort_completion">Hi ku hetisa</string>
+    <string name="quran_downloads_coverage_title">Ku hlanganisiwa ka Surah eka vahlayi hinkwavo</string>
+    <string name="quran_downloads_coverage_overall">Full mushaf ku tsemakanya vahlayi</string>
+    <string name="quran_downloads_coverage_empty">Ku hava audio leyi dawunilodiweke ku fikela sweswi</string>
+    <string name="quran_pause_notif_listener">Yimanyana ku hlayela eka switiviso</string>
+    <string name="quran_reciter_changed_title">Reciter u cincile</string>
+    <string name="quran_reciter_changed_message">Ku tlanga ku yimile hikuva range yi tsutsuma ku ya fika emakumu ka Quran. Sungula nakambe hi %1$s?</string>
+    <string name="quran_reciter_restart">Sungula nakambe</string>
+    <string name="quran_reciter_not_now">A hi sweswi</string>
 </resources>

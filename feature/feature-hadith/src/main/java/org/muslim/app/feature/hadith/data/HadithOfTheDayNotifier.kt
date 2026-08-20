@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import androidx.core.net.toUri
+import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.hadith.R
 import org.muslim.app.feature.hadith.domain.Hadith
@@ -32,7 +33,9 @@ open class HadithOfTheDayNotifier(private val context: Context) {
         val title = context.getString(R.string.hadith_of_the_day)
         val body = buildString {
             append(hadith.arabicText)
-            if (hadith.translation.isNotBlank()) {
+            // English fallback stays hidden for Arabic readers: each language
+            // shows its own texts, never an English rendering of them.
+            if (AppLanguage.showEnglishFallback() && hadith.translation.isNotBlank()) {
                 append("\n\n").append(hadith.translation)
             }
             append("\n\n").append(hadith.source)

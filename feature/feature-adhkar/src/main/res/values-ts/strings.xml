@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Swiyimiso swa Adhkar</string>
     <string name="adhkar_show_translation">Kombisa vuhundzuluxeri</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopa</string>
+    <string name="adhkar_share">Avelana</string>
+    <string name="adhkar_overlay_short_only">Tirhisa adhkar yo koma ntsena</string>
+    <string name="adhkar_overlay_short_only_desc">Hlawula adhkar leyi ringanaka na layini yin’we kumbe timbirhi leswaku bubble leyi papamalaka yi tshama yi ri erivaleni naswona yi olova ku yi hlaya.</string>
+    <string name="adhkar_overlay_tap_hint">Khoma bubble leswaku u yi hlongola hi ku hatlisa.</string>
 </resources>

@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Igihugu</string>
     <string name="offline_maps_tab_custom">Agace gakondo</string>
     <string name="offline_maps_download">Kuramo</string>
-    <string name="offline_maps_custom_hint">Kanda ikarita kugirango uhitemo ikigo, hanyuma ukuremo agace kayikikije.</string>
+    <string name="offline_maps_custom_hint">Shira kandi uhindure ikarita kugirango ushireho agace ushaka; ikadiri ivugurura mu buryo bwikora. Hindura ubugari hamwe na slide.</string>
     <string name="offline_maps_custom_name">Izina ry\'akarere</string>
-    <string name="offline_maps_custom_tap">Kanda ikarita kugirango uhitemo ikigo</string>
+    <string name="offline_maps_custom_tap">Himura ikarita kugirango uhitemo akarere</string>
     <string name="offline_maps_custom_default_name">Agace gakondo</string>
     <string name="offline_maps_summary_body">%1$d ya %2$d uduce twuzuye · %3$s yakuweho</string>
     <string name="offline_maps_downloading">Gukuramo %1$s… %2$d %%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Kwegera</string>
     <string name="mosque_finder_zoom_out">Kwegera</string>
     <string name="mosque_finder_nearest">Umusigiti wegereye</string>
+    <string name="mosque_finder_go_to">Genda</string>
+    <string name="mosque_finder_find_nearest">Shakisha umusigiti wegereye</string>
+    <string name="mosque_finder_expanding">Gushakisha muri %1$s…</string>
+    <string name="offline_maps_custom_width">Ubugari bw\'akarere (dogere)</string>
+    <string name="offline_maps_storage_warning">Ububiko buke - %1$s gusa kubuntu</string>
+    <string name="offline_maps_storage_delete_largest">Siba akarere kanini (%1$s · %2$s)</string>
 </resources>

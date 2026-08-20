@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Quốc gia</string>
     <string name="offline_maps_tab_custom">Khu vực tùy chỉnh</string>
     <string name="offline_maps_download">Tải xuống</string>
-    <string name="offline_maps_custom_hint">Nhấn vào bản đồ để chọn trung tâm, sau đó tải xuống khu vực xung quanh đó.</string>
+    <string name="offline_maps_custom_hint">Xoay và thu phóng bản đồ để đóng khung khu vực bạn muốn; khung cập nhật tự động. Điều chỉnh độ rộng bằng thanh trượt.</string>
     <string name="offline_maps_custom_name">Tên khu vực</string>
-    <string name="offline_maps_custom_tap">Nhấn vào bản đồ để chọn trung tâm</string>
+    <string name="offline_maps_custom_tap">Di chuyển bản đồ để chọn khu vực</string>
     <string name="offline_maps_custom_default_name">Khu vực tùy chỉnh</string>
     <string name="offline_maps_summary_body">Đã hoàn thành %1$d trong số %2$d khu vực · Đã tải xuống %3$s</string>
     <string name="offline_maps_downloading">Đang tải xuống %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Phóng to</string>
     <string name="mosque_finder_zoom_out">Thu nhỏ</string>
     <string name="mosque_finder_nearest">Nhà thờ Hồi giáo gần nhất</string>
+    <string name="mosque_finder_go_to">Đi tới nó</string>
+    <string name="mosque_finder_find_nearest">Tìm nhà thờ Hồi giáo gần nhất</string>
+    <string name="mosque_finder_expanding">Đang tìm kiếm trong %1$s…</string>
+    <string name="offline_maps_custom_width">Chiều rộng vùng (độ)</string>
+    <string name="offline_maps_storage_warning">Dung lượng thấp — chỉ miễn phí %1$s</string>
+    <string name="offline_maps_storage_delete_largest">Xóa vùng lớn nhất (%1$s · %2$s)</string>
 </resources>

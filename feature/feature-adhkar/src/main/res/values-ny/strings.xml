@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Zokonda za Adhkar</string>
     <string name="adhkar_show_translation">Onetsani kumasulira</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Koperani</string>
+    <string name="adhkar_share">Gawani</string>
+    <string name="adhkar_overlay_short_only">Gwiritsani ntchito adhkar yaifupi yokha</string>
+    <string name="adhkar_overlay_short_only_desc">Sankhani adhkar yokwanira mizere imodzi kapena iwiri kuti thovu loyandama likhale lomveka komanso losavuta kuwerenga.</string>
+    <string name="adhkar_overlay_tap_hint">Dinani thovulo kuti muchotse nthawi yomweyo.</string>
 </resources>

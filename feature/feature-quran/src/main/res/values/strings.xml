@@ -62,10 +62,14 @@
     <string name="quran_stop_playback">إيقاف التشغيل</string>
     <string name="quran_play_range">نطاق التشغيل</string>
     <string name="quran_range_single_ayah">آية واحدة</string>
-    <string name="quran_range_to_end">إلى نهاية السورة</string>
+    <string name="quran_range_to_end">إلى نهاية القرآن</string>
+    <string name="quran_reciter_changed_title">تم تغيير القارئ</string>
+    <string name="quran_reciter_changed_message">توقفت التلاوة لأن النطاق مضبوط حتى نهاية القرآن. هل تريد بدء التلاوة بالقارئ %1$s من جديد؟</string>
+    <string name="quran_reciter_restart">بدء من جديد</string>
+    <string name="quran_reciter_not_now">ليس الآن</string>
     <string name="quran_range_whole_surah">السورة كاملة</string>
     <string name="quran_range_single_ayah_short">آية</string>
-    <string name="quran_range_to_end_short">إلى النهاية</string>
+    <string name="quran_range_to_end_short">حتى نهاية المصحف</string>
     <string name="quran_range_whole_surah_short">السورة</string>
     <string name="quran_repeat_continuous">بدون توقف</string>
     <string name="quran_playback_error">تعذّر تشغيل الصوت — تحقق من الاتصال ثم أعد المحاولة</string>
@@ -106,6 +110,7 @@
     <string name="quran_recitation_notif_play">تشغيل</string>
     <string name="quran_recitation_notif_pause">إيقاف مؤقت</string>
     <string name="quran_recitation_notif_stop">إيقاف</string>
+    <string name="quran_pause_notif_listener">إيقاف التلاوة عند الإشعارات</string>
     <string name="quran_recitation_notif_previous">السابقة</string>
     <string name="quran_recitation_notif_next">التالية</string>
 
@@ -117,6 +122,8 @@
 
     <!-- Night downloads & management -->
     <string name="quran_download_percent">%1$d٪</string>
+    <string name="quran_download_playback_title">تحميل تلاوة %1$s</string>
+    <string name="quran_download_playback_detail">متبقي %1$s · %2$s/ث</string>
     <string name="quran_download_night_waiting">سيبدأ التحميل ليلًا — النافذة %1$s</string>
     <string name="quran_download_night_only">التحميل الليلي فقط</string>
     <string name="quran_download_night_hint">يبدأ التحميل تلقائيًا داخل النافذة %1$s (توفيرًا للبيانات والبطارية)</string>
@@ -128,6 +135,11 @@
     <string name="quran_download_reciter_header">المحمّل: %1$d آية · %2$s</string>
     <string name="quran_download_mushaf_progress">اكتمال المصحف: %1$d / %2$d</string>
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
+    <string name="quran_download_sort_mushaf">ترتيب المصحف</string>
+    <string name="quran_download_sort_completion">نسبة الاكتمال</string>
+    <string name="quran_downloads_coverage_title">اكتمال السور عبر القراء</string>
+    <string name="quran_downloads_coverage_overall">المصحف عبر القراء</string>
+    <string name="quran_downloads_coverage_empty">لم يُحمَّل أي صوت بعد</string>
     <string name="quran_download_reciter_state_detail">%1$d سورة · %2$d آية · %3$s</string>
     <string name="quran_download_delete_surah">حذف السورة المحمّلة</string>
     <string name="quran_download_delete_reciter">حذف كل تحميلات هذا القارئ</string>

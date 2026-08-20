@@ -17,6 +17,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -167,7 +169,10 @@ fun QiblaScreen(
     var viewMode by remember { mutableStateOf(QiblaViewMode.Compass) }
 
     Column(
-        modifier = modifier.fillMaxSize().padding(24.dp),
+        modifier = modifier
+            .fillMaxSize()
+            .padding(24.dp)
+            .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(Modifier.height(8.dp))
@@ -294,7 +299,7 @@ fun QiblaScreen(
                     longitude = effectiveLng,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .weight(1f),
+                        .height(420.dp),
                 )
                 Spacer(Modifier.height(12.dp))
                 QiblaMapLegend()
@@ -310,7 +315,7 @@ fun QiblaScreen(
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-        Spacer(Modifier.weight(1f))
+        Spacer(Modifier.height(24.dp))
     }
 }
 
@@ -373,8 +378,9 @@ private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier 
 
     Canvas(modifier = modifier) {
         val center = Offset(size.width / 2, size.height / 2)
-        // Extra margin so the Kaaba marker (drawn outside the rim) never clips.
-        val radius = min(size.width, size.height) / 2 - 38.dp.toPx()
+        // Extra margin so the Kaaba marker (drawn outside the rim) and the top
+        // indicator never clip and the marker stays clear of the ring.
+        val radius = min(size.width, size.height) / 2 - 52.dp.toPx()
 
         // Rim
         drawCircle(color = rimColor, radius = radius, style = Stroke(3.dp.toPx()))
@@ -426,6 +432,27 @@ private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier 
                 )
             }
 
+            // Minor ticks every 30° (aligned with the degree labels) so the
+            // rose reads like a real compass dial.
+            for (deg in 0 until 360 step 30) {
+                if (deg % 90 == 0) continue
+                val a = Math.toRadians(deg.toDouble())
+                val outer = radius * 0.84f
+                val inner = radius * 0.78f
+                drawLine(
+                    color = tickColor.copy(alpha = 0.7f),
+                    start = Offset(
+                        center.x + (inner * sin(a)).toFloat(),
+                        center.y - (inner * cos(a)).toFloat(),
+                    ),
+                    end = Offset(
+                        center.x + (outer * sin(a)).toFloat(),
+                        center.y - (outer * cos(a)).toFloat(),
+                    ),
+                    strokeWidth = 1.5.dp.toPx(),
+                )
+            }
+
             // Gold qibla needle at the bearing (rotates with the dial).
             rotate(degrees = bearing.toFloat(), pivot = center) {
                 drawLine(
@@ -437,10 +464,11 @@ private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier 
             }
         }
 
-        // The Kaaba marker rides the rim at the dial-relative bearing but is
-        // always drawn upright (never tilted) and outside the compass circle.
+        // The Kaaba marker rides just outside the rim at the dial-relative
+        // bearing, always upright, with a clearance gap so it never touches
+        // the ring.
         val dialAngle = Math.toRadians(bearing - animatedHeading)
-        val markerRadius = radius * 1.10f
+        val markerRadius = radius + kaabaLayout.size.height / 2f + 10.dp.toPx()
         val markerPos = Offset(
             center.x + (markerRadius * sin(dialAngle)).toFloat() - kaabaLayout.size.width / 2f,
             center.y - (markerRadius * cos(dialAngle)).toFloat() - kaabaLayout.size.height / 2f,
@@ -455,6 +483,9 @@ private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier 
             close()
         }
         drawPath(indicator, color = northColor)
+
+        // Center pivot dot for a finished look.
+        drawCircle(color = rimColor, radius = 3.dp.toPx())
     }
 }
 

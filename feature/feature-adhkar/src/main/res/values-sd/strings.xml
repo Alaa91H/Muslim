@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar سيٽنگون</string>
     <string name="adhkar_show_translation">ترجمو ڏيکاريو</string>
     <string name="adhkar_title">اَڌڪار</string>
+    <string name="adhkar_copy">ڪاپي</string>
+    <string name="adhkar_share">حصيداري ڪريو</string>
+    <string name="adhkar_overlay_short_only">صرف مختصر اچار استعمال ڪريو</string>
+    <string name="adhkar_overlay_short_only_desc">Adhkar چونڊيو جيڪو هڪ يا ٻه سٽون مناسب هجي ته جيئن سچل بلبل صاف ۽ پڙهڻ ۾ آسان رهي.</string>
+    <string name="adhkar_overlay_tap_hint">ان کي فوري طور تي رد ڪرڻ لاء بلبل تي ٽيپ ڪريو.</string>
 </resources>

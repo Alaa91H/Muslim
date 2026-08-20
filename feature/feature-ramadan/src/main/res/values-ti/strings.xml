@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">ቅድሚ ሕጂ ኣዘኻኽሩኒ፤</string>
     <string name="ramadan_suhoor_time">ሱሁር ይውድእ (ፋጅር): %1$s</string>
     <string name="ramadan_title">ሮሞዳን</string>
+    <string name="ramadan_notify_outside">ካብ ሮሞዳን ወጻኢ መዘኻኸሪታት</string>
+    <string name="ramadan_notify_outside_desc">ኣብ ሮሞዳን ናይ ኢፍታርን ሱሆርን መጠንቀቕታታት ብኣውቶማቲክ ይካየድ፤ ነዚ ምኽኣል ኣብ ካልኦት ኣዋርሕ ንኽቕጽሉ ይገብሮም።</string>
 </resources>

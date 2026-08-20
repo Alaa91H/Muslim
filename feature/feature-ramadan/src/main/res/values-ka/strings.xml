@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">ადრე შემახსენე:</string>
     <string name="ramadan_suhoor_time">სუჰური მთავრდება (ფაჯრი): %1$s</string>
     <string name="ramadan_title">რამადანი</string>
+    <string name="ramadan_notify_outside">შეხსენებები რამადანის გარეთ</string>
+    <string name="ramadan_notify_outside_desc">იფტარისა და სუჰურის გაფრთხილებები ავტომატურად მუშაობს რამადანის დროს; ამის ჩართვა მათ აგრძელებს სხვა თვეებში.</string>
 </resources>

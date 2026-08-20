@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Arventennoù Adhkar</string>
     <string name="adhkar_show_translation">Diskouez an droidigezh</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Eilañ</string>
+    <string name="adhkar_share">Rannañ</string>
+    <string name="adhkar_overlay_short_only">Implijout adhkar berr hepken</string>
+    <string name="adhkar_overlay_short_only_desc">Dibabit adhkar a glot gant unan pe ziv linenn evit ma chomo sklaer ha aes da lenn ar voull o nijal.</string>
+    <string name="adhkar_overlay_tap_hint">Pouezit war ar voull evit he skarzhañ diouzhtu.</string>
 </resources>

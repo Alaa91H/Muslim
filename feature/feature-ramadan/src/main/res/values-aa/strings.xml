@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">naharal yoo kassiis:</string>
     <string name="ramadan_suhoor_time">sucuur gaba kalti (cuuri): %1$s</string>
     <string name="ramadan_title">Ramadhaan</string>
+    <string name="ramadan_notify_outside">Ramadaanak iroh tan kassiisitte.</string>
+    <string name="ramadan_notify_outside_desc">Iftar kee Suhoor maabitina Ramadaan uddur sissikuk gexxa; tah duudusaanam gersi alsitteh addat ken dacrisele.</string>
 </resources>

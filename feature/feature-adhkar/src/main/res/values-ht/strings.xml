@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Anviwònman Adhkar</string>
     <string name="adhkar_show_translation">Montre tradiksyon</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopi</string>
+    <string name="adhkar_share">Pataje</string>
+    <string name="adhkar_overlay_short_only">Sèvi ak adhkar kout sèlman</string>
+    <string name="adhkar_overlay_short_only_desc">Chwazi adhkar ki anfòm youn oubyen de liy pou ti wonn k ap flote a rete klè epi fasil pou li.</string>
+    <string name="adhkar_overlay_tap_hint">Tape ti wonn nan ranvwaye li imedyatman.</string>
 </resources>

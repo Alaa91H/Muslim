@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egiptetɔwo ƒe Numekuku Dɔwɔƒe Gã</string>
     <string name="method_france">France (UOIF) ƒe .</string>
     <string name="method_isna">ISNA (Anyiehe Amerika) .</string>
-    <string name="method_jafari">Jafari ƒe ŋkɔ</string>
     <string name="method_karachi">Islamtɔwo ƒe Dzɔdzɔmeŋutinunya Yunivɛsiti, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Ɣletidzikpɔkpɔ Kɔmiti</string>
     <string name="method_mwl">Moslemtɔwo ƒe Xexeame Katã ƒe Habɔbɔ</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Tehran Anyigbaŋutinunya Ŋuti Nusrɔ̃ƒe</string>
     <string name="method_turkey">Diyanet Turkey ƒe agbalẽ</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah) ƒe ƒuƒoƒo .</string>
     <string name="next_adhan_elapsed">Tso esime Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Mete ŋu bu akɔnta le ɣeyiɣiwo ŋu o</string>
     <string name="widget_prayer_times_description">Gbedodoɖa si kplɔe ɖo kple ɣeyiɣi xlẽxlẽ</string>
     <string name="widget_prayer_times_label">Gbedodoɖaɣiwo</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Ʋuʋudedi %2$s</string>
+    <string name="settings_adhan_vibrate_on">Le edzi</string>
+    <string name="settings_adhan_vibrate_off">Tsi</string>
+    <string name="settings_preview_stop">Dzudzɔ ŋgɔdonya</string>
+    <string name="settings_method_automatic">Automatic (le teƒe si wole nu) .</string>
+    <string name="settings_method_automatic_desc">Dɔdamɔnua tiaa mɔnu si sɔ wu le eɖokui si le dukɔ si me nèle kple teƒe si nèle nu; àte ŋu atia mɔnu aɖe kokoko kple asi ɣesiaɣi.</string>
+    <string name="settings_preview_for_prayer">Kpɔ ŋgɔ %1$s adhan</string>
 </resources>

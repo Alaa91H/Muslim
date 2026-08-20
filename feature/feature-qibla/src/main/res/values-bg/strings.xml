@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">държава</string>
     <string name="offline_maps_tab_custom">Персонализирана зона</string>
     <string name="offline_maps_download">Изтегляне</string>
-    <string name="offline_maps_custom_hint">Докоснете картата, за да изберете центъра, след което изтеглете района около него.</string>
+    <string name="offline_maps_custom_hint">Преместване и мащабиране на картата, за да рамкирате областта, която искате; рамката се актуализира автоматично. Регулирайте ширината с плъзгача.</string>
     <string name="offline_maps_custom_name">Име на района</string>
-    <string name="offline_maps_custom_tap">Докоснете картата, за да изберете центъра</string>
+    <string name="offline_maps_custom_tap">Преместете картата, за да изберете района</string>
     <string name="offline_maps_custom_default_name">Персонализирана зона</string>
     <string name="offline_maps_summary_body">%1$d от %2$d области завършени · %3$s изтеглени</string>
     <string name="offline_maps_downloading">Изтегля се %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Увеличете мащаба</string>
     <string name="mosque_finder_zoom_out">Намаляване</string>
     <string name="mosque_finder_nearest">Най-близката джамия</string>
+    <string name="mosque_finder_go_to">Отидете до него</string>
+    <string name="mosque_finder_find_nearest">Намерете най-близката джамия</string>
+    <string name="mosque_finder_expanding">Търсене в %1$s…</string>
+    <string name="offline_maps_custom_width">Ширина на площта (градуси)</string>
+    <string name="offline_maps_storage_warning">Малко място за съхранение — само %1$s безплатно</string>
+    <string name="offline_maps_storage_delete_largest">Изтриване на най-големия регион (%1$s · %2$s)</string>
 </resources>

@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Emlékeztess előtte:</string>
     <string name="ramadan_suhoor_time">Suhoor végek (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadán</string>
+    <string name="ramadan_notify_outside">Emlékeztetők a ramadánon kívül</string>
+    <string name="ramadan_notify_outside_desc">Az iftar és suhoor figyelmeztetések automatikusan futnak a ramadán alatt; Ha ezt engedélyezi, akkor a többi hónapban is megmaradnak.</string>
 </resources>

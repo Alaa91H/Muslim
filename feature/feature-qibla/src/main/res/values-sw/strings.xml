@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Nchi</string>
     <string name="offline_maps_tab_custom">Eneo maalum</string>
     <string name="offline_maps_download">Pakua</string>
-    <string name="offline_maps_custom_hint">Gusa ramani ili uchague kituo, kisha upakue eneo linalokizunguka.</string>
+    <string name="offline_maps_custom_hint">Panua na kuvuta ramani ili kuweka fremu ya eneo unalotaka; sura inasasishwa kiotomatiki. Rekebisha upana na kitelezi.</string>
     <string name="offline_maps_custom_name">Jina la eneo</string>
-    <string name="offline_maps_custom_tap">Gonga ramani ili kuchagua katikati</string>
+    <string name="offline_maps_custom_tap">Sogeza ramani ili kuchagua eneo</string>
     <string name="offline_maps_custom_default_name">Eneo maalum</string>
     <string name="offline_maps_summary_body">%1$d kati ya %2$d maeneo yamekamilika · %3$s imepakuliwa</string>
     <string name="offline_maps_downloading">Inapakua %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Vuta karibu</string>
     <string name="mosque_finder_zoom_out">Kuza nje</string>
     <string name="mosque_finder_nearest">Msikiti wa karibu</string>
+    <string name="mosque_finder_go_to">Nenda kwake</string>
+    <string name="mosque_finder_find_nearest">Tafuta msikiti wa karibu</string>
+    <string name="mosque_finder_expanding">Inatafuta ndani ya %1$s...</string>
+    <string name="offline_maps_custom_width">Upana wa eneo (digrii)</string>
+    <string name="offline_maps_storage_warning">Hifadhi ya chini - %1$s pekee bila malipo</string>
+    <string name="offline_maps_storage_delete_largest">Futa eneo kubwa zaidi (%1$s · %2$s)</string>
 </resources>

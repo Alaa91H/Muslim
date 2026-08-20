@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adkar settings</string>
     <string name="adhkar_show_translation">Muuji turjumaada</string>
     <string name="adhkar_title">Adkar</string>
+    <string name="adhkar_copy">Nuqul</string>
+    <string name="adhkar_share">La wadaag</string>
+    <string name="adhkar_overlay_short_only">Isticmaal adhkar gaaban oo keliya</string>
+    <string name="adhkar_overlay_short_only_desc">Dooro adhkar ku habboon hal ama laba sadar si xumbo sabaynaysa ay u ahaato mid cad oo ay fududahay in la akhriyo.</string>
+    <string name="adhkar_overlay_tap_hint">Taabo xumbo si aad isla markiiba meesha uga saarto.</string>
 </resources>

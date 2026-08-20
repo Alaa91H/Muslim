@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Live</string>
     <string name="offline_maps_tab_custom">Indzawo lekhetsiwe</string>
     <string name="offline_maps_download">Landza</string>
-    <string name="offline_maps_custom_hint">Thepha imephu kute ukhetse sikhungo, bese ulandza indzawo letungeletile.</string>
+    <string name="offline_maps_custom_hint">Pan bese usondzeta imephu kute uhlele indzawo loyifunako; luhlaka luyabuyeketwa ngekuzenzakalela. Lungisa ububanzi nge-slider.</string>
     <string name="offline_maps_custom_name">Ligama lendzawo</string>
-    <string name="offline_maps_custom_tap">Thepha imephu kute ukhetse sikhungo</string>
+    <string name="offline_maps_custom_tap">Hambisa imephu kute ukhetse indzawo</string>
     <string name="offline_maps_custom_default_name">Indzawo lekhetsiwe</string>
     <string name="offline_maps_summary_body">%1$d yetindzawo %2$d letiphelile · %3$s tilandzelwe</string>
     <string name="offline_maps_downloading">Kulandvwa %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Sondzeta</string>
     <string name="mosque_finder_zoom_out">Sondzeta</string>
     <string name="mosque_finder_nearest">Imoski lesedvute</string>
+    <string name="mosque_finder_go_to">Iya kuyo</string>
+    <string name="mosque_finder_find_nearest">Tfola i-mosque lesedvute</string>
+    <string name="mosque_finder_expanding">Kusesha ngaphakatsi kwe %1$s...</string>
+    <string name="offline_maps_custom_width">Bubanti bendzawo (emadigri)</string>
+    <string name="offline_maps_storage_warning">Sitoreji lesiphansi — %1$s kuphela mahhala</string>
+    <string name="offline_maps_storage_delete_largest">Cisha sigodzi lesikhulu kunato tonkhe (%1$s · %2$s)</string>
 </resources>

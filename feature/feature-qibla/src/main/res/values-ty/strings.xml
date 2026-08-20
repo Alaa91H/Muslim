@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Fenua</string>
     <string name="offline_maps_tab_custom">Tuhaa fenua matauhia</string>
     <string name="offline_maps_download">Tikiake</string>
-    <string name="offline_maps_custom_hint">Pato i te hoho\'a fenua no te ma\'iti i te pû, e i muri iho a tiki i te vahi e haaati ra.</string>
+    <string name="offline_maps_custom_hint">Pan e faarahi i te hoho\'a fenua no te haamau i te vahi ta outou e hinaaro; e faaapî-oioi-hia te hoho\'a. A taui i te rahi na roto i te slider.</string>
     <string name="offline_maps_custom_name">I\'oa o te vahi</string>
-    <string name="offline_maps_custom_tap">Tap the map to pick the center</string>
+    <string name="offline_maps_custom_tap">A taui i te hoho\'a fenua no te maiti i te vahi</string>
     <string name="offline_maps_custom_default_name">Tuhaa fenua matauhia</string>
     <string name="offline_maps_summary_body">%1$d o te mau vahi %2$d · %3$s tei tikihia</string>
     <string name="offline_maps_downloading">Te titau-manihini-raa %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom i roto</string>
     <string name="mosque_finder_zoom_out">Zoom i rapae</string>
     <string name="mosque_finder_nearest">Mosque fatata roa \' \' e</string>
+    <string name="mosque_finder_go_to">A haere i reira</string>
+    <string name="mosque_finder_find_nearest">A imi i te mosque fatata roa \' \' e</string>
+    <string name="mosque_finder_expanding">Te imiraa i roto i te %1$s...</string>
+    <string name="offline_maps_custom_width">Te rahi o te fenua (teteri)</string>
+    <string name="offline_maps_storage_warning">Te vahi tape\'araa iti - %1$s ana\'e</string>
+    <string name="offline_maps_storage_delete_largest">Tamau i te vahi rahi roa \' \' e (%1$s · %2$s)</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">Autoritat General d\'Inspecció Egípcia</string>
     <string name="method_france">França (UOIF)</string>
     <string name="method_isna">ISNA (Amèrica del Nord)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Universitat de Ciències Islàmiques, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Comitè de Visió de Lluna</string>
     <string name="method_mwl">Lliga Mundial Musulmana</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapur</string>
-    <string name="method_tehran">Institut de Geofísica de Teheran</string>
     <string name="method_turkey">Diyanet Turquia</string>
     <string name="method_umm_al_qura">Umm al-Qura (La Meca)</string>
     <string name="next_adhan_elapsed">Des d\'Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">No es poden calcular els temps</string>
     <string name="widget_prayer_times_description">Següent pregària amb compte enrere</string>
     <string name="widget_prayer_times_label">Temps de pregària</string>
+    <string name="settings_adhan_volume_vibrate">Volum %1$s · Vibració %2$s</string>
+    <string name="settings_adhan_vibrate_on">Encès</string>
+    <string name="settings_adhan_vibrate_off">Apagat</string>
+    <string name="settings_preview_stop">Atura la previsualització</string>
+    <string name="settings_method_automatic">Automàtic (per ubicació)</string>
+    <string name="settings_method_automatic_desc">L\'aplicació tria automàticament el mètode més adequat en funció del vostre país i ubicació; encara podeu triar un mètode manualment en qualsevol moment.</string>
+    <string name="settings_preview_for_prayer">Previsualitza %1$s adhan</string>
 </resources>

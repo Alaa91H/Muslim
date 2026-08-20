@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Countryurt</string>
     <string name="offline_maps_tab_custom">Omörite meýdan</string>
     <string name="offline_maps_download">Göçürip al</string>
-    <string name="offline_maps_custom_hint">Merkezi saýlamak üçin karta basyň, soňra töweregindäki ýerleri göçürip alyň.</string>
+    <string name="offline_maps_custom_hint">Islän meýdanyňyzy düzmek üçin kartany pan we ulaldyň; ramka awtomatiki täzelenýär. Slaýder bilen ini sazlaň.</string>
     <string name="offline_maps_custom_name">Sebitiň ady</string>
-    <string name="offline_maps_custom_tap">Merkezi saýlamak üçin karta basyň</string>
+    <string name="offline_maps_custom_tap">Meýdany saýlamak üçin kartany süýşüriň</string>
     <string name="offline_maps_custom_default_name">Omörite meýdan</string>
     <string name="offline_maps_summary_body">%1$d %2$d ýerleri doly · %3$s göçürildi</string>
     <string name="offline_maps_downloading">Downloading %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Ulaltmak</string>
     <string name="mosque_finder_zoom_out">Ulaltmak</string>
     <string name="mosque_finder_nearest">Iň ýakyn metjit</string>
+    <string name="mosque_finder_go_to">Oňa git</string>
+    <string name="mosque_finder_find_nearest">Iň ýakyn metjidi tapyň</string>
+    <string name="mosque_finder_expanding">Searching within %1$s…</string>
+    <string name="offline_maps_custom_width">Meýdanyň ini (derejeler)</string>
+    <string name="offline_maps_storage_warning">Pes ammar - diňe %1$s mugt</string>
+    <string name="offline_maps_storage_delete_largest">Iň uly sebiti pozuň (%1$s · %2$s)</string>
 </resources>

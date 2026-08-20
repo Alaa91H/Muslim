@@ -46,14 +46,12 @@
     <string name="method_egyptian">मिस्र के सामान्य सर्वेक्षण प्राधिकरण</string>
     <string name="method_france">फ़्रांस (यूओआईएफ)</string>
     <string name="method_isna">आईएसएनए (उत्तरी अमेरिका)</string>
-    <string name="method_jafari">जाफ़री</string>
     <string name="method_karachi">इस्लामिक साइंसेज विश्वविद्यालय, कराची</string>
     <string name="method_kuwait">कुवैत</string>
     <string name="method_moonsighting">चन्द्रदर्शन समिति</string>
     <string name="method_mwl">मुस्लिम वर्ल्ड लीग</string>
     <string name="method_qatar">कतर</string>
     <string name="method_singapore">सिंगापुर</string>
-    <string name="method_tehran">तेहरान भूभौतिकी संस्थान</string>
     <string name="method_turkey">डायनेट टर्की</string>
     <string name="method_umm_al_qura">उम्म अल-क़ुरा (मक्का)</string>
     <string name="next_adhan_elapsed">अज़ान के बाद से: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">समय की गणना करने में असमर्थ</string>
     <string name="widget_prayer_times_description">उलटी गिनती के साथ अगली प्रार्थना</string>
     <string name="widget_prayer_times_label">प्रार्थना का समय</string>
+    <string name="settings_adhan_volume_vibrate">आयतन %1$s · कंपन %2$s</string>
+    <string name="settings_adhan_vibrate_on">पर</string>
+    <string name="settings_adhan_vibrate_off">बंद</string>
+    <string name="settings_preview_stop">पूर्वावलोकन बंद करो</string>
+    <string name="settings_method_automatic">स्वचालित (स्थान के अनुसार)</string>
+    <string name="settings_method_automatic_desc">ऐप आपके देश और स्थान के आधार पर स्वचालित रूप से सबसे उपयुक्त विधि चुनता है; आप अभी भी किसी भी समय मैन्युअल रूप से एक विधि चुन सकते हैं।</string>
+    <string name="settings_preview_for_prayer">पूर्वावलोकन %1$s अज़ान</string>
 </resources>

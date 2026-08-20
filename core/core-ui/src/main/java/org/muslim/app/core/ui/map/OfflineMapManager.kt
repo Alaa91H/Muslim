@@ -2,6 +2,7 @@ package org.muslim.app.core.ui.map
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.os.StatFs
 import androidx.core.content.edit
 import org.maplibre.android.MapLibre
 import org.maplibre.android.geometry.LatLngBounds
@@ -199,6 +200,44 @@ class OfflineMapManager(context: Context) {
         })
     }
 
+    /**
+     * Bytes of free storage on the app's data partition. If the OS reports a
+     * failure (rare), [Long.MAX_VALUE] is returned so callers never block the
+     * UI on an error.
+     */
+    fun availableBytes(): Long = try {
+        StatFs(appContext.filesDir.absolutePath).availableBytes
+    } catch (e: Exception) {
+        Long.MAX_VALUE
+    }
+
+    /** Total capacity of the app's data partition (0 if it cannot be read). */
+    fun totalBytes(): Long = try {
+        StatFs(appContext.filesDir.absolutePath).totalBytes
+    } catch (e: Exception) {
+        0L
+    }
+
+    /**
+     * Low-storage snapshot for the download screen: free space and the
+     * largest existing region (so the UI can warn and suggest deleting it).
+     * [regions] is the currently listed set, used to pick the largest.
+     */
+    fun storageSnapshot(regions: List<OfflineMapRegion>): StorageSnapshot {
+        val available = availableBytes()
+        val total = totalBytes()
+        // Warn below 512 MB free, or when free space is under 15% of the
+        // partition (whichever is more conservative for the device).
+        val low = available < 512L * 1024 * 1024 || (total > 0 && available < total / 100 * 15)
+        val largest = regions.maxByOrNull { it.downloadedBytes }
+        return StorageSnapshot(
+            availableBytes = available,
+            totalBytes = total,
+            lowOnStorage = low,
+            largestRegion = largest?.takeIf { it.downloadedBytes > 0 },
+        )
+    }
+
     /** Estimates the on-disk size a download would use, before starting it. */
     fun estimateBytes(
         bounds: LatLngBounds,
@@ -235,6 +274,14 @@ class OfflineMapManager(context: Context) {
     // ------------------------------------------------------------------
     // Internals
     // ------------------------------------------------------------------
+
+    /** Snapshot of the device's free storage plus the biggest region on disk. */
+    data class StorageSnapshot(
+        val availableBytes: Long,
+        val totalBytes: Long,
+        val lowOnStorage: Boolean,
+        val largestRegion: OfflineMapRegion?,
+    )
 
     private fun findRegion(id: Long, onFound: (OfflineRegion?) -> Unit) {
         manager.listOfflineRegions(object : OfflineManager.ListOfflineRegionsCallback {

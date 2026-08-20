@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Oldindan eslatib qo\'ying:</string>
     <string name="ramadan_suhoor_time">Sahurning tugashi (bomdod): %1$s</string>
     <string name="ramadan_title">Ramazon</string>
+    <string name="ramadan_notify_outside">Ramazondan tashqari eslatmalar</string>
+    <string name="ramadan_notify_outside_desc">Ramazon oyida iftorlik va sahur ogohlantirishlari avtomatik ravishda ishlaydi; Bu ularni boshqa oylarda davom ettiradi.</string>
 </resources>

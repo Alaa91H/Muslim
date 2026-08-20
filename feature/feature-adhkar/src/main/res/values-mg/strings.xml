@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Fikirana Adhkar</string>
     <string name="adhkar_show_translation">Asehoy ny dikanteny</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">kopia</string>
+    <string name="adhkar_share">Zarao</string>
+    <string name="adhkar_overlay_short_only">Mampiasà adhkar fohy fotsiny</string>
+    <string name="adhkar_overlay_short_only_desc">Mifidiana adhkar mifanaraka amin\'ny andalana iray na roa mba ho mazava tsara sy mora vakina ilay bubble mitsinkafona.</string>
+    <string name="adhkar_overlay_tap_hint">Tsindrio ny bubble hanilika azy avy hatrany.</string>
 </resources>

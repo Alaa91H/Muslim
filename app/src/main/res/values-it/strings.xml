@@ -46,4 +46,12 @@
     <string name="crash_close">Chiudi</string>
     <string name="crash_dismiss">Continua</string>
     <string name="more_order_hint">L\'aiuto di cui hai bisogno è molto utile per la tua attività e per i tuoi interessi إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Cerca nel Corano</string>
+    <string name="more_quran_search_desc">Trova una parola, quanto spesso appare e dove</string>
+    <string name="more_quran_frequency">Frequenza delle parole del Corano</string>
+    <string name="more_quran_frequency_desc">Le parole più frequenti in tutto il mushaf</string>
+    <string name="more_pause_on_notifications">Metti in pausa la recitazione sulle notifiche</string>
+    <string name="more_pause_on_notifications_desc">La recitazione fa una breve pausa quando viene riprodotta una notifica, uno squillo o un altro supporto multimediale</string>
+    <string name="more_pause_notifications_enabled">Abilitato: tocca per aprire le impostazioni di sistema</string>
+    <string name="more_pause_notifications_disabled">Disabilitato: tocca per abilitare</string>
 </resources>

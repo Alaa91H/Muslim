@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Адҳкар архиарақәа</string>
     <string name="adhkar_show_translation">Аиҭага аарԥштәуп</string>
     <string name="adhkar_title">Адҳкар</string>
+    <string name="adhkar_copy">Ақәҭыхра</string>
+    <string name="adhkar_share">Аиҩшара</string>
+    <string name="adhkar_overlay_short_only">Икьаҿу адхкар мацара ахархәара</string>
+    <string name="adhkar_overlay_short_only_desc">Иалышәх адхкар, цәаҳәак-ҩбак ирықәшәо, иӡсо аҟәаҟәа еилыкка иаанхарц, насгьы аԥхьара марианы иаанхарц азы.</string>
+    <string name="adhkar_overlay_tap_hint">Аҟәаҟәа иақәыӷәӷәа иаразнак иаԥыхразы.</string>
 </resources>

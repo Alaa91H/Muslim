@@ -46,14 +46,12 @@
     <string name="method_egyptian">Aotrouniezh hollek an enklask egiptat</string>
     <string name="method_france">Bro-C\'hall (UOIF)</string>
     <string name="method_isna">ISNA (Norzhamerika)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Skol-veur ar Skiantoù Islamek, Karachi</string>
     <string name="method_kuwait">Koweit</string>
     <string name="method_moonsighting">Poellgor al loar</string>
     <string name="method_mwl">Kevre ar Bed Muzulman</string>
     <string name="method_qatar">Katar</string>
     <string name="method_singapore">Singapour</string>
-    <string name="method_tehran">Ensavadur Geofizik Teheran</string>
     <string name="method_turkey">Diyanet Turkia</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Abaoe Adhan : %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">N\'haller ket jediñ an amzerioù</string>
     <string name="widget_prayer_times_description">Ar bedenn da heul gant kontadennoù en-dro</string>
     <string name="widget_prayer_times_label">Amzer ar bedenn</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Vibration %2$s</string>
+    <string name="settings_adhan_vibrate_on">War</string>
+    <string name="settings_adhan_vibrate_off">Diweredekaet</string>
+    <string name="settings_preview_stop">Paouez gant ar rakweled</string>
+    <string name="settings_method_automatic">Emgefreek (dre lec\'hiadur)</string>
+    <string name="settings_method_automatic_desc">Dibab a ra an arload an doare dereatañ ent emgefre diouzh ho bro hag ho lec\'hiadur ; gallout a rit c\'hoazh dibab un doare dre zorn da bep mare.</string>
+    <string name="settings_preview_for_prayer">Rakwelet %1$s adhan</string>
 </resources>

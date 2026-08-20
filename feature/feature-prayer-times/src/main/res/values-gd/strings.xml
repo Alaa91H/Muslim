@@ -46,14 +46,12 @@
     <string name="method_egyptian">Ùghdarras Sgrùdaidh Coitcheann na h-Èiphit</string>
     <string name="method_france">An Fhraing (UOIF)</string>
     <string name="method_isna">ISNA (Ameireaga a Tuath)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Oilthigh nan Saidheansan Ioslamach, Karachi</string>
     <string name="method_kuwait">Cuwait</string>
     <string name="method_moonsighting">Comataidh sealladh na gealaich</string>
     <string name="method_mwl">Lìog na Cruinne Muslamach</string>
     <string name="method_qatar">Catar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Institiud Geophysics Tehran</string>
     <string name="method_turkey">Diyanet Tuirc</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Bho Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Cha ghabh amannan obrachadh a-mach</string>
     <string name="widget_prayer_times_description">An ath ùrnaigh le cunntadh sìos</string>
     <string name="widget_prayer_times_label">Amannan ùrnaigh</string>
+    <string name="settings_adhan_volume_vibrate">Toirt %1$s · Crith %2$s</string>
+    <string name="settings_adhan_vibrate_on">Air adhart</string>
+    <string name="settings_adhan_vibrate_off">dheth</string>
+    <string name="settings_preview_stop">Cuir stad air ro-shealladh</string>
+    <string name="settings_method_automatic">Fèin-ghluasadach (a rèir àite)</string>
+    <string name="settings_method_automatic_desc">Bidh an app a’ taghadh an dòigh as freagarraiche gu fèin-ghluasadach stèidhichte air do dhùthaich agus àite; faodaidh tu fhathast dòigh a thaghadh le làimh aig àm sam bith.</string>
+    <string name="settings_preview_for_prayer">Ro-shealladh %1$s adhan</string>
 </resources>

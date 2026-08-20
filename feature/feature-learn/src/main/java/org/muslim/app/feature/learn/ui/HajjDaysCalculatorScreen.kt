@@ -121,19 +121,19 @@ private fun HajjDaysCalculatorContent(modifier: Modifier = Modifier) {
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             NumberField(
                 value = yearText,
-                onValueChange = { yearText = it.filter(Char::isDigit).take(4) },
+                onValueChange = { yearText = org.muslim.app.core.common.text.Digits.onlyDigits(it).take(4) },
                 labelRes = R.string.hajj_calc_year,
                 modifier = Modifier.weight(1.3f),
             )
             NumberField(
                 value = monthText,
-                onValueChange = { monthText = it.filter(Char::isDigit).take(2) },
+                onValueChange = { monthText = org.muslim.app.core.common.text.Digits.onlyDigits(it).take(2) },
                 labelRes = R.string.hajj_calc_month,
                 modifier = Modifier.weight(1f),
             )
             NumberField(
                 value = dayText,
-                onValueChange = { dayText = it.filter(Char::isDigit).take(2) },
+                onValueChange = { dayText = org.muslim.app.core.common.text.Digits.onlyDigits(it).take(2) },
                 labelRes = R.string.hajj_calc_day,
                 modifier = Modifier.weight(1f),
             )

@@ -46,4 +46,12 @@
     <string name="crash_close">Закрити</string>
     <string name="crash_dismiss">Продовжити</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Шукайте в Корані</string>
+    <string name="more_quran_search_desc">Знайдіть слово, як часто воно зустрічається і де</string>
+    <string name="more_quran_frequency">Частота слів Корану</string>
+    <string name="more_quran_frequency_desc">Найчастіші слова в усьому мусхафі</string>
+    <string name="more_pause_on_notifications">Призупинити читання в сповіщеннях</string>
+    <string name="more_pause_on_notifications_desc">Декламація на короткий час призупиняється, коли відтворюється сповіщення, дзвінок або інший медіафайл</string>
+    <string name="more_pause_notifications_enabled">Увімкнено — торкніться, щоб відкрити налаштування системи</string>
+    <string name="more_pause_notifications_disabled">Вимкнено — торкніться, щоб увімкнути</string>
 </resources>

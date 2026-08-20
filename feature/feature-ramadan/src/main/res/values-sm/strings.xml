@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Faamanatu mai muamua:</string>
     <string name="ramadan_suhoor_time">Fa\'ai\'u Suhoor (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Faamanatu i fafo atu o Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Iftar ma suhoor mataala e otometi lava i le taimi o Ramadan; o le fa\'ataga lea e fa\'aauau ai pea i isi masina.</string>
 </resources>

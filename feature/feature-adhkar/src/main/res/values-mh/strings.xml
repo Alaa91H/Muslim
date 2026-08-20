@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar settings</string>
     <string name="adhkar_show_translation">Kwalok ukok eo</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopi</string>
+    <string name="adhkar_share">Kwalok</string>
+    <string name="adhkar_overlay_short_only">Kōjerbal wōt adhkar edik</string>
+    <string name="adhkar_overlay_short_only_desc">Kālet adhkar eo ej ekkar ñan juon ak ruo lain ko bwe bubble eo ej ettōr en alikar im bin ñan riiti.</string>
+    <string name="adhkar_overlay_tap_hint">Jibwe bubble eo ñan jolok e ilo ien eo wot.</string>
 </resources>

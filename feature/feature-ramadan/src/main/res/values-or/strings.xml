@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">ମୋତେ ପୂର୍ବରୁ ମନେରଖ:</string>
     <string name="ramadan_suhoor_time">ସୁହୋର ସମାପ୍ତ (ଫଜ୍ର): %1$s |</string>
     <string name="ramadan_title">ରମଜାନ |</string>
+    <string name="ramadan_notify_outside">Reminders outside Ramadan</string>
+    <string name="ramadan_notify_outside_desc">ରମଜାନ ସମୟରେ ଇଫତାର ଏବଂ ସୁହୋର ଆଲର୍ଟ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଚାଲିଥାଏ; enabling this keeps them going in other months.</string>
 </resources>

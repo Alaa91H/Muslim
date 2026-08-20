@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Muamua</string>
     <string name="quran_recitation_notif_next">Sosoo ai</string>
+    <string name="quran_download_playback_title">La\'uina %1$s</string>
+    <string name="quran_download_playback_detail">%1$s agavale · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf order</string>
+    <string name="quran_download_sort_completion">I le mae\'a</string>
+    <string name="quran_downloads_coverage_title">Surah e aofia ai i le aufailotu</string>
+    <string name="quran_downloads_coverage_overall">Mushaf atoa i le au tauloto</string>
+    <string name="quran_downloads_coverage_empty">E le\'i la\'uina mai le leo</string>
+    <string name="quran_pause_notif_listener">Taofi le tauloto i fa\'amatalaga</string>
+    <string name="quran_reciter_changed_title">Ua suia le failotu</string>
+    <string name="quran_reciter_changed_message">Na taofi le toe ta\'alo ona o le laina e alu i le pito o le Quran. Toe amata ile %1$s?</string>
+    <string name="quran_reciter_restart">Toe amata</string>
+    <string name="quran_reciter_not_now">E le o le taimi nei</string>
 </resources>

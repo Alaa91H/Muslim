@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Amintește-mi înainte:</string>
     <string name="ramadan_suhoor_time">Suhoor se termină (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadanul</string>
+    <string name="ramadan_notify_outside">Mementouri în afara Ramadanului</string>
+    <string name="ramadan_notify_outside_desc">Alertele Iftar și suhoor rulează automat în timpul Ramadanului; activarea acestui lucru îi menține în continuare în alte luni.</string>
 </resources>

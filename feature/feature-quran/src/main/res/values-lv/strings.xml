@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d/%2$d</string>
     <string name="quran_recitation_notif_previous">Iepriekšējais</string>
     <string name="quran_recitation_notif_next">Tālāk</string>
+    <string name="quran_download_playback_title">Notiek %1$s lejupielāde</string>
+    <string name="quran_download_playback_detail">%1$s pa kreisi · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf pasūtījums</string>
+    <string name="quran_download_sort_completion">Pēc pabeigšanas</string>
+    <string name="quran_downloads_coverage_title">Surah pārklājums starp deklamētājiem</string>
+    <string name="quran_downloads_coverage_overall">Pilna muša pāri deklamētājiem</string>
+    <string name="quran_downloads_coverage_empty">Audio vēl nav lejupielādēts</string>
+    <string name="quran_pause_notif_listener">Apturiet paziņojumu deklamēšanu</string>
+    <string name="quran_reciter_changed_title">Deklamētājs mainīts</string>
+    <string name="quran_reciter_changed_message">Atskaņošana apturēta, jo diapazons ir līdz Korāna beigām. Vai sākt no jauna ar %1$s?</string>
+    <string name="quran_reciter_restart">Sāciet no jauna</string>
+    <string name="quran_reciter_not_now">Ne tagad</string>
 </resources>

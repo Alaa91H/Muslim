@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">国家</string>
     <string name="offline_maps_tab_custom">定制区</string>
     <string name="offline_maps_download">下载</string>
-    <string name="offline_maps_custom_hint">点击地图选择中心，然后下载其周围的区域。</string>
+    <string name="offline_maps_custom_hint">平移和缩放地图以框出您想要的区域；框架自动更新。使用滑块调整宽度。</string>
     <string name="offline_maps_custom_name">地区名称</string>
-    <string name="offline_maps_custom_tap">点击地图以选择中心</string>
+    <string name="offline_maps_custom_tap">移动地图选择区域</string>
     <string name="offline_maps_custom_default_name">定制区</string>
     <string name="offline_maps_summary_body">已完成 %1$d 个区域（共 %2$d 个） · 已下载 %3$s</string>
     <string name="offline_maps_downloading">正在下载%1$s…%2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">放大</string>
     <string name="mosque_finder_zoom_out">缩小</string>
     <string name="mosque_finder_nearest">最近的清真寺</string>
+    <string name="mosque_finder_go_to">去吧</string>
+    <string name="mosque_finder_find_nearest">查找最近的清真寺</string>
+    <string name="mosque_finder_expanding">在 %1$s 内搜索...</string>
+    <string name="offline_maps_custom_width">区域宽度（度）</string>
+    <string name="offline_maps_storage_warning">存储空间低 — 仅 %1$s 免费</string>
+    <string name="offline_maps_storage_delete_largest">删除最大区域（%1$s·%2$s）</string>
 </resources>

@@ -64,8 +64,9 @@ class LocationViewModel @Inject constructor(
 
     /** Validates and saves manually entered coordinates. Returns true on success. */
     fun saveManual(latitudeText: String, longitudeText: String): Boolean {
-        val latitude = latitudeText.trim().toDoubleOrNull()
-        val longitude = longitudeText.trim().toDoubleOrNull()
+        // Normalize first so Arabic-Indic/Persian digits parse correctly.
+        val latitude = org.muslim.app.core.common.text.Digits.toWesternDigits(latitudeText).trim().toDoubleOrNull()
+        val longitude = org.muslim.app.core.common.text.Digits.toWesternDigits(longitudeText).trim().toDoubleOrNull()
         if (latitude == null || longitude == null || latitude !in -90.0..90.0 || longitude !in -180.0..180.0) {
             messages.value = Message.Error("invalid")
             return false

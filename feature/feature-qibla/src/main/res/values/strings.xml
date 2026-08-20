@@ -40,6 +40,9 @@
     <string name="mosque_finder_zoom_in">تكبير</string>
     <string name="mosque_finder_zoom_out">تصغير</string>
     <string name="mosque_finder_nearest">أقرب مسجد</string>
+    <string name="mosque_finder_go_to">الانتقال إليه</string>
+    <string name="mosque_finder_find_nearest">إيجاد أقرب مسجد</string>
+    <string name="mosque_finder_expanding">جارٍ البحث ضمن نطاق %1$s…</string>
 
     <!-- Offline maps download -->
     <string name="offline_maps_title">خرائط بدون إنترنت</string>
@@ -65,9 +68,12 @@
     <string name="offline_maps_tab_custom">مكان مخصص</string>
     <string name="offline_maps_size_estimate">الحجم التقريبي: %1$s</string>
     <string name="offline_maps_download">تحميل</string>
-    <string name="offline_maps_custom_hint">اضغط على الخريطة لتحديد المركز، ثم حمّل المنطقة المحيطة به.</string>
+    <string name="offline_maps_custom_hint">حرّك الخريطة وكبّرها لتحديد المنطقة، واضبط عرضها بالمنزلق. سيُحدَّد الإطار تلقائيًا.</string>
     <string name="offline_maps_custom_name">اسم المنطقة</string>
     <string name="offline_maps_custom_selected">المركز المحدد: %1$.2f, %2$.2f</string>
-    <string name="offline_maps_custom_tap">اضغط على الخريطة لتحديد المركز</string>
+    <string name="offline_maps_custom_tap">حرّك الخريطة لتحديد المنطقة</string>
     <string name="offline_maps_custom_default_name">منطقة مخصصة</string>
+    <string name="offline_maps_custom_width">عرض المنطقة (درجات)</string>
+    <string name="offline_maps_storage_warning">مساحة التخزين منخفضة — متاح %1$s فقط</string>
+    <string name="offline_maps_storage_delete_largest">حذف أكبر منطقة (%1$s · %2$s)</string>
 </resources>

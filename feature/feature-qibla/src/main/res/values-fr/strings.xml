@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Pays</string>
     <string name="offline_maps_tab_custom">Zone personnalisée</string>
     <string name="offline_maps_download">Télécharger</string>
-    <string name="offline_maps_custom_hint">Appuyez sur la carte pour choisir le centre, puis téléchargez la zone qui l\'entoure.</string>
+    <string name="offline_maps_custom_hint">Déplacez et zoomez sur la carte pour encadrer la zone souhaitée ; le cadre se met à jour automatiquement. Ajustez la largeur avec le curseur.</string>
     <string name="offline_maps_custom_name">Nom de la zone</string>
-    <string name="offline_maps_custom_tap">Appuyez sur la carte pour choisir le centre</string>
+    <string name="offline_maps_custom_tap">Déplacez la carte pour sélectionner la zone</string>
     <string name="offline_maps_custom_default_name">Zone personnalisée</string>
     <string name="offline_maps_summary_body">%1$d sur %2$d zones terminées · %3$s téléchargés</string>
     <string name="offline_maps_downloading">Téléchargement de %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoomer</string>
     <string name="mosque_finder_zoom_out">Zoom arrière</string>
     <string name="mosque_finder_nearest">Mosquée la plus proche</string>
+    <string name="mosque_finder_go_to">Allez-y</string>
+    <string name="mosque_finder_find_nearest">Trouver la mosquée la plus proche</string>
+    <string name="mosque_finder_expanding">Recherche dans %1$s…</string>
+    <string name="offline_maps_custom_width">Largeur de la zone (degrés)</string>
+    <string name="offline_maps_storage_warning">Faible stockage, seulement %1$s gratuits</string>
+    <string name="offline_maps_storage_delete_largest">Supprimer la plus grande région (%1$s · %2$s)</string>
 </resources>

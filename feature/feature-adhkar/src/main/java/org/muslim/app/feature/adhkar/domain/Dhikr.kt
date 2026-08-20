@@ -16,7 +16,11 @@ data class Dhikr(
     val source: String,
     val repetition: Int,
     val virtue: String?,
-)
+) {
+    /** Suitable for a compact one- or two-line floating reminder. */
+    val isShort: Boolean
+        get() = arabic.count { !it.isWhitespace() } <= 150 && arabic.count { it == '\n' } <= 1
+}
 
 /** Categories of adhkar, matching the sections of "Hisn al-Muslim". */
 enum class DhikrCategory(

@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Država</string>
     <string name="offline_maps_tab_custom">Območje po meri</string>
     <string name="offline_maps_download">Prenos</string>
-    <string name="offline_maps_custom_hint">Tapnite zemljevid, da izberete središče, nato prenesite območje okoli njega.</string>
+    <string name="offline_maps_custom_hint">Pomikajte in povečajte zemljevid, da uokvirite želeno območje; okvir se samodejno posodobi. Z drsnikom nastavite širino.</string>
     <string name="offline_maps_custom_name">Ime območja</string>
-    <string name="offline_maps_custom_tap">Tapnite zemljevid, da izberete središče</string>
+    <string name="offline_maps_custom_tap">Premaknite zemljevid, da izberete območje</string>
     <string name="offline_maps_custom_default_name">Območje po meri</string>
     <string name="offline_maps_summary_body">%1$d od %2$d območij dokončanih · %3$s prenesenih</string>
     <string name="offline_maps_downloading">Prenašanje %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Povečaj</string>
     <string name="mosque_finder_zoom_out">Pomanjšaj</string>
     <string name="mosque_finder_nearest">Najbližja mošeja</string>
+    <string name="mosque_finder_go_to">Pojdi k temu</string>
+    <string name="mosque_finder_find_nearest">Poiščite najbližjo mošejo</string>
+    <string name="mosque_finder_expanding">Iskanje znotraj %1$s…</string>
+    <string name="offline_maps_custom_width">Širina območja (stopinje)</string>
+    <string name="offline_maps_storage_warning">Malo prostora za shranjevanje — samo %1$s brezplačno</string>
+    <string name="offline_maps_storage_delete_largest">Izbriši največjo regijo (%1$s · %2$s)</string>
 </resources>

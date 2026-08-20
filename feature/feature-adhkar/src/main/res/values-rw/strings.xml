@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Igenamiterere rya Adhkar</string>
     <string name="adhkar_show_translation">Erekana ubusobanuro</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Gukoporora</string>
+    <string name="adhkar_share">Sangira</string>
+    <string name="adhkar_overlay_short_only">Koresha adhkar ngufi gusa</string>
+    <string name="adhkar_overlay_short_only_desc">Hitamo adhkar ihuye numurongo umwe cyangwa ibiri kugirango ibibyimba bireremba bigume bisobanutse kandi byoroshye gusoma.</string>
+    <string name="adhkar_overlay_tap_hint">Kanda igituba kugirango wirukane ako kanya.</string>
 </resources>

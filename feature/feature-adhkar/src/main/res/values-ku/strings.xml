@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Mîhengên Adhkar</string>
     <string name="adhkar_show_translation">Wergerê nîşan bide</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopî kirin</string>
+    <string name="adhkar_share">Parve bikin</string>
+    <string name="adhkar_overlay_short_only">Tenê adhkara kurt bikar bînin</string>
+    <string name="adhkar_overlay_short_only_desc">Adhkarê hilbijêrin ku yek an du rêzan li hev dike, da ku bilbila herikbar zelal û hêsan were xwendin.</string>
+    <string name="adhkar_overlay_tap_hint">Bişkojkê bikirtînin da ku wê tavilê ji holê rakin.</string>
 </resources>

@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Nuna</string>
     <string name="offline_maps_tab_custom">Sumiiffimmi atuuttumi</string>
     <string name="offline_maps_download">Aallaasersorneq</string>
-    <string name="offline_maps_custom_hint">Nunap assiga tooruk centeri toqqarniarlugu, taava sumiiffiit eqqaaniittut download-erlugit.</string>
+    <string name="offline_maps_custom_hint">Sumiiffimmi piumasaqarfigisami frame-erniarlugu nunap assiga pan aamma zoom; ramme nammineerluni nutarterneqartarpoq. Slider atorlugu bredde naleqqussarlugu.</string>
     <string name="offline_maps_custom_name">Sumiiffiup aqqa</string>
-    <string name="offline_maps_custom_tap">Centeri toqqarniarlugu nunap assiga tooruk</string>
+    <string name="offline_maps_custom_tap">Sumiiffimmi toqqaanissamut nunap assiga nuuguk</string>
     <string name="offline_maps_custom_default_name">Sumiiffimmi atuuttumi</string>
     <string name="offline_maps_summary_body">%1$d %2$d sumiiffiit naammassineqarput · %3$s aaneqarpoq</string>
     <string name="offline_maps_downloading">Aaneqarpoq %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom-erlugu</string>
     <string name="mosque_finder_zoom_out">Zoom-erlugu</string>
     <string name="mosque_finder_nearest">Moskee qaninnerpaaq</string>
+    <string name="mosque_finder_go_to">Tassunga ingerlagit</string>
+    <string name="mosque_finder_find_nearest">Moskee qaninnerpaaq nassaariuk</string>
+    <string name="mosque_finder_expanding">%1$s-p iluani ujarlerneq...</string>
+    <string name="offline_maps_custom_width">Sumiiffiup siammasissusaa (gradit)</string>
+    <string name="offline_maps_storage_warning">Allamik toqqorsivik — %1$s-it kisimik akeqanngillat</string>
+    <string name="offline_maps_storage_delete_largest">Sumiiffiit annersaat piiaruk (%1$s · %2$s)</string>
 </resources>

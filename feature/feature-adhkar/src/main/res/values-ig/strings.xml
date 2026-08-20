@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Ntọala Adhkar</string>
     <string name="adhkar_show_translation">Gosi ntụgharị asụsụ</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Detuo</string>
+    <string name="adhkar_share">Kekọrịta</string>
+    <string name="adhkar_overlay_short_only">Jiri obere adhkar naanị</string>
+    <string name="adhkar_overlay_short_only_desc">Họrọ adhkar dabara n\'otu ahịrị ma ọ bụ abụọ ka afụ na-ese n\'elu mmiri wee doo anya ma dị mfe ịgụ.</string>
+    <string name="adhkar_overlay_tap_hint">Kpatụ afụ ahụ ka ịchụpụ ya ozugbo.</string>
 </resources>

@@ -31,6 +31,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
@@ -38,6 +39,7 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -61,9 +63,12 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.maplibre.android.camera.CameraPosition
 import org.maplibre.android.geometry.LatLng
 import org.maplibre.android.geometry.LatLngBounds
+import org.maplibre.android.maps.MapLibreMap
+import org.muslim.app.core.ui.map.MapController
 import org.muslim.app.core.ui.map.OfflineMapArea
 import org.muslim.app.core.ui.map.OsmMapDefaults
 import org.muslim.app.core.ui.map.OsmMapView
+import org.muslim.app.core.ui.map.addBoundsRect
 import org.muslim.app.feature.qibla.R
 
 /**
@@ -208,6 +213,32 @@ private fun SummaryCard(state: OfflineMapsUiState, viewModel: OfflineMapsViewMod
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
             )
+            val storage = state.storage
+            if (storage != null && storage.lowOnStorage) {
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = stringResource(
+                        R.string.offline_maps_storage_warning,
+                        viewModel.formatBytes(storage.availableBytes),
+                    ),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.error,
+                )
+                val largest = storage.largestRegion
+                if (largest != null) {
+                    Spacer(Modifier.height(4.dp))
+                    TextButton(onClick = { viewModel.deleteLargest() }) {
+                        Text(
+                            text = stringResource(
+                                R.string.offline_maps_storage_delete_largest,
+                                largest.name,
+                                viewModel.formatBytes(largest.downloadedBytes),
+                            ),
+                            color = MaterialTheme.colorScheme.error,
+                        )
+                    }
+                }
+            }
             if (state.downloading) {
                 Spacer(Modifier.height(8.dp))
                 LinearProgressIndicator(
@@ -431,8 +462,29 @@ private fun CustomAreaPicker(
     onDismiss: () -> Unit,
 ) {
     var name by remember { mutableStateOf("") }
-    var center by remember { mutableStateOf<LatLng?>(null) }
+    var bounds by remember { mutableStateOf<LatLngBounds?>(null) }
     var halfSpan by remember { mutableDoubleStateOf(0.5) }
+    val controller = remember { MapController() }
+    val mapRef = remember { mutableStateOf<MapLibreMap?>(null) }
+
+    // Recomputes the selection box: vertical span tracks the visible viewport
+    // (so the box fills the screen height at any zoom), horizontal span is the
+    // user-controlled [halfSpan], and the box stays centered on the viewport.
+    fun updateSelection(viewport: LatLngBounds) {
+        val c = viewport.center
+        val halfLat = viewport.latitudeSpan.coerceAtLeast(0.05) / 2
+        val box = LatLngBounds.Builder()
+            .include(LatLng(c.latitude - halfLat, c.longitude - halfSpan))
+            .include(LatLng(c.latitude + halfLat, c.longitude + halfSpan))
+            .build()
+        bounds = box
+        mapRef.value?.addBoundsRect(
+            id = "picker",
+            bounds = box,
+            fillHex = "#1E88E5",
+            borderHex = "#0D47A1",
+        )
+    }
 
     Column {
         Text(
@@ -452,7 +504,7 @@ private fun CustomAreaPicker(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp),
+                .height(280.dp),
         ) {
             OsmMapView(
                 modifier = Modifier.fillMaxSize(),
@@ -461,31 +513,77 @@ private fun CustomAreaPicker(
                     .zoom(8.0)
                     .build(),
                 styleUri = OsmMapDefaults.STYLE_URI,
-                onMapClick = { point -> center = point },
+                controller = controller,
+                onMapReady = { map ->
+                    mapRef.value = map
+                    controller.visibleBounds()?.let { updateSelection(it) }
+                },
+                onCameraIdle = { viewport -> updateSelection(viewport) },
             )
+            // Zoom controls overlay, always available.
+            Column(
+                modifier = Modifier
+                    .align(Alignment.CenterEnd)
+                    .padding(8.dp),
+                verticalArrangement = Arrangement.spacedBy(4.dp),
+            ) {
+                FloatingActionButton(
+                    onClick = { controller.zoomIn() },
+                    modifier = Modifier.size(40.dp),
+                ) { Text("+") }
+                FloatingActionButton(
+                    onClick = { controller.zoomOut() },
+                    modifier = Modifier.size(40.dp),
+                ) { Text("−") }
+            }
         }
         Spacer(Modifier.height(8.dp))
+        // Width slider (longitude span around the viewport center).
         Text(
-            text = center?.let {
-                stringResource(R.string.offline_maps_custom_selected, it.latitude, it.longitude)
+            text = stringResource(R.string.offline_maps_custom_width),
+            style = MaterialTheme.typography.labelMedium,
+        )
+        Slider(
+            value = halfSpan.toFloat(),
+            onValueChange = {
+                halfSpan = it.toDouble()
+                controller.visibleBounds()?.let { viewport -> updateSelection(viewport) }
+            },
+            valueRange = 0.05f..8f,
+        )
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = bounds?.let {
+                stringResource(
+                    R.string.offline_maps_custom_selected,
+                    it.center.latitude,
+                    it.center.longitude,
+                )
             } ?: stringResource(R.string.offline_maps_custom_tap),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = bounds?.let {
+                stringResource(
+                    R.string.offline_maps_size_estimate,
+                    viewModel.formatBytes(viewModel.estimateBoundsBytes(it)),
+                )
+            } ?: "",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.primary,
         )
         Spacer(Modifier.height(8.dp))
         val defaultName = stringResource(R.string.offline_maps_custom_default_name)
         Button(
             onClick = {
-                val c = center ?: return@Button
-                val bounds = LatLngBounds.Builder()
-                    .include(LatLng(c.latitude - halfSpan, c.longitude - halfSpan))
-                    .include(LatLng(c.latitude + halfSpan, c.longitude + halfSpan))
-                    .build()
+                val b = bounds ?: return@Button
                 val label = name.ifBlank { defaultName }
-                viewModel.downloadCustom(label, bounds)
+                viewModel.downloadCustom(label, b)
                 onDismiss()
             },
-            enabled = center != null,
+            enabled = bounds != null,
             modifier = Modifier.fillMaxWidth(),
         ) {
             Text(stringResource(R.string.offline_maps_download))

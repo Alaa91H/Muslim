@@ -11,6 +11,7 @@ import android.view.WindowManager
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
+import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.feature.adhkar.R
 
 /**
@@ -94,7 +95,9 @@ class AdhkarBubbleActivity : Activity() {
             LinearLayout.LayoutParams.WRAP_CONTENT,
         ))
 
-        if (translation.isNotBlank()) {
+        // English fallback hidden for Arabic readers (each language shows its
+        // own texts — never an English rendering of the Arabic original).
+        if (AppLanguage.showEnglishFallback() && translation.isNotBlank()) {
             column.addView(TextView(this).apply {
                 text = translation
                 textSize = (fontSizeSp - 8).coerceAtLeast(12).toFloat()

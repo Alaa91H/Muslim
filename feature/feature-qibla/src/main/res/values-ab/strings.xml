@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Атәыла</string>
     <string name="offline_maps_tab_custom">Иҷыдоу аҭыԥ</string>
     <string name="offline_maps_download">Аҭагалара</string>
-    <string name="offline_maps_custom_hint">Агәҭа алхразы ахсаала иақәыӷәӷәа, нас иаакәыршаны иҟоу аҭыԥ хҩылаа.</string>
+    <string name="offline_maps_custom_hint">Акарта панорама ҟаҵаны азум ҟаҵаны иуҭаху аҭыԥ афреим аҭаразы; афреим автоматла иҿыцхоит. Аҭбаара еиқәшәыршәа аслаидер ала.</string>
     <string name="offline_maps_custom_name">Аҭыԥ ахьӡ</string>
-    <string name="offline_maps_custom_tap">Агәҭа алхразы ахсаала иақәыӷәӷәа</string>
+    <string name="offline_maps_custom_tap">Аҭыԥ алхразы ахсаала еиҭагатәуп</string>
     <string name="offline_maps_custom_default_name">Иҷыдоу аҭыԥ</string>
     <string name="offline_maps_summary_body">%1$d %2$d аҭыԥқәа рҟынтә ихыркәшоуп · %3$s ихәыҵгахеит</string>
     <string name="offline_maps_downloading">Аҭагалара %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Аизум арҭбаара</string>
     <string name="mosque_finder_zoom_out">Амҽхак армаҷра</string>
     <string name="mosque_finder_nearest">Иааигәоу аџьаама</string>
+    <string name="mosque_finder_go_to">Уахь уца</string>
+    <string name="mosque_finder_find_nearest">Иаҳзааигәоу аџьаама аԥшаара</string>
+    <string name="mosque_finder_expanding">%1$s аҩнуҵҟа аԥшаара...</string>
+    <string name="offline_maps_custom_width">Аҭыԥ аҭбаара (градусқәа)</string>
+    <string name="offline_maps_storage_warning">Аҭаҵәахырҭа маҷуп — %1$s мацара ԥарада</string>
+    <string name="offline_maps_storage_delete_largest">Иԥыхтәуп иреиҳау арегион (%1$s · %2$s)</string>
 </resources>

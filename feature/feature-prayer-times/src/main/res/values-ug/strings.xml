@@ -46,14 +46,12 @@
     <string name="method_egyptian">مىسىر تەكشۈرۈش ئورگىنى</string>
     <string name="method_france">France (UOIF)</string>
     <string name="method_isna">ISNA (شىمالىي ئامېرىكا)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">ئىسلام پەنلىرى ئۇنىۋېرسىتېتى ، كاراچى</string>
     <string name="method_kuwait">كۇۋەيت</string>
     <string name="method_moonsighting">ئاي كۆزىتىش كومىتېتى</string>
     <string name="method_mwl">مۇسۇلمان دۇنيا بىرلەشمىسى</string>
     <string name="method_qatar">قاتار</string>
     <string name="method_singapore">سىنگاپور</string>
-    <string name="method_tehran">تېھران گېئوفىزىكا ئىنستىتۇتى</string>
     <string name="method_turkey">Diyanet Turkey</string>
     <string name="method_umm_al_qura">ئۇممۇ قۇرە (مەككە)</string>
     <string name="next_adhan_elapsed">ئەزاندىن باشلاپ: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">ۋاقىتنى ھېسابلىيالمىدى</string>
     <string name="widget_prayer_times_description">كېيىنكى دۇئا ساناش بىلەن</string>
     <string name="widget_prayer_times_label">ناماز ۋاقتى</string>
+    <string name="settings_adhan_volume_vibrate">ھەجىمى %1$s · تەۋرىنىش %2$s</string>
+    <string name="settings_adhan_vibrate_on">On</string>
+    <string name="settings_adhan_vibrate_off">Off</string>
+    <string name="settings_preview_stop">ئالدىن كۆرۈشنى توختىتىڭ</string>
+    <string name="settings_method_automatic">ئاپتوماتىك (ئورۇن بويىچە)</string>
+    <string name="settings_method_automatic_desc">بۇ ئەپ دۆلىتىڭىز ۋە ئورنىڭىزغا ئاساسەن ئاپتوماتىك ھالدا ئەڭ مۇۋاپىق ئۇسۇلنى تاللايدۇ. سىز ھەر ۋاقىت قولدا ئۇسۇلنى تاللىيالايسىز.</string>
+    <string name="settings_preview_for_prayer">ئالدىن كۆرۈش %1$s adhan</string>
 </resources>

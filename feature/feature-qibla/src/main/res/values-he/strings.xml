@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">מדינה</string>
     <string name="offline_maps_tab_custom">אזור מותאם אישית</string>
     <string name="offline_maps_download">הורד</string>
-    <string name="offline_maps_custom_hint">הקש על המפה כדי לבחור את המרכז ולאחר מכן הורד את האזור סביבו.</string>
+    <string name="offline_maps_custom_hint">פנה והגדל את המפה כדי למסגר את האזור הרצוי; המסגרת מתעדכנת אוטומטית. התאם את הרוחב עם המחוון.</string>
     <string name="offline_maps_custom_name">שם אזור</string>
-    <string name="offline_maps_custom_tap">הקש על המפה כדי לבחור את המרכז</string>
+    <string name="offline_maps_custom_tap">הזז את המפה כדי לבחור את האזור</string>
     <string name="offline_maps_custom_default_name">אזור מותאם אישית</string>
     <string name="offline_maps_summary_body">%1$d מתוך %2$d אזורים הושלמו · %3$s הורדו</string>
     <string name="offline_maps_downloading">מוריד את %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">התקרב</string>
     <string name="mosque_finder_zoom_out">זום החוצה</string>
     <string name="mosque_finder_nearest">המסגד הקרוב ביותר</string>
+    <string name="mosque_finder_go_to">לך אליו</string>
+    <string name="mosque_finder_find_nearest">מצא את המסגד הקרוב ביותר</string>
+    <string name="mosque_finder_expanding">מחפש בתוך %1$s...</string>
+    <string name="offline_maps_custom_width">רוחב שטח (מעלות)</string>
+    <string name="offline_maps_storage_warning">שטח אחסון נמוך - רק %1$s בחינם</string>
+    <string name="offline_maps_storage_delete_largest">מחק את האזור הגדול ביותר (%1$s · %2$s)</string>
 </resources>

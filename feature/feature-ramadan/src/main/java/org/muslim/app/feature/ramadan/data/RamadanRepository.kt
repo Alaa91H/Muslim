@@ -23,6 +23,11 @@ data class RamadanSettings(
     val suhoorReminderEnabled: Boolean = true,
     /** Minutes before Fajr to remind the user to have suhoor. */
     val suhoorMinutesBefore: Int = 30,
+    /**
+     * When false (default), iftar/suhoor alarms only fire during Ramadan;
+     * the user can opt into year-round reminders by enabling this.
+     */
+    val notifyOutsideRamadan: Boolean = false,
 )
 
 /**
@@ -42,6 +47,7 @@ class RamadanRepository @Inject constructor(
             iftarNotificationEnabled = prefs[Keys.IFTAR_NOTIFICATION] ?: true,
             suhoorReminderEnabled = prefs[Keys.SUHOOR_REMINDER] ?: true,
             suhoorMinutesBefore = prefs[Keys.SUHOOR_MINUTES] ?: 30,
+            notifyOutsideRamadan = prefs[Keys.NOTIFY_OUTSIDE_RAMADAN] ?: false,
         )
     }
 
@@ -66,10 +72,15 @@ class RamadanRepository @Inject constructor(
         context.ramadanDataStore.edit { prefs -> prefs[Keys.SUHOOR_MINUTES] = minutes.coerceIn(5, 120) }
     }
 
+    suspend fun setNotifyOutsideRamadan(enabled: Boolean) {
+        context.ramadanDataStore.edit { prefs -> prefs[Keys.NOTIFY_OUTSIDE_RAMADAN] = enabled }
+    }
+
     private object Keys {
         val FASTING_DAYS = stringSetPreferencesKey("fasting_days")
         val IFTAR_NOTIFICATION = booleanPreferencesKey("iftar_notification")
         val SUHOOR_REMINDER = booleanPreferencesKey("suhoor_reminder")
         val SUHOOR_MINUTES = intPreferencesKey("suhoor_minutes")
+        val NOTIFY_OUTSIDE_RAMADAN = booleanPreferencesKey("notify_outside_ramadan")
     }
 }

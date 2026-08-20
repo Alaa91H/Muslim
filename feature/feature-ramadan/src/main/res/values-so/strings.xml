@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Horta i xasuusi:</string>
     <string name="ramadan_suhoor_time">Suxuurtu waxay ku dhammaatay (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadaan</string>
+    <string name="ramadan_notify_outside">Xusuusin Ramadaan ka baxsan</string>
+    <string name="ramadan_notify_outside_desc">Iftar and suhoor alerts run automatically during Ramadan; Tani waxay u suurtagelinaysaa inay sii wadaan bilaha kale.</string>
 </resources>

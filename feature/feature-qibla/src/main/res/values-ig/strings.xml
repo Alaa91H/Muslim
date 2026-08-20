@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Obodo</string>
     <string name="offline_maps_tab_custom">Mpaghara omenala</string>
     <string name="offline_maps_download">Budata</string>
-    <string name="offline_maps_custom_hint">Kpatụ maapụ ahụ ka ịhọrọ etiti, wee budata mpaghara gburugburu ya.</string>
+    <string name="offline_maps_custom_hint">Pịgharịa wee bugharịa maapụ ahụ ka ọ hazie mpaghara ịchọrọ; emelite etiti na-akpaghị aka. Tinye ihe mmịfe ahụ obosara.</string>
     <string name="offline_maps_custom_name">Aha mpaghara</string>
-    <string name="offline_maps_custom_tap">Kpatụ maapụ ahụ ka ịhọrọ etiti</string>
+    <string name="offline_maps_custom_tap">Bugharịa maapụ ahụ ka ịhọrọ mpaghara ahụ</string>
     <string name="offline_maps_custom_default_name">Mpaghara omenala</string>
     <string name="offline_maps_summary_body">%1$d of %2$d areas complete · %3$s downloaded</string>
     <string name="offline_maps_downloading">Downloading %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Bugharịa</string>
     <string name="mosque_finder_zoom_out">Wepụ ya</string>
     <string name="mosque_finder_nearest">Ụlọ alakụba kacha nso</string>
+    <string name="mosque_finder_go_to">Gaa na ya</string>
+    <string name="mosque_finder_find_nearest">Chọta ụlọ alakụba kacha nso</string>
+    <string name="mosque_finder_expanding">Searching within %1$s…</string>
+    <string name="offline_maps_custom_width">Obosara mpaghara (ogo)</string>
+    <string name="offline_maps_storage_warning">Nchekwa dị ala - naanị %1$s n\'efu</string>
+    <string name="offline_maps_storage_delete_largest">Hichapụ mpaghara kacha (%1$s · %2$s)</string>
 </resources>

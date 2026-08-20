@@ -46,14 +46,12 @@
     <string name="method_egyptian">ອົງການສຳຫຼວດທົ່ວໄປຂອງອີຢິບ</string>
     <string name="method_france">ຝຣັ່ງ (UOIF)</string>
     <string name="method_isna">ISNA (ອາເມລິກາເໜືອ)</string>
-    <string name="method_jafari">ຈາຟາຣີ</string>
     <string name="method_karachi">ມະຫາວິທະຍາໄລວິທະຍາສາດອິດສະລາມ, Karachi</string>
     <string name="method_kuwait">ຄູເວດ</string>
     <string name="method_moonsighting">ຄະນະ​ກຳມະການ​ເບິ່ງ​ດວງ​ຈັນ</string>
     <string name="method_mwl">ສະຫະພັນມຸດສະລິມໂລກ</string>
     <string name="method_qatar">ກາຕາ</string>
     <string name="method_singapore">ສິງກະໂປ</string>
-    <string name="method_tehran">ສະຖາບັນ Geophysics Tehran</string>
     <string name="method_turkey">Diyanet Turkey</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">ນັບຕັ້ງແຕ່ Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">ບໍ່ສາມາດຄິດໄລ່ເວລາໄດ້</string>
     <string name="widget_prayer_times_description">ການອະທິຖານຕໍ່ໄປດ້ວຍການນັບຖອຍຫຼັງ</string>
     <string name="widget_prayer_times_label">ເວລາອະທິຖານ</string>
+    <string name="settings_adhan_volume_vibrate">ລະດັບສຽງ %1$s · ການສັ່ນສະເທືອນ %2$s</string>
+    <string name="settings_adhan_vibrate_on">ສຸດ</string>
+    <string name="settings_adhan_vibrate_off">ປິດ</string>
+    <string name="settings_preview_stop">ຢຸດການສະແດງຕົວຢ່າງ</string>
+    <string name="settings_method_automatic">ອັດຕະໂນມັດ (ຕາມສະຖານທີ່)</string>
+    <string name="settings_method_automatic_desc">app ເລືອກວິທີການທີ່ເຫມາະສົມທີ່ສຸດອັດຕະໂນມັດໂດຍອີງໃສ່ປະເທດແລະສະຖານທີ່ຂອງທ່ານ; ເຈົ້າຍັງສາມາດເລືອກວິທີການດ້ວຍຕົນເອງໄດ້ທຸກເວລາ.</string>
+    <string name="settings_preview_for_prayer">ເບິ່ງຕົວຢ່າງ %1$s adhan</string>
 </resources>

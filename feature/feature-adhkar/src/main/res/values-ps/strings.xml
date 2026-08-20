@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">د اډکار تنظیمات</string>
     <string name="adhkar_show_translation">ژباړه ښکاره کړئ</string>
     <string name="adhkar_title">اډکار</string>
+    <string name="adhkar_copy">کاپي</string>
+    <string name="adhkar_share">شریکول</string>
+    <string name="adhkar_overlay_short_only">یوازې لنډ اډکار وکاروئ</string>
+    <string name="adhkar_overlay_short_only_desc">اډکار غوره کړئ چې د یو یا دوه لینونو سره سم وي نو د تیریدلو بلبل روښانه او لوستل اسانه وي.</string>
+    <string name="adhkar_overlay_tap_hint">بلبل ټایپ کړئ ترڅو سمدلاسه یې له مینځه ویسي.</string>
 </resources>

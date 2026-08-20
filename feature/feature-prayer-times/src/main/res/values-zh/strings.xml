@@ -46,14 +46,12 @@
     <string name="method_egyptian">埃及测量总局</string>
     <string name="method_france">法国 (UOIF)</string>
     <string name="method_isna">ISNA（北美）</string>
-    <string name="method_jafari">贾法里</string>
     <string name="method_karachi">卡拉奇伊斯兰科学大学</string>
     <string name="method_kuwait">科威特</string>
     <string name="method_moonsighting">月球观测委员会</string>
     <string name="method_mwl">穆斯林世界联盟</string>
     <string name="method_qatar">卡塔尔</string>
     <string name="method_singapore">新加坡</string>
-    <string name="method_tehran">德黑兰地球物理研究所</string>
     <string name="method_turkey">迪亚内特土耳其</string>
     <string name="method_umm_al_qura">乌姆古拉（麦加）</string>
     <string name="next_adhan_elapsed">自宰牲节起：%1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">无法计算时间</string>
     <string name="widget_prayer_times_description">下一个祷告倒计时</string>
     <string name="widget_prayer_times_label">祈祷时间</string>
+    <string name="settings_adhan_volume_vibrate">音量 %1$s · 振动 %2$s</string>
+    <string name="settings_adhan_vibrate_on">开</string>
+    <string name="settings_adhan_vibrate_off">关闭</string>
+    <string name="settings_preview_stop">停止预览</string>
+    <string name="settings_method_automatic">自动（按位置）</string>
+    <string name="settings_method_automatic_desc">该应用程序会根据您所在的国家/地区和位置自动选择最合适的方法；您仍然可以随时手动选择方法。</string>
+    <string name="settings_preview_for_prayer">预览 %1$s 宣礼</string>
 </resources>

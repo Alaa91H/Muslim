@@ -46,14 +46,12 @@
     <string name="method_egyptian">Египетийн Судалгааны ерөнхий газар</string>
     <string name="method_france">Франц (UOIF)</string>
     <string name="method_isna">ISNA (Хойд Америк)</string>
-    <string name="method_jafari">Жафари</string>
     <string name="method_karachi">Исламын шинжлэх ухааны их сургууль, Карачи</string>
     <string name="method_kuwait">Кувейт</string>
     <string name="method_moonsighting">Сарыг харах хороо</string>
     <string name="method_mwl">Лалын дэлхийн лиг</string>
     <string name="method_qatar">Катар</string>
     <string name="method_singapore">Сингапур</string>
-    <string name="method_tehran">Тегераны Геофизикийн хүрээлэн</string>
     <string name="method_turkey">Туркийн Диянет</string>
     <string name="method_umm_al_qura">Умм аль-Кура (Макка)</string>
     <string name="next_adhan_elapsed">Азанднаас хойш: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Цагийг тооцоолох боломжгүй</string>
     <string name="widget_prayer_times_description">Тооцоолол бүхий дараагийн залбирал</string>
     <string name="widget_prayer_times_label">Залбирлын цаг</string>
+    <string name="settings_adhan_volume_vibrate">Эзлэхүүн %1$s · Чичиргээ %2$s</string>
+    <string name="settings_adhan_vibrate_on">Асаалттай</string>
+    <string name="settings_adhan_vibrate_off">Унтраах</string>
+    <string name="settings_preview_stop">Урьдчилан үзэхийг зогсоох</string>
+    <string name="settings_method_automatic">Автомат (байршлаар)</string>
+    <string name="settings_method_automatic_desc">Апп нь таны улс орон, байршилд тулгуурлан хамгийн тохиромжтой аргыг автоматаар сонгоно; Та хүссэн үедээ гараар аргыг сонгож болно.</string>
+    <string name="settings_preview_for_prayer">%1$s азаныг урьдчилан үзэх</string>
 </resources>

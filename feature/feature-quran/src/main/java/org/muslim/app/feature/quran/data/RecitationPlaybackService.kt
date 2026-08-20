@@ -5,11 +5,15 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
+import android.media.AudioAttributes
+import android.media.AudioFocusRequest
+import android.media.AudioManager
 import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import androidx.core.app.ServiceCompat
 import androidx.media.app.NotificationCompat.MediaStyle
+import androidx.media.session.MediaButtonReceiver
 import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.MediaSessionCompat
 import android.support.v4.media.session.PlaybackStateCompat
@@ -51,17 +55,102 @@ class RecitationPlaybackService : Service() {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private var collecting = false
 
+    // --- Notification-driven pause (see [RecitationPauseOnNotifications]) ---
+    // Notifications do not request audio focus, so a soundful notification
+    // would overlap the recitation without this. Pause while it shows, resume
+    // a moment after it disappears — only if the user hadn't paused manually.
+    private var resumeAfterNotification = false
+
+    // --- Audio focus ---
+    // Quran recitation should pause whenever another sound takes over
+    // (navigation voice, another media app, an alert) and automatically
+    // resume once that sound finishes. A permanent loss (e.g. a phone call)
+    // pauses without auto-resume.
+    private var audioManager: AudioManager? = null
+    private var audioFocusRequest: AudioFocusRequest? = null
+    private var hasAudioFocus = false
+    private var resumeAfterTransientLoss = false
+
+    private val focusListener = AudioManager.OnAudioFocusChangeListener { change ->
+        when (change) {
+            AudioManager.AUDIOFOCUS_LOSS -> {
+                // Permanent loss (phone call, another app took over): pause
+                // and never auto-resume.
+                resumeAfterTransientLoss = false
+                hasAudioFocus = false
+                player.pause()
+            }
+            AudioManager.AUDIOFOCUS_LOSS_TRANSIENT,
+            AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK,
+            -> {
+                // Another sound started (navigation, alerts, other media):
+                // pause; remember to resume once focus comes back, but only if
+                // the user hadn't already paused manually.
+                resumeAfterTransientLoss =
+                    player.playbackState.value == PlaybackState.Playing
+                player.pause()
+            }
+            AudioManager.AUDIOFOCUS_GAIN -> {
+                hasAudioFocus = true
+                if (resumeAfterTransientLoss) {
+                    resumeAfterTransientLoss = false
+                    player.resume()
+                }
+            }
+        }
+    }
+
+    private fun requestAudioFocus() {
+        val request = audioFocusRequest ?: return
+        hasAudioFocus = audioManager?.requestAudioFocus(request) ==
+            AudioManager.AUDIOFOCUS_REQUEST_GRANTED
+    }
+
+    private fun abandonAudioFocus() {
+        if (!hasAudioFocus) return
+        audioFocusRequest?.let { audioManager?.abandonAudioFocusRequest(it) }
+        hasAudioFocus = false
+    }
+
     override fun onBind(intent: Intent?): IBinder? = null
+
+    private fun onNotificationPause() {
+        resumeAfterNotification = player.playbackState.value == PlaybackState.Playing
+        if (resumeAfterNotification) player.pause()
+    }
+
+    private fun onNotificationResume() {
+        if (resumeAfterNotification) {
+            resumeAfterNotification = false
+            player.resume()
+        }
+    }
 
     override fun onCreate() {
         super.onCreate()
+        audioManager = getSystemService(AudioManager::class.java)
+        audioFocusRequest = AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN)
+            .setAudioAttributes(
+                AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_MEDIA)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                    .build(),
+            )
+            .setOnAudioFocusChangeListener(focusListener)
+            .build()
         session = MediaSessionCompat(this, MEDIA_SESSION_TAG).apply {
             setCallback(PlayerSessionCallback())
             isActive = true
         }
+        RecitationPauseController.onPauseRequested = ::onNotificationPause
+        RecitationPauseController.onResumeRequested = ::onNotificationResume
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        // Route headphone / external media-button presses (ACTION_MEDIA_BUTTON)
+        // to the active media session so the play/pause/next keys on headsets
+        // and Bluetooth devices control the recitation.
+        session?.let { MediaButtonReceiver.handleIntent(it, intent) }
         if (player.playbackState.value == PlaybackState.Idle) {
             // The process was recreated (START_STICKY) but nothing is playing —
             // nothing to show, so shut down immediately.
@@ -209,6 +298,9 @@ class RecitationPlaybackService : Service() {
         )
 
     override fun onDestroy() {
+        abandonAudioFocus()
+        RecitationPauseController.onPauseRequested = null
+        RecitationPauseController.onResumeRequested = null
         scope.cancel()
         session?.isActive = false
         session?.release()
@@ -216,11 +308,27 @@ class RecitationPlaybackService : Service() {
         super.onDestroy()
     }
 
-    /** Bridges the media-session controls back to the shared player. */
+    /**
+     * Bridges the media-session controls back to the shared player. Play
+     * requests audio focus (so other apps duck/pause for us); pause/stop
+     * release it (so other apps can play again).
+     */
     private inner class PlayerSessionCallback : MediaSessionCompat.Callback() {
-        override fun onPlay() = player.resume()
-        override fun onPause() = player.pause()
-        override fun onStop() = player.stop()
+        override fun onPlay() {
+            requestAudioFocus()
+            player.resume()
+        }
+
+        override fun onPause() {
+            abandonAudioFocus()
+            player.pause()
+        }
+
+        override fun onStop() {
+            abandonAudioFocus()
+            player.stop()
+        }
+
         override fun onSkipToNext() = player.next()
         override fun onSkipToPrevious() = player.previous()
     }

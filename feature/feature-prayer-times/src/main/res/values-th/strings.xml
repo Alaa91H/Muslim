@@ -46,14 +46,12 @@
     <string name="method_egyptian">หน่วยงานสำรวจทั่วไปของอียิปต์</string>
     <string name="method_france">ฝรั่งเศส (UOIF)</string>
     <string name="method_isna">ISNA (อเมริกาเหนือ)</string>
-    <string name="method_jafari">จาฟารี</string>
     <string name="method_karachi">มหาวิทยาลัยวิทยาศาสตร์อิสลามการาจี</string>
     <string name="method_kuwait">คูเวต</string>
     <string name="method_moonsighting">คณะดูดวงจันทร์</string>
     <string name="method_mwl">มุสลิมโลกลีก</string>
     <string name="method_qatar">กาตาร์</string>
     <string name="method_singapore">สิงคโปร์</string>
-    <string name="method_tehran">สถาบันธรณีฟิสิกส์เตหะราน</string>
     <string name="method_turkey">ดิยาเน็ต ตุรกี</string>
     <string name="method_umm_al_qura">อุมมุลกุรอ (มักกะห์)</string>
     <string name="next_adhan_elapsed">ตั้งแต่อาซาน: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">ไม่สามารถคำนวณเวลาได้</string>
     <string name="widget_prayer_times_description">คำอธิษฐานถัดไปพร้อมนับถอยหลัง</string>
     <string name="widget_prayer_times_label">เวลาสวดมนต์</string>
+    <string name="settings_adhan_volume_vibrate">ระดับเสียง %1$s · การสั่นสะเทือน %2$s</string>
+    <string name="settings_adhan_vibrate_on">เปิด</string>
+    <string name="settings_adhan_vibrate_off">ปิด</string>
+    <string name="settings_preview_stop">หยุดแสดงตัวอย่าง</string>
+    <string name="settings_method_automatic">อัตโนมัติ (ตามสถานที่)</string>
+    <string name="settings_method_automatic_desc">แอพจะเลือกวิธีการที่เหมาะสมที่สุดโดยอัตโนมัติตามประเทศและที่ตั้งของคุณ คุณยังสามารถเลือกวิธีการด้วยตนเองได้ตลอดเวลา</string>
+    <string name="settings_preview_for_prayer">ดูตัวอย่าง %1$s อาธาน</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Setélan Adhkar</string>
     <string name="adhkar_show_translation">Témbongkeun tarjamahan</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">nyalin</string>
+    <string name="adhkar_share">Bagikeun</string>
+    <string name="adhkar_overlay_short_only">Paké adhkar pondok wungkul</string>
+    <string name="adhkar_overlay_short_only_desc">Pilih adhkar anu cocog sareng hiji atanapi dua garis supados gelembung ngambang tetep jelas sareng gampang dibaca.</string>
+    <string name="adhkar_overlay_tap_hint">Ketok gelembung pikeun ngaleungitkeun langsung.</string>
 </resources>

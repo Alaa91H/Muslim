@@ -46,14 +46,12 @@
     <string name="method_egyptian">የግብፅ አጠቃላይ የቅየሳ ባለስልጣን</string>
     <string name="method_france">ፈረንሳይ (ዩኦአይኤፍ)</string>
     <string name="method_isna">ISNA (ሰሜን አሜሪካ)</string>
-    <string name="method_jafari">ጃፋሪ</string>
     <string name="method_karachi">የእስልምና ሳይንስ ዩኒቨርሲቲ, ካራቺ</string>
     <string name="method_kuwait">ኩዌት።</string>
     <string name="method_moonsighting">የጨረቃ እይታ ኮሚቴ</string>
     <string name="method_mwl">የሙስሊም የዓለም ሊግ</string>
     <string name="method_qatar">ኳታር</string>
     <string name="method_singapore">ሲንጋፖር</string>
-    <string name="method_tehran">ቴህራን የጂኦፊዚክስ ተቋም</string>
     <string name="method_turkey">ዲያኔት ቱርክ</string>
     <string name="method_umm_al_qura">ኡሙ አል-ቁራ (መካ)</string>
     <string name="next_adhan_elapsed">ከአድሃን ጀምሮ፡ %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">ጊዜዎችን ማስላት አልተቻለም</string>
     <string name="widget_prayer_times_description">የሚቀጥለው ጸሎት ከመቁጠር ጋር</string>
     <string name="widget_prayer_times_label">የጸሎት ጊዜያት</string>
+    <string name="settings_adhan_volume_vibrate">Volume %1$s · Vibration %2$s</string>
+    <string name="settings_adhan_vibrate_on">በርቷል</string>
+    <string name="settings_adhan_vibrate_off">ጠፍቷል</string>
+    <string name="settings_preview_stop">ቅድመ እይታን አቁም</string>
+    <string name="settings_method_automatic">ራስ-ሰር (በአካባቢ)</string>
+    <string name="settings_method_automatic_desc">መተግበሪያው በአገርዎ እና በአካባቢዎ ላይ በመመስረት በጣም ተስማሚ የሆነውን ዘዴ በራስ-ሰር ይመርጣል; አሁንም በማንኛውም ጊዜ እራስዎ ዘዴ መምረጥ ይችላሉ.</string>
+    <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
 </resources>

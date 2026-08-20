@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Уаанӡа исгәалашәыршәа:</string>
     <string name="ramadan_suhoor_time">Суҳур нҵәоит (Фаџьр): %1$s</string>
     <string name="ramadan_title">Рамадан</string>
+    <string name="ramadan_notify_outside">Рамадан анҭыҵтәи агәаларшәарақәа</string>
+    <string name="ramadan_notify_outside_desc">Рамадан амзазы Ифтар, асаҳур ргәырҽанҵарақәа автоматла аус руеит; уи алшара рыҭара даҽа мзқәак рзыгьы рхы мҩаԥыргоит.</string>
 </resources>

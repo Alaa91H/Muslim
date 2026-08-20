@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">अधकार सेटिंग</string>
     <string name="adhkar_show_translation">अनुवाद दिखाएँ</string>
     <string name="adhkar_title">अधकार</string>
+    <string name="adhkar_copy">प्रतिलिपि</string>
+    <string name="adhkar_share">साझा करें</string>
+    <string name="adhkar_overlay_short_only">लघु शब्दांश का ही प्रयोग करें</string>
+    <string name="adhkar_overlay_short_only_desc">ऐसा अधकार चुनें जो एक या दो पंक्तियों में फिट हो ताकि तैरता हुआ बुलबुला स्पष्ट रहे और पढ़ने में आसान हो।</string>
+    <string name="adhkar_overlay_tap_hint">बुलबुले को तुरंत ख़ारिज करने के लिए उसे टैप करें।</string>
 </resources>

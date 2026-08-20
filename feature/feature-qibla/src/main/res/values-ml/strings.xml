@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">രാജ്യം</string>
     <string name="offline_maps_tab_custom">കസ്റ്റം ഏരിയ</string>
     <string name="offline_maps_download">ഡൗൺലോഡ് ചെയ്യുക</string>
-    <string name="offline_maps_custom_hint">മധ്യഭാഗം തിരഞ്ഞെടുക്കാൻ മാപ്പിൽ ടാപ്പ് ചെയ്യുക, അതിനുശേഷം ചുറ്റുമുള്ള പ്രദേശം ഡൗൺലോഡ് ചെയ്യുക.</string>
+    <string name="offline_maps_custom_hint">നിങ്ങൾക്ക് ആവശ്യമുള്ള ഏരിയ ഫ്രെയിം ചെയ്യാൻ മാപ്പ് പാൻ ചെയ്ത് സൂം ചെയ്യുക; ഫ്രെയിം യാന്ത്രികമായി അപ്ഡേറ്റ് ചെയ്യുന്നു. സ്ലൈഡർ ഉപയോഗിച്ച് വീതി ക്രമീകരിക്കുക.</string>
     <string name="offline_maps_custom_name">പ്രദേശത്തിൻ്റെ പേര്</string>
-    <string name="offline_maps_custom_tap">മധ്യഭാഗം തിരഞ്ഞെടുക്കാൻ മാപ്പിൽ ടാപ്പ് ചെയ്യുക</string>
+    <string name="offline_maps_custom_tap">പ്രദേശം തിരഞ്ഞെടുക്കാൻ മാപ്പ് നീക്കുക</string>
     <string name="offline_maps_custom_default_name">കസ്റ്റം ഏരിയ</string>
     <string name="offline_maps_summary_body">%2$d ഏരിയകളിൽ %1$d പൂർത്തിയായി · %3$s ഡൗൺലോഡ് ചെയ്തു</string>
     <string name="offline_maps_downloading">ഡൗൺലോഡ് ചെയ്യുന്നു %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">സൂം ഇൻ ചെയ്യുക</string>
     <string name="mosque_finder_zoom_out">സൂം ഔട്ട് ചെയ്യുക</string>
     <string name="mosque_finder_nearest">അടുത്തുള്ള മസ്ജിദ്</string>
+    <string name="mosque_finder_go_to">അതിലേക്ക് പോകുക</string>
+    <string name="mosque_finder_find_nearest">അടുത്തുള്ള മസ്ജിദ് കണ്ടെത്തുക</string>
+    <string name="mosque_finder_expanding">%1$s എന്നതിനുള്ളിൽ തിരയുന്നു…</string>
+    <string name="offline_maps_custom_width">ഏരിയ വീതി (ഡിഗ്രി)</string>
+    <string name="offline_maps_storage_warning">കുറഞ്ഞ സംഭരണം — %1$s മാത്രം സൗജന്യം</string>
+    <string name="offline_maps_storage_delete_largest">ഏറ്റവും വലിയ പ്രദേശം ഇല്ലാതാക്കുക (%1$s · %2$s)</string>
 </resources>

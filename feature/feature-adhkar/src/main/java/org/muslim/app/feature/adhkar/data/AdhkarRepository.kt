@@ -79,9 +79,18 @@ class AdhkarRepository @Inject constructor(
      * Picks a random enabled dhikr, preferring [category] (used by the daily
      * morning/evening reminders); falls back to any enabled dhikr.
      */
-    fun randomDhikr(category: DhikrCategory?, disabledIds: Set<Long>): Dhikr? {
-        val pool = cached.filter { it.id !in disabledIds && (category == null || it.category == category) }
-        return pool.randomOrNull()
+    fun randomDhikr(
+        category: DhikrCategory?,
+        disabledIds: Set<Long>,
+        shortOnly: Boolean = false,
+    ): Dhikr? {
+        val categoryPool = cached.filter {
+            it.id !in disabledIds && (category == null || it.category == category)
+        }
+        val compactPool = if (shortOnly) categoryPool.filter { it.isShort } else categoryPool
+        // If a narrowly selected category has no compact item, keep the
+        // category preference rather than showing an unrelated long dhikr.
+        return (compactPool.ifEmpty { categoryPool }).randomOrNull()
     }
 
     private fun load(): List<Dhikr> {

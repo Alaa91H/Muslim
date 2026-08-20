@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Ngaahi tu\'unga \'o e Adhkar</string>
     <string name="adhkar_show_translation">Fakahaa\'i \'a e liliu</string>
     <string name="adhkar_title">ʻAtaka</string>
+    <string name="adhkar_copy">Kopi</string>
+    <string name="adhkar_share">Vahevahe</string>
+    <string name="adhkar_overlay_short_only">Faka\'aonga\'i \'a e adhkar nounou pe .</string>
+    <string name="adhkar_overlay_short_only_desc">Fili \'a e adhkar \'oku fe\'unga mo e laine \'e taha pe ua koe\'uhi ke nofo \'a e pupula \'oku \'alu holo \'o mahino mo faingofua ke lau.</string>
+    <string name="adhkar_overlay_tap_hint">Lomiʻi ʻa e pupulá ke fakaʻatā ia ʻi he taimi pē ko iá.</string>
 </resources>

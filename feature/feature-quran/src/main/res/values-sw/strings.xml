@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Iliyotangulia</string>
     <string name="quran_recitation_notif_next">Inayofuata</string>
+    <string name="quran_download_playback_title">Inapakua %1$s</string>
+    <string name="quran_download_playback_detail">%1$s imesalia · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf amri</string>
+    <string name="quran_download_sort_completion">Kwa kukamilika</string>
+    <string name="quran_downloads_coverage_title">Mtazamo wa Surah kwa wasomaji</string>
+    <string name="quran_downloads_coverage_overall">mushaf kamili kwa wasomaji</string>
+    <string name="quran_downloads_coverage_empty">Bado hakuna sauti iliyopakuliwa</string>
+    <string name="quran_pause_notif_listener">Sitisha kukariri kwenye arifa</string>
+    <string name="quran_reciter_changed_title">Reciter iliyopita</string>
+    <string name="quran_reciter_changed_message">Uchezaji umesimamishwa kwa sababu masafa yanaendelea hadi mwisho wa Kurani. Anza tena na %1$s?</string>
+    <string name="quran_reciter_restart">Anza tena</string>
+    <string name="quran_reciter_not_now">Si sasa</string>
 </resources>

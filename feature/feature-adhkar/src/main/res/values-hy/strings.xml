@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar կարգավորումներ</string>
     <string name="adhkar_show_translation">Ցույց տալ թարգմանությունը</string>
     <string name="adhkar_title">Ադքար</string>
+    <string name="adhkar_copy">Պատճենել</string>
+    <string name="adhkar_share">Կիսվել</string>
+    <string name="adhkar_overlay_short_only">Օգտագործեք միայն կարճ ադքար</string>
+    <string name="adhkar_overlay_short_only_desc">Ընտրեք adhkar, որը համապատասխանում է մեկ կամ երկու տողերի, որպեսզի լողացող փուչիկը մնա պարզ և հեշտ ընթեռնելի:</string>
+    <string name="adhkar_overlay_tap_hint">Հպեք պղպջակին՝ այն անմիջապես հեռացնելու համար:</string>
 </resources>

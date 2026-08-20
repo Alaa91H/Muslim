@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">முந்தைய</string>
     <string name="quran_recitation_notif_next">அடுத்து</string>
+    <string name="quran_download_playback_title">பதிவிறக்குகிறது %1$s</string>
+    <string name="quran_download_playback_detail">%1$s விட்டு · %2$s/வி</string>
+    <string name="quran_download_sort_mushaf">முஷாப் உத்தரவு</string>
+    <string name="quran_download_sort_completion">நிறைவு மூலம்</string>
+    <string name="quran_downloads_coverage_title">ஓதுபவர்கள் முழுவதும் சூரா கவரேஜ்</string>
+    <string name="quran_downloads_coverage_overall">முழு முஷாஃப் ஓதுபவர்கள் முழுவதும்</string>
+    <string name="quran_downloads_coverage_empty">இன்னும் ஆடியோ பதிவிறக்கம் செய்யப்படவில்லை</string>
+    <string name="quran_pause_notif_listener">அறிவிப்புகளில் பாராயணம் செய்வதை இடைநிறுத்தவும்</string>
+    <string name="quran_reciter_changed_title">வாசிப்பவர் மாற்றப்பட்டார்</string>
+    <string name="quran_reciter_changed_message">குர்ஆனின் இறுதி வரை வரம்பு இயங்குவதால் பிளேபேக் நிறுத்தப்பட்டது. %1$s உடன் மீண்டும் தொடங்கவா?</string>
+    <string name="quran_reciter_restart">மீண்டும் தொடங்கவும்</string>
+    <string name="quran_reciter_not_now">இப்போது இல்லை</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar ukax utt’ayatawa</string>
     <string name="adhkar_show_translation">Jaqukipaña uñacht’ayaña</string>
     <string name="adhkar_title">Adhkar ukax mä juk’a pachanakanwa</string>
+    <string name="adhkar_copy">Copia luraña</string>
+    <string name="adhkar_share">Compartir</string>
+    <string name="adhkar_overlay_short_only">Jisk’a adhkar ukakiw apnaqaña</string>
+    <string name="adhkar_overlay_short_only_desc">Adhkar ukax mä jan ukax pä líneas ukarjam ajlliñamawa ukhamat burbuja flotante ukax qhana ukat jan ch’amäñapataki.</string>
+    <string name="adhkar_overlay_tap_hint">Uka burbuja ukarux jank’akiw jaqunukuñama.</string>
 </resources>

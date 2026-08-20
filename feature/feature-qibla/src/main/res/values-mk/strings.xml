@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Земја</string>
     <string name="offline_maps_tab_custom">Прилагодена област</string>
     <string name="offline_maps_download">Преземи</string>
-    <string name="offline_maps_custom_hint">Допрете ја мапата за да го изберете центарот, а потоа преземете ја областа околу неа.</string>
+    <string name="offline_maps_custom_hint">Поместете и зумирате ја мапата за да ја врамите областа што ја сакате; рамката се ажурира автоматски. Прилагодете ја ширината со лизгачот.</string>
     <string name="offline_maps_custom_name">Име на областа</string>
-    <string name="offline_maps_custom_tap">Допрете ја картата за да го изберете центарот</string>
+    <string name="offline_maps_custom_tap">Поместете ја мапата за да ја изберете областа</string>
     <string name="offline_maps_custom_default_name">Прилагодена област</string>
     <string name="offline_maps_summary_body">%1$d од %2$d области се завршени · %3$s преземени</string>
     <string name="offline_maps_downloading">Се презема %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Зумирајте</string>
     <string name="mosque_finder_zoom_out">Одзумирај</string>
     <string name="mosque_finder_nearest">Најблиската џамија</string>
+    <string name="mosque_finder_go_to">Одете на него</string>
+    <string name="mosque_finder_find_nearest">Најдете ја најблиската џамија</string>
+    <string name="mosque_finder_expanding">Се пребарува во %1$s…</string>
+    <string name="offline_maps_custom_width">Ширина на површината (степени)</string>
+    <string name="offline_maps_storage_warning">Мало складирање - само %1$s бесплатно</string>
+    <string name="offline_maps_storage_delete_largest">Избришете го најголемиот регион (%1$s · %2$s)</string>
 </resources>

@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Tilungiselelo te-Adhkar</string>
     <string name="adhkar_show_translation">Khombisa lihumusho</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopisha</string>
+    <string name="adhkar_share">Yabelana</string>
+    <string name="adhkar_overlay_short_only">Sebentisa i-adhkar lemfisha kuphela</string>
+    <string name="adhkar_overlay_short_only_desc">Khetsa i-adhkar lehambisana nemugca munye noma lemibili ngako-ke lelibhamuza lelintantako lihlala licacile futsi kulula kulifundza.</string>
+    <string name="adhkar_overlay_tap_hint">Thepha le bubble kute ulilahle ngekushesha.</string>
 </resources>

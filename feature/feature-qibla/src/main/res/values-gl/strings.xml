@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">País</string>
     <string name="offline_maps_tab_custom">Zona personalizada</string>
     <string name="offline_maps_download">Descargar</string>
-    <string name="offline_maps_custom_hint">Toca o mapa para escoller o centro e, a continuación, descarga a zona que o rodea.</string>
+    <string name="offline_maps_custom_hint">Despraza e amplía o mapa para enmarcar a zona que desexes; o cadro actualízase automaticamente. Axusta o ancho co control deslizante.</string>
     <string name="offline_maps_custom_name">Nome da zona</string>
-    <string name="offline_maps_custom_tap">Toca o mapa para escoller o centro</string>
+    <string name="offline_maps_custom_tap">Move o mapa para seleccionar a zona</string>
     <string name="offline_maps_custom_default_name">Zona personalizada</string>
     <string name="offline_maps_summary_body">%1$d de %2$d áreas completadas · %3$s descargadas</string>
     <string name="offline_maps_downloading">Descargando %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Achega o zoom</string>
     <string name="mosque_finder_zoom_out">Reducir o zoom</string>
     <string name="mosque_finder_nearest">Mesquita máis próxima</string>
+    <string name="mosque_finder_go_to">Vaia a el</string>
+    <string name="mosque_finder_find_nearest">Atopar a mesquita máis próxima</string>
+    <string name="mosque_finder_expanding">Buscando en %1$s…</string>
+    <string name="offline_maps_custom_width">Ancho da área (graos)</string>
+    <string name="offline_maps_storage_warning">Pouco almacenamento: só %1$s gratuítos</string>
+    <string name="offline_maps_storage_delete_largest">Eliminar a rexión máis grande (%1$s · %2$s)</string>
 </resources>

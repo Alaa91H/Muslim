@@ -182,12 +182,11 @@ data class DailyCount(
  */
 data class TargetSoundSettings(
     val enabled: Boolean = false,
+    /** Kept for backward compatibility with older persisted data. */
     val tone: String = TONE_NOTIFICATION,
 ) {
     companion object {
         const val TONE_NOTIFICATION = "notification"
-        const val TONE_RINGTONE = "ringtone"
-        const val TONE_ALARM = "alarm"
     }
 }
 

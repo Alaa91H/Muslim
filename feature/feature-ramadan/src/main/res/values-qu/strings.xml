@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Ñawpaqta yuyarichiway:</string>
     <string name="ramadan_suhoor_time">Suhoor tukukun (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadán killapi</string>
+    <string name="ramadan_notify_outside">Ramadán hawapi yuyarichiykuna</string>
+    <string name="ramadan_notify_outside_desc">Iftar, suhoor alertas Ramadán killapi kikinmanta purin; kayta atichispaqa huk killakunapipas puririchinku.</string>
 </resources>

@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Eelmine</string>
     <string name="quran_recitation_notif_next">Edasi</string>
+    <string name="quran_download_playback_title">Allalaadimine %1$s</string>
+    <string name="quran_download_playback_detail">%1$s lahkus · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushafi tellimus</string>
+    <string name="quran_download_sort_completion">Valmimise järgi</string>
+    <string name="quran_downloads_coverage_title">Suura katvus deklamaatorite vahel</string>
+    <string name="quran_downloads_coverage_overall">Täielik mushaf üle reciters</string>
+    <string name="quran_downloads_coverage_empty">Heli pole veel alla laaditud</string>
+    <string name="quran_pause_notif_listener">Peatage märguannete esitamine</string>
+    <string name="quran_reciter_changed_title">Refereerija vahetatud</string>
+    <string name="quran_reciter_changed_message">Taasesitus peatati, kuna vahemik ulatub Koraani lõpuni. Kas alustada uuesti kasutajaga %1$s?</string>
+    <string name="quran_reciter_restart">Alusta uuesti</string>
+    <string name="quran_reciter_not_now">Mitte praegu</string>
 </resources>

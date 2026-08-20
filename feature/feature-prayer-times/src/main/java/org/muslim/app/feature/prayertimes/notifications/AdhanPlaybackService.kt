@@ -9,6 +9,7 @@ import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.MutableStateFlow
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.core.common.prayer.AdhanPlaybackPlan
 import org.muslim.app.core.common.prayer.AdhanSoundOption
@@ -16,6 +17,15 @@ import org.muslim.app.core.common.prayer.BundledAdhanSound
 import org.muslim.app.core.common.prayer.Prayer
 import java.io.File
 import javax.inject.Inject
+
+/**
+ * Process-wide adhan playback status. The settings screen mirrors it so its
+ * "معاينة / إيقاف" button knows whether a preview is currently ringing (the
+ * service cannot be observed directly, but both live in the same process).
+ */
+object AdhanPlaybackStatus {
+    val isPlaying = MutableStateFlow(false)
+}
 
 /**
  * Foreground service that delivers the Adhan reliably in the background.
@@ -62,6 +72,7 @@ class AdhanPlaybackService : Service() {
 
         NotificationChannels.create(this)
         startForeground(AdhanNotifications.ADHAN_NOTIFICATION_ID, AdhanNotifications.adhanNotification(this, prayer))
+        AdhanPlaybackStatus.isPlaying.value = true
 
         val onFinished = { stopSelf() }
         when {
@@ -91,6 +102,7 @@ class AdhanPlaybackService : Service() {
     }
 
     override fun onDestroy() {
+        AdhanPlaybackStatus.isPlaying.value = false
         soundPlayer.stop()
         super.onDestroy()
     }

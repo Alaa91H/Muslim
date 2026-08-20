@@ -46,4 +46,12 @@
     <string name="crash_close">Kusa</string>
     <string name="crash_dismiss">Ci gaba</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، وستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Bincika Alqur\'ani</string>
+    <string name="more_quran_search_desc">Nemo kalma, sau nawa take bayyana da kuma ina</string>
+    <string name="more_quran_frequency">Mitar kalmomin Alqur\'ani</string>
+    <string name="more_quran_frequency_desc">Kalmomin da suka fi yawa a cikin dukan mushaf</string>
+    <string name="more_pause_on_notifications">Dakatar da karatun akan sanarwa</string>
+    <string name="more_pause_on_notifications_desc">Karatu yana ɗan dakata kaɗan lokacin da sanarwa, zobe ko wasu kafofin watsa labarai ke kunna</string>
+    <string name="more_pause_notifications_enabled">An kunna - matsa don buɗe saitunan tsarin</string>
+    <string name="more_pause_notifications_disabled">An kashe - matsa don kunna</string>
 </resources>

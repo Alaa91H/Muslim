@@ -46,4 +46,12 @@
     <string name="crash_close">Oñemboty</string>
     <string name="crash_dismiss">Esegíkena</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Eheka pe Corán</string>
+    <string name="more_quran_search_desc">Eheka peteĩ ñe’ẽ, mboy jeypa ojekuaa ha moõpa</string>
+    <string name="more_quran_frequency">Corán ñe’ẽ jepivegua</string>
+    <string name="more_quran_frequency_desc">Umi ñe’ẽ ojepuruvéva mushaf tuichakue javeve</string>
+    <string name="more_pause_on_notifications">Pausa recitación umi notificación rehe</string>
+    <string name="more_pause_on_notifications_desc">Pe recitación opyta mbykymi oñembopu jave peteĩ notificación, anillo térã ambue medio</string>
+    <string name="more_pause_notifications_enabled">Ojehejáva — epoko eipeꞌa hag̃ua sistema ñemboheko</string>
+    <string name="more_pause_notifications_disabled">Ojejoko — epoko emboguata hag̃ua</string>
 </resources>

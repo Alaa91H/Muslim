@@ -46,4 +46,12 @@
     <string name="crash_close">Isara</string>
     <string name="crash_dismiss">Magpatuloy</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Hanapin ang Quran</string>
+    <string name="more_quran_search_desc">Maghanap ng isang salita, kung gaano kadalas ito lumilitaw at kung saan</string>
+    <string name="more_quran_frequency">dalas ng salita ng Quran</string>
+    <string name="more_quran_frequency_desc">Ang pinakamadalas na salita sa buong mushaf</string>
+    <string name="more_pause_on_notifications">I-pause ang pagbigkas sa mga notification</string>
+    <string name="more_pause_on_notifications_desc">Saglit na humihinto ang pagbigkas kapag nag-play ang isang notification, ring o iba pang media</string>
+    <string name="more_pause_notifications_enabled">Pinagana — i-tap para buksan ang mga setting ng system</string>
+    <string name="more_pause_notifications_disabled">Hindi pinagana — i-tap para paganahin</string>
 </resources>

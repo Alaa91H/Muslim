@@ -46,4 +46,12 @@
     <string name="crash_close">Maak toe</string>
     <string name="crash_dismiss">Gaan voort</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم خفتاح إاإإاأ كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Soek die Koran</string>
+    <string name="more_quran_search_desc">Soek \'n woord, hoe gereeld dit verskyn en waar</string>
+    <string name="more_quran_frequency">Koran woord frekwensie</string>
+    <string name="more_quran_frequency_desc">Die mees algemene woorde in die hele mushaf</string>
+    <string name="more_pause_on_notifications">Onderbreek voordrag op kennisgewings</string>
+    <string name="more_pause_on_notifications_desc">Voordrag word kortliks onderbreek wanneer \'n kennisgewing, lui of ander media speel</string>
+    <string name="more_pause_notifications_enabled">Geaktiveer — tik om stelselinstellings oop te maak</string>
+    <string name="more_pause_notifications_disabled">Gedeaktiveer — tik om te aktiveer</string>
 </resources>

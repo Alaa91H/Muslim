@@ -17,4 +17,12 @@
     <string name="crash_close">נאָענט</string>
     <string name="crash_dismiss">פאָרזעצן</string>
     <string name="more_order_hint">على أي قسم واسحبه لإعادة ترتيبه، كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">זוכן די קווראַן</string>
+    <string name="more_quran_search_desc">געפֿינען אַ וואָרט, ווי אָפט עס איז ארויס און ווו</string>
+    <string name="more_quran_frequency">קווראַן וואָרט אָפטקייַט</string>
+    <string name="more_quran_frequency_desc">די מערסט אָפט ווערטער אין דער גאנצער מושף</string>
+    <string name="more_pause_on_notifications">פּויזע רעסיטאַטיאָן אויף נאָוטאַפאַקיישאַנז</string>
+    <string name="more_pause_on_notifications_desc">רעסיטאַטיאָן פּאָזאַז בעקיצער ווען אַ אָנזאָג, רינג אָדער אנדערע מידיאַ פיעסעס</string>
+    <string name="more_pause_notifications_enabled">ענייבאַלד - צאַפּן צו עפֿענען סיסטעם סעטטינגס</string>
+    <string name="more_pause_notifications_disabled">פאַרקריפּלט - צאַפּן צו געבן</string>
 </resources>

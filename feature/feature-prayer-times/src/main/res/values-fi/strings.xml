@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egyptin yleinen tutkimusviranomainen</string>
     <string name="method_france">Ranska (UOIF)</string>
     <string name="method_isna">ISNA (Pohjois-Amerikka)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Islamilaisten tieteiden yliopisto, Karachi</string>
     <string name="method_kuwait">Kuwait</string>
     <string name="method_moonsighting">Moonsighting komitea</string>
     <string name="method_mwl">Muslimien maailmanliiga</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Teheranin geofysiikan instituutti</string>
     <string name="method_turkey">Diyanet Turkki</string>
     <string name="method_umm_al_qura">Umm al-Qura (Mekka)</string>
     <string name="next_adhan_elapsed">Adhanista lähtien: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Aikoja ei voi laskea</string>
     <string name="widget_prayer_times_description">Seuraava rukous ja lähtölaskenta</string>
     <string name="widget_prayer_times_label">Rukousajat</string>
+    <string name="settings_adhan_volume_vibrate">Äänenvoimakkuus %1$s · Tärinä %2$s</string>
+    <string name="settings_adhan_vibrate_on">Päällä</string>
+    <string name="settings_adhan_vibrate_off">Pois päältä</string>
+    <string name="settings_preview_stop">Lopeta esikatselu</string>
+    <string name="settings_method_automatic">Automaattinen (sijainnin mukaan)</string>
+    <string name="settings_method_automatic_desc">Sovellus valitsee sopivimman menetelmän automaattisesti maasi ja sijaintisi perusteella. voit silti valita menetelmän manuaalisesti milloin tahansa.</string>
+    <string name="settings_preview_for_prayer">Esikatselu %1$s adhan</string>
 </resources>

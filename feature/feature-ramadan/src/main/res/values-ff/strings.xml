@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Siftor am ko adii:</string>
     <string name="ramadan_suhoor_time">Suuhura ina joofna (juurirde): %1$s</string>
     <string name="ramadan_title">Ramadaan</string>
+    <string name="ramadan_notify_outside">Siftorde caggal Ramadaan</string>
+    <string name="ramadan_notify_outside_desc">Jeertinaango iftar e suhoor ina doga otomatik e nder Ramadaan ; waawde ɗum ina addana ɓe yahde e lebbi goɗɗi.</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">Autoriteti i Përgjithshëm Egjiptian i Anketimit</string>
     <string name="method_france">Francë (UOIF)</string>
     <string name="method_isna">ISNA (Amerika e Veriut)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Universiteti i Shkencave Islame, Karaçi</string>
     <string name="method_kuwait">Kuvajti</string>
     <string name="method_moonsighting">Komiteti i shikimit të hënës</string>
     <string name="method_mwl">Lidhja Botërore Myslimane</string>
     <string name="method_qatar">Katari</string>
     <string name="method_singapore">Singapor</string>
-    <string name="method_tehran">Instituti i Gjeofizikës në Teheran</string>
     <string name="method_turkey">Diyanet Turqi</string>
     <string name="method_umm_al_qura">Umm al-Kura (Mekke)</string>
     <string name="next_adhan_elapsed">Që nga ezani: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Nuk mund të llogaritet koha</string>
     <string name="widget_prayer_times_description">Lutja e radhës me numërim mbrapsht</string>
     <string name="widget_prayer_times_label">Kohët e namazit</string>
+    <string name="settings_adhan_volume_vibrate">Vëllimi %1$s · Dridhja %2$s</string>
+    <string name="settings_adhan_vibrate_on">Aktiv</string>
+    <string name="settings_adhan_vibrate_off">Joaktiv</string>
+    <string name="settings_preview_stop">Ndalo pamjen paraprake</string>
+    <string name="settings_method_automatic">Automatik (sipas vendndodhjes)</string>
+    <string name="settings_method_automatic_desc">Aplikacioni zgjedh metodën më të përshtatshme automatikisht bazuar në vendin dhe vendndodhjen tuaj; ju ende mund të zgjidhni një metodë manualisht në çdo kohë.</string>
+    <string name="settings_preview_for_prayer">Shiko paraprakisht ezanin %1$s</string>
 </resources>

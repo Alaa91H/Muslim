@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">País</string>
     <string name="offline_maps_tab_custom">Airal personalizat</string>
     <string name="offline_maps_download">Telecargar</string>
-    <string name="offline_maps_custom_hint">Picatz la mapa per causir lo centre, puèi telecargatz l\'airal a son entorn.</string>
+    <string name="offline_maps_custom_hint">Panografia e zoom la mapa per encadrar l\'airal que volètz ; l\'encastre se met a jorn automaticament. Ajustar la largor amb lo cursor.</string>
     <string name="offline_maps_custom_name">Nom d\'airal</string>
-    <string name="offline_maps_custom_tap">Picatz sus la mapa per causir lo centre</string>
+    <string name="offline_maps_custom_tap">Desplaçatz la mapa per seleccionar l\'airal</string>
     <string name="offline_maps_custom_default_name">Airal personalizat</string>
     <string name="offline_maps_summary_body">%1$d de %2$d airals completats · %3$s telecargat</string>
     <string name="offline_maps_downloading">Telecargament de %1$s… %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom</string>
     <string name="mosque_finder_zoom_out">Zoom fòra</string>
     <string name="mosque_finder_nearest">La mosquèa mai pròcha</string>
+    <string name="mosque_finder_go_to">Anatz-i</string>
+    <string name="mosque_finder_find_nearest">Trobar la mosquèa mai pròcha</string>
+    <string name="mosque_finder_expanding">Recèrca dins %1$s…</string>
+    <string name="offline_maps_custom_width">Largor de l\'airal (grads)</string>
+    <string name="offline_maps_storage_warning">Bassa emmagazinatge — sonque %1$s gratuits</string>
+    <string name="offline_maps_storage_delete_largest">Suprimir la region mai granda (%1$s · %2$s)</string>
 </resources>

@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Hore</string>
     <string name="quran_recitation_notif_next">Xiga</string>
+    <string name="quran_download_playback_title">Downloading %1$s</string>
+    <string name="quran_download_playback_detail">%1$s left · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Musxaf amar</string>
+    <string name="quran_download_sort_completion">Dhamaystirka</string>
+    <string name="quran_downloads_coverage_title">Daboolida suurada akhristayaasha</string>
+    <string name="quran_downloads_coverage_overall">Musxaf buuxa oo dhan akhristayaasha</string>
+    <string name="quran_downloads_coverage_empty">Ma jiro cod la soo dejiyay weli</string>
+    <string name="quran_pause_notif_listener">Jooji akhrinta ogeysiisyada</string>
+    <string name="quran_reciter_changed_title">Reciter waa bedelay</string>
+    <string name="quran_reciter_changed_message">Playback stopped because the range runs to the end of the Quran. Start again with %1$s?</string>
+    <string name="quran_reciter_restart">Mar labaad bilow</string>
+    <string name="quran_reciter_not_now">Hadda maaha</string>
 </resources>

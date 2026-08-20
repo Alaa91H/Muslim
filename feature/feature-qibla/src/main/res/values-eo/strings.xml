@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Lando</string>
     <string name="offline_maps_tab_custom">Propra areo</string>
     <string name="offline_maps_download">Elŝutu</string>
-    <string name="offline_maps_custom_hint">Frapu la mapon por elekti la centron, tiam elŝutu la areon ĉirkaŭ ĝi.</string>
+    <string name="offline_maps_custom_hint">Romu kaj zomu la mapon por enkadrigi la areon, kiun vi volas; la kadro ĝisdatiĝas aŭtomate. Alĝustigu la larĝon per la glitilo.</string>
     <string name="offline_maps_custom_name">Areonomo</string>
-    <string name="offline_maps_custom_tap">Frapu la mapon por elekti la centron</string>
+    <string name="offline_maps_custom_tap">Movu la mapon por elekti la areon</string>
     <string name="offline_maps_custom_default_name">Propra areo</string>
     <string name="offline_maps_summary_body">%1$d el %2$d areoj kompletaj · %3$s elŝutitaj</string>
     <string name="offline_maps_downloading">Elŝutante %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom en</string>
     <string name="mosque_finder_zoom_out">Zomi malproksimigi</string>
     <string name="mosque_finder_nearest">Plej proksima moskeo</string>
+    <string name="mosque_finder_go_to">Iru al ĝi</string>
+    <string name="mosque_finder_find_nearest">Trovu plej proksiman moskeon</string>
+    <string name="mosque_finder_expanding">Serĉante ene de %1$s...</string>
+    <string name="offline_maps_custom_width">Areolarĝo (gradoj)</string>
+    <string name="offline_maps_storage_warning">Malalta stokado - nur %1$s senpaga</string>
+    <string name="offline_maps_storage_delete_largest">Forigi plej grandan regionon (%1$s · %2$s)</string>
 </resources>

@@ -46,14 +46,12 @@
     <string name="method_egyptian">Ligunya Lelikhulu Leluhlolo LaseGibhithe</string>
     <string name="method_france">IFrance (i-UOIF)</string>
     <string name="method_isna">ISNA (eNyakatfo Melika)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Inyuvesi Yetesayensi YemaSulumane, eKarachi</string>
     <string name="method_kuwait">Kuweyiti</string>
     <string name="method_moonsighting">Likomidi Lekubuka Inyanga</string>
     <string name="method_mwl">Ligi Yemhlaba YemaSulumane</string>
     <string name="method_qatar">Qatar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Sikhungo se-Tehran se-Geophysics</string>
     <string name="method_turkey">Diyanet iThukhi</string>
     <string name="method_umm_al_qura">I-Umm al-Qura (eMakka)</string>
     <string name="next_adhan_elapsed">Kusukela ngesikhatsi se-Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ayikhoni kubala tikhatsi</string>
     <string name="widget_prayer_times_description">Umthantazo lolandzelako ngekubala</string>
     <string name="widget_prayer_times_label">Tikhatsi temthandazo</string>
+    <string name="settings_adhan_volume_vibrate">Ivolumu %1$s · Kudvudvuta %2$s</string>
+    <string name="settings_adhan_vibrate_on">Kuvuliwe</string>
+    <string name="settings_adhan_vibrate_off">Cishiwe</string>
+    <string name="settings_preview_stop">Yeka kubuka ngaphambilini</string>
+    <string name="settings_method_automatic">Kuzenzakalela (ngendzawo)</string>
+    <string name="settings_method_automatic_desc">Le-app ikhetsa indlela lefanele kakhulu ngekuzenzakalela ngekuya ngelive lakho nendzawo yakho; usakhona kukhetsa indlela ngesandla noma nini.</string>
+    <string name="settings_preview_for_prayer">Buka ngaphambilini %1$s i-adhan</string>
 </resources>

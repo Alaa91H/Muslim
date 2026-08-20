@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Previous</string>
     <string name="quran_recitation_notif_next">Next</string>
+    <string name="quran_download_playback_title">Daxistina %1$s</string>
+    <string name="quran_download_playback_detail">%1$s mayî · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Fermana Muşef</string>
+    <string name="quran_download_sort_completion">Bi qedandinê</string>
+    <string name="quran_downloads_coverage_title">Girtina sûreyê di nav xwendewanan de</string>
+    <string name="quran_downloads_coverage_overall">Mişef tam di nav xwandevanan de</string>
+    <string name="quran_downloads_coverage_empty">Hê deng nehatiye daxistin</string>
+    <string name="quran_pause_notif_listener">Xwendina li ser ragihandinan rawestînin</string>
+    <string name="quran_reciter_changed_title">Reciter hate guhertin</string>
+    <string name="quran_reciter_changed_message">Playback rawestiya ji ber ku navber heya dawiya Quranê dimeşe. Dîsa bi %1$s dest pê bike?</string>
+    <string name="quran_reciter_restart">Dîsa dest pê bike</string>
+    <string name="quran_reciter_not_now">Ne niha</string>
 </resources>

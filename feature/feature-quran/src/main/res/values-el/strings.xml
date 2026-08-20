@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Προηγούμενο</string>
     <string name="quran_recitation_notif_next">Επόμενο</string>
+    <string name="quran_download_playback_title">Λήψη %1$s</string>
+    <string name="quran_download_playback_detail">Απομένουν %1$s · %2$s/δευτ</string>
+    <string name="quran_download_sort_mushaf">Παραγγελία Μουσάφ</string>
+    <string name="quran_download_sort_completion">Με την ολοκλήρωση</string>
+    <string name="quran_downloads_coverage_title">Κάλυψη της Σούρας σε όλους τους απαγγέλλοντες</string>
+    <string name="quran_downloads_coverage_overall">Πλήρες μουσάφ σε απαγγέλλοντες</string>
+    <string name="quran_downloads_coverage_empty">Δεν έχει γίνει λήψη ακόμα ήχου</string>
+    <string name="quran_pause_notif_listener">Παύση της απαγγελίας στις ειδοποιήσεις</string>
+    <string name="quran_reciter_changed_title">Άλλαξε ο αναγνώστης</string>
+    <string name="quran_reciter_changed_message">Η αναπαραγωγή σταμάτησε επειδή το εύρος φτάνει μέχρι το τέλος του Κορανίου. Να ξεκινήσω ξανά με %1$s;</string>
+    <string name="quran_reciter_restart">Ξεκινήστε ξανά</string>
+    <string name="quran_reciter_not_now">Όχι τώρα</string>
 </resources>

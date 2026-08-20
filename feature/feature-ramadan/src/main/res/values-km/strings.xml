@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">រំលឹកខ្ញុំជាមុន៖</string>
     <string name="ramadan_suhoor_time">Suhoor បញ្ចប់ (Fajr): %1$s</string>
     <string name="ramadan_title">រ៉ាម៉ាដាន</string>
+    <string name="ramadan_notify_outside">ការរំលឹកនៅខាងក្រៅខែរ៉ាម៉ាដាន</string>
+    <string name="ramadan_notify_outside_desc">ការជូនដំណឹង Iftar និង suhoor ដំណើរការដោយស្វ័យប្រវត្តិក្នុងអំឡុងពេលរ៉ាម៉ាដាន; ការបើកដំណើរការនេះធ្វើឱ្យពួកគេបន្តនៅក្នុងខែផ្សេងទៀត។</string>
 </resources>

@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Edellinen</string>
     <string name="quran_recitation_notif_next">Seuraavaksi</string>
+    <string name="quran_download_playback_title">Ladataan %1$s</string>
+    <string name="quran_download_playback_detail">%1$s jäljellä · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf tilaus</string>
+    <string name="quran_download_sort_completion">Valmistumisen mukaan</string>
+    <string name="quran_downloads_coverage_title">Surah kattavuus puhujien välillä</string>
+    <string name="quran_downloads_coverage_overall">Täysi mushaf yli reciters</string>
+    <string name="quran_downloads_coverage_empty">Ääntä ei ole vielä ladattu</string>
+    <string name="quran_pause_notif_listener">Keskeytä ilmoitusten lausuminen</string>
+    <string name="quran_reciter_changed_title">Luennoitsija vaihdettu</string>
+    <string name="quran_reciter_changed_message">Toisto keskeytettiin, koska alue ulottuu Koraanin loppuun. Aloittaako uudelleen %1$s?</string>
+    <string name="quran_reciter_restart">Aloita uudelleen</string>
+    <string name="quran_reciter_not_now">Ei nyt</string>
 </resources>

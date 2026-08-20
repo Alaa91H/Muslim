@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">দেশ</string>
     <string name="offline_maps_tab_custom">কাষ্টম এৰিয়া</string>
     <string name="offline_maps_download">ডাউনলোড কৰক</string>
-    <string name="offline_maps_custom_hint">কেন্দ্ৰটো বাছি ল\'বলৈ মেপটো টেপ কৰক, তাৰ পিছত ইয়াৰ চাৰিওফালে থকা অঞ্চলটো ডাউনলোড কৰক।</string>
+    <string name="offline_maps_custom_hint">আপুনি বিচৰা অঞ্চলটো ফ্ৰেম কৰিবলৈ মেপটো পেন আৰু জুম কৰক; ফ্ৰেম স্বয়ংক্ৰিয়ভাৱে আপডেইট হয়। স্লাইডাৰৰ সৈতে প্ৰস্থ সামঞ্জস্য কৰক।</string>
     <string name="offline_maps_custom_name">এলেকাৰ নাম</string>
-    <string name="offline_maps_custom_tap">কেন্দ্ৰটো বাছি ল’বলৈ মেপটো টেপ কৰক</string>
+    <string name="offline_maps_custom_tap">অঞ্চলটো নিৰ্বাচন কৰিবলৈ মেপখন স্থানান্তৰ কৰক</string>
     <string name="offline_maps_custom_default_name">কাষ্টম এৰিয়া</string>
     <string name="offline_maps_summary_body">%1$d %2$d অঞ্চল সম্পূৰ্ণ · %3$s ডাউনলোড কৰা হৈছে</string>
     <string name="offline_maps_downloading">ডাউনলোড কৰা হৈছে %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">জুম ইন কৰক</string>
     <string name="mosque_finder_zoom_out">জুম আউট কৰক</string>
     <string name="mosque_finder_nearest">নিকটতম মছজিদ</string>
+    <string name="mosque_finder_go_to">তাৰ ওচৰলৈ যাওক</string>
+    <string name="mosque_finder_find_nearest">ওচৰৰ মছজিদ বিচাৰি উলিয়াওক</string>
+    <string name="mosque_finder_expanding">%1$s ৰ ভিতৰত সন্ধান কৰা হৈছে...</string>
+    <string name="offline_maps_custom_width">এলেকাৰ প্ৰস্থ (ডিগ্ৰী)</string>
+    <string name="offline_maps_storage_warning">কম সংৰক্ষণ, মাত্ৰ %1$s বাকী আছে</string>
+    <string name="offline_maps_storage_delete_largest">বৃহত্তম অঞ্চল মচি পেলাওক (%1$s · %2$s)</string>
 </resources>

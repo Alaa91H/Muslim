@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">E fetileng</string>
     <string name="quran_recitation_notif_next">E latelang</string>
+    <string name="quran_download_playback_title">E khoasolla %1$s</string>
+    <string name="quran_download_playback_detail">%1$s left · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Taelo ea Mushaf</string>
+    <string name="quran_download_sort_completion">Ka ho phethela</string>
+    <string name="quran_downloads_coverage_title">Phatlalatso ea Surah ho pholletsa le babali</string>
+    <string name="quran_downloads_coverage_overall">mushaf e felletseng ho pholletsa le babali</string>
+    <string name="quran_downloads_coverage_empty">Ha ho na audio e jarollotsoeng</string>
+    <string name="quran_pause_notif_listener">Emisa ho pheta-pheta litsebiso</string>
+    <string name="quran_reciter_changed_title">Reciter e fetohile</string>
+    <string name="quran_reciter_changed_message">Ho bapala ho emisitsoe hobane sebaka se fihla pheletsong ea Quran. Qala hape ka %1$s?</string>
+    <string name="quran_reciter_restart">Qala hape</string>
+    <string name="quran_reciter_not_now">Eseng hona joale</string>
 </resources>

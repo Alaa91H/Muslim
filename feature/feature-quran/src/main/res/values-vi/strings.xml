@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">trước đó</string>
     <string name="quran_recitation_notif_next">Tiếp theo</string>
+    <string name="quran_download_playback_title">Đang tải xuống %1$s</string>
+    <string name="quran_download_playback_detail">%1$s còn lại · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Thứ tự Mushaf</string>
+    <string name="quran_download_sort_completion">Bằng cách hoàn thành</string>
+    <string name="quran_downloads_coverage_title">Bảo hiểm Surah trên người đọc</string>
+    <string name="quran_downloads_coverage_overall">Mushaf đầy đủ trên người đọc</string>
+    <string name="quran_downloads_coverage_empty">Chưa tải xuống âm thanh nào</string>
+    <string name="quran_pause_notif_listener">Tạm dừng đọc thuộc lòng trên thông báo</string>
+    <string name="quran_reciter_changed_title">Người đọc đã thay đổi</string>
+    <string name="quran_reciter_changed_message">Việc phát lại bị dừng do phạm vi chạy đến cuối Kinh Qur\'an. Bắt đầu lại với %1$s?</string>
+    <string name="quran_reciter_restart">Bắt đầu lại</string>
+    <string name="quran_reciter_not_now">Không phải bây giờ</string>
 </resources>

@@ -5,11 +5,13 @@ package org.muslim.app.core.common.prayer
  *
  * @property latitude  latitude in degrees, -90..90
  * @property longitude longitude in degrees, -180..180
+ * @property elevation meters above mean sea level, >= 0 (affects sunrise /
+ *   sunset: the visible horizon drops with height, so the sun appears earlier
+ *   and sets later in mountainous regions).
  */
 data class Coordinates(
     val latitude: Double,
     val longitude: Double,
-    /** Meters above mean sea level, >= 0 (affects sunrise/sunset). */
     val elevation: Double = 0.0,
 ) {
     init {

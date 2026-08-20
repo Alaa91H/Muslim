@@ -42,6 +42,9 @@ object NotificationChannels {
     /** Default-importance channel for the daily Hajj rite reminders ("Pilgrim Companion"). */
     const val HAJJ = "hajj_reminders"
 
+    /** Default-importance channel for app-update notifications. */
+    const val APP_UPDATE = "app_update"
+
     /**
      * Ensures every channel exists with the app defaults. Idempotent: channels
      * that already exist are left untouched so a manual override the user made

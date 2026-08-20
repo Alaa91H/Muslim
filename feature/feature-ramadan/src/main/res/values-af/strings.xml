@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Herinner my vooraf:</string>
     <string name="ramadan_suhoor_time">Suhoor eindig (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Herinneringe buite Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Iftar- en suhoor-waarskuwings loop outomaties tydens Ramadan; om dit moontlik te maak, hou hulle aan die gang in ander maande.</string>
 </resources>

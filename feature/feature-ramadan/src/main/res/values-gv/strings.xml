@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Cur coontey dou roish:</string>
     <string name="ramadan_suhoor_time">%1$s</string>
     <string name="ramadan_title">Ramadan;</string>
+    <string name="ramadan_notify_outside">Cur-my-ner taishbyney Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Iftar as suhoor ry-hoi ry-hoi rish Ramadan; enabling shoh t\'eh cur ad er-gerrey ayns meeghyn elley.</string>
 </resources>

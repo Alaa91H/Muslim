@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">আধকাৰ ছেটিংছ</string>
     <string name="adhkar_show_translation">অনুবাদ দেখুৱাওক</string>
     <string name="adhkar_title">আধকৰ</string>
+    <string name="adhkar_copy">কপি কৰক</string>
+    <string name="adhkar_share">শ্বেয়াৰ কৰক</string>
+    <string name="adhkar_overlay_short_only">কেৱল চুটি আধকাৰ ব্যৱহাৰ কৰক</string>
+    <string name="adhkar_overlay_short_only_desc">এটা বা দুটা শাৰীৰ লগত খাপ খোৱা আধকাৰ বাছি লওক যাতে ভাসমান বুদবুদটো স্পষ্ট আৰু পঢ়িবলৈ সহজ হৈ থাকে।</string>
+    <string name="adhkar_overlay_tap_hint">বুদবুদটো টিপক তৎক্ষণাত ডিছমিছ কৰিবলৈ।</string>
 </resources>

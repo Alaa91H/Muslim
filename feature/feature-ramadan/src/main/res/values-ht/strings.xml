@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Fè m sonje anvan:</string>
     <string name="ramadan_suhoor_time">Suhoor fini (Fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Rapèl deyò Ramadan</string>
+    <string name="ramadan_notify_outside_desc">Iftar ak alèt suhoor kouri otomatikman pandan Ramadan; pèmèt sa a kenbe yo ale nan lòt mwa.</string>
 </resources>

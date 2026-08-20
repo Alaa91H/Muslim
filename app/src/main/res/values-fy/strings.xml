@@ -46,4 +46,12 @@
     <string name="crash_close">Slút</string>
     <string name="crash_dismiss">Trochgean</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح إاإ كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Sykje de Koran</string>
+    <string name="more_quran_search_desc">Sykje in wurd, hoe faak it ferskynt en wêr</string>
+    <string name="more_quran_frequency">Koran wurd frekwinsje</string>
+    <string name="more_quran_frequency_desc">De meast foarkommende wurden yn \'e hiele mushaf</string>
+    <string name="more_pause_on_notifications">Pause resitaasje op notifikaasjes</string>
+    <string name="more_pause_on_notifications_desc">Resitaasje pauzes koart as in notifikaasje, ring of oare media spilet</string>
+    <string name="more_pause_notifications_enabled">Ynskeakele - tikje om systeemynstellingen te iepenjen</string>
+    <string name="more_pause_notifications_disabled">Utskeakele - tikje om yn te skeakeljen</string>
 </resources>

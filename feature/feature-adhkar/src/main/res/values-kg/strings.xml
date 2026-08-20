@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Baparametre ya Adhkar</string>
     <string name="adhkar_show_translation">Monisa mbalula</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopi</string>
+    <string name="adhkar_share">Kabula</string>
+    <string name="adhkar_overlay_short_only">Sadila kaka adhkar ya nkufi</string>
+    <string name="adhkar_overlay_short_only_desc">Pona adhkar yina ke wakana ti nzila mosi to zole sambu bubble yina ke tambula na masa kubikala pwelele mpi pete na kutanga.</string>
+    <string name="adhkar_overlay_tap_hint">Fina na bubble sambu na kukatula yo mbala mosi.</string>
 </resources>

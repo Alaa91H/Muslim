@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Te mau faanahoraa Adhkar</string>
     <string name="adhkar_show_translation">Faaite i te iritiraa</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Copy</string>
+    <string name="adhkar_share">A faaite</string>
+    <string name="adhkar_overlay_short_only">A faaohipa noa i te adhkar poto</string>
+    <string name="adhkar_overlay_short_only_desc">A maiti i te adhkar e tano i te hoê aore ra e piti reni ia vai noa te hu\'ahu\'a i ni\'a i te pape e ia vai noa te reira i ni\'a i te pape.</string>
+    <string name="adhkar_overlay_tap_hint">Pato i te hu\'ahu\'a no te faaore oioi i te reira.</string>
 </resources>

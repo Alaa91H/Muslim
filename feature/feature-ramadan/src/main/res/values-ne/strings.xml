@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">पहिले मलाई सम्झाउनुहोस्:</string>
     <string name="ramadan_suhoor_time">सुहूर समाप्त (फजर): %1$s</string>
     <string name="ramadan_title">रमजान</string>
+    <string name="ramadan_notify_outside">रमजान बाहिर रिमाइन्डरहरू</string>
+    <string name="ramadan_notify_outside_desc">Iftar and suhoor alerts run automatically during Ramadan; यो सक्षम गर्नाले तिनीहरूलाई अन्य महिनाहरूमा जारी राख्छ।</string>
 </resources>

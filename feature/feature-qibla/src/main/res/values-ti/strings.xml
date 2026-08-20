@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">ሃገር</string>
     <string name="offline_maps_tab_custom">ብሕታዊ ቦታ</string>
     <string name="offline_maps_download">Download</string>
-    <string name="offline_maps_custom_hint">ነቲ ማእከል ንምምራጽ ነቲ ካርታ ጠውቕ፣ ድሕሪኡ ነቲ ኣብ ከባቢኡ ዘሎ ከባቢ ኣውርድ።</string>
+    <string name="offline_maps_custom_hint">ነቲ ካርታ ፓንን ዙምን ብምግባር ነቲ ዝደለኻዮ ከባቢ ፍሬም ምግባር፤ እቲ ፍሬም ብኣውቶማቲክ ይመሓየሽ። ስፍሓት ብስላይደር ኣስተኻኽሎ።</string>
     <string name="offline_maps_custom_name">ስም ከባቢ</string>
-    <string name="offline_maps_custom_tap">ማእከል ንምምራጽ ነቲ ካርታ ጠውቕ</string>
+    <string name="offline_maps_custom_tap">ነቲ ከባቢ ንምምራጽ ነቲ ካርታ ኣንቀሳቕሶ</string>
     <string name="offline_maps_custom_default_name">ብሕታዊ ቦታ</string>
     <string name="offline_maps_summary_body">%1$d ካብ %2$d ከባቢታት ተዛዚሙ · %3$s ተወሪዱ</string>
     <string name="offline_maps_downloading">ምውራድ %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">ዙም ኢን</string>
     <string name="mosque_finder_zoom_out">ዙም ኣውት ግበር</string>
     <string name="mosque_finder_nearest">ዝቐረበ መስጊድ</string>
+    <string name="mosque_finder_go_to">ናብኡ ኪድ</string>
+    <string name="mosque_finder_find_nearest">ኣብ ቀረባኻ መስጊድ ርኸብ</string>
+    <string name="mosque_finder_expanding">ኣብ ውሽጢ %1$s ምድላይ...</string>
+    <string name="offline_maps_custom_width">ስፍሓት ስፍሓት (ዲግሪ) .</string>
+    <string name="offline_maps_storage_warning">ትሑት መኽዘን — %1$s ጥራይ ነጻ</string>
+    <string name="offline_maps_storage_delete_largest">ዝዓበየ ዞባ ምድምሳስ (%1$s · %2$s)</string>
 </resources>

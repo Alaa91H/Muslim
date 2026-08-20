@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Гузашта</string>
     <string name="quran_recitation_notif_next">Оянда</string>
+    <string name="quran_download_playback_title">Зеркашӣ кардан %1$s</string>
+    <string name="quran_download_playback_detail">%1$s чап · %2$s/с</string>
+    <string name="quran_download_sort_mushaf">Фармони Мушаф</string>
+    <string name="quran_download_sort_completion">Бо анҷом</string>
+    <string name="quran_downloads_coverage_title">Фарогирии сура дар байни мутолиакунандагон</string>
+    <string name="quran_downloads_coverage_overall">Мушафи пурра дар байни мутолиакунандагон</string>
+    <string name="quran_downloads_coverage_empty">Ҳанӯз ягон аудио бор карда нашудааст</string>
+    <string name="quran_pause_notif_listener">Таваққуфи тиловат дар огоҳиномаҳо</string>
+    <string name="quran_reciter_changed_title">Хонанда дигар шуд</string>
+    <string name="quran_reciter_changed_message">Навозиш қатъ шуд, зеро диапазон то охири Қуръон кор мекунад. Боз бо %1$s оғоз кунед?</string>
+    <string name="quran_reciter_restart">Боз оғоз кунед</string>
+    <string name="quran_reciter_not_now">Ҳоло не</string>
 </resources>

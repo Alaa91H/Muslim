@@ -1,0 +1,50 @@
+{
+  "_note": "DEVELOPMENT SAMPLE ONLY. This tiny pack exists so the reader's tafsir section can be exercised offline. It is a plain, generic summary and MUST be replaced by a properly licensed, religiously reviewed tafsir pack before any production use. Format: { \"source\": \"...\", \"entries\": [ { \"globalNumber\": N, \"text\": \"...\" } ] }",
+  "source": "Sample",
+  "entries": [
+    {
+      "globalNumber": 1,
+      "text": "بسم الله الرحمن الرحيم: أبدأ قراءتي مستعينًا بالله تعالى، المتصف بالرحمة الواسعة الدائمة."
+    },
+    {
+      "globalNumber": 2,
+      "text": "الحمد لله رب العالمين: الثناء الكامل لله وحده، مالك الخلق جميعًا ومدبّر شؤونهم."
+    },
+    {
+      "globalNumber": 3,
+      "text": "الرحمن الرحيم: الله واسع الرحمة بعباده في الدنيا والآخرة."
+    },
+    {
+      "globalNumber": 4,
+      "text": "مالك يوم الدين: الله وحده مالك يوم الحساب والجزاء."
+    },
+    {
+      "globalNumber": 5,
+      "text": "إياك نعبد وإياك نستعين: نخصك بالعبادة وحدك، ونطلب العون منك وحدك."
+    },
+    {
+      "globalNumber": 6,
+      "text": "اهدنا الصراط المستقيم: دلّنا وأرشدنا إلى الطريق القويم الذي لا اعوجاج فيه."
+    },
+    {
+      "globalNumber": 7,
+      "text": "صراط الذين أنعمت عليهم: طريق الأنبياء والصالحين، غير طريق المغضوب عليهم ولا الضالين."
+    },
+    {
+      "globalNumber": 6222,
+      "text": "قل هو الله أحد: قل يا محمد: الله واحد أحد، لا شريك له."
+    },
+    {
+      "globalNumber": 6223,
+      "text": "الله الصمد: الله الذي يصمد إليه الخلق في حوائجهم، وهو الغني عن كل أحد."
+    },
+    {
+      "globalNumber": 6224,
+      "text": "لم يلد ولم يولد: لم يلد أحدًا ولم يولد من أحد، فلا والد له ولا ولد."
+    },
+    {
+      "globalNumber": 6225,
+      "text": "ولم يكن له كفوا أحد: ولم يكن له مثيل ولا نظير في ذاته وصفاته."
+    }
+  ]
+}

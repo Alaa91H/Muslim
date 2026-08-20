@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar futu</string>
     <string name="adhkar_show_translation">Fasari fəlezə</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Ruwo</string>
+    <string name="adhkar_share">Yayaktǝ</string>
+    <string name="adhkar_overlay_short_only">Adhkar koriya bas faidatǝne</string>
+    <string name="adhkar_overlay_short_only_desc">Adhkar karne lai fal au indiro kalkaljin sau bubble floatingdə asutin kuru kəratəro kəske.</string>
+    <string name="adhkar_overlay_tap_hint">Bubble dəga taptə tinyiro fəletəro.</string>
 </resources>

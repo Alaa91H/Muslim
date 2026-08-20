@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Naga</string>
     <string name="offline_maps_tab_custom">Lefelo le le itebagantseng</string>
     <string name="offline_maps_download">Laisolola</string>
-    <string name="offline_maps_custom_hint">Konya mmapa go tlhopha bogare, o bo o laisolola lefelo le le e dikologileng.</string>
+    <string name="offline_maps_custom_hint">Pan le go atolosetsa mmapa go foreima lefelo le o le batlang; foreimi e ntšhwafadiwa ka go itirisa. Fetola bophara ka selaete.</string>
     <string name="offline_maps_custom_name">Leina la lefelo</string>
-    <string name="offline_maps_custom_tap">Konya mmapa go tlhopha bogare</string>
+    <string name="offline_maps_custom_tap">Sutisa mmapa go tlhopha lefelo</string>
     <string name="offline_maps_custom_default_name">Lefelo le le itebagantseng</string>
     <string name="offline_maps_summary_body">%1$d ya %2$d mafelo a weditswe · %3$s e laisolotswe</string>
     <string name="offline_maps_downloading">Go laisolola %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Go atolosetsa</string>
     <string name="mosque_finder_zoom_out">Zoom fokotsega</string>
     <string name="mosque_finder_nearest">Mosque o o gaufi</string>
+    <string name="mosque_finder_go_to">Eya go yone</string>
+    <string name="mosque_finder_find_nearest">Batla mosque o o gaufi</string>
+    <string name="mosque_finder_expanding">Go batla mo teng ga %1$s...</string>
+    <string name="offline_maps_custom_width">Bophara jwa lefelo (didikirii)</string>
+    <string name="offline_maps_storage_warning">Polokelo e e kwa tlase — ke %1$s fela mahala</string>
+    <string name="offline_maps_storage_delete_largest">Phimola kgaolo e kgolo go gaisa (%1$s · %2$s)</string>
 </resources>

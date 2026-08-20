@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar occasus</string>
     <string name="adhkar_show_translation">Ostendere translationem</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Copy</string>
+    <string name="adhkar_share">Share</string>
+    <string name="adhkar_overlay_short_only">Utere brevi adhkar modo</string>
+    <string name="adhkar_overlay_short_only_desc">Elige adhkar quod una vel duae lineae aptae sunt, ut bulla fluitantia clara et facilis ad legendum sistit.</string>
+    <string name="adhkar_overlay_tap_hint">Tap bullam emittere statim.</string>
 </resources>

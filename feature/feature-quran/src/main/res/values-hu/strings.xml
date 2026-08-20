@@ -133,4 +133,16 @@
     <string name="quran_download_surah_fraction">%1$d / %2$d</string>
     <string name="quran_recitation_notif_previous">Előző</string>
     <string name="quran_recitation_notif_next">Következő</string>
+    <string name="quran_download_playback_title">%1$s letöltése</string>
+    <string name="quran_download_playback_detail">%1$s balra · %2$s/s</string>
+    <string name="quran_download_sort_mushaf">Mushaf rendelés</string>
+    <string name="quran_download_sort_completion">A befejezéssel</string>
+    <string name="quran_downloads_coverage_title">Szúra lefedettség a szavalókon keresztül</string>
+    <string name="quran_downloads_coverage_overall">Teljes muszka a reciters között</string>
+    <string name="quran_downloads_coverage_empty">Még nincs letöltve hanganyag</string>
+    <string name="quran_pause_notif_listener">Szüneteltetheti a felolvasást az értesítéseken</string>
+    <string name="quran_reciter_changed_title">Szavaló megváltozott</string>
+    <string name="quran_reciter_changed_message">A lejátszás leállt, mert a tartomány a Korán végéig tart. Kezdje újra a következővel: %1$s?</string>
+    <string name="quran_reciter_restart">Kezdje újra</string>
+    <string name="quran_reciter_not_now">Most nem</string>
 </resources>

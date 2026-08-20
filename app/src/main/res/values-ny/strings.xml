@@ -46,4 +46,12 @@
     <string name="crash_close">Tsekani</string>
     <string name="crash_dismiss">Pitirizani</string>
     <string name="more_order_hint">   يُطبَّق التغير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Fufuzani mu Quran</string>
+    <string name="more_quran_search_desc">Pezani mawu, momwe amawonekera komanso kuti</string>
+    <string name="more_quran_frequency">Korani pafupipafupi mawu</string>
+    <string name="more_quran_frequency_desc">Mawu omwe amapezeka kwambiri mu mushaf wonse</string>
+    <string name="more_pause_on_notifications">Imani kaye kubwereza pazidziwitso</string>
+    <string name="more_pause_on_notifications_desc">Kubwereza kumayima pang\'ono pamene chidziwitso, mphete kapena zofalitsa zina zikusewera</string>
+    <string name="more_pause_notifications_enabled">Yayatsidwa - dinani kuti mutsegule zoikamo</string>
+    <string name="more_pause_notifications_disabled">Woyimitsidwa - dinani kuti muyambitse</string>
 </resources>

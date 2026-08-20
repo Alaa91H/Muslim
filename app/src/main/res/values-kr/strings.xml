@@ -46,4 +46,12 @@
     <string name="crash_close">Zakkatə</string>
     <string name="crash_dismiss">Gozagǝ kowo</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
+    <string name="more_quran_search">Alquran kulasne</string>
+    <string name="more_quran_search_desc">Kalima mane, ngǝwuro fǝlejin kuru ndaran</string>
+    <string name="more_quran_frequency">Kalima Quranbe ngəwutə</string>
+    <string name="more_quran_frequency_desc">Kalimawa ngəwuro suro mushaf sammason</string>
+    <string name="more_pause_on_notifications">Kǝra dǝga dafne kǝla warmatǝgǝben</string>
+    <string name="more_pause_on_notifications_desc">Kəradə ganaro dajin sa notification, ring au media gade badijiya</string>
+    <string name="more_pause_notifications_enabled">Enabled — tapne futu nizamdǝga fǝlejin</string>
+    <string name="more_pause_notifications_disabled">Kasattənyi — tapne yitagattəgəro</string>
 </resources>

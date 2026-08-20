@@ -64,4 +64,9 @@
     <string name="adhkar_settings_title">Adhkar-agordoj</string>
     <string name="adhkar_show_translation">Montri tradukon</string>
     <string name="adhkar_title">Adhkar</string>
+    <string name="adhkar_copy">Kopiu</string>
+    <string name="adhkar_share">Kunhavigi</string>
+    <string name="adhkar_overlay_short_only">Use short adhkar only</string>
+    <string name="adhkar_overlay_short_only_desc">Elektu adhkar kiu konvenas unu aŭ du liniojn por ke la flosanta veziko restu klara kaj facile legebla.</string>
+    <string name="adhkar_overlay_tap_hint">Frapu la vezikon por forigi ĝin tuj.</string>
 </resources>

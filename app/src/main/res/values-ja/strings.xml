@@ -46,4 +46,12 @@
     <string name="crash_close">閉じる</string>
     <string name="crash_dismiss">続ける</string>
     <string name="more_order_hint">ضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاءうーん。 يُطبَّق التغيير مباشرة على شاشة المزيد。</string>
+    <string name="more_quran_search">コーランを検索する</string>
+    <string name="more_quran_search_desc">単語を検索し、その出現頻度と場所を確認します。</string>
+    <string name="more_quran_frequency">コーランの単語の頻度</string>
+    <string name="more_quran_frequency_desc">ムシャフ全体で最も頻繁に使用される単語</string>
+    <string name="more_pause_on_notifications">通知で朗読を一時停止する</string>
+    <string name="more_pause_on_notifications_desc">通知、着信音、またはその他のメディアが再生されると、朗読が一時的に停止します</string>
+    <string name="more_pause_notifications_enabled">有効 — タップしてシステム設定を開きます</string>
+    <string name="more_pause_notifications_disabled">無効 — タップして有効にします</string>
 </resources>

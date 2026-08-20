@@ -46,14 +46,12 @@
     <string name="method_egyptian">Egypska landmælingayfirvöld</string>
     <string name="method_france">Frakkland (UOIF)</string>
     <string name="method_isna">ISNA (Norður-Ameríka)</string>
-    <string name="method_jafari">Jafari</string>
     <string name="method_karachi">Háskóli íslamskra vísinda, Karachi</string>
     <string name="method_kuwait">Kúveit</string>
     <string name="method_moonsighting">Tunglskoðunarnefnd</string>
     <string name="method_mwl">Heimsbandalag múslima</string>
     <string name="method_qatar">Katar</string>
     <string name="method_singapore">Singapore</string>
-    <string name="method_tehran">Jarðeðlisfræðistofnun Teheran</string>
     <string name="method_turkey">Diyanet Tyrkland</string>
     <string name="method_umm_al_qura">Umm al-Qura (Makkah)</string>
     <string name="next_adhan_elapsed">Frá Adhan: %1$s</string>
@@ -158,4 +156,11 @@
     <string name="widget_no_times">Ekki hægt að reikna út tíma</string>
     <string name="widget_prayer_times_description">Næsta bæn með niðurtalningu</string>
     <string name="widget_prayer_times_label">Bænastundir</string>
+    <string name="settings_adhan_volume_vibrate">Hljóðstyrkur %1$s · Titringur %2$s</string>
+    <string name="settings_adhan_vibrate_on">Á</string>
+    <string name="settings_adhan_vibrate_off">Slökkt</string>
+    <string name="settings_preview_stop">Hætta forskoðun</string>
+    <string name="settings_method_automatic">Sjálfvirkt (eftir staðsetningu)</string>
+    <string name="settings_method_automatic_desc">Forritið velur hentugustu aðferðina sjálfkrafa byggt á þínu landi og staðsetningu; þú getur samt valið aðferð handvirkt hvenær sem er.</string>
+    <string name="settings_preview_for_prayer">Forskoða %1$s adhan</string>
 </resources>

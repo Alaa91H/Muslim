@@ -44,9 +44,9 @@
     <string name="offline_maps_tab_country">Leydi</string>
     <string name="offline_maps_tab_custom">Nokku keeriiɗo</string>
     <string name="offline_maps_download">Sokkit</string>
-    <string name="offline_maps_custom_hint">Tappu kartal ngal ngam suɓaade cakkital ngal, caggal ɗuum ƴettu nokku taariindi ngal.</string>
+    <string name="offline_maps_custom_hint">Pan e zoom kartal ngal ngam frame nokku mo njiɗɗaa oo; kaɓirgal ngal ina hesɗitina otomatik. Reento njaajeendi ndii e jolngo ngoo.</string>
     <string name="offline_maps_custom_name">Innde nokku</string>
-    <string name="offline_maps_custom_tap">Tappu kartal ngal ngam suɓaade caka</string>
+    <string name="offline_maps_custom_tap">Moƴƴin kartal ngal ngam suɓaade nokku oo</string>
     <string name="offline_maps_custom_default_name">Nokku keeriiɗo</string>
     <string name="offline_maps_summary_body">%1$d e %2$d nokkuuje timmuɗe · %3$s ƴettaa</string>
     <string name="offline_maps_downloading">Sosde %1$s... %2$d%%</string>
@@ -68,4 +68,10 @@
     <string name="mosque_finder_zoom_in">Zoom nder</string>
     <string name="mosque_finder_zoom_out">Zoom les</string>
     <string name="mosque_finder_nearest">Juulirde ɓurnde ɓadaade</string>
+    <string name="mosque_finder_go_to">Yah to maggal</string>
+    <string name="mosque_finder_find_nearest">Yiytu juulirde ɓurnde ɓadaade</string>
+    <string name="mosque_finder_expanding">Yiylaade nder %1$s...</string>
+    <string name="offline_maps_custom_width">Njaajeendi nokku (degereeji)</string>
+    <string name="offline_maps_storage_warning">Desorɗe tokoose — ko %1$s tan njoɓata</string>
+    <string name="offline_maps_storage_delete_largest">Mumtu diiwaan ɓurɗo mawnude (%1$s · %2$s)</string>
 </resources>

@@ -24,4 +24,6 @@
     <string name="ramadan_suhoor_remind_before">Siornatigut eqqaamajuk:</string>
     <string name="ramadan_suhoor_time">Suhoor naammassivoq (fajr): %1$s</string>
     <string name="ramadan_title">Ramadan</string>
+    <string name="ramadan_notify_outside">Ramadanip avataani eqqaamasassanik</string>
+    <string name="ramadan_notify_outside_desc">Iftar aamma suhoor nalunaarutit Ramadanip nalaani nammineerlutik ingerlapput; tamanna periarfissinneqarneratigut qaammatini allani ingerlaqqittarput.</string>
 </resources>
