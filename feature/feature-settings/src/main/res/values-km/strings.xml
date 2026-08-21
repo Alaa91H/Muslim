@@ -182,4 +182,5 @@
     <string name="settings_cancel">បោះបង់</string>
     <string name="update_last_check">ការពិនិត្យចុងក្រោយ៖ %1$s</string>
     <string name="update_open_releases">បើកទំព័រចេញផ្សាយនៅក្នុងកម្មវិធីរុករក</string>
+    <string name="settings_section_managers">អ្នកគ្រប់គ្រង និងការអនុញ្ញាត</string>
 </resources>

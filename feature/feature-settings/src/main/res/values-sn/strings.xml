@@ -182,4 +182,5 @@
     <string name="settings_cancel">Cancel</string>
     <string name="update_last_check">Kuongorora kwekupedzisira: %1$s</string>
     <string name="update_open_releases">Vhura peji rekuburitsa mubrowser</string>
+    <string name="settings_section_managers">Mamaneja &amp; Mvumo</string>
 </resources>

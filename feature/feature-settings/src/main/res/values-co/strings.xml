@@ -182,4 +182,5 @@
     <string name="settings_cancel">Cancella</string>
     <string name="update_last_check">Ultimu cuntrollu: %1$s</string>
     <string name="update_open_releases">Aprite a pagina di versione in u navigatore</string>
+    <string name="settings_section_managers">Managers &amp; Permissions</string>
 </resources>

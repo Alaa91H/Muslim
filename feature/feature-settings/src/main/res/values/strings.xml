@@ -30,6 +30,7 @@
     <string name="settings_language_english">English</string>
 
     <string name="settings_section_prayer">الصلاة والأذان</string>
+    <string name="settings_section_managers">المديرون والأذونات</string>
     <string name="settings_prayer_section">إعدادات الصلاة والأذان</string>
     <string name="settings_prayer_section_desc">طريقة الحساب، المذهب، تعديل الأوقات، أصوات الأذان والتنبيهات</string>
 

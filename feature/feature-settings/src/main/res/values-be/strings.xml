@@ -182,4 +182,5 @@
     <string name="settings_cancel">Адмяніць</string>
     <string name="update_last_check">Апошняя праверка: %1$s</string>
     <string name="update_open_releases">Адкрыйце старонку выпускаў у браўзеры</string>
+    <string name="settings_section_managers">Менеджэры і дазволы</string>
 </resources>

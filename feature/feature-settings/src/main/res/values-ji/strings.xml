@@ -59,4 +59,5 @@
     <string name="settings_cancel">באָטל מאַכן</string>
     <string name="update_last_check">לעצטע טשעק: %1$s</string>
     <string name="update_open_releases">עפענען די ריליסיז בלאַט אין דעם בלעטערער</string>
+    <string name="settings_section_managers">מאַנאַדזשערז &amp; פּערמישאַנז</string>
 </resources>

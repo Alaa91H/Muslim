@@ -182,4 +182,5 @@
     <string name="settings_cancel">Peruuttaa</string>
     <string name="update_last_check">Viimeisin tarkistus: %1$s</string>
     <string name="update_open_releases">Avaa julkaisusivu selaimessa</string>
+    <string name="settings_section_managers">Esimiehet ja käyttöoikeudet</string>
 </resources>

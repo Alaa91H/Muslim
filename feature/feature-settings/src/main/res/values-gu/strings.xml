@@ -182,4 +182,5 @@
     <string name="settings_cancel">રદ કરો</string>
     <string name="update_last_check">છેલ્લી તપાસ: %1$s</string>
     <string name="update_open_releases">બ્રાઉઝરમાં રીલીઝ પેજ ખોલો</string>
+    <string name="settings_section_managers">મેનેજર્સ અને પરવાનગીઓ</string>
 </resources>

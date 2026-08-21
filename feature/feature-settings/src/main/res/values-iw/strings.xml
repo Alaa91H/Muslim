@@ -59,4 +59,5 @@
     <string name="settings_cancel">לְבַטֵל</string>
     <string name="update_last_check">בדיקה אחרונה: %1$s</string>
     <string name="update_open_releases">פתח את דף ההפצות בדפדפן</string>
+    <string name="settings_section_managers">מנהלים והרשאות</string>
 </resources>

@@ -30,6 +30,7 @@
     <string name="settings_language_english">English</string>
 
     <string name="settings_section_prayer">Prayer &amp; Adhan</string>
+    <string name="settings_section_managers">Managers &amp; Permissions</string>
     <string name="settings_prayer_section">Prayer &amp; adhan settings</string>
     <string name="settings_prayer_section_desc">Calculation method, madhab, manual adjustments, adhan sounds and reminders</string>
 

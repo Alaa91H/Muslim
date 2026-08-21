@@ -182,4 +182,5 @@
     <string name="settings_cancel">Ματαίωση</string>
     <string name="update_last_check">Τελευταίος έλεγχος: %1$s</string>
     <string name="update_open_releases">Ανοίξτε τη σελίδα εκδόσεων στο πρόγραμμα περιήγησης</string>
+    <string name="settings_section_managers">Διευθυντές &amp; Άδειες</string>
 </resources>

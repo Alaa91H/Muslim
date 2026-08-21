@@ -182,4 +182,5 @@
     <string name="settings_cancel">Bekor qilish</string>
     <string name="update_last_check">Oxirgi tekshirish: %1$s</string>
     <string name="update_open_releases">Brauzerda nashrlar sahifasini oching</string>
+    <string name="settings_section_managers">Menejerlar va ruxsatlar</string>
 </resources>

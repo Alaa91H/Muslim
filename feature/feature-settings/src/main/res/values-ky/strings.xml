@@ -182,4 +182,5 @@
     <string name="settings_cancel">Жокко чыгаруу</string>
     <string name="update_last_check">Акыркы текшерүү: %1$s</string>
     <string name="update_open_releases">Браузерде релиздер барагын ачыңыз</string>
+    <string name="settings_section_managers">Менеджерлер жана уруксаттар</string>
 </resources>

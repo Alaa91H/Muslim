@@ -182,4 +182,5 @@
     <string name="settings_cancel">Бекор кардан</string>
     <string name="update_last_check">Санҷиши охирин: %1$s</string>
     <string name="update_open_releases">Саҳифаи релизҳоро дар браузер кушоед</string>
+    <string name="settings_section_managers">Менеҷерҳо ва иҷозатҳо</string>
 </resources>

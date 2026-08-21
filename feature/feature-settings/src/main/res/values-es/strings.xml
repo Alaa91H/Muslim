@@ -182,4 +182,5 @@
     <string name="settings_cancel">Cancelar</string>
     <string name="update_last_check">Último control: %1$s</string>
     <string name="update_open_releases">Abra la página de lanzamientos en el navegador.</string>
+    <string name="settings_section_managers">Administradores y permisos</string>
 </resources>

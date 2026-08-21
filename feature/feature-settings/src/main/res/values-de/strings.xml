@@ -182,4 +182,5 @@
     <string name="settings_cancel">Stornieren</string>
     <string name="update_last_check">Letzte Kontrolle: %1$s</string>
     <string name="update_open_releases">Öffnen Sie die Release-Seite im Browser</string>
+    <string name="settings_section_managers">Manager und Berechtigungen</string>
 </resources>

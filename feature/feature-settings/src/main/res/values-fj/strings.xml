@@ -182,4 +182,5 @@
     <string name="settings_cancel">Biuta laivi</string>
     <string name="update_last_check">iOtioti ni jeke: %1$s.</string>
     <string name="update_open_releases">Dolava na tabana ni veivakagalalataki ena barausa .</string>
+    <string name="settings_section_managers">Manidia &amp; Veivakadonui</string>
 </resources>

@@ -182,4 +182,5 @@
     <string name="settings_cancel">ሰርዝ</string>
     <string name="update_last_check">የመጨረሻው ፍተሻ፡ %1$s</string>
     <string name="update_open_releases">በአሳሹ ውስጥ የመልቀቂያ ገጹን ይክፈቱ</string>
+    <string name="settings_section_managers">አስተዳዳሪዎች እና ፈቃዶች</string>
 </resources>

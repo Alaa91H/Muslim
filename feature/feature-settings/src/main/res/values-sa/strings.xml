@@ -182,4 +182,5 @@
     <string name="settings_cancel">निरसयतु</string>
     <string name="update_last_check">अन्तिमपरीक्षा : %1$s</string>
     <string name="update_open_releases">ब्राउजर् मध्ये releases पृष्ठं उद्घाटयन्तु</string>
+    <string name="settings_section_managers">प्रबन्धकाः एवं अनुमतियाँ</string>
 </resources>

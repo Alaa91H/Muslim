@@ -182,4 +182,5 @@
     <string name="settings_cancel">Bişûndekirin</string>
     <string name="update_last_check">Kontrola dawîn: %1$s</string>
     <string name="update_open_releases">Di gerokê de rûpela serbestberdanê vekin</string>
+    <string name="settings_section_managers">Rêvebir &amp; Destûr</string>
 </resources>

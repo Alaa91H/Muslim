@@ -182,4 +182,5 @@
     <string name="settings_cancel">Soke</string>
     <string name="update_last_check">Saukewa: %1$s</string>
     <string name="update_open_releases">Bude shafin sakewa a cikin mai lilo</string>
+    <string name="settings_section_managers">Manajoji &amp; Izini</string>
 </resources>

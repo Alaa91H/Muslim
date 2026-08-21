@@ -182,4 +182,5 @@
     <string name="settings_cancel">Bàyyi</string>
     <string name="update_last_check">Xool bu mujj: %1$s</string>
     <string name="update_open_releases">Ubbi xëtu génne yi ci nawigatër bi</string>
+    <string name="settings_section_managers">njiit yi ak sañ-sañ yi</string>
 </resources>

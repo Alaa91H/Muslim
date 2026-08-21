@@ -410,6 +410,16 @@ fun SettingsScreen(
                         trailingContent = { Chevron() },
                         modifier = Modifier.clickable(onClick = onOpenPrayerSettings),
                     )
+                }
+            }
+
+            item(key = SettingsSection.Managers.name) {
+                SectionCard(
+                    title = stringResource(R.string.settings_section_managers),
+                    icon = Icons.Filled.Lock,
+                    expanded = expandedSection == SettingsSection.Managers.name,
+                    onToggle = { toggleSection(SettingsSection.Managers) },
+                ) {
                     ListItem(
                         headlineContent = { Text(stringResource(R.string.settings_notifications)) },
                         supportingContent = { Text(stringResource(R.string.settings_notifications_desc)) },
@@ -640,6 +650,7 @@ private enum class SettingsSection(val titleRes: Int) {
     Language(R.string.settings_section_language),
     More(R.string.settings_section_more),
     Prayer(R.string.settings_section_prayer),
+    Managers(R.string.settings_section_managers),
     Updates(R.string.settings_section_updates),
     Data(R.string.settings_section_data),
     About(R.string.settings_section_about),

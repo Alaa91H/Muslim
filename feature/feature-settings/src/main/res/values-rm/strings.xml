@@ -14,4 +14,5 @@
     <string name="settings_cancel">Cancel</string>
     <string name="update_last_check">Last check: %1$s</string>
     <string name="update_open_releases">Open the releases page in the browser</string>
+    <string name="settings_section_managers">Managers &amp; Permissions</string>
 </resources>

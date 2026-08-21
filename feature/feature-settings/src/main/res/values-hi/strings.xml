@@ -182,4 +182,5 @@
     <string name="settings_cancel">रद्द करना</string>
     <string name="update_last_check">अंतिम जाँच: %1$s</string>
     <string name="update_open_releases">ब्राउज़र में रिलीज़ पृष्ठ खोलें</string>
+    <string name="settings_section_managers">प्रबंधक एवं अनुमतियाँ</string>
 </resources>

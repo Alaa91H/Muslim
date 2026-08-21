@@ -182,4 +182,5 @@
     <string name="settings_cancel">Ofbrekke</string>
     <string name="update_last_check">Lêste kontrôle: %1$s</string>
     <string name="update_open_releases">Iepenje de releases side yn \'e browser</string>
+    <string name="settings_section_managers">Behearders en tagongsrjochten</string>
 </resources>

@@ -182,4 +182,5 @@
     <string name="settings_cancel">Hlakola</string>
     <string name="update_last_check">Tlhahlobo ea ho qetela: %1$s</string>
     <string name="update_open_releases">Bula leqephe la litokollo ho sebatli</string>
+    <string name="settings_section_managers">Batsamaisi &amp; Litumello</string>
 </resources>

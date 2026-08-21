@@ -16,7 +16,8 @@ MODULES = {
     "feature/feature-qibla": ["mosque_finder_share", "offline_maps_use_my_location"],
     "feature/feature-quran": ["quran_search_metrics", "quran_search_index_building", "quran_search_index_progress", "quran_search_word_root", "quran_search_derivations", "quran_search_no_root"],
     "feature/feature-prayer-times": ["settings_method_automatic_picked"],
-    "feature/feature-settings": ["settings_auto_update", "settings_auto_update_desc", "settings_auto_update_confirm_title", "settings_auto_update_confirm_body", "settings_auto_update_confirm", "settings_cancel", "update_last_check", "update_open_releases"],
+    "feature/feature-settings": ["settings_section_managers", "settings_auto_update", "settings_auto_update_desc", "settings_auto_update_confirm_title", "settings_auto_update_confirm_body", "settings_auto_update_confirm", "settings_cancel", "update_last_check", "update_open_releases"],
+    "core/core-permissions": ["permission_notification_listener", "permission_notification_listener_desc"],
     "app": ["more_names", "more_names_desc", "more_hajj", "more_hajj_desc"],
 }
 

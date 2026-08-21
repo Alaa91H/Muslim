@@ -182,4 +182,5 @@
     <string name="settings_cancel">Юҡҡа сығарырға</string>
     <string name="update_last_check">Һуңғы тикшерелеү: %1$s.</string>
     <string name="update_open_releases">Браузерҙа релиздар битен асығыҙ</string>
+    <string name="settings_section_managers">Менеджерҙар һәм рөхсәттәр</string>
 </resources>

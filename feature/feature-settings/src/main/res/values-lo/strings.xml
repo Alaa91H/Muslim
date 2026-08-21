@@ -182,4 +182,5 @@
     <string name="settings_cancel">ຍົກເລີກ</string>
     <string name="update_last_check">ກວດສອບຄັ້ງສຸດທ້າຍ: %1$s</string>
     <string name="update_open_releases">ເປີດໜ້າອອກໃນ browser</string>
+    <string name="settings_section_managers">ຜູ້ຈັດການ &amp; ການອະນຸຍາດ</string>
 </resources>

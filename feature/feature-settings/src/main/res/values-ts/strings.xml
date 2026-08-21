@@ -182,4 +182,5 @@
     <string name="settings_cancel">Khansela</string>
     <string name="update_last_check">Ku kamberiwa ko hetelela: %1$s</string>
     <string name="update_open_releases">Pfula tluka ra ku humesiwa eka browser</string>
+    <string name="settings_section_managers">Vafambisi &amp; Mpfumelelo</string>
 </resources>

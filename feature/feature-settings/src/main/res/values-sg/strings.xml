@@ -182,4 +182,5 @@
     <string name="settings_cancel">zi ni</string>
     <string name="update_last_check">Lani vérification: %1$s.</string>
     <string name="update_open_releases">Zia lembeti ti sigingo na ni na yâ ti navigateur ni .</string>
+    <string name="settings_section_managers">Azo so ayeke bâ lege ti kua ni nga na apermission</string>
 </resources>

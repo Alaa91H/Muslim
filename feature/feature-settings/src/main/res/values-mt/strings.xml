@@ -182,4 +182,5 @@
     <string name="settings_cancel">Ikkanċella</string>
     <string name="update_last_check">L-aħħar kontroll: %1$s</string>
     <string name="update_open_releases">Iftaħ il-paġna tar-rilaxxi fil-browser</string>
+    <string name="settings_section_managers">Maniġers u Permessi</string>
 </resources>

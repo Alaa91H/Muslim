@@ -16,4 +16,6 @@
     <string name="permission_vibrate_desc">الاهتزاز في المسبحة والإشعارات</string>
     <string name="permission_battery_optimization">توفير البطارية</string>
     <string name="permission_battery_optimization_desc">استثناء التطبيق من تحسين البطارية لضمان عمل الأذان وأوقات الصلاة والتذكيرات على مدار الساعة</string>
+    <string name="permission_notification_listener">إيقاف التلاوة عند الإشعارات</string>
+    <string name="permission_notification_listener_desc">يوقف التلاوة تلقائيًا عند وصول إشعار صوتي ويعيدها بعد انتهائه حتى لا تتداخل مع نغمات الإشعارات</string>
 </resources>

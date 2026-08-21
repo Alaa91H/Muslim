@@ -182,4 +182,5 @@
     <string name="settings_cancel">Whakakore</string>
     <string name="update_last_check">Tirohanga whakamutunga: %1$s</string>
     <string name="update_open_releases">Whakatuwheratia te wharangi whakaputanga i roto i te tirotiro</string>
+    <string name="settings_section_managers">Kaiwhakahaere &amp; Whakaaetanga</string>
 </resources>

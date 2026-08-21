@@ -182,4 +182,5 @@
     <string name="settings_cancel">strika</string>
     <string name="update_last_check">Seinasta ávísing: %1$s.</string>
     <string name="update_open_releases">Opna útgávusíðuna í kaganum</string>
+    <string name="settings_section_managers">Stjórar og loyvi</string>
 </resources>

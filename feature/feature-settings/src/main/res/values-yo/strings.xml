@@ -182,4 +182,5 @@
     <string name="settings_cancel">Fagilee</string>
     <string name="update_last_check">Ayẹwo ikẹhin: %1$s</string>
     <string name="update_open_releases">Ṣii oju-iwe idasilẹ ni ẹrọ aṣawakiri</string>
+    <string name="settings_section_managers">Awọn alakoso &amp; Awọn igbanilaaye</string>
 </resources>

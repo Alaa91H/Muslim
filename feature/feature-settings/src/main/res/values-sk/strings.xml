@@ -182,4 +182,5 @@
     <string name="settings_cancel">Zrušiť</string>
     <string name="update_last_check">Posledná kontrola: %1$s</string>
     <string name="update_open_releases">Otvorte stránku s vydaniami v prehliadači</string>
+    <string name="settings_section_managers">Manažéri a povolenia</string>
 </resources>

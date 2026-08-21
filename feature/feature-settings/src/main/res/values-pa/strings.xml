@@ -182,4 +182,5 @@
     <string name="settings_cancel">ਰੱਦ ਕਰੋ</string>
     <string name="update_last_check">ਆਖਰੀ ਜਾਂਚ: %1$s</string>
     <string name="update_open_releases">ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਰੀਲੀਜ਼ ਪੰਨੇ ਨੂੰ ਖੋਲ੍ਹੋ</string>
+    <string name="settings_section_managers">ਪ੍ਰਬੰਧਕ ਅਤੇ ਅਨੁਮਤੀਆਂ</string>
 </resources>

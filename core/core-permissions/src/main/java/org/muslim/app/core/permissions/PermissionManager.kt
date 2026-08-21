@@ -9,6 +9,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.PowerManager
 import android.provider.Settings
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -83,6 +84,9 @@ class PermissionManager @Inject constructor(
                 Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
                 "package:$packageName".toUri(),
             )
+            AppPermission.NotificationListener -> Intent(
+                Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS,
+            )
             else -> null
         }
     }
@@ -135,6 +139,10 @@ class PermissionManager @Inject constructor(
             AppPermission.BatteryOptimization -> {
                 val powerManager = context.getSystemService(PowerManager::class.java)
                 powerManager.isIgnoringBatteryOptimizations(context.packageName)
+            }
+            AppPermission.NotificationListener -> {
+                NotificationManagerCompat.getEnabledListenerPackages(context)
+                    .contains(context.packageName)
             }
             else -> true
         }

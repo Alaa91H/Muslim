@@ -182,4 +182,5 @@
     <string name="settings_cancel">Canslo</string>
     <string name="update_last_check">Gwiriad olaf: %1$s</string>
     <string name="update_open_releases">Agorwch y dudalen datganiadau yn y porwr</string>
+    <string name="settings_section_managers">Rheolwyr a Chaniatadau</string>
 </resources>

@@ -182,4 +182,5 @@
     <string name="settings_cancel">বাতিল কৰক</string>
     <string name="update_last_check">শেষ পৰীক্ষা: %1$s</string>
     <string name="update_open_releases">ব্ৰাউজাৰত মুক্তি পৃষ্ঠা খোলক</string>
+    <string name="settings_section_managers">পৰিচালক আৰু অনুমতি</string>
 </resources>

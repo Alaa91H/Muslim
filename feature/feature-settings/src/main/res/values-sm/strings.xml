@@ -182,4 +182,5 @@
     <string name="settings_cancel">Fa\'aleaogaina</string>
     <string name="update_last_check">Siaki mulimuli: %1$s</string>
     <string name="update_open_releases">Tatala le itulau o fa\'asalalauga i le su\'ega</string>
+    <string name="settings_section_managers">Pule &amp; Fa\'atagaga</string>
 </resources>

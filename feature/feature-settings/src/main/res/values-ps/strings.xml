@@ -182,4 +182,5 @@
     <string name="settings_cancel">لغوه کړئ</string>
     <string name="update_last_check">وروستی چک: %1$s</string>
     <string name="update_open_releases">په براوزر کې د ریلیز پاڼې خلاص کړئ</string>
+    <string name="settings_section_managers">مدیران او اجازې</string>
 </resources>

@@ -182,4 +182,5 @@
     <string name="settings_cancel">Nullañ</string>
     <string name="update_last_check">Gwiriañ diwezhañ : %1$s</string>
     <string name="update_open_releases">Digeriñ ar bajenn embannadurioù er merdeer</string>
+    <string name="settings_section_managers">Merourien &amp; Aotreoù</string>
 </resources>

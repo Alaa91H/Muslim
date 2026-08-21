@@ -182,4 +182,5 @@
     <string name="settings_cancel">취소</string>
     <string name="update_last_check">마지막 확인: %1$s</string>
     <string name="update_open_releases">브라우저에서 릴리스 페이지를 엽니다.</string>
+    <string name="settings_section_managers">관리자 및 권한</string>
 </resources>

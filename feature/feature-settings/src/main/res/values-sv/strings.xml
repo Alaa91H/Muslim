@@ -182,4 +182,5 @@
     <string name="settings_cancel">Avboka</string>
     <string name="update_last_check">Senaste kontroll: %1$s</string>
     <string name="update_open_releases">Öppna versionssidan i webbläsaren</string>
+    <string name="settings_section_managers">Chefer och behörigheter</string>
 </resources>

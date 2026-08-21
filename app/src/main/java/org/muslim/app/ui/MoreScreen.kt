@@ -43,13 +43,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import org.muslim.app.R
-import org.muslim.app.feature.quran.data.RecitationPauseController
 
 private data class MoreEntry(
     val titleRes: Int,
@@ -91,14 +89,12 @@ fun MoreScreen(
     onOpenHajj: () -> Unit = {},
     onOpenQuranSearch: () -> Unit = {},
     onOpenQuranFrequency: () -> Unit = {},
-    onOpenNotificationListenerSettings: () -> Unit = {},
     onOpenOfflineMaps: () -> Unit = {},
     /** User-customized section order (ids from [org.muslim.app.core.datastore.AppPreferences]). */
     sectionOrder: List<String> = org.muslim.app.core.datastore.AppPreferences.DEFAULT_MORE_SECTION_ORDER,
     /** Sections the user chose to hide (ids from [org.muslim.app.core.datastore.AppPreferences]). */
     hiddenSections: Set<String> = emptySet(),
 ) {
-    val context = LocalContext.current
     val sectionsById = mapOf(
         org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_WORSHIP to MoreSection(
             org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_WORSHIP,
@@ -136,13 +132,6 @@ fun MoreScreen(
             R.string.more_section_app,
             listOf(
                 MoreEntry(R.string.more_settings, R.string.more_settings_desc, Icons.Filled.Settings, onOpenSettings),
-                MoreEntry(
-                    R.string.more_pause_on_notifications,
-                    R.string.more_pause_on_notifications_desc,
-                    Icons.Filled.NotificationsActive,
-                    onOpenNotificationListenerSettings,
-                    subtitleText = listenerStatus(context),
-                ),
             ),
         ),
     )
@@ -176,16 +165,6 @@ fun MoreScreen(
         }
     }
 }
-
-/** "Notification access granted?" status line for the pause-on-notifications row. */
-@Composable
-private fun listenerStatus(context: android.content.Context): String = stringResource(
-    if (RecitationPauseController.isListenerGranted(context)) {
-        R.string.more_pause_notifications_enabled
-    } else {
-        R.string.more_pause_notifications_disabled
-    },
-)
 
 @Composable
 private fun MoreCard(entry: MoreEntry) {

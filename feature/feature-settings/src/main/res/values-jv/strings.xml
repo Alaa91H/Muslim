@@ -182,4 +182,5 @@
     <string name="settings_cancel">Batal</string>
     <string name="update_last_check">Priksa pungkasan: %1$s</string>
     <string name="update_open_releases">Bukak kaca rilis ing browser</string>
+    <string name="settings_section_managers">Managers &amp; Idin</string>
 </resources>

@@ -182,4 +182,5 @@
     <string name="settings_cancel">Kukatula</string>
     <string name="update_last_check">Kutala ya nsuka: %1$s.</string>
     <string name="update_open_releases">Kangula lutiti ya kubasika na navigateur</string>
+    <string name="settings_section_managers">Bamfumu &amp; Banswa</string>
 </resources>

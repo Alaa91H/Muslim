@@ -182,4 +182,5 @@
     <string name="settings_cancel">cur ass</string>
     <string name="update_last_check">Check s\'jerree: %1$s.</string>
     <string name="update_open_releases">Foshlit yn duillag ry-hoi \'sy bhraar</string>
+    <string name="settings_section_managers">Riaghlagh &amp; Ceadyn</string>
 </resources>

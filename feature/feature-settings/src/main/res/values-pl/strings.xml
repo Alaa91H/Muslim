@@ -182,4 +182,5 @@
     <string name="settings_cancel">Anulować</string>
     <string name="update_last_check">Ostatnia kontrola: %1$s</string>
     <string name="update_open_releases">Otwórz stronę wydań w przeglądarce</string>
+    <string name="settings_section_managers">Menedżerowie i uprawnienia</string>
 </resources>

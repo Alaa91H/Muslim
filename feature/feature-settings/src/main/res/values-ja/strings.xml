@@ -182,4 +182,5 @@
     <string name="settings_cancel">キャンセル</string>
     <string name="update_last_check">最終チェック: %1$s</string>
     <string name="update_open_releases">ブラウザでリリース ページを開きます</string>
+    <string name="settings_section_managers">マネージャーと権限</string>
 </resources>

@@ -182,4 +182,5 @@
     <string name="settings_cancel">Kanselleer</string>
     <string name="update_last_check">Laaste kontrole: %1$s</string>
     <string name="update_open_releases">Maak die vrystellingsbladsy in die blaaier oop</string>
+    <string name="settings_section_managers">Bestuurders &amp; Toestemmings</string>
 </resources>

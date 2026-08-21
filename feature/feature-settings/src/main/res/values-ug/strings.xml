@@ -182,4 +182,5 @@
     <string name="settings_cancel">بىكار قىلىش</string>
     <string name="update_last_check">ئاخىرقى تەكشۈرۈش: %1$s</string>
     <string name="update_open_releases">توركۆرگۈدە ئېلان قىلىش بېتىنى ئېچىڭ</string>
+    <string name="settings_section_managers">باشقۇرغۇچىلار ۋە ئىجازەتلەر</string>
 </resources>

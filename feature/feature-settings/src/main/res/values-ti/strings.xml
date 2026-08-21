@@ -182,4 +182,5 @@
     <string name="settings_cancel">ሰርዝ</string>
     <string name="update_last_check">ናይ መወዳእታ ምፍታሽ፡ %1$s</string>
     <string name="update_open_releases">ኣብቲ መርበብ ሓበሬታ ነቲ ናይ ምውጻእ ገጽ ክፈቶ</string>
+    <string name="settings_section_managers">ኣካየድቲ &amp; ፍቓድ</string>
 </resources>

@@ -182,4 +182,5 @@
     <string name="settings_cancel">Rhoxisa</string>
     <string name="update_last_check">Igqityelwe ukujonga: %1$s</string>
     <string name="update_open_releases">Vula iphepha lokukhutshwa kwibhrawuza</string>
+    <string name="settings_section_managers">Abaphathi kunye neeMvume</string>
 </resources>

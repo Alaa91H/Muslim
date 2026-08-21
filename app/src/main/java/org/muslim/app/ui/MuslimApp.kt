@@ -1,7 +1,5 @@
 package org.muslim.app.ui
 
-import android.content.Intent
-import android.provider.Settings
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -264,11 +262,6 @@ fun MuslimApp(
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
                         onOpenQuranSearch = { navController.navigate(SEARCH_ROUTE) },
                         onOpenQuranFrequency = { navController.navigate(QURAN_FREQUENCY_ROUTE) },
-                        onOpenNotificationListenerSettings = {
-                            context.startActivity(
-                                Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS),
-                            )
-                        },
                         onOpenOfflineMaps = { navController.navigate(OFFLINE_MAPS_ROUTE) },
                         sectionOrder = preferences.moreSectionOrder,
                         hiddenSections = preferences.hiddenMoreSections,

@@ -182,4 +182,5 @@
     <string name="settings_cancel">Sguir dheth</string>
     <string name="update_last_check">Sgrùdadh mu dheireadh: %1$s</string>
     <string name="update_open_releases">Fosgail an duilleag foillseachaidh sa bhrobhsair</string>
+    <string name="settings_section_managers">Manaidsearan &amp; Ceadan</string>
 </resources>

@@ -182,4 +182,5 @@
     <string name="settings_cancel">Отказ</string>
     <string name="update_last_check">Последна проверка: %1$s</string>
     <string name="update_open_releases">Отворете страницата с версиите в браузъра</string>
+    <string name="settings_section_managers">Мениджъри и разрешения</string>
 </resources>

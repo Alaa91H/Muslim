@@ -182,4 +182,5 @@
     <string name="settings_cancel">Letsani</string>
     <string name="update_last_check">Kuwona komaliza: %1$s</string>
     <string name="update_open_releases">Tsegulani tsamba lotulutsidwa mu msakatuli</string>
+    <string name="settings_section_managers">Otsogolera &amp; Zilolezo</string>
 </resources>

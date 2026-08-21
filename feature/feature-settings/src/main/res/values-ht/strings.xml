@@ -182,4 +182,5 @@
     <string name="settings_cancel">Anile</string>
     <string name="update_last_check">Dènye chèk: %1$s</string>
     <string name="update_open_releases">Louvri paj la nan navigatè a</string>
+    <string name="settings_section_managers">Manadjè ak otorizasyon</string>
 </resources>

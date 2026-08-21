@@ -182,4 +182,5 @@
     <string name="settings_cancel">Phimola</string>
     <string name="update_last_check">Tlhotlhomiso ya bofelo: %1$s.</string>
     <string name="update_open_releases">Bula tsebe ya ditokololo mo sebatling</string>
+    <string name="settings_section_managers">Batsamaisi le Ditetlelelo</string>
 </resources>

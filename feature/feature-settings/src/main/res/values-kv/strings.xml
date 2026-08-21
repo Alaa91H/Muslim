@@ -182,4 +182,5 @@
     <string name="settings_cancel">Киритӧм</string>
     <string name="update_last_check">Бӧръя проверка: %1$s.</string>
     <string name="update_open_releases">Восьтӧй браузерын релизъяс лист бок .</string>
+    <string name="settings_section_managers">Менеджеръяс да позянлунъяс .</string>
 </resources>

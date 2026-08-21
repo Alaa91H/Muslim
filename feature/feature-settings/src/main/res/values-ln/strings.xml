@@ -182,4 +182,5 @@
     <string name="settings_cancel">Kolongola</string>
     <string name="update_last_check">Vérification ya suka: %1$s</string>
     <string name="update_open_releases">Fungola lokasa ya ba sorties na navigateur</string>
+    <string name="settings_section_managers">Bakonzi &amp; Ndingisa</string>
 </resources>

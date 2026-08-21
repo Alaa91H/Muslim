@@ -182,4 +182,5 @@
     <string name="settings_cancel">Jolok</string>
     <string name="update_last_check">Lale eo eliktata: %1$s</string>
     <string name="update_open_releases">Kōpellok peij in kōtlok ko ilo browser eo</string>
+    <string name="settings_section_managers">Ri tel ro im maroñ ko</string>
 </resources>

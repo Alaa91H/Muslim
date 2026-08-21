@@ -182,4 +182,5 @@
     <string name="settings_cancel">Mégse</string>
     <string name="update_last_check">Utolsó ellenőrzés: %1$s</string>
     <string name="update_open_releases">Nyissa meg a kiadások oldalát a böngészőben</string>
+    <string name="settings_section_managers">Vezetők és engedélyek</string>
 </resources>

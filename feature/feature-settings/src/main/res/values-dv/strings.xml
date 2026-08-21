@@ -182,4 +182,5 @@
     <string name="settings_cancel">ކެންސަލް</string>
     <string name="update_last_check">އެންމެ ފަހުން ޗެކްކުރީ: %1$s</string>
     <string name="update_open_releases">ބްރައުޒާގައި ރިލީޒްސް ޕޭޖް ހުޅުވާލާށެވެ</string>
+    <string name="settings_section_managers">މެނޭޖަރުންނާއި ހުއްދަތައް</string>
 </resources>

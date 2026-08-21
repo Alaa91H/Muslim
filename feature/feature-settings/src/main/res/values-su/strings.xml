@@ -182,4 +182,5 @@
     <string name="settings_cancel">Ngabolaykeun</string>
     <string name="update_last_check">Pariksa panungtungan: %1$s</string>
     <string name="update_open_releases">Buka halaman pelepasan dina browser</string>
+    <string name="settings_section_managers">Pangurus &amp; Idin</string>
 </resources>

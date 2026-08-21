@@ -17,4 +17,5 @@
     <string name="settings_cancel">Kanselahin</string>
     <string name="update_last_check">Huling pagsusuri: %1$s</string>
     <string name="update_open_releases">Buksan ang page ng mga release sa browser</string>
+    <string name="settings_section_managers">Mga Tagapamahala at Pahintulot</string>
 </resources>

@@ -182,4 +182,5 @@
     <string name="settings_cancel">Anulo</string>
     <string name="update_last_check">Kontrolli i fundit: %1$s</string>
     <string name="update_open_releases">Hapni faqen e publikimeve në shfletues</string>
+    <string name="settings_section_managers">Menaxherët &amp; Lejet</string>
 </resources>

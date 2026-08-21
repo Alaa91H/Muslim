@@ -182,4 +182,5 @@
     <string name="settings_cancel">Haquu</string>
     <string name="update_last_check">Sakatta’iinsa dhumaa: %1$s</string>
     <string name="update_open_releases">Fuula gadhiifaman biraawzari keessatti banaa</string>
+    <string name="settings_section_managers">Hoggantoota fi Hayyama</string>
 </resources>

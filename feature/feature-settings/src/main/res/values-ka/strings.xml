@@ -182,4 +182,5 @@
     <string name="settings_cancel">გაუქმება</string>
     <string name="update_last_check">ბოლო შემოწმება: %1$s</string>
     <string name="update_open_releases">გახსენით გამოშვების გვერდი ბრაუზერში</string>
+    <string name="settings_section_managers">მენეჯერები და ნებართვები</string>
 </resources>

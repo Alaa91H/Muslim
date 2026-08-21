@@ -182,4 +182,5 @@
     <string name="settings_cancel">Nuligi</string>
     <string name="update_last_check">Lasta kontrolo: %1$s</string>
     <string name="update_open_releases">Malfermu la paĝon de eldonoj en la retumilo</string>
+    <string name="settings_section_managers">Administrantoj kaj Permesoj</string>
 </resources>

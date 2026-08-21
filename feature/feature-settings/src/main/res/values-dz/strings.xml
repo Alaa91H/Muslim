@@ -182,4 +182,5 @@
     <string name="settings_cancel">ཆ་མེད་བཏང་པ་</string>
     <string name="update_last_check">མཐའ་མའི་ཞིབ་བཤེར།: %1$s.</string>
     <string name="update_open_releases">བརའུ་ཟར་ནང་གསར་བཏོན་ཤོག་ལེབ་ཁ་ཕྱེ།</string>
+    <string name="settings_section_managers">འཛིན་སྐྱོང་པ་ཚུ་དང་གནང་བ་ཚུ།</string>
 </resources>

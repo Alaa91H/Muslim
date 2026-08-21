@@ -182,4 +182,5 @@
     <string name="settings_cancel">Dawartə</string>
     <string name="update_last_check">Kulashi dareye: %1$s</string>
     <string name="update_open_releases">Warak do browser lan tuwandin dəga katə</string>
+    <string name="settings_section_managers">Manaja-a Izin-a</string>
 </resources>

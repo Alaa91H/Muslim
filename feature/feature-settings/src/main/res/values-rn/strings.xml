@@ -182,4 +182,5 @@
     <string name="settings_cancel">Guhagarika</string>
     <string name="update_last_check">Igenzura rya nyuma: %1$s.</string>
     <string name="update_open_releases">Gufungura urupapuro rwasohotse mu mucukumbuzi</string>
+    <string name="settings_section_managers">Abarongozi &amp; Uruhusha</string>
 </resources>

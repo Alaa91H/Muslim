@@ -182,4 +182,5 @@
     <string name="settings_cancel">Пӑрахӑç ту</string>
     <string name="update_last_check">Юлашки тӗрӗслев: %1$s</string>
     <string name="update_open_releases">Браузерта кӑларӑмсен страницине уҫӑр</string>
+    <string name="settings_section_managers">Менеджерсем тата ирӗксем</string>
 </resources>

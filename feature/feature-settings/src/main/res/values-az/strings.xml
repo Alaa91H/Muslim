@@ -182,4 +182,5 @@
     <string name="settings_cancel">Ləğv et</string>
     <string name="update_last_check">Son yoxlama: %1$s</string>
     <string name="update_open_releases">Brauzerdə buraxılışlar səhifəsini açın</string>
+    <string name="settings_section_managers">Menecerlər və İcazələr</string>
 </resources>

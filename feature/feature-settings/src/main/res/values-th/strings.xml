@@ -182,4 +182,5 @@
     <string name="settings_cancel">ยกเลิก</string>
     <string name="update_last_check">ตรวจสอบครั้งล่าสุด: %1$s</string>
     <string name="update_open_releases">เปิดหน้าเผยแพร่ในเบราว์เซอร์</string>
+    <string name="settings_section_managers">ผู้จัดการและการอนุญาต</string>
 </resources>

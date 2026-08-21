@@ -182,4 +182,5 @@
     <string name="settings_cancel">Atšaukti</string>
     <string name="update_last_check">Paskutinis patikrinimas: %1$s</string>
     <string name="update_open_releases">Naršyklėje atidarykite leidimų puslapį</string>
+    <string name="settings_section_managers">Valdytojai ir leidimai</string>
 </resources>

@@ -182,4 +182,5 @@
     <string name="settings_cancel">Болдырмау</string>
     <string name="update_last_check">Соңғы тексеру: %1$s</string>
     <string name="update_open_releases">Браузерде шығарылымдар бетін ашыңыз</string>
+    <string name="settings_section_managers">Менеджерлер және рұқсаттар</string>
 </resources>

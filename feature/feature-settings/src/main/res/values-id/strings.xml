@@ -182,4 +182,5 @@
     <string name="settings_cancel">Membatalkan</string>
     <string name="update_last_check">Pemeriksaan terakhir: %1$s</string>
     <string name="update_open_releases">Buka halaman rilis di browser</string>
+    <string name="settings_section_managers">Manajer &amp; Izin</string>
 </resources>

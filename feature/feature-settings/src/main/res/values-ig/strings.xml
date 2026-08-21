@@ -182,4 +182,5 @@
     <string name="settings_cancel">Kagbuo</string>
     <string name="update_last_check">Nlele ikpeazụ: %1$s</string>
     <string name="update_open_releases">Mepee ibe ewepụtara na ihe nchọgharị ahụ</string>
+    <string name="settings_section_managers">Ndị njikwa &amp; ikike</string>
 </resources>

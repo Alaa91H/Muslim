@@ -97,6 +97,16 @@ enum class AppPermission(
         R.string.permission_battery_optimization_desc,
         Kind.SpecialAccess,
         minSdk = Build.VERSION_CODES.M,
+    ),
+
+    /**
+     * Notification-listener access — pauses Quran recitation while soundful
+     * notifications ring, so the tilaawah never overlaps a notification tone.
+     */
+    NotificationListener(
+        R.string.permission_notification_listener,
+        R.string.permission_notification_listener_desc,
+        Kind.SpecialAccess,
     );
 
     enum class Kind { Runtime, SpecialAccess, Normal }

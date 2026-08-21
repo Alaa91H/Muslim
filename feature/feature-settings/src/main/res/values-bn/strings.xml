@@ -182,4 +182,5 @@
     <string name="settings_cancel">বাতিল করুন</string>
     <string name="update_last_check">শেষ পরীক্ষা: %1$s</string>
     <string name="update_open_releases">ব্রাউজারে প্রকাশের পৃষ্ঠাটি খুলুন</string>
+    <string name="settings_section_managers">ম্যানেজার এবং অনুমতি</string>
 </resources>

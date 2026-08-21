@@ -182,4 +182,5 @@
     <string name="settings_cancel">منسوخ ڪريو</string>
     <string name="update_last_check">آخري چيڪ: %1$s</string>
     <string name="update_open_releases">برائوزر ۾ رليز پيج کوليو</string>
+    <string name="settings_section_managers">مئنيجر ۽ اجازتون</string>
 </resources>

@@ -182,4 +182,5 @@
     <string name="settings_cancel">Цуцлах</string>
     <string name="update_last_check">Сүүлийн шалгалт: %1$s</string>
     <string name="update_open_releases">Хөтөч дээр хувилбаруудын хуудсыг нээнэ үү</string>
+    <string name="settings_section_managers">Менежерүүд ба зөвшөөрөл</string>
 </resources>

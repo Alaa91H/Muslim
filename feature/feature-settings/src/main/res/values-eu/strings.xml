@@ -182,4 +182,5 @@
     <string name="settings_cancel">Utzi</string>
     <string name="update_last_check">Azken egiaztapena: %1$s</string>
     <string name="update_open_releases">Ireki bertsioen orria arakatzailean</string>
+    <string name="settings_section_managers">Kudeatzaileak eta Baimenak</string>
 </resources>

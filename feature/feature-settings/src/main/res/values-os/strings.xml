@@ -182,4 +182,5 @@
     <string name="settings_cancel">аивын</string>
     <string name="update_last_check">Фæстаг сбæрæг кæнын: %1$s</string>
     <string name="update_open_releases">Байгом кæнут рауагъдты фарс браузеры</string>
+    <string name="settings_section_managers">Менеджертæ æмæ барлæвæрдтæ</string>
 </resources>

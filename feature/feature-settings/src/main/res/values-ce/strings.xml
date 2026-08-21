@@ -182,4 +182,5 @@
     <string name="settings_cancel">дӀадакха</string>
     <string name="update_last_check">ТӀаьххьара теллина: %1$s.</string>
     <string name="update_open_releases">Браузерехь схьаелла релизийн агӀо .</string>
+    <string name="settings_section_managers">Куьйгалхой а, бакъонаш а</string>
 </resources>

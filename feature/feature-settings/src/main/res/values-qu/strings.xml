@@ -182,4 +182,5 @@
     <string name="settings_cancel">Sayachiy</string>
     <string name="update_last_check">Qhipa qhaway: %1$s</string>
     <string name="update_open_releases">Navegadorpi kacharisqakuna p\'anqata kichay</string>
+    <string name="settings_section_managers">Gerentes &amp; Permisokuna</string>
 </resources>

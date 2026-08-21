@@ -182,4 +182,5 @@
     <string name="settings_cancel">Откажи</string>
     <string name="update_last_check">Последња провера: %1$s</string>
     <string name="update_open_releases">Отворите страницу издања у прегледачу</string>
+    <string name="settings_section_managers">Менаџери и дозволе</string>
 </resources>

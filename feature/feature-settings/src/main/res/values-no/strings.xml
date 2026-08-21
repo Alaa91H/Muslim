@@ -182,4 +182,5 @@
     <string name="settings_cancel">Kansellere</string>
     <string name="update_last_check">Siste sjekk: %1$s</string>
     <string name="update_open_releases">Åpne utgivelsessiden i nettleseren</string>
+    <string name="settings_section_managers">Administratorer og tillatelser</string>
 </resources>

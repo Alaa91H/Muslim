@@ -182,4 +182,5 @@
     <string name="settings_cancel">Heja</string>
     <string name="update_last_check">Cheque paha: %1$s</string>
     <string name="update_open_releases">Eipe’a pe página ñeguenohẽ rehegua kundahárape</string>
+    <string name="settings_section_managers">Gerentes &amp; Permisos rehegua</string>
 </resources>

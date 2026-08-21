@@ -182,4 +182,5 @@
     <string name="settings_cancel">Չեղարկել</string>
     <string name="update_last_check">Վերջին ստուգումը՝ %1$s</string>
     <string name="update_open_releases">Բացեք թողարկումների էջը բրաուզերում</string>
+    <string name="settings_section_managers">Կառավարիչներ և թույլտվություններ</string>
 </resources>

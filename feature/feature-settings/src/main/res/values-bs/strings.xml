@@ -182,4 +182,5 @@
     <string name="settings_cancel">Otkaži</string>
     <string name="update_last_check">Zadnja provjera: %1$s</string>
     <string name="update_open_releases">Otvorite stranicu izdanja u pretraživaču</string>
+    <string name="settings_section_managers">Menadžeri i dozvole</string>
 </resources>

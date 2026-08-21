@@ -182,4 +182,5 @@
     <string name="settings_cancel">Скасувати</string>
     <string name="update_last_check">Остання перевірка: %1$s</string>
     <string name="update_open_releases">Відкрийте сторінку випусків у браузері</string>
+    <string name="settings_section_managers">Менеджери та дозволи</string>
 </resources>

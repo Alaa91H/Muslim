@@ -182,4 +182,5 @@
     <string name="settings_cancel">Anula</string>
     <string name="update_last_check">Ultima verificare: %1$s</string>
     <string name="update_open_releases">Deschideți pagina versiuni în browser</string>
+    <string name="settings_section_managers">Manageri și Permisiuni</string>
 </resources>

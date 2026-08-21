@@ -182,4 +182,5 @@
     <string name="settings_cancel">منسوخ کریں۔</string>
     <string name="update_last_check">آخری چیک: %1$s</string>
     <string name="update_open_releases">براؤزر میں ریلیز کا صفحہ کھولیں۔</string>
+    <string name="settings_section_managers">مینیجرز اور اجازتیں۔</string>
 </resources>

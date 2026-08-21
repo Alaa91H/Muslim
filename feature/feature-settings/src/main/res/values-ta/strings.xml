@@ -182,4 +182,5 @@
     <string name="settings_cancel">ரத்து செய்</string>
     <string name="update_last_check">கடைசி சரிபார்ப்பு: %1$s</string>
     <string name="update_open_releases">உலாவியில் வெளியீடுகள் பக்கத்தைத் திறக்கவும்</string>
+    <string name="settings_section_managers">மேலாளர்கள் &amp; அனுமதிகள்</string>
 </resources>

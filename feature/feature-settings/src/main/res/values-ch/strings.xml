@@ -182,4 +182,5 @@
     <string name="settings_cancel">Kansela</string>
     <string name="update_last_check">Uttimo na chek: %1$s</string>
     <string name="update_open_releases">Abri i pahina ni\' ma na\'huyong gi i browser</string>
+    <string name="settings_section_managers">Manehanten yan i Permisu siha</string>
 </resources>

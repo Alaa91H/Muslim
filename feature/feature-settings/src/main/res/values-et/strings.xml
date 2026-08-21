@@ -182,4 +182,5 @@
     <string name="settings_cancel">Tühista</string>
     <string name="update_last_check">Viimane kontroll: %1$s</string>
     <string name="update_open_releases">Avage brauseris väljaannete leht</string>
+    <string name="settings_section_managers">Haldurid ja load</string>
 </resources>

@@ -182,4 +182,5 @@
     <string name="settings_cancel">Kureka</string>
     <string name="update_last_check">Igenzura rya nyuma: %1$s</string>
     <string name="update_open_releases">Fungura urupapuro rwo gusohora muri mushakisha</string>
+    <string name="settings_section_managers">Abayobozi &amp; Uruhushya</string>
 </resources>

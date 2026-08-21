@@ -182,4 +182,5 @@
     <string name="settings_cancel">मना कइ दीं</string>
     <string name="update_last_check">आखिरी जांच: %1$s के बा</string>
     <string name="update_open_releases">ब्राउजर में रिलीज पन्ना खोलीं</string>
+    <string name="settings_section_managers">प्रबंधक अउर अनुमति के बारे में बतावल गइल बा</string>
 </resources>

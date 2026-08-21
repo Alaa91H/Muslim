@@ -182,4 +182,5 @@
     <string name="settings_cancel">Tautea</string>
     <string name="update_last_check">Hi\'opo\'araa hopea: %1$s</string>
     <string name="update_open_releases">A tatara i te api no te mau haamaramaramaraa i roto i te matini nene\'iraa</string>
+    <string name="settings_section_managers">Te mau faatere e te mau ti\'amâraa</string>
 </resources>

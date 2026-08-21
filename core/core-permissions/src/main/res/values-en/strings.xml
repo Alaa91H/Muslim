@@ -16,4 +16,6 @@
     <string name="permission_vibrate_desc">Haptic feedback in the tasbih and notifications</string>
     <string name="permission_battery_optimization">Battery optimization</string>
     <string name="permission_battery_optimization_desc">Exempt the app from battery optimization so adhan, prayer times and reminders stay reliable around the clock</string>
+    <string name="permission_notification_listener">Pause recitation on notifications</string>
+    <string name="permission_notification_listener_desc">Automatically pauses Quran recitation while a soundful notification rings and resumes after it finishes, so the tilaawah never overlaps notification tones</string>
 </resources>

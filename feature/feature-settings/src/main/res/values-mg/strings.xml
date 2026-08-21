@@ -182,4 +182,5 @@
     <string name="settings_cancel">hanafoana</string>
     <string name="update_last_check">Fanamarinana farany: %1$s</string>
     <string name="update_open_releases">Sokafy ny pejy famoahana ao amin\'ny navigateur</string>
+    <string name="settings_section_managers">Mpitantana &amp; Fanomezana alalana</string>
 </resources>

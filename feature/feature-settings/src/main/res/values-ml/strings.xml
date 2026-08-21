@@ -182,4 +182,5 @@
     <string name="settings_cancel">റദ്ദാക്കുക</string>
     <string name="update_last_check">അവസാന പരിശോധന: %1$s</string>
     <string name="update_open_releases">ബ്രൗസറിൽ റിലീസുകളുടെ പേജ് തുറക്കുക</string>
+    <string name="settings_section_managers">മാനേജർമാരും അനുമതികളും</string>
 </resources>

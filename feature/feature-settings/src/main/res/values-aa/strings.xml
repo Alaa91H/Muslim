@@ -182,4 +182,5 @@
     <string name="settings_cancel">Bayis</string>
     <string name="update_last_check">Illacaboh cubbusso: %1$s</string>
     <string name="update_open_releases">Cabiyyi gali birowseril fak</string>
+    <string name="settings_section_managers">Xiiniseenit kee idinitte</string>
 </resources>

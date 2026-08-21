@@ -182,4 +182,5 @@
     <string name="settings_cancel">မလုပ်တော့</string>
     <string name="update_last_check">နောက်ဆုံးစစ်ဆေးမှု- %1$s</string>
     <string name="update_open_releases">ဘရောက်ဆာတွင် ထုတ်ဝေမှုများ စာမျက်နှာကို ဖွင့်ပါ။</string>
+    <string name="settings_section_managers">မန်နေဂျာများနှင့် ခွင့်ပြုချက်များ</string>
 </resources>

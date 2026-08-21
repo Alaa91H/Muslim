@@ -182,4 +182,5 @@
     <string name="settings_cancel">لغو کنید</string>
     <string name="update_last_check">آخرین بررسی: %1$s</string>
     <string name="update_open_releases">صفحه انتشار را در مرورگر باز کنید</string>
+    <string name="settings_section_managers">مدیران و مجوزها</string>
 </resources>

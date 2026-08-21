@@ -182,4 +182,5 @@
     <string name="settings_cancel">ರದ್ದುಮಾಡಿ</string>
     <string name="update_last_check">ಕೊನೆಯ ಪರಿಶೀಲನೆ: %1$s</string>
     <string name="update_open_releases">ಬ್ರೌಸರ್‌ನಲ್ಲಿ ಬಿಡುಗಡೆಗಳ ಪುಟವನ್ನು ತೆರೆಯಿರಿ</string>
+    <string name="settings_section_managers">ನಿರ್ವಾಹಕರು ಮತ್ತು ಅನುಮತಿಗಳು</string>
 </resources>

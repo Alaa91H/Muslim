@@ -182,4 +182,5 @@
     <string name="settings_cancel">къайзе</string>
     <string name="update_last_check">Ахирисеб халгьаби: %1$s.</string>
     <string name="update_open_releases">Рагьизе браузералда релизазул гьумер .</string>
+    <string name="settings_section_managers">Менеджерал ва изнуял</string>
 </resources>
