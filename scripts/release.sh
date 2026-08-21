@@ -111,8 +111,12 @@ else
 fi
 
 # --- 6. Publish the GitHub Release with the changelog. ---
-gh release create "$tag" "$apk" \
+# Two-phase so a slow ~77 MB APK upload can NEVER leave a release without
+# its asset: create the release first (fast), then upload + verify + publish
+# through scripts/upload_release_asset.sh (retries + byte-size verification).
+gh release create "$tag" \
     --repo "$REPO" \
+    --draft \
     --title "Muslim $tag" \
     --notes "## Muslim $tag
 
@@ -130,5 +134,7 @@ $changelog
 - Email: alahus2591@gmail.com
 - Telegram: https://t.me/Alaa91h
 - Ko-fi: https://ko-fi.com/alaa91h"
+
+"$ROOT/scripts/upload_release_asset.sh" "$tag" "$apk" --publish
 
 echo "Published release $tag: https://github.com/$REPO/releases/tag/$tag"
