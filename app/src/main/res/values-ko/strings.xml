@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">단어 찾기, 해당 단어가 나타나는 빈도 및 위치</string>
     <string name="more_quran_frequency">꾸란 단어 빈도</string>
     <string name="more_quran_frequency_desc">무샤프 전체에서 가장 자주 나오는 단어들</string>
-    <string name="more_pause_on_notifications">알림 시 낭송 일시 중지</string>
-    <string name="more_pause_on_notifications_desc">알림, 벨소리 또는 기타 미디어가 재생되면 암송이 잠시 일시 중지됩니다.</string>
-    <string name="more_pause_notifications_enabled">활성화됨 - 시스템 설정을 열려면 탭하세요.</string>
-    <string name="more_pause_notifications_disabled">비활성화됨 — 활성화하려면 탭하세요.</string>
     <string name="more_names">알라의 99가지 이름</string>
     <string name="more_names_desc">자세한 설명이 포함된 99개의 이름</string>
     <string name="more_hajj">하지 &amp; 움라</string>

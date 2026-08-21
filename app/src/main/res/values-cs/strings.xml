@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Najděte slovo, jak často se objevuje a kde</string>
     <string name="more_quran_frequency">Frekvence slov Koránu</string>
     <string name="more_quran_frequency_desc">Nejfrekventovanější slova v celém mushaf</string>
-    <string name="more_pause_on_notifications">Pozastavit recitaci u oznámení</string>
-    <string name="more_pause_on_notifications_desc">Recitace se krátce pozastaví, když se přehraje oznámení, vyzvánění nebo jiné médium</string>
-    <string name="more_pause_notifications_enabled">Povoleno – klepnutím otevřete nastavení systému</string>
-    <string name="more_pause_notifications_disabled">Vypnuto – klepnutím povolíte</string>
     <string name="more_names">99 Alláhových jmen</string>
     <string name="more_names_desc">99 jmen s úplným vysvětlením</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

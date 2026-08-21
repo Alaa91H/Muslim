@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Inveni verbum, quoties apparet et ubi?</string>
     <string name="more_quran_frequency">Quran verbum frequency</string>
     <string name="more_quran_frequency_desc">Frequentissima verba in toto mushaf</string>
-    <string name="more_pause_on_notifications">Declina notificationes in recitatione</string>
-    <string name="more_pause_on_notifications_desc">Recitatio breviter moratur in notificatione, anulo vel aliis instrumentis ludorum</string>
-    <string name="more_pause_notifications_enabled">Enabled - ICTUS ad aperta ratio occasus</string>
-    <string name="more_pause_notifications_disabled">Debilitatum - ICTUS ad enable</string>
     <string name="more_names">XCIX Nomina Allah</string>
     <string name="more_names_desc">XCIX nomina cum plena explicatione</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

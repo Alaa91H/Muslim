@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Peyvekê bibînin, çend caran û li ku derê xuya dike</string>
     <string name="more_quran_frequency">Frekansa peyva Quranê</string>
     <string name="more_quran_frequency_desc">Di hemû mûşefê de peyvên herî zêde</string>
-    <string name="more_pause_on_notifications">Xwendina li ser ragihandinan rawestînin</string>
-    <string name="more_pause_on_notifications_desc">Dema ku agehdariyek, zengilek an medyayek din dilîze, xwendin bi kurtî disekine</string>
-    <string name="more_pause_notifications_enabled">Çalak - bikirtînin da ku mîhengên pergalê vekin</string>
-    <string name="more_pause_notifications_disabled">Neçalak - ji bo çalakkirinê bikirtînin</string>
     <string name="more_names">99 Navên Xuda</string>
     <string name="more_names_desc">Navên 99 bi ravekirina tevahî</string>
     <string name="more_hajj">Hec &amp; Umre</string>

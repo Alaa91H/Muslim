@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Find et ord, hvor ofte det optræder og hvor</string>
     <string name="more_quran_frequency">Koranens ord frekvens</string>
     <string name="more_quran_frequency_desc">De hyppigste ord i hele mushaf</string>
-    <string name="more_pause_on_notifications">Pause recitation på notifikationer</string>
-    <string name="more_pause_on_notifications_desc">Recitation stopper kort, når en notifikation, ring eller andre medier afspilles</string>
-    <string name="more_pause_notifications_enabled">Aktiveret — tryk for at åbne systemindstillinger</string>
-    <string name="more_pause_notifications_disabled">Deaktiveret – tryk for at aktivere</string>
     <string name="more_names">99 Allahs navne</string>
     <string name="more_names_desc">De 99 navne med fuld forklaring</string>
     <string name="more_hajj">Hajj og Umrah</string>

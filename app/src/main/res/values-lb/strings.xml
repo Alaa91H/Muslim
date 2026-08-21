@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Fannt e Wuert, wéi oft et schéngt a wou</string>
     <string name="more_quran_frequency">Koran Wuert Frequenz</string>
     <string name="more_quran_frequency_desc">Déi heefegste Wierder am ganze Mushaf</string>
-    <string name="more_pause_on_notifications">Pause Recitatioun op Notifikatiounen</string>
-    <string name="more_pause_on_notifications_desc">D\'Rezitatioun stoppt kuerz wann eng Notifikatioun, Ring oder aner Medien spillt</string>
-    <string name="more_pause_notifications_enabled">Aktivéiert - tippt fir Systemastellungen opzemaachen</string>
-    <string name="more_pause_notifications_disabled">Behënnert - tippt fir z\'aktivéieren</string>
     <string name="more_names">99 Nimm vun Allah</string>
     <string name="more_names_desc">Déi 99 Nimm mat voller Erklärung</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

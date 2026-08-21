@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">ຊອກຫາຄຳສັບໃດໜຶ່ງ, ມັນປະກົດຂຶ້ນເລື້ອຍໆ ແລະຢູ່ໃສ</string>
     <string name="more_quran_frequency">ຄວາມຖີ່ຂອງຄໍາ Quran</string>
     <string name="more_quran_frequency_desc">ຄໍາທີ່ໃຊ້ເລື້ອຍໆທີ່ສຸດໃນ mushaf ທັງຫມົດ</string>
-    <string name="more_pause_on_notifications">ຢຸດການບັນຍາຍໄວ້ຊົ່ວຄາວໃນການແຈ້ງເຕືອນ</string>
-    <string name="more_pause_on_notifications_desc">ການບັນຍາຍຈະຢຸດຊົ່ວຄາວເມື່ອມີການແຈ້ງເຕືອນ, ສຽງດັງ ຫຼືສື່ອື່ນໆຫຼິ້ນ</string>
-    <string name="more_pause_notifications_enabled">ເປີດໃຊ້ແລ້ວ — ແຕະເພື່ອເປີດການຕັ້ງຄ່າລະບົບ</string>
-    <string name="more_pause_notifications_disabled">ປິດການໃຊ້ງານ — ແຕະເພື່ອເປີດໃຊ້ງານ</string>
     <string name="more_names">99 ຊື່​ຂອງ Allah​</string>
     <string name="more_names_desc">99 ຊື່​ທີ່​ມີ​ຄໍາ​ອະ​ທິ​ບາຍ​ຢ່າງ​ເຕັມ​ທີ່​</string>
     <string name="more_hajj">Hajj ແລະ Umrah</string>

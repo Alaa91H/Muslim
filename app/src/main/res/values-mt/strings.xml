@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Sib kelma, kemm-il darba tidher u fejn</string>
     <string name="more_quran_frequency">Frekwenza tal-kelma Quran</string>
     <string name="more_quran_frequency_desc">L-aktar kliem frekwenti fil-mushaf kollu</string>
-    <string name="more_pause_on_notifications">Waqqaf ir-reċitazzjoni fuq in-notifiki</string>
-    <string name="more_pause_on_notifications_desc">Ir-reċitazzjoni tieqaf qasira meta tindaqq notifika, ċirku jew midja oħra</string>
-    <string name="more_pause_notifications_enabled">Ippermettiet — tektek biex tiftaħ is-settings tas-sistema</string>
-    <string name="more_pause_notifications_disabled">Disabled — tektek biex tattiva</string>
     <string name="more_names">99 Ismijiet ta Alla</string>
     <string name="more_names_desc">Id-99 isem bi spjegazzjoni sħiħa</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

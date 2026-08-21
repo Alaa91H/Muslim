@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Trova una parola, quanto spesso appare e dove</string>
     <string name="more_quran_frequency">Frequenza delle parole del Corano</string>
     <string name="more_quran_frequency_desc">Le parole più frequenti in tutto il mushaf</string>
-    <string name="more_pause_on_notifications">Metti in pausa la recitazione sulle notifiche</string>
-    <string name="more_pause_on_notifications_desc">La recitazione fa una breve pausa quando viene riprodotta una notifica, uno squillo o un altro supporto multimediale</string>
-    <string name="more_pause_notifications_enabled">Abilitato: tocca per aprire le impostazioni di sistema</string>
-    <string name="more_pause_notifications_disabled">Disabilitato: tocca per abilitare</string>
     <string name="more_names">99 nomi di Allah</string>
     <string name="more_names_desc">I 99 nomi con la spiegazione completa</string>
     <string name="more_hajj">Hajj e Umrah</string>

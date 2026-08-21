@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Thola igama, bona livela kangangani begodu kuphi</string>
     <string name="more_quran_frequency">Imvamisa yamagama we-Quran</string>
     <string name="more_quran_frequency_desc">Amagama avame khulu kiyo yoke i-mushaf</string>
-    <string name="more_pause_on_notifications">Misa ukuphindaphinda ezazisweni</string>
-    <string name="more_pause_on_notifications_desc">Ukuphindaphinda kuyama kancani lokha isaziso, indandatho nofana eminye imidiya nayidlala</string>
-    <string name="more_pause_notifications_enabled">Inikwe amandla — thepha ukuvula amasethingi wesistimu</string>
-    <string name="more_pause_notifications_disabled">Ikhubazekile — thepha ukuvumela</string>
     <string name="more_names">99 Amagama ka-Allah</string>
     <string name="more_names_desc">Amagama ama-99 anencazelo epheleleko</string>
     <string name="more_hajj">I-Hajj ne-Umrah</string>

@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Bilatu hitz bat, zenbat aldiz agertzen den eta non</string>
     <string name="more_quran_frequency">Quran hitzen maiztasuna</string>
     <string name="more_quran_frequency_desc">Mushaf osoan ohikoenak diren hitzak</string>
-    <string name="more_pause_on_notifications">Eten ezazu jakinarazpenetan errezitatzea</string>
-    <string name="more_pause_on_notifications_desc">Errezitazioak eten egiten du laburki jakinarazpen bat, dei-melodia edo bestelako euskarri bat erreproduzitzen denean</string>
-    <string name="more_pause_notifications_enabled">Gaituta — sakatu sistemaren ezarpenak irekitzeko</string>
-    <string name="more_pause_notifications_disabled">Desgaituta — sakatu gaitzeko</string>
     <string name="more_names">99 Ala izenak</string>
     <string name="more_names_desc">99 izenak azalpen osoarekin</string>
     <string name="more_hajj">Hajj eta Umrah</string>

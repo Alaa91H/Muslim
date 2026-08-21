@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">ఒక పదాన్ని కనుగొనండి, అది ఎంత తరచుగా మరియు ఎక్కడ కనిపిస్తుంది</string>
     <string name="more_quran_frequency">ఖురాన్ పదాల ఫ్రీక్వెన్సీ</string>
     <string name="more_quran_frequency_desc">మొత్తం ముషాఫ్‌లో చాలా తరచుగా వచ్చే పదాలు</string>
-    <string name="more_pause_on_notifications">నోటిఫికేషన్‌లపై పారాయణం పాజ్ చేయండి</string>
-    <string name="more_pause_on_notifications_desc">నోటిఫికేషన్, రింగ్ లేదా ఇతర మీడియా ప్లే అయినప్పుడు పారాయణం క్లుప్తంగా పాజ్ అవుతుంది</string>
-    <string name="more_pause_notifications_enabled">ప్రారంభించబడింది - సిస్టమ్ సెట్టింగ్‌లను తెరవడానికి నొక్కండి</string>
-    <string name="more_pause_notifications_disabled">నిలిపివేయబడింది - ప్రారంభించడానికి నొక్కండి</string>
     <string name="more_names">అల్లాహ్ యొక్క 99 పేర్లు</string>
     <string name="more_names_desc">పూర్తి వివరణతో 99 పేర్లు</string>
     <string name="more_hajj">హజ్ &amp; ఉమ్రా</string>

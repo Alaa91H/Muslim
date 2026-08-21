@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Kumi ha foʻi lea, ʻoku tuʻo fiha ʻene ʻasi pea ʻi fē .</string>
     <string name="more_quran_frequency">Ko e tu\'o lahi \'o e lea Quran</string>
     <string name="more_quran_frequency_desc">Ko e ngaahi lea \'oku toutou \'asi lahi taha \'i he mushaf kotoa .</string>
-    <string name="more_pause_on_notifications">Tuʻu ʻa e lau ʻi he ngaahi fakatokanga</string>
-    <string name="more_pause_on_notifications_desc">ʻOku kiʻi tuʻu nounou ʻa e lau ʻi he taimi ʻoku tā ai ha fakatokanga, ta pe ko ha mītia kehe .</string>
-    <string name="more_pause_notifications_enabled">Faka\'ata — lomi\'i ke fakaava \'a e ngaahi tu\'unga \'o e sisitemi .</string>
-    <string name="more_pause_notifications_disabled">Fakata\'e\'aonga\'i — lomi\'i ke faka\'ata .</string>
     <string name="more_names">99 Ngaahi Hingoa ʻo Allah .</string>
     <string name="more_names_desc">Ko e ngaahi hingoa \'e 99 mo e fakamatala kakato .</string>
     <string name="more_hajj">Haji mo e ʻUmala</string>

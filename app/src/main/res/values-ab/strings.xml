@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Иԥшаатәуп ажәак, шаҟантә ицәырҵуеи, иабаҟоуи</string>
     <string name="more_quran_frequency">Аҟәырҟан ажәақәа рылацәажәара</string>
     <string name="more_quran_frequency_desc">Амушаф зегьы аҟны лассы-лассы иуԥыло ажәақәа</string>
-    <string name="more_pause_on_notifications">Ардыррақәа рҿы аԥхьара аанкылара</string>
-    <string name="more_pause_on_notifications_desc">Аԥхьара кьаҿк ала иааҭгылоит ардырра, аҵәаабжь, ма даҽа медиак анырҳәо</string>
-    <string name="more_pause_notifications_enabled">Иаҿуп — асистема архиарақәа раартразы ақәыӷәӷәара</string>
-    <string name="more_pause_notifications_disabled">Иҟәыхуп — аус аруразы иақәыӷәӷәа</string>
     <string name="more_names">99 Аллаҳ ихьӡқәа</string>
     <string name="more_names_desc">Ахьӡқәа 99 еилыркаарала</string>
     <string name="more_hajj">Ҳаџьреи Умреи</string>

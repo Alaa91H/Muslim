@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Jecha tokko, yeroo meeqa akka mul’atu fi eessatti akka mul’atu barbaadi</string>
     <string name="more_quran_frequency">Irra deddeebiin jecha Quraanaa</string>
     <string name="more_quran_frequency_desc">Mushaaf guutuu keessatti jechoota baay’inaan dubbataman</string>
-    <string name="more_pause_on_notifications">Beeksisa irratti dubbisuu dhaabuu</string>
-    <string name="more_pause_on_notifications_desc">Yeroo beeksisni, bilbilaan ykn miidiyaan biroo taphatu yeroo gabaabaaf dubbisuun ni dhaabata</string>
-    <string name="more_pause_notifications_enabled">Dandeessifame — qindaa\'inoota sirnaa banuuf tuqi</string>
-    <string name="more_pause_notifications_disabled">Hanqifame — dandeessisuuf tuqi</string>
     <string name="more_names">99 Maqaa Rabbii</string>
     <string name="more_names_desc">Maqaawwan 99 ibsa guutuu waliin</string>
     <string name="more_hajj">Hajjii &amp; Umraa</string>

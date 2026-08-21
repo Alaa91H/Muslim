@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Намерете дума, колко често се появява и къде</string>
     <string name="more_quran_frequency">Честота на думите в Корана</string>
     <string name="more_quran_frequency_desc">Най-честите думи в целия мусхаф</string>
-    <string name="more_pause_on_notifications">Поставете на пауза рецитирането на известия</string>
-    <string name="more_pause_on_notifications_desc">Рецитирането спира за кратко, когато се възпроизведе известие, позвъняване или друга медия</string>
-    <string name="more_pause_notifications_enabled">Активирано — докоснете, за да отворите системните настройки</string>
-    <string name="more_pause_notifications_disabled">Деактивирано — докоснете, за да активирате</string>
     <string name="more_names">99 имена на Аллах</string>
     <string name="more_names_desc">99 имена с пълно обяснение</string>
     <string name="more_hajj">Хадж и Умра</string>

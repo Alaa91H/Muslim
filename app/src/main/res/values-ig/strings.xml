@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Chọta otu okwu, ugboro ole ọ na-apụta na ebe</string>
     <string name="more_quran_frequency">Ugboro okwu Quran</string>
     <string name="more_quran_frequency_desc">Okwu kacha ugboro na mushaf dum</string>
-    <string name="more_pause_on_notifications">kwụsịtụ ịgụgharị na amamọkwa</string>
-    <string name="more_pause_on_notifications_desc">Ngụgharị na-akwụsịtụ obere oge mgbe ngosi, mgbanaka ma ọ bụ mgbasa ozi ndị ọzọ na-egwu</string>
-    <string name="more_pause_notifications_enabled">Agbanyere - kpatụ imeghe ntọala sistemụ</string>
-    <string name="more_pause_notifications_disabled">Agbanyụrụ - pịa iji mee ka ọ nwee ike</string>
     <string name="more_names">99 Aha nke Allah</string>
     <string name="more_names_desc">Aha 99 nwere nkọwa zuru oke</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

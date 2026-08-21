@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Fumana lentsoe, hore na le hlaha hangata hakae le hokae</string>
     <string name="more_quran_frequency">Maqhubu a mantsoe a Quran</string>
     <string name="more_quran_frequency_desc">Mantsoe a khafetsa ho mushaf kaofela</string>
-    <string name="more_pause_on_notifications">Emisa ho pheta-pheta litsebiso</string>
-    <string name="more_pause_on_notifications_desc">Poeletso e ema hakhutšoanyane ha tsebiso, lesale kapa mecha ea litaba e bapala</string>
-    <string name="more_pause_notifications_enabled">E lumelletsoe - tlanya ho bula li-setting tsa sistimi</string>
-    <string name="more_pause_notifications_disabled">E timilwe — tlanya ho bulela</string>
     <string name="more_names">99 Mabitso a Allah</string>
     <string name="more_names_desc">Mabitso a 99 a nang le tlhaloso e felletseng</string>
     <string name="more_hajj">Hajj le Umrah</string>

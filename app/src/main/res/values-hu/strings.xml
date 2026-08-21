@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Keressen egy szót, milyen gyakran és hol jelenik meg</string>
     <string name="more_quran_frequency">Korán szó gyakorisága</string>
     <string name="more_quran_frequency_desc">A leggyakoribb szavak az egész mushafban</string>
-    <string name="more_pause_on_notifications">Szüneteltetheti a felolvasást az értesítéseken</string>
-    <string name="more_pause_on_notifications_desc">A szavalás rövid időre szünetel, amikor egy értesítés, csengetés vagy más média lejátszása megtörténik</string>
-    <string name="more_pause_notifications_enabled">Engedélyezve – érintse meg a rendszerbeállítások megnyitásához</string>
-    <string name="more_pause_notifications_disabled">Letiltva – érintse meg az engedélyezéshez</string>
     <string name="more_names">99 Allah neve</string>
     <string name="more_names_desc">A 99 név teljes magyarázattal</string>
     <string name="more_hajj">Hajj és Umrah</string>

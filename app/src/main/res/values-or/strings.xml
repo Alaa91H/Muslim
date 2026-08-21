@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">ଏକ ଶବ୍ଦ ଖୋଜ, ଏହା କେତେଥର ଦେଖାଯାଏ ଏବଂ କେଉଁଠାରେ |</string>
     <string name="more_quran_frequency">କୁରାନ ଶବ୍ଦ ଆବୃତ୍ତି |</string>
     <string name="more_quran_frequency_desc">ପୁରା ମୁଶଫରେ ବାରମ୍ବାର ଶବ୍ଦ |</string>
-    <string name="more_pause_on_notifications">ବିଜ୍ଞପ୍ତିରେ ପଠନ ବନ୍ଦ କରନ୍ତୁ |</string>
-    <string name="more_pause_on_notifications_desc">ଯେତେବେଳେ ଏକ ବିଜ୍ଞପ୍ତି, ରିଙ୍ଗ କିମ୍ବା ଅନ୍ୟାନ୍ୟ ମିଡିଆ ଖେଳାଯାଏ, ପଠନ ସଂକ୍ଷିପ୍ତ ଭାବରେ ବିରତ ହୁଏ |</string>
-    <string name="more_pause_notifications_enabled">ସକ୍ଷମ - ସିଷ୍ଟମ୍ ସେଟିଙ୍ଗ୍ ଖୋଲିବାକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ |</string>
-    <string name="more_pause_notifications_disabled">ଅକ୍ଷମ - ସକ୍ଷମ କରିବାକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ |</string>
     <string name="more_names">99 ଆଲ୍ଲାଙ୍କର ନାମ |</string>
     <string name="more_names_desc">ପୂର୍ଣ୍ଣ ବ୍ୟାଖ୍ୟା ସହିତ 99 ନାମ |</string>
     <string name="more_hajj">ହଜ୍ ଏବଂ ଉମ୍ରା |</string>

@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Tafuta neno, linaonekana mara ngapi na wapi</string>
     <string name="more_quran_frequency">Mzunguko wa maneno ya Quran</string>
     <string name="more_quran_frequency_desc">Maneno ya mara kwa mara katika mushaf nzima</string>
-    <string name="more_pause_on_notifications">Sitisha kukariri kwenye arifa</string>
-    <string name="more_pause_on_notifications_desc">Ukariri husitishwa kwa muda mfupi wakati arifa, pete au midia nyingine inapocheza</string>
-    <string name="more_pause_notifications_enabled">Imewashwa - gusa ili kufungua mipangilio ya mfumo</string>
-    <string name="more_pause_notifications_disabled">Imezimwa — gusa ili kuwezesha</string>
     <string name="more_names">99 Majina ya Mwenyezi Mungu</string>
     <string name="more_names_desc">Majina 99 yenye maelezo kamili</string>
     <string name="more_hajj">Hajj na Umrah</string>

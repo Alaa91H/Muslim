@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Jwenn yon mo, konbyen fwa li parèt ak ki kote</string>
     <string name="more_quran_frequency">frekans mo koran</string>
     <string name="more_quran_frequency_desc">Mo ki pi souvan nan tout mushaf la</string>
-    <string name="more_pause_on_notifications">Pran poz resitasyon sou notifikasyon yo</string>
-    <string name="more_pause_on_notifications_desc">Rezitasyon pran yon poz yon ti tan lè yon notifikasyon, bag oswa lòt medya ap jwe</string>
-    <string name="more_pause_notifications_enabled">Activé — tape pou louvri paramètres sistèm yo</string>
-    <string name="more_pause_notifications_disabled">Enfim - tape pou pèmèt</string>
     <string name="more_names">99 Non Allah</string>
     <string name="more_names_desc">99 non yo ak eksplikasyon konplè</string>
     <string name="more_hajj">Hajj &amp; Omra</string>

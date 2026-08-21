@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">מצא מילה, באיזו תדירות היא מופיעה ואיפה</string>
     <string name="more_quran_frequency">תדירות מילות הקוראן</string>
     <string name="more_quran_frequency_desc">המילים השכיחות ביותר בכל המושאף</string>
-    <string name="more_pause_on_notifications">השהה דקלום בהתראות</string>
-    <string name="more_pause_on_notifications_desc">הדקלום מושהה לזמן קצר כאשר התראה, צלצול או מדיה אחרת מתנגנת</string>
-    <string name="more_pause_notifications_enabled">מופעל - הקש כדי לפתוח את הגדרות המערכת</string>
-    <string name="more_pause_notifications_disabled">מושבת - הקש כדי להפעיל</string>
     <string name="more_names">99 שמות של אללה</string>
     <string name="more_names_desc">99 השמות עם הסבר מלא</string>
     <string name="more_hajj">חג\'ג\' ואומרה</string>

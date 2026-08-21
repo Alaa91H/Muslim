@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Söz tapın, nə qədər tez-tez və harada görünür</string>
     <string name="more_quran_frequency">Quran söz tezliyi</string>
     <string name="more_quran_frequency_desc">Bütün mushafda ən çox rast gəlinən sözlər</string>
-    <string name="more_pause_on_notifications">Bildirişlərdə qiraəti dayandırın</string>
-    <string name="more_pause_on_notifications_desc">Bildiriş, zəng və ya digər media oxuduqda qiraət qısa müddətə dayandırılır</string>
-    <string name="more_pause_notifications_enabled">Aktivdir — sistem parametrlərini açmaq üçün toxunun</string>
-    <string name="more_pause_notifications_disabled">Disabled — aktiv etmək üçün toxunun</string>
     <string name="more_names">Allahın 99 adı</string>
     <string name="more_names_desc">Tam izahatla 99 ad</string>
     <string name="more_hajj">Həcc və Ümrə</string>

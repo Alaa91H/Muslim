@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Vaqara e dua na vosa, na kena dau basika kei na vanua .</string>
     <string name="more_quran_frequency">Quran vosa vakawasoma</string>
     <string name="more_quran_frequency_desc">Na vosa e dau vakayagataki vakalevu duadua ena mushaf taucoko .</string>
-    <string name="more_pause_on_notifications">Cegu na wiliwili ena veivakadeitaki</string>
-    <string name="more_pause_on_notifications_desc">Na wiliwili e cegu vakalekaleka ni sa vakatagitaki e dua na itukutuku, mama se so tale na itukutuku .</string>
-    <string name="more_pause_notifications_enabled">Vakatarai — tabaka me dolava na ituvatuva ni ivakarau .</string>
-    <string name="more_pause_notifications_disabled">Vakacacani — tabaka me rawa kina</string>
     <string name="more_names">99 Na yaca i Allah</string>
     <string name="more_names_desc">Na 99 na yaca kei na ivakamacala taucoko .</string>
     <string name="more_hajj">Haji kei na Umra</string>

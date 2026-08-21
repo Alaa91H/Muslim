@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Trovu vorton, kiom ofte ĝi aperas kaj kie</string>
     <string name="more_quran_frequency">Vortfrekvenco de Korano</string>
     <string name="more_quran_frequency_desc">La plej oftaj vortoj en la tuta mushaf</string>
-    <string name="more_pause_on_notifications">Paŭzi deklamadon pri sciigoj</string>
-    <string name="more_pause_on_notifications_desc">Deklamado paŭzas mallonge kiam ludas sciigo, sonoro aŭ alia amaskomunikilaro</string>
-    <string name="more_pause_notifications_enabled">Ebligita — alklaku por malfermi sistemajn agordojn</string>
-    <string name="more_pause_notifications_disabled">Malŝaltita - frapeti por ebligi</string>
     <string name="more_names">99 Nomoj de Alaho</string>
     <string name="more_names_desc">La 99 nomoj kun plena klarigo</string>
     <string name="more_hajj">Hadjo &amp; Umrah</string>

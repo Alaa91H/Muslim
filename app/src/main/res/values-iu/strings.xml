@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">ᓇᓂᓯᓗᑎᑦ ᐅᖃᐅᓯᕐᒥᒃ, ᖃᓄᑎᒋ ᓴᖅᑭᔮᖃᑦᑕᕐᒪᖔᖅ ᐊᒻᒪᓗ ᓇᓂ</string>
     <string name="more_quran_frequency">ᑯᕌᓐ ᐅᖃᐅᓯᖅ ᖃᓄᑎᒋᐅᓂᖓ</string>
     <string name="more_quran_frequency_desc">ᐅᖃᐅᓯᐅᒐᔪᖕᓂᖅᐹᑦ ᑕᕝᕙᓂ ᒨᓴᕝᒥ</string>
-    <string name="more_pause_on_notifications">ᓄᖅᑲᖓᑲᐃᓐᓇᕐᓗᓂ ᐅᖃᓕᒫᕐᓂᖅ ᖃᐅᔨᒃᑲᐃᔾᔪᑎᓂᒃ</string>
-    <string name="more_pause_on_notifications_desc">ᐅᖃᓕᒫᕐᓂᖅ ᓄᖅᑲᖓᑲᐃᓐᓇᓲᖅ ᖃᐅᔨᒃᑲᐃᔾᔪᑎᒥᒃ, ᓯᕙᓂᕈᑎᒥᒃ ᐅᕝᕙᓘᓐᓃᑦ ᐊᓯᖏᓐᓂᒃ ᑐᓴᐅᒪᔾᔪᑎᓂᒃ ᓂᐱᓕᐅᕆᔪᖃᖅᑎᓪᓗᒍ</string>
-    <string name="more_pause_notifications_enabled">ᐱᔪᓐᓇᖅᑎᑕᐅᓯᒪᔪᖅ — ᓇᕿᓪᓗᒍ ᒪᑐᐃᖅᓯᓂᐊᕐᓗᓂ ᖃᕆᑕᐅᔭᒃᑯᑦ ᐋᖅᑭᒃᓯᒪᓂᖏᓐᓂᒃ</string>
-    <string name="more_pause_notifications_disabled">ᐱᔪᓐᓇᖅᑎᑕᐅᙱᑦᑐᖅ — ᓇᕿᓪᓗᒍ ᐱᔪᓐᓇᖅᑎᑕᐅᖁᓪᓗᒍ</string>
     <string name="more_names">99 ᐊᑎᖏᑦ ᐋᓚ</string>
     <string name="more_names_desc">ᑖᒃᑯᐊ 99-ᖑᔪᑦ ᐊᑎᖏᑦ ᓇᓗᓇᐃᔭᖅᓯᒪᑦᑎᐊᖅᑐᑦ</string>
     <string name="more_hajj">ᕼᐊᔾ ᐊᒻᒪ ᐅᒻᕋ</string>

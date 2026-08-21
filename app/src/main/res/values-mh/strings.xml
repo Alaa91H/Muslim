@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Pukot juon naan, ewi joñan an walok im ia eo</string>
     <string name="more_quran_frequency">joñan an lõñ nan ko ilo Quran</string>
     <string name="more_quran_frequency_desc">Naan ko relukkun walok ilo aolepān mushaf eo</string>
-    <string name="more_pause_on_notifications">Bōjrak riit ilo kōjjelā ko</string>
-    <string name="more_pause_on_notifications_desc">Al ej bōjrak jidik ñe juon kōjjelā, ring ak kein jerbal ko jet rej al</string>
-    <string name="more_pause_notifications_enabled">Enabled — tōpar ñan kōpellok system settings ko</string>
-    <string name="more_pause_notifications_disabled">Disabled — tōpar ñan kōtlok</string>
     <string name="more_names">99 Etan Allah</string>
     <string name="more_names_desc">99 etan ko ippāñ melele ko relap</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

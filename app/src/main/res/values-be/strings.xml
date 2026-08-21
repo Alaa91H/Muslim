@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Знайдзіце слова, як часта яно сустракаецца і дзе</string>
     <string name="more_quran_frequency">Частата слоў Карана</string>
     <string name="more_quran_frequency_desc">Самыя частыя словы ва ўсім мусхафе</string>
-    <string name="more_pause_on_notifications">Прыпыніць чытанне ў апавяшчэннях</string>
-    <string name="more_pause_on_notifications_desc">Дэкламацыя ненадоўга прыпыняецца пры прайграванні апавяшчэння, званка або іншага носьбіта</string>
-    <string name="more_pause_notifications_enabled">Уключана — націсніце, каб адкрыць налады сістэмы</string>
-    <string name="more_pause_notifications_disabled">Адключана — націсніце, каб уключыць</string>
     <string name="more_names">99 імёнаў Алаха</string>
     <string name="more_names_desc">99 імёнаў з поўным тлумачэннем</string>
     <string name="more_hajj">Хадж і Умра</string>

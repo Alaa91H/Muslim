@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Pronađite riječ, koliko često se pojavljuje i gdje</string>
     <string name="more_quran_frequency">Frekvencija riječi Kur\'ana</string>
     <string name="more_quran_frequency_desc">Najčešće riječi u cijelom mushafu</string>
-    <string name="more_pause_on_notifications">Pauzirajte recitaciju na obavještenjima</string>
-    <string name="more_pause_on_notifications_desc">Recitovanje nakratko pauzira kada se reprodukuje obaveštenje, zvono ili drugi medij</string>
-    <string name="more_pause_notifications_enabled">Omogućeno — dodirnite da otvorite postavke sistema</string>
-    <string name="more_pause_notifications_disabled">Onemogućeno — dodirnite da biste omogućili</string>
     <string name="more_names">99 Allahova imena</string>
     <string name="more_names_desc">99 imena sa punim objašnjenjem</string>
     <string name="more_hajj">Hadž i Umra</string>

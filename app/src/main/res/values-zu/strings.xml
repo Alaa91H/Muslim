@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Thola igama, ukuthi livela kaningi kangakanani futhi kuphi</string>
     <string name="more_quran_frequency">Quran izwi imvamisa</string>
     <string name="more_quran_frequency_desc">Amagama avame kakhulu kuyo yonke mushaf</string>
-    <string name="more_pause_on_notifications">Misa isikhashana ukuphindaphinda kuzaziso</string>
-    <string name="more_pause_on_notifications_desc">Ukuphindaphinda kuma isikhashana uma isaziso, indandatho noma enye imidiya idlala</string>
-    <string name="more_pause_notifications_enabled">Inikwe amandla — thepha ukuze uvule izilungiselelo zesistimu</string>
-    <string name="more_pause_notifications_disabled">Ikhutshaziwe — thepha ukuze uvule</string>
     <string name="more_names">99 Amagama kaAllah</string>
     <string name="more_names_desc">Amagama angama-99 anencazelo ephelele</string>
     <string name="more_hajj">IHajj &amp; Umrah</string>

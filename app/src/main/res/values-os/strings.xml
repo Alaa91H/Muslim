@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Ссарут дзырд, цас арæх æмбæлы æмæ кæм</string>
     <string name="more_quran_frequency">Хъуыраны дзырдты арæхдзинад</string>
     <string name="more_quran_frequency_desc">Æнæхъæн мушафы арæхдæр дзырдтæ</string>
-    <string name="more_pause_on_notifications">Æрлæууын кæнын хъусынгæнинæгтыл</string>
-    <string name="more_pause_on_notifications_desc">Дзурын цыбыр рæстæгмæ æрлæууы, хъусынгæнинаг, дзæнгæрæг кæнæ æндæр медиа куы райхъуысы, уæд</string>
-    <string name="more_pause_notifications_enabled">Æххæстгонд — æрцауындзут системæйы параметртæ байгом кæнынæн</string>
-    <string name="more_pause_notifications_disabled">Æнæкусгæ — æрцауындзут, цæмæй æххæстгонд æрцæуа</string>
     <string name="more_names">99 Аллахы нæмттæ</string>
     <string name="more_names_desc">номы æххæст æмбарынгæнæнимæ</string>
     <string name="more_hajj">Хадж æмæ Умра</string>

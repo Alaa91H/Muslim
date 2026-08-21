@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Vind ‘n woord, wie dèks ‘t veurkump en boe</string>
     <string name="more_quran_frequency">Koran-woordfrequentie</string>
     <string name="more_quran_frequency_desc">De meis veurkómmende wäörd in de ganse mushaf</string>
-    <string name="more_pause_on_notifications">Pauze recitatie op meldingen</string>
-    <string name="more_pause_on_notifications_desc">Recitatie pauzeert kort es ‘n melding, ring of aander media weert afgespeeld</string>
-    <string name="more_pause_notifications_enabled">Aangeschakeld — tik um de systeeminstellinge op te make</string>
-    <string name="more_pause_notifications_disabled">Oetgeschakeld — tik um in te sjtèlle</string>
     <string name="more_names">99 Name vaan Allah</string>
     <string name="more_names_desc">De 99 naome mit volledige oetlègk</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

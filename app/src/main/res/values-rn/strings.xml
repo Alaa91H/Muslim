@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Rondera ijambo, riboneka kenshi n’aho riboneka</string>
     <string name="more_quran_frequency">Incuro z\'ijambo rya Quran</string>
     <string name="more_quran_frequency_desc">Amajambo akunda gukoreshwa cane muri mushaf yose .</string>
-    <string name="more_pause_on_notifications">Hagarika gusoma ku makuru</string>
-    <string name="more_pause_on_notifications_desc">Gusubiramwo birahagarika gatoyi iyo itangazo, impeta canke ibindi bimenyeshamakuru bivuga</string>
-    <string name="more_pause_notifications_enabled">Bishobojwe — kanda kugira ngo ufungure amagenamiterere ya sisitemu</string>
-    <string name="more_pause_notifications_disabled">Yazimye — kanda kugira ngo ushoboze</string>
     <string name="more_names">99 Amazina ya Allah</string>
     <string name="more_names_desc">Amazina 99 afise insobanuro yuzuye .</string>
     <string name="more_hajj">Haji na Umrah</string>

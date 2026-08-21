@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Soo hel kelmad, inta jeer ee uu soo baxo iyo meesha</string>
     <string name="more_quran_frequency">Inta jeer ee erayga Quraanka</string>
     <string name="more_quran_frequency_desc">Erayada ugu badan ee Musxafka oo dhan</string>
-    <string name="more_pause_on_notifications">Jooji akhrinta ogeysiisyada</string>
-    <string name="more_pause_on_notifications_desc">Akhrisku si kooban ayuu u hakiyaa marka ogeysiis, giraan ama warbaahin kale ciyaareyso</string>
-    <string name="more_pause_notifications_enabled">Daneeyay - taabo si aad u furto habaynta nidaamka</string>
-    <string name="more_pause_notifications_disabled">Disabled - taabo si aad karti ugu yeelato</string>
     <string name="more_names">99 Magacyada Eebe</string>
     <string name="more_names_desc">99-ka magac oo sharraxaad buuxa leh</string>
     <string name="more_hajj">Xajka &amp; Cumrada</string>

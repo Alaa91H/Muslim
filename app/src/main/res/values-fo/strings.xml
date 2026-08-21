@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Finn eitt orð, hvussu ofta tað kemur fyri og hvar</string>
     <string name="more_quran_frequency">Koran orðtíttleiki</string>
     <string name="more_quran_frequency_desc">Tey tíðastu orðini í øllum mushaf .</string>
-    <string name="more_pause_on_notifications">Steðga upplestrinum á fráboðanum</string>
-    <string name="more_pause_on_notifications_desc">Upplestur steðgar stutt, tá fráboðan, ring ella annar miðil spælir</string>
-    <string name="more_pause_notifications_enabled">Virkt — trýst á fyri at opna skipanarinnstillingar</string>
-    <string name="more_pause_notifications_disabled">Sløkt — trýst á fyri at virkja</string>
     <string name="more_names">99 Nøvn á Allah</string>
     <string name="more_names_desc">Tey 99 nøvnini við fullari frágreiðing</string>
     <string name="more_hajj">Hajj og umra</string>

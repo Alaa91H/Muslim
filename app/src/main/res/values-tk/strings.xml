@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Söz tapyň, näçe gezek peýda bolýar we nirede</string>
     <string name="more_quran_frequency">Kuran söz ýygylygy</string>
     <string name="more_quran_frequency_desc">Bütin muşapda iň ýygy sözler</string>
-    <string name="more_pause_on_notifications">Duýduryşlarda okaň</string>
-    <string name="more_pause_on_notifications_desc">Duýduryş, jaň ýa-da beýleki köpçülikleýin habar beriş serişdeleri çalynanda, okaýyş gysga wagtlaýyn saklanýar</string>
-    <string name="more_pause_notifications_enabled">Işledilen - ulgam sazlamalaryny açmak üçin basyň</string>
-    <string name="more_pause_notifications_disabled">Öçürilen - işletmek üçin basyň</string>
     <string name="more_names">99 Allanyň atlary</string>
     <string name="more_names_desc">Doly düşündirişli 99 at</string>
     <string name="more_hajj">Haj we Umra</string>

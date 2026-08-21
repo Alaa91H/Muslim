@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">查找一个单词，它出现的频率和位置</string>
     <string name="more_quran_frequency">古兰经词频</string>
     <string name="more_quran_frequency_desc">整个mushaf中出现频率最高的单词</string>
-    <string name="more_pause_on_notifications">暂停通知背诵</string>
-    <string name="more_pause_on_notifications_desc">当通知、铃声或其他媒体播放时，朗诵会短暂暂停</string>
-    <string name="more_pause_notifications_enabled">已启用 — 点击打开系统设置</string>
-    <string name="more_pause_notifications_disabled">已禁用 — 点击即可启用</string>
     <string name="more_names">安拉的 99 个名字</string>
     <string name="more_names_desc">99个名字及详细解释</string>
     <string name="more_hajj">朝觐和副朝</string>

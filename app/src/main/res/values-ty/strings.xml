@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">A imi i te hoê parau, ehia rahiraa taime te reira e itehia \' i, e i hea</string>
     <string name="more_quran_frequency">Te auau o te parau Quran</string>
     <string name="more_quran_frequency_desc">Te mau parau pinepine roa \' \' e i roto i te mushaf taatoa</string>
-    <string name="more_pause_on_notifications">A tapea i te taioraa i te mau faaararaa</string>
-    <string name="more_pause_on_notifications_desc">Ia hauti ana\'e te hoê faaararaa, te hoê mo\'emo\'e, aore ra te tahi atu mau ravea haapurororaa, e tapeahia te taioraa</string>
-    <string name="more_pause_notifications_enabled">Ua faati\'ahia — pato\'i no te iriti i te mau faanahoraa o te rave\'a</string>
-    <string name="more_pause_notifications_disabled">Aita — pato\'i no te faati\'a</string>
     <string name="more_names">99 Te mau i\'oa o Allah</string>
     <string name="more_names_desc">Te mau i\'oa e 99 e te mau haamaramaramaraa taatoa</string>
     <string name="more_hajj">Hajj e Umrah</string>

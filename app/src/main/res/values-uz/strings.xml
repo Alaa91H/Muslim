@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">So\'zni toping, u qanchalik tez-tez va qaerda paydo bo\'ladi</string>
     <string name="more_quran_frequency">Qur\'on so\'z chastotasi</string>
     <string name="more_quran_frequency_desc">Butun mushafda eng ko\'p uchraydigan so\'zlar</string>
-    <string name="more_pause_on_notifications">Bildirishnomalarda qiroatni to\'xtatib turish</string>
-    <string name="more_pause_on_notifications_desc">Bildirishnoma, qo‘ng‘iroq yoki boshqa media o‘ynatilsa, qiroat qisqa to‘xtatiladi</string>
-    <string name="more_pause_notifications_enabled">Yoqilgan — tizim sozlamalarini ochish uchun teging</string>
-    <string name="more_pause_notifications_disabled">Oʻchirilgan — yoqish uchun bosing</string>
     <string name="more_names">Allohning 99 ismlari</string>
     <string name="more_names_desc">To\'liq tushuntirish bilan 99 nom</string>
     <string name="more_hajj">Haj va Umra</string>

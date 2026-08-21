@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Su\'e se upu, faafia ona aliali mai ma po o fea</string>
     <string name="more_quran_frequency">Fa\'atele ole upu Quran</string>
     <string name="more_quran_frequency_desc">O upu masani i le mushaf atoa</string>
-    <string name="more_pause_on_notifications">Taofi le tauloto i fa\'amatalaga</string>
-    <string name="more_pause_on_notifications_desc">E malolo mo sina taimi le tauloto pe a ta se fa\'aaliga, tatagi po\'o isi fa\'asalalauga</string>
-    <string name="more_pause_notifications_enabled">Fa\'aagaina - tap e tatala ai le fa\'atulagaina o faiga</string>
-    <string name="more_pause_notifications_disabled">Fa\'aletonu - tap e mafai ai</string>
     <string name="more_names">99 Suafa o Allah</string>
     <string name="more_names_desc">O igoa e 99 ma faʻamatalaga atoa</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

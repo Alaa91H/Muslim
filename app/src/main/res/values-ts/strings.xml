@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Kuma rito, leswaku ri humelela kangani na leswaku ri humelela kwihi</string>
     <string name="more_quran_frequency">Ku tala ka marito ya Quran</string>
     <string name="more_quran_frequency_desc">Marito lama talaka ku va kona eka mushaf hinkwayo</string>
-    <string name="more_pause_on_notifications">Yimanyana ku hlayela eka switiviso</string>
-    <string name="more_pause_on_notifications_desc">Ku hlaya ku yimanyana loko ku tlanga xitiviso, ringi kumbe swihangalasamahungu swin’wana</string>
-    <string name="more_pause_notifications_enabled">Enabled — khoma ku pfula swiletelo swa sisiteme</string>
-    <string name="more_pause_notifications_disabled">Disabled — khoma ku pfumelela</string>
     <string name="more_names">99 Mavito ya Allah</string>
     <string name="more_names_desc">Mavito ya 99 na nhlamuselo leyi heleleke</string>
     <string name="more_hajj">Hajj na Umrah</string>

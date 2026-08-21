@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">አንድ ቃል, ምን ያህል ጊዜ እንደሚታይ እና የት እንደሚገኝ ይፈልጉ</string>
     <string name="more_quran_frequency">የቁርኣን ቃል ድግግሞሽ</string>
     <string name="more_quran_frequency_desc">በሙሻፍ ውስጥ በጣም ተደጋጋሚ ቃላት</string>
-    <string name="more_pause_on_notifications">በማሳወቂያዎች ላይ ማንበብን ለአፍታ ያቁሙ</string>
-    <string name="more_pause_on_notifications_desc">አንድ ማሳወቂያ፣ ቀለበት ወይም ሌላ ሚዲያ ሲጫወት ንባብ ለአጭር ጊዜ ይቆማል</string>
-    <string name="more_pause_notifications_enabled">ነቅቷል - የስርዓት ቅንብሮችን ለመክፈት መታ ያድርጉ</string>
-    <string name="more_pause_notifications_disabled">ተሰናክሏል - ለማንቃት መታ ያድርጉ</string>
     <string name="more_names">99 የአላህ ስሞች</string>
     <string name="more_names_desc">የ99ኙ ስሞች ከሙሉ ማብራሪያ ጋር</string>
     <string name="more_hajj">ሐጅ እና ዑምራ</string>

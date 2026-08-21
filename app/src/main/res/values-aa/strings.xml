@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Qangara gorris, magideh adda tanbulleem kee ankel tanbulleem</string>
     <string name="more_quran_frequency">Kur\'aan qangarah qagaaqagu</string>
     <string name="more_quran_frequency_desc">mango qangor qagaaqagitak inkih tan mushaaf</string>
-    <string name="more_pause_on_notifications">Maysaxxagal kawsiyyi soolis</string>
-    <string name="more_pause_on_notifications_desc">Maysaxxagaay, ferranto akkek gersi ratteemah digran wak kawsi uxxuuk soola</string>
-    <string name="more_pause_notifications_enabled">ugteh - maknay farmooma faktuh xag</string>
-    <string name="more_pause_notifications_disabled">alif - xag ugtuh</string>
     <string name="more_names">99 Yallih Migaaqitte.</string>
     <string name="more_names_desc">takke migaaqitte dudda le baxxaqsa luk</string>
     <string name="more_hajj">Cajjii kee Qumra</string>

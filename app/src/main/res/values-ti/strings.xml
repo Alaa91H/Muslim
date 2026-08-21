@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">ሓንቲ ቃል ድለያ፡ ክንደይ ግዜ ከም እትቐርብን ኣበይን ትቐርብ</string>
     <string name="more_quran_frequency">ቁርኣን ቃል ድግግሞሽ</string>
     <string name="more_quran_frequency_desc">ኣብ ምሉእ ሙሻፍ ዝበዝሑ ቃላት</string>
-    <string name="more_pause_on_notifications">ኣብ መተሓሳሰቢታት ምዝራብ ደው ምባል</string>
-    <string name="more_pause_on_notifications_desc">ምዝራብ ንሓጺር እዋን ደው ይብል መፍለጢ፡ ድምጺ ወይ ካልእ መራኸቢ ብዙሃን ክጻወት ከሎ</string>
-    <string name="more_pause_notifications_enabled">Enabled — ቅጥዕታት ስርዓት ንምኽፋት ጠውቕ</string>
-    <string name="more_pause_notifications_disabled">Disabled — ንምንቅስቓስ ጠውቕ</string>
     <string name="more_names">99 ኣስማት ናይ ኣላህ</string>
     <string name="more_names_desc">እቶም 99 ኣስማት ምስ ምሉእ መብርሂ</string>
     <string name="more_hajj">ሓጅ &amp; ዑምራ</string>

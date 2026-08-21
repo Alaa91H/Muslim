@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Teangan kecap, sabaraha sering eta muncul jeung dimana</string>
     <string name="more_quran_frequency">Frékuénsi kecap Quran</string>
     <string name="more_quran_frequency_desc">Kecap-kecap anu paling sering dina mushaf sadayana</string>
-    <string name="more_pause_on_notifications">Ngareureuhkeun bacaan dina béwara</string>
-    <string name="more_pause_on_notifications_desc">Bacaan ngareureuhkeun sakeudeung sawaktos aya bewara, cingcin atawa media sejenna diputer</string>
-    <string name="more_pause_notifications_enabled">Diaktipkeun - ketok pikeun muka setelan sistem</string>
-    <string name="more_pause_notifications_disabled">Dinonaktipkeun - ketok pikeun ngaktipkeun</string>
     <string name="more_names">99 Asma Allah</string>
     <string name="more_names_desc">99 ngaran kalayan katerangan lengkep</string>
     <string name="more_hajj">Haji &amp; Umroh</string>

@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">ھڪڙو لفظ ڳولھيو، اھو ڪيترا ڀيرا ۽ ڪٿي آھي</string>
     <string name="more_quran_frequency">قرآن جو لفظ تعدد</string>
     <string name="more_quran_frequency_desc">سڄي مصحف ۾ اڪثر لفظ</string>
-    <string name="more_pause_on_notifications">اطلاعن تي تلاوت کي روڪيو</string>
-    <string name="more_pause_on_notifications_desc">جڏهن نوٽيفڪيشن، انگوزي يا ٻيو ميڊيا هلائي ٿو ته تلاوت مختصر طور تي روڪي ٿو</string>
-    <string name="more_pause_notifications_enabled">فعال - سسٽم سيٽنگون کولڻ لاء ٽيپ ڪريو</string>
-    <string name="more_pause_notifications_disabled">بند ٿيل - چالو ڪرڻ لاءِ ٽيپ ڪريو</string>
     <string name="more_names">99 الله جا نالا</string>
     <string name="more_names_desc">99 نالا مڪمل وضاحت سان</string>
     <string name="more_hajj">حج ۽ عمره</string>

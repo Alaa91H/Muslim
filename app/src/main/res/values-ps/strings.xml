@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">یوه کلمه ومومئ، دا څو ځله ښکاري او چیرته</string>
     <string name="more_quran_frequency">د قرآن د کلمې تعدد</string>
     <string name="more_quran_frequency_desc">په ټول مصحف کې تر ټولو مکرر کلمات</string>
-    <string name="more_pause_on_notifications">په خبرتیاو کې تلاوت بند کړئ</string>
-    <string name="more_pause_on_notifications_desc">تلاوت د لنډ وخت لپاره ودریږي کله چې خبرتیا، حلقه یا نورې رسنۍ غږیږي</string>
-    <string name="more_pause_notifications_enabled">فعال شوی - د سیسټم تنظیماتو خلاصولو لپاره ټایپ کړئ</string>
-    <string name="more_pause_notifications_disabled">غیر فعال - د فعالولو لپاره ټایپ کړئ</string>
     <string name="more_names">د الله تعالی ۹۹ نومونه</string>
     <string name="more_names_desc">99 نومونه د بشپړ وضاحت سره</string>
     <string name="more_hajj">حج او عمره</string>

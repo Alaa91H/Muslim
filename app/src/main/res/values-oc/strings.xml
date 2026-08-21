@@ -50,10 +50,6 @@
     <string name="more_quran_search_desc">Trobar un mot, amb quina frequéncia apareis e ont</string>
     <string name="more_quran_frequency">Frequéncia del mot de l\'Alcoran</string>
     <string name="more_quran_frequency_desc">Los mots mai frequents dins lo mushaf entièr</string>
-    <string name="more_pause_on_notifications">Pausar la recitacion sus las notificacions</string>
-    <string name="more_pause_on_notifications_desc">La recitacion s\'arrèsta brèvament quand una notificacion, un son o un autre mèdia se jòga</string>
-    <string name="more_pause_notifications_enabled">Activat — picatz per dobrir los paramètres del sistèma</string>
-    <string name="more_pause_notifications_disabled">Desactivat — picatz per activar</string>
     <string name="more_names">99 Noms d\'Allah</string>
     <string name="more_names_desc">Los 99 noms amb explicacion completa</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

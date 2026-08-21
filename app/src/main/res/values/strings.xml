@@ -16,10 +16,6 @@
     <string name="more_quran_search_desc">ابحث عن كلمة وكم مرة ذُكرت وأين ذُكرت</string>
     <string name="more_quran_frequency">التردد اللغوي للقرآن</string>
     <string name="more_quran_frequency_desc">أكثر الكلمات تكرارًا في المصحف كاملًا</string>
-    <string name="more_pause_on_notifications">إيقاف التلاوة عند الإشعارات</string>
-    <string name="more_pause_on_notifications_desc">تتوقف التلاوة مؤقتًا عند وصول إشعار أو رنين أو وسائط أخرى</string>
-    <string name="more_pause_notifications_enabled">مفعّل — اضغط لفتح إعدادات النظام</string>
-    <string name="more_pause_notifications_disabled">غير مفعّل — اضغط للتفعيل</string>
     <string name="more_settings_desc">الثيم واللغة وإعدادات الصلاة والأذان</string>
     <string name="more_hadith">الأحاديث</string>
     <string name="more_hadith_desc">مكتبة الأحاديث والبحث وحديث اليوم</string>
