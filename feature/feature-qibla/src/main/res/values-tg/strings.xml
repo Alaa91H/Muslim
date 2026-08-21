@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Паҳнои минтақа (дараҷа)</string>
     <string name="offline_maps_storage_warning">Нигоҳдории кам - ҳамагӣ %1$s ройгон</string>
     <string name="offline_maps_storage_delete_largest">Минтақаи калонтаринро нест кунед (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Масҷидҳоро аз рӯи ном ҷустуҷӯ кунед</string>
+    <string name="mosque_finder_show_all">Ҳама масҷидҳоро нишон диҳед</string>
+    <string name="mosque_finder_share">Роҳҳои кушод</string>
+    <string name="offline_maps_use_my_location">Ба макони ҳозираи ман равед</string>
 </resources>

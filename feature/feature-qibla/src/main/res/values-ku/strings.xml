@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Firehiya herêmê (derece)</string>
     <string name="offline_maps_storage_warning">Hilberîna kêm - tenê %1$s belaş</string>
     <string name="offline_maps_storage_delete_largest">Navçeya herî mezin jêbirin (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Bi navê mizgeftan bigerin</string>
+    <string name="mosque_finder_show_all">Hemî mizgeftan nîşan bide</string>
+    <string name="mosque_finder_share">Rêbernameyên vekirî</string>
+    <string name="offline_maps_use_my_location">Biçe cihê min ê niha</string>
 </resources>

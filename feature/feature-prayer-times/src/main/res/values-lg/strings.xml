@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Sabre adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan nga bwe kiri</string>
-    <string name="bundled_adhan_umayyad_damascus">Omuzikiti gwa Umayyad (Damasiko) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Obusiraamu adhan</string>
     <string name="home_cannot_compute">Tesobola kubalirira biseera bya lunaku luno</string>
     <string name="home_location_unknown">Ekifo tekinnateekebwawo</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Otomatiki (okusinziira ku kifo) .</string>
     <string name="settings_method_automatic_desc">App eno elonda enkola esinga okutuukirawo mu ngeri ey’otoma okusinziira ku nsi yo n’ekifo kyo; okyayinza okulonda enkola mu ngalo ekiseera kyonna.</string>
     <string name="settings_preview_for_prayer">Okusooka okulaba %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Automatic mu kiseera kino esunsuddwa: %1$s — %2$s</string>
 </resources>

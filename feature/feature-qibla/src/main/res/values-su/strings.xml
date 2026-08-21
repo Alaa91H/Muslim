@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Lebar wewengkon (derajat)</string>
     <string name="offline_maps_storage_warning">gudang low - ngan %1$s bebas</string>
     <string name="offline_maps_storage_delete_largest">Pupus daérah panggedéna (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Pilarian masjid ku ngaran</string>
+    <string name="mosque_finder_show_all">Témbongkeun sakabéh masjid</string>
+    <string name="mosque_finder_share">Buka pituduh</string>
+    <string name="offline_maps_use_my_location">Pindah ka lokasi kuring ayeuna</string>
 </resources>

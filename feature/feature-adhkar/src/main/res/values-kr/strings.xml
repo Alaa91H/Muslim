@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Adhkar koriya bas faidatǝne</string>
     <string name="adhkar_overlay_short_only_desc">Adhkar karne lai fal au indiro kalkaljin sau bubble floatingdə asutin kuru kəratəro kəske.</string>
     <string name="adhkar_overlay_tap_hint">Bubble dəga taptə tinyiro fəletəro.</string>
+    <string name="adhkar_copied">Dhikr ye bayanzəna</string>
+    <string name="adhkar_periodic_dhikr">Dhikr taganasbe</string>
+    <string name="adhkar_periodic_dhikr_random">Jilifi yayi (susu muskon gotǝro)</string>
 </resources>

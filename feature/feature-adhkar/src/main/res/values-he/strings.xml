@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">השתמש ב-adhkar קצר בלבד</string>
     <string name="adhkar_overlay_short_only_desc">בחר adhkar שמתאימים לקו אחד או שניים כך שהבועה המרחפת תישאר ברורה וקלה לקריאה.</string>
     <string name="adhkar_overlay_tap_hint">הקש על הבועה כדי לבטל אותה מיד.</string>
+    <string name="adhkar_copied">Dhikr העתיק</string>
+    <string name="adhkar_periodic_dhikr">dhikr ספציפי</string>
+    <string name="adhkar_periodic_dhikr_random">אקראי (במקום בחירה ידנית)</string>
 </resources>

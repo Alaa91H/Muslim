@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah eo mokta</string>
     <string name="quran_range_single_ayah">Ejelok ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">ñan jemlokin surah eo</string>
+    <string name="quran_range_to_end">ñan jemlokin Mushaf eo</string>
     <string name="quran_range_to_end_short">ñan jemlok</string>
     <string name="quran_range_whole_surah">Surah eo</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf eo eobrak ibelakin ri-riit ro</string>
     <string name="quran_downloads_coverage_empty">Ejelok ainikien kar download kiõ</string>
     <string name="quran_pause_notif_listener">Bōjrak riit ilo kōjjelā ko</string>
-    <string name="quran_reciter_changed_title">Ri-kōnono eo ear oktak</string>
-    <string name="quran_reciter_changed_message">Ear bōjrak kinke joñan eo ej etal ñan jemlokin Quran eo. Bar jinoe kin %1$s?</string>
-    <string name="quran_reciter_restart">Bar jinoe</string>
-    <string name="quran_reciter_not_now">Jab kiiō</string>
+    <string name="quran_search_metrics">Iien pukōt: %1$d ms</string>
+    <string name="quran_search_index_building">Kalōk Quran index eo ñan pukōt eo moktata...</string>
+    <string name="quran_search_index_progress">Kalōk mushaf index eo... %1$d %%</string>
+    <string name="quran_search_word_root">Root: %1$s</string>
+    <string name="quran_search_derivations">Naan ko rej itok jen juon wōt unin</string>
+    <string name="quran_search_no_root">Ejjab maroñ in jella root eo</string>
 </resources>

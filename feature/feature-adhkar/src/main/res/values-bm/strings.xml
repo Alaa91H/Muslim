@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Aw bɛ adhkar surun dɔrɔn de kɛ</string>
     <string name="adhkar_overlay_short_only_desc">Aw bɛ adhkar sugandi minnu bɛ bɛn zana kelen walima fila ma walasa bulonba min bɛ panpan, o ka to ka jɛya ani ka kalan nɔgɔya.</string>
     <string name="adhkar_overlay_tap_hint">Aw bɛ bugun digi walasa k’a gɛn joona.</string>
+    <string name="adhkar_copied">Dhikr ye kopi kɛ</string>
+    <string name="adhkar_periodic_dhikr">Zikr kɛrɛnkɛrɛnnenw</string>
+    <string name="adhkar_periodic_dhikr_random">Random (sanni ka bolola pick kɛ) .</string>
 </resources>

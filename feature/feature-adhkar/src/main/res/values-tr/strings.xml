@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Yalnızca kısa adhkar kullanın</string>
     <string name="adhkar_overlay_short_only_desc">Yüzen baloncuğun net ve okunması kolay kalması için bir veya iki satıra sığan adhkar\'ı seçin.</string>
     <string name="adhkar_overlay_tap_hint">Hemen kapatmak için baloncuğa dokunun.</string>
+    <string name="adhkar_copied">Zikir kopyalandı</string>
+    <string name="adhkar_periodic_dhikr">Spesifik zikir</string>
+    <string name="adhkar_periodic_dhikr_random">Rastgele (manuel seçim yerine)</string>
 </resources>

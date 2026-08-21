@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Vorheriges Ayah</string>
     <string name="quran_range_single_ayah">Single Ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Zum Ende der Sure</string>
+    <string name="quran_range_to_end">Bis zum Ende des Mushaf</string>
     <string name="quran_range_to_end_short">Zum Abschluss</string>
     <string name="quran_range_whole_surah">Ganze Sure</string>
     <string name="quran_range_whole_surah_short">Sure</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Vollständiger Mushaf für alle Rezitatoren</string>
     <string name="quran_downloads_coverage_empty">Noch kein Audio heruntergeladen</string>
     <string name="quran_pause_notif_listener">Unterbrechen Sie die Rezitation bei Benachrichtigungen</string>
-    <string name="quran_reciter_changed_title">Rezitator geändert</string>
-    <string name="quran_reciter_changed_message">Die Wiedergabe wurde gestoppt, da der Bereich bis zum Ende des Korans reicht. Noch einmal mit %1$s beginnen?</string>
-    <string name="quran_reciter_restart">Beginnen Sie erneut</string>
-    <string name="quran_reciter_not_now">Nicht jetzt</string>
+    <string name="quran_search_metrics">Suchzeit: %1$d ms</string>
+    <string name="quran_search_index_building">Aufbau des Koran-Index für die erste Suche…</string>
+    <string name="quran_search_index_progress">Aufbau des Mushaf-Index… %1$d %%</string>
+    <string name="quran_search_word_root">Wurzel: %1$s</string>
+    <string name="quran_search_derivations">Wörter, die von derselben Wurzel abgeleitet sind</string>
+    <string name="quran_search_no_root">Die Wurzel konnte nicht ermittelt werden</string>
 </resources>

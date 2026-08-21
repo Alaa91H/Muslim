@@ -24,4 +24,5 @@
     <string name="hadith_share">Pinpin</string>
     <string name="hadith_title">Ibi ikawe Hadith</string>
     <string name="hadith_copy">Daakọ</string>
+    <string name="hadith_copied">Hadith daakọ</string>
 </resources>

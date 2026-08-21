@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">هنگام پخش یک اعلان، زنگ یا سایر رسانه ها، تلاوت برای مدت کوتاهی متوقف می شود</string>
     <string name="more_pause_notifications_enabled">فعال - برای باز کردن تنظیمات سیستم ضربه بزنید</string>
     <string name="more_pause_notifications_disabled">غیرفعال - برای فعال کردن ضربه بزنید</string>
+    <string name="more_names">99 اسماء الله</string>
+    <string name="more_names_desc">99 نام با توضیح کامل</string>
+    <string name="more_hajj">حج و عمره</string>
+    <string name="more_hajj_desc">راهنمای تفصیلی مناسک حج و عمره</string>
 </resources>

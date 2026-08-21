@@ -96,18 +96,28 @@ class AdhkarSettingsViewModel @Inject constructor(
     fun setPeriodicReminderCategory(categoryId: String?) =
         save { prefsRepository.setPeriodicReminderCategory(categoryId) }
 
+    fun setPeriodicReminderDhikr(id: Long?) =
+        save { prefsRepository.setPeriodicReminderDhikr(id) }
+
+    /** All adhkar, for the "pin a specific dhikr" picker. */
+    val allAdhkar: List<Dhikr> = adhkarRepository.allDhikr()
+
     fun setShortDhikrOnly(enabled: Boolean) =
         save { prefsRepository.setShortDhikrOnly(enabled) }
 
     fun setPeriodicReminderWindow(enabled: Boolean, startHour: Int, startMinute: Int, endHour: Int, endMinute: Int) =
         save { prefsRepository.setPeriodicReminderWindow(enabled, startHour, startMinute, endHour, endMinute) }
 
-    /** Shows a random enabled dhikr above all apps right now (test action). */
+    /** Shows a dhikr above all apps right now (test action): the pinned one when set, else a random one. */
     fun testOverlay() {
         viewModelScope.launch {
             val current = prefsRepository.prefs.first()
             if (!Settings.canDrawOverlays(context)) return@launch
-            val dhikr = adhkarRepository.randomDhikr(null, current.disabledDhikrIds, current.shortDhikrOnly) ?: return@launch
+            val pinned = adhkarRepository.dhikrById(current.periodicReminderDhikrId)
+                ?.takeIf { it.id !in current.disabledDhikrIds }
+            val dhikr = pinned
+                ?: adhkarRepository.randomDhikr(null, current.disabledDhikrIds, current.shortDhikrOnly)
+                ?: return@launch
             AdhkarOverlayService.start(
                 context,
                 dhikr,

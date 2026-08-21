@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">ການບັນຍາຍຈະຢຸດຊົ່ວຄາວເມື່ອມີການແຈ້ງເຕືອນ, ສຽງດັງ ຫຼືສື່ອື່ນໆຫຼິ້ນ</string>
     <string name="more_pause_notifications_enabled">ເປີດໃຊ້ແລ້ວ — ແຕະເພື່ອເປີດການຕັ້ງຄ່າລະບົບ</string>
     <string name="more_pause_notifications_disabled">ປິດການໃຊ້ງານ — ແຕະເພື່ອເປີດໃຊ້ງານ</string>
+    <string name="more_names">99 ຊື່​ຂອງ Allah​</string>
+    <string name="more_names_desc">99 ຊື່​ທີ່​ມີ​ຄໍາ​ອະ​ທິ​ບາຍ​ຢ່າງ​ເຕັມ​ທີ່​</string>
+    <string name="more_hajj">Hajj ແລະ Umrah</string>
+    <string name="more_hajj_desc">ຄູ່ມືລາຍລະອຽດກ່ຽວກັບພິທີ Hajj ແລະ Umrah</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Cuirtear sosanna gairide ar an aithris nuair a bhíonn fógra, fáinne nó meáin eile ar siúl</string>
     <string name="more_pause_notifications_enabled">Cumasaithe - tapáil chun socruithe an chórais a oscailt</string>
     <string name="more_pause_notifications_disabled">Díchumasaithe - tapáil chun é a chumasú</string>
+    <string name="more_names">99 Ainm Allah</string>
+    <string name="more_names_desc">Na 99 ainm le míniú iomlán</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Treoir mhionsonraithe ar deasghnátha Hajj agus Umrah</string>
 </resources>

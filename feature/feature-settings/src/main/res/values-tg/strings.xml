@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s is now available — tap to update</string>
     <string name="notif_category_app_update">Навсозии барномаҳо</string>
     <string name="notif_category_app_update_desc">Огоҳӣ ҳангоми дастрас будани версияи нави барнома</string>
+    <string name="about_tagline">Як шарики мукаммал, озод ва сарчашмаи кушода барои ҳар як мусалмон — вақтҳои намоз, азон, Қуръон, ҳадис, азкор ва ғайра ба забони шумо.</string>
+    <string name="about_description_title">Дар бораи Муслим</string>
+    <string name="about_description_body">Muslim як барномаи ройгон ва сарчашмаи кушодаи Android аст, ки дар давоми рӯз шуморо ҳамроҳӣ мекунад: вақтҳои аз ҷиҳати астрономӣ дақиқи намоз бо азон, қутбнамои дақиқи қибла, китоби мукаммали Қуръон бо қироат ва тафсир, китобхонаи ҳадис, аз сарчашмаҳои сарчашма, тасбиҳи электронӣ, асбобҳои Рамазон, ҳисобкунаки закот, харитаҳои офлайнӣ ва ғайра - бо пешфарзӣ барои кор тарҳрезӣ шудааст.</string>
+    <string name="about_features_title">Нуктаҳои муҳим</string>
+    <string name="about_features_body">Ҳама чизе, ки барои мусалмон дар як барнома лозим аст:</string>
+    <string name="about_feature_prayer">Вақтҳои намоз ва азон — ҳама усулҳои ҳисоб, мактабҳои ҳуқуқӣ ва садои азон 18+</string>
+    <string name="about_feature_quran">Мукаммали Қуръон — хатти Усмонӣ, 44 қори, тафсир, тарҷумаҳо, ҷустуҷӯи калима ва басомад</string>
+    <string name="about_feature_adhkar">Адҳкор, тасбиҳ, Рамазон ва Закот - бо ёдраскуниҳо ва ҳубобҳои шинокунанда</string>
+    <string name="about_feature_offline">Офлайн-аввал — харитаҳо, Қуръон, ҳадис ва азкор бе интернет кор мекунанд</string>
+    <string name="about_feature_privacy">Махфият бо нобаёнӣ — бе таблиғ, пайгирӣ, маълумоти шумо дар дастгоҳи шумо мемонад</string>
+    <string name="settings_auto_update">Навсозии комилан автоматӣ</string>
+    <string name="settings_auto_update_desc">Версияҳои навро дар замина ба таври худкор зеркашӣ ва насб кунед, вақте ки онҳо бароварда мешаванд</string>
+    <string name="settings_auto_update_confirm_title">Навсозиҳои автоматиро фаъол созед?</string>
+    <string name="settings_auto_update_confirm_body">Версияҳои нав ҳангоми дастрас шудан ба таври худкор дар замина зеркашӣ ва насб карда мешаванд. Давом додан?</string>
+    <string name="settings_auto_update_confirm">Фаъол кардан</string>
+    <string name="settings_cancel">Бекор кардан</string>
+    <string name="update_last_check">Санҷиши охирин: %1$s</string>
+    <string name="update_open_releases">Саҳифаи релизҳоро дар браузер кушоед</string>
 </resources>

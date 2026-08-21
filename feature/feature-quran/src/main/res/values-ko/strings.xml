@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">이전 아야</string>
     <string name="quran_range_single_ayah">싱글 아야</string>
     <string name="quran_range_single_ayah_short">아야</string>
-    <string name="quran_range_to_end">수라 끝까지</string>
+    <string name="quran_range_to_end">무샤프가 끝날 때까지</string>
     <string name="quran_range_to_end_short">끝내려면</string>
     <string name="quran_range_whole_surah">전체 수라</string>
     <string name="quran_range_whole_surah_short">수라</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">암송자 전체의 무샤프</string>
     <string name="quran_downloads_coverage_empty">아직 다운로드한 오디오가 없습니다.</string>
     <string name="quran_pause_notif_listener">알림 시 낭송 일시 중지</string>
-    <string name="quran_reciter_changed_title">암송자가 변경됨</string>
-    <string name="quran_reciter_changed_message">범위가 꾸란의 끝까지 실행되기 때문에 재생이 중지되었습니다. %1$s로 다시 시작하시겠습니까?</string>
-    <string name="quran_reciter_restart">다시 시작</string>
-    <string name="quran_reciter_not_now">지금은 아님</string>
+    <string name="quran_search_metrics">검색 시간: %1$dms</string>
+    <string name="quran_search_index_building">첫 번째 검색을 위한 꾸란 색인 구축…</string>
+    <string name="quran_search_index_progress">무샤프 지수 구축… %1$d %%</string>
+    <string name="quran_search_word_root">루트: %1$s</string>
+    <string name="quran_search_derivations">같은 어근에서 파생된 단어</string>
+    <string name="quran_search_no_root">루트를 확인할 수 없습니다.</string>
 </resources>

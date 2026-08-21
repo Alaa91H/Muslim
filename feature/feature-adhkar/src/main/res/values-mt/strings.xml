@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Uża adhkar qasir biss</string>
     <string name="adhkar_overlay_short_only_desc">Agħżel adhkar li jaqbel linja waħda jew tnejn sabiex il-bużżieqa f\'wiċċ l-ilma tibqa\' ċara u faċli biex tinqara.</string>
     <string name="adhkar_overlay_tap_hint">Tektek il-bużżieqa biex tkeċċiha immedjatament.</string>
+    <string name="adhkar_copied">Dhikr ikkupjat</string>
+    <string name="adhkar_periodic_dhikr">Dhikr speċifiku</string>
+    <string name="adhkar_periodic_dhikr_random">Aleatorju (minflok għażla manwali)</string>
 </resources>

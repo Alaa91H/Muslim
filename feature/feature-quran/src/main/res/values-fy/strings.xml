@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Foarige ayah</string>
     <string name="quran_range_single_ayah">Single ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Oan \'e ein fan surah</string>
+    <string name="quran_range_to_end">Oan \'e ein fan\' e Mushaf</string>
     <string name="quran_range_to_end_short">Om einigje</string>
     <string name="quran_range_whole_surah">Hiele surah</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Folsleine mushaf oer resiters</string>
     <string name="quran_downloads_coverage_empty">Noch gjin audio ynladen</string>
     <string name="quran_pause_notif_listener">Pause resitaasje op notifikaasjes</string>
-    <string name="quran_reciter_changed_title">Reciter feroare</string>
-    <string name="quran_reciter_changed_message">It ôfspieljen stoppe omdat it berik rint oant it ein fan \'e Koran. Op \'e nij begjinne mei %1$s?</string>
-    <string name="quran_reciter_restart">Begjin wer</string>
-    <string name="quran_reciter_not_now">No net</string>
+    <string name="quran_search_metrics">Syktiid: %1$d ms</string>
+    <string name="quran_search_index_building">Bouwe de Koran-yndeks foar de earste sykopdracht ...</string>
+    <string name="quran_search_index_progress">It bouwen fan de mushaf-yndeks ... %1$d %%</string>
+    <string name="quran_search_word_root">woartel: %1$s</string>
+    <string name="quran_search_derivations">Wurden ôflaat fan deselde woartel</string>
+    <string name="quran_search_no_root">Koe de woartel net bepale</string>
 </resources>

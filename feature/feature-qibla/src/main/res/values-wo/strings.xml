@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Yaatu barab bi (degre)</string>
     <string name="offline_maps_storage_warning">Dencukaay bu néew — %1$s kese</string>
     <string name="offline_maps_storage_delete_largest">Delete largest region (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Seetal Juma yi ci seeni tur</string>
+    <string name="mosque_finder_show_all">Waneel Juma yépp</string>
+    <string name="mosque_finder_share">Ubbi yoon yi</string>
+    <string name="offline_maps_use_my_location">Demal ci barab bima nekk leegi</string>
 </resources>

@@ -164,4 +164,22 @@
     <string name="update_available_text">%1$s संस्करणम् अधुना उपलब्धम् अस्ति — अद्यतनीकरणाय ट्याप् कुर्वन्तु</string>
     <string name="notif_category_app_update">एप् अपडेट्</string>
     <string name="notif_category_app_update_desc">यदा नूतनं एप् संस्करणं उपलब्धं भवति तदा सूचना</string>
+    <string name="about_tagline">प्रत्येकस्य मुसलमानस्य कृते एकः सम्पूर्णः, निःशुल्कः, मुक्त-स्रोत-सहचरः — नमाज-समयः, अधान्, कुरानः, हदीसः, अधकारः इत्यादयः, भवतः भाषायां।</string>
+    <string name="about_description_title">मुस्लिमस्य विषये</string>
+    <string name="about_description_body">मुस्लिमः एकः निःशुल्कः तथा मुक्त-स्रोतः एण्ड्रॉयड् एप्लिकेशनः अस्ति यः भवतः सह दिनभरि भवति: आदानेन सह खगोलीयरूपेण सटीकः प्रार्थनासमयः, एकः सटीकः किब्ला कम्पासः, पाठैः सह सम्पूर्णः कुरानः, एकः हदीसपुस्तकालयः, स्रोतः प्राप्तः अधकारः, एकः इलेक्ट्रॉनिकः तस्बीहः, रमजान-उपकरणाः, एकः जकात-गणकयंत्रः, ऑफलाइन-नक्शाः, इत्यादयः — द्वारा गोपनीयतायाः सह पूर्णतया ऑफलाइन-रूपेण कार्यं कर्तुं डिजाइनं कृतम् अस्ति पूर्वनिर्धारित ।</string>
+    <string name="about_features_title">मुख्यविषयाणि</string>
+    <string name="about_features_body">एकस्मिन् एप् मध्ये मुस्लिमस्य यत् किमपि आवश्यकं तत् सर्वं:</string>
+    <string name="about_feature_prayer">प्रार्थनासमयाः &amp; अधानं — सर्वाणि गणनाविधयः, न्यायिकविद्यालयाः, १८+ अधनध्वनयः च</string>
+    <string name="about_feature_quran">सम्पूर्ण कुरान — उस्मानी लिपि, 44 पाठक, तफसीर, अनुवाद, शब्द खोज एवं आवृत्ति</string>
+    <string name="about_feature_adhkar">अधकर, तस्बिह, रमजान &amp; जकात — स्मरणसहितं प्लवमानबुलबुले च</string>
+    <string name="about_feature_offline">अफलाइन-प्रथम — नक्शाः, कुरानः, हदीसः, अधकारः च अन्तर्जालस्य विना कार्यं कुर्वन्ति</string>
+    <string name="about_feature_privacy">पूर्वनिर्धारितरूपेण गोपनीयता — विज्ञापनं नास्ति, अनुसरणं नास्ति, भवतः दत्तांशः भवतः उपकरणे तिष्ठति</string>
+    <string name="settings_auto_update">पूर्णतया स्वचालितं अद्यतनम्</string>
+    <string name="settings_auto_update_desc">नूतनानि संस्करणाः मुक्तमात्रेण पृष्ठभूमितः स्वयमेव डाउनलोड् कृत्वा संस्थापयन्तु</string>
+    <string name="settings_auto_update_confirm_title">स्वचालितं अद्यतनं सक्षमं कुर्वन्तु?</string>
+    <string name="settings_auto_update_confirm_body">नूतनानि संस्करणाः उपलब्धाः सति पृष्ठभूमितः स्वयमेव अवतरणं कृत्वा संस्थाप्यन्ते । अनुवर्तते?</string>
+    <string name="settings_auto_update_confirm">सक्रियं करोतु</string>
+    <string name="settings_cancel">निरसयतु</string>
+    <string name="update_last_check">अन्तिमपरीक्षा : %1$s</string>
+    <string name="update_open_releases">ब्राउजर् मध्ये releases पृष्ठं उद्घाटयन्तु</string>
 </resources>

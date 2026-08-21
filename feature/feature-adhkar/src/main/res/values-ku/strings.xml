@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Tenê adhkara kurt bikar bînin</string>
     <string name="adhkar_overlay_short_only_desc">Adhkarê hilbijêrin ku yek an du rêzan li hev dike, da ku bilbila herikbar zelal û hêsan were xwendin.</string>
     <string name="adhkar_overlay_tap_hint">Bişkojkê bikirtînin da ku wê tavilê ji holê rakin.</string>
+    <string name="adhkar_copied">Zikr kopî kirin</string>
+    <string name="adhkar_periodic_dhikr">Zikrên taybetî</string>
+    <string name="adhkar_periodic_dhikr_random">Tesadufî (li şûna hilbijartina destan)</string>
 </resources>

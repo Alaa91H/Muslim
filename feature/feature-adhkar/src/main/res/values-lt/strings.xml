@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Naudokite tik trumpą adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Pasirinkite adhkar, tinkantį vienai ar dviem eilutėms, kad plaukiojantis burbulas liktų aiškus ir lengvai skaitomas.</string>
     <string name="adhkar_overlay_tap_hint">Bakstelėkite burbulą, kad iškart jo atsisakytumėte.</string>
+    <string name="adhkar_copied">Dhikr nukopijuotas</string>
+    <string name="adhkar_periodic_dhikr">Konkretus dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Atsitiktinis (vietoj rankinio pasirinkimo)</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">ዝሓለፈ ኣያ</string>
     <string name="quran_range_single_ayah">ንጽል ኣያ</string>
     <string name="quran_range_single_ayah_short">ኣያ</string>
-    <string name="quran_range_to_end">ናብ መወዳእታ ሱራ</string>
+    <string name="quran_range_to_end">To the end of the Mushaf</string>
     <string name="quran_range_to_end_short">ንምዝዛም</string>
     <string name="quran_range_whole_surah">ምሉእ ሱራ</string>
     <string name="quran_range_whole_surah_short">ሱራ</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">ምሉእ ሙሻፍ ኣብ ስግር ቀበብቲ</string>
     <string name="quran_downloads_coverage_empty">ክሳብ ሕጂ ድምጺ ኣይተወርደን</string>
     <string name="quran_pause_notif_listener">ኣብ መተሓሳሰቢታት ምዝራብ ደው ምባል</string>
-    <string name="quran_reciter_changed_title">ረሲተር ተቐይሩ</string>
-    <string name="quran_reciter_changed_message">እቲ ሬንጅ ክሳብ መወዳእታ ቁርኣን ስለዝጎዪ ምጽዋት ደው ኢሉ። ብ %1$s ከም ብሓድሽ ጀምር?</string>
-    <string name="quran_reciter_restart">እንደገና ጀምር</string>
-    <string name="quran_reciter_not_now">ሕጂ ኣይኮነን።</string>
+    <string name="quran_search_metrics">ናይ ምድላይ ግዜ፡ %1$d ሚ.ሰ</string>
+    <string name="quran_search_index_building">ንመጀመርታ ምድላይ ቁርኣን ኢንዴክስ ምህናጽ...</string>
+    <string name="quran_search_index_progress">ምህናጽ መዐቀኒ ሙሻፍ... %1$d %%</string>
+    <string name="quran_search_word_root">ሱር፡ %1$s</string>
+    <string name="quran_search_derivations">ካብ ሓደ ሱር ዝመጹ ቃላት</string>
+    <string name="quran_search_no_root">ሱር ክውስን ኣይከኣለን</string>
 </resources>

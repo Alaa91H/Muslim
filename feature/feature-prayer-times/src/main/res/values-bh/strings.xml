@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">नघशबंदी अधन के बा</string>
     <string name="bundled_adhan_saber">साबेर अधान के बा</string>
     <string name="bundled_adhan_sharif_doman">शरीफ डोमन अदन के बा</string>
-    <string name="bundled_adhan_umayyad_damascus">उमय्यद मस्जिद (दमिश्क) के अदान</string>
     <string name="bundled_adhan_yusuf_islam">यूसुफ इस्लाम अदान के ह</string>
     <string name="home_cannot_compute">एह दिन खातिर समय के गणना ना कर पावत बानी</string>
     <string name="home_location_unknown">अभी तक लोकेशन सेट नइखे भइल</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">स्वचालित (स्थान के हिसाब से)</string>
     <string name="settings_method_automatic_desc">ऐप आपके देश अवुरी स्थान के आधार प स्वचालित रूप से सबसे उपयुक्त तरीका चुनेला; रउआँ अबहियों कबो भी मैन्युअल रूप से कवनो तरीका चुन सकत बानी।</string>
     <string name="settings_preview_for_prayer">पूर्वावलोकन %1$s अधान के बा</string>
+    <string name="settings_method_automatic_picked">स्वचालित वर्तमान में चुनल गइल बा: %1$s — %2$s</string>
 </resources>

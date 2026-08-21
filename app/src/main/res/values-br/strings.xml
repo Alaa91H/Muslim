@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Paouez a ra ar c\'hontadennoù pa vez skignet ur gemennadenn, ur son pe ur meziant all</string>
     <string name="more_pause_notifications_enabled">Gweredekaet — pouezit evit digeriñ arventennoù ar reizhiad</string>
     <string name="more_pause_notifications_disabled">Diweredekaet — pouezit evit gweredekaat</string>
+    <string name="more_names">99 Anvioù Allah</string>
+    <string name="more_names_desc">An 99 anv gant displegadennoù klok</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Titouroù resis diwar-benn al lidoù Hajj hag Umrah</string>
 </resources>

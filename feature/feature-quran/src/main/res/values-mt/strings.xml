@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah preċedenti</string>
     <string name="quran_range_single_ayah">ayah waħdieni</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Sat-tmiem tas-surah</string>
+    <string name="quran_range_to_end">Sa l-aħħar tal-Mushaf</string>
     <string name="quran_range_to_end_short">Biex tispiċċa</string>
     <string name="quran_range_whole_surah">Surah kollu</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf sħiħ madwar reciters</string>
     <string name="quran_downloads_coverage_empty">L-ebda awdjo mniżżel għadu</string>
     <string name="quran_pause_notif_listener">Waqqaf ir-reċitazzjoni fuq in-notifiki</string>
-    <string name="quran_reciter_changed_title">Reciter inbidel</string>
-    <string name="quran_reciter_changed_message">Il-daqq waqaf minħabba li l-firxa tmur sa tmiem il-Koran. Erġa\' tibda b\'%1$s?</string>
-    <string name="quran_reciter_restart">Ibda mill-ġdid</string>
-    <string name="quran_reciter_not_now">Mhux issa</string>
+    <string name="quran_search_metrics">Ħin tat-tfittxija: %1$d ms</string>
+    <string name="quran_search_index_building">Nibnu l-indiċi tal-Quran għall-ewwel tfittxija...</string>
+    <string name="quran_search_index_progress">Nibnu l-indiċi mushaf... %1$d %%</string>
+    <string name="quran_search_word_root">Għerq: %1$s</string>
+    <string name="quran_search_derivations">Kliem derivat mill-istess għerq</string>
+    <string name="quran_search_no_root">Ma setgħetx tiddetermina l-għerq</string>
 </resources>

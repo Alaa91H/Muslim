@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s is now available — tap to update</string>
     <string name="notif_category_app_update">Cusboonaysiinta App-ka</string>
     <string name="notif_category_app_update_desc">Ogeysiinta marka nooca abka cusub la heli karo</string>
+    <string name="about_tagline">Saaxiib dhammaystiran, xor ah, il furan oo qof kasta oo Muslim ah - waqtiyada salaadda, Adhan, Quran, xadiiska, adhkar iyo in ka badan, oo ku qoran luqaddaada.</string>
+    <string name="about_description_title">Ku saabsan Muslim</string>
+    <string name="about_description_body">Muslimku waa app Android bilaash ah oo furan kaas oo kula socda maalinta oo dhan: waqtiyada salaadaha saxda ah ee Adhan, kombuyuutar Qibla ah, Qur\'aanka kariimka ah oo dhammaystiran oo akhrin iyo tafsiir ah, maktabad xadiiska, adhkar la soo saaray, tasbih elektiroonig ah, aaladaha Ramadaanka, xisaabiyaha sakada, khariidado offline, iyo in ka badan - loogu talagalay in si buuxda loogu shaqeeyo khadka tooska ah.</string>
+    <string name="about_features_title">Tilmaamaha</string>
+    <string name="about_features_body">Wax kasta oo qofka muslimka ahi uga baahan yahay hal app:</string>
+    <string name="about_feature_prayer">Waqtiyada salaadda &amp; Adhan - dhammaan hababka xisaabinta, dugsiyada sharciga ah, iyo 18+ dhawaaqyada adhan</string>
+    <string name="about_feature_quran">Quraan Dhamaystiran — Farta Uthmani, 44 akhriye, tafsiir, tarjumaad, eray raadin &amp; inta jeer</string>
+    <string name="about_feature_adhkar">Adkar, Tasbih, Ramadaan &amp; Sakada - oo leh waano iyo goobooyin sabeynaya</string>
+    <string name="about_feature_offline">Offline-koowaad - khariidado, Qur\'aan, xadiiska iyo adhkar oo aan lahayn internet la\'aan</string>
+    <string name="about_feature_privacy">Qarsoodi ahaan - wax xayeysiis ah, raadraac la\'aan, xogtaadu waxay sii saarnaanaysaa qalabkaaga</string>
+    <string name="settings_auto_update">Cusbooneysii si toos ah</string>
+    <string name="settings_auto_update_desc">Si otomaatig ah u soo deji oo ku rakib noocyo cusub dhabarka isla marka la sii daayo</string>
+    <string name="settings_auto_update_confirm_title">Daar cusboonaysiinta tooska ah?</string>
+    <string name="settings_auto_update_confirm_body">Noocyo cusub ayaa la soo dejin doonaa oo si toos ah loogu rakibi doonaa gadaasha marka la heli karo. Sii wad?</string>
+    <string name="settings_auto_update_confirm">Daar</string>
+    <string name="settings_cancel">Jooji</string>
+    <string name="update_last_check">Jeegaga ugu dambeeya: %1$s</string>
+    <string name="update_open_releases">Fur bogga sii daynta browserka</string>
 </resources>

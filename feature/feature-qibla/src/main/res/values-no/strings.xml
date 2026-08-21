@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Områdets bredde (grader)</string>
     <string name="offline_maps_storage_warning">Lite lagringsplass — kun %1$s gratis</string>
     <string name="offline_maps_storage_delete_largest">Slett største region (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Søk i moskeer etter navn</string>
+    <string name="mosque_finder_show_all">Vis alle moskeer</string>
+    <string name="mosque_finder_share">Åpne veibeskrivelser</string>
+    <string name="offline_maps_use_my_location">Gå til min nåværende plassering</string>
 </resources>

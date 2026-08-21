@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Whānuitanga horahanga (tohu)</string>
     <string name="offline_maps_storage_warning">He iti te rokiroki — %1$s noa te kore utu</string>
     <string name="offline_maps_storage_delete_largest">Mukua te rohe nui rawa (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Rapua nga whare karakia ma te ingoa</string>
+    <string name="mosque_finder_show_all">Whakaatuhia nga whare karakia katoa</string>
+    <string name="mosque_finder_share">Tuwhera nga tohutohu</string>
+    <string name="offline_maps_use_my_location">Haere ki taku waahi o naianei</string>
 </resources>

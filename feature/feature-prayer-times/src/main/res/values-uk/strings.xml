@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Нагшбандійський азан</string>
     <string name="bundled_adhan_saber">Шабельний азан</string>
     <string name="bundled_adhan_sharif_doman">Шариф Доман азан</string>
-    <string name="bundled_adhan_umayyad_damascus">Мечеть Омейядів (Дамаск) азан</string>
     <string name="bundled_adhan_yusuf_islam">Юсуф Ісламський азан</string>
     <string name="home_cannot_compute">Неможливо розрахувати час для цього дня</string>
     <string name="home_location_unknown">Місце ще не встановлено</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Автоматично (за місцезнаходженням)</string>
     <string name="settings_method_automatic_desc">Програма автоматично вибирає найбільш підходящий метод залежно від вашої країни та місця розташування; ви все ще можете будь-коли вибрати метод вручну.</string>
     <string name="settings_preview_for_prayer">Попередній перегляд %1$s азану</string>
+    <string name="settings_method_automatic_picked">Автоматичний поточний вибір: %1$s — %2$s</string>
 </resources>

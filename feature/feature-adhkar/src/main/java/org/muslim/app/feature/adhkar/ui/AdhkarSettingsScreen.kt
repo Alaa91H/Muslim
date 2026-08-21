@@ -73,6 +73,7 @@ import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.feature.adhkar.R
 import org.muslim.app.feature.adhkar.domain.Dhikr
 import org.muslim.app.feature.adhkar.domain.DhikrCategory
+import androidx.compose.ui.text.style.TextOverflow
 
 private val DURATION_OPTIONS = listOf(5, 10, 15, 30, 60)
 private val INTERVAL_OPTIONS = listOf(15, 30, 60, 120, 180)
@@ -274,6 +275,12 @@ fun AdhkarSettingsScreen(
                 CategoryDropdown(
                     current = prefs.periodicReminderCategoryId,
                     onSelected = viewModel::setPeriodicReminderCategory,
+                )
+                Spacer(Modifier.height(8.dp))
+                DhikrDropdown(
+                    allAdhkar = viewModel.allAdhkar,
+                    current = prefs.periodicReminderDhikrId,
+                    onSelected = viewModel::setPeriodicReminderDhikr,
                 )
                 Spacer(Modifier.height(8.dp))
                 WindowSlot(
@@ -817,6 +824,43 @@ private fun CategoryDropdown(current: String?, onSelected: (String?) -> Unit) {
                 DropdownMenuItem(
                     text = { Text(stringResource(category.titleRes)) },
                     onClick = { expanded = false; onSelected(category.id) },
+                )
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun DhikrDropdown(
+    allAdhkar: List<Dhikr>,
+    current: Long?,
+    onSelected: (Long?) -> Unit,
+) {
+    var expanded by remember { mutableStateOf(false) }
+    val currentLabel = allAdhkar.firstOrNull { it.id == current }
+        ?.let { dhikr -> dhikr.arabic }
+        ?: stringResource(R.string.adhkar_periodic_dhikr_random)
+    ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
+        OutlinedTextField(
+            value = currentLabel,
+            onValueChange = {},
+            readOnly = true,
+            label = { Text(stringResource(R.string.adhkar_periodic_dhikr)) },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
+        )
+        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+            DropdownMenuItem(
+                text = { Text(stringResource(R.string.adhkar_periodic_dhikr_random)) },
+                onClick = { expanded = false; onSelected(null) },
+            )
+            allAdhkar.forEach { dhikr ->
+                DropdownMenuItem(
+                    text = { Text(dhikr.arabic, maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                    onClick = { expanded = false; onSelected(dhikr.id) },
                 )
             }
         }

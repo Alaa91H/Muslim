@@ -164,4 +164,22 @@
     <string name="update_available_text">%1$s bertsioa eskuragarri dago orain: sakatu eguneratzeko</string>
     <string name="notif_category_app_update">Aplikazioen eguneraketak</string>
     <string name="notif_category_app_update_desc">Jakinarazpena aplikazioaren bertsio berri bat eskuragarri dagoenean</string>
+    <string name="about_tagline">Musulman guztientzako lagun osoa, doakoa eta kode irekikoa: otoitz garaiak, Adhan, Quran, hadith, adhkar eta gehiago, zure hizkuntzan.</string>
+    <string name="about_description_title">Musulmanari buruz</string>
+    <string name="about_description_body">Muslim doako eta kode irekiko Android aplikazioa da, egun osoan zehar lagun zaituen: astronomikoki zehatzak diren otoitz denbora Adhanarekin, Qibla iparrorratza zehatza, Koran osoa errezitazio eta tafsirrekin, hadith liburutegia, iturriko adhkar, tasbih elektronikoa, Ramadan tresnak, zakat kalkulagailua, lineaz kanpoko mapak eta gehiago - lineaz kanpo pribatutasun lehenetsiarekin lan egiteko diseinatuta.</string>
+    <string name="about_features_title">Nabarmenak</string>
+    <string name="about_features_body">Musulman batek behar duen guztia aplikazio bakarrean:</string>
+    <string name="about_feature_prayer">Otoitz denborak eta Adhan - kalkulu metodo guztiak, eskola juridikoak eta 18 adhan soinu baino gehiago</string>
+    <string name="about_feature_quran">Koran osoa - Uthmani gidoia, 44 errezitatzaile, tafsir, itzulpenak, hitzen bilaketa eta maiztasuna</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan eta Zakat — abisuekin eta burbuila mugikorrekin</string>
+    <string name="about_feature_offline">Lineaz kanpo lehenik: mapek, Koranak, hadithak eta adhkar-ek Internetik gabe funtzionatzen dute</string>
+    <string name="about_feature_privacy">Pribatutasuna lehenespenez: ez dago iragarkirik, ez jarraipenik, zure datuak zure gailuan geratzen dira</string>
+    <string name="settings_auto_update">Eguneratze guztiz automatikoak</string>
+    <string name="settings_auto_update_desc">Deskargatu eta instalatu automatikoki bertsio berriak atzeko planoan kaleratu bezain pronto</string>
+    <string name="settings_auto_update_confirm_title">Eguneratze automatikoak gaitu?</string>
+    <string name="settings_auto_update_confirm_body">Bertsio berriak deskargatu eta automatikoki instalatuko dira atzeko planoan eskuragarri daudenean. Jarraitu nahi duzu?</string>
+    <string name="settings_auto_update_confirm">Gaitu</string>
+    <string name="settings_cancel">Utzi</string>
+    <string name="update_last_check">Azken egiaztapena: %1$s</string>
+    <string name="update_open_releases">Ireki bertsioen orria arakatzailean</string>
 </resources>

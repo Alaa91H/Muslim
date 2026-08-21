@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Aia anterior</string>
     <string name="quran_range_single_ayah">Solter ai</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Fins al final de la sura</string>
+    <string name="quran_range_to_end">Fins al final del Mushaf</string>
     <string name="quran_range_to_end_short">Per acabar</string>
     <string name="quran_range_whole_surah">Sura sencera</string>
     <string name="quran_range_whole_surah_short">Sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf complet entre recitadors</string>
     <string name="quran_downloads_coverage_empty">Encara no s\'ha baixat l\'àudio</string>
     <string name="quran_pause_notif_listener">Posa en pausa la recitació a les notificacions</string>
-    <string name="quran_reciter_changed_title">El recitador ha canviat</string>
-    <string name="quran_reciter_changed_message">La reproducció s\'ha aturat perquè el rang arriba fins al final de l\'Alcorà. Tornar a començar amb %1$s?</string>
-    <string name="quran_reciter_restart">Torna a començar</string>
-    <string name="quran_reciter_not_now">Ara no</string>
+    <string name="quran_search_metrics">Temps de cerca: %1$d ms</string>
+    <string name="quran_search_index_building">Construint l\'índex de l\'Alcorà per a la primera cerca...</string>
+    <string name="quran_search_index_progress">Construint l\'índex mushaf... %1$d %%</string>
+    <string name="quran_search_word_root">Arrel: %1$s</string>
+    <string name="quran_search_derivations">Paraules derivades de la mateixa arrel</string>
+    <string name="quran_search_no_root">No s\'ha pogut determinar l\'arrel</string>
 </resources>

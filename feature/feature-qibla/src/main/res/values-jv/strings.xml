@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Jembar area (derajat)</string>
     <string name="offline_maps_storage_warning">Panyimpenan sithik - mung %1$s gratis</string>
     <string name="offline_maps_storage_delete_largest">Busak wilayah paling gedhe (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Telusuri masjid kanthi jeneng</string>
+    <string name="mosque_finder_show_all">Tampilake kabeh masjid</string>
+    <string name="mosque_finder_share">Mbukak pituduh</string>
+    <string name="offline_maps_use_my_location">Pindhah menyang lokasiku saiki</string>
 </resources>

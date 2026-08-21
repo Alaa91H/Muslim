@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">पिछला आयत के बा</string>
     <string name="quran_range_single_ayah">एकल आयत के बा</string>
     <string name="quran_range_single_ayah_short">अयह के बा</string>
-    <string name="quran_range_to_end">सूरह के अंत करे खातिर</string>
+    <string name="quran_range_to_end">मुशफ के अंत तक के बा</string>
     <string name="quran_range_to_end_short">खतम करे खातिर</string>
     <string name="quran_range_whole_surah">पूरा सूरह के बा</string>
     <string name="quran_range_whole_surah_short">सूरह के बा</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">पाठक लोग के पार पूरा मुशफ</string>
     <string name="quran_downloads_coverage_empty">अबहीं ले कवनो ऑडियो डाउनलोड नइखे भइल</string>
     <string name="quran_pause_notif_listener">सूचना पर पाठ के रोक दिहल जाव</string>
-    <string name="quran_reciter_changed_title">पाठक बदल गइलन</string>
-    <string name="quran_reciter_changed_message">प्लेबैक बंद हो गइल काहे कि रेंज कुरान के अंत तक चलेला। %1$s से फिर से शुरू करीं?</string>
-    <string name="quran_reciter_restart">फेर से शुरू कर दीं</string>
-    <string name="quran_reciter_not_now">अब ना</string>
+    <string name="quran_search_metrics">खोज के समय: %1$d एमएस बा</string>
+    <string name="quran_search_index_building">पहिला खोज खातिर कुरान सूचकांक के निर्माण...</string>
+    <string name="quran_search_index_progress">मुशफ सूचकांक के निर्माण... %1$d %%</string>
+    <string name="quran_search_word_root">जड़: %1$s के बा</string>
+    <string name="quran_search_derivations">एके जड़ से निकलल शब्द</string>
+    <string name="quran_search_no_root">जड़ के निर्धारण ना कर सकल</string>
 </resources>

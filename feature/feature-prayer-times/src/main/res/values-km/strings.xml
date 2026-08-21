@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">វិហារអ៊ីស្លាម Umayyad (ក្រុង Damascus) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam Adhan</string>
     <string name="home_cannot_compute">មិនអាចគណនាពេលវេលាសម្រាប់ថ្ងៃនេះបានទេ។</string>
     <string name="home_location_unknown">ទីតាំងមិនទាន់កំណត់នៅឡើយ</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">ស្វ័យប្រវត្តិ (តាមទីតាំង)</string>
     <string name="settings_method_automatic_desc">កម្មវិធីនេះជ្រើសរើសវិធីសាស្ត្រដែលសមស្របបំផុតដោយស្វ័យប្រវត្តិដោយផ្អែកលើប្រទេស និងទីតាំងរបស់អ្នក។ អ្នកនៅតែអាចជ្រើសរើសវិធីសាស្រ្តដោយដៃនៅពេលណាក៏បាន។</string>
     <string name="settings_preview_for_prayer">មើលជាមុន %1$s adhan</string>
+    <string name="settings_method_automatic_picked">ការ​ជ្រើសរើស​ដោយ​ស្វ័យ​ប្រវត្តិ​បច្ចុប្បន្ន៖ %1$s — %2$s</string>
 </resources>

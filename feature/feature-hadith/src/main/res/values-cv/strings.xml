@@ -24,4 +24,5 @@
     <string name="hadith_share">Пайла</string>
     <string name="hadith_title">Хадис библиотеки</string>
     <string name="hadith_copy">Копи</string>
+    <string name="hadith_copied">Хадис копиленӗ</string>
 </resources>

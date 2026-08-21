@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Recitatio breviter moratur in notificatione, anulo vel aliis instrumentis ludorum</string>
     <string name="more_pause_notifications_enabled">Enabled - ICTUS ad aperta ratio occasus</string>
     <string name="more_pause_notifications_disabled">Debilitatum - ICTUS ad enable</string>
+    <string name="more_names">XCIX Nomina Allah</string>
+    <string name="more_names_desc">XCIX nomina cum plena explicatione</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Detailed dux ad sacra Hajj et Umrah</string>
 </resources>

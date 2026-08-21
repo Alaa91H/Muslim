@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyad ဗလီ (ဒမတ်စကတ်) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam Adhan</string>
     <string name="home_cannot_compute">ယနေ့အတွက် အချိန်များကို တွက်ချက်၍မရပါ။</string>
     <string name="home_location_unknown">နေရာမသတ်မှတ်ရသေးဘူး။</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">အလိုအလျောက် (တည်နေရာအားဖြင့်)</string>
     <string name="settings_method_automatic_desc">အက်ပ်သည် သင့်နိုင်ငံနှင့် တည်နေရာအပေါ် အခြေခံ၍ အသင့်တော်ဆုံးနည်းလမ်းကို အလိုအလျောက် ရွေးချယ်သည်။ နည်းလမ်းတစ်ခုကို အချိန်မရွေး ကိုယ်တိုင်ရွေးချယ်နိုင်ပါသည်။</string>
     <string name="settings_preview_for_prayer">%1$s adhan ကို အစမ်းကြည့်ပါ။</string>
+    <string name="settings_method_automatic_picked">အလိုအလျောက် လောလောဆယ် ရွေးထားသည်- %1$s — %2$s</string>
 </resources>

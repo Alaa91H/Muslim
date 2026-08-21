@@ -5,4 +5,6 @@
     <string name="reference_search_hint">חפש בספר הזה…</string>
     <string name="reference_title">ספריית עיון אסלאמית</string>
     <string name="reference_topics_count">נושאים</string>
+    <string name="reference_copy">העתק</string>
+    <string name="reference_share">שתף</string>
 </resources>

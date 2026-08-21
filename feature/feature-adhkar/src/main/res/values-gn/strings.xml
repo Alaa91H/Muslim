@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Eipuru adhkar mbykymínte</string>
     <string name="adhkar_overlay_short_only_desc">Eiporavo adhkar ohóva peteĩ térã mokõi línea-pe ikatu hag̃uáicha pe burbuja otyryrýva opyta hesakã ha ndahasýi ojelee hag̃ua.</string>
     <string name="adhkar_overlay_tap_hint">Epoko pe burbuja rehe emboyke hag̃ua pya’e.</string>
+    <string name="adhkar_copied">Dhikr okopia</string>
+    <string name="adhkar_periodic_dhikr">Dhikr específico rehegua</string>
+    <string name="adhkar_periodic_dhikr_random">Aleatorio (jeporavo manual rangue) .</string>
 </resources>

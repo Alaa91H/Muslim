@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah yapita</string>
     <string name="quran_range_single_ayah">Ayah imodzi</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Kumapeto kwa surah</string>
+    <string name="quran_range_to_end">Mpaka kumapeto kwa Mushaf</string>
     <string name="quran_range_to_end_short">Kutha</string>
     <string name="quran_range_whole_surah">Surah yonse</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf wathunthu kudutsa owerenga</string>
     <string name="quran_downloads_coverage_empty">Palibe zomvera zomwe zidatsitsidwa</string>
     <string name="quran_pause_notif_listener">Imani kaye kubwereza pazidziwitso</string>
-    <string name="quran_reciter_changed_title">Reciter yasintha</string>
-    <string name="quran_reciter_changed_message">Kusewerera kunayima chifukwa kuchuluka kwake kumafika kumapeto kwa Quran. Yambaninso ndi %1$s?</string>
-    <string name="quran_reciter_restart">Yambaninso</string>
-    <string name="quran_reciter_not_now">Osati tsopano</string>
+    <string name="quran_search_metrics">Nthawi yosaka: %1$d ms</string>
+    <string name="quran_search_index_building">Kupanga index ya Quran pakufufuza koyamba…</string>
+    <string name="quran_search_index_progress">Kupanga mndandanda wa mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Chithunzi: %1$s</string>
+    <string name="quran_search_derivations">Mawu ochokera ku muzu womwewo</string>
+    <string name="quran_search_no_root">Sanathe kudziwa muzu</string>
 </resources>

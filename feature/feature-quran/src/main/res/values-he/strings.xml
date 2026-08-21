@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">איה קודמת</string>
     <string name="quran_range_single_ayah">איה רווקה</string>
     <string name="quran_range_single_ayah_short">איאה</string>
-    <string name="quran_range_to_end">לסיום הסורה</string>
+    <string name="quran_range_to_end">עד סוף המוסף</string>
     <string name="quran_range_to_end_short">לסיום</string>
     <string name="quran_range_whole_surah">סורה שלמה</string>
     <string name="quran_range_whole_surah_short">סורה</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">מוסף מלא על פני מדקלמים</string>
     <string name="quran_downloads_coverage_empty">עדיין לא הורד אודיו</string>
     <string name="quran_pause_notif_listener">השהה דקלום בהתראות</string>
-    <string name="quran_reciter_changed_title">הדקלם השתנה</string>
-    <string name="quran_reciter_changed_message">ההשמעה הופסקה מכיוון שהטווח מגיע לסוף הקוראן. להתחיל שוב עם %1$s?</string>
-    <string name="quran_reciter_restart">התחל שוב</string>
-    <string name="quran_reciter_not_now">לא עכשיו</string>
+    <string name="quran_search_metrics">זמן חיפוש: %1$d אלפיות השנייה</string>
+    <string name="quran_search_index_building">בניית אינדקס הקוראן לחיפוש הראשון...</string>
+    <string name="quran_search_index_progress">בניית מדד המושאף... %1$d %%</string>
+    <string name="quran_search_word_root">שורש: %1$s</string>
+    <string name="quran_search_derivations">מילים שנגזרו מאותו שורש</string>
+    <string name="quran_search_no_root">לא ניתן לקבוע את השורש</string>
 </resources>

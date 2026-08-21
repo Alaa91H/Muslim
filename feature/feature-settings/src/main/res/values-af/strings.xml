@@ -164,4 +164,22 @@
     <string name="update_available_text">Weergawe %1$s is nou beskikbaar – tik om op te dateer</string>
     <string name="notif_category_app_update">Programopdaterings</string>
     <string name="notif_category_app_update_desc">Kennisgewing wanneer \'n nuwe toepassingweergawe beskikbaar is</string>
+    <string name="about_tagline">\'n Volledige, gratis, oopbron-metgesel vir elke Moslem - gebedstye, Adhan, Koran, hadith, adhkar en meer, in jou taal.</string>
+    <string name="about_description_title">Oor Moslem</string>
+    <string name="about_description_body">Muslim is \'n gratis en oopbron Android-toepassing wat jou deur die dag vergesel: astronomies akkurate gebedstye met die Adhan, \'n presiese Qibla-kompas, die volledige Koran met voordragte en tafsir, \'n hadith-biblioteek, verkrygde adhkar, \'n elektroniese tasbih, Ramadan-gereedskap, \'n zakat-sakrekenaar, vanlyn-kaarte wat by verstek ontwerp is om volledig te werk, en meer.</string>
+    <string name="about_features_title">Hoogtepunte</string>
+    <string name="about_features_body">Alles wat \'n Moslem nodig het in een app:</string>
+    <string name="about_feature_prayer">Gebedstye en Adhan - alle berekeningsmetodes, regskole en 18+ adhan-klanke</string>
+    <string name="about_feature_quran">Volledige Koran - Uthmaniese skrif, 44 voorlesers, tafsir, vertalings, woordsoektog en frekwensie</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan en Zakat - met aanmanings en drywende borrels</string>
+    <string name="about_feature_offline">Vanlyn-eerste - kaarte, Koran, hadith en adhkar werk sonder internet</string>
+    <string name="about_feature_privacy">Privaatheid by verstek - geen advertensies, geen dop nie, jou data bly op jou toestel</string>
+    <string name="settings_auto_update">Ten volle outomatiese opdaterings</string>
+    <string name="settings_auto_update_desc">Laai en installeer outomaties nuwe weergawes op die agtergrond sodra dit vrygestel word</string>
+    <string name="settings_auto_update_confirm_title">Aktiveer outomatiese opdaterings?</string>
+    <string name="settings_auto_update_confirm_body">Nuwe weergawes sal afgelaai en outomaties op die agtergrond geïnstalleer word wanneer beskikbaar. Gaan voort?</string>
+    <string name="settings_auto_update_confirm">Aktiveer</string>
+    <string name="settings_cancel">Kanselleer</string>
+    <string name="update_last_check">Laaste kontrole: %1$s</string>
+    <string name="update_open_releases">Maak die vrystellingsbladsy in die blaaier oop</string>
 </resources>

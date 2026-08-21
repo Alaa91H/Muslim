@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Kəradə ganaro dajin sa notification, ring au media gade badijiya</string>
     <string name="more_pause_notifications_enabled">Enabled — tapne futu nizamdǝga fǝlejin</string>
     <string name="more_pause_notifications_disabled">Kasattənyi — tapne yitagattəgəro</string>
+    <string name="more_names">99 Su Allahbe</string>
+    <string name="more_names_desc">Su 99 də bayan kamil mbeji</string>
+    <string name="more_hajj">Hajji-a Umra-a</string>
+    <string name="more_hajj_desc">Kashimo kəzəkkə kəla ibadawa Hajj-a Umrah-aben</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Попередній аят</string>
     <string name="quran_range_single_ayah">Одиночний аят</string>
     <string name="quran_range_single_ayah_short">Айя</string>
-    <string name="quran_range_to_end">До кінця сури</string>
+    <string name="quran_range_to_end">До кінця Мусхафа</string>
     <string name="quran_range_to_end_short">До кінця</string>
     <string name="quran_range_whole_surah">Ціла сура</string>
     <string name="quran_range_whole_surah_short">Сура</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Повний мусхаф серед декламаторів</string>
     <string name="quran_downloads_coverage_empty">Аудіо ще не завантажено</string>
     <string name="quran_pause_notif_listener">Призупинити читання в сповіщеннях</string>
-    <string name="quran_reciter_changed_title">Декламатор змінений</string>
-    <string name="quran_reciter_changed_message">Відтворення зупинено, оскільки діапазон досягає кінця Корану. Почати знову з %1$s?</string>
-    <string name="quran_reciter_restart">Почніть знову</string>
-    <string name="quran_reciter_not_now">Не зараз</string>
+    <string name="quran_search_metrics">Час пошуку: %1$d мс</string>
+    <string name="quran_search_index_building">Створення індексу Корану для першого пошуку…</string>
+    <string name="quran_search_index_progress">Побудова індексу мусхафа… %1$d %%</string>
+    <string name="quran_search_word_root">Корінь: %1$s</string>
+    <string name="quran_search_derivations">Однокореневі слова</string>
+    <string name="quran_search_no_root">Не вдалося визначити корінь</string>
 </resources>

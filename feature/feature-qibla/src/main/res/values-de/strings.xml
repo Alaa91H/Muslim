@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Flächenbreite (Grad)</string>
     <string name="offline_maps_storage_warning">Geringer Speicherplatz – nur %1$s kostenlos</string>
     <string name="offline_maps_storage_delete_largest">Größte Region löschen (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Suchen Sie nach Moscheen nach Namen</string>
+    <string name="mosque_finder_show_all">Alle Moscheen anzeigen</string>
+    <string name="mosque_finder_share">Wegbeschreibung öffnen</string>
+    <string name="offline_maps_use_my_location">Gehen Sie zu meinem aktuellen Standort</string>
 </resources>

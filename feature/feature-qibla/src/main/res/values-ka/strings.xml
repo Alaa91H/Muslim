@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">ფართობის სიგანე (გრადუსები)</string>
     <string name="offline_maps_storage_warning">დაბალი საცავი — მხოლოდ %1$s უფასო</string>
     <string name="offline_maps_storage_delete_largest">უდიდესი რეგიონის წაშლა (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">მოძებნეთ მეჩეთები სახელით</string>
+    <string name="mosque_finder_show_all">აჩვენე ყველა მეჩეთი</string>
+    <string name="mosque_finder_share">გახსენით მიმართულებები</string>
+    <string name="offline_maps_use_my_location">გადადით ჩემს ამჟამინდელ მდებარეობაზე</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">通知、着信音、またはその他のメディアが再生されると、朗読が一時的に停止します</string>
     <string name="more_pause_notifications_enabled">有効 — タップしてシステム設定を開きます</string>
     <string name="more_pause_notifications_disabled">無効 — タップして有効にします</string>
+    <string name="more_names">アッラーの99の御名</string>
+    <string name="more_names_desc">99の名前と完全な説明</string>
+    <string name="more_hajj">ハッジ＆ウムラ</string>
+    <string name="more_hajj_desc">ハッジとウムラの儀式の詳細なガイド</string>
 </resources>

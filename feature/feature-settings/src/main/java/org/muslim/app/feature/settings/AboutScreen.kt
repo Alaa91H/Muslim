@@ -11,11 +11,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.CloudOff
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -25,6 +30,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -70,7 +76,7 @@ fun AboutScreen(
         ) {
             Text(
                 text = stringResource(R.string.app_name),
-                style = MaterialTheme.typography.headlineSmall,
+                style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.Bold,
             )
             Spacer(Modifier.height(4.dp))
@@ -79,7 +85,36 @@ fun AboutScreen(
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            Spacer(Modifier.height(8.dp))
+            Text(
+                text = stringResource(R.string.about_tagline),
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.primary,
+                fontWeight = FontWeight.Medium,
+            )
             Spacer(Modifier.height(16.dp))
+
+            AboutCard(title = stringResource(R.string.about_description_title)) {
+                Text(stringResource(R.string.about_description_body))
+            }
+
+            Spacer(Modifier.height(12.dp))
+
+            AboutCard(title = stringResource(R.string.about_features_title)) {
+                Column {
+                    Text(stringResource(R.string.about_features_body))
+                    Spacer(Modifier.height(12.dp))
+                    HorizontalDivider()
+                    Spacer(Modifier.height(12.dp))
+                    FeatureRow(Icons.Filled.Star, stringResource(R.string.about_feature_prayer))
+                    FeatureRow(Icons.AutoMirrored.Filled.MenuBook, stringResource(R.string.about_feature_quran))
+                    FeatureRow(Icons.Filled.Favorite, stringResource(R.string.about_feature_adhkar))
+                    FeatureRow(Icons.Filled.CloudOff, stringResource(R.string.about_feature_offline))
+                    FeatureRow(Icons.Filled.Lock, stringResource(R.string.about_feature_privacy))
+                }
+            }
+
+            Spacer(Modifier.height(12.dp))
 
             AboutCard(title = stringResource(R.string.about_license_title)) {
                 Text(stringResource(R.string.about_license_body))
@@ -126,6 +161,20 @@ fun AboutScreen(
                 )
             }
         }
+    }
+}
+
+@Composable
+private fun FeatureRow(icon: ImageVector, label: String) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Icon(icon, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(20.dp))
+        Spacer(Modifier.width(14.dp))
+        Text(label, style = MaterialTheme.typography.bodyMedium)
     }
 }
 

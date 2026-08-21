@@ -164,4 +164,22 @@
     <string name="update_available_text">%1$s sürümü artık mevcut; güncellemek için dokunun</string>
     <string name="notif_category_app_update">Uygulama güncellemeleri</string>
     <string name="notif_category_app_update_desc">Yeni bir uygulama sürümü mevcut olduğunda bildirim</string>
+    <string name="about_tagline">Her Müslüman için eksiksiz, ücretsiz, açık kaynaklı bir arkadaş - kendi dilinizde namaz vakitleri, Ezan, Kuran, hadis, ezkar ve daha fazlası.</string>
+    <string name="about_description_title">Müslüman Hakkında</string>
+    <string name="about_description_body">Muslim, gün boyunca size eşlik eden ücretsiz ve açık kaynaklı bir Android uygulamasıdır: Ezan ile astronomik olarak doğru namaz vakitleri, hassas bir Kıble pusulası, okunuşları ve tefsirleriyle birlikte tam Kuran, bir hadis kütüphanesi, kaynaklı ezkar, elektronik tesbih, Ramazan araçları, zekat hesaplayıcı, çevrimdışı haritalar ve daha fazlası; varsayılan olarak gizlilikle tamamen çevrimdışı çalışmak üzere tasarlanmıştır.</string>
+    <string name="about_features_title">Öne Çıkanlar</string>
+    <string name="about_features_body">Bir Müslümanın ihtiyaç duyduğu her şey tek bir uygulamada:</string>
+    <string name="about_feature_prayer">Namaz vakitleri ve Ezan — tüm hesaplama yöntemleri, hukuk okulları ve 18\'den fazla ezan sesi</string>
+    <string name="about_feature_quran">Tam Kur\'an - Osmani alfabesi, 44 okuyucu, tefsir, çeviriler, kelime arama ve sıklık</string>
+    <string name="about_feature_adhkar">Hatırlatıcılar ve yüzen baloncuklarla Adhkar, tesbih, Ramazan ve Zekat</string>
+    <string name="about_feature_offline">Çevrimdışı öncelikli — haritalar, Kuran, hadis ve ezkar internet olmadan çalışır</string>
+    <string name="about_feature_privacy">Varsayılan olarak gizlilik — reklam yok, izleme yok, verileriniz cihazınızda kalır</string>
+    <string name="settings_auto_update">Tam otomatik güncellemeler</string>
+    <string name="settings_auto_update_desc">Yeni sürümleri yayınlanır yayınlanmaz arka planda otomatik olarak indirip yükleyin</string>
+    <string name="settings_auto_update_confirm_title">Otomatik güncellemeler etkinleştirilsin mi?</string>
+    <string name="settings_auto_update_confirm_body">Yeni sürümler mevcut olduğunda arka planda otomatik olarak indirilecek ve yüklenecektir. Devam etmek?</string>
+    <string name="settings_auto_update_confirm">Olanak vermek</string>
+    <string name="settings_cancel">İptal etmek</string>
+    <string name="update_last_check">Son kontrol: %1$s</string>
+    <string name="update_open_releases">Sürümler sayfasını tarayıcıda açın</string>
 </resources>

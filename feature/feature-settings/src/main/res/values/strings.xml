@@ -66,6 +66,16 @@
 
     <string name="about_title">حول التطبيق</string>
     <string name="about_version">الإصدار %1$s</string>
+    <string name="about_tagline">تطبيق مجاني ومفتوح المصدر وشامل لكل مسلم — مواقيت الصلاة والأذان والقرآن والحديث والأذكار والمزيد، بلغتك.</string>
+    <string name="about_description_title">عن مسلم</string>
+    <string name="about_description_body">مسلم تطبيق أندرويد مجاني ومفتوح المصدر يرافقك طوال يومك: مواقيت صلاة دقيقة فلكيًا مع الأذان، بوصلة قبلة دقيقة، القرآن الكريم كاملًا مع التلاوات والتفسير، مكتبة أحاديث، أذكار موثّقة المصدر، مسبحة إلكترونية، أدوات رمضان، حاسبة زكاة، وخرائط دون اتصال — مصمّم ليعمل بالكامل دون إنترنت وبخصوصية افتراضية.</string>
+    <string name="about_features_title">أبرز المزايا</string>
+    <string name="about_features_body">كل ما يحتاجه المسلم في تطبيق واحد:</string>
+    <string name="about_feature_prayer">مواقيت الصلاة والأذان — جميع طرق الحساب والمذاهب و18+ صوت أذان</string>
+    <string name="about_feature_quran">القرآن كاملًا — رسم عثماني، 44 قارئًا، تفسير، ترجمات، بحث وتردد لغوي</string>
+    <string name="about_feature_adhkar">الأذكار والتسبيح ورمضان والزكاة — مع تنبيهات ونوافذ عائمة</string>
+    <string name="about_feature_offline">يعمل دون إنترنت — الخرائط والقرآن والحديث والأذكار بلا اتصال</string>
+    <string name="about_feature_privacy">خصوصية افتراضية — بلا إعلانات وبلا تتبّع وبياناتك تبقى على جهازك</string>
     <string name="about_license_title">الترخيص</string>
     <string name="about_license_body">مسلم تطبيق مجاني بالكامل ومفتوح المصدر بموجب رخصة GPLv3، بلا إعلانات وبلا اشتراكات وبلا تتبّع. أي نسخة معدّلة من التطبيق تبقى مفتوحة المصدر.</string>
     <string name="about_principles_title">مبادئنا</string>
@@ -160,6 +170,12 @@
     <!-- Updates -->
     <string name="settings_section_updates">التحديثات</string>
     <string name="settings_updates_check">التحقق من التحديثات</string>
+    <string name="settings_auto_update">التحديث التلقائي الكامل</string>
+    <string name="settings_auto_update_desc">تنزيل الإصدار الجديد وتثبيته تلقائيًا عند توفره دون أي تدخل</string>
+    <string name="settings_auto_update_confirm_title">تأكيد التحديث التلقائي</string>
+    <string name="settings_auto_update_confirm_body">سيتم تنزيل الإصدارات الجديدة وتثبيتها تلقائيًا في الخلفية عند توفرها. هل تريد المتابعة؟</string>
+    <string name="settings_auto_update_confirm">تفعيل</string>
+    <string name="settings_cancel">إلغاء</string>
     <string name="settings_updates_check_desc">فحص دوري لصفحة إصدارات GitHub عند توفّر نسخة جديدة</string>
     <string name="settings_updates_frequency">وتيرة الفحص</string>
     <string name="settings_updates_daily">يومي</string>
@@ -187,4 +203,6 @@
     <string name="update_download_failed">فشل التحميل — أعد المحاولة</string>
     <string name="update_available_title">يتوفر تحديث جديد</string>
     <string name="update_available_text">النسخة %1$s متاحة الآن — اضغط للتحديث</string>
+    <string name="update_last_check">آخر فحص: %1$s</string>
+    <string name="update_open_releases">فتح صفحة الإصدارات في المتصفح</string>
 </resources>

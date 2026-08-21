@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Nagshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Şerif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umaýýad metjidi (Damask) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusufusup Yslam</string>
     <string name="home_cannot_compute">Bu gün üçin wagt hasaplap bolmaýar</string>
     <string name="home_location_unknown">Locationerleşişi entek kesgitlenmedi</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Awtomat (ýerleşýän ýeri boýunça)</string>
     <string name="settings_method_automatic_desc">Programma, ýurduňyza we ýerleşýän ýeriňize baglylykda iň amatly usuly saýlaýar; usuly islendik wagt el bilen saýlap bilersiňiz.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Häzirki wagtda awtomatiki saýlanan: %1$s - %2$s</string>
 </resources>

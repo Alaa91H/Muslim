@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Largeur ya kisika (badegre)</string>
     <string name="offline_maps_storage_warning">Kubumba fioti — kaka %1$s ya ofele</string>
     <string name="offline_maps_storage_delete_largest">Kufwa kisika ya kuluta nene (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Sosa ba mosquée na zina</string>
+    <string name="mosque_finder_show_all">Monisa ba mosquée yonso</string>
+    <string name="mosque_finder_share">Kangula nzila</string>
+    <string name="offline_maps_use_my_location">Kwenda na kisika na mono ya sesepi</string>
 </resources>

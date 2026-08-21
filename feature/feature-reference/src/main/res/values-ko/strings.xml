@@ -5,4 +5,6 @@
     <string name="reference_search_hint">이 책을 검색해 보세요…</string>
     <string name="reference_title">이슬람 참고 도서관</string>
     <string name="reference_topics_count">주제</string>
+    <string name="reference_copy">복사</string>
+    <string name="reference_share">공유</string>
 </resources>

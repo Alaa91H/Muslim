@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">上一页 阿亚</string>
     <string name="quran_range_single_ayah">单身阿耶</string>
     <string name="quran_range_single_ayah_short">阿亚</string>
-    <string name="quran_range_to_end">至古兰经结束</string>
+    <string name="quran_range_to_end">到穆沙夫的尽头</string>
     <string name="quran_range_to_end_short">结束</string>
     <string name="quran_range_whole_surah">整个古兰经</string>
     <string name="quran_range_whole_surah_short">古兰经</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">朗诵者的完整穆沙夫</string>
     <string name="quran_downloads_coverage_empty">尚未下载音频</string>
     <string name="quran_pause_notif_listener">暂停通知背诵</string>
-    <string name="quran_reciter_changed_title">朗诵者已更换</string>
-    <string name="quran_reciter_changed_message">播放停止，因为范围已延伸到《古兰经》的末尾。从 %1$s 重新开始？</string>
-    <string name="quran_reciter_restart">重新开始</string>
-    <string name="quran_reciter_not_now">现在不行</string>
+    <string name="quran_search_metrics">搜索时间：%1$d 毫秒</string>
+    <string name="quran_search_index_building">为第一次搜索建立古兰经索引......</string>
+    <string name="quran_search_index_progress">建立 mushaf 指数... %1$d %%</string>
+    <string name="quran_search_word_root">根：%1$s</string>
+    <string name="quran_search_derivations">源自同一词根的词</string>
+    <string name="quran_search_no_root">无法确定根</string>
 </resources>

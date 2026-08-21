@@ -42,6 +42,8 @@ import org.muslim.app.feature.prayertimes.ui.settings.PrayerSettingsScreen
 import org.muslim.app.feature.adhkar.ui.AdhkarScreen
 import org.muslim.app.feature.hadith.ui.HadithScreen
 import org.muslim.app.feature.learn.ui.LearnScreen
+import org.muslim.app.feature.learn.ui.NamesOfAllahScreen
+import org.muslim.app.feature.learn.ui.HajjUmrahScreen
 import org.muslim.app.feature.qibla.ui.MosqueFinderScreen
 import org.muslim.app.feature.qibla.ui.OfflineMapsScreen
 import org.muslim.app.feature.qibla.ui.QiblaScreen
@@ -97,6 +99,8 @@ private const val TASBIH_ROUTE = "tasbih"
 private const val RAMADAN_ROUTE = "ramadan"
 private const val ZAKAT_ROUTE = "zakat"
 private const val LEARN_ROUTE = "learn"
+private const val NAMES_ROUTE = "learn/names-of-allah"
+private const val HAJJ_ROUTE = "learn/hajj-umrah"
 private const val REFERENCE_ROUTE = "reference"
 private const val QURAN_DOWNLOADS_ROUTE = "quran/downloads"
 private const val MOSQUES_ROUTE = "qibla/mosques"
@@ -254,6 +258,8 @@ fun MuslimApp(
                         onOpenRamadan = { navController.navigate(RAMADAN_ROUTE) },
                         onOpenZakat = { navController.navigate(ZAKAT_ROUTE) },
                         onOpenLearn = { navController.navigate(LEARN_ROUTE) },
+                        onOpenNames = { navController.navigate(NAMES_ROUTE) },
+                        onOpenHajj = { navController.navigate(HAJJ_ROUTE) },
                         onOpenReference = { navController.navigate(REFERENCE_ROUTE) },
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
                         onOpenQuranSearch = { navController.navigate(SEARCH_ROUTE) },
@@ -269,7 +275,11 @@ fun MuslimApp(
                     )
                 }
                 composable(OFFLINE_MAPS_ROUTE) {
-                    OfflineMapsScreen(onBack = { navController.popBackStack() })
+                    OfflineMapsScreen(
+                        onBack = { navController.popBackStack() },
+                        latitude = location?.latitude,
+                        longitude = location?.longitude,
+                    )
                 }
                 composable(SETTINGS_ROUTE) {
                     SettingsScreen(
@@ -310,6 +320,12 @@ fun MuslimApp(
                 }
                 composable(LEARN_ROUTE) {
                     LearnScreen(onBack = { navController.popBackStack() })
+                }
+                composable(NAMES_ROUTE) {
+                    NamesOfAllahScreen(onBack = { navController.popBackStack() })
+                }
+                composable(HAJJ_ROUTE) {
+                    HajjUmrahScreen(onBack = { navController.popBackStack() })
                 }
                 composable(REFERENCE_ROUTE) {
                     ReferenceScreen(onBack = { navController.popBackStack() })

@@ -164,4 +164,22 @@
     <string name="update_available_text">La version %1$s es ara disponibla — quichatz per metre a jorn</string>
     <string name="notif_category_app_update">Mesas a jorn de l\'aplicacion</string>
     <string name="notif_category_app_update_desc">Notificacion quand una version novèla de l\'aplicacion es disponibla</string>
+    <string name="about_tagline">Un companh complet, gratuit, de còde dobèrt per cada musulman — temps de pregària, Adhan, Alcoran, hadith, adhkar e mai, dins vòstra lenga.</string>
+    <string name="about_description_title">A prepaus dels musulmans</string>
+    <string name="about_description_body">Muslim es una aplicacion Android gratuita e de còde dobèrt que vos acompanha pendent tota la jornada: d\'oras de pregària astronomicament precisas amb l\'Adhan, una bossòla Qibla precisa, l\'Alcoran complet amb de recitacions e de tafsir, una bibliotèca de hadith, adhkar provesit, un tasbih electronic, d\'aisinas de Ramadan, una calculadoira de zakat, de mapas fòra linha, concebuts per foncionar completament fòra linha per defaut.</string>
+    <string name="about_features_title">Destacats</string>
+    <string name="about_features_body">Tot çò qu\'un musulman a besonh dins una sola aplicacion:</string>
+    <string name="about_feature_prayer">Temps de pregària e Adhan — totes los metòdes de calcul, escòlas juristicas, e 18+ sons d\'adhan</string>
+    <string name="about_feature_quran">Alcoran complet — Grafia Uthmani, 44 recitaires, tafsir, traduccions, recèrca de mots e frequéncia</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — amb de rapèls e de bombolhas flotantas</string>
+    <string name="about_feature_offline">D\'en primièr fòra linha — las mapas, l\'Alcoran, lo hadith e l\'adhkar foncionan sens internet</string>
+    <string name="about_feature_privacy">Confidencialitat per defaut — pas d\'anóncias, pas de seguiment, vòstras donadas demòran sus vòstre periferic</string>
+    <string name="settings_auto_update">Mesas a jorn entièrament automaticas</string>
+    <string name="settings_auto_update_desc">Telecargatz e installatz automaticament las versions novèlas en rèire plan tre que son publicadas</string>
+    <string name="settings_auto_update_confirm_title">Activar las mesas a jorn automaticas ?</string>
+    <string name="settings_auto_update_confirm_body">Las novèlas versions seràn telecargadas e installadas automaticament en rèireplan quand seràn disponiblas. Contunhar?</string>
+    <string name="settings_auto_update_confirm">Activar</string>
+    <string name="settings_cancel">Anullar</string>
+    <string name="update_last_check">Darrièra verificacion: %1$s</string>
+    <string name="update_open_releases">Dobrir la pagina de versions dins lo navigador</string>
 </resources>

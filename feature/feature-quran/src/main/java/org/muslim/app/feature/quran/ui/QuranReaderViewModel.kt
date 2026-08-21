@@ -35,6 +35,7 @@ import org.muslim.app.feature.quran.data.RecitationRepository
 import org.muslim.app.feature.quran.data.ReciterDownloadState
 import org.muslim.app.feature.quran.domain.Ayah
 import org.muslim.app.feature.quran.domain.LastRead
+import org.muslim.app.feature.quran.domain.QuranAyahIndex
 import org.muslim.app.feature.quran.domain.QuranRepository
 import org.muslim.app.feature.quran.domain.ReaderTheme
 import org.muslim.app.feature.quran.domain.Reciter
@@ -65,11 +66,6 @@ class QuranReaderViewModel @Inject constructor(
     // reciter from the player bar resumes playback with the same settings.
     private var lastRepeatCount = 1
     private var lastRange = RecitationRange.FromAyahToEnd
-    private var pendingRestartAyahGlobal: Int? = null
-
-    /** A reciter change interrupted a whole-mushaf run and needs confirmation. */
-    private val _reciterRestartPending = MutableStateFlow<Reciter?>(null)
-    val reciterRestartPending: StateFlow<Reciter?> = _reciterRestartPending.asStateFlow()
 
     override fun onCleared() {
         downloadNotifier.dismiss()
@@ -302,51 +298,37 @@ class QuranReaderViewModel @Inject constructor(
     /**
      * Switches the reciter from the player bar. If recitation is active, the
      * current reciter is stopped first, then the new reciter is applied and
-     * playback resumes from the same ayah with the same range/repeat (its
-     * missing audio is downloaded automatically).
+     * playback resumes from the start of the same ayah where it stopped — the
+     * queue is rebuilt against the new reciter and any missing audio for it is
+     * downloaded automatically (with progress).
      */
     fun selectReciter(reciter: Reciter) {
         if (reciter.id == selectedReciter.value.id) return
-        val wasActive = when (audioPlayer.playbackState.value) {
-            PlaybackState.Playing, PlaybackState.Paused -> true
-            PlaybackState.Idle -> false
-        }
+        val wasActive = shouldResumeAfterReciterChange(
+            audioPlayer.playbackState.value,
+            audioPlayer.currentAyah.value,
+        )
         val ayahGlobal = audioPlayer.currentAyah.value
         val repeat = lastRepeatCount
         val range = lastRange
-        // A whole-mushaf run is intentionally not resumed against a different
-        // audio source: the queue can already be downloading/advancing across
-        // surahs. Stop it first and ask the user whether to start a fresh run.
-        val requiresRestartConfirmation = wasActive && range == RecitationRange.FromAyahToEnd
         audioPlayer.stop()
-        pendingRestartAyahGlobal = ayahGlobal
         viewModelScope.launch {
             prefsRepository.setSelectedReciterId(reciter.id)
-            if (requiresRestartConfirmation) {
-                _reciterRestartPending.value = reciter
-            } else if (wasActive && ayahGlobal != null) {
-                val ayah = uiState.value.ayahs.firstOrNull { it.globalNumber == ayahGlobal }
+            if (wasActive && ayahGlobal != null) {
+                // The playing ayah may belong to a surah the reader is no
+                // longer displaying (continuous playback advanced surahs), so
+                // resolve it from its own surah — never from a stale list.
+                val surahOfAyah = QuranAyahIndex.surahOf(ayahGlobal)
+                val ayahs = if (surahOfAyah in 1..114 && surahOfAyah != _surahNumber.value) {
+                    _surahNumber.value = surahOfAyah
+                    repository.observeSurah(surahOfAyah).first()
+                } else {
+                    uiState.value.ayahs
+                }
+                val ayah = ayahs.firstOrNull { it.globalNumber == ayahGlobal }
                 if (ayah != null) playAyahWithRange(ayah, repeat, range)
             }
         }
-    }
-
-    /** Dismisses the restart prompt while leaving the newly selected reciter applied. */
-    fun dismissReciterRestartPrompt() {
-        _reciterRestartPending.value = null
-        pendingRestartAyahGlobal = null
-    }
-
-    /** Starts the selected reciter again from the interrupted ayah. */
-    fun restartAfterReciterChange() {
-        if (_reciterRestartPending.value == null) return
-        val ayahGlobal = pendingRestartAyahGlobal
-        _reciterRestartPending.value = null
-        pendingRestartAyahGlobal = null
-        val ayah = uiState.value.ayahs.firstOrNull { it.globalNumber == ayahGlobal }
-            ?: uiState.value.ayahs.firstOrNull()
-            ?: return
-        playAyahWithRange(ayah, lastRepeatCount, RecitationRange.FromAyahToEnd)
     }
 
     /** Downloads the current surah for the selected reciter. */
@@ -593,6 +575,9 @@ class QuranReaderViewModel @Inject constructor(
  * "to the end of the Quran" run reached surah 114, or continuous playback is
  * set to stop at the end of the mushaf instead of wrapping.
  */
+internal fun shouldResumeAfterReciterChange(state: PlaybackState, currentAyah: Int?): Boolean =
+    currentAyah != null && state != PlaybackState.Idle
+
 internal fun nextSurahForAdvance(currentSurah: Int, toEndOfQuran: Boolean, stopAtEnd: Boolean): Int? {
     if (currentSurah >= 114) return if (toEndOfQuran || stopAtEnd) null else 1
     return currentSurah + 1

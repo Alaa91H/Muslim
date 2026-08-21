@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">ಸಣ್ಣ ಅಡ್ಕಾರ್ ಅನ್ನು ಮಾತ್ರ ಬಳಸಿ</string>
     <string name="adhkar_overlay_short_only_desc">ಒಂದು ಅಥವಾ ಎರಡು ಸಾಲುಗಳಿಗೆ ಸರಿಹೊಂದುವ ಅಧ್‌ಕಾರ್ ಅನ್ನು ಆರಿಸಿ ಇದರಿಂದ ತೇಲುವ ಗುಳ್ಳೆಯು ಸ್ಪಷ್ಟವಾಗಿರುತ್ತದೆ ಮತ್ತು ಓದಲು ಸುಲಭವಾಗಿರುತ್ತದೆ.</string>
     <string name="adhkar_overlay_tap_hint">ತಕ್ಷಣವೇ ಅದನ್ನು ವಜಾಗೊಳಿಸಲು ಬಬಲ್ ಅನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
+    <string name="adhkar_copied">ಧಿಕ್ರ್ ನಕಲು ಮಾಡಿದರು</string>
+    <string name="adhkar_periodic_dhikr">ನಿರ್ದಿಷ್ಟ ಧಿಕ್ರ್</string>
+    <string name="adhkar_periodic_dhikr_random">ಯಾದೃಚ್ಛಿಕ (ಹಸ್ತಚಾಲಿತ ಆಯ್ಕೆಯ ಬದಲಿಗೆ)</string>
 </resources>

@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Utilisez uniquement des adhkar courts</string>
     <string name="adhkar_overlay_short_only_desc">Choisissez des adhkar qui tiennent sur une ou deux lignes afin que la bulle flottante reste claire et facile à lire.</string>
     <string name="adhkar_overlay_tap_hint">Appuyez sur la bulle pour la faire disparaître immédiatement.</string>
+    <string name="adhkar_copied">Dhikr copié</string>
+    <string name="adhkar_periodic_dhikr">Dhikr spécifique</string>
+    <string name="adhkar_periodic_dhikr_random">Aléatoire (au lieu d\'une sélection manuelle)</string>
 </resources>

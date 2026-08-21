@@ -164,4 +164,22 @@
     <string name="update_available_text">Версия %1$s вече е налична — докоснете, за да актуализирате</string>
     <string name="notif_category_app_update">Актуализации на приложения</string>
     <string name="notif_category_app_update_desc">Известие, когато е налична нова версия на приложението</string>
+    <string name="about_tagline">Пълен, безплатен спътник с отворен код за всеки мюсюлманин - времена за молитва, Езан, Коран, хадиси, адкар и други на вашия език.</string>
+    <string name="about_description_title">Относно мюсюлманина</string>
+    <string name="about_description_body">Muslim е безплатно приложение за Android с отворен код, което ви придружава през целия ден: астрономически точни часове за молитва с езана, прецизен компас Qibla, пълният Коран с рецитации и тафсир, библиотека с хадиси, адхкар с източник, електронен тасбих, инструменти за Рамадан, калкулатор за закат, офлайн карти и други — проектирани да работят напълно офлайн с поверителност по подразбиране.</string>
+    <string name="about_features_title">Акценти</string>
+    <string name="about_features_body">Всичко, от което се нуждае един мюсюлманин в едно приложение:</string>
+    <string name="about_feature_prayer">Времена за молитва и езан — всички методи за изчисление, юридически училища и звуци на езан за 18+</string>
+    <string name="about_feature_quran">Пълен Коран - Усмани скрипт, 44 рецитатора, тафсир, преводи, търсене на думи и честота</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat - с напомняния и плаващи балончета</string>
+    <string name="about_feature_offline">Първо офлайн - карти, Коран, хадиси и адкар работят без интернет</string>
+    <string name="about_feature_privacy">Поверителност по подразбиране — без реклами, без проследяване, вашите данни остават на вашето устройство</string>
+    <string name="settings_auto_update">Напълно автоматични актуализации</string>
+    <string name="settings_auto_update_desc">Автоматично изтегляне и инсталиране на нови версии във фонов режим веднага щом бъдат пуснати</string>
+    <string name="settings_auto_update_confirm_title">Да се ​​активират ли автоматичните актуализации?</string>
+    <string name="settings_auto_update_confirm_body">Новите версии ще бъдат изтеглени и инсталирани автоматично във фонов режим, когато са налични. Продължаване?</string>
+    <string name="settings_auto_update_confirm">Активирайте</string>
+    <string name="settings_cancel">Отказ</string>
+    <string name="update_last_check">Последна проверка: %1$s</string>
+    <string name="update_open_releases">Отворете страницата с версиите в браузъра</string>
 </resources>

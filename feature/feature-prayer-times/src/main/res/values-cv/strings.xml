@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Нагшбанди адхан</string>
     <string name="bundled_adhan_saber">Сабер адхан</string>
     <string name="bundled_adhan_sharif_doman">Шариф Доман адхан</string>
-    <string name="bundled_adhan_umayyad_damascus">Омейяд мечӗчӗ (Дамаск) азан</string>
     <string name="bundled_adhan_yusuf_islam">Юсуф Ислам азан</string>
     <string name="home_cannot_compute">Ҫак кунхи вӑхӑта шутласа кӑларма май ҫук</string>
     <string name="home_location_unknown">Вырӑнне палӑртман-ха</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Автомат (вырӑн тӑрӑх)</string>
     <string name="settings_method_automatic_desc">Приложени сирӗн ҫӗршывпа вырӑна кура чи юрӑхлӑ меслете автоматла суйласа илет; эсир ҫапах та кирек хӑш вӑхӑтра та алӑпа меслет суйласа илме пултаратӑр.</string>
     <string name="settings_preview_for_prayer">Превью %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Автоматла хальхи вӑхӑтра суйласа илнӗ: %1$s — %2$s</string>
 </resources>

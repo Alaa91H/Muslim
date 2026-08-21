@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">བརྡ་དོན་དང་ སྐད་རྐྱབ་མི་ ཡང་ན་ བརྡ་བརྒྱུད་གཞན་ཚུ་ གཏང་པའི་སྐབས་ བཀླག་ནི་འདི་ དུས་ཡུན་ཐུང་ཀུ་ཅིག་ བཀག་བཞགཔ་ཨིན།</string>
     <string name="more_pause_notifications_enabled">ལྕོགས་ཅན་བཟོ་ཡོདཔ་ — རིམ་ལུགས་སྒྲིག་སྟངས་ཚུ་ཁ་ཕྱེ་ནི་ལུ་ཨེབ་གཏང་།</string>
     <string name="more_pause_notifications_disabled">ལྕོགས་མིན་བཟོ་ཡོདཔ་ — ལྕོགས་ཅན་བཟོ་ནི་ལུ་ཨེབ་གཏང་།</string>
+    <string name="more_names">99 ཨཱལ་ལཱ་ཡི་མིང་།</string>
+    <string name="more_names_desc">གསལ་བཤད་ཆ་ཚང་ཡོད་པའི་མིང་ ༩༩ དེ།</string>
+    <string name="more_hajj">ཧ་ཇ་དང་ཨུམ་ར།</string>
+    <string name="more_hajj_desc">ཧ་ཇ་དང་ཨུམ་ར་ཆོ་གའི་ལམ་སྟོན་ཁ་གསལ།</string>
 </resources>

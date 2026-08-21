@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Цебесеб аят .</string>
     <string name="quran_range_single_ayah">ЦохӀо аят .</string>
     <string name="quran_range_single_ayah_short">Аях</string>
-    <string name="quran_range_to_end">Сураялъул ахиралде щвезегӀан .</string>
+    <string name="quran_range_to_end">Мушафалъул ахиралде щвезегӀан .</string>
     <string name="quran_range_to_end_short">Ахир гьабизе .</string>
     <string name="quran_range_whole_surah">ТӀубараб сурат .</string>
     <string name="quran_range_whole_surah_short">Сура</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">ЦӀураб мушаф цӀалдолезда гьоркьоб .</string>
     <string name="quran_downloads_coverage_empty">Жеги аудио бахъун гьечӀо</string>
     <string name="quran_pause_notif_listener">Пауза чтения на уведомлениях</string>
-    <string name="quran_reciter_changed_title">ЦӀалулев чи хисана .</string>
-    <string name="quran_reciter_changed_message">Воспроизведение остановилось, потому что диапазон бежит до конца Корана. ЦӀидасан байбихьизе %1$s?</string>
-    <string name="quran_reciter_restart">ЦӀидасан байбихье .</string>
-    <string name="quran_reciter_not_now">Гьанже гуро .</string>
+    <string name="quran_search_metrics">ЦӀех-рехалъул заман: %1$d мс</string>
+    <string name="quran_search_index_building">Создание индекса Корана для первого поиска...</string>
+    <string name="quran_search_index_progress">Мушафалъул индекс гӀуцӀи... %1$d %%.</string>
+    <string name="quran_search_word_root">Аслу: %1$s.</string>
+    <string name="quran_search_derivations">Цого аслуялдаса лъугьарал рагӀаби .</string>
+    <string name="quran_search_no_root">Аслу чӀезабизе кӀвечӀо .</string>
 </resources>

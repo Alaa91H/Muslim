@@ -164,4 +164,22 @@
     <string name="update_available_text">Версія %1$s цяпер даступная — націсніце, каб абнавіць</string>
     <string name="notif_category_app_update">Абнаўленні праграм</string>
     <string name="notif_category_app_update_desc">Апавяшчэнне аб з\'яўленні новай версіі праграмы</string>
+    <string name="about_tagline">Поўны, бясплатны кампаньён з адкрытым зыходным кодам для кожнага мусульманіна — час малітвы, азан, Каран, хадыс, азкар і многае іншае на вашай мове.</string>
+    <string name="about_description_title">Пра мусульман</string>
+    <string name="about_description_body">Муслім - гэта бясплатнае прыкладанне для Android з адкрытым зыходным кодам, якое суправаджае вас на працягу дня: астранамічна дакладны час малітвы з азанам, дакладны компас Кібла, поўны Каран з дэкламацыямі і тафсірамі, бібліятэка хадысаў, азкар з крыніц, электронны тасбіх, інструменты для Рамадана, калькулятар закяту, карты ў аўтаномным рэжыме і многае іншае - распрацавана для працы ў аўтаномным рэжыме з прыватнасцю па змаўчанні.</string>
+    <string name="about_features_title">Асноўныя моманты</string>
+    <string name="about_features_body">Усё, што трэба мусульманіну ў адным дадатку:</string>
+    <string name="about_feature_prayer">Час малітвы і азан — усе метады разліку, юрыдычныя школы і гукі азана 18+</string>
+    <string name="about_feature_quran">Поўны Каран - пісьмо Усмані, 44 чытальніка, тафсір, пераклады, пошук слоў і частата</string>
+    <string name="about_feature_adhkar">Адкар, тасбіх, Рамадан і закят - з напамінамі і плывучымі бурбалкамі</string>
+    <string name="about_feature_offline">Па-першае, па-за сеткай — карты, Каран, хадысы і адкар працуюць без інтэрнэту</string>
+    <string name="about_feature_privacy">Канфідэнцыяльнасць па змаўчанні — без рэкламы, без адсочвання, вашы даныя застаюцца на вашай прыладзе</string>
+    <string name="settings_auto_update">Цалкам аўтаматычныя абнаўленні</string>
+    <string name="settings_auto_update_desc">Аўтаматычная загрузка і ўстаноўка новых версій у фонавым рэжыме, як толькі яны будуць выпушчаныя</string>
+    <string name="settings_auto_update_confirm_title">Уключыць аўтаматычнае абнаўленне?</string>
+    <string name="settings_auto_update_confirm_body">Новыя версіі будуць спампоўвацца і ўсталёўвацца аўтаматычна ў фонавым рэжыме, калі яны будуць даступныя. Працягнуць?</string>
+    <string name="settings_auto_update_confirm">Уключыць</string>
+    <string name="settings_cancel">Адмяніць</string>
+    <string name="update_last_check">Апошняя праверка: %1$s</string>
+    <string name="update_open_releases">Адкрыйце старонку выпускаў у браўзеры</string>
 </resources>

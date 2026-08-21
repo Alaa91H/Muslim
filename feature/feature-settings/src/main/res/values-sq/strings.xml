@@ -164,4 +164,22 @@
     <string name="update_available_text">Versioni %1$s është tani i disponueshëm — trokit për ta përditësuar</string>
     <string name="notif_category_app_update">Përditësimet e aplikacioneve</string>
     <string name="notif_category_app_update_desc">Njoftim kur disponohet një version i ri i aplikacionit</string>
+    <string name="about_tagline">Një shok i plotë, i lirë, me burim të hapur për çdo musliman - kohët e namazit, Ezani, Kurani, hadithi, adkari dhe më shumë, në gjuhën tuaj.</string>
+    <string name="about_description_title">Rreth muslimanit</string>
+    <string name="about_description_body">Muslimi është një aplikacion Android pa pagesë dhe me burim të hapur që ju shoqëron gjatë gjithë ditës: kohë lutjesh të sakta astronomike me Ezanin, një busull precize Kibla, Kurani i plotë me recitime dhe tefsir, një bibliotekë hadithe, adkar me burim, një tesbih elektronik, vegla Ramadani, një kalkulator zekati, harta jashtë linje të krijuara në mënyrë të paracaktuar për punë të plotë jashtë linje.</string>
+    <string name="about_features_title">Pikat kryesore</string>
+    <string name="about_features_body">Gjithçka që i nevojitet një muslimani në një aplikacion:</string>
+    <string name="about_feature_prayer">Kohët e namazit dhe ezani - të gjitha metodat e llogaritjes, shkollat juridike dhe 18+ tinguj ezan</string>
+    <string name="about_feature_quran">Kurani i plotë — shkrimi osmani, 44 recitues, tefsir, përkthime, kërkimi i fjalëve dhe shpeshtësia</string>
+    <string name="about_feature_adhkar">Adkar, tesbih, Ramazan &amp; Zekat - me përkujtues dhe flluska lundruese</string>
+    <string name="about_feature_offline">Jashtë linje - së pari - hartat, Kurani, hadithi dhe adkari funksionojnë pa internet</string>
+    <string name="about_feature_privacy">Privatësia si parazgjedhje — pa reklama, pa gjurmim, të dhënat tuaja qëndrojnë në pajisjen tuaj</string>
+    <string name="settings_auto_update">Përditësime plotësisht automatike</string>
+    <string name="settings_auto_update_desc">Shkarkoni dhe instaloni automatikisht versionet e reja në sfond sapo të lëshohen</string>
+    <string name="settings_auto_update_confirm_title">Të aktivizohen përditësimet automatike?</string>
+    <string name="settings_auto_update_confirm_body">Versionet e reja do të shkarkohen dhe instalohen automatikisht në sfond kur të jenë të disponueshme. Të vazhdohet?</string>
+    <string name="settings_auto_update_confirm">Aktivizo</string>
+    <string name="settings_cancel">Anulo</string>
+    <string name="update_last_check">Kontrolli i fundit: %1$s</string>
+    <string name="update_open_releases">Hapni faqen e publikimeve në shfletues</string>
 </resources>

@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s ezali sikoyo — finá mpo na kosala mikolo oyo</string>
     <string name="notif_category_app_update">Mikolo ya sika ya app</string>
     <string name="notif_category_app_update_desc">Notification tango version ya sika ya app ezali</string>
+    <string name="about_tagline">Moninga ya mobimba, ya ofele, ya source ouverte mpo na musulman nionso — tango ya losambo, Adhan, Coran, hadith, adhkar mpe mingi mosusu, na monoko na yo.</string>
+    <string name="about_description_title">Na ntina na Muslim</string>
+    <string name="about_description_body">Muslim ezali appli Android ya ofele mpe ya source ouverte oyo e accompagnaka yo na mokolo mobimba: ba temps ya losambo ya astronomiquement précis na Adhan, boussole Qibla ya précision, Coran mobimba na ba récitations mpe tafsir, bibliothèque ya hadith, adhkar sourced, tasbih électronique, bisaleli ya Ramadan, calculateur ya zakat, ba cartes hors ligne, mpe mingi mosusu — oyo ebongisami mpo na kosala mobimba hors ligne na vie privée na default.</string>
+    <string name="about_features_title">Makambo ya ntina mingi</string>
+    <string name="about_features_body">Nionso oyo musulman asengeli na yango na app moko:</string>
+    <string name="about_feature_prayer">Tango ya losambo &amp; Adhan — ba méthodes nionso ya calcul, ba écoles juristiques, na 18+ sons ya adhan</string>
+    <string name="about_feature_quran">Coran mobimba — écriture Uthmani, 44 reciteurs, tafsir, mabongoli, boluki maloba &amp; fréquence</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — na makundoli mpe ba bulles flottantes</string>
+    <string name="about_feature_offline">Offline-first — ba cartes, Coran, hadith na adhkar esalaka na internet te</string>
+    <string name="about_feature_privacy">Bomoi ya moto ye moko na ndenge ya libela — ba piblisite te, bolandi te, ba données na yo etikalaka na aparɛyi na yo</string>
+    <string name="settings_auto_update">Ba mises à jour ya automatique mobimba</string>
+    <string name="settings_auto_update_desc">Télécharger automatiquement mpe installer ba versions ya sika na fond noki soki ebimi</string>
+    <string name="settings_auto_update_confirm_title">Activer ba mises à jour automatiques?</string>
+    <string name="settings_auto_update_confirm_body">Ba versions ya sika eko télécharger pe eko installer automatiquement na fond soki ekozala. Kokoba?</string>
+    <string name="settings_auto_update_confirm">Kopesa nzela</string>
+    <string name="settings_cancel">Kolongola</string>
+    <string name="update_last_check">Vérification ya suka: %1$s</string>
+    <string name="update_open_releases">Fungola lokasa ya ba sorties na navigateur</string>
 </resources>

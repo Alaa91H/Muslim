@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">यदा सूचना, रङ्गः अन्यः माध्यमः वा वाद्यते तदा पाठः संक्षेपेण विरामं करोति</string>
     <string name="more_pause_notifications_enabled">सक्षमम् — प्रणालीसेटिंग्स् उद्घाटयितुं ट्याप् कुर्वन्तु</string>
     <string name="more_pause_notifications_disabled">अक्षमम् — सक्षमीकरणाय ट्याप् कुर्वन्तु</string>
+    <string name="more_names">९९ अल्लाहस्य नामानि</string>
+    <string name="more_names_desc">पूर्णव्याख्यानसहितं ९९ नामानि</string>
+    <string name="more_hajj">हज एवं उमरा</string>
+    <string name="more_hajj_desc">हज-उमरा-संस्कारस्य विस्तृतमार्गदर्शिका</string>
 </resources>

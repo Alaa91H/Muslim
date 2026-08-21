@@ -241,7 +241,6 @@ fun QuranReaderScreen(
     val positionMs by viewModel.positionMs.collectAsStateWithLifecycle()
     val durationMs by viewModel.durationMs.collectAsStateWithLifecycle()
     val selectedReciter by viewModel.selectedReciter.collectAsStateWithLifecycle()
-    val reciterRestartPending by viewModel.reciterRestartPending.collectAsStateWithLifecycle()
     val downloading by viewModel.downloading.collectAsStateWithLifecycle()
     val downloadProgress by viewModel.downloadProgress.collectAsStateWithLifecycle()
     val keepScreenOn by viewModel.keepScreenOn.collectAsStateWithLifecycle()
@@ -318,7 +317,14 @@ fun QuranReaderScreen(
     var targetAyahRootTopPx by remember { mutableStateOf<Float?>(null) }
     var viewportTopPx by remember { mutableFloatStateOf(0f) }
     var viewportHeightPx by remember { mutableIntStateOf(0) }
-    val reportAyahTop = remember { { _: Int, top: Float -> targetAyahRootTopPx = top } }
+    // Only accept position reports for the ayah we are currently tracking — a
+    // neighbouring page's measurement for an older target must never clobber
+    // the live follow-along position.
+    val reportAyahTop = remember {
+        { ayahGlobal: Int, top: Float ->
+            if (ayahGlobal == scrollTargetAyah) targetAyahRootTopPx = top
+        }
+    }
 
     // Group the surah's ayahs into mushaf pages (flowing text per page).
     val pageEntries = remember(state.ayahs) {
@@ -435,6 +441,11 @@ fun QuranReaderScreen(
         val pad = viewportHeightPx * 0.12f
         val topBound = viewportTopPx + pad
         val bottomBound = viewportTopPx + viewportHeightPx - pad
+        // ScrollState.scrollBy uses the conventional scroll offset: a
+        // positive value moves the content toward the end (up on screen),
+        // while a negative value moves it back toward the start (down).
+        // Therefore an ayah below the viewport needs a positive delta and an
+        // ayah above it needs a negative delta.
         val delta = when {
             centerInitialAyah -> ayahTop - (viewportTopPx + viewportHeightPx / 2f)
             ayahTop < topBound -> ayahTop - topBound
@@ -773,30 +784,6 @@ fun QuranReaderScreen(
             state.surah?.let { surah ->
                 SurahDetailsDialog(surah = surah, onDismiss = { showDetails = false })
             }
-        }
-        reciterRestartPending?.let { pendingReciter ->
-            AlertDialog(
-                onDismissRequest = viewModel::dismissReciterRestartPrompt,
-                title = { Text(stringResource(R.string.quran_reciter_changed_title)) },
-                text = {
-                    Text(
-                        stringResource(
-                            R.string.quran_reciter_changed_message,
-                            pendingReciter.name,
-                        )
-                    )
-                },
-                confirmButton = {
-                    TextButton(onClick = viewModel::restartAfterReciterChange) {
-                        Text(stringResource(R.string.quran_reciter_restart))
-                    }
-                },
-                dismissButton = {
-                    TextButton(onClick = viewModel::dismissReciterRestartPrompt) {
-                        Text(stringResource(R.string.quran_reciter_not_now))
-                    }
-                },
-            )
         }
         if (showSupplementControls) {
             SupplementControlsDialog(
@@ -1260,9 +1247,12 @@ private fun MushafPageCard(
     var targetLineTopPx by remember { mutableFloatStateOf(-1f) }
 
     // Report the target ayah's absolute on-screen top once it is laid out in
-    // this page so the screen can scroll it into view.
-    LaunchedEffect(textRootTopPx, targetLineTopPx, scrollTargetAyahGlobal) {
+    // this page so the screen can scroll it into view. Only pages that
+    // actually contain the target ayah may report — a page whose previous
+    // target moved away would otherwise keep reporting a stale offset.
+    LaunchedEffect(textRootTopPx, targetLineTopPx, scrollTargetAyahGlobal, ayahs) {
         val target = scrollTargetAyahGlobal ?: return@LaunchedEffect
+        if (ayahs.none { it.globalNumber == target }) return@LaunchedEffect
         if (targetLineTopPx < 0f) return@LaunchedEffect
         onAyahRootTopPx(target, textRootTopPx + targetLineTopPx)
     }
@@ -1273,6 +1263,9 @@ private fun MushafPageCard(
     val firstAyahText = if (isSurahOpeningPage) stripLeadingBasmala(firstAyah.text) else firstAyah.text
     val showBasmala = isSurahOpeningPage && firstAyah.surahNumber != 1 && firstAyahText != firstAyah.text
     val annotated = buildAnnotatedString {
+        // Reset before scanning so a page whose target moved away (or a
+        // follow-along advance within this page) never reports a stale offset.
+        targetCharOffset = -1
         ayahs.forEach { ayah ->
             if (ayah.globalNumber == scrollTargetAyahGlobal) targetCharOffset = length
             // Visual hierarchy: the tapped ayah flashes strongest (temporary),
@@ -1407,6 +1400,11 @@ private fun MushafPageCard(
                         val offset = targetCharOffset.coerceIn(0, result.layoutInput.text.length - 1)
                         val line = result.getLineForOffset(offset)
                         targetLineTopPx = result.getLineTop(line)
+                    } else {
+                        // The target ayah is not on this page: reset the line
+                        // offset so the report above stays silent instead of
+                        // reusing a stale measurement from an earlier target.
+                        targetLineTopPx = -1f
                     }
                 },
             )

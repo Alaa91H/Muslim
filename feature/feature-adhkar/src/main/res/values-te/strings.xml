@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">సంక్షిప్త అడ్కార్‌ని మాత్రమే ఉపయోగించండి</string>
     <string name="adhkar_overlay_short_only_desc">ఒకటి లేదా రెండు పంక్తులకు సరిపోయే అద్‌కార్‌ని ఎంచుకోండి, తద్వారా తేలియాడే బుడగ స్పష్టంగా మరియు చదవడానికి సులభంగా ఉంటుంది.</string>
     <string name="adhkar_overlay_tap_hint">వెంటనే తీసివేయడానికి బబుల్‌ను నొక్కండి.</string>
+    <string name="adhkar_copied">ధిక్ర్ కాపీ కొట్టాడు</string>
+    <string name="adhkar_periodic_dhikr">నిర్దిష్ట ధిక్ర్</string>
+    <string name="adhkar_periodic_dhikr_random">యాదృచ్ఛికం (మాన్యువల్ ఎంపికకు బదులుగా)</string>
 </resources>

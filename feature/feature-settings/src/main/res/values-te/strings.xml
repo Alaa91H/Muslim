@@ -164,4 +164,22 @@
     <string name="update_available_text">వెర్షన్ %1$s ఇప్పుడు అందుబాటులో ఉంది — నవీకరించడానికి నొక్కండి</string>
     <string name="notif_category_app_update">యాప్ అప్‌డేట్‌లు</string>
     <string name="notif_category_app_update_desc">కొత్త యాప్ వెర్షన్ అందుబాటులో ఉన్నప్పుడు నోటిఫికేషన్</string>
+    <string name="about_tagline">మీ భాషలో ప్రార్థన సమయాలు, అధాన్, ఖురాన్, హదీసులు, అద్కార్ మరియు మరిన్ని - ప్రతి ముస్లిం కోసం పూర్తి, ఉచిత, ఓపెన్ సోర్స్ సహచరుడు.</string>
+    <string name="about_description_title">ముస్లిం గురించి</string>
+    <string name="about_description_body">ముస్లిం అనేది రోజంతా మీకు తోడుగా ఉండే ఉచిత మరియు ఓపెన్ సోర్స్ ఆండ్రాయిడ్ యాప్: ఖగోళశాస్త్రపరంగా ఖచ్చితమైన ప్రార్థన సమయాలు, ఖచ్చితమైన ఖిబ్లా దిక్సూచి, పారాయణాలు మరియు తఫ్సీర్‌లతో కూడిన పూర్తి ఖురాన్, హదీథ్ లైబ్రరీ, మూలాధారమైన అద్కార్, ఎలక్ట్రానిక్ తస్బీ, రంజాన్ సాధనాలు, జకాత్ కాలిక్యులేటర్, ఆఫ్‌లైన్ మ్యాప్‌లతో ప్రత్యేకంగా రూపొందించబడింది.</string>
+    <string name="about_features_title">ముఖ్యాంశాలు</string>
+    <string name="about_features_body">ముస్లింలకు కావాల్సినవన్నీ ఒకే యాప్‌లో:</string>
+    <string name="about_feature_prayer">ప్రార్థన సమయాలు &amp; అధన్ — అన్ని గణన పద్ధతులు, న్యాయశాస్త్ర పాఠశాలలు మరియు 18+ అధాన్ శబ్దాలు</string>
+    <string name="about_feature_quran">పూర్తి ఖురాన్ — ఉత్మానీ స్క్రిప్ట్, 44 రీసైటర్లు, తఫ్సీర్, అనువాదాలు, పద శోధన &amp; ఫ్రీక్వెన్సీ</string>
+    <string name="about_feature_adhkar">అద్కార్, తస్బీహ్, రంజాన్ &amp; జకాత్ — రిమైండర్‌లు మరియు తేలియాడే బుడగలతో</string>
+    <string name="about_feature_offline">ఆఫ్‌లైన్-ఫస్ట్ — మ్యాప్‌లు, ఖురాన్, హదీసులు మరియు అద్కార్ ఇంటర్నెట్ లేకుండా పని చేస్తాయి</string>
+    <string name="about_feature_privacy">డిఫాల్ట్‌గా గోప్యత — ప్రకటనలు లేవు, ట్రాకింగ్ లేదు, మీ డేటా మీ పరికరంలో ఉంటుంది</string>
+    <string name="settings_auto_update">పూర్తిగా ఆటోమేటిక్ అప్‌డేట్‌లు</string>
+    <string name="settings_auto_update_desc">కొత్త సంస్కరణలు విడుదలైన వెంటనే వాటిని స్వయంచాలకంగా డౌన్‌లోడ్ చేసి, ఇన్‌స్టాల్ చేయండి</string>
+    <string name="settings_auto_update_confirm_title">స్వయంచాలక నవీకరణలను ప్రారంభించాలా?</string>
+    <string name="settings_auto_update_confirm_body">కొత్త సంస్కరణలు అందుబాటులో ఉన్నప్పుడు నేపథ్యంలో స్వయంచాలకంగా డౌన్‌లోడ్ చేయబడతాయి మరియు ఇన్‌స్టాల్ చేయబడతాయి. కొనసాగించాలా?</string>
+    <string name="settings_auto_update_confirm">ప్రారంభించు</string>
+    <string name="settings_cancel">రద్దు చేయి</string>
+    <string name="update_last_check">చివరి తనిఖీ: %1$s</string>
+    <string name="update_open_releases">బ్రౌజర్‌లో విడుదలల పేజీని తెరవండి</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Oldingi oyat</string>
     <string name="quran_range_single_ayah">Yagona oyat</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Suraning oxirigacha</string>
+    <string name="quran_range_to_end">Mushafning oxirigacha</string>
     <string name="quran_range_to_end_short">Tugatish uchun</string>
     <string name="quran_range_whole_surah">Butun sura</string>
     <string name="quran_range_whole_surah_short">sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Qorilar bo\'ylab to\'liq mushaf</string>
     <string name="quran_downloads_coverage_empty">Hali hech qanday audio yuklab olinmagan</string>
     <string name="quran_pause_notif_listener">Bildirishnomalarda qiroatni to\'xtatib turish</string>
-    <string name="quran_reciter_changed_title">Qo\'shiqchi o\'zgartirildi</string>
-    <string name="quran_reciter_changed_message">Oʻynatish toʻxtatildi, chunki diapazon Qurʼon oxirigacha ishlaydi. %1$s bilan qaytadan boshlansinmi?</string>
-    <string name="quran_reciter_restart">Qayta boshlang</string>
-    <string name="quran_reciter_not_now">Hozir emas</string>
+    <string name="quran_search_metrics">Qidiruv vaqti: %1$d ms</string>
+    <string name="quran_search_index_building">Birinchi qidiruv uchun Qur\'on indeksi yaratilmoqda...</string>
+    <string name="quran_search_index_progress">Mushaf indeksini yaratish… %1$d %%</string>
+    <string name="quran_search_word_root">Ildiz: %1$s</string>
+    <string name="quran_search_derivations">Bir ildizdan olingan so\'zlar</string>
+    <string name="quran_search_no_root">Ildizni aniqlab bo\'lmadi</string>
 </resources>

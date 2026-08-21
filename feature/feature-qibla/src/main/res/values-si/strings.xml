@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">ප්‍රදේශයේ පළල (අංශක)</string>
     <string name="offline_maps_storage_warning">අඩු ආචයනය - නොමිලේ %1$s පමණි</string>
     <string name="offline_maps_storage_delete_largest">විශාලතම කලාපය මකන්න (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">නමින් මුස්ලිම් පල්ලි සොයන්න</string>
+    <string name="mosque_finder_show_all">සියලුම පල්ලි පෙන්වන්න</string>
+    <string name="mosque_finder_share">විවෘත දිශාවන්</string>
+    <string name="offline_maps_use_my_location">මගේ වත්මන් ස්ථානයට යන්න</string>
 </resources>

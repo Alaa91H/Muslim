@@ -21,4 +21,8 @@
     <string name="more_pause_on_notifications_desc">تتوقف التلاوة مؤقتًا لفترة وجيزة عند تشغيل إشعار أو رنين أو وسائط أخرى</string>
     <string name="more_pause_notifications_enabled">ممكّن — انقر لفتح إعدادات النظام</string>
     <string name="more_pause_notifications_disabled">معطل - انقر للتمكين</string>
+    <string name="more_names">99 أسماء الله الحسنى</string>
+    <string name="more_names_desc">الأسماء الـ 99 مع الشرح الكامل</string>
+    <string name="more_hajj">الحج والعمرة</string>
+    <string name="more_hajj_desc">الدليل التفصيلي لمناسك الحج والعمرة</string>
 </resources>

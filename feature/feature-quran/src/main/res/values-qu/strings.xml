@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ñawpaq ayah</string>
     <string name="quran_range_single_ayah">Soltero ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Surah tukunanpaq</string>
+    <string name="quran_range_to_end">To the end of the Mushaf</string>
     <string name="quran_range_to_end_short">Tukuchinapaq</string>
     <string name="quran_range_whole_surah">Tukuy surah</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Lliw mushaf tukuy recitadores</string>
     <string name="quran_downloads_coverage_empty">Manaraqmi uyarinapaq uraykachisqachu</string>
     <string name="quran_pause_notif_listener">Willakuykunapi rimayta samay</string>
-    <string name="quran_reciter_changed_title">Reciter cambiasqa</string>
-    <string name="quran_reciter_changed_message">Pukllayqa sayarqa, chay rango Quranpa tukukuyninkama purisqanrayku. %1$s nisqawan musuqmanta qallariy?</string>
-    <string name="quran_reciter_restart">Hukmanta qallariy</string>
-    <string name="quran_reciter_not_now">Mana kunanchu</string>
+    <string name="quran_search_metrics">Maskay pacha: %1$d ms</string>
+    <string name="quran_search_index_building">Ñawpaq maskanapaq Quranpa indisninta ruway...</string>
+    <string name="quran_search_index_progress">Mushaf nisqa indice nisqa ruway... %1$d %%</string>
+    <string name="quran_search_word_root">Saphi: %1$s</string>
+    <string name="quran_search_derivations">Huk saphimanta lluqsisqa simikuna</string>
+    <string name="quran_search_no_root">Saphinta mana tariyta atirqanchu</string>
 </resources>

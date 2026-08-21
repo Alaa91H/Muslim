@@ -164,4 +164,22 @@
     <string name="update_available_text">Versioun %1$s ass elo verfügbar - tippt fir ze aktualiséieren</string>
     <string name="notif_category_app_update">App Updates</string>
     <string name="notif_category_app_update_desc">Notifikatioun wann eng nei App Versioun verfügbar ass</string>
+    <string name="about_tagline">E komplette, gratis Open-Source Begleeder fir all Moslem - Gebiedszäiten, Adhan, Koran, Hadith, Adhkar a méi, an Ärer Sprooch.</string>
+    <string name="about_description_title">Iwwer Moslem</string>
+    <string name="about_description_body">Muslim ass eng gratis an Open Source Android App déi Iech de ganzen Dag begleet: astronomesch präzis Gebiedszäite mam Adhan, e präzise Qibla Kompass, de komplette Koran mat Recitatiounen an Tafsir, eng Hadith Bibliothéik, Source Adhkar, en elektroneschen Tasbih, Ramadan Tools, e Zakat Rechner, offline entworf fir voll offline Kaarten, a méi.</string>
+    <string name="about_features_title">Highlights</string>
+    <string name="about_features_body">Alles wat e Moslem brauch an enger App:</string>
+    <string name="about_feature_prayer">Gebiedszäiten &amp; Adhan - all Berechnungsmethoden, juristesch Schoulen, an 18+ Adhan Kläng</string>
+    <string name="about_feature_quran">Komplett Koran - Uthmanescht Skript, 44 Reciteren, Tafsir, Iwwersetzungen, Wuert Sich &amp; Frequenz</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat - mat Erënnerungen a schwiewend Bubbles</string>
+    <string name="about_feature_offline">Offline-éischt - Kaarten, Koran, Hadith an Adhkar funktionnéieren ouni Internet</string>
+    <string name="about_feature_privacy">Privatsphär par défaut - keng Annoncen, keng Tracking, Är Donnéeë bleiwen op Ärem Apparat</string>
+    <string name="settings_auto_update">Voll automatesch Updates</string>
+    <string name="settings_auto_update_desc">Luet automatesch nei Versiounen am Hannergrond erof an installéiert soubal se verëffentlecht ginn</string>
+    <string name="settings_auto_update_confirm_title">Automatesch Updates aktivéieren?</string>
+    <string name="settings_auto_update_confirm_body">Nei Versioune ginn erofgelueden an automatesch am Hannergrond installéiert wann et verfügbar ass. Fuert weider?</string>
+    <string name="settings_auto_update_confirm">Aktivéieren</string>
+    <string name="settings_cancel">Ofbriechen</string>
+    <string name="update_last_check">Last Kontroll: %1$s</string>
+    <string name="update_open_releases">Öffnen d\'Verëffentlechungssäit am Browser</string>
 </resources>

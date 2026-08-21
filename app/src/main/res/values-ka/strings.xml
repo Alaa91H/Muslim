@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">შეტყობინებების, ზარის ან სხვა მედიის დაკვრისას რეციდიცია ჩერდება მოკლედ</string>
     <string name="more_pause_notifications_enabled">ჩართულია — შეეხეთ სისტემის პარამეტრების გასახსნელად</string>
     <string name="more_pause_notifications_disabled">გამორთულია — შეეხეთ ჩასართავად</string>
+    <string name="more_names">99 ალაჰის სახელები</string>
+    <string name="more_names_desc">99 სახელი სრული განმარტებით</string>
+    <string name="more_hajj">ჰაჯი და უმრა</string>
+    <string name="more_hajj_desc">დეტალური გზამკვლევი ჰაჯისა და უმრას რიტუალებზე</string>
 </resources>

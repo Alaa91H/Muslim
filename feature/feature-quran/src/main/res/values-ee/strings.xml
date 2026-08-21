@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah si do ŋgɔ</string>
     <string name="quran_range_single_ayah">Ayah ɖeka kolia</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Be woawu surah ƒe nuwuwu</string>
+    <string name="quran_range_to_end">Vaseɖe Mushaf ƒe nuwuwu</string>
     <string name="quran_range_to_end_short">Be woawu enu</string>
     <string name="quran_range_whole_surah">Surah blibo</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf blibo le nuxlẽlawo katã me</string>
     <string name="quran_downloads_coverage_empty">Womeɖe odio aɖeke ɖe kɔmpiuta dzi haɖe o</string>
     <string name="quran_pause_notif_listener">Dzudzɔ nuxexlẽ le nyatakakawo me</string>
-    <string name="quran_reciter_changed_title">Reciter trɔ</string>
-    <string name="quran_reciter_changed_message">Wotɔ te ƒoƒo elabena range la ƒua du va ɖoa Quran la ƒe nuwuwu. Dze egɔme ake kple %1$s?</string>
-    <string name="quran_reciter_restart">Dze egɔme ake</string>
-    <string name="quran_reciter_not_now">Menye fifia o</string>
+    <string name="quran_search_metrics">Ɣeyiɣi didi: %1$d ms</string>
+    <string name="quran_search_index_building">Quran ƒe index tutu na didi gbãtɔ...</string>
+    <string name="quran_search_index_progress">Mushaf ƒe dzesi tutu... %1$d %%</string>
+    <string name="quran_search_word_root">Ke: %1$s</string>
+    <string name="quran_search_derivations">Nya siwo woɖe tso ke ɖeka me</string>
+    <string name="quran_search_no_root">Mete ŋu nya kea o</string>
 </resources>

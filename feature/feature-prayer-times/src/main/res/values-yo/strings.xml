@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Mossalassi Umayyad (Damascus) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Ko le ṣe iṣiro awọn akoko fun ọjọ yii</string>
     <string name="home_location_unknown">A ko ṣeto ipo sibẹsibẹ</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Aifọwọyi (nipa ipo)</string>
     <string name="settings_method_automatic_desc">Ohun elo naa yan ọna ti o dara julọ laifọwọyi da lori orilẹ-ede ati ipo rẹ; o tun le yan ọna kan pẹlu ọwọ nigbakugba.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Laifọwọyi ti gbe lọwọlọwọ: %1$s — %2$s</string>
 </resources>

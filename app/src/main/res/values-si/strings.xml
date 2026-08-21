@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">දැනුම්දීමක්, නාදයක් හෝ වෙනත් මාධ්‍ය වාදනය වන විට පාරායනය කෙටියෙන් විරාම වේ</string>
     <string name="more_pause_notifications_enabled">සබලයි - පද්ධති සැකසුම් විවෘත කිරීමට තට්ටු කරන්න</string>
     <string name="more_pause_notifications_disabled">අබලයි - සක්‍රිය කිරීමට තට්ටු කරන්න</string>
+    <string name="more_names">99 අල්ලාහ්ගේ නම්</string>
+    <string name="more_names_desc">සම්පූර්ණ පැහැදිලි කිරීමක් සහිත නම් 99</string>
+    <string name="more_hajj">හජ් සහ උම්රා</string>
+    <string name="more_hajj_desc">හජ් සහ උම්රා චාරිත්‍ර සඳහා සවිස්තරාත්මක මාර්ගෝපදේශය</string>
 </resources>

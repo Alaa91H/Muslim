@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">ਲਘੂ ਅਧਕਾਰ ਦੀ ਹੀ ਵਰਤੋਂ ਕਰੋ</string>
     <string name="adhkar_overlay_short_only_desc">ਅਧਕਾਰ ਚੁਣੋ ਜੋ ਇੱਕ ਜਾਂ ਦੋ ਲਾਈਨਾਂ ਵਿੱਚ ਫਿੱਟ ਹੋਵੇ ਤਾਂ ਕਿ ਫਲੋਟਿੰਗ ਬੁਲਬੁਲਾ ਸਾਫ਼ ਅਤੇ ਪੜ੍ਹਨ ਵਿੱਚ ਆਸਾਨ ਰਹੇ।</string>
     <string name="adhkar_overlay_tap_hint">ਇਸ ਨੂੰ ਤੁਰੰਤ ਖਾਰਜ ਕਰਨ ਲਈ ਬੁਲਬੁਲੇ \'ਤੇ ਟੈਪ ਕਰੋ।</string>
+    <string name="adhkar_copied">ਧਿਆਨ ਨਕਲ ਕੀਤਾ</string>
+    <string name="adhkar_periodic_dhikr">ਖਾਸ ਧਿਆਨ</string>
+    <string name="adhkar_periodic_dhikr_random">ਬੇਤਰਤੀਬ (ਮੈਨੂਅਲ ਪਿਕ ਦੀ ਬਜਾਏ)</string>
 </resources>

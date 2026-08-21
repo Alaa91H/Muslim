@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">ప్రాంతం వెడల్పు (డిగ్రీలు)</string>
     <string name="offline_maps_storage_warning">తక్కువ నిల్వ — %1$s మాత్రమే ఉచితం</string>
     <string name="offline_maps_storage_delete_largest">అతిపెద్ద ప్రాంతాన్ని తొలగించండి (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">పేరు ద్వారా మసీదులను శోధించండి</string>
+    <string name="mosque_finder_show_all">అన్ని మసీదులను చూపించు</string>
+    <string name="mosque_finder_share">దిశలను తెరవండి</string>
+    <string name="offline_maps_use_my_location">నా ప్రస్తుత స్థానానికి వెళ్లు</string>
 </resources>

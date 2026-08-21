@@ -24,4 +24,5 @@
     <string name="hadith_share">Декъа</string>
     <string name="hadith_title">Хьадисийн библиотека</string>
     <string name="hadith_copy">Копировать дан .</string>
+    <string name="hadith_copied">Хьадис копировать дина .</string>
 </resources>

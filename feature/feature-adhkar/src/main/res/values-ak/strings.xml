@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Fa adhkar tiawa nkutoo di dwuma</string>
     <string name="adhkar_overlay_short_only_desc">Paw adhkar a ɛfata nkyerɛwde biako anaa abien sɛnea ɛbɛyɛ a ahurututu a ɛsensɛn nsu so no bɛkɔ so ada hɔ na ɛnyɛ den sɛ wɔbɛkenkan.</string>
     <string name="adhkar_overlay_tap_hint">Kɔ bubble no so na yi no fi hɔ ntɛm ara.</string>
+    <string name="adhkar_copied">Dhikr na ɔyɛɛ ho mfonini</string>
+    <string name="adhkar_periodic_dhikr">Dhikr pɔtee bi</string>
+    <string name="adhkar_periodic_dhikr_random">Random (sen sɛ wɔde nsa bɛpaw) .</string>
 </resources>

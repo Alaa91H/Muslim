@@ -5,4 +5,6 @@
     <string name="reference_search_hint">この本を検索…</string>
     <string name="reference_title">イスラム参考図書館</string>
     <string name="reference_topics_count">トピックス</string>
+    <string name="reference_copy">コピー</string>
+    <string name="reference_share">シェアする</string>
 </resources>

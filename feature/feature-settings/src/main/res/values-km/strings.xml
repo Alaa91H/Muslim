@@ -164,4 +164,22 @@
     <string name="update_available_text">កំណែ %1$s ឥឡូវនេះមានហើយ — ចុចដើម្បីអាប់ដេត</string>
     <string name="notif_category_app_update">អាប់ដេតកម្មវិធី</string>
     <string name="notif_category_app_update_desc">ការជូនដំណឹងនៅពេលដែលកំណែកម្មវិធីថ្មីអាចប្រើបាន</string>
+    <string name="about_tagline">ដៃគូប្រភពបើកចំហពេញលេញ ឥតគិតថ្លៃសម្រាប់គ្រប់មូស្លីម — ពេលអធិស្ឋាន Adhan, Quran, hadith, adhkar និងច្រើនទៀតជាភាសារបស់អ្នក។</string>
+    <string name="about_description_title">អំពីមូស្លីម</string>
+    <string name="about_description_body">មូស្លីមគឺជាកម្មវិធី Android ឥតគិតថ្លៃ និងប្រភពបើកចំហដែលអមដំណើរអ្នកពេញមួយថ្ងៃ៖ ពេលវេលាអធិស្ឋានត្រឹមត្រូវតាមតារាសាស្ត្រជាមួយ Adhan ត្រីវិស័យ Qibla ច្បាស់លាស់ គម្ពីរគម្ពីគូរ៉ាពេញលេញជាមួយនឹងការសូត្រ និង tafsir បណ្ណាល័យ hadith ប្រភព adhkar អេឡិចត្រូនិច tasbih ឧបករណ៍រ៉ាម៉ាដាន ម៉ាស៊ីនគិតលេខ zakat ផែនទីក្រៅបណ្តាញ និងអ្វីៗជាច្រើនទៀត - រចនាឡើងដោយលំនាំដើម។</string>
+    <string name="about_features_title">គំនួសពណ៌</string>
+    <string name="about_features_body">អ្វីគ្រប់យ៉ាងដែលមូស្លីមត្រូវការនៅក្នុងកម្មវិធីមួយ៖</string>
+    <string name="about_feature_prayer">ពេលវេលាអធិស្ឋាន &amp; Adhan — វិធីសាស្រ្តគណនាទាំងអស់ សាលានីតិសាស្រ្ត និងសំឡេង 18+ adhan</string>
+    <string name="about_feature_quran">ពេញលេញគម្ពីគូរ៉ា - អក្សរ Uthmani, 44 reciters, tafsir, ការបកប្រែ, ការស្វែងរកពាក្យ &amp; ប្រេកង់</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, រ៉ាម៉ាដាន និងហ្សាកាត — ជាមួយការរំលឹក និងពពុះអណ្តែត</string>
+    <string name="about_feature_offline">ក្រៅបណ្តាញ - ទីមួយ - ផែនទី គម្ពីគូរ៉ា ហាឌីត និងអាដកា ដំណើរការដោយគ្មានអ៊ីនធឺណិត</string>
+    <string name="about_feature_privacy">ភាពឯកជនតាមលំនាំដើម — គ្មានការផ្សាយពាណិជ្ជកម្ម គ្មានការតាមដាន ទិន្នន័យរបស់អ្នកនៅតែមាននៅលើឧបករណ៍របស់អ្នក។</string>
+    <string name="settings_auto_update">ការធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិយ៉ាងពេញលេញ</string>
+    <string name="settings_auto_update_desc">ទាញយក និងដំឡើងកំណែថ្មីដោយស្វ័យប្រវត្តិនៅក្នុងផ្ទៃខាងក្រោយភ្លាមៗនៅពេលដែលពួកគេត្រូវបានចេញផ្សាយ</string>
+    <string name="settings_auto_update_confirm_title">បើកការអាប់ដេតដោយស្វ័យប្រវត្តិ?</string>
+    <string name="settings_auto_update_confirm_body">កំណែថ្មីនឹងត្រូវបានទាញយក និងដំឡើងដោយស្វ័យប្រវត្តិនៅក្នុងផ្ទៃខាងក្រោយនៅពេលដែលមាន។ បន្ត?</string>
+    <string name="settings_auto_update_confirm">បើក</string>
+    <string name="settings_cancel">បោះបង់</string>
+    <string name="update_last_check">ការពិនិត្យចុងក្រោយ៖ %1$s</string>
+    <string name="update_open_releases">បើកទំព័រចេញផ្សាយនៅក្នុងកម្មវិធីរុករក</string>
 </resources>

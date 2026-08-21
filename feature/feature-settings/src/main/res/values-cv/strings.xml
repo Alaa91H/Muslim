@@ -164,4 +164,22 @@
     <string name="update_available_text">%1$s верси халӗ пур — ҫӗнетме пусӑр</string>
     <string name="notif_category_app_update">Приложени ҫӗнетӗвӗсем</string>
     <string name="notif_category_app_update_desc">Ҫӗнӗ приложени версийӗ пур чухне пӗлтерӳ</string>
+    <string name="about_tagline">Кашни мӑсӑльман валли тулли, ирӗклӗ, уҫӑ ҫӑлкуҫлӑ юлташ — кӗлӗ вӑхӑчӗсем, азан, Коран, хадис, азкар тата ытти те, сирӗн чӗлхепе.</string>
+    <string name="about_description_title">Мӑсӑльман ҫинчен</string>
+    <string name="about_description_body">Мусульман — тӳлевсӗр те уҫӑ кодлӑ Android-приложени, вӑл сире кунӗпех пӗрле илсе пырать: Азанпа астрономи тӗлӗшӗнчен тӗрӗс кӗлӗ вӑхӑчӗсем, тӗрӗс Кибла компасӗ, вулавсемпе тата тафсирсемпе тулли Коран, хадис библиотеки, ҫӑлкуҫлӑ адхкар, электронлӑ тасбих, Рамадан хатӗрӗсем, закат калькуляторӗ, офлайн карттисем, тата ытти те — офлайн вӑрттӑнлӑхпа ӗҫлеме хатӗрленӗ стандартлӑ.</string>
+    <string name="about_features_title">Паллӑ самантсем</string>
+    <string name="about_features_body">Мӑсӑльман ҫыннине пӗр приложенире мӗн кирли пурте:</string>
+    <string name="about_feature_prayer">Кӗлӗ вӑхӑчӗсем тата азан — пур шутлав меслечӗсем те, юридици шкулӗсем тата 18+ азан сассисем</string>
+    <string name="about_feature_quran">Пӗтӗмӗшле Коран — Османи ҫырӑвӗ, 44 вулакан, тафсир, куҫарусем, сӑмах шыравӗ тата час-часах</string>
+    <string name="about_feature_adhkar">Адхкар, тасбих, Рамадан тата Закат — аса илтерӳсемпе тата ишсе ҫӳрекен хӑмпӑсемпе</string>
+    <string name="about_feature_offline">Офлайн-пӗрремӗш — карттӑсем, Коран, хадис тата азкар интернетсӑр ӗҫлеҫҫӗ</string>
+    <string name="about_feature_privacy">Конфиденциаллӑх стандартлӑ майпа — реклама ҫук, сӑнаса тӑмаҫҫӗ, сирӗн даннӑйсем сирӗн устройствӑра юлаҫҫӗ</string>
+    <string name="settings_auto_update">Пӗтӗмпех автоматла ҫӗнетӳсем</string>
+    <string name="settings_auto_update_desc">Ҫӗнӗ версисене автоматла майпа фонра илсе лартӑр, вӗсем тухсанах</string>
+    <string name="settings_auto_update_confirm_title">Автоматла ҫӗнетӳсене ӗҫлеттермелле-и?</string>
+    <string name="settings_auto_update_confirm_body">Ҫӗнӗ версисем пур чухне фонра автоматла майпа илсе лартӗҫ. Малалла тӑс?</string>
+    <string name="settings_auto_update_confirm">Ирӗк пар</string>
+    <string name="settings_cancel">Пӑрахӑç ту</string>
+    <string name="update_last_check">Юлашки тӗрӗслев: %1$s</string>
+    <string name="update_open_releases">Браузерта кӑларӑмсен страницине уҫӑр</string>
 </resources>

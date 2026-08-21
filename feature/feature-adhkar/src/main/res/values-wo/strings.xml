@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Jëfandikool adhkar bu gàtt rek</string>
     <string name="adhkar_overlay_short_only_desc">Tannal adhkar bu méngoo ak benn wala ñaari rëdd suko defee bubble biy féey nekk bu leer te neexa lire.</string>
     <string name="adhkar_overlay_tap_hint">Bësal bubble bi ngir dindi ko ci saasi.</string>
+    <string name="adhkar_copied">Dhikr</string>
+    <string name="adhkar_periodic_dhikr">dhikr bu amul benn werante</string>
+    <string name="adhkar_periodic_dhikr_random">Random (ci barabu tànneef ak loxo)</string>
 </resources>

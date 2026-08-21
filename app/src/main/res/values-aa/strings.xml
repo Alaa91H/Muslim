@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Maysaxxagaay, ferranto akkek gersi ratteemah digran wak kawsi uxxuuk soola</string>
     <string name="more_pause_notifications_enabled">ugteh - maknay farmooma faktuh xag</string>
     <string name="more_pause_notifications_disabled">alif - xag ugtuh</string>
+    <string name="more_names">99 Yallih Migaaqitte.</string>
+    <string name="more_names_desc">takke migaaqitte dudda le baxxaqsa luk</string>
+    <string name="more_hajj">Cajjii kee Qumra</string>
+    <string name="more_hajj_desc">Cajji kee Qumrah siirat addatino le miracsenta</string>
 </resources>

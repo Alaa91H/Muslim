@@ -5,4 +5,6 @@
     <string name="reference_search_hint">এই বইখন সন্ধান কৰক...</string>
     <string name="reference_title">ইছলামিক ৰেফাৰেন্স লাইব্ৰেৰী</string>
     <string name="reference_topics_count">বিষয়সমূহ</string>
+    <string name="reference_copy">কপি কৰক</string>
+    <string name="reference_share">শ্বেয়াৰ কৰক</string>
 </resources>

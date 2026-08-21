@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyad Mosque (Damascus) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Sitinathe kuwerengera nthawi zatsiku lino</string>
     <string name="home_location_unknown">Malo sanakhazikitsidwe panobe</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Zadzidzidzi (ndi malo)</string>
     <string name="settings_method_automatic_desc">Pulogalamuyi imasankha njira yoyenera kwambiri yokha kutengera dziko lanu ndi malo; mukhoza kusankha njira pamanja nthawi iliyonse.</string>
     <string name="settings_preview_for_prayer">Oneranitu %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Zasankhidwa zokha: %1$s — %2$s</string>
 </resources>

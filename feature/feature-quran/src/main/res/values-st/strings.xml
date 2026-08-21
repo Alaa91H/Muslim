@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah e fetileng</string>
     <string name="quran_range_single_ayah">Ayah e le \'ngoe</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Ho fihlela qetellong ea surah</string>
+    <string name="quran_range_to_end">Ho isa pheletsong ea Mushaf</string>
     <string name="quran_range_to_end_short">Ho fela</string>
     <string name="quran_range_whole_surah">Surah e felletseng</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">mushaf e felletseng ho pholletsa le babali</string>
     <string name="quran_downloads_coverage_empty">Ha ho na audio e jarollotsoeng</string>
     <string name="quran_pause_notif_listener">Emisa ho pheta-pheta litsebiso</string>
-    <string name="quran_reciter_changed_title">Reciter e fetohile</string>
-    <string name="quran_reciter_changed_message">Ho bapala ho emisitsoe hobane sebaka se fihla pheletsong ea Quran. Qala hape ka %1$s?</string>
-    <string name="quran_reciter_restart">Qala hape</string>
-    <string name="quran_reciter_not_now">Eseng hona joale</string>
+    <string name="quran_search_metrics">Nako ea ho batla: %1$d ms</string>
+    <string name="quran_search_index_building">Ho aha lethathamo la Quran bakeng sa patlo ea pele…</string>
+    <string name="quran_search_index_progress">Ho aha index ea mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Mohloli: %1$s</string>
+    <string name="quran_search_derivations">Mantsoe a tsoang motsong o le mong</string>
+    <string name="quran_search_no_root">Ha e khone ho tseba motso</string>
 </resources>

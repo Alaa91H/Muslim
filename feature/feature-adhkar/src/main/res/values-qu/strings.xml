@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Utilizar adhkar corto solamente</string>
     <string name="adhkar_overlay_short_only_desc">Akllay adhkar huk utaq iskay chiruman tupaq chaynapi chay unupi puriq burbuja chuya hinaspa mana sasa ñawinchanapaq hina kananpaq.</string>
     <string name="adhkar_overlay_tap_hint">Chay burbujata ñit’iy chaylla qarqonaykipaq.</string>
+    <string name="adhkar_copied">Dhikr copiarqan</string>
+    <string name="adhkar_periodic_dhikr">Dhikr específico nisqa</string>
+    <string name="adhkar_periodic_dhikr_random">Random (makiwan akllaypa rantinpi) .</string>
 </resources>

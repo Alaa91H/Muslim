@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">leud sgìre (ceumannan)</string>
     <string name="offline_maps_storage_warning">Stòradh ìosal - dìreach %1$s an-asgaidh</string>
     <string name="offline_maps_storage_delete_largest">Sguab às an roinn as motha (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Lorg mosg a rèir ainm</string>
+    <string name="mosque_finder_show_all">Seall a h-uile mosg</string>
+    <string name="mosque_finder_share">Stiùireadh fosgailte</string>
+    <string name="offline_maps_use_my_location">Rach don àite far a bheil mi an-dràsta</string>
 </resources>

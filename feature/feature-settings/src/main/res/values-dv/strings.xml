@@ -164,4 +164,22 @@
     <string name="update_available_text">ވަރޝަން %1$s މިހާރު ލިބެން އެބަހުރި — އަޕްޑޭޓް ކުރުމަށް ޓެޕް ކުރާށެވެ</string>
     <string name="notif_category_app_update">އެޕް އަޕްޑޭޓްސް</string>
     <string name="notif_category_app_update_desc">އާ އެޕް ވަރޝަނެއް ލިބޭ ވަގުތު ނޮޓިފިކޭޝަން</string>
+    <string name="about_tagline">ކޮންމެ މުސްލިމަކަށް ފުރިހަމަ، ހިލޭ، އޮޕަން ސޯސް އެކުވެރިއެއް — ނަމާދު ވަގުތުތަކާއި، އަޟާން، ޤުރުއާން، ޙަދީޘް، އަޟްކަރު އަދި އެއަށްވުރެ ގިނަ ކަންތައްތައް، ތިބާގެ ބަހުން.</string>
+    <string name="about_description_title">މުސްލިމާ ބެހޭ ގޮތުން</string>
+    <string name="about_description_body">މުސްލިމް އަކީ މުޅި ދުވަހު ތިބާއާއެކު ދަތުރުކުރާ ހިލޭ އަދި އޮޕަން ސޯސް އެންޑްރޮއިޑް އެޕް: އާދަނާއެކު ފަލަކީ ގޮތުން ޞައްޙަ ނަމާދު ވަގުތުތައް، ސީދާ ޤިބްލާ ކޮމްޕަސް، ކިޔެވުމާއި ތަފްސީރު އެކުލެވޭ ފުރިހަމަ ޤުރުއާން، ޙަދީޘް ލައިބްރަރީ، ސޯސްޑް އަޟްކަރު، އިލެކްޓްރޯނިކް ތަސްބިޙް، ރަމަޟާން ޓޫލްސް، ޒަކާތް ކެލްކިއުލޭޓަރ، އޮފްލައިން މެޕްސް، އަދި އެހެނިހެން — ޑިޒައިންކޮށްފައިވަނީ ޕްރައިވެސީއާއެކު ފުރިހަމައަށް އޮފްލައިންކޮށް މަސައްކަތް ކުރުމަށް ޑިފޯލްޓް ކޮށް.</string>
+    <string name="about_features_title">ހައިލައިޓްސް</string>
+    <string name="about_features_body">މުސްލިމަކަށް ބޭނުންވާ ހުރިހާ އެއްޗެއް އެއް އެޕްގައި:</string>
+    <string name="about_feature_prayer">ނަމާދު ވަގުތު &amp; އަދަން — ހުރިހާ ހިސާބުކުރުމުގެ އުސޫލުތަކާއި، ޝަރުޢީ ސްކޫލްތަކާއި، އަދި 18+ އަދަން އަޑުތައް</string>
+    <string name="about_feature_quran">ފުރިހަމަ ޤުރުއާން — އުސްމާނީ އަކުރު، 44 ކިޔަވާ މީހުން، ތަފްސީރު، ތަރުޖަމާ، ލަފުޒު ހޯދުން &amp; ގިނަވުން</string>
+    <string name="about_feature_adhkar">އަދްކާރު، ތަސްބީޙް، ރަމަޟާން އަދި ޒަކާތް — ހަނދާންކޮށްދިނުމާއި އުދުހޭ ބުރުސްތަކާއެކު</string>
+    <string name="about_feature_offline">އޮފްލައިން-ފުރަތަމަ — މެޕްތަކާއި، ޤުރުއާނާއި، ޙަދީޘާއި، އަޟްކަރު މަސައްކަތް ކުރަނީ އިންޓަރނެޓް ނެތިއެވެ</string>
+    <string name="about_feature_privacy">ޕްރައިވެސީ ބައި ޑިފޯލްޓް — އެއްވެސް އިޝްތިހާރެއް، އެއްވެސް ޓްރެކިންގއެއް، ތިބާގެ ޑޭޓާ ތިބާގެ ޑިވައިސްގައި ހުރެއެވެ</string>
+    <string name="settings_auto_update">ފުލް އޮޓޮމެޓިކް އަޕްޑޭޓްސް</string>
+    <string name="settings_auto_update_desc">އާ ވަރޝަންތައް ނެރުނުހާ އަވަހަކަށް އޮޓޮމެޓިކުން ޑައުންލޯޑްކޮށް ބެކްގްރައުންޑްގައި އިންސްޓޯލް ކުރާށެވެ</string>
+    <string name="settings_auto_update_confirm_title">އޮޓޮމެޓިކް އަޕްޑޭޓްތައް އެނެބަލް ކުރެވޭނެ ހެއްޔެވެ؟</string>
+    <string name="settings_auto_update_confirm_body">އާ ވަރޝަންތައް ޑައުންލޯޑްކޮށް ލިބޭ ވަގުތު ބެކްގްރައުންޑްގައި އޮޓޮމެޓިކުން އިންސްޓޯލް ކުރެވޭނެ އެވެ. ކުރިއަށްގެންދިޔުން؟</string>
+    <string name="settings_auto_update_confirm">މަގުފަހި</string>
+    <string name="settings_cancel">ކެންސަލް</string>
+    <string name="update_last_check">އެންމެ ފަހުން ޗެކްކުރީ: %1$s</string>
+    <string name="update_open_releases">ބްރައުޒާގައި ރިލީޒްސް ޕޭޖް ހުޅުވާލާށެވެ</string>
 </resources>

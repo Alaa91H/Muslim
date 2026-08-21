@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Yeroo beeksisni, bilbilaan ykn miidiyaan biroo taphatu yeroo gabaabaaf dubbisuun ni dhaabata</string>
     <string name="more_pause_notifications_enabled">Dandeessifame — qindaa\'inoota sirnaa banuuf tuqi</string>
     <string name="more_pause_notifications_disabled">Hanqifame — dandeessisuuf tuqi</string>
+    <string name="more_names">99 Maqaa Rabbii</string>
+    <string name="more_names_desc">Maqaawwan 99 ibsa guutuu waliin</string>
+    <string name="more_hajj">Hajjii &amp; Umraa</string>
+    <string name="more_hajj_desc">Qajeelfama bal’aa sirna Hajjii fi Umraa</string>
 </resources>

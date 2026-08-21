@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Deklamavimas trumpam sustoja, kai paleidžiamas pranešimas, skambutis ar kita medija</string>
     <string name="more_pause_notifications_enabled">Įjungta – palieskite, kad atidarytumėte sistemos nustatymus</string>
     <string name="more_pause_notifications_disabled">Išjungta – bakstelėkite, kad įjungtumėte</string>
+    <string name="more_names">99 Alacho vardai</string>
+    <string name="more_names_desc">99 vardai su išsamiu paaiškinimu</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Išsamus Hajj ir Umrah apeigų vadovas</string>
 </resources>

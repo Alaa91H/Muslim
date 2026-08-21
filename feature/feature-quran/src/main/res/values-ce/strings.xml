@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Хьалха аят</string>
     <string name="quran_range_single_ayah">Цхьа аят .</string>
     <string name="quran_range_single_ayah_short">Аяхь</string>
-    <string name="quran_range_to_end">Сурат чекхдаккхар .</string>
+    <string name="quran_range_to_end">Мушафан чаккхенга кхаччалц .</string>
     <string name="quran_range_to_end_short">Чекхдаккха .</string>
     <string name="quran_range_whole_surah">Целое сура</string>
     <string name="quran_range_whole_surah_short">Сура.</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Дуьззина мушаф дехьа дешначарна .</string>
     <string name="quran_downloads_coverage_empty">Цкъачунна аудио чу ца яьккхина .</string>
     <string name="quran_pause_notif_listener">Хаамашна тӀехь дешар сацаде</string>
-    <string name="quran_reciter_changed_title">Доьшуш верг хийцина .</string>
-    <string name="quran_reciter_changed_message">Воспроизведение сецна, хӀунда аьлча диапазон Къуръанан чаккхенга кхаччалц лела. Юха а дӀадоло деза %1$s?</string>
-    <string name="quran_reciter_restart">Юха а дӀадолало .</string>
-    <string name="quran_reciter_not_now">ХӀинца дац .</string>
+    <string name="quran_search_metrics">Леха хан: %1$d мс</string>
+    <string name="quran_search_index_building">Хьалхарчу лехамашна Къуръанан индекс хӀоттор...</string>
+    <string name="quran_search_index_progress">Мушафан индекс хӀоттор... %1$d %%.</string>
+    <string name="quran_search_word_root">Орам: %1$s.</string>
+    <string name="quran_search_derivations">Цхьана орамах схьадевлла дешнаш .</string>
+    <string name="quran_search_no_root">Орам къасто ца кхиира .</string>
 </resources>

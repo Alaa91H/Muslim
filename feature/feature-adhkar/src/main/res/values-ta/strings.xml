@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">குறுகிய அத்கார் மட்டும் பயன்படுத்தவும்</string>
     <string name="adhkar_overlay_short_only_desc">மிதக்கும் குமிழி தெளிவாகவும் படிக்க எளிதாகவும் இருக்கும், ஒன்று அல்லது இரண்டு வரிகளுக்குப் பொருந்தக்கூடிய அத்காரைத் தேர்ந்தெடுக்கவும்.</string>
     <string name="adhkar_overlay_tap_hint">குமிழியை உடனடியாக நிராகரிக்க அதைத் தட்டவும்.</string>
+    <string name="adhkar_copied">திக்ர் ​​நகலெடுத்தார்</string>
+    <string name="adhkar_periodic_dhikr">குறிப்பிட்ட திக்ர்</string>
+    <string name="adhkar_periodic_dhikr_random">சீரற்ற (கைமுறை தேர்வுக்கு பதிலாக)</string>
 </resources>

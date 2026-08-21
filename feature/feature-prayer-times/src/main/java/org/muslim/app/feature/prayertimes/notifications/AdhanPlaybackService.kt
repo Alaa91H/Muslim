@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.IBinder
+import android.os.PowerManager
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
@@ -43,6 +44,8 @@ class AdhanPlaybackService : Service() {
     @Inject
     lateinit var soundPlayer: AdhanSoundPlayer
 
+    private var wakeLock: PowerManager.WakeLock? = null
+
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -73,6 +76,7 @@ class AdhanPlaybackService : Service() {
         NotificationChannels.create(this)
         startForeground(AdhanNotifications.ADHAN_NOTIFICATION_ID, AdhanNotifications.adhanNotification(this, prayer))
         AdhanPlaybackStatus.isPlaying.value = true
+        acquireWakeLock()
 
         val onFinished = { stopSelf() }
         when {
@@ -101,7 +105,23 @@ class AdhanPlaybackService : Service() {
         )
     }
 
+    private fun acquireWakeLock() {
+        // Keep the CPU awake while the adhan rings so a sleeping device (the
+        // typical dawn-prayer case) cannot cut the audio off right after the
+        // notification appears. Released in onDestroy.
+        val powerManager = getSystemService(Context.POWER_SERVICE) as? PowerManager ?: return
+        wakeLock = powerManager.newWakeLock(
+            PowerManager.PARTIAL_WAKE_LOCK,
+            "Muslim:AdhanPlayback",
+        ).apply {
+            setReferenceCounted(false)
+            acquire(MAX_PLAYBACK_MS)
+        }
+    }
+
     override fun onDestroy() {
+        wakeLock?.let { runCatching { if (it.isHeld) it.release() } }
+        wakeLock = null
         AdhanPlaybackStatus.isPlaying.value = false
         soundPlayer.stop()
         super.onDestroy()

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">A recitação é pausada brevemente quando uma notificação, toque ou outra mídia é reproduzida</string>
     <string name="more_pause_notifications_enabled">Ativado – toque para abrir as configurações do sistema</string>
     <string name="more_pause_notifications_disabled">Desativado – toque para ativar</string>
+    <string name="more_names">99 nomes de Alá</string>
+    <string name="more_names_desc">Os 99 nomes com explicação completa</string>
+    <string name="more_hajj">Hajj e Umrah</string>
+    <string name="more_hajj_desc">Guia detalhado para os ritos Hajj e Umrah</string>
 </resources>

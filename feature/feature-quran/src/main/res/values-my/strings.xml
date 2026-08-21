@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">ဟိုးအရင်တုန်းက</string>
     <string name="quran_range_single_ayah">လူပျို</string>
     <string name="quran_range_single_ayah_short">အာယာ</string>
-    <string name="quran_range_to_end">စူရဟ်အဆုံးထိ</string>
+    <string name="quran_range_to_end">မူရှာဖ်၏အဆုံးသတ်</string>
     <string name="quran_range_to_end_short">အဆုံးသတ်ရန်</string>
     <string name="quran_range_whole_surah">စူရဟ်တစ်ခုလုံး</string>
     <string name="quran_range_whole_surah_short">စူရဟ်</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">ရွတ်ဆိုသူများအတွက် မုရှဖ်အပြည့်</string>
     <string name="quran_downloads_coverage_empty">အသံဖိုင်ကို ဒေါင်းလုဒ်မလုပ်ရသေးပါ။</string>
     <string name="quran_pause_notif_listener">အကြောင်းကြားချက်များပေါ်တွင် ရွတ်ဆိုခြင်းကို ခေတ္တရပ်ပါ။</string>
-    <string name="quran_reciter_changed_title">ရွတ်ဆိုသူ ပြောင်းသွားတယ်။</string>
-    <string name="quran_reciter_changed_message">အကွာအဝေးသည် ကုရ်အာန်၏အဆုံးအထိ လည်ပတ်နေသောကြောင့် ပြန်ဖွင့်ခြင်း ရပ်တန့်သွားသည်။ %1$s ဖြင့် ပြန်စမလား။</string>
-    <string name="quran_reciter_restart">ပြန်စပါ။</string>
-    <string name="quran_reciter_not_now">အခုမှမဟုတ်ဘူး။</string>
+    <string name="quran_search_metrics">ရှာဖွေချိန်- %1$d ms</string>
+    <string name="quran_search_index_building">ပထမဆုံးရှာဖွေမှုအတွက် ကုရ်အာန်အညွှန်းကို တည်ဆောက်ခြင်း...</string>
+    <string name="quran_search_index_progress">mushaf အညွှန်းကိန်းကို တည်ဆောက်နေသည်… %1$d %%</string>
+    <string name="quran_search_word_root">အမြစ်- %1$s</string>
+    <string name="quran_search_derivations">တူညီသောအမြစ်မှဆင်းသက်လာသောစကားလုံးများ</string>
+    <string name="quran_search_no_root">အမြစ်ကို မဆုံးဖြတ်နိုင်ပါ။</string>
 </resources>

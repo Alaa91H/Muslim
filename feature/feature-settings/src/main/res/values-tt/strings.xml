@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s is now available — tap to update</string>
     <string name="notif_category_app_update">Кушымта яңартулары</string>
     <string name="notif_category_app_update_desc">Яңа кушымта версиясе булганда хәбәр итү</string>
+    <string name="about_tagline">Muslimәрбер мөселман өчен тулы, ирекле, ачык юлдаш - дога вакытлары, Азан, Коръән, хәдис, адхар һәм башкалар, сезнең телегездә.</string>
+    <string name="about_description_title">Мөселман турында</string>
+    <string name="about_description_body">Мөселман - бушлай һәм ачык чыганаклы Android кушымтасы, сезне көн дәвамында озата бара: Ахан белән астрономик яктан төгәл дога кылу вакыты, төгәл Кибла компасы, уку һәм тәфсир белән тулы Коръән, хәдис китапханәсе, ахкар, электрон тасби, Рамазан кораллары, зәкят калькуляторы, оффлайн карталар һәм башкалар.</string>
+    <string name="about_features_title">Мөһим вакыйгалар</string>
+    <string name="about_features_body">Бер кушымтада мөселман кирәк булган бар нәрсә:</string>
+    <string name="about_feature_prayer">Дога вакыты &amp; Азан - барлык исәпләү ысуллары, юридик мәктәпләр, 18+ адхан тавышлары</string>
+    <string name="about_feature_quran">Тулы Коръән - Усмани сценарие, 44 укучы, тафсир, тәрҗемәләр, сүз эзләү һәм ешлык</string>
+    <string name="about_feature_adhkar">Ахкар, тасби, Рамазан һәм Зәкят - искәртмәләр һәм йөзүче күбекләр белән</string>
+    <string name="about_feature_offline">Оффлайн-беренче - карталар, Коръән, хәдис һәм адхар интернетсыз эшли</string>
+    <string name="about_feature_privacy">Килешү буенча хосусыйлык - реклама юк, күзәтү юк, сезнең мәгълүмат җайланмагызда кала</string>
+    <string name="settings_auto_update">Тулы автоматик яңартулар</string>
+    <string name="settings_auto_update_desc">Яңа версияләрне автоматик рәвештә йөкләү һәм урнаштыру фонында урнаштыру</string>
+    <string name="settings_auto_update_confirm_title">Автоматик яңартуларны кушасызмы?</string>
+    <string name="settings_auto_update_confirm_body">Яңа версияләр йөкләнәчәк һәм мөмкин булганда фонда урнаштырылачак. Дәвам итегез?</string>
+    <string name="settings_auto_update_confirm">Килеш</string>
+    <string name="settings_cancel">Баш тарту</string>
+    <string name="update_last_check">Соңгы тикшерү: %1$s</string>
+    <string name="update_open_releases">Браузерда чыгарылыш битен ачыгыз</string>
 </resources>

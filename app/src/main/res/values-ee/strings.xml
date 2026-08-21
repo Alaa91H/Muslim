@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Nuxexlẽ tɔ vie ne nyatakaka, kaƒoƒo alo nyadzɔdzɔgblɔmɔ̃ bubu aɖe le ɖiɖim</string>
     <string name="more_pause_notifications_enabled">Enabled — zi edzi be nàʋu ɖoɖoa ƒe ɖoɖowo</string>
     <string name="more_pause_notifications_disabled">Disabled — zi edzi be nàwɔe</string>
+    <string name="more_names">99 Allah ƒe ŋkɔwo</string>
+    <string name="more_names_desc">Ŋkɔ 99-awo kple numeɖeɖe blibo</string>
+    <string name="more_hajj">Hajj &amp; Umrah ƒe ɣeyiɣia</string>
+    <string name="more_hajj_desc">Mɔfiame tsitotsito le Hajj kple Umrah kɔnuwo ŋu</string>
 </resources>

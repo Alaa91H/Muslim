@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi ƒe adhan</string>
     <string name="bundled_adhan_saber">Saber adhan ƒe ŋkɔ</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman ƒe amegã</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyadtɔwo ƒe Mosque (Damasko) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam ƒe adhan</string>
     <string name="home_cannot_compute">Mete ŋu bu ɣeyiɣi siwo woatsɔ awɔ ŋkeke siae o</string>
     <string name="home_location_unknown">Womeɖo teƒea haɖe o</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Automatic (le teƒe si wole nu) .</string>
     <string name="settings_method_automatic_desc">Dɔdamɔnua tiaa mɔnu si sɔ wu le eɖokui si le dukɔ si me nèle kple teƒe si nèle nu; àte ŋu atia mɔnu aɖe kokoko kple asi ɣesiaɣi.</string>
     <string name="settings_preview_for_prayer">Kpɔ ŋgɔ %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Automatic fifia tiatia: %1$s — %2$s</string>
 </resources>

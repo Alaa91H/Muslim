@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Notaðu aðeins stutta adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Veldu adhkar sem passa við eina eða tvær línur svo fljótandi kúla haldist skýr og auðvelt að lesa.</string>
     <string name="adhkar_overlay_tap_hint">Bankaðu á kúluna til að hafna henni strax.</string>
+    <string name="adhkar_copied">Dhikr afritaði</string>
+    <string name="adhkar_periodic_dhikr">Sérstakur dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Tilviljun (í stað þess að velja handvirkt)</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Mae llefaru yn oedi\'n fyr pan fydd hysbysiad, modrwy neu gyfryngau eraill yn chwarae</string>
     <string name="more_pause_notifications_enabled">Wedi\'i alluogi - tapiwch i agor gosodiadau system</string>
     <string name="more_pause_notifications_disabled">Analluog - tapiwch i alluogi</string>
+    <string name="more_names">99 Enwau Allah</string>
+    <string name="more_names_desc">Y 99 o enwau gydag esboniad llawn</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Canllaw manwl i ddefodau Hajj ac Umrah</string>
 </resources>

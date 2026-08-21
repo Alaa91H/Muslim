@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Нагшбанди адхан</string>
     <string name="bundled_adhan_saber">Сабир Азан</string>
     <string name="bundled_adhan_sharif_doman">Шәриф Доман</string>
-    <string name="bundled_adhan_umayyad_damascus">Умайяд мәчете (Дамаск) адхан</string>
     <string name="bundled_adhan_yusuf_islam">Йосыф Ислам</string>
     <string name="home_cannot_compute">Бу көн өчен вакытны саный алмый</string>
     <string name="home_location_unknown">Урыны әле билгеләнмәгән</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Автоматик (урыны буенча)</string>
     <string name="settings_method_automatic_desc">Кушымта иң уңайлы ысулны сезнең илгә һәм урнашкан урынга карап сайлый. сез һаман да кулны теләсә кайсы вакытта сайлый аласыз.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Хәзерге вакытта автоматик сайланган: %1$s - %2$s</string>
 </resources>

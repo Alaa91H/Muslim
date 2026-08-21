@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Recitiranje se nakratko zaustavlja kada se pusti obavijest, zvono ili neki drugi medij</string>
     <string name="more_pause_notifications_enabled">Omogućeno — dodirnite za otvaranje postavki sustava</string>
     <string name="more_pause_notifications_disabled">Onemogućeno — dodirnite za uključivanje</string>
+    <string name="more_names">99 Allahova imena</string>
+    <string name="more_names_desc">99 imena s potpunim objašnjenjem</string>
+    <string name="more_hajj">Hadž &amp; Umra</string>
+    <string name="more_hajj_desc">Detaljan vodič kroz obrede hadža i umre</string>
 </resources>

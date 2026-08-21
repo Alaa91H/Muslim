@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">क्षेत्र चौडाइ (डिग्री)</string>
     <string name="offline_maps_storage_warning">कम भण्डारण - केवल %1$s नि:शुल्क</string>
     <string name="offline_maps_storage_delete_largest">सबैभन्दा ठूलो क्षेत्र मेटाउनुहोस् (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">नामबाट मस्जिदहरू खोज्नुहोस्</string>
+    <string name="mosque_finder_show_all">सबै मस्जिदहरू देखाउनुहोस्</string>
+    <string name="mosque_finder_share">दिशाहरू खोल्नुहोस्</string>
+    <string name="offline_maps_use_my_location">मेरो हालको स्थानमा जानुहोस्</string>
 </resources>

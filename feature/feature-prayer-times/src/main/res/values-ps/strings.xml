@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">د نقشبندي اذان</string>
     <string name="bundled_adhan_saber">صابر اذان</string>
     <string name="bundled_adhan_sharif_doman">د شریف دومان اذان</string>
-    <string name="bundled_adhan_umayyad_damascus">د اموي جومات (دمشق) اذان</string>
     <string name="bundled_adhan_yusuf_islam">د یوسف اسلام اذان</string>
     <string name="home_cannot_compute">د دې ورځې لپاره د وخت محاسبه کولو توان نلري</string>
     <string name="home_location_unknown">ځای لا نه دی ټاکل شوی</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">اتومات (د موقعیت له مخې)</string>
     <string name="settings_method_automatic_desc">ایپ ستاسو د هیواد او موقعیت پراساس په اوتومات ډول خورا مناسب میتود غوره کوي؛ تاسو کولی شئ په هر وخت کې په لاسي ډول یو میتود غوره کړئ.</string>
     <string name="settings_preview_for_prayer">%1$s اذان ته کتنه</string>
+    <string name="settings_method_automatic_picked">اتوماتیک اوس مهال غوره شوی: %1$s - %2$s</string>
 </resources>

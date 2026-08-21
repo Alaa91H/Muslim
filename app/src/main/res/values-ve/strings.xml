@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">U redza zwi ima lwa tshifhinganyana musi nḓivhadzo, rinngi kana zwiṅwe zwishumiswa zwi tshi lila .</string>
     <string name="more_pause_notifications_enabled">Zwo tendelwa — kha vha ṱoḓe u vula zwishumiswa zwa sisiṱeme</string>
     <string name="more_pause_notifications_disabled">Zwo thivhelwa — kha vha ṱoḓe u itela u konisa</string>
+    <string name="more_names">99 Madzina a Allah</string>
+    <string name="more_names_desc">Madzina a 99 a re na ṱhalutshedzo yo fhelelaho .</string>
+    <string name="more_hajj">Hadzha na Umra</string>
+    <string name="more_hajj_desc">Nḓila yo fhelelaho ya mikhuvha ya Hajj na Umrah .</string>
 </resources>

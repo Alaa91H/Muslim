@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Sabre adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyad-moskeen (Damaskus) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Kan ikke beregne tidspunkter for denne dag</string>
     <string name="home_location_unknown">Placeringen er ikke angivet endnu</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Automatisk (efter placering)</string>
     <string name="settings_method_automatic_desc">Appen vælger automatisk den bedst egnede metode baseret på dit land og din placering; du kan stadig vælge en metode manuelt til enhver tid.</string>
     <string name="settings_preview_for_prayer">Forhåndsvisning af %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Automatisk aktuelt valgt: %1$s — %2$s</string>
 </resources>

@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s is now available — tap to update</string>
     <string name="notif_category_app_update">App awọn imudojuiwọn</string>
     <string name="notif_category_app_update_desc">Iwifunni nigbati ẹya tuntun ba wa</string>
+    <string name="about_tagline">Pipe, ọfẹ, ẹlẹgbẹ orisun ṣiṣi fun gbogbo Musulumi - awọn akoko adura, Adhan, Al-Qur’an, hadith, adhkar ati diẹ sii, ni ede rẹ.</string>
+    <string name="about_description_title">Nipa Musulumi</string>
+    <string name="about_description_body">Musulumi jẹ ohun elo Android ọfẹ ati ṣiṣi-orisun ti o tẹle ọ ni gbogbo ọjọ: awọn akoko adura astronomically deede pẹlu Adhan, Kompasi Qibla kan, Al-Qur’an pipe pẹlu awọn kika ati tafsir, ile-ikawe hadisi kan, adhkar orisun, tasbih itanna, awọn irinṣẹ Ramadan, iṣiro zakat, awọn maapu offline, ati diẹ sii - ti a ṣe apẹrẹ lati ṣiṣẹ ni kikun offline pẹlu aiyipada.</string>
+    <string name="about_features_title">Awọn ifojusi</string>
+    <string name="about_features_body">Ohun gbogbo ti Musulumi nilo ninu ohun elo kan:</string>
+    <string name="about_feature_prayer">Awọn akoko adura ati Adhan - gbogbo awọn ọna iṣiro, awọn ile-iwe idajọ, ati awọn ohun adhan 18+</string>
+    <string name="about_feature_quran">Al-Qur’an pipe — iwe afọwọkọ Uthmani, awọn oluka 44, tafsir, awọn itumọ, wiwa ọrọ ati igbohunsafẹfẹ</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat - pẹlu awọn olurannileti ati awọn nyoju lilefoofo</string>
+    <string name="about_feature_offline">Aisinipo-akọkọ — maapu, Al-Qur’an, hadith ati adhkar ṣiṣẹ laisi intanẹẹti</string>
+    <string name="about_feature_privacy">Asiri nipasẹ aiyipada - ko si ipolowo, ko si ipasẹ, data rẹ duro lori ẹrọ rẹ</string>
+    <string name="settings_auto_update">Awọn imudojuiwọn ni kikun laifọwọyi</string>
+    <string name="settings_auto_update_desc">Ṣe igbasilẹ laifọwọyi ati fi awọn ẹya tuntun sori ẹrọ ni abẹlẹ ni kete ti wọn ba ti tu silẹ</string>
+    <string name="settings_auto_update_confirm_title">Mu awọn imudojuiwọn aifọwọyi ṣiṣẹ?</string>
+    <string name="settings_auto_update_confirm_body">Awọn ẹya titun yoo ṣe igbasilẹ ati fi sii laifọwọyi ni abẹlẹ nigbati o wa. Tesiwaju bi?</string>
+    <string name="settings_auto_update_confirm">Mu ṣiṣẹ</string>
+    <string name="settings_cancel">Fagilee</string>
+    <string name="update_last_check">Ayẹwo ikẹhin: %1$s</string>
+    <string name="update_open_releases">Ṣii oju-iwe idasilẹ ni ẹrọ aṣawakiri</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">ስፍሓት ስፍሓት (ዲግሪ) .</string>
     <string name="offline_maps_storage_warning">ትሑት መኽዘን — %1$s ጥራይ ነጻ</string>
     <string name="offline_maps_storage_delete_largest">ዝዓበየ ዞባ ምድምሳስ (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">መሳጊድ ብስሞም ድለዩ።</string>
+    <string name="mosque_finder_show_all">ኩሉ መሳጊድ ኣርእዩ</string>
+    <string name="mosque_finder_share">ኣንፈታት ክፉት እዩ።</string>
+    <string name="offline_maps_use_my_location">ናብቲ ሕጂ ዘለኹዎ ቦታ ኪድ</string>
 </resources>

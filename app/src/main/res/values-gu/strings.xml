@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">જ્યારે સૂચના, રિંગ અથવા અન્ય મીડિયા વાગે ત્યારે પઠન સંક્ષિપ્તમાં વિરામ લે છે</string>
     <string name="more_pause_notifications_enabled">સક્ષમ — સિસ્ટમ સેટિંગ્સ ખોલવા માટે ટેપ કરો</string>
     <string name="more_pause_notifications_disabled">અક્ષમ - સક્ષમ કરવા માટે ટેપ કરો</string>
+    <string name="more_names">અલ્લાહના 99 નામો</string>
+    <string name="more_names_desc">સંપૂર્ણ સમજૂતી સાથે 99 નામો</string>
+    <string name="more_hajj">હજ અને ઉમરાહ</string>
+    <string name="more_hajj_desc">હજ અને ઉમરાહ સંસ્કારો માટે વિગતવાર માર્ગદર્શિકા</string>
 </resources>

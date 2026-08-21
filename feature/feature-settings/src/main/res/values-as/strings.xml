@@ -164,4 +164,22 @@
     <string name="update_available_text">সংস্কৰণ %1$s এতিয়া উপলব্ধ — আপডেইট কৰিবলৈ টেপ কৰক</string>
     <string name="notif_category_app_update">এপ আপডেট</string>
     <string name="notif_category_app_update_desc">নতুন এপ সংস্কৰণ উপলব্ধ হ’লে জাননী</string>
+    <string name="about_tagline">প্ৰতিজন মুছলমানৰ বাবে এটা সম্পূৰ্ণ, বিনামূলীয়া, মুক্ত উৎসৰ সংগী — নামাজৰ সময়, আধান, কোৰআন, হাদীছ, আধকাৰ আৰু অধিক, আপোনাৰ ভাষাত।</string>
+    <string name="about_description_title">মুছলিমৰ বিষয়ে</string>
+    <string name="about_description_body">মুছলিম হৈছে এটা বিনামূলীয়া আৰু মুক্ত উৎস এণ্ড্ৰইড এপ যিয়ে আপোনাক গোটেই দিনটো সংগ দিয়ে: আদানৰ সৈতে জ্যোতিৰ্বিজ্ঞানৰ ফালৰ পৰা সঠিক নামাজৰ সময়, এটা নিখুঁত কিবলা কম্পাছ, আবৃত্তি আৰু তফছিৰৰ সৈতে সম্পূৰ্ণ কোৰআন, এটা হাদীছ লাইব্ৰেৰী, উৎসৰ পৰা আহককাৰ, এটা ইলেক্ট্ৰনিক তছবিহ, ৰমজানৰ সঁজুলি, এটা জাকাত কেলকুলেটৰ, অফলাইন মেপ, আৰু অধিক — দ্বাৰা গোপনীয়তাৰ সৈতে সম্পূৰ্ণৰূপে অফলাইন কাম কৰিবলৈ ডিজাইন কৰা হৈছে অবিকল্পিত।</string>
+    <string name="about_features_title">হাইলাইটসমূহ</string>
+    <string name="about_features_body">এজন মুছলমানক প্ৰয়োজনীয় সকলো বস্তু এটা এপত:</string>
+    <string name="about_feature_prayer">প্ৰাৰ্থনাৰ সময় আৰু আধান — সকলো গণনা পদ্ধতি, ন্যায়িক বিদ্যালয়, আৰু ১৮+ আধন শব্দ</string>
+    <string name="about_feature_quran">সম্পূৰ্ণ কোৰআন — উছমানী লিপি, ৪৪ জন আবৃত্তিকাৰী, তফছিৰ, অনুবাদ, শব্দ অনুসন্ধান আৰু কম্পাঙ্ক</string>
+    <string name="about_feature_adhkar">আধকাৰ, তছবিহ, ৰমজান আৰু জাকাত — সোঁৱৰাই দিয়া আৰু ভাসমান বুদবুদৰ সৈতে</string>
+    <string name="about_feature_offline">অফলাইন-প্ৰথম — মানচিত্ৰ, কোৰআন, হাদীছ আৰু আধকাৰে কোনো ইণ্টাৰনেট নোহোৱাকৈ কাম কৰে</string>
+    <string name="about_feature_privacy">অবিকল্পিতভাৱে গোপনীয়তা — কোনো বিজ্ঞাপন নাই, কোনো অনুসৰণ নাই, আপোনাৰ তথ্য আপোনাৰ ডিভাইচত থাকে৷</string>
+    <string name="settings_auto_update">সম্পূৰ্ণ স্বয়ংক্ৰিয় আপডেট</string>
+    <string name="settings_auto_update_desc">নতুন সংস্কৰণসমূহ মুকলি হোৱাৰ লগে লগে পটভূমিত স্বয়ংক্ৰিয়ভাৱে ডাউনলোড আৰু ইনষ্টল কৰক</string>
+    <string name="settings_auto_update_confirm_title">স্বয়ংক্ৰিয় আপডেটসমূহ সামৰ্থবান কৰক?</string>
+    <string name="settings_auto_update_confirm_body">নতুন সংস্কৰণসমূহ উপলব্ধ হ\'লে পটভূমিত স্বয়ংক্ৰিয়ভাৱে ডাউনলোড আৰু ইনষ্টল কৰা হ\'ব। অব্যাহত ৰাখক?</string>
+    <string name="settings_auto_update_confirm">সক্ষম কৰা</string>
+    <string name="settings_cancel">বাতিল কৰক</string>
+    <string name="update_last_check">শেষ পৰীক্ষা: %1$s</string>
+    <string name="update_open_releases">ব্ৰাউজাৰত মুক্তি পৃষ্ঠা খোলক</string>
 </resources>

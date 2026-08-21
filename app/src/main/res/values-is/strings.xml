@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Upplestur gerir stutt hlé þegar tilkynning, hringur eða annar miðill er spilaður</string>
     <string name="more_pause_notifications_enabled">Virkt — pikkaðu á til að opna kerfisstillingar</string>
     <string name="more_pause_notifications_disabled">Óvirkt — pikkaðu á til að virkja</string>
+    <string name="more_names">99 nöfn Allah</string>
+    <string name="more_names_desc">99 nöfnin með fullri skýringu</string>
+    <string name="more_hajj">Hajj og Umrah</string>
+    <string name="more_hajj_desc">Ítarleg leiðarvísir um Hajj og Umrah helgisiði</string>
 </resources>

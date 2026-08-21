@@ -164,4 +164,22 @@
     <string name="update_available_text">Wersja %1$s jest już dostępna — kliknij, aby zaktualizować</string>
     <string name="notif_category_app_update">Aktualizacje aplikacji</string>
     <string name="notif_category_app_update_desc">Powiadomienie o dostępności nowej wersji aplikacji</string>
+    <string name="about_tagline">Kompletny, darmowy towarzysz o otwartym kodzie źródłowym dla każdego muzułmanina — czasy modlitw, Adhan, Koran, hadisy, adhkar i inne, w Twoim języku.</string>
+    <string name="about_description_title">O muzułmaninie</string>
+    <string name="about_description_body">Muslim to bezpłatna aplikacja na Androida o otwartym kodzie źródłowym, która towarzyszy Ci przez cały dzień: astronomicznie dokładne czasy modlitw z Adhan, precyzyjny kompas Qibla, kompletny Koran z recytacjami i tafsirem, biblioteka hadisów, pozyskiwany adhkar, elektroniczny tasbih, narzędzia Ramadanu, kalkulator zakat, mapy offline i nie tylko – zaprojektowane tak, aby domyślnie działać w trybie offline z zachowaniem prywatności.</string>
+    <string name="about_features_title">Najważniejsze</string>
+    <string name="about_features_body">Wszystko, czego potrzebuje muzułmanin w jednej aplikacji:</string>
+    <string name="about_feature_prayer">Czasy modlitwy i Adhan — wszystkie metody obliczeniowe, szkoły prawnicze i ponad 18 dźwięków Adhan</string>
+    <string name="about_feature_quran">Kompletny Koran — pismo uthmani, 44 recytatorów, tafsir, tłumaczenia, wyszukiwanie słów i częstotliwość</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan i Zakat — z przypomnieniami i pływającymi dymkami</string>
+    <string name="about_feature_offline">Przede wszystkim offline — mapy, Koran, hadisy i adhkar działają bez Internetu</string>
+    <string name="about_feature_privacy">Domyślnie prywatność — brak reklam i śledzenie, Twoje dane pozostają na Twoim urządzeniu</string>
+    <string name="settings_auto_update">W pełni automatyczne aktualizacje</string>
+    <string name="settings_auto_update_desc">Automatycznie pobieraj i instaluj nowe wersje w tle, gdy tylko zostaną wydane</string>
+    <string name="settings_auto_update_confirm_title">Włączyć automatyczne aktualizacje?</string>
+    <string name="settings_auto_update_confirm_body">Nowe wersje zostaną pobrane i zainstalowane automatycznie w tle, jeśli będą dostępne. Kontynuować?</string>
+    <string name="settings_auto_update_confirm">Włączać</string>
+    <string name="settings_cancel">Anulować</string>
+    <string name="update_last_check">Ostatnia kontrola: %1$s</string>
+    <string name="update_open_releases">Otwórz stronę wydań w przeglądarce</string>
 </resources>

@@ -24,4 +24,5 @@
     <string name="hadith_share">শ্বেয়াৰ কৰক</string>
     <string name="hadith_title">হাদীছ পুথিভঁৰাল</string>
     <string name="hadith_copy">কপি কৰক</string>
+    <string name="hadith_copied">হাদীছ কপি কৰা হৈছে</string>
 </resources>

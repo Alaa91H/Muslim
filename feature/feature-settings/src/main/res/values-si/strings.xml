@@ -164,4 +164,22 @@
     <string name="update_available_text">%1$s අනුවාදය දැන් තිබේ — යාවත්කාලීන කිරීමට තට්ටු කරන්න</string>
     <string name="notif_category_app_update">යෙදුම් යාවත්කාලීන</string>
     <string name="notif_category_app_update_desc">නව යෙදුම් අනුවාදයක් ඇති විට දැනුම්දීම</string>
+    <string name="about_tagline">සෑම මුස්ලිම්වරයෙකුටම සම්පූර්ණ, නොමිලේ, විවෘත මූලාශ්‍ර සහකාරියක් - යාඥා වේලාවන්, අදාන්, කුරානය, හදීස්, අද්කාර් සහ තවත් බොහෝ දේ, ඔබේ භාෂාවෙන්.</string>
+    <string name="about_description_title">මුස්ලිම් ගැන</string>
+    <string name="about_description_body">මුස්ලිම් යනු දවස පුරා ඔබ සමඟ එන නොමිලේ සහ විවෘත මූලාශ්‍ර ඇන්ඩ්‍රොයිඩ් යෙදුමකි: අදාන් සමඟ තාරකා විද්‍යාත්මකව නිවැරදි යාඥා වේලාවන්, නිරවද්‍ය කිබ්ලා මාලිමා යන්ත්‍රයක්, පාරායනය සහ තෆ්සීර් සහිත සම්පූර්ණ කුර්ආනය, හදීස් පුස්තකාලයක්, මූලාශ්‍ර අද්කාර්, ඉලෙක්ට්‍රොනික තස්බිහ්, රාමදාන් මෙවලම්, සකාත් කැල්කියුලේටරයක්, නොබැඳි සිතියම් සමඟින් නිර්මාණය කර ඇත.</string>
+    <string name="about_features_title">ඉස්මතු කිරීම්</string>
+    <string name="about_features_body">එක් යෙදුමකින් මුස්ලිම්වරයෙකුට අවශ්‍ය සියල්ල:</string>
+    <string name="about_feature_prayer">යාඥා වේලාවන් සහ අදාන් - සියලුම ගණනය කිරීමේ ක්‍රම, නීති විද්‍යා පාසල් සහ 18+ අදාන් ශබ්ද</string>
+    <string name="about_feature_quran">සම්පූර්ණ අල් කුර්ආනය - උත්මානි පිටපත, පාරායනය කරන්නන් 44ක්, තෆ්සීර්, පරිවර්තන, වචන සෙවීම සහ සංඛ්‍යාතය</string>
+    <string name="about_feature_adhkar">අද්කාර්, තස්බිහ්, රාමදාන් සහ සකාත් - මතක් කිරීම් සහ පාවෙන බුබුලු සමඟ</string>
+    <string name="about_feature_offline">නොබැඳි-පළමු - සිතියම්, කුර්ආනය, හදීස් සහ අද්කාර් අන්තර්ජාලය නොමැතිව වැඩ කරයි</string>
+    <string name="about_feature_privacy">පෙරනිමියෙන් පුද්ගලිකත්වය - දැන්වීම් නැත, හඹා යෑමක් නැත, ඔබගේ දත්ත ඔබගේ උපාංගයේ පවතී</string>
+    <string name="settings_auto_update">සම්පුර්ණයෙන්ම ස්වයංක්‍රීය යාවත්කාලීන කිරීම්</string>
+    <string name="settings_auto_update_desc">නව අනුවාදයන් නිකුත් වූ වහාම පසුබිමේ ස්වයංක්‍රීයව බාගත කර ස්ථාපනය කරන්න</string>
+    <string name="settings_auto_update_confirm_title">ස්වයංක්‍රීය යාවත්කාලීන සබල කරන්නද?</string>
+    <string name="settings_auto_update_confirm_body">නව අනුවාදයන් පවතින විට පසුබිමේ ස්වයංක්‍රීයව බාගත කර ස්ථාපනය කෙරේ. දිගටම කරගෙන යන්නද?</string>
+    <string name="settings_auto_update_confirm">සබල කරන්න</string>
+    <string name="settings_cancel">අවලංගු කරන්න</string>
+    <string name="update_last_check">අවසාන පරීක්ෂාව: %1$s</string>
+    <string name="update_open_releases">බ්‍රවුසරයේ නිකුතු පිටුව විවෘත කරන්න</string>
 </resources>

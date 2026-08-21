@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyad Mosque (Damasko) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Akukwazeki ukubala amaxesha ale mini</string>
     <string name="home_location_unknown">Indawo ayikamiselwa</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Iyazenzekela (ngendawo)</string>
     <string name="settings_method_automatic_desc">I-app ikhetha eyona ndlela ifanelekileyo ngokuzenzekelayo ngokusekelwe kwilizwe lakho kunye nendawo; usenokukhetha indlela ngesandla nangaliphi na ixesha.</string>
     <string name="settings_preview_for_prayer">Jonga kwangaphambili %1$s i-adhan</string>
+    <string name="settings_method_automatic_picked">Iyazenzekela ngoku ikhethwayo: %1$s — %2$s</string>
 </resources>

@@ -164,4 +164,22 @@
     <string name="update_available_text">Верзија %1$s је сада доступна — додирните да бисте ажурирали</string>
     <string name="notif_category_app_update">Ажурирања апликације</string>
     <string name="notif_category_app_update_desc">Обавештење када је доступна нова верзија апликације</string>
+    <string name="about_tagline">Комплетан, бесплатан пратилац отвореног кода за сваког муслимана - времена молитве, езан, Куран, хадис, адхкар и још много тога, на вашем језику.</string>
+    <string name="about_description_title">О муслиману</string>
+    <string name="about_description_body">Муслим је бесплатна Андроид апликација отвореног кода која вас прати током дана: астрономски тачна времена молитве са езаном, прецизним компасом Кибла, комплетним Кур\'аном са рецитацијама и тефсиром, библиотеком хадиса, изворним адхкаром, електронским тасбихом, рамазанским алатима, калкулатором зеката, офлајн мапама и још много тога — дизајнирано да ради потпуно ван мреже.</string>
+    <string name="about_features_title">Хигхлигхтс</string>
+    <string name="about_features_body">Све што муслиману треба у једној апликацији:</string>
+    <string name="about_feature_prayer">Времена молитве и езан — све методе израчунавања, правне школе и звукови езана од 18+</string>
+    <string name="about_feature_quran">Комплетан Кур\'ан — Османско писмо, 44 рецитатора, тефсир, преводи, претрага речи и учесталост</string>
+    <string name="about_feature_adhkar">Адхкар, тасбих, Рамадан и Зекат — са подсетницима и плутајућим мехурићима</string>
+    <string name="about_feature_offline">Прво ван мреже — мапе, Куран, хадис и адхкар раде без интернета</string>
+    <string name="about_feature_privacy">Приватност подразумевано – без огласа, без праћења, ваши подаци остају на вашем уређају</string>
+    <string name="settings_auto_update">Потпуно аутоматска ажурирања</string>
+    <string name="settings_auto_update_desc">Аутоматски преузимајте и инсталирајте нове верзије у позадини чим буду објављене</string>
+    <string name="settings_auto_update_confirm_title">Омогућити аутоматска ажурирања?</string>
+    <string name="settings_auto_update_confirm_body">Нове верзије ће се преузимати и инсталирати аутоматски у позадини када буду доступне. Наставити?</string>
+    <string name="settings_auto_update_confirm">Омогући</string>
+    <string name="settings_cancel">Откажи</string>
+    <string name="update_last_check">Последња провера: %1$s</string>
+    <string name="update_open_releases">Отворите страницу издања у прегледачу</string>
 </resources>

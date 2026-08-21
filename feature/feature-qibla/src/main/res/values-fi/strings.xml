@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Alueen leveys (astetta)</string>
     <string name="offline_maps_storage_warning">Vähän tallennustilaa – vain %1$s ilmaiseksi</string>
     <string name="offline_maps_storage_delete_largest">Poista suurin alue (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Hae moskeijoita nimellä</string>
+    <string name="mosque_finder_show_all">Näytä kaikki moskeijat</string>
+    <string name="mosque_finder_share">Avaa reittiohjeet</string>
+    <string name="offline_maps_use_my_location">Siirry nykyiseen sijaintiini</string>
 </resources>

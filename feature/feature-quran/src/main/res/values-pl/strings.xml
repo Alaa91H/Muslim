@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Poprzednia aja</string>
     <string name="quran_range_single_ayah">Pojedyncza aja</string>
     <string name="quran_range_single_ayah_short">Aha</string>
-    <string name="quran_range_to_end">Do końca sury</string>
+    <string name="quran_range_to_end">Do końca Mushafa</string>
     <string name="quran_range_to_end_short">Aby zakończyć</string>
     <string name="quran_range_whole_surah">Cała sura</string>
     <string name="quran_range_whole_surah_short">Sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Pełna bzdura wśród recytatorów</string>
     <string name="quran_downloads_coverage_empty">Nie pobrano jeszcze żadnego dźwięku</string>
     <string name="quran_pause_notif_listener">Wstrzymaj recytację w powiadomieniach</string>
-    <string name="quran_reciter_changed_title">Recytator się zmienił</string>
-    <string name="quran_reciter_changed_message">Odtwarzanie zostało zatrzymane, ponieważ zakres sięga końca Koranu. Zacząć od nowa z %1$s?</string>
-    <string name="quran_reciter_restart">Zacznij od nowa</string>
-    <string name="quran_reciter_not_now">Nie teraz</string>
+    <string name="quran_search_metrics">Czas wyszukiwania: %1$d ms</string>
+    <string name="quran_search_index_building">Tworzenie indeksu Koranu dla pierwszego wyszukiwania…</string>
+    <string name="quran_search_index_progress">Budowanie indeksu mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Korzeń: %1$s</string>
+    <string name="quran_search_derivations">Słowa pochodzące z tego samego rdzenia</string>
+    <string name="quran_search_no_root">Nie można określić katalogu głównego</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Aurreko aia</string>
     <string name="quran_range_single_ayah">Bakarra ai</string>
     <string name="quran_range_single_ayah_short">Aia</string>
-    <string name="quran_range_to_end">Sura amaitzeko</string>
+    <string name="quran_range_to_end">Mushaf-aren amaieraraino</string>
     <string name="quran_range_to_end_short">Amaitzeko</string>
     <string name="quran_range_whole_surah">Sura osoa</string>
     <string name="quran_range_whole_surah_short">Sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf osoa errezitatzaileen artean</string>
     <string name="quran_downloads_coverage_empty">Ez da audio deskargatu oraindik</string>
     <string name="quran_pause_notif_listener">Eten ezazu jakinarazpenetan errezitatzea</string>
-    <string name="quran_reciter_changed_title">Errezitatzailea aldatu da</string>
-    <string name="quran_reciter_changed_message">Erreprodukzioa gelditu da barrutia Koranaren amaieraraino doalako. Berriro hasi %1$s-rekin?</string>
-    <string name="quran_reciter_restart">Hasi berriro</string>
-    <string name="quran_reciter_not_now">Orain ez</string>
+    <string name="quran_search_metrics">Bilaketa denbora: %1$d ms</string>
+    <string name="quran_search_index_building">Lehen bilaketarako Quran indizea eraikitzen...</string>
+    <string name="quran_search_index_progress">Mushaf indizea eraikitzen... %1$d %%</string>
+    <string name="quran_search_word_root">Erroa: %1$s</string>
+    <string name="quran_search_derivations">Erro beretik eratorritako hitzak</string>
+    <string name="quran_search_no_root">Ezin izan da erroa zehaztu</string>
 </resources>

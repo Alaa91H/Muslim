@@ -164,4 +164,22 @@
     <string name="update_available_text">%1$s laya kunan tiyan — musuqchaypaq ñit\'iy</string>
     <string name="notif_category_app_update">App musuqyachiykuna</string>
     <string name="notif_category_app_update_desc">Willakuy mayk\'aq huk musuq app laya kan</string>
+    <string name="about_tagline">Huk hunt\'asqa, mana qullqiyuq, kichasqa qullqiyuq compañero sapa musulmanpaq — mañakuy pachakuna, Adhan, Quran, hadith, adhkar chaymanta aswan, simiykipi.</string>
+    <string name="about_description_title">Muslimmanta</string>
+    <string name="about_description_body">Muslim huk mana qullqiyuq chaymanta kichasqa Android app kan chaymanta tukuy p\'unchaw pusasunki: astronómicamente chiqan mañakuy pachakuna Adhan kaqwan, huk preciso Qibla brújula kaqwan, huk hunt\'asqa Quran recitaciones kaqwan chaymanta tafsir kaqwan, huk hadith biblioteca, huk adhkar fuenteyuq, huk tasbih electrónico, Ramadán yanapakuykuna, huk zakat calculadora, mana tinkisqa mapakuna, chaymanta aswan — ruwasqa llamk\'anapaq hunt\'asqa mana tinkisqa sapanchasqa kaqwan ñawpaqmanta churasqa.</string>
+    <string name="about_features_title">Resaltadokuna</string>
+    <string name="about_features_body">Tukuy ima musulmanpa necesitasqan huk appllapi:</string>
+    <string name="about_feature_prayer">Mañakuy pachakuna &amp; Adhan — tukuy yupay ñankuna, kamachiy yachaywasikuna, chaymanta 18+ adhan t\'uqyaykuna</string>
+    <string name="about_feature_quran">Quran hunt\'asqa — Uthmani qillqa, 44 rimaq, tafsir, tikray, simi maskay &amp; sapa kuti</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadán &amp; Zakat — yuyarichiykunawan, unupi puriq burbujakunawan ima</string>
+    <string name="about_feature_offline">Mana tinkisqa-ñawpaq — mapakuna, Quran, hadith chaymanta adhkar llamk\'anku mana internetniyuq</string>
+    <string name="about_feature_privacy">Sapanchasqa kay ñawpaqmanta — mana willakuyniyuq, mana qatiyniyuq, willayniyki dispositivoykipi qhipakuchkan</string>
+    <string name="settings_auto_update">Tukuy kikillanmanta musuqyachiykuna</string>
+    <string name="settings_auto_update_desc">Kikinmanta uraykachiy chaymanta musuq layakuna qhipaman churay chaymanta chaylla lluqsisqa</string>
+    <string name="settings_auto_update_confirm_title">¿Kikinmanta musuqyachiykunata atichiy?</string>
+    <string name="settings_auto_update_confirm_body">Musuq layakuna uraykachisqa kanqa chaymanta kikillanmanta qhipaman churasqa kanqa mayk\'aq. Qatiq?</string>
+    <string name="settings_auto_update_confirm">Kawsarichisqa</string>
+    <string name="settings_cancel">Sayachiy</string>
+    <string name="update_last_check">Qhipa qhaway: %1$s</string>
+    <string name="update_open_releases">Navegadorpi kacharisqakuna p\'anqata kichay</string>
 </resources>

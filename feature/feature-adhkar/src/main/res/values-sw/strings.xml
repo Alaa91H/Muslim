@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Tumia adhkar fupi pekee</string>
     <string name="adhkar_overlay_short_only_desc">Chagua adhkar inayolingana na mstari mmoja au miwili ili kiputo kinachoelea kibaki wazi na rahisi kusoma.</string>
     <string name="adhkar_overlay_tap_hint">Gusa kiputo ili kuiondoa mara moja.</string>
+    <string name="adhkar_copied">Dhikr imenakiliwa</string>
+    <string name="adhkar_periodic_dhikr">Dhikr maalum</string>
+    <string name="adhkar_periodic_dhikr_random">Nasibu (badala ya kuchagua kwa mikono)</string>
 </resources>

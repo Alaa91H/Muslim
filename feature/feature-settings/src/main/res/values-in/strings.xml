@@ -41,4 +41,22 @@
     <string name="update_available_text">Versi %1$s kini tersedia — ketuk untuk memperbarui</string>
     <string name="notif_category_app_update">Pembaruan aplikasi</string>
     <string name="notif_category_app_update_desc">Pemberitahuan ketika versi aplikasi baru tersedia</string>
+    <string name="about_tagline">Pendamping sumber terbuka yang lengkap, gratis untuk setiap Muslim — waktu sholat, Adzan, Quran, hadis, adhkar, dan banyak lagi, dalam bahasa Anda.</string>
+    <string name="about_description_title">Tentang Islam</string>
+    <string name="about_description_body">Muslim adalah aplikasi Android gratis dan sumber terbuka yang menemani Anda sepanjang hari: waktu sholat yang akurat secara astronomis dengan Adzan, kompas kiblat yang tepat, Al-Quran lengkap dengan bacaan dan tafsir, perpustakaan hadis, sumber adhkar, tasbih elektronik, alat Ramadhan, kalkulator zakat, peta offline, dan banyak lagi — dirancang untuk bekerja sepenuhnya offline dengan privasi secara default.</string>
+    <string name="about_features_title">Sorotan</string>
+    <string name="about_features_body">Semua yang dibutuhkan seorang Muslim dalam satu aplikasi:</string>
+    <string name="about_feature_prayer">Waktu Sholat &amp; Adzan — semua metode penghitungan, aliran hukum, dan 18+ suara adzan</string>
+    <string name="about_feature_quran">Quran Lengkap - Aksara Utsmani, 44 qari, tafsir, terjemahan, pencarian kata &amp; frekuensi</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadhan &amp; Zakat — dengan pengingat dan gelembung mengambang</string>
+    <string name="about_feature_offline">Offline-first — peta, Alquran, hadis, dan adhkar berfungsi tanpa internet</string>
+    <string name="about_feature_privacy">Privasi secara default — tanpa iklan, tanpa pelacakan, data Anda tetap ada di perangkat Anda</string>
+    <string name="settings_auto_update">Pembaruan sepenuhnya otomatis</string>
+    <string name="settings_auto_update_desc">Unduh dan instal versi baru secara otomatis di latar belakang segera setelah dirilis</string>
+    <string name="settings_auto_update_confirm_title">Aktifkan pembaruan otomatis?</string>
+    <string name="settings_auto_update_confirm_body">Versi baru akan diunduh dan diinstal secara otomatis di latar belakang bila tersedia. Melanjutkan?</string>
+    <string name="settings_auto_update_confirm">Memungkinkan</string>
+    <string name="settings_cancel">Membatalkan</string>
+    <string name="update_last_check">Pemeriksaan terakhir: %1$s</string>
+    <string name="update_open_releases">Buka halaman rilis di browser</string>
 </resources>

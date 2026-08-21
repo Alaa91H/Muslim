@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Ширина зоны (градусы)</string>
     <string name="offline_maps_storage_warning">Мало места — всего %1$s бесплатно</string>
     <string name="offline_maps_storage_delete_largest">Удалить самый большой регион (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Поиск мечетей по названию</string>
+    <string name="mosque_finder_show_all">Показать все мечети</string>
+    <string name="mosque_finder_share">Открытые направления</string>
+    <string name="offline_maps_use_my_location">Перейти к моему текущему местоположению</string>
 </resources>

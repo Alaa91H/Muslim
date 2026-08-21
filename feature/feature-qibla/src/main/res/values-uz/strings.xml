@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Hudud kengligi (daraja)</string>
     <string name="offline_maps_storage_warning">Kam xotira — atigi %1$s bepul</string>
     <string name="offline_maps_storage_delete_largest">Eng katta hududni oʻchirish (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Masjidlarni nomi bo\'yicha qidiring</string>
+    <string name="mosque_finder_show_all">Barcha masjidlarni ko\'rsating</string>
+    <string name="mosque_finder_share">Yo\'nalishlarni ochish</string>
+    <string name="offline_maps_use_my_location">Mening joriy manzilimga o\'ting</string>
 </resources>

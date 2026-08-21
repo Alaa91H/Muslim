@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s is now available — tap to update</string>
     <string name="notif_category_app_update">ئەپ يېڭىلانمىلىرى</string>
     <string name="notif_category_app_update_desc">يېڭى ئەپ نۇسخىسى بولغاندا ئۇقتۇرۇش</string>
+    <string name="about_tagline">ھەر بىر مۇسۇلمان ئۈچۈن تولۇق ، ھەقسىز ، ئوچۇق كودلۇق ھەمراھىڭىز - دۇئا ۋاقتى ، ئەزان ، قۇرئان ، ھەدىس ، ئەدكار ۋە باشقىلار.</string>
+    <string name="about_description_title">مۇسۇلمان ھەققىدە</string>
+    <string name="about_description_body">مۇسۇلمان ھەقسىز ۋە ئوچۇق كودلۇق ئاندىرويىد دېتالى بولۇپ ، ئۇ سىزگە كۈن بويى ھەمراھ بولىدۇ: ئازان بىلەن ئاسترونومىيىلىك توغرا دۇئا ۋاقتى ، ئېنىق قىبلا كومپاس ، تولۇق قۇرئان تىلاۋەت ۋە تەفسىر ، ھەدىس كۈتۈپخانىسى ، مەنبەلىك ئەدكار ، ئېلېكترونلۇق تەسبىھ ، رامىزان قوراللىرى ، زاكات ھېسابلىغۇچ ، تورسىز خەرىتە ۋە باشقىلار.</string>
+    <string name="about_features_title">يارقىن نۇقتىلار</string>
+    <string name="about_features_body">بىر ئەپتە مۇسۇلمان ئېھتىياجلىق بولغان ھەممە نەرسە:</string>
+    <string name="about_feature_prayer">دۇئا ۋاقتى ۋە ئەزان - بارلىق ھېسابلاش ئۇسۇللىرى ، قانۇنشۇناسلىق مەكتەپلىرى ۋە 18+ ئەزان ئاۋازى</string>
+    <string name="about_feature_quran">تولۇق قۇرئان - ئوسمانى يېزىقى ، 44 قىرائەتچى ، تەپسىر ، تەرجىمە ، سۆز ئىزدەش ۋە چاستوتا</string>
+    <string name="about_feature_adhkar">ئەدكار ، تاسبى ، رامىزان ۋە زاكات - ئەسكەرتىش ۋە لەيلىمە كۆپۈكلەر بىلەن</string>
+    <string name="about_feature_offline">تورسىز بىرىنچى - خەرىتە ، قۇرئان ، ھەدىس ۋە ئەدكار ئىنتېرنېت يوق</string>
+    <string name="about_feature_privacy">سۈكۈتتىكى مەخپىيەتلىك - ئېلان يوق ، ئىز قوغلاش يوق ، سانلىق مەلۇماتلىرىڭىز ئۈسكۈنىڭىزدە قالىدۇ</string>
+    <string name="settings_auto_update">تولۇق ئاپتوماتىك يېڭىلاش</string>
+    <string name="settings_auto_update_desc">يېڭى نەشرى ئېلان قىلىنغان ھامان ئارقا سۇپىدا ئاپتوماتىك چۈشۈرۈڭ ۋە قاچىلاڭ</string>
+    <string name="settings_auto_update_confirm_title">ئاپتوماتىك يېڭىلاشنى قوزغىتامسىز؟</string>
+    <string name="settings_auto_update_confirm_body">يېڭى نەشرى چۈشۈرۈلۈپ ئارقا سۇپىدا ئاپتوماتىك ئورنىتىلىدۇ. داۋاملاشتۇرامسىز؟</string>
+    <string name="settings_auto_update_confirm">قوزغىتىش</string>
+    <string name="settings_cancel">بىكار قىلىش</string>
+    <string name="update_last_check">ئاخىرقى تەكشۈرۈش: %1$s</string>
+    <string name="update_open_releases">توركۆرگۈدە ئېلان قىلىش بېتىنى ئېچىڭ</string>
 </resources>

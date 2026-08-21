@@ -27,8 +27,9 @@ import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
+import org.muslim.app.core.ui.text.DigitNormalizedOutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -77,11 +78,13 @@ fun SearchScreen(
     val query by viewModel.query.collectAsStateWithLifecycle()
     val history by viewModel.searchHistory.collectAsStateWithLifecycle()
     val suggestions by viewModel.suggestions.collectAsStateWithLifecycle()
+    val wordInfo by viewModel.wordInfo.collectAsStateWithLifecycle()
+    val indexProgress by viewModel.indexProgress.collectAsStateWithLifecycle()
 
     Column(modifier = modifier.fillMaxSize()) {
         TopAppBar(
             title = {
-                OutlinedTextField(
+                DigitNormalizedOutlinedTextField(
                     value = query,
                     onValueChange = { viewModel.query.value = it },
                     placeholder = { Text(stringResource(R.string.quran_search_hint)) },
@@ -131,6 +134,15 @@ fun SearchScreen(
             }
         }
 
+        // Root + derived inflections of the picked suggestion (معجم القرآن).
+        val selectedWordInfo = wordInfo
+        if (selectedWordInfo != null) {
+            WordInfoCard(
+                info = selectedWordInfo,
+                onPickWord = viewModel::applySuggestion,
+            )
+        }
+
         when {
             state.searching -> {
                 Column(
@@ -138,6 +150,24 @@ fun SearchScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     CircularProgressIndicator()
+                    if (state.indexBuilding && indexProgress < 100) {
+                        Spacer(Modifier.height(12.dp))
+                        LinearProgressIndicator(
+                            progress = { indexProgress / 100f },
+                            modifier = Modifier
+                                .fillMaxWidth(0.7f)
+                                .height(6.dp),
+                        )
+                        Spacer(Modifier.height(8.dp))
+                        Text(
+                            text = stringResource(
+                                R.string.quran_search_index_progress,
+                                indexProgress,
+                            ),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 }
             }
             state.idle -> {
@@ -175,17 +205,24 @@ fun SearchScreen(
                     contentPadding = androidx.compose.foundation.layout.PaddingValues(vertical = 4.dp),
                 ) {
                     item {
-                        Text(
-                            text = stringResource(
-                                R.string.quran_search_summary,
-                                state.occurrences,
-                                state.matches.size,
-                                state.surahBreakdown.size,
-                            ),
-                            style = MaterialTheme.typography.labelLarge,
-                            color = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                        )
+                        Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp)) {
+                            Text(
+                                text = stringResource(
+                                    R.string.quran_search_summary,
+                                    state.occurrences,
+                                    state.matches.size,
+                                    state.surahBreakdown.size,
+                                ),
+                                style = MaterialTheme.typography.labelLarge,
+                                color = MaterialTheme.colorScheme.primary,
+                            )
+                            Spacer(Modifier.height(3.dp))
+                            Text(
+                                text = stringResource(R.string.quran_search_metrics, state.elapsedMs),
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
                     }
                     if (state.surahBreakdown.isNotEmpty()) {
                         item {
@@ -216,6 +253,53 @@ private fun SuggestionChip(text: String, onClick: () -> Unit) {
         onClick = onClick,
         label = { Text(text, style = MaterialTheme.typography.bodyMedium) },
     )
+}
+
+/**
+ * Word-lookup card for the picked suggestion: the estimated root plus the
+ * derived inflections that share it (معجم القرآن). Tapping a derivation
+ * searches it directly.
+ */
+@Composable
+private fun WordInfoCard(
+    info: SearchViewModel.WordInfo,
+    onPickWord: (String) -> Unit,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 6.dp),
+    ) {
+        Text(
+            text = if (info.root.isNotBlank()) {
+                stringResource(R.string.quran_search_word_root, info.root)
+            } else {
+                stringResource(R.string.quran_search_no_root)
+            },
+            style = MaterialTheme.typography.labelLarge,
+            fontWeight = FontWeight.SemiBold,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        if (info.derivations.isNotEmpty()) {
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = stringResource(R.string.quran_search_derivations),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Spacer(Modifier.height(4.dp))
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
+                info.derivations.forEach { derivation ->
+                    SuggestionChip(text = derivation, onClick = { onPickWord(derivation) })
+                }
+            }
+        }
+    }
 }
 
 /** "أين ذُكرت" — expandable per-surah distribution of the matches. */

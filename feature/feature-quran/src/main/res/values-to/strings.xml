@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah kimu\'a</string>
     <string name="quran_range_single_ayah">ayah ta\'emali</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Ke faka\'osi \'a e surah .</string>
+    <string name="quran_range_to_end">Ki he ngata\'anga \'o e Mushaf .</string>
     <string name="quran_range_to_end_short">Ke faka\'osi .</string>
     <string name="quran_range_whole_surah">Ko e surah kakato</string>
     <string name="quran_range_whole_surah_short">Sula</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf kakato \'i he tafa\'aki \'o e kau lautohi</string>
     <string name="quran_downloads_coverage_empty">\'Oku te\'eki ke download \'a e le\'o</string>
     <string name="quran_pause_notif_listener">Tuʻu ʻa e lau ʻi he ngaahi fakatokanga</string>
-    <string name="quran_reciter_changed_title">Kuo liliu ʻa e tokotaha laú</string>
-    <string name="quran_reciter_changed_message">Na\'e tu\'u \'a e playback koe\'uhi \'oku lele \'a e range ki he ngata\'anga \'o e Quran. Toe kamata ʻaki ʻa e %1$s?</string>
-    <string name="quran_reciter_restart">Toe kamata .</string>
-    <string name="quran_reciter_not_now">\'Ikai he taimi ni</string>
+    <string name="quran_search_metrics">Taimi fekumi: %1$d ms</string>
+    <string name="quran_search_index_building">Ko hono langa \'o e Quran index ki he \'uluaki fekumi...</string>
+    <string name="quran_search_index_progress">Ko hono langa \'o e faka\'ilonga \'o e mushaf... %1$d %%.</string>
+    <string name="quran_search_word_root">Aka: %1$s.</string>
+    <string name="quran_search_derivations">Ngaahi fo‘i lea ‘oku ma‘u mei he aka tatau .</string>
+    <string name="quran_search_no_root">Na\'e \'ikai lava ke fakapapau\'i \'a e aka .</string>
 </resources>

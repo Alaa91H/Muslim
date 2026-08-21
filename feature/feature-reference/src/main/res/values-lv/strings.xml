@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Meklēt šo grāmatu…</string>
     <string name="reference_title">Islāma uzziņu bibliotēka</string>
     <string name="reference_topics_count">tēmas</string>
+    <string name="reference_copy">Kopēt</string>
+    <string name="reference_share">Dalīties</string>
 </resources>

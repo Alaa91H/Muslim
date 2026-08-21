@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">ការ​សូត្រ​ត្រូវ​ផ្អាក​មួយ​រយៈ​ពេល​ដែល​ការ​ជូន​ដំណឹង រោទ៍ ឬ​ប្រព័ន្ធ​ផ្សព្វផ្សាយ​ផ្សេង​ទៀត​លេង</string>
     <string name="more_pause_notifications_enabled">បានបើកដំណើរការ — ប៉ះដើម្បីបើកការកំណត់ប្រព័ន្ធ</string>
     <string name="more_pause_notifications_disabled">បិទ - ចុចដើម្បីបើក</string>
+    <string name="more_names">99 ឈ្មោះរបស់អល់ឡោះ</string>
+    <string name="more_names_desc">ឈ្មោះ ៩៩ ដែលមានការពន្យល់ពេញលេញ</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">មគ្គុទេសក៍លម្អិតអំពីពិធី Hajj និង Umrah</string>
 </resources>

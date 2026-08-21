@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Wisa\' taż-żona (gradi)</string>
     <string name="offline_maps_storage_warning">Ħażna baxxa — %1$s b\'xejn biss</string>
     <string name="offline_maps_storage_delete_largest">Ħassar l-akbar reġjun (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Fittex moskej bl-isem</string>
+    <string name="mosque_finder_show_all">Uri l-moskej kollha</string>
+    <string name="mosque_finder_share">Direzzjonijiet miftuħa</string>
+    <string name="offline_maps_use_my_location">Mur fil-post attwali tiegħi</string>
 </resources>

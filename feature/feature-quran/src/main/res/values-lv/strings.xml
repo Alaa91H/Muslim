@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Iepriekšējā ayah</string>
     <string name="quran_range_single_ayah">Viena ayah</string>
     <string name="quran_range_single_ayah_short">Ājā</string>
-    <string name="quran_range_to_end">Līdz suras beigām</string>
+    <string name="quran_range_to_end">Līdz Mushaf galam</string>
     <string name="quran_range_to_end_short">Lai beigtu</string>
     <string name="quran_range_whole_surah">Visa sura</string>
     <string name="quran_range_whole_surah_short">Sūra</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Pilna muša pāri deklamētājiem</string>
     <string name="quran_downloads_coverage_empty">Audio vēl nav lejupielādēts</string>
     <string name="quran_pause_notif_listener">Apturiet paziņojumu deklamēšanu</string>
-    <string name="quran_reciter_changed_title">Deklamētājs mainīts</string>
-    <string name="quran_reciter_changed_message">Atskaņošana apturēta, jo diapazons ir līdz Korāna beigām. Vai sākt no jauna ar %1$s?</string>
-    <string name="quran_reciter_restart">Sāciet no jauna</string>
-    <string name="quran_reciter_not_now">Ne tagad</string>
+    <string name="quran_search_metrics">Meklēšanas laiks: %1$d ms</string>
+    <string name="quran_search_index_building">Korāna indeksa izveide pirmajai meklēšanai…</string>
+    <string name="quran_search_index_progress">Mushaf indeksa veidošana… %1$d %%</string>
+    <string name="quran_search_word_root">Sakne: %1$s</string>
+    <string name="quran_search_derivations">Vārdi, kas atvasināti no vienas saknes</string>
+    <string name="quran_search_no_root">Nevarēja noteikt sakni</string>
 </resources>

@@ -54,6 +54,7 @@
     <string name="settings_title">Settings</string>
     <string name="settings_method">Calculation method</string>
     <string name="settings_method_automatic">Automatic (by location)</string>
+    <string name="settings_method_automatic_picked">Automatic currently picked: %1$s — %2$s</string>
     <string name="settings_method_automatic_desc">The app picks the most suitable method automatically based on your country and location; you can still choose a method manually at any time.</string>
     <string name="settings_custom_method">Custom</string>
     <string name="settings_custom_fajr">Fajr angle</string>
@@ -161,7 +162,6 @@
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyad Mosque (Damascus) adhan</string>
 
     <string name="settings_listen">Listen</string>
     <string name="settings_adhan_customize">Customize</string>

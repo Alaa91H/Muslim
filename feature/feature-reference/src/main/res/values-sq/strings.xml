@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Kërkoni këtë libër…</string>
     <string name="reference_title">Biblioteka e Referencave Islame</string>
     <string name="reference_topics_count">temave</string>
+    <string name="reference_copy">Kopjo</string>
+    <string name="reference_share">Shpërndaje</string>
 </resources>

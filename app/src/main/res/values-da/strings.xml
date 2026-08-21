@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Recitation stopper kort, når en notifikation, ring eller andre medier afspilles</string>
     <string name="more_pause_notifications_enabled">Aktiveret — tryk for at åbne systemindstillinger</string>
     <string name="more_pause_notifications_disabled">Deaktiveret – tryk for at aktivere</string>
+    <string name="more_names">99 Allahs navne</string>
+    <string name="more_names_desc">De 99 navne med fuld forklaring</string>
+    <string name="more_hajj">Hajj og Umrah</string>
+    <string name="more_hajj_desc">Detaljeret guide til Hajj- og Umrah-ritualerne</string>
 </resources>

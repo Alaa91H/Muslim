@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Kudzokorodza kunombomira zvishoma kana chiziviso, mhete kana imwe midhiya ichirira</string>
     <string name="more_pause_notifications_enabled">Yakagoneswa - tora kuti uvhure masisitimu ehurongwa</string>
     <string name="more_pause_notifications_disabled">Yakaremara — tonya kuti ugone kugonesa</string>
+    <string name="more_names">99 Mazita aAllah</string>
+    <string name="more_names_desc">Mazita 99 ane tsananguro izere</string>
+    <string name="more_hajj">Hajj uye Umrah</string>
+    <string name="more_hajj_desc">Yakadzama gwara kumitambo yeHajj neUmrah</string>
 </resources>

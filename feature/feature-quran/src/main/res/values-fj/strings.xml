@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah sa oti</string>
     <string name="quran_range_single_ayah">Dua ga na ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Me cava na sura</string>
+    <string name="quran_range_to_end">Me cava na Mushaf .</string>
     <string name="quran_range_to_end_short">Me cava</string>
     <string name="quran_range_whole_surah">Surah taucoko</string>
     <string name="quran_range_whole_surah_short">Sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf taucoko ena veivanua kecega</string>
     <string name="quran_downloads_coverage_empty">Se bera ni lavetaki na rorogo</string>
     <string name="quran_pause_notif_listener">Cegu na wiliwili ena veivakadeitaki</string>
-    <string name="quran_reciter_changed_title">Veisau na dauwiliwili</string>
-    <string name="quran_reciter_changed_message">E cegu na vakatagi baleta ni cici na rabailevu ki na icavacava ni Quran. Tekivu tale ena %1$s?</string>
-    <string name="quran_reciter_restart">Tekivu tale</string>
-    <string name="quran_reciter_not_now">Sega ena gauna oqo</string>
+    <string name="quran_search_metrics">Tiempo de búsqueda: %1$d ms</string>
+    <string name="quran_search_index_building">Tara na ivakatakilakila ni Quran me baleta na imatai ni vakasaqaqara...</string>
+    <string name="quran_search_index_progress">Tara na ivakatakilakila ni mushaf... %1$d %%.</string>
+    <string name="quran_search_word_root">Vuna: %1$s.</string>
+    <string name="quran_search_derivations">Na vosa e vu mai na vu vata ga .</string>
+    <string name="quran_search_no_root">Sega ni rawa ni vakadeitaka na vuna</string>
 </resources>

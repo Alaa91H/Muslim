@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Lebar kawasan (darjah)</string>
     <string name="offline_maps_storage_warning">Storan rendah — hanya %1$s percuma</string>
     <string name="offline_maps_storage_delete_largest">Padamkan wilayah terbesar (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Cari masjid mengikut nama</string>
+    <string name="mosque_finder_show_all">Tunjukkan semua masjid</string>
+    <string name="mosque_finder_share">Buka arah</string>
+    <string name="offline_maps_use_my_location">Pergi ke lokasi semasa saya</string>
 </resources>

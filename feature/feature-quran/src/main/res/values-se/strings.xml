@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ovddeš ayah</string>
     <string name="quran_range_single_ayah">Ovttaskas ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Sura loahpa rádjái</string>
+    <string name="quran_range_to_end">Mushafa loahpa rádjái</string>
     <string name="quran_range_to_end_short">Loahpahit</string>
     <string name="quran_range_whole_surah">Olles sura</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Olles mushaf lohkkiid gaskkas</string>
     <string name="quran_downloads_coverage_empty">Ii leat vuos vurkejuvvon jietna</string>
     <string name="quran_pause_notif_listener">Bisset lohkama dieđihemiin</string>
-    <string name="quran_reciter_changed_title">Lohkki rievdaduvvui</string>
-    <string name="quran_reciter_changed_message">Čuojaheapmi bisánii go rádji manná gitta Korana loahpa rádjái. Álggat fas %1$s:in?</string>
-    <string name="quran_reciter_restart">Álggat fas</string>
-    <string name="quran_reciter_not_now">Ii dál</string>
+    <string name="quran_search_metrics">Ohcanáigi: %1$d ms</string>
+    <string name="quran_search_index_building">Hukset Koranaindeaksa vuosttaš ohcamii...</string>
+    <string name="quran_search_index_progress">Mushaf-indeaksa huksen... %1$d %%</string>
+    <string name="quran_search_word_root">Vuođđu: %1$s</string>
+    <string name="quran_search_derivations">Sánit mat leat šaddan seamma vuođus</string>
+    <string name="quran_search_no_root">Ii sáhttán čielggadit vuođu</string>
 </resources>

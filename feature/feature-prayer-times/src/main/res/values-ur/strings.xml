@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">نقشبندی اذان</string>
     <string name="bundled_adhan_saber">صابر اذان</string>
     <string name="bundled_adhan_sharif_doman">شریف ڈومن کی اذان</string>
-    <string name="bundled_adhan_umayyad_damascus">اموی مسجد (دمشق) کی اذان</string>
     <string name="bundled_adhan_yusuf_islam">یوسف اسلام اذان</string>
     <string name="home_cannot_compute">اس دن کے اوقات کا حساب لگانے سے قاصر</string>
     <string name="home_location_unknown">مقام ابھی متعین نہیں ہوا۔</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">خودکار (مقام کے لحاظ سے)</string>
     <string name="settings_method_automatic_desc">ایپ آپ کے ملک اور مقام کی بنیاد پر خود بخود موزوں ترین طریقہ منتخب کرتی ہے۔ آپ اب بھی کسی بھی وقت دستی طور پر کوئی طریقہ منتخب کر سکتے ہیں۔</string>
     <string name="settings_preview_for_prayer">پیش نظارہ %1$s اذان</string>
+    <string name="settings_method_automatic_picked">خودکار فی الحال اٹھایا گیا: %1$s - %2$s</string>
 </resources>

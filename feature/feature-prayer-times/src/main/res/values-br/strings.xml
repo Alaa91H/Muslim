@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Moskeenn Omeyyad (Damask) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">N\'haller ket jediñ an eurioù evit an devezh-mañ</string>
     <string name="home_location_unknown">N\'eo ket arventennet al lec\'hiadur c\'hoazh</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Emgefreek (dre lec\'hiadur)</string>
     <string name="settings_method_automatic_desc">Dibab a ra an arload an doare dereatañ ent emgefre diouzh ho bro hag ho lec\'hiadur ; gallout a rit c\'hoazh dibab un doare dre zorn da bep mare.</string>
     <string name="settings_preview_for_prayer">Rakwelet %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Emgefre dibabet bremañ : %1$s — %2$s</string>
 </resources>

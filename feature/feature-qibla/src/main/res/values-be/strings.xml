@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Шырыня вобласці (градусы)</string>
     <string name="offline_maps_storage_warning">Мала сховішча — бясплатна толькі %1$s</string>
     <string name="offline_maps_storage_delete_largest">Выдаліць самы вялікі рэгіён (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Шукайце мячэці па назве</string>
+    <string name="mosque_finder_show_all">Паказаць усе мячэці</string>
+    <string name="mosque_finder_share">Адкрытыя напрамкі</string>
+    <string name="offline_maps_use_my_location">Перайсці да майго бягучага месцазнаходжання</string>
 </resources>

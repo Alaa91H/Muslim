@@ -59,6 +59,7 @@
     <string name="settings_title">الإعدادات</string>
     <string name="settings_method">طريقة الحساب</string>
     <string name="settings_method_automatic">تلقائي (حسب الموقع)</string>
+    <string name="settings_method_automatic_picked">التلقائي اختار الآن: %1$s — %2$s</string>
     <string name="settings_method_automatic_desc">يختار التطبيق الطريقة الأنسب تلقائيًا حسب البلد والموقع، مع إمكانية اختيار طريقة يدويًا في أي وقت.</string>
     <string name="settings_custom_method">مخصص</string>
     <string name="settings_custom_fajr">زاوية الفجر</string>
@@ -169,7 +170,6 @@
     <string name="bundled_adhan_saber">أذان صابر</string>
     <string name="bundled_adhan_sharif_doman">أذان شريف دومان</string>
     <string name="bundled_adhan_yusuf_islam">أذان يوسف إسلام</string>
-    <string name="bundled_adhan_umayyad_damascus">أذان الجامع الأموي بدمشق</string>
 
     <string name="settings_listen">استماع</string>
     <string name="settings_adhan_customize">تخصيص</string>

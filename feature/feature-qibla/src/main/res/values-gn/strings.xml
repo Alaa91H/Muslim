@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Área ipekue (grados) .</string>
     <string name="offline_maps_storage_warning">Almacenamiento ijyvate’ỹva — %1$s añónte gratis</string>
     <string name="offline_maps_storage_delete_largest">Ombogue región tuichavéva (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Ojeporeka mezquita-kuérape héra rupive</string>
+    <string name="mosque_finder_show_all">Ohechauka opaite mezquita</string>
+    <string name="mosque_finder_share">Direcciones abierto</string>
+    <string name="offline_maps_use_my_location">Tereho che reimehápe ko’áĝa</string>
 </resources>

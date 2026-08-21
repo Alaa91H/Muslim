@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">नागशबंदी अज़ान</string>
     <string name="bundled_adhan_saber">कृपाण अज़ान</string>
     <string name="bundled_adhan_sharif_doman">शरीफ़ डोमन अज़ान</string>
-    <string name="bundled_adhan_umayyad_damascus">उमय्यद मस्जिद (दमिश्क) अज़ान</string>
     <string name="bundled_adhan_yusuf_islam">यूसुफ़ इस्लाम अज़ान</string>
     <string name="home_cannot_compute">इस दिन के लिए समय की गणना करने में असमर्थ</string>
     <string name="home_location_unknown">स्थान अभी निर्धारित नहीं है</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">स्वचालित (स्थान के अनुसार)</string>
     <string name="settings_method_automatic_desc">ऐप आपके देश और स्थान के आधार पर स्वचालित रूप से सबसे उपयुक्त विधि चुनता है; आप अभी भी किसी भी समय मैन्युअल रूप से एक विधि चुन सकते हैं।</string>
     <string name="settings_preview_for_prayer">पूर्वावलोकन %1$s अज़ान</string>
+    <string name="settings_method_automatic_picked">स्वचालित रूप से वर्तमान में चुना गया: %1$s - %2$s</string>
 </resources>

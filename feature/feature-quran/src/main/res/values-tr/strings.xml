@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Önceki ayet</string>
     <string name="quran_range_single_ayah">Tek ayet</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Surenin sonuna kadar</string>
+    <string name="quran_range_to_end">Mushaf\'ın sonuna doğru</string>
     <string name="quran_range_to_end_short">Bitirmek</string>
     <string name="quran_range_whole_surah">Bütün sure</string>
     <string name="quran_range_whole_surah_short">Sure</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Okuyucular arasında tam Mushaf</string>
     <string name="quran_downloads_coverage_empty">Henüz indirilen ses yok</string>
     <string name="quran_pause_notif_listener">Bildirimlerde okumayı duraklat</string>
-    <string name="quran_reciter_changed_title">Okuyan değişti</string>
-    <string name="quran_reciter_changed_message">Aralık Kuran\'ın sonuna kadar gittiği için oynatma durduruldu. %1$s ile yeniden başlansın mı?</string>
-    <string name="quran_reciter_restart">Tekrar başla</string>
-    <string name="quran_reciter_not_now">Şimdi değil</string>
+    <string name="quran_search_metrics">Arama süresi: %1$d ms</string>
+    <string name="quran_search_index_building">İlk arama için Kuran dizini oluşturuluyor…</string>
+    <string name="quran_search_index_progress">Mushaf dizini oluşturuluyor… %1$d %%</string>
+    <string name="quran_search_word_root">Kök: %1$s</string>
+    <string name="quran_search_derivations">Aynı kökten türeyen kelimeler</string>
+    <string name="quran_search_no_root">Kök belirlenemedi</string>
 </resources>

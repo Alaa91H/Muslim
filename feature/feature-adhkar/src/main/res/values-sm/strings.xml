@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Fa\'aaoga na\'o le adhkar puupuu</string>
     <string name="adhkar_overlay_short_only_desc">Filifili adhkar e fetaui ma le tasi pe lua laina ina ia tumau le manino o le pulupulu opeopea ma faigofie ona faitau.</string>
     <string name="adhkar_overlay_tap_hint">Oomi le pulu e fa\'ate\'a vave.</string>
+    <string name="adhkar_copied">Dhikr kopi</string>
+    <string name="adhkar_periodic_dhikr">Dhikr faapitoa</string>
+    <string name="adhkar_periodic_dhikr_random">Fa\'afuase\'i (nai lo le filifili tusilima)</string>
 </resources>

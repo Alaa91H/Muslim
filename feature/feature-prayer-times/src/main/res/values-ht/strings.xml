@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Omeyyad moske (Damas) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Pa kapab kalkile tan pou jou sa a</string>
     <string name="home_location_unknown">Kote yo poko fikse</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Otomatik (pa kote)</string>
     <string name="settings_method_automatic_desc">Aplikasyon an chwazi metòd ki pi apwopriye a otomatikman selon peyi w ak kote w ye a; ou ka toujou chwazi yon metòd manyèlman nenpòt ki lè.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Otomatik kounye a chwazi: %1$s — %2$s</string>
 </resources>

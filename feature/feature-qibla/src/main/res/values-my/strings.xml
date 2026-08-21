@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">ဧရိယာအကျယ် (ဒီဂရီ)</string>
     <string name="offline_maps_storage_warning">သိုလှောင်မှုနည်းသည် - %1$s သာ အခမဲ့</string>
     <string name="offline_maps_storage_delete_largest">အကြီးဆုံးဒေသ (%1$s · %2$s) ကိုဖျက်ပါ</string>
+    <string name="mosque_finder_search_hint">အမည်ဖြင့် ဗလီများကို ရှာဖွေပါ။</string>
+    <string name="mosque_finder_show_all">ဗလီအားလုံးပြပါ။</string>
+    <string name="mosque_finder_share">လမ်းညွန်ဖွင့်ပါ။</string>
+    <string name="offline_maps_use_my_location">ကျွန်ုပ်၏ လက်ရှိတည်နေရာသို့ သွားပါ။</string>
 </resources>

@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Cercatz aqueste libre...</string>
     <string name="reference_title">Bibliotèca de referéncia islamica</string>
     <string name="reference_topics_count">tèmas</string>
+    <string name="reference_copy">Còpia</string>
+    <string name="reference_share">Partatjar</string>
 </resources>

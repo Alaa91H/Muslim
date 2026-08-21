@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">La recitación se detiene brevemente cuando se reproduce una notificación, un timbre u otro medio.</string>
     <string name="more_pause_notifications_enabled">Habilitado: toque para abrir la configuración del sistema</string>
     <string name="more_pause_notifications_disabled">Deshabilitado: toque para habilitar</string>
+    <string name="more_names">99 nombres de Allah</string>
+    <string name="more_names_desc">Los 99 nombres con explicación completa.</string>
+    <string name="more_hajj">Hayy y Umrah</string>
+    <string name="more_hajj_desc">Guía detallada de los ritos Hajj y Umrah</string>
 </resources>

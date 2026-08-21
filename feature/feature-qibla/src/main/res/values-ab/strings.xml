@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Аҭыԥ аҭбаара (градусқәа)</string>
     <string name="offline_maps_storage_warning">Аҭаҵәахырҭа маҷуп — %1$s мацара ԥарада</string>
     <string name="offline_maps_storage_delete_largest">Иԥыхтәуп иреиҳау арегион (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Аџьаамақәа рыԥшаара рыхьыӡқәа рыла</string>
+    <string name="mosque_finder_show_all">Аџьаамақәа зегьы аарԥштәуп</string>
+    <string name="mosque_finder_share">Иаарту ахырхарҭақәа</string>
+    <string name="offline_maps_use_my_location">Уажәы сахьыҟоу ахь сца</string>
 </resources>

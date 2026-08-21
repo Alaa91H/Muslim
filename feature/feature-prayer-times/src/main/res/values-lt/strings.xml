@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhanas</string>
     <string name="bundled_adhan_saber">Saber Adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharifas Domanas Adhanas</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyad mečetė (Damaskas) adhanas</string>
     <string name="bundled_adhan_yusuf_islam">Yusufas Islamas Adhanas</string>
     <string name="home_cannot_compute">Neįmanoma apskaičiuoti šios dienos laiko</string>
     <string name="home_location_unknown">Vieta dar nenustatyta</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Automatinis (pagal vietą)</string>
     <string name="settings_method_automatic_desc">Programėlė automatiškai parenka tinkamiausią metodą pagal jūsų šalį ir vietą; vis tiek galite bet kada pasirinkti metodą rankiniu būdu.</string>
     <string name="settings_preview_for_prayer">Peržiūrėti %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Šiuo metu pasirinktas automatinis: %1$s – %2$s</string>
 </resources>

@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Kay qillqata maskay...</string>
     <string name="reference_title">Islamic Referencia Biblioteca</string>
     <string name="reference_topics_count">temas nisqamanta</string>
+    <string name="reference_copy">Copia</string>
+    <string name="reference_share">Compartir</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Bapa baheula</string>
     <string name="quran_range_single_ayah">Ayah tunggal</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Ka tungtung surah</string>
+    <string name="quran_range_to_end">Nepi ka tungtung Mushaf</string>
     <string name="quran_range_to_end_short">Pikeun mungkas</string>
     <string name="quran_range_whole_surah">Sakabeh surah</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf pinuh ku para qari</string>
     <string name="quran_downloads_coverage_empty">Henteu aya audio anu diunduh</string>
     <string name="quran_pause_notif_listener">Ngareureuhkeun bacaan dina béwara</string>
-    <string name="quran_reciter_changed_title">Reciter robah</string>
-    <string name="quran_reciter_changed_message">Playback dieureunkeun sabab rentang ngalir ka tungtung Quran. Mimitian deui ku %1$s?</string>
-    <string name="quran_reciter_restart">Mimitian deui</string>
-    <string name="quran_reciter_not_now">Henteu ayeuna</string>
+    <string name="quran_search_metrics">waktos pilarian: %1$d ms</string>
+    <string name="quran_search_index_building">Ngawangun indéks Quran pikeun milarian munggaran…</string>
+    <string name="quran_search_index_progress">Ngawangun indéks mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Akar: %1$s</string>
+    <string name="quran_search_derivations">Kecap asalna tina akar sarua</string>
+    <string name="quran_search_no_root">Teu bisa nangtukeun akar</string>
 </resources>

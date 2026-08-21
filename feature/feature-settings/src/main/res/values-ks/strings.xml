@@ -6,4 +6,12 @@
     <string name="notif_preview_missed">%1$s %2$s</string>
     <string name="notif_preview_next_title">%1$s %2$s</string>
     <string name="notif_preview_remaining">%1$s</string>
+    <string name="settings_auto_update">Fully automatic updates</string>
+    <string name="settings_auto_update_desc">Automatically download and install new versions in the background as soon as they are released</string>
+    <string name="settings_auto_update_confirm_title">Enable automatic updates?</string>
+    <string name="settings_auto_update_confirm_body">New versions will be downloaded and installed automatically in the background when available. Continue?</string>
+    <string name="settings_auto_update_confirm">Enable</string>
+    <string name="settings_cancel">Cancel</string>
+    <string name="update_last_check">Last check: %1$s</string>
+    <string name="update_open_releases">Open the releases page in the browser</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Janngude ina joofna seeɗa so humpito, cirƴam walla media goɗɗo ina fijira</string>
     <string name="more_pause_notifications_enabled">Softina — tappu ngam udditude dottaaɗe sisteem</string>
     <string name="more_pause_notifications_disabled">Softinaama — tappu ngam softinde</string>
+    <string name="more_names">99 Inɗe Alla</string>
+    <string name="more_names_desc">Inɗe 99 ɗee e firo timmungo</string>
+    <string name="more_hajj">Hajju e Umra</string>
+    <string name="more_hajj_desc">Ardorde laaɓtunde e golle Hajj e Umra</string>
 </resources>

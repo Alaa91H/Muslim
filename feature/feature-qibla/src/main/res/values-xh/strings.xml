@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Ububanzi bendawo (izidanga)</string>
     <string name="offline_maps_storage_warning">Ugcino oluphantsi - kuphela %1$s simahla</string>
     <string name="offline_maps_storage_delete_largest">Cima owona mmandla mkhulu (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Khangela ii-mosque ngamagama</string>
+    <string name="mosque_finder_show_all">Bonisa zonke iimosque</string>
+    <string name="mosque_finder_share">Vula izalathiso</string>
+    <string name="offline_maps_use_my_location">Yiya kwindawo yam ngoku</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Dera wide (madigiri)</string>
     <string name="offline_maps_storage_warning">Zosungirako zochepa - %1$s yokha yaulere</string>
     <string name="offline_maps_storage_delete_largest">Chotsani dera lalikulu kwambiri (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Sakani misikiti ndi dzina</string>
+    <string name="mosque_finder_show_all">Onetsani mizikiti yonse</string>
+    <string name="mosque_finder_share">Tsegulani mayendedwe</string>
+    <string name="offline_maps_use_my_location">Pitani komwe ndili pano</string>
 </resources>

@@ -164,4 +164,22 @@
     <string name="update_available_text">Versjon %1$s er nå tilgjengelig – trykk for å oppdatere</string>
     <string name="notif_category_app_update">Appoppdateringer</string>
     <string name="notif_category_app_update_desc">Varsling når en ny appversjon er tilgjengelig</string>
+    <string name="about_tagline">En komplett, gratis ledsager med åpen kildekode for enhver muslim – bønnetider, Adhan, Koranen, hadith, adhkar og mer, på ditt språk.</string>
+    <string name="about_description_title">Om muslim</string>
+    <string name="about_description_body">Muslim er en gratis Android-app med åpen kildekode som følger deg gjennom hele dagen: astronomisk nøyaktige bønnetider med Adhan, et presist Qibla-kompass, den komplette Koranen med resitasjoner og tafsir, et hadith-bibliotek, hentet adhkar, en elektronisk tasbih, Ramadan-verktøy, en zakat-kalkulator, frakoblede standardkart for å fungere fullt ut, og mer – frakoblet som standard.</string>
+    <string name="about_features_title">Høydepunkter</string>
+    <string name="about_features_body">Alt en muslim trenger i én app:</string>
+    <string name="about_feature_prayer">Bønnetider og Adhan - alle beregningsmetoder, juridiske skoler og 18+ adhan-lyder</string>
+    <string name="about_feature_quran">Komplett Koranen - Uthmanisk manus, 44 resitere, tafsir, oversettelser, ordsøk og frekvens</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan og Zakat — med påminnelser og flytende bobler</string>
+    <string name="about_feature_offline">Offline-first - kart, Koranen, hadith og adhkar fungerer uten internett</string>
+    <string name="about_feature_privacy">Personvern som standard – ingen annonser, ingen sporing, dataene dine forblir på enheten din</string>
+    <string name="settings_auto_update">Helautomatiske oppdateringer</string>
+    <string name="settings_auto_update_desc">Last ned og installer nye versjoner automatisk i bakgrunnen så snart de er utgitt</string>
+    <string name="settings_auto_update_confirm_title">Vil du aktivere automatiske oppdateringer?</string>
+    <string name="settings_auto_update_confirm_body">Nye versjoner vil lastes ned og installeres automatisk i bakgrunnen når de er tilgjengelige. Fortsette?</string>
+    <string name="settings_auto_update_confirm">Aktiver</string>
+    <string name="settings_cancel">Kansellere</string>
+    <string name="update_last_check">Siste sjekk: %1$s</string>
+    <string name="update_open_releases">Åpne utgivelsessiden i nettleseren</string>
 </resources>

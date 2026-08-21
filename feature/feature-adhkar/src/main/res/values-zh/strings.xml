@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">仅使用短 adhkar</string>
     <string name="adhkar_overlay_short_only_desc">选择适合一两行的 adhkar，以便浮动气泡保持清晰且易于阅读。</string>
     <string name="adhkar_overlay_tap_hint">点击气泡可立即将其消除。</string>
+    <string name="adhkar_copied">迪克尔已复制</string>
+    <string name="adhkar_periodic_dhikr">具体的迪克尔</string>
+    <string name="adhkar_periodic_dhikr_random">随机（代替人工挑选）</string>
 </resources>

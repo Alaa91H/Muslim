@@ -164,4 +164,22 @@
     <string name="update_available_text">版本 %1$s 现已推出 - 点击即可更新</string>
     <string name="notif_category_app_update">应用程序更新</string>
     <string name="notif_category_app_update_desc">当有新的应用程序版本可用时的通知</string>
+    <string name="about_tagline">适合每个穆斯林的完整、免费、开源伴侣 - 用您的语言提供祈祷时间、宣礼、古兰经、圣训、宣礼等。</string>
+    <string name="about_description_title">关于穆斯林</string>
+    <string name="about_description_body">穆斯林是一款免费开源 Android 应用程序，可陪伴您全天：天文精确的宣礼祈祷时间、精确的朝拜指南针、带有背诵和塔夫西尔的完整《古兰经》、圣训图书馆、来源 adhkar、电子 tasbih、斋月工具、天课计算器、离线地图等等 — 默认情况下，设计为完全离线工作且具有隐私。</string>
+    <string name="about_features_title">亮点</string>
+    <string name="about_features_body">穆斯林所需的一切尽在一个应用程序中：</string>
+    <string name="about_feature_prayer">祈祷时间和宣礼 — 所有计算方法、法学流派和 18+ 宣礼声音</string>
+    <string name="about_feature_quran">完整的古兰经 — 乌斯玛尼文字、44 位背诵者、tafsir、翻译、单词搜索和频率</string>
+    <string name="about_feature_adhkar">Adhkar、tasbih、斋月和天课 — 带提醒和浮动气泡</string>
+    <string name="about_feature_offline">离线优先——地图、古兰经、圣训和adhkar在没有互联网的情况下工作</string>
+    <string name="about_feature_privacy">默认隐私 — 无广告、无跟踪，您的数据保留在您的设备上</string>
+    <string name="settings_auto_update">全自动更新</string>
+    <string name="settings_auto_update_desc">新版本发布后立即在后台自动下载并安装</string>
+    <string name="settings_auto_update_confirm_title">启用自动更新？</string>
+    <string name="settings_auto_update_confirm_body">新版本可用时将在后台自动下载并安装。继续？</string>
+    <string name="settings_auto_update_confirm">使能够</string>
+    <string name="settings_cancel">取消</string>
+    <string name="update_last_check">最后检查：%1$s</string>
+    <string name="update_open_releases">在浏览器中打开发布页面</string>
 </resources>

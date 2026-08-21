@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Akhrisku si kooban ayuu u hakiyaa marka ogeysiis, giraan ama warbaahin kale ciyaareyso</string>
     <string name="more_pause_notifications_enabled">Daneeyay - taabo si aad u furto habaynta nidaamka</string>
     <string name="more_pause_notifications_disabled">Disabled - taabo si aad karti ugu yeelato</string>
+    <string name="more_names">99 Magacyada Eebe</string>
+    <string name="more_names_desc">99-ka magac oo sharraxaad buuxa leh</string>
+    <string name="more_hajj">Xajka &amp; Cumrada</string>
+    <string name="more_hajj_desc">Tilmaan faahfaahsan oo ku saabsan acmaasha xajka iyo cumrada</string>
 </resources>

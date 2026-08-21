@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Obugazi bw’ekitundu (diguli) .</string>
     <string name="offline_maps_storage_warning">Okutereka okutono — %1$s zokka za bwereere</string>
     <string name="offline_maps_storage_delete_largest">Ssaawo ekitundu ekisinga obunene (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Noonya emizikiti ng’okozesa amannya</string>
+    <string name="mosque_finder_show_all">Laga emizikiti gyonna</string>
+    <string name="mosque_finder_share">Ggulawo endagiriro</string>
+    <string name="offline_maps_use_my_location">Genda mu kifo we ndi kati</string>
 </resources>

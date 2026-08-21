@@ -164,4 +164,22 @@
     <string name="update_available_text">সংস্করণ %1$s এখন উপলব্ধ — আপডেট করতে আলতো চাপুন</string>
     <string name="notif_category_app_update">অ্যাপ আপডেট</string>
     <string name="notif_category_app_update_desc">একটি নতুন অ্যাপ সংস্করণ উপলব্ধ হলে বিজ্ঞপ্তি</string>
+    <string name="about_tagline">প্রত্যেক মুসলমানের জন্য একটি সম্পূর্ণ, বিনামূল্যে, ওপেন সোর্স সঙ্গী — আপনার ভাষায় নামাজের সময়, আযান, কুরআন, হাদিস, আহকার এবং আরও অনেক কিছু।</string>
+    <string name="about_description_title">মুসলিম সম্পর্কে</string>
+    <string name="about_description_body">মুসলিম হল একটি বিনামূল্যের এবং ওপেন-সোর্স অ্যান্ড্রয়েড অ্যাপ যা সারাদিন আপনার সাথে থাকে: আযানের সাথে জ্যোতির্বিজ্ঞানের দিক থেকে সঠিক নামাজের সময়, একটি সুনির্দিষ্ট কিবলা কম্পাস, তেলাওয়াত এবং তাফসির সহ সম্পূর্ণ কুরআন, একটি হাদিস লাইব্রেরি, উৎসকৃত আধকার, একটি ইলেকট্রনিক তাসবিহ, রমজানের টুলস, একটি জাকাত ক্যালকুলেটর, ম্যাপ-লাইন এবং অফলাইন ডিজাইনের মাধ্যমে বন্ধ করা হয়েছে। ডিফল্ট</string>
+    <string name="about_features_title">হাইলাইট</string>
+    <string name="about_features_body">একটি অ্যাপে একজন মুসলমানের যা কিছু প্রয়োজন:</string>
+    <string name="about_feature_prayer">নামাজের সময় এবং আযান - সমস্ত গণনা পদ্ধতি, আইনী বিদ্যালয় এবং 18+ আযান ধ্বনি</string>
+    <string name="about_feature_quran">সম্পূর্ণ কুরআন - উসমানি লিপি, 44 তিলাওয়াত, তাফসির, অনুবাদ, শব্দ অনুসন্ধান এবং ফ্রিকোয়েন্সি</string>
+    <string name="about_feature_adhkar">আহকার, তসবিহ, রমজান ও যাকাত — অনুস্মারক এবং ভাসমান বুদবুদ সহ</string>
+    <string name="about_feature_offline">অফলাইন-প্রথম — মানচিত্র, কুরআন, হাদিস এবং আহকার ইন্টারনেট ছাড়াই কাজ করে</string>
+    <string name="about_feature_privacy">ডিফল্টরূপে গোপনীয়তা — কোনও বিজ্ঞাপন নেই, কোনও ট্র্যাকিং নেই, আপনার ডেটা আপনার ডিভাইসে থাকে</string>
+    <string name="settings_auto_update">সম্পূর্ণ স্বয়ংক্রিয় আপডেট</string>
+    <string name="settings_auto_update_desc">পটভূমিতে নতুন সংস্করণগুলি প্রকাশের সাথে সাথে স্বয়ংক্রিয়ভাবে ডাউনলোড এবং ইনস্টল করুন৷</string>
+    <string name="settings_auto_update_confirm_title">স্বয়ংক্রিয় আপডেট সক্ষম করবেন?</string>
+    <string name="settings_auto_update_confirm_body">উপলব্ধ হলে নতুন সংস্করণগুলি পটভূমিতে স্বয়ংক্রিয়ভাবে ডাউনলোড এবং ইনস্টল করা হবে। চালিয়ে যান?</string>
+    <string name="settings_auto_update_confirm">সক্ষম করুন</string>
+    <string name="settings_cancel">বাতিল করুন</string>
+    <string name="update_last_check">শেষ পরীক্ষা: %1$s</string>
+    <string name="update_open_releases">ব্রাউজারে প্রকাশের পৃষ্ঠাটি খুলুন</string>
 </resources>

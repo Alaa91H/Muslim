@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Fyrri ayah</string>
     <string name="quran_range_single_ayah">Einhleypur ayah</string>
     <string name="quran_range_single_ayah_short">Jájá</string>
-    <string name="quran_range_to_end">Til að enda súrah</string>
+    <string name="quran_range_to_end">Til enda Mushafsins</string>
     <string name="quran_range_to_end_short">Að enda</string>
     <string name="quran_range_whole_surah">Heil súra</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Fullt mushaf yfir hljóðritara</string>
     <string name="quran_downloads_coverage_empty">Ekkert hljóð hlaðið niður ennþá</string>
     <string name="quran_pause_notif_listener">Gera hlé á upplestri á tilkynningum</string>
-    <string name="quran_reciter_changed_title">Upplesara breytt</string>
-    <string name="quran_reciter_changed_message">Spilun stöðvaðist vegna þess að sviðið nær til enda Kóransins. Byrja aftur með %1$s?</string>
-    <string name="quran_reciter_restart">Byrjaðu aftur</string>
-    <string name="quran_reciter_not_now">Ekki núna</string>
+    <string name="quran_search_metrics">Leitartími: %1$d ms</string>
+    <string name="quran_search_index_building">Að byggja upp kóranvísitöluna fyrir fyrstu leitina…</string>
+    <string name="quran_search_index_progress">Að byggja upp mushaf vísitöluna... %1$d %%</string>
+    <string name="quran_search_word_root">Rót: %1$s</string>
+    <string name="quran_search_derivations">Orð dregin af sömu rót</string>
+    <string name="quran_search_no_root">Ekki tókst að ákvarða rótina</string>
 </resources>

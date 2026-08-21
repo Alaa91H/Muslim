@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s li fifia — zi edzi be nàwɔ yeye</string>
     <string name="notif_category_app_update">App ƒe yeyewo</string>
     <string name="notif_category_app_update_desc">Nyatakaka ne dɔwɔnu yeye aɖe li</string>
+    <string name="about_tagline">Xɔlɔ̃ blibo, si le ablɔɖe me, si woate ŋu azã faa na Moslemtɔ ɖesiaɖe — gbedodoɖaɣiwo, Adhan, Quran, hadith, adhkar kple bubuwo, le wò gbe me.</string>
+    <string name="about_description_title">Le Moslemtɔwo ŋu</string>
+    <string name="about_description_body">Muslim nye Android dɔwɔnu si woate ŋu azã femaxee eye wòʋu ɖi si kpena ɖe ŋuwò le ŋkekea me katã: gbedodoɖa ɣeyiɣi siwo sɔ pɛpɛpɛ le ɣletivimefakaka nu kple Adhan, Qibla kɔmpasi si sɔ pɛpɛpɛ, Quran blibo si me nuxexlẽ kple tafsir le, hadith agbalẽdzraɖoƒe, adhkar si wokpɔ tso teƒea, elektrɔnik tasbih, Ramadan dɔwɔnuwo, zakat akɔntabubumɔ̃, anyigbatata siwo mele Internet dzi o, kple bubuwo — wowɔe be wòawɔ dɔ bliboe le Internet dzi kple adzamenyawo to default.</string>
+    <string name="about_features_title">Nya veviwo</string>
+    <string name="about_features_body">Nusianu si Moslemtɔ hiã le dɔwɔnu ɖeka me:</string>
+    <string name="about_feature_prayer">Gbedodoɖa ɣeyiɣiwo &amp; Adhan — akɔntabubu mɔnuwo katã, senyawo sukuwo, kple 18+ adhan gbeɖiɖiwo</string>
+    <string name="about_feature_quran">Quran blibo — Uthmani ŋɔŋlɔ, nuxlẽla 44, tafsir, gbegɔmeɖeɖewo, nyawo didi &amp; zi gbɔ zi geɖe</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — kple ŋkuɖodzinyawo kple kuɖɔ siwo le tsia dzi</string>
+    <string name="about_feature_offline">Offline-gbãtɔ — anyigbatatawo, Quran, hadith kple adhkar wɔa dɔ kple internet aɖeke o</string>
+    <string name="about_feature_privacy">Adzamenyawo le gɔmedzedzea me — boblododo aɖeke, kplɔkplɔ aɖeke meli o, wò nyatakakawo nɔa wò mɔ̃a dzi</string>
+    <string name="settings_auto_update">Nusiwo wowɔna le wo ɖokui si bliboe</string>
+    <string name="settings_auto_update_desc">Wɔ kɔpi yeyewo eye nàda wo ɖe megbe ne wonya ɖe wo ɖe go ko</string>
+    <string name="settings_auto_update_confirm_title">Na woawɔ asitɔtrɔ le wo ɖokui si ŋudɔa?</string>
+    <string name="settings_auto_update_confirm_body">Woawɔ kɔpi yeyewo eye woaɖo wo ɖe wo ɖokui si le megbe ne woli. Yi edzi?</string>
+    <string name="settings_auto_update_confirm">Ɖe mᴐ na</string>
+    <string name="settings_cancel">Te fli ɖe eme</string>
+    <string name="update_last_check">Dzeside mamlɛtɔ: %1$s</string>
+    <string name="update_open_releases">Ʋu axa si nye releases le browser la me</string>
 </resources>

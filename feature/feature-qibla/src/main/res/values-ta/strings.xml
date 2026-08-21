@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">பகுதி அகலம் (டிகிரி)</string>
     <string name="offline_maps_storage_warning">குறைந்த சேமிப்பு — %1$s மட்டுமே இலவசம்</string>
     <string name="offline_maps_storage_delete_largest">மிகப்பெரிய பகுதியை நீக்கு (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">பெயரால் மசூதிகளைத் தேடுங்கள்</string>
+    <string name="mosque_finder_show_all">அனைத்து மசூதிகளையும் காட்டு</string>
+    <string name="mosque_finder_share">திசைகளைத் திறக்கவும்</string>
+    <string name="offline_maps_use_my_location">எனது தற்போதைய இருப்பிடத்திற்குச் செல்</string>
 </resources>

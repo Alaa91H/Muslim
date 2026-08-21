@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Resitaasje pauzes koart as in notifikaasje, ring of oare media spilet</string>
     <string name="more_pause_notifications_enabled">Ynskeakele - tikje om systeemynstellingen te iepenjen</string>
     <string name="more_pause_notifications_disabled">Utskeakele - tikje om yn te skeakeljen</string>
+    <string name="more_names">99 Nammen fan Allah</string>
+    <string name="more_names_desc">De 99 nammen mei folsleine útlis</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Detaillearre gids foar de Hajj en Umrah riten</string>
 </resources>

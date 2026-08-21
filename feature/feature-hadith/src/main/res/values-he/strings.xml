@@ -24,4 +24,5 @@
     <string name="hadith_share">שתף</string>
     <string name="hadith_title">ספריית חדית\'</string>
     <string name="hadith_copy">העתק</string>
+    <string name="hadith_copied">חדית\' העתיק</string>
 </resources>

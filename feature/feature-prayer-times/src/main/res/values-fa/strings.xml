@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">اذان نقشبندی</string>
     <string name="bundled_adhan_saber">صابر اذان</string>
     <string name="bundled_adhan_sharif_doman">اذان شریف دومان</string>
-    <string name="bundled_adhan_umayyad_damascus">اذان مسجد اموی (دمشق).</string>
     <string name="bundled_adhan_yusuf_islam">اذان یوسف اسلام</string>
     <string name="home_cannot_compute">محاسبه زمان برای این روز ممکن نیست</string>
     <string name="home_location_unknown">مکان هنوز تنظیم نشده است</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">خودکار (بر اساس مکان)</string>
     <string name="settings_method_automatic_desc">برنامه مناسب ترین روش را به طور خودکار بر اساس کشور و مکان شما انتخاب می کند. شما همچنان می توانید در هر زمانی روشی را به صورت دستی انتخاب کنید.</string>
     <string name="settings_preview_for_prayer">پیش نمایش %1$s اذان</string>
+    <string name="settings_method_automatic_picked">خودکار در حال حاضر انتخاب شده: %1$s - %2$s</string>
 </resources>

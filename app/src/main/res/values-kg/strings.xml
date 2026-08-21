@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Kutanga ke pemaka mwa fioti ntangu nsangu, ndinga to bima ya nkaka ke bulaka .</string>
     <string name="more_pause_notifications_enabled">Me kangula — niema sambu na kukangula baparametre ya systeme</string>
     <string name="more_pause_notifications_disabled">Kukangama — niema sambu na kukangula</string>
+    <string name="more_names">99 Bazina ya Allah</string>
+    <string name="more_names_desc">Bazina 99 yina kele ti ntendula ya mvimba .</string>
+    <string name="more_hajj">Hajj &amp; Umra</string>
+    <string name="more_hajj_desc">Ntubilu ya sikisiki ya milulu ya Hajj mpi ya Umrah .</string>
 </resources>

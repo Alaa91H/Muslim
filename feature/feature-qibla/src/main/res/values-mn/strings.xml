@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Талбайн өргөн (градус)</string>
     <string name="offline_maps_storage_warning">Хадгалах сан бага — ердөө %1$s үнэгүй</string>
     <string name="offline_maps_storage_delete_largest">Хамгийн том бүсийг устгах (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Лалын сүмүүдийг нэрээр нь хайх</string>
+    <string name="mosque_finder_show_all">Бүх сүмийг харуул</string>
+    <string name="mosque_finder_share">Нээлттэй чиглэл</string>
+    <string name="offline_maps_use_my_location">Миний одоогийн байршил руу оч</string>
 </resources>

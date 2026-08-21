@@ -164,4 +164,22 @@
     <string name="update_available_text">Versio %1$s on nyt saatavilla – päivitä napauttamalla</string>
     <string name="notif_category_app_update">Sovelluspäivitykset</string>
     <string name="notif_category_app_update_desc">Ilmoitus, kun uusi sovellusversio on saatavilla</string>
+    <string name="about_tagline">Täydellinen, ilmainen, avoimen lähdekoodin kumppani jokaiselle muslimille – rukousajat, Adhan, Koraani, hadith, adhkar ja paljon muuta omalla kielelläsi.</string>
+    <string name="about_description_title">Tietoja muslimeista</string>
+    <string name="about_description_body">Muslim on ilmainen ja avoimen lähdekoodin Android-sovellus, joka kulkee mukanasi koko päivän: tähtitieteellisesti tarkat rukousajat Adhanin kanssa, tarkka Qibla-kompassi, täydellinen Koraani lausunnoilla ja tafsirilla, hadith-kirjasto, lähdekoodin adhkar, elektroninen tasbih, Ramadan-työkalut, zakat-laskin, täysin offline-kartoilla suunniteltu toimimaan oletusarvoisesti.</string>
+    <string name="about_features_title">Kohokohdat</string>
+    <string name="about_features_body">Kaikki muslimi tarvitsee yhdessä sovelluksessa:</string>
+    <string name="about_feature_prayer">Rukousajat ja Adhan – kaikki laskentamenetelmät, juristikoulut ja 18+ adhan-äänet</string>
+    <string name="about_feature_quran">Täydellinen Koraani - Uthmani-käsikirjoitus, 44 lausujaa, tafsir, käännökset, sanahaku ja taajuus</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan ja Zakat – muistutuksilla ja kelluvilla kuplilla</string>
+    <string name="about_feature_offline">Offline ensin – kartat, Koraani, hadith ja adhkar toimivat ilman Internetiä</string>
+    <string name="about_feature_privacy">Tietosuoja oletuksena – ei mainoksia, ei seurantaa, tietosi pysyvät laitteellasi</string>
+    <string name="settings_auto_update">Täysin automaattiset päivitykset</string>
+    <string name="settings_auto_update_desc">Lataa ja asenna uudet versiot automaattisesti taustalla heti, kun ne julkaistaan</string>
+    <string name="settings_auto_update_confirm_title">Otetaanko automaattiset päivitykset käyttöön?</string>
+    <string name="settings_auto_update_confirm_body">Uudet versiot ladataan ja asennetaan automaattisesti taustalla, kun niitä on saatavilla. Jatkaa?</string>
+    <string name="settings_auto_update_confirm">Ota käyttöön</string>
+    <string name="settings_cancel">Peruuttaa</string>
+    <string name="update_last_check">Viimeisin tarkistus: %1$s</string>
+    <string name="update_open_releases">Avaa julkaisusivu selaimessa</string>
 </resources>

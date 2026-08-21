@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">مخکینی آیت</string>
     <string name="quran_range_single_ayah">واحد آيت</string>
     <string name="quran_range_single_ayah_short">آیه</string>
-    <string name="quran_range_to_end">د سورت تر پایه</string>
+    <string name="quran_range_to_end">د مصحف تر پایه</string>
     <string name="quran_range_to_end_short">د پای ته رسولو لپاره</string>
     <string name="quran_range_whole_surah">ټول سورت</string>
     <string name="quran_range_whole_surah_short">سورت</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">بشپړ مصحف په تلاوت کوونکو</string>
     <string name="quran_downloads_coverage_empty">تراوسه هیڅ غږ نه دی ډاونلوډ شوی</string>
     <string name="quran_pause_notif_listener">په خبرتیاو کې تلاوت بند کړئ</string>
-    <string name="quran_reciter_changed_title">تلاوت کوونکی بدل شو</string>
-    <string name="quran_reciter_changed_message">پلی بیک بند شو ځکه چې لړۍ د قرآن کریم پای ته رسیږي. د %1$s سره بیا پیل کړئ؟</string>
-    <string name="quran_reciter_restart">بیا پیل کړئ</string>
-    <string name="quran_reciter_not_now">اوس نه</string>
+    <string name="quran_search_metrics">د لټون وخت: %1$d ms</string>
+    <string name="quran_search_index_building">د لومړي لټون لپاره د قرآن شاخص جوړول ...</string>
+    <string name="quran_search_index_progress">د مصحف شاخص جوړول ... %1$d %%</string>
+    <string name="quran_search_word_root">ريښه: %1$s</string>
+    <string name="quran_search_derivations">د ورته ریښې څخه اخیستل شوي کلمې</string>
+    <string name="quran_search_no_root">ریښه یې نشي ټاکلی</string>
 </resources>

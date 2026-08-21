@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">წინა აია</string>
     <string name="quran_range_single_ayah">მარტოხელა აია</string>
     <string name="quran_range_single_ayah_short">აიაჰ</string>
-    <string name="quran_range_to_end">სურას დასასრულამდე</string>
+    <string name="quran_range_to_end">მუშაფის ბოლომდე</string>
     <string name="quran_range_to_end_short">დასასრულებლად</string>
     <string name="quran_range_whole_surah">მთელი სურა</string>
     <string name="quran_range_whole_surah_short">სურა</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">სრული მუშაფი დეკლარატორების გასწვრივ</string>
     <string name="quran_downloads_coverage_empty">აუდიო ჯერ არ არის ჩამოტვირთული</string>
     <string name="quran_pause_notif_listener">შეტყობინებების გამოთქმის შეჩერება</string>
-    <string name="quran_reciter_changed_title">მომღერალი შეიცვალა</string>
-    <string name="quran_reciter_changed_message">დაკვრა შეწყდა, რადგან დიაპაზონი გადის ყურანის ბოლომდე. თავიდან დავიწყოთ %1$s-ით?</string>
-    <string name="quran_reciter_restart">თავიდან დაიწყე</string>
-    <string name="quran_reciter_not_now">ახლა არა</string>
+    <string name="quran_search_metrics">ძიების დრო: %1$d ms</string>
+    <string name="quran_search_index_building">ყურანის ინდექსის შექმნა პირველი ძიებისთვის…</string>
+    <string name="quran_search_index_progress">მუშაფის ინდექსის აგება… %1$d %%</string>
+    <string name="quran_search_word_root">ფესვი: %1$s</string>
+    <string name="quran_search_derivations">ერთი და იგივე ძირიდან მომდინარე სიტყვები</string>
+    <string name="quran_search_no_root">ფესვის დადგენა ვერ მოხერხდა</string>
 </resources>

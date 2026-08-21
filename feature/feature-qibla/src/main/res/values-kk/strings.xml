@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Аудан ені (градус)</string>
     <string name="offline_maps_storage_warning">Жад аз — тек %1$s тегін</string>
     <string name="offline_maps_storage_delete_largest">Ең үлкен аймақты жою (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Мешіттерді аты бойынша іздеңіз</string>
+    <string name="mosque_finder_show_all">Барлық мешіттерді көрсетіңіз</string>
+    <string name="mosque_finder_share">Ашық бағыттар</string>
+    <string name="offline_maps_use_my_location">Менің ағымдағы орныма өтіңіз</string>
 </resources>

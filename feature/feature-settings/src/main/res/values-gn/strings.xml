@@ -164,4 +164,22 @@
     <string name="update_available_text">Versión %1$s ko’áĝa ojeguereko — epoko embopyahu hag̃ua</string>
     <string name="notif_category_app_update">App ñembopyahu</string>
     <string name="notif_category_app_update_desc">Marandu ojeguerekóramo peteĩ versión pyahu app rehegua</string>
+    <string name="about_tagline">Peteĩ compañero completo, isãsóva, código abierto opavave musulmán-pe ĝuarã — ñembo’e aravo, Adhan, Corán, hadith, adhkar ha hetave, ne ñe’ẽme.</string>
+    <string name="about_description_title">Musulmán rehegua</string>
+    <string name="about_description_body">Muslim ha’e peteĩ aplicación Android gratuita ha código abierto nemoirũva ára pukukue: umi tiempo de oración astronómicamente exacto Adhan ndive, peteĩ brújula Qibla precisa, pe Corán completo orekóva recitaciones ha tafsir, peteĩ biblioteca de hadith, adhkar fuente, peteĩ tasbih electrónico, tembiporu Ramadán, peteĩ calculadora zakat, mapas offline, ha hetave — ojejapóva omba’apo haĝua completamente offline privacidad reheve por por defecto.</string>
+    <string name="about_features_title">Umi mbaʼe ojehecharamovéva</string>
+    <string name="about_features_body">Opa mba’e peteĩ musulmán oikotevẽva peteĩ app-pe:</string>
+    <string name="about_feature_prayer">Ñembo’e aravo &amp; Adhan — opaite método cálculo rehegua, mbo’ehao jurídico, ha 18+ adhan tyapu</string>
+    <string name="about_feature_quran">Corán completo — Guión Uthmani, 44 recitores, tafsir, ñembohasa, ñe’ẽ jeheka &amp; jepivegua</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadán &amp; Zakat — mandu’a ha burbuja otyryrýva reheve</string>
+    <string name="about_feature_offline">Offline-primero — mapa, Corán, hadith ha adhkar omba’apo internet’ỹre</string>
+    <string name="about_feature_privacy">Privacidad por defecto — ndaipóri marandu, ndaipóri seguimiento, ne dato opyta ne tembipuru’ípe</string>
+    <string name="settings_auto_update">Umi actualización automática completamente</string>
+    <string name="settings_auto_update_desc">Emboguejy ha emoĩ ijeheguiete umi versión pyahu fondo-pe osẽ riremínte</string>
+    <string name="settings_auto_update_confirm_title">¿Emboguata umi actualización automática?</string>
+    <string name="settings_auto_update_confirm_body">Umi versión pyahu ojegueru ha oñeinstaláta ijeheguiete fondo-pe ojeguerekóramo. Mbojoapy?</string>
+    <string name="settings_auto_update_confirm">Mbopu\'aka</string>
+    <string name="settings_cancel">Heja</string>
+    <string name="update_last_check">Cheque paha: %1$s</string>
+    <string name="update_open_releases">Eipe’a pe página ñeguenohẽ rehegua kundahárape</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Antaŭa aja</string>
     <string name="quran_range_single_ayah">Unuopa aja</string>
     <string name="quran_range_single_ayah_short">Aja</string>
-    <string name="quran_range_to_end">Al fino de surao</string>
+    <string name="quran_range_to_end">Ĝis la fino de la Mushaf</string>
     <string name="quran_range_to_end_short">Por fini</string>
     <string name="quran_range_whole_surah">Tuta surao</string>
     <string name="quran_range_whole_surah_short">Surao</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Plena mushaf trans deklamantoj</string>
     <string name="quran_downloads_coverage_empty">Ankoraŭ neniu audio elŝutita</string>
     <string name="quran_pause_notif_listener">Paŭzi deklamadon pri sciigoj</string>
-    <string name="quran_reciter_changed_title">Deklamanto ŝanĝiĝis</string>
-    <string name="quran_reciter_changed_message">Reludado ĉesis ĉar la intervalo kuras ĝis la fino de la Korano. Ĉu komenci denove per %1$s?</string>
-    <string name="quran_reciter_restart">Komencu denove</string>
-    <string name="quran_reciter_not_now">Ne nun</string>
+    <string name="quran_search_metrics">Serĉa tempo: %1$d ms</string>
+    <string name="quran_search_index_building">Konstruante la Quran-indekson por la unua serĉo...</string>
+    <string name="quran_search_index_progress">Konstruante la mushaf-indekson... %1$d %%</string>
+    <string name="quran_search_word_root">Radiko: %1$s</string>
+    <string name="quran_search_derivations">Vortoj derivitaj de la sama radiko</string>
+    <string name="quran_search_no_root">Ne eblis determini la radikon</string>
 </resources>

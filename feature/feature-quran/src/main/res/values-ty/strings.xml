@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah na mua \' tu</string>
     <string name="quran_range_single_ayah">Hoê ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">No te hopea o te surah</string>
+    <string name="quran_range_to_end">I te hopea o te Mushaf</string>
     <string name="quran_range_to_end_short">No te faaoti</string>
     <string name="quran_range_whole_surah">Surah taatoa</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf taatoa i roto i te mau reciter</string>
     <string name="quran_downloads_coverage_empty">Aita â e faaroo i downloadhia</string>
     <string name="quran_pause_notif_listener">A tapea i te taioraa i te mau faaararaa</string>
-    <string name="quran_reciter_changed_title">Ua tauihia te taata tai\'o</string>
-    <string name="quran_reciter_changed_message">Ua tapeahia te hautiraa no te mea e tae roa \' tu te faito i te hopea o te Quran. Tīmata faahou na roto i te %1$s?</string>
-    <string name="quran_reciter_restart">Haamata faahou</string>
-    <string name="quran_reciter_not_now">Aita i teie nei</string>
+    <string name="quran_search_metrics">Taime imiraa: %1$d ms</string>
+    <string name="quran_search_index_building">Te hamaniraa i te faataaraa Quran no te imiraa matamua...</string>
+    <string name="quran_search_index_progress">Te paturaa i te faataaraa mushaf... %1$d %%</string>
+    <string name="quran_search_word_root">A\'a: %1$s</string>
+    <string name="quran_search_derivations">Te mau parau no ǒ mai i te hoê â tumu</string>
+    <string name="quran_search_no_root">Aita i ti\'a ia faataa i te tumu</string>
 </resources>

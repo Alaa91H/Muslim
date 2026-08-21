@@ -63,6 +63,16 @@
 
     <string name="about_title">About</string>
     <string name="about_version">Version %1$s</string>
+    <string name="about_tagline">A complete, free, open-source companion for every Muslim — prayer times, Adhan, Quran, hadith, adhkar and more, in your language.</string>
+    <string name="about_description_title">About Muslim</string>
+    <string name="about_description_body">Muslim is a free and open-source Android app that accompanies you throughout the day: astronomically accurate prayer times with the Adhan, a precise Qibla compass, the complete Quran with recitations and tafsir, a hadith library, sourced adhkar, an electronic tasbih, Ramadan tools, a zakat calculator, offline maps, and more — designed to work fully offline with privacy by default.</string>
+    <string name="about_features_title">Highlights</string>
+    <string name="about_features_body">Everything a Muslim needs in one app:</string>
+    <string name="about_feature_prayer">Prayer times &amp; Adhan — all calculation methods, juristic schools, and 18+ adhan sounds</string>
+    <string name="about_feature_quran">Complete Quran — Uthmani script, 44 reciters, tafsir, translations, word search &amp; frequency</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — with reminders and floating bubbles</string>
+    <string name="about_feature_offline">Offline-first — maps, Quran, hadith and adhkar work with no internet</string>
+    <string name="about_feature_privacy">Privacy by default — no ads, no tracking, your data stays on your device</string>
     <string name="about_license_title">License</string>
     <string name="about_license_body">Muslim is a completely free, open-source app under the GPLv3 license — no ads, no subscriptions, no tracking. Any modified version stays open source.</string>
     <string name="about_principles_title">Our principles</string>
@@ -157,6 +167,12 @@
     <!-- Updates -->
     <string name="settings_section_updates">Updates</string>
     <string name="settings_updates_check">Check for updates</string>
+    <string name="settings_auto_update">Fully automatic updates</string>
+    <string name="settings_auto_update_desc">Automatically download and install new versions in the background as soon as they are released</string>
+    <string name="settings_auto_update_confirm_title">Enable automatic updates?</string>
+    <string name="settings_auto_update_confirm_body">New versions will be downloaded and installed automatically in the background when available. Continue?</string>
+    <string name="settings_auto_update_confirm">Enable</string>
+    <string name="settings_cancel">Cancel</string>
     <string name="settings_updates_check_desc">Periodically check the GitHub releases page for a new version</string>
     <string name="settings_updates_frequency">Check frequency</string>
     <string name="settings_updates_daily">Daily</string>
@@ -184,4 +200,6 @@
     <string name="update_download_failed">Download failed — try again</string>
     <string name="update_available_title">A new update is available</string>
     <string name="update_available_text">Version %1$s is now available — tap to update</string>
+    <string name="update_last_check">Last check: %1$s</string>
+    <string name="update_open_releases">Open the releases page in the browser</string>
 </resources>

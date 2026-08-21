@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Eelmine ayah</string>
     <string name="quran_range_single_ayah">Üksik ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Suura lõpuni</string>
+    <string name="quran_range_to_end">Mushafi lõpuni</string>
     <string name="quran_range_to_end_short">Et lõpetada</string>
     <string name="quran_range_whole_surah">Terve suura</string>
     <string name="quran_range_whole_surah_short">Suura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Täielik mushaf üle reciters</string>
     <string name="quran_downloads_coverage_empty">Heli pole veel alla laaditud</string>
     <string name="quran_pause_notif_listener">Peatage märguannete esitamine</string>
-    <string name="quran_reciter_changed_title">Refereerija vahetatud</string>
-    <string name="quran_reciter_changed_message">Taasesitus peatati, kuna vahemik ulatub Koraani lõpuni. Kas alustada uuesti kasutajaga %1$s?</string>
-    <string name="quran_reciter_restart">Alusta uuesti</string>
-    <string name="quran_reciter_not_now">Mitte praegu</string>
+    <string name="quran_search_metrics">Otsinguaeg: %1$d ms</string>
+    <string name="quran_search_index_building">Koraani indeksi koostamine esimese otsingu jaoks ...</string>
+    <string name="quran_search_index_progress">Mushafi indeksi loomine… %1$d %%</string>
+    <string name="quran_search_word_root">Juur: %1$s</string>
+    <string name="quran_search_derivations">Samast tüvest tuletatud sõnad</string>
+    <string name="quran_search_no_root">Juure ei õnnestunud määrata</string>
 </resources>

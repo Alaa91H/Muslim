@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">ናግሽባንዲ ኣድሃን</string>
     <string name="bundled_adhan_saber">ሳብሬ ኣድሃን</string>
     <string name="bundled_adhan_sharif_doman">ሸሪፍ ዶማን adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">መስጊድ ኡማያ (ደማስቆ) adhan</string>
     <string name="bundled_adhan_yusuf_islam">ዩሱፍ እስልምና adhan</string>
     <string name="home_cannot_compute">ነዛ መዓልቲ ግዜታት ምሕሳብ ኣይከኣለን</string>
     <string name="home_location_unknown">ቦታ ገና ኣይተቐመጠን።</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">ኣውቶማቲክ (ብኣቀማምጣ)</string>
     <string name="settings_method_automatic_desc">እቲ ኣፕ ብመሰረት ሃገርካን ቦታኻን ብኣውቶማቲክ ዝበለጸ ዝሰማማዕ ኣገባብ ይመርጽ፤ ሕጂ ውን ኣብ ዝኾነ እዋን ብኢድካ ሓደ ሜላ ክትመርጽ ትኽእል ኢኻ።</string>
     <string name="settings_preview_for_prayer">ቅድመ ምርኢት %1$s adhan</string>
+    <string name="settings_method_automatic_picked">ኣውቶማቲክ ኣብዚ እዋን እዚ ዝተመርጸ: %1$s — %2$s</string>
 </resources>

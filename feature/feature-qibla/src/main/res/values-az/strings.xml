@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Sahənin eni (dərəcə)</string>
     <string name="offline_maps_storage_warning">Az yaddaş — cəmi %1$s pulsuz</string>
     <string name="offline_maps_storage_delete_largest">Ən böyük bölgəni silin (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Məscidləri adı ilə axtarın</string>
+    <string name="mosque_finder_show_all">Bütün məscidləri göstərin</string>
+    <string name="mosque_finder_share">Açıq istiqamətlər</string>
+    <string name="offline_maps_use_my_location">Cari yerimə gedin</string>
 </resources>

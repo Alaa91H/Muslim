@@ -24,4 +24,5 @@
     <string name="hadith_share">Мубодила</string>
     <string name="hadith_title">Китобхонаи Ҳадис</string>
     <string name="hadith_copy">Нусхабардорӣ</string>
+    <string name="hadith_copied">Ҳадис нусхабардорӣ шудааст</string>
 </resources>

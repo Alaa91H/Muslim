@@ -164,4 +164,22 @@
     <string name="update_available_text">Verzia %1$s je teraz k dispozícii – klepnutím aktualizujte</string>
     <string name="notif_category_app_update">Aktualizácie aplikácií</string>
     <string name="notif_category_app_update_desc">Upozornenie, keď je k dispozícii nová verzia aplikácie</string>
+    <string name="about_tagline">Kompletný, bezplatný, open source spoločník pre každého moslima – modlitebné časy, Adhan, Korán, hadísy, adhkar a ďalšie, vo vašom jazyku.</string>
+    <string name="about_description_title">O moslimoch</string>
+    <string name="about_description_body">Muslim je bezplatná a open source aplikácia pre Android, ktorá vás sprevádza po celý deň: astronomicky presné časy modlitieb s Adhanom, presný kompas Qibla, kompletný Korán s recitáciami a tafsir, knižnica hadísov, zdrojový adhkar, elektronický tasbih, nástroje ramadánu, kalkulačka zakat, offline mapy a ďalšie – predvolene navrhnuté tak, aby fungovali plne offline.</string>
+    <string name="about_features_title">Zvýraznenie</string>
+    <string name="about_features_body">Všetko, čo moslim potrebuje v jednej aplikácii:</string>
+    <string name="about_feature_prayer">Modlitebné časy a Adhan – všetky metódy výpočtu, právnické školy a viac ako 18 adhanových zvukov</string>
+    <string name="about_feature_quran">Kompletný Korán — Uthmanské písmo, 44 recitátorov, tafsir, preklady, vyhľadávanie slov a frekvencia</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, ramadán a zakát – s pripomienkami a plávajúcimi bublinami</string>
+    <string name="about_feature_offline">Najprv offline – mapy, Korán, hadísy a adhkar fungujú bez internetu</string>
+    <string name="about_feature_privacy">Súkromie v predvolenom nastavení – žiadne reklamy, žiadne sledovanie, vaše údaje zostanú vo vašom zariadení</string>
+    <string name="settings_auto_update">Plne automatické aktualizácie</string>
+    <string name="settings_auto_update_desc">Automaticky sťahovať a inštalovať nové verzie na pozadí hneď po ich vydaní</string>
+    <string name="settings_auto_update_confirm_title">Povoliť automatické aktualizácie?</string>
+    <string name="settings_auto_update_confirm_body">Nové verzie sa stiahnu a nainštalujú automaticky na pozadí, keď budú k dispozícii. Pokračovať?</string>
+    <string name="settings_auto_update_confirm">Povoliť</string>
+    <string name="settings_cancel">Zrušiť</string>
+    <string name="update_last_check">Posledná kontrola: %1$s</string>
+    <string name="update_open_releases">Otvorte stránku s vydaniami v prehliadači</string>
 </resources>

@@ -24,4 +24,5 @@
     <string name="hadith_share">Dijeli</string>
     <string name="hadith_title">Hadith Library</string>
     <string name="hadith_copy">Kopiraj</string>
+    <string name="hadith_copied">Hadis kopiran</string>
 </resources>

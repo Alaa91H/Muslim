@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">ayah priorem</string>
     <string name="quran_range_single_ayah">una ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Ad summum surah</string>
+    <string name="quran_range_to_end">Ad finem Mushaf</string>
     <string name="quran_range_to_end_short">Ad finem</string>
     <string name="quran_range_whole_surah">totum surah</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Plena mushaf per sibus</string>
     <string name="quran_downloads_coverage_empty">No audio downloaded yet</string>
     <string name="quran_pause_notif_listener">Declina notificationes in recitatione</string>
-    <string name="quran_reciter_changed_title">Reiter mutatum</string>
-    <string name="quran_reciter_changed_message">Playback cessaverunt quia range currit ad finem Quran. Rursus cum %1$s?</string>
-    <string name="quran_reciter_restart">Iterum incipit</string>
-    <string name="quran_reciter_not_now">Non nunc</string>
+    <string name="quran_search_metrics">Search time: %1$d ms</string>
+    <string name="quran_search_index_building">Aedificationem Quran index ad primum inquisitionis…</string>
+    <string name="quran_search_index_progress">Building the mushaf index… %1$d %%</string>
+    <string name="quran_search_word_root">Radix: %1$s</string>
+    <string name="quran_search_derivations">Verba ex eadem radice</string>
+    <string name="quran_search_no_root">Non potest determinare radix</string>
 </resources>

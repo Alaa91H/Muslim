@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Ubugari bw\'akarere (dogere)</string>
     <string name="offline_maps_storage_warning">Ububiko buke - %1$s gusa kubuntu</string>
     <string name="offline_maps_storage_delete_largest">Siba akarere kanini (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Shakisha imisigiti mu izina</string>
+    <string name="mosque_finder_show_all">Erekana imisigiti yose</string>
+    <string name="mosque_finder_share">Fungura icyerekezo</string>
+    <string name="offline_maps_use_my_location">Jya aho ndi ubu</string>
 </resources>

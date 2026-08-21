@@ -164,4 +164,22 @@
     <string name="update_available_text">Weersu %1$s jàppandi na leegi — bësal ngir yeesal</string>
     <string name="notif_category_app_update">yeesali aplikaasioŋ</string>
     <string name="notif_category_app_update_desc">Yegle su amee xeetu aplikaasioŋ bu bees</string>
+    <string name="about_tagline">Ab wéttal bu mat te amul fayda, bu ubbeeku ngir Jullit bu nekk — waxtu ñaan, Adhan, Al Quran, hadith, adhkar ak yeneen, ci sa làkk.</string>
+    <string name="about_description_title">Lu jëm ci Jullit</string>
+    <string name="about_description_body">Muslim app Android la bu amul fayda te ubbeeku, di ànd ak yaw bis bi yépp: waxtu ñaan yu jaar yoon, ak Adhan, busol Qibla bu jaar yoon, Al Quran bu mat ak jàng ak tafsir, bibliothèque hadith, adhkar buñ jëlee, tasbih elektronik, jumtukaayi Ramadan, kalkulatëru Zakat ak liggéey bu mat sëkk - default.</string>
+    <string name="about_features_title">Lu am solo</string>
+    <string name="about_features_body">Lépp lu jullit soxla ci benn app:</string>
+    <string name="about_feature_prayer">Jamonoy ñaan &amp; Adhan - bépp anam xayma, daara juridik, ak 18+ son adhan</string>
+    <string name="about_feature_quran">Al Quran bu mat sëkk — Bindu Uthmani, 44 jàngkat, tafsir, tekki, seetlu baat &amp; bariwaay</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat - ak fàttaliku ak ay bubble yuy féey</string>
+    <string name="about_feature_offline">Li njëkk ci net bi - kàrt, Al Quran, hadith ak adhkar liggéey te amul internet</string>
+    <string name="about_feature_privacy">Njaboot ci default — amul yëgle, amul topp, say done dina ñu des ci sa aparey</string>
+    <string name="settings_auto_update">Coppite yu mat sëkk</string>
+    <string name="settings_auto_update_desc">Yebbi ci saasi ba noppi samp version yu bees yi ci background bi ñu génnee</string>
+    <string name="settings_auto_update_confirm_title">Aktiwise yeesali otomatik?</string>
+    <string name="settings_auto_update_confirm_body">Version yu bees yi dina ñu leen yebbi ba noppi samp leen ci saasi ci background bi suñu jàppee. Wëy?</string>
+    <string name="settings_auto_update_confirm">Jox cër</string>
+    <string name="settings_cancel">Bàyyi</string>
+    <string name="update_last_check">Xool bu mujj: %1$s</string>
+    <string name="update_open_releases">Ubbi xëtu génne yi ci nawigatër bi</string>
 </resources>

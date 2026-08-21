@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Дэкламацыя ненадоўга прыпыняецца пры прайграванні апавяшчэння, званка або іншага носьбіта</string>
     <string name="more_pause_notifications_enabled">Уключана — націсніце, каб адкрыць налады сістэмы</string>
     <string name="more_pause_notifications_disabled">Адключана — націсніце, каб уключыць</string>
+    <string name="more_names">99 імёнаў Алаха</string>
+    <string name="more_names_desc">99 імёнаў з поўным тлумачэннем</string>
+    <string name="more_hajj">Хадж і Умра</string>
+    <string name="more_hajj_desc">Падрабязнае кіраўніцтва па абрадах хадж і умра</string>
 </resources>

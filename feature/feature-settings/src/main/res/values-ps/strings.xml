@@ -164,4 +164,22 @@
     <string name="update_available_text">نسخه %1$s اوس شتون لري — د تازه کولو لپاره ټایپ کړئ</string>
     <string name="notif_category_app_update">اپلیکیشن تازه کول</string>
     <string name="notif_category_app_update_desc">خبرتیا کله چې د نوي اپلیکیشن نسخه شتون ولري</string>
+    <string name="about_tagline">د هر مسلمان لپاره یو بشپړ، وړیا، خلاص سرچینه ملګری - د لمانځه وختونه، اذان، قرآن، حدیث، اذکار او نور، ستاسو په ژبه.</string>
+    <string name="about_description_title">د مسلمان په اړه</string>
+    <string name="about_description_body">مسلم یو وړیا او خلاص سرچینه انډرایډ اپلیکیشن دی چې تاسو سره د ورځې په اوږدو کې شتون لري: د اذان سره د لمانځه دقیق وخت ، د قبلې دقیق کمپاس ، بشپړ قرآن د تلاوت او تفسیر سره ، د حدیث کتابتون ، منبع اذکار ، بریښنایی تسبیح ، د رمضان اوزار ، د زکات محاسبه ، او د لاین سره د نقشې سره ډیزاین ، او د لاین آف لاین سره. ډیفالټ</string>
+    <string name="about_features_title">لوړوالی</string>
+    <string name="about_features_body">هر څه چې یو مسلمان ورته اړتیا لري په یوه اپلیکیشن کې:</string>
+    <string name="about_feature_prayer">د لمانځه وختونه او اذان - د محاسبې ټول میتودونه ، فقه ښوونځي او 18+ اذان غږونه</string>
+    <string name="about_feature_quran">بشپړ قرآن - عثماني رسم الخط، 44 تلاوت کونکي، تفسیر، ژباړې، د کلمو لټون او تعدد</string>
+    <string name="about_feature_adhkar">اذکار، تسبیح، رمضان او زکات - د نصیحتونو او تیریدلو بلبلونو سره</string>
+    <string name="about_feature_offline">آفلاین-لومړی - نقشې، قرآن، حدیث او اذکار پرته له انټرنیټ کار کوي</string>
+    <string name="about_feature_privacy">د ډیفالټ محرمیت - هیڅ اعلانونه ، هیڅ تعقیب نه ، ستاسو معلومات ستاسو په وسیله کې پاتې کیږي</string>
+    <string name="settings_auto_update">په بشپړ ډول اتوماتیک تازه معلومات</string>
+    <string name="settings_auto_update_desc">په اوتومات ډول په شالید کې نوي نسخې ډاونلوډ او نصب کړئ څومره ژر چې دوی خوشې شي</string>
+    <string name="settings_auto_update_confirm_title">اتوماتیک تازه کول فعال کړئ؟</string>
+    <string name="settings_auto_update_confirm_body">نوې نسخې به ډاونلوډ شي او په اوتومات ډول په شالید کې نصب شي کله چې شتون ولري. ادامه ورکوئ؟</string>
+    <string name="settings_auto_update_confirm">فعال کړئ</string>
+    <string name="settings_cancel">لغوه کړئ</string>
+    <string name="update_last_check">وروستی چک: %1$s</string>
+    <string name="update_open_releases">په براوزر کې د ریلیز پاڼې خلاص کړئ</string>
 </resources>

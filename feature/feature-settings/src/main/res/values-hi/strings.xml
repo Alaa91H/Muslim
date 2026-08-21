@@ -164,4 +164,22 @@
     <string name="update_available_text">संस्करण %1$s अब उपलब्ध है — अपडेट करने के लिए टैप करें</string>
     <string name="notif_category_app_update">ऐप अपडेट</string>
     <string name="notif_category_app_update_desc">ऐप का नया संस्करण उपलब्ध होने पर अधिसूचना</string>
+    <string name="about_tagline">प्रत्येक मुसलमान के लिए एक पूर्ण, मुफ़्त, खुला-स्रोत साथी - आपकी भाषा में प्रार्थना का समय, अज़ान, कुरान, हदीस, अधकार और बहुत कुछ।</string>
+    <string name="about_description_title">मुस्लिम के बारे में</string>
+    <string name="about_description_body">मुस्लिम एक स्वतंत्र और ओपन-सोर्स एंड्रॉइड ऐप है जो पूरे दिन आपका साथ देता है: अज़ान के साथ खगोलीय रूप से सटीक प्रार्थना समय, एक सटीक किबला कम्पास, सस्वर पाठ और तफ़सीर के साथ पूरा कुरान, एक हदीस पुस्तकालय, स्रोत अज़कार, एक इलेक्ट्रॉनिक तस्बीह, रमज़ान उपकरण, एक ज़कात कैलकुलेटर, ऑफ़लाइन मानचित्र, और बहुत कुछ - डिफ़ॉल्ट रूप से गोपनीयता के साथ पूरी तरह से ऑफ़लाइन काम करने के लिए डिज़ाइन किया गया है।</string>
+    <string name="about_features_title">हाइलाइट्स</string>
+    <string name="about_features_body">एक मुसलमान को जो कुछ भी चाहिए वह सब एक ऐप में:</string>
+    <string name="about_feature_prayer">प्रार्थना का समय और अज़ान - सभी गणना पद्धतियाँ, न्यायिक विद्यालय, और 18+ अज़ान ध्वनियाँ</string>
+    <string name="about_feature_quran">संपूर्ण कुरान - उथमानी लिपि, 44 पाठकर्ता, तफ़सीर, अनुवाद, शब्द खोज और आवृत्ति</string>
+    <string name="about_feature_adhkar">अज़कार, तस्बीह, रमज़ान और ज़कात - अनुस्मारक और तैरते बुलबुले के साथ</string>
+    <string name="about_feature_offline">ऑफ़लाइन-प्रथम - मानचित्र, कुरान, हदीस और आधार बिना इंटरनेट के काम करते हैं</string>
+    <string name="about_feature_privacy">डिफ़ॉल्ट रूप से गोपनीयता - कोई विज्ञापन नहीं, कोई ट्रैकिंग नहीं, आपका डेटा आपके डिवाइस पर रहता है</string>
+    <string name="settings_auto_update">पूरी तरह से स्वचालित अपडेट</string>
+    <string name="settings_auto_update_desc">नए संस्करण रिलीज़ होते ही पृष्ठभूमि में स्वचालित रूप से डाउनलोड और इंस्टॉल हो जाते हैं</string>
+    <string name="settings_auto_update_confirm_title">स्वचालित अपडेट सक्षम करें?</string>
+    <string name="settings_auto_update_confirm_body">नए संस्करण उपलब्ध होने पर पृष्ठभूमि में स्वचालित रूप से डाउनलोड और इंस्टॉल किए जाएंगे। जारी रखना?</string>
+    <string name="settings_auto_update_confirm">सक्षम</string>
+    <string name="settings_cancel">रद्द करना</string>
+    <string name="update_last_check">अंतिम जाँच: %1$s</string>
+    <string name="update_open_releases">ब्राउज़र में रिलीज़ पृष्ठ खोलें</string>
 </resources>

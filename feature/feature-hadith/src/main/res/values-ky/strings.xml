@@ -24,4 +24,5 @@
     <string name="hadith_share">Бөлүшүү</string>
     <string name="hadith_title">Хадис китепканасы</string>
     <string name="hadith_copy">Көчүрмө</string>
+    <string name="hadith_copied">Хадис көчүрүлгөн</string>
 </resources>

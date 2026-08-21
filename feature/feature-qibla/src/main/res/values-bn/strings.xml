@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">এলাকার প্রস্থ (ডিগ্রী)</string>
     <string name="offline_maps_storage_warning">কম সঞ্চয়স্থান — শুধুমাত্র %1$s বিনামূল্যে</string>
     <string name="offline_maps_storage_delete_largest">বৃহত্তম অঞ্চল মুছুন (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">নাম অনুসারে মসজিদ অনুসন্ধান করুন</string>
+    <string name="mosque_finder_show_all">সব মসজিদ দেখান</string>
+    <string name="mosque_finder_share">দিকনির্দেশ খুলুন</string>
+    <string name="offline_maps_use_my_location">আমার বর্তমান অবস্থানে যান</string>
 </resources>

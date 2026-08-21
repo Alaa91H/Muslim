@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Икьаҿу адхкар мацара ахархәара</string>
     <string name="adhkar_overlay_short_only_desc">Иалышәх адхкар, цәаҳәак-ҩбак ирықәшәо, иӡсо аҟәаҟәа еилыкка иаанхарц, насгьы аԥхьара марианы иаанхарц азы.</string>
     <string name="adhkar_overlay_tap_hint">Аҟәаҟәа иақәыӷәӷәа иаразнак иаԥыхразы.</string>
+    <string name="adhkar_copied">Зыкр иқәҭыхуп</string>
+    <string name="adhkar_periodic_dhikr">Иалкаау аџьикр</string>
+    <string name="adhkar_periodic_dhikr_random">Иаалырҟьаны (напыла алхра ацымхәрас)</string>
 </resources>

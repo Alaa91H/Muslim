@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">רוחב שטח (מעלות)</string>
     <string name="offline_maps_storage_warning">שטח אחסון נמוך - רק %1$s בחינם</string>
     <string name="offline_maps_storage_delete_largest">מחק את האזור הגדול ביותר (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">חפש מסגדים לפי שם</string>
+    <string name="mosque_finder_show_all">הצג את כל המסגדים</string>
+    <string name="mosque_finder_share">פתח כיוונים</string>
+    <string name="offline_maps_use_my_location">עבור אל המיקום הנוכחי שלי</string>
 </resources>

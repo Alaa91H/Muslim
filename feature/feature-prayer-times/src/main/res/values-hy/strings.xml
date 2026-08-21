@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Նաղշբանդի ազան</string>
     <string name="bundled_adhan_saber">Սաբեր ազան</string>
     <string name="bundled_adhan_sharif_doman">Շարիֆ Դոման ադան</string>
-    <string name="bundled_adhan_umayyad_damascus">Օմայադ մզկիթ (Դամասկոս) ադան</string>
     <string name="bundled_adhan_yusuf_islam">Յուսուֆ Իսլամ ազան</string>
     <string name="home_cannot_compute">Անհնար է հաշվարկել այս օրվա ժամերը</string>
     <string name="home_location_unknown">Տեղադրությունը դեռ սահմանված չէ</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Ավտոմատ (ըստ գտնվելու վայրի)</string>
     <string name="settings_method_automatic_desc">Հավելվածը ավտոմատ կերպով ընտրում է ամենահարմար մեթոդը՝ հիմնվելով ձեր երկրի և գտնվելու վայրի վրա. Դուք դեռ կարող եք ցանկացած ժամանակ ձեռքով մեթոդ ընտրել:</string>
     <string name="settings_preview_for_prayer">Նախադիտեք %1$s ադանը</string>
+    <string name="settings_method_automatic_picked">Ներկայումս ընտրված ավտոմատ՝ %1$s — %2$s</string>
 </resources>

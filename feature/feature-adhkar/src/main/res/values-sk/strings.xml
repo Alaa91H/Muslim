@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Používajte iba krátke adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Vyberte si adhkar, ktorý sa zmestí na jednu alebo dve čiary, takže plávajúca bublina zostane čistá a ľahko čitateľná.</string>
     <string name="adhkar_overlay_tap_hint">Klepnutím na bublinu ju okamžite zatvoríte.</string>
+    <string name="adhkar_copied">Dhikr skopírovaný</string>
+    <string name="adhkar_periodic_dhikr">Konkrétne dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Náhodné (namiesto manuálneho výberu)</string>
 </resources>

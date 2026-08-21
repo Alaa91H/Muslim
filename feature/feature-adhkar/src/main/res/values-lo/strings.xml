@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">ໃຊ້ adhkar ສັ້ນເທົ່ານັ້ນ</string>
     <string name="adhkar_overlay_short_only_desc">ເລືອກ adhkar ທີ່ເຫມາະຫນຶ່ງຫຼືສອງເສັ້ນເພື່ອໃຫ້ຟອງລອຍຢູ່ຄົງທີ່ຈະແຈ້ງແລະງ່າຍຕໍ່ການອ່ານ.</string>
     <string name="adhkar_overlay_tap_hint">ແຕະທີ່ຟອງເພື່ອປິດມັນທັນທີ.</string>
+    <string name="adhkar_copied">ສຳເນົາ Dhikr</string>
+    <string name="adhkar_periodic_dhikr">dhikr ສະເພາະ</string>
+    <string name="adhkar_periodic_dhikr_random">ແບບສຸ່ມ (ແທນການເລືອກດ້ວຍຕົນເອງ)</string>
 </resources>

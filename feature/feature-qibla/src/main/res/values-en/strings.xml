@@ -41,8 +41,11 @@
     <string name="mosque_finder_zoom_out">Zoom out</string>
     <string name="mosque_finder_nearest">Nearest mosque</string>
     <string name="mosque_finder_go_to">Go to it</string>
+    <string name="mosque_finder_share">Open directions</string>
     <string name="mosque_finder_find_nearest">Find nearest mosque</string>
     <string name="mosque_finder_expanding">Searching within %1$s…</string>
+    <string name="mosque_finder_search_hint">Search mosques by name</string>
+    <string name="mosque_finder_show_all">Show all mosques</string>
 
     <!-- Offline maps download -->
     <string name="offline_maps_title">Offline maps</string>
@@ -69,6 +72,7 @@
     <string name="offline_maps_size_estimate">Estimated size: %1$s</string>
     <string name="offline_maps_download">Download</string>
     <string name="offline_maps_custom_hint">Pan and zoom the map to frame the area you want; the frame updates automatically. Adjust the width with the slider.</string>
+    <string name="offline_maps_use_my_location">Go to my current location</string>
     <string name="offline_maps_custom_name">Area name</string>
     <string name="offline_maps_custom_selected">Selected center: %1$.2f, %2$.2f</string>
     <string name="offline_maps_custom_tap">Move the map to select the area</string>

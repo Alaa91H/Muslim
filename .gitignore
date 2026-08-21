@@ -37,3 +37,6 @@ release.keystore
 # Python (bytecode cache is never committed)
 __pycache__/
 *.pyc
+
+# one-off agent patch scripts (scratch, never shipped)
+patch_*.py

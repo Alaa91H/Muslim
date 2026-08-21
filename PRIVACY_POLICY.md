@@ -1,44 +1,53 @@
-# سياسة الخصوصية — تطبيق مسلم (Muslim)
+# Privacy Policy — Muslim
 
-> آخر تحديث: 16 أغسطس 2026
+> Last updated: 20 August 2026
 
-## المبدأ الأساسي
+## The core principle
 
-**الخصوصية أولًا.** تطبيق مسلم تطبيق إسلامي مجاني ومفتوح المصدر، ولا يجمع أي بيانات شخصية، ولا يتتبع نشاطك، ولا يعرض إعلانات، ولا يبيع بياناتك لأي طرف ثالث. جميع بياناتك تبقى على جهازك افتراضيًا (Offline-first).
+**Privacy first.** Muslim is a free, open-source Islamic app that does not collect any personal data, does not track your activity, does not show ads, and does not sell your data to any third party. All your data stays on your device by default (offline-first).
 
-## البيانات التي يعالجها التطبيق
+## Data the app processes
 
-| نوع البيانات | الغرض | مكان التخزين |
+| Data type | Purpose | Where it is stored |
 |---|---|---|
-| موقعك (إحداثيات أو مدينة مختارة) | حساب أوقات الصلاة واتجاه القبلة بدقة | على الجهاز فقط — لا تُرسل لأي خادم |
-| إعداداتك (طريقة الحساب، الأصوات، الثيم، اللغة...) | تخصيص تجربتك | على الجهاز فقط (DataStore) |
-| تقدمك (علامات القرآن، سجل التسبيح، أيام الصيام، سجل الزكاة) | استمرارية استخدامك | على الجهاز فقط |
-| نص القرآن والأحاديث والأذكار | المحتوى الديني المضمّن | ملفات مضمّنة في التطبيق — تعمل دون إنترنت |
+| Your location (coordinates or a manually selected city) | Calculating prayer times and the qibla accurately | On your device only — never sent to any server |
+| Your settings (calculation method, sounds, theme, language…) | Personalizing your experience | On your device only (DataStore) |
+| Your progress (Quran bookmarks, tasbih log, fasting days, zakat log) | Continuity of your usage | On your device only |
+| Quran text, hadith, adhkar | Bundled religious content | Bundled app assets — works offline |
 
-## الأذونات ولماذا
+## Permissions and why
 
-- **الموقع (GPS):** تُطلب فقط عند استخدام شاشة تحديد الموقع لحساب أوقات الصلاة والقبلة. يمكنك دائمًا اختيار مدينة يدويًا بدلًا من ذلك، أو رفض الإذن والاستمرار باستخدام بقية التطبيق.
-- **الإشعارات:** تُطلب لتسليم الأذان والتذكيرات التي تفعّلها بنفسك (تذكير الصلاة، الإفطار والسحور، آية اليوم).
-- **الجدولة الدقيقة (Exact alarms):** لضمان انطلاق الأذان في وقته تمامًا. يمكنك إلغاء استثناء البطارية في أي وقت من إعدادات النظام.
+- **Location (GPS):** requested only when you use the location screen to calculate prayer times and the qibla. You can always choose a city manually instead, or deny the permission and keep using the rest of the app.
+- **Notifications:** requested to deliver the Adhan and the reminders you enable yourself (prayer reminders, Iftar & Suhoor, hadith of the day, adhkar).
+- **Exact alarms:** to guarantee the Adhan rings exactly on time. You can revoke the battery exemption any time from the system settings.
+- **Overlay (draw over other apps):** requested only if you enable the optional floating adhkar bubble.
+- **Notification access:** requested only if you enable the optional "pause recitation on notifications" feature.
 
-## الاتصال بالشبكة (اختياري بالكامل)
+## Network usage (entirely optional)
 
-التطبيق يعمل 100% دون إنترنت. الاتصال بالشبكة يُستخدم فقط لميزات إضافية اختيارية تختارها بنفسك (مثل تنزيل تلاوات صوتية). لا نرسل بياناتك الشخصية إلى أي خادم في أي حال.
+The app works 100% without the internet. Network access is used only for optional extras you choose yourself:
 
-## لا تتبع، لا إعلانات
+- Downloading recitations and translations
+- The in-app update checker (GitHub Releases)
+- Loading map tiles / searching for nearby mosques (OpenStreetMap)
 
-- لا توجد أي SDK لإعلانات أو تحليلات أو تتبع تسويقي.
-- لا توجد حسابات إلزامية.
-- لا ملفات تعريف ارتباط خارجية.
+We never send your personal data to any server under any circumstances.
 
-## النسخ الاحتياطي
+## No tracking, no ads
 
-عند تفعيل النسخ الاحتياطي للنظام (Android Backup)، قد تُضمَّن بيانات التطبيق المحلية في نسختك الاحتياطية على حسابك في Google — كما تفعل سائر التطبيقات — وفقًا لسياسة Google للخصوصية.
+- No ad, analytics, or marketing-tracking SDKs.
+- No mandatory accounts.
+- No third-party cookies.
+- No device fingerprinting.
 
-## المصدر المفتوح والمراجعة
+## Backup
 
-كود التطبيق منشور علنًا (رخصة GPLv3) — يمكن لأي مختص مراجعة ما يفعله التطبيق بالضبط والتأكد من التزامه بهذه السياسة.
+When Android system backup is enabled, local app data may be included in your Google account backup — like any other app — in accordance with Google's privacy policy.
 
-## التواصل
+## Open source & review
 
-لأي استفسار حول هذه السياسة، افتح قضية (Issue) في مستودع المشروع على GitHub.
+The app's code is publicly available (GPLv3) — anyone can review exactly what the app does and verify that this policy is honored.
+
+## Contact
+
+For any questions about this policy, open an issue in the project repository on GitHub, or contact the developer at [alahus2591@gmail.com](mailto:alahus2591@gmail.com).

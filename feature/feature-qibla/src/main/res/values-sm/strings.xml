@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Lautele o le eria (tikeri)</string>
     <string name="offline_maps_storage_warning">E maualalo le teuina - na\'o %1$s fua</string>
     <string name="offline_maps_storage_delete_largest">Ave\'ese le itulagi tele (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Su\'e faletapuai i igoa</string>
+    <string name="mosque_finder_show_all">Faaali atu faletapuai uma</string>
+    <string name="mosque_finder_share">Tatala faatonuga</string>
+    <string name="offline_maps_use_my_location">Alu i lo\'u nofoaga o iai nei</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Площадь сарлакӑшӗ (градуссем)</string>
     <string name="offline_maps_storage_warning">Пӗчӗк упрамалли вырӑн — %1$s ҫеҫ тӳлевсӗр</string>
     <string name="offline_maps_storage_delete_largest">Чи пысӑк региона пӗтер (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Мечӗтсене ятпа шырӑр</string>
+    <string name="mosque_finder_show_all">Пур мечӗтсене те кӑтарт</string>
+    <string name="mosque_finder_share">Уҫӑ ҫул-йӗрсем</string>
+    <string name="offline_maps_use_my_location">Манӑн хальхи вырӑна кайӑр</string>
 </resources>

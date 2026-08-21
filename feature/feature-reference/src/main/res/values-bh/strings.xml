@@ -5,4 +5,6 @@
     <string name="reference_search_hint">एह किताब के खोज करीं...</string>
     <string name="reference_title">इस्लामी संदर्भ पुस्तकालय के ह</string>
     <string name="reference_topics_count">विषयन के बारे में बतावल गइल बा</string>
+    <string name="reference_copy">कॉपी कइल जा सकेला</string>
+    <string name="reference_share">शेयर करीं</string>
 </resources>

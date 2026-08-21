@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Площадьалъул гӀеблъи (градусал)</string>
     <string name="offline_maps_storage_warning">ГӀодобегӀанаб бакӀ — гӀицӀго %1$s чӀобого</string>
     <string name="offline_maps_storage_delete_largest">Удалить самый большой регион (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Поиск мечетей по названиям .</string>
+    <string name="mosque_finder_show_all">Киналго мажгитал рихьизаре .</string>
+    <string name="mosque_finder_share">Рагьарал рахъал .</string>
+    <string name="offline_maps_use_my_location">ГьабсагӀат дир бугеб бакӀалде ине .</string>
 </resources>

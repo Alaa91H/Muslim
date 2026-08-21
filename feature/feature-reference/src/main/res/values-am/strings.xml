@@ -5,4 +5,6 @@
     <string name="reference_search_hint">ይህንን መጽሐፍ ፈልግ…</string>
     <string name="reference_title">ኢስላማዊ ማጣቀሻ ቤተ መጻሕፍት</string>
     <string name="reference_topics_count">ርዕሶች</string>
+    <string name="reference_copy">ቅዳ</string>
+    <string name="reference_share">አጋራ</string>
 </resources>

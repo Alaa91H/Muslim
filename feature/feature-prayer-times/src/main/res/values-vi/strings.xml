@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Nhà thờ Hồi giáo Umayyad (Damascus) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Hồi giáo adhan</string>
     <string name="home_cannot_compute">Không thể tính thời gian cho ngày này</string>
     <string name="home_location_unknown">Vị trí chưa được đặt</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Tự động (theo vị trí)</string>
     <string name="settings_method_automatic_desc">Ứng dụng sẽ tự động chọn phương pháp phù hợp nhất dựa trên quốc gia và vị trí của bạn; bạn vẫn có thể chọn phương pháp thủ công bất kỳ lúc nào.</string>
     <string name="settings_preview_for_prayer">Xem trước %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Tự động hiện được chọn: %1$s — %2$s</string>
 </resources>

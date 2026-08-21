@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Мурунку аят</string>
     <string name="quran_range_single_ayah">Жалгыз ая</string>
     <string name="quran_range_single_ayah_short">Ая</string>
-    <string name="quran_range_to_end">Сүрөөнүн аягына чейин</string>
+    <string name="quran_range_to_end">Мушафтын аягына чейин</string>
     <string name="quran_range_to_end_short">бүтүрүү үчүн</string>
     <string name="quran_range_whole_surah">Бүтүндөй сүрө</string>
     <string name="quran_range_whole_surah_short">Сура</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Кариатчыларга толук мушаф</string>
     <string name="quran_downloads_coverage_empty">Азырынча эч кандай аудио жүктөлүп алынган жок</string>
     <string name="quran_pause_notif_listener">Эскертмелерде окууну тындыруу</string>
-    <string name="quran_reciter_changed_title">Окуучу өзгөрдү</string>
-    <string name="quran_reciter_changed_message">Ойнотуу токтотулду, анткени диапазон Курандын аягына чейин иштейт. %1$s менен кайра баштайсызбы?</string>
-    <string name="quran_reciter_restart">Кайра баштаңыз</string>
-    <string name="quran_reciter_not_now">Азыр эмес</string>
+    <string name="quran_search_metrics">Издөө убактысы: %1$d мс</string>
+    <string name="quran_search_index_building">Биринчи издөө үчүн Курандын индекси түзүлүүдө…</string>
+    <string name="quran_search_index_progress">Мушафтын индексин түзүүдө… %1$d %%</string>
+    <string name="quran_search_word_root">Тамыр: %1$s</string>
+    <string name="quran_search_derivations">Бир уңгудан жасалган сөздөр</string>
+    <string name="quran_search_no_root">Түптү аныктай алган жок</string>
 </resources>

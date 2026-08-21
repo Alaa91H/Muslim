@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Use apenas adhkar curto</string>
     <string name="adhkar_overlay_short_only_desc">Escolha adhkar que caiba em uma ou duas linhas para que a bolha flutuante permaneça clara e fácil de ler.</string>
     <string name="adhkar_overlay_tap_hint">Toque no balão para descartá-lo imediatamente.</string>
+    <string name="adhkar_copied">Dhikr copiado</string>
+    <string name="adhkar_periodic_dhikr">Dhikr específico</string>
+    <string name="adhkar_periodic_dhikr_random">Aleatório (em vez de seleção manual)</string>
 </resources>

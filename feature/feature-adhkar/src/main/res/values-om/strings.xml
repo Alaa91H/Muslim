@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Adhkar gabaabaa qofa fayyadamaa</string>
     <string name="adhkar_overlay_short_only_desc">Adhkar sarara tokko ykn lamaaf kan siqu filadhu akka bubbee lola\'u ifa ta\'ee fi dubbisuuf salphaa ta\'ee turuuf.</string>
     <string name="adhkar_overlay_tap_hint">Bubbee sana tuquun battalumatti kuffisi.</string>
+    <string name="adhkar_copied">Dhikr waraabe</string>
+    <string name="adhkar_periodic_dhikr">Dhikrii addaa</string>
+    <string name="adhkar_periodic_dhikr_random">Random (bakka harkaan fudhachuu) .</string>
 </resources>

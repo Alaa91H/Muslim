@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Përdorni vetëm adkar të shkurtër</string>
     <string name="adhkar_overlay_short_only_desc">Zgjidhni adhkar që përshtaten me një ose dy rreshta në mënyrë që flluska lundruese të mbetet e qartë dhe e lehtë për t\'u lexuar.</string>
     <string name="adhkar_overlay_tap_hint">Prekni flluskën për ta hequr menjëherë.</string>
+    <string name="adhkar_copied">Dhikri i kopjuar</string>
+    <string name="adhkar_periodic_dhikr">Dhikri specifik</string>
+    <string name="adhkar_periodic_dhikr_random">E rastësishme (në vend të zgjedhjes manuale)</string>
 </resources>

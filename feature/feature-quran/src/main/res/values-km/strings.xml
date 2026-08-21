@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">ពីមុន អាយ៉ា</string>
     <string name="quran_range_single_ayah">នៅលីវអៃយ៉ា</string>
     <string name="quran_range_single_ayah_short">អាយ៉ា</string>
-    <string name="quran_range_to_end">ដើម្បីបញ្ចប់នៃ Surah</string>
+    <string name="quran_range_to_end">ដល់ទីបញ្ចប់នៃ Mushaf</string>
     <string name="quran_range_to_end_short">ដើម្បីបញ្ចប់</string>
     <string name="quran_range_whole_surah">Surah ទាំងមូល</string>
     <string name="quran_range_whole_surah_short">ស៊ូរ៉ា</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">mushaf ពេញនៅទូទាំងអ្នកសរសេរ</string>
     <string name="quran_downloads_coverage_empty">មិន​ទាន់​មាន​ការ​ទាញ​យក​សំឡេង​នៅ​ឡើយ​ទេ។</string>
     <string name="quran_pause_notif_listener">ផ្អាកការសូត្រនៅលើការជូនដំណឹង</string>
-    <string name="quran_reciter_changed_title">Reciter បានផ្លាស់ប្តូរ</string>
-    <string name="quran_reciter_changed_message">ការ​ចាក់​សារ​ថ្មី​បាន​បញ្ឈប់​ដោយ​សារ​តែ​ជួរ​រត់​ទៅ​ចុង​បញ្ចប់​នៃ​គម្ពីគូរ៉ា។ ចាប់ផ្តើមម្តងទៀតជាមួយ %1$s?</string>
-    <string name="quran_reciter_restart">ចាប់ផ្តើមម្តងទៀត</string>
-    <string name="quran_reciter_not_now">មិនមែនឥឡូវនេះទេ។</string>
+    <string name="quran_search_metrics">ពេលវេលាស្វែងរក៖ %1$d ms</string>
+    <string name="quran_search_index_building">ការកសាងលិបិក្រមគម្ពីគូរ៉ាសម្រាប់ការស្វែងរកដំបូង…</string>
+    <string name="quran_search_index_progress">ការកសាងសន្ទស្សន៍ mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">ឫស៖ %1$s</string>
+    <string name="quran_search_derivations">ពាក្យដែលកើតចេញពីឫសតែមួយ</string>
+    <string name="quran_search_no_root">មិនអាចកំណត់ឫសបានទេ។</string>
 </resources>

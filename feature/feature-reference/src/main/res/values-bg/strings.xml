@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Търсене в тази книга...</string>
     <string name="reference_title">Ислямска справочна библиотека</string>
     <string name="reference_topics_count">теми</string>
+    <string name="reference_copy">копие</string>
+    <string name="reference_share">Споделете</string>
 </resources>

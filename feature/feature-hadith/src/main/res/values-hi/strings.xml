@@ -24,4 +24,5 @@
     <string name="hadith_share">साझा करें</string>
     <string name="hadith_title">हदीस लाइब्रेरी</string>
     <string name="hadith_copy">प्रतिलिपि</string>
+    <string name="hadith_copied">हदीस की नकल की गई</string>
 </resources>

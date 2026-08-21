@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">ទទឹងតំបន់ (ដឺក្រេ)</string>
     <string name="offline_maps_storage_warning">ទំហំផ្ទុកទាប - ត្រឹមតែ %1$s ឥតគិតថ្លៃ</string>
     <string name="offline_maps_storage_delete_largest">លុបតំបន់ធំបំផុត (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">ស្វែងរកវិហារតាមឈ្មោះ</string>
+    <string name="mosque_finder_show_all">បង្ហាញវិហារអ៊ីស្លាមទាំងអស់។</string>
+    <string name="mosque_finder_share">បើកទិសដៅ</string>
+    <string name="offline_maps_use_my_location">ទៅកាន់ទីតាំងបច្ចុប្បន្នរបស់ខ្ញុំ</string>
 </resources>

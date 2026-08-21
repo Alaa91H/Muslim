@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Utere brevi adhkar modo</string>
     <string name="adhkar_overlay_short_only_desc">Elige adhkar quod una vel duae lineae aptae sunt, ut bulla fluitantia clara et facilis ad legendum sistit.</string>
     <string name="adhkar_overlay_tap_hint">Tap bullam emittere statim.</string>
+    <string name="adhkar_copied">Dhikr copied</string>
+    <string name="adhkar_periodic_dhikr">Imprimis dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Random (pro manibus robur)</string>
 </resources>

@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Använd endast kort adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Välj adhkar som passar en eller två linjer så att den flytande bubblan förblir tydlig och lätt att läsa.</string>
     <string name="adhkar_overlay_tap_hint">Tryck på bubblan för att ta bort den omedelbart.</string>
+    <string name="adhkar_copied">Dhikr kopierade</string>
+    <string name="adhkar_periodic_dhikr">Specifik dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Slumpmässigt (istället för manuellt val)</string>
 </resources>

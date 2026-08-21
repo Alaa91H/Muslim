@@ -5,4 +5,6 @@
     <string name="reference_search_hint">ຊອກຫາປຶ້ມນີ້...</string>
     <string name="reference_title">ຫໍສະໝຸດອິດສະລາມ</string>
     <string name="reference_topics_count">ຫົວຂໍ້</string>
+    <string name="reference_copy">ສຳເນົາ</string>
+    <string name="reference_share">ແບ່ງປັນ</string>
 </resources>

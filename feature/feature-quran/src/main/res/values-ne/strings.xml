@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">अघिल्लो अायाह</string>
     <string name="quran_range_single_ayah">एकल अायाह</string>
     <string name="quran_range_single_ayah_short">आयह</string>
-    <string name="quran_range_to_end">सुराको अन्त्यमा</string>
+    <string name="quran_range_to_end">मुसफको अन्त्यसम्म</string>
     <string name="quran_range_to_end_short">अन्त्य गर्न</string>
     <string name="quran_range_whole_surah">पूरा सुरा</string>
     <string name="quran_range_whole_surah_short">सुरा</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">पाठकहरूमा पूर्ण मुसाफ</string>
     <string name="quran_downloads_coverage_empty">अहिलेसम्म कुनै अडियो डाउनलोड गरिएको छैन</string>
     <string name="quran_pause_notif_listener">सूचनाहरूमा पठन रोक्नुहोस्</string>
-    <string name="quran_reciter_changed_title">पाठक परिवर्तन भयो</string>
-    <string name="quran_reciter_changed_message">प्लेब्याक रोकियो किनभने दायरा कुरानको अन्त्यसम्म चल्छ। %1$s बाट फेरि सुरु गर्ने हो?</string>
-    <string name="quran_reciter_restart">फेरि सुरु गर्नुहोस्</string>
-    <string name="quran_reciter_not_now">अहिले होइन</string>
+    <string name="quran_search_metrics">खोज समय: %1$d ms</string>
+    <string name="quran_search_index_building">पहिलो खोजको लागि कुरान अनुक्रमणिका निर्माण गर्दै...</string>
+    <string name="quran_search_index_progress">मुसाफ अनुक्रमणिका निर्माण गर्दै... %1$d %%</string>
+    <string name="quran_search_word_root">रूट: %1$s</string>
+    <string name="quran_search_derivations">एउटै मूलबाट व्युत्पन्न शब्दहरू</string>
+    <string name="quran_search_no_root">मूल निर्धारण गर्न सकेन</string>
 </resources>

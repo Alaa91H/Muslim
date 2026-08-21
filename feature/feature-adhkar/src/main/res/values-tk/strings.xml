@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Diňe gysga adhkar ulanyň</string>
     <string name="adhkar_overlay_short_only_desc">Floüzýän köpürjik düşnükli we okamak aňsat bolar ýaly bir ýa-da iki setire laýyk adhkar saýlaň.</string>
     <string name="adhkar_overlay_tap_hint">Derrew işden çykarmak üçin köpürge basyň.</string>
+    <string name="adhkar_copied">Dikr göçürdi</string>
+    <string name="adhkar_periodic_dhikr">Aýratyn dikr</string>
+    <string name="adhkar_periodic_dhikr_random">Tötänleýin (el bilen saýlamagyň ýerine)</string>
 </resources>

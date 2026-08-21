@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Gebiedsbreedte (graden)</string>
     <string name="offline_maps_storage_warning">Weinig opslagruimte: slechts %1$s gratis</string>
     <string name="offline_maps_storage_delete_largest">Grootste regio verwijderen (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Zoek moskeeën op naam</string>
+    <string name="mosque_finder_show_all">Toon alle moskeeën</string>
+    <string name="mosque_finder_share">Routebeschrijving openen</string>
+    <string name="offline_maps_use_my_location">Ga naar mijn huidige locatie</string>
 </resources>

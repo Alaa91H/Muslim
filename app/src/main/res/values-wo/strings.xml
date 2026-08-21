@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Recitation dafay noppalu ab diir su amee yëgle, sone wala yeneen media yuy jouer</string>
     <string name="more_pause_notifications_enabled">Aktiwise — bësal ngir ubbi jekkal sistem bi</string>
     <string name="more_pause_notifications_disabled">Desactivé — bësal ngir mëna</string>
+    <string name="more_names">99 Turu Yàlla</string>
+    <string name="more_names_desc">tur yi ak leeral yu mat sëkk</string>
+    <string name="more_hajj">Haj ak Umra</string>
+    <string name="more_hajj_desc">Gis bu leer ci xew-xewu Hajj ak Umrah</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Lalahi ʻo e ʻēliá (tikilī)</string>
     <string name="offline_maps_storage_warning">Ma\'ulalo \'a e tanaki\'anga — %1$s pe \'oku ta\'etotongi .</string>
     <string name="offline_maps_storage_delete_largest">Tamate\'i \'a e vahefonua lahi taha (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Fekumi ki he ngaahi mosque \'i he hingoa .</string>
+    <string name="mosque_finder_show_all">Faka\'ali\'ali \'a e ngaahi mosque kotoa pe</string>
+    <string name="mosque_finder_share">Fakaava e ngaahi fakahinohino</string>
+    <string name="offline_maps_use_my_location">Alu ki hoku feitu\'u lolotonga .</string>
 </resources>

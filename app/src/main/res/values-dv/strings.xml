@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">ނޮޓިފިކޭޝަނެއް، ރިންގެއް ނުވަތަ އެހެން މީޑިއާއެއް ކުޅޭއިރު ކިޔެވުން ކުޑައިރުކޮޅަކު މަޑުޖައްސާލައެވެ</string>
     <string name="more_pause_notifications_enabled">އެނެބަލްޑް — ސިސްޓަމް ސެޓިންގސް ހުޅުވުމަށް ޓެޕް ކުރާށެވެ</string>
     <string name="more_pause_notifications_disabled">ޑިސެބަލްޑް — އެނެބަލް ކުރުމަށް ޓެޕް ކުރާށެވެ</string>
+    <string name="more_names">الله ގެ 99 ނަންފުޅެވެ</string>
+    <string name="more_names_desc">އެ 99 ނަން ފުރިހަމަ ތަފްސީލާއެކު</string>
+    <string name="more_hajj">ހައްޖު އެންޑް ޢުމްރާއެވެ</string>
+    <string name="more_hajj_desc">ހައްޖާއި ޢުމްރާގެ ރިވެތިތަކާބެހޭ ތަފްޞީލީ ގައިޑް</string>
 </resources>

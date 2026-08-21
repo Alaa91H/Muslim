@@ -164,4 +164,22 @@
     <string name="update_available_text">เวอร์ชัน %1$s พร้อมใช้งานแล้ว — แตะเพื่ออัปเดต</string>
     <string name="notif_category_app_update">การอัปเดตแอป</string>
     <string name="notif_category_app_update_desc">การแจ้งเตือนเมื่อมีแอปเวอร์ชันใหม่พร้อมใช้งาน</string>
+    <string name="about_tagline">สหายโอเพ่นซอร์สที่สมบูรณ์ฟรีสำหรับชาวมุสลิมทุกคน ไม่ว่าจะเป็นเวลาละหมาด อาซาน คัมภีร์อัลกุรอาน สุนัต อัซการ์ และอื่นๆ ในภาษาของคุณ</string>
+    <string name="about_description_title">เกี่ยวกับมุสลิม</string>
+    <string name="about_description_body">Muslim เป็นแอป Android แบบโอเพ่นซอร์สฟรีที่ติดตามคุณตลอดทั้งวัน: เวลาละหมาดที่แม่นยำทางดาราศาสตร์ด้วย Adhan, เข็มทิศ Qibla ที่แม่นยำ, อัลกุรอานฉบับสมบูรณ์พร้อมบทอ่านและทาฟซีร์, ห้องสมุดสุนัต, adhkar ที่มาจากแหล่ง, ตัสบีห์อิเล็กทรอนิกส์, เครื่องมือเดือนรอมฎอน, เครื่องคิดเลขซะกาต, แผนที่ออฟไลน์ และอื่นๆ อีกมากมาย — ออกแบบมาเพื่อทำงานแบบออฟไลน์โดยสมบูรณ์โดยมีความเป็นส่วนตัวตามค่าเริ่มต้น</string>
+    <string name="about_features_title">ไฮไลท์</string>
+    <string name="about_features_body">ทุกสิ่งที่ชาวมุสลิมต้องการในแอปเดียว:</string>
+    <string name="about_feature_prayer">เวลาละหมาด &amp; Adhan — วิธีการคำนวณทั้งหมด โรงเรียนนิติบุคคล และเสียง Adhan มากกว่า 18 รายการ</string>
+    <string name="about_feature_quran">อัลกุรอานฉบับสมบูรณ์ - สคริปต์ Uthmani, ผู้อ่าน 44 คน, tafsir, การแปล, ค้นหาคำ &amp; ความถี่</string>
+    <string name="about_feature_adhkar">อัซการ์ ตัสบีห์ รอมฎอน และซะกาต — พร้อมระบบเตือนความจำและฟองสบู่ลอยน้ำ</string>
+    <string name="about_feature_offline">ออฟไลน์ก่อน — แผนที่ คัมภีร์อัลกุรอาน สุนัต และอัซการ์ทำงานได้โดยไม่ต้องใช้อินเทอร์เน็ต</string>
+    <string name="about_feature_privacy">ความเป็นส่วนตัวตามค่าเริ่มต้น ไม่มีโฆษณา ไม่มีการติดตาม ข้อมูลของคุณจะยังคงอยู่ในอุปกรณ์ของคุณ</string>
+    <string name="settings_auto_update">อัพเดตอัตโนมัติเต็มรูปแบบ</string>
+    <string name="settings_auto_update_desc">ดาวน์โหลดและติดตั้งเวอร์ชันใหม่โดยอัตโนมัติในเบื้องหลังทันทีที่เผยแพร่</string>
+    <string name="settings_auto_update_confirm_title">เปิดใช้งานการอัปเดตอัตโนมัติหรือไม่</string>
+    <string name="settings_auto_update_confirm_body">เวอร์ชันใหม่จะถูกดาวน์โหลดและติดตั้งโดยอัตโนมัติในพื้นหลังเมื่อพร้อมใช้งาน ดำเนินการต่อ?</string>
+    <string name="settings_auto_update_confirm">เปิดใช้งาน</string>
+    <string name="settings_cancel">ยกเลิก</string>
+    <string name="update_last_check">ตรวจสอบครั้งล่าสุด: %1$s</string>
+    <string name="update_open_releases">เปิดหน้าเผยแพร่ในเบราว์เซอร์</string>
 </resources>

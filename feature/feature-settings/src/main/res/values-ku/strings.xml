@@ -164,4 +164,22 @@
     <string name="update_available_text">Guhertoya %1$s niha berdest e - ji bo nûvekirinê bikirtînin</string>
     <string name="notif_category_app_update">Nûvekirinên sepanê</string>
     <string name="notif_category_app_update_desc">Dema ku guhertoyek nû ya serîlêdanê hebe, agahdarî</string>
+    <string name="about_tagline">Hevalek bêkêmasî, belaş, çavkaniyek vekirî ji bo her misilman - demên nimêjê, Adhan, Quran, hedîs, adkar û hêj bêtir, bi zimanê we.</string>
+    <string name="about_description_title">Li ser Muslim</string>
+    <string name="about_description_body">Muslim serîlêdanek Android-ê ya belaş û çavkaniyek vekirî ye ku di tevahiya rojê de bi we re ye: Demên nimêjê yên ji hêla astronomîkî ve rast ên bi Azanê re, qursek Qibla ya rastîn, Qurana tevahî bi xwendin û tefsîr, pirtûkxaneyek hedîsê, adhkarek jêderkirî, tesbîhek elektronîkî, amûrên Remezanê, hesabkerek zekatê, nexşeyên negirêdayî yên ku ji hêla nepenîtiya tam ve hatine çêkirin û bêtir - bi xebata nepenî ya tam hatine sêwirandin.</string>
+    <string name="about_features_title">Highlights</string>
+    <string name="about_features_body">Her tiştê ku misilmanek di yek sepanê de hewce dike:</string>
+    <string name="about_feature_prayer">Demên nimêjê û Adhan - Hemî rêbazên hesabkirinê, dibistanên hiqûqî, û 18+ dengên azan</string>
+    <string name="about_feature_quran">Tevahiya Quran - Nivîsara Osmanî, 44 xwendewan, tefsîr, werger, lêgerîna peyvan û frekansa</string>
+    <string name="about_feature_adhkar">Adkar, tesbîh, Remezan &amp; Zekat - bi bîr û bilbilên herikîn</string>
+    <string name="about_feature_offline">Offline-yekem - nexşe, Quran, hedîs û adkar bêyî înternetê dixebitin</string>
+    <string name="about_feature_privacy">Nepenî ji hêla xwerû - bê reklam, bê şopandin, daneyên we li ser cîhaza we dimînin</string>
+    <string name="settings_auto_update">Nûvekirinên bi tevahî otomatîk</string>
+    <string name="settings_auto_update_desc">Gava ku ew werin berdan bixweber guhertoyên nû dakêşin û saz bikin</string>
+    <string name="settings_auto_update_confirm_title">Nûvekirinên otomatîk çalak bike?</string>
+    <string name="settings_auto_update_confirm_body">Guhertoyên nû dema ku peyda bibin dê bixweber di paşperdeyê de werin dakêşandin û saz kirin. Berdewamkirin?</string>
+    <string name="settings_auto_update_confirm">Bikêrkirin</string>
+    <string name="settings_cancel">Bişûndekirin</string>
+    <string name="update_last_check">Kontrola dawîn: %1$s</string>
+    <string name="update_open_releases">Di gerokê de rûpela serbestberdanê vekin</string>
 </resources>

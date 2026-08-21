@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Bilatu liburu honetan...</string>
     <string name="reference_title">Islamiar Erreferentzia Liburutegia</string>
     <string name="reference_topics_count">gaiak</string>
+    <string name="reference_copy">Kopiatu</string>
+    <string name="reference_share">Partekatu</string>
 </resources>

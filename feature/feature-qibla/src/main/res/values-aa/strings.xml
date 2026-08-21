@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Dariifa fidna (digrii)</string>
     <string name="offline_maps_storage_warning">addah tan kobxisso - dubuk %1$s currik</string>
     <string name="offline_maps_storage_delete_largest">kaxxa rakaakay duuga (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Masaagid migaaqal gorrisa</string>
+    <string name="mosque_finder_show_all">Masaajid inkih Uybulluy.</string>
+    <string name="mosque_finder_share">Afkanitte faka</string>
+    <string name="offline_maps_use_my_location">away elle an arac fan gex</string>
 </resources>

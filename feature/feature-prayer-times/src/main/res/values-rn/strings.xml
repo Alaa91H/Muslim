@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Adhan ya Naghshbandi</string>
     <string name="bundled_adhan_saber">Adhan y\'inkota</string>
     <string name="bundled_adhan_sharif_doman">Sharifu Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umusigiti w\'Abameyiya (Damasi) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusufu ubuyisilamu</string>
     <string name="home_cannot_compute">Ntibishobora kubara amasaha y\'uyu musi</string>
     <string name="home_location_unknown">Aho hantu ntibarashirwaho</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Ivyikora (bivanye n\'aho biri)</string>
     <string name="settings_method_automatic_desc">Iyo porogarama itora uburyo bwiza cane ubwayo ishingiye ku gihugu cawe n’aho uri; urashobora guhitamwo uburyo n\'amaboko igihe cose.</string>
     <string name="settings_preview_for_prayer">Imbere y\'igihe %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Ivyikora ubu vyatowe: %1$s — %2$s.</string>
 </resources>

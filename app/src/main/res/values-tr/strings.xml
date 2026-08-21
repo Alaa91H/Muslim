@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Bir bildirim, zil sesi veya başka bir medya oynatıldığında okuma kısa süreliğine duraklatılır</string>
     <string name="more_pause_notifications_enabled">Etkin — sistem ayarlarını açmak için dokunun</string>
     <string name="more_pause_notifications_disabled">Devre dışı — etkinleştirmek için dokunun</string>
+    <string name="more_names">Allah\'ın 99 İsmi</string>
+    <string name="more_names_desc">Tam açıklamasıyla 99 isim</string>
+    <string name="more_hajj">Hac ve Umre</string>
+    <string name="more_hajj_desc">Hac ve Umre ayinleri hakkında ayrıntılı rehber</string>
 </resources>

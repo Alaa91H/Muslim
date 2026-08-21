@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Нагшбанди езан</string>
     <string name="bundled_adhan_saber">Сабер езан</string>
     <string name="bundled_adhan_sharif_doman">Шариф Доман езан</string>
-    <string name="bundled_adhan_umayyad_damascus">Умајад џамија (Дамаск) езан</string>
     <string name="bundled_adhan_yusuf_islam">Јусуф Ислам езан</string>
     <string name="home_cannot_compute">Не може да се пресметаат времињата за овој ден</string>
     <string name="home_location_unknown">Локацијата сè уште не е поставена</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Автоматски (по локација)</string>
     <string name="settings_method_automatic_desc">Апликацијата автоматски го избира најсоодветниот метод врз основа на вашата земја и локација; сепак можете да изберете метод рачно во секое време.</string>
     <string name="settings_preview_for_prayer">Преглед на %1$s азан</string>
+    <string name="settings_method_automatic_picked">Автоматски моментално избран: %1$s — %2$s</string>
 </resources>

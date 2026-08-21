@@ -164,4 +164,22 @@
     <string name="update_available_text">Ferzje %1$s is no beskikber - tik om te aktualisearjen</string>
     <string name="notif_category_app_update">App updates</string>
     <string name="notif_category_app_update_desc">Notifikaasje as in nije appferzje beskikber is</string>
+    <string name="about_tagline">In folsleine, fergese, iepen boarne begelieder foar elke moslim - gebedstiden, Adhan, Quran, hadith, adhkar en mear, yn jo taal.</string>
+    <string name="about_description_title">Oer moslim</string>
+    <string name="about_description_body">Muslim is in fergese en iepen-boarne Android-app dy\'t jo de hiele dei begeliedt: astronomysk krekte gebedstiden mei de Adhan, in krekte Qibla-kompas, de folsleine Koran mei resitaasjes en tafsir, in hadith-bibleteek, sourced adhkar, in elektroanyske tasbih, Ramadan-ark, in zakat-rekkenmasine, offline ûntworpen om folslein folslein te wurkjen, en mear.</string>
+    <string name="about_features_title">Hichtepunten</string>
+    <string name="about_features_body">Alles wat in moslim nedich is yn ien app:</string>
+    <string name="about_feature_prayer">Gebedstiden en Adhan - alle berekkeningsmetoaden, juridyske skoallen en 18+ adhan-lûden</string>
+    <string name="about_feature_quran">Folsleine Koran - Uthmani-skript, 44 resiters, tafsir, oersettingen, wurdsykjen en frekwinsje</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan en Zakat - mei herinneringen en driuwende bubbels</string>
+    <string name="about_feature_offline">Offline-earst - kaarten, Koran, hadith en adhkar wurkje sûnder ynternet</string>
+    <string name="about_feature_privacy">Standert privacy - gjin advertinsjes, gjin tracking, jo gegevens bliuwe op jo apparaat</string>
+    <string name="settings_auto_update">Folslein automatyske updates</string>
+    <string name="settings_auto_update_desc">Download en ynstallearje automatysk nije ferzjes op \'e eftergrûn sa gau as se binne frijlitten</string>
+    <string name="settings_auto_update_confirm_title">Automatyske fernijings ynskeakelje?</string>
+    <string name="settings_auto_update_confirm_body">Nije ferzjes sille wurde ynladen en automatysk ynstalleare op \'e eftergrûn as beskikber. Trochgean?</string>
+    <string name="settings_auto_update_confirm">Ynskeakelje</string>
+    <string name="settings_cancel">Ofbrekke</string>
+    <string name="update_last_check">Lêste kontrôle: %1$s</string>
+    <string name="update_open_releases">Iepenje de releases side yn \'e browser</string>
 </resources>

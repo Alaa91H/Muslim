@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">የቦታ ስፋት (ዲግሪ)</string>
     <string name="offline_maps_storage_warning">ዝቅተኛ ማከማቻ - %1$s ብቻ ነፃ</string>
     <string name="offline_maps_storage_delete_largest">ትልቁን ክልል ሰርዝ (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">መስጂዶችን በስም ፈልጉ</string>
+    <string name="mosque_finder_show_all">ሁሉንም መስጊዶች አሳይ</string>
+    <string name="mosque_finder_share">አቅጣጫዎችን ይክፈቱ</string>
+    <string name="offline_maps_use_my_location">አሁን ወዳለሁበት ቦታ ሂድ</string>
 </resources>

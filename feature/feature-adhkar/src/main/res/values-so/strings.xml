@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Isticmaal adhkar gaaban oo keliya</string>
     <string name="adhkar_overlay_short_only_desc">Dooro adhkar ku habboon hal ama laba sadar si xumbo sabaynaysa ay u ahaato mid cad oo ay fududahay in la akhriyo.</string>
     <string name="adhkar_overlay_tap_hint">Taabo xumbo si aad isla markiiba meesha uga saarto.</string>
+    <string name="adhkar_copied">Dhikr waa la guuriyay</string>
+    <string name="adhkar_periodic_dhikr">dhikr gaar ah</string>
+    <string name="adhkar_periodic_dhikr_random">Random (halkii gacanta lagu soo qaadi lahaa)</string>
 </resources>

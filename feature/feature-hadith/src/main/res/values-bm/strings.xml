@@ -24,4 +24,5 @@
     <string name="hadith_share">Aw ka tila</string>
     <string name="hadith_title">Hadisi ka gafemarayɔrɔ</string>
     <string name="hadith_copy">Kopi kɛ</string>
+    <string name="hadith_copied">Hadisi ye kopi kɛ</string>
 </resources>

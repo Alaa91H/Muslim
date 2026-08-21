@@ -21,7 +21,6 @@ android {
 
     testOptions {
         unitTests {
-            // Robolectric needs real Android resources (channel names from R.string).
             isIncludeAndroidResources = true
         }
     }

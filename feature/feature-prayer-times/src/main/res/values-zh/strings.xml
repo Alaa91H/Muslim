@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">纳格什班迪宣礼</string>
     <string name="bundled_adhan_saber">萨伯·阿丹</string>
     <string name="bundled_adhan_sharif_doman">谢里夫·多曼·阿丹</string>
-    <string name="bundled_adhan_umayyad_damascus">倭马亚清真寺（大马士革）宣礼</string>
     <string name="bundled_adhan_yusuf_islam">优素福·伊斯兰宣礼</string>
     <string name="home_cannot_compute">无法计算这一天的时间</string>
     <string name="home_location_unknown">地点尚未确定</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">自动（按位置）</string>
     <string name="settings_method_automatic_desc">该应用程序会根据您所在的国家/地区和位置自动选择最合适的方法；您仍然可以随时手动选择方法。</string>
     <string name="settings_preview_for_prayer">预览 %1$s 宣礼</string>
+    <string name="settings_method_automatic_picked">当前选择的自动：%1$s — %2$s</string>
 </resources>

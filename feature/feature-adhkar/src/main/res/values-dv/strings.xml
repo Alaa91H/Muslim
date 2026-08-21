@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">ހަމައެކަނި ކުރު އަދުކާރު ބޭނުން ކުރާށެވެ</string>
     <string name="adhkar_overlay_short_only_desc">އެއް ނުވަތަ ދެ ލައިނަކަށް ފިޓްވާ އަދްކާރު ހޮވާއިރު ފްލޯޓިން ބަބުލް ސާފުކޮށް ކިޔަން ފަސޭހަވާނެ އެވެ.</string>
     <string name="adhkar_overlay_tap_hint">ވަގުތުން ޑިސްމިސް ކުރުމަށްޓަކައި ބަބުލް އަށް ޓަޕް ކުރާށެވެ.</string>
+    <string name="adhkar_copied">ދިކްރު ކޮޕީ ކޮށްލިއެވެ</string>
+    <string name="adhkar_periodic_dhikr">ވަކި ޟިކުރެވެ</string>
+    <string name="adhkar_periodic_dhikr_random">ރެންޑަމް (މެނުއަލް ޕިކްގެ ބަދަލުގައި)</string>
 </resources>

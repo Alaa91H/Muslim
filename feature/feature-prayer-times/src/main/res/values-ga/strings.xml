@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Sabre adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Mosc Umayyad (Damascus) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Ioslam adhan</string>
     <string name="home_cannot_compute">Ní féidir amanna an lae seo a ríomh</string>
     <string name="home_location_unknown">Níl an suíomh socraithe fós</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Uathoibríoch (de réir suímh)</string>
     <string name="settings_method_automatic_desc">Roghnaíonn an aip an modh is oiriúnaí go huathoibríoch bunaithe ar do thír agus ar do shuíomh; is féidir leat modh a roghnú de láimh fós ag am ar bith.</string>
     <string name="settings_preview_for_prayer">Réamhamharc %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Uathoibríoch roghnaithe faoi láthair: %1$s - %2$s</string>
 </resources>

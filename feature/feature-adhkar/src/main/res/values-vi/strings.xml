@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Chỉ sử dụng adhkar ngắn</string>
     <string name="adhkar_overlay_short_only_desc">Chọn adhkar vừa với một hoặc hai dòng để bong bóng nổi luôn rõ ràng và dễ đọc.</string>
     <string name="adhkar_overlay_tap_hint">Nhấn vào bong bóng để loại bỏ nó ngay lập tức.</string>
+    <string name="adhkar_copied">dhikr đã sao chép</string>
+    <string name="adhkar_periodic_dhikr">dhikr cụ thể</string>
+    <string name="adhkar_periodic_dhikr_random">Ngẫu nhiên (thay vì chọn thủ công)</string>
 </resources>

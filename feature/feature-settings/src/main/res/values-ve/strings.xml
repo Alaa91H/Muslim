@@ -164,4 +164,22 @@
     <string name="update_available_text">Vhesheni %1$s i hone zwino — kha vha ṋaṋise u itela u khwinisa</string>
     <string name="notif_category_app_update">U khwiniswa ha app</string>
     <string name="notif_category_app_update_desc">Nḓivhadzo musi mbekanyamushumo ntswa ya app i hone</string>
+    <string name="about_tagline">Mufarisi o fhelelaho, wa mahala, o vuleaho wa Mumuslim muṅwe na muṅwe — zwifhinga zwa thabelo, Adhan, Quran, hadith, adhkar na zwiṅwe, nga luambo lwaṋu.</string>
+    <string name="about_description_title">Nga ha Mumuslim</string>
+    <string name="about_description_body">Muslim ndi app ya Android ya mahala nahone yo vuleaho ine ya ni fhelekedza ḓuvha ḽoṱhe: zwifhinga zwa thabelo zwo teaho zwa ṋaledzi na Adhan, khamphasi ya Qibla yo teaho, Quran yo fhelelaho i re na u vhala na tafsir, ḽaiburari ya hadith, adhkar yo wanalaho, tasbih ya eḽekiṱhironiki, zwishumiswa zwa Ramadan, khaḽukhuḽetha ya zakat ma yo fhelelaho ya offline, khaḽukhuḽetha ya zakat ma yo fhelelaho ya offline — mvelele.</string>
+    <string name="about_features_title">Zwithu zwa ndeme</string>
+    <string name="about_features_body">Zwothe zwine Mumuslim a zwi toda kha app nthihi:</string>
+    <string name="about_feature_prayer">Zwifhinga zwa thabelo &amp; Adhan — nḓila dzoṱhe dza u vhalela, zwikolo zwa mulayo, na mibvumo ya adhan ya 18+ .</string>
+    <string name="about_feature_quran">Quran yo fhelelaho — maṅwalo a Uthmani, vhavhali vha 44, tafsir, ṱhalutshedzelo, u ṱoḓa maipfi &amp; tshifhinga tshinzhi</string>
+    <string name="about_feature_adhkar">10:10, 11. 10 Na zwihumbudzo na zwivhumbeo zwine zwa khou papamala</string>
+    <string name="about_feature_offline">U thoma nga nnḓa ha inthanethe — mimapa, Quran, hadith na adhkar zwi shuma hu si na inthanethe</string>
+    <string name="about_feature_privacy">Tshiphiri nga mvelele — a hu na khungedzelo, a hu na u tevhela, data yaṋu i dzula kha tshishumiswa tshaṋu</string>
+    <string name="settings_auto_update">U ḓi-vhuyedzedza ho fhelelaho</string>
+    <string name="settings_auto_update_desc">U ḓi-downloada na u dzhenisa mbekanyamushumo ntswa nga murahu nga u ṱavhanya musi dzo no bviswa .</string>
+    <string name="settings_auto_update_confirm_title">Kha vha kone u khwinisa nga vhuḓiitisi?</string>
+    <string name="settings_auto_update_confirm_body">Vhesheni ntswa dzi ḓo dawuniḽoudiwa nahone dza dzheniswa nga dzone dziṋe nga murahu musi dzi hone. Bvelaphanḓa?</string>
+    <string name="settings_auto_update_confirm">Tendela</string>
+    <string name="settings_cancel">Thutha</string>
+    <string name="update_last_check">U ṱola ha u fhedzisela: %1$s.</string>
+    <string name="update_open_releases">Vulani siaṱari ḽa zwibveledzwa kha burauza</string>
 </resources>

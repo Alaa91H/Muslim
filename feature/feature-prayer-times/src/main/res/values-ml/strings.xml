@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">നാഗ്ശബന്ദി അധൻ</string>
     <string name="bundled_adhan_saber">സാബർ അധാൻ</string>
     <string name="bundled_adhan_sharif_doman">ഷെരീഫ് ഡോമൻ അധാൻ</string>
-    <string name="bundled_adhan_umayyad_damascus">ഉമയ്യദ് മസ്ജിദ് (ഡമാസ്കസ്) അദാൻ</string>
     <string name="bundled_adhan_yusuf_islam">യൂസഫ് ഇസ്ലാം അദാൻ</string>
     <string name="home_cannot_compute">ഈ ദിവസത്തെ സമയം കണക്കാക്കാൻ കഴിയുന്നില്ല</string>
     <string name="home_location_unknown">ലൊക്കേഷൻ ഇതുവരെ സജ്ജീകരിച്ചിട്ടില്ല</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">സ്വയമേവ (ലൊക്കേഷൻ അനുസരിച്ച്)</string>
     <string name="settings_method_automatic_desc">നിങ്ങളുടെ രാജ്യത്തേയും സ്ഥലത്തേയും അടിസ്ഥാനമാക്കി ആപ്പ് സ്വയമേവ ഏറ്റവും അനുയോജ്യമായ രീതി തിരഞ്ഞെടുക്കുന്നു; നിങ്ങൾക്ക് എപ്പോൾ വേണമെങ്കിലും സ്വമേധയാ ഒരു രീതി തിരഞ്ഞെടുക്കാനാകും.</string>
     <string name="settings_preview_for_prayer">പ്രിവ്യൂ %1$s അധാൻ</string>
+    <string name="settings_method_automatic_picked">നിലവിൽ സ്വയമേവ തിരഞ്ഞെടുത്തത്: %1$s — %2$s</string>
 </resources>

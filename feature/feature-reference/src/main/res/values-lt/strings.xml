@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Ieškokite šios knygos…</string>
     <string name="reference_title">Islamo informacinė biblioteka</string>
     <string name="reference_topics_count">temomis</string>
+    <string name="reference_copy">Kopijuoti</string>
+    <string name="reference_share">Dalintis</string>
 </resources>

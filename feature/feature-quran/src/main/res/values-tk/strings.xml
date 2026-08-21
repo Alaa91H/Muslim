@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Öňki aýat</string>
     <string name="quran_range_single_ayah">Leeke aýat</string>
     <string name="quran_range_single_ayah_short">Aý</string>
-    <string name="quran_range_to_end">Suranyň soňy</string>
+    <string name="quran_range_to_end">Muşafyň soňuna</string>
     <string name="quran_range_to_end_short">Soňy</string>
     <string name="quran_range_whole_surah">Bütin süre</string>
     <string name="quran_range_whole_surah_short">Sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Okaýjylaryň arasynda doly muşaf</string>
     <string name="quran_downloads_coverage_empty">Entek ses göçürilmedi</string>
     <string name="quran_pause_notif_listener">Duýduryşlarda okaň</string>
-    <string name="quran_reciter_changed_title">Okyjy üýtgedi</string>
-    <string name="quran_reciter_changed_message">Playback stopped because the range runs to the end of the Quran. Start again with %1$s?</string>
-    <string name="quran_reciter_restart">Täzeden başlaň</string>
-    <string name="quran_reciter_not_now">Häzir däl</string>
+    <string name="quran_search_metrics">Gözleg wagty: %1$d ms</string>
+    <string name="quran_search_index_building">Ilkinji gözleg üçin Kuran indeksini gurmak…</string>
+    <string name="quran_search_index_progress">Muşaf indeksini gurmak ... %1$d %%</string>
+    <string name="quran_search_word_root">Kök: %1$s</string>
+    <string name="quran_search_derivations">Bir kökden alnan sözler</string>
+    <string name="quran_search_no_root">Köküni kesgitläp bilmedim</string>
 </resources>

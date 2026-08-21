@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Käytä vain lyhyttä adhkaria</string>
     <string name="adhkar_overlay_short_only_desc">Valitse adhkar, joka sopii yhteen tai kahteen riviin, jotta kelluva kupla pysyy selkeänä ja helposti luettavana.</string>
     <string name="adhkar_overlay_tap_hint">Hylkää se välittömästi napauttamalla kuplaa.</string>
+    <string name="adhkar_copied">Dhikr kopioitu</string>
+    <string name="adhkar_periodic_dhikr">Erityinen dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Satunnainen (manuaalisen valinnan sijaan)</string>
 </resources>

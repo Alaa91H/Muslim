@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Adhan</string>
     <string name="bundled_adhan_saber">Adhan</string>
     <string name="bundled_adhan_sharif_doman">Sarifi Doman</string>
-    <string name="bundled_adhan_umayyad_damascus">Valenilotu ni Umayyad (Damasiko)</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Sega ni rawa ni vakarautaki na gauna ni siga oqo</string>
     <string name="home_location_unknown">Se bera ni vakarautaki na vanua</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Vakataki koya (ena vanua)</string>
     <string name="settings_method_automatic_desc">Na app e digitaka na iwalewale veiganiti duadua vakataki koya e yavutaki ena nomu vanua kei na vanua; e rawa ni o digitaka tikoga e dua na iwalewale ena liga ena dua na gauna.</string>
     <string name="settings_preview_for_prayer">Raica taumada %1$s</string>
+    <string name="settings_method_automatic_picked">Vakatotolotaki ena gauna oqo: %1$s — %2$s.</string>
 </resources>

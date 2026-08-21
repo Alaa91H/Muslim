@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">ux adhkar dubuk doqaysima</string>
     <string name="adhkar_overlay_short_only_desc">door adhkar too tiya hinnay namma firta tonnal leeh amoh qaafo qaddoowelem kee kawsoonuh sahlinih.</string>
     <string name="adhkar_overlay_tap_hint">Qaafo xag too wakaak bayissuh.</string>
+    <string name="adhkar_copied">Zikr korseh</string>
+    <string name="adhkar_periodic_dhikr">Baxsale zikri</string>
+    <string name="adhkar_periodic_dhikr_random">Idnisimte (gabah dooro aftok)</string>
 </resources>

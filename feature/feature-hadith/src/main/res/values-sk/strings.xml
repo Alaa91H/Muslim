@@ -24,4 +24,5 @@
     <string name="hadith_share">zdieľať</string>
     <string name="hadith_title">Hadísová knižnica</string>
     <string name="hadith_copy">Kopírovať</string>
+    <string name="hadith_copied">Hadith skopírovaný</string>
 </resources>

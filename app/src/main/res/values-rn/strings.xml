@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Gusubiramwo birahagarika gatoyi iyo itangazo, impeta canke ibindi bimenyeshamakuru bivuga</string>
     <string name="more_pause_notifications_enabled">Bishobojwe — kanda kugira ngo ufungure amagenamiterere ya sisitemu</string>
     <string name="more_pause_notifications_disabled">Yazimye — kanda kugira ngo ushoboze</string>
+    <string name="more_names">99 Amazina ya Allah</string>
+    <string name="more_names_desc">Amazina 99 afise insobanuro yuzuye .</string>
+    <string name="more_hajj">Haji na Umrah</string>
+    <string name="more_hajj_desc">Inyigisho ido n\'ido y\'imigenzo ya Hajj na Umrah</string>
 </resources>

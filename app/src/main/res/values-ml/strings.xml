@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">ഒരു അറിയിപ്പോ റിംഗോ മറ്റ് മീഡിയയോ പ്ലേ ചെയ്യുമ്പോൾ പാരായണം ഹ്രസ്വമായി നിർത്തുന്നു</string>
     <string name="more_pause_notifications_enabled">പ്രവർത്തനക്ഷമമാക്കി - സിസ്റ്റം ക്രമീകരണങ്ങൾ തുറക്കാൻ ടാപ്പ് ചെയ്യുക</string>
     <string name="more_pause_notifications_disabled">പ്രവർത്തനരഹിതമാക്കി - പ്രവർത്തനക്ഷമമാക്കാൻ ടാപ്പുചെയ്യുക</string>
+    <string name="more_names">അല്ലാഹുവിൻ്റെ 99 നാമങ്ങൾ</string>
+    <string name="more_names_desc">പൂർണ്ണ വിശദീകരണത്തോടെ 99 പേരുകൾ</string>
+    <string name="more_hajj">ഹജ്ജ് &amp; ഉംറ</string>
+    <string name="more_hajj_desc">ഹജ്ജ്, ഉംറ ചടങ്ങുകളിലേക്കുള്ള വിശദമായ ഗൈഡ്</string>
 </resources>

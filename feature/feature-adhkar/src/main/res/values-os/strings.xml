@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Пайда кæнут æрмæстдæр цыбыр адхкарæй</string>
     <string name="adhkar_overlay_short_only_desc">Равзарут ахкар, кæцы æмбæлы иу кæнæ дыууæ рæнхъы, цæмæй ленкгæнæг æртæх уа ирд æмæ æнцон кæсæн.</string>
     <string name="adhkar_overlay_tap_hint">Æрцауындзут æртæх, цæмæй йæ æвæстиатæй ныууадзат.</string>
+    <string name="adhkar_copied">Зикр скопи</string>
+    <string name="adhkar_periodic_dhikr">Бæлвырд зикр</string>
+    <string name="adhkar_periodic_dhikr_random">Æнæнхъæлæджы (къухæй æвзæрсты бæсты)</string>
 </resources>

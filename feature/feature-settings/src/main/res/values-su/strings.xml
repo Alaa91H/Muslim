@@ -164,4 +164,22 @@
     <string name="update_available_text">Vérsi %1$s ayeuna sayogi — ketok pikeun ngapdet</string>
     <string name="notif_category_app_update">Apdet aplikasi</string>
     <string name="notif_category_app_update_desc">Bewara lamun versi aplikasi anyar sadia</string>
+    <string name="about_tagline">Pendamping anu lengkep, gratis, open-source pikeun unggal Muslim - waktos sholat, Adzan, Quran, hadits, adhkar sareng seueur deui, dina basa anjeun.</string>
+    <string name="about_description_title">Ngeunaan Muslim</string>
+    <string name="about_description_body">Muslim mangrupikeun aplikasi Android anu gratis sareng open-source anu marengan anjeun sadidinten: waktos sholat anu akurat sacara astronomis sareng Adzan, kompas Kiblat anu tepat, Quran lengkep sareng bacaan sareng tafsir, perpustakaan hadits, sumber adhkar, tasbih éléktronik, alat Ramadhan, kalkulator zakat, peta offline, sareng seueur deui - dirancang pikeun dianggo sacara offline kalayan privasi sacara standar.</string>
+    <string name="about_features_title">Sorotan</string>
+    <string name="about_features_body">Sadayana anu diperyogikeun ku Muslim dina hiji aplikasi:</string>
+    <string name="about_feature_prayer">Waktu Sholat &amp; Adzan — sadaya metode itungan, sakola hukum, sareng 18+ sora adzan</string>
+    <string name="about_feature_quran">Quran lengkep - Aksara Utsmani, 44 qari, tafsir, tarjamahan, milarian kecap &amp; frékuénsi</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadhan &amp; Zakat — kalayan panginget sareng gelembung ngambang</string>
+    <string name="about_feature_offline">Offline-heula - peta, Quran, hadits sareng adhkar tiasa dianggo tanpa internét</string>
+    <string name="about_feature_privacy">Privasi sacara standar — teu aya iklan, teu aya tracking, data anjeun tetep dina alat anjeun</string>
+    <string name="settings_auto_update">Apdet pinuh otomatis</string>
+    <string name="settings_auto_update_desc">Ngundeur sareng masang vérsi énggal sacara otomatis di latar tukang pas dileupaskeun</string>
+    <string name="settings_auto_update_confirm_title">Aktipkeun apdet otomatis?</string>
+    <string name="settings_auto_update_confirm_body">Versi anyar bakal diunduh sareng dipasang sacara otomatis di latar tukang upami sayogi. Teraskeun?</string>
+    <string name="settings_auto_update_confirm">Aktipkeun</string>
+    <string name="settings_cancel">Ngabolaykeun</string>
+    <string name="update_last_check">Pariksa panungtungan: %1$s</string>
+    <string name="update_open_releases">Buka halaman pelepasan dina browser</string>
 </resources>

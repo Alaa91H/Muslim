@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Αναζητήστε αυτό το βιβλίο…</string>
     <string name="reference_title">Ισλαμική βιβλιοθήκη αναφοράς</string>
     <string name="reference_topics_count">θέματα</string>
+    <string name="reference_copy">Αντιγραφή</string>
+    <string name="reference_share">Κοινή χρήση</string>
 </resources>

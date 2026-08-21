@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi అధన్</string>
     <string name="bundled_adhan_saber">సాబెర్ అధాన్</string>
     <string name="bundled_adhan_sharif_doman">షరీఫ్ డోమన్ అధాన్</string>
-    <string name="bundled_adhan_umayyad_damascus">ఉమయ్యద్ మసీదు (డమాస్కస్) అధాన్</string>
     <string name="bundled_adhan_yusuf_islam">యూసుఫ్ ఇస్లాం అధాన్</string>
     <string name="home_cannot_compute">ఈ రోజు సమయాలను లెక్కించడం సాధ్యపడలేదు</string>
     <string name="home_location_unknown">లొకేషన్ ఇంకా సెట్ కాలేదు</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">ఆటోమేటిక్ (స్థానం వారీగా)</string>
     <string name="settings_method_automatic_desc">యాప్ మీ దేశం మరియు స్థానం ఆధారంగా స్వయంచాలకంగా అత్యంత అనుకూలమైన పద్ధతిని ఎంచుకుంటుంది; మీరు ఇప్పటికీ ఏ సమయంలోనైనా మాన్యువల్‌గా పద్ధతిని ఎంచుకోవచ్చు.</string>
     <string name="settings_preview_for_prayer">ప్రివ్యూ %1$s అధన్</string>
+    <string name="settings_method_automatic_picked">స్వయంచాలకంగా ప్రస్తుతం ఎంపిక చేయబడింది: %1$s — %2$s</string>
 </resources>

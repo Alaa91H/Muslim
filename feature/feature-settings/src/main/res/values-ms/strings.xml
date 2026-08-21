@@ -164,4 +164,22 @@
     <string name="update_available_text">Versi %1$s kini tersedia — ketik untuk mengemas kini</string>
     <string name="notif_category_app_update">Kemas kini apl</string>
     <string name="notif_category_app_update_desc">Pemberitahuan apabila versi apl baharu tersedia</string>
+    <string name="about_tagline">Rakan yang lengkap, percuma, sumber terbuka untuk setiap Muslim — waktu solat, Adzan, Quran, hadis, adhkar dan banyak lagi, dalam bahasa anda.</string>
+    <string name="about_description_title">Tentang Muslim</string>
+    <string name="about_description_body">Muslim ialah apl Android percuma dan sumber terbuka yang menemani anda sepanjang hari: waktu solat tepat astronomi dengan Adzan, kompas kiblat yang tepat, al-Quran lengkap dengan bacaan dan tafsir, perpustakaan hadis, adhkar bersumber, tasbih elektronik, alatan Ramadan, kalkulator zakat, peta luar talian dan banyak lagi — direka untuk bekerja di luar talian sepenuhnya dengan privasi secara lalai.</string>
+    <string name="about_features_title">Sorotan</string>
+    <string name="about_features_body">Semua yang diperlukan oleh seorang Muslim dalam satu aplikasi:</string>
+    <string name="about_feature_prayer">Waktu solat &amp; Adzan — semua kaedah pengiraan, mazhab perundangan, dan 18+ bunyi azan</string>
+    <string name="about_feature_quran">Quran Lengkap — Skrip Uthmani, 44 qari, tafsir, terjemahan, carian perkataan &amp; kekerapan</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — dengan peringatan dan buih terapung</string>
+    <string name="about_feature_offline">Luar talian diutamakan — peta, al-Quran, hadis dan adhkar berfungsi tanpa internet</string>
+    <string name="about_feature_privacy">Privasi secara lalai — tiada iklan, tiada penjejakan, data anda kekal pada peranti anda</string>
+    <string name="settings_auto_update">Kemas kini automatik sepenuhnya</string>
+    <string name="settings_auto_update_desc">Muat turun dan pasang versi baharu secara automatik di latar belakang sebaik sahaja ia dikeluarkan</string>
+    <string name="settings_auto_update_confirm_title">Dayakan kemas kini automatik?</string>
+    <string name="settings_auto_update_confirm_body">Versi baharu akan dimuat turun dan dipasang secara automatik di latar belakang apabila tersedia. teruskan?</string>
+    <string name="settings_auto_update_confirm">Dayakan</string>
+    <string name="settings_cancel">Batal</string>
+    <string name="update_last_check">Semakan terakhir: %1$s</string>
+    <string name="update_open_releases">Buka halaman keluaran dalam penyemak imbas</string>
 </resources>

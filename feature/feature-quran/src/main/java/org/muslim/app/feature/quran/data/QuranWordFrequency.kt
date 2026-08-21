@@ -32,22 +32,32 @@ object QuranWordFrequency {
 
     /** Tokenizes one ayah into normalized words, skipping mark-only tokens. */
     fun wordsOf(ayahText: String): List<String> =
-        ArabicText.normalize(ayahText)
+        ArabicText.normalizeForSearch(ayahText)
             .split(Regex("\\s+"))
             .filter { it.isNotBlank() }
 
     /**
      * Counts every word across [ayahTexts] and returns the whole-mushaf
      * totals plus the [topN] most frequent word forms.
+     *
+     * [onProgress] reports the scan progress as a fraction 0..1 (called once
+     * per ayah, so the UI can show a live percentage while the first-search
+     * index is built).
      */
-    fun compute(ayahTexts: List<String>, topN: Int = 50): QuranWordFrequencyResult {
+    fun compute(
+        ayahTexts: List<String>,
+        topN: Int = 50,
+        onProgress: (Float) -> Unit = {},
+    ): QuranWordFrequencyResult {
         val counts = HashMap<String, Int>()
         var total = 0
-        for (ayahText in ayahTexts) {
+        val totalAyahs = ayahTexts.size.coerceAtLeast(1)
+        ayahTexts.forEachIndexed { index, ayahText ->
             for (word in wordsOf(ayahText)) {
                 counts[word] = (counts[word] ?: 0) + 1
                 total++
             }
+            onProgress((index + 1).toFloat() / totalAyahs)
         }
         // Deterministic order: count desc, then lexicographic for ties.
         val entries = counts.entries

@@ -164,4 +164,22 @@
     <string name="update_available_text">Mofuta oa %1$s oa fumaneha — tlanya ho ntlafatsa</string>
     <string name="notif_category_app_update">Lintlafatso tsa app</string>
     <string name="notif_category_app_update_desc">Tsebiso ha mofuta o mocha oa sesebelisoa o fumaneha</string>
+    <string name="about_tagline">Mothusi ea felletseng, ea sa lefelloeng, ea bulehileng bakeng sa Momoseleme e mong le e mong - linako tsa thapelo, Adhan, Quran, hadith, adhkar le tse ling, ka puo ea hau.</string>
+    <string name="about_description_title">Mabapi le Mamosleme</string>
+    <string name="about_description_body">Mamosleme ke sesebelisoa sa Android sa mahala le se bulehileng se tsamaeang le uena letsatsi lohle: linako tsa thapelo tse nepahetseng tsa linaleli le Adhan, sesupa-tsela se nepahetseng sa Qibla, Quran e felletseng e nang le lipolelo le tafsir, laeborari ea hadith, adhkar e fumanoeng, tasbih ea elektroniki, lisebelisoa tsa Ramadan, calculator ea zakat, limmapa tse hlophisitsoeng ntle le marang-rang ka boinotšing le tse ling.</string>
+    <string name="about_features_title">Lintlha-khōlō</string>
+    <string name="about_features_body">Ntho e ngoe le e ngoe eo Mamoseleme a e hlokang ho sesebelisoa se le seng:</string>
+    <string name="about_feature_prayer">Linako tsa thapelo le Adhan - mekhoa eohle ea lipalo, likolo tsa molao, le melumo e fetang 18+ ea adhan</string>
+    <string name="about_feature_quran">Koran e Felletseng - Sengoloa sa Uthmani, batho ba 44 ba pheta-pheta, tafsir, liphetolelo, patlo ea mantsoe le khafetsa</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — e nang le likhopotso le lipululana tse phaphametseng</string>
+    <string name="about_feature_offline">Offline-pele - limmapa, Quran, hadith le adhkar li sebetsa ntle le marang-rang</string>
+    <string name="about_feature_privacy">Lekunutu ka ho sa feleng - ha ho lipapatso, ha ho ho lateloa, data ea hau e lula sesebelisoa sa hau</string>
+    <string name="settings_auto_update">Lintlafatso tsa othomathiki ka botlalo</string>
+    <string name="settings_auto_update_desc">Khoasolla le ho kenya liphetolelo tse ncha ka morao hang ha li lokolloa</string>
+    <string name="settings_auto_update_confirm_title">Na u lumella lintlafatso tsa othomathike?</string>
+    <string name="settings_auto_update_confirm_body">Liphetolelo tse ncha li tla kopitsoa \'me li kenngoe ka morao ka morao ha li fumaneha. Na o tswelapele?</string>
+    <string name="settings_auto_update_confirm">Thusa</string>
+    <string name="settings_cancel">Hlakola</string>
+    <string name="update_last_check">Tlhahlobo ea ho qetela: %1$s</string>
+    <string name="update_open_releases">Bula leqephe la litokollo ho sebatli</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Virdrun ayah</string>
     <string name="quran_range_single_ayah">Eenzel ayah</string>
     <string name="quran_range_single_ayah_short">Aja</string>
-    <string name="quran_range_to_end">Zum Enn vun der Surah</string>
+    <string name="quran_range_to_end">Bis zum Enn vum Mushaf</string>
     <string name="quran_range_to_end_short">Fir Enn</string>
     <string name="quran_range_whole_surah">Ganz Surah</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Voll Mushaf iwwer Reciteren</string>
     <string name="quran_downloads_coverage_empty">Keen Audio erofgelueden nach</string>
     <string name="quran_pause_notif_listener">Pause Recitatioun op Notifikatiounen</string>
-    <string name="quran_reciter_changed_title">Reciter geännert</string>
-    <string name="quran_reciter_changed_message">De Playback ass gestoppt well d\'Gamme bis zum Enn vum Koran leeft. Wieder mat %1$s ufänken?</string>
-    <string name="quran_reciter_restart">Start erëm</string>
-    <string name="quran_reciter_not_now">Net elo</string>
+    <string name="quran_search_metrics">Sich Zäit: %1$d ms</string>
+    <string name="quran_search_index_building">Bauen de Koran Index fir déi éischt Sich ...</string>
+    <string name="quran_search_index_progress">Bauen de Mushaf Index ... %1$d %%</string>
+    <string name="quran_search_word_root">Root: %1$s</string>
+    <string name="quran_search_derivations">Wierder aus der selwechter Wuerzel ofgeleet</string>
+    <string name="quran_search_no_root">Konnt d\'Wurzel net bestëmmen</string>
 </resources>

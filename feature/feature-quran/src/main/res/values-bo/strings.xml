@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">ཨ་ཡཱ་སྔོན་མ།</string>
     <string name="quran_range_single_ayah">ཨ་ཡཱ་རྐྱང་པ།</string>
     <string name="quran_range_single_ayah_short">ཨ་ཡ།</string>
-    <string name="quran_range_to_end">སུ་ར་ཡི་མཇུག་ཏུ།</string>
+    <string name="quran_range_to_end">མུ་ཤ་ཧྥ་ཡི་མཇུག་བར།</string>
     <string name="quran_range_to_end_short">མཇུག་བསྡུའི་ཕྱིར།</string>
     <string name="quran_range_whole_surah">སུ་ར་ཧྲིལ་པོ།</string>
     <string name="quran_range_whole_surah_short">སུ་ར།</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">ཀློག་མཁན་ཚང་མར་མུ་ཤ་ཧྥ་ཆ་ཚང་།</string>
     <string name="quran_downloads_coverage_empty">ད་ལྟ་སྒྲ་ཕབ་ལེན་བྱས་མེད།</string>
     <string name="quran_pause_notif_listener">བརྡ་ཐོའི་ཐོག་གྱེར་འདོན་མཚམས་འཇོག་པ།</string>
-    <string name="quran_reciter_changed_title">ཀློག་མཁན་བརྗེ་སྒྱུར་བྱས།</string>
-    <string name="quran_reciter_changed_message">ཁྱབ་ཁོངས་དེ་ཁ་ཆེའི་དཔེ་ཆའི་མཇུག་བར་འགྲོ་བའི་རྐྱེན་གྱིས་སྒྲ་སྒམ་བཀག་ཡོད། %1$s ནས་ཡང་བསྐྱར་འགོ་བཙུགས།</string>
-    <string name="quran_reciter_restart">སླར་ཡང་འགོ་བཙུགས།</string>
-    <string name="quran_reciter_not_now">ད་ལྟ་མིན།</string>
+    <string name="quran_search_metrics">འཚོལ་ཞིབ་དུས་ཚོད།: %1$d ms</string>
+    <string name="quran_search_index_building">འཚོལ་ཞིབ་ཐོག་མའི་ཆེད་དུ་ཁ་ཆེའི་དཔེ་ཆའི་དཀར་ཆག་བཟོ་བ།</string>
+    <string name="quran_search_index_progress">མུ་ཤཕ་ཟུར་ཐོ་བཟོ་བ། %1$d %%</string>
+    <string name="quran_search_word_root">རྩ་བ་: %1$s.</string>
+    <string name="quran_search_derivations">རྩ་བ་གཅིག་ལས་བྱུང་བའི་ཚིག།</string>
+    <string name="quran_search_no_root">རྩ་བ་གཏན་འཁེལ་བྱེད་མ་ཐུབ།</string>
 </resources>

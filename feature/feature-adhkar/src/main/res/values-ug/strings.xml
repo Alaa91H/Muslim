@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">پەقەت قىسقا adhkar نى ئىشلىتىڭ</string>
     <string name="adhkar_overlay_short_only_desc">بىر ياكى ئىككى قۇرغا ماس كېلىدىغان adkar نى تاللاڭ ، شۇنداق بولغاندا لەيلىمە كۆپۈك سۈزۈك ۋە ئوقۇش ئاسان بولىدۇ.</string>
     <string name="adhkar_overlay_tap_hint">كۆپۈكنى چېكىپ ئۇنى دەرھال چىقىرىۋېتىڭ.</string>
+    <string name="adhkar_copied">Dhikr كۆچۈردى</string>
+    <string name="adhkar_periodic_dhikr">كونكرېت زىكرى</string>
+    <string name="adhkar_periodic_dhikr_random">ئىختىيارى (قولدا تاللاشنىڭ ئورنىغا)</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Площадь пасьта (градусъяс) .</string>
     <string name="offline_maps_storage_warning">Ыджыд хранение — сӧмын %1$s дон босьттӧг .</string>
     <string name="offline_maps_storage_delete_largest">Удалитны медся ыджыд регион (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Корсьны мӧскъяс ним серти .</string>
+    <string name="mosque_finder_show_all">Петкӧдлы став мӧскъяссӧ .</string>
+    <string name="mosque_finder_share">Восьса туйяс .</string>
+    <string name="offline_maps_use_my_location">Мун менам ӧнія оланінӧ .</string>
 </resources>

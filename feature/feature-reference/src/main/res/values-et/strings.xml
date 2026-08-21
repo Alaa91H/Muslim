@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Otsi seda raamatut…</string>
     <string name="reference_title">Islami teatmekogu</string>
     <string name="reference_topics_count">teemasid</string>
+    <string name="reference_copy">Kopeeri</string>
+    <string name="reference_share">Jaga</string>
 </resources>

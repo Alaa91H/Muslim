@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">একটি বিজ্ঞপ্তি, রিং বা অন্যান্য মিডিয়া বাজলে আবৃত্তি সংক্ষিপ্তভাবে বিরতি দেয়</string>
     <string name="more_pause_notifications_enabled">সক্রিয় — সিস্টেম সেটিংস খুলতে আলতো চাপুন</string>
     <string name="more_pause_notifications_disabled">অক্ষম — সক্ষম করতে আলতো চাপুন</string>
+    <string name="more_names">আল্লাহর 99টি নাম</string>
+    <string name="more_names_desc">সম্পূর্ণ ব্যাখ্যা সহ 99টি নাম</string>
+    <string name="more_hajj">হজ ও ওমরাহ</string>
+    <string name="more_hajj_desc">হজ এবং ওমরাহ অনুষ্ঠানের বিস্তারিত নির্দেশিকা</string>
 </resources>

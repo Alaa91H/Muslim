@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Områdes bredd (grader)</string>
     <string name="offline_maps_storage_warning">Lågt lagringsutrymme — endast %1$s gratis</string>
     <string name="offline_maps_storage_delete_largest">Ta bort största regionen (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Sök moskéer efter namn</string>
+    <string name="mosque_finder_show_all">Visa alla moskéer</string>
+    <string name="mosque_finder_share">Öppna vägbeskrivningar</string>
+    <string name="offline_maps_use_my_location">Gå till min nuvarande plats</string>
 </resources>

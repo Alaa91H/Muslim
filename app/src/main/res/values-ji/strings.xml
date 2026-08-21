@@ -25,4 +25,8 @@
     <string name="more_pause_on_notifications_desc">רעסיטאַטיאָן פּאָזאַז בעקיצער ווען אַ אָנזאָג, רינג אָדער אנדערע מידיאַ פיעסעס</string>
     <string name="more_pause_notifications_enabled">ענייבאַלד - צאַפּן צו עפֿענען סיסטעם סעטטינגס</string>
     <string name="more_pause_notifications_disabled">פאַרקריפּלט - צאַפּן צו געבן</string>
+    <string name="more_names">99 נעמען פון אַלאַ</string>
+    <string name="more_names_desc">די 99 נעמען מיט פול דערקלערונג</string>
+    <string name="more_hajj">האַדזש און אומרה</string>
+    <string name="more_hajj_desc">דיטיילד וועגווייַזער צו די האַדזש און אומרה ראַטעס</string>
 </resources>

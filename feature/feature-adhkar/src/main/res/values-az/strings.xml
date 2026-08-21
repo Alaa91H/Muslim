@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Yalnız qısa adhkar istifadə edin</string>
     <string name="adhkar_overlay_short_only_desc">Bir və ya iki sətirə uyğun gələn adhkar seçin ki, üzən qabarcıq aydın və oxunması asan olsun.</string>
     <string name="adhkar_overlay_tap_hint">Dərhal ləğv etmək üçün qabarcığa toxunun.</string>
+    <string name="adhkar_copied">Zikr köçürdü</string>
+    <string name="adhkar_periodic_dhikr">Xüsusi zikr</string>
+    <string name="adhkar_periodic_dhikr_random">Təsadüfi (əllə seçim əvəzinə)</string>
 </resources>

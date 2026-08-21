@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Gunakan adhkar singkat saja</string>
     <string name="adhkar_overlay_short_only_desc">Pilih adhkar yang muat satu atau dua baris agar gelembung yang mengambang tetap jelas dan mudah dibaca.</string>
     <string name="adhkar_overlay_tap_hint">Ketuk gelembung untuk segera menutupnya.</string>
+    <string name="adhkar_copied">Dzikir disalin</string>
+    <string name="adhkar_periodic_dhikr">Dzikir khusus</string>
+    <string name="adhkar_periodic_dhikr_random">Acak (bukan pilihan manual)</string>
 </resources>

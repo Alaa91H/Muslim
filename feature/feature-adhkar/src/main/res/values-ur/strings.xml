@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">صرف مختصر ادھار استعمال کریں۔</string>
     <string name="adhkar_overlay_short_only_desc">ایک یا دو لائنوں کے فٹ ہونے والے اڈکار کا انتخاب کریں تاکہ تیرتا ہوا بلبلہ صاف اور پڑھنے میں آسان رہے۔</string>
     <string name="adhkar_overlay_tap_hint">بلبلے کو فوری طور پر برخاست کرنے کے لیے اسے تھپتھپائیں۔</string>
+    <string name="adhkar_copied">ذکر نقل کیا ہے۔</string>
+    <string name="adhkar_periodic_dhikr">مخصوص ذکر</string>
+    <string name="adhkar_periodic_dhikr_random">بے ترتیب (دستی چننے کے بجائے)</string>
 </resources>

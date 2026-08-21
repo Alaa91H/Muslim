@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">ЦӀали къокъабго лъалхъула, лъазаби, звонок яги цогидал алатал ахӀараб мехалъ</string>
     <string name="more_pause_notifications_enabled">Включено — нажмите, чтобы открыть настройки системы</string>
     <string name="more_pause_notifications_disabled">Отключено — нажмите, чтобы включить</string>
+    <string name="more_names">99 Аллагьасул цӀарал .</string>
+    <string name="more_names_desc">ТӀубараб баян кьураб 99 цӀар .</string>
+    <string name="more_hajj">ХӀеж ва гӀумра</string>
+    <string name="more_hajj_desc">Подробное руководство по обрядам хадж и умры</string>
 </resources>

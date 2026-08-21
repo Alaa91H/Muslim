@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">اڳيون آيت</string>
     <string name="quran_range_single_ayah">اڪيلو آيت</string>
     <string name="quran_range_single_ayah_short">آيه</string>
-    <string name="quran_range_to_end">سورت جي آخر تائين</string>
+    <string name="quran_range_to_end">مصحف جي آخر تائين</string>
     <string name="quran_range_to_end_short">ختم ڪرڻ</string>
     <string name="quran_range_whole_surah">پوري سورت</string>
     <string name="quran_range_whole_surah_short">سوره</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">تلاوت ڪندڙن ۾ مڪمل مصحف</string>
     <string name="quran_downloads_coverage_empty">اڃان تائين ڪوبه آڊيو ڊائون لوڊ نه ٿيو آهي</string>
     <string name="quran_pause_notif_listener">اطلاعن تي تلاوت کي روڪيو</string>
-    <string name="quran_reciter_changed_title">تلاوت ڪندڙ تبديل ٿي ويو</string>
-    <string name="quran_reciter_changed_message">پلے بیک بند ٿي ويو ڇاڪاڻ ته سلسلو قرآن جي آخر تائين هلندو آهي. ٻيهر شروع ڪريو %1$s سان؟</string>
-    <string name="quran_reciter_restart">ٻيهر شروع ڪريو</string>
-    <string name="quran_reciter_not_now">هاڻي نه</string>
+    <string name="quran_search_metrics">ڳولا جو وقت: %1$d ms</string>
+    <string name="quran_search_index_building">پهرين ڳولها لاءِ قرآن جي انڊيڪس ٺاهڻ...</string>
+    <string name="quran_search_index_progress">مصحف انڊيڪس جي تعمير... %1$d %%</string>
+    <string name="quran_search_word_root">روٽ: %1$s</string>
+    <string name="quran_search_derivations">هڪ ئي پاڙ مان نڪتل لفظ</string>
+    <string name="quran_search_no_root">روٽ جو تعين نه ڪري سگهيو</string>
 </resources>

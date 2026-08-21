@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">কেৱল চুটি আধকাৰ ব্যৱহাৰ কৰক</string>
     <string name="adhkar_overlay_short_only_desc">এটা বা দুটা শাৰীৰ লগত খাপ খোৱা আধকাৰ বাছি লওক যাতে ভাসমান বুদবুদটো স্পষ্ট আৰু পঢ়িবলৈ সহজ হৈ থাকে।</string>
     <string name="adhkar_overlay_tap_hint">বুদবুদটো টিপক তৎক্ষণাত ডিছমিছ কৰিবলৈ।</string>
+    <string name="adhkar_copied">ধিকৰে কপি কৰিলে</string>
+    <string name="adhkar_periodic_dhikr">নিৰ্দিষ্ট জিকিৰ</string>
+    <string name="adhkar_periodic_dhikr_random">ৰেণ্ডম (মেনুৱেল পিক কৰাৰ পৰিৱৰ্তে)</string>
 </resources>

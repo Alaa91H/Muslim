@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Кыска adhkar гана колдонуңуз</string>
     <string name="adhkar_overlay_short_only_desc">Калкыма көбүк ачык жана окууга оңой болуп калышы үчүн, бир же эки сапка туура келген адхкарды тандаңыз.</string>
     <string name="adhkar_overlay_tap_hint">Аны дароо жабуу үчүн көбүктү таптаңыз.</string>
+    <string name="adhkar_copied">Зикир көчүрүлдү</string>
+    <string name="adhkar_periodic_dhikr">Өзгөчө зикир</string>
+    <string name="adhkar_periodic_dhikr_random">Кокус (кол менен тандоонун ордуна)</string>
 </resources>

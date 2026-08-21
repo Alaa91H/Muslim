@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s ayeke dä fadeso — pika ndo ti sara si a ga fini .</string>
     <string name="notif_category_app_update">Afini application</string>
     <string name="notif_category_app_update_desc">Fango tënë na ngoi so mbeni fini version ti application ayeke dä .</string>
+    <string name="about_tagline">Mbeni kamarade so alingbi kue, so ayeke senge senge, so ayeke na lege ni pëpe teti aMusulman oko oko kue — angoi ti sambela, Adhan, Coran, hadith, adhkar na ambeni ye nde, na yanga ti kodoro ti mo.</string>
+    <string name="about_description_title">Na ndo ti Musulman .</string>
+    <string name="about_description_body">Musulman ayeke mbeni application ti Android so ayeke senge senge nga so ayeke na source ouverte so ayeke gue na mo na yâ ti lango ni kue: angoi ti sambela so ayeke tâ na lege ni na lege ti atongoro na Adhan, mbeni boussole ti Qibla so ayeke tâ na lege ni, Coran kue so a diko ni nga na tafsir, mbeni bibliothèque ti hadith, adhkar so alondo na ndo ni, mbeni tasbih électronique, agbakuru ti Ramadan, mbeni calculatrice so a leke ni na lege ti zakat nga na ambeni ye nde — par défaut.</string>
+    <string name="about_features_title">Akota tënë</string>
+    <string name="about_features_body">Aye kue so mbeni Musulman ayeke na bezoin ni na yâ ti mbeni appli oko:</string>
+    <string name="about_feature_prayer">Ngoi ti sambela &amp; Adhan — akode ti salango calcul kue, a-ekole ti ndia, na ason ti adhan 18+ .</string>
+    <string name="about_feature_quran">Coran kue — Mbeti ti Uthmani, azo 44 so ayeke diko ni, tafsir, ayanga ti kodoro, gingo atënë nga na fani mingi</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan na Zakat — na adango bê nga na a-bubble so ayeke huru</string>
+    <string name="about_feature_offline">Na lege ti Internet pëpe, a yeke wara acarte, Coran, hadith nga na adhkar so ayeke sara kua na internet pëpe .</string>
+    <string name="about_feature_privacy">Confidentialité par défaut — publicité ayeke dä pëpe, a yeke mû peko ti mo pëpe, asango ti mo angbâ na ndö ti appareil ti mo .</string>
+    <string name="settings_auto_update">A-actualisations so ayeke sara kua automatiquement .</string>
+    <string name="settings_auto_update_desc">Téléchargé automatiquement na zia afini version na yâ ti ordinateur ti mo hio tongana a sigigi na ni .</string>
+    <string name="settings_auto_update_confirm_title">Mo yeke sara a-actualisations automatique?</string>
+    <string name="settings_auto_update_confirm_body">A yeke téléchargé afini version ni na a yeke zia ni automatiquement na yâ ti ordinateur ti mo tongana a yeke dä. Ngba ti sara ni?</string>
+    <string name="settings_auto_update_confirm">Mu lege na zo</string>
+    <string name="settings_cancel">zi ni</string>
+    <string name="update_last_check">Lani vérification: %1$s.</string>
+    <string name="update_open_releases">Zia lembeti ti sigingo na ni na yâ ti navigateur ni .</string>
 </resources>

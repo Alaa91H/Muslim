@@ -164,4 +164,22 @@
     <string name="update_available_text">ਸੰਸਕਰਣ %1$s ਹੁਣ ਉਪਲਬਧ ਹੈ — ਅੱਪਡੇਟ ਕਰਨ ਲਈ ਟੈਪ ਕਰੋ</string>
     <string name="notif_category_app_update">ਐਪ ਅੱਪਡੇਟ</string>
     <string name="notif_category_app_update_desc">ਇੱਕ ਨਵਾਂ ਐਪ ਸੰਸਕਰਣ ਉਪਲਬਧ ਹੋਣ \'ਤੇ ਸੂਚਨਾ</string>
+    <string name="about_tagline">ਤੁਹਾਡੀ ਭਾਸ਼ਾ ਵਿੱਚ ਹਰ ਮੁਸਲਮਾਨ ਲਈ ਇੱਕ ਸੰਪੂਰਨ, ਮੁਫਤ, ਓਪਨ-ਸੋਰਸ ਸਾਥੀ — ਪ੍ਰਾਰਥਨਾ ਦੇ ਸਮੇਂ, ਅਜ਼ਾਨ, ਕੁਰਾਨ, ਹਦੀਸ, ਅਧਕਾਰ ਅਤੇ ਹੋਰ ਬਹੁਤ ਕੁਝ।</string>
+    <string name="about_description_title">ਮੁਸਲਮਾਨ ਬਾਰੇ</string>
+    <string name="about_description_body">ਮੁਸਲਿਮ ਇੱਕ ਮੁਫਤ ਅਤੇ ਓਪਨ-ਸੋਰਸ ਐਂਡਰੌਇਡ ਐਪ ਹੈ ਜੋ ਦਿਨ ਭਰ ਤੁਹਾਡੇ ਨਾਲ ਹੈ: ਅਜ਼ਾਨ ਦੇ ਨਾਲ ਖਗੋਲ-ਵਿਗਿਆਨਕ ਤੌਰ \'ਤੇ ਸਹੀ ਪ੍ਰਾਰਥਨਾ ਦੇ ਸਮੇਂ, ਇੱਕ ਸਟੀਕ ਕਿਬਲਾ ਕੰਪਾਸ, ਪਾਠਾਂ ਅਤੇ ਤਫਸੀਰਾਂ ਦੇ ਨਾਲ ਪੂਰਾ ਕੁਰਾਨ, ਇੱਕ ਹਦੀਸ ਲਾਇਬ੍ਰੇਰੀ, ਸਰੋਤ ਅਧਕਾਰ, ਇੱਕ ਇਲੈਕਟ੍ਰਾਨਿਕ ਤਸਬੀਹ, ਰਮਜ਼ਾਨ ਟੂਲ, ਇੱਕ ਜ਼ਕਾਤ ਕੈਲਕੁਲੇਟਰ, ਮੈਪ ਲਾਈਨ ਦੇ ਨਾਲ ਬੰਦ-ਲਾਈਨ ਦੇ ਨਾਲ ਕੰਮ ਕਰਨ ਲਈ ਪੂਰੀ ਤਰ੍ਹਾਂ ਬੰਦ। ਡਿਫਾਲਟ।</string>
+    <string name="about_features_title">ਹਾਈਲਾਈਟਸ</string>
+    <string name="about_features_body">ਇੱਕ ਮੁਸਲਮਾਨ ਨੂੰ ਇੱਕ ਐਪ ਵਿੱਚ ਹਰ ਚੀਜ਼ ਦੀ ਲੋੜ ਹੈ:</string>
+    <string name="about_feature_prayer">ਪ੍ਰਾਰਥਨਾ ਦੇ ਸਮੇਂ ਅਤੇ ਅਧਾਨ - ਸਾਰੀਆਂ ਗਣਨਾ ਵਿਧੀਆਂ, ਨਿਆਂਇਕ ਸਕੂਲ, ਅਤੇ 18+ ਅਧਾਨ ਆਵਾਜ਼ਾਂ</string>
+    <string name="about_feature_quran">ਸੰਪੂਰਨ ਕੁਰਾਨ - ਉਸਮਾਨੀ ਲਿਪੀ, 44 ਪਾਠਕ, ਤਫ਼ਸੀਰ, ਅਨੁਵਾਦ, ਸ਼ਬਦ ਖੋਜ ਅਤੇ ਬਾਰੰਬਾਰਤਾ</string>
+    <string name="about_feature_adhkar">ਅਧਕਾਰ, ਤਸਬੀਹ, ਰਮਜ਼ਾਨ ਅਤੇ ਜ਼ਕਤ - ਰੀਮਾਈਂਡਰ ਅਤੇ ਫਲੋਟਿੰਗ ਬੁਲਬਲੇ ਦੇ ਨਾਲ</string>
+    <string name="about_feature_offline">ਔਫਲਾਈਨ-ਪਹਿਲਾਂ - ਨਕਸ਼ੇ, ਕੁਰਾਨ, ਹਦੀਸ ਅਤੇ ਅਧਕਾਰ ਬਿਨਾਂ ਇੰਟਰਨੈਟ ਦੇ ਕੰਮ ਕਰਦੇ ਹਨ</string>
+    <string name="about_feature_privacy">ਮੂਲ ਰੂਪ ਵਿੱਚ ਗੋਪਨੀਯਤਾ — ਕੋਈ ਵਿਗਿਆਪਨ ਨਹੀਂ, ਕੋਈ ਟਰੈਕਿੰਗ ਨਹੀਂ, ਤੁਹਾਡਾ ਡੇਟਾ ਤੁਹਾਡੀ ਡਿਵਾਈਸ \'ਤੇ ਰਹਿੰਦਾ ਹੈ</string>
+    <string name="settings_auto_update">ਪੂਰੀ ਤਰ੍ਹਾਂ ਆਟੋਮੈਟਿਕ ਅੱਪਡੇਟ</string>
+    <string name="settings_auto_update_desc">ਨਵੇਂ ਸੰਸਕਰਣਾਂ ਨੂੰ ਰਿਲੀਜ਼ ਹੁੰਦੇ ਹੀ ਬੈਕਗ੍ਰਾਊਂਡ ਵਿੱਚ ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ ਡਾਊਨਲੋਡ ਅਤੇ ਸਥਾਪਿਤ ਕਰੋ</string>
+    <string name="settings_auto_update_confirm_title">ਕੀ ਆਟੋਮੈਟਿਕ ਅੱਪਡੇਟਾਂ ਨੂੰ ਚਾਲੂ ਕਰਨਾ ਹੈ?</string>
+    <string name="settings_auto_update_confirm_body">ਨਵੇਂ ਸੰਸਕਰਣ ਉਪਲਬਧ ਹੋਣ \'ਤੇ ਬੈਕਗ੍ਰਾਊਂਡ ਵਿੱਚ ਆਪਣੇ ਆਪ ਡਾਊਨਲੋਡ ਅਤੇ ਸਥਾਪਿਤ ਕੀਤੇ ਜਾਣਗੇ। ਜਾਰੀ ਰੱਖਣਾ ਹੈ?</string>
+    <string name="settings_auto_update_confirm">ਯੋਗ ਕਰੋ</string>
+    <string name="settings_cancel">ਰੱਦ ਕਰੋ</string>
+    <string name="update_last_check">ਆਖਰੀ ਜਾਂਚ: %1$s</string>
+    <string name="update_open_releases">ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਰੀਲੀਜ਼ ਪੰਨੇ ਨੂੰ ਖੋਲ੍ਹੋ</string>
 </resources>

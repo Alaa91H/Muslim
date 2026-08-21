@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Siusinnerusukkut ayah</string>
     <string name="quran_range_single_ayah">Ataaseq ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Sura-p naanerani</string>
+    <string name="quran_range_to_end">Mushaf-ip naaneranut</string>
     <string name="quran_range_to_end_short">Naggatissallugu</string>
     <string name="quran_range_whole_surah">Surah tamakkerlugu</string>
     <string name="quran_range_whole_surah_short">Sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Full mushaf aqqusaarlugu reciterit</string>
     <string name="quran_downloads_coverage_empty">Suli lyd-imik download-eqanngilaq</string>
     <string name="quran_pause_notif_listener">Nalunaarutit pillugit oqaluttuarneq unitsiguk</string>
-    <string name="quran_reciter_changed_title">Reciter allanngortinneqarpoq</string>
-    <string name="quran_reciter_changed_message">Playback unippoq, pissutigalugu range Koranip naanerani ingerlavoq. %1$s atorlugu aallarteqqissavit?</string>
-    <string name="quran_reciter_restart">Aallarteqqissaatit</string>
-    <string name="quran_reciter_not_now">Maannakkuunngilaq</string>
+    <string name="quran_search_metrics">Ujaasinermi piffissaq: %1$d ms</string>
+    <string name="quran_search_index_building">Siullermik ujaasinermut Koranimi indeksimik sananeq...</string>
+    <string name="quran_search_index_progress">Mushaf-indeksimik sananeq... %1$d %%</string>
+    <string name="quran_search_word_root">Root: %1$s</string>
+    <string name="quran_search_derivations">Oqaatsit root-imiit ataatsimit aallaaveqartut</string>
+    <string name="quran_search_no_root">Root-imik aalajangersaasinnaanngilaq</string>
 </resources>

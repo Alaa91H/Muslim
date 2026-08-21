@@ -24,4 +24,5 @@
     <string name="hadith_share">Partekatu</string>
     <string name="hadith_title">Hadith Liburutegia</string>
     <string name="hadith_copy">Kopiatu</string>
+    <string name="hadith_copied">Hadith kopiatua</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Vorige ayah</string>
     <string name="quran_range_single_ayah">Enkele ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Tot ‘t eind vaan de soerah</string>
+    <string name="quran_range_to_end">Tot ‘t ind vaan de Mushaf</string>
     <string name="quran_range_to_end_short">Tot einde</string>
     <string name="quran_range_whole_surah">Ganse soerah</string>
     <string name="quran_range_whole_surah_short">Soerah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Volledige mushaf euver de reciters</string>
     <string name="quran_downloads_coverage_empty">Nog gein audio gedownload</string>
     <string name="quran_pause_notif_listener">Pauze recitatie op meldingen</string>
-    <string name="quran_reciter_changed_title">Reciter is veranderd</string>
-    <string name="quran_reciter_changed_message">De afspeel is gestop umdat ‘t bereik loop tot ‘t ind vaan de Koran. Weer beginne mit %1$s?</string>
-    <string name="quran_reciter_restart">Begin weer</string>
-    <string name="quran_reciter_not_now">Noe neet</string>
+    <string name="quran_search_metrics">Zoektied: %1$d ms</string>
+    <string name="quran_search_index_building">‘t Opbouwe vaan de Koran-index veur de ierste zeuktoch…</string>
+    <string name="quran_search_index_progress">De mushaf-index opbouwe… %1$d %%</string>
+    <string name="quran_search_word_root">Wortel: %1$s</string>
+    <string name="quran_search_derivations">Wörter aafgeleid vaan dezelfde wortel</string>
+    <string name="quran_search_no_root">Kon de wortel neet bepaole</string>
 </resources>

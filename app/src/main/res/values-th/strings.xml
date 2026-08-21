@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">การท่องจำจะหยุดชั่วคราวเมื่อมีการแจ้งเตือน เสียงกริ่ง หรือสื่ออื่นๆ เล่น</string>
     <string name="more_pause_notifications_enabled">เปิดใช้งาน — แตะเพื่อเปิดการตั้งค่าระบบ</string>
     <string name="more_pause_notifications_disabled">ปิดใช้งาน — แตะเพื่อเปิดใช้งาน</string>
+    <string name="more_names">99 รายชื่อของอัลลอฮ์</string>
+    <string name="more_names_desc">99 ชื่อพร้อมคำอธิบายแบบเต็ม</string>
+    <string name="more_hajj">ฮัจย์และอุมเราะห์</string>
+    <string name="more_hajj_desc">คู่มือโดยละเอียดเกี่ยวกับพิธีกรรมฮัจญ์และอุมเราะห์</string>
 </resources>

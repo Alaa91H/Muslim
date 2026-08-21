@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">ayah roimhe seo</string>
     <string name="quran_range_single_ayah">Ayah amháin</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Go dtí deireadh an Surah</string>
+    <string name="quran_range_to_end">Go dtí deireadh an Mushaf</string>
     <string name="quran_range_to_end_short">Chun deireadh</string>
     <string name="quran_range_whole_surah">Surah iomlán</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf iomlán trasna na haithriseoirí</string>
     <string name="quran_downloads_coverage_empty">Níl aon fuaime íosluchtaithe fós</string>
     <string name="quran_pause_notif_listener">Cuir aithris ar fhógraí ar sos</string>
-    <string name="quran_reciter_changed_title">Reciter athraigh</string>
-    <string name="quran_reciter_changed_message">Stopadh athsheinm toisc go ritheann an raon go dtí deireadh an Quran. Tosaigh arís le %1$s?</string>
-    <string name="quran_reciter_restart">Tosaigh arís</string>
-    <string name="quran_reciter_not_now">Ní anois</string>
+    <string name="quran_search_metrics">Am cuardaigh: %1$d ms</string>
+    <string name="quran_search_index_building">Innéacs an Quran a thógáil don chéad chuardach…</string>
+    <string name="quran_search_index_progress">Ag tógáil an innéacs mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Fréamh: %1$s</string>
+    <string name="quran_search_derivations">Focail a dhíorthaítear ón bhfréamh chéanna</string>
+    <string name="quran_search_no_root">Níorbh fhéidir an fhréamh a chinneadh</string>
 </resources>

@@ -164,4 +164,22 @@
     <string name="update_available_text">نسخو %1$s هاڻي دستياب آهي — تازه ڪاري ڪرڻ لاءِ ٽيپ ڪريو</string>
     <string name="notif_category_app_update">ايپ اپڊيٽ</string>
     <string name="notif_category_app_update_desc">نوٽيفڪيشن جڏهن هڪ نئون ايپ نسخو دستياب آهي</string>
+    <string name="about_tagline">هر مسلمان لاءِ هڪ مڪمل، مفت، کليل ذريعو ساٿي - نماز جا وقت، اذان، قرآن، حديث، اذڪار ۽ وڌيڪ، توهان جي ٻولي ۾.</string>
+    <string name="about_description_title">مسلمانن جي باري ۾</string>
+    <string name="about_description_body">مسلم هڪ مفت ۽ اوپن سورس اينڊرائيڊ ايپ آهي جيڪا توهان سان سڄو ڏينهن گڏ رهي ٿي: فلڪيات جي لحاظ کان درست نماز جا وقت آذان سان، هڪ درست قبله کمپاس، تلاوت ۽ تفسير سان مڪمل قرآن، هڪ حديث جي لائبريري، منبع اذکار، هڪ اليڪٽرانڪ تسبيح، رمضان جا اوزار، زڪوات حساب ڪندڙ، نقشي جي ترتيب سان، آف لائن ۽ آف لائن سان گڏ ڪم ڪرڻ لاءِ وڌيڪ تفصيل سان. ڊفالٽ.</string>
+    <string name="about_features_title">نمايان</string>
+    <string name="about_features_body">هر هڪ مسلمان کي هڪ ايپ ۾ گهربل آهي:</string>
+    <string name="about_feature_prayer">نماز جا وقت ۽ اذان - سڀ حساب ڪتاب جا طريقا، فقيه اسڪول، ۽ 18+ اذان آواز</string>
+    <string name="about_feature_quran">مڪمل قرآن - عثماني رسم الخط، 44 تلاوت ڪندڙ، تفسير، ترجما، لفظن جي ڳولا ۽ تعدد</string>
+    <string name="about_feature_adhkar">اذڪار، تسبيح، رمضان ۽ زڪوات - ياد ڏياريندڙ ۽ سچل بلبلن سان</string>
+    <string name="about_feature_offline">آف لائن - پھريون - نقشا، قرآن، حديث ۽ اذڪار ڪم ڪن ٿا بغير انٽرنيٽ</string>
+    <string name="about_feature_privacy">ڊفالٽ رازداري - ڪوبه اشتهار نه، نه ٽريڪنگ، توهان جي ڊيٽا توهان جي ڊوائيس تي رهي ٿي</string>
+    <string name="settings_auto_update">مڪمل طور تي خودڪار تازه ڪاريون</string>
+    <string name="settings_auto_update_desc">خودڪار طور تي ڊائون لوڊ ۽ انسٽال ڪريو نوان ورجن پس منظر ۾ جيئن ئي اهي جاري ڪيا وڃن</string>
+    <string name="settings_auto_update_confirm_title">خودڪار اپڊيٽ کي فعال ڪريو؟</string>
+    <string name="settings_auto_update_confirm_body">نوان ورجن ڊائون لوڊ ڪيا ويندا ۽ خودڪار طور تي پس منظر ۾ نصب ڪيو ويندو جڏهن دستياب هجي. جاري رکو؟</string>
+    <string name="settings_auto_update_confirm">فعال ڪريو</string>
+    <string name="settings_cancel">منسوخ ڪريو</string>
+    <string name="update_last_check">آخري چيڪ: %1$s</string>
+    <string name="update_open_releases">برائوزر ۾ رليز پيج کوليو</string>
 </resources>

@@ -110,13 +110,24 @@ class MosqueFinderRepository @Inject constructor() {
         longitude: Double,
         onRadiusKm: suspend (Int) -> Unit = {},
     ): List<Mosque> = withContext(Dispatchers.IO) {
+        nearbyNearestWith(
+            fetch = { radiusKm -> nearby(latitude, longitude, radiusKm * 1000) },
+            onRadiusKm = onRadiusKm,
+        )
+    }
+
+    /** Purely injectable search loop used by the production method and JVM tests. */
+    internal suspend fun nearbyNearestWith(
+        fetch: suspend (radiusKm: Int) -> List<Mosque>,
+        onRadiusKm: suspend (Int) -> Unit = {},
+    ): List<Mosque> {
         val radiiKm = listOf(1, 3, 5, 10, 25, 50, 100, 250, 500, 1000)
         for (radiusKm in radiiKm) {
             onRadiusKm(radiusKm)
-            val found = nearby(latitude, longitude, radiusKm * 1000)
-            if (found.isNotEmpty()) return@withContext found
+            val found = fetch(radiusKm).sortedBy { it.distanceMeters }
+            if (found.isNotEmpty()) return found
         }
-        emptyList()
+        return emptyList()
     }
 
     private fun buildQuery(latitude: Double, longitude: Double, radiusMeters: Int): String =

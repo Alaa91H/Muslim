@@ -164,4 +164,22 @@
     <string name="update_available_text">Верси %1$s хӀинца лелаш ю — хьажа карладаккха</string>
     <string name="notif_category_app_update">Апп карладаккхар</string>
     <string name="notif_category_app_update_desc">Керла Ӏалашонан верси хилча хаам бар</string>
+    <string name="about_tagline">ХӀора бусалба стагана буьззина, маьрша, схьайиллина хьостан накъост — ламазан хенаш, Азан, Къуръан, хьадис, азкар, кхин а, хьан маттахь.</string>
+    <string name="about_description_title">Муслимах лаьцна</string>
+    <string name="about_description_body">Муслим — маьрша а, йиллина а Android-ан программа ю, дерриг а дийнахь шуьца цхьаьна лелаш йолу: астрономически нийса ламазан хенаш азанца, нийса къибла компас, дуьззина Къуръан дешарца а, тафсирца а, хьадисийн библиотека, хьостан азкар, электронан тасбих, Рамаданан гӀирсаш, закат ма полный калькуляторца offline — кхин а дифолт санна.</string>
+    <string name="about_features_title">Коьрта дерг</string>
+    <string name="about_features_body">Бусалба стагана оьшург дерриге а цхьана аппа чохь:</string>
+    <string name="about_feature_prayer">Ламазан хенаш &amp; Азан — массо а хьесапдаран кепаш, юридически школаш, 18+ азан аьзнаш</string>
+    <string name="about_feature_quran">Полный Коран — Ӏусмани йоза, 44 дешархо, тафсир, гочдарш, дешнаш лехар &amp; кесталла</string>
+    <string name="about_feature_adhkar">Азкар, тасбих, Рамадан &amp; Закат — с напоминаниями и плавающими пузырьками</string>
+    <string name="about_feature_offline">Оффлайн-хьалхара — карташ, Къуръан, хьадис а, азкар а болх беш интернет йоцуш</string>
+    <string name="about_feature_privacy">Къайленаш стандартан кепара — реклама яц, тӀаьхьакхиар дац, хьан хаамаш хьан гӀирсехь буьсу</string>
+    <string name="settings_auto_update">Дуьззина автоматически керланаш .</string>
+    <string name="settings_auto_update_desc">Автоматически схьа а эцна, керла версиш фонехь дӀахӀиттае, уьш араяьхчахьана .</string>
+    <string name="settings_auto_update_confirm_title">Автоматически хийцамаш бан йиш юй?</string>
+    <string name="settings_auto_update_confirm_body">Керла версиш дӀа а йохуш, автоматически фонехь дӀахӀиттор ю, нагахь санна уьш хилча. Дахдан?</string>
+    <string name="settings_auto_update_confirm">Юкъадало</string>
+    <string name="settings_cancel">дӀадакха</string>
+    <string name="update_last_check">ТӀаьххьара теллина: %1$s.</string>
+    <string name="update_open_releases">Браузерехь схьаелла релизийн агӀо .</string>
 </resources>

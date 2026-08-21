@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">שטח ברייט (דיגריז)</string>
     <string name="offline_maps_storage_warning">נידעריק סטאָרידזש - בלויז %1$s פריי</string>
     <string name="offline_maps_storage_delete_largest">ויסמעקן גרעסטן געגנט (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">זוכן מאָסקוועס דורך נאָמען</string>
+    <string name="mosque_finder_show_all">ווייַזן אַלע מאָסקוועס</string>
+    <string name="mosque_finder_share">עפענען אינסטרוקציעס</string>
+    <string name="offline_maps_use_my_location">גיין צו מיין קראַנט אָרט</string>
 </resources>

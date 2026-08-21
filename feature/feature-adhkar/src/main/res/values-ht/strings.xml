@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Sèvi ak adhkar kout sèlman</string>
     <string name="adhkar_overlay_short_only_desc">Chwazi adhkar ki anfòm youn oubyen de liy pou ti wonn k ap flote a rete klè epi fasil pou li.</string>
     <string name="adhkar_overlay_tap_hint">Tape ti wonn nan ranvwaye li imedyatman.</string>
+    <string name="adhkar_copied">Dhikr kopye</string>
+    <string name="adhkar_periodic_dhikr">Dhikr espesifik</string>
+    <string name="adhkar_periodic_dhikr_random">O aza (olye pou yo chwazi manyèl)</string>
 </resources>

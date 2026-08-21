@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Adhan</string>
     <string name="bundled_adhan_saber">Adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Imoski ye-Umayyad (iDamaseko)</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam</string>
     <string name="home_cannot_compute">Ayikhoni kubala tikhatsi talolusuku</string>
     <string name="home_location_unknown">Indzawo ayikabekwa</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Kuzenzakalela (ngendzawo)</string>
     <string name="settings_method_automatic_desc">Le-app ikhetsa indlela lefanele kakhulu ngekuzenzakalela ngekuya ngelive lakho nendzawo yakho; usakhona kukhetsa indlela ngesandla noma nini.</string>
     <string name="settings_preview_for_prayer">Buka ngaphambilini %1$s i-adhan</string>
+    <string name="settings_method_automatic_picked">Kukhetsiwe lokutentakalelako njengamanje: %1$s — %2$s.</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Areála viidodat (gráda)</string>
     <string name="offline_maps_storage_warning">Unnán vurkensadji — dušše %1$s nuvttá</string>
     <string name="offline_maps_storage_delete_largest">Slette stuorámus guovllu (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Ohcat moskeijaid namaid mielde</string>
+    <string name="mosque_finder_show_all">Čájehit buot moskeijaid</string>
+    <string name="mosque_finder_share">Rabas čujuhusat</string>
+    <string name="offline_maps_use_my_location">Mannet mu dálá báikái</string>
 </resources>

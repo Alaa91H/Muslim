@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">นักชบันดี อาธาน</string>
     <string name="bundled_adhan_saber">เซเบอร์ อาดาน</string>
     <string name="bundled_adhan_sharif_doman">ชารีฟ โดมาน อาธาน</string>
-    <string name="bundled_adhan_umayyad_damascus">มัสยิดอุมัยยะฮ์ (ดามัสกัส) อัดฮาน</string>
     <string name="bundled_adhan_yusuf_islam">ยูซุฟ อิสลาม อะธาน</string>
     <string name="home_cannot_compute">ไม่สามารถคำนวณเวลาสำหรับวันนี้ได้</string>
     <string name="home_location_unknown">ยังไม่ได้กำหนดสถานที่</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">อัตโนมัติ (ตามสถานที่)</string>
     <string name="settings_method_automatic_desc">แอพจะเลือกวิธีการที่เหมาะสมที่สุดโดยอัตโนมัติตามประเทศและที่ตั้งของคุณ คุณยังสามารถเลือกวิธีการด้วยตนเองได้ตลอดเวลา</string>
     <string name="settings_preview_for_prayer">ดูตัวอย่าง %1$s อาธาน</string>
+    <string name="settings_method_automatic_picked">อัตโนมัติที่เลือกอยู่ในปัจจุบัน: %1$s — %2$s</string>
 </resources>

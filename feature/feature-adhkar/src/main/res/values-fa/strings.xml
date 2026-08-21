@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">فقط از ادکار کوتاه استفاده کنید</string>
     <string name="adhkar_overlay_short_only_desc">ادکاری را انتخاب کنید که با یک یا دو خط مناسب باشد تا حباب شناور واضح بماند و به راحتی قابل خواندن باشد.</string>
     <string name="adhkar_overlay_tap_hint">روی حباب ضربه بزنید تا فوراً آن را رد کنید.</string>
+    <string name="adhkar_copied">ذکر نسخ شد</string>
+    <string name="adhkar_periodic_dhikr">ذکر خاص</string>
+    <string name="adhkar_periodic_dhikr_random">تصادفی (به جای انتخاب دستی)</string>
 </resources>

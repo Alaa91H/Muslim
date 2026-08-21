@@ -5,4 +5,6 @@
     <string name="reference_search_hint">მოძებნეთ ეს წიგნი…</string>
     <string name="reference_title">ისლამური საცნობარო ბიბლიოთეკა</string>
     <string name="reference_topics_count">თემები</string>
+    <string name="reference_copy">კოპირება</string>
+    <string name="reference_share">გააზიარეთ</string>
 </resources>

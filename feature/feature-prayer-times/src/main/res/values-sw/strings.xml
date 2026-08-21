@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhana</string>
     <string name="bundled_adhan_saber">Saber adhana</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhana</string>
-    <string name="bundled_adhan_umayyad_damascus">Msikiti wa Umayyad (Damascus) adhana</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhana</string>
     <string name="home_cannot_compute">Imeshindwa kuhesabu saa za siku hii</string>
     <string name="home_location_unknown">Eneo bado halijawekwa</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Otomatiki (kulingana na eneo)</string>
     <string name="settings_method_automatic_desc">Programu huchagua njia inayofaa zaidi kiotomatiki kulingana na nchi yako na eneo; bado unaweza kuchagua njia mwenyewe wakati wowote.</string>
     <string name="settings_preview_for_prayer">Hakiki adhana %1$s</string>
+    <string name="settings_method_automatic_picked">Imechaguliwa kiotomatiki kwa sasa: %1$s — %2$s</string>
 </resources>

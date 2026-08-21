@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Dikongo ye ayeke luti kete na ngoi so mbeni notification, mbeni son wala mbeni ye nde ayeke toto .</string>
     <string name="more_pause_notifications_enabled">A zi ni — pika ndo ti zi a-paramètre ti système ni .</string>
     <string name="more_pause_notifications_disabled">A kanga lege na ni — pika ndo ti .</string>
+    <string name="more_names">99 Iri ti Allah .</string>
+    <string name="more_names_desc">A iri 99 so afa nda ni kue .</string>
+    <string name="more_hajj">Hajj na Umrah</string>
+    <string name="more_hajj_desc">A fa anzene nzene ye na ndo ti akusala ti Hajj na ti Umrah .</string>
 </resources>

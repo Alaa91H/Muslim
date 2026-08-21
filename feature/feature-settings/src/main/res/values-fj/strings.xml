@@ -164,4 +164,22 @@
     <string name="update_available_text">Sa vakarautaki tu na ivakadewa %1$s — tabaka me vakavoutaki</string>
     <string name="notif_category_app_update">Vakavoui ni app</string>
     <string name="notif_category_app_update_desc">Vakaraitaka ni sa tiko e dua na itukutuku vou ni app .</string>
+    <string name="about_tagline">E dua na itokani taucoko, galala, dolavi-ivurevure me baleta na Musolomani yadua — gauna ni masu, Adhan, Quran, hadith, adhkar kei na vuqa tale, ena nomu vosa.</string>
+    <string name="about_description_title">Me baleta na Musolomani</string>
+    <string name="about_description_body">Musolomani e dua na galala ka dolavi-ivurevure ni Android app ka tomani iko ena siga taucoko: gauna ni masu dodonu vakalomalagi kei na Adhan, e dua na kabasi ni Qibla dodonu, na Quran taucoko kei na wiliwili kei na tafsir, e dua na valenivolavola ni hadith, ivurevure ni adhkar, e dua na tasbih vakalivaliva, iyaya ni cakacaka ni Ramadan, e dua na ituvatuva ni cakacaka ni Ramadan, e dua na ituvatuva ni cakacaka ni Ramadan, e dua na ituvatuva ni cakacaka ni Ramadan, vakawasoma.</string>
+    <string name="about_features_title">Veika bibi</string>
+    <string name="about_features_body">Na veika kece e gadreva e dua na Musolomani ena dua ga na app:</string>
+    <string name="about_feature_prayer">Gauna ni masu &amp; Adhan — iwalewale kece ni vakasama, koronivuli ni lawa, kei na 18+ rorogo ni adhan .</string>
+    <string name="about_feature_quran">Quran taucoko — volavola ni Uthmani, 44 na dauwiliwili, tafsir, vakadewa, vakasaqaqara ni vosa &amp; vakawasoma</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — vata kei na veivakananumi kei na buto vuka</string>
+    <string name="about_feature_offline">Offline-taumada — mape, Quran, hadith kei na adhkar cakacaka ka sega na initaneti</string>
+    <string name="about_feature_privacy">Na veika vakaitaukei ena kena ivakarau — sega na ads, sega na vakamuri, na nomu itukutuku e tiko ena nomu misini .</string>
+    <string name="settings_auto_update">Vakavoui taucoko vakataki koya</string>
+    <string name="settings_auto_update_desc">Lavetaka vakataki koya ka vakacuruma na itukutuku vou ena taudaku ni gauna ga era sa sereki kina .</string>
+    <string name="settings_auto_update_confirm_title">Vakatara na veivakavoui vakataki koya?</string>
+    <string name="settings_auto_update_confirm_body">Na veivakadewa vou ena lavetaki ka vakacurumi vakataki koya ena taudaku ni sa rawa. Tomana?</string>
+    <string name="settings_auto_update_confirm">Vakarawarawataka</string>
+    <string name="settings_cancel">Biuta laivi</string>
+    <string name="update_last_check">iOtioti ni jeke: %1$s.</string>
+    <string name="update_open_releases">Dolava na tabana ni veivakagalalataki ena barausa .</string>
 </resources>

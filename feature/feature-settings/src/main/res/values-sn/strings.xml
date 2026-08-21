@@ -164,4 +164,22 @@
     <string name="update_available_text">Shanduro %1$s yavapo — tokonya kuti ugadzirise</string>
     <string name="notif_category_app_update">Zvigadziriso zveApp</string>
     <string name="notif_category_app_update_desc">Chiziviso kana shanduro itsva yeapp iripo</string>
+    <string name="about_tagline">Yakazara, yemahara, yakavhurika-sosi shamwari kune wese muMuslim - nguva dzemunamato, Adhan, Korani, hadith, adhkar nezvimwe, mumutauro wako.</string>
+    <string name="about_description_title">Pamusoro peMuslim</string>
+    <string name="about_description_body">Muslim ndeye yemahara uye yakavhurika-sosi Android app inoperekedza iwe zuva rese: yenyeredzi nguva dzemunamato neAdhan, chaiyo Qibla kambasi, iyo Korani yakazara ine kudzokorora uye tafsir, hadith raibhurari, yakatorwa adhkar, yemagetsi tasbih, Ramadan maturusi, zakat Calculator, mepu dzisiri dzepamhepo dzakagadzirirwa kushanda nekuvanzika, uye nezvimwe.</string>
+    <string name="about_features_title">Pfungwa huru</string>
+    <string name="about_features_body">Zvese zvinodiwa nemuMuslim mune imwe app:</string>
+    <string name="about_feature_prayer">Nguva dzemunamato &amp; Adhan - nzira dzese dzekuverenga, zvikoro zvehutongi, uye 18+ adhan manzwi</string>
+    <string name="about_feature_quran">Yakazara Korani - Runyoro rweUthmani, 44 reciters, tafsir, dudziro, kutsvaga izwi &amp; frequency</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat - ine zviyeuchidzo uye mabhuru anoyangarara</string>
+    <string name="about_feature_offline">Offline-kutanga - mepu, Quran, hadith uye adhkar inoshanda isina internet</string>
+    <string name="about_feature_privacy">Kuvanzika nekusarudzika - hapana ads, hapana yekutevera, data rako rinogara pane chako kifaa</string>
+    <string name="settings_auto_update">Zvizere otomatiki zvigadziriso</string>
+    <string name="settings_auto_update_desc">Dhaunirodha otomatiki uye isa mavhezheni matsva kumashure kana angoburitswa</string>
+    <string name="settings_auto_update_confirm_title">Bvisa zvigadziriso zve otomatiki?</string>
+    <string name="settings_auto_update_confirm_body">Mavhezheni matsva anodhaunirodwa oiswa otomatiki kumashure kana aripo. Kuenderera mberi?</string>
+    <string name="settings_auto_update_confirm">Enable</string>
+    <string name="settings_cancel">Cancel</string>
+    <string name="update_last_check">Kuongorora kwekupedzisira: %1$s</string>
+    <string name="update_open_releases">Vhura peji rekuburitsa mubrowser</string>
 </resources>

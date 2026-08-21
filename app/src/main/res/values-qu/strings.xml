@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Recitación pisilla sayan huk willakuy, timbre utaq huk mediokuna pukllaptin</string>
     <string name="more_pause_notifications_enabled">Atichisqa — ñit\'iy llamkana churanakuna kichaypaq</string>
     <string name="more_pause_notifications_disabled">Mana atichisqa — ñit’iy atichinaykipaq</string>
+    <string name="more_names">99 Allahpa sutinkuna</string>
+    <string name="more_names_desc">Chay 99 sutikuna hunt’asqa sut’inchayninwan</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Hajj y Umrah ritokunamanta detallada pusaq</string>
 </resources>

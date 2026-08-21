@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Leed y slyst (graddyn)</string>
     <string name="offline_maps_storage_warning">Stoo low — agh %1$s saor</string>
     <string name="offline_maps_storage_delete_largest">Cur magh yn rannagh smoo (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Mosqueyn y lhoobey liorish ennym</string>
+    <string name="mosque_finder_show_all">Show ooilley ny moskeeyn</string>
+    <string name="mosque_finder_share">Foshlit stiurey</string>
+    <string name="offline_maps_use_my_location">Gow my ynnyd nish</string>
 </resources>

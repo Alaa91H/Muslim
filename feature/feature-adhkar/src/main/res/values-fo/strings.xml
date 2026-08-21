@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Brúka bert stutt adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Vel adhkar, sum passa til eina ella tvær linjur, so flótandi kúlan heldur seg klára og lætta at lesa.</string>
     <string name="adhkar_overlay_tap_hint">Trýst á kúluna fyri at koyra hana burtur beinanvegin.</string>
+    <string name="adhkar_copied">Dhikr avritað</string>
+    <string name="adhkar_periodic_dhikr">Ávíst dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Tilvildarligt (ístaðin fyri manuelt val)</string>
 </resources>

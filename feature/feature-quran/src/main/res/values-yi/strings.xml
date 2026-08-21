@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">פרייַערדיק ייַאַה</string>
     <string name="quran_range_single_ayah">איין זאַך</string>
     <string name="quran_range_single_ayah_short">יאָ</string>
-    <string name="quran_range_to_end">צום סוף פון סוראַה</string>
+    <string name="quran_range_to_end">צום סוף פון דער מושף</string>
     <string name="quran_range_to_end_short">צו סוף</string>
     <string name="quran_range_whole_surah">גאַנץ סוראַה</string>
     <string name="quran_range_whole_surah_short">סוראַה</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">גאַנץ מוסף אַריבער רעסיטערס</string>
     <string name="quran_downloads_coverage_empty">קיין אַודיאָ דאַונלאָודיד נאָך</string>
     <string name="quran_pause_notif_listener">פּויזע רעסיטאַטיאָן אויף נאָוטאַפאַקיישאַנז</string>
-    <string name="quran_reciter_changed_title">רעסיטער האט געביטן</string>
-    <string name="quran_reciter_changed_message">פּלייבאַק פארשטאפט ווייַל די קייט לויפט צו די סוף פון די קווראַן. אָנהייבן ווידער מיט %1$s?</string>
-    <string name="quran_reciter_restart">אָנהייב ווידער</string>
-    <string name="quran_reciter_not_now">נישט איצט</string>
+    <string name="quran_search_metrics">זוכן צייט: %1$d מיז</string>
+    <string name="quran_search_index_building">בויען די קאָראַן אינדעקס פֿאַר דער ערשטער זוכן ...</string>
+    <string name="quran_search_index_progress">בנין די מושאַף אינדעקס… %1$d %%</string>
+    <string name="quran_search_word_root">וואָרצל: %1$s</string>
+    <string name="quran_search_derivations">ווערטער שטאמען פון דעם זעלבן שורש</string>
+    <string name="quran_search_no_root">קען נישט באַשטימען די וואָרצל</string>
 </resources>

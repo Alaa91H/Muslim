@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Cleays adhkar gearr ny lomarcan</string>
     <string name="adhkar_overlay_short_only_desc">Choose adhkar ta corrym rish un line ny daa line dy vod y bubble floating staydys soilshey as sheean y leah.</string>
     <string name="adhkar_overlay_tap_hint">Tap y bubble dy scarrey eh dy kiart.</string>
+    <string name="adhkar_copied">Dhikr copyit</string>
+    <string name="adhkar_periodic_dhikr">Dhikr ry-hoi</string>
+    <string name="adhkar_periodic_dhikr_random">Random (ansherbee pick liorish laue)</string>
 </resources>

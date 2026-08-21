@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Chwiliwch am y llyfr hwn…</string>
     <string name="reference_title">Llyfrgell Gyfeirio Islamaidd</string>
     <string name="reference_topics_count">pynciau</string>
+    <string name="reference_copy">Copi</string>
+    <string name="reference_share">Rhannu</string>
 </resources>

@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Huutoro adhkar juutɗo tan</string>
     <string name="adhkar_overlay_short_only_desc">Suɓo adhkar potɗo e diidi gooto walla ɗiɗi mbele buubaaji ɓuuɓɗi ɗii ina keddoo ina laaɓi, ina weeɓi janngeede.</string>
     <string name="adhkar_overlay_tap_hint">Tappu buubaaji ɗii ngam ittude ɗi ɗoon e ɗoon.</string>
+    <string name="adhkar_copied">Dhikr koppi</string>
+    <string name="adhkar_periodic_dhikr">Dzikr keeriiɗo</string>
+    <string name="adhkar_periodic_dhikr_random">Random (e nokku cuɓagol junngo)</string>
 </resources>

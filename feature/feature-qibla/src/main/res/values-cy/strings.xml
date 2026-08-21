@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Lled ardal (graddau)</string>
     <string name="offline_maps_storage_warning">Storfa isel - dim ond %1$s am ddim</string>
     <string name="offline_maps_storage_delete_largest">Dileu\'r rhanbarth mwyaf (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Chwilio mosgiau yn ôl enw</string>
+    <string name="mosque_finder_show_all">Dangoswch bob mosg</string>
+    <string name="mosque_finder_share">Cyfarwyddiadau agored</string>
+    <string name="offline_maps_use_my_location">Ewch i fy lleoliad presennol</string>
 </resources>

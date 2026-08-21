@@ -164,4 +164,22 @@
     <string name="update_available_text">Jichhax %1$s versión ukax utjiwa — machaqar tukuyañatakix ch’iqt’añamawa</string>
     <string name="notif_category_app_update">App ukax machaqar tukuyatawa</string>
     <string name="notif_category_app_update_desc">Yatiyawix kunapachatix machaq app versión ukax utjki ukhaxa</string>
+    <string name="about_tagline">Mä phuqhat, inaki, abierto-codigo compañero sapa musulman — oración pachanaka, Adhan, Quran, hadith, adhkar ukat juk’ampinaka, aruman.</string>
+    <string name="about_description_title">Musulmán tuqitxa</string>
+    <string name="about_description_body">Muslim ukax mä app Android inaki ukat código abierto ukawa, ukax urunakpachaw chikañchasi: astronómicamente chiqapa oración pachanakax Adhan ukampi, mä brújula Qibla precisa, Quran phuqhat recitaciones ukat tafsir ukampi, mä biblioteca de hadiths, adhkar fuente, mä tasbih electrónico, herramientas de Ramadán, mä calculadora de zakat, mapas offline, ukat juk’ampinaka — diseñado para trabajar completamente offline con privacidad por default ukhamawa.</string>
+    <string name="about_features_title">Jachʼa tʼaqanaka</string>
+    <string name="about_features_body">Taqi kunatix mä musulmán jaqix mä app ukan munaski:</string>
+    <string name="about_feature_prayer">Oracion pachanaka &amp; Adhan — taqi jakhüwi thakhinaka, yatiqañ utanaka jurídica, ukat 18+ adhan sonidos</string>
+    <string name="about_feature_quran">Quran phuqhata — Uthmani qillqata, 44 arsurinaka, tafsir, jaqukipaña, arunaka thaqhaña &amp; frecuencia</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — amtawinakampi ukat burbujas flotantes ukanakampi</string>
+    <string name="about_feature_offline">Offline-first — mapas, Quran, hadith ukat adhkar ukanakax jan internet ukan irnaqapxi</string>
+    <string name="about_feature_privacy">Privacidad ukax default ukhamawa — janiw anuncios ukax utjkiti, janiw mä rastreo ukax utjkiti, datos ukax dispositivo ukan qhipararaki</string>
+    <string name="settings_auto_update">Taqi kunas automático ukhamawa</string>
+    <string name="settings_auto_update_desc">Automáticamente machaq versión ukanakax apsutäxiwa ukat qhipäxanx uñstayatarakiwa, kunawsatix uñstayatäki ukhaxa</string>
+    <string name="settings_auto_update_confirm_title">¿Automáticos actualizaciones ukanaka ch’amanchaña?</string>
+    <string name="settings_auto_update_confirm_body">Machaq versión ukanakax apkatatäni ukat automáticamente qhipäxan uskt’atäni kunapachatix utjki ukhaxa. Sarantaña?</string>
+    <string name="settings_auto_update_confirm">Pirmitiña</string>
+    <string name="settings_cancel">Kansilaña</string>
+    <string name="update_last_check">Qhipa uñakipaña: %1$s</string>
+    <string name="update_open_releases">Uka mistuwinakax navegador ukan jist’aratawa</string>
 </resources>

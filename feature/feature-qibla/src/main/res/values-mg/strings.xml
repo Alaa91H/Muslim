@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Sakan\'ny faritra (diretra)</string>
     <string name="offline_maps_storage_warning">Fitehirizana ambany - %1$s maimaim-poana</string>
     <string name="offline_maps_storage_delete_largest">Fafao ny faritra lehibe indrindra (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Mitadiava moske amin\'ny anarana</string>
+    <string name="mosque_finder_show_all">Asehoy ny moske rehetra</string>
+    <string name="mosque_finder_share">Sokafy ny lalana</string>
+    <string name="offline_maps_use_my_location">Mandehana any amin\'ny toerana misy ahy ankehitriny</string>
 </resources>

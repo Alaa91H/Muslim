@@ -164,4 +164,22 @@
     <string name="update_available_text">Versie %1$s is nu beschikbaar: tik om te updaten</string>
     <string name="notif_category_app_update">App-updates</string>
     <string name="notif_category_app_update_desc">Melding wanneer er een nieuwe app-versie beschikbaar is</string>
+    <string name="about_tagline">Een complete, gratis, open source metgezel voor elke moslim - gebedstijden, Adhan, Koran, hadith, adhkar en meer, in jouw taal.</string>
+    <string name="about_description_title">Over moslim</string>
+    <string name="about_description_body">Muslim is een gratis en open-source Android-app die je de hele dag begeleidt: astronomisch nauwkeurige gebedstijden met de Adhan, een nauwkeurig Qibla-kompas, de volledige Koran met recitaties en tafsir, een hadith-bibliotheek, adhkar, een elektronische tasbih, Ramadan-tools, een zakat-calculator, offline kaarten en meer - ontworpen om standaard volledig offline te werken met privacy.</string>
+    <string name="about_features_title">Hoogtepunten</string>
+    <string name="about_features_body">Alles wat een moslim nodig heeft in één app:</string>
+    <string name="about_feature_prayer">Gebedstijden en Adhan - alle rekenmethoden, rechtsscholen en 18+ adhan-geluiden</string>
+    <string name="about_feature_quran">Volledige koran - Ottomaans schrift, 44 reciteerders, tafsir, vertalingen, woordzoeker en frequentie</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan en Zakat - met herinneringen en zwevende bubbels</string>
+    <string name="about_feature_offline">Offline eerst: kaarten, koran, hadith en adhkar werken zonder internet</string>
+    <string name="about_feature_privacy">Standaard privacy: geen advertenties, geen tracking, uw gegevens blijven op uw apparaat</string>
+    <string name="settings_auto_update">Volledig automatische updates</string>
+    <string name="settings_auto_update_desc">Download en installeer automatisch nieuwe versies op de achtergrond zodra ze uitkomen</string>
+    <string name="settings_auto_update_confirm_title">Automatische updates inschakelen?</string>
+    <string name="settings_auto_update_confirm_body">Nieuwe versies worden, indien beschikbaar, automatisch op de achtergrond gedownload en geïnstalleerd. Doorgaan?</string>
+    <string name="settings_auto_update_confirm">Inschakelen</string>
+    <string name="settings_cancel">Annuleren</string>
+    <string name="update_last_check">Laatste controle: %1$s</string>
+    <string name="update_open_releases">Open de releasepagina in de browser</string>
 </resources>

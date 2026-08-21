@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Նախորդ այա</string>
     <string name="quran_range_single_ayah">Միայնակ այա</string>
     <string name="quran_range_single_ayah_short">Այահ</string>
-    <string name="quran_range_to_end">Սուրայի ավարտին</string>
+    <string name="quran_range_to_end">Մուշաֆի վերջը</string>
     <string name="quran_range_to_end_short">Ավարտելու համար</string>
     <string name="quran_range_whole_surah">Ամբողջ սուրա</string>
     <string name="quran_range_whole_surah_short">Սուրա</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Ամբողջական մուշաֆ ասմունքողների միջև</string>
     <string name="quran_downloads_coverage_empty">Աուդիո դեռ չի ներբեռնվել</string>
     <string name="quran_pause_notif_listener">Դադարեցնել ասմունքը ծանուցումների վրա</string>
-    <string name="quran_reciter_changed_title">Ասմունքողը փոխվել է</string>
-    <string name="quran_reciter_changed_message">Նվագարկումը դադարեց, քանի որ տիրույթը հասնում է մինչև Ղուրանի վերջը: Նորից սկսել %1$s-ով:</string>
-    <string name="quran_reciter_restart">Սկսեք նորից</string>
-    <string name="quran_reciter_not_now">Ոչ հիմա</string>
+    <string name="quran_search_metrics">Որոնման ժամանակը` %1$d ms</string>
+    <string name="quran_search_index_building">Կառուցելով Ղուրանի ինդեքսը առաջին որոնման համար…</string>
+    <string name="quran_search_index_progress">Մուշաֆի ինդեքսի կառուցում… %1$d %%</string>
+    <string name="quran_search_word_root">Արմատը՝ %1$s</string>
+    <string name="quran_search_derivations">Նույն արմատից բխող բառեր</string>
+    <string name="quran_search_no_root">Չհաջողվեց որոշել արմատը</string>
 </resources>

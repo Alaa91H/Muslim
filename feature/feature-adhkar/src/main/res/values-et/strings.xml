@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Kasutage ainult lühikest adhkarit</string>
     <string name="adhkar_overlay_short_only_desc">Valige adhkar, mis mahub ühele või kahele reale, et hõljuv mull jääks selgeks ja kergesti loetavaks.</string>
     <string name="adhkar_overlay_tap_hint">Puudutage mulli, et sellest kohe loobuda.</string>
+    <string name="adhkar_copied">Dhikr kopeeritud</string>
+    <string name="adhkar_periodic_dhikr">Konkreetne dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Juhuslik (käsitsi valiku asemel)</string>
 </resources>

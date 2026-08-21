@@ -164,4 +164,22 @@
     <string name="update_available_text">Inguqulo %1$s seyiyatfolakala — thepha kuze ubuyekete</string>
     <string name="notif_category_app_update">Tibuyeketo te-app</string>
     <string name="notif_category_app_update_desc">Satiso nangabe luhlobo lolusha lwe-app luyatfolakala</string>
+    <string name="about_tagline">Umngane lophelele, lokhululekile, lovulekile kuwo wonkhe umSulumane — tikhatsi temthandazo, i-Adhan, i-Quran, i-hadith, i-adhkar kanye nalokunye, ngelulwimi lwakho.</string>
+    <string name="about_description_title">Mayelana ne Muslim</string>
+    <string name="about_description_body">Muslim luhlelo lokusebenta lwamahhala futsi loluvulekile lwe-Android lolukuphekeletela lilanga lonkhe: tikhatsi temthandazo letinembile ngekwetinkhanyenti nge-Adhan, ikhampasi lecondzile ye-Qibla, i-Quran lephelele lenekufundvwa kanye ne-tafsir, umtapo wema-hadith, i-adhkar letfolwe, i-tasbih ye-elekthronikhi, emathuluzi e-Ramadan, umshini wekubala we-zakat ma offline kanye nekubala lokunyenti — lokujwayelekile.</string>
+    <string name="about_features_title">Tintfo letigcamile</string>
+    <string name="about_features_body">Konkhe lokudzingwa ngumSulumane ku-app yinye:</string>
+    <string name="about_feature_prayer">Tikhatsi temthandazo &amp; Adhan — tonkhe tindlela tekubala, tikolo temtsetfo, kanye nemisindvo ye-adhan lengu-18+ .</string>
+    <string name="about_feature_quran">I-Quran lephelele — umbhalo we-Uthmani, bafundzi labangu-44, i-tafsir, emahumusho, kusesha emagama &amp; imvamisa</string>
+    <string name="about_feature_adhkar">I-Adhkar, i-Tasbih, i-Ramadan &amp; i-Zakat - ngetikhumbuto kanye nemabhubhu lantantako</string>
+    <string name="about_feature_offline">Ngaphandle kwe-inthanethi-kucala — emabalave, i-Quran, i-hadith kanye ne-adhkar isebenta ngaphandle kwe-inthanethi</string>
+    <string name="about_feature_privacy">Imfihlo ngekuzenzakalela — kute tikhangiso, kute kulandzelela, idatha yakho ihlala kudivayisi yakho</string>
+    <string name="settings_auto_update">Tibuyeketo letizenzakalelayo ngalokuphelele</string>
+    <string name="settings_auto_update_desc">Landza ngekuzenzakalela bese ufaka tingucuko letinsha ngemuva ngekushesha nje nasetikhishwe .</string>
+    <string name="settings_auto_update_confirm_title">Nika emandla tibuyeketo letizenzakalelayo?</string>
+    <string name="settings_auto_update_confirm_body">Tingucuko letinsha titawulandvwa futsi tifakwe ngekuzenzakalela ngemuva nangabe titfolakala. Chubeka?</string>
+    <string name="settings_auto_update_confirm">Nika emandla</string>
+    <string name="settings_cancel">Khansela</string>
+    <string name="update_last_check">Hlola kwekugcina: %1$s.</string>
+    <string name="update_open_releases">Vula likhasi lekukhishwa kusiphequluli</string>
 </resources>

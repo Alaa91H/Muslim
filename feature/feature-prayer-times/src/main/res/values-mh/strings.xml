@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyad Mosque (Damascus) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Ejjab maroñ in kōllaajrake ien ko ñan raan in</string>
     <string name="home_location_unknown">Jikin eo ejañin dedelok</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Ej make wōt (ilo jikin)</string>
     <string name="settings_method_automatic_desc">App in ej kālet wāween eo emman tata ekkar ñan aelõñ eo am im jikin eo kwoj bed ie; kwomaroñ in kālet juon wewein ilo am make ilo jabdewōt ien.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Automatic currently picked: %1$s — %2$s</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah kent</string>
     <string name="quran_range_single_ayah">Ayah hepken</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Da fin ar sura</string>
+    <string name="quran_range_to_end">Betek fin ar Mushaf</string>
     <string name="quran_range_to_end_short">Evit echuiñ</string>
     <string name="quran_range_whole_surah">Surah a-bezh</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf leun a-dreuz al lennerion</string>
     <string name="quran_downloads_coverage_empty">N\'eus bet pellgarget kleweled ebet c\'hoazh</string>
     <string name="quran_pause_notif_listener">Paouez da zisplegañ ar c\'hemennadennoù</string>
-    <string name="quran_reciter_changed_title">Cheñchet eo bet an embanner</string>
-    <string name="quran_reciter_changed_message">Paouezet eo bet ar c\'hoari rak mont a ra ar c\'hementad betek fin ar C\'horan. Kregiñ en-dro gant %1$s?</string>
-    <string name="quran_reciter_restart">Kregiñ en-dro</string>
-    <string name="quran_reciter_not_now">N\'eo ket bremañ</string>
+    <string name="quran_search_metrics">Amzer da glask : %1$d ms</string>
+    <string name="quran_search_index_building">O sevel indez ar C\'horan evit an enklask kentañ...</string>
+    <string name="quran_search_index_progress">Sevel an indez mushaf... %1$d %%</string>
+    <string name="quran_search_word_root">Gwrizienn : %1$s</string>
+    <string name="quran_search_derivations">Gerioù savet diwar ar memes gwrizienn |</string>
+    <string name="quran_search_no_root">N\'haller ket termeniñ ar wrizienn</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Майҙан киңлеге (градустары)</string>
     <string name="offline_maps_storage_warning">Түбән һаҡлау — ни бары %1$s бушлай</string>
     <string name="offline_maps_storage_delete_largest">Иң ҙур төбәкте юйырға (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Мәсеттәрҙе исемдәре буйынса эҙләү .</string>
+    <string name="mosque_finder_show_all">Бөтә мәсеттәрҙе күрһәтеү .</string>
+    <string name="mosque_finder_share">Асыҡ йүнәлештәр .</string>
+    <string name="offline_maps_use_my_location">Минең хәҙерге урыныма барығыҙ</string>
 </resources>

@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Cleachd adhkar goirid a-mhàin</string>
     <string name="adhkar_overlay_short_only_desc">Tagh adhkar a tha iomchaidh airson loidhne no dhà gus am fuirich am builgean fleòdraidh soilleir agus furasta a leughadh.</string>
     <string name="adhkar_overlay_tap_hint">Tap air am builgean gus a chuir às sa bhad.</string>
+    <string name="adhkar_copied">Dhikr lethbhreac</string>
+    <string name="adhkar_periodic_dhikr">Dhikr sònraichte</string>
+    <string name="adhkar_periodic_dhikr_random">Random (an àite taghadh làimhe)</string>
 </resources>

@@ -164,4 +164,22 @@
     <string name="update_available_text">E roaa mai te huriraa %1$s — pato\'i no te faaapî</string>
     <string name="notif_category_app_update">Te mau faaho\'i-faahou-raa</string>
     <string name="notif_category_app_update_desc">Faaararaa ia roaa ana\'e te hoê huriraa apî</string>
+    <string name="about_tagline">Te mau taime pure, te Adhan, te Quran, te hadith, te adhkar, e te tahi atu â, o te hoê ïa hoa ti\'amâ, tamoni ore, e te matara no te mau Mahometa atoa.</string>
+    <string name="about_description_title">No ni\'a i te mau Mahometa</string>
+    <string name="about_description_body">Ua riro te Muslim ei faanahoraa Android tamoni ore e te matara o te apee ia outou i te roaraa o te mahana: te mau taime no te pure e te Adhan, te hoê tapo\'i fenua Qibla, te Quran taatoa e te mau tai\'oraa e te mau tafsir, te hoê fare buka hadith, te hoê adhkar, te hoê tasbih roro uira, te mau rave\'a Ramadan, te hoê rave\'a tata\'uraa zakat, e te tahi atu mau rave\'a papa\'iraa hape.</string>
+    <string name="about_features_title">Te mau mea faufaa</string>
+    <string name="about_features_body">Te mau mea atoa ta te hoê Mahometa e hinaaro i roto i te hoê faanahoraa:</string>
+    <string name="about_feature_prayer">Te mau taime pure e te Adhan — te mau rave\'a tata\'uraa atoa, te mau fare haapiiraa a te ture, e te mau reo adhan 18+</string>
+    <string name="about_feature_quran">Quran taatoa — papa\'iraa Uthmani, 44 taata tai\'o, tafsir, mau iritiraa, imiraa i te parau e te auau</string>
+    <string name="about_feature_adhkar">Te mau haamana\'oraa e te mau hu\'ahu\'a i ni\'a i te pape, o Adhkar, te tasbih, te Ramadan, e te Zakat</string>
+    <string name="about_feature_offline">Na mua roa - te mau hoho\'a fenua, te Quran, te hadith, e te adhkar aita e itenati</string>
+    <string name="about_feature_privacy">Te vahi mo\'e - aita e parau faatiani, aita e hi\'opo\'araa, e vai noa ta outou mau haamaramaramaraa i ni\'a i to outou mauhaa</string>
+    <string name="settings_auto_update">Te mau faaauraa aunoa</string>
+    <string name="settings_auto_update_desc">I muri noa \' \' e i te matararaa mai te mau huriraa apî, a tiki oioi e a faauta i nia i te hoho\'a</string>
+    <string name="settings_auto_update_confirm_title">E faati\'a i te mau faaauraa aunoa?</string>
+    <string name="settings_auto_update_confirm_body">Ia vai noa te mau huriraa apî, e iriti - oioi - hia e e tuu - oioi - hia i roto i te hoho\'a i muri iho. Ha\'ere?</string>
+    <string name="settings_auto_update_confirm">Tāuru</string>
+    <string name="settings_cancel">Tautea</string>
+    <string name="update_last_check">Hi\'opo\'araa hopea: %1$s</string>
+    <string name="update_open_releases">A tatara i te api no te mau haamaramaramaraa i roto i te matini nene\'iraa</string>
 </resources>

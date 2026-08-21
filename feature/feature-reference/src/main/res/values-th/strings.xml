@@ -5,4 +5,6 @@
     <string name="reference_search_hint">ค้นหาหนังสือเล่มนี้...</string>
     <string name="reference_title">ห้องสมุดอ้างอิงอิสลาม</string>
     <string name="reference_topics_count">หัวข้อ</string>
+    <string name="reference_copy">คัดลอก</string>
+    <string name="reference_share">แบ่งปัน</string>
 </resources>

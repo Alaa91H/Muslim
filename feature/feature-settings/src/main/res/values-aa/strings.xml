@@ -164,4 +164,22 @@
     <string name="update_available_text">bicse %1$s away geytima - xag asqassaabe</string>
     <string name="notif_category_app_update">Assabalta asqassaabe</string>
     <string name="notif_category_app_update_desc">maysaxxaga qusba abnissoh bicsa geytimta wak</string>
+    <string name="about_tagline">Kulli muslimiin inkih tan, currik tan, fakut tan giclo — salat wakti, Adhan, Qur’aan, hadiis, adhkar kee kalah tan, ku af.</string>
+    <string name="about_description_title">Muslim Caagiida.</string>
+    <string name="about_description_body">Muslim currik tan raceenah Android app kinnih tanim kee ayro inkih koo lih gexxa: astiroonomik gitah yan salat wakti adhan luk, gitah yan qibla kompaas, Qur\'aanak inkih qilmi kee tafsiir, hadiis laybireeri, raceenah adhkar, elektirooniik tasbih, Ramadan silaacitte, zakaat taamah casab kee mango sugtem.</string>
+    <string name="about_features_title">ammuntitte</string>
+    <string name="about_features_body">Muslim num faxam inkih inki abnissol:</string>
+    <string name="about_feature_prayer">Salat uddur kee Adhan - inkih cisab cogdaadi, madqâ barittoh buxaaxi, kee 18+ adhan xongoloola</string>
+    <string name="about_feature_quran">Qur\'aanak kibne - Usmaani kutbe, 44 takrayo, tafsiir, maqnisso, qangor goranto kee qagaaqagitak</string>
+    <string name="about_feature_adhkar">Adkar, tasbih, Ramadhaan kee Zakaat - kassiisitte kee leeh amol gexxa qaafo</string>
+    <string name="about_feature_offline">gitaak iroh-naharsi - kartooti, qur\'aan, cadiis kee adhkar taama interneet sinnim</string>
+    <string name="about_feature_privacy">cankiini sugte - maysaxxagoogi mali, kattat mali, ku oyti ku yahaazal yaade</string>
+    <string name="settings_auto_update">Inkitanuuk isih asqassaabe</string>
+    <string name="settings_auto_update_desc">Sisdikuk oobis kee kib qusba bicseenit aydaadul xayuk oson caben</string>
+    <string name="settings_auto_update_confirm_title">Sisdikuk asqassaabe xiqsiisaa?</string>
+    <string name="settings_auto_update_confirm_body">qusba bicseenit oobimelem kee kibbimte sissikuk aydaadul geytimta wak. Bisoh inxic?</string>
+    <string name="settings_auto_update_confirm">Xiqsiisiyya</string>
+    <string name="settings_cancel">Bayis</string>
+    <string name="update_last_check">Illacaboh cubbusso: %1$s</string>
+    <string name="update_open_releases">Cabiyyi gali birowseril fak</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Largor de l\'airal (grads)</string>
     <string name="offline_maps_storage_warning">Bassa emmagazinatge — sonque %1$s gratuits</string>
     <string name="offline_maps_storage_delete_largest">Suprimir la region mai granda (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Cercar de mosquèas per nom</string>
+    <string name="mosque_finder_show_all">Mostrar totas las mosquèas</string>
+    <string name="mosque_finder_share">Dubrir las indicacions</string>
+    <string name="offline_maps_use_my_location">Anatz a mon emplaçament actual</string>
 </resources>

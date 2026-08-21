@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s wɔ hɔ seesei — pia na yɛ foforo</string>
     <string name="notif_category_app_update">App no mu nsɛm foforo</string>
     <string name="notif_category_app_update_desc">Amanneɛbɔ bere a app foforo bi aba no</string>
+    <string name="about_tagline">Ɔhokafoɔ a ɔdi mu, ɔde ne ho, ɔbue ano ma Muslimi biara — mpaebɔ mmerɛ, Adhan, Quran, hadith, adhkar ne nea ɛkeka ho, wɔ wo kasa mu.</string>
+    <string name="about_description_title">Muslimfoɔ ho asɛm</string>
+    <string name="about_description_body">Muslim yɛ Android app a wontua hwee na ɛbue a ɛka wo ho da mũ no nyinaa: mpaebɔ bere a ɛyɛ pɛpɛɛpɛ wɔ nsoromma mu hwɛ mu ne Adhan, Qibla kɔmpase a ɛyɛ pɛpɛɛpɛ, Kur’aan a edi mũ a akenkan ne tafsir wom, hadith nhomakorabea, adhkar a wonya fi mu, ɛlɛtrɔnik tasbih, Ramadan nnwinnade, zakat akontaabu, asase mfonini a ɛwɔ intanɛt so, ne nea ɛkeka ho — wɔayɛ sɛ ɛbɛyɛ adwuma koraa a ɛnyɛ nea ɛwɔ intanɛt so a kokoamsɛm ka ho denam default.</string>
+    <string name="about_features_title">Nsɛntitiriw</string>
+    <string name="about_features_body">Biribiara a Nkramofo hia wɔ app biako mu:</string>
+    <string name="about_feature_prayer">Mpaebɔ mmere &amp; Adhan — akontaabu akwan nyinaa, mmara sukuu ahorow, ne 18+ adhan nnyigyei</string>
+    <string name="about_feature_quran">Kuran a edi mũ — Uthmani nkyerɛwee, akenkanfo 44, tafsir, nkyerɛase, nsɛmfua hwehwɛ &amp; mpɛn dodow</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — a nkaebɔ ne ahurututu a ɛsensɛn nsuo mu</string>
+    <string name="about_feature_offline">Offline-first — maps, Quran, hadith ne adhkar yɛ adwuma a intanɛt nni hɔ</string>
+    <string name="about_feature_privacy">Privacy by default — dawurubɔ biara nni hɔ, tracking biara nni hɔ, wo data tra wo device so</string>
+    <string name="settings_auto_update">Nneɛma foforo a wɔyɛ no ɔtopae koraa</string>
+    <string name="settings_auto_update_desc">Twe wo ho na fa nkyerɛase foforo gu akyi bere a wɔayi no adi ara pɛ</string>
+    <string name="settings_auto_update_confirm_title">Ma automatic updates nyɛ adwuma?</string>
+    <string name="settings_auto_update_confirm_body">Wɔbɛtwe nkyerɛase foforo na wɔde ahyɛ mu ankasa wɔ akyi bere a ɛwɔ hɔ no. Toa so?</string>
+    <string name="settings_auto_update_confirm">Ma kwan</string>
+    <string name="settings_cancel">Twam</string>
+    <string name="update_last_check">Nhwehwɛmu a etwa to: %1$s</string>
+    <string name="update_open_releases">Bue releases krataafa no wɔ browser no mu</string>
 </resources>

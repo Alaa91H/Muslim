@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">ನಾಗಶಬಂಡಿ ಅದನ್</string>
     <string name="bundled_adhan_saber">ಸಬರ್ ಅಧಾನ್</string>
     <string name="bundled_adhan_sharif_doman">ಶರೀಫ್ ದೋಮನ್ ಅಧಾನ್</string>
-    <string name="bundled_adhan_umayyad_damascus">ಉಮಯ್ಯದ್ ಮಸೀದಿ (ಡಮಾಸ್ಕಸ್) ಅದನ್</string>
     <string name="bundled_adhan_yusuf_islam">ಯೂಸುಫ್ ಇಸ್ಲಾಂ ಅಧಾನ್</string>
     <string name="home_cannot_compute">ಈ ದಿನದ ಸಮಯವನ್ನು ಲೆಕ್ಕಹಾಕಲು ಸಾಧ್ಯವಿಲ್ಲ</string>
     <string name="home_location_unknown">ಸ್ಥಳವನ್ನು ಇನ್ನೂ ಹೊಂದಿಸಲಾಗಿಲ್ಲ</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">ಸ್ವಯಂಚಾಲಿತ (ಸ್ಥಳದ ಮೂಲಕ)</string>
     <string name="settings_method_automatic_desc">ನಿಮ್ಮ ದೇಶ ಮತ್ತು ಸ್ಥಳವನ್ನು ಆಧರಿಸಿ ಅಪ್ಲಿಕೇಶನ್ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಹೆಚ್ಚು ಸೂಕ್ತವಾದ ವಿಧಾನವನ್ನು ಆರಿಸಿಕೊಳ್ಳುತ್ತದೆ; ನೀವು ಇನ್ನೂ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ಹಸ್ತಚಾಲಿತವಾಗಿ ವಿಧಾನವನ್ನು ಆಯ್ಕೆ ಮಾಡಬಹುದು.</string>
     <string name="settings_preview_for_prayer">ಪೂರ್ವವೀಕ್ಷಣೆ %1$s ಅಧಾನ್</string>
+    <string name="settings_method_automatic_picked">ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಪ್ರಸ್ತುತ ಆಯ್ಕೆ ಮಾಡಲಾಗಿದೆ: %1$s — %2$s</string>
 </resources>

@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">ሓጺር ኣድካር ጥራይ ተጠቐም</string>
     <string name="adhkar_overlay_short_only_desc">እቲ ዝንሳፈፍ ፍንጣጣ ንጹርን ንንባብ ቀሊልን ንኽጸንሕ ሓደ ወይ ክልተ መስመራት ዝሰማማዕ ኣድካር ምረጽ።</string>
     <string name="adhkar_overlay_tap_hint">ነቲ ቡምባ ብቕጽበት ንምስጓግ ምጥዋቕ።</string>
+    <string name="adhkar_copied">ድሂክር ቀዲሑ</string>
+    <string name="adhkar_periodic_dhikr">ፍሉይ ዚክሪ</string>
+    <string name="adhkar_periodic_dhikr_random">ዕድመ ንእስነት (ኣብ ክንዲ ብኢድ ምምራጽ)</string>
 </resources>

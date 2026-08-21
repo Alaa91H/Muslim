@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Erabili adhkar laburrak soilik</string>
     <string name="adhkar_overlay_short_only_desc">Aukeratu lerro bat edo bi egokitzen diren adhkar, burbuila mugikorra argi eta erraz irakurtzeko moduan egon dadin.</string>
     <string name="adhkar_overlay_tap_hint">Sakatu burbuila berehala baztertzeko.</string>
+    <string name="adhkar_copied">Dhikr kopiatu du</string>
+    <string name="adhkar_periodic_dhikr">Dhikr espezifikoa</string>
+    <string name="adhkar_periodic_dhikr_random">Ausazko (eskuzko hautaketa beharrean)</string>
 </resources>

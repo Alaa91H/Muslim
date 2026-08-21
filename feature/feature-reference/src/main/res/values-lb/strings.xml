@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Sicht dëst Buch ...</string>
     <string name="reference_title">Islamesch Referenzbibliothéik</string>
     <string name="reference_topics_count">Themen</string>
+    <string name="reference_copy">Kopie</string>
+    <string name="reference_share">Deelen</string>
 </resources>

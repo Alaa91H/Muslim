@@ -164,4 +164,22 @@
     <string name="update_available_text">نسخه %1$s اکنون در دسترس است — برای به روز رسانی ضربه بزنید</string>
     <string name="notif_category_app_update">به روز رسانی برنامه</string>
     <string name="notif_category_app_update_desc">اعلان زمانی که نسخه جدید برنامه در دسترس است</string>
+    <string name="about_tagline">یک همراه کامل، رایگان و منبع باز برای هر مسلمان - اوقات نماز، اذان، قرآن، حدیث، اذکار و موارد دیگر، به زبان شما.</string>
+    <string name="about_description_title">درباره مسلمان</string>
+    <string name="about_description_body">مسلم یک برنامه اندرویدی رایگان و منبع باز است که در طول روز شما را همراهی می کند: اوقات نماز با دقت نجومی با اذان، قطب نما قبله دقیق، قرآن کامل با تلاوت و تفسیر، کتابخانه حدیث، اذکار منبع، تسبیح الکترونیکی، ابزارهای ماه رمضان، ماشین حساب زکات، نقشه های آفلاین که به صورت پیش فرض به صورت آفلاین طراحی شده اند.</string>
+    <string name="about_features_title">نکات برجسته</string>
+    <string name="about_features_body">هر آنچه یک مسلمان نیاز دارد در یک برنامه:</string>
+    <string name="about_feature_prayer">اوقات نماز و اذان - همه روش های محاسبه، مکاتب فقهی، و 18+ صداهای اذان</string>
+    <string name="about_feature_quran">قرآن کامل - خط عثمانی، 44 قاری، تفسیر، ترجمه، جستجوی کلمات و فراوانی</string>
+    <string name="about_feature_adhkar">اذکار، تسبیح، رمضان و زکات - با یادآوری و حباب های شناور</string>
+    <string name="about_feature_offline">اول آفلاین - نقشه ها، قرآن، حدیث و اذکار بدون اینترنت کار می کنند</string>
+    <string name="about_feature_privacy">حریم خصوصی به طور پیش فرض - بدون تبلیغات، بدون ردیابی، داده های شما در دستگاه شما باقی می ماند</string>
+    <string name="settings_auto_update">به روز رسانی تمام اتوماتیک</string>
+    <string name="settings_auto_update_desc">به محض انتشار نسخه های جدید را به صورت خودکار در پس زمینه دانلود و نصب کنید</string>
+    <string name="settings_auto_update_confirm_title">به روز رسانی خودکار فعال شود؟</string>
+    <string name="settings_auto_update_confirm_body">نسخه های جدید در صورت موجود بودن به طور خودکار در پس زمینه دانلود و نصب می شوند. ادامه دهید؟</string>
+    <string name="settings_auto_update_confirm">فعال کردن</string>
+    <string name="settings_cancel">لغو کنید</string>
+    <string name="update_last_check">آخرین بررسی: %1$s</string>
+    <string name="update_open_releases">صفحه انتشار را در مرورگر باز کنید</string>
 </resources>

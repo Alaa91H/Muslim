@@ -24,4 +24,5 @@
     <string name="hadith_share">Deile</string>
     <string name="hadith_title">Hadith-bibliotheek</string>
     <string name="hadith_copy">Kopie</string>
+    <string name="hadith_copied">Hadith gekopieerd</string>
 </resources>

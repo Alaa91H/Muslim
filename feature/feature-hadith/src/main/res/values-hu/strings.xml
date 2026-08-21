@@ -24,4 +24,5 @@
     <string name="hadith_share">Megosztás</string>
     <string name="hadith_title">Hadísz Könyvtár</string>
     <string name="hadith_copy">Másolás</string>
+    <string name="hadith_copied">Hadísz másolt</string>
 </resources>

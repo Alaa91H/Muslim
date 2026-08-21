@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Depakpakin jikin eo (digri)</string>
     <string name="offline_maps_storage_warning">Edik jikin kejbãrok — %1$s wōt ejelok wōnāān</string>
     <string name="offline_maps_storage_delete_largest">Jolok jikin eo elaptata (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Pukot mosque ko ilo etair</string>
+    <string name="mosque_finder_show_all">Kwalok aolep mosque ko</string>
+    <string name="mosque_finder_share">Kōpellok ial ko</string>
+    <string name="offline_maps_use_my_location">Etal ñan jikin eo ij bed ie kiō</string>
 </resources>

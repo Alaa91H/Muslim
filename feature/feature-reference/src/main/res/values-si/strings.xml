@@ -5,4 +5,6 @@
     <string name="reference_search_hint">මෙම පොත සොයන්න...</string>
     <string name="reference_title">ඉස්ලාමීය විමර්ශන පුස්තකාලය</string>
     <string name="reference_topics_count">මාතෘකා</string>
+    <string name="reference_copy">පිටපත් කරන්න</string>
+    <string name="reference_share">බෙදාගන්න</string>
 </resources>

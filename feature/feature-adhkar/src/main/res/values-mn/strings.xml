@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Зөвхөн богино adhkar ашиглана уу</string>
     <string name="adhkar_overlay_short_only_desc">Хөвөгч бөмбөлөг тодорхой, уншихад хялбар байхын тулд нэг эсвэл хоёр мөрөнд тохирох adhkar-ыг сонго.</string>
     <string name="adhkar_overlay_tap_hint">Бөмбөлгийг нэн даруй хаахын тулд товшиж дарна уу.</string>
+    <string name="adhkar_copied">Зикр хуулсан</string>
+    <string name="adhkar_periodic_dhikr">Тодорхой зикр</string>
+    <string name="adhkar_periodic_dhikr_random">Санамсаргүй (гараар сонгохын оронд)</string>
 </resources>

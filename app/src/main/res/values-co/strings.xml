@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">A recitazione si ferma brevemente quandu una notificazione, un anellu o un altru media riproduce</string>
     <string name="more_pause_notifications_enabled">Abilitatu - tocca per apre i paràmetri di u sistema</string>
     <string name="more_pause_notifications_disabled">Disabilitatu - tocca per attivà</string>
+    <string name="more_names">99 Nomi di Allah</string>
+    <string name="more_names_desc">I 99 nomi cù spiegazione completa</string>
+    <string name="more_hajj">Hajj è Umrah</string>
+    <string name="more_hajj_desc">Guida dettagliata per i riti Hajj è Umrah</string>
 </resources>

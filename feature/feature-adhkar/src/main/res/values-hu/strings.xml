@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Csak rövid adhkar-t használjon</string>
     <string name="adhkar_overlay_short_only_desc">Válasszon egy vagy két sorba illeszkedő adhkar-t, így a lebegő buborék tiszta és könnyen olvasható marad.</string>
     <string name="adhkar_overlay_tap_hint">Érintse meg a buborékot az azonnali elvetéséhez.</string>
+    <string name="adhkar_copied">Dhikr másolva</string>
+    <string name="adhkar_periodic_dhikr">Konkrét dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Véletlenszerű (kézi választás helyett)</string>
 </resources>

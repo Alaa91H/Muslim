@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">جب کوئی اطلاع، گھنٹی یا دیگر میڈیا چلتا ہے تو تلاوت مختصر طور پر رک جاتی ہے۔</string>
     <string name="more_pause_notifications_enabled">فعال — سسٹم سیٹنگز کو کھولنے کے لیے تھپتھپائیں۔</string>
     <string name="more_pause_notifications_disabled">غیر فعال — فعال کرنے کے لیے تھپتھپائیں۔</string>
+    <string name="more_names">اللہ کے 99 نام</string>
+    <string name="more_names_desc">مکمل وضاحت کے ساتھ 99 نام</string>
+    <string name="more_hajj">حج اور عمرہ</string>
+    <string name="more_hajj_desc">حج اور عمرہ کے بارے میں تفصیلی گائیڈ</string>
 </resources>

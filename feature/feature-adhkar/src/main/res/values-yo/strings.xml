@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Lo adhkar kukuru nikan</string>
     <string name="adhkar_overlay_short_only_desc">Yan adhkar ti o baamu laini kan tabi meji ki o ti nkuta lilefoofo duro kedere ati rọrun lati ka.</string>
     <string name="adhkar_overlay_tap_hint">Fọwọ ba nkuta lati yọ kuro lẹsẹkẹsẹ.</string>
+    <string name="adhkar_copied">Dhikr daakọ</string>
+    <string name="adhkar_periodic_dhikr">Sikr kan pato</string>
+    <string name="adhkar_periodic_dhikr_random">Laileto (dipo gbigbe ọwọ)</string>
 </resources>

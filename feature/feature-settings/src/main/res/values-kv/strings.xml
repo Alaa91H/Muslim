@@ -164,4 +164,22 @@
     <string name="update_available_text">%1$s версия ӧні эм — шыбит, медым выльмӧдны .</string>
     <string name="notif_category_app_update">Приложениеяс выльмӧдӧмъяс .</string>
     <string name="notif_category_app_update_desc">Уведомление, кор выль приложениелӧн версияыс лоӧ .</string>
+    <string name="about_tagline">Быд мусульманинлы тыр-бур, вольнӧй, восьса кодӧн уджалысь ёрт — молитва кадъяс, Азан, Коран, хадис, азкар да мукӧдтор, тіян кыв вылын.</string>
+    <string name="about_description_title">Муслун йылысь .</string>
+    <string name="about_description_body">Мусульманскӧй — тайӧ дон босьттӧг да восьса кодӧн уджалысь Android-приложение, коді лунтыр ветлӧ тіянкӧд: астрономическӧй точнӧй молитва кадъяс Азанӧн, точнӧй кибла компас, тыр Коран декламацияясӧн да тафсирӧн, хадис библиотека, источникӧн азкар, электроннӧй тасбих, Рамаданса инструментъяс, закат ма тыр оффлайн уджӧн да унджык приватнӧй калькуляторӧн умолчание серти.</string>
+    <string name="about_features_title">Выльлунъяс</string>
+    <string name="about_features_body">Ставыс, мый колӧ мусульманинлы, ӧти приложениеын:</string>
+    <string name="about_feature_prayer">Молитва кадъяс &amp; Азан — став расчётнӧй методъяс, юридическӧй школаяс, да 18+ азан шыяс .</string>
+    <string name="about_feature_quran">Полный Коран — Усмани гижӧд, 44 лыддьысьысь, тафсир, вуджӧдӧмъяс, кыв корсьӧм &amp; частота</string>
+    <string name="about_feature_adhkar">Адкар, тасбих, Рамадан &amp; Закат — казьтылӧмъясӧн да лэбысь пузырьясӧн</string>
+    <string name="about_feature_offline">Офлайн-первой — картаяс, Коран, хадис да адкар удж интернеттӧг .</string>
+    <string name="about_feature_privacy">Конфиденциальность по умолчанию — реклама абу, следитӧм абу, тіян даннӧйяс кольӧны тіян устройствоын .</string>
+    <string name="settings_auto_update">Став автоматическӧй выльмӧдӧмъяс .</string>
+    <string name="settings_auto_update_desc">Автоматическöя лэдзöны да пуктöны выль версияяс фонö, кыдзи сöмын найö петöны .</string>
+    <string name="settings_auto_update_confirm_title">Включитны автоматическӧй выльмӧдӧмъяс?</string>
+    <string name="settings_auto_update_confirm_body">Выль версияяссӧ лэдзасны да автоматическӧй ногӧн пуктасны фонӧ, кор лоасны. Водзӧ нуӧдны?</string>
+    <string name="settings_auto_update_confirm">Пыртны</string>
+    <string name="settings_cancel">Киритӧм</string>
+    <string name="update_last_check">Бӧръя проверка: %1$s.</string>
+    <string name="update_open_releases">Восьтӧй браузерын релизъяс лист бок .</string>
 </resources>

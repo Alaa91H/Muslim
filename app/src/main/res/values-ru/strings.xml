@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Чтение ненадолго приостанавливается при воспроизведении уведомления, звонка или другого медиафайла.</string>
     <string name="more_pause_notifications_enabled">Включено — нажмите, чтобы открыть настройки системы.</string>
     <string name="more_pause_notifications_disabled">Отключено — нажмите, чтобы включить</string>
+    <string name="more_names">99 Имен Аллаха</string>
+    <string name="more_names_desc">99 имен с полным объяснением</string>
+    <string name="more_hajj">Хадж и Умра</string>
+    <string name="more_hajj_desc">Подробный путеводитель по обрядам хаджа и умры.</string>
 </resources>

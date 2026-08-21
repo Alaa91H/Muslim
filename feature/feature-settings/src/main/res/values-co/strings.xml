@@ -164,4 +164,22 @@
     <string name="update_available_text">A versione %1$s hè avà dispunibule - tocca per aghjurnà</string>
     <string name="notif_category_app_update">L\'aghjurnamenti di l\'app</string>
     <string name="notif_category_app_update_desc">Notificazione quandu una nova versione di l\'app hè dispunibule</string>
+    <string name="about_tagline">Un cumpagnu cumpletu, gratuitu, open-source per ogni musulmanu - tempi di preghiera, Adhan, Quran, hadith, adhkar è più, in a vostra lingua.</string>
+    <string name="about_description_title">À propositu di musulmani</string>
+    <string name="about_description_body">Muslim hè una app Android gratuita è open-source chì vi accumpagna in tuttu u ghjornu: tempi di preghiera astronomicamente precisi cù l\'Adhan, una bussola Qibla precisa, u Quran cumpletu cù recitazioni è tafsir, una biblioteca di hadith, adhkar di provenienza, un tasbih elettronicu, strumenti Ramadan, una calculatrice zakat, mappe offline, è più - cuncepitu per travaglià in modu predeterminatu.</string>
+    <string name="about_features_title">Highlights</string>
+    <string name="about_features_body">Tuttu ciò chì un musulmanu hà bisognu in una sola app:</string>
+    <string name="about_feature_prayer">Tempi di preghiera è Adhan - tutti i metudi di calculu, scole ghjuridiche, è 18+ soni adhan</string>
+    <string name="about_feature_quran">Coran cumpletu - Scrittura Uthmani, 44 reciters, tafsir, traduzioni, ricerca di parolle è frequenza</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat - cù ricordi è bolle fluttuanti</string>
+    <string name="about_feature_offline">Prima offline - carte, Quran, hadith è adhkar funzionanu senza internet</string>
+    <string name="about_feature_privacy">A privacy per difettu - senza annunzii, senza seguimentu, i vostri dati restanu in u vostru dispositivu</string>
+    <string name="settings_auto_update">Aghjurnamenti cumplettamente automatici</string>
+    <string name="settings_auto_update_desc">Scaricate è installate automaticamente e novi versioni in fondo appena sò liberati</string>
+    <string name="settings_auto_update_confirm_title">Attivà l\'aghjurnamenti automatichi?</string>
+    <string name="settings_auto_update_confirm_body">E novi versioni seranu scaricate è installate automaticamente in u sfondate quandu sò dispunibili. Cuntinuà?</string>
+    <string name="settings_auto_update_confirm">Attivà</string>
+    <string name="settings_cancel">Cancella</string>
+    <string name="update_last_check">Ultimu cuntrollu: %1$s</string>
+    <string name="update_open_releases">Aprite a pagina di versione in u navigatore</string>
 </resources>

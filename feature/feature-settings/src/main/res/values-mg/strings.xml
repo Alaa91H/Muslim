@@ -164,4 +164,22 @@
     <string name="update_available_text">Ny dikan-teny %1$s dia azo alaina izao — kitiho raha te hanavao</string>
     <string name="notif_category_app_update">Fanavaozana fampiharana</string>
     <string name="notif_category_app_update_desc">Fampandrenesana rehefa misy kinova fampiharana vaovao misy</string>
+    <string name="about_tagline">Namana feno, maimaim-poana, loharano misokatra ho an\'ny Silamo tsirairay — fotoam-bavaka, Adhan, Quran, hadita, adhkar sy ny maro hafa, amin\'ny fiteninao.</string>
+    <string name="about_description_title">Momba ny Silamo</string>
+    <string name="about_description_body">Muslim dia fampiharana Android maimaim-poana sy misokatra miaraka aminao mandritra ny andro: ny fotoam-bavaka marina amin\'ny astronomia miaraka amin\'ny Adhan, kompà Qibla mazava tsara, ny CORAN feno miaraka amin\'ny fanononana sy ny tafsir, tranomboky hadita, adhkar loharano, tasbih elektronika, fitaovana Ramadany, kajy zakat, sarintany ivelan\'ny aterineto, sy ny maro hafa - natao hiasa an-tserasera tanteraka amin\'ny fiainana manokana.</string>
+    <string name="about_features_title">Misongadina</string>
+    <string name="about_features_body">Ny zavatra rehetra ilain\'ny Silamo amin\'ny fampiharana iray:</string>
+    <string name="about_feature_prayer">Fotoam-bavaka &amp; Adhan — fomba kajy rehetra, sekoly ara-dalàna ary feo adhan mihoatra ny 18</string>
+    <string name="about_feature_quran">Korany feno - soratra Othmani, mpiteny 44, tafsir, fandikana, fikarohana teny &amp; matetika</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadany &amp; Zakat — miaraka amin\'ny fampahatsiahivana sy bubble mitsingevana</string>
+    <string name="about_feature_offline">Voalohany an-tserasera — sarintany, Quran, hadita ary adhkar dia miasa tsy misy Internet</string>
+    <string name="about_feature_privacy">Privacy amin\'ny alàlan\'ny default - tsy misy doka, tsy misy fanaraha-maso, mijanona ao amin\'ny fitaovanao ny angonao</string>
+    <string name="settings_auto_update">Fanavaozana mandeha ho azy tanteraka</string>
+    <string name="settings_auto_update_desc">Misintona ho azy ary mametraka dikan-teny vaovao ao ambadika raha vao mivoaka izy ireo</string>
+    <string name="settings_auto_update_confirm_title">Alefaso ny fanavaozana mandeha ho azy?</string>
+    <string name="settings_auto_update_confirm_body">Ny dikan-teny vaovao dia alaina ary apetraka ho azy ao ambadika rehefa misy. Tohizo?</string>
+    <string name="settings_auto_update_confirm">Tadiavo</string>
+    <string name="settings_cancel">hanafoana</string>
+    <string name="update_last_check">Fanamarinana farany: %1$s</string>
+    <string name="update_open_releases">Sokafy ny pejy famoahana ao amin\'ny navigateur</string>
 </resources>

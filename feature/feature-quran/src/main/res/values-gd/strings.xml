@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah roimhe</string>
     <string name="quran_range_single_ayah">Singilte ayah</string>
     <string name="quran_range_single_ayah_short">Seadh</string>
-    <string name="quran_range_to_end">Gu crìch surah</string>
+    <string name="quran_range_to_end">Gu deireadh an Mushaf</string>
     <string name="quran_range_to_end_short">Gu crìch</string>
     <string name="quran_range_whole_surah">Surah slàn</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mullach làn thar luchd-aithris</string>
     <string name="quran_downloads_coverage_empty">Cha deach fuaim a luchdachadh sìos fhathast</string>
     <string name="quran_pause_notif_listener">Cuir stad air aithris air brathan</string>
-    <string name="quran_reciter_changed_title">Dh’atharraich an neach-aithris</string>
-    <string name="quran_reciter_changed_message">Sguir ath-chluich leis gu bheil an raon a’ ruith gu deireadh a’ Chuan. Tòisich a-rithist le %1$s?</string>
-    <string name="quran_reciter_restart">Tòisich a-rithist</string>
-    <string name="quran_reciter_not_now">Chan ann a-nis</string>
+    <string name="quran_search_metrics">Ùine sgrùdaidh: %1$d ms</string>
+    <string name="quran_search_index_building">A’ togail clàr-amais an Quran airson a’ chiad rannsachadh…</string>
+    <string name="quran_search_index_progress">A’ togail clàr-amais mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Bun: %1$s</string>
+    <string name="quran_search_derivations">Faclan a thàinig bhon aon fhreumh</string>
+    <string name="quran_search_no_root">Cha b\' urrainn dhuinn am freumh a dhearbhadh</string>
 </resources>

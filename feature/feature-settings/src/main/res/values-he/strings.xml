@@ -164,4 +164,22 @@
     <string name="update_available_text">גרסה %1$s זמינה כעת - הקש כדי לעדכן</string>
     <string name="notif_category_app_update">עדכוני אפליקציה</string>
     <string name="notif_category_app_update_desc">התראה כאשר גרסת אפליקציה חדשה זמינה</string>
+    <string name="about_tagline">מלווה מלא, חינמי, בקוד פתוח לכל מוסלמי - זמני תפילה, אדהן, קוראן, חדית\', אדקר ועוד, בשפה שלך.</string>
+    <string name="about_description_title">לגבי מוסלמי</string>
+    <string name="about_description_body">מוסלמי היא אפליקציית אנדרואיד חינמית וקוד פתוח שמלווה אותך לאורך כל היום: זמני תפילה מדויקים מבחינה אסטרונומית עם האדהאן, מצפן קיבלה מדויק, הקוראן המלא עם דקלומים ותפסיר, ספריית חדית\', אדקר ממקור, טאביח אלקטרוני, כלי רמדאן, מחשבון זכאת, מפות לא מקוונות לעבודה באופן מלא ועוד.</string>
+    <string name="about_features_title">הבהרה</string>
+    <string name="about_features_body">כל מה שמוסלמי צריך באפליקציה אחת:</string>
+    <string name="about_feature_prayer">זמני תפילה ואדהאן - כל שיטות החישוב, בתי הספר למשפטים ו-18+ צלילי אדהן</string>
+    <string name="about_feature_quran">הקוראן השלם - תסריט אותמני, 44 מדקלמים, טפסר, תרגומים, חיפוש מילים ותדירות</string>
+    <string name="about_feature_adhkar">אדקר, טסביח, רמדאן וזכאת - עם תזכורות ובועות צפות</string>
+    <string name="about_feature_offline">לא מקוון-ראשון - מפות, קוראן, חדית\' ו-adhkar פועלות ללא אינטרנט</string>
+    <string name="about_feature_privacy">פרטיות כברירת מחדל - ללא מודעות, ללא מעקב, הנתונים שלך נשארים במכשיר שלך</string>
+    <string name="settings_auto_update">עדכונים אוטומטיים לחלוטין</string>
+    <string name="settings_auto_update_desc">הורד והתקן אוטומטית גרסאות חדשות ברקע ברגע שהן יוצאות לאור</string>
+    <string name="settings_auto_update_confirm_title">להפעיל עדכונים אוטומטיים?</string>
+    <string name="settings_auto_update_confirm_body">גרסאות חדשות יורדו ויותקנו אוטומטית ברקע כאשר יהיו זמינות. לְהַמשִׁיך?</string>
+    <string name="settings_auto_update_confirm">לְאַפשֵׁר</string>
+    <string name="settings_cancel">לְבַטֵל</string>
+    <string name="update_last_check">בדיקה אחרונה: %1$s</string>
+    <string name="update_open_releases">פתח את דף ההפצות בדפדפן</string>
 </resources>

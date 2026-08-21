@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">କେବଳ କ୍ଷୁଦ୍ର ଆଡକର ବ୍ୟବହାର କରନ୍ତୁ |</string>
     <string name="adhkar_overlay_short_only_desc">ଏକ କିମ୍ବା ଦୁଇଟି ଧାଡିରେ ଫିଟ୍ ହୋଇଥିବା ଆଡ୍କର ବାଛନ୍ତୁ ତେଣୁ ଭାସମାନ ବବୁଲ୍ ସ୍ୱଚ୍ଛ ଏବଂ ପ read ିବା ସହଜ ରହିଥାଏ |</string>
     <string name="adhkar_overlay_tap_hint">ଏହାକୁ ତୁରନ୍ତ ବରଖାସ୍ତ କରିବାକୁ ବବୁଲ୍ ଟ୍ୟାପ୍ କରନ୍ତୁ |</string>
+    <string name="adhkar_copied">ଧିକର କପି କରିଥିଲେ |</string>
+    <string name="adhkar_periodic_dhikr">ନିର୍ଦ୍ଦିଷ୍ଟ ଧିକର |</string>
+    <string name="adhkar_periodic_dhikr_random">ଅନିୟମିତ (ମାନୁଆଲ୍ ପିକ୍ ବଦଳରେ)</string>
 </resources>

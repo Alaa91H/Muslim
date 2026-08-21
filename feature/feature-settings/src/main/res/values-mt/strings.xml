@@ -164,4 +164,22 @@
     <string name="update_available_text">Il-verżjoni %1$s issa hija disponibbli — tektek biex taġġorna</string>
     <string name="notif_category_app_update">Aġġornamenti tal-app</string>
     <string name="notif_category_app_update_desc">Notifika meta tkun disponibbli verżjoni ġdida tal-app</string>
+    <string name="about_tagline">Kumpannija kompluta, b\'xejn u open-source għal kull Musulman — ħinijiet tat-talb, Adhan, Quran, hadith, adhkar u aktar, fil-lingwa tiegħek.</string>
+    <string name="about_description_title">Dwar Musulmani</string>
+    <string name="about_description_body">Musulmani hija app Android b\'xejn u open-source li takkumpanjak matul il-ġurnata: ħinijiet ta\' talb astronomikament preċiżi bl-Adhan, boxxla Qibla preċiża, il-Koran sħiħ b\'reċitazzjonijiet u tafsir, librerija tal-hadith, adhkar misjub, tasbih elettroniku, għodod tar-Ramadan, kalkolatur zakat, mapep offline, u aktar — iddisinjati biex jaħdmu b\'mod awtomatiku offline.</string>
+    <string name="about_features_title">Il-punti ewlenin</string>
+    <string name="about_features_body">Dak kollu li għandu bżonn Musulman f\'app waħda:</string>
+    <string name="about_feature_prayer">Ħinijiet tat-talb u Adhan — il-metodi kollha ta’ kalkolu, skejjel legali, u ħsejjes adhan ta’ 18+</string>
+    <string name="about_feature_quran">Koran komplut — skript Uthmani, 44 reciter, tafsir, traduzzjonijiet, tfittxija bil-kliem u frekwenza</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — bi tfakkiriet u bżieżaq f\'wiċċ l-ilma</string>
+    <string name="about_feature_offline">Offline-ewwel — mapep, Quran, hadith u adhkar jaħdmu mingħajr l-internet</string>
+    <string name="about_feature_privacy">Privatezza awtomatikament — l-ebda reklami, l-ebda traċċar, id-dejta tiegħek tibqa’ fuq it-tagħmir tiegħek</string>
+    <string name="settings_auto_update">Aġġornamenti kompletament awtomatiċi</string>
+    <string name="settings_auto_update_desc">Niżżel u installa awtomatikament verżjonijiet ġodda fl-isfond hekk kif jiġu rilaxxati</string>
+    <string name="settings_auto_update_confirm_title">Jippermetti l-aġġornamenti awtomatiċi?</string>
+    <string name="settings_auto_update_confirm_body">Verżjonijiet ġodda se jitniżżlu u jiġu installati awtomatikament fl-isfond meta disponibbli. Kompli?</string>
+    <string name="settings_auto_update_confirm">Ippermettiet</string>
+    <string name="settings_cancel">Ikkanċella</string>
+    <string name="update_last_check">L-aħħar kontroll: %1$s</string>
+    <string name="update_open_releases">Iftaħ il-paġna tar-rilaxxi fil-browser</string>
 </resources>

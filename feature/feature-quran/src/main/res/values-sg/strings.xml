@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah ti kozoni</string>
     <string name="quran_range_single_ayah">Ayah oko</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Ti hunzi na surah .</string>
+    <string name="quran_range_to_end">Ti hunzi na Mushaf .</string>
     <string name="quran_range_to_end_short">Ti hunzi .</string>
     <string name="quran_range_whole_surah">Surah ni kue</string>
     <string name="quran_range_whole_surah_short">Sourate</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf kue na ndo ti azo so ayeke diko ni .</string>
     <string name="quran_downloads_coverage_empty">A téléchargé mbeni audio pëpe .</string>
     <string name="quran_pause_notif_listener">Pause ti dikongo mbeti na ndo ti a-avis</string>
-    <string name="quran_reciter_changed_title">Zo ti dikongo mbeti ni achangé .</string>
-    <string name="quran_reciter_changed_message">A joué ni ndali ti so range ni ayeke gue juska na nda ti Coran. Ti kiri ti komanse na %1$s?</string>
-    <string name="quran_reciter_restart">Komanse encore .</string>
-    <string name="quran_reciter_not_now">Fadeso pëpe .</string>
+    <string name="quran_search_metrics">Ngoi ti gingo ye: %1$d ms</string>
+    <string name="quran_search_index_building">A leke index ti Coran ti kozo gingo nda ti ye...</string>
+    <string name="quran_search_index_progress">A leke index ti mushaf... %1$d %%.</string>
+    <string name="quran_search_word_root">Gunda ni: %1$s.</string>
+    <string name="quran_search_derivations">Atënë so alondo na oko gunda ti tënë .</string>
+    <string name="quran_search_no_root">A lingbi ti hinga gunda ni pëpe .</string>
 </resources>

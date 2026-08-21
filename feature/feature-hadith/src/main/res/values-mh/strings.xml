@@ -24,4 +24,5 @@
     <string name="hadith_share">Kwalok</string>
     <string name="hadith_title">Hadith Library</string>
     <string name="hadith_copy">Kopi</string>
+    <string name="hadith_copied">Hadith kar copy</string>
 </resources>

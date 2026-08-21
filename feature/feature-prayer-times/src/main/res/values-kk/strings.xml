@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Нағшбанди азан</string>
     <string name="bundled_adhan_saber">Сабыр азан</string>
     <string name="bundled_adhan_sharif_doman">Шариф Доман азан</string>
-    <string name="bundled_adhan_umayyad_damascus">Омеяд мешіті (Дамаск) азан</string>
     <string name="bundled_adhan_yusuf_islam">Юсуф Ислам азан</string>
     <string name="home_cannot_compute">Бұл күннің уақытын есептеу мүмкін емес</string>
     <string name="home_location_unknown">Орын әлі орнатылмаған</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Автоматты (орналасқан жері бойынша)</string>
     <string name="settings_method_automatic_desc">Қолданба сіздің еліңізге және орналасқан жеріңізге байланысты ең қолайлы әдісті автоматты түрде таңдайды; кез келген уақытта әдісті қолмен таңдай аласыз.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Автоматты таңдалған: %1$s — %2$s</string>
 </resources>

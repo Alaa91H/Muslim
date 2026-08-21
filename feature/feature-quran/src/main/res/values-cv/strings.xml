@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Унчченхи айах</string>
     <string name="quran_range_single_ayah">Пӗр ҫын</string>
     <string name="quran_range_single_ayah_short">Ая</string>
-    <string name="quran_range_to_end">Сура вӗҫне</string>
+    <string name="quran_range_to_end">Мушаф вӗҫне ҫитиччен</string>
     <string name="quran_range_to_end_short">Пӗтерме</string>
     <string name="quran_range_whole_surah">Пӗтӗм сура</string>
     <string name="quran_range_whole_surah_short">Сура</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Вулакансем хушшинче тулли мушаф</string>
     <string name="quran_downloads_coverage_empty">Хальлӗхе аудио скачать туман-ха</string>
     <string name="quran_pause_notif_listener">Пӗлтерӳсенче вулама чарӑнӑр</string>
-    <string name="quran_reciter_changed_title">Калаҫаканӗ улшӑннӑ</string>
-    <string name="quran_reciter_changed_message">Воспроизведение чарӑнчӗ, мӗншӗн тесен диапазон Коран вӗҫне ҫитичченех тӑсӑлать. %1$s-па тепӗр хут пуҫламалла-и?</string>
-    <string name="quran_reciter_restart">Каллех пуҫла</string>
-    <string name="quran_reciter_not_now">Халӗ мар</string>
+    <string name="quran_search_metrics">Шырав вӑхӑчӗ: %1$d мс</string>
+    <string name="quran_search_index_building">Пӗрремӗш шырав валли Коран индексне тӑватпӑр...</string>
+    <string name="quran_search_index_progress">Мушаф индексне тӑвасси... %1$d %%</string>
+    <string name="quran_search_word_root">Тымар: %1$s</string>
+    <string name="quran_search_derivations">Пӗр тымартан пулса кайнӑ сӑмахсем</string>
+    <string name="quran_search_no_root">Тымарне палӑртма май килмерӗ</string>
 </resources>

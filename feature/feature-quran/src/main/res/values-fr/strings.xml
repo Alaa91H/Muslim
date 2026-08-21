@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">ayah précédent</string>
     <string name="quran_range_single_ayah">Célibataire ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">À la fin de la sourate</string>
+    <string name="quran_range_to_end">Jusqu\'au bout du Mushaf</string>
     <string name="quran_range_to_end_short">Pour finir</string>
     <string name="quran_range_whole_surah">Sourate entière</string>
     <string name="quran_range_whole_surah_short">Sourate</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf complet parmi les récitants</string>
     <string name="quran_downloads_coverage_empty">Aucun audio téléchargé pour l\'instant</string>
     <string name="quran_pause_notif_listener">Suspendre la récitation sur les notifications</string>
-    <string name="quran_reciter_changed_title">Récitateur modifié</string>
-    <string name="quran_reciter_changed_message">La lecture s\'est arrêtée car la plage s\'étend jusqu\'à la fin du Coran. Recommencer avec %1$s ?</string>
-    <string name="quran_reciter_restart">Recommencer</string>
-    <string name="quran_reciter_not_now">Pas maintenant</string>
+    <string name="quran_search_metrics">Temps de recherche : %1$d ms</string>
+    <string name="quran_search_index_building">Construire l’index du Coran pour la première recherche…</string>
+    <string name="quran_search_index_progress">Construire l’indice mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Racine : %1$s</string>
+    <string name="quran_search_derivations">Mots dérivés de la même racine</string>
+    <string name="quran_search_no_root">Impossible de déterminer la racine</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Мэдэгдэл, хонх болон бусад медиа тоглуулах үед уншлага нь богино хугацаанд зогсдог</string>
     <string name="more_pause_notifications_enabled">Идэвхжүүлсэн — системийн тохиргоог нээхийн тулд товшино уу</string>
     <string name="more_pause_notifications_disabled">Идэвхгүй - идэвхжүүлэхийн тулд товшино уу</string>
+    <string name="more_names">Аллахын 99 нэр</string>
+    <string name="more_names_desc">Бүрэн тайлбартай 99 нэр</string>
+    <string name="more_hajj">Хаж ба Умра</string>
+    <string name="more_hajj_desc">Хаж, Умра зан үйлийн дэлгэрэнгүй гарын авлага</string>
 </resources>

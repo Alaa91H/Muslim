@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah tɛmɛnen</string>
     <string name="quran_range_single_ayah">Ayah kelen</string>
     <string name="quran_range_single_ayah_short">Ayah ye</string>
-    <string name="quran_range_to_end">Ka sura laban</string>
+    <string name="quran_range_to_end">Ka se Mushaf laban ma</string>
     <string name="quran_range_to_end_short">Ka ban</string>
     <string name="quran_range_whole_surah">Sura kuuru bɛɛ</string>
     <string name="quran_range_whole_surah_short">Sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf dafalen ka tɛmɛn kalanbagaw kan</string>
     <string name="quran_downloads_coverage_empty">Odio si ma telesarse fɔlɔ</string>
     <string name="quran_pause_notif_listener">Lajɔ kalanni na kunnafoniw kan</string>
-    <string name="quran_reciter_changed_title">Reciter ye fɛn caman Changé</string>
-    <string name="quran_reciter_changed_message">Playback jɔra bawo range bɛ boli fo Kuranɛ laban. A daminɛ kokura ni %1$s ye?</string>
-    <string name="quran_reciter_restart">Aw bɛ a daminɛ kokura</string>
-    <string name="quran_reciter_not_now">Sisan tɛ</string>
+    <string name="quran_search_metrics">Ɲini waati: %1$d ms</string>
+    <string name="quran_search_index_building">Kuranɛ index jɔli ɲinini fɔlɔ kama...</string>
+    <string name="quran_search_index_progress">Mushaf index jɔli... %1$d %%</string>
+    <string name="quran_search_word_root">A jujɔn: %1$s</string>
+    <string name="quran_search_derivations">Daɲɛ minnu Bɔra daɲɛ kelen na</string>
+    <string name="quran_search_no_root">A ma se ka a ju dɔn</string>
 </resources>

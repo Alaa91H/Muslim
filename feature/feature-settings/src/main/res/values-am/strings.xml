@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s is now available — tap to update</string>
     <string name="notif_category_app_update">የመተግበሪያ ዝመናዎች</string>
     <string name="notif_category_app_update_desc">አዲስ የመተግበሪያ ስሪት ሲገኝ ማሳወቂያ</string>
+    <string name="about_tagline">ለእያንዳንዱ ሙስሊም የተሟላ፣ ነፃ፣ ክፍት ምንጭ ጓደኛ - የጸሎት ጊዜዎች፣ አድሃን፣ ቁርዓን፣ ሀዲስ፣ አድሃከር እና ሌሎችም፣ በእርስዎ ቋንቋ።</string>
+    <string name="about_description_title">ስለ ሙስሊም</string>
+    <string name="about_description_body">ሙስሊም ነፃ እና ክፍት ምንጭ ቀኑን ሙሉ አብሮዎት የሚሄድ አንድሮይድ መተግበሪያ ነው፡- የስነ ከዋክብት ትክክለኛ የጸሎት ጊዜያት ከአድሃን ጋር፣ ትክክለኛ የቂብላ ኮምፓስ፣ ሙሉ ቁርዓን ከንባቦች እና ተፍሲር ጋር፣ የሀዲስ ቤተ-መጽሐፍት፣ የተገኘ አድካር፣ የኤሌክትሮኒክስ ታዝቢህ፣ የረመዳን መሳሪያዎች፣ የዘካ ካልኩሌተር፣ ከመስመር ውጭ ካርታዎች እና ሌሎችም - ሙሉ በሙሉ ከመስመር ውጭ በሆነ መልኩ እንዲሰራ የተቀየሰ።</string>
+    <string name="about_features_title">ድምቀቶች</string>
+    <string name="about_features_body">አንድ ሙስሊም በአንድ መተግበሪያ ውስጥ የሚፈልገው ነገር ሁሉ፡-</string>
+    <string name="about_feature_prayer">የጸሎት ጊዜያት እና አድሃን - ሁሉም የስሌት ዘዴዎች፣ የህግ ትምህርት ቤቶች እና 18+ የአድሃን ድምፆች</string>
+    <string name="about_feature_quran">የተሟላ ቁርኣን — የኡትማኒ ስክሪፕት፣ 44 አንባቢዎች፣ ተፍሲር፣ ትርጉሞች፣ የቃላት ፍለጋ እና ድግግሞሽ</string>
+    <string name="about_feature_adhkar">አድካር፣ ታስቢህ፣ ረመዳን እና ዘካት - ከማስታወሻዎች እና ተንሳፋፊ አረፋዎች ጋር</string>
+    <string name="about_feature_offline">ከመስመር ውጭ-የመጀመሪያው — ካርታዎች፣ ቁርኣን ፣ ሀዲስ እና አድካር ያለ በይነመረብ ይሰራሉ</string>
+    <string name="about_feature_privacy">ግላዊነት በነባሪ — ምንም ማስታወቂያዎች የሉም፣ ምንም ክትትል የለም፣ የእርስዎ ውሂብ በመሣሪያዎ ላይ ይቆያል</string>
+    <string name="settings_auto_update">ሙሉ በሙሉ ራስ-ሰር ዝመናዎች</string>
+    <string name="settings_auto_update_desc">አዲስ ስሪቶች እንደተለቀቁ ከበስተጀርባ በራስ-ሰር ያውርዱ እና ይጫኑ</string>
+    <string name="settings_auto_update_confirm_title">ራስ-ሰር ዝመናዎችን ይንቃ?</string>
+    <string name="settings_auto_update_confirm_body">አዳዲስ ስሪቶች ሲገኙ በራስ-ሰር ከበስተጀርባ ይወርዳሉ እና ይጫናሉ። ይቀጥል?</string>
+    <string name="settings_auto_update_confirm">አንቃ</string>
+    <string name="settings_cancel">ሰርዝ</string>
+    <string name="update_last_check">የመጨረሻው ፍተሻ፡ %1$s</string>
+    <string name="update_open_releases">በአሳሹ ውስጥ የመልቀቂያ ገጹን ይክፈቱ</string>
 </resources>

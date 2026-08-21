@@ -164,4 +164,22 @@
     <string name="update_available_text">Ko e fakakaukau %1$s \'oku ma\'u ia he taimi ni — lomi\'i ke fakafo\'ou</string>
     <string name="notif_category_app_update">Ngaahi fakafo\'ou \'o e app</string>
     <string name="notif_category_app_update_desc">Fakatokanga \'i he taimi \'oku ma\'u ai ha founga fo\'ou \'o e app .</string>
+    <string name="about_tagline">Ko ha hoa kakato, tau\'ataina, \'oku fakaava-ma\'u\'anga fakamatala ki he Mosilemi kotoa pe — taimi lotu, Adhan, Quran, hadith, adhkar mo e lahi ange, \'i ho\'o lea.</string>
+    <string name="about_description_title">Fekau\'aki mo e Mosilemi</string>
+    <string name="about_description_body">Ko e Mosilemi ko ha app Android ta\'etotongi mo fakaava-ma\'u\'anga fakamatala \'oku \'alu fakataha mo koe \'i he \'aho kotoa: taimi lotu totonu faka\'asitalonomia mo e Adhan, ha kāpasa Qibla pau, \'a e Quran kakato mo e ngaahi lau mo e tafsir, ko ha laipeli hadith, sourced adhkar, ha tasbih faka\'ilekitulonika, ngaahi me\'angaue \'o e Ramadan, ha zakat ma offline tisaini lahi ange, offline lahi ange fakaʻaufuli.</string>
+    <string name="about_features_title">Ngaahi meʻa mahuʻinga</string>
+    <string name="about_features_body">Ko e me\'a kotoa pe \'oku fie ma\'u \'e ha Mosilemi \'i he app \'e taha:</string>
+    <string name="about_feature_prayer">Taimi lotu &amp; Adhan — ngaahi founga fika\'i kotoa pe, ngaahi ako\'anga fakalao, mo e 18+ adhan le\'o .</string>
+    <string name="about_feature_quran">Kakato \'a e Quran — Tohi \'a e Uthmani, 44 kau lau, tafsir, ngaahi liliu, kumi \'o e lea &amp; tu\'o lahi</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — mo e ngaahi fakamanatu mo e ngaahi pupula \'oku \'alu holo .</string>
+    <string name="about_feature_offline">Offline-\'uluaki — mape, Quran, hadith mo e adhkar ngaue \'oku \'ikai ha \'initaneti .</string>
+    <string name="about_feature_privacy">Fakapulipuli \'i he default — \'ikai ha ngaahi faka\'ilo, \'ikai ha muimui\'i, \'oku nofo ho\'o fakamatala \'i ho\'o device .</string>
+    <string name="settings_auto_update">Ngaahi fakafo\'ou \'otometiki kakato</string>
+    <string name="settings_auto_update_desc">Download \'otometiki mo fokotu\'u \'a e ngaahi liliu fo\'ou \'i he muimui\'i \'i he taimi pe \'oku nau tukuange mai ai .</string>
+    <string name="settings_auto_update_confirm_title">Fakaʻatā ʻa e ngaahi fakafoʻou ʻotomētiká?</string>
+    <string name="settings_auto_update_confirm_body">ʻE download ʻa e ngaahi liliu foʻoú pea fokotuʻu ʻotomētiki ʻi he tafaʻaki ki muí ʻi he taimi ʻoku maʻu aí. Hoko atu?</string>
+    <string name="settings_auto_update_confirm">Fakaai</string>
+    <string name="settings_cancel">Kaniseli</string>
+    <string name="update_last_check">Siaki fakamuimuitaha: %1$s.</string>
+    <string name="update_open_releases">Fakaava \'a e peesi \'o e ngaahi tukuange \'i he browser .</string>
 </resources>

@@ -164,4 +164,22 @@
     <string name="update_available_text">ስሪት %1$s ሕጂ ተዳልዩ ኣሎ — ንምዕራፍ ጠውቕ</string>
     <string name="notif_category_app_update">ናይ ኣፕ ምዕባለታት</string>
     <string name="notif_category_app_update_desc">ሓድሽ ናይ ኣፕ ስሪት ምስ ዝህሉ መፍለጢ</string>
+    <string name="about_tagline">ምሉእ፡ ነጻ፡ ክፉት ምንጪ ዘለዎ ብጻይ ንነፍሲ ​​ወከፍ ኣስላማይ — ግዜ ጸሎት፡ ኣድሃን፡ ቁርኣን፡ ሓዲስ፡ ኣድካርን ካልእን፡ ብቋንቋኻ።</string>
+    <string name="about_description_title">ብዛዕባ ኣስላማይ</string>
+    <string name="about_description_body">ሙስሊም ምሉእ መዓልቲ ዘሰንየካ ነጻን ክፉት ምንጪ ዘለዎን ኣንድሮይድ ኣፕ እዩ: ብኣስትሮኖሚ ቅኑዕ ናይ ጸሎት ግዜታት ምስ ኣድሃን: ልክዕ ቂብላ ኮምፓስ: ምሉእ ቁርኣን ምስ ምቕባእን ተፍሲርን: ቤተ-መጻሕፍቲ ሓዲስ: ምንጪ ኣድካር: ኤሌክትሮኒካዊ ታስቢህ: መሳርሒታት ሮሞዳን: ዘካት ካልኩሌተር: ካብ መስመር ወጻኢ ካርታታት: ከምኡውን ካልእ — ምሉእ ብምሉእ ካብ መስመር ወጻኢ ምስ ብሕትውና ብ ነባሪ እዩ።</string>
+    <string name="about_features_title">ድምቀት ዘለዎ</string>
+    <string name="about_features_body">ሓደ ኣስላማይ ዘድልዮ ኩሉ ኣብ ሓደ ኣፕ፤</string>
+    <string name="about_feature_prayer">ናይ ጸሎት ግዜ &amp; ኣድሃን — ኩሉ ኣገባብ ስሌት፡ ኣብያተ ትምህርቲ ሕጊ፡ ከምኡ’ውን 18+ ኣድሃን ድምጽታት</string>
+    <string name="about_feature_quran">ምሉእ ቁርኣን — ዑስማኒ ስክሪፕት፣ 44 ተቐበልቲ፣ ተፍሲር፣ ትርጉማት፣ ቃላት ምድላይ &amp; ድግግም</string>
+    <string name="about_feature_adhkar">ኣድካር፡ ታስቢህ፡ ሮሞዳን &amp; ዘካት — ምስ መዘኻኸሪታትን ተንሳፋፊ ፍንጣጣታትን</string>
+    <string name="about_feature_offline">ካብ መስመር ወጻኢ-መጀመርታ — ካርታታት፡ ቁርኣን፡ ሓዲስን ኣድካርን ብዘይ ኢንተርነት ይሰርሑ</string>
+    <string name="about_feature_privacy">ብሕታዊነት ብነባሪ — መወዓውዒ የለን፣ ምክትታል የለን፣ ዳታኻ ኣብ መሳርሒኻ ይጸንሕ</string>
+    <string name="settings_auto_update">ምሉእ ብምሉእ ኣውቶማቲክ ዝኾነ ምዕባለታት</string>
+    <string name="settings_auto_update_desc">ሓደስቲ ስሪት ምስ ተዘርግሑ ብኣውቶማቲክ ኣውሪድና ኣብ ድሕሪት ንጽዓኖም</string>
+    <string name="settings_auto_update_confirm_title">ኣውቶማቲክ ምዕባለታት ምኽፋት?</string>
+    <string name="settings_auto_update_confirm_body">ሓደስቲ ስሪት ምስ ዝህልዉ ብኣውቶማቲክ ኣብ ድሕሪት ክወርዱን ክተኽሉን እዮም። ቀፃሊ፧</string>
+    <string name="settings_auto_update_confirm">ኣኽእል</string>
+    <string name="settings_cancel">ሰርዝ</string>
+    <string name="update_last_check">ናይ መወዳእታ ምፍታሽ፡ %1$s</string>
+    <string name="update_open_releases">ኣብቲ መርበብ ሓበሬታ ነቲ ናይ ምውጻእ ገጽ ክፈቶ</string>
 </resources>

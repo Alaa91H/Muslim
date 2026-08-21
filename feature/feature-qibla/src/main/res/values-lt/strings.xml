@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Ploto plotis (laipsniais)</string>
     <string name="offline_maps_storage_warning">Maža saugyklos vietos – tik %1$s nemokama</string>
     <string name="offline_maps_storage_delete_largest">Ištrinti didžiausią regioną (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Ieškokite mečečių pagal pavadinimą</string>
+    <string name="mosque_finder_show_all">Rodyti visas mečetes</string>
+    <string name="mosque_finder_share">Atidaryti nuorodas</string>
+    <string name="offline_maps_use_my_location">Eiti į mano dabartinę vietą</string>
 </resources>

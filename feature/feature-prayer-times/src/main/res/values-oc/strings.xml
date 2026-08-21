@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Mesquèa Omeia (Damasc) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Impossible de calcular los oraris per aqueste jorn</string>
     <string name="home_location_unknown">L\'emplaçament pas encara definit</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Automatic (per emplaçament)</string>
     <string name="settings_method_automatic_desc">L\'aplicacion causís automaticament lo metòde mai adaptat en foncion de vòstre país e localizacion; podètz encara causir un metòde manualament a tot moment.</string>
     <string name="settings_preview_for_prayer">Apercebut %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Automatic actualament causit: %1$s — %2$s</string>
 </resources>

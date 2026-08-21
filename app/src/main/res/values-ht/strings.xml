@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Rezitasyon pran yon poz yon ti tan lè yon notifikasyon, bag oswa lòt medya ap jwe</string>
     <string name="more_pause_notifications_enabled">Activé — tape pou louvri paramètres sistèm yo</string>
     <string name="more_pause_notifications_disabled">Enfim - tape pou pèmèt</string>
+    <string name="more_names">99 Non Allah</string>
+    <string name="more_names_desc">99 non yo ak eksplikasyon konplè</string>
+    <string name="more_hajj">Hajj &amp; Omra</string>
+    <string name="more_hajj_desc">Gid detaye sou rit Hajj ak Omrah yo</string>
 </resources>

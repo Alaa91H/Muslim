@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Нагьшбанди аџьан</string>
     <string name="bundled_adhan_saber">Сабер аџьан</string>
     <string name="bundled_adhan_sharif_doman">Шариф Доман аӡбаан</string>
-    <string name="bundled_adhan_umayyad_damascus">Омеиадтәи аџьаама (Дамаск) азан</string>
     <string name="bundled_adhan_yusuf_islam">Иусуф Ислам аџьан</string>
     <string name="home_cannot_compute">Ари амш азы аамҭа аԥхьаӡара ауам</string>
     <string name="home_location_unknown">Аҭыԥ макьана ишьақәыргылам</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Автоматла (ҭыԥла)</string>
     <string name="settings_method_automatic_desc">Апрограмма автоматла иалнахуеит еиҳа ианаало аметод, утәылаи уахьыҟоуи инарықәыршәаны; уажәгьы напыла аметод алхра улшоит ианакәызаалакгьы.</string>
     <string name="settings_preview_for_prayer">Аԥхьахәаԥшра %1$s азан</string>
+    <string name="settings_method_automatic_picked">Автоматла уажәы иалху: %1$s — %2$s</string>
 </resources>

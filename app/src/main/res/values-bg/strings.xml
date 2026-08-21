@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Рецитирането спира за кратко, когато се възпроизведе известие, позвъняване или друга медия</string>
     <string name="more_pause_notifications_enabled">Активирано — докоснете, за да отворите системните настройки</string>
     <string name="more_pause_notifications_disabled">Деактивирано — докоснете, за да активирате</string>
+    <string name="more_names">99 имена на Аллах</string>
+    <string name="more_names_desc">99 имена с пълно обяснение</string>
+    <string name="more_hajj">Хадж и Умра</string>
+    <string name="more_hajj_desc">Подробно ръководство за ритуалите Хадж и Умра</string>
 </resources>

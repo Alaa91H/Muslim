@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Utilice únicamente adhkar cortos</string>
     <string name="adhkar_overlay_short_only_desc">Elija adhkar que se ajusten a una o dos líneas para que la burbuja flotante permanezca clara y fácil de leer.</string>
     <string name="adhkar_overlay_tap_hint">Toque la burbuja para descartarla inmediatamente.</string>
+    <string name="adhkar_copied">Dhikr copiado</string>
+    <string name="adhkar_periodic_dhikr">dhikr específico</string>
+    <string name="adhkar_periodic_dhikr_random">Aleatorio (en lugar de selección manual)</string>
 </resources>

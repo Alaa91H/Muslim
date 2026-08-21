@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Aduprate solu adhkar brevi</string>
     <string name="adhkar_overlay_short_only_desc">Sceglite adhkar chì si adatta à una o duie linee per chì a bolla flottante resta chjara è faciule da leghje.</string>
     <string name="adhkar_overlay_tap_hint">Toccate a bolla per scaccià immediatamente.</string>
+    <string name="adhkar_copied">Dhikr hà copiatu</string>
+    <string name="adhkar_periodic_dhikr">Dhikr specificu</string>
+    <string name="adhkar_periodic_dhikr_random">Random (invece di scelta manuale)</string>
 </resources>

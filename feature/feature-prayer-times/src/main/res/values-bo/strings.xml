@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">ནཱ་གྷ་ཤ་བན་དྷི།</string>
     <string name="bundled_adhan_saber">སེ་བྷར་ཨ་དྷན།</string>
     <string name="bundled_adhan_sharif_doman">ཤཱ་རིཕ་ཌོ་མན་གྱི་བཀའ་སློབ།</string>
-    <string name="bundled_adhan_umayyad_damascus">ཨུ་མ་ཡ་ཌི་ཁ་ཆེའི་ལྷ་ཁང་།</string>
     <string name="bundled_adhan_yusuf_islam">ཡུ་སུཕ་ཨིསི་ལམ་གྱི་བཀའ་སློབ།</string>
     <string name="home_cannot_compute">ཉིན་འདིའི་དུས་ཚོད་རྩིས་མི་ཐུབ།</string>
     <string name="home_location_unknown">ས་གནས་གཏན་འཁེལ་བྱས་མེད།</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">རང་འགུལ་ཅན་(ས་གནས་ལྟར།)</string>
     <string name="settings_method_automatic_desc">ཁྱེད་ཀྱི་རྒྱལ་ཁབ་དང་ས་གནས་ལ་གཞི་བཅོལ་ནས་མཉེན་ཆས་དེས་རང་འགུལ་གྱིས་ཐབས་ལམ་འཚམ་ཤོས་འདེམས་ཀྱི་ཡོད། ཁྱོད་ཀྱིས་ད་དུང་དུས་ནམ་ཡང་ཐབས་ལམ་ལག་ཐོག་ནས་འདེམས་ཐུབ།</string>
     <string name="settings_preview_for_prayer">སྔོན་ལྟ་ %1$s ཁ་ཆེ།</string>
+    <string name="settings_method_automatic_picked">རང་འགུལ་གྱིས་ད་ལྟ་འདེམས་སྒྲུག་བྱས། %1$s — %2$s</string>
 </resources>

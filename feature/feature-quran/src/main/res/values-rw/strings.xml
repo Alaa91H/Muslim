@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah</string>
     <string name="quran_range_single_ayah">Ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Kurangiza sura</string>
+    <string name="quran_range_to_end">Mushaf</string>
     <string name="quran_range_to_end_short">Kurangiza</string>
     <string name="quran_range_whole_surah">Sura yose</string>
     <string name="quran_range_whole_surah_short">Surat</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf yuzuye kubasoma</string>
     <string name="quran_downloads_coverage_empty">Nta majwi yakuweho</string>
     <string name="quran_pause_notif_listener">Kuruhuka gusoma kubimenyeshwa</string>
-    <string name="quran_reciter_changed_title">Umusomyi yarahindutse</string>
-    <string name="quran_reciter_changed_message">Gukina byarahagaze kuko intera igera kumpera ya Koran. Ongera utangire na %1$s?</string>
-    <string name="quran_reciter_restart">Ongera utangire</string>
-    <string name="quran_reciter_not_now">Ntabwo ari ubu</string>
+    <string name="quran_search_metrics">Igihe cyo gushakisha: %1$d ms</string>
+    <string name="quran_search_index_building">Kubaka indangagaciro ya Koran kubushakashatsi bwa mbere…</string>
+    <string name="quran_search_index_progress">Kubaka indangagaciro ya mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Imizi: %1$s</string>
+    <string name="quran_search_derivations">Amagambo akomoka kumuzi imwe</string>
+    <string name="quran_search_no_root">Ntushobora kumenya umuzi</string>
 </resources>

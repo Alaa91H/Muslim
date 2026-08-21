@@ -30,12 +30,11 @@ class BundledAdhanSoundTest {
     @Test
     fun `the global Sunni adhan library covers the famous mosques and reciters`() {
         val ids = BundledAdhanSound.entries.map { it.id }.toSet()
-        // The most requested sounds: the Two Holy Mosques, the Umayyad Mosque,
-        // Al-Aqsa, and the famous Egyptian/Levantine reciters.
+        // The most requested sounds: the Two Holy Mosques, Al-Aqsa,
+        // and the famous Egyptian/Levantine reciters.
         assertThat(ids).containsAtLeast(
             "makkah",
             "madinah",
-            "umayyad_damascus",
             "alaqsa",
             "egypt",
             "halab",

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Bophara ba sebaka (degrees)</string>
     <string name="offline_maps_storage_warning">Polokelo e tlase - ke %1$s feela mahala</string>
     <string name="offline_maps_storage_delete_largest">Hlakola sebaka se seholo ka ho fetisisa (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Batla mamosleme ka mabitso</string>
+    <string name="mosque_finder_show_all">Bontša li-mosque tsohle</string>
+    <string name="mosque_finder_share">Litsela tse bulehileng</string>
+    <string name="offline_maps_use_my_location">E-ea sebakeng sa ka sa hajoale</string>
 </resources>

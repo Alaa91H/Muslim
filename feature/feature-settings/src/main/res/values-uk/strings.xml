@@ -164,4 +164,22 @@
     <string name="update_available_text">Версія %1$s тепер доступна — торкніться, щоб оновити</string>
     <string name="notif_category_app_update">Оновлення програми</string>
     <string name="notif_category_app_update_desc">Сповіщення, коли доступна нова версія програми</string>
+    <string name="about_tagline">Повний, безкоштовний супутник із відкритим кодом для кожного мусульманина — час молитви, азан, Коран, хадиси, азкар тощо вашою мовою.</string>
+    <string name="about_description_title">Про мусульманина</string>
+    <string name="about_description_body">Муслім — це безкоштовна програма для Android із відкритим вихідним кодом, яка супроводжує вас протягом дня: астрономічно точний час молитви з азаном, точний компас у Кіблі, повний Коран із декламаціями й тафсиром, бібліотека хадисів, азкар з джерел, електронний тасбіх, інструменти для Рамадану, калькулятор закяту, офлайн-карти тощо — розроблено для повної роботи в автономному режимі з конфіденційністю за замовчуванням.</string>
+    <string name="about_features_title">Основні моменти</string>
+    <string name="about_features_body">Все, що потрібно мусульманину в одному додатку:</string>
+    <string name="about_feature_prayer">Час молитви та азан — усі методи розрахунку, юридичні школи та звуки азану для 18+</string>
+    <string name="about_feature_quran">Повний Коран — письмо Усмані, 44 читачі, тафсир, переклади, пошук слів і частота</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — з нагадуваннями та плаваючими бульбашками</string>
+    <string name="about_feature_offline">Спершу офлайн — карти, Коран, хадіси та адкар працюють без Інтернету</string>
+    <string name="about_feature_privacy">Конфіденційність за умовчанням — без реклами, без відстеження, ваші дані залишаються на вашому пристрої</string>
+    <string name="settings_auto_update">Повністю автоматичні оновлення</string>
+    <string name="settings_auto_update_desc">Автоматично завантажуйте та встановлюйте нові версії у фоновому режимі, щойно вони будуть випущені</string>
+    <string name="settings_auto_update_confirm_title">Увімкнути автоматичні оновлення?</string>
+    <string name="settings_auto_update_confirm_body">Нові версії будуть завантажені та встановлені автоматично у фоновому режимі, коли вони будуть доступні. Продовжити?</string>
+    <string name="settings_auto_update_confirm">Увімкнути</string>
+    <string name="settings_cancel">Скасувати</string>
+    <string name="update_last_check">Остання перевірка: %1$s</string>
+    <string name="update_open_releases">Відкрийте сторінку випусків у браузері</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">ਖੇਤਰ ਦੀ ਚੌੜਾਈ (ਡਿਗਰੀ)</string>
     <string name="offline_maps_storage_warning">ਘੱਟ ਸਟੋਰੇਜ — ਸਿਰਫ਼ %1$s ਮੁਫ਼ਤ</string>
     <string name="offline_maps_storage_delete_largest">ਸਭ ਤੋਂ ਵੱਡਾ ਖੇਤਰ ਮਿਟਾਓ (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">ਨਾਮ ਨਾਲ ਮਸਜਿਦਾਂ ਦੀ ਖੋਜ ਕਰੋ</string>
+    <string name="mosque_finder_show_all">ਸਾਰੀਆਂ ਮਸਜਿਦਾਂ ਦਿਖਾਓ</string>
+    <string name="mosque_finder_share">ਦਿਸ਼ਾਵਾਂ ਖੋਲ੍ਹੋ</string>
+    <string name="offline_maps_use_my_location">ਮੇਰੇ ਮੌਜੂਦਾ ਟਿਕਾਣੇ \'ਤੇ ਜਾਓ</string>
 </resources>

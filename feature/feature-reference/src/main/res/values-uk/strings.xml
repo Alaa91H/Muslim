@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Пошук у цій книзі…</string>
     <string name="reference_title">Ісламська довідкова бібліотека</string>
     <string name="reference_topics_count">теми</string>
+    <string name="reference_copy">Копія</string>
+    <string name="reference_share">Поділіться</string>
 </resources>

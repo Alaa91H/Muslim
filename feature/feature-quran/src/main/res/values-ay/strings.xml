@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Nayra ayah</string>
     <string name="quran_range_single_ayah">Sapa ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Surah tukuyañataki</string>
+    <string name="quran_range_to_end">Mushaf ukax tukusiñapkama</string>
     <string name="quran_range_to_end_short">Tukuyañataki</string>
     <string name="quran_range_whole_surah">Taqi surah</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Phuqat mushaf ukax recitadores ukanakan</string>
     <string name="quran_downloads_coverage_empty">Janiw kuna audios jichhakamax apkatatäkiti</string>
     <string name="quran_pause_notif_listener">Yatiyawinakan recitación samart’aña</string>
-    <string name="quran_reciter_changed_title">Reciter ukax mayjt’awayiwa</string>
-    <string name="quran_reciter_changed_message">Playback ukax sayt’atawa kunatix rango ukax Quran tukuykamaw t’ijti. %1$s ukampi wasitat qalltaña?</string>
-    <string name="quran_reciter_restart">Mayampi qalltaña</string>
-    <string name="quran_reciter_not_now">Janiw jichhajj ukhamäkiti</string>
+    <string name="quran_search_metrics">Uñakipt’añataki pacha: %1$d ms</string>
+    <string name="quran_search_index_building">Nayrïr thakhinchañatakix índice de Quran ukar lurañax...</string>
+    <string name="quran_search_index_progress">Uka índice mushaf ukax... %1$d %%</string>
+    <string name="quran_search_word_root">Ukax akhamawa: %1$s</string>
+    <string name="quran_search_derivations">Pachpa saphit apsut arunaka</string>
+    <string name="quran_search_no_root">Janiw saphip uñt’ayañjamäkänti</string>
 </resources>

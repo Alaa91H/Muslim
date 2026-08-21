@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">আগের আয়াত</string>
     <string name="quran_range_single_ayah">একক আয়াত</string>
     <string name="quran_range_single_ayah_short">আয়াহ</string>
-    <string name="quran_range_to_end">সূরার শেষ পর্যন্ত</string>
+    <string name="quran_range_to_end">মুসহাফের শেষ পর্যন্ত</string>
     <string name="quran_range_to_end_short">শেষ করতে</string>
     <string name="quran_range_whole_surah">পুরো সূরা</string>
     <string name="quran_range_whole_surah_short">সূরা</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">তিলাওয়াতকারীদের জুড়ে পূর্ণ মুশাফ</string>
     <string name="quran_downloads_coverage_empty">এখনো কোনো অডিও ডাউনলোড হয়নি</string>
     <string name="quran_pause_notif_listener">বিজ্ঞপ্তিতে আবৃত্তি থামান</string>
-    <string name="quran_reciter_changed_title">আবৃত্তিকার পরিবর্তন হয়েছে</string>
-    <string name="quran_reciter_changed_message">প্লেব্যাক বন্ধ হয়ে গেছে কারণ পরিসরটি কুরআনের শেষ পর্যন্ত চলে। %1$s দিয়ে আবার শুরু করবেন?</string>
-    <string name="quran_reciter_restart">আবার শুরু করুন</string>
-    <string name="quran_reciter_not_now">এখন না</string>
+    <string name="quran_search_metrics">অনুসন্ধানের সময়: %1$d ms</string>
+    <string name="quran_search_index_building">প্রথম অনুসন্ধানের জন্য কুরআন সূচক তৈরি করা হচ্ছে...</string>
+    <string name="quran_search_index_progress">মুশফ সূচক তৈরি করা হচ্ছে... %1$d %%</string>
+    <string name="quran_search_word_root">রুট: %1$s</string>
+    <string name="quran_search_derivations">একই মূল থেকে উদ্ভূত শব্দ</string>
+    <string name="quran_search_no_root">মূল নির্ণয় করতে পারেনি</string>
 </resources>

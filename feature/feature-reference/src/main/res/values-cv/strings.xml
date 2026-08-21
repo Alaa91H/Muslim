@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Ҫак кӗнекене шыраса тупӑр...</string>
     <string name="reference_title">Ислам справочникӗсен библиотеки</string>
     <string name="reference_topics_count">темӑсем</string>
+    <string name="reference_copy">Копи</string>
+    <string name="reference_share">Пайла</string>
 </resources>

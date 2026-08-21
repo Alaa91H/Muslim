@@ -24,4 +24,5 @@
     <string name="hadith_share">Vahevahe</string>
     <string name="hadith_title">Laipeli Hatith</string>
     <string name="hadith_copy">Kopi</string>
+    <string name="hadith_copied">Hadith kuo hiki .</string>
 </resources>

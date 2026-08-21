@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan jedhamuun beekama</string>
     <string name="bundled_adhan_saber">Sabre adhan</string>
     <string name="bundled_adhan_sharif_doman">Shariif Doomaan adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Masjiida Umayyaa (Damashq) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yuusuf Islaam adhan</string>
     <string name="home_cannot_compute">Guyyaa kanaaf yeroo shallaguu hin dandeenye</string>
     <string name="home_location_unknown">Bakki ammallee hin saagamin</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Ofumaan (bakka itti argamuun) .</string>
     <string name="settings_method_automatic_desc">Appichi biyyaa fi bakka jirtan irratti hundaa\'uun mala hunda caalaa mijatu ofumaan filata; ammallee yeroo barbaaddetti mala harkaan filachuu dandeessa.</string>
     <string name="settings_preview_for_prayer">Durargii %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Ofumaan yeroo ammaa fudhatame: %1$s — %2$s</string>
 </resources>

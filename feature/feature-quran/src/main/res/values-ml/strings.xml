@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">മുമ്പത്തെ ആയ</string>
     <string name="quran_range_single_ayah">സിംഗിൾ ആയ</string>
     <string name="quran_range_single_ayah_short">ആയഃ</string>
-    <string name="quran_range_to_end">സൂറത്തിൻ്റെ അവസാനം വരെ</string>
+    <string name="quran_range_to_end">മുസ്ഹഫിൻ്റെ അവസാനം വരെ</string>
     <string name="quran_range_to_end_short">അവസാനിപ്പിക്കാൻ</string>
     <string name="quran_range_whole_surah">മുഴുവൻ സൂറത്തും</string>
     <string name="quran_range_whole_surah_short">സൂറ</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">പാരായണം ചെയ്യുന്നവരിൽ മുഴുവൻ മുസ്ഹഫ്</string>
     <string name="quran_downloads_coverage_empty">ഇതുവരെ ഓഡിയോ ഡൗൺലോഡ് ചെയ്തിട്ടില്ല</string>
     <string name="quran_pause_notif_listener">അറിയിപ്പുകളിൽ പാരായണം താൽക്കാലികമായി നിർത്തുക</string>
-    <string name="quran_reciter_changed_title">വായനക്കാരൻ മാറി</string>
-    <string name="quran_reciter_changed_message">ശ്രേണി ഖുർആനിൻ്റെ അവസാനം വരെ ഓടുന്നതിനാൽ പ്ലേബാക്ക് നിർത്തി. %1$s ഉപയോഗിച്ച് വീണ്ടും ആരംഭിക്കണോ?</string>
-    <string name="quran_reciter_restart">വീണ്ടും ആരംഭിക്കുക</string>
-    <string name="quran_reciter_not_now">ഇപ്പോഴില്ല</string>
+    <string name="quran_search_metrics">തിരയൽ സമയം: %1$d ms</string>
+    <string name="quran_search_index_building">ആദ്യ തിരയലിനായി ഖുറാൻ സൂചിക നിർമ്മിക്കുന്നു...</string>
+    <string name="quran_search_index_progress">മുസ്ഹഫ് സൂചിക നിർമ്മിക്കുന്നു... %1$d %%</string>
+    <string name="quran_search_word_root">റൂട്ട്: %1$s</string>
+    <string name="quran_search_derivations">ഒരേ റൂട്ടിൽ നിന്ന് ഉരുത്തിരിഞ്ഞ വാക്കുകൾ</string>
+    <string name="quran_search_no_root">റൂട്ട് നിർണ്ണയിക്കാൻ കഴിഞ്ഞില്ല</string>
 </resources>

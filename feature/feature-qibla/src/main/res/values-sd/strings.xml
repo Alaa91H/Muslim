@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">علائقي جي ويڪر (ڊگري)</string>
     <string name="offline_maps_storage_warning">گھٽ اسٽوريج - صرف %1$s مفت</string>
     <string name="offline_maps_storage_delete_largest">سڀ کان وڏو علائقو حذف ڪريو (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">نالي سان مسجدون ڳوليو</string>
+    <string name="mosque_finder_show_all">سڀ مسجدون ڏيکاريو</string>
+    <string name="mosque_finder_share">کليل هدايتون</string>
+    <string name="offline_maps_use_my_location">منهنجي موجوده جڳھ ڏانھن وڃو</string>
 </resources>

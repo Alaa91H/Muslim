@@ -2,12 +2,21 @@ package org.muslim.app.feature.quran.ui
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
+import org.muslim.app.feature.quran.data.PlaybackState
 
 /**
  * Tests the pure playback-advance decision used by the reader's continuous
  * recitation ("بدون توقف") and "إلى نهاية القرآن" range.
  */
 class QuranReaderRangeTest {
+
+    @Test
+    fun `reciter change resumes only when an ayah was active`() {
+        assertThat(shouldResumeAfterReciterChange(PlaybackState.Playing, 42)).isTrue()
+        assertThat(shouldResumeAfterReciterChange(PlaybackState.Paused, 42)).isTrue()
+        assertThat(shouldResumeAfterReciterChange(PlaybackState.Idle, 42)).isFalse()
+        assertThat(shouldResumeAfterReciterChange(PlaybackState.Playing, null)).isFalse()
+    }
 
     @Test
     fun `to end of Quran stops at surah 114`() {

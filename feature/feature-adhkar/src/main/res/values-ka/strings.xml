@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">გამოიყენეთ მხოლოდ მოკლე ადჰკარი</string>
     <string name="adhkar_overlay_short_only_desc">აირჩიეთ ადჰკარი, რომელიც მოერგება ერთ ან ორ ხაზს, რათა მცურავი ბუშტი დარჩეს ნათელი და ადვილად წასაკითხი.</string>
     <string name="adhkar_overlay_tap_hint">შეეხეთ ბუშტს, რომ დაუყოვნებლივ გააუქმოთ იგი.</string>
+    <string name="adhkar_copied">ფიქრი გადაწერა</string>
+    <string name="adhkar_periodic_dhikr">სპეციფიკური დჰიკრი</string>
+    <string name="adhkar_periodic_dhikr_random">შემთხვევითი (მექანიკური არჩევანის ნაცვლად)</string>
 </resources>

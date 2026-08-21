@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Šabľa adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umajjovská mešita (Damask) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Nie je možné vypočítať časy pre tento deň</string>
     <string name="home_location_unknown">Poloha ešte nie je nastavená</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Automaticky (podľa polohy)</string>
     <string name="settings_method_automatic_desc">Aplikácia vyberie najvhodnejšiu metódu automaticky na základe vašej krajiny a polohy; stále si môžete kedykoľvek vybrať metódu manuálne.</string>
     <string name="settings_preview_for_prayer">Ukážka %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Aktuálne vybraté automatické: %1$s — %2$s</string>
 </resources>

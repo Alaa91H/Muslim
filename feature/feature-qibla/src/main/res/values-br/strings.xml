@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Led ar gorread (derez)</string>
     <string name="offline_maps_storage_warning">Izel eo ar stokañ — %1$s hepken digoust</string>
     <string name="offline_maps_storage_delete_largest">Dilemel ar rannvro vrasañ (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Klask moskeennoù dre anv</string>
+    <string name="mosque_finder_show_all">Diskouez an holl voskeennoù</string>
+    <string name="mosque_finder_share">Titouroù digor</string>
+    <string name="offline_maps_use_my_location">Mont d\'am lec\'hiadur bremañ</string>
 </resources>

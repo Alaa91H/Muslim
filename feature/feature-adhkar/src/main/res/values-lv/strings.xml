@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Izmantojiet tikai īsu adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Izvēlieties adhkar, kas atbilst vienai vai divām līnijām, lai peldošais burbulis paliktu skaidrs un viegli lasāms.</string>
     <string name="adhkar_overlay_tap_hint">Pieskarieties burbulim, lai to nekavējoties noraidītu.</string>
+    <string name="adhkar_copied">Dhikr nokopēts</string>
+    <string name="adhkar_periodic_dhikr">Konkrēts dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Nejauši (nevis manuāla izvēle)</string>
 </resources>

@@ -164,4 +164,22 @@
     <string name="update_available_text">Inguqulo %1$s manje isiyatholakala — thepha ukuze ubuyekeze</string>
     <string name="notif_category_app_update">Izibuyekezo zohlelo lokusebenza</string>
     <string name="notif_category_app_update_desc">Isaziso uma inguqulo entsha yohlelo lokusebenza itholakala</string>
+    <string name="about_tagline">Umngane ophelele, wamahhala, womthombo ovulekile wawo wonke amaSulumane — izikhathi zomkhuleko, i-Adhan, i-Quran, i-hadith, i-adhkar nokuningi, ngolimi lwakho.</string>
+    <string name="about_description_title">Mayelana neMuslim</string>
+    <string name="about_description_body">I-Muslim iwuhlelo lokusebenza lwe-Android lwamahhala nomthombo ovulekile olukuphelezela usuku lonke: izikhathi zomkhuleko ezinembe ngokwesayensi yezinkanyezi ne-Adhan, ikhampasi ye-Qibla enembile, i-Quran ephelele ephindaphindwayo kanye ne-tafsir, umtapo wezincwadi we-hadith, i-adhkar etholwe, i-tasbih ye-elekthronikhi, amathuluzi e-Ramadan, isibali se-zakat, amamephu adizayinelwe ungaxhunyiwe ku-inthanethi ngokuzenzakalelayo ngobumfihlo.</string>
+    <string name="about_features_title">Amaphuzu avelele</string>
+    <string name="about_features_body">Konke okudingwa yiMuslim kuhlelo lokusebenza olulodwa:</string>
+    <string name="about_feature_prayer">Izikhathi zomkhuleko ne-Adhan — zonke izindlela zokubala, izikole zomthetho, nemisindo engu-18+ ye-adhan</string>
+    <string name="about_feature_quran">I-Quran Ephelele - Iskripthi se-Uthmani, ama-reciters angama-44, tafsir, ukuhumusha, ukusesha amagama kanye nemvamisa</string>
+    <string name="about_feature_adhkar">I-Adhkar, tasbih, Ramadan &amp; Zakat — enezikhumbuzo namabhamuza antantayo</string>
+    <string name="about_feature_offline">Okungaxhunyiwe ku-inthanethi kuqala - amamephu, i-Quran, i-hadith ne-adhkar isebenza ngaphandle kwe-inthanethi</string>
+    <string name="about_feature_privacy">Ubumfihlo ngokuzenzakalelayo — azikho izikhangiso, akukho ukulandelela, idatha yakho ihlala kudivayisi yakho</string>
+    <string name="settings_auto_update">Izibuyekezo ezizenzakalelayo ngokugcwele</string>
+    <string name="settings_auto_update_desc">Dawuniloda ngokuzenzakalelayo futhi ufake izinguqulo ezintsha ngemuva ngemuva nje kokuthi zikhishwe</string>
+    <string name="settings_auto_update_confirm_title">Nika amandla izibuyekezo ezizenzakalelayo?</string>
+    <string name="settings_auto_update_confirm_body">Izinguqulo ezintsha zizolandwa futhi zifakwe ngokuzenzakalelayo ngemuva uma zitholakala. Qhubeka?</string>
+    <string name="settings_auto_update_confirm">Nika amandla</string>
+    <string name="settings_cancel">Khansela</string>
+    <string name="update_last_check">Ukuhlolwa kokugcina: %1$s</string>
+    <string name="update_open_releases">Vula ikhasi lokukhishwa esipheqululini</string>
 </resources>

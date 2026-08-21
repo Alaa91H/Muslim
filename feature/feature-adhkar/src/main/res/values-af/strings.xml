@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Gebruik slegs kort adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Kies adhkar wat een of twee lyne pas sodat die drywende borrel duidelik en maklik leesbaar bly.</string>
     <string name="adhkar_overlay_tap_hint">Tik die borrel om dit onmiddellik te maak.</string>
+    <string name="adhkar_copied">Dhikr gekopieer</string>
+    <string name="adhkar_periodic_dhikr">Spesifieke dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Willekeurig (in plaas van handmatige keuse)</string>
 </resources>

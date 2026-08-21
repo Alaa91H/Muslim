@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Širina područja (stupnjevi)</string>
     <string name="offline_maps_storage_warning">Malo prostora za pohranu — samo %1$s besplatno</string>
     <string name="offline_maps_storage_delete_largest">Izbriši najveću regiju (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Pretražujte džamije po nazivu</string>
+    <string name="mosque_finder_show_all">Prikaži sve džamije</string>
+    <string name="mosque_finder_share">Otvorene upute</string>
+    <string name="offline_maps_use_my_location">Idi na moju trenutnu lokaciju</string>
 </resources>

@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Search this book…</string>
     <string name="reference_no_results">No matching results</string>
     <string name="reference_topics_count">topics</string>
+    <string name="reference_copy">Copy</string>
+    <string name="reference_share">Share</string>
 </resources>

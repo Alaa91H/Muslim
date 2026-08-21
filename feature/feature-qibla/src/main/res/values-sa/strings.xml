@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">क्षेत्रविस्तारः (अङ्कः) २.</string>
     <string name="offline_maps_storage_warning">न्यूनं भण्डारणम्, केवलं %1$s अवशिष्टम्</string>
     <string name="offline_maps_storage_delete_largest">बृहत्तम क्षेत्र (%1$s · %2$s) अपास्य</string>
+    <string name="mosque_finder_search_hint">मस्जिदानां नामतः अन्वेषणं कुर्वन्तु</string>
+    <string name="mosque_finder_show_all">सर्वाणि मस्जिदानि दर्शयतु</string>
+    <string name="mosque_finder_share">दिशां उद्घाटयन्तु</string>
+    <string name="offline_maps_use_my_location">मम वर्तमानस्थानं गच्छतु</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Chiều rộng vùng (độ)</string>
     <string name="offline_maps_storage_warning">Dung lượng thấp — chỉ miễn phí %1$s</string>
     <string name="offline_maps_storage_delete_largest">Xóa vùng lớn nhất (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Tìm kiếm nhà thờ Hồi giáo theo tên</string>
+    <string name="mosque_finder_show_all">Hiển thị tất cả nhà thờ Hồi giáo</string>
+    <string name="mosque_finder_share">Mở chỉ đường</string>
+    <string name="offline_maps_use_my_location">Đi đến vị trí hiện tại của tôi</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Претходна аја</string>
     <string name="quran_range_single_ayah">Слободен аја</string>
     <string name="quran_range_single_ayah_short">Ајах</string>
-    <string name="quran_range_to_end">До крајот на сурата</string>
+    <string name="quran_range_to_end">До крајот на Мушафот</string>
     <string name="quran_range_to_end_short">За крај</string>
     <string name="quran_range_whole_surah">Цела сура</string>
     <string name="quran_range_whole_surah_short">Сура</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Целосен мушаф меѓу рецитаторите</string>
     <string name="quran_downloads_coverage_empty">Сè уште нема преземено аудио</string>
     <string name="quran_pause_notif_listener">Паузирајте го рецитирањето на известувањата</string>
-    <string name="quran_reciter_changed_title">Сменет рецитатор</string>
-    <string name="quran_reciter_changed_message">Репродукцијата запре бидејќи опсегот е до крајот на Куранот. Да се ​​започне повторно со %1$s?</string>
-    <string name="quran_reciter_restart">Започнете повторно</string>
-    <string name="quran_reciter_not_now">Не сега</string>
+    <string name="quran_search_metrics">Време на пребарување: %1$d ms</string>
+    <string name="quran_search_index_building">Изградба на индексот на Куранот за првото пребарување…</string>
+    <string name="quran_search_index_progress">Градење на индексот на мушаф… %1$d %%</string>
+    <string name="quran_search_word_root">Корен: %1$s</string>
+    <string name="quran_search_derivations">Зборови изведени од ист корен</string>
+    <string name="quran_search_no_root">Не може да се одреди коренот</string>
 </resources>

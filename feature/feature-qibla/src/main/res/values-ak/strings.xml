@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Mpɔtam hɔ trɛw (digrii) .</string>
     <string name="offline_maps_storage_warning">Low storage, %1$s pɛ na wontua hwee</string>
     <string name="offline_maps_storage_delete_largest">Popa ɔmantam a ɛso sen biara (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Hwehwɛ asɔredan ahorow mu din</string>
+    <string name="mosque_finder_show_all">Kyerɛ asɔredan ahorow nyinaa</string>
+    <string name="mosque_finder_share">Bue akwankyerɛ ahorow</string>
+    <string name="offline_maps_use_my_location">Kɔ beae a mewɔ mprempren no</string>
 </resources>

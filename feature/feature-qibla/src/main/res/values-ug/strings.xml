@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">رايون كەڭلىكى (گرادۇس)</string>
     <string name="offline_maps_storage_warning">تۆۋەن ساقلاش بوشلۇقى - پەقەت %1$s ھەقسىز</string>
     <string name="offline_maps_storage_delete_largest">ئەڭ چوڭ رايوننى ئۆچۈرۈڭ (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">مەسچىتلەرنى ئىسمى بىلەن ئىزدەڭ</string>
+    <string name="mosque_finder_show_all">بارلىق مەسچىتلەرنى كۆرسەت</string>
+    <string name="mosque_finder_share">ئوچۇق يۆنىلىش</string>
+    <string name="offline_maps_use_my_location">مېنىڭ ھازىرقى ئورنۇمغا بېرىڭ</string>
 </resources>

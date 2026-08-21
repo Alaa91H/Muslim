@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Използвайте само кратък adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Изберете adhkar, който отговаря на един или два реда, така че плаващият балон да остане ясен и лесен за четене.</string>
     <string name="adhkar_overlay_tap_hint">Докоснете балончето, за да го отхвърлите незабавно.</string>
+    <string name="adhkar_copied">Зикр копиран</string>
+    <string name="adhkar_periodic_dhikr">Специфичен зикр</string>
+    <string name="adhkar_periodic_dhikr_random">Случаен (вместо ръчен избор)</string>
 </resources>

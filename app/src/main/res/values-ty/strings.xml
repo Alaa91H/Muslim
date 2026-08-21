@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Ia hauti ana\'e te hoê faaararaa, te hoê mo\'emo\'e, aore ra te tahi atu mau ravea haapurororaa, e tapeahia te taioraa</string>
     <string name="more_pause_notifications_enabled">Ua faati\'ahia — pato\'i no te iriti i te mau faanahoraa o te rave\'a</string>
     <string name="more_pause_notifications_disabled">Aita — pato\'i no te faati\'a</string>
+    <string name="more_names">99 Te mau i\'oa o Allah</string>
+    <string name="more_names_desc">Te mau i\'oa e 99 e te mau haamaramaramaraa taatoa</string>
+    <string name="more_hajj">Hajj e Umrah</string>
+    <string name="more_hajj_desc">Te hoê arata\'iraa taa maitai no ni\'a i te mau oro\'a Hajj e Umrah</string>
 </resources>

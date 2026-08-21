@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">କ୍ଷେତ୍ର ମୋଟେଇ (ଡିଗ୍ରୀ)</string>
     <string name="offline_maps_storage_warning">କମ୍ ଷ୍ଟୋରେଜ୍ - କେବଳ %1$s ମାଗଣା |</string>
     <string name="offline_maps_storage_delete_largest">ସର୍ବ ବୃହତ ଅଞ୍ଚଳ ବିଲୋପ କରନ୍ତୁ (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">ନାମରେ ମସଜିଦ ଖୋଜ |</string>
+    <string name="mosque_finder_show_all">ସମସ୍ତ ମସଜିଦ ଦେଖାନ୍ତୁ |</string>
+    <string name="mosque_finder_share">ନିର୍ଦ୍ଦେଶନା ଖୋଲନ୍ତୁ |</string>
+    <string name="offline_maps_use_my_location">ମୋର ସାମ୍ପ୍ରତିକ ଅବସ୍ଥାନକୁ ଯାଆନ୍ତୁ |</string>
 </resources>

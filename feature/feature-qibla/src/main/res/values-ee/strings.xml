@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Nutoa ƒe kekeme (degree) .</string>
     <string name="offline_maps_storage_warning">Nudzraɖoƒe sue — %1$s koe femaxee</string>
     <string name="offline_maps_storage_delete_largest">Tsɔ nuto gãtɔ (%1$s · %2$s) ɖa</string>
+    <string name="mosque_finder_search_hint">Di mosquewo ƒe ŋkɔwo</string>
+    <string name="mosque_finder_show_all">Fia mosquewo katã</string>
+    <string name="mosque_finder_share">Ʋu mɔfiamewo</string>
+    <string name="offline_maps_use_my_location">Yi afisi mele fifia</string>
 </resources>

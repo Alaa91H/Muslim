@@ -5,4 +5,6 @@
     <string name="reference_search_hint">ኣብዛ መጽሓፍ ድለዩ...</string>
     <string name="reference_title">እስላማዊ መወከሲ ቤተ መጻሕፍቲ</string>
     <string name="reference_topics_count">ኣርእስታት ዝሓዘ እዩ።</string>
+    <string name="reference_copy">ቅዳሕ</string>
+    <string name="reference_share">ሼር ምግባር</string>
 </resources>

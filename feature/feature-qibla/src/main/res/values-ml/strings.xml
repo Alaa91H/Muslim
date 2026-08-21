@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">ഏരിയ വീതി (ഡിഗ്രി)</string>
     <string name="offline_maps_storage_warning">കുറഞ്ഞ സംഭരണം — %1$s മാത്രം സൗജന്യം</string>
     <string name="offline_maps_storage_delete_largest">ഏറ്റവും വലിയ പ്രദേശം ഇല്ലാതാക്കുക (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">പേര് ഉപയോഗിച്ച് പള്ളികൾ തിരയുക</string>
+    <string name="mosque_finder_show_all">എല്ലാ മസ്ജിദുകളും കാണിക്കുക</string>
+    <string name="mosque_finder_share">ദിശകൾ തുറക്കുക</string>
+    <string name="offline_maps_use_my_location">എൻ്റെ നിലവിലെ സ്ഥാനത്തേക്ക് പോകുക</string>
 </resources>

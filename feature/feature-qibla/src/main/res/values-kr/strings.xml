@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Nəm farak nadəye (digiriwa)</string>
     <string name="offline_maps_storage_warning">Gənatə gana — %1$s bas degəli</string>
     <string name="offline_maps_storage_delete_largest">Nasha kuradǝ cinne (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Mashidiwa sunza kulasne</string>
+    <string name="mosque_finder_show_all">Mashidiwa samma fǝlene</string>
+    <string name="mosque_finder_share">Zawalla katə</string>
+    <string name="offline_maps_use_my_location">Na kərmaaro dagənadəro lenəmin</string>
 </resources>

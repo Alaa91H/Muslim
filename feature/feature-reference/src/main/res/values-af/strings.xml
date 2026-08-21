@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Soek hierdie boek...</string>
     <string name="reference_title">Islamitiese verwysingsbiblioteek</string>
     <string name="reference_topics_count">onderwerpe</string>
+    <string name="reference_copy">Kopieer</string>
+    <string name="reference_share">Deel</string>
 </resources>

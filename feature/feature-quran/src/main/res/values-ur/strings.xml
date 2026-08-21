@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">پچھلی آیت</string>
     <string name="quran_range_single_ayah">واحد آیت</string>
     <string name="quran_range_single_ayah_short">آیہ</string>
-    <string name="quran_range_to_end">سورہ کے آخر تک</string>
+    <string name="quran_range_to_end">مصحف کے آخر تک</string>
     <string name="quran_range_to_end_short">ختم کرنا</string>
     <string name="quran_range_whole_surah">پوری سورہ</string>
     <string name="quran_range_whole_surah_short">سورہ</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">تلاوت کرنے والوں میں مکمل مصحف</string>
     <string name="quran_downloads_coverage_empty">ابھی تک کوئی آڈیو ڈاؤن لوڈ نہیں ہوا۔</string>
     <string name="quran_pause_notif_listener">نوٹیفیکیشن پر تلاوت روک دیں۔</string>
-    <string name="quran_reciter_changed_title">تلاوت کرنے والا بدل گیا۔</string>
-    <string name="quran_reciter_changed_message">پلے بیک رک گیا کیونکہ رینج قرآن کے آخر تک چلتی ہے۔ %1$s کے ساتھ دوبارہ شروع کریں؟</string>
-    <string name="quran_reciter_restart">دوبارہ شروع کریں۔</string>
-    <string name="quran_reciter_not_now">ابھی نہیں۔</string>
+    <string name="quran_search_metrics">تلاش کا وقت: %1$d ms</string>
+    <string name="quran_search_index_building">پہلی تلاش کے لیے قرآن کا انڈیکس بنانا...</string>
+    <string name="quran_search_index_progress">مصحف انڈیکس کی تعمیر… %1$d %%</string>
+    <string name="quran_search_word_root">جڑ: %1$s</string>
+    <string name="quran_search_derivations">ایک ہی جڑ سے اخذ کردہ الفاظ</string>
+    <string name="quran_search_no_root">جڑ کا تعین نہیں کر سکا</string>
 </resources>

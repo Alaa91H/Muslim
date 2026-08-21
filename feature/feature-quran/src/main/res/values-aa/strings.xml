@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Taturte ayyaata</string>
     <string name="quran_range_single_ayah">Inki ayaah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Suurat Illacabo Fanah.</string>
+    <string name="quran_range_to_end">Mushaaf illacabo fan</string>
     <string name="quran_range_to_end_short">gaba kalti</string>
     <string name="quran_range_whole_surah">Suura inkih</string>
     <string name="quran_range_whole_surah_short">Suura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Kibnele mushaf takrayo</string>
     <string name="quran_downloads_coverage_empty">Uxih xongolo oobisinna</string>
     <string name="quran_pause_notif_listener">Maysaxxagal kawsiyyi soolis</string>
-    <string name="quran_reciter_changed_title">Kawse milaagimeh</string>
-    <string name="quran_reciter_changed_message">Qagitaak digir sooleh kah kinnim rakaakay Qur\'aanak ellecabo fan gexa. Qagitaak %1$s lih qimbis?</string>
-    <string name="quran_reciter_restart">Qagitak qimbis</string>
-    <string name="quran_reciter_not_now">Away hinna</string>
+    <string name="quran_search_metrics">Goranto uddur: %1$d ms</string>
+    <string name="quran_search_index_building">Qimbô goranah Qur\'aanak oyti ascossih xiso...</string>
+    <string name="quran_search_index_progress">mushaf oyti ascossih xiso... %1$d %%</string>
+    <string name="quran_search_word_root">Ramiida: %1$s</string>
+    <string name="quran_search_derivations">Qangor inki ramidik geytima.</string>
+    <string name="quran_search_no_root">Ramiida madqimtam maduudumta</string>
 </resources>

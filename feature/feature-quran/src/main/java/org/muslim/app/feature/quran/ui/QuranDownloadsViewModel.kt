@@ -195,6 +195,14 @@ class QuranDownloadsViewModel @Inject constructor(
 
     // --- Night-only downloads (التحميل الليلي) ---
 
+    /** Downloads surah sort mode: "mushaf" or "completion". */
+    val surahSort: StateFlow<String> = prefsRepository.downloadSurahSort
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), "mushaf")
+
+    fun setSurahSort(mode: String) {
+        viewModelScope.launch { prefsRepository.setDownloadSurahSort(mode) }
+    }
+
     val nightOnly: StateFlow<Boolean> = prefsRepository.nightDownloadsEnabled
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 

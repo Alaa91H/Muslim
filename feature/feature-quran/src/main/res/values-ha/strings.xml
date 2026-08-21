@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">aya ta gaba</string>
     <string name="quran_range_single_ayah">Single ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Zuwa karshen surah</string>
+    <string name="quran_range_to_end">Zuwa karshen Musxaf</string>
     <string name="quran_range_to_end_short">Don ƙare</string>
     <string name="quran_range_whole_surah">Surah gaba daya</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Cikakken mushaf a fadin masu karatu</string>
     <string name="quran_downloads_coverage_empty">Har yanzu ba a sauke odiyo ba</string>
     <string name="quran_pause_notif_listener">Dakatar da karatun akan sanarwa</string>
-    <string name="quran_reciter_changed_title">Mai karatu ya canza</string>
-    <string name="quran_reciter_changed_message">Playback stopped because the range runs to the end of the Quran. Start again with %1$s?</string>
-    <string name="quran_reciter_restart">Fara sake</string>
-    <string name="quran_reciter_not_now">Ba yanzu ba</string>
+    <string name="quran_search_metrics">Lokacin nema: %1$d ms</string>
+    <string name="quran_search_index_building">Gina fihirisar Al-Qur\'ani don bincike na farko…</string>
+    <string name="quran_search_index_progress">Gina fihirisar mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Saukewa: %1$s</string>
+    <string name="quran_search_derivations">Kalmomin da aka samo daga tushe ɗaya</string>
+    <string name="quran_search_no_root">An kasa tantance tushen</string>
 </resources>

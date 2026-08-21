@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Økisbreidd (stig)</string>
     <string name="offline_maps_storage_warning">Lág goymsla — einans %1$s ókeypis</string>
     <string name="offline_maps_storage_delete_largest">Strika størsta øki (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Leita í moskum eftir navni</string>
+    <string name="mosque_finder_show_all">Vís allar moskurnar</string>
+    <string name="mosque_finder_share">Opnar vegleiðingar</string>
+    <string name="offline_maps_use_my_location">Far til mítt núverandi stað</string>
 </resources>

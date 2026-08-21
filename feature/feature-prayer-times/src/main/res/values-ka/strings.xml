@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">ნაღშბანდი ადანი</string>
     <string name="bundled_adhan_saber">საბერ ადანი</string>
     <string name="bundled_adhan_sharif_doman">შარიფ დომანი ადანი</string>
-    <string name="bundled_adhan_umayyad_damascus">ომაიადის მეჩეთი (დამასკო) ადანი</string>
     <string name="bundled_adhan_yusuf_islam">იუსუფ ისლამი ადანი</string>
     <string name="home_cannot_compute">ამ დღის დროების გამოთვლა შეუძლებელია</string>
     <string name="home_location_unknown">მდებარეობა ჯერ არ არის მითითებული</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">ავტომატური (მდებარეობის მიხედვით)</string>
     <string name="settings_method_automatic_desc">აპლიკაცია ავტომატურად ირჩევს ყველაზე შესაფერის მეთოდს თქვენი ქვეყნისა და მდებარეობის მიხედვით; თქვენ კვლავ შეგიძლიათ აირჩიოთ მეთოდი ხელით ნებისმიერ დროს.</string>
     <string name="settings_preview_for_prayer">გადახედეთ %1$s ადანს</string>
+    <string name="settings_method_automatic_picked">ამჟამად არჩეულია ავტომატური: %1$s — %2$s</string>
 </resources>

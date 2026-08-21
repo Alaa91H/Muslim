@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">ས་ཁོངས་རྒྱ་ཚད་ (ཁུག་ཚད་)</string>
     <string name="offline_maps_storage_warning">གསོག་འཇོག་དམའ་བ་ — %1$s རྐྱངམ་གཅིག་རིན་མེད།</string>
     <string name="offline_maps_storage_delete_largest">Delete largest region (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">ཁ་ཆེའི་ལྷ་ཁང་ཚུ་མིང་ཐོག་ལས་འཚོལ།</string>
+    <string name="mosque_finder_show_all">ཁ་ཆེའི་ལྷ་ཁང་ཆ་མཉམ་སྟོན།</string>
+    <string name="mosque_finder_share">ཕྱོགས་ཁ་ཕྱེ་བ།</string>
+    <string name="offline_maps_use_my_location">ངའི་ད་ལྟོའི་གནས་ལུ་འགྱོ།</string>
 </resources>

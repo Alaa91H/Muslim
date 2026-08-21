@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Nagšbandi adhans</string>
     <string name="bundled_adhan_saber">Saber Adhan</string>
     <string name="bundled_adhan_sharif_doman">Šarifs Domans Adhans</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyad mošeja (Damaska) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Jusufs Islāms Adhans</string>
     <string name="home_cannot_compute">Nevar aprēķināt laiku šai dienai</string>
     <string name="home_location_unknown">Atrašanās vieta vēl nav iestatīta</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Automātiski (pēc atrašanās vietas)</string>
     <string name="settings_method_automatic_desc">Lietotne automātiski izvēlas vispiemērotāko metodi, pamatojoties uz jūsu valsti un atrašanās vietu; jūs joprojām varat izvēlēties metodi manuāli jebkurā laikā.</string>
     <string name="settings_preview_for_prayer">Priekšskatīt %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Pašreiz izvēlēts automātiski: %1$s — %2$s</string>
 </resources>

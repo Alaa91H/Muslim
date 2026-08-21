@@ -5,4 +5,6 @@
     <string name="reference_search_hint">搜索这本书...</string>
     <string name="reference_title">伊斯兰参考图书馆</string>
     <string name="reference_topics_count">主题</string>
+    <string name="reference_copy">复制</string>
+    <string name="reference_share">分享</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Việc đọc tạm dừng một thời gian ngắn khi có thông báo, chuông hoặc phương tiện khác phát</string>
     <string name="more_pause_notifications_enabled">Đã bật - nhấn để mở cài đặt hệ thống</string>
     <string name="more_pause_notifications_disabled">Đã tắt - nhấn để bật</string>
+    <string name="more_names">99 tên của Allah</string>
+    <string name="more_names_desc">99 cái tên có lời giải thích đầy đủ</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Hướng dẫn chi tiết về nghi lễ Hajj và Umrah</string>
 </resources>

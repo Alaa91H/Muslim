@@ -24,4 +24,5 @@
     <string name="hadith_share">Paýlaş</string>
     <string name="hadith_title">Hadys kitaphanasy</string>
     <string name="hadith_copy">Göçüriň</string>
+    <string name="hadith_copied">Hadys göçürdi</string>
 </resources>

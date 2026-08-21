@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">ຄວາມກວ້າງຂອງພື້ນທີ່ (ອົງສາ)</string>
     <string name="offline_maps_storage_warning">ບ່ອນຈັດເກັບຂໍ້ມູນໜ້ອຍ - ເຫຼືອພຽງ %1$s ເທົ່ານັ້ນ</string>
     <string name="offline_maps_storage_delete_largest">ລຶບພາກພື້ນທີ່ໃຫຍ່ທີ່ສຸດ (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">ຄົ້ນຫາ mosques ໂດຍຊື່</string>
+    <string name="mosque_finder_show_all">ສະແດງໃຫ້ເຫັນ mosques ທັງຫມົດ</string>
+    <string name="mosque_finder_share">ເປີດທິດທາງ</string>
+    <string name="offline_maps_use_my_location">ໄປທີ່ສະຖານທີ່ປະຈຸບັນຂອງຂ້ອຍ</string>
 </resources>

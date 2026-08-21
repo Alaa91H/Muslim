@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Vhuphara ha fhethu (digirii)</string>
     <string name="offline_maps_storage_warning">Vhudzulo ha fhasi — %1$s fhedzi mahala</string>
     <string name="offline_maps_storage_delete_largest">Phumula dzingu ḽihulwanesa (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Setshani dzimosike nga madzina</string>
+    <string name="mosque_finder_show_all">Sumbedzani mimosike yothe</string>
+    <string name="mosque_finder_share">Vula nḓila</string>
+    <string name="offline_maps_use_my_location">Iyani hune nda vha hone zwino</string>
 </resources>

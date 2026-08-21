@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Serĉu ĉi tiun libron...</string>
     <string name="reference_title">Islama Referenca Biblioteko</string>
     <string name="reference_topics_count">temoj</string>
+    <string name="reference_copy">Kopiu</string>
+    <string name="reference_share">Kunhavigi</string>
 </resources>

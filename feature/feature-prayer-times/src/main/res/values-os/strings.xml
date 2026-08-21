@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Нагшбанди адхан</string>
     <string name="bundled_adhan_saber">Сабер адхан</string>
     <string name="bundled_adhan_sharif_doman">Шариф Доман адхан</string>
-    <string name="bundled_adhan_umayyad_damascus">Омейяды мæзджыд (Дамаск) азан</string>
     <string name="bundled_adhan_yusuf_islam">Юсуф Ислам азан</string>
     <string name="home_cannot_compute">Ацы боны рæстæг банымайын нæ бон нæу</string>
     <string name="home_location_unknown">Бынаты нырма æвæрд нæу</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Автоматон (бынатмæ гæсгæ)</string>
     <string name="settings_method_automatic_desc">Приложени æвзары æппæты æмбæлгæдæр метод автоматикон æгъдауæй уæ бæстæ æмæ бынатмæ гæсгæ; уæддæр уæ бон у равзарын метод къухæй кæцыфæнды рæстæджы дæр.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Автоматон ныртæккæ æвзæрст: %1$s — %2$s</string>
 </resources>

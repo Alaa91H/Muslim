@@ -1,100 +1,104 @@
-# خطة استكمال تطبيق مسلم (Muslim) — وثيقة العمل الكاملة
+# Muslim — Completion Plan (working document)
 
-> **تاريخ الفحص:** 15 أغسطس 2026 — **آخر تحديث للحالة:** 16 أغسطس 2026
-> **نوع الوثيقة:** خطة تنفيذ تشغيلية (تكمل `PROJECT_PROMPT.md` ولا تحلّ محلها).
-> كل بند يحمل: الهدف، الخطوات، معايير القبول، والاعتماديات. تُحدَّث علامات ✅ مع كل إنجاز فعلي.
-
----
-
-## 0. ملخص تنفيذي
-
-مشروع **مسلم** تطبيق إسلامي متعدد الوحدات (18 وحدة Gradle) ببنية Clean Architecture + Hilt + Compose. البناء **ناجح** (Debug وRelease مع R8)، **جميع اختبارات الوحدة خضراء**، و**lint نظيف** (تحذيرات إصدارات فقط هي إيجابيات كاذبة). الوحدات السبع التي كانت فارغة (الإعدادات، الأحاديث، الأذكار، التسبيح، التعلّم، رمضان، الزكاة) **أصبحت كلها منفَّذة وموصولة** بواجهة التطبيق عبر تبويب «المزيد».
-
-**الخلاصة:** المشروع جاهز للتثبيت — `./gradlew :app:assembleRelease` ينتج APK موقّعًا ومُصغَّرًا.
+> **Last inspected:** 20 August 2026 — **status updated:** 20 August 2026
+> **Document type:** operational implementation plan (complements `PROJECT_PROMPT.md`).
+> Every item carries: goal, steps, acceptance criteria, and dependencies. ✅ marks are updated with every real completion.
 
 ---
 
-## 1. الوضع الحالي (آخر تحديث: 16 أغسطس 2026)
+## 0. Executive summary
 
-### 1.1 التحقق الآلي
+**Muslim** is a multi-module Islamic app (22 Gradle modules) built with Clean Architecture + Hilt + Compose. The build is **green** (Debug and Release with R8), **all unit tests pass**, and **lint is clean (0 issues)**. All feature modules are implemented, wired into the UI, and localized into 190+ languages. Releases are tag-driven, signed with a stable key, and published automatically by `scripts/release.sh`.
 
-| الفحص | النتيجة |
+**Bottom line:** the project is ready to install — `./gradlew :app:assembleRelease` produces a signed, shrunk APK; `./scripts/release.sh` takes it from commit to a published GitHub Release with no manual steps.
+
+---
+
+## 1. Current status (20 August 2026)
+
+### 1.1 Automated verification
+
+| Check | Result |
 |---|---|
 | `./gradlew :app:assembleDebug` | ✅ BUILD SUCCESSFUL |
-| `./gradlew :app:assembleRelease` (R8 + توقيع) | ✅ APK موقّع (`app/build/outputs/apk/release/app-release.apk`) |
-| `./gradlew testDebugUnitTest` | ✅ جميع الاختبارات خضراء (بما فيها الجديدة: تسبيح 6، رمضان 7، زكاة 7) |
-| `lintDebug` | ✅ نظيف — 3 تحذيرات إصدارات (إيجابيات كاذبة: تتطلب Kotlin أحدث من المدمج في AGP 9.3) |
-| CI (GitHub Actions) | ✅ assemble + unit tests + lint لكل PR |
+| `./gradlew :app:assembleRelease` (R8 + signing) | ✅ Signed APK (`app/build/outputs/apk/release/app-release.apk`, CN=Muslim) |
+| `./gradlew testDebugUnitTest` | ✅ All unit tests green |
+| `./gradlew lintDebug` (whole app) | ✅ 0 issues |
+| CI (GitHub Actions) | ✅ assemble + unit tests + lint per push; release-apk job builds the signed APK per tag |
 
-### 1.2 خريطة الوحدات (بعد الاستكمال)
+### 1.2 Module map
 
-| الوحدة | الحالة |
+| Module | Status |
 |---|---|
-| `app` | ✅ تبويبات 5: الرئيسية · القرآن · الأوقات · القبلة · المزيد (الإعدادات ضمن المزيد مع حفظ الاختصار `muslim://settings`) |
-| `feature-prayer-times` + `feature-qibla` | ✅ مكتملة (مواقيت، أذان دقيق، إشعارات، Widgets، بوصلة + خريطة قبلة) |
-| `feature-quran` | ✅ نص عثماني + قارئ (خط/ليلي/ترجمة/تفسير) + بحث FTS + تلاوات/تكرار + آية اليوم |
-| `feature-hadith` | ✅ مكتبة + بحث FTS + حديث اليوم + علامات + مشاركة (عيّنة مُصدَّرة) |
-| `feature-adhkar` | ✅ 44 ذكرًا موثّق المصدر + عدّادات محفوظة + تصنيفات |
-| `feature-tasbih` | ✅ مسبحة (اهتزاز، أهداف، سجل 30 يومًا، رسم بياني) + Widget بعدّ |
-| `feature-ramadan` | ✅ عدّاد سحور/إفطار + تنبيهات دقيقة + متابعة صيام + تطبيق تعديل الهجري |
-| `feature-zakat` | ✅ زكاة المال (نصاب/خصم ديون) + زكاة الفطر + سجل سنوي |
-| `feature-learn` | ✅ الوضوء/الغسل/التيمم/الصلاة + صلوات خاصة + ركعات + مذاهب |
-| `feature-settings` | ✅ مركز الإعدادات (ثيم، لغة، ديناميك، إتاحة) + حول + خصوصية |
-| `core-*` | ✅ كل الوحدات الأساسية عاملة — **محرك المواقيت انتقل إلى `core-common/prayer`** ليعاد استخدامه من رمضان دون كسر عزلة الوحدات |
+| `app` | ✅ 4 tabs: Prayer Times · Quran · Qibla · More (settings & every secondary feature under More) |
+| `feature-prayer-times` + `feature-qibla` | ✅ Prayer times (all methods, auto-detection, juristic Asr, high latitudes, elevation), exact Adhan (18+ bundled sounds, per-prayer customization), persistent countdown notification, Qibla compass + map + GPS |
+| `feature-quran` | ✅ Uthmani text + reader (font/theme/night/translation/tafsir) + FTS word search + linguistic frequency + recitations (44 reciters, repeat modes, downloads, resume, background) + bookmarks + ayah of the day |
+| `feature-hadith` | ✅ Library + FTS search + hadith of the day + bookmarks + share (curated sample; complete Six Books import via script) |
+| `feature-adhkar` | ✅ Sourced adhkar with counters + floating bubble reminders (interval, duration, short-only mode) + categories |
+| `feature-tasbih` | ✅ Electronic misbaha (vibration, goals, 30-day log, chart) + widget |
+| `feature-ramadan` | ✅ Suhoor/iftar countdown + exact alerts (Iftar/Suhoor toggles, Ramadan-aware by default) + fasting tracker + Hijri adjustment |
+| `feature-zakat` | ✅ Zakat al-mal (nisab + debt deduction) + zakat al-fitr + yearly log |
+| `feature-learn` | ✅ Wudu/ghusl/tayammum/prayer + special prayers + rak'ah tables + madhhab differences |
+| `feature-reference` | ✅ Reference library (99 Names of Allah, stories of the prophets, Islamic history, Hajj & Umrah guide with checklists, and more) |
+| `feature-settings` | ✅ Settings hub (theme, language, start screen, time format, prayer/adhan, More-screen order) + unified notification manager + unified permission manager + About + Privacy + in-app update checker |
+| `core-*` | ✅ All core modules working — prayer engine in `core-common/prayer`, map stack in `core-ui/map`, notifications in `core-notifications`, permissions in `core-permissions` |
 
-### 1.3 البنود المنفذة حديثًا (هذه الجلسة)
+### 1.3 Recently completed items (this session)
 
-1. دمج عمل المراحل A–D غير المدمج (فروع معلّقة) — 115 ملفًا/4,942 سطرًا (الإعدادات، خريطة القبلة، أصوات الأذان، صوتيات القرآن/الترجمات/التفاسير، الأحاديث).
-2. نقل محرك حساب المواقيت (المنطق الخالص) إلى `core-common` ليتشاركه `feature-ramadan` — مع تحديث كل الاستيرادات.
-3. تنفيذ **المرحلة 4** (الأذكار + المسبحة مع Widget)، **المرحلة 6** (رمضان)، **المرحلة 7** (الزكاة)، **المرحلة 5** (التعلّم) — وتوصيلها بالتنقل عبر تبويب «المزيد».
-4. **الجاهزية للإصدار:** R8 (minify + shrink)، توقيع release عبر `keystore.properties` (مع رجوع تلقائي لمفتاح التصحيح)، `versionName = 1.0.0`، قواعد ProGuard للـ serialization/Room/Hilt، `PRIVACY_POLICY.md`، إصلاح 2 تحذير lint فعليين + تثبيت إيجابية كاذبة (`ObsoleteSdkInt`).
+1. **Offline maps, interactive custom picker & storage management** — download cities/countries/custom areas; interactive pan/zoom picker with a live bounds rectangle, width slider, and real-time size estimate; StatFs-based low-storage warning with a delete-largest-region action.
+2. **Fully automatic release script** (`scripts/release.sh`) — auto-commit → changelog → tag → push → wait for the exact tag-triggered CI run → APK signature verification → GitHub Release. No manual steps.
+3. **Interactive qibla compass + GPS + mosque finder on MapLibre** — Kaaba marker 🕋, live degrees, haptic/sound alignment feedback, mosque markers with info windows, and find-nearest expansion.
+4. **Recitation playback as system media** — MediaSession, media notification (play/pause/next), audio-focus handling, pause-on-notifications, and continuous surah-to-surah playback to the end of the Quran.
+5. **Unified notification manager & permission manager** — per-category toggles, quiet hours, live previews, channel status; one-tap permission onboarding.
+6. **In-app update checker** — daily/weekly/monthly check against GitHub Releases, changelog + size, download via DownloadManager, install via the system installer.
+7. **World localization** — every module translated into 190+ languages with format-specifier-safe machine translation (`scripts/localize.py`).
 
 ---
 
-## 2. المتبقي (بترتيب الأولوية)
+## 2. Remaining (by priority)
 
-### P1 — إكمالات دينية/تقنية
+### P1 — Religious/technical completions
 
-| البند | الوصف | الحجم |
+| Item | Description | Size |
 |---|---|---|
-| استيراد الكتب الستة + رياض الصالحين + الأربعين كاملة | أداة توليد قاعدة بيانات من مصدر مرخّص، بدل العينة الحالية | XL |
-| إشعار «حديث اليوم» | WorkManager مثل آية اليوم | S |
-| إشعار الأذكار العائم (Bubbles) | `NotificationBubbles` (Android 11+) مع fallback Heads-up | XL |
-| تحديث نصاب الذهب/الفضة عبر الشبكة | اختياري عبر `core-network` مع بقاء الإدخال اليدوي | M |
-| تنبيهات العشر الأواخر وليلة القدر | إشعارات موسمية في رمضان | S |
-| تذكير زكاة الفطر قبل العيد | إشعار قابل للتخصيص | S |
-| دعم عملات متعددة في الزكاة | اختيار عملة + تنسيق أرقام محلي | M |
+| Full Six Books + Riyad as-Saliheen + Arba'in bundled | Generate the DB from a licensed source and ship it (currently a curated sample + import script) | XL |
+| Tajweed colorization in the reader | Color-coded tajweed rules for correct reading | M |
+| Word-by-word translation | Per-word meaning in the reader | L |
+| Nisab auto-refresh (gold/silver) | Optional network fetch with manual override kept | M |
+| Last-ten-nights & Laylat al-Qadr alerts | Seasonal notifications in Ramadan | S |
 
-### P2 — توسع
+### P2 — Expansion
 
-- أسماء الله الحسنى، مكتبة أدعية مصنّفة، التقويم والمناسبات الإسلامية، الصيام المسنون، دليل الحج والعمرة، باحث المساجد (OSM)، ملفات عائلية متعددة، نسخ احتياطي/استعادة، Wear OS.
-- ترجمة كلمة-بكلمة وتلوين أحكام التجويد في القارئ.
-- مشاركة الحديث كصورة مصممة.
-- وضع مبسّط للأطفال.
+- Community translation platform (Weblate/Crowdin).
+- Kids mode (simplified learning).
+- Share hadith as a designed image.
+- Wear OS companion (tasbih + next-prayer countdown).
+- Android Auto (adhkar + recitations while driving).
+- Multi-family profiles and backup/restore.
 
-### P0 — قبل الإطلاق النهائي في المتجر
+### P0 — Before final store launch
 
-| البند | الحالة |
+| Item | Status |
 |---|---|
-| سياسة خصوصية في المستودع + داخل التطبيق | ✅ منفذ (`PRIVACY_POLICY.md` + شاشة الخصوصية) |
-| توقيع release + R8 | ✅ منفذ (راجع `keystore.properties.example`) |
-| اسم الحزمة النهائي (`org.muslim.app` → الحزمة المسجّلة) | ⬜ عند التسجيل الفعلي |
-| المراجعة الشرعية للمحتوى الديني (قرآن، أحاديث، أذكار، أحكام) | ⬜ قناة مراجعة مستقلة |
-| اختبار يدوي على أجهزة حقيقية (API 26 و37) | ⬜ يتطلب جهازًا/محاكيًا |
-| لغات إضافية (أردية، إندونيسية، تركية، فرنسية...) + منصة ترجمة مجتمعية | ⬜ مجتمعي |
+| Privacy policy in the repo + in-app | ✅ Done (`PRIVACY_POLICY.md` + Privacy screen) |
+| Release signing + R8 | ✅ Done (stable key, `create-signing-keystore.sh` + `setup-github-signing.sh`) |
+| Final package name registration | ⬜ At actual store registration |
+| Specialist religious review (Quran, hadith, adhkar, rulings) | ⬜ Independent review channel |
+| Manual testing on real devices (API 26 and 37) | ⬜ Requires device/emulator |
+| Community translation platform | ⬜ Planned |
 
 ---
 
-## 3. المخاطر والتوصيات (قائمة حية)
+## 3. Risks & recommendations (living list)
 
-| المخاطر | التوصية |
+| Risk | Recommendation |
 |---|---|
-| R8 قد يُسقط مسارات انعكاسية مستقبلية | استخدام `./gradlew :app:analyzeReleaseR8Config` عند إضافة ميزات تعتمد على الانعكاس |
-| أذونات Android 13+ والقيود على `SCHEDULE_EXACT_ALARM` | الاختبار على أجهزة حديثة + بطاقة توجيه شفافة |
-| البيانات الدينية الضخمة | أداة استيراد/توليد + أتمتة مراجعة |
-| حجم APK | R8 مفعّل (3.5MB حاليًا)؛ المحتوى الثقيل يُنزَّل عند الطلب |
-| ترخيص المحتوى (Tanzil، التلاوات، التفاسير) | توثيق كل مصدر + الامتثال لشروطه |
+| R8 may strip future reflective paths | Run `./gradlew :app:analyzeReleaseR8Config` when adding reflection-based features |
+| Android 13+ permission & exact-alarm restrictions | Test on modern devices + transparent guidance card |
+| Huge religious datasets | Import/generation tooling + automated review |
+| APK size | R8 enabled; heavy content downloadable on demand; recitations streamed/downloaded |
+| Content licensing (Tanzil, recitations, tafsir) | Document every source + comply with its terms |
 
 ---
 
-*هذه الوثيقة خطة تشغيلية؛ تبقى `PROJECT_PROMPT.md` مرجع الرؤية والبنية ومصدر الحقيقة النهائي.*
+*This document is an operational plan; `PROJECT_PROMPT.md` remains the vision/architecture reference and the final source of truth.*

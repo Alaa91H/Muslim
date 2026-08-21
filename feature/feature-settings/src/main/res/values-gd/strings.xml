@@ -164,4 +164,22 @@
     <string name="update_available_text">Tha tionndadh %1$s ri fhaighinn a-nis — tap air gus ùrachadh</string>
     <string name="notif_category_app_update">Ùrachaidhean app</string>
     <string name="notif_category_app_update_desc">Fios nuair a bhios dreach app ùr ri fhaighinn</string>
+    <string name="about_tagline">Companach làn, an-asgaidh, stòr fosgailte airson a h-uile Muslamach - amannan ùrnaigh, Adhan, Quran, hadith, adhkar agus barrachd, nad chànan.</string>
+    <string name="about_description_title">Mu Muslamach</string>
+    <string name="about_description_body">Is e app Android an-asgaidh agus stòr fosgailte a th’ ann am Muslamach a bhios còmhla riut tron ​​latha: amannan ùrnaigh neo-mhearachdach leis an Adhan, combaist Qibla mionaideach, an Quran iomlan le aithrisean agus tafsir, leabharlann hadith, adhkar bho thùs, tasbih dealanach, innealan Ramadan, àireamhair zakat, mapaichean far-loidhne, agus barrachd - air an dealbhadh gus obrachadh gu tur far-loidhne le prìobhaideachd gu bunaiteach.</string>
+    <string name="about_features_title">Àrd-amasan</string>
+    <string name="about_features_body">A h-uile dad a dh’ fheumas Muslamach ann an aon app:</string>
+    <string name="about_feature_prayer">Amannan ùrnaigh &amp; Adhan - a h-uile dòigh àireamhachaidh, sgoiltean laghail, agus fuaimean adhan 18+</string>
+    <string name="about_feature_quran">Quran coileanta - sgriobt Uthmani, 44 neach-aithris, tafsir, eadar-theangachaidhean, sgrùdadh fhaclan &amp; tricead</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat - le cuimhneachain agus builgeanan fleòdraidh</string>
+    <string name="about_feature_offline">Offline-toiseach - bidh mapaichean, Quran, hadith agus adhkar ag obair gun eadar-lìn</string>
+    <string name="about_feature_privacy">Prìobhaideachd gu bunaiteach - gun shanasan, gun tracadh, bidh an dàta agad a’ fuireach air an inneal agad</string>
+    <string name="settings_auto_update">Ùrachaidhean gu tur fèin-ghluasadach</string>
+    <string name="settings_auto_update_desc">Luchdaich sìos gu fèin-ghluasadach agus cuir a-steach dreachan ùra air a’ chùl cho luath ‘s a thèid an leigeil ma sgaoil</string>
+    <string name="settings_auto_update_confirm_title">Cuir an comas ùrachaidhean fèin-ghluasadach?</string>
+    <string name="settings_auto_update_confirm_body">Thèid dreachan ùra a luchdachadh sìos agus a chuir a-steach gu fèin-ghluasadach air a’ chùl nuair a bhios iad rim faighinn. Lean air adhart?</string>
+    <string name="settings_auto_update_confirm">Dèan comas</string>
+    <string name="settings_cancel">Sguir dheth</string>
+    <string name="update_last_check">Sgrùdadh mu dheireadh: %1$s</string>
+    <string name="update_open_releases">Fosgail an duilleag foillseachaidh sa bhrobhsair</string>
 </resources>

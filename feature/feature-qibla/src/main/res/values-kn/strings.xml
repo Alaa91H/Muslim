@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">ಪ್ರದೇಶದ ಅಗಲ (ಡಿಗ್ರಿ)</string>
     <string name="offline_maps_storage_warning">ಕಡಿಮೆ ಸಂಗ್ರಹಣೆ - ಕೇವಲ %1$s ಉಚಿತ</string>
     <string name="offline_maps_storage_delete_largest">ದೊಡ್ಡ ಪ್ರದೇಶವನ್ನು ಅಳಿಸಿ (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">ಹೆಸರಿನಿಂದ ಮಸೀದಿಗಳನ್ನು ಹುಡುಕಿ</string>
+    <string name="mosque_finder_show_all">ಎಲ್ಲಾ ಮಸೀದಿಗಳನ್ನು ತೋರಿಸಿ</string>
+    <string name="mosque_finder_share">ದಿಕ್ಕುಗಳನ್ನು ತೆರೆಯಿರಿ</string>
+    <string name="offline_maps_use_my_location">ನನ್ನ ಪ್ರಸ್ತುತ ಸ್ಥಳಕ್ಕೆ ಹೋಗಿ</string>
 </resources>

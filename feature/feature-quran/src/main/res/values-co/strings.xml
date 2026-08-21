@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Aia precedente</string>
     <string name="quran_range_single_ayah">Single aia</string>
     <string name="quran_range_single_ayah_short">Aia</string>
-    <string name="quran_range_to_end">Finu à a sura</string>
+    <string name="quran_range_to_end">À a fine di u Mushaf</string>
     <string name="quran_range_to_end_short">Per finisce</string>
     <string name="quran_range_whole_surah">Sura intera</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf pienu à traversu reciters</string>
     <string name="quran_downloads_coverage_empty">Nisun audio scaricatu ancora</string>
     <string name="quran_pause_notif_listener">Pausa a recitazione nantu à e notificazioni</string>
-    <string name="quran_reciter_changed_title">Reciter cambiatu</string>
-    <string name="quran_reciter_changed_message">A riproduzione hè stata arrestata perchè a gamma corre finu à a fine di u Quran. Cumincià di novu cù %1$s?</string>
-    <string name="quran_reciter_restart">Cumincià di novu</string>
-    <string name="quran_reciter_not_now">Nun avà</string>
+    <string name="quran_search_metrics">Tempu di ricerca: %1$d ms</string>
+    <string name="quran_search_index_building">Custruì l\'indice Coran per a prima ricerca ...</string>
+    <string name="quran_search_index_progress">Custruisce l\'indice mushaf... %1$d %%</string>
+    <string name="quran_search_word_root">Radici: %1$s</string>
+    <string name="quran_search_derivations">Parolle derivate da a stessa radica</string>
+    <string name="quran_search_no_root">Ùn pudia micca determinà a radica</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">የቀድሞ አያህ</string>
     <string name="quran_range_single_ayah">ነጠላ አያ</string>
     <string name="quran_range_single_ayah_short">አያህ</string>
-    <string name="quran_range_to_end">ወደ ሱራ መጨረሻ</string>
+    <string name="quran_range_to_end">እስከ ሙሻፍ መጨረሻ ድረስ</string>
     <string name="quran_range_to_end_short">ለመጨረስ</string>
     <string name="quran_range_whole_surah">ሙሉ ሱራ</string>
     <string name="quran_range_whole_surah_short">ሱራ</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">ሙሉ ሙሻፍ በአንባቢዎች ላይ</string>
     <string name="quran_downloads_coverage_empty">እስካሁን ምንም ኦዲዮ አልወረደም።</string>
     <string name="quran_pause_notif_listener">በማሳወቂያዎች ላይ ማንበብን ለአፍታ ያቁሙ</string>
-    <string name="quran_reciter_changed_title">ሪሲተር ተለውጧል</string>
-    <string name="quran_reciter_changed_message">Playback stopped because the range runs to the end of the Quran. Start again with %1$s?</string>
-    <string name="quran_reciter_restart">እንደገና ጀምር</string>
-    <string name="quran_reciter_not_now">አሁን አይደለም</string>
+    <string name="quran_search_metrics">የፍለጋ ጊዜ: %1$d ms</string>
+    <string name="quran_search_index_building">ለመጀመሪያው ፍለጋ የቁርኣን መረጃ ጠቋሚ መገንባት…</string>
+    <string name="quran_search_index_progress">የሙስሓፍ መረጃ ጠቋሚን መገንባት… %1$d %%</string>
+    <string name="quran_search_word_root">ሥር፡ %1$s</string>
+    <string name="quran_search_derivations">ከተመሳሳይ ሥር የተወሰዱ ቃላት</string>
+    <string name="quran_search_no_root">ሥሩን ማወቅ አልተቻለም</string>
 </resources>

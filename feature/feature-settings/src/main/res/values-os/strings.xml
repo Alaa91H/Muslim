@@ -164,4 +164,22 @@
     <string name="update_available_text">Верси %1$s ныр ис — æрцауындзут ног кæнынæн</string>
     <string name="notif_category_app_update">Æфтуаны ногдзинæдтæ</string>
     <string name="notif_category_app_update_desc">Хъусынгæнинаг, ног æфтуаны верси куы уа, уæд</string>
+    <string name="about_tagline">Æххæст, сæрибар, гом æмбал алы пысылмонæн дæр — куывды рæстæг, азан, Хъуыран, хадис, азкар æмæ ноджы фылдæр, уæ æвзагыл.</string>
+    <string name="about_description_title">Пысылмон тыххæй</string>
+    <string name="about_description_body">Muslim у æнæаргъ æмæ гом Android-ы æфтуан, кæцы æнæхъæн бон дæм æххуыс кæны: астрономион æгъдауæй раст куывды рæстæг азанимæ, бæлвырд киблайы компас, æххæст Хъуыран кæсæнтимæ æмæ тафсиримæ, хадисы библиотекæ, æрмæгæй æрмæг азкар, электрон тасбих, Рамаданы кусæнгæрзтæ, закаты калькулятор, офлайн картæтæ, æмæ ноджы фылдæр æххæстæй кусынæн æнæмæнг.</string>
+    <string name="about_features_title">Ахсджиаг цаутæ</string>
+    <string name="about_features_body">Пысылмонæн цы хъæуы, уый иу æфтуаны:</string>
+    <string name="about_feature_prayer">Куывды рæстæг æмæ азан — æппæт нымайæн методтæ, юридикон скъолатæ æмæ 18+ азан хъæлæстæ</string>
+    <string name="about_feature_quran">Æххæст Хъуыран — Усманийы фыст, 44 кæсæджы, тафсир, тæлмацтæ, дзырдты агурæн æмæ арæхдзинад</string>
+    <string name="about_feature_adhkar">Адхкар, тасбих, Рамадан æмæ Закат — зæрдылдарæнтимæ æмæ ленкгæнæг æртæхтæй</string>
+    <string name="about_feature_offline">Офлайн-фыццаг — картæтæ, Хъуыран, хадис æмæ азкар кусынц æнæ интернетæй</string>
+    <string name="about_feature_privacy">Конфиденциалондзинад æнæмæнгæй — нæй рекламæ, нæй фæдæвзарæн, дæ бæрæггæнæнтæ баззайынц дæ кусæнгарзы</string>
+    <string name="settings_auto_update">Æххæстæй автоматикон ногдзинæдтæ</string>
+    <string name="settings_auto_update_desc">Куыддæр рацæуой, афтæ ног верситæ автоматикон æгъдауæй æрбакæнут æмæ сæ æвæрут фоныл</string>
+    <string name="settings_auto_update_confirm_title">Автоматон ногдзинæдтæ æххæст кæнын?</string>
+    <string name="settings_auto_update_confirm_body">Ног верситæ æрбакæсдзысты æмæ æвæрд æрцæудзысты автоматикон æгъдауæй фоныл, куы уа, уæд. Дарддæр кæнын?</string>
+    <string name="settings_auto_update_confirm">Гæнæн кæнын</string>
+    <string name="settings_cancel">аивын</string>
+    <string name="update_last_check">Фæстаг сбæрæг кæнын: %1$s</string>
+    <string name="update_open_releases">Байгом кæнут рауагъдты фарс браузеры</string>
 </resources>

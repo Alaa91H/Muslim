@@ -24,4 +24,5 @@
     <string name="hadith_share">Raba</string>
     <string name="hadith_title">Littafin Hadisi</string>
     <string name="hadith_copy">Kwafi</string>
+    <string name="hadith_copied">Hadisi ya kwafa</string>
 </resources>

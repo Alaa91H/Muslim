@@ -65,18 +65,19 @@ class RecitationPlaybackService : Service() {
     // Quran recitation should pause whenever another sound takes over
     // (navigation voice, another media app, an alert) and automatically
     // resume once that sound finishes. A permanent loss (e.g. a phone call)
-    // pauses without auto-resume.
+    // pauses without auto-resume. The decision logic lives in
+    // [RecitationFocusPolicy] so it can be unit-tested on the JVM.
+    private val focusPolicy = RecitationFocusPolicy()
     private var audioManager: AudioManager? = null
     private var audioFocusRequest: AudioFocusRequest? = null
     private var hasAudioFocus = false
-    private var resumeAfterTransientLoss = false
 
     private val focusListener = AudioManager.OnAudioFocusChangeListener { change ->
         when (change) {
             AudioManager.AUDIOFOCUS_LOSS -> {
                 // Permanent loss (phone call, another app took over): pause
                 // and never auto-resume.
-                resumeAfterTransientLoss = false
+                focusPolicy.onPermanentLoss()
                 hasAudioFocus = false
                 player.pause()
             }
@@ -86,16 +87,14 @@ class RecitationPlaybackService : Service() {
                 // Another sound started (navigation, alerts, other media):
                 // pause; remember to resume once focus comes back, but only if
                 // the user hadn't already paused manually.
-                resumeAfterTransientLoss =
-                    player.playbackState.value == PlaybackState.Playing
+                focusPolicy.onTransientLoss(
+                    player.playbackState.value == PlaybackState.Playing,
+                )
                 player.pause()
             }
             AudioManager.AUDIOFOCUS_GAIN -> {
                 hasAudioFocus = true
-                if (resumeAfterTransientLoss) {
-                    resumeAfterTransientLoss = false
-                    player.resume()
-                }
+                if (focusPolicy.onGain()) player.resume()
             }
         }
     }
@@ -176,6 +175,7 @@ class RecitationPlaybackService : Service() {
     }
 
     private fun publish(state: PlaybackState, globalNumber: Int?) {
+        lastGlobalAyah = globalNumber
         val reference = globalNumber?.let { QuranAyahIndex.referenceOf(it) }
         val title = if (reference != null) {
             getString(R.string.quran_recitation_notif_title, reference.first, reference.second)
@@ -287,15 +287,33 @@ class RecitationPlaybackService : Service() {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
 
-    private fun openAppPendingIntent(): PendingIntent =
-        PendingIntent.getActivity(
+    /**
+     * Tapping the notification opens the Quran reader scrolled to the ayah
+     * that is currently being recited (instead of the plain launcher screen):
+     * the reader route + ayah travel through [EXTRA_ROUTE], the same channel
+     * the App Shortcuts use, so [MainActivity] navigates there on tap.
+     */
+    private fun openAppPendingIntent(): PendingIntent {
+        val launch = packageManager.getLaunchIntentForPackage(packageName)?.apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        }
+        lastGlobalAyah?.let { global ->
+            val surah = QuranAyahIndex.surahOf(global)
+            if (surah >= 1) {
+                // Same route shape as "quran/reader/{surahNumber}?ayah={ayah}".
+                launch?.putExtra(EXTRA_ROUTE, "quran/reader/$surah?ayah=$global")
+            }
+        }
+        return PendingIntent.getActivity(
             this,
             OPEN_APP_REQUEST_CODE,
-            packageManager.getLaunchIntentForPackage(packageName)?.apply {
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            },
+            launch,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
+    }
+
+    /** Global ayah number of the ayah currently being recited (null when idle). */
+    private var lastGlobalAyah: Int? = null
 
     override fun onDestroy() {
         abandonAudioFocus()
@@ -337,6 +355,8 @@ class RecitationPlaybackService : Service() {
         private const val MEDIA_SESSION_TAG = "org.muslim.app.quran.RecitationPlayback"
         private const val NOTIFICATION_ID = 7006
         private const val OPEN_APP_REQUEST_CODE = 70061
+        /** Same extra key [org.muslim.app.MainActivity] reads for deep links. */
+        private const val EXTRA_ROUTE = "org.muslim.app.extra.ROUTE"
 
         fun start(context: Context) {
             val intent = Intent(context, RecitationPlaybackService::class.java)

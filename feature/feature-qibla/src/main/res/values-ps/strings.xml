@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">د ساحې عرض (درجې)</string>
     <string name="offline_maps_storage_warning">ټیټ ذخیره - یوازې %1$s وړیا</string>
     <string name="offline_maps_storage_delete_largest">لویه سیمه ړنګ کړئ (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">جوماتونه په نومونو وپلټئ</string>
+    <string name="mosque_finder_show_all">ټول جوماتونه ښکاره کړئ</string>
+    <string name="mosque_finder_share">لارښوونې خلاصې کړئ</string>
+    <string name="offline_maps_use_my_location">زما اوسني ځای ته لاړ شه</string>
 </resources>

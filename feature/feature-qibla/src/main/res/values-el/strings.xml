@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Πλάτος περιοχής (μοίρες)</string>
     <string name="offline_maps_storage_warning">Χαμηλός αποθηκευτικός χώρος — μόνο %1$s δωρεάν</string>
     <string name="offline_maps_storage_delete_largest">Διαγραφή μεγαλύτερης περιοχής (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Αναζήτηση τζαμιών με το όνομα</string>
+    <string name="mosque_finder_show_all">Εμφάνιση όλων των τζαμιών</string>
+    <string name="mosque_finder_share">Ανοιχτές οδηγίες</string>
+    <string name="offline_maps_use_my_location">Μετάβαση στην τρέχουσα τοποθεσία μου</string>
 </resources>

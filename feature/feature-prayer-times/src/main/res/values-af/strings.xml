@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Sabre adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyad-moskee (Damaskus) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Kan nie tye vir hierdie dag bereken nie</string>
     <string name="home_location_unknown">Ligging nog nie gestel nie</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Outomaties (volgens ligging)</string>
     <string name="settings_method_automatic_desc">Die toepassing kies die mees geskikte metode outomaties gebaseer op jou land en ligging; jy kan steeds \'n metode met die hand kies te eniger tyd.</string>
     <string name="settings_preview_for_prayer">Voorbeskou %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Outomatiese tans gekies: %1$s — %2$s</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Área ancho (grados) ukaxa 1.1.</string>
     <string name="offline_maps_storage_warning">Jisk’a imaña — ukaxa %1$s ukhakiwa</string>
     <string name="offline_maps_storage_delete_largest">Jach’a suyu chhaqtayaña (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Mezquitas ukanakax sutiparjamaw thaqhapxi</string>
+    <string name="mosque_finder_show_all">Taqi mezquitas ukanaka uñacht’ayaña</string>
+    <string name="mosque_finder_share">Jisk’a thakhinaka</string>
+    <string name="offline_maps_use_my_location">Jichhax kawkhantï jikxataskta ukaruw sarañama</string>
 </resources>

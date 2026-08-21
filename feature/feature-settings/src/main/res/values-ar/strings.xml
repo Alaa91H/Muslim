@@ -38,4 +38,22 @@
     <string name="update_available_text">الإصدار %1$s متوفر الآن — انقر للتحديث</string>
     <string name="notif_category_app_update">تحديثات التطبيق</string>
     <string name="notif_category_app_update_desc">إشعار عند توفر إصدار جديد للتطبيق</string>
+    <string name="about_tagline">رفيق كامل ومجاني ومفتوح المصدر لكل مسلم - أوقات الصلاة والأذان والقرآن والحديث والأذكار والمزيد بلغتك.</string>
+    <string name="about_description_title">عن مسلم</string>
+    <string name="about_description_body">مسلم هو تطبيق أندرويد مجاني ومفتوح المصدر يرافقك طوال اليوم: أوقات صلاة فلكية دقيقة مع الأذان، بوصلة القبلة الدقيقة، القرآن الكريم كاملاً بالتلاوات والتفسير، مكتبة الحديث، الأذكار من المصادر، التسبيح الإلكتروني، أدوات رمضان، آلة حاسبة للزكاة، خرائط غير متصلة بالإنترنت، والمزيد - مصمم للعمل بشكل كامل دون اتصال بالإنترنت مع الخصوصية بشكل افتراضي.</string>
+    <string name="about_features_title">أبرز</string>
+    <string name="about_features_body">كل ما يحتاجه المسلم في تطبيق واحد:</string>
+    <string name="about_feature_prayer">أوقات الصلاة والأذان - جميع طرق الحساب، والمدارس الفقهية، وأكثر من 18 صوتًا للأذان</string>
+    <string name="about_feature_quran">القرآن كاملا - بالخط العثماني، 44 قارئا، التفسير، الترجمات، البحث عن الكلمات والتكرار</string>
+    <string name="about_feature_adhkar">الأذكار والتسبيح ورمضان والزكاة - مع تذكيرات وفقاعات عائمة</string>
+    <string name="about_feature_offline">غير متصل بالإنترنت أولاً - تعمل الخرائط والقرآن والحديث والأذكار بدون إنترنت</string>
+    <string name="about_feature_privacy">الخصوصية بشكل افتراضي - لا إعلانات ولا تتبع، وتبقى بياناتك على جهازك</string>
+    <string name="settings_auto_update">التحديثات التلقائية بالكامل</string>
+    <string name="settings_auto_update_desc">قم بتنزيل الإصدارات الجديدة وتثبيتها تلقائيًا في الخلفية بمجرد إصدارها</string>
+    <string name="settings_auto_update_confirm_title">تمكين التحديثات التلقائية؟</string>
+    <string name="settings_auto_update_confirm_body">سيتم تنزيل الإصدارات الجديدة وتثبيتها تلقائيًا في الخلفية عند توفرها. يكمل؟</string>
+    <string name="settings_auto_update_confirm">يُمكَِن</string>
+    <string name="settings_cancel">يلغي</string>
+    <string name="update_last_check">الفحص الأخير: %1$s</string>
+    <string name="update_open_releases">افتح صفحة الإصدارات في المتصفح</string>
 </resources>

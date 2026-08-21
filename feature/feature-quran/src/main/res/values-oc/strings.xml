@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah precedent</string>
     <string name="quran_range_single_ayah">Ayah sola</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">A la fin de la soura</string>
+    <string name="quran_range_to_end">A la fin del Mushaf</string>
     <string name="quran_range_to_end_short">Per acabar</string>
     <string name="quran_range_whole_surah">Soura entièra</string>
     <string name="quran_range_whole_surah_short">Sora</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf complet entre los recitaires</string>
     <string name="quran_downloads_coverage_empty">Cap d\'àudio pas encara telecargat</string>
     <string name="quran_pause_notif_listener">Pausar la recitacion sus las notificacions</string>
-    <string name="quran_reciter_changed_title">Recitaire cambiat</string>
-    <string name="quran_reciter_changed_message">La reproduccion s\'arrestèt perque la portada va fins a la fin de l\'Alcoran. Tornar començar amb %1$s ?</string>
-    <string name="quran_reciter_restart">Tornatz començar</string>
-    <string name="quran_reciter_not_now">Pas ara</string>
+    <string name="quran_search_metrics">Temps de recèrca : %1$d ms</string>
+    <string name="quran_search_index_building">Construccion de l\'indici de l\'Alcoran per la primièra recèrca...</string>
+    <string name="quran_search_index_progress">Construccion de l\'indici mushaf... %1$d %%</string>
+    <string name="quran_search_word_root">Raïtz: %1$s</string>
+    <string name="quran_search_derivations">Mots derivats de la meteissa raiç</string>
+    <string name="quran_search_no_root">Poguèt pas determinar la raiç</string>
 </resources>

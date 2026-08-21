@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan sutiyuq runa</string>
     <string name="bundled_adhan_saber">Sabre adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan sutiyuq runa</string>
-    <string name="bundled_adhan_umayyad_damascus">Mezquita Umayyad (Damasco) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf islam adhan</string>
     <string name="home_cannot_compute">Kay punchawpaq pachakunata mana yupayta atispa</string>
     <string name="home_location_unknown">Ubicación manaraq churasqachu</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Kikinmanta (maypi kasqanman hina) .</string>
     <string name="settings_method_automatic_desc">App aswan allin métodota kikillanmanta akllan suyuykiman hina chaymanta maypi kasqaykiman hina; huk métodota makiwan akllayta atikunkiraq mayk\'aqllapas.</string>
     <string name="settings_preview_for_prayer">Ñawpaq qhaway %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Automático kunan akllasqa: %1$s — %2$s</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">पूर्वः अयः</string>
     <string name="quran_range_single_ayah">एकल अयः</string>
     <string name="quran_range_single_ayah_short">अयः</string>
-    <string name="quran_range_to_end">सूरस्य अन्ते यावत्</string>
+    <string name="quran_range_to_end">मुशफस्य अन्ते यावत्</string>
     <string name="quran_range_to_end_short">अन्त्यं कर्तुं</string>
     <string name="quran_range_whole_surah">सम्पूर्ण सूरः</string>
     <string name="quran_range_whole_surah_short">सूरः</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">पाठकानां पार पूर्ण मुशफ</string>
     <string name="quran_downloads_coverage_empty">अद्यापि कोऽपि श्रव्यः डाउनलोड् न कृतः</string>
     <string name="quran_pause_notif_listener">सूचनासु पाठं विरामयन्तु</string>
-    <string name="quran_reciter_changed_title">पाठकः परिवर्तितः</string>
-    <string name="quran_reciter_changed_message">प्लेबैक् स्थगितम् यतः श्रेणी कुरानस्य अन्ते यावत् प्रचलति। %1$s इत्यनेन पुनः आरभत?</string>
-    <string name="quran_reciter_restart">पुनः आरभत</string>
-    <string name="quran_reciter_not_now">न इदानीं</string>
+    <string name="quran_search_metrics">अन्वेषणसमयः %1$d ms</string>
+    <string name="quran_search_index_building">प्रथमसन्धानार्थं कुरानसूचकाङ्कस्य निर्माणं...</string>
+    <string name="quran_search_index_progress">मुशफ सूचकाङ्कस्य निर्माणं... %1$d %%</string>
+    <string name="quran_search_word_root">मूलम् : %1$s</string>
+    <string name="quran_search_derivations">समानमूलात् उत्पन्नाः शब्दाः</string>
+    <string name="quran_search_no_root">मूलं निर्धारयितुं न शक्तवान्</string>
 </resources>

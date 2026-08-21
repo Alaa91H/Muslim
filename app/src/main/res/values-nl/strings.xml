@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Het reciteren wordt kort onderbroken wanneer een melding, bel of andere media wordt afgespeeld</string>
     <string name="more_pause_notifications_enabled">Ingeschakeld: tik om de systeeminstellingen te openen</string>
     <string name="more_pause_notifications_disabled">Uitgeschakeld: tik om in te schakelen</string>
+    <string name="more_names">99 Namen van Allah</string>
+    <string name="more_names_desc">De 99 namen met volledige uitleg</string>
+    <string name="more_hajj">Hadj &amp; Umrah</string>
+    <string name="more_hajj_desc">Gedetailleerde gids voor de hadj- en umrah-rituelen</string>
 </resources>

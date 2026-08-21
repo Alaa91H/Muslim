@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Bacaan berhenti seketika apabila pemberitahuan, deringan atau media lain dimainkan</string>
     <string name="more_pause_notifications_enabled">Didayakan — ketik untuk membuka tetapan sistem</string>
     <string name="more_pause_notifications_disabled">Dilumpuhkan — ketik untuk mendayakan</string>
+    <string name="more_names">99 Nama Allah</string>
+    <string name="more_names_desc">99 nama dengan penjelasan penuh</string>
+    <string name="more_hajj">Haji &amp; Umrah</string>
+    <string name="more_hajj_desc">Panduan terperinci tentang ibadah haji dan umrah</string>
 </resources>

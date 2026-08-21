@@ -9,4 +9,12 @@
     <string name="settings_section_time_format">Format ng oras</string>
     <string name="settings_time_12">12 oras (AM/PM)</string>
     <string name="settings_time_24">24 na oras</string>
+    <string name="settings_auto_update">Ganap na awtomatikong pag-update</string>
+    <string name="settings_auto_update_desc">Awtomatikong i-download at i-install ang mga bagong bersyon sa background sa sandaling mailabas ang mga ito</string>
+    <string name="settings_auto_update_confirm_title">Paganahin ang mga awtomatikong pag-update?</string>
+    <string name="settings_auto_update_confirm_body">Ang mga bagong bersyon ay mada-download at awtomatikong mai-install sa background kapag available. Magpatuloy?</string>
+    <string name="settings_auto_update_confirm">Paganahin</string>
+    <string name="settings_cancel">Kanselahin</string>
+    <string name="update_last_check">Huling pagsusuri: %1$s</string>
+    <string name="update_open_releases">Buksan ang page ng mga release sa browser</string>
 </resources>

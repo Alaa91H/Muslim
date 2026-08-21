@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Раздæры аят</string>
     <string name="quran_range_single_ayah">Иунæг айах</string>
     <string name="quran_range_single_ayah_short">Айах</string>
-    <string name="quran_range_to_end">Сурæйы кæронмæ</string>
+    <string name="quran_range_to_end">Мушафы кæронмæ</string>
     <string name="quran_range_to_end_short">Кæронмæ</string>
     <string name="quran_range_whole_surah">Æнæхъæн сурæ</string>
     <string name="quran_range_whole_surah_short">Сура</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Æххæст мушаф æппæт дзурджытæм</string>
     <string name="quran_downloads_coverage_empty">Аудио нырма нæй æрбакаст</string>
     <string name="quran_pause_notif_listener">Æрлæууын кæнын хъусынгæнинæгтыл</string>
-    <string name="quran_reciter_changed_title">Дзурæг ивд æрцыд</string>
-    <string name="quran_reciter_changed_message">Æвдыст æрлæууыд, уымæн æмæ диапазон аххæссы Хъуыраны кæронмæ. Ногæй райдай %1$s-йæ?</string>
-    <string name="quran_reciter_restart">Ногæй райдай</string>
-    <string name="quran_reciter_not_now">Ныртæккæ нæ</string>
+    <string name="quran_search_metrics">Агурæн рæстæг: %1$d мс</string>
+    <string name="quran_search_index_building">Фыццаг агурæнæн Хъуыраны индекс аразын...</string>
+    <string name="quran_search_index_progress">Мушафы индекс аразын... %1$d %%</string>
+    <string name="quran_search_word_root">Уидæг: %1$s</string>
+    <string name="quran_search_derivations">Иу бындурæй арæзт дзырдтæ</string>
+    <string name="quran_search_no_root">Нæ бантыст бындур сбæрæг кæнын</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Te rahi o te fenua (teteri)</string>
     <string name="offline_maps_storage_warning">Te vahi tape\'araa iti - %1$s ana\'e</string>
     <string name="offline_maps_storage_delete_largest">Tamau i te vahi rahi roa \' \' e (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">A imi i te mau mosques na roto i te i\'oa</string>
+    <string name="mosque_finder_show_all">A faaite i te mau mosques atoa</string>
+    <string name="mosque_finder_share">A tatara i te mau faaueraa</string>
+    <string name="offline_maps_use_my_location">A haere i to\'u vahi i teie nei</string>
 </resources>

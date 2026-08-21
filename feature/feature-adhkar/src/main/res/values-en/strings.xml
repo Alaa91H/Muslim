@@ -61,6 +61,8 @@
     <string name="adhkar_periodic_interval_value">%1$d minutes</string>
     <string name="adhkar_periodic_category">Adhkar category</string>
     <string name="adhkar_periodic_category_random">Random (all adhkar)</string>
+    <string name="adhkar_periodic_dhikr">Specific dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Random (instead of manual pick)</string>
     <string name="adhkar_periodic_window_toggle">Only within a time window</string>
     <string name="adhkar_periodic_window_start">Start</string>
     <string name="adhkar_periodic_window_end">End</string>
@@ -70,6 +72,7 @@
     <string name="adhkar_favorites">Favorites</string>
     <string name="adhkar_add_favorite">Add to favorites</string>
     <string name="adhkar_copy">Copy</string>
+    <string name="adhkar_copied">Dhikr copied</string>
     <string name="adhkar_share">Share</string>
     <string name="adhkar_remove_favorite">Remove from favorites</string>
 </resources>

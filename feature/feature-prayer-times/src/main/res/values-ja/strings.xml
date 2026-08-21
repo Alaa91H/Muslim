@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">ナグシュバンディ・アザーン</string>
     <string name="bundled_adhan_saber">セイバー・アダン</string>
     <string name="bundled_adhan_sharif_doman">シャリフ・ドマン・アダン</string>
-    <string name="bundled_adhan_umayyad_damascus">ウマイヤド モスク (ダマスカス) アザーン</string>
     <string name="bundled_adhan_yusuf_islam">ユスフ・イスラム・アザーン</string>
     <string name="home_cannot_compute">この日の時間を計算できません</string>
     <string name="home_location_unknown">場所はまだ設定されていません</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">自動（場所による）</string>
     <string name="settings_method_automatic_desc">アプリはあなたの国と場所に基づいて最適な方法を自動的に選択します。いつでも手動で方法を選択できます。</string>
     <string name="settings_preview_for_prayer">%1$s アザーンをプレビューする</string>
+    <string name="settings_method_automatic_picked">現在選択されている自動: %1$s — %2$s</string>
 </resources>

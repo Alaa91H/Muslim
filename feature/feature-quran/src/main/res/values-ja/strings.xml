@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">前のあや</string>
     <string name="quran_range_single_ayah">シングルアーヤ</string>
     <string name="quran_range_single_ayah_short">アヤ</string>
-    <string name="quran_range_to_end">スーラの終わりまで</string>
+    <string name="quran_range_to_end">ムシャフの最後まで</string>
     <string name="quran_range_to_end_short">終了するには</string>
     <string name="quran_range_whole_surah">スーラ全体</string>
     <string name="quran_range_whole_surah_short">スーラ</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">朗読家全体で完全なムシャフ</string>
     <string name="quran_downloads_coverage_empty">音声はまだダウンロードされていません</string>
     <string name="quran_pause_notif_listener">通知で朗読を一時停止する</string>
-    <string name="quran_reciter_changed_title">朗読者が変更されました</string>
-    <string name="quran_reciter_changed_message">コーランの終わりまで範囲が及ぶため、再生が停止しました。 %1$s からやり直しますか?</string>
-    <string name="quran_reciter_restart">もう一度始める</string>
-    <string name="quran_reciter_not_now">今ではありません</string>
+    <string name="quran_search_metrics">検索時間: %1$d ミリ秒</string>
+    <string name="quran_search_index_building">最初の検索用にコーラン索引を構築中…</string>
+    <string name="quran_search_index_progress">ムシャフ インデックスを構築中… %1$d %%</string>
+    <string name="quran_search_word_root">ルート: %1$s</string>
+    <string name="quran_search_derivations">同じ語源から派生した言葉</string>
+    <string name="quran_search_no_root">ルートを特定できませんでした</string>
 </resources>

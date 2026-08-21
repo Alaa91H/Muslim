@@ -164,4 +164,22 @@
     <string name="update_available_text">பதிப்பு %1$s இப்போது கிடைக்கிறது — புதுப்பிக்க தட்டவும்</string>
     <string name="notif_category_app_update">ஆப்ஸ் புதுப்பிப்புகள்</string>
     <string name="notif_category_app_update_desc">புதிய ஆப்ஸ் பதிப்பு கிடைக்கும் போது அறிவிப்பு</string>
+    <string name="about_tagline">உங்கள் மொழியில் பிரார்த்தனை நேரங்கள், அதான், குரான், ஹதீஸ், அத்கார் மற்றும் பல - ஒவ்வொரு முஸ்லிமுக்கும் ஒரு முழுமையான, இலவச, திறந்த மூல துணை.</string>
+    <string name="about_description_title">முஸ்லிம் பற்றி</string>
+    <string name="about_description_body">முஸ்லிம் என்பது நாள் முழுவதும் உங்களுடன் வரும் இலவச மற்றும் திறந்த மூல ஆண்ட்ராய்டு பயன்பாடாகும்: அதானுடன் கூடிய வானியல் ரீதியாக துல்லியமான தொழுகை நேரம், துல்லியமான கிப்லா திசைகாட்டி, முழு குர்ஆன் ஓதுதல் மற்றும் தஃப்சீர், ஹதீஸ் நூலகம், ஆதாரமான அத்கார், மின்னணு தஸ்பிஹ், ரமலான் கருவிகள், ஜகாத் கால்குலேட்டர், ஆஃப்லைன் வரைபடங்களுடன் வடிவமைக்கப்பட்டுள்ளது.</string>
+    <string name="about_features_title">சிறப்பம்சங்கள்</string>
+    <string name="about_features_body">ஒரு முஸ்லிமுக்கு தேவையான அனைத்தும் ஒரே பயன்பாட்டில்:</string>
+    <string name="about_feature_prayer">பிரார்த்தனை நேரங்கள் &amp; அதான் - அனைத்து கணக்கீட்டு முறைகள், சட்டப் பள்ளிகள் மற்றும் 18+ அதான் ஒலிகள்</string>
+    <string name="about_feature_quran">முழுமையான குர்ஆன் - உத்மானி ஸ்கிரிப்ட், 44 ஓதுபவர்கள், தஃப்சீர், மொழிபெயர்ப்புகள், வார்த்தை தேடல் &amp; அதிர்வெண்</string>
+    <string name="about_feature_adhkar">அத்கார், தஸ்பிஹ், ரமலான் &amp; ஜகாத் - நினைவூட்டல்கள் மற்றும் மிதக்கும் குமிழ்களுடன்</string>
+    <string name="about_feature_offline">ஆஃப்லைனில்-முதலில் - வரைபடங்கள், குர்ஆன், ஹதீஸ் மற்றும் அத்கார் வேலை இணையம் இல்லாமல்</string>
+    <string name="about_feature_privacy">இயல்பாக தனியுரிமை - விளம்பரங்கள் இல்லை, கண்காணிப்பு இல்லை, உங்கள் தரவு உங்கள் சாதனத்தில் இருக்கும்</string>
+    <string name="settings_auto_update">முழு தானியங்கி புதுப்பிப்புகள்</string>
+    <string name="settings_auto_update_desc">புதிய பதிப்புகள் வெளியிடப்பட்டவுடன் பின்னணியில் தானாகவே பதிவிறக்கி நிறுவவும்</string>
+    <string name="settings_auto_update_confirm_title">தானியங்கி புதுப்பிப்புகளை இயக்கவா?</string>
+    <string name="settings_auto_update_confirm_body">புதிய பதிப்புகள் பதிவிறக்கம் செய்யப்பட்டு பின்னணியில் தானாகவே நிறுவப்படும். தொடரவா?</string>
+    <string name="settings_auto_update_confirm">இயக்கு</string>
+    <string name="settings_cancel">ரத்து செய்</string>
+    <string name="update_last_check">கடைசி சரிபார்ப்பு: %1$s</string>
+    <string name="update_open_releases">உலாவியில் வெளியீடுகள் பக்கத்தைத் திறக்கவும்</string>
 </resources>

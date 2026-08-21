@@ -25,4 +25,8 @@
     <string name="more_pause_on_notifications_desc">הדקלום מושהה לזמן קצר כאשר התראה, צלצול או מדיה אחרת מתנגנת</string>
     <string name="more_pause_notifications_enabled">מופעל - הקש כדי לפתוח את הגדרות המערכת</string>
     <string name="more_pause_notifications_disabled">מושבת - הקש כדי להפעיל</string>
+    <string name="more_names">99 שמות של אללה</string>
+    <string name="more_names_desc">99 השמות עם הסבר מלא</string>
+    <string name="more_hajj">חג\'ג\' ואומרה</string>
+    <string name="more_hajj_desc">מדריך מפורט לטקסי החאג\' והאומרה</string>
 </resources>

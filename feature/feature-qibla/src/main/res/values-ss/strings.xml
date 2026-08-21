@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Bubanti bendzawo (emadigri)</string>
     <string name="offline_maps_storage_warning">Sitoreji lesiphansi — %1$s kuphela mahhala</string>
     <string name="offline_maps_storage_delete_largest">Cisha sigodzi lesikhulu kunato tonkhe (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Sesha emamoski ngemagama</string>
+    <string name="mosque_finder_show_all">Khombisa onkhe emamosque</string>
+    <string name="mosque_finder_share">Vula ticondziso</string>
+    <string name="offline_maps_use_my_location">Iya endzaweni lengikuyo nyalo</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Η απαγγελία διακόπτεται για λίγο όταν αναπαράγεται μια ειδοποίηση, κουδούνισμα ή άλλο μέσο</string>
     <string name="more_pause_notifications_enabled">Ενεργοποιημένο — πατήστε για να ανοίξετε τις ρυθμίσεις συστήματος</string>
     <string name="more_pause_notifications_disabled">Απενεργοποιημένο — πατήστε για ενεργοποίηση</string>
+    <string name="more_names">99 Ονόματα του Αλλάχ</string>
+    <string name="more_names_desc">Τα 99 ονόματα με πλήρη εξήγηση</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Λεπτομερής οδηγός για τις τελετές του Χατζ και της Ούμρα</string>
 </resources>

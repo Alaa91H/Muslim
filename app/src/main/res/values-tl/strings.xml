@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Saglit na humihinto ang pagbigkas kapag nag-play ang isang notification, ring o iba pang media</string>
     <string name="more_pause_notifications_enabled">Pinagana — i-tap para buksan ang mga setting ng system</string>
     <string name="more_pause_notifications_disabled">Hindi pinagana — i-tap para paganahin</string>
+    <string name="more_names">99 Pangalan ng Allah</string>
+    <string name="more_names_desc">Ang 99 na pangalan na may buong paliwanag</string>
+    <string name="more_hajj">Hajj at Umrah</string>
+    <string name="more_hajj_desc">Detalyadong gabay sa mga ritwal ng Hajj at Umrah</string>
 </resources>

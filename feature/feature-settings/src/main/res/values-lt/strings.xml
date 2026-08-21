@@ -164,4 +164,22 @@
     <string name="update_available_text">Versija %1$s dabar pasiekiama – palieskite, kad atnaujintumėte</string>
     <string name="notif_category_app_update">Programų atnaujinimai</string>
     <string name="notif_category_app_update_desc">Pranešimas, kai pasiekiama nauja programos versija</string>
+    <string name="about_tagline">Išsamus, nemokamas, atvirojo kodo draugas kiekvienam musulmonui – maldos metu, Adhanu, Koranu, hadisu, adhkaru ir dar daugiau, jūsų kalba.</string>
+    <string name="about_description_title">Apie musulmonus</string>
+    <string name="about_description_body">„Muslim“ yra nemokama atvirojo kodo „Android“ programa, kuri lydi jus visą dieną: astronomiškai tikslūs maldos laikai su Adhanu, tikslus Qibla kompasas, visas Koranas su deklamavimu ir tafsir, haditų biblioteka, šaltinis adhkar, elektroninis tasbih, Ramadano įrankiai, zakat skaičiuotuvas, sukurtas pagal numatytuosius nustatymus, kad veiktų privatumas, ir daugiau neprisijungus.</string>
+    <string name="about_features_title">Akcentai</string>
+    <string name="about_features_body">Viskas, ko reikia musulmonui vienoje programoje:</string>
+    <string name="about_feature_prayer">Maldos laikas ir Adhanas – visi skaičiavimo metodai, teisinės mokyklos ir 18+ adhano garsai</string>
+    <string name="about_feature_quran">Visas Koranas – Uthmani scenarijus, 44 deklamatoriai, tafsir, vertimai, žodžių paieška ir dažnis</string>
+    <string name="about_feature_adhkar">Adhkar, Tasbih, Ramadan &amp; Zakat – su priminimais ir plaukiojančiais burbulais</string>
+    <string name="about_feature_offline">Pirmiausia neprisijungus – žemėlapiai, Koranas, hadisas ir adhkaras veikia be interneto</string>
+    <string name="about_feature_privacy">Privatumas pagal numatytuosius nustatymus – jokių skelbimų, jokio stebėjimo, jūsų duomenys lieka jūsų įrenginyje</string>
+    <string name="settings_auto_update">Visiškai automatiniai atnaujinimai</string>
+    <string name="settings_auto_update_desc">Automatiškai atsisiųskite ir įdiekite naujas versijas fone, kai tik jos bus išleistos</string>
+    <string name="settings_auto_update_confirm_title">Įgalinti automatinius naujinimus?</string>
+    <string name="settings_auto_update_confirm_body">Naujos versijos bus atsisiųstos ir automatiškai įdiegtos fone, kai bus prieinamos. Tęsti?</string>
+    <string name="settings_auto_update_confirm">Įgalinti</string>
+    <string name="settings_cancel">Atšaukti</string>
+    <string name="update_last_check">Paskutinis patikrinimas: %1$s</string>
+    <string name="update_open_releases">Naršyklėje atidarykite leidimų puslapį</string>
 </resources>

@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Sebenzisa i-adhkar emfushane kuphela</string>
     <string name="adhkar_overlay_short_only_desc">Khetha i-adhkar elingana umugqa owodwa noma emibili ukuze ibhamuza elintantayo lihlale licacile futhi lifundeka kalula.</string>
     <string name="adhkar_overlay_tap_hint">Thepha ibhamuza ukuze uyixoshe ngokushesha.</string>
+    <string name="adhkar_copied">U-Dhikr ukopishiwe</string>
+    <string name="adhkar_periodic_dhikr">I-dhikr eqondile</string>
+    <string name="adhkar_periodic_dhikr_random">Okungahleliwe (esikhundleni sokukhetha mathupha)</string>
 </resources>

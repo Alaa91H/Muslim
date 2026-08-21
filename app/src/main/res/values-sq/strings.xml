@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Recitimi ndalon shkurtimisht kur luhet një njoftim, zile ose media të tjera</string>
     <string name="more_pause_notifications_enabled">Aktivizuar — prekni për të hapur cilësimet e sistemit</string>
     <string name="more_pause_notifications_disabled">I çaktivizuar — trokitni lehtë për ta aktivizuar</string>
+    <string name="more_names">99 Emrat e Allahut</string>
+    <string name="more_names_desc">99 emrat me shpjegim të plotë</string>
+    <string name="more_hajj">Haxhi &amp; Umre</string>
+    <string name="more_hajj_desc">Udhëzues i detajuar për ritet e Haxhit dhe Umres</string>
 </resources>

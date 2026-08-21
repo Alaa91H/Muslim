@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Leitaðu í þessari bók…</string>
     <string name="reference_title">Íslamskt tilvísunarbókasafn</string>
     <string name="reference_topics_count">efni</string>
+    <string name="reference_copy">Afrita</string>
+    <string name="reference_share">Deila</string>
 </resources>

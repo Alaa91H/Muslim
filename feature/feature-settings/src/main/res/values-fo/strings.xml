@@ -164,4 +164,22 @@
     <string name="update_available_text">Útgáva %1$s er nú tøk — trýst fyri at dagføra</string>
     <string name="notif_category_app_update">App dagføringar</string>
     <string name="notif_category_app_update_desc">Fráboðan tá ein nýggj app-útgáva er tøk</string>
+    <string name="about_tagline">Ein fullkomin, ókeypis, opin keldufylgjari til hvønn muslim — bønartíðir, Adhan, Koran, hadith, adhkar og annað, á tínum máli.</string>
+    <string name="about_description_title">Um Muslim</string>
+    <string name="about_description_body">Muslim er ein ókeypis og opin Android-app, sum fylgir tær gjøgnum dagin: stjørnufrøðiliga nágreiniligar bønartíðir við Adhan, ein nágreinilig Qibla-kumpass, fullfíggjað Koranin við upplestri og tafsir, eitt hadith-bókasavn, kelduadhkar, ein elektronisk tasbih, Ramadan-tól, ein zakat ma fullur sniðgeving við meira offline roknimaskinu, forsett.</string>
+    <string name="about_features_title">Hæddarpunkt</string>
+    <string name="about_features_body">Alt sum ein muslimur hevur brúk fyri í eini app:</string>
+    <string name="about_feature_prayer">Bønartíðir &amp; Adhan — allir útrokningarhættir, rættarskúlar, og 18+ adhan ljóð</string>
+    <string name="about_feature_quran">Heil Koranin — Uthmani skrift, 44 lesarar, tafsir, týðingar, orðaleitan &amp; títtleiki</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — við áminningum og flótandi kúlum</string>
+    <string name="about_feature_offline">Uttannet-fyrst — kort, Koranin, hadith og adhkar virka uttan internet</string>
+    <string name="about_feature_privacy">Persónligur dátur sum standard — ongar lýsingar, eingin sporing, tíni dátu verða verandi á tínari eind</string>
+    <string name="settings_auto_update">Heilt sjálvvirkandi dagføringar</string>
+    <string name="settings_auto_update_desc">Heinta og seta sjálvvirkandi nýggjar útgávur niður í bakgrundini, so skjótt tær eru útgivnar</string>
+    <string name="settings_auto_update_confirm_title">Virkja sjálvvirkandi dagføringar?</string>
+    <string name="settings_auto_update_confirm_body">Nýggjar útgávur verða heintaðar og settar upp sjálvvirkandi í bakgrundini, tá tær eru tøkar. Halda á fram?</string>
+    <string name="settings_auto_update_confirm">Gera føran fyri</string>
+    <string name="settings_cancel">strika</string>
+    <string name="update_last_check">Seinasta ávísing: %1$s.</string>
+    <string name="update_open_releases">Opna útgávusíðuna í kaganum</string>
 </resources>

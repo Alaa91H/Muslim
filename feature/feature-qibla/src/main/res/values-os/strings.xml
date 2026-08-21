@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Фæзуаты уæрх (градустæ)</string>
     <string name="offline_maps_storage_warning">Нымæцон æвæрæн — æрмæст %1$s æнæаргъ</string>
     <string name="offline_maps_storage_delete_largest">Сæфын стырдæр регион (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Агур мæсгуытæ нæмттæм гæсгæ</string>
+    <string name="mosque_finder_show_all">Æппæт мæзджыттæ дæр равдисын</string>
+    <string name="mosque_finder_share">Гом здæхтытæ</string>
+    <string name="offline_maps_use_my_location">Ацу мæ ныртæккæйы бынатмæ</string>
 </resources>

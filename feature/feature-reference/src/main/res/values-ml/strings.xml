@@ -5,4 +5,6 @@
     <string name="reference_search_hint">ഈ പുസ്തകം തിരയൂ...</string>
     <string name="reference_title">ഇസ്ലാമിക് റഫറൻസ് ലൈബ്രറി</string>
     <string name="reference_topics_count">വിഷയങ്ങൾ</string>
+    <string name="reference_copy">പകർത്തുക</string>
+    <string name="reference_share">പങ്കിടുക</string>
 </resources>

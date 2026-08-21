@@ -38,6 +38,8 @@ class AppPreferencesRepository @Inject constructor(
             hiddenMoreSections = AppPreferences.decodeHiddenSections(prefs[Keys.MORE_SECTION_HIDDEN]),
             updateCheckEnabled = prefs[Keys.UPDATE_CHECK_ENABLED] ?: false,
             updateCheckFrequency = prefs[Keys.UPDATE_CHECK_FREQUENCY] ?: AppPreferences.UPDATE_CHECK_DAILY,
+            autoUpdateEnabled = prefs[Keys.AUTO_UPDATE_ENABLED] ?: false,
+            lastUpdateCheckEpoch = prefs[Keys.LAST_UPDATE_CHECK] ?: 0L,
         )
     }
 
@@ -91,6 +93,16 @@ class AppPreferencesRepository @Inject constructor(
         edit { prefs -> prefs[Keys.UPDATE_CHECK_FREQUENCY] = frequency }
     }
 
+    /** Turns the fully-automatic (Session API) update on/off (off by default). */
+    suspend fun setAutoUpdateEnabled(enabled: Boolean) {
+        edit { prefs -> prefs[Keys.AUTO_UPDATE_ENABLED] = enabled }
+    }
+
+    /** Records the timestamp of the last successful update check. */
+    suspend fun setLastUpdateCheck(epochMillis: Long) {
+        edit { prefs -> prefs[Keys.LAST_UPDATE_CHECK] = epochMillis }
+    }
+
     /** Blocking read of the 24-hour flag, safe for services and widget workers. */
     fun readTimeFormat24hSync(): Boolean =
         timeFormatMirror.getBoolean(Keys.TIME_FORMAT_24H.name, false)
@@ -139,5 +151,7 @@ class AppPreferencesRepository @Inject constructor(
         val MORE_SECTION_HIDDEN = stringPreferencesKey("more_section_hidden")
         val UPDATE_CHECK_ENABLED = booleanPreferencesKey("update_check_enabled")
         val UPDATE_CHECK_FREQUENCY = stringPreferencesKey("update_check_frequency")
+        val AUTO_UPDATE_ENABLED = booleanPreferencesKey("auto_update_enabled")
+        val LAST_UPDATE_CHECK = androidx.datastore.preferences.core.longPreferencesKey("last_update_check")
     }
 }

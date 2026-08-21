@@ -164,4 +164,22 @@
     <string name="update_available_text">संस्करण %1$s अब उपलब्ध छ — अपडेट गर्न ट्याप गर्नुहोस्</string>
     <string name="notif_category_app_update">एप अपडेटहरू</string>
     <string name="notif_category_app_update_desc">नयाँ एप संस्करण उपलब्ध हुँदा सूचना</string>
+    <string name="about_tagline">प्रत्येक मुस्लिमको लागि पूर्ण, नि: शुल्क, खुला स्रोत साथी - प्रार्थना समय, अजान, कुरान, हदीस, अधकार र थप, तपाईंको भाषामा।</string>
+    <string name="about_description_title">मुस्लिम को बारेमा</string>
+    <string name="about_description_body">मुस्लिम एक नि:शुल्क र खुला स्रोत एन्ड्रोइड एप हो जुन तपाईलाई दिनभरि साथ दिन्छ: खगोलीय रूपमा सही प्रार्थना समय अजानको साथ, एक सटीक किब्ला कम्पास, पाठ र ताफसीरको साथ पूरा कुरान, एक हदीस पुस्तकालय, स्रोत अधकार, एक इलेक्ट्रोनिक तस्बिह, रमजान उपकरणहरू, जकात क्यालकुलेटर, नक्साको साथ अधिक बन्द, नक्साको साथमा काम गर्न बन्द। पूर्वनिर्धारित।</string>
+    <string name="about_features_title">हाइलाइटहरू</string>
+    <string name="about_features_body">सबै एक मुस्लिम एक एप मा चाहिन्छ:</string>
+    <string name="about_feature_prayer">प्रार्थना समय र Adhan - सबै गणना विधिहरू, न्यायिक विद्यालयहरू, र 18+ adhan ध्वनिहरू</string>
+    <string name="about_feature_quran">पूरा कुरान - Uthmani लिपि, 44 reciters, tafsir, अनुवाद, शब्द खोज र आवृत्ति</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, रमजान र Zakat - रिमाइन्डर र फ्लोटिंग बुलबुले संग</string>
+    <string name="about_feature_offline">अफलाइन-पहिलो - नक्सा, कुरान, हदीस र अधकार इन्टरनेट बिना काम गर्दछ</string>
+    <string name="about_feature_privacy">पूर्वनिर्धारित रूपमा गोपनीयता - कुनै विज्ञापनहरू छैनन्, कुनै ट्र्याकिङ छैन, तपाईंको डाटा तपाईंको उपकरणमा रहन्छ</string>
+    <string name="settings_auto_update">पूर्ण स्वचालित अपडेटहरू</string>
+    <string name="settings_auto_update_desc">नयाँ संस्करणहरू रिलिज हुने बित्तिकै पृष्ठभूमिमा स्वचालित रूपमा डाउनलोड र स्थापना गर्नुहोस्</string>
+    <string name="settings_auto_update_confirm_title">स्वचालित अपडेट सक्षम गर्ने हो?</string>
+    <string name="settings_auto_update_confirm_body">उपलब्ध हुँदा नयाँ संस्करणहरू पृष्ठभूमिमा स्वचालित रूपमा डाउनलोड र स्थापना हुनेछन्। जारी राख्ने हो?</string>
+    <string name="settings_auto_update_confirm">सक्षम गर्नुहोस्</string>
+    <string name="settings_cancel">रद्द गर्नुहोस्</string>
+    <string name="update_last_check">अन्तिम जाँच: %1$s</string>
+    <string name="update_open_releases">ब्राउजरमा रिलीज पृष्ठ खोल्नुहोस्</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Svæðisbreidd (gráður)</string>
     <string name="offline_maps_storage_warning">Lítið geymslupláss — aðeins %1$s ókeypis</string>
     <string name="offline_maps_storage_delete_largest">Eyða stærsta svæðinu (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Leitaðu að moskum eftir nafni</string>
+    <string name="mosque_finder_show_all">Sýndu allar moskur</string>
+    <string name="mosque_finder_share">Opna leiðarlýsingu</string>
+    <string name="offline_maps_use_my_location">Farðu á núverandi staðsetningu mína</string>
 </resources>

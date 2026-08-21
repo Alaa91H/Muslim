@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">ਪਿਛਲੀ ਆਇਤ</string>
     <string name="quran_range_single_ayah">ਸਿੰਗਲ ਅਯਾਹ</string>
     <string name="quran_range_single_ayah_short">ਅਯਾਹ</string>
-    <string name="quran_range_to_end">ਸੂਰਾ ਦੇ ਅੰਤ ਤੱਕ</string>
+    <string name="quran_range_to_end">ਮੁਸ਼ੱਫ਼ ਦੇ ਅੰਤ ਤੱਕ</string>
     <string name="quran_range_to_end_short">ਖਤਮ ਕਰਨ ਲਈ</string>
     <string name="quran_range_whole_surah">ਪੂਰੀ ਸੂਰਤ</string>
     <string name="quran_range_whole_surah_short">ਸੂਰਾ</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">ਪਾਠ ਕਰਨ ਵਾਲਿਆਂ ਵਿੱਚ ਪੂਰਾ ਮੁਸ਼ੱਫ਼</string>
     <string name="quran_downloads_coverage_empty">ਅਜੇ ਤੱਕ ਕੋਈ ਆਡੀਓ ਡਾਊਨਲੋਡ ਨਹੀਂ ਕੀਤਾ ਗਿਆ</string>
     <string name="quran_pause_notif_listener">ਸੂਚਨਾਵਾਂ \'ਤੇ ਪਾਠ ਨੂੰ ਰੋਕੋ</string>
-    <string name="quran_reciter_changed_title">ਪਾਠਕ ਬਦਲ ਗਿਆ</string>
-    <string name="quran_reciter_changed_message">ਪਲੇਬੈਕ ਬੰਦ ਹੋ ਗਿਆ ਹੈ ਕਿਉਂਕਿ ਸੀਮਾ ਕੁਰਾਨ ਦੇ ਅੰਤ ਤੱਕ ਚਲਦੀ ਹੈ। %1$s ਨਾਲ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੀਏ?</string>
-    <string name="quran_reciter_restart">ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ</string>
-    <string name="quran_reciter_not_now">ਹੁਣ ਨਹੀਂ</string>
+    <string name="quran_search_metrics">ਖੋਜ ਸਮਾਂ: %1$d ms</string>
+    <string name="quran_search_index_building">ਪਹਿਲੀ ਖੋਜ ਲਈ ਕੁਰਾਨ ਇੰਡੈਕਸ ਬਣਾਉਣਾ...</string>
+    <string name="quran_search_index_progress">ਮੁਸ਼ਫ ਇੰਡੈਕਸ ਬਣਾਉਣਾ... %1$d %%</string>
+    <string name="quran_search_word_root">ਰੂਟ: %1$s</string>
+    <string name="quran_search_derivations">ਇੱਕੋ ਜੜ੍ਹ ਤੋਂ ਲਏ ਗਏ ਸ਼ਬਦ</string>
+    <string name="quran_search_no_root">ਜੜ੍ਹ ਦਾ ਪਤਾ ਨਹੀਂ ਲਗਾਇਆ ਜਾ ਸਕਿਆ</string>
 </resources>

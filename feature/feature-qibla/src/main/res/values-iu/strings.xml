@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">ᓄᓇᐅᑉ ᓯᕕᑐᓂᖓ (ᑎᒍᕇᑦ)</string>
     <string name="offline_maps_storage_warning">ᒥᑭᑦᑐᖅ ᑐᖅᑯᐃᕕᒃ — %1$s-ᑐᐃᓐᓇᐃᑦ ᐊᑭᖃᙱᑦᑐᑦ</string>
     <string name="offline_maps_storage_delete_largest">ᐲᕐᓗᒍ ᐊᖏᓛᖑᔪᖅ ᐊᕕᒃᑐᖅᓯᒪᔪᖅ (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">ᕿᓂᕐᓗᑎᑦ ᒨᔅᑭᓂᒃ ᐊᑎᖏᑎᒍᑦ</string>
+    <string name="mosque_finder_show_all">ᑕᑯᒃᓴᐅᑎᑦᑎᓗᑎᑦ ᒪᔅᑭᓕᒫᓂᒃ</string>
+    <string name="mosque_finder_share">ᒪᑐᐃᖓᔪᑦ ᑎᓕᐅᕈᑎᑦ</string>
+    <string name="offline_maps_use_my_location">ᒫᓐᓇᐅᔪᖅ ᐃᓂᒋᔭᕐᓅᕐᓗᑎᑦ</string>
 </resources>

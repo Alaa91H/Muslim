@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Upana wa eneo (digrii)</string>
     <string name="offline_maps_storage_warning">Hifadhi ya chini - %1$s pekee bila malipo</string>
     <string name="offline_maps_storage_delete_largest">Futa eneo kubwa zaidi (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Tafuta misikiti kwa majina</string>
+    <string name="mosque_finder_show_all">Onyesha misikiti yote</string>
+    <string name="mosque_finder_share">Fungua maelekezo</string>
+    <string name="offline_maps_use_my_location">Nenda kwenye eneo langu la sasa</string>
 </resources>

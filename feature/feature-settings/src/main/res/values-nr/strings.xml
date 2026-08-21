@@ -164,4 +164,22 @@
     <string name="update_available_text">Inguqulo %1$s sele iyatholakala — thepha ukubuyekeza</string>
     <string name="notif_category_app_update">Ukubuyekezwa kwe-app</string>
     <string name="notif_category_app_update_desc">Isaziso lokha nakutholakala inguqulo etja yohlelo lokusebenza</string>
+    <string name="about_tagline">Umngani opheleleko, wamahhala, ovulekileko kiwo woke amaSulumane — isikhathi somthandazo, i-Adhan, i-Quran, i-hadith, i-adhkar nokunye, ngelimi lakho.</string>
+    <string name="about_description_title">Mayelana namaSulumane</string>
+    <string name="about_description_body">I-Muslim yi-app ye-Android yamahhala nevulekileko ekuhambisana nawe ilanga loke: isikhathi sokuthandaza esinembileko nge-Adhan, ikhampasi ye-Qibla eqondileko, i-Quran epheleleko enezifundo kanye ne-tafsir, umtapo we-hadith, i-adhkar etholakalako, i-tasbih ye-elekthronikhi, amathulusi we-Ramadan, i-zakat calculator, amamephu angasebenzi ku-inthanethi, nokunye okuklanyelwe ukusebenza ngaphandle kwe-inthanethi ngokuzeleko okuzenzakalelayo.</string>
+    <string name="about_features_title">Amaphuzu aqakathekileko</string>
+    <string name="about_features_body">Konke okudingwa mSulumane kuhlelo lokusebenza olulodwa:</string>
+    <string name="about_feature_prayer">Isikhathi somthandazo ne-Adhan — zoke iindlela zokubala, iinkolo zezomthetho, kanye namatjhada we-adhan ayi-18+</string>
+    <string name="about_feature_quran">I-Quran epheleleko — umtlolo we-Uthmani, abafundi abama-44, i-tafsir, amatjhuguluko, ukusesha amagama nokuvama</string>
+    <string name="about_feature_adhkar">I-Adhkar, i-tasbih, i-Ramadan ne-Zakat — eneenkhumbuzo namabhamuza antantako</string>
+    <string name="about_feature_offline">Offline-first — amabalazwe, i-Quran, i-hadith kanye ne-adhkar zisebenza ngaphandle kwe-inthanethi</string>
+    <string name="about_feature_privacy">Ubumfihlo ngokuzenzakalelayo — akukho zikhangiso, akukho ukulandelela, idatha yakho ihlala kudivayisi yakho</string>
+    <string name="settings_auto_update">Ukubuyekezwa okuzenzakalelako ngokupheleleko</string>
+    <string name="settings_auto_update_desc">Landa ngokuzenzakalelako begodu ufake iinguqulo ezitjha ngemuva msinyana nasele zikhutjhwe</string>
+    <string name="settings_auto_update_confirm_title">Vumela ukubuyekezwa okuzenzakalelayo?</string>
+    <string name="settings_auto_update_confirm_body">Iinguqulo ezitjha zizokulandwa begodu zifakwe ngokuzenzakalelako ngemuva lokha nazikhona. Raga?</string>
+    <string name="settings_auto_update_confirm">Ukukghonakalisa</string>
+    <string name="settings_cancel">Sula</string>
+    <string name="update_last_check">Ukuhlola kokugcina: %1$s</string>
+    <string name="update_open_releases">Vula ikhasi lokukhutjhwa kusiphequluli</string>
 </resources>

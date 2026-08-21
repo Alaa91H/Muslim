@@ -13,6 +13,7 @@
     <string name="hadith_daily_notification_time">Notification time</string>
     <string name="hadith_share">Share</string>
     <string name="hadith_copy">Copy</string>
+    <string name="hadith_copied">Hadith copied</string>
     <string name="hadith_bookmark_add">Add bookmark</string>
     <string name="hadith_bookmark_remove">Remove bookmark</string>
 

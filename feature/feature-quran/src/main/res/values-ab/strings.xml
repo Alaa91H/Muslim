@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Иаԥхьанеиуа аиа</string>
     <string name="quran_range_single_ayah">Аиа заҵә</string>
     <string name="quran_range_single_ayah_short">Аиа</string>
-    <string name="quran_range_to_end">Асура анҵәамҭахь</string>
+    <string name="quran_range_to_end">Мушаф аҵыхәанӡа</string>
     <string name="quran_range_to_end_short">Аҵыхәтәан</string>
     <string name="quran_range_whole_surah">Сура зегьы</string>
     <string name="quran_range_whole_surah_short">Асура</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Аԥхьаҩцәа рыбжьара амушаф иҭәу</string>
     <string name="quran_downloads_coverage_empty">Аудио макьана иҭагалаӡам</string>
     <string name="quran_pause_notif_listener">Ардыррақәа рҿы аԥхьара аанкылара</string>
-    <string name="quran_reciter_changed_title">Ажәаҳәаҩ иԥсахуп</string>
-    <string name="quran_reciter_changed_message">Арҳәара аанкылоуп, избан акәзар адиапазон Аҟәырҟан аҵыхәанӡа инеиуеит. Ҿыц алагара %1$s ала?</string>
-    <string name="quran_reciter_restart">Ҿыц алагара</string>
-    <string name="quran_reciter_not_now">Уажәы акәым</string>
+    <string name="quran_search_metrics">Аԥшаара аамҭа: %1$d мс</string>
+    <string name="quran_search_index_building">Аԥхьатәи аԥшааразы Аҟәырҟан аиндекс аԥҵара...</string>
+    <string name="quran_search_index_progress">Мушаф индекс аргылара... %1$d %%</string>
+    <string name="quran_search_word_root">Ашьаҭа: %1$s</string>
+    <string name="quran_search_derivations">Шьаҭак иахылҿиааз ажәақәа</string>
+    <string name="quran_search_no_root">Ашьаҭа аилкаара ауам</string>
 </resources>

@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Use short adhkar only</string>
     <string name="adhkar_overlay_short_only_desc">Elektu adhkar kiu konvenas unu aŭ du liniojn por ke la flosanta veziko restu klara kaj facile legebla.</string>
     <string name="adhkar_overlay_tap_hint">Frapu la vezikon por forigi ĝin tuj.</string>
+    <string name="adhkar_copied">Dhikr kopiis</string>
+    <string name="adhkar_periodic_dhikr">Specifa dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Hazarda (anstataŭ mana elekto)</string>
 </resources>

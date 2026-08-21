@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Recherchez ce livre…</string>
     <string name="reference_title">Bibliothèque de référence islamique</string>
     <string name="reference_topics_count">sujets</string>
+    <string name="reference_copy">Copier</string>
+    <string name="reference_share">Partager</string>
 </resources>

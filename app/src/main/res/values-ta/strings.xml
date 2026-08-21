@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">அறிவிப்பு, ரிங் அல்லது பிற மீடியா இயங்கும் போது பாராயணம் சிறிது நேரம் இடைநிறுத்தப்படும்</string>
     <string name="more_pause_notifications_enabled">இயக்கப்பட்டது - கணினி அமைப்புகளைத் திறக்க தட்டவும்</string>
     <string name="more_pause_notifications_disabled">முடக்கப்பட்டது - இயக்க தட்டவும்</string>
+    <string name="more_names">அல்லாஹ்வின் 99 பெயர்கள்</string>
+    <string name="more_names_desc">முழு விளக்கத்துடன் 99 பெயர்கள்</string>
+    <string name="more_hajj">ஹஜ் &amp; உம்ரா</string>
+    <string name="more_hajj_desc">ஹஜ் மற்றும் உம்ரா சடங்குகளுக்கான விரிவான வழிகாட்டி</string>
 </resources>

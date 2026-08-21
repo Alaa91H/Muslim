@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Botangi epemaka mwa moke ntango notification, ring to media mosusu ebetaka</string>
     <string name="more_pause_notifications_enabled">Enabled — finá mpo na kofungola ba paramètres ya système</string>
     <string name="more_pause_notifications_disabled">Disabled — finá mpo na kofungola</string>
+    <string name="more_names">99 Bankombo ya Nzambe (Allah).</string>
+    <string name="more_names_desc">Ba kombo 99 na explication mobimba</string>
+    <string name="more_hajj">Hajj &amp; Umrah na mokili mobimba</string>
+    <string name="more_hajj_desc">Motambwisi ya sikisiki mpo na milulu ya Hajj mpe Umrah</string>
 </resources>

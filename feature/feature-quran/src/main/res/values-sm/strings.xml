@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Papa muamua</string>
     <string name="quran_range_single_ayah">Tama nofofua</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">I le faaiuga o le surah</string>
+    <string name="quran_range_to_end">E oo atu i le iuga o Mushaf</string>
     <string name="quran_range_to_end_short">Ia faaiuina</string>
     <string name="quran_range_whole_surah">Surah atoa</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf atoa i le au tauloto</string>
     <string name="quran_downloads_coverage_empty">E le\'i la\'uina mai le leo</string>
     <string name="quran_pause_notif_listener">Taofi le tauloto i fa\'amatalaga</string>
-    <string name="quran_reciter_changed_title">Ua suia le failotu</string>
-    <string name="quran_reciter_changed_message">Na taofi le toe ta\'alo ona o le laina e alu i le pito o le Quran. Toe amata ile %1$s?</string>
-    <string name="quran_reciter_restart">Toe amata</string>
-    <string name="quran_reciter_not_now">E le o le taimi nei</string>
+    <string name="quran_search_metrics">Taimi su\'esu\'e: %1$d ms</string>
+    <string name="quran_search_index_building">Fausia le fa\'ailoga Quran mo le su\'esu\'ega muamua...</string>
+    <string name="quran_search_index_progress">Fausiaina o le mushaf index… %1$d %%</string>
+    <string name="quran_search_word_root">A\'a: %1$s</string>
+    <string name="quran_search_derivations">O upu e maua mai i le a\'a e tasi</string>
+    <string name="quran_search_no_root">Le mafai ona iloa le a\'a</string>
 </resources>

@@ -24,4 +24,5 @@
     <string name="hadith_share">Na\'i</string>
     <string name="hadith_title">Hadith Library</string>
     <string name="hadith_copy">Kopia</string>
+    <string name="hadith_copied">Ma kopia i Hadith</string>
 </resources>

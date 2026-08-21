@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Brûk allinich koarte adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Kies adhkar dy\'t passe by ien of twa rigels, sadat de driuwende bel dúdlik en maklik te lêzen bliuwt.</string>
     <string name="adhkar_overlay_tap_hint">Tik op de bubbel om it direkt te ûntslaan.</string>
+    <string name="adhkar_copied">Dhikr kopiearre</string>
+    <string name="adhkar_periodic_dhikr">Spesifike dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Willekeurich (ynstee fan hantlieding)</string>
 </resources>

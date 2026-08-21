@@ -41,4 +41,22 @@
     <string name="update_available_text">ווערסיע %1$s איז איצט בנימצא - צאַפּן צו דערהייַנטיקן</string>
     <string name="notif_category_app_update">אַפּ דערהייַנטיקונגען</string>
     <string name="notif_category_app_update_desc">אָנזאָג ווען אַ נייַע אַפּ ווערסיע איז בארעכטיגט</string>
+    <string name="about_tagline">א פולשטענדיק, פריי, אָפֿן מקור באַגלייטער פֿאַר יעדער מוסלים - תפילה צייט, אַדהאַן, קווראַן, האַדיטה, אַדהקאַר און מער, אין דיין שפּראַך.</string>
+    <string name="about_description_title">וועגן מוסלים</string>
+    <string name="about_description_body">מוסלים איז אַ פריי און אָפֿן-מקור אַנדרויד אַפּ וואָס אַקאַמפּאַניז איר איבער דעם טאָג: אַסטראַנאַמיקלי פּינטלעך תפילה צייט מיט די אַדהאַן, אַ גענוי קיבלאַ קאָמפּאַס, די גאַנץ קאָראַן מיט רעסיטיישאַנז און טאַפסיר, אַ האַדיטה ביבליאָטעק, אַדהקאַר, אַן עלעקטראָניש טאַסביה, ראַמאַדאַן מכשירים, אַ זאַקאַט קאַלקולאַטאָר, אָפפלינע אָפפלינע מאַפּס צו אַרבעטן, און מער.</string>
+    <string name="about_features_title">כיילייץ</string>
+    <string name="about_features_body">אַלץ וואָס אַ מוסלים דאַרף אין איין אַפּ:</string>
+    <string name="about_feature_prayer">תפילה צייט און אַדהאַן - אַלע כעזשבן מעטהאָדס, דזשויסטיק שולן און 18+ אַדהאַן סאָונדס</string>
+    <string name="about_feature_quran">גאַנץ קאָראַן - Uthman שריפט, 44 רעסיטערס, טאַפסיר, איבערזעצונגען, וואָרט זוכן און אָפטקייַט</string>
+    <string name="about_feature_adhkar">אַדהקאַר, טאַסביה, ראַמאַדאַן און זאַקאַט - מיט רימיינדערז און פלאָוטינג באַבאַלז</string>
+    <string name="about_feature_offline">אָפפלינע ערשטער - מאַפּס, קווראַן, האַדיטה און אַדהקאַר אַרבעט אָן אינטערנעט</string>
+    <string name="about_feature_privacy">פּריוואַטקייט דורך פעליקייַט - קיין אַדס, קיין טראַקינג, דיין דאַטן סטייז אויף דיין מיטל</string>
+    <string name="settings_auto_update">גאָר אָטאַמאַטיק דערהייַנטיקונגען</string>
+    <string name="settings_auto_update_desc">אויטאָמאַטיש אראפקאפיע און ינסטאַלירן נייַ ווערסיעס אין דער הינטערגרונט ווי באַלד ווי זיי זענען פריי</string>
+    <string name="settings_auto_update_confirm_title">געבן אָטאַמאַטיק דערהייַנטיקונגען?</string>
+    <string name="settings_auto_update_confirm_body">נייַ ווערסיעס וועט זיין דאַונלאָודיד און אינסטאַלירן אויטאָמאַטיש אין דער הינטערגרונט ווען בנימצא. פאָרזעצן?</string>
+    <string name="settings_auto_update_confirm">געבן</string>
+    <string name="settings_cancel">באָטל מאַכן</string>
+    <string name="update_last_check">לעצטע טשעק: %1$s</string>
+    <string name="update_open_releases">עפענען די ריליסיז בלאַט אין דעם בלעטערער</string>
 </resources>

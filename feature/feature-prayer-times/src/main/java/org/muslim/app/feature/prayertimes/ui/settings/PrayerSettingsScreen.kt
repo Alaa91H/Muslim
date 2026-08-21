@@ -126,6 +126,19 @@ fun PrayerSettingsScreen(
             onAutomatic = viewModel::setMethodAutomatic,
             onSelected = viewModel::setMethod,
         )
+        val autoInfo by viewModel.autoMethodInfo.collectAsStateWithLifecycle()
+        if (!settings.methodChosenManually && autoInfo != null) {
+            Text(
+                text = stringResource(
+                    R.string.settings_method_automatic_picked,
+                    stringResource(methodLabelRes(autoInfo!!.method)),
+                    autoInfo!!.country,
+                ),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(start = 4.dp, top = 4.dp, end = 4.dp),
+            )
+        }
         if (settings.method == CalculationMethod.Custom && settings.methodChosenManually) {
             CustomAngles(settings, viewModel)
         }
@@ -250,7 +263,8 @@ fun PrayerSettingsScreen(
                 ),
                 volume = settings.adhanVolumeFor(prayer),
                 vibrate = settings.vibrateFor(prayer),
-                onPreview = { viewModel.previewBundled(prayer, it) },
+                onPreview = { sound, vol -> viewModel.previewBundled(prayer, sound, vol) },
+                onLiveVolume = viewModel::setLivePreviewVolume,
                 onDismiss = {
                     viewModel.stopPreview()
                     customizingPrayer = null
@@ -635,7 +649,8 @@ private fun AdhanCustomizeDialog(
     sound: BundledAdhanSound,
     volume: Int,
     vibrate: Boolean,
-    onPreview: (BundledAdhanSound) -> Unit,
+    onPreview: (BundledAdhanSound, Int) -> Unit,
+    onLiveVolume: (Int) -> Unit,
     onDismiss: () -> Unit,
     onConfirm: (AdhanSoundOption, BundledAdhanSound, Int, Boolean) -> Unit,
 ) {
@@ -673,7 +688,7 @@ private fun AdhanCustomizeDialog(
                             .fillMaxWidth()
                             .clickable {
                                 chosenSound = entry
-                                onPreview(entry)
+                                onPreview(entry, chosenVolume)
                             }
                             .padding(vertical = 2.dp),
                         verticalAlignment = Alignment.CenterVertically,
@@ -682,7 +697,7 @@ private fun AdhanCustomizeDialog(
                             selected = chosenSound == entry,
                             onClick = {
                                 chosenSound = entry
-                                onPreview(entry)
+                                onPreview(entry, chosenVolume)
                             },
                         )
                         Text(
@@ -690,7 +705,7 @@ private fun AdhanCustomizeDialog(
                             style = MaterialTheme.typography.bodyMedium,
                             modifier = Modifier.weight(1f),
                         )
-                        IconButton(onClick = { onPreview(entry) }) {
+                        IconButton(onClick = { onPreview(entry, chosenVolume) }) {
                             Icon(
                                 imageVector = Icons.Filled.PlayArrow,
                                 contentDescription = stringResource(R.string.settings_listen),
@@ -699,7 +714,16 @@ private fun AdhanCustomizeDialog(
                     }
                 }
                 Spacer(Modifier.height(8.dp))
-                VolumeRow(volume = chosenVolume, onChanged = { chosenVolume = it })
+                VolumeRow(
+                    volume = chosenVolume,
+                    onChanged = { chosenVolume = it },
+                    // Preview instantly at the chosen level so the volume
+                    // slider is audible while adjusting; also push the new
+                    // level into the playing player so the change is heard
+                    // without restarting the preview.
+                    onPreview = { onPreview(chosenSound, chosenVolume) },
+                    onLiveVolume = onLiveVolume,
+                )
                 SwitchRow(
                     label = stringResource(R.string.settings_vibrate),
                     checked = chosenVibrate,
@@ -739,7 +763,6 @@ private fun bundledSoundLabelRes(sound: BundledAdhanSound): Int = when (sound) {
     BundledAdhanSound.Saber -> R.string.bundled_adhan_saber
     BundledAdhanSound.SharifDoman -> R.string.bundled_adhan_sharif_doman
     BundledAdhanSound.YusufIslam -> R.string.bundled_adhan_yusuf_islam
-    BundledAdhanSound.UmayyadDamascus -> R.string.bundled_adhan_umayyad_damascus
 }
 
 @Composable
@@ -750,7 +773,12 @@ private fun adhanOptionLabelRes(option: AdhanSoundOption): Int = when (option) {
 }
 
 @Composable
-private fun VolumeRow(volume: Int, onChanged: (Int) -> Unit) {
+private fun VolumeRow(
+    volume: Int,
+    onChanged: (Int) -> Unit,
+    onPreview: () -> Unit,
+    onLiveVolume: (Int) -> Unit,
+) {
     Row(
         modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -768,7 +796,14 @@ private fun VolumeRow(volume: Int, onChanged: (Int) -> Unit) {
     }
     Slider(
         value = volume.toFloat(),
-        onValueChange = { onChanged(it.toInt()) },
+        onValueChange = {
+            val v = it.toInt()
+            onChanged(v)
+            // Live-update the playing preview so the user hears the change
+            // immediately instead of waiting for the slider release.
+            onLiveVolume(v)
+        },
+        onValueChangeFinished = onPreview,
         valueRange = 0f..100f,
         modifier = Modifier.fillMaxWidth(),
     )

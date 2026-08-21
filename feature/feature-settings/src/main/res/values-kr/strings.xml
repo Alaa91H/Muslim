@@ -164,4 +164,22 @@
     <string name="update_available_text">Jili %1$s kərmadə mbeji — tapne bəlintəro</string>
     <string name="notif_category_app_update">App bǝlintǝgǝ</string>
     <string name="notif_category_app_update_desc">Warmatǝgǝ sa app bǝlin mbejiro waljiya</string>
+    <string name="about_tagline">Musulumma wosoro awo kamil, kəlanzəlaro, suro salaben — loktu salabe, Adhan, Quran, hadith, adhkar-a gadeso-a, təlamnəmlan.</string>
+    <string name="about_description_title">Kǝla Musulummaben</string>
+    <string name="about_description_body">Muslimdə app Androidbe kəske kuru kaata shidoni nyiga yim sammason zorjinma: loktu salabe kalkal kəla Adhanben, komfas Qiblabe kalkal, Alquran sammaso kəra-a tafsir-a, na kərabe hadithbe-a, adhkar-a, tasbih lantarkiye-a, karewa cidabe Ramadanbe-a, kalkəletəram zakatbe sammaso-a — tawadǝ ba.</string>
+    <string name="about_features_title">Hangal gənatəgə</string>
+    <string name="about_features_body">Abiso musləmmaye məradənzə app fallan:</string>
+    <string name="about_feature_prayer">Loktu salabe-a Adhan-a — duluwuwa isawube sammaso, mowontiya sharabe-a, kuru kowo adhanbe 18+-a</string>
+    <string name="about_feature_quran">Quran sammaso — Ruwo Uthmanibe, kərawu 44, tafsir, fasari, kalma kulastə-a nəmngəwu-a</string>
+    <string name="about_feature_adhkar">Adhkar-a, tasbih-a, Ramadan-a Zakat-a — taktəwa-a kuru bunduwu-a</string>
+    <string name="about_feature_offline">Offline-buro salakkin — taswirawa, Alquran-a, hadith-a adhkar-a cida intanet baro</string>
+    <string name="about_feature_privacy">Nǝmkam sirribe — ads ba, tracking ba, bayannanǝmdǝ kǝla nauranǝmben dajin</string>
+    <string name="settings_auto_update">Cotto otomatikro bǝlintǝyin</string>
+    <string name="settings_auto_update_desc">Otomatikro download diwo kuru install diwo bəlin ngawodən loktu sandiya kwaltiyinna</string>
+    <string name="settings_auto_update_confirm_title">Bǝlintǝ kǝlanzǝn sǝdinna?</string>
+    <string name="settings_auto_update_confirm_body">Versions bəlin sodə sakəna kuru kəlanzəlaro ngawodən təkkin loktu mbejiro waljiya. Gowom kone?</string>
+    <string name="settings_auto_update_confirm">Raktəgə</string>
+    <string name="settings_cancel">Dawartə</string>
+    <string name="update_last_check">Kulashi dareye: %1$s</string>
+    <string name="update_open_releases">Warak do browser lan tuwandin dəga katə</string>
 </resources>

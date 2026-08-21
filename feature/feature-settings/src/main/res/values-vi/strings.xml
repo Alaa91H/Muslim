@@ -164,4 +164,22 @@
     <string name="update_available_text">Hiện đã có phiên bản %1$s — nhấn để cập nhật</string>
     <string name="notif_category_app_update">Cập nhật ứng dụng</string>
     <string name="notif_category_app_update_desc">Thông báo khi có phiên bản ứng dụng mới</string>
+    <string name="about_tagline">Một người bạn đồng hành mã nguồn mở, hoàn chỉnh, miễn phí dành cho mọi người Hồi giáo - thời gian cầu nguyện, Adhan, Kinh Qur\'an, hadith, adhkar và hơn thế nữa, bằng ngôn ngữ của bạn.</string>
+    <string name="about_description_title">Về người Hồi giáo</string>
+    <string name="about_description_body">Muslim là ứng dụng Android mã nguồn mở và miễn phí đồng hành cùng bạn suốt cả ngày: thời gian cầu nguyện chính xác về mặt thiên văn với Adhan, la bàn Qibla chính xác, Kinh Qur\'an hoàn chỉnh với các bài tụng và tafsir, thư viện hadith, adhkar có nguồn gốc, tasbih điện tử, công cụ Ramadan, máy tính zakat, bản đồ ngoại tuyến, v.v. — được thiết kế để hoạt động hoàn toàn ngoại tuyến với quyền riêng tư theo mặc định.</string>
+    <string name="about_features_title">Điểm nổi bật</string>
+    <string name="about_features_body">Mọi thứ người Hồi giáo cần trong một ứng dụng:</string>
+    <string name="about_feature_prayer">Thời gian cầu nguyện &amp; Adhan - tất cả các phương pháp tính toán, trường phái luật pháp và hơn 18 âm thanh adhan</string>
+    <string name="about_feature_quran">Kinh Qur\'an hoàn chỉnh - Tập lệnh Uthmani, 44 người đọc, tafsir, bản dịch, tìm kiếm từ và tần số</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — với lời nhắc và bong bóng nổi</string>
+    <string name="about_feature_offline">Ngoại tuyến đầu tiên - bản đồ, Kinh Qur\'an, hadith và adhkar hoạt động mà không cần internet</string>
+    <string name="about_feature_privacy">Quyền riêng tư theo mặc định — không có quảng cáo, không theo dõi, dữ liệu của bạn vẫn ở trên thiết bị của bạn</string>
+    <string name="settings_auto_update">Cập nhật hoàn toàn tự động</string>
+    <string name="settings_auto_update_desc">Tự động tải xuống và cài đặt các phiên bản mới trong nền ngay khi chúng được phát hành</string>
+    <string name="settings_auto_update_confirm_title">Bật cập nhật tự động?</string>
+    <string name="settings_auto_update_confirm_body">Các phiên bản mới sẽ được tải xuống và cài đặt tự động ở chế độ nền khi có sẵn. Tiếp tục?</string>
+    <string name="settings_auto_update_confirm">Cho phép</string>
+    <string name="settings_cancel">Hủy bỏ</string>
+    <string name="update_last_check">Kiểm tra lần cuối: %1$s</string>
+    <string name="update_open_releases">Mở trang phát hành trong trình duyệt</string>
 </resources>

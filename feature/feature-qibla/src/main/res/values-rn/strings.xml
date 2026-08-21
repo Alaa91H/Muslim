@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Ubwaguke bw\'ahantu (degre)</string>
     <string name="offline_maps_storage_warning">Ububiko buke — %1$s gusa ku buntu</string>
     <string name="offline_maps_storage_delete_largest">Gukuraho akarere kanini (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Rondera imisigiti mu mazina</string>
+    <string name="mosque_finder_show_all">Erekana imisigiti yose</string>
+    <string name="mosque_finder_share">Gufungura amabwirizwa</string>
+    <string name="offline_maps_use_my_location">Genda aho ndi ubu</string>
 </resources>

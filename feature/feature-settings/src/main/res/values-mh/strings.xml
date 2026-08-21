@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s ej bed kiiō — jibwe ñan kōkāāl</string>
     <string name="notif_category_app_update">App update ko</string>
     <string name="notif_category_app_update_desc">Kōjjelā ñe ewōr juon version ekāāl an app eo</string>
+    <string name="about_tagline">Juon kein jerbal eo eweppān, ejelok wōnāān, im ewōr an maroñ ñan kajjojo Muslim — ien jar, Adhan, Quran, hadith, adhkar im elaplok, ilo kajin eo am.</string>
+    <string name="about_description_title">Kin Muslim</string>
+    <string name="about_description_body">Muslim ej juon Android app eo ejjelok wōnāān im ej jerbal ibben yuk ilo aolepen raan eo: ien jar ko rejejjet ilo Adhan eo, juon Qibla compass eo ejimwe, Quran eo eobrak kin recitation ko im tafsir ko, juon library in hadith, adhkar eo ej itok jen e, juon electronic tasbih, kein jerbal ko an Ramadan, juon zakat calculator, offline map ko, im elaplok ñan jerbal ilo offline offline default.</string>
+    <string name="about_features_title">Men ko relap</string>
+    <string name="about_features_body">Aolep men ko juon Muslim ej aikuji ilo juon wōt app:</string>
+    <string name="about_feature_prayer">Iien jar im Adhan — aolep wewein kalōk, jikuul in kien, im 18+ ainikien adhan</string>
+    <string name="about_feature_quran">Quran eo eobrak — Uthmani script, 44 ri riit ro, tafsir, ukok ko, pukōt naan ko im joñan an walok</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — ippāñ kakeememej ko im bubble ko rej ettōr</string>
+    <string name="about_feature_offline">Offline-first — map ko, Quran, hadith im adhkar rej jerbal ilo ejelok internet</string>
+    <string name="about_feature_privacy">Privacy by default — ejelok ads, ejelok tracking, data ko am rej bed wot ilo device eo am</string>
+    <string name="settings_auto_update">Kōkāāl ko rej make wōt</string>
+    <string name="settings_auto_update_desc">Ej make bōk im likit version ko rekãl ilo background eo ñe rej walok</string>
+    <string name="settings_auto_update_confirm_title">Kōmman bwe en maroñ in kōkāāl ko rej make walok?</string>
+    <string name="settings_auto_update_confirm_body">Version ko rekãl renaj download im install make ilo background ñe rej bed. Woñmaanlok?</string>
+    <string name="settings_auto_update_confirm">Kōmaron</string>
+    <string name="settings_cancel">Jolok</string>
+    <string name="update_last_check">Lale eo eliktata: %1$s</string>
+    <string name="update_open_releases">Kōpellok peij in kōtlok ko ilo browser eo</string>
 </resources>

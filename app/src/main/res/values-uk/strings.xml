@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Декламація на короткий час призупиняється, коли відтворюється сповіщення, дзвінок або інший медіафайл</string>
     <string name="more_pause_notifications_enabled">Увімкнено — торкніться, щоб відкрити налаштування системи</string>
     <string name="more_pause_notifications_disabled">Вимкнено — торкніться, щоб увімкнути</string>
+    <string name="more_names">99 Імен Аллаха</string>
+    <string name="more_names_desc">99 імен з повним поясненням</string>
+    <string name="more_hajj">Хадж і умра</string>
+    <string name="more_hajj_desc">Детальний посібник з обрядів хаджу та умри</string>
 </resources>

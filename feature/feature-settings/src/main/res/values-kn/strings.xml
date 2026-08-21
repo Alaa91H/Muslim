@@ -164,4 +164,22 @@
     <string name="update_available_text">ಆವೃತ್ತಿ %1$s ಈಗ ಲಭ್ಯವಿದೆ — ನವೀಕರಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <string name="notif_category_app_update">ಅಪ್ಲಿಕೇಶನ್ ನವೀಕರಣಗಳು</string>
     <string name="notif_category_app_update_desc">ಹೊಸ ಅಪ್ಲಿಕೇಶನ್ ಆವೃತ್ತಿಯು ಲಭ್ಯವಿದ್ದಾಗ ಅಧಿಸೂಚನೆ</string>
+    <string name="about_tagline">ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ ಪ್ರಾರ್ಥನೆ ಸಮಯಗಳು, ಅಧಾನ್, ಖುರಾನ್, ಹದೀಸ್, ಅಧ್ಕರ್ ಮತ್ತು ಹೆಚ್ಚಿನವು - ಪ್ರತಿಯೊಬ್ಬ ಮುಸಲ್ಮಾನರಿಗೂ ಸಂಪೂರ್ಣ, ಉಚಿತ, ಮುಕ್ತ-ಮೂಲ ಒಡನಾಡಿ.</string>
+    <string name="about_description_title">ಮುಸ್ಲಿಂ ಬಗ್ಗೆ</string>
+    <string name="about_description_body">ಮುಸ್ಲಿಂ ಎಂಬುದು ಉಚಿತ ಮತ್ತು ಮುಕ್ತ-ಮೂಲ ಆಂಡ್ರಾಯ್ಡ್ ಅಪ್ಲಿಕೇಶನ್‌ ಆಗಿದ್ದು ಅದು ದಿನವಿಡೀ ನಿಮ್ಮೊಂದಿಗೆ ಇರುತ್ತದೆ: ಖಗೋಳಶಾಸ್ತ್ರದ ನಿಖರವಾದ ಪ್ರಾರ್ಥನೆ ಸಮಯಗಳು ಅಧಾನ್, ನಿಖರವಾದ ಕಿಬ್ಲಾ ದಿಕ್ಸೂಚಿ, ಸಂಪೂರ್ಣ ಖುರಾನ್ ಪಠಣಗಳು ಮತ್ತು ತಫ್ಸಿರ್, ಹದೀಸ್ ಲೈಬ್ರರಿ, ಮೂಲ ಅಧ್ಕರ್, ಎಲೆಕ್ಟ್ರಾನಿಕ್ ತಸ್ಬಿಹ್, ರಂಜಾನ್ ಪರಿಕರಗಳು, ಝಕಾತ್ ಕ್ಯಾಲ್ಕುಲೇಟರ್, ಆಫ್‌ಲೈನ್ ಮ್ಯಾಪ್‌ಗಳೊಂದಿಗೆ ಉತ್ತಮವಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ.</string>
+    <string name="about_features_title">ಮುಖ್ಯಾಂಶಗಳು</string>
+    <string name="about_features_body">ಒಂದೇ ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ಮುಸ್ಲಿಮರಿಗೆ ಅಗತ್ಯವಿರುವ ಎಲ್ಲವೂ:</string>
+    <string name="about_feature_prayer">ಪ್ರಾರ್ಥನಾ ಸಮಯಗಳು ಮತ್ತು ಅಧಾನ್ - ಎಲ್ಲಾ ಲೆಕ್ಕಾಚಾರದ ವಿಧಾನಗಳು, ನ್ಯಾಯಶಾಸ್ತ್ರದ ಶಾಲೆಗಳು ಮತ್ತು 18+ ಅಧಾನ್ ಶಬ್ದಗಳು</string>
+    <string name="about_feature_quran">ಸಂಪೂರ್ಣ ಖುರಾನ್ - ಉತ್ಮಾನಿ ಲಿಪಿ, 44 ವಾಚನಕಾರರು, ತಫ್ಸಿರ್, ಅನುವಾದಗಳು, ಪದ ಹುಡುಕಾಟ ಮತ್ತು ಆವರ್ತನ</string>
+    <string name="about_feature_adhkar">ಅಧ್ಕಾರ್, ತಸ್ಬಿಹ್, ರಂಜಾನ್ ಮತ್ತು ಝಕಾತ್ - ಜ್ಞಾಪನೆಗಳು ಮತ್ತು ತೇಲುವ ಗುಳ್ಳೆಗಳೊಂದಿಗೆ</string>
+    <string name="about_feature_offline">ಆಫ್‌ಲೈನ್-ಮೊದಲನೆಯದು - ನಕ್ಷೆಗಳು, ಕುರಾನ್, ಹದೀಸ್ ಮತ್ತು ಅಧ್ಕರ್ ಇಂಟರ್ನೆಟ್ ಇಲ್ಲದೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ</string>
+    <string name="about_feature_privacy">ಪೂರ್ವನಿಯೋಜಿತವಾಗಿ ಗೌಪ್ಯತೆ - ಜಾಹೀರಾತುಗಳಿಲ್ಲ, ಟ್ರ್ಯಾಕಿಂಗ್ ಇಲ್ಲ, ನಿಮ್ಮ ಡೇಟಾ ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಉಳಿಯುತ್ತದೆ</string>
+    <string name="settings_auto_update">ಸಂಪೂರ್ಣ ಸ್ವಯಂಚಾಲಿತ ನವೀಕರಣಗಳು</string>
+    <string name="settings_auto_update_desc">ಹೊಸ ಆವೃತ್ತಿಗಳು ಬಿಡುಗಡೆಯಾದ ತಕ್ಷಣ ಹಿನ್ನೆಲೆಯಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ ಮತ್ತು ಸ್ಥಾಪಿಸಿ</string>
+    <string name="settings_auto_update_confirm_title">ಸ್ವಯಂಚಾಲಿತ ನವೀಕರಣಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುವುದೇ?</string>
+    <string name="settings_auto_update_confirm_body">ಹೊಸ ಆವೃತ್ತಿಗಳು ಲಭ್ಯವಿದ್ದಾಗ ಹಿನ್ನೆಲೆಯಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಡೌನ್‌ಲೋಡ್ ಆಗುತ್ತವೆ ಮತ್ತು ಸ್ಥಾಪಿಸಲ್ಪಡುತ್ತವೆ. ಮುಂದುವರಿಸುವುದೇ?</string>
+    <string name="settings_auto_update_confirm">ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
+    <string name="settings_cancel">ರದ್ದುಮಾಡಿ</string>
+    <string name="update_last_check">ಕೊನೆಯ ಪರಿಶೀಲನೆ: %1$s</string>
+    <string name="update_open_releases">ಬ್ರೌಸರ್‌ನಲ್ಲಿ ಬಿಡುಗಡೆಗಳ ಪುಟವನ್ನು ತೆರೆಯಿರಿ</string>
 </resources>

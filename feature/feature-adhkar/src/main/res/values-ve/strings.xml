@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Shumisani adhkar pfufhi fhedzi .</string>
     <string name="adhkar_overlay_short_only_desc">Khethani adhkar ine ya lingana na mutevhe muthihi kana mivhili uri bubble ḽine ḽa khou papamala ḽi dzule ḽi khagala nahone ḽi tshi leluwa u ḽi vhala.</string>
     <string name="adhkar_overlay_tap_hint">Tap bubble u itela u i bvisa nga u ṱavhanya.</string>
+    <string name="adhkar_copied">Dhikr o kopolola</string>
+    <string name="adhkar_periodic_dhikr">Dzikr yo khetheaho</string>
+    <string name="adhkar_periodic_dhikr_random">Random (nṱhani ha u nanga nga zwanḓa)</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Wacan mandheg sedhela nalika ana kabar, dering utawa media liyane diputer</string>
     <string name="more_pause_notifications_enabled">Diaktifake - tutul kanggo mbukak setelan sistem</string>
     <string name="more_pause_notifications_disabled">Dipateni - tutul kanggo ngaktifake</string>
+    <string name="more_names">99 Asmaning Allah</string>
+    <string name="more_names_desc">99 jeneng kanthi panjelasan lengkap</string>
+    <string name="more_hajj">Haji &amp; Umroh</string>
+    <string name="more_hajj_desc">Pandhuan rinci babagan upacara Haji lan Umrah</string>
 </resources>

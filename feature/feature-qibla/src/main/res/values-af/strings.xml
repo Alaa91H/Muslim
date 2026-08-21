@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Gebiedwydte (grade)</string>
     <string name="offline_maps_storage_warning">Lae berging - slegs %1$s gratis</string>
     <string name="offline_maps_storage_delete_largest">Vee grootste streek uit (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Soek moskees op naam</string>
+    <string name="mosque_finder_show_all">Wys alle moskees</string>
+    <string name="mosque_finder_share">Maak aanwysings oop</string>
+    <string name="offline_maps_use_my_location">Gaan na my huidige ligging</string>
 </resources>

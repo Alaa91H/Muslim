@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Recytacja zatrzymuje się na chwilę, gdy odtwarzane jest powiadomienie, dzwonek lub inny plik multimedialny</string>
     <string name="more_pause_notifications_enabled">Włączone — dotknij, aby otworzyć ustawienia systemu</string>
     <string name="more_pause_notifications_disabled">Wyłączone — dotknij, aby włączyć</string>
+    <string name="more_names">99 imion Allaha</string>
+    <string name="more_names_desc">99 nazw z pełnym wyjaśnieniem</string>
+    <string name="more_hajj">Hadżdż i Umra</string>
+    <string name="more_hajj_desc">Szczegółowy przewodnik po rytuałach Hadżdż i Umrah</string>
 </resources>

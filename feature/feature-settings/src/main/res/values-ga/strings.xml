@@ -164,4 +164,22 @@
     <string name="update_available_text">Tá leagan %1$s ar fáil anois - tapáil chun é a nuashonrú</string>
     <string name="notif_category_app_update">Nuashonruithe app</string>
     <string name="notif_category_app_update_desc">Fógra nuair a bhíonn leagan nua den aip ar fáil</string>
+    <string name="about_tagline">Compánach iomlán, saor in aisce, foinse oscailte do gach Moslamach - amanna urnaí, Adhan, Quran, Hadith, adhkar agus níos mó, i do theanga.</string>
+    <string name="about_description_title">Maidir Moslamach</string>
+    <string name="about_description_body">Is feidhmchlár Android saor in aisce agus foinse oscailte é Muslim a théann leat i rith an lae: amanna urnaí cruinn réalteolaíoch leis an Adhan, compás beacht Qibla, an Quran iomlán le aithris agus tafsir, leabharlann Hadith, adhkar le foinsí, tasbih leictreonach, uirlisí Ramadan, áireamhán zakat, léarscáileanna as líne, agus níos mó - deartha chun oibriú go hiomlán as líne le príobháideacht de réir réamhshocraithe.</string>
+    <string name="about_features_title">Buaicphointí</string>
+    <string name="about_features_body">Gach rud a theastaíonn ó Mhuslamach in aon aip amháin:</string>
+    <string name="about_feature_prayer">Amanna urnaí &amp; Adhan - gach modh ríofa, scoileanna dlíthiúla, agus fuaimeanna adhan 18+</string>
+    <string name="about_feature_quran">Comhlánaigh Quran - script Uthmani, 44 aithriseoir, tafsir, aistriúcháin, cuardach focal &amp; minicíocht</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat - le meabhrúcháin agus boilgeoga ar snámh</string>
+    <string name="about_feature_offline">As líne ar dtús - oibríonn léarscáileanna, Quran, Hadith agus adhkar gan aon idirlíon</string>
+    <string name="about_feature_privacy">Príobháideacht de réir réamhshocraithe - gan aon fhógraí, gan aon rianú, fanann do shonraí ar do ghléas</string>
+    <string name="settings_auto_update">Nuashonruithe go hiomlán uathoibríoch</string>
+    <string name="settings_auto_update_desc">Íoslódáil agus suiteáil leaganacha nua go huathoibríoch sa chúlra chomh luath agus a scaoiltear iad</string>
+    <string name="settings_auto_update_confirm_title">Cumasaigh nuashonruithe uathoibríocha?</string>
+    <string name="settings_auto_update_confirm_body">Déanfar leaganacha nua a íoslódáil agus a shuiteáil go huathoibríoch sa chúlra nuair a bheidh siad ar fáil. Lean ort?</string>
+    <string name="settings_auto_update_confirm">Cumasaigh</string>
+    <string name="settings_cancel">Cealaigh</string>
+    <string name="update_last_check">Seiceáil dheireanach: %1$s</string>
+    <string name="update_open_releases">Oscail an leathanach eisiúintí sa bhrabhsálaí</string>
 </resources>

@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Ohcat dán girjji...</string>
     <string name="reference_title">Islamlaš referánsagirjerádju</string>
     <string name="reference_topics_count">fáttát</string>
+    <string name="reference_copy">Kopiere</string>
+    <string name="reference_share">Juogat</string>
 </resources>

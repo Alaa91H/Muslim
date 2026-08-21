@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Nag\'shbandiy azon</string>
     <string name="bundled_adhan_saber">Sabir azon</string>
     <string name="bundled_adhan_sharif_doman">Sharif Do\'mon azon</string>
-    <string name="bundled_adhan_umayyad_damascus">Umaviylar masjidi (Damashq) azon</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islom azon</string>
     <string name="home_cannot_compute">Bu kun uchun vaqtni hisoblab bo\'lmadi</string>
     <string name="home_location_unknown">Joylashuv hali sozlanmagan</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Avtomatik (joylashuv bo\'yicha)</string>
     <string name="settings_method_automatic_desc">Ilova mamlakatingiz va joylashuvingiz asosida avtomatik ravishda eng mos usulni tanlaydi; siz hali ham istalgan vaqtda usulni qo\'lda tanlashingiz mumkin.</string>
     <string name="settings_preview_for_prayer">%1$s azonni oldindan koʻrish</string>
+    <string name="settings_method_automatic_picked">Avtomatik tanlangan: %1$s — %2$s</string>
 </resources>

@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Bu kitabı axtarın...</string>
     <string name="reference_title">İslam İstinad Kitabxanası</string>
     <string name="reference_topics_count">mövzular</string>
+    <string name="reference_copy">Kopyalayın</string>
+    <string name="reference_share">Paylaşın</string>
 </resources>

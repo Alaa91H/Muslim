@@ -164,4 +164,22 @@
     <string name="update_available_text">Útgáfa %1$s er nú fáanleg — pikkaðu til að uppfæra</string>
     <string name="notif_category_app_update">App uppfærslur</string>
     <string name="notif_category_app_update_desc">Tilkynning þegar ný app útgáfa er fáanleg</string>
+    <string name="about_tagline">Fullkominn, ókeypis, opinn félagi fyrir alla múslima - bænastundir, Adhan, Kóraninn, hadith, adhkar og fleira, á þínu tungumáli.</string>
+    <string name="about_description_title">Um múslima</string>
+    <string name="about_description_body">Muslim er ókeypis og opinn Android app sem fylgir þér allan daginn: stjarnfræðilega nákvæmar bænastundir með Adhan, nákvæman Qibla áttavita, heill Kóraninn með upplestri og tafsir, hadith bókasafn, uppspretta adhkar, rafræn tasbih, Ramadan verkfæri, zakat reiknivél, ónettengd kort sem eru sjálfgefið hönnuð til að virka að fullu og fleira.</string>
+    <string name="about_features_title">Hápunktar</string>
+    <string name="about_features_body">Allt sem múslimi þarf í einu forriti:</string>
+    <string name="about_feature_prayer">Bænatímar og Adhan - allar útreikningsaðferðir, lögfræðiskólar og 18+ adhan hljóð</string>
+    <string name="about_feature_quran">Heill Kóraninn — Uthmanískt handrit, 44 lesendur, tafsir, þýðingar, orðaleit og tíðni</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan og Zakat — með áminningum og fljótandi loftbólum</string>
+    <string name="about_feature_offline">Offline-first - kort, Kóraninn, hadith og adhkar virka án internets</string>
+    <string name="about_feature_privacy">Persónuvernd sjálfgefið - engar auglýsingar, engin rakning, gögnin þín verða áfram í tækinu þínu</string>
+    <string name="settings_auto_update">Alveg sjálfvirkar uppfærslur</string>
+    <string name="settings_auto_update_desc">Sæktu sjálfkrafa og settu upp nýjar útgáfur í bakgrunni um leið og þær eru gefnar út</string>
+    <string name="settings_auto_update_confirm_title">Virkja sjálfvirkar uppfærslur?</string>
+    <string name="settings_auto_update_confirm_body">Nýjar útgáfur verða sóttar og settar upp sjálfkrafa í bakgrunni þegar þær eru tiltækar. Halda áfram?</string>
+    <string name="settings_auto_update_confirm">Virkja</string>
+    <string name="settings_cancel">Hætta við</string>
+    <string name="update_last_check">Síðasta athugun: %1$s</string>
+    <string name="update_open_releases">Opnaðu útgáfusíðuna í vafranum</string>
 </resources>

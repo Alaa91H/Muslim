@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Largeur ti ndo ni (degré)</string>
     <string name="offline_maps_storage_warning">A yeke bata ni — gi %1$s senge senge .</string>
     <string name="offline_maps_storage_delete_largest">Effacé kota région (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Gi mosquée na iri ti ala .</string>
+    <string name="mosque_finder_show_all">Fa amosquée kue .</string>
+    <string name="mosque_finder_share">Zia lege</string>
+    <string name="offline_maps_use_my_location">Gue na ndo so mo yeke dä fadeso .</string>
 </resources>

@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Используйте только короткий азкар</string>
     <string name="adhkar_overlay_short_only_desc">Выберите адкар, который умещается в одну или две строки, чтобы плавающий пузырь оставался четким и легко читаемым.</string>
     <string name="adhkar_overlay_tap_hint">Нажмите на пузырь, чтобы немедленно закрыть его.</string>
+    <string name="adhkar_copied">Зикр скопирован</string>
+    <string name="adhkar_periodic_dhikr">Конкретный зикр</string>
+    <string name="adhkar_periodic_dhikr_random">Случайный (вместо ручного выбора)</string>
 </resources>

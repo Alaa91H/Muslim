@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Σαρίφ Ντομάν αντάν</string>
-    <string name="bundled_adhan_umayyad_damascus">Τζαμί Umayyad (Δαμασκό) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Γιουσούφ Ισλάμ αντάν</string>
     <string name="home_cannot_compute">Δεν είναι δυνατός ο υπολογισμός των ωρών για αυτήν την ημέρα</string>
     <string name="home_location_unknown">Η τοποθεσία δεν έχει οριστεί ακόμα</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Αυτόματο (ανά τοποθεσία)</string>
     <string name="settings_method_automatic_desc">Η εφαρμογή επιλέγει αυτόματα την καταλληλότερη μέθοδο με βάση τη χώρα και την τοποθεσία σας. μπορείτε ακόμα να επιλέξετε μια μέθοδο με μη αυτόματο τρόπο ανά πάσα στιγμή.</string>
     <string name="settings_preview_for_prayer">Προεπισκόπηση %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Αυτόματη επιλογή: %1$s — %2$s</string>
 </resources>

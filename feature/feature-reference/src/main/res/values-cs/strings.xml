@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Prohledat tuto knihu…</string>
     <string name="reference_title">Islámská referenční knihovna</string>
     <string name="reference_topics_count">témata</string>
+    <string name="reference_copy">Kopírovat</string>
+    <string name="reference_share">Sdílejte</string>
 </resources>

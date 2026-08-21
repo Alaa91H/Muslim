@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Fadin yanki (digiri)</string>
     <string name="offline_maps_storage_warning">Ƙananan ajiya - kawai %1$s kyauta</string>
     <string name="offline_maps_storage_delete_largest">Share yanki mafi girma (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Neman masallatai da suna</string>
+    <string name="mosque_finder_show_all">Nuna dukkan masallatai</string>
+    <string name="mosque_finder_share">Bude kwatance</string>
+    <string name="offline_maps_use_my_location">Je zuwa wurina na yanzu</string>
 </resources>

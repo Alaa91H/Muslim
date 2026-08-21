@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Тек қысқа adhkar пайдаланыңыз</string>
     <string name="adhkar_overlay_short_only_desc">Қалқымалы көпіршік анық және оқуға оңай болып қалуы үшін бір немесе екі жолға сәйкес келетін адхкарды таңдаңыз.</string>
     <string name="adhkar_overlay_tap_hint">Оны дереу жабу үшін көпіршікті түртіңіз.</string>
+    <string name="adhkar_copied">Зикр көшірілді</string>
+    <string name="adhkar_periodic_dhikr">Арнайы зікір</string>
+    <string name="adhkar_periodic_dhikr_random">Кездейсоқ (қолмен таңдаудың орнына)</string>
 </resources>

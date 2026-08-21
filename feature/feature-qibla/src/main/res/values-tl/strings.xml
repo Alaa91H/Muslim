@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Lapad ng lugar (degrees)</string>
     <string name="offline_maps_storage_warning">Mababang storage — %1$s lang ang libre</string>
     <string name="offline_maps_storage_delete_largest">Tanggalin ang pinakamalaking rehiyon (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Maghanap ng mga mosque ayon sa pangalan</string>
+    <string name="mosque_finder_show_all">Ipakita ang lahat ng mga mosque</string>
+    <string name="mosque_finder_share">Buksan ang mga direksyon</string>
+    <string name="offline_maps_use_my_location">Pumunta sa aking kasalukuyang lokasyon</string>
 </resources>

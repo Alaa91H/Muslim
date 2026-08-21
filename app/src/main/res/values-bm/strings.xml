@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Kalan bɛ jɔ dɔɔnin ni kunnafoni, mankan walima kunnafonidilan wɛrɛw bɛ fɔ</string>
     <string name="more_pause_notifications_enabled">Enabled — i bolo digi walasa ka sistɛmu sigicogo da wuli</string>
     <string name="more_pause_notifications_disabled">Disabled — i bolo digi walasa ka se ka baara kɛ</string>
+    <string name="more_names">99 Allah tɔgɔw</string>
+    <string name="more_names_desc">Tɔgɔ 99 minnu bɛ ni ɲɛfɔli dafalen ye</string>
+    <string name="more_hajj">Haji &amp; Umrah</string>
+    <string name="more_hajj_desc">Gafe caman bɛ Haji ni Umrah kɛcogo kan</string>
 </resources>

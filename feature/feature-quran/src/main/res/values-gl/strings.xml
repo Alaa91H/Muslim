@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Aia anterior</string>
     <string name="quran_range_single_ayah">Solteiro ai</string>
     <string name="quran_range_single_ayah_short">Ai</string>
-    <string name="quran_range_to_end">Ata o final da sura</string>
+    <string name="quran_range_to_end">Ata o final do Mushaf</string>
     <string name="quran_range_to_end_short">Para rematar</string>
     <string name="quran_range_whole_surah">Sura enteira</string>
     <string name="quran_range_whole_surah_short">Sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf cheo entre recitadores</string>
     <string name="quran_downloads_coverage_empty">Aínda non se descargou audio</string>
     <string name="quran_pause_notif_listener">Pausa a recitación nas notificacións</string>
-    <string name="quran_reciter_changed_title">O recitador cambiou</string>
-    <string name="quran_reciter_changed_message">Detívose a reprodución porque o intervalo vai ata o final do Corán. Comezar de novo con %1$s?</string>
-    <string name="quran_reciter_restart">Comeza de novo</string>
-    <string name="quran_reciter_not_now">Agora non</string>
+    <string name="quran_search_metrics">Tempo de busca: %1$d ms</string>
+    <string name="quran_search_index_building">Creando o índice do Corán para a primeira busca...</string>
+    <string name="quran_search_index_progress">Construíndo o índice mushaf... %1$d %%</string>
+    <string name="quran_search_word_root">Raíz: %1$s</string>
+    <string name="quran_search_derivations">Palabras derivadas da mesma raíz</string>
+    <string name="quran_search_no_root">Non se puido determinar a raíz</string>
 </resources>

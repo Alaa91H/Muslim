@@ -164,4 +164,22 @@
     <string name="update_available_text">ᐋᖅᑭᒃᓯᒪᓂᖓ %1$s ᐊᑐᐃᓐᓇᐅᓕᖅᑐᖅ — ᓇᕿᓪᓗᒍ ᓄᑖᙳᕆᐊᖅᑎᑦᑎᔪᒪᒍᕕᑦ</string>
     <string name="notif_category_app_update">ᖃᕆᑕᐅᔭᒃᑯᑦ ᓄᑖᙳᕆᐊᖅᑎᑕᐅᓯᒪᔪᑦ</string>
     <string name="notif_category_app_update_desc">ᖃᐅᔨᒃᑲᐃᔾᔪᑎ ᓄᑖᖅ ᖃᕆᑕᐅᔭᒃᑯᑦ ᑐᒃᓯᕋᐅᑎ ᐊᑐᐃᓐᓇᐅᓕᕌᖓᑦ</string>
+    <string name="about_tagline">ᐃᓗᐃᒃᑲᖅ, ᐊᑭᖃᙱᑦᑐᖅ, ᒪᑐᐃᖓᔪᖅ ᑐᒃᓯᐊᖅᑎᓕᒫᓄᑦ ᒧᓱᓕᓕᒫᓄᑦ — ᑐᒃᓯᐊᕐᓇᐃᑦ, ᐊᑕᓐ, ᑯᕌᓐ, ᕼᐊᑎᔅ, ᐊᑕᓐ ᐊᒻᒪ ᐊᓯᖏᑦ, ᐅᖃᐅᓯᕐᓄᑦ.</string>
+    <string name="about_description_title">ᒧᓱᓕᒃ ᒥᒃᓵᓄᑦ</string>
+    <string name="about_description_body">Muslim ᐊᑭᖃᙱᑦᑐᖅ ᒪᑐᐃᖓᓪᓗᓂᓗ Android-ᒧᑦ ᐊᑐᖅᑕᐅᔪᓐᓇᖅᑐᖅ ᐅᓪᓗᓕᒫᖅ: ᑐᒃᓯᐊᕐᓂᐅᔪᑦ ᑕᒻᒪᖅᓯᒪᙱᑦᑐᑦ Adhan-ᑯᑦ, ᑭᑉᓚ ᓇᓗᓇᐃᒃᑯᑕᖅ, ᐃᓗᐃᒃᑲᖅ ᑯᕌᓐ ᐅᖃᓕᒫᒐᖃᖅᑐᓂ ᑕᕝᓯᕐᒥᒃ, ᕼᐊᑎᔅ ᐅᖃᓕᒫᒐᖃᕐᕕᒃ, ᓇᑭᙶᖅᑐᖅ adhkar, ᖃᕆᑕᐅᔭᒃᑯᑦ ᑕᔅᐱ, Ramadan ᓴᓇᕐᕈᑎᑦ, zakat ma-ᑯᑦ ᐋᖅᑭᒃᓯᒪᓂᖏᑦ, ᖃᕆᑕᐅᔭᒃᑯᑦ ᓈᓴᐅᓯᕆᔾᔪᑎ, ᖃᕆᑕᐅᔭᒃᑯᑦ ᓈᓴᐅᓯᕆᔾᔪᑎ ᐋᖅᑭᒃᑕᐅᓯᒪᔪᖅ.</string>
+    <string name="about_features_title">ᐱᒻᒪᕆᐅᓂᖏᑦ</string>
+    <string name="about_features_body">ᑭᓱᓕᒫᑦ ᒧᓱᓕᒃ ᐱᔭᕆᐊᖃᖅᑕᖏᑦ ᐊᑕᐅᓯᕐᒥ ᖃᕆᑕᐅᔭᒃᑯᑦ ᑐᒃᓯᕋᐅᑎᒥ:</string>
+    <string name="about_feature_prayer">ᑐᒃᓯᐊᕐᓇᐅᑉ ᐃᑲᕐᕋᖏᑦ ᐊᒻᒪ ᐊᑕᓐ — ᑕᒪᕐᒥᒃ ᓈᓴᐅᓯᕆᔾᔪᑏᑦ, ᒪᓕᒐᓕᕆᓂᕐᒧᑦ ᐃᓕᓐᓂᐊᕐᕖᑦ, ᐊᒻᒪ 18+ ᐊᑕᓐ ᓂᐱᖏᑦ</string>
+    <string name="about_feature_quran">ᐱᔭᕇᖅᓯᒪᔪᖅ ᑯᕌᓐ — ᐆᑦᒪᓂ ᑎᑎᕋᐅᓯᖅ, 44-ᓂᒃ ᐅᖃᓕᒫᖅᑎᓂᒃ, ᑕᕝᓯᕐᒥᒃ, ᐃᓄᒃᑎᑑᓕᖅᑎᑕᐅᓯᒪᔪᓂᒃ, ᐅᖃᐅᓯᕐᓂᒃ ᕿᓂᕐᓂᖅ ᐊᒻᒪ ᖃᓄᖅ ᖃᔅᓰᖅᓱᖃᑦᑕᕐᓂᖅ</string>
+    <string name="about_feature_adhkar">ᐊᑕᑲ, ᑕᔅᐱ, ᕋᒪᑕᓐ ᐊᒻᒪ ᔮᑲᑦ — ᐃᖅᑲᐃᑎᑦᑎᔾᔪᑎᖃᖅᖢᑎᒃ ᐊᒻᒪ ᐳᑦᑕᖅᑯᑎᓂᒃ ᐳᓪᓚᖃᖅᖢᑎᒃ</string>
+    <string name="about_feature_offline">ᖃᕆᑕᐅᔭᒃᑯᑦ-ᓯᕗᓪᓕᖅᐹᒥ — ᓄᓇᙳᐊᑦ, ᑯᕌᓐ, ᕼᐊᑎᔅ ᐊᒻᒪ adhkar ᐱᓕᕆᔪᑦ ᖃᕆᑕᐅᔭᒃᑯᑦ ᐱᑕᖃᙱᑎᓪᓗᒍ</string>
+    <string name="about_feature_privacy">ᑲᓐᖑᓇᖅᑐᓕᕆᓂᖅ ᐋᖅᑭᒃᓯᒪᓂᒃᑯᑦ — ᓴᖅᑭᔮᖅᑎᑦᑎᙱᓪᓗᓂ, ᒪᓕᒃᑕᐅᔭᕆᐊᖃᙱᓪᓗᓂ, ᑐᑭᓯᒋᐊᕈᑎᑎᑦ ᖃᕆᑕᐅᔭᕐᓃᖏᓐᓇᕐᓂᐊᖅᐳᑦ</string>
+    <string name="settings_auto_update">ᓇᖕᒥᓂᖅ ᓄᑖᙳᕆᐊᖅᑎᑕᐅᕙᒃᑐᑦ</string>
+    <string name="settings_auto_update_desc">ᖃᕆᑕᐅᔭᕐᒧᑦ ᑎᒍᓯᑲᐅᑎᒋᓗᑎᑦ ᐋᖅᑭᒃᓯᓗᑎᓪᓗ ᓄᑖᓂᒃ ᐋᖅᑭᒃᓯᒪᓂᐅᔪᓂᒃ ᑐᓄᐊᓂ ᓴᖅᑭᑕᐅᑐᐊᖅᐸᑕ</string>
+    <string name="settings_auto_update_confirm_title">ᐱᔪᓐᓇᖅᑎᑦᑎᓗᑎᑦ ᓄᑖᙳᕆᐊᖅᑎᑦᑎᑦᑕᐅᑎᒋᔪᓂᒃ?</string>
+    <string name="settings_auto_update_confirm_body">ᓄᑖᑦ ᖃᕆᑕᐅᔭᒃᑯᑦ ᑎᒍᔭᐅᓂᐊᖅᑐᑦ ᐊᒻᒪᓗ ᐋᖅᑭᒃᑕᐅᑲᐅᑎᒋᓗᑎᒃ ᑐᓄᐊᓂ ᐊᑐᐃᓐᓇᐅᓕᖅᐸᑕ. ᑲᔪᓯᓗᑎᑦ?</string>
+    <string name="settings_auto_update_confirm">ᐱᔪᓐᓇᖅᑎᑦᑎᓂᖅ</string>
+    <string name="settings_cancel">ᖁᔭᓈᕐᓂᖅ</string>
+    <string name="update_last_check">ᑭᖑᓪᓕᖅᐹᒥ ᖃᐅᔨᓴᖅᑕᐅᔪᖅ: %1$s</string>
+    <string name="update_open_releases">ᒪᑐᐃᕐᓗᒍ ᓴᖅᑭᑕᐅᓯᒪᔪᑦ ᒪᒃᐱᒐᖅ ᖃᕆᑕᐅᔭᒃᑯᑦ ᑕᑯᔭᒐᖃᕐᕕᖕᒥ</string>
 </resources>

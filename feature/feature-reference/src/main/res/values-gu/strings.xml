@@ -5,4 +5,6 @@
     <string name="reference_search_hint">આ પુસ્તક શોધો…</string>
     <string name="reference_title">ઇસ્લામિક સંદર્ભ પુસ્તકાલય</string>
     <string name="reference_topics_count">વિષયો</string>
+    <string name="reference_copy">નકલ કરો</string>
+    <string name="reference_share">શેર કરો</string>
 </resources>

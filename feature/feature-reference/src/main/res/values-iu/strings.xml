@@ -5,4 +5,6 @@
     <string name="reference_search_hint">ᕿᓂᕐᓗᒍ ᑖᓐᓇ ᐅᖃᓕᒫᒐᖅ...</string>
     <string name="reference_title">ᐃᔅᓚᒥᒃᑯᑦ ᐅᖃᓕᒫᒐᖃᕐᕕᖓᑦ</string>
     <string name="reference_topics_count">ᐅᖃᐅᓯᒃᓴᑦ</string>
+    <string name="reference_copy">ᐊᔾᔨᖓ</string>
+    <string name="reference_share">ᑲᑐᔾᔨᓂᖅ</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Eremuaren zabalera (gradu)</string>
     <string name="offline_maps_storage_warning">Biltegiratze baxua: %1$s doakoak bakarrik</string>
     <string name="offline_maps_storage_delete_largest">Ezabatu eskualde handiena (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Bilatu meskitak izenaren arabera</string>
+    <string name="mosque_finder_show_all">Erakutsi meskita guztiak</string>
+    <string name="mosque_finder_share">Ireki jarraibideak</string>
+    <string name="offline_maps_use_my_location">Joan nire uneko kokapenera</string>
 </resources>

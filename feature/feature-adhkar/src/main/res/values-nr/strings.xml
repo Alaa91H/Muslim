@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Sebenzisa i-adhkar emfitjhani kwaphela</string>
     <string name="adhkar_overlay_short_only_desc">Khetha i-adhkar efanele umugqa owodwa nofana emibili ukwenzela bona ibhamuza elintantako lihlale likhanya begodu libe lula ukulifunda.</string>
     <string name="adhkar_overlay_tap_hint">Thepha ibhamuza ukulikhipha khonokho.</string>
+    <string name="adhkar_copied">I-Dhikr ikopishwe</string>
+    <string name="adhkar_periodic_dhikr">I-dhikr ethileko</string>
+    <string name="adhkar_periodic_dhikr_random">Ngokungakahleleki (esikhundleni sokukhetha ngesandla)</string>
 </resources>

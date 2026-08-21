@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah eyasooka</string>
     <string name="quran_range_single_ayah">Single ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Okumaliriza suura</string>
+    <string name="quran_range_to_end">To the end of the Mushaf</string>
     <string name="quran_range_to_end_short">Okumaliriza</string>
     <string name="quran_range_whole_surah">Surah yonna</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf omujjuvu mu basomi</string>
     <string name="quran_downloads_coverage_empty">Tewali audio ewanuliddwa n\'okutuusa kati</string>
     <string name="quran_pause_notif_listener">Yimirirako okusoma ku kumanyisibwa</string>
-    <string name="quran_reciter_changed_title">Omusomi yakyuka</string>
-    <string name="quran_reciter_changed_message">Okuzannya kwayimirira kubanga range eddukira ku nkomerero ya Quran. Tandika nate ne %1$s?</string>
-    <string name="quran_reciter_restart">Tandika nate</string>
-    <string name="quran_reciter_not_now">Si kati</string>
+    <string name="quran_search_metrics">Obudde bw’okunoonya: %1$d ms</string>
+    <string name="quran_search_index_building">Okuzimba omuwendo gwa Quran ogw\'okunoonya okusooka...</string>
+    <string name="quran_search_index_progress">Okuzimba omuwendo gwa mushaf... %1$d %%</string>
+    <string name="quran_search_word_root">Ekikolo: %1$s</string>
+    <string name="quran_search_derivations">Ebigambo ebiva mu kikolo kimu</string>
+    <string name="quran_search_no_root">Teyasobodde kuzuula kikolo</string>
 </resources>

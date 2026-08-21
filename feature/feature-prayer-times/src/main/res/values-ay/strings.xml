@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi ukat juk’ampinaka</string>
     <string name="bundled_adhan_saber">Sabre adhan ukax mä juk’a pachanakanwa</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman jupax akham sasaw arsuwayi</string>
-    <string name="bundled_adhan_umayyad_damascus">Mezquita Umayyad (Damasco) markan adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam ukax adhan ukampiw uñt’ayasi</string>
     <string name="home_cannot_compute">Aka urutakix pachanakax janiw jakt’añjamäkiti</string>
     <string name="home_location_unknown">Uka chiqanx janiw jichhakamax utt’ayatäkiti</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Automático (kawkhantix utjki ukarjama) .</string>
     <string name="settings_method_automatic_desc">App ukax juk’amp askïki uka thakhix automáticamente markaman ukhamarak kawkhantix jikxataskta ukarjamaw ajlli; wali ch’amampi mä thakhi ajlliñjamawa kuna pachatixa.</string>
     <string name="settings_preview_for_prayer">Nayraqata uñakipaña %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Automático jichhax ajllitawa: %1$s — %2$s</string>
 </resources>

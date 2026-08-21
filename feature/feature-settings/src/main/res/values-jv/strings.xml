@@ -164,4 +164,22 @@
     <string name="update_available_text">Versi %1$s saiki kasedhiya — tutul kanggo nganyari</string>
     <string name="notif_category_app_update">Nganyari app</string>
     <string name="notif_category_app_update_desc">Kabar nalika versi app anyar kasedhiya</string>
+    <string name="about_tagline">Pendamping lengkap, gratis, mbukak sumber kanggo saben Muslim - wektu sholat, Adzan, Quran, hadits, adhkar lan liya-liyane, ing basa sampeyan.</string>
+    <string name="about_description_title">Babagan Muslim</string>
+    <string name="about_description_body">Muslim minangka aplikasi Android gratis lan mbukak-sumber sing ngiringi sampeyan sedina muput: wektu sholat kanthi akurat kanthi astronomi karo Adzan, kompas kiblat sing tepat, Quran lengkap kanthi bacaan lan tafsir, perpustakaan hadits, sumber adhkar, tasbih elektronik, alat Ramadhan, kalkulator zakat, peta offline, lan liya-liyane - dirancang kanggo makarya kanthi offline kanthi privasi minangka standar.</string>
+    <string name="about_features_title">Sorotan</string>
+    <string name="about_features_body">Kabeh sing dibutuhake Muslim ing siji aplikasi:</string>
+    <string name="about_feature_prayer">Wektu shalat &amp; Adzan — kabeh cara ngitung, sekolah hukum, lan 18+ swara adzan</string>
+    <string name="about_feature_quran">Quran Lengkap - Aksara Utsmani, 44 qari, tafsir, terjemahan, telusuran tembung &amp; frekuensi</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadhan &amp; Zakat — kanthi pangeling lan gelembung ngambang</string>
+    <string name="about_feature_offline">Offline-first - peta, Quran, hadits lan adhkar bisa digunakake tanpa internet</string>
+    <string name="about_feature_privacy">Privasi kanthi gawan - ora ana iklan, ora ana pelacakan, data sampeyan tetep ana ing piranti sampeyan</string>
+    <string name="settings_auto_update">Nganyari kanthi otomatis</string>
+    <string name="settings_auto_update_desc">Ngundhuh lan nginstal versi anyar kanthi otomatis ing latar mburi sawise dirilis</string>
+    <string name="settings_auto_update_confirm_title">Aktifake nganyari otomatis?</string>
+    <string name="settings_auto_update_confirm_body">Versi anyar bakal diundhuh lan diinstal kanthi otomatis ing latar mburi yen kasedhiya. Terus?</string>
+    <string name="settings_auto_update_confirm">Aktifake</string>
+    <string name="settings_cancel">Batal</string>
+    <string name="update_last_check">Priksa pungkasan: %1$s</string>
+    <string name="update_open_releases">Bukak kaca rilis ing browser</string>
 </resources>

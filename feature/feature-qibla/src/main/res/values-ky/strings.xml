@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Аянттын туурасы (градус)</string>
     <string name="offline_maps_storage_warning">Сактагыч аз — болгону %1$s бекер</string>
     <string name="offline_maps_storage_delete_largest">Эң чоң аймакты жок кылуу (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Мечиттерди аты боюнча издөө</string>
+    <string name="mosque_finder_show_all">Бардык мечиттерди көрсөт</string>
+    <string name="mosque_finder_share">Ачык багыттар</string>
+    <string name="offline_maps_use_my_location">Учурдагы жайгашкан жериме барыңыз</string>
 </resources>

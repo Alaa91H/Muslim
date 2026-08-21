@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Zã adhkar kpuiwo ɖeɖeko</string>
     <string name="adhkar_overlay_short_only_desc">Tia adhkar siwo sɔ ɖe fli ɖeka alo eve nu ale be kuɖɔ si le tsia dzi la nakɔ eye wòaxlẽ bɔbɔe.</string>
     <string name="adhkar_overlay_tap_hint">Zi bubble la dzi be nàɖee ɖa enumake.</string>
+    <string name="adhkar_copied">Dhikr ŋlɔ eƒe kɔpi</string>
+    <string name="adhkar_periodic_dhikr">Dhikr tɔxɛ aɖe</string>
+    <string name="adhkar_periodic_dhikr_random">Random (le esi teƒe be woatsɔ asi tiatia) .</string>
 </resources>

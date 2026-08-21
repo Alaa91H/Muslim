@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">කෙටි adhkar පමණක් භාවිතා කරන්න</string>
     <string name="adhkar_overlay_short_only_desc">පාවෙන බුබුල පැහැදිලි සහ කියවීමට පහසු වන පරිදි පේළි එකකට හෝ දෙකකට ගැලපෙන adhkar තෝරන්න.</string>
     <string name="adhkar_overlay_tap_hint">එය වහාම ඉවත දැමීමට බුබුල තට්ටු කරන්න.</string>
+    <string name="adhkar_copied">දික්ර් පිටපත් කළා</string>
+    <string name="adhkar_periodic_dhikr">විශේෂිත dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">අහඹු ලෙස (අතින් තෝරා ගැනීම වෙනුවට)</string>
 </resources>

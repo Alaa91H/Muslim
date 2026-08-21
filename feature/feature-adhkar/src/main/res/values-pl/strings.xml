@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Używaj tylko krótkiego adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Wybierz adhkar, który pasuje do jednej lub dwóch linii, aby pływająca bańka pozostała przejrzysta i łatwa do odczytania.</string>
     <string name="adhkar_overlay_tap_hint">Kliknij dymek, aby natychmiast go zamknąć.</string>
+    <string name="adhkar_copied">Dhikr skopiował</string>
+    <string name="adhkar_periodic_dhikr">Konkretny dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Losowo (zamiast wybierania ręcznego)</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Előző ayah</string>
     <string name="quran_range_single_ayah">Egyetlen ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">A szúra végére</string>
+    <string name="quran_range_to_end">A Mushaf végére</string>
     <string name="quran_range_to_end_short">A végére</string>
     <string name="quran_range_whole_surah">Egész szúra</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Teljes muszka a reciters között</string>
     <string name="quran_downloads_coverage_empty">Még nincs letöltve hanganyag</string>
     <string name="quran_pause_notif_listener">Szüneteltetheti a felolvasást az értesítéseken</string>
-    <string name="quran_reciter_changed_title">Szavaló megváltozott</string>
-    <string name="quran_reciter_changed_message">A lejátszás leállt, mert a tartomány a Korán végéig tart. Kezdje újra a következővel: %1$s?</string>
-    <string name="quran_reciter_restart">Kezdje újra</string>
-    <string name="quran_reciter_not_now">Most nem</string>
+    <string name="quran_search_metrics">Keresési idő: %1$d ms</string>
+    <string name="quran_search_index_building">A Korán index elkészítése az első kereséshez…</string>
+    <string name="quran_search_index_progress">A mushaf index felépítése… %1$d %%</string>
+    <string name="quran_search_word_root">Gyökér: %1$s</string>
+    <string name="quran_search_derivations">Ugyanabból a gyökből származó szavak</string>
+    <string name="quran_search_no_root">Nem sikerült meghatározni a gyökeret</string>
 </resources>

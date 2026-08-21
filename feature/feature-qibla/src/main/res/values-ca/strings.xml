@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Amplada de l\'àrea (graus)</string>
     <string name="offline_maps_storage_warning">Emmagatzematge baix: només %1$s gratuïts</string>
     <string name="offline_maps_storage_delete_largest">Suprimeix la regió més gran (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Cerca mesquites pel nom</string>
+    <string name="mosque_finder_show_all">Mostra totes les mesquites</string>
+    <string name="mosque_finder_share">Obriu les indicacions</string>
+    <string name="offline_maps_use_my_location">Vés a la meva ubicació actual</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">trước đây ayah</string>
     <string name="quran_range_single_ayah">Độc thân ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Để kết thúc surah</string>
+    <string name="quran_range_to_end">Đến cuối Mushaf</string>
     <string name="quran_range_to_end_short">Để kết thúc</string>
     <string name="quran_range_whole_surah">Toàn bộ Surah</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf đầy đủ trên người đọc</string>
     <string name="quran_downloads_coverage_empty">Chưa tải xuống âm thanh nào</string>
     <string name="quran_pause_notif_listener">Tạm dừng đọc thuộc lòng trên thông báo</string>
-    <string name="quran_reciter_changed_title">Người đọc đã thay đổi</string>
-    <string name="quran_reciter_changed_message">Việc phát lại bị dừng do phạm vi chạy đến cuối Kinh Qur\'an. Bắt đầu lại với %1$s?</string>
-    <string name="quran_reciter_restart">Bắt đầu lại</string>
-    <string name="quran_reciter_not_now">Không phải bây giờ</string>
+    <string name="quran_search_metrics">Thời gian tìm kiếm: %1$d ms</string>
+    <string name="quran_search_index_building">Xây dựng chỉ mục Kinh Qur\'an cho lần tìm kiếm đầu tiên…</string>
+    <string name="quran_search_index_progress">Xây dựng chỉ số mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Gốc: %1$s</string>
+    <string name="quran_search_derivations">Những từ có nguồn gốc từ cùng một gốc</string>
+    <string name="quran_search_no_root">Không thể xác định gốc</string>
 </resources>

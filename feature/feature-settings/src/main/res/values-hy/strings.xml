@@ -164,4 +164,22 @@
     <string name="update_available_text">%1$s տարբերակն այժմ հասանելի է. հպեք՝ թարմացնելու համար</string>
     <string name="notif_category_app_update">Հավելվածի թարմացումներ</string>
     <string name="notif_category_app_update_desc">Ծանուցում, երբ հասանելի է հավելվածի նոր տարբերակը</string>
+    <string name="about_tagline">Ամբողջական, անվճար, բաց կոդով ուղեկից յուրաքանչյուր մուսուլմանի համար՝ աղոթքի ժամեր, Ադան, Ղուրան, հադիս, ադքար և ավելին՝ ձեր լեզվով:</string>
+    <string name="about_description_title">Մուսուլմանի մասին</string>
+    <string name="about_description_body">Muslim-ը անվճար և բաց կոդով Android հավելված է, որը ուղեկցում է ձեզ ողջ օրվա ընթացքում. աստղագիտական ճշգրիտ աղոթքի ժամեր Ադանով, ճշգրիտ քիբլայի կողմնացույց, ամբողջական Ղուրան՝ ասմունքներով և թաֆսիրով, հադիսների գրադարան, աղբյուրից ադքար, էլեկտրոնային թասբիհ, Ռամադանի գործիքներ, զաքաթի հաշվիչ, անցանց քարտեզներ և ավելին.</string>
+    <string name="about_features_title">Առանձնահատկություններ</string>
+    <string name="about_features_body">Այն ամենը, ինչ անհրաժեշտ է մահմեդականին մեկ հավելվածում.</string>
+    <string name="about_feature_prayer">Աղոթքի ժամանակներ և ադհան - բոլոր հաշվարկման մեթոդները, իրավաբանական դպրոցները և 18+ ադանի հնչյունները</string>
+    <string name="about_feature_quran">Ամբողջական Ղուրան — Օսմանի գրություն, 44 ասմունքող, թաֆսիր, թարգմանություններ, բառերի որոնում և հաճախականություն</string>
+    <string name="about_feature_adhkar">Ադքար, թասբիհ, Ռամադան և Զաքաթ՝ հիշեցումներով և լողացող փուչիկներով</string>
+    <string name="about_feature_offline">Առաջինն անցանց — քարտեզները, Ղուրանը, հադիսները և ադքարն աշխատում են առանց ինտերնետի</string>
+    <string name="about_feature_privacy">Գաղտնիությունը լռելյայն. առանց գովազդի, առանց հետևելու, ձեր տվյալները մնում են ձեր սարքում</string>
+    <string name="settings_auto_update">Լիովին ավտոմատ թարմացումներ</string>
+    <string name="settings_auto_update_desc">Ավտոմատ կերպով ներբեռնեք և տեղադրեք նոր տարբերակները հետին պլանում, հենց որ դրանք թողարկվեն</string>
+    <string name="settings_auto_update_confirm_title">Միացնե՞լ ավտոմատ թարմացումները:</string>
+    <string name="settings_auto_update_confirm_body">Նոր տարբերակները կներբեռնվեն և ավտոմատ կերպով կտեղադրվեն հետին պլանում, երբ հասանելի լինեն: Շարունակե՞լ</string>
+    <string name="settings_auto_update_confirm">Միացնել</string>
+    <string name="settings_cancel">Չեղարկել</string>
+    <string name="update_last_check">Վերջին ստուգումը՝ %1$s</string>
+    <string name="update_open_releases">Բացեք թողարկումների էջը բրաուզերում</string>
 </resources>

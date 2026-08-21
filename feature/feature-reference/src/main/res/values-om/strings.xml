@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Kitaaba kana barbaadaa...</string>
     <string name="reference_title">Mana Kitaabaa Wabii Islaamaa</string>
     <string name="reference_topics_count">mata dureewwan</string>
+    <string name="reference_copy">Koppii godhaa</string>
+    <string name="reference_share">Share godhaa</string>
 </resources>

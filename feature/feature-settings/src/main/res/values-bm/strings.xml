@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s bɛ sɔrɔ sisan — i bolo digi walasa ka kunnafoni kura di</string>
     <string name="notif_category_app_update">Application updates (Aplikasi kuraw).</string>
     <string name="notif_category_app_update_desc">Ladɔnniyali ni appli version kura dɔ bɛ sɔrɔ</string>
+    <string name="about_tagline">Silamɛ bɛɛ ka taamaɲɔgɔn dafalen, fu, da wulilen — delili waatiw, Adhan, Kuranɛ, hadisi, adhkar ani fɛn wɛrɛw, i ka kan na.</string>
+    <string name="about_description_title">Silamɛ ko la</string>
+    <string name="about_description_body">Muslim ye Android porogaramu ye min bɛ kɛ fu ani min bɛ da wuli, min bɛ taa n’i ye tile bɛɛ kɔnɔ: delili waati minnu bɛ tiɲɛ sankolola siratigɛ la ni Adhan ye, Qibla boussole tigitigi, Kuranɛ dafalen ni kalanw ni tafsir, hadisi gafemarayɔrɔ, adhkar sɔrɔyɔrɔ, tasbih ɛntɛrinɛti kan, Ramadan baarakɛminɛnw, zaka jatebɔlan, kartiw tɛ ɛntɛrinɛti kan, ani fɛn wɛrɛw — min dabɔra ka baara kɛ pewu offline ni gundo ye by default (dafalen) ye.</string>
+    <string name="about_features_title">Fɛn minnu ye yɔrɔ kolomaw ye</string>
+    <string name="about_features_body">Silamɛ mago bɛ fɛn o fɛn na appli kelen kɔnɔ:</string>
+    <string name="about_feature_prayer">Delili waatiw &amp; Adhan — jatebɔ fɛɛrɛw bɛɛ, sariya kalansow, ani adhan mankan 18+</string>
+    <string name="about_feature_quran">Kuranɛ dafalen — Uthmani sɛbɛnni, kalanbaga 44, tafsir, bamanankan bamanankan, daɲɛ ɲinini &amp; caya</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — ni hakilijiginw ni bulonw ye minnu bɛ panpan</string>
+    <string name="about_feature_offline">Offline-first — kartiw, Kuranɛ, hadisi ani adhkar bɛ baara kɛ ni ɛntɛrinɛti tɛ</string>
+    <string name="about_feature_privacy">Gundolakow ka daminɛ — piblisite tɛ, tuguni tɛ, i ka kunnafoniw bɛ to i ka minɛn kɔnɔ</string>
+    <string name="settings_auto_update">Kuma kura bɛ kɛ otomatiki la pewu</string>
+    <string name="settings_auto_update_desc">I yɛrɛ bɛ telesarse a yɛrɛma ani k’a bila kɔfɛ, n’u bɔra dɔrɔn</string>
+    <string name="settings_auto_update_confirm_title">Aw bɛ se ka otomatiki kurayali kɛ wa?</string>
+    <string name="settings_auto_update_confirm_body">Version kura bɛna telesarse ani ka bila u yɛrɛma kɔkanna na ni u bɛ sɔrɔ. Ka taa fɛ?</string>
+    <string name="settings_auto_update_confirm">Ka yamaruya</string>
+    <string name="settings_cancel">ka dankari</string>
+    <string name="update_last_check">Sɛgɛsɛgɛli laban: %1$s</string>
+    <string name="update_open_releases">Aw bɛ bɔko ɲɛ da wuli navigatɛri kɔnɔ</string>
 </resources>

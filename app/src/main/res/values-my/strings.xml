@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">အကြောင်းကြားချက်၊ အသံမြည်ခြင်း သို့မဟုတ် အခြားမီဒီယာတစ်ခုဖွင့်သည့်အခါ ရွတ်ဆိုခြင်းသည် ခေတ္တရပ်သည်။</string>
     <string name="more_pause_notifications_enabled">ဖွင့်ထားသည် — စနစ်ဆက်တင်များကိုဖွင့်ရန် နှိပ်ပါ။</string>
     <string name="more_pause_notifications_disabled">ပိတ်ထားသည် — ဖွင့်ရန် နှိပ်ပါ။</string>
+    <string name="more_names">99 အလ္လာဟ်အရှင်မြတ်၏အမည်များ</string>
+    <string name="more_names_desc">99 အမည်များကို အပြည့်အစုံ ရှင်းပြထားပါသည်။</string>
+    <string name="more_hajj">ဟဂ်ျနှင့် အွမ်ရဟ်</string>
+    <string name="more_hajj_desc">Hajj နှင့် Umrah ထုံးတမ်းများဆိုင်ရာ အသေးစိတ်လမ်းညွှန်</string>
 </resources>

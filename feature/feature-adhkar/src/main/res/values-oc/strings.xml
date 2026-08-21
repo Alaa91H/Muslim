@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Utilizar l\'adhkar cort sonque</string>
     <string name="adhkar_overlay_short_only_desc">Causissètz d\'adhkar que s\'adapte a una o doas linhas per que la bombolha flotanta demòre clara e aisida de legir.</string>
     <string name="adhkar_overlay_tap_hint">Picatz la bombolha per la desrevelhar immediatament.</string>
+    <string name="adhkar_copied">Dhikr copiat</string>
+    <string name="adhkar_periodic_dhikr">Dhikr especific</string>
+    <string name="adhkar_periodic_dhikr_random">Aleatòri (al luòc de la causida manuala)</string>
 </resources>

@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s kele sesepi — niema sambu na kutula yo na zulu</string>
     <string name="notif_category_app_update">Kuyidika ya application</string>
     <string name="notif_category_app_update_desc">Luzayisu kana version ya mpa ya application kele</string>
+    <string name="about_tagline">Nduku ya mvimba, ya ofele, ya kukangula sambu na konso Muzuluma — bantangu ya bisambu, Adhan, Quran, hadith, adhkar mpi mambu mingi, na ndinga na beno.</string>
+    <string name="about_description_title">Sambu na Bamizilma</string>
+    <string name="about_description_body">Muslim kele appli mosi ya ofele mpi ya kukangula yina ke kwendaka ti nge kilumbu ya mvimba: bantangu ya bisambu ya siki-siki na mutindu ya astronomi ti Adhan, busole ya Qibla ya siki-siki, Coran ya mvimba ti kutanga mpi tafsir, biblioteke ya ba hadith, adhkar ya me katuka na kisina, tasbih ya elektroniki, bisadilu ya Ramadan, calcul ya zakat ma ya mvimba ti kisalu ya kukonda nzila mpi mambu mingi ya nkaka — ya luyantiku.</string>
+    <string name="about_features_title">Mambu ya mfunu</string>
+    <string name="about_features_body">Bima yonso ya Muzuluma kele na yo mfunu na appli mosi:</string>
+    <string name="about_feature_prayer">Bantangu ya kisambu &amp; Adhan — mitindu yonso ya kusala ba calcul, banzo-nkanda ya bansiku, mpi makelele ya adhan 18+ .</string>
+    <string name="about_feature_quran">Coran ya mvimba — masonama ya Uthmani, bantu 44 yina ke tangaka, tafsir, bambalula, kusosa bangogo mpi mbala mingi</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan mpi Zakat —ti bangibusa mpi mambu yina ke tambulaka na zulu ya masa</string>
+    <string name="about_feature_offline">Kukonda nzila-ntete — bakarte, Quoran, hadith mpi adhkar ke salaka kukonda internet</string>
+    <string name="about_feature_privacy">Kinsweki na luyantiku — ata piblisite mosi ve, ata kulanda mosi ve, bansangu na nge ke bikala na apareyi na nge</string>
+    <string name="settings_auto_update">Kuyidika mambu na mbala mosi</string>
+    <string name="settings_auto_update_desc">Baka mpi tula na mbala mosi baversio ya mpa na nima kaka kana yo me basika .</string>
+    <string name="settings_auto_update_confirm_title">Kangula ba actualisations automatiques?</string>
+    <string name="settings_auto_update_confirm_body">Baversio ya mpa ta bakama mpi bo ta tula yo na mbala mosi na nima kana yo kele. Kulanda?</string>
+    <string name="settings_auto_update_confirm">Kupesa nzila</string>
+    <string name="settings_cancel">Kukatula</string>
+    <string name="update_last_check">Kutala ya nsuka: %1$s.</string>
+    <string name="update_open_releases">Kangula lutiti ya kubasika na navigateur</string>
 </resources>

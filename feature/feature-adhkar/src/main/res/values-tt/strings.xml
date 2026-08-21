@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Кыска адхар кулланыгыз</string>
     <string name="adhkar_overlay_short_only_desc">Бер-ике юлга туры килгән адхарны сайлагыз, шуңа күрә йөзүче күпер ачык һәм уку җиңел булып калсын.</string>
     <string name="adhkar_overlay_tap_hint">Аны шунда ук җибәрү өчен күпчелеккә басыгыз.</string>
+    <string name="adhkar_copied">Зикр күчерде</string>
+    <string name="adhkar_periodic_dhikr">Конкрет зикр</string>
+    <string name="adhkar_periodic_dhikr_random">Очраклы (кул белән сайлау урынына)</string>
 </resources>

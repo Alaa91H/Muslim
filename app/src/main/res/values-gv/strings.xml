@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Ta\'n recitation staydys gorrym tra ta fys, ring ny median elley cloie</string>
     <string name="more_pause_notifications_enabled">Currit — tap dy foshley soilshaghyn y system</string>
     <string name="more_pause_notifications_disabled">Dymmyrchagh — tap dy chur stiagh</string>
+    <string name="more_names">99 Enmyn Allah</string>
+    <string name="more_names_desc">Yn 99 ennym lesh y mharkey</string>
+    <string name="more_hajj">Hajj as Umrah</string>
+    <string name="more_hajj_desc">Guide mishaghey er y Hajj as y Umrah</string>
 </resources>

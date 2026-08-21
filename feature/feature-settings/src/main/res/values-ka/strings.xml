@@ -164,4 +164,22 @@
     <string name="update_available_text">ვერსია %1$s ახლა ხელმისაწვდომია — შეეხეთ გასაახლებლად</string>
     <string name="notif_category_app_update">აპლიკაციის განახლებები</string>
     <string name="notif_category_app_update_desc">შეტყობინება, როდესაც აპის ახალი ვერსია ხელმისაწვდომია</string>
+    <string name="about_tagline">სრული, უფასო, ღია კოდის თანამგზავრი ყველა მუსულმანისთვის - ლოცვის დრო, ადანი, ყურანი, ჰადისი, ადჰკარი და სხვა, თქვენს ენაზე.</string>
+    <string name="about_description_title">მუსულმანის შესახებ</string>
+    <string name="about_description_body">Muslim არის უფასო და ღია კოდის Android აპი, რომელიც თან ახლავს მთელი დღის განმავლობაში: ასტრონომიულად ზუსტი ლოცვის დრო ადანთან, ზუსტი ქიბლა კომპასი, სრული ყურანი წაკითხვით და ტაფსირით, ჰადისის ბიბლიოთეკა, წყაროს ადჰკარი, ელექტრონული ტასბიჰი, რამადანის ხელსაწყოები, ზაქათის კალკულატორი, ოფლაინ რუქები, რომლებიც შექმნილია ნაგულისხმევად მუშაობისთვის და სხვა.</string>
+    <string name="about_features_title">მაჩვენებლები</string>
+    <string name="about_features_body">ყველაფერი, რაც მუსულმანს სჭირდება ერთ აპლიკაციაში:</string>
+    <string name="about_feature_prayer">ლოცვის დრო და ადანი - გაანგარიშების ყველა მეთოდი, იურიდიული სკოლები და 18+ ადანის ბგერები</string>
+    <string name="about_feature_quran">სრული ყურანი - ოსმანური დამწერლობა, 44 წაკითხული, ტაფსირი, თარგმანი, სიტყვების ძებნა და სიხშირე</string>
+    <string name="about_feature_adhkar">ადჰკარი, ტასბიჰი, რამადანი და ზაქათი - შეხსენებებით და მცურავი ბუშტებით</string>
+    <string name="about_feature_offline">ოფლაინ-პირველი - რუქები, ყურანი, ჰადისი და ადჰკარი მუშაობს ინტერნეტის გარეშე</string>
+    <string name="about_feature_privacy">კონფიდენციალურობა ნაგულისხმევად — რეკლამის გარეშე, თვალის დევნების გარეშე, თქვენი მონაცემები თქვენს მოწყობილობაზე რჩება</string>
+    <string name="settings_auto_update">სრულად ავტომატური განახლებები</string>
+    <string name="settings_auto_update_desc">ავტომატურად ჩამოტვირთეთ და დააინსტალირეთ ახალი ვერსიები ფონზე, მათი გამოშვებისთანავე</string>
+    <string name="settings_auto_update_confirm_title">ჩართოთ ავტომატური განახლებები?</string>
+    <string name="settings_auto_update_confirm_body">ახალი ვერსიები ჩამოიტვირთება და ავტომატურად დაინსტალირდება ფონზე, როცა ხელმისაწვდომი იქნება. გაგრძელება?</string>
+    <string name="settings_auto_update_confirm">ჩართვა</string>
+    <string name="settings_cancel">გაუქმება</string>
+    <string name="update_last_check">ბოლო შემოწმება: %1$s</string>
+    <string name="update_open_releases">გახსენით გამოშვების გვერდი ბრაუზერში</string>
 </resources>

@@ -27,9 +27,9 @@ class AdhanSoundSelectionTest {
     @Test
     fun `a chosen sound applies only to its own prayer`() {
         val settings = PrayerSettings(
-            bundledAdhanSounds = mapOf(Prayer.Fajr to BundledAdhanSound.UmayyadDamascus.id),
+            bundledAdhanSounds = mapOf(Prayer.Fajr to BundledAdhanSound.Madinah.id),
         )
-        assertThat(settings.bundledFor(Prayer.Fajr)).isEqualTo(BundledAdhanSound.UmayyadDamascus)
+        assertThat(settings.bundledFor(Prayer.Fajr)).isEqualTo(BundledAdhanSound.Madinah)
         assertThat(settings.bundledFor(Prayer.Dhuhr)).isEqualTo(BundledAdhanSound.Makkah)
         assertThat(settings.bundledFor(Prayer.Isha)).isEqualTo(BundledAdhanSound.Makkah)
     }

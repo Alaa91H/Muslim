@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Ասմունքը կարճ դադար է տալիս, երբ հնչում է ծանուցում, զանգ կամ այլ լրատվամիջոց</string>
     <string name="more_pause_notifications_enabled">Միացված է — հպեք՝ համակարգի կարգավորումները բացելու համար</string>
     <string name="more_pause_notifications_disabled">Անջատված — հպեք՝ միացնելու համար</string>
+    <string name="more_names">99 Ալլահի անունները</string>
+    <string name="more_names_desc">99 անունները՝ ամբողջական բացատրությամբ</string>
+    <string name="more_hajj">Հաջ և Ումրա</string>
+    <string name="more_hajj_desc">Հաջի և Ումրայի ծեսերի մանրամասն ուղեցույց</string>
 </resources>

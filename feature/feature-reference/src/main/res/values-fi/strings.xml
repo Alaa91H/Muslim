@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Hae tästä kirjasta…</string>
     <string name="reference_title">Islamilainen viitekirjasto</string>
     <string name="reference_topics_count">aiheita</string>
+    <string name="reference_copy">Kopioi</string>
+    <string name="reference_share">Jaa</string>
 </resources>

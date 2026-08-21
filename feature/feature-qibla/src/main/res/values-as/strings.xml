@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">এলেকাৰ প্ৰস্থ (ডিগ্ৰী)</string>
     <string name="offline_maps_storage_warning">কম সংৰক্ষণ, মাত্ৰ %1$s বাকী আছে</string>
     <string name="offline_maps_storage_delete_largest">বৃহত্তম অঞ্চল মচি পেলাওক (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">নামেৰে মছজিদ বিচাৰি উলিয়াওক</string>
+    <string name="mosque_finder_show_all">সকলো মছজিদ দেখুৱাওক</string>
+    <string name="mosque_finder_share">মুকলি দিশ</string>
+    <string name="offline_maps_use_my_location">মোৰ বৰ্তমানৰ স্থানলৈ যাওক</string>
 </resources>

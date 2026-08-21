@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Pengajian dijeda sebentar saat ada notifikasi, dering, atau media lain diputar</string>
     <string name="more_pause_notifications_enabled">Diaktifkan — ketuk untuk membuka pengaturan sistem</string>
     <string name="more_pause_notifications_disabled">Dinonaktifkan — ketuk untuk mengaktifkan</string>
+    <string name="more_names">99 Nama Allah</string>
+    <string name="more_names_desc">99 nama beserta penjelasan lengkapnya</string>
+    <string name="more_hajj">Haji &amp; Umroh</string>
+    <string name="more_hajj_desc">Panduan lengkap tentang ibadah haji dan umroh</string>
 </resources>

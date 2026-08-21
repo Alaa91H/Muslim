@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Ширина на площта (градуси)</string>
     <string name="offline_maps_storage_warning">Малко място за съхранение — само %1$s безплатно</string>
     <string name="offline_maps_storage_delete_largest">Изтриване на най-големия регион (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Търсете джамии по име</string>
+    <string name="mosque_finder_show_all">Покажи всички джамии</string>
+    <string name="mosque_finder_share">Отворени упътвания</string>
+    <string name="offline_maps_use_my_location">Отиди до текущото ми местоположение</string>
 </resources>

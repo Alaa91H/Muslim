@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">কোনো অধিসূচনা, ৰিং বা অন্য মাধ্যম বাজিলে আবৃত্তি অলপ সময়ৰ বাবে থমকি ৰয়</string>
     <string name="more_pause_notifications_enabled">সামৰ্থবান কৰা হৈছে — ব্যৱস্থাপ্ৰণালীৰ সংহতিসমূহ খোলিবলৈ টেপ কৰক</string>
     <string name="more_pause_notifications_disabled">নিষ্ক্ৰিয় কৰা হৈছে — সামৰ্থবান কৰিবলৈ টেপ কৰক</string>
+    <string name="more_names">৯৯ আল্লাহৰ নাম</string>
+    <string name="more_names_desc">সম্পূৰ্ণ ব্যাখ্যাৰ সৈতে ৯৯ টা নাম</string>
+    <string name="more_hajj">হজ আৰু উমৰাহ</string>
+    <string name="more_hajj_desc">হজ আৰু উমৰাহ ৰীতি-নীতিৰ বিশদ গাইড</string>
 </resources>

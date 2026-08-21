@@ -164,4 +164,22 @@
     <string name="update_available_text">La versió %1$s ja està disponible: toqueu per actualitzar-la</string>
     <string name="notif_category_app_update">Actualitzacions de l\'aplicació</string>
     <string name="notif_category_app_update_desc">Notificació quan hi hagi una nova versió de l\'aplicació disponible</string>
+    <string name="about_tagline">Un company complet, gratuït i de codi obert per a tots els musulmans: temps de pregària, Adhan, Alcorà, hadiz, adhkar i molt més, en el vostre idioma.</string>
+    <string name="about_description_title">Sobre musulmans</string>
+    <string name="about_description_body">Muslim és una aplicació d\'Android gratuïta i de codi obert que us acompanya durant tot el dia: temps de pregària astronòmicament precisos amb l\'Adhan, una brúixola Qibla precisa, l\'Alcorà complet amb recitacions i tafsir, una biblioteca de hadiz, adhkar d\'origen, un tasbih electrònic, eines de Ramadà, una calculadora zakat, mapes fora de línia i molt més, dissenyat per funcionar de manera predeterminada per a la privadesa.</string>
+    <string name="about_features_title">Destacats</string>
+    <string name="about_features_body">Tot el que necessita un musulmà en una aplicació:</string>
+    <string name="about_feature_prayer">Temps de pregària i Adhan: tots els mètodes de càlcul, escoles jurídiques i més de 18 sons adhan</string>
+    <string name="about_feature_quran">Alcorà complet: escriptura Uthmani, 44 recitadors, tafsir, traduccions, cerca de paraules i freqüència</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadà i Zakat: amb recordatoris i bombolles flotants</string>
+    <string name="about_feature_offline">Primer fora de línia: els mapes, l\'Alcorà, els hadiz i l\'adhkar funcionen sense Internet</string>
+    <string name="about_feature_privacy">Privadesa per defecte: sense anuncis, sense seguiment, les vostres dades es mantenen al vostre dispositiu</string>
+    <string name="settings_auto_update">Actualitzacions totalment automàtiques</string>
+    <string name="settings_auto_update_desc">Baixeu i instal·leu automàticament les noves versions en segon pla tan bon punt es publiquin</string>
+    <string name="settings_auto_update_confirm_title">Vols activar les actualitzacions automàtiques?</string>
+    <string name="settings_auto_update_confirm_body">Les noves versions es baixaran i s\'instal·laran automàticament en segon pla quan estiguin disponibles. Continuar?</string>
+    <string name="settings_auto_update_confirm">Activa</string>
+    <string name="settings_cancel">Cancel·la</string>
+    <string name="update_last_check">Últim control: %1$s</string>
+    <string name="update_open_releases">Obriu la pàgina de versions al navegador</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Resitasjon stopper en kort stund når et varsel, ringesignal eller andre medier spilles av</string>
     <string name="more_pause_notifications_enabled">Aktivert – trykk for å åpne systeminnstillingene</string>
     <string name="more_pause_notifications_disabled">Deaktivert – trykk for å aktivere</string>
+    <string name="more_names">99 navn på Allah</string>
+    <string name="more_names_desc">De 99 navnene med full forklaring</string>
+    <string name="more_hajj">Hajj og Umrah</string>
+    <string name="more_hajj_desc">Detaljert guide til Hajj og Umrah-ritene</string>
 </resources>

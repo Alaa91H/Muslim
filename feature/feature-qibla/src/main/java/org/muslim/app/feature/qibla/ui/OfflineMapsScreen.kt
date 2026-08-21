@@ -21,6 +21,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.DeleteSweep
 import androidx.compose.material.icons.filled.Map
+import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.OfflinePin
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.Public
@@ -81,6 +82,9 @@ import org.muslim.app.feature.qibla.R
 fun OfflineMapsScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
+    /** Current GPS location, when known — powers the "use my location" picker. */
+    latitude: Double? = null,
+    longitude: Double? = null,
     viewModel: OfflineMapsViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -160,6 +164,8 @@ fun OfflineMapsScreen(
         AddAreaDialog(
             viewModel = viewModel,
             onDismiss = { showAddDialog = false },
+            latitude = latitude,
+            longitude = longitude,
         )
     }
 
@@ -326,6 +332,8 @@ private fun RegionCard(region: org.muslim.app.core.ui.map.OfflineMapRegion, view
 private fun AddAreaDialog(
     viewModel: OfflineMapsViewModel,
     onDismiss: () -> Unit,
+    latitude: Double? = null,
+    longitude: Double? = null,
 ) {
     var tab by remember { mutableIntStateOf(0) }
     var query by remember { mutableStateOf("") }
@@ -357,7 +365,7 @@ private fun AddAreaDialog(
                     when (tab) {
                         0 -> AreaList(viewModel.cities, viewModel, onDismiss)
                         1 -> AreaList(viewModel.countries, viewModel, onDismiss)
-                        else -> CustomAreaPicker(viewModel, onDismiss)
+                        else -> CustomAreaPicker(viewModel, onDismiss, latitude, longitude)
                     }
                 }
             }
@@ -460,6 +468,8 @@ private fun AreaList(
 private fun CustomAreaPicker(
     viewModel: OfflineMapsViewModel,
     onDismiss: () -> Unit,
+    latitude: Double? = null,
+    longitude: Double? = null,
 ) {
     var name by remember { mutableStateOf("") }
     var bounds by remember { mutableStateOf<LatLngBounds?>(null) }
@@ -506,11 +516,16 @@ private fun CustomAreaPicker(
                 .fillMaxWidth()
                 .height(280.dp),
         ) {
+            val home = if (latitude != null && longitude != null) {
+                LatLng(latitude, longitude)
+            } else {
+                null
+            }
             OsmMapView(
                 modifier = Modifier.fillMaxSize(),
                 initialCamera = CameraPosition.Builder()
-                    .target(LatLng(24.7136, 46.6753))
-                    .zoom(8.0)
+                    .target(home ?: LatLng(24.7136, 46.6753))
+                    .zoom(if (home != null) 9.0 else 8.0)
                     .build(),
                 styleUri = OsmMapDefaults.STYLE_URI,
                 controller = controller,
@@ -520,11 +535,12 @@ private fun CustomAreaPicker(
                 },
                 onCameraIdle = { viewport -> updateSelection(viewport) },
             )
-            // Zoom controls overlay, always available.
+            // Zoom controls overlay + "use my location" button, always available.
             Column(
                 modifier = Modifier
                     .align(Alignment.CenterEnd)
                     .padding(8.dp),
+                horizontalAlignment = Alignment.End,
                 verticalArrangement = Arrangement.spacedBy(4.dp),
             ) {
                 FloatingActionButton(
@@ -535,6 +551,17 @@ private fun CustomAreaPicker(
                     onClick = { controller.zoomOut() },
                     modifier = Modifier.size(40.dp),
                 ) { Text("−") }
+                if (home != null) {
+                    FloatingActionButton(
+                        onClick = { controller.animateTo(home, 9.0) },
+                        modifier = Modifier.size(40.dp),
+                    ) {
+                        Icon(
+                            Icons.Filled.MyLocation,
+                            contentDescription = stringResource(R.string.offline_maps_use_my_location),
+                        )
+                    }
+                }
             }
         }
         Spacer(Modifier.height(8.dp))

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Bidh aithris a’ stad airson ùine ghoirid nuair a bhios fios, fàinne no meadhanan eile a’ cluich</string>
     <string name="more_pause_notifications_enabled">Air a chomasachadh - tap gus roghainnean an t-siostaim fhosgladh</string>
     <string name="more_pause_notifications_disabled">Ciorramach - tap gus a chomasachadh</string>
+    <string name="more_names">99 Ainmean Allah</string>
+    <string name="more_names_desc">Na 99 ainmean le làn mhìneachadh</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Stiùireadh mionaideach air deas-ghnàthan Hajj agus Umrah</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">ئۇقتۇرۇش ، ئۈزۈك ياكى باشقا مېدىيا قويغاندا قىرائەت قىسقا ۋاقىتلىق توختاپ قالىدۇ</string>
     <string name="more_pause_notifications_enabled">قوزغىتىلغان - سىستېما تەڭشىكىنى ئېچىڭ</string>
     <string name="more_pause_notifications_disabled">چەكلەنگەن - قوزغىتىش ئۈچۈن چېكىڭ</string>
+    <string name="more_names">99 ئاللاھنىڭ ئىسمى</string>
+    <string name="more_names_desc">99 ئىسىم تولۇق چۈشەندۈرۈلگەن</string>
+    <string name="more_hajj">ھەج ۋە ئۆمرە</string>
+    <string name="more_hajj_desc">ھەج ۋە ئۆمرە قائىدە-يوسۇنلىرىنىڭ تەپسىلىي قوللانمىسى</string>
 </resources>

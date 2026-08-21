@@ -164,4 +164,22 @@
     <string name="update_available_text">સંસ્કરણ %1$s હવે ઉપલબ્ધ છે — અપડેટ કરવા માટે ટૅપ કરો</string>
     <string name="notif_category_app_update">એપ્લિકેશન અપડેટ્સ</string>
     <string name="notif_category_app_update_desc">જ્યારે નવું એપ્લિકેશન સંસ્કરણ ઉપલબ્ધ હોય ત્યારે સૂચના</string>
+    <string name="about_tagline">દરેક મુસ્લિમ માટે સંપૂર્ણ, મફત, ઓપન-સોર્સ સાથી — પ્રાર્થનાના સમય, અઝાન, કુરાન, હદીસ, અધિકાર અને વધુ, તમારી ભાષામાં.</string>
+    <string name="about_description_title">મુસ્લિમ વિશે</string>
+    <string name="about_description_body">મુસ્લિમ એ એક મફત અને ઓપન-સોર્સ એન્ડ્રોઇડ એપ્લિકેશન છે જે દિવસભર તમારી સાથે રહે છે: અઝાન સાથે ખગોળશાસ્ત્રીય રીતે સચોટ પ્રાર્થનાનો સમય, એક ચોક્કસ કિબલા હોકાયંત્ર, પઠન અને તફસીર સાથે સંપૂર્ણ કુરાન, એક હદીસ લાઇબ્રેરી, સ્ત્રોત અધિકાર, ઇલેક્ટ્રોનિક તસ્બીહ, રમઝાન સાધનો, ઝકાત કેલ્ક્યુલેટર, નકશા સાથે બંધ, નકશા સાથે વધુ ઑફલાઇન ડિઝાઇન. મૂળભૂત</string>
+    <string name="about_features_title">હાઇલાઇટ્સ</string>
+    <string name="about_features_body">મુસ્લિમને એક એપ્લિકેશનમાં જરૂરી દરેક વસ્તુ:</string>
+    <string name="about_feature_prayer">પ્રાર્થનાના સમય અને અદન - તમામ ગણતરી પદ્ધતિઓ, ન્યાયિક શાળાઓ અને 18+ અદન અવાજો</string>
+    <string name="about_feature_quran">સંપૂર્ણ કુરાન - ઉથમાની લિપિ, 44 પઠન, તફસીર, અનુવાદ, શબ્દ શોધ અને આવર્તન</string>
+    <string name="about_feature_adhkar">અધિકાર, તસ્બીહ, રમઝાન અને જકાત — રીમાઇન્ડર્સ અને તરતા પરપોટા સાથે</string>
+    <string name="about_feature_offline">ઑફલાઇન-પ્રથમ — નકશા, કુરાન, હદીસ અને અધિકાર ઇન્ટરનેટ વિના કામ કરે છે</string>
+    <string name="about_feature_privacy">ડિફૉલ્ટ રૂપે ગોપનીયતા — કોઈ જાહેરાતો નહીં, કોઈ ટ્રેકિંગ નહીં, તમારો ડેટા તમારા ઉપકરણ પર રહે છે</string>
+    <string name="settings_auto_update">સંપૂર્ણપણે સ્વચાલિત અપડેટ્સ</string>
+    <string name="settings_auto_update_desc">નવી આવૃત્તિઓ રીલીઝ થતાંની સાથે જ પૃષ્ઠભૂમિમાં આપમેળે ડાઉનલોડ અને ઇન્સ્ટોલ કરો</string>
+    <string name="settings_auto_update_confirm_title">સ્વચાલિત અપડેટ્સ સક્ષમ કરીએ?</string>
+    <string name="settings_auto_update_confirm_body">નવા સંસ્કરણો જ્યારે ઉપલબ્ધ હશે ત્યારે પૃષ્ઠભૂમિમાં આપમેળે ડાઉનલોડ અને ઇન્સ્ટોલ થશે. ચાલુ રાખીએ?</string>
+    <string name="settings_auto_update_confirm">સક્ષમ કરો</string>
+    <string name="settings_cancel">રદ કરો</string>
+    <string name="update_last_check">છેલ્લી તપાસ: %1$s</string>
+    <string name="update_open_releases">બ્રાઉઝરમાં રીલીઝ પેજ ખોલો</string>
 </resources>

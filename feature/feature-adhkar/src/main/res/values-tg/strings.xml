@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Танҳо адҳкари кӯтоҳро истифода баред</string>
     <string name="adhkar_overlay_short_only_desc">Адҳкореро интихоб кунед, ки як ё ду сатр мувофиқат кунад, то ҳубобчаи шинокунанда равшан ва хондан осон бимонад.</string>
     <string name="adhkar_overlay_tap_hint">Ҳубобро ламс кунед, то онро фавран рад кунед.</string>
+    <string name="adhkar_copied">Зикр нусхабардорӣ кардааст</string>
+    <string name="adhkar_periodic_dhikr">Зикрҳои мушаххас</string>
+    <string name="adhkar_periodic_dhikr_random">Тасодуфӣ (ба ҷои интихоби дастӣ)</string>
 </resources>

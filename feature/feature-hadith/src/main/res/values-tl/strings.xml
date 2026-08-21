@@ -24,4 +24,5 @@
     <string name="hadith_share">Ibahagi</string>
     <string name="hadith_title">Aklatan ng Hadith</string>
     <string name="hadith_copy">Kopyahin</string>
+    <string name="hadith_copied">Kinopya ang Hadith</string>
 </resources>

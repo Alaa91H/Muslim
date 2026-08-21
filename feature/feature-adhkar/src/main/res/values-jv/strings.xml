@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Gunakake adhkar cendhak mung</string>
     <string name="adhkar_overlay_short_only_desc">Pilih adhkar sing pas karo siji utawa rong garis supaya gelembung sing ngambang tetep cetha lan gampang diwaca.</string>
     <string name="adhkar_overlay_tap_hint">Tutul gelembung kanggo ngilangi langsung.</string>
+    <string name="adhkar_copied">Dzikir disalin</string>
+    <string name="adhkar_periodic_dhikr">Dzikir khusus</string>
+    <string name="adhkar_periodic_dhikr_random">Random (tinimbang milih manual)</string>
 </resources>

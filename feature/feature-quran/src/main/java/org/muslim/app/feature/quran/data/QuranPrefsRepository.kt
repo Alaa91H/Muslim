@@ -118,7 +118,7 @@ class QuranPrefsRepository @Inject constructor(
          * build `ayah_fts` changes — the index is rebuilt automatically on the
          * next seed so searches stay correct after app updates.
          */
-        const val FTS_INDEX_VERSION = 2
+        const val FTS_INDEX_VERSION = 4
     }
 
     /** Whether the persisted FTS index needs a rebuild (normalization change). */
@@ -184,6 +184,18 @@ class QuranPrefsRepository @Inject constructor(
         context.quranPrefsDataStore.edit { prefs -> prefs[Keys.KEEP_SCREEN_ON] = enabled }
     }
 
+    /**
+     * Downloads screen surah ordering: "mushaf" (surah number) or "completion"
+     * (incomplete first). Remembered between sessions.
+     */
+    val downloadSurahSort: Flow<String> = context.quranPrefsDataStore.data.map { prefs ->
+        prefs[Keys.DOWNLOAD_SURAH_SORT] ?: "mushaf"
+    }
+
+    suspend fun setDownloadSurahSort(mode: String) {
+        context.quranPrefsDataStore.edit { prefs -> prefs[Keys.DOWNLOAD_SURAH_SORT] = mode }
+    }
+
     /** Most recent search queries, newest first (see [SearchHistory]). */
     val searchHistory: Flow<List<String>> = context.quranPrefsDataStore.data.map { prefs ->
         SearchHistory.decode(prefs[Keys.SEARCH_HISTORY])
@@ -229,5 +241,6 @@ class QuranPrefsRepository @Inject constructor(
         val FTS_INDEX_VERSION = intPreferencesKey("fts_index_version")
         val SEARCH_HISTORY = stringPreferencesKey("search_history")
         val LAST_SEARCH = stringPreferencesKey("last_search")
+        val DOWNLOAD_SURAH_SORT = stringPreferencesKey("download_surah_sort")
     }
 }

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Воддза аят .</string>
     <string name="quran_range_single_ayah">Ӧтнас ая</string>
     <string name="quran_range_single_ayah_short">Ая</string>
-    <string name="quran_range_to_end">Да помӧдз сура .</string>
+    <string name="quran_range_to_end">Мушаф помӧдз .</string>
     <string name="quran_range_to_end_short">Да помасьны .</string>
     <string name="quran_range_whole_surah">Став сура .</string>
     <string name="quran_range_whole_surah_short">Сура</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Тулыс мушаф кузя лыддьысьысьяс .</string>
     <string name="quran_downloads_coverage_empty">Аудио абу на лэдзӧма .</string>
     <string name="quran_pause_notif_listener">Уведомлениеяс вылын лыддьӧм пауза .</string>
-    <string name="quran_reciter_changed_title">Декламатор вежсис .</string>
-    <string name="quran_reciter_changed_message">Воспроизведение дугдіс сыысь, мый диапазоныс мунӧ Коран помӧдз. Заводитны выльысь %1$s?</string>
-    <string name="quran_reciter_restart">Заводитны выльысь .</string>
-    <string name="quran_reciter_not_now">Абу ӧні .</string>
+    <string name="quran_search_metrics">Корсьысьӧм кад: %1$d мс .</string>
+    <string name="quran_search_index_building">Медводдза корсьӧм вылӧ Коран индекс лӧсьӧдӧм...</string>
+    <string name="quran_search_index_progress">Мушаф индекс лӧсьӧдӧм... %1$d %%.</string>
+    <string name="quran_search_word_root">Кор: %1$s.</string>
+    <string name="quran_search_derivations">Ӧти вужйысь артмӧм кывъяс .</string>
+    <string name="quran_search_no_root">Эз вермы тӧдмавны вужсӧ .</string>
 </resources>

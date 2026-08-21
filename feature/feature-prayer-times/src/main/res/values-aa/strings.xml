@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi azaan</string>
     <string name="bundled_adhan_saber">Saber azaan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doomaan adhaan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyad masjid (Damascus) adhaan</string>
     <string name="bundled_adhan_yusuf_islam">Yuusuf islaam adhaan</string>
     <string name="home_cannot_compute">Ta ayroh uddur cisaabisam maduuda</string>
     <string name="home_location_unknown">Mohoodo awakâ fanah massoowinna</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Sisdikuk (aracak)</string>
     <string name="settings_method_automatic_desc">App ku baaxo kee aracal rakitak kaxxaam meqeh tan cogda doorta; atu uxih doortam duddah cogda gabah faxe uddur.</string>
     <string name="settings_preview_for_prayer">Naharsi mabul %1$s adhaan</string>
+    <string name="settings_method_automatic_picked">Awayih uddur sinnik sinnih ugte: %1$s - %2$s</string>
 </resources>

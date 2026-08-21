@@ -24,4 +24,5 @@
     <string name="hadith_share">به اشتراک بگذارید</string>
     <string name="hadith_title">کتابخانه حدیث</string>
     <string name="hadith_copy">کپی کنید</string>
+    <string name="hadith_copied">حدیث کپی شده</string>
 </resources>

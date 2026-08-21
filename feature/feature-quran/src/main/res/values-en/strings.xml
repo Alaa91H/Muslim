@@ -26,6 +26,12 @@
     <string name="quran_search_occurrences">%1$d times</string>
     <string name="quran_search_history">Recent searches</string>
     <string name="quran_search_history_clear">Clear</string>
+    <string name="quran_search_metrics">Search time: %1$d ms</string>
+    <string name="quran_search_index_building">Building the Quran index for the first search…</string>
+    <string name="quran_search_index_progress">Building the mushaf index… %1$d%%</string>
+    <string name="quran_search_word_root">Root: %1$s</string>
+    <string name="quran_search_derivations">Words derived from the same root</string>
+    <string name="quran_search_no_root">Could not determine the root</string>
     <string name="quran_details">Surah details</string>
     <string name="quran_details_close">Close</string>
     <string name="quran_details_type">Type</string>
@@ -62,11 +68,7 @@
     <string name="quran_stop_playback">Stop playback</string>
     <string name="quran_play_range">Playback range</string>
     <string name="quran_range_single_ayah">Single ayah</string>
-    <string name="quran_range_to_end">To the end of the Quran</string>
-    <string name="quran_reciter_changed_title">Reciter changed</string>
-    <string name="quran_reciter_changed_message">Playback stopped because the range runs to the end of the Quran. Start again with %1$s?</string>
-    <string name="quran_reciter_restart">Start again</string>
-    <string name="quran_reciter_not_now">Not now</string>
+    <string name="quran_range_to_end">To the end of the Mushaf</string>
     <string name="quran_range_whole_surah">Whole surah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
     <string name="quran_range_to_end_short">To the end of the Mushaf</string>

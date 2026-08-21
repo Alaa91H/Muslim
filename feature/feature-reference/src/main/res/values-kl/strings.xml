@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Atuakkami una ujarlugu...</string>
     <string name="reference_title">Islamisk Najoqqutassiamik Atuagaarniarfik</string>
     <string name="reference_topics_count">sammisat</string>
+    <string name="reference_copy">Kopi</string>
+    <string name="reference_share">Dele</string>
 </resources>

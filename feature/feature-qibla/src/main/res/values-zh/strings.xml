@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">区域宽度（度）</string>
     <string name="offline_maps_storage_warning">存储空间低 — 仅 %1$s 免费</string>
     <string name="offline_maps_storage_delete_largest">删除最大区域（%1$s·%2$s）</string>
+    <string name="mosque_finder_search_hint">按名称搜索清真寺</string>
+    <string name="mosque_finder_show_all">显示所有清真寺</string>
+    <string name="mosque_finder_share">开放路线</string>
+    <string name="offline_maps_use_my_location">转到我当前的位置</string>
 </resources>

@@ -5,4 +5,6 @@
     <string name="reference_search_hint">ဤစာအုပ်ကို ရှာပါ...</string>
     <string name="reference_title">အစ္စလာမ့်ရည်ညွှန်းစာကြည့်တိုက်</string>
     <string name="reference_topics_count">အကြောင်းအရာများ</string>
+    <string name="reference_copy">ကော်ပီ</string>
+    <string name="reference_share">မျှဝေပါ။</string>
 </resources>

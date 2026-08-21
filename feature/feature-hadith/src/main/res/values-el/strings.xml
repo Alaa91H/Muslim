@@ -24,4 +24,5 @@
     <string name="hadith_share">Κοινή χρήση</string>
     <string name="hadith_title">Βιβλιοθήκη Χαντίθ</string>
     <string name="hadith_copy">Αντιγραφή</string>
+    <string name="hadith_copied">Χαντίθ αντιγράφηκε</string>
 </resources>

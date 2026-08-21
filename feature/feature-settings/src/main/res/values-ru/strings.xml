@@ -164,4 +164,22 @@
     <string name="update_available_text">Версия %1$s теперь доступна — нажмите, чтобы обновить</string>
     <string name="notif_category_app_update">Обновления приложений</string>
     <string name="notif_category_app_update_desc">Уведомление о появлении новой версии приложения</string>
+    <string name="about_tagline">Полноценный бесплатный помощник с открытым исходным кодом для каждого мусульманина — время молитв, азан, Коран, хадисы, азкар и многое другое на вашем языке.</string>
+    <string name="about_description_title">О мусульманине</string>
+    <string name="about_description_body">«Мусульманин» — это бесплатное Android-приложение с открытым исходным кодом, которое сопровождает вас в течение дня: астрономически точное время молитвы с азаном, точный компас Киблы, полный Коран с декламацией и тафсиром, библиотека хадисов, азкар из источников, электронный тасбих, инструменты Рамадана, калькулятор закята, офлайн-карты и многое другое — предназначенное для работы полностью в автономном режиме с конфиденциальностью по умолчанию.</string>
+    <string name="about_features_title">Основные моменты</string>
+    <string name="about_features_body">Все, что нужно мусульманину в одном приложении:</string>
+    <string name="about_feature_prayer">Время молитв и азан — все методы расчета, юридические школы и более 18 звуков азана.</string>
+    <string name="about_feature_quran">Полный Коран — сценарий Усмана, 44 чтеца, тафсир, переводы, поиск слов и частота</string>
+    <string name="about_feature_adhkar">Азкар, тасбих, Рамадан и Закят — с напоминаниями и плавающими пузырьками</string>
+    <string name="about_feature_offline">Офлайн-прежде всего — карты, Коран, хадисы и азкар работают без Интернета.</string>
+    <string name="about_feature_privacy">Конфиденциальность по умолчанию — никакой рекламы, никакого отслеживания, ваши данные остаются на вашем устройстве.</string>
+    <string name="settings_auto_update">Полностью автоматические обновления</string>
+    <string name="settings_auto_update_desc">Автоматически загружать и устанавливать новые версии в фоновом режиме сразу после их выпуска.</string>
+    <string name="settings_auto_update_confirm_title">Включить автоматические обновления?</string>
+    <string name="settings_auto_update_confirm_body">Новые версии будут загружаться и устанавливаться автоматически в фоновом режиме, когда они станут доступны. Продолжать?</string>
+    <string name="settings_auto_update_confirm">Давать возможность</string>
+    <string name="settings_cancel">Отмена</string>
+    <string name="update_last_check">Последняя проверка: %1$s</string>
+    <string name="update_open_releases">Откройте страницу релизов в браузере</string>
 </resources>

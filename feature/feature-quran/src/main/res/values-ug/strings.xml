@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">ئالدىنقى ئايەت</string>
     <string name="quran_range_single_ayah">يەككە ئاي</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">سۈرىنىڭ ئاخىرى</string>
+    <string name="quran_range_to_end">مۇسافنىڭ ئاخىرىغىچە</string>
     <string name="quran_range_to_end_short">ئاخىرلاشتۇرۇش</string>
     <string name="quran_range_whole_surah">پۈتۈن سۈرى</string>
     <string name="quran_range_whole_surah_short">سۈرە</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">قىرائەتچىلەر ئارا تولۇق مۇشاف</string>
     <string name="quran_downloads_coverage_empty">ھازىرچە ھېچقانداق ئاۋاز چۈشۈرۈلمىدى</string>
     <string name="quran_pause_notif_listener">ئۇقتۇرۇشتا ئوقۇشنى توختىتىڭ</string>
-    <string name="quran_reciter_changed_title">قىرائەتچى ئۆزگەردى</string>
-    <string name="quran_reciter_changed_message">Playback stopped because the range runs to the end of the Quran. Start again with %1$s?</string>
-    <string name="quran_reciter_restart">قايتا باشلاڭ</string>
-    <string name="quran_reciter_not_now">ھازىر ئەمەس</string>
+    <string name="quran_search_metrics">ئىزدەش ۋاقتى: %1$d ms</string>
+    <string name="quran_search_index_building">تۇنجى ئىزدەش ئۈچۈن قۇرئان كۆرسەتكۈچىنى قۇرۇش…</string>
+    <string name="quran_search_index_progress">مۇشاف كۆرسەتكۈچىنى قۇرۇش… %1$d %%</string>
+    <string name="quran_search_word_root">يىلتىزى: %1$s</string>
+    <string name="quran_search_derivations">ئوخشاش يىلتىزدىن كەلگەن سۆزلەر</string>
+    <string name="quran_search_no_root">يىلتىزىنى بەلگىلىيەلمىدى</string>
 </resources>

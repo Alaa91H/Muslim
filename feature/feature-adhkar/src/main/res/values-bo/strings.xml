@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">ཨ་དྷ་ཀར་ཐུང་ཐུང་ཁོ་ན་བེད་སྤྱོད་བྱེད།</string>
     <string name="adhkar_overlay_short_only_desc">ཐིག་གཅིག་གཉིས་ལ་འཚམ་པའི་ཨ་དྷ་ཀར་འདེམས། དེ་ལྟར་འཕྱོ་བའི་ཕྱེ་མ་དེ་གསལ་པོ་དང་ཀློག་བདེ་པོ་ཆགས་ཐུབ།</string>
     <string name="adhkar_overlay_tap_hint">དེ་འཕྲལ་མར་མེད་པར་བཟོ་བའི་ཆེད་དུ་ཕྱེ་མ་དེ་ལ་རྡེབ་རོགས།</string>
+    <string name="adhkar_copied">Dhikr འདྲ་བཤུས།</string>
+    <string name="adhkar_periodic_dhikr">བྱེ་བྲག་གི་དྷིཀར།</string>
+    <string name="adhkar_periodic_dhikr_random">གང་བྱུང་(ལག་ཐོག་ནས་འདེམས་པའི་ཚབ་ཏུ)</string>
 </resources>

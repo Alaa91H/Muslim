@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Өмнөх ая</string>
     <string name="quran_range_single_ayah">Ганц бие</string>
     <string name="quran_range_single_ayah_short">Аяа</string>
-    <string name="quran_range_to_end">Сураг дуустал</string>
+    <string name="quran_range_to_end">Мушафын төгсгөл хүртэл</string>
     <string name="quran_range_to_end_short">Төгсгөлд нь</string>
     <string name="quran_range_whole_surah">Бүтэн сур</string>
     <string name="quran_range_whole_surah_short">Сура</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Уншигчдад зориулсан бүрэн mushaf</string>
     <string name="quran_downloads_coverage_empty">Одоогоор татаж аваагүй байна</string>
     <string name="quran_pause_notif_listener">Мэдэгдэл дээр уншлагыг түр зогсоох</string>
-    <string name="quran_reciter_changed_title">Уншигч өөрчлөгдсөн</string>
-    <string name="quran_reciter_changed_message">Коран судрын төгсгөл хүртэл үргэлжлэх тул тоглуулахыг зогсоосон. %1$s-ээр дахин эхлэх үү?</string>
-    <string name="quran_reciter_restart">Дахин эхэл</string>
-    <string name="quran_reciter_not_now">Одоо биш</string>
+    <string name="quran_search_metrics">Хайлтын хугацаа: %1$d мс</string>
+    <string name="quran_search_index_building">Эхний хайлтанд зориулж Коран судрын индексийг бүрдүүлж байна...</string>
+    <string name="quran_search_index_progress">Мушафын индексийг бүрдүүлж байна... %1$d %%</string>
+    <string name="quran_search_word_root">Үндэс: %1$s</string>
+    <string name="quran_search_derivations">Нэг үндэснээс гаралтай үгс</string>
+    <string name="quran_search_no_root">Үндэсийг тодорхойлж чадсангүй</string>
 </resources>

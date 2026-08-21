@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Aayaaji ɓennuɗi</string>
     <string name="quran_range_single_ayah">Ayah gooto</string>
     <string name="quran_range_single_ayah_short">Ayya</string>
-    <string name="quran_range_to_end">Haa joofnirde suura</string>
+    <string name="quran_range_to_end">Haa e joofnirde Mushaf</string>
     <string name="quran_range_to_end_short">Ngam joofnude</string>
     <string name="quran_range_whole_surah">Suura fof</string>
     <string name="quran_range_whole_surah_short">Suura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf timmuɗo e nder janngooɓe</string>
     <string name="quran_downloads_coverage_empty">Alaa audio ƴettaa tawo</string>
     <string name="quran_pause_notif_listener">Jokku janngugol e dow humpitooji</string>
-    <string name="quran_reciter_changed_title">Jannguɗo oo wayliima</string>
-    <string name="quran_reciter_changed_message">Pijirlooji ɗii ngoppitaa sabu range oo ina doga haa e joofnirde Quraana. Fuɗɗoraade kadi e %1$s?</string>
-    <string name="quran_reciter_restart">Fuɗɗoo kadi</string>
-    <string name="quran_reciter_not_now">Wonaa jooni</string>
+    <string name="quran_search_metrics">Waktu njiylawu: %1$d ms</string>
+    <string name="quran_search_index_building">Mahngo indeks Quraan ngam njiylawu gadano...</string>
+    <string name="quran_search_index_progress">Mahngo limto mushaf... %1$d %%</string>
+    <string name="quran_search_word_root">Daande: %1$s</string>
+    <string name="quran_search_derivations">Konnguɗi ummoriiɗi e ɗaɗol gootol</string>
+    <string name="quran_search_no_root">Waawaa anndude ɗaɗol ngol</string>
 </resources>

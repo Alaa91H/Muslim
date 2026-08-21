@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Sabre adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Mosg Umayyad (Damascus) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Cha b\' urrainn dhuinn amannan an latha seo obrachadh a-mach</string>
     <string name="home_location_unknown">Chan eil an t-àite air a shuidheachadh fhathast</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Fèin-ghluasadach (a rèir àite)</string>
     <string name="settings_method_automatic_desc">Bidh an app a’ taghadh an dòigh as freagarraiche gu fèin-ghluasadach stèidhichte air do dhùthaich agus àite; faodaidh tu fhathast dòigh a thaghadh le làimh aig àm sam bith.</string>
     <string name="settings_preview_for_prayer">Ro-shealladh %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Taghadh fèin-ghluasadach an-dràsta: %1$s - %2$s</string>
 </resources>

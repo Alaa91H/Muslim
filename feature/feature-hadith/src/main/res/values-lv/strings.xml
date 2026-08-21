@@ -24,4 +24,5 @@
     <string name="hadith_share">Dalīties</string>
     <string name="hadith_title">Hadith bibliotēka</string>
     <string name="hadith_copy">Kopēt</string>
+    <string name="hadith_copied">Hadith nokopēja</string>
 </resources>

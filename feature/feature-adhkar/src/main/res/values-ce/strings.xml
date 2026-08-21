@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Шортта адхкар бен ца леладе .</string>
     <string name="adhkar_overlay_short_only_desc">Цхьана я шина могӀанца догӀуш долу адхкар харжа, лела пузырь шера а, еша атта а хилийта.</string>
     <string name="adhkar_overlay_tap_hint">Пузырька тӀе куьг тоха, иза сихха дӀаяккха.</string>
+    <string name="adhkar_copied">Зикр копировать дина .</string>
+    <string name="adhkar_periodic_dhikr">Къаьсттина зикр .</string>
+    <string name="adhkar_periodic_dhikr_random">Лаамаза (куьйга схьаэцаран метта)</string>
 </resources>

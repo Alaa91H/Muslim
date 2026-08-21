@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Fyrri ayah</string>
     <string name="quran_range_single_ayah">Einkult ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Til endan av surah</string>
+    <string name="quran_range_to_end">Til endan av Mushaf .</string>
     <string name="quran_range_to_end_short">At enda</string>
     <string name="quran_range_whole_surah">Heil surah</string>
     <string name="quran_range_whole_surah_short">Súra</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Fullur mushaf tvørtur um lesarar</string>
     <string name="quran_downloads_coverage_empty">Einki ljóð er tikið niður enn</string>
     <string name="quran_pause_notif_listener">Steðga upplestrinum á fráboðanum</string>
-    <string name="quran_reciter_changed_title">Lesari broyttur</string>
-    <string name="quran_reciter_changed_message">Avspælingin steðgaði, tí bilið gongur til endan av Koranini. Byrja aftur við %1$s?</string>
-    <string name="quran_reciter_restart">Byrja aftur</string>
-    <string name="quran_reciter_not_now">Ikki nú</string>
+    <string name="quran_search_metrics">Leititíð: %1$d ms</string>
+    <string name="quran_search_index_building">Byggja Koranina indeksið til fyrstu leitingina...</string>
+    <string name="quran_search_index_progress">Byggja mushaf-vísitalið... %1$d %%.</string>
+    <string name="quran_search_word_root">Rót: %1$s.</string>
+    <string name="quran_search_derivations">Orð, sum stava frá somu rót .</string>
+    <string name="quran_search_no_root">Kundi ikki áseta rótina</string>
 </resources>

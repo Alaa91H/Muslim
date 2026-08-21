@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Bal’ina naannoo (digrii) .</string>
     <string name="offline_maps_storage_warning">Kuusaa gadi aanaa — %1$s qofa bilisa</string>
     <string name="offline_maps_storage_delete_largest">Naannoo guddaa haquu (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Masjiidota maqaan barbaadaa</string>
+    <string name="mosque_finder_show_all">Masjiidota hunda agarsiisi</string>
+    <string name="mosque_finder_share">Kallattii banaa</string>
+    <string name="offline_maps_use_my_location">Bakka amma jirutti deemi</string>
 </resources>

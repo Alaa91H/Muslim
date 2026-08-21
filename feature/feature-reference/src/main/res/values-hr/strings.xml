@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Pretraži ovu knjigu…</string>
     <string name="reference_title">Islamska referentna biblioteka</string>
     <string name="reference_topics_count">temama</string>
+    <string name="reference_copy">Kopiraj</string>
+    <string name="reference_share">Podijelite</string>
 </resources>

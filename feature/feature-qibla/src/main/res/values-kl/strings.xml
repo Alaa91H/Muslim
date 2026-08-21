@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Sumiiffiup siammasissusaa (gradit)</string>
     <string name="offline_maps_storage_warning">Allamik toqqorsivik — %1$s-it kisimik akeqanngillat</string>
     <string name="offline_maps_storage_delete_largest">Sumiiffiit annersaat piiaruk (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Moskee-t aqqinik ujaarlerit</string>
+    <string name="mosque_finder_show_all">Moskee-t tamarmik takutikkit</string>
+    <string name="mosque_finder_share">Avammut suussutsit</string>
+    <string name="offline_maps_use_my_location">Ullumikkut inissisimaffinnut ingerlagit</string>
 </resources>

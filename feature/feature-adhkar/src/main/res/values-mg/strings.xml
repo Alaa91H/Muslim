@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Mampiasà adhkar fohy fotsiny</string>
     <string name="adhkar_overlay_short_only_desc">Mifidiana adhkar mifanaraka amin\'ny andalana iray na roa mba ho mazava tsara sy mora vakina ilay bubble mitsinkafona.</string>
     <string name="adhkar_overlay_tap_hint">Tsindrio ny bubble hanilika azy avy hatrany.</string>
+    <string name="adhkar_copied">Dhikr nadika</string>
+    <string name="adhkar_periodic_dhikr">Dhikr manokana</string>
+    <string name="adhkar_periodic_dhikr_random">Kisendrasendra (fa tsy amin\'ny fisafidianana tanana)</string>
 </resources>

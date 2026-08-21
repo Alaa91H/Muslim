@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Ngahshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyad Mosque (Damascus) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Ihirama adhan</string>
     <string name="home_cannot_compute">Kaore e taea te tatau i nga wa mo tenei ra</string>
     <string name="home_location_unknown">Ko te waahi kaore ano kia tautuhia</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Aunoa (ma te waahi)</string>
     <string name="settings_method_automatic_desc">Ka tohua e te taupānga te tikanga tino pai i runga i to whenua me to waahi; ka taea tonu e koe te whiriwhiri i tetahi tikanga i nga wa katoa.</string>
     <string name="settings_preview_for_prayer">Arokite %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Kohia aunoa: %1$s — %2$s</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Lajè zòn (degre)</string>
     <string name="offline_maps_storage_warning">Depo ki ba - sèlman %1$s gratis</string>
     <string name="offline_maps_storage_delete_largest">Efase pi gwo rejyon (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Chèche moske pa non</string>
+    <string name="mosque_finder_show_all">Montre tout moske yo</string>
+    <string name="mosque_finder_share">Louvri direksyon yo</string>
+    <string name="offline_maps_use_my_location">Ale nan kote mwen ye kounye a</string>
 </resources>

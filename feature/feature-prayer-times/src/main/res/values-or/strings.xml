@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">ନାଗଶବନ୍ଦୀ ଆଦନ</string>
     <string name="bundled_adhan_saber">ସାବର ଆଦନ |</string>
     <string name="bundled_adhan_sharif_doman">ସରିଫ ଡୋମନ୍ ଆଦନ |</string>
-    <string name="bundled_adhan_umayyad_damascus">ଉମାୟାଦ ମସଜିଦ (ଦମକଳ ବାହିନୀ)</string>
     <string name="bundled_adhan_yusuf_islam">ୟୁସୁଫ୍ ଇସଲାମ</string>
     <string name="home_cannot_compute">ଏହି ଦିନ ପାଇଁ ସମୟ ଗଣିବାକୁ ଅସମର୍ଥ |</string>
     <string name="home_location_unknown">ଅବସ୍ଥାନ ଏପର୍ଯ୍ୟନ୍ତ ସେଟ୍ ହୋଇନାହିଁ |</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">ସ୍ୱୟଂଚାଳିତ (ଅବସ୍ଥାନ ଅନୁଯାୟୀ)</string>
     <string name="settings_method_automatic_desc">ଆପ୍ ଆପଣଙ୍କ ଦେଶ ଏବଂ ଅବସ୍ଥାନ ଉପରେ ଆଧାର କରି ସ୍ୱୟଂଚାଳିତ ଭାବରେ ସବୁଠାରୁ ଉପଯୁକ୍ତ ପଦ୍ଧତି ବାଛିଥାଏ; ଆପଣ ତଥାପି ଯେକ time ଣସି ସମୟରେ ମାନୁଆଲୀ ଭାବରେ ଏକ ପଦ୍ଧତି ବାଛିପାରିବେ |</string>
     <string name="settings_preview_for_prayer">ପୂର୍ବାବଲୋକନ %1$s ଆଦନ |</string>
+    <string name="settings_method_automatic_picked">ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଉଠାଯାଇଛି: %1$s - %2$s |</string>
 </resources>

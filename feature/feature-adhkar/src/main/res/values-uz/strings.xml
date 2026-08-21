@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Faqat qisqa adhkardan foydalaning</string>
     <string name="adhkar_overlay_short_only_desc">Bir yoki ikkita qatorga mos keladigan adhkarni tanlang, shunda suzuvchi pufakcha aniq va o\'qilishi oson.</string>
     <string name="adhkar_overlay_tap_hint">Uni darhol yopish uchun pufakchaga teging.</string>
+    <string name="adhkar_copied">Zikr ko\'chirildi</string>
+    <string name="adhkar_periodic_dhikr">Maxsus zikr</string>
+    <string name="adhkar_periodic_dhikr_random">Tasodifiy (qo\'lda tanlash o\'rniga)</string>
 </resources>

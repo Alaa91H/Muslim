@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s is now available — tap to update</string>
     <string name="notif_category_app_update">Mmelite ngwa</string>
     <string name="notif_category_app_update_desc">Ịma ọkwa mgbe ụdị ngwa ọhụrụ dị</string>
+    <string name="about_tagline">Onye enyi zuru oke, nweere onwe, onye mepere emepe maka onye Alakụba ọ bụla - oge ekpere, Adhan, Quran, hadith, adhkar na ndị ọzọ, n\'asụsụ gị.</string>
+    <string name="about_description_title">Banyere Muslim</string>
+    <string name="about_description_body">Muslim bụ ngwa gam akporo na-emeghe ma na-emeghe nke na-eso gị ụbọchị niile: oge ekpere nke mbara igwe ziri ezi na Adhan, kompas Qibla zuru oke, Quran zuru oke nwere ọgụgụ na tafsir, ọba akwụkwọ hadith, adhkar nke enwetara, tasbih elektrọnik, ngwaọrụ Ramadan, ihe mgbako zakat, maapụ offline, na ndị ọzọ - emebere ka ọ rụọ ọrụ zuru oke na ntanetị.</string>
+    <string name="about_features_title">Isi ihe</string>
+    <string name="about_features_body">Ihe niile onye Alakụba chọrọ n\'otu ngwa:</string>
+    <string name="about_feature_prayer">Oge ekpere &amp; Adhan - usoro mgbako niile, ụlọ akwụkwọ ikike na ụda 18+ adhan</string>
+    <string name="about_feature_quran">Quran zuru ezu - script Uthmani, ndị na-agụ akwụkwọ 44, tafsir, ntụgharị asụsụ, ọchụchọ okwu na ugboro ole</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat - nwere ihe ncheta na afụ na-ese n\'elu mmiri</string>
+    <string name="about_feature_offline">Na-anọghị n\'ịntanetị- nke mbụ - maapụ, Quran, hadith na adhkar na-arụ ọrụ na-enweghị ịntanetị</string>
+    <string name="about_feature_privacy">Nzuzo na ndabara - enweghị mgbasa ozi, enweghị nsochi, data gị na-anọ na ngwaọrụ gị</string>
+    <string name="settings_auto_update">Mmelite zuru oke na akpaaka</string>
+    <string name="settings_auto_update_desc">Budata na wụnye ụdị ọhụrụ na-akpaghị aka n\'azụ ozugbo ewepụtara ha</string>
+    <string name="settings_auto_update_confirm_title">Kwado mmelite akpaka?</string>
+    <string name="settings_auto_update_confirm_body">A ga-ebudata ma wụnye ụdị ọhụrụ na-akpaghị aka na ndabere mgbe ọ dị. Gaa n\'ihu?</string>
+    <string name="settings_auto_update_confirm">Kwado</string>
+    <string name="settings_cancel">Kagbuo</string>
+    <string name="update_last_check">Nlele ikpeazụ: %1$s</string>
+    <string name="update_open_releases">Mepee ibe ewepụtara na ihe nchọgharị ahụ</string>
 </resources>

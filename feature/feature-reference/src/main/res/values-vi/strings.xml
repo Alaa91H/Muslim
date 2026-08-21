@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Tìm kiếm cuốn sách này…</string>
     <string name="reference_title">Thư viện tham khảo Hồi giáo</string>
     <string name="reference_topics_count">chủ đề</string>
+    <string name="reference_copy">Sao chép</string>
+    <string name="reference_share">Chia sẻ</string>
 </resources>

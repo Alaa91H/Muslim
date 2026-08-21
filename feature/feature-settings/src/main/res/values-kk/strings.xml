@@ -164,4 +164,22 @@
     <string name="update_available_text">%1$s нұсқасы енді қолжетімді — жаңарту үшін түртіңіз</string>
     <string name="notif_category_app_update">Қолданба жаңартулары</string>
     <string name="notif_category_app_update_desc">Қолданбаның жаңа нұсқасы қолжетімді болғанда хабарландыру</string>
+    <string name="about_tagline">Сіздің тіліңізде намаз уақыттары, азан, Құран, хадис, әзіл және т.б. - әрбір мұсылман үшін толық, тегін, ашық көзі бар серіктес.</string>
+    <string name="about_description_title">Мұсылман туралы</string>
+    <string name="about_description_body">Muslim - бұл күні бойы сізге еріп жүретін тегін және ашық бастапқы Android қолданбасы: азанмен астрономиялық дәл намаз уақыттары, нақты Қыбла компасы, оқулар мен тәпсірлері бар толық Құран, хадистер кітапханасы, дереккөзден алынған адхкар, электронды тасбих, Рамазан құралдары, зекет калькуляторы, офлайн карталар және т.б. - әдепкі бойынша жұмыс істеуге арналған.</string>
+    <string name="about_features_title">Маңызды жерлер</string>
+    <string name="about_features_body">Мұсылманға қажет нәрсенің бәрі бір қолданбада:</string>
+    <string name="about_feature_prayer">Намаз уақыттары және азан — барлық есептеу әдістері, заң мектептері және 18+ азан дыбыстары</string>
+    <string name="about_feature_quran">Толық Құран - Османи жазуы, 44 қари, тафсир, аудармалар, сөз іздеу және жиілік</string>
+    <string name="about_feature_adhkar">Адхкар, тасбих, Рамазан және Зекет — еске салғыштармен және қалқымалы көпіршіктермен</string>
+    <string name="about_feature_offline">Офлайн-бірінші — карталар, Құран, хадис және адхкар интернетсіз жұмыс істейді</string>
+    <string name="about_feature_privacy">Әдепкі бойынша құпиялылық — жарнамасыз, бақылаусыз, деректеріңіз құрылғыңызда қалады</string>
+    <string name="settings_auto_update">Толық автоматты жаңартулар</string>
+    <string name="settings_auto_update_desc">Жаңа нұсқаларды шығарылған бойда фондық режимде автоматты түрде жүктеп алыңыз және орнатыңыз</string>
+    <string name="settings_auto_update_confirm_title">Автоматты жаңартуларды қосу керек пе?</string>
+    <string name="settings_auto_update_confirm_body">Жаңа нұсқалар жүктеп алынады және қолжетімді болған кезде фондық режимде автоматты түрде орнатылады. Жалғастыру керек пе?</string>
+    <string name="settings_auto_update_confirm">Қосу</string>
+    <string name="settings_cancel">Болдырмау</string>
+    <string name="update_last_check">Соңғы тексеру: %1$s</string>
+    <string name="update_open_releases">Браузерде шығарылымдар бетін ашыңыз</string>
 </resources>

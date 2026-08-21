@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">વિસ્તારની પહોળાઈ (ડિગ્રી)</string>
     <string name="offline_maps_storage_warning">ઓછું સ્ટોરેજ — માત્ર %1$s મફત</string>
     <string name="offline_maps_storage_delete_largest">સૌથી મોટો પ્રદેશ કાઢી નાખો (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">નામ દ્વારા મસ્જિદો શોધો</string>
+    <string name="mosque_finder_show_all">બધી મસ્જિદો બતાવો</string>
+    <string name="mosque_finder_share">દિશાઓ ખોલો</string>
+    <string name="offline_maps_use_my_location">મારા વર્તમાન સ્થાન પર જાઓ</string>
 </resources>

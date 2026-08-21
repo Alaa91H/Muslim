@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">آیه قبلی</string>
     <string name="quran_range_single_ayah">آیه مجرد</string>
     <string name="quran_range_single_ayah_short">آیه</string>
-    <string name="quran_range_to_end">تا پایان سوره</string>
+    <string name="quran_range_to_end">تا آخر مصحف</string>
     <string name="quran_range_to_end_short">برای پایان دادن</string>
     <string name="quran_range_whole_surah">سوره کامل</string>
     <string name="quran_range_whole_surah_short">سوره</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">مصحف کامل در میان قاریان</string>
     <string name="quran_downloads_coverage_empty">هنوز صوتی دانلود نشده است</string>
     <string name="quran_pause_notif_listener">توقف تلاوت در اعلان‌ها</string>
-    <string name="quran_reciter_changed_title">قاری عوض شد</string>
-    <string name="quran_reciter_changed_message">پخش متوقف شد زیرا محدوده تا انتهای قرآن است. دوباره با %1$s شروع شود؟</string>
-    <string name="quran_reciter_restart">دوباره شروع کن</string>
-    <string name="quran_reciter_not_now">الان نه</string>
+    <string name="quran_search_metrics">زمان جستجو: %1$d ms</string>
+    <string name="quran_search_index_building">ساخت نمایه قرآن برای اولین جستجو…</string>
+    <string name="quran_search_index_progress">ساخت نمایه مصحف… %1$d %%</string>
+    <string name="quran_search_word_root">ریشه: %1$s</string>
+    <string name="quran_search_derivations">کلماتی که از یک ریشه مشتق شده اند</string>
+    <string name="quran_search_no_root">نمی توان ریشه را تعیین کرد</string>
 </resources>

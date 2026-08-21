@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Karatu yana ɗan dakata kaɗan lokacin da sanarwa, zobe ko wasu kafofin watsa labarai ke kunna</string>
     <string name="more_pause_notifications_enabled">An kunna - matsa don buɗe saitunan tsarin</string>
     <string name="more_pause_notifications_disabled">An kashe - matsa don kunna</string>
+    <string name="more_names">Sunayen Allah 99</string>
+    <string name="more_names_desc">Sunaye 99 tare da cikakken bayani</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Cikakken jagora ga ayyukan Hajji da Umrah</string>
 </resources>

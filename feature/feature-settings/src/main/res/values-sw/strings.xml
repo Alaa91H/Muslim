@@ -164,4 +164,22 @@
     <string name="update_available_text">Toleo la %1$s sasa linapatikana — gusa ili kusasisha</string>
     <string name="notif_category_app_update">Masasisho ya programu</string>
     <string name="notif_category_app_update_desc">Arifa wakati toleo jipya la programu linapatikana</string>
+    <string name="about_tagline">Sahaba kamili, isiyolipishwa, ya chanzo huria kwa kila Muislamu - nyakati za maombi, Adhana, Quran, hadithi, adhkar na zaidi, katika lugha yako.</string>
+    <string name="about_description_title">Kuhusu Muslim</string>
+    <string name="about_description_body">Muslim ni programu ya Android isiyolipishwa na huria ambayo huambatana nawe siku nzima: nyakati sahihi za maombi ya unajimu na Adhana, dira sahihi ya Qibla, Kurani kamili yenye visomo na tafsir, maktaba ya hadithi, adhkar iliyopatikana, tasbihi ya kielektroniki, zana za Ramadhani, kikokotoo cha zakat, ramani zilizoundwa nje ya mtandao kwa faragha, na zaidi - nje ya mtandao.</string>
+    <string name="about_features_title">Vivutio</string>
+    <string name="about_features_body">Kila kitu ambacho Mwislamu anahitaji katika programu moja:</string>
+    <string name="about_feature_prayer">Nyakati za maombi na Adhana — mbinu zote za kukokotoa, shule za kisheria, na sauti 18+ za adhana</string>
+    <string name="about_feature_quran">Quran Kamili - Hati ya Uthmani, wasomaji 44, tafsir, tafsiri, utafutaji wa maneno na marudio</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadhani na Zakat — yenye vikumbusho na viputo vinavyoelea</string>
+    <string name="about_feature_offline">Nje ya mtandao kwanza - ramani, Quran, hadithi na adhkar hufanya kazi bila mtandao</string>
+    <string name="about_feature_privacy">Faragha kwa chaguomsingi - hakuna matangazo, hakuna ufuatiliaji, data yako itasalia kwenye kifaa chako</string>
+    <string name="settings_auto_update">Sasisho za kiotomatiki kikamilifu</string>
+    <string name="settings_auto_update_desc">Pakua na usakinishe matoleo mapya chinichini kiotomatiki mara tu yanapotolewa</string>
+    <string name="settings_auto_update_confirm_title">Ungependa kuwasha masasisho ya kiotomatiki?</string>
+    <string name="settings_auto_update_confirm_body">Matoleo mapya yatapakuliwa na kusakinishwa kiotomatiki chinichini yanapopatikana. Ungependa kuendelea?</string>
+    <string name="settings_auto_update_confirm">Wezesha</string>
+    <string name="settings_cancel">Ghairi</string>
+    <string name="update_last_check">Ukaguzi wa mwisho: %1$s</string>
+    <string name="update_open_releases">Fungua ukurasa wa matoleo kwenye kivinjari</string>
 </resources>

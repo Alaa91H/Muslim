@@ -24,4 +24,5 @@
     <string name="hadith_share">Parve bikin</string>
     <string name="hadith_title">Pirtûkxaneya Hedîsê</string>
     <string name="hadith_copy">Kopî kirin</string>
+    <string name="hadith_copied">Hedîs kopî kirin</string>
 </resources>

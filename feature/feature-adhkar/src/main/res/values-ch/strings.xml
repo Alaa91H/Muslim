@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Usa adhkar ha\'</string>
     <string name="adhkar_overlay_short_only_desc">Na\'i adhkar ni\' fitme gi unu pat dos na liñguahe ya i floating bubble u klaru yan fa\'tinas.</string>
     <string name="adhkar_overlay_tap_hint">Påtta i bula para un na\'suha ensegidas.</string>
+    <string name="adhkar_copied">Ma kopia si Dhikr</string>
+    <string name="adhkar_periodic_dhikr">Dhikr espesiåt</string>
+    <string name="adhkar_periodic_dhikr_random">Random (enlugåt di manual pick)</string>
 </resources>

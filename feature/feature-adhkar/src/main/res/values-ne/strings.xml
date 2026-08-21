@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">छोटो adhkar मात्र प्रयोग गर्नुहोस्</string>
     <string name="adhkar_overlay_short_only_desc">फ्लोटिंग बबल स्पष्ट र पढ्न सजिलो रहोस् भनेर एक वा दुई लाइनमा फिट हुने अधकार छनोट गर्नुहोस्।</string>
     <string name="adhkar_overlay_tap_hint">यसलाई तुरुन्तै खारेज गर्न बबलमा ट्याप गर्नुहोस्।</string>
+    <string name="adhkar_copied">Dhikr प्रतिलिपि</string>
+    <string name="adhkar_periodic_dhikr">विशिष्ट dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">अनियमित (म्यानुअल छनोटको सट्टा)</string>
 </resources>

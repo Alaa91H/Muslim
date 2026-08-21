@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Προηγούμενο αγιά</string>
     <string name="quran_range_single_ayah">Ενιαία ayah</string>
     <string name="quran_range_single_ayah_short">Άγια</string>
-    <string name="quran_range_to_end">Στο τέλος της σούρας</string>
+    <string name="quran_range_to_end">Μέχρι το τέλος του Μουσάφ</string>
     <string name="quran_range_to_end_short">Για να τελειώσει</string>
     <string name="quran_range_whole_surah">Ολόκληρη σούρα</string>
     <string name="quran_range_whole_surah_short">Σούρα</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Πλήρες μουσάφ σε απαγγέλλοντες</string>
     <string name="quran_downloads_coverage_empty">Δεν έχει γίνει λήψη ακόμα ήχου</string>
     <string name="quran_pause_notif_listener">Παύση της απαγγελίας στις ειδοποιήσεις</string>
-    <string name="quran_reciter_changed_title">Άλλαξε ο αναγνώστης</string>
-    <string name="quran_reciter_changed_message">Η αναπαραγωγή σταμάτησε επειδή το εύρος φτάνει μέχρι το τέλος του Κορανίου. Να ξεκινήσω ξανά με %1$s;</string>
-    <string name="quran_reciter_restart">Ξεκινήστε ξανά</string>
-    <string name="quran_reciter_not_now">Όχι τώρα</string>
+    <string name="quran_search_metrics">Χρόνος αναζήτησης: %1$d ms</string>
+    <string name="quran_search_index_building">Δημιουργία του ευρετηρίου Κορανίου για την πρώτη αναζήτηση…</string>
+    <string name="quran_search_index_progress">Δημιουργία του δείκτη μουσαφ… %1$d %%</string>
+    <string name="quran_search_word_root">Ρίζα: %1$s</string>
+    <string name="quran_search_derivations">Λέξεις που προέρχονται από την ίδια ρίζα</string>
+    <string name="quran_search_no_root">Δεν ήταν δυνατός ο προσδιορισμός της ρίζας</string>
 </resources>

@@ -50,9 +50,14 @@ class PeriodicAdhkarReminderReceiver : BroadcastReceiver() {
 
             val category = prefs.periodicReminderCategoryId
                 ?.let(DhikrCategory::fromId)
-            val dhikr = entryPoint.adhkarRepository()
-                .randomDhikr(category, prefs.disabledDhikrIds, prefs.shortDhikrOnly)
-                ?: entryPoint.adhkarRepository().randomDhikr(null, prefs.disabledDhikrIds, prefs.shortDhikrOnly)
+            // A user-pinned dhikr wins over the random picker; when the pinned
+            // one was disabled or removed, fall back to the random selection.
+            val repository = entryPoint.adhkarRepository()
+            val pinned = repository.dhikrById(prefs.periodicReminderDhikrId)
+                ?.takeIf { it.id !in prefs.disabledDhikrIds }
+            val dhikr = pinned
+                ?: repository.randomDhikr(category, prefs.disabledDhikrIds, prefs.shortDhikrOnly)
+                ?: repository.randomDhikr(null, prefs.disabledDhikrIds, prefs.shortDhikrOnly)
                 ?: return@launch
 
             if (prefs.overlayEnabled && Settings.canDrawOverlays(appContext)) {

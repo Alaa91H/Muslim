@@ -164,4 +164,22 @@
     <string name="update_available_text">Ta\'n rang-hallooin %1$s ry-gheddyn — tappee er son ymmyd</string>
     <string name="notif_category_app_update">Cur-my-ner App</string>
     <string name="notif_category_app_update_desc">Fockle tra ta version app noa ry-gheddyn</string>
+    <string name="about_tagline">Companion cooilleenit, saor, foshlit son gagh Moslem — ammyn padjer, Adhan, Quran, hadith, adhkar as ny smoo, ayns dty chaglym.</string>
+    <string name="about_description_title">Mychione Muslim</string>
+    <string name="about_description_body">Ta Muslim ny app Android saor as foshlit ta goll marish oo trooid y lae: ushtaghyn padjer ry-hoi astronomically ry-hoi rish y Adhan, compass Qibla ry-hoi, y Quran immeeaght lesh recitations as tafsir, leabharlann hadith, adhkar sourced, tasbih electronic, obbraghyn Ramadan, calculator ry-hoi ry-hoi ry-hoi ry-hoi ry-hoi. bunnys.</string>
+    <string name="about_features_title">Cur-my-ner</string>
+    <string name="about_features_body">Gagh nhee ta feme er Muslim ayns un app:</string>
+    <string name="about_feature_prayer">Ooraghyn padjer &amp; Adhan — ooilley ny moddeyn reihys, skoolyn leigh, as 18+ soilshaghyn adhan</string>
+    <string name="about_feature_quran">Quran immeeaght — Script Uthmani, 44 laghyn, tafsir, aittaghyn, ronsaghey focklyn as frequency</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan as Zakat - lesh cooinaghtyn as bobblyn flooit</string>
+    <string name="about_feature_offline">Off-line-er-dy-hoshiaght — mappyn, y Choran, y hadith as adhkar obbraghey fegooish yn internet</string>
+    <string name="about_feature_privacy">Privacy liorish y stayd — cha nel advertisementyn, cha nel tracking, ta dty data cummal er dty urree</string>
+    <string name="settings_auto_update">Ushtaghey dy kiaralagh automaatagh</string>
+    <string name="settings_auto_update_desc">Lught-thie as staydys versionyn noa \'sy \'background\' choud\'s t\'ad er nyn goyrt magh</string>
+    <string name="settings_auto_update_confirm_title">Cur stiagh ussaghyn automaatagh?</string>
+    <string name="settings_auto_update_confirm_body">Ta versionyn noa ry-gheddyn as ry-chur stiagh \'sy \'background\' tra t\'ad ry-gheddyn. Beaynaghey?</string>
+    <string name="settings_auto_update_confirm">Cur cair da</string>
+    <string name="settings_cancel">cur ass</string>
+    <string name="update_last_check">Check s\'jerree: %1$s.</string>
+    <string name="update_open_releases">Foshlit yn duillag ry-hoi \'sy bhraar</string>
 </resources>

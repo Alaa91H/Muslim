@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">ഹ്രസ്വമായ അദ്കാർ മാത്രം ഉപയോഗിക്കുക</string>
     <string name="adhkar_overlay_short_only_desc">ഒന്നോ രണ്ടോ വരികൾക്ക് അനുയോജ്യമായ അദ്കാർ തിരഞ്ഞെടുക്കുക, അതുവഴി ഫ്ലോട്ടിംഗ് ബബിൾ വ്യക്തവും വായിക്കാൻ എളുപ്പവുമാകും.</string>
     <string name="adhkar_overlay_tap_hint">ഉടൻ തന്നെ അത് നിരസിക്കാൻ ബബിൾ ടാപ്പ് ചെയ്യുക.</string>
+    <string name="adhkar_copied">ദിക്ർ പകർത്തി</string>
+    <string name="adhkar_periodic_dhikr">പ്രത്യേക ദിക്ർ</string>
+    <string name="adhkar_periodic_dhikr_random">ക്രമരഹിതം (മാനുവൽ പിക്കിന് പകരം)</string>
 </resources>

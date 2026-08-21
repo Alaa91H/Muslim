@@ -13,6 +13,7 @@
          times, adhan and reminders stay reliable around the clock on OEM
          devices that aggressively kill background work. -->
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
         android:name=".MuslimApplication"

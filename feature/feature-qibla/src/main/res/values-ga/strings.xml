@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Leithead an achair (céimeanna)</string>
     <string name="offline_maps_storage_warning">Stóráil íseal - ach %1$s saor in aisce</string>
     <string name="offline_maps_storage_delete_largest">Scrios an réigiún is mó (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Cuardaigh moscanna de réir ainm</string>
+    <string name="mosque_finder_show_all">Taispeáin gach mosques</string>
+    <string name="mosque_finder_share">Treoracha oscailte</string>
+    <string name="offline_maps_use_my_location">Téigh go dtí mo shuíomh reatha</string>
 </resources>

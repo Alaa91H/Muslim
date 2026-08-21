@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">gara aga</string>
     <string name="quran_range_single_ayah">Naanị otu</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Iji mechie surah</string>
+    <string name="quran_range_to_end">Ruo na njedebe nke Mushaf</string>
     <string name="quran_range_to_end_short">Iji kwụsị</string>
     <string name="quran_range_whole_surah">Surah dum</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf zuru oke gafee ndị na-agụ akwụkwọ</string>
     <string name="quran_downloads_coverage_empty">Ọnweghị ọdịyo ebudatara ma</string>
     <string name="quran_pause_notif_listener">kwụsịtụ ịgụgharị na amamọkwa</string>
-    <string name="quran_reciter_changed_title">Reciter gbanwere</string>
-    <string name="quran_reciter_changed_message">Playback stopped because the range runs to the end of the Quran. Start again with %1$s?</string>
-    <string name="quran_reciter_restart">Malite ọzọ</string>
-    <string name="quran_reciter_not_now">Ọ bụghị ugbu a</string>
+    <string name="quran_search_metrics">Oge ọchụchọ: %1$d ms</string>
+    <string name="quran_search_index_building">Wulite ndeksi Quran maka nchọ nke mbụ…</string>
+    <string name="quran_search_index_progress">Ịmepụta ndepụta mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Mgbọrọgwụ: %1$s</string>
+    <string name="quran_search_derivations">Okwu sitere na otu mgbọrọgwụ</string>
+    <string name="quran_search_no_root">Enweghị ike ikpebi mgbọrọgwụ</string>
 </resources>

@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">یوازې لنډ اډکار وکاروئ</string>
     <string name="adhkar_overlay_short_only_desc">اډکار غوره کړئ چې د یو یا دوه لینونو سره سم وي نو د تیریدلو بلبل روښانه او لوستل اسانه وي.</string>
     <string name="adhkar_overlay_tap_hint">بلبل ټایپ کړئ ترڅو سمدلاسه یې له مینځه ویسي.</string>
+    <string name="adhkar_copied">ذکر کاپي</string>
+    <string name="adhkar_periodic_dhikr">ځانګړی ذکر</string>
+    <string name="adhkar_periodic_dhikr_random">تصادفي (د لاسي انتخاب پرځای)</string>
 </resources>

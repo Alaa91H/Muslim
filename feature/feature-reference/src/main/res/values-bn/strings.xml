@@ -5,4 +5,6 @@
     <string name="reference_search_hint">এই বইটি অনুসন্ধান করুন…</string>
     <string name="reference_title">ইসলামিক রেফারেন্স লাইব্রেরি</string>
     <string name="reference_topics_count">বিষয়</string>
+    <string name="reference_copy">কপি</string>
+    <string name="reference_share">শেয়ার করুন</string>
 </resources>

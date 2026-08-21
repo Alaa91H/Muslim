@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Meýdanyň ini (derejeler)</string>
     <string name="offline_maps_storage_warning">Pes ammar - diňe %1$s mugt</string>
     <string name="offline_maps_storage_delete_largest">Iň uly sebiti pozuň (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Metjitleri adyndan gözläň</string>
+    <string name="mosque_finder_show_all">Allhli metjitleri görkeziň</string>
+    <string name="mosque_finder_share">Açyk ugurlar</string>
+    <string name="offline_maps_use_my_location">Häzirki ýerleşýän ýerime git</string>
 </resources>

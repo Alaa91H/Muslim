@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Yi amfani da gajeriyar adhkar kawai</string>
     <string name="adhkar_overlay_short_only_desc">Zaɓi adhkar wanda ya dace da layi ɗaya ko biyu don kumfa mai iyo ya tsaya a sarari da sauƙin karantawa.</string>
     <string name="adhkar_overlay_tap_hint">Matsa kumfa don watsar da shi nan da nan.</string>
+    <string name="adhkar_copied">Dhikr ya kwafi</string>
+    <string name="adhkar_periodic_dhikr">Zikiri na musamman</string>
+    <string name="adhkar_periodic_dhikr_random">Random (maimakon karban hannu)</string>
 </resources>

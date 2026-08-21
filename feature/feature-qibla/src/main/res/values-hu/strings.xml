@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Terület szélessége (fokban)</string>
     <string name="offline_maps_storage_warning">Kevés tárhely – csak %1$s ingyenes</string>
     <string name="offline_maps_storage_delete_largest">A legnagyobb régió törlése (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Mecsetek keresése név szerint</string>
+    <string name="mosque_finder_show_all">Az összes mecset megjelenítése</string>
+    <string name="mosque_finder_share">Nyissa meg az irányokat</string>
+    <string name="offline_maps_use_my_location">Menj a jelenlegi helyemre</string>
 </resources>

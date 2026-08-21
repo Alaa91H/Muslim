@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">खाली छोट अधकार के प्रयोग करीं</string>
     <string name="adhkar_overlay_short_only_desc">एक दू लाइन में फिट होखे वाला अधकर चुनीं जेहसे कि बहत बुलबुला साफ आ पढ़े में आसान रहे.</string>
     <string name="adhkar_overlay_tap_hint">तुरंत खारिज करे खातिर बुलबुला के टैप करीं।</string>
+    <string name="adhkar_copied">ढिकर नकल कइले बाड़न</string>
+    <string name="adhkar_periodic_dhikr">विशिष्ट ज़िकर के बारे में बतावल गइल बा</string>
+    <string name="adhkar_periodic_dhikr_random">यादृच्छिक (मैनुअल पिक के बजाय)</string>
 </resources>

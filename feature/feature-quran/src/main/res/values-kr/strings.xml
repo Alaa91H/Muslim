@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Aya ngawoye</string>
     <string name="quran_range_single_ayah">Aya fal</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Dareram surahbe</string>
+    <string name="quran_range_to_end">Dareram Mushafbe ro</string>
     <string name="quran_range_to_end_short">Darero</string>
     <string name="quran_range_whole_surah">Surah samma</string>
     <string name="quran_range_whole_surah_short">sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf kamil kərawu sammason</string>
     <string name="quran_downloads_coverage_empty">Kuwamiyayi audio sagǝdǝnyi</string>
     <string name="quran_pause_notif_listener">Kǝra dǝga dafne kǝla warmatǝgǝben</string>
-    <string name="quran_reciter_changed_title">Kǝratǝmadǝ faltǝna</string>
-    <string name="quran_reciter_changed_message">Playback də dawono dalil range də datəgəram Alquranbero lejin nankaro. Waltǝm %1$s lan badine?</string>
-    <string name="quran_reciter_restart">Waltǝ badine</string>
-    <string name="quran_reciter_not_now">Kǝrma gǝnyi</string>
+    <string name="quran_search_metrics">Loktu kulashibe: %1$d ms</string>
+    <string name="quran_search_index_building">Gartə index Quranbedə kulashi buro salakbe nankaro...</string>
+    <string name="quran_search_index_progress">Gardo bayan mushafbe... %1$d %%</string>
+    <string name="quran_search_word_root">Furtə: %1$s</string>
+    <string name="quran_search_derivations">Kalimawa furtu fallan tuwandin</string>
+    <string name="quran_search_no_root">Raksǝ furtǝnzǝ asutinba</string>
 </resources>

@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyad Mosque (Tamascus) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Le mafai ona fuafua taimi mo lenei aso</string>
     <string name="home_location_unknown">Le nofoaga e le\'i setiina</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Otometi (e ala ile nofoaga)</string>
     <string name="settings_method_automatic_desc">E filifilia e le app le auala sili ona talafeagai e faʻatatau i lou atunuu ma le nofoaga; e mafai lava ona e filifilia se metotia ma le lima i soo se taimi.</string>
     <string name="settings_preview_for_prayer">Va\'ai %1$s azan</string>
+    <string name="settings_method_automatic_picked">Otometi ua filifilia nei: %1$s — %2$s</string>
 </resources>

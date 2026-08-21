@@ -164,4 +164,22 @@
     <string name="update_available_text">Available na ngayon ang bersyon %1$s — i-tap para i-update</string>
     <string name="notif_category_app_update">Mga update sa app</string>
     <string name="notif_category_app_update_desc">Notification kapag may available na bagong bersyon ng app</string>
+    <string name="about_tagline">Isang kumpleto, libre, open-source na kasama para sa bawat Muslim — mga oras ng pagdarasal, Adhan, Quran, hadith, adhkar at higit pa, sa iyong wika.</string>
+    <string name="about_description_title">Tungkol sa Muslim</string>
+    <string name="about_description_body">Ang Muslim ay isang libre at open-source na Android app na sinasamahan ka sa buong araw: astronomically tumpak na oras ng pagdarasal kasama ang Adhan, isang tumpak na Qibla compass, ang kumpletong Quran na may mga pagbigkas at tafsir, isang hadith library, sourced adhkar, isang electronic tasbih, Ramadan tools, zakat calculator, offline na mga mapa, at higit pa — na idinisenyo upang ganap na gumana nang offline nang may privacy bilang default.</string>
+    <string name="about_features_title">Mga highlight</string>
+    <string name="about_features_body">Lahat ng kailangan ng isang Muslim sa isang app:</string>
+    <string name="about_feature_prayer">Mga oras ng panalangin at Adhan — lahat ng paraan ng pagkalkula, juristic na paaralan, at 18+ tunog ng adhan</string>
+    <string name="about_feature_quran">Kumpletong Quran — Uthmani script, 44 reciters, tafsir, pagsasalin, paghahanap ng salita at dalas</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan at Zakat — na may mga paalala at lumulutang na bula</string>
+    <string name="about_feature_offline">Offline-first — gumagana ang mga mapa, Quran, hadith at adhkar nang walang internet</string>
+    <string name="about_feature_privacy">Privacy bilang default — walang mga ad, walang pagsubaybay, mananatili ang iyong data sa iyong device</string>
+    <string name="settings_auto_update">Ganap na awtomatikong pag-update</string>
+    <string name="settings_auto_update_desc">Awtomatikong i-download at i-install ang mga bagong bersyon sa background sa sandaling mailabas ang mga ito</string>
+    <string name="settings_auto_update_confirm_title">Paganahin ang mga awtomatikong pag-update?</string>
+    <string name="settings_auto_update_confirm_body">Ang mga bagong bersyon ay mada-download at awtomatikong mai-install sa background kapag available. Magpatuloy?</string>
+    <string name="settings_auto_update_confirm">Paganahin</string>
+    <string name="settings_cancel">Kanselahin</string>
+    <string name="update_last_check">Huling pagsusuri: %1$s</string>
+    <string name="update_open_releases">Buksan ang page ng mga release sa browser</string>
 </resources>

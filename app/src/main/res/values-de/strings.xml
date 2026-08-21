@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Die Rezitation pausiert kurz, wenn eine Benachrichtigung, ein Klingelton oder ein anderes Medium abgespielt wird</string>
     <string name="more_pause_notifications_enabled">Aktiviert – tippen Sie hier, um die Systemeinstellungen zu öffnen</string>
     <string name="more_pause_notifications_disabled">Deaktiviert – zum Aktivieren antippen</string>
+    <string name="more_names">99 Namen Allahs</string>
+    <string name="more_names_desc">Die 99 Namen mit ausführlicher Erklärung</string>
+    <string name="more_hajj">Hadsch und Umrah</string>
+    <string name="more_hajj_desc">Ausführlicher Leitfaden zu den Hadsch- und Umrah-Riten</string>
 </resources>

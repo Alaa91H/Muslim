@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s maanna pissarsiarineqarsinnaavoq — nutarterniarlugu tooruk</string>
     <string name="notif_category_app_update">App-it nutarterneqarnerat</string>
     <string name="notif_category_app_update_desc">App-ip nutaap saqqummersinneqarnerani nalunaaruteqarneq</string>
+    <string name="about_tagline">Musliminut tamanut tamakkersimasumik, akeqanngitsumik, ammasumik inngiaqateqarsinnaasoq — qinusarnermi piffissat, Adhan, Korani, hadith, adhkar allallu, oqaatsitit atorlugit.</string>
+    <string name="about_description_title">Muslimit pillugit</string>
+    <string name="about_description_body">Muslim tassaavoq Android-imut app-i akeqanngitsumik ammasumillu ulloq naallugu malinnaasinnaasoq: qinusarnermi piffissat astronomiskimik eqqortut Adhan-imik, Qibla-mik kumpassimik eqqortumik, Korani tamakkerlugu atuakkiornermik tafsir-imillu, hadith-inik atuakkiorfik, adhkar-imik pissarsiarineqarsimasoq, elektroniskimik tasbih-imik, Ramadan-imi atortunik, zakat-imik offline-imik suliaqarnermut naatsorsuinermik, offline-imik naatsorsuinermik, privatimik naatsorsuinermik nalinginnaasumik.</string>
+    <string name="about_features_title">Højdepunktit</string>
+    <string name="about_features_body">Muslimip pisariaqartitai tamarmik app-imi ataatsimi:</string>
+    <string name="about_feature_prayer">Qinusarnermi piffissat &amp; Adhan — naatsorsuinermi periutsit tamarmik, inatsisitigut atuarfiit, aamma 18+ adhan-imik nipilersorneq</string>
+    <string name="about_feature_quran">Korani tamakkerlugu — Uthmani-mik allagaq, 44-nik atuartitsisut, tafsir, nutserineq, oqaatsinik ujarlerneq &amp; frekvensi</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — eqqaamasassanik aammalu qimmit qimuttut atorlugit</string>
+    <string name="about_feature_offline">Offline-siullermik — nunat assigi, Korani, hadith aamma adhkar internetimik atuinngitsumik sulipput</string>
+    <string name="about_feature_privacy">Inuttut pisinnaatitaaffiit — reklameqanngilaq, malinnaasoqanngilaq, paasissutissaatitit atortumiiginnarput</string>
+    <string name="settings_auto_update">Tamakkiisumik automatiskimik nutarterineq</string>
+    <string name="settings_auto_update_desc">Saqqummersinneqarnerata kingorna nutaat tunuliaqutaasut automatiskimik download-erlugit installererlugit</string>
+    <string name="settings_auto_update_confirm_title">Automatisk nutarterineq atuutilersikkit?</string>
+    <string name="settings_auto_update_confirm_body">Versionit nutaat aaneqassapput aammalu pissarsiarineqarsinnaappata tunuliaqutaasumi nammineerluni installerneqassapput. Ingerlaqqinneq?</string>
+    <string name="settings_auto_update_confirm">Atavoq</string>
+    <string name="settings_cancel">taamaatippaa</string>
+    <string name="update_last_check">Kingullermik misissuineq: %1$s</string>
+    <string name="update_open_releases">Browserermi saqqummersitsinerit quppernerat ammaruk</string>
 </resources>

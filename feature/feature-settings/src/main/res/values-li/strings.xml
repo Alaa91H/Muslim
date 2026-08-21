@@ -164,4 +164,22 @@
     <string name="update_available_text">Versie %1$s is noe besjikbaar — tik um te update</string>
     <string name="notif_category_app_update">App-updates</string>
     <string name="notif_category_app_update_desc">Kennisgeving es ‘n nuie appversie besjikbaar is</string>
+    <string name="about_tagline">‘n Complete, gratis, open-source metgezel veur eder moslim — gebedstieje, Adhan, Koran, hadith, adhkar en nog mie, in eure taol.</string>
+    <string name="about_description_title">Euver Moslim</string>
+    <string name="about_description_body">Muslim is un gratis en open-source Android-app die uch de ganse daag begeleidt: astronomisch nauwkeurige gebedtieden mit de Adhan, un percies Qibla-kompas, de complete koran mit recitaties en tafsir, un hadith-bibliotheek, adhkar, un elektronische tasbih, Ramadan-tools, un zakat-rekenmasjien, offline-kaarten, en nog mie ontworpe um te wèrke mit offline privacy standaard.</string>
+    <string name="about_features_title">Hoogtepunte</string>
+    <string name="about_features_body">Alles wat ‘n moslim nuudig heet in ein app:</string>
+    <string name="about_feature_prayer">Gebedstieje &amp; Adhan — alle berekeningsmethodes, juridische sjaole en 18+ adhangeluide</string>
+    <string name="about_feature_quran">Volledige koran — Uthmani-sjrif, 44 reciters, tafsir, vertaolinge, woordzeuke &amp; frequentie</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — mit herinneringe en zwevende belle</string>
+    <string name="about_feature_offline">Offline-first — kaarte, koran, hadith en adhkar wèrke zonder internet</string>
+    <string name="about_feature_privacy">Privacy es standaard — gein advertenties, gein tracking, eur data blieve op eur apparaat</string>
+    <string name="settings_auto_update">Volledig automatische updates</string>
+    <string name="settings_auto_update_desc">Download en installeer nuie versies automatisch in de achtergroond zodra ze oetgebrach zien</string>
+    <string name="settings_auto_update_confirm_title">Automatische updates insjakele?</string>
+    <string name="settings_auto_update_confirm_body">Nuie versies weure automatisch in de achtergroond gedownload en geïnstalleerd es ze besjikbaar zien. Doorgoon?</string>
+    <string name="settings_auto_update_confirm">Aktivere</string>
+    <string name="settings_cancel">Annulere</string>
+    <string name="update_last_check">Lètste controle: %1$s</string>
+    <string name="update_open_releases">Open de releasepagina in de browser</string>
 </resources>

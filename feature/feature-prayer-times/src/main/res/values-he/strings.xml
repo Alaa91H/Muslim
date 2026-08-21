@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">נגשבנדי אדהאן</string>
     <string name="bundled_adhan_saber">סבר אדהאן</string>
     <string name="bundled_adhan_sharif_doman">שריף דומן אדהן</string>
-    <string name="bundled_adhan_umayyad_damascus">מסגד אומיה (דמשק) אדהן</string>
     <string name="bundled_adhan_yusuf_islam">יוסף איסלאם אדאן</string>
     <string name="home_cannot_compute">לא ניתן לחשב זמנים ליום זה</string>
     <string name="home_location_unknown">המיקום עדיין לא מוגדר</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">אוטומטי (לפי מיקום)</string>
     <string name="settings_method_automatic_desc">האפליקציה בוחרת את השיטה המתאימה ביותר באופן אוטומטי בהתבסס על המדינה והמיקום שלך; אתה עדיין יכול לבחור שיטה ידנית בכל עת.</string>
     <string name="settings_preview_for_prayer">תצוגה מקדימה של %1$s adhan</string>
+    <string name="settings_method_automatic_picked">אוטומטי שנבחר כעת: %1$s - %2$s</string>
 </resources>

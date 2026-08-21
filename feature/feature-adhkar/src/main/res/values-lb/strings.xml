@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Benotzt nëmme kuerz Adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Wielt Adhkar déi op eng oder zwou Zeilen passen sou datt d\'Schwemmblase kloer an einfach ze liesen bleift.</string>
     <string name="adhkar_overlay_tap_hint">Tippen op d\'Bubble fir se direkt ze entloossen.</string>
+    <string name="adhkar_copied">Dhikr kopéiert</string>
+    <string name="adhkar_periodic_dhikr">Spezifesch dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Zoufälleg (amplaz vun enger manueller Wiel)</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">ಅಧಿಸೂಚನೆ, ರಿಂಗ್ ಅಥವಾ ಇತರ ಮಾಧ್ಯಮ ಪ್ಲೇ ಮಾಡಿದಾಗ ಪಠಣವು ಸಂಕ್ಷಿಪ್ತವಾಗಿ ವಿರಾಮಗೊಳ್ಳುತ್ತದೆ</string>
     <string name="more_pause_notifications_enabled">ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ - ಸಿಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <string name="more_pause_notifications_disabled">ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ - ಸಕ್ರಿಯಗೊಳಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+    <string name="more_names">ಅಲ್ಲಾನ 99 ಹೆಸರುಗಳು</string>
+    <string name="more_names_desc">ಸಂಪೂರ್ಣ ವಿವರಣೆಯೊಂದಿಗೆ 99 ಹೆಸರುಗಳು</string>
+    <string name="more_hajj">ಹಜ್ ಮತ್ತು ಉಮ್ರಾ</string>
+    <string name="more_hajj_desc">ಹಜ್ ಮತ್ತು ಉಮ್ರಾ ವಿಧಿಗಳಿಗೆ ವಿವರವಾದ ಮಾರ್ಗದರ್ಶಿ</string>
 </resources>

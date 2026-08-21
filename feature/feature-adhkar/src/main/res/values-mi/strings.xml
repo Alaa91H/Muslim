@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Whakamahia te adhkar poto anake</string>
     <string name="adhkar_overlay_short_only_desc">Kōwhiria te adhkar e pai ana kia kotahi, kia rua ranei nga raina kia noho marama te mirumiru maanu me te ngawari ki te panui.</string>
     <string name="adhkar_overlay_tap_hint">Patohia te mirumiru kia whakakorea tonutia.</string>
+    <string name="adhkar_copied">Dhikr i kape</string>
+    <string name="adhkar_periodic_dhikr">Dhikr motuhake</string>
+    <string name="adhkar_periodic_dhikr_random">Matapōkere (hei utu i te kowhiri ā-ringa)</string>
 </resources>

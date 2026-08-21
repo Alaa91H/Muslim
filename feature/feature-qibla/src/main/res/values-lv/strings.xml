@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Laukuma platums (grādi)</string>
     <string name="offline_maps_storage_warning">Maz krātuves — tikai %1$s bezmaksas</string>
     <string name="offline_maps_storage_delete_largest">Dzēst lielāko reģionu (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Meklēt mošejas pēc nosaukuma</string>
+    <string name="mosque_finder_show_all">Rādīt visas mošejas</string>
+    <string name="mosque_finder_share">Atvērt norādes</string>
+    <string name="offline_maps_use_my_location">Dodieties uz manu pašreizējo atrašanās vietu</string>
 </resources>

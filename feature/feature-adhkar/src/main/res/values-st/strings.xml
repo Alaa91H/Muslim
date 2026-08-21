@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Sebelisa adhkar e khuts\'oane feela</string>
     <string name="adhkar_overlay_short_only_desc">Khetha adhkar e lekanang mola o le mong kapa e \'meli hore bubble e phaphametseng e lule e hlakile ebile ho le bonolo ho e bala.</string>
     <string name="adhkar_overlay_tap_hint">Tlanya bubble ho e tlosa hanghang.</string>
+    <string name="adhkar_copied">Dhikr e qopisitsoe</string>
+    <string name="adhkar_periodic_dhikr">dhikr e khethehileng</string>
+    <string name="adhkar_periodic_dhikr_random">Ka tšohanyetso (ho e-na le khetho ea matsoho)</string>
 </resources>

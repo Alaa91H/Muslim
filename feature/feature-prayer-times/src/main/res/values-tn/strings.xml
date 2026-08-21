@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Adhan ya Naghshbandi</string>
     <string name="bundled_adhan_saber">Adhan ya Saber</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Mosque wa Ba-Umayyad (Damaseko)</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Iselamo adhan</string>
     <string name="home_cannot_compute">Ga ke kgone go balelela dinako tsa letsatsi leno</string>
     <string name="home_location_unknown">Lefelo ga le ise le setiwe</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">E itirisa (ka lefelo)</string>
     <string name="settings_method_automatic_desc">App e tlhopha mokgwa o o tshwanelang thata ka go itirisa go ikaegile ka naga ya gago le lefelo le o leng mo go lone; o sa ntse o ka tlhopha mokgwa ka seatla nako nngwe le nngwe.</string>
     <string name="settings_preview_for_prayer">Tebopele %1$s adhan</string>
+    <string name="settings_method_automatic_picked">E e tlhophilweng ka go itirisa ga jaana: %1$s — %2$s.</string>
 </resources>

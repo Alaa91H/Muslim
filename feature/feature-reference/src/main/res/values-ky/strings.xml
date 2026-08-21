@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Бул китепти издөө…</string>
     <string name="reference_title">Ислам маалымдама китепканасы</string>
     <string name="reference_topics_count">темалар</string>
+    <string name="reference_copy">Көчүрмө</string>
+    <string name="reference_share">Бөлүшүү</string>
 </resources>

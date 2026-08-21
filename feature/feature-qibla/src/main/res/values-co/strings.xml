@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Larghezza di l\'area (gradi)</string>
     <string name="offline_maps_storage_warning">Bassu almacenamentu - solu %1$s gratuiti</string>
     <string name="offline_maps_storage_delete_largest">Elimina a regione più grande (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Ricerca moschee per nome</string>
+    <string name="mosque_finder_show_all">Mostra tutte e moschee</string>
+    <string name="mosque_finder_share">Apertura direzzione</string>
+    <string name="offline_maps_use_my_location">Andà à u mo locu attuale</string>
 </resources>

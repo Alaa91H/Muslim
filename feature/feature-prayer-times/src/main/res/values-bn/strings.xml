@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">নাগশবন্দী আযান</string>
     <string name="bundled_adhan_saber">সাবের আজান</string>
     <string name="bundled_adhan_sharif_doman">শরীফ দোমান আযান</string>
-    <string name="bundled_adhan_umayyad_damascus">উমাইয়া মসজিদ (দামাস্কাস) আযান</string>
     <string name="bundled_adhan_yusuf_islam">ইউসুফ ইসলাম আজান</string>
     <string name="home_cannot_compute">এই দিনের জন্য সময় গণনা করতে অক্ষম</string>
     <string name="home_location_unknown">অবস্থান এখনও সেট করা হয়নি</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">স্বয়ংক্রিয় (অবস্থান অনুসারে)</string>
     <string name="settings_method_automatic_desc">অ্যাপটি আপনার দেশ এবং অবস্থানের উপর ভিত্তি করে স্বয়ংক্রিয়ভাবে সবচেয়ে উপযুক্ত পদ্ধতি বেছে নেয়; আপনি এখনও যে কোনও সময় ম্যানুয়ালি একটি পদ্ধতি বেছে নিতে পারেন।</string>
     <string name="settings_preview_for_prayer">পূর্বরূপ %1$s আযান</string>
+    <string name="settings_method_automatic_picked">বর্তমানে স্বয়ংক্রিয়ভাবে বাছাই করা হয়েছে: %1$s — %2$s</string>
 </resources>

@@ -164,4 +164,22 @@
     <string name="update_available_text">Versioon %1$s on nüüd saadaval – värskendamiseks puudutage</string>
     <string name="notif_category_app_update">Rakenduse värskendused</string>
     <string name="notif_category_app_update_desc">Teavitus, kui rakenduse uus versioon on saadaval</string>
+    <string name="about_tagline">Täielik, tasuta avatud lähtekoodiga kaaslane igale moslemile – palveajad, adhan, koraan, hadith, adhkar ja palju muud teie keeles.</string>
+    <string name="about_description_title">Moslemi kohta</string>
+    <string name="about_description_body">Muslim on tasuta ja avatud lähtekoodiga Androidi rakendus, mis saadab teid kogu päeva: astronoomiliselt täpsed palveajad Adhaniga, täpne Qibla kompass, täielik Koraan koos retsitatsioonide ja tafsiriga, hadithide raamatukogu, hankitud adhkar, elektrooniline tasbih, ramadaani tööriistad, zakati kalkulaator, täielikult võrguühenduseta privaatsusega töötamiseks loodud kalkulaator ja rohkem võrguühenduseta.</string>
+    <string name="about_features_title">Esiletõstmised</string>
+    <string name="about_features_body">Kõik, mida moslem vajab ühes rakenduses:</string>
+    <string name="about_feature_prayer">Palveajad ja adhan – kõik arvutusmeetodid, õiguskoolid ja 18+ adhani helid</string>
+    <string name="about_feature_quran">Täielik Koraan – Uthmani skript, 44 lugejat, tafsir, tõlked, sõnaotsing ja sagedus</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan ja Zakat – meeldetuletuste ja hõljuvate mullidega</string>
+    <string name="about_feature_offline">Esmalt võrguühenduseta – kaardid, Koraan, hadith ja adhkar töötavad ilma Internetita</string>
+    <string name="about_feature_privacy">Privaatsus vaikimisi – reklaame pole, jälgimist pole, andmed jäävad teie seadmesse</string>
+    <string name="settings_auto_update">Täisautomaatsed värskendused</string>
+    <string name="settings_auto_update_desc">Laadige uued versioonid automaatselt alla ja installige taustal kohe pärast nende avaldamist</string>
+    <string name="settings_auto_update_confirm_title">Kas lubada automaatsed värskendused?</string>
+    <string name="settings_auto_update_confirm_body">Uued versioonid laaditakse alla ja installitakse automaatselt taustal, kui need on saadaval. Kas jätkata?</string>
+    <string name="settings_auto_update_confirm">Luba</string>
+    <string name="settings_cancel">Tühista</string>
+    <string name="update_last_check">Viimane kontroll: %1$s</string>
+    <string name="update_open_releases">Avage brauseris väljaannete leht</string>
 </resources>

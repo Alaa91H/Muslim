@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Koresha adhkar ngufi gusa</string>
     <string name="adhkar_overlay_short_only_desc">Hitamo adhkar ihuye numurongo umwe cyangwa ibiri kugirango ibibyimba bireremba bigume bisobanutse kandi byoroshye gusoma.</string>
     <string name="adhkar_overlay_tap_hint">Kanda igituba kugirango wirukane ako kanya.</string>
+    <string name="adhkar_copied">Dhikr yandukuye</string>
+    <string name="adhkar_periodic_dhikr">Dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Bisanzwe (aho gutora intoki)</string>
 </resources>

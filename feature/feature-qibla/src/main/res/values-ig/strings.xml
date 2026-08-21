@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Obosara mpaghara (ogo)</string>
     <string name="offline_maps_storage_warning">Nchekwa dị ala - naanị %1$s n\'efu</string>
     <string name="offline_maps_storage_delete_largest">Hichapụ mpaghara kacha (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Chọọ ụlọ alakụba n\'aha</string>
+    <string name="mosque_finder_show_all">Gosi ụlọ alakụba niile</string>
+    <string name="mosque_finder_share">Mepee ntụziaka</string>
+    <string name="offline_maps_use_my_location">Gaa na ebe m dị ugbu a</string>
 </resources>

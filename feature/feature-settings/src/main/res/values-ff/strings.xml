@@ -164,4 +164,22 @@
     <string name="update_available_text">Jaaynde %1$s ena woodi jooni — tappu ngam kesɗitinde</string>
     <string name="notif_category_app_update">Kesɗitingol app</string>
     <string name="notif_category_app_update_desc">Notifikaasiyoŋ so tawii mbaydi app kesiri ina woodi</string>
+    <string name="about_tagline">Sehil timmuɗo, mbelɗo, udditiiɗo ngam kala juulɗo — wakkatiiji juulde, Adhan, Qur’aana, hadiis, adhkar e ko nanndi heen, e ɗemngal maa.</string>
+    <string name="about_description_title">Ko fayti e Juulɗo</string>
+    <string name="about_description_body">Juulɗo ko app Android mo alaa ko yoɓi, mo udditaaka, mo yahdata e maa e nder ñalawma fof : waktuuji juulde laaɓtuɗi to bannge koode e Adhan, kompas Qibla laaɓtuɗo, Qur’aana timmuɗo e jaŋngugol e tafsir, defterdu hadiis, adhkar sourced, tasbih elektoronik, kuutorɗe Ramadan, hiisawal zakat timmuɗo e golle offline, hiisawal zakat ma timmuɗo e golle offline e ko ɓuri ɗum defaare.</string>
+    <string name="about_features_title">Teeŋtinirɗi</string>
+    <string name="about_features_body">Kala ko juulɗo ina haani e nder app gooto:</string>
+    <string name="about_feature_prayer">Wakkatiiji juulde &amp; Adhan — kala laabi hiisa, duɗe sariya, e 18+ daande adhan</string>
+    <string name="about_feature_quran">Quraana timmuɗo — Binndol Usmani, 44 janngoowo, tafsir, firooji, njiylawu konngol &amp; keewal</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadaan &amp; Zakat — e siftorde e buubaaji ɓuuɓɗi</string>
+    <string name="about_feature_offline">Offline-arannde — karte, Quraana, hadiis e adhkar ina ngolloo tawa alaa internet</string>
+    <string name="about_feature_privacy">Sirlu e dow mbaydi — alaa yeeyirde, alaa rewindaade, dokke maa ina keddii e kaɓirgol maa</string>
+    <string name="settings_auto_update">Kesɗitingol otomatik timmungol</string>
+    <string name="settings_auto_update_desc">Sosde otomatikk e udditde mbaydiiji kesi e nder laylaytol so ɗi njaltii</string>
+    <string name="settings_auto_update_confirm_title">Softin kesɗitingol otomatik ?</string>
+    <string name="settings_auto_update_confirm_body">Jaayɗe kese maa ƴettee, ndartinee otomatikk e nder laylaytol so ina woodi. Continue?</string>
+    <string name="settings_auto_update_confirm">Footi wada</string>
+    <string name="settings_cancel">Willugo</string>
+    <string name="update_last_check">Ƴeewndo cakkitiingo: %1$s</string>
+    <string name="update_open_releases">Uddit hello yaltinngo e nder feerorde</string>
 </resources>

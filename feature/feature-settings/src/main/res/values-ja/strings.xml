@@ -164,4 +164,22 @@
     <string name="update_available_text">バージョン %1$s が利用可能になりました - タップして更新します</string>
     <string name="notif_category_app_update">アプリのアップデート</string>
     <string name="notif_category_app_update_desc">新しいアプリバージョンが利用可能になったときの通知</string>
+    <string name="about_tagline">すべてのイスラム教徒のための完全な無料のオープンソース コンパニオン - 礼拝時間、アザーン、コーラン、ハディース、アドカルなどをあなたの言語で表示します。</string>
+    <string name="about_description_title">イスラム教徒について</string>
+    <string name="about_description_body">ムスリムは、一日中あなたと一緒に過ごせる無料のオープンソース Android アプリです。アザーンによる天文学的に正確な礼拝時間、正確なキブラ コンパス、朗読とタフシールを含む完全なコーラン、ハディース ライブラリ、情報源のアドゥカル、電子タスビ、ラマダン ツール、ザカート計算機、オフライン マップなどを提供します。デフォルトでプライバシーを保ちながら完全にオフラインで動作するように設計されています。</string>
+    <string name="about_features_title">ハイライト</string>
+    <string name="about_features_body">イスラム教徒が必要とするすべてが 1 つのアプリに含まれています。</string>
+    <string name="about_feature_prayer">礼拝時間とアザーン - すべての計算方法、法律学校、18 種類以上のアザーン音</string>
+    <string name="about_feature_quran">完全なコーラン — ウスマーン文字、44 人の朗読者、タフシール、翻訳、単語検索と頻度</string>
+    <string name="about_feature_adhkar">アダカル、タスビ、ラマダン、ザカート — リマインダーと浮かぶ泡付き</string>
+    <string name="about_feature_offline">オフラインファースト — 地図、コーラン、ハディース、アドカルはインターネットがなくても機能します</string>
+    <string name="about_feature_privacy">デフォルトでのプライバシー — 広告なし、追跡なし、データはデバイス上に残ります</string>
+    <string name="settings_auto_update">完全自動アップデート</string>
+    <string name="settings_auto_update_desc">新しいバージョンがリリースされるとすぐにバックグラウンドで自動的にダウンロードしてインストールします</string>
+    <string name="settings_auto_update_confirm_title">自動更新を有効にしますか?</string>
+    <string name="settings_auto_update_confirm_body">新しいバージョンが利用可能になると、バックグラウンドで自動的にダウンロードされ、インストールされます。続く？</string>
+    <string name="settings_auto_update_confirm">有効にする</string>
+    <string name="settings_cancel">キャンセル</string>
+    <string name="update_last_check">最終チェック: %1$s</string>
+    <string name="update_open_releases">ブラウザでリリース ページを開きます</string>
 </resources>

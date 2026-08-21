@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Geavat dušše oanehis adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Vállje adhkar mii heive ovtta dahje guovtti linjái nu ahte vuodján buollin lea čielggas ja álki lohkat.</string>
     <string name="adhkar_overlay_tap_hint">Deaddilat bubble vai dan heaittihat dakkaviđe.</string>
+    <string name="adhkar_copied">Dhikr kopierejuvvon</string>
+    <string name="adhkar_periodic_dhikr">Erenoamáš dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Random (manuála válljema sadjái)</string>
 </resources>

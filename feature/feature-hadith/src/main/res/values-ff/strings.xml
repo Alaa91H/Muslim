@@ -24,4 +24,5 @@
     <string name="hadith_share">Renndinde</string>
     <string name="hadith_title">Defterdu Hadiis</string>
     <string name="hadith_copy">Koppir</string>
+    <string name="hadith_copied">Hadiis koppii</string>
 </resources>

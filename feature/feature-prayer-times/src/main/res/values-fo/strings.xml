@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyadska moskan (Damaskus) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf islam adhan</string>
     <string name="home_cannot_compute">Tað ber ikki til at rokna tíðir fyri hendan dagin</string>
     <string name="home_location_unknown">Staðsetingin ikki ásett enn</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Sjálvvirkandi (eftir stað)</string>
     <string name="settings_method_automatic_desc">Appin velur sjálvvirkandi tann hóskandi háttin út frá tínum landi og stað; tú kanst framvegis velja ein hátt manuelt til eina og hvørja tíð.</string>
     <string name="settings_preview_for_prayer">Undansýning %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Sjálvvirkandi í løtuni valt: %1$s — %2$s.</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Ububanzi bendawo (amadigri)</string>
     <string name="offline_maps_storage_warning">Isitoreji esiphasi — %1$s kwaphela simahla</string>
     <string name="offline_maps_storage_delete_largest">Susa isifunda esikhulu khulu (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Setjha ama-mosque ngamagama</string>
+    <string name="mosque_finder_show_all">Tjengisa woke ama-mosque</string>
+    <string name="mosque_finder_share">Vula iinqophiso</string>
+    <string name="offline_maps_use_my_location">Yiya endaweni yami yamanje</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ankstesnis ayah</string>
     <string name="quran_range_single_ayah">Vienišas ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Iki suros pabaigos</string>
+    <string name="quran_range_to_end">Iki Mushafo pabaigos</string>
     <string name="quran_range_to_end_short">Norėdami baigti</string>
     <string name="quran_range_whole_surah">Visa sura</string>
     <string name="quran_range_whole_surah_short">Sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Pilnas muša per deklamatorius</string>
     <string name="quran_downloads_coverage_empty">Garso įrašas dar neatsisiųstas</string>
     <string name="quran_pause_notif_listener">Pristabdykite pranešimų deklamavimą</string>
-    <string name="quran_reciter_changed_title">Deklamuotojas pakeistas</string>
-    <string name="quran_reciter_changed_message">Atkūrimas sustabdytas, nes diapazonas tęsiasi iki Korano pabaigos. Pradėti iš naujo su %1$s?</string>
-    <string name="quran_reciter_restart">Pradėkite iš naujo</string>
-    <string name="quran_reciter_not_now">Ne dabar</string>
+    <string name="quran_search_metrics">Paieškos laikas: %1$d ms</string>
+    <string name="quran_search_index_building">Kuriame Korano indeksą pirmajai paieškai…</string>
+    <string name="quran_search_index_progress">Mushaf indekso kūrimas… %1$d %%</string>
+    <string name="quran_search_word_root">Šaknis: %1$s</string>
+    <string name="quran_search_derivations">Žodžiai, kilę iš tos pačios šaknies</string>
+    <string name="quran_search_no_root">Nepavyko nustatyti šaknies</string>
 </resources>

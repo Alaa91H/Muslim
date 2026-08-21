@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">පෙර අයා</string>
     <string name="quran_range_single_ayah">තනි අයිය</string>
     <string name="quran_range_single_ayah_short">අය්යා</string>
-    <string name="quran_range_to_end">සූරතයේ අවසානය දක්වා</string>
+    <string name="quran_range_to_end">මුෂාෆ් අවසානය දක්වා</string>
     <string name="quran_range_to_end_short">අවසන් කිරීමට</string>
     <string name="quran_range_whole_surah">සම්පූර්ණ සූරතය</string>
     <string name="quran_range_whole_surah_short">සූරතය</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">පාරායනය කරන්නන් හරහා සම්පූර්ණ මුෂාෆ්</string>
     <string name="quran_downloads_coverage_empty">තවමත් ශ්‍රව්‍ය බාගත කර නැත</string>
     <string name="quran_pause_notif_listener">දැනුම්දීම් මත කියවීම විරාම කරන්න</string>
-    <string name="quran_reciter_changed_title">කියවන්නා වෙනස් විය</string>
-    <string name="quran_reciter_changed_message">පරාසය කුරානයේ අවසානය දක්වා දිවෙන නිසා නැවත ධාවනය නතර විය. %1$s සමඟ නැවත ආරම්භ කරන්නද?</string>
-    <string name="quran_reciter_restart">නැවත ආරම්භ කරන්න</string>
-    <string name="quran_reciter_not_now">දැන් නැහැ</string>
+    <string name="quran_search_metrics">සෙවුම් කාලය: %1$d ms</string>
+    <string name="quran_search_index_building">පළමු සෙවුම සඳහා කුර්ආන් දර්ශකය ගොඩ නැගීම...</string>
+    <string name="quran_search_index_progress">මුෂාෆ් දර්ශකය ගොඩනැගීම... %1$d %%</string>
+    <string name="quran_search_word_root">මූල: %1$s</string>
+    <string name="quran_search_derivations">එකම මූලයෙන් ලබාගත් වචන</string>
+    <string name="quran_search_no_root">මූලය තීරණය කළ නොහැක</string>
 </resources>

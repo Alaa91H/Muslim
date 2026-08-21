@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">සබර් අදන්</string>
     <string name="bundled_adhan_sharif_doman">ෂරීෆ් ඩොමන් අදන්</string>
-    <string name="bundled_adhan_umayyad_damascus">උමයියාද් පල්ලිය (දමස්කස්) අදාන්</string>
     <string name="bundled_adhan_yusuf_islam">යූසුෆ් ඉස්ලාම් අදාන්</string>
     <string name="home_cannot_compute">මෙම දිනය සඳහා වේලාවන් ගණනය කළ නොහැක</string>
     <string name="home_location_unknown">ස්ථානය තවම සකසා නැත</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">ස්වයංක්‍රීය (ස්ථානය අනුව)</string>
     <string name="settings_method_automatic_desc">යෙදුම ඔබගේ රට සහ ස්ථානය මත පදනම්ව ස්වයංක්‍රීයව වඩාත් සුදුසු ක්‍රමය තෝරා ගනී; ඔබට තවමත් ඕනෑම අවස්ථාවක අතින් ක්‍රමයක් තෝරාගත හැක.</string>
     <string name="settings_preview_for_prayer">පෙරදසුන් %1$s adhan</string>
+    <string name="settings_method_automatic_picked">ස්වයංක්‍රීයව දැනට තෝරාගෙන ඇත: %1$s — %2$s</string>
 </resources>

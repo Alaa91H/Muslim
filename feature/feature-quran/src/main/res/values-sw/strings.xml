@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah iliyotangulia</string>
     <string name="quran_range_single_ayah">Ayah moja</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Hadi mwisho wa surah</string>
+    <string name="quran_range_to_end">Hadi mwisho wa Mushaf</string>
     <string name="quran_range_to_end_short">Ili kumaliza</string>
     <string name="quran_range_whole_surah">Sura nzima</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">mushaf kamili kwa wasomaji</string>
     <string name="quran_downloads_coverage_empty">Bado hakuna sauti iliyopakuliwa</string>
     <string name="quran_pause_notif_listener">Sitisha kukariri kwenye arifa</string>
-    <string name="quran_reciter_changed_title">Reciter iliyopita</string>
-    <string name="quran_reciter_changed_message">Uchezaji umesimamishwa kwa sababu masafa yanaendelea hadi mwisho wa Kurani. Anza tena na %1$s?</string>
-    <string name="quran_reciter_restart">Anza tena</string>
-    <string name="quran_reciter_not_now">Si sasa</string>
+    <string name="quran_search_metrics">Muda wa kutafuta: %1$d ms</string>
+    <string name="quran_search_index_building">Kuunda faharasa ya Quran kwa utafutaji wa kwanza...</string>
+    <string name="quran_search_index_progress">Inaunda faharasa ya mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Mzizi: %1$s</string>
+    <string name="quran_search_derivations">Maneno yanayotokana na mzizi mmoja</string>
+    <string name="quran_search_no_root">Haikuweza kubainisha mzizi</string>
 </resources>

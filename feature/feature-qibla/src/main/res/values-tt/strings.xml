@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Район киңлеге (градус)</string>
     <string name="offline_maps_storage_warning">Түбән саклау - %1$s бушлай</string>
     <string name="offline_maps_storage_delete_largest">Иң зур төбәкне бетерегез (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Мәчетләрне исем белән эзләгез</string>
+    <string name="mosque_finder_show_all">Барлык мәчетләрне күрсәт</string>
+    <string name="mosque_finder_share">Ачык юнәлешләр</string>
+    <string name="offline_maps_use_my_location">Минем хәзерге урыныма бар</string>
 </resources>

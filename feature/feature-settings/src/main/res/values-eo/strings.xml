@@ -164,4 +164,22 @@
     <string name="update_available_text">Versio %1$s nun haveblas — alklaku por ĝisdatigi</string>
     <string name="notif_category_app_update">Ĝisdatigoj de la aplikaĵo</string>
     <string name="notif_category_app_update_desc">Sciigo kiam nova aplika versio disponeblas</string>
+    <string name="about_tagline">Kompleta, senpaga, malfermfonta kunulo por ĉiu islamano - preĝtempoj, Adhan, Korano, Hadito, adhkar kaj pli, en via lingvo.</string>
+    <string name="about_description_title">Pri islamano</string>
+    <string name="about_description_body">Muslim estas senpaga kaj malfermfonta Android-apliko, kiu akompanas vin dum la tuta tago: astronomie precizaj preĝtempoj kun la Adhan, preciza Qibla kompaso, la kompleta Korano kun deklamadoj kaj tafsir, hadith-biblioteko, fonta adhkar, elektronika tasbih, Ramadanaj iloj, zakat-kalkulilo, eksterretaj mapoj, kaj pli - dezajnita por defaŭlte senrete labori pri privateco.</string>
+    <string name="about_features_title">Elstaraĵoj</string>
+    <string name="about_features_body">Ĉio, kion islamano bezonas en unu aplikaĵo:</string>
+    <string name="about_feature_prayer">Preĝtempoj kaj Adhan - ĉiuj kalkulmetodoj, juraj lernejoj, kaj 18+ adhan-sonoj</string>
+    <string name="about_feature_quran">Kompleta Korano - Uthmani-skripto, 44 deklamantoj, tafsir, tradukoj, vortserĉo kaj ofteco</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadano &amp; Zakat - kun memorigiloj kaj flosantaj vezikoj</string>
+    <string name="about_feature_offline">Senrete unue - mapoj, Korano, hadito kaj adhkar funkcias sen interreto</string>
+    <string name="about_feature_privacy">Privateco defaŭlte - neniuj reklamoj, neniu spurado, viaj datumoj restas en via aparato</string>
+    <string name="settings_auto_update">Plene aŭtomataj ĝisdatigoj</string>
+    <string name="settings_auto_update_desc">Aŭtomate elŝutu kaj instalu novajn versiojn en la fono tuj kiam ili estas liberigitaj</string>
+    <string name="settings_auto_update_confirm_title">Ĉu ebligi aŭtomatajn ĝisdatigojn?</string>
+    <string name="settings_auto_update_confirm_body">Novaj versioj estos elŝutitaj kaj instalitaj aŭtomate en la fono kiam disponeblas. Ĉu daŭrigi?</string>
+    <string name="settings_auto_update_confirm">Ebligu</string>
+    <string name="settings_cancel">Nuligi</string>
+    <string name="update_last_check">Lasta kontrolo: %1$s</string>
+    <string name="update_open_releases">Malfermu la paĝon de eldonoj en la retumilo</string>
 </resources>

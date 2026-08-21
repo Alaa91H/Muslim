@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Chèche liv sa...</string>
     <string name="reference_title">Bibliyotèk Referans Islamik</string>
     <string name="reference_topics_count">sijè</string>
+    <string name="reference_copy">Kopi</string>
+    <string name="reference_share">Pataje</string>
 </resources>

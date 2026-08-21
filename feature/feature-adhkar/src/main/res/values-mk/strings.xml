@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Користете само краток адкар</string>
     <string name="adhkar_overlay_short_only_desc">Изберете адкар што одговара на една или две линии за лебдечкиот меур да остане јасен и лесен за читање.</string>
     <string name="adhkar_overlay_tap_hint">Допрете го балонот за веднаш да го отфрлите.</string>
+    <string name="adhkar_copied">Дикр копиран</string>
+    <string name="adhkar_periodic_dhikr">Специфичен зикр</string>
+    <string name="adhkar_periodic_dhikr_random">Случајно (наместо рачно бирање)</string>
 </resources>

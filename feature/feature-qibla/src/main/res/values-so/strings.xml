@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Ballaca aagga (degrees)</string>
     <string name="offline_maps_storage_warning">Kaydinta hooseeya - kaliya %1$s bilaash ah</string>
     <string name="offline_maps_storage_delete_largest">Tirtir gobolka ugu weyn (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Ku baadh masaajidyada magac ahaan</string>
+    <string name="mosque_finder_show_all">Tus masaajidyada oo dhan</string>
+    <string name="mosque_finder_share">Jihooyinka fur</string>
+    <string name="offline_maps_use_my_location">Tag goobta aan hadda joogo</string>
 </resources>

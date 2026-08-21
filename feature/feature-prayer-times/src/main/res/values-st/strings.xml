@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyad Mosque (Damaseka) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Ha re khone ho bala linako tsa letsatsi lena</string>
     <string name="home_location_unknown">Sebaka ha se so hlophisoe</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Ka ho iketsa (ho ea ka sebaka)</string>
     <string name="settings_method_automatic_desc">Sesebelisoa se khetha mokhoa o loketseng ka ho fetesisa o ipapisitse le naha ea heno le sebaka; o ntse o ka khetha mokhoa ka letsoho ka nako efe kapa efe.</string>
     <string name="settings_preview_for_prayer">Sheba esale pele %1$s adhan</string>
+    <string name="settings_method_automatic_picked">E khethiloe hajoale: %1$s — %2$s</string>
 </resources>

@@ -164,4 +164,22 @@
     <string name="update_available_text">%1$s versiyası artıq əlçatandır — yeniləmək üçün toxunun</string>
     <string name="notif_category_app_update">Proqram yeniləmələri</string>
     <string name="notif_category_app_update_desc">Proqramın yeni versiyası mövcud olduqda bildiriş</string>
+    <string name="about_tagline">Hər bir müsəlman üçün tam, pulsuz, açıq mənbəli yoldaş - sizin dilinizdə namaz vaxtları, azan, Quran, hədis, adhkar və s.</string>
+    <string name="about_description_title">Müsəlman haqqında</string>
+    <string name="about_description_body">Muslim gün ərzində sizi müşayiət edən pulsuz və açıq mənbəli Android proqramıdır: azanla astronomik cəhətdən dəqiq namaz vaxtları, dəqiq qiblə kompası, qiraətlər və təfsirlərlə tam Quran, hədis kitabxanası, mənbədən əldə edilən zikr, elektron təsbih, Ramazan alətləri, zəkat kalkulyatoru, oflayn xəritələr və s.</string>
+    <string name="about_features_title">Vurğulananlar</string>
+    <string name="about_features_body">Müsəlmanın ehtiyac duyduğu hər şey bir tətbiqdə:</string>
+    <string name="about_feature_prayer">Namaz vaxtları və azan — bütün hesablama üsulları, fiqh məktəbləri və 18+ azan səsləri</string>
+    <string name="about_feature_quran">Tam Quran - Osmani yazısı, 44 qari, təfsir, tərcümələr, söz axtarışı və tezliyi</string>
+    <string name="about_feature_adhkar">Adhkar, təsbih, Ramazan və Zəkat — xatırlatmalar və üzən baloncuklar ilə</string>
+    <string name="about_feature_offline">Offline-öncə - xəritələr, Quran, hədis və adhkar internet olmadan işləyir</string>
+    <string name="about_feature_privacy">Defolt olaraq məxfilik — reklam yoxdur, izləmə yoxdur, məlumatlarınız cihazınızda qalır</string>
+    <string name="settings_auto_update">Tam avtomatik yeniləmələr</string>
+    <string name="settings_auto_update_desc">Yeni versiyaları buraxılan kimi avtomatik olaraq arxa plana endirin və quraşdırın</string>
+    <string name="settings_auto_update_confirm_title">Avtomatik yeniləmələr aktiv edilsin?</string>
+    <string name="settings_auto_update_confirm_body">Yeni versiyalar mövcud olduqda arxa planda avtomatik endiriləcək və quraşdırılacaq. Davam edilsin?</string>
+    <string name="settings_auto_update_confirm">Aktivləşdirin</string>
+    <string name="settings_cancel">Ləğv et</string>
+    <string name="update_last_check">Son yoxlama: %1$s</string>
+    <string name="update_open_releases">Brauzerdə buraxılışlar səhifəsini açın</string>
 </resources>

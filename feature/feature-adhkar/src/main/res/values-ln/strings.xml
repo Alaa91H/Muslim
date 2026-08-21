@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Salelá kaka adhkar ya mokuse</string>
     <string name="adhkar_overlay_short_only_desc">Pona adhkar oyo ekokani na ligne moko to mibale po bulle flottante ezala claire pe facile ya kotanga.</string>
     <string name="adhkar_overlay_tap_hint">Finá na bulle mpo na kobwaka yango mbala moko.</string>
+    <string name="adhkar_copied">Dhikr asalaki kopi</string>
+    <string name="adhkar_periodic_dhikr">Dhikr ya sikisiki</string>
+    <string name="adhkar_periodic_dhikr_random">Random (na esika ya pick manuel) .</string>
 </resources>

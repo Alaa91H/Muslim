@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Lo yeke na adhkar gi .</string>
     <string name="adhkar_overlay_short_only_desc">Soro adhkar so alingbi na molongo oko wala use tongaso si bulle so ayeke huru angbâ polele na a yeke ngangu pëpe ti diko ni.</string>
     <string name="adhkar_overlay_tap_hint">Tapa ti bubble ni ti zi ni hio.</string>
+    <string name="adhkar_copied">Dhikr asara copie ti .</string>
+    <string name="adhkar_periodic_dhikr">Mbeni mbilimbili dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Random (ahon ti tene a soro ni na maboko)</string>
 </resources>

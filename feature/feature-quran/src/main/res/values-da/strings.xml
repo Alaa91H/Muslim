@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Forrige ayah</string>
     <string name="quran_range_single_ayah">Single ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Til slutningen af surah</string>
+    <string name="quran_range_to_end">Til slutningen af ​​Mushaf</string>
     <string name="quran_range_to_end_short">For at afslutte</string>
     <string name="quran_range_whole_surah">Hele surah</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Fuld mushaf på tværs af recitere</string>
     <string name="quran_downloads_coverage_empty">Ingen lyd er downloadet endnu</string>
     <string name="quran_pause_notif_listener">Pause recitation på notifikationer</string>
-    <string name="quran_reciter_changed_title">Oplæser ændret</string>
-    <string name="quran_reciter_changed_message">Afspilningen stoppede, fordi rækkevidden løber til slutningen af Koranen. Vil du starte igen med %1$s?</string>
-    <string name="quran_reciter_restart">Start igen</string>
-    <string name="quran_reciter_not_now">Ikke nu</string>
+    <string name="quran_search_metrics">Søgetid: %1$d ms</string>
+    <string name="quran_search_index_building">Opbygning af Koranindekset til den første søgning...</string>
+    <string name="quran_search_index_progress">Opbygning af mushaf-indekset... %1$d %%</string>
+    <string name="quran_search_word_root">Rod: %1$s</string>
+    <string name="quran_search_derivations">Ord afledt af samme rod</string>
+    <string name="quran_search_no_root">Kunne ikke bestemme roden</string>
 </resources>

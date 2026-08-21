@@ -164,4 +164,22 @@
     <string name="update_available_text">I %1$s na båndan-ña esta gaige — chagi para un na\'lå\'la\'</string>
     <string name="notif_category_app_update">Inadelanta gi i app</string>
     <string name="notif_category_app_update_desc">Notifikasion yanggen guaha nuebu na båndan app</string>
+    <string name="about_tagline">Un kompletu, libre, yan open-source na kompañero para kada Muslim — tiempon tinayuyot, Adhan, Quran, hadith, adhkar yan mås, gi i fino\'-mu.</string>
+    <string name="about_description_title">Put i ManMuslim</string>
+    <string name="about_description_body">I Muslim un libre yan open-source na app Android ni\' ha akompåpara hao gi todu i ha\'åni: tiempon tinayuyot ni\' eksakto yan i Adhan, un kompas Qibla ni\' eksakto, i kompletu na Quran yan i tinaitai yan i tafsir, un librarian hadith, adhkar ni\' ma sodda\', un tasbih elektroniku, åmot Ramadan, un kalkuladot zakat, offline maps, — ma disidi para u ma cho\'gue gi i pribåsi yan pribåsi difekto.</string>
+    <string name="about_features_title">I mas maolek na punto siha</string>
+    <string name="about_features_body">Todu i nisisidåt i Muslim gi un app:</string>
+    <string name="about_feature_prayer">Oran tinayuyot yan Adhan — todu i maneran kalkulasion, eskuelan hustisia, yan 18+ na sunidon adhan</string>
+    <string name="about_feature_quran">Kompletu na Quran — Uthmani script, 44 na manma\'estra, tafsir, tinige\', inaligao palabras yan frekuensiha</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan yan Zakat — yan manma\'å\'ñao yan manma\'å\'ñao na båba</string>
+    <string name="about_feature_offline">Offline-first — mapa, Quran, hadith yan adhkar ma cho\'gue sin internet</string>
+    <string name="about_feature_privacy">Pribåsi gi i tutuhon — taya\' anunsio, taya\' inatan, i dañu-mu gaige gi i dipattamenton-mu</string>
+    <string name="settings_auto_update">Todu i inadelanta siha ni\' automatiku</string>
+    <string name="settings_auto_update_desc">Automatiku na un na\'halom yan un inestotba i nuebu na båndan-ñiha gi i sanlagu yanggen ma na\'huyong</string>
+    <string name="settings_auto_update_confirm_title">Na\'siña i automatiku na inadelanta siha?</string>
+    <string name="settings_auto_update_confirm_body">I nuebu na båndan-ñiha para u ma\'download yan u ma\'instala gi i sanlagu yanggen guaha. Kontinua?</string>
+    <string name="settings_auto_update_confirm">Sedi</string>
+    <string name="settings_cancel">Kansela</string>
+    <string name="update_last_check">Uttimo na chek: %1$s</string>
+    <string name="update_open_releases">Abri i pahina ni\' ma na\'huyong gi i browser</string>
 </resources>

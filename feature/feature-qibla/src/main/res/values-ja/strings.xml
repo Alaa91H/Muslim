@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">エリア幅（度）</string>
     <string name="offline_maps_storage_warning">ストレージが少ない — 空き容量は %1$s のみ</string>
     <string name="offline_maps_storage_delete_largest">最大領域(%1$s・%2$s)を削除</string>
+    <string name="mosque_finder_search_hint">モスクを名前で検索する</string>
+    <string name="mosque_finder_show_all">すべてのモスクを表示</string>
+    <string name="mosque_finder_share">道順を開く</string>
+    <string name="offline_maps_use_my_location">現在の場所に行く</string>
 </resources>

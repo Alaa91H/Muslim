@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Use só adhkar curto</string>
     <string name="adhkar_overlay_short_only_desc">Escolla adhkar que se adapte a unha ou dúas liñas para que a burbulla flotante quede clara e fácil de ler.</string>
     <string name="adhkar_overlay_tap_hint">Toca a burbulla para desestimala inmediatamente.</string>
+    <string name="adhkar_copied">Dhikr copiouse</string>
+    <string name="adhkar_periodic_dhikr">Dhikr específico</string>
+    <string name="adhkar_periodic_dhikr_random">Aleatoria (en lugar de selección manual)</string>
 </resources>

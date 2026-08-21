@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">क्षेत्रफल के चौड़ाई (डिग्री) के बा।</string>
     <string name="offline_maps_storage_warning">कम भंडारण — मात्र %1$s मुफ्त बा</string>
     <string name="offline_maps_storage_delete_largest">सबसे बड़ क्षेत्र (%1$s · %2$s) हटाईं।</string>
+    <string name="mosque_finder_search_hint">मस्जिद के नाम से खोजल जाला</string>
+    <string name="mosque_finder_show_all">सब मस्जिद देखाईं</string>
+    <string name="mosque_finder_share">खुला दिशा-निर्देश दिहल जाला</string>
+    <string name="offline_maps_use_my_location">हमार वर्तमान लोकेशन पर जाइए</string>
 </resources>

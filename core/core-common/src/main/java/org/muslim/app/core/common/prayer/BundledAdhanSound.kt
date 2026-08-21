@@ -7,8 +7,7 @@ package org.muslim.app.core.common.prayer
  * download ever needed. The recordings are the freely-distributed adhan clips
  * published by the open-source PrayTimes project (praytimes.org) for use in
  * prayer applications — MIT-licensed project, recordings provided on the site
- * for this purpose. The Umayyad Mosque (Damascus) collective adhan is the
- * well-known freely-shared recording of the famous Damascus muezzin guild.
+ * for this purpose.
  */
 enum class BundledAdhanSound(val id: String) {
     Makkah("makkah"),
@@ -28,7 +27,6 @@ enum class BundledAdhanSound(val id: String) {
     Saber("saber"),
     SharifDoman("sharif_doman"),
     YusufIslam("yusuf_islam"),
-    UmayyadDamascus("umayyad_damascus"),
     ;
 
     companion object {

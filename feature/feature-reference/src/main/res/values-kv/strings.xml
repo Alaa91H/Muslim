@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Корсь тайӧ небӧгсӧ...</string>
     <string name="reference_title">Исламскӧй справочник библиотека .</string>
     <string name="reference_topics_count">темаяс</string>
+    <string name="reference_copy">Копируйтны</string>
+    <string name="reference_share">Делитчыны</string>
 </resources>

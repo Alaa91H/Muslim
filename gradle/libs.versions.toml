@@ -34,7 +34,7 @@ hiltNavigationCompose = "1.4.0"
 # Location
 playServicesLocation = "21.4.0"
 
-# Maps (OpenStreetMap — MapLibre GL Native, actively maintained)
+# OpenStreetMap rendering
 maplibreGl = "13.5.0"
 
 # Kotlin ecosystem
@@ -53,7 +53,7 @@ androidxTestCore = "1.7.0"
 mockk = "1.14.11"
 turbine = "1.2.1"
 truth = "1.4.5"
-robolectric = "4.16.1"
+robolectric = "4.16"
 
 [libraries]
 # --- AndroidX core ---
@@ -94,7 +94,7 @@ hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-com
 # --- Location ---
 google-play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
 
-# --- Maps (OpenStreetMap via MapLibre GL Native) ---
+# --- OpenStreetMap / MapLibre ---
 maplibre-android = { group = "org.maplibre.gl", name = "android-sdk", version.ref = "maplibreGl" }
 
 # --- Kotlin ecosystem ---

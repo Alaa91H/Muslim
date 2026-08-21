@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Azanê Naghşbendî</string>
     <string name="bundled_adhan_saber">Saber azan</string>
     <string name="bundled_adhan_sharif_doman">Şerîf Doman ezan</string>
-    <string name="bundled_adhan_umayyad_damascus">Mizgefta Emewiyan (Şam) ezan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Îslam ezan</string>
     <string name="home_cannot_compute">Nikare demên vê rojê bihesibîne</string>
     <string name="home_location_unknown">Cih hîn nehatiye danîn</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Otomatîk (li gorî cîhê)</string>
     <string name="settings_method_automatic_desc">Serlêdan li gorî welat û cîhê we rêbaza herî maqûl bixweber hildibijêre; hûn dîsa jî dikarin di her kêliyê de rêbazek bi destan hilbijêrin.</string>
     <string name="settings_preview_for_prayer">Pêşdîtina %1$s azan</string>
+    <string name="settings_method_automatic_picked">Otomatîk niha hilbijartî: %1$s - %2$s</string>
 </resources>

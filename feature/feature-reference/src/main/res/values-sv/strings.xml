@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Sök i den här boken...</string>
     <string name="reference_title">Islamiskt referensbibliotek</string>
     <string name="reference_topics_count">ämnen</string>
+    <string name="reference_copy">Kopiera</string>
+    <string name="reference_share">Dela</string>
 </resources>

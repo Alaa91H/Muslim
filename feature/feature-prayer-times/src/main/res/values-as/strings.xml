@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">নাঘশবন্দী অধন</string>
     <string name="bundled_adhan_saber">সাবেৰ অধন</string>
     <string name="bundled_adhan_sharif_doman">শ্বৰীফ ডোমান আধন</string>
-    <string name="bundled_adhan_umayyad_damascus">উমাইয়াদ মছজিদ (ডামাস্কাছ) আধন</string>
     <string name="bundled_adhan_yusuf_islam">ইউছুফ ইছলাম আধন</string>
     <string name="home_cannot_compute">এই দিনটোৰ বাবে সময় গণনা কৰিব পৰা নাই</string>
     <string name="home_location_unknown">স্থান এতিয়াও নিৰ্ধাৰণ কৰা হোৱা নাই</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">স্বয়ংক্ৰিয় (স্থান অনুসৰি)</string>
     <string name="settings_method_automatic_desc">এপটোৱে আপোনাৰ দেশ আৰু স্থানৰ ওপৰত ভিত্তি কৰি স্বয়ংক্ৰিয়ভাৱে আটাইতকৈ উপযুক্ত পদ্ধতিটো বাছি লয়; আপুনি এতিয়াও যিকোনো সময়তে এটা পদ্ধতি হস্তচালিতভাৱে নিৰ্ব্বাচন কৰিব পাৰে ।</string>
     <string name="settings_preview_for_prayer">পূৰ্বদৰ্শন %1$s adhan</string>
+    <string name="settings_method_automatic_picked">বৰ্তমান বাছি লোৱা স্বয়ংক্ৰিয়: %1$s — %2$s</string>
 </resources>

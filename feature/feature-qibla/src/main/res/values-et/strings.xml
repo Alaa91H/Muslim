@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Pindala laius (kraadides)</string>
     <string name="offline_maps_storage_warning">Vähene salvestusruumi – ainult %1$s tasuta</string>
     <string name="offline_maps_storage_delete_largest">Kustuta suurim piirkond (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Otsige mošeed nime järgi</string>
+    <string name="mosque_finder_show_all">Kuva kõik mošeed</string>
+    <string name="mosque_finder_share">Avage juhised</string>
+    <string name="offline_maps_use_my_location">Mine minu praegusesse asukohta</string>
 </resources>

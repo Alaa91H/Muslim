@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Кӗске adhkar ҫеҫ усӑ курӑр</string>
     <string name="adhkar_overlay_short_only_desc">Пӗр-икӗ йӗркене юрӑхлӑ adhkar суйласа илӗр, ҫапла вара юхакан хӑмпӑ уҫӑмлӑ та вулама ҫӑмӑл пултӑр.</string>
     <string name="adhkar_overlay_tap_hint">Ӑна ҫийӗнчех сирсе яма хӑмпӑ ҫине пусмалла.</string>
+    <string name="adhkar_copied">Зикр копилленӗ</string>
+    <string name="adhkar_periodic_dhikr">Ятарлӑ зикр</string>
+    <string name="adhkar_periodic_dhikr_random">Ӑнсӑртран (алӑпа суйласа илни вырӑнне)</string>
 </resources>

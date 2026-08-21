@@ -5,4 +5,6 @@
     <string name="reference_search_hint">ХӀара жайна лаха...</string>
     <string name="reference_title">Исламан справочни библиотека</string>
     <string name="reference_topics_count">темаш;</string>
+    <string name="reference_copy">Копировать дан .</string>
+    <string name="reference_share">Декъа</string>
 </resources>

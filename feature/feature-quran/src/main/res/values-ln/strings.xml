@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah ya kala</string>
     <string name="quran_range_single_ayah">Ayah moko</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Pona suka ya surah</string>
+    <string name="quran_range_to_end">To the end of the Mushaf</string>
     <string name="quran_range_to_end_short">Mpo na kosukisa</string>
     <string name="quran_range_whole_surah">Surah mobimba</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf mobimba na kati ya ba réciteurs</string>
     <string name="quran_downloads_coverage_empty">Audio moko te e téléchargé nanu</string>
     <string name="quran_pause_notif_listener">Pause récitation na ba notifications</string>
-    <string name="quran_reciter_changed_title">Reciter abongwanaki</string>
-    <string name="quran_reciter_changed_message">Lecture etelemaki mpo range ezo kima tii na suka ya Coran. Bandá lisusu na %1$s?</string>
-    <string name="quran_reciter_restart">Bandá lisusu</string>
-    <string name="quran_reciter_not_now">Sikawa te</string>
+    <string name="quran_search_metrics">Tango ya boluki: %1$d ms</string>
+    <string name="quran_search_index_building">Kotonga index ya Coran pona boluki ya liboso...</string>
+    <string name="quran_search_index_progress">Kotonga indice ya mushaf... %1$d %%</string>
+    <string name="quran_search_word_root">Mosisa: %1$s</string>
+    <string name="quran_search_derivations">Maloba mauti na mosisa moko</string>
+    <string name="quran_search_no_root">Ekokaki te koyeba mosisa</string>
 </resources>

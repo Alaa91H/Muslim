@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Tafuta kitabu hiki...</string>
     <string name="reference_title">Maktaba ya Marejeleo ya Kiislamu</string>
     <string name="reference_topics_count">mada</string>
+    <string name="reference_copy">Nakili</string>
+    <string name="reference_share">Shiriki</string>
 </resources>

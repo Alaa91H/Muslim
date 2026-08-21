@@ -38,6 +38,14 @@ data class AppPreferences(
      * [UPDATE_CHECK_DAILY], [UPDATE_CHECK_WEEKLY], [UPDATE_CHECK_MONTHLY].
      */
     val updateCheckFrequency: String = UPDATE_CHECK_DAILY,
+    /**
+     * Fully automatic updates: when enabled (after a one-time confirmation)
+     * a newly-found release is downloaded and installed through the
+     * PackageInstaller Session API with no further prompts. Default: off.
+     */
+    val autoUpdateEnabled: Boolean = false,
+    /** Epoch millis of the last successful update check (0 = never checked). */
+    val lastUpdateCheckEpoch: Long = 0L,
 ) {
     companion object {
         const val SYSTEM_LANGUAGE = "system"

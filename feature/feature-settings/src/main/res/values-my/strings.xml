@@ -164,4 +164,22 @@
     <string name="update_available_text">ဗားရှင်း %1$s ကို ယခုရရှိနိုင်ပါပြီ — အပ်ဒိတ်လုပ်ရန် တို့ပါ။</string>
     <string name="notif_category_app_update">အက်ပ်အပ်ဒိတ်များ</string>
     <string name="notif_category_app_update_desc">အက်ပ်ဗားရှင်းအသစ် ရသည့်အခါ အကြောင်းကြားချက်</string>
+    <string name="about_tagline">မွတ်စ်လင်မ်တိုင်းအတွက် ပြီးပြည့်စုံသော၊ အခမဲ့၊ ပွင့်လင်းသောအရင်းအမြစ်အဖော်—ဆုတောင်းချိန်များ၊ Adhan၊ Quran၊ hadith၊ adhkar နှင့် အခြားအရာများ၊ သင့်ဘာသာစကားဖြင့်။</string>
+    <string name="about_description_title">မွတ်စလင်အကြောင်း</string>
+    <string name="about_description_body">မွတ်ဆလင်သည် နေ့စဥ်တလျှောက်လုံး သင့်အား အခမဲ့နှင့် အခမဲ့ရနိုင်သော Android အက်ပ်တစ်ခုဖြစ်သည်- Adhan နှင့်အတူ နက္ခတ္တဗေဒအရ တိကျသောဆုတောင်းချိန်များ၊ တိကျသော Qibla သံလိုက်အိမ်မြှောင်၊ ရွတ်ဆိုမှုများနှင့် tafsir ပါရှိသော ကုရ်အာန်အပြည့်အစုံ၊ hadith စာကြည့်တိုက်၊ အရင်းအမြစ်မှ adhkar၊ အီလက်ထရွန်းနစ် Tasbih၊ Ramadan ကိရိယာများ၊ zakat ဂဏန်းတွက်စက်၊ အော့ဖ်လိုင်းမြေပုံများနှင့် အခြားအရာများကို မူရင်းအတိုင်း လုပ်ဆောင်ရန် ရည်ရွယ်ထားသည်။</string>
+    <string name="about_features_title">ပေါ်လွင်သည်။</string>
+    <string name="about_features_body">အက်ပလီကေးရှင်းတစ်ခုတွင် မွတ်စ်လင်မ် လိုအပ်သမျှ</string>
+    <string name="about_feature_prayer">ဆုတောင်းချိန်နှင့် Adhan — တွက်ချက်နည်းအားလုံး၊ တရား၀င်ကျောင်းများနှင့် 18+ adhan အသံများ</string>
+    <string name="about_feature_quran">ကုရ်အာန် အပြည့်အစုံ — Uthmani script၊ 44 ရွတ်ဆိုသူများ၊ tafsir၊ ဘာသာပြန်များ၊ စကားလုံးရှာဖွေမှုနှင့် အကြိမ်ရေ</string>
+    <string name="about_feature_adhkar">သတိပေးချက်များနှင့် လွင့်မျောနေသော ပူဖောင်းများနှင့်အတူ Adhkar၊ tasbih၊ Ramadan &amp; Zakat</string>
+    <string name="about_feature_offline">အော့ဖ်လိုင်း-ပထမ — မြေပုံများ၊ ကုရ်အာန်၊ ဟဒီးစ်နှင့် အဒ်ကာသည် အင်တာနက်မရှိဘဲ အလုပ်လုပ်သည်။</string>
+    <string name="about_feature_privacy">ပုံသေအားဖြင့် ကိုယ်ရေးကိုယ်တာ- ကြော်ငြာမရှိ၊ ခြေရာခံခြင်းမရှိ၊ သင်၏ဒေတာသည် သင့်စက်ပစ္စည်းပေါ်တွင် ရှိနေမည်ဖြစ်သည်။</string>
+    <string name="settings_auto_update">အပြည့်အဝ အလိုအလျောက် အပ်ဒိတ်များ</string>
+    <string name="settings_auto_update_desc">ဗားရှင်းအသစ်များကို ထွက်လာပြီးသည်နှင့် နောက်ခံတွင် အလိုအလျောက်ဒေါင်းလုဒ်လုပ်ပြီး ထည့်သွင်းပါ။</string>
+    <string name="settings_auto_update_confirm_title">အလိုအလျောက်အပ်ဒိတ်များကို ဖွင့်မလား။</string>
+    <string name="settings_auto_update_confirm_body">ရနိုင်သည့်အခါတွင် ဗားရှင်းအသစ်များကို နောက်ခံတွင် ဒေါင်းလုဒ်လုပ်ပြီး အလိုအလျောက် ထည့်သွင်းသွားပါမည်။ ဆက်မလား။</string>
+    <string name="settings_auto_update_confirm">ဖွင့်ပါ။</string>
+    <string name="settings_cancel">မလုပ်တော့</string>
+    <string name="update_last_check">နောက်ဆုံးစစ်ဆေးမှု- %1$s</string>
+    <string name="update_open_releases">ဘရောက်ဆာတွင် ထုတ်ဝေမှုများ စာမျက်နှာကို ဖွင့်ပါ။</string>
 </resources>

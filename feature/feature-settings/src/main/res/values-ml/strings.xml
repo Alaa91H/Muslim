@@ -164,4 +164,22 @@
     <string name="update_available_text">പതിപ്പ് %1$s ഇപ്പോൾ ലഭ്യമാണ് — അപ്ഡേറ്റ് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക</string>
     <string name="notif_category_app_update">ആപ്പ് അപ്ഡേറ്റുകൾ</string>
     <string name="notif_category_app_update_desc">ഒരു പുതിയ ആപ്പ് പതിപ്പ് ലഭ്യമാകുമ്പോൾ അറിയിപ്പ്</string>
+    <string name="about_tagline">നിങ്ങളുടെ ഭാഷയിൽ പ്രാർത്ഥനാ സമയങ്ങൾ, അദാൻ, ഖുറാൻ, ഹദീസ്, അദ്കാർ എന്നിവയും അതിലേറെയും - എല്ലാ മുസ്ലീങ്ങൾക്കും പൂർണ്ണവും സൌജന്യവും ഓപ്പൺ സോഴ്‌സ് കൂട്ടുകാരനും.</string>
+    <string name="about_description_title">മുസ്ലിമിനെ കുറിച്ച്</string>
+    <string name="about_description_body">മുസ്ലീം ഒരു സ്വതന്ത്ര ഓപ്പൺ സോഴ്‌സ് ആൻഡ്രോയിഡ് ആപ്പാണ്, അത് ദിവസം മുഴുവനും നിങ്ങളോടൊപ്പമുണ്ട്: ജ്യോതിശാസ്ത്രപരമായി കൃത്യമായ പ്രാർത്ഥനാ സമയങ്ങൾ, കൃത്യമായ ഖിബ്ല കോമ്പസ്, പാരായണങ്ങളും തഫ്‌സീറുകളും ഉള്ള സമ്പൂർണ്ണ ഖുറാൻ, ഒരു ഹദീസ് ലൈബ്രറി, സോഴ്‌സ് അദ്‌കാർ, ഒരു ഇലക്ട്രോണിക് തസ്‌ബിഹ്, റമദാൻ ടൂളുകൾ, സകാത്ത് കാൽക്കുലേറ്റർ, ഓഫ്‌ലൈൻ മാപ്‌സുകളാൽ രൂപകൽപ്പന ചെയ്‌തത്.</string>
+    <string name="about_features_title">ഹൈലൈറ്റുകൾ</string>
+    <string name="about_features_body">ഒരു മുസ്ലീമിന് ആവശ്യമുള്ളതെല്ലാം ഒരു ആപ്പിൽ:</string>
+    <string name="about_feature_prayer">പ്രാർത്ഥനാ സമയങ്ങളും അദാനും - എല്ലാ കണക്കുകൂട്ടൽ രീതികളും നിയമവിദ്യാലയങ്ങളും 18+ അദാൻ ശബ്ദങ്ങളും</string>
+    <string name="about_feature_quran">സമ്പൂർണ്ണ ഖുർആൻ - ഉഥ്മാനി സ്ക്രിപ്റ്റ്, 44 പാരായണക്കാർ, തഫ്സീർ, വിവർത്തനങ്ങൾ, വാക്ക് തിരയലും ആവൃത്തിയും</string>
+    <string name="about_feature_adhkar">അദ്‌കാർ, തസ്‌ബിഹ്, റമദാൻ &amp; സകാത്ത് - ഓർമ്മപ്പെടുത്തലുകളും ഫ്ലോട്ടിംഗ് ബബിളുകളും സഹിതം</string>
+    <string name="about_feature_offline">ഓഫ്‌ലൈനിൽ ആദ്യം - മാപ്പുകൾ, ഖുറാൻ, ഹദീസ്, അധ്കർ എന്നിവ ഇൻ്റർനെറ്റ് ഇല്ലാതെ പ്രവർത്തിക്കുന്നു</string>
+    <string name="about_feature_privacy">ഡിഫോൾട്ടായി സ്വകാര്യത - പരസ്യങ്ങളില്ല, ട്രാക്കിംഗ് ഇല്ല, നിങ്ങളുടെ ഡാറ്റ നിങ്ങളുടെ ഉപകരണത്തിൽ നിലനിൽക്കും</string>
+    <string name="settings_auto_update">പൂർണ്ണമായും യാന്ത്രിക അപ്‌ഡേറ്റുകൾ</string>
+    <string name="settings_auto_update_desc">പുതിയ പതിപ്പുകൾ പുറത്തിറങ്ങുമ്പോൾ തന്നെ പശ്ചാത്തലത്തിൽ സ്വയമേവ ഡൗൺലോഡ് ചെയ്ത് ഇൻസ്റ്റാൾ ചെയ്യുക</string>
+    <string name="settings_auto_update_confirm_title">സ്വയമേവയുള്ള അപ്‌ഡേറ്റുകൾ പ്രവർത്തനക്ഷമമാക്കണോ?</string>
+    <string name="settings_auto_update_confirm_body">പുതിയ പതിപ്പുകൾ ലഭ്യമാകുമ്പോൾ പശ്ചാത്തലത്തിൽ സ്വയമേവ ഡൗൺലോഡ് ചെയ്യുകയും ഇൻസ്റ്റാൾ ചെയ്യുകയും ചെയ്യും. തുടരണോ?</string>
+    <string name="settings_auto_update_confirm">പ്രവർത്തനക്ഷമമാക്കുക</string>
+    <string name="settings_cancel">റദ്ദാക്കുക</string>
+    <string name="update_last_check">അവസാന പരിശോധന: %1$s</string>
+    <string name="update_open_releases">ബ്രൗസറിൽ റിലീസുകളുടെ പേജ് തുറക്കുക</string>
 </resources>

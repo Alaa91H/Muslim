@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Area latitudine (gradus)</string>
     <string name="offline_maps_storage_warning">Humilis repono - %1$s solum gratis</string>
     <string name="offline_maps_storage_delete_largest">Maximam regionem delere (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Quaerere meschitis nomine</string>
+    <string name="mosque_finder_show_all">Monstra omnia meschitis</string>
+    <string name="mosque_finder_share">Directiones apertae</string>
+    <string name="offline_maps_use_my_location">Vade ad locum meum current</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">முந்தைய ஐயா</string>
     <string name="quran_range_single_ayah">ஒற்றை ஆயா</string>
     <string name="quran_range_single_ayah_short">ஐயா</string>
-    <string name="quran_range_to_end">சூராவின் முடிவுக்கு</string>
+    <string name="quran_range_to_end">முஷாபின் இறுதி வரை</string>
     <string name="quran_range_to_end_short">முடிவுக்கு</string>
     <string name="quran_range_whole_surah">முழு சூரா</string>
     <string name="quran_range_whole_surah_short">சூரா</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">முழு முஷாஃப் ஓதுபவர்கள் முழுவதும்</string>
     <string name="quran_downloads_coverage_empty">இன்னும் ஆடியோ பதிவிறக்கம் செய்யப்படவில்லை</string>
     <string name="quran_pause_notif_listener">அறிவிப்புகளில் பாராயணம் செய்வதை இடைநிறுத்தவும்</string>
-    <string name="quran_reciter_changed_title">வாசிப்பவர் மாற்றப்பட்டார்</string>
-    <string name="quran_reciter_changed_message">குர்ஆனின் இறுதி வரை வரம்பு இயங்குவதால் பிளேபேக் நிறுத்தப்பட்டது. %1$s உடன் மீண்டும் தொடங்கவா?</string>
-    <string name="quran_reciter_restart">மீண்டும் தொடங்கவும்</string>
-    <string name="quran_reciter_not_now">இப்போது இல்லை</string>
+    <string name="quran_search_metrics">தேடல் நேரம்: %1$d ms</string>
+    <string name="quran_search_index_building">முதல் தேடலுக்கான குர்ஆன் அட்டவணையை உருவாக்குகிறது…</string>
+    <string name="quran_search_index_progress">முஷாஃப் குறியீட்டை உருவாக்குகிறது… %1$d %%</string>
+    <string name="quran_search_word_root">ரூட்: %1$s</string>
+    <string name="quran_search_derivations">ஒரே மூலத்திலிருந்து பெறப்பட்ட சொற்கள்</string>
+    <string name="quran_search_no_root">மூலத்தை தீர்மானிக்க முடியவில்லை</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">La recitació s\'atura breument quan es reprodueix una notificació, un timbre o altres mitjans</string>
     <string name="more_pause_notifications_enabled">Activat: toqueu per obrir la configuració del sistema</string>
     <string name="more_pause_notifications_disabled">Desactivat: toqueu per activar-lo</string>
+    <string name="more_names">99 Noms d\'Al·là</string>
+    <string name="more_names_desc">Els 99 noms amb explicació completa</string>
+    <string name="more_hajj">Hajj i Umrah</string>
+    <string name="more_hajj_desc">Guia detallada dels ritus de Hajj i Umrah</string>
 </resources>

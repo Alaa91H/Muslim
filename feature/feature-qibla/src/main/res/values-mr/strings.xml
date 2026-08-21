@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">क्षेत्राची रुंदी (अंश)</string>
     <string name="offline_maps_storage_warning">कमी स्टोरेज — फक्त %1$s विनामूल्य</string>
     <string name="offline_maps_storage_delete_largest">सर्वात मोठा प्रदेश हटवा (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">नावाने मशिदी शोधा</string>
+    <string name="mosque_finder_show_all">सर्व मशिदी दाखवा</string>
+    <string name="mosque_finder_share">दिशा उघडा</string>
+    <string name="offline_maps_use_my_location">माझ्या वर्तमान स्थानावर जा</string>
 </resources>

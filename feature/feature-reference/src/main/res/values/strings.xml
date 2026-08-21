@@ -5,4 +5,6 @@
     <string name="reference_search_hint">ابحث في الكتاب…</string>
     <string name="reference_no_results">لا توجد نتائج مطابقة</string>
     <string name="reference_topics_count">موضوعًا</string>
+    <string name="reference_copy">نسخ</string>
+    <string name="reference_share">مشاركة</string>
 </resources>

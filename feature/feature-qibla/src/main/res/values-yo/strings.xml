@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Iwọn agbegbe (awọn iwọn)</string>
     <string name="offline_maps_storage_warning">Ibi ipamọ kekere - nikan %1$s ọfẹ</string>
     <string name="offline_maps_storage_delete_largest">Pa agbegbe ti o tobi julọ rẹ (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Wa awọn mọṣalaṣi pẹlu orukọ</string>
+    <string name="mosque_finder_show_all">Ṣe afihan gbogbo awọn mọṣalaṣi</string>
+    <string name="mosque_finder_share">Ṣii awọn itọnisọna</string>
+    <string name="offline_maps_use_my_location">Lọ si ipo mi lọwọlọwọ</string>
 </resources>

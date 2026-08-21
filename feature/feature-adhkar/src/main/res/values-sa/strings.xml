@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">लघु अधकार ही प्रयोग करें</string>
     <string name="adhkar_overlay_short_only_desc">एकं वा द्वयोः वा रेखायोः उपयुक्तं अधकारं चिनुत येन प्लवमानः बुदबुदाः स्पष्टः पठनीयः च तिष्ठति।</string>
     <string name="adhkar_overlay_tap_hint">तत्क्षणं विसर्जयितुं बुदबुदां ट्याप् कुर्वन्तु।</string>
+    <string name="adhkar_copied">धिक्र् प्रतिलिपितः</string>
+    <string name="adhkar_periodic_dhikr">विशिष्ट धिक्</string>
+    <string name="adhkar_periodic_dhikr_random">यादृच्छिकम् (मैनुअल् पिकस्य स्थाने) २.</string>
 </resources>

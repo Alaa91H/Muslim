@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Χρησιμοποιήστε μόνο σύντομο adkar</string>
     <string name="adhkar_overlay_short_only_desc">Επιλέξτε adhkar που ταιριάζει σε μία ή δύο γραμμές, ώστε η αιωρούμενη φυσαλίδα να παραμένει καθαρή και ευανάγνωστη.</string>
     <string name="adhkar_overlay_tap_hint">Πατήστε το συννεφάκι για να το απορρίψετε αμέσως.</string>
+    <string name="adhkar_copied">Ο Ντικρ αντέγραψε</string>
+    <string name="adhkar_periodic_dhikr">Συγκεκριμένο dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Τυχαία (αντί για χειροκίνητη επιλογή)</string>
 </resources>

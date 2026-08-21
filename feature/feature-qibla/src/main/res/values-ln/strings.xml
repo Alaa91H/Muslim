@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Bolai ya etando (degrés) .</string>
     <string name="offline_maps_storage_warning">Bobombi ya nse — kaka %1$s ofele</string>
     <string name="offline_maps_storage_delete_largest">Bolongola etuka ya monene (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Luka ba mosquées na kombo</string>
+    <string name="mosque_finder_show_all">Lakisa ba mosquées nionso</string>
+    <string name="mosque_finder_share">Fungola nzela ya kolakisa</string>
+    <string name="offline_maps_use_my_location">Kende na esika oyo nazali lelo</string>
 </resources>

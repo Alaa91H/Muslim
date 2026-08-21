@@ -35,12 +35,15 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -59,6 +62,7 @@ import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.feature.adhkar.R
 import org.muslim.app.feature.adhkar.domain.Dhikr
 import org.muslim.app.feature.adhkar.domain.DhikrCategory
+import kotlinx.coroutines.launch
 
 /**
  * Adhkar library (PROJECT_PROMPT.md §6 Phase 4): category filters, a
@@ -104,9 +108,14 @@ private fun AdhkarLibraryContent(
     val favoriteIds by viewModel.favoriteIds.collectAsStateWithLifecycle()
     val selectedCategory by viewModel.selectedCategory.collectAsStateWithLifecycle()
     val morningEveningReminderEnabled by viewModel.morningEveningReminderEnabled.collectAsStateWithLifecycle()
+    val snackbarHostState = remember { SnackbarHostState() }
+    val scope = rememberCoroutineScope()
+    val copiedMessage = stringResource(R.string.adhkar_copied)
+    val onCopied: () -> Unit = { scope.launch { snackbarHostState.showSnackbar(copiedMessage) } }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.adhkar_title)) },
@@ -197,6 +206,7 @@ private fun AdhkarLibraryContent(
                             onToggleFavorite = { viewModel.toggleFavorite(dhikr.id) },
                             onIncrement = { viewModel.increment(dhikr.id) },
                             onReset = { viewModel.reset(dhikr.id) },
+                            onCopied = onCopied,
                         )
                         HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
                     }
@@ -209,6 +219,7 @@ private fun AdhkarLibraryContent(
                         onToggleFavorite = { viewModel.toggleFavorite(dhikr.id) },
                         onIncrement = { viewModel.increment(dhikr.id) },
                         onReset = { viewModel.reset(dhikr.id) },
+                        onCopied = onCopied,
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
                 }
@@ -225,6 +236,7 @@ private fun DhikrCard(
     onToggleFavorite: () -> Unit,
     onIncrement: () -> Unit,
     onReset: () -> Unit,
+    onCopied: () -> Unit,
 ) {
     val currentCount by count
     val haptics = LocalHapticFeedback.current
@@ -239,7 +251,10 @@ private fun DhikrCard(
         if (showEnglishFallback) append("\n\n").append(dhikr.translation)
         append("\n\n").append(dhikr.source)
     }
-    fun copyDhikr() = clipboard?.setPrimaryClip(ClipData.newPlainText("dhikr", shareText))
+    fun copyDhikr() {
+        clipboard?.setPrimaryClip(ClipData.newPlainText("dhikr", shareText))
+        onCopied()
+    }
     fun shareDhikr() {
         val intent = Intent(Intent.ACTION_SEND).apply {
             type = "text/plain"

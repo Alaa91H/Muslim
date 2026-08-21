@@ -1,5 +1,7 @@
 package org.muslim.app.feature.reference.ui
 
+import android.content.ClipData
+import android.content.Intent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,6 +22,8 @@ import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Groups
 import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.ContentCopy
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -43,6 +47,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -253,17 +258,54 @@ private fun TopicContent(
     lang: RefLang,
     modifier: Modifier = Modifier,
 ) {
+    val context = LocalContext.current
+    val shareText = buildString {
+        append(topic.title(lang)).append("\n\n")
+        append(topic.summary(lang)).append("\n\n")
+        topic.sections.forEach { section ->
+            append(section.title(lang)).append("\n")
+            section.paragraphs.forEach { paragraph -> append(paragraph.text(lang)).append("\n") }
+            append("\n")
+        }
+    }
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 32.dp),
     ) {
         item {
-            Text(
-                text = topic.summary(lang),
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp),
-            )
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Text(
+                    text = topic.summary(lang),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp),
+                )
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+                    horizontalArrangement = androidx.compose.foundation.layout.Arrangement.End,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    TextButton(onClick = {
+                        val clipboard = context.getSystemService(android.content.ClipboardManager::class.java)
+                        clipboard?.setPrimaryClip(ClipData.newPlainText(topic.title(lang), shareText))
+                    }) {
+                        Icon(Icons.Filled.ContentCopy, contentDescription = null, modifier = Modifier.size(18.dp))
+                        Spacer(Modifier.size(4.dp))
+                        Text(stringResource(R.string.reference_copy))
+                    }
+                    TextButton(onClick = {
+                        val intent = Intent(Intent.ACTION_SEND).apply {
+                            type = "text/plain"
+                            putExtra(Intent.EXTRA_TEXT, shareText)
+                        }
+                        runCatching { context.startActivity(Intent.createChooser(intent, null)) }
+                    }) {
+                        Icon(Icons.Filled.Share, contentDescription = null, modifier = Modifier.size(18.dp))
+                        Spacer(Modifier.size(4.dp))
+                        Text(stringResource(R.string.reference_share))
+                    }
+                }
+            }
         }
         items(topic.sections, key = { it.id }) { section ->
             Text(

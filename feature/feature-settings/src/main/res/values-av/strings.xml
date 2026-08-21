@@ -164,4 +164,22 @@
     <string name="update_available_text">%1$s версия гьанже хӀалтӀизабизе бегьула — кьабизе ккола цӀигьабизе</string>
     <string name="notif_category_app_update">Приложение цӀигьаби</string>
     <string name="notif_category_app_update_desc">ЦӀияб приложениялъул версия къватӀибе биччараб мехалъ лъазаби</string>
+    <string name="about_tagline">Щивав бусурбанчиясе тӀубараб, эркенаб, рагьараб асхӀаб — какил заман, Азан, Къуръан, хӀадис, азкар ва цогидалги, нужер мацӀалда.</string>
+    <string name="about_description_title">Муслималъул хӀакъалъулъ</string>
+    <string name="about_description_body">Муслим ккола чӀобогояб ва рагьараб Android-приложение, нужеда цадахъ унеб тӀубараб къоялъ: астрономияб къагӀидаялъ мухӀканал какил заманал азангун, мухӀканаб къиблаялъул компас, тӀубараб Къуръан цӀалигун ва тафсиргун, хӀадисазул библиотека, источникалъул азкар, электронияб тасбих, Рамазаналъул алатал, закаталъул мацӀалъул оффлайналъул калькулятор, офлайналъул хӀалтӀи ва цогидалги дифолт.</string>
+    <string name="about_features_title">Аслиял лъугьа-бахъинал</string>
+    <string name="about_features_body">Бусурбанасе къваригӀунебщинаб жо цо приложениялда жаниб:</string>
+    <string name="about_feature_prayer">Время молитвы &amp; Азан — все методы расчета, юридические школы, и 18+ звуков азан</string>
+    <string name="about_feature_quran">Полный Коран — Письменность Усмани, 44 читателя, тафсир, переводы, поиск слов и частота</string>
+    <string name="about_feature_adhkar">Азкар, тасбих, Рамадан &amp; Закат — с напоминаниями и плавающими пузырьками</string>
+    <string name="about_feature_offline">Оффлайн-первый — карты, Коран, хадис и азкар работают без интернета</string>
+    <string name="about_feature_privacy">Конфиденциальность по умолчанию — нет рекламы, нет отслеживания, ваши данные остаются на вашем устройстве</string>
+    <string name="settings_auto_update">ТӀубанго автоматияб къагӀидаялъ цӀигьабиял</string>
+    <string name="settings_auto_update_desc">Автоматически загружать и установить новые версии в фоновом режиме, как только они выйдут</string>
+    <string name="settings_auto_update_confirm_title">Автоматикиял цӀигьабиял рагьизе?</string>
+    <string name="settings_auto_update_confirm_body">ЦӀиял версиял рахъизе руго ва автоматически фоналда лъезе руго, гьел ругеб мехалда. ЧӀезе течӀого цебе бачине?</string>
+    <string name="settings_auto_update_confirm">Изну</string>
+    <string name="settings_cancel">къайзе</string>
+    <string name="update_last_check">Ахирисеб халгьаби: %1$s.</string>
+    <string name="update_open_releases">Рагьизе браузералда релизазул гьумер .</string>
 </resources>

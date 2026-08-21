@@ -35,7 +35,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import org.muslim.app.core.ui.text.DigitNormalizedOutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
@@ -43,6 +46,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -61,6 +65,7 @@ import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.feature.hadith.R
 import org.muslim.app.feature.hadith.domain.Hadith
 import org.muslim.app.feature.hadith.domain.HadithCollection
+import kotlinx.coroutines.launch
 
 /** 30-minute increments across a full day, as minutes from midnight. */
 private val hadithTimeOptions: List<Int> = (0 until 24 * 60 step 30).toList()
@@ -84,9 +89,14 @@ fun HadithScreen(
     val dailyNotificationEnabled by viewModel.dailyNotificationEnabled.collectAsStateWithLifecycle()
     val dailyNotificationTimeMinutes by viewModel.dailyNotificationTimeMinutes.collectAsStateWithLifecycle()
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
+    val snackbarHostState = remember { SnackbarHostState() }
+    val scope = rememberCoroutineScope()
+    val copiedMessage = stringResource(R.string.hadith_copied)
+    val onCopied: () -> Unit = { scope.launch { snackbarHostState.showSnackbar(copiedMessage) } }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.hadith_title)) },
@@ -99,7 +109,7 @@ fun HadithScreen(
         },
     ) { innerPadding ->
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
-            OutlinedTextField(
+            DigitNormalizedOutlinedTextField(
                 value = query,
                 onValueChange = viewModel::setQuery,
                 label = { Text(stringResource(R.string.hadith_search_hint)) },
@@ -182,6 +192,7 @@ fun HadithScreen(
                             hadith = daily!!,
                             bookmarked = daily!!.id in bookmarkedIds,
                             onToggleBookmark = { viewModel.toggleBookmark(daily!!.id) },
+                            onCopied = onCopied,
                         )
                     }
                 }
@@ -190,6 +201,7 @@ fun HadithScreen(
                         hadith = hadith,
                         bookmarked = hadith.id in bookmarkedIds,
                         onToggleBookmark = { viewModel.toggleBookmark(hadith.id) },
+                        onCopied = onCopied,
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
                 }
@@ -322,6 +334,7 @@ private fun DailyHadithCard(
     hadith: Hadith,
     bookmarked: Boolean,
     onToggleBookmark: () -> Unit,
+    onCopied: () -> Unit,
 ) {
     Card(
         modifier = Modifier
@@ -335,7 +348,7 @@ private fun DailyHadithCard(
                 color = MaterialTheme.colorScheme.primary,
             )
             Spacer(Modifier.height(8.dp))
-            HadithBody(hadith)
+            HadithBody(hadith, onCopied = onCopied)
         }
     }
 }
@@ -345,6 +358,7 @@ private fun HadithCard(
     hadith: Hadith,
     bookmarked: Boolean,
     onToggleBookmark: () -> Unit,
+    onCopied: () -> Unit,
 ) {
     var showTranslation by remember { mutableStateOf(false) }
     Row(
@@ -355,7 +369,7 @@ private fun HadithCard(
         verticalAlignment = Alignment.Top,
     ) {
         Column(modifier = Modifier.weight(1f)) {
-            HadithBody(hadith, showTranslation = showTranslation)
+            HadithBody(hadith, showTranslation = showTranslation, onCopied = onCopied)
         }
         IconButton(onClick = onToggleBookmark) {
             Icon(
@@ -370,7 +384,11 @@ private fun HadithCard(
 }
 
 @Composable
-private fun HadithBody(hadith: Hadith, showTranslation: Boolean = true) {
+private fun HadithBody(
+    hadith: Hadith,
+    showTranslation: Boolean = true,
+    onCopied: () -> Unit = {},
+) {
     val context = LocalContext.current
     val clipboard = context.getSystemService(android.content.ClipboardManager::class.java)
     // English fallback is hidden when the UI language is Arabic (each language
@@ -415,7 +433,10 @@ private fun HadithBody(hadith: Hadith, showTranslation: Boolean = true) {
             modifier = Modifier.padding(start = 8.dp),
         )
         Spacer(Modifier.weight(1f))
-        IconButton(onClick = { clipboard?.setPrimaryClip(ClipData.newPlainText("hadith", shareText)) }) {
+        IconButton(onClick = {
+            clipboard?.setPrimaryClip(ClipData.newPlainText("hadith", shareText))
+            onCopied()
+        }) {
             Icon(
                 Icons.Filled.ContentCopy,
                 contentDescription = stringResource(R.string.hadith_copy),

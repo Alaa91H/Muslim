@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">나그쉬반디 아단</string>
     <string name="bundled_adhan_saber">세이버 아단</string>
     <string name="bundled_adhan_sharif_doman">샤리프 도만 아단</string>
-    <string name="bundled_adhan_umayyad_damascus">우마이야 모스크(다마스커스)</string>
     <string name="bundled_adhan_yusuf_islam">유수프 이슬람 아단</string>
     <string name="home_cannot_compute">이 날의 시간을 계산할 수 없습니다.</string>
     <string name="home_location_unknown">아직 위치가 설정되지 않았습니다.</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">자동(위치별)</string>
     <string name="settings_method_automatic_desc">앱은 귀하의 국가와 위치에 따라 가장 적합한 방법을 자동으로 선택합니다. 언제든지 수동으로 방법을 선택할 수 있습니다.</string>
     <string name="settings_preview_for_prayer">%1$s adhan 미리보기</string>
+    <string name="settings_method_automatic_picked">현재 선택된 자동: %1$s — %2$s</string>
 </resources>

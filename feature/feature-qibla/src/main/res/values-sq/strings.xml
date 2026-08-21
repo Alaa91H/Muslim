@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Gjerësia e zonës (gradë)</string>
     <string name="offline_maps_storage_warning">Hapësirë ​​e ulët - vetëm %1$s falas</string>
     <string name="offline_maps_storage_delete_largest">Fshi rajonin më të madh (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Kërkoni xhamitë me emër</string>
+    <string name="mosque_finder_show_all">Trego të gjitha xhamitë</string>
+    <string name="mosque_finder_share">Udhëzimet e hapura</string>
+    <string name="offline_maps_use_my_location">Shkoni në vendndodhjen time aktuale</string>
 </resources>

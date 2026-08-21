@@ -24,4 +24,5 @@
     <string name="hadith_share">Compartir</string>
     <string name="hadith_title">Biblioteca de hadices</string>
     <string name="hadith_copy">Copiar</string>
+    <string name="hadith_copied">Hadiz copiado</string>
 </resources>

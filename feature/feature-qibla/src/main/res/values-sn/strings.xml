@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Nzvimbo yakafara (madhigirii)</string>
     <string name="offline_maps_storage_warning">Kuchengetera kwakaderera - %1$s chete yemahara</string>
     <string name="offline_maps_storage_delete_largest">Delete yakakura nharaunda (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Tsvaga mamosque nemazita</string>
+    <string name="mosque_finder_show_all">Ratidza mamosque ese</string>
+    <string name="mosque_finder_share">Vhura nzira</string>
+    <string name="offline_maps_use_my_location">Enda kunzvimbo yangu ikozvino</string>
 </resources>

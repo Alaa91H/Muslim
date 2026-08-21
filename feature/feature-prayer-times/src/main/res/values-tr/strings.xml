@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi ezanı</string>
     <string name="bundled_adhan_saber">Sabre ezanı</string>
     <string name="bundled_adhan_sharif_doman">Şerif Doman ezanı</string>
-    <string name="bundled_adhan_umayyad_damascus">Emevi Camii (Şam) ezanı</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf İslam ezanı</string>
     <string name="home_cannot_compute">Bu günün saatleri hesaplanamıyor</string>
     <string name="home_location_unknown">Konum henüz belirlenmedi</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Otomatik (konuma göre)</string>
     <string name="settings_method_automatic_desc">Uygulama, ülkenize ve konumunuza göre en uygun yöntemi otomatik olarak seçer; yine de istediğiniz zaman manuel olarak bir yöntem seçebilirsiniz.</string>
     <string name="settings_preview_for_prayer">%1$s ezanını önizle</string>
+    <string name="settings_method_automatic_picked">Şu anda seçili olan otomatik: %1$s — %2$s</string>
 </resources>

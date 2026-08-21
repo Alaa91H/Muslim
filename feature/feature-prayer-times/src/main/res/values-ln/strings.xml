@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan na likambo yango</string>
     <string name="bundled_adhan_saber">Sabre adhan na kombo ya</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan na likambo yango</string>
-    <string name="bundled_adhan_umayyad_damascus">Mosquée ya ba Umayyad (Damasque) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Kozanga makoki ya kosala calcul ya ba heures ya mokolo oyo</string>
     <string name="home_location_unknown">Esika oyo etiamaki nanu te</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Automatique (na kotalela esika oyo ezali) .</string>
     <string name="settings_method_automatic_desc">Application yango eponaka mayele oyo ebongi mpenza na ndenge ya automatique na kotalela mboka na yo mpe esika ozali; okoki kaka kopona méthode moko na maboko na tango nionso.</string>
     <string name="settings_preview_for_prayer">Botali liboso %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Automatique oyo eponami sikoyo: %1$s — %2$s</string>
 </resources>

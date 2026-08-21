@@ -38,8 +38,10 @@ import org.muslim.app.feature.prayertimes.notifications.AdhanPlaybackService
 import org.muslim.app.feature.prayertimes.notifications.AdhanPlaybackStatus
 import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
 import org.muslim.app.feature.prayertimes.notifications.NextAdhanService
+import org.muslim.app.feature.prayertimes.notifications.AdhanSoundPlayer
 import org.muslim.app.feature.prayertimes.notifications.AdhanSoundRepository
 import org.muslim.app.feature.prayertimes.data.CitiesRepository
+import org.muslim.app.feature.prayertimes.domain.City
 import org.muslim.app.feature.prayertimes.widget.PrayerTimesWidget
 import javax.inject.Inject
 
@@ -51,6 +53,7 @@ class PrayerSettingsViewModel @Inject constructor(
     private val soundRepository: AdhanSoundRepository,
     private val calculator: PrayerTimesCalculator,
     private val appPreferencesRepository: AppPreferencesRepository,
+    private val soundPlayer: AdhanSoundPlayer,
 ) : ViewModel() {
 
     val settings: StateFlow<PrayerSettings> =
@@ -105,6 +108,36 @@ class PrayerSettingsViewModel @Inject constructor(
     private val _downloadProgress = MutableStateFlow<Map<Prayer, Float>>(emptyMap())
     val downloadProgress: StateFlow<Map<Prayer, Float>> = _downloadProgress.asStateFlow()
 
+    /**
+     * The method + country the automatic option currently resolves to for the
+     * saved location (only meaningful while [PrayerSettings.methodChosenManually]
+     * is false). Lets the settings screen show what "Automatic" picked today.
+     */
+    data class AutoMethodInfo(val method: CalculationMethod, val country: String, val city: String)
+
+    val autoMethodInfo: StateFlow<AutoMethodInfo?> =
+        repository.settings
+            .map { resolveAutoMethodInfo(it) }
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
+
+    private fun resolveAutoMethodInfo(settings: PrayerSettings): AutoMethodInfo? {
+        val city = nearestCityFor(settings) ?: return null
+        return AutoMethodInfo(
+            method = CalculationMethod.suggestedFor(city.country),
+            country = city.country,
+            city = city.displayName,
+        )
+    }
+
+    private fun nearestCityFor(settings: PrayerSettings): City? {
+        val location = settings.location ?: return null
+        return CitiesRepository.all.minByOrNull { city ->
+            val dLat = city.latitude - location.latitude
+            val dLon = city.longitude - location.longitude
+            dLat * dLat + dLon * dLon
+        }
+    }
+
     fun setMethod(method: CalculationMethod) =
         update { it.copy(method = method, methodChosenManually = true) }
 
@@ -115,15 +148,7 @@ class PrayerSettingsViewModel @Inject constructor(
      */
     fun setMethodAutomatic() {
         val current = settings.value
-        val country = current.location?.let { loc ->
-            CitiesRepository.all
-                .minByOrNull { city ->
-                    val dLat = city.latitude - loc.latitude
-                    val dLon = city.longitude - loc.longitude
-                    dLat * dLat + dLon * dLon
-                }
-                ?.country
-        }
+        val country = nearestCityFor(current)?.country
         val suggested = if (country != null) {
             CalculationMethod.suggestedFor(country)
         } else {
@@ -177,6 +202,11 @@ class PrayerSettingsViewModel @Inject constructor(
         AdhanPlaybackService.stop(context)
     }
 
+    /** Live-adjusts the volume of the currently playing preview (0..100). */
+    fun setLivePreviewVolume(volume: Int) {
+        soundPlayer.setVolume(volume)
+    }
+
     fun setReminderMinutes(minutes: Int) = update { it.copy(reminderMinutes = minutes) }
 
     fun setDndEnabled(enabled: Boolean) = update { it.copy(dndEnabled = enabled) }
@@ -185,16 +215,25 @@ class PrayerSettingsViewModel @Inject constructor(
 
     fun setHijriAdjustment(days: Int) = update { it.copy(hijriAdjustment = days) }
 
-    /** Plays a bundled adhan recording at [prayer]'s volume so the user can preview it. */
-    fun previewBundled(prayer: Prayer, sound: org.muslim.app.core.common.prayer.BundledAdhanSound) {
-        val current = settings.value
+    /**
+     * Plays a bundled adhan recording so the user can preview it. [volumePercent]
+     * is the level chosen in the customize dialog at that moment — the preview
+     * must honour it (not the last-saved level), so moving the volume slider
+     * is immediately audible. When the dialog confirms, the chosen level is
+     * persisted via [setAdhanVolume].
+     */
+    fun previewBundled(
+        prayer: Prayer,
+        sound: org.muslim.app.core.common.prayer.BundledAdhanSound,
+        volumePercent: Int = settings.value.adhanVolumeFor(prayer),
+    ) {
         viewModelScope.launch {
             AdhanPlaybackService.start(
                 context = context,
                 prayer = prayer,
                 vibrate = false,
                 soundOption = AdhanSoundOption.Default,
-                volumePercent = current.adhanVolumeFor(prayer),
+                volumePercent = volumePercent.coerceIn(0, 100),
                 soundPath = null,
                 bundledSoundId = sound.id,
             )

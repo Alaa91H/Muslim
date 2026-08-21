@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">পূৰ্বৰ আয়াহ</string>
     <string name="quran_range_single_ayah">একক আয়াহ</string>
     <string name="quran_range_single_ayah_short">আয়াহ</string>
-    <string name="quran_range_to_end">চুৰাৰ শেষলৈ</string>
+    <string name="quran_range_to_end">মুছাফৰ শেষলৈকে</string>
     <string name="quran_range_to_end_short">শেষ কৰিবলৈ</string>
     <string name="quran_range_whole_surah">গোটেই চুৰা</string>
     <string name="quran_range_whole_surah_short">ছূৰা</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">আবৃত্তিকাৰৰ মাজেৰে সম্পূৰ্ণ মুছাফ</string>
     <string name="quran_downloads_coverage_empty">এতিয়াও কোনো অডিঅ\' ডাউনলোড কৰা হোৱা নাই</string>
     <string name="quran_pause_notif_listener">অধিসূচনাৰ ওপৰত আবৃত্তি বন্ধ কৰক</string>
-    <string name="quran_reciter_changed_title">আবৃত্তিকাৰী সলনি হ’ল</string>
-    <string name="quran_reciter_changed_message">প্লেবেক বন্ধ হৈ গ’ল কাৰণ ৰেঞ্জ কোৰআনৰ শেষলৈকে চলি থাকে। %1$s ৰ সৈতে পুনৰ আৰম্ভ কৰক?</string>
-    <string name="quran_reciter_restart">আকৌ আৰম্ভ কৰক</string>
-    <string name="quran_reciter_not_now">এতিয়া নহয়</string>
+    <string name="quran_search_metrics">সন্ধানৰ সময়: %1$d ms</string>
+    <string name="quran_search_index_building">প্ৰথম অনুসন্ধানৰ বাবে কোৰআন সূচী নিৰ্মাণ...</string>
+    <string name="quran_search_index_progress">মুছাফ সূচকাংক নিৰ্মাণ... %1$d %%</string>
+    <string name="quran_search_word_root">মূল: %1$s</string>
+    <string name="quran_search_derivations">একেটা মূলৰ পৰা উদ্ভৱ হোৱা শব্দ</string>
+    <string name="quran_search_no_root">মূল নিৰ্ণয় কৰিব পৰা নগ\'ল</string>
 </resources>

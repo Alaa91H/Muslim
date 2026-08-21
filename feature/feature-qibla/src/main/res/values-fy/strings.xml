@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Gebietsbreedte (graden)</string>
     <string name="offline_maps_storage_warning">Leech opslach - allinich %1$s fergees</string>
     <string name="offline_maps_storage_delete_largest">Wiskje grutste regio (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Sykje moskeeën op namme</string>
+    <string name="mosque_finder_show_all">Lit alle moskeeën sjen</string>
+    <string name="mosque_finder_share">Iepenje rjochtings</string>
+    <string name="offline_maps_use_my_location">Gean nei myn hjoeddeistige lokaasje</string>
 </resources>

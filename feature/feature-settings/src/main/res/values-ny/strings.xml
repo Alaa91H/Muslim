@@ -164,4 +164,22 @@
     <string name="update_available_text">Mtundu %1$s tsopano ulipo — dinani kuti musinthe</string>
     <string name="notif_category_app_update">Zosintha zamapulogalamu</string>
     <string name="notif_category_app_update_desc">Chidziwitso pamene pulogalamu yatsopano ilipo</string>
+    <string name="about_tagline">Mnzake wathunthu, waulere, wotsegulira Msilamu aliyense - nthawi yopemphera, Adhan, Korani, hadith, adhkar ndi zina zambiri, m\'chilankhulo chanu.</string>
+    <string name="about_description_title">Za Muslim</string>
+    <string name="about_description_body">Muslim ndi pulogalamu yaulere komanso yotseguka ya Android yomwe imayenda nanu tsiku lonse: nthawi zamapemphero zolondola zakuthambo ndi Adhan, kampasi yolondola ya Qibla, Korani yathunthu yokhala ndi zowerengera komanso tafsir, laibulale ya hadith, adhkar yosungidwa, tasbih yamagetsi, zida za Ramadan, chowerengera zakat, mamapu opangidwa ndi intaneti osakhazikika, ndi zina zambiri - osagwiritsa ntchito intaneti.</string>
+    <string name="about_features_title">Mfundo zazikuluzikulu</string>
+    <string name="about_features_body">Chilichonse chomwe Msilamu amafunikira mu pulogalamu imodzi:</string>
+    <string name="about_feature_prayer">Nthawi zopemphera &amp; Adhan - njira zonse zowerengera, sukulu zamalamulo, ndi mawu 18+ adhan</string>
+    <string name="about_feature_quran">Korani Yathunthu - Zolemba za Uthmani, obwereza 44, tafsir, matanthauzidwe, kusaka mawu &amp; pafupipafupi</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — yokhala ndi zikumbutso ndi thovu loyandama</string>
+    <string name="about_feature_offline">Offline-poyamba - mamapu, Quran, hadith ndi adhkar amagwira ntchito popanda intaneti</string>
+    <string name="about_feature_privacy">Zazinsinsi mwachikhazikitso - palibe zotsatsa, palibe kutsatira, deta yanu imakhala pachida chanu</string>
+    <string name="settings_auto_update">Zosintha zokha zokha</string>
+    <string name="settings_auto_update_desc">Koperani zokha ndi kukhazikitsa mitundu yatsopano kumbuyo ikangotulutsidwa</string>
+    <string name="settings_auto_update_confirm_title">Yambitsani zosintha zokha?</string>
+    <string name="settings_auto_update_confirm_body">Mabaibulo atsopano adzakhala dawunilodi ndi kuikidwa basi kumbuyo ngati alipo. Pitirizani?</string>
+    <string name="settings_auto_update_confirm">Yambitsani</string>
+    <string name="settings_cancel">Letsani</string>
+    <string name="update_last_check">Kuwona komaliza: %1$s</string>
+    <string name="update_open_releases">Tsegulani tsamba lotulutsidwa mu msakatuli</string>
 </resources>

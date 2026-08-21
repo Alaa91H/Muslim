@@ -164,4 +164,22 @@
     <string name="update_available_text">Vèsyon %1$s disponib kounye a — tape pou mete ajou</string>
     <string name="notif_category_app_update">Mizajou aplikasyon an</string>
     <string name="notif_category_app_update_desc">Notifikasyon lè yon nouvo vèsyon aplikasyon an disponib</string>
+    <string name="about_tagline">Yon konpayon konplè, gratis, ouvè pou chak Mizilman - fwa lapriyè, Adhan, Koran, adit, adhkar ak plis ankò, nan lang ou.</string>
+    <string name="about_description_title">Konsènan Mizilman</string>
+    <string name="about_description_body">Mizilman se yon aplikasyon android gratis ak sous ouvè ki akonpaye ou pandan tout jounen an: tan lapriyè egzat astwonomik ak Adhan, yon konpa Qibla egzak, koran konplè a ak resitasyon ak tafsir, yon bibliyotèk adit, adhkar sous, yon tasbih elektwonik, zouti Ramadan, yon kalkilatris zakat, kat offline, ak plis ankò - ki fèt ak travay sou vi prive pa default.</string>
+    <string name="about_features_title">Pwen esansyèl</string>
+    <string name="about_features_body">Tout sa yon Mizilman bezwen nan yon sèl aplikasyon:</string>
+    <string name="about_feature_prayer">Tan lapriyè &amp; Adhan - tout metòd kalkil, lekòl jiridik, ak 18+ son adhan</string>
+    <string name="about_feature_quran">Koran konplè - Uthmani script, 44 reciters, tafsir, tradiksyon, rechèch mo ak frekans</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat - ak rapèl ak bul k ap flote</string>
+    <string name="about_feature_offline">Offline-premye - kat, koran, adit ak adhkar travay san entènèt</string>
+    <string name="about_feature_privacy">Konfidansyalite pa default - pa gen okenn anons, pa gen okenn swiv, done ou rete sou aparèy ou an</string>
+    <string name="settings_auto_update">Mizajou konplètman otomatik yo</string>
+    <string name="settings_auto_update_desc">Otomatikman telechaje ak enstale nouvo vèsyon nan background nan le pli vit ke yo lage</string>
+    <string name="settings_auto_update_confirm_title">Pèmèt mizajou otomatik yo?</string>
+    <string name="settings_auto_update_confirm_body">Nouvo vèsyon yo pral telechaje ak enstale otomatikman nan background nan lè yo disponib. Kontinye?</string>
+    <string name="settings_auto_update_confirm">Pèmèt</string>
+    <string name="settings_cancel">Anile</string>
+    <string name="update_last_check">Dènye chèk: %1$s</string>
+    <string name="update_open_releases">Louvri paj la nan navigatè a</string>
 </resources>

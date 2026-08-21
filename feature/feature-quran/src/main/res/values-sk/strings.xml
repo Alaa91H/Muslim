@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Predchádzajúce ayah</string>
     <string name="quran_range_single_ayah">Jedno ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Na koniec súry</string>
+    <string name="quran_range_to_end">Až do konca Mushaf</string>
     <string name="quran_range_to_end_short">Na koniec</string>
     <string name="quran_range_whole_surah">Celá súra</string>
     <string name="quran_range_whole_surah_short">súra</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Plný mushaf naprieč recitátormi</string>
     <string name="quran_downloads_coverage_empty">Zatiaľ nie je stiahnutý žiadny zvuk</string>
     <string name="quran_pause_notif_listener">Pozastaviť recitovanie upozornení</string>
-    <string name="quran_reciter_changed_title">Zmenil sa recitátor</string>
-    <string name="quran_reciter_changed_message">Prehrávanie sa zastavilo, pretože rozsah siaha až do konca Koránu. Začať znova s ​​%1$s?</string>
-    <string name="quran_reciter_restart">Začnite znova</string>
-    <string name="quran_reciter_not_now">Teraz nie</string>
+    <string name="quran_search_metrics">Čas vyhľadávania: %1$d ms</string>
+    <string name="quran_search_index_building">Vytváranie indexu Koránu pre prvé vyhľadávanie...</string>
+    <string name="quran_search_index_progress">Budovanie mushaf indexu... %1$d %%</string>
+    <string name="quran_search_word_root">Koreň: %1$s</string>
+    <string name="quran_search_derivations">Slová odvodené od rovnakého koreňa</string>
+    <string name="quran_search_no_root">Nepodarilo sa určiť koreň</string>
 </resources>

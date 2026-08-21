@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s is now available — tap to update</string>
     <string name="notif_category_app_update">Sabunta App</string>
     <string name="notif_category_app_update_desc">Sanarwa lokacin da akwai sabon sigar app</string>
+    <string name="about_tagline">Cikakken, kyauta, sahihi mai buɗe ido ga kowane musulmi - lokutan sallah, Adhan, Alqur\'ani, hadisi, adhhar da ƙari, cikin yarenku.</string>
+    <string name="about_description_title">Game da musulmi</string>
+    <string name="about_description_body">Muslim app ne na Android kyauta kuma mai budewa wanda ke tare da ku a tsawon yini: lokutan addu\'o\'i daidai gwargwado tare da Adhan, daidaitaccen kamfas na alkibla, cikakken Alqur\'ani mai karantarwa da tafsiri, dakin karatu na hadisi, adhkar da aka samo, tasbih na lantarki, kayan aikin Ramadan, kalkuletat din zakka, taswirori, da sauransu - tsara don yin aiki da cikakken aiki ta hanyar layi.</string>
+    <string name="about_features_title">Karin bayanai</string>
+    <string name="about_features_body">Duk abin da musulmi ke bukata a cikin app daya:</string>
+    <string name="about_feature_prayer">lokutan Sallah &amp; Adhan - duk hanyoyin lissafi, makarantun fikihu, da sautunan adhan 18+</string>
+    <string name="about_feature_quran">Cikakken Alqur\'ani - Rubutun Uthmani, masu karantarwa 44, tafsiri, tafsiri, binciken kalmomi &amp; mitar</string>
+    <string name="about_feature_adhkar">Adhkar, tasbihi, Ramadan &amp; Zakka - tare da tunatarwa da kumfa masu iyo</string>
+    <string name="about_feature_offline">Offline-na farko - taswirori, Al-Qur\'ani, hadisi da adhkar suna aiki ba tare da intanet ba</string>
+    <string name="about_feature_privacy">Keɓantawa ta tsohuwa - babu tallace-tallace, babu bin diddigi, bayanan ku yana kan na\'urarku</string>
+    <string name="settings_auto_update">Cikakkun sabuntawa ta atomatik</string>
+    <string name="settings_auto_update_desc">Zazzagewa da shigar da sabbin sigogi ta atomatik a bango da zaran an fitar da su</string>
+    <string name="settings_auto_update_confirm_title">Kunna sabuntawa ta atomatik?</string>
+    <string name="settings_auto_update_confirm_body">Za a sauke sabbin nau\'ikan kuma shigar ta atomatik a bango idan akwai. Ci gaba?</string>
+    <string name="settings_auto_update_confirm">Kunna</string>
+    <string name="settings_cancel">Soke</string>
+    <string name="update_last_check">Saukewa: %1$s</string>
+    <string name="update_open_releases">Bude shafin sakewa a cikin mai lilo</string>
 </resources>

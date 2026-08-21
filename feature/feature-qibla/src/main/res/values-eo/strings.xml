@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Areolarĝo (gradoj)</string>
     <string name="offline_maps_storage_warning">Malalta stokado - nur %1$s senpaga</string>
     <string name="offline_maps_storage_delete_largest">Forigi plej grandan regionon (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Serĉu moskeojn laŭ nomo</string>
+    <string name="mosque_finder_show_all">Montru ĉiujn moskeojn</string>
+    <string name="mosque_finder_share">Malfermu direktojn</string>
+    <string name="offline_maps_use_my_location">Iru al mia nuna loko</string>
 </resources>

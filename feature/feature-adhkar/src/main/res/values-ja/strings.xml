@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">短い adhkar のみを使用する</string>
     <string name="adhkar_overlay_short_only_desc">浮いているバブルが鮮明で読みやすいように、1 行または 2 行に収まる adhkar を選択してください。</string>
     <string name="adhkar_overlay_tap_hint">バブルをタップしてすぐに閉じます。</string>
+    <string name="adhkar_copied">ディクルがコピーされました</string>
+    <string name="adhkar_periodic_dhikr">特定のディクル</string>
+    <string name="adhkar_periodic_dhikr_random">ランダム (手動選択の代わりに)</string>
 </resources>

@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">صرف مختصر اچار استعمال ڪريو</string>
     <string name="adhkar_overlay_short_only_desc">Adhkar چونڊيو جيڪو هڪ يا ٻه سٽون مناسب هجي ته جيئن سچل بلبل صاف ۽ پڙهڻ ۾ آسان رهي.</string>
     <string name="adhkar_overlay_tap_hint">ان کي فوري طور تي رد ڪرڻ لاء بلبل تي ٽيپ ڪريو.</string>
+    <string name="adhkar_copied">ذڪر نقل ڪيو</string>
+    <string name="adhkar_periodic_dhikr">خاص ذڪر</string>
+    <string name="adhkar_periodic_dhikr_random">بي ترتيب (دستي چونڊ جي بدران)</string>
 </resources>

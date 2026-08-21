@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Largura da área (graus)</string>
     <string name="offline_maps_storage_warning">Baixo armazenamento – apenas %1$s grátis</string>
     <string name="offline_maps_storage_delete_largest">Excluir a maior região (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Pesquise mesquitas por nome</string>
+    <string name="mosque_finder_show_all">Mostrar todas as mesquitas</string>
+    <string name="mosque_finder_share">Rotas abertas</string>
+    <string name="offline_maps_use_my_location">Ir para minha localização atual</string>
 </resources>

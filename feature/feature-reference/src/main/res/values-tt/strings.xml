@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Бу китапны эзләгез ...</string>
     <string name="reference_title">Ислам белешмәлеге</string>
     <string name="reference_topics_count">темалар</string>
+    <string name="reference_copy">Күчермә</string>
+    <string name="reference_share">Бүлешү</string>
 </resources>

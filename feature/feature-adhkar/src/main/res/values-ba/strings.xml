@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Ҡыҫҡа адхкар ғына ҡулланығыҙ</string>
     <string name="adhkar_overlay_short_only_desc">Һайлау adhkar, тип тура килә бер-ике юл, шулай итеп, йөҙөүсе күпертке асыҡ һәм еңел уҡыу ҡала.</string>
     <string name="adhkar_overlay_tap_hint">Күбеккә ҡағыла, уны шунда уҡ эштән бушатыу өсөн.</string>
+    <string name="adhkar_copied">Зикр күсерелгән</string>
+    <string name="adhkar_periodic_dhikr">Конкрет зикер</string>
+    <string name="adhkar_periodic_dhikr_random">Осраҡлы (ҡул менән һайлау урынына)</string>
 </resources>

@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s är nu tillgänglig – tryck för att uppdatera</string>
     <string name="notif_category_app_update">Appuppdateringar</string>
     <string name="notif_category_app_update_desc">Meddelande när en ny appversion är tillgänglig</string>
+    <string name="about_tagline">En komplett, gratis följeslagare med öppen källkod för alla muslimer – bönetider, Adhan, Koranen, hadith, adhkar och mer, på ditt språk.</string>
+    <string name="about_description_title">Om muslim</string>
+    <string name="about_description_body">Muslim är en gratis Android-app med öppen källkod som följer med dig under hela dagen: astronomiskt korrekta bönetider med Adhan, en exakt Qibla-kompass, den kompletta Koranen med recitationer och tafsir, ett hadith-bibliotek, hämtad adhkar, en elektronisk tasbih, Ramadan-verktyg, en zakat-kalkylator, offline-kartor som standard för att fungera fullt ut och mer – som standard.</string>
+    <string name="about_features_title">Höjdpunkter</string>
+    <string name="about_features_body">Allt en muslim behöver i en app:</string>
+    <string name="about_feature_prayer">Bönetider och Adhan – alla beräkningsmetoder, juridiska skolor och 18+ adhan-ljud</string>
+    <string name="about_feature_quran">Komplett Koranen — Uthmaniskt manus, 44 reciterar, tafsir, översättningar, ordsökning och frekvens</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan och Zakat — med påminnelser och flytande bubblor</string>
+    <string name="about_feature_offline">Offline-först - kartor, Koranen, hadith och adhkar fungerar utan internet</string>
+    <string name="about_feature_privacy">Sekretess som standard – inga annonser, ingen spårning, din data finns kvar på din enhet</string>
+    <string name="settings_auto_update">Helautomatiska uppdateringar</string>
+    <string name="settings_auto_update_desc">Ladda ner och installera automatiskt nya versioner i bakgrunden så snart de släpps</string>
+    <string name="settings_auto_update_confirm_title">Vill du aktivera automatiska uppdateringar?</string>
+    <string name="settings_auto_update_confirm_body">Nya versioner kommer att laddas ner och installeras automatiskt i bakgrunden när de är tillgängliga. Fortsätta?</string>
+    <string name="settings_auto_update_confirm">Aktivera</string>
+    <string name="settings_cancel">Avboka</string>
+    <string name="update_last_check">Senaste kontroll: %1$s</string>
+    <string name="update_open_releases">Öppna versionssidan i webbläsaren</string>
 </resources>

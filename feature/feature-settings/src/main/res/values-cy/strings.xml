@@ -164,4 +164,22 @@
     <string name="update_available_text">Mae fersiwn %1$s ar gael nawr - tapiwch i ddiweddaru</string>
     <string name="notif_category_app_update">Diweddariadau ap</string>
     <string name="notif_category_app_update_desc">Hysbysiad pan fydd fersiwn app newydd ar gael</string>
+    <string name="about_tagline">Cydymaith ffynhonnell agored cyflawn, rhad ac am ddim i bob Mwslim - amseroedd gweddi, Adhan, Quran, hadith, adhkar a mwy, yn eich iaith.</string>
+    <string name="about_description_title">Ynglŷn â Mwslimaidd</string>
+    <string name="about_description_body">Mae Muslim yn ap Android ffynhonnell agored am ddim sy\'n cyd-fynd â chi trwy gydol y dydd: amseroedd gweddïo seryddol gywir gyda\'r Adhan, cwmpawd Qibla manwl gywir, y Quran cyflawn gyda datganiadau a tafsir, llyfrgell hadith, adhkar o ffynonellau, tasbih electronig, offer Ramadan, cyfrifiannell zakat, mapiau all-lein, a mwy - wedi\'u cynllunio i weithio\'n gyfan gwbl all-lein gyda phreifatrwydd yn ddiofyn.</string>
+    <string name="about_features_title">Uchafbwyntiau</string>
+    <string name="about_features_body">Popeth sydd ei angen ar Fwslim mewn un ap:</string>
+    <string name="about_feature_prayer">Amseroedd gweddi ac Adhan - pob dull cyfrifo, ysgolion cyfreitheg, a seiniau adhan 18+</string>
+    <string name="about_feature_quran">Quran cyflawn - sgript Uthmani, 44 o adroddwyr, tafsir, cyfieithiadau, chwiliad geiriau ac amlder</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan a Zakat - gyda nodiadau atgoffa a swigod arnofiol</string>
+    <string name="about_feature_offline">All-lein yn gyntaf - mae mapiau, Quran, hadith ac adhkar yn gweithio heb unrhyw rhyngrwyd</string>
+    <string name="about_feature_privacy">Preifatrwydd yn ddiofyn - dim hysbysebion, dim olrhain, mae eich data yn aros ar eich dyfais</string>
+    <string name="settings_auto_update">Diweddariadau cwbl awtomatig</string>
+    <string name="settings_auto_update_desc">Dadlwythwch a gosodwch fersiynau newydd yn y cefndir yn awtomatig cyn gynted ag y cânt eu rhyddhau</string>
+    <string name="settings_auto_update_confirm_title">Galluogi diweddariadau awtomatig?</string>
+    <string name="settings_auto_update_confirm_body">Bydd fersiynau newydd yn cael eu llwytho i lawr a\'u gosod yn awtomatig yn y cefndir pan fyddant ar gael. Parhau?</string>
+    <string name="settings_auto_update_confirm">Galluogi</string>
+    <string name="settings_cancel">Canslo</string>
+    <string name="update_last_check">Gwiriad olaf: %1$s</string>
+    <string name="update_open_releases">Agorwch y dudalen datganiadau yn y porwr</string>
 </resources>

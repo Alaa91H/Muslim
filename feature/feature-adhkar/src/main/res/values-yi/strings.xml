@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">ניצן קורץ אַדהקאַר בלויז</string>
     <string name="adhkar_overlay_short_only_desc">קלייַבן אַדהקאַר וואָס פּאַסיק איין אָדער צוויי שורות אַזוי די פלאָוטינג בלאָז סטייז קלאָר און גרינג צו לייענען.</string>
     <string name="adhkar_overlay_tap_hint">צאַפּן אויף די בלאָז צו אָפּזאָגן עס מיד.</string>
+    <string name="adhkar_copied">דהיקר קאַפּיד</string>
+    <string name="adhkar_periodic_dhikr">ספּעציפיש דיקריסט</string>
+    <string name="adhkar_periodic_dhikr_random">טראַפ (אַנשטאָט פון מאַנואַל קלייַבן)</string>
 </resources>

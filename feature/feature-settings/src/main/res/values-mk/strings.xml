@@ -164,4 +164,22 @@
     <string name="update_available_text">Верзијата %1$s сега е достапна - допрете за ажурирање</string>
     <string name="notif_category_app_update">Ажурирања на апликации</string>
     <string name="notif_category_app_update_desc">Известување кога е достапна нова верзија на апликацијата</string>
+    <string name="about_tagline">Целосен, бесплатен придружник со отворен код за секој муслиман - време на молитва, Азан, Куран, хадис, адкар и повеќе, на вашиот јазик.</string>
+    <string name="about_description_title">За муслиманот</string>
+    <string name="about_description_body">Муслиман е бесплатна и со отворен код апликација за Android што ве придружува во текот на денот: астрономски прецизни времиња на молитва со Азан, прецизен компас Кибла, комплетен Куран со рецитации и тафсир, библиотека со хадиси, изворен адкар, електронски тасбих, алатки за Рамазан, калкулатор за зекат, офлајн мапи дизајнирани целосно офлајн за целосно офлајн работа.</string>
+    <string name="about_features_title">Определување</string>
+    <string name="about_features_body">Сè што му треба на муслиманот во една апликација:</string>
+    <string name="about_feature_prayer">Време на молитва и азан - сите методи на пресметување, правни училишта и над 18 звуци на азанот</string>
+    <string name="about_feature_quran">Целосен Куран - писмо Утмани, 44 рецитатори, тафсир, преводи, пребарување зборови и фреквенција</string>
+    <string name="about_feature_adhkar">Адкар, тасбих, Рамазан и Закат - со потсетници и лебдечки меурчиња</string>
+    <string name="about_feature_offline">Офлајн - прво - мапите, Куранот, хадисот и адкар работат без интернет</string>
+    <string name="about_feature_privacy">Стандардна приватност - нема реклами, нема следење, вашите податоци остануваат на вашиот уред</string>
+    <string name="settings_auto_update">Целосно автоматско ажурирање</string>
+    <string name="settings_auto_update_desc">Автоматски преземајте и инсталирајте нови верзии во позадина веднаш штом ќе бидат објавени</string>
+    <string name="settings_auto_update_confirm_title">Овозможи автоматско ажурирање?</string>
+    <string name="settings_auto_update_confirm_body">Новите верзии ќе се преземаат и инсталираат автоматски во позадина кога ќе бидат достапни. Продолжи?</string>
+    <string name="settings_auto_update_confirm">Овозможи</string>
+    <string name="settings_cancel">Откажи</string>
+    <string name="update_last_check">Последна проверка: %1$s</string>
+    <string name="update_open_releases">Отворете ја страницата со изданија во прелистувачот</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Аԥхьара кьаҿк ала иааҭгылоит ардырра, аҵәаабжь, ма даҽа медиак анырҳәо</string>
     <string name="more_pause_notifications_enabled">Иаҿуп — асистема архиарақәа раартразы ақәыӷәӷәара</string>
     <string name="more_pause_notifications_disabled">Иҟәыхуп — аус аруразы иақәыӷәӷәа</string>
+    <string name="more_names">99 Аллаҳ ихьӡқәа</string>
+    <string name="more_names_desc">Ахьӡқәа 99 еилыркаарала</string>
+    <string name="more_hajj">Ҳаџьреи Умреи</string>
+    <string name="more_hajj_desc">Аҳаџьреи аумреи рҵасқәа рзы еилыкка иҟоу амҩақәҵага</string>
 </resources>

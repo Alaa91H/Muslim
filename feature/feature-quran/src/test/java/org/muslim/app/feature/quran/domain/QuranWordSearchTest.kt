@@ -16,8 +16,9 @@ class QuranWordSearchTest {
     @Test
     fun `quranic annotation marks inside words are stripped`() {
         // U+06ED (Arabic small low meem) inside the word must not break matching.
+        // normalizeForSearch also folds alef maqsura ى → ي for search equivalence.
         assertThat(QuranWordSearch.tokenize("هُدًۭى"))
-            .containsExactly("هدى")
+            .containsExactly("هدي")
     }
 
     // ---- exact vs prefix ----

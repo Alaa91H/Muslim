@@ -164,4 +164,22 @@
     <string name="update_available_text">Versiunea %1$s este acum disponibilă — atingeți pentru a actualiza</string>
     <string name="notif_category_app_update">Actualizări ale aplicației</string>
     <string name="notif_category_app_update_desc">Notificare când este disponibilă o nouă versiune de aplicație</string>
+    <string name="about_tagline">Un însoțitor complet, gratuit și open-source pentru fiecare musulman - orele de rugăciune, Adhan, Coran, hadith, adhkar și multe altele, în limba ta.</string>
+    <string name="about_description_title">Despre musulman</string>
+    <string name="about_description_body">Muslim este o aplicație Android gratuită și open-source care vă însoțește pe tot parcursul zilei: timpi de rugăciune astronomic precis cu Adhan, o busolă Qibla precisă, Coranul complet cu recitări și tafsir, o bibliotecă de hadith, adhkar din sursă, un tasbih electronic, instrumente Ramadan, un calculator zakat, hărți offline și multe altele - concepute pentru a funcționa în mod implicit offline.</string>
+    <string name="about_features_title">Repere</string>
+    <string name="about_features_body">Tot ce are nevoie un musulman într-o singură aplicație:</string>
+    <string name="about_feature_prayer">Orele de rugăciune și Adhan - toate metodele de calcul, școli juridice și peste 18 sunete adhan</string>
+    <string name="about_feature_quran">Coran complet - script Uthmani, 44 recitatori, tafsir, traduceri, căutare de cuvinte și frecvență</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan și Zakat — cu mementouri și bule plutitoare</string>
+    <string name="about_feature_offline">Mai întâi offline — hărțile, Coranul, hadithurile și adhkarul funcționează fără internet</string>
+    <string name="about_feature_privacy">Confidențialitate în mod implicit - fără anunțuri, fără urmărire, datele dvs. rămân pe dispozitiv</string>
+    <string name="settings_auto_update">Actualizări complet automate</string>
+    <string name="settings_auto_update_desc">Descărcați și instalați automat versiuni noi în fundal, de îndată ce sunt lansate</string>
+    <string name="settings_auto_update_confirm_title">Activați actualizările automate?</string>
+    <string name="settings_auto_update_confirm_body">Noile versiuni vor fi descărcate și instalate automat în fundal atunci când sunt disponibile. Continua?</string>
+    <string name="settings_auto_update_confirm">Permite</string>
+    <string name="settings_cancel">Anula</string>
+    <string name="update_last_check">Ultima verificare: %1$s</string>
+    <string name="update_open_releases">Deschideți pagina versiuni în browser</string>
 </resources>

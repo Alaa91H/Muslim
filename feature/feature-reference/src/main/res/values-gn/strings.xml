@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Eheka ko aranduka...</string>
     <string name="reference_title">Biblioteca de Referencia Islámica rehegua</string>
     <string name="reference_topics_count">umi tema rehegua</string>
+    <string name="reference_copy">Kopia rehegua</string>
+    <string name="reference_share">Compartir</string>
 </resources>

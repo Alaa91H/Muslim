@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Prejšnji ajet</string>
     <string name="quran_range_single_ayah">Enotni ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Do konca sure</string>
+    <string name="quran_range_to_end">Do konca Mushafa</string>
     <string name="quran_range_to_end_short">Za konec</string>
     <string name="quran_range_whole_surah">Celotna sura</string>
     <string name="quran_range_whole_surah_short">Sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Celoten mushaf med recitatorji</string>
     <string name="quran_downloads_coverage_empty">Zvok še ni prenesen</string>
     <string name="quran_pause_notif_listener">Zaustavi recitiranje obvestil</string>
-    <string name="quran_reciter_changed_title">Recitator spremenjen</string>
-    <string name="quran_reciter_changed_message">Predvajanje je ustavljeno, ker obseg poteka do konca Korana. Začeti znova z %1$s?</string>
-    <string name="quran_reciter_restart">Začni znova</string>
-    <string name="quran_reciter_not_now">Ne zdaj</string>
+    <string name="quran_search_metrics">Čas iskanja: %1$d ms</string>
+    <string name="quran_search_index_building">Gradnja indeksa Kur\'ana za prvo iskanje ...</string>
+    <string name="quran_search_index_progress">Gradnja indeksa mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Koren: %1$s</string>
+    <string name="quran_search_derivations">Besede iz istega korena</string>
+    <string name="quran_search_no_root">Korena ni bilo mogoče določiti</string>
 </resources>

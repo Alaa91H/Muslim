@@ -164,4 +164,22 @@
     <string name="update_available_text">Putanga %1$s kei te watea inaianei — pato ki te whakahou</string>
     <string name="notif_category_app_update">Whakahōu taupānga</string>
     <string name="notif_category_app_update_desc">Whakamōhiotanga ina wātea he putanga taupānga hōu</string>
+    <string name="about_tagline">He hoa oti, kore utu, tuwhera-puna mo ia Mahometa — nga wa inoi, Adhan, Quran, hadith, adhkar me etahi atu, i to reo.</string>
+    <string name="about_description_title">Mo Mahometa</string>
+    <string name="about_description_body">Ko Muslim he tono Android koreutu me te tuwhera-puna e haere ana i a koe puta noa i te ra: nga wa inoi tika me te Adhan, he kapehu Qibla tika, te Quran oti me nga korero me te tafsir, he whare pukapuka hadith, he adhkar, he tabih hiko, taputapu Ramadan, he tatauranga zakat, he mapi tuimotu, me te maha atu - i hangaia hei mahi tuimotu me te tūmataiti ma te taunoa.</string>
+    <string name="about_features_title">Nga mea nui</string>
+    <string name="about_features_body">Ko nga mea katoa e hiahiatia ana e te Muslim i roto i te taupānga kotahi:</string>
+    <string name="about_feature_prayer">Wa inoi &amp; Adhan — tikanga tatau katoa, kura ture, me te 18+ oro adhan</string>
+    <string name="about_feature_quran">Kua oti te Quran — te tuhi Uthmani, 44 nga kaikorero, tafsir, whakamaoritanga, rapu kupu me te auau</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — me nga whakamaumahara me nga mirumiru maanu</string>
+    <string name="about_feature_offline">Tuimotu-tuatahi — mapi, Quran, hadith me adhkar ka mahi kaore he ipurangi</string>
+    <string name="about_feature_privacy">Matatapu ma te taunoa — karekau he panui, karekau he aroturuki, ka noho tonu to raraunga ki to taputapu</string>
+    <string name="settings_auto_update">Whakahoutanga aunoa</string>
+    <string name="settings_auto_update_desc">Tikina aunoa me te whakauru i nga putanga hou ki te papamuri ina tukuna ana</string>
+    <string name="settings_auto_update_confirm_title">Whakahohea nga whakahou aunoa?</string>
+    <string name="settings_auto_update_confirm_body">Ka tangohia nga putanga hou ka whakauruhia aunoa ki te papamuri ina watea. Haere tonu?</string>
+    <string name="settings_auto_update_confirm">Whakahohe</string>
+    <string name="settings_cancel">Whakakore</string>
+    <string name="update_last_check">Tirohanga whakamutunga: %1$s</string>
+    <string name="update_open_releases">Whakatuwheratia te wharangi whakaputanga i roto i te tirotiro</string>
 </resources>

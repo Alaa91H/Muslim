@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Largeur de la zone (degrés)</string>
     <string name="offline_maps_storage_warning">Faible stockage, seulement %1$s gratuits</string>
     <string name="offline_maps_storage_delete_largest">Supprimer la plus grande région (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Rechercher des mosquées par nom</string>
+    <string name="mosque_finder_show_all">Afficher toutes les mosquées</string>
+    <string name="mosque_finder_share">Itinéraires ouverts</string>
+    <string name="offline_maps_use_my_location">Aller à ma position actuelle</string>
 </resources>

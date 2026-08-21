@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Šírka oblasti (stupne)</string>
     <string name="offline_maps_storage_warning">Nízky úložný priestor, voľných len %1$s</string>
     <string name="offline_maps_storage_delete_largest">Odstrániť najväčšiu oblasť (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Hľadajte mešity podľa názvu</string>
+    <string name="mosque_finder_show_all">Ukáž všetky mešity</string>
+    <string name="mosque_finder_share">Otvoriť trasu</string>
+    <string name="offline_maps_use_my_location">Prejsť na moju aktuálnu polohu</string>
 </resources>

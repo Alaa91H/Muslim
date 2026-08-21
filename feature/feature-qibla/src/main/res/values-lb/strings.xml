@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Beräich Breet (Grad)</string>
     <string name="offline_maps_storage_warning">Niddereg Späichere - nëmmen %1$s gratis</string>
     <string name="offline_maps_storage_delete_largest">Gréisst Regioun läschen (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Sich Moscheeën mam Numm</string>
+    <string name="mosque_finder_show_all">Show all Moscheeën</string>
+    <string name="mosque_finder_share">Opzemaachen Richtungen</string>
+    <string name="offline_maps_use_my_location">Gitt op meng aktuell Positioun</string>
 </resources>

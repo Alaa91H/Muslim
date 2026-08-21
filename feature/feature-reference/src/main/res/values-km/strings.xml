@@ -5,4 +5,6 @@
     <string name="reference_search_hint">ស្វែងរកសៀវភៅនេះ…</string>
     <string name="reference_title">បណ្ណាល័យឯកសារយោងអ៊ីស្លាម</string>
     <string name="reference_topics_count">ប្រធានបទ</string>
+    <string name="reference_copy">ចម្លង</string>
+    <string name="reference_share">ចែករំលែក</string>
 </resources>

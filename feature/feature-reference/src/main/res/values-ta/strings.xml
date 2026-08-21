@@ -5,4 +5,6 @@
     <string name="reference_search_hint">இந்த புத்தகத்தை தேடு…</string>
     <string name="reference_title">இஸ்லாமிய குறிப்பு நூலகம்</string>
     <string name="reference_topics_count">தலைப்புகள்</string>
+    <string name="reference_copy">நகலெடுக்கவும்</string>
+    <string name="reference_share">பகிரவும்</string>
 </resources>

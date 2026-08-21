@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Brug kun kort adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Vælg adhkar, der passer til en eller to linjer, så den flydende boble forbliver klar og let at læse.</string>
     <string name="adhkar_overlay_tap_hint">Tryk på boblen for at afvise den med det samme.</string>
+    <string name="adhkar_copied">Dhikr kopieret</string>
+    <string name="adhkar_periodic_dhikr">Specifik dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Tilfældig (i stedet for manuelt valg)</string>
 </resources>

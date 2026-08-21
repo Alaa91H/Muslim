@@ -164,4 +164,22 @@
     <string name="update_available_text">ເວີຊັນ %1$s ສາມາດໃຊ້ໄດ້ແລ້ວ — ແຕະເພື່ອອັບເດດ</string>
     <string name="notif_category_app_update">ອັບເດດແອັບ</string>
     <string name="notif_category_app_update_desc">ການແຈ້ງເຕືອນເມື່ອມີແອັບເວີຊັນໃໝ່</string>
+    <string name="about_tagline">ແຫຼ່ງທີ່ສົມບູນ, ບໍ່ເສຍຄ່າ, ເປີດແຫຼ່ງສໍາລັບທຸກໆຊາວມຸດສະລິມ - ເວລາອະທິຖານ, Adhan, Quran, hadith, adhkar ແລະອື່ນໆ, ໃນພາສາຂອງທ່ານ.</string>
+    <string name="about_description_title">ກ່ຽວກັບຊາວມຸດສະລິມ</string>
+    <string name="about_description_body">Muslim ເປັນ app Android ຟຣີແລະ open-source ທີ່ມາພ້ອມກັບທ່ານຕະຫຼອດມື້: ເວລາອະທິຖານທີ່ຖືກຕ້ອງທາງດາລາສາດກັບ Adhan, ເຂັມທິດ Qibla ທີ່ຊັດເຈນ, Quran ຄົບຖ້ວນສົມບູນກັບ recitations ແລະ tafsir, ຫໍສະຫມຸດ hadith, adhkar ແຫຼ່ງ, tasbih ເອເລັກໂຕຣນິກ, ເຄື່ອງມື Ramadan, ເຄື່ອງຄິດເລກ zakat, ແຜນທີ່ອອບໄລນ໌, ແລະອື່ນ ໆ — ອອກແບບໂດຍຄ່າເລີ່ມຕົ້ນ.</string>
+    <string name="about_features_title">ຈຸດເດັ່ນ</string>
+    <string name="about_features_body">ທຸກ​ສິ່ງ​ທຸກ​ຢ່າງ Muslim ຕ້ອງ​ການ​ໃນ​ຫນຶ່ງ app​:</string>
+    <string name="about_feature_prayer">ເວ​ລາ​ອະ​ທິ​ຖານ &amp; Adhan — ວິ​ທີ​ການ​ຄິດ​ໄລ່​ທັງ​ຫມົດ​, ໂຮງ​ຮຽນ​ນິ​ຕິ​ກໍາ​, ແລະ 18+ adhan ສຽງ</string>
+    <string name="about_feature_quran">ສົມບູນ Quran - Uthmani script, 44 reciters, tafsir, ການແປພາສາ, ການຄົ້ນຫາຄໍາ &amp; ຄວາມຖີ່</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — ມີ​ການ​ແຈ້ງ​ເຕືອນ​ແລະ​ຟອງ​ທີ່​ເລື່ອນ​ໄດ້​</string>
+    <string name="about_feature_offline">ອອບໄລນ໌ກ່ອນ - ແຜນທີ່, Quran, hadith ແລະ adhkar ເຮັດວຽກໂດຍບໍ່ມີອິນເຕີເນັດ</string>
+    <string name="about_feature_privacy">ຄວາມເປັນສ່ວນຕົວໂດຍຄ່າເລີ່ມຕົ້ນ — ບໍ່ມີໂຄສະນາ, ບໍ່ມີການຕິດຕາມ, ຂໍ້ມູນຂອງທ່ານຈະຢູ່ໃນອຸປະກອນຂອງທ່ານ</string>
+    <string name="settings_auto_update">ການປັບປຸງອັດຕະໂນມັດຢ່າງເຕັມສ່ວນ</string>
+    <string name="settings_auto_update_desc">ດາວໂຫຼດ ແລະຕິດຕັ້ງເວີຊັນໃໝ່ໃນພື້ນຫຼັງໂດຍອັດຕະໂນມັດທັນທີທີ່ພວກມັນຖືກປ່ອຍອອກມາ</string>
+    <string name="settings_auto_update_confirm_title">ເປີດໃຊ້ການອັບເດດອັດຕະໂນມັດບໍ?</string>
+    <string name="settings_auto_update_confirm_body">ເວີຊັນໃໝ່ຈະຖືກດາວໂຫຼດ ແລະຕິດຕັ້ງໂດຍອັດຕະໂນມັດໃນພື້ນຫຼັງເມື່ອມີໃຫ້. ສືບຕໍ່?</string>
+    <string name="settings_auto_update_confirm">ເປີດໃຊ້</string>
+    <string name="settings_cancel">ຍົກເລີກ</string>
+    <string name="update_last_check">ກວດສອບຄັ້ງສຸດທ້າຍ: %1$s</string>
+    <string name="update_open_releases">ເປີດໜ້າອອກໃນ browser</string>
 </resources>

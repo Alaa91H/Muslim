@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Okusoma kuyimirirako katono nga okumanyisibwa, essimu oba emikutu emirala gizannyiddwa</string>
     <string name="more_pause_notifications_enabled">Enabled — koona okuggulawo ensengeka z\'enkola</string>
     <string name="more_pause_notifications_disabled">Disabled — koona okusobozesa</string>
+    <string name="more_names">99 Amannya ga Allah</string>
+    <string name="more_names_desc">Amannya 99 nga gannyonnyola mu bujjuvu</string>
+    <string name="more_hajj">Hijja &amp; Umrah</string>
+    <string name="more_hajj_desc">Obulagirizi obukwata ku mikolo gya Hijja ne Umrah mu bujjuvu</string>
 </resources>

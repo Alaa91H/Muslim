@@ -164,4 +164,22 @@
     <string name="update_available_text">ཐོན་རིམ་%1$sད་ལྟ་ཐོབ་ཐུབ། — གསར་བརྗེ་བྱེད་པར་རྡེབ།</string>
     <string name="notif_category_app_update">མཉེན་ཆས་གསར་བརྗེ།</string>
     <string name="notif_category_app_update_desc">མཉེན་ཆས་ཐོན་རིམ་གསར་པ་ཞིག་ཐོན་པའི་སྐབས་བརྡ་ཐོ།</string>
+    <string name="about_tagline">ཁྱེད་ཀྱི་སྐད་ཡིག་ནང་མུ་ས་ལིམ་ཚང་མར་རིན་མེད་ཀྱི་ཐོན་ཁུངས་ཁ་ཕྱེ་བའི་གྲོགས་པོ་ཆ་ཚང་ཞིག་ཡོད།</string>
+    <string name="about_description_title">ཁ་ཆེའི་སྐོར།</string>
+    <string name="about_description_body">མུ་ས་ལིམ་ནི་རིན་མེད་དང་ཁ་ཕྱེ་བའི་ཨེན་ཀྲོཌ་མཉེན་ཆས་ཤིག་ཡིན་ཞིང་། དེ་ཉིན་གང་བོར་ཁྱེད་ལ་མཉམ་དུ་འགྲོ་གི་ཡོད། སྔོན་སྒྲིག</string>
+    <string name="about_features_title">གཙོ་གནད།</string>
+    <string name="about_features_body">ཁ་ཆེ་ལ་དགོས་མཁོ་ཡོད་ཚད་མཉེན་ཆས་གཅིག་གི་ནང་དུ་ཡོད།</string>
+    <string name="about_feature_prayer">སྨོན་ལམ་གྱི་དུས་ཚོད་དང་ཨ་དྷན་ — རྩིས་རྒྱག་ཐབས་ལམ་ཚང་མ། ཁྲིམས་ལུགས་སློབ་གྲྭ། ཨ་དྷན་སྒྲ་18+</string>
+    <string name="about_feature_quran">ཁ་ཆེའི་དཔེ་ཆ་ཆ་ཚང་། ཨུ་ཐ་མ་ནི་ཡི་གེ། ཀློག་མཁན་༤༤། ཏཕ་སིར། སྐད་སྒྱུར། མིང་ཚིག་འཚོལ་ཞིབ་དང་བསྐྱར་ཟློས།</string>
+    <string name="about_feature_adhkar">ཨ་དྷ་ཀར་དང་། ཏས་བྷི། ར་མ་དན། ཟ་ཀཊ། དྲན་སྐུལ་དང་འཕྱོ་བའི་རླངས་ཟིལ།</string>
+    <string name="about_feature_offline">དྲ་རྒྱའི་ཕྱི་རོལ་གྱི་ཐོག་མ། ས་ཁྲ་དང་། ཁ་ཆེའི་དཔེ་ཆ། ཧ་ཌི་ཐི། དྲ་རྒྱ་མེད་པར་ལས་ཀ་བྱེད་ཀྱི་ཡོད།</string>
+    <string name="about_feature_privacy">སྔོན་སྒྲིག་ལྟར་སྒེར་གྱི་གནས་ཚུལ། ཁྱབ་བསྒྲགས་མེད། རྗེས་འདེད་མེད། ཁྱེད་ཀྱི་གཞི་གྲངས་ཁྱེད་ཀྱི་ཡོ་ཆས་སྟེང་དུ་བསྡད་ཡོད།</string>
+    <string name="settings_auto_update">རང་འགུལ་ཆ་ཚང་གསར་བསྒྱུར།</string>
+    <string name="settings_auto_update_desc">ཐོན་རིམ་གསར་པ་ཐོན་མ་ཐག་རྒྱབ་ལྗོངས་སུ་རང་འགུལ་གྱིས་ཕབ་ལེན་དང་སྒྲིག་འཇུག་བྱེད་པ།</string>
+    <string name="settings_auto_update_confirm_title">རང་འགུལ་གསར་བརྗེ་ལྕོགས་ཅན་བཟོ་ཐུབ་བམ།</string>
+    <string name="settings_auto_update_confirm_body">ཐོན་རིམ་གསར་པ་རྣམས་ཐོབ་པའི་སྐབས་རྒྱབ་ལྗོངས་སུ་རང་འགུལ་གྱིས་ཕབ་ལེན་བྱས་ནས་སྒྲིག་འཇུག་བྱེད། མུ་མཐུད?</string>
+    <string name="settings_auto_update_confirm">སྲིད་པ</string>
+    <string name="settings_cancel">འདོར་བ</string>
+    <string name="update_last_check">མཐའ་མའི་ཞིབ་བཤེར། %1$s.</string>
+    <string name="update_open_releases">བཤེར་ཆས་ནང་འགྲེམ་སྤེལ་ཤོག་ངོས་ཁ་ཕྱེ།</string>
 </resources>

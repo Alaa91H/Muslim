@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah berê</string>
     <string name="quran_range_single_ayah">Single ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Heta dawiya sûreyê</string>
+    <string name="quran_range_to_end">Heta dawiya Muşefê</string>
     <string name="quran_range_to_end_short">Bi dawî bibe</string>
     <string name="quran_range_whole_surah">Tevahiya sûreyê</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mişef tam di nav xwandevanan de</string>
     <string name="quran_downloads_coverage_empty">Hê deng nehatiye daxistin</string>
     <string name="quran_pause_notif_listener">Xwendina li ser ragihandinan rawestînin</string>
-    <string name="quran_reciter_changed_title">Reciter hate guhertin</string>
-    <string name="quran_reciter_changed_message">Playback rawestiya ji ber ku navber heya dawiya Quranê dimeşe. Dîsa bi %1$s dest pê bike?</string>
-    <string name="quran_reciter_restart">Dîsa dest pê bike</string>
-    <string name="quran_reciter_not_now">Ne niha</string>
+    <string name="quran_search_metrics">Dema lêgerînê: %1$d ms</string>
+    <string name="quran_search_index_building">Ji bo lêgerîna yekem avakirina navnîşa Quranê…</string>
+    <string name="quran_search_index_progress">Avakirina nîşana mûşefê… %1$d %%</string>
+    <string name="quran_search_word_root">Root: %1$s</string>
+    <string name="quran_search_derivations">Peyvên ku ji heman kokê hatine çêkirin</string>
+    <string name="quran_search_no_root">Nekarî kok diyar bike</string>
 </resources>

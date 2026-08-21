@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Гьаб тӀехьалда балагье...</string>
     <string name="reference_title">Исламияб справочникалъул библиотека</string>
     <string name="reference_topics_count">темаби;</string>
+    <string name="reference_copy">Копия</string>
+    <string name="reference_share">Бикьизе</string>
 </resources>

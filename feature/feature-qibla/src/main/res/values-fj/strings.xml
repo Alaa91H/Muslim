@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Raba ni vanua (digiri)</string>
     <string name="offline_maps_storage_warning">Maroroi lailai — duadua ga %1$s galala</string>
     <string name="offline_maps_storage_delete_largest">Bokoca na yasana levu duadua (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Vakasaqara na valenilotu ena yaca</string>
+    <string name="mosque_finder_show_all">Vakaraitaka na valenilotu kece</string>
+    <string name="mosque_finder_share">Dolava na veidusimaki</string>
+    <string name="offline_maps_use_my_location">Lako ki na noqu vanua ena gauna oqo .</string>
 </resources>

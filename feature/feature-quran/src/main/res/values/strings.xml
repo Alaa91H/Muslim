@@ -26,6 +26,12 @@
     <string name="quran_search_occurrences">%1$d مرة</string>
     <string name="quran_search_history">عمليات البحث الأخيرة</string>
     <string name="quran_search_history_clear">مسح الكل</string>
+    <string name="quran_search_metrics">زمن البحث: %1$d مللي ثانية</string>
+    <string name="quran_search_index_building">جارٍ بناء فهرس المصحف لأول بحث…</string>
+    <string name="quran_search_index_progress">بناء فهرس المصحف… %1$d٪</string>
+    <string name="quran_search_word_root">الجذر: %1$s</string>
+    <string name="quran_search_derivations">تصريفات مشتقة من الجذر</string>
+    <string name="quran_search_no_root">تعذّر تحديد الجذر</string>
     <string name="quran_details">تفاصيل السورة</string>
     <string name="quran_details_close">إغلاق</string>
     <string name="quran_details_type">النوع</string>
@@ -62,11 +68,7 @@
     <string name="quran_stop_playback">إيقاف التشغيل</string>
     <string name="quran_play_range">نطاق التشغيل</string>
     <string name="quran_range_single_ayah">آية واحدة</string>
-    <string name="quran_range_to_end">إلى نهاية القرآن</string>
-    <string name="quran_reciter_changed_title">تم تغيير القارئ</string>
-    <string name="quran_reciter_changed_message">توقفت التلاوة لأن النطاق مضبوط حتى نهاية القرآن. هل تريد بدء التلاوة بالقارئ %1$s من جديد؟</string>
-    <string name="quran_reciter_restart">بدء من جديد</string>
-    <string name="quran_reciter_not_now">ليس الآن</string>
+    <string name="quran_range_to_end">إلى نهاية المصحف</string>
     <string name="quran_range_whole_surah">السورة كاملة</string>
     <string name="quran_range_single_ayah_short">آية</string>
     <string name="quran_range_to_end_short">حتى نهاية المصحف</string>

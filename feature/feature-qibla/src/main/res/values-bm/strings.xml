@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Yɔrɔ bonya (degɛrɛw) .</string>
     <string name="offline_maps_storage_warning">Dɔgɔya marayɔrɔ — dɔrɔn %1$s fu</string>
     <string name="offline_maps_storage_delete_largest">Delete mara belebeleba (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Misiriw ɲini u tɔgɔ fɛ</string>
+    <string name="mosque_finder_show_all">Misiriw bɛɛ jira</string>
+    <string name="mosque_finder_share">Siraw da wuli</string>
+    <string name="offline_maps_use_my_location">Taga n ka yɔrɔ la sisan</string>
 </resources>

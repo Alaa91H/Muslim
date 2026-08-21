@@ -5,4 +5,6 @@
     <string name="reference_search_hint">དེབ་འདི་འཚོལ་ཞིབ་འབད།</string>
     <string name="reference_title">ཨིསི་ལམ་གྱི་གཞི་གྲངས་དཔེ་མཛོད།</string>
     <string name="reference_topics_count">དོན་ཚན།</string>
+    <string name="reference_copy">འདྲ་བཤུས།</string>
+    <string name="reference_share">བགོ་བཤའ་བརྐྱབ།</string>
 </resources>

@@ -24,4 +24,5 @@
     <string name="hadith_share">シェアする</string>
     <string name="hadith_title">ハディース図書館</string>
     <string name="hadith_copy">コピー</string>
+    <string name="hadith_copied">ハディースをコピーしました</string>
 </resources>

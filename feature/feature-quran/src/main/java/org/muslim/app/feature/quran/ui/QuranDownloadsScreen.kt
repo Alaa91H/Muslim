@@ -79,6 +79,7 @@ fun QuranDownloadsScreen(
     viewModel: QuranDownloadsViewModel = hiltViewModel(),
 ) {
     val scope by viewModel.scope.collectAsStateWithLifecycle()
+    val surahSort by viewModel.surahSort.collectAsStateWithLifecycle()
     val surahInput by viewModel.surahInput.collectAsStateWithLifecycle()
     val ayahInput by viewModel.ayahInput.collectAsStateWithLifecycle()
     val estimateBytes by viewModel.estimateBytes.collectAsStateWithLifecycle()
@@ -342,6 +343,10 @@ fun QuranDownloadsScreen(
                     ReciterStateSection(
                         state = reciterState,
                         surahAyahTotals = surahAyahTotals,
+                        sortMode = if (surahSort == "completion") SurahSort.Completion else SurahSort.Mushaf,
+                        onSortModeChanged = { mode ->
+                            viewModel.setSurahSort(if (mode == SurahSort.Completion) "completion" else "mushaf")
+                        },
                         onDeleteSurah = { confirmDeleteSurah = it },
                         onDeleteReciter = { confirmDeleteReciter = true },
                     )
@@ -781,6 +786,8 @@ private fun ReciterHeaderSummary(
 private fun ReciterStateSection(
     state: org.muslim.app.feature.quran.data.ReciterDownloadState?,
     surahAyahTotals: Map<Int, Int>,
+    sortMode: SurahSort,
+    onSortModeChanged: (SurahSort) -> Unit,
     onDeleteSurah: (Int) -> Unit,
     onDeleteReciter: () -> Unit,
 ) {
@@ -812,17 +819,16 @@ private fun ReciterStateSection(
     Spacer(Modifier.height(8.dp))
 
     // Sort the downloaded surahs by mushaf order or by completion (incomplete
-    // first, so the user sees what needs finishing). The choice is remembered.
-    var sortMode by rememberSaveable { mutableStateOf(SurahSort.Mushaf) }
+    // first, so the user sees what needs finishing). Persisted in DataStore.
     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
         FilterChip(
             selected = sortMode == SurahSort.Mushaf,
-            onClick = { sortMode = SurahSort.Mushaf },
+            onClick = { onSortModeChanged(SurahSort.Mushaf) },
             label = { Text(stringResource(R.string.quran_download_sort_mushaf)) },
         )
         FilterChip(
             selected = sortMode == SurahSort.Completion,
-            onClick = { sortMode = SurahSort.Completion },
+            onClick = { onSortModeChanged(SurahSort.Completion) },
             label = { Text(stringResource(R.string.quran_download_sort_completion)) },
         )
     }

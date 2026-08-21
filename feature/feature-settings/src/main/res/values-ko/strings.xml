@@ -164,4 +164,22 @@
     <string name="update_available_text">이제 %1$s 버전을 사용할 수 있습니다. 업데이트하려면 탭하세요.</string>
     <string name="notif_category_app_update">앱 업데이트</string>
     <string name="notif_category_app_update_desc">새로운 앱 버전이 출시되면 알림</string>
+    <string name="about_tagline">모든 무슬림을 위한 완전한 무료 오픈 소스 동반자 — 기도 시간, Adhan, Quran, hadith, adhkar 등이 귀하의 언어로 제공됩니다.</string>
+    <string name="about_description_title">무슬림에 대하여</string>
+    <string name="about_description_body">무슬림은 하루 종일 여러분과 함께할 수 있는 무료 오픈 소스 Android 앱입니다. 천문학적으로 정확한 Adhan을 사용한 기도 시간, 정확한 Qibla 나침반, 암송과 tafsir가 포함된 완전한 꾸란, hadith 라이브러리, 소스 adhkar, 전자 tasbih, 라마단 도구, zakat 계산기, 오프라인 지도 등 - 기본적으로 개인 정보 보호를 유지하면서 완전히 오프라인으로 작동하도록 설계되었습니다.</string>
+    <string name="about_features_title">하이라이트</string>
+    <string name="about_features_body">무슬림에게 필요한 모든 것이 하나의 앱에 있습니다:</string>
+    <string name="about_feature_prayer">기도 시간 및 Adhan — 모든 계산 방법, 법률 학교 및 18개 이상의 adhan 소리</string>
+    <string name="about_feature_quran">완전한 꾸란 — Uthmani 스크립트, 44 암송자, tafsir, 번역, 단어 검색 및 빈도</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — 미리 알림 및 떠다니는 거품 포함</string>
+    <string name="about_feature_offline">오프라인 우선 — 지도, 꾸란, hadith 및 adhkar는 인터넷 없이 작동합니다.</string>
+    <string name="about_feature_privacy">기본적으로 개인 정보 보호 — 광고, 추적이 없으며 데이터는 기기에 유지됩니다.</string>
+    <string name="settings_auto_update">완전 자동 업데이트</string>
+    <string name="settings_auto_update_desc">새로운 버전이 출시되자마자 백그라운드에서 자동으로 다운로드 및 설치</string>
+    <string name="settings_auto_update_confirm_title">자동 업데이트를 활성화하시겠습니까?</string>
+    <string name="settings_auto_update_confirm_body">새 버전이 사용 가능한 경우 백그라운드에서 자동으로 다운로드되어 설치됩니다. 계속하다?</string>
+    <string name="settings_auto_update_confirm">할 수 있게 하다</string>
+    <string name="settings_cancel">취소</string>
+    <string name="update_last_check">마지막 확인: %1$s</string>
+    <string name="update_open_releases">브라우저에서 릴리스 페이지를 엽니다.</string>
 </resources>

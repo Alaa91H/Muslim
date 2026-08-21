@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Moscheea Umayyad (Damasc) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Nu se pot calcula orele pentru această zi</string>
     <string name="home_location_unknown">Locația nu este setată încă</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Automat (după locație)</string>
     <string name="settings_method_automatic_desc">Aplicația alege automat cea mai potrivită metodă în funcție de țara și locația dvs.; puteți alege în continuare o metodă manual în orice moment.</string>
     <string name="settings_preview_for_prayer">Previzualizează %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Selectat automat în prezent: %1$s — %2$s</string>
 </resources>

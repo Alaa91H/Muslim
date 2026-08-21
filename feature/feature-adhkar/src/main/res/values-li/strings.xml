@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Gebruuk allein korte adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Kies adhkar die op ein of twie lijne pas, zodet de drijvende bubbel helder en gemekkelik te leze blief.</string>
     <string name="adhkar_overlay_tap_hint">Tik op de bubbel um ‘m direk te verwijdere.</string>
+    <string name="adhkar_copied">Dhikr gekopieerd</string>
+    <string name="adhkar_periodic_dhikr">Specifieke dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Willekeurig (in plaats vaan handmatig keuze)</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Տարածքի լայնությունը (աստիճաններ)</string>
     <string name="offline_maps_storage_warning">Ցածր պահեստավորում — ընդամենը %1$s անվճար</string>
     <string name="offline_maps_storage_delete_largest">Ջնջել ամենամեծ տարածաշրջանը (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Որոնեք մզկիթները անունով</string>
+    <string name="mosque_finder_show_all">Ցույց տալ բոլոր մզկիթները</string>
+    <string name="mosque_finder_share">Բացեք ուղղությունները</string>
+    <string name="offline_maps_use_my_location">Գնացեք իմ ընթացիկ գտնվելու վայրը</string>
 </resources>

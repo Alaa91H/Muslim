@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Adhan Naghsbandi</string>
     <string name="bundled_adhan_saber">Adan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Mosquée Omeyyade (Damas) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yuusuf islaam adhan</string>
     <string name="home_cannot_compute">Mënu ñu xayma waxtu yi ci bis bii</string>
     <string name="home_location_unknown">Ba tay defaru ñu barab bi</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Otomatik (ci barab)</string>
     <string name="settings_method_automatic_desc">App bi dafay tànnee ci saasi anam wi gëna baax ci sa réew ak sa barab; mën nga tànn sa bopp ci anam wu la neex saa yu la neexee.</string>
     <string name="settings_preview_for_prayer">Xoolaat %1$s azaan</string>
+    <string name="settings_method_automatic_picked">Tanneef ci saa si: %1$s — %2$s</string>
 </resources>

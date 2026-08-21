@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah a atwam no</string>
     <string name="quran_range_single_ayah">Single ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Sɛnea ɛbɛyɛ a surah no bɛba awiei</string>
+    <string name="quran_range_to_end">Ɛde kɔsi Mushaf no awiei</string>
     <string name="quran_range_to_end_short">Sɛnea ɛbɛyɛ a ɛbɛba awiei</string>
     <string name="quran_range_whole_surah">Surah mũ no nyinaa</string>
     <string name="quran_range_whole_surah_short">Surah a ɛwɔ hɔ</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Full mushaf wɔ akenkanfo nyinaa so</string>
     <string name="quran_downloads_coverage_empty">Wɔntwee ɔdio biara nni hɔ de besi nnɛ</string>
     <string name="quran_pause_notif_listener">Gyina akenkan mu wɔ amanneɛbɔ ahorow so</string>
-    <string name="quran_reciter_changed_title">Ɔkenkanfo no sesae</string>
-    <string name="quran_reciter_changed_message">Playback gyaee ɛfiri sɛ range no tu mmirika kɔsi Quran no awieeɛ. Fi ase bio wɔ %1$s?</string>
-    <string name="quran_reciter_restart">Fi ase bio</string>
-    <string name="quran_reciter_not_now">Ɛnyɛ mprempren</string>
+    <string name="quran_search_metrics">Bere a wɔhwehwɛ: %1$d ms</string>
+    <string name="quran_search_index_building">Kur’aan index no a wɔbɛkyekyere ama hwehwɛ a edi kan...</string>
+    <string name="quran_search_index_progress">Ɔkyekyere mushaf index no... %1$d %%</string>
+    <string name="quran_search_word_root">Ntini: %1$s</string>
+    <string name="quran_search_derivations">Nsɛmfua a wonya fii ntini koro mu</string>
+    <string name="quran_search_no_root">Antumi ankyerɛ ntini no</string>
 </resources>

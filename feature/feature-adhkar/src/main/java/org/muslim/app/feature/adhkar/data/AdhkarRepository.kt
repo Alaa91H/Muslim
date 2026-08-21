@@ -75,6 +75,12 @@ class AdhkarRepository @Inject constructor(
     /** Total count of all adhkar (informational). */
     suspend fun totalCount(): Int = cached.size
 
+    /** Looks up a dhikr by its stable id (null when unknown or removed). */
+    fun dhikrById(id: Long?): Dhikr? = id?.let { wanted -> cached.firstOrNull { it.id == wanted } }
+
+    /** All adhkar, in seed order (non-flow accessor for pickers). */
+    fun allDhikr(): List<Dhikr> = cached
+
     /**
      * Picks a random enabled dhikr, preferring [category] (used by the daily
      * morning/evening reminders); falls back to any enabled dhikr.

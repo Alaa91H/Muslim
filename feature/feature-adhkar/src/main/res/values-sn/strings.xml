@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Shandisa pfupi adhkar chete</string>
     <string name="adhkar_overlay_short_only_desc">Sarudza adhkar inokodzera mutsara mumwe kana miviri kuitira kuti bhavhu rinoyangarara rirambe rakajeka uye nyore kuverenga.</string>
     <string name="adhkar_overlay_tap_hint">Tokonya bubble kuti uzvibvise nekukasika.</string>
+    <string name="adhkar_copied">Dhikr akakopwa</string>
+    <string name="adhkar_periodic_dhikr">Specific dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Random (panzvimbo pekutora nemaoko)</string>
 </resources>

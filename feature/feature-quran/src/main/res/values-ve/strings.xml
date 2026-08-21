@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah yo fhiraho</string>
     <string name="quran_range_single_ayah">Ayah a si na munna</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">U swika magumoni a surah</string>
+    <string name="quran_range_to_end">U swika mafheloni a Mushaf .</string>
     <string name="quran_range_to_end_short">U fhedza</string>
     <string name="quran_range_whole_surah">Surah yothe</string>
     <string name="quran_range_whole_surah_short">Sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf wo fhelelaho kha vhavhali</string>
     <string name="quran_downloads_coverage_empty">A hu athu dawuniḽoudiwa audio</string>
     <string name="quran_pause_notif_listener">Imisa u vhala kha nḓivhadzo</string>
-    <string name="quran_reciter_changed_title">Muvhali o shandukiswa</string>
-    <string name="quran_reciter_changed_message">Playback yo ima ngauri range i gidima u swika magumoni a Quran. Thomani hafhu nga %1$s?</string>
-    <string name="quran_reciter_restart">Thomani hafhu</string>
-    <string name="quran_reciter_not_now">A si zwino</string>
+    <string name="quran_search_metrics">Tshifhinga tsha u ṱoḓa: %1$d ms</string>
+    <string name="quran_search_index_building">U fhaṱa index ya Quran ya ṱhoḓisiso ya u thoma...</string>
+    <string name="quran_search_index_progress">U fhaṱa index ya mushaf... %1$d %%.</string>
+    <string name="quran_search_word_root">Mudzi: %1$s.</string>
+    <string name="quran_search_derivations">Maipfi o bvaho kha mudzi muthihi .</string>
+    <string name="quran_search_no_root">A ri koni u wana mudzi</string>
 </resources>

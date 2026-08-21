@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Alan genişliği (derece)</string>
     <string name="offline_maps_storage_warning">Düşük depolama alanı — yalnızca %1$s ücretsiz</string>
     <string name="offline_maps_storage_delete_largest">En büyük bölgeyi sil (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Camileri isme göre ara</string>
+    <string name="mosque_finder_show_all">Tüm camileri göster</string>
+    <string name="mosque_finder_share">Yol tariflerini aç</string>
+    <string name="offline_maps_use_my_location">Şu anki konumuma git</string>
 </resources>

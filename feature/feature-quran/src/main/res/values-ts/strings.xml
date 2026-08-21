@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah ya khale</string>
     <string name="quran_range_single_ayah">Single ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Ku hela ka surah</string>
+    <string name="quran_range_to_end">Ku ya fika emakumu ka Mushaf</string>
     <string name="quran_range_to_end_short">Ku hela</string>
     <string name="quran_range_whole_surah">Surah hinkwayo</string>
     <string name="quran_range_whole_surah_short">Surah ya xirhendzevutani</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Full mushaf ku tsemakanya vahlayi</string>
     <string name="quran_downloads_coverage_empty">Ku hava audio leyi dawunilodiweke ku fikela sweswi</string>
     <string name="quran_pause_notif_listener">Yimanyana ku hlayela eka switiviso</string>
-    <string name="quran_reciter_changed_title">Reciter u cincile</string>
-    <string name="quran_reciter_changed_message">Ku tlanga ku yimile hikuva range yi tsutsuma ku ya fika emakumu ka Quran. Sungula nakambe hi %1$s?</string>
-    <string name="quran_reciter_restart">Sungula nakambe</string>
-    <string name="quran_reciter_not_now">A hi sweswi</string>
+    <string name="quran_search_metrics">Nkarhi wo lavisisa: %1$d ms</string>
+    <string name="quran_search_index_building">Ku aka index ya Quran eka ku lavisisa ko sungula...</string>
+    <string name="quran_search_index_progress">Ku aka xikombiso xa mushaf... %1$d %%</string>
+    <string name="quran_search_word_root">Rimitsu: %1$s</string>
+    <string name="quran_search_derivations">Marito lama humaka eka rimitsu rin’we</string>
+    <string name="quran_search_no_root">A swi swi kotanga ku kumisisa rimitsu</string>
 </resources>

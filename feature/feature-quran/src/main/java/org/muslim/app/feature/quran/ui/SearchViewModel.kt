@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
@@ -42,12 +43,37 @@ class SearchViewModel @Inject constructor(
     private val topWords = MutableStateFlow<List<String>>(emptyList())
 
     /**
+     * Live 0..100 progress of the one-time whole-mushaf word scan that feeds
+     * the autocomplete suggestions (drives the first-search progress bar).
+     */
+    val indexProgress = MutableStateFlow(0)
+
+    /**
+     * All unique normalized mushaf words (computed once) — the corpus used to
+     * find the derived inflections of a selected suggestion.
+     */
+    private val corpusWords = MutableStateFlow<List<String>>(emptyList())
+
+    /**
+     * Root + derived inflections of the suggestion the user just picked, or
+     * null while nothing is selected. Shown as a small "word info" card.
+     */
+    data class WordInfo(
+        val word: String,
+        val root: String,
+        val derivations: List<String>,
+    )
+
+    private val _wordInfo = MutableStateFlow<WordInfo?>(null)
+    val wordInfo: StateFlow<WordInfo?> = _wordInfo.asStateFlow()
+
+    /**
      * Autocomplete suggestions: top frequent words that start with the typed
      * (normalized) query, excluding the exact query itself. Empty while the
      * query is too short or no suggestions match.
      */
     val suggestions: StateFlow<List<String>> = combine(query, topWords) { raw, words ->
-        val needle = ArabicText.normalize(raw.trim())
+        val needle = ArabicText.normalizeForSearch(raw.trim())
         if (needle.length < 2) emptyList()
         else words.asSequence()
             .filter { it.startsWith(needle) && it != needle }
@@ -56,6 +82,7 @@ class SearchViewModel @Inject constructor(
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     private val _searchHistory = MutableStateFlow<List<String>>(emptyList())
+    private var hasBuiltSearchIndex = false
 
     /** Recent search queries, newest first (shown when the field is empty). */
     val searchHistory: StateFlow<List<String>> = _searchHistory.asStateFlow()
@@ -68,19 +95,59 @@ class SearchViewModel @Inject constructor(
         viewModelScope.launch {
             prefsRepository.searchHistory.collect { _searchHistory.value = it }
         }
-        // Precompute the frequent-word list for autocomplete (one full scan).
+        // Dismiss the word-info card as soon as the user edits the query.
+        viewModelScope.launch {
+            query.drop(1).collect { raw ->
+                val info = _wordInfo.value ?: return@collect
+                if (ArabicText.normalizeForSearch(raw.trim()) !=
+                    ArabicText.normalizeForSearch(info.word)
+                ) {
+                    _wordInfo.value = null
+                }
+            }
+        }
+        // Precompute the frequent-word list for autocomplete (one full scan),
+        // reporting live progress so the first-search UI can show a percentage.
         viewModelScope.launch(Dispatchers.Default) {
-            topWords.value = QuranWordFrequency.compute(
-                ayahTexts = repository.allAyahs().map { it.text },
+            val ayahTexts = repository.allAyahs().map { it.text }
+            val result = QuranWordFrequency.compute(
+                ayahTexts = ayahTexts,
                 topN = 300,
-            ).entries.map { it.word }
+                onProgress = { indexProgress.value = (it * 100).toInt().coerceIn(0, 100) },
+            )
+            topWords.value = result.entries.map { it.word }
+            corpusWords.value = ayahTexts
+                .flatMap { QuranWordFrequency.wordsOf(it) }
+                .distinct()
         }
     }
 
-    /** Applies an autocomplete suggestion (fills the field; the debounced search runs). */
+    /**
+     * Applies an autocomplete suggestion: fills the field, runs the debounced
+     * search, and shows the root + derived inflections of the picked word.
+     */
     fun applySuggestion(word: String) {
         query.value = word
         saveCurrentSearch()
+        val normalized = ArabicText.normalizeForSearch(word.trim())
+        if (normalized.length >= 2) {
+            viewModelScope.launch(Dispatchers.Default) {
+                val root = org.muslim.app.core.common.text.QuranRootAnalyzer.deriveRoot(normalized)
+                val derivations =
+                    org.muslim.app.core.common.text.QuranRootAnalyzer.sharedDerivations(
+                        word = normalized,
+                        corpusWords = corpusWords.value,
+                    )
+                _wordInfo.value = WordInfo(word = word, root = root, derivations = derivations)
+            }
+        } else {
+            _wordInfo.value = null
+        }
+    }
+
+    /** Clears the selected-word info card (e.g. when the user edits the query). */
+    fun clearWordInfo() {
+        _wordInfo.value = null
     }
 
     /** Commits the current query to the persisted history (IME search / result tap). */
@@ -121,6 +188,8 @@ class SearchViewModel @Inject constructor(
         val occurrences: Int = 0,
         /** Matched surahs with their occurrence counts ("أين ذُكرت"). */
         val surahBreakdown: List<QuranWordSearch.SurahOccurrence> = emptyList(),
+        val elapsedMs: Long = 0L,
+        val indexBuilding: Boolean = false,
         val idle: Boolean = true,
     )
 
@@ -137,9 +206,13 @@ class SearchViewModel @Inject constructor(
                 kotlinx.coroutines.flow.flowOf(UiState(idle = true))
             } else {
                 kotlinx.coroutines.flow.flow {
-                    emit(UiState(searching = true))
+                    val building = !hasBuiltSearchIndex
+                    emit(UiState(searching = true, indexBuilding = building))
+                    val startedAt = System.nanoTime()
                     val results = repository.search(raw)
-                    val tokens = ArabicText.normalize(raw)
+                    hasBuiltSearchIndex = true
+                    val elapsedMs = (System.nanoTime() - startedAt) / 1_000_000L
+                    val tokens = ArabicText.normalizeForSearch(raw)
                         .split(Regex("\\s+"))
                         .filter { it.isNotBlank() }
                     val matches = results.map { ayah ->
@@ -166,6 +239,8 @@ class SearchViewModel @Inject constructor(
                                 tokens,
                                 mode,
                             ),
+                            elapsedMs = elapsedMs,
+                            indexBuilding = false,
                         )
                     )
                 }

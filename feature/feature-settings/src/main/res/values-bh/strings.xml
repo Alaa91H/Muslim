@@ -164,4 +164,22 @@
     <string name="update_available_text">संस्करण %1$s अब उपलब्ध बा — अपडेट करे खातिर टैप करीं</string>
     <string name="notif_category_app_update">ऐप अपडेट हो गइल बा</string>
     <string name="notif_category_app_update_desc">जब नया ऐप संस्करण उपलब्ध होखे त सूचना</string>
+    <string name="about_tagline">हर मुसलमान खातिर एगो पूरा, मुफ्त, ओपन-सोर्स साथी — नमाज के समय, अदान, कुरान, हदीस, अधकार आ अउरी बहुत कुछ, राउर भाषा में।</string>
+    <string name="about_description_title">मुसलमान के बारे में</string>
+    <string name="about_description_body">मुस्लिम एगो मुफ्त अवुरी ओपन-सोर्स एंड्रॉयड ऐप ह जवन कि दिन भर आपके संगे रहेला: अदान के संगे खगोलीय रूप से सटीक नमाज के समय, एगो सटीक किबला कम्पास, पाठ अवुरी तफसीर के संगे पूरा कुरान, हदीस लाइब्रेरी, सोर्स भईल अधकार, एगो इलेक्ट्रॉनिक तसबीह, रमजान के उपकरण, जकात कैलकुलेटर, ऑफलाइन मैप, अवुरी बहुत कुछ — जवना के डिजाइन कईल गईल बा कि इ निजता के संगे पूरा तरीका से ऑफलाइन काम करे डिफ़ॉल्ट रूप से बा।</string>
+    <string name="about_features_title">हाइलाइट कइल गइल बा</string>
+    <string name="about_features_body">मुसलमान के हर चीज के जरूरत एके ऐप में:</string>
+    <string name="about_feature_prayer">प्रार्थना के समय &amp; अधान — सब गणना के तरीका, न्यायिक स्कूल, आ 18+ आधान के आवाज</string>
+    <string name="about_feature_quran">पूरा कुरान — उस्मानी लिपि, 44 पाठक, तफसीर, अनुवाद, शब्द खोज &amp; आवृत्ति</string>
+    <string name="about_feature_adhkar">अधकर, तसबीह, रमजान &amp; जकात — याद दिलावत आ तैरत बुलबुला के साथे</string>
+    <string name="about_feature_offline">ऑफलाइन-पहिले — नक्शा, कुरान, हदीस आ अधकर काम करेला जवना में इंटरनेट ना होखे</string>
+    <string name="about_feature_privacy">डिफ़ॉल्ट रूप से गोपनीयता — कवनो विज्ञापन ना, कवनो ट्रैकिंग ना, आपके डेटा आपके डिवाइस प रहेला</string>
+    <string name="settings_auto_update">पूरा तरह से स्वचालित अपडेट हो जाला</string>
+    <string name="settings_auto_update_desc">रिलीज होखते बैकग्राउंड में नया संस्करण स्वचालित रूप से डाउनलोड क के इंस्टॉल करीं</string>
+    <string name="settings_auto_update_confirm_title">स्वचालित अपडेट सक्षम करीं?</string>
+    <string name="settings_auto_update_confirm_body">नया संस्करण डाउनलोड हो जाई आ जब उपलब्ध होखी त बैकग्राउंड में स्वचालित रूप से इंस्टॉल हो जाई. चालू रखीं?</string>
+    <string name="settings_auto_update_confirm">सक्षम करीं</string>
+    <string name="settings_cancel">मना कइ दीं</string>
+    <string name="update_last_check">आखिरी जांच: %1$s के बा</string>
+    <string name="update_open_releases">ब्राउजर में रिलीज पन्ना खोलीं</string>
 </resources>

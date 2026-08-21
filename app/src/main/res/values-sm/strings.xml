@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">E malolo mo sina taimi le tauloto pe a ta se fa\'aaliga, tatagi po\'o isi fa\'asalalauga</string>
     <string name="more_pause_notifications_enabled">Fa\'aagaina - tap e tatala ai le fa\'atulagaina o faiga</string>
     <string name="more_pause_notifications_disabled">Fa\'aletonu - tap e mafai ai</string>
+    <string name="more_names">99 Suafa o Allah</string>
+    <string name="more_names_desc">O igoa e 99 ma faʻamatalaga atoa</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Ta\'iala au\'ili\'ili ile sauniga Hajj ma Umrah</string>
 </resources>

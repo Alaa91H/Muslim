@@ -122,7 +122,7 @@ def protect(text: str) -> tuple[str, list[str]]:
 
     def repl(m: re.Match) -> str:
         nonlocal counter
-        tok = f"9970{counter:04d}"
+        tok = f"\u0002{tok_name(counter)}\u0003"
         tokens.append(m.group(0))
         counter += 1
         return tok
@@ -135,13 +135,23 @@ def tok_name(i: int) -> str:
 
 
 def restore(text: str, tokens: list[str]) -> str:
+    counter = 0
+
     def repl(m: re.Match) -> str:
-        idx = int(m.group(0)) - 99700000
-        if 0 <= idx < len(tokens):
+        nonlocal counter
+        idx = counter
+        counter += 1
+        if idx < len(tokens):
             return tokens[idx]
         return m.group(0)
 
-    return re.sub(r"9970\d{4}", repl, text)
+    return re.sub(r"\u0002PH\d+\u0003", repl, text)
+
+
+# ---------------------------------------------------------------------------
+# Translation
+# ---------------------------------------------------------------------------
+
 
 def translate_batch(texts: list[str], lang: str) -> list[str] | None:
     """Translates a batch of lines; returns None if the language is unsupported."""
@@ -319,11 +329,8 @@ def check_locales() -> int:
                     print(f"MISSING {res_dir}/{lang}/{name}")
                     problems += 1
                     continue
-                # Only semantic formatting tokens matter for integrity; the
-                # apostrophe escape (') is added by xml_escape, not semantics.
-                token_re = re.compile(r"(%\d+\$[ds]|%%|%[ds]|\n)")
-                src_tokens = set(token_re.findall(src))
-                out_tokens = set(token_re.findall(got[name]))
+                src_tokens = set(TOKEN_RE.findall(src))
+                out_tokens = set(TOKEN_RE.findall(got[name]))
                 if src_tokens != out_tokens:
                     print(f"PLACEHOLDER MISMATCH {res_dir}/{lang}/{name}: "
                           f"{sorted(src_tokens)} vs {sorted(out_tokens)}")

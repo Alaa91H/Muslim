@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Sabre adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan na yena</string>
-    <string name="bundled_adhan_umayyad_damascus">Mosque ya Umayyad (Damaska) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Vuislem adhan</string>
     <string name="home_cannot_compute">Ku tsandzeka ku hlayela minkarhi ya siku leri</string>
     <string name="home_location_unknown">Ndhawu a yi se vekiwa</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Xiothomethi (hi ndhawu) .</string>
     <string name="settings_method_automatic_desc">App yi hlawula ndlela leyi faneleke swinene hi ku tisungulela hi ku ya hi tiko ra wena ni ndhawu ya wena; wa ha swi kota ku hlawula ndlela hi voko nkarhi wihi na wihi.</string>
     <string name="settings_preview_for_prayer">Xikombiso xa %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Automatic sweswi yi hlawuriwile: %1$s — %2$s</string>
 </resources>

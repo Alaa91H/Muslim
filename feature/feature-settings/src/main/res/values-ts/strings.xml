@@ -164,4 +164,22 @@
     <string name="update_available_text">Vuhundzuluxeri bya %1$s sweswi bya kumeka — khoma ku pfuxeta</string>
     <string name="notif_category_app_update">Swipfuxeto swa app</string>
     <string name="notif_category_app_update_desc">Xitiviso loko vuhundzuluxeri lebyintshwa bya app byi kumeka</string>
+    <string name="about_tagline">Munghana loyi a heleleke, wa mahala, wa xihlovo lexi pfulekeke eka Mumoslem un’wana na un’wana — minkarhi ya xikhongelo, Adhan, Quran, hadith, adhkar na swin’wana, hi ririmi ra wena.</string>
+    <string name="about_description_title">Malunghana na Mamoslem</string>
+    <string name="about_description_body">Muslim i app ya mahala na ya xihlovo xa Android leyi pfulekeke leyi ku heleketaka siku hinkwaro: minkarhi ya xikhongelo leyi kongomeke hi tlhelo ra tinyeleti na Adhan, khampasi ya Qibla leyi kongomeke, Quran leyi heleleke leyi nga na ku hlayiwa na tafsir, layiburari ya hadith, adhkar leyi humaka eka xihlovo, tasbih ya elektroniki, switirhisiwa swa Ramadan, xikalo xa zakat, mimepe ya le handle ka inthanete, na swin’wana — leswi endleriweke ku tirha hi ku helela ehandle ka inthanete hi vuhlayiseki hi default.</string>
+    <string name="about_features_title">Tinhla-nkulu</string>
+    <string name="about_features_body">Hinkwaswo leswi Mumoslem a swi lavaka eka app yin’we:</string>
+    <string name="about_feature_prayer">Minkarhi ya xikhongelo &amp; Adhan — tindlela hinkwato to hlayela, swikolo swa nawu, na mimpfumawulo ya 18+ ya adhan</string>
+    <string name="about_feature_quran">Quran leyi heleleke — Tsalwa ra Uthmani, 44 wa vahlayi, tafsir, vuhundzuluxi, ku lavisisa marito &amp; ku tala</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — na switsundzuxo na swiphemuphemu leswi papamalaka</string>
+    <string name="about_feature_offline">Offline-first — mimepe, Quran, hadith na adhkar swi tirha ku nga ri na inthanete</string>
+    <string name="about_feature_privacy">Vuhlayiseki hi ku tiyimisela — ku hava swinavetiso, ku hava ku landzelerisa, data ya wena yi tshama eka xitirhisiwa xa wena</string>
+    <string name="settings_auto_update">Ku pfuxetiwa ka otomatiki hi ku helela</string>
+    <string name="settings_auto_update_desc">Hi ku tisungulela u tlhela u nghenisa tivhidiyo letintshwa endzhaku hi ku hatlisa loko ti humesiwile</string>
+    <string name="settings_auto_update_confirm_title">Ku pfumelela ku pfuxetiwa ka otomatiki?</string>
+    <string name="settings_auto_update_confirm_body">Tivhidiyo letintshwa ti ta dawunilodiwile ivi ti nghenisiwa hi ku tisungulela endzhaku loko ti kumeka. Yisa emahlweni?</string>
+    <string name="settings_auto_update_confirm">Koteka</string>
+    <string name="settings_cancel">Khansela</string>
+    <string name="update_last_check">Ku kamberiwa ko hetelela: %1$s</string>
+    <string name="update_open_releases">Pfula tluka ra ku humesiwa eka browser</string>
 </resources>

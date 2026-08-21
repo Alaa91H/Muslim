@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Previous ayah</string>
     <string name="quran_range_single_ayah">Single ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Kuguma kweSurah</string>
+    <string name="quran_range_to_end">Kusvikira kumagumo eMushaf</string>
     <string name="quran_range_to_end_short">Kupedzisa</string>
     <string name="quran_range_whole_surah">Surah yese</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">mushaf yakazara kune vanoverenga</string>
     <string name="quran_downloads_coverage_empty">Hapasati pave neaudio yakadhaunirodwa</string>
     <string name="quran_pause_notif_listener">Imbomira kudzokorora pazviziviso</string>
-    <string name="quran_reciter_changed_title">Reciter yakachinja</string>
-    <string name="quran_reciter_changed_message">Kutamba kwakamira nekuti chiyero chinosvika panoperera Quran. Tanga zvakare ne%1$s?</string>
-    <string name="quran_reciter_restart">Tanga zvakare</string>
-    <string name="quran_reciter_not_now">Kwete ikozvino</string>
+    <string name="quran_search_metrics">Nguva yekutsvaga: %1$d ms</string>
+    <string name="quran_search_index_building">Kugadzira indekisi yeKorani yekutanga kutsvaga…</string>
+    <string name="quran_search_index_progress">Kugadzira mushaf index… %1$d %%</string>
+    <string name="quran_search_word_root">Mudzi: %1$s</string>
+    <string name="quran_search_derivations">Mazwi anobva pamudzi mumwe chete</string>
+    <string name="quran_search_no_root">Hatina kukwanisa kuziva mudzi</string>
 </resources>

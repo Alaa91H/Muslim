@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Эскертме, шакек же башка медиа ойнотулганда, окуу кыска убакытка токтойт</string>
     <string name="more_pause_notifications_enabled">Иштетилген — тутум орнотууларын ачуу үчүн таптаңыз</string>
     <string name="more_pause_notifications_disabled">Өчүрүлгөн — иштетүү үчүн таптаңыз</string>
+    <string name="more_names">Аллахтын 99 ысымдары</string>
+    <string name="more_names_desc">Толук түшүндүрмө менен 99 ысым</string>
+    <string name="more_hajj">Ажылык жана умра</string>
+    <string name="more_hajj_desc">Ажылык жана умра жөрөлгөлөрү боюнча толук маалымат</string>
 </resources>

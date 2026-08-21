@@ -164,4 +164,22 @@
     <string name="update_available_text">Enkyusa %1$s kati eriwo — koona okulongoosa</string>
     <string name="notif_category_app_update">Ebipya ku app</string>
     <string name="notif_category_app_update_desc">Okumanyisibwa nga enkyusa ya app empya ebaddewo</string>
+    <string name="about_tagline">Omubeezi omujjuvu, ow’obwereere, ow’enkozesa enzigule eri buli Musiraamu — ebiseera by’okusaala, Adhan, Quran, hadith, adhkar n’ebirala, mu lulimi lwo.</string>
+    <string name="about_description_title">Ebikwata ku Musiraamu</string>
+    <string name="about_description_body">Muslim ye app ya Android ey’obwereere era enzigule ekuwerekera olunaku lwonna: ebiseera by’okusaba ebituufu mu by’emmunyeenye ne Adhan, kkampasi ya Qibla entuufu, Quran enzijuvu n’okusoma ne tafsir, etterekero lya hadith, adhkar efunibwa, tasbih ey’ebyuma, ebikozesebwa mu Ramadhan, calculator ya zakat, maapu ezitali ku mutimbagano, n’ebirala — ekoleddwa okukola mu bujjuvu offline with privacy by default.</string>
+    <string name="about_features_title">Ebikulu ebikulu</string>
+    <string name="about_features_body">Buli kimu omusiraamu ky\'ayagala mu app emu:</string>
+    <string name="about_feature_prayer">Ebiseera by\'okusaba &amp; Adhan — enkola zonna ez\'okubalirira, amasomero g\'amateeka, n\'amaloboozi ga adhan 18+</string>
+    <string name="about_feature_quran">Quran enzijuvu — script ya Uthmani, abasomi 44, tafsir, okuvvuunula, okunoonya ebigambo &amp; emirundi</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — nga mulimu ebijjukizo n’ebiwujjo ebitengejja</string>
+    <string name="about_feature_offline">Offline-first — maapu, Quran, hadith ne adhkar bikola nga tebirina yintaneeti</string>
+    <string name="about_feature_privacy">Eby’ekyama nga bwe bibadde — tewali birango, tewali kulondoola, data yo esigala ku kyuma kyo</string>
+    <string name="settings_auto_update">Ebipya ebikolebwa mu bujjuvu mu ngeri ya otomatiki</string>
+    <string name="settings_auto_update_desc">Wanula otomatiki era oteeke enkyusa empya mu mugongo amangu ddala nga zifulumiziddwa</string>
+    <string name="settings_auto_update_confirm_title">Ssobozesa okulongoosa mu ngeri ey\'otoma?</string>
+    <string name="settings_auto_update_confirm_body">Enkyusa empya zijja kuwanulibwa era ziteekebwe mu ngeri ey’otoma mu mugongo nga ziwedde. Eeyongera?</string>
+    <string name="settings_auto_update_confirm">Okuyinzisa</string>
+    <string name="settings_cancel">okusazaamu</string>
+    <string name="update_last_check">Okukebera okusembayo: %1$s</string>
+    <string name="update_open_releases">Ggulawo omuko gw\'ebifulumizibwa mu browser</string>
 </resources>

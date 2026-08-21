@@ -164,4 +164,22 @@
     <string name="update_available_text">Η έκδοση %1$s είναι πλέον διαθέσιμη — πατήστε για ενημέρωση</string>
     <string name="notif_category_app_update">Ενημερώσεις εφαρμογών</string>
     <string name="notif_category_app_update_desc">Ειδοποίηση όταν είναι διαθέσιμη μια νέα έκδοση εφαρμογής</string>
+    <string name="about_tagline">Ένας πλήρης, δωρεάν, ανοιχτός κώδικας σύντροφος για κάθε μουσουλμάνο — ώρες προσευχής, Adhan, Κοράνι, χαντίθ, adkar και πολλά άλλα, στη γλώσσα σας.</string>
+    <string name="about_description_title">Περί Μουσουλμάνων</string>
+    <string name="about_description_body">Το Muslim είναι μια δωρεάν και ανοιχτού κώδικα εφαρμογή Android που σας συνοδεύει καθ\' όλη τη διάρκεια της ημέρας: αστρονομικά ακριβείς ώρες προσευχής με το Adhan, ακριβής πυξίδα Qibla, πλήρες Κοράνι με απαγγελίες και tafsir, βιβλιοθήκη χαντίθ, προηγμένο adhkar, ηλεκτρονικό tasbih, εργαλεία για το Ραμαζάνι, μια αριθμομηχανή zakat, χάρτες εκτός σύνδεσης, σχεδιασμένες για πλήρη λειτουργία εκτός σύνδεσης και πολλά άλλα.</string>
+    <string name="about_features_title">Σημαντικά σημεία</string>
+    <string name="about_features_body">Όλα όσα χρειάζεται ένας μουσουλμάνος σε μία εφαρμογή:</string>
+    <string name="about_feature_prayer">Χρόνοι προσευχής και Adhan — όλες οι μέθοδοι υπολογισμού, νομικά σχολεία και 18+ ήχοι αντάν</string>
+    <string name="about_feature_quran">Πλήρες Κοράνι — γραφή Uthmani, 44 απαγγέλλοντες, tafsir, μεταφράσεις, αναζήτηση λέξεων και συχνότητα</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — με υπενθυμίσεις και αιωρούμενες φυσαλίδες</string>
+    <string name="about_feature_offline">Πρώτα εκτός σύνδεσης — χάρτες, Κοράνι, χαντίθ και adkar λειτουργούν χωρίς διαδίκτυο</string>
+    <string name="about_feature_privacy">Απόρρητο από προεπιλογή — χωρίς διαφημίσεις, χωρίς παρακολούθηση, τα δεδομένα σας παραμένουν στη συσκευή σας</string>
+    <string name="settings_auto_update">Πλήρως αυτόματες ενημερώσεις</string>
+    <string name="settings_auto_update_desc">Αυτόματη λήψη και εγκατάσταση νέων εκδόσεων στο παρασκήνιο αμέσως μόλις κυκλοφορήσουν</string>
+    <string name="settings_auto_update_confirm_title">Ενεργοποίηση αυτόματων ενημερώσεων;</string>
+    <string name="settings_auto_update_confirm_body">Οι νέες εκδόσεις θα ληφθούν και θα εγκατασταθούν αυτόματα στο παρασκήνιο όταν είναι διαθέσιμες. Συνεχίζω;</string>
+    <string name="settings_auto_update_confirm">Καθιστώ ικανό</string>
+    <string name="settings_cancel">Ματαίωση</string>
+    <string name="update_last_check">Τελευταίος έλεγχος: %1$s</string>
+    <string name="update_open_releases">Ανοίξτε τη σελίδα εκδόσεων στο πρόγραμμα περιήγησης</string>
 </resources>

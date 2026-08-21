@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan</string>
     <string name="bundled_adhan_saber">Saber adhan</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umayyad Mosque (Dhamasiko) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Hatikwanisi kuverenga nguva dzezuva iri</string>
     <string name="home_location_unknown">Nzvimbo haisati yagadzirwa</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Otomatiki (nenzvimbo)</string>
     <string name="settings_method_automatic_desc">Iyo app inotora yakanyatsokodzera nzira otomatiki zvichienderana nenyika yako nenzvimbo; iwe unogona kusarudza nzira nemaoko chero nguva.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Yasarudzwa otomatiki parizvino: %1$s - %2$s</string>
 </resources>

@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Koristite samo kratki adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Odaberite adhkar koji odgovara jednoj ili dvije linije kako bi plutajući balončić ostao jasan i lak za čitanje.</string>
     <string name="adhkar_overlay_tap_hint">Dodirnite oblačić da ga odmah odbacite.</string>
+    <string name="adhkar_copied">Dhikr kopirao</string>
+    <string name="adhkar_periodic_dhikr">Specifičan zikr</string>
+    <string name="adhkar_periodic_dhikr_random">Slučajno (umjesto ručnog odabira)</string>
 </resources>

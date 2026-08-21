@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s is now available — tap to update</string>
     <string name="notif_category_app_update">ଆପ୍ ଅଦ୍ୟତନଗୁଡିକ |</string>
     <string name="notif_category_app_update_desc">ଏକ ନୂତନ ଆପ୍ ସଂସ୍କରଣ ଉପଲବ୍ଧ ହେଲେ ବିଜ୍ଞପ୍ତି |</string>
+    <string name="about_tagline">ପ୍ରତ୍ୟେକ ମୁସଲମାନଙ୍କ ପାଇଁ ଏକ ସମ୍ପୂର୍ଣ୍ଣ, ମୁକ୍ତ, ମୁକ୍ତ ଉତ୍ସ ସାଥୀ - ପ୍ରାର୍ଥନା ସମୟ, ଆଦନ, କୁରାନ, ହାଡିସ୍, ଆଡ୍କର ଏବଂ ଅଧିକ, ଆପଣଙ୍କ ଭାଷାରେ |</string>
+    <string name="about_description_title">ମୁସଲମାନ ବିଷୟରେ</string>
+    <string name="about_description_body">ମୁସଲମାନ ହେଉଛି ଏକ ମାଗଣା ଏବଂ ମୁକ୍ତ ଉତ୍ସ ଆଣ୍ଡ୍ରଏଡ୍ ଆପ୍ ଯାହା ଆପଣଙ୍କୁ ଦିନସାରା ସାଥିରେ ନେଇଥାଏ: ଆଦାନ ସହିତ ଜ୍ୟୋତିର୍ବିଜ୍ଞାନରେ ସଠିକ୍ ପ୍ରାର୍ଥନା ସମୟ, ଏକ ସଠିକ୍ କିବଲା କମ୍ପାସ୍, ପଠନ ଏବଂ ତଫସୀର ସହିତ ସମ୍ପୂର୍ଣ୍ଣ କୁରାନ, ଏକ ହାଡିସ୍ ଲାଇବ୍ରେରୀ, ସୋର୍ସଡ୍ ଆଡ୍କର, ଏକ ଇଲେକ୍ଟ୍ରୋନିକ୍ ଟାସବିହ, ରମଜାନ ଉପକରଣ, ଜାକେଟ୍ କାଲକୁଲେଟର, ଅଫଲାଇନ୍ ମାନଚିତ୍ର, ଏବଂ ଅଧିକ - ଡିଫଲ୍ଟ ଭାବରେ ସମ୍ପୂର୍ଣ୍ଣ ଅଫଲାଇନରେ କାର୍ଯ୍ୟ କରିବା ପାଇଁ ପରିକଳ୍ପିତ |</string>
+    <string name="about_features_title">ହାଇଲାଇଟ୍ସ |</string>
+    <string name="about_features_body">ଗୋଟିଏ ଆପରେ ଜଣେ ମୁସଲମାନ ଆବଶ୍ୟକ କରୁଥିବା ସମସ୍ତ ଜିନିଷ:</string>
+    <string name="about_feature_prayer">ପ୍ରାର୍ଥନା ସମୟ ଏବଂ ଆଦନ - ସମସ୍ତ ଗଣନା ପଦ୍ଧତି, ଆଇନ ବିଦ୍ୟାଳୟ, ଏବଂ 18+ ଆଡାନ୍ ଶବ୍ଦ |</string>
+    <string name="about_feature_quran">ସଂପୂର୍ଣ୍ଣ କୁରାନ - ଉସମାନି ସ୍କ୍ରିପ୍ଟ, 44 ପାଠକ, ତାଫସିର, ଅନୁବାଦ, ଶବ୍ଦ ସନ୍ଧାନ ଏବଂ ଆବୃତ୍ତି |</string>
+    <string name="about_feature_adhkar">ଅଦକର, ତସବିହ, ରମଜାନ୍ ଏବଂ ଜାକତ୍ - ସ୍ମାରକପତ୍ର ଏବଂ ଭାସମାନ ବବୁଲ୍ ସହିତ |</string>
+    <string name="about_feature_offline">ଅଫଲାଇନ୍-ପ୍ରଥମ - ମାନଚିତ୍ର, କୁରାନ, ହାଡିସ୍ ଏବଂ ଆଡ୍କର ବିନା ଇଣ୍ଟରନେଟରେ କାମ କରେ |</string>
+    <string name="about_feature_privacy">ଡିଫଲ୍ଟ ଭାବରେ ଗୋପନୀୟତା - କ ads ଣସି ବିଜ୍ଞାପନ ନାହିଁ, ଟ୍ରାକିଂ ନାହିଁ, ଆପଣଙ୍କର ତଥ୍ୟ ଆପଣଙ୍କ ଡିଭାଇସରେ ରହିଥାଏ |</string>
+    <string name="settings_auto_update">ସମ୍ପୂର୍ଣ୍ଣ ସ୍ୱୟଂଚାଳିତ ଅଦ୍ୟତନଗୁଡ଼ିକ |</string>
+    <string name="settings_auto_update_desc">ରିଲିଜ୍ ହେବା ମାତ୍ରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ପୃଷ୍ଠଭୂମିରେ ନୂତନ ସଂସ୍କରଣଗୁଡ଼ିକୁ ଡାଉନଲୋଡ୍ ଏବଂ ସଂସ୍ଥାପନ କର |</string>
+    <string name="settings_auto_update_confirm_title">ସ୍ୱୟଂଚାଳିତ ଅଦ୍ୟତନଗୁଡିକ ସକ୍ଷମ କରିବେ କି?</string>
+    <string name="settings_auto_update_confirm_body">ଉପଲବ୍ଧ ଥିବାବେଳେ ନୂତନ ସଂସ୍କରଣଗୁଡ଼ିକ ଡାଉନଲୋଡ୍ ହୋଇ ପୃଷ୍ଠଭୂମିରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ସଂସ୍ଥାପିତ ହେବ | ଜାରି ରଖନ୍ତୁ?</string>
+    <string name="settings_auto_update_confirm">ସକ୍ଷମ କରନ୍ତୁ |</string>
+    <string name="settings_cancel">ବାତିଲ୍ କରନ୍ତୁ |</string>
+    <string name="update_last_check">ଶେଷ ଯାଞ୍ଚ: %1$s |</string>
+    <string name="update_open_releases">ବ୍ରାଉଜରରେ ରିଲିଜ୍ ପେଜ୍ ଖୋଲ |</string>
 </resources>

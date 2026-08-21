@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Kōjerbal wōt adhkar edik</string>
     <string name="adhkar_overlay_short_only_desc">Kālet adhkar eo ej ekkar ñan juon ak ruo lain ko bwe bubble eo ej ettōr en alikar im bin ñan riiti.</string>
     <string name="adhkar_overlay_tap_hint">Jibwe bubble eo ñan jolok e ilo ien eo wot.</string>
+    <string name="adhkar_copied">Dhikr kar copy</string>
+    <string name="adhkar_periodic_dhikr">Dhikr eo ejejjet</string>
+    <string name="adhkar_periodic_dhikr_random">Random (jab manual pick)</string>
 </resources>

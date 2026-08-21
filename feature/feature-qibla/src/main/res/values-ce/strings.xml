@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Аренан шуьйралла (градусаш)</string>
     <string name="offline_maps_storage_warning">Лоха Ӏалашдар — %1$s бен маьрша</string>
     <string name="offline_maps_storage_delete_largest">Удалить уггар йоккха регион (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">ЦӀерашца маьждигаш леха .</string>
+    <string name="mosque_finder_show_all">Дерриге а маьждигаш гайта .</string>
+    <string name="mosque_finder_share">Схьаделла агӀонаш .</string>
+    <string name="offline_maps_use_my_location">Сан хӀинца волчу метте гӀо .</string>
 </resources>

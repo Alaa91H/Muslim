@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Nagšibendijski ezan</string>
     <string name="bundled_adhan_saber">Sabljasti ezan</string>
     <string name="bundled_adhan_sharif_doman">Šerif Doman ezan</string>
-    <string name="bundled_adhan_umayyad_damascus">Umajadska džamija (Damask) ezan</string>
     <string name="bundled_adhan_yusuf_islam">Jusuf islamski ezan</string>
     <string name="home_cannot_compute">Nije moguće izračunati vremena za ovaj dan</string>
     <string name="home_location_unknown">Lokacija još nije postavljena</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Automatski (po lokaciji)</string>
     <string name="settings_method_automatic_desc">Aplikacija automatski odabire najprikladniju metodu na temelju vaše zemlje i lokacije; još uvijek možete ručno odabrati metodu u bilo kojem trenutku.</string>
     <string name="settings_preview_for_prayer">Pregledajte %1$s ezan</string>
+    <string name="settings_method_automatic_picked">Automatski trenutno odabrano: %1$s — %2$s</string>
 </resources>

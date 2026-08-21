@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Дешар жимма соцунгӀа хуьлу, хаам, зӀе я кхин медиа ловзуш</string>
     <string name="more_pause_notifications_enabled">ДӀахӀоттийна — хьажа системин настройкаш схьаелла</string>
     <string name="more_pause_notifications_disabled">ДӀадаьккхина — хьажа дӀахӀотто</string>
+    <string name="more_names">99 АллахӀан цӀераш</string>
+    <string name="more_names_desc">Цу 99 цӀе юьззина дийцарца .</string>
+    <string name="more_hajj">ХьаьжцӀа а, Ӏумрат а</string>
+    <string name="more_hajj_desc">ХьаьжцӀа а, Ӏумрат а лелоран ламастийн детальни хьехам</string>
 </resources>

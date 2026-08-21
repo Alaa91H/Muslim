@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">শুধুমাত্র সংক্ষিপ্ত adhkar ব্যবহার করুন</string>
     <string name="adhkar_overlay_short_only_desc">এক বা দুটি লাইনের সাথে মানানসই অ্যাডকার বেছে নিন যাতে ভাসমান বুদ্বুদটি পরিষ্কার থাকে এবং পড়তে সহজ হয়।</string>
     <string name="adhkar_overlay_tap_hint">অবিলম্বে এটি খারিজ করতে বুদ্বুদ আলতো চাপুন.</string>
+    <string name="adhkar_copied">ঝিকর কপি</string>
+    <string name="adhkar_periodic_dhikr">নির্দিষ্ট জিকির</string>
+    <string name="adhkar_periodic_dhikr_random">এলোমেলো (ম্যানুয়াল বাছাইয়ের পরিবর্তে)</string>
 </resources>

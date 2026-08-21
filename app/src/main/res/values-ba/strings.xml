@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Уҡыу ҡыҫҡаса туҡтала, ҡасан хәбәр итеү, шылтыратыу йәки башҡа медиа уйнай</string>
     <string name="more_pause_notifications_enabled">Ҡулланылған — система параметрҙарын асыу өсөн баҫығыҙ</string>
     <string name="more_pause_notifications_disabled">Һүндерелгән — өҫтәү өсөн ҡағыла</string>
+    <string name="more_names">99 Аллаһ исемдәре .</string>
+    <string name="more_names_desc">тулы аңлатма менән 99 исем</string>
+    <string name="more_hajj">Хаж һәм Ғөмрә</string>
+    <string name="more_hajj_desc">Хаж һәм ғөмрә йолалары буйынса ентекле ҡулланма</string>
 </resources>

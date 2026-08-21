@@ -164,4 +164,22 @@
     <string name="update_available_text">Versija %1$s tagad ir pieejama — pieskarieties, lai atjauninātu</string>
     <string name="notif_category_app_update">Lietotņu atjauninājumi</string>
     <string name="notif_category_app_update_desc">Paziņojums, kad ir pieejama jauna lietotnes versija</string>
+    <string name="about_tagline">Pilnīgs, bezmaksas, atvērtā koda pavadonis katram musulmanim — lūgšanu laiki, Adhan, Korāns, hadīss, adhkars un citi jūsu valodā.</string>
+    <string name="about_description_title">Par musulmaņiem</string>
+    <string name="about_description_body">Muslim ir bezmaksas un atvērtā pirmkoda Android lietotne, kas pavada jūs visas dienas garumā: astronomiski precīzi lūgšanu laiki ar Adhan, precīzs Kiblas kompass, pilns Korāns ar deklamācijām un tafsir, hadītu bibliotēka, iegūts adhkar, elektronisks tasbih, Ramadāna rīki, zakat kalkulators, pilnībā bezsaistes kartēm, lai strādātu pēc noklusējuma, un vairāk bezsaistē.</string>
+    <string name="about_features_title">Izceļ</string>
+    <string name="about_features_body">Viss musulmanim nepieciešamais vienā lietotnē:</string>
+    <string name="about_feature_prayer">Lūgšanu laiki un Adhan — visas aprēķinu metodes, juridiskās skolas un 18+ Adhan skaņas</string>
+    <string name="about_feature_quran">Pilns Korāns — Uthmani skripts, 44 skaitītāji, tafsīrs, tulkojumi, vārdu meklēšana un biežums</string>
+    <string name="about_feature_adhkar">Adhkar, Tasbih, Ramadan &amp; Zakat — ar atgādinājumiem un peldošiem burbuļiem</string>
+    <string name="about_feature_offline">Vispirms bezsaistē — kartes, Korāns, hadīss un adhkar darbojas bez interneta</string>
+    <string name="about_feature_privacy">Konfidencialitāte pēc noklusējuma — bez reklāmām, bez izsekošanas, jūsu dati paliek jūsu ierīcē</string>
+    <string name="settings_auto_update">Pilnībā automātiskie atjauninājumi</string>
+    <string name="settings_auto_update_desc">Automātiski lejupielādējiet un instalējiet jaunas versijas fonā, tiklīdz tās ir izlaistas</string>
+    <string name="settings_auto_update_confirm_title">Vai iespējot automātiskos atjauninājumus?</string>
+    <string name="settings_auto_update_confirm_body">Jaunās versijas tiks lejupielādētas un automātiski instalētas fonā, kad tās būs pieejamas. Vai turpināt?</string>
+    <string name="settings_auto_update_confirm">Iespējot</string>
+    <string name="settings_cancel">Atcelt</string>
+    <string name="update_last_check">Pēdējā pārbaude: %1$s</string>
+    <string name="update_open_releases">Pārlūkprogrammā atveriet izlaidumu lapu</string>
 </resources>

@@ -32,6 +32,10 @@
     <string name="more_zakat_desc">Zakat on wealth &amp; Fitr calculator</string>
     <string name="more_learn">Learn</string>
     <string name="more_learn_desc">Step-by-step wudu &amp; prayer guides</string>
+    <string name="more_names">99 Names of Allah</string>
+    <string name="more_names_desc">The 99 names with full explanation</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Detailed guide to the Hajj and Umrah rites</string>
     <string name="more_reference">Reference Library</string>
     <string name="more_reference_desc">Introduction to Islam, the Sira &amp; the prophets</string>
     <string name="more_downloads">Recitation downloads</string>

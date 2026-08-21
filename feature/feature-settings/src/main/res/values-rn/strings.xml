@@ -164,4 +164,22 @@
     <string name="update_available_text">Verisiyo %1$s ubu iraboneka — kanda kugira ngo uvugurure</string>
     <string name="notif_category_app_update">Ivugurura rya porogaramu</string>
     <string name="notif_category_app_update_desc">Imenyekanisha iyo verisiyo nshasha ya porogaramu ibonetse</string>
+    <string name="about_tagline">Umugenzi wuzuye, w’ubuntu, w’inkomoko yuguruye ku musilamu wese — ibihe vy’amasengesho, Adhan, Korowani, hadithi, adhkar n’ibindi, mu rurimi rwawe.</string>
+    <string name="about_description_title">Ivyerekeye umuyisilamu</string>
+    <string name="about_description_body">Umuyisilamu ni porogarama ya Android y’ubuntu kandi yuguruye iherekeza umusi wose: ibihe vy’amasengesho vy’ukuri bishingiye ku nyenyeri bifise Adhan, ubusobanuro bwa Qibla bubereye, Korowani yuzuye irimwo amasomo n’ama-tafsir, ububiko bw’ibitabu bwa hadith, adhkar ikomoka, tasbih y’ubuhinga bwa none, ibikoresho vya Ramadan, igiharuro c’ubuhinga bwa zakat n’ibindi bikorwa vy’ubuhinga bwa none — mburabuzi.</string>
+    <string name="about_features_title">Ibintu bihambaye</string>
+    <string name="about_features_body">Ivyo umuyisilamu akeneye vyose muri app imwe:</string>
+    <string name="about_feature_prayer">Igihe c’amasengesho &amp; Adhan — uburyo bwose bwo kubara, amashure y’amategeko, n’amajwi 18+ ya adhan</string>
+    <string name="about_feature_quran">Korowani yuzuye — inyandiko ya Uthmani, abasomyi 44, tafsir, ubuhinduzi, ugushaka amajambo n’incuro</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadhani na Zakat — n’ivyibutsa n’ibibumbano bireremba</string>
+    <string name="about_feature_offline">Imbere y\'ibindi — amakarata, Korowani, hadithi na adhkar bikora ata interineti</string>
+    <string name="about_feature_privacy">Ubuzima bwite ku buryo busanzwe — nta kwamamaza, nta gukurikirana, amakuru yawe aguma ku gikoresho cawe</string>
+    <string name="settings_auto_update">Ivyagezwe vyihuta</string>
+    <string name="settings_auto_update_desc">Ubwo nyene ushobora gukuraho no gushiramwo verisiyo nshasha mu nyuma igihe zizoba zisohotse</string>
+    <string name="settings_auto_update_confirm_title">Gushoboza ivyagezwe vyihuta?</string>
+    <string name="settings_auto_update_confirm_body">Verisiyo nshasha zizokurwako maze zishirwemwo ubwo nyene mu nyuma iyo zizoba zihari. Bandanya?</string>
+    <string name="settings_auto_update_confirm">Kwugurura</string>
+    <string name="settings_cancel">Guhagarika</string>
+    <string name="update_last_check">Igenzura rya nyuma: %1$s.</string>
+    <string name="update_open_releases">Gufungura urupapuro rwasohotse mu mucukumbuzi</string>
 </resources>

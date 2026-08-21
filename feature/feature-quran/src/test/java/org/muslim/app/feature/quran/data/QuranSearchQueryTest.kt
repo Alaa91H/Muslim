@@ -7,7 +7,9 @@ class QuranSearchQueryTest {
 
     @Test
     fun `plain query becomes a single prefix token`() {
-        assertThat(QuranSearchQuery.build("رحمة")).isEqualTo("رحمة*")
+        // ة → ه folding is part of normalizeForSearch so "رحمة" and "رحمه"
+        // both match the same ayahs.
+        assertThat(QuranSearchQuery.build("رحمة")).isEqualTo("رحمه*")
     }
 
     @Test

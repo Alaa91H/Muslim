@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Aay bi weesu</string>
     <string name="quran_range_single_ayah">ayah benn</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">ci njeexte surah</string>
+    <string name="quran_range_to_end">Mushaf bi jeex</string>
     <string name="quran_range_to_end_short">Ngir jeexal</string>
     <string name="quran_range_whole_surah">Surah lëmm</string>
     <string name="quran_range_whole_surah_short">Sarah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf bu mat sëkk ci jàngkat yi</string>
     <string name="quran_downloads_coverage_empty">Ba leegi yebbiwul audio bi</string>
     <string name="quran_pause_notif_listener">Noppalu jàng ci yëgle yi</string>
-    <string name="quran_reciter_changed_title">Recitatër bi soppiku na</string>
-    <string name="quran_reciter_changed_message">Playback dafa taxaw ndax range bi mingi dem ba ci njeextalu Al Quran. Tàmbaliwaat ak %1$s?</string>
-    <string name="quran_reciter_restart">Tàmbaliwaat</string>
-    <string name="quran_reciter_not_now">Du leegi</string>
+    <string name="quran_search_metrics">Jamonoy seetlu: %1$d ms</string>
+    <string name="quran_search_index_building">Tabax limu Al Quran ngir seetlu bu njëkk bi...</string>
+    <string name="quran_search_index_progress">Tabax limu mushaf... %1$d %%</string>
+    <string name="quran_search_word_root">Reen: %1$s</string>
+    <string name="quran_search_derivations">Baatu yu juddoo ci benn reen</string>
+    <string name="quran_search_no_root">Mënu ñu xam root bi</string>
 </resources>

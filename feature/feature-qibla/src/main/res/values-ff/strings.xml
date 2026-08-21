@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Njaajeendi nokku (degereeji)</string>
     <string name="offline_maps_storage_warning">Desorɗe tokoose — ko %1$s tan njoɓata</string>
     <string name="offline_maps_storage_delete_largest">Mumtu diiwaan ɓurɗo mawnude (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Yiylo juulirɗe e inɗe</string>
+    <string name="mosque_finder_show_all">Kollit jumaaji ɗii fof</string>
+    <string name="mosque_finder_share">Uddit laabi</string>
+    <string name="offline_maps_use_my_location">Yah to nokku am jooni oo</string>
 </resources>

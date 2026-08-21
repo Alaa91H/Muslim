@@ -164,4 +164,22 @@
     <string name="update_available_text">%1$s версиясы азыр жеткиликтүү — жаңыртуу үчүн таптаңыз</string>
     <string name="notif_category_app_update">Колдонмо жаңыртуулары</string>
     <string name="notif_category_app_update_desc">Колдонмонун жаңы версиясы жеткиликтүү болгондо эскертме</string>
+    <string name="about_tagline">Ар бир мусулман үчүн толук, эркин, ачык булактуу шерик — намаз убактылары, азан, Куран, хадис, азкар жана башкалар, сиздин тилиңизде.</string>
+    <string name="about_description_title">Мусулман жөнүндө</string>
+    <string name="about_description_body">Muslim – бул акысыз жана ачык булактуу Android колдонмосу, ал сизди күнү бою коштоп турат: азан менен астрономиялык так намаз убактылары, так кыбла компасы, окуулар жана тафсирлер менен толук Куран, хадистер китепканасы, булактардан алынган адхкар, электрондук тасбих, Рамазан куралдары, зекет калькулятору, оффлайн карталары жана башкалар – демейки режимде иштөөгө ылайыкталган.</string>
+    <string name="about_features_title">Маанилүү учурлар</string>
+    <string name="about_features_body">Мусулманга керектүү нерселердин баары бир колдонмодо:</string>
+    <string name="about_feature_prayer">Намаз убактылары жана азан - бардык эсептөө ыкмалары, фикх мектептери жана 18+ азан үндөрү</string>
+    <string name="about_feature_quran">Толук Куран — Усмани жазуусу, 44 кыраат, тафсир, котормолор, сөз издөө жана жыштык</string>
+    <string name="about_feature_adhkar">Адхкар, тасбих, Рамазан жана Зекет - эскертүүлөр жана калкыма көбүктөр менен</string>
+    <string name="about_feature_offline">Оффлайн-биринчи — карталар, Куран, хадис жана адхкар интернетсиз иштейт</string>
+    <string name="about_feature_privacy">Демейки боюнча купуялык — эч кандай жарнамалар, көз салуу жок, дайындарыңыз түзмөгүңүздө калат</string>
+    <string name="settings_auto_update">Толук автоматтык жаңыртуулар</string>
+    <string name="settings_auto_update_desc">Жаңы версиялар чыгарылаары менен фондо автоматтык түрдө жүктөп алып, орнотуңуз</string>
+    <string name="settings_auto_update_confirm_title">Автоматтык жаңыртуулар иштетилсинби?</string>
+    <string name="settings_auto_update_confirm_body">Жаңы версиялар жүктөлүп алынып, жеткиликтүү болгондо автоматтык түрдө фондо орнотулат. Улантасызбы?</string>
+    <string name="settings_auto_update_confirm">Иштетүү</string>
+    <string name="settings_cancel">Жокко чыгаруу</string>
+    <string name="update_last_check">Акыркы текшерүү: %1$s</string>
+    <string name="update_open_releases">Браузерде релиздер барагын ачыңыз</string>
 </resources>

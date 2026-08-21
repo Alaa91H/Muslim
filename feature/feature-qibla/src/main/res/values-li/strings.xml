@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Oppervlaktebreedte (grade)</string>
     <string name="offline_maps_storage_warning">Weineg opsjlaag — mer %1$s gratis</string>
     <string name="offline_maps_storage_delete_largest">Verwijder de groetste regio (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Zoek moskeeje op hun naam</string>
+    <string name="mosque_finder_show_all">Toon alle moskeeje</string>
+    <string name="mosque_finder_share">Ope riechtinge</string>
+    <string name="offline_maps_use_my_location">Gaon nao mien huidige locatie</string>
 </resources>

@@ -76,29 +76,18 @@ class RamadanScheduler @Inject constructor(
 
         cancelAll()
 
-        // Iftar = today's Maghrib (or tomorrow's if already passed). Only
-        // fire when today is a Ramadan day, unless the user opted into
-        // year-round reminders.
-        if (todayInRamadan || outsideEnabled) {
-            val iftarToday = todayResult.epochMillis[Prayer.Maghrib]
-            if (iftarToday != null && iftarToday > now) {
-                scheduleAlarm(iftarToday, RamadanAlarmReceiver.TYPE_IFTAR)
-            } else {
-                val iftarTomorrow = tomorrowResult.epochMillis[Prayer.Maghrib]
-                if (iftarTomorrow != null) scheduleAlarm(iftarTomorrow, RamadanAlarmReceiver.TYPE_IFTAR)
-            }
-        }
-
-        // Suhoor reminder = tomorrow's Fajr minus the lead time. Tomorrow
-        // must be a Ramadan day for the fast to exist, unless the user opted
-        // into year-round reminders.
-        if (tomorrowInRamadan || outsideEnabled) {
-            val fajrTomorrow = tomorrowResult.epochMillis[Prayer.Fajr]
-            if (fajrTomorrow != null) {
-                val reminderAt = fajrTomorrow - suhoorMinutesBefore.coerceAtLeast(0) * 60_000L
-                if (reminderAt > now) scheduleAlarm(reminderAt, RamadanAlarmReceiver.TYPE_SUHOOR)
-            }
-        }
+        val plan = RamadanSchedulePlanner.plan(
+            now = now,
+            todayInRamadan = todayInRamadan,
+            tomorrowInRamadan = tomorrowInRamadan,
+            outsideEnabled = outsideEnabled,
+            suhoorMinutesBefore = suhoorMinutesBefore,
+            todayMaghrib = todayResult.epochMillis[Prayer.Maghrib],
+            tomorrowMaghrib = tomorrowResult.epochMillis[Prayer.Maghrib],
+            tomorrowFajr = tomorrowResult.epochMillis[Prayer.Fajr],
+        )
+        plan.iftarAtMillis?.let { scheduleAlarm(it, RamadanAlarmReceiver.TYPE_IFTAR) }
+        plan.suhoorAtMillis?.let { scheduleAlarm(it, RamadanAlarmReceiver.TYPE_SUHOOR) }
     }
 
     fun cancelAll() {

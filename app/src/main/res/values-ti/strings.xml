@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">ምዝራብ ንሓጺር እዋን ደው ይብል መፍለጢ፡ ድምጺ ወይ ካልእ መራኸቢ ብዙሃን ክጻወት ከሎ</string>
     <string name="more_pause_notifications_enabled">Enabled — ቅጥዕታት ስርዓት ንምኽፋት ጠውቕ</string>
     <string name="more_pause_notifications_disabled">Disabled — ንምንቅስቓስ ጠውቕ</string>
+    <string name="more_names">99 ኣስማት ናይ ኣላህ</string>
+    <string name="more_names_desc">እቶም 99 ኣስማት ምስ ምሉእ መብርሂ</string>
+    <string name="more_hajj">ሓጅ &amp; ዑምራ</string>
+    <string name="more_hajj_desc">ዝርዝር መምርሒ ስርዓተ ሓጅን ዑምራን</string>
 </resources>

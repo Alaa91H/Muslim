@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">عرض منطقه (درجه)</string>
     <string name="offline_maps_storage_warning">فضای ذخیره سازی کم - فقط %1$s رایگان</string>
     <string name="offline_maps_storage_delete_largest">حذف بزرگترین منطقه (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">مساجد را با نام جستجو کنید</string>
+    <string name="mosque_finder_show_all">نمایش همه مساجد</string>
+    <string name="mosque_finder_share">مسیرها را باز کنید</string>
+    <string name="offline_maps_use_my_location">به مکان فعلی من بروید</string>
 </resources>

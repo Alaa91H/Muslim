@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">ಹಿಂದಿನ ಅಯಾ</string>
     <string name="quran_range_single_ayah">ಏಕ ಅಯಾ</string>
     <string name="quran_range_single_ayah_short">ಆಯಃ</string>
-    <string name="quran_range_to_end">ಸೂರಾ ಅಂತ್ಯಕ್ಕೆ</string>
+    <string name="quran_range_to_end">ಮುಶಾಫ್ ಅಂತ್ಯದವರೆಗೆ</string>
     <string name="quran_range_to_end_short">ಕೊನೆಗೊಳ್ಳಲು</string>
     <string name="quran_range_whole_surah">ಸಂಪೂರ್ಣ ಸೂರಾ</string>
     <string name="quran_range_whole_surah_short">ಸೂರಾ</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">ಪಠಿಸುವವರಾದ್ಯಂತ ಪೂರ್ಣ ಮುಶಾಫ್</string>
     <string name="quran_downloads_coverage_empty">ಇನ್ನೂ ಯಾವುದೇ ಆಡಿಯೋ ಡೌನ್‌ಲೋಡ್ ಆಗಿಲ್ಲ</string>
     <string name="quran_pause_notif_listener">ಅಧಿಸೂಚನೆಗಳಲ್ಲಿ ಪಠಣವನ್ನು ವಿರಾಮಗೊಳಿಸಿ</string>
-    <string name="quran_reciter_changed_title">ವಾಚನಕಾರ ಬದಲಾಗಿದೆ</string>
-    <string name="quran_reciter_changed_message">ಪ್ಲೇಬ್ಯಾಕ್ ನಿಲ್ಲಿಸಲಾಗಿದೆ ಏಕೆಂದರೆ ವ್ಯಾಪ್ತಿಯು ಕುರಾನ್‌ನ ಅಂತ್ಯದವರೆಗೆ ಸಾಗುತ್ತದೆ. %1$s ನೊಂದಿಗೆ ಮತ್ತೆ ಪ್ರಾರಂಭಿಸುವುದೇ?</string>
-    <string name="quran_reciter_restart">ಮತ್ತೆ ಪ್ರಾರಂಭಿಸಿ</string>
-    <string name="quran_reciter_not_now">ಈಗಲ್ಲ</string>
+    <string name="quran_search_metrics">ಹುಡುಕಾಟ ಸಮಯ: %1$d ms</string>
+    <string name="quran_search_index_building">ಮೊದಲ ಹುಡುಕಾಟಕ್ಕಾಗಿ ಕುರಾನ್ ಸೂಚಿಯನ್ನು ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ...</string>
+    <string name="quran_search_index_progress">ಮುಶಾಫ್ ಸೂಚಿಯನ್ನು ನಿರ್ಮಿಸಲಾಗುತ್ತಿದೆ... %1$d %%</string>
+    <string name="quran_search_word_root">ರೂಟ್: %1$s</string>
+    <string name="quran_search_derivations">ಒಂದೇ ಮೂಲದಿಂದ ಬಂದ ಪದಗಳು</string>
+    <string name="quran_search_no_root">ಮೂಲವನ್ನು ನಿರ್ಧರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ</string>
 </resources>

@@ -85,7 +85,7 @@ class HadithRepository @Inject constructor(
                 hadithFtsDao.insertAll(
                     entities.map {
                         org.muslim.app.feature.hadith.data.entity.HadithFtsEntity(
-                            normalizedText = ArabicText.normalize(it.arabicText),
+                            normalizedText = ArabicText.normalizeForSearch(it.arabicText),
                             hadithId = it.id,
                         )
                     }

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Ku anama ka ndhawu (tidigri) .</string>
     <string name="offline_maps_storage_warning">Vuhlayiselo bya le hansi — ntsena %1$s mahala</string>
     <string name="offline_maps_storage_delete_largest">Susa xifundzha lexikulu (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Ku lavisisa timosque hi mavito</string>
+    <string name="mosque_finder_show_all">Kombisa ti mosque hinkwato</string>
+    <string name="mosque_finder_share">Vula swiletelo</string>
+    <string name="offline_maps_use_my_location">Yana eka ndhawu ya mina ya sweswi</string>
 </resources>

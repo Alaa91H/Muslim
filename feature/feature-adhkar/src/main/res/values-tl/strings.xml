@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Gumamit lamang ng maikling adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Pumili ng adhkar na akma sa isa o dalawang linya upang manatiling malinaw at madaling basahin ang lumulutang na bubble.</string>
     <string name="adhkar_overlay_tap_hint">I-tap ang bubble upang i-dismiss ito kaagad.</string>
+    <string name="adhkar_copied">Kinopya ang Dhikr</string>
+    <string name="adhkar_periodic_dhikr">Tiyak na dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Random (sa halip na manu-manong pagpili)</string>
 </resources>

@@ -34,7 +34,7 @@ object QuranWordSearch {
 
     /** Splits normalized text into words (whitespace-delimited, non-empty). */
     fun tokenize(text: String): List<String> =
-        ArabicText.normalize(text)
+        ArabicText.normalizeForSearch(text)
             .split(Regex("\\s+"))
             .filter { it.isNotEmpty() }
 
@@ -46,7 +46,10 @@ object QuranWordSearch {
     fun countMatches(ayahText: String, tokens: List<String>, mode: MatchMode): Int {
         if (tokens.isEmpty()) return 0
         val words = tokenize(ayahText)
-        return words.count { word -> tokens.any { token -> matches(word, token, mode) } }
+        // Normalize the tokens too: ة → ه and ى → ي let "رحمة" / "رحمه" and
+        // "موسى" / "موسي" find each other in PREFIX and EXACT modes.
+        val normTokens = tokens.map { ArabicText.normalizeForSearch(it) }
+        return words.count { word -> normTokens.any { token -> matches(word, token, mode) } }
     }
 
     /**
@@ -59,14 +62,15 @@ object QuranWordSearch {
         if (tokens.isEmpty()) return emptyList()
         val spans = mutableListOf<IntRange>()
         var wordStart = -1
+        val normTokens = tokens.map { ArabicText.normalizeForSearch(it) }
         for (index in ayahText.indices) {
             val c = ayahText[index]
             val isSpace = c.isWhitespace()
             if (!isSpace && wordStart < 0) wordStart = index
             if (isSpace && wordStart >= 0) {
                 val rawWord = ayahText.substring(wordStart, index)
-                val normalized = ArabicText.normalize(rawWord)
-                if (normalized.isNotEmpty() && tokens.any { matches(normalized, it, mode) }) {
+                val normalized = ArabicText.normalizeForSearch(rawWord)
+                if (normalized.isNotEmpty() && normTokens.any { matches(normalized, it, mode) }) {
                     spans += wordStart until index
                 }
                 wordStart = -1
@@ -74,8 +78,8 @@ object QuranWordSearch {
         }
         if (wordStart >= 0) {
             val rawWord = ayahText.substring(wordStart)
-            val normalized = ArabicText.normalize(rawWord)
-            if (normalized.isNotEmpty() && tokens.any { matches(normalized, it, mode) }) {
+            val normalized = ArabicText.normalizeForSearch(rawWord)
+            if (normalized.isNotEmpty() && normTokens.any { matches(normalized, it, mode) }) {
                 spans += wordStart until ayahText.length
             }
         }

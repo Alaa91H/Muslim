@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">ટૂંકા અધિકારનો જ ઉપયોગ કરો</string>
     <string name="adhkar_overlay_short_only_desc">એક કે બે લીટીઓ બંધબેસતા અધિકાર પસંદ કરો જેથી તરતો બબલ સ્પષ્ટ અને વાંચવામાં સરળ રહે.</string>
     <string name="adhkar_overlay_tap_hint">તેને તરત જ કાઢી નાખવા માટે બબલને ટેપ કરો.</string>
+    <string name="adhkar_copied">ધિક્રની નકલ કરી</string>
+    <string name="adhkar_periodic_dhikr">ચોક્કસ dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">રેન્ડમ (મેન્યુઅલ પિકને બદલે)</string>
 </resources>

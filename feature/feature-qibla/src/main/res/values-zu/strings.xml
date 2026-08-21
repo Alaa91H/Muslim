@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Ububanzi bendawo (amadigri)</string>
     <string name="offline_maps_storage_warning">Isitoreji esiphansi — kuphela %1$s mahhala</string>
     <string name="offline_maps_storage_delete_largest">Susa isifunda esikhulu kunazo zonke (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Sesha ama-mosque ngamagama</string>
+    <string name="mosque_finder_show_all">Bonisa wonke ama-mosque</string>
+    <string name="mosque_finder_share">Vula izikhombisi-ndlela</string>
+    <string name="offline_maps_use_my_location">Iya endaweni yami yamanje</string>
 </resources>

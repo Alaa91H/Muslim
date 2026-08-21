@@ -164,4 +164,22 @@
     <string name="update_available_text">Fa\'aliliuga %1$s ua avanoa nei - tap e fa\'afou</string>
     <string name="notif_category_app_update">Fa\'afouga o talosaga</string>
     <string name="notif_category_app_update_desc">Fa\'asilasilaga pe a maua se fa\'aoga fou o le app</string>
+    <string name="about_tagline">O se soa atoatoa, leai se totogi, matala mo Mosalemi uma - taimi tatalo, Adhan, Quran, hadith, adhkar ma isi, i lau gagana.</string>
+    <string name="about_description_title">E uiga i Mosalemi</string>
+    <string name="about_description_body">Mosalemi o se polokalama Android e leai se totogi ma tatala e faʻatasi ma oe i le aso atoa: taimi tatalo saʻo o le vateatea ma le Adhan, se tapasa Qibla saʻo, le Quran atoatoa ma le taulotoina ma le tafsir, se faletusi hadith, sourced adhkar, se tabih eletonika, meafaigaluega Ramadan, se calculator zakat, faafanua tuusao, ma isi mea - ua mamanuina e galue tuusao atoatoa ma le le faalauaiteleina.</string>
+    <string name="about_features_title">Fa\'ailoga</string>
+    <string name="about_features_body">Mea uma e manaʻomia e le Muslim i le tasi app:</string>
+    <string name="about_feature_prayer">Taimi tatalo &amp; Adhan - metotia fa\'atatau uma, a\'oga fa\'aletulafono, ma le 18+ leo azan</string>
+    <string name="about_feature_quran">Fa\'auma le Quran - Uthmani script, 44 tauloto, fa\'aliliuga, fa\'aliliuga, su\'esu\'ega upu ma taimi</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat - faʻatasi ai ma faʻamanatuga ma faʻafefe faʻafefe</string>
+    <string name="about_feature_offline">Offline-muamua - faʻafanua, Quran, hadith ma adhkar galue e aunoa ma se initaneti</string>
+    <string name="about_feature_privacy">Tulaga fa\'alilolilo - leai ni fa\'asalalauga, leai se su\'esu\'ega, e tumau au fa\'amatalaga i lau masini</string>
+    <string name="settings_auto_update">Fa\'afouga otometi atoatoa</string>
+    <string name="settings_auto_update_desc">Otometi lava ona la\'u mai ma fa\'apipi\'i lomiga fou i tua i le taimi lava e tatala ai</string>
+    <string name="settings_auto_update_confirm_title">Fa\'amalo fa\'afouga otometi?</string>
+    <string name="settings_auto_update_confirm_body">O lomiga fou o le a la\'u mai ma fa\'apipi\'i otometi i tua pe a maua. Fa\'aauau?</string>
+    <string name="settings_auto_update_confirm">Fa\'amalo</string>
+    <string name="settings_cancel">Fa\'aleaogaina</string>
+    <string name="update_last_check">Siaki mulimuli: %1$s</string>
+    <string name="update_open_releases">Tatala le itulau o fa\'asalalauga i le su\'ega</string>
 </resources>

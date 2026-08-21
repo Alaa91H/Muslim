@@ -83,9 +83,11 @@ class RecitationPauseOnNotifications : NotificationListenerService() {
         handler.post {
             pausingKeys.remove(sbn.key)
             if (pausingKeys.isEmpty() && autoPaused) {
+                // Leave a four-second quiet window after the notification is
+                // removed; some notification sounds outlive the removal
+                // callback by a moment. This also prevents clipped resumes.
                 handler.removeCallbacks(resumeRunnable)
-                autoPaused = false
-                RecitationPauseController.onResumeRequested?.invoke()
+                handler.postDelayed(resumeRunnable, RESUME_DELAY_MS)
             }
         }
     }
@@ -97,6 +99,6 @@ class RecitationPauseOnNotifications : NotificationListenerService() {
 
     companion object {
         /** How long to stay paused after the last soundful notification. */
-        private const val RESUME_DELAY_MS = 4_000L
+        internal const val RESUME_DELAY_MS = 4_000L
     }
 }

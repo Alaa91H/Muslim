@@ -2,9 +2,12 @@ package org.muslim.app.feature.prayertimes.notifications
 
 import android.content.Context
 import android.media.AudioAttributes
+import android.media.AudioFocusRequest
 import android.media.AudioFormat
+import android.media.AudioManager
 import android.media.AudioTrack
 import android.media.MediaPlayer
+import android.os.Build
 import androidx.core.net.toUri
 import dagger.hilt.android.qualifiers.ApplicationContext
 import org.muslim.app.core.common.prayer.BundledAdhanSound
@@ -18,6 +21,12 @@ import javax.inject.Singleton
  * a user-provided/downloaded audio file ([AdhanSoundRepository]), or the
  * synthesised tone ([AdhanSynthesizer]) as a last resort. All honour the
  * configured master volume with a gradual fade-in (PROJECT_PROMPT.md §6).
+ *
+ * Reliability: playback requests transient audio focus (USAGE_ALARM) so the
+ * call to prayer is never ducked or blocked, uses asynchronous prepare so a
+ * slow/corrupt source can never hang the main thread, and falls back to the
+ * synthesised tone if a bundled file cannot be decoded — the adhan must never
+ * be silent.
  */
 @Singleton
 class AdhanSoundPlayer @Inject constructor(
@@ -26,6 +35,60 @@ class AdhanSoundPlayer @Inject constructor(
 
     private var mediaPlayer: MediaPlayer? = null
     private var audioTrack: AudioTrack? = null
+    private var audioFocusRequest: AudioFocusRequest? = null
+    private var hasFocus = false
+
+    private val audioManager: AudioManager?
+        get() = context.getSystemService(Context.AUDIO_SERVICE) as? AudioManager
+
+    private val focusChangeListener = AudioManager.OnAudioFocusChangeListener { change ->
+        when (change) {
+            AudioManager.AUDIOFOCUS_LOSS -> stop()
+            AudioManager.AUDIOFOCUS_LOSS_TRANSIENT -> {
+                // Pause briefly, resume when focus is regained.
+                mediaPlayer?.let { if (it.isPlaying) it.pause() }
+                audioTrack?.let { if (it.playState == AudioTrack.PLAYSTATE_PLAYING) it.pause() }
+            }
+            AudioManager.AUDIOFOCUS_GAIN -> {
+                mediaPlayer?.let { if (!it.isPlaying) runCatching { it.start() } }
+                audioTrack?.let { if (it.playState == AudioTrack.PLAYSTATE_PAUSED) it.play() }
+            }
+        }
+    }
+
+    /** Requests transient audio focus (best-effort; never blocks playback). */
+    private fun requestFocus() {
+        val manager = audioManager ?: return
+        val attrs = AudioAttributes.Builder()
+            .setUsage(AudioAttributes.USAGE_ALARM)
+            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+            .build()
+        val result = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val request = AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN)
+                .setAudioAttributes(attrs)
+                .setOnAudioFocusChangeListener(focusChangeListener)
+                .build()
+            audioFocusRequest = request
+            manager.requestAudioFocus(request)
+        } else {
+            @Suppress("DEPRECATION")
+            manager.requestAudioFocus(focusChangeListener, AudioManager.STREAM_ALARM, AudioManager.AUDIOFOCUS_GAIN)
+        }
+        hasFocus = result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED
+    }
+
+    private fun abandonFocus() {
+        if (!hasFocus) return
+        val manager = audioManager ?: return
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            audioFocusRequest?.let { runCatching { manager.abandonAudioFocusRequest(it) } }
+        } else {
+            @Suppress("DEPRECATION")
+            runCatching { manager.abandonAudioFocus(focusChangeListener) }
+        }
+        hasFocus = false
+        audioFocusRequest = null
+    }
 
     /** Plays a bundled recording (shipped in `res/raw`, always offline). */
     fun playBundled(sound: BundledAdhanSound, volumePercent: Int, onFinished: () -> Unit) {
@@ -36,6 +99,7 @@ class AdhanSoundPlayer @Inject constructor(
             return
         }
         stop()
+        requestFocus()
         val player = MediaPlayer()
         mediaPlayer = player
         player.setAudioAttributes(
@@ -49,18 +113,33 @@ class AdhanSoundPlayer @Inject constructor(
             "android.resource://${context.packageName}/$resId".toUri(),
         )
         player.setOnPreparedListener { p ->
-            p.setVolume(0f, 0f)
+            if (mediaPlayer !== p) return@setOnPreparedListener
+            val target = (volumePercent / 100f).coerceIn(0f, 1f)
+            p.setVolume(target, target)
             p.start()
-            fadeIn(p, volumePercent / 100f)
         }
-        player.setOnCompletionListener { onFinished() }
-        player.setOnErrorListener { _, _, _ -> onFinished(); true }
-        runCatching { player.prepare() }
+        player.setOnCompletionListener {
+            if (mediaPlayer === it) onFinished()
+        }
+        player.setOnErrorListener { p, _, _ ->
+            // The bundled file could not be decoded — never leave the adhan
+            // silent: fall back to the synthesised tone.
+            if (mediaPlayer === p) {
+                runCatching { p.release() }
+                mediaPlayer = null
+                abandonFocus()
+                playSynthesized(volumePercent, onFinished)
+            }
+            true
+        }
+        runCatching { player.prepareAsync() }
+            .onFailure { onFinished() }
     }
 
     /** Plays [file] (user-picked or downloaded). */
     fun playFile(file: File, volumePercent: Int, onFinished: () -> Unit) {
         stop()
+        requestFocus()
         val player = MediaPlayer()
         mediaPlayer = player
         player.setAudioAttributes(
@@ -71,19 +150,33 @@ class AdhanSoundPlayer @Inject constructor(
         )
         player.setDataSource(file.absolutePath)
         player.setOnPreparedListener { p ->
-            p.setVolume(0f, 0f)
+            if (mediaPlayer !== p) return@setOnPreparedListener
+            val target = (volumePercent / 100f).coerceIn(0f, 1f)
+            p.setVolume(target, target)
             p.start()
-            fadeIn(p, volumePercent / 100f)
         }
-        player.setOnCompletionListener { onFinished() }
-        player.setOnErrorListener { _, _, _ -> onFinished(); true }
-        runCatching { player.prepare() }
+        player.setOnCompletionListener {
+            if (mediaPlayer === it) onFinished()
+        }
+        player.setOnErrorListener { p, _, _ ->
+            if (mediaPlayer === p) {
+                runCatching { p.release() }
+                mediaPlayer = null
+                abandonFocus()
+                playSynthesized(volumePercent, onFinished)
+            }
+            true
+        }
+        runCatching { player.prepareAsync() }
+            .onFailure { onFinished() }
     }
 
     /** Plays the synthesised default tone. */
     fun playSynthesized(volumePercent: Int, onFinished: () -> Unit) {
         stop()
-        val samples = AdhanSynthesizer.generate()
+        requestFocus()
+        val samples = runCatching { AdhanSynthesizer.generate() }.getOrNull()
+            ?: ShortArray(0)
         val minBuffer = AudioTrack.getMinBufferSize(
             AdhanSynthesizer.SAMPLE_RATE,
             AudioFormat.CHANNEL_OUT_MONO,
@@ -110,13 +203,24 @@ class AdhanSoundPlayer @Inject constructor(
         val buffer = ShortArray(samples.size)
         samples.copyInto(buffer)
         track.write(buffer, 0, buffer.size)
-        track.setVolume(0f)
+        val target = (volumePercent / 100f).coerceIn(0f, 1f)
+        track.setVolume(target)
         track.play()
-        fadeInTrack(track, volumePercent / 100f)
 
         // The track knows its own duration; schedule the completion callback.
         val durationMs = (samples.size.toDouble() / AdhanSynthesizer.SAMPLE_RATE * 1000).toLong()
         android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(onFinished, durationMs + 200)
+    }
+
+    /**
+     * Applies [volumePercent] (0..100) to whatever is currently playing so the
+     * preview's volume slider is live — no need to restart the preview. Safe to
+     * call when nothing is playing (no-op).
+     */
+    fun setVolume(volumePercent: Int) {
+        val target = (volumePercent / 100f).coerceIn(0f, 1f)
+        mediaPlayer?.let { runCatching { it.setVolume(target, target) } }
+        audioTrack?.let { runCatching { it.setVolume(target) } }
     }
 
     fun stop() {
@@ -130,37 +234,7 @@ class AdhanSoundPlayer @Inject constructor(
             runCatching { it.release() }
         }
         audioTrack = null
-    }
-
-    private fun fadeIn(player: MediaPlayer, target: Float) {
-        val start = System.currentTimeMillis()
-        val runnable = object : Runnable {
-            override fun run() {
-                if (mediaPlayer !== player) return
-                val progress = ((System.currentTimeMillis() - start).toFloat() / FADE_IN_MS).coerceAtMost(1f)
-                val volume = target * progress
-                player.setVolume(volume, volume)
-                if (progress < 1f) {
-                    android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(this, FADE_STEP_MS)
-                }
-            }
-        }
-        android.os.Handler(android.os.Looper.getMainLooper()).post(runnable)
-    }
-
-    private fun fadeInTrack(track: AudioTrack, target: Float) {
-        val start = System.currentTimeMillis()
-        val runnable = object : Runnable {
-            override fun run() {
-                if (audioTrack !== track) return
-                val progress = ((System.currentTimeMillis() - start).toFloat() / FADE_IN_MS).coerceAtMost(1f)
-                track.setVolume(target * progress)
-                if (progress < 1f) {
-                    android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(this, FADE_STEP_MS)
-                }
-            }
-        }
-        android.os.Handler(android.os.Looper.getMainLooper()).post(runnable)
+        abandonFocus()
     }
 
     private fun bundledSoundRes(sound: BundledAdhanSound): Int = when (sound) {
@@ -181,11 +255,6 @@ class AdhanSoundPlayer @Inject constructor(
         BundledAdhanSound.Saber -> org.muslim.app.feature.prayertimes.R.raw.adhan_saber
         BundledAdhanSound.SharifDoman -> org.muslim.app.feature.prayertimes.R.raw.adhan_sharif_doman
         BundledAdhanSound.YusufIslam -> org.muslim.app.feature.prayertimes.R.raw.adhan_yusuf_islam
-        BundledAdhanSound.UmayyadDamascus -> org.muslim.app.feature.prayertimes.R.raw.adhan_umayyad_damascus
     }
 
-    private companion object {
-        const val FADE_IN_MS = 4_000L
-        const val FADE_STEP_MS = 50L
-    }
 }

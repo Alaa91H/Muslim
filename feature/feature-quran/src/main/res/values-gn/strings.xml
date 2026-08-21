@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ymavegua ayah</string>
     <string name="quran_range_single_ayah">Peteĩva ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Opa haguã surah</string>
+    <string name="quran_range_to_end">To the end of the Mushaf</string>
     <string name="quran_range_to_end_short">Opa haguã</string>
     <string name="quran_range_whole_surah">Surah pukukue</string>
     <string name="quran_range_whole_surah_short">Surah rehegua</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf henyhẽva umi recitador-kuéra rupi</string>
     <string name="quran_downloads_coverage_empty">Ndaipóri gueteri audio ojegueru va\'ekue</string>
     <string name="quran_pause_notif_listener">Pausa recitación umi notificación rehe</string>
-    <string name="quran_reciter_changed_title">Reciter oñemoambue</string>
-    <string name="quran_reciter_changed_message">Ojejoko pe ñembopu pe rango oho haguére Corán paha peve. Eñepyrũ jey %1$s ndive?</string>
-    <string name="quran_reciter_restart">Eñepyrũ jey</string>
-    <string name="quran_reciter_not_now">Ndaha\'éi ko\'ágã</string>
+    <string name="quran_search_metrics">Ojeporeka aravo: %1$d ms</string>
+    <string name="quran_search_index_building">Oñemopu\'ãvo índice Corán rehegua peteĩha jehekarã...</string>
+    <string name="quran_search_index_progress">Oñemopu\'ãvo índice mushaf... %1$d %%</string>
+    <string name="quran_search_word_root">Hapo: %1$s</string>
+    <string name="quran_search_derivations">Ñe’ẽ osẽva peteĩ hapogui</string>
+    <string name="quran_search_no_root">Ndaikatúi ojekuaa hapo</string>
 </resources>

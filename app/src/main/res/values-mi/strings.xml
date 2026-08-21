@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Ka okioki poto te taki i te wa e whakatangihia ana te panui, te tangi, etahi atu papaaoho ranei</string>
     <string name="more_pause_notifications_enabled">Whakahohe — pato ki te whakatuwhera i nga tautuhinga punaha</string>
     <string name="more_pause_notifications_disabled">Kua monoa — pato kia taea</string>
+    <string name="more_names">99 Nga Ingoa o Allah</string>
+    <string name="more_names_desc">Ko nga ingoa 99 me nga whakamarama katoa</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">He aratohu taipitopito mo nga tikanga Hajj me Umrah</string>
 </resources>

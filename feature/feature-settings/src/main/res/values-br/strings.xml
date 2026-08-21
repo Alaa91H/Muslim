@@ -164,4 +164,22 @@
     <string name="update_available_text">Hegerz eo ar stumm %1$s bremañ — pouezit evit hizivaat</string>
     <string name="notif_category_app_update">Hizivadennoù an arloadoù</string>
     <string name="notif_category_app_update_desc">Kemennadenn pa vo hegerz ur stumm nevez eus an arload</string>
+    <string name="about_tagline">Ur c\'hompagnunez klok, digoust, digor evit pep muzulman — amzer ar bedenn, Adhan, Koran, hadith, adhkar ha muioc\'h c\'hoazh, en ho yezh.</string>
+    <string name="about_description_title">Diwar-benn ar vuzulmaned</string>
+    <string name="about_description_body">Muslim zo un arload Android digoust ha digor a gas ac\'hanoc\'h a-hed an devezh : eurioù pediñ reizh a-fet steredoniezh gant an Adhan, ur c\'hompas Qibla resis, ar C\'horan klok gant lennadennoù ha tafsir, ul levraoueg hadith, adhkar fontet, un tasbih elektronek, ostilhoù Ramadan, ur jedadenn zakat, kartennoù ezlinenn — ha muioc\'h c\'hoazh savet evit labourat gant prevezded ezlinenn dre ziouer.</string>
+    <string name="about_features_title">Poentoù pouezusañ</string>
+    <string name="about_features_body">Pep tra a rank ur vuzulman en un arload :</string>
+    <string name="about_feature_prayer">Amzeroù pediñ &amp; Adhan — an holl zoareoù jediñ, skolioù lezennel, ha 18+ son adhan</string>
+    <string name="about_feature_quran">Koran klok — Skritur Uthmani, 44 lenner, tafsir, troidigezhioù, klask gerioù &amp; frekañs</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat — gant soñjoù ha boulloù o nijal</string>
+    <string name="about_feature_offline">Ezlinenn da gentañ — ar c\'hartennoù, ar C\'horan, an hadith hag an adhkar a ya en-dro hep internet ebet</string>
+    <string name="about_feature_privacy">Prevezded dre ziouer — bruderezh ebet, heuliañ ebet, chom a ra ho roadennoù war hoc\'h urzhiataer</string>
+    <string name="settings_auto_update">Hizivadennoù emgefre penn-da-benn</string>
+    <string name="settings_auto_update_desc">Pellgargañ ha staliañ ent emgefre ar stummoù nevez en drekleur kerkent ha ma vint embannet</string>
+    <string name="settings_auto_update_confirm_title">Gweredekaat an hizivadurioù emgefre ?</string>
+    <string name="settings_auto_update_confirm_body">Pellgarget ha staliet e vo ar stummoù nevez ent emgefre en drekleur pa vo tu dezho. Kenderc\'hel?</string>
+    <string name="settings_auto_update_confirm">Aotren</string>
+    <string name="settings_cancel">Nullañ</string>
+    <string name="update_last_check">Gwiriañ diwezhañ : %1$s</string>
+    <string name="update_open_releases">Digeriñ ar bajenn embannadurioù er merdeer</string>
 </resources>

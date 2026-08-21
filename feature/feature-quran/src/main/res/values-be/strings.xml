@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Папярэдні аят</string>
     <string name="quran_range_single_ayah">Адзіночны аят</string>
     <string name="quran_range_single_ayah_short">Айя</string>
-    <string name="quran_range_to_end">Да канца суры</string>
+    <string name="quran_range_to_end">Да канца мусхафа</string>
     <string name="quran_range_to_end_short">Каб скончыць</string>
     <string name="quran_range_whole_surah">Цэлая сура</string>
     <string name="quran_range_whole_surah_short">Сура</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Поўны мусхаф сярод чытальнікаў</string>
     <string name="quran_downloads_coverage_empty">Аўдыё яшчэ не спампавана</string>
     <string name="quran_pause_notif_listener">Прыпыніць чытанне ў апавяшчэннях</string>
-    <string name="quran_reciter_changed_title">Дэкламатар зменены</string>
-    <string name="quran_reciter_changed_message">Прайграванне спынена, таму што дыяпазон даходзіць да канца Карана. Пачаць зноў з %1$s?</string>
-    <string name="quran_reciter_restart">Пачаць зноў</string>
-    <string name="quran_reciter_not_now">Не цяпер</string>
+    <string name="quran_search_metrics">Час пошуку: %1$d мс</string>
+    <string name="quran_search_index_building">Стварэнне індэкса Карана для першага пошуку…</string>
+    <string name="quran_search_index_progress">Пабудова індэкса мусхафа… %1$d %%</string>
+    <string name="quran_search_word_root">Корань: %1$s</string>
+    <string name="quran_search_derivations">Аднакаранёвыя словы</string>
+    <string name="quran_search_no_root">Не атрымалася вызначыць корань</string>
 </resources>

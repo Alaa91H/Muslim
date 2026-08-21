@@ -16,7 +16,7 @@ object QuranSearchQuery {
     private val FTS_SPECIAL = setOf('"', '*', '(', ')', ':', '^', '-', '+')
 
     fun build(rawQuery: String): String {
-        val tokens = ArabicText.normalize(rawQuery)
+        val tokens = ArabicText.normalizeForSearch(rawQuery)
             .split(Regex("\\s+"))
             .map { token -> token.filterNot { it in FTS_SPECIAL } }
             .filter { it.isNotEmpty() }

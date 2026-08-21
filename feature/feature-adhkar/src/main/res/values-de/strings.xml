@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Verwenden Sie nur kurze Adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Wählen Sie Adhkar, die in eine oder zwei Zeilen passen, damit die schwebende Blase klar und gut lesbar bleibt.</string>
     <string name="adhkar_overlay_tap_hint">Tippen Sie auf die Blase, um sie sofort zu schließen.</string>
+    <string name="adhkar_copied">Dhikr kopiert</string>
+    <string name="adhkar_periodic_dhikr">Spezifischer Dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Zufällig (statt manueller Auswahl)</string>
 </resources>

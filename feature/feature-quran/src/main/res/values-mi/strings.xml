@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Papa o mua</string>
     <string name="quran_range_single_ayah">Papa kotahi</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Ki te mutunga o te surah</string>
+    <string name="quran_range_to_end">Ki te mutunga o te Mushaf</string>
     <string name="quran_range_to_end_short">Kia mutu</string>
     <string name="quran_range_whole_surah">Katoa surah</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Katoa mushaf puta noa i nga kai korero</string>
     <string name="quran_downloads_coverage_empty">Kaore ano kia tikiakehia nga ororongo</string>
     <string name="quran_pause_notif_listener">Whakatatarihia te korero i runga i nga whakamohiotanga</string>
-    <string name="quran_reciter_changed_title">Ka huri te kai korero</string>
-    <string name="quran_reciter_changed_message">Ka mutu te purei na te mea ka rere te awhe ki te mutunga o te Quran. Tīmata anō mā %1$s?</string>
-    <string name="quran_reciter_restart">Tīmata anō</string>
-    <string name="quran_reciter_not_now">Kaua inaianei</string>
+    <string name="quran_search_metrics">Wā rapu: %1$d ms</string>
+    <string name="quran_search_index_building">Te hanga i te taurangi Quran mo te rapu tuatahi…</string>
+    <string name="quran_search_index_progress">Te hanga i te taupū mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Pūtake: %1$s</string>
+    <string name="quran_search_derivations">Ko nga kupu i ahu mai i te putake kotahi</string>
+    <string name="quran_search_no_root">Kaore i taea te whakatau i te pakiaka</string>
 </resources>

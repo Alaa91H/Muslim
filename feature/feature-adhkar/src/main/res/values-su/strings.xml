@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Paké adhkar pondok wungkul</string>
     <string name="adhkar_overlay_short_only_desc">Pilih adhkar anu cocog sareng hiji atanapi dua garis supados gelembung ngambang tetep jelas sareng gampang dibaca.</string>
     <string name="adhkar_overlay_tap_hint">Ketok gelembung pikeun ngaleungitkeun langsung.</string>
+    <string name="adhkar_copied">Dzikir disalin</string>
+    <string name="adhkar_periodic_dhikr">Dzikir husus</string>
+    <string name="adhkar_periodic_dhikr_random">Acak (tinimbang milih manual)</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Ҳангоми навозиши огоҳинома, занг ё дигар медиа қироат ба муддати кӯтоҳ таваққуф мекунад</string>
     <string name="more_pause_notifications_enabled">Фаъол — барои кушодани танзимоти система клик кунед</string>
     <string name="more_pause_notifications_disabled">Хомӯш — барои фаъол кардан клик кунед</string>
+    <string name="more_names">99 Исми Аллох</string>
+    <string name="more_names_desc">99 ном бо шарҳи пурра</string>
+    <string name="more_hajj">Ҳаҷ ва Умра</string>
+    <string name="more_hajj_desc">Дастури муфассал оид ба маросимҳои Ҳаҷ ва Умра</string>
 </resources>

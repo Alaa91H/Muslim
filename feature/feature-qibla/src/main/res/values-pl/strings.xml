@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Szerokość obszaru (stopnie)</string>
     <string name="offline_maps_storage_warning">Niskie miejsce na dane — tylko %1$s za darmo</string>
     <string name="offline_maps_storage_delete_largest">Usuń największy region (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Szukaj meczetów według nazwy</string>
+    <string name="mosque_finder_show_all">Pokaż wszystkie meczety</string>
+    <string name="mosque_finder_share">Otwórz kierunki</string>
+    <string name="offline_maps_use_my_location">Przejdź do mojej obecnej lokalizacji</string>
 </resources>

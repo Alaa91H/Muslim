@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah yangaphambili</string>
     <string name="quran_range_single_ayah">Ayah enye</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Ukuphela kweSurah</string>
+    <string name="quran_range_to_end">Kude kube sekupheleni kweMushaf</string>
     <string name="quran_range_to_end_short">Ukugqiba</string>
     <string name="quran_range_whole_surah">I-surah epheleleyo</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">I-mushaf epheleleyo kuzo zonke iireciters</string>
     <string name="quran_downloads_coverage_empty">Akukho msindo ukhutshelweyo okwangoku</string>
     <string name="quran_pause_notif_listener">Misa ucengcelezo kwizaziso</string>
-    <string name="quran_reciter_changed_title">Ireciter itshintshile</string>
-    <string name="quran_reciter_changed_message">Ukudlala kumisiwe kuba uluhlu lubaleka ukuya ekupheleni kweQuran. Qala kwakhona ngo %1$s?</string>
-    <string name="quran_reciter_restart">Qala kwakhona</string>
-    <string name="quran_reciter_not_now">Hayi ngoku</string>
+    <string name="quran_search_metrics">Ixesha lokukhangela: %1$d ms</string>
+    <string name="quran_search_index_building">Ukwakha isalathisi seQuran kukhangelo lokuqala...</string>
+    <string name="quran_search_index_progress">Ukwakha isalathiso se mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">Ingcambu: %1$s</string>
+    <string name="quran_search_derivations">Amagama athatyathwe kwingcambu enye</string>
+    <string name="quran_search_no_root">Ayikwazanga ukumisela ingcambu</string>
 </resources>

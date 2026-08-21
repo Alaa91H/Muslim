@@ -18,6 +18,7 @@ import androidx.compose.material.icons.filled.SystemUpdate
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.ErrorOutline
+import androidx.compose.material.icons.filled.Link
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -58,6 +59,7 @@ fun UpdateScreen(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val downloadState by viewModel.downloadState.collectAsStateWithLifecycle()
+    val lastCheckEpoch by viewModel.lastCheckEpoch.collectAsStateWithLifecycle()
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -80,6 +82,14 @@ fun UpdateScreen(
                 .padding(horizontal = 16.dp, vertical = 12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
+            // Live preview of the update-available notification (same title,
+            // text and version the notification posts, so the user sees the
+            // exact look before it is ever sent).
+            UpdateNotificationPreview(
+                version = (uiState as? UpdateUiState.Available)?.release?.version
+                    ?: viewModel.installedVersion,
+            )
+
             when (val state = uiState) {
                 UpdateUiState.Loading -> {
                     Row(
@@ -241,8 +251,79 @@ fun UpdateScreen(
                     }
                 }
             }
+
+            if (lastCheckEpoch > 0L) {
+                Text(
+                    text = stringResource(
+                        R.string.update_last_check,
+                        formatCheckDate(lastCheckEpoch),
+                    ),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
+            OutlinedButton(
+                onClick = viewModel::openReleasesPage,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Icon(
+                    Icons.Filled.Link,
+                    contentDescription = null,
+                    modifier = Modifier.size(18.dp),
+                )
+                Spacer(Modifier.width(8.dp))
+                Text(stringResource(R.string.update_open_releases))
+            }
         }
     }
+}
+
+/**
+ * Live preview of the update-available notification: mirrors
+ * [UpdateCheckNotifier]'s title + body (title on the first line, version text
+ * below), rendered like a system notification card.
+ */
+@Composable
+private fun UpdateNotificationPreview(version: String) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceContainerHighest,
+        ),
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.Top,
+        ) {
+            Icon(
+                Icons.Filled.SystemUpdate,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(22.dp),
+            )
+            Spacer(Modifier.width(12.dp))
+            Column(Modifier.weight(1f)) {
+                Text(
+                    text = stringResource(R.string.update_available_title),
+                    style = MaterialTheme.typography.bodyLarge,
+                    fontWeight = FontWeight.SemiBold,
+                )
+                Text(
+                    text = stringResource(R.string.update_available_text, version),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+    }
+}
+
+/** Formats an epoch timestamp as "dd MMM yyyy, HH:mm" (locale-aware). */
+internal fun formatCheckDate(epochMillis: Long): String {
+    val date = java.util.Date(epochMillis)
+    val fmt = java.text.SimpleDateFormat("dd MMM yyyy, HH:mm", Locale.getDefault())
+    return fmt.format(date)
 }
 
 /** Formats a byte count as "12.3 MB" (Western digits, locale-independent). */

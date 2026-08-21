@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Area anchun (grados) .</string>
     <string name="offline_maps_storage_warning">Pisi waqaychay — %1$slla gratis</string>
     <string name="offline_maps_storage_delete_largest">Aswan hatun suyuta qulluy (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Mezquitakunata sutiwan maskay</string>
+    <string name="mosque_finder_show_all">Llapan mezquitakunata qawachiy</string>
+    <string name="mosque_finder_share">Kichasqa ñankuna</string>
+    <string name="offline_maps_use_my_location">Kunan maypi kasqayman riy</string>
 </resources>

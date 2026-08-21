@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Gebruik alleen korte adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Kies adhkar die op één of twee regels past, zodat de zwevende bel helder en gemakkelijk leesbaar blijft.</string>
     <string name="adhkar_overlay_tap_hint">Tik op de bel om deze onmiddellijk te sluiten.</string>
+    <string name="adhkar_copied">Dhikr gekopieerd</string>
+    <string name="adhkar_periodic_dhikr">Specifieke dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Willekeurig (in plaats van handmatig kiezen)</string>
 </resources>

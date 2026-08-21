@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">رقبہ کی چوڑائی (ڈگری)</string>
     <string name="offline_maps_storage_warning">کم اسٹوریج — صرف %1$s مفت</string>
     <string name="offline_maps_storage_delete_largest">سب سے بڑا علاقہ حذف کریں (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">مساجد کو نام سے تلاش کریں۔</string>
+    <string name="mosque_finder_show_all">تمام مساجد دکھائیں۔</string>
+    <string name="mosque_finder_share">سمتیں کھولیں۔</string>
+    <string name="offline_maps_use_my_location">میرے موجودہ مقام پر جائیں۔</string>
 </resources>

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">พื้นที่กว้าง (องศา)</string>
     <string name="offline_maps_storage_warning">พื้นที่เก็บข้อมูลต่ำ — ฟรีเพียง %1$s</string>
     <string name="offline_maps_storage_delete_largest">ลบขอบเขตที่ใหญ่ที่สุด (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">ค้นหามัสยิดตามชื่อ</string>
+    <string name="mosque_finder_show_all">แสดงมัสยิดทั้งหมด</string>
+    <string name="mosque_finder_share">เปิดทิศทาง</string>
+    <string name="offline_maps_use_my_location">ไปที่ตำแหน่งปัจจุบันของฉัน</string>
 </resources>

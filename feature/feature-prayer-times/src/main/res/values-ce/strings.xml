@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">НагӀшбанди азан</string>
     <string name="bundled_adhan_saber">Саьбер азан</string>
     <string name="bundled_adhan_sharif_doman">Шариф Доман азан</string>
-    <string name="bundled_adhan_umayyad_damascus">Омайядийн маьждиг (Дамаск) азан</string>
     <string name="bundled_adhan_yusuf_islam">Юсуф Ислам азан</string>
     <string name="home_cannot_compute">ХӀокху дийнан хенаш хьесап дан йиш яц</string>
     <string name="home_location_unknown">Меттиг цкъачунна билгалъяьккхина яц</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Автоматически (меттиге хьаьжжина)</string>
     <string name="settings_method_automatic_desc">Аппликацино уггаре а нийса кеп автоматически схьаоьцу хьан пачхьалкхе а, меттиге а хьаьжжина; хӀинца а муьлххачу хенахь а ручной метод харжа йиш ю хьан.</string>
     <string name="settings_preview_for_prayer">Хьалха хьажа %1$s азан</string>
+    <string name="settings_method_automatic_picked">Автоматически карарчу хенахь дӀаэцна: %1$s — %2$s.</string>
 </resources>

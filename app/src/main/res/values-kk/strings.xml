@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Хабарландыру, қоңырау немесе басқа мультимедиа ойнатылып жатқанда, оқу қысқа уақытқа тоқтатылады</string>
     <string name="more_pause_notifications_enabled">Қосылған — жүйе параметрлерін ашу үшін түртіңіз</string>
     <string name="more_pause_notifications_disabled">Өшірулі — қосу үшін түртіңіз</string>
+    <string name="more_names">Алланың 99 есімі</string>
+    <string name="more_names_desc">Толық түсіндірмесі бар 99 атау</string>
+    <string name="more_hajj">Қажылық және умра</string>
+    <string name="more_hajj_desc">Қажылық және умра рәсімдері туралы толық нұсқаулық</string>
 </resources>

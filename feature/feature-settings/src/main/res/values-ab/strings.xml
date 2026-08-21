@@ -164,4 +164,22 @@
     <string name="update_available_text">Аверсиа %1$s уажәы иҟоуп — арҿыцразы иақәыӷәӷәа</string>
     <string name="notif_category_app_update">Апрограмма арҿыцрақәа</string>
     <string name="notif_category_app_update_desc">Апрограмма аверсиа ҿыц аныҟоу ардырра</string>
+    <string name="about_tagline">Ихаҭәаау, ихьыԥшым, иаарту ахыҵхырҭа змоу аҩыза аԥсылманцәа зегьы рзы — анамаз аамҭақәа, Азан, Аҟәырҟан, аҳадис, адҳкар уҳәа убас иҵегьы, шәбызшәала.</string>
+    <string name="about_description_title">Аԥсылман изкны</string>
+    <string name="about_description_body">Муслим - ари амш зегьы иуцныҟәо, астрономиала ииашоу аныҳәа аамҭақәа Азан, ииашоу Ақьыбла компас, Аҟәырҟан зегьы аԥхьарақәеи атафсирқәеи рыла, аҳадисқәа рбиблиотека, ахыҵхырҭатә адҳкар, аелектронтә тасбиҳ, Рамадантәи аинструментқәа, закат маклаин аҳасабга, еиҳаны аҳасабга дифолт.</string>
+    <string name="about_features_title">Алкаарақәа</string>
+    <string name="about_features_body">Аԥсылман ииҭаху зегьы апликациак аҿы:</string>
+    <string name="about_feature_prayer">Аныҳәа аамҭеи Азан — аҳасабратә методқәа зегьы, аиуристтә школқәа, насгьы 18+ азан абжьқәа</string>
+    <string name="about_feature_quran">Аҟәырҟан зегьы — Усмани иҩыра, 44 ԥхьаҩык, атафсир, аиҭагақәа, ажәа аԥшаара, лассы-лассы</string>
+    <string name="about_feature_adhkar">Адҳкар, тасбиҳ, Рамадан, Закат — агәаларшәарақәеи иӡсо аԥырԥырқәеи рыла</string>
+    <string name="about_feature_offline">Аоффлаин-раԥхьа — ахсаалақәа, Аҟәырҟан, аҳадисқәа, адҳкарқәа интернетда аус руеит</string>
+    <string name="about_feature_privacy">Амаӡара стандартла — аӡыргақәа ыҟам, ашьҭаԥшра ыҟам, шәдата шәхыхәҭаҿы иаанхоит</string>
+    <string name="settings_auto_update">Автоматтә ҿыцрақәа</string>
+    <string name="settings_auto_update_desc">Аверсиа ҿыцқәа анҭыҵлак еиԥшҵәҟьа аҵыхәантәи аҭагылазаашьаҿы автоматла иҭагалатәуп, насгьы ишьақәыргылатәуп</string>
+    <string name="settings_auto_update_confirm_title">Автоматтә арҿыцрақәа аус арутәума?</string>
+    <string name="settings_auto_update_confirm_body">Аверсиа ҿыцқәа ҭагалахоит, насгьы автоматла аҵыхәантәи аҭыԥ аҿы иқәыргылахоит, ианыҟоу. Ацҵара?</string>
+    <string name="settings_auto_update_confirm">Алшара аҭара</string>
+    <string name="settings_cancel">Аԥыхра</string>
+    <string name="update_last_check">Аҵыхәтәантәи агәаҭара: %1$s</string>
+    <string name="update_open_releases">Абраузер аҟны аҭыжьрақәа рыдаҟьа аарттәуп</string>
 </resources>

@@ -164,4 +164,22 @@
     <string name="update_available_text">La versione %1$s è ora disponibile: tocca per aggiornare</string>
     <string name="notif_category_app_update">Aggiornamenti dell\'app</string>
     <string name="notif_category_app_update_desc">Notifica quando è disponibile una nuova versione dell\'app</string>
+    <string name="about_tagline">Un compagno completo, gratuito e open source per ogni musulmano: orari di preghiera, Adhan, Corano, hadith, adhkar e altro, nella tua lingua.</string>
+    <string name="about_description_title">A proposito di musulmani</string>
+    <string name="about_description_body">Muslim è un\'app Android gratuita e open source che ti accompagna durante tutta la giornata: tempi di preghiera astronomicamente accurati con l\'Adhan, una precisa bussola Qibla, il Corano completo con recitazioni e tafsir, una libreria di hadith, adhkar di provenienza, un tasbih elettronico, strumenti per il Ramadan, un calcolatore zakat, mappe offline e altro ancora, progettata per funzionare completamente offline con privacy per impostazione predefinita.</string>
+    <string name="about_features_title">Punti salienti</string>
+    <string name="about_features_body">Tutto ciò di cui un musulmano ha bisogno in un\'unica app:</string>
+    <string name="about_feature_prayer">Tempi di preghiera e Adhan: tutti i metodi di calcolo, scuole giuridiche e oltre 18 suoni adhan</string>
+    <string name="about_feature_quran">Corano completo: scrittura Uthmani, 44 recitatori, tafsir, traduzioni, ricerca di parole e frequenza</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan e Zakat: con promemoria e bolle galleggianti</string>
+    <string name="about_feature_offline">Prima offline: mappe, Corano, hadith e adhkar funzionano senza Internet</string>
+    <string name="about_feature_privacy">Privacy per impostazione predefinita: nessuna pubblicità, nessun tracciamento, i tuoi dati rimangono sul tuo dispositivo</string>
+    <string name="settings_auto_update">Aggiornamenti completamente automatici</string>
+    <string name="settings_auto_update_desc">Scarica e installa automaticamente le nuove versioni in background non appena vengono rilasciate</string>
+    <string name="settings_auto_update_confirm_title">Abilitare gli aggiornamenti automatici?</string>
+    <string name="settings_auto_update_confirm_body">Le nuove versioni verranno scaricate e installate automaticamente in background quando disponibili. Continuare?</string>
+    <string name="settings_auto_update_confirm">Abilitare</string>
+    <string name="settings_cancel">Cancellare</string>
+    <string name="update_last_check">Ultimo controllo: %1$s</string>
+    <string name="update_open_releases">Aprire la pagina delle versioni nel browser</string>
 </resources>

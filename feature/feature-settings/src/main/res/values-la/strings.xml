@@ -164,4 +164,22 @@
     <string name="update_available_text">Versione %1$s nunc praesto est — sonum ad renovationem</string>
     <string name="notif_category_app_update">App updates</string>
     <string name="notif_category_app_update_desc">Notification cum nova app version est available</string>
+    <string name="about_tagline">Plene, liber, fons apertus comes pro omni musulmano — precationis temporibus, Adhan, Quran, hadith, adhkar et magis in lingua tua.</string>
+    <string name="about_description_title">De Muslims</string>
+    <string name="about_description_body">Musulmanus est gratuitus et apertus fons Android app qui te per diem comitatur: astronomice accurata precatio tempora cum Adhan, Qibla praecise circino, Quran completa cum recitationibus et tafsir, bibliotheca hadith, fons adhkar, instrumenta electronic tasbih, Ramadan instrumenta, calculator zakat, tabularum offlinearum, et magis - cum intimitate ad operandum per defectionem.</string>
+    <string name="about_features_title">Quisque ornare</string>
+    <string name="about_features_body">Omnia Musulmanus indiget in unum app;</string>
+    <string name="about_feature_prayer">Orationis tempora &amp; Adhan — omnes methodos calculos, scholas juristicas, et 18+ adhan sonos</string>
+    <string name="about_feature_quran">Complete Quran - Uthmani scriptum, 44 sibus, tafsir, translationibus, verbum inquisitionis &amp; frequentiae</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan &amp; Zakat - cum monitionibus et fluitantibus bullae</string>
+    <string name="about_feature_offline">Offline-first - maps, Quran, hadith et adhkar opus non penitus</string>
+    <string name="about_feature_privacy">Secretum per defaltam - nulla praeconia, nulla vestigia, notitia manus tuae in fabrica</string>
+    <string name="settings_auto_update">Plene automatic updates</string>
+    <string name="settings_auto_update_desc">Automatice download et novas versiones in curriculo installare quam primum emittuntur</string>
+    <string name="settings_auto_update_confirm_title">Admitte automatic updates?</string>
+    <string name="settings_auto_update_confirm_body">Novae versiones in curriculo statim in promptu recipientur et instituentur. Perge?</string>
+    <string name="settings_auto_update_confirm">Admitte</string>
+    <string name="settings_cancel">Cancel</string>
+    <string name="update_last_check">Ultima reprehendo: %1$s</string>
+    <string name="update_open_releases">Aperi paginam emissiones in navigatro</string>
 </resources>

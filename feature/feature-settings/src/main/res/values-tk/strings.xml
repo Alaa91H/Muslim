@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s is now available — tap to update</string>
     <string name="notif_category_app_update">Programma täzelenmeleri</string>
     <string name="notif_category_app_update_desc">Täze programma wersiýasy elýeterli bolanda duýduryş</string>
+    <string name="about_tagline">Her bir musulman üçin doly, erkin we açyk ýoldaş - dileg wagtlary, Adhan, Kuran, Hadys, Adkar we başgalar.</string>
+    <string name="about_description_title">Musulman hakda</string>
+    <string name="about_description_body">Musulman, günüň dowamynda size ýol açýan erkin we açyk çeşme Android programmasydyr: Adhan bilen astronomiki taýdan takyk doga wagty, takyk Kibla kompasy, okalýan we tafsir bilen doly Gurhan, hadys kitaphanasy, adhkar, elektron tasbih, Remezan gurallary, zekat kalkulýatory, awtonom kartalar we başgalar - gizlinlikde doly awtonom görnüşde işlemek üçin döredilen.</string>
+    <string name="about_features_title">Esasy pursatlar</string>
+    <string name="about_features_body">Musulmanlaryň bir programmada zerur zatlary:</string>
+    <string name="about_feature_prayer">Namaz wagty we Adhan - ähli hasaplama usullary, hukuk mekdepleri we 18+ adhan sesleri</string>
+    <string name="about_feature_quran">Doly Gurhan - Usmani ýazuwy, 44 okaýjy, tafsir, terjime, söz gözlemek we ýygylyk</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Remezan we Zekat - ýatlatmalar we ýüzýän köpürjikler bilen</string>
+    <string name="about_feature_offline">Offline-birinji - kartalar, Kuran, hadys we adhkar internetsiz işleýär</string>
+    <string name="about_feature_privacy">Gizlinlik - gizlinlik - mahabat ýok, yzarlama ýok, maglumatlaryňyz enjamyňyzda galýar</string>
+    <string name="settings_auto_update">Doly awtomatiki täzelenmeler</string>
+    <string name="settings_auto_update_desc">Täze wersiýalary çykan badyna fonda awtomatiki göçürip alyň</string>
+    <string name="settings_auto_update_confirm_title">Awtomatiki täzelenmeleri açyp bilersiňizmi?</string>
+    <string name="settings_auto_update_confirm_body">Täze wersiýalar elýeterli bolanda fonda awtomatiki usulda göçüriler we gurlar. Dowam et?</string>
+    <string name="settings_auto_update_confirm">Işlet</string>
+    <string name="settings_cancel">Elatyr</string>
+    <string name="update_last_check">Soňky barlag: %1$s</string>
+    <string name="update_open_releases">Brauzerde goýberiş sahypasyny açyň</string>
 </resources>

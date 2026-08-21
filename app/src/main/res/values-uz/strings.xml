@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Bildirishnoma, qo‘ng‘iroq yoki boshqa media o‘ynatilsa, qiroat qisqa to‘xtatiladi</string>
     <string name="more_pause_notifications_enabled">Yoqilgan — tizim sozlamalarini ochish uchun teging</string>
     <string name="more_pause_notifications_disabled">Oʻchirilgan — yoqish uchun bosing</string>
+    <string name="more_names">Allohning 99 ismlari</string>
+    <string name="more_names_desc">To\'liq tushuntirish bilan 99 nom</string>
+    <string name="more_hajj">Haj va Umra</string>
+    <string name="more_hajj_desc">Haj va Umra marosimlari bo\'yicha batafsil qo\'llanma</string>
 </resources>

@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">A faaohipa noa i te adhkar poto</string>
     <string name="adhkar_overlay_short_only_desc">A maiti i te adhkar e tano i te hoê aore ra e piti reni ia vai noa te hu\'ahu\'a i ni\'a i te pape e ia vai noa te reira i ni\'a i te pape.</string>
     <string name="adhkar_overlay_tap_hint">Pato i te hu\'ahu\'a no te faaore oioi i te reira.</string>
+    <string name="adhkar_copied">Dhikr tei patahia</string>
+    <string name="adhkar_periodic_dhikr">Dhikr taa ê</string>
+    <string name="adhkar_periodic_dhikr_random">Random (eiaha râ i te ma\'itiraa rima)</string>
 </resources>

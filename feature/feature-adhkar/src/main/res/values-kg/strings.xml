@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Sadila kaka adhkar ya nkufi</string>
     <string name="adhkar_overlay_short_only_desc">Pona adhkar yina ke wakana ti nzila mosi to zole sambu bubble yina ke tambula na masa kubikala pwelele mpi pete na kutanga.</string>
     <string name="adhkar_overlay_tap_hint">Fina na bubble sambu na kukatula yo mbala mosi.</string>
+    <string name="adhkar_copied">Dhikr kopisaka</string>
+    <string name="adhkar_periodic_dhikr">Dhikr ya sikisiki</string>
+    <string name="adhkar_periodic_dhikr_random">Kaka mpidina (na kisika ya kupona na maboko)</string>
 </resources>

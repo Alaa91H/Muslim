@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Vorige aya</string>
     <string name="quran_range_single_ayah">Enkele aya</string>
     <string name="quran_range_single_ayah_short">Jaa</string>
-    <string name="quran_range_to_end">Tot het einde van de soera</string>
+    <string name="quran_range_to_end">Tot het einde van de Mushaf</string>
     <string name="quran_range_to_end_short">Om te eindigen</string>
     <string name="quran_range_whole_surah">Hele soera</string>
     <string name="quran_range_whole_surah_short">Soera</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Volledige mushaf over voordragers</string>
     <string name="quran_downloads_coverage_empty">Nog geen audio gedownload</string>
     <string name="quran_pause_notif_listener">Pauzeer recitatie bij meldingen</string>
-    <string name="quran_reciter_changed_title">Voordrager gewijzigd</string>
-    <string name="quran_reciter_changed_message">Het afspelen is gestopt omdat het bereik tot het einde van de Koran loopt. Opnieuw beginnen met %1$s?</string>
-    <string name="quran_reciter_restart">Begin opnieuw</string>
-    <string name="quran_reciter_not_now">Niet nu</string>
+    <string name="quran_search_metrics">Zoektijd: %1$d ms</string>
+    <string name="quran_search_index_building">Het bouwen van de Koran-index voor de eerste zoekopdracht...</string>
+    <string name="quran_search_index_progress">De mushaf-index opbouwen… %1$d %%</string>
+    <string name="quran_search_word_root">Wortel: %1$s</string>
+    <string name="quran_search_derivations">Woorden afgeleid van dezelfde wortel</string>
+    <string name="quran_search_no_root">Kon de wortel niet bepalen</string>
 </resources>

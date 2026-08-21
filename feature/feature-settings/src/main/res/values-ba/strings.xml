@@ -164,4 +164,22 @@
     <string name="update_available_text">%1$s версияһы бар — яңыртыу өсөн баҫығыҙ</string>
     <string name="notif_category_app_update">Ҡушымталарҙы яңыртыу</string>
     <string name="notif_category_app_update_desc">Яңы ҡушымта версияһы булғанда хәбәр итеү</string>
+    <string name="about_tagline">Тулы, бушлай, һәр мосолман өсөн асыҡ сығанаҡлы иптәш — намаҙ ваҡыты, Аҙан, Ҡөрьән, хәҙис, әҙһәр һәм башҡалар, һеҙҙең телдә.</string>
+    <string name="about_description_title">Мөслим тураһында .</string>
+    <string name="about_description_body">Мосолман бушлай һәм асыҡ сығанаҡлы Android ҡушымта, һеҙҙе көнө буйы оҙатып бара: астрономик дөрөҫ намаҙ ваҡытында Аҙан менән, теүәл ҡибла компасы, тулы Ҡөрьән менән уҡыу һәм тәфсир, хәҙистәр китапханаһы, сығанаҡтарҙан adhkar, электрон tasbih, Рамаҙан ҡоралдары, закат ма тулы дизайн менән offline, күберәк offline эше, offline ғәҙәттәгесә.</string>
+    <string name="about_features_title">Иң мөһим ваҡиғалар</string>
+    <string name="about_features_body">Мосолманға кәрәкле бөтә нәмә бер ҡушымтала:</string>
+    <string name="about_feature_prayer">Намаҙ ваҡыты &amp; Аҙан — бөтә иҫәп-хисап ысулдары, юридик мәктәптәр, һәм 18+ аҙан тауыштары .</string>
+    <string name="about_feature_quran">Тулы Ҡөрьән — Усмани яҙмаһы, 44 уҡыусы, тәфсир, тәржемәләр, һүҙ эҙләү &amp; йышлыҡ</string>
+    <string name="about_feature_adhkar">Әҙһәр, тәсбих, Рамаҙан һәм Зәкәт — иҫкәртмәләр һәм йөҙөүсе күперткеләр менән</string>
+    <string name="about_feature_offline">Оффлайн-беренсе — карталар, Ҡөрьән, хәҙистәр һәм әҙһәр эшләй интернетһыҙ</string>
+    <string name="about_feature_privacy">Конфиденциальность по умолчанию — иғландар юҡ, күҙәтеү юҡ, һеҙҙең мәғлүмәттәр һеҙҙең ҡоролма ҡала</string>
+    <string name="settings_auto_update">Тулыһынса автоматик яңыртыуҙар</string>
+    <string name="settings_auto_update_desc">Автоматик скачать һәм яңы версиялар ҡуйыу фонында тиҙ генә улар сығарыла .</string>
+    <string name="settings_auto_update_confirm_title">Автоматик яңыртыуҙарҙы индерегеҙме?</string>
+    <string name="settings_auto_update_confirm_body">Яңы версиялар скачать һәм автоматик рәүештә фонда ҡуйыласаҡ, ҡасан бар. Дауам итергә?</string>
+    <string name="settings_auto_update_confirm">Ирек бирергә</string>
+    <string name="settings_cancel">Юҡҡа сығарырға</string>
+    <string name="update_last_check">Һуңғы тикшерелеү: %1$s.</string>
+    <string name="update_open_releases">Браузерҙа релиздар битен асығыҙ</string>
 </resources>

@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">La récitation s\'arrête brièvement lorsqu\'une notification, une sonnerie ou un autre média est diffusé</string>
     <string name="more_pause_notifications_enabled">Activé : appuyez pour ouvrir les paramètres du système</string>
     <string name="more_pause_notifications_disabled">Désactivé : appuyez pour activer</string>
+    <string name="more_names">99 noms d\'Allah</string>
+    <string name="more_names_desc">Les 99 noms avec explication complète</string>
+    <string name="more_hajj">Hajj et Omra</string>
+    <string name="more_hajj_desc">Guide détaillé des rites du Hajj et de la Omra</string>
 </resources>

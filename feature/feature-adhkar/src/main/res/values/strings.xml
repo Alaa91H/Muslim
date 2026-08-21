@@ -61,6 +61,8 @@
     <string name="adhkar_periodic_interval_value">%1$d دقيقة</string>
     <string name="adhkar_periodic_category">فئة الأذكار</string>
     <string name="adhkar_periodic_category_random">عشوائي (كل الأذكار)</string>
+    <string name="adhkar_periodic_dhikr">ذكر محدد</string>
+    <string name="adhkar_periodic_dhikr_random">عشوائي (بدل الاختيار اليدوي)</string>
     <string name="adhkar_periodic_window_toggle">تحديد فترة زمنية فقط</string>
     <string name="adhkar_periodic_window_start">البداية</string>
     <string name="adhkar_periodic_window_end">النهاية</string>
@@ -70,6 +72,7 @@
     <string name="adhkar_favorites">المفضلة</string>
     <string name="adhkar_add_favorite">إضافة إلى المفضلة</string>
     <string name="adhkar_copy">نسخ</string>
+    <string name="adhkar_copied">تم نسخ الذكر</string>
     <string name="adhkar_share">مشاركة</string>
     <string name="adhkar_remove_favorite">إزالة من المفضلة</string>
 </resources>

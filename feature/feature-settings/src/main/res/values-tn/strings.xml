@@ -164,4 +164,22 @@
     <string name="update_available_text">Mofuta wa %1$s jaanong o teng — tobetsa go tlhabolola</string>
     <string name="notif_category_app_update">Dintšhwafatso tsa tiriswa</string>
     <string name="notif_category_app_update_desc">Kitsiso fa mofuta o mosha wa tiriswa o le teng</string>
+    <string name="about_tagline">Molekane yo o feletseng, wa mahala, yo o bulegileng wa Momoseleme mongwe le mongwe — dinako tsa thapelo, Adhan, Quran, hadith, adhkar le tse dingwe, ka puo ya gago.</string>
+    <string name="about_description_title">Ka Momoseleme</string>
+    <string name="about_description_body">Momoseleme ke app ya mahala le e e bulegileng ya Android e e tsamayang le wena letsatsi lotlhe: dinako tsa thapelo tse di nepagetseng tsa bolepadinaledi ka Adhan, khampase e e nepagetseng ya Qibla, Quran e e feletseng e e nang le dipolelo le tafsir, laeborari ya hadith, adhkar e e tswang mo motsweding, tasbih ya eleketeroniki, didirisiwa tsa Ramadan, khalekhuleita e e feletseng ya zakat ma offline, khalekhuleita e e feletseng ya zakat ma offline - thulaganyetsoruri.</string>
+    <string name="about_features_title">Dintlhakgolo</string>
+    <string name="about_features_body">Sengwe le sengwe se Momoseleme a se tlhokang mo app e le nngwe:</string>
+    <string name="about_feature_prayer">Dinako tsa thapelo le Adhan — mekgwa yotlhe ya go bala, dikolo tsa molao, le medumo ya adhan e e fetang 18</string>
+    <string name="about_feature_quran">Quran e e feletseng — Mokwalo wa ga Uthmani, babadi ba le 44, di-tafsir, dithanolo, go batla mafoko le go a boeletsa kgapetsakgapetsa</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan le Zakat - ka dikgopotso le dipudula tse phaphametseng</string>
+    <string name="about_feature_offline">Kwantle ga inthanete-pele — dimmapa, Quran, hadith le adhkar di dira kwantle ga inthanete</string>
+    <string name="about_feature_privacy">Polokodiphiri ka thulaganyetsoruri — ga go na dipapatso, ga go na go latedisa, tshedimosetso ya gago e nna mo sedirisweng tsa gago</string>
+    <string name="settings_auto_update">Dintšhwafatso tse di itirisang ka botlalo</string>
+    <string name="settings_auto_update_desc">Laisolola ka go itirisa le go tsenya mefuta e mesha kwa morago fela fa e sena go gololwa</string>
+    <string name="settings_auto_update_confirm_title">Kgontsha dintšhwafatso tse di itirisang?</string>
+    <string name="settings_auto_update_confirm_body">Mefuta e mesha e tla laisololwa le go tsenngwa ka go itirisa kwa morago fa e le teng. Tswelela?</string>
+    <string name="settings_auto_update_confirm">Kgontsha</string>
+    <string name="settings_cancel">Phimola</string>
+    <string name="update_last_check">Tlhotlhomiso ya bofelo: %1$s.</string>
+    <string name="update_open_releases">Bula tsebe ya ditokololo mo sebatling</string>
 </resources>

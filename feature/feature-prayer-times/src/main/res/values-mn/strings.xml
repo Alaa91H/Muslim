@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Нагшбанди азан</string>
     <string name="bundled_adhan_saber">Сабер азан</string>
     <string name="bundled_adhan_sharif_doman">Шариф Доман азан</string>
-    <string name="bundled_adhan_umayyad_damascus">Умайяд сүм (Дамаск) азан</string>
     <string name="bundled_adhan_yusuf_islam">Юсуф Ислам азан</string>
     <string name="home_cannot_compute">Энэ өдрийн цагийг тооцоолох боломжгүй</string>
     <string name="home_location_unknown">Байршлыг хараахан тохируулаагүй байна</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Автомат (байршлаар)</string>
     <string name="settings_method_automatic_desc">Апп нь таны улс орон, байршилд тулгуурлан хамгийн тохиромжтой аргыг автоматаар сонгоно; Та хүссэн үедээ гараар аргыг сонгож болно.</string>
     <string name="settings_preview_for_prayer">%1$s азаныг урьдчилан үзэх</string>
+    <string name="settings_method_automatic_picked">Одоогоор автоматаар сонгосон: %1$s — %2$s</string>
 </resources>

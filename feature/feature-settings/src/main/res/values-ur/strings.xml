@@ -164,4 +164,22 @@
     <string name="update_available_text">ورژن %1$s اب دستیاب ہے — اپ ڈیٹ کرنے کے لیے تھپتھپائیں۔</string>
     <string name="notif_category_app_update">ایپ اپ ڈیٹس</string>
     <string name="notif_category_app_update_desc">ایپ کا نیا ورژن دستیاب ہونے پر اطلاع</string>
+    <string name="about_tagline">ہر مسلمان کے لیے ایک مکمل، مفت، اوپن سورس ساتھی — نماز کے اوقات، اذان، قرآن، حدیث، اذکار اور بہت کچھ، آپ کی زبان میں۔</string>
+    <string name="about_description_title">مسلمان کے بارے میں</string>
+    <string name="about_description_body">مسلم ایک مفت اور اوپن سورس اینڈرائیڈ ایپ ہے جو دن بھر آپ کے ساتھ رہتی ہے: فلکیاتی اعتبار سے درست نماز کے اوقات اذان کے ساتھ، ایک عین قبلہ کمپاس، تلاوت اور تفسیر کے ساتھ مکمل قرآن، حدیث کی لائبریری، منبع اذکار، ایک الیکٹرانک تسبیح، رمضان ٹولز، زکوٰۃ کیلکولیٹر، نقشہ کے ساتھ آف لائن اور آف لائن ڈیزائن کے ساتھ مزید کام کرنے کے لیے۔ پہلے سے طے شدہ</string>
+    <string name="about_features_title">جھلکیاں</string>
+    <string name="about_features_body">ہر ایک مسلمان کو ایک ایپ میں درکار ہے:</string>
+    <string name="about_feature_prayer">نماز کے اوقات اور اذان - حساب کے تمام طریقے، فقہی مکاتب، اور 18+ اذان کی آوازیں</string>
+    <string name="about_feature_quran">مکمل قرآن - عثمانی رسم الخط، 44 تلاوت کرنے والے، تفسیر، ترجمہ، الفاظ کی تلاش اور تعدد</string>
+    <string name="about_feature_adhkar">اذکار، تسبیح، رمضان اور زکوٰۃ - یاد دہانیوں اور تیرتے بلبلوں کے ساتھ</string>
+    <string name="about_feature_offline">آف لائن - پہلے - نقشے، قرآن، حدیث اور اذکار بغیر انٹرنیٹ کے کام کرتے ہیں۔</string>
+    <string name="about_feature_privacy">پرائیویسی بطور ڈیفالٹ — کوئی اشتہار نہیں، کوئی ٹریکنگ نہیں، آپ کا ڈیٹا آپ کے آلے پر رہتا ہے۔</string>
+    <string name="settings_auto_update">مکمل طور پر خودکار اپ ڈیٹس</string>
+    <string name="settings_auto_update_desc">نئے ورژن جاری ہوتے ہی پس منظر میں خودکار طور پر ڈاؤن لوڈ اور انسٹال کریں۔</string>
+    <string name="settings_auto_update_confirm_title">خودکار اپ ڈیٹس کو فعال کریں؟</string>
+    <string name="settings_auto_update_confirm_body">نئے ورژن دستیاب ہونے پر پس منظر میں خود بخود ڈاؤن لوڈ اور انسٹال ہو جائیں گے۔ جاری رکھیں؟</string>
+    <string name="settings_auto_update_confirm">فعال کریں۔</string>
+    <string name="settings_cancel">منسوخ کریں۔</string>
+    <string name="update_last_check">آخری چیک: %1$s</string>
+    <string name="update_open_releases">براؤزر میں ریلیز کا صفحہ کھولیں۔</string>
 </resources>

@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah roish</string>
     <string name="quran_range_single_ayah">Ayah ynrican</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Dy jerrey surah</string>
+    <string name="quran_range_to_end">As gys jerrey y Mushaf .</string>
     <string name="quran_range_to_end_short">Dy chur jerrey er.</string>
     <string name="quran_range_whole_surah">Surah immeeaght</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf lane erskyn lught-leigh</string>
     <string name="quran_downloads_coverage_empty">Cha nel clashtyn er ny lhoobaghey foast</string>
     <string name="quran_pause_notif_listener">Pause y ghra er fysseree</string>
-    <string name="quran_reciter_changed_title">Reciter er ny chaghlaa</string>
-    <string name="quran_reciter_changed_message">Stooit y playback son ta\'n range ry-hoi rish jerrey y Quran. Toshiaght reesht lesh %1$s?</string>
-    <string name="quran_reciter_restart">Toshiaght reesht</string>
-    <string name="quran_reciter_not_now">Cha nee nish.</string>
+    <string name="quran_search_metrics">Am ymmyrkey: %1$d ms</string>
+    <string name="quran_search_index_building">Toiggal y Quran index son y chiad rannagh...</string>
+    <string name="quran_search_index_progress">Toiggal yn index mushaf... %1$d %%.</string>
+    <string name="quran_search_word_root">Freayll: %1$s</string>
+    <string name="quran_search_derivations">Focklyn ta çheet magh ass y fraue cheddin .</string>
+    <string name="quran_search_no_root">Cha b\'ee\'n root ry-akin</string>
 </resources>

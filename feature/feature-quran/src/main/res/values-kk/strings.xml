@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Алдыңғы аят</string>
     <string name="quran_range_single_ayah">Жалғыз аят</string>
     <string name="quran_range_single_ayah_short">Ая</string>
-    <string name="quran_range_to_end">сүренің соңына дейін</string>
+    <string name="quran_range_to_end">Мушафтың соңына дейін</string>
     <string name="quran_range_to_end_short">Аяқтау үшін</string>
     <string name="quran_range_whole_surah">Бүкіл сүре</string>
     <string name="quran_range_whole_surah_short">сүре</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Қарилар арасында толық мушаф</string>
     <string name="quran_downloads_coverage_empty">Әлі жүктеп алынған аудио жоқ</string>
     <string name="quran_pause_notif_listener">Хабарландыруларда оқуды кідірту</string>
-    <string name="quran_reciter_changed_title">Айтушы өзгерді</string>
-    <string name="quran_reciter_changed_message">Ойнату тоқтатылды, себебі ауқым Құранның соңына дейін созылады. %1$s деп қайта бастау керек пе?</string>
-    <string name="quran_reciter_restart">Қайтадан бастаңыз</string>
-    <string name="quran_reciter_not_now">Қазір емес</string>
+    <string name="quran_search_metrics">Іздеу уақыты: %1$d мс</string>
+    <string name="quran_search_index_building">Алғашқы іздеу үшін Құран индексін құру…</string>
+    <string name="quran_search_index_progress">Мушаф индексін құру… %1$d %%</string>
+    <string name="quran_search_word_root">Түбір: %1$s</string>
+    <string name="quran_search_derivations">Бір түбірден жасалған туынды сөздер</string>
+    <string name="quran_search_no_root">Түбірді анықтау мүмкін болмады</string>
 </resources>

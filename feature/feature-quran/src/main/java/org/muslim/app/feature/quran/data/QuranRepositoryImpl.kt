@@ -70,7 +70,7 @@ class QuranRepositoryImpl @Inject constructor(
                     ayahFtsDao.insertAll(
                         ayahs.map {
                             AyahFtsEntity(
-                                normalizedText = ArabicText.normalize(it.text),
+                                normalizedText = ArabicText.normalizeForSearch(it.text),
                                 globalNumber = it.globalNumber,
                                 surahNumber = it.surahNumber,
                                 numberInSurah = it.numberInSurah,

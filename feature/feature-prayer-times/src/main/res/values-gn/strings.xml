@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Naghshbandi adhan rehegua</string>
     <string name="bundled_adhan_saber">Sabre adhan rehegua</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adhan rehegua</string>
-    <string name="bundled_adhan_umayyad_damascus">Mezquita Umayyad (Damasco) adhan</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan rehegua</string>
     <string name="home_cannot_compute">Ndikatúi okalkula aravo ko árape guarã</string>
     <string name="home_location_unknown">Ubicación noñemoĩri gueteri</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Automático (ubicación rupive) .</string>
     <string name="settings_method_automatic_desc">Pe app oiporavo ijeheguiete pe método iporãvéva oñemopyendáva nde retã ha moõpa oĩ; ikatu gueteri reiporavo peteĩ método nde po rupive oimeraẽ jave.</string>
     <string name="settings_preview_for_prayer">Tembiecharã %1$s adhan</string>
+    <string name="settings_method_automatic_picked">Automático ojeporavóva ko’áĝa: %1$s — %2$s</string>
 </resources>

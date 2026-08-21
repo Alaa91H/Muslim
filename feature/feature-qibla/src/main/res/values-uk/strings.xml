@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Ширина області (градуси)</string>
     <string name="offline_maps_storage_warning">Мало пам’яті — безкоштовно лише %1$s</string>
     <string name="offline_maps_storage_delete_largest">Видалити найбільший регіон (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Шукайте мечеті за назвою</string>
+    <string name="mosque_finder_show_all">Показати всі мечеті</string>
+    <string name="mosque_finder_share">Відкриті маршрути</string>
+    <string name="offline_maps_use_my_location">Перейти до мого поточного місцезнаходження</string>
 </resources>

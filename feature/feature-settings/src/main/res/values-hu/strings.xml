@@ -164,4 +164,22 @@
     <string name="update_available_text">A(z) %1$s verzió már elérhető – érintse meg a frissítéshez</string>
     <string name="notif_category_app_update">Alkalmazásfrissítések</string>
     <string name="notif_category_app_update_desc">Értesítés, ha új alkalmazásverzió érhető el</string>
+    <string name="about_tagline">Teljes, ingyenes, nyílt forráskódú társ minden muszlim számára – áhítatok, Adhan, Korán, hadísz, Adhkar és még sok más, az Ön nyelvén.</string>
+    <string name="about_description_title">A muszlimról</string>
+    <string name="about_description_body">A Muslim egy ingyenes és nyílt forráskódú Android-alkalmazás, amely egész nap elkíséri Önt: csillagászatilag pontos imaidőpontok az Adhannal, egy precíz Kibla-iránytű, a teljes Korán szavalatokkal és tafsirral, egy hadísz-könyvtár, forrásból származó adhkar, egy elektronikus tasbih, Ramadan-eszközök, egy zakat-kalkulátor, teljesen offline adatvédelemmel és offline térképekkel.</string>
+    <string name="about_features_title">Kiemelések</string>
+    <string name="about_features_body">Minden, amire egy muszlimnak szüksége van egy alkalmazásban:</string>
+    <string name="about_feature_prayer">Imádságok és Adhan – minden számítási módszer, jogi iskolák és 18+ Adhan hangok</string>
+    <string name="about_feature_quran">Teljes Korán – Uthmani forgatókönyv, 44 szavaló, tafsir, fordítások, szókeresés és gyakoriság</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadan és Zakat – emlékeztetőkkel és lebegő buborékokkal</string>
+    <string name="about_feature_offline">Először offline – a térképek, a Korán, a hadísz és az adhkar internet nélkül is működnek</string>
+    <string name="about_feature_privacy">Alapértelmezés szerint adatvédelem – nincsenek hirdetések, nincs nyomon követés, az adatok az eszközön maradnak</string>
+    <string name="settings_auto_update">Teljesen automatikus frissítések</string>
+    <string name="settings_auto_update_desc">Az új verziók automatikus letöltése és telepítése a háttérben, amint megjelennek</string>
+    <string name="settings_auto_update_confirm_title">Engedélyezi az automatikus frissítéseket?</string>
+    <string name="settings_auto_update_confirm_body">Az új verziók letöltése és telepítése automatikusan a háttérben történik, ha elérhetők. Folytatja?</string>
+    <string name="settings_auto_update_confirm">Engedélyezés</string>
+    <string name="settings_cancel">Mégse</string>
+    <string name="update_last_check">Utolsó ellenőrzés: %1$s</string>
+    <string name="update_open_releases">Nyissa meg a kiadások oldalát a böngészőben</string>
 </resources>

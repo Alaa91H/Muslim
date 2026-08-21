@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">ପୂର୍ବ ଆୟ</string>
     <string name="quran_range_single_ayah">ଏକକ ଆୟ</string>
     <string name="quran_range_single_ayah_short">ଆୟା</string>
-    <string name="quran_range_to_end">ସୁରା ଶେଷ</string>
+    <string name="quran_range_to_end">ମୁଶଫର ଶେଷ ପର୍ଯ୍ୟନ୍ତ</string>
     <string name="quran_range_to_end_short">ଶେଷ କରିବାକୁ</string>
     <string name="quran_range_whole_surah">ପୁରା ସୁରା |</string>
     <string name="quran_range_whole_surah_short">ସୁରା |</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">ପାଠକମାନଙ୍କ ମଧ୍ୟରେ ପୂର୍ଣ୍ଣ ମୁଶଫ୍ |</string>
     <string name="quran_downloads_coverage_empty">ଏପର୍ଯ୍ୟନ୍ତ କ audio ଣସି ଅଡିଓ ଡାଉନଲୋଡ୍ ହୋଇନାହିଁ |</string>
     <string name="quran_pause_notif_listener">ବିଜ୍ଞପ୍ତିରେ ପଠନ ବନ୍ଦ କରନ୍ତୁ |</string>
-    <string name="quran_reciter_changed_title">ପାଠକ ପରିବର୍ତ୍ତନ ହେଲା |</string>
-    <string name="quran_reciter_changed_message">Playback stopped because the range runs to the end of the Quran. Start again with %1$s?</string>
-    <string name="quran_reciter_restart">ପୁନର୍ବାର ଆରମ୍ଭ କରନ୍ତୁ |</string>
-    <string name="quran_reciter_not_now">ବର୍ତ୍ତମାନ ନୁହେଁ |</string>
+    <string name="quran_search_metrics">ସନ୍ଧାନ ସମୟ: %1$d ମି</string>
+    <string name="quran_search_index_building">ପ୍ରଥମ ସନ୍ଧାନ ପାଇଁ କୁରାନ ଇଣ୍ଡେକ୍ସ ନିର୍ମାଣ…</string>
+    <string name="quran_search_index_progress">ମୁଶଫ୍ ଇଣ୍ଡେକ୍ସ ନିର୍ମାଣ… %1$d %% |</string>
+    <string name="quran_search_word_root">ମୂଳ: %1$s</string>
+    <string name="quran_search_derivations">ସମାନ ମୂଳରୁ ଶବ୍ଦଗୁଡ଼ିକ ଉତ୍ପନ୍ନ |</string>
+    <string name="quran_search_no_root">ମୂଳ ନିର୍ଣ୍ଣୟ କରିପାରିଲା ନାହିଁ |</string>
 </resources>

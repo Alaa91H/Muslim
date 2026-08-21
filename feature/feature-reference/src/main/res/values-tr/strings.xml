@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Bu kitabı arayın…</string>
     <string name="reference_title">İslami Referans Kütüphanesi</string>
     <string name="reference_topics_count">konular</string>
+    <string name="reference_copy">Kopyala</string>
+    <string name="reference_share">Paylaş</string>
 </resources>

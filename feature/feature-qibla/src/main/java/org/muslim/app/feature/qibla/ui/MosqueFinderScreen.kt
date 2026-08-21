@@ -1,6 +1,10 @@
 package org.muslim.app.feature.qibla.ui
 
+import android.content.Intent
+import android.net.Uri
+import androidx.core.net.toUri
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,6 +27,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.Remove
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -30,18 +35,23 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
+import org.muslim.app.core.ui.text.DigitNormalizedOutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -52,6 +62,7 @@ import kotlinx.coroutines.launch
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.maplibre.android.camera.CameraPosition
 import org.maplibre.android.geometry.LatLng
+import org.maplibre.android.geometry.LatLngBounds
 import org.muslim.app.core.ui.map.MapController
 import org.muslim.app.core.ui.map.MapMarker
 import org.muslim.app.core.ui.map.OsmMapView
@@ -140,6 +151,19 @@ fun MosqueFinderScreen(
         }
     }
 
+    val context = LocalContext.current
+
+    // Text filter: searches the already-loaded results by mosque name.
+    var nameQuery by rememberSaveable { mutableStateOf("") }
+    val filteredMosques = remember(viewModel.mosques, nameQuery) {
+        val q = nameQuery.trim()
+        if (q.isEmpty()) {
+            viewModel.mosques
+        } else {
+            viewModel.mosques.filter { it.name.contains(q, ignoreCase = true) }
+        }
+    }
+
     // The bottom list is scrollable so a tapped marker can bring its card
     // into view and highlight it.
     val listState = rememberLazyListState()
@@ -148,16 +172,34 @@ fun MosqueFinderScreen(
     // fires): drives the auto-scroll to the matching card in the list.
     var pendingScrollMosqueId by remember { mutableStateOf<String?>(null) }
 
-    // Absolute index of the first mosque card inside the LazyColumn
-    // (intro + map come before it; loading/error cards shift it).
-    val mosqueListOffset =
-        2 + (if (viewModel.loading) 1 else 0) + (if (viewModel.error != null) 1 else 0)
+    // Shared map handle (zoom / fly-to / fit-bounds from the search bar).
+    val mapController = remember { MapController() }
 
-    LaunchedEffect(pendingScrollMosqueId, viewModel.mosques) {
+    // Absolute index of the first mosque card inside the LazyColumn
+    // (intro + search + map come before it; loading/error cards shift it).
+    val mosqueListOffset =
+        (if (latitude != null && longitude != null) 4 else 2) +
+            (if (viewModel.loading) 1 else 0) +
+            (if (viewModel.error != null) 1 else 0)
+
+    LaunchedEffect(pendingScrollMosqueId, filteredMosques) {
         val id = pendingScrollMosqueId ?: return@LaunchedEffect
-        val index = viewModel.mosques.indexOfFirst { "${it.latitude}_${it.longitude}" == id }
+        val index = filteredMosques.indexOfFirst { "${it.latitude}_${it.longitude}" == id }
         if (index >= 0) listState.animateScrollToItem(mosqueListOffset + index)
         pendingScrollMosqueId = null
+    }
+
+    // Fits the camera so every current result (plus the user pin) is visible.
+    fun fitAllResults() {
+        val points = buildList {
+            if (latitude != null && longitude != null) {
+                add(LatLng(latitude, longitude))
+            }
+            viewModel.mosques.forEach { add(LatLng(it.latitude, it.longitude)) }
+        }
+        if (points.isEmpty()) return
+        val bounds = LatLngBounds.Builder().apply { points.forEach { include(it) } }.build()
+        mapController.animateToBounds(bounds)
     }
 
     Scaffold(
@@ -190,6 +232,21 @@ fun MosqueFinderScreen(
             }
             if (latitude != null && longitude != null) {
                 item {
+                    // Text search: filters the already-loaded results by name.
+                    DigitNormalizedOutlinedTextField(
+                        value = nameQuery,
+                        onValueChange = { nameQuery = it },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth(),
+                        placeholder = {
+                            Text(stringResource(R.string.mosque_finder_search_hint))
+                        },
+                        leadingIcon = {
+                            Icon(Icons.Filled.Search, contentDescription = null)
+                        },
+                    )
+                }
+                item {
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         OutlinedButton(
                             onClick = { viewModel.searchNearest(latitude, longitude) },
@@ -214,7 +271,6 @@ fun MosqueFinderScreen(
                     }
                 }
                 item {
-                    val mapController = remember { MapController() }
                     val nearest = viewModel.mosques.minByOrNull { it.distanceMeters }
                     Box(Modifier.fillMaxWidth().height(300.dp)) {
                         OsmMapView(
@@ -283,6 +339,23 @@ fun MosqueFinderScreen(
                                 contentDescription = stringResource(R.string.mosque_finder_retry),
                             )
                         }
+                        // "Show all" fits the camera to every current result.
+                        if (viewModel.mosques.isNotEmpty()) {
+                            TextButton(
+                                onClick = { fitAllResults() },
+                                modifier = Modifier
+                                    .align(Alignment.TopCenter)
+                                    .padding(12.dp),
+                            ) {
+                                Icon(
+                                    Icons.Default.LocationOn,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(16.dp),
+                                )
+                                Spacer(Modifier.width(4.dp))
+                                Text(stringResource(R.string.mosque_finder_show_all))
+                            }
+                        }
                         nearest?.let { mosque ->
                             TextButton(
                                 onClick = {
@@ -290,7 +363,7 @@ fun MosqueFinderScreen(
                                     viewModel.selectMosque(mosque)
                                 },
                                 modifier = Modifier
-                                    .align(Alignment.TopCenter)
+                                    .align(Alignment.BottomCenter)
                                     .padding(12.dp),
                             ) {
                                 Icon(
@@ -350,6 +423,18 @@ fun MosqueFinderScreen(
                                         Spacer(Modifier.width(4.dp))
                                         Text(stringResource(R.string.mosque_finder_go_to))
                                     }
+                                    IconButton(onClick = {
+                                        val label = Uri.encode(mosque.name)
+                                        val uri = "geo:${mosque.latitude},${mosque.longitude}?q=${mosque.latitude},${mosque.longitude}($label)".toUri()
+                                        runCatching {
+                                            context.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                                        }
+                                    }) {
+                                        Icon(
+                                            Icons.Default.Share,
+                                            contentDescription = stringResource(R.string.mosque_finder_share),
+                                        )
+                                    }
                                     IconButton(onClick = { viewModel.selectMosque(null) }) {
                                         Icon(
                                             Icons.Default.Close,
@@ -399,12 +484,17 @@ fun MosqueFinderScreen(
                     }
                 }
             }
-            itemsIndexed(viewModel.mosques, key = { _, mosque -> mosque.latitude.toString() + mosque.longitude }) { _, mosque ->
+            itemsIndexed(filteredMosques, key = { _, mosque -> mosque.latitude.toString() + mosque.longitude }) { _, mosque ->
                 // The card matching the selected mosque is outlined so a
                 // tapped marker is unmistakably tied to its list entry.
                 val highlighted = viewModel.selectedMosque == mosque
                 Card(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            viewModel.selectMosque(mosque)
+                            mapController.animateTo(LatLng(mosque.latitude, mosque.longitude), 16.0)
+                        },
                     border = if (highlighted) {
                         BorderStroke(2.dp, MaterialTheme.colorScheme.primary)
                     } else {
@@ -446,6 +536,14 @@ fun MosqueFinderScreen(
             }
             if (!viewModel.loading && viewModel.mosques.isEmpty() && viewModel.error == null && latitude != null) {
                 item { Text(stringResource(R.string.mosque_finder_empty)) }
+            }
+            if (!viewModel.loading && filteredMosques.isEmpty() && nameQuery.isNotBlank()) {
+                item {
+                    Text(
+                        stringResource(R.string.mosque_finder_empty),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
             }
         }
     }

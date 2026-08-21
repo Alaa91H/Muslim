@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">ທີ່ຜ່ານມາ</string>
     <string name="quran_range_single_ayah">ໂສດ</string>
     <string name="quran_range_single_ayah_short">ອາຢາ</string>
-    <string name="quran_range_to_end">ໃນຕອນທ້າຍຂອງ Surah</string>
+    <string name="quran_range_to_end">ໃນຕອນທ້າຍຂອງ Mushaf ໄດ້</string>
     <string name="quran_range_to_end_short">ສິ້ນສຸດ</string>
     <string name="quran_range_whole_surah">Surah ທັງ​ຫມົດ​</string>
     <string name="quran_range_whole_surah_short">Surah</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">mushaf ເຕັມໃນທົ່ວ reciters</string>
     <string name="quran_downloads_coverage_empty">ບໍ່ມີການດາວໂຫຼດສຽງເທື່ອ</string>
     <string name="quran_pause_notif_listener">ຢຸດການບັນຍາຍໄວ້ຊົ່ວຄາວໃນການແຈ້ງເຕືອນ</string>
-    <string name="quran_reciter_changed_title">Reciter ມີການປ່ຽນແປງ</string>
-    <string name="quran_reciter_changed_message">ການຫຼິ້ນຢຸດຍ້ອນໄລຍະແລ່ນໄປຈົນເຖິງທ້າຍຂອງ Quran. ເລີ່ມຕົ້ນອີກຄັ້ງກັບ %1$s?</string>
-    <string name="quran_reciter_restart">ເລີ່ມຕົ້ນອີກຄັ້ງ</string>
-    <string name="quran_reciter_not_now">ບໍ່ແມ່ນດຽວນີ້</string>
+    <string name="quran_search_metrics">ເວລາຄົ້ນຫາ: %1$d ms</string>
+    <string name="quran_search_index_building">ການສ້າງດັດຊະນີ Quran ສໍາລັບການຄົ້ນຫາຄັ້ງທໍາອິດ ...</string>
+    <string name="quran_search_index_progress">ການສ້າງດັດຊະນີ mushaf… %1$d %%</string>
+    <string name="quran_search_word_root">ຮາກ: %1$s</string>
+    <string name="quran_search_derivations">ຄໍາທີ່ມາຈາກຮາກດຽວກັນ</string>
+    <string name="quran_search_no_root">ບໍ່ສາມາດກໍານົດຮາກໄດ້</string>
 </resources>

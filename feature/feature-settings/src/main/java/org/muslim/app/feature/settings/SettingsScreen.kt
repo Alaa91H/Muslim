@@ -29,8 +29,10 @@ import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.PrivacyTip
+import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.SystemUpdate
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -44,6 +46,7 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -147,6 +150,9 @@ fun SettingsScreen(
     // the previously expanded section (single expanded card at a time).
     var expandedSection by rememberSaveable { mutableStateOf<String?>(null) }
 
+    // One-time confirmation before fully-automatic updates can install APKs.
+    var confirmAutoUpdate by remember { mutableStateOf(false) }
+
     // Every locale the APK ships resources for, shown in its own native name
     // (System first). Built once per composition from the merged assets.
     val languageOptions = rememberLanguageOptions()
@@ -169,6 +175,26 @@ fun SettingsScreen(
             )
         },
     ) { innerPadding ->
+        if (confirmAutoUpdate) {
+            AlertDialog(
+                onDismissRequest = { confirmAutoUpdate = false },
+                title = { Text(stringResource(R.string.settings_auto_update_confirm_title)) },
+                text = { Text(stringResource(R.string.settings_auto_update_confirm_body)) },
+                confirmButton = {
+                    TextButton(onClick = {
+                        viewModel.setAutoUpdateEnabled(true)
+                        confirmAutoUpdate = false
+                    }) {
+                        Text(stringResource(R.string.settings_auto_update_confirm))
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = { confirmAutoUpdate = false }) {
+                        Text(stringResource(R.string.settings_cancel))
+                    }
+                },
+            )
+        }
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
@@ -420,6 +446,23 @@ fun SettingsScreen(
                         },
                     )
                     if (preferences.updateCheckEnabled) {
+                        ListItem(
+                            headlineContent = { Text(stringResource(R.string.settings_auto_update)) },
+                            supportingContent = { Text(stringResource(R.string.settings_auto_update_desc)) },
+                            leadingContent = { Icon(Icons.Filled.Download, contentDescription = null) },
+                            trailingContent = {
+                                Switch(
+                                    checked = preferences.autoUpdateEnabled,
+                                    onCheckedChange = { enabled ->
+                                        if (enabled) {
+                                            confirmAutoUpdate = true
+                                        } else {
+                                            viewModel.setAutoUpdateEnabled(false)
+                                        }
+                                    },
+                                )
+                            },
+                        )
                         Text(
                             text = stringResource(R.string.settings_updates_frequency),
                             style = MaterialTheme.typography.labelLarge,

@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">I lina\'la\' i lugåt (grado)</string>
     <string name="offline_maps_storage_warning">Ti meggai na lugåt — %1$s ha\' na libre</string>
     <string name="offline_maps_storage_delete_largest">Na\'suha i mas takhilo\' na lugåt (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Li\'e\' i na\'an i moske siha</string>
+    <string name="mosque_finder_show_all">Fa\'nu\'i todu i moske siha</string>
+    <string name="mosque_finder_share">Abri i direksion siha</string>
+    <string name="offline_maps_use_my_location">Hanao para i lugat-hu på\'go</string>
 </resources>

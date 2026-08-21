@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Go boeletsa go ema go sekae fa go tshameka kitsiso, mogala kgotsa metswedi e mengwe</string>
     <string name="more_pause_notifications_enabled">E kgontshitswe — tobetsa go bula diseting tsa tsamaiso</string>
     <string name="more_pause_notifications_disabled">E thibetswe — tobetsa go kgontsha</string>
+    <string name="more_names">Maina a le 99 a ga Allah</string>
+    <string name="more_names_desc">Maina a le 99 a a nang le tlhaloso e e feletseng</string>
+    <string name="more_hajj">Hajji le Umra</string>
+    <string name="more_hajj_desc">Kaelo e e feletseng ya dingwao tsa Hajj le Umrah</string>
 </resources>

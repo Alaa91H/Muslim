@@ -164,4 +164,22 @@
     <string name="update_available_text">Verzija %1$s je sada dostupna — dodirnite za ažuriranje</string>
     <string name="notif_category_app_update">Ažuriranja aplikacije</string>
     <string name="notif_category_app_update_desc">Obavijest kada nova verzija aplikacije bude dostupna</string>
+    <string name="about_tagline">Potpuni, besplatni suputnik otvorenog koda za svakog muslimana - vrijeme molitve, ezan, Kur\'an, hadis, ezkar i više, na vašem jeziku.</string>
+    <string name="about_description_title">O muslimanu</string>
+    <string name="about_description_body">Muslim je besplatna Android aplikacija otvorenog koda koja vas prati tijekom cijelog dana: astronomski točna vremena molitve s ezanom, precizni Qibla kompas, cijeli Kur\'an s recitacijama i tefsirom, knjižnica hadisa, izvorni adhkar, elektronički tasbih, ramazanski alati, kalkulator zakata, izvanmrežne karte i još mnogo toga — dizajnirano za potpuno izvanmrežni rad s privatnošću prema zadanim postavkama.</string>
+    <string name="about_features_title">Izdvajamo</string>
+    <string name="about_features_body">Sve što muslimanu treba u jednoj aplikaciji:</string>
+    <string name="about_feature_prayer">Vrijeme molitve i ezan — sve metode izračuna, pravne škole i zvukovi ezana za 18+</string>
+    <string name="about_feature_quran">Kompletan Kur\'an - Osmani pismo, 44 recitatora, tefsir, prijevodi, pretraživanje riječi i učestalost</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, ramazan i zekat — s podsjetnicima i plutajućim mjehurićima</string>
+    <string name="about_feature_offline">Offline-prvo — karte, Kuran, hadisi i adhkar rade bez interneta</string>
+    <string name="about_feature_privacy">Privatnost prema zadanim postavkama — nema oglasa, nema praćenja, vaši podaci ostaju na vašem uređaju</string>
+    <string name="settings_auto_update">Potpuno automatska ažuriranja</string>
+    <string name="settings_auto_update_desc">Automatski preuzimajte i instalirajte nove verzije u pozadini čim se objave</string>
+    <string name="settings_auto_update_confirm_title">Omogućiti automatska ažuriranja?</string>
+    <string name="settings_auto_update_confirm_body">Nove verzije automatski će se preuzeti i instalirati u pozadini kada budu dostupne. Nastaviti?</string>
+    <string name="settings_auto_update_confirm">Omogućiti</string>
+    <string name="settings_cancel">Otkazati</string>
+    <string name="update_last_check">Zadnja provjera: %1$s</string>
+    <string name="update_open_releases">Otvorite stranicu s izdanjima u pregledniku</string>
 </resources>

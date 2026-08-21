@@ -51,6 +51,12 @@ data class AdhkarPrefs(
     val periodicReminderIntervalMinutes: Int = 60,
     /** Category for the periodic reminder; null = random across all enabled adhkar. */
     val periodicReminderCategoryId: String? = null,
+    /**
+     * A specific dhikr id pinned by the user for the floating message; when
+     * set (and the dhikr is enabled) it replaces the random pick, otherwise
+     * the periodic reminder keeps choosing randomly.
+     */
+    val periodicReminderDhikrId: Long? = null,
     /** Prefer compact one- or two-line adhkar in floating reminders. */
     val shortDhikrOnly: Boolean = true,
     /** Restrict the periodic reminder to a daily time window (e.g. work hours). */
@@ -109,6 +115,7 @@ class AdhkarPrefsRepository @Inject constructor(
             periodicReminderEnabled = p[Keys.PERIODIC_ENABLED] ?: false,
             periodicReminderIntervalMinutes = (p[Keys.PERIODIC_INTERVAL] ?: 60).coerceIn(5, 1_440),
             periodicReminderCategoryId = p[Keys.PERIODIC_CATEGORY],
+            periodicReminderDhikrId = p[Keys.PERIODIC_DHIKR_ID],
             shortDhikrOnly = p[Keys.SHORT_DHIKR_ONLY] ?: true,
             periodicReminderWindowEnabled = p[Keys.PERIODIC_WINDOW_ENABLED] ?: false,
             periodicReminderWindowStartHour = (p[Keys.PERIODIC_WINDOW_START_HOUR] ?: 9).coerceIn(0, 23),
@@ -189,6 +196,10 @@ class AdhkarPrefsRepository @Inject constructor(
         if (categoryId == null) it.remove(Keys.PERIODIC_CATEGORY) else it[Keys.PERIODIC_CATEGORY] = categoryId
     }
 
+    suspend fun setPeriodicReminderDhikr(id: Long?) = edit {
+        if (id == null) it.remove(Keys.PERIODIC_DHIKR_ID) else it[Keys.PERIODIC_DHIKR_ID] = id
+    }
+
     suspend fun setShortDhikrOnly(enabled: Boolean) = edit {
         it[Keys.SHORT_DHIKR_ONLY] = enabled
     }
@@ -223,6 +234,7 @@ class AdhkarPrefsRepository @Inject constructor(
         val PERIODIC_ENABLED = booleanPreferencesKey("periodic_reminder_enabled")
         val PERIODIC_INTERVAL = intPreferencesKey("periodic_reminder_interval_minutes")
         val PERIODIC_CATEGORY = androidx.datastore.preferences.core.stringPreferencesKey("periodic_reminder_category")
+        val PERIODIC_DHIKR_ID = androidx.datastore.preferences.core.longPreferencesKey("periodic_reminder_dhikr_id")
         val SHORT_DHIKR_ONLY = booleanPreferencesKey("short_dhikr_only")
         val PERIODIC_WINDOW_ENABLED = booleanPreferencesKey("periodic_window_enabled")
         val PERIODIC_WINDOW_START_HOUR = intPreferencesKey("periodic_window_start_hour")

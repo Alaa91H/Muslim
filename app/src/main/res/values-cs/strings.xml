@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Recitace se krátce pozastaví, když se přehraje oznámení, vyzvánění nebo jiné médium</string>
     <string name="more_pause_notifications_enabled">Povoleno – klepnutím otevřete nastavení systému</string>
     <string name="more_pause_notifications_disabled">Vypnuto – klepnutím povolíte</string>
+    <string name="more_names">99 Alláhových jmen</string>
+    <string name="more_names_desc">99 jmen s úplným vysvětlením</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Podrobný průvodce obřady Hajj a Umrah</string>
 </resources>

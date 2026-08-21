@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Aya e e fetileng</string>
     <string name="quran_range_single_ayah">Ayah e le nngwe</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Go ya kwa bokhutlong jwa surah</string>
+    <string name="quran_range_to_end">Go ya kwa bokhutlong jwa Mushaf</string>
     <string name="quran_range_to_end_short">Go fela</string>
     <string name="quran_range_whole_surah">Surah yotlhe</string>
     <string name="quran_range_whole_surah_short">Sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf o o tletseng go ralala babuisi</string>
     <string name="quran_downloads_coverage_empty">Ga go ise go laisololwe modumo</string>
     <string name="quran_pause_notif_listener">Emisa go boeletsa mo dikitsisong</string>
-    <string name="quran_reciter_changed_title">Mobuisi o fetotswe</string>
-    <string name="quran_reciter_changed_message">Playback e emisitswe ka gore range e tabogela kwa bokhutlong jwa Quran. Simolola gape ka %1$s?</string>
-    <string name="quran_reciter_restart">Simolola gape</string>
-    <string name="quran_reciter_not_now">E seng jaanong</string>
+    <string name="quran_search_metrics">Nako ya go batla: %1$d ms</string>
+    <string name="quran_search_index_building">Go aga tshupane ya Quran ya patlo ya ntlha...</string>
+    <string name="quran_search_index_progress">Go aga tshupane ya mushaf... %1$d %%.</string>
+    <string name="quran_search_word_root">Modi: %1$s.</string>
+    <string name="quran_search_derivations">Mafoko a a tswang mo moding o le mongwe</string>
+    <string name="quran_search_no_root">Ga ke kgone go tlhomamisa modi</string>
 </resources>

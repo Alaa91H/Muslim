@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Lausunto pysähtyy hetkeksi, kun ilmoitus, soittoääni tai muu media toistetaan</string>
     <string name="more_pause_notifications_enabled">Käytössä — napauta avataksesi järjestelmäasetukset</string>
     <string name="more_pause_notifications_disabled">Ei käytössä — ota käyttöön napauttamalla</string>
+    <string name="more_names">99 Allahin nimeä</string>
+    <string name="more_names_desc">99 nimeä täydellisillä selityksillä</string>
+    <string name="more_hajj">Hajj &amp; Umrah</string>
+    <string name="more_hajj_desc">Yksityiskohtainen opas Hajj- ja Umrah-riiteihin</string>
 </resources>

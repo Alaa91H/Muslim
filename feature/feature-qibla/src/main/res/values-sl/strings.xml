@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Širina območja (stopinje)</string>
     <string name="offline_maps_storage_warning">Malo prostora za shranjevanje — samo %1$s brezplačno</string>
     <string name="offline_maps_storage_delete_largest">Izbriši največjo regijo (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Išči mošeje po imenu</string>
+    <string name="mosque_finder_show_all">Prikaži vse mošeje</string>
+    <string name="mosque_finder_share">Odprta navodila</string>
+    <string name="offline_maps_use_my_location">Pojdi na mojo trenutno lokacijo</string>
 </resources>

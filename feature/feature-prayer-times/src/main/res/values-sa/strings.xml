@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">नघ्शबन्दी अधन</string>
     <string name="bundled_adhan_saber">सबेरे अधन</string>
     <string name="bundled_adhan_sharif_doman">शरीफ डोमन् अधन्</string>
-    <string name="bundled_adhan_umayyad_damascus">उमय्यद मस्जिद (दमिश्क) adhan</string>
     <string name="bundled_adhan_yusuf_islam">यूसुफ इस्लाम अधन</string>
     <string name="home_cannot_compute">अस्य दिवसस्य समयगणना कर्तुं असमर्थः</string>
     <string name="home_location_unknown">स्थानं अद्यापि सेट् न कृतम्</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">स्वचालितम् (स्थानानुसारम्) २.</string>
     <string name="settings_method_automatic_desc">एप् भवतः देशस्य स्थानस्य च आधारेण स्वयमेव सर्वाधिकं उपयुक्तं पद्धतिं चिनोति; अद्यापि भवन्तः कदापि हस्तचलितरूपेण विधिं चिन्वितुं शक्नुवन्ति ।</string>
     <string name="settings_preview_for_prayer">पूर्वावलोकन %1$s अधन</string>
+    <string name="settings_method_automatic_picked">स्वचालितं वर्तमानकाले उद्धृतम्: %1$s — %2$s</string>
 </resources>

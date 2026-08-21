@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Выкарыстоўвайце толькі кароткі adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Выберыце адхкар, які змяшчае адзін або два радкі, каб плаваючая бурбалка заставалася выразнай і лёгкай для чытання.</string>
     <string name="adhkar_overlay_tap_hint">Націсніце бурбалку, каб неадкладна закрыць яе.</string>
+    <string name="adhkar_copied">Зікр скапіяваны</string>
+    <string name="adhkar_periodic_dhikr">Канкрэтны зікр</string>
+    <string name="adhkar_periodic_dhikr_random">Выпадковы (замест ручнога выбару)</string>
 </resources>

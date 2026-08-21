@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Adhan Naghshbandi</string>
     <string name="bundled_adhan_saber">Adzan saber</string>
     <string name="bundled_adhan_sharif_doman">Sharif Doman adzan</string>
-    <string name="bundled_adhan_umayyad_damascus">Adzan Masjid Umayyah (Damascus).</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adzan</string>
     <string name="home_cannot_compute">Tidak dapat mengira masa untuk hari ini</string>
     <string name="home_location_unknown">Lokasi belum ditetapkan lagi</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Automatik (mengikut lokasi)</string>
     <string name="settings_method_automatic_desc">Apl memilih kaedah yang paling sesuai secara automatik berdasarkan negara dan lokasi anda; anda masih boleh memilih kaedah secara manual pada bila-bila masa.</string>
     <string name="settings_preview_for_prayer">Pratonton %1$s azan</string>
+    <string name="settings_method_automatic_picked">Automatik yang dipilih pada masa ini: %1$s — %2$s</string>
 </resources>

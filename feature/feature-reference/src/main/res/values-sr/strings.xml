@@ -5,4 +5,6 @@
     <string name="reference_search_hint">Претражи ову књигу…</string>
     <string name="reference_title">Исламска референтна библиотека</string>
     <string name="reference_topics_count">теме</string>
+    <string name="reference_copy">Копирај</string>
+    <string name="reference_share">Схаре</string>
 </resources>

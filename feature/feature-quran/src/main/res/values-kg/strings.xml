@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ayah ya ntama</string>
     <string name="quran_range_single_ayah">Ayah mosi</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Na nsuka ya surah</string>
+    <string name="quran_range_to_end">Na nsuka ya Mushaf .</string>
     <string name="quran_range_to_end_short">Kumanisa</string>
     <string name="quran_range_whole_surah">Surah ya mvimba</string>
     <string name="quran_range_whole_surah_short">Sura</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf ya mvimba na kati ya batangi</string>
     <string name="quran_downloads_coverage_empty">Bo me baka ntete ve ndinga</string>
     <string name="quran_pause_notif_listener">Pemisa kutanga na bansangu</string>
-    <string name="quran_reciter_changed_title">Muntu ya ke tangaka me soba</string>
-    <string name="quran_reciter_changed_message">Kubula me mana sambu bandinga ke kwenda tii na nsuka ya Quran. Banda diaka na %1$s?</string>
-    <string name="quran_reciter_restart">Yantika diaka</string>
-    <string name="quran_reciter_not_now">Ntangu yai ve</string>
+    <string name="quran_search_metrics">Ntangu ya kusosa: %1$d ms</string>
+    <string name="quran_search_index_building">Kutunga index ya Quran sambu na kusosa ya ntete...</string>
+    <string name="quran_search_index_progress">Kutunga index ya mushaf... %1$d %%.</string>
+    <string name="quran_search_word_root">Ntu: %1$s</string>
+    <string name="quran_search_derivations">Bangogo yina me katuka na kisina mosi .</string>
+    <string name="quran_search_no_root">Kulendaka ve kuzaba kisina</string>
 </resources>

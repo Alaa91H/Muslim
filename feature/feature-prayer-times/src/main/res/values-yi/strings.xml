@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">נאַגהשבנדי אַדהאַן</string>
     <string name="bundled_adhan_saber">סאַבער אַדהאַן</string>
     <string name="bundled_adhan_sharif_doman">שאַריף דאָמאַן אַדהאַן</string>
-    <string name="bundled_adhan_umayyad_damascus">ומייאַד מאָסקווע (דמשק) אַדהאַן</string>
     <string name="bundled_adhan_yusuf_islam">יוסף איסלאם</string>
     <string name="home_cannot_compute">ניט געקענט אויסרעכענען צייטן פאר דעם טאג</string>
     <string name="home_location_unknown">אָרט ניט באַשטימט נאָך</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">אָטאַמאַטיק (לויט אָרט)</string>
     <string name="settings_method_automatic_desc">די אַפּ פּיקס די מערסט פּאַסיק אופֿן אויטאָמאַטיש באזירט אויף דיין לאַנד און אָרט; איר קענען נאָך קלייַבן אַ מעטאָד מאַניואַלי אין קיין צייט.</string>
     <string name="settings_preview_for_prayer">פאָרויסיקע ווייַזונג %1$s אַדהאַן</string>
+    <string name="settings_method_automatic_picked">אָטאַמאַטיק דערווייַל פּיקט: %1$s - %2$s</string>
 </resources>

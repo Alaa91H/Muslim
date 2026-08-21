@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Aayad hore</string>
     <string name="quran_range_single_ayah">kali ah</string>
     <string name="quran_range_single_ayah_short">Ayay</string>
-    <string name="quran_range_to_end">Dhammaadkii suuradda</string>
+    <string name="quran_range_to_end">Ilaa dhamaadka Musxafka</string>
     <string name="quran_range_to_end_short">Si loo dhameeyo</string>
     <string name="quran_range_whole_surah">Suurad dhan</string>
     <string name="quran_range_whole_surah_short">Suurad</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Musxaf buuxa oo dhan akhristayaasha</string>
     <string name="quran_downloads_coverage_empty">Ma jiro cod la soo dejiyay weli</string>
     <string name="quran_pause_notif_listener">Jooji akhrinta ogeysiisyada</string>
-    <string name="quran_reciter_changed_title">Reciter waa bedelay</string>
-    <string name="quran_reciter_changed_message">Playback stopped because the range runs to the end of the Quran. Start again with %1$s?</string>
-    <string name="quran_reciter_restart">Mar labaad bilow</string>
-    <string name="quran_reciter_not_now">Hadda maaha</string>
+    <string name="quran_search_metrics">Waqtiga raadinta: %1$d ms</string>
+    <string name="quran_search_index_building">Dhisidda tilmaanta Qur\'aanka ee raadinta ugu horreysa…</string>
+    <string name="quran_search_index_progress">Dhisida tusmada musxafka… %1$d %%</string>
+    <string name="quran_search_word_root">Xididka: %1$s</string>
+    <string name="quran_search_derivations">Erayada xididka laga soo qaatay</string>
+    <string name="quran_search_no_root">Waa la go\'aamin waayay xididka</string>
 </resources>

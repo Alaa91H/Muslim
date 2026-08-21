@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Використовуйте лише короткий adhkar</string>
     <string name="adhkar_overlay_short_only_desc">Виберіть адхкар, який містить один або два рядки, щоб плаваюча підказка залишалася чіткою та легкою для читання.</string>
     <string name="adhkar_overlay_tap_hint">Торкніться бульбашки, щоб негайно її закрити.</string>
+    <string name="adhkar_copied">Зікр скопійовано</string>
+    <string name="adhkar_periodic_dhikr">Специфічний зікр</string>
+    <string name="adhkar_periodic_dhikr_random">Випадкове (замість вибору вручну)</string>
 </resources>

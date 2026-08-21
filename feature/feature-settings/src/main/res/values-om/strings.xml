@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s amma argama — haaromsuuf tuqi</string>
     <string name="notif_category_app_update">App updates</string>
     <string name="notif_category_app_update_desc">Beeksisa yeroo app version haaraan argamu</string>
+    <string name="about_tagline">Muslima hundaaf hiriyyaa guutuu, bilisaa, madda banaa — yeroo salaataa, Adhan, Qur’aana, hadiisa, adhkar fi kkf, afaan keetiin.</string>
+    <string name="about_description_title">Waa\'ee Muslima</string>
+    <string name="about_description_body">Muslim appii Andirooyidii bilisaa fi madda banaa ta’ee fi guyyaa guutuu si waliin deemudha: yeroo kadhannaa astronomically sirrii ta’e Adhan waliin, koompaasii Qibla sirrii, Qur’aana guutuu qara’aa fi tafsiira waliin, mana kitaabaa hadiisa, adhkar madda irraa argame, tasbih elektirooniksii, meeshaalee Ramadaanaa, shallaggii zakaa, kaartaa sarara ala, fi kkf — kan qophaa’e guutummaatti offline with privacy by durtii.</string>
+    <string name="about_features_title">Wantoota ijoo</string>
+    <string name="about_features_body">Appii tokko keessatti wanti Muslimni barbaachisu hunda:</string>
+    <string name="about_feature_prayer">Yeroo kadhannaa &amp; Adhan — mala shallaggii hunda, manneen barnootaa seeraa, fi sagalee adhan 18+</string>
+    <string name="about_feature_quran">Qur’aana guutuu — Qubee Usmaaniyaa, qara’toota 44, tafsiira, hiikkaa, barbaacha jechootaa &amp; irra deddeebiin</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramadaanaa &amp; Zakaa — yaadachiisaa fi bubbee lola’aa wajjin</string>
+    <string name="about_feature_offline">Offline-first — kaartaa, Qur’aana, hadiisa fi adhkar interneetii malee hojjetu</string>
+    <string name="about_feature_privacy">Icciitii durtii — beeksisa hin qabu, hordoffiin hin jiru, daataa keessan meeshaa keessan irratti hafa</string>
+    <string name="settings_auto_update">Guutummaatti ofumaan kan fooyya\'u</string>
+    <string name="settings_auto_update_desc">Akkuma gadhiifamaniin ofumaan buufachuu fi version haaraa duubatti fe\'uu</string>
+    <string name="settings_auto_update_confirm_title">Fooyya\'iinsa ofumaan dandeessisaa?</string>
+    <string name="settings_auto_update_confirm_body">Version haaraan yeroo argamu ofumaan duubatti buufamee ni fe\'ama. Itti fufuu?</string>
+    <string name="settings_auto_update_confirm">Dandeessisuu</string>
+    <string name="settings_cancel">Haquu</string>
+    <string name="update_last_check">Sakatta’iinsa dhumaa: %1$s</string>
+    <string name="update_open_releases">Fuula gadhiifaman biraawzari keessatti banaa</string>
 </resources>

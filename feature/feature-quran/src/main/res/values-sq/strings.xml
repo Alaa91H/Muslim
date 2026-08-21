@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Ajet i mëparshëm</string>
     <string name="quran_range_single_ayah">Ajet beqare</string>
     <string name="quran_range_single_ayah_short">Ajah</string>
-    <string name="quran_range_to_end">Deri në fund të sures</string>
+    <string name="quran_range_to_end">Deri në fund të Mushafit</string>
     <string name="quran_range_to_end_short">Për të përfunduar</string>
     <string name="quran_range_whole_surah">Sure e tërë</string>
     <string name="quran_range_whole_surah_short">Surja</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf i plotë nëpër recitues</string>
     <string name="quran_downloads_coverage_empty">Asnjë audio nuk është shkarkuar ende</string>
     <string name="quran_pause_notif_listener">Ndalo recitimin në njoftimet</string>
-    <string name="quran_reciter_changed_title">Recituesi ndryshoi</string>
-    <string name="quran_reciter_changed_message">Riprodhimi u ndal sepse diapazoni shkon deri në fund të Kuranit. Filloni përsëri me %1$s?</string>
-    <string name="quran_reciter_restart">Filloni përsëri</string>
-    <string name="quran_reciter_not_now">Jo tani</string>
+    <string name="quran_search_metrics">Koha e kërkimit: %1$d ms</string>
+    <string name="quran_search_index_building">Ndërtimi i indeksit të Kuranit për kërkimin e parë…</string>
+    <string name="quran_search_index_progress">Ndërtimi i indeksit të mushafit… %1$d %%</string>
+    <string name="quran_search_word_root">Rrënja: %1$s</string>
+    <string name="quran_search_derivations">Fjalë që rrjedhin nga e njëjta rrënjë</string>
+    <string name="quran_search_no_root">Nuk mund të përcaktonte rrënjën</string>
 </resources>

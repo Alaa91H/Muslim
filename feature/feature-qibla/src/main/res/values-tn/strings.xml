@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Bophara jwa lefelo (didikirii)</string>
     <string name="offline_maps_storage_warning">Polokelo e e kwa tlase — ke %1$s fela mahala</string>
     <string name="offline_maps_storage_delete_largest">Phimola kgaolo e kgolo go gaisa (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Batla dimoseke ka maina</string>
+    <string name="mosque_finder_show_all">Bontsha dimoseke tsotlhe</string>
+    <string name="mosque_finder_share">Bula dikaelo</string>
+    <string name="offline_maps_use_my_location">Eya kwa lefelong la me la ga jaana</string>
 </resources>

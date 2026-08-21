@@ -20,7 +20,6 @@
     <string name="bundled_adhan_naghshbandi">Nəqşbəndi azan</string>
     <string name="bundled_adhan_saber">Sabir azan</string>
     <string name="bundled_adhan_sharif_doman">Şərif Doman azan</string>
-    <string name="bundled_adhan_umayyad_damascus">Əməvi məscidi (Dəməşq) azan</string>
     <string name="bundled_adhan_yusuf_islam">Yusif İslam azan</string>
     <string name="home_cannot_compute">Bu gün üçün vaxtları hesablamaq mümkün deyil</string>
     <string name="home_location_unknown">Məkan hələ təyin edilməyib</string>
@@ -163,4 +162,5 @@
     <string name="settings_method_automatic">Avtomatik (yerə görə)</string>
     <string name="settings_method_automatic_desc">Proqram ölkənizə və yerinizə əsasən avtomatik olaraq ən uyğun metodu seçir; hələ də istənilən vaxt metodu əl ilə seçə bilərsiniz.</string>
     <string name="settings_preview_for_prayer">%1$s azan üçün önizləmə</string>
+    <string name="settings_method_automatic_picked">Hazırda avtomatik seçilmiş: %1$s — %2$s</string>
 </resources>

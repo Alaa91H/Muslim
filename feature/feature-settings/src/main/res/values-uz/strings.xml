@@ -164,4 +164,22 @@
     <string name="update_available_text">Version %1$s is now available — tap to update</string>
     <string name="notif_category_app_update">Ilova yangilanishlari</string>
     <string name="notif_category_app_update_desc">Ilovaning yangi versiyasi mavjud bo\'lganda bildirishnoma</string>
+    <string name="about_tagline">Har bir musulmon uchun to\'liq, bepul, ochiq manbali hamroh - sizning tilingizda namoz vaqtlari, azon, Qur\'on, hadis, azor va boshqalar.</string>
+    <string name="about_description_title">Musulmon haqida</string>
+    <string name="about_description_body">Muslim – bu kun davomida sizga hamroh bo‘ladigan bepul va ochiq manbali Android ilovasi: azon bilan astronomik jihatdan aniq namoz vaqtlari, aniq qibla kompasi, qiroat va tafsir bilan to‘liq Qur’on, hadislar kutubxonasi, manba zikr, elektron tasbih, ramazon asboblari, zakot kalkulyatori, oflayn xaritalar va boshqalar.</string>
+    <string name="about_features_title">Eng muhimlar</string>
+    <string name="about_features_body">Musulmonga kerak bo\'lgan hamma narsa bitta ilovada:</string>
+    <string name="about_feature_prayer">Namoz vaqtlari va azon - barcha hisoblash usullari, fiqhiy maktablar va 18+ azon tovushlari</string>
+    <string name="about_feature_quran">Toʻliq Qurʼon — Usmoniy yozuv, 44 ta qori, tafsir, tarjimalar, soʻz qidirish va chastota</string>
+    <string name="about_feature_adhkar">Adhkar, tasbih, Ramazon va Zakot — eslatmalar va suzuvchi pufakchalar bilan</string>
+    <string name="about_feature_offline">Oflayn-birinchi — xaritalar, Qur\'on, hadis va zikrlar internetsiz ishlaydi</string>
+    <string name="about_feature_privacy">Sukut boʻyicha maxfiylik — reklamasiz, kuzatuvsiz, maʼlumotlaringiz qurilmangizda qoladi</string>
+    <string name="settings_auto_update">To\'liq avtomatik yangilanishlar</string>
+    <string name="settings_auto_update_desc">Yangi versiyalar chiqarilishi bilanoq ularni fonda avtomatik ravishda yuklab oling va o\'rnating</string>
+    <string name="settings_auto_update_confirm_title">Avtomatik yangilanishlar yoqilsinmi?</string>
+    <string name="settings_auto_update_confirm_body">Yangi versiyalar yuklab olinadi va mavjud bo\'lganda avtomatik ravishda fonda o\'rnatiladi. Davom ettirilsinmi?</string>
+    <string name="settings_auto_update_confirm">Yoqish</string>
+    <string name="settings_cancel">Bekor qilish</string>
+    <string name="update_last_check">Oxirgi tekshirish: %1$s</string>
+    <string name="update_open_releases">Brauzerda nashrlar sahifasini oching</string>
 </resources>

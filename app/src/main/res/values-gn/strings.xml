@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">Pe recitación opyta mbykymi oñembopu jave peteĩ notificación, anillo térã ambue medio</string>
     <string name="more_pause_notifications_enabled">Ojehejáva — epoko eipeꞌa hag̃ua sistema ñemboheko</string>
     <string name="more_pause_notifications_disabled">Ojejoko — epoko emboguata hag̃ua</string>
+    <string name="more_names">99 Allah réra</string>
+    <string name="more_names_desc">Umi 99 téra omyesakã porã reheve</string>
+    <string name="more_hajj">Hajj &amp; Umrah rehegua</string>
+    <string name="more_hajj_desc">Guía detallado umi rito Hajj ha Umrah rehegua</string>
 </resources>

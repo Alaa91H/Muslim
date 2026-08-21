@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Օգտագործեք միայն կարճ ադքար</string>
     <string name="adhkar_overlay_short_only_desc">Ընտրեք adhkar, որը համապատասխանում է մեկ կամ երկու տողերի, որպեսզի լողացող փուչիկը մնա պարզ և հեշտ ընթեռնելի:</string>
     <string name="adhkar_overlay_tap_hint">Հպեք պղպջակին՝ այն անմիջապես հեռացնելու համար:</string>
+    <string name="adhkar_copied">Դիքր ընդօրինակված</string>
+    <string name="adhkar_periodic_dhikr">Հատուկ dhikr</string>
+    <string name="adhkar_periodic_dhikr_random">Պատահական (ձեռքով ընտրելու փոխարեն)</string>
 </resources>

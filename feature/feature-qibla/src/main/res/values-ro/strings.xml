@@ -74,4 +74,8 @@
     <string name="offline_maps_custom_width">Lățimea zonei (grade)</string>
     <string name="offline_maps_storage_warning">Spațiu de stocare redus - doar %1$s gratuit</string>
     <string name="offline_maps_storage_delete_largest">Ștergeți cea mai mare regiune (%1$s · %2$s)</string>
+    <string name="mosque_finder_search_hint">Căutați moscheile după nume</string>
+    <string name="mosque_finder_show_all">Arată toate moscheile</string>
+    <string name="mosque_finder_share">Deschideți direcții</string>
+    <string name="offline_maps_use_my_location">Mergeți la locația mea actuală</string>
 </resources>

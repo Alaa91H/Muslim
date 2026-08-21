@@ -86,7 +86,7 @@
     <string name="quran_previous_ayah">Previous ayah</string>
     <string name="quran_range_single_ayah">Single ayah</string>
     <string name="quran_range_single_ayah_short">Ayah</string>
-    <string name="quran_range_to_end">Pou fini soure a</string>
+    <string name="quran_range_to_end">Nan fen Mushaf la</string>
     <string name="quran_range_to_end_short">Pou fini</string>
     <string name="quran_range_whole_surah">Tout soure</string>
     <string name="quran_range_whole_surah_short">Soure</string>
@@ -141,8 +141,10 @@
     <string name="quran_downloads_coverage_overall">Mushaf konplè atravè reciters</string>
     <string name="quran_downloads_coverage_empty">Pa gen odyo telechaje ankò</string>
     <string name="quran_pause_notif_listener">Pran poz resitasyon sou notifikasyon yo</string>
-    <string name="quran_reciter_changed_title">Reciter chanje</string>
-    <string name="quran_reciter_changed_message">Lektur sispann paske seri a kouri nan fen koran an. Kòmanse ankò ak %1$s?</string>
-    <string name="quran_reciter_restart">Kòmanse ankò</string>
-    <string name="quran_reciter_not_now">Pa kounye a</string>
+    <string name="quran_search_metrics">Tan rechèch: %1$d ms</string>
+    <string name="quran_search_index_building">Bati endèks koran an pou premye rechèch la...</string>
+    <string name="quran_search_index_progress">Bati endèks mushaf la... %1$d %%</string>
+    <string name="quran_search_word_root">Rasin: %1$s</string>
+    <string name="quran_search_derivations">Mo ki sòti nan menm rasin lan</string>
+    <string name="quran_search_no_root">Pa t \'kapab detèmine rasin lan</string>
 </resources>

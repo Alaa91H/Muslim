@@ -54,4 +54,8 @@
     <string name="more_pause_on_notifications_desc">ʻOku kiʻi tuʻu nounou ʻa e lau ʻi he taimi ʻoku tā ai ha fakatokanga, ta pe ko ha mītia kehe .</string>
     <string name="more_pause_notifications_enabled">Faka\'ata — lomi\'i ke fakaava \'a e ngaahi tu\'unga \'o e sisitemi .</string>
     <string name="more_pause_notifications_disabled">Fakata\'e\'aonga\'i — lomi\'i ke faka\'ata .</string>
+    <string name="more_names">99 Ngaahi Hingoa ʻo Allah .</string>
+    <string name="more_names_desc">Ko e ngaahi hingoa \'e 99 mo e fakamatala kakato .</string>
+    <string name="more_hajj">Haji mo e ʻUmala</string>
+    <string name="more_hajj_desc">Fakahinohino fakaikiiki ki he ngaahi ouau \'o e Hajj mo e Umrah .</string>
 </resources>

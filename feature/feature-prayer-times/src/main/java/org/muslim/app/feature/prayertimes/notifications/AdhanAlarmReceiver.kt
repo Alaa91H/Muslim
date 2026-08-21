@@ -28,17 +28,35 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         val entryPoint = EntryPointAccessors.fromApplication(appContext, AdhanEntryPoint::class.java)
 
         val prayer = runCatching { Prayer.valueOf(prayerName) }.getOrNull() ?: return
+        // goAsync keeps the receiver alive until all work completes — the
+        // process must never be killed mid-handling with the adhan half-delivered.
+        val pendingResult = goAsync()
         CoroutineScope(Dispatchers.IO).launch {
-            val settings = entryPoint.settingsRepository().settings.first()
-            if (isReminder) {
-                if (settings.reminderMinutes > 0 &&
-                    appContext.notificationAllowed(NotificationCategory.PrayerReminder)
-                ) {
-                    AdhanNotifications.showReminder(appContext, prayer, settings.reminderMinutes)
-                }
-            } else if (settings.adhanEnabled &&
-                appContext.notificationAllowed(NotificationCategory.Adhan)
+            try {
+                handle(appContext, entryPoint, prayer, isReminder, intent)
+            } finally {
+                pendingResult.finish()
+            }
+        }
+    }
+
+    private suspend fun handle(
+        appContext: Context,
+        entryPoint: AdhanEntryPoint,
+        prayer: Prayer,
+        isReminder: Boolean,
+        intent: Intent,
+    ) {
+        val settings = entryPoint.settingsRepository().settings.first()
+        if (isReminder) {
+            if (settings.reminderMinutes > 0 &&
+                appContext.notificationAllowed(NotificationCategory.PrayerReminder)
             ) {
+                AdhanNotifications.showReminder(appContext, prayer, settings.reminderMinutes)
+            }
+        } else if (settings.adhanEnabled &&
+            appContext.notificationAllowed(NotificationCategory.Adhan)
+        ) {
                 val soundPath = entryPoint.soundRepository().customSoundFile(prayer)?.absolutePath
                 val bundledSoundId = settings.bundledAdhanSounds[prayer]
                     ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID
@@ -87,7 +105,6 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
             NextAdhanService.start(appContext)
             // A prayer just started: flip the widget to the next prayer.
             PrayerTimesWidget().updateAll(appContext)
-        }
     }
 
     companion object {

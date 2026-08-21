@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">Къокъаб адхӀар хӀалтӀизабе гӀицӀго .</string>
     <string name="adhkar_overlay_short_only_desc">ТӀаса бище цо-кӀиго мухъалда данде кколеб адхӀар, гьединлъидал лъелго унеб пузырь бацӀцӀадаб ва цӀализе бигьаяб букӀине.</string>
     <string name="adhkar_overlay_tap_hint">ГьебсагӀатго гьеб нахъе бахъизе ккани, кьабизе ккола пузырькалда.</string>
+    <string name="adhkar_copied">Зикр копия гьабуна .</string>
+    <string name="adhkar_periodic_dhikr">Хасаб зикру .</string>
+    <string name="adhkar_periodic_dhikr_random">Случайный (вместо ручного выбора)</string>
 </resources>

@@ -24,6 +24,15 @@ android {
     buildFeatures {
         compose = true
     }
+
+    testOptions {
+        unitTests.all {
+            // Pass the -DnetworkTests=true flag through so the EveryAyah live
+            // folder check runs only when explicitly requested, keeping the
+            // normal unit-test run offline (see EveryAyahFolderCheckTest).
+            it.systemProperty("networkTests", System.getProperty("networkTests", "false"))
+        }
+    }
 }
 
 kotlin {

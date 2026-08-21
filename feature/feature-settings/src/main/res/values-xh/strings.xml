@@ -164,4 +164,22 @@
     <string name="update_available_text">Inguqulelo %1$s iyafumaneka ngoku — cofa ukuze uhlaziye</string>
     <string name="notif_category_app_update">Uhlaziyo lwe-App</string>
     <string name="notif_category_app_update_desc">Isaziso xa uguqulelo olutsha lwe-app lufumaneka</string>
+    <string name="about_tagline">Iqabane elipheleleyo, lasimahla, elivulelekileyo kuwo onke amaSilamsi - amaxesha omthandazo, i-Adhan, iQuran, ihadith, i-adhkar kunye nokunye, ngolwimi lwakho.</string>
+    <string name="about_description_title">Malunga namaSilamsi</string>
+    <string name="about_description_body">AmaSilamsi sisicelo sasimahla kunye nesivulelekileyo se-Android esihamba nawe imini yonke: amaxesha omthandazo achanekileyo ngeenkwenkwezi kunye ne-Adhan, ikhampasi ye-Qibla echanekileyo, iQuran epheleleyo ephindaphindayo kunye ne-tafsir, ithala leencwadi le-hadith, i-adhkar efunyenweyo, i-tasbih ye-elektroniki, izixhobo zeRamadan, i-zakat calculator, iimephu ezingaxhunyiwe kwi-intanethi ziyilwe ngokusisigxina kunye nomsebenzi wabucala ngokupheleleyo.</string>
+    <string name="about_features_title">Iimbalasane</string>
+    <string name="about_features_body">Yonke into efunwa ngumSilamsi kwi-app enye:</string>
+    <string name="about_feature_prayer">Amaxesha omthandazo kunye ne-Adhan - zonke iindlela zokubala, izikolo ezisemthethweni, kunye ne-18+ yezandi ze-adhan</string>
+    <string name="about_feature_quran">Gqibezela iKuran-Iskripthi se-Uthmani, abaphinda-phi abangama-44, i-tafsir, iinguqulelo, ukukhangela amagama kunye nokuphindaphinda</string>
+    <string name="about_feature_adhkar">I-Adhkar, tasbih, Ramadan &amp; Zakat — enezikhumbuzo kunye namaqamza adadayo</string>
+    <string name="about_feature_offline">Ngaphandle kweintanethi-kuqala - iimephu, iQuran, ihadith kunye ne-adhkar isebenza ngaphandle kwe-intanethi</string>
+    <string name="about_feature_privacy">Ubumfihlo ngokuzenzekelayo - akukho ntengiso, akukho mkhondo, idatha yakho ihlala kwisixhobo sakho</string>
+    <string name="settings_auto_update">Uhlaziyo oluzenzekelayo ngokupheleleyo</string>
+    <string name="settings_auto_update_desc">Khuphela ngokuzenzekelayo kwaye ufake iinguqulelo ezintsha ngasemva nje ukuba zikhutshwe</string>
+    <string name="settings_auto_update_confirm_title">Vumela uhlaziyo oluzenzekelayo?</string>
+    <string name="settings_auto_update_confirm_body">Iinguqulelo ezintsha ziya kukhutshelwa kwaye zifakwe ngokuzenzekelayo ngasemva xa zikhona. Qhubeka?</string>
+    <string name="settings_auto_update_confirm">Vulela</string>
+    <string name="settings_cancel">Rhoxisa</string>
+    <string name="update_last_check">Igqityelwe ukujonga: %1$s</string>
+    <string name="update_open_releases">Vula iphepha lokukhutshwa kwibhrawuza</string>
 </resources>

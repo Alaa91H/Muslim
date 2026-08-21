@@ -69,4 +69,7 @@
     <string name="adhkar_overlay_short_only">फक्त लहान अधकार वापरा</string>
     <string name="adhkar_overlay_short_only_desc">एक किंवा दोन ओळींमध्ये बसणारे adhkar निवडा जेणेकरून फ्लोटिंग बबल स्पष्ट आणि वाचण्यास सोपा राहील.</string>
     <string name="adhkar_overlay_tap_hint">बबल ताबडतोब डिसमिस करण्यासाठी टॅप करा.</string>
+    <string name="adhkar_copied">धिकर कॉपी केला</string>
+    <string name="adhkar_periodic_dhikr">विशिष्ट धिक्कार</string>
+    <string name="adhkar_periodic_dhikr_random">यादृच्छिक (मॅन्युअल निवडीऐवजी)</string>
 </resources>
