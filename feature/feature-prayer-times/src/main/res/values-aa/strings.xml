@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">App ku baaxo kee aracal rakitak kaxxaam meqeh tan cogda doorta; atu uxih doortam duddah cogda gabah faxe uddur.</string>
     <string name="settings_preview_for_prayer">Naharsi mabul %1$s adhaan</string>
     <string name="settings_method_automatic_picked">Awayih uddur sinnik sinnih ugte: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">Baadak adhan xongolo</string>
+    <string name="settings_adhan_global_volume_desc">kulli salaatal inki caddo esces kee salaatah sombolooloc alif</string>
+    <string name="settings_adhan_follows_global">baad xongolo kattaata (%1$s)</string>
 </resources>

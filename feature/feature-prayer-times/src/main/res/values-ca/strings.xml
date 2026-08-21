@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">L\'aplicació tria automàticament el mètode més adequat en funció del vostre país i ubicació; encara podeu triar un mètode manualment en qualsevol moment.</string>
     <string name="settings_preview_for_prayer">Previsualitza %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automàtic seleccionat actualment: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Volum global d\'adhan</string>
+    <string name="settings_adhan_global_volume_desc">Apliqueu un sol nivell a cada pregària i desactiveu els controls lliscants per pregària</string>
+    <string name="settings_adhan_follows_global">Segueix el volum global (%1$s)</string>
 </resources>

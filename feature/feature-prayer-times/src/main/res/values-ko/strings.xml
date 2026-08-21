@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">앱은 귀하의 국가와 위치에 따라 가장 적합한 방법을 자동으로 선택합니다. 언제든지 수동으로 방법을 선택할 수 있습니다.</string>
     <string name="settings_preview_for_prayer">%1$s adhan 미리보기</string>
     <string name="settings_method_automatic_picked">현재 선택된 자동: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">글로벌 아단 볼륨</string>
+    <string name="settings_adhan_global_volume_desc">모든 기도에 단일 레벨을 적용하고 기도당 슬라이더를 비활성화합니다.</string>
+    <string name="settings_adhan_follows_global">글로벌 볼륨(%1$s)을 따릅니다.</string>
 </resources>

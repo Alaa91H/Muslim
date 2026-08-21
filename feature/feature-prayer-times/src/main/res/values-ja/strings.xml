@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">アプリはあなたの国と場所に基づいて最適な方法を自動的に選択します。いつでも手動で方法を選択できます。</string>
     <string name="settings_preview_for_prayer">%1$s アザーンをプレビューする</string>
     <string name="settings_method_automatic_picked">現在選択されている自動: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">世界のアザーン量</string>
+    <string name="settings_adhan_global_volume_desc">すべての祈りに単一のレベルを適用し、祈りごとのスライダーを無効にします</string>
+    <string name="settings_adhan_follows_global">グローバルボリューム (%1$s) に従います</string>
 </resources>

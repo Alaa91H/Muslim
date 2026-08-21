@@ -37,7 +37,7 @@ class UpdateChecker(private val context: Context) {
     suspend fun checkAndNotify(): Result {
         val result = check()
         if (result is Result.UpdateAvailable) {
-            notifier().show(result.release)
+            runCatching { notifier().show(result.release) }
         }
         return result
     }

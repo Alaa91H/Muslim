@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Application bɛ fɛɛrɛ bɛnnen sugandi a yɛrɛma ka kɛɲɛ ni i ka jamana n’i sigiyɔrɔ ye; aw bɛ se ka fɛɛrɛ dɔ sugandi hali bi bolo la waati o waati.</string>
     <string name="settings_preview_for_prayer">Ɲɛjirali %1$s adhan</string>
     <string name="settings_method_automatic_picked">Otomatiki min bɛ ta sisan: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Duniya bɛɛ ka adhan hakɛ</string>
+    <string name="settings_adhan_global_volume_desc">Aw bɛ nivo kelen kɛ delili bɛɛ la ani ka delili kelen-kelen bɛɛ sɛgɛsɛgɛlikɛlanw bali</string>
+    <string name="settings_adhan_follows_global">A bɛ tugu diɲɛ hakɛ (%1$s) kɔ .</string>
 </resources>

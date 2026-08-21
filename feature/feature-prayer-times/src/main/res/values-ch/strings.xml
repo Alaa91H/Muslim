@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">I app ha pikura i mas maolek na manera gi i tano\'-mu yan i lugat-mu; siña ha\' un cho\'gue un manera gi todu i tiempo.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatic ni\' ma\'ayek på\'go: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">I kantidån adhan gi enteru mundo</string>
+    <string name="settings_adhan_global_volume_desc">Na\'i un nivel gi kada tinayuyot ya na\'suha i per-prayer sliders</string>
+    <string name="settings_adhan_follows_global">Ha tutuhon i kantidån i enteru mundo (%1$s)</string>
 </resources>

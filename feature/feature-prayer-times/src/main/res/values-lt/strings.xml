@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Programėlė automatiškai parenka tinkamiausią metodą pagal jūsų šalį ir vietą; vis tiek galite bet kada pasirinkti metodą rankiniu būdu.</string>
     <string name="settings_preview_for_prayer">Peržiūrėti %1$s adhan</string>
     <string name="settings_method_automatic_picked">Šiuo metu pasirinktas automatinis: %1$s – %2$s</string>
+    <string name="settings_adhan_global_volume">Pasaulinis adhano tūris</string>
+    <string name="settings_adhan_global_volume_desc">Kiekvienai maldai pritaikykite vieną lygį ir išjunkite kiekvienos maldos slankiklius</string>
+    <string name="settings_adhan_follows_global">Seka visuotinį garsumą (%1$s)</string>
 </resources>

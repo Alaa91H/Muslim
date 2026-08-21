@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">App ukax juk’amp askïki uka thakhix automáticamente markaman ukhamarak kawkhantix jikxataskta ukarjamaw ajlli; wali ch’amampi mä thakhi ajlliñjamawa kuna pachatixa.</string>
     <string name="settings_preview_for_prayer">Nayraqata uñakipaña %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automático jichhax ajllitawa: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Uraqpachanx adhan volúmenes ukaw utji</string>
+    <string name="settings_adhan_global_volume_desc">Sapa mayisiñatakix mä nivel apnaqañaw wakisi ukat sapa mayisiñatak deslizadores ukanakax desactivar</string>
+    <string name="settings_adhan_follows_global">Uraqpachan volúmenes (%1$s) ukar arktatawa.</string>
 </resources>

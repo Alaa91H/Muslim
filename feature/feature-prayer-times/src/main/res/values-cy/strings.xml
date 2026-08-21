@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Mae\'r ap yn dewis y dull mwyaf addas yn awtomatig yn seiliedig ar eich gwlad a\'ch lleoliad; gallwch barhau i ddewis dull â llaw ar unrhyw adeg.</string>
     <string name="settings_preview_for_prayer">Rhagolwg %1$s adhan</string>
     <string name="settings_method_automatic_picked">Awtomatig a ddewisir ar hyn o bryd: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Cyfrol adhan fyd-eang</string>
+    <string name="settings_adhan_global_volume_desc">Cymhwyswch un lefel i bob gweddi ac analluoga\'r llithryddion fesul gweddi</string>
+    <string name="settings_adhan_follows_global">Yn dilyn y gyfrol fyd-eang (%1$s)</string>
 </resources>

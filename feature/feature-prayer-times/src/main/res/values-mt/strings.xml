@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">L-app tagħżel l-aktar metodu adattat awtomatikament ibbażat fuq il-pajjiż u l-post tiegħek; xorta tista \'tagħżel metodu manwalment fi kwalunkwe ħin.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
     <string name="settings_method_automatic_picked">Awtomatiku bħalissa magħżul: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Volum globali adhan</string>
+    <string name="settings_adhan_global_volume_desc">Applika livell wieħed għal kull talb u iddiżattiva s-sliders għal kull talb</string>
+    <string name="settings_adhan_follows_global">Isegwi l-volum globali (%1$s)</string>
 </resources>

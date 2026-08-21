@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">ايپ توهان جي ملڪ ۽ مقام جي بنياد تي خودڪار طريقي سان سڀ کان وڌيڪ مناسب طريقو چونڊيندو آهي. توهان اڃا به ڪنهن به وقت دستي طور هڪ طريقو چونڊي سگهو ٿا.</string>
     <string name="settings_preview_for_prayer">ڏسو %1$s اذان</string>
     <string name="settings_method_automatic_picked">پاڻمرادو في الحال چونڊيو: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">گلوبل اذان حجم</string>
+    <string name="settings_adhan_global_volume_desc">هر نماز تي هڪ واحد سطح لاڳو ڪريو ۽ في نماز سلائڊرز کي غير فعال ڪريو</string>
+    <string name="settings_adhan_follows_global">عالمي حجم (%1$s) جي پيروي ڪري ٿو</string>
 </resources>

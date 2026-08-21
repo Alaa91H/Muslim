@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">መተግበሪያው በአገርዎ እና በአካባቢዎ ላይ በመመስረት በጣም ተስማሚ የሆነውን ዘዴ በራስ-ሰር ይመርጣል; አሁንም በማንኛውም ጊዜ እራስዎ ዘዴ መምረጥ ይችላሉ.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
     <string name="settings_method_automatic_picked">በአሁኑ ጊዜ በራስ-ሰር የተመረጠ፡ %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">ዓለም አቀፍ አድሃን መጠን</string>
+    <string name="settings_adhan_global_volume_desc">በእያንዳንዱ ጸሎት ላይ አንድ ደረጃ ይተግብሩ እና የጸሎት ተንሸራታቾችን ያሰናክሉ።</string>
+    <string name="settings_adhan_follows_global">የአለምአቀፍ መጠን (%1$s) ይከተላል</string>
 </resources>

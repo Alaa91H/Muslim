@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">এপটোৱে আপোনাৰ দেশ আৰু স্থানৰ ওপৰত ভিত্তি কৰি স্বয়ংক্ৰিয়ভাৱে আটাইতকৈ উপযুক্ত পদ্ধতিটো বাছি লয়; আপুনি এতিয়াও যিকোনো সময়তে এটা পদ্ধতি হস্তচালিতভাৱে নিৰ্ব্বাচন কৰিব পাৰে ।</string>
     <string name="settings_preview_for_prayer">পূৰ্বদৰ্শন %1$s adhan</string>
     <string name="settings_method_automatic_picked">বৰ্তমান বাছি লোৱা স্বয়ংক্ৰিয়: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">গ্লোবেল অধন ভলিউম</string>
+    <string name="settings_adhan_global_volume_desc">প্ৰতিটো প্ৰাৰ্থনাত এটা স্তৰ প্ৰয়োগ কৰক আৰু প্ৰতি প্ৰাৰ্থনা স্লাইডাৰসমূহ নিষ্ক্ৰিয় কৰক</string>
+    <string name="settings_adhan_follows_global">গোলকীয় আয়তন (%1$s) অনুসৰণ কৰে</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">App e tlhopha mokgwa o o tshwanelang thata ka go itirisa go ikaegile ka naga ya gago le lefelo le o leng mo go lone; o sa ntse o ka tlhopha mokgwa ka seatla nako nngwe le nngwe.</string>
     <string name="settings_preview_for_prayer">Tebopele %1$s adhan</string>
     <string name="settings_method_automatic_picked">E e tlhophilweng ka go itirisa ga jaana: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">Bolumo ya adhan ya lefatshe lotlhe</string>
+    <string name="settings_adhan_global_volume_desc">Dirisa maemo a le mangwe mo thapelong nngwe le nngwe mme o time diselaete tsa thapelo nngwe le nngwe</string>
+    <string name="settings_adhan_follows_global">E latela bolumu ya lefatshe lotlhe (%1$s)</string>
 </resources>

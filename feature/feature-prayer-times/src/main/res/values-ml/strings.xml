@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">നിങ്ങളുടെ രാജ്യത്തേയും സ്ഥലത്തേയും അടിസ്ഥാനമാക്കി ആപ്പ് സ്വയമേവ ഏറ്റവും അനുയോജ്യമായ രീതി തിരഞ്ഞെടുക്കുന്നു; നിങ്ങൾക്ക് എപ്പോൾ വേണമെങ്കിലും സ്വമേധയാ ഒരു രീതി തിരഞ്ഞെടുക്കാനാകും.</string>
     <string name="settings_preview_for_prayer">പ്രിവ്യൂ %1$s അധാൻ</string>
     <string name="settings_method_automatic_picked">നിലവിൽ സ്വയമേവ തിരഞ്ഞെടുത്തത്: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">ആഗോള അധാൻ വോളിയം</string>
+    <string name="settings_adhan_global_volume_desc">ഓരോ പ്രാർത്ഥനയ്ക്കും ഒരൊറ്റ ലെവൽ പ്രയോഗിക്കുകയും ഓരോ പ്രാർത്ഥന സ്ലൈഡറുകൾ പ്രവർത്തനരഹിതമാക്കുകയും ചെയ്യുക</string>
+    <string name="settings_adhan_follows_global">ആഗോള വോളിയം (%1$s) പിന്തുടരുന്നു</string>
 </resources>

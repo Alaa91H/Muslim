@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Аппликацино уггаре а нийса кеп автоматически схьаоьцу хьан пачхьалкхе а, меттиге а хьаьжжина; хӀинца а муьлххачу хенахь а ручной метод харжа йиш ю хьан.</string>
     <string name="settings_preview_for_prayer">Хьалха хьажа %1$s азан</string>
     <string name="settings_method_automatic_picked">Автоматически карарчу хенахь дӀаэцна: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">Глобальни азан том</string>
+    <string name="settings_adhan_global_volume_desc">ХӀора ламазна цхьа тӀегӀа леладе, хӀора ламазна лерина ползунокаш дӀаяха .</string>
+    <string name="settings_adhan_follows_global">Дагахь латтадо глобалан барам (%1$s) .</string>
 </resources>

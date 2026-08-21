@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">एपले तपाईंको देश र स्थानको आधारमा स्वचालित रूपमा सबैभन्दा उपयुक्त विधि छान्छ; तपाईं अझै पनि कुनै पनि समयमा म्यानुअल तरिका चयन गर्न सक्नुहुन्छ।</string>
     <string name="settings_preview_for_prayer">पूर्वावलोकन %1$s adhan</string>
     <string name="settings_method_automatic_picked">स्वचालित हाल छानिएको: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">ग्लोबल अजान भोल्युम</string>
+    <string name="settings_adhan_global_volume_desc">प्रत्येक प्रार्थनामा एकल स्तर लागू गर्नुहोस् र प्रति-प्रार्थना स्लाइडरहरू असक्षम गर्नुहोस्</string>
+    <string name="settings_adhan_follows_global">विश्वव्यापी भोल्युम (%1$s) लाई पछ्याउँछ</string>
 </resources>

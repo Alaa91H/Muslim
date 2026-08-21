@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">I-app ikhetha indlela efaneleko ngokuzenzakalelako ngokuya ngenarha yakho nendawo yakho; ungakhetha indlela ngesandla nanyana kunini.</string>
     <string name="settings_preview_for_prayer">Hlola ngaphambilini %1$s adhan</string>
     <string name="settings_method_automatic_picked">Okuzenzakalelayo okwamanje okukhethiwe: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">Umthamo we-adhan wephasi loke</string>
+    <string name="settings_adhan_global_volume_desc">Faka izinga elilodwa kiwo woke umthandazo bese uvala ama-slider womthandazo ngamunye</string>
+    <string name="settings_adhan_follows_global">Ilandela ivolumu yephasi loke (%1$s)</string>
 </resources>

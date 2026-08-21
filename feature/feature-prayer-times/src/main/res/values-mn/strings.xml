@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Апп нь таны улс орон, байршилд тулгуурлан хамгийн тохиромжтой аргыг автоматаар сонгоно; Та хүссэн үедээ гараар аргыг сонгож болно.</string>
     <string name="settings_preview_for_prayer">%1$s азаныг урьдчилан үзэх</string>
     <string name="settings_method_automatic_picked">Одоогоор автоматаар сонгосон: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Дэлхийн азаны хэмжээ</string>
+    <string name="settings_adhan_global_volume_desc">Залбирал бүрт нэг түвшнийг хэрэглэж, залбирлын гулсагчийг идэвхгүй болго</string>
+    <string name="settings_adhan_follows_global">Глобал эзлэхүүнийг дагадаг (%1$s)</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">App in ej kālet wāween eo emman tata ekkar ñan aelõñ eo am im jikin eo kwoj bed ie; kwomaroñ in kālet juon wewein ilo am make ilo jabdewōt ien.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatic currently picked: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Joñan adhan eo ibelakin lal</string>
+    <string name="settings_adhan_global_volume_desc">Kōjerbal juon wōt laajrak ñan kajjojo jar im kōjemlok slider ko ñan kajjojo jar</string>
+    <string name="settings_adhan_follows_global">Ej lor joñan an lap (%1$s)</string>
 </resources>

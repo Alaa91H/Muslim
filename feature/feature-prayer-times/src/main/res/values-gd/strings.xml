@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Bidh an app a’ taghadh an dòigh as freagarraiche gu fèin-ghluasadach stèidhichte air do dhùthaich agus àite; faodaidh tu fhathast dòigh a thaghadh le làimh aig àm sam bith.</string>
     <string name="settings_preview_for_prayer">Ro-shealladh %1$s adhan</string>
     <string name="settings_method_automatic_picked">Taghadh fèin-ghluasadach an-dràsta: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">Meud adhan cruinne</string>
+    <string name="settings_adhan_global_volume_desc">Cuir aon ìre an sàs anns a h-uile ùrnaigh agus cuir dheth na sleamhnagan per-ùrnaigh</string>
+    <string name="settings_adhan_follows_global">A’ leantainn an tomhas cruinne (%1$s)</string>
 </resources>

@@ -144,6 +144,7 @@ fun SettingsScreen(
 ) {
     val preferences by viewModel.preferences.collectAsStateWithLifecycle()
     val updateCheckResult by viewModel.updateCheckResult.collectAsStateWithLifecycle()
+    val updateCheckError by viewModel.updateCheckError.collectAsStateWithLifecycle()
     val scope = rememberCoroutineScope()
 
     // Accordion: sections start collapsed; tapping one expands it and collapses
@@ -546,8 +547,17 @@ fun SettingsScreen(
                                 color = MaterialTheme.colorScheme.error,
                                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
                             )
+                            updateCheckError?.let { message ->
+                                Text(
+                                    text = message,
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+                                )
+                            }
                             LaunchedEffect(updateCheckResult) {
                                 viewModel.consumeUpdateCheckResult()
+                                viewModel.consumeUpdateCheckError()
                             }
                         }
                         null -> Unit

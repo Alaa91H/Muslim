@@ -38,6 +38,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -81,6 +82,18 @@ fun ReferenceScreen(
     var selectedBook by remember { mutableStateOf<ReferenceBook?>(null) }
     var selectedTopic by remember { mutableStateOf<RefTopic?>(null) }
     var query by rememberSaveable { mutableStateOf("") }
+
+    // System back steps out of the topic, then the book, then the screen
+    // (mirrors the toolbar arrow) — never skips straight to the More root.
+    BackHandler(enabled = selectedTopic != null || selectedBook != null) {
+        when {
+            selectedTopic != null -> selectedTopic = null
+            selectedBook != null -> {
+                selectedBook = null
+                query = ""
+            }
+        }
+    }
 
     val book = selectedBook
 

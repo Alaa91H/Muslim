@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Dibab a ra an arload an doare dereatañ ent emgefre diouzh ho bro hag ho lec\'hiadur ; gallout a rit c\'hoazh dibab un doare dre zorn da bep mare.</string>
     <string name="settings_preview_for_prayer">Rakwelet %1$s adhan</string>
     <string name="settings_method_automatic_picked">Emgefre dibabet bremañ : %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Volume adhan hollek</string>
+    <string name="settings_adhan_global_volume_desc">Lakaat ul live hepken da bep pedenn ha diweredekaat ar gliserioù dre bedenn</string>
+    <string name="settings_adhan_follows_global">Heuliañ a ra ar volum hollek (%1$s)</string>
 </resources>

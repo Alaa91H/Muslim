@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">App aswan allin métodota kikillanmanta akllan suyuykiman hina chaymanta maypi kasqaykiman hina; huk métodota makiwan akllayta atikunkiraq mayk\'aqllapas.</string>
     <string name="settings_preview_for_prayer">Ñawpaq qhaway %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automático kunan akllasqa: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Volumen adhan global nisqa</string>
+    <string name="settings_adhan_global_volume_desc">Sapa mañakuyman huk nivelllata churay hinaspa sapa mañakuy deslizadorkunata mana ruway</string>
+    <string name="settings_adhan_follows_global">Tukuy pacha volúmen (%1$s) nisqatam qatin.</string>
 </resources>

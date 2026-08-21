@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">აპლიკაცია ავტომატურად ირჩევს ყველაზე შესაფერის მეთოდს თქვენი ქვეყნისა და მდებარეობის მიხედვით; თქვენ კვლავ შეგიძლიათ აირჩიოთ მეთოდი ხელით ნებისმიერ დროს.</string>
     <string name="settings_preview_for_prayer">გადახედეთ %1$s ადანს</string>
     <string name="settings_method_automatic_picked">ამჟამად არჩეულია ავტომატური: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">ადანის გლობალური მოცულობა</string>
+    <string name="settings_adhan_global_volume_desc">გამოიყენეთ ერთი დონე ყველა ლოცვაზე და გამორთეთ თითო ლოცვის სლაიდერები</string>
+    <string name="settings_adhan_follows_global">მიჰყვება გლობალურ მოცულობას (%1$s)</string>
 </resources>

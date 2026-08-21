@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">\'Oku fili \'e he app \'a e founga fe\'unga taha \'otometiki \'o makatu\'unga \'i ho fonua mo e feitu\'u; \'e lava ke ke kei fili ha founga \'i he nima \'i ha taimi pe.</string>
     <string name="settings_preview_for_prayer">Tomu\'a vakai\'i %1$s adhan</string>
     <string name="settings_method_automatic_picked">\'Oku lolotonga to\'o \'otometiki: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">Voliume adhan fakamamani lahi</string>
+    <string name="settings_adhan_global_volume_desc">Faka\'aonga\'i ha levolo \'e taha ki he lotu kotoa pe pea fakata\'e\'aonga\'i \'a e ngaahi sliders \'o e lotu takitaha .</string>
+    <string name="settings_adhan_follows_global">Muimui ki he voliume fakamamani lahi (%1$s).</string>
 </resources>

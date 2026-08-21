@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">แอพจะเลือกวิธีการที่เหมาะสมที่สุดโดยอัตโนมัติตามประเทศและที่ตั้งของคุณ คุณยังสามารถเลือกวิธีการด้วยตนเองได้ตลอดเวลา</string>
     <string name="settings_preview_for_prayer">ดูตัวอย่าง %1$s อาธาน</string>
     <string name="settings_method_automatic_picked">อัตโนมัติที่เลือกอยู่ในปัจจุบัน: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">ปริมาณ Adhan ทั่วโลก</string>
+    <string name="settings_adhan_global_volume_desc">ใช้ระดับเดียวกับทุกคำอธิษฐานและปิดการใช้งานแถบเลื่อนต่อคำอธิษฐาน</string>
+    <string name="settings_adhan_follows_global">ติดตามปริมาณทั่วโลก (%1$s)</string>
 </resources>

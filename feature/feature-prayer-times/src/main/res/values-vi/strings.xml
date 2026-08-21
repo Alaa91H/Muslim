@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Ứng dụng sẽ tự động chọn phương pháp phù hợp nhất dựa trên quốc gia và vị trí của bạn; bạn vẫn có thể chọn phương pháp thủ công bất kỳ lúc nào.</string>
     <string name="settings_preview_for_prayer">Xem trước %1$s adhan</string>
     <string name="settings_method_automatic_picked">Tự động hiện được chọn: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Khối lượng adhan toàn cầu</string>
+    <string name="settings_adhan_global_volume_desc">Áp dụng một cấp độ duy nhất cho mỗi lời cầu nguyện và vô hiệu hóa thanh trượt cho mỗi lời cầu nguyện</string>
+    <string name="settings_adhan_follows_global">Theo khối lượng toàn cầu (%1$s)</string>
 </resources>

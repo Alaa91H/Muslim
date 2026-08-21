@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Die toepassing kies die mees geskikte metode outomaties gebaseer op jou land en ligging; jy kan steeds \'n metode met die hand kies te eniger tyd.</string>
     <string name="settings_preview_for_prayer">Voorbeskou %1$s adhan</string>
     <string name="settings_method_automatic_picked">Outomatiese tans gekies: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Globale adhan volume</string>
+    <string name="settings_adhan_global_volume_desc">Pas \'n enkele vlak op elke gebed toe en deaktiveer die per-gebed-glyers</string>
+    <string name="settings_adhan_follows_global">Volg die globale volume (%1$s)</string>
 </resources>

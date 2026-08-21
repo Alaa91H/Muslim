@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">ଆପ୍ ଆପଣଙ୍କ ଦେଶ ଏବଂ ଅବସ୍ଥାନ ଉପରେ ଆଧାର କରି ସ୍ୱୟଂଚାଳିତ ଭାବରେ ସବୁଠାରୁ ଉପଯୁକ୍ତ ପଦ୍ଧତି ବାଛିଥାଏ; ଆପଣ ତଥାପି ଯେକ time ଣସି ସମୟରେ ମାନୁଆଲୀ ଭାବରେ ଏକ ପଦ୍ଧତି ବାଛିପାରିବେ |</string>
     <string name="settings_preview_for_prayer">ପୂର୍ବାବଲୋକନ %1$s ଆଦନ |</string>
     <string name="settings_method_automatic_picked">ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଉଠାଯାଇଛି: %1$s - %2$s |</string>
+    <string name="settings_adhan_global_volume">ଗ୍ଲୋବାଲ୍ ଆଡାନ୍ ଭଲ୍ୟୁମ୍</string>
+    <string name="settings_adhan_global_volume_desc">ପ୍ରତ୍ୟେକ ପ୍ରାର୍ଥନାରେ ଗୋଟିଏ ସ୍ତର ପ୍ରୟୋଗ କରନ୍ତୁ ଏବଂ ପ୍ରତି ପ୍ରାର୍ଥନା ସ୍ଲାଇଡର୍ଗୁଡ଼ିକୁ ଅକ୍ଷମ କରନ୍ତୁ |</string>
+    <string name="settings_adhan_follows_global">ଗ୍ଲୋବାଲ୍ ଭଲ୍ୟୁମ୍ (%1$s) ଅନୁସରଣ କରେ |</string>
 </resources>

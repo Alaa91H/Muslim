@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Қолданба сіздің еліңізге және орналасқан жеріңізге байланысты ең қолайлы әдісті автоматты түрде таңдайды; кез келген уақытта әдісті қолмен таңдай аласыз.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
     <string name="settings_method_automatic_picked">Автоматты таңдалған: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Жаһандық азан көлемі</string>
+    <string name="settings_adhan_global_volume_desc">Әрбір намазға бір деңгейді қолданыңыз және әр дұға үшін сырғытпаларды өшіріңіз</string>
+    <string name="settings_adhan_follows_global">Жаһандық көлемді бақылайды (%1$s)</string>
 </resources>

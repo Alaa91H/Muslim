@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Ia au i to outou fenua e to outou vahi, e maiti noa te faanahoraa i te ravea maitai roa \' \' e; E nehenehe â outou e maiti i te hoê ravea na roto i te rima i te mau taime atoa.</string>
     <string name="settings_preview_for_prayer">Hi\'opo\'araa %1$s adhan</string>
     <string name="settings_method_automatic_picked">Ua ma\'itihia i teie nei: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Te buka adhan na te ao nei</string>
+    <string name="settings_adhan_global_volume_desc">A faaohipa i te hoê faito i roto i te mau pure atoa e a pato\'i i te mau hoho\'a i te mau pure atoa</string>
+    <string name="settings_adhan_follows_global">Te pee nei te buka na te ao nei (%1$s)</string>
 </resources>

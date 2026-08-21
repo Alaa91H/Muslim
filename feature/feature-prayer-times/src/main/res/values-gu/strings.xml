@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">એપ્લિકેશન તમારા દેશ અને સ્થાનના આધારે આપમેળે સૌથી યોગ્ય પદ્ધતિ પસંદ કરે છે; તમે હજુ પણ કોઈપણ સમયે જાતે પદ્ધતિ પસંદ કરી શકો છો.</string>
     <string name="settings_preview_for_prayer">પૂર્વાવલોકન %1$s અધાન</string>
     <string name="settings_method_automatic_picked">આપોઆપ હાલમાં પસંદ કરેલ: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">વૈશ્વિક અદન વોલ્યુમ</string>
+    <string name="settings_adhan_global_volume_desc">દરેક પ્રાર્થના માટે એક સ્તર લાગુ કરો અને પ્રતિ-પ્રાર્થના સ્લાઇડરને અક્ષમ કરો</string>
+    <string name="settings_adhan_follows_global">વૈશ્વિક વોલ્યુમ (%1$s) ને અનુસરે છે</string>
 </resources>

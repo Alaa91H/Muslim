@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Aplikazioak metodo egokiena aukeratzen du automatikoki zure herrialdearen eta kokapenaren arabera; metodo bat eskuz aukera dezakezu edonoiz.</string>
     <string name="settings_preview_for_prayer">Aurreikusi %1$s adhan</string>
     <string name="settings_method_automatic_picked">Momentu honetan hautatutako automatikoa: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Adhan bolumen globala</string>
+    <string name="settings_adhan_global_volume_desc">Aplikatu maila bakarra otoitz bakoitzean eta desgaitu otoitz bakoitzeko graduatzaileak</string>
+    <string name="settings_adhan_follows_global">Bolumen globalari jarraitzen dio (%1$s)</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">La apo elektas la plej taŭgan metodon aŭtomate laŭ via lando kaj loko; vi ankoraŭ povas elekti metodon permane iam ajn.</string>
     <string name="settings_preview_for_prayer">Antaŭrigardu %1$s adhan</string>
     <string name="settings_method_automatic_picked">Aŭtomata nuntempe elektita: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Tutmonda adhan-volumo</string>
+    <string name="settings_adhan_global_volume_desc">Apliku ununuran nivelon al ĉiu preĝo kaj malŝaltu la po-preĝajn glitilojn</string>
+    <string name="settings_adhan_follows_global">Sekvas la tutmondan volumon (%1$s)</string>
 </resources>

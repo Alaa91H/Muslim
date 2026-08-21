@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Serlêdan li gorî welat û cîhê we rêbaza herî maqûl bixweber hildibijêre; hûn dîsa jî dikarin di her kêliyê de rêbazek bi destan hilbijêrin.</string>
     <string name="settings_preview_for_prayer">Pêşdîtina %1$s azan</string>
     <string name="settings_method_automatic_picked">Otomatîk niha hilbijartî: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">Hêjmara azanê ya gerdûnî</string>
+    <string name="settings_adhan_global_volume_desc">Ji her nimêjê re astek yekane bicîh bikin û sliderên her-nimêjê neçalak bikin</string>
+    <string name="settings_adhan_follows_global">Hêjmara gerdûnî dişopîne (%1$s)</string>
 </resources>

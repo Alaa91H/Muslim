@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Апликацијата автоматски го избира најсоодветниот метод врз основа на вашата земја и локација; сепак можете да изберете метод рачно во секое време.</string>
     <string name="settings_preview_for_prayer">Преглед на %1$s азан</string>
     <string name="settings_method_automatic_picked">Автоматски моментално избран: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Глобален волумен на азан</string>
+    <string name="settings_adhan_global_volume_desc">Применете едно ниво на секоја молитва и оневозможете ги лизгачите по молитва</string>
+    <string name="settings_adhan_follows_global">Го следи глобалниот волумен (%1$s)</string>
 </resources>

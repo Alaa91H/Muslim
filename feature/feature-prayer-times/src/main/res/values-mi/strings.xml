@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Ka tohua e te taupānga te tikanga tino pai i runga i to whenua me to waahi; ka taea tonu e koe te whiriwhiri i tetahi tikanga i nga wa katoa.</string>
     <string name="settings_preview_for_prayer">Arokite %1$s adhan</string>
     <string name="settings_method_automatic_picked">Kohia aunoa: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Te rōrahi adhana o te ao</string>
+    <string name="settings_adhan_global_volume_desc">Hoatu he taumata kotahi ki ia karakia ka whakakorehia nga riipene mo ia karakia</string>
+    <string name="settings_adhan_follows_global">Ka whai i te rōrahi o te ao (%1$s)</string>
 </resources>

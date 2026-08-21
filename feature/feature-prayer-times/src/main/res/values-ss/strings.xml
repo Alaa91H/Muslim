@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Le-app ikhetsa indlela lefanele kakhulu ngekuzenzakalela ngekuya ngelive lakho nendzawo yakho; usakhona kukhetsa indlela ngesandla noma nini.</string>
     <string name="settings_preview_for_prayer">Buka ngaphambilini %1$s i-adhan</string>
     <string name="settings_method_automatic_picked">Kukhetsiwe lokutentakalelako njengamanje: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">Ivolumu ye-adhan yemhlaba wonkhe</string>
+    <string name="settings_adhan_global_volume_desc">Faka lizinga linye kuyo yonkhe imithandazo bese ucisha tisheleleti temthantazo ngamunye</string>
+    <string name="settings_adhan_follows_global">Kulandzela ivolumu yemhlaba wonkhe (%1$s)</string>
 </resources>

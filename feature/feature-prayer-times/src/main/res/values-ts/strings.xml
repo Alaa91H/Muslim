@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">App yi hlawula ndlela leyi faneleke swinene hi ku tisungulela hi ku ya hi tiko ra wena ni ndhawu ya wena; wa ha swi kota ku hlawula ndlela hi voko nkarhi wihi na wihi.</string>
     <string name="settings_preview_for_prayer">Xikombiso xa %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatic sweswi yi hlawuriwile: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Vholumo ya adhan ya misava hinkwayo</string>
+    <string name="settings_adhan_global_volume_desc">Tirhisa levele yin’we eka xikhongelo xin’wana na xin’wana naswona u tshikisa swilayidi swa xikhongelo xin’wana na xin’wana</string>
+    <string name="settings_adhan_follows_global">Ku landzela vholumo ya misava hinkwayo (%1$s) .</string>
 </resources>

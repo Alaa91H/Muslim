@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Az alkalmazás automatikusan kiválasztja a legmegfelelőbb módszert az Ön országa és tartózkodási helye alapján; továbbra is bármikor választhat egy módszert manuálisan.</string>
     <string name="settings_preview_for_prayer">Előnézet %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatikus jelenleg kiválasztott: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Globális adhan mennyiség</string>
+    <string name="settings_adhan_global_volume_desc">Alkalmazzon egyetlen szintet minden imára, és tiltsa le az imánkénti csúszkákat</string>
+    <string name="settings_adhan_follows_global">Követi a globális mennyiséget (%1$s)</string>
 </resources>

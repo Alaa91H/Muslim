@@ -44,6 +44,11 @@ data class PrayerSettings(
      */
     val adhanVolumes: Map<Prayer, Int> = emptyMap(),
     /**
+     * When true, a single master level ([adhanVolume]) applies to every
+     * prayer and the per-prayer sliders are disabled in the UI.
+     */
+    val useGlobalAdhanVolume: Boolean = false,
+    /**
      * Per-prayer bundled recording id (see
      * [org.muslim.app.core.common.prayer.BundledAdhanSound]); always
      * available offline since it ships inside the APK. Absent keys default to
@@ -69,7 +74,11 @@ data class PrayerSettings(
 ) {
     /** Resolves the effective adhan volume for [prayer]. */
     fun adhanVolumeFor(prayer: Prayer): Int =
-        adhanVolumes[prayer]?.coerceIn(0, 100) ?: adhanVolume
+        if (useGlobalAdhanVolume) {
+            adhanVolume
+        } else {
+            adhanVolumes[prayer]?.coerceIn(0, 100) ?: adhanVolume
+        }
 
     /** Resolves whether vibration is enabled for [prayer]. */
     fun vibrateFor(prayer: Prayer): Boolean =

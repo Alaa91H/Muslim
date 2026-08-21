@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Aplikacija automatski odabire najprikladniju metodu na temelju vaše zemlje i lokacije; još uvijek možete ručno odabrati metodu u bilo kojem trenutku.</string>
     <string name="settings_preview_for_prayer">Pregledajte %1$s ezan</string>
     <string name="settings_method_automatic_picked">Automatski trenutno odabrano: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Globalni volumen ezana</string>
+    <string name="settings_adhan_global_volume_desc">Primijenite jednu razinu na svaku molitvu i onemogućite klizače za svaku molitvu</string>
+    <string name="settings_adhan_follows_global">Prati globalni volumen (%1$s)</string>
 </resources>

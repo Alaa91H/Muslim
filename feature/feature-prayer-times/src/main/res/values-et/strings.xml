@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Rakendus valib teie riigi ja asukoha põhjal automaatselt kõige sobivama meetodi; meetodi saate siiski igal ajal käsitsi valida.</string>
     <string name="settings_preview_for_prayer">Eelvaade %1$s adhan</string>
     <string name="settings_method_automatic_picked">Hetkel valitud automaatne: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Globaalne adhani maht</string>
+    <string name="settings_adhan_global_volume_desc">Rakendage igale palvele üks tase ja keelake palvepõhised liugurid</string>
+    <string name="settings_adhan_follows_global">Järgib globaalset helitugevust (%1$s)</string>
 </resources>

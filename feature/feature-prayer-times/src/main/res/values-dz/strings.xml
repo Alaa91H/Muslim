@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">གློག་རིམ་འདི་གིས་ ཁྱོད་རའི་རྒྱལ་ཁབ་དང་ས་གནས་ལུ་གཞི་བཞག་སྟེ་ རང་བཞིན་གྱིས་ ཐབས་ལམ་འོས་འབབ་ཅན་འདི་ འདམ་ཁ་རྐྱབ་ཨིན། ཁྱོད་ཀྱིས་ད་ལྟོ་ཡང་ དུས་ནམ་ར་འབད་རུང་ ལག་ཐོག་ལས་ ཐབས་ལམ་ཅིག་གདམ་ཁ་རྐྱབ་ཚུགས།</string>
     <string name="settings_preview_for_prayer">སྔོན་ལྟ་ %1$s ཨ་དྷན།</string>
     <string name="settings_method_automatic_picked">རང་བཞིན་གྱིས་ད་ལྟོ་འཐུ་འབད་ཡོདཔ་: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">འཛམ་གླིང་ཡོངས་ཀྱི་ adhan སྐད་ཚད།</string>
+    <string name="settings_adhan_global_volume_desc">སྨོན་ལམ་རེ་རེ་ལུ་གནས་རིམ་གཅིག་འཇུག་སྤྱོད་འབད་ཞིནམ་ལས་ སྨོན་ལམ་རེ་ལུ་བཤུད་སྒྲིལ་ཚུ་ལྕོགས་མིན་བཟོ།</string>
+    <string name="settings_adhan_follows_global">ཡོངས་ཁྱབ་སྐད་ཤུགས་ (%1$s) རྗེས་སུ་འབྲངམ་ཨིན།</string>
 </resources>

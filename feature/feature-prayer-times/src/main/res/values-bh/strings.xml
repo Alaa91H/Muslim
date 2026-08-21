@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">ऐप आपके देश अवुरी स्थान के आधार प स्वचालित रूप से सबसे उपयुक्त तरीका चुनेला; रउआँ अबहियों कबो भी मैन्युअल रूप से कवनो तरीका चुन सकत बानी।</string>
     <string name="settings_preview_for_prayer">पूर्वावलोकन %1$s अधान के बा</string>
     <string name="settings_method_automatic_picked">स्वचालित वर्तमान में चुनल गइल बा: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">वैश्विक अधान के मात्रा बा</string>
+    <string name="settings_adhan_global_volume_desc">हर प्रार्थना में एकही स्तर लागू करीं आ प्रति प्रार्थना स्लाइडर के अक्षम करीं</string>
+    <string name="settings_adhan_follows_global">वैश्विक मात्रा (%1$s) के पालन करेला।</string>
 </resources>

@@ -194,6 +194,16 @@ class PrayerSettingsViewModel @Inject constructor(
         it.copy(adhanVolumes = it.adhanVolumes + (prayer to volume.coerceIn(0, 100)))
     }
 
+    /**
+     * Master volume switch: one level for every prayer, disabling the
+     * per-prayer sliders. [PrayerSettings.adhanVolumeFor] already resolves
+     * the master level for all prayers when this is on, so playback and the
+     * preview honour it automatically.
+     */
+    fun setUseGlobalAdhanVolume(enabled: Boolean) = update {
+        it.copy(useGlobalAdhanVolume = enabled)
+    }
+
     /** True while an adhan preview is ringing (drives the preview/stop toggle). */
     val isPreviewing = AdhanPlaybackStatus.isPlaying
 

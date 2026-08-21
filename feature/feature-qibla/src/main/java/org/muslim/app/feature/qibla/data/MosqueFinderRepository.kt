@@ -9,6 +9,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.muslim.app.core.common.HttpAgents
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.math.atan2
@@ -63,7 +64,16 @@ class MosqueFinderRepository @Inject constructor() {
         "https://overpass.private.coffee/api/interpreter",
     )
 
+    /**
+     * Generous timeouts are essential: OkHttp's 10 s default read timeout
+     * is far too short for Overpass — a query for a busy city routinely
+     * takes 5–15 s to assemble and return, and the default would abort the
+     * call right as the server starts answering.
+     */
     private val client = OkHttpClient.Builder()
+        .connectTimeout(20, TimeUnit.SECONDS)
+        .readTimeout(60, TimeUnit.SECONDS)
+        .writeTimeout(30, TimeUnit.SECONDS)
         .addInterceptor { chain ->
             chain.proceed(
                 chain.request().newBuilder()
@@ -89,12 +99,19 @@ class MosqueFinderRepository @Inject constructor() {
         // the centroid for ways.
         val query = buildQuery(latitude, longitude, radiusMeters)
         var failure: Exception? = null
-        for (endpoint in OVERPASS_ENDPOINTS) {
-            try {
-                return@withContext fetch(endpoint, query, latitude, longitude)
-            } catch (e: Exception) {
-                failure = e
+        // Two full passes over the endpoints. The main Overpass instance is
+        // intermittently overloaded (HTTP 504 “gateway timeout”) yet answers
+        // fine seconds later, so a single pass frequently fails even though
+        // the network is healthy.
+        repeat(2) { pass ->
+            for (endpoint in OVERPASS_ENDPOINTS) {
+                try {
+                    return@withContext fetch(endpoint, query, latitude, longitude)
+                } catch (e: Exception) {
+                    failure = e
+                }
             }
+            if (pass == 0) Thread.sleep(1_500)
         }
         throw failure ?: IllegalStateException("No Overpass endpoint configured")
     }
@@ -131,21 +148,19 @@ class MosqueFinderRepository @Inject constructor() {
     }
 
     private fun buildQuery(latitude: Double, longitude: Double, radiusMeters: Int): String =
-        // Queries both point mosques (nodes) and building outlines (ways) so
-        // the finder works in every corner of the world, not just where
-        // mosques happen to be mapped as single nodes. `out center` returns
-        // the centroid for ways.
+        // `nwr` matches nodes, ways and relations in one statement, and the
+        // tags cover every way OSM maps a mosque (place_of_worship+muslim is
+        // the canonical one; building=mosque / amenity=mosque are legacy).
+        // `out center qt` returns centroids for ways/relations and sorts by
+        // quadtile — much faster than the default ordering on large results.
         """
-            [out:json][timeout:25];
+            [out:json][timeout:30];
             (
-              node["amenity"="place_of_worship"]["religion"="muslim"](around:$radiusMeters,$latitude,$longitude);
-              way["amenity"="place_of_worship"]["religion"="muslim"](around:$radiusMeters,$latitude,$longitude);
-              node["building"="mosque"](around:$radiusMeters,$latitude,$longitude);
-              way["building"="mosque"](around:$radiusMeters,$latitude,$longitude);
-              node["amenity"="mosque"](around:$radiusMeters,$latitude,$longitude);
-              way["amenity"="mosque"](around:$radiusMeters,$latitude,$longitude);
+              nwr["amenity"="place_of_worship"]["religion"="muslim"](around:$radiusMeters,$latitude,$longitude);
+              nwr["building"="mosque"](around:$radiusMeters,$latitude,$longitude);
+              nwr["amenity"="mosque"](around:$radiusMeters,$latitude,$longitude);
             );
-            out center 120;
+            out center qt 100;
         """.trimIndent()
 
     private fun fetch(

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">App eno elonda enkola esinga okutuukirawo mu ngeri ey’otoma okusinziira ku nsi yo n’ekifo kyo; okyayinza okulonda enkola mu ngalo ekiseera kyonna.</string>
     <string name="settings_preview_for_prayer">Okusooka okulaba %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatic mu kiseera kino esunsuddwa: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Ensi yonna adhan volume</string>
+    <string name="settings_adhan_global_volume_desc">Siiga omutendera gumu ku buli ssaala era olemesa sliders za buli ssaala</string>
+    <string name="settings_adhan_follows_global">Egoberera omuzingo gw\'ensi yonna (%1$s) .</string>
 </resources>

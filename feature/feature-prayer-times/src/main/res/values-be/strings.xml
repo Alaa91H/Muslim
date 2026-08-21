@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Прыкладанне аўтаматычна выбірае найбольш прыдатны метад у залежнасці ад вашай краіны і месцазнаходжання; вы ўсё яшчэ можаце выбраць метад уручную ў любы час.</string>
     <string name="settings_preview_for_prayer">Папярэдні прагляд %1$s азана</string>
     <string name="settings_method_automatic_picked">Аўтаматычна выбраны ў цяперашні час: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Глабальны аб\'ём азана</string>
+    <string name="settings_adhan_global_volume_desc">Прымяніць адзін узровень да кожнай малітвы і адключыць паўзункі для кожнай малітвы</string>
+    <string name="settings_adhan_follows_global">Адпавядае агульнаму аб\'ёму (%1$s)</string>
 </resources>

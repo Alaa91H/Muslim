@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Iyo porogarama itora uburyo bwiza cane ubwayo ishingiye ku gihugu cawe n’aho uri; urashobora guhitamwo uburyo n\'amaboko igihe cose.</string>
     <string name="settings_preview_for_prayer">Imbere y\'igihe %1$s adhan</string>
     <string name="settings_method_automatic_picked">Ivyikora ubu vyatowe: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">Ijwi ry\'adhan kw\'isi yose</string>
+    <string name="settings_adhan_global_volume_desc">Shiraho urugero rumwe ku isengesho ryose maze uzimye ibinyerera ku isengesho ryose</string>
+    <string name="settings_adhan_follows_global">Ikurikira umubare w\'isi yose (%1$s)</string>
 </resources>

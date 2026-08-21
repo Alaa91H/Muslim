@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">برنامه مناسب ترین روش را به طور خودکار بر اساس کشور و مکان شما انتخاب می کند. شما همچنان می توانید در هر زمانی روشی را به صورت دستی انتخاب کنید.</string>
     <string name="settings_preview_for_prayer">پیش نمایش %1$s اذان</string>
     <string name="settings_method_automatic_picked">خودکار در حال حاضر انتخاب شده: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">حجم جهانی اذان</string>
+    <string name="settings_adhan_global_volume_desc">یک سطح را برای هر نماز اعمال کنید و لغزنده های هر نماز را غیرفعال کنید</string>
+    <string name="settings_adhan_follows_global">از حجم جهانی (%1$s) پیروی می کند</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Aplikacija samodejno izbere najprimernejšo metodo glede na vašo državo in lokacijo; še vedno lahko kadar koli ročno izberete način.</string>
     <string name="settings_preview_for_prayer">Predogled %1$s ezana</string>
     <string name="settings_method_automatic_picked">Samodejno trenutno izbrano: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Globalni obseg ezana</string>
+    <string name="settings_adhan_global_volume_desc">Za vsako molitev uporabite eno raven in onemogočite drsnike za vsako molitev</string>
+    <string name="settings_adhan_follows_global">Sledi globalni prostornini (%1$s)</string>
 </resources>

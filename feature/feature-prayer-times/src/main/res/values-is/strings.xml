@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Forritið velur hentugustu aðferðina sjálfkrafa byggt á þínu landi og staðsetningu; þú getur samt valið aðferð handvirkt hvenær sem er.</string>
     <string name="settings_preview_for_prayer">Forskoða %1$s adhan</string>
     <string name="settings_method_automatic_picked">Sjálfvirkt valið: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Alþjóðlegt adhan bindi</string>
+    <string name="settings_adhan_global_volume_desc">Notaðu eitt stig fyrir hverja bæn og slökktu á sleðunum fyrir hverja bæn</string>
+    <string name="settings_adhan_follows_global">Fylgir alþjóðlegu magni (%1$s)</string>
 </resources>

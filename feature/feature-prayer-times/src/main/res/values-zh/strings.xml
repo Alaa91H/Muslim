@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">该应用程序会根据您所在的国家/地区和位置自动选择最合适的方法；您仍然可以随时手动选择方法。</string>
     <string name="settings_preview_for_prayer">预览 %1$s 宣礼</string>
     <string name="settings_method_automatic_picked">当前选择的自动：%1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">全球礼拜量</string>
+    <string name="settings_adhan_global_volume_desc">对每个祈祷应用单一级别并禁用每个祈祷滑块</string>
+    <string name="settings_adhan_follows_global">遵循全局体积 (%1$s)</string>
 </resources>

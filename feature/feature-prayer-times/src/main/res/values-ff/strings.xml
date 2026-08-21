@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">App oo suɓotoo ko feere ɓurnde moƴƴude otomatik tuugnaade e leydi maa e nokku maa ; aɗa waawi suɓaade feere haa jooni e junngo kala sahaa.</string>
     <string name="settings_preview_for_prayer">Yiyngo %1$s adan</string>
     <string name="settings_method_automatic_picked">Otomatik cuɓaaɗo jooni oo: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Adhan adan aduna oo fof</string>
+    <string name="settings_adhan_global_volume_desc">Naftoraade tolno gooto e kala juulde e ustude jolɗe juulde kala</string>
+    <string name="settings_adhan_follows_global">Rewi ko e njuuteendi aduna (%1$s) .</string>
 </resources>

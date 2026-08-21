@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Porogaramu itoranya uburyo bukwiye mu buryo bwikora ukurikije igihugu cyawe n\'aho uherereye; urashobora guhitamo uburyo bwintoki igihe icyo aricyo cyose.</string>
     <string name="settings_preview_for_prayer">Reba %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatic yatoranijwe kuri ubu: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">Ijwi rya adhan kwisi yose</string>
+    <string name="settings_adhan_global_volume_desc">Koresha urwego rumwe kuri buri sengesho kandi uhagarike buri sengesho</string>
+    <string name="settings_adhan_follows_global">Kurikirana ingano yisi yose (%1$s)</string>
 </resources>

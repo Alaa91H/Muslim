@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">ایپ آپ کے ملک اور مقام کی بنیاد پر خود بخود موزوں ترین طریقہ منتخب کرتی ہے۔ آپ اب بھی کسی بھی وقت دستی طور پر کوئی طریقہ منتخب کر سکتے ہیں۔</string>
     <string name="settings_preview_for_prayer">پیش نظارہ %1$s اذان</string>
     <string name="settings_method_automatic_picked">خودکار فی الحال اٹھایا گیا: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">عالمی اذان والیوم</string>
+    <string name="settings_adhan_global_volume_desc">ہر نماز پر ایک ہی سطح کا اطلاق کریں اور فی نماز سلائیڈرز کو غیر فعال کریں۔</string>
+    <string name="settings_adhan_follows_global">عالمی حجم (%1$s) کی پیروی کرتا ہے</string>
 </resources>

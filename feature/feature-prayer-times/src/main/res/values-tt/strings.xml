@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Кушымта иң уңайлы ысулны сезнең илгә һәм урнашкан урынга карап сайлый. сез һаман да кулны теләсә кайсы вакытта сайлый аласыз.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
     <string name="settings_method_automatic_picked">Хәзерге вакытта автоматик сайланган: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">Глобаль адхан күләме</string>
+    <string name="settings_adhan_global_volume_desc">Prayerәрбер догага бер дәрәҗә кулланыгыз һәм бер догага слайдерларны сүндерегез</string>
+    <string name="settings_adhan_follows_global">Глобаль күләмгә иярә (%1$s)</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">I-app ikhetha eyona ndlela ifanelekileyo ngokuzenzekelayo ngokusekelwe kwilizwe lakho kunye nendawo; usenokukhetha indlela ngesandla nangaliphi na ixesha.</string>
     <string name="settings_preview_for_prayer">Jonga kwangaphambili %1$s i-adhan</string>
     <string name="settings_method_automatic_picked">Iyazenzekela ngoku ikhethwayo: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Umthamo we-adhan wehlabathi</string>
+    <string name="settings_adhan_global_volume_desc">Faka inqanaba elinye kuwo wonke umthandazo kwaye ukhubaze izilayidi zomthandazo ngamnye</string>
+    <string name="settings_adhan_follows_global">Ilandela umthamo wehlabathi (%1$s)</string>
 </resources>

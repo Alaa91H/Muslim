@@ -172,6 +172,38 @@ fun PrayerSettingsScreen(
         SwitchRow(stringResource(R.string.settings_adhan_enabled), settings.adhanEnabled, viewModel::setAdhanEnabled)
 
         val nextPrayer by viewModel.nextPrayerPreview.collectAsStateWithLifecycle()
+
+        // Master volume: one level for every prayer. When enabled, the
+        // per-prayer sliders inside the cards are replaced by a “follows the
+        // global level” note, and this slider applies everywhere.
+        SwitchRow(
+            stringResource(R.string.settings_adhan_global_volume),
+            settings.useGlobalAdhanVolume,
+            viewModel::setUseGlobalAdhanVolume,
+        )
+        if (settings.useGlobalAdhanVolume) {
+            Text(
+                text = stringResource(R.string.settings_adhan_global_volume_desc),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(start = 4.dp, bottom = 4.dp),
+            )
+            var masterVolume by remember { mutableIntStateOf(settings.adhanVolume) }
+            LaunchedEffect(settings.adhanVolume) { masterVolume = settings.adhanVolume }
+            VolumeRow(
+                volume = masterVolume,
+                onChanged = { masterVolume = it },
+                onLiveVolume = viewModel::setLivePreviewVolume,
+                onPreview = {
+                    viewModel.setAdhanVolume(masterVolume)
+                    // Restart the preview so the new master level is heard
+                    // exactly as it will sound at adhan time.
+                    val target = nextPrayer?.first ?: Prayer.Fajr
+                    if (settings.adhanEnabled) viewModel.previewAdhan(target)
+                },
+            )
+        }
+
         AdhanNotificationPreview(
             use24h = use24h,
             prayer = nextPrayer?.first,
@@ -230,6 +262,8 @@ fun PrayerSettingsScreen(
                 sound = BundledAdhanSound.fromId(soundId),
                 volume = settings.adhanVolumeFor(prayer),
                 vibrate = settings.vibrateFor(prayer),
+                globalVolume = settings.useGlobalAdhanVolume,
+                globalVolumeValue = settings.adhanVolume,
                 previewing = previewingPrayer == prayer,
                 onPreview = {
                     if (previewingPrayer == prayer) {
@@ -239,6 +273,14 @@ fun PrayerSettingsScreen(
                         viewModel.previewAdhan(prayer)
                     }
                 },
+                onVolumeChange = { v ->
+                    viewModel.setAdhanVolume(prayer, v)
+                    // If this prayer's preview is ringing, restart it so the
+                    // new level is heard exactly as saved.
+                    if (previewingPrayer == prayer) viewModel.previewAdhan(prayer)
+                },
+                onLiveVolume = viewModel::setLivePreviewVolume,
+                onVibrateChange = { viewModel.setVibrateEnabled(prayer, it) },
                 onCustomize = { customizingPrayer = prayer },
             )
             CustomSoundRow(
@@ -577,8 +619,13 @@ private fun AdhanSoundRow(
     sound: BundledAdhanSound,
     volume: Int,
     vibrate: Boolean,
+    globalVolume: Boolean,
+    globalVolumeValue: Int,
     previewing: Boolean,
     onPreview: () -> Unit,
+    onVolumeChange: (Int) -> Unit,
+    onLiveVolume: (Int) -> Unit,
+    onVibrateChange: (Boolean) -> Unit,
     onCustomize: () -> Unit,
 ) {
     Card(
@@ -587,53 +634,70 @@ private fun AdhanSoundRow(
             .padding(vertical = 4.dp)
             .clickable(onClick = onCustomize),
     ) {
-        Row(
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = stringResource(prayerLabelRes(prayer)),
-                    style = MaterialTheme.typography.titleSmall,
-                )
-                Spacer(Modifier.height(2.dp))
+        Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
+            // Volume + vibration controls live at the top of the card so the
+            // full per-prayer configuration is adjustable right here, without
+            // opening the customize dialog.
+            if (globalVolume) {
                 Text(
                     text = stringResource(
-                        R.string.settings_adhan_sound_summary,
-                        stringResource(adhanOptionLabelRes(option)),
-                        stringResource(bundledSoundLabelRes(sound)),
+                        R.string.settings_adhan_follows_global,
+                        "$globalVolumeValue%",
                     ),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(vertical = 6.dp),
                 )
-                Spacer(Modifier.height(2.dp))
-                // Per-prayer volume + vibration, shown next to the sound and
-                // alert type so the card summarises the full configuration.
-                Text(
-                    text = stringResource(
-                        R.string.settings_adhan_volume_vibrate,
-                        "$volume%",
-                        stringResource(
-                            if (vibrate) R.string.settings_adhan_vibrate_on else R.string.settings_adhan_vibrate_off,
+            } else {
+                var dragVolume by remember { mutableIntStateOf(volume) }
+                LaunchedEffect(volume) { dragVolume = volume }
+                VolumeRow(
+                    volume = dragVolume,
+                    onChanged = { dragVolume = it },
+                    onLiveVolume = onLiveVolume,
+                    onPreview = { onVolumeChange(dragVolume) },
+                )
+                SwitchRow(
+                    label = stringResource(R.string.settings_vibrate),
+                    checked = vibrate,
+                    onCheckedChange = onVibrateChange,
+                )
+            }
+            HorizontalDivider()
+            Row(
+                modifier = Modifier.padding(top = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(prayerLabelRes(prayer)),
+                        style = MaterialTheme.typography.titleSmall,
+                    )
+                    Spacer(Modifier.height(2.dp))
+                    Text(
+                        text = stringResource(
+                            R.string.settings_adhan_sound_summary,
+                            stringResource(adhanOptionLabelRes(option)),
+                            stringResource(bundledSoundLabelRes(sound)),
                         ),
-                    ),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-            }
-            IconButton(onClick = onPreview, enabled = true) {
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                IconButton(onClick = onPreview, enabled = true) {
+                    Icon(
+                        imageVector = if (previewing) Icons.Filled.Stop else Icons.Filled.PlayArrow,
+                        contentDescription = stringResource(
+                            if (previewing) R.string.settings_preview_stop else R.string.settings_preview,
+                        ),
+                        tint = MaterialTheme.colorScheme.primary,
+                    )
+                }
                 Icon(
-                    imageVector = if (previewing) Icons.Filled.Stop else Icons.Filled.PlayArrow,
-                    contentDescription = stringResource(
-                        if (previewing) R.string.settings_preview_stop else R.string.settings_preview,
-                    ),
-                    tint = MaterialTheme.colorScheme.primary,
+                    imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
+                    contentDescription = stringResource(R.string.settings_adhan_customize),
                 )
             }
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
-                contentDescription = stringResource(R.string.settings_adhan_customize),
-            )
         }
     }
 }

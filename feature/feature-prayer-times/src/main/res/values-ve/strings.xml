@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">App i nanga nḓila yo teaho vhukuma nga vhuḓiitisi yo thewaho kha shango ḽaṋu na fhethu hune na dzula hone; u nga kha ḓi nanga nḓila nga tshanḓa tshifhinga tshiṅwe na tshiṅwe.</string>
     <string name="settings_preview_for_prayer">Vhuṱoli %1$s adhan</string>
     <string name="settings_method_automatic_picked">Zwo ḓiitelaho zwa zwino: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">Volumu ya adhan ya ḽifhasi</string>
+    <string name="settings_adhan_global_volume_desc">Shumisani ḽeveḽe nthihi kha thabelo iṅwe na iṅwe nahone ni thivhele zwiṱirathedzhi zwa thabelo nga thabelo .</string>
+    <string name="settings_adhan_follows_global">I tevhela volumu ya ḽifhasi (%1$s) .</string>
 </resources>

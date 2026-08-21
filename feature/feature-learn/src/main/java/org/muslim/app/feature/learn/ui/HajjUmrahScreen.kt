@@ -44,6 +44,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -90,6 +91,15 @@ fun HajjUmrahScreen(
 ) {
     var category by remember { mutableStateOf<HajjCategory?>(null) }
     var topic by remember { mutableStateOf<HajjTopic?>(null) }
+
+    // System back steps out of the topic, then the category, then the screen
+    // (mirrors the toolbar arrow) — never skips straight to the More root.
+    BackHandler(enabled = topic != null || category != null) {
+        when {
+            topic != null -> topic = null
+            category != null -> category = null
+        }
+    }
     var showCalculator by remember { mutableStateOf(false) }
     val currentCategory = category
     val currentTopic = topic

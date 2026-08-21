@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Applicatio methodum aptissima sponte fundatam in patria et loco tuo deligit; modo manually aliquando eligere potes.</string>
     <string name="settings_preview_for_prayer">Praevius %1$s adhan</string>
     <string name="settings_method_automatic_picked">Lorem currently sustulit: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">Global adhan volumen</string>
+    <string name="settings_adhan_global_volume_desc">Uno gradu ad omnem orationem applica et iunctiones per- precationis inactivare</string>
+    <string name="settings_adhan_follows_global">Sequitur volumen global (%1$s)</string>
 </resources>

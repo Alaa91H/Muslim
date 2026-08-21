@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">እቲ ኣፕ ብመሰረት ሃገርካን ቦታኻን ብኣውቶማቲክ ዝበለጸ ዝሰማማዕ ኣገባብ ይመርጽ፤ ሕጂ ውን ኣብ ዝኾነ እዋን ብኢድካ ሓደ ሜላ ክትመርጽ ትኽእል ኢኻ።</string>
     <string name="settings_preview_for_prayer">ቅድመ ምርኢት %1$s adhan</string>
     <string name="settings_method_automatic_picked">ኣውቶማቲክ ኣብዚ እዋን እዚ ዝተመርጸ: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">ዓለምለኻዊ ኣድሃን ቮልዩም</string>
+    <string name="settings_adhan_global_volume_desc">ኣብ ነፍሲ ወከፍ ጸሎት ሓደ ደረጃ ተግባራዊ ምግባርን ንነፍሲ ​​ወከፍ ጸሎት ዝኸውን ስላይደር ኣሰናኽልን።</string>
+    <string name="settings_adhan_follows_global">ዓለምለኻዊ ጥራዝ (%1$s) ይስዕብ።</string>
 </resources>

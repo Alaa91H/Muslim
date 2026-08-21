@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Uygulama, ülkenize ve konumunuza göre en uygun yöntemi otomatik olarak seçer; yine de istediğiniz zaman manuel olarak bir yöntem seçebilirsiniz.</string>
     <string name="settings_preview_for_prayer">%1$s ezanını önizle</string>
     <string name="settings_method_automatic_picked">Şu anda seçili olan otomatik: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Küresel ezan hacmi</string>
+    <string name="settings_adhan_global_volume_desc">Her duaya tek bir seviye uygulayın ve dua başına kaydırıcıları devre dışı bırakın</string>
+    <string name="settings_adhan_follows_global">Küresel hacmi takip eder (%1$s)</string>
 </resources>

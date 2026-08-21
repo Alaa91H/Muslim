@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">De app kiest de meast geskikte metoade automatysk op basis fan jo lân en lokaasje; jo kinne noch altyd in metoade manuell kieze.</string>
     <string name="settings_preview_for_prayer">Foarbyld %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatysk op it stuit selektearre: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">Global adhan volume</string>
+    <string name="settings_adhan_global_volume_desc">Tapasse ien nivo op elk gebed en skeakelje de sliders per gebed út</string>
+    <string name="settings_adhan_follows_global">Folget it globale folume (%1$s)</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">די אַפּ פּיקס די מערסט פּאַסיק אופֿן אויטאָמאַטיש באזירט אויף דיין לאַנד און אָרט; איר קענען נאָך קלייַבן אַ מעטאָד מאַניואַלי אין קיין צייט.</string>
     <string name="settings_preview_for_prayer">פאָרויסיקע ווייַזונג %1$s אַדהאַן</string>
     <string name="settings_method_automatic_picked">אָטאַמאַטיק דערווייַל פּיקט: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">גלאבאלע אַדהאַן באַנד</string>
+    <string name="settings_adhan_global_volume_desc">צולייגן אַ איין מדרגה צו יעדער תפילה און דיסייבאַל די סלידערס פּער תפילה</string>
+    <string name="settings_adhan_follows_global">גייט די גלאבאלע באַנד (%1$s)</string>
 </resources>

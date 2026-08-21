@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Roghnaíonn an aip an modh is oiriúnaí go huathoibríoch bunaithe ar do thír agus ar do shuíomh; is féidir leat modh a roghnú de láimh fós ag am ar bith.</string>
     <string name="settings_preview_for_prayer">Réamhamharc %1$s adhan</string>
     <string name="settings_method_automatic_picked">Uathoibríoch roghnaithe faoi láthair: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">Toirt adhan domhanda</string>
+    <string name="settings_adhan_global_volume_desc">Cuir leibhéal amháin i bhfeidhm ar gach paidir agus díchumasaigh na sleamhnáin in aghaidh an urnaí</string>
+    <string name="settings_adhan_follows_global">Leanann sé an toirt dhomhanda (%1$s)</string>
 </resources>

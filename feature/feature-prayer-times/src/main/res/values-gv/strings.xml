@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Ta\'n app pick y raad s\'cosoylagh automatically er y thalloo as \'sy \'nnyd; t\'ou uss geddyn stiagh \'sy \'moddey\' \'sy laue \'sy traa erbee.</string>
     <string name="settings_preview_for_prayer">Roish-akin %1$s adhan</string>
     <string name="settings_method_automatic_picked">Pickit automagh er-y-fa shen: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">Volume adhan cruinney</string>
+    <string name="settings_adhan_global_volume_desc">Cur stiagh un level da gagh padjer as cur stiagh ny slideryn per-padjer</string>
+    <string name="settings_adhan_follows_global">Lesh y voluum cruinnagh (%1$s)</string>
 </resources>

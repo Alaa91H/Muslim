@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Na app e digitaka na iwalewale veiganiti duadua vakataki koya e yavutaki ena nomu vanua kei na vanua; e rawa ni o digitaka tikoga e dua na iwalewale ena liga ena dua na gauna.</string>
     <string name="settings_preview_for_prayer">Raica taumada %1$s</string>
     <string name="settings_method_automatic_picked">Vakatotolotaki ena gauna oqo: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">Na levu ni adhan raraba</string>
+    <string name="settings_adhan_global_volume_desc">Vakayagataka e dua na ivakatagedegede ki na masu kecega ka vakaleqa na sliders ni masu yadua .</string>
+    <string name="settings_adhan_follows_global">Muria na iwiliwili ni vuravura raraba (%1$s) .</string>
 </resources>

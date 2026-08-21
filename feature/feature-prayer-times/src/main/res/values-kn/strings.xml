@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">ನಿಮ್ಮ ದೇಶ ಮತ್ತು ಸ್ಥಳವನ್ನು ಆಧರಿಸಿ ಅಪ್ಲಿಕೇಶನ್ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಹೆಚ್ಚು ಸೂಕ್ತವಾದ ವಿಧಾನವನ್ನು ಆರಿಸಿಕೊಳ್ಳುತ್ತದೆ; ನೀವು ಇನ್ನೂ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ಹಸ್ತಚಾಲಿತವಾಗಿ ವಿಧಾನವನ್ನು ಆಯ್ಕೆ ಮಾಡಬಹುದು.</string>
     <string name="settings_preview_for_prayer">ಪೂರ್ವವೀಕ್ಷಣೆ %1$s ಅಧಾನ್</string>
     <string name="settings_method_automatic_picked">ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಪ್ರಸ್ತುತ ಆಯ್ಕೆ ಮಾಡಲಾಗಿದೆ: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">ಜಾಗತಿಕ ಅಧಾನ್ ಪರಿಮಾಣ</string>
+    <string name="settings_adhan_global_volume_desc">ಪ್ರತಿ ಪ್ರಾರ್ಥನೆಗೆ ಒಂದೇ ಹಂತವನ್ನು ಅನ್ವಯಿಸಿ ಮತ್ತು ಪ್ರತಿ ಪ್ರಾರ್ಥನೆಯ ಸ್ಲೈಡರ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
+    <string name="settings_adhan_follows_global">ಜಾಗತಿಕ ಪರಿಮಾಣವನ್ನು ಅನುಸರಿಸುತ್ತದೆ (%1$s)</string>
 </resources>

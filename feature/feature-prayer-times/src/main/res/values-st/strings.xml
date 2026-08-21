@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Sesebelisoa se khetha mokhoa o loketseng ka ho fetesisa o ipapisitse le naha ea heno le sebaka; o ntse o ka khetha mokhoa ka letsoho ka nako efe kapa efe.</string>
     <string name="settings_preview_for_prayer">Sheba esale pele %1$s adhan</string>
     <string name="settings_method_automatic_picked">E khethiloe hajoale: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Molumo oa adhan lefatšeng ka bophara</string>
+    <string name="settings_adhan_global_volume_desc">Sebelisa mohato o le mong thapelong e \'ngoe le e \'ngoe \'me u tima li-slider tsa thapelo ka \'ngoe</string>
+    <string name="settings_adhan_follows_global">E latela molumo oa lefats\'e (%1$s)</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Pe app oiporavo ijeheguiete pe método iporãvéva oñemopyendáva nde retã ha moõpa oĩ; ikatu gueteri reiporavo peteĩ método nde po rupive oimeraẽ jave.</string>
     <string name="settings_preview_for_prayer">Tembiecharã %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automático ojeporavóva ko’áĝa: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Volumen adhan global rehegua</string>
+    <string name="settings_adhan_global_volume_desc">Emoĩ peteĩ nivel añoite opa ñembo’épe ha edesactiva umi deslizador por ñembo’e rehegua</string>
+    <string name="settings_adhan_follows_global">Omoirũ pe volumen global (%1$s) .</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">অ্যাপটি আপনার দেশ এবং অবস্থানের উপর ভিত্তি করে স্বয়ংক্রিয়ভাবে সবচেয়ে উপযুক্ত পদ্ধতি বেছে নেয়; আপনি এখনও যে কোনও সময় ম্যানুয়ালি একটি পদ্ধতি বেছে নিতে পারেন।</string>
     <string name="settings_preview_for_prayer">পূর্বরূপ %1$s আযান</string>
     <string name="settings_method_automatic_picked">বর্তমানে স্বয়ংক্রিয়ভাবে বাছাই করা হয়েছে: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">বিশ্বব্যাপী আযান ভলিউম</string>
+    <string name="settings_adhan_global_volume_desc">প্রতিটি প্রার্থনায় একটি একক স্তর প্রয়োগ করুন এবং প্রতি-প্রার্থনা স্লাইডারগুলি অক্ষম করুন৷</string>
+    <string name="settings_adhan_follows_global">বিশ্বব্যাপী ভলিউম অনুসরণ করে (%1$s)</string>
 </resources>

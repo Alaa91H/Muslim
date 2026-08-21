@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">App-ka ayaa si toos ah u dooranaya habka ugu habboon ee ku salaysan waddankaaga iyo goobtaada; waxaad weli dooran kartaa hab gacanta wakhti kasta.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
     <string name="settings_method_automatic_picked">Si toos ah hadda loo soo xushay: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">Global adhan mugga</string>
+    <string name="settings_adhan_global_volume_desc">Codso hal heer salaad kasta oo dami slides-yada salaadda kasta</string>
+    <string name="settings_adhan_follows_global">Wuxuu raacayaa mugga caalamiga ah (%1$s)</string>
 </resources>

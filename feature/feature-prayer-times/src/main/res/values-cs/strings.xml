@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Aplikace vybere nejvhodnější metodu automaticky na základě vaší země a polohy; metodu můžete kdykoli vybrat ručně.</string>
     <string name="settings_preview_for_prayer">Náhled %1$s adhan</string>
     <string name="settings_method_automatic_picked">Aktuálně vybraný automat: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Globální objem adhanu</string>
+    <string name="settings_adhan_global_volume_desc">Použijte jednu úroveň na každou modlitbu a deaktivujte posuvníky pro každou modlitbu</string>
+    <string name="settings_adhan_follows_global">Sleduje globální objem (%1$s)</string>
 </resources>

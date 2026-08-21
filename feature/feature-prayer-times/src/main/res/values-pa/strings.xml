@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">ਐਪ ਤੁਹਾਡੇ ਦੇਸ਼ ਅਤੇ ਸਥਾਨ ਦੇ ਆਧਾਰ \'ਤੇ ਆਪਣੇ ਆਪ ਸਭ ਤੋਂ ਢੁਕਵਾਂ ਤਰੀਕਾ ਚੁਣਦਾ ਹੈ; ਤੁਸੀਂ ਅਜੇ ਵੀ ਕਿਸੇ ਵੀ ਸਮੇਂ ਹੱਥੀਂ ਢੰਗ ਚੁਣ ਸਕਦੇ ਹੋ।</string>
     <string name="settings_preview_for_prayer">ਝਲਕ %1$s ਅਧਾਨ</string>
     <string name="settings_method_automatic_picked">ਵਰਤਮਾਨ ਵਿੱਚ ਆਟੋਮੈਟਿਕ ਚੁਣਿਆ ਗਿਆ: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">ਗਲੋਬਲ ਅਧਾਨ ਵਾਲੀਅਮ</string>
+    <string name="settings_adhan_global_volume_desc">ਹਰ ਪ੍ਰਾਰਥਨਾ ਲਈ ਇੱਕ ਪੱਧਰ ਲਾਗੂ ਕਰੋ ਅਤੇ ਪ੍ਰਤੀ-ਪ੍ਰਾਰਥਨਾ ਸਲਾਈਡਰਾਂ ਨੂੰ ਅਸਮਰੱਥ ਕਰੋ</string>
+    <string name="settings_adhan_follows_global">ਗਲੋਬਲ ਵਾਲੀਅਮ (%1$s) ਦਾ ਅਨੁਸਰਣ ਕਰਦਾ ਹੈ</string>
 </resources>

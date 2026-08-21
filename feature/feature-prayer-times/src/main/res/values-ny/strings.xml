@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Pulogalamuyi imasankha njira yoyenera kwambiri yokha kutengera dziko lanu ndi malo; mukhoza kusankha njira pamanja nthawi iliyonse.</string>
     <string name="settings_preview_for_prayer">Oneranitu %1$s adhan</string>
     <string name="settings_method_automatic_picked">Zasankhidwa zokha: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Kuchuluka kwa adhan padziko lonse lapansi</string>
+    <string name="settings_adhan_global_volume_desc">Ikani mulingo umodzi papemphero lililonse ndikuletsa zosendera papemphero lililonse</string>
+    <string name="settings_adhan_follows_global">Imatsatira kuchuluka kwapadziko lonse lapansi (%1$s)</string>
 </resources>

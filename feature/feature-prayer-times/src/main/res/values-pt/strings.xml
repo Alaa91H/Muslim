@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">O aplicativo escolhe automaticamente o método mais adequado com base no seu país e localização; você ainda pode escolher um método manualmente a qualquer momento.</string>
     <string name="settings_preview_for_prayer">Visualizar %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automático selecionado atualmente: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">Volume global de adhan</string>
+    <string name="settings_adhan_global_volume_desc">Aplique um único nível a cada oração e desative os controles deslizantes por oração</string>
+    <string name="settings_adhan_follows_global">Segue o volume global (%1$s)</string>
 </resources>

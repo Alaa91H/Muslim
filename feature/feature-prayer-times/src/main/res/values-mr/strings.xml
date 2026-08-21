@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">ॲप तुमचा देश आणि स्थान यावर आधारित सर्वात योग्य पद्धत आपोआप निवडतो; तुम्ही तरीही कोणत्याही वेळी मॅन्युअली पद्धत निवडू शकता.</string>
     <string name="settings_preview_for_prayer">पूर्वावलोकन %1$s अधान</string>
     <string name="settings_method_automatic_picked">स्वयंचलित सध्या निवडले: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">ग्लोबल अजान व्हॉल्यूम</string>
+    <string name="settings_adhan_global_volume_desc">प्रत्येक प्रार्थनेसाठी एकच स्तर लागू करा आणि प्रति-प्रार्थना स्लाइडर अक्षम करा</string>
+    <string name="settings_adhan_follows_global">जागतिक खंड (%1$s) चे अनुसरण करते</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">De app kies automatisch de meis gesjikde methode op basis vaan eur land en locatie; geer kin nog altied op eder momint ‘n methode handmatig keze.</string>
     <string name="settings_preview_for_prayer">Voorbeeld %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatisch momenteel gekoze: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Globaal adhanvolume</string>
+    <string name="settings_adhan_global_volume_desc">Pas un inkel niveau toe op eder gebed en schakel de per-gebed schuifers oet</string>
+    <string name="settings_adhan_follows_global">Volg ‘t globale volume (%1$s)</string>
 </resources>

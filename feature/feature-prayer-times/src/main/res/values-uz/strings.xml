@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Ilova mamlakatingiz va joylashuvingiz asosida avtomatik ravishda eng mos usulni tanlaydi; siz hali ham istalgan vaqtda usulni qo\'lda tanlashingiz mumkin.</string>
     <string name="settings_preview_for_prayer">%1$s azonni oldindan koʻrish</string>
     <string name="settings_method_automatic_picked">Avtomatik tanlangan: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Global azon hajmi</string>
+    <string name="settings_adhan_global_volume_desc">Har bir namozga bitta darajani qo\'llang va har bir namoz uchun slayderlarni o\'chiring</string>
+    <string name="settings_adhan_follows_global">Global hajmni kuzatib boradi (%1$s)</string>
 </resources>

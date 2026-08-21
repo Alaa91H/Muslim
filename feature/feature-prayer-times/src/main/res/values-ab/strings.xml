@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Апрограмма автоматла иалнахуеит еиҳа ианаало аметод, утәылаи уахьыҟоуи инарықәыршәаны; уажәгьы напыла аметод алхра улшоит ианакәызаалакгьы.</string>
     <string name="settings_preview_for_prayer">Аԥхьахәаԥшра %1$s азан</string>
     <string name="settings_method_automatic_picked">Автоматла уажәы иалху: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Адунеизегьтәи адзан абжьы</string>
+    <string name="settings_adhan_global_volume_desc">Ныҳәарацыԥхьаӡа ҩаӡарак ахархәара ҟаҵаны, ныҳәарацыԥхьаӡа аслаидерқәа ҿыхтәуп</string>
+    <string name="settings_adhan_follows_global">Адунеизегьтәи абжьы ашьҭанеиуеит (%1$s)</string>
 </resources>

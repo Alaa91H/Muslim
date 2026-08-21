@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Aplikasyon an chwazi metòd ki pi apwopriye a otomatikman selon peyi w ak kote w ye a; ou ka toujou chwazi yon metòd manyèlman nenpòt ki lè.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
     <string name="settings_method_automatic_picked">Otomatik kounye a chwazi: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Global adhan volim</string>
+    <string name="settings_adhan_global_volume_desc">Aplike yon sèl nivo nan chak lapriyè epi enfim koulis yo pou chak lapriyè</string>
+    <string name="settings_adhan_follows_global">Swiv volim mondyal la (%1$s)</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Application yango eponaka mayele oyo ebongi mpenza na ndenge ya automatique na kotalela mboka na yo mpe esika ozali; okoki kaka kopona méthode moko na maboko na tango nionso.</string>
     <string name="settings_preview_for_prayer">Botali liboso %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatique oyo eponami sikoyo: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Volume ya adhan ya mokili mobimba</string>
+    <string name="settings_adhan_global_volume_desc">Salelá nivo moko na losambo nyonso mpe fungola ba curseurs ya losambo moko</string>
+    <string name="settings_adhan_follows_global">Elandi volume ya mokili mobimba (%1$s) .</string>
 </resources>

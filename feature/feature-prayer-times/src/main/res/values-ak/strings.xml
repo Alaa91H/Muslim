@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">App no paw ɔkwan a ɛfata sen biara no ankasa a egyina wo man ne beae a wowɔ so; woda so ara betumi de nsa apaw ɔkwan bi bere biara.</string>
     <string name="settings_preview_for_prayer">Hwɛ %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatic mprempren a wɔapaw: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Wiase nyinaa adhan dodow</string>
+    <string name="settings_adhan_global_volume_desc">Fa level baako di dwuma wɔ mpaebɔ biara mu na ma mpaebɔ biara sliders no nyɛ adwuma</string>
+    <string name="settings_adhan_follows_global">Di wiase nyinaa dodow (%1$s) akyi .</string>
 </resources>

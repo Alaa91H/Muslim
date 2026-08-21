@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Die App wählt automatisch die am besten geeignete Methode basierend auf Ihrem Land und Standort aus; Sie können jederzeit manuell eine Methode auswählen.</string>
     <string name="settings_preview_for_prayer">Vorschau %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatisch aktuell ausgewählt: %1$s – %2$s</string>
+    <string name="settings_adhan_global_volume">Globales Adhan-Volumen</string>
+    <string name="settings_adhan_global_volume_desc">Wenden Sie auf jedes Gebet eine einzelne Ebene an und deaktivieren Sie die Schieberegler pro Gebet</string>
+    <string name="settings_adhan_follows_global">Folgt dem globalen Volumen (%1$s)</string>
 </resources>

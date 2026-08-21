@@ -35,6 +35,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -65,6 +66,10 @@ fun NamesOfAllahScreen(
 ) {
     var selected by remember { mutableStateOf<DivineName?>(null) }
     val name = selected
+
+    // System back steps out of the name-detail view first, then leaves the
+    // screen (same as the toolbar arrow).
+    BackHandler(enabled = name != null) { selected = null }
 
     // English fallback hidden for Arabic UI (each language shows its own texts).
     val showEnglishFallback = AppLanguage.showEnglishFallback()

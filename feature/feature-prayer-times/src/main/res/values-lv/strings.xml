@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Lietotne automātiski izvēlas vispiemērotāko metodi, pamatojoties uz jūsu valsti un atrašanās vietu; jūs joprojām varat izvēlēties metodi manuāli jebkurā laikā.</string>
     <string name="settings_preview_for_prayer">Priekšskatīt %1$s adhan</string>
     <string name="settings_method_automatic_picked">Pašreiz izvēlēts automātiski: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Globālais adhan apjoms</string>
+    <string name="settings_adhan_global_volume_desc">Katrai lūgšanai izmantojiet vienu līmeni un atspējojiet katras lūgšanas slīdņus</string>
+    <string name="settings_adhan_follows_global">Seko globālajam skaļumam (%1$s)</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Η εφαρμογή επιλέγει αυτόματα την καταλληλότερη μέθοδο με βάση τη χώρα και την τοποθεσία σας. μπορείτε ακόμα να επιλέξετε μια μέθοδο με μη αυτόματο τρόπο ανά πάσα στιγμή.</string>
     <string name="settings_preview_for_prayer">Προεπισκόπηση %1$s adhan</string>
     <string name="settings_method_automatic_picked">Αυτόματη επιλογή: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Παγκόσμιος όγκος αντάν</string>
+    <string name="settings_adhan_global_volume_desc">Εφαρμόστε ένα μόνο επίπεδο σε κάθε προσευχή και απενεργοποιήστε τα ρυθμιστικά ανά προσευχή</string>
+    <string name="settings_adhan_follows_global">Ακολουθεί την παγκόσμια ένταση (%1$s)</string>
 </resources>

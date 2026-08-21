@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Ҡушымта автоматик рәүештә иң ҡулайлы ысулды һайлай, һеҙҙең илгә һәм урынлашҡан урынға ҡарап; һеҙ һаман да теләһә ниндәй ваҡытта ҡул менән ысул һайларға мөмкин.</string>
     <string name="settings_preview_for_prayer">Алдан ҡарау %1$s аҙан</string>
     <string name="settings_method_automatic_picked">Автоматик әлеге ваҡытта йыйып алынған: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">Глобаль аҙан күләме</string>
+    <string name="settings_adhan_global_volume_desc">Ҡулланыу өсөн бер кимәл һәр намаҙ һәм өҙөү өсөн намаҙ ползуноктар</string>
+    <string name="settings_adhan_follows_global">Глобаль күләмгә эйәрә (%1$s).</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">යෙදුම ඔබගේ රට සහ ස්ථානය මත පදනම්ව ස්වයංක්‍රීයව වඩාත් සුදුසු ක්‍රමය තෝරා ගනී; ඔබට තවමත් ඕනෑම අවස්ථාවක අතින් ක්‍රමයක් තෝරාගත හැක.</string>
     <string name="settings_preview_for_prayer">පෙරදසුන් %1$s adhan</string>
     <string name="settings_method_automatic_picked">ස්වයංක්‍රීයව දැනට තෝරාගෙන ඇත: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">ගෝලීය අදාන් පරිමාව</string>
+    <string name="settings_adhan_global_volume_desc">සෑම යාච්ඤාවකටම තනි මට්ටමක් යොදන්න සහ එක් යාච්ඤාවකට ස්ලයිඩර් අක්‍රිය කරන්න</string>
+    <string name="settings_adhan_follows_global">ගෝලීය පරිමාව (%1$s) අනුගමනය කරයි</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Колдонмо өлкөңүзгө жана жайгашкан жериңизге жараша эң ылайыктуу ыкманы автоматтык түрдө тандайт; сиз дагы эле каалаган убакта кол менен ыкманы тандай аласыз.</string>
     <string name="settings_preview_for_prayer">%1$s азанды алдын ала көрүү</string>
     <string name="settings_method_automatic_picked">Учурда автоматтык түрдө тандалды: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Глобалдык азандын көлөмү</string>
+    <string name="settings_adhan_global_volume_desc">Ар бир намазга бир денгээлди колдонуңуз жана ар бир намаз үчүн сыдырмаларды өчүрүңүз</string>
+    <string name="settings_adhan_follows_global">Глобалдык көлөмдү ээрчийт (%1$s)</string>
 </resources>

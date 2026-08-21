@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Aplikasi ini memilih metode yang paling sesuai secara otomatis berdasarkan negara dan lokasi Anda; Anda masih dapat memilih metode secara manual kapan saja.</string>
     <string name="settings_preview_for_prayer">Pratinjau %1$s adzan</string>
     <string name="settings_method_automatic_picked">Otomatis yang dipilih saat ini: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Volume adzan global</string>
+    <string name="settings_adhan_global_volume_desc">Terapkan satu level untuk setiap doa dan nonaktifkan penggeser per doa</string>
+    <string name="settings_adhan_follows_global">Mengikuti volume global (%1$s)</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Dɔdamɔnua tiaa mɔnu si sɔ wu le eɖokui si le dukɔ si me nèle kple teƒe si nèle nu; àte ŋu atia mɔnu aɖe kokoko kple asi ɣesiaɣi.</string>
     <string name="settings_preview_for_prayer">Kpɔ ŋgɔ %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatic fifia tiatia: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Xexeame katã ƒe adhan ƒe agbɔsɔsɔme</string>
+    <string name="settings_adhan_global_volume_desc">Zã dzidzenu ɖeka ɖe gbedodoɖa ɖesiaɖe ŋu eye nàwɔ gbedodoɖa ɖesiaɖe ƒe sliders la nuwɔametɔe</string>
+    <string name="settings_adhan_follows_global">Ekplɔ xexeame katã ƒe agbɔsɔsɔme (%1$s) ɖo.</string>
 </resources>

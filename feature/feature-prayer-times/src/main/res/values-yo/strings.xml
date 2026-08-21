@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Ohun elo naa yan ọna ti o dara julọ laifọwọyi da lori orilẹ-ede ati ipo rẹ; o tun le yan ọna kan pẹlu ọwọ nigbakugba.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
     <string name="settings_method_automatic_picked">Laifọwọyi ti gbe lọwọlọwọ: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Iwọn didun adhan agbaye</string>
+    <string name="settings_adhan_global_volume_desc">Waye ipele kan si gbogbo adura ki o mu awọn sliders fun adura kuro</string>
+    <string name="settings_adhan_follows_global">Tẹle iwọn didun agbaye (%1$s)</string>
 </resources>

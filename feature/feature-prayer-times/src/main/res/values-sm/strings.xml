@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">E filifilia e le app le auala sili ona talafeagai e faʻatatau i lou atunuu ma le nofoaga; e mafai lava ona e filifilia se metotia ma le lima i soo se taimi.</string>
     <string name="settings_preview_for_prayer">Va\'ai %1$s azan</string>
     <string name="settings_method_automatic_picked">Otometi ua filifilia nei: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Le tele o le adhan lalolagi</string>
+    <string name="settings_adhan_global_volume_desc">Fa\'aoga se tulaga e tasi i tatalo ta\'itasi ma tape le fa\'ase\'e ta\'itasi</string>
+    <string name="settings_adhan_follows_global">Mulimuli i le voluma o le lalolagi (%1$s)</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Приложени сирӗн ҫӗршывпа вырӑна кура чи юрӑхлӑ меслете автоматла суйласа илет; эсир ҫапах та кирек хӑш вӑхӑтра та алӑпа меслет суйласа илме пултаратӑр.</string>
     <string name="settings_preview_for_prayer">Превью %1$s adhan</string>
     <string name="settings_method_automatic_picked">Автоматла хальхи вӑхӑтра суйласа илнӗ: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Пӗтӗм тӗнчери адхан калӑпӑшӗ</string>
+    <string name="settings_adhan_global_volume_desc">Кашни кӗлӗ ҫине пӗр шай лартӑр та кӗлӗ кашни ползунокне ӗҫлеттерӗр</string>
+    <string name="settings_adhan_follows_global">Пӗтӗм тӗнчери калӑпӑша (%1$s) пӑхӑнать</string>
 </resources>

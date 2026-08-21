@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">App-ip nunat sumiiffillu tunngavigalugit periuseq naleqqunnerpaaq nammineerluni toqqartarpaa; suli qanorluunniit piffissaqarluni periuseq manuelt toqqassinnaavat.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatiskimik ullumikkut toqqarneqartoq: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Nunarsuaq tamakkerlugu adhan-ip annertussusaa</string>
+    <string name="settings_adhan_global_volume_desc">Qinnuteqaatinut tamanut ataatsimik niveaumik atuigit aammalu qinnuteqarnermut ataatsimut slyderit qamillugit</string>
+    <string name="settings_adhan_follows_global">Nunarsuaq tamakkerlugu volumen (%1$s) malillugu.</string>
 </resources>

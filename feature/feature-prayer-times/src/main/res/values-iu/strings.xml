@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">ᑖᓐᓇ ᖃᕆᑕᐅᔭᒃᑯᑦ ᓂᕈᐊᖅᓯᖃᑦᑕᖅᑐᖅ ᓈᒻᒪᓛᖑᔪᒥᒃ ᐊᑐᖅᑕᐅᔪᓐᓇᖅᑐᒥᒃ ᒪᓕᒃᖢᒍ ᓄᓇᒋᔭᐃᑦ ᐊᒻᒪᓗ ᐃᓂᒋᔭᐃᑦ; ᓱᓕ ᓂᕈᐊᕈᓐᓇᖅᑐᑎᑦ ᐊᑐᖅᑕᐅᔪᓐᓇᖅᑐᒥᒃ ᖃᖓᑐᐃᓐᓇᒃᑯᑦ.</string>
     <string name="settings_preview_for_prayer">ᓯᕗᕐᖓᒍᑦ ᑕᑯᓐᓇᒐᖅ %1$s ᐋᑕᓐ</string>
     <string name="settings_method_automatic_picked">ᓇᖕᒥᓂᖅ ᒫᓐᓇᐅᔪᖅ ᓂᕈᐊᖅᑕᐅᓯᒪᔪᖅ: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">ᓄᓇᕐᔪᐊᓕᒫᒥ ᓂᓪᓕᐊᔾᔪᑎᐅᑉ ᓂᐱᖓ</string>
+    <string name="settings_adhan_global_volume_desc">ᐊᑐᕐᓗᒍ ᐊᑕᐅᓯᖅ ᖁᑦᑎᖕᓂᓕᒃ ᑐᒃᓯᐊᕐᓂᓕᒫᓄᑦ ᐊᒻᒪᓗ ᓄᖅᑲᖅᑎᓪᓗᒋᑦ ᑐᒃᓯᐊᕐᓂᓕᒫᓄᑦ ᖁᒻᒧᐊᒃᑎᑕᐅᓯᒪᔪᑦ</string>
+    <string name="settings_adhan_follows_global">ᒪᓕᒃᐳᖅ ᓄᓇᕐᔪᐊᕐᒥ ᐊᖏᓂᐅᔪᒥᒃ (%1$s)</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">एप् भवतः देशस्य स्थानस्य च आधारेण स्वयमेव सर्वाधिकं उपयुक्तं पद्धतिं चिनोति; अद्यापि भवन्तः कदापि हस्तचलितरूपेण विधिं चिन्वितुं शक्नुवन्ति ।</string>
     <string name="settings_preview_for_prayer">पूर्वावलोकन %1$s अधन</string>
     <string name="settings_method_automatic_picked">स्वचालितं वर्तमानकाले उद्धृतम्: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">वैश्विक अधन मात्रा</string>
+    <string name="settings_adhan_global_volume_desc">प्रत्येकं प्रार्थनायां एकं स्तरं प्रयोजयन्तु तथा प्रतिप्रार्थना स्लाइडर् निष्क्रियं कुर्वन्तु</string>
+    <string name="settings_adhan_follows_global">वैश्विकमात्रायाः (%1$s) अनुसरणं करोति ।</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Programu huchagua njia inayofaa zaidi kiotomatiki kulingana na nchi yako na eneo; bado unaweza kuchagua njia mwenyewe wakati wowote.</string>
     <string name="settings_preview_for_prayer">Hakiki adhana %1$s</string>
     <string name="settings_method_automatic_picked">Imechaguliwa kiotomatiki kwa sasa: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Kiwango cha adhana duniani kote</string>
+    <string name="settings_adhan_global_volume_desc">Tumia kiwango kimoja kwa kila sala na uzima vitelezi vya kila sala</string>
+    <string name="settings_adhan_follows_global">Hufuata kiasi cha kimataifa (%1$s)</string>
 </resources>

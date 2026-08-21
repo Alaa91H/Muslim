@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">App dəye duluwu do zauro ngəla dəga gojin kəlanzəlaro lardənzə-a nanzə-a lan; kuwamiyayi raktǝ layi muskon karnǝmin loktu yayen.</string>
     <string name="settings_preview_for_prayer">Kulashi %1$s adanbe</string>
     <string name="settings_method_automatic_picked">Otomatik kərmaaro gotəna: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">Nǝmngǝwu adhan dunyabe</string>
+    <string name="settings_adhan_global_volume_desc">Daraja fal sala wosoro faidatə kuru sliders sala woson yitagattəgə</string>
+    <string name="settings_adhan_follows_global">Nəmngəwu dunyabe (%1$s) zayin.</string>
 </resources>

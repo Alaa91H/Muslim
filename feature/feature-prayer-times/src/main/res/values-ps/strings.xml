@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">ایپ ستاسو د هیواد او موقعیت پراساس په اوتومات ډول خورا مناسب میتود غوره کوي؛ تاسو کولی شئ په هر وخت کې په لاسي ډول یو میتود غوره کړئ.</string>
     <string name="settings_preview_for_prayer">%1$s اذان ته کتنه</string>
     <string name="settings_method_automatic_picked">اتوماتیک اوس مهال غوره شوی: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">د نړیوال اذان حجم</string>
+    <string name="settings_adhan_global_volume_desc">په هر لمانځه کې یوه کچه پلي کړئ او د هر لمانځه سلایډونه غیر فعال کړئ</string>
+    <string name="settings_adhan_follows_global">نړیوال حجم تعقیبوي (%1$s)</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">L\'application sélectionne automatiquement la méthode la plus appropriée en fonction de votre pays et de votre emplacement ; vous pouvez toujours choisir une méthode manuellement à tout moment.</string>
     <string name="settings_preview_for_prayer">Aperçu de %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatique actuellement sélectionné : %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Volume global d\'adhan</string>
+    <string name="settings_adhan_global_volume_desc">Appliquez un seul niveau à chaque prière et désactivez les curseurs par prière</string>
+    <string name="settings_adhan_follows_global">Suit le volume global (%1$s)</string>
 </resources>

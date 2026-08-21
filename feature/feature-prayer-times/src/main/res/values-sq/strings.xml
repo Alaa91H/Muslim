@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Aplikacioni zgjedh metodën më të përshtatshme automatikisht bazuar në vendin dhe vendndodhjen tuaj; ju ende mund të zgjidhni një metodë manualisht në çdo kohë.</string>
     <string name="settings_preview_for_prayer">Shiko paraprakisht ezanin %1$s</string>
     <string name="settings_method_automatic_picked">Automatikisht i zgjedhur aktualisht: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Vëllimi global i ezanit</string>
+    <string name="settings_adhan_global_volume_desc">Aplikoni një nivel të vetëm për çdo lutje dhe çaktivizoni rrëshqitësit për lutje</string>
+    <string name="settings_adhan_follows_global">Ndjek volumin global (%1$s)</string>
 </resources>

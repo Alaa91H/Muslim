@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Програма автоматично вибирає найбільш підходящий метод залежно від вашої країни та місця розташування; ви все ще можете будь-коли вибрати метод вручну.</string>
     <string name="settings_preview_for_prayer">Попередній перегляд %1$s азану</string>
     <string name="settings_method_automatic_picked">Автоматичний поточний вибір: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Глобальний обсяг азана</string>
+    <string name="settings_adhan_global_volume_desc">Застосуйте один рівень до кожної молитви та вимкніть повзунки для кожної молитви</string>
+    <string name="settings_adhan_follows_global">Слідкує за глобальним обсягом (%1$s)</string>
 </resources>

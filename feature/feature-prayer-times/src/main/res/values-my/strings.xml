@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">အက်ပ်သည် သင့်နိုင်ငံနှင့် တည်နေရာအပေါ် အခြေခံ၍ အသင့်တော်ဆုံးနည်းလမ်းကို အလိုအလျောက် ရွေးချယ်သည်။ နည်းလမ်းတစ်ခုကို အချိန်မရွေး ကိုယ်တိုင်ရွေးချယ်နိုင်ပါသည်။</string>
     <string name="settings_preview_for_prayer">%1$s adhan ကို အစမ်းကြည့်ပါ။</string>
     <string name="settings_method_automatic_picked">အလိုအလျောက် လောလောဆယ် ရွေးထားသည်- %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">ကမ္ဘာလုံးဆိုင်ရာ adhan ပမာဏ</string>
+    <string name="settings_adhan_global_volume_desc">ဆုတောင်းတိုင်းတွင် အဆင့်တစ်ခုကို အသုံးချပြီး ဆုတောင်းတိုင်း ဆလိုက်များကို ပိတ်ပါ။</string>
+    <string name="settings_adhan_follows_global">ကမ္ဘာလုံးဆိုင်ရာ ပမာဏ (%1$s) ကို လိုက်နာသည်</string>
 </resources>

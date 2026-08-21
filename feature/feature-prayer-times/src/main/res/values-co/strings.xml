@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">L\'app sceglie automaticamente u metudu più adattatu basatu annantu à u vostru paese è locu; pudete sempre sceglie un metudu manualmente in ogni mumentu.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
     <string name="settings_method_automatic_picked">Attualmente sceltu automaticamente: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">Volume adhan globale</string>
+    <string name="settings_adhan_global_volume_desc">Applica un unicu livellu à ogni preghiera è disattivate i sliders per preghiera</string>
+    <string name="settings_adhan_follows_global">Segui u voluminu globale (%1$s)</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">App bi dafay tànnee ci saasi anam wi gëna baax ci sa réew ak sa barab; mën nga tànn sa bopp ci anam wu la neex saa yu la neexee.</string>
     <string name="settings_preview_for_prayer">Xoolaat %1$s azaan</string>
     <string name="settings_method_automatic_picked">Tanneef ci saa si: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Adhan àdduna bi yépp</string>
+    <string name="settings_adhan_global_volume_desc">Defal benn niveau ci ñaan bu nekk te nga dindi gliiseur yi ci ñaan bu nekk</string>
+    <string name="settings_adhan_follows_global">Dafay topp volume global bi (%1$s)</string>
 </resources>

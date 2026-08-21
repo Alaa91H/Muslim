@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">האפליקציה בוחרת את השיטה המתאימה ביותר באופן אוטומטי בהתבסס על המדינה והמיקום שלך; אתה עדיין יכול לבחור שיטה ידנית בכל עת.</string>
     <string name="settings_preview_for_prayer">תצוגה מקדימה של %1$s adhan</string>
     <string name="settings_method_automatic_picked">אוטומטי שנבחר כעת: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">נפח adhan גלובלי</string>
+    <string name="settings_adhan_global_volume_desc">החל רמה אחת על כל תפילה והשבת את המחוונים לכל תפילה</string>
+    <string name="settings_adhan_follows_global">עוקב אחר הנפח העולמי (%1$s)</string>
 </resources>

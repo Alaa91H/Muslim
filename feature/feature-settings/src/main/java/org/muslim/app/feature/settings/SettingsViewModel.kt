@@ -79,14 +79,30 @@ class SettingsViewModel @Inject constructor(
     private val _updateCheckResult = MutableStateFlow<UpdateChecker.Result?>(null)
     val updateCheckResult: StateFlow<UpdateChecker.Result?> = _updateCheckResult.asStateFlow()
 
+    /** Human-readable failure detail of the last manual check (null on success). */
+    private val _updateCheckError = MutableStateFlow<String?>(null)
+    val updateCheckError: StateFlow<String?> = _updateCheckError.asStateFlow()
+
     /**
      * Runs an immediate check against the GitHub releases page. When a newer
      * version exists the update-available notification is posted; the caller
-     * (settings screen) opens the update screen for the details.
+     * (settings screen) opens the update screen for the details. Failures are
+     * surfaced with the underlying reason instead of crashing the screen.
      */
     fun checkForUpdatesNow() = launch {
         _updateCheckResult.value = null
-        _updateCheckResult.value = UpdateChecker(context).checkAndNotify()
+        _updateCheckError.value = null
+        runCatching { UpdateChecker(context).checkAndNotify() }
+            .onSuccess { _updateCheckResult.value = it }
+            .onFailure { e ->
+                _updateCheckError.value = e.message?.takeIf { it.isNotBlank() }
+                    ?: e.javaClass.simpleName
+            }
+    }
+
+    /** Clears the last manual-check error (after the UI consumed it). */
+    fun consumeUpdateCheckError() {
+        _updateCheckError.value = null
     }
 
     /** Clears the last manual-check result (after the UI consumed it). */

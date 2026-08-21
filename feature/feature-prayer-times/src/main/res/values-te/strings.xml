@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">యాప్ మీ దేశం మరియు స్థానం ఆధారంగా స్వయంచాలకంగా అత్యంత అనుకూలమైన పద్ధతిని ఎంచుకుంటుంది; మీరు ఇప్పటికీ ఏ సమయంలోనైనా మాన్యువల్‌గా పద్ధతిని ఎంచుకోవచ్చు.</string>
     <string name="settings_preview_for_prayer">ప్రివ్యూ %1$s అధన్</string>
     <string name="settings_method_automatic_picked">స్వయంచాలకంగా ప్రస్తుతం ఎంపిక చేయబడింది: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">గ్లోబల్ అధాన్ వాల్యూమ్</string>
+    <string name="settings_adhan_global_volume_desc">ప్రతి ప్రార్థనకు ఒకే స్థాయిని వర్తింపజేయండి మరియు ప్రతి ప్రార్థన స్లయిడర్‌లను నిలిపివేయండి</string>
+    <string name="settings_adhan_follows_global">గ్లోబల్ వాల్యూమ్ (%1$s)ని అనుసరిస్తుంది</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Programma, ýurduňyza we ýerleşýän ýeriňize baglylykda iň amatly usuly saýlaýar; usuly islendik wagt el bilen saýlap bilersiňiz.</string>
     <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
     <string name="settings_method_automatic_picked">Häzirki wagtda awtomatiki saýlanan: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">Global adhan göwrümi</string>
+    <string name="settings_adhan_global_volume_desc">Her dilegde bir derejäni ulanyň we her namaz okaýanlary öçüriň</string>
+    <string name="settings_adhan_follows_global">Global göwrümi yzarlaýar (%1$s)</string>
 </resources>

@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Proqram ölkənizə və yerinizə əsasən avtomatik olaraq ən uyğun metodu seçir; hələ də istənilən vaxt metodu əl ilə seçə bilərsiniz.</string>
     <string name="settings_preview_for_prayer">%1$s azan üçün önizləmə</string>
     <string name="settings_method_automatic_picked">Hazırda avtomatik seçilmiş: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Qlobal azan həcmi</string>
+    <string name="settings_adhan_global_volume_desc">Hər dua üçün bir səviyyə tətbiq edin və hər namaz üçün sürgüləri söndürün</string>
+    <string name="settings_adhan_follows_global">Qlobal həcmi izləyir (%1$s)</string>
 </resources>

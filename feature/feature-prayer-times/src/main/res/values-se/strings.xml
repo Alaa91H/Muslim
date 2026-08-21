@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Áppa vállje automáhtalaččat heivvolaš vuogi du riikka ja báikki vuođul; sáhtát ain válljet vuogi gieđaiguin goas beare.</string>
     <string name="settings_preview_for_prayer">Ovdagovva %1$s adhan</string>
     <string name="settings_method_automatic_picked">Dál válljejuvvon automáhtalaččat: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Globála adhan-voluma</string>
+    <string name="settings_adhan_global_volume_desc">Geavat ovtta dási juohke rohkosii ja deaktivere juohke rohkosa čujuhusaid</string>
+    <string name="settings_adhan_follows_global">Čuovvu globála voluma (%1$s)</string>
 </resources>

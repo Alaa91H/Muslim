@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Appen väljer den mest lämpliga metoden automatiskt baserat på ditt land och din plats; du kan fortfarande välja en metod manuellt när som helst.</string>
     <string name="settings_preview_for_prayer">Förhandsgranska %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatisk för närvarande plockad: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Global adhan volym</string>
+    <string name="settings_adhan_global_volume_desc">Tillämpa en enda nivå på varje bön och inaktivera skjutreglagen per bön</string>
+    <string name="settings_adhan_follows_global">Följer den globala volymen (%1$s)</string>
 </resources>

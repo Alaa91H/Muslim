@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Appin velur sjálvvirkandi tann hóskandi háttin út frá tínum landi og stað; tú kanst framvegis velja ein hátt manuelt til eina og hvørja tíð.</string>
     <string name="settings_preview_for_prayer">Undansýning %1$s adhan</string>
     <string name="settings_method_automatic_picked">Sjálvvirkandi í løtuni valt: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">Alheims adhan rúmd</string>
+    <string name="settings_adhan_global_volume_desc">Set eitt stig á hvørja bøn og sløkk rennararnar fyri hvørja bøn</string>
+    <string name="settings_adhan_follows_global">Fylgjur alheimsrúmdini (%1$s) .</string>
 </resources>

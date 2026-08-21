@@ -75,6 +75,9 @@
     <string name="settings_adjustments">التعديل اليدوي (بالدقائق)</string>
     <string name="settings_adhan">الأذان والتنبيهات</string>
     <string name="settings_adhan_enabled">تفعيل الأذان</string>
+    <string name="settings_adhan_global_volume">مستوى صوت عام للأذان</string>
+    <string name="settings_adhan_global_volume_desc">تطبيق مستوى واحد على كل الصلوات وإلغاء مؤشرات المستوى الفردية</string>
+    <string name="settings_adhan_follows_global">يتبع مستوى الصوت العام (%1$s)</string>
     <string name="settings_reminder_preview_hint">هكذا يظهر إشعار التذكير قبل الصلاة بالمدة التي تحددها.</string>
     <string name="settings_adhan_preview_label">معاينة إشعار الأذان</string>
     <string name="settings_adhan_preview_hint">هكذا يظهر الإشعار عند دخول وقت الصلاة، ويُحدَّث تلقائيًا حسب الصلاة القادمة.</string>

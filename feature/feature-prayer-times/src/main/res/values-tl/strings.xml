@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Awtomatikong pinipili ng app ang pinakaangkop na paraan batay sa iyong bansa at lokasyon; maaari ka pa ring pumili ng paraan nang manu-mano anumang oras.</string>
     <string name="settings_preview_for_prayer">I-preview ang %1$s adhan</string>
     <string name="settings_method_automatic_picked">Awtomatikong kasalukuyang pinipili: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Dami ng pandaigdigang adhan</string>
+    <string name="settings_adhan_global_volume_desc">Maglapat ng isang antas sa bawat panalangin at huwag paganahin ang mga slider bawat panalangin</string>
+    <string name="settings_adhan_follows_global">Sumusunod sa pandaigdigang volume (%1$s)</string>
 </resources>

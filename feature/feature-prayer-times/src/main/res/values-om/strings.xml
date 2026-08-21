@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Appichi biyyaa fi bakka jirtan irratti hundaa\'uun mala hunda caalaa mijatu ofumaan filata; ammallee yeroo barbaaddetti mala harkaan filachuu dandeessa.</string>
     <string name="settings_preview_for_prayer">Durargii %1$s adhan</string>
     <string name="settings_method_automatic_picked">Ofumaan yeroo ammaa fudhatame: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Jildii adhan addunyaa</string>
+    <string name="settings_adhan_global_volume_desc">Kadhannaa hunda irratti sadarkaa tokko hojiirra oolchuu fi islaayidaroota kadhannaa tokkoon tokkoon isaanii hojiirra oolchuu</string>
+    <string name="settings_adhan_follows_global">Jildii addunyaa (%1$s) hordofa.</string>
 </resources>

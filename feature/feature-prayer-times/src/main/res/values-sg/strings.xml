@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Application ni ayeke soro kode so alingbi na mo mingi na lege ti kodoro ti mo nga na ndo so mo yeke dä; mo lingbi ti ngbâ ti soro mbeni kode na maboko ti mo na ngoi kue.</string>
     <string name="settings_preview_for_prayer">Bâ %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatique ti fadeso: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">Volume ti adhan na ndo ti sese kue</string>
+    <string name="settings_adhan_global_volume_desc">Zia mbeni niveau oko na yâ ti asambela oko oko kue na kanga lege na a-curseur ti sambela oko oko .</string>
+    <string name="settings_adhan_follows_global">A yeke na yâ ti volume ti dunia kue (%1$s).</string>
 </resources>

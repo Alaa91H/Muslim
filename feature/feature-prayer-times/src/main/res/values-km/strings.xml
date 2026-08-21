@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">កម្មវិធីនេះជ្រើសរើសវិធីសាស្ត្រដែលសមស្របបំផុតដោយស្វ័យប្រវត្តិដោយផ្អែកលើប្រទេស និងទីតាំងរបស់អ្នក។ អ្នកនៅតែអាចជ្រើសរើសវិធីសាស្រ្តដោយដៃនៅពេលណាក៏បាន។</string>
     <string name="settings_preview_for_prayer">មើលជាមុន %1$s adhan</string>
     <string name="settings_method_automatic_picked">ការ​ជ្រើសរើស​ដោយ​ស្វ័យ​ប្រវត្តិ​បច្ចុប្បន្ន៖ %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">បរិមាណ adhan សកល</string>
+    <string name="settings_adhan_global_volume_desc">អនុវត្តកម្រិតតែមួយចំពោះរាល់ការអធិស្ឋាន ហើយបិទគ្រាប់រំកិលក្នុងមួយការអធិស្ឋាន</string>
+    <string name="settings_adhan_follows_global">ធ្វើតាមបរិមាណសកល (%1$s)</string>
 </resources>

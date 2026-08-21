@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">உங்கள் நாடு மற்றும் இருப்பிடத்தின் அடிப்படையில் ஆப்ஸ் தானாகவே மிகவும் பொருத்தமான முறையைத் தேர்ந்தெடுக்கும்; நீங்கள் எந்த நேரத்திலும் ஒரு முறையை கைமுறையாக தேர்வு செய்யலாம்.</string>
     <string name="settings_preview_for_prayer">முன்னோட்டம் %1$s adhan</string>
     <string name="settings_method_automatic_picked">தானியங்கு தற்போது தேர்ந்தெடுக்கப்பட்டது: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">உலகளாவிய அதான் தொகுதி</string>
+    <string name="settings_adhan_global_volume_desc">ஒவ்வொரு பிரார்த்தனைக்கும் ஒரு நிலைப் பயன்படுத்தவும் மற்றும் ஒவ்வொரு பிரார்த்தனை ஸ்லைடர்களை முடக்கவும்</string>
+    <string name="settings_adhan_follows_global">உலகளாவிய அளவைப் பின்பற்றுகிறது (%1$s)</string>
 </resources>

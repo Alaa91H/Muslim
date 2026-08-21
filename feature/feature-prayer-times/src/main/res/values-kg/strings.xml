@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">E programa yayi isolanga e mpila isundidi o wete muna mpila yasikididi mun’owu wa nsi ye fulu ozingilanga; nge lenda pona kaka metode mosi na maboko na konso ntangu yina.</string>
     <string name="settings_preview_for_prayer">Kutala na ntwala %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatique ya bo me pona ntangu yai: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">Volime ya adhan ya ntoto ya mvimba</string>
+    <string name="settings_adhan_global_volume_desc">Sadila nivo mosi na konso kisambu mpi kanga ba slider ya konso kisambu .</string>
+    <string name="settings_adhan_follows_global">Landa volime ya ntoto ya mvimba (%1$s) .</string>
 </resources>

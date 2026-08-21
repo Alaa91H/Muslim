@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">L\'aplicacion causís automaticament lo metòde mai adaptat en foncion de vòstre país e localizacion; podètz encara causir un metòde manualament a tot moment.</string>
     <string name="settings_preview_for_prayer">Apercebut %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatic actualament causit: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Volum d\'adhan global</string>
+    <string name="settings_adhan_global_volume_desc">Aplicatz un sol nivèl a cada pregària e desactivatz los cursors per pregària</string>
+    <string name="settings_adhan_follows_global">Seguís lo volum global (%1$s)</string>
 </resources>

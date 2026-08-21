@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Барнома ба таври худкор усули мувофиқро дар асоси кишвар ва макони шумо интихоб мекунад; шумо ба ҳар ҳол метавонед усулро дар вақти дилхоҳ дастӣ интихоб кунед.</string>
     <string name="settings_preview_for_prayer">Пешнамоиши %1$s азон</string>
     <string name="settings_method_automatic_picked">Худкори ҳозир интихобшуда: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Ҳаҷми ҷаҳонии азон</string>
+    <string name="settings_adhan_global_volume_desc">Ба ҳар як намоз як сатҳро татбиқ кунед ва слайдерҳои ҳар як дуоро хомӯш кунед</string>
+    <string name="settings_adhan_follows_global">Ҳаҷми глобалиро пайгирӣ мекунад (%1$s)</string>
 </resources>

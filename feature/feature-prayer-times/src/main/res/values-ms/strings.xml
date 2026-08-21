@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Apl memilih kaedah yang paling sesuai secara automatik berdasarkan negara dan lokasi anda; anda masih boleh memilih kaedah secara manual pada bila-bila masa.</string>
     <string name="settings_preview_for_prayer">Pratonton %1$s azan</string>
     <string name="settings_method_automatic_picked">Automatik yang dipilih pada masa ini: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Jumlah azan global</string>
+    <string name="settings_adhan_global_volume_desc">Gunakan satu tahap pada setiap solat dan lumpuhkan peluncur setiap solat</string>
+    <string name="settings_adhan_follows_global">Mengikut volum global (%1$s)</string>
 </resources>

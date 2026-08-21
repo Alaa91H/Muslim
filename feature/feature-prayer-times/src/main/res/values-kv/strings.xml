@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Приложение бӧрйӧ медся лӧсялана метод автоматическӧй ногӧн тіян страна да оланін серти; ті верманныд нӧшта бӧрйыны метод киӧн быд кадӧ.</string>
     <string name="settings_preview_for_prayer">%1$s азан видлалӧм</string>
     <string name="settings_method_automatic_picked">Автоматическӧй ӧнія кадӧ: %1$s — %2$s.</string>
+    <string name="settings_adhan_global_volume">Глобальнӧй азан громкость .</string>
+    <string name="settings_adhan_global_volume_desc">Быд молитва вылӧ ӧти тшупӧд лӧсьӧдӧм да молитва вылӧ ползунокъяс бырӧдӧм .</string>
+    <string name="settings_adhan_follows_global">Сэсся глобальнӧй объём (%1$s) .</string>
 </resources>

@@ -49,6 +49,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -115,6 +116,14 @@ fun LearnScreen(
     var showHajj by remember { mutableStateOf(false) }
     val favoriteIds by viewModel.favoriteIds.collectAsStateWithLifecycle()
     val topic = selected
+
+    // The system/hardware back button must step back through the internal
+    // screens (topic → list, hajj/names → list) before leaving the screen,
+    // mirroring the toolbar arrow — otherwise one back press exits to the
+    // More root directly.
+    BackHandler(enabled = showNames) { showNames = false }
+    BackHandler(enabled = showHajj) { showHajj = false }
+    BackHandler(enabled = topic != null) { selected = null }
 
     if (showNames) {
         NamesOfAllahScreen(

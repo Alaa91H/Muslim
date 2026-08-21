@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">D\'App wielt déi gëeegent Method automatesch baséiert op Ärem Land a Standuert; Dir kënnt ëmmer nach eng Method manuell wielen.</string>
     <string name="settings_preview_for_prayer">Virschau %1$s adhan</string>
     <string name="settings_method_automatic_picked">Automatesch aktuell gewielt: %1$s - %2$s</string>
+    <string name="settings_adhan_global_volume">Global Adhan Volumen vum Handel</string>
+    <string name="settings_adhan_global_volume_desc">Fëllt en eenzegen Niveau op all Gebied un an deaktivéiert d\'Per-Gebied Schieber</string>
+    <string name="settings_adhan_follows_global">Follegt de globale Volumen (%1$s)</string>
 </resources>

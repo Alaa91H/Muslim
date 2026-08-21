@@ -163,4 +163,7 @@
     <string name="settings_method_automatic_desc">Aplikasi milih cara sing paling cocog kanthi otomatis adhedhasar negara lan lokasi sampeyan; sampeyan isih bisa milih cara kanthi manual kapan wae.</string>
     <string name="settings_preview_for_prayer">Pratinjau %1$s adzan</string>
     <string name="settings_method_automatic_picked">Otomatis saiki dipilih: %1$s — %2$s</string>
+    <string name="settings_adhan_global_volume">Volume adzan global</string>
+    <string name="settings_adhan_global_volume_desc">Gunakake level siji kanggo saben pandonga lan mateni panggeser saben pandonga</string>
+    <string name="settings_adhan_follows_global">Ikut volume global (%1$s)</string>
 </resources>
