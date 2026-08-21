@@ -7,7 +7,8 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  # write is required by the release-apk job to publish tag releases.
+  contents: write
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -90,3 +91,29 @@ jobs:
           name: muslim-release-apk
           path: app/build/outputs/apk/release/*.apk
           if-no-files-found: error
+
+      # Fully automatic publishing: creating a v* tag builds the signed APK
+      # here (fast GitHub→GitHub network) and this step creates the release,
+      # attaches the APK and publishes it — no manual intervention needed.
+      - name: Publish GitHub Release (tag push)
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_REF#refs/tags/}"
+          PREV="$(git describe --tags --match 'v*' --abbrev=0 "${TAG}^" 2>/dev/null || true)"
+          if [ -n "$PREV" ]; then
+            CHANGELOG="$(git log --oneline --no-decorate "$PREV..$TAG" | sed 's/^/- /' | head -60 || true)"
+          else
+            CHANGELOG="- Initial release."
+          fi
+          APK="$(find app/build/outputs/apk/release -name '*.apk' | head -1)"
+          [ -n "$APK" ] || { echo "No release APK found" >&2; exit 1; }
+          NOTES="$(printf '%b' "## Muslim $TAG\n\nBuilt automatically from the $TAG tag by GitHub Actions. The in-app version matches exactly and the stable signing key lets users update over existing installs.\n\n### Changes since $PREV\n$CHANGELOG\n\n### Install\n- Download the APK and open it (allow install from unknown sources if prompted).\n\n### Support\n- GitHub: https://github.com/Alaa91H\n- Email: alahus2591@gmail.com\n- Telegram: https://t.me/Alaa91h\n- Ko-fi: https://ko-fi.com/alaa91h")"
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" --title "Muslim $TAG" --notes "$NOTES" --draft
+          fi
+          gh release upload "$TAG" "$APK" --clobber
+          gh release edit "$TAG" --draft=false
+          echo "Published https://github.com/${{ github.repository }}/releases/tag/$TAG"
