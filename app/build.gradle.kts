@@ -154,6 +154,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.window)
+    implementation(libs.androidx.media)
     implementation(libs.google.play.services.wearable)
 
     // Compose (versions from BOM)
