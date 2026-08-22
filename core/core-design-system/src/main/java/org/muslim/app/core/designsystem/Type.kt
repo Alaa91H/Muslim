@@ -1,9 +1,12 @@
 package org.muslim.app.core.designsystem
 
+import androidx.compose.material3.Shapes
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 /**
@@ -23,6 +26,14 @@ object MuslimFonts {
     val Latin = FontFamily.Default
     val Quran = FontFamily.Default // Uthmani script font lands with the Quran feature.
 }
+
+val IslamicShapes = Shapes(
+    extraSmall = RoundedCornerShape(8.dp),
+    small = RoundedCornerShape(IslamicRadius.Small),
+    medium = RoundedCornerShape(IslamicRadius.Card),
+    large = RoundedCornerShape(IslamicRadius.Large),
+    extraLarge = RoundedCornerShape(IslamicRadius.Large),
+)
 
 val MuslimTypography = Typography(
     displayLarge = TextStyle(

@@ -47,6 +47,9 @@ import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.feature.prayertimes.ui.formatCountdown
 import org.muslim.app.feature.prayertimes.ui.localDateFormatter
 import org.muslim.app.core.common.time.TimeFormats
+import org.muslim.app.core.ui.theme.IslamicOrnament
+import org.muslim.app.core.ui.theme.IslamicOrnamentImage
+import org.muslim.app.core.ui.theme.IslamicOrnamentOpacity
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 
 /**
@@ -64,12 +67,22 @@ fun HomeScreen(
 
     val context = LocalContext.current
 
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-    ) {
+    Box(modifier = modifier.fillMaxSize()) {
+        IslamicOrnamentImage(
+            ornament = IslamicOrnament.Geometric12,
+            tint = MaterialTheme.colorScheme.primary,
+            alpha = IslamicOrnamentOpacity.LightBackground,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(220.dp)
+                .padding(top = 24.dp),
+        )
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+        ) {
         // ---- Date header ----
         state.hijri?.let { hijri ->
             Text(
@@ -250,6 +263,7 @@ fun HomeScreen(
         }
 
         Spacer(Modifier.height(16.dp))
+        }
     }
 }
 
