@@ -66,11 +66,13 @@ dependencies {
     testImplementation(libs.mockk)
     testImplementation(libs.turbine)
 
-    // Instrumented (Compose UI smoke tests — run on a device/emulator)
+    // Instrumented (Compose UI smoke tests — run on a device/emulator). MockK
+    // must be the Android artifact here: the JVM `mockk` fails at runtime on a
+    // device with "Failed to load plugin … include io.mockk:mockk-android".
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(libs.mockk)
+    androidTestImplementation(libs.mockk.android)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
