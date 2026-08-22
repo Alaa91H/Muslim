@@ -3,6 +3,29 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.17.0
+
+Updates install directly over v1.16.0 (same stable signing key — no uninstall needed).
+
+## 📚 Qaida Noorania & Arabic Reading Foundations
+- Added a dedicated interactive Qaida Noorania-inspired learning destination with all 28 Arabic letters, original visual memory cues for broad articulation areas, and tap-to-listen Arabic pronunciation through the device’s installed text-to-speech voice.
+- Added gradual practice for short vowels, long vowels, sukūn and shaddah, with explicit learner-facing guidance that these prompts are not a substitute for feedback from a qualified Arabic or Quran teacher.
+- Kept the section free of copied Qaida book pages, third-party recordings or unverified visual assets; the original visual cues and device-local voice avoid distributing unlicensed instructional media.
+
+## 🤝 New Muslim Corner
+- Added a calm, privacy-conscious first-steps guide in Arabic, English, French and Spanish, covering the testimony of faith, a simple purification orientation, paced prayer and Quran learning, and ways to find respectful local support.
+- Added clear educational and scholarly-review notices: accepting Islam is presented as a free personal choice, and practical fiqh details are referred to qualified teachers or scholarly organisations.
+- Added a More-menu card and the `muslim://noorani` deep link for direct access.
+
+## 🧪 Engineering & CI Quality Gate
+- Added focused unit coverage for the 28-letter catalogue, staged reading progression, multilingual new-Muslim guides, choice-respecting language and purification guidance.
+- Added static XML/resource, navigation and deep-link verification plus documented content sources and the audio/visual licensing decision.
+- Retained the required Debug APK, unit-test, Android Lint, Detekt and Android Emulator gates; all passed on the merged main commit before tagging.
+
+### Install
+- Download the APK from the GitHub Release and open it (allow “install from unknown sources” if prompted).
+- The app stays signed with the same release key, so updates install directly over previous versions.
+
 ## Muslim v1.16.0
 
 Updates install directly over v1.15.0 (same stable signing key — no uninstall needed).
