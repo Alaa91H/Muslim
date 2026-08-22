@@ -34,8 +34,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Muslim">
 
-        <service android:name="org.muslim.app.feature.quran.data.RecitationPlaybackService">
+        <service
+            android:name="org.muslim.app.feature.quran.data.RecitationPlaybackService"
+            android:exported="true"
+            android:foregroundServiceType="mediaPlayback">
             <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService" />
                 <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" />
             </intent-filter>
         </service>
