@@ -51,7 +51,7 @@ jobs:
       # emulator job below via the same cache). Speeds CI up and never touches
       # the source tree.
       - name: Set up Gradle cache
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Build debug APK
         run: ./gradlew :app:assembleDebug --stacktrace
@@ -113,7 +113,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Set up Gradle cache
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v6
 
       # The emulator runner needs /dev/kvm (nested virtualization) on Linux
       # hosts. Without it the emulator falls back to pure software emulation
@@ -176,7 +176,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Set up Gradle cache
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v6
 
       # Secrets are set once by scripts/setup-github-signing.sh. With them, the
       # release APK is signed with the same key as local builds, so users can
