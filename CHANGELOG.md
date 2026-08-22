@@ -3,6 +3,31 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.18.0
+
+Updates install directly over v1.17.0 (same stable signing key — no uninstall needed).
+
+## 🧳 Traveller & Expat Corner
+- Added a dedicated travel destination with a locally saved departure point, explicit one-time GPS refresh, and a great-circle distance reference with selectable 80 km and 90 km thresholds.
+- Kept the distance result intentionally educational: it is labelled as a straight-line technical reference, not a personal ruling on qasr or jam’, and it explains that route, intended stay, school of jurisprudence and local scholarly guidance matter.
+- Added practical, safety-aware plane and train orientation for prayer, water use, wudu and asking about tayammum or constrained postures from a qualified teacher when conditions require it.
+- Added a live local qibla compass based on device sensors, geomagnetic declination and the established qibla bearing; after a coordinate is available it needs no network connection and does not start background tracking.
+
+## 🌍 High-Latitude Prayer Orientation
+- Added an explainer for the existing Middle-of-the-Night, One-Seventh-of-the-Night and twilight-angle calculations, plus a same-engine Fajr/Isha preview for the saved prayer location and a direct link to Prayer Settings.
+- Shows an educational 48°/66° latitude-band orientation, states that scholarly bodies and mosque timetables may adopt different estimations, and refers users to their recognised local authority rather than asserting a universal fatwa.
+- Corrected automatic high-latitude-rule selection so the same recommendation applies at corresponding southern as well as northern latitudes.
+
+## 🧪 Engineering & CI Quality Gate
+- Added focused unit coverage for great-circle distance, both threshold states, guide-review boundaries and the complete high-latitude-rule catalogue.
+- Added a static resource/navigation/deep-link/privacy verifier and a source-and-boundaries document for the travel, transport and high-latitude material.
+- Retained the required Debug APK, unit-test, Android Lint, Detekt and Android Emulator gates; all passed on the merged main commit before tagging.
+- Suppressed the documented AGP compatibility notice required by the project’s temporary KSP bridge, keeping the release checks free of actionable project warnings.
+
+### Install
+- Download the APK from the GitHub Release and open it (allow “install from unknown sources” if prompted).
+- The app stays signed with the same release key, so updates install directly over previous versions.
+
 ## Muslim v1.17.0
 
 Updates install directly over v1.16.0 (same stable signing key — no uninstall needed).
