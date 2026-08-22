@@ -3,6 +3,30 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.16.0
+
+Updates install directly over v1.15.0 (same stable signing key — no uninstall needed).
+
+## ⚖️ Funerals & Islamic Will
+- Added a private, local-first Islamic-will draft with executor details, rights and debts, funeral wishes, guardianship notes, charitable bequests and a deliberate system-share action.
+- Added clear privacy and legal-review notices, alongside an educational checklist and concise source-aware guidance.
+- Added an expandable funeral guide covering the moments after death, washing, shrouding, funeral prayer, condolences and cemetery etiquette, with a reminder that details vary by school of jurisprudence and local law.
+
+## 💼 Islamic Economy & Finance
+- Added a bilingual transactions guide covering ethical sale and purchase, lending, debt documentation and contemporary e-commerce considerations.
+- Added an Islamic-stock screening workspace that copies the entered ticker and opens the selected licensed provider page; it explicitly distinguishes information from a Shariah ruling or investment advice.
+- Added a private local debt ledger for amounts owed to and by the user, separate currency subtotals, due-date validation and optional device-local repayment reminders.
+- Added a dedicated finance notification category in Settings so repayment reminders remain under user control.
+
+## 🧪 Engineering & CI Quality Gate
+- Added focused unit coverage for the will template, funeral guidance, finance content and multi-currency debt totals, plus static resource-integration checks.
+- Added the `feature-finance` module and registered its navigation, deep link and notification integrations.
+- Updated the Gradle setup action to v6 and retained the required Debug APK, unit-test, Android Lint, Detekt and emulator quality gates.
+
+### Install
+- Download the APK from the GitHub Release and open it (allow “install from unknown sources” if prompted).
+- The app stays signed with the same release key, so updates install directly over previous versions.
+
 ## Muslim v1.15.0
 
 Updates install directly over v1.14.0 (same stable signing key — no uninstall needed).
