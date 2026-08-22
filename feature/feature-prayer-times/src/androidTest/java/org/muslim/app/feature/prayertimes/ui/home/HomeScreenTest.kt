@@ -85,10 +85,14 @@ class HomeScreenTest {
             composeRule.activity.getString(R.string.home_today_times)
         ).assertIsDisplayed()
 
-        // All five prayers must be listed.
+        // All five prayers must be listed. The label can appear twice (the
+        // next-prayer countdown header shows the same prayer name as its row),
+        // so match all nodes and require the first one to be displayed.
         val activity = composeRule.activity
         listOf(Prayer.Fajr, Prayer.Dhuhr, Prayer.Asr, Prayer.Maghrib, Prayer.Isha).forEach { prayer ->
-            composeRule.onNodeWithText(activity.getString(prayerLabelRes(prayer))).assertIsDisplayed()
+            composeRule.onAllNodesWithText(activity.getString(prayerLabelRes(prayer)))
+                .onFirst()
+                .assertIsDisplayed()
         }
     }
 
