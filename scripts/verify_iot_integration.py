@@ -22,6 +22,9 @@ REQUIRED_SNIPPETS = {
     ],
     "app/src/main/AndroidManifest.xml": [
         "WearCompanionDataService",
+        "com.google.android.gms.wearable.MESSAGE_RECEIVED",
+        "/muslim/wear/tasbih/increment/v1",
+        "android.media.action.MEDIA_PLAY_FROM_SEARCH",
         "com.google.android.gms.car.application",
     ],
     "wear/src/main/AndroidManifest.xml": [
