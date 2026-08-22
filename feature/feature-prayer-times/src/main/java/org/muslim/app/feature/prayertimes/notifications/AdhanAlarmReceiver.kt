@@ -95,6 +95,12 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                         ) {}
                     }
                 }
+                // Supplementary automation is intentionally restricted to an
+                // audible adhan choice; its best-effort HTTPS request never
+                // delays or changes local playback.
+                if (option == AdhanSoundOption.Default) {
+                    entryPoint.smartHomeBridgeDispatcher().dispatchAdhanStarted(prayer)
+                }
                 // Quiet notifications during the prayer (user-configurable).
                 if (settings.dndEnabled) {
                     entryPoint.dndManager().enable(settings.dndDurationMinutes)

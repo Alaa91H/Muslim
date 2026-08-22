@@ -158,6 +158,11 @@
 
     <string name="quran_stop_at_end_of_mushaf">Stop automatically at the end of the mushaf</string>
 
+    <!-- Android Auto: only locally downloaded recitations are exposed. -->
+    <string name="quran_car_recitations">Downloaded recitations</string>
+    <string name="quran_car_recitations_subtitle">Fully downloaded surahs for safe playback without driving-time downloads</string>
+    <string name="quran_car_not_downloaded">This surah is not fully downloaded on the phone.</string>
+    <string name="quran_car_search_unavailable">No matching downloaded surah was found.</string>
 
     <string name="quran_frequency_title">Quran Word Frequency</string>
     <string name="quran_frequency_loading">Counting word frequency…</string>

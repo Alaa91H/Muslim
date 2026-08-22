@@ -118,6 +118,14 @@ android {
     }
 }
 
+kotlin {
+    compilerOptions {
+        // KT-73255: apply injected parameter annotations to the backing field
+        // as well as the constructor parameter for Hilt-managed properties.
+        freeCompilerArgs.add("-Xannotation-default-target=param-property")
+    }
+}
+
 dependencies {
     // Project modules
     implementation(project(":core:core-ui"))
@@ -146,6 +154,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.window)
+    implementation(libs.androidx.media)
+    implementation(libs.google.play.services.wearable)
 
     // Compose (versions from BOM)
     implementation(platform(libs.androidx.compose.bom))

@@ -241,4 +241,22 @@
     <string name="voice_command_timeout" tools:ignore="MissingTranslation">لم يُسمع كلام في الوقت المتاح. جرّب مرة أخرى.</string>
     <string name="voice_command_network" tools:ignore="MissingTranslation">تعذر الوصول إلى خدمة التعرف على الكلام. جرّب نموذجاً محلياً أو تحقق من اتصال جهازك.</string>
     <string name="voice_command_error" tools:ignore="MissingTranslation">تعذر تنفيذ الاستماع الآن. جرّب مرة أخرى.</string>
+
+    <!-- Smart devices / companion integrations. -->
+    <string name="settings_smart_devices" tools:ignore="MissingTranslation">الأجهزة الذكية</string>
+    <string name="settings_smart_devices_desc" tools:ignore="MissingTranslation">Android Auto، ساعة Wear OS، وجسر الأذان المنزلي الاختياري</string>
+    <string name="smart_devices_title" tools:ignore="MissingTranslation">الأجهزة الذكية</string>
+    <string name="smart_devices_wear_title" tools:ignore="MissingTranslation">ساعة Wear OS</string>
+    <string name="smart_devices_wear_desc" tools:ignore="MissingTranslation">مزامنة الصلاة القادمة وعداد التسبيح مع ساعتك المقترنة. لا تُرسل المزامنة الموقع أو إعدادات الحساب.</string>
+    <string name="smart_devices_auto_title" tools:ignore="MissingTranslation">Android Auto</string>
+    <string name="smart_devices_auto_desc" tools:ignore="MissingTranslation">تظهر السور المكتملة التحميل فقط في واجهة الوسائط الآمنة. لا يبدأ التطبيق تنزيلات أو يعرض فيديو أثناء القيادة.</string>
+    <string name="smart_devices_home_title" tools:ignore="MissingTranslation">جسر أذان المنزل</string>
+    <string name="smart_devices_home_desc" tools:ignore="MissingTranslation">يرسل حدثاً قصيراً بعد بدء الأذان الصوتي المحلي إلى عنوان HTTPS تختاره. يمكن لخدمتك المنزلية ربط الحد بـ Google Home أو Alexa أو أي أتمتة تملكها.</string>
+    <string name="smart_devices_home_endpoint" tools:ignore="MissingTranslation">عنوان HTTPS للجسر</string>
+    <string name="smart_devices_home_token" tools:ignore="MissingTranslation">رمز Bearer اختياري</string>
+    <string name="smart_devices_home_save" tools:ignore="MissingTranslation">حفظ إعدادات الجسر</string>
+    <string name="smart_devices_home_clear_token" tools:ignore="MissingTranslation">مسح الرمز المحفوظ</string>
+    <string name="smart_devices_home_privacy" tools:ignore="MissingTranslation">لا يُرسل افتراضياً شيء. عند التفعيل يرسل التطبيق اسم الصلاة ووقت الحدث فقط؛ لا يرسل الموقع أو الصوت أو إعدادات التطبيق. الرمز يُحفظ محلياً بمفتاح Android Keystore.</string>
+    <string name="smart_devices_home_https_hint" tools:ignore="MissingTranslation">يجب أن يكون العنوان HTTPS كاملاً وتتولى خدمتك التحقق من الرمز وتنفيذ التشغيل المنزلي.</string>
+    <string name="smart_devices_back" tools:ignore="MissingTranslation">رجوع</string>
 </resources>

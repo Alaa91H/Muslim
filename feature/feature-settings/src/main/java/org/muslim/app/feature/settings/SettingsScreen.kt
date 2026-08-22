@@ -31,6 +31,7 @@ import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.PrivacyTip
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Schedule
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.SystemUpdate
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.AlertDialog
@@ -142,6 +143,8 @@ fun SettingsScreen(
     onOpenUpdates: () -> Unit = {},
     /** Opens local reading, contrast, TalkBack and optional voice-navigation settings. */
     onOpenAccessibility: () -> Unit = {},
+    /** Opens optional Android Auto, Wear OS and home-automation bridge settings. */
+    onOpenSmartDevices: () -> Unit = {},
     /** Back affordance when opened as a sub-screen (from the More hub). */
     onBack: (() -> Unit)? = null,
     viewModel: SettingsViewModel = hiltViewModel(),
@@ -445,6 +448,13 @@ fun SettingsScreen(
                         leadingContent = { Icon(Icons.Filled.Visibility, contentDescription = null) },
                         trailingContent = { Chevron() },
                         modifier = Modifier.clickable(onClick = onOpenAccessibility),
+                    )
+                    ListItem(
+                        headlineContent = { Text(stringResource(R.string.settings_smart_devices)) },
+                        supportingContent = { Text(stringResource(R.string.settings_smart_devices_desc)) },
+                        leadingContent = { Icon(Icons.Filled.Settings, contentDescription = null) },
+                        trailingContent = { Chevron() },
+                        modifier = Modifier.clickable(onClick = onOpenSmartDevices),
                     )
                 }
             }

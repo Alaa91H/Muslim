@@ -238,4 +238,22 @@
     <string name="voice_command_timeout">No speech was heard in time. Try again.</string>
     <string name="voice_command_network">Could not reach speech recognition. Try an on-device model or check your device connection.</string>
     <string name="voice_command_error">Listening could not start now. Try again.</string>
+
+    <!-- Smart devices / companion integrations. -->
+    <string name="settings_smart_devices">Smart devices</string>
+    <string name="settings_smart_devices_desc">Android Auto, Wear OS, and an optional home-adhan bridge</string>
+    <string name="smart_devices_title">Smart devices</string>
+    <string name="smart_devices_wear_title">Wear OS watch</string>
+    <string name="smart_devices_wear_desc">Sync the next prayer and tasbih counter with your paired watch. Sync does not send location or account settings.</string>
+    <string name="smart_devices_auto_title">Android Auto</string>
+    <string name="smart_devices_auto_desc">Only fully downloaded surahs appear in the safe media interface. The app never starts downloads or shows video while driving.</string>
+    <string name="smart_devices_home_title">Home adhan bridge</string>
+    <string name="smart_devices_home_desc">Sends a short event after local audible adhan playback begins to an HTTPS endpoint you choose. Your home service can connect that event to Google Home, Alexa, or another automation you control.</string>
+    <string name="smart_devices_home_endpoint">Bridge HTTPS endpoint</string>
+    <string name="smart_devices_home_token">Optional Bearer token</string>
+    <string name="smart_devices_home_save">Save bridge settings</string>
+    <string name="smart_devices_home_clear_token">Clear saved token</string>
+    <string name="smart_devices_home_privacy">Nothing is sent by default. When enabled, the app sends only the prayer name and event time; it never sends location, audio, or app settings. The token is stored locally with Android Keystore.</string>
+    <string name="smart_devices_home_https_hint">Use a complete HTTPS address. Your service must validate the token and decide how to trigger home playback.</string>
+    <string name="smart_devices_back">Back</string>
 </resources>

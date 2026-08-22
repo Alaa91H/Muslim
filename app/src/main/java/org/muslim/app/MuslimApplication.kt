@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import org.muslim.app.crash.AppCrashHandler
 import org.muslim.app.crash.appCoroutineExceptionHandler
 import org.muslim.app.feature.quran.data.QuranDownloadManager
+import org.muslim.app.wear.WearCompanionPublisher
 import javax.inject.Inject
 
 /**
@@ -18,6 +19,7 @@ import javax.inject.Inject
 class MuslimApplication : Application() {
 
     @Inject lateinit var quranDownloadManager: QuranDownloadManager
+    @Inject lateinit var wearCompanionPublisher: WearCompanionPublisher
 
     /**
      * Application-wide scope: survives individual failures and routes them to
@@ -38,5 +40,8 @@ class MuslimApplication : Application() {
         applicationScope.launch {
             quranDownloadManager.restore()
         }
+        // The publisher observes the opt-in toggle and performs no Data Layer
+        // communication until the user explicitly enables their paired watch.
+        wearCompanionPublisher.start()
     }
 }
