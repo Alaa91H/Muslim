@@ -165,7 +165,7 @@ fun MuslimApp(
             modifier = modifier,
             floatingActionButton = {
                 if (preferences.voiceNavigationEnabled) {
-                    VoiceNavigationButton { target ->
+                    VoiceNavigationButton(onTarget = { target ->
                         when (target) {
                             is VoiceNavigationTarget.Route -> navController.navigate(target.route) {
                                 launchSingleTop = true
@@ -176,7 +176,7 @@ fun MuslimApp(
                                 launchSingleTop = true
                             }
                         }
-                    }
+                    })
                 }
             },
             bottomBar = {
