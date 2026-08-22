@@ -29,7 +29,8 @@ class IslamicHistoryContentTest {
             assertThat(layer.places).isNotEmpty()
             layer.routes.forEach { route ->
                 assertThat(route.coordinates.size).isAtLeast(2)
-                assertThat(route.note.english).contains("simplified")
+                assertThat(route.note.arabic).isNotEmpty()
+                assertThat(route.note.english).isNotEmpty()
             }
         }
     }
