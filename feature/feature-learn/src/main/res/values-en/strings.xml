@@ -193,4 +193,17 @@
     <string name="funeral_will_guide_title">A practical funeral guide</string>
     <string name="funeral_will_guide_intro">Orientation from the time of death to condolences, with reminders to seek qualified help for medical, legal, and detailed jurisprudential matters.</string>
     <string name="funeral_will_guide_notice">There are recognised jurisprudential differences between schools, and hospital and cemetery procedures vary by country. Follow the imam, organisers, and local regulations when applying this guidance.</string>
+    <!-- Qaida Noorania and new-Muslim starter section -->
+    <string name="noorani_title">Noorani Qaida &amp; First Steps</string>
+    <string name="noorani_tab_letters">Letters &amp; articulation</string>
+    <string name="noorani_tab_reading">Reading basics</string>
+    <string name="noorani_tab_new_muslim">New Muslim Corner</string>
+    <string name="noorani_intro">Simple learning cards inspired by the progression of Noorani and Baghdadia primers. They do not replace direct learning with a qualified teacher.</string>
+    <string name="noorani_audio_ready">Arabic pronunciation is available through your device voice. Listen, repeat, and seek feedback from a teacher when possible.</string>
+    <string name="noorani_audio_unavailable">Install an Arabic text-to-speech voice in your device settings to enable listening.</string>
+    <string name="noorani_choose_letter">Choose a letter to practise</string>
+    <string name="noorani_listen">Listen to the letter</string>
+    <string name="noorani_reading_intro">Progress gradually: letter, vowel, then lengthening and sukūn. Do not rush; accuracy grows through revision and teacher-led learning.</string>
+    <string name="new_muslim_title">New Muslim Corner</string>
+    <string name="new_muslim_subtitle">A gentle multilingual starter guide: testimony, purification, and first practical steps.</string>
 </resources>
