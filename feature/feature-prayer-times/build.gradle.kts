@@ -55,6 +55,7 @@ dependencies {
     // Home-screen widget (Glance) + periodic background refresh (WorkManager)
     implementation(libs.androidx.glance.appwidget)
     implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.okhttp)
 
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)

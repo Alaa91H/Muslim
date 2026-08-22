@@ -65,6 +65,7 @@ import org.muslim.app.feature.settings.NotificationSettingsScreen
 import org.muslim.app.feature.settings.PermissionsScreen
 import org.muslim.app.feature.settings.PrivacyScreen
 import org.muslim.app.feature.settings.SettingsScreen
+import org.muslim.app.feature.settings.SmartDevicesScreen
 import org.muslim.app.feature.settings.update.UpdateScreen
 import org.muslim.app.feature.tasbih.ui.TasbihScreen
 import org.muslim.app.feature.finance.ui.IslamicFinanceScreen
@@ -93,6 +94,7 @@ private const val BOOKMARKS_ROUTE = "quran/bookmarks"
 private const val QURAN_FREQUENCY_ROUTE = "quran/frequency"
 private const val SETTINGS_ROUTE = "settings"
 private const val ACCESSIBILITY_ROUTE = "accessibility"
+private const val SMART_DEVICES_ROUTE = "settings/smart-devices"
 private const val PRAYER_SETTINGS_ROUTE = "settings/prayer"
 private const val NOTIFICATIONS_ROUTE = "settings/notifications"
 private const val PERMISSIONS_ROUTE = "settings/permissions"
@@ -327,11 +329,15 @@ fun MuslimApp(
                         onOpenMoreOrder = { navController.navigate(MORE_ORDER_ROUTE) },
                         onOpenUpdates = { navController.navigate(UPDATE_ROUTE) },
                         onOpenAccessibility = { navController.navigate(ACCESSIBILITY_ROUTE) },
+                        onOpenSmartDevices = { navController.navigate(SMART_DEVICES_ROUTE) },
                         onLanguageChanged = onLanguageChanged,
                     )
                 }
                 composable(ACCESSIBILITY_ROUTE) {
                     AccessibilityScreen(onBack = { navController.popBackStack() })
+                }
+                composable(SMART_DEVICES_ROUTE) {
+                    SmartDevicesScreen(onBack = { navController.popBackStack() })
                 }
                 composable(MORE_ORDER_ROUTE) {
                     MoreOrderScreen(onBack = { navController.popBackStack() })

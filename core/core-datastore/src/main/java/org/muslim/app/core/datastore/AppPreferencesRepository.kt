@@ -37,6 +37,9 @@ class AppPreferencesRepository @Inject constructor(
             accessibilityReadingMode = prefs[Keys.ACCESSIBILITY_READING_MODE] ?: false,
             accessibilityHighContrast = prefs[Keys.ACCESSIBILITY_HIGH_CONTRAST] ?: false,
             voiceNavigationEnabled = prefs[Keys.VOICE_NAVIGATION_ENABLED] ?: false,
+            wearCompanionEnabled = prefs[Keys.WEAR_COMPANION_ENABLED] ?: false,
+            smartHomeBridgeEnabled = prefs[Keys.SMART_HOME_BRIDGE_ENABLED] ?: false,
+            smartHomeBridgeEndpoint = prefs[Keys.SMART_HOME_BRIDGE_ENDPOINT].orEmpty(),
             moreSectionOrder = AppPreferences.decodeSectionOrder(prefs[Keys.MORE_SECTION_ORDER]),
             hiddenMoreSections = AppPreferences.decodeHiddenSections(prefs[Keys.MORE_SECTION_HIDDEN]),
             updateCheckEnabled = prefs[Keys.UPDATE_CHECK_ENABLED] ?: false,
@@ -83,6 +86,18 @@ class AppPreferencesRepository @Inject constructor(
 
     suspend fun setVoiceNavigationEnabled(enabled: Boolean) {
         edit { prefs -> prefs[Keys.VOICE_NAVIGATION_ENABLED] = enabled }
+    }
+
+    suspend fun setWearCompanionEnabled(enabled: Boolean) {
+        edit { prefs -> prefs[Keys.WEAR_COMPANION_ENABLED] = enabled }
+    }
+
+    suspend fun setSmartHomeBridgeEnabled(enabled: Boolean) {
+        edit { prefs -> prefs[Keys.SMART_HOME_BRIDGE_ENABLED] = enabled }
+    }
+
+    suspend fun setSmartHomeBridgeEndpoint(endpoint: String) {
+        edit { prefs -> prefs[Keys.SMART_HOME_BRIDGE_ENDPOINT] = endpoint.trim() }
     }
 
     /** Persists the user-defined order of the "More" hub sections. */
@@ -165,6 +180,9 @@ class AppPreferencesRepository @Inject constructor(
         val ACCESSIBILITY_READING_MODE = booleanPreferencesKey("accessibility_reading_mode")
         val ACCESSIBILITY_HIGH_CONTRAST = booleanPreferencesKey("accessibility_high_contrast")
         val VOICE_NAVIGATION_ENABLED = booleanPreferencesKey("voice_navigation_enabled")
+        val WEAR_COMPANION_ENABLED = booleanPreferencesKey("wear_companion_enabled")
+        val SMART_HOME_BRIDGE_ENABLED = booleanPreferencesKey("smart_home_bridge_enabled")
+        val SMART_HOME_BRIDGE_ENDPOINT = stringPreferencesKey("smart_home_bridge_endpoint")
         val MORE_SECTION_ORDER = stringPreferencesKey("more_section_order")
         val MORE_SECTION_HIDDEN = stringPreferencesKey("more_section_hidden")
         val UPDATE_CHECK_ENABLED = booleanPreferencesKey("update_check_enabled")

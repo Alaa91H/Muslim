@@ -158,6 +158,11 @@
 
     <string name="quran_stop_at_end_of_mushaf">إيقاف تلقائي عند نهاية المصحف</string>
 
+    <!-- Android Auto: only locally downloaded recitations are exposed. -->
+    <string name="quran_car_recitations">تلاوات محمّلة</string>
+    <string name="quran_car_recitations_subtitle">سور مكتملة التحميل للتشغيل الآمن دون تنزيل أثناء القيادة</string>
+    <string name="quran_car_not_downloaded">هذه السورة غير مكتملة التحميل على الهاتف.</string>
+    <string name="quran_car_search_unavailable">لم تُعثر على سورة محمّلة مطابقة للطلب.</string>
 
     <string name="quran_frequency_title">التردد اللغوي للقرآن</string>
     <string name="quran_frequency_loading">جارٍ حساب تردد الكلمات…</string>

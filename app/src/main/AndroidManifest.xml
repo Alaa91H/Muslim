@@ -34,6 +34,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Muslim">
 
+        <service
+            android:name=".wear.WearCompanionDataService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.android.wearable.capability"
+            android:value="muslim_wear_companion_v1" />
+
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

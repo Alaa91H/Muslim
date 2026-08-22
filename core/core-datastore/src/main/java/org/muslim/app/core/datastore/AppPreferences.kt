@@ -21,6 +21,12 @@ data class AppPreferences(
     val accessibilityHighContrast: Boolean = false,
     /** Exposes the explicit, user-triggered microphone button for one-shot navigation commands. */
     val voiceNavigationEnabled: Boolean = false,
+    /** Publishes only the opted-in prayer/tasbih snapshot to a paired Wear OS app. */
+    val wearCompanionEnabled: Boolean = false,
+    /** Enables an explicit HTTPS event after a locally scheduled adhan begins. */
+    val smartHomeBridgeEnabled: Boolean = false,
+    /** HTTPS destination selected by the user; empty until they configure a bridge. */
+    val smartHomeBridgeEndpoint: String = "",
     /**
      * Order in which the sections of the "More" hub are rendered, as a list of
      * [MORE_SECTION] ids. Default: worship → knowledge → tools → app.

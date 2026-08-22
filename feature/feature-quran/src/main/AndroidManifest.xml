@@ -19,11 +19,16 @@
             android:exported="false"
             android:foregroundServiceType="dataSync" />
 
-        <!-- Hosts the MediaSession + media notification for recitation playback. -->
+        <!-- Hosts the MediaSession and a browsable offline-recitation tree for
+             Android Auto. The service exposes only downloaded Quran audio. -->
         <service
             android:name=".data.RecitationPlaybackService"
-            android:exported="false"
-            android:foregroundServiceType="mediaPlayback" />
+            android:exported="true"
+            android:foregroundServiceType="mediaPlayback">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService" />
+            </intent-filter>
+        </service>
 
         <!-- Actions for the recitation control notification (play/pause/stop). -->
         <receiver

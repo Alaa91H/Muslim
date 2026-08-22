@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 import org.muslim.app.core.datastore.AppPreferences
 import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.AppThemeMode
+import org.muslim.app.core.datastore.SmartHomeBridgeSecretStore
 import org.muslim.app.feature.settings.update.UpdateCheckScheduler
 import org.muslim.app.feature.settings.update.UpdateChecker
 import javax.inject.Inject
@@ -27,6 +28,7 @@ import javax.inject.Inject
 class SettingsViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val appPreferencesRepository: AppPreferencesRepository,
+    private val smartHomeBridgeSecretStore: SmartHomeBridgeSecretStore,
 ) : ViewModel() {
 
     val preferences: StateFlow<AppPreferences> =
@@ -53,6 +55,26 @@ class SettingsViewModel @Inject constructor(
 
     fun setVoiceNavigationEnabled(enabled: Boolean) = launch {
         appPreferencesRepository.setVoiceNavigationEnabled(enabled)
+    }
+
+    fun setWearCompanionEnabled(enabled: Boolean) = launch {
+        appPreferencesRepository.setWearCompanionEnabled(enabled)
+    }
+
+    fun setSmartHomeBridgeEnabled(enabled: Boolean) = launch {
+        appPreferencesRepository.setSmartHomeBridgeEnabled(enabled)
+    }
+
+    fun setSmartHomeBridgeEndpoint(endpoint: String) = launch {
+        appPreferencesRepository.setSmartHomeBridgeEndpoint(endpoint)
+    }
+
+    fun saveSmartHomeBridgeToken(token: String) = launch {
+        smartHomeBridgeSecretStore.save(token)
+    }
+
+    fun clearSmartHomeBridgeToken() = launch {
+        smartHomeBridgeSecretStore.clear()
     }
 
     fun setMoreSectionOrder(order: List<String>) = launch { appPreferencesRepository.setMoreSectionOrder(order) }
