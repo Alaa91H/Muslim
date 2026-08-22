@@ -96,6 +96,7 @@ fun MoreScreen(
     onOpenHajj: () -> Unit = {},
     onOpenFamily: () -> Unit = {},
     onOpenFuneralWill: () -> Unit = {},
+    onOpenNoorani: () -> Unit = {},
     onOpenQuranSearch: () -> Unit = {},
     onOpenQuranFrequency: () -> Unit = {},
     onOpenOfflineMaps: () -> Unit = {},
@@ -121,6 +122,7 @@ fun MoreScreen(
             listOf(
                 MoreEntry(R.string.more_hadith, R.string.more_hadith_desc, Icons.AutoMirrored.Filled.MenuBook, onOpenHadith),
                 MoreEntry(R.string.more_learn, R.string.more_learn_desc, Icons.Filled.School, onOpenLearn),
+                MoreEntry(R.string.more_noorani, R.string.more_noorani_desc, Icons.Filled.School, onOpenNoorani),
                 MoreEntry(R.string.more_names, R.string.more_names_desc, Icons.Filled.Star, onOpenNames),
                 MoreEntry(R.string.more_hajj, R.string.more_hajj_desc, Icons.Filled.Place, onOpenHajj),
                 MoreEntry(R.string.more_family, R.string.more_family_desc, Icons.Filled.FamilyRestroom, onOpenFamily),

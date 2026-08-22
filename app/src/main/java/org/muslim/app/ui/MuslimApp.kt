@@ -44,6 +44,7 @@ import org.muslim.app.feature.learn.ui.NamesOfAllahScreen
 import org.muslim.app.feature.learn.ui.HajjUmrahScreen
 import org.muslim.app.feature.learn.ui.FamilyLifeScreen
 import org.muslim.app.feature.learn.ui.FuneralWillScreen
+import org.muslim.app.feature.learn.ui.NooraniNewMuslimScreen
 import org.muslim.app.feature.qibla.ui.MosqueFinderScreen
 import org.muslim.app.feature.qibla.ui.OfflineMapsScreen
 import org.muslim.app.feature.qibla.ui.QiblaScreen
@@ -107,6 +108,7 @@ private const val NAMES_ROUTE = "learn/names-of-allah"
 private const val HAJJ_ROUTE = "learn/hajj-umrah"
 private const val FAMILY_LIFE_ROUTE = "learn/family-life"
 private const val FUNERAL_WILL_ROUTE = "learn/funeral-will"
+private const val NOORANI_NEW_MUSLIM_ROUTE = "learn/noorani-new-muslim"
 private const val REFERENCE_ROUTE = "reference"
 private const val QURAN_DOWNLOADS_ROUTE = "quran/downloads"
 private const val MOSQUES_ROUTE = "qibla/mosques"
@@ -270,6 +272,7 @@ fun MuslimApp(
                         onOpenHajj = { navController.navigate(HAJJ_ROUTE) },
                         onOpenFamily = { navController.navigate(FAMILY_LIFE_ROUTE) },
                         onOpenFuneralWill = { navController.navigate(FUNERAL_WILL_ROUTE) },
+                        onOpenNoorani = { navController.navigate(NOORANI_NEW_MUSLIM_ROUTE) },
                         onOpenReference = { navController.navigate(REFERENCE_ROUTE) },
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
                         onOpenQuranSearch = { navController.navigate(SEARCH_ROUTE) },
@@ -343,6 +346,9 @@ fun MuslimApp(
                 }
                 composable(FUNERAL_WILL_ROUTE) {
                     FuneralWillScreen(onBack = { navController.popBackStack() })
+                }
+                composable(NOORANI_NEW_MUSLIM_ROUTE) {
+                    NooraniNewMuslimScreen(onBack = { navController.popBackStack() })
                 }
                 composable(REFERENCE_ROUTE) {
                     ReferenceScreen(onBack = { navController.popBackStack() })
