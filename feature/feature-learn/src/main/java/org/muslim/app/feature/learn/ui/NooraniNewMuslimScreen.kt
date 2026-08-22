@@ -294,7 +294,7 @@ private fun LetterRow(
 private fun ReadingBasics(speaker: ArabicSpeechController) {
     val isArabic = isArabicLocale()
     LazyColumn(
-        contentPadding = PaddingValues(vertical = 12.dp, horizontal = 16.dp, bottom = 28.dp),
+        contentPadding = PaddingValues(start = 16.dp, top = 12.dp, end = 16.dp, bottom = 28.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
         modifier = Modifier.fillMaxSize(),
     ) {
@@ -347,7 +347,7 @@ private fun NewMuslimCorner() {
     var language by remember { mutableStateOf(BeginnerLanguage.ARABIC) }
     val guide = NooraniContent.guide(language)
     LazyColumn(
-        contentPadding = PaddingValues(vertical = 12.dp, horizontal = 16.dp, bottom = 28.dp),
+        contentPadding = PaddingValues(start = 16.dp, top = 12.dp, end = 16.dp, bottom = 28.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
         modifier = Modifier.fillMaxSize(),
     ) {
