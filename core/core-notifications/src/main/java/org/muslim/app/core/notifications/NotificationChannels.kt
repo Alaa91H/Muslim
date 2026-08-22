@@ -45,6 +45,9 @@ object NotificationChannels {
     /** Default-importance channel for family-life reminders such as aqiqah. */
     const val FAMILY = "family_reminders"
 
+    /** Default-importance channel for finance reminders such as debt due dates. */
+    const val FINANCE = "finance_reminders"
+
     /** Default-importance channel for app-update notifications. */
     const val APP_UPDATE = "app_update"
 

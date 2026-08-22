@@ -134,6 +134,7 @@ dependencies {
     implementation(project(":feature:feature-tasbih"))
     implementation(project(":feature:feature-ramadan"))
     implementation(project(":feature:feature-zakat"))
+    implementation(project(":feature:feature-finance"))
     implementation(project(":feature:feature-learn"))
     implementation(project(":feature:feature-settings"))
     implementation(project(":feature:feature-reference"))

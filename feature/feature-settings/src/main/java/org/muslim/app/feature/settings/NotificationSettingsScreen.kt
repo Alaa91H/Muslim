@@ -25,6 +25,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.AccountBalanceWallet
 import androidx.compose.material.icons.filled.Alarm
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Book
@@ -785,6 +786,7 @@ private fun categoryIcon(category: NotificationCategory): ImageVector = when (ca
     NotificationCategory.Recitation -> Icons.AutoMirrored.Filled.PlaylistPlay
     NotificationCategory.Hajj -> Icons.Filled.LocationCity
     NotificationCategory.Family -> Icons.Filled.Groups
+    NotificationCategory.Finance -> Icons.Filled.AccountBalanceWallet
     NotificationCategory.AppUpdate -> Icons.Filled.SystemUpdate
 }
 
@@ -800,6 +802,7 @@ private fun categoryLabelRes(category: NotificationCategory): Int = when (catego
     NotificationCategory.Recitation -> R.string.notif_category_recitation
     NotificationCategory.Hajj -> R.string.notif_category_hajj
     NotificationCategory.Family -> R.string.notif_category_family
+    NotificationCategory.Finance -> R.string.notif_category_finance
     NotificationCategory.AppUpdate -> R.string.notif_category_app_update
 }
 
@@ -815,6 +818,7 @@ private fun categoryDescriptionRes(category: NotificationCategory): Int = when (
     NotificationCategory.Recitation -> R.string.notif_category_recitation_desc
     NotificationCategory.Hajj -> R.string.notif_category_hajj_desc
     NotificationCategory.Family -> R.string.notif_category_family_desc
+    NotificationCategory.Finance -> R.string.notif_category_finance_desc
     NotificationCategory.AppUpdate -> R.string.notif_category_app_update_desc
 }
 

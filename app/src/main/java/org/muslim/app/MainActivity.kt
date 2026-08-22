@@ -131,6 +131,7 @@ class MainActivity : ComponentActivity() {
             data.startsWith("muslim://settings/update") -> ROUTE_UPDATE
             data.startsWith("muslim://settings") -> ROUTE_SETTINGS
             data.startsWith("muslim://hadith") -> ROUTE_HADITH
+            data.startsWith("muslim://finance") -> ROUTE_FINANCE
             data.startsWith("muslim://learn") -> ROUTE_LEARN
             else -> ROUTE_HOME
         }
@@ -165,6 +166,7 @@ class MainActivity : ComponentActivity() {
         const val ROUTE_QIBLA = "qibla"
         const val ROUTE_SETTINGS = "settings"
         const val ROUTE_HADITH = "hadith"
+        const val ROUTE_FINANCE = "finance"
         const val ROUTE_LEARN = "learn"
         const val ROUTE_UPDATE = "settings/update"
         const val EXTRA_ROUTE = "org.muslim.app.extra.ROUTE"

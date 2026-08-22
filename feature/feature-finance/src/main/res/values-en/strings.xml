@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="finance_title">Islamic Economy &amp; Finance</string>
+    <string name="finance_back">Back</string>
+    <string name="finance_tab_transactions">Transactions</string>
+    <string name="finance_tab_stocks">Halal Stocks</string>
+    <string name="finance_tab_debts">Debt Manager</string>
+
+    <string name="finance_transactions_title">A simple transactions guide</string>
+    <string name="finance_transactions_intro">General guidance for understanding trade, loans, and e-commerce. It does not replace specialised religious guidance or legal advice for an actual contract.</string>
+    <string name="finance_transactions_notice">Contract, finance, and legal details vary by country. Have the actual agreement reviewed by a qualified scholar and legal adviser before committing to it.</string>
+
+    <string name="finance_stocks_title">Shariah-compliant stock checker</string>
+    <string name="finance_stocks_intro">Search by ticker or company name, then open a licensed Islamic screening database to review the status, report, and methodology.</string>
+    <string name="finance_stock_ticker">Ticker or company name</string>
+    <string name="finance_stock_ticker_hint">Example: MSFT or 2222</string>
+    <string name="finance_stock_provider">Screening provider</string>
+    <string name="finance_stock_open_provider">Open screening result</string>
+    <string name="finance_stock_provider_note">This release does not embed licensed screening data. The entered ticker is copied, then the selected provider page opens; the app does not independently issue a Shariah verdict or an investment recommendation.</string>
+    <string name="finance_stock_provider_availability">API integration needs provider approval and a key. It can be enabled in a later release after the appropriate licence is supplied.</string>
+    <string name="finance_stock_empty_ticker">Enter a ticker or company name first.</string>
+    <string name="finance_stock_disclaimer">Financial notice: screening results are informational only, not investment advice or a solicitation to buy or sell. Review the provider report and a qualified adviser before making a financial decision.</string>
+
+    <string name="finance_debts_title">Local debt ledger</string>
+    <string name="finance_debts_intro">Record debts owed to you and by you with the amount, due date, and a local reminder. The app does not upload these details automatically.</string>
+    <string name="finance_debts_quran_note">The Qur’an instructs: “write it down” for a fixed-term debt (2:282). This ledger supports organisation and does not replace a contract or legal documentation where needed.</string>
+    <string name="finance_debt_party">Other party</string>
+    <string name="finance_debt_direction">Debt direction</string>
+    <string name="finance_debt_receivable">Owed to me</string>
+    <string name="finance_debt_payable">I owe</string>
+    <string name="finance_debt_amount">Amount</string>
+    <string name="finance_debt_currency">Currency</string>
+    <string name="finance_debt_due_date">Due date</string>
+    <string name="finance_debt_due_date_hint">YYYY-MM-DD (optional)</string>
+    <string name="finance_debt_notes">Notes</string>
+    <string name="finance_debt_reminder">Due-date reminder</string>
+    <string name="finance_debt_reminder_hint">A local reminder at 09:00 on the due date</string>
+    <string name="finance_debt_save">Save debt</string>
+    <string name="finance_debt_invalid">Enter the other party and a positive amount, and verify the date format if supplied.</string>
+    <string name="finance_debt_reminder_unavailable">A reminder cannot be scheduled for a past date or without a due date.</string>
+    <string name="finance_debt_summary_receivable">Total owed to me</string>
+    <string name="finance_debt_summary_payable">Total I owe</string>
+    <string name="finance_debt_saved">Saved debts</string>
+    <string name="finance_debt_empty">No saved debts yet.</string>
+    <string name="finance_debt_delete">Delete debt</string>
+    <string name="finance_debt_notification_title">Debt due-date reminder</string>
+    <string name="finance_debt_notification_body">A debt with %1$s for %2$s is due.</string>
+</resources>

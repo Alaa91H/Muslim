@@ -159,4 +159,38 @@
     <string name="family_marriage_intro" tools:ignore="MissingTranslation">مقالات فقهية وتربوية مبسطة عن الخطبة، وعقد النكاح، والحقوق الزوجية، والخلاف، وتربية الأبناء. المحتوى تعليمي عام وليس فتوى لحالة خاصة.</string>
     <string name="aqiqah_notification_title" tools:ignore="MissingTranslation">تذكير العقيقة</string>
     <string name="aqiqah_notification_body" tools:ignore="MissingTranslation">حلّ اليوم السابع المقترح للعقيقة. تقبل الله منكم.</string>
+    <string name="funeral_will_title" tools:ignore="MissingTranslation">الجنائز والوصية الشرعية</string>
+    <string name="funeral_will_back" tools:ignore="MissingTranslation">رجوع</string>
+    <string name="funeral_will_tab_will" tools:ignore="MissingTranslation">الوصية الشرعية</string>
+    <string name="funeral_will_tab_guide" tools:ignore="MissingTranslation">أحكام الجنائز</string>
+    <string name="funeral_will_draft_title" tools:ignore="MissingTranslation">مسودة وصية شرعية خاصة</string>
+    <string name="funeral_will_draft_intro" tools:ignore="MissingTranslation">الوصية المكتوبة وسيلة لحفظ الحقوق وتنظيم ما يحتاجه الأهل بعد الوفاة؛ سجّل المعلومات المهمة في مسودة خاصة، واحفظها على جهازك أو شاركها بنفسك مع أشخاص موثوقين.</string>
+    <string name="funeral_will_legal_notice" tools:ignore="MissingTranslation">تنبيه مهم: هذه أداة تنظيم وتعليم، وليست وصية قانونية نافذة أو فتوى لحالتك. راجع عالمًا موثوقًا ومحاميًا أو كاتب عدل قبل الاعتماد، خصوصًا في الديون والميراث والوصايا المالية.</string>
+    <string name="funeral_will_privacy_notice" tools:ignore="MissingTranslation">الخصوصية: تُحفظ المسودة محليًا على هذا الجهاز ولا يرفعها التطبيق أو يشاركها تلقائيًا. قبل المشاركة، تحقق من المستلم ووسيلة الإرسال.</string>
+    <string name="funeral_will_checklist_title" tools:ignore="MissingTranslation">قبل كتابة الوصية</string>
+    <string name="funeral_will_form_title" tools:ignore="MissingTranslation">بيانات المسودة</string>
+    <string name="funeral_will_full_name" tools:ignore="MissingTranslation">الاسم الكامل</string>
+    <string name="funeral_will_executor_name" tools:ignore="MissingTranslation">المنفذ أو الشخص الموثوق</string>
+    <string name="funeral_will_executor_name_hint" tools:ignore="MissingTranslation">اكتب الاسم بعد أخذ الموافقة</string>
+    <string name="funeral_will_executor_contact" tools:ignore="MissingTranslation">وسيلة التواصل</string>
+    <string name="funeral_will_executor_contact_hint" tools:ignore="MissingTranslation">هاتف أو بريد أو طريقة اتصال بديلة</string>
+    <string name="funeral_will_debts" tools:ignore="MissingTranslation">الديون والحقوق والالتزامات</string>
+    <string name="funeral_will_debts_hint" tools:ignore="MissingTranslation">مثل الديون والعقود والأمانات والوثائق ذات الصلة</string>
+    <string name="funeral_will_funeral_wishes" tools:ignore="MissingTranslation">وصايا التجهيز والجنازة</string>
+    <string name="funeral_will_funeral_wishes_hint" tools:ignore="MissingTranslation">دوّن ما ترغب أن يعرفه الأهل وفريق التجهيز، مع مراعاة الشرع والنظام</string>
+    <string name="funeral_will_guardianship" tools:ignore="MissingTranslation">ملاحظات الوصاية على القُصَّر</string>
+    <string name="funeral_will_guardianship_hint" tools:ignore="MissingTranslation">اكتبها للاستشارة مع محامٍ أو كاتب عدل حسب قانون بلدك</string>
+    <string name="funeral_will_charity" tools:ignore="MissingTranslation">وصايا أو تبرعات خيرية</string>
+    <string name="funeral_will_charity_hint" tools:ignore="MissingTranslation">دوّن النية والجهة المقترحة بعد استشارة أهل العلم والاختصاص</string>
+    <string name="funeral_will_additional_notes" tools:ignore="MissingTranslation">ملاحظات إضافية</string>
+    <string name="funeral_will_save" tools:ignore="MissingTranslation">حفظ المسودة محليًا</string>
+    <string name="funeral_will_share" tools:ignore="MissingTranslation">مشاركة النسخة النصية</string>
+    <string name="funeral_will_clear" tools:ignore="MissingTranslation">مسح المسودة</string>
+    <string name="funeral_will_clear_dialog_title" tools:ignore="MissingTranslation">مسح المسودة المحلية؟</string>
+    <string name="funeral_will_clear_dialog_text" tools:ignore="MissingTranslation">سيُحذف النص المحفوظ على هذا الجهاز. لا يمكن التراجع عن هذا الإجراء.</string>
+    <string name="funeral_will_clear_confirm" tools:ignore="MissingTranslation">نعم، امسح</string>
+    <string name="funeral_will_cancel" tools:ignore="MissingTranslation">إلغاء</string>
+    <string name="funeral_will_guide_title" tools:ignore="MissingTranslation">دليل عملي لأحكام الجنائز</string>
+    <string name="funeral_will_guide_intro" tools:ignore="MissingTranslation">خطوات إرشادية من الاحتضار إلى التعزية، مع تنبيه إلى الرجوع للمختصين في الحالات الطبية والقانونية والتفاصيل الفقهية.</string>
+    <string name="funeral_will_guide_notice" tools:ignore="MissingTranslation">توجد مسائل فقهية معتبرة تختلف بين المذاهب، كما تختلف إجراءات المستشفى والمقبرة من بلد لآخر. اتبع الإمام والجهة المنظمة واللوائح المحلية عند التطبيق.</string>
 </resources>
