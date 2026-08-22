@@ -3,6 +3,32 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.20.0
+
+Updates install directly over v1.19.0 (same stable signing key — no uninstall needed).
+
+## ♿ Accessibility Centre & Clearer Arabic Reading
+- Added a dedicated Accessibility Centre, reachable from More, Settings and `muslim://accessibility`, with practical TalkBack guidance, labelled controls and clearly scoped accessibility-review notices.
+- Added a persisted high-contrast theme option and a clearer Arabic-reading option for Quran mushaf text and primary adhkar, using bundled Noto Sans Arabic with expanded line spacing. The reading option is a legibility preference, not a diagnosis or treatment for dyslexia.
+- Bundled the official Noto Sans Arabic font under its SIL Open Font License 1.1 and recorded source, licensing and usage boundaries in the accessibility documentation.
+
+## 🎙️ Explicit One-Shot Voice Navigation
+- Added an optional visible Listen control that starts recognition only after the user presses it, requests microphone permission only then, ends each session on a result, error or dismissal, and does not store audio or transcripts in the app.
+- Added Arabic, English and numeric command matching for local Quran metadata, including `اقرأ سورة الكهف`, alongside practical app-destination commands.
+- Prefers Android on-device recognition where the device offers it and requests offline preference; recognition availability and any provider/network processing remain device- and service-dependent.
+
+## 🤟 Supplementary Sign-Language Learning Links
+- Added clearly labelled external British Sign Language (BSL) links for wudu and salah learning. The videos are not embedded or copied into the APK, are supplementary rather than a fatwa, and are not represented as universal or Arabic sign language.
+- Preserved an explicit invitation for ongoing review with blind/low-vision users, Deaf sign-language communities and qualified religious educators; this release improves access but is not a certification of complete accessibility compliance.
+
+## 🧪 Engineering & CI Quality Gate
+- Added focused unit coverage for Arabic/English route commands, Arabic/English/numeric surah commands and unknown commands, plus a static verifier for permissions, privacy boundaries, resources, navigation, font licensing and source notes.
+- The merged main commit passed Debug APK, unit-test, Android Lint, Detekt, Android Emulator and signed Release APK CI gates before this changelog update.
+
+### Install
+- Download the APK from the GitHub Release and open it (allow “install from unknown sources” if prompted).
+- The app stays signed with the same release key, so updates install directly over previous versions.
+
 ## Muslim v1.19.0
 
 Updates install directly over v1.18.0 (same stable signing key — no uninstall needed).
