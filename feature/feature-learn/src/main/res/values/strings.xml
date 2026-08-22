@@ -206,4 +206,51 @@
     <string name="noorani_reading_intro" tools:ignore="MissingTranslation">انتقل تدريجياً: الحرف، ثم الحركة، ثم المدّ والسكون. لا تستعجل؛ الدقة تتحسن بالمراجعة والتلقي.</string>
     <string name="new_muslim_title" tools:ignore="MissingTranslation">ركن المسلم الجديد</string>
     <string name="new_muslim_subtitle" tools:ignore="MissingTranslation">دليل قصير ولطيف بلغات متعددة: الشهادة والطهارة والخطوات الأولى.</string>
+    <!-- Traveller and expat corner -->
+    <string name="traveler_title" tools:ignore="MissingTranslation">ركن المسافر والمغترب</string>
+    <string name="traveler_tab_distance" tools:ignore="MissingTranslation">مسافة السفر</string>
+    <string name="traveler_tab_transport" tools:ignore="MissingTranslation">الطائرة والقطار</string>
+    <string name="traveler_tab_high_latitude" tools:ignore="MissingTranslation">خطوط العرض العليا</string>
+    <string name="traveler_distance_notice" tools:ignore="MissingTranslation">هذه أداة تعليمية لعرض مسافة GPS المرجعية. لا تصدر حكماً شخصياً بالقصر أو الجمع؛ فالمسافة والطريق ومدة الإقامة والتفاصيل المذهبية تحتاج سؤال جهة علمية موثوقة.</string>
+    <string name="traveler_gps_title" tools:ignore="MissingTranslation">نقطة الانطلاق والموقع الحالي</string>
+    <string name="traveler_gps_privacy" tools:ignore="MissingTranslation">يُطلب إصلاح GPS مرة واحدة عند الضغط فقط. تُحفظ نقطة الانطلاق على هذا الجهاز ولا يوجد تتبع في الخلفية أو إرسال للموقع.</string>
+    <string name="traveler_refresh_gps" tools:ignore="MissingTranslation">تحديث GPS الحالي</string>
+    <string name="traveler_set_departure" tools:ignore="MissingTranslation">اجعل الحالي نقطة انطلاق</string>
+    <string name="traveler_clear_departure" tools:ignore="MissingTranslation">مسح الانطلاق</string>
+    <string name="traveler_gps_idle" tools:ignore="MissingTranslation">حدّث موقعك الحالي عند الاستعداد.</string>
+    <string name="traveler_gps_requesting" tools:ignore="MissingTranslation">جارٍ طلب إصلاح GPS…</string>
+    <string name="traveler_gps_ready" tools:ignore="MissingTranslation">تم تحديث نقطة GPS الحالية محلياً.</string>
+    <string name="traveler_gps_error" tools:ignore="MissingTranslation">تعذر الحصول على الموقع. فعّل إذن الموقع أو استخدم إعدادات الموقع المحفوظة.</string>
+    <string name="traveler_departure_missing" tools:ignore="MissingTranslation">لم تثبّت نقطة انطلاق بعد.</string>
+    <string name="traveler_departure_ready" tools:ignore="MissingTranslation">نقطة الانطلاق المحلية: %1$.4f، %2$.4f</string>
+    <string name="traveler_threshold_title" tools:ignore="MissingTranslation">عتبة المسافة المرجعية</string>
+    <string name="traveler_threshold_subtitle" tools:ignore="MissingTranslation">اختر 80 أو 90 كم لعرض اختلاف التقديرات الشائع؛ لا تجعل الاختيار بديلاً عن سؤال معلّم موثوق.</string>
+    <string name="traveler_distance_waiting" tools:ignore="MissingTranslation">ثبّت نقطة الانطلاق ثم حدّث GPS الحالي لعرض المسافة بخط مستقيم.</string>
+    <string name="traveler_distance_label" tools:ignore="MissingTranslation">المسافة المرجعية: %1$.1f كم</string>
+    <string name="traveler_distance_below" tools:ignore="MissingTranslation">هذه المسافة دون العتبة المرجعية المختارة (%1$d كم).</string>
+    <string name="traveler_distance_above" tools:ignore="MissingTranslation">هذه المسافة تبلغ أو تتجاوز العتبة المرجعية المختارة (%1$d كم).</string>
+    <string name="traveler_distance_disclaimer" tools:ignore="MissingTranslation">المسافة خط مستقيم بين نقطتي GPS وليست مسافة طريق. هذا وصف تقني لا فتوى؛ راجع جهة علمية محلية لتطبيق أحكام القصر والجمع.</string>
+    <string name="traveler_transport_notice" tools:ignore="MissingTranslation">خطط للصلاة قبل الرحلة، واتبع تعليمات الطاقم والسلامة دائماً. يختلف تطبيق الأحكام عند تعذر الماء أو الوقوف أو استقبال القبلة؛ اسأل أهل العلم عن حالتك.</string>
+    <string name="traveler_plane" tools:ignore="MissingTranslation">الطائرة</string>
+    <string name="traveler_train" tools:ignore="MissingTranslation">القطار</string>
+    <string name="traveler_offline_compass_title" tools:ignore="MissingTranslation">بوصلة القبلة المحلية</string>
+    <string name="traveler_offline_compass_subtitle" tools:ignore="MissingTranslation">تعمل بالمستشعرات وحساب اتجاه القبلة من إحداثياتك، ولا تحتاج إنترنت بعد توفير الموقع.</string>
+    <string name="traveler_compass_bearing" tools:ignore="MissingTranslation">اتجاه القبلة: %1$.1f°</string>
+    <string name="traveler_compass_facing" tools:ignore="MissingTranslation">أنت تواجه القبلة تقريباً.</string>
+    <string name="traveler_compass_turn_right" tools:ignore="MissingTranslation">اتجه يميناً نحو %1$d°</string>
+    <string name="traveler_compass_turn_left" tools:ignore="MissingTranslation">اتجه يساراً نحو %1$d°</string>
+    <string name="traveler_compass_calibrate" tools:ignore="MissingTranslation">دقة البوصلة منخفضة؛ حرّك الهاتف في شكل 8 وأبعده عن المعادن والمغناطيس.</string>
+    <string name="traveler_high_latitude_notice" tools:ignore="MissingTranslation">تظهر هذه المعاينة أوقات المحرك القائم وقاعدة خطوط العرض المحفوظة. عند اختفاء علامات الفجر أو العشاء توجد مناهج واجتهادات متعددة؛ اتبع تقويم مسجدك أو الجهة العلمية المعتمدة في بلدك.</string>
+    <string name="traveler_high_latitude_preview" tools:ignore="MissingTranslation">معاينة أوقات اليوم</string>
+    <string name="traveler_high_latitude_location_missing" tools:ignore="MissingTranslation">أضف موقع الصلاة ومنطقته الزمنية في إعدادات الصلاة لرؤية المعاينة.</string>
+    <string name="traveler_high_latitude_unavailable" tools:ignore="MissingTranslation">لا يستطيع المحرك إنتاج مجموعة أوقات متسقة لهذا التاريخ والموقع. اختر تقويم جهة محلية أو استشر جهة علمية حول التقدير المعتمد.</string>
+    <string name="traveler_high_latitude_location" tools:ignore="MissingTranslation">خط العرض المحفوظ: %1$.2f°</string>
+    <string name="traveler_high_latitude_fajr" tools:ignore="MissingTranslation">الفجر: %1$s</string>
+    <string name="traveler_high_latitude_isha" tools:ignore="MissingTranslation">العشاء: %1$s</string>
+    <string name="traveler_high_latitude_settings" tools:ignore="MissingTranslation">فتح إعدادات الحساب</string>
+    <string name="traveler_high_latitude_band_missing" tools:ignore="MissingTranslation">أضف موقعاً لعرض نطاق خطوط العرض المرتبط به.</string>
+    <string name="traveler_high_latitude_band_normal" tools:ignore="MissingTranslation">النطاق الأول: أقل من 48°؛ تظهر العلامات الفلكية عادةً، مع ضرورة متابعة تقويم الجهة المحلية.</string>
+    <string name="traveler_high_latitude_band_second" tools:ignore="MissingTranslation">النطاق الثاني: من 48° إلى أقل من 66°؛ قد تتعذر بعض علامات الفجر أو العشاء في أيام من السنة.</string>
+    <string name="traveler_high_latitude_band_third" tools:ignore="MissingTranslation">النطاق الثالث: 66° فأعلى؛ قد تغيب العلامات لفترات طويلة، ويلزم اعتماد تقدير جهة علمية موثوقة.</string>
+    <string name="traveler_high_latitude_selected" tools:ignore="MissingTranslation">هذه القاعدة مفعلة في إعدادات الصلاة الحالية.</string>
 </resources>

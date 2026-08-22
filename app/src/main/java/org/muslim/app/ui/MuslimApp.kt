@@ -45,6 +45,7 @@ import org.muslim.app.feature.learn.ui.HajjUmrahScreen
 import org.muslim.app.feature.learn.ui.FamilyLifeScreen
 import org.muslim.app.feature.learn.ui.FuneralWillScreen
 import org.muslim.app.feature.learn.ui.NooraniNewMuslimScreen
+import org.muslim.app.feature.learn.ui.TravelerExpatsScreen
 import org.muslim.app.feature.qibla.ui.MosqueFinderScreen
 import org.muslim.app.feature.qibla.ui.OfflineMapsScreen
 import org.muslim.app.feature.qibla.ui.QiblaScreen
@@ -109,6 +110,7 @@ private const val HAJJ_ROUTE = "learn/hajj-umrah"
 private const val FAMILY_LIFE_ROUTE = "learn/family-life"
 private const val FUNERAL_WILL_ROUTE = "learn/funeral-will"
 private const val NOORANI_NEW_MUSLIM_ROUTE = "learn/noorani-new-muslim"
+private const val TRAVELER_EXPAT_ROUTE = "learn/traveler-expat"
 private const val REFERENCE_ROUTE = "reference"
 private const val QURAN_DOWNLOADS_ROUTE = "quran/downloads"
 private const val MOSQUES_ROUTE = "qibla/mosques"
@@ -273,6 +275,7 @@ fun MuslimApp(
                         onOpenFamily = { navController.navigate(FAMILY_LIFE_ROUTE) },
                         onOpenFuneralWill = { navController.navigate(FUNERAL_WILL_ROUTE) },
                         onOpenNoorani = { navController.navigate(NOORANI_NEW_MUSLIM_ROUTE) },
+                        onOpenTraveler = { navController.navigate(TRAVELER_EXPAT_ROUTE) },
                         onOpenReference = { navController.navigate(REFERENCE_ROUTE) },
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
                         onOpenQuranSearch = { navController.navigate(SEARCH_ROUTE) },
@@ -349,6 +352,12 @@ fun MuslimApp(
                 }
                 composable(NOORANI_NEW_MUSLIM_ROUTE) {
                     NooraniNewMuslimScreen(onBack = { navController.popBackStack() })
+                }
+                composable(TRAVELER_EXPAT_ROUTE) {
+                    TravelerExpatsScreen(
+                        onBack = { navController.popBackStack() },
+                        onOpenPrayerSettings = { navController.navigate(PRAYER_SETTINGS_ROUTE) },
+                    )
                 }
                 composable(REFERENCE_ROUTE) {
                     ReferenceScreen(onBack = { navController.popBackStack() })
