@@ -58,7 +58,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.muslim.app.core.common.locale.AppLanguage
+import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.core.ui.accessibility.LocalAccessibilityVisuals
 import org.muslim.app.feature.adhkar.R
 import org.muslim.app.feature.adhkar.domain.Dhikr
