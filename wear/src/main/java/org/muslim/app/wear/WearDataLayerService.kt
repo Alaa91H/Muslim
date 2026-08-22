@@ -1,6 +1,7 @@
 package org.muslim.app.wear
 
 import android.content.Context
+import androidx.core.content.edit
 import com.google.android.gms.wearable.DataEventBuffer
 import com.google.android.gms.wearable.DataMapItem
 import com.google.android.gms.wearable.WearableListenerService
@@ -48,14 +49,14 @@ internal object WearSnapshotStore {
     private const val SYNCED_AT = "synced_at"
 
     fun save(context: Context, snapshot: WearPrayerSnapshot) {
-        context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE).edit()
-            .putString(NEXT_PRAYER, snapshot.nextPrayerName)
-            .putLong(NEXT_PRAYER_AT, snapshot.nextPrayerAtEpochMillis ?: 0L)
-            .putString(TASBIH_PHRASE, snapshot.tasbihPhrase)
-            .putInt(TASBIH_COUNT, snapshot.tasbihCount)
-            .putInt(TASBIH_TARGET, snapshot.tasbihTarget)
-            .putLong(SYNCED_AT, snapshot.syncedAtEpochMillis)
-            .apply()
+        context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE).edit {
+            putString(NEXT_PRAYER, snapshot.nextPrayerName)
+            putLong(NEXT_PRAYER_AT, snapshot.nextPrayerAtEpochMillis ?: 0L)
+            putString(TASBIH_PHRASE, snapshot.tasbihPhrase)
+            putInt(TASBIH_COUNT, snapshot.tasbihCount)
+            putInt(TASBIH_TARGET, snapshot.tasbihTarget)
+            putLong(SYNCED_AT, snapshot.syncedAtEpochMillis)
+        }
     }
 
     fun read(context: Context): WearPrayerSnapshot? {

@@ -26,7 +26,8 @@ REQUIRED_SNIPPETS = {
     ],
     "wear/src/main/AndroidManifest.xml": [
         "android.hardware.type.watch",
-        "com.google.android.gms.wearable.BIND_LISTENER",
+        "com.google.android.gms.wearable.DATA_CHANGED",
+        "/muslim/wear/state/v1",
         "com.google.android.wearable.standalone",
         'android:value="false"',
     ],

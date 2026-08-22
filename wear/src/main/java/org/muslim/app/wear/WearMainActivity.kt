@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.view.HapticFeedbackConstants
 import androidx.activity.ComponentActivity
+import androidx.core.content.edit
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material3.Button
 import androidx.wear.compose.material3.MaterialTheme
@@ -73,17 +75,17 @@ private fun WearCompanionApp() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Text(text = context.getString(org.muslim.app.wear.R.string.wear_next_prayer))
+            Text(text = stringResource(org.muslim.app.wear.R.string.wear_next_prayer))
             PrayerOverview(snapshot = snapshot, nowMillis = nowMillis)
-            Text(text = context.getString(org.muslim.app.wear.R.string.wear_tasbih))
+            Text(text = stringResource(org.muslim.app.wear.R.string.wear_tasbih))
             Text(
                 text = snapshot?.let { state ->
-                    context.getString(
+                    stringResource(
                         org.muslim.app.wear.R.string.wear_tasbih_count,
                         state.tasbihCount,
                         state.tasbihTarget,
                     )
-                } ?: context.getString(org.muslim.app.wear.R.string.wear_sync_waiting),
+                } ?: stringResource(org.muslim.app.wear.R.string.wear_sync_waiting),
             )
             snapshot?.let { state ->
                 Button(
@@ -102,13 +104,13 @@ private fun WearCompanionApp() {
             Button(
                 onClick = {
                     hapticsEnabled = !hapticsEnabled
-                    context.getSharedPreferences(HAPTICS_FILE, Activity.MODE_PRIVATE).edit()
-                        .putBoolean(HAPTICS_ENABLED, hapticsEnabled)
-                        .apply()
+                    context.getSharedPreferences(HAPTICS_FILE, Activity.MODE_PRIVATE).edit {
+                        putBoolean(HAPTICS_ENABLED, hapticsEnabled)
+                    }
                 },
             ) {
                 val status = if (hapticsEnabled) "✓" else "×"
-                Text(text = "${context.getString(org.muslim.app.wear.R.string.wear_vibration)} $status")
+                Text(text = "${stringResource(org.muslim.app.wear.R.string.wear_vibration)} $status")
             }
         }
     }
@@ -116,17 +118,16 @@ private fun WearCompanionApp() {
 
 @Composable
 private fun PrayerOverview(snapshot: WearPrayerSnapshot?, nowMillis: Long) {
-    val context = LocalContext.current
     val nextPrayerName = snapshot?.nextPrayerName
     val nextPrayerAt = snapshot?.nextPrayerAtEpochMillis
     if (nextPrayerName == null || nextPrayerAt == null) {
-        Text(text = context.getString(org.muslim.app.wear.R.string.wear_no_prayer))
+        Text(text = stringResource(org.muslim.app.wear.R.string.wear_no_prayer))
         return
     }
     Text(text = nextPrayerName)
     Text(text = DateFormat.getTimeInstance(DateFormat.SHORT).format(Date(nextPrayerAt)))
     Text(
-        text = context.getString(
+        text = stringResource(
             org.muslim.app.wear.R.string.wear_countdown,
             formatCountdown((nextPrayerAt - nowMillis).coerceAtLeast(0L)),
         ),
