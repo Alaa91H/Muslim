@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -17,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.muslim.app.core.designsystem.IslamicRadius
+import org.muslim.app.core.designsystem.IslamicShapes
 import org.muslim.app.core.designsystem.MuslimDarkColors
 import org.muslim.app.core.designsystem.MuslimLightColors
 import org.muslim.app.core.designsystem.MuslimSepiaColors
@@ -85,7 +87,7 @@ private fun DesignShowcaseSurface(title: String, colorScheme: ColorScheme) {
                         Surface(
                             color = MaterialTheme.colorScheme.primary.copy(alpha = 0.12f),
                             contentColor = MaterialTheme.colorScheme.primary,
-                            shape = IslamicRadius.AyahMarker,
+                            shape = RoundedCornerShape(IslamicRadius.AyahMarker),
                         ) {
                             Text(
                                 text = "١",
