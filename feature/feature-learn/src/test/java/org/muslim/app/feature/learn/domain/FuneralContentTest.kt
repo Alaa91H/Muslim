@@ -15,7 +15,7 @@ class FuneralContentTest {
             "prayer",
             "condolences",
         ).inOrder()
-        assertThat(FuneralContent.guideSections).allMatch { it.steps.isNotEmpty() }
+        assertThat(FuneralContent.guideSections.all { it.steps.isNotEmpty() }).isTrue()
     }
 
     @Test
