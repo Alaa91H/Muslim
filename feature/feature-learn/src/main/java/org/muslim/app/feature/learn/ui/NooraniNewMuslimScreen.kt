@@ -64,7 +64,6 @@ import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.ArabicLetter
 import org.muslim.app.feature.learn.domain.BeginnerLanguage
 import org.muslim.app.feature.learn.domain.MakhrajGroup
-import org.muslim.app.feature.learn.domain.NewMuslimGuide
 import org.muslim.app.feature.learn.domain.NewMuslimStep
 import org.muslim.app.feature.learn.domain.NooraniContent
 import org.muslim.app.feature.learn.domain.ReadingStage
