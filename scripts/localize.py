@@ -122,7 +122,10 @@ def protect(text: str) -> tuple[str, list[str]]:
 
     def repl(m: re.Match) -> str:
         nonlocal counter
-        tok = f"\u0002{tok_name(counter)}\u0003"
+        # Use a plain, deliberately uncommon ASCII marker. Translation engines
+        # can strip control characters, which would silently lose Android
+        # placeholders such as %1$d; this token survives ordinary translation.
+        tok = f"zxqmuslimfmt{counter}zxq"
         tokens.append(m.group(0))
         counter += 1
         return tok
@@ -145,7 +148,7 @@ def restore(text: str, tokens: list[str]) -> str:
             return tokens[idx]
         return m.group(0)
 
-    return re.sub(r"\u0002PH\d+\u0003", repl, text)
+    return re.sub(r"zxqmuslimfmt\d+zxq", repl, text)
 
 
 # ---------------------------------------------------------------------------
@@ -196,7 +199,10 @@ def translate_batch(texts: list[str], lang: str) -> list[str] | None:
 
 def xml_escape(text: str) -> str:
     text = text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-    # Android strings escape apostrophes with a backslash.
+    # Normalise a source string that already used Android escaping before
+    # escaping apostrophes once for the output resource.
+    text = text.replace("\\'", "'")
+    # Android strings escape apostrophes with a single backslash.
     text = text.replace("'", "\\'")
     # Real newlines become the \n escape Android understands.
     text = text.replace("\n", "\\n")
@@ -256,6 +262,13 @@ def process_lang(res_dir: str, lang: str, strings: dict[str, str], cache: dict[s
     to_fetch: list[tuple[str, str, list[str]]] = []  # (name, protected_text, tokens)
     for name, text in strings.items():
         protected, tokens = protect(text)
+        # Android typed placeholders are part of the resource contract. Some
+        # translation providers rewrite or remove even robust marker tokens, so
+        # keep the English source for these rare formatting strings instead of
+        # risking an invalid format or a release-Lint failure.
+        if tokens:
+            out[name] = text
+            continue
         key = f"{lang}|{protected}"
         if key in cache:
             out[name] = cache[key]
@@ -271,7 +284,11 @@ def process_lang(res_dir: str, lang: str, strings: dict[str, str], cache: dict[s
     texts = [p for _, p, _ in to_fetch]
     translated = translate_batch(texts, lang)
     if translated is None:
-        return out  # unsupported language: caller skips writing
+        # Keep the English source as a complete, readable fallback for language
+        # codes unsupported by the translation provider. A missing Android
+        # resource is worse than an explicit source-language fallback: it
+        # breaks localisation completeness and fails release Lint.
+        translated = [restore(protected, tokens) for _, protected, tokens in to_fetch]
 
     for (name, protected, tokens), tr in zip(to_fetch, translated):
         restored = restore(tr, tokens)

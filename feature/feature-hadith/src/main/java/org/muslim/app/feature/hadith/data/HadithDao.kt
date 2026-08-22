@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.paging.PagingSource
 import kotlinx.coroutines.flow.Flow
 import org.muslim.app.feature.hadith.data.entity.HadithEntity
 
@@ -16,11 +17,21 @@ interface HadithDao {
     @Query("SELECT * FROM hadiths WHERE collection = :collection ORDER BY id")
     fun observeCollection(collection: String): Flow<List<HadithEntity>>
 
+    /** Page-by-page browse source; Room invalidates it whenever the corpus changes. */
+    @Query("SELECT * FROM hadiths ORDER BY collection, id")
+    fun pagedAll(): PagingSource<Int, HadithEntity>
+
+    @Query("SELECT * FROM hadiths WHERE collection = :collection ORDER BY id")
+    fun pagedCollection(collection: String): PagingSource<Int, HadithEntity>
+
     @Query("SELECT * FROM hadiths WHERE id = :id")
     suspend fun byId(id: Long): HadithEntity?
 
     @Query("SELECT COUNT(*) FROM hadiths")
     suspend fun count(): Int
+
+    @Query("SELECT * FROM hadiths ORDER BY id LIMIT 1 OFFSET :offset")
+    suspend fun byOffset(offset: Int): HadithEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(hadiths: List<HadithEntity>)

@@ -49,6 +49,8 @@ dependencies {
 
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.paging)
+    implementation(libs.androidx.paging.compose)
     ksp(libs.androidx.room.compiler)
 
     implementation(libs.kotlinx.serialization.json)

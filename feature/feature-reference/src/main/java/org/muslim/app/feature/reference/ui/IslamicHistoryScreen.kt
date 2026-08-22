@@ -28,9 +28,9 @@ import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
-import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -124,7 +124,7 @@ private fun HistoryTabs(selectedTab: Int, onSelect: (Int) -> Unit) {
         stringResource(R.string.history_atlas_tab),
         stringResource(R.string.history_people_tab),
     )
-    TabRow(selectedTabIndex = selectedTab) {
+    PrimaryTabRow(selectedTabIndex = selectedTab) {
         labels.forEachIndexed { index, label ->
             Tab(
                 selected = selectedTab == index,

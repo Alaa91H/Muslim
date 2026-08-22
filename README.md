@@ -1,200 +1,126 @@
 # Muslim
 
-> **One name everywhere.** *Muslim* is the official name of the project, the application package, and the app itself. The launcher label is translated automatically with the display language (190+ locales).
+> **Muslim** is an open-source, privacy-first Android application for daily worship, Quran and hadith study, Islamic learning, practical utilities, and carefully bounded companion-device features. It is designed to remain useful without an account and to keep personal study and worship data on the device by default.
 
-**Muslim** is a free, open-source, privacy-first Android application that accompanies a Muslim throughout the day — from astronomically accurate prayer times and the Adhan to the Quran, hadith, adhkar, electronic tasbih, Ramadan tools, and a zakat calculator — all in one beautifully designed, fully offline-capable app.
+The project is maintained as a Kotlin, Jetpack Compose, multi-module Android codebase. It includes a phone application and an opt-in paired Wear OS companion. The repository is licensed under [GPL-3.0](LICENSE).
 
-- **Free forever** — no ads, no subscriptions, no in-app purchases
-- **Open source** (GPLv3) — the code is public and auditable
-- **Privacy first** — no tracking, no analytics SDKs, no accounts; your data stays on your device
-- **Offline-first** — the entire app works without an internet connection
-- **World-ready** — the whole interface is translated into 190+ languages
-
-> 📄 **Project reference:** [`PROJECT_PROMPT.md`](PROJECT_PROMPT.md) is the single source of truth for the vision, architecture, design system, roadmap, and the accuracy and religious-content standards.
-
----
-
-## ✨ Features
-
-### 🕌 Prayer Times & Adhan
-- Astronomically accurate prayer times via a **pure-Kotlin astronomical engine** (solar declination & equation of time), verified against the [Adhan](https://github.com/batoulapps/Adhan-Kotlin) library
-- **All major calculation methods**: Umm al-Qura (Makkah), Egyptian General Authority, ISNA, MWL, Karachi, Tehran, Jafari, and an **Automatic method** that picks the best fit for your location
-- **Juristic school support** for Asr (Shafi'i/standard vs. Hanafi), plus high-latitude rules (Midnight, One-Seventh, Angle-based) for the far north
-- Manual & automatic location (GPS), elevation-aware calculations, DST-safe
-- **The Adhan itself**: 18+ high-quality bundled adhan sounds (including Makkah, Madinah, and the classic Madinah 1952 recording), with per-prayer sound selection, volume, vibration, and preview
-- Exact alarm scheduling with a foreground-service fallback so the Adhan always rings
-- Optional silent mode during prayer, pre-adhan reminders, and a **persistent countdown notification** (next prayer + time remaining, updated live)
-- Hijri calendar with automatic and manual adjustment
-
-### 🧭 Qibla
-- Precise compass using the device sensors + GPS
-- Map view with your position, the Kaaba, and the great-circle route
-- Kaaba emoji marker 🕋, live heading degrees, and haptic/sound feedback when you face the qibla
-
-### 📖 Quran
-- Complete Quran in **Uthmani script** (6236 ayahs) with per-surah metadata, juz, page, and ayah positions
-- Professional reader: adjustable font size, comfortable reading themes, night mode, bookmarking, last-read position
-- **Recitations**: 44+ renowned reciters, audio playback with per-ayah highlighting, repeat modes (single ayah / to end of surah / continuous through the whole Quran), playback speed, background downloading with resume, and a mini player
-- **Tafsir & translations** in multiple languages, searchable
-- **Word search** (FTS) with occurrence counts and locations
-- **Linguistic frequency**: the most repeated words in the entire Quran
-- Ayah of the day, bookmarks, and reading progress
-
-### 📚 Hadith & Learning
-- Curated hadith library — Arba'in an-Nawawiyyah and famous hadiths of the Six Books — with full-text search
-- **Complete Six Books import** script from a licensed open source
-- Hadith of the day (WorkManager-scheduled notification)
-- Step-by-step learning guides: wudu, ghusl, tayammum, prayer, special prayers, rak'ah tables, and madhhab differences
-- Reference library (99 Names of Allah, stories of the prophets, Islamic history, and more)
-
-### 📿 Adhkar, Tasbih & Worship
-- Sourced adhkar (morning/evening, sleep, waking, prayer, travel…) with persistent counters
-- **Floating bubble reminders** over any app, with customizable interval, display duration, and short-dhikr-only mode
-- Electronic **tasbih** with haptic feedback, daily/weekly logs, charts, and a home-screen widget
-- Ramadan: suhoor/iftar countdowns, exact alerts (Iftar & Suhoor toggles with Ramadan-aware default), fasting tracker, and automatic Hijri adjustment
-- Zakat: zakat al-mal (nisab + debt deduction), zakat al-fitr, and a yearly log
-
-### 🗺️ Maps & More
-- **Offline maps** (OpenStreetMap via MapLibre GL — no API key): download cities, countries, or a **custom area** with an interactive pan/zoom picker and a live size estimate; smart storage management warns when space is low and suggests deleting the largest region
-- **Nearby mosques** on an interactive map with distance, directions, and search expansion
-- Unified **notification manager** with per-category toggles, quiet hours, and live previews
-- Unified **permission manager** with one-tap onboarding
-- **In-app update checker** (GitHub Releases) with changelog and one-tap download/install
-- Settings for everything: theme, dynamic color, font size, time format (12/24h), start screen, language, and section order on the More screen
-
----
-
-## 📱 Screens
-
-The app uses four primary tabs (per Material guidance):
-
-1. **Prayer Times** — today's times, next prayer countdown, Adhan status
-2. **Quran** — the mushaf reader, search, frequency, bookmarks
-3. **Qibla** — compass and map
-4. **More** — settings, hadith, adhkar, tasbih, Ramadan, zakat, learning, reference library, downloads, offline maps, and more
-
----
-
-## 🏗️ Technical architecture
-
-- **100% Kotlin + Jetpack Compose** — no XML views
-- **Material 3 Expressive** — Dynamic Color (Material You) with manual fallback palettes
-- **Clean Architecture** — presentation ← domain ← data, with MVI/MVVM and `StateFlow`/`SharedFlow`
-- **Hilt** for dependency injection, **Coroutines + Flow** for async
-- **Room** (preloaded data) + **DataStore** (preferences)
-- **AlarmManager** (exact background Adhan) + **WorkManager** (non-critical tasks)
-- **Glance** (home-screen widgets)
-- **Retrofit/OkHttp/kotlinx.serialization** for optional networking only
-
-### Modules (22)
-
-```
-app
-core: common · ui · database · datastore · design-system · network · notifications · location · permissions
-feature: prayer-times · qibla · quran · hadith · adhkar · tasbih · learn · ramadan · zakat · reference · settings
-```
-
-Each feature module depends only on core modules — never on another feature module.
-
----
-
-## 🌍 Localization
-
-Every user-facing string lives in its own `values-XX/strings.xml` for **190+ world languages**, generated by a machine-translation pipeline (`scripts/localize.py`) that protects Android format specifiers (`%1$s`, `%2$d`, `%%`, `\n`) and XML entities. The app name is also translated per display language. Right-to-left (Arabic, Hebrew, Urdu…) and left-to-right layouts are fully supported.
-
----
-
-## 🛠️ Development environment (2026)
-
-| Tool | Version |
+| Principle | What it means in this project |
 |---|---|
-| Android Gradle Plugin | 9.3.1 (bundled Kotlin — no `kotlin-android` plugin) |
-| Gradle | 9.5.0 |
-| Kotlin (bundled in AGP) | 2.2.10 |
-| KSP | 2.2.10-2.0.2 |
-| Compose BOM | 2026.08.00 |
-| compileSdk / targetSdk | 37 (Android 17) |
-| minSdk | 26 (Android 8) |
-| JDK | 17 |
+| **Local first** | Prayer settings, Quran progress, tasbih, notes, flashcards, and most feature state are stored on the device. |
+| **Explicit optional networking** | Downloads, maps, mosque search, release checks, and a user-configured home-automation bridge are optional rather than required for core worship features. |
+| **Truthful scope** | The app does not claim religious certification, provider approval, direct Google Home/Alexa skills, or bundled media that it does not contain. |
+| **Reviewable implementation** | Feature modules, content-boundary notes, tests, static verifiers, and release workflows are kept in this public repository. |
 
-> All versions are centralized in `gradle/libs.versions.toml`.
+## Product map
 
-## Building
+The phone app has four primary destinations: **Prayer Times**, **Quran**, **Qibla**, and **More**. The More hub groups supporting features into worship, knowledge, tools, and app controls; users may reorder or hide those groups. Related learning destinations are consolidated to avoid duplicate top-level entry points: for example, the Names of Allah and Hajj/Umrah experiences live inside the Learning Centre rather than also appearing as duplicate More shortcuts.
 
-```bash
-# Requires: JDK 17, Android SDK (platform 37) — path in local.properties
-./gradlew :app:assembleDebug     # debug APK
-./gradlew :app:assembleRelease   # release APK (R8 + signing)
-./gradlew testDebugUnitTest      # unit tests
-./gradlew lintDebug              # lint
-./gradlew :app:installDebug      # install on a connected device/emulator
+| Area | Implemented capabilities |
+|---|---|
+| **Prayer and Adhan** | Local prayer-time calculation, selectable calculation methods and Asr school, high-latitude guidance, saved/manual location or one-time location refresh, Hijri adjustment, per-prayer notification controls, Adhan playback, reminders, quiet hours, and next-prayer countdowns. |
+| **Quran** | Offline Quran reading, bookmarks and reading progress, translations/tafsir where supplied, Arabic search and word-frequency tools, reciter selection, playback, and user-managed recitation downloads. |
+| **Hadith Library** | An offline bundled corpus prepared from compressed NDJSON in small local batches, Arabic-normalized FTS search, collection filters, bookmarks, sharing/copying, daily hadith notifications, and Room/Compose Paging for bounded list and search loading. |
+| **Adhkar and Tasbih** | Categorised adhkar, local counters, optional haptics, tasbih logs, a widget, and optional reminder surfaces under user control. |
+| **Learning Centre** | Structured guides for faith, purification, salah, fasting, zakat, funerals, and selected madhhab-orientation material, together with integrated Names of Allah and Hajj/Umrah experiences. |
+| **Reference and study** | Local reference material, historical timeline and schematic atlas content, a scholarly-library starter catalogue, citation-aware notes, and local flashcards. The scholarly-library starter is not a redistributed copy of third-party digital libraries or publisher editions. |
+| **Life and travel guides** | New-Muslim and Noorani-style learning support, family-life guidance, Islamic will/funeral planning, traveller and expatriate tools, transport-prayer orientation, local qibla compass, and high-latitude explanatory material. |
+| **Finance and utilities** | Educational transactions material, stock-screening provider shortcuts, a local debt ledger, zakat tools, offline-map management, mosque search, update controls, notification controls, permissions, and accessibility settings. |
+| **Accessibility** | TalkBack-oriented labels and guidance, high-contrast and clearer-Arabic-reading options, visible one-shot voice navigation, and carefully labelled external supplementary sign-language learning links. |
+| **Companion devices** | Android Auto browsing for already-downloaded Quran recitations only; an opt-in, paired Wear OS tasbih and next-prayer companion; and an optional HTTPS home-automation event bridge. |
+
+## Hadith library reliability and loading model
+
+The Hadith screen is deliberately designed for a large offline corpus without blocking the main UI thread or materialising the full library as one list.
+
+> The corpus is shipped as a compressed line-delimited JSON asset. On first preparation, it is read on `Dispatchers.IO` and inserted into Room in bounded batches. Browsing and Arabic search then use Room-backed Paging sources, so Compose receives only the visible page and its prefetch window.
+
+The screen exposes preparation progress, an explicit retry action if preparation fails, and load-state retry controls for a failed page. The daily-hadith lookup reads one deterministic row by offset instead of observing the entire table. This approach follows Android's Paging architecture: `PagingSource` in the data layer, `Pager`/`PagingData` in the view-model layer, and `LazyPagingItems` in the Compose UI. See the [official Paging overview](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) and [paged-data guide](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data).
+
+The full asset currently contains **35,691** line-delimited records. It is a packaged offline dataset, not a claim that all editions, translations, grading choices, or scholarly contexts are exhaustive. Religious-content and source review remain separate from software review.
+
+## Cross-platform and automation boundaries
+
+| Integration | Delivered behaviour | Deliberate boundary |
+|---|---|---|
+| **Android Auto** | Exposes media browse, transport, and voice-search handling through the existing playback service. | Only fully downloaded Quran recitations appear. The car experience does not start downloads, render video, or present general interactive content while driving. |
+| **Wear OS** | A non-standalone paired companion shows a minimal next-prayer/countdown snapshot and supports a one-tap tasbih increment with optional haptic feedback. | Synchronisation is opt-in. The phone remains the authoritative calculator and store; the payload excludes location, account data, calculation settings, and audio. |
+| **Home automation** | A user-selected HTTPS endpoint can receive a minimal `adhan_started` event after local audible Adhan playback begins. | It is disabled by default, sends no audio or location, and is not a direct Google Assistant, Google Home, or Alexa Action/Skill. |
+
+The bridge rejects non-HTTPS destinations and stores its optional bearer secret through Android Keystore-backed encryption rather than ordinary preferences. The Android Auto, Wear, and bridge decisions are documented in [`docs/iot_feature_sources.md`](docs/iot_feature_sources.md).
+
+## Content, source, and safety boundaries
+
+The project contains educational and devotional material, not personalised legal or religious rulings. Calculation output, travel-distance references, high-latitude explanations, financial tools, and historical schematics are deliberately labelled with their respective limits. Users should consult qualified local scholars and applicable local law when a personal ruling or legal decision is required.
+
+The Scholarly Library does **not** bundle Maktaba Shamela files, publisher editions, or other third-party digital-library content. Its starter catalogue contains original study guidance and metadata. Users can select an authorised local JSON content pack only when each imported book identifies its source and licence. See [`docs/scholar_library_content_policy.md`](docs/scholar_library_content_policy.md).
+
+Additional feature-boundary notes are maintained under [`docs/`](docs), including accessibility, finance, history, Noorani/new-Muslim, traveller, and IoT implementation notes. The detailed implementation and documentation map is available in [`docs/PROJECT_STATUS.md`](docs/PROJECT_STATUS.md). Source attribution and specific content decisions should be read with the relevant feature document rather than inferred from a generic screen title.
+
+## Privacy and permissions
+
+The app does not require an account. It does not include advertising, behavioural analytics, or marketing SDKs. Prayer settings, bookmarks, tasbih data, study notes, flashcards, and local reading state remain on the device unless Android's own backup mechanisms apply or the user explicitly selects an external operation.
+
+Permissions are requested only for the relevant capability, such as a one-time location refresh, notifications, exact alarms, the optional adhkar overlay, or notification access for a selected playback behaviour. Network-backed features are optional: recitation/translation downloads, map tiles, mosque discovery, release checks, and the user-configured HTTPS bridge. The bridge is the only home-automation network event and remains disabled until configured.
+
+Read the full, feature-specific policy in [`PRIVACY_POLICY.md`](PRIVACY_POLICY.md).
+
+## Architecture
+
+The repository uses Kotlin/JVM 17, AGP 9.3.1, Gradle 9.5, Kotlin 2.2.10, Compose BOM 2026.08.00, compile/target SDK 37, and phone min SDK 26. The Wear companion has min SDK 30. Version declarations are centralised in [`gradle/libs.versions.toml`](gradle/libs.versions.toml).
+
+```text
+app                         Phone application, navigation, application wiring
+wear                        Paired Wear OS companion application
+core:core-common            Shared text, time, model, and utility code
+core:core-design-system     Theme and reusable design primitives
+core:core-ui                Shared Compose UI utilities
+core:core-database          Shared database infrastructure
+core:core-datastore         Preferences and local settings
+core:core-network           Optional networking infrastructure
+core:core-notifications     Notification and scheduling integration
+core:core-location          Location and prayer-related location support
+core:core-permissions       User-visible permission orchestration
+feature:*                   Independently scoped product features
 ```
 
-## 🔖 Versioning — tied to git tags (never hardcoded)
+Feature modules depend on core modules rather than on other feature modules. The app module owns top-level navigation and assembles feature destinations. Hilt provides dependency injection; Room and DataStore provide local persistence; Coroutines and Flow provide asynchronous state; WorkManager and AlarmManager support scheduled work and prayer alerts.
 
-`versionName` and `versionCode` are derived at build time from the nearest `v*` git tag (`git describe` in `app/build.gradle.kts`). There is no hardcoded version anywhere.
+## Build, test, and verify
 
-To publish a release the "tag-first" way (so the APK version always matches the tag):
-
-```bash
-./scripts/release.sh            # bumps the patch (v1.2.0 -> v1.3.0)
-./scripts/release.sh 2.0.0      # explicit version
-```
-
-`release.sh` is **fully automatic**: it commits the working tree, generates a changelog from the previous tag, tags and pushes, waits for the exact tag-triggered CI run, downloads and verifies the signed APK, and creates the GitHub Release with the changelog attached — no manual steps.
-
-## 🔐 Release signing — stable key for install-over updates
-
-Every release is signed with the same key so updates install over the existing install without uninstalling first:
+Install JDK 17 and Android SDK platform 37, then configure `local.properties` with the SDK path. The examples below use the Gradle wrapper.
 
 ```bash
-./scripts/create-signing-keystore.sh   # creates release.keystore + keystore.properties automatically
-./scripts/setup-github-signing.sh      # uploads the same key to GitHub Actions secrets (once)
+# Phone and Wear debug packages
+./gradlew :app:assembleDebug :wear:assembleDebug
+
+# Unit tests and static quality gates
+./gradlew testDebugUnitTest :wear:testDebugUnitTest
+./gradlew lintDebug
+./gradlew detekt
+
+# Targeted safeguards for the most recent large-data/navigation work
+python3 scripts/verify_hadith_paging_and_navigation.py
+python3 scripts/verify_scholar_library.py
+python3 scripts/verify_iot_integration.py
 ```
 
-- **Locally:** signing is read from `keystore.properties` (git-ignored).
-- **In CI:** read from the `SIGNING_KEYSTORE` (Base64), `SIGNING_STORE_PASSWORD`, `SIGNING_KEY_ALIAS`, and `SIGNING_KEY_PASSWORD` secrets — the same key, so CI produces an APK with the same local signature.
-- Without either source, the debug key is used automatically (installable APK for testing).
+The GitHub Actions workflow builds both applications, runs unit tests, Android Lint, Detekt, and emulator tests, and creates signed phone and Wear release APKs. Tagged `v*` builds publish a GitHub Release with both artifacts. The release workflow is an automated safety net, not a substitute for device, vehicle, watch, accessibility, or content-provider review.
 
-## 📦 Installation
+## Release and installation
 
-Download the signed APK from the [Releases](https://github.com/Alaa91H/Muslim/releases) page and open it (allow "install from unknown sources" if prompted). Because every release keeps the same signing key, new versions install directly over previous ones — your data and settings are preserved.
+Application version information is derived from Git tags by the Gradle build. A release is created only after the relevant `main` CI run is green, using an annotated `v*` tag. The tag-triggered workflow produces and attaches:
 
-## Content sources
+| Artifact | Purpose |
+|---|---|
+| `app-release.apk` | Signed phone APK. |
+| `wear-release.apk` | Signed paired Wear OS companion APK. |
 
-- **Quran text:** Uthmani script from the [Tanzil](https://tanzil.net/) project (via the alquran.cloud dataset) — 6236 ayahs with per-surah metadata (name, revelation type) and ayah positions (juz/page).
-- **Prayer-time algorithms:** ported and verified against the [Adhan](https://github.com/batoulapps/Adhan-Kotlin) library (MIT, attributed).
-- **Hadith corpus:** curated sample (Arba'in an-Nawawiyyah + famous hadiths of the Six Books); the **complete Six Books** can be imported with
+Download published artifacts from the [GitHub Releases page](https://github.com/Alaa91H/Muslim/releases). A release signed with the established key installs over an earlier compatible install. Only install release files from a source you trust.
 
-  ```bash
-  python scripts/import-hadith.py                     # all six books
-  python scripts/import-hadith.py --books bukhari,muslim --limit 25   # smoke test
-  python scripts/import-hadith.py --self-check       # verify the dedupe logic
-  ```
+## Contributing
 
-  The importer fetches from the licensed, open [hadith-api](https://github.com/fawazahmed0/hadith-api) project (MIT-licensed API; classical Arabic texts are public domain; translations keep their original copyrights) via the jsDelivr CDN, maps hadiths into the app schema, and **deduplicates by fingerprinting the diacritic-normalized Arabic text** — the output file is re-verified to contain zero duplicates before it is written.
+Start with [`CONTRIBUTING.md`](CONTRIBUTING.md), keep strings in resources, preserve module boundaries, run the relevant Gradle checks and feature verifier, and document any new content or privacy boundary. Religious content, source licences, translations, scholarly classifications, and software changes require separate review paths.
 
-- **Maps:** OpenStreetMap data via [MapLibre GL Native](https://maplibre.org) + [OpenFreeMap](https://openfreemap.org) vector tiles (free, no API key).
+## Contact and licence
 
-Religious content (Quran text, hadith and their grading, adhkar, rulings) is subject to specialist religious review, separate from code review, before the official release.
-
-## 🤝 Contributing
-
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
-
-Important: religious content is reviewed separately from code — see section 10 of `PROJECT_PROMPT.md`.
-
-## 📄 Privacy
-
-See [`PRIVACY_POLICY.md`](PRIVACY_POLICY.md) — no tracking, no data collection, everything stays on your device.
-
-## Contact & support
-
-- **GitHub:** [github.com/Alaa91H](https://github.com/Alaa91H)
-- **Email:** [alahus2591@gmail.com](mailto:alahus2591@gmail.com)
-- **Telegram:** [t.me/Alaa91h](https://t.me/Alaa91h)
-- **Support development:** [ko-fi.com/alaa91h](https://ko-fi.com/alaa91h)
-
-## License
-
-[GPLv3](LICENSE) — any modified version of the app stays open source.
+Open an issue in the repository for reproducible defects or documentation corrections. The project is distributed under [GPL-3.0](LICENSE).

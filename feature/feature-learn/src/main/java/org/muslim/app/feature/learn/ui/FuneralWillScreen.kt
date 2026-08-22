@@ -20,7 +20,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Notes
+import androidx.compose.material.icons.automirrored.filled.Notes
 import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.Checklist
 import androidx.compose.material.icons.filled.DeleteOutline
@@ -75,7 +75,7 @@ import org.muslim.app.feature.learn.domain.LocalizedFuneralText
 import org.muslim.app.feature.learn.domain.WillDraft
 
 private enum class FuneralWillTab(val icon: ImageVector) {
-    Will(Icons.Filled.Notes),
+    Will(Icons.AutoMirrored.Filled.Notes),
     FuneralGuide(Icons.Filled.AutoStories),
 }
 

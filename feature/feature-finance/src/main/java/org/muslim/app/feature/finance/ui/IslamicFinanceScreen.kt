@@ -23,7 +23,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.MenuBook
-import androidx.compose.material.icons.filled.OpenInNew
+import androidx.compose.material.icons.automirrored.filled.OpenInNew
+import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.material.icons.filled.AccountBalance
 import androidx.compose.material.icons.filled.AccountBalanceWallet
 import androidx.compose.material.icons.filled.DeleteOutline
@@ -32,7 +33,6 @@ import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.Save
-import androidx.compose.material.icons.filled.TrendingUp
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -81,7 +81,7 @@ import java.util.Locale
 
 private enum class FinanceTab(val icon: ImageVector) {
     Transactions(Icons.AutoMirrored.Filled.MenuBook),
-    Stocks(Icons.Filled.TrendingUp),
+    Stocks(Icons.AutoMirrored.Filled.TrendingUp),
     Debts(Icons.Filled.AccountBalanceWallet),
 }
 
@@ -237,7 +237,7 @@ private fun StockCheckerContent(isArabic: Boolean) {
     ) {
         item {
             FinanceIntroCard(
-                icon = Icons.Filled.TrendingUp,
+                icon = Icons.AutoMirrored.Filled.TrendingUp,
                 title = stringResource(R.string.finance_stocks_title),
                 text = stringResource(R.string.finance_stocks_intro),
             )
@@ -285,7 +285,7 @@ private fun StockCheckerContent(isArabic: Boolean) {
                 },
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                Icon(Icons.Filled.OpenInNew, contentDescription = null, modifier = Modifier.size(18.dp))
+                Icon(Icons.AutoMirrored.Filled.OpenInNew, contentDescription = null, modifier = Modifier.size(18.dp))
                 Spacer(Modifier.width(8.dp))
                 Text(stringResource(R.string.finance_stock_open_provider))
             }
@@ -511,7 +511,7 @@ private fun DebtCard(entry: DebtEntry, formatter: NumberFormat, onDelete: () -> 
         Row(Modifier.padding(14.dp), verticalAlignment = Alignment.Top) {
             Surface(shape = CircleShape, color = MaterialTheme.colorScheme.secondaryContainer) {
                 Icon(
-                    if (entry.direction == DebtDirection.Receivable) Icons.Filled.TrendingUp else Icons.Filled.AccountBalanceWallet,
+                    if (entry.direction == DebtDirection.Receivable) Icons.AutoMirrored.Filled.TrendingUp else Icons.Filled.AccountBalanceWallet,
                     contentDescription = null,
                     modifier = Modifier.padding(9.dp).size(20.dp),
                     tint = MaterialTheme.colorScheme.onSecondaryContainer,

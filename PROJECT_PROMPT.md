@@ -6,9 +6,13 @@
 > **الترخيص المقترح:** مفتوح المصدر (GPLv3 — انظر القسم 9)
 > **معرّف الحزمة المؤقت:** `org.muslim.app` (يُستبدل عند التسجيل الفعلي)
 
+## وثائق الحالة الحالية
+
+> **Current implementation notice (English):** This document is the original Arabic planning prompt and contains historical roadmap language. It is not the authoritative inventory of completed work. For the current implemented feature map, navigation organisation, privacy behaviour, module list, quality process, and explicit limits, read [`README.md`](README.md), [`docs/PROJECT_STATUS.md`](docs/PROJECT_STATUS.md), [`PRIVACY_POLICY.md`](PRIVACY_POLICY.md), and [`docs/README.md`](docs/README.md).
+
 ## عن هذا المستند
 
-هذا مستند "برومبت" (Prompt) تفصيلي مُعدّ لتوجيه بناء التطبيق الموصوف أعلاه. صُمم ليُستخدم كسياق مشروع (Project Prompt) يُلصَق كاملاً في بداية جلسة مع أداة ذكاء اصطناعي مساعدة في البرمجة (مثل Claude Code)، أو كمرجع تأسيسي لفريق تطوير بشري. عامله كمرجع حي: حدّثه كلما تغيّر قرار مهم، واجعله "مصدر الحقيقة الوحيد" للمشروع.
+هذا مستند "برومبت" (Prompt) تفصيلي مُعدّ لتوجيه بناء التطبيق الموصوف أعلاه. صُمم ليُستخدم كسياق مشروع (Project Prompt) يُلصَق كاملاً في بداية جلسة مع أداة ذكاء اصطناعي مساعدة في البرمجة (مثل Claude Code)، أو كمرجع تأسيسي لفريق تطوير بشري. يُحتفظ به كخلفية تخطيطية تاريخية؛ أما مصدر الحقيقة لحالة التنفيذ الحالية فهو وثائق الحالة الإنجليزية المشار إليها أعلاه.
 
 **فهرس المحتويات:**
 1. دورك في هذا المشروع
