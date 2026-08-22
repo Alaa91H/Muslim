@@ -3,6 +3,34 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.21.0
+
+Updates install directly over v1.20.0 (same stable signing key — no uninstall needed).
+
+## 🚗 Android Auto: Safe Local Recitation
+- Added an Android Auto media-browse integration backed by the existing Quran playback service and media session, including standard browse, transport and voice-search handling.
+- The car catalogue deliberately exposes only recitations already complete on the paired phone. It does not start downloads, render video, or present interactive screens while driving; unavailable search results state that the requested surah has not been downloaded.
+- Added the Android Automotive media capability declaration and final-manifest filters required for system discovery and Android Auto voice search.
+
+## ⌚ Wear OS Paired Companion
+- Added a dedicated Wear OS companion APK with an intentionally small paired-phone experience: next-prayer name, local countdown, tasbih phrase/count, a one-tap tasbih increment and an optional haptic response.
+- Added filtered Wear Data Layer contracts for the minimum prayer and tasbih snapshot. Watch synchronization is disabled by default, shares no location or account data, and the phone remains the authoritative prayer-time calculator and tasbih store.
+- Added Wear-specific application metadata, launcher artwork, local snapshot validation and a Data Layer listener filtered to the app’s documented state path.
+
+## 🏠 Optional Home-Automation Bridge
+- Added the user-selected HTTPS bridge rather than claiming a direct Google Home or Alexa Skill. The bridge is disabled by default and can send a compact `adhan_started` event only after local audible adhan playback begins.
+- The endpoint must be HTTPS; an optional bearer token is stored locally with Android Keystore rather than DataStore. The event contains the prayer label, occurrence time and source only—never audio, location, credentials, prayer calculations or account data.
+- Added a Smart Devices settings destination with explicit explanation of the Android Auto, watch and bridge boundaries, plus user-controlled enablement and endpoint/token removal.
+
+## 🧪 Engineering & CI Quality Gate
+- Added focused unit coverage for Wear snapshot validity and HTTPS endpoint validation, a static IoT integration verifier, and documented official-source, privacy, deployment and operational boundaries.
+- Registered the Wear module in the full CI build, quality gates and tagged-release artifacts. Retained build-output caching while disabling configuration-cache storage for a documented AGP/Wear navigation-task incompatibility.
+- The merged main commit passed Debug APK, unit-test, Android Lint, Detekt, Android Emulator and signed Release APK CI gates before this changelog update.
+
+### Install
+- Download the APK from the GitHub Release and open it (allow “install from unknown sources” if prompted).
+- The app stays signed with the same release key, so updates install directly over previous versions.
+
 ## Muslim v1.20.0
 
 Updates install directly over v1.19.0 (same stable signing key — no uninstall needed).
