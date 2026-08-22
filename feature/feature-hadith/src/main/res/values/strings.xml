@@ -16,6 +16,12 @@
     <string name="hadith_copied">تم نسخ الحديث</string>
     <string name="hadith_bookmark_add">إضافة علامة</string>
     <string name="hadith_bookmark_remove">إزالة العلامة</string>
+    <string name="hadith_preparing">يتم تجهيز مكتبة الأحاديث محلياً…</string>
+    <string name="hadith_preparing_progress">يتم تجهيز مكتبة الأحاديث محلياً (%1$d حديثاً)…</string>
+    <string name="hadith_preparing_failed">تعذر تجهيز مكتبة الأحاديث</string>
+    <string name="hadith_load_failed">تعذر تحميل هذه الصفحة من الأحاديث</string>
+    <string name="hadith_retry">إعادة المحاولة</string>
+    <string name="hadith_no_results">لا توجد نتائج مطابقة للبحث أو المجموعة المختارة.</string>
 
     <string name="hadith_collection_nawawi">الأربعون النووية</string>
     <string name="hadith_collection_riyad">رياض الصالحين</string>

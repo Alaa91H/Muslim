@@ -23,7 +23,9 @@ import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.outlined.BookmarkBorder
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuAnchorType
@@ -39,7 +41,6 @@ import org.muslim.app.core.ui.text.DigitNormalizedOutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -61,14 +62,48 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.paging.LoadState
+import androidx.paging.compose.collectAsLazyPagingItems
 import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.feature.hadith.R
 import org.muslim.app.feature.hadith.domain.Hadith
+import org.muslim.app.feature.hadith.data.HadithCorpusState
 import org.muslim.app.feature.hadith.domain.HadithCollection
 import kotlinx.coroutines.launch
 
 /** 30-minute increments across a full day, as minutes from midnight. */
 private val hadithTimeOptions: List<Int> = (0 until 24 * 60 step 30).toList()
+
+private data class HadithControlsState(
+    val query: String,
+    val collection: HadithCollection?,
+    val daily: Hadith?,
+    val dailyNotificationEnabled: Boolean,
+    val dailyNotificationTimeMinutes: Int,
+    val use24h: Boolean,
+)
+
+private data class HadithControlsActions(
+    val onQueryChanged: (String) -> Unit,
+    val onCollectionSelected: (HadithCollection?) -> Unit,
+    val onNotificationEnabledChanged: (Boolean) -> Unit,
+    val onNotificationTimeSelected: (Int) -> Unit,
+)
+
+private data class HadithListState(
+    val corpusState: HadithCorpusState,
+    val pagedHadiths: androidx.paging.compose.LazyPagingItems<Hadith>,
+    val query: String,
+    val collection: HadithCollection?,
+    val daily: Hadith?,
+    val bookmarkedIds: Set<Long>,
+)
+
+private data class HadithListActions(
+    val onRetryCorpus: () -> Unit,
+    val onToggleBookmark: (Long) -> Unit,
+    val onCopied: () -> Unit,
+)
 
 /**
  * Hadith library (PROJECT_PROMPT.md §6 Phase 3): daily hadith, collection
@@ -81,7 +116,6 @@ fun HadithScreen(
     modifier: Modifier = Modifier,
     viewModel: HadithViewModel = hiltViewModel(),
 ) {
-    val hadiths by viewModel.hadiths.collectAsStateWithLifecycle()
     val daily by viewModel.daily.collectAsStateWithLifecycle()
     val bookmarkedIds by viewModel.bookmarkedIds.collectAsStateWithLifecycle()
     val query by viewModel.query.collectAsStateWithLifecycle()
@@ -89,6 +123,8 @@ fun HadithScreen(
     val dailyNotificationEnabled by viewModel.dailyNotificationEnabled.collectAsStateWithLifecycle()
     val dailyNotificationTimeMinutes by viewModel.dailyNotificationTimeMinutes.collectAsStateWithLifecycle()
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
+    val corpusState by viewModel.corpusState.collectAsStateWithLifecycle()
+    val pagedHadiths = viewModel.pagedHadiths.collectAsLazyPagingItems()
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val copiedMessage = stringResource(R.string.hadith_copied)
@@ -97,117 +133,254 @@ fun HadithScreen(
     Scaffold(
         modifier = modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackbarHostState) },
-        topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.hadith_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.hadith_back))
-                    }
-                },
-            )
-        },
+        topBar = { HadithTopBar(onBack) },
     ) { innerPadding ->
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
-            DigitNormalizedOutlinedTextField(
-                value = query,
-                onValueChange = viewModel::setQuery,
-                label = { Text(stringResource(R.string.hadith_search_hint)) },
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp),
-            )
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 4.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Column(modifier = Modifier.weight(1f)) {
-                    Text(
-                        text = stringResource(R.string.hadith_daily_notification),
-                        style = MaterialTheme.typography.bodyMedium,
-                    )
-                    Text(
-                        text = stringResource(R.string.hadith_daily_notification_desc),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-                Switch(
-                    checked = dailyNotificationEnabled,
-                    onCheckedChange = viewModel::setDailyNotificationEnabled,
-                )
-            }
-
-            HadithNotificationPreview(
-                use24h = use24h,
-                hadith = daily,
-                timeMinutes = dailyNotificationTimeMinutes,
-                enabled = dailyNotificationEnabled,
-            )
-
-            if (dailyNotificationEnabled) {
-                HadithTimeDropdown(
+            HadithLibraryControls(
+                state = HadithControlsState(
+                    query = query,
+                    collection = collection,
+                    daily = daily,
+                    dailyNotificationEnabled = dailyNotificationEnabled,
+                    dailyNotificationTimeMinutes = dailyNotificationTimeMinutes,
                     use24h = use24h,
-                    selectedMinutes = dailyNotificationTimeMinutes,
-                    options = hadithTimeOptions,
-                    onSelected = viewModel::setDailyNotificationTimeMinutes,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 4.dp),
-                )
-            }
+                ),
+                actions = HadithControlsActions(
+                    onQueryChanged = viewModel::setQuery,
+                    onCollectionSelected = viewModel::setCollection,
+                    onNotificationEnabledChanged = viewModel::setDailyNotificationEnabled,
+                    onNotificationTimeSelected = viewModel::setDailyNotificationTimeMinutes,
+                ),
+            )
+            HadithPagedList(
+                state = HadithListState(
+                    corpusState = corpusState,
+                    pagedHadiths = pagedHadiths,
+                    query = query,
+                    collection = collection,
+                    daily = daily,
+                    bookmarkedIds = bookmarkedIds,
+                ),
+                actions = HadithListActions(
+                    onRetryCorpus = viewModel::retryCorpusPreparation,
+                    onToggleBookmark = viewModel::toggleBookmark,
+                    onCopied = onCopied,
+                ),
+            )
+        }
+    }
+}
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .horizontalScroll(rememberScrollState())
-                    .padding(horizontal = 16.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                FilterChip(
-                    selected = collection == null,
-                    onClick = { viewModel.setCollection(null) },
-                    label = { Text(stringResource(R.string.hadith_all)) },
-                    modifier = Modifier.padding(end = 8.dp),
-                )
-                HadithCollection.entries.forEach { option ->
-                    FilterChip(
-                        selected = collection == option,
-                        onClick = { viewModel.setCollection(option) },
-                        label = { Text(stringResource(option.titleRes)) },
-                        modifier = Modifier.padding(end = 8.dp),
-                    )
-                }
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun HadithTopBar(onBack: () -> Unit) {
+    TopAppBar(
+        title = { Text(stringResource(R.string.hadith_title)) },
+        navigationIcon = {
+            IconButton(onClick = onBack) {
+                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.hadith_back))
             }
+        },
+    )
+}
 
-            LazyColumn(
-                modifier = Modifier.fillMaxSize(),
-                contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 16.dp),
-            ) {
-                if (query.isBlank() && daily != null && collection == null) {
+@Composable
+private fun HadithLibraryControls(
+    state: HadithControlsState,
+    actions: HadithControlsActions,
+) {
+    DigitNormalizedOutlinedTextField(
+        value = state.query,
+        onValueChange = actions.onQueryChanged,
+        label = { Text(stringResource(R.string.hadith_search_hint)) },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp),
+    )
+    HadithNotificationControls(
+        daily = state.daily,
+        enabled = state.dailyNotificationEnabled,
+        timeMinutes = state.dailyNotificationTimeMinutes,
+        use24h = state.use24h,
+        onEnabledChanged = actions.onNotificationEnabledChanged,
+        onTimeSelected = actions.onNotificationTimeSelected,
+    )
+    HadithCollectionFilters(state.collection, actions.onCollectionSelected)
+}
+
+@Composable
+private fun HadithNotificationControls(
+    daily: Hadith?,
+    enabled: Boolean,
+    timeMinutes: Int,
+    use24h: Boolean,
+    onEnabledChanged: (Boolean) -> Unit,
+    onTimeSelected: (Int) -> Unit,
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Column(modifier = Modifier.weight(1f)) {
+            Text(stringResource(R.string.hadith_daily_notification), style = MaterialTheme.typography.bodyMedium)
+            Text(
+                stringResource(R.string.hadith_daily_notification_desc),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        Switch(checked = enabled, onCheckedChange = onEnabledChanged)
+    }
+    HadithNotificationPreview(
+        hadith = daily,
+        timeMinutes = timeMinutes,
+        enabled = enabled,
+        use24h = use24h,
+    )
+    if (enabled) {
+        HadithTimeDropdown(
+            use24h = use24h,
+            selectedMinutes = timeMinutes,
+            options = hadithTimeOptions,
+            onSelected = onTimeSelected,
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp),
+        )
+    }
+}
+
+@Composable
+private fun HadithCollectionFilters(
+    collection: HadithCollection?,
+    onCollectionSelected: (HadithCollection?) -> Unit,
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()).padding(horizontal = 16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        FilterChip(
+            selected = collection == null,
+            onClick = { onCollectionSelected(null) },
+            label = { Text(stringResource(R.string.hadith_all)) },
+            modifier = Modifier.padding(end = 8.dp),
+        )
+        HadithCollection.entries.forEach { option ->
+            FilterChip(
+                selected = collection == option,
+                onClick = { onCollectionSelected(option) },
+                label = { Text(stringResource(option.titleRes)) },
+                modifier = Modifier.padding(end = 8.dp),
+            )
+        }
+    }
+}
+
+@Composable
+private fun HadithPagedList(
+    state: HadithListState,
+    actions: HadithListActions,
+) {
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 16.dp),
+    ) {
+        when (state.corpusState) {
+            HadithCorpusState.NotStarted -> item { HadithCorpusProgress(0) }
+            is HadithCorpusState.Importing -> item { HadithCorpusProgress(state.corpusState.importedCount) }
+            is HadithCorpusState.Failed -> item {
+                HadithCorpusFailure(state.corpusState.message, actions.onRetryCorpus)
+            }
+            HadithCorpusState.Ready -> {
+                if (state.query.isBlank() && state.daily != null && state.collection == null) {
                     item(key = "daily") {
                         DailyHadithCard(
-                            hadith = daily!!,
-                            bookmarked = daily!!.id in bookmarkedIds,
-                            onToggleBookmark = { viewModel.toggleBookmark(daily!!.id) },
-                            onCopied = onCopied,
+                            hadith = state.daily,
+                            bookmarked = state.daily.id in state.bookmarkedIds,
+                            onToggleBookmark = { actions.onToggleBookmark(state.daily.id) },
+                            onCopied = actions.onCopied,
                         )
                     }
                 }
-                items(hadiths, key = { it.id }) { hadith ->
-                    HadithCard(
-                        hadith = hadith,
-                        bookmarked = hadith.id in bookmarkedIds,
-                        onToggleBookmark = { viewModel.toggleBookmark(hadith.id) },
-                        onCopied = onCopied,
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+                items(
+                    count = state.pagedHadiths.itemCount,
+                    key = { index -> state.pagedHadiths[index]?.id ?: "hadith-placeholder-$index" },
+                ) { index ->
+                    state.pagedHadiths[index]?.let { hadith ->
+                        HadithCard(
+                            hadith = hadith,
+                            bookmarked = hadith.id in state.bookmarkedIds,
+                            onToggleBookmark = { actions.onToggleBookmark(hadith.id) },
+                            onCopied = actions.onCopied,
+                        )
+                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+                    }
+                }
+                when (val refresh = state.pagedHadiths.loadState.refresh) {
+                    is LoadState.Loading -> item { HadithPageLoading() }
+                    is LoadState.Error -> item { HadithPageFailure(refresh.error.message, state.pagedHadiths::retry) }
+                    is LoadState.NotLoading -> if (state.pagedHadiths.itemCount == 0) {
+                        item { HadithEmptyState() }
+                    }
+                }
+                when (val append = state.pagedHadiths.loadState.append) {
+                    is LoadState.Loading -> item { HadithPageLoading() }
+                    is LoadState.Error -> item { HadithPageFailure(append.error.message, state.pagedHadiths::retry) }
+                    is LoadState.NotLoading -> Unit
                 }
             }
         }
     }
+}
+
+@Composable
+private fun HadithCorpusProgress(importedCount: Int) {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(24.dp),
+        horizontalArrangement = androidx.compose.foundation.layout.Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        CircularProgressIndicator(modifier = Modifier.size(22.dp), strokeWidth = 2.dp)
+        Spacer(Modifier.width(12.dp))
+        Text(
+            if (importedCount == 0) stringResource(R.string.hadith_preparing) else stringResource(
+                R.string.hadith_preparing_progress,
+                importedCount,
+            ),
+        )
+    }
+}
+
+@Composable
+private fun HadithCorpusFailure(message: String, onRetry: () -> Unit) {
+    Column(Modifier.fillMaxWidth().padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(stringResource(R.string.hadith_preparing_failed), style = MaterialTheme.typography.titleMedium)
+        Text(message, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Button(onClick = onRetry, modifier = Modifier.padding(top = 12.dp)) { Text(stringResource(R.string.hadith_retry)) }
+    }
+}
+
+@Composable
+private fun HadithPageLoading() {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(20.dp),
+        horizontalArrangement = androidx.compose.foundation.layout.Arrangement.Center,
+    ) { CircularProgressIndicator(modifier = Modifier.size(20.dp), strokeWidth = 2.dp) }
+}
+
+@Composable
+private fun HadithPageFailure(message: String?, onRetry: () -> Unit) {
+    Column(Modifier.fillMaxWidth().padding(20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(message ?: stringResource(R.string.hadith_load_failed), style = MaterialTheme.typography.bodySmall)
+        Button(onClick = onRetry, modifier = Modifier.padding(top = 8.dp)) { Text(stringResource(R.string.hadith_retry)) }
+    }
+}
+
+@Composable
+private fun HadithEmptyState() {
+    Text(
+        stringResource(R.string.hadith_no_results),
+        modifier = Modifier.fillMaxWidth().padding(24.dp),
+        style = MaterialTheme.typography.bodyMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
 }
 
 /**

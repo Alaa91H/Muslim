@@ -20,7 +20,7 @@ class ArabicSpeechController(context: Context) : TextToSpeech.OnInitListener {
 
     override fun onInit(status: Int) {
         if (status != TextToSpeech.SUCCESS) return
-        val languageResult = textToSpeech.setLanguage(Locale("ar"))
+        val languageResult = textToSpeech.setLanguage(Locale.forLanguageTag("ar"))
         isReady = languageResult != TextToSpeech.LANG_MISSING_DATA &&
             languageResult != TextToSpeech.LANG_NOT_SUPPORTED
     }

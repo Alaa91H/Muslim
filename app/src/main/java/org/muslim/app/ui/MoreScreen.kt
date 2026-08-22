@@ -34,7 +34,6 @@ import androidx.compose.material.icons.filled.School
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.SelfImprovement
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -97,8 +96,6 @@ fun MoreScreen(
     onOpenScholarLibrary: () -> Unit = {},
     onOpenAccessibility: () -> Unit = {},
     onOpenDownloads: () -> Unit,
-    onOpenNames: () -> Unit = {},
-    onOpenHajj: () -> Unit = {},
     onOpenFamily: () -> Unit = {},
     onOpenFuneralWill: () -> Unit = {},
     onOpenNoorani: () -> Unit = {},
@@ -130,8 +127,6 @@ fun MoreScreen(
                 MoreEntry(R.string.more_learn, R.string.more_learn_desc, Icons.Filled.School, onOpenLearn),
                 MoreEntry(R.string.more_noorani, R.string.more_noorani_desc, Icons.Filled.School, onOpenNoorani),
                 MoreEntry(R.string.more_traveler, R.string.more_traveler_desc, Icons.Filled.Place, onOpenTraveler),
-                MoreEntry(R.string.more_names, R.string.more_names_desc, Icons.Filled.Star, onOpenNames),
-                MoreEntry(R.string.more_hajj, R.string.more_hajj_desc, Icons.Filled.Place, onOpenHajj),
                 MoreEntry(R.string.more_family, R.string.more_family_desc, Icons.Filled.FamilyRestroom, onOpenFamily),
                 MoreEntry(R.string.more_funeral_will, R.string.more_funeral_will_desc, Icons.Filled.HealthAndSafety, onOpenFuneralWill),
                 MoreEntry(R.string.more_reference, R.string.more_reference_desc, Icons.Filled.AutoStories, onOpenReference),
