@@ -25,4 +25,5 @@
     <string name="hadith_title">Mana Kitaabaa Hadiisa</string>
     <string name="hadith_copy">Koppii godhaa</string>
     <string name="hadith_copied">Hadiisa waraabame</string>
+    <string name="hadith_collection_muwatta">Muwattaa Maalik</string>
 </resources>

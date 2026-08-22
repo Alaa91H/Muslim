@@ -25,4 +25,5 @@
     <string name="hadith_title">Βιβλιοθήκη Χαντίθ</string>
     <string name="hadith_copy">Αντιγραφή</string>
     <string name="hadith_copied">Χαντίθ αντιγράφηκε</string>
+    <string name="hadith_collection_muwatta">Μουβάτα Μάλικ</string>
 </resources>

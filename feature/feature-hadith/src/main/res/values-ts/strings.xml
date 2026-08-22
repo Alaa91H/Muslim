@@ -25,4 +25,5 @@
     <string name="hadith_title">Layiburari ya Hadith</string>
     <string name="hadith_copy">Kopa</string>
     <string name="hadith_copied">Hadith yi kopiwe</string>
+    <string name="hadith_collection_muwatta">Muwatta Malik</string>
 </resources>

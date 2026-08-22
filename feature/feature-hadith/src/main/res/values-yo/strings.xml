@@ -25,4 +25,5 @@
     <string name="hadith_title">Ibi ikawe Hadith</string>
     <string name="hadith_copy">Daakọ</string>
     <string name="hadith_copied">Hadith daakọ</string>
+    <string name="hadith_collection_muwatta">Muwatta Malik</string>
 </resources>

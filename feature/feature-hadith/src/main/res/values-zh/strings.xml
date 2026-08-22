@@ -25,4 +25,5 @@
     <string name="hadith_title">圣训图书馆</string>
     <string name="hadith_copy">复制</string>
     <string name="hadith_copied">圣训复制</string>
+    <string name="hadith_collection_muwatta">穆瓦塔·马利克</string>
 </resources>

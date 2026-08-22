@@ -25,4 +25,5 @@
     <string name="hadith_title">Hadith Atuagaarniarfik</string>
     <string name="hadith_copy">Kopi</string>
     <string name="hadith_copied">Hadith-imik allaaserisaqarpoq</string>
+    <string name="hadith_collection_muwatta">Muwatta Malik</string>
 </resources>

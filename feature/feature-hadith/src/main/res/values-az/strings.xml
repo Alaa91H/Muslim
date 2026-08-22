@@ -25,4 +25,5 @@
     <string name="hadith_title">Hədis Kitabxanası</string>
     <string name="hadith_copy">Kopyalayın</string>
     <string name="hadith_copied">Hədis köçürdü</string>
+    <string name="hadith_collection_muwatta">Muvatta Malik</string>
 </resources>

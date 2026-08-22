@@ -25,4 +25,5 @@
     <string name="hadith_title">Библиотека хадисов</string>
     <string name="hadith_copy">Копировать</string>
     <string name="hadith_copied">Хадис скопирован</string>
+    <string name="hadith_collection_muwatta">Муватта Малик</string>
 </resources>

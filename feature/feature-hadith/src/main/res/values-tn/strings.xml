@@ -25,4 +25,5 @@
     <string name="hadith_title">Laeborari ya Hadith</string>
     <string name="hadith_copy">Kopolola</string>
     <string name="hadith_copied">Hadith e kopolotswe</string>
+    <string name="hadith_collection_muwatta">Muwatta Malik</string>
 </resources>

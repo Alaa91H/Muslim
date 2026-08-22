@@ -25,4 +25,5 @@
     <string name="hadith_title">Хадисын номын сан</string>
     <string name="hadith_copy">Хуулах</string>
     <string name="hadith_copied">Хадисыг хуулсан</string>
+    <string name="hadith_collection_muwatta">Муватта Малик</string>
 </resources>

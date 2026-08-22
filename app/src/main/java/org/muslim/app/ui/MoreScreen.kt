@@ -78,6 +78,7 @@ private data class MoreSection(
 @Suppress("LongParameterList")
 @Composable
 fun MoreScreen(
+    modifier: Modifier = Modifier,
     onOpenSettings: () -> Unit,
     onOpenHadith: () -> Unit,
     onOpenAdhkar: () -> Unit,
@@ -88,7 +89,6 @@ fun MoreScreen(
     onOpenLearn: () -> Unit,
     onOpenReference: () -> Unit,
     onOpenDownloads: () -> Unit,
-    modifier: Modifier = Modifier,
     onOpenNames: () -> Unit = {},
     onOpenHajj: () -> Unit = {},
     onOpenFamily: () -> Unit = {},

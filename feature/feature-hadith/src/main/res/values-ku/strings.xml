@@ -25,4 +25,5 @@
     <string name="hadith_title">Pirtûkxaneya Hedîsê</string>
     <string name="hadith_copy">Kopî kirin</string>
     <string name="hadith_copied">Hedîs kopî kirin</string>
+    <string name="hadith_collection_muwatta">Muwatta Malik</string>
 </resources>

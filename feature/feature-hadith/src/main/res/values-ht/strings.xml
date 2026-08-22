@@ -25,4 +25,5 @@
     <string name="hadith_title">Bibliyotèk Hadith</string>
     <string name="hadith_copy">Kopi</string>
     <string name="hadith_copied">Hadith kopye</string>
+    <string name="hadith_collection_muwatta">Muwatta Malik</string>
 </resources>

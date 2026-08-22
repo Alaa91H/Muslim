@@ -25,4 +25,5 @@
     <string name="hadith_title">Perpustakaan Hadits</string>
     <string name="hadith_copy">Salin</string>
     <string name="hadith_copied">Hadits disalin</string>
+    <string name="hadith_collection_muwatta">Muwatta Malik</string>
 </resources>

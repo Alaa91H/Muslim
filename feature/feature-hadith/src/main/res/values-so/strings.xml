@@ -25,4 +25,5 @@
     <string name="hadith_title">Maktabadda Xadiiska</string>
     <string name="hadith_copy">Nuqul</string>
     <string name="hadith_copied">Xadiiska la guuriyay</string>
+    <string name="hadith_collection_muwatta">Muwatta Malik</string>
 </resources>

@@ -25,4 +25,5 @@
     <string name="hadith_title">Littafin Hadisi</string>
     <string name="hadith_copy">Kwafi</string>
     <string name="hadith_copied">Hadisi ya kwafa</string>
+    <string name="hadith_collection_muwatta">Muwatta Malik</string>
 </resources>

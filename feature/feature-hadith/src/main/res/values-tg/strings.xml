@@ -25,4 +25,5 @@
     <string name="hadith_title">Китобхонаи Ҳадис</string>
     <string name="hadith_copy">Нусхабардорӣ</string>
     <string name="hadith_copied">Ҳадис нусхабардорӣ шудааст</string>
+    <string name="hadith_collection_muwatta">Муватта Малик</string>
 </resources>

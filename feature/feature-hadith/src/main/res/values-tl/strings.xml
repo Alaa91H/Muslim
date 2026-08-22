@@ -25,4 +25,5 @@
     <string name="hadith_title">Aklatan ng Hadith</string>
     <string name="hadith_copy">Kopyahin</string>
     <string name="hadith_copied">Kinopya ang Hadith</string>
+    <string name="hadith_collection_muwatta">Muwatta Malik</string>
 </resources>

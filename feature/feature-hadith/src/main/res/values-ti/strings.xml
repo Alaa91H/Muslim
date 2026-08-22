@@ -25,4 +25,5 @@
     <string name="hadith_title">ቤተ መጻሕፍቲ ሓዲስ</string>
     <string name="hadith_copy">ቅዳሕ</string>
     <string name="hadith_copied">ሓዲስ ተቐዲሑ</string>
+    <string name="hadith_collection_muwatta">ሙዋታ ማሊክ</string>
 </resources>

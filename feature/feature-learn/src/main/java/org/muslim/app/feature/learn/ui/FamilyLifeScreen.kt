@@ -17,7 +17,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
@@ -36,7 +35,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
@@ -76,7 +74,6 @@ import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.AqiqahCalculator
 import org.muslim.app.feature.learn.domain.BabyNameGender
 import org.muslim.app.feature.learn.domain.FamilyGuideArticle
-import org.muslim.app.feature.learn.domain.FamilyGuideSection
 import org.muslim.app.feature.learn.domain.FamilyLifeContent
 import org.muslim.app.feature.learn.domain.IslamicBabyName
 import org.muslim.app.feature.learn.domain.LocalizedFamilyText
@@ -153,7 +150,6 @@ fun FamilyLifeScreen(
                 )
                 FamilyTab.Names -> BabyNamesContent(isArabic = isArabic)
                 FamilyTab.Aqiqah -> AqiqahContent(
-                    isArabic = isArabic,
                     state = state,
                     viewModel = viewModel,
                 )
@@ -398,7 +394,6 @@ private fun BabyNameCard(name: IslamicBabyName, isArabic: Boolean) {
 
 @Composable
 private fun AqiqahContent(
-    isArabic: Boolean,
     state: FamilyLifeUiState,
     viewModel: FamilyLifeViewModel,
 ) {
@@ -456,31 +451,16 @@ private fun AqiqahContent(
         }
         if (schedule != null) {
             item {
-                AqiqahDatesCard(schedule = schedule, isArabic = isArabic)
+                AqiqahDatesCard(schedule = schedule)
             }
         }
         item {
-            Card(modifier = Modifier.fillMaxWidth()) {
-                Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Icon(Icons.Filled.NotificationsActive, contentDescription = null)
-                    Spacer(Modifier.width(10.dp))
-                    Column(Modifier.weight(1f)) {
-                        Text(stringResource(R.string.family_aqiqah_reminder), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
-                        Text(
-                            text = if (birthDate == null) stringResource(R.string.family_aqiqah_set_birth_first)
-                            else if (reminderAvailable) stringResource(R.string.family_aqiqah_reminder_desc)
-                            else stringResource(R.string.family_aqiqah_date_passed),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                    Switch(
-                        checked = state.aqiqahReminderEnabled,
-                        enabled = reminderAvailable,
-                        onCheckedChange = { viewModel.setAqiqahReminderEnabled(it) },
-                    )
-                }
-            }
+            AqiqahReminderCard(
+                birthDate = birthDate,
+                reminderAvailable = reminderAvailable,
+                reminderEnabled = state.aqiqahReminderEnabled,
+                onToggleReminder = { viewModel.setAqiqahReminderEnabled(it) },
+            )
         }
         item {
             NoticeCard(
@@ -492,9 +472,38 @@ private fun AqiqahContent(
 }
 
 @Composable
+private fun AqiqahReminderCard(
+    birthDate: LocalDate?,
+    reminderAvailable: Boolean,
+    reminderEnabled: Boolean,
+    onToggleReminder: (Boolean) -> Unit,
+) {
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+            Icon(Icons.Filled.NotificationsActive, contentDescription = null)
+            Spacer(Modifier.width(10.dp))
+            Column(Modifier.weight(1f)) {
+                Text(stringResource(R.string.family_aqiqah_reminder), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+                Text(
+                    text = if (birthDate == null) stringResource(R.string.family_aqiqah_set_birth_first)
+                    else if (reminderAvailable) stringResource(R.string.family_aqiqah_reminder_desc)
+                    else stringResource(R.string.family_aqiqah_date_passed),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            Switch(
+                checked = reminderEnabled,
+                enabled = reminderAvailable,
+                onCheckedChange = onToggleReminder,
+            )
+        }
+    }
+}
+
+@Composable
 private fun AqiqahDatesCard(
     schedule: org.muslim.app.feature.learn.domain.AqiqahSchedule,
-    isArabic: Boolean,
 ) {
     val dates = listOf(
         R.string.family_aqiqah_day_seven to schedule.seventhDay,

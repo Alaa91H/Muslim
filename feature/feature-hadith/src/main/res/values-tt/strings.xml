@@ -25,4 +25,5 @@
     <string name="hadith_title">Хәдис китапханәсе</string>
     <string name="hadith_copy">Күчермә</string>
     <string name="hadith_copied">Хәдис күчерелгән</string>
+    <string name="hadith_collection_muwatta">Муватта Малик</string>
 </resources>

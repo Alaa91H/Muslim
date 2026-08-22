@@ -25,4 +25,5 @@
     <string name="hadith_title">د حدیث کتابتون</string>
     <string name="hadith_copy">کاپي</string>
     <string name="hadith_copied">حدیث نقل کړی</string>
+    <string name="hadith_collection_muwatta">مفته ملک</string>
 </resources>

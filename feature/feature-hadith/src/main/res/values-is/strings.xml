@@ -25,4 +25,5 @@
     <string name="hadith_title">Hadith bókasafnið</string>
     <string name="hadith_copy">Afrita</string>
     <string name="hadith_copied">Hadith afritaði</string>
+    <string name="hadith_collection_muwatta">Muwatta Malik</string>
 </resources>

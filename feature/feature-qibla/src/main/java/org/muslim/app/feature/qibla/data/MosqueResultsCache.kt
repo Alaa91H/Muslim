@@ -1,6 +1,7 @@
 package org.muslim.app.feature.qibla.data
 
 import android.content.Context
+import androidx.core.content.edit
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
@@ -25,9 +26,9 @@ class MosqueResultsCache(context: Context) {
         ?.let { encoded -> runCatching { json.decodeFromString<MosqueSearchSnapshot>(encoded) }.getOrNull() }
 
     fun save(snapshot: MosqueSearchSnapshot) {
-        preferences.edit()
-            .putString(KEY_SNAPSHOT, json.encodeToString(snapshot))
-            .apply()
+        preferences.edit {
+            putString(KEY_SNAPSHOT, json.encodeToString(snapshot))
+        }
     }
 
     private companion object {

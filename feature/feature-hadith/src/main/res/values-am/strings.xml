@@ -25,4 +25,5 @@
     <string name="hadith_title">የሐዲስ ቤተ መጻሕፍት</string>
     <string name="hadith_copy">ቅዳ</string>
     <string name="hadith_copied">ሀዲስ ተገልብጧል</string>
+    <string name="hadith_collection_muwatta">ሙዋት ማሊክ</string>
 </resources>

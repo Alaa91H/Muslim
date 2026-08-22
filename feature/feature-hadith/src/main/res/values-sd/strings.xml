@@ -25,4 +25,5 @@
     <string name="hadith_title">حديث لائبريري</string>
     <string name="hadith_copy">ڪاپي</string>
     <string name="hadith_copied">حديث نقل ڪئي</string>
+    <string name="hadith_collection_muwatta">موطا ملڪ</string>
 </resources>

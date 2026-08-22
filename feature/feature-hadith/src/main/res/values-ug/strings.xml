@@ -25,4 +25,5 @@
     <string name="hadith_title">ھەدىس كۈتۈپخانىسى</string>
     <string name="hadith_copy">كۆچۈرۈڭ</string>
     <string name="hadith_copied">ھەدىس كۆچۈردى</string>
+    <string name="hadith_collection_muwatta">Muwatta Malik</string>
 </resources>
