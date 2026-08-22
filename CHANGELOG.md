@@ -3,6 +3,34 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.23.0
+
+Updates install directly over v1.22.0 (same stable signing key — no uninstall needed).
+
+## 📖 Hadith Library Stability & Bounded Loading
+- Replaced the eager full-corpus JSON read and complete in-memory Hadith list with a compressed NDJSON corpus streamed on an I/O dispatcher and written to Room in bounded 150-row batches.
+- Added Room Paging and Compose Paging for collection browsing and Arabic FTS search, with a 24-row page size, prefetch window, stable item keys, debounced search and `viewModelScope` caching.
+- Reworked the daily-hadith lookup to read one deterministic row by offset instead of observing the entire corpus.
+- Added visible offline-library preparation progress, recoverable preparation failure, page-load retry and empty-result states, so a preparation or page error no longer terminates the Hadith screen.
+
+## 🧭 Clearer Learning Navigation & Modern UI APIs
+- Consolidated the Names of Allah and Hajj/Umrah entry points under the Learning Centre, removing their duplicate top-level More shortcuts and duplicate app routes while preserving internal back navigation.
+- Replaced actionable deprecated Compose tab/icon APIs and the deprecated Arabic `Locale` constructor in touched feature paths, including finance, learning, travel and history screens.
+- Added safe localisation fallbacks and format auditing for new Hadith loading strings across the project’s language resources.
+
+## 📚 Documentation & Privacy Accuracy
+- Rewrote the English README as a truthful product, architecture, build and release guide; added a detailed project-status document and a documentation index.
+- Expanded the English privacy policy and contributor guide with actual device storage, optional networking, Wear OS, Android Auto, home-bridge, large-data, content-licence and review boundaries.
+- Marked the historical planning prompt as planning context and linked it to the current English implementation documentation, avoiding an outdated roadmap being mistaken for the completed product inventory.
+
+## 🧪 Engineering & CI Quality Gate
+- Added static verifiers for Hadith streaming/Paging/navigation, documentation status and Hadith locale format completeness; retained the Scholar Library and IoT verifiers.
+- The merged pull request passed Debug APK builds, unit tests, Android Lint, Detekt and Android Emulator CI gates before this changelog update.
+
+### Install
+- Download the APK from the GitHub Release and open it (allow “install from unknown sources” if prompted).
+- The app stays signed with the same release key, so updates install directly over previous versions.
+
 ## Muslim v1.22.0
 
 Updates install directly over v1.21.0 (same stable signing key — no uninstall needed).
