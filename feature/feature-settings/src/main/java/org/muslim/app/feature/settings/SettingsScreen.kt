@@ -126,6 +126,7 @@ private val timeFormatOptions = listOf(
  * Cross-feature sections (prayer & adhan) are reached via app-level
  * navigation so this module never depends on another feature module.
  */
+@Suppress("LongMethod")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(

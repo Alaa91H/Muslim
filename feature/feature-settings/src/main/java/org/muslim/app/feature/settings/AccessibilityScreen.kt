@@ -36,7 +36,6 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.muslim.app.feature.settings.R
 
 private const val BSL_WUDU_URL = "https://www.youtube.com/watch?v=VwqROPP-dq0"
 private const val BSL_SALAH_URL = "https://www.youtube.com/watch?v=gaO3dbYxWcE"
