@@ -16,6 +16,8 @@
     <string name="more_quran_frequency">Quran word frequency</string>
     <string name="more_quran_frequency_desc">The most frequent words in the whole mushaf</string>
     <string name="more_settings_desc">Theme, language, prayer &amp; adhan settings</string>
+    <string name="more_accessibility">Accessibility Centre</string>
+    <string name="more_accessibility_desc">TalkBack, clearer reading, high contrast, voice navigation and sign-language links</string>
     <string name="more_hadith">Hadith</string>
     <string name="more_hadith_desc">Hadith library, search &amp; hadith of the day</string>
     <string name="more_adhkar">Adhkar</string>
@@ -69,6 +71,16 @@
     <string name="shortcut_qibla_long">Qibla direction</string>
     <string name="shortcut_settings">Settings</string>
     <string name="shortcut_settings_long">Prayer &amp; adhan settings</string>
+
+    <!-- Explicit one-shot voice navigation -->
+    <string name="voice_listen">Listen</string>
+    <string name="voice_listening">Listening…</string>
+    <string name="voice_command_unrecognized">We did not understand that command. Try: Read Surah Al-Kahf.</string>
+    <string name="voice_command_timeout">Listening timed out. Tap Listen and try again.</string>
+    <string name="voice_command_network">Speech recognition could not finish because its service connection failed.</string>
+    <string name="voice_command_error">Speech recognition could not start. Please try again.</string>
+    <string name="voice_microphone_denied">Allow microphone access to run a voice-navigation command when you tap Listen.</string>
+    <string name="voice_service_unavailable">Speech recognition is unavailable on this device.</string>
 
     <!-- Unhandled-exception crash dialog -->
     <string name="crash_title">Unexpected error</string>

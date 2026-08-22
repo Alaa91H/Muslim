@@ -59,6 +59,7 @@ import org.muslim.app.feature.quran.ui.SearchScreen
 import org.muslim.app.feature.quran.ui.SurahListScreen
 import org.muslim.app.feature.reference.ui.IslamicHistoryScreen
 import org.muslim.app.feature.reference.ui.ReferenceScreen
+import org.muslim.app.feature.settings.AccessibilityScreen
 import org.muslim.app.feature.settings.AboutScreen
 import org.muslim.app.feature.settings.NotificationSettingsScreen
 import org.muslim.app.feature.settings.PermissionsScreen
@@ -91,6 +92,7 @@ private const val SEARCH_ROUTE = "quran/search"
 private const val BOOKMARKS_ROUTE = "quran/bookmarks"
 private const val QURAN_FREQUENCY_ROUTE = "quran/frequency"
 private const val SETTINGS_ROUTE = "settings"
+private const val ACCESSIBILITY_ROUTE = "accessibility"
 private const val PRAYER_SETTINGS_ROUTE = "settings/prayer"
 private const val NOTIFICATIONS_ROUTE = "settings/notifications"
 private const val PERMISSIONS_ROUTE = "settings/permissions"
@@ -156,9 +158,27 @@ fun MuslimApp(
     AppTheme(
         darkTheme = darkTheme,
         dynamicColor = preferences.dynamicColor,
+        highContrast = preferences.accessibilityHighContrast,
+        accessibilityReadingMode = preferences.accessibilityReadingMode,
     ) {
         Scaffold(
             modifier = modifier,
+            floatingActionButton = {
+                if (preferences.voiceNavigationEnabled) {
+                    VoiceNavigationButton { target ->
+                        when (target) {
+                            is VoiceNavigationTarget.Route -> navController.navigate(target.route) {
+                                launchSingleTop = true
+                            }
+                            is VoiceNavigationTarget.Reader -> navController.navigate(
+                                "$READER_ROUTE/${target.surahNumber}",
+                            ) {
+                                launchSingleTop = true
+                            }
+                        }
+                    }
+                }
+            },
             bottomBar = {
                 val backStackEntry by navController.currentBackStackEntryAsState()
                 val currentDestination = backStackEntry?.destination
@@ -280,6 +300,7 @@ fun MuslimApp(
                         onOpenTraveler = { navController.navigate(TRAVELER_EXPAT_ROUTE) },
                         onOpenReference = { navController.navigate(REFERENCE_ROUTE) },
                         onOpenIslamicHistory = { navController.navigate(ISLAMIC_HISTORY_ROUTE) },
+                        onOpenAccessibility = { navController.navigate(ACCESSIBILITY_ROUTE) },
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
                         onOpenQuranSearch = { navController.navigate(SEARCH_ROUTE) },
                         onOpenQuranFrequency = { navController.navigate(QURAN_FREQUENCY_ROUTE) },
@@ -305,8 +326,12 @@ fun MuslimApp(
                         onOpenPrivacy = { navController.navigate(PRIVACY_ROUTE) },
                         onOpenMoreOrder = { navController.navigate(MORE_ORDER_ROUTE) },
                         onOpenUpdates = { navController.navigate(UPDATE_ROUTE) },
+                        onOpenAccessibility = { navController.navigate(ACCESSIBILITY_ROUTE) },
                         onLanguageChanged = onLanguageChanged,
                     )
+                }
+                composable(ACCESSIBILITY_ROUTE) {
+                    AccessibilityScreen(onBack = { navController.popBackStack() })
                 }
                 composable(MORE_ORDER_ROUTE) {
                     MoreOrderScreen(onBack = { navController.popBackStack() })

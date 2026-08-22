@@ -4,6 +4,8 @@
     <string name="permission_notifications_desc">Adhan alerts, reminders, daily adhkar, hadith and ayah of the day</string>
     <string name="permission_location">Location</string>
     <string name="permission_location_desc">Accurate prayer times, Qibla direction and nearby mosques via GPS</string>
+    <string name="permission_microphone">Microphone</string>
+    <string name="permission_microphone_desc">Runs one voice-navigation command only after you tap Listen; the app does not record your voice or listen in the background</string>
     <string name="permission_exact_alarms">Exact alarms</string>
     <string name="permission_exact_alarms_desc">Play the adhan and prayer reminders at exactly the right time</string>
     <string name="permission_overlay">Display over other apps</string>

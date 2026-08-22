@@ -15,6 +15,12 @@ data class AppPreferences(
     val startTab: String = START_TAB_HOME,
     /** 12-hour vs 24-hour clock for every time shown in the app (default 12h). */
     val timeFormat24h: Boolean = false,
+    /** Uses a clearer bundled Arabic typeface and more generous Arabic reading spacing. */
+    val accessibilityReadingMode: Boolean = false,
+    /** Uses the high-contrast application colour scheme instead of dynamic wallpaper colours. */
+    val accessibilityHighContrast: Boolean = false,
+    /** Exposes the explicit, user-triggered microphone button for one-shot navigation commands. */
+    val voiceNavigationEnabled: Boolean = false,
     /**
      * Order in which the sections of the "More" hub are rendered, as a list of
      * [MORE_SECTION] ids. Default: worship → knowledge → tools → app.

@@ -120,6 +120,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import org.muslim.app.core.common.text.ArabicText
+import org.muslim.app.core.ui.accessibility.LocalAccessibilityVisuals
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.TajweedMarkup
 import org.muslim.app.feature.quran.data.PlaybackState
@@ -1243,6 +1244,7 @@ private fun MushafPageCard(
 ) {
     if (ayahs.isEmpty()) return
     val scheme = MaterialTheme.colorScheme
+    val accessibilityVisuals = LocalAccessibilityVisuals.current
     var textRootTopPx by remember { mutableFloatStateOf(0f) }
     var targetCharOffset by remember { mutableIntStateOf(-1) }
     var targetLineTopPx by remember { mutableFloatStateOf(-1f) }
@@ -1367,11 +1369,14 @@ private fun MushafPageCard(
                 Text(
                     text = BASMALA,
                     fontSize = (fontSizeSp * 1.1f).sp,
-                    lineHeight = (fontSizeSp * 1.9f).sp,
+                    lineHeight = (fontSizeSp * accessibilityVisuals.arabicLineHeightMultiplier).sp,
                     textAlign = TextAlign.Center,
                     color = scheme.primary,
                     modifier = Modifier.fillMaxWidth(),
-                    style = MaterialTheme.typography.bodyLarge.copy(textDirection = TextDirection.Rtl),
+                    style = MaterialTheme.typography.bodyLarge.copy(
+                        textDirection = TextDirection.Rtl,
+                        fontFamily = accessibilityVisuals.arabicReadingFont,
+                    ),
                 )
                 Spacer(Modifier.height(10.dp))
                 OrnamentedDivider(
@@ -1399,7 +1404,8 @@ private fun MushafPageCard(
                     // on the night (dark) mushaf page regardless of the theme.
                     color = scheme.onSurface,
                     fontSize = fontSizeSp.sp,
-                    lineHeight = (fontSizeSp * 1.9f).sp,
+                    lineHeight = (fontSizeSp * accessibilityVisuals.arabicLineHeightMultiplier).sp,
+                    fontFamily = accessibilityVisuals.arabicReadingFont,
                     textAlign = TextAlign.Center,
                     // The mushaf is always right-to-left, even when the app UI
                     // language is LTR (English).

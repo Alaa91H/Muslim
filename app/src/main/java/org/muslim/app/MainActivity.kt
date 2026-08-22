@@ -129,6 +129,7 @@ class MainActivity : ComponentActivity() {
             data.startsWith("muslim://qibla") -> ROUTE_QIBLA
             // The update-available notification opens the in-app update screen.
             data.startsWith("muslim://settings/update") -> ROUTE_UPDATE
+            data.startsWith("muslim://accessibility") -> ROUTE_ACCESSIBILITY
             data.startsWith("muslim://settings") -> ROUTE_SETTINGS
             data.startsWith("muslim://hadith") -> ROUTE_HADITH
             data.startsWith("muslim://finance") -> ROUTE_FINANCE
@@ -168,6 +169,7 @@ class MainActivity : ComponentActivity() {
         const val ROUTE_HOME = "home"
         const val ROUTE_QIBLA = "qibla"
         const val ROUTE_SETTINGS = "settings"
+        const val ROUTE_ACCESSIBILITY = "accessibility"
         const val ROUTE_HADITH = "hadith"
         const val ROUTE_FINANCE = "finance"
         const val ROUTE_NOORANI = "learn/noorani-new-muslim"

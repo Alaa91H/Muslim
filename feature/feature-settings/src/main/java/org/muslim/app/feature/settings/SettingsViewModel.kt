@@ -43,6 +43,18 @@ class SettingsViewModel @Inject constructor(
 
     fun setTimeFormat24h(use24h: Boolean) = launch { appPreferencesRepository.setTimeFormat24h(use24h) }
 
+    fun setAccessibilityReadingMode(enabled: Boolean) = launch {
+        appPreferencesRepository.setAccessibilityReadingMode(enabled)
+    }
+
+    fun setAccessibilityHighContrast(enabled: Boolean) = launch {
+        appPreferencesRepository.setAccessibilityHighContrast(enabled)
+    }
+
+    fun setVoiceNavigationEnabled(enabled: Boolean) = launch {
+        appPreferencesRepository.setVoiceNavigationEnabled(enabled)
+    }
+
     fun setMoreSectionOrder(order: List<String>) = launch { appPreferencesRepository.setMoreSectionOrder(order) }
 
     /**

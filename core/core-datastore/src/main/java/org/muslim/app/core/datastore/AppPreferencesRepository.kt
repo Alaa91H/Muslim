@@ -34,6 +34,9 @@ class AppPreferencesRepository @Inject constructor(
             reduceAnimations = prefs[Keys.REDUCE_ANIMATIONS] ?: false,
             startTab = prefs[Keys.START_TAB] ?: AppPreferences.START_TAB_HOME,
             timeFormat24h = prefs[Keys.TIME_FORMAT_24H] ?: false,
+            accessibilityReadingMode = prefs[Keys.ACCESSIBILITY_READING_MODE] ?: false,
+            accessibilityHighContrast = prefs[Keys.ACCESSIBILITY_HIGH_CONTRAST] ?: false,
+            voiceNavigationEnabled = prefs[Keys.VOICE_NAVIGATION_ENABLED] ?: false,
             moreSectionOrder = AppPreferences.decodeSectionOrder(prefs[Keys.MORE_SECTION_ORDER]),
             hiddenMoreSections = AppPreferences.decodeHiddenSections(prefs[Keys.MORE_SECTION_HIDDEN]),
             updateCheckEnabled = prefs[Keys.UPDATE_CHECK_ENABLED] ?: false,
@@ -68,6 +71,18 @@ class AppPreferencesRepository @Inject constructor(
         // Synchronous mirror so background services/widgets can format without
         // an async DataStore read (same pattern as the language mirror).
         timeFormatMirror.edit { putBoolean(Keys.TIME_FORMAT_24H.name, use24h) }
+    }
+
+    suspend fun setAccessibilityReadingMode(enabled: Boolean) {
+        edit { prefs -> prefs[Keys.ACCESSIBILITY_READING_MODE] = enabled }
+    }
+
+    suspend fun setAccessibilityHighContrast(enabled: Boolean) {
+        edit { prefs -> prefs[Keys.ACCESSIBILITY_HIGH_CONTRAST] = enabled }
+    }
+
+    suspend fun setVoiceNavigationEnabled(enabled: Boolean) {
+        edit { prefs -> prefs[Keys.VOICE_NAVIGATION_ENABLED] = enabled }
     }
 
     /** Persists the user-defined order of the "More" hub sections. */
@@ -147,6 +162,9 @@ class AppPreferencesRepository @Inject constructor(
         val REDUCE_ANIMATIONS = booleanPreferencesKey("reduce_animations")
         val START_TAB = stringPreferencesKey("start_tab")
         val TIME_FORMAT_24H = booleanPreferencesKey("time_format_24h")
+        val ACCESSIBILITY_READING_MODE = booleanPreferencesKey("accessibility_reading_mode")
+        val ACCESSIBILITY_HIGH_CONTRAST = booleanPreferencesKey("accessibility_high_contrast")
+        val VOICE_NAVIGATION_ENABLED = booleanPreferencesKey("voice_navigation_enabled")
         val MORE_SECTION_ORDER = stringPreferencesKey("more_section_order")
         val MORE_SECTION_HIDDEN = stringPreferencesKey("more_section_hidden")
         val UPDATE_CHECK_ENABLED = booleanPreferencesKey("update_check_enabled")
