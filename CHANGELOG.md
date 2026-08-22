@@ -3,6 +3,34 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.22.0
+
+Updates install directly over v1.21.0 (same stable signing key — no uninstall needed).
+
+## 📚 Advanced Scholar Library
+- Added a dedicated on-device Scholar Library with a searchable starter catalogue of 18 major-reference reading paths spanning fiqh, usul al-fiqh, aqidah, hadith sciences, tafsir, Arabic studies and history.
+- Added Arabic-normalized offline full-text search, science-category filters, book metadata and citation-ready study passages with chapter, volume and page fields where supplied.
+- The bundled starter material is deliberately original editorial study guidance, not reproduced full books, publisher editions or content copied from Maktaba Shamela or another third-party library.
+
+## 🗂️ References, Notes & Flashcards
+- Added selectable study passages, local notes tied to their exact citation, and a study desk that preserves book, author, chapter and optional volume/page context beside every saved note.
+- Added citation-linked flashcards with an intentionally simple device-local spaced-review schedule, including reveal, remembered, again and delete controls.
+- Added user-selected JSON content-pack import for authorised texts. Each imported book must declare a source and licence summary; imports are size-bounded, indexed locally and never trigger automatic remote downloads.
+
+## 🔐 Content & Privacy Boundaries
+- Added a documented content policy and pack schema clarifying that a classical author’s age does not by itself permit copying modern edited editions or another organisation’s digital files.
+- Library text, notes and flashcards stay in the private on-device Room database; the feature does not transmit the user’s study material, account data or reading activity.
+- The research workspace is a study organiser, not a fatwa engine or substitute for checking sources, editions, context and qualified scholarship.
+
+## 🧪 Engineering & CI Quality Gate
+- Added the standalone `feature-scholar-library` module, Room FTS index, Hilt wiring, navigation from More and focused Arabic-search tests.
+- Added `scripts/verify_scholar_library.py` to validate catalogue identifiers, source/licence metadata, category coverage, search-index wiring, navigation and content-policy presence.
+- Retained the required Debug APK, unit-test, Android Lint, Detekt and Android Emulator gates for the release workflow.
+
+### Install
+- Download the APK from the GitHub Release and open it (allow “install from unknown sources” if prompted).
+- The app stays signed with the same release key, so updates install directly over previous versions.
+
 ## Muslim v1.21.0
 
 Updates install directly over v1.20.0 (same stable signing key — no uninstall needed).
