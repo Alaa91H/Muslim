@@ -114,6 +114,7 @@ private fun DesignShowcaseSurface(title: String, colorScheme: ColorScheme) {
     }
 }
 
+@Suppress("UnusedPrivateFunction")
 @Preview(showBackground = true, widthDp = 380)
 @Composable
 private fun IslamicDesignShowcasePreview() {
