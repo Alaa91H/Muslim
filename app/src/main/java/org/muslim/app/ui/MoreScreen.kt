@@ -17,12 +17,14 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.filled.AccountBalance
 import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Calculate
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FamilyRestroom
+import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.NightsStay
 import androidx.compose.material.icons.filled.Place
@@ -86,12 +88,14 @@ fun MoreScreen(
     onOpenRamadan: () -> Unit,
     onOpenHabits: () -> Unit = {},
     onOpenZakat: () -> Unit,
+    onOpenIslamicFinance: () -> Unit = {},
     onOpenLearn: () -> Unit,
     onOpenReference: () -> Unit,
     onOpenDownloads: () -> Unit,
     onOpenNames: () -> Unit = {},
     onOpenHajj: () -> Unit = {},
     onOpenFamily: () -> Unit = {},
+    onOpenFuneralWill: () -> Unit = {},
     onOpenQuranSearch: () -> Unit = {},
     onOpenQuranFrequency: () -> Unit = {},
     onOpenOfflineMaps: () -> Unit = {},
@@ -120,6 +124,7 @@ fun MoreScreen(
                 MoreEntry(R.string.more_names, R.string.more_names_desc, Icons.Filled.Star, onOpenNames),
                 MoreEntry(R.string.more_hajj, R.string.more_hajj_desc, Icons.Filled.Place, onOpenHajj),
                 MoreEntry(R.string.more_family, R.string.more_family_desc, Icons.Filled.FamilyRestroom, onOpenFamily),
+                MoreEntry(R.string.more_funeral_will, R.string.more_funeral_will_desc, Icons.Filled.HealthAndSafety, onOpenFuneralWill),
                 MoreEntry(R.string.more_reference, R.string.more_reference_desc, Icons.Filled.AutoStories, onOpenReference),
                 MoreEntry(R.string.more_quran_search, R.string.more_quran_search_desc, Icons.Filled.Search, onOpenQuranSearch),
                 MoreEntry(R.string.more_quran_frequency, R.string.more_quran_frequency_desc, Icons.Filled.BarChart, onOpenQuranFrequency),
@@ -130,6 +135,7 @@ fun MoreScreen(
             R.string.more_section_tools,
             listOf(
                 MoreEntry(R.string.more_zakat, R.string.more_zakat_desc, Icons.Filled.Calculate, onOpenZakat),
+                MoreEntry(R.string.more_islamic_finance, R.string.more_islamic_finance_desc, Icons.Filled.AccountBalance, onOpenIslamicFinance),
                 MoreEntry(R.string.more_downloads, R.string.more_downloads_desc, Icons.Filled.Download, onOpenDownloads),
                 MoreEntry(R.string.more_offline_maps, R.string.more_offline_maps_desc, Icons.Filled.Map, onOpenOfflineMaps),
             ),

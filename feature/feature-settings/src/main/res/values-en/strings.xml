@@ -155,6 +155,8 @@
     <string name="notif_category_hajj_desc">Daily reminder of the intended rite at its time during the Hajj days</string>
     <string name="notif_category_family">Family life</string>
     <string name="notif_category_family_desc">Aqiqah and family-date reminders</string>
+    <string name="notif_category_finance">Islamic finance</string>
+    <string name="notif_category_finance_desc">Due-date reminders for debts saved in the app</string>
     <string name="notif_category_app_update">App updates</string>
     <string name="notif_category_app_update_desc">Notification when a new app version is available</string>
     <string name="notif_missed_color">Missed adhan line color</string>

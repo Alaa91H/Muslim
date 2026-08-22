@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="finance_title">الاقتصاد والمالية الإسلامية</string>
+    <string name="finance_back">رجوع</string>
+    <string name="finance_tab_transactions">فقه المعاملات</string>
+    <string name="finance_tab_stocks">الأسهم النقية</string>
+    <string name="finance_tab_debts">إدارة الديون</string>
+
+    <string name="finance_transactions_title">دليل مبسط للمعاملات</string>
+    <string name="finance_transactions_intro">إرشاد عام لفهم أصول البيع والقرض والتجارة الإلكترونية. لا يغني عن الفتوى المتخصصة أو الاستشارة القانونية في العقد الواقعي.</string>
+    <string name="finance_transactions_notice">تختلف تفاصيل العقود والتمويلات والأنظمة بين البلدان؛ اعرض العقد الفعلي على عالم موثوق ومستشار قانوني قبل الالتزام به.</string>
+
+    <string name="finance_stocks_title">فاحص الأسهم المتوافقة مع الشريعة</string>
+    <string name="finance_stocks_intro">ابحث بالرمز أو اسم الشركة، ثم افتح قاعدة فلترة إسلامية مرخّصة لمراجعة الحالة والتقرير والمنهجية.</string>
+    <string name="finance_stock_ticker">رمز السهم أو اسم الشركة</string>
+    <string name="finance_stock_ticker_hint">مثال: MSFT أو 2222</string>
+    <string name="finance_stock_provider">مزود الفلترة</string>
+    <string name="finance_stock_open_provider">فتح نتيجة الفلترة</string>
+    <string name="finance_stock_provider_note">لا تتوفر في هذا الإصدار بيانات فلترة مرخّصة مدمجة. يُنسخ الرمز المدخل ثم تُفتح صفحة المزود المختار؛ لا تُنشئ الأداة حكمًا شرعيًا أو توصية استثمارية بنفسها.</string>
+    <string name="finance_stock_provider_availability">تحتاج واجهة الربط إلى اعتماد ومفتاح من المزود. يمكن تفعيلها في إصدار لاحق بعد توفير الترخيص المناسب.</string>
+    <string name="finance_stock_empty_ticker">أدخل رمز السهم أو اسم الشركة أولًا.</string>
+    <string name="finance_stock_disclaimer">تنبيه مالي: نتائج الفلترة معلوماتية فقط وليست نصيحة استثمارية أو دعوة للشراء أو البيع. راجع تقرير المزود ومختصًا موثوقًا قبل اتخاذ قرار مالي.</string>
+
+    <string name="finance_debts_title">سجل الديون المحلي</string>
+    <string name="finance_debts_intro">سجّل الديون لك وعليك مع المبلغ والأجل والتنبيه المحلي. لا تُرفع هذه البيانات من التطبيق تلقائيًا.</string>
+    <string name="finance_debts_quran_note">قال تعالى: «فَاكْتُبُوهُ» عند التداين إلى أجل مسمى (البقرة: 282). السجل يعين على التنظيم ولا يغني عن عقد أو توثيق قانوني عند الحاجة.</string>
+    <string name="finance_debt_party">اسم الطرف</string>
+    <string name="finance_debt_direction">نوع الدين</string>
+    <string name="finance_debt_receivable">لي عنده</string>
+    <string name="finance_debt_payable">عليّ له</string>
+    <string name="finance_debt_amount">المبلغ</string>
+    <string name="finance_debt_currency">العملة</string>
+    <string name="finance_debt_due_date">تاريخ الاستحقاق</string>
+    <string name="finance_debt_due_date_hint">YYYY-MM-DD (اختياري)</string>
+    <string name="finance_debt_notes">ملاحظات</string>
+    <string name="finance_debt_reminder">تذكير السداد</string>
+    <string name="finance_debt_reminder_hint">تذكير محلي الساعة 09:00 في تاريخ الاستحقاق</string>
+    <string name="finance_debt_save">حفظ الدين</string>
+    <string name="finance_debt_invalid">أدخل اسم الطرف ومبلغًا موجبًا، وتحقق من صيغة التاريخ إن أضفته.</string>
+    <string name="finance_debt_reminder_unavailable">لا يمكن جدولة تنبيه لتاريخ مضى أو بلا تاريخ استحقاق.</string>
+    <string name="finance_debt_summary_receivable">إجمالي الديون لي</string>
+    <string name="finance_debt_summary_payable">إجمالي الديون عليّ</string>
+    <string name="finance_debt_saved">الديون المحفوظة</string>
+    <string name="finance_debt_empty">لا توجد ديون محفوظة بعد.</string>
+    <string name="finance_debt_delete">حذف الدين</string>
+    <string name="finance_debt_notification_title">تذكير موعد سداد دين</string>
+    <string name="finance_debt_notification_body">موعد دين مع %1$s بمبلغ %2$s.</string>
+</resources>

@@ -43,6 +43,7 @@ import org.muslim.app.feature.learn.ui.LearnScreen
 import org.muslim.app.feature.learn.ui.NamesOfAllahScreen
 import org.muslim.app.feature.learn.ui.HajjUmrahScreen
 import org.muslim.app.feature.learn.ui.FamilyLifeScreen
+import org.muslim.app.feature.learn.ui.FuneralWillScreen
 import org.muslim.app.feature.qibla.ui.MosqueFinderScreen
 import org.muslim.app.feature.qibla.ui.OfflineMapsScreen
 import org.muslim.app.feature.qibla.ui.QiblaScreen
@@ -62,6 +63,7 @@ import org.muslim.app.feature.settings.PrivacyScreen
 import org.muslim.app.feature.settings.SettingsScreen
 import org.muslim.app.feature.settings.update.UpdateScreen
 import org.muslim.app.feature.tasbih.ui.TasbihScreen
+import org.muslim.app.feature.finance.ui.IslamicFinanceScreen
 import org.muslim.app.feature.zakat.ui.ZakatScreen
 
 private data class Tab(
@@ -99,10 +101,12 @@ private const val TASBIH_ROUTE = "tasbih"
 private const val RAMADAN_ROUTE = "ramadan"
 private const val HABITS_ROUTE = "habits"
 private const val ZAKAT_ROUTE = "zakat"
+private const val ISLAMIC_FINANCE_ROUTE = "finance"
 private const val LEARN_ROUTE = "learn"
 private const val NAMES_ROUTE = "learn/names-of-allah"
 private const val HAJJ_ROUTE = "learn/hajj-umrah"
 private const val FAMILY_LIFE_ROUTE = "learn/family-life"
+private const val FUNERAL_WILL_ROUTE = "learn/funeral-will"
 private const val REFERENCE_ROUTE = "reference"
 private const val QURAN_DOWNLOADS_ROUTE = "quran/downloads"
 private const val MOSQUES_ROUTE = "qibla/mosques"
@@ -260,10 +264,12 @@ fun MuslimApp(
                         onOpenRamadan = { navController.navigate(RAMADAN_ROUTE) },
                         onOpenHabits = { navController.navigate(HABITS_ROUTE) },
                         onOpenZakat = { navController.navigate(ZAKAT_ROUTE) },
+                        onOpenIslamicFinance = { navController.navigate(ISLAMIC_FINANCE_ROUTE) },
                         onOpenLearn = { navController.navigate(LEARN_ROUTE) },
                         onOpenNames = { navController.navigate(NAMES_ROUTE) },
                         onOpenHajj = { navController.navigate(HAJJ_ROUTE) },
                         onOpenFamily = { navController.navigate(FAMILY_LIFE_ROUTE) },
+                        onOpenFuneralWill = { navController.navigate(FUNERAL_WILL_ROUTE) },
                         onOpenReference = { navController.navigate(REFERENCE_ROUTE) },
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
                         onOpenQuranSearch = { navController.navigate(SEARCH_ROUTE) },
@@ -320,6 +326,9 @@ fun MuslimApp(
                 composable(ZAKAT_ROUTE) {
                     ZakatScreen(onBack = { navController.popBackStack() })
                 }
+                composable(ISLAMIC_FINANCE_ROUTE) {
+                    IslamicFinanceScreen(onBack = { navController.popBackStack() })
+                }
                 composable(LEARN_ROUTE) {
                     LearnScreen(onBack = { navController.popBackStack() })
                 }
@@ -331,6 +340,9 @@ fun MuslimApp(
                 }
                 composable(FAMILY_LIFE_ROUTE) {
                     FamilyLifeScreen(onBack = { navController.popBackStack() })
+                }
+                composable(FUNERAL_WILL_ROUTE) {
+                    FuneralWillScreen(onBack = { navController.popBackStack() })
                 }
                 composable(REFERENCE_ROUTE) {
                     ReferenceScreen(onBack = { navController.popBackStack() })

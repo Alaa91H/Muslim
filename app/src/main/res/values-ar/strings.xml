@@ -19,6 +19,8 @@
     <string name="more_quran_frequency_desc">أكثر الكلمات تكرارا في المصحف كله</string>
     <string name="more_names">99 أسماء الله الحسنى</string>
     <string name="more_names_desc">الأسماء الـ 99 مع الشرح الكامل</string>
+    <string name="more_islamic_finance">الاقتصاد والمالية الإسلامية</string>
+    <string name="more_islamic_finance_desc">دليل المعاملات وفاحص الأسهم وسجل الديون الخاص</string>
     <string name="more_hajj">الحج والعمرة</string>
     <string name="more_hajj_desc">الدليل التفصيلي لمناسك الحج والعمرة</string>
 </resources>

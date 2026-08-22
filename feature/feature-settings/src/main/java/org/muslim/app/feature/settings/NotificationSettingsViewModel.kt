@@ -293,6 +293,7 @@ class NotificationSettingsViewModel @Inject constructor(
         NotificationCategory.Recitation -> R.string.notif_category_recitation
         NotificationCategory.Hajj -> R.string.notif_category_hajj
         NotificationCategory.Family -> R.string.notif_category_family
+        NotificationCategory.Finance -> R.string.notif_category_finance
         NotificationCategory.AppUpdate -> R.string.notif_category_app_update
     }
 
