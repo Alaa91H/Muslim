@@ -146,6 +146,7 @@ dependencies {
     implementation(project(":feature:feature-learn"))
     implementation(project(":feature:feature-settings"))
     implementation(project(":feature:feature-reference"))
+    implementation(project(":feature:feature-scholar-library"))
 
     // AndroidX core
     implementation(libs.androidx.core.ktx)

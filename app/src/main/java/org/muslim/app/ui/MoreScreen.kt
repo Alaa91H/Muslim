@@ -17,6 +17,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.automirrored.filled.LibraryBooks
 import androidx.compose.material.icons.filled.AccountBalance
 import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.BarChart
@@ -93,6 +94,7 @@ fun MoreScreen(
     onOpenLearn: () -> Unit,
     onOpenReference: () -> Unit,
     onOpenIslamicHistory: () -> Unit = {},
+    onOpenScholarLibrary: () -> Unit = {},
     onOpenAccessibility: () -> Unit = {},
     onOpenDownloads: () -> Unit,
     onOpenNames: () -> Unit = {},
@@ -134,6 +136,7 @@ fun MoreScreen(
                 MoreEntry(R.string.more_funeral_will, R.string.more_funeral_will_desc, Icons.Filled.HealthAndSafety, onOpenFuneralWill),
                 MoreEntry(R.string.more_reference, R.string.more_reference_desc, Icons.Filled.AutoStories, onOpenReference),
                 MoreEntry(R.string.more_islamic_history, R.string.more_islamic_history_desc, Icons.Filled.AutoStories, onOpenIslamicHistory),
+                MoreEntry(R.string.more_scholar_library, R.string.more_scholar_library_desc, Icons.AutoMirrored.Filled.LibraryBooks, onOpenScholarLibrary),
                 MoreEntry(R.string.more_quran_search, R.string.more_quran_search_desc, Icons.Filled.Search, onOpenQuranSearch),
                 MoreEntry(R.string.more_quran_frequency, R.string.more_quran_frequency_desc, Icons.Filled.BarChart, onOpenQuranFrequency),
             ),
