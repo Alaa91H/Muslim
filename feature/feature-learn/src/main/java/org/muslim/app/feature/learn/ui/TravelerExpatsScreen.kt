@@ -19,8 +19,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.Directions
-import androidx.compose.material.icons.filled.AssistantNavigation
 import androidx.compose.material.icons.filled.Flight
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LocationOn
@@ -281,7 +279,7 @@ private fun ThresholdSelector(
                         onClick = { onSelect(threshold) },
                         label = { Text("${threshold.kilometres.toInt()} km") },
                         leadingIcon = if (threshold == selected) {
-                            { Icon(Icons.AutoMirrored.Filled.Directions, contentDescription = null) }
+                            { Icon(Icons.Filled.LocationOn, contentDescription = null) }
                         } else {
                             null
                         },
@@ -301,7 +299,7 @@ private fun DistanceAssessmentCard(state: TravelerUiState) {
     if (assessment == null) {
         InfoCard(
             text = stringResource(R.string.traveler_distance_waiting),
-            icon = Icons.AutoMirrored.Filled.Directions,
+            icon = Icons.Filled.LocationOn,
             color = MaterialTheme.colorScheme.surfaceVariant,
             contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -550,7 +548,7 @@ private fun HighLatitudeBandCard(latitude: Double?) {
     }
     InfoCard(
         text = text,
-        icon = Icons.Filled.AssistantNavigation,
+        icon = Icons.Filled.Info,
         color = MaterialTheme.colorScheme.surfaceVariant,
         contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
     )
