@@ -194,16 +194,16 @@
     <string name="funeral_will_guide_intro" tools:ignore="MissingTranslation">خطوات إرشادية من الاحتضار إلى التعزية، مع تنبيه إلى الرجوع للمختصين في الحالات الطبية والقانونية والتفاصيل الفقهية.</string>
     <string name="funeral_will_guide_notice" tools:ignore="MissingTranslation">توجد مسائل فقهية معتبرة تختلف بين المذاهب، كما تختلف إجراءات المستشفى والمقبرة من بلد لآخر. اتبع الإمام والجهة المنظمة واللوائح المحلية عند التطبيق.</string>
     <!-- Qaida Noorania and new-Muslim starter section -->
-    <string name="noorani_title">القاعدة النورانية والبداية</string>
-    <string name="noorani_tab_letters">الحروف والمخارج</string>
-    <string name="noorani_tab_reading">أساسيات القراءة</string>
-    <string name="noorani_tab_new_muslim">ركن المسلم الجديد</string>
-    <string name="noorani_intro">بطاقات تعليمية مبسطة مستوحاة من تدرج القاعدة النورانية والبغدادية، وليست بديلاً عن التلقي المباشر من معلّم مؤهل.</string>
-    <string name="noorani_audio_ready">النطق متاح بصوت عربي من الجهاز. استمع وكرّر، ثم اطلب تصحيحاً من معلّم عند الإمكان.</string>
-    <string name="noorani_audio_unavailable">يلزم تثبيت صوت عربي في إعدادات تحويل النص إلى كلام في جهازك لتفعيل الاستماع.</string>
-    <string name="noorani_choose_letter">اختر حرفاً للتدريب</string>
-    <string name="noorani_listen">استمع إلى الحرف</string>
-    <string name="noorani_reading_intro">انتقل تدريجياً: الحرف، ثم الحركة، ثم المدّ والسكون. لا تستعجل؛ الدقة تتحسن بالمراجعة والتلقي.</string>
-    <string name="new_muslim_title">ركن المسلم الجديد</string>
-    <string name="new_muslim_subtitle">دليل قصير ولطيف بلغات متعددة: الشهادة والطهارة والخطوات الأولى.</string>
+    <string name="noorani_title" tools:ignore="MissingTranslation">القاعدة النورانية والبداية</string>
+    <string name="noorani_tab_letters" tools:ignore="MissingTranslation">الحروف والمخارج</string>
+    <string name="noorani_tab_reading" tools:ignore="MissingTranslation">أساسيات القراءة</string>
+    <string name="noorani_tab_new_muslim" tools:ignore="MissingTranslation">ركن المسلم الجديد</string>
+    <string name="noorani_intro" tools:ignore="MissingTranslation">بطاقات تعليمية مبسطة مستوحاة من تدرج القاعدة النورانية والبغدادية، وليست بديلاً عن التلقي المباشر من معلّم مؤهل.</string>
+    <string name="noorani_audio_ready" tools:ignore="MissingTranslation">النطق متاح بصوت عربي من الجهاز. استمع وكرّر، ثم اطلب تصحيحاً من معلّم عند الإمكان.</string>
+    <string name="noorani_audio_unavailable" tools:ignore="MissingTranslation">يلزم تثبيت صوت عربي في إعدادات تحويل النص إلى كلام في جهازك لتفعيل الاستماع.</string>
+    <string name="noorani_choose_letter" tools:ignore="MissingTranslation">اختر حرفاً للتدريب</string>
+    <string name="noorani_listen" tools:ignore="MissingTranslation">استمع إلى الحرف</string>
+    <string name="noorani_reading_intro" tools:ignore="MissingTranslation">انتقل تدريجياً: الحرف، ثم الحركة، ثم المدّ والسكون. لا تستعجل؛ الدقة تتحسن بالمراجعة والتلقي.</string>
+    <string name="new_muslim_title" tools:ignore="MissingTranslation">ركن المسلم الجديد</string>
+    <string name="new_muslim_subtitle" tools:ignore="MissingTranslation">دليل قصير ولطيف بلغات متعددة: الشهادة والطهارة والخطوات الأولى.</string>
 </resources>
