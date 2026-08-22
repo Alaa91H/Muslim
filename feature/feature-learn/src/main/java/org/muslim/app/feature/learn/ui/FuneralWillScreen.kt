@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -53,7 +54,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -210,142 +210,82 @@ private fun WillDraftContent(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
-        item {
-            IntroCard(
-                icon = Icons.Filled.Security,
-                title = stringResource(R.string.funeral_will_draft_title),
-                text = stringResource(R.string.funeral_will_draft_intro),
-            )
+        willDraftIntroduction(isArabic)
+        willDraftFields(draft, onDraftChange)
+        willDraftActions(draft, onSave, onShare, onClear)
+    }
+}
+
+private fun LazyListScope.willDraftIntroduction(isArabic: Boolean) {
+    item {
+        IntroCard(
+            icon = Icons.Filled.Security,
+            title = stringResource(R.string.funeral_will_draft_title),
+            text = stringResource(R.string.funeral_will_draft_intro),
+        )
+    }
+    item { NoticeCard(stringResource(R.string.funeral_will_legal_notice), Icons.Filled.Info) }
+    item { NoticeCard(stringResource(R.string.funeral_will_privacy_notice), Icons.Filled.Security) }
+    item {
+        Text(
+            text = stringResource(R.string.funeral_will_checklist_title),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+        )
+    }
+    items(FuneralContent.willChecklist) { checklistItem -> ChecklistRow(checklistItem.pick(isArabic)) }
+    item {
+        Text(
+            text = FuneralContent.willReferences.pick(isArabic),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+    item {
+        Text(
+            text = stringResource(R.string.funeral_will_form_title),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+        )
+    }
+}
+
+private fun LazyListScope.willDraftFields(draft: WillDraft, onDraftChange: (WillDraft) -> Unit) {
+    item { WillField(draft.fullName, { onDraftChange(draft.copy(fullName = it)) }, stringResource(R.string.funeral_will_full_name), singleLine = true) }
+    item { WillField(draft.executorName, { onDraftChange(draft.copy(executorName = it)) }, stringResource(R.string.funeral_will_executor_name), stringResource(R.string.funeral_will_executor_name_hint), true) }
+    item { WillField(draft.executorContact, { onDraftChange(draft.copy(executorContact = it)) }, stringResource(R.string.funeral_will_executor_contact), stringResource(R.string.funeral_will_executor_contact_hint), true) }
+    item { WillField(draft.debtsAndRights, { onDraftChange(draft.copy(debtsAndRights = it)) }, stringResource(R.string.funeral_will_debts), stringResource(R.string.funeral_will_debts_hint)) }
+    item { WillField(draft.funeralWishes, { onDraftChange(draft.copy(funeralWishes = it)) }, stringResource(R.string.funeral_will_funeral_wishes), stringResource(R.string.funeral_will_funeral_wishes_hint)) }
+    item { WillField(draft.guardianshipNotes, { onDraftChange(draft.copy(guardianshipNotes = it)) }, stringResource(R.string.funeral_will_guardianship), stringResource(R.string.funeral_will_guardianship_hint)) }
+    item { WillField(draft.charitableBequests, { onDraftChange(draft.copy(charitableBequests = it)) }, stringResource(R.string.funeral_will_charity), stringResource(R.string.funeral_will_charity_hint)) }
+    item { WillField(draft.additionalNotes, { onDraftChange(draft.copy(additionalNotes = it)) }, stringResource(R.string.funeral_will_additional_notes)) }
+}
+
+private fun LazyListScope.willDraftActions(
+    draft: WillDraft,
+    onSave: () -> Unit,
+    onShare: () -> Unit,
+    onClear: () -> Unit,
+) {
+    item {
+        Button(onClick = onSave, modifier = Modifier.fillMaxWidth()) {
+            Icon(Icons.Filled.Save, contentDescription = null, modifier = Modifier.size(18.dp))
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.funeral_will_save))
         }
-        item {
-            NoticeCard(
-                text = stringResource(R.string.funeral_will_legal_notice),
-                icon = Icons.Filled.Info,
-            )
+    }
+    item {
+        OutlinedButton(onClick = onShare, enabled = !draft.isEmpty(), modifier = Modifier.fillMaxWidth()) {
+            Icon(Icons.Filled.Share, contentDescription = null, modifier = Modifier.size(18.dp))
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.funeral_will_share))
         }
-        item {
-            NoticeCard(
-                text = stringResource(R.string.funeral_will_privacy_notice),
-                icon = Icons.Filled.Security,
-            )
-        }
-        item {
-            Text(
-                text = stringResource(R.string.funeral_will_checklist_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-            )
-        }
-        items(FuneralContent.willChecklist) { item ->
-            ChecklistRow(text = item.pick(isArabic))
-        }
-        item {
-            Text(
-                text = FuneralContent.willReferences.pick(isArabic),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-        item {
-            Text(
-                text = stringResource(R.string.funeral_will_form_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-            )
-        }
-        item {
-            WillField(
-                value = draft.fullName,
-                onValueChange = { onDraftChange(draft.copy(fullName = it)) },
-                label = stringResource(R.string.funeral_will_full_name),
-                singleLine = true,
-            )
-        }
-        item {
-            WillField(
-                value = draft.executorName,
-                onValueChange = { onDraftChange(draft.copy(executorName = it)) },
-                label = stringResource(R.string.funeral_will_executor_name),
-                supportingText = stringResource(R.string.funeral_will_executor_name_hint),
-                singleLine = true,
-            )
-        }
-        item {
-            WillField(
-                value = draft.executorContact,
-                onValueChange = { onDraftChange(draft.copy(executorContact = it)) },
-                label = stringResource(R.string.funeral_will_executor_contact),
-                supportingText = stringResource(R.string.funeral_will_executor_contact_hint),
-                singleLine = true,
-            )
-        }
-        item {
-            WillField(
-                value = draft.debtsAndRights,
-                onValueChange = { onDraftChange(draft.copy(debtsAndRights = it)) },
-                label = stringResource(R.string.funeral_will_debts),
-                supportingText = stringResource(R.string.funeral_will_debts_hint),
-            )
-        }
-        item {
-            WillField(
-                value = draft.funeralWishes,
-                onValueChange = { onDraftChange(draft.copy(funeralWishes = it)) },
-                label = stringResource(R.string.funeral_will_funeral_wishes),
-                supportingText = stringResource(R.string.funeral_will_funeral_wishes_hint),
-            )
-        }
-        item {
-            WillField(
-                value = draft.guardianshipNotes,
-                onValueChange = { onDraftChange(draft.copy(guardianshipNotes = it)) },
-                label = stringResource(R.string.funeral_will_guardianship),
-                supportingText = stringResource(R.string.funeral_will_guardianship_hint),
-            )
-        }
-        item {
-            WillField(
-                value = draft.charitableBequests,
-                onValueChange = { onDraftChange(draft.copy(charitableBequests = it)) },
-                label = stringResource(R.string.funeral_will_charity),
-                supportingText = stringResource(R.string.funeral_will_charity_hint),
-            )
-        }
-        item {
-            WillField(
-                value = draft.additionalNotes,
-                onValueChange = { onDraftChange(draft.copy(additionalNotes = it)) },
-                label = stringResource(R.string.funeral_will_additional_notes),
-            )
-        }
-        item {
-            Button(onClick = onSave, modifier = Modifier.fillMaxWidth()) {
-                Icon(Icons.Filled.Save, contentDescription = null, modifier = Modifier.size(18.dp))
-                Spacer(Modifier.width(8.dp))
-                Text(stringResource(R.string.funeral_will_save))
-            }
-        }
-        item {
-            OutlinedButton(
-                onClick = onShare,
-                enabled = !draft.isEmpty(),
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Icon(Icons.Filled.Share, contentDescription = null, modifier = Modifier.size(18.dp))
-                Spacer(Modifier.width(8.dp))
-                Text(stringResource(R.string.funeral_will_share))
-            }
-        }
-        item {
-            OutlinedButton(
-                onClick = onClear,
-                enabled = !draft.isEmpty(),
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Icon(Icons.Filled.DeleteOutline, contentDescription = null, modifier = Modifier.size(18.dp))
-                Spacer(Modifier.width(8.dp))
-                Text(stringResource(R.string.funeral_will_clear))
-            }
+    }
+    item {
+        OutlinedButton(onClick = onClear, enabled = !draft.isEmpty(), modifier = Modifier.fillMaxWidth()) {
+            Icon(Icons.Filled.DeleteOutline, contentDescription = null, modifier = Modifier.size(18.dp))
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.funeral_will_clear))
         }
     }
 }

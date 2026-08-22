@@ -41,7 +41,6 @@ import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.Scaffold
@@ -55,6 +54,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -84,6 +84,41 @@ private enum class FinanceTab(val icon: ImageVector) {
     Stocks(Icons.Filled.TrendingUp),
     Debts(Icons.Filled.AccountBalanceWallet),
 }
+
+private data class DebtDraft(
+    val partyName: String = "",
+    val direction: DebtDirection = DebtDirection.Receivable,
+    val amountText: String = "",
+    val currency: String = "USD",
+    val dueDate: String = "",
+    val reminderEnabled: Boolean = false,
+    val notes: String = "",
+)
+
+private val DebtDraftSaver: Saver<DebtDraft, List<Any>> = Saver(
+    save = { draft ->
+        listOf(
+            draft.partyName,
+            draft.direction.name,
+            draft.amountText,
+            draft.currency,
+            draft.dueDate,
+            draft.reminderEnabled,
+            draft.notes,
+        )
+    },
+    restore = { values ->
+        DebtDraft(
+            partyName = values[0] as String,
+            direction = DebtDirection.valueOf(values[1] as String),
+            amountText = values[2] as String,
+            currency = values[3] as String,
+            dueDate = values[4] as String,
+            reminderEnabled = values[5] as Boolean,
+            notes = values[6] as String,
+        )
+    },
+)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -263,13 +298,7 @@ private fun StockCheckerContent(isArabic: Boolean) {
 
 @Composable
 private fun DebtLedgerContent(state: IslamicFinanceUiState, viewModel: IslamicFinanceViewModel) {
-    var partyName by rememberSaveable { mutableStateOf("") }
-    var direction by rememberSaveable { mutableStateOf(DebtDirection.Receivable) }
-    var amountText by rememberSaveable { mutableStateOf("") }
-    var currency by rememberSaveable { mutableStateOf("USD") }
-    var dueDate by rememberSaveable { mutableStateOf("") }
-    var reminderEnabled by rememberSaveable { mutableStateOf(false) }
-    var notes by rememberSaveable { mutableStateOf("") }
+    var draft by rememberSaveable(stateSaver = DebtDraftSaver) { mutableStateOf(DebtDraft()) }
     var showValidationError by rememberSaveable { mutableStateOf(false) }
     val formatter = remember { NumberFormat.getNumberInstance(Locale.ENGLISH) }
 
@@ -287,118 +316,42 @@ private fun DebtLedgerContent(state: IslamicFinanceUiState, viewModel: IslamicFi
         }
         item { FinanceNoticeCard(stringResource(R.string.finance_debts_quran_note)) }
         item {
-            OutlinedTextField(
-                value = partyName,
-                onValueChange = { partyName = it; showValidationError = false },
-                label = { Text(stringResource(R.string.finance_debt_party)) },
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth(),
-            )
-        }
-        item {
-            Text(stringResource(R.string.finance_debt_direction), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(top = 6.dp)) {
-                FilterChip(
-                    selected = direction == DebtDirection.Receivable,
-                    onClick = { direction = DebtDirection.Receivable },
-                    label = { Text(stringResource(R.string.finance_debt_receivable)) },
-                )
-                FilterChip(
-                    selected = direction == DebtDirection.Payable,
-                    onClick = { direction = DebtDirection.Payable },
-                    label = { Text(stringResource(R.string.finance_debt_payable)) },
-                )
-            }
-        }
-        item {
-            OutlinedTextField(
-                value = amountText,
-                onValueChange = {
-                    amountText = Digits.toWesternDigits(it).replace(',', '.').filter { char -> char.isDigit() || char == '.' }
+            DebtEntryForm(
+                draft = draft,
+                onDraftChange = {
+                    draft = it
                     showValidationError = false
                 },
-                label = { Text(stringResource(R.string.finance_debt_amount)) },
-                singleLine = true,
-                keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(keyboardType = KeyboardType.Decimal),
-                modifier = Modifier.fillMaxWidth(),
-            )
-        }
-        item {
-            OutlinedTextField(
-                value = currency,
-                onValueChange = { currency = it.uppercase().take(8) },
-                label = { Text(stringResource(R.string.finance_debt_currency)) },
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth(),
-            )
-        }
-        item {
-            OutlinedTextField(
-                value = dueDate,
-                onValueChange = { dueDate = it; showValidationError = false },
-                label = { Text(stringResource(R.string.finance_debt_due_date)) },
-                placeholder = { Text(stringResource(R.string.finance_debt_due_date_hint)) },
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth(),
-            )
-        }
-        item {
-            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                Column(Modifier.weight(1f)) {
-                    Text(stringResource(R.string.finance_debt_reminder), style = MaterialTheme.typography.bodyLarge)
-                    Text(stringResource(R.string.finance_debt_reminder_hint), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                }
-                Switch(checked = reminderEnabled, onCheckedChange = { reminderEnabled = it })
-            }
-        }
-        item {
-            OutlinedTextField(
-                value = notes,
-                onValueChange = { notes = it },
-                label = { Text(stringResource(R.string.finance_debt_notes)) },
-                minLines = 2,
-                modifier = Modifier.fillMaxWidth(),
-            )
-        }
-        if (showValidationError) {
-            item { Text(stringResource(R.string.finance_debt_invalid), color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall) }
-        }
-        if (state.reminderUnavailable) {
-            item {
-                Text(
-                    stringResource(R.string.finance_debt_reminder_unavailable),
-                    color = MaterialTheme.colorScheme.error,
-                    style = MaterialTheme.typography.bodySmall,
-                )
-            }
-        }
-        item {
-            Button(
-                onClick = {
-                    val amount = amountText.toDoubleOrNull()
-                    if (partyName.isBlank() || amount == null || amount <= 0.0 || !viewModel.isValidDate(dueDate)) {
+                showValidationError = showValidationError,
+                reminderUnavailable = state.reminderUnavailable,
+                onSave = {
+                    val amount = draft.amountText.toDoubleOrNull()
+                    if (draft.partyName.isBlank() || amount == null || amount <= 0.0 || !viewModel.isValidDate(draft.dueDate)) {
                         showValidationError = true
                     } else {
-                        viewModel.saveDebt(partyName, direction, amount, currency, dueDate, reminderEnabled, notes)
-                        partyName = ""
-                        direction = DebtDirection.Receivable
-                        amountText = ""
-                        currency = "USD"
-                        dueDate = ""
-                        reminderEnabled = false
-                        notes = ""
+                        viewModel.saveDebt(
+                            draft.partyName,
+                            draft.direction,
+                            amount,
+                            draft.currency,
+                            draft.dueDate,
+                            draft.reminderEnabled,
+                            draft.notes,
+                        )
+                        draft = DebtDraft()
                         showValidationError = false
                     }
                 },
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Icon(Icons.Filled.Save, contentDescription = null, modifier = Modifier.size(18.dp))
-                Spacer(Modifier.width(8.dp))
-                Text(stringResource(R.string.finance_debt_save))
-            }
+            )
         }
         item { DebtSummaryCard(state, formatter) }
-        item { Text(stringResource(R.string.finance_debt_saved), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold) }
+        item {
+            Text(
+                stringResource(R.string.finance_debt_saved),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+        }
         if (state.debts.isEmpty()) {
             item { Text(stringResource(R.string.finance_debt_empty), color = MaterialTheme.colorScheme.onSurfaceVariant) }
         } else {
@@ -407,6 +360,123 @@ private fun DebtLedgerContent(state: IslamicFinanceUiState, viewModel: IslamicFi
             }
         }
     }
+}
+
+@Composable
+private fun DebtEntryForm(
+    draft: DebtDraft,
+    onDraftChange: (DebtDraft) -> Unit,
+    showValidationError: Boolean,
+    reminderUnavailable: Boolean,
+    onSave: () -> Unit,
+) {
+    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        DebtIdentityFields(draft, onDraftChange)
+        DebtAmountAndDateFields(draft, onDraftChange)
+        DebtReminderAndNotesFields(draft, onDraftChange)
+        if (showValidationError) {
+            Text(
+                stringResource(R.string.finance_debt_invalid),
+                color = MaterialTheme.colorScheme.error,
+                style = MaterialTheme.typography.bodySmall,
+            )
+        }
+        if (reminderUnavailable) {
+            Text(
+                stringResource(R.string.finance_debt_reminder_unavailable),
+                color = MaterialTheme.colorScheme.error,
+                style = MaterialTheme.typography.bodySmall,
+            )
+        }
+        Button(onClick = onSave, modifier = Modifier.fillMaxWidth()) {
+            Icon(Icons.Filled.Save, contentDescription = null, modifier = Modifier.size(18.dp))
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.finance_debt_save))
+        }
+    }
+}
+
+@Composable
+private fun DebtIdentityFields(draft: DebtDraft, onDraftChange: (DebtDraft) -> Unit) {
+    OutlinedTextField(
+        value = draft.partyName,
+        onValueChange = { onDraftChange(draft.copy(partyName = it)) },
+        label = { Text(stringResource(R.string.finance_debt_party)) },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth(),
+    )
+    Text(
+        stringResource(R.string.finance_debt_direction),
+        style = MaterialTheme.typography.titleSmall,
+        fontWeight = FontWeight.Bold,
+    )
+    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        FilterChip(
+            selected = draft.direction == DebtDirection.Receivable,
+            onClick = { onDraftChange(draft.copy(direction = DebtDirection.Receivable)) },
+            label = { Text(stringResource(R.string.finance_debt_receivable)) },
+        )
+        FilterChip(
+            selected = draft.direction == DebtDirection.Payable,
+            onClick = { onDraftChange(draft.copy(direction = DebtDirection.Payable)) },
+            label = { Text(stringResource(R.string.finance_debt_payable)) },
+        )
+    }
+}
+
+@Composable
+private fun DebtAmountAndDateFields(draft: DebtDraft, onDraftChange: (DebtDraft) -> Unit) {
+    OutlinedTextField(
+        value = draft.amountText,
+        onValueChange = { raw ->
+            val amount = Digits.toWesternDigits(raw).replace(',', '.').filter { it.isDigit() || it == '.' }
+            onDraftChange(draft.copy(amountText = amount))
+        },
+        label = { Text(stringResource(R.string.finance_debt_amount)) },
+        singleLine = true,
+        keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(keyboardType = KeyboardType.Decimal),
+        modifier = Modifier.fillMaxWidth(),
+    )
+    OutlinedTextField(
+        value = draft.currency,
+        onValueChange = { onDraftChange(draft.copy(currency = it.uppercase(Locale.ROOT).take(8))) },
+        label = { Text(stringResource(R.string.finance_debt_currency)) },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth(),
+    )
+    OutlinedTextField(
+        value = draft.dueDate,
+        onValueChange = { onDraftChange(draft.copy(dueDate = it)) },
+        label = { Text(stringResource(R.string.finance_debt_due_date)) },
+        placeholder = { Text(stringResource(R.string.finance_debt_due_date_hint)) },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth(),
+    )
+}
+
+@Composable
+private fun DebtReminderAndNotesFields(draft: DebtDraft, onDraftChange: (DebtDraft) -> Unit) {
+    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Column(Modifier.weight(1f)) {
+            Text(stringResource(R.string.finance_debt_reminder), style = MaterialTheme.typography.bodyLarge)
+            Text(
+                stringResource(R.string.finance_debt_reminder_hint),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        Switch(
+            checked = draft.reminderEnabled,
+            onCheckedChange = { onDraftChange(draft.copy(reminderEnabled = it)) },
+        )
+    }
+    OutlinedTextField(
+        value = draft.notes,
+        onValueChange = { onDraftChange(draft.copy(notes = it)) },
+        label = { Text(stringResource(R.string.finance_debt_notes)) },
+        minLines = 2,
+        modifier = Modifier.fillMaxWidth(),
+    )
 }
 
 @Composable
