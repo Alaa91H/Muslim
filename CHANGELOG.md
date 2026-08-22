@@ -3,6 +3,31 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.19.0
+
+Updates install directly over v1.18.0 (same stable signing key — no uninstall needed).
+
+## 🏛️ Islamic History & Civilization
+- Added a dedicated bilingual History & Civilization destination with an interactive timeline spanning the Prophetic mission, Rashidun period, Umayyads, Abbasids, regional civilizations, Ottomans, and modern-era orientation.
+- Added concise era cards with selected milestones and explicit source-review framing; the existing detailed Sira material remains separately available in the Reference Library.
+- Added selected contextual biographies of commanders, scholars, physicians, thinkers, and architects, including al-Khwarizmi, al-Razi, Ibn al-Haytham, Ibn Sina, Ibn Khaldun, and Mimar Sinan. The writing deliberately avoids unsupported “sole inventor” claims.
+
+## 🗺️ Interactive Historical Atlas
+- Added a MapLibre atlas with tappable place markers, zoom controls, original local vector overlays, and selectable layers for Hijaz/Sira locations, broad Umayyad and Ottoman reaches, and Abbasid learning/trade networks.
+- Added educational orientation for selected battle locations and caravan/trade corridors, including overland Baghdad–Samarkand and maritime Gulf–Indian Ocean connections.
+- Clearly labels every state area, route, and marker as an approximate educational schematic—not a fixed political border, sovereignty claim, exhaustive gazetteer, reconstructed itinerary, or complete historical atlas.
+- Added direct access from More and the `muslim://history` deep link. Historical overlays remain local; the existing OpenFreeMap basemap follows the app’s established online/offline-map behaviour.
+
+## 🧪 Engineering & CI Quality Gate
+- Extended the shared MapLibre wrapper with reusable generic pin and replaceable polygon-overlay layers for non-mosque educational maps.
+- Added focused integrity coverage for chronology, bilingual content, schematic areas, route data, personalities, and restrained historical language, plus static resource/navigation/deep-link/map integration checks.
+- Added source, licensing, network-behaviour, map-boundary and specialist-review notes. No third-party historical map images, atlas plates, or biography text were bundled.
+- Retained the required Debug APK, unit-test, Android Lint, Detekt and Android Emulator gates; all passed on the merged main commit before tagging.
+
+### Install
+- Download the APK from the GitHub Release and open it (allow “install from unknown sources” if prompted).
+- The app stays signed with the same release key, so updates install directly over previous versions.
+
 ## Muslim v1.18.0
 
 Updates install directly over v1.17.0 (same stable signing key — no uninstall needed).
