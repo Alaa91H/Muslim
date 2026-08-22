@@ -34,6 +34,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.SelfImprovement
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -92,6 +93,7 @@ fun MoreScreen(
     onOpenLearn: () -> Unit,
     onOpenReference: () -> Unit,
     onOpenIslamicHistory: () -> Unit = {},
+    onOpenAccessibility: () -> Unit = {},
     onOpenDownloads: () -> Unit,
     onOpenNames: () -> Unit = {},
     onOpenHajj: () -> Unit = {},
@@ -150,6 +152,7 @@ fun MoreScreen(
             org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_APP,
             R.string.more_section_app,
             listOf(
+                MoreEntry(R.string.more_accessibility, R.string.more_accessibility_desc, Icons.Filled.Visibility, onOpenAccessibility),
                 MoreEntry(R.string.more_settings, R.string.more_settings_desc, Icons.Filled.Settings, onOpenSettings),
             ),
         ),

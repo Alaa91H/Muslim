@@ -23,6 +23,7 @@ import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Circle
 import androidx.compose.material.icons.filled.GpsFixed
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.NotificationsPaused
 import androidx.compose.material.icons.automirrored.filled.OpenInNew
@@ -275,6 +276,7 @@ private fun statusLabel(status: PermissionStatus): String = when (status) {
 private fun permissionIcon(permission: AppPermission): ImageVector = when (permission) {
     AppPermission.Notifications -> Icons.Filled.NotificationsActive
     AppPermission.Location -> Icons.Filled.GpsFixed
+    AppPermission.Microphone -> Icons.Filled.Mic
     AppPermission.ExactAlarms -> Icons.Filled.Alarm
     AppPermission.Overlay -> Icons.Filled.Circle
     AppPermission.NotificationPolicy -> Icons.Filled.Lock

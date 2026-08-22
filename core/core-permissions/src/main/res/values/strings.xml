@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="permission_notifications">الإشعارات</string>
     <string name="permission_notifications_desc">تنبيهات الأذان والتذكيرات وأذكار اليوم وحديث اليوم وآية اليوم</string>
     <string name="permission_location">الموقع</string>
     <string name="permission_location_desc">تحديد أوقات الصلاة واتجاه القبلة ومواقع المساجد بدقة عبر GPS</string>
+    <string name="permission_microphone" tools:ignore="MissingTranslation">الميكروفون</string>
+    <string name="permission_microphone_desc" tools:ignore="MissingTranslation">تنفيذ أمر تنقّل صوتي واحد عند الضغط على زر الاستماع؛ لا يسجل التطبيق صوتك أو يستمع في الخلفية</string>
     <string name="permission_exact_alarms">المنبّهات الدقيقة</string>
     <string name="permission_exact_alarms_desc">تشغيل الأذان وتذكيرات الصلاة في وقتها المحدد بدقة</string>
     <string name="permission_overlay">الطبقة العائمة</string>

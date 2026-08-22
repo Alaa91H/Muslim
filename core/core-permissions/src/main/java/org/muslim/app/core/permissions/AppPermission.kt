@@ -51,6 +51,14 @@ enum class AppPermission(
         companionRuntimePermission = Manifest.permission.ACCESS_COARSE_LOCATION,
     ),
 
+    /** Microphone access for one-shot, user-triggered voice navigation. */
+    Microphone(
+        R.string.permission_microphone,
+        R.string.permission_microphone_desc,
+        Kind.Runtime,
+        runtimePermission = Manifest.permission.RECORD_AUDIO,
+    ),
+
     /** Exact alarms — adhan & prayer reminders fire on time (Android 12+). */
     ExactAlarms(
         R.string.permission_exact_alarms,

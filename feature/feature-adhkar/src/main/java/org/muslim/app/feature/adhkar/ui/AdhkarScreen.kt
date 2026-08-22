@@ -59,6 +59,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.common.lang.AppLanguage
+import org.muslim.app.core.ui.accessibility.LocalAccessibilityVisuals
 import org.muslim.app.feature.adhkar.R
 import org.muslim.app.feature.adhkar.domain.Dhikr
 import org.muslim.app.feature.adhkar.domain.DhikrCategory
@@ -240,6 +241,7 @@ private fun DhikrCard(
 ) {
     val currentCount by count
     val haptics = LocalHapticFeedback.current
+    val accessibilityVisuals = LocalAccessibilityVisuals.current
     val complete = currentCount >= dhikr.repetition
     val context = LocalContext.current
     val clipboard = context.getSystemService(android.content.ClipboardManager::class.java)
@@ -275,7 +277,11 @@ private fun DhikrCard(
             ) {
                 Text(
                     text = dhikr.arabic,
-                    style = MaterialTheme.typography.bodyLarge.copy(fontSize = 20.sp),
+                    style = MaterialTheme.typography.bodyLarge.copy(
+                        fontSize = 20.sp,
+                        lineHeight = (20f * accessibilityVisuals.arabicLineHeightMultiplier).sp,
+                        fontFamily = accessibilityVisuals.arabicReadingFont,
+                    ),
                     modifier = Modifier.weight(1f),
                 )
                 IconButton(onClick = onToggleFavorite) {

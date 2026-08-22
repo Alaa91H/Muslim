@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Muslim</string>
 
     <string name="settings_title">الإعدادات</string>
@@ -210,4 +210,35 @@
     <string name="update_available_text">النسخة %1$s متاحة الآن — اضغط للتحديث</string>
     <string name="update_last_check">آخر فحص: %1$s</string>
     <string name="update_open_releases">فتح صفحة الإصدارات في المتصفح</string>
+    <!-- Accessibility Centre ships with dedicated Arabic/English copy. -->
+    <string name="accessibility_title" tools:ignore="MissingTranslation">مركز الوصول</string>
+    <string name="accessibility_back" tools:ignore="MissingTranslation">رجوع</string>
+    <string name="accessibility_intro" tools:ignore="MissingTranslation">خيارات قابلة للتخصيص للوصول إلى المحتوى والتنقل. يمكنك الجمع بينها وبين TalkBack وإعدادات العرض في جهازك.</string>
+    <string name="accessibility_talkback_title" tools:ignore="MissingTranslation">TalkBack وقارئ الشاشة</string>
+    <string name="accessibility_talkback_body" tools:ignore="MissingTranslation">كل عنصر تفاعلي جديد يحمل اسماً واضحاً، وتعرض الأزرار حالتها وتعليماتها. فعّل TalkBack من إعدادات الوصول في أندرويد، ثم استخدم التنقل بالتركيز والتمرير المعتادين.</string>
+    <string name="accessibility_reading_title" tools:ignore="MissingTranslation">قراءة عربية محسنة</string>
+    <string name="accessibility_reading_desc" tools:ignore="MissingTranslation">استخدم خط Noto Sans Arabic المرفق وتباعد أسطر أوسع في نصوص القرآن والأذكار. يحافظ هذا الخيار على النص ولا يعالج عسر القراءة طبياً.</string>
+    <string name="accessibility_high_contrast_title" tools:ignore="MissingTranslation">تباين عالٍ</string>
+    <string name="accessibility_high_contrast_desc" tools:ignore="MissingTranslation">ألوان سوداء وبيضاء واضحة بدلاً من ألوان الخلفية الديناميكية لزيادة تمييز النصوص والعناصر.</string>
+    <string name="accessibility_voice_title" tools:ignore="MissingTranslation">تنقل صوتي عند الطلب</string>
+    <string name="accessibility_voice_desc" tools:ignore="MissingTranslation">يظهر زر الاستماع عند التفعيل. لا يبدأ الميكروفون إلا بعد ضغطك عليه، ويتوقف بعد أمر واحد ولا يحتفظ التطبيق بصوتك أو نصّه.</string>
+    <string name="accessibility_voice_privacy" tools:ignore="MissingTranslation">قد يستعمل أندرويد خدمة تعرف على الكلام يحددها جهازك؛ إن لم يتوفر نموذج محلي فقد تعالج تلك الخدمة الصوت عبر الشبكة. راجع خصوصية مزود جهازك.</string>
+    <string name="accessibility_voice_examples_title" tools:ignore="MissingTranslation">أمثلة أوامر</string>
+    <string name="accessibility_voice_examples" tools:ignore="MissingTranslation">«الرئيسية»، «القرآن»، «القبلة»، «الأذكار»، «الإعدادات»، «مركز الوصول»، أو «اقرأ سورة الكهف». يقبل أيضاً أرقام السور مثل «سورة 18» والأوامر الإنجليزية المكافئة.</string>
+    <string name="accessibility_sign_title" tools:ignore="MissingTranslation">تعليم بلغة الإشارة</string>
+    <string name="accessibility_sign_intro" tools:ignore="MissingTranslation">روابط فيديو خارجية لتعليم الوضوء والصلاة بلغة الإشارة البريطانية (BSL). لا تُضمَّن المقاطع في التطبيق، وقد تختلف لغة الإشارة ومفرداتها بين البلدان.</string>
+    <string name="accessibility_sign_wudu" tools:ignore="MissingTranslation">فتح شرح الوضوء بلغة BSL</string>
+    <string name="accessibility_sign_salah" tools:ignore="MissingTranslation">فتح شرح الصلاة بلغة BSL</string>
+    <string name="accessibility_sign_external" tools:ignore="MissingTranslation">يفتح فيديو خارجي في المتصفح أو تطبيق الفيديو.</string>
+    <string name="accessibility_sign_review" tools:ignore="MissingTranslation">المقاطع موارد تعليمية خارجية وليست ترجمة عالمية للغة الإشارة ولا فتوى شخصية؛ راجع معلماً أو جهة علمية موثوقة للتفاصيل العملية.</string>
+    <string name="accessibility_support_title" tools:ignore="MissingTranslation">حدود ودعم</string>
+    <string name="accessibility_support_body" tools:ignore="MissingTranslation">تتحكم إعدادات النظام في حجم الخط، التكبير، قارئ الشاشة، لغة التعرف الصوتي والنموذج المتاح. قد تختلف النتائج بين الأجهزة، ويمكنك إيقاف أي خيار هنا في أي وقت.</string>
+    <string name="voice_listen" tools:ignore="MissingTranslation">استمع لأمر تنقل</string>
+    <string name="voice_listening" tools:ignore="MissingTranslation">جارٍ الاستماع…</string>
+    <string name="voice_command_opened" tools:ignore="MissingTranslation">فتح: %1$s</string>
+    <string name="voice_command_unrecognized" tools:ignore="MissingTranslation">لم يُفهم أمر تنقل مدعوم. جرّب مثالاً من مركز الوصول.</string>
+    <string name="voice_service_unavailable" tools:ignore="MissingTranslation">خدمة التعرف على الكلام غير متاحة على هذا الجهاز.</string>
+    <string name="voice_command_timeout" tools:ignore="MissingTranslation">لم يُسمع كلام في الوقت المتاح. جرّب مرة أخرى.</string>
+    <string name="voice_command_network" tools:ignore="MissingTranslation">تعذر الوصول إلى خدمة التعرف على الكلام. جرّب نموذجاً محلياً أو تحقق من اتصال جهازك.</string>
+    <string name="voice_command_error" tools:ignore="MissingTranslation">تعذر تنفيذ الاستماع الآن. جرّب مرة أخرى.</string>
 </resources>

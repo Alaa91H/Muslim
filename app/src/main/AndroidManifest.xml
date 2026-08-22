@@ -9,6 +9,16 @@
          short work (adhan playback, downloads, notification refresh). -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+    <!-- Used only after an explicit tap on the accessibility voice-navigation control. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- Required on Android 11+ to discover a system speech-recognition service. -->
+    <queries>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+    </queries>
+
     <!-- Ask the user to exempt the app from battery optimization so prayer
          times, adhan and reminders stay reliable around the clock on OEM
          devices that aggressively kill background work. -->

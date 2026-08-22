@@ -207,4 +207,35 @@
     <string name="update_available_text">Version %1$s is now available — tap to update</string>
     <string name="update_last_check">Last check: %1$s</string>
     <string name="update_open_releases">Open the releases page in the browser</string>
+    <!-- Accessibility Centre -->
+    <string name="accessibility_title">Accessibility Centre</string>
+    <string name="accessibility_back">Back</string>
+    <string name="accessibility_intro">Customisable options for accessing content and navigating the app. Use them alongside TalkBack and your device display settings.</string>
+    <string name="accessibility_talkback_title">TalkBack and screen readers</string>
+    <string name="accessibility_talkback_body">Each new interactive element has a clear name, and controls announce their state and action. Turn on TalkBack in Android Accessibility settings, then use normal focus and swipe navigation.</string>
+    <string name="accessibility_reading_title">Clearer Arabic reading</string>
+    <string name="accessibility_reading_desc">Use the bundled Noto Sans Arabic typeface and wider line spacing for Quran and adhkar text. This option preserves the text and is not a medical treatment for dyslexia.</string>
+    <string name="accessibility_high_contrast_title">High contrast</string>
+    <string name="accessibility_high_contrast_desc">Use clear black-and-white colours instead of dynamic wallpaper colours to distinguish text and controls.</string>
+    <string name="accessibility_voice_title">On-demand voice navigation</string>
+    <string name="accessibility_voice_desc">Shows the Listen button when enabled. The microphone starts only after you tap it, stops after one command, and the app keeps neither your audio nor its transcript.</string>
+    <string name="accessibility_voice_privacy">Android may use a recognition service selected by your device. If an on-device model is unavailable, that service may process audio over a network; review your device provider’s privacy policy.</string>
+    <string name="accessibility_voice_examples_title">Command examples</string>
+    <string name="accessibility_voice_examples">“Home”, “Quran”, “Qibla”, “Adhkar”, “Settings”, “Accessibility Centre”, or “Read Surah Al-Kahf”. Surah numbers such as “Surah 18” and equivalent Arabic commands also work.</string>
+    <string name="accessibility_sign_title">Sign-language learning</string>
+    <string name="accessibility_sign_intro">External videos for wudu and salah in British Sign Language (BSL). The videos are not embedded in the app, and sign languages and vocabulary vary by country.</string>
+    <string name="accessibility_sign_wudu">Open wudu in BSL</string>
+    <string name="accessibility_sign_salah">Open salah in BSL</string>
+    <string name="accessibility_sign_external">Opens an external video in your browser or video app.</string>
+    <string name="accessibility_sign_review">These are external learning resources, not a universal sign-language translation or a personal fatwa. Ask a qualified teacher or trusted local authority about practical details.</string>
+    <string name="accessibility_support_title">Limits and support</string>
+    <string name="accessibility_support_body">System settings control font size, magnification, screen reader, speech language and available models. Results differ across devices, and you can turn off every option here at any time.</string>
+    <string name="voice_listen">Listen for a navigation command</string>
+    <string name="voice_listening">Listening…</string>
+    <string name="voice_command_opened">Opened: %1$s</string>
+    <string name="voice_command_unrecognized">No supported navigation command was recognised. Try an example from Accessibility Centre.</string>
+    <string name="voice_service_unavailable">Speech recognition is unavailable on this device.</string>
+    <string name="voice_command_timeout">No speech was heard in time. Try again.</string>
+    <string name="voice_command_network">Could not reach speech recognition. Try an on-device model or check your device connection.</string>
+    <string name="voice_command_error">Listening could not start now. Try again.</string>
 </resources>
