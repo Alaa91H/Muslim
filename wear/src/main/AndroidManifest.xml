@@ -8,6 +8,10 @@
         android:label="@string/wear_app_name"
         android:theme="@style/Theme.MuslimWear">
 
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="false" />
+
         <activity
             android:name=".WearMainActivity"
             android:exported="true">
