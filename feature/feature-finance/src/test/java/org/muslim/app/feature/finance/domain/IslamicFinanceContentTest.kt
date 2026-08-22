@@ -9,13 +9,13 @@ class IslamicFinanceContentTest {
     fun `transactions guide covers trade loans and ecommerce`() {
         assertThat(IslamicFinanceContent.transactionGuides.map(TransactionsGuide::id))
             .containsExactly("trade", "loans", "ecommerce").inOrder()
-        assertThat(IslamicFinanceContent.transactionGuides).allMatch { it.points.isNotEmpty() }
+        assertThat(IslamicFinanceContent.transactionGuides.all { it.points.isNotEmpty() }).isTrue()
     }
 
     @Test
     fun `screening providers use secure provider pages`() {
         assertThat(ScreeningProvider.entries).hasSize(2)
-        assertThat(ScreeningProvider.entries).allMatch { it.url.startsWith("https://") }
+        assertThat(ScreeningProvider.entries.all { it.url.startsWith("https://") }).isTrue()
     }
 
     @Test
