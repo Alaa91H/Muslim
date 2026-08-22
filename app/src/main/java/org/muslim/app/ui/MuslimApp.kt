@@ -59,6 +59,9 @@ import org.muslim.app.feature.quran.ui.SearchScreen
 import org.muslim.app.feature.quran.ui.SurahListScreen
 import org.muslim.app.feature.reference.ui.IslamicHistoryScreen
 import org.muslim.app.feature.reference.ui.ReferenceScreen
+import org.muslim.app.feature.scholarlibrary.ui.ScholarBookDetailScreen
+import org.muslim.app.feature.scholarlibrary.ui.ScholarLibraryScreen
+import org.muslim.app.feature.scholarlibrary.ui.ScholarStudyDeskScreen
 import org.muslim.app.feature.settings.AccessibilityScreen
 import org.muslim.app.feature.settings.AboutScreen
 import org.muslim.app.feature.settings.NotificationSettingsScreen
@@ -121,6 +124,9 @@ private const val ISLAMIC_HISTORY_ROUTE = "history"
 private const val QURAN_DOWNLOADS_ROUTE = "quran/downloads"
 private const val MOSQUES_ROUTE = "qibla/mosques"
 private const val OFFLINE_MAPS_ROUTE = "qibla/offline-maps"
+private const val SCHOLAR_LIBRARY_ROUTE = "scholar-library"
+private const val SCHOLAR_LIBRARY_BOOK_ROUTE = "scholar-library/book"
+private const val SCHOLAR_LIBRARY_STUDY_ROUTE = "scholar-library/study"
 
 @Composable
 fun MuslimApp(
@@ -302,6 +308,7 @@ fun MuslimApp(
                         onOpenTraveler = { navController.navigate(TRAVELER_EXPAT_ROUTE) },
                         onOpenReference = { navController.navigate(REFERENCE_ROUTE) },
                         onOpenIslamicHistory = { navController.navigate(ISLAMIC_HISTORY_ROUTE) },
+                        onOpenScholarLibrary = { navController.navigate(SCHOLAR_LIBRARY_ROUTE) },
                         onOpenAccessibility = { navController.navigate(ACCESSIBILITY_ROUTE) },
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
                         onOpenQuranSearch = { navController.navigate(SEARCH_ROUTE) },
@@ -347,6 +354,25 @@ fun MuslimApp(
                 }
                 composable(PERMISSIONS_ROUTE) {
                     PermissionsScreen(onBack = { navController.popBackStack() })
+                }
+                composable(SCHOLAR_LIBRARY_ROUTE) {
+                    ScholarLibraryScreen(
+                        onBack = { navController.popBackStack() },
+                        onOpenBook = { bookId -> navController.navigate("$SCHOLAR_LIBRARY_BOOK_ROUTE/$bookId") },
+                        onOpenStudyDesk = { navController.navigate(SCHOLAR_LIBRARY_STUDY_ROUTE) },
+                    )
+                }
+                composable(
+                    route = "$SCHOLAR_LIBRARY_BOOK_ROUTE/{bookId}",
+                    arguments = listOf(navArgument("bookId") { type = NavType.StringType }),
+                ) { entry ->
+                    ScholarBookDetailScreen(
+                        bookId = entry.arguments?.getString("bookId").orEmpty(),
+                        onBack = { navController.popBackStack() },
+                    )
+                }
+                composable(SCHOLAR_LIBRARY_STUDY_ROUTE) {
+                    ScholarStudyDeskScreen(onBack = { navController.popBackStack() })
                 }
                 composable(HADITH_ROUTE) {
                     HadithScreen(onBack = { navController.popBackStack() })

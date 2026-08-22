@@ -51,6 +51,8 @@
     <string name="more_reference_desc">التعريف بالإسلام والسيرة وقصص الأنبياء</string>
     <string name="more_islamic_history" tools:ignore="MissingTranslation">التاريخ والحضارة الإسلامية</string>
     <string name="more_islamic_history_desc" tools:ignore="MissingTranslation">خط زمني وأطلس تفاعلي وشخصيات وأعلام</string>
+    <string name="more_scholar_library" tools:ignore="MissingTranslation">مكتبة طالب العلم</string>
+    <string name="more_scholar_library_desc" tools:ignore="MissingTranslation">فهرس أمهات الكتب وبحث وملاحظات وبطاقات مراجعة</string>
     <string name="more_downloads">تنزيلات التلاوة</string>
     <string name="more_downloads_desc">تحميل سورة أو آية أو المصحف كاملًا مع اختيار القارئ</string>
     <string name="more_offline_maps">خرائط بدون إنترنت</string>
