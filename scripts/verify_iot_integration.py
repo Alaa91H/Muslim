@@ -54,6 +54,7 @@ REQUIRED_SNIPPETS = {
     ],
     "feature/feature-quran/src/main/AndroidManifest.xml": [
         "android.media.browse.MediaBrowserService",
+        "android.media.action.MEDIA_PLAY_FROM_SEARCH",
         'android:exported="true"',
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/notifications/SmartHomeBridgeDispatcher.kt": [
