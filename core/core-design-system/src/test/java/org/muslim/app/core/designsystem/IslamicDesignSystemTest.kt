@@ -19,7 +19,7 @@ class IslamicDesignSystemTest {
 
     @Test
     fun `light and mushaf paper palettes preserve their designated backgrounds`() {
-        assertEquals(Color(0xFFF5F1E7), IslamicPalette.Light.Background)
+        assertEquals(Color(0xFFF5F1E7), IslamicPalette.Light.BackgroundPrimary)
         assertEquals(Color(0xFFFAF8F1), IslamicPalette.Light.Surface)
         assertEquals(Color(0xFFE8DEC7), IslamicPalette.Sepia.BackgroundPrimary)
         assertEquals(Color(0xFFEFE6D3), IslamicPalette.Sepia.Surface)
