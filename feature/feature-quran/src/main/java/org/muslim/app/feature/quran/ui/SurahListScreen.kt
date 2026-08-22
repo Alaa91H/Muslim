@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -32,6 +33,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.ui.theme.IslamicOrnament
+import org.muslim.app.core.ui.theme.IslamicOrnamentImage
+import org.muslim.app.core.ui.theme.IslamicOrnamentOpacity
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.Surah
 
@@ -52,6 +56,12 @@ fun SurahListScreen(
     val state by viewModel.uiState.collectAsStateWithLifecycle()
 
     Column(modifier = modifier.fillMaxSize()) {
+        IslamicOrnamentImage(
+            ornament = IslamicOrnament.SurahHeader,
+            tint = MaterialTheme.colorScheme.tertiary,
+            alpha = IslamicOrnamentOpacity.LightSection,
+            modifier = Modifier.fillMaxWidth().height(16.dp).padding(top = 2.dp),
+        )
         Row(
             modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 4.dp),
             verticalAlignment = Alignment.CenterVertically,
@@ -111,7 +121,7 @@ fun SurahListScreen(
                     }
                     items(state.surahs, key = { it.number }) { surah ->
                         SurahRow(surah, onClick = { onOpenSurah(surah.number) })
-                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+                        HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
                     }
                 }
             }

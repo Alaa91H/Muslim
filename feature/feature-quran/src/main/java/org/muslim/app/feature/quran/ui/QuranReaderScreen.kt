@@ -1,5 +1,7 @@
 package org.muslim.app.feature.quran.ui
 
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -67,7 +69,6 @@ import androidx.compose.material3.TextButton
 import java.util.Locale
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
@@ -120,7 +121,14 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import org.muslim.app.core.common.text.ArabicText
+import org.muslim.app.core.designsystem.IslamicMotion
+import org.muslim.app.core.designsystem.IslamicPalette
+import org.muslim.app.core.designsystem.IslamicRadius
+import org.muslim.app.core.designsystem.MuslimSepiaColors
 import org.muslim.app.core.ui.accessibility.LocalAccessibilityVisuals
+import org.muslim.app.core.ui.theme.IslamicOrnament
+import org.muslim.app.core.ui.theme.IslamicOrnamentImage
+import org.muslim.app.core.ui.theme.IslamicOrnamentOpacity
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.TajweedMarkup
 import org.muslim.app.feature.quran.data.PlaybackState
@@ -143,11 +151,6 @@ private val REPEAT_OPTIONS = listOf(1, 3, 5, 10, -1) // -1 = continuous ("بدو
  * stays numbered inline.
  */
 internal val BASMALA = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
-/**
- * Decorative mushaf ornament (Rub el Hizb ۞) framing the Basmala header.
- */
-internal const val MUSHAF_ORNAMENT = "۞"
-
 /**
  * Removes a leading Basmala from [text]. Matching is diacritic-insensitive and
  * also covers the `بِّسْمِ` shadda variant used in a couple of surahs; returns
@@ -181,34 +184,23 @@ internal fun stripLeadingBasmala(text: String): String {
 private fun isSkippableAfterBasmala(c: Char): Boolean =
     c.isWhitespace() || c.code in 0x064B..0x065F || c.code == 0x0670 || c == '\u0640'
 
-/** Sepia palette — warm paper, high contrast, comfortable long reading. */
-private val SepiaColorScheme = lightColorScheme(
-    primary = Color(0xFF7A4E00),
-    onPrimary = Color.White,
-    primaryContainer = Color(0xFFFFDEAC),
-    onPrimaryContainer = Color(0xFF2A1800),
-    background = Color(0xFFF6EAD3),
-    onBackground = Color(0xFF2A2118),
-    surface = Color(0xFFF6EAD3),
-    onSurface = Color(0xFF2A2118),
-    surfaceVariant = Color(0xFFEBDCC0),
-    onSurfaceVariant = Color(0xFF4E4434),
-    secondaryContainer = Color(0xFFE5D2B0),
-    onSecondaryContainer = Color(0xFF3A2C18),
-)
-
-/** Warm dark palette for night reading (reduces blue light). */
+/** Calm night palette using the shared green/ivory identity, not bright gold. */
 private val NightColorScheme = darkColorScheme(
-    primary = Color(0xFFD4A017),
-    onPrimary = Color(0xFF2A1A00),
-    background = Color(0xFF141210),
-    onBackground = Color(0xFFE8E0D4),
-    surface = Color(0xFF141210),
-    onSurface = Color(0xFFE8E0D4),
-    surfaceVariant = Color(0xFF2A2622),
-    onSurfaceVariant = Color(0xFFB8AE9F),
-    secondaryContainer = Color(0xFF3A332A),
-    onSecondaryContainer = Color(0xFFE8E0D4),
+    primary = IslamicPalette.Dark.Primary,
+    onPrimary = Color(0xFFF2F0E8),
+    primaryContainer = IslamicPalette.Dark.PrimaryDark,
+    onPrimaryContainer = IslamicPalette.Dark.TextPrimary,
+    tertiary = IslamicPalette.Gold,
+    background = IslamicPalette.Dark.BackgroundPrimary,
+    onBackground = IslamicPalette.Dark.QuranPrimary,
+    surface = IslamicPalette.Dark.Surface,
+    onSurface = IslamicPalette.Dark.QuranPrimary,
+    surfaceVariant = IslamicPalette.Dark.SurfaceElevated,
+    onSurfaceVariant = IslamicPalette.Dark.TextSecondary,
+    secondaryContainer = IslamicPalette.Dark.SurfaceElevated,
+    onSecondaryContainer = IslamicPalette.Dark.TextPrimary,
+    outline = IslamicPalette.Dark.Border,
+    outlineVariant = IslamicPalette.Dark.BorderSubtle,
 )
 
 /**
@@ -488,7 +480,7 @@ fun QuranReaderScreen(
 
     val scheme = when (theme) {
         ReaderTheme.Light -> MaterialTheme.colorScheme
-        ReaderTheme.Sepia -> SepiaColorScheme
+        ReaderTheme.Sepia -> MuslimSepiaColors
         ReaderTheme.Dark -> NightColorScheme
     }
 
@@ -892,12 +884,19 @@ private fun RecitationBar(
     var rangeMenu by remember { mutableStateOf(false) }
     var reciterMenu by remember { mutableStateOf(false) }
     Surface(
-        color = MaterialTheme.colorScheme.surfaceVariant,
+        color = MaterialTheme.colorScheme.surface,
         // Explicit content color keeps every label readable in the reader's
         // light / sepia / night themes (dark-mode contrast fix).
         contentColor = MaterialTheme.colorScheme.onSurface,
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
     ) {
         Column {
+            IslamicOrnamentImage(
+                ornament = IslamicOrnament.Arabesque,
+                tint = MaterialTheme.colorScheme.tertiary,
+                alpha = IslamicOrnamentOpacity.LightSection,
+                modifier = Modifier.fillMaxWidth().height(5.dp),
+            )
             // One slim now-playing line: reciter chip + surah/ayah + time, so
             // there is exactly ONE control bar. The reciter name is shown
             // next to the surah/ayah and is tappable to pick another reciter.
@@ -1248,6 +1247,11 @@ private fun MushafPageCard(
     var textRootTopPx by remember { mutableFloatStateOf(0f) }
     var targetCharOffset by remember { mutableIntStateOf(-1) }
     var targetLineTopPx by remember { mutableFloatStateOf(-1f) }
+    val playingHighlightAlpha by animateFloatAsState(
+        targetValue = if (playingAyahGlobal != null) 0.14f else 0f,
+        animationSpec = tween(IslamicMotion.StandardMillis),
+        label = "ayah_playback_highlight",
+    )
 
     // Report the target ayah's absolute on-screen top once it is laid out in
     // this page so the screen can scroll it into view. Only pages that
@@ -1277,18 +1281,18 @@ private fun MushafPageCard(
             // sepia and night themes.
             val highlight = when {
                 ayah.globalNumber == tappedAyahGlobal ->
-                    SpanStyle(background = scheme.primary.copy(alpha = 0.35f))
+                    SpanStyle(background = scheme.primary.copy(alpha = 0.18f))
                 ayah.globalNumber == playingAyahGlobal ->
-                    SpanStyle(background = scheme.primary.copy(alpha = 0.22f))
+                    SpanStyle(background = scheme.primary.copy(alpha = playingHighlightAlpha))
                 // The ayah opened from search/bookmark/resume is tinted until
                 // it has been centered in the viewport.
                 ayah.globalNumber == openedAyahGlobal ->
-                    SpanStyle(background = scheme.primary.copy(alpha = 0.18f))
+                    SpanStyle(background = scheme.primary.copy(alpha = 0.12f))
                 // Suppress the soft selection tint while recitation is playing so
                 // a stale highlight never lingers on the originally-tapped ayah
                 // once the reciter advances to the next ayah.
                 playingAyahGlobal == null && ayah.globalNumber == selectedAyahGlobal ->
-                    SpanStyle(background = scheme.primary.copy(alpha = 0.12f))
+                    SpanStyle(background = scheme.primary.copy(alpha = 0.08f))
                 else -> SpanStyle()
             }
             // Every ayah is individually tappable: tapping selects it (and
@@ -1302,10 +1306,10 @@ private fun MushafPageCard(
                     val ayahText = if (ayah === firstAyah) firstAyahText else ayah.text
                     TajweedMarkup.segment(ayahText).forEach { segment ->
                         val color = when (segment.rule) {
-                            org.muslim.app.feature.quran.domain.TajweedRule.Ghunnah -> Color(0xFF1565C0)
-                            org.muslim.app.feature.quran.domain.TajweedRule.Madd -> Color(0xFF2E7D32)
-                            org.muslim.app.feature.quran.domain.TajweedRule.Qalqalah -> Color(0xFFC62828)
-                            org.muslim.app.feature.quran.domain.TajweedRule.NoonRules -> Color(0xFF6A1B9A)
+                            org.muslim.app.feature.quran.domain.TajweedRule.Ghunnah -> scheme.tertiary
+                            org.muslim.app.feature.quran.domain.TajweedRule.Madd -> scheme.primary
+                            org.muslim.app.feature.quran.domain.TajweedRule.Qalqalah -> scheme.error
+                            org.muslim.app.feature.quran.domain.TajweedRule.NoonRules -> scheme.secondary
                             null -> null
                         }
                         if (color == null) append(segment.text) else withStyle(SpanStyle(color = color)) { append(segment.text) }
@@ -1313,7 +1317,11 @@ private fun MushafPageCard(
                     append(" ")
                     withStyle(
                         SpanStyle(
-                            color = scheme.primary,
+                            color = when {
+                                ayah.globalNumber == playingAyahGlobal -> scheme.primary
+                                ayah.globalNumber == selectedAyahGlobal -> scheme.primary
+                                else -> scheme.tertiary
+                            },
                             fontSize = (fontSizeSp * 0.6f).sp,
                             fontWeight = FontWeight.Bold,
                             baselineShift = BaselineShift(0.35f),
@@ -1328,14 +1336,21 @@ private fun MushafPageCard(
     }
 
     Surface(
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(IslamicRadius.Card),
         color = scheme.surface,
-        border = BorderStroke(1.dp, scheme.surfaceVariant),
+        border = BorderStroke(1.dp, scheme.outlineVariant),
         modifier = modifier
             .fillMaxWidth()
             .clickable(onClick = onClick),
     ) {
         Column(modifier = Modifier.padding(horizontal = 20.dp, vertical = 18.dp)) {
+            IslamicOrnamentImage(
+                ornament = IslamicOrnament.SurahHeader,
+                tint = scheme.tertiary,
+                alpha = IslamicOrnamentOpacity.LightSection,
+                modifier = Modifier.fillMaxWidth().height(18.dp),
+            )
+            Spacer(Modifier.height(4.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
@@ -1353,17 +1368,16 @@ private fun MushafPageCard(
                 )
             }
             Spacer(Modifier.height(10.dp))
-            HorizontalDivider(color = scheme.surfaceVariant)
+            HorizontalDivider(color = scheme.outlineVariant)
             Spacer(Modifier.height(14.dp))
             if (showBasmala) {
                 // Mushaf-style Basmala header: a decorative ornament above, the
                 // Basmala centered, and an ornamented divider below.
-                Text(
-                    text = MUSHAF_ORNAMENT,
-                    fontSize = (fontSizeSp * 0.9f).sp,
-                    textAlign = TextAlign.Center,
-                    color = scheme.primary,
-                    modifier = Modifier.fillMaxWidth(),
+                IslamicOrnamentImage(
+                    ornament = IslamicOrnament.Star8,
+                    tint = scheme.tertiary,
+                    alpha = IslamicOrnamentOpacity.LightActive,
+                    modifier = Modifier.fillMaxWidth().height(18.dp),
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
@@ -1379,10 +1393,7 @@ private fun MushafPageCard(
                     ),
                 )
                 Spacer(Modifier.height(10.dp))
-                OrnamentedDivider(
-                    color = scheme.surfaceVariant,
-                    accentColor = scheme.primary,
-                )
+                OrnamentedDivider(tint = scheme.tertiary)
                 Spacer(Modifier.height(14.dp))
             }
             var layoutResult by remember { mutableStateOf<TextLayoutResult?>(null) }
@@ -1430,25 +1441,15 @@ private fun MushafPageCard(
     }
 }
 
-/**
- * A divider with the Rub el Hizb (۞) ornament in the middle, echoing the
- * decorative bands between a mushaf header and its body text.
- */
+/** Vector divider for the Basmala and compact section transitions. */
 @Composable
-private fun OrnamentedDivider(color: Color, accentColor: Color) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        HorizontalDivider(modifier = Modifier.weight(1f), color = color)
-        Text(
-            text = MUSHAF_ORNAMENT,
-            fontSize = 13.sp,
-            color = accentColor,
-            modifier = Modifier.padding(horizontal = 8.dp),
-        )
-        HorizontalDivider(modifier = Modifier.weight(1f), color = color)
-    }
+private fun OrnamentedDivider(tint: Color) {
+    IslamicOrnamentImage(
+        ornament = IslamicOrnament.MushafDivider,
+        tint = tint,
+        alpha = IslamicOrnamentOpacity.LightSection,
+        modifier = Modifier.fillMaxWidth().height(14.dp),
+    )
 }
 
 @Composable

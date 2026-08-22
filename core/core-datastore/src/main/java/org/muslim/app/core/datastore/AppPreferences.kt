@@ -6,7 +6,8 @@ package org.muslim.app.core.datastore
  */
 data class AppPreferences(
     val themeMode: AppThemeMode = AppThemeMode.System,
-    val dynamicColor: Boolean = true,
+    /** Dynamic wallpaper color is opt-in so the calm Islamic token palette remains the default identity. */
+    val dynamicColor: Boolean = false,
     /** BCP-47 language tag; "system" = follow the device language. */
     val languageCode: String = SYSTEM_LANGUAGE,
     /** Respect the system "remove animations" accessibility setting. */

@@ -17,6 +17,7 @@ This directory holds implementation-boundary notes and product documentation for
 |---|---|
 | [`accessibility_feature_sources.md`](accessibility_feature_sources.md) | Accessibility centre, clearer Arabic reading, voice navigation, and supplementary sign-language links. |
 | [`iot_feature_sources.md`](iot_feature_sources.md) | Android Auto media browsing, paired Wear OS data flow, and the opt-in HTTPS home-automation bridge. |
+| [`islamic_visual_identity.md`](islamic_visual_identity.md) | Modern Islamic Minimalism tokens, vector ornaments, reader quietness, accessibility, and verification. |
 | [`islamic_finance_feature_sources.md`](islamic_finance_feature_sources.md) | Educational finance material, screening-provider boundaries, and local debt tracking. |
 | [`islamic_history_civilization_feature_sources.md`](islamic_history_civilization_feature_sources.md) | Timeline, schematic atlas, and historical-content source/claim limits. |
 | [`noorani_new_muslim_feature_sources.md`](noorani_new_muslim_feature_sources.md) | Noorani-style learning, device TTS, and New-Muslim educational content. |
