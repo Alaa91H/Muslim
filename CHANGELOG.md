@@ -3,6 +3,33 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.0
+
+Updates install directly over v1.23.0 (same stable signing key — no uninstall needed).
+
+## 🌙 Modern Islamic Minimalism
+- Introduced a calm, central Islamic design system with warm ivory light surfaces, deep green night surfaces, and a dedicated Mushaf Sepia reader scheme. Antique gold is limited to tertiary accents rather than dominant panels, glow, or bright-gold decoration.
+- Added shared spacing, 20dp/24dp surface radii, low elevation, short motion, accessible touch-target tokens, and global Material shapes so new and existing components inherit a consistent, restrained visual hierarchy.
+- Made the Islamic palette the default for new installs by making wallpaper-derived dynamic colour an explicit opt-in; existing users retain their saved appearance preference.
+
+## ✦ Vector Ornament & Component System
+- Added reusable Android vector ornaments for Geometric 8/12, Star 8/12, Arabesque, Mushaf Divider, Surah Header, and Corner details. Decorative art is intentionally low-opacity, has no semantic role, and does not depend on Unicode ornament glyphs.
+- Added quiet `IslamicCard`, primary-button, and secondary-button primitives, plus an internal Compose showcase for reviewing the light, dark, and Mushaf-paper contexts without adding a user-facing developer route.
+- Refined the prayer home surface and Quran index with subtle vector header/background treatment, shared outlines, and existing Material icons, without replacing established navigation or controls.
+
+## 📖 Focused Quran Reader
+- Refined the Quran reader’s Surah header, Basmala divider, ayah marker, current-recitation feedback, and bottom recitation player with shared tokens and compact vector bands.
+- Preserved reader themes, Arabic font choices, RTL support, text sizing, bookmarks, last-read progress, downloads, and playback workflows. Quran body text and ayah data were not changed, and no decorative pattern is rendered behind verses.
+
+## ♿ Documentation, Testing & CI Quality Gate
+- Added detailed English design documentation covering palettes, components, ornament opacity, accessibility, responsive behavior, reader quietness, and verification boundaries.
+- Added palette/token unit coverage and `scripts/verify_islamic_visual_identity.py`, which checks required tokens and vector assets and guards against the obsolete text ornament and bright gold in core visual paths.
+- The visual-identity pull request passed Debug APK builds, unit tests, Android Lint, Detekt, and Android Emulator CI gates before this changelog update. The final main and tagged-release runs are verified separately before publication.
+
+### Install
+- Download the APK from the GitHub Release and open it (allow “install from unknown sources” if prompted).
+- The app stays signed with the same release key, so updates install directly over previous versions.
+
 ## Muslim v1.23.0
 
 Updates install directly over v1.22.0 (same stable signing key — no uninstall needed).
