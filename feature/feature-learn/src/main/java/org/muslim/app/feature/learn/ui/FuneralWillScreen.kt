@@ -224,8 +224,8 @@ private fun LazyListScope.willDraftIntroduction(isArabic: Boolean) {
             text = stringResource(R.string.funeral_will_draft_intro),
         )
     }
-    item { NoticeCard(stringResource(R.string.funeral_will_legal_notice), Icons.Filled.Info) }
-    item { NoticeCard(stringResource(R.string.funeral_will_privacy_notice), Icons.Filled.Security) }
+    item { NoticeCard(Icons.Filled.Info, stringResource(R.string.funeral_will_legal_notice)) }
+    item { NoticeCard(Icons.Filled.Security, stringResource(R.string.funeral_will_privacy_notice)) }
     item {
         Text(
             text = stringResource(R.string.funeral_will_checklist_title),
