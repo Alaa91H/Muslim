@@ -188,7 +188,7 @@ class PrayerTimesCalculator {
     }
 
     private fun recommendedFor(latitude: Double): HighLatitudeRule =
-        if (latitude > 48.0) HighLatitudeRule.SeventhOfTheNight
+        if (abs(latitude) > 48.0) HighLatitudeRule.SeventhOfTheNight
         else HighLatitudeRule.MiddleOfTheNight
 
     private fun timesInOrder(a: Long, b: Long): Boolean = b - a >= MIN_PRAYER_GAP_MS
