@@ -28,6 +28,7 @@ import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Calculate
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Place
+import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -47,8 +48,10 @@ import androidx.compose.material3.TopAppBar
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -66,6 +69,7 @@ import org.muslim.app.feature.learn.domain.HajjTopic
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.learn.domain.HajjUmrahContent
+import org.muslim.app.feature.learn.domain.RitualCounter
 
 private val categoryIcons = mapOf(
     "info" to Icons.Filled.Info,
@@ -89,8 +93,12 @@ fun HajjUmrahScreen(
     modifier: Modifier = Modifier,
     viewModel: LearnViewModel = hiltViewModel(),
 ) {
-    var category by remember { mutableStateOf<HajjCategory?>(null) }
-    var topic by remember { mutableStateOf<HajjTopic?>(null) }
+    var category by remember { mutableStateOf<HajjCategory?>(null)
+}
+
+    var topic by remember { mutableStateOf<HajjTopic?>(null)
+}
+
 
     // System back steps out of the topic, then the category, then the screen
     // (mirrors the toolbar arrow) — never skips straight to the More root.
@@ -98,9 +106,24 @@ fun HajjUmrahScreen(
         when {
             topic != null -> topic = null
             category != null -> category = null
-        }
-    }
-    var showCalculator by remember { mutableStateOf(false) }
+
+}
+
+
+}
+
+    var showCalculator by remember { mutableStateOf(false)
+}
+
+    var showSacredMap by remember { mutableStateOf(false)
+}
+
+    var tawafCompleted by rememberSaveable { mutableIntStateOf(0)
+}
+
+    var saiCompleted by rememberSaveable { mutableIntStateOf(0)
+}
+
     val currentCategory = category
     val currentTopic = topic
     val hajjCheckedSteps by viewModel.hajjCheckedSteps.collectAsStateWithLifecycle()
@@ -114,21 +137,38 @@ fun HajjUmrahScreen(
         currentTopic != null -> currentTopic!!.title
         currentCategory != null -> currentCategory!!.title
         else -> stringResource(R.string.hajj_title)
-    }
+
+}
+
 
     if (showCalculator) {
         HajjDaysCalculatorScreen(
-            onBack = { showCalculator = false },
+            onBack = { showCalculator = false
+}
+,
             modifier = modifier,
         )
         return
-    }
+
+}
+
+
+    if (showSacredMap) {
+        SacredSitesMapScreen(onBack = { showSacredMap = false
+}
+, modifier = modifier)
+        return
+
+}
+
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
-                title = { Text(title, maxLines = 1) },
+                title = { Text(title, maxLines = 1)
+}
+,
                 navigationIcon = {
                     IconButton(
                         onClick = {
@@ -136,17 +176,27 @@ fun HajjUmrahScreen(
                                 topic != null -> topic = null
                                 category != null -> category = null
                                 else -> onBack()
-                            }
-                        },
+
+}
+
+
+}
+,
                     ) {
                         Icon(
                             Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = stringResource(R.string.learn_back),
                         )
-                    }
-                },
+
+}
+
+
+}
+,
             )
-        },
+
+}
+,
     ) { innerPadding ->
         when {
             currentTopic != null -> {
@@ -157,35 +207,68 @@ fun HajjUmrahScreen(
                     showEnglishFallback = showEnglishFallback,
                     modifier = Modifier.padding(innerPadding),
                 )
-            }
+
+}
+
             currentCategory != null -> {
                 TopicList(
                     category = currentCategory!!,
                     showEnglishFallback = showEnglishFallback,
                     modifier = Modifier.padding(innerPadding),
-                    onOpen = { topic = it },
+                    onOpen = { topic = it
+}
+,
                 )
-            }
+
+}
+
             else -> {
                 CategoryHub(
                     showEnglishFallback = showEnglishFallback,
                     modifier = Modifier.padding(innerPadding),
-                    onOpen = { category = it },
-                    onOpenCalculator = { showCalculator = true },
+                    onOpen = { category = it
+}
+,
+                    onOpenCalculator = { showCalculator = true
+}
+,
+                    onOpenSacredMap = { showSacredMap = true
+}
+,
+                    tawafCompleted = tawafCompleted,
+                    saiCompleted = saiCompleted,
+                    onTawafChanged = { tawafCompleted = it
+}
+,
+                    onSaiChanged = { saiCompleted = it
+}
+,
                     hajjCompanionEnabled = hajjCompanionEnabled,
                     onToggleCompanion = viewModel::setHajjCompanionEnabled,
                 )
-            }
-        }
-    }
+
 }
 
+
+}
+
+
+}
+
+}
+
+@Suppress("LongParameterList", "LongMethod")
 @Composable
 private fun CategoryHub(
     showEnglishFallback: Boolean,
     modifier: Modifier = Modifier,
     onOpen: (HajjCategory) -> Unit,
     onOpenCalculator: () -> Unit,
+    onOpenSacredMap: () -> Unit,
+    tawafCompleted: Int,
+    saiCompleted: Int,
+    onTawafChanged: (Int) -> Unit,
+    onSaiChanged: (Int) -> Unit,
     hajjCompanionEnabled: Boolean,
     onToggleCompanion: (Boolean) -> Unit,
 ) {
@@ -193,6 +276,17 @@ private fun CategoryHub(
         modifier = modifier.fillMaxSize(),
         contentPadding = PaddingValues(bottom = 24.dp),
     ) {
+        item {
+            RitualTrackerCard(
+                tawaf = RitualCounter(tawafCompleted),
+                sai = RitualCounter(saiCompleted),
+                onTawafChanged = onTawafChanged,
+                onSaiChanged = onSaiChanged,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp),
+            )
+
+}
+
         item {
             Card(
                 modifier = Modifier
@@ -208,14 +302,20 @@ private fun CategoryHub(
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                     modifier = Modifier.padding(16.dp),
                 )
-            }
-        }
+
+}
+
+
+}
+
         item {
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp, vertical = 6.dp)
-                    .clickable { onOpenCalculator() },
+                    .clickable { onOpenCalculator()
+}
+,
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.secondaryContainer,
                 ),
@@ -235,7 +335,9 @@ private fun CategoryHub(
                             tint = MaterialTheme.colorScheme.onPrimaryContainer,
                             modifier = Modifier.padding(10.dp).size(22.dp),
                         )
-                    }
+
+}
+
                     Spacer(Modifier.width(14.dp))
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
@@ -256,11 +358,86 @@ private fun CategoryHub(
                                 fontStyle = FontStyle.Italic,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
                             )
-                        }
-                    }
-                }
-            }
-        }
+
+}
+
+
+}
+
+
+}
+
+
+}
+
+
+}
+
+        item {
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 6.dp)
+                    .clickable { onOpenSacredMap()
+}
+,
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                ),
+                shape = RoundedCornerShape(16.dp),
+            ) {
+                Row(
+                    modifier = Modifier.padding(14.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Surface(
+                        shape = CircleShape,
+                        color = MaterialTheme.colorScheme.primaryContainer,
+                    ) {
+                        Icon(
+                            imageVector = Icons.Filled.Map,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                            modifier = Modifier.padding(10.dp).size(22.dp),
+                        )
+
+}
+
+                    Spacer(Modifier.width(14.dp))
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = stringResource(R.string.hajj_map_title),
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold,
+                        )
+                        Text(
+                            text = stringResource(R.string.hajj_map_subtitle),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                        Spacer(Modifier.height(2.dp))
+                        if (showEnglishFallback) {
+                            Text(
+                                text = stringResource(R.string.hajj_map_subtitle),
+                                style = MaterialTheme.typography.bodySmall,
+                                fontStyle = FontStyle.Italic,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
+                            )
+
+}
+
+
+}
+
+
+}
+
+
+}
+
+
+}
+
         item {
             Card(
                 modifier = Modifier
@@ -285,7 +462,9 @@ private fun CategoryHub(
                             tint = MaterialTheme.colorScheme.onPrimaryContainer,
                             modifier = Modifier.padding(10.dp).size(22.dp),
                         )
-                    }
+
+}
+
                     Spacer(Modifier.width(14.dp))
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
@@ -298,29 +477,43 @@ private fun CategoryHub(
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
-                        Spacer(Modifier.height(2.dp))
                         if (showEnglishFallback) {
+                            Spacer(Modifier.height(2.dp))
                             Text(
                                 text = stringResource(R.string.hajj_companion_subtitle_en),
                                 style = MaterialTheme.typography.bodySmall,
                                 fontStyle = FontStyle.Italic,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
                             )
-                        }
-                    }
+
+}
+
+
+}
+
                     Switch(
                         checked = hajjCompanionEnabled,
                         onCheckedChange = onToggleCompanion,
                     )
-                }
-            }
-        }
-        items(HajjUmrahContent.CATEGORIES, key = { it.id }) { category ->
+
+}
+
+
+}
+
+
+}
+
+        items(HajjUmrahContent.CATEGORIES, key = { it.id
+}
+) { category ->
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp, vertical = 6.dp)
-                    .clickable { onOpen(category) },
+                    .clickable { onOpen(category)
+}
+,
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.surface,
                 ),
@@ -340,7 +533,9 @@ private fun CategoryHub(
                             tint = MaterialTheme.colorScheme.onPrimaryContainer,
                             modifier = Modifier.padding(10.dp).size(22.dp),
                         )
-                    }
+
+}
+
                     Spacer(Modifier.width(14.dp))
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
@@ -361,7 +556,9 @@ private fun CategoryHub(
                                 fontStyle = FontStyle.Italic,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
                             )
-                        }
+
+}
+
                         Spacer(Modifier.height(4.dp))
                         Text(
                             text = stringResource(
@@ -371,11 +568,21 @@ private fun CategoryHub(
                             style = MaterialTheme.typography.labelSmall,
                             color = MaterialTheme.colorScheme.primary,
                         )
-                    }
-                }
-            }
-        }
-    }
+
+}
+
+
+}
+
+
+}
+
+
+}
+
+
+}
+
 }
 
 @Composable
@@ -389,7 +596,9 @@ private fun TopicList(
         modifier = modifier.fillMaxSize(),
         contentPadding = PaddingValues(bottom = 24.dp),
     ) {
-        items(category.topics, key = { it.id }) { topic ->
+        items(category.topics, key = { it.id
+}
+) { topic ->
             ListItem(
                 headlineContent = {
                     Text(
@@ -397,7 +606,9 @@ private fun TopicList(
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold,
                     )
-                },
+
+}
+,
                 supportingContent = {
                     Column {
                         Text(topic.summary, color = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -409,9 +620,15 @@ private fun TopicList(
                                 fontStyle = FontStyle.Italic,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f),
                             )
-                        }
-                    }
-                },
+
+}
+
+
+}
+
+
+}
+,
                 leadingContent = {
                     Surface(
                         shape = CircleShape,
@@ -427,16 +644,28 @@ private fun TopicList(
                                 fontWeight = FontWeight.Bold,
                                 color = MaterialTheme.colorScheme.onSecondaryContainer,
                             )
-                        }
-                    }
-                },
+
+}
+
+
+}
+
+
+}
+,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clickable { onOpen(topic) },
+                    .clickable { onOpen(topic)
+}
+,
             )
             HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
-        }
-    }
+
+}
+
+
+}
+
 }
 
 @Composable
@@ -447,7 +676,9 @@ private fun TopicDetail(
     showEnglishFallback: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    val doneCount = topic.steps.indices.count { "${topic.id}:$it" in checkedSteps }
+    val doneCount = topic.steps.indices.count { "${topic.id}:$it" in checkedSteps
+}
+
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         contentPadding = PaddingValues(bottom = 32.dp),
@@ -474,23 +705,35 @@ private fun TopicDetail(
                         fontStyle = FontStyle.Italic,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
-                }
-            }
-        }
+
+}
+
+
+}
+
+
+}
+
 
         item(key = "progress") {
             ProgressHeader(total = topic.steps.size, done = doneCount)
-        }
+
+}
+
 
         itemsIndexed(topic.steps) { index, step ->
             StepCard(
                 index = index,
                 step = step,
                 checked = "${topic.id}:$index" in checkedSteps,
-                onCheckedChange = { onToggleStep(topic.id, index) },
+                onCheckedChange = { onToggleStep(topic.id, index)
+}
+,
                 showEnglishFallback = showEnglishFallback,
             )
-        }
+
+}
+
 
         topic.notes?.let { notes ->
             item {
@@ -525,13 +768,27 @@ private fun TopicDetail(
                                     fontStyle = FontStyle.Italic,
                                     color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.85f),
                                 )
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+
+}
+
+
+}
+
+
+}
+
+
+}
+
+
+}
+
+
+}
+
+
+}
+
 }
 
 @Composable
@@ -554,7 +811,9 @@ private fun ProgressHeader(total: Int, done: Int) {
             )
             Spacer(Modifier.height(8.dp))
             LinearProgressIndicator(
-                progress = { if (total == 0) 0f else done.toFloat() / total },
+                progress = { if (total == 0) 0f else done.toFloat() / total
+}
+,
                 modifier = Modifier.fillMaxWidth(),
             )
             if (total > 0 && done == total) {
@@ -564,9 +823,15 @@ private fun ProgressHeader(total: Int, done: Int) {
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.primary,
                 )
-            }
-        }
-    }
+
+}
+
+
+}
+
+
+}
+
 }
 
 @Composable
@@ -584,9 +849,13 @@ private fun StepCard(
         colors = CardDefaults.cardColors(
             containerColor = if (checked) {
                 MaterialTheme.colorScheme.surfaceVariant
-            } else {
+
+}
+ else {
                 MaterialTheme.colorScheme.surface
-            },
+
+}
+,
         ),
         shape = RoundedCornerShape(16.dp),
     ) {
@@ -606,8 +875,12 @@ private fun StepCard(
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                         )
-                    }
-                }
+
+}
+
+
+}
+
                 Spacer(Modifier.width(12.dp))
                 Column(modifier = Modifier.weight(1f)) {
                         Text(
@@ -622,13 +895,19 @@ private fun StepCard(
                                 fontStyle = FontStyle.Italic,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
-                        }
-                    }
+
+}
+
+
+}
+
                 Checkbox(
                     checked = checked,
                     onCheckedChange = onCheckedChange,
                 )
-            }
+
+}
+
 
             Spacer(Modifier.height(10.dp))
             SectionText(
@@ -642,7 +921,9 @@ private fun StepCard(
                     text = step.whatEn,
                     italic = true,
                 )
-            }
+
+}
+
 
             step.evidence?.let { evidence ->
                 Spacer(Modifier.height(10.dp))
@@ -661,9 +942,15 @@ private fun StepCard(
                             text = evidenceEn,
                             italic = true,
                         )
-                    }
-                }
-            }
+
+}
+
+
+}
+
+
+}
+
 
             step.why?.let { why ->
                 Spacer(Modifier.height(10.dp))
@@ -683,9 +970,15 @@ private fun StepCard(
                             italic = true,
                             contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
                         )
-                    }
-                }
-            }
+
+}
+
+
+}
+
+
+}
+
 
             step.say?.let { say ->
                 Spacer(Modifier.height(10.dp))
@@ -705,11 +998,21 @@ private fun StepCard(
                             italic = true,
                             contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
                         )
-                    }
-                }
-            }
-        }
-    }
+
+}
+
+
+}
+
+
+}
+
+
+}
+
+
+}
+
 }
 
 @Composable
@@ -737,6 +1040,8 @@ private fun SectionText(
             fontStyle = if (italic) FontStyle.Italic else FontStyle.Normal,
             color = contentColor,
         )
-    }
+
+}
+
 }
 

@@ -24,6 +24,8 @@
     <string name="more_tasbih_desc">Digital misbaha with daily history</string>
     <string name="more_ramadan">Ramadan</string>
     <string name="more_ramadan_desc">Suhoor &amp; iftar times and fasting tracker</string>
+    <string name="more_habits">Self-accountability</string>
+    <string name="more_habits_desc">Track worship, reports, and your Ramadan plan</string>
     <string name="more_zakat">Zakat</string>
     <string name="more_zakat_desc">Zakat on wealth &amp; Fitr calculator</string>
     <string name="more_learn">Learn</string>
@@ -32,6 +34,8 @@
     <string name="more_names_desc">The 99 names with full explanation</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>
     <string name="more_hajj_desc">Detailed guide to the Hajj and Umrah rites</string>
+    <string name="more_family">Family life</string>
+    <string name="more_family_desc">Ruqyah, baby names, aqiqah, marriage and parenting</string>
     <string name="more_reference">Reference Library</string>
     <string name="more_reference_desc">Introduction to Islam, the Sira &amp; the prophets</string>
     <string name="more_downloads">Recitation downloads</string>

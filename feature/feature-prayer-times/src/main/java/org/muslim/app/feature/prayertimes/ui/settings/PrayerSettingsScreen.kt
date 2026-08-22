@@ -92,6 +92,11 @@ fun PrayerSettingsScreen(
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
     val isPreviewing by viewModel.isPreviewing.collectAsStateWithLifecycle()
 
+    // Keep the slider value local while it is being dragged so every prayer
+    // card can show the exact percentage that will be applied immediately.
+    var masterVolume by remember { mutableIntStateOf(settings.adhanVolume) }
+    LaunchedEffect(settings.adhanVolume) { masterVolume = settings.adhanVolume }
+
     var pendingSoundPrayer by remember { mutableStateOf<Prayer?>(null) }
     var downloadPrayer by remember { mutableStateOf<Prayer?>(null) }
     var customizingPrayer by remember { mutableStateOf<Prayer?>(null) }
@@ -188,8 +193,6 @@ fun PrayerSettingsScreen(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(start = 4.dp, bottom = 4.dp),
             )
-            var masterVolume by remember { mutableIntStateOf(settings.adhanVolume) }
-            LaunchedEffect(settings.adhanVolume) { masterVolume = settings.adhanVolume }
             VolumeRow(
                 volume = masterVolume,
                 onChanged = { masterVolume = it },
@@ -263,7 +266,7 @@ fun PrayerSettingsScreen(
                 volume = settings.adhanVolumeFor(prayer),
                 vibrate = settings.vibrateFor(prayer),
                 globalVolume = settings.useGlobalAdhanVolume,
-                globalVolumeValue = settings.adhanVolume,
+                globalVolumeValue = masterVolume,
                 previewing = previewingPrayer == prayer,
                 onPreview = {
                     if (previewingPrayer == prayer) {
@@ -612,6 +615,7 @@ private fun StepperRow(label: String, value: Int, onChanged: (Int) -> Unit) {
     }
 }
 
+@Suppress("LongMethod")
 @Composable
 private fun AdhanSoundRow(
     prayer: Prayer,
@@ -639,14 +643,28 @@ private fun AdhanSoundRow(
             // full per-prayer configuration is adjustable right here, without
             // opening the customize dialog.
             if (globalVolume) {
-                Text(
-                    text = stringResource(
-                        R.string.settings_adhan_follows_global,
-                        "$globalVolumeValue%",
-                    ),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(vertical = 6.dp),
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 6.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(
+                        text = stringResource(
+                            R.string.settings_adhan_follows_global,
+                            "$globalVolumeValue%",
+                        ),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.weight(1f),
+                    )
+                    Text(
+                        text = "$globalVolumeValue%",
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+                LinearProgressIndicator(
+                    progress = { globalVolumeValue.coerceIn(0, 100) / 100f },
+                    modifier = Modifier.fillMaxWidth().padding(bottom = 6.dp),
                 )
             } else {
                 var dragVolume by remember { mutableIntStateOf(volume) }

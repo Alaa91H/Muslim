@@ -93,6 +93,8 @@ fun RamadanScreen(
             Spacer(Modifier.height(12.dp))
             SuhoorCard(state, viewModel, use24h)
             Spacer(Modifier.height(16.dp))
+            HabitTrackerPanel(state = state, viewModel = viewModel)
+            Spacer(Modifier.height(16.dp))
             FastingTracker(
                 info = state.info,
                 today = state.today,

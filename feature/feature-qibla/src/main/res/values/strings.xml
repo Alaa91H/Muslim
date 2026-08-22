@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="qibla_title">اتجاه القبلة</string>
     <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
     <string name="qibla_bearing_cardinal">اتجاه القبلة: %1$s</string>
@@ -46,6 +46,7 @@
     <string name="mosque_finder_expanding">جارٍ البحث ضمن نطاق %1$s…</string>
     <string name="mosque_finder_search_hint">ابحث عن مسجد بالاسم</string>
     <string name="mosque_finder_show_all">عرض كل المساجد</string>
+    <string name="mosque_finder_cached_results" tools:ignore="MissingTranslation">تُعرض آخر نتائج ناجحة محفوظة محليًا — اضغط إعادة المحاولة للتحديث</string>
 
     <!-- Offline maps download -->
     <string name="offline_maps_title">خرائط بدون إنترنت</string>
@@ -80,4 +81,4 @@
     <string name="offline_maps_custom_width">عرض المنطقة (درجات)</string>
     <string name="offline_maps_storage_warning">مساحة التخزين منخفضة — متاح %1$s فقط</string>
     <string name="offline_maps_storage_delete_largest">حذف أكبر منطقة (%1$s · %2$s)</string>
-</resources>
+</resources>

@@ -17,8 +17,12 @@ class LearnContentTest {
     fun `the ninety-nine names are complete unique and fully detailed`() {
         val names = NamesOfAllahContent.NAMES
         assertThat(names).hasSize(99)
-        assertThat(names.map { it.number }).containsExactlyElementsIn((1..99).toList())
-        assertThat(names.map { it.arabic }.distinct()).hasSize(99)
+        assertThat(names.map { it.number
+}
+).containsExactlyElementsIn((1..99).toList())
+        assertThat(names.map { it.arabic
+}
+.distinct()).hasSize(99)
         names.forEach { name ->
             assertThat(name.arabic).isNotEmpty()
             assertThat(name.transliteration).isNotEmpty()
@@ -30,8 +34,12 @@ class LearnContentTest {
             assertThat(name.evidenceRefAr).isNotEmpty()
             assertThat(name.evidenceEn).isNotEmpty()
             assertThat(name.evidenceRefEn).isNotEmpty()
-        }
-    }
+
+}
+
+
+}
+
 
     @Test
     fun `the names use only western digits`() {
@@ -42,8 +50,12 @@ class LearnContentTest {
             assertThat(name.meaningAr).doesNotContain(arabicIndic)
             assertThat(name.evidenceAr).doesNotContain(arabicIndic)
             assertThat(name.evidenceRefAr).doesNotContain(arabicIndic)
-        }
-    }
+
+}
+
+
+}
+
 
     @Test
     fun `every topic has a title and at least one step`() {
@@ -52,14 +64,20 @@ class LearnContentTest {
             assertThat(topic.subtitleRes).isGreaterThan(0)
             assertThat(topic.steps).isNotEmpty()
             assertThat(topic.id).isNotEqualTo("names_of_allah")
-        }
-    }
+
+}
+
+
+}
+
 
     @Test
     fun `the hajj and umrah content is complete and fully detailed`() {
         val categories = HajjUmrahContent.CATEGORIES
         assertThat(categories).isNotEmpty()
-        assertThat(categories.map { it.id }.distinct()).hasSize(categories.size)
+        assertThat(categories.map { it.id
+}
+.distinct()).hasSize(categories.size)
         categories.forEach { category ->
             assertThat(category.title).isNotEmpty()
             assertThat(category.titleEn).isNotEmpty()
@@ -77,29 +95,49 @@ class LearnContentTest {
                     assertThat(step.titleEn).isNotEmpty()
                     assertThat(step.what).isNotEmpty()
                     assertThat(step.whatEn).isNotEmpty()
-                }
-            }
-        }
-    }
+
+}
+
+
+}
+
+
+}
+
+
+}
+
 
     @Test
     fun `every topic belongs to a known category and each category has content`() {
         val topics = LearnContent.topics
-        assertThat(topics.map { it.id }.distinct()).hasSize(topics.size)
+        assertThat(topics.map { it.id
+}
+.distinct()).hasSize(topics.size)
         topics.forEach { topic ->
             assertThat(LearnContent.categoryOrder).contains(topic.category)
             assertThat(topic.titleRes).isGreaterThan(0)
             assertThat(topic.subtitleRes).isGreaterThan(0)
             assertThat(topic.steps).isNotEmpty()
-        }
+
+}
+
         LearnContent.categoryOrder.forEach { category ->
-            assertThat(topics.any { it.category == category }).isTrue()
-        }
-    }
+            assertThat(topics.any { it.category == category
+}
+).isTrue()
+
+}
+
+
+}
+
 
     @Test
     fun `the learning reference covers all major subjects`() {
-        val ids = LearnContent.topics.map { it.id }.toSet()
+        val ids = LearnContent.topics.map { it.id
+}
+.toSet()
         assertThat(ids).containsAtLeast(
             "pillars_islam", "pillars_iman",
             "wudu", "ghusl", "tayammum",
@@ -111,9 +149,15 @@ class LearnContentTest {
             topic.steps.forEach { step ->
                 assertThat(step.title).isNotEmpty()
                 assertThat(step.description).isNotEmpty()
-            }
-        }
-    }
+
+}
+
+
+}
+
+
+}
+
 
     @Test
     fun `the learning content uses only western digits`() {
@@ -122,10 +166,18 @@ class LearnContentTest {
             topic.steps.forEach { step ->
                 assertThat(step.title).doesNotContain(arabicIndic)
                 assertThat(step.description).doesNotContain(arabicIndic)
-            }
-            topic.notes?.let { assertThat(it).doesNotContain(arabicIndic) }
-        }
-    }
+
+}
+
+            topic.notes?.let { assertThat(it).doesNotContain(arabicIndic)
+}
+
+
+}
+
+
+}
+
 
 }
 

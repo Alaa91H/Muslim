@@ -25,5 +25,6 @@
     <string name="hadith_collection_abudawud">أبو داود</string>
     <string name="hadith_collection_nasai">النسائي</string>
     <string name="hadith_collection_ibnmajah">ابن ماجه</string>
+    <string name="hadith_collection_muwatta">موطأ مالك</string>
     <string name="hadith_collection_other">أخرى</string>
 </resources>

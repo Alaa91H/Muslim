@@ -25,6 +25,8 @@
     <string name="more_tasbih_desc">مسبحة إلكترونية مع سجل يومي</string>
     <string name="more_ramadan">رمضان</string>
     <string name="more_ramadan_desc">مواقيت السحور والإفطار ومتابعة الصيام</string>
+    <string name="more_habits">محاسبة النفس</string>
+    <string name="more_habits_desc">تتبع الطاعات والتقارير وخطة رمضان</string>
     <string name="more_zakat">الزكاة</string>
     <string name="more_zakat_desc">حاسبة زكاة المال وزكاة الفطر</string>
     <string name="more_learn">التعلّم</string>
@@ -33,6 +35,8 @@
     <string name="more_names_desc">التسعة والتسعون اسمًا مع شرحها الكامل</string>
     <string name="more_hajj">الحج والعمرة</string>
     <string name="more_hajj_desc">الدليل التفصيلي لمناسك الحج والعمرة</string>
+    <string name="more_family">فقه الأسرة</string>
+    <string name="more_family_desc">الرقية وأسماء المواليد والعقيقة والزواج والتربية</string>
     <string name="more_reference">المكتبة المرجعية</string>
     <string name="more_reference_desc">التعريف بالإسلام والسيرة وقصص الأنبياء</string>
     <string name="more_downloads">تنزيلات التلاوة</string>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="learn_title">التعلّم</string>
     <string name="learn_back">رجوع</string>
     <string name="learn_favorites_header">المفضلة</string>
@@ -70,6 +70,19 @@
     <string name="hajj_companion_tashreeq2_msg">كرّر رمي الجمرات الثلاث بعد الزوال كما في أمس. من أراد التعجل غادر منى قبل الغروب، ومن تأخر بات ورمى في اليوم الثالث.</string>
     <string name="hajj_companion_tashreeq3_title">أيام التشريق · اليوم الثالث (13 ذو الحجة)</string>
     <string name="hajj_companion_tashreeq3_msg">ارمِ الجمرات الثلاث بعد الزوال، ثم اختم الحج بطواف الوداع عند مغادرة مكة. تقبّل الله حجّكم.</string>
+    <string name="hajj_map_title" tools:ignore="MissingTranslation">خريطة المشاعر المقدسة</string>
+    <string name="hajj_map_subtitle" tools:ignore="MissingTranslation">منى وعرفة ومزدلفة والجمرات والمسجد الحرام — اضغط على الموقع لعرض الدعاء</string>
+    <string name="hajj_map_zoom_in" tools:ignore="MissingTranslation">تكبير الخريطة</string>
+    <string name="hajj_map_zoom_out" tools:ignore="MissingTranslation">تصغير الخريطة</string>
+    <string name="hajj_map_close" tools:ignore="MissingTranslation">إغلاق معلومات الموقع</string>
+    <string name="hajj_ritual_counter_title" tools:ignore="MissingTranslation">عداد الطواف والسعي</string>
+    <string name="hajj_ritual_counter_subtitle" tools:ignore="MissingTranslation">تتبع الأشواط السبعة أثناء أداء النسك</string>
+    <string name="hajj_counter_progress" tools:ignore="MissingTranslation">%1$d من %2$d</string>
+    <string name="hajj_counter_reset" tools:ignore="MissingTranslation">إعادة تعيين العدادات</string>
+    <string name="hajj_counter_minus" tools:ignore="MissingTranslation">إنقاص شوط</string>
+    <string name="hajj_counter_plus" tools:ignore="MissingTranslation">إضافة شوط</string>
+    <string name="hajj_tawaf" tools:ignore="MissingTranslation">الطواف</string>
+    <string name="hajj_sai" tools:ignore="MissingTranslation">السعي</string>
     <string name="hajj_section_what">ماذا تفعل؟</string>
     <string name="hajj_section_what_en">What to do</string>
     <string name="hajj_section_why">لماذا؟ السبب والحكمة</string>
@@ -106,4 +119,44 @@
     <string name="learn_topic_zakat_sub">شروطها ونصابها ومصارفها الثمانية</string>
     <string name="learn_topic_funeral">الجنائز</string>
     <string name="learn_topic_funeral_sub">من عيادة المريض إلى الغسل والدفن والتعزية</string>
-    </resources>
+    <string name="family_life_title" tools:ignore="MissingTranslation">فقه الأسرة وحياة المسلم</string>
+    <string name="family_tab_ruqyah" tools:ignore="MissingTranslation">الرقية الشرعية</string>
+    <string name="family_tab_names" tools:ignore="MissingTranslation">أسماء المواليد</string>
+    <string name="family_tab_aqiqah" tools:ignore="MissingTranslation">العقيقة</string>
+    <string name="family_tab_marriage" tools:ignore="MissingTranslation">الزواج والأسرة</string>
+    <string name="family_ruqyah_method_title" tools:ignore="MissingTranslation">الرقية الشرعية: نص وصوت</string>
+    <string name="family_ruqyah_method_intro" tools:ignore="MissingTranslation">دليل عملي للرقية من القرآن والأدعية الصحيحة، مع بيان الطريقة المشروعة والتحذير من التمائم والطلاسم والاستغلال.</string>
+    <string name="family_ruqyah_health_notice" tools:ignore="MissingTranslation">تنبيه: الرقية عبادة وسبب مشروع، وليست بديلًا عن الطبيب أو العلاج النفسي. اطلب المساعدة الطبية عند وجود أعراض مستمرة أو طارئة.</string>
+    <string name="family_ruqyah_steps_title" tools:ignore="MissingTranslation">كيف تكون الرقية؟</string>
+    <string name="family_ruqyah_passages_title" tools:ignore="MissingTranslation">آيات وسور الرقية</string>
+    <string name="family_ruqyah_audio_title" tools:ignore="MissingTranslation">استماع إلى التلاوة</string>
+    <string name="family_audio_play" tools:ignore="MissingTranslation">استماع</string>
+    <string name="family_audio_unavailable" tools:ignore="MissingTranslation">مصدر الصوت غير متاح حاليًا</string>
+    <string name="family_names_title" tools:ignore="MissingTranslation">أسماء إسلامية للمواليد</string>
+    <string name="family_names_intro" tools:ignore="MissingTranslation">قاعدة أسماء قابلة للبحث للأولاد والبنات مع المعنى العربي والإنجليزي. معنى الاسم إرشادي، ويُستحسن سؤال أهل اللغة والعلم قبل الاختيار النهائي.</string>
+    <string name="family_names_search" tools:ignore="MissingTranslation">ابحث بالاسم أو المعنى</string>
+    <string name="family_names_all" tools:ignore="MissingTranslation">الكل</string>
+    <string name="family_names_boys" tools:ignore="MissingTranslation">أولاد</string>
+    <string name="family_names_girls" tools:ignore="MissingTranslation">بنات</string>
+    <string name="family_names_count" tools:ignore="MissingTranslation">عدد النتائج: %1$d</string>
+    <string name="family_names_empty" tools:ignore="MissingTranslation">لا توجد أسماء مطابقة</string>
+    <string name="family_aqiqah_title" tools:ignore="MissingTranslation">حاسبة العقيقة والتنبيه</string>
+    <string name="family_aqiqah_intro" tools:ignore="MissingTranslation">أدخل تاريخ الميلاد لعرض اليوم السابع، والرابع عشر، والحادي والعشرين كتذكيرات مقترحة. اليوم السابع هو الخيار الأول في القائمة، وهذه أداة تذكير وليست فتوى شخصية.</string>
+    <string name="family_aqiqah_birth_date" tools:ignore="MissingTranslation">تاريخ الميلاد</string>
+    <string name="family_aqiqah_date_hint" tools:ignore="MissingTranslation">YYYY-MM-DD</string>
+    <string name="family_aqiqah_invalid_date" tools:ignore="MissingTranslation">أدخل تاريخًا صحيحًا بالصيغة YYYY-MM-DD</string>
+    <string name="family_aqiqah_apply" tools:ignore="MissingTranslation">حفظ التاريخ</string>
+    <string name="family_aqiqah_dates_title" tools:ignore="MissingTranslation">المواعيد المقترحة</string>
+    <string name="family_aqiqah_day_seven" tools:ignore="MissingTranslation">اليوم السابع</string>
+    <string name="family_aqiqah_day_fourteen" tools:ignore="MissingTranslation">اليوم الرابع عشر</string>
+    <string name="family_aqiqah_day_twenty_one" tools:ignore="MissingTranslation">اليوم الحادي والعشرون</string>
+    <string name="family_aqiqah_reminder" tools:ignore="MissingTranslation">تنبيه موعد العقيقة</string>
+    <string name="family_aqiqah_reminder_desc" tools:ignore="MissingTranslation">سيُرسل تذكيرًا محليًا صباح اليوم السابع عند بقاء الموعد.</string>
+    <string name="family_aqiqah_set_birth_first" tools:ignore="MissingTranslation">احفظ تاريخ الميلاد أولًا لتفعيل التنبيه.</string>
+    <string name="family_aqiqah_date_passed" tools:ignore="MissingTranslation">مرّ موعد اليوم السابع؛ ما زالت المواعيد البديلة ظاهرة للتخطيط.</string>
+    <string name="family_aqiqah_fiqh_note" tools:ignore="MissingTranslation">من السنة أن تكون العقيقة عن الغلام شاتان وعن الجارية شاة عند القدرة، وتراعى أحكام الذبح والإحسان إلى الفقير وقوانين البلد. راجع عالمًا موثوقًا في المسائل التفصيلية.</string>
+    <string name="family_marriage_title" tools:ignore="MissingTranslation">دليل الزواج والأسرة</string>
+    <string name="family_marriage_intro" tools:ignore="MissingTranslation">مقالات فقهية وتربوية مبسطة عن الخطبة، وعقد النكاح، والحقوق الزوجية، والخلاف، وتربية الأبناء. المحتوى تعليمي عام وليس فتوى لحالة خاصة.</string>
+    <string name="aqiqah_notification_title" tools:ignore="MissingTranslation">تذكير العقيقة</string>
+    <string name="aqiqah_notification_body" tools:ignore="MissingTranslation">حلّ اليوم السابع المقترح للعقيقة. تقبل الله منكم.</string>
+</resources>

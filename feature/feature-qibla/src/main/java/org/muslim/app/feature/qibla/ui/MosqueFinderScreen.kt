@@ -1,5 +1,6 @@
 package org.muslim.app.feature.qibla.ui
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.core.net.toUri
@@ -58,6 +59,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.maplibre.android.camera.CameraPosition
@@ -71,12 +73,17 @@ import org.muslim.app.core.ui.map.addPinMarker
 import org.muslim.app.feature.qibla.R
 import org.muslim.app.feature.qibla.data.Mosque
 import org.muslim.app.feature.qibla.data.MosqueFinderRepository
+import org.muslim.app.feature.qibla.data.MosqueResultsCache
+import org.muslim.app.feature.qibla.data.MosqueSearchSnapshot
 import javax.inject.Inject
 
 @HiltViewModel
 class MosqueFinderViewModel @Inject constructor(
     private val repository: MosqueFinderRepository,
+    @ApplicationContext context: Context,
 ) : ViewModel() {
+
+    private val cache = MosqueResultsCache(context)
 
     var mosques by mutableStateOf<List<Mosque>>(emptyList())
         private set
@@ -88,6 +95,37 @@ class MosqueFinderViewModel @Inject constructor(
         private set
     var expandingRadiusKm by mutableStateOf<Int?>(null)
         private set
+    var showingCachedResults by mutableStateOf(false)
+        private set
+    var cachedResultsTimestamp by mutableStateOf<Long?>(null)
+        private set
+
+    private fun publishFreshResults(latitude: Double, longitude: Double, results: List<Mosque>) {
+        mosques = results
+        selectedMosque = results.minByOrNull { it.distanceMeters }
+        showingCachedResults = false
+        cachedResultsTimestamp = null
+        if (results.isNotEmpty()) {
+            cache.save(
+                MosqueSearchSnapshot(
+                    latitude = latitude,
+                    longitude = longitude,
+                    mosques = results,
+                    savedAtEpochMillis = System.currentTimeMillis(),
+                ),
+            )
+        }
+    }
+
+    private fun restoreLastResults(): Boolean {
+        val snapshot = cache.load() ?: return false
+        if (snapshot.mosques.isEmpty()) return false
+        mosques = snapshot.mosques.sortedBy { it.distanceMeters }
+        selectedMosque = mosques.minByOrNull { it.distanceMeters }
+        showingCachedResults = true
+        cachedResultsTimestamp = snapshot.savedAtEpochMillis
+        return true
+    }
 
     fun search(latitude: Double, longitude: Double) {
         viewModelScope.launch {
@@ -95,13 +133,13 @@ class MosqueFinderViewModel @Inject constructor(
             error = null
             expandingRadiusKm = null
             runCatching { repository.nearby(latitude, longitude) }
-                .onSuccess {
-                    mosques = it
-                    // Surface the nearest mosque immediately so the user never
-                    // has to hunt for it in the list.
-                    selectedMosque = it.minByOrNull { mosque -> mosque.distanceMeters }
+                .onSuccess { publishFreshResults(latitude, longitude, it) }
+                .onFailure {
+                    error = it.message
+                    // Keep the last successful results visible instead of
+                    // replacing a useful map with an empty error state.
+                    restoreLastResults()
                 }
-                .onFailure { error = it.message }
             loading = false
         }
     }
@@ -117,11 +155,11 @@ class MosqueFinderViewModel @Inject constructor(
                     expandingRadiusKm = radiusKm
                 }
             }
-                .onSuccess {
-                    mosques = it
-                    selectedMosque = it.minByOrNull { mosque -> mosque.distanceMeters }
+                .onSuccess { publishFreshResults(latitude, longitude, it) }
+                .onFailure {
+                    error = it.message
+                    restoreLastResults()
                 }
-                .onFailure { error = it.message }
             expandingRadiusKm = null
             loading = false
         }
@@ -474,6 +512,14 @@ fun MosqueFinderScreen(
                                 }
                             }) {
                                 Text(stringResource(R.string.mosque_finder_retry))
+                            }
+                            if (viewModel.showingCachedResults) {
+                                Text(
+                                    text = stringResource(R.string.mosque_finder_cached_results),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    modifier = Modifier.padding(top = 4.dp),
+                                )
                             }
                             Text(
                                 message,

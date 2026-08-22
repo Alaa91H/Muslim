@@ -75,9 +75,9 @@ data class PrayerSettings(
     /** Resolves the effective adhan volume for [prayer]. */
     fun adhanVolumeFor(prayer: Prayer): Int =
         if (useGlobalAdhanVolume) {
-            adhanVolume
+            adhanVolume.coerceIn(0, 100)
         } else {
-            adhanVolumes[prayer]?.coerceIn(0, 100) ?: adhanVolume
+            adhanVolumes[prayer]?.coerceIn(0, 100) ?: adhanVolume.coerceIn(0, 100)
         }
 
     /** Resolves whether vibration is enabled for [prayer]. */

@@ -156,6 +156,8 @@
     <string name="notif_category_recitation_desc">إشعار بأزرار تشغيل/إيقاف/إغلاق أثناء تلاوة القرآن</string>
     <string name="notif_category_hajj">مصاحبة الحاج</string>
     <string name="notif_category_hajj_desc">تذكير يومي بالمنسك المقصود في وقته خلال أيام الحج</string>
+    <string name="notif_category_family">الأسرة وحياة المسلم</string>
+    <string name="notif_category_family_desc">تذكيرات العقيقة والمواعيد الأسرية</string>
     <string name="notif_category_app_update">تحديثات التطبيق</string>
     <string name="notif_category_app_update_desc">إشعار عند توفّر نسخة جديدة من التطبيق</string>
     <string name="notif_missed_color">لون سطر الأذان الفائت</string>

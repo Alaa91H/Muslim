@@ -1,0 +1,124 @@
+# Detekt configuration for the Muslim Android app.
+# This file is the single source of truth for the static-analysis gate that CI
+# runs on every pull request and push to main (`./gradlew detekt`). The rule
+# set is deliberately modest: it catches real bugs and smells without imposing
+# a style this codebase never chose. New violations fail the build; legacy
+# findings are pinned in detekt-baseline.xml so the gate is green today and
+# only grows stricter as code is touched.
+
+build:
+  maxIssues: 0
+  weights:
+    complexity: 1
+    style: 1
+
+config:
+  validation: true
+
+processors:
+  active: true
+
+console-reports:
+  active: true
+  exclude:
+    - 'ProjectStatisticsReport'
+    - 'ComplexityReport'
+
+output-reports:
+  active: true
+
+# ---------------------------------------------------------------------------
+# Complexity — keep functions readable.
+# ---------------------------------------------------------------------------
+complexity:
+  active: true
+  ComplexMethod:
+    active: true
+    threshold: 15
+  LongMethod:
+    active: true
+    threshold: 80
+  LongParameterList:
+    active: true
+    threshold: 8
+    ignoreDefaultParameters: true
+  LargeClass:
+    active: true
+    threshold: 600
+  TooManyFunctions:
+    active: true
+    thresholdInFiles: 40
+    thresholdInClasses: 40
+
+# ---------------------------------------------------------------------------
+# Coroutines / correctness.
+# ---------------------------------------------------------------------------
+coroutines:
+  active: true
+  GlobalCoroutineUsage:
+    active: true
+  RedundantSuspendModifier:
+    active: true
+  SuspendFunWithFlowReturnType:
+    active: true
+
+# ---------------------------------------------------------------------------
+# Performance-sensitive Android pitfalls.
+# ---------------------------------------------------------------------------
+performance:
+  active: true
+  SpreadOperator:
+    active: true
+  UnnecessaryPartOfBinaryExpression:
+    active: true
+
+# ---------------------------------------------------------------------------
+# Style — only the high-signal rules.
+# ---------------------------------------------------------------------------
+style:
+  active: true
+  UnusedPrivateMember:
+    active: true
+  UnusedPrivateProperty:
+    active: true
+  UnusedImports:
+    active: true
+  UnusedParameter:
+    active: true
+  RedundantVisibilityModifierRule:
+    active: true
+  ReturnCount:
+    active: false
+  MagicNumber:
+    active: false
+  WildcardImport:
+    active: true
+  MaxLineLength:
+    active: false
+  ForbiddenComment:
+    active: true
+    comments:
+      - reason: 'Forbidden FIXME comments — file an issue instead.'
+        value: 'FIXME:'
+      - reason: 'Forbidden TODO without a ticket reference.'
+        value: 'TODO:'
+
+# ---------------------------------------------------------------------------
+# Potential bugs.
+# ---------------------------------------------------------------------------
+potential-bugs:
+  active: true
+  EqualsAlwaysReturnsTrueOrFalse:
+    active: true
+  ExplicitGarbageCollectionCall:
+    active: true
+  InvalidRange:
+    active: true
+  UnconditionalJumpStatementInLoop:
+    active: true
+  UnreachableCatchBlock:
+    active: true
+  UnsafeCallOnNullableType:
+    active: true
+  UnusedUnaryOperator:
+    active: true

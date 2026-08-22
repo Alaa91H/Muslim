@@ -22,8 +22,6 @@ android {
 
 kotlin {
     compilerOptions {
-        // KT-73255: apply annotations (e.g. @ApplicationContext) to both the
-        // value parameter and the property, matching the future Kotlin default.
         freeCompilerArgs.add("-Xannotation-default-target=param-property")
     }
 }
@@ -31,10 +29,8 @@ kotlin {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.coroutines.android)
-
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
-
     testImplementation(libs.junit)
     testImplementation(libs.truth)
 }

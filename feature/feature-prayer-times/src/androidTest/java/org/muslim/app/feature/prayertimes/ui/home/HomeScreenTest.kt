@@ -10,6 +10,7 @@ import org.muslim.app.core.ui.theme.AppTheme
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.datastore.prayer.PrayerSettings
+import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.SelectedLocation
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
@@ -64,7 +65,7 @@ class HomeScreenTest {
                 epochMillis = Prayer.entries.associateWith { now + 3_600_000L },
             )
         }
-        return HomeViewModel(repository, calculator)
+        return HomeViewModel(repository, calculator, mockk(relaxed = true))
     }
 
     @Test
@@ -96,7 +97,7 @@ class HomeScreenTest {
         val repository = mockk<PrayerSettingsRepository>()
         every { repository.settings } returns flowOf(PrayerSettings(location = null))
         val calculator = mockk<PrayerTimesCalculator>()
-        val viewModel = HomeViewModel(repository, calculator)
+        val viewModel = HomeViewModel(repository, calculator, mockk<AppPreferencesRepository>(relaxed = true))
 
         composeRule.setContent {
             AppTheme(dynamicColor = false) {

@@ -1,68 +1,103 @@
 # Changelog
 
-All notable changes to this project are documented here, grouped by release
-tag. Generated automatically from the commit history by
-`scripts/generate_changelog.sh`.
+All notable changes to Muslim are documented here. Release notes use the same
+sectioned format as v1.10.0 and are generated from the commits for each tag.
 
-The format is based on the project's release tags; each entry lists the
-commits that landed in that release.
+## Muslim v1.15.0
+
+Updates install directly over v1.14.0 (same stable signing key — no uninstall needed).
+
+## 👨‍👩‍👧 Family Life & Islamic Guidance
+- **Ruqyah الشرعية**: added a detailed offline-safe guide, Quranic passages, validated EveryAyah audio links, and a clear medical-safety notice.
+- **Islamic baby names**: searchable boys' and girls' catalog with Arabic names, transliterations, meanings and gender filters.
+- **Aqiqah planner**: calculates the seventh, fourteenth and twenty-first days, stores the birth date locally, and schedules a reboot-safe WorkManager reminder.
+- **Marriage and family reference**: expanded articles covering engagement, nikah, mahr, marital rights, conflict safety, parenting and child protection.
+
+## 🕌 Prayer, Notifications & Ramadan
+- Added focused Ramadan and Islamic-occasion calculations with unit coverage for fasting days and Hajj dates.
+- Improved the unified notification manager with localized channels, quiet-hours controls and family reminders.
+- Added live effective-prayer-volume previews and retained per-prayer notification customization.
+
+## 🧭 Maps & Field Services
+- Mosque search now uses resilient OpenStreetMap/Overpass queries, cached results, retry behavior and expanded worldwide fallback coverage.
+- Added offline-map area management, interactive selection, current-location centering and storage warnings.
+- Added reusable halal E-number classification with conservative unknown/ questionable handling.
+
+## 📖 Quran, Hadith & Reference Library
+- Added Quran backup/restore models, tajweed markup support, richer search metrics and Arabic-text normalization tests.
+- Expanded learning, Hajj/Umrah, prophets, family-life and reference content with focused domain tests.
+- Added full hadith-corpus integrity checks and localized presentation improvements.
+
+## 🌍 Globalization & Accessibility
+- Preserved the world-language resource tree with BCP-47 locale folders and localized settings/feature strings.
+- Kept RTL/LTR, 12/24-hour time, dynamic start-tab selection and adaptive layouts across the application.
+
+## 🧪 Engineering & CI Quality Gate
+- Added a required GitHub Actions quality gate for Debug APK, unit tests, Android Lint, Detekt and real Android Emulator tests.
+- Failure artifacts include test XML, Lint, static-analysis and emulator reports for diagnosis.
+- Added focused tests for permissions, volume settings, mosque caching, aqiqah dates, halal classification and family content.
+- Release automation builds, signs, verifies and publishes the APK when a `v*` tag is pushed.
+
+### Install
+- Download the APK from the GitHub Release and open it (allow “install from unknown sources” if prompted).
+- The app stays signed with the same release key, so updates install directly over previous versions.
+
+## v1.14.0
+
+- Mosque finder reliability, one-step back navigation, master adhan volume and update-check fixes.
+
+## v1.13.0
+
+- Permission and notification managers moved into the main Settings flow.
+
+## v1.12.0
+
+- Automatic release publication from tag-triggered GitHub Actions.
 
 ## v1.11.0
 
-5dc1adc Ship offline-map interactive picker, smart storage management & fully automatic release script
-48d19af Add 44 verified reciters, reader reciter picker, more-section reorder & notification manager fixes
-189977d Add offline maps, mosque markers, crash reporting, format-audit tests & reciter summaries
-7296043 Ship full world-language localization and remaining feature work
-1c3f4f9 Add recitation control notification, meanings/tafsir controls, hadith expansion & 17 bundled adhan sounds
-b9a5baf Add unified permission manager, port feature improvements & normalize line endings
-1b8e82e Add the 99 names of Allah to Learn (from main's efc9ddc, ported to new model)
-2d111db Enhance unified Notification Manager: quiet hours, per-category presentation & localized channels
-77d3d17 Add unified Notification Manager: master per-category switches for every notifier
-cf2daf2 Ship full hadith corpus as plain JSON (AGP decompresses .gz on asset merge)
-928eafa Bundle full offline content: Six-Books corpus, adhan recordings, pro Quran player
-3552cdc Add Six Books hadith import pipeline with duplicate checking
-2ba2bc8 Quran mushaf layout, reciter downloads, surah details & dynamic versioning
-3065bfd Complete Phase 4: customizable periodic adhkar reminder with bubbles
-18a96f1 CI: upgrade upload-artifact to v7 to drop the Node.js 20 deprecation warning
-a3a9e2e Complete Phase 3: hadith of the day notification + full 99-hadith corpus
-e319e3f Rebrand to Muslim + release readiness, reference library & polish features
-efc9ddc feat: add the 99 beautiful names of Allah with meanings
-faa4459 feat: complete phases 3-8 + Islamic reference library + design system
-cb0c5b7 Implement phases 4–8: adhkar, tasbih widget, learn guides, Ramadan, zakat + release readiness
-6734a02 Implement completion-plan phases A–D: settings hub, qibla map, adhan sounds, Quran reader, hadith module
-caa7e10 Phase 2 Quran reading + adhan sounds + Glance countdown widget
-a5bbdbf Initial commit: multi-module Android app + Phase 1 (prayer times, qibla, Hijri, adhan)
+- Offline-map interactive picker, smart storage management and fully automatic release script.
 
 ## v1.10.0
 
+- 44 verified reciters, reciter picker, More-section reorder, mosque markers, offline maps and notification manager improvements.
 
 ## v1.9.0
 
+- Offline maps, mosque markers, crash reporting, format-audit tests and reciter summaries.
 
 ## v1.8.0
 
+- Full world-language localization and remaining feature work.
 
 ## v1.7.0
 
+- Recitation control notification, meanings/tafsir controls, hadith expansion and bundled adhan sounds.
 
 ## v1.6.0
 
+- Unified notification manager with master switches for every notifier.
 
 ## v1.5.0
 
+- Full offline content, Six Books corpus, adhan recordings and Quran player improvements.
 
 ## v1.4.0
 
+- Six Books hadith import pipeline with duplicate checking.
 
 ## v1.3.0
 
+- Quran mushaf layout, reciter downloads, surah details and dynamic versioning.
 
 ## v1.2.0
 
+- Custom periodic adhkar reminders with bubble support.
 
 ## v1.1.0
 
+- CI maintenance and release automation improvements.
 
 ## v1.0.0
 
-
+- Initial Muslim Android application with prayer times, qibla, Hijri date and adhan support.

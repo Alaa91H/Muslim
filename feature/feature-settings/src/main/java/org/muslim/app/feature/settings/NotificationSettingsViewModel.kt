@@ -292,6 +292,7 @@ class NotificationSettingsViewModel @Inject constructor(
         NotificationCategory.PrayerCountdown -> R.string.notif_category_prayer_countdown
         NotificationCategory.Recitation -> R.string.notif_category_recitation
         NotificationCategory.Hajj -> R.string.notif_category_hajj
+        NotificationCategory.Family -> R.string.notif_category_family
         NotificationCategory.AppUpdate -> R.string.notif_category_app_update
     }
 

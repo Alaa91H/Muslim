@@ -155,6 +155,13 @@ enum class NotificationCategory(
         nameRes = R.string.channel_hajj, descriptionRes = R.string.channel_hajj_desc,
     ),
 
+    /** Family-life reminders such as the scheduled aqiqah date. */
+    Family(
+        NotificationChannels.FAMILY, defaultEnabled = true,
+        defaultImportance = NotificationImportance.Default, defaultSound = true, defaultVibrate = true, defaultBadge = true,
+        nameRes = R.string.channel_family, descriptionRes = R.string.channel_family_desc,
+    ),
+
     /** App-update availability alerts ("a new version is ready"). */
     AppUpdate(
         NotificationChannels.APP_UPDATE, defaultEnabled = true,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="ramadan_title">رمضان</string>
     <string name="ramadan_back">رجوع</string>
     <string name="ramadan_day_of_month">اليوم %1$s من رمضان</string>
@@ -26,4 +26,32 @@
     <string name="ramadan_notification_suhoor_body">بقي وقت على أذان الفجر — خذ سحورك</string>
     <string name="ramadan_notify_outside">التنبيهات خارج شهر رمضان</string>
     <string name="ramadan_notify_outside_desc">أشعار الإفطار والسحور تعمل تلقائيًا في رمضان؛ عند تفعيل هذا الخيار تستمر في الأشهر العادية.</string>
+
+    <string name="habit_tracker_title" tools:ignore="MissingTranslation">محاسبة النفس والعادات</string>
+    <string name="habit_tracker_today" tools:ignore="MissingTranslation">سجل طاعات اليوم بخطوات بسيطة</string>
+    <string name="habit_tracker_progress" tools:ignore="MissingTranslation">الإنجاز اليومي: %1$d من %2$d</string>
+    <string name="habit_tracker_daily_title" tools:ignore="MissingTranslation">الطاعات اليومية</string>
+    <string name="habit_tracker_reports" tools:ignore="MissingTranslation">التقارير والتقدم</string>
+    <string name="habit_tracker_weekly" tools:ignore="MissingTranslation">هذا الأسبوع</string>
+    <string name="habit_tracker_monthly" tools:ignore="MissingTranslation">هذا الشهر</string>
+    <string name="habit_tracker_streak" tools:ignore="MissingTranslation">السلسلة</string>
+    <string name="habit_tracker_points" tools:ignore="MissingTranslation">النقاط</string>
+    <string name="habit_tracker_level" tools:ignore="MissingTranslation">المستوى</string>
+    <string name="habit_tracker_days" tools:ignore="MissingTranslation">%1$d يوم</string>
+    <string name="habit_badge_starting" tools:ignore="MissingTranslation">البداية الطيبة — واصل التقدم</string>
+    <string name="habit_badge_building" tools:ignore="MissingTranslation">تبني عادة جميلة</string>
+    <string name="habit_badge_consistent" tools:ignore="MissingTranslation">ثبات مميز</string>
+    <string name="habit_badge_excellent" tools:ignore="MissingTranslation">إنجاز ممتاز</string>
+    <string name="habit_rawatib" tools:ignore="MissingTranslation">السنن الرواتب</string>
+    <string name="habit_duha" tools:ignore="MissingTranslation">صلاة الضحى</string>
+    <string name="habit_qiyam" tools:ignore="MissingTranslation">قيام الليل</string>
+    <string name="habit_congregation" tools:ignore="MissingTranslation">صلاة الجماعة في المسجد</string>
+    <string name="ramadan_plan_title" tools:ignore="MissingTranslation">خطة رمضان المخصصة</string>
+    <string name="ramadan_plan_active" tools:ignore="MissingTranslation">الخطة مفعّلة تلقائيًا لأيام رمضان</string>
+    <string name="ramadan_plan_next" tools:ignore="MissingTranslation">الخطة محفوظة وتظهر كاملة عند دخول رمضان</string>
+    <string name="ramadan_khatma_progress" tools:ignore="MissingTranslation">تقدم الختمة: %1$d من 30 جزءًا</string>
+    <string name="ramadan_plan_juz_hint" tools:ignore="MissingTranslation">حرّك المؤشر بعد إتمام كل جزء</string>
+    <string name="ramadan_taraweeh_today" tools:ignore="MissingTranslation">أتممت التراويح اليوم</string>
+    <string name="ramadan_itikaf" tools:ignore="MissingTranslation">خطة الاعتكاف مفعّلة</string>
+    <string name="ramadan_plan_dua" tools:ignore="MissingTranslation">دعاء مقترح: اللهم أعنّي على ذكرك وشكرك وحسن عبادتك</string>
 </resources>

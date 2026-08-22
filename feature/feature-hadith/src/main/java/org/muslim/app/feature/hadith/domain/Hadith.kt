@@ -25,6 +25,7 @@ enum class HadithCollection(
     AbuDawud("abudawud", org.muslim.app.feature.hadith.R.string.hadith_collection_abudawud),
     Nasai("nasai", org.muslim.app.feature.hadith.R.string.hadith_collection_nasai),
     IbnMajah("ibnmajah", org.muslim.app.feature.hadith.R.string.hadith_collection_ibnmajah),
+    Muwatta("muwatta", org.muslim.app.feature.hadith.R.string.hadith_collection_muwatta),
     Other("other", org.muslim.app.feature.hadith.R.string.hadith_collection_other);
 
     companion object {

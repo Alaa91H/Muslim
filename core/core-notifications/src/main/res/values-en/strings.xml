@@ -18,6 +18,8 @@
     <string name="channel_recitation_desc">Play / pause / stop controls for Quran recitation</string>
     <string name="channel_hajj">Pilgrim Companion</string>
     <string name="channel_hajj_desc">Daily reminder of the intended rite at its time during the Hajj days</string>
+    <string name="channel_family">Family life</string>
+    <string name="channel_family_desc">User-scheduled aqiqah and family reminders</string>
     <string name="channel_app_update">App updates</string>
     <string name="channel_app_update_desc">Notification when a new app version is available</string>
 </resources>

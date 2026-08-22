@@ -20,8 +20,13 @@ import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
+import org.muslim.app.feature.ramadan.data.HabitTrackerRepository
 import org.muslim.app.feature.ramadan.data.RamadanRepository
 import org.muslim.app.feature.ramadan.data.RamadanSettings
+import org.muslim.app.feature.ramadan.domain.HabitId
+import org.muslim.app.feature.ramadan.domain.HabitSummary
+import org.muslim.app.feature.ramadan.domain.HabitTrackerCalculator
+import org.muslim.app.feature.ramadan.domain.HabitTrackerState
 import org.muslim.app.feature.ramadan.domain.RamadanDates
 import org.muslim.app.feature.ramadan.domain.RamadanInfo
 import org.muslim.app.feature.ramadan.notifications.RamadanScheduler
@@ -41,6 +46,8 @@ data class RamadanUiState(
     val nextSuhoorMillis: Long?,
     val fastingDays: Set<LocalDate>,
     val settings: RamadanSettings,
+    val habitState: HabitTrackerState,
+    val habitSummary: HabitSummary,
 )
 
 /** Pure computation of the iftar/suhoor instants (unit-testable). */
@@ -100,6 +107,7 @@ object RamadanTimes {
 class RamadanViewModel @Inject constructor(
     private val prayerSettingsRepository: PrayerSettingsRepository,
     private val ramadanRepository: RamadanRepository,
+    private val habitTrackerRepository: HabitTrackerRepository,
     private val calculator: PrayerTimesCalculator,
     private val scheduler: RamadanScheduler,
     private val appPreferencesRepository: AppPreferencesRepository,
@@ -121,8 +129,9 @@ class RamadanViewModel @Inject constructor(
     val state: StateFlow<RamadanUiState> = combine(
         prayerSettingsRepository.settings,
         ramadanRepository.settings,
+        habitTrackerRepository.state,
         ticker,
-    ) { prayer, ramadan, nowMillis ->
+    ) { prayer, ramadan, habits, nowMillis ->
         val zone = prayer.location?.let { runCatching { ZoneId.of(it.timeZone) }.getOrNull() }
             ?: ZoneId.systemDefault()
         val today = LocalDate.now(zone)
@@ -143,6 +152,8 @@ class RamadanViewModel @Inject constructor(
             nextSuhoorMillis = times.nextSuhoorMillis,
             fastingDays = ramadan.fastingDays,
             settings = ramadan,
+            habitState = habits,
+            habitSummary = HabitTrackerCalculator.summary(habits, today),
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), placeholder())
 
@@ -158,11 +169,29 @@ class RamadanViewModel @Inject constructor(
             nextSuhoorMillis = null,
             fastingDays = emptySet(),
             settings = RamadanSettings(),
+            habitState = HabitTrackerState(),
+            habitSummary = HabitTrackerCalculator.summary(HabitTrackerState(), today),
         )
     }
 
     fun toggleFastingDay(date: LocalDate) {
         viewModelScope.launch { ramadanRepository.toggleFastingDay(date) }
+    }
+
+    fun toggleHabit(date: LocalDate, habit: HabitId) {
+        viewModelScope.launch { habitTrackerRepository.toggleHabit(date, habit) }
+    }
+
+    fun setKhatmaJuz(juz: Int) {
+        viewModelScope.launch { habitTrackerRepository.setKhatmaJuz(juz) }
+    }
+
+    fun toggleTaraweeh(date: LocalDate) {
+        viewModelScope.launch { habitTrackerRepository.toggleTaraweeh(date) }
+    }
+
+    fun setItikafEnabled(enabled: Boolean) {
+        viewModelScope.launch { habitTrackerRepository.setItikafEnabled(enabled) }
     }
 
     fun setIftarNotificationEnabled(enabled: Boolean) {

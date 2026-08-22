@@ -42,6 +42,9 @@ object NotificationChannels {
     /** Default-importance channel for the daily Hajj rite reminders ("Pilgrim Companion"). */
     const val HAJJ = "hajj_reminders"
 
+    /** Default-importance channel for family-life reminders such as aqiqah. */
+    const val FAMILY = "family_reminders"
+
     /** Default-importance channel for app-update notifications. */
     const val APP_UPDATE = "app_update"
 

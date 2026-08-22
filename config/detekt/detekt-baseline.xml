@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ForbiddenComment:Color.kt$* Fallback Material 3 color schemes, used when Dynamic Color (Material You) * is unavailable (Android &lt; 12) or disabled. * * The palette is a calm teal/green with a warm gold accent — inspired by * traditional Islamic ornament while keeping WCAG AA contrast in both modes. * TODO: verify all color pairs against WCAG AA (contrast &gt;= 4.5:1 for text).</ID>
+    <ID>LargeClass:HajjUmrahContent.kt$HajjUmrahContent</ID>
+    <ID>LargeClass:NamesOfAllah.kt$NamesOfAllahContent</ID>
+    <ID>LargeClass:ProphetsContent.kt$ProphetsContent</ID>
+    <ID>LargeClass:SiraContent.kt$SiraContent</ID>
+    <ID>LongMethod:AboutScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun AboutScreen( onBack: () -&gt; Unit, versionName: String, modifier: Modifier = Modifier, )</ID>
+    <ID>LongMethod:AdhkarScreen.kt$@Composable private fun DhikrCard( dhikr: Dhikr, count: androidx.compose.runtime.State&lt;Int&gt;, isFavorite: Boolean, onToggleFavorite: () -&gt; Unit, onIncrement: () -&gt; Unit, onReset: () -&gt; Unit, onCopied: () -&gt; Unit, )</ID>
+    <ID>LongMethod:AdhkarScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable private fun AdhkarLibraryContent( onBack: () -&gt; Unit, onOpenSettings: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: AdhkarViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:AdhkarSettingsScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun AdhkarSettingsScreen( onBack: () -&gt; Unit, onOpenCustomize: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: AdhkarSettingsViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:HadithScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun HadithScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: HadithViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:HajjUmrahScreen.kt$@Composable private fun CategoryHub( showEnglishFallback: Boolean, modifier: Modifier = Modifier, onOpen: (HajjCategory) -&gt; Unit, onOpenCalculator: () -&gt; Unit, hajjCompanionEnabled: Boolean, onToggleCompanion: (Boolean) -&gt; Unit, )</ID>
+    <ID>LongMethod:HajjUmrahScreen.kt$@Composable private fun StepCard( index: Int, step: HajjStep, checked: Boolean, onCheckedChange: (Boolean) -&gt; Unit, showEnglishFallback: Boolean, )</ID>
+    <ID>LongMethod:HajjUmrahScreen.kt$@Composable private fun TopicDetail( topic: HajjTopic, checkedSteps: Set&lt;String&gt;, onToggleStep: (String, Int) -&gt; Unit, showEnglishFallback: Boolean, modifier: Modifier = Modifier, )</ID>
+    <ID>LongMethod:HajjUmrahScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun HajjUmrahScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: LearnViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:HomeScreen.kt$@Composable fun HomeScreen( onSelectLocation: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: HomeViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:LearnScreen.kt$@Composable private fun TopicList( favoriteIds: Set&lt;String&gt;, onToggleFavorite: (String) -&gt; Unit, modifier: Modifier = Modifier, onOpen: (LearnTopic) -&gt; Unit, onOpenNames: () -&gt; Unit, onOpenHajj: () -&gt; Unit, )</ID>
+    <ID>LongMethod:LocationScreen.kt$@Composable fun LocationScreen( onSaved: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: LocationViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:MoreOrderScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun MoreOrderScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: MoreOrderViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:MosqueFinderScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun MosqueFinderScreen( latitude: Double?, longitude: Double?, onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: MosqueFinderViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:MuslimApp.kt$@Composable fun MuslimApp( modifier: Modifier = Modifier, initialRoute: String = "home", /** * The user-chosen start tab, snapshotted once at cold start (see * [org.muslim.app.MainActivity]). It is read on the very first composition * and never re-read reactively, so changing it in Settings does **not** * navigate to it — the choice applies on the next app launch only. */ initialStartTab: String = "home", onLanguageChanged: () -&gt; Unit = {}, )</ID>
+    <ID>LongMethod:NamesOfAllahScreen.kt$@Composable private fun NameDetail( name: DivineName, showEnglishFallback: Boolean, onPrevious: () -&gt; Unit, onNext: () -&gt; Unit, modifier: Modifier = Modifier, )</ID>
+    <ID>LongMethod:NamesOfAllahScreen.kt$@Composable private fun NamesList( modifier: Modifier = Modifier, onOpen: (DivineName) -&gt; Unit, )</ID>
+    <ID>LongMethod:NotificationSettingsScreen.kt$@Composable private fun CountdownNotificationPreview( preview: CountdownPreview, enabled: Boolean, showMissed: Boolean, missedColor: Int, use24h: Boolean, )</ID>
+    <ID>LongMethod:NotificationSettingsScreen.kt$@Composable private fun NotificationCategoryCard( use24h: Boolean, category: NotificationCategory, prefs: NotificationCategoryPrefs, onToggleEnabled: (Boolean) -&gt; Unit, onToggleSound: (Boolean) -&gt; Unit, onToggleVibrate: (Boolean) -&gt; Unit, onSelectImportance: (NotificationImportance) -&gt; Unit, onToggleBadge: (Boolean) -&gt; Unit, onTest: () -&gt; Unit, onSystemSettings: () -&gt; Unit, showMissedAdhan: Boolean = true, onToggleShowMissedAdhan: (Boolean) -&gt; Unit = {}, missedAdhanColor: Int = org.muslim.app.core.notifications.MissedAdhanColors.DEFAULT, onSelectMissedAdhanColor: (Int) -&gt; Unit = {}, dailyHadithTime: Int = 8 * 60, onDailyHadithTimeClick: () -&gt; Unit = {}, channelStatus: SystemChannelStatus = SystemChannelStatus.NotCreated, onOpenChannelSettings: () -&gt; Unit = {}, countdownPreview: CountdownPreview? = null, )</ID>
+    <ID>LongMethod:NotificationSettingsScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun NotificationSettingsScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: NotificationSettingsViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:OfflineMapsScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun OfflineMapsScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, /** Current GPS location, when known — powers the "use my location" picker. */ latitude: Double? = null, longitude: Double? = null, viewModel: OfflineMapsViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:OfflineMapsScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable private fun CustomAreaPicker( viewModel: OfflineMapsViewModel, onDismiss: () -&gt; Unit, latitude: Double? = null, longitude: Double? = null, )</ID>
+    <ID>LongMethod:PrayerSettingsScreen.kt$@Composable fun PrayerSettingsScreen( onOpenLocation: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: PrayerSettingsViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:PrayerSettingsScreen.kt$@Composable private fun AdhanCustomizeDialog( prayer: Prayer, option: AdhanSoundOption, sound: BundledAdhanSound, volume: Int, vibrate: Boolean, onPreview: (BundledAdhanSound, Int) -&gt; Unit, onLiveVolume: (Int) -&gt; Unit, onDismiss: () -&gt; Unit, onConfirm: (AdhanSoundOption, BundledAdhanSound, Int, Boolean) -&gt; Unit, )</ID>
+    <ID>LongMethod:QiblaScreen.kt$@Composable fun QiblaScreen( latitude: Double, longitude: Double, locationName: String, modifier: Modifier = Modifier, onOpenMosques: (() -&gt; Unit)? = null, viewModel: QiblaGpsViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:QiblaScreen.kt$@Composable private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier = Modifier)</ID>
+    <ID>LongMethod:QuranDownloadsScreen.kt$@Composable private fun ReciterStateSection( state: org.muslim.app.feature.quran.data.ReciterDownloadState?, surahAyahTotals: Map&lt;Int, Int&gt;, sortMode: SurahSort, onSortModeChanged: (SurahSort) -&gt; Unit, onDeleteSurah: (Int) -&gt; Unit, onDeleteReciter: () -&gt; Unit, )</ID>
+    <ID>LongMethod:QuranDownloadsScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun QuranDownloadsScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: QuranDownloadsViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:QuranReaderScreen.kt$@Composable private fun MushafPageCard( pageNumber: Int, ayahs: List&lt;Ayah&gt;, surahName: String, fontSizeSp: Float, playingAyahGlobal: Int?, selectedAyahGlobal: Int?, openedAyahGlobal: Int?, tappedAyahGlobal: Int?, scrollTargetAyahGlobal: Int?, onClick: () -&gt; Unit, onAyahClick: (Ayah) -&gt; Unit, onAyahRootTopPx: (Int, Float) -&gt; Unit, modifier: Modifier = Modifier, )</ID>
+    <ID>LongMethod:QuranReaderScreen.kt$@Composable private fun RecitationBar( playbackState: PlaybackState, currentAyah: Ayah?, hasNext: Boolean, hasPrevious: Boolean, repeatCount: Int, onRepeatChanged: (Int) -&gt; Unit, stopAtEnd: Boolean, onStopAtEndChanged: (Boolean) -&gt; Unit, onPrevious: () -&gt; Unit, onNext: () -&gt; Unit, onTogglePlayback: () -&gt; Unit, onStop: () -&gt; Unit, reciter: Reciter, onReciterSelected: (Reciter) -&gt; Unit, reciters: List&lt;Reciter&gt;, playingSurahName: String, playingSurahNumber: Int, playingAyahNumber: Int?, positionMs: Long, durationMs: Long, range: RecitationRange, onRangeChanged: (RecitationRange) -&gt; Unit, )</ID>
+    <ID>LongMethod:QuranReaderScreen.kt$@OptIn(ExperimentalMaterial3Api::class, FlowPreview::class) @Composable fun QuranReaderScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, onOpenDownloads: () -&gt; Unit = {}, viewModel: QuranReaderViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:SearchScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun SearchScreen( onBack: () -&gt; Unit, onOpenAyah: (surahNumber: Int, globalNumber: Int) -&gt; Unit, modifier: Modifier = Modifier, viewModel: SearchViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:SettingsScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun SettingsScreen( onOpenPrayerSettings: () -&gt; Unit, onOpenNotifications: () -&gt; Unit, onOpenPermissions: () -&gt; Unit, onOpenAbout: () -&gt; Unit, onOpenPrivacy: () -&gt; Unit, onLanguageChanged: () -&gt; Unit, modifier: Modifier = Modifier, onOpenMoreOrder: () -&gt; Unit = {}, /** Opens the in-app update screen (changelog + download). */ onOpenUpdates: () -&gt; Unit = {}, /** Back affordance when opened as a sub-screen (from the More hub). */ onBack: (() -&gt; Unit)? = null, viewModel: SettingsViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:TasbihScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun TasbihScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: TasbihViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:UpdateScreen.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun UpdateScreen( onBack: () -&gt; Unit, modifier: Modifier = Modifier, viewModel: UpdateViewModel = hiltViewModel(), )</ID>
+    <ID>LongMethod:ZakatScreen.kt$@Composable private fun CountrySection(state: ZakatUiState, viewModel: ZakatViewModel)</ID>
+    <ID>LongParameterList:AdhkarSettingsScreen.kt$( backgroundColor: Int, backgroundAlpha: Int, cornerRadiusDp: Int, fontSizeSp: Int, onBackgroundColor: (Int) -&gt; Unit, onBackgroundAlpha: (Int) -&gt; Unit, onCornerRadius: (Int) -&gt; Unit, onFontSize: (Int) -&gt; Unit, onReset: () -&gt; Unit, )</ID>
+    <ID>LongParameterList:AdhkarSettingsScreen.kt$( enabled: Boolean, startHour: Int, startMinute: Int, endHour: Int, endMinute: Int, onEnabledChanged: (Boolean) -&gt; Unit, onStartHourChanged: (Int) -&gt; Unit, onStartMinuteChanged: (Int) -&gt; Unit, onEndHourChanged: (Int) -&gt; Unit, onEndMinuteChanged: (Int) -&gt; Unit, )</ID>
+    <ID>LongParameterList:MoreScreen.kt$( onOpenSettings: () -&gt; Unit, onOpenHadith: () -&gt; Unit, onOpenAdhkar: () -&gt; Unit, onOpenTasbih: () -&gt; Unit, onOpenRamadan: () -&gt; Unit, onOpenZakat: () -&gt; Unit, onOpenLearn: () -&gt; Unit, onOpenReference: () -&gt; Unit, onOpenDownloads: () -&gt; Unit, modifier: Modifier = Modifier, onOpenNames: () -&gt; Unit = {}, onOpenHajj: () -&gt; Unit = {}, onOpenQuranSearch: () -&gt; Unit = {}, onOpenQuranFrequency: () -&gt; Unit = {}, onOpenOfflineMaps: () -&gt; Unit = {}, /** User-customized section order (ids from [org.muslim.app.core.datastore.AppPreferences]). */ sectionOrder: List&lt;String&gt; = org.muslim.app.core.datastore.AppPreferences.DEFAULT_MORE_SECTION_ORDER, /** Sections the user chose to hide (ids from [org.muslim.app.core.datastore.AppPreferences]). */ hiddenSections: Set&lt;String&gt; = emptySet(), )</ID>
+    <ID>LongParameterList:NotificationCategory.kt$NotificationCategory$( val channelId: String, val defaultEnabled: Boolean, val defaultImportance: NotificationImportance, val defaultSound: Boolean, val defaultVibrate: Boolean, val defaultBadge: Boolean, val nameRes: Int, val descriptionRes: Int, )</ID>
+    <ID>LongParameterList:NotificationSettingsScreen.kt$( use24h: Boolean, category: NotificationCategory, prefs: NotificationCategoryPrefs, onToggleEnabled: (Boolean) -&gt; Unit, onToggleSound: (Boolean) -&gt; Unit, onToggleVibrate: (Boolean) -&gt; Unit, onSelectImportance: (NotificationImportance) -&gt; Unit, onToggleBadge: (Boolean) -&gt; Unit, onTest: () -&gt; Unit, onSystemSettings: () -&gt; Unit, showMissedAdhan: Boolean = true, onToggleShowMissedAdhan: (Boolean) -&gt; Unit = {}, missedAdhanColor: Int = org.muslim.app.core.notifications.MissedAdhanColors.DEFAULT, onSelectMissedAdhanColor: (Int) -&gt; Unit = {}, dailyHadithTime: Int = 8 * 60, onDailyHadithTimeClick: () -&gt; Unit = {}, channelStatus: SystemChannelStatus = SystemChannelStatus.NotCreated, onOpenChannelSettings: () -&gt; Unit = {}, countdownPreview: CountdownPreview? = null, )</ID>
+    <ID>LongParameterList:PrayerSettingsScreen.kt$( prayer: Prayer, option: AdhanSoundOption, sound: BundledAdhanSound, volume: Int, vibrate: Boolean, globalVolume: Boolean, globalVolumeValue: Int, previewing: Boolean, onPreview: () -&gt; Unit, onVolumeChange: (Int) -&gt; Unit, onLiveVolume: (Int) -&gt; Unit, onVibrateChange: (Boolean) -&gt; Unit, onCustomize: () -&gt; Unit, )</ID>
+    <ID>LongParameterList:PrayerSettingsScreen.kt$( prayer: Prayer, option: AdhanSoundOption, sound: BundledAdhanSound, volume: Int, vibrate: Boolean, onPreview: (BundledAdhanSound, Int) -&gt; Unit, onLiveVolume: (Int) -&gt; Unit, onDismiss: () -&gt; Unit, onConfirm: (AdhanSoundOption, BundledAdhanSound, Int, Boolean) -&gt; Unit, )</ID>
+    <ID>LongParameterList:QuranReaderScreen.kt$( pageNumber: Int, ayahs: List&lt;Ayah&gt;, surahName: String, fontSizeSp: Float, playingAyahGlobal: Int?, selectedAyahGlobal: Int?, openedAyahGlobal: Int?, tappedAyahGlobal: Int?, scrollTargetAyahGlobal: Int?, onClick: () -&gt; Unit, onAyahClick: (Ayah) -&gt; Unit, onAyahRootTopPx: (Int, Float) -&gt; Unit, modifier: Modifier = Modifier, )</ID>
+    <ID>LongParameterList:QuranReaderScreen.kt$( playbackState: PlaybackState, currentAyah: Ayah?, hasNext: Boolean, hasPrevious: Boolean, repeatCount: Int, onRepeatChanged: (Int) -&gt; Unit, stopAtEnd: Boolean, onStopAtEndChanged: (Boolean) -&gt; Unit, onPrevious: () -&gt; Unit, onNext: () -&gt; Unit, onTogglePlayback: () -&gt; Unit, onStop: () -&gt; Unit, reciter: Reciter, onReciterSelected: (Reciter) -&gt; Unit, reciters: List&lt;Reciter&gt;, playingSurahName: String, playingSurahNumber: Int, playingAyahNumber: Int?, positionMs: Long, durationMs: Long, range: RecitationRange, onRangeChanged: (RecitationRange) -&gt; Unit, )</ID>
+    <ID>LongParameterList:QuranReaderScreen.kt$( spread: List&lt;Map.Entry&lt;Int, List&lt;Ayah&gt;&gt;&gt;, surahName: String, fontSizeSp: Float, playingAyahGlobal: Int?, selectedAyahGlobal: Int?, openedAyahGlobal: Int?, tappedAyahGlobal: Int?, scrollTargetAyahGlobal: Int?, onClickPage: (List&lt;Ayah&gt;) -&gt; Unit, onAyahClick: (Ayah) -&gt; Unit, onAyahRootTopPx: (Int, Float) -&gt; Unit, )</ID>
+    <ID>LongParameterList:QuranReaderViewModel.kt$QuranReaderViewModel$( @ApplicationContext private val context: Context, private val repository: QuranRepository, private val prefsRepository: QuranPrefsRepository, private val supplementRepository: QuranSupplementRepository, private val recitationRepository: RecitationRepository, private val downloadManager: QuranDownloadManager, private val audioPlayer: QuranAudioPlayer, savedStateHandle: SavedStateHandle, )</ID>
+    <ID>LongParameterList:RamadanSchedulePlanner.kt$RamadanSchedulePlanner$( now: Long, todayInRamadan: Boolean, tomorrowInRamadan: Boolean, outsideEnabled: Boolean, suhoorMinutesBefore: Int, todayMaghrib: Long?, tomorrowMaghrib: Long?, tomorrowFajr: Long?, )</ID>
+    <ID>LongParameterList:SolarAstronomy.kt$SolarAstronomy$( approximateTransit: Double, angle: Double, coordinates: Coordinates, afterTransit: Boolean, siderealTime: Double, rightAscension: Double, previousRightAscension: Double, nextRightAscension: Double, declination: Double, previousDeclination: Double, nextDeclination: Double, )</ID>
+    <ID>SpreadOperator:OsmMapView.kt$( screenPoint, *layerIds.toTypedArray(), )</ID>
+    <ID>TooManyFunctions:QuranRepository.kt$QuranRepository</ID>
+    <ID>TooManyFunctions:SolarAstronomy.kt$SolarAstronomy</ID>
+    <ID>UnconditionalJumpStatementInLoop:ArabicText.kt$ArabicText$while (j &lt; text.length) { val c = text[j] if (c.code in 0x064B..0x065F) { j++; continue } if (c.code in 0x06D6..0x06ED) { j++; continue } if (c == '\u06DD') { j++; continue } if (c == '\u0670') { j++; continue } break }</ID>
+    <ID>UnusedImports:AboutScreen.kt$import org.muslim.app.feature.settings.R</ID>
+    <ID>UnusedImports:AdhkarBubbleActivity.kt$import android.view.WindowManager</ID>
+    <ID>UnusedImports:AdhkarBubbleActivity.kt$import org.muslim.app.feature.adhkar.R</ID>
+    <ID>UnusedImports:AdhkarRepository.kt$import kotlinx.coroutines.flow.first</ID>
+    <ID>UnusedImports:AdhkarScreen.kt$import org.muslim.app.feature.adhkar.domain.DhikrCategory</ID>
+    <ID>UnusedImports:AdhkarSettingsScreen.kt$import androidx.compose.foundation.Canvas</ID>
+    <ID>UnusedImports:AdhkarSettingsScreen.kt$import androidx.compose.foundation.gestures.detectDragGestures</ID>
+    <ID>UnusedImports:AdhkarSettingsScreen.kt$import androidx.compose.runtime.mutableFloatStateOf</ID>
+    <ID>UnusedImports:AdhkarSettingsScreen.kt$import androidx.compose.ui.geometry.Offset</ID>
+    <ID>UnusedImports:AdhkarSettingsScreen.kt$import androidx.compose.ui.graphics.Brush</ID>
+    <ID>UnusedImports:AdhkarSettingsScreen.kt$import androidx.compose.ui.input.pointer.pointerInput</ID>
+    <ID>UnusedImports:BookmarksScreen.kt$import androidx.compose.foundation.layout.Row</ID>
+    <ID>UnusedImports:BookmarksViewModel.kt$import kotlinx.coroutines.flow.map</ID>
+    <ID>UnusedImports:HadithOfTheDayWorkerTest.kt$import android.content.Context</ID>
+    <ID>UnusedImports:HadithOfTheDayWorkerTest.kt$import androidx.work.WorkerParameters</ID>
+    <ID>UnusedImports:HadithScreen.kt$import androidx.compose.ui.unit.sp</ID>
+    <ID>UnusedImports:HadithViewModel.kt$import kotlinx.coroutines.flow.asStateFlow</ID>
+    <ID>UnusedImports:HajjDaysCalculatorScreen.kt$import androidx.compose.foundation.layout.size</ID>
+    <ID>UnusedImports:HajjDaysCalculatorScreen.kt$import androidx.compose.foundation.layout.width</ID>
+    <ID>UnusedImports:HajjDaysCalculatorScreen.kt$import androidx.compose.foundation.shape.CircleShape</ID>
+    <ID>UnusedImports:HajjDaysCalculatorScreen.kt$import androidx.compose.material.icons.filled.Calculate</ID>
+    <ID>UnusedImports:HajjUmrahScreen.kt$import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft</ID>
+    <ID>UnusedImports:HajjUmrahScreen.kt$import androidx.compose.ui.graphics.vector.ImageVector</ID>
+    <ID>UnusedImports:HomeScreen.kt$import androidx.compose.material.icons.automirrored.filled.ArrowForward</ID>
+    <ID>UnusedImports:HsvColorPicker.kt$import androidx.compose.foundation.background</ID>
+    <ID>UnusedImports:LearnScreen.kt$import androidx.compose.ui.graphics.vector.ImageVector</ID>
+    <ID>UnusedImports:MainActivity.kt$import android.os.Build</ID>
+    <ID>UnusedImports:MoreScreen.kt$import androidx.compose.material.icons.filled.NotificationsActive</ID>
+    <ID>UnusedImports:MosqueFinderScreen.kt$import androidx.compose.material3.OutlinedTextField</ID>
+    <ID>UnusedImports:NotificationGate.kt$import kotlinx.coroutines.flow.first</ID>
+    <ID>UnusedImports:NotificationSettingsScreen.kt$import androidx.compose.material.icons.filled.Schedule</ID>
+    <ID>UnusedImports:NotificationSettingsScreen.kt$import androidx.compose.ui.text.style.TextOverflow</ID>
+    <ID>UnusedImports:NotificationSettingsScreen.kt$import org.muslim.app.feature.settings.R</ID>
+    <ID>UnusedImports:NotificationSettingsViewModel.kt$import java.time.LocalDate</ID>
+    <ID>UnusedImports:NotificationSettingsViewModel.kt$import org.muslim.app.feature.settings.R</ID>
+    <ID>UnusedImports:OfflineMapsScreen.kt$import androidx.compose.material.icons.filled.Refresh</ID>
+    <ID>UnusedImports:OfflineMapsScreen.kt$import androidx.compose.material3.CircularProgressIndicator</ID>
+    <ID>UnusedImports:PermissionsScreen.kt$import androidx.compose.foundation.clickable</ID>
+    <ID>UnusedImports:PermissionsScreen.kt$import androidx.compose.runtime.mutableStateOf</ID>
+    <ID>UnusedImports:PermissionsScreen.kt$import androidx.compose.runtime.remember</ID>
+    <ID>UnusedImports:PermissionsScreen.kt$import org.muslim.app.feature.settings.R</ID>
+    <ID>UnusedImports:PrayerSettingsScreen.kt$import androidx.compose.ui.unit.sp</ID>
+    <ID>UnusedImports:PrayerSettingsViewModel.kt$import java.time.LocalDate</ID>
+    <ID>UnusedImports:PrivacyScreen.kt$import org.muslim.app.feature.settings.R</ID>
+    <ID>UnusedImports:QiblaCalculatorTest.kt$import kotlin.math.abs</ID>
+    <ID>UnusedImports:QuranDownloadsScreen.kt$import androidx.compose.runtime.saveable.rememberSaveable</ID>
+    <ID>UnusedImports:QuranPrefsRepository.kt$import kotlinx.coroutines.flow.first</ID>
+    <ID>UnusedImports:QuranReaderScreen.kt$import androidx.compose.foundation.rememberScrollState</ID>
+    <ID>UnusedImports:RamadanScreen.kt$import androidx.compose.foundation.shape.CircleShape</ID>
+    <ID>UnusedImports:ReferenceScreen.kt$import androidx.compose.ui.graphics.vector.ImageVector</ID>
+    <ID>UnusedImports:SettingsScreen.kt$import org.muslim.app.feature.settings.R</ID>
+    <ID>UnusedImports:SurahListViewModel.kt$import kotlinx.coroutines.flow.map</ID>
+    <ID>UnusedImports:TasbihScreen.kt$import androidx.compose.material3.Button</ID>
+    <ID>UnusedImports:TasbihScreen.kt$import androidx.compose.ui.unit.sp</ID>
+    <ID>UnusedImports:TasbihScreen.kt$import org.muslim.app.feature.tasbih.domain.TasbihState</ID>
+    <ID>UnusedImports:UpdateScreen.kt$import androidx.compose.material3.HorizontalDivider</ID>
+    <ID>UnusedParameter:AdhanAlarmReceiver.kt$AdhanAlarmReceiver$intent: Intent</ID>
+    <ID>UnusedParameter:AdhanScheduler.kt$AdhanScheduler$location: SelectedLocation</ID>
+    <ID>UnusedParameter:AdhkarScreen.kt$modifier: Modifier = Modifier</ID>
+    <ID>UnusedParameter:AdhkarScreen.kt$viewModel: AdhkarViewModel = hiltViewModel()</ID>
+    <ID>UnusedParameter:HadithScreen.kt$bookmarked: Boolean</ID>
+    <ID>UnusedParameter:HadithScreen.kt$onToggleBookmark: () -&gt; Unit</ID>
+    <ID>UnusedParameter:MagneticDeclination.kt$MagneticDeclination$context: Context</ID>
+    <ID>UnusedParameter:MoreOrderScreen.kt$translationY: Float</ID>
+    <ID>UnusedParameter:PrayerSettingsScreen.kt$prayer: Prayer</ID>
+    <ID>UnusedParameter:QiblaCalculator.kt$QiblaCalculator$centerLongitude: Double</ID>
+    <ID>UnusedParameter:QuranDownloadService.kt$QuranDownloadService$bytes: Long</ID>
+    <ID>UnusedParameter:SolarAstronomy.kt$SolarAstronomy$t: Double</ID>
+    <ID>UnusedPrivateMember:PlaceholderScreen.kt$@Preview(showBackground = true) @Composable private fun PlaceholderScreenPreview()</ID>
+    <ID>UnusedPrivateProperty:AdhanSynthesizer.kt$AdhanSynthesizer$val t = i.toDouble() / length</ID>
+    <ID>UnusedPrivateProperty:MuslimApp.kt$val context = LocalContext.current</ID>
+    <ID>UnusedPrivateProperty:NotificationSettingsScreen.kt$val context = LocalContext.current</ID>
+    <ID>UnusedPrivateProperty:SolarAstronomy.kt$SolarAstronomy$i</ID>
+  </CurrentIssues>
+</SmellBaseline>

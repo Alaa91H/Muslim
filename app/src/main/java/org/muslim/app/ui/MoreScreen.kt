@@ -22,12 +22,14 @@ import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Calculate
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FamilyRestroom
 import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.NightsStay
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.School
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.SelfImprovement
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
@@ -73,6 +75,7 @@ private data class MoreSection(
  * as an organized list rather than a scattered, oversized grid.
  */
 @OptIn(ExperimentalMaterial3Api::class)
+@Suppress("LongParameterList")
 @Composable
 fun MoreScreen(
     onOpenSettings: () -> Unit,
@@ -80,6 +83,7 @@ fun MoreScreen(
     onOpenAdhkar: () -> Unit,
     onOpenTasbih: () -> Unit,
     onOpenRamadan: () -> Unit,
+    onOpenHabits: () -> Unit = {},
     onOpenZakat: () -> Unit,
     onOpenLearn: () -> Unit,
     onOpenReference: () -> Unit,
@@ -87,6 +91,7 @@ fun MoreScreen(
     modifier: Modifier = Modifier,
     onOpenNames: () -> Unit = {},
     onOpenHajj: () -> Unit = {},
+    onOpenFamily: () -> Unit = {},
     onOpenQuranSearch: () -> Unit = {},
     onOpenQuranFrequency: () -> Unit = {},
     onOpenOfflineMaps: () -> Unit = {},
@@ -103,6 +108,7 @@ fun MoreScreen(
                 MoreEntry(R.string.more_adhkar, R.string.more_adhkar_desc, Icons.Filled.Favorite, onOpenAdhkar),
                 MoreEntry(R.string.more_tasbih, R.string.more_tasbih_desc, Icons.Filled.AutoStories, onOpenTasbih),
                 MoreEntry(R.string.more_ramadan, R.string.more_ramadan_desc, Icons.Filled.NightsStay, onOpenRamadan),
+                MoreEntry(R.string.more_habits, R.string.more_habits_desc, Icons.Filled.SelfImprovement, onOpenHabits),
             ),
         ),
         org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_KNOWLEDGE to MoreSection(
@@ -113,6 +119,7 @@ fun MoreScreen(
                 MoreEntry(R.string.more_learn, R.string.more_learn_desc, Icons.Filled.School, onOpenLearn),
                 MoreEntry(R.string.more_names, R.string.more_names_desc, Icons.Filled.Star, onOpenNames),
                 MoreEntry(R.string.more_hajj, R.string.more_hajj_desc, Icons.Filled.Place, onOpenHajj),
+                MoreEntry(R.string.more_family, R.string.more_family_desc, Icons.Filled.FamilyRestroom, onOpenFamily),
                 MoreEntry(R.string.more_reference, R.string.more_reference_desc, Icons.Filled.AutoStories, onOpenReference),
                 MoreEntry(R.string.more_quran_search, R.string.more_quran_search_desc, Icons.Filled.Search, onOpenQuranSearch),
                 MoreEntry(R.string.more_quran_frequency, R.string.more_quran_frequency_desc, Icons.Filled.BarChart, onOpenQuranFrequency),

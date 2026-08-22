@@ -153,6 +153,8 @@
     <string name="notif_category_recitation_desc">A notification with play / pause / stop controls while reciting the Quran</string>
     <string name="notif_category_hajj">Pilgrim Companion</string>
     <string name="notif_category_hajj_desc">Daily reminder of the intended rite at its time during the Hajj days</string>
+    <string name="notif_category_family">Family life</string>
+    <string name="notif_category_family_desc">Aqiqah and family-date reminders</string>
     <string name="notif_category_app_update">App updates</string>
     <string name="notif_category_app_update_desc">Notification when a new app version is available</string>
     <string name="notif_missed_color">Missed adhan line color</string>

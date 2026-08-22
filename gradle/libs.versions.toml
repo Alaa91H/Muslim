@@ -7,6 +7,7 @@
 agp = "9.3.1"
 kotlin = "2.2.10"                      # Matches AGP 9.x built-in Kotlin (KGP auto-upgraded to 2.2.10)
 ksp = "2.2.10-2.0.2"                   # Must match the Kotlin version above
+detekt = "1.23.8"
 
 # AndroidX core
 coreKtx = "1.19.0"
@@ -119,6 +120,7 @@ truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
 robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 
 [plugins]
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 # Compose compiler Gradle plugin — version must match the Kotlin compiler version.

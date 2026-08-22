@@ -46,6 +46,7 @@
     <string name="mosque_finder_expanding">Searching within %1$s…</string>
     <string name="mosque_finder_search_hint">Search mosques by name</string>
     <string name="mosque_finder_show_all">Show all mosques</string>
+    <string name="mosque_finder_cached_results">Showing the last successful results saved on this device — tap Retry to refresh</string>
 
     <!-- Offline maps download -->
     <string name="offline_maps_title">Offline maps</string>

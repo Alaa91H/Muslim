@@ -18,6 +18,7 @@ import kotlin.math.sin
 import kotlin.math.sqrt
 
 /** A nearby mosque from OpenStreetMap. */
+@Serializable
 data class Mosque(
     val name: String,
     val latitude: Double,
@@ -57,11 +58,19 @@ private data class OverpassCenter(
 @Singleton
 class MosqueFinderRepository @Inject constructor() {
 
-    /** Public Overpass endpoints tried in order (the main one is often overloaded). */
+    /**
+     * Public Overpass endpoints tried in order. The main German instance is
+     * chronically overloaded (HTTP 504/connection drops under load) and the
+     * community mirrors come and go, so the list is ordered by measured
+     * reliability and the fetch loop retries all of them. fr.openstreetmap
+     * mirrors the full planet and is the most dependable day to day.
+     */
     private val OVERPASS_ENDPOINTS = listOf(
+        "https://overpass.openstreetmap.fr/api/interpreter",
         "https://overpass-api.de/api/interpreter",
         "https://overpass.kumi.systems/api/interpreter",
         "https://overpass.private.coffee/api/interpreter",
+        "https://overpass.nchc.org.tw/api/interpreter",
     )
 
     /**
@@ -71,9 +80,10 @@ class MosqueFinderRepository @Inject constructor() {
      * call right as the server starts answering.
      */
     private val client = OkHttpClient.Builder()
-        .connectTimeout(20, TimeUnit.SECONDS)
-        .readTimeout(60, TimeUnit.SECONDS)
-        .writeTimeout(30, TimeUnit.SECONDS)
+        .connectTimeout(15, TimeUnit.SECONDS)
+        .readTimeout(20, TimeUnit.SECONDS)
+        .writeTimeout(20, TimeUnit.SECONDS)
+        .callTimeout(25, TimeUnit.SECONDS)
         .addInterceptor { chain ->
             chain.proceed(
                 chain.request().newBuilder()
@@ -99,20 +109,33 @@ class MosqueFinderRepository @Inject constructor() {
         // the centroid for ways.
         val query = buildQuery(latitude, longitude, radiusMeters)
         var failure: Exception? = null
-        // Two full passes over the endpoints. The main Overpass instance is
-        // intermittently overloaded (HTTP 504 “gateway timeout”) yet answers
-        // fine seconds later, so a single pass frequently fails even though
-        // the network is healthy.
-        repeat(2) { pass ->
+        var hadSuccessfulResponse = false
+        // Multiple full passes over the endpoints: Overpass instances are
+        // intermittently overloaded (HTTP 504 gateway timeouts, connection
+        // resets) yet answer fine moments later, so a single pass frequently
+        // fails even though the network is healthy. A short pause between
+        // passes lets a recovering instance come back. A hard deadline keeps
+        // even a total outage from blocking the screen for minutes.
+        val deadline = System.currentTimeMillis() + 75_000L
+        repeat(3) { pass ->
             for (endpoint in OVERPASS_ENDPOINTS) {
+                if (System.currentTimeMillis() > deadline) {
+                    throw failure ?: IllegalStateException("Overpass search timed out")
+                }
                 try {
-                    return@withContext fetch(endpoint, query, latitude, longitude)
+                    val results = fetch(endpoint, query, latitude, longitude)
+                    hadSuccessfulResponse = true
+                    // A healthy endpoint can still return an empty set when
+                    // its local database is lagging. Keep trying the other
+                    // mirrors before concluding that the city has no mosques.
+                    if (results.isNotEmpty()) return@withContext results
                 } catch (e: Exception) {
                     failure = e
                 }
             }
-            if (pass == 0) Thread.sleep(1_500)
+            if (pass < 2) Thread.sleep(2_000)
         }
+        if (hadSuccessfulResponse) return@withContext emptyList()
         throw failure ?: IllegalStateException("No Overpass endpoint configured")
     }
 
@@ -137,9 +160,14 @@ class MosqueFinderRepository @Inject constructor() {
     internal suspend fun nearbyNearestWith(
         fetch: suspend (radiusKm: Int) -> List<Mosque>,
         onRadiusKm: suspend (Int) -> Unit = {},
+        timeBudgetMillis: Long = 90_000L,
     ): List<Mosque> {
         val radiiKm = listOf(1, 3, 5, 10, 25, 50, 100, 250, 500, 1000)
+        val deadline = System.currentTimeMillis() + timeBudgetMillis
         for (radiusKm in radiiKm) {
+            // When every Overpass instance is unreachable, stop expanding once
+            // the budget is spent instead of chaining ten slow timeouts.
+            if (System.currentTimeMillis() > deadline) break
             onRadiusKm(radiusKm)
             val found = fetch(radiusKm).sortedBy { it.distanceMeters }
             if (found.isNotEmpty()) return found
@@ -147,7 +175,7 @@ class MosqueFinderRepository @Inject constructor() {
         return emptyList()
     }
 
-    private fun buildQuery(latitude: Double, longitude: Double, radiusMeters: Int): String =
+    internal fun buildQuery(latitude: Double, longitude: Double, radiusMeters: Int): String =
         // `nwr` matches nodes, ways and relations in one statement, and the
         // tags cover every way OSM maps a mosque (place_of_worship+muslim is
         // the canonical one; building=mosque / amenity=mosque are legacy).
@@ -156,11 +184,15 @@ class MosqueFinderRepository @Inject constructor() {
         """
             [out:json][timeout:30];
             (
-              nwr["amenity"="place_of_worship"]["religion"="muslim"](around:$radiusMeters,$latitude,$longitude);
-              nwr["building"="mosque"](around:$radiusMeters,$latitude,$longitude);
               nwr["amenity"="mosque"](around:$radiusMeters,$latitude,$longitude);
+              nwr["building"="mosque"](around:$radiusMeters,$latitude,$longitude);
+              nwr["building"="masjid"](around:$radiusMeters,$latitude,$longitude);
+              nwr["place_of_worship"="mosque"](around:$radiusMeters,$latitude,$longitude);
+              nwr["place_of_worship"="masjid"](around:$radiusMeters,$latitude,$longitude);
+              nwr["amenity"="place_of_worship"]["religion"="muslim"](around:$radiusMeters,$latitude,$longitude);
+              nwr["amenity"="place_of_worship"]["religion"="islam"](around:$radiusMeters,$latitude,$longitude);
             );
-            out center qt 100;
+            out center qt;
         """.trimIndent()
 
     private fun fetch(

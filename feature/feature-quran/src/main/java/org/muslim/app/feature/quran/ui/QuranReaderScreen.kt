@@ -121,6 +121,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import org.muslim.app.core.common.text.ArabicText
 import org.muslim.app.feature.quran.R
+import org.muslim.app.feature.quran.domain.TajweedMarkup
 import org.muslim.app.feature.quran.data.PlaybackState
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.domain.Ayah
@@ -1296,7 +1297,17 @@ private fun MushafPageCard(
                 },
             ) {
                 withStyle(highlight) {
-                    append(if (ayah === firstAyah) firstAyahText else ayah.text)
+                    val ayahText = if (ayah === firstAyah) firstAyahText else ayah.text
+                    TajweedMarkup.segment(ayahText).forEach { segment ->
+                        val color = when (segment.rule) {
+                            org.muslim.app.feature.quran.domain.TajweedRule.Ghunnah -> Color(0xFF1565C0)
+                            org.muslim.app.feature.quran.domain.TajweedRule.Madd -> Color(0xFF2E7D32)
+                            org.muslim.app.feature.quran.domain.TajweedRule.Qalqalah -> Color(0xFFC62828)
+                            org.muslim.app.feature.quran.domain.TajweedRule.NoonRules -> Color(0xFF6A1B9A)
+                            null -> null
+                        }
+                        if (color == null) append(segment.text) else withStyle(SpanStyle(color = color)) { append(segment.text) }
+                    }
                     append(" ")
                     withStyle(
                         SpanStyle(

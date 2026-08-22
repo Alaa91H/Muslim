@@ -14,6 +14,29 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.hilt) apply false
+    // Static analysis (Detekt): applied at the root and pointed at the whole
+    // source tree in one pass. This avoids per-module plugin wiring, which
+    // AGP 9's built-in Kotlin (no org.jetbrains.kotlin.android plugin id)
+    // makes awkward. config/detekt/detekt.yml holds the rule set and
+    // config/detekt/detekt-baseline.xml pins current findings so the gate
+    // fails only on NEW violations.
+    alias(libs.plugins.detekt)
+}
+
+detekt {
+    config.setFrom(files("$rootDir/config/detekt/detekt.yml"))
+    baseline = file("$rootDir/config/detekt/detekt-baseline.xml")
+    parallel = true
+    // Analyze every Kotlin source set (main + test) across all modules in a
+    // single pass. Build outputs and the Freebuff worktree are excluded.
+    source.setFrom(
+        files(
+            fileTree(rootDir) {
+                include("**/src/main/**/*.kt", "**/src/test/**/*.kt")
+                exclude("**/build/**", "**/.freebuff/**")
+            },
+        ),
+    )
 }
 
 // ---------------------------------------------------------------------------

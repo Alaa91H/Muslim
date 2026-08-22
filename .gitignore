@@ -15,6 +15,8 @@ captures/
 
 # Android
 *.apk
+# one-off agent patch scripts (scratch, never shipped)
+patch_*.py
 *.aab
 *.keystore
 !debug.keystore
@@ -33,10 +35,3 @@ release.keystore
 # NOTE: This file is committed so every build ships the full corpus offline.
 # Re-import with: python scripts/import-hadith.py
 # feature/feature-hadith/src/main/assets/hadith_full.json
-
-# Python (bytecode cache is never committed)
-__pycache__/
-*.pyc
-
-# one-off agent patch scripts (scratch, never shipped)
-patch_*.py
