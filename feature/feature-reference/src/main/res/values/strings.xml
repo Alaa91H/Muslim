@@ -7,4 +7,27 @@
     <string name="reference_topics_count">موضوعًا</string>
     <string name="reference_copy">نسخ</string>
     <string name="reference_share">مشاركة</string>
+    <!-- Islamic history and civilization -->
+    <string name="history_title">التاريخ والحضارة الإسلامية</string>
+    <string name="history_timeline_tab">الخط الزمني</string>
+    <string name="history_atlas_tab">الأطلس</string>
+    <string name="history_people_tab">شخصيات وأعلام</string>
+    <string name="history_language_english">English</string>
+    <string name="history_language_arabic">العربية</string>
+    <string name="history_timeline_intro">خط زمني تعليمي مختصر من البعثة إلى العصر الحديث. يعرض محطات كبرى ولا يغني عن دراسة المصادر المتخصصة.</string>
+    <string name="history_era_range">%1$d–%2$s م</string>
+    <string name="history_present">الوقت الحاضر</string>
+    <string name="history_era_highlights">محطات مختارة</string>
+    <string name="history_atlas_intro">أطلس تفاعلي للتوجيه الجغرافي. المناطق والأطوال ملخصات تخطيطية تعليمية؛ ليست حدوداً سياسية دقيقة ولا تمثيلاً لكل المراحل أو المجتمعات.</string>
+    <string name="history_atlas_layer">اختر طبقة تاريخية</string>
+    <string name="history_atlas_zoom_in">تكبير الخريطة</string>
+    <string name="history_atlas_zoom_out">تصغير الخريطة</string>
+    <string name="history_atlas_schematic">نطاق تخطيطي تقريبي</string>
+    <string name="history_atlas_routes">طرق وممرات مختارة</string>
+    <string name="history_atlas_places">انقر على علامة لعرض سياقها</string>
+    <string name="history_atlas_close">إغلاق التفاصيل</string>
+    <string name="history_people_intro">تراجم موجزة لعينات من القادة والعلماء والمفكرين؛ لا تختزل هذه البطاقات تاريخهم أو تنسب إليهم اكتشافات بصيغة مبالغ فيها.</string>
+    <string name="history_people_field">المجال: %1$s</string>
+    <string name="history_people_contribution">السياق والأثر</string>
+    <string name="history_sources_notice">اعتمد المحتوى على مراجع متحفية وتعليمية وتاريخية موثقة في ملف مصادر الميزة. تحتاج التفاصيل والخلافات التاريخية إلى مراجعة مختصين قبل اعتمادها كتأريخ رسمي.</string>
 </resources>

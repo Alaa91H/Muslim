@@ -297,6 +297,51 @@ fun MapLibreMap.addBoundsRect(id: String, bounds: LatLngBounds, fillHex: String,
     }
 }
 
+/**
+ * Adds or replaces a translucent polygon and outline. Historical atlas callers
+ * use this only for clearly-labelled schematic areas, never as legal borders.
+ */
+fun MapLibreMap.addPolygonOverlay(
+    id: String,
+    points: List<LatLng>,
+    fillHex: String,
+    borderHex: String,
+) {
+    if (points.size < 3) return
+    val closed = if (points.first() == points.last()) points else points + points.first()
+    val geometry = closed.map { Point.fromLngLat(it.longitude, it.latitude) }
+    getStyle { style ->
+        val fillSourceId = "polygon_fill_src_$id"
+        val borderSourceId = "polygon_border_src_$id"
+        if (style.getSource(fillSourceId) == null) {
+            style.addSource(GeoJsonSource(fillSourceId, Polygon.fromLngLats(listOf(geometry))))
+            style.addLayer(
+                FillLayer("polygon_fill_$id", fillSourceId).withProperties(
+                    PropertyFactory.fillColor(fillHex),
+                    PropertyFactory.fillOpacity(0.22f),
+                ),
+            )
+        } else {
+            (style.getSource(fillSourceId) as GeoJsonSource).setGeoJson(
+                Polygon.fromLngLats(listOf(geometry)),
+            )
+        }
+        if (style.getSource(borderSourceId) == null) {
+            style.addSource(GeoJsonSource(borderSourceId, LineString.fromLngLats(geometry)))
+            style.addLayer(
+                LineLayer("polygon_border_$id", borderSourceId).withProperties(
+                    PropertyFactory.lineColor(borderHex),
+                    PropertyFactory.lineWidth(3f),
+                ),
+            )
+        } else {
+            (style.getSource(borderSourceId) as GeoJsonSource).setGeoJson(
+                LineString.fromLngLats(geometry),
+            )
+        }
+    }
+}
+
 /** A tappable map marker (mosque) with its label and distance. */
 data class MapMarker(
     val id: String,
@@ -337,6 +382,52 @@ fun MapLibreMap.addMosqueMarkers(markers: List<MapMarker>, layerId: String = "mo
                 SymbolLayer(layerId, sourceId).withProperties(
                     PropertyFactory.iconImage(imageName),
                     PropertyFactory.iconSize(1.0f),
+                    PropertyFactory.iconAllowOverlap(true),
+                    PropertyFactory.iconIgnorePlacement(true),
+                ),
+                "waterway-label",
+            )
+        } else {
+            (style.getSource(sourceId) as GeoJsonSource).setGeoJson(
+                FeatureCollection.fromFeatures(features),
+            )
+        }
+    }
+}
+
+/**
+ * Adds generic tappable pin markers as one GeoJSON-backed symbol layer. It is
+ * suitable for historical places and other non-mosque map content.
+ */
+fun MapLibreMap.addPinMarkers(
+    markers: List<MapMarker>,
+    layerId: String,
+    colorHex: String = "#8B5E3C",
+) {
+    if (markers.isEmpty()) return
+    getStyle { style ->
+        val imageName = "pin_marker_$layerId"
+        if (style.getImage(imageName) == null) {
+            style.addImage(imageName, makePinBitmap(colorHex))
+        }
+        val sourceId = "src_$layerId"
+        val features = markers.map { marker ->
+            Feature.fromGeometry(
+                Point.fromLngLat(marker.point.longitude, marker.point.latitude),
+                com.google.gson.JsonObject().apply {
+                    addProperty("name", marker.name)
+                    addProperty("distance", marker.distanceMeters)
+                    addProperty("markerId", marker.id)
+                },
+                marker.id,
+            )
+        }
+        if (style.getSource(sourceId) == null) {
+            style.addSource(GeoJsonSource(sourceId, FeatureCollection.fromFeatures(features)))
+            style.addLayerAbove(
+                SymbolLayer(layerId, sourceId).withProperties(
+                    PropertyFactory.iconImage(imageName),
+                    PropertyFactory.iconSize(0.78f),
                     PropertyFactory.iconAllowOverlap(true),
                     PropertyFactory.iconIgnorePlacement(true),
                 ),
