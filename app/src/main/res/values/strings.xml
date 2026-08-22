@@ -47,6 +47,8 @@
     <string name="more_funeral_will_desc">مسودة وصية خاصة ودليل عملي للغسل والتكفين وصلاة الجنازة والتعزية</string>
     <string name="more_reference">المكتبة المرجعية</string>
     <string name="more_reference_desc">التعريف بالإسلام والسيرة وقصص الأنبياء</string>
+    <string name="more_islamic_history" tools:ignore="MissingTranslation">التاريخ والحضارة الإسلامية</string>
+    <string name="more_islamic_history_desc" tools:ignore="MissingTranslation">خط زمني وأطلس تفاعلي وشخصيات وأعلام</string>
     <string name="more_downloads">تنزيلات التلاوة</string>
     <string name="more_downloads_desc">تحميل سورة أو آية أو المصحف كاملًا مع اختيار القارئ</string>
     <string name="more_offline_maps">خرائط بدون إنترنت</string>

@@ -57,6 +57,7 @@ import org.muslim.app.feature.quran.ui.QuranReaderScreen
 import org.muslim.app.feature.quran.ui.QuranWordFrequencyScreen
 import org.muslim.app.feature.quran.ui.SearchScreen
 import org.muslim.app.feature.quran.ui.SurahListScreen
+import org.muslim.app.feature.reference.ui.IslamicHistoryScreen
 import org.muslim.app.feature.reference.ui.ReferenceScreen
 import org.muslim.app.feature.settings.AboutScreen
 import org.muslim.app.feature.settings.NotificationSettingsScreen
@@ -112,6 +113,7 @@ private const val FUNERAL_WILL_ROUTE = "learn/funeral-will"
 private const val NOORANI_NEW_MUSLIM_ROUTE = "learn/noorani-new-muslim"
 private const val TRAVELER_EXPAT_ROUTE = "learn/traveler-expat"
 private const val REFERENCE_ROUTE = "reference"
+private const val ISLAMIC_HISTORY_ROUTE = "history"
 private const val QURAN_DOWNLOADS_ROUTE = "quran/downloads"
 private const val MOSQUES_ROUTE = "qibla/mosques"
 private const val OFFLINE_MAPS_ROUTE = "qibla/offline-maps"
@@ -277,6 +279,7 @@ fun MuslimApp(
                         onOpenNoorani = { navController.navigate(NOORANI_NEW_MUSLIM_ROUTE) },
                         onOpenTraveler = { navController.navigate(TRAVELER_EXPAT_ROUTE) },
                         onOpenReference = { navController.navigate(REFERENCE_ROUTE) },
+                        onOpenIslamicHistory = { navController.navigate(ISLAMIC_HISTORY_ROUTE) },
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
                         onOpenQuranSearch = { navController.navigate(SEARCH_ROUTE) },
                         onOpenQuranFrequency = { navController.navigate(QURAN_FREQUENCY_ROUTE) },
@@ -361,6 +364,9 @@ fun MuslimApp(
                 }
                 composable(REFERENCE_ROUTE) {
                     ReferenceScreen(onBack = { navController.popBackStack() })
+                }
+                composable(ISLAMIC_HISTORY_ROUTE) {
+                    IslamicHistoryScreen(onBack = { navController.popBackStack() })
                 }
                 composable(QURAN_DOWNLOADS_ROUTE) {
                     QuranDownloadsScreen(onBack = { navController.popBackStack() })
