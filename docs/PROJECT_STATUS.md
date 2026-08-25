@@ -112,6 +112,16 @@ GitHub Actions runs debug builds, unit tests, Android Lint, Detekt, and emulator
 | [`noorani_new_muslim_feature_sources.md`](noorani_new_muslim_feature_sources.md) | Noorani-style and New-Muslim implementation/source decisions. |
 | [`scholar_library_content_policy.md`](scholar_library_content_policy.md) | Library starter content and authorised import policy. |
 | [`traveler_expat_feature_sources.md`](traveler_expat_feature_sources.md) | Travel, transport, qibla, and high-latitude guidance boundaries. |
+| [`release/v1_scope.md`](release/v1_scope.md) | Scope, launch gates, supported surfaces, and product decisions for v1. |
+| [`release/claim_register.md`](release/claim_register.md) | Approved product claims and the evidence required before store or UI use. |
+| [`release/release_governance.md`](release/release_governance.md) | Approval roles, release-branch rules, and P0/P1/P2 release decisions. |
+| [`release/play_console_checklist.md`](release/play_console_checklist.md) | Play Console, signing, AAB, listing, and staged-rollout readiness checklist. |
+| [`release/release_runbook.md`](release/release_runbook.md) | Production artifact, closed-test, rollout, rollback, and secret-management workflow. |
+| [`release/operations_support.md`](release/operations_support.md) | Support triage, hotfix, and post-release operating model. |
+| [`content/README.md`](content/README.md) | Content source, licence, hash, and independent-review approval workflow. |
+| [`privacy/data_inventory.md`](privacy/data_inventory.md) | Local data, permissions, endpoints, and Data safety review baseline. |
+| [`qa/p0_test_matrix.md`](qa/p0_test_matrix.md) | Required physical-device acceptance tests for critical worship paths. |
+| [`qa/accessibility_release_checklist.md`](qa/accessibility_release_checklist.md) | Accessibility release checks for TalkBack, Switch Access, and scalable RTL UI. |
 
 ## What this project does not claim
 

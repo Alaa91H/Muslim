@@ -1,0 +1,442 @@
+{
+  "schema_version": 2,
+  "generated_from": "scripts/generate_content_manifest.py",
+  "approvals_file": "docs/content/content_approvals.json",
+  "release_policy": {
+    "rule": "Only assets with production_status=approved may ship in a production release.",
+    "approval_requirements": [
+      "source",
+      "licence",
+      "religious_review"
+    ]
+  },
+  "assets": [
+    {
+      "id": "feature_feature-hadith_src_main_assets_hadith_full_ndjson_gz",
+      "kind": "hadith_corpus",
+      "path": "feature/feature-hadith/src/main/assets/hadith_full.ndjson.gz",
+      "size_bytes": 11443957,
+      "sha256": "dc3a6ba04406a87cf588fd4261817fd68fea55aeb7c3e87a3759edc13c93a868",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ],
+      "record_count": 35691,
+      "declared_collections": "Must be verified from the import provenance before release."
+    },
+    {
+      "id": "feature_feature-hadith_src_main_assets_hadith_sample_json",
+      "kind": "hadith_corpus",
+      "path": "feature/feature-hadith/src/main/assets/hadith_sample.json",
+      "size_bytes": 84847,
+      "sha256": "fd752628b4961eeda2bc651be09e818aa20379041215a1f8a137df756b16c04f",
+      "production_status": "blocked_development_sample",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Replace this development-only sample with an approved production pack.",
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ],
+      "development_only": true
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_abdul_basit_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_abdul_basit.mp3",
+      "size_bytes": 207723,
+      "sha256": "416aa02ac87d5161880d7af03d183e5b926864563618cda8f974bdf3e4db7bed",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_abdul_ghaffar_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_abdul_ghaffar.mp3",
+      "size_bytes": 188551,
+      "sha256": "a9645cddb9c2534a1579d0635fc527eceddf867c4c9a7e077c0613695afe8e2c",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_abdul_hakam_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_abdul_hakam.mp3",
+      "size_bytes": 192363,
+      "sha256": "3d801ec46b7e7bf7ed58f30355bf3f6c178f446431039d63af7fa418413d762a",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_al_hussaini_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_al_hussaini.mp3",
+      "size_bytes": 198580,
+      "sha256": "c416c2228f29c0b4a7581ed93428f6dd6dc9252496f68fc758e173739e2b9326",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_alaqsa_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_alaqsa.mp3",
+      "size_bytes": 227263,
+      "sha256": "d236d86c9517b56dea7d96b97e4baa8c0bd537d5e172de8ae9c1f13216464ceb",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_bakir_bash_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_bakir_bash.mp3",
+      "size_bytes": 349567,
+      "sha256": "32828f84fee041f005bffd8117ee958d412dba5c56452331732fbad9f6162874",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_egypt_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_egypt.mp3",
+      "size_bytes": 184996,
+      "sha256": "049a005d21013849d013e42d1ad15b79a89e91a8bc41549a46fc13168ec2138e",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_hafez_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_hafez.mp3",
+      "size_bytes": 168899,
+      "sha256": "71d4c61141aaa79649423936923c4925cfdb21457dbfb4318e8d04f51837530b",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_hafiz_murad_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_hafiz_murad.mp3",
+      "size_bytes": 104226,
+      "sha256": "17f956ec8c2bb9cc9e5a2e6224ddfe9319832dee2de9908269acd5015eb93814",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_halab_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_halab.mp3",
+      "size_bytes": 224859,
+      "sha256": "54fad6bb9fef7593aefa253670a3bfaa896a45878119389f2b2ace134584e6d9",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_madinah_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_madinah.mp3",
+      "size_bytes": 98062,
+      "sha256": "839038913cf6d3056f2344f329c1046d87bdabb592434f5cde5db0d5dd889452",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_makkah_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_makkah.mp3",
+      "size_bytes": 203440,
+      "sha256": "92dc60b51d048a568f643910ad5ea81c8ed6f8af836b691c92bcbf7f5db9d2c3",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_minshawi_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_minshawi.mp3",
+      "size_bytes": 237238,
+      "sha256": "8855a6b34f7e999e9fdb6385c589ce85bca6445585d95e184cb8a5a8b48b7f21",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_naghshbandi_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_naghshbandi.mp3",
+      "size_bytes": 164568,
+      "sha256": "1500a3946e30ceef7cd858ad125be578c03dd4d12a30a00c90db996754f28e13",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_saber_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_saber.mp3",
+      "size_bytes": 151240,
+      "sha256": "3fe1ed069311553a51163d3103001f5bd74506e18c8f0531ad4007a397fd10fb",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_sharif_doman_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_sharif_doman.mp3",
+      "size_bytes": 283218,
+      "sha256": "d77fd7b402379c6c177f3584e3b36480db89c54147ea4d171acdd80aaacbc70a",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-prayer-times_src_main_res_raw_adhan_yusuf_islam_mp3",
+      "kind": "adhan_audio",
+      "path": "feature/feature-prayer-times/src/main/res/raw/adhan_yusuf_islam.mp3",
+      "size_bytes": 101091,
+      "sha256": "01e2793104779f72700b82766529cc5191e0a423d737ac630bf866ebbfe61052",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-quran_src_main_assets_quran_ayahs_txt",
+      "kind": "quran_content",
+      "path": "feature/feature-quran/src/main/assets/quran_ayahs.txt",
+      "size_bytes": 1467987,
+      "sha256": "e3b178fa35f2f7abc29820fe46d26e03b5f261125ba859d0d973404cb97b7bd7",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-quran_src_main_assets_quran_surahs_json",
+      "kind": "quran_content",
+      "path": "feature/feature-quran/src/main/assets/quran_surahs.json",
+      "size_bytes": 16392,
+      "sha256": "0b553dd78889492c7e1bd7d3748c034d44e456bb311fe2cecf0d7872e8fc12d8",
+      "production_status": "blocked_pending_review",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ]
+    },
+    {
+      "id": "feature_feature-quran_src_main_assets_quran_tafsir_sample_json",
+      "kind": "quran_content",
+      "path": "feature/feature-quran/src/main/assets/quran_tafsir_sample.json",
+      "size_bytes": 2359,
+      "sha256": "73e5cb7d49535d402d42faa461c2199456554bc7fbc25b1b17f90dbca442db40",
+      "production_status": "blocked_development_sample",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Replace this development-only sample with an approved production pack.",
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ],
+      "development_only": true
+    },
+    {
+      "id": "feature_feature-quran_src_main_assets_quran_translations_sample_json",
+      "kind": "quran_content",
+      "path": "feature/feature-quran/src/main/assets/quran_translations_sample.json",
+      "size_bytes": 1333,
+      "sha256": "038bdcdf1aab28cd4861f65ed5d6088fb2b460c0f844cdb1f9a758726aff0407",
+      "production_status": "blocked_development_sample",
+      "source": null,
+      "licence": null,
+      "attribution": null,
+      "religious_review": null,
+      "notes": null,
+      "required_actions": [
+        "Replace this development-only sample with an approved production pack.",
+        "Provide source.",
+        "Provide licence.",
+        "Provide religious_review."
+      ],
+      "development_only": true
+    }
+  ],
+  "summary": {
+    "asset_count": 23,
+    "approved_for_production": 0,
+    "blocked_pending_review": 23
+  }
+}

@@ -53,6 +53,12 @@ jobs:
       - name: Set up Gradle cache
         uses: gradle/actions/setup-gradle@v6
 
+      - name: Verify bundled-content inventory
+        run: |
+          python3 scripts/generate_content_manifest.py
+          python3 scripts/verify_content_manifest.py
+          git diff --exit-code -- docs/content/content_manifest.json
+
       - name: Build debug APKs
         run: ./gradlew :app:assembleDebug :wear:assembleDebug --stacktrace
 
@@ -149,12 +155,12 @@ jobs:
           if-no-files-found: ignore
 
   # ---------------------------------------------------------------------------
-  # Release APK: only for main pushes and v* tags (PRs never build it). On tag
-  # pushes it also publishes the GitHub Release fully automatically — the signed
-  # APK is built on GitHub's own network (fast) and attached to the release.
+  # Release artifacts: only for main pushes and v* tags (PRs never build them).
+  # A tag is treated as a production candidate: it must pass the explicit
+  # signing and approved-content gates before any artifact is published.
   # ---------------------------------------------------------------------------
   release-apk:
-    name: Release APK (stable signature)
+    name: Release artifacts (APK + AAB)
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))
     steps:
@@ -179,27 +185,44 @@ jobs:
       - name: Set up Gradle cache
         uses: gradle/actions/setup-gradle@v6
 
-      # Secrets are set once by scripts/setup-github-signing.sh. With them, the
-      # release APK is signed with the same key as local builds, so users can
-      # install updates over existing installs without uninstalling.
-      - name: Build signed release APK
-        run: |
-          if [ -z "$SIGNING_KEYSTORE" ]; then
-            echo "::warning::SIGNING_KEYSTORE secret missing — APK is debug-signed. Run scripts/setup-github-signing.sh once to enable stable signing."
-          fi
-          ./gradlew :app:assembleRelease :wear:assembleRelease --stacktrace
+      # A v* tag is a production candidate, not merely a convenient APK build.
+      # It must have a stable signing identity and no unapproved bundled content.
+      - name: Verify production release gates
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: ./gradlew :app:verifyProductionRelease --stacktrace
         env:
           SIGNING_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
 
-      - name: Upload release APK
+      - name: Build signed release APK and App Bundle
+        run: |
+          if [ -z "$SIGNING_KEYSTORE" ]; then
+            if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
+              echo "::error::Production tag cannot use a debug signing key. Configure SIGNING_* secrets."
+              exit 1
+            fi
+            echo "::warning::No production signing key on this main build; artifacts are internal-only."
+          fi
+          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
+            ./gradlew :app:assembleRelease :app:bundleProductionRelease :wear:assembleRelease --stacktrace
+          else
+            ./gradlew :app:assembleRelease :app:bundleRelease :wear:assembleRelease --stacktrace
+          fi
+        env:
+          SIGNING_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+
+      - name: Upload release artifacts
         uses: actions/upload-artifact@v7
         with:
           name: muslim-release-apk
           path: |
             app/build/outputs/apk/release/*.apk
+            app/build/outputs/bundle/release/*.aab
             wear/build/outputs/apk/release/*.apk
           if-no-files-found: error
 

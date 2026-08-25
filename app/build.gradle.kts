@@ -1,5 +1,6 @@
 import java.util.Base64
 import java.util.Properties
+import org.gradle.api.tasks.Exec
 
 // Derives versionCode/versionName from the nearest `v*` git tag so the release
 // version is never hardcoded (PROJECT_PROMPT.md §8). scripts/release.sh pushes
@@ -19,6 +20,27 @@ fun deriveVersion(describe: String, envTag: String): Pair<Int, String> {
     val versionCode = major * 10_000 + minor * 100 + patch
     val versionName = if (match == null) "1.0.0-dev" else "$major.$minor.$patch"
     return versionCode to versionName
+}
+
+/** True only when a real, reusable production signing identity is available. */
+val productionSigningConfigured = providers.provider {
+    val properties = Properties().apply {
+        val file = rootProject.file("keystore.properties")
+        if (file.exists()) file.inputStream().use { load(it) }
+    }
+    val localStorePath = properties.getProperty("storeFile")
+    val local = !localStorePath.isNullOrBlank() &&
+        rootProject.file(localStorePath).isFile &&
+        listOf("storePassword", "keyAlias", "keyPassword").all {
+            !properties.getProperty(it).isNullOrBlank()
+        }
+    val ci = listOf(
+        "SIGNING_KEYSTORE",
+        "SIGNING_STORE_PASSWORD",
+        "SIGNING_KEY_ALIAS",
+        "SIGNING_KEY_PASSWORD",
+    ).all { !System.getenv(it).isNullOrBlank() }
+    local || ci
 }
 
 plugins {
@@ -116,6 +138,34 @@ android {
         // pulls it onto the classpath.
         disable += "LogNotTimber"
     }
+}
+
+tasks.register("verifyProductionSigning") {
+    group = "verification"
+    description = "Fails unless a non-debug production signing identity is configured."
+    doLast {
+        check(productionSigningConfigured.get()) {
+            "Production signing is not configured. Set keystore.properties or all SIGNING_* variables."
+        }
+    }
+}
+
+tasks.register<Exec>("verifyProductionContent") {
+    group = "verification"
+    description = "Fails unless every bundled religious/content asset is approved for production."
+    commandLine("python3", rootProject.file("scripts/verify_content_manifest.py").absolutePath, "--production")
+}
+
+tasks.register("verifyProductionRelease") {
+    group = "verification"
+    description = "Runs the non-negotiable signing and content gates for a production release."
+    dependsOn("verifyProductionSigning", "verifyProductionContent")
+}
+
+tasks.register("bundleProductionRelease") {
+    group = "build"
+    description = "Builds the phone App Bundle only after all production gates pass."
+    dependsOn("verifyProductionRelease", "bundleRelease")
 }
 
 kotlin {
