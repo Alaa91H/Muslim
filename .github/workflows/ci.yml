@@ -155,6 +155,80 @@ jobs:
           if-no-files-found: ignore
 
   # ---------------------------------------------------------------------------
+  # Closed beta: emits a separately installable APK with the stable signing
+  # identity only after unit, lint, and emulator gates pass on main. This
+  # artifact is for invited testers, not a public release or production approval.
+  # ---------------------------------------------------------------------------
+  beta-apk:
+    name: Closed beta APK
+    runs-on: ubuntu-latest
+    needs: [quality, emulator-tests]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v4
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Set up Gradle cache
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Check closed beta signing configuration
+        id: signing
+        env:
+          SIGNING_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+        run: |
+          if [ -z "$SIGNING_KEYSTORE" ] || [ -z "$SIGNING_STORE_PASSWORD" ] || [ -z "$SIGNING_KEY_ALIAS" ] || [ -z "$SIGNING_KEY_PASSWORD" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Closed beta artifact skipped: configure all SIGNING_* secrets to enable updatable tester builds."
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build updatable closed beta APK
+        if: steps.signing.outputs.configured == 'true'
+        run: ./gradlew :app:assembleClosedBeta --stacktrace
+        env:
+          SIGNING_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+
+      - name: Assemble tester pack
+        if: steps.signing.outputs.configured == 'true'
+        run: |
+          mkdir -p beta-tester-pack
+          cp app/build/outputs/apk/beta/*.apk beta-tester-pack/Muslim-Beta.apk
+          cp docs/qa/beta_tester_guide.md beta-tester-pack/README.md
+          cp docs/content/content_manifest.json beta-tester-pack/content_manifest.json
+          printf 'commit=%s\nworkflow=%s\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" > beta-tester-pack/build-info.txt
+
+      - name: Upload closed beta tester pack
+        if: steps.signing.outputs.configured == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: muslim-closed-beta-${{ github.sha }}
+          path: beta-tester-pack/
+          retention-days: 30
+          if-no-files-found: error
+
+  # ---------------------------------------------------------------------------
   # Release artifacts: only for main pushes and v* tags (PRs never build them).
   # A tag is treated as a production candidate: it must pass the explicit
   # signing and approved-content gates before any artifact is published.

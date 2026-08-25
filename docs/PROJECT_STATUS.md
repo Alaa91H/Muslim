@@ -122,6 +122,9 @@ GitHub Actions runs debug builds, unit tests, Android Lint, Detekt, and emulator
 | [`privacy/data_inventory.md`](privacy/data_inventory.md) | Local data, permissions, endpoints, and Data safety review baseline. |
 | [`qa/p0_test_matrix.md`](qa/p0_test_matrix.md) | Required physical-device acceptance tests for critical worship paths. |
 | [`qa/accessibility_release_checklist.md`](qa/accessibility_release_checklist.md) | Accessibility release checks for TalkBack, Switch Access, and scalable RTL UI. |
+| [`release/beta_test_charter.md`](release/beta_test_charter.md) | Scope, limits, and acceptance criteria for the invited closed beta. |
+| [`release/closed_beta_distribution.md`](release/closed_beta_distribution.md) | Stable-signing, CI artifact, and invited-tester distribution workflow. |
+| [`qa/beta_tester_guide.md`](qa/beta_tester_guide.md) | Tester installation, adhan verification, and privacy-preserving feedback guide. |
 
 ## What this project does not claim
 

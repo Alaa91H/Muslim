@@ -1,0 +1,88 @@
+name: ملاحظات Muslim Beta
+description: بلاغ منظم عن إصدار Beta المغلق؛ لا تضع موقعًا دقيقًا أو بيانات شخصية.
+title: "[Beta]: "
+labels: ["beta-feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        شكرًا لاختبار Muslim Beta. لا تضع اسمك أو موقعك الدقيق أو ملفات خاصة أو مفاتيح/كلمات مرور. اكتب المدينة أو المنطقة الزمنية فقط إذا كانت لازمة لتشخيص المواقيت.
+  - type: dropdown
+    id: area
+    attributes:
+      label: المجال
+      options:
+        - الأذان أو الإشعار
+        - مواقيت الصلاة
+        - القبلة أو الموقع
+        - القرآن أو التلاوة أو التنزيل
+        - الحديث أو الأذكار أو المحتوى
+        - اللغة أو الإتاحة
+        - الخصوصية أو الصلاحيات
+        - الأداء أو التعطل
+        - غير ذلك
+    validations:
+      required: true
+  - type: input
+    id: app_version
+    attributes:
+      label: إصدار التطبيق
+      description: من «حول التطبيق» أو شاشة التثبيت، مثل 1.24.0-beta (12400).
+      placeholder: "1.24.0-beta (12400)"
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: الجهاز وإصدار Android
+      placeholder: "الشركة والطراز — Android 14"
+    validations:
+      required: true
+  - type: input
+    id: locale
+    attributes:
+      label: اللغة والمنطقة الزمنية
+      description: اكتب المنطقة الزمنية أو المدينة بشكل عام، لا تضع عنوانًا أو إحداثيات دقيقة.
+      placeholder: "العربية — Asia/Riyadh"
+    validations:
+      required: false
+  - type: textarea
+    id: steps
+    attributes:
+      label: الخطوات لإعادة المشكلة
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: ما المتوقع؟
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: ما الذي حدث فعلاً؟
+    validations:
+      required: true
+  - type: dropdown
+    id: reproducible
+    attributes:
+      label: هل تتكرر المشكلة؟
+      options:
+        - نعم، في كل مرة
+        - نعم، أحيانًا
+        - لا أعرف
+        - حدثت مرة واحدة
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: لقطة شاشة أو رسالة خطأ (اختياري)
+      description: احذف أو أخفِ أي معلومات شخصية أو موقع دقيق قبل الإرفاق.
+    validations:
+      required: false

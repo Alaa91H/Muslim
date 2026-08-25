@@ -107,6 +107,18 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.getByName("release")
         }
+        create("beta") {
+            // Beta remains separately installable. Local smoke builds fall back
+            // to debug signing, but CI uses the stable release key when present
+            // so invited testers can update without uninstalling or losing data.
+            initWith(getByName("debug"))
+            applicationIdSuffix = ".beta"
+            versionNameSuffix = "-beta"
+            matchingFallbacks += listOf("debug")
+            if (productionSigningConfigured.get()) {
+                signingConfig = signingConfigs.getByName("release")
+            }
+        }
     }
 
     compileOptions {
@@ -138,6 +150,22 @@ android {
         // pulls it onto the classpath.
         disable += "LogNotTimber"
     }
+}
+
+tasks.register("verifyClosedBetaSigning") {
+    group = "verification"
+    description = "Fails unless a stable signing identity is configured for the updatable closed beta."
+    doLast {
+        check(productionSigningConfigured.get()) {
+            "Closed beta signing is not configured. Set keystore.properties or all SIGNING_* variables."
+        }
+    }
+}
+
+tasks.register("assembleClosedBeta") {
+    group = "build"
+    description = "Builds the updatable, separately installable APK for invited beta testers."
+    dependsOn("verifyClosedBetaSigning", "assembleBeta")
 }
 
 tasks.register("verifyProductionSigning") {
