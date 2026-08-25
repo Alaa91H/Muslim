@@ -3,6 +3,35 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.2
+
+Updates install directly over v1.24.1 with the same package name (`org.muslim.app`) and stable signing key. No uninstall or data reset is required.
+
+## 🔔 Hardened Scheduled Adhan Delivery
+- Reworked the Adhan verification path so it no longer reports readiness from permissions and configuration alone. The in-app verification action now schedules a short exact-alarm probe through the same broadcast receiver and foreground-service path used for an actual prayer time.
+- Added an on-device delivery journal with explicit checkpoints for probe scheduling, receiver delivery, foreground-service request, foreground-service startup, and confirmed `MediaPlayer` or `AudioTrack` playback startup.
+- The Adhan readiness state now requires confirmed audio startup from a recent scheduled probe. A direct preview, a granted permission, or a successful service-start request is not treated as proof of scheduled audio delivery.
+- Added explicit failure recording for unavailable exact alarms, foreground-service startup failures, silent or vibration-only configuration during a sound probe, notification startup failures, and missing audio-start confirmation.
+- Re-schedules prayer alarms when the app resumes from Android system settings, ensuring that an exact schedule replaces any earlier degraded schedule after the user grants exact-alarm access.
+
+## 📖 Quran Playback and Reading Flow
+- Added a direct play action beside each Surah in the Quran index. It opens the reader and starts from the first ayah of the selected Surah.
+- Made whole-Surah playback the default reader range, while retaining deliberate options for a single ayah or continuing from a selected ayah to the end of the Mushaf.
+- Improved manual vertical reading in the Mushaf view. The active ayah and saved reading position follow the visible reading edge during user scrolling, without pulling the reader back to an old position. Audio follow-along remains authoritative during active recitation.
+
+## 🕌 Private Daily Prayer Check-in
+- Added a device-local daily check-in for the five obligatory prayers: Fajr, Dhuhr, Asr, Maghrib, and Isha. Sunrise is intentionally excluded.
+- The check-in remains private to the device, has no account, analytics, network synchronization, points, streaks, or religious compliance score, and retains only a bounded recent history.
+
+## 🧪 Verification and Release Quality
+- Added focused unit coverage for manual Quran reading follow behavior, Adhan delivery-stage semantics, and the stricter Adhan readiness rule.
+- Verified the production content inventory and passed Debug builds, unit tests, Android Lint, Detekt, Android Emulator checks, signed release artifact builds, and signed closed-beta artifact builds on the merged main branch before tagging.
+
+### Install
+- Download the APK from the GitHub Release and open it (allow “install from unknown sources” if prompted).
+- The app remains signed with the same release key, so the update installs directly over previous releases.
+- After installation, open Adhan Settings and run **Verify**. The check schedules a real delivery probe after approximately ten seconds and passes only when the application confirms audio startup. Device alarm volume and the selected audio output still need to be audible.
+
 ## Muslim v1.24.0
 
 Updates install directly over v1.23.0 (same stable signing key — no uninstall needed).
