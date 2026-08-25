@@ -1,6 +1,8 @@
 package org.muslim.app.feature.prayertimes.ui.settings
 
 import android.app.AlarmManager
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import androidx.core.net.toUri
 import android.os.Build
@@ -24,6 +26,7 @@ import androidx.compose.material.icons.filled.Alarm
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material.icons.filled.NotificationsActive
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Remove
@@ -441,11 +444,49 @@ fun PrayerSettingsScreen(
  * small icon, title and the real next prayer name/time (computed from the saved
  * location, refreshed every minute). Dims when adhan is disabled.
  */
+private data class AdhanRecoveryActions(
+    val openNotificationSettings: () -> Unit,
+    val openExactAlarmSettings: () -> Unit,
+)
+
+@Composable
+private fun rememberAdhanRecoveryActions(): AdhanRecoveryActions {
+    val context = LocalContext.current
+    return AdhanRecoveryActions(
+        openNotificationSettings = { openAdhanNotificationSettings(context) },
+        openExactAlarmSettings = { openExactAlarmSettings(context) },
+    )
+}
+
+private fun openAdhanNotificationSettings(context: Context) {
+    val notificationsEnabled = context
+        .getSystemService(NotificationManager::class.java)
+        .areNotificationsEnabled()
+    val intent = if (!notificationsEnabled) {
+        Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+            .putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
+    } else {
+        Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
+            .putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
+            .putExtra(Settings.EXTRA_CHANNEL_ID, "adhan")
+    }
+    runCatching { context.startActivity(intent) }
+}
+
+private fun openExactAlarmSettings(context: Context) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM)
+            .setData("package:${context.packageName}".toUri())
+        runCatching { context.startActivity(intent) }
+    }
+}
+
 @Composable
 private fun AdhanReadinessCard(
     readiness: AdhanReadiness,
     onVerify: () -> Unit,
 ) {
+    val recoveryActions = rememberAdhanRecoveryActions()
     val statusColor = if (readiness.isReady) {
         MaterialTheme.colorScheme.primary
     } else {
@@ -484,10 +525,26 @@ private fun AdhanReadinessCard(
             Spacer(Modifier.height(8.dp))
             AdhanReadinessItem(readiness.adhanEnabled, R.string.settings_adhan_check_enabled)
             AdhanReadinessItem(readiness.hasLocation, R.string.settings_adhan_check_location)
-            AdhanReadinessItem(readiness.notificationsAllowed, R.string.settings_adhan_check_notifications)
-            AdhanReadinessItem(readiness.exactAlarmsAllowed, R.string.settings_adhan_check_exact_alarm)
+            AdhanReadinessItem(
+                readiness.notificationsAllowed,
+                R.string.settings_adhan_check_notifications,
+                onResolve = recoveryActions.openNotificationSettings,
+            )
+            AdhanReadinessItem(
+                readiness.exactAlarmsAllowed,
+                R.string.settings_adhan_check_exact_alarm,
+                onResolve = recoveryActions.openExactAlarmSettings,
+            )
             AdhanReadinessItem(readiness.scheduledAudioVerified, R.string.settings_adhan_check_sound)
             AdhanReadinessItem(readiness.alarmVolumeAudible, R.string.settings_adhan_check_alarm_volume)
+            readiness.lastProbeDetail?.let { detail ->
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = detail,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.error,
+                )
+            }
             Spacer(Modifier.height(12.dp))
             Button(onClick = onVerify, modifier = Modifier.fillMaxWidth()) {
                 Text(stringResource(R.string.settings_adhan_verify_action))
@@ -497,7 +554,11 @@ private fun AdhanReadinessCard(
 }
 
 @Composable
-private fun AdhanReadinessItem(passed: Boolean, @androidx.annotation.StringRes labelRes: Int) {
+private fun AdhanReadinessItem(
+    passed: Boolean,
+    @androidx.annotation.StringRes labelRes: Int,
+    onResolve: (() -> Unit)? = null,
+) {
     val stateText = stringResource(
         if (passed) R.string.settings_adhan_check_passed else R.string.settings_adhan_check_failed,
     )
@@ -512,12 +573,25 @@ private fun AdhanReadinessItem(passed: Boolean, @androidx.annotation.StringRes l
             style = MaterialTheme.typography.bodySmall,
             modifier = Modifier.weight(1f),
         )
-        Text(
-            text = stateText,
-            style = MaterialTheme.typography.labelSmall,
-            color = stateColor,
-            fontWeight = FontWeight.Medium,
-        )
+        if (!passed && onResolve != null) {
+            IconButton(
+                onClick = onResolve,
+                modifier = Modifier.size(32.dp),
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Settings,
+                    contentDescription = stringResource(labelRes),
+                    tint = stateColor,
+                )
+            }
+        } else {
+            Text(
+                text = stateText,
+                style = MaterialTheme.typography.labelSmall,
+                color = stateColor,
+                fontWeight = FontWeight.Medium,
+            )
+        }
     }
 }
 

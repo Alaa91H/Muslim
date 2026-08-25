@@ -3,6 +3,31 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.7
+
+Updates install directly over v1.24.6 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.
+
+## Scheduled Adhan Recovery and Diagnostics
+
+- Reworked all background rescheduling receivers to retain their `goAsync()` broadcast hand-off until persisted prayer settings have been read and fresh alarms have been submitted. This prevents Android from reclaiming the receiver process mid-reschedule.
+- Rebuild prayer alarms after `BOOT_COMPLETED`, an in-place app update (`MY_PACKAGE_REPLACED`), and Android's exact-alarm-access grant broadcast. The last case matters because Android cancels future exact alarms when **Alarms & reminders** access is revoked; a later grant no longer depends on opening Muslim manually. [1]
+- Kept the permanent next-Adhan countdown optional and non-fatal during recovery: a countdown-service failure no longer stops the critical prayer-alarm schedule.
+- Expanded the **Verify Adhan** card with the recorded failing stage from the real scheduled probe. When Android notifications or the Adhan channel are blocked, its recovery control opens the applicable app or channel settings. When exact alarms are unavailable, it opens **Alarms & reminders** directly.
+- Preserved the strict delivery evidence rule: a permission check, foreground-service request, or preview never counts as verified audio; only a recent scheduled probe that reaches audio startup passes the sound check.
+
+## Research and Verification
+
+- Added an in-repository Android reliability review with platform references, device-test boundaries, and comparative open-source research. The findings prioritize observable scheduled delivery over speculative feature expansion. [2] [3] [4]
+- Added unit coverage for the reschedule actions that recover after an app update and exact-alarm access grant. Focused prayer-time tests, full application unit tests, Android Lint, and Detekt passed locally before release tagging.
+- No physical Android device or local AVD was connected to the release environment. Therefore this release does not claim a physically heard Adhan in this environment; after installation, use **Verify Adhan** and follow the shown diagnostic or recovery control if the probe fails.
+
+### References
+
+[1]: https://developer.android.com/develop/background-work/services/alarms "Android Developers — Schedule alarms"
+[2]: https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start "Android Developers — Foreground-service background-start restrictions"
+[3]: https://developer.android.com/develop/ui/compose/notifications/notification-permission "Android Developers — Notification runtime permission"
+[4]: https://developer.android.com/develop/background-work/background-tasks/broadcasts "Android Developers — Broadcasts overview"
+
 ## Muslim v1.24.6
 
 Updates install directly over v1.24.5 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.

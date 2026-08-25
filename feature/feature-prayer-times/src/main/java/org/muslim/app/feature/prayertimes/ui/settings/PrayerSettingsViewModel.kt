@@ -65,6 +65,8 @@ data class AdhanReadiness(
     val nextPrayerHasAudibleSound: Boolean = false,
     val scheduledAudioVerified: Boolean = false,
     val alarmVolumeAudible: Boolean = false,
+    /** Local stage-specific detail from the most recent scheduled probe, if it failed. */
+    val lastProbeDetail: String? = null,
 ) {
     val isReady: Boolean
         get() = adhanEnabled && hasLocation && notificationsAllowed &&
@@ -237,6 +239,9 @@ class PrayerSettingsViewModel @Inject constructor(
             nextPrayerHasAudibleSound = nextPrayerHasAudibleSound,
             scheduledAudioVerified = scheduledAudioVerified,
             alarmVolumeAudible = alarmVolumeAudible,
+            lastProbeDetail = latestProbe.detail?.takeIf {
+                latestProbe.stage == org.muslim.app.feature.prayertimes.notifications.AdhanDeliveryStage.Failed
+            },
         )
     }
 
