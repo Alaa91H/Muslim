@@ -108,11 +108,10 @@ android {
             signingConfig = signingConfigs.getByName("release")
         }
         create("beta") {
-            // Beta remains separately installable. Local smoke builds fall back
-            // to debug signing, but CI uses the stable release key when present
-            // so invited testers can update without uninstalling or losing data.
+            // Beta deliberately keeps the production application ID and display
+            // name. With a higher versionCode and the stable signing key it
+            // upgrades the installed Muslim app without clearing user data.
             initWith(getByName("debug"))
-            applicationIdSuffix = ".beta"
             versionNameSuffix = "-beta"
             matchingFallbacks += listOf("debug")
             if (productionSigningConfigured.get()) {
@@ -164,7 +163,7 @@ tasks.register("verifyClosedBetaSigning") {
 
 tasks.register("assembleClosedBeta") {
     group = "build"
-    description = "Builds the updatable, separately installable APK for invited beta testers."
+    description = "Builds the signed beta update APK for invited testers of the main Muslim package."
     dependsOn("verifyClosedBetaSigning", "assembleBeta")
 }
 

@@ -155,8 +155,8 @@ jobs:
           if-no-files-found: ignore
 
   # ---------------------------------------------------------------------------
-  # Closed beta: emits a separately installable APK with the stable signing
-  # identity only after unit, lint, and emulator gates pass on main. This
+  # Closed beta: emits a signed update APK for the main Muslim package only
+  # after unit, lint, and emulator gates pass on main. This
   # artifact is for invited testers, not a public release or production approval.
   # ---------------------------------------------------------------------------
   beta-apk:
@@ -205,6 +205,9 @@ jobs:
         if: steps.signing.outputs.configured == 'true'
         run: ./gradlew :app:assembleClosedBeta --stacktrace
         env:
+          # Override the nearest production tag so the beta versionCode is
+          # higher than v1.24.0 and therefore installs as an in-place update.
+          VERSION_TAG: ${{ vars.BETA_VERSION_TAG || '1.24.1' }}
           SIGNING_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
@@ -214,7 +217,7 @@ jobs:
         if: steps.signing.outputs.configured == 'true'
         run: |
           mkdir -p beta-tester-pack
-          cp app/build/outputs/apk/beta/*.apk beta-tester-pack/Muslim-Beta.apk
+          cp app/build/outputs/apk/beta/*.apk beta-tester-pack/Muslim-update-beta.apk
           cp docs/qa/beta_tester_guide.md beta-tester-pack/README.md
           cp docs/content/content_manifest.json beta-tester-pack/content_manifest.json
           printf 'commit=%s\nworkflow=%s\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" > beta-tester-pack/build-info.txt
