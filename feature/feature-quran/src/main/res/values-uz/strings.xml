@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Bir ildizdan olingan so\'zlar</string>
     <string name="quran_search_no_root">Ildizni aniqlab bo\'lmadi</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Tajvid ranglarini ko\'rsatish</string>
+    <string name="quran_tajweed_show_desc">Qur\'on matnida Hafs tajvid qoidalarini ranglar bilan belgilash</string>
+    <string name="quran_tafsir_sources_title">Tafsir manbai</string>
+    <string name="quran_tafsir_sources_empty">Tafsirni yuklab oling, so\'ng uni ma\'nolari bilan ko\'rsatish uchun tanlang.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Yuklab olish</string>
+    <string name="quran_tafsir_downloading">Yuklanmoqda…</string>
+    <string name="quran_tafsir_installed">O\'rnatildi</string>
+    <string name="quran_tafsir_download_failed">Tafsirni yuklab bo\'lmadi: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

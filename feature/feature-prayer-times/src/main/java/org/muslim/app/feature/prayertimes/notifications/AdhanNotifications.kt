@@ -5,6 +5,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Icon
 import androidx.core.app.NotificationCompat
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.prayertimes.R
@@ -40,6 +41,7 @@ internal object AdhanNotifications {
         )
         return NotificationCompat.Builder(context, NotificationChannels.ADHAN)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
+            .setLargeIcon(Icon.createWithResource(context, context.applicationInfo.icon))
             .setContentTitle(context.getString(R.string.adhan_notification_title))
             .setContentText(context.getString(R.string.prayer_name, context.getString(prayerNameRes(prayer))))
             .setStyle(NotificationCompat.BigTextStyle())
@@ -58,6 +60,7 @@ internal object AdhanNotifications {
     fun showReminder(context: Context, prayer: Prayer, minutesBefore: Int) {
         val notification = NotificationCompat.Builder(context, NotificationChannels.REMINDER)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
+            .setLargeIcon(Icon.createWithResource(context, context.applicationInfo.icon))
             .setContentTitle(context.getString(R.string.reminder_title))
             .setContentText(
                 context.getString(

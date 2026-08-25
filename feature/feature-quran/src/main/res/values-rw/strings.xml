@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Amagambo akomoka kumuzi imwe</string>
     <string name="quran_search_no_root">Ntushobora kumenya umuzi</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Erekana amabara ya tajweed</string>
+    <string name="quran_tajweed_show_desc">Shyira amabara ku mabwiriza ya tajweed ya Hafs mu nyandiko za Quran</string>
+    <string name="quran_tafsir_sources_title">Isoko ya Tafsir</string>
+    <string name="quran_tafsir_sources_empty">Kuramo Tafsir, hanyuma uyihitemo kugira ngo yerekane ibisobanuro.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Kuramo</string>
+    <string name="quran_tafsir_downloading">Birimo gukurwaho…</string>
+    <string name="quran_tafsir_installed">Byamaze gushyirwa</string>
+    <string name="quran_tafsir_download_failed">Ntibyashobotse gukuramo Tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

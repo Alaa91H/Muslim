@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Aynı kökten türeyen kelimeler</string>
     <string name="quran_search_no_root">Kök belirlenemedi</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Tecvid renklerini göster</string>
+    <string name="quran_tajweed_show_desc">Kuran metnindeki Hafs tecvid kurallarını renklendir</string>
+    <string name="quran_tafsir_sources_title">Tefsir kaynağı</string>
+    <string name="quran_tafsir_sources_empty">Bir tefsir indirin, sonra anlamlarla birlikte göstermek için onu seçin.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">İndir</string>
+    <string name="quran_tafsir_downloading">İndiriliyor…</string>
+    <string name="quran_tafsir_installed">Yüklendi</string>
+    <string name="quran_tafsir_download_failed">Tefsir indirilemedi: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

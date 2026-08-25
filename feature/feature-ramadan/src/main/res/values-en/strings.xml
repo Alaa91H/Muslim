@@ -46,6 +46,17 @@
     <string name="habit_duha">Duha prayer</string>
     <string name="habit_qiyam">Night prayer</string>
     <string name="habit_congregation">Congregational prayer at the mosque</string>
+    <string name="habit_prayer_tracker_title">Today’s prayer tracker</string>
+    <string name="habit_prayer_tracker_description">Record the five daily prayers on this device only; this information is not sent anywhere.</string>
+    <string name="habit_prayer_tracker_progress">Today’s progress: %1$d of %2$d prayers</string>
+    <string name="habit_prayer_fajr">Fajr</string>
+    <string name="habit_prayer_dhuhr">Dhuhr</string>
+    <string name="habit_prayer_asr">Asr</string>
+    <string name="habit_prayer_maghrib">Maghrib</string>
+    <string name="habit_prayer_isha">Isha</string>
+    <string name="habit_prayer_completed">Completed</string>
+    <string name="habit_prayer_pending">Not recorded</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s. Tap to change the status.</string>
     <string name="ramadan_plan_title">Personal Ramadan plan</string>
     <string name="ramadan_plan_active">Automatically active during Ramadan</string>
     <string name="ramadan_plan_next">Saved and fully shown when Ramadan begins</string>

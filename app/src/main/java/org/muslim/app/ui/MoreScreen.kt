@@ -26,7 +26,6 @@ import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FamilyRestroom
 import androidx.compose.material.icons.filled.HealthAndSafety
-import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.NightsStay
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.NotificationsActive
@@ -102,7 +101,6 @@ fun MoreScreen(
     onOpenTraveler: () -> Unit = {},
     onOpenQuranSearch: () -> Unit = {},
     onOpenQuranFrequency: () -> Unit = {},
-    onOpenOfflineMaps: () -> Unit = {},
     /** User-customized section order (ids from [org.muslim.app.core.datastore.AppPreferences]). */
     sectionOrder: List<String> = org.muslim.app.core.datastore.AppPreferences.DEFAULT_MORE_SECTION_ORDER,
     /** Sections the user chose to hide (ids from [org.muslim.app.core.datastore.AppPreferences]). */
@@ -143,7 +141,6 @@ fun MoreScreen(
                 MoreEntry(R.string.more_zakat, R.string.more_zakat_desc, Icons.Filled.Calculate, onOpenZakat),
                 MoreEntry(R.string.more_islamic_finance, R.string.more_islamic_finance_desc, Icons.Filled.AccountBalance, onOpenIslamicFinance),
                 MoreEntry(R.string.more_downloads, R.string.more_downloads_desc, Icons.Filled.Download, onOpenDownloads),
-                MoreEntry(R.string.more_offline_maps, R.string.more_offline_maps_desc, Icons.Filled.Map, onOpenOfflineMaps),
             ),
         ),
         org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_APP to MoreSection(

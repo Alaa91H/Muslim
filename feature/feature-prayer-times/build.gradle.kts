@@ -36,8 +36,6 @@ kotlin {
 dependencies {
     implementation(project(":core:core-ui"))
 
-    // OpenStreetMap rendering (MapLibre GL Native — free, no API key)
-    implementation(libs.maplibre.android)
     implementation(project(":core:core-common"))
     implementation(project(":core:core-datastore"))
     implementation(project(":core:core-network"))

@@ -21,6 +21,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.EmojiEvents
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.NightsStay
 import androidx.compose.material.icons.filled.SelfImprovement
 import androidx.compose.material3.Card
@@ -41,6 +42,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.stateDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
@@ -49,6 +52,8 @@ import org.muslim.app.feature.ramadan.R
 import org.muslim.app.feature.ramadan.domain.HabitBadge
 import org.muslim.app.feature.ramadan.domain.HabitDaySummary
 import org.muslim.app.feature.ramadan.domain.HabitId
+import org.muslim.app.core.common.prayer.Prayer
+import org.muslim.app.core.datastore.prayer.trackablePrayers
 import java.time.LocalDate
 import kotlin.math.roundToInt
 
@@ -142,6 +147,14 @@ fun HabitTrackerPanel(
         }
 
         Spacer(Modifier.height(12.dp))
+        PrayerTrackerCard(
+            completedPrayers = state.completedPrayers,
+            showOnHome = viewModel.showPrayerTrackerOnHome.collectAsStateWithLifecycle().value,
+            onTogglePrayer = viewModel::togglePrayerCompletion,
+            onShowOnHomeChanged = viewModel::setShowPrayerTrackerOnHome,
+        )
+
+        Spacer(Modifier.height(16.dp))
         HabitChecklist(today, summary.today, viewModel)
 
         Spacer(Modifier.height(16.dp))
@@ -150,6 +163,90 @@ fun HabitTrackerPanel(
         Spacer(Modifier.height(16.dp))
         RamadanPlanCard(state, viewModel)
         Spacer(Modifier.height(24.dp))
+    }
+}
+
+@Composable
+private fun PrayerTrackerCard(
+    completedPrayers: Set<Prayer>,
+    showOnHome: Boolean,
+    onTogglePrayer: (Prayer) -> Unit,
+    onShowOnHomeChanged: (Boolean) -> Unit,
+) {
+    val homeToggleDescription = stringResource(R.string.habit_prayer_tracker_title)
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Column(Modifier.padding(16.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = Icons.Filled.CheckCircle,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                )
+                Spacer(Modifier.width(10.dp))
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(R.string.habit_prayer_tracker_title),
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                    Text(
+                        text = stringResource(R.string.habit_prayer_tracker_description),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                Icon(
+                    imageVector = Icons.Filled.Home,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.width(4.dp))
+                Switch(
+                    checked = showOnHome,
+                    onCheckedChange = onShowOnHomeChanged,
+                    modifier = Modifier.semantics {
+                        stateDescription = homeToggleDescription
+                    },
+                )
+            }
+            Spacer(Modifier.height(12.dp))
+            Text(
+                text = stringResource(
+                    R.string.habit_prayer_tracker_progress,
+                    completedPrayers.size,
+                    trackablePrayers.size,
+                ),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            Spacer(Modifier.height(6.dp))
+            trackablePrayers.forEach { prayer ->
+                val completed = prayer in completedPrayers
+                val label = stringResource(prayerLabelRes(prayer))
+                val status = stringResource(
+                    if (completed) R.string.habit_prayer_completed else R.string.habit_prayer_pending,
+                )
+                val toggleDescription = stringResource(
+                    R.string.habit_prayer_toggle_description,
+                    label,
+                    status,
+                )
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { onTogglePrayer(prayer) }
+                        .padding(vertical = 2.dp)
+                        .semantics { stateDescription = toggleDescription },
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Checkbox(
+                        checked = completed,
+                        onCheckedChange = { onTogglePrayer(prayer) },
+                    )
+                    Text(label, style = MaterialTheme.typography.bodyLarge)
+                }
+            }
+        }
     }
 }
 
@@ -359,6 +456,15 @@ private fun RamadanPlanCard(state: RamadanUiState, viewModel: RamadanViewModel) 
             )
         }
     }
+}
+
+private fun prayerLabelRes(prayer: Prayer): Int = when (prayer) {
+    Prayer.Fajr -> R.string.habit_prayer_fajr
+    Prayer.Sunrise -> error("Sunrise is not tracked as an obligatory prayer")
+    Prayer.Dhuhr -> R.string.habit_prayer_dhuhr
+    Prayer.Asr -> R.string.habit_prayer_asr
+    Prayer.Maghrib -> R.string.habit_prayer_maghrib
+    Prayer.Isha -> R.string.habit_prayer_isha
 }
 
 private fun habitLabelRes(habit: HabitId): Int = when (habit) {

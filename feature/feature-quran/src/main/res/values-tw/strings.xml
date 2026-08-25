@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Nsɛmfua a wonya fii ntini koro mu</string>
     <string name="quran_search_no_root">Antumi ankyerɛ ntini no</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Kyerɛ tajweed nsɛnsanee</string>
+    <string name="quran_tajweed_show_desc">Hyɛ Hafs tajweed mmara no nsɛnsanee wɔ Quran text no mu</string>
+    <string name="quran_tafsir_sources_title">Tafsir mfitiase</string>
+    <string name="quran_tafsir_sources_empty">Fa tafsir bi to so, na afei paw no na kyerɛ no ka ne nkyerɛase ho</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">To so</string>
+    <string name="quran_tafsir_downloading">Re-to so…</string>
+    <string name="quran_tafsir_installed">Ato so</string>
+    <string name="quran_tafsir_download_failed">Antumi antɔ tafsir no so: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

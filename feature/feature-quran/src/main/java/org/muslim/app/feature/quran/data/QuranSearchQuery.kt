@@ -46,12 +46,6 @@ object QuranSearchQuery {
         .filter { it.isNotBlank() }
         .toList()
 
-    /** Keyboard-friendly folds that are intentionally scoped to Quran search. */
-    private fun normalizeForQuranSearch(text: String): String = ArabicText.normalizeForSearch(text)
-        .replace('\u0622', '\u0627') // آ → ا
-        .replace('\u0623', '\u0627') // أ → ا
-        .replace('\u0625', '\u0627') // إ → ا
-        .replace('\u0624', '\u0648') // ؤ → و
-        .replace('\u0626', '\u064A') // ئ → ي
-        .replace("ـ", "")
+    /** Keyboard-friendly folds are shared by querying, counting and highlighting. */
+    private fun normalizeForQuranSearch(text: String): String = ArabicText.normalizeForQuranSearch(text)
 }

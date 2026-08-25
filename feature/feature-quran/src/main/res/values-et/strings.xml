@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Samast tüvest tuletatud sõnad</string>
     <string name="quran_search_no_root">Juure ei õnnestunud määrata</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Näita tajweedi värve</string>
+    <string name="quran_tajweed_show_desc">Värvusta Hafsi tajweedi reeglid Koraani tekstis.</string>
+    <string name="quran_tafsir_sources_title">Tafsir allikas</string>
+    <string name="quran_tafsir_sources_empty">Laadige tafsir alla, seejärel valige see, et kuvada see tähendustega.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Laadi alla</string>
+    <string name="quran_tafsir_downloading">Allalaadimine…</string>
+    <string name="quran_tafsir_installed">Paigaldatud</string>
+    <string name="quran_tafsir_download_failed">Tafsiri allalaadimine ebaõnnestus: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

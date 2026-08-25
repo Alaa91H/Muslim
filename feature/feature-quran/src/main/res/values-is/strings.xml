@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Orð dregin af sömu rót</string>
     <string name="quran_search_no_root">Ekki tókst að ákvarða rótina</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Sýna tajweed-liti</string>
+    <string name="quran_tajweed_show_desc">Lita Hafs-tajweed reglurnar í Kórantextanum</string>
+    <string name="quran_tafsir_sources_title">Tafsir-heimild</string>
+    <string name="quran_tafsir_sources_empty">Sæktu tafsir, veldu hana til að sýna hana með merkingum.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Sækja</string>
+    <string name="quran_tafsir_downloading">Hleður niður…</string>
+    <string name="quran_tafsir_installed">Uppsett</string>
+    <string name="quran_tafsir_download_failed">Tókst ekki að sækja tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

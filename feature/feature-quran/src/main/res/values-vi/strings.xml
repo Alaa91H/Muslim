@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Những từ có nguồn gốc từ cùng một gốc</string>
     <string name="quran_search_no_root">Không thể xác định gốc</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Hiển thị màu tajweed</string>
+    <string name="quran_tajweed_show_desc">Tô màu các quy tắc tajweed theo Hafs trong văn bản Quran</string>
+    <string name="quran_tafsir_sources_title">Nguồn tafsir</string>
+    <string name="quran_tafsir_sources_empty">Tải xuống một tafsir, sau đó chọn nó để hiển thị cùng với nghĩa.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Tải xuống</string>
+    <string name="quran_tafsir_downloading">Đang tải xuống…</string>
+    <string name="quran_tafsir_installed">Đã cài đặt</string>
+    <string name="quran_tafsir_download_failed">Không thể tải xuống tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

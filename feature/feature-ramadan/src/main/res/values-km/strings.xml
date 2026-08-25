@@ -26,4 +26,15 @@
     <string name="ramadan_title">រ៉ាម៉ាដាន</string>
     <string name="ramadan_notify_outside">ការរំលឹកនៅខាងក្រៅខែរ៉ាម៉ាដាន</string>
     <string name="ramadan_notify_outside_desc">ការជូនដំណឹង Iftar និង suhoor ដំណើរការដោយស្វ័យប្រវត្តិក្នុងអំឡុងពេលរ៉ាម៉ាដាន; ការបើកដំណើរការនេះធ្វើឱ្យពួកគេបន្តនៅក្នុងខែផ្សេងទៀត។</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">Fajr</string>
+    <string name="habit_prayer_dhuhr">ឌូហរ</string>
+    <string name="habit_prayer_asr">Asr</string>
+    <string name="habit_prayer_maghrib">ម៉ាហ្គ្រីប</string>
+    <string name="habit_prayer_isha">អ៊ីសា</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Sánit mat leat šaddan seamma vuođus</string>
     <string name="quran_search_no_root">Ii sáhttán čielggadit vuođu</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Visa tajwid-färger</string>
+    <string name="quran_tajweed_show_desc">Färglägg Hafs tajwid-reglerna i Korantexten</string>
+    <string name="quran_tafsir_sources_title">Tafsir-källa</string>
+    <string name="quran_tafsir_sources_empty">Ladda ner en tafsir och välj den sedan för att visa den tillsammans med betydelserna.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Ladda ner</string>
+    <string name="quran_tafsir_downloading">Laddar ner…</string>
+    <string name="quran_tafsir_installed">Installerad</string>
+    <string name="quran_tafsir_download_failed">Kunde inte ladda ner tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

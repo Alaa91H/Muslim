@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Bangogo yina me katuka na kisina mosi .</string>
     <string name="quran_search_no_root">Kulendaka ve kuzaba kisina</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Show tajweed colours</string>
+    <string name="quran_tajweed_show_desc">Colour Hafs tajweed rules in the Quran text</string>
+    <string name="quran_tafsir_sources_title">Tafsir source</string>
+    <string name="quran_tafsir_sources_empty">Download a tafsir, then select it to show it with meanings.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Download</string>
+    <string name="quran_tafsir_downloading">Downloading…</string>
+    <string name="quran_tafsir_installed">Installed</string>
+    <string name="quran_tafsir_download_failed">Could not download tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

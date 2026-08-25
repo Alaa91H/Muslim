@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">একেটা মূলৰ পৰা উদ্ভৱ হোৱা শব্দ</string>
     <string name="quran_search_no_root">মূল নিৰ্ণয় কৰিব পৰা নগ\'ল</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">তজউইদৰ ৰং দেখুৱাওক</string>
+    <string name="quran_tajweed_show_desc">কুৰআনৰ পাঠত Hafs তজউইদৰ নিয়মবোৰ ৰঙীন কৰক</string>
+    <string name="quran_tafsir_sources_title">তাফসীৰ উৎস</string>
+    <string name="quran_tafsir_sources_empty">এটা তাফসীৰ ডাউনলোড কৰক, তাৰ পিছত অৰ্থৰ সৈতে দেখুৱাবলৈ সেইটো নিৰ্বাচন কৰক.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">ডাউনলোড</string>
+    <string name="quran_tafsir_downloading">ডাউনলোড কৰা হৈছে…</string>
+    <string name="quran_tafsir_installed">স্থাপিত</string>
+    <string name="quran_tafsir_download_failed">তাফসীৰ ডাউনলোড কৰিব পৰা নগ\'ল: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Daɲɛ minnu Bɔra daɲɛ kelen na</string>
     <string name="quran_search_no_root">A ma se ka a ju dɔn</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Sɛbɛ tajweed kolo</string>
+    <string name="quran_tajweed_show_desc">Hafs tajweed kɛrɛw kolo la ka Kuran waxatin tɛ</string>
+    <string name="quran_tafsir_sources_title">Tafsir sigi</string>
+    <string name="quran_tafsir_sources_empty">Samu tafsir, na o bɛ selekte ka sɛbɛ ni maanan ye.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Samu</string>
+    <string name="quran_tafsir_downloading">Samu…</string>
+    <string name="quran_tafsir_installed">Fɔlɔ ye</string>
+    <string name="quran_tafsir_download_failed">Tafsir tile samu: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

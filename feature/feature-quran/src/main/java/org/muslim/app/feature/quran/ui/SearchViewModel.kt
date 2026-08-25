@@ -19,7 +19,6 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.muslim.app.feature.quran.data.QuranWordFrequency
-import org.muslim.app.core.common.text.ArabicText
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.data.QuranSearchQuery
 import org.muslim.app.feature.quran.domain.Ayah
@@ -73,8 +72,8 @@ class SearchViewModel @Inject constructor(
      * query is too short or no suggestions match.
      */
     val suggestions: StateFlow<List<String>> = combine(query, topWords) { raw, words ->
-        val needle = ArabicText.normalizeForSearch(raw.trim())
-        if (needle.length < 2) emptyList()
+        val needle = QuranSearchQuery.tokens(raw).singleOrNull()
+        if (needle == null || needle.length < 2) emptyList()
         else words.asSequence()
             .filter { it.startsWith(needle) && it != needle }
             .take(8)
@@ -99,9 +98,7 @@ class SearchViewModel @Inject constructor(
         viewModelScope.launch {
             query.drop(1).collect { raw ->
                 val info = _wordInfo.value ?: return@collect
-                if (ArabicText.normalizeForSearch(raw.trim()) !=
-                    ArabicText.normalizeForSearch(info.word)
-                ) {
+                if (QuranSearchQuery.tokens(raw) != QuranSearchQuery.tokens(info.word)) {
                     _wordInfo.value = null
                 }
             }
@@ -129,7 +126,7 @@ class SearchViewModel @Inject constructor(
     fun applySuggestion(word: String) {
         query.value = word
         saveCurrentSearch()
-        val normalized = ArabicText.normalizeForSearch(word.trim())
+        val normalized = QuranSearchQuery.tokens(word).singleOrNull().orEmpty()
         if (normalized.length >= 2) {
             viewModelScope.launch(Dispatchers.Default) {
                 val root = org.muslim.app.core.common.text.QuranRootAnalyzer.deriveRoot(normalized)
@@ -212,9 +209,10 @@ class SearchViewModel @Inject constructor(
                     val results = repository.search(raw)
                     hasBuiltSearchIndex = true
                     val elapsedMs = (System.nanoTime() - startedAt) / 1_000_000L
-                    val tokens = ArabicText.normalizeForSearch(raw)
-                        .split(Regex("\\s+"))
-                        .filter { it.isNotBlank() }
+                    // Use the same canonical tokens as the repository. A
+                    // separate UI normalization used to make EXACT mode remove
+                    // valid results for typed hamza and tatweel variants.
+                    val tokens = QuranSearchQuery.tokens(raw)
                     val matches = results.map { ayah ->
                         Match(
                             ayah = ayah,

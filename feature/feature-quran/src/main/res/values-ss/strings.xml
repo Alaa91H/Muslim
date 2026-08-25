@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Emagama lasuselwa emphandzeni yinye .</string>
     <string name="quran_search_no_root">Ayikhoni kutfola umsuka</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Khombisa imibala ye-tajweed</string>
+    <string name="quran_tajweed_show_desc">Faka imibala emithethweni ye-Hafs ye-tajweed embhalweni weQur\'ani</string>
+    <string name="quran_tafsir_sources_title">Umthombo we-Tafsir</string>
+    <string name="quran_tafsir_sources_empty">Landa i-Tafsir, bese uyikhetsa ukuze iboniswe kanye nemacaciso yayo.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Landa</string>
+    <string name="quran_tafsir_downloading">Kulanda…</string>
+    <string name="quran_tafsir_installed">Ifakiwe</string>
+    <string name="quran_tafsir_download_failed">Asikwazanga kulanda i-Tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

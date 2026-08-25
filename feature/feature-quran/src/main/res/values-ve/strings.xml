@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Maipfi o bvaho kha mudzi muthihi .</string>
     <string name="quran_search_no_root">A ri koni u wana mudzi</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Sumbedza mivhundu ya tajweed</string>
+    <string name="quran_tajweed_show_desc">Sumbedza mivhundu ya mitemo ya tajweed ya Hafs kha Qur\'an</string>
+    <string name="quran_tafsir_sources_title">Mveledzo ya Tafsir</string>
+    <string name="quran_tafsir_sources_empty">Laedza tafsir, zwino khethaho u i sumbedze na zwithu zwayo.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Laedza</string>
+    <string name="quran_tafsir_downloading">Kha laedza…</string>
+    <string name="quran_tafsir_installed">I no iswa</string>
+    <string name="quran_tafsir_download_failed">A nga kona u laedza tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

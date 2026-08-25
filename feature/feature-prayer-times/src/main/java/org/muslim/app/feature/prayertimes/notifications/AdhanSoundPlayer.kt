@@ -143,7 +143,7 @@ class AdhanSoundPlayer @Inject constructor(
                     runCatching { p.release() }
                     mediaPlayer = null
                     abandonFocus()
-                    playSynthesized(volumePercent, onFinished)
+                    playSynthesized(volumePercent, onStarted, onFinished)
                 }
             }
         }
@@ -157,7 +157,7 @@ class AdhanSoundPlayer @Inject constructor(
                 runCatching { p.release() }
                 mediaPlayer = null
                 abandonFocus()
-                playSynthesized(volumePercent, onFinished)
+                playSynthesized(volumePercent, onStarted, onFinished)
             }
             true
         }
@@ -167,7 +167,7 @@ class AdhanSoundPlayer @Inject constructor(
                     runCatching { player.release() }
                     mediaPlayer = null
                     abandonFocus()
-                    playSynthesized(volumePercent, onFinished)
+                    playSynthesized(volumePercent, onStarted, onFinished)
                 }
             }
     }
@@ -214,7 +214,7 @@ class AdhanSoundPlayer @Inject constructor(
                     runCatching { p.release() }
                     mediaPlayer = null
                     abandonFocus()
-                    playSynthesized(volumePercent, onFinished)
+                    playSynthesized(volumePercent, onStarted, onFinished)
                 }
             }
         }
@@ -226,7 +226,7 @@ class AdhanSoundPlayer @Inject constructor(
                 runCatching { p.release() }
                 mediaPlayer = null
                 abandonFocus()
-                playSynthesized(volumePercent, onFinished)
+                playSynthesized(volumePercent, onStarted, onFinished)
             }
             true
         }
@@ -236,7 +236,7 @@ class AdhanSoundPlayer @Inject constructor(
                     runCatching { player.release() }
                     mediaPlayer = null
                     abandonFocus()
-                    playSynthesized(volumePercent, onFinished)
+                    playSynthesized(volumePercent, onStarted, onFinished)
                 }
             }
     }

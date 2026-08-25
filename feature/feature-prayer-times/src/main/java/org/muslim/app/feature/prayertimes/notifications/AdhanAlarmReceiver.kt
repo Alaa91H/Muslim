@@ -7,6 +7,7 @@ import androidx.glance.appwidget.updateAll
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.muslim.app.core.common.prayer.AdhanSoundOption
@@ -65,58 +66,21 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 val bundledSoundId = settings.bundledAdhanSounds[prayer]
                     ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID
                 val option = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default
-                val vibrate = settings.vibrateFor(prayer)
-                val volume = settings.adhanVolumeFor(prayer)
-                // Prefer the foreground service (keeps ringing in the
-                // background); Android 12+ may block starting it from an
-                // alarm, so fall back to in-process playback — the adhan
-                // must never be missed.
-                deliveryJournal.serviceStartRequested(prayer, isProbe)
-                val serviceStart = runCatching {
-                    AdhanPlaybackService.start(
-                        context = appContext,
+                deliverPrayerAudio(
+                    appContext = appContext,
+                    entryPoint = entryPoint,
+                    request = AdhanDeliveryRequest(
                         prayer = prayer,
-                        vibrate = vibrate,
-                        soundOption = option,
-                        volumePercent = volume,
+                        isProbe = isProbe,
+                        option = option,
+                        vibrate = settings.vibrateFor(prayer),
+                        volume = settings.adhanVolumeFor(prayer),
                         soundPath = soundPath,
                         bundledSoundId = bundledSoundId,
-                        isProbe = isProbe,
                         notificationDismissible = settings.adhanNotificationDismissible,
                         stopOnNotificationDismiss = settings.stopAdhanOnNotificationDismiss,
-                    )
-                }
-                serviceStart.exceptionOrNull()?.let { error ->
-                    deliveryJournal.failed(
-                        prayer,
-                        isProbe,
-                        "Foreground service start failed: ${error.javaClass.simpleName}",
-                    )
-                }
-                if (serviceStart.isFailure) {
-                    val plan = org.muslim.app.core.common.prayer.AdhanPlaybackPlan.plan(
-                        option = option,
-                        hasBundledSound = true,
-                        vibrationEnabled = vibrate,
-                    )
-                    val player = entryPoint.soundPlayer()
-                    when {
-                        plan.playSound && soundPath != null &&
-                            java.io.File(soundPath).exists() ->
-                            player.playFile(
-                                java.io.File(soundPath),
-                                volume,
-                                onStarted = { deliveryJournal.audioStarted(prayer, isProbe) },
-                                onFinished = {},
-                            )
-                        plan.playSound -> player.playBundled(
-                            org.muslim.app.core.common.prayer.BundledAdhanSound.fromId(bundledSoundId),
-                            volume,
-                            onStarted = { deliveryJournal.audioStarted(prayer, isProbe) },
-                            onFinished = {},
-                        )
-                    }
-                }
+                    ),
+                )
                 // Supplementary automation is intentionally restricted to an
                 // audible adhan choice; its best-effort HTTPS request never
                 // delays or changes local playback.
@@ -135,7 +99,109 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
             PrayerTimesWidget().updateAll(appContext)
     }
 
+    private data class AdhanDeliveryRequest(
+        val prayer: Prayer,
+        val isProbe: Boolean,
+        val option: AdhanSoundOption,
+        val vibrate: Boolean,
+        val volume: Int,
+        val soundPath: String?,
+        val bundledSoundId: String,
+        val notificationDismissible: Boolean,
+        val stopOnNotificationDismiss: Boolean,
+    )
+
+    /** Starts foreground audio then verifies actual playback before a local fallback. */
+    private suspend fun deliverPrayerAudio(
+        appContext: Context,
+        entryPoint: AdhanEntryPoint,
+        request: AdhanDeliveryRequest,
+    ) {
+        val plan = org.muslim.app.core.common.prayer.AdhanPlaybackPlan.plan(
+            option = request.option,
+            hasBundledSound = true,
+            vibrationEnabled = request.vibrate,
+        )
+        val journal = entryPoint.deliveryJournal()
+        val deliveryRequestedAt = System.currentTimeMillis()
+        journal.serviceStartRequested(request.prayer, request.isProbe)
+        val serviceStart = runCatching {
+            AdhanPlaybackService.start(
+                context = appContext,
+                prayer = request.prayer,
+                vibrate = request.vibrate,
+                soundOption = request.option,
+                volumePercent = request.volume,
+                soundPath = request.soundPath,
+                bundledSoundId = request.bundledSoundId,
+                isProbe = request.isProbe,
+                notificationDismissible = request.notificationDismissible,
+                stopOnNotificationDismiss = request.stopOnNotificationDismiss,
+            )
+        }
+        if (serviceStart.isFailure) {
+            journal.failed(
+                request.prayer,
+                request.isProbe,
+                "Foreground service start failed: ${serviceStart.exceptionOrNull()?.javaClass?.simpleName}",
+            )
+            playDirectFallback(
+                entryPoint,
+                request.prayer,
+                request.isProbe,
+                plan,
+                request.soundPath,
+                request.bundledSoundId,
+                request.volume,
+            )
+            return
+        }
+        if (!plan.playSound) return
+        delay(SERVICE_AUDIO_CONFIRM_TIMEOUT_MS)
+        val status = journal.lastDelivery.value
+        val serviceConfirmedAudio = status.stage == AdhanDeliveryStage.AudioStarted &&
+            status.prayer == request.prayer && status.isProbe == request.isProbe && status.atMillis >= deliveryRequestedAt
+        if (!serviceConfirmedAudio) {
+            AdhanPlaybackService.stop(appContext)
+            journal.failed(request.prayer, request.isProbe, "Service audio was not confirmed; direct fallback started")
+            playDirectFallback(
+                entryPoint,
+                request.prayer,
+                request.isProbe,
+                plan,
+                request.soundPath,
+                request.bundledSoundId,
+                request.volume,
+            )
+        }
+    }
+
+    private fun playDirectFallback(
+        entryPoint: AdhanEntryPoint,
+        prayer: Prayer,
+        isProbe: Boolean,
+        plan: org.muslim.app.core.common.prayer.AdhanPlaybackPlan.Plan,
+        soundPath: String?,
+        bundledSoundId: String,
+        volume: Int,
+    ) {
+        if (!plan.playSound) return
+        val player = entryPoint.soundPlayer()
+        val onStarted = { entryPoint.deliveryJournal().audioStarted(prayer, isProbe) }
+        when {
+            soundPath != null && java.io.File(soundPath).exists() ->
+                player.playFile(java.io.File(soundPath), volume, onStarted = onStarted, onFinished = {})
+            else -> player.playBundled(
+                org.muslim.app.core.common.prayer.BundledAdhanSound.fromId(bundledSoundId),
+                volume,
+                onStarted = onStarted,
+                onFinished = {},
+            )
+        }
+    }
+
     companion object {
+        private const val SERVICE_AUDIO_CONFIRM_TIMEOUT_MS = 4_000L
         const val EXTRA_PRAYER = "extra_prayer"
         const val EXTRA_IS_REMINDER = "extra_is_reminder"
         const val EXTRA_SOUND_OPTION = "extra_sound_option"

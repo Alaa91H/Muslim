@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Besede iz istega korena</string>
     <string name="quran_search_no_root">Korena ni bilo mogoče določiti</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Prikaži barve tadžvida</string>
+    <string name="quran_tajweed_show_desc">Obarvaj pravila Hafsovega tadžvida v besedilu Kur\'ana</string>
+    <string name="quran_tafsir_sources_title">Vir tafsira</string>
+    <string name="quran_tafsir_sources_empty">Prenesite tafsir, nato ga izberite, da ga prikažete z njegovimi pomeni.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Prenesi</string>
+    <string name="quran_tafsir_downloading">Prenos…</string>
+    <string name="quran_tafsir_installed">Nameščeno</string>
+    <string name="quran_tafsir_download_failed">Prenos tafsira ni uspel: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

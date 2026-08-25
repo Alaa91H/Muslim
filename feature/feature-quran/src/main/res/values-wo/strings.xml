@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Baatu yu juddoo ci benn reen</string>
     <string name="quran_search_no_root">Mënu ñu xam root bi</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Wone kuleer yi ci tajweed</string>
+    <string name="quran_tajweed_show_desc">Tàggal kuleer ci règle yi tajweed (Hafs) ci tekstu Quraan bi</string>
+    <string name="quran_tafsir_sources_title">Source tafsir</string>
+    <string name="quran_tafsir_sources_empty">Jël benn tafsir; bu la jël, selektal ngir wone ko ak maanaam yi.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Jël</string>
+    <string name="quran_tafsir_downloading">Jël…</string>
+    <string name="quran_tafsir_installed">Am na</string>
+    <string name="quran_tafsir_download_failed">Mënul a jël tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

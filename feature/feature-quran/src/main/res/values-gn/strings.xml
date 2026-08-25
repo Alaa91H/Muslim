@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Ñe’ẽ osẽva peteĩ hapogui</string>
     <string name="quran_search_no_root">Ndaikatúi ojekuaa hapo</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Ehechauka tajweed kolóre</string>
+    <string name="quran_tajweed_show_desc">Ehechauka Hafs tajweed rehegua colores Korán tekstopegua</string>
+    <string name="quran_tafsir_sources_title">Tafsir rembiapo (fuente)</string>
+    <string name="quran_tafsir_sources_empty">Descargá tafsir peteî; upégui elege chupe oĩ haguã ohechávo ha oñe\'ẽ rehegua</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Descargar</string>
+    <string name="quran_tafsir_downloading">Descargando…</string>
+    <string name="quran_tafsir_installed">Instalado</string>
+    <string name="quran_tafsir_download_failed">Ndaikatúi descargar tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">एक ही मूल से बने शब्द</string>
     <string name="quran_search_no_root">मूल का निर्धारण नहीं हो सका</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">तजवीद के रंग दिखाएँ</string>
+    <string name="quran_tajweed_show_desc">कुरआन के पाठ में हफ़्स तजवीद नियमों को रंगित करें</string>
+    <string name="quran_tafsir_sources_title">तफ़सीर स्रोत</string>
+    <string name="quran_tafsir_sources_empty">एक तफ़सीर डाउनलोड करें, फिर अर्थों के साथ दिखाने के लिए उसे चुनें।</string>
+    <string name="quran_tafsir_muyassar">अत-तफ़सीर अल-मुयस्सर</string>
+    <string name="quran_tafsir_download">डाउनलोड</string>
+    <string name="quran_tafsir_downloading">डाउनलोड हो रहा है…</string>
+    <string name="quran_tafsir_installed">स्थापित</string>
+    <string name="quran_tafsir_download_failed">तफ़सीर डाउनलोड नहीं हो सकी: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

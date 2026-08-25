@@ -44,8 +44,6 @@ import org.muslim.app.feature.learn.ui.FamilyLifeScreen
 import org.muslim.app.feature.learn.ui.FuneralWillScreen
 import org.muslim.app.feature.learn.ui.NooraniNewMuslimScreen
 import org.muslim.app.feature.learn.ui.TravelerExpatsScreen
-import org.muslim.app.feature.qibla.ui.MosqueFinderScreen
-import org.muslim.app.feature.qibla.ui.OfflineMapsScreen
 import org.muslim.app.feature.qibla.ui.QiblaScreen
 import org.muslim.app.feature.quran.ui.BookmarksScreen
 import org.muslim.app.feature.ramadan.ui.HabitTrackerScreen
@@ -118,8 +116,6 @@ private const val TRAVELER_EXPAT_ROUTE = "learn/traveler-expat"
 private const val REFERENCE_ROUTE = "reference"
 private const val ISLAMIC_HISTORY_ROUTE = "history"
 private const val QURAN_DOWNLOADS_ROUTE = "quran/downloads"
-private const val MOSQUES_ROUTE = "qibla/mosques"
-private const val OFFLINE_MAPS_ROUTE = "qibla/offline-maps"
 private const val SCHOLAR_LIBRARY_ROUTE = "scholar-library"
 private const val SCHOLAR_LIBRARY_BOOK_ROUTE = "scholar-library/book"
 private const val SCHOLAR_LIBRARY_STUDY_ROUTE = "scholar-library/study"
@@ -280,17 +276,8 @@ fun MuslimApp(
                             latitude = selected.latitude,
                             longitude = selected.longitude,
                             locationName = selected.name,
-                            onOpenMosques = { navController.navigate(MOSQUES_ROUTE) },
                         )
                     }
-                }
-                composable(MOSQUES_ROUTE) {
-                    val selected = location
-                    MosqueFinderScreen(
-                        latitude = selected?.latitude,
-                        longitude = selected?.longitude,
-                        onBack = { navController.popBackStack() },
-                    )
                 }
                 composable("more") {
                     MoreScreen(
@@ -314,16 +301,8 @@ fun MuslimApp(
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
                         onOpenQuranSearch = { navController.navigate(SEARCH_ROUTE) },
                         onOpenQuranFrequency = { navController.navigate(QURAN_FREQUENCY_ROUTE) },
-                        onOpenOfflineMaps = { navController.navigate(OFFLINE_MAPS_ROUTE) },
                         sectionOrder = preferences.moreSectionOrder,
                         hiddenSections = preferences.hiddenMoreSections,
-                    )
-                }
-                composable(OFFLINE_MAPS_ROUTE) {
-                    OfflineMapsScreen(
-                        onBack = { navController.popBackStack() },
-                        latitude = location?.latitude,
-                        longitude = location?.longitude,
                     )
                 }
                 composable(SETTINGS_ROUTE) {

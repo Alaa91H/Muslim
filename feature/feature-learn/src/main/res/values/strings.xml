@@ -70,7 +70,8 @@
     <string name="hajj_companion_tashreeq2_msg">كرّر رمي الجمرات الثلاث بعد الزوال كما في أمس. من أراد التعجل غادر منى قبل الغروب، ومن تأخر بات ورمى في اليوم الثالث.</string>
     <string name="hajj_companion_tashreeq3_title">أيام التشريق · اليوم الثالث (13 ذو الحجة)</string>
     <string name="hajj_companion_tashreeq3_msg">ارمِ الجمرات الثلاث بعد الزوال، ثم اختم الحج بطواف الوداع عند مغادرة مكة. تقبّل الله حجّكم.</string>
-    <string name="hajj_map_title" tools:ignore="MissingTranslation">خريطة المشاعر المقدسة</string>
+    <string name="hajj_map_title" tools:ignore="MissingTranslation">دليل المشاعر المقدسة</string>
+    <string name="hajj_map_list_intro" tools:ignore="MissingTranslation">اختر موقعًا لعرض الإرشاد والدعاء المرتبط به. يعمل الدليل محليًا ولا يستخدم خرائط أو تتبعًا للموقع.</string>
     <string name="hajj_map_subtitle" tools:ignore="MissingTranslation">منى وعرفة ومزدلفة والجمرات والمسجد الحرام — اضغط على الموقع لعرض الدعاء</string>
     <string name="hajj_map_zoom_in" tools:ignore="MissingTranslation">تكبير الخريطة</string>
     <string name="hajj_map_zoom_out" tools:ignore="MissingTranslation">تصغير الخريطة</string>

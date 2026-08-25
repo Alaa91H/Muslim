@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Пӗр тымартан пулса кайнӑ сӑмахсем</string>
     <string name="quran_search_no_root">Тымарне палӑртма май килмерӗ</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Таҗвид тăҫлăрен кӗрсет</string>
+    <string name="quran_tajweed_show_desc">Ҡуран текстӗнде Hafs таҗвид ҡағиделӗрен тăҫлăр белән күрсәтү</string>
+    <string name="quran_tafsir_sources_title">Тафсир чыганăк</string>
+    <string name="quran_tafsir_sources_empty">Тафсирны йүктеп алыгыз, аннă сайлап, мәғънелĕрене белән күрсәтегез.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Йүктеп ал</string>
+    <string name="quran_tafsir_downloading">Йүктелӗ...</string>
+    <string name="quran_tafsir_installed">Урнатылды</string>
+    <string name="quran_tafsir_download_failed">Тафсирны йүктеп алыу мөмкин булмаҫ: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

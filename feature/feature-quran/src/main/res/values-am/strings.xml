@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">ከተመሳሳይ ሥር የተወሰዱ ቃላት</string>
     <string name="quran_search_no_root">ሥሩን ማወቅ አልተቻለም</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">የታጅዊድ ቀለሞችን አሳይ</string>
+    <string name="quran_tajweed_show_desc">የHafs ታጅዊድ ህጎችን በኩርአን ጽሑፍ ውስጥ ቀለም ያስቀምጡ</string>
+    <string name="quran_tafsir_sources_title">የታፍሲር ምንጭ</string>
+    <string name="quran_tafsir_sources_empty">ታፍሲር ያውርዱ፣ ከዚያም እንዲታይ እና ከትርጉም ጋር ይምረጡ።</string>
+    <string name="quran_tafsir_muyassar">አት-ታፍሲር አል-ሙያሰር</string>
+    <string name="quran_tafsir_download">አውርድ</string>
+    <string name="quran_tafsir_downloading">በመውረድ ላይ…</string>
+    <string name="quran_tafsir_installed">ተጫኗል</string>
+    <string name="quran_tafsir_download_failed">ታፍሲሩን ማውረድ አልተቻለም፦ %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

@@ -6,6 +6,8 @@
     <string name="hadith_all">الكل</string>
     <string name="hadith_of_the_day">حديث اليوم</string>
     <string name="hadith_daily_notification">إشعار حديث اليوم</string>
+    <string name="hadith_notification_settings">إعدادات إشعار حديث اليوم</string>
+    <string name="hadith_done">تم</string>
     <string name="hadith_daily_notification_desc">إشعار يومي بحديث من المجموعة</string>
     <string name="hadith_preview_label">معاينة الإشعار</string>
     <string name="hadith_preview_hint">هكذا يظهر إشعار حديث اليوم عند وقته المحدد.</string>

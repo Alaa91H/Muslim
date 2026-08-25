@@ -1,7 +1,5 @@
 package org.muslim.app.feature.quran.data
 
-import org.muslim.app.core.common.text.ArabicText
-
 /** A single word-form frequency entry (rank is implied by list order). */
 data class QuranWordFrequencyEntry(
     val word: String,
@@ -21,20 +19,15 @@ data class QuranWordFrequencyResult(
  * Pure word-frequency calculator for the whole mushaf (PROJECT_PROMPT.md §3.7 —
  * free of Android framework types so it runs as a plain JVM unit test).
  *
- * Words are tokenized after [ArabicText.normalize] — the same canonical form
- * used by the FTS search index — so tashkeel, Quranic annotation marks, the
- * dagger alef and the end-of-ayah mark are dropped, and the alef-wasla
- * (`ٱ`) folds into a plain alef. That makes `ٱللَّه` and `اللَّه` count as
- * one word, while genuine hamza letters (أ/إ/آ/ؤ/ئ) stay distinct — matching
- * how the mushaf is written.
+ * Words are tokenized with [QuranSearchQuery], the authoritative search
+ * representation. Tashkeel, Quranic annotation marks and tatweel are removed;
+ * alef-wasla and keyboard hamza variants fold consistently. This keeps
+ * autocomplete frequency, query matching and highlighting in agreement.
  */
 object QuranWordFrequency {
 
     /** Tokenizes one ayah into normalized words, skipping mark-only tokens. */
-    fun wordsOf(ayahText: String): List<String> =
-        ArabicText.normalizeForSearch(ayahText)
-            .split(Regex("\\s+"))
-            .filter { it.isNotBlank() }
+    fun wordsOf(ayahText: String): List<String> = QuranSearchQuery.tokens(ayahText)
 
     /**
      * Counts every word across [ayahTexts] and returns the whole-mushaf

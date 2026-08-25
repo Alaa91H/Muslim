@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Nya siwo woɖe tso ke ɖeka me</string>
     <string name="quran_search_no_root">Mete ŋu nya kea o</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Kpɔ tajweed ɖeɖewo</string>
+    <string name="quran_tajweed_show_desc">Tso Hafs tajweed ɖeɖe le Quran gbɔna me</string>
+    <string name="quran_tafsir_sources_title">Tafsir dzi</string>
+    <string name="quran_tafsir_sources_empty">Dzra tafsir si, eye le eƒe me ke le ɖoɖo le nyaɖeɖeɖe kple nuɖoɖoɖoawo.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Dzra</string>
+    <string name="quran_tafsir_downloading">Wodzra…</string>
+    <string name="quran_tafsir_installed">Wɔe</string>
+    <string name="quran_tafsir_download_failed">Mele dzi be megadzra tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

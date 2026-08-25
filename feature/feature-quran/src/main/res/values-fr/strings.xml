@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Mots dérivés de la même racine</string>
     <string name="quran_search_no_root">Impossible de déterminer la racine</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Afficher les couleurs du tajwid</string>
+    <string name="quran_tajweed_show_desc">Colorer les règles de tajwid de Hafs dans le texte du Coran</string>
+    <string name="quran_tafsir_sources_title">Source du tafsir</string>
+    <string name="quran_tafsir_sources_empty">Téléchargez un tafsir, puis sélectionnez-le pour l\'afficher avec les significations.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Télécharger</string>
+    <string name="quran_tafsir_downloading">Téléchargement…</string>
+    <string name="quran_tafsir_installed">Installé</string>
+    <string name="quran_tafsir_download_failed">Impossible de télécharger le tafsir : %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

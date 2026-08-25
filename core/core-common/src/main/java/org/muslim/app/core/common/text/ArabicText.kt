@@ -89,6 +89,19 @@ object ArabicText {
      * user's query ("رحمة", "موسى") matches both spellings of the mushaf text.
      * The display form is untouched by [normalize].
      */
+    /**
+     * Search-only Quran normalization. This folds keyboard variants that are
+     * intentionally preserved by [normalizeForSearch] for display and word
+     * frequency analysis, so every Quran-search surface uses identical keys.
+     */
+    fun normalizeForQuranSearch(input: String): String = normalizeForSearch(input)
+        .replace('\u0622', '\u0627') // آ → ا
+        .replace('\u0623', '\u0627') // أ → ا
+        .replace('\u0625', '\u0627') // إ → ا
+        .replace('\u0624', '\u0648') // ؤ → و
+        .replace('\u0626', '\u064A') // ئ → ي
+        .replace("ـ", "")
+
     fun normalizeForSearch(text: String): String = buildString(text.length) {
         var i = 0
         while (i < text.length) {

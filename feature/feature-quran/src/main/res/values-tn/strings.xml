@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Mafoko a a tswang mo moding o le mongwe</string>
     <string name="quran_search_no_root">Ga ke kgone go tlhomamisa modi</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Bontša mebala ya tajweed</string>
+    <string name="quran_tajweed_show_desc">Bontša melao ya tajweed ya Hafs ka mebala mo mongwalong wa Qur\'an.</string>
+    <string name="quran_tafsir_sources_title">Motswedi wa Tafsir</string>
+    <string name="quran_tafsir_sources_empty">Tsenya tafsir, morago o e kgethe go e bontsha le dikakanyo.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Tsenya</string>
+    <string name="quran_tafsir_downloading">Go tsenya…</string>
+    <string name="quran_tafsir_installed">E kentse</string>
+    <string name="quran_tafsir_download_failed">Ga go kgonege go tsenya tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

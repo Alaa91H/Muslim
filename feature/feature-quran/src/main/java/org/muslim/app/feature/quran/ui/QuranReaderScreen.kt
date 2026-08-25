@@ -205,6 +205,11 @@ fun QuranReaderScreen(
     val persistedFont by viewModel.readerFontSize.collectAsStateWithLifecycle()
     val supplements by viewModel.supplements.collectAsStateWithLifecycle()
     val supplementEnabled by viewModel.supplementEnabled.collectAsStateWithLifecycle()
+    val tajweedEnabled by viewModel.tajweedEnabled.collectAsStateWithLifecycle()
+    val tajweedAnnotations by viewModel.tajweedAnnotations.collectAsStateWithLifecycle()
+    val installedTafsirSources by viewModel.installedTafsirSources.collectAsStateWithLifecycle()
+    val selectedTafsirSource by viewModel.selectedTafsirSource.collectAsStateWithLifecycle()
+    val tafsirDownloadState by viewModel.tafsirDownloadState.collectAsStateWithLifecycle()
     val supplementLanguage by viewModel.supplementLanguage.collectAsStateWithLifecycle()
     val availableSupplementLanguages by viewModel.availableSupplementLanguages.collectAsStateWithLifecycle()
     val continuousStopAtEnd by viewModel.continuousStopAtEnd.collectAsStateWithLifecycle()
@@ -725,6 +730,8 @@ fun QuranReaderScreen(
                         openedAyahGlobal = openedTargetGlobal,
                         tappedAyahGlobal = tappedAyahGlobal,
                         scrollTargetAyahGlobal = scrollTargetAyah,
+                        tajweedEnabled = tajweedEnabled,
+                        tajweedByAyah = tajweedAnnotations,
                     )
                     val mushafCallbacks = MushafPageCallbacks(
                         onPageClick = { pageAyahs ->
@@ -861,12 +868,23 @@ fun QuranReaderScreen(
         }
         if (showSupplementControls) {
             SupplementControlsDialog(
-                enabled = supplementEnabled,
-                language = supplementLanguage,
-                availableLanguages = availableSupplementLanguages,
-                onEnabledChanged = viewModel::setSupplementEnabled,
-                onLanguageChanged = viewModel::setSupplementLanguage,
-                onDismiss = { showSupplementControls = false },
+                state = SupplementControlsState(
+                    enabled = supplementEnabled,
+                    tajweedEnabled = tajweedEnabled,
+                    installedTafsirSources = installedTafsirSources,
+                    selectedTafsirSource = selectedTafsirSource,
+                    tafsirDownloadState = tafsirDownloadState,
+                    language = supplementLanguage,
+                    availableLanguages = availableSupplementLanguages,
+                ),
+                actions = SupplementControlsActions(
+                    onEnabledChanged = viewModel::setSupplementEnabled,
+                    onTajweedEnabledChanged = viewModel::setTajweedEnabled,
+                    onTafsirSourceSelected = viewModel::setSelectedTafsirSource,
+                    onDownloadOfficialTafsir = viewModel::downloadOfficialTafsir,
+                    onLanguageChanged = viewModel::setSupplementLanguage,
+                    onDismiss = { showSupplementControls = false },
+                ),
             )
         }
     }
@@ -1252,6 +1270,8 @@ private data class MushafPagePresentation(
     val openedAyahGlobal: Int?,
     val tappedAyahGlobal: Int?,
     val scrollTargetAyahGlobal: Int?,
+    val tajweedEnabled: Boolean,
+    val tajweedByAyah: Map<Int, List<org.muslim.app.feature.quran.domain.TajweedAnnotation>>,
 )
 
 /** Events emitted by a rendered mushaf page. */
@@ -1421,12 +1441,34 @@ private fun MushafPageCard(
             ) {
                 withStyle(highlight) {
                     val ayahText = if (ayah === firstAyah) firstAyahText else ayah.text
-                    TajweedMarkup.segment(ayahText).forEach { segment ->
+                    val rawAnnotations = if (presentation.tajweedEnabled) {
+                        presentation.tajweedByAyah[ayah.numberInSurah].orEmpty()
+                    } else {
+                        emptyList()
+                    }
+                    // The opening Basmala is visually removed on most surahs.
+                    // Shift source offsets so only annotations in displayed text
+                    // remain; out-of-range annotations are never rendered.
+                    val removedPrefix = ayah.text.length - ayahText.length
+                    val visibleAnnotations = rawAnnotations.mapNotNull { annotation ->
+                        val start = annotation.start - removedPrefix
+                        val end = annotation.endExclusive - removedPrefix
+                        if (end <= 0 || start >= ayahText.length) null else annotation.copy(
+                            start = start.coerceAtLeast(0),
+                            endExclusive = end.coerceAtMost(ayahText.length),
+                        )
+                    }
+                    TajweedMarkup.segment(ayahText, visibleAnnotations).forEach { segment ->
                         val color = when (segment.rule) {
                             org.muslim.app.feature.quran.domain.TajweedRule.Ghunnah -> scheme.tertiary
+                            org.muslim.app.feature.quran.domain.TajweedRule.Idghaam -> scheme.secondary
+                            org.muslim.app.feature.quran.domain.TajweedRule.Ikhfa -> scheme.error
+                            org.muslim.app.feature.quran.domain.TajweedRule.Iqlab -> scheme.tertiary
                             org.muslim.app.feature.quran.domain.TajweedRule.Madd -> scheme.primary
                             org.muslim.app.feature.quran.domain.TajweedRule.Qalqalah -> scheme.error
-                            org.muslim.app.feature.quran.domain.TajweedRule.NoonRules -> scheme.secondary
+                            org.muslim.app.feature.quran.domain.TajweedRule.HamzatWasl,
+                            org.muslim.app.feature.quran.domain.TajweedRule.Silent -> scheme.onSurfaceVariant
+                            org.muslim.app.feature.quran.domain.TajweedRule.LamShamsiyyah -> scheme.secondary
                             null -> null
                         }
                         if (color == null) append(segment.text) else withStyle(SpanStyle(color = color)) { append(segment.text) }
@@ -1713,95 +1755,214 @@ private fun DetailRow(label: String, value: String) {
     }
 }
 
-/**
- * Meanings/tafsir controls: a master switch (show/hide the panel under the
- * mushaf page) plus the translation language, defaulting to the app language
- * ("auto"). The reader applies the choice immediately via the ViewModel.
- */
+/** State rendered by the reader's meanings, tajweed and tafsir controls. */
+private data class SupplementControlsState(
+    val enabled: Boolean,
+    val tajweedEnabled: Boolean,
+    val installedTafsirSources: List<String>,
+    val selectedTafsirSource: String?,
+    val tafsirDownloadState: QuranReaderViewModel.TafsirDownloadState,
+    val language: String,
+    val availableLanguages: List<String>,
+)
+
+/** Reader-owned actions invoked by the stateless supplement controls. */
+private data class SupplementControlsActions(
+    val onEnabledChanged: (Boolean) -> Unit,
+    val onTajweedEnabledChanged: (Boolean) -> Unit,
+    val onTafsirSourceSelected: (String?) -> Unit,
+    val onDownloadOfficialTafsir: (org.muslim.app.feature.quran.data.OfficialTafsirSource) -> Unit,
+    val onLanguageChanged: (String) -> Unit,
+    val onDismiss: () -> Unit,
+)
+
 @Composable
 private fun SupplementControlsDialog(
-    enabled: Boolean,
-    language: String,
-    availableLanguages: List<String>,
-    onEnabledChanged: (Boolean) -> Unit,
-    onLanguageChanged: (String) -> Unit,
-    onDismiss: () -> Unit,
+    state: SupplementControlsState,
+    actions: SupplementControlsActions,
 ) {
     AlertDialog(
-        onDismissRequest = onDismiss,
+        onDismissRequest = actions.onDismiss,
         title = { Text(stringResource(R.string.quran_supplement_controls)) },
         text = {
-            Column {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text(
-                        text = stringResource(R.string.quran_supplement_show),
-                        style = MaterialTheme.typography.bodyLarge,
-                        modifier = Modifier.weight(1f),
-                    )
-                    Switch(
-                        checked = enabled,
-                        onCheckedChange = onEnabledChanged,
-                    )
-                }
-                Spacer(Modifier.height(12.dp))
-                HorizontalDivider()
-                Spacer(Modifier.height(12.dp))
-                Text(
-                    text = stringResource(R.string.quran_supplement_language),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-                Spacer(Modifier.height(8.dp))
-                val options = buildList {
-                    add(QuranPrefsRepository.AUTO_LANGUAGE)
-                    addAll(availableLanguages)
-                }.distinct()
-                options.forEach { option ->
-                    val label = if (option == QuranPrefsRepository.AUTO_LANGUAGE) {
-                        stringResource(R.string.quran_supplement_language_auto, appLanguageName())
-                    } else {
-                        displayLanguageName(option)
-                    }
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clip(MaterialTheme.shapes.small)
-                            .clickable { onLanguageChanged(option) }
-                            .padding(vertical = 10.dp, horizontal = 4.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Icon(
-                            imageVector = if (language == option) {
-                                Icons.Filled.RadioButtonChecked
-                            } else {
-                                Icons.Outlined.RadioButtonUnchecked
-                            },
-                            contentDescription = null,
-                            tint = if (language == option) {
-                                MaterialTheme.colorScheme.primary
-                            } else {
-                                MaterialTheme.colorScheme.onSurfaceVariant
-                            },
-                            modifier = Modifier.size(20.dp),
-                        )
-                        Spacer(Modifier.width(10.dp))
-                        Text(
-                            text = label,
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
-                    }
-                }
+            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+                SupplementVisibilityControls(state, actions)
+                SupplementTafsirSources(state, actions)
+                SupplementLanguageOptions(state, actions)
             }
         },
         confirmButton = {
-            TextButton(onClick = onDismiss) {
+            TextButton(onClick = actions.onDismiss) {
                 Text(stringResource(R.string.quran_details_close))
             }
         },
     )
+}
+
+@Composable
+private fun SupplementVisibilityControls(
+    state: SupplementControlsState,
+    actions: SupplementControlsActions,
+) {
+    Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Text(
+            text = stringResource(R.string.quran_supplement_show),
+            style = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.weight(1f),
+        )
+        Switch(checked = state.enabled, onCheckedChange = actions.onEnabledChanged)
+    }
+    Spacer(Modifier.height(12.dp))
+    HorizontalDivider()
+    Spacer(Modifier.height(12.dp))
+    Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Column(modifier = Modifier.weight(1f)) {
+            Text(stringResource(R.string.quran_tajweed_show), style = MaterialTheme.typography.bodyLarge)
+            Text(
+                stringResource(R.string.quran_tajweed_show_desc),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        Switch(checked = state.tajweedEnabled, onCheckedChange = actions.onTajweedEnabledChanged)
+    }
+    Spacer(Modifier.height(12.dp))
+    HorizontalDivider()
+    Spacer(Modifier.height(12.dp))
+}
+
+@Composable
+private fun SupplementTafsirSources(
+    state: SupplementControlsState,
+    actions: SupplementControlsActions,
+) {
+    Text(
+        stringResource(R.string.quran_tafsir_sources_title),
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.primary,
+    )
+    Spacer(Modifier.height(6.dp))
+    if (state.installedTafsirSources.isEmpty()) {
+        Text(
+            stringResource(R.string.quran_tafsir_sources_empty),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    } else {
+        state.installedTafsirSources.forEach { source ->
+            TafsirSourceChoice(
+                source = source,
+                selected = state.selectedTafsirSource == source,
+                onSelected = { actions.onTafsirSourceSelected(source) },
+            )
+        }
+    }
+    org.muslim.app.feature.quran.data.OfficialTafsirSource.entries.forEach { source ->
+        OfficialTafsirDownloadRow(source, state, actions.onDownloadOfficialTafsir)
+    }
+    state.tafsirDownloadState.error?.let { error ->
+        Text(
+            stringResource(R.string.quran_tafsir_download_failed, error),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.error,
+        )
+    }
+    Text(
+        stringResource(R.string.quran_tafsir_attribution),
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+    Spacer(Modifier.height(12.dp))
+    HorizontalDivider()
+    Spacer(Modifier.height(12.dp))
+}
+
+@Composable
+private fun TafsirSourceChoice(source: String, selected: Boolean, onSelected: () -> Unit) {
+    Row(
+        modifier = Modifier.fillMaxWidth().clip(MaterialTheme.shapes.small)
+            .clickable(onClick = onSelected).padding(vertical = 8.dp, horizontal = 4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Icon(
+            imageVector = if (selected) Icons.Filled.RadioButtonChecked else Icons.Outlined.RadioButtonUnchecked,
+            contentDescription = null,
+            tint = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.size(20.dp),
+        )
+        Spacer(Modifier.width(10.dp))
+        Text(source, style = MaterialTheme.typography.bodyMedium)
+    }
+}
+
+@Composable
+private fun OfficialTafsirDownloadRow(
+    source: org.muslim.app.feature.quran.data.OfficialTafsirSource,
+    state: SupplementControlsState,
+    onDownload: (org.muslim.app.feature.quran.data.OfficialTafsirSource) -> Unit,
+) {
+    val installed = source.storageKey in state.installedTafsirSources
+    val downloading = state.tafsirDownloadState.downloading == source
+    Row(modifier = Modifier.fillMaxWidth().padding(top = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+        Text(
+            text = when (source) {
+                org.muslim.app.feature.quran.data.OfficialTafsirSource.AlMuyassar ->
+                    stringResource(R.string.quran_tafsir_muyassar)
+            },
+            style = MaterialTheme.typography.bodySmall,
+            modifier = Modifier.weight(1f),
+        )
+        TextButton(
+            enabled = !installed && !downloading && state.tafsirDownloadState.downloading == null,
+            onClick = { onDownload(source) },
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    if (downloading) stringResource(R.string.quran_tafsir_downloading)
+                    else if (installed) stringResource(R.string.quran_tafsir_installed)
+                    else stringResource(R.string.quran_tafsir_download),
+                )
+                if (downloading) {
+                    Text(
+                        stringResource(
+                            R.string.quran_tafsir_download_progress,
+                            state.tafsirDownloadState.completedSurahs,
+                            114,
+                        ),
+                        style = MaterialTheme.typography.labelSmall,
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SupplementLanguageOptions(
+    state: SupplementControlsState,
+    actions: SupplementControlsActions,
+) {
+    Text(
+        stringResource(R.string.quran_supplement_language),
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.primary,
+    )
+    Spacer(Modifier.height(8.dp))
+    buildList {
+        add(QuranPrefsRepository.AUTO_LANGUAGE)
+        addAll(state.availableLanguages)
+    }.distinct().forEach { option ->
+        val label = if (option == QuranPrefsRepository.AUTO_LANGUAGE) {
+            stringResource(R.string.quran_supplement_language_auto, appLanguageName())
+        } else {
+            displayLanguageName(option)
+        }
+        TafsirSourceChoice(
+            source = label,
+            selected = state.language == option,
+            onSelected = { actions.onLanguageChanged(option) },
+        )
+    }
 }
 
 /** The current app language name for the "auto" option (e.g. "العربية"). */

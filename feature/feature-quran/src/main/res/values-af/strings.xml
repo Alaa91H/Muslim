@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Woorde afkomstig van dieselfde wortel</string>
     <string name="quran_search_no_root">Kon nie die wortel bepaal nie</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Wys tajweed-kleure</string>
+    <string name="quran_tajweed_show_desc">Kleur die Hafs-tajweed-reëls in die Koran-teks</string>
+    <string name="quran_tafsir_sources_title">Tafsir-bron</string>
+    <string name="quran_tafsir_sources_empty">Laai \'n tafsir af en kies dit dan om dit saam met betekenisse te wys.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Laai af</string>
+    <string name="quran_tafsir_downloading">Laai af…</string>
+    <string name="quran_tafsir_installed">Geïnstalleer</string>
+    <string name="quran_tafsir_download_failed">Kon die tafsir nie aflaai nie: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

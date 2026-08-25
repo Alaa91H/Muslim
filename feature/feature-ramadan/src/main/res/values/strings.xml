@@ -46,6 +46,17 @@
     <string name="habit_duha" tools:ignore="MissingTranslation">صلاة الضحى</string>
     <string name="habit_qiyam" tools:ignore="MissingTranslation">قيام الليل</string>
     <string name="habit_congregation" tools:ignore="MissingTranslation">صلاة الجماعة في المسجد</string>
+    <string name="habit_prayer_tracker_title">متابعة صلوات اليوم</string>
+    <string name="habit_prayer_tracker_description">سجّل الصلوات الخمس على جهازك فقط؛ لا تُرسل هذه المتابعة إلى أي جهة.</string>
+    <string name="habit_prayer_tracker_progress">المنجز اليوم: %1$d من %2$d صلوات</string>
+    <string name="habit_prayer_fajr">الفجر</string>
+    <string name="habit_prayer_dhuhr">الظهر</string>
+    <string name="habit_prayer_asr">العصر</string>
+    <string name="habit_prayer_maghrib">المغرب</string>
+    <string name="habit_prayer_isha">العشاء</string>
+    <string name="habit_prayer_completed">مكتملة</string>
+    <string name="habit_prayer_pending">غير مسجلة</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s. اضغط لتغيير الحالة.</string>
     <string name="ramadan_plan_title" tools:ignore="MissingTranslation">خطة رمضان المخصصة</string>
     <string name="ramadan_plan_active" tools:ignore="MissingTranslation">الخطة مفعّلة تلقائيًا لأيام رمضان</string>
     <string name="ramadan_plan_next" tools:ignore="MissingTranslation">الخطة محفوظة وتظهر كاملة عند دخول رمضان</string>

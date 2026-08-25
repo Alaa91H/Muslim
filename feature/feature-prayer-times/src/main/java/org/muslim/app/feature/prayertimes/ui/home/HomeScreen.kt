@@ -82,6 +82,7 @@ fun HomeScreen(
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
     val ornamentStyle by viewModel.ornamentStyle.collectAsStateWithLifecycle()
+    val showPrayerTrackerOnHome by viewModel.showPrayerTrackerOnHome.collectAsStateWithLifecycle()
 
     val context = LocalContext.current
 
@@ -321,13 +322,15 @@ fun HomeScreen(
             MonthlyGrid(state, use24h)
         }
 
-        Spacer(Modifier.height(24.dp))
-        PrayerCompletionCard(
-            completedPrayers = state.completedPrayers,
-            onToggle = viewModel::togglePrayerCompletion,
-        )
+        if (showPrayerTrackerOnHome) {
+            Spacer(Modifier.height(24.dp))
+            PrayerCompletionCard(
+                completedPrayers = state.completedPrayers,
+                onToggle = viewModel::togglePrayerCompletion,
+            )
 
-        Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(16.dp))
+        }
         }
     }
 }

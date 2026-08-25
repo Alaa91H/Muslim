@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Maneno yanayotokana na mzizi mmoja</string>
     <string name="quran_search_no_root">Haikuweza kubainisha mzizi</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Onyesha rangi za tajwid</string>
+    <string name="quran_tajweed_show_desc">Rangi kanuni za tajwid za Hafs kwenye maandishi ya Qur\'ani</string>
+    <string name="quran_tafsir_sources_title">Chanzo cha tafsiri</string>
+    <string name="quran_tafsir_sources_empty">Pakua tafsiri, kisha uchague ili kuonyesha pamoja na maana.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Pakua</string>
+    <string name="quran_tafsir_downloading">Inapakua…</string>
+    <string name="quran_tafsir_installed">Imewekwa</string>
+    <string name="quran_tafsir_download_failed">Haikuweza kupakua tafsiri: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Mo ki sòti nan menm rasin lan</string>
     <string name="quran_search_no_root">Pa t \'kapab detèmine rasin lan</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Montre koulè tajwid</string>
+    <string name="quran_tajweed_show_desc">Mete koulè sou règleman tajwid Hafs yo nan tèks Koran an</string>
+    <string name="quran_tafsir_sources_title">Sous tafsir</string>
+    <string name="quran_tafsir_sources_empty">Telechaje yon tafsir, epi chwazi li pou montre li ansanm ak sans yo.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Telechaje</string>
+    <string name="quran_tafsir_downloading">Ap telechaje…</string>
+    <string name="quran_tafsir_installed">Enstale</string>
+    <string name="quran_tafsir_download_failed">Pa te kapab telechaje tafsir la: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">O upu e maua mai i le a\'a e tasi</string>
     <string name="quran_search_no_root">Le mafai ona iloa le a\'a</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Faʻaali lanu tajweed</string>
+    <string name="quran_tajweed_show_desc">Valivali tulafono Tajweed a Hafs i le tusitusiga o le Quran</string>
+    <string name="quran_tafsir_sources_title">Punavai Tafsir</string>
+    <string name="quran_tafsir_sources_empty">Laʻuina mai se tafsir, ona filifili lea e faʻaalia ma ana uiga.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Laʻuina mai</string>
+    <string name="quran_tafsir_downloading">O lo\'o laʻuina…</string>
+    <string name="quran_tafsir_installed">Ua faʻapipiʻi</string>
+    <string name="quran_tafsir_download_failed">Le mafai ona laʻuina mai le tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

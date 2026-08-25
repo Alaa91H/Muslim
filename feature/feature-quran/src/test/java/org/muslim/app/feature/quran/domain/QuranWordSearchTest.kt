@@ -77,6 +77,19 @@ class QuranWordSearchTest {
         ).isEqualTo(2)
     }
 
+    @Test
+    fun `canonical Quran search tokens drive both frequency and highlighting`() {
+        val text = "إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ"
+        val queryTokens = listOf("انا", "اعط")
+
+        assertThat(
+            QuranWordSearch.countMatches(text, queryTokens, QuranWordSearch.MatchMode.PREFIX),
+        ).isEqualTo(2)
+        assertThat(
+            QuranWordSearch.matchSpans(text, queryTokens, QuranWordSearch.MatchMode.PREFIX),
+        ).hasSize(2)
+    }
+
     // ---- spans (raw-text offsets for highlighting) ----
 
     @Test

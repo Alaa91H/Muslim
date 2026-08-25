@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Ngaahi fo‘i lea ‘oku ma‘u mei he aka tatau .</string>
     <string name="quran_search_no_root">Na\'e \'ikai lava ke fakapapau\'i \'a e aka .</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Fakatū ʻa e lanu ʻo e Tajweed</string>
+    <string name="quran_tajweed_show_desc">Lanuʻi ʻa e ngaahi tuʻutuʻuni Tajweed ʻo Hafs ʻi he tohi ʻo e Kuran</string>
+    <string name="quran_tafsir_sources_title">Makatuʻunga ʻo e Tafsir</string>
+    <string name="quran_tafsir_sources_empty">Tuku mai ha tafsir, pea fili ke fakahā ʻaki ʻa e ngaahi fakaʻuhinga</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Tuku</string>
+    <string name="quran_tafsir_downloading">Oku tuku…</string>
+    <string name="quran_tafsir_installed">Kuo tanaki</string>
+    <string name="quran_tafsir_download_failed">Kuo ʻikai ke lava ʻo tuku ʻa e tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">هڪ ئي پاڙ مان نڪتل لفظ</string>
     <string name="quran_search_no_root">روٽ جو تعين نه ڪري سگهيو</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">تجويد جا رنگ ڏيکاريو</string>
+    <string name="quran_tajweed_show_desc">قرآن جي متن ۾ Hafs تجويد جي قاعدن کي رنگ ڏيو</string>
+    <string name="quran_tafsir_sources_title">تفسير جو ذريعو</string>
+    <string name="quran_tafsir_sources_empty">هڪ تفسير ڊائونلوڊ ڪريو، پوءِ ان کي چونڊيو ته اهو معنيٰ سان ڏيکارجي.</string>
+    <string name="quran_tafsir_muyassar">التفسير الميسر</string>
+    <string name="quran_tafsir_download">ڊائون لوڊ</string>
+    <string name="quran_tafsir_downloading">ڊائون لوڊ ٿي رهيو آهي…</string>
+    <string name="quran_tafsir_installed">انسٽال ٿيل</string>
+    <string name="quran_tafsir_download_failed">تفسير ڊائونلوڊ نه ٿي سگهيو: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

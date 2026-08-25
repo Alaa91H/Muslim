@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Цхьана орамах схьадевлла дешнаш .</string>
     <string name="quran_search_no_root">Орам къасто ца кхиира .</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Показывать цвета таджвида</string>
+    <string name="quran_tajweed_show_desc">Раскрашивать правила таджвида по Хафсу в тексте Корана</string>
+    <string name="quran_tafsir_sources_title">Источник тафсира</string>
+    <string name="quran_tafsir_sources_empty">Скачайте тафсир, затем выберите его, чтобы показывать вместе с переводами.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Скачать</string>
+    <string name="quran_tafsir_downloading">Скачивание…</string>
+    <string name="quran_tafsir_installed">Установлено</string>
+    <string name="quran_tafsir_download_failed">Не удалось скачать тафсир: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

@@ -120,6 +120,17 @@
     <!-- Meanings/tafsir controls -->
     <string name="quran_supplement_controls">Meanings &amp; Tafsir</string>
     <string name="quran_supplement_show">Show meanings &amp; tafsir</string>
+    <string name="quran_tajweed_show">Show tajweed colours</string>
+    <string name="quran_tajweed_show_desc">Colour Hafs tajweed rules in the Quran text</string>
+    <string name="quran_tafsir_sources_title">Tafsir source</string>
+    <string name="quran_tafsir_sources_empty">Download a tafsir, then select it to show it with meanings.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Download</string>
+    <string name="quran_tafsir_downloading">Downloading…</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_installed">Installed</string>
+    <string name="quran_tafsir_download_failed">Could not download tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_supplement_language">Translation language</string>
     <string name="quran_supplement_language_auto">App language (%1$s)</string>
 

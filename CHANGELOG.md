@@ -3,6 +3,50 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.5
+
+Updates install directly over v1.24.4 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.
+
+## Adhan Delivery and Prayer Notifications
+
+- Updated the permanent next-Adhan notification to match the current app identity. Its collapsed form now contains only the next prayer name and time; its expanded form shows remaining time and, when relevant, the missed prayer with elapsed time. Attention timing uses the app error colour, red by default.
+- Added the matching large adaptive app icon to the next-prayer, Adhan, and reminder notifications while retaining the required monochrome status-bar icon.
+- Strengthened audible Adhan delivery. A foreground-service start is no longer treated as proof of sound: the receiver waits for a confirmed audio-start journal entry and stops the service before launching a direct local audio fallback if confirmation is missing.
+- Retained the scheduled **Verify** delivery probe as the user-facing evidence path. It verifies application-side audio startup; device volume, output routing, and Android system policy can still affect audibility.
+
+## Private Prayer Accountability
+
+- Moved the five-prayer daily check-in into **Self Accountability**. The same device-local completion record is preserved; it has no account, analytics, synchronization, score, or devotional ranking.
+- Made Home visibility an explicit optional preference that is disabled by default. Users may enable the Home card from Self Accountability without creating a second tracker or losing existing entries.
+
+## Quran Search, Tajweed, and Tafsir
+
+- Unified Quran search, word-frequency suggestions, root derivation, occurrence counting, and raw-text highlighting around the same canonical Quran tokenization. Typed hamza variants, tatweel, Uthmani marks, and multi-word prefix input now remain consistent from lookup through result statistics.
+- Added regression coverage for a multi-word query containing hamza variants and tatweel, including its count and highlight spans.
+- Added opt-in Hafs tajweed colour annotations. They are disabled by default under **Meanings & Tafsir**, are rendered only from validated annotation spans, and are presentation assistance rather than independent scholarly review. The bundled annotations are attributed in the content manifest to `cpfair/quran-tajweed` under CC BY 4.0.
+- Added a complete, locally stored downloader for **At-Tafsir Al-Muyassar** from QuranEnc. Every surah is validated against the bundled Mushaf before a complete 6,236-ayah pack replaces an installed copy atomically; the reader shows per-surah progress, supports a retry by downloading again, and never exposes a stale selected source.
+- The tafsir control displays the QuranEnc source URL and preserves supplied text unchanged. The current Arabic QuranEnc endpoint does not publish a machine-readable version field, so this release does not invent one or claim that the Arabic tafsir text is translated into the application UI languages. A source without a documented, working automated retrieval path is not exposed as a production download.
+
+## Hadith Library, Qibla, and Navigation
+
+- Moved Daily Hadith notification configuration and its preview into the Hadith Library settings dialog, opened from the upper app-bar settings icon, rather than leaving controls in the library content surface.
+- Simplified Qibla to a compass-only experience. The Kaaba emoji marks the bearing; the former pink/gold directional treatment and map mode are gone.
+- Removed MapLibre, nearby-mosque discovery, offline-map routing, and the runtime map engine from the application. Learning and history now present their curated location material as accessible text guides rather than interactive maps.
+
+## Quality and Content Controls
+
+- Added source verification notes for QuranEnc and the separate Saadi website. QuranEnc’s published republication conditions require source attribution, unmodified content, transcript preservation, and version reporting when the publisher provides it; the live Arabic endpoint did not expose a version field during review. [1]
+- Passed local application unit tests, Android Lint, Detekt, focused Quran/Qibla/prayer-time tests, and the production content-manifest verification before release tagging. Main-branch CI, emulator validation, signed artifact verification, and tagged-release CI remain required before publication.
+
+### Install
+
+- Download the APK from the GitHub Release and open it (allow “install from unknown sources” if prompted).
+- The app remains signed with the same release key, so the update installs directly over prior Muslim releases.
+
+### References
+
+[1]: https://quranenc.com/en/home/api/ "QuranEnc API and republication terms"
+
 ## Muslim v1.24.4
 
 Updates install directly over v1.24.3 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.

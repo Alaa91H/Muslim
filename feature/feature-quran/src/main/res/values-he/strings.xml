@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">מילים שנגזרו מאותו שורש</string>
     <string name="quran_search_no_root">לא ניתן לקבוע את השורש</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">הצג צבעי תאג\'וויד</string>
+    <string name="quran_tajweed_show_desc">צבע את כללי התאג\'וויד של חאפס בטקסט של הקוראן</string>
+    <string name="quran_tafsir_sources_title">מקור תפסיר</string>
+    <string name="quran_tafsir_sources_empty">הורד תפסיר, ואז בחר בו כדי להציגו יחד עם הפירושים.</string>
+    <string name="quran_tafsir_muyassar">את-תפסיר אל-מויאסר</string>
+    <string name="quran_tafsir_download">הורד</string>
+    <string name="quran_tafsir_downloading">מוריד…</string>
+    <string name="quran_tafsir_installed">הותקן</string>
+    <string name="quran_tafsir_download_failed">לא ניתן להוריד את התפסיר: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

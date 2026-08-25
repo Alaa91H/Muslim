@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Atënë so alondo na oko gunda ti tënë .</string>
     <string name="quran_search_no_root">A lingbi ti hinga gunda ni pëpe .</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Montrer couleur ya tajweed</string>
+    <string name="quran_tajweed_show_desc">Kolorisa règle ya tajweed ya Hafs na texte ya Quran</string>
+    <string name="quran_tafsir_sources_title">Sorsi ya tafsir</string>
+    <string name="quran_tafsir_sources_empty">Télécharger un tafsir, pe sélecter na yango pona montra na ye na meaning</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Télécharger</string>
+    <string name="quran_tafsir_downloading">Téléchargement…</string>
+    <string name="quran_tafsir_installed">Installé</string>
+    <string name="quran_tafsir_download_failed">Impossible ti télécharger tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

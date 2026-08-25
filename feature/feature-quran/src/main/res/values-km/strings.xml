@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">ពាក្យដែលកើតចេញពីឫសតែមួយ</string>
     <string name="quran_search_no_root">មិនអាចកំណត់ឫសបានទេ។</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">បង្ហាញពណ៌តាជវីដ</string>
+    <string name="quran_tajweed_show_desc">ពណ៌ច្បាប់តាជវីដរបៀប Hafs ក្នុងអត្ថបទកូរ៉ាអាន</string>
+    <string name="quran_tafsir_sources_title">ប្រភពតាហ្វស៊ីរ</string>
+    <string name="quran_tafsir_sources_empty">ទាញយកតាហ្វស៊ីរមួយ រួចជ្រើសរើសវាដើម្បីបង្ហាញវាជាមួយនឹងអត្ថន័យ។</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">ទាញយក</string>
+    <string name="quran_tafsir_downloading">កំពុងទាញយក…</string>
+    <string name="quran_tafsir_installed">បានដំឡើង</string>
+    <string name="quran_tafsir_download_failed">មិនអាចទាញយកតាហ្វស៊ីរ: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

@@ -6,6 +6,8 @@
     <string name="hadith_all">All</string>
     <string name="hadith_of_the_day">Hadith of the day</string>
     <string name="hadith_daily_notification">Daily hadith notification</string>
+    <string name="hadith_notification_settings">Daily hadith notification settings</string>
+    <string name="hadith_done">Done</string>
     <string name="hadith_daily_notification_desc">Receive a hadith every day</string>
     <string name="hadith_preview_label">Notification preview</string>
     <string name="hadith_preview_hint">This is how the daily hadith notification appears at its scheduled time.</string>

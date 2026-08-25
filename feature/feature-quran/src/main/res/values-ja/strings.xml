@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">同じ語源から派生した言葉</string>
     <string name="quran_search_no_root">ルートを特定できませんでした</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">タジュウィードの色を表示</string>
+    <string name="quran_tajweed_show_desc">クルアーン本文でHafsのタジュウィード規則を色分けします</string>
+    <string name="quran_tafsir_sources_title">タフシールの出典</string>
+    <string name="quran_tafsir_sources_empty">タフシールをダウンロードして選択すると、意味とともに表示されます。</string>
+    <string name="quran_tafsir_muyassar">アット・タフシール・アル＝ムヤッサル</string>
+    <string name="quran_tafsir_download">ダウンロード</string>
+    <string name="quran_tafsir_downloading">ダウンロード中…</string>
+    <string name="quran_tafsir_installed">インストール済み</string>
+    <string name="quran_tafsir_download_failed">タフシールをダウンロードできませんでした: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

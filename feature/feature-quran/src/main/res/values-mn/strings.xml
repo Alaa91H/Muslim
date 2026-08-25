@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Нэг үндэснээс гаралтай үгс</string>
     <string name="quran_search_no_root">Үндэсийг тодорхойлж чадсангүй</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Тажвидын өнгийг харуулах</string>
+    <string name="quran_tajweed_show_desc">Коран текст дэх Хафс тажвидын дүрмүүдийг өнгөөр тэмдэглэх</string>
+    <string name="quran_tafsir_sources_title">Тафсир эх сурвалж</string>
+    <string name="quran_tafsir_sources_empty">Тафсирийг татаж аваад, утгатай нь хамт харуулахын тулд сонгоно уу.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Татаж авах</string>
+    <string name="quran_tafsir_downloading">Татаж байна…</string>
+    <string name="quran_tafsir_installed">Суулгагдсан</string>
+    <string name="quran_tafsir_download_failed">Тафсирийг татаж чадсангүй: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

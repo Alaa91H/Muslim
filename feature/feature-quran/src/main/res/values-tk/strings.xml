@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Bir kökden alnan sözler</string>
     <string name="quran_search_no_root">Köküni kesgitläp bilmedim</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Tajwid reňklerini görkez</string>
+    <string name="quran_tajweed_show_desc">Hafs tajwid düzgünlerini Kuran tekstiňde reňklendir</string>
+    <string name="quran_tafsir_sources_title">Tafsiriň çeşmesi</string>
+    <string name="quran_tafsir_sources_empty">Tafsir göçürip alyň, soňra manysy bilen görkezmek üçin ony saýlaň.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Göçürip al</string>
+    <string name="quran_tafsir_downloading">Göçürilip alynýar…</string>
+    <string name="quran_tafsir_installed">Gurnaldy</string>
+    <string name="quran_tafsir_download_failed">Tafsir göçürilip bolmady: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

@@ -50,8 +50,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.datastore.preferences)
 
-    // Interactive sacred-sites map uses the shared MapLibre/OpenStreetMap UI.
-    implementation(libs.maplibre.android)
 
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)

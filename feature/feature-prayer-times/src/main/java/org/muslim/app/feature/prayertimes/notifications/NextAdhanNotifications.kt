@@ -5,6 +5,7 @@ import androidx.core.net.toUri
 import android.content.Intent
 import android.app.PendingIntent
 import android.content.Context
+import android.graphics.drawable.Icon
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
@@ -47,35 +48,45 @@ internal object NextAdhanNotifications {
             context.getString(R.string.next_adhan_no_location)
         }
 
-        // Android renders the title and content as the compact notification's
-        // two lines. Keep all timing information in one concise status line;
-        // an elapsed third line made the permanent notification too tall.
-        val statusLine = SpannableStringBuilder()
+        // The collapsed notification intentionally carries only the next
+        // prayer's name and wall-clock time in [title]. Details belong to the
+        // expanded surface so the permanent status notification stays quiet.
+        val expandedText = SpannableStringBuilder()
         if (data.hasLocation && data.nextPrayer != null) {
-            statusLine.append(
+            val remainingStart = expandedText.length
+            expandedText.append(
                 context.getString(R.string.next_adhan_remaining, formatCountdown(data.remainingSeconds)),
+            )
+            expandedText.setSpan(
+                ForegroundColorSpan(missedColor),
+                remainingStart,
+                expandedText.length,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
             )
             val missed = data.missedPrayer
             if (missed != null && showMissed) {
-                statusLine.append(" · ")
-                statusLine.append(
+                expandedText.append("\n")
+                expandedText.append(
                     context.getString(
                         R.string.next_adhan_missed,
                         context.getString(prayerLabelRes(missed)),
                         TimeFormats.timeFormatter(use24h).format(data.missedPrayerAt),
                     ),
                 )
+                val elapsedStart = expandedText.length
+                expandedText.append(" · ")
+                expandedText.append(
+                    context.getString(R.string.next_adhan_elapsed, formatCountdown(data.elapsedSeconds)),
+                )
+                expandedText.setSpan(
+                    ForegroundColorSpan(missedColor),
+                    elapsedStart,
+                    expandedText.length,
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
+                )
             }
-            // Red is the default attention colour. Keep the saved preference
-            // for people who deliberately chose a different accessible colour.
-            statusLine.setSpan(
-                ForegroundColorSpan(missedColor),
-                0,
-                statusLine.length,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
-            )
         } else {
-            statusLine.append(context.getString(R.string.next_adhan_no_location))
+            expandedText.append(context.getString(R.string.next_adhan_no_location))
         }
 
         // Tapping the notification opens the prayer-times screen directly (the
@@ -91,9 +102,9 @@ internal object NextAdhanNotifications {
 
         val builder = NotificationCompat.Builder(context, NotificationChannels.PRAYER_COUNTDOWN)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
+            .setLargeIcon(Icon.createWithResource(context, context.applicationInfo.icon))
             .setContentTitle(title)
-            .setContentText(statusLine)
-            .setStyle(NotificationCompat.BigTextStyle().bigText(statusLine))
+            .setStyle(NotificationCompat.BigTextStyle().bigText(expandedText))
             .setCategory(NotificationCompat.CATEGORY_STATUS)
             .setOngoing(true)
             .setOnlyAlertOnce(true)

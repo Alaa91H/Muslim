@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Fjalë që rrjedhin nga e njëjta rrënjë</string>
     <string name="quran_search_no_root">Nuk mund të përcaktonte rrënjën</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Shfaq ngjyrat e tajvidit</string>
+    <string name="quran_tajweed_show_desc">Ngjyros rregullat e tajvidit Hafs në tekstin e Kur\'anit</string>
+    <string name="quran_tafsir_sources_title">Burimi i Tafsirit</string>
+    <string name="quran_tafsir_sources_empty">Shkarkoni një tafsir, pastaj zgjidhni atë për ta shfaqur me kuptimet.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Shkarko</string>
+    <string name="quran_tafsir_downloading">Po shkarkohet…</string>
+    <string name="quran_tafsir_installed">Instaluar</string>
+    <string name="quran_tafsir_download_failed">Shkarkimi i tafsirit dështoi: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

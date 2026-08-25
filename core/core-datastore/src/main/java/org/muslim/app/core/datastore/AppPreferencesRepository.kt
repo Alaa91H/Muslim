@@ -45,6 +45,7 @@ class AppPreferencesRepository @Inject constructor(
             accessibilityHighContrast = prefs[Keys.ACCESSIBILITY_HIGH_CONTRAST] ?: false,
             voiceNavigationEnabled = prefs[Keys.VOICE_NAVIGATION_ENABLED] ?: false,
             wearCompanionEnabled = prefs[Keys.WEAR_COMPANION_ENABLED] ?: false,
+            showPrayerTrackerOnHome = prefs[Keys.SHOW_PRAYER_TRACKER_ON_HOME] ?: false,
             smartHomeBridgeEnabled = prefs[Keys.SMART_HOME_BRIDGE_ENABLED] ?: false,
             smartHomeBridgeEndpoint = prefs[Keys.SMART_HOME_BRIDGE_ENDPOINT].orEmpty(),
             moreSectionOrder = AppPreferences.decodeSectionOrder(prefs[Keys.MORE_SECTION_ORDER]),
@@ -109,6 +110,10 @@ class AppPreferencesRepository @Inject constructor(
 
     suspend fun setWearCompanionEnabled(enabled: Boolean) {
         edit { prefs -> prefs[Keys.WEAR_COMPANION_ENABLED] = enabled }
+    }
+
+    suspend fun setShowPrayerTrackerOnHome(enabled: Boolean) {
+        edit { prefs -> prefs[Keys.SHOW_PRAYER_TRACKER_ON_HOME] = enabled }
     }
 
     suspend fun setSmartHomeBridgeEnabled(enabled: Boolean) {
@@ -219,6 +224,7 @@ class AppPreferencesRepository @Inject constructor(
         val ACCESSIBILITY_HIGH_CONTRAST = booleanPreferencesKey("accessibility_high_contrast")
         val VOICE_NAVIGATION_ENABLED = booleanPreferencesKey("voice_navigation_enabled")
         val WEAR_COMPANION_ENABLED = booleanPreferencesKey("wear_companion_enabled")
+        val SHOW_PRAYER_TRACKER_ON_HOME = booleanPreferencesKey("show_prayer_tracker_on_home")
         val SMART_HOME_BRIDGE_ENABLED = booleanPreferencesKey("smart_home_bridge_enabled")
         val SMART_HOME_BRIDGE_ENDPOINT = stringPreferencesKey("smart_home_bridge_endpoint")
         val MORE_SECTION_ORDER = stringPreferencesKey("more_section_order")

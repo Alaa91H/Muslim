@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">တူညီသောအမြစ်မှဆင်းသက်လာသောစကားလုံးများ</string>
     <string name="quran_search_no_root">အမြစ်ကို မဆုံးဖြတ်နိုင်ပါ။</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">တာဇ်ဝီဒ် အရောင်များကို ပြပါ</string>
+    <string name="quran_tajweed_show_desc">ကူရ်အန်စာသားတွင် Hafs တာဇ်ဝီဒ် စည်းမျဉ်းများကို အရောင်ဖြင့် ဖော်ပြပါ</string>
+    <string name="quran_tafsir_sources_title">Tafsir အရင်းအမြစ်</string>
+    <string name="quran_tafsir_sources_empty">Tafsir ကို ဒေါင်းလုတ်ဆွဲပြီး ထို့နောက် အဓိပ္ပာယ်များနှင့်အတူ ဖော်ပြရန် အဲဒီကို ရွေးချယ်ပါ။</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">ဒေါင်းလုတ်</string>
+    <string name="quran_tafsir_downloading">ဒေါင်းလုတ်နေသည်…</string>
+    <string name="quran_tafsir_installed">တပ်ဆင်ပြီးပါပြီ</string>
+    <string name="quran_tafsir_download_failed">Tafsir ကို ဒေါင်းလုတ်ဆွဲ၍ မအောင်မြင်ပါ: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

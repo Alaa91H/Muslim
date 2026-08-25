@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Teny avy amin\'ny fototeny iray ihany</string>
     <string name="quran_search_no_root">Tsy afaka namaritra ny fotony</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Asehoy ny lokon\'ny tajweed</string>
+    <string name="quran_tajweed_show_desc">Asio loko ny fitsipiky ny tajweed Hafs ao amin\'ny lahatsoratra Quran</string>
+    <string name="quran_tafsir_sources_title">Loharanon\'ny tafsir</string>
+    <string name="quran_tafsir_sources_empty">Sintomy ny tafsir, avy eo fidio izy mba haseho miaraka amin\'ny dikany.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Sintomy</string>
+    <string name="quran_tafsir_downloading">Misintona…</string>
+    <string name="quran_tafsir_installed">Napetraka</string>
+    <string name="quran_tafsir_download_failed">Tsy afaka nisintona ny tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

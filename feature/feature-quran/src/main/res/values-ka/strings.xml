@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">ერთი და იგივე ძირიდან მომდინარე სიტყვები</string>
     <string name="quran_search_no_root">ფესვის დადგენა ვერ მოხერხდა</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">თაჯვიდის ფერების ჩვენება</string>
+    <string name="quran_tajweed_show_desc">ჰაფსის თაჯვიდის წესების ფერით გამოხატვა ყურანის ტექსტში</string>
+    <string name="quran_tafsir_sources_title">თაფსირის წყარო</string>
+    <string name="quran_tafsir_sources_empty">ჩამოტვირთეთ თაფსირი და შემდეგ აირჩიეთ იგი, რათა ის გამოჩნდეს მნიშვნელობებთან ერთად.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">ჩამოტვირთვა</string>
+    <string name="quran_tafsir_downloading">ჩამოტვირთვა…</string>
+    <string name="quran_tafsir_installed">ინსტალირებულია</string>
+    <string name="quran_tafsir_download_failed">თაფსირის ჩამოტვირთვა ვერ მოხერხდა: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

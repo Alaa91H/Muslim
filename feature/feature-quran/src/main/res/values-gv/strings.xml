@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Focklyn ta çheet magh ass y fraue cheddin .</string>
     <string name="quran_search_no_root">Cha b\'ee\'n root ry-akin</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Cur er cooilleyyn tajweed</string>
+    <string name="quran_tajweed_show_desc">Cooilleyagh ny reaghtyn tajweed Hafs ayns teihll an Qur\'an</string>
+    <string name="quran_tafsir_sources_title">Bunysagh Tafsir</string>
+    <string name="quran_tafsir_sources_empty">Download taafsir, as shen chois t\'eh dy cur er display lesh meaninyn</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Download</string>
+    <string name="quran_tafsir_downloading">Downloading…</string>
+    <string name="quran_tafsir_installed">Installed</string>
+    <string name="quran_tafsir_download_failed">Cha abbyr mee er download taafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Шьаҭак иахылҿиааз ажәақәа</string>
     <string name="quran_search_no_root">Ашьаҭа аилкаара ауам</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Показать цвета таджвида</string>
+    <string name="quran_tajweed_show_desc">Окрашивать правила таджвида Хафса в тексте Корана</string>
+    <string name="quran_tafsir_sources_title">Источник тафсира</string>
+    <string name="quran_tafsir_sources_empty">Скачайте тафсир, затем выберите его, чтобы показывать его вместе со значениями.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Скачать</string>
+    <string name="quran_tafsir_downloading">Загрузка…</string>
+    <string name="quran_tafsir_installed">Установлено</string>
+    <string name="quran_tafsir_download_failed">Не удалось загрузить тафсир: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

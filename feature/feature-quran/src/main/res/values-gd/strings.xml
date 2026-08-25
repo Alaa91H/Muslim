@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Faclan a thàinig bhon aon fhreumh</string>
     <string name="quran_search_no_root">Cha b\' urrainn dhuinn am freumh a dhearbhadh</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Seall dathan tajweed</string>
+    <string name="quran_tajweed_show_desc">Dath na riaghailtean tajweed Hafs anns an teacsa den Quran</string>
+    <string name="quran_tafsir_sources_title">Stòr tafsir</string>
+    <string name="quran_tafsir_sources_empty">Luchdaich sìos tafsir, an uairsin tagh e gus a shealltainn còmhla ris na brìgh.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Luchdaich sìos</string>
+    <string name="quran_tafsir_downloading">A\' luchdachadh sìos...</string>
+    <string name="quran_tafsir_installed">Air a stàladh</string>
+    <string name="quran_tafsir_download_failed">Cha b\' urrainn an tafsir a luchdachadh sìos: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

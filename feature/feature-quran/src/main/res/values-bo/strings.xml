@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">རྩ་བ་གཅིག་ལས་བྱུང་བའི་ཚིག།</string>
     <string name="quran_search_no_root">རྩ་བ་གཏན་འཁེལ་བྱེད་མ་ཐུབ།</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">ཏ་ཇིཝིད་ཚོན་ཚད་གཏོང་</string>
+    <string name="quran_tajweed_show_desc">ཀུ་རཱནིའི་ཡིག་ཆུང་ནང་གྱི Hafs ཏ་ཇིཝིད་ཆོས་ཁྲིམས་ཚོན་ཚད་སྒྲིག་བཏོག།</string>
+    <string name="quran_tafsir_sources_title">Tafsir གནས་སྟེགས</string>
+    <string name="quran_tafsir_sources_empty">Tafsir ཕོགས་གཏང་ནས། ལོག་ལ་དེ་གསར་བསྒྲིགས་ན་དེ་ལས་ཚིག་དང་སྐོར་བསྟོད་སྒྲིག་བྱེད་ཐོག་བཀོད།</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">ཕོགས་གཏང་</string>
+    <string name="quran_tafsir_downloading">ཕོགས་གཏང་བཞག…</string>
+    <string name="quran_tafsir_installed">སྒྲིག་བཀོད་ཡོད།</string>
+    <string name="quran_tafsir_download_failed">Tafsir ཕོགས་གཏང་མི་ཚུགས།: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

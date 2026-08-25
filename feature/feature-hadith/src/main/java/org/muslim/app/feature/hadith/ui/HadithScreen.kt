@@ -22,7 +22,9 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.BookmarkBorder
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
@@ -44,6 +46,7 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -77,17 +80,11 @@ private val hadithTimeOptions: List<Int> = (0 until 24 * 60 step 30).toList()
 private data class HadithControlsState(
     val query: String,
     val collection: HadithCollection?,
-    val daily: Hadith?,
-    val dailyNotificationEnabled: Boolean,
-    val dailyNotificationTimeMinutes: Int,
-    val use24h: Boolean,
 )
 
 private data class HadithControlsActions(
     val onQueryChanged: (String) -> Unit,
     val onCollectionSelected: (HadithCollection?) -> Unit,
-    val onNotificationEnabledChanged: (Boolean) -> Unit,
-    val onNotificationTimeSelected: (Int) -> Unit,
 )
 
 private data class HadithListState(
@@ -126,6 +123,7 @@ fun HadithScreen(
     val corpusState by viewModel.corpusState.collectAsStateWithLifecycle()
     val pagedHadiths = viewModel.pagedHadiths.collectAsLazyPagingItems()
     val snackbarHostState = remember { SnackbarHostState() }
+    var showNotificationSettings by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
     val copiedMessage = stringResource(R.string.hadith_copied)
     val onCopied: () -> Unit = { scope.launch { snackbarHostState.showSnackbar(copiedMessage) } }
@@ -133,23 +131,17 @@ fun HadithScreen(
     Scaffold(
         modifier = modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackbarHostState) },
-        topBar = { HadithTopBar(onBack) },
+        topBar = { HadithTopBar(onBack = onBack, onOpenSettings = { showNotificationSettings = true }) },
     ) { innerPadding ->
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
             HadithLibraryControls(
                 state = HadithControlsState(
                     query = query,
                     collection = collection,
-                    daily = daily,
-                    dailyNotificationEnabled = dailyNotificationEnabled,
-                    dailyNotificationTimeMinutes = dailyNotificationTimeMinutes,
-                    use24h = use24h,
                 ),
                 actions = HadithControlsActions(
                     onQueryChanged = viewModel::setQuery,
                     onCollectionSelected = viewModel::setCollection,
-                    onNotificationEnabledChanged = viewModel::setDailyNotificationEnabled,
-                    onNotificationTimeSelected = viewModel::setDailyNotificationTimeMinutes,
                 ),
             )
             HadithPagedList(
@@ -168,17 +160,62 @@ fun HadithScreen(
                 ),
             )
         }
+        if (showNotificationSettings) {
+            HadithNotificationSettingsDialog(
+                daily = daily,
+                enabled = dailyNotificationEnabled,
+                timeMinutes = dailyNotificationTimeMinutes,
+                use24h = use24h,
+                onEnabledChanged = viewModel::setDailyNotificationEnabled,
+                onTimeSelected = viewModel::setDailyNotificationTimeMinutes,
+                onDismiss = { showNotificationSettings = false },
+            )
+        }
     }
+}
+
+@Composable
+private fun HadithNotificationSettingsDialog(
+    daily: Hadith?,
+    enabled: Boolean,
+    timeMinutes: Int,
+    use24h: Boolean,
+    onEnabledChanged: (Boolean) -> Unit,
+    onTimeSelected: (Int) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.hadith_notification_settings)) },
+        text = {
+            Column {
+                HadithNotificationControls(
+                    daily = daily,
+                    enabled = enabled,
+                    timeMinutes = timeMinutes,
+                    use24h = use24h,
+                    onEnabledChanged = onEnabledChanged,
+                    onTimeSelected = onTimeSelected,
+                )
+            }
+        },
+        confirmButton = { TextButton(onClick = onDismiss) { Text(stringResource(R.string.hadith_done)) } },
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun HadithTopBar(onBack: () -> Unit) {
+private fun HadithTopBar(onBack: () -> Unit, onOpenSettings: () -> Unit) {
     TopAppBar(
         title = { Text(stringResource(R.string.hadith_title)) },
         navigationIcon = {
             IconButton(onClick = onBack) {
                 Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.hadith_back))
+            }
+        },
+        actions = {
+            IconButton(onClick = onOpenSettings) {
+                Icon(Icons.Filled.Settings, contentDescription = stringResource(R.string.hadith_notification_settings))
             }
         },
     )
@@ -195,14 +232,6 @@ private fun HadithLibraryControls(
         label = { Text(stringResource(R.string.hadith_search_hint)) },
         singleLine = true,
         modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp),
-    )
-    HadithNotificationControls(
-        daily = state.daily,
-        enabled = state.dailyNotificationEnabled,
-        timeMinutes = state.dailyNotificationTimeMinutes,
-        use24h = state.use24h,
-        onEnabledChanged = actions.onNotificationEnabledChanged,
-        onTimeSelected = actions.onNotificationTimeSelected,
     )
     HadithCollectionFilters(state.collection, actions.onCollectionSelected)
 }

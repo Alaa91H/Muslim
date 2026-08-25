@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Parolle derivate da a stessa radica</string>
     <string name="quran_search_no_root">Ùn pudia micca determinà a radica</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Mostra i culori di tajweed</string>
+    <string name="quran_tajweed_show_desc">Culurà e regule di tajweed Hafs in u testu di u Coranu</string>
+    <string name="quran_tafsir_sources_title">Sursa di tafsir</string>
+    <string name="quran_tafsir_sources_empty">Scaricate un tafsir, dopu selezionalu per mustralu cù i significati.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Scarica</string>
+    <string name="quran_tafsir_downloading">Scaricendu…</string>
+    <string name="quran_tafsir_installed">Installatu</string>
+    <string name="quran_tafsir_download_failed">Ùn hè statu pussibule di scaricà u tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

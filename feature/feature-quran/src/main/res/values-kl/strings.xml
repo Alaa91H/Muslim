@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Oqaatsit root-imiit ataatsimit aallaaveqartut</string>
     <string name="quran_search_no_root">Root-imik aalajangersaasinnaanngilaq</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Tajweed-farver ersersinneq</string>
+    <string name="quran_tajweed_show_desc">Qur\'aanimi Hafs tajweed-reglerit atortoq pillugu kulørerit ersersinneq</string>
+    <string name="quran_tafsir_sources_title">Tafsir sumiiffia</string>
+    <string name="quran_tafsir_sources_empty">Tafsir nassaartuk, takuuk malillugu siunnersuuteqartillugu oqaaseqaatillu ilanngullugit.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Nassaarsiorit</string>
+    <string name="quran_tafsir_downloading">Nassaappoq…</string>
+    <string name="quran_tafsir_installed">Installereqarpoq</string>
+    <string name="quran_tafsir_download_failed">Tafsir nassaarnissaanut suutinneqanngilaq: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

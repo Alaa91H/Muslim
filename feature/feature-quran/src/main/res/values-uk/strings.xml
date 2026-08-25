@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Однокореневі слова</string>
     <string name="quran_search_no_root">Не вдалося визначити корінь</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Показати кольори таджвіду</string>
+    <string name="quran_tajweed_show_desc">Фарбує правила таджвіду Хафса в тексті Корану</string>
+    <string name="quran_tafsir_sources_title">Джерело тафсіру</string>
+    <string name="quran_tafsir_sources_empty">Завантажте тафсір, потім виберіть його, щоб показати разом із значеннями.</string>
+    <string name="quran_tafsir_muyassar">Ат-тафсір Аль-Муяссар</string>
+    <string name="quran_tafsir_download">Завантажити</string>
+    <string name="quran_tafsir_downloading">Завантажується…</string>
+    <string name="quran_tafsir_installed">Встановлено</string>
+    <string name="quran_tafsir_download_failed">Не вдалося завантажити тафсір: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

@@ -34,6 +34,8 @@ data class AppPreferences(
     val voiceNavigationEnabled: Boolean = false,
     /** Publishes only the opted-in prayer/tasbih snapshot to a paired Wear OS app. */
     val wearCompanionEnabled: Boolean = false,
+    /** Shows the optional prayer-completion summary on the home screen. */
+    val showPrayerTrackerOnHome: Boolean = false,
     /** Enables an explicit HTTPS event after a locally scheduled adhan begins. */
     val smartHomeBridgeEnabled: Boolean = false,
     /** HTTPS destination selected by the user; empty until they configure a bridge. */

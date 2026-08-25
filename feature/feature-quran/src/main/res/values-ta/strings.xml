@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">ஒரே மூலத்திலிருந்து பெறப்பட்ட சொற்கள்</string>
     <string name="quran_search_no_root">மூலத்தை தீர்மானிக்க முடியவில்லை</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">தஜ்வீத் நிறங்களை காட்டு</string>
+    <string name="quran_tajweed_show_desc">குர்ஆன் உரையில் ஹஃப்ஸ் தஜ்வீத் விதிகளுக்கு நிறம் அளிக்கவும்</string>
+    <string name="quran_tafsir_sources_title">தஃப்சீர் மூலம்</string>
+    <string name="quran_tafsir_sources_empty">ஒரு தஃப்சீரை பதிவிறக்கம் செய்து, பின்னர் அதனைத் தேர்ந்தெடுத்து பொருள் உடன் காண்பிக்கவும்.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">பதிவிறக்க</string>
+    <string name="quran_tafsir_downloading">பதிவிறக்கப்படுகிறது…</string>
+    <string name="quran_tafsir_installed">நிறுவப்பட்டுள்ளது</string>
+    <string name="quran_tafsir_download_failed">தஃப்சீரை பதிவிறக்க முடியவில்லை: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

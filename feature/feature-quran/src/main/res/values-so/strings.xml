@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Erayada xididka laga soo qaatay</string>
     <string name="quran_search_no_root">Waa la go\'aamin waayay xididka</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Muuji midabada tajwiidka</string>
+    <string name="quran_tajweed_show_desc">Midabee xeerarka tajwiidka ee Hafs ee qoraalka Qur\'aanka.</string>
+    <string name="quran_tafsir_sources_title">Isha tafsiirka</string>
+    <string name="quran_tafsir_sources_empty">Soo deji tafsiir, ka dibna dooro si aad u muujiso macnayaasha.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Soo deji</string>
+    <string name="quran_tafsir_downloading">Soo dejinayaa…</string>
+    <string name="quran_tafsir_installed">La rakibay</string>
+    <string name="quran_tafsir_download_failed">Lama soo dejin karin tafsiirka: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

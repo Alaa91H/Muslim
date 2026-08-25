@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Бир уңгудан жасалган сөздөр</string>
     <string name="quran_search_no_root">Түптү аныктай алган жок</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Тажвид түстөрүн көрсөтүү</string>
+    <string name="quran_tajweed_show_desc">Куран текстиндеги Хафс тажвид эрежелерин түстөө</string>
+    <string name="quran_tafsir_sources_title">Тафсир булагы</string>
+    <string name="quran_tafsir_sources_empty">Тафсирди жүктөп алып, андан кийин аны тандап, маанилери менен көрсөтүңүз.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Жүктөө</string>
+    <string name="quran_tafsir_downloading">Жүктөлүүдө…</string>
+    <string name="quran_tafsir_installed">Орнотулду</string>
+    <string name="quran_tafsir_download_failed">Тафсирди жүктөө мүмкүн болбоду: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

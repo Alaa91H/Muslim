@@ -34,7 +34,7 @@ object QuranWordSearch {
 
     /** Splits normalized text into words (whitespace-delimited, non-empty). */
     fun tokenize(text: String): List<String> =
-        ArabicText.normalizeForSearch(text)
+        ArabicText.normalizeForQuranSearch(text)
             .split(Regex("\\s+"))
             .filter { it.isNotEmpty() }
 
@@ -48,7 +48,7 @@ object QuranWordSearch {
         val words = tokenize(ayahText)
         // Normalize the tokens too: ة → ه and ى → ي let "رحمة" / "رحمه" and
         // "موسى" / "موسي" find each other in PREFIX and EXACT modes.
-        val normTokens = tokens.map { ArabicText.normalizeForSearch(it) }
+        val normTokens = tokens.map { ArabicText.normalizeForQuranSearch(it) }
         return words.count { word -> normTokens.any { token -> matches(word, token, mode) } }
     }
 
@@ -62,14 +62,14 @@ object QuranWordSearch {
         if (tokens.isEmpty()) return emptyList()
         val spans = mutableListOf<IntRange>()
         var wordStart = -1
-        val normTokens = tokens.map { ArabicText.normalizeForSearch(it) }
+        val normTokens = tokens.map { ArabicText.normalizeForQuranSearch(it) }
         for (index in ayahText.indices) {
             val c = ayahText[index]
             val isSpace = c.isWhitespace()
             if (!isSpace && wordStart < 0) wordStart = index
             if (isSpace && wordStart >= 0) {
                 val rawWord = ayahText.substring(wordStart, index)
-                val normalized = ArabicText.normalizeForSearch(rawWord)
+                val normalized = ArabicText.normalizeForQuranSearch(rawWord)
                 if (normalized.isNotEmpty() && normTokens.any { matches(normalized, it, mode) }) {
                     spans += wordStart until index
                 }
@@ -78,7 +78,7 @@ object QuranWordSearch {
         }
         if (wordStart >= 0) {
             val rawWord = ayahText.substring(wordStart)
-            val normalized = ArabicText.normalizeForSearch(rawWord)
+            val normalized = ArabicText.normalizeForQuranSearch(rawWord)
             if (normalized.isNotEmpty() && normTokens.any { matches(normalized, it, mode) }) {
                 spans += wordStart until ayahText.length
             }

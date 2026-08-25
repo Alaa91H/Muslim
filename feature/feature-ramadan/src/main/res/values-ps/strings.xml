@@ -26,4 +26,15 @@
     <string name="ramadan_title">روژه</string>
     <string name="ramadan_notify_outside">د رمضان څخه بهر یادونه</string>
     <string name="ramadan_notify_outside_desc">د روژې په میاشت کې د افطار او سحر خبرتیاوې په اوتومات ډول چلیږي؛ دا فعالول دوی په نورو میاشتو کې دوام کوي.</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">فجر</string>
+    <string name="habit_prayer_dhuhr">ډوهر</string>
+    <string name="habit_prayer_asr">عصر</string>
+    <string name="habit_prayer_maghrib">مازیګر</string>
+    <string name="habit_prayer_isha">ایشا</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

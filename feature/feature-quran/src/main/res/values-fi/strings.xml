@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Samasta juuresta johdetut sanat</string>
     <string name="quran_search_no_root">Juurea ei voitu määrittää</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Näytä tajweed-värit</string>
+    <string name="quran_tajweed_show_desc">Väritä Hafsin tajweed-säännöt Koraanin tekstissä</string>
+    <string name="quran_tafsir_sources_title">Tafsir-lähde</string>
+    <string name="quran_tafsir_sources_empty">Lataa tafsir, valitse se sitten näyttääksesi sen merkitysten kanssa.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Lataa</string>
+    <string name="quran_tafsir_downloading">Ladataan…</string>
+    <string name="quran_tafsir_installed">Asennettu</string>
+    <string name="quran_tafsir_download_failed">Tafsiria ei voitu ladata: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

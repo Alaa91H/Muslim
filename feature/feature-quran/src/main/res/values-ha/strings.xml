@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Kalmomin da aka samo daga tushe ɗaya</string>
     <string name="quran_search_no_root">An kasa tantance tushen</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Nuna launukan tajweed</string>
+    <string name="quran_tajweed_show_desc">Yi launi ga dokokin tajweed na Hafs a cikin rubutun Al-Qur\'ani</string>
+    <string name="quran_tafsir_sources_title">Tushen tafsir</string>
+    <string name="quran_tafsir_sources_empty">Zazzage tafsir, sannan zaɓi shi don nuna shi tare da ma\'anonin sa.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Zazzage</string>
+    <string name="quran_tafsir_downloading">Ana zazzagewa…</string>
+    <string name="quran_tafsir_installed">An girka</string>
+    <string name="quran_tafsir_download_failed">Ba a iya zazzage tafsir ba: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

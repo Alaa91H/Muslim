@@ -1,6 +1,7 @@
 package org.muslim.app.feature.quran.data
 
 import com.google.common.truth.Truth.assertThat
+import org.muslim.app.feature.quran.domain.QuranWordSearch
 import org.junit.Test
 
 class QuranWordFrequencyTest {
@@ -21,10 +22,26 @@ class QuranWordFrequencyTest {
     }
 
     @Test
-    fun `dagger alef and hamza-carrying alef are folded`() {
-        // U+0670 (dagger alef) is a mark; أ stays a genuine letter.
+    fun `dagger alef and keyboard hamza variants are folded`() {
+        // U+0670 (dagger alef) is a mark; canonical Quran search folds أ to ا.
         assertThat(QuranWordFrequency.wordsOf("مَٰلِكِ أَنْعَمْتَ"))
-            .containsExactly("ملك", "أنعمت").inOrder()
+            .containsExactly("ملك", "انعمت").inOrder()
+    }
+
+    @Test
+    fun `canonical query tokens align frequency counting and raw highlight spans`() {
+        val ayah = "إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ"
+        val tokens = QuranSearchQuery.tokens("إِنّــا أَعْــط")
+
+        assertThat(tokens).containsExactly("انا", "اعط").inOrder()
+        assertThat(QuranWordFrequency.wordsOf(ayah))
+            .containsAtLeast("انا", "اعطيناك")
+        assertThat(
+            QuranWordSearch.countMatches(ayah, tokens, QuranWordSearch.MatchMode.PREFIX),
+        ).isEqualTo(2)
+        assertThat(
+            QuranWordSearch.matchSpans(ayah, tokens, QuranWordSearch.MatchMode.PREFIX),
+        ).hasSize(2)
     }
 
     // ---- counting ----
@@ -57,7 +74,7 @@ class QuranWordFrequencyTest {
             listOf("أ ب أ أ ج ب د"),
         )
         assertThat(result.entries.map { it.count }).isEqualTo(listOf(3, 2, 1, 1))
-        assertThat(result.entries.first().word).isEqualTo("أ")
+        assertThat(result.entries.first().word).isEqualTo("ا")
     }
 
     @Test
@@ -66,8 +83,8 @@ class QuranWordFrequencyTest {
         val first = QuranWordFrequency.compute(listOf("ب أ ب أ")).entries.map { it.word }
         val second = QuranWordFrequency.compute(listOf("ب أ ب أ")).entries.map { it.word }
         assertThat(first).isEqualTo(second)
-        // أ (U+0623) sorts before ب (U+0628).
-        assertThat(first).isEqualTo(listOf("أ", "ب"))
+        // Canonical Quran search folds أ to ا, which sorts before ب.
+        assertThat(first).isEqualTo(listOf("ا", "ب"))
     }
 
     @Test

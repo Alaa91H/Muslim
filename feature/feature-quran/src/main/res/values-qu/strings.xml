@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Huk saphimanta lluqsisqa simikuna</string>
     <string name="quran_search_no_root">Saphinta mana tariyta atirqanchu</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Rikhuy tajweed k\'illukunata</string>
+    <string name="quran_tajweed_show_desc">Qur\'an qillqatanpi Hafs tajweed reglaskuna k\'illukunawan rikhuy</string>
+    <string name="quran_tafsir_sources_title">Tafsir chiqnin</string>
+    <string name="quran_tafsir_sources_empty">Descarga huk tafsir, chaymanta selecciona chayta rikhuykunata rimaykunawan</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Descargar</string>
+    <string name="quran_tafsir_downloading">Descargando…</string>
+    <string name="quran_tafsir_installed">Instalado</string>
+    <string name="quran_tafsir_download_failed">Manaqa iskaylla tafsir descargachu: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

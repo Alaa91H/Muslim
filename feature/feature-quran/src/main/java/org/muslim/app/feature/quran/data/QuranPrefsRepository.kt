@@ -93,6 +93,15 @@ class QuranPrefsRepository @Inject constructor(
         context.quranPrefsDataStore.edit { prefs -> prefs[Keys.SUPPLEMENT_ENABLED] = enabled }
     }
 
+    /** Optional Hafs tajweed colourization; off by default for a plain Mushaf view. */
+    val tajweedEnabled: Flow<Boolean> = context.quranPrefsDataStore.data.map { prefs ->
+        prefs[Keys.TAJWEED_ENABLED] ?: false
+    }
+
+    suspend fun setTajweedEnabled(enabled: Boolean) {
+        context.quranPrefsDataStore.edit { prefs -> prefs[Keys.TAJWEED_ENABLED] = enabled }
+    }
+
     /**
      * Translation language shown in the meanings panel: "auto" (default) follows
      * the current app language; any other value is a BCP-47 tag.
@@ -103,6 +112,18 @@ class QuranPrefsRepository @Inject constructor(
 
     suspend fun setSupplementLanguage(language: String) {
         context.quranPrefsDataStore.edit { prefs -> prefs[Keys.SUPPLEMENT_LANGUAGE] = language }
+    }
+
+    /** Selected installed tafsir source; null means no source has been chosen yet. */
+    val selectedTafsirSource: Flow<String?> = context.quranPrefsDataStore.data.map { prefs ->
+        prefs[Keys.SELECTED_TAFSIR_SOURCE]
+    }
+
+    suspend fun setSelectedTafsirSource(source: String?) {
+        context.quranPrefsDataStore.edit { prefs ->
+            if (source == null) prefs.remove(Keys.SELECTED_TAFSIR_SOURCE)
+            else prefs[Keys.SELECTED_TAFSIR_SOURCE] = source
+        }
     }
 
     companion object {
@@ -233,6 +254,8 @@ class QuranPrefsRepository @Inject constructor(
         val RECITER = stringPreferencesKey("reciter_id")
         val SUPPLEMENT_ENABLED = booleanPreferencesKey("supplement_enabled")
         val SUPPLEMENT_LANGUAGE = stringPreferencesKey("supplement_language")
+        val TAJWEED_ENABLED = booleanPreferencesKey("tajweed_enabled")
+        val SELECTED_TAFSIR_SOURCE = stringPreferencesKey("selected_tafsir_source")
         val NIGHT_DOWNLOADS = booleanPreferencesKey("night_downloads")
         val NIGHT_START = intPreferencesKey("night_download_start")
         val NIGHT_END = intPreferencesKey("night_download_end")

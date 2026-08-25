@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Նույն արմատից բխող բառեր</string>
     <string name="quran_search_no_root">Չհաջողվեց որոշել արմատը</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Ցույց տալ թաջվիդի գույները</string>
+    <string name="quran_tajweed_show_desc">Գույնավորել Հաֆս թաջվիդի կանոնները Քուրանի տեքստում</string>
+    <string name="quran_tafsir_sources_title">Թաֆսիրի աղբյուր</string>
+    <string name="quran_tafsir_sources_empty">Ներբեռնեք թաֆսირი, ապա ընտրեք այն՝ որպեսզի այն ցուցադրվի նշանակությունների հետ միասին.</string>
+    <string name="quran_tafsir_muyassar">Աթ-Թաֆսիր Ալ-Մույասսար</string>
+    <string name="quran_tafsir_download">Ներբեռնել</string>
+    <string name="quran_tafsir_downloading">Ներբեռնում…</string>
+    <string name="quran_tafsir_installed">Տեղադրված</string>
+    <string name="quran_tafsir_download_failed">Չհաջողվեց ներբեռնել թաֆսիրը՝ %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

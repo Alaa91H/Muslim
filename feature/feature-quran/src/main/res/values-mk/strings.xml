@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Зборови изведени од ист корен</string>
     <string name="quran_search_no_root">Не може да се одреди коренот</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Прикажи бои за таџвид</string>
+    <string name="quran_tajweed_show_desc">Обојување на правилата на таџвидот Hafs во текстот на Куран</string>
+    <string name="quran_tafsir_sources_title">Извор на тафсир</string>
+    <string name="quran_tafsir_sources_empty">Преземете тафсир, потоа изберете го за да се прикаже заедно со значењата.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Преземи</string>
+    <string name="quran_tafsir_downloading">Се презема…</string>
+    <string name="quran_tafsir_installed">Инсталирано</string>
+    <string name="quran_tafsir_download_failed">Не можеше да се преземе тафсир: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

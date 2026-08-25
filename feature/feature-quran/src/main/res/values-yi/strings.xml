@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">ווערטער שטאמען פון דעם זעלבן שורש</string>
     <string name="quran_search_no_root">קען נישט באַשטימען די וואָרצל</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">וויזן טאַדזשוויד־קאָלירן</string>
+    <string name="quran_tajweed_show_desc">קאָלירירן די Hafs־טאַדזשוויד כּללים אין קוראַן־טעקסט</string>
+    <string name="quran_tafsir_sources_title">מקור תפֿסיר</string>
+    <string name="quran_tafsir_sources_empty">אַראָפּלאָדן אַ תפֿסיר, דאַן אויסקלײַבן עס צו ווײַזן עס צוזאַמען מיט די משמעותן.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">אַראָפּלאָדן</string>
+    <string name="quran_tafsir_downloading">אַראָפּלאָדן…</string>
+    <string name="quran_tafsir_installed">אינסטאַלירט</string>
+    <string name="quran_tafsir_download_failed">קען נישט אַראָפּלאָדן תפֿסיר: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

@@ -26,4 +26,15 @@
     <string name="ramadan_title">ラマダン</string>
     <string name="ramadan_notify_outside">ラマダン期間外のリマインダー</string>
     <string name="ramadan_notify_outside_desc">イフタールとスフールのアラートはラマダン期間中に自動的に実行されます。これを有効にすると、他の月も継続して実行できます。</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">ファジル</string>
+    <string name="habit_prayer_dhuhr">ドゥフル</string>
+    <string name="habit_prayer_asr">アスル</string>
+    <string name="habit_prayer_maghrib">マグリブ</string>
+    <string name="habit_prayer_isha">イシャ</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

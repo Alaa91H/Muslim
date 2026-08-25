@@ -53,6 +53,12 @@ class HomeViewModel @Inject constructor(
             .map { it.ornamentStyle }
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), AppOrnamentStyle.Geometry)
 
+    /** Home display of the prayer checklist is an explicit, disabled-by-default choice. */
+    val showPrayerTrackerOnHome: StateFlow<Boolean> =
+        appPreferencesRepository.preferences
+            .map { it.showPrayerTrackerOnHome }
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
+
     /** One day's condensed times for the monthly grid. */
     data class DayTimes(
         val date: LocalDate,

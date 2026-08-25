@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Ko nga kupu i ahu mai i te putake kotahi</string>
     <string name="quran_search_no_root">Kaore i taea te whakatau i te pakiaka</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Whakaatu i ngā tae tajweed</string>
+    <string name="quran_tajweed_show_desc">Taehia ngā ture tajweed a Hafs i te kuputuhi o te Quran</string>
+    <string name="quran_tafsir_sources_title">Puna tafsir</string>
+    <string name="quran_tafsir_sources_empty">Tikiake tētahi tafsir, katahi ka tīpako kia whakaatuhia me ngā whakamārama.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Tikiake</string>
+    <string name="quran_tafsir_downloading">E tikiake ana…</string>
+    <string name="quran_tafsir_installed">Kua tāuta</string>
+    <string name="quran_tafsir_download_failed">Kāore i taea te tikiake i te tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

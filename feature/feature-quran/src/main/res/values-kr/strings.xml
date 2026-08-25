@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Kalimawa furtu fallan tuwandin</string>
     <string name="quran_search_no_root">Raksǝ furtǝnzǝ asutinba</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">타즈위드 색상 표시</string>
+    <string name="quran_tajweed_show_desc">쿠란 본문에서 Hafs 타즈위드 규칙을 색상으로 표시합니다.</string>
+    <string name="quran_tafsir_sources_title">타프시르 출처</string>
+    <string name="quran_tafsir_sources_empty">타프시르를 다운로드한 뒤 선택하여 의미와 함께 표시하세요.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">다운로드</string>
+    <string name="quran_tafsir_downloading">다운로드 중…</string>
+    <string name="quran_tafsir_installed">설치됨</string>
+    <string name="quran_tafsir_download_failed">타프시르를 다운로드할 수 없습니다: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

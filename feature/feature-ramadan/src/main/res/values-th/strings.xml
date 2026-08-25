@@ -26,4 +26,15 @@
     <string name="ramadan_title">รอมฎอน</string>
     <string name="ramadan_notify_outside">คำเตือนนอกเดือนรอมฎอน</string>
     <string name="ramadan_notify_outside_desc">การแจ้งเตือน Iftar และ suhoor จะทำงานโดยอัตโนมัติในช่วงรอมฎอน การเปิดใช้งานสิ่งนี้จะทำให้พวกเขาดำเนินต่อไปในเดือนอื่นๆ</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">ฟอจ</string>
+    <string name="habit_prayer_dhuhr">ดูห์ร</string>
+    <string name="habit_prayer_asr">อาศร</string>
+    <string name="habit_prayer_maghrib">มักริบ</string>
+    <string name="habit_prayer_isha">อิชา</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

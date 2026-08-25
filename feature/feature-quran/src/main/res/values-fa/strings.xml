@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">کلماتی که از یک ریشه مشتق شده اند</string>
     <string name="quran_search_no_root">نمی توان ریشه را تعیین کرد</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">نمایش رنگ‌های تجوید</string>
+    <string name="quran_tajweed_show_desc">قواعد تجوید حفص را در متن قرآن رنگ‌آمیزی کنید</string>
+    <string name="quran_tafsir_sources_title">منبع تفسیر</string>
+    <string name="quran_tafsir_sources_empty">یک تفسیر دانلود کنید، سپس آن را انتخاب کنید تا همراه با معانی نمایش داده شود.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">دانلود</string>
+    <string name="quran_tafsir_downloading">در حال دانلود…</string>
+    <string name="quran_tafsir_installed">نصب‌شده</string>
+    <string name="quran_tafsir_download_failed">دانلود تفسیر ممکن نبود: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

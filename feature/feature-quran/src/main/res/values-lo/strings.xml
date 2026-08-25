@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">ຄໍາທີ່ມາຈາກຮາກດຽວກັນ</string>
     <string name="quran_search_no_root">ບໍ່ສາມາດກໍານົດຮາກໄດ້</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">ສະແດງສີຕາຈວີດ</string>
+    <string name="quran_tajweed_show_desc">ເສີມສີໃຫ້ກົດການຕາຈວີດ Hafs ໃນຂໍ້ຄວາມອັລກຸຣອານ</string>
+    <string name="quran_tafsir_sources_title">ແຫຼ່ງຕາຟຊີຣ</string>
+    <string name="quran_tafsir_sources_empty">ດາວໂຫລດຕາຟຊີຣ, ແລ້ວເລືອກເພື່ອແສງມັນພ້ອມດ້ວຍຄຳແປ.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">ດາວໂຫລດ</string>
+    <string name="quran_tafsir_downloading">ກຳລັງດາວໂຫລດ…</string>
+    <string name="quran_tafsir_installed">ຕິດຕັ້ງແລ້ວ</string>
+    <string name="quran_tafsir_download_failed">ບໍ່ສາມາດດາວໂຫລດຕາຟຊີຣໄດ້: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

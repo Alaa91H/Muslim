@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">ئوخشاش يىلتىزدىن كەلگەن سۆزلەر</string>
     <string name="quran_search_no_root">يىلتىزىنى بەلگىلىيەلمىدى</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">تاجۋىد رەڭلىرىنى كۆرسەت</string>
+    <string name="quran_tajweed_show_desc">قۇرئان ماتنىدا ھەفس تاجۋىد قائىدىلىرىنى رەڭلىك كۆرسىتىڭ</string>
+    <string name="quran_tafsir_sources_title">تەفسىر مەنبەسى</string>
+    <string name="quran_tafsir_sources_empty">بىر تەفسىرنى چۈشۈرۈڭ، ئاندىن ئۇنى تاللاپ مەنىلىرى بىلەن كۆرسىتىڭ.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">چۈشۈر</string>
+    <string name="quran_tafsir_downloading">چۈشۈرۈلۈۋاتىدۇ…</string>
+    <string name="quran_tafsir_installed">ئورنىتىلدى</string>
+    <string name="quran_tafsir_download_failed">تەفسىر چۈشۈرۈلمىدى: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

@@ -148,4 +148,15 @@
     <string name="quran_search_derivations">Vortoj derivitaj de la sama radiko</string>
     <string name="quran_search_no_root">Ne eblis determini la radikon</string>
     <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
+    <string name="quran_tajweed_show">Montri tajweed-kolornojn</string>
+    <string name="quran_tajweed_show_desc">Kolorigi la Hafs-tajweed-regulojn en la Korana teksto</string>
+    <string name="quran_tafsir_sources_title">Tafsir-fonto</string>
+    <string name="quran_tafsir_sources_empty">Elŝutu tafsiron, poste elektu ĝin por montri ĝin kun la signifoj.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Elŝuti</string>
+    <string name="quran_tafsir_downloading">Elŝutante…</string>
+    <string name="quran_tafsir_installed">Instalita</string>
+    <string name="quran_tafsir_download_failed">Ne eblis elŝuti la tafsiron: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
 </resources>

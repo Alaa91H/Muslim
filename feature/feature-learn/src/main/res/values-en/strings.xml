@@ -106,7 +106,8 @@
     <string name="hajj_companion_tashreeq2_msg">Repeat stoning the three Jamarat after noon as yesterday. Whoever wishes to hasten may leave Mina before sunset; whoever stays spends the night and stones on the third day.</string>
     <string name="hajj_companion_tashreeq3_title">Days of Tashreeq: day 3 (13 Dhul-Hijjah)</string>
     <string name="hajj_companion_tashreeq3_msg">Stone the three Jamarat after noon, then conclude the Hajj with the farewell Tawaf when leaving Makkah. May Allah accept your Hajj.</string>
-    <string name="hajj_map_title">Sacred Sites Map</string>
+    <string name="hajj_map_title">Sacred Sites Guide</string>
+    <string name="hajj_map_list_intro">Choose a site to read its guidance and supplication. This offline guide does not use maps or location tracking.</string>
     <string name="hajj_map_subtitle">Mina, Arafah, Muzdalifah, Jamarat and the Haram — tap a site for its supplication</string>
     <string name="hajj_map_zoom_in">Zoom in</string>
     <string name="hajj_map_zoom_out">Zoom out</string>
