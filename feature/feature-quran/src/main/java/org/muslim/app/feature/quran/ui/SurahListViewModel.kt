@@ -53,11 +53,11 @@ class SurahListViewModel @Inject constructor(
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), UiState())
 
     init {
-        // Schedule the optional daily ayah notification (idempotent) and seed
-        // the tiny development translation sample for the reader.
+        // Schedule the optional daily ayah notification (idempotent) and
+        // remove the old placeholder tafsir on upgrades.
         viewModelScope.launch {
             AyahOfTheDayScheduler.schedule(context)
-            supplementRepository.seedSampleIfEmpty()
+            supplementRepository.removeLegacySampleTafsir()
         }
     }
 }

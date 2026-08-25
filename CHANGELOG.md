@@ -3,6 +3,32 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.6
+
+Updates install directly over v1.24.5 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.
+
+## Adhan Delivery and Notification Identity
+
+- Replaced the remaining legacy large notification artwork with a dedicated full-colour emerald crescent-and-star vector. The compliant monochrome status-bar icon is unchanged.
+- Made the receiver publish the visible Adhan alert before foreground playback begins. A successful foreground-service start is still never treated as proof that audio began; the confirmed-audio journal and direct local fallback remain in force.
+- Separated visual-notification permission from the user’s enabled Adhan audio choice. If Android rejects the visible notification request, that failure is non-fatal and the receiver still attempts audible delivery. The foreground service may nevertheless remain subject to Android background-execution policy.
+- Added regression coverage for the delivery policy: disabling visual presentation never disables enabled Adhan audio, while disabling Adhan itself stops both paths.
+
+## Quran Search, Tajweed, and Tafsir
+
+- Removed the search-input delay and retained canonical offline matching, so common keyboard spelling such as `الله` matches Uthmani `ٱللَّهِ` immediately. A single-word result now shows that exact word form’s whole-Mushaf frequency using the same canonical tokenization as search and highlighting.
+- Moved the optional Tajweed-colour control from **Meanings & Tafsir** into the reader’s outer overflow menu. It remains off by default and the meanings/tafsir dialog no longer contains a duplicate switch.
+- Removed the legacy **Sample** tafsir placeholder from upgrades and new reader entry paths. The cited QuranEnc downloader for **At-Tafsir Al-Muyassar** remains the only production tafsir downloader in this release.
+- Did not bundle the requested additional tafsir texts without a source-specific, redistributable licence and a no-login retrieval path. QUL’s public catalogue lists the titles but gates JSON/SQLite exports behind sign-in and directs users to verify each resource licence; bypassing that gate or reusing unverified mirrors would not be a lawful production source. [1]
+
+## Verification
+
+- Added focused unit coverage for the notification/audio delivery boundary and Arabic Uthmani normalization. Full application tests, Android Lint, Detekt, content-manifest verification, main-branch CI, and tagged-release CI are required before publication.
+
+### References
+
+[1]: https://qul.tarteel.ai/faq "Quranic Universal Library FAQ"
+
 ## Muslim v1.24.5
 
 Updates install directly over v1.24.4 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.

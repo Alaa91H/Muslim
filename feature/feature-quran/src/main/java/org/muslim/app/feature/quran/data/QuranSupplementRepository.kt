@@ -176,6 +176,9 @@ class QuranSupplementRepository @Inject constructor(
 
     suspend fun removeTafsirSource(source: String) = tafsirDao.deleteSource(source)
 
+    /** Removes the legacy placeholder that was never a production tafsir. */
+    suspend fun removeLegacySampleTafsir() = tafsirDao.deleteSource(SAMPLE_TAFSIR_SOURCE)
+
     /** True when the sample development pack is already installed. */
     suspend fun hasSampleTranslation(): Boolean = translationDao.countForLanguage(SAMPLE_LANGUAGE) > 0
 

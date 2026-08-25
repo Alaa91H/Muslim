@@ -41,7 +41,7 @@ internal object AdhanNotifications {
         )
         return NotificationCompat.Builder(context, NotificationChannels.ADHAN)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
-            .setLargeIcon(Icon.createWithResource(context, context.applicationInfo.icon))
+            .setLargeIcon(Icon.createWithResource(context, org.muslim.app.core.notifications.R.drawable.ic_muslim_notification_large))
             .setContentTitle(context.getString(R.string.adhan_notification_title))
             .setContentText(context.getString(R.string.prayer_name, context.getString(prayerNameRes(prayer))))
             .setStyle(NotificationCompat.BigTextStyle())
@@ -57,10 +57,22 @@ internal object AdhanNotifications {
             .build()
     }
 
+    /**
+     * Posts the visible alarm immediately from the receiver. The foreground
+     * service replaces this notification with the same id once it starts;
+     * keeping this step independent means a service-start failure cannot hide
+     * the prayer alert from the user. The result is non-throwing because a
+     * notification permission or channel failure must not interrupt audio.
+     */
+    fun showAdhan(context: Context, prayer: Prayer): Boolean = runCatching {
+        context.getSystemService(NotificationManager::class.java)
+            .notify(ADHAN_NOTIFICATION_ID, adhanNotification(context, prayer))
+    }.isSuccess
+
     fun showReminder(context: Context, prayer: Prayer, minutesBefore: Int) {
         val notification = NotificationCompat.Builder(context, NotificationChannels.REMINDER)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
-            .setLargeIcon(Icon.createWithResource(context, context.applicationInfo.icon))
+            .setLargeIcon(Icon.createWithResource(context, org.muslim.app.core.notifications.R.drawable.ic_muslim_notification_large))
             .setContentTitle(context.getString(R.string.reminder_title))
             .setContentText(
                 context.getString(

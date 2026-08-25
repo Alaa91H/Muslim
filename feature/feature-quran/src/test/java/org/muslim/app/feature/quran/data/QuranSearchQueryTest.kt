@@ -38,6 +38,8 @@ class QuranSearchQueryTest {
         val ayah = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
 
         assertThat(QuranSearchQuery.matchesNormalizedAyah(ayah, "الرحم")).isTrue()
+        // The common keyboard form must match the Uthmani alef-wasla form.
+        assertThat(QuranSearchQuery.matchesNormalizedAyah(ayah, "الله")).isTrue()
         assertThat(QuranSearchQuery.matchesNormalizedAyah(ayah, "بسم الله")).isTrue()
         assertThat(QuranSearchQuery.matchesNormalizedAyah(ayah, "الملك")).isFalse()
     }

@@ -432,12 +432,12 @@ class QuranReaderViewModel @Inject constructor(
     val playbackErrorCount: StateFlow<Int> = audioPlayer.errorCount
 
     init {
-        // Hydrate the stop-at-end mirror from the persisted value, and seed
-        // the meaning/tafsir sample so the supplements panel works even when
-        // the reader is opened directly (without visiting the surah list).
+        // Hydrate the stop-at-end mirror and remove the legacy placeholder
+        // tafsir from older installs. Production sources are explicit,
+        // attributable downloads rather than pre-seeded sample content.
         viewModelScope.launch {
             _continuousStopAtEnd.value = prefsRepository.continuousStopAtEnd.first()
-            supplementRepository.seedSampleIfEmpty()
+            supplementRepository.removeLegacySampleTafsir()
 
 }
 

@@ -59,9 +59,23 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
             ) {
                 AdhanNotifications.showReminder(appContext, prayer, settings.reminderMinutes)
             }
-        } else if (settings.adhanEnabled &&
-            appContext.notificationAllowed(NotificationCategory.Adhan)
-        ) {
+        } else {
+            val deliveryPolicy = AdhanAlarmDeliveryPolicy.resolve(
+                adhanEnabled = settings.adhanEnabled,
+                presentationAllowed = appContext.notificationAllowed(NotificationCategory.Adhan),
+            )
+            // Post the alarm first when presentation is permitted. The service
+            // replaces the same id on success; if it fails, the prayer alert
+            // still remains visible instead of disappearing silently.
+            if (deliveryPolicy.postVisibleNotification) {
+                AdhanNotifications.showAdhan(appContext, prayer)
+            }
+            // Audible Adhan is a separate user choice from notification
+            // presentation. A muted/disabled Android channel must never turn a
+            // scheduled prayer into no delivery at all; the playback service
+            // still owns the mandatory foreground notification and direct
+            // fallback remains available if that service cannot start.
+            if (deliveryPolicy.startAudio) {
                 val soundPath = entryPoint.soundRepository().customSoundFile(prayer)?.absolutePath
                 val bundledSoundId = settings.bundledAdhanSounds[prayer]
                     ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID
@@ -92,11 +106,12 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                     entryPoint.dndManager().enable(settings.dndDurationMinutes)
                 }
             }
-            entryPoint.scheduler().schedule(settings)
-            // Flip the countdown notification to the next prayer immediately.
-            NextAdhanService.start(appContext)
-            // A prayer just started: flip the widget to the next prayer.
-            PrayerTimesWidget().updateAll(appContext)
+        }
+        entryPoint.scheduler().schedule(settings)
+        // Flip the countdown notification to the next prayer immediately.
+        NextAdhanService.start(appContext)
+        // A prayer just started: flip the widget to the next prayer.
+        PrayerTimesWidget().updateAll(appContext)
     }
 
     private data class AdhanDeliveryRequest(

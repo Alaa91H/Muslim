@@ -5,12 +5,10 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -26,7 +24,7 @@ import org.muslim.app.feature.quran.domain.QuranRepository
 import org.muslim.app.feature.quran.domain.QuranWordSearch
 import javax.inject.Inject
 
-@OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)
+@OptIn(ExperimentalCoroutinesApi::class)
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val repository: QuranRepository,
@@ -52,6 +50,9 @@ class SearchViewModel @Inject constructor(
      * find the derived inflections of a selected suggestion.
      */
     private val corpusWords = MutableStateFlow<List<String>>(emptyList())
+
+    /** Exact whole-mushaf count keyed by the same normalized token as search. */
+    private val exactWordFrequency = MutableStateFlow<Map<String, Int>>(emptyMap())
 
     /**
      * Root + derived inflections of the suggestion the user just picked, or
@@ -109,10 +110,11 @@ class SearchViewModel @Inject constructor(
             val ayahTexts = repository.allAyahs().map { it.text }
             val result = QuranWordFrequency.compute(
                 ayahTexts = ayahTexts,
-                topN = 300,
+                topN = Int.MAX_VALUE,
                 onProgress = { indexProgress.value = (it * 100).toInt().coerceIn(0, 100) },
             )
-            topWords.value = result.entries.map { it.word }
+            topWords.value = result.entries.take(300).map { it.word }
+            exactWordFrequency.value = result.entries.associate { it.word to it.count }
             corpusWords.value = ayahTexts
                 .flatMap { QuranWordFrequency.wordsOf(it) }
                 .distinct()
@@ -186,18 +188,21 @@ class SearchViewModel @Inject constructor(
         /** Matched surahs with their occurrence counts ("أين ذُكرت"). */
         val surahBreakdown: List<QuranWordSearch.SurahOccurrence> = emptyList(),
         val elapsedMs: Long = 0L,
+        /** Exact standalone token count from whole-mushaf word frequency. */
+        val exactWordFrequency: Int? = null,
         val indexBuilding: Boolean = false,
         val idle: Boolean = true,
     )
 
     val uiState: StateFlow<UiState> = combine(
-        query.debounce(300).distinctUntilChanged(),
+        query,
         matchMode,
-    ) { raw, mode ->
-        raw to mode
+        exactWordFrequency,
+    ) { raw, mode, frequency ->
+        Triple(raw, mode, frequency)
     }
         .distinctUntilChanged()
-        .flatMapLatest { (raw, mode) ->
+        .flatMapLatest { (raw, mode, frequency) ->
             val usable = QuranSearchQuery.isUsable(raw)
             if (!usable) {
                 kotlinx.coroutines.flow.flowOf(UiState(idle = true))
@@ -238,6 +243,7 @@ class SearchViewModel @Inject constructor(
                                 mode,
                             ),
                             elapsedMs = elapsedMs,
+                            exactWordFrequency = tokens.singleOrNull()?.let { frequency[it] },
                             indexBuilding = false,
                         )
                     )

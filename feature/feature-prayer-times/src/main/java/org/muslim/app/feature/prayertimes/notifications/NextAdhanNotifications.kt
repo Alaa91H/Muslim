@@ -102,7 +102,7 @@ internal object NextAdhanNotifications {
 
         val builder = NotificationCompat.Builder(context, NotificationChannels.PRAYER_COUNTDOWN)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
-            .setLargeIcon(Icon.createWithResource(context, context.applicationInfo.icon))
+            .setLargeIcon(Icon.createWithResource(context, org.muslim.app.core.notifications.R.drawable.ic_muslim_notification_large))
             .setContentTitle(title)
             .setStyle(NotificationCompat.BigTextStyle().bigText(expandedText))
             .setCategory(NotificationCompat.CATEGORY_STATUS)

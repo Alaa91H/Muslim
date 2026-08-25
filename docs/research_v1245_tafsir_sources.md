@@ -13,3 +13,22 @@ The previously configured `arabic_saadi` QuranEnc per-surah endpoint returned an
 The interface may be localized, but the downloaded Al-Muyassar text remains the Arabic text supplied by the publisher and must not be represented as a translation into the application's UI language.
 
 Additional browser review of the official Al-Muyassar page on 2026-08-25 confirmed that it exposes a **Browse Old Version** link to `https://old.quranenc.com/en`, but the current page does not expose a current version number in its rendered source information. The application must therefore link to the official source and record the retrieval time; it must not fabricate a version value. The live page also carries QuranEnc’s general caution that human renderings of Quranic meanings are not error-free.
+
+## Follow-up verification — 2026-08-25
+
+- **Altafsir is not an implementation source.** Its published terms prohibit automated downloading, transferring, monitoring, copying, reproduction, and public distribution of content without prior written permission. Do not add any Altafsir endpoint, scraper, bundled pack, or download option from that site.
+- **Quran Foundation / Quran.com offers an authenticated Content API** with Arabic tafsir resources including Tabari and Baghawi in its documented resource examples. Its current developer terms allow in-app display but prohibit redistributing raw content and normally limit caching to one week unless the approved Content Sync exception is used and a sync is performed at least every seven days. The official quickstart requires a backend-held client credential and production permission; a mobile APK must not embed a client secret.
+- The legacy public `api.quran.com/api/v4` endpoints returned data during a passive compatibility check, but the official migration path is the authenticated Quran Foundation API. Treat legacy public access as non-contractual and do not build a production downloader around it.
+- **QuranEnc** remains suitable only for source keys, content, and terms that have been individually verified. Its official API documentation requires preserving content unchanged, publisher/source attribution, version number, transcript information, and current updates when republishing.
+
+Sources: https://www.altafsir.com/TafsirTerms.asp ; https://api-docs.quran.foundation/legal/developer-terms/ ; https://api-docs.quran.foundation/docs/quickstart/ ; https://quranenc.com/en/home/api/
+
+A passive 2026-08-25 check of the legacy public Quran.com v4 resource list surfaced Arabic resources for **Al-Saadi** (`91`), **Ibn Kathir** (`14`), **Al-Tabari** (`15`), **Al-Baghawi** (`94`), and **Al-Qurtubi** (`90`). The same response did not list Al-Mukhtasar, Adwa' al-Bayan, Fath al-Qadir, Al-Muharrar al-Wajiz, or Al-Tahrir wa al-Tanwir. This is catalog evidence only, not production permission: do not use legacy public endpoints for bundled or indefinite offline downloads. Quran Foundation's current terms and authenticated API path govern production access.
+
+## QUL alternative check — 2026-08-25
+
+Tarteel's Quranic Universal Library (QUL) catalog lists all ten requested Arabic tafsir resources: As-Saadi (308), Al-Mukhtasar (251), Ibn Kathir (22), Al-Qurtubi (23), Al-Baghawi (27), Al-Tabari (37), Al-Muharrar Al-Wajiz (509), Al-Tahrir wa Al-Tanwir (25), Adwa' Al-Bayan (525), and Fath Al-Qadir (494). Its resources page says resources are intended to be downloaded and packaged with a project, while its FAQ says each resource may have distinct licensing and must be checked individually. However, the actual JSON/SQLite export buttons open a mandatory login dialog and the public resource page does not expose resource-level licence metadata. Therefore QUL does not provide a **no-login, source-licence-verifiable** automated download path for this release. Do not bypass the login, scrape its content, or use mirrors that re-host the same material without the original rights record.
+
+The public `spa5k/tafsir_api` project is MIT-licensed as code, but it identifies Quran.com, Altafsir, and QUL as underlying content sources. The code licence does not establish redistribution rights for the underlying tafsir text, so it is not an approved replacement source.
+
+Sources: https://qul.tarteel.ai/resources ; https://qul.tarteel.ai/faq ; https://qul.tarteel.ai/resources/tafsir/308 ; https://github.com/spa5k/tafsir_api

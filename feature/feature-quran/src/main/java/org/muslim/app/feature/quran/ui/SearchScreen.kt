@@ -21,6 +21,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
@@ -222,6 +223,10 @@ fun SearchScreen(
                                 style = MaterialTheme.typography.labelSmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
+                            state.exactWordFrequency?.let { frequency ->
+                                Spacer(Modifier.height(8.dp))
+                                SearchWordFrequencyCard(query = query, frequency = frequency)
+                            }
                         }
                     }
                     if (state.surahBreakdown.isNotEmpty()) {
@@ -241,6 +246,29 @@ fun SearchScreen(
                     }
                 }
             }
+        }
+    }
+}
+
+/**
+ * Makes whole-mushaf word frequency visible in the same result stream as
+ * search. The number is intentionally shown only for one exact token; phrases
+ * and root-prefix searches retain their result-specific occurrence total.
+ */
+@Composable
+private fun SearchWordFrequencyCard(query: String, frequency: Int) {
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Column(modifier = Modifier.padding(12.dp)) {
+            Text(
+                text = stringResource(R.string.quran_frequency_title),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            Spacer(Modifier.height(2.dp))
+            Text(
+                text = "$query · ${stringResource(R.string.quran_search_occurrences, frequency)}",
+                style = MaterialTheme.typography.bodyMedium,
+            )
         }
     }
 }

@@ -680,6 +680,29 @@ fun QuranReaderScreen(
                                 },
                             )
                             DropdownMenuItem(
+                                text = { Text(stringResource(R.string.quran_tajweed_show)) },
+                                leadingIcon = {
+                                    Icon(
+                                        Icons.Filled.Nightlight,
+                                        contentDescription = null,
+                                        tint = if (tajweedEnabled) {
+                                            MaterialTheme.colorScheme.primary
+                                        } else {
+                                            MaterialTheme.colorScheme.onSurfaceVariant
+                                        },
+                                    )
+                                },
+                                trailingIcon = {
+                                    if (tajweedEnabled) {
+                                        Icon(Icons.Filled.Check, contentDescription = null)
+                                    }
+                                },
+                                onClick = {
+                                    viewModel.setTajweedEnabled(!tajweedEnabled)
+                                    showMoreMenu = false
+                                },
+                            )
+                            DropdownMenuItem(
                                 text = { Text(stringResource(R.string.quran_supplement_controls)) },
                                 leadingIcon = {
                                     Icon(
@@ -870,7 +893,6 @@ fun QuranReaderScreen(
             SupplementControlsDialog(
                 state = SupplementControlsState(
                     enabled = supplementEnabled,
-                    tajweedEnabled = tajweedEnabled,
                     installedTafsirSources = installedTafsirSources,
                     selectedTafsirSource = selectedTafsirSource,
                     tafsirDownloadState = tafsirDownloadState,
@@ -879,7 +901,6 @@ fun QuranReaderScreen(
                 ),
                 actions = SupplementControlsActions(
                     onEnabledChanged = viewModel::setSupplementEnabled,
-                    onTajweedEnabledChanged = viewModel::setTajweedEnabled,
                     onTafsirSourceSelected = viewModel::setSelectedTafsirSource,
                     onDownloadOfficialTafsir = viewModel::downloadOfficialTafsir,
                     onLanguageChanged = viewModel::setSupplementLanguage,
@@ -1755,10 +1776,9 @@ private fun DetailRow(label: String, value: String) {
     }
 }
 
-/** State rendered by the reader's meanings, tajweed and tafsir controls. */
+/** State rendered by the reader's meanings and tafsir controls. */
 private data class SupplementControlsState(
     val enabled: Boolean,
-    val tajweedEnabled: Boolean,
     val installedTafsirSources: List<String>,
     val selectedTafsirSource: String?,
     val tafsirDownloadState: QuranReaderViewModel.TafsirDownloadState,
@@ -1769,7 +1789,6 @@ private data class SupplementControlsState(
 /** Reader-owned actions invoked by the stateless supplement controls. */
 private data class SupplementControlsActions(
     val onEnabledChanged: (Boolean) -> Unit,
-    val onTajweedEnabledChanged: (Boolean) -> Unit,
     val onTafsirSourceSelected: (String?) -> Unit,
     val onDownloadOfficialTafsir: (org.muslim.app.feature.quran.data.OfficialTafsirSource) -> Unit,
     val onLanguageChanged: (String) -> Unit,
@@ -1811,20 +1830,6 @@ private fun SupplementVisibilityControls(
             modifier = Modifier.weight(1f),
         )
         Switch(checked = state.enabled, onCheckedChange = actions.onEnabledChanged)
-    }
-    Spacer(Modifier.height(12.dp))
-    HorizontalDivider()
-    Spacer(Modifier.height(12.dp))
-    Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-        Column(modifier = Modifier.weight(1f)) {
-            Text(stringResource(R.string.quran_tajweed_show), style = MaterialTheme.typography.bodyLarge)
-            Text(
-                stringResource(R.string.quran_tajweed_show_desc),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-        Switch(checked = state.tajweedEnabled, onCheckedChange = actions.onTajweedEnabledChanged)
     }
     Spacer(Modifier.height(12.dp))
     HorizontalDivider()
