@@ -1,7 +1,11 @@
 package org.muslim.app.feature.prayertimes.ui.settings
 
+import android.app.AlarmManager
+import android.app.NotificationManager
 import android.content.Context
+import android.media.AudioManager
 import android.net.Uri
+import android.os.Build
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -40,10 +44,31 @@ import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
 import org.muslim.app.feature.prayertimes.notifications.NextAdhanService
 import org.muslim.app.feature.prayertimes.notifications.AdhanSoundPlayer
 import org.muslim.app.feature.prayertimes.notifications.AdhanSoundRepository
+import org.muslim.app.core.notifications.NotificationCategory
+import org.muslim.app.core.notifications.NotificationChannels
+import org.muslim.app.core.notifications.notificationAllowed
 import org.muslim.app.feature.prayertimes.data.CitiesRepository
 import org.muslim.app.feature.prayertimes.domain.City
 import org.muslim.app.feature.prayertimes.widget.PrayerTimesWidget
 import javax.inject.Inject
+
+/**
+ * Result of checking the conditions that the scheduled adhan code actually
+ * requires. This deliberately checks configuration and Android permissions;
+ * the adjacent preview action is the explicit audible confirmation.
+ */
+data class AdhanReadiness(
+    val adhanEnabled: Boolean = false,
+    val hasLocation: Boolean = false,
+    val notificationsAllowed: Boolean = false,
+    val exactAlarmsAllowed: Boolean = false,
+    val nextPrayerHasAudibleSound: Boolean = false,
+    val alarmVolumeAudible: Boolean = false,
+) {
+    val isReady: Boolean
+        get() = adhanEnabled && hasLocation && notificationsAllowed &&
+            exactAlarmsAllowed && nextPrayerHasAudibleSound && alarmVolumeAudible
+}
 
 @HiltViewModel
 class PrayerSettingsViewModel @Inject constructor(
@@ -104,6 +129,10 @@ class PrayerSettingsViewModel @Inject constructor(
         }
     }
 
+    /** Latest status produced by the user-visible adhan readiness check. */
+    private val _adhanReadiness = MutableStateFlow(AdhanReadiness())
+    val adhanReadiness: StateFlow<AdhanReadiness> = _adhanReadiness.asStateFlow()
+
     /** Download progress (0..1) per prayer, present only while downloading. */
     private val _downloadProgress = MutableStateFlow<Map<Prayer, Float>>(emptyMap())
     val downloadProgress: StateFlow<Map<Prayer, Float>> = _downloadProgress.asStateFlow()
@@ -136,6 +165,46 @@ class PrayerSettingsViewModel @Inject constructor(
             val dLon = city.longitude - location.longitude
             dLat * dLat + dLon * dLon
         }
+    }
+
+    init {
+        // Keep the result truthful after any saved setting changes. The button
+        // on the screen calls [verifyAdhanReadiness] again on demand.
+        viewModelScope.launch {
+            repository.settings.collect { refreshAdhanReadiness(it) }
+        }
+    }
+
+    /** Re-runs the complete local readiness check after an explicit user tap. */
+    fun verifyAdhanReadiness() {
+        viewModelScope.launch { refreshAdhanReadiness(repository.settings.first()) }
+    }
+
+    private suspend fun refreshAdhanReadiness(current: PrayerSettings) {
+        NotificationChannels.create(context)
+        val notificationsAllowed = context.notificationAllowed(NotificationCategory.Adhan) &&
+            context.getSystemService(NotificationManager::class.java).areNotificationsEnabled() &&
+            (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ||
+                context.getSystemService(NotificationManager::class.java)
+                    .getNotificationChannel(NotificationChannels.ADHAN)
+                    ?.importance != NotificationManager.IMPORTANCE_NONE)
+        val alarmManager = context.getSystemService(AlarmManager::class.java)
+        val exactAlarmsAllowed = Build.VERSION.SDK_INT < Build.VERSION_CODES.S ||
+            alarmManager.canScheduleExactAlarms()
+        val targetPrayer = computeNextPrayer(current)?.first ?: Prayer.Fajr
+        val option = current.adhanSounds[targetPrayer] ?: AdhanSoundOption.Default
+        val nextPrayerHasAudibleSound = option == AdhanSoundOption.Default &&
+            current.adhanVolumeFor(targetPrayer) > 0
+        val alarmVolumeAudible = context.getSystemService(AudioManager::class.java)
+            .getStreamVolume(AudioManager.STREAM_ALARM) > 0
+        _adhanReadiness.value = AdhanReadiness(
+            adhanEnabled = current.adhanEnabled,
+            hasLocation = current.location != null,
+            notificationsAllowed = notificationsAllowed,
+            exactAlarmsAllowed = exactAlarmsAllowed,
+            nextPrayerHasAudibleSound = nextPrayerHasAudibleSound,
+            alarmVolumeAudible = alarmVolumeAudible,
+        )
     }
 
     fun setMethod(method: CalculationMethod) =

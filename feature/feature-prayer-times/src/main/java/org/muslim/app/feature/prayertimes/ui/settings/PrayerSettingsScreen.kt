@@ -91,6 +91,7 @@ fun PrayerSettingsScreen(
     val downloadProgress by viewModel.downloadProgress.collectAsStateWithLifecycle()
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
     val isPreviewing by viewModel.isPreviewing.collectAsStateWithLifecycle()
+    val adhanReadiness by viewModel.adhanReadiness.collectAsStateWithLifecycle()
 
     // Keep the slider value local while it is being dragged so every prayer
     // card can show the exact percentage that will be applied immediately.
@@ -175,6 +176,10 @@ fun PrayerSettingsScreen(
 
         SectionHeader(stringResource(R.string.settings_adhan))
         SwitchRow(stringResource(R.string.settings_adhan_enabled), settings.adhanEnabled, viewModel::setAdhanEnabled)
+        AdhanReadinessCard(
+            readiness = adhanReadiness,
+            onVerify = viewModel::verifyAdhanReadiness,
+        )
 
         val nextPrayer by viewModel.nextPrayerPreview.collectAsStateWithLifecycle()
 
@@ -418,6 +423,86 @@ fun PrayerSettingsScreen(
  * small icon, title and the real next prayer name/time (computed from the saved
  * location, refreshed every minute). Dims when adhan is disabled.
  */
+@Composable
+private fun AdhanReadinessCard(
+    readiness: AdhanReadiness,
+    onVerify: () -> Unit,
+) {
+    val statusColor = if (readiness.isReady) {
+        MaterialTheme.colorScheme.primary
+    } else {
+        MaterialTheme.colorScheme.error
+    }
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 8.dp),
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = stringResource(R.string.settings_adhan_verify_title),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold,
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = stringResource(R.string.settings_adhan_verify_desc),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Spacer(Modifier.height(12.dp))
+            Text(
+                text = stringResource(
+                    if (readiness.isReady) {
+                        R.string.settings_adhan_ready
+                    } else {
+                        R.string.settings_adhan_needs_attention
+                    },
+                ),
+                style = MaterialTheme.typography.bodyMedium,
+                color = statusColor,
+                fontWeight = FontWeight.SemiBold,
+            )
+            Spacer(Modifier.height(8.dp))
+            AdhanReadinessItem(readiness.adhanEnabled, R.string.settings_adhan_check_enabled)
+            AdhanReadinessItem(readiness.hasLocation, R.string.settings_adhan_check_location)
+            AdhanReadinessItem(readiness.notificationsAllowed, R.string.settings_adhan_check_notifications)
+            AdhanReadinessItem(readiness.exactAlarmsAllowed, R.string.settings_adhan_check_exact_alarm)
+            AdhanReadinessItem(readiness.nextPrayerHasAudibleSound, R.string.settings_adhan_check_sound)
+            AdhanReadinessItem(readiness.alarmVolumeAudible, R.string.settings_adhan_check_alarm_volume)
+            Spacer(Modifier.height(12.dp))
+            Button(onClick = onVerify, modifier = Modifier.fillMaxWidth()) {
+                Text(stringResource(R.string.settings_adhan_verify_action))
+            }
+        }
+    }
+}
+
+@Composable
+private fun AdhanReadinessItem(passed: Boolean, @androidx.annotation.StringRes labelRes: Int) {
+    val stateText = stringResource(
+        if (passed) R.string.settings_adhan_check_passed else R.string.settings_adhan_check_failed,
+    )
+    val stateColor = if (passed) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(vertical = 2.dp),
+        horizontalArrangement = androidx.compose.foundation.layout.Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = stringResource(labelRes),
+            style = MaterialTheme.typography.bodySmall,
+            modifier = Modifier.weight(1f),
+        )
+        Text(
+            text = stateText,
+            style = MaterialTheme.typography.labelSmall,
+            color = stateColor,
+            fontWeight = FontWeight.Medium,
+        )
+    }
+}
+
 @Composable
 private fun AdhanNotificationPreview(
     prayer: Prayer?,

@@ -108,15 +108,33 @@ class AdhanSoundPlayer @Inject constructor(
                 .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                 .build(),
         )
-        player.setDataSource(
-            context,
-            "android.resource://${context.packageName}/$resId".toUri(),
-        )
+        val sourceReady = runCatching {
+            player.setDataSource(
+                context,
+                "android.resource://${context.packageName}/$resId".toUri(),
+            )
+        }.isSuccess
+        if (!sourceReady) {
+            runCatching { player.release() }
+            mediaPlayer = null
+            abandonFocus()
+            playSynthesized(volumePercent, onFinished)
+            return
+        }
         player.setOnPreparedListener { p ->
             if (mediaPlayer !== p) return@setOnPreparedListener
             val target = (volumePercent / 100f).coerceIn(0f, 1f)
-            p.setVolume(target, target)
-            p.start()
+            runCatching {
+                p.setVolume(target, target)
+                p.start()
+            }.onFailure {
+                if (mediaPlayer === p) {
+                    runCatching { p.release() }
+                    mediaPlayer = null
+                    abandonFocus()
+                    playSynthesized(volumePercent, onFinished)
+                }
+            }
         }
         player.setOnCompletionListener {
             if (mediaPlayer === it) onFinished()
@@ -133,7 +151,14 @@ class AdhanSoundPlayer @Inject constructor(
             true
         }
         runCatching { player.prepareAsync() }
-            .onFailure { onFinished() }
+            .onFailure {
+                if (mediaPlayer === player) {
+                    runCatching { player.release() }
+                    mediaPlayer = null
+                    abandonFocus()
+                    playSynthesized(volumePercent, onFinished)
+                }
+            }
     }
 
     /** Plays [file] (user-picked or downloaded). */
@@ -148,12 +173,28 @@ class AdhanSoundPlayer @Inject constructor(
                 .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                 .build(),
         )
-        player.setDataSource(file.absolutePath)
+        val sourceReady = runCatching { player.setDataSource(file.absolutePath) }.isSuccess
+        if (!sourceReady) {
+            runCatching { player.release() }
+            mediaPlayer = null
+            abandonFocus()
+            playSynthesized(volumePercent, onFinished)
+            return
+        }
         player.setOnPreparedListener { p ->
             if (mediaPlayer !== p) return@setOnPreparedListener
             val target = (volumePercent / 100f).coerceIn(0f, 1f)
-            p.setVolume(target, target)
-            p.start()
+            runCatching {
+                p.setVolume(target, target)
+                p.start()
+            }.onFailure {
+                if (mediaPlayer === p) {
+                    runCatching { p.release() }
+                    mediaPlayer = null
+                    abandonFocus()
+                    playSynthesized(volumePercent, onFinished)
+                }
+            }
         }
         player.setOnCompletionListener {
             if (mediaPlayer === it) onFinished()
@@ -168,7 +209,14 @@ class AdhanSoundPlayer @Inject constructor(
             true
         }
         runCatching { player.prepareAsync() }
-            .onFailure { onFinished() }
+            .onFailure {
+                if (mediaPlayer === player) {
+                    runCatching { player.release() }
+                    mediaPlayer = null
+                    abandonFocus()
+                    playSynthesized(volumePercent, onFinished)
+                }
+            }
     }
 
     /** Plays the synthesised default tone. */

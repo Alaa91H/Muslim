@@ -83,7 +83,14 @@ class AdhanPlaybackService : Service() {
             plan.playSound && soundPath != null && File(soundPath).exists() ->
                 soundPlayer.playFile(File(soundPath), volumePercent, onFinished)
             plan.playSound -> soundPlayer.playBundled(bundled, volumePercent, onFinished)
-            plan.vibrate -> vibrate()
+            plan.vibrate -> {
+                vibrate()
+                // Vibration has no completion callback. Finish immediately
+                // after its pattern instead of keeping a foreground service
+                // alive until the long audio safety timeout.
+                android.os.Handler(android.os.Looper.getMainLooper())
+                    .postDelayed({ stopSelf() }, VIBRATION_DURATION_MS)
+            }
         }
 
         // Safety net: never let the service run indefinitely.
@@ -135,6 +142,7 @@ class AdhanPlaybackService : Service() {
         private const val EXTRA_SOUND_PATH = "extra_sound_path"
         private const val EXTRA_BUNDLED_SOUND = "extra_bundled_sound"
         private const val MAX_PLAYBACK_MS = 5 * 60 * 1000L
+        private const val VIBRATION_DURATION_MS = 2_800L
 
         fun start(
             context: Context,
