@@ -325,16 +325,16 @@
     },
     {
       "id": "feature_feature-quran_src_main_assets_quran_tajweed_hafs_annotations_json",
-      "kind": "quran_tajweed_annotation",
+      "kind": "quran_content",
       "path": "feature/feature-quran/src/main/assets/quran_tajweed_hafs_annotations.json",
       "size_bytes": 5578730,
       "sha256": "151d616ad37a4cc21a80f20d5e1104c5b408375107ddd4d71247dea4c05ebf67",
       "production_status": "approved",
-      "source": "cpfair/quran-tajweed, Hafs annotation data: https://github.com/cpfair/quran-tajweed",
-      "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/",
-      "attribution": "The reader identifies Hafs tajweed annotations and links the source in its meanings/tafsir controls.",
-      "religious_review": "Technical presentation data from the cited Hafs source. No independent scholarly verification is claimed; the feature is opt-in and must not replace qualified tajweed instruction.",
-      "notes": "Compatibility checker confirmed 6,236 annotation ayahs and all 60,057 offsets fit the bundled Uthmani ayah text before inclusion.",
+      "source": "cpfair/quran-tajweed, Hafs annotation dataset (https://github.com/cpfair/quran-tajweed).",
+      "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0).",
+      "attribution": "Tajweed annotations: cpfair/quran-tajweed, CC BY 4.0; preserved as opt-in presentation annotations.",
+      "religious_review": "No independent scholarly certification is claimed. Product owner approved opt-in presentation use after positional validation against the bundled Uthmani corpus; users should consult qualified teachers for tajweed instruction.",
+      "notes": "Hafs annotation spans were validated locally against all 6,236 bundled ayahs (60,057 spans) on 2026-08-25. Revalidate positions, attribution, and licence if the source or corpus changes.",
       "required_actions": []
     },
     {

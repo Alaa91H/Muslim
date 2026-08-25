@@ -153,6 +153,13 @@
       "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
       "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
     },
+    "feature_feature-quran_src_main_assets_quran_tajweed_hafs_annotations_json": {
+      "source": "cpfair/quran-tajweed, Hafs annotation dataset (https://github.com/cpfair/quran-tajweed).",
+      "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0).",
+      "attribution": "Tajweed annotations: cpfair/quran-tajweed, CC BY 4.0; preserved as opt-in presentation annotations.",
+      "religious_review": "No independent scholarly certification is claimed. Product owner approved opt-in presentation use after positional validation against the bundled Uthmani corpus; users should consult qualified teachers for tajweed instruction.",
+      "notes": "Hafs annotation spans were validated locally against all 6,236 bundled ayahs (60,057 spans) on 2026-08-25. Revalidate positions, attribution, and licence if the source or corpus changes."
+    },
     "feature_feature-quran_src_main_assets_quran_tafsir_sample_json": {
       "source": "Product owner rights attestation OA-2026-08-25-01 (bundled Quran content provenance held by owner).",
       "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
