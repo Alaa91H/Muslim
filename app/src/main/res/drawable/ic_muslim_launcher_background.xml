@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Deep navy from the official coloured emblem. It fills Android's adaptive
+     mask outside the preserved circular foreground without exposing white corners. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#FF0A2455" />
+</shape>

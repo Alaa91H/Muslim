@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- System-tinted monochrome layer for Android adaptive launcher theming.
+     The 66/108 safe-zone geometry keeps the circular mark complete. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M54,21a33,33 0,1 0,0,66a33,33 0,1 0,0,-66zM54,26a28,28 0,1 0,0,56a28,28 0,1 0,0,-56z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M51,34a10,10 0,1 0,0,20a10,10 0,1 0,0,-20zM55.8,36.6a7,7 0,1 0,0,14a7,7 0,1 0,0,-14z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M62,38L63,40.5L65.5,41.5L63,42.5L62,45L61,42.5L58.5,41.5L61,40.5Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M33,73L33,65C33,55.4 39.9,47.8 49.1,45.6L49.1,42.6L52,39.5L54.9,42.6L54.9,45.6C64.1,47.8 71,55.4 71,65L71,73L78,73L78,78L30,78L30,73ZM47.2,73L54,73L54,62.6C54,60.7 52.5,59.2 50.6,59.2C48.7,59.2 47.2,60.7 47.2,62.6Z" />
+</vector>

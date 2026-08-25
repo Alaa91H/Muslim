@@ -3,6 +3,23 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.8
+
+Updates install directly over v1.24.7 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.
+
+## Official Application and Notification Identity
+
+- Adopted the supplied full-colour circular mosque emblem as the official Muslim launcher and large-notification identity. The complete ornamental ring is retained on a transparent foreground with a navy adaptive-icon background, eliminating white corners and preventing launcher-mask clipping.
+- Added a dedicated circular monochrome crescent-and-mosque glyph for Android status bars. It is separate from the colour artwork and remains within the 24dp viewport so Android can apply its required white or system tint reliably.
+- Added a separate monochrome adaptive-icon layer for Android themed icons and kept both standard and round launcher definitions on the same official colour foreground.
+- Replaced the prior large Adhan/next-prayer artwork with the official full-colour emblem. The new large-notification resource retains the complete circle with a transparent guard margin.
+- Removed legacy launcher foreground, background, brand bitmap, and the former large-notification vector from the source tree. No launcher or notification source reference remains to those retired assets.
+
+## Verification
+
+- Reviewed the generated colour resources visually and verified that the launcher artwork bounds are centered and fully inside Android's 66/108 adaptive-icon safe-content proportion. The large-notification artwork remains centered with its own non-clipping guard margin.
+- Passed production content-manifest verification, Debug assembly, application unit tests, Android Lint, and Detekt before release tagging.
+
 ## Muslim v1.24.7
 
 Updates install directly over v1.24.6 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.
