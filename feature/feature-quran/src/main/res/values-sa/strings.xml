@@ -147,4 +147,5 @@
     <string name="quran_search_word_root">मूलम् : %1$s</string>
     <string name="quran_search_derivations">समानमूलात् उत्पन्नाः शब्दाः</string>
     <string name="quran_search_no_root">मूलं निर्धारयितुं न शक्तवान्</string>
+    <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
 </resources>

@@ -147,4 +147,5 @@
     <string name="quran_search_word_root">Тамыр: %1$s</string>
     <string name="quran_search_derivations">Бир уңгудан жасалган сөздөр</string>
     <string name="quran_search_no_root">Түптү аныктай алган жок</string>
+    <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
 </resources>

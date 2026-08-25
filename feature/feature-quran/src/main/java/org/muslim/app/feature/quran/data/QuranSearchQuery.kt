@@ -3,43 +3,55 @@ package org.muslim.app.feature.quran.data
 import org.muslim.app.core.common.text.ArabicText
 
 /**
- * Builds the SQLite FTS4 MATCH expression from a raw user query
- * (PROJECT_PROMPT.md §6 Phase 2: بحث نصي في القرآن).
+ * Builds and validates offline Quran-search queries.
  *
- * - Diacritics are stripped from the query (the index stores normalized text).
- * - Every token becomes a prefix match (`token*`), so "رحمة" also finds
- *   "ٱلرَّحْمَٰنِ" (morphology-friendly), and tokens are AND-combined.
- * - FTS operator characters are removed to avoid injection/syntax errors.
+ * The Room FTS index is an optimization only. The tokenizer and local matcher
+ * below are the authoritative behavior, so search remains correct when a
+ * device's FTS implementation rejects a query or its index needs rebuilding.
  */
 object QuranSearchQuery {
 
-    private val FTS_SPECIAL = setOf('"', '*', '(', ')', ':', '^', '-', '+')
-
-    fun build(rawQuery: String): String {
-        val tokens = tokens(rawQuery)
-        if (tokens.isEmpty()) return ""
-        return tokens.joinToString(" AND ") { "$it*" }
-    }
+    /** Arabic/Unicode words only: punctuation and Quranic stop marks never become tokens. */
+    private val wordRegex = Regex("[\\p{L}\\p{N}]+")
+    private val ftsSpecial = setOf('"', '*', '(', ')', ':', '^', '-', '+')
 
     /**
-     * Local prefix matching for a normalized ayah. This is a strict fallback
-     * for devices whose FTS table is stale, empty, or rejects an edge-case
-     * query; it preserves the normal index semantics without any network call.
+     * Builds an FTS prefix expression. Each normalized word is matched as a
+     * prefix and all words are required, which keeps multi-word queries useful
+     * without ever passing punctuation or FTS operators to SQLite.
+     */
+    fun build(rawQuery: String): String = tokens(rawQuery)
+        .joinToString(" AND ") { "$it*" }
+
+    /**
+     * Local, normalized prefix matching for one ayah. This deliberately uses
+     * the same tokenizer as [build] and works for typed or pasted Arabic with
+     * tashkeel, hamza variants, tatweel, punctuation, and Uthmani marks.
      */
     fun matchesNormalizedAyah(ayahText: String, rawQuery: String): Boolean {
         val needles = tokens(rawQuery)
         if (needles.isEmpty()) return false
-        val words = ArabicText.normalizeForSearch(ayahText)
-            .split(Regex("\\s+"))
-            .filter { it.isNotBlank() }
+        val words = wordsOf(ayahText)
         return needles.all { needle -> words.any { word -> word.startsWith(needle) } }
     }
 
-    /** True when the built query is usable in a MATCH clause. */
+    /** True when the input contains at least one searchable word. */
     fun isUsable(rawQuery: String): Boolean = tokens(rawQuery).isNotEmpty()
 
-    private fun tokens(rawQuery: String): List<String> = ArabicText.normalizeForSearch(rawQuery)
-        .split(Regex("\\s+"))
-        .map { token -> token.filterNot { it in FTS_SPECIAL } }
-        .filter { it.isNotEmpty() }
+    internal fun tokens(rawQuery: String): List<String> = wordsOf(rawQuery)
+
+    private fun wordsOf(text: String): List<String> = wordRegex
+        .findAll(normalizeForQuranSearch(text.filterNot { it in ftsSpecial }))
+        .map { it.value }
+        .filter { it.isNotBlank() }
+        .toList()
+
+    /** Keyboard-friendly folds that are intentionally scoped to Quran search. */
+    private fun normalizeForQuranSearch(text: String): String = ArabicText.normalizeForSearch(text)
+        .replace('\u0622', '\u0627') // آ → ا
+        .replace('\u0623', '\u0627') // أ → ا
+        .replace('\u0625', '\u0627') // إ → ا
+        .replace('\u0624', '\u0648') // ؤ → و
+        .replace('\u0626', '\u064A') // ئ → ي
+        .replace("ـ", "")
 }

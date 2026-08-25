@@ -147,4 +147,5 @@
     <string name="quran_search_word_root">Rasan: %1$s</string>
     <string name="quran_search_derivations">I palabras ginen i parehu na råsa</string>
     <string name="quran_search_no_root">Ti siña ma ditetmina i råsan</string>
+    <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
 </resources>

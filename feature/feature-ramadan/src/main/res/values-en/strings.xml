@@ -38,7 +38,7 @@
     <string name="habit_tracker_points">Points</string>
     <string name="habit_tracker_level">Level</string>
     <string name="habit_tracker_days">%1$d days</string>
-    <string name="habit_badge_starting">A good start — keep going</string>
+    <string name="habit_badge_starting">Tracking started</string>
     <string name="habit_badge_building">Building a beautiful habit</string>
     <string name="habit_badge_consistent">Remarkable consistency</string>
     <string name="habit_badge_excellent">Excellent achievement</string>

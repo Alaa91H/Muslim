@@ -147,4 +147,5 @@
     <string name="quran_search_word_root">Ukax akhamawa: %1$s</string>
     <string name="quran_search_derivations">Pachpa saphit apsut arunaka</string>
     <string name="quran_search_no_root">Janiw saphip uñt’ayañjamäkänti</string>
+    <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
 </resources>

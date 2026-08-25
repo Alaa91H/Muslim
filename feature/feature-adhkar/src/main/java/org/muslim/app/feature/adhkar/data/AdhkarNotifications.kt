@@ -26,7 +26,7 @@ internal object AdhkarNotifications {
         NotificationChannels.create(context)
         val contentIntent = context.packageManager.getLaunchIntentForPackage(context.packageName)
         val notification = NotificationCompat.Builder(context, NotificationChannels.ADHKAR)
-            .setSmallIcon(R.drawable.ic_adhkar_notification)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
             .setContentTitle(context.getString(R.string.adhkar_reminder_notification_title))
             .setContentText(dhikr.arabic)
             .setStyle(NotificationCompat.BigTextStyle().bigText(dhikr.arabic))
@@ -73,7 +73,7 @@ internal object AdhkarNotifications {
         )
         val contentIntent = context.packageManager.getLaunchIntentForPackage(context.packageName)
         val builder = NotificationCompat.Builder(context, NotificationChannels.ADHKAR)
-            .setSmallIcon(R.drawable.ic_adhkar_notification)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
             .setContentTitle(context.getString(R.string.adhkar_periodic_notification_title))
             .setContentText(dhikr.arabic)
             .setStyle(NotificationCompat.BigTextStyle().bigText(dhikr.arabic))
@@ -90,7 +90,7 @@ internal object AdhkarNotifications {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             val metadata = NotificationCompat.BubbleMetadata.Builder(
                 bubbleIntent,
-                IconCompat.createWithResource(context, R.drawable.ic_adhkar_notification),
+                IconCompat.createWithResource(context, org.muslim.app.core.notifications.R.drawable.ic_muslim_notification),
             )
                 .setAutoExpandBubble(true)
                 .setSuppressNotification(false)

@@ -147,4 +147,5 @@
     <string name="quran_search_word_root">ルート: %1$s</string>
     <string name="quran_search_derivations">同じ語源から派生した言葉</string>
     <string name="quran_search_no_root">ルートを特定できませんでした</string>
+    <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
 </resources>

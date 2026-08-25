@@ -117,20 +117,24 @@ class QuranRepositoryImpl @Inject constructor(
         ensureSeeded()
         val match = QuranSearchQuery.build(rawQuery)
         if (match.isEmpty()) return emptyList()
-        val indexedMatches = runCatching {
-            ayahFtsDao.search(match)
-                .mapNotNull { hit -> ayahDao.byGlobal(hit.globalNumber)?.toDomain() }
-        }.getOrDefault(emptyList())
-        if (indexedMatches.isNotEmpty()) return indexedMatches
 
-        // A failed/empty FTS query must never make Quran search appear broken.
-        // The bundled corpus is local and small enough for a bounded fallback.
-        return ayahDao.observeAll().first()
+        // The local normalized scan is deliberately authoritative. It searches
+        // only 6,236 bundled ayahs, is bounded, and stays on-device; unlike a
+        // device-specific FTS tokenizer it cannot reject valid Arabic input.
+        val localMatches = ayahDao.observeAll().first()
             .asSequence()
             .filter { QuranSearchQuery.matchesNormalizedAyah(it.text, rawQuery) }
             .take(SEARCH_FALLBACK_LIMIT)
             .map { it.toDomain() }
             .toList()
+        if (localMatches.isNotEmpty()) return localMatches
+
+        // Keep FTS as a final recovery path for an unusual corpus/tokenization
+        // edge case. It is never allowed to be the only reason search fails.
+        return runCatching {
+            ayahFtsDao.search(match)
+                .mapNotNull { hit -> ayahDao.byGlobal(hit.globalNumber)?.toDomain() }
+        }.getOrDefault(emptyList())
     }
 
     override fun observeBookmarks(): Flow<List<Bookmark>> = flow {

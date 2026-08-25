@@ -147,4 +147,5 @@
     <string name="quran_search_word_root">రూట్: %1$s</string>
     <string name="quran_search_derivations">ఒకే మూలం నుండి ఉద్భవించిన పదాలు</string>
     <string name="quran_search_no_root">మూలాన్ని గుర్తించడం సాధ్యపడలేదు</string>
+    <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
 </resources>

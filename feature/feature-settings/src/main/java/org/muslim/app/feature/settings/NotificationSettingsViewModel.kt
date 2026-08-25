@@ -231,7 +231,7 @@ class NotificationSettingsViewModel @Inject constructor(
     /** Posts a sample notification on [category]'s channel so the user sees the exact result. */
     fun testNotification(category: NotificationCategory) {
         val notification = Notification.Builder(context, category.channelId)
-            .setSmallIcon(context.applicationInfo.icon)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
             .setContentTitle(context.getString(categoryLabelRes(category)))
             .setContentText(context.getString(R.string.notif_test_body))
             .setAutoCancel(true)

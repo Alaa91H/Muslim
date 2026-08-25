@@ -147,4 +147,5 @@
     <string name="quran_search_word_root">Root: %1$s</string>
     <string name="quran_search_derivations">Naan ko rej itok jen juon wōt unin</string>
     <string name="quran_search_no_root">Ejjab maroñ in jella root eo</string>
+    <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
 </resources>

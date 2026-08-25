@@ -147,4 +147,5 @@
     <string name="quran_search_word_root">Gbongbo: %1$s</string>
     <string name="quran_search_derivations">Awọn ọrọ ti o wa lati gbongbo kanna</string>
     <string name="quran_search_no_root">Ko le pinnu gbongbo</string>
+    <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
 </resources>

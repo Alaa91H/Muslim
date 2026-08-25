@@ -39,13 +39,13 @@ internal object AdhanNotifications {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
         return NotificationCompat.Builder(context, NotificationChannels.ADHAN)
-            .setSmallIcon(R.drawable.ic_notification)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
             .setContentTitle(context.getString(R.string.adhan_notification_title))
             .setContentText(context.getString(R.string.prayer_name, context.getString(prayerNameRes(prayer))))
             .setStyle(NotificationCompat.BigTextStyle())
             .setCategory(NotificationCompat.CATEGORY_ALARM)
             .addAction(
-                R.drawable.ic_notification,
+                org.muslim.app.core.notifications.R.drawable.ic_muslim_notification,
                 context.getString(R.string.adhan_notification_stop),
                 stopIntent,
             )
@@ -57,7 +57,7 @@ internal object AdhanNotifications {
 
     fun showReminder(context: Context, prayer: Prayer, minutesBefore: Int) {
         val notification = NotificationCompat.Builder(context, NotificationChannels.REMINDER)
-            .setSmallIcon(R.drawable.ic_notification)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
             .setContentTitle(context.getString(R.string.reminder_title))
             .setContentText(
                 context.getString(

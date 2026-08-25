@@ -147,4 +147,5 @@
     <string name="quran_search_word_root">A\'a: %1$s</string>
     <string name="quran_search_derivations">O upu e maua mai i le a\'a e tasi</string>
     <string name="quran_search_no_root">Le mafai ona iloa le a\'a</string>
+    <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
 </resources>

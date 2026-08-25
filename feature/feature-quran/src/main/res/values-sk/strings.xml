@@ -147,4 +147,5 @@
     <string name="quran_search_word_root">Koreň: %1$s</string>
     <string name="quran_search_derivations">Slová odvodené od rovnakého koreňa</string>
     <string name="quran_search_no_root">Nepodarilo sa určiť koreň</string>
+    <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
 </resources>

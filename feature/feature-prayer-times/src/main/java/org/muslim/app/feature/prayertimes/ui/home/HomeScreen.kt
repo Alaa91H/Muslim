@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -22,8 +23,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Brightness4
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.DarkMode
+import androidx.compose.material.icons.filled.LightMode
+import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.Place
+import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FilterChip
@@ -39,6 +45,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -148,35 +156,50 @@ fun HomeScreen(
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
             ),
         ) {
-            Column(modifier = Modifier.padding(20.dp)) {
-                Text(
-                    text = stringResource(R.string.home_next_prayer),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer,
-                )
-                Spacer(Modifier.height(8.dp))
-                state.nextPrayer?.let { prayer ->
+            Box {
+                PrayerCardEdgeOrnaments(tint = MaterialTheme.colorScheme.tertiary)
+                Column(modifier = Modifier.padding(20.dp)) {
                     Text(
-                        text = stringResource(prayerLabelRes(prayer)),
-                        style = MaterialTheme.typography.headlineMedium,
+                        text = stringResource(R.string.home_next_prayer),
+                        style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                     )
-                }
-                Row(verticalAlignment = Alignment.Bottom) {
-                    state.nextPrayerAt?.let { at ->
+                    Spacer(Modifier.height(8.dp))
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            state.nextPrayer?.let { prayer ->
+                                Text(
+                                    text = stringResource(prayerLabelRes(prayer)),
+                                    style = MaterialTheme.typography.headlineMedium,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                )
+                            }
+                        }
+                        state.nextPrayer?.let { prayer ->
+                            Icon(
+                                imageVector = prayerIcon(prayer),
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.tertiary,
+                                modifier = Modifier.size(48.dp),
+                            )
+                        }
+                    }
+                    Row(verticalAlignment = Alignment.Bottom) {
+                        state.nextPrayerAt?.let { at ->
+                            Text(
+                                text = at.format(TimeFormats.timeFormatter(use24h)),
+                                style = MaterialTheme.typography.headlineMedium,
+                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            )
+                        }
+                        Spacer(Modifier.weight(1f))
                         Text(
-                            text = at.format(TimeFormats.timeFormatter(use24h)),
-                            style = MaterialTheme.typography.headlineMedium,
+                            text = formatCountdown(state.countdownSeconds),
+                            style = MaterialTheme.typography.headlineSmall,
+                            fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace,
                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                         )
                     }
-                    Spacer(Modifier.weight(1f))
-                    Text(
-                        text = formatCountdown(state.countdownSeconds),
-                        style = MaterialTheme.typography.headlineSmall,
-                        fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
-                    )
                 }
             }
         }
@@ -205,8 +228,10 @@ fun HomeScreen(
                 containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
             ),
         ) {
-            Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {
-                Prayer.entries.forEachIndexed { index, prayer ->
+            Box {
+                PrayerCardEdgeOrnaments(tint = MaterialTheme.colorScheme.primary)
+                Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {
+                    Prayer.entries.forEachIndexed { index, prayer ->
                     if (index > 0) HorizontalDivider()
                     val isNextPrayer = prayer == state.nextPrayer
                     Row(
@@ -220,6 +245,14 @@ fun HomeScreen(
                             .padding(horizontal = 12.dp, vertical = 10.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
+                        Icon(
+                            imageVector = prayerIcon(prayer),
+                            contentDescription = null,
+                            tint = if (isNextPrayer) MaterialTheme.colorScheme.onTertiaryContainer
+                            else MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.size(22.dp),
+                        )
+                        Spacer(Modifier.width(10.dp))
                         Text(
                             text = stringResource(prayerLabelRes(prayer)),
                             style = MaterialTheme.typography.bodyLarge,
@@ -237,6 +270,7 @@ fun HomeScreen(
                                 else MaterialTheme.colorScheme.onSurface,
                             )
                         }
+                    }
                     }
                 }
             }
@@ -305,13 +339,49 @@ private fun AppOrnamentStyle.toIslamicOrnament(): IslamicOrnament = when (this) 
     AppOrnamentStyle.Minimal -> IslamicOrnament.Corner
 }
 
+private fun prayerIcon(prayer: Prayer): ImageVector = when (prayer) {
+    Prayer.Fajr -> Icons.Filled.Nightlight
+    Prayer.Sunrise -> Icons.Filled.WbSunny
+    Prayer.Dhuhr -> Icons.Filled.LightMode
+    Prayer.Asr -> Icons.Filled.Brightness4
+    Prayer.Maghrib -> Icons.Filled.Nightlight
+    Prayer.Isha -> Icons.Filled.DarkMode
+}
+
+@Composable
+private fun PrayerCardEdgeOrnaments(tint: Color) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        IslamicOrnamentImage(
+            ornament = IslamicOrnament.Corner,
+            tint = tint,
+            alpha = IslamicOrnamentOpacity.LightActive,
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(4.dp)
+                .size(72.dp),
+        )
+        IslamicOrnamentImage(
+            ornament = IslamicOrnament.Corner,
+            tint = tint,
+            alpha = IslamicOrnamentOpacity.LightActive,
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(4.dp)
+                .size(72.dp)
+                .graphicsLayer(rotationZ = 180f),
+        )
+    }
+}
+
 @Composable
 private fun PrayerCompletionCard(
     completedPrayers: Set<Prayer>,
     onToggle: (Prayer) -> Unit,
 ) {
     Card(modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(16.dp)) {
+        Box {
+            PrayerCardEdgeOrnaments(tint = MaterialTheme.colorScheme.primary)
+            Column(modifier = Modifier.padding(16.dp)) {
             Text(
                 text = stringResource(R.string.home_prayer_tracker_title),
                 style = MaterialTheme.typography.titleMedium,
@@ -360,6 +430,7 @@ private fun PrayerCompletionCard(
                         .padding(vertical = 2.dp)
                         .semantics { stateDescription = toggleDescription },
                 )
+            }
             }
         }
     }

@@ -38,7 +38,7 @@
     <string name="habit_tracker_points" tools:ignore="MissingTranslation">النقاط</string>
     <string name="habit_tracker_level" tools:ignore="MissingTranslation">المستوى</string>
     <string name="habit_tracker_days" tools:ignore="MissingTranslation">%1$d يوم</string>
-    <string name="habit_badge_starting" tools:ignore="MissingTranslation">البداية الطيبة — واصل التقدم</string>
+    <string name="habit_badge_starting" tools:ignore="MissingTranslation">بدأت المتابعة</string>
     <string name="habit_badge_building" tools:ignore="MissingTranslation">تبني عادة جميلة</string>
     <string name="habit_badge_consistent" tools:ignore="MissingTranslation">ثبات مميز</string>
     <string name="habit_badge_excellent" tools:ignore="MissingTranslation">إنجاز ممتاز</string>

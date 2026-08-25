@@ -352,8 +352,9 @@ private fun prayerNameRes(prayer: Prayer): Int = when (prayer) {
 /**
  * Live preview of the permanent next-adhan countdown notification, mirroring
  * [org.muslim.app.feature.prayertimes.notifications.NextAdhanNotifications]:
- * the real next prayer with its time and a live countdown, plus the missed
- * adhan line in the user-chosen color. Dims when the category is disabled.
+ * the real next prayer with its time and one concise status line. Remaining
+ * time and an optional missed prayer share the attention colour. Dims when the
+ * category is disabled.
  */
 @Composable
 private fun CountdownNotificationPreview(
@@ -409,30 +410,31 @@ private fun CountdownNotificationPreview(
                             fontWeight = FontWeight.SemiBold,
                         )
                         Spacer(Modifier.height(2.dp))
-                        Text(
-                            text = stringResource(R.string.notif_preview_remaining, formatCountdown(preview.remainingSeconds)),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                        if (showMissed && preview.missedPrayer != null && preview.missedPrayerAt != null) {
-                            Spacer(Modifier.height(4.dp))
-                            Text(
-                                text = stringResource(
-                                    R.string.notif_preview_missed,
-                                    stringResource(prayerNameRes(preview.missedPrayer)),
-                                    formatPreviewTime(preview.missedPrayerAt, use24h),
+                        val statusLine = buildString {
+                            append(
+                                stringResource(
+                                    R.string.notif_preview_remaining,
+                                    formatCountdown(preview.remainingSeconds),
                                 ),
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = Color(missedColor),
                             )
-                            if (preview.elapsedSeconds > 0) {
-                                Text(
-                                    text = stringResource(R.string.notif_preview_elapsed, formatCountdown(preview.elapsedSeconds)),
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = Color(missedColor),
+                            if (showMissed && preview.missedPrayer != null && preview.missedPrayerAt != null) {
+                                append(" · ")
+                                append(
+                                    stringResource(
+                                        R.string.notif_preview_missed,
+                                        stringResource(prayerNameRes(preview.missedPrayer)),
+                                        formatPreviewTime(preview.missedPrayerAt, use24h),
+                                    ),
                                 )
                             }
                         }
+                        Text(
+                            text = statusLine,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = Color(missedColor),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
                     }
                 }
             }

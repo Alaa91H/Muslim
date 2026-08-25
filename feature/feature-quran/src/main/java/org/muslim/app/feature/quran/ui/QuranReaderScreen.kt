@@ -68,7 +68,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import java.util.Locale
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.darkColorScheme
+
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
@@ -85,6 +85,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
@@ -122,7 +123,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import org.muslim.app.core.common.text.ArabicText
 import org.muslim.app.core.designsystem.IslamicMotion
-import org.muslim.app.core.designsystem.IslamicPalette
 import org.muslim.app.core.designsystem.IslamicRadius
 import org.muslim.app.core.designsystem.MuslimSepiaColors
 import org.muslim.app.core.ui.accessibility.LocalAccessibilityVisuals
@@ -183,25 +183,6 @@ internal fun stripLeadingBasmala(text: String): String {
 
 private fun isSkippableAfterBasmala(c: Char): Boolean =
     c.isWhitespace() || c.code in 0x064B..0x065F || c.code == 0x0670 || c == '\u0640'
-
-/** Calm night palette using the shared green/ivory identity, not bright gold. */
-private val NightColorScheme = darkColorScheme(
-    primary = IslamicPalette.Dark.Primary,
-    onPrimary = Color(0xFFF2F0E8),
-    primaryContainer = IslamicPalette.Dark.PrimaryDark,
-    onPrimaryContainer = IslamicPalette.Dark.TextPrimary,
-    tertiary = IslamicPalette.Gold,
-    background = IslamicPalette.Dark.BackgroundPrimary,
-    onBackground = IslamicPalette.Dark.QuranPrimary,
-    surface = IslamicPalette.Dark.Surface,
-    onSurface = IslamicPalette.Dark.QuranPrimary,
-    surfaceVariant = IslamicPalette.Dark.SurfaceElevated,
-    onSurfaceVariant = IslamicPalette.Dark.TextSecondary,
-    secondaryContainer = IslamicPalette.Dark.SurfaceElevated,
-    onSecondaryContainer = IslamicPalette.Dark.TextPrimary,
-    outline = IslamicPalette.Dark.Border,
-    outlineVariant = IslamicPalette.Dark.BorderSubtle,
-)
 
 /**
  * Quran reader (PROJECT_PROMPT.md §6 Phase 2): Uthmani ayahs in a calm,
@@ -299,28 +280,37 @@ fun QuranReaderScreen(
         }
     }
 
+    // Preserve the deliberately tapped ayah independently of the scrolling
+    // cursor, so both play controls can start exactly from that selection.
+    val selectedStart = userSelectedAyah?.let { global ->
+        state.ayahs.firstOrNull { it.globalNumber == global }
+    }
+
     // Shared play/pause/resume toggle used by both the mini now-playing bar
     // and the full recitation bar.
     val togglePlayback: () -> Unit = {
-        val selectedStart = userSelectedAyah?.let { global ->
-            state.ayahs.firstOrNull { it.globalNumber == global }
-        }
         when (playbackState) {
             PlaybackState.Playing -> viewModel.pausePlayback()
             PlaybackState.Paused -> {
                 // A newly selected ayah is an explicit new start point; never
                 // resume a previously paused ayah when the user chose another.
                 if (selectedStart != null && selectedStart.globalNumber != currentAudioAyah) {
-                    viewModel.playAyahWithRange(selectedStart, repeatCount, playRange)
+                    viewModel.playFromSelectedAyahToSurahEnd(selectedStart, repeatCount)
                 } else {
                     viewModel.resumePlayback()
                 }
             }
             PlaybackState.Idle -> {
-                // Without an explicit selection, playback starts at ayah one.
-                // With a selection, it always starts from that tapped ayah.
-                val start = selectedStart ?: state.ayahs.firstOrNull()
-                if (start != null) viewModel.playAyahWithRange(start, repeatCount, playRange)
+                // Without a deliberate selection, playback starts at ayah one.
+                // A selected ayah always wins and continues only to this
+                // surah's end, rather than restarting from ayah one.
+                if (selectedStart != null) {
+                    viewModel.playFromSelectedAyahToSurahEnd(selectedStart, repeatCount)
+                } else {
+                    state.ayahs.firstOrNull()?.let { start ->
+                        viewModel.playAyahWithRange(start, repeatCount, playRange)
+                    }
+                }
             }
         }
     }
@@ -367,8 +357,17 @@ fun QuranReaderScreen(
     // Horizontal paging between mushaf pages (swipe left/right like a printed
     // mushaf). Each pager page keeps its own vertical scroll for content that
     // is taller than the screen.
-    val pagerState = rememberPagerState(pageCount = { if (isWide) spreads.size else pageEntries.size })
+    // Reserve one virtual page at each edge. Swiping onto either edge opens
+    // the adjacent surah, so manual reading continues like a physical Mushaf
+    // rather than stopping at a surah boundary.
+    val realPageCount = if (isWide) spreads.size else pageEntries.size
+    val pagerState = rememberPagerState(
+        initialPage = 1,
+        pageCount = { realPageCount + 2 },
+    )
     val pageScrollStates = remember { mutableStateMapOf<Int, ScrollState>() }
+    var pendingAdjacentSurah by remember { mutableStateOf<Int?>(null) }
+    var openAdjacentAtEnd by remember { mutableStateOf(false) }
     // Each mushaf page reports the top of every ayah. This keeps the selected
     // ayah and the saved reading position in step with manual up/down reading,
     // while the existing audio follow-along remains authoritative during play.
@@ -397,9 +396,9 @@ fun QuranReaderScreen(
             -1
         }
         val targetItem = if (pageIndex >= 0 && isWide) {
-            spreadIndexOfPage(pageEntries[pageIndex].key)
+            spreadIndexOfPage(pageEntries[pageIndex].key) + 1
         } else {
-            if (pageIndex >= 0) pageIndex else 0
+            if (pageIndex >= 0) pageIndex + 1 else 1
         }
         // Wait for the page animation to settle before measuring/centering
         // the ayah, so the one-shot centering sees a stable layout.
@@ -434,7 +433,7 @@ fun QuranReaderScreen(
         val target = scrollTargetAyah ?: return@LaunchedEffect
         val pageIndex = pageEntries.indexOfFirst { (_, ayahs) -> ayahs.any { it.globalNumber == target } }
         if (pageIndex < 0) return@LaunchedEffect
-        val targetItem = if (isWide) spreadIndexOfPage(pageEntries[pageIndex].key) else pageIndex
+        val targetItem = if (isWide) spreadIndexOfPage(pageEntries[pageIndex].key) + 1 else pageIndex + 1
         // Smooth glide to a far page instead of an instant teleport; the fine
         // ayah alignment below stays immediate (scrollBy, not animated).
         if (pagerState.currentPage != targetItem) pagerState.animateScrollToPage(targetItem)
@@ -488,10 +487,10 @@ fun QuranReaderScreen(
     // actual recitation is playing.
     LaunchedEffect(pagerState, pageEntries, spreads, isWide, currentAudioAyah) {
         snapshotFlow {
-            val itemIndex = pagerState.currentPage
+            val itemIndex = pagerState.currentPage - 1
             // Reading this state makes the flow react to deliberate vertical
             // scrolls as well as horizontal page changes.
-            pageScrollStates[itemIndex]?.value
+            pageScrollStates[pagerState.currentPage]?.value
             val mushafPages = if (isWide) {
                 spreads.getOrNull(itemIndex).orEmpty().map { it.key }
             } else {
@@ -516,7 +515,8 @@ fun QuranReaderScreen(
     LaunchedEffect(pagerState, pageEntries, isWide) {
         if (pageEntries.isEmpty()) return@LaunchedEffect
         snapshotFlow { pagerState.currentPage }
-            .map { itemIndex ->
+            .map { virtualIndex ->
+                val itemIndex = virtualIndex - 1
                 if (isWide) {
                     // A spread item covers two pages; the reading side is the
                     // right (odd) page, falling back to the only page present.
@@ -537,7 +537,9 @@ fun QuranReaderScreen(
     val scheme = when (theme) {
         ReaderTheme.Light -> MaterialTheme.colorScheme
         ReaderTheme.Sepia -> MuslimSepiaColors
-        ReaderTheme.Dark -> NightColorScheme
+        // Respect the application palette, dark-mode choice, dynamic colours,
+        // and accessibility contrast instead of forcing a fixed black page.
+        ReaderTheme.Dark -> MaterialTheme.colorScheme
     }
 
     MaterialTheme(colorScheme = scheme) {
@@ -757,36 +759,67 @@ fun QuranReaderScreen(
                         // Each pager page keeps its own vertical scroll for
                         // content taller than the screen; the follow-along
                         // adjustment scrolls this state.
-                        val pageScroll = remember(pageIndex) { ScrollState(0) }
-                        pageScrollStates[pageIndex] = pageScroll
-                        Column(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .verticalScroll(pageScroll),
-                        ) {
-                            if (isWide) {
-                                // Two mushaf pages per pager page on wide screens.
-                                val spread = spreads.getOrNull(pageIndex)
-                                if (spread != null) {
-                                    MushafSpreadRow(
-                                        spread = spread,
+                        val contentIndex = pageIndex - 1
+                        if (contentIndex in 0 until realPageCount) {
+                            val pageScroll = remember(pageIndex) { ScrollState(0) }
+                            pageScrollStates[pageIndex] = pageScroll
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .verticalScroll(pageScroll),
+                            ) {
+                                if (isWide) {
+                                    // Two mushaf pages per pager page on wide screens.
+                                    val spread = spreads.getOrNull(contentIndex)
+                                    if (spread != null) {
+                                        MushafSpreadRow(
+                                            spread = spread,
+                                            presentation = mushafPresentation,
+                                            callbacks = mushafCallbacks,
+                                        )
+                                    }
+                                } else {
+                                    val (pageNumber, pageAyahs) = pageEntries[contentIndex]
+                                    MushafPageCard(
+                                        pageNumber = pageNumber,
+                                        ayahs = pageAyahs,
                                         presentation = mushafPresentation,
                                         callbacks = mushafCallbacks,
                                     )
                                 }
-                            } else {
-                                val (pageNumber, pageAyahs) = pageEntries[pageIndex]
-                                MushafPageCard(
-                                    pageNumber = pageNumber,
-                                    ayahs = pageAyahs,
-                                    presentation = mushafPresentation,
-                                    callbacks = mushafCallbacks,
-                                )
                             }
                         }
                     }
+
+                    LaunchedEffect(pagerState.currentPage, realPageCount, state.surah?.number) {
+                        val currentSurah = state.surah?.number ?: return@LaunchedEffect
+                        val destination = when (pagerState.currentPage) {
+                            0 -> (currentSurah - 1).takeIf { it >= 1 }
+                            realPageCount + 1 -> (currentSurah + 1).takeIf { it <= 114 }
+                            else -> null
+                        }
+                        if (destination != null && pendingAdjacentSurah != destination) {
+                            pendingAdjacentSurah = destination
+                            openAdjacentAtEnd = pagerState.currentPage == 0
+                            viewModel.openSurah(destination)
+                        } else if (destination == null &&
+                            (pagerState.currentPage == 0 || pagerState.currentPage == realPageCount + 1)
+                        ) {
+                            pagerState.scrollToPage(
+                                if (pagerState.currentPage == 0) 1 else realPageCount,
+                            )
+                        }
+                    }
+
+                    LaunchedEffect(state.surah?.number, realPageCount, pendingAdjacentSurah) {
+                        val pending = pendingAdjacentSurah ?: return@LaunchedEffect
+                        if (state.surah?.number == pending && realPageCount > 0) {
+                            pagerState.scrollToPage(if (openAdjacentAtEnd) realPageCount else 1)
+                            pendingAdjacentSurah = null
+                        }
+                    }
+                    }
                 }
-            }
 
             SupplementPanel(supplements = supplements, currentAyah = currentAyah)
 
@@ -813,6 +846,10 @@ fun QuranReaderScreen(
                 durationMs = durationMs,
                 range = playRange,
                 onRangeChanged = { playRange = it },
+                selectedAyahNumber = selectedStart?.numberInSurah,
+                onPlaySelectedAyah = selectedStart?.let { selected ->
+                    { viewModel.playFromSelectedAyahToSurahEnd(selected, repeatCount) }
+                },
             )
 
         }
@@ -898,6 +935,10 @@ private fun Modifier.mirroredIfRtl(): Modifier {
     }
 }
 
+// This Compose surface intentionally keeps the coupled playback controls in one
+// place for state consistency and accessibility semantics. Do not split it into
+// independently stateful bars merely to satisfy a line-count heuristic.
+@Suppress("LongMethod", "LongParameterList")
 @Composable
 private fun RecitationBar(
     playbackState: PlaybackState,
@@ -922,6 +963,8 @@ private fun RecitationBar(
     durationMs: Long,
     range: RecitationRange,
     onRangeChanged: (RecitationRange) -> Unit,
+    selectedAyahNumber: Int?,
+    onPlaySelectedAyah: (() -> Unit)?,
 ) {
     var repeatMenu by remember { mutableStateOf(false) }
     var rangeMenu by remember { mutableStateOf(false) }
@@ -934,6 +977,20 @@ private fun RecitationBar(
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
     ) {
         Column {
+            if (selectedAyahNumber != null && onPlaySelectedAyah != null) {
+                TextButton(
+                    onClick = onPlaySelectedAyah,
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.PlayArrow,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp),
+                    )
+                    Spacer(Modifier.width(6.dp))
+                    Text(stringResource(R.string.quran_play_from_selected_ayah, selectedAyahNumber))
+                }
+            }
             IslamicOrnamentImage(
                 ornament = IslamicOrnament.Arabesque,
                 tint = MaterialTheme.colorScheme.tertiary,
@@ -1403,7 +1460,25 @@ private fun MushafPageCard(
             .fillMaxWidth()
             .clickable(onClick = { callbacks.onPageClick(ayahs) }),
     ) {
-        Column(modifier = Modifier.padding(horizontal = 20.dp, vertical = 18.dp)) {
+        Box {
+            // Edge ornaments frame the page but never sit behind Quran text.
+            IslamicOrnamentImage(
+                ornament = IslamicOrnament.Corner,
+                tint = scheme.tertiary,
+                alpha = IslamicOrnamentOpacity.LightActive,
+                modifier = Modifier.align(Alignment.TopStart).padding(4.dp).size(58.dp),
+            )
+            IslamicOrnamentImage(
+                ornament = IslamicOrnament.Corner,
+                tint = scheme.tertiary,
+                alpha = IslamicOrnamentOpacity.LightActive,
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(4.dp)
+                    .size(58.dp)
+                    .graphicsLayer(rotationZ = 180f),
+            )
+            Column(modifier = Modifier.padding(horizontal = 20.dp, vertical = 18.dp)) {
             IslamicOrnamentImage(
                 ornament = IslamicOrnament.SurahHeader,
                 tint = scheme.tertiary,
@@ -1503,6 +1578,7 @@ private fun MushafPageCard(
                 },
             )
             Spacer(Modifier.height(8.dp))
+            }
         }
     }
 }

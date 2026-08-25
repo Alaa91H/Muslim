@@ -82,11 +82,11 @@ class QuranPrefsRepository @Inject constructor(
     }
 
     /**
-     * Whether the meanings/tafsir panel is shown under the mushaf page
-     * (default true). The panel itself is always rendered; this only hides it.
+     * Whether the meanings/tafsir panel is shown under the mushaf page.
+     * It is opt-in by default so the Quran text remains the focused first view.
      */
     val supplementEnabled: Flow<Boolean> = context.quranPrefsDataStore.data.map { prefs ->
-        prefs[Keys.SUPPLEMENT_ENABLED] ?: true
+        prefs[Keys.SUPPLEMENT_ENABLED] ?: false
     }
 
     suspend fun setSupplementEnabled(enabled: Boolean) {
@@ -118,7 +118,7 @@ class QuranPrefsRepository @Inject constructor(
          * build `ayah_fts` changes — the index is rebuilt automatically on the
          * next seed so searches stay correct after app updates.
          */
-        const val FTS_INDEX_VERSION = 4
+        const val FTS_INDEX_VERSION = 5
     }
 
     /** Whether the persisted FTS index needs a rebuild (normalization change). */

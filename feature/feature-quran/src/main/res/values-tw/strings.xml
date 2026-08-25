@@ -147,4 +147,5 @@
     <string name="quran_search_word_root">Ntini: %1$s</string>
     <string name="quran_search_derivations">Nsɛmfua a wonya fii ntini koro mu</string>
     <string name="quran_search_no_root">Antumi ankyerɛ ntini no</string>
+    <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
 </resources>

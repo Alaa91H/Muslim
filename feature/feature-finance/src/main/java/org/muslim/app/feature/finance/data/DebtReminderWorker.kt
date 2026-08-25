@@ -36,7 +36,7 @@ open class DebtReminderWorker(
         )
         val amount = NumberFormat.getNumberInstance(Locale.ENGLISH).format(reminder.amount)
         val notification = Notification.Builder(applicationContext, NotificationChannels.FINANCE)
-            .setSmallIcon(android.R.drawable.ic_menu_my_calendar)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
             .setContentTitle(applicationContext.getString(R.string.finance_debt_notification_title))
             .setContentText(
                 applicationContext.getString(

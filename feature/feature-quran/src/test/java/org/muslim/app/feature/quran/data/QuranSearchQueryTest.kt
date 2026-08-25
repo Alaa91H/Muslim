@@ -43,6 +43,14 @@ class QuranSearchQueryTest {
     }
 
     @Test
+    fun `local fallback tolerates typed hamza forms tatweel and punctuation`() {
+        val ayah = "إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ ۝"
+
+        assertThat(QuranSearchQuery.matchesNormalizedAyah(ayah, "انا اعطيناك")).isTrue()
+        assertThat(QuranSearchQuery.matchesNormalizedAyah(ayah, "إِنَّـا، أَعْطَيْ")).isTrue()
+    }
+
+    @Test
     fun `empty and whitespace-only queries are unusable`() {
         assertThat(QuranSearchQuery.isUsable("")).isFalse()
         assertThat(QuranSearchQuery.isUsable("   ")).isFalse()

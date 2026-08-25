@@ -3,6 +3,33 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.4
+
+Updates install directly over v1.24.3 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.
+
+## Quran Reader, Search, and Navigation
+- Added an explicit **Play from selected ayah** action. After tapping an ayah, the primary selected-ayah action now starts there and continues only to the end of the current surah; it never silently restarts from ayah one.
+- Enabled manual Mushaf-style continuation between adjacent surahs. Swiping beyond the first or final page now opens the preceding or following surah at the matching reading edge.
+- Made meanings and tafsir opt-in for new installations, keeping the Quran text as the focused first reading view.
+- Reworked offline Quran query tokenization and Arabic normalization for hamza variants, tatweel, punctuation, Uthmani marks, and multi-word prefix search. The validated local corpus matcher is now authoritative, so a device-specific FTS issue cannot make search appear empty.
+- Added regression coverage for normalized Arabic search input including hamza, tatweel, and punctuation.
+- Removed the reader’s fixed night palette override: the dark reader now respects the selected app palette, dynamic colours, and accessibility contrast. Page-edge ornaments frame the Mushaf surface without appearing behind ayahs.
+
+## Prayer Home and Notification Refinement
+- Added distinct prayer icons to the next-prayer card and every row of today’s prayer times, while retaining non-colour-only emphasis for the upcoming prayer.
+- Added more visible but restrained Islamic corner ornaments to the prayer cards and private daily check-in card.
+- Simplified the permanent next-Adhan notification to a compact two-line presentation: a title plus one status line. Remaining time and the optional missed prayer share the attention colour, red by default.
+- Unified app-generated notification symbols around a monochrome arch, crescent, and eight-point-star mark derived from the adaptive app identity. The legacy prayer notification drawable is no longer used.
+- Replaced the repeated “A good start” habit wording with a concise neutral tracking state.
+
+## Localization and Verification
+- Added Arabic copy for the selected-ayah playback action and completed the new resource key across all supported locale files with a safe English fallback.
+- Passed local application unit tests, Android Lint, Detekt, and the bundled-content manifest verification before release tagging. Main-branch CI, emulator validation, signing gates, and tagged-release artifacts are required before publication.
+
+### Install
+- Download the APK from the GitHub Release and open it (allow “install from unknown sources” if prompted).
+- The app remains signed with the same release key, so the update installs directly over prior Muslim releases.
+
 ## Muslim v1.24.3
 
 Updates install directly over v1.24.2 with the same package name (`org.muslim.app`) and stable signing key. No uninstall or data reset is required.

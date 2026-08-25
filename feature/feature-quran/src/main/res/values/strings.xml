@@ -61,6 +61,7 @@
     <!-- Recitation -->
     <string name="quran_reciter">القارئ</string>
     <string name="quran_play_ayah">تشغيل الآية</string>
+    <string name="quran_play_from_selected_ayah">تشغيل من الآية المختارة (%1$d) حتى نهاية السورة</string>
     <string name="quran_repeat">تكرار</string>
     <string name="quran_next_ayah">الآية التالية</string>
     <string name="quran_previous_ayah">الآية السابقة</string>

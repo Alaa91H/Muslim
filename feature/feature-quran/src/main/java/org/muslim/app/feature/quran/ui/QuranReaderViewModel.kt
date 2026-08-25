@@ -101,6 +101,13 @@ class QuranReaderViewModel @Inject constructor(
     /** The ayah currently in view; the UI updates this as the user scrolls. */
     val currentAyah = MutableStateFlow<Ayah?>(null)
 
+    /** Opens an adjacent surah for manual Mushaf-style paging. */
+    fun openSurah(number: Int) {
+        if (number in 1..114 && number != _surahNumber.value) {
+            _surahNumber.value = number
+        }
+    }
+
     val uiState: StateFlow<UiState> = combine(
         _surahNumber.flatMapLatest { repository.observeSurahMetadata(it)
 }
@@ -227,7 +234,7 @@ class QuranReaderViewModel @Inject constructor(
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     val supplementEnabled: StateFlow<Boolean> = prefsRepository.supplementEnabled
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
     val supplementLanguage: StateFlow<String> = prefsRepository.supplementLanguage
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), QuranPrefsRepository.AUTO_LANGUAGE)
@@ -658,6 +665,19 @@ class QuranReaderViewModel @Inject constructor(
 
 }
 
+
+    /**
+     * Starts at an ayah explicitly selected in the reader and ends at the end
+     * of the current surah. This is intentionally separate from the advanced
+     * range menu: the ordinary "select ayah, then play" action must never
+     * silently restart from ayah one or continue through the whole mushaf.
+     */
+    fun playFromSelectedAyahToSurahEnd(ayah: Ayah, repeatCount: Int) {
+        val ayahs = uiState.value.ayahs
+        val start = ayahs.indexOfFirst { it.globalNumber == ayah.globalNumber }
+        if (start < 0) return
+        playQueueOf(ayahs.drop(start), repeatCount)
+    }
 
     /** Applies the reader's chosen [range] to playback starting at [ayah]. */
     fun playAyahWithRange(ayah: Ayah, repeatCount: Int, range: RecitationRange) {

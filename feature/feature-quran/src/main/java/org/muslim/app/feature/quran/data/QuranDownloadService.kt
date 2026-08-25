@@ -270,7 +270,7 @@ class QuranDownloadService : Service() {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_download_notification)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
             .setContentTitle(label)
             .setContentText(text)
             .setOngoing(false)
@@ -291,7 +291,7 @@ class QuranDownloadService : Service() {
         )
         val percentText = getString(R.string.quran_download_percent, percent)
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_download_notification)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
             .setContentTitle(title)
             .setContentText(percentText)
             .setOngoing(true)
@@ -306,7 +306,7 @@ class QuranDownloadService : Service() {
     /** Transient notification shown while a reboot restore re-arms the queue. */
     private fun buildRestoreNotification(): Notification =
         NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_download_notification)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
             .setContentTitle(getString(R.string.quran_download_restoring))
             .setOngoing(true)
             .setOnlyAlertOnce(true)
@@ -323,7 +323,7 @@ class QuranDownloadService : Service() {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
         return NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_download_notification)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
             .setContentTitle(label)
             .setContentText(getString(R.string.quran_download_night_waiting, formatWindow(startMinutes, endMinutes)))
             .setOngoing(true)
