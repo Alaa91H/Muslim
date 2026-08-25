@@ -22,6 +22,12 @@
     <string name="bundled_adhan_sharif_doman">Шариф Доман адхан</string>
     <string name="bundled_adhan_yusuf_islam">Юсуф Ислам азан</string>
     <string name="home_cannot_compute">Ҫак кунхи вӑхӑта шутласа кӑларма май ҫук</string>
+    <string name="home_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="home_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="home_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="home_prayer_tracker_completed">Marked complete</string>
+    <string name="home_prayer_tracker_pending">Not marked</string>
+    <string name="home_prayer_tracker_toggle_description">%1$s: %2$s</string>
     <string name="home_location_unknown">Вырӑнне палӑртман-ха</string>
     <string name="home_next_prayer">Тепӗр кӗлӗ</string>
     <string name="home_select_location">Вырӑн суйласа илӗр</string>

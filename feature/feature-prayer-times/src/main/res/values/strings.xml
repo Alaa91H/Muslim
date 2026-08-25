@@ -21,6 +21,14 @@
     <string name="home_today_times">مواقيت اليوم</string>
     <string name="home_cannot_compute">تعذّر حساب الأوقات لهذا اليوم</string>
 
+    <!-- Local prayer completion tracker -->
+    <string name="home_prayer_tracker_title">متابعة صلوات اليوم</string>
+    <string name="home_prayer_tracker_description">سجل شخصي على هذا الجهاز فقط؛ لا يحكم على عبادتك ولا يُرسل أي بيانات.</string>
+    <string name="home_prayer_tracker_progress">%1$d من %2$d صلوات محددة</string>
+    <string name="home_prayer_tracker_completed">محددة كمكتملة</string>
+    <string name="home_prayer_tracker_pending">غير محددة</string>
+    <string name="home_prayer_tracker_toggle_description">%1$s: %2$s</string>
+
     <!-- Prayer times screen -->
     <string name="times_title">مواقيت الصلاة</string>
     <string name="times_monthly">عرض شهري</string>

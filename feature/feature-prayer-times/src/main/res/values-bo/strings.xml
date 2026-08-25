@@ -22,6 +22,12 @@
     <string name="bundled_adhan_sharif_doman">ཤཱ་རིཕ་ཌོ་མན་གྱི་བཀའ་སློབ།</string>
     <string name="bundled_adhan_yusuf_islam">ཡུ་སུཕ་ཨིསི་ལམ་གྱི་བཀའ་སློབ།</string>
     <string name="home_cannot_compute">ཉིན་འདིའི་དུས་ཚོད་རྩིས་མི་ཐུབ།</string>
+    <string name="home_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="home_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="home_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="home_prayer_tracker_completed">Marked complete</string>
+    <string name="home_prayer_tracker_pending">Not marked</string>
+    <string name="home_prayer_tracker_toggle_description">%1$s: %2$s</string>
     <string name="home_location_unknown">ས་གནས་གཏན་འཁེལ་བྱས་མེད།</string>
     <string name="home_next_prayer">སྨོན་ལམ་རྗེས་མ།</string>
     <string name="home_select_location">ས་གནས་འདེམས།</string>

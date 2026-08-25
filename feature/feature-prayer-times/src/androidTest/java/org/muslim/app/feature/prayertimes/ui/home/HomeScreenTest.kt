@@ -6,6 +6,7 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performScrollTo
 import io.mockk.every
 import io.mockk.mockk
 import org.muslim.app.core.ui.theme.AppTheme
@@ -13,6 +14,7 @@ import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.AppPreferencesRepository
+import org.muslim.app.core.datastore.prayer.PrayerCompletionRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.SelectedLocation
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
@@ -48,6 +50,8 @@ class HomeScreenTest {
             )
         )
 
+        val completionRepository = mockk<PrayerCompletionRepository>()
+        every { completionRepository.completedPrayers(any()) } returns flowOf(emptySet())
         val calculator = mockk<PrayerTimesCalculator>()
         every {
             calculator.compute(any(), any(), any(), any(), any(), any())
@@ -67,7 +71,7 @@ class HomeScreenTest {
                 epochMillis = Prayer.entries.associateWith { now + 3_600_000L },
             )
         }
-        return HomeViewModel(repository, calculator, mockk(relaxed = true))
+        return HomeViewModel(repository, completionRepository, calculator, mockk(relaxed = true))
     }
 
     @Test
@@ -85,7 +89,7 @@ class HomeScreenTest {
         ).assertIsDisplayed()
         composeRule.onNodeWithText(
             composeRule.activity.getString(R.string.home_today_times)
-        ).assertIsDisplayed()
+        ).performScrollTo().assertIsDisplayed()
 
         // All five prayers must be listed. The label can appear twice (the
         // next-prayer countdown header shows the same prayer name as its row),
@@ -94,6 +98,7 @@ class HomeScreenTest {
         listOf(Prayer.Fajr, Prayer.Dhuhr, Prayer.Asr, Prayer.Maghrib, Prayer.Isha).forEach { prayer ->
             composeRule.onAllNodesWithText(activity.getString(prayerLabelRes(prayer)))
                 .onFirst()
+                .performScrollTo()
                 .assertIsDisplayed()
         }
     }
@@ -102,8 +107,15 @@ class HomeScreenTest {
     fun homeScreen_withoutLocation_promptsForLocation() {
         val repository = mockk<PrayerSettingsRepository>()
         every { repository.settings } returns flowOf(PrayerSettings(location = null))
+        val completionRepository = mockk<PrayerCompletionRepository>()
+        every { completionRepository.completedPrayers(any()) } returns flowOf(emptySet())
         val calculator = mockk<PrayerTimesCalculator>()
-        val viewModel = HomeViewModel(repository, calculator, mockk<AppPreferencesRepository>(relaxed = true))
+        val viewModel = HomeViewModel(
+            repository,
+            completionRepository,
+            calculator,
+            mockk<AppPreferencesRepository>(relaxed = true),
+        )
 
         composeRule.setContent {
             AppTheme(dynamicColor = false) {

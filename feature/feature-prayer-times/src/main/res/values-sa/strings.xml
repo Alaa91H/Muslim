@@ -22,6 +22,12 @@
     <string name="bundled_adhan_sharif_doman">शरीफ डोमन् अधन्</string>
     <string name="bundled_adhan_yusuf_islam">यूसुफ इस्लाम अधन</string>
     <string name="home_cannot_compute">अस्य दिवसस्य समयगणना कर्तुं असमर्थः</string>
+    <string name="home_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="home_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="home_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="home_prayer_tracker_completed">Marked complete</string>
+    <string name="home_prayer_tracker_pending">Not marked</string>
+    <string name="home_prayer_tracker_toggle_description">%1$s: %2$s</string>
     <string name="home_location_unknown">स्थानं अद्यापि सेट् न कृतम्</string>
     <string name="home_next_prayer">अग्रिमः प्रार्थना</string>
     <string name="home_select_location">स्थानं चिनुत</string>

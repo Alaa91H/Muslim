@@ -21,9 +21,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -37,6 +39,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.stateDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -51,6 +55,7 @@ import org.muslim.app.core.ui.theme.IslamicOrnament
 import org.muslim.app.core.ui.theme.IslamicOrnamentImage
 import org.muslim.app.core.ui.theme.IslamicOrnamentOpacity
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
+import org.muslim.app.core.datastore.prayer.trackablePrayers
 
 /**
  * Main screen: Hijri/Gregorian date, live next-prayer countdown and today's
@@ -171,6 +176,13 @@ fun HomeScreen(
             }
         }
 
+        Spacer(Modifier.height(16.dp))
+
+        PrayerCompletionCard(
+            completedPrayers = state.completedPrayers,
+            onToggle = viewModel::togglePrayerCompletion,
+        )
+
         Spacer(Modifier.height(24.dp))
 
         // ---- Today's times ----
@@ -263,6 +275,66 @@ fun HomeScreen(
         }
 
         Spacer(Modifier.height(16.dp))
+        }
+    }
+}
+
+@Composable
+private fun PrayerCompletionCard(
+    completedPrayers: Set<Prayer>,
+    onToggle: (Prayer) -> Unit,
+) {
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = stringResource(R.string.home_prayer_tracker_title),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold,
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = stringResource(R.string.home_prayer_tracker_description),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Spacer(Modifier.height(10.dp))
+            Text(
+                text = stringResource(
+                    R.string.home_prayer_tracker_progress,
+                    completedPrayers.size,
+                    trackablePrayers.size,
+                ),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            Spacer(Modifier.height(6.dp))
+            trackablePrayers.forEach { prayer ->
+                val completed = prayer in completedPrayers
+                val label = stringResource(prayerLabelRes(prayer))
+                val status = stringResource(
+                    if (completed) R.string.home_prayer_tracker_completed
+                    else R.string.home_prayer_tracker_pending,
+                )
+                val toggleDescription = stringResource(
+                    R.string.home_prayer_tracker_toggle_description,
+                    label,
+                    status,
+                )
+                FilterChip(
+                    selected = completed,
+                    onClick = { onToggle(prayer) },
+                    label = { Text(label) },
+                    leadingIcon = if (completed) {
+                        { Icon(Icons.Default.Check, contentDescription = null) }
+                    } else {
+                        null
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 2.dp)
+                        .semantics { stateDescription = toggleDescription },
+                )
+            }
         }
     }
 }

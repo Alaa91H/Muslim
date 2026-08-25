@@ -22,6 +22,12 @@
     <string name="bundled_adhan_sharif_doman">ਸ਼ਰੀਫ਼ ਡੋਮਨ ਅਜ਼ਾਨ</string>
     <string name="bundled_adhan_yusuf_islam">ਯੂਸਫ਼ ਇਸਲਾਮ ਅਜ਼ਾਨ</string>
     <string name="home_cannot_compute">ਇਸ ਦਿਨ ਲਈ ਸਮੇਂ ਦੀ ਗਣਨਾ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ</string>
+    <string name="home_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="home_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="home_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="home_prayer_tracker_completed">Marked complete</string>
+    <string name="home_prayer_tracker_pending">Not marked</string>
+    <string name="home_prayer_tracker_toggle_description">%1$s: %2$s</string>
     <string name="home_location_unknown">ਟਿਕਾਣਾ ਹਾਲੇ ਸੈੱਟ ਨਹੀਂ ਕੀਤਾ ਗਿਆ</string>
     <string name="home_next_prayer">ਅਗਲੀ ਪ੍ਰਾਰਥਨਾ</string>
     <string name="home_select_location">ਟਿਕਾਣਾ ਚੁਣੋ</string>

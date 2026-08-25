@@ -3,16 +3,20 @@ package org.muslim.app.feature.prayertimes.ui.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.stateIn
 import org.muslim.app.core.common.time.HijriDate
 import org.muslim.app.core.datastore.AppPreferencesRepository
+import org.muslim.app.core.datastore.prayer.PrayerCompletionRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.toPrayerParameters
@@ -31,6 +35,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val settingsRepository: PrayerSettingsRepository,
+    private val completionRepository: PrayerCompletionRepository,
     private val calculator: PrayerTimesCalculator,
     private val appPreferencesRepository: AppPreferencesRepository,
 ) : ViewModel() {
@@ -65,6 +70,8 @@ class HomeViewModel @Inject constructor(
         val monthly: Boolean = false,
         val month: YearMonth = YearMonth.now(),
         val monthDays: List<DayTimes> = emptyList(),
+        /** Local-only prayer checklist for the selected day; sunrise is excluded. */
+        val completedPrayers: Set<Prayer> = emptySet(),
     )
 
     private val clock = flow {
@@ -76,13 +83,27 @@ class HomeViewModel @Inject constructor(
 
     private val selectedDate = MutableStateFlow(LocalDate.now())
     private val monthly = MutableStateFlow(false)
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private val completionsForSelectedDate = selectedDate.flatMapLatest(completionRepository::completedPrayers)
 
     val uiState: StateFlow<UiState> =
-        combine(settingsRepository.settings, clock, selectedDate, monthly) { settings, now, date, isMonthly ->
-            compute(settings, now, date, isMonthly)
+        combine(
+            settingsRepository.settings,
+            clock,
+            selectedDate,
+            monthly,
+            completionsForSelectedDate,
+        ) { settings, now, date, isMonthly, completedPrayers ->
+            compute(settings, now, date, isMonthly, completedPrayers)
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), UiState())
 
-    private fun compute(settings: PrayerSettings, now: Long, date: LocalDate, isMonthly: Boolean): UiState {
+    private fun compute(
+        settings: PrayerSettings,
+        now: Long,
+        date: LocalDate,
+        isMonthly: Boolean,
+        completedPrayers: Set<Prayer>,
+    ): UiState {
         val location = settings.location ?: return UiState(selectedDate = date, monthly = isMonthly, month = YearMonth.from(date))
         val zone = ZoneId.of(location.timeZone)
         val today = Instant.ofEpochMilli(now).atZone(zone).toLocalDate()
@@ -127,6 +148,7 @@ class HomeViewModel @Inject constructor(
             } else {
                 emptyList()
             },
+            completedPrayers = completedPrayers,
         )
     }
 
@@ -140,6 +162,12 @@ class HomeViewModel @Inject constructor(
 
     fun toggleMonthly() {
         monthly.value = !monthly.value
+    }
+
+    fun togglePrayerCompletion(prayer: Prayer) {
+        viewModelScope.launch {
+            completionRepository.toggle(selectedDate.value, prayer)
+        }
     }
 
     private fun monthGrid(

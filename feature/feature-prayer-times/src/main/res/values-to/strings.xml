@@ -22,6 +22,12 @@
     <string name="bundled_adhan_sharif_doman">Sālifi Tomani adhan</string>
     <string name="bundled_adhan_yusuf_islam">Siusifa \'Isilami adhan</string>
     <string name="home_cannot_compute">\'Ikai lava ke fika\'i \'a e ngaahi taimi ki he \'aho ni</string>
+    <string name="home_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="home_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="home_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="home_prayer_tracker_completed">Marked complete</string>
+    <string name="home_prayer_tracker_pending">Not marked</string>
+    <string name="home_prayer_tracker_toggle_description">%1$s: %2$s</string>
     <string name="home_location_unknown">\'Oku te\'eki ke fokotu\'u \'a e feitu\'u</string>
     <string name="home_next_prayer">Lotu hoko .</string>
     <string name="home_select_location">Fili \'a e feitu\'u</string>
