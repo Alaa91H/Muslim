@@ -32,4 +32,6 @@
     <string name="hadith_search_hint">হাদীছ অনুসন্ধান...</string>
     <string name="hadith_share">শ্বেয়াৰ কৰক</string>
     <string name="hadith_title">হাদীছ পুথিভঁৰাল</string>
+    <string name="hadith_notification_settings">Daily hadith notification settings</string>
+    <string name="hadith_done">Done</string>
 </resources>

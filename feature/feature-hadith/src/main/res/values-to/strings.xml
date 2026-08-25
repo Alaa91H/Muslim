@@ -32,4 +32,6 @@
     <string name="hadith_search_hint">Fekumi ki he ngaahi hadith...</string>
     <string name="hadith_share">Vahevahe</string>
     <string name="hadith_title">Laipeli Hatith</string>
+    <string name="hadith_notification_settings">Daily hadith notification settings</string>
+    <string name="hadith_done">Done</string>
 </resources>

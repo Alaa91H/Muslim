@@ -32,4 +32,6 @@
     <string name="hadith_search_hint">Cerca hadiths...</string>
     <string name="hadith_share">Comparteix</string>
     <string name="hadith_title">Biblioteca Hadith</string>
+    <string name="hadith_notification_settings">Daily hadith notification settings</string>
+    <string name="hadith_done">Done</string>
 </resources>

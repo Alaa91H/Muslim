@@ -32,4 +32,6 @@
     <string name="hadith_search_hint">Li hedîsan bigerin…</string>
     <string name="hadith_share">Parve bikin</string>
     <string name="hadith_title">Pirtûkxaneya Hedîsê</string>
+    <string name="hadith_notification_settings">Daily hadith notification settings</string>
+    <string name="hadith_done">Done</string>
 </resources>

@@ -32,4 +32,6 @@
     <string name="hadith_search_hint">ཧ་ཌི་སི་འཚོལ་ཞིབ།</string>
     <string name="hadith_share">མཉམ་སྤེལ།</string>
     <string name="hadith_title">ཧ་ཌི་སི་དཔེ་མཛོད་ཁང་།</string>
+    <string name="hadith_notification_settings">Daily hadith notification settings</string>
+    <string name="hadith_done">Done</string>
 </resources>

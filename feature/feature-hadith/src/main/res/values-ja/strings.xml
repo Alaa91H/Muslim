@@ -32,4 +32,6 @@
     <string name="hadith_search_hint">ハディースを検索…</string>
     <string name="hadith_share">シェアする</string>
     <string name="hadith_title">ハディース図書館</string>
+    <string name="hadith_notification_settings">Daily hadith notification settings</string>
+    <string name="hadith_done">Done</string>
 </resources>

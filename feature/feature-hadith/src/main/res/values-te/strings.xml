@@ -32,4 +32,6 @@
     <string name="hadith_search_hint">హదీసులను వెతకండి...</string>
     <string name="hadith_share">షేర్ చేయండి</string>
     <string name="hadith_title">హదీత్ లైబ్రరీ</string>
+    <string name="hadith_notification_settings">Daily hadith notification settings</string>
+    <string name="hadith_done">Done</string>
 </resources>

@@ -32,4 +32,6 @@
     <string name="hadith_search_hint">Su\'e fa\'amatalaga...</string>
     <string name="hadith_share">Faasoa</string>
     <string name="hadith_title">Faletusi o Hadith</string>
+    <string name="hadith_notification_settings">Daily hadith notification settings</string>
+    <string name="hadith_done">Done</string>
 </resources>
