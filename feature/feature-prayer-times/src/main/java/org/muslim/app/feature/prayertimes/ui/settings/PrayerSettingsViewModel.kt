@@ -36,6 +36,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import org.muslim.app.feature.prayertimes.notifications.AdhanPlaybackService
 import org.muslim.app.feature.prayertimes.notifications.AdhanPlaybackStatus
+import org.muslim.app.feature.prayertimes.notifications.AdhanNotifications
 import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
 import org.muslim.app.feature.prayertimes.notifications.NextAdhanService
 import org.muslim.app.feature.prayertimes.notifications.AdhanSoundPlayer
@@ -255,17 +256,53 @@ class PrayerSettingsViewModel @Inject constructor(
         val current = settings.value
         if (!current.adhanEnabled) return
         viewModelScope.launch {
-            val soundPath = soundRepository.customSoundFile(prayer)?.absolutePath
-            AdhanPlaybackService.start(
-                context = context,
-                prayer = prayer,
-                vibrate = current.vibrateFor(prayer),
-                soundOption = current.adhanSounds[prayer] ?: AdhanSoundOption.Default,
-                volumePercent = current.adhanVolumeFor(prayer),
-                soundPath = soundPath,
-                bundledSoundId = current.bundledAdhanSounds[prayer]
-                    ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID,
+            playConfiguredAdhan(prayer, current)
+        }
+    }
+
+    /**
+     * Exercises the real adhan experience: a concise system notification plus
+     * the user's configured sound, volume and vibration choices. This works
+     * even when the global adhan switch is temporarily off so sound settings
+     * can be verified before enabling the schedule.
+     */
+    fun testAdhanAndNotification(prayer: Prayer) {
+        val current = settings.value
+        viewModelScope.launch {
+            AdhanNotifications.showTestAdhan(context, prayer)
+            playConfiguredAdhan(prayer, current)
+        }
+    }
+
+    private suspend fun playConfiguredAdhan(prayer: Prayer, current: PrayerSettings) {
+        val soundPath = soundRepository.customSoundFile(prayer)?.absolutePath
+        val option = current.adhanSounds[prayer] ?: AdhanSoundOption.Default
+        val volume = current.adhanVolumeFor(prayer)
+        val bundled = current.bundledAdhanSounds[prayer]
+            ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID
+        val started = AdhanPlaybackService.start(
+            context = context,
+            prayer = prayer,
+            vibrate = current.vibrateFor(prayer),
+            soundOption = option,
+            volumePercent = volume,
+            soundPath = soundPath,
+            bundledSoundId = bundled,
+        )
+        if (!started) {
+            val plan = org.muslim.app.core.common.prayer.AdhanPlaybackPlan.plan(
+                option = option,
+                hasBundledSound = true,
+                vibrationEnabled = current.vibrateFor(prayer),
             )
+            when {
+                plan.playSound && soundPath != null && java.io.File(soundPath).exists() ->
+                    soundPlayer.playFile(java.io.File(soundPath), volume) {}
+                plan.playSound -> soundPlayer.playBundled(
+                    org.muslim.app.core.common.prayer.BundledAdhanSound.fromId(bundled),
+                    volume,
+                ) {}
+            }
         }
     }
 

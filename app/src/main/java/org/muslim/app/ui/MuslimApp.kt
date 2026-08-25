@@ -1,13 +1,17 @@
 package org.muslim.app.ui
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.MoreHoriz
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
@@ -15,9 +19,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -34,6 +40,9 @@ import org.muslim.app.R
 import org.muslim.app.crash.CrashReportDialog
 import org.muslim.app.core.datastore.AppThemeMode
 import org.muslim.app.core.ui.theme.AppTheme
+import org.muslim.app.core.ui.theme.IslamicOrnament
+import org.muslim.app.core.ui.theme.IslamicOrnamentImage
+import org.muslim.app.core.ui.theme.IslamicOrnamentOpacity
 import org.muslim.app.feature.prayertimes.ui.home.HomeScreen
 import org.muslim.app.feature.prayertimes.ui.location.LocationScreen
 import org.muslim.app.feature.prayertimes.ui.settings.PrayerSettingsScreen
@@ -165,6 +174,9 @@ fun MuslimApp(
         highContrast = preferences.accessibilityHighContrast,
         accessibilityReadingMode = preferences.accessibilityReadingMode,
     ) {
+        val backStackEntry by navController.currentBackStackEntryAsState()
+        val currentDestination = backStackEntry?.destination
+        val isQuranReader = currentDestination?.route?.startsWith(READER_ROUTE) == true
         Scaffold(
             modifier = modifier,
             floatingActionButton = {
@@ -184,8 +196,6 @@ fun MuslimApp(
                 }
             },
             bottomBar = {
-                val backStackEntry by navController.currentBackStackEntryAsState()
-                val currentDestination = backStackEntry?.destination
                 val onTab = tabs.any { currentDestination?.route == it.route }
                 if (onTab) {
                     NavigationBar {
@@ -209,13 +219,47 @@ fun MuslimApp(
                 }
             },
         ) { innerPadding ->
-            NavHost(
-                // The user-chosen start tab (default: prayer-times home), validated
-                // against the real tab routes so a stale value can never crash.
-                startDestination = startDestinationFor(initialStartTab),
-                navController = navController,
-                modifier = Modifier.padding(innerPadding),
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
             ) {
+                // A quiet shared ornament gives non-reader screens a cohesive
+                // Islamic atmosphere. The Quran reader is deliberately exempt
+                // so no decoration sits behind the Mushaf text.
+                if (!isQuranReader) {
+                    IslamicOrnamentImage(
+                        ornament = IslamicOrnament.Geometric12,
+                        tint = MaterialTheme.colorScheme.primary,
+                        alpha = if (darkTheme) {
+                            IslamicOrnamentOpacity.DarkBackground
+                        } else {
+                            IslamicOrnamentOpacity.LightBackground
+                        },
+                        modifier = Modifier
+                            .align(Alignment.TopEnd)
+                            .size(176.dp),
+                    )
+                    IslamicOrnamentImage(
+                        ornament = IslamicOrnament.Corner,
+                        tint = MaterialTheme.colorScheme.tertiary,
+                        alpha = if (darkTheme) {
+                            IslamicOrnamentOpacity.DarkBackground
+                        } else {
+                            IslamicOrnamentOpacity.LightBackground
+                        },
+                        modifier = Modifier
+                            .align(Alignment.BottomStart)
+                            .size(116.dp),
+                    )
+                }
+                NavHost(
+                    // The user-chosen start tab (default: prayer-times home), validated
+                    // against the real tab routes so a stale value can never crash.
+                    startDestination = startDestinationFor(initialStartTab),
+                    navController = navController,
+                    modifier = Modifier.fillMaxSize(),
+                ) {
                 composable("home") {
                     HomeScreen(onSelectLocation = { navController.navigate("location") })
                 }
@@ -433,6 +477,7 @@ fun MuslimApp(
                 }
                 composable("location") {
                     LocationScreen(onSaved = { navController.popBackStack() })
+                }
                 }
             }
         }

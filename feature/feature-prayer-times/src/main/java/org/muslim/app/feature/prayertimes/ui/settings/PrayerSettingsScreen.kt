@@ -213,6 +213,31 @@ fun PrayerSettingsScreen(
             time = nextPrayer?.second,
             enabled = settings.adhanEnabled,
         )
+        OutlinedButton(
+            onClick = {
+                if (isPreviewing) {
+                    viewModel.stopPreview()
+                } else {
+                    val target = nextPrayer?.first ?: Prayer.Fajr
+                    previewingPrayer = target
+                    viewModel.testAdhanAndNotification(target)
+                }
+            },
+            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+        ) {
+            Text(
+                stringResource(
+                    if (isPreviewing) R.string.settings_adhan_test_stop
+                    else R.string.settings_adhan_test,
+                ),
+            )
+        }
+        Text(
+            text = stringResource(R.string.settings_adhan_test_hint),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(horizontal = 4.dp, vertical = 4.dp),
+        )
 
         ReminderNotificationPreview(
             prayer = nextPrayer?.first,

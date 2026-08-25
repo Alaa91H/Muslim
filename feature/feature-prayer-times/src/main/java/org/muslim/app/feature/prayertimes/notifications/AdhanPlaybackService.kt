@@ -136,6 +136,11 @@ class AdhanPlaybackService : Service() {
         private const val EXTRA_BUNDLED_SOUND = "extra_bundled_sound"
         private const val MAX_PLAYBACK_MS = 5 * 60 * 1000L
 
+        /**
+         * Starts foreground playback and returns whether Android accepted the
+         * service start. Callers can immediately fall back to in-process audio
+         * when a background-start restriction rejects the request.
+         */
         fun start(
             context: Context,
             prayer: Prayer,
@@ -144,7 +149,7 @@ class AdhanPlaybackService : Service() {
             volumePercent: Int = 100,
             soundPath: String? = null,
             bundledSoundId: String = BundledAdhanSound.DEFAULT_ID,
-        ) {
+        ): Boolean {
             val intent = Intent(context, AdhanPlaybackService::class.java)
                 .putExtra(EXTRA_PRAYER, prayer.name)
                 .putExtra(EXTRA_SOUND_OPTION, soundOption.name)
@@ -152,11 +157,13 @@ class AdhanPlaybackService : Service() {
                 .putExtra(EXTRA_VOLUME, volumePercent)
                 .putExtra(EXTRA_SOUND_PATH, soundPath)
                 .putExtra(EXTRA_BUNDLED_SOUND, bundledSoundId)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                context.startForegroundService(intent)
-            } else {
-                context.startService(intent)
-            }
+            return runCatching {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    context.startForegroundService(intent)
+                } else {
+                    context.startService(intent)
+                }
+            }.getOrNull() != null
         }
 
         /** Stops any in-progress adhan playback (e.g. a preview). */

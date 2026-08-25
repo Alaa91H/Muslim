@@ -67,17 +67,15 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 // background); Android 12+ may block starting it from an
                 // alarm, so fall back to in-process playback — the adhan
                 // must never be missed.
-                val started = runCatching {
-                    AdhanPlaybackService.start(
-                        context = appContext,
-                        prayer = prayer,
-                        vibrate = vibrate,
-                        soundOption = option,
-                        volumePercent = volume,
-                        soundPath = soundPath,
-                        bundledSoundId = bundledSoundId,
-                    )
-                }.isSuccess
+                val started = AdhanPlaybackService.start(
+                    context = appContext,
+                    prayer = prayer,
+                    vibrate = vibrate,
+                    soundOption = option,
+                    volumePercent = volume,
+                    soundPath = soundPath,
+                    bundledSoundId = bundledSoundId,
+                )
                 if (!started) {
                     val plan = org.muslim.app.core.common.prayer.AdhanPlaybackPlan.plan(
                         option = option,

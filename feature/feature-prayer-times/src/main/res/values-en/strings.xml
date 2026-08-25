@@ -9,6 +9,10 @@
     <string name="prayer_name">%1$s prayer</string>
 
     <string name="adhan_notification_title">It is time for prayer</string>
+    <string name="adhan_notification_message">It is time for %1$s prayer. May your worship be accepted.</string>
+    <string name="adhan_test_notification_title">Adhan test</string>
+    <string name="adhan_test_notification_message">Testing the %1$s adhan now</string>
+    <string name="adhan_test_notification_detail">If this notification appears and you hear the sound, adhan alerts are working correctly for %1$s.</string>
     <string name="reminder_title">Prayer reminder</string>
     <string name="reminder_message">%1$s prayer in %2$d minutes</string>
 
@@ -77,6 +81,9 @@
     <string name="settings_adhan_preview_label">Adhan notification preview</string>
     <string name="settings_adhan_preview_hint">This is how the notification appears when a prayer time begins. It updates automatically with the next prayer.</string>
     <string name="settings_adhan_preview_no_location">Select a location to show the next prayer</string>
+    <string name="settings_adhan_test">Test sound and notification</string>
+    <string name="settings_adhan_test_stop">Stop test</string>
+    <string name="settings_adhan_test_hint">Sends a real notification and plays the selected sound with the current volume and vibration.</string>
     <string name="settings_vibrate">Vibration</string>
     <string name="settings_reminder">Reminder before prayer</string>
     <string name="settings_reminder_off">No reminder</string>

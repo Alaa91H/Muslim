@@ -108,15 +108,25 @@ class AdhanSoundPlayer @Inject constructor(
                 .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                 .build(),
         )
-        player.setDataSource(
-            context,
-            "android.resource://${context.packageName}/$resId".toUri(),
-        )
+        val dataSourceSet = runCatching {
+            player.setDataSource(
+                context,
+                "android.resource://${context.packageName}/$resId".toUri(),
+            )
+        }.isSuccess
+        if (!dataSourceSet) {
+            fallbackToSynthesized(player, volumePercent, onFinished)
+            return
+        }
         player.setOnPreparedListener { p ->
             if (mediaPlayer !== p) return@setOnPreparedListener
             val target = (volumePercent / 100f).coerceIn(0f, 1f)
-            p.setVolume(target, target)
-            p.start()
+            runCatching {
+                p.setVolume(target, target)
+                p.start()
+            }.onFailure {
+                fallbackToSynthesized(p, volumePercent, onFinished)
+            }
         }
         player.setOnCompletionListener {
             if (mediaPlayer === it) onFinished()
@@ -124,16 +134,12 @@ class AdhanSoundPlayer @Inject constructor(
         player.setOnErrorListener { p, _, _ ->
             // The bundled file could not be decoded — never leave the adhan
             // silent: fall back to the synthesised tone.
-            if (mediaPlayer === p) {
-                runCatching { p.release() }
-                mediaPlayer = null
-                abandonFocus()
-                playSynthesized(volumePercent, onFinished)
-            }
+            fallbackToSynthesized(p, volumePercent, onFinished)
             true
         }
-        runCatching { player.prepareAsync() }
-            .onFailure { onFinished() }
+        if (runCatching { player.prepareAsync() }.isFailure) {
+            fallbackToSynthesized(player, volumePercent, onFinished)
+        }
     }
 
     /** Plays [file] (user-picked or downloaded). */
@@ -148,27 +154,31 @@ class AdhanSoundPlayer @Inject constructor(
                 .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                 .build(),
         )
-        player.setDataSource(file.absolutePath)
+        val dataSourceSet = runCatching { player.setDataSource(file.absolutePath) }.isSuccess
+        if (!dataSourceSet) {
+            fallbackToSynthesized(player, volumePercent, onFinished)
+            return
+        }
         player.setOnPreparedListener { p ->
             if (mediaPlayer !== p) return@setOnPreparedListener
             val target = (volumePercent / 100f).coerceIn(0f, 1f)
-            p.setVolume(target, target)
-            p.start()
+            runCatching {
+                p.setVolume(target, target)
+                p.start()
+            }.onFailure {
+                fallbackToSynthesized(p, volumePercent, onFinished)
+            }
         }
         player.setOnCompletionListener {
             if (mediaPlayer === it) onFinished()
         }
         player.setOnErrorListener { p, _, _ ->
-            if (mediaPlayer === p) {
-                runCatching { p.release() }
-                mediaPlayer = null
-                abandonFocus()
-                playSynthesized(volumePercent, onFinished)
-            }
+            fallbackToSynthesized(p, volumePercent, onFinished)
             true
         }
-        runCatching { player.prepareAsync() }
-            .onFailure { onFinished() }
+        if (runCatching { player.prepareAsync() }.isFailure) {
+            fallbackToSynthesized(player, volumePercent, onFinished)
+        }
     }
 
     /** Plays the synthesised default tone. */
@@ -182,6 +192,10 @@ class AdhanSoundPlayer @Inject constructor(
             AudioFormat.CHANNEL_OUT_MONO,
             AudioFormat.ENCODING_PCM_16BIT,
         )
+        if (samples.isEmpty() || minBuffer <= 0) {
+            onFinished()
+            return
+        }
         val track = AudioTrack.Builder()
             .setAudioAttributes(
                 AudioAttributes.Builder()
@@ -235,6 +249,20 @@ class AdhanSoundPlayer @Inject constructor(
         }
         audioTrack = null
         abandonFocus()
+    }
+
+    /** Releases a failed media source and keeps the call to prayer audible. */
+    private fun fallbackToSynthesized(
+        player: MediaPlayer,
+        volumePercent: Int,
+        onFinished: () -> Unit,
+    ) {
+        if (mediaPlayer !== player) return
+        runCatching { player.reset() }
+        runCatching { player.release() }
+        mediaPlayer = null
+        abandonFocus()
+        playSynthesized(volumePercent, onFinished)
     }
 
     private fun bundledSoundRes(sound: BundledAdhanSound): Int = when (sound) {
