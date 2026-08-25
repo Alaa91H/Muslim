@@ -11,6 +11,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import org.muslim.app.core.common.appearance.AppColorPalette
+import org.muslim.app.core.common.appearance.CardCornerStyle
+import org.muslim.app.core.common.appearance.AppOrnamentStyle
 import org.muslim.app.core.datastore.AppPreferences
 import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.AppThemeMode
@@ -38,6 +41,18 @@ class SettingsViewModel @Inject constructor(
     fun setThemeMode(mode: AppThemeMode) = launch { appPreferencesRepository.setThemeMode(mode) }
 
     fun setDynamicColor(enabled: Boolean) = launch { appPreferencesRepository.setDynamicColor(enabled) }
+
+    fun setColorPalette(palette: AppColorPalette) = launch {
+        appPreferencesRepository.setColorPalette(palette)
+    }
+
+    fun setCardCornerStyle(style: CardCornerStyle) = launch {
+        appPreferencesRepository.setCardCornerStyle(style)
+    }
+
+    fun setOrnamentStyle(style: AppOrnamentStyle) = launch {
+        appPreferencesRepository.setOrnamentStyle(style)
+    }
 
     fun setReduceAnimations(enabled: Boolean) = launch { appPreferencesRepository.setReduceAnimations(enabled) }
 

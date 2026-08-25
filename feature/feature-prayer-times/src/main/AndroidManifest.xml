@@ -25,6 +25,10 @@
             android:exported="false" />
 
         <receiver
+            android:name=".notifications.AdhanNotificationActionReceiver"
+            android:exported="false" />
+
+        <receiver
             android:name=".notifications.BootReceiver"
             android:exported="false">
             <intent-filter>

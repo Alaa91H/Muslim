@@ -44,6 +44,10 @@ class QuranRepositoryImpl @Inject constructor(
     private val seeded = AtomicBoolean(false)
     private val seedMutex = Mutex()
 
+    private companion object {
+        const val SEARCH_FALLBACK_LIMIT = 200
+    }
+
     override suspend fun ensureSeeded() {
         if (seeded.get()) return
         seedMutex.withLock {
@@ -113,8 +117,20 @@ class QuranRepositoryImpl @Inject constructor(
         ensureSeeded()
         val match = QuranSearchQuery.build(rawQuery)
         if (match.isEmpty()) return emptyList()
-        val hits = ayahFtsDao.search(match)
-        return hits.mapNotNull { hit -> ayahDao.byGlobal(hit.globalNumber)?.toDomain() }
+        val indexedMatches = runCatching {
+            ayahFtsDao.search(match)
+                .mapNotNull { hit -> ayahDao.byGlobal(hit.globalNumber)?.toDomain() }
+        }.getOrDefault(emptyList())
+        if (indexedMatches.isNotEmpty()) return indexedMatches
+
+        // A failed/empty FTS query must never make Quran search appear broken.
+        // The bundled corpus is local and small enough for a bounded fallback.
+        return ayahDao.observeAll().first()
+            .asSequence()
+            .filter { QuranSearchQuery.matchesNormalizedAyah(it.text, rawQuery) }
+            .take(SEARCH_FALLBACK_LIMIT)
+            .map { it.toDomain() }
+            .toList()
     }
 
     override fun observeBookmarks(): Flow<List<Bookmark>> = flow {

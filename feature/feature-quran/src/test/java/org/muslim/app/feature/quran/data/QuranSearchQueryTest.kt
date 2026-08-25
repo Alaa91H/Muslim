@@ -34,6 +34,15 @@ class QuranSearchQueryTest {
     }
 
     @Test
+    fun `local fallback matches normalized Arabic prefixes`() {
+        val ayah = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
+
+        assertThat(QuranSearchQuery.matchesNormalizedAyah(ayah, "الرحم")).isTrue()
+        assertThat(QuranSearchQuery.matchesNormalizedAyah(ayah, "بسم الله")).isTrue()
+        assertThat(QuranSearchQuery.matchesNormalizedAyah(ayah, "الملك")).isFalse()
+    }
+
+    @Test
     fun `empty and whitespace-only queries are unusable`() {
         assertThat(QuranSearchQuery.isUsable("")).isFalse()
         assertThat(QuranSearchQuery.isUsable("   ")).isFalse()

@@ -185,4 +185,9 @@
     <string name="settings_adhan_global_volume">ގްލޯބަލް އަދަން ވޮލިއުމް</string>
     <string name="settings_adhan_global_volume_desc">ކޮންމެ ނަމާދަކަށް އެއް ލެވެލްއެއް އެޕްލައިކޮށް ޕަރ ޕްރޭޔަރ ސްލައިޑަރސް ޑިސެބިލް ކުރާށެވެ</string>
     <string name="settings_adhan_follows_global">ގްލޯބަލް ވޮލިއުމް (%1$s) އަށް ތަބާވެއެވެ.</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

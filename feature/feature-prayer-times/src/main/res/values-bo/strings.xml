@@ -185,4 +185,9 @@
     <string name="settings_adhan_global_volume">གོ་ལ་ཧྲིལ་པོའི་སྐད་སྒྲ།</string>
     <string name="settings_adhan_global_volume_desc">སྨོན་ལམ་རེ་རེར་རིམ་པ་གཅིག་འཇུག་པ་དང་སྨོན་ལམ་རེ་རེའི་བཤུད་སྒྲིལ་མེད་པར་བཟོས།</string>
     <string name="settings_adhan_follows_global">གོ་ལ་ཧྲིལ་པོའི་འབོར་ཚད་(%1$s)ལ་རྗེས་འདེད་བྱེད།</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

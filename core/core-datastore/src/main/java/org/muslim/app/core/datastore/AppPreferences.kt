@@ -1,5 +1,9 @@
 package org.muslim.app.core.datastore
 
+import org.muslim.app.core.common.appearance.AppColorPalette
+import org.muslim.app.core.common.appearance.CardCornerStyle
+import org.muslim.app.core.common.appearance.AppOrnamentStyle
+
 /**
  * App-wide (non-prayer) user preferences, persisted in DataStore
  * (PROJECT_PROMPT.md §4.1 + §5: theme mode, dynamic color, UI language).
@@ -8,6 +12,12 @@ data class AppPreferences(
     val themeMode: AppThemeMode = AppThemeMode.System,
     /** Dynamic wallpaper color is opt-in so the calm Islamic token palette remains the default identity. */
     val dynamicColor: Boolean = false,
+    /** Curated palette family used when dynamic colour is disabled. */
+    val colorPalette: AppColorPalette = AppColorPalette.Classic,
+    /** Global corner softness for cards, sheets, and controls. */
+    val cardCornerStyle: CardCornerStyle = CardCornerStyle.Soft,
+    /** Decorative background motif for supported screens. */
+    val ornamentStyle: AppOrnamentStyle = AppOrnamentStyle.Geometry,
     /** BCP-47 language tag; "system" = follow the device language. */
     val languageCode: String = SYSTEM_LANGUAGE,
     /** Respect the system "remove animations" accessibility setting. */

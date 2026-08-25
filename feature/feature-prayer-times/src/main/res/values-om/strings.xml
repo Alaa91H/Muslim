@@ -185,4 +185,9 @@
     <string name="settings_adhan_global_volume">Jildii adhan addunyaa</string>
     <string name="settings_adhan_global_volume_desc">Kadhannaa hunda irratti sadarkaa tokko hojiirra oolchuu fi islaayidaroota kadhannaa tokkoon tokkoon isaanii hojiirra oolchuu</string>
     <string name="settings_adhan_follows_global">Jildii addunyaa (%1$s) hordofa.</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

@@ -9,6 +9,7 @@
     <string name="prayer_name">%1$s prayer</string>
 
     <string name="adhan_notification_title">It is time for prayer</string>
+    <string name="adhan_notification_stop">Stop Adhan</string>
     <string name="reminder_title">Prayer reminder</string>
     <string name="reminder_message">%1$s prayer in %2$d minutes</string>
 
@@ -76,6 +77,9 @@
     <string name="settings_adjustments">Manual adjustments (minutes)</string>
     <string name="settings_adhan">Adhan &amp; reminders</string>
     <string name="settings_adhan_enabled">Enable Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
     <string name="settings_adhan_global_volume">Global adhan volume</string>
     <string name="settings_adhan_global_volume_desc">Apply a single level to every prayer and disable the per-prayer sliders</string>
     <string name="settings_adhan_follows_global">Follows the global volume (%1$s)</string>

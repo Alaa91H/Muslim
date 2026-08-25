@@ -185,4 +185,9 @@
     <string name="settings_adhan_global_volume">ଗ୍ଲୋବାଲ୍ ଆଡାନ୍ ଭଲ୍ୟୁମ୍</string>
     <string name="settings_adhan_global_volume_desc">ପ୍ରତ୍ୟେକ ପ୍ରାର୍ଥନାରେ ଗୋଟିଏ ସ୍ତର ପ୍ରୟୋଗ କରନ୍ତୁ ଏବଂ ପ୍ରତି ପ୍ରାର୍ଥନା ସ୍ଲାଇଡର୍ଗୁଡ଼ିକୁ ଅକ୍ଷମ କରନ୍ତୁ |</string>
     <string name="settings_adhan_follows_global">ଗ୍ଲୋବାଲ୍ ଭଲ୍ୟୁମ୍ (%1$s) ଅନୁସରଣ କରେ |</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

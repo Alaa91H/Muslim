@@ -185,4 +185,9 @@
     <string name="settings_adhan_global_volume">ਗਲੋਬਲ ਅਧਾਨ ਵਾਲੀਅਮ</string>
     <string name="settings_adhan_global_volume_desc">ਹਰ ਪ੍ਰਾਰਥਨਾ ਲਈ ਇੱਕ ਪੱਧਰ ਲਾਗੂ ਕਰੋ ਅਤੇ ਪ੍ਰਤੀ-ਪ੍ਰਾਰਥਨਾ ਸਲਾਈਡਰਾਂ ਨੂੰ ਅਸਮਰੱਥ ਕਰੋ</string>
     <string name="settings_adhan_follows_global">ਗਲੋਬਲ ਵਾਲੀਅਮ (%1$s) ਦਾ ਅਨੁਸਰਣ ਕਰਦਾ ਹੈ</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

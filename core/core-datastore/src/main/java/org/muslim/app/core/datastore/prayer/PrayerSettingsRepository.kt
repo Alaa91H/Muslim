@@ -87,7 +87,9 @@ class PrayerSettingsRepository @Inject constructor(
                     prefs[Keys.bundledSoundFor(prayer)]?.let { prayer to it }
                 }
                 .toMap(),
-            reminderMinutes = prefs[Keys.REMINDER_MINUTES] ?: 10,
+            reminderMinutes = prefs[Keys.REMINDER_MINUTES] ?: 15,
+            adhanNotificationDismissible = prefs[Keys.ADHAN_NOTIFICATION_DISMISSIBLE] ?: false,
+            stopAdhanOnNotificationDismiss = prefs[Keys.STOP_ADHAN_ON_NOTIFICATION_DISMISS] ?: false,
             dndEnabled = prefs[Keys.DND_ENABLED] ?: false,
             dndDurationMinutes = (prefs[Keys.DND_DURATION] ?: 10).coerceIn(1, 180),
             hijriAdjustment = prefs[Keys.HIJRI_ADJUSTMENT] ?: 0,
@@ -159,6 +161,8 @@ class PrayerSettingsRepository @Inject constructor(
                     newSettings.bundledAdhanSounds[prayer] ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID
             }
             prefs[Keys.REMINDER_MINUTES] = newSettings.reminderMinutes
+            prefs[Keys.ADHAN_NOTIFICATION_DISMISSIBLE] = newSettings.adhanNotificationDismissible
+            prefs[Keys.STOP_ADHAN_ON_NOTIFICATION_DISMISS] = newSettings.stopAdhanOnNotificationDismiss
             prefs[Keys.DND_ENABLED] = newSettings.dndEnabled
             prefs[Keys.DND_DURATION] = newSettings.dndDurationMinutes
             prefs[Keys.HIJRI_ADJUSTMENT] = newSettings.hijriAdjustment
@@ -202,6 +206,8 @@ class PrayerSettingsRepository @Inject constructor(
         fun bundledSoundFor(prayer: Prayer): Preferences.Key<String> =
             stringPreferencesKey("bundled_adhan_sound_${prayer.name.lowercase()}")
         val REMINDER_MINUTES = intPreferencesKey("reminder_minutes")
+        val ADHAN_NOTIFICATION_DISMISSIBLE = booleanPreferencesKey("adhan_notification_dismissible")
+        val STOP_ADHAN_ON_NOTIFICATION_DISMISS = booleanPreferencesKey("stop_adhan_on_notification_dismiss")
         val DND_ENABLED = booleanPreferencesKey("dnd_enabled")
         val DND_DURATION = intPreferencesKey("dnd_duration_minutes")
         val HIJRI_ADJUSTMENT = intPreferencesKey("hijri_adjustment")

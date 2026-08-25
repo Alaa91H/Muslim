@@ -164,6 +164,8 @@ fun MuslimApp(
         dynamicColor = preferences.dynamicColor,
         highContrast = preferences.accessibilityHighContrast,
         accessibilityReadingMode = preferences.accessibilityReadingMode,
+        colorPalette = preferences.colorPalette,
+        cardCornerStyle = preferences.cardCornerStyle,
     ) {
         Scaffold(
             modifier = modifier,

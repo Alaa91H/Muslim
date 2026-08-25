@@ -185,4 +185,9 @@
     <string name="settings_adhan_global_volume">世界のアザーン量</string>
     <string name="settings_adhan_global_volume_desc">すべての祈りに単一のレベルを適用し、祈りごとのスライダーを無効にします</string>
     <string name="settings_adhan_follows_global">グローバルボリューム (%1$s) に従います</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

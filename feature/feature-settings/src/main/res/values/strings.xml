@@ -12,6 +12,20 @@
     <string name="settings_theme_dark">داكن</string>
     <string name="settings_dynamic_color">ألوان ديناميكية</string>
     <string name="settings_dynamic_color_desc">استخدام ألوان خلفية جهازك (Material You) على أندرويد 12 فأحدث</string>
+    <string name="settings_color_palette">لوحة الألوان</string>
+    <string name="settings_palette_classic">كلاسيكي إسلامي</string>
+    <string name="settings_palette_emerald">زمردي</string>
+    <string name="settings_palette_midnight">ليلي</string>
+    <string name="settings_palette_sand">رملي</string>
+    <string name="settings_card_corners">نعومة زوايا البطاقات</string>
+    <string name="settings_corners_compact">مضغوطة</string>
+    <string name="settings_corners_soft">ناعمة</string>
+    <string name="settings_corners_rounded">دائرية</string>
+    <string name="settings_ornament">الزخرفة الإسلامية</string>
+    <string name="settings_ornament_geometry">هندسية</string>
+    <string name="settings_ornament_arabesque">أرابيسك</string>
+    <string name="settings_ornament_stars">نجوم</string>
+    <string name="settings_ornament_minimal">بسيطة</string>
     <string name="settings_reduce_animations">تقليل الحركات</string>
     <string name="settings_reduce_animations_desc">إيقاف الحركات غير الضرورية لتفضيلات إتاحة الوصول</string>
 

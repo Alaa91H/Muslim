@@ -2,7 +2,9 @@ package org.muslim.app.feature.prayertimes.notifications
 
 import android.app.Notification
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import androidx.core.app.NotificationCompat
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.prayertimes.R
@@ -15,17 +17,43 @@ internal object AdhanNotifications {
     const val ADHAN_NOTIFICATION_ID = 1001
     const val REMINDER_NOTIFICATION_ID = 1002
 
-    fun adhanNotification(context: Context, prayer: Prayer): Notification =
-        NotificationCompat.Builder(context, NotificationChannels.ADHAN)
+    fun adhanNotification(
+        context: Context,
+        prayer: Prayer,
+        dismissible: Boolean = false,
+        stopOnDismiss: Boolean = false,
+    ): Notification {
+        val stopIntent = PendingIntent.getBroadcast(
+            context,
+            ADHAN_NOTIFICATION_ID,
+            Intent(context, AdhanNotificationActionReceiver::class.java)
+                .setAction(AdhanNotificationActionReceiver.ACTION_STOP),
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+        )
+        val dismissIntent = PendingIntent.getBroadcast(
+            context,
+            ADHAN_NOTIFICATION_ID + 1,
+            Intent(context, AdhanNotificationActionReceiver::class.java)
+                .setAction(AdhanNotificationActionReceiver.ACTION_DISMISSED)
+                .putExtra(AdhanNotificationActionReceiver.EXTRA_STOP_ON_DISMISS, stopOnDismiss),
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+        )
+        return NotificationCompat.Builder(context, NotificationChannels.ADHAN)
             .setSmallIcon(R.drawable.ic_notification)
             .setContentTitle(context.getString(R.string.adhan_notification_title))
             .setContentText(context.getString(R.string.prayer_name, context.getString(prayerNameRes(prayer))))
             .setStyle(NotificationCompat.BigTextStyle())
             .setCategory(NotificationCompat.CATEGORY_ALARM)
-            // Persistent: cannot be swiped away while the adhan is ringing.
-            .setOngoing(true)
-            .setAutoCancel(false)
+            .addAction(
+                R.drawable.ic_notification,
+                context.getString(R.string.adhan_notification_stop),
+                stopIntent,
+            )
+            .setDeleteIntent(if (dismissible) dismissIntent else null)
+            .setOngoing(!dismissible)
+            .setAutoCancel(dismissible)
             .build()
+    }
 
     fun showReminder(context: Context, prayer: Prayer, minutesBefore: Int) {
         val notification = NotificationCompat.Builder(context, NotificationChannels.REMINDER)

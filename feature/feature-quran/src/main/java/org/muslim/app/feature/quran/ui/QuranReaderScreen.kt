@@ -302,16 +302,24 @@ fun QuranReaderScreen(
     // Shared play/pause/resume toggle used by both the mini now-playing bar
     // and the full recitation bar.
     val togglePlayback: () -> Unit = {
+        val selectedStart = userSelectedAyah?.let { global ->
+            state.ayahs.firstOrNull { it.globalNumber == global }
+        }
         when (playbackState) {
             PlaybackState.Playing -> viewModel.pausePlayback()
-            PlaybackState.Paused -> viewModel.resumePlayback()
+            PlaybackState.Paused -> {
+                // A newly selected ayah is an explicit new start point; never
+                // resume a previously paused ayah when the user chose another.
+                if (selectedStart != null && selectedStart.globalNumber != currentAudioAyah) {
+                    viewModel.playAyahWithRange(selectedStart, repeatCount, playRange)
+                } else {
+                    viewModel.resumePlayback()
+                }
+            }
             PlaybackState.Idle -> {
-                // No explicit tap starts at the first ayah. The default range
-                // is the selected surah; the range menu can deliberately extend
-                // playback from a chosen ayah to the end of the mushaf.
-                val start = userSelectedAyah?.let { global ->
-                    state.ayahs.firstOrNull { it.globalNumber == global }
-                } ?: state.ayahs.firstOrNull()
+                // Without an explicit selection, playback starts at ayah one.
+                // With a selection, it always starts from that tapped ayah.
+                val start = selectedStart ?: state.ayahs.firstOrNull()
                 if (start != null) viewModel.playAyahWithRange(start, repeatCount, playRange)
             }
         }

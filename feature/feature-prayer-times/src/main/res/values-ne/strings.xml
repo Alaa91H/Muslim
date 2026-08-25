@@ -185,4 +185,9 @@
     <string name="settings_adhan_global_volume">ग्लोबल अजान भोल्युम</string>
     <string name="settings_adhan_global_volume_desc">प्रत्येक प्रार्थनामा एकल स्तर लागू गर्नुहोस् र प्रति-प्रार्थना स्लाइडरहरू असक्षम गर्नुहोस्</string>
     <string name="settings_adhan_follows_global">विश्वव्यापी भोल्युम (%1$s) लाई पछ्याउँछ</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

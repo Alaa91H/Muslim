@@ -185,4 +185,9 @@
     <string name="settings_adhan_global_volume">గ్లోబల్ అధాన్ వాల్యూమ్</string>
     <string name="settings_adhan_global_volume_desc">ప్రతి ప్రార్థనకు ఒకే స్థాయిని వర్తింపజేయండి మరియు ప్రతి ప్రార్థన స్లయిడర్‌లను నిలిపివేయండి</string>
     <string name="settings_adhan_follows_global">గ్లోబల్ వాల్యూమ్ (%1$s)ని అనుసరిస్తుంది</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

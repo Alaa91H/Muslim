@@ -185,4 +185,9 @@
     <string name="settings_adhan_global_volume">વૈશ્વિક અદન વોલ્યુમ</string>
     <string name="settings_adhan_global_volume_desc">દરેક પ્રાર્થના માટે એક સ્તર લાગુ કરો અને પ્રતિ-પ્રાર્થના સ્લાઇડરને અક્ષમ કરો</string>
     <string name="settings_adhan_follows_global">વૈશ્વિક વોલ્યુમ (%1$s) ને અનુસરે છે</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

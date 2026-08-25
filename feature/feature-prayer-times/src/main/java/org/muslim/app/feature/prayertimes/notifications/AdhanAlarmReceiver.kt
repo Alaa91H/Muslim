@@ -82,6 +82,8 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                         soundPath = soundPath,
                         bundledSoundId = bundledSoundId,
                         isProbe = isProbe,
+                        notificationDismissible = settings.adhanNotificationDismissible,
+                        stopOnNotificationDismiss = settings.stopAdhanOnNotificationDismiss,
                     )
                 }
                 serviceStart.exceptionOrNull()?.let { error ->

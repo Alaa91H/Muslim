@@ -3,6 +3,35 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.3
+
+Updates install directly over v1.24.2 with the same package name (`org.muslim.app`) and stable signing key. No uninstall or data reset is required.
+
+## Prayer Home, Adhan Controls, and Reminders
+- Reordered the prayer home screen so the primary **Today’s prayer times** card remains directly below the next-prayer card. The private daily prayer check-in now sits lower in the page.
+- Added a stronger, non-colour-only visual treatment for the next prayer inside the daily times card.
+- Added a **Stop Adhan** action to the active Adhan notification.
+- Added optional controls to allow dismissing the active Adhan notification and, separately, to stop active Adhan audio when that notification is dismissed. The notification remains persistent by default.
+- Set the default prayer reminder lead time to **15 minutes**. Users can still disable the reminder or select another lead time.
+
+## Reliable Quran Search and Selected-Ayah Playback
+- Hardened offline Quran search with a normalized local fallback when FTS is empty, stale, or rejects an edge-case query. Search remains fully on-device and supports normalized Arabic prefix matching.
+- Preserved the selected ayah as an explicit playback start point. If a previous recitation is paused, selecting another ayah and pressing Play now begins from the newly selected ayah rather than resuming the prior one.
+
+## Personal Appearance Controls
+- Added curated light and dark palette families: **Classic Islamic**, **Emerald**, **Midnight**, and **Sand**. Dynamic wallpaper colours remain available as an explicit system-colour option.
+- Added global card-corner preferences for **Compact**, **Soft**, and **Rounded** surfaces.
+- Added switchable low-opacity Islamic ornament styles for supported backgrounds: **Geometric**, **Arabesque**, **Stars**, and **Minimal**.
+- Updated the adaptive launcher artwork with a new high-contrast Islamic arch, crescent, and eight-point-star mark. The Adhan notification now uses a matching monochrome status-bar symbol.
+
+## Verification
+- Added unit coverage for normalized Quran-search fallback behavior.
+- Passed local Debug compilation, Quran and prayer-time unit tests, application unit tests, Android Lint, Detekt, and the production content-manifest gate before release tagging. Tagged CI, signed artifact builds, and emulator validation are required before publication.
+
+### Install
+- Download the APK from the GitHub Release and open it (allow “install from unknown sources” if prompted).
+- The app remains signed with the same release key, so the update installs directly over prior Muslim releases.
+
 ## Muslim v1.24.2
 
 Updates install directly over v1.24.1 with the same package name (`org.muslim.app`) and stable signing key. No uninstall or data reset is required.

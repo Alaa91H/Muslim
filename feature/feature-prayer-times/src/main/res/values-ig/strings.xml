@@ -185,4 +185,9 @@
     <string name="settings_adhan_global_volume">Global adhan olu</string>
     <string name="settings_adhan_global_volume_desc">Tinye otu ọkwa n\'ekpere ọ bụla wee gbanyụọ slider otu ekpere</string>
     <string name="settings_adhan_follows_global">Na-agbaso olu zuru ụwa ọnụ (%1$s)</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

@@ -183,4 +183,19 @@
     <string name="update_last_check">Jeegaga ugu dambeeya: %1$s</string>
     <string name="update_open_releases">Fur bogga sii daynta browserka</string>
     <string name="settings_section_managers">Maareeyayaasha &amp; Oggolaanshaha</string>
+
+    <string name="settings_color_palette">Color palette</string>
+    <string name="settings_palette_classic">Classic Islamic</string>
+    <string name="settings_palette_emerald">Emerald</string>
+    <string name="settings_palette_midnight">Midnight</string>
+    <string name="settings_palette_sand">Sand</string>
+    <string name="settings_card_corners">Card corner softness</string>
+    <string name="settings_corners_compact">Compact</string>
+    <string name="settings_corners_soft">Soft</string>
+    <string name="settings_corners_rounded">Rounded</string>
+    <string name="settings_ornament">Islamic ornament</string>
+    <string name="settings_ornament_geometry">Geometric</string>
+    <string name="settings_ornament_arabesque">Arabesque</string>
+    <string name="settings_ornament_stars">Stars</string>
+    <string name="settings_ornament_minimal">Minimal</string>
 </resources>

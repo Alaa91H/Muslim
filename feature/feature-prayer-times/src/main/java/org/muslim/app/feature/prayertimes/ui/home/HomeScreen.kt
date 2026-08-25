@@ -2,6 +2,7 @@ package org.muslim.app.feature.prayertimes.ui.home
 
 import android.content.Context
 import android.content.Intent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -36,6 +37,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -47,6 +50,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.prayertimes.R
+import org.muslim.app.core.common.appearance.AppOrnamentStyle
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.feature.prayertimes.ui.formatCountdown
 import org.muslim.app.feature.prayertimes.ui.localDateFormatter
@@ -69,12 +73,13 @@ fun HomeScreen(
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
+    val ornamentStyle by viewModel.ornamentStyle.collectAsStateWithLifecycle()
 
     val context = LocalContext.current
 
     Box(modifier = modifier.fillMaxSize()) {
         IslamicOrnamentImage(
-            ornament = IslamicOrnament.Geometric12,
+            ornament = ornamentStyle.toIslamicOrnament(),
             tint = MaterialTheme.colorScheme.primary,
             alpha = IslamicOrnamentOpacity.LightBackground,
             modifier = Modifier
@@ -178,13 +183,6 @@ fun HomeScreen(
 
         Spacer(Modifier.height(16.dp))
 
-        PrayerCompletionCard(
-            completedPrayers = state.completedPrayers,
-            onToggle = viewModel::togglePrayerCompletion,
-        )
-
-        Spacer(Modifier.height(24.dp))
-
         // ---- Today's times ----
         Text(
             text = stringResource(R.string.home_today_times),
@@ -201,27 +199,42 @@ fun HomeScreen(
             return@Column
         }
 
-        Card(modifier = Modifier.fillMaxWidth()) {
-            Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)) {
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+            ),
+        ) {
+            Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {
                 Prayer.entries.forEachIndexed { index, prayer ->
                     if (index > 0) HorizontalDivider()
+                    val isNextPrayer = prayer == state.nextPrayer
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 12.dp),
+                            .padding(vertical = 4.dp)
+                            .clip(MaterialTheme.shapes.medium)
+                            .background(
+                                if (isNextPrayer) MaterialTheme.colorScheme.tertiaryContainer else Color.Transparent,
+                            )
+                            .padding(horizontal = 12.dp, vertical = 10.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Text(
                             text = stringResource(prayerLabelRes(prayer)),
                             style = MaterialTheme.typography.bodyLarge,
-                            fontWeight = if (prayer == state.nextPrayer) FontWeight.Bold else FontWeight.Normal,
+                            fontWeight = if (isNextPrayer) FontWeight.Bold else FontWeight.Normal,
+                            color = if (isNextPrayer) MaterialTheme.colorScheme.onTertiaryContainer
+                            else MaterialTheme.colorScheme.onSurface,
                         )
                         Spacer(Modifier.weight(1f))
                         state.times[prayer]?.let { time ->
                             Text(
                                 text = time.format(TimeFormats.timeFormatter(use24h)),
                                 style = MaterialTheme.typography.titleMedium,
-                                fontWeight = if (prayer == state.nextPrayer) FontWeight.Bold else FontWeight.Normal,
+                                fontWeight = if (isNextPrayer) FontWeight.Bold else FontWeight.Normal,
+                                color = if (isNextPrayer) MaterialTheme.colorScheme.onTertiaryContainer
+                                else MaterialTheme.colorScheme.onSurface,
                             )
                         }
                     }
@@ -274,9 +287,22 @@ fun HomeScreen(
             MonthlyGrid(state, use24h)
         }
 
+        Spacer(Modifier.height(24.dp))
+        PrayerCompletionCard(
+            completedPrayers = state.completedPrayers,
+            onToggle = viewModel::togglePrayerCompletion,
+        )
+
         Spacer(Modifier.height(16.dp))
         }
     }
+}
+
+private fun AppOrnamentStyle.toIslamicOrnament(): IslamicOrnament = when (this) {
+    AppOrnamentStyle.Geometry -> IslamicOrnament.Geometric12
+    AppOrnamentStyle.Arabesque -> IslamicOrnament.Arabesque
+    AppOrnamentStyle.Stars -> IslamicOrnament.Star12
+    AppOrnamentStyle.Minimal -> IslamicOrnament.Corner
 }
 
 @Composable

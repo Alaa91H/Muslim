@@ -185,4 +185,9 @@
     <string name="settings_adhan_global_volume">वैश्विक अधन मात्रा</string>
     <string name="settings_adhan_global_volume_desc">प्रत्येकं प्रार्थनायां एकं स्तरं प्रयोजयन्तु तथा प्रतिप्रार्थना स्लाइडर् निष्क्रियं कुर्वन्तु</string>
     <string name="settings_adhan_follows_global">वैश्विकमात्रायाः (%1$s) अनुसरणं करोति ।</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

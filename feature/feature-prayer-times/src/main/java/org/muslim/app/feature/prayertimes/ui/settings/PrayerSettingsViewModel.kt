@@ -321,6 +321,17 @@ class PrayerSettingsViewModel @Inject constructor(
 
     fun setReminderMinutes(minutes: Int) = update { it.copy(reminderMinutes = minutes) }
 
+    fun setAdhanNotificationDismissible(enabled: Boolean) = update {
+        it.copy(
+            adhanNotificationDismissible = enabled,
+            stopAdhanOnNotificationDismiss = if (enabled) it.stopAdhanOnNotificationDismiss else false,
+        )
+    }
+
+    fun setStopAdhanOnNotificationDismiss(enabled: Boolean) = update {
+        it.copy(stopAdhanOnNotificationDismiss = enabled)
+    }
+
     fun setDndEnabled(enabled: Boolean) = update { it.copy(dndEnabled = enabled) }
 
     fun setDndDurationMinutes(minutes: Int) = update { it.copy(dndDurationMinutes = minutes) }

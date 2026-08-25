@@ -63,6 +63,8 @@ class AdhanPlaybackService : Service() {
         val soundPath = intent?.getStringExtra(EXTRA_SOUND_PATH)
         val bundled = BundledAdhanSound.fromId(intent?.getStringExtra(EXTRA_BUNDLED_SOUND))
         val isProbe = intent?.getBooleanExtra(EXTRA_IS_PROBE, false) ?: false
+        val notificationDismissible = intent?.getBooleanExtra(EXTRA_NOTIFICATION_DISMISSIBLE, false) ?: false
+        val stopOnNotificationDismiss = intent?.getBooleanExtra(EXTRA_STOP_ON_NOTIFICATION_DISMISS, false) ?: false
 
         // A bundled real recording always ships with the app, so "Default"
         // plays offline with no download.
@@ -77,10 +79,11 @@ class AdhanPlaybackService : Service() {
             return START_NOT_STICKY
         }
 
-        val foregroundStarted = runCatching {
-            NotificationChannels.create(this)
-            startForeground(AdhanNotifications.ADHAN_NOTIFICATION_ID, AdhanNotifications.adhanNotification(this, prayer))
-        }
+        val foregroundStarted = startForegroundNotification(
+            prayer = prayer,
+            dismissible = notificationDismissible,
+            stopOnDismiss = stopOnNotificationDismiss,
+        )
         if (foregroundStarted.isFailure) {
             deliveryJournal.failed(
                 prayer,
@@ -161,6 +164,23 @@ class AdhanPlaybackService : Service() {
         }
     }
 
+    private fun startForegroundNotification(
+        prayer: Prayer,
+        dismissible: Boolean,
+        stopOnDismiss: Boolean,
+    ) = runCatching {
+        NotificationChannels.create(this)
+        startForeground(
+            AdhanNotifications.ADHAN_NOTIFICATION_ID,
+            AdhanNotifications.adhanNotification(
+                context = this,
+                prayer = prayer,
+                dismissible = dismissible,
+                stopOnDismiss = stopOnDismiss,
+            ),
+        )
+    }
+
     override fun onDestroy() {
         wakeLock?.let { runCatching { if (it.isHeld) it.release() } }
         wakeLock = null
@@ -177,6 +197,8 @@ class AdhanPlaybackService : Service() {
         private const val EXTRA_SOUND_PATH = "extra_sound_path"
         private const val EXTRA_BUNDLED_SOUND = "extra_bundled_sound"
         private const val EXTRA_IS_PROBE = "extra_is_probe"
+        private const val EXTRA_NOTIFICATION_DISMISSIBLE = "extra_notification_dismissible"
+        private const val EXTRA_STOP_ON_NOTIFICATION_DISMISS = "extra_stop_on_notification_dismiss"
         private const val AUDIO_START_TIMEOUT_MS = 12_000L
         private const val MAX_PLAYBACK_MS = 5 * 60 * 1000L
         private const val VIBRATION_DURATION_MS = 2_800L
@@ -190,6 +212,8 @@ class AdhanPlaybackService : Service() {
             soundPath: String? = null,
             bundledSoundId: String = BundledAdhanSound.DEFAULT_ID,
             isProbe: Boolean = false,
+            notificationDismissible: Boolean = false,
+            stopOnNotificationDismiss: Boolean = false,
         ) {
             val intent = Intent(context, AdhanPlaybackService::class.java)
                 .putExtra(EXTRA_PRAYER, prayer.name)
@@ -199,6 +223,8 @@ class AdhanPlaybackService : Service() {
                 .putExtra(EXTRA_SOUND_PATH, soundPath)
                 .putExtra(EXTRA_BUNDLED_SOUND, bundledSoundId)
                 .putExtra(EXTRA_IS_PROBE, isProbe)
+                .putExtra(EXTRA_NOTIFICATION_DISMISSIBLE, notificationDismissible)
+                .putExtra(EXTRA_STOP_ON_NOTIFICATION_DISMISS, stopOnNotificationDismiss)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 context.startForegroundService(intent)
             } else {

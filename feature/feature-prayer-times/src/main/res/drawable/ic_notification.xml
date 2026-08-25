@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- White crescent matching the launcher icon's mark (monochrome). -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
+    <!-- Monochrome arch, crescent and eight-point star for Android status bars. -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M4,20L4,12C4,7.6 7.6,4 12,4C16.4,4 20,7.6 20,12L20,20L18,20L18,12C18,8.7 15.3,6 12,6C8.7,6 6,8.7 6,12L6,20Z" />
     <path
         android:fillColor="#FFFFFFFF"
         android:fillType="evenOdd"
-        android:pathData="M12,4.5 a8.5,8.5 0 1,0 0,17 a8.5,8.5 0 1,0 0,-17 z M16.5,6.5 a6.5,6.5 0 1,0 0,13 a6.5,6.5 0 1,0 0,-13 z" />
+        android:pathData="M11.5,9A5,5 0,1 0,11.5 19A5,5 0,1 0,11.5 9zM14.1,10.2A3.6,3.6 0,1 0,14.1 17.4A3.6,3.6 0,1 0,14.1 10.2z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M16.8,8.2L17.3,9.5L18.6,10L17.3,10.5L16.8,11.8L16.3,10.5L15,10L16.3,9.5Z" />
 </vector>

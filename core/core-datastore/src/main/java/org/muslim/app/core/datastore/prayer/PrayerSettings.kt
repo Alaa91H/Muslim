@@ -61,7 +61,11 @@ data class PrayerSettings(
      */
     val vibratePerPrayer: Map<Prayer, Boolean> = emptyMap(),
     /** Minutes before the prayer to remind; 0 disables the reminder. */
-    val reminderMinutes: Int = 10,
+    val reminderMinutes: Int = 15,
+    /** Whether the active Adhan notification may be dismissed with a swipe. */
+    val adhanNotificationDismissible: Boolean = false,
+    /** Stops active Adhan audio after the user dismisses its notification. */
+    val stopAdhanOnNotificationDismiss: Boolean = false,
     /**
      * Silence notifications during the prayer (Do Not Disturb) after the
      * adhan, for [dndDurationMinutes] minutes.

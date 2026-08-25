@@ -185,4 +185,9 @@
     <string name="settings_adhan_global_volume">ಜಾಗತಿಕ ಅಧಾನ್ ಪರಿಮಾಣ</string>
     <string name="settings_adhan_global_volume_desc">ಪ್ರತಿ ಪ್ರಾರ್ಥನೆಗೆ ಒಂದೇ ಹಂತವನ್ನು ಅನ್ವಯಿಸಿ ಮತ್ತು ಪ್ರತಿ ಪ್ರಾರ್ಥನೆಯ ಸ್ಲೈಡರ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="settings_adhan_follows_global">ಜಾಗತಿಕ ಪರಿಮಾಣವನ್ನು ಅನುಸರಿಸುತ್ತದೆ (%1$s)</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>
