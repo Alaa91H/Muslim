@@ -16,6 +16,7 @@ interface AdhanEntryPoint {
     fun settingsRepository(): PrayerSettingsRepository
     fun soundRepository(): AdhanSoundRepository
     fun soundPlayer(): AdhanSoundPlayer
+    fun deliveryJournal(): AdhanDeliveryJournal
     fun dndManager(): PrayerDndManager
     fun smartHomeBridgeDispatcher(): SmartHomeBridgeDispatcher
 }

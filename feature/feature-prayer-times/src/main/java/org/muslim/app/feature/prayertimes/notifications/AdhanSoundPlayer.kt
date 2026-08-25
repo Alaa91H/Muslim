@@ -92,10 +92,20 @@ class AdhanSoundPlayer @Inject constructor(
 
     /** Plays a bundled recording (shipped in `res/raw`, always offline). */
     fun playBundled(sound: BundledAdhanSound, volumePercent: Int, onFinished: () -> Unit) {
+        playBundled(sound, volumePercent, onStarted = {}, onFinished = onFinished)
+    }
+
+    /** Plays a bundled recording and confirms once Android has started output. */
+    fun playBundled(
+        sound: BundledAdhanSound,
+        volumePercent: Int,
+        onStarted: () -> Unit,
+        onFinished: () -> Unit,
+    ) {
         val resId = bundledSoundRes(sound)
         if (resId == 0) {
             // Resource missing (should never happen — ships with the app).
-            playSynthesized(volumePercent, onFinished)
+            playSynthesized(volumePercent, onStarted, onFinished)
             return
         }
         stop()
@@ -118,7 +128,7 @@ class AdhanSoundPlayer @Inject constructor(
             runCatching { player.release() }
             mediaPlayer = null
             abandonFocus()
-            playSynthesized(volumePercent, onFinished)
+            playSynthesized(volumePercent, onStarted, onFinished)
             return
         }
         player.setOnPreparedListener { p ->
@@ -127,6 +137,7 @@ class AdhanSoundPlayer @Inject constructor(
             runCatching {
                 p.setVolume(target, target)
                 p.start()
+                if (p.isPlaying) onStarted() else error("MediaPlayer did not enter playing state")
             }.onFailure {
                 if (mediaPlayer === p) {
                     runCatching { p.release() }
@@ -163,6 +174,16 @@ class AdhanSoundPlayer @Inject constructor(
 
     /** Plays [file] (user-picked or downloaded). */
     fun playFile(file: File, volumePercent: Int, onFinished: () -> Unit) {
+        playFile(file, volumePercent, onStarted = {}, onFinished = onFinished)
+    }
+
+    /** Plays a file and confirms once Android has started output. */
+    fun playFile(
+        file: File,
+        volumePercent: Int,
+        onStarted: () -> Unit,
+        onFinished: () -> Unit,
+    ) {
         stop()
         requestFocus()
         val player = MediaPlayer()
@@ -178,7 +199,7 @@ class AdhanSoundPlayer @Inject constructor(
             runCatching { player.release() }
             mediaPlayer = null
             abandonFocus()
-            playSynthesized(volumePercent, onFinished)
+            playSynthesized(volumePercent, onStarted, onFinished)
             return
         }
         player.setOnPreparedListener { p ->
@@ -187,6 +208,7 @@ class AdhanSoundPlayer @Inject constructor(
             runCatching {
                 p.setVolume(target, target)
                 p.start()
+                if (p.isPlaying) onStarted() else error("MediaPlayer did not enter playing state")
             }.onFailure {
                 if (mediaPlayer === p) {
                     runCatching { p.release() }
@@ -221,6 +243,15 @@ class AdhanSoundPlayer @Inject constructor(
 
     /** Plays the synthesised default tone. */
     fun playSynthesized(volumePercent: Int, onFinished: () -> Unit) {
+        playSynthesized(volumePercent, onStarted = {}, onFinished = onFinished)
+    }
+
+    /** Plays a synthesised tone and confirms after the AudioTrack starts. */
+    fun playSynthesized(
+        volumePercent: Int,
+        onStarted: () -> Unit,
+        onFinished: () -> Unit,
+    ) {
         stop()
         requestFocus()
         val samples = runCatching { AdhanSynthesizer.generate() }.getOrNull()
@@ -254,6 +285,12 @@ class AdhanSoundPlayer @Inject constructor(
         val target = (volumePercent / 100f).coerceIn(0f, 1f)
         track.setVolume(target)
         track.play()
+        if (track.playState == AudioTrack.PLAYSTATE_PLAYING) {
+            onStarted()
+        } else {
+            stop()
+            return
+        }
 
         // The track knows its own duration; schedule the completion callback.
         val durationMs = (samples.size.toDouble() / AdhanSynthesizer.SAMPLE_RATE * 1000).toLong()

@@ -42,7 +42,7 @@ import org.muslim.app.feature.prayertimes.notifications.AdhanPlaybackService
 import org.muslim.app.feature.prayertimes.notifications.AdhanPlaybackStatus
 import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
 import org.muslim.app.feature.prayertimes.notifications.NextAdhanService
-import org.muslim.app.feature.prayertimes.notifications.AdhanSoundPlayer
+import org.muslim.app.feature.prayertimes.notifications.AdhanPlaybackDiagnostics
 import org.muslim.app.feature.prayertimes.notifications.AdhanSoundRepository
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.NotificationChannels
@@ -63,11 +63,13 @@ data class AdhanReadiness(
     val notificationsAllowed: Boolean = false,
     val exactAlarmsAllowed: Boolean = false,
     val nextPrayerHasAudibleSound: Boolean = false,
+    val scheduledAudioVerified: Boolean = false,
     val alarmVolumeAudible: Boolean = false,
 ) {
     val isReady: Boolean
         get() = adhanEnabled && hasLocation && notificationsAllowed &&
-            exactAlarmsAllowed && nextPrayerHasAudibleSound && alarmVolumeAudible
+            exactAlarmsAllowed && nextPrayerHasAudibleSound &&
+            scheduledAudioVerified && alarmVolumeAudible
 }
 
 @HiltViewModel
@@ -78,7 +80,7 @@ class PrayerSettingsViewModel @Inject constructor(
     private val soundRepository: AdhanSoundRepository,
     private val calculator: PrayerTimesCalculator,
     private val appPreferencesRepository: AppPreferencesRepository,
-    private val soundPlayer: AdhanSoundPlayer,
+    private val playbackDiagnostics: AdhanPlaybackDiagnostics,
 ) : ViewModel() {
 
     val settings: StateFlow<PrayerSettings> =
@@ -175,9 +177,35 @@ class PrayerSettingsViewModel @Inject constructor(
         }
     }
 
-    /** Re-runs the complete local readiness check after an explicit user tap. */
+    /**
+     * Runs a strict background-delivery probe. It is intentionally an exact
+     * alarm through the same receiver and foreground-service path as a real
+     * prayer time; a direct preview is not accepted as verification.
+     */
     fun verifyAdhanReadiness() {
-        viewModelScope.launch { refreshAdhanReadiness(repository.settings.first()) }
+        viewModelScope.launch {
+            val current = repository.settings.first()
+            val targetPrayer = computeNextPrayer(current)?.first ?: Prayer.Fajr
+            if (!scheduler.scheduleDeliveryProbe(current, targetPrayer)) {
+                refreshAdhanReadiness(current)
+                return@launch
+            }
+            // Clear any earlier verification immediately; only this newly
+            // scheduled probe may make the delivery check pass again.
+            refreshAdhanReadiness(current)
+            // The probe rings after ten seconds. Wait for a signal emitted only
+            // after MediaPlayer/AudioTrack reaches its playing state, or a
+            // terminal failure recorded by the service.
+            repeat(DELIVERY_PROBE_POLL_COUNT) {
+                delay(DELIVERY_PROBE_POLL_INTERVAL_MS)
+                val probe = playbackDiagnostics.lastProbe.value
+                if (probe.audioStarted || probe.stage == org.muslim.app.feature.prayertimes.notifications.AdhanDeliveryStage.Failed) {
+                    refreshAdhanReadiness(repository.settings.first())
+                    return@launch
+                }
+            }
+            refreshAdhanReadiness(repository.settings.first())
+        }
     }
 
     private suspend fun refreshAdhanReadiness(current: PrayerSettings) {
@@ -195,6 +223,10 @@ class PrayerSettingsViewModel @Inject constructor(
         val option = current.adhanSounds[targetPrayer] ?: AdhanSoundOption.Default
         val nextPrayerHasAudibleSound = option == AdhanSoundOption.Default &&
             current.adhanVolumeFor(targetPrayer) > 0
+        val latestProbe = playbackDiagnostics.lastProbe.value
+        val scheduledAudioVerified = latestProbe.audioStarted &&
+            latestProbe.prayer == targetPrayer &&
+            System.currentTimeMillis() - latestProbe.atMillis <= DELIVERY_PROBE_MAX_AGE_MS
         val alarmVolumeAudible = context.getSystemService(AudioManager::class.java)
             .getStreamVolume(AudioManager.STREAM_ALARM) > 0
         _adhanReadiness.value = AdhanReadiness(
@@ -203,6 +235,7 @@ class PrayerSettingsViewModel @Inject constructor(
             notificationsAllowed = notificationsAllowed,
             exactAlarmsAllowed = exactAlarmsAllowed,
             nextPrayerHasAudibleSound = nextPrayerHasAudibleSound,
+            scheduledAudioVerified = scheduledAudioVerified,
             alarmVolumeAudible = alarmVolumeAudible,
         )
     }
@@ -283,7 +316,7 @@ class PrayerSettingsViewModel @Inject constructor(
 
     /** Live-adjusts the volume of the currently playing preview (0..100). */
     fun setLivePreviewVolume(volume: Int) {
-        soundPlayer.setVolume(volume)
+        playbackDiagnostics.setPreviewVolume(volume)
     }
 
     fun setReminderMinutes(minutes: Int) = update { it.copy(reminderMinutes = minutes) }
@@ -384,5 +417,11 @@ class PrayerSettingsViewModel @Inject constructor(
             // The home-screen widget must reflect the new settings too.
             PrayerTimesWidget().updateAll(context)
         }
+    }
+
+    private companion object {
+        const val DELIVERY_PROBE_POLL_INTERVAL_MS = 500L
+        const val DELIVERY_PROBE_POLL_COUNT = 32
+        const val DELIVERY_PROBE_MAX_AGE_MS = 15 * 60 * 1000L
     }
 }

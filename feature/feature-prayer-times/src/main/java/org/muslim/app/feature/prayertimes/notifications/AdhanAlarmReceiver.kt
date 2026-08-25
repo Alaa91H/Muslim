@@ -24,6 +24,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val prayerName = intent.getStringExtra(EXTRA_PRAYER) ?: return
         val isReminder = intent.getBooleanExtra(EXTRA_IS_REMINDER, false)
+        val isProbe = intent.getBooleanExtra(EXTRA_IS_PROBE, false)
         val appContext = context.applicationContext
         val entryPoint = EntryPointAccessors.fromApplication(appContext, AdhanEntryPoint::class.java)
 
@@ -33,7 +34,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         val pendingResult = goAsync()
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                handle(appContext, entryPoint, prayer, isReminder, intent)
+                handle(appContext, entryPoint, prayer, isReminder, isProbe, intent)
             } finally {
                 pendingResult.finish()
             }
@@ -45,9 +46,12 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         entryPoint: AdhanEntryPoint,
         prayer: Prayer,
         isReminder: Boolean,
+        isProbe: Boolean,
         intent: Intent,
     ) {
         val settings = entryPoint.settingsRepository().settings.first()
+        val deliveryJournal = entryPoint.deliveryJournal()
+        deliveryJournal.receiverReached(prayer, isProbe)
         if (isReminder) {
             if (settings.reminderMinutes > 0 &&
                 appContext.notificationAllowed(NotificationCategory.PrayerReminder)
@@ -67,7 +71,8 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 // background); Android 12+ may block starting it from an
                 // alarm, so fall back to in-process playback — the adhan
                 // must never be missed.
-                val started = runCatching {
+                deliveryJournal.serviceStartRequested(prayer, isProbe)
+                val serviceStart = runCatching {
                     AdhanPlaybackService.start(
                         context = appContext,
                         prayer = prayer,
@@ -76,9 +81,17 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                         volumePercent = volume,
                         soundPath = soundPath,
                         bundledSoundId = bundledSoundId,
+                        isProbe = isProbe,
                     )
-                }.isSuccess
-                if (!started) {
+                }
+                serviceStart.exceptionOrNull()?.let { error ->
+                    deliveryJournal.failed(
+                        prayer,
+                        isProbe,
+                        "Foreground service start failed: ${error.javaClass.simpleName}",
+                    )
+                }
+                if (serviceStart.isFailure) {
                     val plan = org.muslim.app.core.common.prayer.AdhanPlaybackPlan.plan(
                         option = option,
                         hasBundledSound = true,
@@ -88,11 +101,18 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                     when {
                         plan.playSound && soundPath != null &&
                             java.io.File(soundPath).exists() ->
-                            player.playFile(java.io.File(soundPath), volume) {}
+                            player.playFile(
+                                java.io.File(soundPath),
+                                volume,
+                                onStarted = { deliveryJournal.audioStarted(prayer, isProbe) },
+                                onFinished = {},
+                            )
                         plan.playSound -> player.playBundled(
                             org.muslim.app.core.common.prayer.BundledAdhanSound.fromId(bundledSoundId),
                             volume,
-                        ) {}
+                            onStarted = { deliveryJournal.audioStarted(prayer, isProbe) },
+                            onFinished = {},
+                        )
                     }
                 }
                 // Supplementary automation is intentionally restricted to an
@@ -118,6 +138,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         const val EXTRA_IS_REMINDER = "extra_is_reminder"
         const val EXTRA_SOUND_OPTION = "extra_sound_option"
         const val EXTRA_VOLUME = "extra_volume"
+        const val EXTRA_IS_PROBE = "extra_is_probe"
 
         /** Builds the intent used by [AdhanScheduler] for a given prayer. */
         fun intentFor(context: Context, prayer: Prayer, isReminder: Boolean): Intent =

@@ -44,6 +44,9 @@ class AdhanPlaybackService : Service() {
     @Inject
     lateinit var soundPlayer: AdhanSoundPlayer
 
+    @Inject
+    lateinit var deliveryJournal: AdhanDeliveryJournal
+
     private var wakeLock: PowerManager.WakeLock? = null
 
     override fun onBind(intent: Intent?): IBinder? = null
@@ -59,6 +62,7 @@ class AdhanPlaybackService : Service() {
         val volumePercent = intent?.getIntExtra(EXTRA_VOLUME, 100)?.coerceIn(0, 100) ?: 100
         val soundPath = intent?.getStringExtra(EXTRA_SOUND_PATH)
         val bundled = BundledAdhanSound.fromId(intent?.getStringExtra(EXTRA_BUNDLED_SOUND))
+        val isProbe = intent?.getBooleanExtra(EXTRA_IS_PROBE, false) ?: false
 
         // A bundled real recording always ships with the app, so "Default"
         // plays offline with no download.
@@ -68,22 +72,46 @@ class AdhanPlaybackService : Service() {
             vibrationEnabled = vibrateEnabled,
         )
         if (!plan.playSound && !plan.vibrate) {
-            // Silent mode — nothing to deliver (reminders still fire).
+            deliveryJournal.failed(prayer, isProbe, "Adhan is configured as silent")
             stopSelf()
             return START_NOT_STICKY
         }
 
-        NotificationChannels.create(this)
-        startForeground(AdhanNotifications.ADHAN_NOTIFICATION_ID, AdhanNotifications.adhanNotification(this, prayer))
+        val foregroundStarted = runCatching {
+            NotificationChannels.create(this)
+            startForeground(AdhanNotifications.ADHAN_NOTIFICATION_ID, AdhanNotifications.adhanNotification(this, prayer))
+        }
+        if (foregroundStarted.isFailure) {
+            deliveryJournal.failed(
+                prayer,
+                isProbe,
+                "Foreground notification failed: ${foregroundStarted.exceptionOrNull()?.javaClass?.simpleName}",
+            )
+            stopSelf()
+            return START_NOT_STICKY
+        }
+        deliveryJournal.serviceStarted(prayer, isProbe)
         AdhanPlaybackStatus.isPlaying.value = true
         acquireWakeLock()
 
         val onFinished = { stopSelf() }
+        val onAudioStarted = { deliveryJournal.audioStarted(prayer, isProbe) }
         when {
             plan.playSound && soundPath != null && File(soundPath).exists() ->
-                soundPlayer.playFile(File(soundPath), volumePercent, onFinished)
-            plan.playSound -> soundPlayer.playBundled(bundled, volumePercent, onFinished)
+                soundPlayer.playFile(
+                    File(soundPath),
+                    volumePercent,
+                    onStarted = onAudioStarted,
+                    onFinished = onFinished,
+                )
+            plan.playSound -> soundPlayer.playBundled(
+                bundled,
+                volumePercent,
+                onStarted = onAudioStarted,
+                onFinished = onFinished,
+            )
             plan.vibrate -> {
+                if (isProbe) deliveryJournal.failed(prayer, true, "Adhan is configured for vibration only")
                 vibrate()
                 // Vibration has no completion callback. Finish immediately
                 // after its pattern instead of keeping a foreground service
@@ -94,8 +122,15 @@ class AdhanPlaybackService : Service() {
         }
 
         // Safety net: never let the service run indefinitely.
-        android.os.Handler(android.os.Looper.getMainLooper())
-            .postDelayed({ stopSelf() }, MAX_PLAYBACK_MS)
+        val mainHandler = android.os.Handler(android.os.Looper.getMainLooper())
+        if (isProbe && plan.playSound) {
+            mainHandler.postDelayed({
+                if (!deliveryJournal.lastProbe.value.audioStarted) {
+                    deliveryJournal.failed(prayer, true, "Audio start was not confirmed")
+                }
+            }, AUDIO_START_TIMEOUT_MS)
+        }
+        mainHandler.postDelayed({ stopSelf() }, MAX_PLAYBACK_MS)
         return START_NOT_STICKY
     }
 
@@ -141,6 +176,8 @@ class AdhanPlaybackService : Service() {
         private const val EXTRA_VOLUME = "extra_volume"
         private const val EXTRA_SOUND_PATH = "extra_sound_path"
         private const val EXTRA_BUNDLED_SOUND = "extra_bundled_sound"
+        private const val EXTRA_IS_PROBE = "extra_is_probe"
+        private const val AUDIO_START_TIMEOUT_MS = 12_000L
         private const val MAX_PLAYBACK_MS = 5 * 60 * 1000L
         private const val VIBRATION_DURATION_MS = 2_800L
 
@@ -152,6 +189,7 @@ class AdhanPlaybackService : Service() {
             volumePercent: Int = 100,
             soundPath: String? = null,
             bundledSoundId: String = BundledAdhanSound.DEFAULT_ID,
+            isProbe: Boolean = false,
         ) {
             val intent = Intent(context, AdhanPlaybackService::class.java)
                 .putExtra(EXTRA_PRAYER, prayer.name)
@@ -160,6 +198,7 @@ class AdhanPlaybackService : Service() {
                 .putExtra(EXTRA_VOLUME, volumePercent)
                 .putExtra(EXTRA_SOUND_PATH, soundPath)
                 .putExtra(EXTRA_BUNDLED_SOUND, bundledSoundId)
+                .putExtra(EXTRA_IS_PROBE, isProbe)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 context.startForegroundService(intent)
             } else {

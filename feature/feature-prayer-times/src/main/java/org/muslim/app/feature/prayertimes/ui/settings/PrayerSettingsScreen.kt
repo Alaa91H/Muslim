@@ -468,7 +468,7 @@ private fun AdhanReadinessCard(
             AdhanReadinessItem(readiness.hasLocation, R.string.settings_adhan_check_location)
             AdhanReadinessItem(readiness.notificationsAllowed, R.string.settings_adhan_check_notifications)
             AdhanReadinessItem(readiness.exactAlarmsAllowed, R.string.settings_adhan_check_exact_alarm)
-            AdhanReadinessItem(readiness.nextPrayerHasAudibleSound, R.string.settings_adhan_check_sound)
+            AdhanReadinessItem(readiness.scheduledAudioVerified, R.string.settings_adhan_check_sound)
             AdhanReadinessItem(readiness.alarmVolumeAudible, R.string.settings_adhan_check_alarm_volume)
             Spacer(Modifier.height(12.dp))
             Button(onClick = onVerify, modifier = Modifier.fillMaxWidth()) {

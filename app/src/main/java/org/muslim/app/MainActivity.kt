@@ -126,6 +126,17 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        // Exact-alarm access is granted in a system settings screen. The first
+        // launch may have scheduled a degraded inexact alarm before the user
+        // returned from that screen, so always replace it with the correct
+        // schedule when the activity resumes.
+        lifecycleScope.launch {
+            adhanScheduler.schedule(settingsRepository.settings.first())
+        }
+    }
+
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
