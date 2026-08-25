@@ -9,6 +9,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -113,6 +114,19 @@ class AppPreferencesRepository @Inject constructor(
         }
     }
 
+    /**
+     * Returns whether the initial-install permission flow has not yet been
+     * shown. This is intentionally separate from each system grant state: a
+     * user may decline a permission and later revisit the Permission Center.
+     */
+    suspend fun isInitialPermissionSetupPending(): Boolean =
+        context.appPreferencesDataStore.data.first()[Keys.INITIAL_PERMISSION_SETUP_HANDLED] != true
+
+    /** Marks the one-time first-install permission flow as handled. */
+    suspend fun markInitialPermissionSetupHandled() {
+        edit { prefs -> prefs[Keys.INITIAL_PERMISSION_SETUP_HANDLED] = true }
+    }
+
     /** Turns the periodic update check on/off (off by default). */
     suspend fun setUpdateCheckEnabled(enabled: Boolean) {
         edit { prefs -> prefs[Keys.UPDATE_CHECK_ENABLED] = enabled }
@@ -189,5 +203,6 @@ class AppPreferencesRepository @Inject constructor(
         val UPDATE_CHECK_FREQUENCY = stringPreferencesKey("update_check_frequency")
         val AUTO_UPDATE_ENABLED = booleanPreferencesKey("auto_update_enabled")
         val LAST_UPDATE_CHECK = androidx.datastore.preferences.core.longPreferencesKey("last_update_check")
+        val INITIAL_PERMISSION_SETUP_HANDLED = booleanPreferencesKey("initial_permission_setup_handled")
     }
 }

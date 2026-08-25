@@ -84,6 +84,14 @@ class QuranReaderViewModel @Inject constructor(
     /** Global ayah number to scroll to (search/bookmarks/last-read), -1 = none. */
     val initialAyahGlobal: Int = savedStateHandle["ayah"] ?: -1
 
+    /** True only when the user tapped the play action on a surah in the list. */
+    private var autoplayWholeSurahPending: Boolean = savedStateHandle["autoplay"] ?: false
+
+    /** Consumes the one-shot request to start the selected surah from ayah one. */
+    fun consumeAutoplayWholeSurah(): Boolean = autoplayWholeSurahPending.also {
+        autoplayWholeSurahPending = false
+    }
+
     data class UiState(
         val loading: Boolean = true,
         val surah: Surah? = null,

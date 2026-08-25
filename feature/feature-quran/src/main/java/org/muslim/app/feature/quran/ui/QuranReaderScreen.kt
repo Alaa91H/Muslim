@@ -267,7 +267,9 @@ fun QuranReaderScreen(
 
     var fontSize by rememberSaveable { mutableFloatStateOf(DEFAULT_FONT_SP) }
     var repeatCount by rememberSaveable { mutableIntStateOf(1) }
-    var playRange by rememberSaveable { mutableStateOf(RecitationRange.FromAyahToEnd) }
+    // Opening a surah and pressing play should recite that surah itself. The
+    // user can still choose "from this ayah to the end" from the range menu.
+    var playRange by rememberSaveable { mutableStateOf(RecitationRange.WholeSurah) }
     var showMoreMenu by remember { mutableStateOf(false) }
     var showDetails by remember { mutableStateOf(false) }
     var showSupplementControls by remember { mutableStateOf(false) }
@@ -286,6 +288,17 @@ fun QuranReaderScreen(
     // regardless of which page is currently in view.
     var userSelectedAyah by remember { mutableStateOf<Int?>(null) }
 
+    // The explicit play action in the surah list opens this reader with a
+    // one-shot request. Wait until the ayahs are loaded, then start from ayah
+    // one of this surah; do not replay on recomposition or configuration UI.
+    LaunchedEffect(state.ayahs) {
+        if (state.ayahs.isNotEmpty() && viewModel.consumeAutoplayWholeSurah()) {
+            userSelectedAyah = null
+            playRange = RecitationRange.WholeSurah
+            viewModel.playWholeSurah(repeatCount)
+        }
+    }
+
     // Shared play/pause/resume toggle used by both the mini now-playing bar
     // and the full recitation bar.
     val togglePlayback: () -> Unit = {
@@ -293,8 +306,9 @@ fun QuranReaderScreen(
             PlaybackState.Playing -> viewModel.pausePlayback()
             PlaybackState.Paused -> viewModel.resumePlayback()
             PlaybackState.Idle -> {
-                // No explicit tap → start from the surah's first ayah, so
-                // entering a surah and pressing play always begins correctly.
+                // No explicit tap starts at the first ayah. The default range
+                // is the selected surah; the range menu can deliberately extend
+                // playback from a chosen ayah to the end of the mushaf.
                 val start = userSelectedAyah?.let { global ->
                     state.ayahs.firstOrNull { it.globalNumber == global }
                 } ?: state.ayahs.firstOrNull()
@@ -347,6 +361,10 @@ fun QuranReaderScreen(
     // is taller than the screen.
     val pagerState = rememberPagerState(pageCount = { if (isWide) spreads.size else pageEntries.size })
     val pageScrollStates = remember { mutableStateMapOf<Int, ScrollState>() }
+    // Each mushaf page reports the top of every ayah. This keeps the selected
+    // ayah and the saved reading position in step with manual up/down reading,
+    // while the existing audio follow-along remains authoritative during play.
+    val ayahPositionsByPage = remember { mutableStateMapOf<Int, List<AyahViewportPosition>>() }
 
     // Persisted font size wins after the async read arrives.
     LaunchedEffect(persistedFont) {
@@ -454,6 +472,36 @@ fun QuranReaderScreen(
             scrollTargetAyah = null
             openedTargetGlobal = null
         }
+    }
+
+    // Manual vertical reading: update the active ayah to the first ayah at the
+    // reader's top edge. This deliberately does not set scrollTargetAyah, so a
+    // user can scroll in either direction without being pulled back unless an
+    // actual recitation is playing.
+    LaunchedEffect(pagerState, pageEntries, spreads, isWide, currentAudioAyah) {
+        snapshotFlow {
+            val itemIndex = pagerState.currentPage
+            // Reading this state makes the flow react to deliberate vertical
+            // scrolls as well as horizontal page changes.
+            pageScrollStates[itemIndex]?.value
+            val mushafPages = if (isWide) {
+                spreads.getOrNull(itemIndex).orEmpty().map { it.key }
+            } else {
+                listOfNotNull(pageEntries.getOrNull(itemIndex)?.key)
+            }
+            val positions = mushafPages.flatMap { ayahPositionsByPage[it].orEmpty() }
+            if (currentAudioAyah != null) null else ayahAtReaderTop(positions, viewportTopPx)
+        }
+            .filterNotNull()
+            .distinctUntilChanged()
+            .debounce(350)
+            .collect { globalNumber ->
+                val ayah = state.ayahs.firstOrNull { it.globalNumber == globalNumber } ?: return@collect
+                if (viewModel.currentAyah.value?.globalNumber != globalNumber) {
+                    viewModel.currentAyah.value = ayah
+                    viewModel.saveLastRead()
+                }
+            }
     }
 
     // Track the visible page (bookmark/play target) and persist resume + khatma.
@@ -659,6 +707,33 @@ fun QuranReaderScreen(
                     }
                 }
                 else -> {
+                    val mushafPresentation = MushafPagePresentation(
+                        surahName = state.surah?.arabicName.orEmpty(),
+                        fontSizeSp = fontSize,
+                        playingAyahGlobal = currentAudioAyah,
+                        selectedAyahGlobal = currentAyah?.globalNumber,
+                        openedAyahGlobal = openedTargetGlobal,
+                        tappedAyahGlobal = tappedAyahGlobal,
+                        scrollTargetAyahGlobal = scrollTargetAyah,
+                    )
+                    val mushafCallbacks = MushafPageCallbacks(
+                        onPageClick = { pageAyahs ->
+                            viewModel.currentAyah.value = pageAyahs.first()
+                        },
+                        onAyahClick = { ayah ->
+                            // Tapping selects an ayah and keeps it visible;
+                            // the user retains control over when to start audio.
+                            viewModel.currentAyah.value = ayah
+                            userSelectedAyah = ayah.globalNumber
+                            tappedAyahGlobal = ayah.globalNumber
+                            scrollTargetAyah = ayah.globalNumber
+                            targetAyahRootTopPx = null
+                        },
+                        onAyahRootTopPx = reportAyahTop,
+                        onAyahPositionsChanged = { page, positions ->
+                            ayahPositionsByPage[page] = positions
+                        },
+                    )
                     HorizontalPager(
                         state = pagerState,
                         modifier = Modifier
@@ -674,7 +749,7 @@ fun QuranReaderScreen(
                         // Each pager page keeps its own vertical scroll for
                         // content taller than the screen; the follow-along
                         // adjustment scrolls this state.
-                        val pageScroll = remember { ScrollState(0) }
+                        val pageScroll = remember(pageIndex) { ScrollState(0) }
                         pageScrollStates[pageIndex] = pageScroll
                         Column(
                             modifier = Modifier
@@ -687,29 +762,8 @@ fun QuranReaderScreen(
                                 if (spread != null) {
                                     MushafSpreadRow(
                                         spread = spread,
-                                        surahName = state.surah?.arabicName.orEmpty(),
-                                        fontSizeSp = fontSize,
-                                        playingAyahGlobal = currentAudioAyah,
-                                        selectedAyahGlobal = currentAyah?.globalNumber,
-                                        openedAyahGlobal = openedTargetGlobal,
-                                        tappedAyahGlobal = tappedAyahGlobal,
-                                        scrollTargetAyahGlobal = scrollTargetAyah,
-                                        onAyahRootTopPx = reportAyahTop,
-                                        onClickPage = { pageAyahs ->
-                                            viewModel.currentAyah.value = pageAyahs.first()
-                                        },
-                                        onAyahClick = { ayah ->
-                                            // Tap only selects the ayah; recitation
-                                            // starts from the play button in the
-                                            // recitation bar below. The selection
-                                            // is also scrolled into view so a
-                                            // tapped ayah never stays off-screen.
-                                            viewModel.currentAyah.value = ayah
-                                            userSelectedAyah = ayah.globalNumber
-                                            tappedAyahGlobal = ayah.globalNumber
-                                            scrollTargetAyah = ayah.globalNumber
-                                            targetAyahRootTopPx = null
-                                        },
+                                        presentation = mushafPresentation,
+                                        callbacks = mushafCallbacks,
                                     )
                                 }
                             } else {
@@ -717,27 +771,8 @@ fun QuranReaderScreen(
                                 MushafPageCard(
                                     pageNumber = pageNumber,
                                     ayahs = pageAyahs,
-                                    surahName = state.surah?.arabicName.orEmpty(),
-                                    fontSizeSp = fontSize,
-                                    playingAyahGlobal = currentAudioAyah,
-                                    selectedAyahGlobal = currentAyah?.globalNumber,
-                                    openedAyahGlobal = openedTargetGlobal,
-                                    tappedAyahGlobal = tappedAyahGlobal,
-                                    scrollTargetAyahGlobal = scrollTargetAyah,
-                                    onAyahRootTopPx = reportAyahTop,
-                                    onClick = { viewModel.currentAyah.value = pageAyahs.first() },
-                                    onAyahClick = { ayah ->
-                                        // Tap only selects the ayah; recitation
-                                        // starts from the play button in the
-                                        // recitation bar below. The selection
-                                        // is also scrolled into view so a
-                                        // tapped ayah never stays off-screen.
-                                        viewModel.currentAyah.value = ayah
-                                        userSelectedAyah = ayah.globalNumber
-                                        tappedAyahGlobal = ayah.globalNumber
-                                        scrollTargetAyah = ayah.globalNumber
-                                        targetAyahRootTopPx = null
-                                    },
+                                    presentation = mushafPresentation,
+                                    callbacks = mushafCallbacks,
                                 )
                             }
                         }
@@ -1139,6 +1174,41 @@ private fun rangeButtonLabel(range: RecitationRange): String = when (range) {
     RecitationRange.FromAyahToEnd -> stringResource(R.string.quran_range_to_end_short)
     RecitationRange.WholeSurah -> stringResource(R.string.quran_range_whole_surah_short)
 }
+
+/** One ayah's top coordinate inside the reader's root layout. */
+internal data class AyahViewportPosition(val globalNumber: Int, val topPx: Float)
+
+/** Shared visual state for one or two rendered mushaf pages. */
+private data class MushafPagePresentation(
+    val surahName: String,
+    val fontSizeSp: Float,
+    val playingAyahGlobal: Int?,
+    val selectedAyahGlobal: Int?,
+    val openedAyahGlobal: Int?,
+    val tappedAyahGlobal: Int?,
+    val scrollTargetAyahGlobal: Int?,
+)
+
+/** Events emitted by a rendered mushaf page. */
+private data class MushafPageCallbacks(
+    val onPageClick: (List<Ayah>) -> Unit,
+    val onAyahClick: (Ayah) -> Unit,
+    val onAyahRootTopPx: (Int, Float) -> Unit,
+    val onAyahPositionsChanged: (Int, List<AyahViewportPosition>) -> Unit,
+)
+
+/**
+ * Chooses the first ayah beginning at or below the reader's top edge; when the
+ * viewport ends after the final line, it keeps the last available ayah active.
+ */
+internal fun ayahAtReaderTop(
+    positions: List<AyahViewportPosition>,
+    viewportTopPx: Float,
+): Int? = positions
+    .filter { it.topPx >= viewportTopPx - 1f }
+    .minByOrNull { it.topPx }
+    ?.globalNumber
+    ?: positions.maxByOrNull { it.topPx }?.globalNumber
 /**
  * Formats milliseconds as m:ss or mm:ss (h:mm:ss from one hour up), always
  * with Western digits regardless of the device locale.
@@ -1165,16 +1235,8 @@ private fun formatTime(ms: Long): String {
 @Composable
 private fun MushafSpreadRow(
     spread: List<Map.Entry<Int, List<Ayah>>>,
-    surahName: String,
-    fontSizeSp: Float,
-    playingAyahGlobal: Int?,
-    selectedAyahGlobal: Int?,
-    openedAyahGlobal: Int?,
-    tappedAyahGlobal: Int?,
-    scrollTargetAyahGlobal: Int?,
-    onClickPage: (List<Ayah>) -> Unit,
-    onAyahClick: (Ayah) -> Unit,
-    onAyahRootTopPx: (Int, Float) -> Unit,
+    presentation: MushafPagePresentation,
+    callbacks: MushafPageCallbacks,
 ) {
     val rightPage = spread.firstOrNull { it.key % 2 == 1 }
     val leftPage = spread.firstOrNull { it.key % 2 == 0 }
@@ -1187,16 +1249,8 @@ private fun MushafSpreadRow(
                 MushafPageCard(
                     pageNumber = rightPage.key,
                     ayahs = rightPage.value,
-                    surahName = surahName,
-                    fontSizeSp = fontSizeSp,
-                    playingAyahGlobal = playingAyahGlobal,
-                    selectedAyahGlobal = selectedAyahGlobal,
-                    openedAyahGlobal = openedAyahGlobal,
-                    tappedAyahGlobal = tappedAyahGlobal,
-                    scrollTargetAyahGlobal = scrollTargetAyahGlobal,
-                    onAyahRootTopPx = onAyahRootTopPx,
-                    onClick = { onClickPage(rightPage.value) },
-                    onAyahClick = onAyahClick,
+                    presentation = presentation,
+                    callbacks = callbacks.copy(onPageClick = { callbacks.onPageClick(rightPage.value) }),
                     modifier = Modifier.weight(1f),
                 )
             } else {
@@ -1206,16 +1260,8 @@ private fun MushafSpreadRow(
                 MushafPageCard(
                     pageNumber = leftPage.key,
                     ayahs = leftPage.value,
-                    surahName = surahName,
-                    fontSizeSp = fontSizeSp,
-                    playingAyahGlobal = playingAyahGlobal,
-                    selectedAyahGlobal = selectedAyahGlobal,
-                    openedAyahGlobal = openedAyahGlobal,
-                    tappedAyahGlobal = tappedAyahGlobal,
-                    scrollTargetAyahGlobal = scrollTargetAyahGlobal,
-                    onAyahRootTopPx = onAyahRootTopPx,
-                    onClick = { onClickPage(leftPage.value) },
-                    onAyahClick = onAyahClick,
+                    presentation = presentation,
+                    callbacks = callbacks.copy(onPageClick = { callbacks.onPageClick(leftPage.value) }),
                     modifier = Modifier.weight(1f),
                 )
             } else {
@@ -1225,20 +1271,13 @@ private fun MushafSpreadRow(
     }
 }
 
+@Suppress("LongMethod")
 @Composable
 private fun MushafPageCard(
     pageNumber: Int,
     ayahs: List<Ayah>,
-    surahName: String,
-    fontSizeSp: Float,
-    playingAyahGlobal: Int?,
-    selectedAyahGlobal: Int?,
-    openedAyahGlobal: Int?,
-    tappedAyahGlobal: Int?,
-    scrollTargetAyahGlobal: Int?,
-    onClick: () -> Unit,
-    onAyahClick: (Ayah) -> Unit,
-    onAyahRootTopPx: (Int, Float) -> Unit,
+    presentation: MushafPagePresentation,
+    callbacks: MushafPageCallbacks,
     modifier: Modifier = Modifier,
 ) {
     if (ayahs.isEmpty()) return
@@ -1247,8 +1286,9 @@ private fun MushafPageCard(
     var textRootTopPx by remember { mutableFloatStateOf(0f) }
     var targetCharOffset by remember { mutableIntStateOf(-1) }
     var targetLineTopPx by remember { mutableFloatStateOf(-1f) }
+    var ayahLineTops by remember { mutableStateOf<List<AyahViewportPosition>>(emptyList()) }
     val playingHighlightAlpha by animateFloatAsState(
-        targetValue = if (playingAyahGlobal != null) 0.14f else 0f,
+        targetValue = if (presentation.playingAyahGlobal != null) 0.14f else 0f,
         animationSpec = tween(IslamicMotion.StandardMillis),
         label = "ayah_playback_highlight",
     )
@@ -1257,11 +1297,21 @@ private fun MushafPageCard(
     // this page so the screen can scroll it into view. Only pages that
     // actually contain the target ayah may report — a page whose previous
     // target moved away would otherwise keep reporting a stale offset.
-    LaunchedEffect(textRootTopPx, targetLineTopPx, scrollTargetAyahGlobal, ayahs) {
-        val target = scrollTargetAyahGlobal ?: return@LaunchedEffect
+    LaunchedEffect(textRootTopPx, targetLineTopPx, presentation.scrollTargetAyahGlobal, ayahs) {
+        val target = presentation.scrollTargetAyahGlobal ?: return@LaunchedEffect
         if (ayahs.none { it.globalNumber == target }) return@LaunchedEffect
         if (targetLineTopPx < 0f) return@LaunchedEffect
-        onAyahRootTopPx(target, textRootTopPx + targetLineTopPx)
+        callbacks.onAyahRootTopPx(target, textRootTopPx + targetLineTopPx)
+    }
+    LaunchedEffect(pageNumber, textRootTopPx, ayahLineTops) {
+        if (ayahLineTops.isNotEmpty()) {
+            callbacks.onAyahPositionsChanged(
+                pageNumber,
+                ayahLineTops.map { position ->
+                    position.copy(topPx = textRootTopPx + position.topPx)
+                },
+            )
+        }
     }
     // The Basmala embedded at the start of ayah 1 (every surah except 9) is
     // pulled out into its own line above the surah, like printed mushafs.
@@ -1269,29 +1319,31 @@ private fun MushafPageCard(
     val isSurahOpeningPage = firstAyah.numberInSurah == 1
     val firstAyahText = if (isSurahOpeningPage) stripLeadingBasmala(firstAyah.text) else firstAyah.text
     val showBasmala = isSurahOpeningPage && firstAyah.surahNumber != 1 && firstAyahText != firstAyah.text
+    val ayahCharOffsets = ArrayList<AyahViewportPosition>(ayahs.size)
     val annotated = buildAnnotatedString {
         // Reset before scanning so a page whose target moved away (or a
         // follow-along advance within this page) never reports a stale offset.
         targetCharOffset = -1
         ayahs.forEach { ayah ->
-            if (ayah.globalNumber == scrollTargetAyahGlobal) targetCharOffset = length
+            ayahCharOffsets += AyahViewportPosition(ayah.globalNumber, length.toFloat())
+            if (ayah.globalNumber == presentation.scrollTargetAyahGlobal) targetCharOffset = length
             // Visual hierarchy: the tapped ayah flashes strongest (temporary),
             // the ayah being recited glows while playing (follow-along), and the
             // currently selected ayah keeps a soft tint. All work on the light,
             // sepia and night themes.
             val highlight = when {
-                ayah.globalNumber == tappedAyahGlobal ->
+                ayah.globalNumber == presentation.tappedAyahGlobal ->
                     SpanStyle(background = scheme.primary.copy(alpha = 0.18f))
-                ayah.globalNumber == playingAyahGlobal ->
+                ayah.globalNumber == presentation.playingAyahGlobal ->
                     SpanStyle(background = scheme.primary.copy(alpha = playingHighlightAlpha))
                 // The ayah opened from search/bookmark/resume is tinted until
                 // it has been centered in the viewport.
-                ayah.globalNumber == openedAyahGlobal ->
+                ayah.globalNumber == presentation.openedAyahGlobal ->
                     SpanStyle(background = scheme.primary.copy(alpha = 0.12f))
                 // Suppress the soft selection tint while recitation is playing so
                 // a stale highlight never lingers on the originally-tapped ayah
                 // once the reciter advances to the next ayah.
-                playingAyahGlobal == null && ayah.globalNumber == selectedAyahGlobal ->
+                presentation.playingAyahGlobal == null && ayah.globalNumber == presentation.selectedAyahGlobal ->
                     SpanStyle(background = scheme.primary.copy(alpha = 0.08f))
                 else -> SpanStyle()
             }
@@ -1299,7 +1351,7 @@ private fun MushafPageCard(
             // flashes the highlight); recitation starts from the play button.
             withLink(
                 LinkAnnotation.Clickable(tag = "ayah-${ayah.globalNumber}") {
-                    onAyahClick(ayah)
+                    callbacks.onAyahClick(ayah)
                 },
             ) {
                 withStyle(highlight) {
@@ -1318,11 +1370,11 @@ private fun MushafPageCard(
                     withStyle(
                         SpanStyle(
                             color = when {
-                                ayah.globalNumber == playingAyahGlobal -> scheme.primary
-                                ayah.globalNumber == selectedAyahGlobal -> scheme.primary
+                                ayah.globalNumber == presentation.playingAyahGlobal -> scheme.primary
+                                ayah.globalNumber == presentation.selectedAyahGlobal -> scheme.primary
                                 else -> scheme.tertiary
                             },
-                            fontSize = (fontSizeSp * 0.6f).sp,
+                            fontSize = (presentation.fontSizeSp * 0.6f).sp,
                             fontWeight = FontWeight.Bold,
                             baselineShift = BaselineShift(0.35f),
                         ),
@@ -1341,7 +1393,7 @@ private fun MushafPageCard(
         border = BorderStroke(1.dp, scheme.outlineVariant),
         modifier = modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick),
+            .clickable(onClick = { callbacks.onPageClick(ayahs) }),
     ) {
         Column(modifier = Modifier.padding(horizontal = 20.dp, vertical = 18.dp)) {
             IslamicOrnamentImage(
@@ -1356,7 +1408,7 @@ private fun MushafPageCard(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    text = surahName,
+                    text = presentation.surahName,
                     style = MaterialTheme.typography.labelMedium.copy(textDirection = TextDirection.Rtl),
                     color = scheme.primary,
                     modifier = Modifier.weight(1f),
@@ -1382,8 +1434,8 @@ private fun MushafPageCard(
                 Spacer(Modifier.height(8.dp))
                 Text(
                     text = BASMALA,
-                    fontSize = (fontSizeSp * 1.1f).sp,
-                    lineHeight = (fontSizeSp * accessibilityVisuals.arabicLineHeightMultiplier).sp,
+                    fontSize = (presentation.fontSizeSp * 1.1f).sp,
+                    lineHeight = (presentation.fontSizeSp * accessibilityVisuals.arabicLineHeightMultiplier).sp,
                     textAlign = TextAlign.Center,
                     color = scheme.primary,
                     modifier = Modifier.fillMaxWidth(),
@@ -1414,8 +1466,8 @@ private fun MushafPageCard(
                     // Explicit onSurface color: the ayah text must stay readable
                     // on the night (dark) mushaf page regardless of the theme.
                     color = scheme.onSurface,
-                    fontSize = fontSizeSp.sp,
-                    lineHeight = (fontSizeSp * accessibilityVisuals.arabicLineHeightMultiplier).sp,
+                    fontSize = presentation.fontSizeSp.sp,
+                    lineHeight = (presentation.fontSizeSp * accessibilityVisuals.arabicLineHeightMultiplier).sp,
                     fontFamily = accessibilityVisuals.arabicReadingFont,
                     textAlign = TextAlign.Center,
                     // The mushaf is always right-to-left, even when the app UI
@@ -1424,6 +1476,12 @@ private fun MushafPageCard(
                 ),
                 onTextLayout = { result ->
                     layoutResult = result
+                    ayahLineTops = ayahCharOffsets.mapNotNull { (globalNumber, charOffset) ->
+                        if (result.layoutInput.text.isEmpty()) return@mapNotNull null
+                        val offset = charOffset.toInt().coerceIn(0, result.layoutInput.text.length - 1)
+                        val line = result.getLineForOffset(offset)
+                        AyahViewportPosition(globalNumber, result.getLineTop(line))
+                    }
                     if (targetCharOffset >= 0 && result.layoutInput.text.isNotEmpty()) {
                         val offset = targetCharOffset.coerceIn(0, result.layoutInput.text.length - 1)
                         val line = result.getLineForOffset(offset)

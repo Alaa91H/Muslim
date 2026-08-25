@@ -46,6 +46,7 @@ import org.muslim.app.feature.quran.domain.Surah
 @Composable
 fun SurahListScreen(
     onOpenSurah: (Int) -> Unit,
+    onPlaySurah: (Int) -> Unit,
     onOpenSearch: () -> Unit,
     onOpenBookmarks: () -> Unit,
     onOpenWordFrequency: () -> Unit,
@@ -120,7 +121,11 @@ fun SurahListScreen(
                         }
                     }
                     items(state.surahs, key = { it.number }) { surah ->
-                        SurahRow(surah, onClick = { onOpenSurah(surah.number) })
+                        SurahRow(
+                            surah = surah,
+                            onClick = { onOpenSurah(surah.number) },
+                            onPlay = { onPlaySurah(surah.number) },
+                        )
                         HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
                     }
                 }
@@ -201,7 +206,7 @@ private fun ResumeReadingCard(surahNumber: Int, ayahNumber: Int, onClick: () -> 
 }
 
 @Composable
-private fun SurahRow(surah: Surah, onClick: () -> Unit) {
+private fun SurahRow(surah: Surah, onClick: () -> Unit, onPlay: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -228,6 +233,17 @@ private fun SurahRow(surah: Surah, onClick: () -> Unit) {
                 },
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        IconButton(
+            onClick = onPlay,
+        ) {
+            Icon(
+                imageVector = Icons.Filled.PlayArrow,
+                contentDescription = stringResource(
+                    R.string.quran_range_whole_surah,
+                ),
+                tint = MaterialTheme.colorScheme.primary,
             )
         }
         Column(horizontalAlignment = Alignment.End) {

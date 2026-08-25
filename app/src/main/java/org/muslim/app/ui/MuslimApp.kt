@@ -222,6 +222,7 @@ fun MuslimApp(
                 composable("quran") {
                     SurahListScreen(
                         onOpenSurah = { number -> navController.navigate("$READER_ROUTE/$number") },
+                        onPlaySurah = { number -> navController.navigate("$READER_ROUTE/$number?autoplay=true") },
                         onOpenSearch = { navController.navigate(SEARCH_ROUTE) },
                         onOpenBookmarks = { navController.navigate(BOOKMARKS_ROUTE) },
                         onOpenWordFrequency = { navController.navigate(QURAN_FREQUENCY_ROUTE) },
@@ -250,12 +251,16 @@ fun MuslimApp(
                     )
                 }
                 composable(
-                    route = "$READER_ROUTE/{surahNumber}?ayah={ayah}",
+                    route = "$READER_ROUTE/{surahNumber}?ayah={ayah}&autoplay={autoplay}",
                     arguments = listOf(
                         navArgument("surahNumber") { type = NavType.IntType },
                         navArgument("ayah") {
                             type = NavType.IntType
                             defaultValue = -1
+                        },
+                        navArgument("autoplay") {
+                            type = NavType.BoolType
+                            defaultValue = false
                         },
                     ),
                 ) {
