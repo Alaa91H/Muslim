@@ -119,6 +119,7 @@ GitHub Actions runs debug builds, unit tests, Android Lint, Detekt, and emulator
 | [`release/release_runbook.md`](release/release_runbook.md) | Production artifact, closed-test, rollout, rollback, and secret-management workflow. |
 | [`release/operations_support.md`](release/operations_support.md) | Support triage, hotfix, and post-release operating model. |
 | [`content/README.md`](content/README.md) | Content source, licence, hash, and independent-review approval workflow. |
+| [`content/owner_rights_attestation.md`](content/owner_rights_attestation.md) | Product-owner distribution-rights attestation recorded for the current public release. |
 | [`privacy/data_inventory.md`](privacy/data_inventory.md) | Local data, permissions, endpoints, and Data safety review baseline. |
 | [`qa/p0_test_matrix.md`](qa/p0_test_matrix.md) | Required physical-device acceptance tests for critical worship paths. |
 | [`qa/accessibility_release_checklist.md`](qa/accessibility_release_checklist.md) | Accessibility release checks for TalkBack, Switch Access, and scalable RTL UI. |

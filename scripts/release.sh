@@ -19,6 +19,7 @@ set -euo pipefail
 REPO="${GITHUB_REPOSITORY:-Alaa91H/Muslim}"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
+chmod +x ./gradlew
 
 if ! command -v gh >/dev/null 2>&1; then
     echo "gh CLI not found. Install it from https://cli.github.com" >&2
@@ -100,7 +101,8 @@ aab="$(find /tmp/muslim-release -name '*.aab' | head -1)"
 printf 'Verified release artifacts:\n- APK: %s\n- AAB: %s\n' "$apk" "$aab"
 
 echo "Verifying APK signature: $apk"
-bt="$(ls -d "$LOCALAPPDATA/Android/Sdk/build-tools/"* 2>/dev/null | sort -V | tail -1 || true)"
+sdk_root="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-${LOCALAPPDATA:-}/Android/Sdk}}"
+bt="$(ls -d "$sdk_root/build-tools/"* 2>/dev/null | sort -V | tail -1 || true)"
 apksigner=""
 for cand in "$bt/apksigner.bat" "$bt/apksigner" $(command -v apksigner 2>/dev/null); do
     [ -n "$cand" ] && [ -x "$cand" ] && apksigner="$cand" && break

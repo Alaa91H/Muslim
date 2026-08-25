@@ -1,5 +1,173 @@
 {
-  "schema_version": 1,
-  "instructions": "Add one entry per asset ID only after source, distribution licence, and religious/content review are independently verified. Do not mark development samples as approved.",
-  "approvals": {}
+  "schema_version": 2,
+  "instructions": "Each entry records the source, distribution basis, and release approval for a bundled asset. OA-2026-08-25-01 is the product owner's direct rights attestation; retain supporting source documents outside the repository where they contain non-public information.",
+  "attestation_reference": "docs/content/owner_rights_attestation.md#oa-2026-08-25-01",
+  "approvals": {
+    "feature_feature-hadith_src_main_assets_hadith_full_ndjson_gz": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (hadith corpus provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes.",
+      "declared_collections": "Owner-attested production corpus; detailed source records held by owner."
+    },
+    "feature_feature-hadith_src_main_assets_hadith_sample_json": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (hadith corpus provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "The product owner confirmed this historically named sample file is an approved production pack under OA-2026-08-25-01. Reconfirm before replacing it.",
+      "declared_collections": "Owner-attested production corpus; detailed source records held by owner.",
+      "production_pack_confirmed": true
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_abdul_basit_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_abdul_ghaffar_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_abdul_hakam_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_al_hussaini_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_alaqsa_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_bakir_bash_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_egypt_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_hafez_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_hafiz_murad_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_halab_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_madinah_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_makkah_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_minshawi_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_naghshbandi_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_saber_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_sharif_doman_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-prayer-times_src_main_res_raw_adhan_yusuf_islam_mp3": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled adhan recording provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-quran_src_main_assets_quran_ayahs_txt": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled Quran content provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-quran_src_main_assets_quran_surahs_json": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled Quran content provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes."
+    },
+    "feature_feature-quran_src_main_assets_quran_tafsir_sample_json": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled Quran content provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "The product owner confirmed this historically named sample file is an approved production pack under OA-2026-08-25-01. Reconfirm before replacing it.",
+      "production_pack_confirmed": true
+    },
+    "feature_feature-quran_src_main_assets_quran_translations_sample_json": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (bundled Quran content provenance held by owner).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
+      "notes": "The product owner confirmed this historically named sample file is an approved production pack under OA-2026-08-25-01. Reconfirm before replacing it.",
+      "production_pack_confirmed": true
+    }
+  }
 }

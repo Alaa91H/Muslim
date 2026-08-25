@@ -57,11 +57,16 @@ def load_approvals() -> dict[str, dict[str, Any]]:
     return approvals
 
 
+def is_development_sample(path: Path, approval: dict[str, Any]) -> bool:
+    """Treat sample-named assets as blocked unless the owner explicitly promotes them."""
+    return "sample" in path.name.lower() and not approval.get("production_pack_confirmed")
+
+
 def production_status(path: Path, approval: dict[str, Any]) -> tuple[str, list[str]]:
     missing = [field for field in REQUIRED_APPROVAL_FIELDS if not approval.get(field)]
-    if "sample" in path.name.lower():
+    if is_development_sample(path, approval):
         return "blocked_development_sample", [
-            "Replace this development-only sample with an approved production pack.",
+            "Replace this development-only sample with an approved production pack or set production_pack_confirmed with a documented owner approval.",
             *[f"Provide {field}." for field in missing],
         ]
     if missing:
@@ -92,8 +97,10 @@ def asset_record(path: Path, approval: dict[str, Any]) -> dict[str, object]:
             "declared_collections",
             "Must be verified from the import provenance before release.",
         )
-    if "sample" in path.name.lower():
+    if is_development_sample(path, approval):
         record["development_only"] = True
+    elif "sample" in path.name.lower():
+        record["production_pack_confirmed"] = True
     return record
 
 
