@@ -18,6 +18,7 @@ enum class AdhanDeliveryStage {
     VisibleNotificationBlocked,
     ServiceStartRequested,
     ServiceStarted,
+    AudioFallbackStarted,
     AudioStarted,
     Failed,
 }
@@ -112,6 +113,16 @@ class AdhanDeliveryJournal @Inject constructor(
             prayer = prayer,
             isProbe = isProbe,
             atMillis = System.currentTimeMillis(),
+        ),
+    )
+
+    fun audioFallbackStarted(prayer: Prayer, isProbe: Boolean, detail: String) = record(
+        AdhanDeliveryStatus(
+            stage = AdhanDeliveryStage.AudioFallbackStarted,
+            prayer = prayer,
+            isProbe = isProbe,
+            atMillis = System.currentTimeMillis(),
+            detail = detail.take(MAX_DETAIL_LENGTH),
         ),
     )
 

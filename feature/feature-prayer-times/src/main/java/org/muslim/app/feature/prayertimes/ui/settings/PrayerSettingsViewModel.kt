@@ -444,7 +444,10 @@ class PrayerSettingsViewModel @Inject constructor(
 
     private companion object {
         const val DELIVERY_PROBE_POLL_INTERVAL_MS = 500L
-        const val DELIVERY_PROBE_POLL_COUNT = 32
+        // 10 seconds until AlarmManager delivers the probe, up to 12 seconds
+        // for MediaPlayer startup, then a short AudioTrack fallback window.
+        // Keep the UI observing long enough to report the final real stage.
+        const val DELIVERY_PROBE_POLL_COUNT = 64
         const val DELIVERY_PROBE_MAX_AGE_MS = 15 * 60 * 1000L
     }
 }

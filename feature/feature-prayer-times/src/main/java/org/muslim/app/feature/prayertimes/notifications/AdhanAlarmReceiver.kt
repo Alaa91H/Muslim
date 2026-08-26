@@ -8,7 +8,6 @@ import androidx.glance.appwidget.updateAll
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.muslim.app.core.common.prayer.AdhanSoundOption
@@ -160,7 +159,6 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
             vibrationEnabled = request.vibrate,
         )
         val journal = entryPoint.deliveryJournal()
-        val deliveryRequestedAt = System.currentTimeMillis()
         journal.serviceStartRequested(request.prayer, request.isProbe)
         val serviceStart = runCatching {
             AdhanPlaybackService.start(
@@ -185,21 +183,11 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
             playDirectFallback(appContext, entryPoint, request, plan)
             return
         }
-        if (!plan.playSound) return
-        delay(SERVICE_AUDIO_CONFIRM_TIMEOUT_MS)
-        val status = journal.lastDelivery.value
-        val serviceConfirmedAudio = status.stage == AdhanDeliveryStage.AudioStarted &&
-            status.prayer == request.prayer && status.isProbe == request.isProbe && status.atMillis >= deliveryRequestedAt
-        if (!serviceConfirmedAudio) {
-            // The foreground service and fallback share the singleton player.
-            // Stopping the service here races with `playDirectFallback`: service
-            // teardown calls soundPlayer.stop() and can silence the just-started
-            // fallback. Starting the fallback safely replaces any pending player
-            // instance; the service retains its bounded safety timeout and will
-            // clean up after playback has completed.
-            journal.failed(request.prayer, request.isProbe, "Service audio was not confirmed; direct fallback started")
-            playDirectFallback(appContext, entryPoint, request, plan)
-        }
+        // Do not wait for MediaPlayer from a BroadcastReceiver. Android gives
+        // receivers only a short execution window, and the earlier four-second
+        // fallback interrupted a still-preparing foreground-service player.
+        // The service owns delayed audio confirmation and a synthesised fallback
+        // while it holds the wake lock and foreground lifetime.
     }
 
     private fun playDirectFallback(
@@ -238,7 +226,6 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
     }
 
     companion object {
-        private const val SERVICE_AUDIO_CONFIRM_TIMEOUT_MS = 4_000L
         private const val DIRECT_FALLBACK_WAKELOCK_TIMEOUT_MS = 4 * 60_000L
         private const val WAKE_LOCK_TAG = "Muslim:Adhan"
         const val EXTRA_PRAYER = "extra_prayer"

@@ -140,7 +140,7 @@ jobs:
           api-level: 34
           arch: x86_64
           disable-animations: true
-          script: ./gradlew :feature:feature-prayer-times:connectedDebugAndroidTest
+          script: ./gradlew :app:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest
 
       # Instrumentation failures are the hardest to reproduce locally, so the
       # device test report is always kept when this job fails.

@@ -17,7 +17,7 @@ import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 
 /** Builders and verified posting for the prayer notifications (Adhan + reminder). */
-internal object AdhanNotifications {
+object AdhanNotifications {
 
     const val ADHAN_NOTIFICATION_ID = 1001
     const val REMINDER_NOTIFICATION_ID = 1002

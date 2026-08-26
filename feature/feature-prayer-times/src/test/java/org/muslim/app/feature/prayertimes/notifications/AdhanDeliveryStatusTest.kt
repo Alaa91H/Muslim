@@ -15,12 +15,28 @@ class AdhanDeliveryStatusTest {
         )
         val receiverReached = scheduled.copy(stage = AdhanDeliveryStage.ReceiverReached)
         val serviceStarted = scheduled.copy(stage = AdhanDeliveryStage.ServiceStarted)
+        val fallbackStarted = scheduled.copy(stage = AdhanDeliveryStage.AudioFallbackStarted)
         val audioStarted = scheduled.copy(stage = AdhanDeliveryStage.AudioStarted)
 
         assertThat(scheduled.audioStarted).isFalse()
         assertThat(receiverReached.audioStarted).isFalse()
         assertThat(serviceStarted.audioStarted).isFalse()
+        assertThat(fallbackStarted.audioStarted).isFalse()
         assertThat(audioStarted.audioStarted).isTrue()
+    }
+
+    @Test
+    fun `audio fallback is an in-progress recovery rather than a terminal failure`() {
+        val fallback = AdhanDeliveryStatus(
+            stage = AdhanDeliveryStage.AudioFallbackStarted,
+            prayer = Prayer.Fajr,
+            isProbe = true,
+            detail = "Bundled audio start timed out; synthetic fallback started",
+        )
+
+        assertThat(fallback.audioStarted).isFalse()
+        assertThat(fallback.stage).isNotEqualTo(AdhanDeliveryStage.Failed)
+        assertThat(fallback.detail).contains("synthetic fallback")
     }
 
     @Test

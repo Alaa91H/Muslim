@@ -3,11 +3,9 @@ package org.muslim.app.feature.prayertimes.notifications
 import android.Manifest
 import android.app.AlarmManager
 import android.app.NotificationManager
-import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.SystemClock
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import dagger.hilt.android.EntryPointAccessors
@@ -22,18 +20,20 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.datastore.prayer.PrayerSettings
+import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.SelectedLocation
 import org.muslim.app.core.notifications.NotificationChannels
 
 /**
  * End-to-end device regression for the exact AlarmManager probe used by
- * "Verify Adhan". It exercises scheduling, the manifest receiver, Android
- * notification posting, foreground playback startup, and journal evidence.
+ * Verify Adhan. It runs in the actual Muslim application, exercising Hilt,
+ * scheduling, the manifest receiver, the foreground playback service, and the
+ * persisted delivery journal.
  */
 @RunWith(AndroidJUnit4::class)
 class AdhanDeliveryProbeInstrumentedTest {
 
-    private val context get() = ApplicationProvider.getApplicationContext<Context>()
+    private val context get() = InstrumentationRegistry.getInstrumentation().targetContext
     private val entryPoint get() = EntryPointAccessors.fromApplication(context, AdhanEntryPoint::class.java)
     private val notificationManager get() = context.getSystemService(NotificationManager::class.java)
 
@@ -80,12 +80,16 @@ class AdhanDeliveryProbeInstrumentedTest {
             Build.VERSION.SDK_INT < Build.VERSION_CODES.S || alarmManager.canScheduleExactAlarms(),
         )
 
-        assertTrue(entryPoint.scheduler().scheduleDeliveryProbe(entryPoint.settingsRepository().settingsValue(), Prayer.Fajr))
+        val settings = runBlocking { entryPoint.settingsRepository().settings.first() }
+        assertTrue(entryPoint.scheduler().scheduleDeliveryProbe(settings, Prayer.Fajr))
 
         val result = waitForProbeTerminalState()
         assertNotNull(result)
         assertEquals(Prayer.Fajr, result!!.prayer)
-        assertTrue("Active Adhan notification was not retained: ${result.detail}", result.visibleNotificationResult == AdhanVisibleNotificationResult.Posted)
+        assertTrue(
+            "Active Adhan notification was not retained: ${result.detail}",
+            result.visibleNotificationResult == AdhanVisibleNotificationResult.Posted,
+        )
         assertTrue("Adhan audio did not report start: ${result.detail}", result.audioStarted)
         assertTrue(
             notificationManager.activeNotifications.any { statusBarNotification ->
@@ -105,11 +109,8 @@ class AdhanDeliveryProbeInstrumentedTest {
         return null
     }
 
-    private fun org.muslim.app.core.datastore.prayer.PrayerSettingsRepository.settingsValue(): PrayerSettings =
-        runBlocking { settings.first() }
-
     private companion object {
-        const val PROBE_TIMEOUT_MS = 25_000L
+        const val PROBE_TIMEOUT_MS = 35_000L
         const val POLL_INTERVAL_MS = 200L
     }
 }

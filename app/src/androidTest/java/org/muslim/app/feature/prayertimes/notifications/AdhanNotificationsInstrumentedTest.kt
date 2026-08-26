@@ -2,12 +2,11 @@ package org.muslim.app.feature.prayertimes.notifications
 
 import android.app.NotificationManager
 import android.os.Build
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import org.junit.After
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
-import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -15,16 +14,14 @@ import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.notifications.NotificationChannels
 
 /**
- * Device-level regression for the active Adhan alert.
- *
- * A non-throwing call to NotificationManager.notify() is not sufficient proof
- * of delivery. This verifies the same active-notification acknowledgement used
- * by the receiver on an Android emulator with POST_NOTIFICATIONS granted.
+ * Device-level regression for the active Adhan alert inside the real Muslim
+ * APK. A non-throwing notify call is not proof of delivery: the notification
+ * must be retained by Android on the current Adhan channel.
  */
 @RunWith(AndroidJUnit4::class)
 class AdhanNotificationsInstrumentedTest {
 
-    private val context get() = ApplicationProvider.getApplicationContext<android.content.Context>()
+    private val context get() = InstrumentationRegistry.getInstrumentation().targetContext
     private val notificationManager get() = context.getSystemService(NotificationManager::class.java)
 
     @Before
@@ -46,7 +43,7 @@ class AdhanNotificationsInstrumentedTest {
     fun showAdhan_confirmsTheActiveAdhanNotificationAndChannel() {
         val result = AdhanNotifications.showAdhan(context, Prayer.Fajr)
 
-        assertTrue(result.posted)
+        assertTrue("Adhan notification was blocked: ${result.detail}", result.posted)
         assertNull(result.detail)
         assertTrue(
             notificationManager.activeNotifications.any { statusBarNotification ->

@@ -65,3 +65,32 @@ The repair will therefore:
 - Android Developers, **Foreground service types**: https://developer.android.com/develop/background-work/services/fgs/service-types
   - Android 14+ requires an appropriate foreground-service type and type-specific permission. The published APK declares `mediaPlayback`, `FOREGROUND_SERVICE`, and `FOREGROUND_SERVICE_MEDIA_PLAYBACK`; media playback has no additional runtime prerequisite.
   - Android 15+ prohibits launching a media-playback foreground service from `BOOT_COMPLETED`; the app's normal prayer alarm receiver is not a boot receiver.
+
+## On-device evidence reported after v1.24.11
+
+The user supplied a new Verify Adhan screen (not reopened as a file). Its visible states establish the following facts for the tested device:
+
+| Verification checkpoint | Displayed state |
+| --- | --- |
+| Adhan enabled | Complete |
+| Location configured | Complete |
+| Notification permission / channel | Complete |
+| Exact alarms access | Complete |
+| Active Adhan alert posted | Needs attention |
+| Next-prayer sound audible | Needs attention |
+| Device alarm stream volume | Complete |
+| Detail | `Audio start was not confirmed` |
+| Saved app volume shown | 17% |
+
+This is direct on-device evidence that the test reached the notification and exact-alarm prerequisites but did not receive the journal checkpoint emitted after MediaPlayer/AudioTrack reports playback. It narrows the active defect to the playback service/player startup or its timing/diagnostic handshake. The saved 17% app volume is a user choice and must remain unchanged.
+
+## Confirmed audio-start diagnosis and repair (post user evidence)
+
+The user-visible detail `Audio start was not confirmed` is emitted only after a scheduled delivery reaches the foreground playback path without the `AdhanSoundPlayer` callback that is invoked after `MediaPlayer.isPlaying` or `AudioTrack.PLAYSTATE_PLAYING`.
+
+The previous implementation contained two timing defects:
+
+1. `AdhanAlarmReceiver` waited briefly and then started a direct fallback through the same singleton `AdhanSoundPlayer` while the foreground service could still be preparing its bundled recording. The competing `stop()` calls and shared player ownership could prevent either path from reaching the audio-start journal checkpoint.
+2. The settings verification poll could finish before the service-owned MediaPlayer timeout and fallback window completed. It therefore displayed an audio failure while a late recovery was still possible.
+
+The repair removes the receiver-owned timed fallback. The foreground service now owns the entire audio lifetime under its wake lock, uses a synthesised offline AudioTrack fallback after a bundled/custom MediaPlayer startup timeout, records `AudioFallbackStarted` as an in-progress stage, and records failure only when AudioTrack also does not enter playing state. The Verify Adhan observation window is extended to include the exact-alarm delay, MediaPlayer timeout, and fallback window. No user sound option or volume—including the reported 17% value—is mutated.
