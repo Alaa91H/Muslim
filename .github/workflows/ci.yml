@@ -246,7 +246,10 @@ jobs:
     name: Release artifacts (APK + AAB)
     needs: [quality, emulator-tests]
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))
+    if: >-
+      (github.event_name == 'push' &&
+        (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))) ||
+      (github.event_name == 'workflow_dispatch' && startsWith(github.ref, 'refs/tags/v'))
     steps:
       - name: Checkout
         uses: actions/checkout@v5
