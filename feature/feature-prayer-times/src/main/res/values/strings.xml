@@ -182,7 +182,7 @@
     <string name="next_adhan_notification_title">الأذان التالي: %1$s — %2$s</string>
     <string name="next_adhan_remaining">الوقت المتبقي: %1$s</string>
     <string name="next_adhan_missed">الأذان الفائت: %1$s — %2$s</string>
-    <string name="next_adhan_elapsed">مضى على الأذان: %1$s</string>
+    <string name="next_adhan_elapsed">مضى عليه: %1$s</string>
     <string name="next_adhan_no_location">حدِّد موقعك لعرض مواقيت الصلاة</string>
 
     <string name="bundled_adhan_madinah">أذان المدينة</string>

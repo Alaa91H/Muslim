@@ -172,7 +172,7 @@
     <string name="next_adhan_notification_title">Next Adhan: %1$s — %2$s</string>
     <string name="next_adhan_remaining">Time remaining: %1$s</string>
     <string name="next_adhan_missed">Missed Adhan: %1$s — %2$s</string>
-    <string name="next_adhan_elapsed">Since Adhan: %1$s</string>
+    <string name="next_adhan_elapsed">Elapsed: %1$s</string>
     <string name="next_adhan_no_location">Set your location to see prayer times</string>
 
     <string name="bundled_adhan_madinah">Madinah adhan</string>

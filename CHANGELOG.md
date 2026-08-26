@@ -3,6 +3,27 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.15
+
+This release installs directly over v1.24.14 or earlier releases with the same package name (`org.muslim.app`) and stable signing identity. No uninstall, data reset, or change to Adhan sound settings is required.
+
+## Unified Visual Identity
+
+- Replaced the launcher foreground, adaptive monochrome layer, round launcher entry point, active-Adhan large image, and every small notification entry point with the newly supplied teal-and-gold Islamic identity.
+- Removed the retired launcher and notification identity resource files rather than leaving them packaged alongside the replacement. The Android manifest now points only to the new adaptive launcher resources.
+- Kept notification small icons intentionally monochrome, as required by Android status bars. The new crescent, arch, and orbit glyph is a fresh single-color representation of the supplied identity; the supplied full-color artwork is reserved for the launcher and expanded active-Adhan alert.
+
+## Two-Line Next-Adhan Card
+
+- Rebuilt the permanent, silent next-Adhan countdown so its collapsed form contains exactly one line: the next Adhan name, its wall-clock time, and the remaining duration. The remaining-duration segment is styled with the user-selected emphasis color (red by default).
+- Moved the missed-Adhan information to the expanded surface only. Its one additional line contains the missed Adhan name, its wall-clock time, and the elapsed duration, with the elapsed segment styled using the same emphasis color.
+- Kept the countdown card free of a large image and retained the explicit cancellation of the retired `1003` card before the current `1004` card is posted. This prevents an older saved card from visually coexisting with the new countdown.
+
+## Verification
+
+- Added an application-level Android test that verifies the compact line excludes missed-Adhan information, the expanded line contains it without extra lines, both duration segments carry the red foreground span, and the silent countdown has no large icon.
+- Retained the device test that posts and then cancels the retired countdown identity. Local APK assembly, prayer-times unit tests, and application Android-test compilation passed before CI gating.
+
 ## Muslim v1.24.14
 
 Updates install directly over v1.24.13 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.

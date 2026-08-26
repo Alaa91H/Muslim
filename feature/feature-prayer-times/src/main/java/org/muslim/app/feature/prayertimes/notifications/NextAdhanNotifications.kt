@@ -1,30 +1,27 @@
 package org.muslim.app.feature.prayertimes.notifications
 
 import android.app.Notification
-import androidx.core.net.toUri
-import android.content.Intent
 import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import androidx.core.app.NotificationCompat
+import androidx.core.net.toUri
+import org.muslim.app.core.common.time.TimeFormats
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.feature.prayertimes.domain.PrayerCountdownData
 import org.muslim.app.feature.prayertimes.domain.formatCountdown
-import org.muslim.app.core.common.time.TimeFormats
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 
 /**
- * Builders for the permanent "next adhan" countdown notification
- * ([NotificationCategory.PrayerCountdown]): the upcoming prayer with its
- * time and the live countdown, plus — in the user-chosen color (red by
- * default) — the missed adhan with its fixed wall-clock time (stable until
- * the next adhan arrives, unlike a live elapsed counter). The missed line
- * can be hidden via the notification manager ([showMissed]) and its color
- * changed in the settings ([missedColor]). The notification is ongoing and
- * only refreshed in place.
+ * Builders for the permanent next-Adhan countdown notification.
+ *
+ * The collapsed system surface is deliberately one line only: next prayer,
+ * wall-clock time, and a red remaining duration. Expanding the card adds one
+ * additional line for the last missed Adhan and its red elapsed duration.
  */
 object NextAdhanNotifications {
 
@@ -44,59 +41,55 @@ object NextAdhanNotifications {
         missedColor: Int = org.muslim.app.core.notifications.MissedAdhanColors.DEFAULT,
         use24h: Boolean = false,
     ): Notification {
-        val title = if (data.hasLocation && data.nextPrayer != null) {
-            context.getString(
-                R.string.next_adhan_notification_title,
-                context.getString(prayerLabelRes(data.nextPrayer)),
-                TimeFormats.timeFormatter(use24h).format(data.nextPrayerAt),
-            )
-        } else {
-            context.getString(R.string.next_adhan_no_location)
-        }
+        val compactLine = SpannableStringBuilder()
+        val expandedMissedLine = SpannableStringBuilder()
 
-        // The collapsed notification intentionally carries only the next
-        // prayer's name and wall-clock time in [title]. Details belong to the
-        // expanded surface so the permanent status notification stays quiet.
-        val expandedText = SpannableStringBuilder()
         if (data.hasLocation && data.nextPrayer != null) {
-            val remainingStart = expandedText.length
-            expandedText.append(
+            compactLine.append(
+                context.getString(
+                    R.string.next_adhan_notification_title,
+                    context.getString(prayerLabelRes(data.nextPrayer)),
+                    TimeFormats.timeFormatter(use24h).format(data.nextPrayerAt),
+                ),
+            )
+            compactLine.append(" · ")
+            val remainingStart = compactLine.length
+            compactLine.append(
                 context.getString(R.string.next_adhan_remaining, formatCountdown(data.remainingSeconds)),
             )
-            expandedText.setSpan(
+            compactLine.setSpan(
                 ForegroundColorSpan(missedColor),
                 remainingStart,
-                expandedText.length,
+                compactLine.length,
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
             )
+
             val missed = data.missedPrayer
             if (missed != null && showMissed) {
-                expandedText.append("\n")
-                expandedText.append(
+                expandedMissedLine.append(
                     context.getString(
                         R.string.next_adhan_missed,
                         context.getString(prayerLabelRes(missed)),
                         TimeFormats.timeFormatter(use24h).format(data.missedPrayerAt),
                     ),
                 )
-                val elapsedStart = expandedText.length
-                expandedText.append(" · ")
-                expandedText.append(
+                expandedMissedLine.append(" · ")
+                val elapsedStart = expandedMissedLine.length
+                expandedMissedLine.append(
                     context.getString(R.string.next_adhan_elapsed, formatCountdown(data.elapsedSeconds)),
                 )
-                expandedText.setSpan(
+                expandedMissedLine.setSpan(
                     ForegroundColorSpan(missedColor),
                     elapsedStart,
-                    expandedText.length,
+                    expandedMissedLine.length,
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
                 )
             }
         } else {
-            expandedText.append(context.getString(R.string.next_adhan_no_location))
+            compactLine.append(context.getString(R.string.next_adhan_no_location))
         }
 
-        // Tapping the notification opens the prayer-times screen directly (the
-        // home tab now *is* the prayer times page, reached via its deep link).
+        // Tapping the notification opens the prayer-times screen directly.
         val contentIntent = runCatching {
             val intent = Intent(Intent.ACTION_VIEW, "muslim://times".toUri())
                 .setPackage(context.packageName)
@@ -107,19 +100,23 @@ object NextAdhanNotifications {
         }
 
         val builder = NotificationCompat.Builder(context, NotificationChannels.PRAYER_COUNTDOWN)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1250)
-            // This is a silent status/countdown card, not the active Adhan
-            // alert. Do not attach a large branded image that can make it look
-            // like a missed or old alarm notification.
-            .setContentTitle(title)
-            .setStyle(NotificationCompat.BigTextStyle().bigText(expandedText))
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1251)
+            // This is a silent status/countdown card, not the active Adhan alert.
+            // It must never attach a large icon that could make the compact card
+            // look like a duplicate, retired, or active alarm notification.
+            .setContentTitle(compactLine)
             .setCategory(NotificationCompat.CATEGORY_STATUS)
             .setOngoing(true)
             .setOnlyAlertOnce(true)
             .setShowWhen(false)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             .setContentIntent(contentIntent)
-        // Accent the live countdown with the app's primary colour.
+
+        // BigText is deliberately supplied only for the optional second line.
+        // The system keeps [compactLine] as the one-line collapsed presentation.
+        if (expandedMissedLine.isNotEmpty()) {
+            builder.setStyle(NotificationCompat.BigTextStyle().bigText(expandedMissedLine))
+        }
         if (data.nextPrayerAt != null) {
             builder.setColor(context.getColor(org.muslim.app.feature.prayertimes.R.color.adhan_accent))
         }
