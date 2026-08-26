@@ -4,12 +4,22 @@ import androidx.compose.ui.unit.dp
 
 /** Central spacing scale used by components and screen layouts. */
 object IslamicSpacing {
+    val XXSmall = 2.dp
     val XSmall = 4.dp
     val Small = 8.dp
+    val Compact = 12.dp
     val Medium = 16.dp
+    val Comfortable = 20.dp
     val Large = 24.dp
-    val XLarge = 32.dp
-    val XXLarge = 40.dp
+    val Section = 32.dp
+    val XLarge = 40.dp
+    val XXLarge = 48.dp
+    val Hero = 64.dp
+
+    /** Default horizontal page gutter for compact phone layouts. */
+    val PageHorizontal = Comfortable
+    /** Default vertical gap between independent content sections. */
+    val SectionVertical = Large
 }
 
 /** Compatibility aliases for existing feature modules. */
@@ -19,6 +29,14 @@ object MuslimSpacing {
     val Medium = IslamicSpacing.Medium
     val Large = IslamicSpacing.Large
     val XLarge = IslamicSpacing.XLarge
+}
+
+/** Icon scale for navigational, supporting and prominent actions. */
+object IslamicIconSize {
+    val Supporting = 18.dp
+    val Standard = 24.dp
+    val Prominent = 32.dp
+    val Hero = 48.dp
 }
 
 /** Calm surfaces favour generous corners and subtle outlines over heavy shadows. */
@@ -43,6 +61,7 @@ object IslamicMotion {
     const val FastMillis = 150
     const val StandardMillis = 200
     const val EmphasisMillis = 250
+    const val EnterExitMillis = 300
 }
 
 /** Minimum touch target per accessibility guidance. */
