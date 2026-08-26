@@ -22,6 +22,7 @@ import org.muslim.app.core.ui.accessibility.AccessibilityVisuals
 import org.muslim.app.core.ui.accessibility.LocalAccessibilityVisuals
 import org.muslim.app.core.designsystem.MuslimLightColors
 import org.muslim.app.core.designsystem.MuslimTypography
+import org.muslim.app.core.designsystem.IslamicShapes
 
 /**
  * Application theme (Material 3 / Material You).
@@ -96,9 +97,7 @@ private fun appShapes(style: CardCornerStyle): Shapes {
         CardCornerStyle.Soft -> 18.dp
         CardCornerStyle.Rounded -> 28.dp
     }
-    return Shapes(
-        extraSmall = RoundedCornerShape(6.dp),
-        small = RoundedCornerShape(10.dp),
+    return IslamicShapes.copy(
         medium = RoundedCornerShape(card),
         large = RoundedCornerShape(card + 6.dp),
         extraLarge = RoundedCornerShape(card + 10.dp),

@@ -3,6 +3,27 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Unreleased
+
+### System Notification Identity Repair
+
+- Replaced the Android-facing launcher, round-launcher, themed monochrome, and status-bar resource identities with `v2027` resources built from the approved geometric Islamic mark. The full-colour mark remains exclusive to the adaptive launcher; the dedicated notification glyph remains monochrome for Android system tinting.
+- Updated every current notification producer to use `ic_muslim_status_bar_v2027`, including active Adhan, next-prayer countdown, Quran recitation playback and download surfaces, reminders, Ramadan, Adhkar, Hadith, finance, learning, and app-update notifications.
+- Rotated the active Adhan notification from `1010` to `1012` and the persistent next-prayer countdown from `1011` to `1013`. Their migration paths now remove every recorded retired card before a current card is posted, preventing an older system-retained card from coexisting with the new identity.
+- Rotated the Quran `MediaStyle` foreground notification from `7006` to `7007`. The application-start and service-start paths explicitly cancel the retired card before the current playback card is published.
+- Removed retired `v1252` and `v2026` launcher and status-bar resource files from production resources. The manifest now resolves only through the new `v2027` adaptive launcher and round-launcher identities.
+- Kept the Adhan, countdown, and Quran media builders free of an app-provided `setLargeIcon`; Android may present the current application icon through its own notification template, while the small icon remains the system-compliant monochrome glyph.
+
+### Documentation and Regression Coverage
+
+- Added a dedicated system-notification repair note with the resource/notification migration map, upgrade behaviour, verification scope, and Android-owned rendering limits.
+- Updated the repository README, project status, visual-identity note, and documentation index to distinguish full-colour launcher artwork from monochrome system-notification glyphs and to link only the maintainer’s confirmed public GitHub and Ko-fi pages.
+- Extended Android instrumentation coverage for retained Adhan and countdown cards, the `v2027` application identity, and Quran recitation-card retirement. Added unit coverage that requires the countdown’s current and retired IDs to remain distinct.
+
+### Verification Status
+
+- Local and continuous-integration verification for this unreleased repair is pending at the time of this entry. A public tag and GitHub Release will be created only after the `main` workflow passes.
+
 ## Muslim v1.24.16
 
 This update installs over v1.24.15 with the same package name (`org.muslim.app`) and stable signing identity. It preserves every saved Adhan selection and the exact global/per-prayer volume, including existing low-volume settings.

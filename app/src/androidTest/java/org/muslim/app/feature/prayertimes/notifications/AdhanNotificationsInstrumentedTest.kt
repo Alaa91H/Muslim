@@ -46,24 +46,24 @@ class AdhanNotificationsInstrumentedTest {
     }
 
     @Test
-    fun application_usesThe2026LuxeLauncherAndRoundIcon() {
+    fun application_usesThe2027LuxeLauncherAndRoundIcon() {
         val applicationInfo = context.applicationInfo
 
-        assertEquals(org.muslim.app.R.mipmap.ic_muslim_launcher_v2026, applicationInfo.icon)
+        assertEquals(org.muslim.app.R.mipmap.ic_muslim_launcher_v2027, applicationInfo.icon)
         assertEquals(
             "mipmap",
-            context.resources.getResourceTypeName(org.muslim.app.R.mipmap.ic_muslim_launcher_round_v2026),
+            context.resources.getResourceTypeName(org.muslim.app.R.mipmap.ic_muslim_launcher_round_v2027),
         )
     }
 
     @Test
     fun cancelRetiredAdhan_removesAllOngoingAlertsSavedByEarlierApks() {
-        val retiredIds = listOf(AdhanNotifications.RETIRED_ADHAN_NOTIFICATION_ID, 1001)
+        val retiredIds = listOf(AdhanNotifications.RETIRED_ADHAN_NOTIFICATION_ID, 1005, 1001)
         retiredIds.forEach { notificationId ->
             notificationManager.notify(
                 notificationId,
                 NotificationCompat.Builder(context, NotificationChannels.ADHAN)
-                    .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2026)
+                    .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2027)
                     .setContentTitle("Retired Adhan alert")
                     .setOngoing(true)
                     .build(),
@@ -113,7 +113,7 @@ class AdhanNotificationsInstrumentedTest {
         )
 
         assertEquals(
-            org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2026,
+            org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2027,
             notification.smallIcon.resId,
         )
     }
@@ -129,7 +129,7 @@ class AdhanNotificationsInstrumentedTest {
                 statusBarNotification.notification.channelId == NotificationChannels.ADHAN
         }.notification
         assertEquals(
-            org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2026,
+            org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2027,
             activeAdhan.smallIcon.resId,
         )
     }

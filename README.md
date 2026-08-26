@@ -64,6 +64,21 @@ Permissions are requested only for the relevant capability, such as a one-time l
 
 Read the full, feature-specific policy in [`PRIVACY_POLICY.md`](PRIVACY_POLICY.md).
 
+## System identity and notification repair
+
+The current `main` branch replaces the prior Android-facing icon identities with a new geometric Islamic app mark. The full-colour mark is used only for the adaptive launcher and round launcher; every notification producer uses the dedicated monochrome `v2027` status-bar vector required by Android. The migration covers active Adhan, next-prayer countdown, Quran-recitation media, downloads, reminders, and other system-notification paths.
+
+A resource-name change alone cannot remove a notification that Android retained from an earlier APK. The application and the relevant services explicitly cancel the known older Adhan, countdown, and Quran-recitation notification IDs before publishing their current cards. The replacement uses fresh current IDs, which prevents a retained card from sharing the visual identity of the newly posted card. The app deliberately does not supply a `setLargeIcon` image to the Adhan, countdown, or Quran media cards; Android may still render its own application identity in a system template.
+
+| System surface | Current behaviour | What Android still controls |
+|---|---|---|
+| Launcher | New `v2027` adaptive and round-icon resource identities reference the approved full-colour geometric mark. | Mask shape, themed-icon tint, badge and cache-refresh timing. |
+| Status bar | Every small notification icon resolves to the `v2027` monochrome geometric glyph. | Final light/dark/system tint and status-bar layout. |
+| Adhan and countdown | Retired ongoing cards are cancelled; fresh card IDs are then posted. | Permission, channel state, importance, grouping and visibility. |
+| Quran media playback | The foreground `MediaStyle` service clears its retired card before publishing its new media-card ID. | Media-card template, controls layout and lock-screen presentation. |
+
+See [`docs/qa/notification_identity_repair.md`](docs/qa/notification_identity_repair.md) for the exact migration map, verification strategy, and upgrade note. Android documents the system-owned notification-template model and adaptive-icon masking separately. [1] [2]
+
 ## Architecture
 
 The repository uses Kotlin/JVM 17, AGP 9.3.1, Gradle 9.5, Kotlin 2.2.10, Compose BOM 2026.08.00, compile/target SDK 37, and phone min SDK 26. The Wear companion has min SDK 30. Version declarations are centralised in [`gradle/libs.versions.toml`](gradle/libs.versions.toml).
@@ -102,6 +117,7 @@ Install JDK 17 and Android SDK platform 37, then configure `local.properties` wi
 python3 scripts/verify_hadith_paging_and_navigation.py
 python3 scripts/verify_scholar_library.py
 python3 scripts/verify_iot_integration.py
+python3 scripts/verify_islamic_visual_identity.py
 ```
 
 The GitHub Actions workflow builds both applications, runs unit tests, Android Lint, Detekt, and emulator tests, and creates signed phone and Wear release APKs. Tagged `v*` builds publish a GitHub Release with both artifacts. The release workflow is an automated safety net, not a substitute for device, vehicle, watch, accessibility, or content-provider review.
@@ -121,6 +137,19 @@ Download published artifacts from the [GitHub Releases page](https://github.com/
 
 Start with [`CONTRIBUTING.md`](CONTRIBUTING.md), keep strings in resources, preserve module boundaries, run the relevant Gradle checks and feature verifier, and document any new content or privacy boundary. Religious content, source licences, translations, scholarly classifications, and software changes require separate review paths.
 
-## Contact and licence
+## Connect With Me
 
-Open an issue in the repository for reproducible defects or documentation corrections. The project is distributed under [GPL-3.0](LICENSE).
+The confirmed public maintainer profile is [Alaa on GitHub](https://github.com/Alaa91H). Use repository issues for reproducible defects or documentation corrections; no additional personal contact channel is asserted here.
+
+## Support Me
+
+Voluntary support is available through [Ko-fi: alaa91h](https://ko-fi.com/alaa91h). This is the confirmed public support link associated with the maintainer profile.
+
+## Licence
+
+The project is distributed under [GPL-3.0](LICENSE).
+
+### References
+
+[1]: https://developer.android.com/develop/ui/views/notifications/build-notification "Android Developers — Create a notification"
+[2]: https://developer.android.com/develop/ui/views/launch/icon_design_adaptive "Android Developers — Adaptive icons"

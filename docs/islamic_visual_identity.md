@@ -67,6 +67,18 @@ The system supports small phones, large phones, tablets, and landscape through r
 | Large text and locale direction | Avoid narrow fixed-width text containers; preserve existing Arabic font, RTL, and reading accessibility settings. |
 | Motion sensitivity | Playback feedback is a short, low-amplitude alpha transition; no looping decorative animation is introduced. |
 
+## Android launcher and notification identity
+
+The system-facing application identity is intentionally split into two assets. The approved full-colour geometric Islamic mark is supplied through the `v2027` adaptive launcher and round-launcher resources. A separate `ic_muslim_status_bar_v2027` vector is used for every Android notification small icon. It is monochrome by design because the operating system applies the final status-bar tint and may render it at very small sizes.
+
+| Surface | Asset class | Design rule |
+|---|---|---|
+| App launcher and themed launcher | Full-colour adaptive foreground, navy background, monochrome themed layer | Preserve the eight-point geometry, mihrab and crescent silhouette within adaptive-icon safe zones. |
+| Status bar | Dedicated monochrome small-icon vector | Keep a strong, centred silhouette; do not use a raster launcher image, a multicolour asset, or text. |
+| Adhan, countdown and Quran playback cards | Android-owned notification and media templates | Do not provide a custom large app image merely to force branding; the current application identity may be rendered by Android itself. |
+
+The repair uses fresh resource names and fresh current notification IDs, then cancels cards known to be retained from earlier versions. This is a migration mechanism rather than a new visual style. The exact migration IDs, test coverage, user upgrade note, and platform limits are recorded in [`qa/notification_identity_repair.md`](qa/notification_identity_repair.md).
+
 ## Verification
 
 Run the static verifier after making design-system changes:

@@ -11,6 +11,7 @@ import org.muslim.app.crash.appCoroutineExceptionHandler
 import org.muslim.app.feature.prayertimes.notifications.AdhanNotifications
 import org.muslim.app.feature.prayertimes.notifications.NextAdhanNotifications
 import org.muslim.app.feature.quran.data.QuranDownloadManager
+import org.muslim.app.feature.quran.data.RecitationPlaybackService
 import org.muslim.app.wear.WearCompanionPublisher
 import javax.inject.Inject
 
@@ -42,6 +43,7 @@ class MuslimApplication : Application() {
         // rather than waiting for the next scheduled prayer or countdown tick.
         AdhanNotifications.cancelRetiredAdhan(this)
         NextAdhanNotifications.cancelRetiredCountdown(this)
+        RecitationPlaybackService.cancelRetiredNotification(this)
         // Resume any queued recitation downloads that survived a process death
         // (also covered by the boot receiver after a full device reboot).
         applicationScope.launch {

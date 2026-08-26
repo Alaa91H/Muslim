@@ -35,7 +35,8 @@ REQUIRED_SNIPPETS = {
         "IslamicRadius.Card",
     ],
     "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/Theme.kt": [
-        "shapes = IslamicShapes",
+        "shapes = appShapes(cardCornerStyle)",
+        "return IslamicShapes.copy",
     ],
     "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/IslamicOrnaments.kt": [
         "enum class IslamicOrnament",

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Circular adaptive-icon entry for launchers and notification templates. -->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/ic_muslim_launcher_background_v2027" />
+    <foreground android:drawable="@drawable/ic_muslim_launcher_foreground_v2027" />
+    <monochrome android:drawable="@drawable/ic_muslim_launcher_monochrome_v2027" />
+</adaptive-icon>

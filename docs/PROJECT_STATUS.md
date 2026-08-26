@@ -1,6 +1,6 @@
 # Muslim Project Status and Documentation Map
 
-> **Status date:** 22 August 2026  
+> **Status date:** 26 August 2026
 > **Scope:** This document describes the code and product boundaries present on the `main` development line. It is not a store-approval statement, a security certification, or a religious ruling.
 
 ## Purpose
@@ -83,6 +83,18 @@ feature:*                   independently scoped product capabilities
 
 Feature-to-feature dependencies are avoided; the app module owns composition and navigation. The principal stack is Kotlin, Compose Material 3, Hilt, Coroutines/Flow, Room, DataStore, WorkManager, AlarmManager, OkHttp/Retrofit where a feature opts into network access, and Paging 3 for the large Hadith lists.
 
+## Android system identity and retained-notification migration
+
+The `main` branch uses a full-colour geometric Islamic mark for its `v2027` adaptive launcher and round-launcher resources, while all notification producers use a separate monochrome `v2027` small-icon vector. This distinction is intentional: Android owns the tint and final rendering of a status-bar small icon, whereas the launcher uses the full-colour identity.
+
+| System surface | Migration behaviour | Boundary |
+|---|---|---|
+| Active Adhan | Retires `1001`, `1005`, and `1010`; posts the current card as `1012`. | Visibility and alerting continue to depend on runtime permission, channel state, and Android policy. |
+| Next-prayer countdown | Retires `1003`, `1004`, and `1011`; posts the current card as `1013`. | The card is a quiet system status surface, not a custom full-colour notification layout. |
+| Quran recitation | Retires media card `7006`; the foreground service posts media card `7007`. | Android controls `MediaStyle` layout and lock-screen treatment. |
+
+Application startup clears all listed retired cards. The Adhan and countdown service paths repeat their cleanup before current work is published, while the Quran playback service does so during service creation. The migration does not provide a custom large icon to these notification builders; system templates may show the new application identity independently. Detailed implementation and verification limits are in [`qa/notification_identity_repair.md`](qa/notification_identity_repair.md).
+
 ## Quality and release process
 
 The project contains both focused unit tests and static boundary verifiers. Current targeted commands include:
@@ -123,6 +135,7 @@ GitHub Actions runs debug builds, unit tests, Android Lint, Detekt, and emulator
 | [`privacy/data_inventory.md`](privacy/data_inventory.md) | Local data, permissions, endpoints, and Data safety review baseline. |
 | [`qa/p0_test_matrix.md`](qa/p0_test_matrix.md) | Required physical-device acceptance tests for critical worship paths. |
 | [`qa/accessibility_release_checklist.md`](qa/accessibility_release_checklist.md) | Accessibility release checks for TalkBack, Switch Access, and scalable RTL UI. |
+| [`qa/notification_identity_repair.md`](qa/notification_identity_repair.md) | Android launcher/status-bar identity migration, retained-card cleanup, and release verification limits. |
 | [`release/beta_test_charter.md`](release/beta_test_charter.md) | Scope, limits, and acceptance criteria for the invited closed beta. |
 | [`release/closed_beta_distribution.md`](release/closed_beta_distribution.md) | Stable-signing, CI artifact, and invited-tester distribution workflow. |
 | [`qa/beta_tester_guide.md`](qa/beta_tester_guide.md) | Tester installation, adhan verification, and privacy-preserving feedback guide. |

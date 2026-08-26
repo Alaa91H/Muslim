@@ -146,6 +146,9 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
 
     override fun onCreate() {
         super.onCreate()
+        // The service can be recreated before another application-start path runs.
+        // Clear its retained pre-branding card before publishing the current media card.
+        cancelRetiredNotification(this)
         audioManager = getSystemService(AudioManager::class.java)
         audioFocusRequest = AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN)
             .setAudioAttributes(
@@ -240,7 +243,7 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
 
         ServiceCompat.startForeground(
             this,
-            NOTIFICATION_ID,
+            RECITATION_NOTIFICATION_ID,
             buildNotification(state, title, text),
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK
@@ -267,7 +270,7 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         }
 
         return NotificationCompat.Builder(this, NotificationChannels.RECITATION)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2026)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2027)
             .setContentTitle(title)
             .setContentText(text)
             .setOngoing(true)
@@ -477,10 +480,19 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         private const val MEDIA_ROOT_ID = "muslim_recitation_root"
         private const val RECITATIONS_FOLDER_ID = "muslim_recitations"
         private const val SURAH_MEDIA_PREFIX = "muslim_surah_"
-        private const val NOTIFICATION_ID = 7006
+        /** New identity ensures Android creates a fresh media card after the branding upgrade. */
+        const val RECITATION_NOTIFICATION_ID = 7007
+        /** Previous foreground-card identity displayed the retired status glyph. */
+        const val RETIRED_RECITATION_NOTIFICATION_ID = 7006
         private const val OPEN_APP_REQUEST_CODE = 70061
         /** Same extra key [org.muslim.app.MainActivity] reads for deep links. */
         private const val EXTRA_ROUTE = "org.muslim.app.extra.ROUTE"
+
+        /** Clears the retained media card from the pre-branding APK before playback resumes. */
+        fun cancelRetiredNotification(context: Context) {
+            context.getSystemService(android.app.NotificationManager::class.java)
+                .cancel(RETIRED_RECITATION_NOTIFICATION_ID)
+        }
 
         fun start(context: Context) {
             val intent = Intent(context, RecitationPlaybackService::class.java)

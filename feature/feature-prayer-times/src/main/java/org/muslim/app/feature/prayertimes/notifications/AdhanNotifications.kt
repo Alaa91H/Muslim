@@ -20,10 +20,11 @@ import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 object AdhanNotifications {
 
     /** A fresh identity forces Android to render this release's notification artwork. */
-    const val ADHAN_NOTIFICATION_ID = 1010
+    const val ADHAN_NOTIFICATION_ID = 1012
     /** Most recent retired identity, retained for device-level migration coverage. */
-    const val RETIRED_ADHAN_NOTIFICATION_ID = 1005
-    private const val OLDER_RETIRED_ADHAN_NOTIFICATION_ID = 1001
+    const val RETIRED_ADHAN_NOTIFICATION_ID = 1010
+    private const val OLDER_RETIRED_ADHAN_NOTIFICATION_ID = 1005
+    private const val ORIGINAL_RETIRED_ADHAN_NOTIFICATION_ID = 1001
     const val REMINDER_NOTIFICATION_ID = 1002
 
     /**
@@ -35,6 +36,7 @@ object AdhanNotifications {
         context.getSystemService(NotificationManager::class.java).apply {
             cancel(RETIRED_ADHAN_NOTIFICATION_ID)
             cancel(OLDER_RETIRED_ADHAN_NOTIFICATION_ID)
+            cancel(ORIGINAL_RETIRED_ADHAN_NOTIFICATION_ID)
         }
     }
 
@@ -73,7 +75,7 @@ object AdhanNotifications {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
         return NotificationCompat.Builder(context, NotificationChannels.ADHAN)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2026)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2027)
             // Do not attach a large image. On some OEM notification templates it
             // is rendered alongside the launcher/app identity and looks like a
             // duplicated or stale second icon. The new monochrome status glyph
@@ -83,7 +85,7 @@ object AdhanNotifications {
             .setStyle(NotificationCompat.BigTextStyle())
             .setCategory(NotificationCompat.CATEGORY_ALARM)
             .addAction(
-                org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2026,
+                org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2027,
                 context.getString(R.string.adhan_notification_stop),
                 stopIntent,
             )
@@ -171,7 +173,7 @@ object AdhanNotifications {
 
     fun showReminder(context: Context, prayer: Prayer, minutesBefore: Int) {
         val notification = NotificationCompat.Builder(context, NotificationChannels.REMINDER)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2026)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2027)
             .setContentTitle(context.getString(R.string.reminder_title))
             .setContentText(
                 context.getString(
