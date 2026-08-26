@@ -23,6 +23,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Alarm
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.ErrorOutline
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material.icons.filled.NotificationsActive
@@ -488,11 +490,6 @@ private fun AdhanReadinessCard(
     onVerify: () -> Unit,
 ) {
     val recoveryActions = rememberAdhanRecoveryActions()
-    val statusColor = if (readiness.isReady) {
-        MaterialTheme.colorScheme.primary
-    } else {
-        MaterialTheme.colorScheme.error
-    }
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -511,18 +508,7 @@ private fun AdhanReadinessCard(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Spacer(Modifier.height(12.dp))
-            Text(
-                text = stringResource(
-                    if (readiness.isReady) {
-                        R.string.settings_adhan_ready
-                    } else {
-                        R.string.settings_adhan_needs_attention
-                    },
-                ),
-                style = MaterialTheme.typography.bodyMedium,
-                color = statusColor,
-                fontWeight = FontWeight.SemiBold,
-            )
+            AdhanReadinessStatusBanner(readiness)
             Spacer(Modifier.height(8.dp))
             AdhanReadinessItem(readiness.adhanEnabled, R.string.settings_adhan_check_enabled)
             AdhanReadinessItem(readiness.hasLocation, R.string.settings_adhan_check_location)
@@ -554,6 +540,43 @@ private fun AdhanReadinessCard(
             Button(onClick = onVerify, modifier = Modifier.fillMaxWidth()) {
                 Text(stringResource(R.string.settings_adhan_verify_action))
             }
+        }
+    }
+}
+
+@Composable
+private fun AdhanReadinessStatusBanner(readiness: AdhanReadiness) {
+    val statusColor = if (readiness.isReady) {
+        MaterialTheme.colorScheme.primary
+    } else {
+        MaterialTheme.colorScheme.error
+    }
+    Surface(
+        shape = MaterialTheme.shapes.medium,
+        color = statusColor.copy(alpha = 0.12f),
+        contentColor = statusColor,
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 12.dp, vertical = 9.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(
+                imageVector = if (readiness.isReady) Icons.Filled.CheckCircle else Icons.Filled.ErrorOutline,
+                contentDescription = null,
+                modifier = Modifier.size(18.dp),
+            )
+            Spacer(Modifier.width(8.dp))
+            Text(
+                text = stringResource(
+                    if (readiness.isReady) {
+                        R.string.settings_adhan_ready
+                    } else {
+                        R.string.settings_adhan_needs_attention
+                    },
+                ),
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.SemiBold,
+            )
         }
     }
 }

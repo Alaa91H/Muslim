@@ -7,7 +7,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.drawable.Icon
 import android.os.Build
 import android.os.SystemClock
 import androidx.core.app.NotificationCompat
@@ -17,11 +16,23 @@ import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 
-/** Builders and verified posting for the prayer notifications (Adhan + reminder). */
+/** Builders and verified posting for the active Adhan alert and pre-prayer reminder. */
 object AdhanNotifications {
 
-    const val ADHAN_NOTIFICATION_ID = 1001
+    /** A fresh identity removes retained active-Adhan cards created by earlier APKs. */
+    const val ADHAN_NOTIFICATION_ID = 1005
+    const val RETIRED_ADHAN_NOTIFICATION_ID = 1001
     const val REMINDER_NOTIFICATION_ID = 1002
+
+    /**
+     * Android may retain an ongoing foreground notification across an in-place
+     * update. Cancel the old active-Adhan identity before publishing the fresh
+     * one so stale artwork cannot coexist with the current card.
+     */
+    fun cancelRetiredAdhan(context: Context) {
+        context.getSystemService(NotificationManager::class.java)
+            .cancel(RETIRED_ADHAN_NOTIFICATION_ID)
+    }
 
     /**
      * The result of attempting to publish the active Adhan alert.
@@ -58,14 +69,17 @@ object AdhanNotifications {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
         return NotificationCompat.Builder(context, NotificationChannels.ADHAN)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1251)
-            .setLargeIcon(Icon.createWithResource(context, org.muslim.app.core.notifications.R.drawable.ic_muslim_adhan_large_v1251))
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1252)
+            // Do not attach a large image. On some OEM notification templates it
+            // is rendered alongside the launcher/app identity and looks like a
+            // duplicated or stale second icon. The new monochrome status glyph
+            // is the only app-supplied visual on this active alert.
             .setContentTitle(context.getString(R.string.adhan_notification_title))
             .setContentText(context.getString(R.string.prayer_name, context.getString(prayerNameRes(prayer))))
             .setStyle(NotificationCompat.BigTextStyle())
             .setCategory(NotificationCompat.CATEGORY_ALARM)
             .addAction(
-                org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1251,
+                org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1252,
                 context.getString(R.string.adhan_notification_stop),
                 stopIntent,
             )
@@ -113,6 +127,7 @@ object AdhanNotifications {
      * proof that the user could see it.
      */
     fun showAdhan(context: Context, prayer: Prayer): PostResult {
+        cancelRetiredAdhan(context)
         val preflight = notificationPreflight(context)
         if (!preflight.posted) return preflight
         val manager = context.getSystemService(NotificationManager::class.java)
@@ -152,15 +167,14 @@ object AdhanNotifications {
 
     fun showReminder(context: Context, prayer: Prayer, minutesBefore: Int) {
         val notification = NotificationCompat.Builder(context, NotificationChannels.REMINDER)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1251)
-            .setLargeIcon(Icon.createWithResource(context, org.muslim.app.core.notifications.R.drawable.ic_muslim_adhan_large_v1251))
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1252)
             .setContentTitle(context.getString(R.string.reminder_title))
             .setContentText(
                 context.getString(
                     R.string.reminder_message,
                     context.getString(prayerNameRes(prayer)),
                     minutesBefore,
-                )
+                ),
             )
             .setCategory(NotificationCompat.CATEGORY_REMINDER)
             .setAutoCancel(true)

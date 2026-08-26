@@ -16,6 +16,7 @@ import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.notificationAllowed
 import org.muslim.app.feature.prayertimes.widget.PrayerTimesWidget
+import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * Fired by the exact alarms scheduled via [AdhanScheduler]. Shows the Adhan
@@ -237,8 +238,19 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 setReferenceCounted(false)
                 acquire(DIRECT_FALLBACK_WAKELOCK_TIMEOUT_MS)
             }
-        val onStarted = { entryPoint.deliveryJournal().audioStarted(request.prayer, request.isProbe) }
+        val started = AtomicBoolean(false)
+        val onStarted = {
+            started.set(true)
+            entryPoint.deliveryJournal().audioStarted(request.prayer, request.isProbe)
+        }
         val onFinished = {
+            if (!started.get()) {
+                entryPoint.deliveryJournal().failed(
+                    request.prayer,
+                    request.isProbe,
+                    "Direct AudioTrack fallback could not start output",
+                )
+            }
             if (fallbackWakeLock.isHeld) fallbackWakeLock.release()
         }
         // Use an offline AudioTrack here rather than retrying the same

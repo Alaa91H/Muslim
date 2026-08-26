@@ -60,7 +60,7 @@ class AdhanDeliveryProbeInstrumentedTest {
                     timeZone = "Asia/Riyadh",
                 ),
                 adhanEnabled = true,
-                adhanVolume = 100,
+                adhanVolume = USER_SELECTED_VOLUME_PERCENT,
             ),
         )
     }
@@ -81,6 +81,7 @@ class AdhanDeliveryProbeInstrumentedTest {
         )
 
         val settings = runBlocking { entryPoint.settingsRepository().settings.first() }
+        assertEquals(USER_SELECTED_VOLUME_PERCENT, settings.adhanVolume)
         assertTrue(entryPoint.scheduler().scheduleDeliveryProbe(settings, Prayer.Fajr))
 
         val result = waitForProbeTerminalState()
@@ -110,6 +111,7 @@ class AdhanDeliveryProbeInstrumentedTest {
     }
 
     private companion object {
+        const val USER_SELECTED_VOLUME_PERCENT = 17
         const val PROBE_TIMEOUT_MS = 35_000L
         const val POLL_INTERVAL_MS = 200L
     }

@@ -2,9 +2,11 @@ package org.muslim.app.feature.prayertimes.notifications
 
 import android.app.NotificationManager
 import android.os.Build
+import androidx.core.app.NotificationCompat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.After
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -36,11 +38,32 @@ class AdhanNotificationsInstrumentedTest {
 
     @After
     fun clearActiveAdhanNotification() {
+        notificationManager.cancel(AdhanNotifications.RETIRED_ADHAN_NOTIFICATION_ID)
         notificationManager.cancel(AdhanNotifications.ADHAN_NOTIFICATION_ID)
     }
 
     @Test
-    fun showAdhan_confirmsTheActiveAdhanNotificationAndChannel() {
+    fun cancelRetiredAdhan_removesTheOngoingAlertSavedByAnEarlierApk() {
+        notificationManager.notify(
+            AdhanNotifications.RETIRED_ADHAN_NOTIFICATION_ID,
+            NotificationCompat.Builder(context, NotificationChannels.ADHAN)
+                .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1252)
+                .setContentTitle("Retired Adhan alert")
+                .setOngoing(true)
+                .build(),
+        )
+
+        AdhanNotifications.cancelRetiredAdhan(context)
+
+        assertFalse(
+            notificationManager.activeNotifications.any { statusBarNotification ->
+                statusBarNotification.id == AdhanNotifications.RETIRED_ADHAN_NOTIFICATION_ID
+            },
+        )
+    }
+
+    @Test
+    fun showAdhan_confirmsTheFreshActiveAdhanNotificationAndChannel() {
         val result = AdhanNotifications.showAdhan(context, Prayer.Fajr)
 
         assertTrue("Adhan notification was blocked: ${result.detail}", result.posted)

@@ -3,6 +3,28 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.16
+
+This update installs over v1.24.15 with the same package name (`org.muslim.app`) and stable signing identity. It preserves every saved Adhan selection and the exact global/per-prayer volume, including existing low-volume settings.
+
+## Notification and Launcher Identity Repair
+
+- Migrated the launcher, round launcher entry point, themed monochrome layer, and every notification small icon to the fresh `v1252` identity. The launcher foreground is now placed inside a 34% transparent safe margin so Android adaptive masks can show the complete supplied artwork instead of clipping its edges.
+- Removed all `v1251` launcher, status-bar, and active-Adhan large-image resources from the application package. The active Adhan card no longer attaches a large icon, preventing OEM templates from rendering a stale/second badge beside the current app identity.
+- Migrated active-Adhan delivery from id `1001` to id `1005`. App startup, direct alert posting, and foreground-service startup each cancel the retired id, so a saved card from an earlier APK is removed without waiting for the next prayer.
+
+## Adhan Delivery Hardening
+
+- Kept the exact-alarm receiver and `mediaPlayback` foreground service as the primary delivery path, then strengthened the offline AudioTrack recovery path for current Android background-audio constraints.
+- Replaced the long static AudioTrack buffer with a checked streaming path that verifies initialization and every PCM write before recording an audio start. It now uses `USAGE_ALARM` with `CONTENT_TYPE_SONIFICATION` consistently for MediaPlayer, AudioTrack, and transient exclusive audio focus.
+- Added a terminal journal failure when the direct recovery path cannot start output, so Verify Adhan shows a stage-specific condition rather than leaving a generic unconfirmed result.
+- Extended the real APK delivery probe to run at the retained user-selected 17% Adhan volume and assert that the value remains unchanged.
+
+## Verification
+
+- Added a device-level migration test that posts a retired active-Adhan card and verifies its explicit cancellation. The existing real exact-alarm probe continues to require both active-notification retention and confirmed audio start.
+- Completed the local CI-equivalent audit: bundled-content inventory, phone and Wear debug assembly, unit tests, Android Lint, and Detekt across 396 Kotlin files. Release publication remains gated on the Android 14 emulator and full CI.
+
 ## Muslim v1.24.15
 
 This release installs directly over v1.24.14 or earlier releases with the same package name (`org.muslim.app`) and stable signing identity. No uninstall, data reset, or change to Adhan sound settings is required.

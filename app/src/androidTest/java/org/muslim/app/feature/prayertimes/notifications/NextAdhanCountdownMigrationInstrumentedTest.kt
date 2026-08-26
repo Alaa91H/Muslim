@@ -46,7 +46,7 @@ class NextAdhanCountdownMigrationInstrumentedTest {
         notificationManager.notify(
             NextAdhanNotifications.RETIRED_COUNTDOWN_NOTIFICATION_ID,
             NotificationCompat.Builder(context, NotificationChannels.PRAYER_COUNTDOWN)
-                .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1251)
+                .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1252)
                 .setContentTitle("Legacy countdown")
                 .setOngoing(true)
                 .build(),

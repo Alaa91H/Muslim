@@ -229,6 +229,7 @@ class AdhanPlaybackService : Service() {
         stopOnDismiss: Boolean,
     ) = runCatching {
         NotificationChannels.create(this)
+        AdhanNotifications.cancelRetiredAdhan(this)
         startForeground(
             AdhanNotifications.ADHAN_NOTIFICATION_ID,
             AdhanNotifications.adhanNotification(
