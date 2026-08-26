@@ -46,10 +46,6 @@
     <string name="crash_close">Ябыҡ</string>
     <string name="crash_dismiss">Дауам итеү</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Ҡөрьәндә эҙләү .</string>
-    <string name="more_quran_search_desc">Һүҙ табығыҙ, нисә тапҡыр һәм ҡайҙа осрай</string>
-    <string name="more_quran_frequency">Ҡөрьән һүҙенең йышлығы</string>
-    <string name="more_quran_frequency_desc">Бөтә мөшәфтә иң йыш осраған һүҙҙәр .</string>
     <string name="more_names">99 Аллаһ исемдәре .</string>
     <string name="more_names_desc">тулы аңлатма менән 99 исем</string>
     <string name="more_hajj">Хаж һәм Ғөмрә</string>

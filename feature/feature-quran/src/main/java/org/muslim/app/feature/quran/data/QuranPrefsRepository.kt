@@ -133,24 +133,6 @@ class QuranPrefsRepository @Inject constructor(
         /** Default night-download window: 23:00 – 05:00 (minutes from midnight). */
         const val DEFAULT_NIGHT_START = 23 * 60
         const val DEFAULT_NIGHT_END = 5 * 60
-
-        /**
-         * Current FTS index version. Bump whenever the normalization used to
-         * build `ayah_fts` changes — the index is rebuilt automatically on the
-         * next seed so searches stay correct after app updates.
-         */
-        const val FTS_INDEX_VERSION = 5
-    }
-
-    /** Whether the persisted FTS index needs a rebuild (normalization change). */
-    val ftsIndexStale: Flow<Boolean> = context.quranPrefsDataStore.data.map { prefs ->
-        (prefs[Keys.FTS_INDEX_VERSION] ?: 0) < FTS_INDEX_VERSION
-    }
-
-    suspend fun markFtsIndexCurrent() {
-        context.quranPrefsDataStore.edit { prefs ->
-            prefs[Keys.FTS_INDEX_VERSION] = FTS_INDEX_VERSION
-        }
     }
 
     /** Whether downloads are deferred to the night window (التحميل الليلي). */
@@ -217,32 +199,6 @@ class QuranPrefsRepository @Inject constructor(
         context.quranPrefsDataStore.edit { prefs -> prefs[Keys.DOWNLOAD_SURAH_SORT] = mode }
     }
 
-    /** Most recent search queries, newest first (see [SearchHistory]). */
-    val searchHistory: Flow<List<String>> = context.quranPrefsDataStore.data.map { prefs ->
-        SearchHistory.decode(prefs[Keys.SEARCH_HISTORY])
-    }
-
-    /** The last committed search query, restored when the screen reopens. */
-    val lastSearch: Flow<String> = context.quranPrefsDataStore.data.map { prefs ->
-        prefs[Keys.LAST_SEARCH] ?: ""
-    }
-
-    /** Records a committed query as the last search and at the front of the history. */
-    suspend fun recordSearch(query: String) {
-        context.quranPrefsDataStore.edit { prefs ->
-            val history = SearchHistory.record(SearchHistory.decode(prefs[Keys.SEARCH_HISTORY]), query)
-            prefs[Keys.LAST_SEARCH] = query.trim()
-            prefs[Keys.SEARCH_HISTORY] = SearchHistory.encode(history)
-        }
-    }
-
-    /** Clears both the last search and the full recent-search history. */
-    suspend fun clearSearchHistory() {
-        context.quranPrefsDataStore.edit { prefs ->
-            prefs.remove(Keys.SEARCH_HISTORY)
-            prefs.remove(Keys.LAST_SEARCH)
-        }
-    }
 
     private object Keys {
         val LAST_SURAH = intPreferencesKey("last_surah")
@@ -261,9 +217,6 @@ class QuranPrefsRepository @Inject constructor(
         val NIGHT_END = intPreferencesKey("night_download_end")
         val CONTINUOUS_STOP_AT_END = booleanPreferencesKey("continuous_stop_at_end")
         val KEEP_SCREEN_ON = booleanPreferencesKey("keep_screen_on")
-        val FTS_INDEX_VERSION = intPreferencesKey("fts_index_version")
-        val SEARCH_HISTORY = stringPreferencesKey("search_history")
-        val LAST_SEARCH = stringPreferencesKey("last_search")
         val DOWNLOAD_SURAH_SORT = stringPreferencesKey("download_surah_sort")
     }
 }

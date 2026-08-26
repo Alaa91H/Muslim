@@ -46,10 +46,6 @@
     <string name="crash_close">Bağlayın</string>
     <string name="crash_dismiss">Davam et</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإخدم المفتاح لإظهار أو. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Quranı axtarın</string>
-    <string name="more_quran_search_desc">Söz tapın, nə qədər tez-tez və harada görünür</string>
-    <string name="more_quran_frequency">Quran söz tezliyi</string>
-    <string name="more_quran_frequency_desc">Bütün mushafda ən çox rast gəlinən sözlər</string>
     <string name="more_names">Allahın 99 adı</string>
     <string name="more_names_desc">Tam izahatla 99 ad</string>
     <string name="more_hajj">Həcc və Ümrə</string>

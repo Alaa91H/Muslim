@@ -46,10 +46,6 @@
     <string name="crash_close">tutup</string>
     <string name="crash_dismiss">teruskan</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Cari al-Quran</string>
-    <string name="more_quran_search_desc">Cari perkataan, kekerapan perkataan itu muncul dan di mana</string>
-    <string name="more_quran_frequency">kekerapan perkataan al-Quran</string>
-    <string name="more_quran_frequency_desc">Perkataan yang paling kerap dalam mushaf keseluruhan</string>
     <string name="more_names">99 Nama Allah</string>
     <string name="more_names_desc">99 nama dengan penjelasan penuh</string>
     <string name="more_hajj">Haji &amp; Umrah</string>

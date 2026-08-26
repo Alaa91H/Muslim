@@ -13,25 +13,6 @@
     <string name="quran_more_actions">مزيد من الخيارات</string>
     <string name="quran_font_size">حجم الخط</string>
     <string name="quran_keep_screen_on">إبقاء الشاشة مضاءة أثناء القراءة والتلاوة</string>
-    <string name="quran_search">البحث</string>
-    <string name="quran_search_hint">ابحث في القرآن…</string>
-    <string name="quran_search_prompt">اكتب كلمة أو عبارة للبحث في المصحف كاملًا (دون إنترنت).</string>
-    <string name="quran_search_empty">لا توجد نتائج مطابقة</string>
-    <string name="quran_search_ref">%1$s:%2$s</string>
-    <string name="quran_search_summary">ذُكرت الكلمة %1$d مرة في %2$d آية و %3$d سورة</string>
-    <string name="quran_search_prefix">بحث جذري (بادئة)</string>
-    <string name="quran_search_exact">بحث دقيق (كلمة كاملة)</string>
-    <string name="quran_search_where">أين ذُكرت؟ (حسب السور)</string>
-    <string name="quran_search_surah_item">%1$d. %2$s</string>
-    <string name="quran_search_occurrences">%1$d مرة</string>
-    <string name="quran_search_history">عمليات البحث الأخيرة</string>
-    <string name="quran_search_history_clear">مسح الكل</string>
-    <string name="quran_search_metrics">زمن البحث: %1$d مللي ثانية</string>
-    <string name="quran_search_index_building">جارٍ بناء فهرس المصحف لأول بحث…</string>
-    <string name="quran_search_index_progress">بناء فهرس المصحف… %1$d٪</string>
-    <string name="quran_search_word_root">الجذر: %1$s</string>
-    <string name="quran_search_derivations">تصريفات مشتقة من الجذر</string>
-    <string name="quran_search_no_root">تعذّر تحديد الجذر</string>
     <string name="quran_details">تفاصيل السورة</string>
     <string name="quran_details_close">إغلاق</string>
     <string name="quran_details_type">النوع</string>
@@ -176,13 +157,4 @@
     <string name="quran_car_not_downloaded" tools:ignore="MissingTranslation">هذه السورة غير مكتملة التحميل على الهاتف.</string>
     <string name="quran_car_search_unavailable" tools:ignore="MissingTranslation">لم تُعثر على سورة محمّلة مطابقة للطلب.</string>
 
-    <string name="quran_frequency_title">التردد اللغوي للقرآن</string>
-    <string name="quran_frequency_loading">جارٍ حساب تردد الكلمات…</string>
-    <string name="quran_frequency_total_words">إجمالي الكلمات</string>
-    <string name="quran_frequency_unique_words">كلمات فريدة</string>
-    <string name="quran_frequency_ayahs">الآيات</string>
-    <string name="quran_frequency_top_header">أكثر 50 كلمة تكرارًا</string>
-    <string name="quran_frequency_allah">لفظ الجلالة (الله) ورد %1$d مرة بالصيغة المفردة</string>
-    <string name="quran_frequency_footnote">الإحصاء من نص المصحف المضمن بعد إزالة التشكيل وعلامات التلاوة ودمج ألف الوصل (ٱ ← ا). الكلمات تُعدُّ بالصيغة المكتوبة، فالصيغ الموصولة (والله، بالله، لله…) تُعدُّ كلمات مستقلة.</string>
-    <string name="quran_frequency_open">التردد اللغوي للقرآن</string>
 </resources>

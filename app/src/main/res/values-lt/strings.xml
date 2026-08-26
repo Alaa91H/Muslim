@@ -46,10 +46,6 @@
     <string name="crash_close">Uždaryti</string>
     <string name="crash_dismiss">Tęsti</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيب٧دمتخس تخس واسحبه لإعادة المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Ieškokite Korano</string>
-    <string name="more_quran_search_desc">Raskite žodį, kaip dažnai jis pasirodo ir kur</string>
-    <string name="more_quran_frequency">Korano žodžių dažnis</string>
-    <string name="more_quran_frequency_desc">Dažniausi žodžiai visame mushaf</string>
     <string name="more_names">99 Alacho vardai</string>
     <string name="more_names_desc">99 vardai su išsamiu paaiškinimu</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

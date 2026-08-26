@@ -46,10 +46,6 @@
     <string name="crash_close">Agħlaq</string>
     <string name="crash_dismiss">Kompli</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتدم المفتاظواح إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Fittex il-Quran</string>
-    <string name="more_quran_search_desc">Sib kelma, kemm-il darba tidher u fejn</string>
-    <string name="more_quran_frequency">Frekwenza tal-kelma Quran</string>
-    <string name="more_quran_frequency_desc">L-aktar kliem frekwenti fil-mushaf kollu</string>
     <string name="more_names">99 Ismijiet ta Alla</string>
     <string name="more_names_desc">Id-99 isem bi spjegazzjoni sħiħa</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

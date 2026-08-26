@@ -46,10 +46,6 @@
     <string name="crash_close">Fechar</string>
     <string name="crash_dismiss">Continuar</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Pesquise o Alcorão</string>
-    <string name="more_quran_search_desc">Encontre uma palavra, com que frequência ela aparece e onde</string>
-    <string name="more_quran_frequency">Frequência das palavras do Alcorão</string>
-    <string name="more_quran_frequency_desc">As palavras mais frequentes em todo o mushaf</string>
     <string name="more_names">99 nomes de Alá</string>
     <string name="more_names_desc">Os 99 nomes com explicação completa</string>
     <string name="more_hajj">Hajj e Umrah</string>

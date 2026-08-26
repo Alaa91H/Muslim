@@ -3,6 +3,34 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.9
+
+Updates install directly over v1.24.8 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.
+
+## Adhan Self-Recovery and Verification
+
+- Added a self-recovery path for persisted Adhan configurations that cannot produce audible delivery. A stored 1% volume, a Silent choice, or a vibration-only choice for any obligatory prayer is restored to the offline bundled Adhan with one global audible level (80%) when the updated app opens or when **Verify Adhan** is explicitly run.
+- The recovery re-schedules prayer alarms immediately. The verification action also rebuilds the Android Adhan channel from its official high-priority defaults before it submits the real scheduled probe, preventing a retained silent channel from hiding the alert under silent notifications.
+- Preserved the existing exact-alarm receiver, foreground playback, audio-start journal, wake lock, and direct local fallback. The new recovery removes invalid persisted configuration before those delivery stages run rather than treating a failed prerequisite as a successful test.
+- Added regression coverage for low-volume and Silent/VibrateOnly recovery, including the restored global volume and bundled-audio defaults.
+
+## Icon Identity and Android Cache Replacement
+
+- Introduced new launcher and large-Adhan resource identifiers, so Android reloads the official colour emblem rather than reusing a previously cached launcher or notification asset. The launcher foreground is enlarged, centered, and preserved as a complete circle with a 69–70px transparent margin on its 512px canvas.
+- Introduced a new dedicated monochrome status-bar resource name and updated every app notification producer to use it. The prior small-icon resource and the prior large-Adhan resource are removed from the source tree.
+- Updated the application manifest to the new standard and round adaptive launcher identifiers. The full-colour circular emblem is the launcher and large Adhan artwork; the system-tinted circular crescent-and-mosque vector is the status-bar glyph.
+
+## Quran Reader Simplification
+
+- Made **From the selected ayah to the end of the Mushaf** the reader’s default recitation range. Starting playback from a surah now enters the continuous end-of-Mushaf path; shorter ranges remain explicit choices.
+- Removed Quran search and whole-Mushaf word-frequency completely from navigation, reader/list entry points, the More hub, UI state, data helpers, persisted search history, tests, and all localized strings.
+- Removed the Quran FTS entity, DAO, dependency injection binding, seed/index work, and repository search API. Room database version 4 drops the retired `ayah_fts` table while retaining Quran content and bookmarks.
+
+## Verification
+
+- Passed production content-manifest verification, targeted Quran/prayer-time tests, full application unit tests, Android Lint, Detekt, and Debug assembly before release tagging.
+- The release environment does not have access to the user's physical handset. The in-app scheduled **Verify Adhan** action remains the required on-device proof because it only passes after the receiver/service path records audio startup.
+
 ## Muslim v1.24.8
 
 Updates install directly over v1.24.7 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.

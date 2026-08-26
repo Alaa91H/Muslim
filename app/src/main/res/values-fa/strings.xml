@@ -46,10 +46,6 @@
     <string name="crash_close">بستن</string>
     <string name="crash_dismiss">ادامه دهید</string>
     <string name="more_order_hint">اضغط مع الاستمرار علی أی قسم واصحبه لإعادة ترتیبه، واستخدم المفتاح لإظهار أو اخفاء كل قسم. یُطبَّق التغییر مباشرة علی شاشة المزید.</string>
-    <string name="more_quran_search">در قرآن جستجو کنید</string>
-    <string name="more_quran_search_desc">کلمه ای را پیدا کنید، هر چند وقت یکبار و کجا ظاهر می شود</string>
-    <string name="more_quran_frequency">فراوانی کلمه قرآن</string>
-    <string name="more_quran_frequency_desc">متداول ترین کلمات در کل مصحف</string>
     <string name="more_names">99 اسماء الله</string>
     <string name="more_names_desc">99 نام با توضیح کامل</string>
     <string name="more_hajj">حج و عمره</string>

@@ -46,10 +46,6 @@
     <string name="crash_close">Sunmọ</string>
     <string name="crash_dismiss">Tesiwaju</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Wa Al-Qur’an</string>
-    <string name="more_quran_search_desc">Wa ọrọ kan, igba melo ti o han ati nibo</string>
-    <string name="more_quran_frequency">Al-Qur\'an ọrọ igbohunsafẹfẹ</string>
-    <string name="more_quran_frequency_desc">Awọn ọrọ loorekoore julọ ni gbogbo mushaf</string>
     <string name="more_names">99 Oruko Allah</string>
     <string name="more_names_desc">Awọn orukọ 99 pẹlu alaye kikun</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

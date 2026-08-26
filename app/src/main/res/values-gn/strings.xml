@@ -46,10 +46,6 @@
     <string name="crash_close">Oñemboty</string>
     <string name="crash_dismiss">Esegíkena</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Eheka pe Corán</string>
-    <string name="more_quran_search_desc">Eheka peteĩ ñe’ẽ, mboy jeypa ojekuaa ha moõpa</string>
-    <string name="more_quran_frequency">Corán ñe’ẽ jepivegua</string>
-    <string name="more_quran_frequency_desc">Umi ñe’ẽ ojepuruvéva mushaf tuichakue javeve</string>
     <string name="more_names">99 Allah réra</string>
     <string name="more_names_desc">Umi 99 téra omyesakã porã reheve</string>
     <string name="more_hajj">Hajj &amp; Umrah rehegua</string>

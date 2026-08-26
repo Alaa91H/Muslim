@@ -46,10 +46,6 @@
     <string name="crash_close">Kapat</string>
     <string name="crash_dismiss">Devam et</string>
     <string name="more_order_hint">Bu durumda, bir kredi kartına ödeme yapmak ve bir sonraki ödemeyi yapmak veya başka bir işlem yapmak zorunda kalacaksınız. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Kuran\'ı arayın</string>
-    <string name="more_quran_search_desc">Bir kelimeyi, ne sıklıkta ve nerede göründüğünü bulun</string>
-    <string name="more_quran_frequency">Kuran kelime sıklığı</string>
-    <string name="more_quran_frequency_desc">Mushaf\'ın tamamında en sık kullanılan kelimeler</string>
     <string name="more_names">Allah\'ın 99 İsmi</string>
     <string name="more_names_desc">Tam açıklamasıyla 99 isim</string>
     <string name="more_hajj">Hac ve Umre</string>

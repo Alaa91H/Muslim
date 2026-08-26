@@ -13,10 +13,6 @@
     <string name="crash_close">إغلاق</string>
     <string name="crash_dismiss">متابعة</string>
     <string name="more_order_hint">انقر مع عدم وجود أي قسم وسحبه مرة أخرى لترتيبه، وتغيير المفتاح إلى أو إخفاء كل قسم. يُطبَّق الغد مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">ابحث في القرآن</string>
-    <string name="more_quran_search_desc">ابحث عن كلمة وعدد مرات ظهورها وأين</string>
-    <string name="more_quran_frequency">تردد كلمات القرآن</string>
-    <string name="more_quran_frequency_desc">أكثر الكلمات تكرارا في المصحف كله</string>
     <string name="more_names">99 أسماء الله الحسنى</string>
     <string name="more_names_desc">الأسماء الـ 99 مع الشرح الكامل</string>
     <string name="more_islamic_finance">الاقتصاد والمالية الإسلامية</string>

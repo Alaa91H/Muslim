@@ -46,10 +46,6 @@
     <string name="crash_close">Vala</string>
     <string name="crash_dismiss">Ragela phambili</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي نوع واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل نوع. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Setjha i-Quran</string>
-    <string name="more_quran_search_desc">Thola igama, bona livela kangangani begodu kuphi</string>
-    <string name="more_quran_frequency">Imvamisa yamagama we-Quran</string>
-    <string name="more_quran_frequency_desc">Amagama avame khulu kiyo yoke i-mushaf</string>
     <string name="more_names">99 Amagama ka-Allah</string>
     <string name="more_names_desc">Amagama ama-99 anencazelo epheleleko</string>
     <string name="more_hajj">I-Hajj ne-Umrah</string>

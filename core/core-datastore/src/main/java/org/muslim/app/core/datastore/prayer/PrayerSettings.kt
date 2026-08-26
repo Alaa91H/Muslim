@@ -87,6 +87,36 @@ data class PrayerSettings(
     /** Resolves whether vibration is enabled for [prayer]. */
     fun vibrateFor(prayer: Prayer): Boolean =
         vibratePerPrayer[prayer] ?: vibrateEnabled
+
+    /**
+     * Returns true only when every obligatory prayer is configured to play an
+     * audible bundled/custom Adhan at a usable application volume.
+     */
+    fun hasAudibleAdhanForEveryPrayer(): Boolean =
+        Prayer.entries
+            .filterNot { it == Prayer.Sunrise }
+            .all { prayer ->
+                (adhanSounds[prayer] ?: AdhanSoundOption.Default) == AdhanSoundOption.Default &&
+                    adhanVolumeFor(prayer) >= MIN_AUDIBLE_ADHAN_VOLUME
+            }
+
+    /**
+     * Restores a known-audible offline configuration after the user explicitly
+     * runs the Adhan verification. This repairs legacy low-volume and
+     * silent/vibration-only values that otherwise make a scheduled test fail
+     * before Android reaches the actual playback path.
+     */
+    fun repairedAudibleAdhanDefaults(): PrayerSettings = copy(
+        adhanSounds = emptyMap(),
+        adhanVolume = maxOf(adhanVolume, DEFAULT_AUDIBLE_ADHAN_VOLUME),
+        adhanVolumes = emptyMap(),
+        useGlobalAdhanVolume = true,
+    )
+
+    companion object {
+        const val MIN_AUDIBLE_ADHAN_VOLUME = 25
+        const val DEFAULT_AUDIBLE_ADHAN_VOLUME = 80
+    }
 }
 
 /** The user's chosen location (city, GPS fix, or manual coordinates). */

@@ -46,10 +46,6 @@
     <string name="crash_close">닫기</string>
     <string name="crash_dismiss">계속</string>
     <string name="more_order_hint">이 질문은 당신이 생각하는 것보다 훨씬 더 많은 것을 의미합니다. يُبَّق التجيير مباسرة على جاهة المجيد.</string>
-    <string name="more_quran_search">꾸란 검색</string>
-    <string name="more_quran_search_desc">단어 찾기, 해당 단어가 나타나는 빈도 및 위치</string>
-    <string name="more_quran_frequency">꾸란 단어 빈도</string>
-    <string name="more_quran_frequency_desc">무샤프 전체에서 가장 자주 나오는 단어들</string>
     <string name="more_names">알라의 99가지 이름</string>
     <string name="more_names_desc">자세한 설명이 포함된 99개의 이름</string>
     <string name="more_hajj">하지 &amp; 움라</string>

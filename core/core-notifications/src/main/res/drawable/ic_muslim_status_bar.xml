@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Monochrome status-bar glyph. Android applies the status-bar tint; transparent
-     negative space preserves the circular emblem's clarity at 24dp. -->
+<!-- Monochrome-only status-bar glyph. Android tints opaque paths; the circle,
+     crescent, and mosque remain fully inside the 24dp viewport. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
-    <!-- Circular ring inset by one unit so no system mask clips it. -->
     <path
         android:fillColor="#FFFFFFFF"
         android:fillType="evenOdd"
         android:pathData="M12,1.2a10.8,10.8 0,1 0,0,21.6a10.8,10.8 0,1 0,0,-21.6zM12,3.1a8.9,8.9 0,1 0,0,17.8a8.9,8.9 0,1 0,0,-17.8z" />
-    <!-- Crescent above the dome, broad enough for status-bar rendering. -->
     <path
         android:fillColor="#FFFFFFFF"
         android:fillType="evenOdd"
@@ -19,7 +17,6 @@
     <path
         android:fillColor="#FFFFFFFF"
         android:pathData="M14.9,5.5L15.2,6.2L15.9,6.5L15.2,6.8L14.9,7.5L14.6,6.8L13.9,6.5L14.6,6.2Z" />
-    <!-- Mosque dome and base matching the supplied monochrome emblem. -->
     <path
         android:fillColor="#FFFFFFFF"
         android:pathData="M5.2,18.7L5.2,16.3C5.2,13.6 7.1,11.4 9.7,10.8L9.7,10L10.5,9.1L11.3,10L11.3,10.8C13.9,11.4 15.8,13.6 15.8,16.3L15.8,18.7L18,18.7L18,20.1L6,20.1L6,18.7ZM10.3,18.7L12,18.7L12,15.9C12,15.4 11.6,15 11.2,15C10.7,15 10.3,15.4 10.3,15.9Z" />

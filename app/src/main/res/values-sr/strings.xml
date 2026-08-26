@@ -46,10 +46,6 @@
     <string name="crash_close">Затвори</string>
     <string name="crash_dismiss">Настави</string>
     <string name="more_order_hint">اضغط مع الاستمرار على اي قسم واسحبه لاعادة ترتيبه, واستخدم المفلى واستخدم المفلت اخفاء كل قسم. يطبق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Претражите Кур\'ан</string>
-    <string name="more_quran_search_desc">Пронађите реч, колико често се појављује и где</string>
-    <string name="more_quran_frequency">Учесталост речи у Курану</string>
-    <string name="more_quran_frequency_desc">Најфреквентније речи у целом мусхафу</string>
     <string name="more_names">99 Аллахова имена</string>
     <string name="more_names_desc">99 имена са пуним објашњењем</string>
     <string name="more_hajj">хаџ и умра</string>

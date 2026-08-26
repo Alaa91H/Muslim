@@ -46,10 +46,6 @@
     <string name="crash_close">Barrar</string>
     <string name="crash_dismiss">Contunhar</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Cercar l\'Alcoran</string>
-    <string name="more_quran_search_desc">Trobar un mot, amb quina frequéncia apareis e ont</string>
-    <string name="more_quran_frequency">Frequéncia del mot de l\'Alcoran</string>
-    <string name="more_quran_frequency_desc">Los mots mai frequents dins lo mushaf entièr</string>
     <string name="more_names">99 Noms d\'Allah</string>
     <string name="more_names_desc">Los 99 noms amb explicacion completa</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

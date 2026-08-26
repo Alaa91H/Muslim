@@ -11,6 +11,11 @@ import org.muslim.app.feature.quran.data.PlaybackState
 class QuranReaderRangeTest {
 
     @Test
+    fun `reader default range continues to the end of the mushaf`() {
+        assertThat(DEFAULT_RECITATION_RANGE).isEqualTo(RecitationRange.FromAyahToEnd)
+    }
+
+    @Test
     fun `reciter change resumes only when an ayah was active`() {
         assertThat(shouldResumeAfterReciterChange(PlaybackState.Playing, 42)).isTrue()
         assertThat(shouldResumeAfterReciterChange(PlaybackState.Paused, 42)).isTrue()

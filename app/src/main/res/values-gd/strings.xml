@@ -46,10 +46,6 @@
     <string name="crash_close">Dùin</string>
     <string name="crash_dismiss">Lean air adhart</string>
     <string name="more_order_hint">‎ لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Lorg an Quran</string>
-    <string name="more_quran_search_desc">Lorg facal, dè cho tric a nochdas e agus càite</string>
-    <string name="more_quran_frequency">An tricead de am facal Quran</string>
-    <string name="more_quran_frequency_desc">Na faclan as trice anns a \'mushaf gu lèir</string>
     <string name="more_names">99 Ainmean Allah</string>
     <string name="more_names_desc">Na 99 ainmean le làn mhìneachadh</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

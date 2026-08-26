@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">مسلمان</string>
-    <string name="more_quran_search">Search the Quran</string>
-    <string name="more_quran_search_desc">Find a word, how often it appears and where</string>
-    <string name="more_quran_frequency">Quran word frequency</string>
-    <string name="more_quran_frequency_desc">The most frequent words in the whole mushaf</string>
     <string name="more_names">99 Names of Allah</string>
     <string name="more_names_desc">The 99 names with full explanation</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

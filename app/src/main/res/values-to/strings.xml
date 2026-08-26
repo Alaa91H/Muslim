@@ -46,10 +46,6 @@
     <string name="crash_close">Tāpuni</string>
     <string name="crash_dismiss">Hokohoko atu</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Fekumi ki he Quran .</string>
-    <string name="more_quran_search_desc">Kumi ha foʻi lea, ʻoku tuʻo fiha ʻene ʻasi pea ʻi fē .</string>
-    <string name="more_quran_frequency">Ko e tu\'o lahi \'o e lea Quran</string>
-    <string name="more_quran_frequency_desc">Ko e ngaahi lea \'oku toutou \'asi lahi taha \'i he mushaf kotoa .</string>
     <string name="more_names">99 Ngaahi Hingoa ʻo Allah .</string>
     <string name="more_names_desc">Ko e ngaahi hingoa \'e 99 mo e fakamatala kakato .</string>
     <string name="more_hajj">Haji mo e ʻUmala</string>

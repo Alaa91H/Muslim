@@ -46,10 +46,6 @@
     <string name="crash_close">ಮುಚ್ಚಿ</string>
     <string name="crash_dismiss">ಮುಂದುವರಿಸಿ</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو خلفاء ك. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">ಖುರಾನ್ ಅನ್ನು ಹುಡುಕಿ</string>
-    <string name="more_quran_search_desc">ಪದವನ್ನು ಹುಡುಕಿ, ಅದು ಎಷ್ಟು ಬಾರಿ ಮತ್ತು ಎಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ</string>
-    <string name="more_quran_frequency">ಕುರಾನ್ ಪದಗಳ ಆವರ್ತನ</string>
-    <string name="more_quran_frequency_desc">ಇಡೀ ಮುಶಾಫ್‌ನಲ್ಲಿ ಹೆಚ್ಚು ಆಗಾಗ್ಗೆ ಪದಗಳು</string>
     <string name="more_names">ಅಲ್ಲಾನ 99 ಹೆಸರುಗಳು</string>
     <string name="more_names_desc">ಸಂಪೂರ್ಣ ವಿವರಣೆಯೊಂದಿಗೆ 99 ಹೆಸರುಗಳು</string>
     <string name="more_hajj">ಹಜ್ ಮತ್ತು ಉಮ್ರಾ</string>

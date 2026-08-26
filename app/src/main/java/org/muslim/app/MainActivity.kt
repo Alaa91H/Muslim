@@ -96,7 +96,15 @@ class MainActivity : ComponentActivity() {
         NotificationChannels.create(this)
         requestInitialPermissionsOnFreshInstall()
         lifecycleScope.launch {
-            val settings = settingsRepository.settings.first()
+            var settings = settingsRepository.settings.first()
+            // Repair legacy muted/near-silent Adhan data once the updated app
+            // opens. Without this recovery, a prior per-prayer Silent choice or
+            // a 1% stored volume can prevent every scheduled delivery from
+            // reaching audible playback on the user's device.
+            if (!settings.hasAudibleAdhanForEveryPrayer()) {
+                settings = settings.repairedAudibleAdhanDefaults()
+                settingsRepository.save(settings)
+            }
             adhanScheduler.schedule(settings)
             // Keep the permanent next-adhan countdown notification fresh.
             NextAdhanService.start(applicationContext)

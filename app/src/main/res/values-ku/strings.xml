@@ -46,10 +46,6 @@
     <string name="crash_close">Close</string>
     <string name="crash_dismiss">Berdewam bike</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Li Quranê bigerin</string>
-    <string name="more_quran_search_desc">Peyvekê bibînin, çend caran û li ku derê xuya dike</string>
-    <string name="more_quran_frequency">Frekansa peyva Quranê</string>
-    <string name="more_quran_frequency_desc">Di hemû mûşefê de peyvên herî zêde</string>
     <string name="more_names">99 Navên Xuda</string>
     <string name="more_names_desc">Navên 99 bi ravekirina tevahî</string>
     <string name="more_hajj">Hec &amp; Umre</string>

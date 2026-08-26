@@ -46,10 +46,6 @@
     <string name="crash_close">Schließen</string>
     <string name="crash_dismiss">Weiter</string>
     <string name="more_order_hint">Sie müssen wissen, dass Sie sich die Zeit genommen haben, sich die Zeit zu nehmen und sich die Zeit zu nehmen. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Durchsuchen Sie den Koran</string>
-    <string name="more_quran_search_desc">Finden Sie ein Wort, wie oft und wo es vorkommt</string>
-    <string name="more_quran_frequency">Häufigkeit von Koranwörtern</string>
-    <string name="more_quran_frequency_desc">Die häufigsten Wörter im gesamten Mushaf</string>
     <string name="more_names">99 Namen Allahs</string>
     <string name="more_names_desc">Die 99 Namen mit ausführlicher Erklärung</string>
     <string name="more_hajj">Hadsch und Umrah</string>

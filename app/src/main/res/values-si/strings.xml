@@ -46,10 +46,6 @@
     <string name="crash_close">වසන්න</string>
     <string name="crash_dismiss">දිගටම කරගෙන යන්න</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو خلقاء ك. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">කුරානය සොයන්න</string>
-    <string name="more_quran_search_desc">වචනයක් සොයන්න, එය කොපමණ වාරයක් දිස්වේද සහ කොතැනද යන්න</string>
-    <string name="more_quran_frequency">කුර්ආන් වචන සංඛ්යාතය</string>
-    <string name="more_quran_frequency_desc">මුළු මුෂාෆ්හි නිතර නිතර වචන</string>
     <string name="more_names">99 අල්ලාහ්ගේ නම්</string>
     <string name="more_names_desc">සම්පූර්ණ පැහැදිලි කිරීමක් සහිත නම් 99</string>
     <string name="more_hajj">හජ් සහ උම්රා</string>

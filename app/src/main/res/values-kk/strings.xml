@@ -46,10 +46,6 @@
     <string name="crash_close">Жабу</string>
     <string name="crash_dismiss">Жалғастыру</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإظهار أو إككى. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Құранды іздеңіз</string>
-    <string name="more_quran_search_desc">Сөзді табыңыз, ол қаншалықты жиі және қайда пайда болады</string>
-    <string name="more_quran_frequency">Құран сөздерінің жиілігі</string>
-    <string name="more_quran_frequency_desc">Бүкіл мусхафта жиі кездесетін сөздер</string>
     <string name="more_names">Алланың 99 есімі</string>
     <string name="more_names_desc">Толық түсіндірмесі бар 99 атау</string>
     <string name="more_hajj">Қажылық және умра</string>

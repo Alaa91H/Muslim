@@ -186,7 +186,26 @@ class PrayerSettingsViewModel @Inject constructor(
      */
     fun verifyAdhanReadiness() {
         viewModelScope.launch {
-            val current = repository.settings.first()
+            // Android keeps a previously-created channel's importance and
+            // sound. Recreate the Adhan channel from its official high-priority
+            // defaults before the probe so an old silent channel cannot hide
+            // the notification being verified.
+            NotificationChannels.applyCategorySettings(
+                context = context,
+                category = NotificationCategory.Adhan,
+                prefs = NotificationCategory.Adhan.defaultPrefs(),
+                forceRecreate = true,
+            )
+            var current = repository.settings.first()
+            // The verification action is an explicit recovery consent. Repair
+            // legacy silent/vibrate-only selections and unusably low app
+            // volumes first, otherwise a scheduled test can never prove the
+            // receiver/service/audio path on the user's device.
+            if (!current.hasAudibleAdhanForEveryPrayer()) {
+                current = current.repairedAudibleAdhanDefaults()
+                repository.save(current)
+                scheduler.schedule(current)
+            }
             val targetPrayer = computeNextPrayer(current)?.first ?: Prayer.Fajr
             if (!scheduler.scheduleDeliveryProbe(current, targetPrayer)) {
                 refreshAdhanReadiness(current)
@@ -224,7 +243,7 @@ class PrayerSettingsViewModel @Inject constructor(
         val targetPrayer = computeNextPrayer(current)?.first ?: Prayer.Fajr
         val option = current.adhanSounds[targetPrayer] ?: AdhanSoundOption.Default
         val nextPrayerHasAudibleSound = option == AdhanSoundOption.Default &&
-            current.adhanVolumeFor(targetPrayer) > 0
+            current.adhanVolumeFor(targetPrayer) >= PrayerSettings.MIN_AUDIBLE_ADHAN_VOLUME
         val latestProbe = playbackDiagnostics.lastProbe.value
         val scheduledAudioVerified = latestProbe.audioStarted &&
             latestProbe.prayer == targetPrayer &&

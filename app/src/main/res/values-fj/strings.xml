@@ -46,10 +46,6 @@
     <string name="crash_close">Voleka</string>
     <string name="crash_dismiss">Tomana tiko</string>
     <string name="more_order_hint">اضغط مع الاستمرار ena dua na قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Vakasaqara na Quran .</string>
-    <string name="more_quran_search_desc">Vaqara e dua na vosa, na kena dau basika kei na vanua .</string>
-    <string name="more_quran_frequency">Quran vosa vakawasoma</string>
-    <string name="more_quran_frequency_desc">Na vosa e dau vakayagataki vakalevu duadua ena mushaf taucoko .</string>
     <string name="more_names">99 Na yaca i Allah</string>
     <string name="more_names_desc">Na 99 na yaca kei na ivakamacala taucoko .</string>
     <string name="more_hajj">Haji kei na Umra</string>

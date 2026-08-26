@@ -50,8 +50,6 @@ import org.muslim.app.feature.ramadan.ui.HabitTrackerScreen
 import org.muslim.app.feature.ramadan.ui.RamadanScreen
 import org.muslim.app.feature.quran.ui.QuranDownloadsScreen
 import org.muslim.app.feature.quran.ui.QuranReaderScreen
-import org.muslim.app.feature.quran.ui.QuranWordFrequencyScreen
-import org.muslim.app.feature.quran.ui.SearchScreen
 import org.muslim.app.feature.quran.ui.SurahListScreen
 import org.muslim.app.feature.reference.ui.IslamicHistoryScreen
 import org.muslim.app.feature.reference.ui.ReferenceScreen
@@ -88,9 +86,7 @@ private fun startDestinationFor(preferred: String): String =
     if (tabs.any { it.route == preferred }) preferred else "home"
 
 private const val READER_ROUTE = "quran/reader"
-private const val SEARCH_ROUTE = "quran/search"
 private const val BOOKMARKS_ROUTE = "quran/bookmarks"
-private const val QURAN_FREQUENCY_ROUTE = "quran/frequency"
 private const val SETTINGS_ROUTE = "settings"
 private const val ACCESSIBILITY_ROUTE = "accessibility"
 private const val SMART_DEVICES_ROUTE = "settings/smart-devices"
@@ -221,21 +217,8 @@ fun MuslimApp(
                     SurahListScreen(
                         onOpenSurah = { number -> navController.navigate("$READER_ROUTE/$number") },
                         onPlaySurah = { number -> navController.navigate("$READER_ROUTE/$number?autoplay=true") },
-                        onOpenSearch = { navController.navigate(SEARCH_ROUTE) },
                         onOpenBookmarks = { navController.navigate(BOOKMARKS_ROUTE) },
-                        onOpenWordFrequency = { navController.navigate(QURAN_FREQUENCY_ROUTE) },
                         onResumeReading = { surah, global ->
-                            navController.navigate("$READER_ROUTE/$surah?ayah=$global")
-                        },
-                    )
-                }
-                composable(QURAN_FREQUENCY_ROUTE) {
-                    QuranWordFrequencyScreen(onBack = { navController.popBackStack() })
-                }
-                composable(SEARCH_ROUTE) {
-                    SearchScreen(
-                        onBack = { navController.popBackStack() },
-                        onOpenAyah = { surah, global ->
                             navController.navigate("$READER_ROUTE/$surah?ayah=$global")
                         },
                     )
@@ -299,8 +282,6 @@ fun MuslimApp(
                         onOpenScholarLibrary = { navController.navigate(SCHOLAR_LIBRARY_ROUTE) },
                         onOpenAccessibility = { navController.navigate(ACCESSIBILITY_ROUTE) },
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
-                        onOpenQuranSearch = { navController.navigate(SEARCH_ROUTE) },
-                        onOpenQuranFrequency = { navController.navigate(QURAN_FREQUENCY_ROUTE) },
                         sectionOrder = preferences.moreSectionOrder,
                         hiddenSections = preferences.hiddenMoreSections,
                     )

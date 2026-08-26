@@ -46,10 +46,6 @@
     <string name="crash_close">ବନ୍ଦ</string>
     <string name="crash_dismiss">ଜାରି ରଖ |</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه ، واستخدم المفتاح لإظهار أو إخفاء كل قسم। يُطبَّق التغيير مباشرة على شاشة المزيد।</string>
-    <string name="more_quran_search">କୁରାନ ଖୋଜ |</string>
-    <string name="more_quran_search_desc">ଏକ ଶବ୍ଦ ଖୋଜ, ଏହା କେତେଥର ଦେଖାଯାଏ ଏବଂ କେଉଁଠାରେ |</string>
-    <string name="more_quran_frequency">କୁରାନ ଶବ୍ଦ ଆବୃତ୍ତି |</string>
-    <string name="more_quran_frequency_desc">ପୁରା ମୁଶଫରେ ବାରମ୍ବାର ଶବ୍ଦ |</string>
     <string name="more_names">99 ଆଲ୍ଲାଙ୍କର ନାମ |</string>
     <string name="more_names_desc">ପୂର୍ଣ୍ଣ ବ୍ୟାଖ୍ୟା ସହିତ 99 ନାମ |</string>
     <string name="more_hajj">ହଜ୍ ଏବଂ ଉମ୍ରା |</string>

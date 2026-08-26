@@ -46,10 +46,6 @@
     <string name="crash_close">Xir</string>
     <string name="crash_dismiss">Sii wad</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، وستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Ku baadh quraanka</string>
-    <string name="more_quran_search_desc">Soo hel kelmad, inta jeer ee uu soo baxo iyo meesha</string>
-    <string name="more_quran_frequency">Inta jeer ee erayga Quraanka</string>
-    <string name="more_quran_frequency_desc">Erayada ugu badan ee Musxafka oo dhan</string>
     <string name="more_names">99 Magacyada Eebe</string>
     <string name="more_names_desc">99-ka magac oo sharraxaad buuxa leh</string>
     <string name="more_hajj">Xajka &amp; Cumrada</string>

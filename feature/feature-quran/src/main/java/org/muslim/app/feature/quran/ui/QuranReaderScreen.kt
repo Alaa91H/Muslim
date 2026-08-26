@@ -253,9 +253,9 @@ fun QuranReaderScreen(
 
     var fontSize by rememberSaveable { mutableFloatStateOf(DEFAULT_FONT_SP) }
     var repeatCount by rememberSaveable { mutableIntStateOf(1) }
-    // Opening a surah and pressing play should recite that surah itself. The
-    // user can still choose "from this ayah to the end" from the range menu.
-    var playRange by rememberSaveable { mutableStateOf(RecitationRange.WholeSurah) }
+    // The reader defaults to a continuous recitation from the selected ayah
+    // through the end of the mushaf. Other ranges remain explicit choices.
+    var playRange by rememberSaveable { mutableStateOf(DEFAULT_RECITATION_RANGE) }
     var showMoreMenu by remember { mutableStateOf(false) }
     var showDetails by remember { mutableStateOf(false) }
     var showSupplementControls by remember { mutableStateOf(false) }
@@ -280,8 +280,8 @@ fun QuranReaderScreen(
     LaunchedEffect(state.ayahs) {
         if (state.ayahs.isNotEmpty() && viewModel.consumeAutoplayWholeSurah()) {
             userSelectedAyah = null
-            playRange = RecitationRange.WholeSurah
-            viewModel.playWholeSurah(repeatCount)
+            playRange = DEFAULT_RECITATION_RANGE
+            viewModel.playFromAyah(state.ayahs.first(), repeatCount)
         }
     }
 

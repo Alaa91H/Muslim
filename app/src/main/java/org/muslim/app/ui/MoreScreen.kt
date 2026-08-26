@@ -20,7 +20,6 @@ import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.automirrored.filled.LibraryBooks
 import androidx.compose.material.icons.filled.AccountBalance
 import androidx.compose.material.icons.filled.AutoStories
-import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Calculate
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Favorite
@@ -30,7 +29,6 @@ import androidx.compose.material.icons.filled.NightsStay
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.School
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.SelfImprovement
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Visibility
@@ -99,8 +97,6 @@ fun MoreScreen(
     onOpenFuneralWill: () -> Unit = {},
     onOpenNoorani: () -> Unit = {},
     onOpenTraveler: () -> Unit = {},
-    onOpenQuranSearch: () -> Unit = {},
-    onOpenQuranFrequency: () -> Unit = {},
     /** User-customized section order (ids from [org.muslim.app.core.datastore.AppPreferences]). */
     sectionOrder: List<String> = org.muslim.app.core.datastore.AppPreferences.DEFAULT_MORE_SECTION_ORDER,
     /** Sections the user chose to hide (ids from [org.muslim.app.core.datastore.AppPreferences]). */
@@ -130,8 +126,6 @@ fun MoreScreen(
                 MoreEntry(R.string.more_reference, R.string.more_reference_desc, Icons.Filled.AutoStories, onOpenReference),
                 MoreEntry(R.string.more_islamic_history, R.string.more_islamic_history_desc, Icons.Filled.AutoStories, onOpenIslamicHistory),
                 MoreEntry(R.string.more_scholar_library, R.string.more_scholar_library_desc, Icons.AutoMirrored.Filled.LibraryBooks, onOpenScholarLibrary),
-                MoreEntry(R.string.more_quran_search, R.string.more_quran_search_desc, Icons.Filled.Search, onOpenQuranSearch),
-                MoreEntry(R.string.more_quran_frequency, R.string.more_quran_frequency_desc, Icons.Filled.BarChart, onOpenQuranFrequency),
             ),
         ),
         org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_TOOLS to MoreSection(

@@ -11,10 +11,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -47,9 +45,7 @@ import org.muslim.app.feature.quran.domain.Surah
 fun SurahListScreen(
     onOpenSurah: (Int) -> Unit,
     onPlaySurah: (Int) -> Unit,
-    onOpenSearch: () -> Unit,
     onOpenBookmarks: () -> Unit,
-    onOpenWordFrequency: () -> Unit,
     onResumeReading: (surahNumber: Int, globalNumber: Int) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: SurahListViewModel = hiltViewModel(),
@@ -73,19 +69,10 @@ fun SurahListScreen(
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier.weight(1f).padding(start = 8.dp),
             )
-            IconButton(onClick = onOpenSearch) {
-                Icon(Icons.Default.Search, contentDescription = stringResource(R.string.quran_search))
-            }
             IconButton(onClick = onOpenBookmarks) {
                 Icon(
                     Icons.Filled.Bookmark,
                     contentDescription = stringResource(R.string.quran_bookmarks),
-                )
-            }
-            IconButton(onClick = onOpenWordFrequency) {
-                Icon(
-                    Icons.Filled.BarChart,
-                    contentDescription = stringResource(R.string.quran_frequency_open),
                 )
             }
         }

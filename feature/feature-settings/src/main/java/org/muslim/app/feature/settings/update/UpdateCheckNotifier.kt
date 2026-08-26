@@ -38,7 +38,7 @@ class UpdateCheckNotifier(private val context: Context) {
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
             )
             val notification = Notification.Builder(context, NotificationChannels.APP_UPDATE)
-                .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_notification)
+                .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar)
                 .setContentTitle(context.getString(R.string.update_available_title))
                 .setContentText(context.getString(R.string.update_available_text, release.version))
                 .setStyle(

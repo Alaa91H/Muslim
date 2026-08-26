@@ -46,10 +46,6 @@
     <string name="crash_close">Akatona</string>
     <string name="crash_dismiss">Tohizo</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Tadiavo ny CORAN</string>
-    <string name="more_quran_search_desc">Mitadiava teny iray, impiry izy no miseho ary aiza</string>
-    <string name="more_quran_frequency">matetika ny teny CORAN</string>
-    <string name="more_quran_frequency_desc">Ny teny matetika indrindra ao amin\'ny mushaf manontolo</string>
     <string name="more_names">99 Anaran’i Allah</string>
     <string name="more_names_desc">Ireo anarana 99 miaraka amin\'ny fanazavana feno</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

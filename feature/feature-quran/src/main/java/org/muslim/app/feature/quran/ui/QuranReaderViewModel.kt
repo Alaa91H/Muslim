@@ -48,8 +48,10 @@ import org.muslim.app.feature.quran.domain.TajweedAnnotation
 import javax.inject.Inject
 
 /** Playback range selected in the reader's recitation controls. */
-enum class RecitationRange { SingleAyah, FromAyahToEnd, WholeSurah
-}
+enum class RecitationRange { SingleAyah, FromAyahToEnd, WholeSurah }
+
+/** The reader always starts a new recitation through the end of the mushaf. */
+val DEFAULT_RECITATION_RANGE = RecitationRange.FromAyahToEnd
 
 /** Cohesive dependencies required by the Quran reader runtime. */
 class QuranReaderDependencies @Inject constructor(
@@ -82,7 +84,7 @@ class QuranReaderViewModel @Inject constructor(
     // Last recitation range/repeat the user played with, so switching the
     // reciter from the player bar resumes playback with the same settings.
     private var lastRepeatCount = 1
-    private var lastRange = RecitationRange.FromAyahToEnd
+    private var lastRange = DEFAULT_RECITATION_RANGE
 
     override fun onCleared() {
         downloadNotifier.dismiss()

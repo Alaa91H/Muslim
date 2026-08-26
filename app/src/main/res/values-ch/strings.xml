@@ -46,10 +46,6 @@
     <string name="crash_close">Påpa\'</string>
     <string name="crash_dismiss">Sige</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Li\'e\' i Quran</string>
-    <string name="more_quran_search_desc">Sodda\' un palabra, taimanu na biåhi na ha a\'a\'paka\' yan håfa na lugat</string>
-    <string name="more_quran_frequency">I frekuensian i palabras gi i Quran</string>
-    <string name="more_quran_frequency_desc">I mas frekuente na palabras gi todu i mushaf</string>
     <string name="more_names">99 Na\'an si Allah</string>
     <string name="more_names_desc">I 99 na na\'an siha yan todu i esplikasion-ñiha</string>
     <string name="more_hajj">Hajj yan Umrah</string>

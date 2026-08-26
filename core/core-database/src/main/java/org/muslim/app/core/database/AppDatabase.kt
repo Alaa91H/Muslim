@@ -7,13 +7,11 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import org.muslim.app.core.database.dao.AyahDao
-import org.muslim.app.core.database.dao.AyahFtsDao
 import org.muslim.app.core.database.dao.BookmarkDao
 import org.muslim.app.core.database.dao.SurahDao
 import org.muslim.app.core.database.dao.TafsirDao
 import org.muslim.app.core.database.dao.TranslationDao
 import org.muslim.app.core.database.entity.AyahEntity
-import org.muslim.app.core.database.entity.AyahFtsEntity
 import org.muslim.app.core.database.entity.BookmarkEntity
 import org.muslim.app.core.database.entity.SurahEntity
 import org.muslim.app.core.database.entity.TafsirEntity
@@ -28,19 +26,17 @@ import org.muslim.app.core.database.entity.TranslationEntity
     entities = [
         SurahEntity::class,
         AyahEntity::class,
-        AyahFtsEntity::class,
         BookmarkEntity::class,
         TranslationEntity::class,
         TafsirEntity::class,
     ],
-    version = 3,
+    version = 4,
     exportSchema = true,
 )
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun surahDao(): SurahDao
     abstract fun ayahDao(): AyahDao
-    abstract fun ayahFtsDao(): AyahFtsDao
     abstract fun bookmarkDao(): BookmarkDao
     abstract fun translationDao(): TranslationDao
     abstract fun tafsirDao(): TafsirDao
@@ -118,13 +114,23 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        /**
+         * v3 → v4: removes the retired Quran full-text-search virtual table.
+         * Quran content and user bookmarks remain untouched.
+         */
+        val MIGRATION_3_4 = object : Migration(3, 4) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("DROP TABLE IF EXISTS `ayah_fts`")
+            }
+        }
+
         @Volatile
         private var instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase =
             instance ?: synchronized(this) {
                 instance ?: Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DB_NAME)
-                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
                     .build()
                     .also { instance = it }
             }
