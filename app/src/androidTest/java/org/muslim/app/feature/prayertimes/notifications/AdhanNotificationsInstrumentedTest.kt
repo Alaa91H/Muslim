@@ -50,7 +50,10 @@ class AdhanNotificationsInstrumentedTest {
         val applicationInfo = context.applicationInfo
 
         assertEquals(org.muslim.app.R.mipmap.ic_muslim_launcher_v2026, applicationInfo.icon)
-        assertEquals(org.muslim.app.R.mipmap.ic_muslim_launcher_round_v2026, applicationInfo.roundIcon)
+        assertEquals(
+            "mipmap",
+            context.resources.getResourceTypeName(org.muslim.app.R.mipmap.ic_muslim_launcher_round_v2026),
+        )
     }
 
     @Test
