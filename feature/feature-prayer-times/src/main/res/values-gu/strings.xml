@@ -96,6 +96,7 @@
     <string name="settings_adhan_check_notifications">Adhan notifications and channel are allowed</string>
     <string name="settings_adhan_check_exact_alarm">Exact alarms are allowed</string>
     <string name="settings_adhan_check_sound">The next prayer has an audible adhan</string>
+    <string name="settings_adhan_check_notification_posted">Active Adhan alert was posted</string>
     <string name="settings_adhan_check_alarm_volume">Device alarm volume is audible</string>
     <string name="settings_adhan_check_passed">Ready</string>
     <string name="settings_adhan_check_failed">Needs attention</string>
