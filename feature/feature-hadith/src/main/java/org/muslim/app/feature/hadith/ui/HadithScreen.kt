@@ -69,6 +69,10 @@ import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.feature.hadith.R
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.MuslimCenteredStatus
+import org.muslim.app.core.ui.theme.MuslimStateSurface
+import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.hadith.domain.Hadith
 import org.muslim.app.feature.hadith.data.HadithCorpusState
 import org.muslim.app.feature.hadith.domain.HadithCollection
@@ -309,7 +313,9 @@ private fun HadithPagedList(
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
-        contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 16.dp),
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(
+            bottom = IslamicSpacing.Medium,
+        ),
     ) {
         when (state.corpusState) {
             HadithCorpusState.NotStarted -> item { HadithCorpusProgress(0) }
@@ -379,11 +385,14 @@ private fun HadithCorpusProgress(importedCount: Int) {
 
 @Composable
 private fun HadithCorpusFailure(message: String, onRetry: () -> Unit) {
-    Column(Modifier.fillMaxWidth().padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(stringResource(R.string.hadith_preparing_failed), style = MaterialTheme.typography.titleMedium)
-        Text(message, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-        Button(onClick = onRetry, modifier = Modifier.padding(top = 12.dp)) { Text(stringResource(R.string.hadith_retry)) }
-    }
+    MuslimStateSurface(
+        title = stringResource(R.string.hadith_preparing_failed),
+        supportingText = message,
+        modifier = Modifier.padding(IslamicSpacing.Large),
+        tone = MuslimStateTone.Critical,
+        actionLabel = stringResource(R.string.hadith_retry),
+        onAction = onRetry,
+    )
 }
 
 @Composable
@@ -396,19 +405,24 @@ private fun HadithPageLoading() {
 
 @Composable
 private fun HadithPageFailure(message: String?, onRetry: () -> Unit) {
-    Column(Modifier.fillMaxWidth().padding(20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(message ?: stringResource(R.string.hadith_load_failed), style = MaterialTheme.typography.bodySmall)
-        Button(onClick = onRetry, modifier = Modifier.padding(top = 8.dp)) { Text(stringResource(R.string.hadith_retry)) }
-    }
+    MuslimStateSurface(
+        title = stringResource(R.string.hadith_load_failed),
+        supportingText = message ?: stringResource(R.string.hadith_load_failed),
+        modifier = Modifier.padding(
+            horizontal = IslamicSpacing.PageHorizontal,
+            vertical = IslamicSpacing.Compact,
+        ),
+        tone = MuslimStateTone.Critical,
+        actionLabel = stringResource(R.string.hadith_retry),
+        onAction = onRetry,
+    )
 }
 
 @Composable
 private fun HadithEmptyState() {
-    Text(
-        stringResource(R.string.hadith_no_results),
-        modifier = Modifier.fillMaxWidth().padding(24.dp),
-        style = MaterialTheme.typography.bodyMedium,
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    MuslimCenteredStatus(
+        text = stringResource(R.string.hadith_no_results),
+        modifier = Modifier.padding(IslamicSpacing.Large),
     )
 }
 
