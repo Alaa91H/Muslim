@@ -26,17 +26,19 @@ import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 object NextAdhanNotifications {
 
     /** Fresh identity for the silent countdown card, forcing a current system card after update. */
-    const val NEXT_ADHAN_NOTIFICATION_ID = 1013
+    const val NEXT_ADHAN_NOTIFICATION_ID = 1015
     /** Most recent retired identity, retained for device-level migration coverage. */
-    const val RETIRED_COUNTDOWN_NOTIFICATION_ID = 1011
-    private const val OLDER_RETIRED_COUNTDOWN_NOTIFICATION_ID = 1004
-    private const val ORIGINAL_RETIRED_COUNTDOWN_NOTIFICATION_ID = 1003
+    const val RETIRED_COUNTDOWN_NOTIFICATION_ID = 1013
+    private const val OLDER_RETIRED_COUNTDOWN_NOTIFICATION_ID = 1011
+    private const val ORIGINAL_RETIRED_COUNTDOWN_NOTIFICATION_ID = 1004
+    private const val OLDEST_RETIRED_COUNTDOWN_NOTIFICATION_ID = 1003
 
     fun cancelRetiredCountdown(context: Context) {
         context.getSystemService(android.app.NotificationManager::class.java).apply {
             cancel(RETIRED_COUNTDOWN_NOTIFICATION_ID)
             cancel(OLDER_RETIRED_COUNTDOWN_NOTIFICATION_ID)
             cancel(ORIGINAL_RETIRED_COUNTDOWN_NOTIFICATION_ID)
+            cancel(OLDEST_RETIRED_COUNTDOWN_NOTIFICATION_ID)
         }
     }
 
@@ -106,7 +108,7 @@ object NextAdhanNotifications {
         }
 
         val builder = NotificationCompat.Builder(context, NotificationChannels.PRAYER_COUNTDOWN)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2027)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
             // This is a silent status/countdown card, not the active Adhan alert.
             // It must never attach a large icon that could make the compact card
             // look like a duplicate, retired, or active alarm notification.

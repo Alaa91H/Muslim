@@ -26,7 +26,7 @@ The application already has a sound architectural foundation: a Compose `AppThem
 
 | Decision | Rationale | Non-negotiable boundary |
 |---|---|---|
-| Keep the `v2027` geometric app identity as the visual anchor. | It creates recognisable continuity across launcher, app and product details. | The full-colour launcher identity and monochrome Android status-bar glyph remain distinct. |
+| Keep the `v2028` geometric app identity as the visual anchor. | It creates recognisable continuity across launcher, app and product details. | The full-colour launcher identity and monochrome Android status-bar glyph remain distinct. |
 | Extend, rather than replace, the existing token system. | Existing themes and user preferences already depend on it. | Do not hard-code feature-local palettes or silently discard a user-selected palette/shape/ornament option. |
 | Introduce semantic shared UI primitives only where patterns recur. | This reduces visual drift without producing unnecessary abstraction. | Avoid wrappers that conceal accessibility or make feature state harder to reason about. |
 | Make Prayer Times the first flagship redesign. | It is the app’s main emotional and functional anchor and already has a contained state model. | Preserve calculation, date navigation, use-24-hour, location, share, monthly view, tracker, alarms and notification behaviour. |

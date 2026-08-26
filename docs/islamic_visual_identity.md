@@ -69,7 +69,7 @@ The system supports small phones, large phones, tablets, and landscape through r
 
 ## Android launcher and notification identity
 
-The system-facing application identity is intentionally split into two assets. The approved full-colour geometric Islamic mark is supplied through the `v2027` adaptive launcher and round-launcher resources. A separate `ic_muslim_status_bar_v2027` vector is used for every Android notification small icon. It is monochrome by design because the operating system applies the final status-bar tint and may render it at very small sizes.
+The system-facing application identity is intentionally split into two assets. The approved full-colour geometric Islamic mark is supplied through the `v2028` adaptive launcher and round-launcher resources. A separate `ic_muslim_status_bar_v2028` vector is used for every Android notification small icon. It is monochrome by design because the operating system applies the final status-bar tint and may render it at very small sizes.
 
 | Surface | Asset class | Design rule |
 |---|---|---|

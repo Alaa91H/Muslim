@@ -66,14 +66,14 @@ Read the full, feature-specific policy in [`PRIVACY_POLICY.md`](PRIVACY_POLICY.m
 
 ## System identity and notification repair
 
-The current `main` branch replaces the prior Android-facing icon identities with a new geometric Islamic app mark. The full-colour mark is used only for the adaptive launcher and round launcher; every notification producer uses the dedicated monochrome `v2027` status-bar vector required by Android. The migration covers active Adhan, next-prayer countdown, Quran-recitation media, downloads, reminders, and other system-notification paths.
+The current `main` branch replaces the prior Android-facing icon identities with a new geometric Islamic app mark. The full-colour mark is used only for the adaptive launcher and round launcher; every notification producer uses the dedicated monochrome `v2028` status-bar vector required by Android. The migration covers active Adhan, next-prayer countdown, Quran-recitation media, downloads, reminders, and other system-notification paths.
 
-A resource-name change alone cannot remove a notification that Android retained from an earlier APK. The application and the relevant services explicitly cancel the known older Adhan, countdown, and Quran-recitation notification IDs before publishing their current cards. The replacement uses fresh current IDs, which prevents a retained card from sharing the visual identity of the newly posted card. The app deliberately does not supply a `setLargeIcon` image to the Adhan, countdown, or Quran media cards; Android may still render its own application identity in a system template.
+A resource-name change alone cannot remove a notification that Android retained from an earlier APK. A package-replaced receiver, the application, and the relevant services explicitly cancel the known older Adhan, countdown, and Quran-recitation notification IDs before publishing their current cards. The receiver runs immediately after an in-place package update, so cleanup does not depend on the user opening the app first. The replacement uses fresh current IDs, which prevents a retained card from sharing the visual identity of the newly posted card. The app deliberately does not supply a `setLargeIcon` image to the Adhan, countdown, or Quran media cards; Android may still render its own application identity in a system template.
 
 | System surface | Current behaviour | What Android still controls |
 |---|---|---|
-| Launcher | New `v2027` adaptive and round-icon resource identities reference the approved full-colour geometric mark. | Mask shape, themed-icon tint, badge and cache-refresh timing. |
-| Status bar | Every small notification icon resolves to the `v2027` monochrome geometric glyph. | Final light/dark/system tint and status-bar layout. |
+| Launcher | New `v2028` adaptive and round-icon resource identities reference the approved full-colour geometric mark. | Mask shape, themed-icon tint, badge and cache-refresh timing. |
+| Status bar | Every small notification icon resolves to the `v2028` monochrome geometric glyph. | Final light/dark/system tint and status-bar layout. |
 | Adhan and countdown | Retired ongoing cards are cancelled; fresh card IDs are then posted. | Permission, channel state, importance, grouping and visibility. |
 | Quran media playback | The foreground `MediaStyle` service clears its retired card before publishing its new media-card ID. | Media-card template, controls layout and lock-screen presentation. |
 

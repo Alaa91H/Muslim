@@ -270,7 +270,7 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         }
 
         return NotificationCompat.Builder(this, NotificationChannels.RECITATION)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2027)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
             .setContentTitle(title)
             .setContentText(text)
             .setOngoing(true)
@@ -481,17 +481,20 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         private const val RECITATIONS_FOLDER_ID = "muslim_recitations"
         private const val SURAH_MEDIA_PREFIX = "muslim_surah_"
         /** New identity ensures Android creates a fresh media card after the branding upgrade. */
-        const val RECITATION_NOTIFICATION_ID = 7007
-        /** Previous foreground-card identity displayed the retired status glyph. */
-        const val RETIRED_RECITATION_NOTIFICATION_ID = 7006
+        const val RECITATION_NOTIFICATION_ID = 7008
+        /** Most recent foreground-card identity, retained for migration cleanup. */
+        const val RETIRED_RECITATION_NOTIFICATION_ID = 7007
+        private const val OLDER_RETIRED_RECITATION_NOTIFICATION_ID = 7006
         private const val OPEN_APP_REQUEST_CODE = 70061
         /** Same extra key [org.muslim.app.MainActivity] reads for deep links. */
         private const val EXTRA_ROUTE = "org.muslim.app.extra.ROUTE"
 
         /** Clears the retained media card from the pre-branding APK before playback resumes. */
         fun cancelRetiredNotification(context: Context) {
-            context.getSystemService(android.app.NotificationManager::class.java)
-                .cancel(RETIRED_RECITATION_NOTIFICATION_ID)
+            context.getSystemService(android.app.NotificationManager::class.java).apply {
+                cancel(RETIRED_RECITATION_NOTIFICATION_ID)
+                cancel(OLDER_RETIRED_RECITATION_NOTIFICATION_ID)
+            }
         }
 
         fun start(context: Context) {

@@ -59,7 +59,7 @@ class RecitationDownloadNotifier(private val context: Context) {
             )
         }
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2027)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
             .setContentTitle(context.getString(R.string.quran_download_playback_title, surahName))
             .setContentIntent(contentIntent)
             .setContentText("${context.getString(R.string.quran_download_percent, clamped)} · $detail")

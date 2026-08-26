@@ -38,18 +38,18 @@ class NextAdhanCountdownMigrationInstrumentedTest {
 
     @After
     fun clearCards() {
-        notificationManager.cancel(NextAdhanNotifications.RETIRED_COUNTDOWN_NOTIFICATION_ID)
-        notificationManager.cancel(NextAdhanNotifications.NEXT_ADHAN_NOTIFICATION_ID)
+        listOf(NextAdhanNotifications.NEXT_ADHAN_NOTIFICATION_ID, 1013, 1011, 1004, 1003)
+            .forEach(notificationManager::cancel)
     }
 
     @Test
     fun cancelRetiredCountdown_removesAllOldOngoingCardsBeforeTheNewIdentityIsUsed() {
-        val retiredIds = listOf(NextAdhanNotifications.RETIRED_COUNTDOWN_NOTIFICATION_ID, 1004, 1003)
+        val retiredIds = listOf(NextAdhanNotifications.RETIRED_COUNTDOWN_NOTIFICATION_ID, 1011, 1004, 1003)
         retiredIds.forEach { notificationId ->
             notificationManager.notify(
                 notificationId,
                 NotificationCompat.Builder(context, NotificationChannels.PRAYER_COUNTDOWN)
-                    .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2027)
+                    .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
                     .setContentTitle("Legacy countdown")
                     .setOngoing(true)
                     .build(),
@@ -88,7 +88,7 @@ class NextAdhanCountdownMigrationInstrumentedTest {
 
         assertTrue(
             notification.smallIcon.resId ==
-                org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2027,
+                org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028,
         )
         val compactLine = requireNotNull(notification.extras.getCharSequence(Notification.EXTRA_TITLE))
         assertNotNull(compactLine)

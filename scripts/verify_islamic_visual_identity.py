@@ -87,6 +87,20 @@ VECTOR_ASSETS = [
     "ic_ornament_corner.xml",
 ]
 
+CURRENT_ICON_IDENTITY = "v2028"
+RETIRED_ICON_IDENTITIES = ("v1252", "v2026", "v2027")
+ICON_RESOURCE_DIRECTORIES = (
+    "app/src/main/res",
+    "core/core-notifications/src/main/res",
+    "wear/src/main/res",
+)
+PRODUCTION_SOURCE_DIRECTORIES = (
+    "app/src/main/java",
+    "core",
+    "feature",
+    "wear/src/main/java",
+)
+
 FORBIDDEN_SNIPPETS = {
     "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/QuranReaderScreen.kt": [
         "MUSHAF_ORNAMENT",
@@ -130,6 +144,46 @@ def verify() -> list[str]:
                 failures.append(f"{asset.relative_to(ROOT)}: root must be a vector")
         except Exception as error:  # noqa: BLE001 - report parse details to CI
             failures.append(f"{asset.relative_to(ROOT)}: invalid XML: {error}")
+
+    manifest = ROOT / "app/src/main/AndroidManifest.xml"
+    manifest_text = manifest.read_text(encoding="utf-8")
+    if "@mipmap/ic_muslim_launcher_v2028" not in manifest_text:
+        failures.append("app manifest: missing v2028 launcher identity")
+    if "@mipmap/ic_muslim_launcher_round_v2028" not in manifest_text:
+        failures.append("app manifest: missing v2028 round-launcher identity")
+
+    wear_manifest = ROOT / "wear/src/main/AndroidManifest.xml"
+    wear_manifest_text = wear_manifest.read_text(encoding="utf-8")
+    if "@drawable/ic_wear_launcher_v2028" not in wear_manifest_text:
+        failures.append("wear manifest: missing v2028 launcher identity")
+    if (ROOT / "wear/src/main/res/drawable/ic_wear_launcher.xml").exists():
+        failures.append("retired Wear launcher resource remains packaged")
+
+    for relative_directory in ICON_RESOURCE_DIRECTORIES:
+        resource_directory = ROOT / relative_directory
+        for retired in RETIRED_ICON_IDENTITIES:
+            for asset in resource_directory.rglob(f"*{retired}*"):
+                failures.append(
+                    f"retired icon resource remains packaged: {asset.relative_to(ROOT)}",
+                )
+
+    for relative_directory in PRODUCTION_SOURCE_DIRECTORIES:
+        source_directory = ROOT / relative_directory
+        for source in source_directory.rglob("*.kt"):
+            if "/src/main/" not in source.as_posix():
+                continue
+            text = source.read_text(encoding="utf-8")
+            for retired in RETIRED_ICON_IDENTITIES:
+                if retired in text:
+                    failures.append(
+                        f"retired icon identity remains in production source: {source.relative_to(ROOT)}",
+                    )
+                    break
+            for line_number, line in enumerate(text.splitlines(), start=1):
+                if ".setSmallIcon(" in line and "ic_muslim_status_bar_v2028" not in line:
+                    failures.append(
+                        f"{source.relative_to(ROOT)}:{line_number}: notification small icon must use v2028",
+                    )
 
     return failures
 

@@ -5,6 +5,15 @@ sectioned format as v1.10.0 and are generated from the commits for each tag.
 
 ## Unreleased
 
+### Strict System Icon Cleanup
+
+- Rotated the phone launcher, round-launcher, themed monochrome, status-bar, and dedicated Wear OS launcher identities again to fresh `v2028` resources, then removed every packaged retired resource so no current producer can resolve the retired identity.
+- Rotated the active Adhan card from `1012` to `1014`, the persistent next-prayer countdown from `1013` to `1015`, and Quran `MediaStyle` playback from `7007` to `7008`. Each migration cancels the latest retired card and every documented older card.
+- Added an internal `ACTION_MY_PACKAGE_REPLACED` receiver that performs cleanup immediately after an in-place upgrade, without depending on an application launch or foreground-service restart.
+- Extended instrumentation coverage for the expanded Adhan, countdown, and Quran-retirement lists, added a direct package-replaced receiver test, and updated the identity repair documentation to state Android-owned cache and template limits precisely.
+
+## Muslim v1.25.0
+
 ### System Notification Identity Repair
 
 - Replaced the Android-facing launcher, round-launcher, themed monochrome, and status-bar resource identities with `v2027` resources built from the approved geometric Islamic mark. The full-colour mark remains exclusive to the adaptive launcher; the dedicated notification glyph remains monochrome for Android system tinting.
@@ -20,9 +29,9 @@ sectioned format as v1.10.0 and are generated from the commits for each tag.
 - Updated the repository README, project status, visual-identity note, and documentation index to distinguish full-colour launcher artwork from monochrome system-notification glyphs and to link only the maintainer’s confirmed public GitHub and Ko-fi pages.
 - Extended Android instrumentation coverage for retained Adhan and countdown cards, the `v2027` application identity, and Quran recitation-card retirement. Added unit coverage that requires the countdown’s current and retired IDs to remain distinct.
 
-### Verification Status
+### Verification
 
-- Local and continuous-integration verification for this unreleased repair is pending at the time of this entry. A public tag and GitHub Release will be created only after the `main` workflow passes.
+- v1.25.0 was built and published after the tag workflow passed its debug builds, unit tests, Android Lint, Detekt, emulator tests, signed release checks, and artifact publishing steps.
 
 ## Muslim v1.24.16
 
