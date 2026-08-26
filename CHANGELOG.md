@@ -3,7 +3,7 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
-## Muslim v1.24.12
+## Muslim v1.24.13
 
 Updates install directly over v1.24.11 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.
 
@@ -13,6 +13,8 @@ Updates install directly over v1.24.11 with the same package name (`org.muslim.a
 - Added a two-stage offline recovery path. If a bundled or custom MediaPlayer source does not reach playback in time, the running service replaces it with a local synthesised AudioTrack fallback. It records recovery as an in-progress `AudioFallbackStarted` stage and only reports a terminal error if AudioTrack also fails to enter the playing state.
 - Added a bounded local fallback even when the foreground-notification start fails, so an Android foreground-notification error cannot by itself turn an otherwise valid Adhan request into silence. All paths retain the exact user-selected sound mode and global/per-prayer volume, including low values such as 17%; they are never reset or rewritten.
 - Extended the Verify Adhan observation window to cover the exact-alarm dispatch, MediaPlayer startup timeout, and AudioTrack fallback window. The screen therefore waits for the final delivery result instead of declaring an early failure while recovery is still running.
+- Corrected a false-negative notification check exposed by the Android 14 emulator: Android can accept `NotificationManager.notify()` before its active-notification list is updated. The app now waits a bounded confirmation window before reporting that the active Adhan alert was not retained.
+- Tightened release automation so signed artifacts and public GitHub releases now depend on successful quality and real-APK emulator jobs; a failed device test cannot publish a future tagged release.
 
 ## Real APK Instrumentation Coverage
 

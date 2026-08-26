@@ -9,6 +9,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.drawable.Icon
 import android.os.Build
+import android.os.SystemClock
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import org.muslim.app.core.common.prayer.Prayer
@@ -117,10 +118,20 @@ object AdhanNotifications {
         val manager = context.getSystemService(NotificationManager::class.java)
         val posted = runCatching {
             manager.notify(ADHAN_NOTIFICATION_ID, adhanNotification(context, prayer))
-            manager.activeNotifications.any { notification ->
-                notification.id == ADHAN_NOTIFICATION_ID &&
-                    notification.notification.channelId == NotificationChannels.ADHAN
+            // NotificationManager.notify is asynchronous on some Android
+            // builds. A same-stack activeNotifications query can therefore be
+            // empty even though the system accepts and shows the alert moments
+            // later. Wait only a small bounded window on the receiver's worker
+            // path before recording the true Android result.
+            repeat(ACTIVE_NOTIFICATION_CONFIRMATION_ATTEMPTS) {
+                if (manager.activeNotifications.any { notification ->
+                        notification.id == ADHAN_NOTIFICATION_ID &&
+                            notification.notification.channelId == NotificationChannels.ADHAN
+                    }
+                ) return@runCatching true
+                SystemClock.sleep(ACTIVE_NOTIFICATION_CONFIRMATION_INTERVAL_MS)
             }
+            false
         }
         return posted.fold(
             onSuccess = { active ->
@@ -158,4 +169,7 @@ object AdhanNotifications {
     }
 
     fun prayerNameRes(prayer: Prayer): Int = prayerLabelRes(prayer)
+
+    private const val ACTIVE_NOTIFICATION_CONFIRMATION_ATTEMPTS = 10
+    private const val ACTIVE_NOTIFICATION_CONFIRMATION_INTERVAL_MS = 75L
 }
