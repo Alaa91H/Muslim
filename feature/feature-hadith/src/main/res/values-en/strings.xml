@@ -6,6 +6,8 @@
     <string name="hadith_all">All</string>
     <string name="hadith_of_the_day">Hadith of the day</string>
     <string name="hadith_daily_notification">Daily hadith notification</string>
+    <string name="hadith_notification_settings">Daily hadith notification settings</string>
+    <string name="hadith_done">Done</string>
     <string name="hadith_daily_notification_desc">Receive a hadith every day</string>
     <string name="hadith_preview_label">Notification preview</string>
     <string name="hadith_preview_hint">This is how the daily hadith notification appears at its scheduled time.</string>
@@ -16,6 +18,12 @@
     <string name="hadith_copied">Hadith copied</string>
     <string name="hadith_bookmark_add">Add bookmark</string>
     <string name="hadith_bookmark_remove">Remove bookmark</string>
+    <string name="hadith_preparing">Preparing the offline hadith library…</string>
+    <string name="hadith_preparing_progress">Preparing the offline hadith library (%1$d hadiths)…</string>
+    <string name="hadith_preparing_failed">Could not prepare the hadith library</string>
+    <string name="hadith_load_failed">Could not load this hadith page</string>
+    <string name="hadith_retry">Retry</string>
+    <string name="hadith_no_results">No results match the selected search or collection.</string>
 
     <string name="hadith_collection_nawawi">An-Nawawi 40</string>
     <string name="hadith_collection_riyad">Riyadh as-Salihin</string>

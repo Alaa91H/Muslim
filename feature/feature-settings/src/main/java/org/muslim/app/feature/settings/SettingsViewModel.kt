@@ -11,9 +11,13 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import org.muslim.app.core.common.appearance.AppColorPalette
+import org.muslim.app.core.common.appearance.CardCornerStyle
+import org.muslim.app.core.common.appearance.AppOrnamentStyle
 import org.muslim.app.core.datastore.AppPreferences
 import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.AppThemeMode
+import org.muslim.app.core.datastore.SmartHomeBridgeSecretStore
 import org.muslim.app.feature.settings.update.UpdateCheckScheduler
 import org.muslim.app.feature.settings.update.UpdateChecker
 import javax.inject.Inject
@@ -27,6 +31,7 @@ import javax.inject.Inject
 class SettingsViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val appPreferencesRepository: AppPreferencesRepository,
+    private val smartHomeBridgeSecretStore: SmartHomeBridgeSecretStore,
 ) : ViewModel() {
 
     val preferences: StateFlow<AppPreferences> =
@@ -37,11 +42,55 @@ class SettingsViewModel @Inject constructor(
 
     fun setDynamicColor(enabled: Boolean) = launch { appPreferencesRepository.setDynamicColor(enabled) }
 
+    fun setColorPalette(palette: AppColorPalette) = launch {
+        appPreferencesRepository.setColorPalette(palette)
+    }
+
+    fun setCardCornerStyle(style: CardCornerStyle) = launch {
+        appPreferencesRepository.setCardCornerStyle(style)
+    }
+
+    fun setOrnamentStyle(style: AppOrnamentStyle) = launch {
+        appPreferencesRepository.setOrnamentStyle(style)
+    }
+
     fun setReduceAnimations(enabled: Boolean) = launch { appPreferencesRepository.setReduceAnimations(enabled) }
 
     fun setStartTab(route: String) = launch { appPreferencesRepository.setStartTab(route) }
 
     fun setTimeFormat24h(use24h: Boolean) = launch { appPreferencesRepository.setTimeFormat24h(use24h) }
+
+    fun setAccessibilityReadingMode(enabled: Boolean) = launch {
+        appPreferencesRepository.setAccessibilityReadingMode(enabled)
+    }
+
+    fun setAccessibilityHighContrast(enabled: Boolean) = launch {
+        appPreferencesRepository.setAccessibilityHighContrast(enabled)
+    }
+
+    fun setVoiceNavigationEnabled(enabled: Boolean) = launch {
+        appPreferencesRepository.setVoiceNavigationEnabled(enabled)
+    }
+
+    fun setWearCompanionEnabled(enabled: Boolean) = launch {
+        appPreferencesRepository.setWearCompanionEnabled(enabled)
+    }
+
+    fun setSmartHomeBridgeEnabled(enabled: Boolean) = launch {
+        appPreferencesRepository.setSmartHomeBridgeEnabled(enabled)
+    }
+
+    fun setSmartHomeBridgeEndpoint(endpoint: String) = launch {
+        appPreferencesRepository.setSmartHomeBridgeEndpoint(endpoint)
+    }
+
+    fun saveSmartHomeBridgeToken(token: String) = launch {
+        smartHomeBridgeSecretStore.save(token)
+    }
+
+    fun clearSmartHomeBridgeToken() = launch {
+        smartHomeBridgeSecretStore.clear()
+    }
 
     fun setMoreSectionOrder(order: List<String>) = launch { appPreferencesRepository.setMoreSectionOrder(order) }
 

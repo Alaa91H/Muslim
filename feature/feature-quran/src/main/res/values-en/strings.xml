@@ -13,25 +13,6 @@
     <string name="quran_more_actions">More actions</string>
     <string name="quran_font_size">Font size</string>
     <string name="quran_keep_screen_on">Keep screen on while reading and reciting</string>
-    <string name="quran_search">Search</string>
-    <string name="quran_search_hint">Search the Quran…</string>
-    <string name="quran_search_prompt">Type a word or phrase to search the whole mushaf (offline).</string>
-    <string name="quran_search_empty">No matching results</string>
-    <string name="quran_search_ref">%1$s:%2$s</string>
-    <string name="quran_search_summary">The word occurs %1$d times in %2$d ayahs across %3$d surahs</string>
-    <string name="quran_search_prefix">Root search (prefix)</string>
-    <string name="quran_search_exact">Exact word</string>
-    <string name="quran_search_where">Where it occurs (by surah)</string>
-    <string name="quran_search_surah_item">%1$d. %2$s</string>
-    <string name="quran_search_occurrences">%1$d times</string>
-    <string name="quran_search_history">Recent searches</string>
-    <string name="quran_search_history_clear">Clear</string>
-    <string name="quran_search_metrics">Search time: %1$d ms</string>
-    <string name="quran_search_index_building">Building the Quran index for the first search…</string>
-    <string name="quran_search_index_progress">Building the mushaf index… %1$d%%</string>
-    <string name="quran_search_word_root">Root: %1$s</string>
-    <string name="quran_search_derivations">Words derived from the same root</string>
-    <string name="quran_search_no_root">Could not determine the root</string>
     <string name="quran_details">Surah details</string>
     <string name="quran_details_close">Close</string>
     <string name="quran_details_type">Type</string>
@@ -61,6 +42,7 @@
     <!-- Recitation -->
     <string name="quran_reciter">Reciter</string>
     <string name="quran_play_ayah">Play ayah</string>
+    <string name="quran_play_from_selected_ayah">Play from selected ayah (%1$d) to the end of this surah</string>
     <string name="quran_repeat">Repeat</string>
     <string name="quran_next_ayah">Next ayah</string>
     <string name="quran_previous_ayah">Previous ayah</string>
@@ -119,6 +101,17 @@
     <!-- Meanings/tafsir controls -->
     <string name="quran_supplement_controls">Meanings &amp; Tafsir</string>
     <string name="quran_supplement_show">Show meanings &amp; tafsir</string>
+    <string name="quran_tajweed_show">Show tajweed colours</string>
+    <string name="quran_tajweed_show_desc">Colour Hafs tajweed rules in the Quran text</string>
+    <string name="quran_tafsir_sources_title">Tafsir source</string>
+    <string name="quran_tafsir_sources_empty">Download a tafsir, then select it to show it with meanings.</string>
+    <string name="quran_tafsir_muyassar">At-Tafsir Al-Muyassar</string>
+    <string name="quran_tafsir_download">Download</string>
+    <string name="quran_tafsir_downloading">Downloading…</string>
+    <string name="quran_tafsir_download_progress">%1$d / %2$d</string>
+    <string name="quran_tafsir_installed">Installed</string>
+    <string name="quran_tafsir_download_failed">Could not download tafsir: %1$s</string>
+    <string name="quran_tafsir_attribution">QuranEnc.com · At-Tafsir Al-Muyassar · https://quranenc.com/en/browse/arabic_moyassar</string>
     <string name="quran_supplement_language">Translation language</string>
     <string name="quran_supplement_language_auto">App language (%1$s)</string>
 
@@ -158,14 +151,10 @@
 
     <string name="quran_stop_at_end_of_mushaf">Stop automatically at the end of the mushaf</string>
 
+    <!-- Android Auto: only locally downloaded recitations are exposed. -->
+    <string name="quran_car_recitations">Downloaded recitations</string>
+    <string name="quran_car_recitations_subtitle">Fully downloaded surahs for safe playback without driving-time downloads</string>
+    <string name="quran_car_not_downloaded">This surah is not fully downloaded on the phone.</string>
+    <string name="quran_car_search_unavailable">No matching downloaded surah was found.</string>
 
-    <string name="quran_frequency_title">Quran Word Frequency</string>
-    <string name="quran_frequency_loading">Counting word frequency…</string>
-    <string name="quran_frequency_total_words">Total words</string>
-    <string name="quran_frequency_unique_words">Unique words</string>
-    <string name="quran_frequency_ayahs">Ayahs</string>
-    <string name="quran_frequency_top_header">Top 50 most frequent words</string>
-    <string name="quran_frequency_allah">The word Allah (الله) occurs %1$d times in its standalone form</string>
-    <string name="quran_frequency_footnote">Counted from the bundled mushaf text after stripping diacritics and recitation marks and folding the alef-wasla (ٱ to ا). Words are counted as written; prefixed forms (wallah, billah, lillah) are separate entries.</string>
-    <string name="quran_frequency_open">Quran word frequency</string>
 </resources>

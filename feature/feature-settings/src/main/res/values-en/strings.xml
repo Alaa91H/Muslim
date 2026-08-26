@@ -12,6 +12,20 @@
     <string name="settings_theme_dark">Dark</string>
     <string name="settings_dynamic_color">Dynamic color</string>
     <string name="settings_dynamic_color_desc">Use your wallpaper colors (Material You) on Android 12+</string>
+    <string name="settings_color_palette">Color palette</string>
+    <string name="settings_palette_classic">Classic Islamic</string>
+    <string name="settings_palette_emerald">Emerald</string>
+    <string name="settings_palette_midnight">Midnight</string>
+    <string name="settings_palette_sand">Sand</string>
+    <string name="settings_card_corners">Card corner softness</string>
+    <string name="settings_corners_compact">Compact</string>
+    <string name="settings_corners_soft">Soft</string>
+    <string name="settings_corners_rounded">Rounded</string>
+    <string name="settings_ornament">Islamic ornament</string>
+    <string name="settings_ornament_geometry">Geometric</string>
+    <string name="settings_ornament_arabesque">Arabesque</string>
+    <string name="settings_ornament_stars">Stars</string>
+    <string name="settings_ornament_minimal">Minimal</string>
     <string name="settings_reduce_animations">Reduce animations</string>
     <string name="settings_reduce_animations_desc">Disable non-essential motion for accessibility</string>
 
@@ -155,6 +169,8 @@
     <string name="notif_category_hajj_desc">Daily reminder of the intended rite at its time during the Hajj days</string>
     <string name="notif_category_family">Family life</string>
     <string name="notif_category_family_desc">Aqiqah and family-date reminders</string>
+    <string name="notif_category_finance">Islamic finance</string>
+    <string name="notif_category_finance_desc">Due-date reminders for debts saved in the app</string>
     <string name="notif_category_app_update">App updates</string>
     <string name="notif_category_app_update_desc">Notification when a new app version is available</string>
     <string name="notif_missed_color">Missed adhan line color</string>
@@ -205,4 +221,53 @@
     <string name="update_available_text">Version %1$s is now available — tap to update</string>
     <string name="update_last_check">Last check: %1$s</string>
     <string name="update_open_releases">Open the releases page in the browser</string>
+    <!-- Accessibility Centre -->
+    <string name="accessibility_title">Accessibility Centre</string>
+    <string name="accessibility_back">Back</string>
+    <string name="accessibility_intro">Customisable options for accessing content and navigating the app. Use them alongside TalkBack and your device display settings.</string>
+    <string name="accessibility_talkback_title">TalkBack and screen readers</string>
+    <string name="accessibility_talkback_body">Each new interactive element has a clear name, and controls announce their state and action. Turn on TalkBack in Android Accessibility settings, then use normal focus and swipe navigation.</string>
+    <string name="accessibility_reading_title">Clearer Arabic reading</string>
+    <string name="accessibility_reading_desc">Use the bundled Noto Sans Arabic typeface and wider line spacing for Quran and adhkar text. This option preserves the text and is not a medical treatment for dyslexia.</string>
+    <string name="accessibility_high_contrast_title">High contrast</string>
+    <string name="accessibility_high_contrast_desc">Use clear black-and-white colours instead of dynamic wallpaper colours to distinguish text and controls.</string>
+    <string name="accessibility_voice_title">On-demand voice navigation</string>
+    <string name="accessibility_voice_desc">Shows the Listen button when enabled. The microphone starts only after you tap it, stops after one command, and the app keeps neither your audio nor its transcript.</string>
+    <string name="accessibility_voice_privacy">Android may use a recognition service selected by your device. If an on-device model is unavailable, that service may process audio over a network; review your device provider’s privacy policy.</string>
+    <string name="accessibility_voice_examples_title">Command examples</string>
+    <string name="accessibility_voice_examples">“Home”, “Quran”, “Qibla”, “Adhkar”, “Settings”, “Accessibility Centre”, or “Read Surah Al-Kahf”. Surah numbers such as “Surah 18” and equivalent Arabic commands also work.</string>
+    <string name="accessibility_sign_title">Sign-language learning</string>
+    <string name="accessibility_sign_intro">External videos for wudu and salah in British Sign Language (BSL). The videos are not embedded in the app, and sign languages and vocabulary vary by country.</string>
+    <string name="accessibility_sign_wudu">Open wudu in BSL</string>
+    <string name="accessibility_sign_salah">Open salah in BSL</string>
+    <string name="accessibility_sign_external">Opens an external video in your browser or video app.</string>
+    <string name="accessibility_sign_review">These are external learning resources, not a universal sign-language translation or a personal fatwa. Ask a qualified teacher or trusted local authority about practical details.</string>
+    <string name="accessibility_support_title">Limits and support</string>
+    <string name="accessibility_support_body">System settings control font size, magnification, screen reader, speech language and available models. Results differ across devices, and you can turn off every option here at any time.</string>
+    <string name="voice_listen">Listen for a navigation command</string>
+    <string name="voice_listening">Listening…</string>
+    <string name="voice_command_opened">Opened: %1$s</string>
+    <string name="voice_command_unrecognized">No supported navigation command was recognised. Try an example from Accessibility Centre.</string>
+    <string name="voice_service_unavailable">Speech recognition is unavailable on this device.</string>
+    <string name="voice_command_timeout">No speech was heard in time. Try again.</string>
+    <string name="voice_command_network">Could not reach speech recognition. Try an on-device model or check your device connection.</string>
+    <string name="voice_command_error">Listening could not start now. Try again.</string>
+
+    <!-- Smart devices / companion integrations. -->
+    <string name="settings_smart_devices">Smart devices</string>
+    <string name="settings_smart_devices_desc">Android Auto, Wear OS, and an optional home-adhan bridge</string>
+    <string name="smart_devices_title">Smart devices</string>
+    <string name="smart_devices_wear_title">Wear OS watch</string>
+    <string name="smart_devices_wear_desc">Sync the next prayer and tasbih counter with your paired watch. Sync does not send location or account settings.</string>
+    <string name="smart_devices_auto_title">Android Auto</string>
+    <string name="smart_devices_auto_desc">Only fully downloaded surahs appear in the safe media interface. The app never starts downloads or shows video while driving.</string>
+    <string name="smart_devices_home_title">Home adhan bridge</string>
+    <string name="smart_devices_home_desc">Sends a short event after local audible adhan playback begins to an HTTPS endpoint you choose. Your home service can connect that event to Google Home, Alexa, or another automation you control.</string>
+    <string name="smart_devices_home_endpoint">Bridge HTTPS endpoint</string>
+    <string name="smart_devices_home_token">Optional Bearer token</string>
+    <string name="smart_devices_home_save">Save bridge settings</string>
+    <string name="smart_devices_home_clear_token">Clear saved token</string>
+    <string name="smart_devices_home_privacy">Nothing is sent by default. When enabled, the app sends only the prayer name and event time; it never sends location, audio, or app settings. The token is stored locally with Android Keystore.</string>
+    <string name="smart_devices_home_https_hint">Use a complete HTTPS address. Your service must validate the token and decide how to trigger home playback.</string>
+    <string name="smart_devices_back">Back</string>
 </resources>

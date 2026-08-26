@@ -46,10 +46,6 @@
     <string name="crash_close">Zamknij</string>
     <string name="crash_dismiss">Kontynuuj</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Przeszukaj Koran</string>
-    <string name="more_quran_search_desc">Znajdź słowo, jak często się pojawia i gdzie</string>
-    <string name="more_quran_frequency">Częstotliwość słów Koranu</string>
-    <string name="more_quran_frequency_desc">Najczęstsze słowa w całym mushafie</string>
     <string name="more_names">99 imion Allaha</string>
     <string name="more_names_desc">99 nazw z pełnym wyjaśnieniem</string>
     <string name="more_hajj">Hadżdż i Umra</string>

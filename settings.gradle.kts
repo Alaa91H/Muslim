@@ -27,8 +27,9 @@ rootProject.name = "Muslim"
 // Each feature module depends only on core modules — never on another feature.
 // ---------------------------------------------------------------------------
 
-// App entry point
+// App entry point and paired Wear OS companion
 include(":app")
+include(":wear")
 
 // Core modules
 include(":core:core-common")
@@ -51,5 +52,7 @@ include(":feature:feature-tasbih")
 include(":feature:feature-learn")
 include(":feature:feature-ramadan")
 include(":feature:feature-zakat")
+include(":feature:feature-finance")
 include(":feature:feature-settings")
 include(":feature:feature-reference")
+include(":feature:feature-scholar-library")

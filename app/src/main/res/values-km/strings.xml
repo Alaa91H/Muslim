@@ -46,10 +46,6 @@
     <string name="crash_close">បិទ</string>
     <string name="crash_dismiss">បន្ត</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة عرض المزيد</string>
-    <string name="more_quran_search">ស្វែងរកគម្ពីគូរ៉ា</string>
-    <string name="more_quran_search_desc">ស្វែងរកពាក្យមួយ តើវាលេចឡើងញឹកញាប់ប៉ុណ្ណា និងកន្លែងណា</string>
-    <string name="more_quran_frequency">ភាពញឹកញាប់នៃពាក្យគម្ពីគូរ៉ា</string>
-    <string name="more_quran_frequency_desc">ពាក្យញឹកញាប់បំផុតនៅក្នុង mushaf ទាំងមូល</string>
     <string name="more_names">99 ឈ្មោះរបស់អល់ឡោះ</string>
     <string name="more_names_desc">ឈ្មោះ ៩៩ ដែលមានការពន្យល់ពេញលេញ</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

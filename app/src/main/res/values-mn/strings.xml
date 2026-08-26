@@ -46,10 +46,6 @@
     <string name="crash_close">Хаах</string>
     <string name="crash_dismiss">Үргэлжлүүлэх</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإظهار أو إككك. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Коран судар хайх</string>
-    <string name="more_quran_search_desc">Хэр олон удаа, хаана гарч ирдэг үгийг олоорой</string>
-    <string name="more_quran_frequency">Коран үгсийн давтамж</string>
-    <string name="more_quran_frequency_desc">Бүхэл бүтэн мусхаф дахь хамгийн түгээмэл үгс</string>
     <string name="more_names">Аллахын 99 нэр</string>
     <string name="more_names_desc">Бүрэн тайлбартай 99 нэр</string>
     <string name="more_hajj">Хаж ба Умра</string>

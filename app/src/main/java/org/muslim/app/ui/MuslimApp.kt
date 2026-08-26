@@ -40,28 +40,32 @@ import org.muslim.app.feature.prayertimes.ui.settings.PrayerSettingsScreen
 import org.muslim.app.feature.adhkar.ui.AdhkarScreen
 import org.muslim.app.feature.hadith.ui.HadithScreen
 import org.muslim.app.feature.learn.ui.LearnScreen
-import org.muslim.app.feature.learn.ui.NamesOfAllahScreen
-import org.muslim.app.feature.learn.ui.HajjUmrahScreen
 import org.muslim.app.feature.learn.ui.FamilyLifeScreen
-import org.muslim.app.feature.qibla.ui.MosqueFinderScreen
-import org.muslim.app.feature.qibla.ui.OfflineMapsScreen
+import org.muslim.app.feature.learn.ui.FuneralWillScreen
+import org.muslim.app.feature.learn.ui.NooraniNewMuslimScreen
+import org.muslim.app.feature.learn.ui.TravelerExpatsScreen
 import org.muslim.app.feature.qibla.ui.QiblaScreen
 import org.muslim.app.feature.quran.ui.BookmarksScreen
 import org.muslim.app.feature.ramadan.ui.HabitTrackerScreen
 import org.muslim.app.feature.ramadan.ui.RamadanScreen
 import org.muslim.app.feature.quran.ui.QuranDownloadsScreen
 import org.muslim.app.feature.quran.ui.QuranReaderScreen
-import org.muslim.app.feature.quran.ui.QuranWordFrequencyScreen
-import org.muslim.app.feature.quran.ui.SearchScreen
 import org.muslim.app.feature.quran.ui.SurahListScreen
+import org.muslim.app.feature.reference.ui.IslamicHistoryScreen
 import org.muslim.app.feature.reference.ui.ReferenceScreen
+import org.muslim.app.feature.scholarlibrary.ui.ScholarBookDetailScreen
+import org.muslim.app.feature.scholarlibrary.ui.ScholarLibraryScreen
+import org.muslim.app.feature.scholarlibrary.ui.ScholarStudyDeskScreen
+import org.muslim.app.feature.settings.AccessibilityScreen
 import org.muslim.app.feature.settings.AboutScreen
 import org.muslim.app.feature.settings.NotificationSettingsScreen
 import org.muslim.app.feature.settings.PermissionsScreen
 import org.muslim.app.feature.settings.PrivacyScreen
 import org.muslim.app.feature.settings.SettingsScreen
+import org.muslim.app.feature.settings.SmartDevicesScreen
 import org.muslim.app.feature.settings.update.UpdateScreen
 import org.muslim.app.feature.tasbih.ui.TasbihScreen
+import org.muslim.app.feature.finance.ui.IslamicFinanceScreen
 import org.muslim.app.feature.zakat.ui.ZakatScreen
 
 private data class Tab(
@@ -82,10 +86,10 @@ private fun startDestinationFor(preferred: String): String =
     if (tabs.any { it.route == preferred }) preferred else "home"
 
 private const val READER_ROUTE = "quran/reader"
-private const val SEARCH_ROUTE = "quran/search"
 private const val BOOKMARKS_ROUTE = "quran/bookmarks"
-private const val QURAN_FREQUENCY_ROUTE = "quran/frequency"
 private const val SETTINGS_ROUTE = "settings"
+private const val ACCESSIBILITY_ROUTE = "accessibility"
+private const val SMART_DEVICES_ROUTE = "settings/smart-devices"
 private const val PRAYER_SETTINGS_ROUTE = "settings/prayer"
 private const val NOTIFICATIONS_ROUTE = "settings/notifications"
 private const val PERMISSIONS_ROUTE = "settings/permissions"
@@ -99,14 +103,18 @@ private const val TASBIH_ROUTE = "tasbih"
 private const val RAMADAN_ROUTE = "ramadan"
 private const val HABITS_ROUTE = "habits"
 private const val ZAKAT_ROUTE = "zakat"
+private const val ISLAMIC_FINANCE_ROUTE = "finance"
 private const val LEARN_ROUTE = "learn"
-private const val NAMES_ROUTE = "learn/names-of-allah"
-private const val HAJJ_ROUTE = "learn/hajj-umrah"
 private const val FAMILY_LIFE_ROUTE = "learn/family-life"
+private const val FUNERAL_WILL_ROUTE = "learn/funeral-will"
+private const val NOORANI_NEW_MUSLIM_ROUTE = "learn/noorani-new-muslim"
+private const val TRAVELER_EXPAT_ROUTE = "learn/traveler-expat"
 private const val REFERENCE_ROUTE = "reference"
+private const val ISLAMIC_HISTORY_ROUTE = "history"
 private const val QURAN_DOWNLOADS_ROUTE = "quran/downloads"
-private const val MOSQUES_ROUTE = "qibla/mosques"
-private const val OFFLINE_MAPS_ROUTE = "qibla/offline-maps"
+private const val SCHOLAR_LIBRARY_ROUTE = "scholar-library"
+private const val SCHOLAR_LIBRARY_BOOK_ROUTE = "scholar-library/book"
+private const val SCHOLAR_LIBRARY_STUDY_ROUTE = "scholar-library/study"
 
 @Composable
 fun MuslimApp(
@@ -146,9 +154,29 @@ fun MuslimApp(
     AppTheme(
         darkTheme = darkTheme,
         dynamicColor = preferences.dynamicColor,
+        highContrast = preferences.accessibilityHighContrast,
+        accessibilityReadingMode = preferences.accessibilityReadingMode,
+        colorPalette = preferences.colorPalette,
+        cardCornerStyle = preferences.cardCornerStyle,
     ) {
         Scaffold(
             modifier = modifier,
+            floatingActionButton = {
+                if (preferences.voiceNavigationEnabled) {
+                    VoiceNavigationButton(onTarget = { target ->
+                        when (target) {
+                            is VoiceNavigationTarget.Route -> navController.navigate(target.route) {
+                                launchSingleTop = true
+                            }
+                            is VoiceNavigationTarget.Reader -> navController.navigate(
+                                "$READER_ROUTE/${target.surahNumber}",
+                            ) {
+                                launchSingleTop = true
+                            }
+                        }
+                    })
+                }
+            },
             bottomBar = {
                 val backStackEntry by navController.currentBackStackEntryAsState()
                 val currentDestination = backStackEntry?.destination
@@ -188,21 +216,9 @@ fun MuslimApp(
                 composable("quran") {
                     SurahListScreen(
                         onOpenSurah = { number -> navController.navigate("$READER_ROUTE/$number") },
-                        onOpenSearch = { navController.navigate(SEARCH_ROUTE) },
+                        onPlaySurah = { number -> navController.navigate("$READER_ROUTE/$number?autoplay=true") },
                         onOpenBookmarks = { navController.navigate(BOOKMARKS_ROUTE) },
-                        onOpenWordFrequency = { navController.navigate(QURAN_FREQUENCY_ROUTE) },
                         onResumeReading = { surah, global ->
-                            navController.navigate("$READER_ROUTE/$surah?ayah=$global")
-                        },
-                    )
-                }
-                composable(QURAN_FREQUENCY_ROUTE) {
-                    QuranWordFrequencyScreen(onBack = { navController.popBackStack() })
-                }
-                composable(SEARCH_ROUTE) {
-                    SearchScreen(
-                        onBack = { navController.popBackStack() },
-                        onOpenAyah = { surah, global ->
                             navController.navigate("$READER_ROUTE/$surah?ayah=$global")
                         },
                     )
@@ -216,12 +232,16 @@ fun MuslimApp(
                     )
                 }
                 composable(
-                    route = "$READER_ROUTE/{surahNumber}?ayah={ayah}",
+                    route = "$READER_ROUTE/{surahNumber}?ayah={ayah}&autoplay={autoplay}",
                     arguments = listOf(
                         navArgument("surahNumber") { type = NavType.IntType },
                         navArgument("ayah") {
                             type = NavType.IntType
                             defaultValue = -1
+                        },
+                        navArgument("autoplay") {
+                            type = NavType.BoolType
+                            defaultValue = false
                         },
                     ),
                 ) {
@@ -239,17 +259,8 @@ fun MuslimApp(
                             latitude = selected.latitude,
                             longitude = selected.longitude,
                             locationName = selected.name,
-                            onOpenMosques = { navController.navigate(MOSQUES_ROUTE) },
                         )
                     }
-                }
-                composable(MOSQUES_ROUTE) {
-                    val selected = location
-                    MosqueFinderScreen(
-                        latitude = selected?.latitude,
-                        longitude = selected?.longitude,
-                        onBack = { navController.popBackStack() },
-                    )
                 }
                 composable("more") {
                     MoreScreen(
@@ -260,24 +271,19 @@ fun MuslimApp(
                         onOpenRamadan = { navController.navigate(RAMADAN_ROUTE) },
                         onOpenHabits = { navController.navigate(HABITS_ROUTE) },
                         onOpenZakat = { navController.navigate(ZAKAT_ROUTE) },
+                        onOpenIslamicFinance = { navController.navigate(ISLAMIC_FINANCE_ROUTE) },
                         onOpenLearn = { navController.navigate(LEARN_ROUTE) },
-                        onOpenNames = { navController.navigate(NAMES_ROUTE) },
-                        onOpenHajj = { navController.navigate(HAJJ_ROUTE) },
                         onOpenFamily = { navController.navigate(FAMILY_LIFE_ROUTE) },
+                        onOpenFuneralWill = { navController.navigate(FUNERAL_WILL_ROUTE) },
+                        onOpenNoorani = { navController.navigate(NOORANI_NEW_MUSLIM_ROUTE) },
+                        onOpenTraveler = { navController.navigate(TRAVELER_EXPAT_ROUTE) },
                         onOpenReference = { navController.navigate(REFERENCE_ROUTE) },
+                        onOpenIslamicHistory = { navController.navigate(ISLAMIC_HISTORY_ROUTE) },
+                        onOpenScholarLibrary = { navController.navigate(SCHOLAR_LIBRARY_ROUTE) },
+                        onOpenAccessibility = { navController.navigate(ACCESSIBILITY_ROUTE) },
                         onOpenDownloads = { navController.navigate(QURAN_DOWNLOADS_ROUTE) },
-                        onOpenQuranSearch = { navController.navigate(SEARCH_ROUTE) },
-                        onOpenQuranFrequency = { navController.navigate(QURAN_FREQUENCY_ROUTE) },
-                        onOpenOfflineMaps = { navController.navigate(OFFLINE_MAPS_ROUTE) },
                         sectionOrder = preferences.moreSectionOrder,
                         hiddenSections = preferences.hiddenMoreSections,
-                    )
-                }
-                composable(OFFLINE_MAPS_ROUTE) {
-                    OfflineMapsScreen(
-                        onBack = { navController.popBackStack() },
-                        latitude = location?.latitude,
-                        longitude = location?.longitude,
                     )
                 }
                 composable(SETTINGS_ROUTE) {
@@ -290,8 +296,16 @@ fun MuslimApp(
                         onOpenPrivacy = { navController.navigate(PRIVACY_ROUTE) },
                         onOpenMoreOrder = { navController.navigate(MORE_ORDER_ROUTE) },
                         onOpenUpdates = { navController.navigate(UPDATE_ROUTE) },
+                        onOpenAccessibility = { navController.navigate(ACCESSIBILITY_ROUTE) },
+                        onOpenSmartDevices = { navController.navigate(SMART_DEVICES_ROUTE) },
                         onLanguageChanged = onLanguageChanged,
                     )
+                }
+                composable(ACCESSIBILITY_ROUTE) {
+                    AccessibilityScreen(onBack = { navController.popBackStack() })
+                }
+                composable(SMART_DEVICES_ROUTE) {
+                    SmartDevicesScreen(onBack = { navController.popBackStack() })
                 }
                 composable(MORE_ORDER_ROUTE) {
                     MoreOrderScreen(onBack = { navController.popBackStack() })
@@ -301,6 +315,25 @@ fun MuslimApp(
                 }
                 composable(PERMISSIONS_ROUTE) {
                     PermissionsScreen(onBack = { navController.popBackStack() })
+                }
+                composable(SCHOLAR_LIBRARY_ROUTE) {
+                    ScholarLibraryScreen(
+                        onBack = { navController.popBackStack() },
+                        onOpenBook = { bookId -> navController.navigate("$SCHOLAR_LIBRARY_BOOK_ROUTE/$bookId") },
+                        onOpenStudyDesk = { navController.navigate(SCHOLAR_LIBRARY_STUDY_ROUTE) },
+                    )
+                }
+                composable(
+                    route = "$SCHOLAR_LIBRARY_BOOK_ROUTE/{bookId}",
+                    arguments = listOf(navArgument("bookId") { type = NavType.StringType }),
+                ) { entry ->
+                    ScholarBookDetailScreen(
+                        bookId = entry.arguments?.getString("bookId").orEmpty(),
+                        onBack = { navController.popBackStack() },
+                    )
+                }
+                composable(SCHOLAR_LIBRARY_STUDY_ROUTE) {
+                    ScholarStudyDeskScreen(onBack = { navController.popBackStack() })
                 }
                 composable(HADITH_ROUTE) {
                     HadithScreen(onBack = { navController.popBackStack() })
@@ -320,20 +353,32 @@ fun MuslimApp(
                 composable(ZAKAT_ROUTE) {
                     ZakatScreen(onBack = { navController.popBackStack() })
                 }
+                composable(ISLAMIC_FINANCE_ROUTE) {
+                    IslamicFinanceScreen(onBack = { navController.popBackStack() })
+                }
                 composable(LEARN_ROUTE) {
                     LearnScreen(onBack = { navController.popBackStack() })
-                }
-                composable(NAMES_ROUTE) {
-                    NamesOfAllahScreen(onBack = { navController.popBackStack() })
-                }
-                composable(HAJJ_ROUTE) {
-                    HajjUmrahScreen(onBack = { navController.popBackStack() })
                 }
                 composable(FAMILY_LIFE_ROUTE) {
                     FamilyLifeScreen(onBack = { navController.popBackStack() })
                 }
+                composable(FUNERAL_WILL_ROUTE) {
+                    FuneralWillScreen(onBack = { navController.popBackStack() })
+                }
+                composable(NOORANI_NEW_MUSLIM_ROUTE) {
+                    NooraniNewMuslimScreen(onBack = { navController.popBackStack() })
+                }
+                composable(TRAVELER_EXPAT_ROUTE) {
+                    TravelerExpatsScreen(
+                        onBack = { navController.popBackStack() },
+                        onOpenPrayerSettings = { navController.navigate(PRAYER_SETTINGS_ROUTE) },
+                    )
+                }
                 composable(REFERENCE_ROUTE) {
                     ReferenceScreen(onBack = { navController.popBackStack() })
+                }
+                composable(ISLAMIC_HISTORY_ROUTE) {
+                    IslamicHistoryScreen(onBack = { navController.popBackStack() })
                 }
                 composable(QURAN_DOWNLOADS_ROUTE) {
                     QuranDownloadsScreen(onBack = { navController.popBackStack() })

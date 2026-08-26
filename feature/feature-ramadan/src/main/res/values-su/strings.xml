@@ -26,4 +26,15 @@
     <string name="ramadan_title">Ramadhan</string>
     <string name="ramadan_notify_outside">Pangeling-eling di luar Ramadhan</string>
     <string name="ramadan_notify_outside_desc">Tanda buka puasa sareng sahur dijalankeun sacara otomatis salami Ramadhan; ngamungkinkeun ieu ngajaga aranjeunna dina sasih sanés.</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">Subuh</string>
+    <string name="habit_prayer_dhuhr">Dzuhur</string>
+    <string name="habit_prayer_asr">Asar</string>
+    <string name="habit_prayer_maghrib">Magrib</string>
+    <string name="habit_prayer_isha">Isha</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

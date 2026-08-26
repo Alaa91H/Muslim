@@ -46,10 +46,6 @@
     <string name="crash_close">Đóng</string>
     <string name="crash_dismiss">Tiếp tục</string>
     <string name="more_order_hint">Một trong những điều tốt nhất bạn có thể làm để có được một công cụ tuyệt vời Ờ. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Tìm kiếm Kinh Qur\'an</string>
-    <string name="more_quran_search_desc">Tìm một từ, tần suất nó xuất hiện và ở đâu</string>
-    <string name="more_quran_frequency">Tần số từ Kinh Qur\'an</string>
-    <string name="more_quran_frequency_desc">Những từ thường gặp nhất trong toàn bộ mushaf</string>
     <string name="more_names">99 tên của Allah</string>
     <string name="more_names_desc">99 cái tên có lời giải thích đầy đủ</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

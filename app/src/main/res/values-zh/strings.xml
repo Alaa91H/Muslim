@@ -46,10 +46,6 @@
     <string name="crash_close">关闭</string>
     <string name="crash_dismiss">继续</string>
     <string name="more_order_hint">相关内容包括：请参阅以下内容。</string>
-    <string name="more_quran_search">搜索古兰经</string>
-    <string name="more_quran_search_desc">查找一个单词，它出现的频率和位置</string>
-    <string name="more_quran_frequency">古兰经词频</string>
-    <string name="more_quran_frequency_desc">整个mushaf中出现频率最高的单词</string>
     <string name="more_names">安拉的 99 个名字</string>
     <string name="more_names_desc">99个名字及详细解释</string>
     <string name="more_hajj">朝觐和副朝</string>

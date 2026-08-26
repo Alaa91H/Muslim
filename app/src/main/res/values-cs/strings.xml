@@ -46,10 +46,6 @@
     <string name="crash_close">Zavřít</string>
     <string name="crash_dismiss">Pokračovat</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترخيبهست المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Hledejte v Koránu</string>
-    <string name="more_quran_search_desc">Najděte slovo, jak často se objevuje a kde</string>
-    <string name="more_quran_frequency">Frekvence slov Koránu</string>
-    <string name="more_quran_frequency_desc">Nejfrekventovanější slova v celém mushaf</string>
     <string name="more_names">99 Alláhových jmen</string>
     <string name="more_names_desc">99 jmen s úplným vysvětlením</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

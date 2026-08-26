@@ -1,7 +1,6 @@
 package org.muslim.app.feature.quran.data
 
 import android.app.PendingIntent
-import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
@@ -9,11 +8,13 @@ import android.media.AudioAttributes
 import android.media.AudioFocusRequest
 import android.media.AudioManager
 import android.os.Build
-import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import androidx.core.app.ServiceCompat
+import androidx.media.MediaBrowserServiceCompat
 import androidx.media.app.NotificationCompat.MediaStyle
 import androidx.media.session.MediaButtonReceiver
+import android.support.v4.media.MediaBrowserCompat
+import android.support.v4.media.MediaDescriptionCompat
 import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.MediaSessionCompat
 import android.support.v4.media.session.PlaybackStateCompat
@@ -23,10 +24,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.QuranAyahIndex
+import org.muslim.app.feature.quran.domain.QuranRepository
+import org.muslim.app.feature.quran.domain.Surah
 import javax.inject.Inject
 
 /**
@@ -46,10 +50,11 @@ import javax.inject.Inject
  * itself as soon as the player goes Idle.
  */
 @AndroidEntryPoint
-class RecitationPlaybackService : Service() {
+class RecitationPlaybackService : MediaBrowserServiceCompat() {
 
-    @Inject
-    lateinit var player: QuranAudioPlayer
+    @Inject lateinit var player: QuranAudioPlayer
+    @Inject lateinit var quranRepository: QuranRepository
+    @Inject lateinit var recitationRepository: RecitationRepository
 
     private var session: MediaSessionCompat? = null
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
@@ -111,7 +116,21 @@ class RecitationPlaybackService : Service() {
         hasAudioFocus = false
     }
 
-    override fun onBind(intent: Intent?): IBinder? = null
+    override fun onGetRoot(
+        clientPackageName: String,
+        clientUid: Int,
+        rootHints: android.os.Bundle?,
+    ): BrowserRoot = BrowserRoot(MEDIA_ROOT_ID, null)
+
+    override fun onLoadChildren(
+        parentId: String,
+        result: Result<MutableList<MediaBrowserCompat.MediaItem>>,
+    ) {
+        result.detach()
+        scope.launch {
+            result.sendResult(buildBrowseChildren(parentId).toMutableList())
+        }
+    }
 
     private fun onNotificationPause() {
         resumeAfterNotification = player.playbackState.value == PlaybackState.Playing
@@ -141,6 +160,7 @@ class RecitationPlaybackService : Service() {
             setCallback(PlayerSessionCallback())
             isActive = true
         }
+        session?.let { mediaSession -> setSessionToken(mediaSession.sessionToken) }
         RecitationPauseController.onPauseRequested = ::onNotificationPause
         RecitationPauseController.onResumeRequested = ::onNotificationResume
     }
@@ -247,7 +267,7 @@ class RecitationPlaybackService : Service() {
         }
 
         return NotificationCompat.Builder(this, NotificationChannels.RECITATION)
-            .setSmallIcon(R.drawable.ic_recitation_notification)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1252)
             .setContentTitle(title)
             .setContentText(text)
             .setOngoing(true)
@@ -315,6 +335,99 @@ class RecitationPlaybackService : Service() {
     /** Global ayah number of the ayah currently being recited (null when idle). */
     private var lastGlobalAyah: Int? = null
 
+    private suspend fun buildBrowseChildren(parentId: String): List<MediaBrowserCompat.MediaItem> = when (parentId) {
+        MEDIA_ROOT_ID -> listOf(
+            browseFolder(
+                id = RECITATIONS_FOLDER_ID,
+                title = getString(R.string.quran_car_recitations),
+                subtitle = getString(R.string.quran_car_recitations_subtitle),
+            ),
+        )
+
+        RECITATIONS_FOLDER_ID -> downloadedSurahs().map(::surahItem)
+        else -> emptyList()
+    }
+
+    private suspend fun downloadedSurahs(): List<Surah> {
+        val selectedReciter = recitationRepository.selectedReciter()
+        return quranRepository.observeSurahs().first().filter { surah ->
+            recitationRepository.isSurahComplete(
+                reciterId = selectedReciter.id,
+                surahNumber = surah.number,
+                expectedAyahs = surah.ayahCount,
+            )
+        }
+    }
+
+    private fun browseFolder(
+        id: String,
+        title: String,
+        subtitle: String,
+    ): MediaBrowserCompat.MediaItem = MediaBrowserCompat.MediaItem(
+        MediaDescriptionCompat.Builder()
+            .setMediaId(id)
+            .setTitle(title)
+            .setSubtitle(subtitle)
+            .build(),
+        MediaBrowserCompat.MediaItem.FLAG_BROWSABLE,
+    )
+
+    private fun surahItem(surah: Surah): MediaBrowserCompat.MediaItem = MediaBrowserCompat.MediaItem(
+        MediaDescriptionCompat.Builder()
+            .setMediaId("$SURAH_MEDIA_PREFIX${surah.number}")
+            .setTitle(surah.arabicName)
+            .setSubtitle(surah.englishName)
+            .build(),
+        MediaBrowserCompat.MediaItem.FLAG_PLAYABLE,
+    )
+
+    private fun playMediaId(mediaId: String) {
+        val surahNumber = mediaId.removePrefix(SURAH_MEDIA_PREFIX).toIntOrNull() ?: return
+        scope.launch { playDownloadedSurah(surahNumber) }
+    }
+
+    private suspend fun playDownloadedSurah(surahNumber: Int) {
+        val surah = quranRepository.observeSurahs().first().firstOrNull { it.number == surahNumber } ?: return
+        val reciter = recitationRepository.selectedReciter()
+        if (!recitationRepository.isSurahComplete(reciter.id, surah.number, surah.ayahCount)) {
+            publishPlaybackError(getString(R.string.quran_car_not_downloaded))
+            return
+        }
+        val queue = quranRepository.observeSurah(surah.number).first().map { ayah ->
+            RecitationQueueItem(
+                file = recitationRepository.fileFor(reciter.id, surah.number, ayah.globalNumber),
+                globalNumber = ayah.globalNumber,
+            )
+        }
+        if (queue.isEmpty()) return
+        requestAudioFocus()
+        player.playQueue(queue, startIndex = 0, repeatCount = 1)
+    }
+
+    private fun playSearch(query: String?) {
+        val normalized = query.orEmpty().trim().lowercase()
+        if (normalized.isEmpty()) return
+        scope.launch {
+            val matched = quranRepository.observeSurahs().first().firstOrNull { surah ->
+                normalized.contains(surah.arabicName.lowercase()) ||
+                    normalized.contains(surah.englishName.lowercase()) ||
+                    normalized == surah.number.toString()
+            }
+            matched?.let { surah -> playDownloadedSurah(surah.number) }
+                ?: publishPlaybackError(getString(R.string.quran_car_search_unavailable))
+        }
+    }
+
+    private fun publishPlaybackError(message: String) {
+        session?.setPlaybackState(
+            PlaybackStateCompat.Builder()
+                .setActions(PlaybackStateCompat.ACTION_PLAY)
+                .setState(PlaybackStateCompat.STATE_ERROR, 0L, 0f)
+                .setErrorMessage(PlaybackStateCompat.ERROR_CODE_NOT_AVAILABLE_IN_REGION, message)
+                .build(),
+        )
+    }
+
     override fun onDestroy() {
         abandonAudioFocus()
         RecitationPauseController.onPauseRequested = null
@@ -349,10 +462,21 @@ class RecitationPlaybackService : Service() {
 
         override fun onSkipToNext() = player.next()
         override fun onSkipToPrevious() = player.previous()
+
+        override fun onPlayFromMediaId(mediaId: String?, extras: android.os.Bundle?) {
+            mediaId?.let(::playMediaId)
+        }
+
+        override fun onPlayFromSearch(query: String?, extras: android.os.Bundle?) {
+            playSearch(query)
+        }
     }
 
     companion object {
         private const val MEDIA_SESSION_TAG = "org.muslim.app.quran.RecitationPlayback"
+        private const val MEDIA_ROOT_ID = "muslim_recitation_root"
+        private const val RECITATIONS_FOLDER_ID = "muslim_recitations"
+        private const val SURAH_MEDIA_PREFIX = "muslim_surah_"
         private const val NOTIFICATION_ID = 7006
         private const val OPEN_APP_REQUEST_CODE = 70061
         /** Same extra key [org.muslim.app.MainActivity] reads for deep links. */

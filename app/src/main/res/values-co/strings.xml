@@ -46,10 +46,6 @@
     <string name="crash_close">Chiudi</string>
     <string name="crash_dismiss">Cuntinuà</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتدم المفتاظ واسعادة إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Cerca in u Quran</string>
-    <string name="more_quran_search_desc">Truvate una parolla, quantu spessu appare è induve</string>
-    <string name="more_quran_frequency">Frequenza di e parolle Coran</string>
-    <string name="more_quran_frequency_desc">E parolle più frequenti in tuttu u mushaf</string>
     <string name="more_names">99 Nomi di Allah</string>
     <string name="more_names_desc">I 99 nomi cù spiegazione completa</string>
     <string name="more_hajj">Hajj è Umrah</string>

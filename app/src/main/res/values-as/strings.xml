@@ -46,10 +46,6 @@
     <string name="crash_close">বন্ধ কৰক</string>
     <string name="crash_dismiss">আগবাঢ়ি যাওক</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">কোৰআনত সন্ধান কৰক</string>
-    <string name="more_quran_search_desc">এটা শব্দ বিচাৰি উলিয়াওক, কিমান সঘনাই ওলায় আৰু ক’ত</string>
-    <string name="more_quran_frequency">কোৰআনৰ শব্দৰ কম্পাঙ্ক</string>
-    <string name="more_quran_frequency_desc">গোটেই মুছাফত সঘনাই কোৱা শব্দ</string>
     <string name="more_names">৯৯ আল্লাহৰ নাম</string>
     <string name="more_names_desc">সম্পূৰ্ণ ব্যাখ্যাৰ সৈতে ৯৯ টা নাম</string>
     <string name="more_hajj">হজ আৰু উমৰাহ</string>

@@ -36,6 +36,7 @@ import javax.inject.Singleton
 class AdhanScheduler @Inject constructor(
     @ApplicationContext private val context: Context,
     private val calculator: PrayerTimesCalculator,
+    private val deliveryJournal: AdhanDeliveryJournal,
 ) {
 
     private val alarmManager: AlarmManager =
@@ -82,12 +83,50 @@ class AdhanScheduler @Inject constructor(
         }
     }
 
+    /**
+     * Schedules a near-immediate exact delivery probe through the same receiver and
+     * foreground-service path used at prayer time. A direct preview cannot
+     * prove that Android will deliver a background alarm, so this method is the
+     * authoritative user-triggered verification path.
+     */
+    fun scheduleDeliveryProbe(settings: PrayerSettings, prayer: Prayer): Boolean {
+        if (settings.location == null || !settings.adhanEnabled) return false
+        val canExact = Build.VERSION.SDK_INT < Build.VERSION_CODES.S ||
+            alarmManager.canScheduleExactAlarms()
+        if (!canExact) {
+            deliveryJournal.failed(prayer, isProbe = true, detail = "Exact alarms unavailable")
+            return false
+        }
+        val pendingIntent = prayerPendingIntent(
+            prayer = prayer,
+            isReminder = false,
+            settings = settings,
+            isProbe = true,
+        )
+        alarmManager.cancel(pendingIntent)
+        deliveryJournal.probeScheduled(prayer)
+        alarmManager.setExactAndAllowWhileIdle(
+            AlarmManager.RTC_WAKEUP,
+            System.currentTimeMillis() + DELIVERY_PROBE_DELAY_MS,
+            pendingIntent,
+        )
+        return true
+    }
+
     fun cancelAll() {
         // Extras don't affect PendingIntent identity, so defaults are fine here.
         val defaults = PrayerSettings()
         for (prayer in Prayer.entries) {
             alarmManager.cancel(prayerPendingIntent(prayer, isReminder = false, settings = defaults))
             alarmManager.cancel(prayerPendingIntent(prayer, isReminder = true, settings = defaults))
+            alarmManager.cancel(
+                prayerPendingIntent(
+                    prayer = prayer,
+                    isReminder = false,
+                    settings = defaults,
+                    isProbe = true,
+                ),
+            )
         }
     }
 
@@ -106,13 +145,16 @@ class AdhanScheduler @Inject constructor(
         prayer: Prayer,
         isReminder: Boolean,
         settings: PrayerSettings,
+        isProbe: Boolean = false,
     ): PendingIntent {
         val intent = Intent(context, AdhanAlarmReceiver::class.java)
             .putExtra(AdhanAlarmReceiver.EXTRA_PRAYER, prayer.name)
             .putExtra(AdhanAlarmReceiver.EXTRA_IS_REMINDER, isReminder)
             .putExtra(AdhanAlarmReceiver.EXTRA_SOUND_OPTION, (settings.adhanSounds[prayer] ?: AdhanSoundOption.Default).name)
             .putExtra(AdhanAlarmReceiver.EXTRA_VOLUME, settings.adhanVolumeFor(prayer))
-        val requestCode = prayer.ordinal + (if (isReminder) 100 else 0)
+            .putExtra(AdhanAlarmReceiver.EXTRA_IS_PROBE, isProbe)
+        val requestCode = if (isProbe) PROBE_REQUEST_CODE + prayer.ordinal
+        else prayer.ordinal + (if (isReminder) 100 else 0)
         return PendingIntent.getBroadcast(
             context, requestCode, intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
@@ -130,5 +172,13 @@ class AdhanScheduler @Inject constructor(
         } else {
             PrayerParameters.of(settings.method).copy(highLatitudeRule = settings.highLatitudeRule)
         }
+    }
+
+    private companion object {
+        // Keep a small future offset so AlarmManager handles the probe as a
+        // real background alarm, without making an explicit user test feel
+        // broken or forcing them to wait fifteen seconds for feedback.
+        internal const val DELIVERY_PROBE_DELAY_MS = 1_500L
+        const val PROBE_REQUEST_CODE = 10_000
     }
 }

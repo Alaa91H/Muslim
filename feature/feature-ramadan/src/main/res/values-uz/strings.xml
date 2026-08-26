@@ -26,4 +26,15 @@
     <string name="ramadan_title">Ramazon</string>
     <string name="ramadan_notify_outside">Ramazondan tashqari eslatmalar</string>
     <string name="ramadan_notify_outside_desc">Ramazon oyida iftorlik va sahur ogohlantirishlari avtomatik ravishda ishlaydi; Bu ularni boshqa oylarda davom ettiradi.</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">Bomdod</string>
+    <string name="habit_prayer_dhuhr">Peshin</string>
+    <string name="habit_prayer_asr">Asr</string>
+    <string name="habit_prayer_maghrib">Shom</string>
+    <string name="habit_prayer_isha">Isha</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

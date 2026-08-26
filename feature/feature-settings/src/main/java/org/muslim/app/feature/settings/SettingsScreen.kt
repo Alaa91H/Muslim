@@ -31,12 +31,15 @@ import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.PrivacyTip
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Schedule
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.SystemUpdate
+import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
@@ -67,6 +70,9 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.launch
+import org.muslim.app.core.common.appearance.AppColorPalette
+import org.muslim.app.core.common.appearance.CardCornerStyle
+import org.muslim.app.core.common.appearance.AppOrnamentStyle
 import org.muslim.app.core.datastore.AppPreferences
 import org.muslim.app.core.datastore.AppThemeMode
 import org.muslim.app.feature.settings.R
@@ -125,6 +131,7 @@ private val timeFormatOptions = listOf(
  * Cross-feature sections (prayer & adhan) are reached via app-level
  * navigation so this module never depends on another feature module.
  */
+@Suppress("LongMethod")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(
@@ -138,6 +145,10 @@ fun SettingsScreen(
     onOpenMoreOrder: () -> Unit = {},
     /** Opens the in-app update screen (changelog + download). */
     onOpenUpdates: () -> Unit = {},
+    /** Opens local reading, contrast, TalkBack and optional voice-navigation settings. */
+    onOpenAccessibility: () -> Unit = {},
+    /** Opens optional Android Auto, Wear OS and home-automation bridge settings. */
+    onOpenSmartDevices: () -> Unit = {},
     /** Back affordance when opened as a sub-screen (from the More hub). */
     onBack: (() -> Unit)? = null,
     viewModel: SettingsViewModel = hiltViewModel(),
@@ -240,6 +251,35 @@ fun SettingsScreen(
                                 onCheckedChange = viewModel::setDynamicColor,
                             )
                         },
+                    )
+                    if (!preferences.dynamicColor) {
+                        Text(
+                            text = stringResource(R.string.settings_color_palette),
+                            style = MaterialTheme.typography.labelLarge,
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                        )
+                        PaletteSelector(
+                            selected = preferences.colorPalette,
+                            onSelect = viewModel::setColorPalette,
+                        )
+                    }
+                    Text(
+                        text = stringResource(R.string.settings_card_corners),
+                        style = MaterialTheme.typography.labelLarge,
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                    )
+                    CornerStyleSelector(
+                        selected = preferences.cardCornerStyle,
+                        onSelect = viewModel::setCardCornerStyle,
+                    )
+                    Text(
+                        text = stringResource(R.string.settings_ornament),
+                        style = MaterialTheme.typography.labelLarge,
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                    )
+                    OrnamentSelector(
+                        selected = preferences.ornamentStyle,
+                        onSelect = viewModel::setOrnamentStyle,
                     )
                     ListItem(
                         headlineContent = { Text(stringResource(R.string.settings_reduce_animations)) },
@@ -434,6 +474,20 @@ fun SettingsScreen(
                         leadingContent = { Icon(Icons.Filled.Lock, contentDescription = null) },
                         trailingContent = { Chevron() },
                         modifier = Modifier.clickable(onClick = onOpenPermissions),
+                    )
+                    ListItem(
+                        headlineContent = { Text(stringResource(R.string.accessibility_title)) },
+                        supportingContent = { Text(stringResource(R.string.accessibility_intro)) },
+                        leadingContent = { Icon(Icons.Filled.Visibility, contentDescription = null) },
+                        trailingContent = { Chevron() },
+                        modifier = Modifier.clickable(onClick = onOpenAccessibility),
+                    )
+                    ListItem(
+                        headlineContent = { Text(stringResource(R.string.settings_smart_devices)) },
+                        supportingContent = { Text(stringResource(R.string.settings_smart_devices_desc)) },
+                        leadingContent = { Icon(Icons.Filled.Settings, contentDescription = null) },
+                        trailingContent = { Chevron() },
+                        modifier = Modifier.clickable(onClick = onOpenSmartDevices),
                     )
                 }
             }
@@ -717,4 +771,105 @@ private fun Chevron() {
         contentDescription = null,
         tint = MaterialTheme.colorScheme.onSurfaceVariant,
     )
+}
+
+@Composable
+private fun PaletteSelector(
+    selected: AppColorPalette,
+    onSelect: (AppColorPalette) -> Unit,
+) {
+    Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            PaletteChip(AppColorPalette.Classic, selected, onSelect)
+            PaletteChip(AppColorPalette.Emerald, selected, onSelect)
+        }
+        Spacer(Modifier.height(6.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            PaletteChip(AppColorPalette.Midnight, selected, onSelect)
+            PaletteChip(AppColorPalette.Sand, selected, onSelect)
+        }
+    }
+}
+
+@Composable
+private fun PaletteChip(
+    palette: AppColorPalette,
+    selected: AppColorPalette,
+    onSelect: (AppColorPalette) -> Unit,
+) {
+    FilterChip(
+        selected = selected == palette,
+        onClick = { onSelect(palette) },
+        label = { Text(stringResource(palette.labelRes())) },
+    )
+}
+
+@Composable
+private fun CornerStyleSelector(
+    selected: CardCornerStyle,
+    onSelect: (CardCornerStyle) -> Unit,
+) {
+    Row(
+        modifier = Modifier.padding(horizontal = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        CardCornerStyle.entries.forEach { style ->
+            FilterChip(
+                selected = selected == style,
+                onClick = { onSelect(style) },
+                label = { Text(stringResource(style.labelRes())) },
+            )
+        }
+    }
+}
+
+private fun AppColorPalette.labelRes(): Int = when (this) {
+    AppColorPalette.Classic -> R.string.settings_palette_classic
+    AppColorPalette.Emerald -> R.string.settings_palette_emerald
+    AppColorPalette.Midnight -> R.string.settings_palette_midnight
+    AppColorPalette.Sand -> R.string.settings_palette_sand
+}
+
+private fun CardCornerStyle.labelRes(): Int = when (this) {
+    CardCornerStyle.Compact -> R.string.settings_corners_compact
+    CardCornerStyle.Soft -> R.string.settings_corners_soft
+    CardCornerStyle.Rounded -> R.string.settings_corners_rounded
+}
+
+@Composable
+private fun OrnamentSelector(
+    selected: AppOrnamentStyle,
+    onSelect: (AppOrnamentStyle) -> Unit,
+) {
+    Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            OrnamentChip(AppOrnamentStyle.Geometry, selected, onSelect)
+            OrnamentChip(AppOrnamentStyle.Arabesque, selected, onSelect)
+        }
+        Spacer(Modifier.height(6.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            OrnamentChip(AppOrnamentStyle.Stars, selected, onSelect)
+            OrnamentChip(AppOrnamentStyle.Minimal, selected, onSelect)
+        }
+    }
+}
+
+@Composable
+private fun OrnamentChip(
+    ornament: AppOrnamentStyle,
+    selected: AppOrnamentStyle,
+    onSelect: (AppOrnamentStyle) -> Unit,
+) {
+    FilterChip(
+        selected = selected == ornament,
+        onClick = { onSelect(ornament) },
+        label = { Text(stringResource(ornament.labelRes())) },
+    )
+}
+
+private fun AppOrnamentStyle.labelRes(): Int = when (this) {
+    AppOrnamentStyle.Geometry -> R.string.settings_ornament_geometry
+    AppOrnamentStyle.Arabesque -> R.string.settings_ornament_arabesque
+    AppOrnamentStyle.Stars -> R.string.settings_ornament_stars
+    AppOrnamentStyle.Minimal -> R.string.settings_ornament_minimal
 }

@@ -9,13 +9,10 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import org.muslim.app.core.common.text.ArabicText
 import org.muslim.app.core.database.dao.AyahDao
-import org.muslim.app.core.database.dao.AyahFtsDao
 import org.muslim.app.core.database.dao.BookmarkDao
 import org.muslim.app.core.database.dao.SurahDao
 import org.muslim.app.core.database.entity.AyahEntity
-import org.muslim.app.core.database.entity.AyahFtsEntity
 import org.muslim.app.core.database.entity.BookmarkEntity
 import org.muslim.app.core.database.entity.SurahEntity
 import org.muslim.app.feature.quran.domain.Ayah
@@ -29,16 +26,14 @@ import javax.inject.Singleton
 /**
  * Offline-first Quran repository (PROJECT_PROMPT.md §3.4): the full Uthmani
  * text ships as bundled assets and is imported into Room once, on first
- * launch — the app then works fully offline, including full-text search.
+ * launch — the reader then works fully offline without a separate search index.
  */
 @Singleton
 class QuranRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context,
     private val surahDao: SurahDao,
     private val ayahDao: AyahDao,
-    private val ayahFtsDao: AyahFtsDao,
     private val bookmarkDao: BookmarkDao,
-    private val prefs: QuranPrefsRepository,
 ) : QuranRepository {
 
     private val seeded = AtomicBoolean(false)
@@ -49,36 +44,13 @@ class QuranRepositoryImpl @Inject constructor(
         seedMutex.withLock {
             if (seeded.get()) return
             val needsImport = surahDao.count() == 0 && ayahDao.count() == 0
-            val ftsStale = prefs.ftsIndexStale.first()
-            // Rebuild the FTS index when it is empty even if the ayah table is
-            // fine — a device that upgraded from a version without an index (or
-            // had a failed import) would otherwise search an empty table forever.
-            val ftsEmpty = ayahFtsDao.count() == 0
-            if (needsImport || ftsStale || ftsEmpty) {
+            if (needsImport) {
                 val surahs = QuranAssetParser.parseSurahs(readAssetText("quran_surahs.json"))
                 val ayahs = context.assets.open("quran_ayahs.txt")
                     .bufferedReader(Charsets.UTF_8)
                     .use { QuranAssetParser.parseAyahs(it) }
-                if (needsImport) {
-                    surahDao.insertAll(surahs)
-                    ayahDao.insertAll(ayahs)
-                }
-                // Rebuild the search index whenever the normalization changed
-                // (or on first import) so prefix searches stay accurate.
-                if (ayahFtsDao.count() == 0 || ftsStale) {
-                    ayahFtsDao.clear()
-                    ayahFtsDao.insertAll(
-                        ayahs.map {
-                            AyahFtsEntity(
-                                normalizedText = ArabicText.normalizeForSearch(it.text),
-                                globalNumber = it.globalNumber,
-                                surahNumber = it.surahNumber,
-                                numberInSurah = it.numberInSurah,
-                            )
-                        }
-                    )
-                }
-                prefs.markFtsIndexCurrent()
+                surahDao.insertAll(surahs)
+                ayahDao.insertAll(ayahs)
             }
             seeded.set(true)
         }
@@ -108,15 +80,6 @@ class QuranRepositoryImpl @Inject constructor(
         ensureSeeded()
         return ayahDao.byGlobal(globalNumber)?.toDomain()
     }
-
-    override suspend fun search(rawQuery: String): List<Ayah> {
-        ensureSeeded()
-        val match = QuranSearchQuery.build(rawQuery)
-        if (match.isEmpty()) return emptyList()
-        val hits = ayahFtsDao.search(match)
-        return hits.mapNotNull { hit -> ayahDao.byGlobal(hit.globalNumber)?.toDomain() }
-    }
-
     override fun observeBookmarks(): Flow<List<Bookmark>> = flow {
         ensureSeeded()
         emitAll(

@@ -33,7 +33,7 @@ class RamadanNotifier @Inject constructor(
     fun notify(type: String) {
         val isIftar = type == RamadanAlarmReceiver.TYPE_IFTAR
         val notification = NotificationCompat.Builder(context, NotificationChannels.RAMADAN)
-            .setSmallIcon(android.R.drawable.ic_menu_myplaces)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1252)
             .setContentTitle(
                 context.getString(if (isIftar) R.string.ramadan_notification_iftar_title else R.string.ramadan_notification_suhoor_title)
             )

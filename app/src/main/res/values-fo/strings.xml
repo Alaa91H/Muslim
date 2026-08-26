@@ -46,10 +46,6 @@
     <string name="crash_close">Lat aftur</string>
     <string name="crash_dismiss">Halt fram</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Leita í Koranini</string>
-    <string name="more_quran_search_desc">Finn eitt orð, hvussu ofta tað kemur fyri og hvar</string>
-    <string name="more_quran_frequency">Koran orðtíttleiki</string>
-    <string name="more_quran_frequency_desc">Tey tíðastu orðini í øllum mushaf .</string>
     <string name="more_names">99 Nøvn á Allah</string>
     <string name="more_names_desc">Tey 99 nøvnini við fullari frágreiðing</string>
     <string name="more_hajj">Hajj og umra</string>

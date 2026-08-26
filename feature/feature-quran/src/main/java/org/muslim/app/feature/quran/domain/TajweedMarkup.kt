@@ -1,56 +1,57 @@
 package org.muslim.app.feature.quran.domain
 
-/** A colorizable segment of Quran text for the reader. */
+/** A colorizable, offset-validated annotation in one displayed ayah. */
+data class TajweedAnnotation(
+    val start: Int,
+    val endExclusive: Int,
+    val rule: TajweedRule,
+)
+
+/** Tajweed rules supplied by the Hafs annotation data source. */
+enum class TajweedRule {
+    Ghunnah,
+    Idghaam,
+    Ikhfa,
+    Iqlab,
+    Madd,
+    Qalqalah,
+    HamzatWasl,
+    LamShamsiyyah,
+    Silent,
+}
+
+/** A contiguous text segment with an optional tajweed rule colour. */
 data class TajweedSegment(
     val text: String,
     val rule: TajweedRule?,
 )
 
-enum class TajweedRule {
-    /** Ghunnah and noon/meem with shaddah. */
-    Ghunnah,
-    /** Madd marks and their elongation signs. */
-    Madd,
-    /** Qalqalah letters when marked with sukun. */
-    Qalqalah,
-    /** Ikhfa/idgham-related marked nun or tanwin patterns. */
-    NoonRules,
-}
-
 /**
- * Lightweight offline markup for the Uthmani text. It deliberately colors
- * only unambiguous Quranic signs and leaves the remaining text unchanged.
- * This is a presentation helper, not a substitute for a tajweed teacher.
+ * Converts checked character offsets to safe renderable segments. It does not
+ * infer tajweed from characters: colour is applied only when the authoritative
+ * Hafs annotation pack has a valid span for the exact bundled Uthmani ayah.
  */
 object TajweedMarkup {
-    private val maddMarks = setOf('\u0670', '\u0653', '\u0654', '\u0655')
-    private val ghunnahLetters = setOf('ن', 'م')
-    private val qalqalahLetters = setOf('ق', 'ط', 'ب', 'ج', 'د')
-    private val tanwin = setOf('\u064B', '\u064C', '\u064D')
-
-    fun segment(text: String): List<TajweedSegment> {
+    fun segment(text: String, annotations: List<TajweedAnnotation>): List<TajweedSegment> {
         if (text.isEmpty()) return emptyList()
-        val output = mutableListOf<TajweedSegment>()
+        if (annotations.isEmpty()) return listOf(TajweedSegment(text, null))
+        val rules = arrayOfNulls<TajweedRule>(text.length)
+        annotations.forEach { annotation ->
+            val start = annotation.start.coerceIn(0, text.length)
+            val end = annotation.endExclusive.coerceIn(start, text.length)
+            for (index in start until end) rules[index] = annotation.rule
+        }
+        val segments = mutableListOf<TajweedSegment>()
         var start = 0
-        var active: TajweedRule? = null
-        fun flush(end: Int) {
-            if (end > start) output += TajweedSegment(text.substring(start, end), active)
-        }
-        text.forEachIndexed { index, character ->
-            val rule = when {
-                character in maddMarks -> TajweedRule.Madd
-                character in tanwin -> TajweedRule.NoonRules
-                character in ghunnahLetters && text.getOrNull(index + 1) == '\u0651' -> TajweedRule.Ghunnah
-                character in qalqalahLetters && text.getOrNull(index + 1) == '\u0652' -> TajweedRule.Qalqalah
-                else -> null
-            }
-            if (rule != active) {
-                flush(index)
+        var active = rules.firstOrNull()
+        for (index in 1 until text.length) {
+            if (rules[index] != active) {
+                segments += TajweedSegment(text.substring(start, index), active)
                 start = index
-                active = rule
+                active = rules[index]
             }
         }
-        flush(text.length)
-        return output
+        segments += TajweedSegment(text.substring(start), active)
+        return segments
     }
 }

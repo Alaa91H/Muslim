@@ -46,10 +46,6 @@
     <string name="crash_close">Закрити</string>
     <string name="crash_dismiss">Продовжити</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Шукайте в Корані</string>
-    <string name="more_quran_search_desc">Знайдіть слово, як часто воно зустрічається і де</string>
-    <string name="more_quran_frequency">Частота слів Корану</string>
-    <string name="more_quran_frequency_desc">Найчастіші слова в усьому мусхафі</string>
     <string name="more_names">99 Імен Аллаха</string>
     <string name="more_names_desc">99 імен з повним поясненням</string>
     <string name="more_hajj">Хадж і умра</string>

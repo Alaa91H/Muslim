@@ -1,12 +1,23 @@
 package org.muslim.app.core.datastore
 
+import org.muslim.app.core.common.appearance.AppColorPalette
+import org.muslim.app.core.common.appearance.CardCornerStyle
+import org.muslim.app.core.common.appearance.AppOrnamentStyle
+
 /**
  * App-wide (non-prayer) user preferences, persisted in DataStore
  * (PROJECT_PROMPT.md §4.1 + §5: theme mode, dynamic color, UI language).
  */
 data class AppPreferences(
     val themeMode: AppThemeMode = AppThemeMode.System,
-    val dynamicColor: Boolean = true,
+    /** Dynamic wallpaper color is opt-in so the calm Islamic token palette remains the default identity. */
+    val dynamicColor: Boolean = false,
+    /** Curated palette family used when dynamic colour is disabled. */
+    val colorPalette: AppColorPalette = AppColorPalette.Classic,
+    /** Global corner softness for cards, sheets, and controls. */
+    val cardCornerStyle: CardCornerStyle = CardCornerStyle.Soft,
+    /** Decorative background motif for supported screens. */
+    val ornamentStyle: AppOrnamentStyle = AppOrnamentStyle.Geometry,
     /** BCP-47 language tag; "system" = follow the device language. */
     val languageCode: String = SYSTEM_LANGUAGE,
     /** Respect the system "remove animations" accessibility setting. */
@@ -15,6 +26,20 @@ data class AppPreferences(
     val startTab: String = START_TAB_HOME,
     /** 12-hour vs 24-hour clock for every time shown in the app (default 12h). */
     val timeFormat24h: Boolean = false,
+    /** Uses a clearer bundled Arabic typeface and more generous Arabic reading spacing. */
+    val accessibilityReadingMode: Boolean = false,
+    /** Uses the high-contrast application colour scheme instead of dynamic wallpaper colours. */
+    val accessibilityHighContrast: Boolean = false,
+    /** Exposes the explicit, user-triggered microphone button for one-shot navigation commands. */
+    val voiceNavigationEnabled: Boolean = false,
+    /** Publishes only the opted-in prayer/tasbih snapshot to a paired Wear OS app. */
+    val wearCompanionEnabled: Boolean = false,
+    /** Shows the optional prayer-completion summary on the home screen. */
+    val showPrayerTrackerOnHome: Boolean = false,
+    /** Enables an explicit HTTPS event after a locally scheduled adhan begins. */
+    val smartHomeBridgeEnabled: Boolean = false,
+    /** HTTPS destination selected by the user; empty until they configure a bridge. */
+    val smartHomeBridgeEndpoint: String = "",
     /**
      * Order in which the sections of the "More" hub are rendered, as a list of
      * [MORE_SECTION] ids. Default: worship → knowledge → tools → app.

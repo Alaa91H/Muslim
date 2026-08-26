@@ -7,4 +7,27 @@
     <string name="reference_topics_count">topics</string>
     <string name="reference_copy">Copy</string>
     <string name="reference_share">Share</string>
+    <!-- Islamic history and civilization -->
+    <string name="history_title">Islamic History &amp; Civilization</string>
+    <string name="history_timeline_tab">Timeline</string>
+    <string name="history_atlas_tab">Atlas</string>
+    <string name="history_people_tab">People &amp; figures</string>
+    <string name="history_language_english">English</string>
+    <string name="history_language_arabic">العربية</string>
+    <string name="history_timeline_intro">A concise educational timeline from the Prophetic mission to the modern era. It presents major milestones and does not replace study of specialist sources.</string>
+    <string name="history_era_range">%1$d–%2$s CE</string>
+    <string name="history_present">present</string>
+    <string name="history_era_highlights">Selected milestones</string>
+    <string name="history_atlas_intro">An interactive atlas for geographic orientation. Areas and lines are educational schematic summaries; they are not precise political boundaries or a representation of every period or community.</string>
+    <string name="history_atlas_layer">Choose a historical layer</string>
+    <string name="history_atlas_zoom_in">Zoom in</string>
+    <string name="history_atlas_zoom_out">Zoom out</string>
+    <string name="history_atlas_schematic">Approximate schematic area</string>
+    <string name="history_atlas_routes">Selected routes and corridors</string>
+    <string name="history_atlas_places">Tap a marker for context</string>
+    <string name="history_atlas_close">Close details</string>
+    <string name="history_people_intro">Brief biographies of selected leaders, scholars, and thinkers. These cards do not reduce their histories or assign exaggerated discovery claims.</string>
+    <string name="history_people_field">Field: %1$s</string>
+    <string name="history_people_contribution">Context and legacy</string>
+    <string name="history_sources_notice">Content is grounded in museum, educational, and historical sources documented in the feature source notes. Historical details and differences need specialist review before use as an official historical account.</string>
 </resources>

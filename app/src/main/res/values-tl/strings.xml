@@ -46,10 +46,6 @@
     <string name="crash_close">Isara</string>
     <string name="crash_dismiss">Magpatuloy</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Hanapin ang Quran</string>
-    <string name="more_quran_search_desc">Maghanap ng isang salita, kung gaano kadalas ito lumilitaw at kung saan</string>
-    <string name="more_quran_frequency">dalas ng salita ng Quran</string>
-    <string name="more_quran_frequency_desc">Ang pinakamadalas na salita sa buong mushaf</string>
     <string name="more_names">99 Pangalan ng Allah</string>
     <string name="more_names_desc">Ang 99 na pangalan na may buong paliwanag</string>
     <string name="more_hajj">Hajj at Umrah</string>

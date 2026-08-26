@@ -46,10 +46,6 @@
     <string name="crash_close">Stäng</string>
     <string name="crash_dismiss">Fortsätt</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم خفتاح إاإاأ كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Sök i Koranen</string>
-    <string name="more_quran_search_desc">Hitta ett ord, hur ofta det förekommer och var</string>
-    <string name="more_quran_frequency">Koranens ordfrekvens</string>
-    <string name="more_quran_frequency_desc">De vanligaste orden i hela mushafen</string>
     <string name="more_names">99 Allahs namn</string>
     <string name="more_names_desc">De 99 namnen med fullständig förklaring</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

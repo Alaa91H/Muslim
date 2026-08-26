@@ -46,10 +46,6 @@
     <string name="crash_close">Wichqay</string>
     <string name="crash_dismiss">Hinallayá ruway</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Quranpi maskay</string>
-    <string name="more_quran_search_desc">Huk simita maskhay, hayk’a kutitachus rikhurin, maypitaq</string>
-    <string name="more_quran_frequency">Quran simi sapa kuti</string>
-    <string name="more_quran_frequency_desc">Tukuy mushafpi aswan sapa kuti rimasqa simikuna</string>
     <string name="more_names">99 Allahpa sutinkuna</string>
     <string name="more_names_desc">Chay 99 sutikuna hunt’asqa sut’inchayninwan</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

@@ -26,6 +26,8 @@ import org.muslim.app.feature.quran.data.PlaybackState
 import org.muslim.app.feature.quran.data.QuranAudioPlayer
 import org.muslim.app.feature.quran.data.QuranPrefsRepository
 import org.muslim.app.feature.quran.data.QuranSupplementRepository
+import org.muslim.app.feature.quran.data.OfficialTafsirSource
+import org.muslim.app.feature.quran.data.QuranTajweedRepository
 import org.muslim.app.feature.quran.data.DownloadRequest
 import org.muslim.app.feature.quran.data.DownloadScope
 import org.muslim.app.feature.quran.data.QuranDownloadManager
@@ -42,32 +44,47 @@ import org.muslim.app.feature.quran.domain.Reciter
 import org.muslim.app.feature.quran.domain.Surah
 import org.muslim.app.feature.quran.domain.TafsirEntry
 import org.muslim.app.feature.quran.domain.Translation
+import org.muslim.app.feature.quran.domain.TajweedAnnotation
 import javax.inject.Inject
 
 /** Playback range selected in the reader's recitation controls. */
-enum class RecitationRange { SingleAyah, FromAyahToEnd, WholeSurah
-}
+enum class RecitationRange { SingleAyah, FromAyahToEnd, WholeSurah }
 
+/** The reader always starts a new recitation through the end of the mushaf. */
+val DEFAULT_RECITATION_RANGE = RecitationRange.FromAyahToEnd
+
+/** Cohesive dependencies required by the Quran reader runtime. */
+class QuranReaderDependencies @Inject constructor(
+    val repository: QuranRepository,
+    val prefsRepository: QuranPrefsRepository,
+    val supplementRepository: QuranSupplementRepository,
+    val tajweedRepository: QuranTajweedRepository,
+    val recitationRepository: RecitationRepository,
+    val downloadManager: QuranDownloadManager,
+    val audioPlayer: QuranAudioPlayer,
+)
 
 @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
 @HiltViewModel
 class QuranReaderViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val repository: QuranRepository,
-    private val prefsRepository: QuranPrefsRepository,
-    private val supplementRepository: QuranSupplementRepository,
-    private val recitationRepository: RecitationRepository,
-    private val downloadManager: QuranDownloadManager,
-    private val audioPlayer: QuranAudioPlayer,
+    dependencies: QuranReaderDependencies,
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
+    private val repository = dependencies.repository
+    private val prefsRepository = dependencies.prefsRepository
+    private val supplementRepository = dependencies.supplementRepository
+    private val tajweedRepository = dependencies.tajweedRepository
+    private val recitationRepository = dependencies.recitationRepository
+    private val downloadManager = dependencies.downloadManager
+    private val audioPlayer = dependencies.audioPlayer
     private val downloadNotifier = RecitationDownloadNotifier(context)
 
     // Last recitation range/repeat the user played with, so switching the
     // reciter from the player bar resumes playback with the same settings.
     private var lastRepeatCount = 1
-    private var lastRange = RecitationRange.FromAyahToEnd
+    private var lastRange = DEFAULT_RECITATION_RANGE
 
     override fun onCleared() {
         downloadNotifier.dismiss()
@@ -84,6 +101,14 @@ class QuranReaderViewModel @Inject constructor(
     /** Global ayah number to scroll to (search/bookmarks/last-read), -1 = none. */
     val initialAyahGlobal: Int = savedStateHandle["ayah"] ?: -1
 
+    /** True only when the user tapped the play action on a surah in the list. */
+    private var autoplayWholeSurahPending: Boolean = savedStateHandle["autoplay"] ?: false
+
+    /** Consumes the one-shot request to start the selected surah from ayah one. */
+    fun consumeAutoplayWholeSurah(): Boolean = autoplayWholeSurahPending.also {
+        autoplayWholeSurahPending = false
+    }
+
     data class UiState(
         val loading: Boolean = true,
         val surah: Surah? = null,
@@ -92,6 +117,13 @@ class QuranReaderViewModel @Inject constructor(
 
     /** The ayah currently in view; the UI updates this as the user scrolls. */
     val currentAyah = MutableStateFlow<Ayah?>(null)
+
+    /** Opens an adjacent surah for manual Mushaf-style paging. */
+    fun openSurah(number: Int) {
+        if (number in 1..114 && number != _surahNumber.value) {
+            _surahNumber.value = number
+        }
+    }
 
     val uiState: StateFlow<UiState> = combine(
         _surahNumber.flatMapLatest { repository.observeSurahMetadata(it)
@@ -160,6 +192,19 @@ class QuranReaderViewModel @Inject constructor(
 
     // --- Meaning + tafsir (Phase C3/C4) ---
 
+    val installedTafsirSources: StateFlow<List<String>> = supplementRepository.observeInstalledTafsirSources()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    private val effectiveSelectedTafsirSource: StateFlow<String?> = combine(
+        prefsRepository.selectedTafsirSource,
+        installedTafsirSources,
+    ) { requested, installed ->
+        requested?.takeIf { it in installed } ?: installed.firstOrNull()
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
+
+    /** Never exposes a stale preference: the selected source is always installed. */
+    val selectedTafsirSource: StateFlow<String?> = effectiveSelectedTafsirSource
+
     /**
      * Translations + tafsir of the currently viewed ayah, when installed.
      * Honors the reader's meanings/tafsir controls: the panel hides when
@@ -170,10 +215,11 @@ class QuranReaderViewModel @Inject constructor(
         currentAyah,
         prefsRepository.supplementEnabled,
         prefsRepository.supplementLanguage,
-    ) { ayah, enabled, language -> Triple(ayah, enabled, language)
-}
-
-        .flatMapLatest { (ayah, enabled, language) ->
+        effectiveSelectedTafsirSource,
+    ) { ayah, enabled, language, tafsirSource ->
+        SupplementRequest(ayah, enabled, language, tafsirSource)
+    }
+        .flatMapLatest { (ayah, enabled, language, tafsirSource) ->
             if (ayah == null || !enabled) {
                 flowOf(SupplementUi())
 
@@ -200,7 +246,7 @@ class QuranReaderViewModel @Inject constructor(
 
                     SupplementUi(
                         translations = if (forLanguage.isNotEmpty()) forLanguage else translations,
-                        tafsir = tafsir,
+                        tafsir = tafsirSource?.let { selected -> tafsir.filter { it.source == selected } } ?: tafsir,
                     )
 
 }
@@ -219,10 +265,39 @@ class QuranReaderViewModel @Inject constructor(
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     val supplementEnabled: StateFlow<Boolean> = prefsRepository.supplementEnabled
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
     val supplementLanguage: StateFlow<String> = prefsRepository.supplementLanguage
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), QuranPrefsRepository.AUTO_LANGUAGE)
+
+    private val _tafsirDownloadState = MutableStateFlow(TafsirDownloadState())
+    val tafsirDownloadState: StateFlow<TafsirDownloadState> = _tafsirDownloadState.asStateFlow()
+
+    fun setSelectedTafsirSource(source: String?) = viewModelScope.launch {
+        prefsRepository.setSelectedTafsirSource(source)
+    }
+
+    fun downloadOfficialTafsir(source: OfficialTafsirSource) = viewModelScope.launch {
+        _tafsirDownloadState.value = TafsirDownloadState(downloading = source, completedSurahs = 0)
+        runCatching {
+            supplementRepository.downloadOfficialTafsir(source) { completedSurahs ->
+                _tafsirDownloadState.value = TafsirDownloadState(
+                    downloading = source,
+                    completedSurahs = completedSurahs,
+                )
+            }
+        }.onSuccess {
+            prefsRepository.setSelectedTafsirSource(source.storageKey)
+            _tafsirDownloadState.value = TafsirDownloadState(
+                completedSource = source,
+                completedSurahs = TAFSIR_SURAH_TOTAL,
+            )
+        }.onFailure { error ->
+            _tafsirDownloadState.value = TafsirDownloadState(
+                error = error.message ?: "Download failed",
+            )
+        }
+    }
 
     fun setSupplementEnabled(enabled: Boolean) = viewModelScope.launch {
         prefsRepository.setSupplementEnabled(enabled)
@@ -235,6 +310,41 @@ class QuranReaderViewModel @Inject constructor(
 
 }
 
+    /** Hafs tajweed colourization remains an explicit, off-by-default option. */
+    val tajweedEnabled: StateFlow<Boolean> = prefsRepository.tajweedEnabled
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
+
+    val tajweedAnnotations: StateFlow<Map<Int, List<TajweedAnnotation>>> = combine(
+        _surahNumber,
+        prefsRepository.tajweedEnabled,
+    ) { surahNumber, enabled -> surahNumber to enabled }
+        .flatMapLatest { (surahNumber, enabled) ->
+            if (enabled) flow { emit(tajweedRepository.annotationsForSurah(surahNumber)) }
+            else flowOf(emptyMap())
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyMap())
+
+    fun setTajweedEnabled(enabled: Boolean) = viewModelScope.launch {
+        prefsRepository.setTajweedEnabled(enabled)
+    }
+
+    private data class SupplementRequest(
+        val ayah: Ayah?,
+        val enabled: Boolean,
+        val language: String,
+        val tafsirSource: String?,
+    )
+
+    data class TafsirDownloadState(
+        val downloading: OfficialTafsirSource? = null,
+        val completedSource: OfficialTafsirSource? = null,
+        val completedSurahs: Int = 0,
+        val error: String? = null,
+    )
+
+    private companion object {
+        const val TAFSIR_SURAH_TOTAL = 114
+    }
 
     data class SupplementUi(
         val translations: List<Translation> = emptyList(),
@@ -324,12 +434,12 @@ class QuranReaderViewModel @Inject constructor(
     val playbackErrorCount: StateFlow<Int> = audioPlayer.errorCount
 
     init {
-        // Hydrate the stop-at-end mirror from the persisted value, and seed
-        // the meaning/tafsir sample so the supplements panel works even when
-        // the reader is opened directly (without visiting the surah list).
+        // Hydrate the stop-at-end mirror and remove the legacy placeholder
+        // tafsir from older installs. Production sources are explicit,
+        // attributable downloads rather than pre-seeded sample content.
         viewModelScope.launch {
             _continuousStopAtEnd.value = prefsRepository.continuousStopAtEnd.first()
-            supplementRepository.seedSampleIfEmpty()
+            supplementRepository.removeLegacySampleTafsir()
 
 }
 
@@ -650,6 +760,19 @@ class QuranReaderViewModel @Inject constructor(
 
 }
 
+
+    /**
+     * Starts at an ayah explicitly selected in the reader and ends at the end
+     * of the current surah. This is intentionally separate from the advanced
+     * range menu: the ordinary "select ayah, then play" action must never
+     * silently restart from ayah one or continue through the whole mushaf.
+     */
+    fun playFromSelectedAyahToSurahEnd(ayah: Ayah, repeatCount: Int) {
+        val ayahs = uiState.value.ayahs
+        val start = ayahs.indexOfFirst { it.globalNumber == ayah.globalNumber }
+        if (start < 0) return
+        playQueueOf(ayahs.drop(start), repeatCount)
+    }
 
     /** Applies the reader's chosen [range] to playback starting at [ayah]. */
     fun playAyahWithRange(ayah: Ayah, repeatCount: Int, range: RecitationRange) {

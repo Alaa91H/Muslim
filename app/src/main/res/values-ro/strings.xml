@@ -46,10 +46,6 @@
     <string name="crash_close">Închide</string>
     <string name="crash_dismiss">Continuă</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفلإظحوفت إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Căutați în Coran</string>
-    <string name="more_quran_search_desc">Găsiți un cuvânt, cât de des apare și unde</string>
-    <string name="more_quran_frequency">Frecvența cuvintelor Coranului</string>
-    <string name="more_quran_frequency_desc">Cele mai frecvente cuvinte din tot mushaf</string>
     <string name="more_names">99 de nume ale lui Allah</string>
     <string name="more_names_desc">Cele 99 de nume cu explicație completă</string>
     <string name="more_hajj">Hajj și Umrah</string>

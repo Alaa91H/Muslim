@@ -20,23 +20,19 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -47,7 +43,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.rotate
@@ -90,7 +85,6 @@ fun QiblaScreen(
     longitude: Double,
     locationName: String,
     modifier: Modifier = Modifier,
-    onOpenMosques: (() -> Unit)? = null,
     viewModel: QiblaGpsViewModel = hiltViewModel(),
 ) {
     val context = LocalContext.current
@@ -145,181 +139,152 @@ fun QiblaScreen(
         wasFacingQibla = facingQibla
     }
 
+    val requestGpsRefresh = rememberGpsRefreshAction(context, viewModel)
+    QiblaCompassContent(
+        gpsState = gpsState,
+        presentation = QiblaPresentation(
+            locationName = effectiveName,
+            trueHeading = trueHeading,
+            bearing = bearing,
+            distanceKm = distanceKm,
+            bearingCardinal = cardinal(bearing),
+            headingCardinal = cardinal(trueHeading.toDouble()),
+            facingQibla = facingQibla,
+            turnRight = turnRight,
+            turnDegrees = turnDegrees,
+            needsCalibration = heading.accuracy < SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM,
+        ),
+        modifier = modifier,
+        onGpsRefresh = requestGpsRefresh,
+    )
+}
+
+
+private data class QiblaPresentation(
+    val locationName: String,
+    val trueHeading: Float,
+    val bearing: Double,
+    val distanceKm: Double,
+    val bearingCardinal: String,
+    val headingCardinal: String,
+    val facingQibla: Boolean,
+    val turnRight: Boolean,
+    val turnDegrees: Double,
+    val needsCalibration: Boolean,
+)
+
+@Composable
+private fun rememberGpsRefreshAction(context: Context, viewModel: QiblaGpsViewModel): () -> Unit {
     val permissionLauncher = rememberLauncherForActivityResult(
-        ActivityResultContracts.RequestMultiplePermissions()
+        ActivityResultContracts.RequestMultiplePermissions(),
     ) { result ->
         if (result.values.any { it }) viewModel.refresh()
     }
-
-    fun requestGpsRefresh() {
+    return {
         val entryPoint = EntryPointAccessors.fromApplication(
             context.applicationContext,
             PermissionEntryPoint::class.java,
         )
         val manager = entryPoint.permissionManager()
-        if (manager.isGranted(AppPermission.Location)) {
-            viewModel.refresh()
-        } else {
-            permissionLauncher.launch(
-                manager.runtimeRequestArray(AppPermission.Location) ?: arrayOf()
-            )
-        }
-    }
-
-    var viewMode by remember { mutableStateOf(QiblaViewMode.Compass) }
-
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(24.dp)
-            .verticalScroll(rememberScrollState()),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        Spacer(Modifier.height(8.dp))
-        Text(
-            text = effectiveName,
-            style = MaterialTheme.typography.titleLarge,
-        )
-        Spacer(Modifier.height(16.dp))
-
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            FilterChip(
-                selected = viewMode == QiblaViewMode.Compass,
-                onClick = { viewMode = QiblaViewMode.Compass },
-                label = { Text(stringResource(R.string.qibla_mode_compass)) },
-            )
-            Spacer(Modifier.size(8.dp))
-            FilterChip(
-                selected = viewMode == QiblaViewMode.Map,
-                onClick = { viewMode = QiblaViewMode.Map },
-                label = { Text(stringResource(R.string.qibla_mode_map)) },
-            )
-            if (onOpenMosques != null) {
-                Spacer(Modifier.size(8.dp))
-                TextButton(onClick = onOpenMosques) {
-                    Text(stringResource(R.string.qibla_open_mosques))
-                }
-            }
-        }
-        Spacer(Modifier.height(12.dp))
-
-        OutlinedButton(
-            onClick = { requestGpsRefresh() },
-            enabled = gpsState != QiblaGpsState.Requesting,
-        ) {
-            if (gpsState == QiblaGpsState.Requesting) {
-                CircularProgressIndicator(
-                    modifier = Modifier.size(18.dp),
-                    strokeWidth = 2.dp,
-                )
-                Spacer(Modifier.size(8.dp))
-            } else {
-                Icon(
-                    Icons.Default.MyLocation,
-                    contentDescription = null,
-                    modifier = Modifier.size(18.dp),
-                )
-                Spacer(Modifier.size(8.dp))
-            }
-            Text(
-                text = stringResource(
-                    if (gpsState == QiblaGpsState.Requesting) R.string.qibla_gps_refreshing
-                    else R.string.qibla_gps_refresh
-                )
-            )
-        }
-        if (gpsState == QiblaGpsState.Error) {
-            Spacer(Modifier.height(8.dp))
-            Text(
-                text = stringResource(R.string.qibla_gps_error),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.error,
-            )
-        }
-        Spacer(Modifier.height(16.dp))
-
-        when (viewMode) {
-            QiblaViewMode.Compass -> {
-                Surface(shape = MaterialTheme.shapes.extraLarge) {
-                    CompassRose(
-                        trueHeading = trueHeading,
-                        bearing = bearing,
-                        modifier = Modifier
-                            .size(320.dp)
-                            .padding(8.dp),
-                    )
-                }
-                Spacer(Modifier.height(16.dp))
-                Text(
-                    text = stringResource(R.string.qibla_bearing_degree, bearing),
-                    style = MaterialTheme.typography.headlineLarge,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-                Text(
-                    text = "🕋 " + stringResource(R.string.qibla_bearing_cardinal, cardinal(bearing)),
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurface,
-                )
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    text = stringResource(
-                        R.string.qibla_heading_degree,
-                        trueHeading,
-                        cardinal(trueHeading.toDouble()),
-                    ),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    text = when {
-                        facingQibla -> stringResource(R.string.qibla_facing)
-                        turnRight -> stringResource(R.string.qibla_turn_right, turnDegrees)
-                        else -> stringResource(R.string.qibla_turn_left, turnDegrees)
-                    },
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    color = if (facingQibla) MaterialTheme.colorScheme.primary
-                    else MaterialTheme.colorScheme.onSurface,
-                )
-                if (heading.accuracy < SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM) {
-                    Spacer(Modifier.height(12.dp))
-                    Text(
-                        text = stringResource(R.string.qibla_calibrate),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.tertiary,
-                    )
-                }
-            }
-
-            QiblaViewMode.Map -> {
-                QiblaMapView(
-                    latitude = effectiveLat,
-                    longitude = effectiveLng,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(420.dp),
-                )
-                Spacer(Modifier.height(12.dp))
-                QiblaMapLegend()
-            }
-        }
-
-        Spacer(Modifier.height(16.dp))
-        Text(
-            text = stringResource(
-                R.string.qibla_distance,
-                stringResource(R.string.qibla_distance_km, distanceKm),
-            ),
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        Spacer(Modifier.height(24.dp))
+        if (manager.isGranted(AppPermission.Location)) viewModel.refresh()
+        else permissionLauncher.launch(manager.runtimeRequestArray(AppPermission.Location) ?: arrayOf())
     }
 }
 
-private enum class QiblaViewMode { Compass, Map }
+@Composable
+private fun QiblaCompassContent(
+    gpsState: QiblaGpsState,
+    presentation: QiblaPresentation,
+    modifier: Modifier,
+    onGpsRefresh: () -> Unit,
+) {
+    Column(
+        modifier = modifier.fillMaxSize().padding(24.dp).verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Spacer(Modifier.height(8.dp))
+        Text(presentation.locationName, style = MaterialTheme.typography.titleLarge)
+        Spacer(Modifier.height(16.dp))
+        GpsRefreshControl(gpsState, onGpsRefresh)
+        Spacer(Modifier.height(16.dp))
+        Surface(shape = MaterialTheme.shapes.extraLarge) {
+            CompassRose(
+                trueHeading = presentation.trueHeading,
+                bearing = presentation.bearing,
+                modifier = Modifier.size(320.dp).padding(8.dp),
+            )
+        }
+        Spacer(Modifier.height(16.dp))
+        QiblaDirectionDetails(presentation)
+    }
+}
+
+@Composable
+private fun GpsRefreshControl(gpsState: QiblaGpsState, onGpsRefresh: () -> Unit) {
+    OutlinedButton(onClick = onGpsRefresh, enabled = gpsState != QiblaGpsState.Requesting) {
+        if (gpsState == QiblaGpsState.Requesting) {
+            CircularProgressIndicator(modifier = Modifier.size(18.dp), strokeWidth = 2.dp)
+        } else {
+            Icon(Icons.Default.MyLocation, contentDescription = null, modifier = Modifier.size(18.dp))
+        }
+        Spacer(Modifier.size(8.dp))
+        Text(stringResource(if (gpsState == QiblaGpsState.Requesting) R.string.qibla_gps_refreshing else R.string.qibla_gps_refresh))
+    }
+    if (gpsState == QiblaGpsState.Error) {
+        Spacer(Modifier.height(8.dp))
+        Text(
+            stringResource(R.string.qibla_gps_error),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.error,
+        )
+    }
+}
+
+@Composable
+private fun QiblaDirectionDetails(presentation: QiblaPresentation) {
+    Text(
+        stringResource(R.string.qibla_bearing_degree, presentation.bearing),
+        style = MaterialTheme.typography.headlineLarge,
+        fontWeight = FontWeight.Bold,
+        color = MaterialTheme.colorScheme.primary,
+    )
+    Text(
+        "🕋 " + stringResource(R.string.qibla_bearing_cardinal, presentation.bearingCardinal),
+        style = MaterialTheme.typography.titleMedium,
+    )
+    Spacer(Modifier.height(8.dp))
+    Text(
+        stringResource(R.string.qibla_heading_degree, presentation.trueHeading, presentation.headingCardinal),
+        style = MaterialTheme.typography.bodyLarge,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+    Spacer(Modifier.height(4.dp))
+    Text(
+        when {
+            presentation.facingQibla -> stringResource(R.string.qibla_facing)
+            presentation.turnRight -> stringResource(R.string.qibla_turn_right, presentation.turnDegrees)
+            else -> stringResource(R.string.qibla_turn_left, presentation.turnDegrees)
+        },
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.SemiBold,
+        color = if (presentation.facingQibla) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
+    )
+    if (presentation.needsCalibration) {
+        Spacer(Modifier.height(12.dp))
+        Text(
+            stringResource(R.string.qibla_calibrate),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.tertiary,
+        )
+    }
+    Spacer(Modifier.height(16.dp))
+    Text(
+        stringResource(R.string.qibla_distance, stringResource(R.string.qibla_distance_km, presentation.distanceKm)),
+        style = MaterialTheme.typography.bodyLarge,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+    Spacer(Modifier.height(24.dp))
+}
 
 /** Current display rotation in degrees (0/90/180/270), API-agnostic. */
 @Suppress("DEPRECATION")
@@ -340,8 +305,7 @@ private fun displayRotationDegrees(context: Context): Int {
 
 @Composable
 private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier = Modifier) {
-    val northColor = MaterialTheme.colorScheme.error
-    val qiblaColor = Color(0xFFD4A017)
+    val northColor = MaterialTheme.colorScheme.onSurfaceVariant
     val tickColor = MaterialTheme.colorScheme.onSurfaceVariant
     val labelColor = MaterialTheme.colorScheme.onSurfaceVariant
     val rimColor = MaterialTheme.colorScheme.outline
@@ -453,15 +417,6 @@ private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier 
                 )
             }
 
-            // Gold qibla needle at the bearing (rotates with the dial).
-            rotate(degrees = bearing.toFloat(), pivot = center) {
-                drawLine(
-                    color = qiblaColor,
-                    start = Offset(center.x, center.y - radius * 0.55f),
-                    end = Offset(center.x, center.y - radius * 0.94f),
-                    strokeWidth = 6.dp.toPx(),
-                )
-            }
         }
 
         // The Kaaba marker rides just outside the rim at the dial-relative

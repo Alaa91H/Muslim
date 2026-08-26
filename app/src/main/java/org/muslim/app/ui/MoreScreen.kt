@@ -17,21 +17,21 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.automirrored.filled.LibraryBooks
+import androidx.compose.material.icons.filled.AccountBalance
 import androidx.compose.material.icons.filled.AutoStories
-import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Calculate
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FamilyRestroom
-import androidx.compose.material.icons.filled.Map
+import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.NightsStay
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.School
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.SelfImprovement
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -86,15 +86,17 @@ fun MoreScreen(
     onOpenRamadan: () -> Unit,
     onOpenHabits: () -> Unit = {},
     onOpenZakat: () -> Unit,
+    onOpenIslamicFinance: () -> Unit = {},
     onOpenLearn: () -> Unit,
     onOpenReference: () -> Unit,
+    onOpenIslamicHistory: () -> Unit = {},
+    onOpenScholarLibrary: () -> Unit = {},
+    onOpenAccessibility: () -> Unit = {},
     onOpenDownloads: () -> Unit,
-    onOpenNames: () -> Unit = {},
-    onOpenHajj: () -> Unit = {},
     onOpenFamily: () -> Unit = {},
-    onOpenQuranSearch: () -> Unit = {},
-    onOpenQuranFrequency: () -> Unit = {},
-    onOpenOfflineMaps: () -> Unit = {},
+    onOpenFuneralWill: () -> Unit = {},
+    onOpenNoorani: () -> Unit = {},
+    onOpenTraveler: () -> Unit = {},
     /** User-customized section order (ids from [org.muslim.app.core.datastore.AppPreferences]). */
     sectionOrder: List<String> = org.muslim.app.core.datastore.AppPreferences.DEFAULT_MORE_SECTION_ORDER,
     /** Sections the user chose to hide (ids from [org.muslim.app.core.datastore.AppPreferences]). */
@@ -117,12 +119,13 @@ fun MoreScreen(
             listOf(
                 MoreEntry(R.string.more_hadith, R.string.more_hadith_desc, Icons.AutoMirrored.Filled.MenuBook, onOpenHadith),
                 MoreEntry(R.string.more_learn, R.string.more_learn_desc, Icons.Filled.School, onOpenLearn),
-                MoreEntry(R.string.more_names, R.string.more_names_desc, Icons.Filled.Star, onOpenNames),
-                MoreEntry(R.string.more_hajj, R.string.more_hajj_desc, Icons.Filled.Place, onOpenHajj),
+                MoreEntry(R.string.more_noorani, R.string.more_noorani_desc, Icons.Filled.School, onOpenNoorani),
+                MoreEntry(R.string.more_traveler, R.string.more_traveler_desc, Icons.Filled.Place, onOpenTraveler),
                 MoreEntry(R.string.more_family, R.string.more_family_desc, Icons.Filled.FamilyRestroom, onOpenFamily),
+                MoreEntry(R.string.more_funeral_will, R.string.more_funeral_will_desc, Icons.Filled.HealthAndSafety, onOpenFuneralWill),
                 MoreEntry(R.string.more_reference, R.string.more_reference_desc, Icons.Filled.AutoStories, onOpenReference),
-                MoreEntry(R.string.more_quran_search, R.string.more_quran_search_desc, Icons.Filled.Search, onOpenQuranSearch),
-                MoreEntry(R.string.more_quran_frequency, R.string.more_quran_frequency_desc, Icons.Filled.BarChart, onOpenQuranFrequency),
+                MoreEntry(R.string.more_islamic_history, R.string.more_islamic_history_desc, Icons.Filled.AutoStories, onOpenIslamicHistory),
+                MoreEntry(R.string.more_scholar_library, R.string.more_scholar_library_desc, Icons.AutoMirrored.Filled.LibraryBooks, onOpenScholarLibrary),
             ),
         ),
         org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_TOOLS to MoreSection(
@@ -130,14 +133,15 @@ fun MoreScreen(
             R.string.more_section_tools,
             listOf(
                 MoreEntry(R.string.more_zakat, R.string.more_zakat_desc, Icons.Filled.Calculate, onOpenZakat),
+                MoreEntry(R.string.more_islamic_finance, R.string.more_islamic_finance_desc, Icons.Filled.AccountBalance, onOpenIslamicFinance),
                 MoreEntry(R.string.more_downloads, R.string.more_downloads_desc, Icons.Filled.Download, onOpenDownloads),
-                MoreEntry(R.string.more_offline_maps, R.string.more_offline_maps_desc, Icons.Filled.Map, onOpenOfflineMaps),
             ),
         ),
         org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_APP to MoreSection(
             org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_APP,
             R.string.more_section_app,
             listOf(
+                MoreEntry(R.string.more_accessibility, R.string.more_accessibility_desc, Icons.Filled.Visibility, onOpenAccessibility),
                 MoreEntry(R.string.more_settings, R.string.more_settings_desc, Icons.Filled.Settings, onOpenSettings),
             ),
         ),

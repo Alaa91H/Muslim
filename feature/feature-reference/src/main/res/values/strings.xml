@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="reference_title">المكتبة المرجعية الإسلامية</string>
     <string name="reference_back">رجوع</string>
     <string name="reference_search_hint">ابحث في الكتاب…</string>
@@ -7,4 +7,28 @@
     <string name="reference_topics_count">موضوعًا</string>
     <string name="reference_copy">نسخ</string>
     <string name="reference_share">مشاركة</string>
+
+    <!-- Islamic history and civilization: content ships with a dedicated Arabic/English toggle. -->
+    <string name="history_title" tools:ignore="MissingTranslation">التاريخ والحضارة الإسلامية</string>
+    <string name="history_timeline_tab" tools:ignore="MissingTranslation">الخط الزمني</string>
+    <string name="history_atlas_tab" tools:ignore="MissingTranslation">الأطلس</string>
+    <string name="history_people_tab" tools:ignore="MissingTranslation">شخصيات وأعلام</string>
+    <string name="history_language_english" tools:ignore="MissingTranslation">English</string>
+    <string name="history_language_arabic" tools:ignore="MissingTranslation">العربية</string>
+    <string name="history_timeline_intro" tools:ignore="MissingTranslation">خط زمني تعليمي مختصر من البعثة إلى العصر الحديث. يعرض محطات كبرى ولا يغني عن دراسة المصادر المتخصصة.</string>
+    <string name="history_era_range" tools:ignore="MissingTranslation">%1$d–%2$s م</string>
+    <string name="history_present" tools:ignore="MissingTranslation">الوقت الحاضر</string>
+    <string name="history_era_highlights" tools:ignore="MissingTranslation">محطات مختارة</string>
+    <string name="history_atlas_intro" tools:ignore="MissingTranslation">أطلس تفاعلي للتوجيه الجغرافي. المناطق والأطوال ملخصات تخطيطية تعليمية؛ ليست حدوداً سياسية دقيقة ولا تمثيلاً لكل المراحل أو المجتمعات.</string>
+    <string name="history_atlas_layer" tools:ignore="MissingTranslation">اختر طبقة تاريخية</string>
+    <string name="history_atlas_zoom_in" tools:ignore="MissingTranslation">تكبير الخريطة</string>
+    <string name="history_atlas_zoom_out" tools:ignore="MissingTranslation">تصغير الخريطة</string>
+    <string name="history_atlas_schematic" tools:ignore="MissingTranslation">نطاق تخطيطي تقريبي</string>
+    <string name="history_atlas_routes" tools:ignore="MissingTranslation">طرق وممرات مختارة</string>
+    <string name="history_atlas_places" tools:ignore="MissingTranslation">انقر على علامة لعرض سياقها</string>
+    <string name="history_atlas_close" tools:ignore="MissingTranslation">إغلاق التفاصيل</string>
+    <string name="history_people_intro" tools:ignore="MissingTranslation">تراجم موجزة لعينات من القادة والعلماء والمفكرين؛ لا تختزل هذه البطاقات تاريخهم أو تنسب إليهم اكتشافات بصيغة مبالغ فيها.</string>
+    <string name="history_people_field" tools:ignore="MissingTranslation">المجال: %1$s</string>
+    <string name="history_people_contribution" tools:ignore="MissingTranslation">السياق والأثر</string>
+    <string name="history_sources_notice" tools:ignore="MissingTranslation">اعتمد المحتوى على مراجع متحفية وتعليمية وتاريخية موثقة في ملف مصادر الميزة. تحتاج التفاصيل والخلافات التاريخية إلى مراجعة مختصين قبل اعتمادها كتأريخ رسمي.</string>
 </resources>

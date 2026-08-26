@@ -61,7 +61,11 @@ data class PrayerSettings(
      */
     val vibratePerPrayer: Map<Prayer, Boolean> = emptyMap(),
     /** Minutes before the prayer to remind; 0 disables the reminder. */
-    val reminderMinutes: Int = 10,
+    val reminderMinutes: Int = 15,
+    /** Whether the active Adhan notification may be dismissed with a swipe. */
+    val adhanNotificationDismissible: Boolean = false,
+    /** Stops active Adhan audio after the user dismisses its notification. */
+    val stopAdhanOnNotificationDismiss: Boolean = false,
     /**
      * Silence notifications during the prayer (Do Not Disturb) after the
      * adhan, for [dndDurationMinutes] minutes.
@@ -83,6 +87,23 @@ data class PrayerSettings(
     /** Resolves whether vibration is enabled for [prayer]. */
     fun vibrateFor(prayer: Prayer): Boolean =
         vibratePerPrayer[prayer] ?: vibrateEnabled
+
+    /**
+     * Returns true only when every obligatory prayer is configured to play an
+     * audible bundled/custom Adhan at a usable application volume.
+     */
+    fun hasAudibleAdhanForEveryPrayer(): Boolean =
+        Prayer.entries
+            .filterNot { it == Prayer.Sunrise }
+            .all { prayer ->
+                (adhanSounds[prayer] ?: AdhanSoundOption.Default) == AdhanSoundOption.Default &&
+                    adhanVolumeFor(prayer) >= MIN_AUDIBLE_ADHAN_VOLUME
+            }
+
+
+    companion object {
+        const val MIN_AUDIBLE_ADHAN_VOLUME = 25
+    }
 }
 
 /** The user's chosen location (city, GPS fix, or manual coordinates). */

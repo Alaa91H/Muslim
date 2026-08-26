@@ -20,6 +20,8 @@
     <string name="channel_hajj_desc">تذكير يومي بالمنسك المقصود في وقته خلال أيام الحج</string>
     <string name="channel_family">الأسرة وحياة المسلم</string>
     <string name="channel_family_desc">تذكيرات العقيقة ومواعيد الأسرة التي يحددها المستخدم</string>
+    <string name="channel_finance">المالية الإسلامية</string>
+    <string name="channel_finance_desc">تذكيرات مواعيد سداد الديون التي يحددها المستخدم</string>
     <string name="channel_app_update">تحديثات التطبيق</string>
     <string name="channel_app_update_desc">إشعار عند توفّر نسخة جديدة من التطبيق</string>
 </resources>

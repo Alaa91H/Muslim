@@ -2,6 +2,7 @@ package org.muslim.app.feature.prayertimes.ui.home
 
 import android.content.Context
 import android.content.Intent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -21,9 +23,16 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Brightness4
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.DarkMode
+import androidx.compose.material.icons.filled.LightMode
+import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.Place
+import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -34,20 +43,31 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.stateDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.prayertimes.R
+import org.muslim.app.core.common.appearance.AppOrnamentStyle
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.feature.prayertimes.ui.formatCountdown
 import org.muslim.app.feature.prayertimes.ui.localDateFormatter
 import org.muslim.app.core.common.time.TimeFormats
+import org.muslim.app.core.ui.theme.IslamicOrnament
+import org.muslim.app.core.ui.theme.IslamicOrnamentImage
+import org.muslim.app.core.ui.theme.IslamicOrnamentOpacity
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
+import org.muslim.app.core.datastore.prayer.trackablePrayers
 
 /**
  * Main screen: Hijri/Gregorian date, live next-prayer countdown and today's
@@ -61,15 +81,27 @@ fun HomeScreen(
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
+    val ornamentStyle by viewModel.ornamentStyle.collectAsStateWithLifecycle()
+    val showPrayerTrackerOnHome by viewModel.showPrayerTrackerOnHome.collectAsStateWithLifecycle()
 
     val context = LocalContext.current
 
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-    ) {
+    Box(modifier = modifier.fillMaxSize()) {
+        IslamicOrnamentImage(
+            ornament = ornamentStyle.toIslamicOrnament(),
+            tint = MaterialTheme.colorScheme.primary,
+            alpha = IslamicOrnamentOpacity.LightBackground,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(220.dp)
+                .padding(top = 24.dp),
+        )
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+        ) {
         // ---- Date header ----
         state.hijri?.let { hijri ->
             Text(
@@ -125,40 +157,55 @@ fun HomeScreen(
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
             ),
         ) {
-            Column(modifier = Modifier.padding(20.dp)) {
-                Text(
-                    text = stringResource(R.string.home_next_prayer),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer,
-                )
-                Spacer(Modifier.height(8.dp))
-                state.nextPrayer?.let { prayer ->
+            Box {
+                PrayerCardEdgeOrnaments(tint = MaterialTheme.colorScheme.tertiary)
+                Column(modifier = Modifier.padding(20.dp)) {
                     Text(
-                        text = stringResource(prayerLabelRes(prayer)),
-                        style = MaterialTheme.typography.headlineMedium,
+                        text = stringResource(R.string.home_next_prayer),
+                        style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                     )
-                }
-                Row(verticalAlignment = Alignment.Bottom) {
-                    state.nextPrayerAt?.let { at ->
+                    Spacer(Modifier.height(8.dp))
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            state.nextPrayer?.let { prayer ->
+                                Text(
+                                    text = stringResource(prayerLabelRes(prayer)),
+                                    style = MaterialTheme.typography.headlineMedium,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                )
+                            }
+                        }
+                        state.nextPrayer?.let { prayer ->
+                            Icon(
+                                imageVector = prayerIcon(prayer),
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.tertiary,
+                                modifier = Modifier.size(48.dp),
+                            )
+                        }
+                    }
+                    Row(verticalAlignment = Alignment.Bottom) {
+                        state.nextPrayerAt?.let { at ->
+                            Text(
+                                text = at.format(TimeFormats.timeFormatter(use24h)),
+                                style = MaterialTheme.typography.headlineMedium,
+                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            )
+                        }
+                        Spacer(Modifier.weight(1f))
                         Text(
-                            text = at.format(TimeFormats.timeFormatter(use24h)),
-                            style = MaterialTheme.typography.headlineMedium,
+                            text = formatCountdown(state.countdownSeconds),
+                            style = MaterialTheme.typography.headlineSmall,
+                            fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace,
                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                         )
                     }
-                    Spacer(Modifier.weight(1f))
-                    Text(
-                        text = formatCountdown(state.countdownSeconds),
-                        style = MaterialTheme.typography.headlineSmall,
-                        fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
-                    )
                 }
             }
         }
 
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(16.dp))
 
         // ---- Today's times ----
         Text(
@@ -176,29 +223,55 @@ fun HomeScreen(
             return@Column
         }
 
-        Card(modifier = Modifier.fillMaxWidth()) {
-            Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)) {
-                Prayer.entries.forEachIndexed { index, prayer ->
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+            ),
+        ) {
+            Box {
+                PrayerCardEdgeOrnaments(tint = MaterialTheme.colorScheme.primary)
+                Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {
+                    Prayer.entries.forEachIndexed { index, prayer ->
                     if (index > 0) HorizontalDivider()
+                    val isNextPrayer = prayer == state.nextPrayer
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 12.dp),
+                            .padding(vertical = 4.dp)
+                            .clip(MaterialTheme.shapes.medium)
+                            .background(
+                                if (isNextPrayer) MaterialTheme.colorScheme.tertiaryContainer else Color.Transparent,
+                            )
+                            .padding(horizontal = 12.dp, vertical = 10.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
+                        Icon(
+                            imageVector = prayerIcon(prayer),
+                            contentDescription = null,
+                            tint = if (isNextPrayer) MaterialTheme.colorScheme.onTertiaryContainer
+                            else MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.size(22.dp),
+                        )
+                        Spacer(Modifier.width(10.dp))
                         Text(
                             text = stringResource(prayerLabelRes(prayer)),
                             style = MaterialTheme.typography.bodyLarge,
-                            fontWeight = if (prayer == state.nextPrayer) FontWeight.Bold else FontWeight.Normal,
+                            fontWeight = if (isNextPrayer) FontWeight.Bold else FontWeight.Normal,
+                            color = if (isNextPrayer) MaterialTheme.colorScheme.onTertiaryContainer
+                            else MaterialTheme.colorScheme.onSurface,
                         )
                         Spacer(Modifier.weight(1f))
                         state.times[prayer]?.let { time ->
                             Text(
                                 text = time.format(TimeFormats.timeFormatter(use24h)),
                                 style = MaterialTheme.typography.titleMedium,
-                                fontWeight = if (prayer == state.nextPrayer) FontWeight.Bold else FontWeight.Normal,
+                                fontWeight = if (isNextPrayer) FontWeight.Bold else FontWeight.Normal,
+                                color = if (isNextPrayer) MaterialTheme.colorScheme.onTertiaryContainer
+                                else MaterialTheme.colorScheme.onSurface,
                             )
                         }
+                    }
                     }
                 }
             }
@@ -249,7 +322,120 @@ fun HomeScreen(
             MonthlyGrid(state, use24h)
         }
 
-        Spacer(Modifier.height(16.dp))
+        if (showPrayerTrackerOnHome) {
+            Spacer(Modifier.height(24.dp))
+            PrayerCompletionCard(
+                completedPrayers = state.completedPrayers,
+                onToggle = viewModel::togglePrayerCompletion,
+            )
+
+            Spacer(Modifier.height(16.dp))
+        }
+        }
+    }
+}
+
+private fun AppOrnamentStyle.toIslamicOrnament(): IslamicOrnament = when (this) {
+    AppOrnamentStyle.Geometry -> IslamicOrnament.Geometric12
+    AppOrnamentStyle.Arabesque -> IslamicOrnament.Arabesque
+    AppOrnamentStyle.Stars -> IslamicOrnament.Star12
+    AppOrnamentStyle.Minimal -> IslamicOrnament.Corner
+}
+
+private fun prayerIcon(prayer: Prayer): ImageVector = when (prayer) {
+    Prayer.Fajr -> Icons.Filled.Nightlight
+    Prayer.Sunrise -> Icons.Filled.WbSunny
+    Prayer.Dhuhr -> Icons.Filled.LightMode
+    Prayer.Asr -> Icons.Filled.Brightness4
+    Prayer.Maghrib -> Icons.Filled.Nightlight
+    Prayer.Isha -> Icons.Filled.DarkMode
+}
+
+@Composable
+private fun PrayerCardEdgeOrnaments(tint: Color) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        IslamicOrnamentImage(
+            ornament = IslamicOrnament.Corner,
+            tint = tint,
+            alpha = IslamicOrnamentOpacity.LightActive,
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(4.dp)
+                .size(72.dp),
+        )
+        IslamicOrnamentImage(
+            ornament = IslamicOrnament.Corner,
+            tint = tint,
+            alpha = IslamicOrnamentOpacity.LightActive,
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(4.dp)
+                .size(72.dp)
+                .graphicsLayer(rotationZ = 180f),
+        )
+    }
+}
+
+@Composable
+private fun PrayerCompletionCard(
+    completedPrayers: Set<Prayer>,
+    onToggle: (Prayer) -> Unit,
+) {
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Box {
+            PrayerCardEdgeOrnaments(tint = MaterialTheme.colorScheme.primary)
+            Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = stringResource(R.string.home_prayer_tracker_title),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold,
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = stringResource(R.string.home_prayer_tracker_description),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Spacer(Modifier.height(10.dp))
+            Text(
+                text = stringResource(
+                    R.string.home_prayer_tracker_progress,
+                    completedPrayers.size,
+                    trackablePrayers.size,
+                ),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            Spacer(Modifier.height(6.dp))
+            trackablePrayers.forEach { prayer ->
+                val completed = prayer in completedPrayers
+                val label = stringResource(prayerLabelRes(prayer))
+                val status = stringResource(
+                    if (completed) R.string.home_prayer_tracker_completed
+                    else R.string.home_prayer_tracker_pending,
+                )
+                val toggleDescription = stringResource(
+                    R.string.home_prayer_tracker_toggle_description,
+                    label,
+                    status,
+                )
+                FilterChip(
+                    selected = completed,
+                    onClick = { onToggle(prayer) },
+                    label = { Text(label) },
+                    leadingIcon = if (completed) {
+                        { Icon(Icons.Default.Check, contentDescription = null) }
+                    } else {
+                        null
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 2.dp)
+                        .semantics { stateDescription = toggleDescription },
+                )
+            }
+            }
+        }
     }
 }
 

@@ -46,10 +46,6 @@
     <string name="crash_close">Lukk</string>
     <string name="crash_dismiss">Fortsett</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم خفتاحأ إاإاح كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Søk i Koranen</string>
-    <string name="more_quran_search_desc">Finn et ord, hvor ofte det vises og hvor</string>
-    <string name="more_quran_frequency">Koranens ordfrekvens</string>
-    <string name="more_quran_frequency_desc">De hyppigste ordene i hele mushaf</string>
     <string name="more_names">99 navn på Allah</string>
     <string name="more_names_desc">De 99 navnene med full forklaring</string>
     <string name="more_hajj">Hajj og Umrah</string>

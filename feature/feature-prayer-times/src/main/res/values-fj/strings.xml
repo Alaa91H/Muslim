@@ -22,6 +22,12 @@
     <string name="bundled_adhan_sharif_doman">Sarifi Doman</string>
     <string name="bundled_adhan_yusuf_islam">Yusuf Islam adhan</string>
     <string name="home_cannot_compute">Sega ni rawa ni vakarautaki na gauna ni siga oqo</string>
+    <string name="home_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="home_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="home_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="home_prayer_tracker_completed">Marked complete</string>
+    <string name="home_prayer_tracker_pending">Not marked</string>
+    <string name="home_prayer_tracker_toggle_description">%1$s: %2$s</string>
     <string name="home_location_unknown">Se bera ni vakarautaki na vanua</string>
     <string name="home_next_prayer">Masu ka tarava</string>
     <string name="home_select_location">Digitaka na vanua</string>
@@ -81,6 +87,20 @@
     <string name="settings_adhan_preview_hint">Oqo na kena dau basika na veivakadeitaki ni sa tekivu e dua na gauna ni masumasu. E vakavoutaki vakataki koya ena masu e tarava.</string>
     <string name="settings_adhan_preview_label">Railesuva na itukutuku ni Adhan</string>
     <string name="settings_adhan_preview_no_location">Digitaka e dua na vanua me vakaraitaki kina na masu e tarava .</string>
+    <string name="settings_adhan_verify_title">Check adhan readiness</string>
+    <string name="settings_adhan_verify_desc">Checks the required settings and permissions. After it passes, use the adhan test button below to confirm that you can hear the recording on your device.</string>
+    <string name="settings_adhan_ready">Adhan is ready with the current settings</string>
+    <string name="settings_adhan_needs_attention">Some settings need attention before relying on the adhan</string>
+    <string name="settings_adhan_check_enabled">Adhan is enabled</string>
+    <string name="settings_adhan_check_location">Prayer location is set</string>
+    <string name="settings_adhan_check_notifications">Adhan notifications and channel are allowed</string>
+    <string name="settings_adhan_check_exact_alarm">Exact alarms are allowed</string>
+    <string name="settings_adhan_check_sound">The next prayer has an audible adhan</string>
+    <string name="settings_adhan_check_notification_posted">Active Adhan alert was posted</string>
+    <string name="settings_adhan_check_alarm_volume">Device alarm volume is audible</string>
+    <string name="settings_adhan_check_passed">Ready</string>
+    <string name="settings_adhan_check_failed">Needs attention</string>
+    <string name="settings_adhan_verify_action">Check now</string>
     <string name="settings_adhan_sound">Adhan rorogo ena dua na masu</string>
     <string name="settings_adhan_sound_choice">Digitaka na rorogo</string>
     <string name="settings_adhan_sound_summary">%1$s · %2$s</string>
@@ -161,9 +181,14 @@
     <string name="settings_preview_stop">Tarova na rai taumada</string>
     <string name="settings_method_automatic">Vakataki koya (ena vanua)</string>
     <string name="settings_method_automatic_desc">Na app e digitaka na iwalewale veiganiti duadua vakataki koya e yavutaki ena nomu vanua kei na vanua; e rawa ni o digitaka tikoga e dua na iwalewale ena liga ena dua na gauna.</string>
-    <string name="settings_preview_for_prayer">Raica taumada %1$s</string>
+    <string name="settings_preview_for_prayer">Test %1$s adhan</string>
     <string name="settings_method_automatic_picked">Vakatotolotaki ena gauna oqo: %1$s — %2$s.</string>
     <string name="settings_adhan_global_volume">Na levu ni adhan raraba</string>
     <string name="settings_adhan_global_volume_desc">Vakayagataka e dua na ivakatagedegede ki na masu kecega ka vakaleqa na sliders ni masu yadua .</string>
     <string name="settings_adhan_follows_global">Muria na iwiliwili ni vuravura raraba (%1$s) .</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

@@ -11,11 +11,9 @@
 
     <!-- More hub entries -->
     <string name="more_settings">Settings</string>
-    <string name="more_quran_search">Search the Quran</string>
-    <string name="more_quran_search_desc">Find a word, how often it appears and where</string>
-    <string name="more_quran_frequency">Quran word frequency</string>
-    <string name="more_quran_frequency_desc">The most frequent words in the whole mushaf</string>
     <string name="more_settings_desc">Theme, language, prayer &amp; adhan settings</string>
+    <string name="more_accessibility">Accessibility Centre</string>
+    <string name="more_accessibility_desc">TalkBack, clearer reading, high contrast, voice navigation and sign-language links</string>
     <string name="more_hadith">Hadith</string>
     <string name="more_hadith_desc">Hadith library, search &amp; hadith of the day</string>
     <string name="more_adhkar">Adhkar</string>
@@ -28,16 +26,26 @@
     <string name="more_habits_desc">Track worship, reports, and your Ramadan plan</string>
     <string name="more_zakat">Zakat</string>
     <string name="more_zakat_desc">Zakat on wealth &amp; Fitr calculator</string>
+    <string name="more_islamic_finance">Islamic Economy &amp; Finance</string>
+    <string name="more_islamic_finance_desc">Transactions guide, halal stock sources, and private debt ledger</string>
     <string name="more_learn">Learn</string>
     <string name="more_learn_desc">Step-by-step wudu &amp; prayer guides</string>
+    <string name="more_noorani">Noorani Qaida &amp; First Steps</string>
+    <string name="more_noorani_desc">Interactive letters and articulation, plus a simple New Muslim Corner</string>
+    <string name="more_traveler">Traveller &amp; Expat Corner</string>
+    <string name="more_traveler_desc">GPS travel distance, transport prayer guidance, and high-latitude tools</string>
     <string name="more_names">99 Names of Allah</string>
     <string name="more_names_desc">The 99 names with full explanation</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>
     <string name="more_hajj_desc">Detailed guide to the Hajj and Umrah rites</string>
     <string name="more_family">Family life</string>
     <string name="more_family_desc">Ruqyah, baby names, aqiqah, marriage and parenting</string>
+    <string name="more_funeral_will">Funerals &amp; Islamic Will</string>
+    <string name="more_funeral_will_desc">Private will draft and practical guidance on washing, shrouding, funeral prayer, and condolences</string>
     <string name="more_reference">Reference Library</string>
     <string name="more_reference_desc">Introduction to Islam, the Sira &amp; the prophets</string>
+    <string name="more_islamic_history">Islamic History &amp; Civilization</string>
+    <string name="more_islamic_history_desc">Interactive timeline, atlas, and notable figures</string>
     <string name="more_downloads">Recitation downloads</string>
     <string name="more_downloads_desc">Download a surah, an ayah or the full Quran with your chosen reciter</string>
     <string name="more_offline_maps">Offline maps</string>
@@ -59,6 +67,16 @@
     <string name="shortcut_qibla_long">Qibla direction</string>
     <string name="shortcut_settings">Settings</string>
     <string name="shortcut_settings_long">Prayer &amp; adhan settings</string>
+
+    <!-- Explicit one-shot voice navigation -->
+    <string name="voice_listen">Listen</string>
+    <string name="voice_listening">Listening…</string>
+    <string name="voice_command_unrecognized">We did not understand that command. Try: Read Surah Al-Kahf.</string>
+    <string name="voice_command_timeout">Listening timed out. Tap Listen and try again.</string>
+    <string name="voice_command_network">Speech recognition could not finish because its service connection failed.</string>
+    <string name="voice_command_error">Speech recognition could not start. Please try again.</string>
+    <string name="voice_microphone_denied">Allow microphone access to run a voice-navigation command when you tap Listen.</string>
+    <string name="voice_service_unavailable">Speech recognition is unavailable on this device.</string>
 
     <!-- Unhandled-exception crash dialog -->
     <string name="crash_title">Unexpected error</string>

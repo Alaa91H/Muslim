@@ -46,10 +46,6 @@
     <string name="crash_close">Пӯшед</string>
     <string name="crash_dismiss">Давом додан</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إلك. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Қуръонро ҷустуҷӯ кунед</string>
-    <string name="more_quran_search_desc">Калимаеро ёбед, ки он чанд вақт ва дар куҷо пайдо мешавад</string>
-    <string name="more_quran_frequency">Басомади калимаҳои Қуръон</string>
-    <string name="more_quran_frequency_desc">Калимаҳои маъмултарин дар тамоми мусаффо</string>
     <string name="more_names">99 Исми Аллох</string>
     <string name="more_names_desc">99 ном бо шарҳи пурра</string>
     <string name="more_hajj">Ҳаҷ ва Умра</string>

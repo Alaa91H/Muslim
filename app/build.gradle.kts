@@ -1,5 +1,6 @@
 import java.util.Base64
 import java.util.Properties
+import org.gradle.api.tasks.Exec
 
 // Derives versionCode/versionName from the nearest `v*` git tag so the release
 // version is never hardcoded (PROJECT_PROMPT.md §8). scripts/release.sh pushes
@@ -19,6 +20,27 @@ fun deriveVersion(describe: String, envTag: String): Pair<Int, String> {
     val versionCode = major * 10_000 + minor * 100 + patch
     val versionName = if (match == null) "1.0.0-dev" else "$major.$minor.$patch"
     return versionCode to versionName
+}
+
+/** True only when a real, reusable production signing identity is available. */
+val productionSigningConfigured = providers.provider {
+    val properties = Properties().apply {
+        val file = rootProject.file("keystore.properties")
+        if (file.exists()) file.inputStream().use { load(it) }
+    }
+    val localStorePath = properties.getProperty("storeFile")
+    val local = !localStorePath.isNullOrBlank() &&
+        rootProject.file(localStorePath).isFile &&
+        listOf("storePassword", "keyAlias", "keyPassword").all {
+            !properties.getProperty(it).isNullOrBlank()
+        }
+    val ci = listOf(
+        "SIGNING_KEYSTORE",
+        "SIGNING_STORE_PASSWORD",
+        "SIGNING_KEY_ALIAS",
+        "SIGNING_KEY_PASSWORD",
+    ).all { !System.getenv(it).isNullOrBlank() }
+    local || ci
 }
 
 plugins {
@@ -85,6 +107,17 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.getByName("release")
         }
+        create("beta") {
+            // Beta deliberately keeps the production application ID and display
+            // name. With a higher versionCode and the stable signing key it
+            // upgrades the installed Muslim app without clearing user data.
+            initWith(getByName("debug"))
+            versionNameSuffix = "-beta"
+            matchingFallbacks += listOf("debug")
+            if (productionSigningConfigured.get()) {
+                signingConfig = signingConfigs.getByName("release")
+            }
+        }
     }
 
     compileOptions {
@@ -118,6 +151,58 @@ android {
     }
 }
 
+tasks.register("verifyClosedBetaSigning") {
+    group = "verification"
+    description = "Fails unless a stable signing identity is configured for the updatable closed beta."
+    doLast {
+        check(productionSigningConfigured.get()) {
+            "Closed beta signing is not configured. Set keystore.properties or all SIGNING_* variables."
+        }
+    }
+}
+
+tasks.register("assembleClosedBeta") {
+    group = "build"
+    description = "Builds the signed beta update APK for invited testers of the main Muslim package."
+    dependsOn("verifyClosedBetaSigning", "assembleBeta")
+}
+
+tasks.register("verifyProductionSigning") {
+    group = "verification"
+    description = "Fails unless a non-debug production signing identity is configured."
+    doLast {
+        check(productionSigningConfigured.get()) {
+            "Production signing is not configured. Set keystore.properties or all SIGNING_* variables."
+        }
+    }
+}
+
+tasks.register<Exec>("verifyProductionContent") {
+    group = "verification"
+    description = "Fails unless every bundled religious/content asset is approved for production."
+    commandLine("python3", rootProject.file("scripts/verify_content_manifest.py").absolutePath, "--production")
+}
+
+tasks.register("verifyProductionRelease") {
+    group = "verification"
+    description = "Runs the non-negotiable signing and content gates for a production release."
+    dependsOn("verifyProductionSigning", "verifyProductionContent")
+}
+
+tasks.register("bundleProductionRelease") {
+    group = "build"
+    description = "Builds the phone App Bundle only after all production gates pass."
+    dependsOn("verifyProductionRelease", "bundleRelease")
+}
+
+kotlin {
+    compilerOptions {
+        // KT-73255: apply injected parameter annotations to the backing field
+        // as well as the constructor parameter for Hilt-managed properties.
+        freeCompilerArgs.add("-Xannotation-default-target=param-property")
+    }
+}
+
 dependencies {
     // Project modules
     implementation(project(":core:core-ui"))
@@ -134,9 +219,11 @@ dependencies {
     implementation(project(":feature:feature-tasbih"))
     implementation(project(":feature:feature-ramadan"))
     implementation(project(":feature:feature-zakat"))
+    implementation(project(":feature:feature-finance"))
     implementation(project(":feature:feature-learn"))
     implementation(project(":feature:feature-settings"))
     implementation(project(":feature:feature-reference"))
+    implementation(project(":feature:feature-scholar-library"))
 
     // AndroidX core
     implementation(libs.androidx.core.ktx)
@@ -145,6 +232,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.window)
+    implementation(libs.androidx.media)
+    implementation(libs.google.play.services.wearable)
 
     // Compose (versions from BOM)
     implementation(platform(libs.androidx.compose.bom))
@@ -176,4 +265,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    androidTestImplementation(libs.mockk.android)
 }

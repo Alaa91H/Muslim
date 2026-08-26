@@ -46,10 +46,6 @@
     <string name="crash_close">ပိတ်လိုက်</string>
     <string name="crash_dismiss">ဆက်ရန်</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة عرض المزيد</string>
-    <string name="more_quran_search">ကုရ်အာန်ကိုရှာဖွေပါ။</string>
-    <string name="more_quran_search_desc">စကားလုံးတစ်လုံး၊ ဘယ်နှစ်ကြိမ်ပေါ်လာပြီး ဘယ်မှာလဲ။</string>
-    <string name="more_quran_frequency">ကုရ်အာန် စကားလုံး အကြိမ်ရေ</string>
-    <string name="more_quran_frequency_desc">မုရှဖ်တစ်ခုလုံးတွင် အသုံးအများဆုံးစကားလုံးများ</string>
     <string name="more_names">99 အလ္လာဟ်အရှင်မြတ်၏အမည်များ</string>
     <string name="more_names_desc">99 အမည်များကို အပြည့်အစုံ ရှင်းပြထားပါသည်။</string>
     <string name="more_hajj">ဟဂ်ျနှင့် အွမ်ရဟ်</string>

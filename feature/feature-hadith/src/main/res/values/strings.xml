@@ -6,6 +6,8 @@
     <string name="hadith_all">الكل</string>
     <string name="hadith_of_the_day">حديث اليوم</string>
     <string name="hadith_daily_notification">إشعار حديث اليوم</string>
+    <string name="hadith_notification_settings">إعدادات إشعار حديث اليوم</string>
+    <string name="hadith_done">تم</string>
     <string name="hadith_daily_notification_desc">إشعار يومي بحديث من المجموعة</string>
     <string name="hadith_preview_label">معاينة الإشعار</string>
     <string name="hadith_preview_hint">هكذا يظهر إشعار حديث اليوم عند وقته المحدد.</string>
@@ -16,6 +18,12 @@
     <string name="hadith_copied">تم نسخ الحديث</string>
     <string name="hadith_bookmark_add">إضافة علامة</string>
     <string name="hadith_bookmark_remove">إزالة العلامة</string>
+    <string name="hadith_preparing">يتم تجهيز مكتبة الأحاديث محلياً…</string>
+    <string name="hadith_preparing_progress">يتم تجهيز مكتبة الأحاديث محلياً (%1$d حديثاً)…</string>
+    <string name="hadith_preparing_failed">تعذر تجهيز مكتبة الأحاديث</string>
+    <string name="hadith_load_failed">تعذر تحميل هذه الصفحة من الأحاديث</string>
+    <string name="hadith_retry">إعادة المحاولة</string>
+    <string name="hadith_no_results">لا توجد نتائج مطابقة للبحث أو المجموعة المختارة.</string>
 
     <string name="hadith_collection_nawawi">الأربعون النووية</string>
     <string name="hadith_collection_riyad">رياض الصالحين</string>

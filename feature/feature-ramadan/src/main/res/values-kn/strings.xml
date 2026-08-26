@@ -26,4 +26,15 @@
     <string name="ramadan_title">ರಂಜಾನ್</string>
     <string name="ramadan_notify_outside">Reminders outside Ramadan</string>
     <string name="ramadan_notify_outside_desc">ಇಫ್ತಾರ್ ಮತ್ತು ಸುಹೂರ್ ಎಚ್ಚರಿಕೆಗಳು ರಂಜಾನ್ ಸಮಯದಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ರನ್ ಆಗುತ್ತವೆ; enabling this keeps them going in other months.</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">ಫಜ್ರ್</string>
+    <string name="habit_prayer_dhuhr">ಧುಹ್ರ್</string>
+    <string name="habit_prayer_asr">ಅಸರ್</string>
+    <string name="habit_prayer_maghrib">ಮಗ್ರಿಬ್</string>
+    <string name="habit_prayer_isha">ಇಶಾ</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

@@ -46,10 +46,6 @@
     <string name="crash_close">बंद कर दीं</string>
     <string name="crash_dismiss">जारी बा</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد के बा।</string>
-    <string name="more_quran_search">कुरान के खोज करीं</string>
-    <string name="more_quran_search_desc">कवनो शब्द खोजीं, केतना बेर आवेला आ कहाँ</string>
-    <string name="more_quran_frequency">कुरान के शब्द के आवृत्ति</string>
-    <string name="more_quran_frequency_desc">पूरा मुशफ में सबसे जादा शब्द</string>
     <string name="more_names">अल्लाह के 99 नाम के नाम बा</string>
     <string name="more_names_desc">99 गो नाम पूरा सफाई के साथे</string>
     <string name="more_hajj">हज &amp; उमरा के बा</string>

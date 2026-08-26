@@ -46,10 +46,6 @@
     <string name="crash_close">Vala</string>
     <string name="crash_dismiss">Bvelani phanda</string>
     <string name="more_order_hint">اضغط مع الاستمرار kha أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة kha شاشة المزيد.</string>
-    <string name="more_quran_search">Setsha kha Quran</string>
-    <string name="more_quran_search_desc">Kha vha wane ipfi, uri ḽi bvelela lungafhani nahone ngafhi .</string>
-    <string name="more_quran_frequency">Tshifhinga tsha ipfi ḽa Quran</string>
-    <string name="more_quran_frequency_desc">Maipfi ane a dzulela u ambiwa kha mushaf woṱhe .</string>
     <string name="more_names">99 Madzina a Allah</string>
     <string name="more_names_desc">Madzina a 99 a re na ṱhalutshedzo yo fhelelaho .</string>
     <string name="more_hajj">Hadzha na Umra</string>

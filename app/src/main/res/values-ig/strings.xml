@@ -46,10 +46,6 @@
     <string name="crash_close">Mechie</string>
     <string name="crash_dismiss">Gaa n\'ihu</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Chọọ na Quran</string>
-    <string name="more_quran_search_desc">Chọta otu okwu, ugboro ole ọ na-apụta na ebe</string>
-    <string name="more_quran_frequency">Ugboro okwu Quran</string>
-    <string name="more_quran_frequency_desc">Okwu kacha ugboro na mushaf dum</string>
     <string name="more_names">99 Aha nke Allah</string>
     <string name="more_names_desc">Aha 99 nwere nkọwa zuru oke</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

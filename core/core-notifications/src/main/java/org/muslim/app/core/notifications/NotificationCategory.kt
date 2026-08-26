@@ -162,6 +162,13 @@ enum class NotificationCategory(
         nameRes = R.string.channel_family, descriptionRes = R.string.channel_family_desc,
     ),
 
+    /** User-scheduled debt due-date reminders. */
+    Finance(
+        NotificationChannels.FINANCE, defaultEnabled = true,
+        defaultImportance = NotificationImportance.Default, defaultSound = true, defaultVibrate = true, defaultBadge = true,
+        nameRes = R.string.channel_finance, descriptionRes = R.string.channel_finance_desc,
+    ),
+
     /** App-update availability alerts ("a new version is ready"). */
     AppUpdate(
         NotificationChannels.APP_UPDATE, defaultEnabled = true,

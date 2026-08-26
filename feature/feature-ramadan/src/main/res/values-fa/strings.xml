@@ -26,4 +26,15 @@
     <string name="ramadan_title">رمضان</string>
     <string name="ramadan_notify_outside">تذکرات خارج از ماه رمضان</string>
     <string name="ramadan_notify_outside_desc">هشدارهای افطار و سحری به طور خودکار در ماه رمضان اجرا می شود. فعال کردن این امر آنها را در ماه های دیگر ادامه می دهد.</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">فجر</string>
+    <string name="habit_prayer_dhuhr">ظهر</string>
+    <string name="habit_prayer_asr">عصر</string>
+    <string name="habit_prayer_maghrib">مغرب</string>
+    <string name="habit_prayer_isha">ایشا</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

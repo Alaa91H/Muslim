@@ -11,6 +11,7 @@
 
     <!-- Notifications -->
     <string name="adhan_notification_title">حان الآن وقت الصلاة</string>
+    <string name="adhan_notification_stop">إيقاف الأذان</string>
     <string name="reminder_title">تذكير الصلاة</string>
     <string name="reminder_message">صلاة %1$s بعد %2$d دقائق</string>
 
@@ -20,6 +21,14 @@
     <string name="home_location_unknown">لم يُحدَّد الموقع بعد</string>
     <string name="home_today_times">مواقيت اليوم</string>
     <string name="home_cannot_compute">تعذّر حساب الأوقات لهذا اليوم</string>
+
+    <!-- Local prayer completion tracker -->
+    <string name="home_prayer_tracker_title">متابعة صلوات اليوم</string>
+    <string name="home_prayer_tracker_description">سجل شخصي على هذا الجهاز فقط؛ لا يحكم على عبادتك ولا يُرسل أي بيانات.</string>
+    <string name="home_prayer_tracker_progress">%1$d من %2$d صلوات محددة</string>
+    <string name="home_prayer_tracker_completed">محددة كمكتملة</string>
+    <string name="home_prayer_tracker_pending">غير محددة</string>
+    <string name="home_prayer_tracker_toggle_description">%1$s: %2$s</string>
 
     <!-- Prayer times screen -->
     <string name="times_title">مواقيت الصلاة</string>
@@ -75,6 +84,9 @@
     <string name="settings_adjustments">التعديل اليدوي (بالدقائق)</string>
     <string name="settings_adhan">الأذان والتنبيهات</string>
     <string name="settings_adhan_enabled">تفعيل الأذان</string>
+    <string name="settings_adhan_notification_dismissible">السماح بإزالة إشعار الأذان</string>
+    <string name="settings_adhan_stop_on_dismiss">إيقاف الأذان عند إزالة الإشعار</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">يتطلب السماح بإزالة الإشعار. زر إيقاف الأذان يبقى متاحًا دائمًا داخل الإشعار.</string>
     <string name="settings_adhan_global_volume">مستوى صوت عام للأذان</string>
     <string name="settings_adhan_global_volume_desc">تطبيق مستوى واحد على كل الصلوات وإلغاء مؤشرات المستوى الفردية</string>
     <string name="settings_adhan_follows_global">يتبع مستوى الصوت العام (%1$s)</string>
@@ -82,6 +94,20 @@
     <string name="settings_adhan_preview_label">معاينة إشعار الأذان</string>
     <string name="settings_adhan_preview_hint">هكذا يظهر الإشعار عند دخول وقت الصلاة، ويُحدَّث تلقائيًا حسب الصلاة القادمة.</string>
     <string name="settings_adhan_preview_no_location">حدد الموقع أولاً لعرض الصلاة القادمة</string>
+    <string name="settings_adhan_verify_title">التحقق من جاهزية الأذان</string>
+    <string name="settings_adhan_verify_desc">يفحص الإعدادات والأذونات المطلوبة. بعد نجاح الفحص، استخدم زر اختبار الأذان أدناه للتأكد من سماع التسجيل على جهازك.</string>
+    <string name="settings_adhan_ready">الأذان جاهز وفق الإعدادات الحالية</string>
+    <string name="settings_adhan_needs_attention">توجد إعدادات تحتاج إلى معالجة قبل الاعتماد على الأذان</string>
+    <string name="settings_adhan_check_enabled">تفعيل الأذان</string>
+    <string name="settings_adhan_check_location">الموقع مضبوط</string>
+    <string name="settings_adhan_check_notifications">إشعارات وقناة الأذان مسموحة</string>
+    <string name="settings_adhan_check_exact_alarm">التنبيهات الدقيقة مسموحة</string>
+    <string name="settings_adhan_check_sound">صوت الصلاة القادمة مسموع</string>
+    <string name="settings_adhan_check_notification_posted">تم نشر تنبيه الأذان الفعلي</string>
+    <string name="settings_adhan_check_alarm_volume">مستوى صوت المنبّه في الجهاز</string>
+    <string name="settings_adhan_check_passed">مكتمل</string>
+    <string name="settings_adhan_check_failed">يلزم التعديل</string>
+    <string name="settings_adhan_verify_action">تحقق الآن</string>
     <string name="settings_vibrate">الاهتزاز</string>
     <string name="settings_reminder">التذكير قبل الصلاة</string>
     <string name="settings_reminder_off">بدون تذكير</string>
@@ -92,7 +118,7 @@
     <string name="adhan_option_silent">صامت</string>
     <string name="settings_volume">مستوى الصوت</string>
     <string name="settings_preview">معاينة الأذان</string>
-    <string name="settings_preview_for_prayer">معاينة أذان %1$s</string>
+    <string name="settings_preview_for_prayer">اختبر أذان %1$s</string>
     <string name="bundled_adhan_makkah">أذان مكة</string>
     <string name="bundled_adhan_abdul_basit">أذان عبد الباسط</string>
     <string name="bundled_adhan_minshawi">أذان المنشاوي</string>
@@ -156,7 +182,7 @@
     <string name="next_adhan_notification_title">الأذان التالي: %1$s — %2$s</string>
     <string name="next_adhan_remaining">الوقت المتبقي: %1$s</string>
     <string name="next_adhan_missed">الأذان الفائت: %1$s — %2$s</string>
-    <string name="next_adhan_elapsed">مضى على الأذان: %1$s</string>
+    <string name="next_adhan_elapsed">مضى عليه: %1$s</string>
     <string name="next_adhan_no_location">حدِّد موقعك لعرض مواقيت الصلاة</string>
 
     <string name="bundled_adhan_madinah">أذان المدينة</string>

@@ -15,8 +15,16 @@ import android.os.Build
  */
 object NotificationChannels {
 
-    /** High-importance channel for the Adhan itself. */
-    const val ADHAN = "adhan"
+    /**
+     * High-importance channel for the Adhan itself.
+     *
+     * This identifier intentionally replaces the retired `adhan` channel. On
+     * Android 8+ channel alert behavior is immutable after creation, so an old
+     * silent channel cannot be repaired reliably from app code. A new identity
+     * gives the Adhan a fresh, visible high-importance channel without touching
+     * any of the user's sound or volume settings.
+     */
+    const val ADHAN = "adhan_alert_v2"
 
     /** Default-importance channel for pre-prayer reminders. */
     const val REMINDER = "prayer_reminder"
@@ -44,6 +52,9 @@ object NotificationChannels {
 
     /** Default-importance channel for family-life reminders such as aqiqah. */
     const val FAMILY = "family_reminders"
+
+    /** Default-importance channel for finance reminders such as debt due dates. */
+    const val FINANCE = "finance_reminders"
 
     /** Default-importance channel for app-update notifications. */
     const val APP_UPDATE = "app_update"

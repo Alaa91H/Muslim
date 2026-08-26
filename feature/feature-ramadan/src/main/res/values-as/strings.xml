@@ -26,4 +26,15 @@
     <string name="ramadan_title">ৰমজান</string>
     <string name="ramadan_notify_outside">ৰমজানৰ বাহিৰত সোঁৱৰাই</string>
     <string name="ramadan_notify_outside_desc">ৰমজানত ইফতাৰ আৰু ছুহুৰৰ সতৰ্কবাণী স্বয়ংক্ৰিয়ভাৱে চলি থাকে; ইয়াক সক্ষম কৰিলে তেওঁলোকক আন মাহতো চলি থাকে।</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">ফজৰ</string>
+    <string name="habit_prayer_dhuhr">ধুহৰ</string>
+    <string name="habit_prayer_asr">আছৰ</string>
+    <string name="habit_prayer_maghrib">মাঘৰিব</string>
+    <string name="habit_prayer_isha">ঈশা</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

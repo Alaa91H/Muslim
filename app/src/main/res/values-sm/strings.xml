@@ -46,10 +46,6 @@
     <string name="crash_close">Tapuni</string>
     <string name="crash_dismiss">Fa\'aauau</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Su\'e le Quran</string>
-    <string name="more_quran_search_desc">Su\'e se upu, faafia ona aliali mai ma po o fea</string>
-    <string name="more_quran_frequency">Fa\'atele ole upu Quran</string>
-    <string name="more_quran_frequency_desc">O upu masani i le mushaf atoa</string>
     <string name="more_names">99 Suafa o Allah</string>
     <string name="more_names_desc">O igoa e 99 ma faʻamatalaga atoa</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

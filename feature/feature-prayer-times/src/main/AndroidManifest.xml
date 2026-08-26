@@ -25,10 +25,25 @@
             android:exported="false" />
 
         <receiver
+            android:name=".notifications.AdhanNotificationActionReceiver"
+            android:exported="false" />
+
+        <receiver
             android:name=".notifications.BootReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Android cancels exact alarms when this special access is revoked.
+             Rebuild the schedule immediately if the user grants it again. -->
+        <receiver
+            android:name=".notifications.ExactAlarmPermissionReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
             </intent-filter>
         </receiver>
 

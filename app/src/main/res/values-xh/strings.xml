@@ -46,10 +46,6 @@
     <string name="crash_close">Vala</string>
     <string name="crash_dismiss">Qhubeka</string>
     <string name="more_order_hint">10 أضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Khangela kwiQuran</string>
-    <string name="more_quran_search_desc">Fumana igama, ukuba livela kangaphi kwaye phi</string>
-    <string name="more_quran_frequency">Quran igama frequency</string>
-    <string name="more_quran_frequency_desc">Awona magama axhaphakileyo kwi mushaf wonke</string>
     <string name="more_names">99 Amagama ka-Allah</string>
     <string name="more_names_desc">Amagama angama-99 anengcaciso epheleleyo</string>
     <string name="more_hajj">IHajj kunye ne-Umrah</string>

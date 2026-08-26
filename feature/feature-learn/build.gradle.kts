@@ -38,6 +38,9 @@ dependencies {
     implementation(project(":core:core-common"))
     implementation(project(":core:core-datastore"))
     implementation(project(":core:core-notifications"))
+    implementation(project(":core:core-location"))
+    implementation(project(":core:core-permissions"))
+    implementation(project(":feature:feature-qibla"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -45,9 +48,8 @@ dependencies {
     implementation(libs.androidx.compose.material.icons.extended)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.datastore.preferences)
 
-    // Interactive sacred-sites map uses the shared MapLibre/OpenStreetMap UI.
-    implementation(libs.maplibre.android)
 
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)

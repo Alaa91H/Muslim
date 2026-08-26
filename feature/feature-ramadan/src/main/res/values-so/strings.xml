@@ -26,4 +26,15 @@
     <string name="ramadan_title">Ramadaan</string>
     <string name="ramadan_notify_outside">Xusuusin Ramadaan ka baxsan</string>
     <string name="ramadan_notify_outside_desc">Iftar and suhoor alerts run automatically during Ramadan; Tani waxay u suurtagelinaysaa inay sii wadaan bilaha kale.</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">Fajar</string>
+    <string name="habit_prayer_dhuhr">Dhuxr</string>
+    <string name="habit_prayer_asr">Casr</string>
+    <string name="habit_prayer_maghrib">Magrib</string>
+    <string name="habit_prayer_isha">Isha</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

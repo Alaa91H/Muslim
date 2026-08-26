@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- App name is provisional: "مسلم" is a suggested working title. -->
     <string name="app_name">Muslim</string>
     <string name="scaffold_message">تم إنشاء هيكل المشروع متعدد الوحدات بنجاح.\nالمرحلة 1 — الأذان، أوقات الصلاة، القبلة، والتقويم الهجري — تبدأ من هنا.</string>
@@ -12,11 +12,9 @@
 
     <!-- More hub entries -->
     <string name="more_settings">الإعدادات</string>
-    <string name="more_quran_search">البحث في القرآن</string>
-    <string name="more_quran_search_desc">ابحث عن كلمة وكم مرة ذُكرت وأين ذُكرت</string>
-    <string name="more_quran_frequency">التردد اللغوي للقرآن</string>
-    <string name="more_quran_frequency_desc">أكثر الكلمات تكرارًا في المصحف كاملًا</string>
     <string name="more_settings_desc">الثيم واللغة وإعدادات الصلاة والأذان</string>
+    <string name="more_accessibility" tools:ignore="MissingTranslation">مركز الوصول</string>
+    <string name="more_accessibility_desc" tools:ignore="MissingTranslation">TalkBack وقراءة محسنة وتباين عالٍ وتنقل صوتي وروابط لغة الإشارة</string>
     <string name="more_hadith">الأحاديث</string>
     <string name="more_hadith_desc">مكتبة الأحاديث والبحث وحديث اليوم</string>
     <string name="more_adhkar">الأذكار</string>
@@ -29,16 +27,28 @@
     <string name="more_habits_desc">تتبع الطاعات والتقارير وخطة رمضان</string>
     <string name="more_zakat">الزكاة</string>
     <string name="more_zakat_desc">حاسبة زكاة المال وزكاة الفطر</string>
+    <string name="more_islamic_finance">الاقتصاد والمالية الإسلامية</string>
+    <string name="more_islamic_finance_desc">دليل المعاملات وفاحص الأسهم وسجل الديون الخاص</string>
     <string name="more_learn">التعلّم</string>
     <string name="more_learn_desc">دليل الوضوء والصلاة خطوة بخطوة</string>
+    <string name="more_noorani" tools:ignore="MissingTranslation">القاعدة النورانية والبداية</string>
+    <string name="more_noorani_desc" tools:ignore="MissingTranslation">حروف ومخارج تفاعلية وركن مبسط للمسلم الجديد</string>
+    <string name="more_traveler" tools:ignore="MissingTranslation">ركن المسافر والمغترب</string>
+    <string name="more_traveler_desc" tools:ignore="MissingTranslation">مسافة سفر GPS، الصلاة في المواصلات، وخطوط العرض العليا</string>
     <string name="more_names">أسماء الله الحسنى</string>
     <string name="more_names_desc">التسعة والتسعون اسمًا مع شرحها الكامل</string>
     <string name="more_hajj">الحج والعمرة</string>
     <string name="more_hajj_desc">الدليل التفصيلي لمناسك الحج والعمرة</string>
     <string name="more_family">فقه الأسرة</string>
     <string name="more_family_desc">الرقية وأسماء المواليد والعقيقة والزواج والتربية</string>
+    <string name="more_funeral_will">الجنائز والوصية الشرعية</string>
+    <string name="more_funeral_will_desc">مسودة وصية خاصة ودليل عملي للغسل والتكفين وصلاة الجنازة والتعزية</string>
     <string name="more_reference">المكتبة المرجعية</string>
     <string name="more_reference_desc">التعريف بالإسلام والسيرة وقصص الأنبياء</string>
+    <string name="more_islamic_history" tools:ignore="MissingTranslation">التاريخ والحضارة الإسلامية</string>
+    <string name="more_islamic_history_desc" tools:ignore="MissingTranslation">خط زمني وأطلس تفاعلي وشخصيات وأعلام</string>
+    <string name="more_scholar_library" tools:ignore="MissingTranslation">مكتبة طالب العلم</string>
+    <string name="more_scholar_library_desc" tools:ignore="MissingTranslation">فهرس أمهات الكتب وبحث وملاحظات وبطاقات مراجعة</string>
     <string name="more_downloads">تنزيلات التلاوة</string>
     <string name="more_downloads_desc">تحميل سورة أو آية أو المصحف كاملًا مع اختيار القارئ</string>
     <string name="more_offline_maps">خرائط بدون إنترنت</string>
@@ -61,6 +71,16 @@
     <string name="shortcut_qibla_long">اتجاه القبلة</string>
     <string name="shortcut_settings">الإعدادات</string>
     <string name="shortcut_settings_long">إعدادات الصلاة والأذان</string>
+
+    <!-- Explicit one-shot voice navigation -->
+    <string name="voice_listen" tools:ignore="MissingTranslation">استمع</string>
+    <string name="voice_listening" tools:ignore="MissingTranslation">جارٍ الاستماع…</string>
+    <string name="voice_command_unrecognized" tools:ignore="MissingTranslation">لم نفهم الأمر. جرّب: اقرأ سورة الكهف.</string>
+    <string name="voice_command_timeout" tools:ignore="MissingTranslation">انتهت مهلة الاستماع. اضغط استمع وحاول مجدداً.</string>
+    <string name="voice_command_network" tools:ignore="MissingTranslation">تعذّر التعرف على الصوت بسبب اتصال خدمة التعرف.</string>
+    <string name="voice_command_error" tools:ignore="MissingTranslation">تعذّر بدء التعرف على الصوت. حاول مجدداً.</string>
+    <string name="voice_microphone_denied" tools:ignore="MissingTranslation">يلزم السماح بإذن الميكروفون لتنفيذ أمر التنقل الصوتي عند الضغط على استمع.</string>
+    <string name="voice_service_unavailable" tools:ignore="MissingTranslation">خدمة التعرف على الكلام غير متاحة على هذا الجهاز.</string>
 
     <!-- Unhandled-exception crash dialog -->
     <string name="crash_title">خطأ غير متوقع</string>

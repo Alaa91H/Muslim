@@ -46,10 +46,6 @@
     <string name="crash_close">Kanga</string>
     <string name="crash_dismiss">Landa</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Sosa na Quoran</string>
-    <string name="more_quran_search_desc">Sosa ngogo mosi, mbala ikwa yo ke monanaka mpi na wapi .</string>
-    <string name="more_quran_frequency">Mbala ya ngogo ya Quoran</string>
-    <string name="more_quran_frequency_desc">Bangogo yina ke basikaka mingi na mushaf ya mvimba .</string>
     <string name="more_names">99 Bazina ya Allah</string>
     <string name="more_names_desc">Bazina 99 yina kele ti ntendula ya mvimba .</string>
     <string name="more_hajj">Hajj &amp; Umra</string>

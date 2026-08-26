@@ -12,6 +12,7 @@ import androidx.core.net.toUri
 import dagger.hilt.android.qualifiers.ApplicationContext
 import org.muslim.app.core.common.prayer.BundledAdhanSound
 import java.io.File
+import kotlin.math.min
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -61,11 +62,13 @@ class AdhanSoundPlayer @Inject constructor(
         val manager = audioManager ?: return
         val attrs = AudioAttributes.Builder()
             .setUsage(AudioAttributes.USAGE_ALARM)
-            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
             .build()
         val result = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val request = AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN)
+            val request = AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_EXCLUSIVE)
                 .setAudioAttributes(attrs)
+                .setAcceptsDelayedFocusGain(false)
+                .setWillPauseWhenDucked(true)
                 .setOnAudioFocusChangeListener(focusChangeListener)
                 .build()
             audioFocusRequest = request
@@ -92,10 +95,20 @@ class AdhanSoundPlayer @Inject constructor(
 
     /** Plays a bundled recording (shipped in `res/raw`, always offline). */
     fun playBundled(sound: BundledAdhanSound, volumePercent: Int, onFinished: () -> Unit) {
+        playBundled(sound, volumePercent, onStarted = {}, onFinished = onFinished)
+    }
+
+    /** Plays a bundled recording and confirms once Android has started output. */
+    fun playBundled(
+        sound: BundledAdhanSound,
+        volumePercent: Int,
+        onStarted: () -> Unit,
+        onFinished: () -> Unit,
+    ) {
         val resId = bundledSoundRes(sound)
         if (resId == 0) {
             // Resource missing (should never happen — ships with the app).
-            playSynthesized(volumePercent, onFinished)
+            playSynthesized(volumePercent, onStarted, onFinished)
             return
         }
         stop()
@@ -105,18 +118,37 @@ class AdhanSoundPlayer @Inject constructor(
         player.setAudioAttributes(
             AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_ALARM)
-                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                 .build(),
         )
-        player.setDataSource(
-            context,
-            "android.resource://${context.packageName}/$resId".toUri(),
-        )
+        val sourceReady = runCatching {
+            player.setDataSource(
+                context,
+                "android.resource://${context.packageName}/$resId".toUri(),
+            )
+        }.isSuccess
+        if (!sourceReady) {
+            runCatching { player.release() }
+            mediaPlayer = null
+            abandonFocus()
+            playSynthesized(volumePercent, onStarted, onFinished)
+            return
+        }
         player.setOnPreparedListener { p ->
             if (mediaPlayer !== p) return@setOnPreparedListener
             val target = (volumePercent / 100f).coerceIn(0f, 1f)
-            p.setVolume(target, target)
-            p.start()
+            runCatching {
+                p.setVolume(target, target)
+                p.start()
+                if (p.isPlaying) onStarted() else error("MediaPlayer did not enter playing state")
+            }.onFailure {
+                if (mediaPlayer === p) {
+                    runCatching { p.release() }
+                    mediaPlayer = null
+                    abandonFocus()
+                    playSynthesized(volumePercent, onStarted, onFinished)
+                }
+            }
         }
         player.setOnCompletionListener {
             if (mediaPlayer === it) onFinished()
@@ -128,16 +160,33 @@ class AdhanSoundPlayer @Inject constructor(
                 runCatching { p.release() }
                 mediaPlayer = null
                 abandonFocus()
-                playSynthesized(volumePercent, onFinished)
+                playSynthesized(volumePercent, onStarted, onFinished)
             }
             true
         }
         runCatching { player.prepareAsync() }
-            .onFailure { onFinished() }
+            .onFailure {
+                if (mediaPlayer === player) {
+                    runCatching { player.release() }
+                    mediaPlayer = null
+                    abandonFocus()
+                    playSynthesized(volumePercent, onStarted, onFinished)
+                }
+            }
     }
 
     /** Plays [file] (user-picked or downloaded). */
     fun playFile(file: File, volumePercent: Int, onFinished: () -> Unit) {
+        playFile(file, volumePercent, onStarted = {}, onFinished = onFinished)
+    }
+
+    /** Plays a file and confirms once Android has started output. */
+    fun playFile(
+        file: File,
+        volumePercent: Int,
+        onStarted: () -> Unit,
+        onFinished: () -> Unit,
+    ) {
         stop()
         requestFocus()
         val player = MediaPlayer()
@@ -145,15 +194,32 @@ class AdhanSoundPlayer @Inject constructor(
         player.setAudioAttributes(
             AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_ALARM)
-                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                 .build(),
         )
-        player.setDataSource(file.absolutePath)
+        val sourceReady = runCatching { player.setDataSource(file.absolutePath) }.isSuccess
+        if (!sourceReady) {
+            runCatching { player.release() }
+            mediaPlayer = null
+            abandonFocus()
+            playSynthesized(volumePercent, onStarted, onFinished)
+            return
+        }
         player.setOnPreparedListener { p ->
             if (mediaPlayer !== p) return@setOnPreparedListener
             val target = (volumePercent / 100f).coerceIn(0f, 1f)
-            p.setVolume(target, target)
-            p.start()
+            runCatching {
+                p.setVolume(target, target)
+                p.start()
+                if (p.isPlaying) onStarted() else error("MediaPlayer did not enter playing state")
+            }.onFailure {
+                if (mediaPlayer === p) {
+                    runCatching { p.release() }
+                    mediaPlayer = null
+                    abandonFocus()
+                    playSynthesized(volumePercent, onStarted, onFinished)
+                }
+            }
         }
         player.setOnCompletionListener {
             if (mediaPlayer === it) onFinished()
@@ -163,53 +229,125 @@ class AdhanSoundPlayer @Inject constructor(
                 runCatching { p.release() }
                 mediaPlayer = null
                 abandonFocus()
-                playSynthesized(volumePercent, onFinished)
+                playSynthesized(volumePercent, onStarted, onFinished)
             }
             true
         }
         runCatching { player.prepareAsync() }
-            .onFailure { onFinished() }
+            .onFailure {
+                if (mediaPlayer === player) {
+                    runCatching { player.release() }
+                    mediaPlayer = null
+                    abandonFocus()
+                    playSynthesized(volumePercent, onStarted, onFinished)
+                }
+            }
     }
 
     /** Plays the synthesised default tone. */
     fun playSynthesized(volumePercent: Int, onFinished: () -> Unit) {
+        playSynthesized(volumePercent, onStarted = {}, onFinished = onFinished)
+    }
+
+    /**
+     * Plays the synthesised fallback as a verified stream rather than a single
+     * large static AudioTrack buffer. Some OEM audio stacks reject or truncate
+     * long static buffers while still returning a PLAYING state, which can make
+     * a journal report a start without producing audible frames.
+     */
+    fun playSynthesized(
+        volumePercent: Int,
+        onStarted: () -> Unit,
+        onFinished: () -> Unit,
+    ) {
         stop()
         requestFocus()
         val samples = runCatching { AdhanSynthesizer.generate() }.getOrNull()
-            ?: ShortArray(0)
+            ?.takeIf { it.isNotEmpty() }
+            ?: run {
+                abandonFocus()
+                onFinished()
+                return
+            }
         val minBuffer = AudioTrack.getMinBufferSize(
             AdhanSynthesizer.SAMPLE_RATE,
             AudioFormat.CHANNEL_OUT_MONO,
             AudioFormat.ENCODING_PCM_16BIT,
         )
-        val track = AudioTrack.Builder()
-            .setAudioAttributes(
-                AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_ALARM)
-                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                    .build(),
-            )
-            .setAudioFormat(
-                AudioFormat.Builder()
-                    .setSampleRate(AdhanSynthesizer.SAMPLE_RATE)
-                    .setChannelMask(AudioFormat.CHANNEL_OUT_MONO)
-                    .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
-                    .build(),
-            )
-            .setBufferSizeInBytes(maxOf(minBuffer, samples.size * 2))
-            .setTransferMode(AudioTrack.MODE_STATIC)
-            .build()
+        if (minBuffer <= 0) {
+            abandonFocus()
+            onFinished()
+            return
+        }
+        val track = runCatching {
+            AudioTrack.Builder()
+                .setAudioAttributes(
+                    AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_ALARM)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                        .build(),
+                )
+                .setAudioFormat(
+                    AudioFormat.Builder()
+                        .setSampleRate(AdhanSynthesizer.SAMPLE_RATE)
+                        .setChannelMask(AudioFormat.CHANNEL_OUT_MONO)
+                        .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
+                        .build(),
+                )
+                .setBufferSizeInBytes(maxOf(minBuffer, STREAM_CHUNK_SAMPLES * 2))
+                .setTransferMode(AudioTrack.MODE_STREAM)
+                .build()
+        }.getOrNull()
+        if (track == null || track.state != AudioTrack.STATE_INITIALIZED) {
+            runCatching { track?.release() }
+            abandonFocus()
+            onFinished()
+            return
+        }
         audioTrack = track
-        val buffer = ShortArray(samples.size)
-        samples.copyInto(buffer)
-        track.write(buffer, 0, buffer.size)
-        val target = (volumePercent / 100f).coerceIn(0f, 1f)
-        track.setVolume(target)
-        track.play()
+        track.setVolume((volumePercent / 100f).coerceIn(0f, 1f))
 
-        // The track knows its own duration; schedule the completion callback.
-        val durationMs = (samples.size.toDouble() / AdhanSynthesizer.SAMPLE_RATE * 1000).toLong()
-        android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(onFinished, durationMs + 200)
+        Thread({
+            if (audioTrack !== track) return@Thread
+            val firstChunk = min(STREAM_CHUNK_SAMPLES, samples.size)
+            val firstWritten = track.write(samples, 0, firstChunk, AudioTrack.WRITE_BLOCKING)
+            if (firstWritten <= 0) {
+                finishSynthesizedTrack(track, onFinished)
+                return@Thread
+            }
+            runCatching { track.play() }
+            if (track.playState != AudioTrack.PLAYSTATE_PLAYING) {
+                finishSynthesizedTrack(track, onFinished)
+                return@Thread
+            }
+            android.os.Handler(android.os.Looper.getMainLooper()).post(onStarted)
+            var offset = firstWritten
+            while (offset < samples.size && audioTrack === track) {
+                val written = track.write(
+                    samples,
+                    offset,
+                    min(STREAM_CHUNK_SAMPLES, samples.size - offset),
+                    AudioTrack.WRITE_BLOCKING,
+                )
+                if (written <= 0) {
+                    finishSynthesizedTrack(track, onFinished)
+                    return@Thread
+                }
+                offset += written
+            }
+            if (audioTrack === track) finishSynthesizedTrack(track, onFinished)
+        }, "Muslim-AdhanAudioTrack").start()
+    }
+
+    private fun finishSynthesizedTrack(track: AudioTrack, onFinished: () -> Unit) {
+        android.os.Handler(android.os.Looper.getMainLooper()).post {
+            if (audioTrack !== track) return@post
+            runCatching { track.stop() }
+            runCatching { track.release() }
+            audioTrack = null
+            abandonFocus()
+            onFinished()
+        }
     }
 
     /**
@@ -235,6 +373,10 @@ class AdhanSoundPlayer @Inject constructor(
         }
         audioTrack = null
         abandonFocus()
+    }
+
+    private companion object {
+        const val STREAM_CHUNK_SAMPLES = 4_410
     }
 
     private fun bundledSoundRes(sound: BundledAdhanSound): Int = when (sound) {

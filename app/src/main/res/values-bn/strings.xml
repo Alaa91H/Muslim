@@ -46,10 +46,6 @@
     <string name="crash_close">বন্ধ</string>
     <string name="crash_dismiss">চালিয়ে যান</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">কুরআন অনুসন্ধান করুন</string>
-    <string name="more_quran_search_desc">একটি শব্দ খুঁজুন, এটি কত ঘন ঘন এবং কোথায় প্রদর্শিত হয়</string>
-    <string name="more_quran_frequency">কুরআন শব্দের ফ্রিকোয়েন্সি</string>
-    <string name="more_quran_frequency_desc">পুরো মুশাফের মধ্যে সবচেয়ে বেশি শব্দ</string>
     <string name="more_names">আল্লাহর 99টি নাম</string>
     <string name="more_names_desc">সম্পূর্ণ ব্যাখ্যা সহ 99টি নাম</string>
     <string name="more_hajj">হজ ও ওমরাহ</string>

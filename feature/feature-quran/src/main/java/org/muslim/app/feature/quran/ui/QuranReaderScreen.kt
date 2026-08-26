@@ -1,5 +1,7 @@
 package org.muslim.app.feature.quran.ui
 
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -66,8 +68,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import java.util.Locale
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
+
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
@@ -84,6 +85,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
@@ -120,6 +122,13 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import org.muslim.app.core.common.text.ArabicText
+import org.muslim.app.core.designsystem.IslamicMotion
+import org.muslim.app.core.designsystem.IslamicRadius
+import org.muslim.app.core.designsystem.MuslimSepiaColors
+import org.muslim.app.core.ui.accessibility.LocalAccessibilityVisuals
+import org.muslim.app.core.ui.theme.IslamicOrnament
+import org.muslim.app.core.ui.theme.IslamicOrnamentImage
+import org.muslim.app.core.ui.theme.IslamicOrnamentOpacity
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.TajweedMarkup
 import org.muslim.app.feature.quran.data.PlaybackState
@@ -142,11 +151,6 @@ private val REPEAT_OPTIONS = listOf(1, 3, 5, 10, -1) // -1 = continuous ("بدو
  * stays numbered inline.
  */
 internal val BASMALA = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
-/**
- * Decorative mushaf ornament (Rub el Hizb ۞) framing the Basmala header.
- */
-internal const val MUSHAF_ORNAMENT = "۞"
-
 /**
  * Removes a leading Basmala from [text]. Matching is diacritic-insensitive and
  * also covers the `بِّسْمِ` shadda variant used in a couple of surahs; returns
@@ -180,36 +184,6 @@ internal fun stripLeadingBasmala(text: String): String {
 private fun isSkippableAfterBasmala(c: Char): Boolean =
     c.isWhitespace() || c.code in 0x064B..0x065F || c.code == 0x0670 || c == '\u0640'
 
-/** Sepia palette — warm paper, high contrast, comfortable long reading. */
-private val SepiaColorScheme = lightColorScheme(
-    primary = Color(0xFF7A4E00),
-    onPrimary = Color.White,
-    primaryContainer = Color(0xFFFFDEAC),
-    onPrimaryContainer = Color(0xFF2A1800),
-    background = Color(0xFFF6EAD3),
-    onBackground = Color(0xFF2A2118),
-    surface = Color(0xFFF6EAD3),
-    onSurface = Color(0xFF2A2118),
-    surfaceVariant = Color(0xFFEBDCC0),
-    onSurfaceVariant = Color(0xFF4E4434),
-    secondaryContainer = Color(0xFFE5D2B0),
-    onSecondaryContainer = Color(0xFF3A2C18),
-)
-
-/** Warm dark palette for night reading (reduces blue light). */
-private val NightColorScheme = darkColorScheme(
-    primary = Color(0xFFD4A017),
-    onPrimary = Color(0xFF2A1A00),
-    background = Color(0xFF141210),
-    onBackground = Color(0xFFE8E0D4),
-    surface = Color(0xFF141210),
-    onSurface = Color(0xFFE8E0D4),
-    surfaceVariant = Color(0xFF2A2622),
-    onSurfaceVariant = Color(0xFFB8AE9F),
-    secondaryContainer = Color(0xFF3A332A),
-    onSecondaryContainer = Color(0xFFE8E0D4),
-)
-
 /**
  * Quran reader (PROJECT_PROMPT.md §6 Phase 2): Uthmani ayahs in a calm,
  * focus-first layout with adjustable font size, per-ayah bookmarks, automatic
@@ -231,6 +205,11 @@ fun QuranReaderScreen(
     val persistedFont by viewModel.readerFontSize.collectAsStateWithLifecycle()
     val supplements by viewModel.supplements.collectAsStateWithLifecycle()
     val supplementEnabled by viewModel.supplementEnabled.collectAsStateWithLifecycle()
+    val tajweedEnabled by viewModel.tajweedEnabled.collectAsStateWithLifecycle()
+    val tajweedAnnotations by viewModel.tajweedAnnotations.collectAsStateWithLifecycle()
+    val installedTafsirSources by viewModel.installedTafsirSources.collectAsStateWithLifecycle()
+    val selectedTafsirSource by viewModel.selectedTafsirSource.collectAsStateWithLifecycle()
+    val tafsirDownloadState by viewModel.tafsirDownloadState.collectAsStateWithLifecycle()
     val supplementLanguage by viewModel.supplementLanguage.collectAsStateWithLifecycle()
     val availableSupplementLanguages by viewModel.availableSupplementLanguages.collectAsStateWithLifecycle()
     val continuousStopAtEnd by viewModel.continuousStopAtEnd.collectAsStateWithLifecycle()
@@ -274,7 +253,9 @@ fun QuranReaderScreen(
 
     var fontSize by rememberSaveable { mutableFloatStateOf(DEFAULT_FONT_SP) }
     var repeatCount by rememberSaveable { mutableIntStateOf(1) }
-    var playRange by rememberSaveable { mutableStateOf(RecitationRange.FromAyahToEnd) }
+    // The reader defaults to a continuous recitation from the selected ayah
+    // through the end of the mushaf. Other ranges remain explicit choices.
+    var playRange by rememberSaveable { mutableStateOf(DEFAULT_RECITATION_RANGE) }
     var showMoreMenu by remember { mutableStateOf(false) }
     var showDetails by remember { mutableStateOf(false) }
     var showSupplementControls by remember { mutableStateOf(false) }
@@ -293,19 +274,48 @@ fun QuranReaderScreen(
     // regardless of which page is currently in view.
     var userSelectedAyah by remember { mutableStateOf<Int?>(null) }
 
+    // The explicit play action in the surah list opens this reader with a
+    // one-shot request. Wait until the ayahs are loaded, then start from ayah
+    // one of this surah; do not replay on recomposition or configuration UI.
+    LaunchedEffect(state.ayahs) {
+        if (state.ayahs.isNotEmpty() && viewModel.consumeAutoplayWholeSurah()) {
+            userSelectedAyah = null
+            playRange = DEFAULT_RECITATION_RANGE
+            viewModel.playFromAyah(state.ayahs.first(), repeatCount)
+        }
+    }
+
+    // Preserve the deliberately tapped ayah independently of the scrolling
+    // cursor, so both play controls can start exactly from that selection.
+    val selectedStart = userSelectedAyah?.let { global ->
+        state.ayahs.firstOrNull { it.globalNumber == global }
+    }
+
     // Shared play/pause/resume toggle used by both the mini now-playing bar
     // and the full recitation bar.
     val togglePlayback: () -> Unit = {
         when (playbackState) {
             PlaybackState.Playing -> viewModel.pausePlayback()
-            PlaybackState.Paused -> viewModel.resumePlayback()
+            PlaybackState.Paused -> {
+                // A newly selected ayah is an explicit new start point; never
+                // resume a previously paused ayah when the user chose another.
+                if (selectedStart != null && selectedStart.globalNumber != currentAudioAyah) {
+                    viewModel.playFromSelectedAyahToSurahEnd(selectedStart, repeatCount)
+                } else {
+                    viewModel.resumePlayback()
+                }
+            }
             PlaybackState.Idle -> {
-                // No explicit tap → start from the surah's first ayah, so
-                // entering a surah and pressing play always begins correctly.
-                val start = userSelectedAyah?.let { global ->
-                    state.ayahs.firstOrNull { it.globalNumber == global }
-                } ?: state.ayahs.firstOrNull()
-                if (start != null) viewModel.playAyahWithRange(start, repeatCount, playRange)
+                // Without a deliberate selection, playback starts at ayah one.
+                // A selected ayah always wins and continues only to this
+                // surah's end, rather than restarting from ayah one.
+                if (selectedStart != null) {
+                    viewModel.playFromSelectedAyahToSurahEnd(selectedStart, repeatCount)
+                } else {
+                    state.ayahs.firstOrNull()?.let { start ->
+                        viewModel.playAyahWithRange(start, repeatCount, playRange)
+                    }
+                }
             }
         }
     }
@@ -352,8 +362,21 @@ fun QuranReaderScreen(
     // Horizontal paging between mushaf pages (swipe left/right like a printed
     // mushaf). Each pager page keeps its own vertical scroll for content that
     // is taller than the screen.
-    val pagerState = rememberPagerState(pageCount = { if (isWide) spreads.size else pageEntries.size })
+    // Reserve one virtual page at each edge. Swiping onto either edge opens
+    // the adjacent surah, so manual reading continues like a physical Mushaf
+    // rather than stopping at a surah boundary.
+    val realPageCount = if (isWide) spreads.size else pageEntries.size
+    val pagerState = rememberPagerState(
+        initialPage = 1,
+        pageCount = { realPageCount + 2 },
+    )
     val pageScrollStates = remember { mutableStateMapOf<Int, ScrollState>() }
+    var pendingAdjacentSurah by remember { mutableStateOf<Int?>(null) }
+    var openAdjacentAtEnd by remember { mutableStateOf(false) }
+    // Each mushaf page reports the top of every ayah. This keeps the selected
+    // ayah and the saved reading position in step with manual up/down reading,
+    // while the existing audio follow-along remains authoritative during play.
+    val ayahPositionsByPage = remember { mutableStateMapOf<Int, List<AyahViewportPosition>>() }
 
     // Persisted font size wins after the async read arrives.
     LaunchedEffect(persistedFont) {
@@ -378,9 +401,9 @@ fun QuranReaderScreen(
             -1
         }
         val targetItem = if (pageIndex >= 0 && isWide) {
-            spreadIndexOfPage(pageEntries[pageIndex].key)
+            spreadIndexOfPage(pageEntries[pageIndex].key) + 1
         } else {
-            if (pageIndex >= 0) pageIndex else 0
+            if (pageIndex >= 0) pageIndex + 1 else 1
         }
         // Wait for the page animation to settle before measuring/centering
         // the ayah, so the one-shot centering sees a stable layout.
@@ -415,7 +438,7 @@ fun QuranReaderScreen(
         val target = scrollTargetAyah ?: return@LaunchedEffect
         val pageIndex = pageEntries.indexOfFirst { (_, ayahs) -> ayahs.any { it.globalNumber == target } }
         if (pageIndex < 0) return@LaunchedEffect
-        val targetItem = if (isWide) spreadIndexOfPage(pageEntries[pageIndex].key) else pageIndex
+        val targetItem = if (isWide) spreadIndexOfPage(pageEntries[pageIndex].key) + 1 else pageIndex + 1
         // Smooth glide to a far page instead of an instant teleport; the fine
         // ayah alignment below stays immediate (scrollBy, not animated).
         if (pagerState.currentPage != targetItem) pagerState.animateScrollToPage(targetItem)
@@ -463,11 +486,42 @@ fun QuranReaderScreen(
         }
     }
 
+    // Manual vertical reading: update the active ayah to the first ayah at the
+    // reader's top edge. This deliberately does not set scrollTargetAyah, so a
+    // user can scroll in either direction without being pulled back unless an
+    // actual recitation is playing.
+    LaunchedEffect(pagerState, pageEntries, spreads, isWide, currentAudioAyah) {
+        snapshotFlow {
+            val itemIndex = pagerState.currentPage - 1
+            // Reading this state makes the flow react to deliberate vertical
+            // scrolls as well as horizontal page changes.
+            pageScrollStates[pagerState.currentPage]?.value
+            val mushafPages = if (isWide) {
+                spreads.getOrNull(itemIndex).orEmpty().map { it.key }
+            } else {
+                listOfNotNull(pageEntries.getOrNull(itemIndex)?.key)
+            }
+            val positions = mushafPages.flatMap { ayahPositionsByPage[it].orEmpty() }
+            if (currentAudioAyah != null) null else ayahAtReaderTop(positions, viewportTopPx)
+        }
+            .filterNotNull()
+            .distinctUntilChanged()
+            .debounce(350)
+            .collect { globalNumber ->
+                val ayah = state.ayahs.firstOrNull { it.globalNumber == globalNumber } ?: return@collect
+                if (viewModel.currentAyah.value?.globalNumber != globalNumber) {
+                    viewModel.currentAyah.value = ayah
+                    viewModel.saveLastRead()
+                }
+            }
+    }
+
     // Track the visible page (bookmark/play target) and persist resume + khatma.
     LaunchedEffect(pagerState, pageEntries, isWide) {
         if (pageEntries.isEmpty()) return@LaunchedEffect
         snapshotFlow { pagerState.currentPage }
-            .map { itemIndex ->
+            .map { virtualIndex ->
+                val itemIndex = virtualIndex - 1
                 if (isWide) {
                     // A spread item covers two pages; the reading side is the
                     // right (odd) page, falling back to the only page present.
@@ -487,8 +541,10 @@ fun QuranReaderScreen(
 
     val scheme = when (theme) {
         ReaderTheme.Light -> MaterialTheme.colorScheme
-        ReaderTheme.Sepia -> SepiaColorScheme
-        ReaderTheme.Dark -> NightColorScheme
+        ReaderTheme.Sepia -> MuslimSepiaColors
+        // Respect the application palette, dark-mode choice, dynamic colours,
+        // and accessibility contrast instead of forcing a fixed black page.
+        ReaderTheme.Dark -> MaterialTheme.colorScheme
     }
 
     MaterialTheme(colorScheme = scheme) {
@@ -624,6 +680,29 @@ fun QuranReaderScreen(
                                 },
                             )
                             DropdownMenuItem(
+                                text = { Text(stringResource(R.string.quran_tajweed_show)) },
+                                leadingIcon = {
+                                    Icon(
+                                        Icons.Filled.Nightlight,
+                                        contentDescription = null,
+                                        tint = if (tajweedEnabled) {
+                                            MaterialTheme.colorScheme.primary
+                                        } else {
+                                            MaterialTheme.colorScheme.onSurfaceVariant
+                                        },
+                                    )
+                                },
+                                trailingIcon = {
+                                    if (tajweedEnabled) {
+                                        Icon(Icons.Filled.Check, contentDescription = null)
+                                    }
+                                },
+                                onClick = {
+                                    viewModel.setTajweedEnabled(!tajweedEnabled)
+                                    showMoreMenu = false
+                                },
+                            )
+                            DropdownMenuItem(
                                 text = { Text(stringResource(R.string.quran_supplement_controls)) },
                                 leadingIcon = {
                                     Icon(
@@ -666,6 +745,35 @@ fun QuranReaderScreen(
                     }
                 }
                 else -> {
+                    val mushafPresentation = MushafPagePresentation(
+                        surahName = state.surah?.arabicName.orEmpty(),
+                        fontSizeSp = fontSize,
+                        playingAyahGlobal = currentAudioAyah,
+                        selectedAyahGlobal = currentAyah?.globalNumber,
+                        openedAyahGlobal = openedTargetGlobal,
+                        tappedAyahGlobal = tappedAyahGlobal,
+                        scrollTargetAyahGlobal = scrollTargetAyah,
+                        tajweedEnabled = tajweedEnabled,
+                        tajweedByAyah = tajweedAnnotations,
+                    )
+                    val mushafCallbacks = MushafPageCallbacks(
+                        onPageClick = { pageAyahs ->
+                            viewModel.currentAyah.value = pageAyahs.first()
+                        },
+                        onAyahClick = { ayah ->
+                            // Tapping selects an ayah and keeps it visible;
+                            // the user retains control over when to start audio.
+                            viewModel.currentAyah.value = ayah
+                            userSelectedAyah = ayah.globalNumber
+                            tappedAyahGlobal = ayah.globalNumber
+                            scrollTargetAyah = ayah.globalNumber
+                            targetAyahRootTopPx = null
+                        },
+                        onAyahRootTopPx = reportAyahTop,
+                        onAyahPositionsChanged = { page, positions ->
+                            ayahPositionsByPage[page] = positions
+                        },
+                    )
                     HorizontalPager(
                         state = pagerState,
                         modifier = Modifier
@@ -681,76 +789,67 @@ fun QuranReaderScreen(
                         // Each pager page keeps its own vertical scroll for
                         // content taller than the screen; the follow-along
                         // adjustment scrolls this state.
-                        val pageScroll = remember { ScrollState(0) }
-                        pageScrollStates[pageIndex] = pageScroll
-                        Column(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .verticalScroll(pageScroll),
-                        ) {
-                            if (isWide) {
-                                // Two mushaf pages per pager page on wide screens.
-                                val spread = spreads.getOrNull(pageIndex)
-                                if (spread != null) {
-                                    MushafSpreadRow(
-                                        spread = spread,
-                                        surahName = state.surah?.arabicName.orEmpty(),
-                                        fontSizeSp = fontSize,
-                                        playingAyahGlobal = currentAudioAyah,
-                                        selectedAyahGlobal = currentAyah?.globalNumber,
-                                        openedAyahGlobal = openedTargetGlobal,
-                                        tappedAyahGlobal = tappedAyahGlobal,
-                                        scrollTargetAyahGlobal = scrollTargetAyah,
-                                        onAyahRootTopPx = reportAyahTop,
-                                        onClickPage = { pageAyahs ->
-                                            viewModel.currentAyah.value = pageAyahs.first()
-                                        },
-                                        onAyahClick = { ayah ->
-                                            // Tap only selects the ayah; recitation
-                                            // starts from the play button in the
-                                            // recitation bar below. The selection
-                                            // is also scrolled into view so a
-                                            // tapped ayah never stays off-screen.
-                                            viewModel.currentAyah.value = ayah
-                                            userSelectedAyah = ayah.globalNumber
-                                            tappedAyahGlobal = ayah.globalNumber
-                                            scrollTargetAyah = ayah.globalNumber
-                                            targetAyahRootTopPx = null
-                                        },
+                        val contentIndex = pageIndex - 1
+                        if (contentIndex in 0 until realPageCount) {
+                            val pageScroll = remember(pageIndex) { ScrollState(0) }
+                            pageScrollStates[pageIndex] = pageScroll
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .verticalScroll(pageScroll),
+                            ) {
+                                if (isWide) {
+                                    // Two mushaf pages per pager page on wide screens.
+                                    val spread = spreads.getOrNull(contentIndex)
+                                    if (spread != null) {
+                                        MushafSpreadRow(
+                                            spread = spread,
+                                            presentation = mushafPresentation,
+                                            callbacks = mushafCallbacks,
+                                        )
+                                    }
+                                } else {
+                                    val (pageNumber, pageAyahs) = pageEntries[contentIndex]
+                                    MushafPageCard(
+                                        pageNumber = pageNumber,
+                                        ayahs = pageAyahs,
+                                        presentation = mushafPresentation,
+                                        callbacks = mushafCallbacks,
                                     )
                                 }
-                            } else {
-                                val (pageNumber, pageAyahs) = pageEntries[pageIndex]
-                                MushafPageCard(
-                                    pageNumber = pageNumber,
-                                    ayahs = pageAyahs,
-                                    surahName = state.surah?.arabicName.orEmpty(),
-                                    fontSizeSp = fontSize,
-                                    playingAyahGlobal = currentAudioAyah,
-                                    selectedAyahGlobal = currentAyah?.globalNumber,
-                                    openedAyahGlobal = openedTargetGlobal,
-                                    tappedAyahGlobal = tappedAyahGlobal,
-                                    scrollTargetAyahGlobal = scrollTargetAyah,
-                                    onAyahRootTopPx = reportAyahTop,
-                                    onClick = { viewModel.currentAyah.value = pageAyahs.first() },
-                                    onAyahClick = { ayah ->
-                                        // Tap only selects the ayah; recitation
-                                        // starts from the play button in the
-                                        // recitation bar below. The selection
-                                        // is also scrolled into view so a
-                                        // tapped ayah never stays off-screen.
-                                        viewModel.currentAyah.value = ayah
-                                        userSelectedAyah = ayah.globalNumber
-                                        tappedAyahGlobal = ayah.globalNumber
-                                        scrollTargetAyah = ayah.globalNumber
-                                        targetAyahRootTopPx = null
-                                    },
-                                )
                             }
                         }
                     }
+
+                    LaunchedEffect(pagerState.currentPage, realPageCount, state.surah?.number) {
+                        val currentSurah = state.surah?.number ?: return@LaunchedEffect
+                        val destination = when (pagerState.currentPage) {
+                            0 -> (currentSurah - 1).takeIf { it >= 1 }
+                            realPageCount + 1 -> (currentSurah + 1).takeIf { it <= 114 }
+                            else -> null
+                        }
+                        if (destination != null && pendingAdjacentSurah != destination) {
+                            pendingAdjacentSurah = destination
+                            openAdjacentAtEnd = pagerState.currentPage == 0
+                            viewModel.openSurah(destination)
+                        } else if (destination == null &&
+                            (pagerState.currentPage == 0 || pagerState.currentPage == realPageCount + 1)
+                        ) {
+                            pagerState.scrollToPage(
+                                if (pagerState.currentPage == 0) 1 else realPageCount,
+                            )
+                        }
+                    }
+
+                    LaunchedEffect(state.surah?.number, realPageCount, pendingAdjacentSurah) {
+                        val pending = pendingAdjacentSurah ?: return@LaunchedEffect
+                        if (state.surah?.number == pending && realPageCount > 0) {
+                            pagerState.scrollToPage(if (openAdjacentAtEnd) realPageCount else 1)
+                            pendingAdjacentSurah = null
+                        }
+                    }
+                    }
                 }
-            }
 
             SupplementPanel(supplements = supplements, currentAyah = currentAyah)
 
@@ -777,6 +876,10 @@ fun QuranReaderScreen(
                 durationMs = durationMs,
                 range = playRange,
                 onRangeChanged = { playRange = it },
+                selectedAyahNumber = selectedStart?.numberInSurah,
+                onPlaySelectedAyah = selectedStart?.let { selected ->
+                    { viewModel.playFromSelectedAyahToSurahEnd(selected, repeatCount) }
+                },
             )
 
         }
@@ -788,12 +891,21 @@ fun QuranReaderScreen(
         }
         if (showSupplementControls) {
             SupplementControlsDialog(
-                enabled = supplementEnabled,
-                language = supplementLanguage,
-                availableLanguages = availableSupplementLanguages,
-                onEnabledChanged = viewModel::setSupplementEnabled,
-                onLanguageChanged = viewModel::setSupplementLanguage,
-                onDismiss = { showSupplementControls = false },
+                state = SupplementControlsState(
+                    enabled = supplementEnabled,
+                    installedTafsirSources = installedTafsirSources,
+                    selectedTafsirSource = selectedTafsirSource,
+                    tafsirDownloadState = tafsirDownloadState,
+                    language = supplementLanguage,
+                    availableLanguages = availableSupplementLanguages,
+                ),
+                actions = SupplementControlsActions(
+                    onEnabledChanged = viewModel::setSupplementEnabled,
+                    onTafsirSourceSelected = viewModel::setSelectedTafsirSource,
+                    onDownloadOfficialTafsir = viewModel::downloadOfficialTafsir,
+                    onLanguageChanged = viewModel::setSupplementLanguage,
+                    onDismiss = { showSupplementControls = false },
+                ),
             )
         }
     }
@@ -862,6 +974,10 @@ private fun Modifier.mirroredIfRtl(): Modifier {
     }
 }
 
+// This Compose surface intentionally keeps the coupled playback controls in one
+// place for state consistency and accessibility semantics. Do not split it into
+// independently stateful bars merely to satisfy a line-count heuristic.
+@Suppress("LongMethod", "LongParameterList")
 @Composable
 private fun RecitationBar(
     playbackState: PlaybackState,
@@ -886,17 +1002,40 @@ private fun RecitationBar(
     durationMs: Long,
     range: RecitationRange,
     onRangeChanged: (RecitationRange) -> Unit,
+    selectedAyahNumber: Int?,
+    onPlaySelectedAyah: (() -> Unit)?,
 ) {
     var repeatMenu by remember { mutableStateOf(false) }
     var rangeMenu by remember { mutableStateOf(false) }
     var reciterMenu by remember { mutableStateOf(false) }
     Surface(
-        color = MaterialTheme.colorScheme.surfaceVariant,
+        color = MaterialTheme.colorScheme.surface,
         // Explicit content color keeps every label readable in the reader's
         // light / sepia / night themes (dark-mode contrast fix).
         contentColor = MaterialTheme.colorScheme.onSurface,
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
     ) {
         Column {
+            if (selectedAyahNumber != null && onPlaySelectedAyah != null) {
+                TextButton(
+                    onClick = onPlaySelectedAyah,
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.PlayArrow,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp),
+                    )
+                    Spacer(Modifier.width(6.dp))
+                    Text(stringResource(R.string.quran_play_from_selected_ayah, selectedAyahNumber))
+                }
+            }
+            IslamicOrnamentImage(
+                ornament = IslamicOrnament.Arabesque,
+                tint = MaterialTheme.colorScheme.tertiary,
+                alpha = IslamicOrnamentOpacity.LightSection,
+                modifier = Modifier.fillMaxWidth().height(5.dp),
+            )
             // One slim now-playing line: reciter chip + surah/ayah + time, so
             // there is exactly ONE control bar. The reciter name is shown
             // next to the surah/ayah and is tappable to pick another reciter.
@@ -1139,6 +1278,43 @@ private fun rangeButtonLabel(range: RecitationRange): String = when (range) {
     RecitationRange.FromAyahToEnd -> stringResource(R.string.quran_range_to_end_short)
     RecitationRange.WholeSurah -> stringResource(R.string.quran_range_whole_surah_short)
 }
+
+/** One ayah's top coordinate inside the reader's root layout. */
+internal data class AyahViewportPosition(val globalNumber: Int, val topPx: Float)
+
+/** Shared visual state for one or two rendered mushaf pages. */
+private data class MushafPagePresentation(
+    val surahName: String,
+    val fontSizeSp: Float,
+    val playingAyahGlobal: Int?,
+    val selectedAyahGlobal: Int?,
+    val openedAyahGlobal: Int?,
+    val tappedAyahGlobal: Int?,
+    val scrollTargetAyahGlobal: Int?,
+    val tajweedEnabled: Boolean,
+    val tajweedByAyah: Map<Int, List<org.muslim.app.feature.quran.domain.TajweedAnnotation>>,
+)
+
+/** Events emitted by a rendered mushaf page. */
+private data class MushafPageCallbacks(
+    val onPageClick: (List<Ayah>) -> Unit,
+    val onAyahClick: (Ayah) -> Unit,
+    val onAyahRootTopPx: (Int, Float) -> Unit,
+    val onAyahPositionsChanged: (Int, List<AyahViewportPosition>) -> Unit,
+)
+
+/**
+ * Chooses the first ayah beginning at or below the reader's top edge; when the
+ * viewport ends after the final line, it keeps the last available ayah active.
+ */
+internal fun ayahAtReaderTop(
+    positions: List<AyahViewportPosition>,
+    viewportTopPx: Float,
+): Int? = positions
+    .filter { it.topPx >= viewportTopPx - 1f }
+    .minByOrNull { it.topPx }
+    ?.globalNumber
+    ?: positions.maxByOrNull { it.topPx }?.globalNumber
 /**
  * Formats milliseconds as m:ss or mm:ss (h:mm:ss from one hour up), always
  * with Western digits regardless of the device locale.
@@ -1165,16 +1341,8 @@ private fun formatTime(ms: Long): String {
 @Composable
 private fun MushafSpreadRow(
     spread: List<Map.Entry<Int, List<Ayah>>>,
-    surahName: String,
-    fontSizeSp: Float,
-    playingAyahGlobal: Int?,
-    selectedAyahGlobal: Int?,
-    openedAyahGlobal: Int?,
-    tappedAyahGlobal: Int?,
-    scrollTargetAyahGlobal: Int?,
-    onClickPage: (List<Ayah>) -> Unit,
-    onAyahClick: (Ayah) -> Unit,
-    onAyahRootTopPx: (Int, Float) -> Unit,
+    presentation: MushafPagePresentation,
+    callbacks: MushafPageCallbacks,
 ) {
     val rightPage = spread.firstOrNull { it.key % 2 == 1 }
     val leftPage = spread.firstOrNull { it.key % 2 == 0 }
@@ -1187,16 +1355,8 @@ private fun MushafSpreadRow(
                 MushafPageCard(
                     pageNumber = rightPage.key,
                     ayahs = rightPage.value,
-                    surahName = surahName,
-                    fontSizeSp = fontSizeSp,
-                    playingAyahGlobal = playingAyahGlobal,
-                    selectedAyahGlobal = selectedAyahGlobal,
-                    openedAyahGlobal = openedAyahGlobal,
-                    tappedAyahGlobal = tappedAyahGlobal,
-                    scrollTargetAyahGlobal = scrollTargetAyahGlobal,
-                    onAyahRootTopPx = onAyahRootTopPx,
-                    onClick = { onClickPage(rightPage.value) },
-                    onAyahClick = onAyahClick,
+                    presentation = presentation,
+                    callbacks = callbacks.copy(onPageClick = { callbacks.onPageClick(rightPage.value) }),
                     modifier = Modifier.weight(1f),
                 )
             } else {
@@ -1206,16 +1366,8 @@ private fun MushafSpreadRow(
                 MushafPageCard(
                     pageNumber = leftPage.key,
                     ayahs = leftPage.value,
-                    surahName = surahName,
-                    fontSizeSp = fontSizeSp,
-                    playingAyahGlobal = playingAyahGlobal,
-                    selectedAyahGlobal = selectedAyahGlobal,
-                    openedAyahGlobal = openedAyahGlobal,
-                    tappedAyahGlobal = tappedAyahGlobal,
-                    scrollTargetAyahGlobal = scrollTargetAyahGlobal,
-                    onAyahRootTopPx = onAyahRootTopPx,
-                    onClick = { onClickPage(leftPage.value) },
-                    onAyahClick = onAyahClick,
+                    presentation = presentation,
+                    callbacks = callbacks.copy(onPageClick = { callbacks.onPageClick(leftPage.value) }),
                     modifier = Modifier.weight(1f),
                 )
             } else {
@@ -1225,37 +1377,47 @@ private fun MushafSpreadRow(
     }
 }
 
+@Suppress("LongMethod")
 @Composable
 private fun MushafPageCard(
     pageNumber: Int,
     ayahs: List<Ayah>,
-    surahName: String,
-    fontSizeSp: Float,
-    playingAyahGlobal: Int?,
-    selectedAyahGlobal: Int?,
-    openedAyahGlobal: Int?,
-    tappedAyahGlobal: Int?,
-    scrollTargetAyahGlobal: Int?,
-    onClick: () -> Unit,
-    onAyahClick: (Ayah) -> Unit,
-    onAyahRootTopPx: (Int, Float) -> Unit,
+    presentation: MushafPagePresentation,
+    callbacks: MushafPageCallbacks,
     modifier: Modifier = Modifier,
 ) {
     if (ayahs.isEmpty()) return
     val scheme = MaterialTheme.colorScheme
+    val accessibilityVisuals = LocalAccessibilityVisuals.current
     var textRootTopPx by remember { mutableFloatStateOf(0f) }
     var targetCharOffset by remember { mutableIntStateOf(-1) }
     var targetLineTopPx by remember { mutableFloatStateOf(-1f) }
+    var ayahLineTops by remember { mutableStateOf<List<AyahViewportPosition>>(emptyList()) }
+    val playingHighlightAlpha by animateFloatAsState(
+        targetValue = if (presentation.playingAyahGlobal != null) 0.14f else 0f,
+        animationSpec = tween(IslamicMotion.StandardMillis),
+        label = "ayah_playback_highlight",
+    )
 
     // Report the target ayah's absolute on-screen top once it is laid out in
     // this page so the screen can scroll it into view. Only pages that
     // actually contain the target ayah may report — a page whose previous
     // target moved away would otherwise keep reporting a stale offset.
-    LaunchedEffect(textRootTopPx, targetLineTopPx, scrollTargetAyahGlobal, ayahs) {
-        val target = scrollTargetAyahGlobal ?: return@LaunchedEffect
+    LaunchedEffect(textRootTopPx, targetLineTopPx, presentation.scrollTargetAyahGlobal, ayahs) {
+        val target = presentation.scrollTargetAyahGlobal ?: return@LaunchedEffect
         if (ayahs.none { it.globalNumber == target }) return@LaunchedEffect
         if (targetLineTopPx < 0f) return@LaunchedEffect
-        onAyahRootTopPx(target, textRootTopPx + targetLineTopPx)
+        callbacks.onAyahRootTopPx(target, textRootTopPx + targetLineTopPx)
+    }
+    LaunchedEffect(pageNumber, textRootTopPx, ayahLineTops) {
+        if (ayahLineTops.isNotEmpty()) {
+            callbacks.onAyahPositionsChanged(
+                pageNumber,
+                ayahLineTops.map { position ->
+                    position.copy(topPx = textRootTopPx + position.topPx)
+                },
+            )
+        }
     }
     // The Basmala embedded at the start of ayah 1 (every surah except 9) is
     // pulled out into its own line above the surah, like printed mushafs.
@@ -1263,47 +1425,71 @@ private fun MushafPageCard(
     val isSurahOpeningPage = firstAyah.numberInSurah == 1
     val firstAyahText = if (isSurahOpeningPage) stripLeadingBasmala(firstAyah.text) else firstAyah.text
     val showBasmala = isSurahOpeningPage && firstAyah.surahNumber != 1 && firstAyahText != firstAyah.text
+    val ayahCharOffsets = ArrayList<AyahViewportPosition>(ayahs.size)
     val annotated = buildAnnotatedString {
         // Reset before scanning so a page whose target moved away (or a
         // follow-along advance within this page) never reports a stale offset.
         targetCharOffset = -1
         ayahs.forEach { ayah ->
-            if (ayah.globalNumber == scrollTargetAyahGlobal) targetCharOffset = length
+            ayahCharOffsets += AyahViewportPosition(ayah.globalNumber, length.toFloat())
+            if (ayah.globalNumber == presentation.scrollTargetAyahGlobal) targetCharOffset = length
             // Visual hierarchy: the tapped ayah flashes strongest (temporary),
             // the ayah being recited glows while playing (follow-along), and the
             // currently selected ayah keeps a soft tint. All work on the light,
             // sepia and night themes.
             val highlight = when {
-                ayah.globalNumber == tappedAyahGlobal ->
-                    SpanStyle(background = scheme.primary.copy(alpha = 0.35f))
-                ayah.globalNumber == playingAyahGlobal ->
-                    SpanStyle(background = scheme.primary.copy(alpha = 0.22f))
+                ayah.globalNumber == presentation.tappedAyahGlobal ->
+                    SpanStyle(background = scheme.primary.copy(alpha = 0.18f))
+                ayah.globalNumber == presentation.playingAyahGlobal ->
+                    SpanStyle(background = scheme.primary.copy(alpha = playingHighlightAlpha))
                 // The ayah opened from search/bookmark/resume is tinted until
                 // it has been centered in the viewport.
-                ayah.globalNumber == openedAyahGlobal ->
-                    SpanStyle(background = scheme.primary.copy(alpha = 0.18f))
+                ayah.globalNumber == presentation.openedAyahGlobal ->
+                    SpanStyle(background = scheme.primary.copy(alpha = 0.12f))
                 // Suppress the soft selection tint while recitation is playing so
                 // a stale highlight never lingers on the originally-tapped ayah
                 // once the reciter advances to the next ayah.
-                playingAyahGlobal == null && ayah.globalNumber == selectedAyahGlobal ->
-                    SpanStyle(background = scheme.primary.copy(alpha = 0.12f))
+                presentation.playingAyahGlobal == null && ayah.globalNumber == presentation.selectedAyahGlobal ->
+                    SpanStyle(background = scheme.primary.copy(alpha = 0.08f))
                 else -> SpanStyle()
             }
             // Every ayah is individually tappable: tapping selects it (and
             // flashes the highlight); recitation starts from the play button.
             withLink(
                 LinkAnnotation.Clickable(tag = "ayah-${ayah.globalNumber}") {
-                    onAyahClick(ayah)
+                    callbacks.onAyahClick(ayah)
                 },
             ) {
                 withStyle(highlight) {
                     val ayahText = if (ayah === firstAyah) firstAyahText else ayah.text
-                    TajweedMarkup.segment(ayahText).forEach { segment ->
+                    val rawAnnotations = if (presentation.tajweedEnabled) {
+                        presentation.tajweedByAyah[ayah.numberInSurah].orEmpty()
+                    } else {
+                        emptyList()
+                    }
+                    // The opening Basmala is visually removed on most surahs.
+                    // Shift source offsets so only annotations in displayed text
+                    // remain; out-of-range annotations are never rendered.
+                    val removedPrefix = ayah.text.length - ayahText.length
+                    val visibleAnnotations = rawAnnotations.mapNotNull { annotation ->
+                        val start = annotation.start - removedPrefix
+                        val end = annotation.endExclusive - removedPrefix
+                        if (end <= 0 || start >= ayahText.length) null else annotation.copy(
+                            start = start.coerceAtLeast(0),
+                            endExclusive = end.coerceAtMost(ayahText.length),
+                        )
+                    }
+                    TajweedMarkup.segment(ayahText, visibleAnnotations).forEach { segment ->
                         val color = when (segment.rule) {
-                            org.muslim.app.feature.quran.domain.TajweedRule.Ghunnah -> Color(0xFF1565C0)
-                            org.muslim.app.feature.quran.domain.TajweedRule.Madd -> Color(0xFF2E7D32)
-                            org.muslim.app.feature.quran.domain.TajweedRule.Qalqalah -> Color(0xFFC62828)
-                            org.muslim.app.feature.quran.domain.TajweedRule.NoonRules -> Color(0xFF6A1B9A)
+                            org.muslim.app.feature.quran.domain.TajweedRule.Ghunnah -> scheme.tertiary
+                            org.muslim.app.feature.quran.domain.TajweedRule.Idghaam -> scheme.secondary
+                            org.muslim.app.feature.quran.domain.TajweedRule.Ikhfa -> scheme.error
+                            org.muslim.app.feature.quran.domain.TajweedRule.Iqlab -> scheme.tertiary
+                            org.muslim.app.feature.quran.domain.TajweedRule.Madd -> scheme.primary
+                            org.muslim.app.feature.quran.domain.TajweedRule.Qalqalah -> scheme.error
+                            org.muslim.app.feature.quran.domain.TajweedRule.HamzatWasl,
+                            org.muslim.app.feature.quran.domain.TajweedRule.Silent -> scheme.onSurfaceVariant
+                            org.muslim.app.feature.quran.domain.TajweedRule.LamShamsiyyah -> scheme.secondary
                             null -> null
                         }
                         if (color == null) append(segment.text) else withStyle(SpanStyle(color = color)) { append(segment.text) }
@@ -1311,8 +1497,12 @@ private fun MushafPageCard(
                     append(" ")
                     withStyle(
                         SpanStyle(
-                            color = scheme.primary,
-                            fontSize = (fontSizeSp * 0.6f).sp,
+                            color = when {
+                                ayah.globalNumber == presentation.playingAyahGlobal -> scheme.primary
+                                ayah.globalNumber == presentation.selectedAyahGlobal -> scheme.primary
+                                else -> scheme.tertiary
+                            },
+                            fontSize = (presentation.fontSizeSp * 0.6f).sp,
                             fontWeight = FontWeight.Bold,
                             baselineShift = BaselineShift(0.35f),
                         ),
@@ -1326,20 +1516,45 @@ private fun MushafPageCard(
     }
 
     Surface(
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(IslamicRadius.Card),
         color = scheme.surface,
-        border = BorderStroke(1.dp, scheme.surfaceVariant),
+        border = BorderStroke(1.dp, scheme.outlineVariant),
         modifier = modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick),
+            .clickable(onClick = { callbacks.onPageClick(ayahs) }),
     ) {
-        Column(modifier = Modifier.padding(horizontal = 20.dp, vertical = 18.dp)) {
+        Box {
+            // Edge ornaments frame the page but never sit behind Quran text.
+            IslamicOrnamentImage(
+                ornament = IslamicOrnament.Corner,
+                tint = scheme.tertiary,
+                alpha = IslamicOrnamentOpacity.LightActive,
+                modifier = Modifier.align(Alignment.TopStart).padding(4.dp).size(58.dp),
+            )
+            IslamicOrnamentImage(
+                ornament = IslamicOrnament.Corner,
+                tint = scheme.tertiary,
+                alpha = IslamicOrnamentOpacity.LightActive,
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(4.dp)
+                    .size(58.dp)
+                    .graphicsLayer(rotationZ = 180f),
+            )
+            Column(modifier = Modifier.padding(horizontal = 20.dp, vertical = 18.dp)) {
+            IslamicOrnamentImage(
+                ornament = IslamicOrnament.SurahHeader,
+                tint = scheme.tertiary,
+                alpha = IslamicOrnamentOpacity.LightSection,
+                modifier = Modifier.fillMaxWidth().height(18.dp),
+            )
+            Spacer(Modifier.height(4.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    text = surahName,
+                    text = presentation.surahName,
                     style = MaterialTheme.typography.labelMedium.copy(textDirection = TextDirection.Rtl),
                     color = scheme.primary,
                     modifier = Modifier.weight(1f),
@@ -1351,33 +1566,32 @@ private fun MushafPageCard(
                 )
             }
             Spacer(Modifier.height(10.dp))
-            HorizontalDivider(color = scheme.surfaceVariant)
+            HorizontalDivider(color = scheme.outlineVariant)
             Spacer(Modifier.height(14.dp))
             if (showBasmala) {
                 // Mushaf-style Basmala header: a decorative ornament above, the
                 // Basmala centered, and an ornamented divider below.
-                Text(
-                    text = MUSHAF_ORNAMENT,
-                    fontSize = (fontSizeSp * 0.9f).sp,
-                    textAlign = TextAlign.Center,
-                    color = scheme.primary,
-                    modifier = Modifier.fillMaxWidth(),
+                IslamicOrnamentImage(
+                    ornament = IslamicOrnament.Star8,
+                    tint = scheme.tertiary,
+                    alpha = IslamicOrnamentOpacity.LightActive,
+                    modifier = Modifier.fillMaxWidth().height(18.dp),
                 )
                 Spacer(Modifier.height(8.dp))
                 Text(
                     text = BASMALA,
-                    fontSize = (fontSizeSp * 1.1f).sp,
-                    lineHeight = (fontSizeSp * 1.9f).sp,
+                    fontSize = (presentation.fontSizeSp * 1.1f).sp,
+                    lineHeight = (presentation.fontSizeSp * accessibilityVisuals.arabicLineHeightMultiplier).sp,
                     textAlign = TextAlign.Center,
                     color = scheme.primary,
                     modifier = Modifier.fillMaxWidth(),
-                    style = MaterialTheme.typography.bodyLarge.copy(textDirection = TextDirection.Rtl),
+                    style = MaterialTheme.typography.bodyLarge.copy(
+                        textDirection = TextDirection.Rtl,
+                        fontFamily = accessibilityVisuals.arabicReadingFont,
+                    ),
                 )
                 Spacer(Modifier.height(10.dp))
-                OrnamentedDivider(
-                    color = scheme.surfaceVariant,
-                    accentColor = scheme.primary,
-                )
+                OrnamentedDivider(tint = scheme.tertiary)
                 Spacer(Modifier.height(14.dp))
             }
             var layoutResult by remember { mutableStateOf<TextLayoutResult?>(null) }
@@ -1398,8 +1612,9 @@ private fun MushafPageCard(
                     // Explicit onSurface color: the ayah text must stay readable
                     // on the night (dark) mushaf page regardless of the theme.
                     color = scheme.onSurface,
-                    fontSize = fontSizeSp.sp,
-                    lineHeight = (fontSizeSp * 1.9f).sp,
+                    fontSize = presentation.fontSizeSp.sp,
+                    lineHeight = (presentation.fontSizeSp * accessibilityVisuals.arabicLineHeightMultiplier).sp,
+                    fontFamily = accessibilityVisuals.arabicReadingFont,
                     textAlign = TextAlign.Center,
                     // The mushaf is always right-to-left, even when the app UI
                     // language is LTR (English).
@@ -1407,6 +1622,12 @@ private fun MushafPageCard(
                 ),
                 onTextLayout = { result ->
                     layoutResult = result
+                    ayahLineTops = ayahCharOffsets.mapNotNull { (globalNumber, charOffset) ->
+                        if (result.layoutInput.text.isEmpty()) return@mapNotNull null
+                        val offset = charOffset.toInt().coerceIn(0, result.layoutInput.text.length - 1)
+                        val line = result.getLineForOffset(offset)
+                        AyahViewportPosition(globalNumber, result.getLineTop(line))
+                    }
                     if (targetCharOffset >= 0 && result.layoutInput.text.isNotEmpty()) {
                         val offset = targetCharOffset.coerceIn(0, result.layoutInput.text.length - 1)
                         val line = result.getLineForOffset(offset)
@@ -1420,29 +1641,20 @@ private fun MushafPageCard(
                 },
             )
             Spacer(Modifier.height(8.dp))
+            }
         }
     }
 }
 
-/**
- * A divider with the Rub el Hizb (۞) ornament in the middle, echoing the
- * decorative bands between a mushaf header and its body text.
- */
+/** Vector divider for the Basmala and compact section transitions. */
 @Composable
-private fun OrnamentedDivider(color: Color, accentColor: Color) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        HorizontalDivider(modifier = Modifier.weight(1f), color = color)
-        Text(
-            text = MUSHAF_ORNAMENT,
-            fontSize = 13.sp,
-            color = accentColor,
-            modifier = Modifier.padding(horizontal = 8.dp),
-        )
-        HorizontalDivider(modifier = Modifier.weight(1f), color = color)
-    }
+private fun OrnamentedDivider(tint: Color) {
+    IslamicOrnamentImage(
+        ornament = IslamicOrnament.MushafDivider,
+        tint = tint,
+        alpha = IslamicOrnamentOpacity.LightSection,
+        modifier = Modifier.fillMaxWidth().height(14.dp),
+    )
 }
 
 @Composable
@@ -1564,95 +1776,198 @@ private fun DetailRow(label: String, value: String) {
     }
 }
 
-/**
- * Meanings/tafsir controls: a master switch (show/hide the panel under the
- * mushaf page) plus the translation language, defaulting to the app language
- * ("auto"). The reader applies the choice immediately via the ViewModel.
- */
+/** State rendered by the reader's meanings and tafsir controls. */
+private data class SupplementControlsState(
+    val enabled: Boolean,
+    val installedTafsirSources: List<String>,
+    val selectedTafsirSource: String?,
+    val tafsirDownloadState: QuranReaderViewModel.TafsirDownloadState,
+    val language: String,
+    val availableLanguages: List<String>,
+)
+
+/** Reader-owned actions invoked by the stateless supplement controls. */
+private data class SupplementControlsActions(
+    val onEnabledChanged: (Boolean) -> Unit,
+    val onTafsirSourceSelected: (String?) -> Unit,
+    val onDownloadOfficialTafsir: (org.muslim.app.feature.quran.data.OfficialTafsirSource) -> Unit,
+    val onLanguageChanged: (String) -> Unit,
+    val onDismiss: () -> Unit,
+)
+
 @Composable
 private fun SupplementControlsDialog(
-    enabled: Boolean,
-    language: String,
-    availableLanguages: List<String>,
-    onEnabledChanged: (Boolean) -> Unit,
-    onLanguageChanged: (String) -> Unit,
-    onDismiss: () -> Unit,
+    state: SupplementControlsState,
+    actions: SupplementControlsActions,
 ) {
     AlertDialog(
-        onDismissRequest = onDismiss,
+        onDismissRequest = actions.onDismiss,
         title = { Text(stringResource(R.string.quran_supplement_controls)) },
         text = {
-            Column {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text(
-                        text = stringResource(R.string.quran_supplement_show),
-                        style = MaterialTheme.typography.bodyLarge,
-                        modifier = Modifier.weight(1f),
-                    )
-                    Switch(
-                        checked = enabled,
-                        onCheckedChange = onEnabledChanged,
-                    )
-                }
-                Spacer(Modifier.height(12.dp))
-                HorizontalDivider()
-                Spacer(Modifier.height(12.dp))
-                Text(
-                    text = stringResource(R.string.quran_supplement_language),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-                Spacer(Modifier.height(8.dp))
-                val options = buildList {
-                    add(QuranPrefsRepository.AUTO_LANGUAGE)
-                    addAll(availableLanguages)
-                }.distinct()
-                options.forEach { option ->
-                    val label = if (option == QuranPrefsRepository.AUTO_LANGUAGE) {
-                        stringResource(R.string.quran_supplement_language_auto, appLanguageName())
-                    } else {
-                        displayLanguageName(option)
-                    }
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clip(MaterialTheme.shapes.small)
-                            .clickable { onLanguageChanged(option) }
-                            .padding(vertical = 10.dp, horizontal = 4.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Icon(
-                            imageVector = if (language == option) {
-                                Icons.Filled.RadioButtonChecked
-                            } else {
-                                Icons.Outlined.RadioButtonUnchecked
-                            },
-                            contentDescription = null,
-                            tint = if (language == option) {
-                                MaterialTheme.colorScheme.primary
-                            } else {
-                                MaterialTheme.colorScheme.onSurfaceVariant
-                            },
-                            modifier = Modifier.size(20.dp),
-                        )
-                        Spacer(Modifier.width(10.dp))
-                        Text(
-                            text = label,
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
-                    }
-                }
+            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+                SupplementVisibilityControls(state, actions)
+                SupplementTafsirSources(state, actions)
+                SupplementLanguageOptions(state, actions)
             }
         },
         confirmButton = {
-            TextButton(onClick = onDismiss) {
+            TextButton(onClick = actions.onDismiss) {
                 Text(stringResource(R.string.quran_details_close))
             }
         },
     )
+}
+
+@Composable
+private fun SupplementVisibilityControls(
+    state: SupplementControlsState,
+    actions: SupplementControlsActions,
+) {
+    Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Text(
+            text = stringResource(R.string.quran_supplement_show),
+            style = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.weight(1f),
+        )
+        Switch(checked = state.enabled, onCheckedChange = actions.onEnabledChanged)
+    }
+    Spacer(Modifier.height(12.dp))
+    HorizontalDivider()
+    Spacer(Modifier.height(12.dp))
+}
+
+@Composable
+private fun SupplementTafsirSources(
+    state: SupplementControlsState,
+    actions: SupplementControlsActions,
+) {
+    Text(
+        stringResource(R.string.quran_tafsir_sources_title),
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.primary,
+    )
+    Spacer(Modifier.height(6.dp))
+    if (state.installedTafsirSources.isEmpty()) {
+        Text(
+            stringResource(R.string.quran_tafsir_sources_empty),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    } else {
+        state.installedTafsirSources.forEach { source ->
+            TafsirSourceChoice(
+                source = source,
+                selected = state.selectedTafsirSource == source,
+                onSelected = { actions.onTafsirSourceSelected(source) },
+            )
+        }
+    }
+    org.muslim.app.feature.quran.data.OfficialTafsirSource.entries.forEach { source ->
+        OfficialTafsirDownloadRow(source, state, actions.onDownloadOfficialTafsir)
+    }
+    state.tafsirDownloadState.error?.let { error ->
+        Text(
+            stringResource(R.string.quran_tafsir_download_failed, error),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.error,
+        )
+    }
+    Text(
+        stringResource(R.string.quran_tafsir_attribution),
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+    Spacer(Modifier.height(12.dp))
+    HorizontalDivider()
+    Spacer(Modifier.height(12.dp))
+}
+
+@Composable
+private fun TafsirSourceChoice(source: String, selected: Boolean, onSelected: () -> Unit) {
+    Row(
+        modifier = Modifier.fillMaxWidth().clip(MaterialTheme.shapes.small)
+            .clickable(onClick = onSelected).padding(vertical = 8.dp, horizontal = 4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Icon(
+            imageVector = if (selected) Icons.Filled.RadioButtonChecked else Icons.Outlined.RadioButtonUnchecked,
+            contentDescription = null,
+            tint = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.size(20.dp),
+        )
+        Spacer(Modifier.width(10.dp))
+        Text(source, style = MaterialTheme.typography.bodyMedium)
+    }
+}
+
+@Composable
+private fun OfficialTafsirDownloadRow(
+    source: org.muslim.app.feature.quran.data.OfficialTafsirSource,
+    state: SupplementControlsState,
+    onDownload: (org.muslim.app.feature.quran.data.OfficialTafsirSource) -> Unit,
+) {
+    val installed = source.storageKey in state.installedTafsirSources
+    val downloading = state.tafsirDownloadState.downloading == source
+    Row(modifier = Modifier.fillMaxWidth().padding(top = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+        Text(
+            text = when (source) {
+                org.muslim.app.feature.quran.data.OfficialTafsirSource.AlMuyassar ->
+                    stringResource(R.string.quran_tafsir_muyassar)
+            },
+            style = MaterialTheme.typography.bodySmall,
+            modifier = Modifier.weight(1f),
+        )
+        TextButton(
+            enabled = !installed && !downloading && state.tafsirDownloadState.downloading == null,
+            onClick = { onDownload(source) },
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    if (downloading) stringResource(R.string.quran_tafsir_downloading)
+                    else if (installed) stringResource(R.string.quran_tafsir_installed)
+                    else stringResource(R.string.quran_tafsir_download),
+                )
+                if (downloading) {
+                    Text(
+                        stringResource(
+                            R.string.quran_tafsir_download_progress,
+                            state.tafsirDownloadState.completedSurahs,
+                            114,
+                        ),
+                        style = MaterialTheme.typography.labelSmall,
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SupplementLanguageOptions(
+    state: SupplementControlsState,
+    actions: SupplementControlsActions,
+) {
+    Text(
+        stringResource(R.string.quran_supplement_language),
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.primary,
+    )
+    Spacer(Modifier.height(8.dp))
+    buildList {
+        add(QuranPrefsRepository.AUTO_LANGUAGE)
+        addAll(state.availableLanguages)
+    }.distinct().forEach { option ->
+        val label = if (option == QuranPrefsRepository.AUTO_LANGUAGE) {
+            stringResource(R.string.quran_supplement_language_auto, appLanguageName())
+        } else {
+            displayLanguageName(option)
+        }
+        TafsirSourceChoice(
+            source = label,
+            selected = state.language == option,
+            onSelected = { actions.onLanguageChanged(option) },
+        )
+    }
 }
 
 /** The current app language name for the "auto" option (e.g. "العربية"). */

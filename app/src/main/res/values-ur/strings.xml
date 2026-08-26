@@ -46,10 +46,6 @@
     <string name="crash_close">بند</string>
     <string name="crash_dismiss">جاری رکھیں</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم۔ يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">قرآن کو تلاش کریں۔</string>
-    <string name="more_quran_search_desc">ایک لفظ تلاش کریں، یہ کتنی بار اور کہاں ظاہر ہوتا ہے۔</string>
-    <string name="more_quran_frequency">قرآنی الفاظ کی تعدد</string>
-    <string name="more_quran_frequency_desc">پورے مصحف میں بکثرت الفاظ</string>
     <string name="more_names">اللہ کے 99 نام</string>
     <string name="more_names_desc">مکمل وضاحت کے ساتھ 99 نام</string>
     <string name="more_hajj">حج اور عمرہ</string>

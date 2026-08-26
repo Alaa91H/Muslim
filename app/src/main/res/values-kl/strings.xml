@@ -46,10 +46,6 @@
     <string name="crash_close">Qanittoq</string>
     <string name="crash_dismiss">Ingerlaqqigit</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Koranimi ujarlerit</string>
-    <string name="more_quran_search_desc">Oqaaseq nassaariuk, qanoq akulikitsigisumik sumilu takussaasarnersoq</string>
-    <string name="more_quran_frequency">Koranimi oqaatsit frekvensiat</string>
-    <string name="more_quran_frequency_desc">Mushaf tamakkerlugu oqaatsit amerlanerpaat</string>
     <string name="more_names">99 Allahip aqqi</string>
     <string name="more_names_desc">Aqqit 99-it tamakkiisumik nassuiaateqarlutik</string>
     <string name="more_hajj">Haj aamma Umra</string>

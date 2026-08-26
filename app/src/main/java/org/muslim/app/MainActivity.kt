@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -32,13 +33,14 @@ import org.muslim.app.feature.prayertimes.widget.refreshPrayerTimesWidgets
 import org.muslim.app.feature.settings.locale.withAppLocale
 import org.muslim.app.feature.settings.update.UpdateCheckScheduler
 import org.muslim.app.ui.MuslimApp
+import java.util.ArrayDeque
 import javax.inject.Inject
 
 /**
  * Single-activity entry point hosting the main navigation graph.
  *
- * Also wires app-startup concerns: notification channels, the notification
- * permission, and (re)scheduling the Adhan alarms from the persisted settings.
+ * Also wires app-startup concerns: notification channels, the first-install
+ * permission flow, and (re)scheduling the Adhan alarms from persisted settings.
  */
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -57,6 +59,19 @@ class MainActivity : ComponentActivity() {
 
     /** Tab requested by an App Shortcut (`muslim://times` etc.), else home. */
     private val targetRoute = MutableStateFlow(ROUTE_HOME)
+
+    /** Special-access pages must be opened one at a time by Android. */
+    private val initialSpecialPermissionQueue = ArrayDeque<AppPermission>()
+
+    private val initialRuntimePermissionsLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
+            launchNextInitialSpecialAccess()
+        }
+
+    private val initialSpecialAccessLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            launchNextInitialSpecialAccess()
+        }
 
     /**
      * Applies the user-chosen UI language before any resource is inflated.
@@ -79,9 +94,12 @@ class MainActivity : ComponentActivity() {
         showPreviousCrashIfAny()
 
         NotificationChannels.create(this)
-        requestNotificationPermission()
+        requestInitialPermissionsOnFreshInstall()
         lifecycleScope.launch {
             val settings = settingsRepository.settings.first()
+            // Preserve the user's per-prayer sound and volume choices exactly.
+            // Readiness can diagnose a quiet configuration, but app startup must
+            // never rewrite it or make the scheduled delivery louder than chosen.
             adhanScheduler.schedule(settings)
             // Keep the permanent next-adhan countdown notification fresh.
             NextAdhanService.start(applicationContext)
@@ -111,6 +129,17 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        // Exact-alarm access is granted in a system settings screen. The first
+        // launch may have scheduled a degraded inexact alarm before the user
+        // returned from that screen, so always replace it with the correct
+        // schedule when the activity resumes.
+        lifecycleScope.launch {
+            adhanScheduler.schedule(settingsRepository.settings.first())
+        }
+    }
+
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
@@ -129,8 +158,13 @@ class MainActivity : ComponentActivity() {
             data.startsWith("muslim://qibla") -> ROUTE_QIBLA
             // The update-available notification opens the in-app update screen.
             data.startsWith("muslim://settings/update") -> ROUTE_UPDATE
+            data.startsWith("muslim://accessibility") -> ROUTE_ACCESSIBILITY
             data.startsWith("muslim://settings") -> ROUTE_SETTINGS
             data.startsWith("muslim://hadith") -> ROUTE_HADITH
+            data.startsWith("muslim://finance") -> ROUTE_FINANCE
+            data.startsWith("muslim://noorani") -> ROUTE_NOORANI
+            data.startsWith("muslim://traveler") -> ROUTE_TRAVELER
+            data.startsWith("muslim://history") -> ROUTE_HISTORY
             data.startsWith("muslim://learn") -> ROUTE_LEARN
             else -> ROUTE_HOME
         }
@@ -143,14 +177,64 @@ class MainActivity : ComponentActivity() {
         AppErrorBus.show(AppError(detail = report, fatal = true))
     }
 
-    private fun requestNotificationPermission() {
-        if (permissionManager.canRequest(AppPermission.Notifications)) {
-            requestPermissions(
-                arrayOf(AppPermission.Notifications.runtimePermission!!),
-                REQUEST_NOTIFICATIONS,
-            )
+    /**
+     * Requests the app's runtime permissions on the first open after a fresh
+     * install, then opens each applicable special-access setting in turn. Android
+     * does not permit special access (exact alarms, DND, overlay, battery, and
+     * notification listener) to be granted from one runtime dialog.
+     */
+    private fun requestInitialPermissionsOnFreshInstall() {
+        lifecycleScope.launch {
+            if (!isFreshInstall() || !appPreferencesRepository.isInitialPermissionSetupPending()) return@launch
+            // Record before showing system UI. A denial remains manageable from
+            // Settings, but the app must not repeatedly interrupt later launches.
+            appPreferencesRepository.markInitialPermissionSetupHandled()
+
+            initialSpecialPermissionQueue.clear()
+            AppPermission.entries
+                .filter { permission ->
+                    permission.kind == AppPermission.Kind.SpecialAccess && !permissionManager.isGranted(permission)
+                }
+                .forEach(initialSpecialPermissionQueue::addLast)
+
+            val runtimePermissions = AppPermission.entries
+                .filter { permission ->
+                    permission.kind == AppPermission.Kind.Runtime && permissionManager.canRequest(permission)
+                }
+                .flatMap { permission -> permissionManager.runtimeRequestArray(permission)?.asList().orEmpty() }
+                .distinct()
+
+            if (runtimePermissions.isEmpty()) {
+                launchNextInitialSpecialAccess()
+            } else {
+                initialRuntimePermissionsLauncher.launch(runtimePermissions.toTypedArray())
+            }
         }
     }
+
+    /** Opens the next system-only access page after the previous one returns. */
+    private fun launchNextInitialSpecialAccess() {
+        while (initialSpecialPermissionQueue.isNotEmpty()) {
+            val permission = initialSpecialPermissionQueue.removeFirst()
+            if (permissionManager.isGranted(permission)) continue
+            val intent = permissionManager.systemSettingsIntent(permission) ?: continue
+            initialSpecialAccessLauncher.launch(intent)
+            return
+        }
+    }
+
+    @Suppress("DEPRECATION")
+    private fun isFreshInstall(): Boolean = runCatching {
+        val packageInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            packageManager.getPackageInfo(
+                packageName,
+                android.content.pm.PackageManager.PackageInfoFlags.of(0),
+            )
+        } else {
+            packageManager.getPackageInfo(packageName, 0)
+        }
+        packageInfo.firstInstallTime == packageInfo.lastUpdateTime
+    }.getOrDefault(false)
 
     /** Exposes [AppPreferencesRepository] before the activity is injected. */
     @EntryPoint
@@ -160,11 +244,15 @@ class MainActivity : ComponentActivity() {
     }
 
     private companion object {
-        const val REQUEST_NOTIFICATIONS = 100
         const val ROUTE_HOME = "home"
         const val ROUTE_QIBLA = "qibla"
         const val ROUTE_SETTINGS = "settings"
+        const val ROUTE_ACCESSIBILITY = "accessibility"
         const val ROUTE_HADITH = "hadith"
+        const val ROUTE_FINANCE = "finance"
+        const val ROUTE_NOORANI = "learn/noorani-new-muslim"
+        const val ROUTE_TRAVELER = "learn/traveler-expat"
+        const val ROUTE_HISTORY = "history"
         const val ROUTE_LEARN = "learn"
         const val ROUTE_UPDATE = "settings/update"
         const val EXTRA_ROUTE = "org.muslim.app.extra.ROUTE"

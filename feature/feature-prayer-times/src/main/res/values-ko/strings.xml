@@ -22,6 +22,12 @@
     <string name="bundled_adhan_sharif_doman">샤리프 도만 아단</string>
     <string name="bundled_adhan_yusuf_islam">유수프 이슬람 아단</string>
     <string name="home_cannot_compute">이 날의 시간을 계산할 수 없습니다.</string>
+    <string name="home_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="home_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="home_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="home_prayer_tracker_completed">Marked complete</string>
+    <string name="home_prayer_tracker_pending">Not marked</string>
+    <string name="home_prayer_tracker_toggle_description">%1$s: %2$s</string>
     <string name="home_location_unknown">아직 위치가 설정되지 않았습니다.</string>
     <string name="home_next_prayer">다음기도</string>
     <string name="home_select_location">위치 선택</string>
@@ -81,6 +87,20 @@
     <string name="settings_adhan_preview_hint">기도 시간이 시작되면 알림이 이렇게 표시됩니다. 다음 기도에 자동으로 업데이트됩니다.</string>
     <string name="settings_adhan_preview_label">Adhan 알림 미리보기</string>
     <string name="settings_adhan_preview_no_location">다음 기도를 표시할 위치를 선택하세요.</string>
+    <string name="settings_adhan_verify_title">Check adhan readiness</string>
+    <string name="settings_adhan_verify_desc">Checks the required settings and permissions. After it passes, use the adhan test button below to confirm that you can hear the recording on your device.</string>
+    <string name="settings_adhan_ready">Adhan is ready with the current settings</string>
+    <string name="settings_adhan_needs_attention">Some settings need attention before relying on the adhan</string>
+    <string name="settings_adhan_check_enabled">Adhan is enabled</string>
+    <string name="settings_adhan_check_location">Prayer location is set</string>
+    <string name="settings_adhan_check_notifications">Adhan notifications and channel are allowed</string>
+    <string name="settings_adhan_check_exact_alarm">Exact alarms are allowed</string>
+    <string name="settings_adhan_check_sound">The next prayer has an audible adhan</string>
+    <string name="settings_adhan_check_notification_posted">Active Adhan alert was posted</string>
+    <string name="settings_adhan_check_alarm_volume">Device alarm volume is audible</string>
+    <string name="settings_adhan_check_passed">Ready</string>
+    <string name="settings_adhan_check_failed">Needs attention</string>
+    <string name="settings_adhan_verify_action">Check now</string>
     <string name="settings_adhan_sound">기도 당 아단 소리</string>
     <string name="settings_adhan_sound_choice">소리 선택</string>
     <string name="settings_adhan_sound_summary">%1$s · %2$s</string>
@@ -161,9 +181,14 @@
     <string name="settings_preview_stop">미리보기 중지</string>
     <string name="settings_method_automatic">자동(위치별)</string>
     <string name="settings_method_automatic_desc">앱은 귀하의 국가와 위치에 따라 가장 적합한 방법을 자동으로 선택합니다. 언제든지 수동으로 방법을 선택할 수 있습니다.</string>
-    <string name="settings_preview_for_prayer">%1$s adhan 미리보기</string>
+    <string name="settings_preview_for_prayer">Test %1$s adhan</string>
     <string name="settings_method_automatic_picked">현재 선택된 자동: %1$s — %2$s</string>
     <string name="settings_adhan_global_volume">글로벌 아단 볼륨</string>
     <string name="settings_adhan_global_volume_desc">모든 기도에 단일 레벨을 적용하고 기도당 슬라이더를 비활성화합니다.</string>
     <string name="settings_adhan_follows_global">글로벌 볼륨(%1$s)을 따릅니다.</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

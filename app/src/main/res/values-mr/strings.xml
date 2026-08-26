@@ -46,10 +46,6 @@
     <string name="crash_close">बंद करा</string>
     <string name="crash_dismiss">चालू ठेवा</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">कुराण शोधा</string>
-    <string name="more_quran_search_desc">शब्द शोधा, तो किती वेळा आणि कुठे दिसतो</string>
-    <string name="more_quran_frequency">कुराण शब्द वारंवारता</string>
-    <string name="more_quran_frequency_desc">संपूर्ण मुशाफमध्ये सर्वाधिक वारंवार येणारे शब्द</string>
     <string name="more_names">अल्लाहची 99 नावे</string>
     <string name="more_names_desc">संपूर्ण स्पष्टीकरणासह 99 नावे</string>
     <string name="more_hajj">हज आणि उमराह</string>

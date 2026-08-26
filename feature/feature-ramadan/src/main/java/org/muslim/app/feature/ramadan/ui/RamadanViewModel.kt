@@ -3,11 +3,14 @@ package org.muslim.app.feature.ramadan.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
@@ -18,6 +21,7 @@ import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.common.prayer.PrayerParameters
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import org.muslim.app.core.datastore.AppPreferencesRepository
+import org.muslim.app.core.datastore.prayer.PrayerCompletionRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.feature.ramadan.data.HabitTrackerRepository
@@ -48,6 +52,8 @@ data class RamadanUiState(
     val settings: RamadanSettings,
     val habitState: HabitTrackerState,
     val habitSummary: HabitSummary,
+    /** Local-only checklist of today's five obligatory prayers. */
+    val completedPrayers: Set<Prayer>,
 )
 
 /** Pure computation of the iftar/suhoor instants (unit-testable). */
@@ -111,12 +117,19 @@ class RamadanViewModel @Inject constructor(
     private val calculator: PrayerTimesCalculator,
     private val scheduler: RamadanScheduler,
     private val appPreferencesRepository: AppPreferencesRepository,
+    private val prayerCompletionRepository: PrayerCompletionRepository,
 ) : ViewModel() {
 
     /** The app-wide 12/24-hour clock chosen in Settings (default 12h). */
     val use24h: StateFlow<Boolean> =
         appPreferencesRepository.preferences
             .map { it.timeFormat24h }
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
+
+    /** Home display of the prayer checklist is an explicit, disabled-by-default choice. */
+    val showPrayerTrackerOnHome: StateFlow<Boolean> =
+        appPreferencesRepository.preferences
+            .map { it.showPrayerTrackerOnHome }
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
     private val ticker = flow {
@@ -126,12 +139,23 @@ class RamadanViewModel @Inject constructor(
         }
     }
 
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private val completedPrayersToday = combine(
+        prayerSettingsRepository.settings,
+        ticker,
+    ) { prayer: PrayerSettings, nowMillis: Long ->
+        val zone = prayer.location?.let { runCatching { ZoneId.of(it.timeZone) }.getOrNull() }
+            ?: ZoneId.systemDefault()
+        java.time.Instant.ofEpochMilli(nowMillis).atZone(zone).toLocalDate()
+    }.distinctUntilChanged().flatMapLatest(prayerCompletionRepository::completedPrayers)
+
     val state: StateFlow<RamadanUiState> = combine(
         prayerSettingsRepository.settings,
         ramadanRepository.settings,
         habitTrackerRepository.state,
         ticker,
-    ) { prayer, ramadan, habits, nowMillis ->
+        completedPrayersToday,
+    ) { prayer, ramadan, habits, nowMillis, completedPrayers ->
         val zone = prayer.location?.let { runCatching { ZoneId.of(it.timeZone) }.getOrNull() }
             ?: ZoneId.systemDefault()
         val today = LocalDate.now(zone)
@@ -154,6 +178,7 @@ class RamadanViewModel @Inject constructor(
             settings = ramadan,
             habitState = habits,
             habitSummary = HabitTrackerCalculator.summary(habits, today),
+            completedPrayers = completedPrayers,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), placeholder())
 
@@ -171,6 +196,7 @@ class RamadanViewModel @Inject constructor(
             settings = RamadanSettings(),
             habitState = HabitTrackerState(),
             habitSummary = HabitTrackerCalculator.summary(HabitTrackerState(), today),
+            completedPrayers = emptySet(),
         )
     }
 
@@ -180,6 +206,14 @@ class RamadanViewModel @Inject constructor(
 
     fun toggleHabit(date: LocalDate, habit: HabitId) {
         viewModelScope.launch { habitTrackerRepository.toggleHabit(date, habit) }
+    }
+
+    fun togglePrayerCompletion(prayer: Prayer) {
+        viewModelScope.launch { prayerCompletionRepository.toggle(state.value.today, prayer) }
+    }
+
+    fun setShowPrayerTrackerOnHome(enabled: Boolean) {
+        viewModelScope.launch { appPreferencesRepository.setShowPrayerTrackerOnHome(enabled) }
     }
 
     fun setKhatmaJuz(juz: Int) {

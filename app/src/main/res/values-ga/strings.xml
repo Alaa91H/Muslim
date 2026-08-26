@@ -46,10 +46,6 @@
     <string name="crash_close">Dún</string>
     <string name="crash_dismiss">Lean ort</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واحبه لإعادة ترتيبه، وادمتتر لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Cuardaigh an Quran</string>
-    <string name="more_quran_search_desc">Faigh focal, cé chomh minic is a fheictear é agus cén áit</string>
-    <string name="more_quran_frequency">Minicíocht focal Quran</string>
-    <string name="more_quran_frequency_desc">Na focail is minice sa mushaf iomlán</string>
     <string name="more_names">99 Ainm Allah</string>
     <string name="more_names_desc">Na 99 ainm le míniú iomlán</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

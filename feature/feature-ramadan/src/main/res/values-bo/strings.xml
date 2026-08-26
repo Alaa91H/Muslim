@@ -26,4 +26,15 @@
     <string name="ramadan_title">ར་མ་དཱན།</string>
     <string name="ramadan_notify_outside">ར་མ་ཏན་གྱི་ཕྱི་རོལ་དུ་དྲན་སྐུལ།</string>
     <string name="ramadan_notify_outside_desc">ར་མ་དན་གྱི་སྐབས་ཨིཕ་ཏར་དང་སུ་ཧོར་ཉེན་བརྡ་རང་འགུལ་གྱིས་འགྲོ་གི་ཡོད། འདི་ལ་བརྟེན་ནས་ཁོང་ཚོ་ཟླ་བ་གཞན་དག་ལ་མུ་མཐུད་དུ་འགྲོ་ཐུབ།</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">ཕ་ཇར།</string>
+    <string name="habit_prayer_dhuhr">དྷུ་ཧར།</string>
+    <string name="habit_prayer_asr">Asr</string>
+    <string name="habit_prayer_maghrib">མག་རིབ།</string>
+    <string name="habit_prayer_isha">ཨི་ཤ།</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

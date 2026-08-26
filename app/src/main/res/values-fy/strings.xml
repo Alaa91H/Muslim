@@ -46,10 +46,6 @@
     <string name="crash_close">Slút</string>
     <string name="crash_dismiss">Trochgean</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح إاإ كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Sykje de Koran</string>
-    <string name="more_quran_search_desc">Sykje in wurd, hoe faak it ferskynt en wêr</string>
-    <string name="more_quran_frequency">Koran wurd frekwinsje</string>
-    <string name="more_quran_frequency_desc">De meast foarkommende wurden yn \'e hiele mushaf</string>
     <string name="more_names">99 Nammen fan Allah</string>
     <string name="more_names_desc">De 99 nammen mei folsleine útlis</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

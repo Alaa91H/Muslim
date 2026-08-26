@@ -46,10 +46,6 @@
     <string name="crash_close">Bezárás</string>
     <string name="crash_dismiss">Folytatás</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيب٧دو تخد المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Keresés a Koránban</string>
-    <string name="more_quran_search_desc">Keressen egy szót, milyen gyakran és hol jelenik meg</string>
-    <string name="more_quran_frequency">Korán szó gyakorisága</string>
-    <string name="more_quran_frequency_desc">A leggyakoribb szavak az egész mushafban</string>
     <string name="more_names">99 Allah neve</string>
     <string name="more_names_desc">A 99 név teljes magyarázattal</string>
     <string name="more_hajj">Hajj és Umrah</string>

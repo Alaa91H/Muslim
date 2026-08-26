@@ -26,4 +26,15 @@
     <string name="ramadan_title">라마단</string>
     <string name="ramadan_notify_outside">라마단 기간 외 알림</string>
     <string name="ramadan_notify_outside_desc">Iftar 및 suhoor 알림은 라마단 기간 동안 자동으로 실행됩니다. 이를 활성화하면 다른 달에도 계속 사용할 수 있습니다.</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">파즈르</string>
+    <string name="habit_prayer_dhuhr">두르</string>
+    <string name="habit_prayer_asr">Asr</string>
+    <string name="habit_prayer_maghrib">마그리브</string>
+    <string name="habit_prayer_isha">이샤</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

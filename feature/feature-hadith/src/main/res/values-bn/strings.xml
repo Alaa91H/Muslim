@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hadith_all">সব</string>
-    <string name="hadith_back">ব্যাক</string>
+    <string name="hadith_back">ফিরে</string>
     <string name="hadith_bookmark_add">বুকমার্ক যোগ করুন</string>
     <string name="hadith_bookmark_remove">বুকমার্ক সরান</string>
     <string name="hadith_collection_abudawud">আবু দাউদ</string>
     <string name="hadith_collection_bukhari">আল-বুখারী</string>
     <string name="hadith_collection_ibnmajah">ইবনে মাজাহ</string>
     <string name="hadith_collection_muslim">মুসলিম</string>
+    <string name="hadith_collection_muwatta">মুওয়াত্তা মালিক</string>
     <string name="hadith_collection_nasai">An-Nasa\'i</string>
     <string name="hadith_collection_nawawi">আন-নওয়াবী 40</string>
     <string name="hadith_collection_other">অন্যান্য</string>
     <string name="hadith_collection_riyad">রিয়াদ আস-সালিহীন</string>
     <string name="hadith_collection_tirmidhi">আত-তিরমিযী</string>
+    <string name="hadith_copied">হাদীস নকল করেছেন</string>
+    <string name="hadith_copy">কপি</string>
     <string name="hadith_daily_notification">দৈনিক হাদিস বিজ্ঞপ্তি</string>
     <string name="hadith_daily_notification_desc">প্রতিদিন একটি হাদিস গ্রহণ করুন</string>
     <string name="hadith_daily_notification_time">বিজ্ঞপ্তির সময়</string>
+    <string name="hadith_load_failed">এই হাদিস পাতা লোড করা যায়নি</string>
+    <string name="hadith_no_results">নির্বাচিত অনুসন্ধান বা সংগ্রহের সাথে কোনো ফলাফল মেলে না।</string>
     <string name="hadith_of_the_day">দিনের হাদিস</string>
+    <string name="hadith_preparing">অফলাইন হাদিস লাইব্রেরি প্রস্তুত করা হচ্ছে...</string>
+    <string name="hadith_preparing_failed">হাদিস লাইব্রেরি তৈরি করতে পারেননি</string>
+    <string name="hadith_preparing_progress">Preparing the offline hadith library (%1$d hadiths)…</string>
     <string name="hadith_preview_hint">এভাবেই প্রতিদিনের হাদিস বিজ্ঞপ্তি তার নির্ধারিত সময়ে উপস্থিত হয়।</string>
     <string name="hadith_preview_label">বিজ্ঞপ্তির পূর্বরূপ</string>
     <string name="hadith_preview_loading">হাদিস লোড হচ্ছে...</string>
+    <string name="hadith_retry">আবার চেষ্টা করুন</string>
     <string name="hadith_search_hint">হাদিস অনুসন্ধান করুন...</string>
     <string name="hadith_share">শেয়ার করুন</string>
     <string name="hadith_title">হাদিস লাইব্রেরি</string>
-    <string name="hadith_copy">কপি</string>
-    <string name="hadith_copied">হাদিস নকল করেছেন</string>
-    <string name="hadith_collection_muwatta">মুওয়াত্তা মালিক</string>
+    <string name="hadith_notification_settings">Daily hadith notification settings</string>
+    <string name="hadith_done">Done</string>
 </resources>

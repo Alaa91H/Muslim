@@ -26,4 +26,15 @@
     <string name="ramadan_title">रमजान के बा</string>
     <string name="ramadan_notify_outside">रमजान के बाहर याद दिलावत बा</string>
     <string name="ramadan_notify_outside_desc">रमजान में इफ्तार आ सुहूर के अलर्ट अपने आप चलेला; एकरा के सक्षम कइला से ऊ लोग दोसरा महीना में भी चलत रहेला.</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">फजर के ह</string>
+    <string name="habit_prayer_dhuhr">धुहर के बा</string>
+    <string name="habit_prayer_asr">अस्र के बा</string>
+    <string name="habit_prayer_maghrib">मगरिब के ह</string>
+    <string name="habit_prayer_isha">ईशा के बा</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

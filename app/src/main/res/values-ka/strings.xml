@@ -46,10 +46,6 @@
     <string name="crash_close">დახურვა</string>
     <string name="crash_dismiss">განაგრძეთ</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على შაشة المزيد.</string>
-    <string name="more_quran_search">მოძებნეთ ყურანი</string>
-    <string name="more_quran_search_desc">იპოვეთ სიტყვა, რამდენად ხშირად ჩნდება და სად</string>
-    <string name="more_quran_frequency">ყურანის სიტყვების სიხშირე</string>
-    <string name="more_quran_frequency_desc">ყველაზე ხშირი სიტყვები მთელ მუშაფში</string>
     <string name="more_names">99 ალაჰის სახელები</string>
     <string name="more_names_desc">99 სახელი სრული განმარტებით</string>
     <string name="more_hajj">ჰაჯი და უმრა</string>

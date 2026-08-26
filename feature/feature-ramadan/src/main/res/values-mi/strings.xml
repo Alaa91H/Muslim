@@ -26,4 +26,15 @@
     <string name="ramadan_title">Ramadan</string>
     <string name="ramadan_notify_outside">Whakamaumahara i waho o Ramadan</string>
     <string name="ramadan_notify_outside_desc">Ka rere aunoa nga matohi Iftar me te suhoor i te wa o Ramadan; ma te whakaahei ka haere tonu ratou i etahi atu marama.</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">Karaka</string>
+    <string name="habit_prayer_dhuhr">Dhuhr</string>
+    <string name="habit_prayer_asr">Ko Asr</string>
+    <string name="habit_prayer_maghrib">Maghrib</string>
+    <string name="habit_prayer_isha">Iha</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

@@ -46,10 +46,6 @@
     <string name="crash_close">ዝጋ</string>
     <string name="crash_dismiss">ቀጥል</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم ዋسحبه لإعادة ترتيبه ፣ واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">ቁርኣንን ፈልጉ</string>
-    <string name="more_quran_search_desc">አንድ ቃል, ምን ያህል ጊዜ እንደሚታይ እና የት እንደሚገኝ ይፈልጉ</string>
-    <string name="more_quran_frequency">የቁርኣን ቃል ድግግሞሽ</string>
-    <string name="more_quran_frequency_desc">በሙሻፍ ውስጥ በጣም ተደጋጋሚ ቃላት</string>
     <string name="more_names">99 የአላህ ስሞች</string>
     <string name="more_names_desc">የ99ኙ ስሞች ከሙሉ ማብራሪያ ጋር</string>
     <string name="more_hajj">ሐጅ እና ዑምራ</string>

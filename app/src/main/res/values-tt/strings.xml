@@ -46,10 +46,6 @@
     <string name="crash_close">Ябу</string>
     <string name="crash_dismiss">Дәвам итегез</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه ، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Коръәнне эзләгез</string>
-    <string name="more_quran_search_desc">Бер сүз табыгыз, ул еш очрый һәм кайда</string>
-    <string name="more_quran_frequency">Коръән сүзенең ешлыгы</string>
-    <string name="more_quran_frequency_desc">Бөтен мушафада иң еш сүзләр</string>
     <string name="more_names">99 Аллаһ исемнәре</string>
     <string name="more_names_desc">99 исем тулы аңлатма белән</string>
     <string name="more_hajj">Хаҗ һәм Умра</string>

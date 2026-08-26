@@ -46,10 +46,6 @@
     <string name="crash_close">ބަންދުކޮށްލާށެވެ</string>
     <string name="crash_dismiss">ކުރިއަށް ގެންދަވާ</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">ޤުރުއާން ހޯދާށެވެ</string>
-    <string name="more_quran_search_desc">ލަފުޒެއް، ކިހާ ގިނައިން ފެންނަނީ ކޮންތަނެއްތޯ ހޯދާށެވެ</string>
-    <string name="more_quran_frequency">ޤުރުއާން ލަފުޒު ގިނަވުން</string>
-    <string name="more_quran_frequency_desc">މުޅި މުޝައްފުގައި އެންމެ ގިނައިން ކިޔާ ލަފުޒުތަކެވެ</string>
     <string name="more_names">الله ގެ 99 ނަންފުޅެވެ</string>
     <string name="more_names_desc">އެ 99 ނަން ފުރިހަމަ ތަފްސީލާއެކު</string>
     <string name="more_hajj">ހައްޖު އެންޑް ޢުމްރާއެވެ</string>

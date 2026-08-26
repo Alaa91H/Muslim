@@ -9,6 +9,7 @@
     <string name="prayer_name">%1$s prayer</string>
 
     <string name="adhan_notification_title">It is time for prayer</string>
+    <string name="adhan_notification_stop">Stop Adhan</string>
     <string name="reminder_title">Prayer reminder</string>
     <string name="reminder_message">%1$s prayer in %2$d minutes</string>
 
@@ -17,6 +18,12 @@
     <string name="home_location_unknown">Location not set yet</string>
     <string name="home_today_times">Today\'s prayer times</string>
     <string name="home_cannot_compute">Unable to calculate times for this day</string>
+    <string name="home_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="home_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="home_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="home_prayer_tracker_completed">Marked complete</string>
+    <string name="home_prayer_tracker_pending">Not marked</string>
+    <string name="home_prayer_tracker_toggle_description">%1$s: %2$s</string>
 
     <string name="times_title">Prayer times</string>
     <string name="times_monthly">Monthly view</string>
@@ -70,6 +77,9 @@
     <string name="settings_adjustments">Manual adjustments (minutes)</string>
     <string name="settings_adhan">Adhan &amp; reminders</string>
     <string name="settings_adhan_enabled">Enable Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
     <string name="settings_adhan_global_volume">Global adhan volume</string>
     <string name="settings_adhan_global_volume_desc">Apply a single level to every prayer and disable the per-prayer sliders</string>
     <string name="settings_adhan_follows_global">Follows the global volume (%1$s)</string>
@@ -77,6 +87,20 @@
     <string name="settings_adhan_preview_label">Adhan notification preview</string>
     <string name="settings_adhan_preview_hint">This is how the notification appears when a prayer time begins. It updates automatically with the next prayer.</string>
     <string name="settings_adhan_preview_no_location">Select a location to show the next prayer</string>
+    <string name="settings_adhan_verify_title">Check adhan readiness</string>
+    <string name="settings_adhan_verify_desc">Checks the required settings and permissions. After it passes, use the adhan test button below to confirm that you can hear the recording on your device.</string>
+    <string name="settings_adhan_ready">Adhan is ready with the current settings</string>
+    <string name="settings_adhan_needs_attention">Some settings need attention before relying on the adhan</string>
+    <string name="settings_adhan_check_enabled">Adhan is enabled</string>
+    <string name="settings_adhan_check_location">Prayer location is set</string>
+    <string name="settings_adhan_check_notifications">Adhan notifications and channel are allowed</string>
+    <string name="settings_adhan_check_exact_alarm">Exact alarms are allowed</string>
+    <string name="settings_adhan_check_sound">The next prayer has an audible adhan</string>
+    <string name="settings_adhan_check_notification_posted">Active Adhan alert was posted</string>
+    <string name="settings_adhan_check_alarm_volume">Device alarm volume is audible</string>
+    <string name="settings_adhan_check_passed">Ready</string>
+    <string name="settings_adhan_check_failed">Needs attention</string>
+    <string name="settings_adhan_verify_action">Check now</string>
     <string name="settings_vibrate">Vibration</string>
     <string name="settings_reminder">Reminder before prayer</string>
     <string name="settings_reminder_off">No reminder</string>
@@ -87,7 +111,7 @@
     <string name="adhan_option_silent">Silent</string>
     <string name="settings_volume">Volume</string>
     <string name="settings_preview">Preview adhan</string>
-    <string name="settings_preview_for_prayer">Preview %1$s adhan</string>
+    <string name="settings_preview_for_prayer">Test %1$s adhan</string>
     <string name="bundled_adhan_makkah">Makkah adhan</string>
     <string name="bundled_adhan_abdul_basit">Abdul Basit adhan</string>
     <string name="bundled_adhan_minshawi">Minshawi adhan</string>
@@ -148,7 +172,7 @@
     <string name="next_adhan_notification_title">Next Adhan: %1$s — %2$s</string>
     <string name="next_adhan_remaining">Time remaining: %1$s</string>
     <string name="next_adhan_missed">Missed Adhan: %1$s — %2$s</string>
-    <string name="next_adhan_elapsed">Since Adhan: %1$s</string>
+    <string name="next_adhan_elapsed">Elapsed: %1$s</string>
     <string name="next_adhan_no_location">Set your location to see prayer times</string>
 
     <string name="bundled_adhan_madinah">Madinah adhan</string>

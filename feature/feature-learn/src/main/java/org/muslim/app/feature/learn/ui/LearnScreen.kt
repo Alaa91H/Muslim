@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
@@ -87,6 +88,11 @@ private val topicIcons = mapOf(
     "madhhab" to Icons.Filled.ChildCare,
 )
 
+private enum class LearnSpecialDestination {
+    Names,
+    Hajj,
+}
+
 @Composable
 private fun categoryTitleRes(category: String): Int = when (category) {
     LearnContent.CATEGORY_FAITH -> R.string.learn_category_faith
@@ -112,33 +118,24 @@ fun LearnScreen(
     viewModel: LearnViewModel = hiltViewModel(),
 ) {
     var selected by remember { mutableStateOf<LearnTopic?>(null) }
-    var showNames by remember { mutableStateOf(false) }
-    var showHajj by remember { mutableStateOf(false) }
+    var specialDestination by remember { mutableStateOf<LearnSpecialDestination?>(null) }
     val favoriteIds by viewModel.favoriteIds.collectAsStateWithLifecycle()
     val topic = selected
 
-    // The system/hardware back button must step back through the internal
-    // screens (topic → list, hajj/names → list) before leaving the screen,
-    // mirroring the toolbar arrow — otherwise one back press exits to the
-    // More root directly.
-    BackHandler(enabled = showNames) { showNames = false }
-    BackHandler(enabled = showHajj) { showHajj = false }
+    // Back always resolves the inner learning destination before returning to More.
+    BackHandler(enabled = specialDestination != null) { specialDestination = null }
     BackHandler(enabled = topic != null) { selected = null }
 
-    if (showNames) {
-        NamesOfAllahScreen(
-            onBack = { showNames = false },
-            modifier = modifier,
-        )
-        return
-    }
-
-    if (showHajj) {
-        HajjUmrahScreen(
-            onBack = { showHajj = false },
-            modifier = modifier,
-        )
-        return
+    when (specialDestination) {
+        LearnSpecialDestination.Names -> {
+            NamesOfAllahScreen(onBack = { specialDestination = null }, modifier = modifier)
+            return
+        }
+        LearnSpecialDestination.Hajj -> {
+            HajjUmrahScreen(onBack = { specialDestination = null }, modifier = modifier)
+            return
+        }
+        null -> Unit
     }
 
     Scaffold(
@@ -185,8 +182,7 @@ fun LearnScreen(
                 onToggleFavorite = viewModel::toggleFavorite,
                 modifier = Modifier.padding(innerPadding),
                 onOpen = { selected = it },
-                onOpenNames = { showNames = true },
-                onOpenHajj = { showHajj = true },
+                onOpenSpecial = { specialDestination = it },
             )
         } else {
             GuideContent(
@@ -203,88 +199,102 @@ private fun TopicList(
     onToggleFavorite: (String) -> Unit,
     modifier: Modifier = Modifier,
     onOpen: (LearnTopic) -> Unit,
-    onOpenNames: () -> Unit,
-    onOpenHajj: () -> Unit,
+    onOpenSpecial: (LearnSpecialDestination) -> Unit,
 ) {
-    val favoriteTopics = LearnContent.topics.filter { it.id in favoriteIds }
     LazyColumn(modifier = modifier.fillMaxSize()) {
-        item(key = "names_of_allah") {
-            ListItem(
-                headlineContent = { Text(stringResource(R.string.learn_topic_names_of_allah)) },
-                supportingContent = { Text(stringResource(R.string.learn_topic_names_of_allah_sub)) },
-                leadingContent = {
-                    Surface(
-                        shape = CircleShape,
-                        color = MaterialTheme.colorScheme.tertiaryContainer,
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Star,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onTertiaryContainer,
-                            modifier = Modifier.padding(8.dp).size(20.dp),
-                        )
-                    }
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { onOpenNames() },
-            )
-            HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
-        }
-        item(key = "hajj_umrah") {
-            ListItem(
-                headlineContent = { Text(stringResource(R.string.learn_topic_hajj)) },
-                supportingContent = { Text(stringResource(R.string.learn_topic_hajj_sub)) },
-                leadingContent = {
-                    Surface(
-                        shape = CircleShape,
-                        color = MaterialTheme.colorScheme.tertiaryContainer,
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Place,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onTertiaryContainer,
-                            modifier = Modifier.padding(8.dp).size(20.dp),
-                        )
-                    }
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { onOpenHajj() },
-            )
-            HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
-        }
-        if (favoriteTopics.isNotEmpty()) {
-            item(key = "favorites_header") {
-                CategoryHeader(title = stringResource(R.string.learn_favorites_header))
-            }
-            items(favoriteTopics, key = { "favorite_${it.id}" }) { topic ->
-                TopicListItem(
-                    topic = topic,
-                    isFavorite = true,
-                    onToggleFavorite = onToggleFavorite,
-                    onOpen = onOpen,
-                )
-                HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
-            }
-        }
-        val byCategory = LearnContent.topics.groupBy { it.category }
-        LearnContent.categoryOrder.forEach { category ->
-            val topics = byCategory[category].orEmpty()
-            if (topics.isEmpty()) return@forEach
-            item(key = "category_$category") {
-                CategoryHeader(title = stringResource(categoryTitleRes(category)))
-            }
-            items(topics, key = { it.id }) { topic ->
-                TopicListItem(
-                    topic = topic,
-                    isFavorite = topic.id in favoriteIds,
-                    onToggleFavorite = onToggleFavorite,
-                    onOpen = onOpen,
-                )
-                HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
-            }
-        }
+        specialDestinationItems(onOpenSpecial)
+        favouriteTopicItems(favoriteIds, onToggleFavorite, onOpen)
+        categoryTopicItems(favoriteIds, onToggleFavorite, onOpen)
+    }
+}
+
+private fun LazyListScope.specialDestinationItems(
+    onOpenSpecial: (LearnSpecialDestination) -> Unit,
+) {
+    specialDestinationItem(
+        key = "names_of_allah",
+        titleRes = R.string.learn_topic_names_of_allah,
+        subtitleRes = R.string.learn_topic_names_of_allah_sub,
+        icon = Icons.Filled.Star,
+        destination = LearnSpecialDestination.Names,
+        onOpenSpecial = onOpenSpecial,
+    )
+    specialDestinationItem(
+        key = "hajj_umrah",
+        titleRes = R.string.learn_topic_hajj,
+        subtitleRes = R.string.learn_topic_hajj_sub,
+        icon = Icons.Filled.Place,
+        destination = LearnSpecialDestination.Hajj,
+        onOpenSpecial = onOpenSpecial,
+    )
+}
+
+private fun LazyListScope.specialDestinationItem(
+    key: String,
+    titleRes: Int,
+    subtitleRes: Int,
+    icon: ImageVector,
+    destination: LearnSpecialDestination,
+    onOpenSpecial: (LearnSpecialDestination) -> Unit,
+) {
+    item(key = key) {
+        ListItem(
+            headlineContent = { Text(stringResource(titleRes)) },
+            supportingContent = { Text(stringResource(subtitleRes)) },
+            leadingContent = { SpecialDestinationIcon(icon) },
+            modifier = Modifier.fillMaxWidth().clickable { onOpenSpecial(destination) },
+        )
+        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+    }
+}
+
+@Composable
+private fun SpecialDestinationIcon(icon: ImageVector) {
+    Surface(shape = CircleShape, color = MaterialTheme.colorScheme.tertiaryContainer) {
+        Icon(
+            imageVector = icon,
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.onTertiaryContainer,
+            modifier = Modifier.padding(8.dp).size(20.dp),
+        )
+    }
+}
+
+private fun LazyListScope.favouriteTopicItems(
+    favoriteIds: Set<String>,
+    onToggleFavorite: (String) -> Unit,
+    onOpen: (LearnTopic) -> Unit,
+) {
+    val favorites = LearnContent.topics.filter { it.id in favoriteIds }
+    if (favorites.isEmpty()) return
+    item(key = "favorites_header") { CategoryHeader(title = stringResource(R.string.learn_favorites_header)) }
+    topicRows(favorites, { true }, onToggleFavorite, onOpen, keyPrefix = "favorite_")
+}
+
+private fun LazyListScope.categoryTopicItems(
+    favoriteIds: Set<String>,
+    onToggleFavorite: (String) -> Unit,
+    onOpen: (LearnTopic) -> Unit,
+) {
+    val byCategory = LearnContent.topics.groupBy { it.category }
+    LearnContent.categoryOrder.forEach { category ->
+        val topics = byCategory[category].orEmpty()
+        if (topics.isEmpty()) return@forEach
+        item(key = "category_$category") { CategoryHeader(title = stringResource(categoryTitleRes(category))) }
+        topicRows(topics, { topic -> topic.id in favoriteIds }, onToggleFavorite, onOpen)
+    }
+}
+
+private fun LazyListScope.topicRows(
+    topics: List<LearnTopic>,
+    isFavorite: (LearnTopic) -> Boolean,
+    onToggleFavorite: (String) -> Unit,
+    onOpen: (LearnTopic) -> Unit,
+    keyPrefix: String = "",
+) {
+    items(topics, key = { "$keyPrefix${it.id}" }) { topic ->
+        TopicListItem(topic, isFavorite(topic), onToggleFavorite, onOpen)
+        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
     }
 }
 

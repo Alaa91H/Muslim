@@ -46,10 +46,6 @@
     <string name="crash_close">Koala</string>
     <string name="crash_dismiss">Tsoela pele</string>
     <string name="more_order_hint">عرض المزيد على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Batla Quran</string>
-    <string name="more_quran_search_desc">Fumana lentsoe, hore na le hlaha hangata hakae le hokae</string>
-    <string name="more_quran_frequency">Maqhubu a mantsoe a Quran</string>
-    <string name="more_quran_frequency_desc">Mantsoe a khafetsa ho mushaf kaofela</string>
     <string name="more_names">99 Mabitso a Allah</string>
     <string name="more_names_desc">Mabitso a 99 a nang le tlhaloso e felletseng</string>
     <string name="more_hajj">Hajj le Umrah</string>

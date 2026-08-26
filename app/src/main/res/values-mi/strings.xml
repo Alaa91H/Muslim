@@ -46,10 +46,6 @@
     <string name="crash_close">Katia</string>
     <string name="crash_dismiss">Haere tonu</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Rapua te Quran</string>
-    <string name="more_quran_search_desc">Kimihia he kupu, e hia nga wa ka puta me te waahi</string>
-    <string name="more_quran_frequency">auau kupu Quran</string>
-    <string name="more_quran_frequency_desc">Ko nga kupu maha i roto i te mushaf katoa</string>
     <string name="more_names">99 Nga Ingoa o Allah</string>
     <string name="more_names_desc">Ko nga ingoa 99 me nga whakamarama katoa</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

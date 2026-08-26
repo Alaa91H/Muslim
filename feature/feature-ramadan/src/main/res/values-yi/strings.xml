@@ -26,4 +26,15 @@
     <string name="ramadan_title">ראַמאַדאַן</string>
     <string name="ramadan_notify_outside">רימיינדערז אַרויס ראַמאַדאַן</string>
     <string name="ramadan_notify_outside_desc">Iftar און suhoor אַלערץ לויפן אויטאָמאַטיש בעשאַס ראַמאַדאַן; געבן דעם האלט זיי געגאנגען אין אנדערע חדשים.</string>
+    <string name="habit_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="habit_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="habit_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="habit_prayer_fajr">Fajr</string>
+    <string name="habit_prayer_dhuhr">דהוהר</string>
+    <string name="habit_prayer_asr">אַסר</string>
+    <string name="habit_prayer_maghrib">מאַהריב</string>
+    <string name="habit_prayer_isha">ישא</string>
+    <string name="habit_prayer_completed">Marked complete</string>
+    <string name="habit_prayer_pending">Not marked</string>
+    <string name="habit_prayer_toggle_description">%1$s: %2$s</string>
 </resources>

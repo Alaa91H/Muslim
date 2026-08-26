@@ -46,10 +46,6 @@
     <string name="crash_close">Close</string>
     <string name="crash_dismiss">continue</string>
     <string name="more_order_hint">. .</string>
-    <string name="more_quran_search">Quaerere Quran</string>
-    <string name="more_quran_search_desc">Inveni verbum, quoties apparet et ubi?</string>
-    <string name="more_quran_frequency">Quran verbum frequency</string>
-    <string name="more_quran_frequency_desc">Frequentissima verba in toto mushaf</string>
     <string name="more_names">XCIX Nomina Allah</string>
     <string name="more_names_desc">XCIX nomina cum plena explicatione</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>

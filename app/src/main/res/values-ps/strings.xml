@@ -46,10 +46,6 @@
     <string name="crash_close">تړل</string>
     <string name="crash_dismiss">ادامه ورکړئ</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">د قرآن لټون</string>
-    <string name="more_quran_search_desc">یوه کلمه ومومئ، دا څو ځله ښکاري او چیرته</string>
-    <string name="more_quran_frequency">د قرآن د کلمې تعدد</string>
-    <string name="more_quran_frequency_desc">په ټول مصحف کې تر ټولو مکرر کلمات</string>
     <string name="more_names">د الله تعالی ۹۹ نومونه</string>
     <string name="more_names_desc">99 نومونه د بشپړ وضاحت سره</string>
     <string name="more_hajj">حج او عمره</string>

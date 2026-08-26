@@ -46,10 +46,6 @@
     <string name="crash_close">נאָענט</string>
     <string name="crash_dismiss">פאָרזעצן</string>
     <string name="more_order_hint">على أي قسم واسحبه لإعادة ترتيبه، كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">זוכן די קווראַן</string>
-    <string name="more_quran_search_desc">געפֿינען אַ וואָרט, ווי אָפט עס איז ארויס און ווו</string>
-    <string name="more_quran_frequency">קווראַן וואָרט אָפטקייַט</string>
-    <string name="more_quran_frequency_desc">די מערסט אָפט ווערטער אין דער גאנצער מושף</string>
     <string name="more_names">99 נעמען פון אַלאַ</string>
     <string name="more_names_desc">די 99 נעמען מיט פול דערקלערונג</string>
     <string name="more_hajj">האַדזש און אומרה</string>

@@ -55,6 +55,10 @@ class NextAdhanService : Service() {
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        // Android can retain an ongoing notification posted by an older APK
+        // across an app update. Remove the retired identity before the new
+        // one is posted so only the current single-icon status card remains.
+        NextAdhanNotifications.cancelRetiredCountdown(this)
         NotificationChannels.create(this)
         // Must post quickly after startForegroundService; refreshed by the ticker.
         startForeground(
@@ -176,6 +180,7 @@ class NextAdhanService : Service() {
 
         fun start(context: Context) {
             val appContext = context.applicationContext
+            NextAdhanNotifications.cancelRetiredCountdown(appContext)
             val intent = Intent(appContext, NextAdhanService::class.java)
             // minSdk is 26 (O), so the foreground-service API is always available.
             appContext.startForegroundService(intent)

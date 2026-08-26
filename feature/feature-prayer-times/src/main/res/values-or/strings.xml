@@ -22,6 +22,12 @@
     <string name="bundled_adhan_sharif_doman">ସରିଫ ଡୋମନ୍ ଆଦନ |</string>
     <string name="bundled_adhan_yusuf_islam">ୟୁସୁଫ୍ ଇସଲାମ</string>
     <string name="home_cannot_compute">ଏହି ଦିନ ପାଇଁ ସମୟ ଗଣିବାକୁ ଅସମର୍ଥ |</string>
+    <string name="home_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="home_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="home_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="home_prayer_tracker_completed">Marked complete</string>
+    <string name="home_prayer_tracker_pending">Not marked</string>
+    <string name="home_prayer_tracker_toggle_description">%1$s: %2$s</string>
     <string name="home_location_unknown">ଅବସ୍ଥାନ ଏପର୍ଯ୍ୟନ୍ତ ସେଟ୍ ହୋଇନାହିଁ |</string>
     <string name="home_next_prayer">ପରବର୍ତ୍ତୀ ପ୍ରାର୍ଥନା |</string>
     <string name="home_select_location">ଅବସ୍ଥାନ ବାଛନ୍ତୁ |</string>
@@ -81,6 +87,20 @@
     <string name="settings_adhan_preview_hint">ପ୍ରାର୍ଥନା ସମୟ ଆରମ୍ଭ ହେଲେ ଏହିପରି ବିଜ୍ଞପ୍ତି ଦେଖାଯାଏ | ପରବର୍ତ୍ତୀ ପ୍ରାର୍ଥନା ସହିତ ଏହା ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅପଡେଟ୍ ହୁଏ |</string>
     <string name="settings_adhan_preview_label">ଆଦନ ବିଜ୍ଞପ୍ତି ପୂର୍ବାବଲୋକନ |</string>
     <string name="settings_adhan_preview_no_location">ପରବର୍ତ୍ତୀ ପ୍ରାର୍ଥନା ଦେଖାଇବାକୁ ଏକ ସ୍ଥାନ ବାଛନ୍ତୁ |</string>
+    <string name="settings_adhan_verify_title">Check adhan readiness</string>
+    <string name="settings_adhan_verify_desc">Checks the required settings and permissions. After it passes, use the adhan test button below to confirm that you can hear the recording on your device.</string>
+    <string name="settings_adhan_ready">Adhan is ready with the current settings</string>
+    <string name="settings_adhan_needs_attention">Some settings need attention before relying on the adhan</string>
+    <string name="settings_adhan_check_enabled">Adhan is enabled</string>
+    <string name="settings_adhan_check_location">Prayer location is set</string>
+    <string name="settings_adhan_check_notifications">Adhan notifications and channel are allowed</string>
+    <string name="settings_adhan_check_exact_alarm">Exact alarms are allowed</string>
+    <string name="settings_adhan_check_sound">The next prayer has an audible adhan</string>
+    <string name="settings_adhan_check_notification_posted">Active Adhan alert was posted</string>
+    <string name="settings_adhan_check_alarm_volume">Device alarm volume is audible</string>
+    <string name="settings_adhan_check_passed">Ready</string>
+    <string name="settings_adhan_check_failed">Needs attention</string>
+    <string name="settings_adhan_verify_action">Check now</string>
     <string name="settings_adhan_sound">ପ୍ରାର୍ଥନା ପ୍ରତି ଅଦନ ଧ୍ୱନି |</string>
     <string name="settings_adhan_sound_choice">ଧ୍ୱନି ବାଛନ୍ତୁ |</string>
     <string name="settings_adhan_sound_summary">%1$s · %2$s</string>
@@ -161,9 +181,14 @@
     <string name="settings_preview_stop">ପୂର୍ବାବଲୋକନ ବନ୍ଦ କରନ୍ତୁ |</string>
     <string name="settings_method_automatic">ସ୍ୱୟଂଚାଳିତ (ଅବସ୍ଥାନ ଅନୁଯାୟୀ)</string>
     <string name="settings_method_automatic_desc">ଆପ୍ ଆପଣଙ୍କ ଦେଶ ଏବଂ ଅବସ୍ଥାନ ଉପରେ ଆଧାର କରି ସ୍ୱୟଂଚାଳିତ ଭାବରେ ସବୁଠାରୁ ଉପଯୁକ୍ତ ପଦ୍ଧତି ବାଛିଥାଏ; ଆପଣ ତଥାପି ଯେକ time ଣସି ସମୟରେ ମାନୁଆଲୀ ଭାବରେ ଏକ ପଦ୍ଧତି ବାଛିପାରିବେ |</string>
-    <string name="settings_preview_for_prayer">ପୂର୍ବାବଲୋକନ %1$s ଆଦନ |</string>
+    <string name="settings_preview_for_prayer">Test %1$s adhan</string>
     <string name="settings_method_automatic_picked">ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଉଠାଯାଇଛି: %1$s - %2$s |</string>
     <string name="settings_adhan_global_volume">ଗ୍ଲୋବାଲ୍ ଆଡାନ୍ ଭଲ୍ୟୁମ୍</string>
     <string name="settings_adhan_global_volume_desc">ପ୍ରତ୍ୟେକ ପ୍ରାର୍ଥନାରେ ଗୋଟିଏ ସ୍ତର ପ୍ରୟୋଗ କରନ୍ତୁ ଏବଂ ପ୍ରତି ପ୍ରାର୍ଥନା ସ୍ଲାଇଡର୍ଗୁଡ଼ିକୁ ଅକ୍ଷମ କରନ୍ତୁ |</string>
     <string name="settings_adhan_follows_global">ଗ୍ଲୋବାଲ୍ ଭଲ୍ୟୁମ୍ (%1$s) ଅନୁସରଣ କରେ |</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

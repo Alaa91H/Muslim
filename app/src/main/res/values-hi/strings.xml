@@ -46,10 +46,6 @@
     <string name="crash_close">बंद करें</string>
     <string name="crash_dismiss">जारी रखें</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه, واستخدم यह एक अच्छा विचार है। يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">कुरान खोजें</string>
-    <string name="more_quran_search_desc">कोई शब्द ढूंढें, वह कितनी बार और कहां दिखाई देता है</string>
-    <string name="more_quran_frequency">कुरान शब्द आवृत्ति</string>
-    <string name="more_quran_frequency_desc">पूरे मुशाफ़ में सबसे अधिक बार आने वाले शब्द</string>
     <string name="more_names">अल्लाह के 99 नाम</string>
     <string name="more_names_desc">99 नाम पूरी व्याख्या के साथ</string>
     <string name="more_hajj">हज और उमरा</string>

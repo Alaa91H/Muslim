@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wear_app_name">Muslim for Wear OS</string>
+    <string name="wear_next_prayer">Next prayer</string>
+    <string name="wear_no_prayer">Open the phone app to set prayer times</string>
+    <string name="wear_countdown">%1$s remaining</string>
+    <string name="wear_tasbih">Tasbih</string>
+    <string name="wear_tasbih_count">%1$d of %2$d</string>
+    <string name="wear_increment">Increment tasbih</string>
+    <string name="wear_vibration">Vibrate at target</string>
+    <string name="wear_sync_waiting">Waiting for a secure phone sync</string>
+</resources>

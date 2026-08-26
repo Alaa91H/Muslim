@@ -27,11 +27,6 @@ dependencies {
     implementation(project(":core:core-design-system"))
     implementation(project(":core:core-common"))
 
-    // OpenStreetMap rendering (MapLibre GL Native — no API key, no Google services)
-    implementation(libs.maplibre.android)
-
-    // Custom User-Agent for MapLibre's tile requests (OpenFreeMap policy).
-    implementation(libs.okhttp)
 
     implementation(libs.androidx.core.ktx)
     implementation(platform(libs.androidx.compose.bom))

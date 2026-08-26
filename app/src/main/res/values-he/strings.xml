@@ -46,10 +46,6 @@
     <string name="crash_close">סגור</string>
     <string name="crash_dismiss">המשך</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">חפש בקוראן</string>
-    <string name="more_quran_search_desc">מצא מילה, באיזו תדירות היא מופיעה ואיפה</string>
-    <string name="more_quran_frequency">תדירות מילות הקוראן</string>
-    <string name="more_quran_frequency_desc">המילים השכיחות ביותר בכל המושאף</string>
     <string name="more_names">99 שמות של אללה</string>
     <string name="more_names_desc">99 השמות עם הסבר מלא</string>
     <string name="more_hajj">חג\'ג\' ואומרה</string>

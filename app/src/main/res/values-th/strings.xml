@@ -46,10 +46,6 @@
     <string name="crash_close">ปิด</string>
     <string name="crash_dismiss">ดำเนินการต่อ</string>
     <string name="more_order_hint">اجگ مع الاستمرار على اي قسم واسحبه لإعادة ترتيبه, واستكدم المفتاح لإظهار او اسحباء كل قسم. يَتبَّق التجيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">ค้นหาอัลกุรอาน</string>
-    <string name="more_quran_search_desc">ค้นหาคำ ปรากฏบ่อยแค่ไหนและที่ไหน</string>
-    <string name="more_quran_frequency">ความถี่ของคำอัลกุรอาน</string>
-    <string name="more_quran_frequency_desc">คำที่พบบ่อยที่สุดใน mushaf ทั้งหมด</string>
     <string name="more_names">99 รายชื่อของอัลลอฮ์</string>
     <string name="more_names_desc">99 ชื่อพร้อมคำอธิบายแบบเต็ม</string>
     <string name="more_hajj">ฮัจย์และอุมเราะห์</string>

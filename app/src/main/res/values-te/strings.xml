@@ -46,10 +46,6 @@
     <string name="crash_close">మూసివేయి</string>
     <string name="crash_dismiss">కొనసాగించు</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو خلفاء ك. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">ఖురాన్ శోధించండి</string>
-    <string name="more_quran_search_desc">ఒక పదాన్ని కనుగొనండి, అది ఎంత తరచుగా మరియు ఎక్కడ కనిపిస్తుంది</string>
-    <string name="more_quran_frequency">ఖురాన్ పదాల ఫ్రీక్వెన్సీ</string>
-    <string name="more_quran_frequency_desc">మొత్తం ముషాఫ్‌లో చాలా తరచుగా వచ్చే పదాలు</string>
     <string name="more_names">అల్లాహ్ యొక్క 99 పేర్లు</string>
     <string name="more_names_desc">పూర్తి వివరణతో 99 పేర్లు</string>
     <string name="more_hajj">హజ్ &amp; ఉమ్రా</string>

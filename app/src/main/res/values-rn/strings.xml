@@ -46,10 +46,6 @@
     <string name="crash_close">Gufunga</string>
     <string name="crash_dismiss">Bandanya</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Rondera muri Korowani</string>
-    <string name="more_quran_search_desc">Rondera ijambo, riboneka kenshi n’aho riboneka</string>
-    <string name="more_quran_frequency">Incuro z\'ijambo rya Quran</string>
-    <string name="more_quran_frequency_desc">Amajambo akunda gukoreshwa cane muri mushaf yose .</string>
     <string name="more_names">99 Amazina ya Allah</string>
     <string name="more_names_desc">Amazina 99 afise insobanuro yuzuye .</string>
     <string name="more_hajj">Haji na Umrah</string>

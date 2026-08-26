@@ -13,7 +13,7 @@ interface QuranRepository {
     /** Fetches one ayah by its global number (ayah-of-the-day, quick lookup). */
     suspend fun ayahByGlobal(globalNumber: Int): Ayah?
 
-    /** All ayahs in global order (whole-mushaf statistics like word frequency). */
+    /** All ayahs in global order for local reader operations. */
     suspend fun allAyahs(): List<Ayah>
 
     /** Metadata of a single surah (for the reader header). */
@@ -23,9 +23,6 @@ interface QuranRepository {
 
     /** Surah number → ordered global ayah numbers (whole-mushaf downloads). */
     suspend fun allSurahRanges(): Map<Int, List<Int>>
-
-    /** Full-text search over the normalized Uthmani text. */
-    suspend fun search(rawQuery: String): List<Ayah>
 
     fun observeBookmarks(): Flow<List<Bookmark>>
 

@@ -22,6 +22,12 @@
     <string name="bundled_adhan_sharif_doman">シャリフ・ドマン・アダン</string>
     <string name="bundled_adhan_yusuf_islam">ユスフ・イスラム・アザーン</string>
     <string name="home_cannot_compute">この日の時間を計算できません</string>
+    <string name="home_prayer_tracker_title">Today\'s prayer checklist</string>
+    <string name="home_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
+    <string name="home_prayer_tracker_progress">%1$d of %2$d prayers marked</string>
+    <string name="home_prayer_tracker_completed">Marked complete</string>
+    <string name="home_prayer_tracker_pending">Not marked</string>
+    <string name="home_prayer_tracker_toggle_description">%1$s: %2$s</string>
     <string name="home_location_unknown">場所はまだ設定されていません</string>
     <string name="home_next_prayer">次の祈り</string>
     <string name="home_select_location">場所を選択してください</string>
@@ -81,6 +87,20 @@
     <string name="settings_adhan_preview_hint">祈りの時間が始まると、このように通知が表示されます。次の祈りで自動的に更新されます。</string>
     <string name="settings_adhan_preview_label">アザーン通知のプレビュー</string>
     <string name="settings_adhan_preview_no_location">次の祈りを表示する場所を選択してください</string>
+    <string name="settings_adhan_verify_title">Check adhan readiness</string>
+    <string name="settings_adhan_verify_desc">Checks the required settings and permissions. After it passes, use the adhan test button below to confirm that you can hear the recording on your device.</string>
+    <string name="settings_adhan_ready">Adhan is ready with the current settings</string>
+    <string name="settings_adhan_needs_attention">Some settings need attention before relying on the adhan</string>
+    <string name="settings_adhan_check_enabled">Adhan is enabled</string>
+    <string name="settings_adhan_check_location">Prayer location is set</string>
+    <string name="settings_adhan_check_notifications">Adhan notifications and channel are allowed</string>
+    <string name="settings_adhan_check_exact_alarm">Exact alarms are allowed</string>
+    <string name="settings_adhan_check_sound">The next prayer has an audible adhan</string>
+    <string name="settings_adhan_check_notification_posted">Active Adhan alert was posted</string>
+    <string name="settings_adhan_check_alarm_volume">Device alarm volume is audible</string>
+    <string name="settings_adhan_check_passed">Ready</string>
+    <string name="settings_adhan_check_failed">Needs attention</string>
+    <string name="settings_adhan_verify_action">Check now</string>
     <string name="settings_adhan_sound">祈りごとのアザーン音</string>
     <string name="settings_adhan_sound_choice">サウンドを選択する</string>
     <string name="settings_adhan_sound_summary">%1$s · %2$s</string>
@@ -161,9 +181,14 @@
     <string name="settings_preview_stop">プレビューを停止する</string>
     <string name="settings_method_automatic">自動（場所による）</string>
     <string name="settings_method_automatic_desc">アプリはあなたの国と場所に基づいて最適な方法を自動的に選択します。いつでも手動で方法を選択できます。</string>
-    <string name="settings_preview_for_prayer">%1$s アザーンをプレビューする</string>
+    <string name="settings_preview_for_prayer">Test %1$s adhan</string>
     <string name="settings_method_automatic_picked">現在選択されている自動: %1$s — %2$s</string>
     <string name="settings_adhan_global_volume">世界のアザーン量</string>
     <string name="settings_adhan_global_volume_desc">すべての祈りに単一のレベルを適用し、祈りごとのスライダーを無効にします</string>
     <string name="settings_adhan_follows_global">グローバルボリューム (%1$s) に従います</string>
+
+    <string name="adhan_notification_stop">Stop Adhan</string>
+    <string name="settings_adhan_notification_dismissible">Allow dismissing the Adhan notification</string>
+    <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
+    <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
 </resources>

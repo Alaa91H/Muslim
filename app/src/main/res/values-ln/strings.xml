@@ -46,10 +46,6 @@
     <string name="crash_close">Bokanga</string>
     <string name="crash_dismiss">Koba na likambo yango</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيبه، واستخدم المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Luka na kati ya Coran</string>
-    <string name="more_quran_search_desc">Luka liloba, mbala boni ebimaka mpe wapi</string>
-    <string name="more_quran_frequency">Fréquence ya maloba ya Coran</string>
-    <string name="more_quran_frequency_desc">Maloba oyo esalemaka mingi na mushaf mobimba</string>
     <string name="more_names">99 Bankombo ya Nzambe (Allah).</string>
     <string name="more_names_desc">Ba kombo 99 na explication mobimba</string>
     <string name="more_hajj">Hajj &amp; Umrah na mokili mobimba</string>

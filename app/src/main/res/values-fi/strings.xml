@@ -46,10 +46,6 @@
     <string name="crash_close">Sulje</string>
     <string name="crash_dismiss">Jatka</string>
     <string name="more_order_hint">اضغط مع الاستمرار على أي قسم واسحبه لإعادة ترتيب٧دوتخد واسحبه لإعادة تخخد واسحبه المفتاح لإظهار أو إخفاء كل قسم. يُطبَّق التغيير مباشرة على شاشة المزيد.</string>
-    <string name="more_quran_search">Etsi Koraanista</string>
-    <string name="more_quran_search_desc">Etsi sana, kuinka usein se esiintyy ja missä</string>
-    <string name="more_quran_frequency">Koraanin sanan taajuus</string>
-    <string name="more_quran_frequency_desc">Yleisimmät sanat koko mushafissa</string>
     <string name="more_names">99 Allahin nimeä</string>
     <string name="more_names_desc">99 nimeä täydellisillä selityksillä</string>
     <string name="more_hajj">Hajj &amp; Umrah</string>
