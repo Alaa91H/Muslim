@@ -2,11 +2,11 @@ package org.muslim.app.feature.prayertimes.notifications
 
 import android.app.NotificationManager
 import android.os.Build
+import android.os.SystemClock
 import androidx.core.app.NotificationCompat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.After
-import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -53,12 +53,33 @@ class AdhanNotificationsInstrumentedTest {
                 .build(),
         )
 
+        awaitNotificationState(
+            AdhanNotifications.RETIRED_ADHAN_NOTIFICATION_ID,
+            expectedActive = true,
+        )
         AdhanNotifications.cancelRetiredAdhan(context)
+        awaitNotificationState(
+            AdhanNotifications.RETIRED_ADHAN_NOTIFICATION_ID,
+            expectedActive = false,
+        )
+    }
 
-        assertFalse(
-            notificationManager.activeNotifications.any { statusBarNotification ->
-                statusBarNotification.id == AdhanNotifications.RETIRED_ADHAN_NOTIFICATION_ID
-            },
+    private fun awaitNotificationState(notificationId: Int, expectedActive: Boolean) {
+        val deadline = SystemClock.elapsedRealtime() + 2_000L
+        do {
+            val isActive = notificationManager.activeNotifications.any { statusBarNotification ->
+                statusBarNotification.id == notificationId
+            }
+            if (isActive == expectedActive) return
+            SystemClock.sleep(50L)
+        } while (SystemClock.elapsedRealtime() < deadline)
+
+        val finalState = notificationManager.activeNotifications.any { statusBarNotification ->
+            statusBarNotification.id == notificationId
+        }
+        assertTrue(
+            "Notification $notificationId expected active=$expectedActive but was active=$finalState",
+            finalState == expectedActive,
         )
     }
 
