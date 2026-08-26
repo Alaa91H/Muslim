@@ -22,4 +22,28 @@ class AdhanDeliveryStatusTest {
         assertThat(serviceStarted.audioStarted).isFalse()
         assertThat(audioStarted.audioStarted).isTrue()
     }
+
+    @Test
+    fun `visible alarm notification result remains independent from audio confirmation`() {
+        val postedNotification = AdhanDeliveryStatus(
+            stage = AdhanDeliveryStage.VisibleNotificationPosted,
+            prayer = Prayer.Fajr,
+            isProbe = true,
+            visibleNotificationResult = AdhanVisibleNotificationResult.Posted,
+        )
+        val blockedNotification = postedNotification.copy(
+            stage = AdhanDeliveryStage.VisibleNotificationBlocked,
+            visibleNotificationResult = AdhanVisibleNotificationResult.Blocked,
+        )
+        val audioStarted = postedNotification.copy(stage = AdhanDeliveryStage.AudioStarted)
+
+        assertThat(postedNotification.visibleNotificationResult)
+            .isEqualTo(AdhanVisibleNotificationResult.Posted)
+        assertThat(postedNotification.audioStarted).isFalse()
+        assertThat(blockedNotification.visibleNotificationResult)
+            .isEqualTo(AdhanVisibleNotificationResult.Blocked)
+        assertThat(audioStarted.audioStarted).isTrue()
+        assertThat(audioStarted.visibleNotificationResult)
+            .isEqualTo(AdhanVisibleNotificationResult.Posted)
+    }
 }

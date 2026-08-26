@@ -100,22 +100,9 @@ data class PrayerSettings(
                     adhanVolumeFor(prayer) >= MIN_AUDIBLE_ADHAN_VOLUME
             }
 
-    /**
-     * Restores a known-audible offline configuration after the user explicitly
-     * runs the Adhan verification. This repairs legacy low-volume and
-     * silent/vibration-only values that otherwise make a scheduled test fail
-     * before Android reaches the actual playback path.
-     */
-    fun repairedAudibleAdhanDefaults(): PrayerSettings = copy(
-        adhanSounds = emptyMap(),
-        adhanVolume = maxOf(adhanVolume, DEFAULT_AUDIBLE_ADHAN_VOLUME),
-        adhanVolumes = emptyMap(),
-        useGlobalAdhanVolume = true,
-    )
 
     companion object {
         const val MIN_AUDIBLE_ADHAN_VOLUME = 25
-        const val DEFAULT_AUDIBLE_ADHAN_VOLUME = 80
     }
 }
 

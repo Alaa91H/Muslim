@@ -32,7 +32,7 @@ open class AqiqahReminderWorker(
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
         val notification = Notification.Builder(applicationContext, NotificationChannels.FAMILY)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1250)
             .setContentTitle(applicationContext.getString(R.string.aqiqah_notification_title))
             .setContentText(applicationContext.getString(R.string.aqiqah_notification_body))
             .setContentIntent(contentIntent)

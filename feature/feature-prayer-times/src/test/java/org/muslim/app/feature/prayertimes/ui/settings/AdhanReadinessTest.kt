@@ -13,6 +13,7 @@ class AdhanReadinessTest {
             notificationsAllowed = true,
             exactAlarmsAllowed = true,
             nextPrayerHasAudibleSound = true,
+            scheduledNotificationPosted = true,
             scheduledAudioVerified = true,
             alarmVolumeAudible = true,
         )
@@ -20,6 +21,7 @@ class AdhanReadinessTest {
         assertThat(ready.isReady).isTrue()
         assertThat(ready.copy(alarmVolumeAudible = false).isReady).isFalse()
         assertThat(ready.copy(nextPrayerHasAudibleSound = false).isReady).isFalse()
+        assertThat(ready.copy(scheduledNotificationPosted = false).isReady).isFalse()
         assertThat(ready.copy(scheduledAudioVerified = false).isReady).isFalse()
         assertThat(ready.copy(exactAlarmsAllowed = false).isReady).isFalse()
         assertThat(ready.copy(notificationsAllowed = false).isReady).isFalse()

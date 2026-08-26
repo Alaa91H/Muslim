@@ -3,6 +3,33 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.10
+
+Updates install directly over v1.24.9 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.
+
+## Non-destructive Adhan Delivery
+
+- Removed the destructive Adhan "recovery" behavior. App startup and **Verify Adhan** now preserve the user's global and per-prayer volume, sound mode, bundled recording, custom file selection, and global/per-prayer volume mode exactly as saved. A silent, vibration-only, or low-volume choice is reported as a diagnostic condition; it is never rewritten to 80% or replaced with another sound.
+- Replaced the retired Android Adhan channel with the fresh high-priority `adhan_alert_v2` channel. Android retains the behavior of an existing notification channel after creation, so the new identifier prevents a legacy silent app-created channel from being reused while still leaving all subsequent system channel controls to the user. [1]
+- Extended the scheduled delivery journal to record the active Adhan alert as **posted** or **blocked** independently of receiver reach, foreground-service startup, and confirmed audio startup. The readiness card now requires both a posted active alert and confirmed audio output before it reports a successful scheduled verification, and it shows the recorded failure detail when Android rejects notification posting.
+- Receiver failures are now recorded in the delivery journal rather than ending silently. The audio fallback path remains independent of visible-notification delivery, while respecting the exact volume and sound mode selected by the user.
+
+## Strict Notification Identity Replacement
+
+- Replaced all current launcher, large-Adhan, and monochrome status-bar resource identifiers with v1.24.10 identifiers. The application manifest now references only the new standard and round adaptive launcher resources; retired source assets and references are removed.
+- Kept the official full-colour circular emblem for the launcher and expanded Adhan/reminder artwork. Every notification producer uses the fresh, correctly framed monochrome circular status-bar glyph, as required by Android's small-notification-icon rendering.
+- Removed the large branded artwork from the permanent low-importance prayer-countdown status card. It remains a deliberately silent status notification and can no longer visually resemble the active Adhan alert.
+
+## Verification
+
+- Added regression coverage for non-mutating low/silent Adhan diagnostics, fresh Adhan-channel identity, independent active-notification status, and readiness requirements for both visible alert posting and audio startup.
+- Passed content-manifest generation, focused prayer-time tests, core-notifications tests, full app unit tests, Android Lint, Detekt, and Debug assembly locally. A fresh 1.24.10 APK resource audit confirmed package `org.muslim.app`, application label `Muslim`, v1.24.10 identity resources, and no retired icon resource identifiers.
+- The release environment has no connected physical Android device, so no claim is made that sound was physically heard here. After installation, run **Verify Adhan** and use the separate active-alert and sound results to identify any remaining device permission, channel, volume, or output-routing condition.
+
+### References
+
+[1]: https://developer.android.com/develop/ui/views/notifications/channels "Android Developers — Create and manage notification channels"
+
 ## Muslim v1.24.9
 
 Updates install directly over v1.24.8 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.

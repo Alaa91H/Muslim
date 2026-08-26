@@ -9,17 +9,19 @@ import org.muslim.app.core.datastore.prayer.PrayerSettings
 class AdhanAudibleRecoveryTest {
 
     @Test
-    fun `one-percent global volume is not treated as audible`() {
+    fun `one-percent global volume is diagnosed as quiet without changing the saved level`() {
         val settings = PrayerSettings(
             adhanVolume = 1,
             useGlobalAdhanVolume = true,
         )
 
         assertThat(settings.hasAudibleAdhanForEveryPrayer()).isFalse()
+        assertThat(settings.adhanVolume).isEqualTo(1)
+        assertThat(settings.useGlobalAdhanVolume).isTrue()
     }
 
     @Test
-    fun `silent and vibration-only prayer choices require recovery`() {
+    fun `silent and vibration-only choices are diagnosed without changing per-prayer choices`() {
         val settings = PrayerSettings(
             adhanSounds = mapOf(
                 Prayer.Fajr to AdhanSoundOption.Silent,
@@ -28,22 +30,24 @@ class AdhanAudibleRecoveryTest {
         )
 
         assertThat(settings.hasAudibleAdhanForEveryPrayer()).isFalse()
+        assertThat(settings.adhanSounds[Prayer.Fajr]).isEqualTo(AdhanSoundOption.Silent)
+        assertThat(settings.adhanSounds[Prayer.Isha]).isEqualTo(AdhanSoundOption.VibrateOnly)
     }
 
     @Test
-    fun `audible recovery restores every obligatory prayer to bundled sound`() {
-        val repaired = PrayerSettings(
-            adhanVolume = 1,
+    fun `diagnostic check preserves global and individual volume choices exactly`() {
+        val settings = PrayerSettings(
+            adhanVolume = 17,
             adhanSounds = mapOf(Prayer.Fajr to AdhanSoundOption.Silent),
-            adhanVolumes = mapOf(Prayer.Isha to 0),
+            adhanVolumes = mapOf(Prayer.Isha to 1),
             useGlobalAdhanVolume = false,
-        ).repairedAudibleAdhanDefaults()
+        )
 
-        assertThat(repaired.useGlobalAdhanVolume).isTrue()
-        assertThat(repaired.adhanVolume)
-            .isEqualTo(PrayerSettings.DEFAULT_AUDIBLE_ADHAN_VOLUME)
-        assertThat(repaired.adhanSounds).isEmpty()
-        assertThat(repaired.adhanVolumes).isEmpty()
-        assertThat(repaired.hasAudibleAdhanForEveryPrayer()).isTrue()
+        settings.hasAudibleAdhanForEveryPrayer()
+
+        assertThat(settings.adhanVolume).isEqualTo(17)
+        assertThat(settings.adhanVolumes).containsExactly(Prayer.Isha, 1)
+        assertThat(settings.adhanSounds).containsExactly(Prayer.Fajr, AdhanSoundOption.Silent)
+        assertThat(settings.useGlobalAdhanVolume).isFalse()
     }
 }

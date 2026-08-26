@@ -81,6 +81,7 @@ import org.muslim.app.core.common.prayer.HighLatitudeRule
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.common.time.TimeFormats
+import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 import java.time.LocalTime
 
@@ -468,7 +469,7 @@ private fun openAdhanNotificationSettings(context: Context) {
     } else {
         Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
             .putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
-            .putExtra(Settings.EXTRA_CHANNEL_ID, "adhan")
+            .putExtra(Settings.EXTRA_CHANNEL_ID, NotificationChannels.ADHAN)
     }
     runCatching { context.startActivity(intent) }
 }
@@ -534,6 +535,10 @@ private fun AdhanReadinessCard(
                 readiness.exactAlarmsAllowed,
                 R.string.settings_adhan_check_exact_alarm,
                 onResolve = recoveryActions.openExactAlarmSettings,
+            )
+            AdhanReadinessItem(
+                readiness.scheduledNotificationPosted,
+                R.string.settings_adhan_check_notification_posted,
             )
             AdhanReadinessItem(readiness.scheduledAudioVerified, R.string.settings_adhan_check_sound)
             AdhanReadinessItem(readiness.alarmVolumeAudible, R.string.settings_adhan_check_alarm_volume)

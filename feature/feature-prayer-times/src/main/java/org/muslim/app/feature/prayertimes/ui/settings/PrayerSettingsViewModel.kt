@@ -64,6 +64,7 @@ data class AdhanReadiness(
     val exactAlarmsAllowed: Boolean = false,
     val nextPrayerHasAudibleSound: Boolean = false,
     val scheduledAudioVerified: Boolean = false,
+    val scheduledNotificationPosted: Boolean = false,
     val alarmVolumeAudible: Boolean = false,
     /** Local stage-specific detail from the most recent scheduled probe, if it failed. */
     val lastProbeDetail: String? = null,
@@ -71,7 +72,7 @@ data class AdhanReadiness(
     val isReady: Boolean
         get() = adhanEnabled && hasLocation && notificationsAllowed &&
             exactAlarmsAllowed && nextPrayerHasAudibleSound &&
-            scheduledAudioVerified && alarmVolumeAudible
+            scheduledNotificationPosted && scheduledAudioVerified && alarmVolumeAudible
 }
 
 @HiltViewModel
@@ -186,26 +187,11 @@ class PrayerSettingsViewModel @Inject constructor(
      */
     fun verifyAdhanReadiness() {
         viewModelScope.launch {
-            // Android keeps a previously-created channel's importance and
-            // sound. Recreate the Adhan channel from its official high-priority
-            // defaults before the probe so an old silent channel cannot hide
-            // the notification being verified.
-            NotificationChannels.applyCategorySettings(
-                context = context,
-                category = NotificationCategory.Adhan,
-                prefs = NotificationCategory.Adhan.defaultPrefs(),
-                forceRecreate = true,
-            )
-            var current = repository.settings.first()
-            // The verification action is an explicit recovery consent. Repair
-            // legacy silent/vibrate-only selections and unusably low app
-            // volumes first, otherwise a scheduled test can never prove the
-            // receiver/service/audio path on the user's device.
-            if (!current.hasAudibleAdhanForEveryPrayer()) {
-                current = current.repairedAudibleAdhanDefaults()
-                repository.save(current)
-                scheduler.schedule(current)
-            }
+            // The current Adhan channel identifier is new for this release,
+            // so creating it does not inherit a legacy silent channel. Do not
+            // alter the user's sound, vibration, or volume settings here.
+            NotificationChannels.create(context)
+            val current = repository.settings.first()
             val targetPrayer = computeNextPrayer(current)?.first ?: Prayer.Fajr
             if (!scheduler.scheduleDeliveryProbe(current, targetPrayer)) {
                 refreshAdhanReadiness(current)
@@ -245,9 +231,11 @@ class PrayerSettingsViewModel @Inject constructor(
         val nextPrayerHasAudibleSound = option == AdhanSoundOption.Default &&
             current.adhanVolumeFor(targetPrayer) >= PrayerSettings.MIN_AUDIBLE_ADHAN_VOLUME
         val latestProbe = playbackDiagnostics.lastProbe.value
-        val scheduledAudioVerified = latestProbe.audioStarted &&
-            latestProbe.prayer == targetPrayer &&
+        val probeIsCurrent = latestProbe.prayer == targetPrayer &&
             System.currentTimeMillis() - latestProbe.atMillis <= DELIVERY_PROBE_MAX_AGE_MS
+        val scheduledAudioVerified = latestProbe.audioStarted && probeIsCurrent
+        val scheduledNotificationPosted = latestProbe.visibleNotificationResult ==
+            org.muslim.app.feature.prayertimes.notifications.AdhanVisibleNotificationResult.Posted && probeIsCurrent
         val alarmVolumeAudible = context.getSystemService(AudioManager::class.java)
             .getStreamVolume(AudioManager.STREAM_ALARM) > 0
         _adhanReadiness.value = AdhanReadiness(
@@ -257,9 +245,12 @@ class PrayerSettingsViewModel @Inject constructor(
             exactAlarmsAllowed = exactAlarmsAllowed,
             nextPrayerHasAudibleSound = nextPrayerHasAudibleSound,
             scheduledAudioVerified = scheduledAudioVerified,
+            scheduledNotificationPosted = scheduledNotificationPosted,
             alarmVolumeAudible = alarmVolumeAudible,
             lastProbeDetail = latestProbe.detail?.takeIf {
-                latestProbe.stage == org.muslim.app.feature.prayertimes.notifications.AdhanDeliveryStage.Failed
+                latestProbe.stage == org.muslim.app.feature.prayertimes.notifications.AdhanDeliveryStage.Failed ||
+                    latestProbe.visibleNotificationResult ==
+                    org.muslim.app.feature.prayertimes.notifications.AdhanVisibleNotificationResult.Blocked
             },
         )
     }

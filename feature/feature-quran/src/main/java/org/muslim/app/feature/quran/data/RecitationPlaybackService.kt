@@ -267,7 +267,7 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
         }
 
         return NotificationCompat.Builder(this, NotificationChannels.RECITATION)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1250)
             .setContentTitle(title)
             .setContentText(text)
             .setOngoing(true)

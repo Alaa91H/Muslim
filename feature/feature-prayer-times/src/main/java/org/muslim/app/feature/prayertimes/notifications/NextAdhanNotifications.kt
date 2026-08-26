@@ -5,7 +5,6 @@ import androidx.core.net.toUri
 import android.content.Intent
 import android.app.PendingIntent
 import android.content.Context
-import android.graphics.drawable.Icon
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
@@ -101,8 +100,10 @@ internal object NextAdhanNotifications {
         }
 
         val builder = NotificationCompat.Builder(context, NotificationChannels.PRAYER_COUNTDOWN)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar)
-            .setLargeIcon(Icon.createWithResource(context, org.muslim.app.core.notifications.R.drawable.ic_muslim_adhan_large_v1249))
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1250)
+            // This is a silent status/countdown card, not the active Adhan
+            // alert. Do not attach a large branded image that can make it look
+            // like a missed or old alarm notification.
             .setContentTitle(title)
             .setStyle(NotificationCompat.BigTextStyle().bigText(expandedText))
             .setCategory(NotificationCompat.CATEGORY_STATUS)

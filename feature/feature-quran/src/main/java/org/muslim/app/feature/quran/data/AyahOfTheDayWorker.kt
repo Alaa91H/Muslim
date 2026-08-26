@@ -65,7 +65,7 @@ class AyahOfTheDayWorker(
         )
         val title = "$surahName · ${ayah.numberInSurah}"
         val notification = Notification.Builder(applicationContext, NotificationChannels.QURAN_DAILY)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1250)
             .setContentTitle(title)
             .setContentText(ayah.text)
             .setStyle(Notification.BigTextStyle().bigText(ayah.text))

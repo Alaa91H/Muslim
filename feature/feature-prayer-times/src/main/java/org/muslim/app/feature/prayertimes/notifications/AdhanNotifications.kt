@@ -40,14 +40,14 @@ internal object AdhanNotifications {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
         return NotificationCompat.Builder(context, NotificationChannels.ADHAN)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar)
-            .setLargeIcon(Icon.createWithResource(context, org.muslim.app.core.notifications.R.drawable.ic_muslim_adhan_large_v1249))
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1250)
+            .setLargeIcon(Icon.createWithResource(context, org.muslim.app.core.notifications.R.drawable.ic_muslim_adhan_large_v1250))
             .setContentTitle(context.getString(R.string.adhan_notification_title))
             .setContentText(context.getString(R.string.prayer_name, context.getString(prayerNameRes(prayer))))
             .setStyle(NotificationCompat.BigTextStyle())
             .setCategory(NotificationCompat.CATEGORY_ALARM)
             .addAction(
-                org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar,
+                org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1250,
                 context.getString(R.string.adhan_notification_stop),
                 stopIntent,
             )
@@ -71,8 +71,8 @@ internal object AdhanNotifications {
 
     fun showReminder(context: Context, prayer: Prayer, minutesBefore: Int) {
         val notification = NotificationCompat.Builder(context, NotificationChannels.REMINDER)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar)
-            .setLargeIcon(Icon.createWithResource(context, org.muslim.app.core.notifications.R.drawable.ic_muslim_adhan_large_v1249))
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1250)
+            .setLargeIcon(Icon.createWithResource(context, org.muslim.app.core.notifications.R.drawable.ic_muslim_adhan_large_v1250))
             .setContentTitle(context.getString(R.string.reminder_title))
             .setContentText(
                 context.getString(

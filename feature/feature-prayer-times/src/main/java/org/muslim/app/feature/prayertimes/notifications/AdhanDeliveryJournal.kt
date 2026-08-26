@@ -14,10 +14,19 @@ enum class AdhanDeliveryStage {
     NotRun,
     ProbeScheduled,
     ReceiverReached,
+    VisibleNotificationPosted,
+    VisibleNotificationBlocked,
     ServiceStartRequested,
     ServiceStarted,
     AudioStarted,
     Failed,
+}
+
+/** Result of the active Adhan alert notification, independent of audio playback. */
+enum class AdhanVisibleNotificationResult {
+    NotAttempted,
+    Posted,
+    Blocked,
 }
 
 /**
@@ -33,6 +42,7 @@ data class AdhanDeliveryStatus(
     val isProbe: Boolean = false,
     val atMillis: Long = 0L,
     val detail: String? = null,
+    val visibleNotificationResult: AdhanVisibleNotificationResult = AdhanVisibleNotificationResult.NotAttempted,
 ) {
     val audioStarted: Boolean get() = stage == AdhanDeliveryStage.AudioStarted
 }
@@ -63,6 +73,27 @@ class AdhanDeliveryJournal @Inject constructor(
             prayer = prayer,
             isProbe = isProbe,
             atMillis = System.currentTimeMillis(),
+        ),
+    )
+
+    fun visibleNotificationPosted(prayer: Prayer, isProbe: Boolean) = record(
+        AdhanDeliveryStatus(
+            stage = AdhanDeliveryStage.VisibleNotificationPosted,
+            prayer = prayer,
+            isProbe = isProbe,
+            atMillis = System.currentTimeMillis(),
+            visibleNotificationResult = AdhanVisibleNotificationResult.Posted,
+        ),
+    )
+
+    fun visibleNotificationBlocked(prayer: Prayer, isProbe: Boolean, detail: String) = record(
+        AdhanDeliveryStatus(
+            stage = AdhanDeliveryStage.VisibleNotificationBlocked,
+            prayer = prayer,
+            isProbe = isProbe,
+            atMillis = System.currentTimeMillis(),
+            detail = detail.take(MAX_DETAIL_LENGTH),
+            visibleNotificationResult = AdhanVisibleNotificationResult.Blocked,
         ),
     )
 
@@ -104,11 +135,22 @@ class AdhanDeliveryJournal @Inject constructor(
     )
 
     private fun record(status: AdhanDeliveryStatus) {
-        write(PREFIX_DELIVERY, status)
-        _lastDelivery.value = status
-        if (status.isProbe) {
-            write(PREFIX_PROBE, status)
-            _lastProbe.value = status
+        val previous = if (status.isProbe) _lastProbe.value else _lastDelivery.value
+        val carried = if (
+            status.stage != AdhanDeliveryStage.ReceiverReached &&
+            status.visibleNotificationResult == AdhanVisibleNotificationResult.NotAttempted &&
+            previous.prayer == status.prayer &&
+            previous.isProbe == status.isProbe
+        ) {
+            status.copy(visibleNotificationResult = previous.visibleNotificationResult)
+        } else {
+            status
+        }
+        write(PREFIX_DELIVERY, carried)
+        _lastDelivery.value = carried
+        if (carried.isProbe) {
+            write(PREFIX_PROBE, carried)
+            _lastProbe.value = carried
         }
     }
 
@@ -124,6 +166,10 @@ class AdhanDeliveryJournal @Inject constructor(
             isProbe = preferences.getBoolean("${prefix}_probe", false),
             atMillis = preferences.getLong("${prefix}_at", 0L),
             detail = preferences.getString("${prefix}_detail", null),
+            visibleNotificationResult = preferences
+                .getString("${prefix}_visible_notification", null)
+                ?.let { runCatching { AdhanVisibleNotificationResult.valueOf(it) }.getOrNull() }
+                ?: AdhanVisibleNotificationResult.NotAttempted,
         )
     }
 
@@ -134,6 +180,7 @@ class AdhanDeliveryJournal @Inject constructor(
             .putBoolean("${prefix}_probe", status.isProbe)
             .putLong("${prefix}_at", status.atMillis)
             .putString("${prefix}_detail", status.detail)
+            .putString("${prefix}_visible_notification", status.visibleNotificationResult.name)
             .apply()
     }
 

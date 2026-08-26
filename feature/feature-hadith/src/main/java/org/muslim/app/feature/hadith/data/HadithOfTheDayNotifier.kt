@@ -41,7 +41,7 @@ open class HadithOfTheDayNotifier(private val context: Context) {
             append("\n\n").append(hadith.source)
         }
         val notification = Notification.Builder(context, NotificationChannels.HADITH_DAILY)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1250)
             .setContentTitle(title)
             .setContentText(hadith.arabicText)
             .setStyle(Notification.BigTextStyle().bigText(body))

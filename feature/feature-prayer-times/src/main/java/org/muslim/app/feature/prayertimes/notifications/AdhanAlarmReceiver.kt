@@ -36,6 +36,12 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 handle(appContext, entryPoint, prayer, isReminder, isProbe, intent)
+            } catch (throwable: Throwable) {
+                entryPoint.deliveryJournal().failed(
+                    prayer = prayer,
+                    isProbe = isProbe,
+                    detail = "Receiver failed: ${throwable.javaClass.simpleName}",
+                )
             } finally {
                 pendingResult.finish()
             }
@@ -68,7 +74,21 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
             // replaces the same id on success; if it fails, the prayer alert
             // still remains visible instead of disappearing silently.
             if (deliveryPolicy.postVisibleNotification) {
-                AdhanNotifications.showAdhan(appContext, prayer)
+                if (AdhanNotifications.showAdhan(appContext, prayer)) {
+                    deliveryJournal.visibleNotificationPosted(prayer, isProbe)
+                } else {
+                    deliveryJournal.visibleNotificationBlocked(
+                        prayer = prayer,
+                        isProbe = isProbe,
+                        detail = "Android rejected Adhan notification posting",
+                    )
+                }
+            } else {
+                deliveryJournal.visibleNotificationBlocked(
+                    prayer = prayer,
+                    isProbe = isProbe,
+                    detail = "Adhan notification disabled by app settings or quiet hours",
+                )
             }
             // Audible Adhan is a separate user choice from notification
             // presentation. A muted/disabled Android channel must never turn a
