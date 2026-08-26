@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.selection.selectable
@@ -36,8 +37,6 @@ import androidx.compose.material.icons.filled.SystemUpdate
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
@@ -76,6 +75,9 @@ import org.muslim.app.core.common.appearance.AppOrnamentStyle
 import org.muslim.app.core.datastore.AppPreferences
 import org.muslim.app.core.datastore.AppThemeMode
 import org.muslim.app.feature.settings.R
+import org.muslim.app.core.designsystem.IslamicIconSize
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.IslamicCard
 
 /** A user-selectable UI language (PROJECT_PROMPT.md §5). */
 private data class LanguageOption(
@@ -212,10 +214,10 @@ fun SettingsScreen(
                 .fillMaxSize()
                 .padding(innerPadding),
             contentPadding = androidx.compose.foundation.layout.PaddingValues(
-                horizontal = 16.dp,
-                vertical = 12.dp,
+                horizontal = IslamicSpacing.PageHorizontal,
+                vertical = IslamicSpacing.Compact,
             ),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
         ) {
             item(key = SettingsSection.Appearance.name) {
                 SectionCard(
@@ -665,23 +667,27 @@ private fun SectionCard(
     onToggle: () -> Unit,
     content: @Composable androidx.compose.foundation.layout.ColumnScope.() -> Unit,
 ) {
-    Card(
+    IslamicCard(
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(0.dp),
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable(onClick = onToggle)
-                .padding(horizontal = 16.dp, vertical = 14.dp),
+                .padding(
+                    horizontal = IslamicSpacing.Medium,
+                    vertical = IslamicSpacing.Compact,
+                ),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
                 imageVector = icon,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(IslamicIconSize.Standard),
             )
-            Spacer(Modifier.width(12.dp))
+            Spacer(Modifier.width(IslamicSpacing.Compact))
             Text(
                 text = title,
                 style = MaterialTheme.typography.titleMedium,
@@ -698,7 +704,7 @@ private fun SectionCard(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 8.dp),
+                    .padding(bottom = IslamicSpacing.Small),
             ) {
                 content()
             }
