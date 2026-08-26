@@ -3,6 +3,23 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.12
+
+Updates install directly over v1.24.11 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.
+
+## Adhan Audio Startup Repair
+
+- Corrected the audio-start failure evidenced by the on-device **Verify Adhan** result. The short-lived broadcast receiver no longer starts a competing audio fallback while the foreground playback service is still preparing MediaPlayer. The playback service now owns the complete audio lifecycle under its wake lock.
+- Added a two-stage offline recovery path. If a bundled or custom MediaPlayer source does not reach playback in time, the running service replaces it with a local synthesised AudioTrack fallback. It records recovery as an in-progress `AudioFallbackStarted` stage and only reports a terminal error if AudioTrack also fails to enter the playing state.
+- Added a bounded local fallback even when the foreground-notification start fails, so an Android foreground-notification error cannot by itself turn an otherwise valid Adhan request into silence. All paths retain the exact user-selected sound mode and global/per-prayer volume, including low values such as 17%; they are never reset or rewritten.
+- Extended the Verify Adhan observation window to cover the exact-alarm dispatch, MediaPlayer startup timeout, and AudioTrack fallback window. The screen therefore waits for the final delivery result instead of declaring an early failure while recovery is still running.
+
+## Real APK Instrumentation Coverage
+
+- Moved Adhan and prayer-home device tests from a standalone feature-library test APK to the actual Muslim application APK. The tests now execute with `MuslimApplication`, Hilt, the merged production manifest, the registered receiver, foreground service, Android notification channel, and AlarmManager.
+- Added an end-to-end scheduled-probe device test that grants the required test permissions, persists a real location and audible configuration, schedules the same exact probe as Verify Adhan, and requires receiver reach, retained active alert, and confirmed audio startup.
+- The full CI run passed content checks, unit tests, Android Lint, Detekt, signed release artifacts, the real-APK emulator suite, and the new scheduled Adhan probe. A physical user handset is not connected to the release environment, so physical audibility is still verified on-device after installation.
+
 ## Muslim v1.24.11
 
 Updates install directly over v1.24.10 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.
