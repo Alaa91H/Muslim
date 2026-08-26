@@ -122,6 +122,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import org.muslim.app.core.common.text.ArabicText
+import org.muslim.app.core.designsystem.IslamicElevation
 import org.muslim.app.core.designsystem.IslamicMotion
 import org.muslim.app.core.designsystem.IslamicRadius
 import org.muslim.app.core.designsystem.MuslimSepiaColors
@@ -1009,11 +1010,15 @@ private fun RecitationBar(
     var rangeMenu by remember { mutableStateOf(false) }
     var reciterMenu by remember { mutableStateOf(false) }
     Surface(
-        color = MaterialTheme.colorScheme.surface,
+        modifier = Modifier.fillMaxWidth(),
+        shape = MaterialTheme.shapes.large,
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
         // Explicit content color keeps every label readable in the reader's
         // light / sepia / night themes (dark-mode contrast fix).
         contentColor = MaterialTheme.colorScheme.onSurface,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+        tonalElevation = IslamicElevation.Resting,
+        shadowElevation = IslamicElevation.Raised,
     ) {
         Column {
             if (selectedAyahNumber != null && onPlaySelectedAyah != null) {

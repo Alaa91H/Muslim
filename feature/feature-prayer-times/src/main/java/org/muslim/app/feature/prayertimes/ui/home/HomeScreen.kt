@@ -30,8 +30,6 @@ import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.WbSunny
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -66,6 +64,12 @@ import org.muslim.app.core.common.time.TimeFormats
 import org.muslim.app.core.ui.theme.IslamicOrnament
 import org.muslim.app.core.ui.theme.IslamicOrnamentImage
 import org.muslim.app.core.ui.theme.IslamicOrnamentOpacity
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.MuslimSectionHeader
+import org.muslim.app.core.ui.theme.MuslimStateSurface
+import org.muslim.app.core.ui.theme.MuslimStateTone
+import org.muslim.app.core.designsystem.IslamicIconSize
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 import org.muslim.app.core.datastore.prayer.trackablePrayers
 
@@ -94,13 +98,16 @@ fun HomeScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(220.dp)
-                .padding(top = 24.dp),
+                .padding(top = IslamicSpacing.Large),
         )
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
-                .padding(horizontal = 16.dp, vertical = 8.dp),
+                .padding(
+                    horizontal = IslamicSpacing.PageHorizontal,
+                    vertical = IslamicSpacing.Small,
+                ),
         ) {
         // ---- Date header ----
         state.hijri?.let { hijri ->
@@ -137,29 +144,27 @@ fun HomeScreen(
             }
         }
 
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.height(IslamicSpacing.Medium))
 
         if (!state.hasLocation) {
-            Card(modifier = Modifier.fillMaxWidth()) {
-                Text(
-                    text = stringResource(R.string.home_location_unknown),
-                    modifier = Modifier.padding(16.dp),
-                    style = MaterialTheme.typography.bodyLarge,
-                )
-            }
+            MuslimStateSurface(
+                title = stringResource(R.string.home_location_unknown),
+                tone = MuslimStateTone.Information,
+                icon = Icons.Default.Place,
+                iconContentDescription = null,
+            )
             return@Column
         }
 
         // ---- Next prayer + countdown ----
-        Card(
+        IslamicCard(
             modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.primaryContainer,
-            ),
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            contentPadding = androidx.compose.foundation.layout.PaddingValues(IslamicSpacing.Comfortable),
         ) {
             Box {
                 PrayerCardEdgeOrnaments(tint = MaterialTheme.colorScheme.tertiary)
-                Column(modifier = Modifier.padding(20.dp)) {
+                Column {
                     Text(
                         text = stringResource(R.string.home_next_prayer),
                         style = MaterialTheme.typography.labelLarge,
@@ -181,7 +186,7 @@ fun HomeScreen(
                                 imageVector = prayerIcon(prayer),
                                 contentDescription = null,
                                 tint = MaterialTheme.colorScheme.tertiary,
-                                modifier = Modifier.size(48.dp),
+                                modifier = Modifier.size(IslamicIconSize.Hero),
                             )
                         }
                     }
@@ -205,14 +210,14 @@ fun HomeScreen(
             }
         }
 
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.height(IslamicSpacing.SectionVertical))
 
         // ---- Today's times ----
-        Text(
-            text = stringResource(R.string.home_today_times),
-            style = MaterialTheme.typography.titleLarge,
+        MuslimSectionHeader(
+            title = stringResource(R.string.home_today_times),
+            supportingText = state.selectedDate.format(localDateFormatter),
         )
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(IslamicSpacing.Small))
 
         if (!state.isValid) {
             Text(
@@ -223,15 +228,17 @@ fun HomeScreen(
             return@Column
         }
 
-        Card(
+        IslamicCard(
             modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+            contentPadding = androidx.compose.foundation.layout.PaddingValues(
+                horizontal = IslamicSpacing.Medium,
+                vertical = IslamicSpacing.Small,
             ),
         ) {
             Box {
                 PrayerCardEdgeOrnaments(tint = MaterialTheme.colorScheme.primary)
-                Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {
+                Column {
                     Prayer.entries.forEachIndexed { index, prayer ->
                     if (index > 0) HorizontalDivider()
                     val isNextPrayer = prayer == state.nextPrayer
@@ -243,7 +250,10 @@ fun HomeScreen(
                             .background(
                                 if (isNextPrayer) MaterialTheme.colorScheme.tertiaryContainer else Color.Transparent,
                             )
-                            .padding(horizontal = 12.dp, vertical = 10.dp),
+                            .padding(
+                                horizontal = IslamicSpacing.Compact,
+                                vertical = IslamicSpacing.Small,
+                            ),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Icon(
@@ -251,9 +261,9 @@ fun HomeScreen(
                             contentDescription = null,
                             tint = if (isNextPrayer) MaterialTheme.colorScheme.onTertiaryContainer
                             else MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.size(22.dp),
+                            modifier = Modifier.size(IslamicIconSize.Standard),
                         )
-                        Spacer(Modifier.width(10.dp))
+                        Spacer(Modifier.width(IslamicSpacing.Small))
                         Text(
                             text = stringResource(prayerLabelRes(prayer)),
                             style = MaterialTheme.typography.bodyLarge,
@@ -323,13 +333,13 @@ fun HomeScreen(
         }
 
         if (showPrayerTrackerOnHome) {
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(IslamicSpacing.SectionVertical))
             PrayerCompletionCard(
                 completedPrayers = state.completedPrayers,
                 onToggle = viewModel::togglePrayerCompletion,
             )
 
-            Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(IslamicSpacing.Medium))
         }
         }
     }
@@ -381,10 +391,13 @@ private fun PrayerCompletionCard(
     completedPrayers: Set<Prayer>,
     onToggle: (Prayer) -> Unit,
 ) {
-    Card(modifier = Modifier.fillMaxWidth()) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(IslamicSpacing.Medium),
+    ) {
         Box {
             PrayerCardEdgeOrnaments(tint = MaterialTheme.colorScheme.primary)
-            Column(modifier = Modifier.padding(16.dp)) {
+            Column {
             Text(
                 text = stringResource(R.string.home_prayer_tracker_title),
                 style = MaterialTheme.typography.titleMedium,

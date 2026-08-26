@@ -41,6 +41,7 @@ kotlin {
 }
 
 dependencies {
+    implementation(project(":core:core-design-system"))
     implementation(project(":core:core-ui"))
     implementation(project(":core:core-common"))
     implementation(project(":core:core-datastore"))

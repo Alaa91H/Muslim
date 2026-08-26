@@ -8,13 +8,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -34,6 +34,10 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.ui.theme.IslamicOrnament
 import org.muslim.app.core.ui.theme.IslamicOrnamentImage
 import org.muslim.app.core.ui.theme.IslamicOrnamentOpacity
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.MuslimSectionHeader
+import org.muslim.app.core.designsystem.IslamicIconSize
+import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.feature.quran.R
 import org.muslim.app.feature.quran.domain.Surah
 
@@ -57,30 +61,31 @@ fun SurahListScreen(
             ornament = IslamicOrnament.SurahHeader,
             tint = MaterialTheme.colorScheme.tertiary,
             alpha = IslamicOrnamentOpacity.LightSection,
-            modifier = Modifier.fillMaxWidth().height(16.dp).padding(top = 2.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(IslamicSpacing.Medium)
+                .padding(top = IslamicSpacing.XXSmall),
         )
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 4.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text(
-                text = stringResource(R.string.quran_title),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.weight(1f).padding(start = 8.dp),
-            )
-            IconButton(onClick = onOpenBookmarks) {
-                Icon(
-                    Icons.Filled.Bookmark,
-                    contentDescription = stringResource(R.string.quran_bookmarks),
-                )
-            }
-        }
+        MuslimSectionHeader(
+            title = stringResource(R.string.quran_title),
+            modifier = Modifier.padding(
+                horizontal = IslamicSpacing.PageHorizontal,
+                vertical = IslamicSpacing.Small,
+            ),
+            action = {
+                IconButton(onClick = onOpenBookmarks) {
+                    Icon(
+                        Icons.Filled.Bookmark,
+                        contentDescription = stringResource(R.string.quran_bookmarks),
+                    )
+                }
+            },
+        )
 
         when {
             state.loading -> {
                 Column(
-                    modifier = Modifier.fillMaxSize().padding(24.dp),
+                    modifier = Modifier.fillMaxSize().padding(IslamicSpacing.Large),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     CircularProgressIndicator()
@@ -89,7 +94,9 @@ fun SurahListScreen(
             else -> {
                 LazyColumn(
                     modifier = Modifier.fillMaxSize(),
-                    contentPadding = androidx.compose.foundation.layout.PaddingValues(bottom = 16.dp),
+                    contentPadding = androidx.compose.foundation.layout.PaddingValues(
+                        bottom = IslamicSpacing.Medium,
+                    ),
                 ) {
                     item(key = "khatma") {
                         KhatmaProgressCard(
@@ -123,12 +130,16 @@ fun SurahListScreen(
 
 @Composable
 private fun KhatmaProgressCard(readThrough: Int, totalAyahs: Int, fraction: Float) {
-    Card(
+    IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .padding(
+                horizontal = IslamicSpacing.PageHorizontal,
+                vertical = IslamicSpacing.Small,
+            ),
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(IslamicSpacing.Medium),
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
+        Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = stringResource(R.string.quran_khatma_progress),
@@ -165,23 +176,28 @@ private fun KhatmaProgressCard(readThrough: Int, totalAyahs: Int, fraction: Floa
 
 @Composable
 private fun ResumeReadingCard(surahNumber: Int, ayahNumber: Int, onClick: () -> Unit) {
-    Card(
+    IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .padding(
+                horizontal = IslamicSpacing.PageHorizontal,
+                vertical = IslamicSpacing.Small,
+            )
             .clickable(onClick = onClick),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
+        containerColor = MaterialTheme.colorScheme.secondaryContainer,
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(IslamicSpacing.Medium),
     ) {
         Row(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier,
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
                 Icons.Default.PlayArrow,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSecondaryContainer,
+                modifier = Modifier.size(IslamicIconSize.Standard),
             )
-            Spacer(Modifier.padding(start = 4.dp))
+            Spacer(Modifier.width(IslamicSpacing.XSmall))
             Text(
                 text = stringResource(R.string.quran_resume, surahNumber.toString(), ayahNumber.toString()),
                 style = MaterialTheme.typography.bodyLarge,
@@ -198,14 +214,17 @@ private fun SurahRow(surah: Surah, onClick: () -> Unit, onPlay: () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .padding(horizontal = 16.dp, vertical = 14.dp),
+            .padding(
+                horizontal = IslamicSpacing.PageHorizontal,
+                vertical = IslamicSpacing.Compact,
+            ),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
             text = surah.number.toString(),
             style = MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.padding(end = 16.dp),
+            modifier = Modifier.padding(end = IslamicSpacing.Medium),
         )
         Column(modifier = Modifier.weight(1f)) {
             Text(
@@ -231,6 +250,7 @@ private fun SurahRow(surah: Surah, onClick: () -> Unit, onPlay: () -> Unit) {
                     R.string.quran_range_whole_surah,
                 ),
                 tint = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(IslamicIconSize.Standard),
             )
         }
         Column(horizontalAlignment = Alignment.End) {

@@ -32,8 +32,6 @@ import androidx.compose.material.icons.filled.School
 import androidx.compose.material.icons.filled.SelfImprovement
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Visibility
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -50,6 +48,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import org.muslim.app.R
+import org.muslim.app.core.designsystem.IslamicIconSize
+import org.muslim.app.core.designsystem.IslamicSpacing
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.MuslimSectionHeader
 
 private data class MoreEntry(
     val titleRes: Int,
@@ -156,17 +158,17 @@ fun MoreScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding),
-            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            contentPadding = PaddingValues(
+                horizontal = IslamicSpacing.PageHorizontal,
+                vertical = IslamicSpacing.Compact,
+            ),
+            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
         ) {
             sections.forEach { section ->
                 item(key = "header_${section.titleRes}") {
-                    Text(
-                        text = stringResource(section.titleRes),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.primary,
-                        fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier.padding(top = 8.dp, bottom = 2.dp),
+                    MuslimSectionHeader(
+                        title = stringResource(section.titleRes),
+                        modifier = Modifier.padding(top = IslamicSpacing.Small),
                     )
                 }
                 items(section.entries, key = { it.titleRes }) { entry ->
@@ -179,16 +181,17 @@ fun MoreScreen(
 
 @Composable
 private fun MoreCard(entry: MoreEntry) {
-    Card(
+    IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = entry.onClick),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface,
-        ),
+        contentPadding = PaddingValues(0.dp),
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
+            modifier = Modifier.padding(
+                horizontal = IslamicSpacing.Medium,
+                vertical = IslamicSpacing.Compact,
+            ),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Surface(
@@ -199,10 +202,12 @@ private fun MoreCard(entry: MoreEntry) {
                     imageVector = entry.icon,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onSecondaryContainer,
-                    modifier = Modifier.padding(9.dp).size(20.dp),
+                    modifier = Modifier
+                        .padding(IslamicSpacing.Small)
+                        .size(IslamicIconSize.Standard),
                 )
             }
-            Spacer(Modifier.width(14.dp))
+            Spacer(Modifier.width(IslamicSpacing.Compact))
             Column(Modifier.weight(1f)) {
                 Text(
                     text = stringResource(entry.titleRes),
