@@ -32,7 +32,7 @@ Android can retain a running notification or cache an adaptive icon across an ap
 
 ## Verification approach
 
-The implementation is verified through focused source checks, Kotlin tests, Android instrumentation coverage, and continuous integration. Device tests post synthetic retained cards for every retired ID, invoke the matching migration function, and require the Android active-notification list to stop containing them. A dedicated receiver test invokes `ACTION_MY_PACKAGE_REPLACED` directly and requires the latest retired Adhan, countdown, and Quran cards to disappear together. The tests also assert the `v2028` launcher and status-bar identities.
+The implementation is verified through focused source checks, Kotlin tests, Android instrumentation coverage, and continuous integration. Device tests post synthetic retained cards for every retired ID, invoke the matching production migration function, and require the Android active-notification list to stop containing them. The package-replaced receiver calls those same tested production cleanup functions immediately after an in-place upgrade. The tests also assert the `v2028` launcher and status-bar identities.
 
 | Check | Evidence expected before a public repair release |
 |---|---|

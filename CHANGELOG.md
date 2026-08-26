@@ -10,7 +10,7 @@ sectioned format as v1.10.0 and are generated from the commits for each tag.
 - Rotated the phone launcher, round-launcher, themed monochrome, status-bar, and dedicated Wear OS launcher identities again to fresh `v2028` resources, then removed every packaged retired resource so no current producer can resolve the retired identity.
 - Rotated the active Adhan card from `1012` to `1014`, the persistent next-prayer countdown from `1013` to `1015`, and Quran `MediaStyle` playback from `7007` to `7008`. Each migration cancels the latest retired card and every documented older card.
 - Added an internal `ACTION_MY_PACKAGE_REPLACED` receiver that performs cleanup immediately after an in-place upgrade, without depending on an application launch or foreground-service restart.
-- Extended instrumentation coverage for the expanded Adhan, countdown, and Quran-retirement lists, added a direct package-replaced receiver test, and updated the identity repair documentation to state Android-owned cache and template limits precisely.
+- Extended direct Android instrumentation coverage for the expanded Adhan, countdown, and Quran-retirement lists, and updated the identity repair documentation to state Android-owned cache and template limits precisely.
 
 ## Muslim v1.25.0
 
