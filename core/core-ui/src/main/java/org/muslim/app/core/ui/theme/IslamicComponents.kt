@@ -72,7 +72,7 @@ enum class MuslimStateTone {
 @Composable
 fun MuslimStateSurface(
     title: String,
-    supportingText: String,
+    supportingText: String? = null,
     modifier: Modifier = Modifier,
     tone: MuslimStateTone = MuslimStateTone.Neutral,
     icon: ImageVector? = null,
@@ -124,11 +124,13 @@ fun MuslimStateSurface(
                     fontWeight = FontWeight.SemiBold,
                 )
             }
-            Text(
-                text = supportingText,
-                style = MaterialTheme.typography.bodyMedium,
-                color = content.copy(alpha = 0.82f),
-            )
+            supportingText?.takeIf { it.isNotBlank() }?.let {
+                Text(
+                    text = it,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = content.copy(alpha = 0.82f),
+                )
+            }
             if (actionLabel != null && onAction != null) {
                 TextButton(
                     onClick = onAction,

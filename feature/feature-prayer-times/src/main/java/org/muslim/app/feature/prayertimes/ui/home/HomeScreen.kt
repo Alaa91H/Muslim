@@ -149,12 +149,9 @@ fun HomeScreen(
         if (!state.hasLocation) {
             MuslimStateSurface(
                 title = stringResource(R.string.home_location_unknown),
-                supportingText = stringResource(R.string.home_select_location),
                 tone = MuslimStateTone.Information,
                 icon = Icons.Default.Place,
                 iconContentDescription = null,
-                actionLabel = stringResource(R.string.home_select_location),
-                onAction = onSelectLocation,
             )
             return@Column
         }
