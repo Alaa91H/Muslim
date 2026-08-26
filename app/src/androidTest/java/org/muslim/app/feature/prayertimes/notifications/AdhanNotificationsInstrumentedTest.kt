@@ -7,6 +7,7 @@ import androidx.core.app.NotificationCompat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -14,6 +15,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.notifications.NotificationChannels
+import org.muslim.app.feature.prayertimes.domain.PrayerCountdownData
+import java.time.LocalTime
 
 /**
  * Device-level regression for the active Adhan alert inside the real Muslim
@@ -47,7 +50,7 @@ class AdhanNotificationsInstrumentedTest {
         notificationManager.notify(
             AdhanNotifications.RETIRED_ADHAN_NOTIFICATION_ID,
             NotificationCompat.Builder(context, NotificationChannels.ADHAN)
-                .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1252)
+                .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_adhan_notification_status)
                 .setContentTitle("Retired Adhan alert")
                 .setOngoing(true)
                 .build(),
@@ -84,16 +87,40 @@ class AdhanNotificationsInstrumentedTest {
     }
 
     @Test
+    fun nextAdhanCountdown_usesTheCurrentPrayerNotificationIcon() {
+        val notification = NextAdhanNotifications.build(
+            context = context,
+            data = PrayerCountdownData(
+                hasLocation = true,
+                isValid = true,
+                nextPrayer = Prayer.Dhuhr,
+                nextPrayerAt = LocalTime.of(12, 30),
+                remainingSeconds = 3_600L,
+                missedPrayer = null,
+                missedPrayerAt = null,
+                elapsedSeconds = 0L,
+            ),
+        )
+
+        assertEquals(
+            org.muslim.app.core.notifications.R.drawable.ic_adhan_notification_status,
+            notification.smallIcon.resId,
+        )
+    }
+
+    @Test
     fun showAdhan_confirmsTheFreshActiveAdhanNotificationAndChannel() {
         val result = AdhanNotifications.showAdhan(context, Prayer.Fajr)
 
         assertTrue("Adhan notification was blocked: ${result.detail}", result.posted)
         assertNull(result.detail)
-        assertTrue(
-            notificationManager.activeNotifications.any { statusBarNotification ->
-                statusBarNotification.id == AdhanNotifications.ADHAN_NOTIFICATION_ID &&
-                    statusBarNotification.notification.channelId == NotificationChannels.ADHAN
-            },
+        val activeAdhan = notificationManager.activeNotifications.single { statusBarNotification ->
+            statusBarNotification.id == AdhanNotifications.ADHAN_NOTIFICATION_ID &&
+                statusBarNotification.notification.channelId == NotificationChannels.ADHAN
+        }.notification
+        assertEquals(
+            org.muslim.app.core.notifications.R.drawable.ic_adhan_notification_status,
+            activeAdhan.smallIcon.resId,
         )
     }
 }

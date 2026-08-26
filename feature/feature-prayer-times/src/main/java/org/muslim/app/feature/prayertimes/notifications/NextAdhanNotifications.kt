@@ -100,7 +100,7 @@ object NextAdhanNotifications {
         }
 
         val builder = NotificationCompat.Builder(context, NotificationChannels.PRAYER_COUNTDOWN)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1252)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_adhan_notification_status)
             // This is a silent status/countdown card, not the active Adhan alert.
             // It must never attach a large icon that could make the compact card
             // look like a duplicate, retired, or active alarm notification.

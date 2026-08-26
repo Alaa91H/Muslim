@@ -69,7 +69,7 @@ object AdhanNotifications {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
         return NotificationCompat.Builder(context, NotificationChannels.ADHAN)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1252)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_adhan_notification_status)
             // Do not attach a large image. On some OEM notification templates it
             // is rendered alongside the launcher/app identity and looks like a
             // duplicated or stale second icon. The new monochrome status glyph
@@ -79,7 +79,7 @@ object AdhanNotifications {
             .setStyle(NotificationCompat.BigTextStyle())
             .setCategory(NotificationCompat.CATEGORY_ALARM)
             .addAction(
-                org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1252,
+                org.muslim.app.core.notifications.R.drawable.ic_adhan_notification_status,
                 context.getString(R.string.adhan_notification_stop),
                 stopIntent,
             )
@@ -167,7 +167,7 @@ object AdhanNotifications {
 
     fun showReminder(context: Context, prayer: Prayer, minutesBefore: Int) {
         val notification = NotificationCompat.Builder(context, NotificationChannels.REMINDER)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1252)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_adhan_notification_status)
             .setContentTitle(context.getString(R.string.reminder_title))
             .setContentText(
                 context.getString(
