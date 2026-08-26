@@ -26,9 +26,16 @@ import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
  * changed in the settings ([missedColor]). The notification is ongoing and
  * only refreshed in place.
  */
-internal object NextAdhanNotifications {
+object NextAdhanNotifications {
 
-    const val NEXT_ADHAN_NOTIFICATION_ID = 1003
+    /** New identity for the silent countdown card. Legacy ongoing cards must be cancelled explicitly. */
+    const val NEXT_ADHAN_NOTIFICATION_ID = 1004
+    const val RETIRED_COUNTDOWN_NOTIFICATION_ID = 1003
+
+    fun cancelRetiredCountdown(context: Context) {
+        context.getSystemService(android.app.NotificationManager::class.java)
+            .cancel(RETIRED_COUNTDOWN_NOTIFICATION_ID)
+    }
 
     fun build(
         context: Context,

@@ -3,6 +3,22 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.14
+
+Updates install directly over v1.24.13 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.
+
+## Countdown Identity and Service-Reach Repair
+
+- Migrated the permanent, silent next-prayer countdown from notification id `1003` to the fresh id `1004`. Every service start explicitly cancels the retired ongoing card before posting the new card, removing a status notification retained by Android from older builds and preventing its old large artwork from surviving an update.
+- Kept the replacement countdown card deliberately separate from the active Adhan alert: it uses only the current monochrome status-bar glyph and does not attach a large branded image. The system's single application identity remains the only branded icon in the collapsed notification surface.
+- Added a bounded foreground-service reach watchdog for Audible Adhan delivery. If Android accepts `startForegroundService()` but the service never reaches its own journal checkpoint, the receiver cancels the stalled start and launches an offline synthesized AudioTrack fallback under a partial wake lock using the exact sound volume chosen by the user.
+- Preserved the service-owned MediaPlayer and AudioTrack recovery path whenever the service does start, avoiding a competing player or any automatic modification of global/per-prayer sound settings.
+
+## Regression Coverage
+
+- Added a device test that posts a retired countdown card then verifies the migration cancels it from Android's active-notification list. Added a unit test enforcing the distinct retired and current countdown identities.
+- Passed local app unit tests, Android Lint, Detekt, Debug assembly, and compilation of the application-level device suite. The release remains gated on the Android emulator and full CI before public publication.
+
 ## Muslim v1.24.13
 
 Updates install directly over v1.24.11 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.

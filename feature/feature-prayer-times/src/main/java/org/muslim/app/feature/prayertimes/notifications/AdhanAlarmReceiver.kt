@@ -8,6 +8,7 @@ import androidx.glance.appwidget.updateAll
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.muslim.app.core.common.prayer.AdhanSoundOption
@@ -175,19 +176,51 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
             )
         }
         if (serviceStart.isFailure) {
-            journal.failed(
+            journal.audioFallbackStarted(
                 request.prayer,
                 request.isProbe,
-                "Foreground service start failed: ${serviceStart.exceptionOrNull()?.javaClass?.simpleName}",
+                "Foreground service start failed: ${serviceStart.exceptionOrNull()?.javaClass?.simpleName}; direct synthetic fallback started",
             )
             playDirectFallback(appContext, entryPoint, request, plan)
             return
         }
-        // Do not wait for MediaPlayer from a BroadcastReceiver. Android gives
-        // receivers only a short execution window, and the earlier four-second
-        // fallback interrupted a still-preparing foreground-service player.
-        // The service owns delayed audio confirmation and a synthesised fallback
-        // while it holds the wake lock and foreground lifetime.
+        // startForegroundService may return before Android creates the service.
+        // If the service never reaches onStartCommand, no service-owned timeout
+        // can recover audio. Wait only for its journal checkpoint, then claim a
+        // direct AudioTrack fallback; a service that did start is left entirely
+        // in charge of MediaPlayer and its own fallback.
+        awaitServiceStartOrFallback(appContext, entryPoint, request, plan)
+    }
+
+    private suspend fun awaitServiceStartOrFallback(
+        appContext: Context,
+        entryPoint: AdhanEntryPoint,
+        request: AdhanDeliveryRequest,
+        plan: org.muslim.app.core.common.prayer.AdhanPlaybackPlan.Plan,
+    ) {
+        if (!plan.playSound) return
+        delay(SERVICE_START_CONFIRMATION_TIMEOUT_MS)
+        val latest = if (request.isProbe) entryPoint.deliveryJournal().lastProbe.value
+        else entryPoint.deliveryJournal().lastDelivery.value
+        val serviceReached = latest.prayer == request.prayer &&
+            latest.isProbe == request.isProbe &&
+            latest.stage in setOf(
+            AdhanDeliveryStage.ServiceStarted,
+            AdhanDeliveryStage.AudioFallbackStarted,
+            AdhanDeliveryStage.AudioStarted,
+            AdhanDeliveryStage.Failed,
+        )
+        if (serviceReached) return
+
+        // Prevent a delayed service start from taking over the singleton player
+        // after the receiver has claimed the direct recovery path.
+        AdhanPlaybackService.stop(appContext)
+        entryPoint.deliveryJournal().audioFallbackStarted(
+            request.prayer,
+            request.isProbe,
+            "Foreground service did not enter playback; direct synthetic fallback started",
+        )
+        playDirectFallback(appContext, entryPoint, request, plan)
     }
 
     private fun playDirectFallback(
@@ -208,25 +241,20 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         val onFinished = {
             if (fallbackWakeLock.isHeld) fallbackWakeLock.release()
         }
-        when {
-            request.soundPath != null && java.io.File(request.soundPath).exists() ->
-                player.playFile(
-                    java.io.File(request.soundPath),
-                    request.volume,
-                    onStarted = onStarted,
-                    onFinished = onFinished,
-                )
-            else -> player.playBundled(
-                org.muslim.app.core.common.prayer.BundledAdhanSound.fromId(request.bundledSoundId),
-                request.volume,
-                onStarted = onStarted,
-                onFinished = onFinished,
-            )
-        }
+        // Use an offline AudioTrack here rather than retrying the same
+        // MediaPlayer source whose service path never became reachable. This is
+        // a one-time delivery fallback only; it never changes the stored sound
+        // selection or volume.
+        player.playSynthesized(
+            request.volume,
+            onStarted = onStarted,
+            onFinished = onFinished,
+        )
     }
 
     companion object {
         private const val DIRECT_FALLBACK_WAKELOCK_TIMEOUT_MS = 4 * 60_000L
+        private const val SERVICE_START_CONFIRMATION_TIMEOUT_MS = 3_500L
         private const val WAKE_LOCK_TAG = "Muslim:Adhan"
         const val EXTRA_PRAYER = "extra_prayer"
         const val EXTRA_IS_REMINDER = "extra_is_reminder"
