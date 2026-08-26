@@ -157,11 +157,12 @@ class AdhanDeliveryJournal @Inject constructor(
         } else {
             status
         }
-        write(PREFIX_DELIVERY, carried)
-        _lastDelivery.value = carried
         if (carried.isProbe) {
             write(PREFIX_PROBE, carried)
             _lastProbe.value = carried
+        } else {
+            write(PREFIX_DELIVERY, carried)
+            _lastDelivery.value = carried
         }
     }
 

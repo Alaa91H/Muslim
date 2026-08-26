@@ -8,6 +8,7 @@ on:
     branches: [ main ]
     tags: [ 'v*' ]
   pull_request:
+  workflow_dispatch:
 
 permissions:
   # write is required by the release-apk job to publish tag releases.
@@ -137,10 +138,15 @@ jobs:
       - name: Run instrumented tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 34
+          # Android 16 / API 36 is the stable runner-supported test target. This suite exercises
+          # the exact-alarm receiver, foreground Adhan service and notification
+          # path under the platform's new background-audio restrictions.
+          api-level: 36
           arch: x86_64
           disable-animations: true
-          script: ./gradlew :app:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest
+          script: |
+            adb shell cmd audio set-enable-hardening throw
+            ./gradlew :app:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest
 
       # Instrumentation failures are the hardest to reproduce locally, so the
       # device test report is always kept when this job fails.
@@ -240,7 +246,10 @@ jobs:
     name: Release artifacts (APK + AAB)
     needs: [quality, emulator-tests]
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))
+    if: >-
+      (github.event_name == 'push' &&
+        (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))) ||
+      (github.event_name == 'workflow_dispatch' && startsWith(github.ref, 'refs/tags/v'))
     steps:
       - name: Checkout
         uses: actions/checkout@v5

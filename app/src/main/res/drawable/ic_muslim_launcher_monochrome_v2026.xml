@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Themed adaptive-icon layer: one solid geometry, system tinted by Android. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M54,14L65,31L85,29L77,47L94,58L76,66L78,86L60,78L49,94L42,76L22,78L31,60L14,49L32,42L30,22L48,31ZM54,29L46,43L31,45L42,54L38,68L52,62L61,77L64,61L78,63L68,51L79,40L64,42ZM54,44L61,52L60,77L48,77L48,61C48,56 51,52 54,49C57,52 60,56 60,61L60,77L48,77L48,52Z" />
+</vector>

@@ -35,6 +35,7 @@ import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -537,7 +538,18 @@ private fun AdhanReadinessCard(
                 )
             }
             Spacer(Modifier.height(12.dp))
-            Button(onClick = onVerify, modifier = Modifier.fillMaxWidth()) {
+            Button(
+                onClick = onVerify,
+                enabled = !readiness.isVerifying,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                if (readiness.isVerifying) {
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(18.dp),
+                        strokeWidth = 2.dp,
+                    )
+                    Spacer(Modifier.width(8.dp))
+                }
                 Text(stringResource(R.string.settings_adhan_verify_action))
             }
         }

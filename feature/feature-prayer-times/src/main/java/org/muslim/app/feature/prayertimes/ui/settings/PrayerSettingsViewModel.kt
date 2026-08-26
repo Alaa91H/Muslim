@@ -66,6 +66,8 @@ data class AdhanReadiness(
     val scheduledAudioVerified: Boolean = false,
     val scheduledNotificationPosted: Boolean = false,
     val alarmVolumeAudible: Boolean = false,
+    /** True only while an explicit background-delivery probe is in progress. */
+    val isVerifying: Boolean = false,
     /** Local stage-specific detail from the most recent scheduled probe, if it failed. */
     val lastProbeDetail: String? = null,
 ) {
@@ -193,14 +195,18 @@ class PrayerSettingsViewModel @Inject constructor(
             NotificationChannels.create(context)
             val current = repository.settings.first()
             val targetPrayer = computeNextPrayer(current)?.first ?: Prayer.Fajr
+            _adhanReadiness.value = _adhanReadiness.value.copy(
+                isVerifying = true,
+                lastProbeDetail = null,
+            )
             if (!scheduler.scheduleDeliveryProbe(current, targetPrayer)) {
                 refreshAdhanReadiness(current)
                 return@launch
             }
             // Clear any earlier verification immediately; only this newly
             // scheduled probe may make the delivery check pass again.
-            refreshAdhanReadiness(current)
-            // The probe rings after ten seconds. Wait for a signal emitted only
+            refreshAdhanReadiness(current, isVerifying = true)
+            // The probe rings almost immediately. Wait for a signal emitted only
             // after MediaPlayer/AudioTrack reaches its playing state, or a
             // terminal failure recorded by the service.
             repeat(DELIVERY_PROBE_POLL_COUNT) {
@@ -215,7 +221,10 @@ class PrayerSettingsViewModel @Inject constructor(
         }
     }
 
-    private suspend fun refreshAdhanReadiness(current: PrayerSettings) {
+    private suspend fun refreshAdhanReadiness(
+        current: PrayerSettings,
+        isVerifying: Boolean = false,
+    ) {
         NotificationChannels.create(context)
         val notificationPreflight = AdhanNotifications.notificationPreflight(context)
         val notificationsAllowed = context.notificationAllowed(NotificationCategory.Adhan) &&
@@ -244,6 +253,7 @@ class PrayerSettingsViewModel @Inject constructor(
             scheduledAudioVerified = scheduledAudioVerified,
             scheduledNotificationPosted = scheduledNotificationPosted,
             alarmVolumeAudible = alarmVolumeAudible,
+            isVerifying = isVerifying,
             lastProbeDetail = latestProbe.detail?.takeIf {
                 latestProbe.stage == org.muslim.app.feature.prayertimes.notifications.AdhanDeliveryStage.Failed ||
                     latestProbe.visibleNotificationResult ==
@@ -444,7 +454,7 @@ class PrayerSettingsViewModel @Inject constructor(
 
     private companion object {
         const val DELIVERY_PROBE_POLL_INTERVAL_MS = 500L
-        // 10 seconds until AlarmManager delivers the probe, up to 12 seconds
+        // The near-immediate AlarmManager probe can still need up to 12 seconds
         // for MediaPlayer startup, then a short AudioTrack fallback window.
         // Keep the UI observing long enough to report the final real stage.
         const val DELIVERY_PROBE_POLL_COUNT = 64

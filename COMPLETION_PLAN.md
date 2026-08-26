@@ -57,6 +57,17 @@
 
 ## 2. Remaining (by priority)
 
+### Active tasks — reported 26 August 2026
+
+| Priority | Task | Scope and acceptance criteria |
+|---|---|---|
+| P0 | **Restore reliable Adhan and notification delivery on Android 17** | Trace the complete path: permission state, notification channels, exact-alarm capability, alarm scheduling, broadcast delivery, foreground-service start, audio focus and playback. Remove the 15-second delay from the in-app test path or present an accurate, immediate diagnostic. Verify on an API 37/Android 17 emulator or device with automated coverage for both the normal and denied-permission paths. |
+| P0 | **Whole-project quality audit and zero-known-regressions loop** | Audit every module, manifest declaration, navigation route, background path, resource, localisation, test and build variant. Record reproducible defects, fix their root causes and add regression tests. Run a repeatable quality gate (compile, unit tests, lint, static checks and device tests where available); “zero errors” means zero findings in that defined gate, not an unprovable infinite claim. |
+| P0 | **Verified GitHub delivery and release** | Push only the verified project state to `Alaa91H/Muslim`, monitor the exact commit's GitHub Actions run, resolve reproducible CI failures, then create and push a semantically versioned tag and GitHub Release with a professional English changelog. Do not publish a release until the defined quality gate and CI are green. |
+| P1 | **World-class modern Islamic-app UX/UI programme** | Establish an accessible, coherent design system and audit every screen, state and setting for hierarchy, discovery, responsiveness, RTL/localisation, dark mode, typography and Android large-screen support. Deliver the redesign incrementally with visual/regression verification, without sacrificing the existing religious functionality. |
+
+The Adhan reliability task is the current first implementation priority because it affects a core religious function.
+
 ### P1 — Religious/technical completions
 
 | Item | Description | Size |

@@ -9,7 +9,7 @@ class NextAdhanNotificationIdentityTest {
     fun `next adhan notification uses a fresh identity separate from the retired ongoing card`() {
         assertThat(NextAdhanNotifications.NEXT_ADHAN_NOTIFICATION_ID)
             .isNotEqualTo(NextAdhanNotifications.RETIRED_COUNTDOWN_NOTIFICATION_ID)
-        assertThat(NextAdhanNotifications.NEXT_ADHAN_NOTIFICATION_ID).isEqualTo(1004)
-        assertThat(NextAdhanNotifications.RETIRED_COUNTDOWN_NOTIFICATION_ID).isEqualTo(1003)
+        assertThat(NextAdhanNotifications.NEXT_ADHAN_NOTIFICATION_ID).isEqualTo(1011)
+        assertThat(NextAdhanNotifications.RETIRED_COUNTDOWN_NOTIFICATION_ID).isEqualTo(1004)
     }
 }
