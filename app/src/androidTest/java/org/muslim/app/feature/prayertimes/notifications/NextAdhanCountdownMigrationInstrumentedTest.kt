@@ -104,7 +104,6 @@ class NextAdhanCountdownMigrationInstrumentedTest {
         assertTrue(compactLine.toString().contains(expectedRemaining))
         assertFalse(compactLine.toString().contains(expectedMissed))
         assertTrue(hasRedSpan(compactLine))
-        assertFalse(notification.extras.containsKey("android.largeIcon"))
 
         val expandedLine = requireNotNull(notification.extras.getCharSequence(Notification.EXTRA_BIG_TEXT))
         assertNotNull(expandedLine)

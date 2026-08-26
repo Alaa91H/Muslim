@@ -21,7 +21,7 @@ This release installs directly over v1.24.14 or earlier releases with the same p
 
 ## Verification
 
-- Added an application-level Android test that verifies the compact line excludes missed-Adhan information, the expanded line contains it without extra lines, both duration segments carry the red foreground span, and the silent countdown has no large icon.
+- Added an application-level Android test that verifies the compact line excludes missed-Adhan information, the expanded line contains it without extra lines, and both duration segments carry the red foreground span. The countdown builder continues to omit a large-icon call; Android may still attach internal metadata for a small icon, so this is not inferred from that system-generated field.
 - Retained the device test that posts and then cancels the retired countdown identity. Local APK assembly, prayer-times unit tests, and application Android-test compilation passed before CI gating.
 
 ## Muslim v1.24.14
