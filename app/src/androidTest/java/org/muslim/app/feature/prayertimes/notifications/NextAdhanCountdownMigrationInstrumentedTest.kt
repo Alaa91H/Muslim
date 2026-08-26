@@ -3,6 +3,7 @@ package org.muslim.app.feature.prayertimes.notifications
 import android.app.Notification
 import android.app.NotificationManager
 import android.graphics.Color
+import android.os.SystemClock
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import androidx.core.app.NotificationCompat
@@ -52,12 +53,14 @@ class NextAdhanCountdownMigrationInstrumentedTest {
                 .build(),
         )
 
+        awaitNotificationState(
+            NextAdhanNotifications.RETIRED_COUNTDOWN_NOTIFICATION_ID,
+            expectedActive = true,
+        )
         NextAdhanNotifications.cancelRetiredCountdown(context)
-
-        assertFalse(
-            notificationManager.activeNotifications.any { statusBarNotification ->
-                statusBarNotification.id == NextAdhanNotifications.RETIRED_COUNTDOWN_NOTIFICATION_ID
-            },
+        awaitNotificationState(
+            NextAdhanNotifications.RETIRED_COUNTDOWN_NOTIFICATION_ID,
+            expectedActive = false,
         )
     }
 
@@ -115,6 +118,25 @@ class NextAdhanCountdownMigrationInstrumentedTest {
         )
         assertFalse(expandedLine.toString().contains("\n"))
         assertTrue(hasRedSpan(expandedLine))
+    }
+
+    private fun awaitNotificationState(notificationId: Int, expectedActive: Boolean) {
+        val deadline = SystemClock.elapsedRealtime() + 2_000L
+        do {
+            val isActive = notificationManager.activeNotifications.any { statusBarNotification ->
+                statusBarNotification.id == notificationId
+            }
+            if (isActive == expectedActive) return
+            SystemClock.sleep(50L)
+        } while (SystemClock.elapsedRealtime() < deadline)
+
+        val finalState = notificationManager.activeNotifications.any { statusBarNotification ->
+            statusBarNotification.id == notificationId
+        }
+        assertTrue(
+            "Notification $notificationId expected active=$expectedActive but was active=$finalState",
+            finalState == expectedActive,
+        )
     }
 
     private fun hasRedSpan(text: CharSequence): Boolean {
