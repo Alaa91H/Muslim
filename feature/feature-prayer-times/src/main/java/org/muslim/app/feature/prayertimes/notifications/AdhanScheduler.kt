@@ -54,23 +54,23 @@ class AdhanScheduler @Inject constructor(
         val params = parametersFor(settings, location)
         val now = System.currentTimeMillis()
 
-        // For each prayer find the next occurrence within today..tomorrow.
-        val upcoming = LinkedHashMap<Prayer, Long>()
-        for (date in listOf(LocalDate.now(zone), LocalDate.now(zone).plusDays(1))) {
-            val result = calculator.compute(
-                date = date,
-                coordinates = Coordinates(location.latitude, location.longitude, location.elevation),
-                parameters = params,
-                timeZone = zone,
-                asrMethod = settings.asrMethod,
-                userAdjustments = settings.adjustments,
-            )
-            if (!result.isValid) continue
-            for ((prayer, at) in result.epochMillis) {
-                if (prayer == Prayer.Sunrise) continue
-                if (at > now && at !in upcoming.values) upcoming[prayer] = at
+        // Calculate today and tomorrow, then retain the first future occurrence
+        // for each prayer. Iterating tomorrow must never replace an upcoming
+        // prayer from today, or the alarm would ring one day late.
+        val candidates = buildList {
+            for (date in listOf(LocalDate.now(zone), LocalDate.now(zone).plusDays(1))) {
+                val result = calculator.compute(
+                    date = date,
+                    coordinates = Coordinates(location.latitude, location.longitude, location.elevation),
+                    parameters = params,
+                    timeZone = zone,
+                    asrMethod = settings.asrMethod,
+                    userAdjustments = settings.adjustments,
+                )
+                if (result.isValid) addAll(result.epochMillis.map { (prayer, at) -> prayer to at })
             }
         }
+        val upcoming = selectEarliestUpcoming(candidates, now)
 
         // Cancel any previous alarms, then schedule fresh ones.
         cancelAll()
@@ -175,6 +175,20 @@ class AdhanScheduler @Inject constructor(
     }
 
     internal companion object {
+        /** Selects the first valid future occurrence of every prayer from ordered day results. */
+        internal fun selectEarliestUpcoming(
+            candidates: Iterable<Pair<Prayer, Long>>,
+            now: Long,
+        ): Map<Prayer, Long> {
+            val upcoming = LinkedHashMap<Prayer, Long>()
+            candidates.forEach { (prayer, at) ->
+                if (prayer != Prayer.Sunrise && at > now && prayer !in upcoming) {
+                    upcoming[prayer] = at
+                }
+            }
+            return upcoming
+        }
+
         // Keep a small future offset so AlarmManager handles the probe as a
         // real background alarm, without making an explicit user test feel
         // broken or forcing them to wait fifteen seconds for feedback.
