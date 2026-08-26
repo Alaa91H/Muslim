@@ -43,25 +43,24 @@ class NextAdhanCountdownMigrationInstrumentedTest {
     }
 
     @Test
-    fun cancelRetiredCountdown_removesTheOldOngoingCardBeforeTheNewIdentityIsUsed() {
-        notificationManager.notify(
-            NextAdhanNotifications.RETIRED_COUNTDOWN_NOTIFICATION_ID,
-            NotificationCompat.Builder(context, NotificationChannels.PRAYER_COUNTDOWN)
-                .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v1252)
-                .setContentTitle("Legacy countdown")
-                .setOngoing(true)
-                .build(),
-        )
+    fun cancelRetiredCountdown_removesAllOldOngoingCardsBeforeTheNewIdentityIsUsed() {
+        val retiredIds = listOf(NextAdhanNotifications.RETIRED_COUNTDOWN_NOTIFICATION_ID, 1003)
+        retiredIds.forEach { notificationId ->
+            notificationManager.notify(
+                notificationId,
+                NotificationCompat.Builder(context, NotificationChannels.PRAYER_COUNTDOWN)
+                    .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2026)
+                    .setContentTitle("Legacy countdown")
+                    .setOngoing(true)
+                    .build(),
+            )
+            awaitNotificationState(notificationId, expectedActive = true)
+        }
 
-        awaitNotificationState(
-            NextAdhanNotifications.RETIRED_COUNTDOWN_NOTIFICATION_ID,
-            expectedActive = true,
-        )
         NextAdhanNotifications.cancelRetiredCountdown(context)
-        awaitNotificationState(
-            NextAdhanNotifications.RETIRED_COUNTDOWN_NOTIFICATION_ID,
-            expectedActive = false,
-        )
+        retiredIds.forEach { notificationId ->
+            awaitNotificationState(notificationId, expectedActive = false)
+        }
     }
 
     @Test
@@ -87,6 +86,10 @@ class NextAdhanCountdownMigrationInstrumentedTest {
             use24h = true,
         )
 
+        assertTrue(
+            notification.smallIcon.resId ==
+                org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2026,
+        )
         val compactLine = requireNotNull(notification.extras.getCharSequence(Notification.EXTRA_TITLE))
         assertNotNull(compactLine)
         val expectedNextTitle = context.getString(

@@ -46,25 +46,32 @@ class AdhanNotificationsInstrumentedTest {
     }
 
     @Test
-    fun cancelRetiredAdhan_removesTheOngoingAlertSavedByAnEarlierApk() {
-        notificationManager.notify(
-            AdhanNotifications.RETIRED_ADHAN_NOTIFICATION_ID,
-            NotificationCompat.Builder(context, NotificationChannels.ADHAN)
-                .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_adhan_notification_status)
-                .setContentTitle("Retired Adhan alert")
-                .setOngoing(true)
-                .build(),
-        )
+    fun application_usesThe2026LuxeLauncherAndRoundIcon() {
+        val applicationInfo = context.applicationInfo
 
-        awaitNotificationState(
-            AdhanNotifications.RETIRED_ADHAN_NOTIFICATION_ID,
-            expectedActive = true,
-        )
+        assertEquals(org.muslim.app.R.mipmap.ic_muslim_launcher_v2026, applicationInfo.icon)
+        assertEquals(org.muslim.app.R.mipmap.ic_muslim_launcher_round_v2026, applicationInfo.roundIcon)
+    }
+
+    @Test
+    fun cancelRetiredAdhan_removesAllOngoingAlertsSavedByEarlierApks() {
+        val retiredIds = listOf(AdhanNotifications.RETIRED_ADHAN_NOTIFICATION_ID, 1001)
+        retiredIds.forEach { notificationId ->
+            notificationManager.notify(
+                notificationId,
+                NotificationCompat.Builder(context, NotificationChannels.ADHAN)
+                    .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2026)
+                    .setContentTitle("Retired Adhan alert")
+                    .setOngoing(true)
+                    .build(),
+            )
+            awaitNotificationState(notificationId, expectedActive = true)
+        }
+
         AdhanNotifications.cancelRetiredAdhan(context)
-        awaitNotificationState(
-            AdhanNotifications.RETIRED_ADHAN_NOTIFICATION_ID,
-            expectedActive = false,
-        )
+        retiredIds.forEach { notificationId ->
+            awaitNotificationState(notificationId, expectedActive = false)
+        }
     }
 
     private fun awaitNotificationState(notificationId: Int, expectedActive: Boolean) {
@@ -103,7 +110,7 @@ class AdhanNotificationsInstrumentedTest {
         )
 
         assertEquals(
-            org.muslim.app.core.notifications.R.drawable.ic_adhan_notification_status,
+            org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2026,
             notification.smallIcon.resId,
         )
     }
@@ -119,7 +126,7 @@ class AdhanNotificationsInstrumentedTest {
                 statusBarNotification.notification.channelId == NotificationChannels.ADHAN
         }.notification
         assertEquals(
-            org.muslim.app.core.notifications.R.drawable.ic_adhan_notification_status,
+            org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2026,
             activeAdhan.smallIcon.resId,
         )
     }

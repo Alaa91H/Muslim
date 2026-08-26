@@ -51,6 +51,12 @@ abstract class RescheduleReceiver(private val validActions: Set<String>) : Broad
 class BootReceiver : RescheduleReceiver(RescheduleActions.boot) {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action !in RescheduleActions.boot) return
+        if (intent.action == Intent.ACTION_MY_PACKAGE_REPLACED) {
+            // Ongoing cards can survive an in-place update. Retire their old
+            // identities before the rescheduled services publish the new artwork.
+            AdhanNotifications.cancelRetiredAdhan(context)
+            NextAdhanNotifications.cancelRetiredCountdown(context)
+        }
         if (intent.action == Intent.ACTION_BOOT_COMPLETED) {
             val entryPoint = EntryPointAccessors.fromApplication(
                 context.applicationContext,
