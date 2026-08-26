@@ -174,7 +174,7 @@ class AdhanScheduler @Inject constructor(
         }
     }
 
-    private companion object {
+    internal companion object {
         // Keep a small future offset so AlarmManager handles the probe as a
         // real background alarm, without making an explicit user test feel
         // broken or forcing them to wait fifteen seconds for feedback.
