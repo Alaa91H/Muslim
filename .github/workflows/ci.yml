@@ -137,10 +137,10 @@ jobs:
       - name: Run instrumented tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          # Android 17 / API 37 is the release target. This suite exercises
+          # Android 16 / API 36 is the stable runner-supported test target. This suite exercises
           # the exact-alarm receiver, foreground Adhan service and notification
           # path under the platform's new background-audio restrictions.
-          api-level: 37
+          api-level: 36
           arch: x86_64
           disable-animations: true
           script: |
