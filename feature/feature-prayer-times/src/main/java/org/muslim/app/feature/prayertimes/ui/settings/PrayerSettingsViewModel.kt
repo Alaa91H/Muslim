@@ -1,7 +1,6 @@
 package org.muslim.app.feature.prayertimes.ui.settings
 
 import android.app.AlarmManager
-import android.app.NotificationManager
 import android.content.Context
 import android.media.AudioManager
 import android.net.Uri
@@ -38,6 +37,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import org.muslim.app.feature.prayertimes.notifications.AdhanNotifications
 import org.muslim.app.feature.prayertimes.notifications.AdhanPlaybackService
 import org.muslim.app.feature.prayertimes.notifications.AdhanPlaybackStatus
 import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
@@ -217,12 +217,9 @@ class PrayerSettingsViewModel @Inject constructor(
 
     private suspend fun refreshAdhanReadiness(current: PrayerSettings) {
         NotificationChannels.create(context)
+        val notificationPreflight = AdhanNotifications.notificationPreflight(context)
         val notificationsAllowed = context.notificationAllowed(NotificationCategory.Adhan) &&
-            context.getSystemService(NotificationManager::class.java).areNotificationsEnabled() &&
-            (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ||
-                context.getSystemService(NotificationManager::class.java)
-                    .getNotificationChannel(NotificationChannels.ADHAN)
-                    ?.importance != NotificationManager.IMPORTANCE_NONE)
+            notificationPreflight.posted
         val alarmManager = context.getSystemService(AlarmManager::class.java)
         val exactAlarmsAllowed = Build.VERSION.SDK_INT < Build.VERSION_CODES.S ||
             alarmManager.canScheduleExactAlarms()

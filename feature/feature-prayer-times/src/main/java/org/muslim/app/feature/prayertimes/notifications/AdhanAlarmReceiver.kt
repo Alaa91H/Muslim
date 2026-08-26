@@ -3,6 +3,7 @@ package org.muslim.app.feature.prayertimes.notifications
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.os.PowerManager
 import androidx.glance.appwidget.updateAll
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.CoroutineScope
@@ -74,13 +75,14 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
             // replaces the same id on success; if it fails, the prayer alert
             // still remains visible instead of disappearing silently.
             if (deliveryPolicy.postVisibleNotification) {
-                if (AdhanNotifications.showAdhan(appContext, prayer)) {
+                val notificationResult = AdhanNotifications.showAdhan(appContext, prayer)
+                if (notificationResult.posted) {
                     deliveryJournal.visibleNotificationPosted(prayer, isProbe)
                 } else {
                     deliveryJournal.visibleNotificationBlocked(
                         prayer = prayer,
                         isProbe = isProbe,
-                        detail = "Android rejected Adhan notification posting",
+                        detail = notificationResult.detail ?: "Android rejected Adhan notification posting",
                     )
                 }
             } else {
@@ -180,15 +182,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 request.isProbe,
                 "Foreground service start failed: ${serviceStart.exceptionOrNull()?.javaClass?.simpleName}",
             )
-            playDirectFallback(
-                entryPoint,
-                request.prayer,
-                request.isProbe,
-                plan,
-                request.soundPath,
-                request.bundledSoundId,
-                request.volume,
-            )
+            playDirectFallback(appContext, entryPoint, request, plan)
             return
         }
         if (!plan.playSound) return
@@ -197,46 +191,56 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         val serviceConfirmedAudio = status.stage == AdhanDeliveryStage.AudioStarted &&
             status.prayer == request.prayer && status.isProbe == request.isProbe && status.atMillis >= deliveryRequestedAt
         if (!serviceConfirmedAudio) {
-            AdhanPlaybackService.stop(appContext)
+            // The foreground service and fallback share the singleton player.
+            // Stopping the service here races with `playDirectFallback`: service
+            // teardown calls soundPlayer.stop() and can silence the just-started
+            // fallback. Starting the fallback safely replaces any pending player
+            // instance; the service retains its bounded safety timeout and will
+            // clean up after playback has completed.
             journal.failed(request.prayer, request.isProbe, "Service audio was not confirmed; direct fallback started")
-            playDirectFallback(
-                entryPoint,
-                request.prayer,
-                request.isProbe,
-                plan,
-                request.soundPath,
-                request.bundledSoundId,
-                request.volume,
-            )
+            playDirectFallback(appContext, entryPoint, request, plan)
         }
     }
 
     private fun playDirectFallback(
+        appContext: Context,
         entryPoint: AdhanEntryPoint,
-        prayer: Prayer,
-        isProbe: Boolean,
+        request: AdhanDeliveryRequest,
         plan: org.muslim.app.core.common.prayer.AdhanPlaybackPlan.Plan,
-        soundPath: String?,
-        bundledSoundId: String,
-        volume: Int,
     ) {
         if (!plan.playSound) return
         val player = entryPoint.soundPlayer()
-        val onStarted = { entryPoint.deliveryJournal().audioStarted(prayer, isProbe) }
+        val fallbackWakeLock = appContext.getSystemService(PowerManager::class.java)
+            .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "$WAKE_LOCK_TAG:direct-fallback")
+            .apply {
+                setReferenceCounted(false)
+                acquire(DIRECT_FALLBACK_WAKELOCK_TIMEOUT_MS)
+            }
+        val onStarted = { entryPoint.deliveryJournal().audioStarted(request.prayer, request.isProbe) }
+        val onFinished = {
+            if (fallbackWakeLock.isHeld) fallbackWakeLock.release()
+        }
         when {
-            soundPath != null && java.io.File(soundPath).exists() ->
-                player.playFile(java.io.File(soundPath), volume, onStarted = onStarted, onFinished = {})
+            request.soundPath != null && java.io.File(request.soundPath).exists() ->
+                player.playFile(
+                    java.io.File(request.soundPath),
+                    request.volume,
+                    onStarted = onStarted,
+                    onFinished = onFinished,
+                )
             else -> player.playBundled(
-                org.muslim.app.core.common.prayer.BundledAdhanSound.fromId(bundledSoundId),
-                volume,
+                org.muslim.app.core.common.prayer.BundledAdhanSound.fromId(request.bundledSoundId),
+                request.volume,
                 onStarted = onStarted,
-                onFinished = {},
+                onFinished = onFinished,
             )
         }
     }
 
     companion object {
         private const val SERVICE_AUDIO_CONFIRM_TIMEOUT_MS = 4_000L
+        private const val DIRECT_FALLBACK_WAKELOCK_TIMEOUT_MS = 4 * 60_000L
+        private const val WAKE_LOCK_TAG = "Muslim:Adhan"
         const val EXTRA_PRAYER = "extra_prayer"
         const val EXTRA_IS_REMINDER = "extra_is_reminder"
         const val EXTRA_SOUND_OPTION = "extra_sound_option"

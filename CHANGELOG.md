@@ -3,6 +3,22 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.24.11
+
+Updates install directly over v1.24.10 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.
+
+## Verified Adhan Alert Delivery
+
+- Replaced the previous success-by-exception model for the active Adhan alert. The app now checks the Android notification runtime permission, global application notification state, and the user-owned Adhan channel before posting. It records the specific blocked condition instead of interpreting a non-throwing `notify()` call as proof that the user could see an alert.
+- After posting, the receiver confirms that Android retains the active notification with the expected Adhan identifier and channel before the scheduled verification reports a visible alert as posted. The settings readiness card now uses the same system preflight as the receiver, so its permission/channel result cannot disagree with real delivery.
+- Corrected a race in the audio fallback path. The previous implementation stopped the foreground service immediately before starting the fallback through the same singleton player; service teardown could then stop the newly started fallback. The fallback now replaces the pending player safely, while the existing bounded service timeout performs cleanup later.
+- Added a bounded partial wake lock to the rare direct-fallback path, keeping the CPU awake long enough for audio startup and completion when Android rejects a foreground-service start. The user's selected sound option and exact global or per-prayer volume remain unchanged.
+
+## Regression Coverage
+
+- Added an Android emulator test that grants notification access, posts the actual Adhan alert, and asserts that it appears in Android's active-notification list with the current Adhan channel. This test runs alongside the existing prayer-home device tests.
+- Retained the existing checks for exact-alarm access, receiver reach, foreground-service start, visible alert result, and confirmed audio start. The release environment has no connected physical handset, so on-device audibility is never claimed without user-device evidence.
+
 ## Muslim v1.24.10
 
 Updates install directly over v1.24.9 with the same package name (`org.muslim.app`) and stable signing identity. No uninstall or data reset is required.
