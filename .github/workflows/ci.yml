@@ -8,6 +8,7 @@ on:
     branches: [ main ]
     tags: [ 'v*' ]
   pull_request:
+  workflow_dispatch:
 
 permissions:
   # write is required by the release-apk job to publish tag releases.
