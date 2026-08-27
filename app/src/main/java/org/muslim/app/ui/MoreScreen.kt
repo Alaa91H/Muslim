@@ -35,7 +35,6 @@ import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -51,6 +50,8 @@ import org.muslim.app.R
 import org.muslim.app.core.designsystem.IslamicIconSize
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimContentFrame
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
 
 private data class MoreEntry(
@@ -154,29 +155,29 @@ fun MoreScreen(
     )
     val sections = sectionOrder.filter { it !in hiddenSections }.mapNotNull { sectionsById[it] }
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = { TopAppBar(title = { Text(stringResource(R.string.tab_more)) }) },
     ) { innerPadding ->
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding),
-            contentPadding = PaddingValues(
-                horizontal = IslamicSpacing.PageHorizontal,
-                vertical = IslamicSpacing.Compact,
-            ),
-            verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
-        ) {
-            sections.forEach { section ->
-                item(key = "header_${section.titleRes}") {
-                    MuslimSectionHeader(
-                        title = stringResource(section.titleRes),
-                        modifier = Modifier.padding(top = IslamicSpacing.Small),
-                    )
-                }
-                items(section.entries, key = { it.titleRes }) { entry ->
-                    MoreCard(entry)
+        MuslimContentFrame(modifier = Modifier.padding(innerPadding)) {
+            LazyColumn(
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = PaddingValues(
+                    horizontal = IslamicSpacing.PageHorizontal,
+                    vertical = IslamicSpacing.Compact,
+                ),
+                verticalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
+            ) {
+                sections.forEach { section ->
+                    item(key = "header_${section.titleRes}") {
+                        MuslimSectionHeader(
+                            title = stringResource(section.titleRes),
+                            modifier = Modifier.padding(top = IslamicSpacing.Small),
+                        )
+                    }
+                    items(section.entries, key = { it.titleRes }) { entry ->
+                        MoreCard(entry)
+                    }
                 }
             }
         }

@@ -38,7 +38,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
@@ -71,7 +70,9 @@ import kotlinx.coroutines.launch
 import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.text.DigitNormalizedOutlinedTextField
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimCenteredStatus
+import org.muslim.app.core.ui.theme.MuslimContentFrame
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.hadith.R
@@ -119,7 +120,7 @@ fun HadithScreen(
         }
     }
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
@@ -135,31 +136,33 @@ fun HadithScreen(
             )
         },
     ) { innerPadding ->
-        when (val selected = collection) {
-            null -> HadithCatalogue(
-                modifier = Modifier.padding(innerPadding),
-                onOpenCollection = viewModel::openCollection,
-            )
-            else -> HadithBookContent(
-                collection = selected,
-                state = HadithBookContentState(
-                    chapter = chapter,
-                    chapters = chapters,
-                    query = query,
-                    corpusState = corpusState,
-                    pagedHadiths = pagedHadiths,
-                    daily = daily,
-                    bookmarkedIds = bookmarkedIds,
-                ),
-                actions = HadithBookActions(
-                    onQueryChanged = viewModel::setQuery,
-                    onOpenChapter = viewModel::openChapter,
-                    onRetry = viewModel::retryCollectionLoad,
-                    onToggleBookmark = viewModel::toggleBookmark,
-                    onCopied = { scope.launch { snackbarHostState.showSnackbar(copiedMessage) } },
-                ),
-                modifier = Modifier.padding(innerPadding),
-            )
+        MuslimContentFrame(modifier = Modifier.padding(innerPadding)) {
+            when (val selected = collection) {
+                null -> HadithCatalogue(
+                    modifier = Modifier.fillMaxSize(),
+                    onOpenCollection = viewModel::openCollection,
+                )
+                else -> HadithBookContent(
+                    collection = selected,
+                    state = HadithBookContentState(
+                        chapter = chapter,
+                        chapters = chapters,
+                        query = query,
+                        corpusState = corpusState,
+                        pagedHadiths = pagedHadiths,
+                        daily = daily,
+                        bookmarkedIds = bookmarkedIds,
+                    ),
+                    actions = HadithBookActions(
+                        onQueryChanged = viewModel::setQuery,
+                        onOpenChapter = viewModel::openChapter,
+                        onRetry = viewModel::retryCollectionLoad,
+                        onToggleBookmark = viewModel::toggleBookmark,
+                        onCopied = { scope.launch { snackbarHostState.showSnackbar(copiedMessage) } },
+                    ),
+                    modifier = Modifier.fillMaxSize(),
+                )
+            }
         }
 
         if (showNotificationSettings) {

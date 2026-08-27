@@ -69,6 +69,7 @@ jobs:
           python3 scripts/verify_hadith_paging_and_navigation.py
           python3 scripts/verify_prayer_location_notification_contract.py
           python3 scripts/verify_responsive_customization_layout.py
+          python3 scripts/verify_design_system_adoption.py
           git diff --check
 
       - name: Build debug APKs

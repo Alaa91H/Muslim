@@ -13,7 +13,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -49,6 +48,7 @@ import org.muslim.app.crash.CrashReportDialog
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.datastore.AppThemeMode
 import org.muslim.app.core.ui.theme.AppTheme
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.prayertimes.ui.home.HomeScreen
 import org.muslim.app.feature.prayertimes.ui.location.LocationScreen
 import org.muslim.app.feature.prayertimes.ui.settings.PrayerSettingsScreen
@@ -185,10 +185,11 @@ fun MuslimApp(
         dynamicColor = preferences.dynamicColor,
         highContrast = preferences.accessibilityHighContrast,
         accessibilityReadingMode = preferences.accessibilityReadingMode,
+        reduceAnimations = preferences.reduceAnimations,
         colorPalette = preferences.colorPalette,
         cardCornerStyle = preferences.cardCornerStyle,
     ) {
-        Scaffold(
+        MuslimAppScaffold(
             modifier = modifier,
             floatingActionButton = {
                 if (preferences.voiceNavigationEnabled) {

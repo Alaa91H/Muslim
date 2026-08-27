@@ -72,6 +72,7 @@ import org.muslim.app.core.ui.theme.IslamicOrnament
 import org.muslim.app.core.ui.theme.IslamicOrnamentImage
 import org.muslim.app.core.ui.theme.IslamicOrnamentOpacity
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.MuslimContentFrame
 import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
@@ -101,7 +102,8 @@ fun HomeScreen(
     // pushes the user into the full prayer-settings destination.
     var customizingPrayer by remember { mutableStateOf<Prayer?>(null) }
 
-    Box(modifier = modifier.fillMaxSize()) {
+    MuslimContentFrame(modifier = modifier) {
+        Box(modifier = Modifier.fillMaxSize()) {
         IslamicOrnamentImage(
             ornament = ornamentStyle.toIslamicOrnament(),
             tint = MaterialTheme.colorScheme.primary,
@@ -357,6 +359,7 @@ fun HomeScreen(
             )
 
             Spacer(Modifier.height(IslamicSpacing.Medium))
+        }
         }
         }
     }

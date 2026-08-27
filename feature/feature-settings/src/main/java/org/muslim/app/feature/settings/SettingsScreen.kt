@@ -45,7 +45,6 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.RadioButton
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -78,6 +77,8 @@ import org.muslim.app.feature.settings.R
 import org.muslim.app.core.designsystem.IslamicIconSize
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimContentFrame
 
 /** A user-selectable UI language (PROJECT_PROMPT.md §5). */
 private data class LanguageOption(
@@ -174,7 +175,7 @@ fun SettingsScreen(
         expandedSection = if (expandedSection == section.name) null else section.name
     }
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
@@ -209,10 +210,9 @@ fun SettingsScreen(
                 },
             )
         }
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding),
+        MuslimContentFrame(modifier = Modifier.padding(innerPadding)) {
+            LazyColumn(
+                modifier = Modifier.fillMaxSize(),
             contentPadding = androidx.compose.foundation.layout.PaddingValues(
                 horizontal = IslamicSpacing.PageHorizontal,
                 vertical = IslamicSpacing.Compact,
@@ -638,20 +638,21 @@ fun SettingsScreen(
                 }
             }
 
-            item(key = SettingsSection.About.name) {
-                SectionCard(
-                    title = stringResource(R.string.settings_section_about),
-                    icon = Icons.Filled.Info,
-                    expanded = expandedSection == SettingsSection.About.name,
-                    onToggle = { toggleSection(SettingsSection.About) },
-                ) {
-                    ListItem(
-                        headlineContent = { Text(stringResource(R.string.settings_about)) },
-                        supportingContent = { Text(stringResource(R.string.settings_about_desc)) },
-                        leadingContent = { Icon(Icons.Filled.Info, contentDescription = null) },
-                        trailingContent = { Chevron() },
-                        modifier = Modifier.clickable(onClick = onOpenAbout),
-                    )
+                item(key = SettingsSection.About.name) {
+                    SectionCard(
+                        title = stringResource(R.string.settings_section_about),
+                        icon = Icons.Filled.Info,
+                        expanded = expandedSection == SettingsSection.About.name,
+                        onToggle = { toggleSection(SettingsSection.About) },
+                    ) {
+                        ListItem(
+                            headlineContent = { Text(stringResource(R.string.settings_about)) },
+                            supportingContent = { Text(stringResource(R.string.settings_about_desc)) },
+                            leadingContent = { Icon(Icons.Filled.Info, contentDescription = null) },
+                            trailingContent = { Chevron() },
+                            modifier = Modifier.clickable(onClick = onOpenAbout),
+                        )
+                    }
                 }
             }
         }

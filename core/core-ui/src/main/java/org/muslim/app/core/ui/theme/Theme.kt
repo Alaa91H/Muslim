@@ -40,6 +40,7 @@ fun AppTheme(
     dynamicColor: Boolean = true,
     highContrast: Boolean = false,
     accessibilityReadingMode: Boolean = false,
+    reduceAnimations: Boolean = false,
     colorPalette: AppColorPalette = AppColorPalette.Classic,
     cardCornerStyle: CardCornerStyle = CardCornerStyle.Soft,
     content: @Composable () -> Unit,
@@ -56,6 +57,7 @@ fun AppTheme(
 
     CompositionLocalProvider(
         LocalAccessibilityVisuals provides AccessibilityVisuals(accessibilityReadingMode),
+        LocalMuslimMotionPreferences provides MuslimMotionPreferences(reduceAnimations),
     ) {
         MaterialTheme(
             colorScheme = colorScheme,

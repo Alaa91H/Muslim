@@ -22,7 +22,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
@@ -42,6 +41,8 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
+import org.muslim.app.core.ui.theme.MuslimContentFrame
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.feature.prayertimes.domain.City
 
@@ -90,11 +91,12 @@ fun LocationScreen(
         }
     }
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { padding ->
-        Column(modifier = Modifier.padding(padding).fillMaxSize().padding(16.dp)) {
+        MuslimContentFrame(modifier = Modifier.padding(padding)) {
+            Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
             OutlinedTextField(
                 value = viewModel.searchQuery.collectAsStateWithLifecycle().value,
                 onValueChange = { viewModel.searchQuery.value = it },
@@ -167,11 +169,12 @@ fun LocationScreen(
                 )
             }
             Spacer(Modifier.height(8.dp))
-            Button(
-                onClick = { viewModel.saveManual(latitudeText, longitudeText) },
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(stringResource(R.string.location_save))
+                Button(
+                    onClick = { viewModel.saveManual(latitudeText, longitudeText) },
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Text(stringResource(R.string.location_save))
+                }
             }
         }
     }
