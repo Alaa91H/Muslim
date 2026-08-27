@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="hadith_title">مكتبة الأحاديث</string>
     <string name="hadith_back">رجوع</string>
     <string name="hadith_search_hint">ابحث في الأحاديث…</string>
