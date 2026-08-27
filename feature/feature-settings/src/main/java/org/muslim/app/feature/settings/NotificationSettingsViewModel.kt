@@ -25,7 +25,7 @@ import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
-import org.muslim.app.core.datastore.prayer.toPrayerParameters
+import org.muslim.app.core.datastore.prayer.toPrayerCalculationProfile
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.NotificationCategoryPrefs
 import org.muslim.app.core.notifications.NotificationImportance
@@ -126,15 +126,21 @@ class NotificationSettingsViewModel @Inject constructor(
         val now = System.currentTimeMillis()
         val today = Instant.ofEpochMilli(now).atZone(zone).toLocalDate()
         val coordinates = Coordinates(location.latitude, location.longitude, location.elevation)
-        val params = settings.toPrayerParameters()
+        val profile = settings.toPrayerCalculationProfile()
         val todayResult = calculator.compute(
-            today, coordinates, params, zone, settings.asrMethod, settings.adjustments,
+            date = today,
+            coordinates = coordinates,
+            profile = profile,
+            timeZone = zone,
         )
         var next = NextPrayer.nextPrayer(todayResult.epochMillis, now)
         if (next == null) {
             next = NextPrayer.nextPrayer(
                 calculator.compute(
-                    today.plusDays(1), coordinates, params, zone, settings.asrMethod, settings.adjustments,
+                    date = today.plusDays(1),
+                    coordinates = coordinates,
+                    profile = profile,
+                    timeZone = zone,
                 ).epochMillis,
                 now,
             )

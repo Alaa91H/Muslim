@@ -7,12 +7,10 @@ import android.content.Intent
 import android.os.Build
 import dagger.hilt.android.qualifiers.ApplicationContext
 import org.muslim.app.core.common.prayer.AdhanSoundOption
-import org.muslim.app.core.common.prayer.CalculationMethod
 import org.muslim.app.core.datastore.prayer.PrayerSettings
-import org.muslim.app.core.datastore.prayer.SelectedLocation
 import org.muslim.app.core.common.prayer.Coordinates
 import org.muslim.app.core.common.prayer.Prayer
-import org.muslim.app.core.common.prayer.PrayerParameters
+import org.muslim.app.core.datastore.prayer.toPrayerCalculationProfile
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import java.time.LocalDate
 import java.time.ZoneId
@@ -51,7 +49,7 @@ class AdhanScheduler @Inject constructor(
         }
 
         val zone = ZoneId.of(location.timeZone)
-        val params = parametersFor(settings, location)
+        val profile = settings.toPrayerCalculationProfile()
         val now = System.currentTimeMillis()
 
         // Calculate today and tomorrow, then retain the first future occurrence
@@ -62,10 +60,8 @@ class AdhanScheduler @Inject constructor(
                 val result = calculator.compute(
                     date = date,
                     coordinates = Coordinates(location.latitude, location.longitude, location.elevation),
-                    parameters = params,
+                    profile = profile,
                     timeZone = zone,
-                    asrMethod = settings.asrMethod,
-                    userAdjustments = settings.adjustments,
                 )
                 if (result.isValid) addAll(result.epochMillis.map { (prayer, at) -> prayer to at })
             }
@@ -161,18 +157,6 @@ class AdhanScheduler @Inject constructor(
         )
     }
 
-    private fun parametersFor(settings: PrayerSettings, location: SelectedLocation): PrayerParameters {
-        return if (settings.method == CalculationMethod.Custom) {
-            PrayerParameters(
-                method = CalculationMethod.Custom,
-                fajrAngle = settings.customFajrAngle,
-                ishaAngle = settings.customIshaAngle,
-                highLatitudeRule = settings.highLatitudeRule,
-            )
-        } else {
-            PrayerParameters.of(settings.method).copy(highLatitudeRule = settings.highLatitudeRule)
-        }
-    }
 
     internal companion object {
         /** Selects the first valid future occurrence of every prayer from ordered day results. */

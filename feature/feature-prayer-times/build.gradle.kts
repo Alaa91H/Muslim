@@ -43,6 +43,12 @@ dependencies {
     implementation(project(":core:core-notifications"))
     implementation(project(":core:core-location"))
     implementation(project(":core:core-permissions"))
+    // Resolves an IANA zone locally from saved GPS/manual coordinates.
+    // The map's Android integration requires the packaged native Zstandard AAR.
+    implementation(libs.time.zone.map) {
+        exclude(group = "com.github.luben", module = "zstd-jni")
+    }
+    implementation("com.github.luben:zstd-jni:1.4.9-5@aar")
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)

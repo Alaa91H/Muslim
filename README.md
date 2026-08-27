@@ -28,6 +28,16 @@ The phone app has four primary destinations: **Prayer Times**, **Quran**, **Qibl
 | **Accessibility** | TalkBack-oriented labels and guidance, high-contrast and clearer-Arabic-reading options, visible one-shot voice navigation, and carefully labelled external supplementary sign-language learning links. |
 | **Companion devices** | Android Auto browsing for already-downloaded Quran recitations only; an opt-in, paired Wear OS tasbih and next-prayer companion; and an optional HTTPS home-automation event bridge. |
 
+## Prayer-time calculation contract
+
+The application’s automatic baseline is **Muslim World League**: Fajr at 18°, Isha at 17°, standard (Shafi‘i/Maliki/Hanbali) Asr, and **Seventh of the Night** for high-latitude bounding. This is a predictable global starting profile, not a religious certification or an assertion that one convention is universally mandatory. Users can deliberately select another supported calculation method, Hanafi Asr, Middle of the Night or angle-based high-latitude handling, custom Fajr/Isha angles, and manual prayer offsets.
+
+A single immutable `PrayerCalculationProfile` is resolved from those saved choices and is used by the prayer screen, countdown, widgets, Adhan scheduler, notification settings, Ramadan calculations, and the travel high-latitude preview. Astronomical instants are retained after method and user offsets for validation, then rounded once to the minute shared by rendering and alarm scheduling; a result cannot intentionally display one minute and schedule another. The core profile and its 2026 regression vectors are cross-checked against the open-source Adhan Kotlin reference implementation. [3]
+
+For a GPS or manually entered location, the app resolves an **IANA** timezone locally from the saved coordinates rather than silently assigning the device timezone. The coordinate index performs no location network request and runs outside the UI thread. It uses the documented local `timezonemap` package (MIT code with ODbL timezone-boundary data); failure to resolve a zone prevents persistence of the new coordinate, so an unrelated civil timezone cannot quietly affect the calculation. [4] [5]
+
+> Prayer-time output is a configurable astronomical calculation. It remains appropriate to check the selected convention and local mosque/scholar guidance where a personal or community practice requires it, especially at high latitudes.
+
 ## Product UI and accessibility system
 
 The Compose interface follows **Modern Islamic Minimalism**: clear Arabic and Latin hierarchy, calm tonal surfaces, restrained geometric detail, and central semantic components rather than feature-specific visual inventions. The current main line applies this system to the flagship Prayer Times, Quran, Hadith, More, and Settings experiences as well as focused consistency passes across Qibla, Tasbih, Adhkar, Learning, Islamic Finance, Wear, Ramadan planning, Zakat, the reference library, Quran downloads, Family Life, Hajj-day planning, and travel/expat planning.
@@ -142,6 +152,7 @@ python3 scripts/verify_hadith_paging_and_navigation.py
 python3 scripts/verify_scholar_library.py
 python3 scripts/verify_iot_integration.py
 python3 scripts/verify_islamic_visual_identity.py
+python3 scripts/verify_prayer_calculation_integrity.py
 ```
 
 The GitHub Actions workflow builds both applications, runs unit tests, Android Lint, Detekt, and emulator tests, and creates signed phone and Wear release APKs. Tagged `v*` builds publish a GitHub Release with both artifacts. The release workflow is an automated safety net, not a substitute for device, vehicle, watch, accessibility, or content-provider review.
@@ -177,3 +188,6 @@ The project is distributed under [GPL-3.0](LICENSE).
 
 [1]: https://developer.android.com/develop/ui/views/notifications/build-notification "Android Developers — Create a notification"
 [2]: https://developer.android.com/develop/ui/views/launch/icon_design_adaptive "Android Developers — Adaptive icons"
+[3]: https://github.com/batoulapps/adhan-kotlin "Batoul Apps — Adhan Kotlin reference implementation"
+[4]: https://github.com/dustin-johnson/timezonemap "Dustin Johnson — timezonemap local IANA coordinate lookup"
+[5]: https://www.iana.org/time-zones "IANA — Time Zone Database"

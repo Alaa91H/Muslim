@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -15,16 +16,13 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.muslim.app.core.location.LocationProvider
 import org.muslim.app.core.location.RegionNameResolver
-import org.muslim.app.feature.prayertimes.data.CitiesRepository
-import org.muslim.app.core.common.prayer.CalculationMethod
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.SelectedLocation
+import org.muslim.app.feature.prayertimes.data.CitiesRepository
 import org.muslim.app.feature.prayertimes.domain.City
 import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
 import org.muslim.app.feature.prayertimes.notifications.NextAdhanService
 import org.muslim.app.feature.prayertimes.widget.PrayerTimesWidget
-import java.util.TimeZone
-import javax.inject.Inject
 
 @HiltViewModel
 class LocationViewModel @Inject constructor(
@@ -33,6 +31,7 @@ class LocationViewModel @Inject constructor(
     private val locationProvider: LocationProvider,
     private val scheduler: AdhanScheduler,
     private val regionNameResolver: RegionNameResolver,
+    private val coordinateTimeZoneResolver: CoordinateTimeZoneResolver,
 ) : ViewModel() {
 
     sealed interface Message {
@@ -48,9 +47,9 @@ class LocationViewModel @Inject constructor(
 
     val messages = MutableStateFlow<Message?>(null)
 
-    /** Saves a city from the offline database. */
+    /** Saves a city from the offline database with its explicit IANA zone. */
     fun selectCity(city: City) {
-        save(
+        persist(
             SelectedLocation(
                 name = city.displayName,
                 latitude = city.latitude,
@@ -58,11 +57,14 @@ class LocationViewModel @Inject constructor(
                 timeZone = city.timeZone,
                 elevation = city.elevation,
             ),
-            regionHint = city.country,
         )
     }
 
-    /** Validates and saves manually entered coordinates. Returns true on success. */
+    /**
+     * Validates and saves manually entered coordinates. The local IANA lookup
+     * happens before persistence so a manually entered place is never silently
+     * interpreted in the device's unrelated civil timezone.
+     */
     fun saveManual(latitudeText: String, longitudeText: String): Boolean {
         // Normalize first so Arabic-Indic/Persian digits parse correctly.
         val latitude = org.muslim.app.core.common.text.Digits.toWesternDigits(latitudeText).trim().toDoubleOrNull()
@@ -71,14 +73,21 @@ class LocationViewModel @Inject constructor(
             messages.value = Message.Error("invalid")
             return false
         }
-        save(
-            SelectedLocation(
-                name = "$latitude, $longitude",
-                latitude = latitude,
-                longitude = longitude,
-                timeZone = TimeZone.getDefault().id,
+        viewModelScope.launch {
+            val timeZone = coordinateTimeZoneResolver.resolve(latitude, longitude)
+            if (timeZone == null) {
+                messages.value = Message.Error("gps_failed")
+                return@launch
+            }
+            persistNow(
+                SelectedLocation(
+                    name = "$latitude, $longitude",
+                    latitude = latitude,
+                    longitude = longitude,
+                    timeZone = timeZone,
+                ),
             )
-        )
+        }
         return true
     }
 
@@ -88,17 +97,22 @@ class LocationViewModel @Inject constructor(
             val geo = locationProvider.currentLocation()
             if (geo == null) {
                 messages.value = Message.Error("gps_failed")
-            } else {
-                save(
-                    SelectedLocation(
-                        name = resolveRegionName(geo.latitude, geo.longitude),
-                        latitude = geo.latitude,
-                        longitude = geo.longitude,
-                        timeZone = TimeZone.getDefault().id,
-                        elevation = geo.altitude ?: 0.0,
-                    )
-                )
+                return@launch
             }
+            val timeZone = coordinateTimeZoneResolver.resolve(geo.latitude, geo.longitude)
+            if (timeZone == null) {
+                messages.value = Message.Error("gps_failed")
+                return@launch
+            }
+            persistNow(
+                SelectedLocation(
+                    name = resolveRegionName(geo.latitude, geo.longitude),
+                    latitude = geo.latitude,
+                    longitude = geo.longitude,
+                    timeZone = timeZone,
+                    elevation = geo.altitude ?: 0.0,
+                ),
+            )
         }
     }
 
@@ -139,26 +153,22 @@ class LocationViewModel @Inject constructor(
         messages.value = null
     }
 
-    private fun save(location: SelectedLocation, regionHint: String? = null) {
-        viewModelScope.launch {
-            val current = repository.settings.first()
-            // First-time region default: adopt the officially used method of
-            // the chosen country until the user customizes it themselves.
-            val settings = if (regionHint != null && !current.methodChosenManually) {
-                current.copy(
-                    location = location,
-                    method = CalculationMethod.suggestedFor(regionHint),
-                )
-            } else {
-                current.copy(location = location)
-            }
-            repository.save(settings)
-            scheduler.schedule(settings)
-            // The countdown notification must reflect the new location.
-            NextAdhanService.start(context)
-            // The home-screen widget shows the next prayer for this location.
-            PrayerTimesWidget().updateAll(context)
-            messages.value = Message.Saved
-        }
+    private fun persist(location: SelectedLocation) {
+        viewModelScope.launch { persistNow(location) }
+    }
+
+    /**
+     * Persists location without mutating the calculation method. MWL remains
+     * the global baseline until the user deliberately chooses another method.
+     */
+    private suspend fun persistNow(location: SelectedLocation) {
+        val settings = repository.settings.first().copy(location = location)
+        repository.save(settings)
+        scheduler.schedule(settings)
+        // The countdown notification must reflect the new location.
+        NextAdhanService.start(context)
+        // The home-screen widget shows the next prayer for this location.
+        PrayerTimesWidget().updateAll(context)
+        messages.value = Message.Saved
     }
 }

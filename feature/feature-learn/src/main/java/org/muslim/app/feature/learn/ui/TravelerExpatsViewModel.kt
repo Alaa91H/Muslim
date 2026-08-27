@@ -15,7 +15,7 @@ import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
-import org.muslim.app.core.datastore.prayer.toPrayerParameters
+import org.muslim.app.core.datastore.prayer.toPrayerCalculationProfile
 import org.muslim.app.core.location.LocationProvider
 import org.muslim.app.feature.learn.data.TravelOriginRepository
 import org.muslim.app.feature.learn.domain.TravelContent
@@ -25,7 +25,6 @@ import org.muslim.app.feature.learn.domain.TravelPoint
 import java.time.LocalDate
 import java.time.ZoneId
 import javax.inject.Inject
-import kotlin.math.abs
 
 sealed interface TravelerGpsState {
     data object Idle : TravelerGpsState
@@ -117,12 +116,10 @@ class TravelerExpatsViewModel @Inject constructor(
         val result = prayerTimesCalculator.compute(
             date = LocalDate.now(zone),
             coordinates = Coordinates(location.latitude, location.longitude, location.elevation),
-            parameters = settings.toPrayerParameters(),
+            profile = settings.toPrayerCalculationProfile(),
             timeZone = zone,
-            asrMethod = settings.asrMethod,
-            userAdjustments = settings.adjustments,
         )
-        val rule = settings.highLatitudeRule ?: recommendedRule(location.latitude)
+        val rule = settings.highLatitudeRule
         return HighLatitudePreview(
             latitude = location.latitude,
             rule = rule,
@@ -132,7 +129,4 @@ class TravelerExpatsViewModel @Inject constructor(
         )
     }
 
-    private fun recommendedRule(latitude: Double): HighLatitudeRule =
-        if (abs(latitude) > 48.0) HighLatitudeRule.SeventhOfTheNight
-        else HighLatitudeRule.MiddleOfTheNight
 }

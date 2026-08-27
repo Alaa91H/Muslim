@@ -15,10 +15,9 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import org.muslim.app.core.common.prayer.CalculationMethod
 import org.muslim.app.core.common.prayer.Coordinates
 import org.muslim.app.core.common.prayer.Prayer
-import org.muslim.app.core.common.prayer.PrayerParameters
+import org.muslim.app.core.datastore.prayer.toPrayerCalculationProfile
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerCompletionRepository
@@ -75,20 +74,11 @@ object RamadanTimes {
     ): Result {
         val location = prayerSettings.location ?: return Result(null, null, null, null)
         val coordinates = Coordinates(location.latitude, location.longitude, location.elevation)
-        val params = if (prayerSettings.method == CalculationMethod.Custom) {
-            PrayerParameters(
-                method = CalculationMethod.Custom,
-                fajrAngle = prayerSettings.customFajrAngle,
-                ishaAngle = prayerSettings.customIshaAngle,
-                highLatitudeRule = prayerSettings.highLatitudeRule,
-            )
-        } else {
-            PrayerParameters.of(prayerSettings.method).copy(highLatitudeRule = prayerSettings.highLatitudeRule)
-        }
+        val profile = prayerSettings.toPrayerCalculationProfile()
 
         val today = LocalDate.now(zone)
-        val todayResult = calculator.compute(today, coordinates, params, zone, prayerSettings.asrMethod, prayerSettings.adjustments)
-        val tomorrowResult = calculator.compute(today.plusDays(1), coordinates, params, zone, prayerSettings.asrMethod, prayerSettings.adjustments)
+        val todayResult = calculator.compute(today, coordinates, profile, zone)
+        val tomorrowResult = calculator.compute(today.plusDays(1), coordinates, profile, zone)
 
         val iftarToday = todayResult.epochMillis[Prayer.Maghrib]
         val iftarTomorrow = tomorrowResult.epochMillis[Prayer.Maghrib]

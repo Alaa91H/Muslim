@@ -8,12 +8,17 @@ import java.time.LocalTime
  *
  * @param date       the date the times were computed for
  * @param times      wall-clock time of each prayer
- * @param epochMillis the same times as UTC instants (used for alarm scheduling)
+ * @param epochMillis final UTC instants rounded once to the civil minute;
+ *   used both by rendering and alarm scheduling so they remain identical.
+ * @param rawEpochMillis astronomical UTC instants after explicit method and
+ *   user offsets but before final minute rounding; intended for validation and
+ *   diagnostics, not direct scheduling.
  */
 data class PrayerTimesResult(
     val date: LocalDate,
     val times: Map<Prayer, LocalTime>,
     val epochMillis: Map<Prayer, Long>,
+    val rawEpochMillis: Map<Prayer, Long> = epochMillis,
 ) {
     val isValid: Boolean get() = times.size == Prayer.entries.size
 

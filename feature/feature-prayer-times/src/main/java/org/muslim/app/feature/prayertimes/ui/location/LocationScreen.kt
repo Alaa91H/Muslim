@@ -156,9 +156,7 @@ fun LocationScreen(
             }
             Spacer(Modifier.height(8.dp))
             Button(
-                onClick = {
-                    if (viewModel.saveManual(latitudeText, longitudeText)) onSaved()
-                },
+                onClick = { viewModel.saveManual(latitudeText, longitudeText) },
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 Text(stringResource(R.string.location_save))

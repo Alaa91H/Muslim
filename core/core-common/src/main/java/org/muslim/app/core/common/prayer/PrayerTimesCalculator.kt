@@ -33,6 +33,29 @@ class PrayerTimesCalculator {
      *   (empty [PrayerTimesResult.times]) in polar conditions where a
      *   consistent set of times cannot be produced.
      */
+    /**
+     * Computes the result from one complete profile. This is the canonical
+     * application entry point so UI, widgets and alarms share the same
+     * calculation snapshot.
+     */
+    fun compute(
+        date: LocalDate,
+        coordinates: Coordinates,
+        profile: PrayerCalculationProfile,
+        timeZone: ZoneId,
+    ): PrayerTimesResult = compute(
+        date = date,
+        coordinates = coordinates,
+        parameters = profile.toParameters(),
+        timeZone = timeZone,
+        asrMethod = profile.asrMethod,
+        userAdjustments = profile.userAdjustments,
+    )
+
+    /**
+     * Low-level calculation entry point retained for domain tests and callers
+     * that deliberately construct raw astronomical parameters.
+     */
     fun compute(
         date: LocalDate,
         coordinates: Coordinates,
@@ -45,20 +68,30 @@ class PrayerTimesCalculator {
         if (!result.valid) return PrayerTimesResult.Empty
 
         val times = LinkedHashMap<Prayer, LocalTime>()
+        val rawEpochMillis = LinkedHashMap<Prayer, Long>()
         val epochMillis = LinkedHashMap<Prayer, Long>()
         for (prayer in Prayer.entries) {
             val baseMs = result.millis.getValue(prayer)
-            val adjMs = baseMs +
+            val adjustedMs = baseMs +
                 (parameters.methodAdjustments[prayer] + userAdjustments[prayer]) * 60_000L
-            val roundedMs = when {
-                parameters.roundUp -> ceil(adjMs / 60_000.0) * 60_000
-                else -> round(adjMs / 60_000.0) * 60_000
+            // Preserve the calculated astronomical instant after all explicit
+            // method/user offsets. Rounding is deliberately deferred until the
+            // final civil minute shared by display and alarm scheduling.
+            rawEpochMillis[prayer] = adjustedMs
+            val finalDisplayAndAlarmMs = when {
+                parameters.roundUp -> ceil(adjustedMs / 60_000.0) * 60_000
+                else -> round(adjustedMs / 60_000.0) * 60_000
             }.toLong()
-            val instant = Instant.ofEpochMilli(roundedMs)
+            val instant = Instant.ofEpochMilli(finalDisplayAndAlarmMs)
             times[prayer] = instant.atZone(timeZone).toLocalTime()
-            epochMillis[prayer] = roundedMs
+            epochMillis[prayer] = finalDisplayAndAlarmMs
         }
-        return PrayerTimesResult(date = date, times = times, epochMillis = epochMillis)
+        return PrayerTimesResult(
+            date = date,
+            times = times,
+            epochMillis = epochMillis,
+            rawEpochMillis = rawEpochMillis,
+        )
     }
 
     // ---- internal raw computation (Adhan PrayerTimes algorithm) ----
@@ -85,8 +118,10 @@ class PrayerTimesCalculator {
         val sunsetMs = ms(solarTime.sunset)
         val tomorrowSunriseMs = msOf(tomorrow, tomorrowSolarTime.sunrise)
 
-        // dhuhr = solar transit; asr may be NaN when the sun never reaches the shadow angle.
-        val dhuhrMs = transitMs
+        // Dhuhr begins at solar transit plus any configured astronomical
+        // transit interval; Asr may be NaN when the sun never reaches its
+        // shadow angle.
+        val dhuhrMs = transitMs + parameters.dhuhrMinutes * 60_000L
         val asrMs = solarTime.afternoon(asrShadowLength)
             .let { if (it.isNaN()) null else ms(it) }
 

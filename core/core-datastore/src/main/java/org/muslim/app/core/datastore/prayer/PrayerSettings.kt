@@ -14,16 +14,20 @@ import org.muslim.app.core.common.prayer.PrayerAdjustments
 data class PrayerSettings(
     val method: CalculationMethod = CalculationMethod.MuslimWorldLeague,
     /**
-     * True once the user picked a calculation method themselves — the
-     * region-based auto-suggestion then never overrides their choice.
+     * Retained to distinguish an explicit method choice from the migrated
+     * global MWL baseline. It no longer enables country-derived replacement.
      */
     val methodChosenManually: Boolean = false,
     /** Fajr/Isha angles when [method] is [CalculationMethod.Custom]. */
     val customFajrAngle: Double = 18.0,
     val customIshaAngle: Double = 17.0,
     val asrMethod: AsrMethod = AsrMethod.Standard,
-    /** null = automatic (recommended for the latitude). */
-    val highLatitudeRule: HighLatitudeRule? = null,
+    /**
+     * The global bound used when Fajr or Isha cannot be resolved directly.
+     * Seventh of the Night is the app-wide default; users may deliberately
+     * select either of the other documented high-latitude rules.
+     */
+    val highLatitudeRule: HighLatitudeRule = HighLatitudeRule.SeventhOfTheNight,
     /** Manual per-prayer offsets in minutes. */
     val adjustments: PrayerAdjustments = PrayerAdjustments(),
     val location: SelectedLocation? = null,

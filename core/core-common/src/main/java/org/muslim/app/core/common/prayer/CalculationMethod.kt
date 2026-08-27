@@ -54,32 +54,6 @@ enum class CalculationMethod {
     companion object {
 
         /**
-         * Region-appropriate default method — maps a country or region keyword
-         * from the bundled cities database to its officially used calculation
-         * method. Falls back to the Muslim World League.
-         */
-        fun suggestedFor(region: String): CalculationMethod {
-            val r = region.trim()
-            return when {
-                listOf("Saudi", "السعودية").any { r.contains(it, ignoreCase = true) } -> UmmAlQura
-                listOf("Egypt", "مصر").any { r.contains(it, ignoreCase = true) } -> Egyptian
-                listOf("Pakistan", "باكستان", "Kashmir").any { r.contains(it, ignoreCase = true) } -> Karachi
-                listOf("India", "الهند", "Bangladesh", "بنغلاديش").any { r.contains(it, ignoreCase = true) } -> Karachi
-                listOf("United States", "USA", "أمريكا", "Canada", "كندا").any { r.contains(it, ignoreCase = true) } -> NorthAmerica
-                listOf("Turkey", "تركيا").any { r.contains(it, ignoreCase = true) } -> Turkey
-                listOf("France", "فرنسا", "Belgium", "بلجيكا", "Netherlands", "هولندا").any { r.contains(it, ignoreCase = true) } -> France
-                listOf("UAE", "الإمارات", "Dubai", "دبي").any { r.contains(it, ignoreCase = true) } -> Dubai
-                listOf("Qatar", "قطر").any { r.contains(it, ignoreCase = true) } -> Qatar
-                listOf("Kuwait", "الكويت").any { r.contains(it, ignoreCase = true) } -> Kuwait
-                listOf("Singapore", "سنغافورة", "Malaysia", "ماليزيا", "Indonesia", "إندونيسيا").any { r.contains(it, ignoreCase = true) } -> Singapore
-                listOf("UK", "بريطانيا", "Britain", "United Kingdom", "Germany", "ألمانيا", "Europe", "أوروبا").any { r.contains(it, ignoreCase = true) } -> MuslimWorldLeague
-                // Non-Sunni institutes were deliberately removed from the
-                // app; Iran falls back to the global Sunni default.
-                else -> MuslimWorldLeague
-            }
-        }
-
-        /**
          * Builds parameters for [Custom] from user-provided angles.
          * Falls back to Muslim World League values when the angles are blank.
          */

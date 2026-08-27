@@ -60,9 +60,9 @@
 
     <string name="settings_title">Settings</string>
     <string name="settings_method">Calculation method</string>
-    <string name="settings_method_automatic">Automatic (by location)</string>
-    <string name="settings_method_automatic_picked">Automatic currently picked: %1$s — %2$s</string>
-    <string name="settings_method_automatic_desc">The app picks the most suitable method automatically based on your country and location; you can still choose a method manually at any time.</string>
+    <string name="settings_method_automatic">Automatic (global default)</string>
+    <string name="settings_method_automatic_picked">Global default: %1$s</string>
+    <string name="settings_method_automatic_desc">The app uses Muslim World League as its global default; you can choose another method manually at any time.</string>
     <string name="settings_custom_method">Custom</string>
     <string name="settings_custom_fajr">Fajr angle</string>
     <string name="settings_custom_isha">Isha angle</string>
@@ -70,7 +70,7 @@
     <string name="settings_asr_standard">Standard (Shafi\'i/Maliki/Hanbali)</string>
     <string name="settings_asr_hanafi">Hanafi</string>
     <string name="settings_high_lat">High latitude rule</string>
-    <string name="settings_high_lat_auto">Automatic (recommended)</string>
+    <string name="settings_high_lat_auto">Seventh of the night (global default)</string>
     <string name="settings_high_lat_midnight">Middle of the night</string>
     <string name="settings_high_lat_seventh">Seventh of the night</string>
     <string name="settings_high_lat_angle">Angle-based</string>

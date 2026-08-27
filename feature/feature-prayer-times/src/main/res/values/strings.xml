@@ -67,9 +67,9 @@
     <!-- Settings -->
     <string name="settings_title">الإعدادات</string>
     <string name="settings_method">طريقة الحساب</string>
-    <string name="settings_method_automatic">تلقائي (حسب الموقع)</string>
-    <string name="settings_method_automatic_picked">التلقائي اختار الآن: %1$s — %2$s</string>
-    <string name="settings_method_automatic_desc">يختار التطبيق الطريقة الأنسب تلقائيًا حسب البلد والموقع، مع إمكانية اختيار طريقة يدويًا في أي وقت.</string>
+    <string name="settings_method_automatic">تلقائي (الافتراضي العالمي)</string>
+    <string name="settings_method_automatic_picked">الافتراضي العالمي: %1$s</string>
+    <string name="settings_method_automatic_desc">يستخدم التطبيق رابطة العالم الإسلامي كافتراضي عالمي؛ يمكنك اختيار طريقة أخرى يدويًا في أي وقت.</string>
     <string name="settings_custom_method">مخصص</string>
     <string name="settings_custom_fajr">زاوية الفجر</string>
     <string name="settings_custom_isha">زاوية العشاء</string>
@@ -77,7 +77,7 @@
     <string name="settings_asr_standard">الجمهور (شافعي/مالكي/حنبلي)</string>
     <string name="settings_asr_hanafi">الحنفي</string>
     <string name="settings_high_lat">قاعدة خطوط العرض العالية</string>
-    <string name="settings_high_lat_auto">تلقائي (موصى به للموقع)</string>
+    <string name="settings_high_lat_auto">السُبع الأخير (الافتراضي العالمي)</string>
     <string name="settings_high_lat_midnight">منتصف الليل</string>
     <string name="settings_high_lat_seventh">السُبع الأخير</string>
     <string name="settings_high_lat_angle">الزاوية</string>

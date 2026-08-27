@@ -34,13 +34,24 @@ class PrayerSettingsRepository @Inject constructor(
 ) {
 
     val settings: Flow<PrayerSettings> = context.prayerSettingsDataStore.data.map { prefs ->
+        val methodChosenManually = prefs[Keys.METHOD_MANUAL] ?: false
+        val storedMethod = enumOr(prefs[Keys.METHOD], CalculationMethod.MuslimWorldLeague)
         PrayerSettings(
-            method = enumOr(prefs[Keys.METHOD], CalculationMethod.MuslimWorldLeague),
-            methodChosenManually = prefs[Keys.METHOD_MANUAL] ?: false,
+            // Pre-v1.25.9 automatic mode was country-derived. Preserve an
+            // explicit historical choice but migrate the automatic path to
+            // the documented global MWL baseline.
+            method = storedMethod.takeIf { methodChosenManually }
+                ?: CalculationMethod.MuslimWorldLeague,
+            methodChosenManually = methodChosenManually,
             customFajrAngle = prefs[Keys.CUSTOM_FAJR]?.toDouble() ?: 18.0,
             customIshaAngle = prefs[Keys.CUSTOM_ISHA]?.toDouble() ?: 17.0,
             asrMethod = enumOr(prefs[Keys.ASR], AsrMethod.Standard),
-            highLatitudeRule = prefs[Keys.HIGH_LAT]?.let { runCatching { HighLatitudeRule.valueOf(it) }.getOrNull() },
+            // Older installs did not persist a high-latitude rule. Migrate a
+            // missing or invalid legacy value to the documented global default
+            // instead of retaining location-dependent automatic behaviour.
+            highLatitudeRule = prefs[Keys.HIGH_LAT]
+                ?.let { runCatching { HighLatitudeRule.valueOf(it) }.getOrNull() }
+                ?: HighLatitudeRule.SeventhOfTheNight,
             adjustments = PrayerAdjustments(
                 fajr = prefs[Keys.ADJ_FAJR] ?: 0,
                 sunrise = prefs[Keys.ADJ_SUNRISE] ?: 0,
@@ -49,13 +60,22 @@ class PrayerSettingsRepository @Inject constructor(
                 maghrib = prefs[Keys.ADJ_MAGHRIB] ?: 0,
                 isha = prefs[Keys.ADJ_ISHA] ?: 0,
             ),
-            location = SelectedLocation(
-                name = prefs[Keys.LOCATION_NAME] ?: "",
-                latitude = prefs[Keys.LOCATION_LAT] ?: 0.0,
-                longitude = prefs[Keys.LOCATION_LNG] ?: 0.0,
-                timeZone = prefs[Keys.LOCATION_ZONE] ?: java.util.TimeZone.getDefault().id,
-                elevation = prefs[Keys.LOCATION_ELEVATION] ?: 0.0,
-            ).takeIf { prefs[Keys.LOCATION_NAME] != null },
+            // A location without its own validated IANA zone cannot provide a
+            // trustworthy timetable. Treat an incomplete legacy record as no
+            // location and let the user select/save it again rather than
+            // assigning the current device zone to arbitrary coordinates.
+            location = prefs[Keys.LOCATION_ZONE]
+                ?.takeIf { it.isNotBlank() }
+                ?.let { timeZone ->
+                    SelectedLocation(
+                        name = prefs[Keys.LOCATION_NAME] ?: "",
+                        latitude = prefs[Keys.LOCATION_LAT] ?: 0.0,
+                        longitude = prefs[Keys.LOCATION_LNG] ?: 0.0,
+                        timeZone = timeZone,
+                        elevation = prefs[Keys.LOCATION_ELEVATION] ?: 0.0,
+                    )
+                }
+                ?.takeIf { prefs[Keys.LOCATION_NAME] != null },
             adhanEnabled = prefs[Keys.ADHAN_ENABLED] ?: true,
             vibrateEnabled = prefs[Keys.VIBRATE_ENABLED] ?: true,
             adhanSounds = Prayer.entries
@@ -104,11 +124,7 @@ class PrayerSettingsRepository @Inject constructor(
             prefs[Keys.CUSTOM_FAJR] = newSettings.customFajrAngle.toFloat()
             prefs[Keys.CUSTOM_ISHA] = newSettings.customIshaAngle.toFloat()
             prefs[Keys.ASR] = newSettings.asrMethod.name
-            if (newSettings.highLatitudeRule != null) {
-                prefs[Keys.HIGH_LAT] = newSettings.highLatitudeRule.name
-            } else {
-                prefs.remove(Keys.HIGH_LAT)
-            }
+            prefs[Keys.HIGH_LAT] = newSettings.highLatitudeRule.name
             prefs[Keys.ADJ_FAJR] = newSettings.adjustments[Prayer.Fajr]
             prefs[Keys.ADJ_SUNRISE] = newSettings.adjustments[Prayer.Sunrise]
             prefs[Keys.ADJ_DHUHR] = newSettings.adjustments[Prayer.Dhuhr]

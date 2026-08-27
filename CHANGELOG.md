@@ -5,6 +5,15 @@ sectioned format as v1.10.0 and are generated from the commits for each tag.
 
 ## Unreleased
 
+### Prayer-Time Calculation Integrity and Global Baseline
+
+- Replaced the country-driven automatic calculation-method path with an explicit global Muslim World League baseline. Standard Asr and the Seventh of the Night high-latitude rule are now the persisted defaults; all supported methods, the Hanafi Asr choice, the other two high-latitude rules and manual per-prayer offsets remain deliberate user settings.
+- Introduced one immutable `PrayerCalculationProfile` built from saved settings and consumed by the prayer home, countdown, widget, Adhan scheduler, notification settings, Ramadan surfaces and travel high-latitude preview. This removes duplicate parameter assembly and keeps the rendered civil minute and scheduled Adhan instant aligned.
+- Preserved the astronomical instant after explicit offsets for validation and diagnostics, then rounds exactly once to the final minute shared by display and alarm scheduling. The transit interval is now applied by the calculator before that final rounding.
+- Replaced the manual/GPS location path’s device-timezone assignment with a local coordinate-to-IANA resolver. It runs off the UI thread, keeps location data on-device and refuses to persist a new coordinate when an IANA zone cannot be resolved rather than silently scheduling it in an unrelated device timezone. An incomplete legacy location without a stored IANA zone is now treated as unset until the user selects or saves a valid location again.
+- Added 2026 Muslim World League / Seventh of the Night regression vectors generated from the verified Adhan Kotlin reference implementation: five Berlin seasonal dates and global cases for London, Stockholm, Oslo, Helsinki, Reykjavik, Toronto, Riyadh, Cairo, Istanbul, New York, Tokyo, Singapore and Sydney. The existing Edinburgh high-latitude variants and polar guards remain in place.
+- Added a CI calculation-integrity guard that protects the global defaults, unified profile, one-time rounding, local IANA lookup and removal of country-method forcing.
+
 ## Muslim v1.25.8
 
 ### Per-Prayer Alert Controls and Live Adhan Ownership

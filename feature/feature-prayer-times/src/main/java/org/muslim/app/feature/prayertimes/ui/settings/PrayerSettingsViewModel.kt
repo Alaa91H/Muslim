@@ -28,7 +28,7 @@ import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
-import org.muslim.app.core.datastore.prayer.toPrayerParameters
+import org.muslim.app.core.datastore.prayer.toPrayerCalculationProfile
 import androidx.glance.appwidget.updateAll
 import java.time.Instant
 import java.time.LocalDate
@@ -48,8 +48,6 @@ import org.muslim.app.feature.prayertimes.notifications.AdhanSoundRepository
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.core.notifications.notificationAllowed
-import org.muslim.app.feature.prayertimes.data.CitiesRepository
-import org.muslim.app.feature.prayertimes.domain.City
 import org.muslim.app.feature.prayertimes.widget.PrayerTimesWidget
 import javax.inject.Inject
 
@@ -119,15 +117,18 @@ class PrayerSettingsViewModel @Inject constructor(
         val now = System.currentTimeMillis()
         val today = Instant.ofEpochMilli(now).atZone(zone).toLocalDate()
         val coordinates = Coordinates(location.latitude, location.longitude, location.elevation)
-        val params = settings.toPrayerParameters()
+        val profile = settings.toPrayerCalculationProfile()
         var next = NextPrayer.nextPrayer(
-            calculator.compute(today, coordinates, params, zone, settings.asrMethod, settings.adjustments).epochMillis,
+            calculator.compute(today, coordinates, profile, zone).epochMillis,
             now,
         )
         if (next == null) {
             next = NextPrayer.nextPrayer(
                 calculator.compute(
-                    today.plusDays(1), coordinates, params, zone, settings.asrMethod, settings.adjustments,
+                    date = today.plusDays(1),
+                    coordinates = coordinates,
+                    profile = profile,
+                    timeZone = zone,
                 ).epochMillis,
                 now,
             )
@@ -144,36 +145,6 @@ class PrayerSettingsViewModel @Inject constructor(
     /** Download progress (0..1) per prayer, present only while downloading. */
     private val _downloadProgress = MutableStateFlow<Map<Prayer, Float>>(emptyMap())
     val downloadProgress: StateFlow<Map<Prayer, Float>> = _downloadProgress.asStateFlow()
-
-    /**
-     * The method + country the automatic option currently resolves to for the
-     * saved location (only meaningful while [PrayerSettings.methodChosenManually]
-     * is false). Lets the settings screen show what "Automatic" picked today.
-     */
-    data class AutoMethodInfo(val method: CalculationMethod, val country: String, val city: String)
-
-    val autoMethodInfo: StateFlow<AutoMethodInfo?> =
-        repository.settings
-            .map { resolveAutoMethodInfo(it) }
-            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
-
-    private fun resolveAutoMethodInfo(settings: PrayerSettings): AutoMethodInfo? {
-        val city = nearestCityFor(settings) ?: return null
-        return AutoMethodInfo(
-            method = CalculationMethod.suggestedFor(city.country),
-            country = city.country,
-            city = city.displayName,
-        )
-    }
-
-    private fun nearestCityFor(settings: PrayerSettings): City? {
-        val location = settings.location ?: return null
-        return CitiesRepository.all.minByOrNull { city ->
-            val dLat = city.latitude - location.latitude
-            val dLon = city.longitude - location.longitude
-            dLat * dLat + dLon * dLon
-        }
-    }
 
     init {
         // Keep the result truthful after any saved setting changes. The button
@@ -266,29 +237,13 @@ class PrayerSettingsViewModel @Inject constructor(
     fun setMethod(method: CalculationMethod) =
         update { it.copy(method = method, methodChosenManually = true) }
 
-    /**
-     * Switches back to the automatic method: the best-known method for the
-     * saved location's country is resolved immediately (region-aware), and
-     * future location changes keep re-suggesting until the user picks again.
-     */
-    fun setMethodAutomatic() {
-        val current = settings.value
-        val country = nearestCityFor(current)?.country
-        val suggested = if (country != null) {
-            CalculationMethod.suggestedFor(country)
-        } else {
-            CalculationMethod.MuslimWorldLeague
-        }
-        update { it.copy(method = suggested, methodChosenManually = false) }
-    }
-
     fun setCustomFajrAngle(angle: Double) = update { it.copy(customFajrAngle = angle) }
 
     fun setCustomIshaAngle(angle: Double) = update { it.copy(customIshaAngle = angle) }
 
     fun setAsrMethod(asrMethod: AsrMethod) = update { it.copy(asrMethod = asrMethod) }
 
-    fun setHighLatitudeRule(rule: HighLatitudeRule?) = update { it.copy(highLatitudeRule = rule) }
+    fun setHighLatitudeRule(rule: HighLatitudeRule) = update { it.copy(highLatitudeRule = rule) }
 
     fun setAdjustment(prayer: Prayer, minutes: Int) = update {
         it.copy(adjustments = it.adjustments.with(prayer, minutes))

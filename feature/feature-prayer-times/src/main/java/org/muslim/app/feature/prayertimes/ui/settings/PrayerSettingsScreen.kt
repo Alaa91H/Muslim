@@ -139,23 +139,8 @@ fun PrayerSettingsScreen(
         SectionHeader(stringResource(R.string.settings_method))
         MethodDropdown(
             current = settings.method,
-            isAutomatic = !settings.methodChosenManually,
-            onAutomatic = viewModel::setMethodAutomatic,
             onSelected = viewModel::setMethod,
         )
-        val autoInfo by viewModel.autoMethodInfo.collectAsStateWithLifecycle()
-        if (!settings.methodChosenManually && autoInfo != null) {
-            Text(
-                text = stringResource(
-                    R.string.settings_method_automatic_picked,
-                    stringResource(methodLabelRes(autoInfo!!.method)),
-                    autoInfo!!.country,
-                ),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(start = 4.dp, top = 4.dp, end = 4.dp),
-            )
-        }
         if (settings.method == CalculationMethod.Custom && settings.methodChosenManually) {
             CustomAngles(settings, viewModel)
         }
@@ -1246,18 +1231,12 @@ private val SUNNI_METHODS: List<CalculationMethod> = CalculationMethod.entries
 @Composable
 private fun MethodDropdown(
     current: CalculationMethod,
-    isAutomatic: Boolean,
-    onAutomatic: () -> Unit,
     onSelected: (CalculationMethod) -> Unit,
 ) {
     var expanded by remember { mutableStateOf(false) }
     ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
         OutlinedTextField(
-            value = if (isAutomatic) {
-                stringResource(R.string.settings_method_automatic)
-            } else {
-                stringResource(methodLabelRes(current))
-            },
+            value = stringResource(methodLabelRes(current)),
             onValueChange = {},
             readOnly = true,
             label = { Text(stringResource(R.string.settings_method)) },
@@ -1267,13 +1246,6 @@ private fun MethodDropdown(
                 .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
         )
         ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-            DropdownMenuItem(
-                text = { Text(stringResource(R.string.settings_method_automatic)) },
-                onClick = {
-                    expanded = false
-                    onAutomatic()
-                },
-            )
             SUNNI_METHODS.forEach { method ->
                 DropdownMenuItem(
                     text = { Text(stringResource(methodLabelRes(method))) },
@@ -1289,7 +1261,7 @@ private fun MethodDropdown(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun HighLatitudeDropdown(current: HighLatitudeRule?, onSelected: (HighLatitudeRule?) -> Unit) {
+private fun HighLatitudeDropdown(current: HighLatitudeRule, onSelected: (HighLatitudeRule) -> Unit) {
     var expanded by remember { mutableStateOf(false) }
     ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
         OutlinedTextField(
@@ -1303,10 +1275,6 @@ private fun HighLatitudeDropdown(current: HighLatitudeRule?, onSelected: (HighLa
                 .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
         )
         ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-            DropdownMenuItem(
-                text = { Text(stringResource(R.string.settings_high_lat_auto)) },
-                onClick = { expanded = false; onSelected(null) },
-            )
             HighLatitudeRule.entries.forEach { rule ->
                 DropdownMenuItem(
                     text = { Text(stringResource(highLatLabelRes(rule))) },
@@ -1425,8 +1393,7 @@ private fun methodLabelRes(method: CalculationMethod): Int = when (method) {
 }
 
 @Composable
-private fun highLatLabelRes(rule: HighLatitudeRule?): Int = when (rule) {
-    null -> R.string.settings_high_lat_auto
+private fun highLatLabelRes(rule: HighLatitudeRule): Int = when (rule) {
     HighLatitudeRule.MiddleOfTheNight -> R.string.settings_high_lat_midnight
     HighLatitudeRule.SeventhOfTheNight -> R.string.settings_high_lat_seventh
     HighLatitudeRule.TwilightAngle -> R.string.settings_high_lat_angle

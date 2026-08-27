@@ -20,12 +20,12 @@ import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerCompletionRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
-import org.muslim.app.core.datastore.prayer.toPrayerParameters
+import org.muslim.app.core.datastore.prayer.toPrayerCalculationProfile
 import org.muslim.app.core.common.prayer.AdhanSoundOption
 import org.muslim.app.core.common.prayer.Coordinates
 import org.muslim.app.core.common.prayer.NextPrayer
 import org.muslim.app.core.common.prayer.Prayer
-import org.muslim.app.core.common.prayer.PrayerParameters
+import org.muslim.app.core.common.prayer.PrayerCalculationProfile
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import java.time.Instant
 import java.time.LocalDate
@@ -131,26 +131,32 @@ class HomeViewModel @Inject constructor(
         val zone = ZoneId.of(location.timeZone)
         val today = Instant.ofEpochMilli(now).atZone(zone).toLocalDate()
         val coordinates = Coordinates(location.latitude, location.longitude, location.elevation)
-        val params = settings.toPrayerParameters()
+        val profile = settings.toPrayerCalculationProfile()
 
-        val result = calculator.compute(date, coordinates, params, zone, settings.asrMethod, settings.adjustments)
+        val result = calculator.compute(date, coordinates, profile, zone)
 
         // The countdown always tracks the REAL next prayer (from now), even
         // while the user browses a different day's times below.
         var next = NextPrayer.nextPrayer(result.epochMillis, now)
         if (next == null) {
             val tomorrowResult = calculator.compute(
-                today.plusDays(1), coordinates, params, zone, settings.asrMethod, settings.adjustments,
+                date = today.plusDays(1),
+                coordinates = coordinates,
+                profile = profile,
+                timeZone = zone,
             )
             if (tomorrowResult.isValid) next = NextPrayer.nextPrayer(tomorrowResult.epochMillis, now)
         }
         // When the user browsed away from today, keep showing the true next
         // prayer by recomputing against "today" instead of the selected date.
         if (date != today) {
-            val todayResult = calculator.compute(today, coordinates, params, zone, settings.asrMethod, settings.adjustments)
+            val todayResult = calculator.compute(today, coordinates, profile, zone)
             next = NextPrayer.nextPrayer(todayResult.epochMillis, now)
                 ?: calculator.compute(
-                    today.plusDays(1), coordinates, params, zone, settings.asrMethod, settings.adjustments,
+                    date = today.plusDays(1),
+                    coordinates = coordinates,
+                    profile = profile,
+                    timeZone = zone,
                 ).let { NextPrayer.nextPrayer(it.epochMillis, now) }
         }
 
@@ -167,7 +173,7 @@ class HomeViewModel @Inject constructor(
             monthly = isMonthly,
             month = YearMonth.from(date),
             monthDays = if (isMonthly) {
-                monthGrid(YearMonth.from(date), coordinates, params, zone, settings)
+                monthGrid(YearMonth.from(date), coordinates, profile, zone, settings)
             } else {
                 emptyList()
             },
@@ -203,13 +209,13 @@ class HomeViewModel @Inject constructor(
     private fun monthGrid(
         month: YearMonth,
         coordinates: Coordinates,
-        params: PrayerParameters,
+        profile: PrayerCalculationProfile,
         zone: ZoneId,
         settings: PrayerSettings,
     ): List<DayTimes> {
         return (1..month.lengthOfMonth()).map { day ->
             val date = month.atDay(day)
-            val result = calculator.compute(date, coordinates, params, zone, settings.asrMethod, settings.adjustments)
+            val result = calculator.compute(date, coordinates, profile, zone)
             val hijri = runCatching { HijriDate.from(date, settings.hijriAdjustment) }.getOrNull()
             DayTimes(
                 date = date,

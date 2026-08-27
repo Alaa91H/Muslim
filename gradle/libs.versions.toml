@@ -37,6 +37,7 @@ hiltNavigationCompose = "1.4.0"
 
 # Location
 playServicesLocation = "21.4.0"
+timeZoneMap = "4.5"
 
 
 # Kotlin ecosystem
@@ -101,6 +102,8 @@ hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-com
 
 # --- Location ---
 google-play-services-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playServicesLocation" }
+# Offline coordinate-to-IANA map; code is MIT and bundled boundary data is ODbL.
+time-zone-map = { group = "us.dustinj.timezonemap", name = "timezonemap", version.ref = "timeZoneMap" }
 
 
 # --- Kotlin ecosystem ---

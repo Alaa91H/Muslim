@@ -1,7 +1,7 @@
 package org.muslim.app.feature.prayertimes.widget
 
 import org.muslim.app.core.datastore.prayer.PrayerSettings
-import org.muslim.app.core.datastore.prayer.toPrayerParameters
+import org.muslim.app.core.datastore.prayer.toPrayerCalculationProfile
 import org.muslim.app.core.common.prayer.Coordinates
 import org.muslim.app.core.common.prayer.NextPrayer
 import org.muslim.app.core.common.prayer.Prayer
@@ -55,16 +55,22 @@ data class PrayerTimesWidgetData(
 
             val zone = ZoneId.of(location.timeZone)
             val coordinates = Coordinates(location.latitude, location.longitude, location.elevation)
-            val params = settings.toPrayerParameters()
+            val profile = settings.toPrayerCalculationProfile()
             val today = Instant.ofEpochMilli(nowMillis).atZone(zone).toLocalDate()
 
             val todayResult = calculator.compute(
-                today, coordinates, params, zone, settings.asrMethod, settings.adjustments,
+                date = today,
+                coordinates = coordinates,
+                profile = profile,
+                timeZone = zone,
             )
             var next = NextPrayer.nextPrayer(todayResult.epochMillis, nowMillis)
             if (next == null && todayResult.isValid) {
                 val tomorrowResult = calculator.compute(
-                    today.plusDays(1), coordinates, params, zone, settings.asrMethod, settings.adjustments,
+                    date = today.plusDays(1),
+                    coordinates = coordinates,
+                    profile = profile,
+                    timeZone = zone,
                 )
                 if (tomorrowResult.isValid) {
                     next = NextPrayer.nextPrayer(tomorrowResult.epochMillis, nowMillis)

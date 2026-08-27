@@ -24,7 +24,7 @@ This consolidation preserves all implemented destinations while reducing repeate
 
 | Capability | Current implementation | Important boundary |
 |---|---|---|
-| Prayer times and Adhan | Local calculation, method/school/high-latitude preferences, saved or one-time location, and per-prayer Adhan controls directly from each scheduled time row. The shared customisation dialog persists alert mode, bundled sound, preview, shown individual/global volume, vibration and manual adjustment in one reschedule. A live foreground service owns the non-dismissible active card and reaffirms it if the app task is removed. | Sunrise remains excluded from Adhan scheduling; calculations and guides are technical/educational aids, not personalised rulings or a guarantee of delivery under every OS battery, channel, permission or lock-screen policy. |
+| Prayer times and Adhan | A local immutable calculation profile is shared by the prayer home, countdown, widget, Adhan scheduler, notification preview, Ramadan and travel preview. Its global baseline is MWL with Standard Asr and Seventh of the Night; methods, Hanafi Asr, other high-latitude rules, custom angles and per-prayer offsets remain explicit settings. Saved cities retain IANA zones; GPS/manual coordinates resolve IANA locally before persistence. Per-prayer Adhan controls remain available from scheduled time rows, while a live foreground service owns the non-dismissible active card and reaffirms it if the app task is removed. | Sunrise remains excluded from Adhan scheduling. Output is a configurable astronomical calculation, not a personalised ruling or a guarantee of delivery under every OS battery, channel, permission or lock-screen policy. Users and communities remain responsible for selecting the convention appropriate to their practice. |
 | Quran | Offline mushaf experience, bookmarks/progress, search/frequency tools, and user-managed recitation playback/downloads with a calm shared hierarchy for library summaries, coverage, reciter state and transfers. | Provider content and network terms apply to optional downloads. |
 | Hadith | Offline corpus preparation, collection browse, Arabic-normalised FTS search, bookmarks, sharing/copying, daily notification. | Search returns corpus text and metadata, not a comprehensive scholarly judgement about authenticity/context. |
 | Hadith performance model | `hadith_full.ndjson.gz` is streamed on `Dispatchers.IO`, inserted into Room in 150-row batches, and shown through Paging 3 with 24-row pages and a prefetch window. | Preparation progress and retry states are user-visible; no complete corpus list is held by the Hadith UI state. |
@@ -108,6 +108,7 @@ python3 scripts/verify_scholar_library.py
 python3 scripts/verify_iot_integration.py
 python3 scripts/verify_accessibility.py
 python3 scripts/verify_islamic_visual_identity.py
+python3 scripts/verify_prayer_calculation_integrity.py
 ./gradlew testDebugUnitTest :wear:testDebugUnitTest
 ./gradlew lintDebug
 ./gradlew detekt
@@ -141,6 +142,7 @@ GitHub Actions runs debug builds, unit tests, Android Lint, Detekt, and emulator
 | [`qa/p0_test_matrix.md`](qa/p0_test_matrix.md) | Required physical-device acceptance tests for critical worship paths. |
 | [`qa/accessibility_release_checklist.md`](qa/accessibility_release_checklist.md) | Accessibility release checks for TalkBack, Switch Access, and scalable RTL UI. |
 | [`qa/notification_identity_repair.md`](qa/notification_identity_repair.md) | Android launcher/status-bar identity migration, retained-card cleanup, and release verification limits. |
+| [`qa/prayer_time_calculation_integrity.md`](qa/prayer_time_calculation_integrity.md) | Prayer calculation audit, reference vectors, profile contract, IANA resolution and verification limits. |
 | [`release/beta_test_charter.md`](release/beta_test_charter.md) | Scope, limits, and acceptance criteria for the invited closed beta. |
 | [`release/closed_beta_distribution.md`](release/closed_beta_distribution.md) | Stable-signing, CI artifact, and invited-tester distribution workflow. |
 | [`qa/beta_tester_guide.md`](qa/beta_tester_guide.md) | Tester installation, adhan verification, and privacy-preserving feedback guide. |

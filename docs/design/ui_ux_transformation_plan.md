@@ -1,6 +1,6 @@
 # UI/UX Transformation Plan
 
-> **Status:** The core `ui/premium-islamic-experience` workstream was merged into `main` and released in `v1.25.0`. Follow-up consistency passes shipped in `v1.25.2`, `v1.25.4`, `v1.25.5`, `v1.25.6`, `v1.25.7`, and `v1.25.8`; the per-prayer alert and live-Adhan ownership pass is now published. This document preserves religious content, calculation semantics, offline-first behaviour and data contracts while refining their presentation and notification ownership.
+> **Status:** The core `ui/premium-islamic-experience` workstream was merged into `main` and released in `v1.25.0`. Follow-up consistency passes shipped in `v1.25.2`, `v1.25.4`, `v1.25.5`, `v1.25.6`, `v1.25.7`, and `v1.25.8`; the per-prayer alert and live-Adhan ownership pass is published. The current unreleased pass hardens the prayer-time calculation contract, default profile and location timezone path without changing religious content, user-selectable conventions, offline-first behaviour or notification ownership.
 
 ## Product intent
 
@@ -61,6 +61,8 @@ The Hajj-days calculator pass applies shared hierarchy to its intro, entered-dat
 The travel and expat pass applies the same semantic hierarchy to GPS controls, travel-distance assessment, travel guidance, offline compass and high-latitude planning. It uses shared informational, neutral and critical state surfaces, plus common touch-target-safe actions, while preserving location permissions, origin storage, distance assessment, compass calculation, high-latitude preview and prayer-settings navigation.
 
 The published prayer-alert pass adds an explicit per-prayer status/control entry to the daily time rows and reuses the settings-owned dialog for alert mode, bundled Adhan, preview, individual/global volume, vibration and time adjustment. It deliberately leaves sunrise unavailable because the scheduler excludes it. The normal active card is now owned by the live foreground service instead of a preliminary receiver post, is reaffirmed on task removal, and remains tied to playback completion or the explicit Stop action; Android remains the final authority for permission, channel, lock-screen and heads-up presentation.
+
+The current prayer-time integrity pass is intentionally not a visual or doctrinal redesign. It resolves one immutable calculation profile from stored settings, uses it across the main timetable, countdown, widgets, Adhan, notification, Ramadan and travel consumers, and applies final minute rounding once for both display and scheduling. It makes Muslim World League / Standard Asr / Seventh of the Night the predictable automatic baseline while retaining every supported method, Hanafi option, high-latitude alternative, custom angle and manual offset as an explicit user choice. Manual and GPS coordinates obtain an offline IANA timezone before saving; a failed lookup is surfaced rather than silently using the device’s unrelated zone. The regression suite compares an auditable seasonal/global MWL matrix with Adhan Kotlin and keeps the existing high-latitude/polar guards. Calculation conventions remain user/community choices, and CI/emulator results remain distinct from physical-device and local-provider verification.
 
 ## Component policy
 

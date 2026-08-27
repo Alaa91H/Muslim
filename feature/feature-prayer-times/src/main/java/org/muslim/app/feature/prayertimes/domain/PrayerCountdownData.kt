@@ -5,7 +5,7 @@ import org.muslim.app.core.common.prayer.NextPrayer
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import org.muslim.app.core.datastore.prayer.PrayerSettings
-import org.muslim.app.core.datastore.prayer.toPrayerParameters
+import org.muslim.app.core.datastore.prayer.toPrayerCalculationProfile
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalTime
@@ -59,11 +59,14 @@ data class PrayerCountdownData(
 
             val zone = ZoneId.of(location.timeZone)
             val coordinates = Coordinates(location.latitude, location.longitude, location.elevation)
-            val params = settings.toPrayerParameters()
+            val profile = settings.toPrayerCalculationProfile()
             val today = Instant.ofEpochMilli(nowMillis).atZone(zone).toLocalDate()
 
             fun computeFor(date: LocalDate) = calculator.compute(
-                date, coordinates, params, zone, settings.asrMethod, settings.adjustments,
+                date = date,
+                coordinates = coordinates,
+                profile = profile,
+                timeZone = zone,
             )
 
             val todayResult = computeFor(today)

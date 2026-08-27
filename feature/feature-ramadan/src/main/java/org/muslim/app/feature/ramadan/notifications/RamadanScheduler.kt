@@ -6,10 +6,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import dagger.hilt.android.qualifiers.ApplicationContext
-import org.muslim.app.core.common.prayer.CalculationMethod
 import org.muslim.app.core.common.prayer.Coordinates
 import org.muslim.app.core.common.prayer.Prayer
-import org.muslim.app.core.common.prayer.PrayerParameters
+import org.muslim.app.core.datastore.prayer.toPrayerCalculationProfile
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import java.time.LocalDate
@@ -47,7 +46,7 @@ class RamadanScheduler @Inject constructor(
             return
         }
         val zone = ZoneId.of(location.timeZone)
-        val params = parametersFor(prayerSettings)
+        val profile = prayerSettings.toPrayerCalculationProfile()
         val now = System.currentTimeMillis()
         val today = LocalDate.now(zone)
         val tomorrow = today.plusDays(1)
@@ -60,18 +59,14 @@ class RamadanScheduler @Inject constructor(
         val todayResult = calculator.compute(
             date = today,
             coordinates = Coordinates(location.latitude, location.longitude, location.elevation),
-            parameters = params,
+            profile = profile,
             timeZone = zone,
-            asrMethod = prayerSettings.asrMethod,
-            userAdjustments = prayerSettings.adjustments,
         )
         val tomorrowResult = calculator.compute(
             date = tomorrow,
             coordinates = Coordinates(location.latitude, location.longitude, location.elevation),
-            parameters = params,
+            profile = profile,
             timeZone = zone,
-            asrMethod = prayerSettings.asrMethod,
-            userAdjustments = prayerSettings.adjustments,
         )
 
         cancelAll()
@@ -117,17 +112,6 @@ class RamadanScheduler @Inject constructor(
         )
     }
 
-    private fun parametersFor(settings: PrayerSettings): PrayerParameters =
-        if (settings.method == CalculationMethod.Custom) {
-            PrayerParameters(
-                method = CalculationMethod.Custom,
-                fajrAngle = settings.customFajrAngle,
-                ishaAngle = settings.customIshaAngle,
-                highLatitudeRule = settings.highLatitudeRule,
-            )
-        } else {
-            PrayerParameters.of(settings.method).copy(highLatitudeRule = settings.highLatitudeRule)
-        }
 
     private companion object {
         const val REQUEST_IFTAR = 2001
