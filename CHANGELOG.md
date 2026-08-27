@@ -3,7 +3,7 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
-## Unreleased
+## Muslim v1.25.11
 
 ### Reliability and Adaptive Islamic Design
 
