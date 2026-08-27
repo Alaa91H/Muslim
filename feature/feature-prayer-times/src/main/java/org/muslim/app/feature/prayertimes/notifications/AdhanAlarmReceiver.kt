@@ -76,27 +76,11 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 adhanEnabled = settings.adhanEnabled,
                 presentationAllowed = appContext.notificationAllowed(NotificationCategory.Adhan),
             )
-            // Post the alarm first when presentation is permitted. The service
-            // replaces the same id on success; if it fails, the prayer alert
-            // still remains visible instead of disappearing silently.
-            if (deliveryPolicy.postVisibleNotification) {
-                val notificationResult = AdhanNotifications.showAdhan(appContext, prayer)
-                if (notificationResult.posted) {
-                    deliveryJournal.visibleNotificationPosted(prayer, isProbe)
-                } else {
-                    deliveryJournal.visibleNotificationBlocked(
-                        prayer = prayer,
-                        isProbe = isProbe,
-                        detail = notificationResult.detail ?: "Android rejected Adhan notification posting",
-                    )
-                }
-            } else {
-                deliveryJournal.visibleNotificationBlocked(
-                    prayer = prayer,
-                    isProbe = isProbe,
-                    detail = "Adhan notification disabled by app settings or quiet hours",
-                )
-            }
+            // The service that owns live playback also owns the active
+            // foreground card. Avoid pre-posting a separate receiver-owned
+            // notification, which can lose foreground-service protection while
+            // audio still runs. Direct recovery posts the same ongoing card only
+            // if the service cannot become active.
             // Audible Adhan is a separate user choice from notification
             // presentation. A muted/disabled Android channel must never turn a
             // scheduled prayer into no delivery at all; the playback service
@@ -118,6 +102,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                         volume = settings.adhanVolumeFor(prayer),
                         soundPath = soundPath,
                         bundledSoundId = bundledSoundId,
+                        presentationAllowed = deliveryPolicy.postVisibleNotification,
                     ),
                 )
                 // Supplementary automation is intentionally restricted to an
@@ -147,6 +132,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         val volume: Int,
         val soundPath: String?,
         val bundledSoundId: String,
+        val presentationAllowed: Boolean,
     )
 
     /** Starts foreground audio then verifies actual playback before a local fallback. */
@@ -172,6 +158,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 soundPath = request.soundPath,
                 bundledSoundId = request.bundledSoundId,
                 isProbe = request.isProbe,
+                presentationAllowed = request.presentationAllowed,
             )
         }
         if (serviceStart.isFailure) {
@@ -229,6 +216,13 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         plan: org.muslim.app.core.common.prayer.AdhanPlaybackPlan.Plan,
     ) {
         if (!plan.playSound) return
+        // The receiver owns direct recovery only when the foreground service
+        // could not become active. Keep the exact same non-dismissible card
+        // visible for the duration of fallback audio, then remove it in the
+        // existing onFinished callback below.
+        if (request.presentationAllowed) {
+            AdhanNotifications.showAdhan(appContext, request.prayer)
+        }
         val player = entryPoint.soundPlayer()
         val fallbackWakeLock = appContext.getSystemService(PowerManager::class.java)
             .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "$WAKE_LOCK_TAG:direct-fallback")

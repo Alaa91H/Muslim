@@ -27,6 +27,9 @@ import androidx.compose.material.icons.filled.Brightness4
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.LightMode
+import androidx.compose.material.icons.filled.NotificationsActive
+import androidx.compose.material.icons.filled.NotificationsOff
+import androidx.compose.material.icons.filled.Vibration
 import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.WbSunny
@@ -39,7 +42,11 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -57,6 +64,8 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.core.common.appearance.AppOrnamentStyle
+import org.muslim.app.core.common.prayer.AdhanSoundOption
+import org.muslim.app.core.common.prayer.BundledAdhanSound
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.feature.prayertimes.ui.formatCountdown
 import org.muslim.app.feature.prayertimes.ui.localDateFormatter
@@ -71,6 +80,8 @@ import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.core.designsystem.IslamicIconSize
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
+import org.muslim.app.feature.prayertimes.ui.settings.AdhanCustomizeDialog
+import org.muslim.app.feature.prayertimes.ui.settings.PrayerSettingsViewModel
 import org.muslim.app.core.datastore.prayer.trackablePrayers
 
 /**
@@ -82,11 +93,20 @@ fun HomeScreen(
     onSelectLocation: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
+    alertSettingsViewModel: PrayerSettingsViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
+    val alertSettings by alertSettingsViewModel.settings.collectAsStateWithLifecycle()
+    var customizingPrayer by remember { mutableStateOf<Prayer?>(null) }
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
     val ornamentStyle by viewModel.ornamentStyle.collectAsStateWithLifecycle()
     val showPrayerTrackerOnHome by viewModel.showPrayerTrackerOnHome.collectAsStateWithLifecycle()
+
+    // A configuration preview is never allowed to outlive this screen or to
+    // interfere with an actual scheduled Adhan session.
+    DisposableEffect(Unit) {
+        onDispose { alertSettingsViewModel.stopPreview() }
+    }
 
     val context = LocalContext.current
 
@@ -281,6 +301,14 @@ fun HomeScreen(
                                 else MaterialTheme.colorScheme.onSurface,
                             )
                         }
+                        PrayerAlertAction(
+                            prayer = prayer,
+                            adhanEnabled = alertSettings.adhanEnabled,
+                            option = alertSettings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
+                            volume = alertSettings.adhanVolumeFor(prayer),
+                            isNextPrayer = isNextPrayer,
+                            onClick = { customizingPrayer = prayer },
+                        )
                     }
                     }
                 }
@@ -332,6 +360,41 @@ fun HomeScreen(
             MonthlyGrid(state, use24h)
         }
 
+        customizingPrayer?.let { prayer ->
+            AdhanCustomizeDialog(
+                prayer = prayer,
+                option = alertSettings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
+                sound = BundledAdhanSound.fromId(
+                    alertSettings.bundledAdhanSounds[prayer] ?: BundledAdhanSound.DEFAULT_ID,
+                ),
+                volume = alertSettings.adhanVolumeFor(prayer),
+                vibrate = alertSettings.vibrateFor(prayer),
+                adjustmentMinutes = alertSettings.adjustments[prayer],
+                useGlobalVolume = alertSettings.useGlobalAdhanVolume,
+                onPreview = { sound, volume ->
+                    alertSettingsViewModel.previewBundled(prayer, sound, volume)
+                },
+                onLiveVolume = alertSettingsViewModel::setLivePreviewVolume,
+                onDismiss = {
+                    alertSettingsViewModel.stopPreview()
+                    customizingPrayer = null
+                },
+                onConfirm = { option, sound, volume, vibrate, adjustment, useGlobalVolume ->
+                    alertSettingsViewModel.saveAdhanCustomization(
+                        prayer = prayer,
+                        option = option,
+                        bundledSound = sound,
+                        volume = volume,
+                        vibrate = vibrate,
+                        adjustmentMinutes = adjustment,
+                        useGlobalVolume = useGlobalVolume,
+                    )
+                    alertSettingsViewModel.stopPreview()
+                    customizingPrayer = null
+                },
+            )
+        }
+
         if (showPrayerTrackerOnHome) {
             Spacer(Modifier.height(IslamicSpacing.SectionVertical))
             PrayerCompletionCard(
@@ -359,6 +422,55 @@ private fun prayerIcon(prayer: Prayer): ImageVector = when (prayer) {
     Prayer.Asr -> Icons.Filled.Brightness4
     Prayer.Maghrib -> Icons.Filled.Nightlight
     Prayer.Isha -> Icons.Filled.DarkMode
+}
+
+/** Direct per-prayer entry point for the same persisted Adhan choices exposed in Settings. */
+@Composable
+private fun PrayerAlertAction(
+    prayer: Prayer,
+    adhanEnabled: Boolean,
+    option: AdhanSoundOption,
+    volume: Int,
+    isNextPrayer: Boolean,
+    onClick: () -> Unit,
+) {
+    val configurable = prayer != Prayer.Sunrise
+    val icon = when {
+        !configurable || !adhanEnabled || option == AdhanSoundOption.Silent -> Icons.Filled.NotificationsOff
+        option == AdhanSoundOption.VibrateOnly -> Icons.Filled.Vibration
+        else -> Icons.Filled.NotificationsActive
+    }
+    val contentColor = if (isNextPrayer) {
+        MaterialTheme.colorScheme.onTertiaryContainer
+    } else {
+        MaterialTheme.colorScheme.primary
+    }
+    val contentDescription = if (configurable) {
+        stringResource(R.string.settings_adhan_customize_title, stringResource(prayerLabelRes(prayer)))
+    } else {
+        stringResource(R.string.home_prayer_alert_unavailable)
+    }
+
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.padding(start = IslamicSpacing.Compact),
+    ) {
+        if (configurable) {
+            Text(
+                text = "$volume%",
+                style = MaterialTheme.typography.labelSmall,
+                color = contentColor,
+            )
+        }
+        IconButton(onClick = onClick, enabled = configurable) {
+            Icon(
+                imageVector = icon,
+                contentDescription = contentDescription,
+                tint = contentColor,
+                modifier = Modifier.size(IslamicIconSize.Standard),
+            )
+        }
+    }
 }
 
 @Composable

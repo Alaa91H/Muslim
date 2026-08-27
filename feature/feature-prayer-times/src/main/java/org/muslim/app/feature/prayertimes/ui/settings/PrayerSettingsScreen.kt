@@ -320,17 +320,24 @@ fun PrayerSettingsScreen(
                 ),
                 volume = settings.adhanVolumeFor(prayer),
                 vibrate = settings.vibrateFor(prayer),
+                adjustmentMinutes = settings.adjustments[prayer],
+                useGlobalVolume = settings.useGlobalAdhanVolume,
                 onPreview = { sound, vol -> viewModel.previewBundled(prayer, sound, vol) },
                 onLiveVolume = viewModel::setLivePreviewVolume,
                 onDismiss = {
                     viewModel.stopPreview()
                     customizingPrayer = null
                 },
-                onConfirm = { chosenOption, chosenSound, chosenVolume, chosenVibrate ->
-                    viewModel.setAdhanSound(prayer, chosenOption)
-                    viewModel.setBundledAdhanSound(prayer, chosenSound.id)
-                    viewModel.setAdhanVolume(prayer, chosenVolume)
-                    viewModel.setVibrateEnabled(prayer, chosenVibrate)
+                onConfirm = { chosenOption, chosenSound, chosenVolume, chosenVibrate, chosenAdjustment, globalVolume ->
+                    viewModel.saveAdhanCustomization(
+                        prayer = prayer,
+                        option = chosenOption,
+                        bundledSound = chosenSound,
+                        volume = chosenVolume,
+                        vibrate = chosenVibrate,
+                        adjustmentMinutes = chosenAdjustment,
+                        useGlobalVolume = globalVolume,
+                    )
                     viewModel.stopPreview()
                     customizingPrayer = null
                 },
@@ -924,21 +931,25 @@ private fun AdhanSoundRow(
  * per-prayer volume and per-prayer vibration, with live preview.
  */
 @Composable
-private fun AdhanCustomizeDialog(
+internal fun AdhanCustomizeDialog(
     prayer: Prayer,
     option: AdhanSoundOption,
     sound: BundledAdhanSound,
     volume: Int,
     vibrate: Boolean,
+    adjustmentMinutes: Int,
+    useGlobalVolume: Boolean,
     onPreview: (BundledAdhanSound, Int) -> Unit,
     onLiveVolume: (Int) -> Unit,
     onDismiss: () -> Unit,
-    onConfirm: (AdhanSoundOption, BundledAdhanSound, Int, Boolean) -> Unit,
+    onConfirm: (AdhanSoundOption, BundledAdhanSound, Int, Boolean, Int, Boolean) -> Unit,
 ) {
     var chosenOption by remember { mutableStateOf(option) }
     var chosenSound by remember { mutableStateOf(sound) }
     var chosenVolume by remember { mutableIntStateOf(volume) }
     var chosenVibrate by remember { mutableStateOf(vibrate) }
+    var chosenAdjustment by remember { mutableIntStateOf(adjustmentMinutes) }
+    var chosenGlobalVolume by remember { mutableStateOf(useGlobalVolume) }
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -957,6 +968,17 @@ private fun AdhanCustomizeDialog(
                         onClick = { chosenOption = entry },
                     )
                 }
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = stringResource(R.string.settings_adjustments),
+                    style = MaterialTheme.typography.titleSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                StepperRow(
+                    label = stringResource(prayerLabelRes(prayer)),
+                    value = chosenAdjustment,
+                    onChanged = { chosenAdjustment = it },
+                )
                 Spacer(Modifier.height(8.dp))
                 Text(
                     text = stringResource(R.string.settings_adhan_sound_choice),
@@ -995,6 +1017,19 @@ private fun AdhanCustomizeDialog(
                     }
                 }
                 Spacer(Modifier.height(8.dp))
+                SwitchRow(
+                    label = stringResource(R.string.settings_adhan_global_volume),
+                    checked = chosenGlobalVolume,
+                    onCheckedChange = { chosenGlobalVolume = it },
+                )
+                if (chosenGlobalVolume) {
+                    Text(
+                        text = stringResource(R.string.settings_adhan_global_volume_desc),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(top = 4.dp),
+                    )
+                }
                 VolumeRow(
                     volume = chosenVolume,
                     onChanged = { chosenVolume = it },
@@ -1013,7 +1048,18 @@ private fun AdhanCustomizeDialog(
             }
         },
         confirmButton = {
-            TextButton(onClick = { onConfirm(chosenOption, chosenSound, chosenVolume, chosenVibrate) }) {
+            TextButton(
+                onClick = {
+                    onConfirm(
+                        chosenOption,
+                        chosenSound,
+                        chosenVolume,
+                        chosenVibrate,
+                        chosenAdjustment,
+                        chosenGlobalVolume,
+                    )
+                },
+            ) {
                 Text(stringResource(R.string.settings_adhan_confirm))
             }
         },

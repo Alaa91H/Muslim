@@ -29,16 +29,32 @@ REQUIRED_SNIPPETS = {
         "val isPreviewing = MutableStateFlow(false)",
         "fun stopPreview(context: Context)",
         "PLAYBACK_WAKELOCK_TIMEOUT_MS",
+        "private var activeRequest: PlaybackRequest? = null",
+        "override fun onTaskRemoved(rootIntent: Intent?)",
+        "startForegroundNotification(request)",
         "AdhanNotifications.cancelActiveAdhan(this)",
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/notifications/AdhanAlarmReceiver.kt": [
         "AdhanNotifications.cancelReminder(appContext)",
+        "presentationAllowed = deliveryPolicy.postVisibleNotification",
         "AdhanNotifications.cancelActiveAdhan(appContext)",
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/settings/PrayerSettingsViewModel.kt": [
         "val isPreviewing = AdhanPlaybackStatus.isPreviewing",
         "AdhanPlaybackService.stopPreview(context)",
         "isPreview = true",
+        "fun saveAdhanCustomization(",
+    ],
+    "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeScreen.kt": [
+        "PrayerAlertAction(",
+        "AdhanCustomizeDialog(",
+        "alertSettings.adhanVolumeFor(prayer)",
+        "Prayer.Sunrise",
+    ],
+    "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/settings/PrayerSettingsScreen.kt": [
+        "adjustmentMinutes = settings.adjustments[prayer]",
+        "useGlobalVolume = settings.useGlobalAdhanVolume",
+        "fun AdhanCustomizeDialog(",
     ],
     "app/src/androidTest/java/org/muslim/app/feature/prayertimes/notifications/AdhanNotificationsInstrumentedTest.kt": [
         "activeAdhan_isOngoingPublicHighPriority_andExposesOnlyTheExplicitStopAction",

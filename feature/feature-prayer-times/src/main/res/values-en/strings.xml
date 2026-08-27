@@ -18,6 +18,7 @@
     <string name="home_location_unknown">Location not set yet</string>
     <string name="home_today_times">Today\'s prayer times</string>
     <string name="home_cannot_compute">Unable to calculate times for this day</string>
+    <string name="home_prayer_alert_unavailable">No Adhan alert is available for sunrise</string>
     <string name="home_prayer_tracker_title">Today\'s prayer checklist</string>
     <string name="home_prayer_tracker_description">A personal record on this device only. It does not judge your worship or send any data.</string>
     <string name="home_prayer_tracker_progress">%1$d of %2$d prayers marked</string>

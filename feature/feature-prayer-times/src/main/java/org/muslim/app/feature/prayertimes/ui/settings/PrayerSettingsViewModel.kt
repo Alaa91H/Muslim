@@ -328,6 +328,35 @@ class PrayerSettingsViewModel @Inject constructor(
         it.copy(useGlobalAdhanVolume = enabled)
     }
 
+    /**
+     * Persists the controls presented together in the per-prayer customisation
+     * dialog in one update, so the scheduler sees a complete, internally
+     * consistent snapshot instead of intermediate partial selections.
+     */
+    fun saveAdhanCustomization(
+        prayer: Prayer,
+        option: AdhanSoundOption,
+        bundledSound: BundledAdhanSound,
+        volume: Int,
+        vibrate: Boolean,
+        adjustmentMinutes: Int,
+        useGlobalVolume: Boolean,
+    ) = update { current ->
+        current.copy(
+            adjustments = current.adjustments.with(prayer, adjustmentMinutes),
+            adhanSounds = current.adhanSounds + (prayer to option),
+            bundledAdhanSounds = current.bundledAdhanSounds + (prayer to bundledSound.id),
+            adhanVolume = if (useGlobalVolume) volume.coerceIn(0, 100) else current.adhanVolume,
+            adhanVolumes = if (useGlobalVolume) {
+                current.adhanVolumes
+            } else {
+                current.adhanVolumes + (prayer to volume.coerceIn(0, 100))
+            },
+            useGlobalAdhanVolume = useGlobalVolume,
+            vibratePerPrayer = current.vibratePerPrayer + (prayer to vibrate),
+        )
+    }
+
     /** True only while an explicitly user-started settings preview is ringing. */
     val isPreviewing = AdhanPlaybackStatus.isPreviewing
 

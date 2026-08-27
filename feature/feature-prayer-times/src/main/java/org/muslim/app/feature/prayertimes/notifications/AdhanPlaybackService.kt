@@ -52,6 +52,8 @@ class AdhanPlaybackService : Service() {
     lateinit var deliveryJournal: AdhanDeliveryJournal
 
     private var wakeLock: PowerManager.WakeLock? = null
+    /** The request that currently owns the active foreground notification. */
+    private var activeRequest: PlaybackRequest? = null
 
     override fun onBind(intent: Intent?): IBinder? = null
 
@@ -74,16 +76,18 @@ class AdhanPlaybackService : Service() {
         bundledSound = BundledAdhanSound.fromId(intent?.getStringExtra(EXTRA_BUNDLED_SOUND)),
         isProbe = intent?.getBooleanExtra(EXTRA_IS_PROBE, false) ?: false,
         isPreview = intent?.getBooleanExtra(EXTRA_IS_PREVIEW, false) ?: false,
+        presentationAllowed = intent?.getBooleanExtra(EXTRA_PRESENTATION_ALLOWED, true) ?: true,
     )
 
     private fun startPlayback(request: PlaybackRequest) {
+        activeRequest = request
         val plan = AdhanPlaybackPlan.plan(request.option, hasBundledSound = true, request.vibrateEnabled)
         if (!plan.playSound && !plan.vibrate) {
             deliveryJournal.failed(request.prayer, request.isProbe, "Adhan is configured as silent")
             stopSelf()
             return
         }
-        val foregroundStarted = startForegroundNotification(prayer = request.prayer)
+        val foregroundStarted = startForegroundNotification(request)
         if (foregroundStarted.isFailure) {
             startForegroundFailureFallback(request, plan, foregroundStarted.exceptionOrNull())
             return
@@ -96,6 +100,12 @@ class AdhanPlaybackService : Service() {
         plan: AdhanPlaybackPlan.Plan,
         error: Throwable?,
     ) {
+        // Retain the same ongoing card while the one-time direct-audio recovery
+        // runs. This is not the normal path: a successful service owns the
+        // foreground notification through startForeground below.
+        if (request.presentationAllowed) {
+            AdhanNotifications.showAdhan(this, request.prayer)
+        }
         deliveryJournal.audioFallbackStarted(
             request.prayer,
             request.isProbe,
@@ -191,6 +201,7 @@ class AdhanPlaybackService : Service() {
         val bundledSound: BundledAdhanSound,
         val isProbe: Boolean,
         val isPreview: Boolean,
+        val presentationAllowed: Boolean,
     )
 
     private fun vibrate() {
@@ -220,20 +231,47 @@ class AdhanPlaybackService : Service() {
         }
     }
 
-    private fun startForegroundNotification(prayer: Prayer) = runCatching {
+    private fun startForegroundNotification(request: PlaybackRequest) = runCatching {
         NotificationChannels.create(this)
         AdhanNotifications.cancelRetiredAdhan(this)
+        val preflight = AdhanNotifications.notificationPreflight(this)
         startForeground(
             AdhanNotifications.ADHAN_NOTIFICATION_ID,
-            AdhanNotifications.adhanNotification(context = this, prayer = prayer),
+            AdhanNotifications.adhanNotification(context = this, prayer = request.prayer),
         )
+        when {
+            !preflight.posted -> deliveryJournal.visibleNotificationBlocked(
+                request.prayer,
+                request.isProbe,
+                preflight.detail ?: "Android rejected Adhan notification posting",
+            )
+            request.presentationAllowed -> deliveryJournal.visibleNotificationPosted(request.prayer, request.isProbe)
+            else -> deliveryJournal.visibleNotificationBlocked(
+                request.prayer,
+                request.isProbe,
+                "Adhan notification disabled by app settings or quiet hours",
+            )
+        }
+    }
+
+    override fun onTaskRemoved(rootIntent: Intent?) {
+        // Removing the app task must not remove the live Adhan card while the
+        // foreground service still owns playback. Re-posting with the same id
+        // is idempotent and preserves the only explicit Stop action.
+        activeRequest?.takeIf { AdhanPlaybackStatus.isPlaying.value }?.let { request ->
+            runCatching { startForegroundNotification(request) }
+        }
+        super.onTaskRemoved(rootIntent)
     }
 
     override fun onDestroy() {
         wakeLock?.let { runCatching { if (it.isHeld) it.release() } }
         wakeLock = null
+        activeRequest = null
         AdhanPlaybackStatus.isPlaying.value = false
         AdhanPlaybackStatus.isPreviewing.value = false
+        // The card ends only with the owning service: natural completion or
+        // the explicit notification Stop action both stop this service.
         AdhanNotifications.cancelActiveAdhan(this)
         soundPlayer.stop()
         super.onDestroy()
@@ -248,6 +286,7 @@ class AdhanPlaybackService : Service() {
         private const val EXTRA_BUNDLED_SOUND = "extra_bundled_sound"
         private const val EXTRA_IS_PROBE = "extra_is_probe"
         private const val EXTRA_IS_PREVIEW = "extra_is_preview"
+        private const val EXTRA_PRESENTATION_ALLOWED = "extra_presentation_allowed"
         private const val AUDIO_START_TIMEOUT_MS = 12_000L
         private const val FALLBACK_AUDIO_START_TIMEOUT_MS = 5_000L
         private const val PLAYBACK_WAKELOCK_TIMEOUT_MS = 15 * 60 * 1000L
@@ -263,6 +302,7 @@ class AdhanPlaybackService : Service() {
             bundledSoundId: String = BundledAdhanSound.DEFAULT_ID,
             isProbe: Boolean = false,
             isPreview: Boolean = false,
+            presentationAllowed: Boolean = true,
         ) {
             val intent = Intent(context, AdhanPlaybackService::class.java)
                 .putExtra(EXTRA_PRAYER, prayer.name)
@@ -273,6 +313,7 @@ class AdhanPlaybackService : Service() {
                 .putExtra(EXTRA_BUNDLED_SOUND, bundledSoundId)
                 .putExtra(EXTRA_IS_PROBE, isProbe)
                 .putExtra(EXTRA_IS_PREVIEW, isPreview)
+                .putExtra(EXTRA_PRESENTATION_ALLOWED, presentationAllowed)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 context.startForegroundService(intent)
             } else {

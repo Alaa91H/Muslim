@@ -21,6 +21,7 @@
     <string name="home_location_unknown">لم يُحدَّد الموقع بعد</string>
     <string name="home_today_times">مواقيت اليوم</string>
     <string name="home_cannot_compute">تعذّر حساب الأوقات لهذا اليوم</string>
+    <string name="home_prayer_alert_unavailable">لا يتوفر تنبيه أذان للشروق</string>
 
     <!-- Local prayer completion tracker -->
     <string name="home_prayer_tracker_title">متابعة صلوات اليوم</string>

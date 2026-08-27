@@ -5,6 +5,16 @@ sectioned format as v1.10.0 and are generated from the commits for each tag.
 
 ## Unreleased
 
+### Per-Prayer Alert Controls and Live Adhan Ownership
+
+- Added a clear alert-status icon to each prayer-time row. For the five scheduled prayers, it opens the existing full customisation dialog with alert type, bundled Adhan selection, live preview, per-prayer or global volume, vibration and manual time adjustment; sunrise remains visibly unavailable because it is not scheduled as an Adhan alarm.
+- Consolidated the dialog save path into one persisted update so a single reschedule observes a complete per-prayer configuration rather than partial changes.
+- Moved the active Adhan notification’s normal publication into the live foreground service that owns playback, preventing a receiver-owned preliminary card from losing foreground-service protection while audio is still active.
+- Preserved the explicit Stop Adhan action as the sole intentional termination path; the service reaffirms its active card if the app task is removed, and the one-time direct-audio recovery retains the same ongoing card while fallback sound plays.
+- Extended the static Adhan lifecycle guard to require service ownership, task-removal recovery and the home-screen per-prayer customisation entry point.
+
+## Muslim v1.25.7
+
 ### Travel and Expat Surface Consistency
 
 - Unified the travel-distance controls and assessment, travel guidance, offline compass, and high-latitude planning surfaces on shared Modern Islamic Minimalism cards and semantic state treatments.
