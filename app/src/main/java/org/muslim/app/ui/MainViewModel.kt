@@ -24,6 +24,11 @@ class MainViewModel @Inject constructor(
         .map { it.location }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
+    /** User-adjusted Hijri date offset shared with the Ramadan feature and navigation. */
+    val hijriAdjustment: StateFlow<Int> = settingsRepository.settings
+        .map { it.hijriAdjustment }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), 0)
+
     /** Drives the app theme (light/dark/system + dynamic color). */
     val appPreferences: StateFlow<AppPreferences> = appPreferencesRepository.preferences
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), AppPreferences())

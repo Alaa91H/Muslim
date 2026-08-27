@@ -158,9 +158,10 @@ fun MuslimApp(
     val viewModel: MainViewModel = hiltViewModel()
     val location by viewModel.location.collectAsStateWithLifecycle()
     val preferences by viewModel.appPreferences.collectAsStateWithLifecycle()
+    val hijriAdjustment by viewModel.hijriAdjustment.collectAsStateWithLifecycle()
     val context = LocalContext.current
     val today = rememberMidnightLocalDate()
-    val isRamadan = RamadanNavigation.isRamadan(today, preferences.hijriAdjustment)
+    val isRamadan = RamadanNavigation.isRamadan(today, hijriAdjustment)
     val visibleTabs = tabsForRamadan(isRamadan)
 
     // Route to the tab requested by an App Shortcut (cold start or onNewIntent).
