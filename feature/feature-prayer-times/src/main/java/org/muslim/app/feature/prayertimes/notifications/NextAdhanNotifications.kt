@@ -49,79 +49,24 @@ object NextAdhanNotifications {
         showMissed: Boolean = true,
         use24h: Boolean = false,
     ): Notification {
-        val compactLine = SpannableStringBuilder()
-        val expandedMissedLine = SpannableStringBuilder()
         val upcomingTimeColor = context.getColor(R.color.adhan_accent)
-        val durationColor = MissedAdhanColors.DEFAULT
-
-        if (data.hasLocation && data.nextPrayer != null) {
-            val wallClockTime = TimeFormats.timeFormatter(use24h).format(data.nextPrayerAt)
-            val title = context.getString(
-                R.string.next_adhan_notification_title,
-                context.getString(prayerLabelRes(data.nextPrayer)),
-                wallClockTime,
-            )
-            val timeStart = title.lastIndexOf(wallClockTime).coerceAtLeast(0)
-            compactLine.append(title)
-            compactLine.setSpan(
-                ForegroundColorSpan(upcomingTimeColor),
-                timeStart,
-                (timeStart + wallClockTime.length).coerceAtMost(compactLine.length),
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
-            )
-            compactLine.append(" · ")
-            val remainingStart = compactLine.length
-            compactLine.append(
-                context.getString(R.string.next_adhan_remaining, formatCountdown(data.remainingSeconds)),
-            )
-            compactLine.setSpan(
-                ForegroundColorSpan(durationColor),
-                remainingStart,
-                compactLine.length,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
-            )
-
-            val missed = data.missedPrayer
-            if (missed != null && showMissed) {
-                expandedMissedLine.append(
-                    context.getString(
-                        R.string.next_adhan_missed,
-                        context.getString(prayerLabelRes(missed)),
-                        TimeFormats.timeFormatter(use24h).format(data.missedPrayerAt),
-                    ),
-                )
-                expandedMissedLine.append(" · ")
-                val elapsedStart = expandedMissedLine.length
-                expandedMissedLine.append(
-                    context.getString(R.string.next_adhan_elapsed, formatCountdown(data.elapsedSeconds)),
-                )
-                expandedMissedLine.setSpan(
-                    ForegroundColorSpan(durationColor),
-                    elapsedStart,
-                    expandedMissedLine.length,
-                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
-                )
-            }
-        } else {
-            compactLine.append(context.getString(R.string.next_adhan_no_location))
-        }
+        val textLines = buildTextLines(
+            context = context,
+            data = data,
+            showMissed = showMissed,
+            use24h = use24h,
+            upcomingTimeColor = upcomingTimeColor,
+        )
 
         // Tapping the notification opens the prayer-times screen directly.
-        val contentIntent = runCatching {
-            val intent = Intent(Intent.ACTION_VIEW, "muslim://times".toUri())
-                .setPackage(context.packageName)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-            PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
-        }.getOrNull() ?: context.packageManager.getLaunchIntentForPackage(context.packageName)?.let {
-            PendingIntent.getActivity(context, 0, it, PendingIntent.FLAG_IMMUTABLE)
-        }
+        val contentIntent = createContentIntent(context)
 
         val builder = NotificationCompat.Builder(context, NotificationChannels.PRAYER_COUNTDOWN)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
             // This is a silent status/countdown card, not the active Adhan alert.
             // It must never attach a large icon that could make the compact card
             // look like a duplicate, retired, or active alarm notification.
-            .setContentTitle(compactLine)
+            .setContentTitle(textLines.compact)
             .setCategory(NotificationCompat.CATEGORY_STATUS)
             .setOngoing(true)
             .setOnlyAlertOnce(true)
@@ -131,12 +76,86 @@ object NextAdhanNotifications {
 
         // BigText is deliberately supplied only for the optional second line.
         // The system keeps [compactLine] as the one-line collapsed presentation.
-        if (expandedMissedLine.isNotEmpty()) {
-            builder.setStyle(NotificationCompat.BigTextStyle().bigText(expandedMissedLine))
+        if (textLines.expandedMissed.isNotEmpty()) {
+            builder.setStyle(NotificationCompat.BigTextStyle().bigText(textLines.expandedMissed))
         }
         if (data.nextPrayerAt != null) {
             builder.setColor(upcomingTimeColor)
         }
         return builder.build()
+    }
+
+    private data class CountdownTextLines(
+        val compact: SpannableStringBuilder,
+        val expandedMissed: SpannableStringBuilder,
+    )
+
+    private fun buildTextLines(
+        context: Context,
+        data: PrayerCountdownData,
+        showMissed: Boolean,
+        use24h: Boolean,
+        upcomingTimeColor: Int,
+    ): CountdownTextLines {
+        val compact = SpannableStringBuilder()
+        val expandedMissed = SpannableStringBuilder()
+        val durationColor = MissedAdhanColors.DEFAULT
+        val nextPrayer = data.nextPrayer
+        if (!data.hasLocation || nextPrayer == null) {
+            compact.append(context.getString(R.string.next_adhan_no_location))
+            return CountdownTextLines(compact, expandedMissed)
+        }
+
+        val wallClockTime = TimeFormats.timeFormatter(use24h).format(data.nextPrayerAt)
+        val title = context.getString(
+            R.string.next_adhan_notification_title,
+            context.getString(prayerLabelRes(nextPrayer)),
+            wallClockTime,
+        )
+        compact.append(title)
+        compact.setSpan(
+            ForegroundColorSpan(upcomingTimeColor),
+            title.lastIndexOf(wallClockTime).coerceAtLeast(0),
+            (title.lastIndexOf(wallClockTime).coerceAtLeast(0) + wallClockTime.length).coerceAtMost(compact.length),
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
+        )
+        compact.append(" · ")
+        val remainingStart = compact.length
+        compact.append(context.getString(R.string.next_adhan_remaining, formatCountdown(data.remainingSeconds)))
+        compact.setSpan(
+            ForegroundColorSpan(durationColor),
+            remainingStart,
+            compact.length,
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
+        )
+
+        data.missedPrayer?.takeIf { showMissed }?.let { missed ->
+            expandedMissed.append(
+                context.getString(
+                    R.string.next_adhan_missed,
+                    context.getString(prayerLabelRes(missed)),
+                    TimeFormats.timeFormatter(use24h).format(data.missedPrayerAt),
+                ),
+            )
+            expandedMissed.append(" · ")
+            val elapsedStart = expandedMissed.length
+            expandedMissed.append(context.getString(R.string.next_adhan_elapsed, formatCountdown(data.elapsedSeconds)))
+            expandedMissed.setSpan(
+                ForegroundColorSpan(durationColor),
+                elapsedStart,
+                expandedMissed.length,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
+            )
+        }
+        return CountdownTextLines(compact, expandedMissed)
+    }
+
+    private fun createContentIntent(context: Context): PendingIntent? = runCatching {
+        val intent = Intent(Intent.ACTION_VIEW, "muslim://times".toUri())
+            .setPackage(context.packageName)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+    }.getOrNull() ?: context.packageManager.getLaunchIntentForPackage(context.packageName)?.let {
+        PendingIntent.getActivity(context, 0, it, PendingIntent.FLAG_IMMUTABLE)
     }
 }

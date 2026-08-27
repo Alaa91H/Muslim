@@ -24,7 +24,6 @@ import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Book
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.ContentCopy
-import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
@@ -142,20 +141,24 @@ fun HadithScreen(
                 onOpenCollection = viewModel::openCollection,
             )
             else -> HadithBookContent(
-                modifier = Modifier.padding(innerPadding),
                 collection = selected,
-                chapter = chapter,
-                chapters = chapters,
-                query = query,
-                corpusState = corpusState,
-                pagedHadiths = pagedHadiths,
-                daily = daily,
-                bookmarkedIds = bookmarkedIds,
-                onQueryChanged = viewModel::setQuery,
-                onOpenChapter = viewModel::openChapter,
-                onRetry = viewModel::retryCollectionLoad,
-                onToggleBookmark = viewModel::toggleBookmark,
-                onCopied = { scope.launch { snackbarHostState.showSnackbar(copiedMessage) } },
+                state = HadithBookContentState(
+                    chapter = chapter,
+                    chapters = chapters,
+                    query = query,
+                    corpusState = corpusState,
+                    pagedHadiths = pagedHadiths,
+                    daily = daily,
+                    bookmarkedIds = bookmarkedIds,
+                ),
+                actions = HadithBookActions(
+                    onQueryChanged = viewModel::setQuery,
+                    onOpenChapter = viewModel::openChapter,
+                    onRetry = viewModel::retryCollectionLoad,
+                    onToggleBookmark = viewModel::toggleBookmark,
+                    onCopied = { scope.launch { snackbarHostState.showSnackbar(copiedMessage) } },
+                ),
+                modifier = Modifier.padding(innerPadding),
             )
         }
 
@@ -305,24 +308,32 @@ private fun HadithCollectionCard(
     }
 }
 
+private data class HadithBookContentState(
+    val chapter: String?,
+    val chapters: List<HadithChapter>,
+    val query: String,
+    val corpusState: HadithCorpusState,
+    val pagedHadiths: LazyPagingItems<Hadith>,
+    val daily: Hadith?,
+    val bookmarkedIds: Set<Long>,
+)
+
+private data class HadithBookActions(
+    val onQueryChanged: (String) -> Unit,
+    val onOpenChapter: (HadithChapter) -> Unit,
+    val onRetry: () -> Unit,
+    val onToggleBookmark: (Long) -> Unit,
+    val onCopied: () -> Unit,
+)
+
 @Composable
 private fun HadithBookContent(
     collection: HadithCollection,
-    chapter: String?,
-    chapters: List<HadithChapter>,
-    query: String,
-    corpusState: HadithCorpusState,
-    pagedHadiths: LazyPagingItems<Hadith>,
-    daily: Hadith?,
-    bookmarkedIds: Set<Long>,
-    onQueryChanged: (String) -> Unit,
-    onOpenChapter: (HadithChapter) -> Unit,
-    onRetry: () -> Unit,
-    onToggleBookmark: (Long) -> Unit,
-    onCopied: () -> Unit,
+    state: HadithBookContentState,
+    actions: HadithBookActions,
     modifier: Modifier = Modifier,
 ) {
-    when (corpusState) {
+    when (val corpusState = state.corpusState) {
         is HadithCorpusState.Importing -> HadithBookProgress(
             collection = corpusState.collection,
             importedCount = corpusState.importedCount,
@@ -331,7 +342,7 @@ private fun HadithBookContent(
         is HadithCorpusState.Failed -> HadithBookFailure(
             collection = corpusState.collection,
             message = corpusState.message,
-            onRetry = onRetry,
+            onRetry = actions.onRetry,
             modifier = modifier,
         )
         HadithCorpusState.Catalogue -> Unit
@@ -340,16 +351,8 @@ private fun HadithBookContent(
             if (corpusState.collection == collection) {
                 HadithBookIndexOrPages(
                     collection = collection,
-                    chapter = chapter,
-                    chapters = chapters,
-                    query = query,
-                    pagedHadiths = pagedHadiths,
-                    daily = daily,
-                    bookmarkedIds = bookmarkedIds,
-                    onQueryChanged = onQueryChanged,
-                    onOpenChapter = onOpenChapter,
-                    onToggleBookmark = onToggleBookmark,
-                    onCopied = onCopied,
+                    state = state,
+                    actions = actions,
                     modifier = modifier,
                 )
             }
@@ -406,16 +409,8 @@ private fun HadithBookFailure(
 @Composable
 private fun HadithBookIndexOrPages(
     collection: HadithCollection,
-    chapter: String?,
-    chapters: List<HadithChapter>,
-    query: String,
-    pagedHadiths: LazyPagingItems<Hadith>,
-    daily: Hadith?,
-    bookmarkedIds: Set<Long>,
-    onQueryChanged: (String) -> Unit,
-    onOpenChapter: (HadithChapter) -> Unit,
-    onToggleBookmark: (Long) -> Unit,
-    onCopied: () -> Unit,
+    state: HadithBookContentState,
+    actions: HadithBookActions,
     modifier: Modifier = Modifier,
 ) {
     LazyColumn(
@@ -425,8 +420,8 @@ private fun HadithBookIndexOrPages(
         item(key = "book-header") { HadithBookHeader(collection) }
         item(key = "search") {
             DigitNormalizedOutlinedTextField(
-                value = query,
-                onValueChange = onQueryChanged,
+                value = state.query,
+                onValueChange = actions.onQueryChanged,
                 label = { Text(stringResource(R.string.hadith_search_hint)) },
                 leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
                 singleLine = true,
@@ -434,14 +429,14 @@ private fun HadithBookIndexOrPages(
             )
         }
 
-        if (query.isBlank() && chapter == null) {
-            daily?.let { hadith ->
+        if (state.query.isBlank() && state.chapter == null) {
+            state.daily?.let { hadith ->
                 item(key = "daily") {
                     DailyHadithCard(
                         hadith = hadith,
-                        bookmarked = hadith.id in bookmarkedIds,
-                        onToggleBookmark = { onToggleBookmark(hadith.id) },
-                        onCopied = onCopied,
+                        bookmarked = hadith.id in state.bookmarkedIds,
+                        onToggleBookmark = { actions.onToggleBookmark(hadith.id) },
+                        onCopied = actions.onCopied,
                     )
                 }
             }
@@ -456,15 +451,15 @@ private fun HadithBookIndexOrPages(
                     ),
                 )
             }
-            items(chapters, key = { it.title }) { item ->
-                HadithChapterRow(item, onClick = { onOpenChapter(item) })
+            items(state.chapters, key = { it.title }) { item ->
+                HadithChapterRow(item, onClick = { actions.onOpenChapter(item) })
                 HorizontalDivider(modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal))
             }
             item(key = "source-notice") { HadithSourceNotice() }
         } else {
             item(key = "results-label") {
                 Text(
-                    text = if (query.isBlank()) chapter.orEmpty() else stringResource(R.string.hadith_search_hint),
+                    text = if (state.query.isBlank()) state.chapter.orEmpty() else stringResource(R.string.hadith_search_hint),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
                     modifier = Modifier.padding(
@@ -473,7 +468,12 @@ private fun HadithBookIndexOrPages(
                     ),
                 )
             }
-            pagedHadithRows(pagedHadiths, bookmarkedIds, onToggleBookmark, onCopied)
+            pagedHadithRows(
+                state.pagedHadiths,
+                state.bookmarkedIds,
+                actions.onToggleBookmark,
+                actions.onCopied,
+            )
         }
     }
 }

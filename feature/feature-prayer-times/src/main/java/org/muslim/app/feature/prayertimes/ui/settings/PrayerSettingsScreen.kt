@@ -321,25 +321,27 @@ fun PrayerSettingsScreen(
                     adjustmentMinutes = settings.adjustments[prayer],
                     useGlobalVolume = settings.useGlobalAdhanVolume,
                 ),
-                onPreview = { sound, volume -> viewModel.previewBundled(prayer, sound, volume) },
-                onLiveVolume = viewModel::setLivePreviewVolume,
-                onDismiss = {
-                    viewModel.stopPreview()
-                    customizingPrayer = null
-                },
-                onConfirm = { selected ->
-                    viewModel.saveAdhanCustomization(
-                        prayer = prayer,
-                        option = selected.option,
-                        bundledSound = selected.sound,
-                        volume = selected.volume,
-                        vibrate = selected.vibrate,
-                        adjustmentMinutes = selected.adjustmentMinutes,
-                        useGlobalVolume = selected.useGlobalVolume,
-                    )
-                    viewModel.stopPreview()
-                    customizingPrayer = null
-                },
+                actions = AdhanCustomizationActions(
+                    onPreview = { sound, volume -> viewModel.previewBundled(prayer, sound, volume) },
+                    onLiveVolume = viewModel::setLivePreviewVolume,
+                    onDismiss = {
+                        viewModel.stopPreview()
+                        customizingPrayer = null
+                    },
+                    onConfirm = { selected ->
+                        viewModel.saveAdhanCustomization(
+                            prayer = prayer,
+                            option = selected.option,
+                            bundledSound = selected.sound,
+                            volume = selected.volume,
+                            vibrate = selected.vibrate,
+                            adjustmentMinutes = selected.adjustmentMinutes,
+                            useGlobalVolume = selected.useGlobalVolume,
+                        )
+                        viewModel.stopPreview()
+                        customizingPrayer = null
+                    },
+                ),
             )
         }
         downloadPrayer?.let { prayer ->
@@ -934,6 +936,14 @@ internal data class AdhanCustomization(
     val useGlobalVolume: Boolean,
 )
 
+/** All external actions associated with a single Adhan customisation dialog. */
+internal data class AdhanCustomizationActions(
+    val onPreview: (BundledAdhanSound, Int) -> Unit,
+    val onLiveVolume: (Int) -> Unit,
+    val onDismiss: () -> Unit,
+    val onConfirm: (AdhanCustomization) -> Unit,
+)
+
 /**
  * Alert dialog to fully customise one prayer's adhan: alert type, sound,
  * volume, vibration and manual time adjustment, with live preview.
@@ -944,10 +954,7 @@ internal fun AdhanCustomizeDialog(
     density: AppInformationDensity,
     onDensityChange: (AppInformationDensity) -> Unit,
     initial: AdhanCustomization,
-    onPreview: (BundledAdhanSound, Int) -> Unit,
-    onLiveVolume: (Int) -> Unit,
-    onDismiss: () -> Unit,
-    onConfirm: (AdhanCustomization) -> Unit,
+    actions: AdhanCustomizationActions,
 ) {
     var selection by remember(initial) { mutableStateOf(initial) }
     val configuration = LocalConfiguration.current
@@ -956,7 +963,7 @@ internal fun AdhanCustomizeDialog(
     val maximumDialogWidth = if (configuration.screenWidthDp >= 600) 560.dp else 600.dp
 
     AlertDialog(
-        onDismissRequest = onDismiss,
+        onDismissRequest = actions.onDismiss,
         modifier = Modifier.widthIn(max = maximumDialogWidth),
         title = { Text(stringResource(R.string.settings_adhan_customize_title, stringResource(prayerLabelRes(prayer)))) },
         text = {
@@ -967,18 +974,18 @@ internal fun AdhanCustomizeDialog(
                     onDensityChange = onDensityChange,
                     selection = selection,
                     onSelectionChanged = { selection = it },
-                    onPreview = onPreview,
-                    onLiveVolume = onLiveVolume,
+                    onPreview = actions.onPreview,
+                    onLiveVolume = actions.onLiveVolume,
                 )
             }
         },
         confirmButton = {
-            TextButton(onClick = { onConfirm(selection) }) {
+            TextButton(onClick = { actions.onConfirm(selection) }) {
                 Text(stringResource(R.string.settings_adhan_confirm))
             }
         },
         dismissButton = {
-            TextButton(onClick = onDismiss) {
+            TextButton(onClick = actions.onDismiss) {
                 Text(stringResource(R.string.settings_adhan_cancel))
             }
         },

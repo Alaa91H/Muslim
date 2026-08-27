@@ -6,10 +6,8 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.background
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -187,20 +185,24 @@ fun NotificationSettingsScreen(
                     use24h = use24h,
                     category = category,
                     prefs = preferences[category] ?: category.defaultPrefs(),
-                    onToggleEnabled = { viewModel.setEnabled(category, it) },
-                    onToggleSound = { viewModel.setSoundEnabled(category, it) },
-                    onToggleVibrate = { viewModel.setVibrateEnabled(category, it) },
-                    onSelectImportance = { viewModel.setImportance(category, it) },
-                    onToggleBadge = { viewModel.setBadgeEnabled(category, it) },
-                    onTest = { viewModel.testNotification(category) },
-                    onSystemSettings = viewModel::openSystemNotificationSettings,
-                    showMissedAdhan = showMissedAdhan,
-                    onToggleShowMissedAdhan = viewModel::setShowMissedAdhan,
-                    dailyHadithTime = dailyHadithTimeMinutes,
-                    onDailyHadithTimeClick = { showHadithTimePicker = true },
-                    channelStatus = channelStatuses[category] ?: SystemChannelStatus.NotCreated,
-                    onOpenChannelSettings = { viewModel.openSystemChannelSettings(category) },
-                    countdownPreview = countdownPreview,
+                    actions = NotificationCategoryActions(
+                        onToggleEnabled = { viewModel.setEnabled(category, it) },
+                        onToggleSound = { viewModel.setSoundEnabled(category, it) },
+                        onToggleVibrate = { viewModel.setVibrateEnabled(category, it) },
+                        onSelectImportance = { viewModel.setImportance(category, it) },
+                        onToggleBadge = { viewModel.setBadgeEnabled(category, it) },
+                        onTest = { viewModel.testNotification(category) },
+                        onSystemSettings = viewModel::openSystemNotificationSettings,
+                        onToggleShowMissedAdhan = viewModel::setShowMissedAdhan,
+                        onOpenChannelSettings = { viewModel.openSystemChannelSettings(category) },
+                    ),
+                    details = NotificationCategoryDetails(
+                        showMissedAdhan = showMissedAdhan,
+                        dailyHadithTime = dailyHadithTimeMinutes,
+                        onDailyHadithTimeClick = { showHadithTimePicker = true },
+                        channelStatus = channelStatuses[category] ?: SystemChannelStatus.NotCreated,
+                        countdownPreview = countdownPreview,
+                    ),
                 )
             }
         }
@@ -370,78 +372,12 @@ private fun CountdownNotificationPreview(
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         Spacer(Modifier.height(6.dp))
-        Surface(
-            shape = RoundedCornerShape(16.dp),
-            color = MaterialTheme.colorScheme.surfaceContainerHighest,
-            modifier = Modifier
-                .fillMaxWidth()
-                .alpha(if (enabled) 1f else 0.45f),
-        ) {
-            Row(
-                modifier = Modifier.padding(horizontal = 14.dp, vertical = 12.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Icon(
-                    Icons.Filled.Timer,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.size(24.dp),
-                )
-                Spacer(Modifier.width(12.dp))
-                Column(modifier = Modifier.weight(1f)) {
-                    if (!preview.hasLocation || preview.nextPrayer == null) {
-                        Text(
-                            text = stringResource(R.string.notif_preview_no_location),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    } else {
-                        val nextTime = formatPreviewTime(preview.nextPrayerAt ?: LocalTime.MIDNIGHT, use24h)
-                        val nextTitle = stringResource(
-                            R.string.notif_preview_next_title,
-                            stringResource(prayerNameRes(preview.nextPrayer)),
-                            nextTime,
-                        )
-                        val timeStart = nextTitle.lastIndexOf(nextTime).coerceAtLeast(0)
-                        Text(
-                            text = buildAnnotatedString {
-                                append(nextTitle.substring(0, timeStart))
-                                withStyle(SpanStyle(color = Color(0xFF1B5E20))) { append(nextTime) }
-                                append(nextTitle.substring((timeStart + nextTime.length).coerceAtMost(nextTitle.length)))
-                            },
-                            style = MaterialTheme.typography.labelLarge,
-                            fontWeight = FontWeight.SemiBold,
-                        )
-                        Spacer(Modifier.height(2.dp))
-                        val statusLine = buildString {
-                            append(
-                                stringResource(
-                                    R.string.notif_preview_remaining,
-                                    formatCountdown(preview.remainingSeconds),
-                                ),
-                            )
-                            if (showMissed && preview.missedPrayer != null && preview.missedPrayerAt != null) {
-                                append(" · ")
-                                append(
-                                    stringResource(
-                                        R.string.notif_preview_missed,
-                                        stringResource(prayerNameRes(preview.missedPrayer)),
-                                        formatPreviewTime(preview.missedPrayerAt, use24h),
-                                    ),
-                                )
-                            }
-                        }
-                        Text(
-                            text = statusLine,
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = Color(0xFFE53935),
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                        )
-                    }
-                }
-            }
-        }
+        CountdownPreviewCard(
+            preview = preview,
+            enabled = enabled,
+            showMissed = showMissed,
+            use24h = use24h,
+        )
         Spacer(Modifier.height(4.dp))
         Text(
             text = stringResource(R.string.notif_countdown_preview_hint),
@@ -452,24 +388,129 @@ private fun CountdownNotificationPreview(
 }
 
 @Composable
+private fun CountdownPreviewCard(
+    preview: CountdownPreview,
+    enabled: Boolean,
+    showMissed: Boolean,
+    use24h: Boolean,
+) {
+    Surface(
+        shape = RoundedCornerShape(16.dp),
+        color = MaterialTheme.colorScheme.surfaceContainerHighest,
+        modifier = Modifier.fillMaxWidth().alpha(if (enabled) 1f else 0.45f),
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 14.dp, vertical = 12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(
+                Icons.Filled.Timer,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(24.dp),
+            )
+            Spacer(Modifier.width(12.dp))
+            if (!preview.hasLocation || preview.nextPrayer == null) {
+                Text(
+                    text = stringResource(R.string.notif_preview_no_location),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.weight(1f),
+                )
+            } else {
+                CountdownPreviewDetails(
+                    preview = preview,
+                    showMissed = showMissed,
+                    use24h = use24h,
+                    modifier = Modifier.weight(1f),
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun CountdownPreviewDetails(
+    preview: CountdownPreview,
+    showMissed: Boolean,
+    use24h: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    val nextPrayer = preview.nextPrayer ?: return
+    val nextTime = formatPreviewTime(preview.nextPrayerAt ?: LocalTime.MIDNIGHT, use24h)
+    val nextTitle = stringResource(
+        R.string.notif_preview_next_title,
+        stringResource(prayerNameRes(nextPrayer)),
+        nextTime,
+    )
+    val timeStart = nextTitle.lastIndexOf(nextTime).coerceAtLeast(0)
+    Column(modifier = modifier) {
+        Text(
+            text = buildAnnotatedString {
+                append(nextTitle.substring(0, timeStart))
+                withStyle(SpanStyle(color = Color(0xFF1B5E20))) { append(nextTime) }
+                append(nextTitle.substring((timeStart + nextTime.length).coerceAtMost(nextTitle.length)))
+            },
+            style = MaterialTheme.typography.labelLarge,
+            fontWeight = FontWeight.SemiBold,
+        )
+        Spacer(Modifier.height(2.dp))
+        Text(
+            text = countdownPreviewStatusLine(preview, showMissed, use24h),
+            style = MaterialTheme.typography.bodyMedium,
+            color = Color(0xFFE53935),
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+        )
+    }
+}
+
+@Composable
+private fun countdownPreviewStatusLine(
+    preview: CountdownPreview,
+    showMissed: Boolean,
+    use24h: Boolean,
+): String = buildString {
+    append(stringResource(R.string.notif_preview_remaining, formatCountdown(preview.remainingSeconds)))
+    if (showMissed && preview.missedPrayer != null && preview.missedPrayerAt != null) {
+        append(" · ")
+        append(
+            stringResource(
+                R.string.notif_preview_missed,
+                stringResource(prayerNameRes(preview.missedPrayer)),
+                formatPreviewTime(preview.missedPrayerAt, use24h),
+            ),
+        )
+    }
+}
+
+private data class NotificationCategoryActions(
+    val onToggleEnabled: (Boolean) -> Unit,
+    val onToggleSound: (Boolean) -> Unit,
+    val onToggleVibrate: (Boolean) -> Unit,
+    val onSelectImportance: (NotificationImportance) -> Unit,
+    val onToggleBadge: (Boolean) -> Unit,
+    val onTest: () -> Unit,
+    val onSystemSettings: () -> Unit,
+    val onToggleShowMissedAdhan: (Boolean) -> Unit,
+    val onOpenChannelSettings: () -> Unit,
+)
+
+private data class NotificationCategoryDetails(
+    val showMissedAdhan: Boolean,
+    val dailyHadithTime: Int,
+    val onDailyHadithTimeClick: () -> Unit,
+    val channelStatus: SystemChannelStatus,
+    val countdownPreview: CountdownPreview?,
+)
+
+@Composable
 private fun NotificationCategoryCard(
     use24h: Boolean,
     category: NotificationCategory,
     prefs: NotificationCategoryPrefs,
-    onToggleEnabled: (Boolean) -> Unit,
-    onToggleSound: (Boolean) -> Unit,
-    onToggleVibrate: (Boolean) -> Unit,
-    onSelectImportance: (NotificationImportance) -> Unit,
-    onToggleBadge: (Boolean) -> Unit,
-    onTest: () -> Unit,
-    onSystemSettings: () -> Unit,
-    showMissedAdhan: Boolean = true,
-    onToggleShowMissedAdhan: (Boolean) -> Unit = {},
-    dailyHadithTime: Int = 8 * 60,
-    onDailyHadithTimeClick: () -> Unit = {},
-    channelStatus: SystemChannelStatus = SystemChannelStatus.NotCreated,
-    onOpenChannelSettings: () -> Unit = {},
-    countdownPreview: CountdownPreview? = null,
+    actions: NotificationCategoryActions,
+    details: NotificationCategoryDetails,
 ) {
     var expanded by remember { mutableStateOf(false) }
     Card(
@@ -478,114 +519,193 @@ private fun NotificationCategoryCard(
             .padding(horizontal = 16.dp, vertical = 4.dp),
     ) {
         Column {
-            ListItem(
-                headlineContent = { Text(stringResource(categoryLabelRes(category))) },
-                supportingContent = { Text(stringResource(categoryDescriptionRes(category))) },
-                leadingContent = {
-                    Icon(categoryIcon(category), contentDescription = null)
-                },
-                trailingContent = {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(
-                            imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
-                            contentDescription = stringResource(R.string.notif_details),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.size(20.dp),
-                        )
-                        Spacer(Modifier.width(8.dp))
-                        Switch(checked = prefs.enabled, onCheckedChange = onToggleEnabled)
-                    }
-                },
-                modifier = Modifier.clickable { expanded = !expanded },
+            NotificationCategorySummary(
+                category = category,
+                enabled = prefs.enabled,
+                expanded = expanded,
+                onExpandedChange = { expanded = !expanded },
+                onEnabledChange = actions.onToggleEnabled,
             )
             AnimatedVisibility(visible = expanded) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 16.dp, end = 16.dp, bottom = 12.dp),
-                ) {
-                    SystemChannelStatusRow(
-                        status = channelStatus,
-                        onOpenSettings = onOpenChannelSettings,
-                    )
-                    SettingRow(
-                        label = stringResource(R.string.notif_sound),
-                        checked = prefs.soundEnabled,
-                        onCheckedChange = onToggleSound,
-                    )
-                    SettingRow(
-                        label = stringResource(R.string.notif_vibration),
-                        checked = prefs.vibrateEnabled,
-                        onCheckedChange = onToggleVibrate,
-                    )
-                    SettingRow(
-                        label = stringResource(R.string.notif_badge),
-                        checked = prefs.badgeEnabled,
-                        onCheckedChange = onToggleBadge,
-                    )
-                    if (category == NotificationCategory.PrayerCountdown) {
-                        SettingRow(
-                            label = stringResource(R.string.notif_show_missed_adhan),
-                            checked = showMissedAdhan,
-                            onCheckedChange = onToggleShowMissedAdhan,
-                        )
-                        countdownPreview?.let { preview ->
-                            CountdownNotificationPreview(
-                                use24h = use24h,
-                                preview = preview,
-                                enabled = prefs.enabled,
-                                showMissed = showMissedAdhan,
-                            )
-                        }
-                    }
-                    if (category == NotificationCategory.HadithDaily) {
-                        HadithTimeRow(
-                            use24h = use24h,
-                            minutes = dailyHadithTime,
-                            onClick = onDailyHadithTimeClick,
-                        )
-                    }
-                    Spacer(Modifier.height(8.dp))
-                    Text(
-                        text = stringResource(R.string.notif_importance),
-                        style = MaterialTheme.typography.labelLarge,
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        NotificationImportance.entries.forEach { importance ->
-                            FilterChip(
-                                selected = prefs.importance == importance,
-                                onClick = { onSelectImportance(importance) },
-                                label = { Text(stringResource(importanceLabelRes(importance))) },
-                            )
-                        }
-                    }
-                    Spacer(Modifier.height(12.dp))
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        TextButton(onClick = onTest) {
-                            Icon(
-                                Icons.Filled.NotificationsActive,
-                                contentDescription = null,
-                                modifier = Modifier.size(18.dp),
-                            )
-                            Spacer(Modifier.width(6.dp))
-                            Text(stringResource(R.string.notif_test))
-                        }
-                        TextButton(onClick = onSystemSettings) {
-                            Icon(
-                                Icons.Filled.Settings,
-                                contentDescription = null,
-                                modifier = Modifier.size(18.dp),
-                            )
-                            Spacer(Modifier.width(6.dp))
-                            Text(stringResource(R.string.notif_open_system_settings))
-                        }
-                    }
-                }
+                NotificationCategoryExpandedDetails(
+                    use24h = use24h,
+                    category = category,
+                    prefs = prefs,
+                    actions = actions,
+                    details = details,
+                )
             }
         }
     }
     HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
+}
+
+@Composable
+private fun NotificationCategorySummary(
+    category: NotificationCategory,
+    enabled: Boolean,
+    expanded: Boolean,
+    onExpandedChange: () -> Unit,
+    onEnabledChange: (Boolean) -> Unit,
+) {
+    ListItem(
+        headlineContent = { Text(stringResource(categoryLabelRes(category))) },
+        supportingContent = { Text(stringResource(categoryDescriptionRes(category))) },
+        leadingContent = { Icon(categoryIcon(category), contentDescription = null) },
+        trailingContent = {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+                    contentDescription = stringResource(R.string.notif_details),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.size(20.dp),
+                )
+                Spacer(Modifier.width(8.dp))
+                Switch(checked = enabled, onCheckedChange = onEnabledChange)
+            }
+        },
+        modifier = Modifier.clickable(onClick = onExpandedChange),
+    )
+}
+
+@Composable
+private fun NotificationCategoryExpandedDetails(
+    use24h: Boolean,
+    category: NotificationCategory,
+    prefs: NotificationCategoryPrefs,
+    actions: NotificationCategoryActions,
+    details: NotificationCategoryDetails,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 16.dp, end = 16.dp, bottom = 12.dp),
+    ) {
+        SystemChannelStatusRow(
+            status = details.channelStatus,
+            onOpenSettings = actions.onOpenChannelSettings,
+        )
+        NotificationToggleRows(prefs = prefs, actions = actions)
+        NotificationCategorySpecificOptions(
+            use24h = use24h,
+            category = category,
+            enabled = prefs.enabled,
+            actions = actions,
+            details = details,
+        )
+        NotificationImportanceSelector(
+            selected = prefs.importance,
+            onSelect = actions.onSelectImportance,
+        )
+        NotificationCategoryActionButtons(
+            onTest = actions.onTest,
+            onSystemSettings = actions.onSystemSettings,
+        )
+    }
+}
+
+@Composable
+private fun NotificationToggleRows(
+    prefs: NotificationCategoryPrefs,
+    actions: NotificationCategoryActions,
+) {
+    SettingRow(
+        label = stringResource(R.string.notif_sound),
+        checked = prefs.soundEnabled,
+        onCheckedChange = actions.onToggleSound,
+    )
+    SettingRow(
+        label = stringResource(R.string.notif_vibration),
+        checked = prefs.vibrateEnabled,
+        onCheckedChange = actions.onToggleVibrate,
+    )
+    SettingRow(
+        label = stringResource(R.string.notif_badge),
+        checked = prefs.badgeEnabled,
+        onCheckedChange = actions.onToggleBadge,
+    )
+}
+
+@Composable
+private fun NotificationCategorySpecificOptions(
+    use24h: Boolean,
+    category: NotificationCategory,
+    enabled: Boolean,
+    actions: NotificationCategoryActions,
+    details: NotificationCategoryDetails,
+) {
+    if (category == NotificationCategory.PrayerCountdown) {
+        SettingRow(
+            label = stringResource(R.string.notif_show_missed_adhan),
+            checked = details.showMissedAdhan,
+            onCheckedChange = actions.onToggleShowMissedAdhan,
+        )
+        details.countdownPreview?.let { preview ->
+            CountdownNotificationPreview(
+                use24h = use24h,
+                preview = preview,
+                enabled = enabled,
+                showMissed = details.showMissedAdhan,
+            )
+        }
+    }
+    if (category == NotificationCategory.HadithDaily) {
+        HadithTimeRow(
+            use24h = use24h,
+            minutes = details.dailyHadithTime,
+            onClick = details.onDailyHadithTimeClick,
+        )
+    }
+}
+
+@Composable
+private fun NotificationImportanceSelector(
+    selected: NotificationImportance,
+    onSelect: (NotificationImportance) -> Unit,
+) {
+    Spacer(Modifier.height(8.dp))
+    Text(
+        text = stringResource(R.string.notif_importance),
+        style = MaterialTheme.typography.labelLarge,
+    )
+    Spacer(Modifier.height(4.dp))
+    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        NotificationImportance.entries.forEach { importance ->
+            FilterChip(
+                selected = selected == importance,
+                onClick = { onSelect(importance) },
+                label = { Text(stringResource(importanceLabelRes(importance))) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun NotificationCategoryActionButtons(
+    onTest: () -> Unit,
+    onSystemSettings: () -> Unit,
+) {
+    Spacer(Modifier.height(12.dp))
+    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        TextButton(onClick = onTest) {
+            Icon(
+                Icons.Filled.NotificationsActive,
+                contentDescription = null,
+                modifier = Modifier.size(18.dp),
+            )
+            Spacer(Modifier.width(6.dp))
+            Text(stringResource(R.string.notif_test))
+        }
+        TextButton(onClick = onSystemSettings) {
+            Icon(
+                Icons.Filled.Settings,
+                contentDescription = null,
+                modifier = Modifier.size(18.dp),
+            )
+            Spacer(Modifier.width(6.dp))
+            Text(stringResource(R.string.notif_open_system_settings))
+        }
+    }
 }
 
 

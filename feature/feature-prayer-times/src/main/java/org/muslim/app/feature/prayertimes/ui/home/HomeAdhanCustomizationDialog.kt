@@ -8,6 +8,7 @@ import org.muslim.app.core.common.prayer.AdhanSoundOption
 import org.muslim.app.core.common.prayer.BundledAdhanSound
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.feature.prayertimes.ui.settings.AdhanCustomization
+import org.muslim.app.feature.prayertimes.ui.settings.AdhanCustomizationActions
 import org.muslim.app.feature.prayertimes.ui.settings.AdhanCustomizeDialog
 import org.muslim.app.feature.prayertimes.ui.settings.PrayerSettingsViewModel
 
@@ -38,24 +39,26 @@ internal fun HomeAdhanCustomizationDialog(
             adjustmentMinutes = settings.adjustments[prayer],
             useGlobalVolume = settings.useGlobalAdhanVolume,
         ),
-        onPreview = { sound, volume -> viewModel.previewBundled(prayer, sound, volume) },
-        onLiveVolume = viewModel::setLivePreviewVolume,
-        onDismiss = {
-            viewModel.stopPreview()
-            onDismiss()
-        },
-        onConfirm = { selected ->
-            viewModel.saveAdhanCustomization(
-                prayer = prayer,
-                option = selected.option,
-                bundledSound = selected.sound,
-                volume = selected.volume,
-                vibrate = selected.vibrate,
-                adjustmentMinutes = selected.adjustmentMinutes,
-                useGlobalVolume = selected.useGlobalVolume,
-            )
-            viewModel.stopPreview()
-            onDismiss()
-        },
+        actions = AdhanCustomizationActions(
+            onPreview = { sound, volume -> viewModel.previewBundled(prayer, sound, volume) },
+            onLiveVolume = viewModel::setLivePreviewVolume,
+            onDismiss = {
+                viewModel.stopPreview()
+                onDismiss()
+            },
+            onConfirm = { selected ->
+                viewModel.saveAdhanCustomization(
+                    prayer = prayer,
+                    option = selected.option,
+                    bundledSound = selected.sound,
+                    volume = selected.volume,
+                    vibrate = selected.vibrate,
+                    adjustmentMinutes = selected.adjustmentMinutes,
+                    useGlobalVolume = selected.useGlobalVolume,
+                )
+                viewModel.stopPreview()
+                onDismiss()
+            },
+        ),
     )
 }
