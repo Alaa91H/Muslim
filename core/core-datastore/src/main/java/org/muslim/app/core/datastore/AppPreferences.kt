@@ -28,6 +28,8 @@ data class AppPreferences(
     val timeFormat24h: Boolean = false,
     /** Uses a clearer bundled Arabic typeface and more generous Arabic reading spacing. */
     val accessibilityReadingMode: Boolean = false,
+    /** Preferred amount of supporting detail in adaptable screens and configuration dialogs. */
+    val informationDensity: AppInformationDensity = AppInformationDensity.Comfortable,
     /** Uses the high-contrast application colour scheme instead of dynamic wallpaper colours. */
     val accessibilityHighContrast: Boolean = false,
     /** Exposes the explicit, user-triggered microphone button for one-shot navigation commands. */
@@ -113,6 +115,12 @@ data class AppPreferences(
             if (raw.isNullOrBlank()) emptySet()
             else raw.split(',').map { it.trim() }.filter { it in DEFAULT_MORE_SECTION_ORDER }.toSet()
     }
+}
+
+/** User-selected information density for responsive application surfaces. */
+enum class AppInformationDensity {
+    Comfortable,
+    Compact,
 }
 
 /** Theme selection (PROJECT_PROMPT.md §4.1: فاتح / داكن / حسب النظام). */

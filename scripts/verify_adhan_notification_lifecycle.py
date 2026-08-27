@@ -47,9 +47,14 @@ REQUIRED_SNIPPETS = {
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeScreen.kt": [
         "PrayerAlertAction(",
-        "onConfigurePrayerAlert: (Prayer) -> Unit",
+        "HomeAdhanCustomizationDialog",
+        "onClick = { customizingPrayer = prayer }",
         "state.prayerAlerts[prayer]",
         "Prayer.Sunrise",
+    ],
+    "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeAdhanCustomizationDialog.kt": [
+        "PrayerSettingsViewModel",
+        "saveAdhanCustomization",
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/settings/PrayerSettingsScreen.kt": [
         "adjustmentMinutes = settings.adjustments[prayer]",
@@ -61,6 +66,7 @@ REQUIRED_SNIPPETS = {
         "showAdhan_confirmsTheFreshActiveCard_andCancelsTheEarlierReminder",
         "NotificationCompat.VISIBILITY_PUBLIC",
         "NotificationCompat.PRIORITY_HIGH",
+        "The sole Stop action must be executable",
     ],
 }
 
@@ -69,6 +75,7 @@ FORBIDDEN_SNIPPETS = {
         ".setDeleteIntent(",
         "dismissible:",
         "stopOnDismiss:",
+        "setAuthenticationRequired(true)",
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/notifications/AdhanNotificationActionReceiver.kt": [
         "ACTION_DISMISSED",
@@ -87,6 +94,11 @@ FORBIDDEN_SNIPPETS = {
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/settings/PrayerSettingsScreen.kt": [
         "settings_adhan_notification_dismissible",
         "settings_adhan_stop_on_dismiss",
+    ],
+    "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeScreen.kt": [
+        "onConfigurePrayerAlert",
+        "PRAYER_SETTINGS_ROUTE",
+        "navController.navigate",
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/settings/PrayerSettingsViewModel.kt": [
         "setAdhanNotificationDismissible",

@@ -81,7 +81,6 @@ class NextAdhanService : Service() {
             val enabled = notificationPrefs.isEnabled(NotificationCategory.PrayerCountdown)
             val quietActive = notificationPrefs.isQuietHourActive(now)
             val showMissed = notificationPrefs.showMissedAdhan.first()
-            val missedColor = notificationPrefs.missedAdhanColor.first()
             val settings = settingsRepository.settings.first()
             val data = PrayerCountdownData.compute(settings, calculator, now)
 
@@ -104,7 +103,6 @@ class NextAdhanService : Service() {
                     this@NextAdhanService,
                     data,
                     showMissed,
-                    missedColor,
                     use24h = appPreferencesRepository.readTimeFormat24hSync(),
                 ),
             )

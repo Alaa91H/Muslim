@@ -25,6 +25,7 @@ import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import org.muslim.app.core.common.prayer.CalculationMethod
 import org.muslim.app.core.common.prayer.HighLatitudeRule
 import org.muslim.app.core.common.prayer.Prayer
+import org.muslim.app.core.datastore.AppInformationDensity
 import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
@@ -95,6 +96,16 @@ class PrayerSettingsViewModel @Inject constructor(
         appPreferencesRepository.preferences
             .map { it.timeFormat24h }
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
+
+    /** Shared responsive-layout density for configuration dialogs and supporting information. */
+    val informationDensity: StateFlow<AppInformationDensity> =
+        appPreferencesRepository.preferences
+            .map { it.informationDensity }
+            .stateIn(
+                viewModelScope,
+                SharingStarted.WhileSubscribed(5_000),
+                AppInformationDensity.Comfortable,
+            )
 
     private val minuteTicker = flow {
         while (true) {
@@ -333,6 +344,11 @@ class PrayerSettingsViewModel @Inject constructor(
     fun setDndDurationMinutes(minutes: Int) = update { it.copy(dndDurationMinutes = minutes) }
 
     fun setHijriAdjustment(days: Int) = update { it.copy(hijriAdjustment = days) }
+
+    /** Updates the shared compact/comfortable information-density preference. */
+    fun setInformationDensity(density: AppInformationDensity) {
+        viewModelScope.launch { appPreferencesRepository.setInformationDensity(density) }
+    }
 
     /**
      * Plays a bundled adhan recording so the user can preview it. [volumePercent]

@@ -81,6 +81,9 @@
     <string name="settings_adhan_stop_on_dismiss">Stop Adhan when the notification is dismissed</string>
     <string name="settings_adhan_stop_on_dismiss_desc">Requires notification dismissal to be allowed. The Stop Adhan button remains available in the notification.</string>
     <string name="settings_adhan_global_volume">Global adhan volume</string>
+    <string name="settings_information_density">Information density</string>
+    <string name="settings_information_density_comfortable">Comfortable</string>
+    <string name="settings_information_density_compact">Compact</string>
     <string name="settings_adhan_global_volume_desc">Apply a single level to every prayer and disable the per-prayer sliders</string>
     <string name="settings_adhan_follows_global">Follows the global volume (%1$s)</string>
     <string name="settings_reminder_preview_hint">This is how the reminder notification appears before the prayer with the lead time you set.</string>

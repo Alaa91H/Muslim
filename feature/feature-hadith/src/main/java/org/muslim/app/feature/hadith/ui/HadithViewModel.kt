@@ -3,6 +3,7 @@ package org.muslim.app.feature.hadith.ui
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -14,8 +15,9 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -25,6 +27,7 @@ import org.muslim.app.feature.hadith.data.HadithOfTheDayScheduler
 import org.muslim.app.feature.hadith.data.HadithPrefsRepository
 import org.muslim.app.feature.hadith.data.HadithRepository
 import org.muslim.app.feature.hadith.domain.Hadith
+import org.muslim.app.feature.hadith.domain.HadithChapter
 import org.muslim.app.feature.hadith.domain.HadithCollection
 
 @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
@@ -33,7 +36,7 @@ class HadithViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val repository: HadithRepository,
     private val prefsRepository: HadithPrefsRepository,
-    private val appPreferencesRepository: AppPreferencesRepository,
+    appPreferencesRepository: AppPreferencesRepository,
 ) : ViewModel() {
 
     val use24h: StateFlow<Boolean> = appPreferencesRepository.preferences
@@ -45,6 +48,15 @@ class HadithViewModel @Inject constructor(
 
     private val selectedCollection = MutableStateFlow<HadithCollection?>(null)
     val collection: StateFlow<HadithCollection?> = selectedCollection
+
+    private val selectedChapter = MutableStateFlow<String?>(null)
+    val chapter: StateFlow<String?> = selectedChapter
+
+    val chapters: StateFlow<List<HadithChapter>> = selectedCollection
+        .flatMapLatest { collection ->
+            if (collection == null) flowOf(emptyList()) else repository.chapters(collection)
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     val bookmarkedIds: StateFlow<Set<Long>> = prefsRepository.bookmarkedIds
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptySet())
@@ -63,58 +75,71 @@ class HadithViewModel @Inject constructor(
     private val mutableDaily = MutableStateFlow<Hadith?>(null)
     val daily: StateFlow<Hadith?> = mutableDaily
 
-    /**
-     * A Room Paging source emits a bounded window of rows to LazyColumn. The
-     * debounce prevents a new SQLite/FTS source for every input keystroke.
-     */
+    /** A Room Paging window, always scoped to the collection that the user opened. */
     val pagedHadiths = combine(
         queryInput.debounce(SEARCH_DEBOUNCE_MILLIS),
         selectedCollection,
-    ) { query, collection -> query.trim() to collection }
-        .flatMapLatest { (query, collection) -> repository.pagedHadiths(query, collection) }
+        selectedChapter,
+    ) { query, collection, chapter -> BrowseRequest(query.trim(), collection, chapter) }
+        .flatMapLatest { request ->
+            request.collection?.let { collection ->
+                repository.pagedHadiths(request.query, collection, request.chapter)
+            } ?: flowOf(PagingData.empty())
+        }
         .cachedIn(viewModelScope)
 
-    init {
+    fun openCollection(collection: HadithCollection) {
+        if (!collection.isBundled) return
+        selectedCollection.value = collection
+        selectedChapter.value = null
+        queryInput.value = ""
         viewModelScope.launch {
             runCatching {
-                repository.ensureSeeded()
+                repository.ensureCollectionLoaded(collection)
+                mutableDaily.value = repository.hadithOfTheDay()
                 if (prefsRepository.dailyNotificationEnabled.first()) {
                     HadithOfTheDayScheduler.schedule(
                         context,
                         prefsRepository.dailyNotificationTimeMinutes.first(),
                     )
                 }
-                mutableDaily.value = repository.hadithOfTheDay()
             }
         }
+    }
+
+    fun returnToCatalogue() {
+        selectedCollection.value = null
+        selectedChapter.value = null
+        queryInput.value = ""
+    }
+
+    fun openChapter(chapter: HadithChapter) {
+        selectedChapter.value = chapter.title
+        queryInput.value = ""
+    }
+
+    fun returnToIndex() {
+        selectedChapter.value = null
+        queryInput.value = ""
     }
 
     fun setQuery(value: String) {
         queryInput.value = value
     }
 
-    fun setCollection(collection: HadithCollection?) {
-        selectedCollection.value = collection
-    }
-
-    fun retryCorpusPreparation() {
-        viewModelScope.launch {
-            runCatching {
-                repository.ensureSeeded()
-                mutableDaily.value = repository.hadithOfTheDay()
-            }
-        }
+    fun retryCollectionLoad() {
+        selectedCollection.value?.let(::openCollection)
     }
 
     fun setDailyNotificationEnabled(enabled: Boolean) {
         viewModelScope.launch {
             prefsRepository.setDailyNotificationEnabled(enabled)
-            if (enabled) {
+            if (enabled && selectedCollection.value != null) {
                 HadithOfTheDayScheduler.schedule(
                     context,
                     prefsRepository.dailyNotificationTimeMinutes.first(),
                 )
-            } else {
+            } else if (!enabled) {
                 HadithOfTheDayScheduler.cancel(context)
             }
         }
@@ -123,7 +148,7 @@ class HadithViewModel @Inject constructor(
     fun setDailyNotificationTimeMinutes(minutes: Int) {
         viewModelScope.launch {
             prefsRepository.setDailyNotificationTimeMinutes(minutes)
-            if (prefsRepository.dailyNotificationEnabled.first()) {
+            if (prefsRepository.dailyNotificationEnabled.first() && selectedCollection.value != null) {
                 HadithOfTheDayScheduler.schedule(context, minutes)
             }
         }
@@ -135,6 +160,12 @@ class HadithViewModel @Inject constructor(
             if (id in ids) prefsRepository.removeBookmark(id) else prefsRepository.addBookmark(id)
         }
     }
+
+    private data class BrowseRequest(
+        val query: String,
+        val collection: HadithCollection?,
+        val chapter: String?,
+    )
 
     private companion object {
         const val SEARCH_DEBOUNCE_MILLIS = 250L

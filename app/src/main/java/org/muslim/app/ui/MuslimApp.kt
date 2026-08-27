@@ -7,6 +7,7 @@ import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.MoreHoriz
+import androidx.compose.material.icons.filled.NightsStay
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -18,6 +19,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -34,6 +38,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import java.time.Duration
+import java.time.LocalDate
+import java.time.ZoneId
+import java.time.ZonedDateTime
+import kotlinx.coroutines.delay
 import org.muslim.app.BuildConfig
 import org.muslim.app.R
 import org.muslim.app.crash.CrashReportDialog
@@ -80,16 +89,26 @@ private data class Tab(
     val icon: ImageVector,
 )
 
-private val tabs = listOf(
+private val baseTabs = listOf(
     Tab("home", R.string.tab_home, Icons.Default.Home),
     Tab("quran", R.string.tab_quran, Icons.AutoMirrored.Filled.MenuBook),
     Tab("qibla", R.string.tab_qibla, Icons.Default.Explore),
     Tab("more", R.string.tab_more, Icons.Default.MoreHoriz),
 )
 
-/** Returns [preferred] if it is one of the real tab routes, else "home". */
-private fun startDestinationFor(preferred: String): String =
-    if (tabs.any { it.route == preferred }) preferred else "home"
+/** Ramadan becomes a primary destination only for the adjusted Hijri month nine. */
+private fun tabsForRamadan(isRamadan: Boolean): List<Tab> =
+    if (!isRamadan) baseTabs else listOf(
+        baseTabs[0],
+        baseTabs[1],
+        Tab(RAMADAN_ROUTE, R.string.tab_ramadan, Icons.Filled.NightsStay),
+        baseTabs[2],
+        baseTabs[3],
+    )
+
+/** Returns [preferred] if it is one of the visible tab routes, else "home". */
+private fun startDestinationFor(preferred: String, visibleTabs: List<Tab>): String =
+    if (visibleTabs.any { it.route == preferred }) preferred else "home"
 
 private const val READER_ROUTE = "quran/reader"
 private const val BOOKMARKS_ROUTE = "quran/bookmarks"
@@ -140,6 +159,9 @@ fun MuslimApp(
     val location by viewModel.location.collectAsStateWithLifecycle()
     val preferences by viewModel.appPreferences.collectAsStateWithLifecycle()
     val context = LocalContext.current
+    val today = rememberMidnightLocalDate()
+    val isRamadan = RamadanNavigation.isRamadan(today, preferences.hijriAdjustment)
+    val visibleTabs = tabsForRamadan(isRamadan)
 
     // Route to the tab requested by an App Shortcut (cold start or onNewIntent).
     LaunchedEffect(initialRoute) {
@@ -186,7 +208,7 @@ fun MuslimApp(
             bottomBar = {
                 val backStackEntry by navController.currentBackStackEntryAsState()
                 val currentDestination = backStackEntry?.destination
-                val onTab = tabs.any { currentDestination?.route == it.route }
+                val onTab = visibleTabs.any { currentDestination?.route == it.route }
                 if (onTab) {
                     Surface(
                         color = MaterialTheme.colorScheme.surfaceContainer,
@@ -196,7 +218,7 @@ fun MuslimApp(
                             containerColor = Color.Transparent,
                             tonalElevation = 0.dp,
                         ) {
-                            tabs.forEach { tab ->
+                            visibleTabs.forEach { tab ->
                                 NavigationBarItem(
                                     selected = currentDestination?.hierarchy?.any { it.route == tab.route } == true,
                                     onClick = {
@@ -227,16 +249,13 @@ fun MuslimApp(
             NavHost(
                 // The user-chosen start tab (default: prayer-times home), validated
                 // against the real tab routes so a stale value can never crash.
-                startDestination = startDestinationFor(initialStartTab),
+                startDestination = startDestinationFor(initialStartTab, visibleTabs),
                 navController = navController,
                 modifier = Modifier.padding(innerPadding),
             ) {
                 composable("home") {
                     HomeScreen(
                         onSelectLocation = { navController.navigate("location") },
-                        onConfigurePrayerAlert = { prayer ->
-                            navController.navigate("$PRAYER_SETTINGS_ROUTE?alertPrayer=${prayer.name}")
-                        },
                     )
                 }
                 composable("quran") {
@@ -295,6 +314,7 @@ fun MuslimApp(
                         onOpenAdhkar = { navController.navigate(ADHKAR_ROUTE) },
                         onOpenTasbih = { navController.navigate(TASBIH_ROUTE) },
                         onOpenRamadan = { navController.navigate(RAMADAN_ROUTE) },
+                        showRamadanShortcut = !isRamadan,
                         onOpenHabits = { navController.navigate(HABITS_ROUTE) },
                         onOpenZakat = { navController.navigate(ZAKAT_ROUTE) },
                         onOpenIslamicFinance = { navController.navigate(ISLAMIC_FINANCE_ROUTE) },
@@ -445,4 +465,21 @@ fun MuslimApp(
         }
         CrashReportDialog()
     }
+}
+
+/** Recompose the navigation shell after the local calendar day changes. */
+@Composable
+private fun rememberMidnightLocalDate(): LocalDate {
+    var today by remember { mutableStateOf(LocalDate.now()) }
+    LaunchedEffect(Unit) {
+        while (true) {
+            val zone = ZoneId.systemDefault()
+            val now = ZonedDateTime.now(zone)
+            val nextMidnight = now.toLocalDate().plusDays(1).atStartOfDay(zone)
+            val delayMillis = Duration.between(now, nextMidnight).toMillis().coerceAtLeast(1_000L)
+            delay(delayMillis)
+            today = LocalDate.now(zone)
+        }
+    }
+    return today
 }

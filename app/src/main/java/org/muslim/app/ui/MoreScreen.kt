@@ -86,6 +86,8 @@ fun MoreScreen(
     onOpenAdhkar: () -> Unit,
     onOpenTasbih: () -> Unit,
     onOpenRamadan: () -> Unit,
+    /** Ramadan is promoted to the bottom bar during the adjusted Hijri month nine. */
+    showRamadanShortcut: Boolean = true,
     onOpenHabits: () -> Unit = {},
     onOpenZakat: () -> Unit,
     onOpenIslamicFinance: () -> Unit = {},
@@ -108,12 +110,14 @@ fun MoreScreen(
         org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_WORSHIP to MoreSection(
             org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_WORSHIP,
             R.string.more_section_worship,
-            listOf(
-                MoreEntry(R.string.more_adhkar, R.string.more_adhkar_desc, Icons.Filled.Favorite, onOpenAdhkar),
-                MoreEntry(R.string.more_tasbih, R.string.more_tasbih_desc, Icons.Filled.AutoStories, onOpenTasbih),
-                MoreEntry(R.string.more_ramadan, R.string.more_ramadan_desc, Icons.Filled.NightsStay, onOpenRamadan),
-                MoreEntry(R.string.more_habits, R.string.more_habits_desc, Icons.Filled.SelfImprovement, onOpenHabits),
-            ),
+            buildList {
+                add(MoreEntry(R.string.more_adhkar, R.string.more_adhkar_desc, Icons.Filled.Favorite, onOpenAdhkar))
+                add(MoreEntry(R.string.more_tasbih, R.string.more_tasbih_desc, Icons.Filled.AutoStories, onOpenTasbih))
+                if (showRamadanShortcut) {
+                    add(MoreEntry(R.string.more_ramadan, R.string.more_ramadan_desc, Icons.Filled.NightsStay, onOpenRamadan))
+                }
+                add(MoreEntry(R.string.more_habits, R.string.more_habits_desc, Icons.Filled.SelfImprovement, onOpenHabits))
+            },
         ),
         org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_KNOWLEDGE to MoreSection(
             org.muslim.app.core.datastore.AppPreferences.MORE_SECTION_KNOWLEDGE,

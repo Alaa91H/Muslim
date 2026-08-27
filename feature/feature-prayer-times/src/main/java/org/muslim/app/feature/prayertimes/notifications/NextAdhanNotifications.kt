@@ -10,6 +10,7 @@ import android.text.style.ForegroundColorSpan
 import androidx.core.app.NotificationCompat
 import androidx.core.net.toUri
 import org.muslim.app.core.common.time.TimeFormats
+import org.muslim.app.core.notifications.MissedAdhanColors
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.feature.prayertimes.domain.PrayerCountdownData
@@ -19,9 +20,9 @@ import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 /**
  * Builders for the permanent next-Adhan countdown notification.
  *
- * The collapsed system surface is deliberately one line only: next prayer,
- * wall-clock time, and a red remaining duration. Expanding the card adds one
- * additional line for the last missed Adhan and its red elapsed duration.
+ * The compact line marks the upcoming prayer's wall-clock time in Islamic green
+ * and the remaining duration in red. The expanded elapsed duration follows the
+ * same red danger/status treatment; these semantic colours are not user-tinted.
  */
 object NextAdhanNotifications {
 
@@ -46,19 +47,27 @@ object NextAdhanNotifications {
         context: Context,
         data: PrayerCountdownData,
         showMissed: Boolean = true,
-        missedColor: Int = org.muslim.app.core.notifications.MissedAdhanColors.DEFAULT,
         use24h: Boolean = false,
     ): Notification {
         val compactLine = SpannableStringBuilder()
         val expandedMissedLine = SpannableStringBuilder()
+        val upcomingTimeColor = context.getColor(R.color.adhan_accent)
+        val durationColor = MissedAdhanColors.DEFAULT
 
         if (data.hasLocation && data.nextPrayer != null) {
-            compactLine.append(
-                context.getString(
-                    R.string.next_adhan_notification_title,
-                    context.getString(prayerLabelRes(data.nextPrayer)),
-                    TimeFormats.timeFormatter(use24h).format(data.nextPrayerAt),
-                ),
+            val wallClockTime = TimeFormats.timeFormatter(use24h).format(data.nextPrayerAt)
+            val title = context.getString(
+                R.string.next_adhan_notification_title,
+                context.getString(prayerLabelRes(data.nextPrayer)),
+                wallClockTime,
+            )
+            val timeStart = title.lastIndexOf(wallClockTime).coerceAtLeast(0)
+            compactLine.append(title)
+            compactLine.setSpan(
+                ForegroundColorSpan(upcomingTimeColor),
+                timeStart,
+                (timeStart + wallClockTime.length).coerceAtMost(compactLine.length),
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
             )
             compactLine.append(" · ")
             val remainingStart = compactLine.length
@@ -66,7 +75,7 @@ object NextAdhanNotifications {
                 context.getString(R.string.next_adhan_remaining, formatCountdown(data.remainingSeconds)),
             )
             compactLine.setSpan(
-                ForegroundColorSpan(missedColor),
+                ForegroundColorSpan(durationColor),
                 remainingStart,
                 compactLine.length,
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
@@ -87,7 +96,7 @@ object NextAdhanNotifications {
                     context.getString(R.string.next_adhan_elapsed, formatCountdown(data.elapsedSeconds)),
                 )
                 expandedMissedLine.setSpan(
-                    ForegroundColorSpan(missedColor),
+                    ForegroundColorSpan(durationColor),
                     elapsedStart,
                     expandedMissedLine.length,
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
@@ -126,7 +135,7 @@ object NextAdhanNotifications {
             builder.setStyle(NotificationCompat.BigTextStyle().bigText(expandedMissedLine))
         }
         if (data.nextPrayerAt != null) {
-            builder.setColor(context.getColor(org.muslim.app.feature.prayertimes.R.color.adhan_accent))
+            builder.setColor(upcomingTimeColor)
         }
         return builder.build()
     }

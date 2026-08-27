@@ -22,7 +22,7 @@ def sha256(path: Path) -> str:
 
 def bundled_paths() -> set[str]:
     paths = [
-        *ROOT.glob("feature/feature-hadith/src/main/assets/*"),
+        *ROOT.glob("feature/feature-hadith/src/main/assets/**/*"),
         *ROOT.glob("feature/feature-quran/src/main/assets/*"),
         *ROOT.glob("feature/feature-prayer-times/src/main/res/raw/*"),
     ]

@@ -64,8 +64,10 @@ fun LocationScreen(
     val gpsFailedText = stringResource(R.string.location_gps_failed)
 
     val permissionLauncher = rememberLauncherForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { granted ->
+        ActivityResultContracts.RequestMultiplePermissions(),
+    ) { permissions ->
+        val granted = permissions[Manifest.permission.ACCESS_FINE_LOCATION] == true ||
+            permissions[Manifest.permission.ACCESS_COARSE_LOCATION] == true
         if (granted) viewModel.useGps() else viewModel.gpsDenied()
     }
 
@@ -110,11 +112,21 @@ fun LocationScreen(
 
             OutlinedButton(
                 onClick = {
-                    val granted = ContextCompat.checkSelfPermission(
+                    val fineGranted = ContextCompat.checkSelfPermission(
                         context, Manifest.permission.ACCESS_FINE_LOCATION,
                     ) == PackageManager.PERMISSION_GRANTED
-                    if (granted) viewModel.useGps() else {
-                        permissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+                    val coarseGranted = ContextCompat.checkSelfPermission(
+                        context, Manifest.permission.ACCESS_COARSE_LOCATION,
+                    ) == PackageManager.PERMISSION_GRANTED
+                    if (fineGranted || coarseGranted) {
+                        viewModel.useGps()
+                    } else {
+                        permissionLauncher.launch(
+                            arrayOf(
+                                Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.ACCESS_COARSE_LOCATION,
+                            ),
+                        )
                     }
                 },
                 modifier = Modifier.fillMaxWidth(),

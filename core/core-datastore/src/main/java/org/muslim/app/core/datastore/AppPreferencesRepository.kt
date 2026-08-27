@@ -42,6 +42,7 @@ class AppPreferencesRepository @Inject constructor(
             startTab = prefs[Keys.START_TAB] ?: AppPreferences.START_TAB_HOME,
             timeFormat24h = prefs[Keys.TIME_FORMAT_24H] ?: false,
             accessibilityReadingMode = prefs[Keys.ACCESSIBILITY_READING_MODE] ?: false,
+            informationDensity = enumOr(prefs[Keys.INFORMATION_DENSITY], AppInformationDensity.Comfortable),
             accessibilityHighContrast = prefs[Keys.ACCESSIBILITY_HIGH_CONTRAST] ?: false,
             voiceNavigationEnabled = prefs[Keys.VOICE_NAVIGATION_ENABLED] ?: false,
             wearCompanionEnabled = prefs[Keys.WEAR_COMPANION_ENABLED] ?: false,
@@ -98,6 +99,11 @@ class AppPreferencesRepository @Inject constructor(
 
     suspend fun setAccessibilityReadingMode(enabled: Boolean) {
         edit { prefs -> prefs[Keys.ACCESSIBILITY_READING_MODE] = enabled }
+    }
+
+    /** Persists the preferred amount of supporting information in adaptable UI surfaces. */
+    suspend fun setInformationDensity(density: AppInformationDensity) {
+        edit { prefs -> prefs[Keys.INFORMATION_DENSITY] = density.name }
     }
 
     suspend fun setAccessibilityHighContrast(enabled: Boolean) {
@@ -221,6 +227,7 @@ class AppPreferencesRepository @Inject constructor(
         val START_TAB = stringPreferencesKey("start_tab")
         val TIME_FORMAT_24H = booleanPreferencesKey("time_format_24h")
         val ACCESSIBILITY_READING_MODE = booleanPreferencesKey("accessibility_reading_mode")
+        val INFORMATION_DENSITY = stringPreferencesKey("information_density")
         val ACCESSIBILITY_HIGH_CONTRAST = booleanPreferencesKey("accessibility_high_contrast")
         val VOICE_NAVIGATION_ENABLED = booleanPreferencesKey("voice_navigation_enabled")
         val WEAR_COMPANION_ENABLED = booleanPreferencesKey("wear_companion_enabled")

@@ -1,0 +1,41 @@
+{
+  "version": 3,
+  "books": {
+    "bukhari": {
+      "hadiths": 7580,
+      "chapters": 97
+    },
+    "muslim": {
+      "hadiths": 7360,
+      "chapters": 57
+    },
+    "abudawud": {
+      "hadiths": 5272,
+      "chapters": 43
+    },
+    "tirmidhi": {
+      "hadiths": 3924,
+      "chapters": 49
+    },
+    "nasai": {
+      "hadiths": 5679,
+      "chapters": 51
+    },
+    "ibnmajah": {
+      "hadiths": 4338,
+      "chapters": 38
+    },
+    "muwatta": {
+      "hadiths": 1829,
+      "chapters": 61
+    },
+    "nawawi40": {
+      "hadiths": 42,
+      "chapters": 1
+    },
+    "riyad": {
+      "hadiths": 1895,
+      "chapters": 20
+    }
+  }
+}

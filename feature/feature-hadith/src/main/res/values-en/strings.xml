@@ -24,6 +24,21 @@
     <string name="hadith_load_failed">Could not load this hadith page</string>
     <string name="hadith_retry">Retry</string>
     <string name="hadith_no_results">No results match the selected search or collection.</string>
+    <string name="hadith_catalog_subtitle">Choose a book to browse its index and local text.</string>
+    <string name="hadith_catalog_loading_contract">Only the book you open is loaded.</string>
+    <string name="hadith_open_index">Open index</string>
+    <string name="hadith_book_summary">%1$d hadiths · %2$d chapters</string>
+    <string name="hadith_book_index">Book index</string>
+    <string name="hadith_book_index_subtitle">%1$d hadiths in %2$d chapters</string>
+    <string name="hadith_chapter_summary">%1$d hadiths · %2$s</string>
+    <string name="hadith_chapter_unknown_range">Numbers as supplied by the source</string>
+    <string name="hadith_loading_book">Preparing %1$s locally…</string>
+    <string name="hadith_loading_book_progress">Preparing %1$s locally (%2$d hadiths)…</string>
+    <string name="hadith_book_load_failed">Could not prepare this book</string>
+    <string name="hadith_select_book_for_search">Open a book first to search within it.</string>
+    <string name="hadith_all_chapters">All chapters</string>
+    <string name="hadith_chapter_back">Back to chapter index</string>
+    <string name="hadith_source_notice">Texts are provided for reading and search; they are not a fatwa or religious certification.</string>
 
     <string name="hadith_collection_nawawi">An-Nawawi 40</string>
     <string name="hadith_collection_riyad">Riyadh as-Salihin</string>
@@ -35,4 +50,15 @@
     <string name="hadith_collection_ibnmajah">Ibn Majah</string>
     <string name="hadith_collection_muwatta">Muwatta Malik</string>
     <string name="hadith_collection_other">Other</string>
+
+    <string name="hadith_collection_bukhari_description">Imam al-Bukhari collection with its bundled chapter index and text.</string>
+    <string name="hadith_collection_muslim_description">Imam Muslim collection with its bundled chapter index and text.</string>
+    <string name="hadith_collection_abudawud_description">Sunan Abi Dawud with its bundled chapter index and text.</string>
+    <string name="hadith_collection_tirmidhi_description">Jami at-Tirmidhi with its bundled chapter index and text.</string>
+    <string name="hadith_collection_nasai_description">Sunan an-Nasa'i with its bundled chapter index and text.</string>
+    <string name="hadith_collection_ibnmajah_description">Sunan Ibn Majah with its bundled chapter index and text.</string>
+    <string name="hadith_collection_muwatta_description">Muwatta Malik with its bundled chapter index and text.</string>
+    <string name="hadith_collection_riyad_description">Riyad as-Salihin with its bundled topic index and text.</string>
+    <string name="hadith_collection_nawawi_description">The concise, complete Forty Hadith of al-Nawawi.</string>
+    <string name="hadith_collection_other_description">An unrecognised collection.</string>
 </resources>

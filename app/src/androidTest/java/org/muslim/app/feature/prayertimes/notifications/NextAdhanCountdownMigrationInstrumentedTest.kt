@@ -2,7 +2,6 @@ package org.muslim.app.feature.prayertimes.notifications
 
 import android.app.Notification
 import android.app.NotificationManager
-import android.graphics.Color
 import android.os.SystemClock
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
@@ -82,7 +81,6 @@ class NextAdhanCountdownMigrationInstrumentedTest {
                 elapsedSeconds = elapsedSeconds,
             ),
             showMissed = true,
-            missedColor = Color.RED,
             use24h = true,
         )
 
@@ -109,7 +107,8 @@ class NextAdhanCountdownMigrationInstrumentedTest {
         assertTrue(compactLine.toString().contains(expectedNextTitle))
         assertTrue(compactLine.toString().contains(expectedRemaining))
         assertFalse(compactLine.toString().contains(expectedMissed))
-        assertTrue(hasRedSpan(compactLine))
+        assertTrue(hasColorSpan(compactLine, context.getColor(R.color.adhan_accent)))
+        assertTrue(hasColorSpan(compactLine, org.muslim.app.core.notifications.MissedAdhanColors.DEFAULT))
 
         val expandedLine = requireNotNull(notification.extras.getCharSequence(Notification.EXTRA_BIG_TEXT))
         assertNotNull(expandedLine)
@@ -120,7 +119,7 @@ class NextAdhanCountdownMigrationInstrumentedTest {
             ),
         )
         assertFalse(expandedLine.toString().contains("\n"))
-        assertTrue(hasRedSpan(expandedLine))
+        assertTrue(hasColorSpan(expandedLine, org.muslim.app.core.notifications.MissedAdhanColors.DEFAULT))
     }
 
     private fun awaitNotificationState(notificationId: Int, expectedActive: Boolean) {
@@ -142,9 +141,9 @@ class NextAdhanCountdownMigrationInstrumentedTest {
         )
     }
 
-    private fun hasRedSpan(text: CharSequence): Boolean {
+    private fun hasColorSpan(text: CharSequence, color: Int): Boolean {
         val spanned = text as? Spanned ?: return false
         return spanned.getSpans(0, spanned.length, ForegroundColorSpan::class.java)
-            .any { it.foregroundColor == Color.RED }
+            .any { it.foregroundColor == color }
     }
 }

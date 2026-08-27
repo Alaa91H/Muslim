@@ -7,8 +7,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -73,7 +71,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
@@ -81,7 +82,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.muslim.app.core.notifications.MissedAdhanColors
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.notifications.NotificationCategory
 import org.muslim.app.core.notifications.NotificationCategoryPrefs
@@ -108,7 +108,6 @@ fun NotificationSettingsScreen(
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
     val quietHours by viewModel.quietHours.collectAsStateWithLifecycle()
     val showMissedAdhan by viewModel.showMissedAdhan.collectAsStateWithLifecycle()
-    val missedAdhanColor by viewModel.missedAdhanColor.collectAsStateWithLifecycle()
     val dailyHadithTimeMinutes by viewModel.dailyHadithTimeMinutes.collectAsStateWithLifecycle()
     val countdownPreview by viewModel.countdownPreview.collectAsStateWithLifecycle()
     val context = LocalContext.current
@@ -197,8 +196,6 @@ fun NotificationSettingsScreen(
                     onSystemSettings = viewModel::openSystemNotificationSettings,
                     showMissedAdhan = showMissedAdhan,
                     onToggleShowMissedAdhan = viewModel::setShowMissedAdhan,
-                    missedAdhanColor = missedAdhanColor,
-                    onSelectMissedAdhanColor = viewModel::setMissedAdhanColor,
                     dailyHadithTime = dailyHadithTimeMinutes,
                     onDailyHadithTimeClick = { showHadithTimePicker = true },
                     channelStatus = channelStatuses[category] ?: SystemChannelStatus.NotCreated,
@@ -361,7 +358,6 @@ private fun CountdownNotificationPreview(
     preview: CountdownPreview,
     enabled: Boolean,
     showMissed: Boolean,
-    missedColor: Int,
     use24h: Boolean,
 ) {
     Column(
@@ -400,12 +396,19 @@ private fun CountdownNotificationPreview(
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                     } else {
+                        val nextTime = formatPreviewTime(preview.nextPrayerAt ?: LocalTime.MIDNIGHT, use24h)
+                        val nextTitle = stringResource(
+                            R.string.notif_preview_next_title,
+                            stringResource(prayerNameRes(preview.nextPrayer)),
+                            nextTime,
+                        )
+                        val timeStart = nextTitle.lastIndexOf(nextTime).coerceAtLeast(0)
                         Text(
-                            text = stringResource(
-                                R.string.notif_preview_next_title,
-                                stringResource(prayerNameRes(preview.nextPrayer)),
-                                formatPreviewTime(preview.nextPrayerAt ?: LocalTime.MIDNIGHT, use24h),
-                            ),
+                            text = buildAnnotatedString {
+                                append(nextTitle.substring(0, timeStart))
+                                withStyle(SpanStyle(color = Color(0xFF1B5E20))) { append(nextTime) }
+                                append(nextTitle.substring((timeStart + nextTime.length).coerceAtMost(nextTitle.length)))
+                            },
                             style = MaterialTheme.typography.labelLarge,
                             fontWeight = FontWeight.SemiBold,
                         )
@@ -431,7 +434,7 @@ private fun CountdownNotificationPreview(
                         Text(
                             text = statusLine,
                             style = MaterialTheme.typography.bodyMedium,
-                            color = Color(missedColor),
+                            color = Color(0xFFE53935),
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                         )
@@ -462,8 +465,6 @@ private fun NotificationCategoryCard(
     onSystemSettings: () -> Unit,
     showMissedAdhan: Boolean = true,
     onToggleShowMissedAdhan: (Boolean) -> Unit = {},
-    missedAdhanColor: Int = org.muslim.app.core.notifications.MissedAdhanColors.DEFAULT,
-    onSelectMissedAdhanColor: (Int) -> Unit = {},
     dailyHadithTime: Int = 8 * 60,
     onDailyHadithTimeClick: () -> Unit = {},
     channelStatus: SystemChannelStatus = SystemChannelStatus.NotCreated,
@@ -528,19 +529,12 @@ private fun NotificationCategoryCard(
                             checked = showMissedAdhan,
                             onCheckedChange = onToggleShowMissedAdhan,
                         )
-                        if (showMissedAdhan) {
-                            MissedColorPicker(
-                                selectedArgb = missedAdhanColor,
-                                onSelect = onSelectMissedAdhanColor,
-                            )
-                        }
                         countdownPreview?.let { preview ->
                             CountdownNotificationPreview(
                                 use24h = use24h,
                                 preview = preview,
                                 enabled = prefs.enabled,
                                 showMissed = showMissedAdhan,
-                                missedColor = missedAdhanColor,
                             )
                         }
                     }
@@ -594,67 +588,7 @@ private fun NotificationCategoryCard(
     HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
 }
 
-@Composable
-private fun MissedColorPicker(
-    selectedArgb: Int,
-    onSelect: (Int) -> Unit,
-) {
-    val selectedOption = MissedAdhanColors.byArgb(selectedArgb)
-    Column(modifier = Modifier.padding(top = 8.dp)) {
-        Text(
-            text = stringResource(R.string.notif_missed_color),
-            style = MaterialTheme.typography.labelLarge,
-        )
-        Spacer(Modifier.height(6.dp))
-        Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            MissedAdhanColors.OPTIONS.forEach { option ->
-                val isSelected = option.argb == selectedArgb
-                Box(
-                    modifier = Modifier
-                        .size(30.dp)
-                        .then(
-                            if (isSelected) {
-                                Modifier.border(
-                                    width = 3.dp,
-                                    color = MaterialTheme.colorScheme.primary,
-                                    shape = CircleShape,
-                                )
-                            } else {
-                                Modifier
-                            },
-                        )
-                        .clickable { onSelect(option.argb) },
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(if (isSelected) 22.dp else 26.dp)
-                            .background(Color(option.argb), CircleShape),
-                    )
-                }
-            }
-        }
-        Spacer(Modifier.height(6.dp))
-        Text(
-            text = selectedOption?.let { stringResource(missedColorLabelRes(it.id)) }
-                ?: stringResource(missedColorLabelRes(MissedAdhanColors.OPTIONS.first().id)),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-    }
-}
 
-private fun missedColorLabelRes(id: String): Int = when (id) {
-    "red" -> R.string.notif_missed_color_red
-    "orange" -> R.string.notif_missed_color_orange
-    "amber" -> R.string.notif_missed_color_amber
-    "green" -> R.string.notif_missed_color_green
-    "blue" -> R.string.notif_missed_color_blue
-    "purple" -> R.string.notif_missed_color_purple
-    "pink" -> R.string.notif_missed_color_pink
-    "cyan" -> R.string.notif_missed_color_cyan
-    else -> R.string.notif_missed_color_red
-}
 
 @Composable
 private fun HadithTimeRow(

@@ -3,6 +3,20 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Unreleased
+
+### Lazy Hadith Library, Location Recovery and Prayer Alerts
+
+- Replaced the single eager Hadith corpus with nine independently compressed, versioned book assets and a compact catalogue. Opening the library now reads only collection metadata; selecting a book imports that book alone in bounded 150-row transactions, indexes its chapters locally, and displays its pages through Paging. The catalogue currently covers Sahih al-Bukhari, Sahih Muslim, Sunan Abi Dawud, Jami at-Tirmidhi, Sunan an-Nasai, Sunan Ibn Majah, Muwatta Malik, Riyad as-Salihin and Forty Hadith of al-Nawawi, with source and distribution records tracked per bundled asset.
+- Redesigned the Hadith entry experience around original local book-cover artwork, collection cards, chapter indexes, and book-scoped search. No hidden all-library import is triggered by entering the catalogue or by the daily-Hadith worker.
+- Restored resilient foreground GPS selection for prayer times. The permission entry accepts Android approximate or precise foreground location, requests a high-accuracy live fix when precise access is available, and falls back to the most recent fused or platform location only when needed. Every selected coordinate still resolves its local IANA timezone before saving, never the device timezone.
+- Kept the default Isha calculation on the documented Muslim World League profile: 17° solar depression, zero manual Isha adjustment by default, and the configured Seventh of the Night high-latitude bound. Added explicit assertions alongside the Adhan-reference seasonal and global Isha vectors; no Berlin-specific branch or hidden Isha compensation has been introduced.
+- Promoted Ramadan to the bottom navigation only while the app-wide adjusted Umm al-Qura date is in Ramadan. It appears between Quran and Qibla, making four primary destinations plus More; outside Ramadan the existing More shortcut remains and no background scheduler is required for the rule.
+- Made the next-prayer time green in the permanent prayer-time notification and made remaining/elapsed duration red in both the live notification and settings preview. The old duration-colour picker was removed because it no longer represented the live notification behavior.
+- Removed the prayer-row route to the full settings screen. Its alert icon now opens the persisted per-prayer customisation dialog directly and leaves the user on the prayer-times home screen. The dialog derives safe width and content-height bounds from the device, remains scrollable on constrained displays, and has a persisted comfortable/compact information-density option without hiding functional controls.
+- Preserved and strengthened the active Adhan contract: the foreground card is public on the lock screen, high priority, ongoing, non-auto-cancelable, and has one executable Stop Adhan action that does not require unlock authentication. Removing the app task reaffirms the active card; natural playback completion or that explicit Stop action ends the service. Android system/channel settings still control the final availability of lock-screen and heads-up presentation. Hardware volume keys retain their Android-owned volume behavior and are not represented as an unreliable stop control.
+- Added CI guardrails for lazy Hadith asset inventory, GPS permission and IANA-zone handling, MWL Isha defaults, semantic countdown colours, direct home-dialog customisation, and the non-dismissible Adhan lock-screen lifecycle.
+
 ## Muslim v1.25.9
 
 ### Prayer-Time Calculation Integrity and Global Baseline

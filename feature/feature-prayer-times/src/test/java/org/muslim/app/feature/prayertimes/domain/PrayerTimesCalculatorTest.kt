@@ -361,8 +361,12 @@ class PrayerTimesCalculatorTest {
             .isEqualTo(CalculationMethod.MuslimWorldLeague)
         assertThat(PrayerSettings().toPrayerCalculationProfile().asrMethod)
             .isEqualTo(AsrMethod.Standard)
-        assertThat(PrayerSettings().toPrayerCalculationProfile().highLatitudeRule)
+        val defaultProfile = PrayerSettings().toPrayerCalculationProfile()
+        assertThat(defaultProfile.highLatitudeRule)
             .isEqualTo(HighLatitudeRule.SeventhOfTheNight)
+        assertThat(defaultProfile.ishaAngle).isEqualTo(17.0)
+        assertThat(defaultProfile.ishaMinutes).isEqualTo(0)
+        assertThat(defaultProfile.userAdjustments[Prayer.Isha]).isEqualTo(0)
 
         BERLIN_SEASONAL_MWL_CASES.forEach(::assertMwlSeventhReferenceCase)
     }

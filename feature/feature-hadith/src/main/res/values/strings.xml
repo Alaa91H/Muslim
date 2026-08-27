@@ -24,6 +24,21 @@
     <string name="hadith_load_failed">تعذر تحميل هذه الصفحة من الأحاديث</string>
     <string name="hadith_retry">إعادة المحاولة</string>
     <string name="hadith_no_results">لا توجد نتائج مطابقة للبحث أو المجموعة المختارة.</string>
+    <string name="hadith_catalog_subtitle">اختر كتاباً لاستعراض فهرسه ونصوصه محلياً.</string>
+    <string name="hadith_catalog_loading_contract">لن يُحمَّل إلا الكتاب الذي تفتحه.</string>
+    <string name="hadith_open_index">فتح الفهرس</string>
+    <string name="hadith_book_summary">%1$d حديثاً · %2$d فصلاً</string>
+    <string name="hadith_book_index">فهرس الكتاب</string>
+    <string name="hadith_book_index_subtitle">%1$d حديثاً في %2$d فصلاً</string>
+    <string name="hadith_chapter_summary">%1$d حديثاً · %2$s</string>
+    <string name="hadith_chapter_unknown_range">الأرقام بحسب المصدر</string>
+    <string name="hadith_loading_book">يتم تجهيز %1$s محلياً…</string>
+    <string name="hadith_loading_book_progress">يتم تجهيز %1$s محلياً (%2$d حديثاً)…</string>
+    <string name="hadith_book_load_failed">تعذر تجهيز هذا الكتاب</string>
+    <string name="hadith_select_book_for_search">اختر كتاباً أولاً للبحث داخله.</string>
+    <string name="hadith_all_chapters">كل الفصول</string>
+    <string name="hadith_chapter_back">العودة إلى فهرس الفصول</string>
+    <string name="hadith_source_notice">النصوص معروضة للقراءة والبحث؛ لا تمثل فتوى أو اعتماداً دينياً.</string>
 
     <string name="hadith_collection_nawawi">الأربعون النووية</string>
     <string name="hadith_collection_riyad">رياض الصالحين</string>
@@ -35,4 +50,15 @@
     <string name="hadith_collection_ibnmajah">ابن ماجه</string>
     <string name="hadith_collection_muwatta">موطأ مالك</string>
     <string name="hadith_collection_other">أخرى</string>
+
+    <string name="hadith_collection_bukhari_description">مجموعة الإمام البخاري بفهرس الفصول والنصوص المضمنة.</string>
+    <string name="hadith_collection_muslim_description">مجموعة الإمام مسلم بفهرس الفصول والنصوص المضمنة.</string>
+    <string name="hadith_collection_abudawud_description">سنن أبي داود بفهرس الفصول والنصوص المضمنة.</string>
+    <string name="hadith_collection_tirmidhi_description">جامع الترمذي بفهرس الفصول والنصوص المضمنة.</string>
+    <string name="hadith_collection_nasai_description">سنن النسائي بفهرس الفصول والنصوص المضمنة.</string>
+    <string name="hadith_collection_ibnmajah_description">سنن ابن ماجه بفهرس الفصول والنصوص المضمنة.</string>
+    <string name="hadith_collection_muwatta_description">موطأ مالك بفهرس الفصول والنصوص المضمنة.</string>
+    <string name="hadith_collection_riyad_description">رياض الصالحين بفهرس موضوعاته والنصوص المضمنة.</string>
+    <string name="hadith_collection_nawawi_description">الأربعون النووية في كتاب موجز كامل.</string>
+    <string name="hadith_collection_other_description">مجموعة غير معروفة.</string>
 </resources>

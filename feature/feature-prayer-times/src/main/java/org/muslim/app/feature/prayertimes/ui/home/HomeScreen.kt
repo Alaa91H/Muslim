@@ -43,6 +43,9 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -85,7 +88,6 @@ import org.muslim.app.core.datastore.prayer.trackablePrayers
 @Composable
 fun HomeScreen(
     onSelectLocation: () -> Unit,
-    onConfigurePrayerAlert: (Prayer) -> Unit = {},
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
@@ -95,6 +97,9 @@ fun HomeScreen(
     val showPrayerTrackerOnHome by viewModel.showPrayerTrackerOnHome.collectAsStateWithLifecycle()
 
     val context = LocalContext.current
+    // Kept in the home composition so the alert action opens a modal and never
+    // pushes the user into the full prayer-settings destination.
+    var customizingPrayer by remember { mutableStateOf<Prayer?>(null) }
 
     Box(modifier = modifier.fillMaxSize()) {
         IslamicOrnamentImage(
@@ -291,7 +296,7 @@ fun HomeScreen(
                             prayer = prayer,
                             alert = state.prayerAlerts[prayer] ?: HomeViewModel.PrayerAlert(),
                             isNextPrayer = isNextPrayer,
-                            onClick = { onConfigurePrayerAlert(prayer) },
+                            onClick = { customizingPrayer = prayer },
                         )
                     }
                     }
@@ -354,6 +359,12 @@ fun HomeScreen(
             Spacer(Modifier.height(IslamicSpacing.Medium))
         }
         }
+    }
+    customizingPrayer?.let { prayer ->
+        HomeAdhanCustomizationDialog(
+            prayer = prayer,
+            onDismiss = { customizingPrayer = null },
+        )
     }
 }
 

@@ -142,10 +142,12 @@ class AdhanNotificationsInstrumentedTest {
         assertEquals(NotificationCompat.VISIBILITY_PUBLIC, notification.visibility)
         assertEquals(NotificationCompat.PRIORITY_HIGH, notification.priority)
         assertEquals(1, notification.actions.size)
+        val stopAction = notification.actions.single()
         assertEquals(
             context.getString(org.muslim.app.feature.prayertimes.R.string.adhan_notification_stop),
-            notification.actions.single().title,
+            stopAction.title,
         )
+        assertTrue("The sole Stop action must be executable", stopAction.actionIntent != null)
     }
 
     @Test

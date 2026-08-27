@@ -19,7 +19,7 @@ The phone app has four primary destinations: **Prayer Times**, **Quran**, **Qibl
 |---|---|
 | **Prayer and Adhan** | Local prayer-time calculation, selectable calculation methods and Asr school, high-latitude guidance, saved/manual location or one-time location refresh, Hijri adjustment, per-prayer notification controls, Adhan playback, reminders, quiet hours, and next-prayer countdowns. |
 | **Quran** | Offline Quran reading, bookmarks and reading progress, translations/tafsir where supplied, Arabic search and word-frequency tools, reciter selection, playback, and user-managed recitation downloads. |
-| **Hadith Library** | An offline bundled corpus prepared from compressed NDJSON in small local batches, Arabic-normalized FTS search, collection filters, bookmarks, sharing/copying, daily hadith notifications, and Room/Compose Paging for bounded list and search loading. |
+| **Hadith Library** | A local catalogue of nine independently compressed Hadith books with original cover artwork, book and chapter indexes, Arabic-normalized book-scoped FTS search, bookmarks, sharing/copying, and Room/Compose Paging. Entering the catalogue imports no religious text; opening a book streams only that book in bounded local batches. |
 | **Adhkar and Tasbih** | Categorised adhkar, local counters, optional haptics, tasbih logs, a widget, and optional reminder surfaces under user control. |
 | **Learning Centre** | Structured guides for faith, purification, salah, fasting, zakat, funerals, and selected madhhab-orientation material, together with integrated Names of Allah and Hajj/Umrah experiences. |
 | **Reference and study** | Local reference material, historical timeline and schematic atlas content, a scholarly-library starter catalogue, citation-aware notes, and local flashcards. The scholarly-library starter is not a redistributed copy of third-party digital libraries or publisher editions. |
@@ -34,7 +34,7 @@ The application’s automatic baseline is **Muslim World League**: Fajr at 18°,
 
 A single immutable `PrayerCalculationProfile` is resolved from those saved choices and is used by the prayer screen, countdown, widgets, Adhan scheduler, notification settings, Ramadan calculations, and the travel high-latitude preview. Astronomical instants are retained after method and user offsets for validation, then rounded once to the minute shared by rendering and alarm scheduling; a result cannot intentionally display one minute and schedule another. The core profile and its 2026 regression vectors are cross-checked against the open-source Adhan Kotlin reference implementation. [3]
 
-For a GPS or manually entered location, the app resolves an **IANA** timezone locally from the saved coordinates rather than silently assigning the device timezone. The coordinate index performs no location network request and runs outside the UI thread. It uses the documented local `timezonemap` package (MIT code with ODbL timezone-boundary data); failure to resolve a zone prevents persistence of the new coordinate, so an unrelated civil timezone cannot quietly affect the calculation. [4] [5]
+For a GPS or manually entered location, the app resolves an **IANA** timezone locally from the saved coordinates rather than silently assigning the device timezone. The picker accepts Android approximate or precise foreground permission, requests a current high-accuracy fix when precise access is available, and uses a recent local fused/platform fix only as a fallback. The coordinate index performs no location network request and runs outside the UI thread. It uses the documented local `timezonemap` package (MIT code with ODbL timezone-boundary data); failure to resolve a zone prevents persistence of the new coordinate, so an unrelated civil timezone cannot quietly affect the calculation. [4] [5]
 
 > Prayer-time output is a configurable astronomical calculation. It remains appropriate to check the selected convention and local mosque/scholar guidance where a personal or community practice requires it, especially at high latitudes.
 
@@ -58,13 +58,11 @@ See [`docs/design/ui_ux_transformation_plan.md`](docs/design/ui_ux_transformatio
 
 ## Hadith library reliability and loading model
 
-The Hadith screen is deliberately designed for a large offline corpus without blocking the main UI thread or materialising the full library as one list.
+The Hadith screen is deliberately designed for a large offline library without blocking the main UI thread or materialising the whole library as one list.
 
-> The corpus is shipped as a compressed line-delimited JSON asset. On first preparation, it is read on `Dispatchers.IO` and inserted into Room in bounded batches. Browsing and Arabic search then use Room-backed Paging sources, so Compose receives only the visible page and its prefetch window.
+> Each supported collection is shipped as its own compressed line-delimited JSON asset. Entering the catalogue reads only static collection metadata. Only after the user selects a book is that book read on `Dispatchers.IO`, streamed through a `GZIPInputStream`, and inserted into Room in bounded 150-row transactions. Chapters and Arabic search are restricted to the selected book; Compose receives the visible page and its prefetch window through Paging.
 
-The screen exposes preparation progress, an explicit retry action if preparation fails, and load-state retry controls for a failed page. The daily-hadith lookup reads one deterministic row by offset instead of observing the entire table. This approach follows Android's Paging architecture: `PagingSource` in the data layer, `Pager`/`PagingData` in the view-model layer, and `LazyPagingItems` in the Compose UI. See the [official Paging overview](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) and [paged-data guide](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data).
-
-The full asset currently contains **35,691** line-delimited records. It is a packaged offline dataset, not a claim that all editions, translations, grading choices, or scholarly contexts are exhaustive. Religious-content and source review remain separate from software review.
+The screen exposes collection preparation progress, retry for a failed selected-book import, chapter indexes, and page load-state retry. The daily-Hadith worker does not trigger a hidden all-library import. The current versioned catalogue tracks **37,919** streamed records across Sahih al-Bukhari, Sahih Muslim, Sunan Abi Dawud, Jami at-Tirmidhi, Sunan an-Nasai, Sunan Ibn Majah, Muwatta Malik, Riyad as-Salihin and Forty Hadith of al-Nawawi. It is not a claim that all editions, translations, grading choices, or scholarly contexts are exhaustive. Religious-content and source review remain separate from software review. See [the lazy library and notification audit](docs/qa/lazy_hadith_location_notification_audit.md) and the [official Paging overview](https://developer.android.com/topic/libraries/architecture/paging/v3-overview).
 
 ## Cross-platform and automation boundaries
 
@@ -100,15 +98,15 @@ A resource-name change alone cannot remove a notification that Android retained 
 
 A live Adhan is a non-dismissible, ongoing foreground card with one explicit **Stop Adhan** action. It uses the fresh high-importance `adhan_alert_v3` channel, requests public lock-screen visibility and high-priority heads-up presentation, and cancels the prior pre-prayer reminder when the real Adhan begins. The live foreground service is the normal owner of this card, reaffirms it if the app task is removed, and removes it only as playback ends or after the explicit Stop action; direct audio recovery keeps the same ongoing card for its fallback duration. Settings previews are explicitly separate and cannot stop a live scheduled Adhan. Android still owns the final lock-screen, banner, notification-permission, and user-edited channel behaviour.
 
-Each scheduled prayer row on the Prayer Times screen provides an alert-status entry point. It opens the same persisted customisation dialog used in Settings, so users can choose the alert mode and bundled Adhan, preview it, set the shown volume as either an individual or global level, choose vibration, and set a manual time adjustment. Sunrise displays its unavailable alert state because it is intentionally excluded from Adhan scheduling.
+Each scheduled prayer row on the Prayer Times screen provides an alert-status entry point. It opens the same persisted customisation dialog in place, so users remain on the home screen while choosing the alert mode and bundled Adhan, previewing it, setting individual/global volume, choosing vibration, and setting a manual time adjustment. The dialog adapts its width and visible content height to the device and scrolls safely; users can persist a comfortable or compact information-density mode. Sunrise displays its unavailable alert state because it is intentionally excluded from Adhan scheduling.
 
 | System surface | Current behaviour | What Android still controls |
 |---|---|---|
 | Launcher | New `v2028` adaptive and round-icon resource identities reference the approved full-colour geometric mark. | Mask shape, themed-icon tint, badge and cache-refresh timing. |
 | Status bar | Every small notification icon resolves to the `v2028` monochrome geometric glyph. | Final light/dark/system tint and status-bar layout. |
 | Active Adhan | A persistent foreground service owns the `adhan_alert_v3` high-importance card, public lock-screen visibility, and a single explicit Stop Adhan action; task removal reaffirms the live card and direct recovery retains it while fallback audio plays. | The system and user-owned Android settings control final banner, lock-screen, interruption, and channel presentation. |
-| Prayer-time alert entry | Each scheduled prayer row shows its alert state and volume, with a direct entry into the full persisted per-prayer customisation dialog. | Sunrise is intentionally excluded from Adhan scheduling; Android still enforces notification permission and channel controls. |
-| Next-prayer countdown | Retired ongoing cards are cancelled; a fresh quiet card ID is then posted. | Permission, channel state, grouping and visibility. |
+| Prayer-time alert entry | Each scheduled prayer row shows its alert state and volume, with a direct in-place entry into the persisted per-prayer customisation dialog. The dialog remains scrollable at constrained heights and offers a saved comfortable/compact density choice. | Sunrise is intentionally excluded from Adhan scheduling; Android still enforces notification permission and channel controls. |
+| Next-prayer countdown | The next prayer time uses green emphasis; remaining and elapsed durations use red emphasis in the live card and its settings preview. | Permission, channel state, system template span rendering, grouping and visibility. |
 | Quran media playback | The foreground `MediaStyle` service clears its retired card before publishing its new media-card ID. | Media-card template, controls layout and lock-screen presentation. |
 
 See [`docs/qa/notification_identity_repair.md`](docs/qa/notification_identity_repair.md) for the exact migration map, verification strategy, and upgrade note. Android documents the system-owned notification-template model and adaptive-icon masking separately. [1] [2]
@@ -153,6 +151,8 @@ python3 scripts/verify_scholar_library.py
 python3 scripts/verify_iot_integration.py
 python3 scripts/verify_islamic_visual_identity.py
 python3 scripts/verify_prayer_calculation_integrity.py
+python3 scripts/verify_prayer_location_notification_contract.py
+python3 scripts/verify_responsive_customization_layout.py
 ```
 
 The GitHub Actions workflow builds both applications, runs unit tests, Android Lint, Detekt, and emulator tests, and creates signed phone and Wear release APKs. Tagged `v*` builds publish a GitHub Release with both artifacts. The release workflow is an automated safety net, not a substitute for device, vehicle, watch, accessibility, or content-provider review.

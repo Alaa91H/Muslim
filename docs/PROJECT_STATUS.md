@@ -9,7 +9,7 @@ Muslim is organised as a local-first Android application for daily worship, Qura
 
 ## Navigation and information architecture
 
-The main application has four persistent destinations: Prayer Times, Quran, Qibla, and More. More is the secondary hub for the rest of the product. Its groups are user-orderable and hideable, while each individual destination retains a single clear responsibility.
+The main application normally has four persistent destinations: Prayer Times, Quran, Qibla, and More. During the adjusted Umm al-Qura month of Ramadan, Ramadan is inserted between Quran and Qibla, giving four primary content destinations plus More; outside Ramadan its existing More shortcut remains. More is the secondary hub for the rest of the product. Its groups are user-orderable and hideable, while each individual destination retains a single clear responsibility.
 
 | More hub group | Primary destinations | Organisation decision |
 |---|---|---|
@@ -24,12 +24,12 @@ This consolidation preserves all implemented destinations while reducing repeate
 
 | Capability | Current implementation | Important boundary |
 |---|---|---|
-| Prayer times and Adhan | A local immutable calculation profile is shared by the prayer home, countdown, widget, Adhan scheduler, notification preview, Ramadan and travel preview. Its global baseline is MWL with Standard Asr and Seventh of the Night; methods, Hanafi Asr, other high-latitude rules, custom angles and per-prayer offsets remain explicit settings. Saved cities retain IANA zones; GPS/manual coordinates resolve IANA locally before persistence. Per-prayer Adhan controls remain available from scheduled time rows, while a live foreground service owns the non-dismissible active card and reaffirms it if the app task is removed. | Sunrise remains excluded from Adhan scheduling. Output is a configurable astronomical calculation, not a personalised ruling or a guarantee of delivery under every OS battery, channel, permission or lock-screen policy. Users and communities remain responsible for selecting the convention appropriate to their practice. |
+| Prayer times and Adhan | A local immutable calculation profile is shared by the prayer home, countdown, widget, Adhan scheduler, notification preview, Ramadan and travel preview. Its global baseline is MWL with Standard Asr, Seventh of the Night, Isha 17° and zero default user offsets; methods, Hanafi Asr, other high-latitude rules, custom angles and per-prayer offsets remain explicit settings. Saved cities retain IANA zones; GPS/manual coordinates resolve IANA locally before persistence. GPS accepts approximate/precise foreground access and uses current fused/platform fixes with local fallback. A scheduled-row alert icon opens an in-place responsive customisation dialog with a saved comfortable/compact density preference. The next-prayer time is green and remaining/elapsed values red. A live foreground service owns the non-dismissible public lock-screen card and reaffirms it if the app task is removed. | Sunrise remains excluded from Adhan scheduling. Output is a configurable astronomical calculation, not a personalised ruling or a guarantee of delivery under every OS battery, channel, permission or lock-screen policy. The in-notification Stop Adhan action is the supported rapid locked-device control; Android owns hardware volume-key routing and final lock-screen presentation. Users and communities remain responsible for selecting the convention appropriate to their practice. |
 | Quran | Offline mushaf experience, bookmarks/progress, search/frequency tools, and user-managed recitation playback/downloads with a calm shared hierarchy for library summaries, coverage, reciter state and transfers. | Provider content and network terms apply to optional downloads. |
-| Hadith | Offline corpus preparation, collection browse, Arabic-normalised FTS search, bookmarks, sharing/copying, daily notification. | Search returns corpus text and metadata, not a comprehensive scholarly judgement about authenticity/context. |
-| Hadith performance model | `hadith_full.ndjson.gz` is streamed on `Dispatchers.IO`, inserted into Room in 150-row batches, and shown through Paging 3 with 24-row pages and a prefetch window. | Preparation progress and retry states are user-visible; no complete corpus list is held by the Hadith UI state. |
+| Hadith | An offline catalogue presents original book-cover artwork, collection cards and chapter indexes for nine versioned local collections. Arabic-normalised FTS search, bookmarks, sharing/copying and daily-Hadith support remain available only after the relevant book exists locally. | Search returns corpus text and metadata, not a comprehensive scholarly judgement about authenticity/context. Source/licence/review records remain tracked per bundled asset. |
+| Hadith performance model | Entering the catalogue imports no text. Selecting a book streams only its compressed NDJSON asset on `Dispatchers.IO`, inserts it in 150-row Room batches, indexes its chapters/FTS, and shows its filtered pages through Paging 3. | Preparation progress and retry states are user-visible; no complete multi-book corpus list is held by the Hadith UI state and opening another book does not preload it. |
 | Adhkar and Tasbih | Local counters, optional feedback/reminders, logs and widget support, with calm content surfaces and a single accessible primary Tasbih counting action. | Reminder/overlay availability remains subject to Android permissions and system restrictions. |
-| Ramadan planning | Iftar/Suhoor timing and reminders, fasting-day tracker, reusable habit tracker, prayer completion and local Khatma/Taraweeh/Itikaf planning are presented through shared planning, section and recovery surfaces. | Fasting records, reminders, prayer completion and plan state remain local feature-owned data. |
+| Ramadan planning | Iftar/Suhoor timing and reminders, fasting-day tracker, reusable habit tracker, prayer completion and local Khatma/Taraweeh/Itikaf planning are presented through shared planning, section and recovery surfaces. Ramadan becomes a lower-navigation destination only during the locally calculated, user-adjusted Hijri month 9. | Fasting records, reminders, prayer completion and plan state remain local feature-owned data. No background worker or network request is required to move the seasonal navigation item. |
 | Learning and reference | Local guides, Names of Allah, Hajj/Umrah, reference content, history/timeline/atlas, family and funeral/will materials, presented through grouped knowledge destinations and structured reading steps. The reference hub, search-empty state and paragraph reader use the shared scholarly hierarchy. | Religious and historical material is educational and requires source/specialist review outside software CI. |
 | Hajj-day planning | A Hijri-date calculator presents its introduction, entered date and calculated Arafah, Nahr and Tashreeq dates through shared result surfaces, with a clear critical state for incomplete or invalid input. | Digit normalization, date parsing, calendar conversion, relative-day labels and the underlying seasonal calculation remain feature-owned and unchanged. |
 | Family Life | Ruqyah passages and audio rows, baby-name search, Aqiqah planning/reminders and family guidance use shared cards, semantic notice surfaces and an accessible secondary action. | Bilingual content selection, safe-audio URL validation, external audio launch, name searching, date parsing, schedule calculation and reminder persistence remain feature-owned. |
@@ -43,16 +43,16 @@ This consolidation preserves all implemented destinations while reducing repeate
 
 ## Hadith data flow
 
-The historic crash/freeze risk was addressed by removing the eager `readText()` + complete `List` parsing path for the large full corpus from the phone experience. The full asset is now line-delimited and gzip-compressed. Startup preparation follows this sequence:
+The historic crash/freeze risk was addressed by removing the eager `readText()` + complete `List` parsing path and replacing the single corpus asset with independently versioned compressed book assets. Selecting a collection follows this sequence:
 
-1. The repository checks the locally stored corpus version and the compressed asset.
-2. It opens a streaming gzip reader on an I/O dispatcher.
-3. It decodes one line at a time, stores rows and FTS rows in fixed-size batches, and emits visible import progress.
-4. Room invalidates its Paging source as local data becomes available.
-5. The ViewModel exposes a debounced `Flow<PagingData<Hadith>>`, cached in `viewModelScope`.
+1. The catalogue reads fixed collection metadata only; it does not begin a text import.
+2. The repository checks the selected collection version and its compressed asset.
+3. It opens a streaming gzip reader on an I/O dispatcher, decodes one line at a time, and stores rows and FTS rows in fixed-size 150-row batches while emitting visible selected-book progress.
+4. It derives and stores the selected book's chapter index; Room invalidates only its book-scoped Paging source as local data becomes available.
+5. The ViewModel exposes a debounced `Flow<PagingData<Hadith>>`, cached in `viewModelScope`, filtered by the active collection/chapter/search state.
 6. Compose consumes `LazyPagingItems`, renders stable row keys, and exposes refresh/append retries rather than terminating the screen.
 
-A deterministic daily hadith now calculates a row offset from the corpus count and queries one row. It does not call `observeAll()` or materialise the entire table. The implementation aligns with Android's recommended Paging source → Pager → `LazyPagingItems` layering. [Android Paging overview](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) and [paged-data guide](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data) provide the framework reference.
+The daily-Hadith worker remains inactive until at least one selected book is available locally; it does not import every book. The implementation aligns with Android's recommended Paging source → Pager → `LazyPagingItems` layering. [Android Paging overview](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) and [paged-data guide](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data) provide the framework reference.
 
 ## Storage, privacy, and network map
 
@@ -109,6 +109,8 @@ python3 scripts/verify_iot_integration.py
 python3 scripts/verify_accessibility.py
 python3 scripts/verify_islamic_visual_identity.py
 python3 scripts/verify_prayer_calculation_integrity.py
+python3 scripts/verify_prayer_location_notification_contract.py
+python3 scripts/verify_responsive_customization_layout.py
 ./gradlew testDebugUnitTest :wear:testDebugUnitTest
 ./gradlew lintDebug
 ./gradlew detekt
@@ -143,6 +145,7 @@ GitHub Actions runs debug builds, unit tests, Android Lint, Detekt, and emulator
 | [`qa/accessibility_release_checklist.md`](qa/accessibility_release_checklist.md) | Accessibility release checks for TalkBack, Switch Access, and scalable RTL UI. |
 | [`qa/notification_identity_repair.md`](qa/notification_identity_repair.md) | Android launcher/status-bar identity migration, retained-card cleanup, and release verification limits. |
 | [`qa/prayer_time_calculation_integrity.md`](qa/prayer_time_calculation_integrity.md) | Prayer calculation audit, reference vectors, profile contract, IANA resolution and verification limits. |
+| [`qa/lazy_hadith_location_notification_audit.md`](qa/lazy_hadith_location_notification_audit.md) | Lazy per-book Hadith loading, GPS/IANA recovery, Isha baseline, Ramadan navigation, notification semantics, responsive customisation, lock-screen Adhan control, size audit and verification boundaries. |
 | [`release/beta_test_charter.md`](release/beta_test_charter.md) | Scope, limits, and acceptance criteria for the invited closed beta. |
 | [`release/closed_beta_distribution.md`](release/closed_beta_distribution.md) | Stable-signing, CI artifact, and invited-tester distribution workflow. |
 | [`qa/beta_tester_guide.md`](qa/beta_tester_guide.md) | Tester installation, adhan verification, and privacy-preserving feedback guide. |

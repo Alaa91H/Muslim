@@ -3,13 +3,85 @@
   "instructions": "Each entry records the source, distribution basis, and release approval for a bundled asset. OA-2026-08-25-01 is the product owner's direct rights attestation; retain supporting source documents outside the repository where they contain non-public information.",
   "attestation_reference": "docs/content/owner_rights_attestation.md#oa-2026-08-25-01",
   "approvals": {
-    "feature_feature-hadith_src_main_assets_hadith_full_ndjson_gz": {
-      "source": "Product owner rights attestation OA-2026-08-25-01 (hadith corpus provenance held by owner).",
+    "feature_feature-hadith_src_main_assets_hadith_books_bukhari_ndjson_gz": {
+      "source": "fawazahmed0/hadith-api, Arabic and English Bukhari editions (https://github.com/fawazahmed0/hadith-api).",
+      "licence": "The Unlicense.",
+      "attribution": "Hadith data source: fawazahmed0/hadith-api; the app preserves the source attribution field per row.",
+      "religious_review": "No independent scholarly certification is claimed. Users should consult qualified scholars for religious guidance.",
+      "notes": "Versioned offline asset built from the repository's @1 edition endpoint. Revalidate source structure and licence before replacing.",
+      "declared_collections": "Sahih al-Bukhari, source-edition rows and chapter headings."
+    },
+    "feature_feature-hadith_src_main_assets_hadith_books_muslim_ndjson_gz": {
+      "source": "fawazahmed0/hadith-api, Arabic and English Muslim editions (https://github.com/fawazahmed0/hadith-api).",
+      "licence": "The Unlicense.",
+      "attribution": "Hadith data source: fawazahmed0/hadith-api; the app preserves the source attribution field per row.",
+      "religious_review": "No independent scholarly certification is claimed. Users should consult qualified scholars for religious guidance.",
+      "notes": "Versioned offline asset built from the repository's @1 edition endpoint. Revalidate source structure and licence before replacing.",
+      "declared_collections": "Sahih Muslim, source-edition rows and chapter headings."
+    },
+    "feature_feature-hadith_src_main_assets_hadith_books_abudawud_ndjson_gz": {
+      "source": "fawazahmed0/hadith-api, Arabic and English Abu Dawud editions (https://github.com/fawazahmed0/hadith-api).",
+      "licence": "The Unlicense.",
+      "attribution": "Hadith data source: fawazahmed0/hadith-api; the app preserves the source attribution field per row.",
+      "religious_review": "No independent scholarly certification is claimed. Users should consult qualified scholars for religious guidance.",
+      "notes": "Versioned offline asset built from the repository's @1 edition endpoint. Revalidate source structure and licence before replacing.",
+      "declared_collections": "Sunan Abi Dawud, source-edition rows and chapter headings."
+    },
+    "feature_feature-hadith_src_main_assets_hadith_books_tirmidhi_ndjson_gz": {
+      "source": "fawazahmed0/hadith-api, Arabic and English Tirmidhi editions (https://github.com/fawazahmed0/hadith-api).",
+      "licence": "The Unlicense.",
+      "attribution": "Hadith data source: fawazahmed0/hadith-api; the app preserves the source attribution field per row.",
+      "religious_review": "No independent scholarly certification is claimed. Users should consult qualified scholars for religious guidance.",
+      "notes": "Versioned offline asset built from the repository's @1 edition endpoint. Revalidate source structure and licence before replacing.",
+      "declared_collections": "Jami at-Tirmidhi, source-edition rows and chapter headings."
+    },
+    "feature_feature-hadith_src_main_assets_hadith_books_nasai_ndjson_gz": {
+      "source": "fawazahmed0/hadith-api, Arabic and English Nasai editions (https://github.com/fawazahmed0/hadith-api).",
+      "licence": "The Unlicense.",
+      "attribution": "Hadith data source: fawazahmed0/hadith-api; the app preserves the source attribution field per row.",
+      "religious_review": "No independent scholarly certification is claimed. Users should consult qualified scholars for religious guidance.",
+      "notes": "Versioned offline asset built from the repository's @1 edition endpoint. Revalidate source structure and licence before replacing.",
+      "declared_collections": "Sunan an-Nasai, source-edition rows and chapter headings."
+    },
+    "feature_feature-hadith_src_main_assets_hadith_books_ibnmajah_ndjson_gz": {
+      "source": "fawazahmed0/hadith-api, Arabic and English Ibn Majah editions (https://github.com/fawazahmed0/hadith-api).",
+      "licence": "The Unlicense.",
+      "attribution": "Hadith data source: fawazahmed0/hadith-api; the app preserves the source attribution field per row.",
+      "religious_review": "No independent scholarly certification is claimed. Users should consult qualified scholars for religious guidance.",
+      "notes": "Versioned offline asset built from the repository's @1 edition endpoint. Revalidate source structure and licence before replacing.",
+      "declared_collections": "Sunan Ibn Majah, source-edition rows and chapter headings."
+    },
+    "feature_feature-hadith_src_main_assets_hadith_books_muwatta_ndjson_gz": {
+      "source": "fawazahmed0/hadith-api, Arabic and English Malik editions (https://github.com/fawazahmed0/hadith-api).",
+      "licence": "The Unlicense.",
+      "attribution": "Hadith data source: fawazahmed0/hadith-api; the app preserves the source attribution field per row.",
+      "religious_review": "No independent scholarly certification is claimed. Users should consult qualified scholars for religious guidance.",
+      "notes": "Versioned offline asset built from the repository's @1 edition endpoint. Revalidate source structure and licence before replacing.",
+      "declared_collections": "Muwatta Malik, source-edition rows and chapter headings."
+    },
+    "feature_feature-hadith_src_main_assets_hadith_books_riyad_ndjson_gz": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (reviewed Riyad as-Salihin corpus retained from the prior asset).",
       "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
       "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
-      "religious_review": "Product owner approved this content for public release in OA-2026-08-25-01.",
-      "notes": "Approved through the recorded owner attestation. Reconfirm if source, rights, or file hash changes.",
-      "declared_collections": "Owner-attested production corpus; detailed source records held by owner."
+      "religious_review": "Product owner approved this retained content for public release in OA-2026-08-25-01.",
+      "notes": "Preserved without text transformation from the prior owner-attested asset; reconfirm before replacing the source or file hash.",
+      "declared_collections": "Riyad as-Salihin, retained owner-attested corpus."
+    },
+    "feature_feature-hadith_src_main_assets_hadith_books_nawawi40_ndjson_gz": {
+      "source": "Product owner rights attestation OA-2026-08-25-01 (reviewed Forty Hadith of al-Nawawi corpus retained from the prior asset).",
+      "licence": "Owner-held distribution rights, confirmed by product owner in OA-2026-08-25-01.",
+      "attribution": "Attribution retained in the application where applicable; see OA-2026-08-25-01.",
+      "religious_review": "Product owner approved this retained content for public release in OA-2026-08-25-01.",
+      "notes": "Preserved without text transformation from the prior owner-attested asset; reconfirm before replacing the source or file hash.",
+      "declared_collections": "Forty Hadith of al-Nawawi, retained owner-attested corpus."
+    },
+    "feature_feature-hadith_src_main_assets_hadith_books_manifest_json": {
+      "source": "Project-generated catalogue metadata from scripts/build_lazy_hadith_assets.py.",
+      "licence": "Project source licence; this file contains no independently licensed religious text.",
+      "attribution": "Counts and collection identifiers are derived from the adjacent approved book assets.",
+      "religious_review": "Not applicable: structural catalogue metadata only; the referenced book assets retain their own review records.",
+      "notes": "Regenerated together with the versioned lazy book assets; do not edit manually.",
+      "declared_collections": "Lazy library manifest for supported Hadith collections."
     },
     "feature_feature-hadith_src_main_assets_hadith_sample_json": {
       "source": "Product owner rights attestation OA-2026-08-25-01 (hadith corpus provenance held by owner).",

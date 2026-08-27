@@ -91,7 +91,7 @@ def asset_record(path: Path, approval: dict[str, Any]) -> dict[str, object]:
         "notes": approval.get("notes"),
         "required_actions": actions,
     }
-    if path.name == "hadith_full.ndjson.gz":
+    if path.name.endswith(".ndjson.gz"):
         record["record_count"] = count_ndjson_gzip(path)
         record["declared_collections"] = approval.get(
             "declared_collections",
@@ -108,7 +108,7 @@ def main() -> None:
     approvals = load_approvals()
     paths = sorted(
         [
-            *ROOT.glob("feature/feature-hadith/src/main/assets/*"),
+            *ROOT.glob("feature/feature-hadith/src/main/assets/**/*"),
             *ROOT.glob("feature/feature-quran/src/main/assets/*"),
             *ROOT.glob("feature/feature-prayer-times/src/main/res/raw/*"),
         ]

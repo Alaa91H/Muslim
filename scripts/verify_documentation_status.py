@@ -30,7 +30,8 @@ def main() -> None:
         readme,
         (
             "Hadith library reliability and loading model",
-            "35,691",
+            "37,919",
+            "nine independently compressed Hadith books",
             "Android Auto",
             "Wear OS",
             "Home automation",
@@ -54,7 +55,7 @@ def main() -> None:
         (
             "Hadith data flow",
             "150-row batches",
-            "24-row pages",
+            "opening another book does not preload it",
             "Names of Allah and Hajj/Umrah",
             "What this project does not claim",
         ),
@@ -63,9 +64,11 @@ def main() -> None:
     require(index, ("PROJECT_STATUS.md", "PRIVACY_POLICY.md", "Maintenance rule"), "documentation index")
     require(prompt, ("Current implementation notice (English)", "PROJECT_STATUS.md"), "planning prompt notice")
 
-    forbidden = "complete Six Books import"
-    if forbidden.lower() in readme.lower():
+    forbidden_readme = ("complete Six Books import", "hadith_full.ndjson")
+    if any(forbidden.lower() in readme.lower() for forbidden in forbidden_readme):
         raise AssertionError("README must not retain the obsolete eager corpus/import claim")
+    if "hadith_full.ndjson" in status.lower():
+        raise AssertionError("Project status must not retain the removed monolithic Hadith asset")
 
     print("Documentation status verified.")
 

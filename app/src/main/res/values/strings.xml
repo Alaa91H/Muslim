@@ -7,6 +7,7 @@
     <!-- Bottom navigation tabs -->
     <string name="tab_home">أوقات الصلاة</string>
     <string name="tab_quran">القرآن</string>
+    <string name="tab_ramadan">رمضان</string>
     <string name="tab_qibla">القبلة</string>
     <string name="tab_more">المزيد</string>
 

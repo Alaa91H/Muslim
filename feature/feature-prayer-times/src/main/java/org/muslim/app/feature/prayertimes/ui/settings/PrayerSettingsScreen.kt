@@ -10,6 +10,7 @@ import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
@@ -17,8 +18,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -65,6 +68,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -82,6 +86,7 @@ import org.muslim.app.core.common.prayer.AsrMethod
 import org.muslim.app.core.common.prayer.CalculationMethod
 import org.muslim.app.core.common.prayer.HighLatitudeRule
 import org.muslim.app.core.common.prayer.Prayer
+import org.muslim.app.core.datastore.AppInformationDensity
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.common.time.TimeFormats
 import org.muslim.app.core.notifications.NotificationChannels
@@ -99,6 +104,7 @@ fun PrayerSettingsScreen(
     val settings by viewModel.settings.collectAsStateWithLifecycle()
     val downloadProgress by viewModel.downloadProgress.collectAsStateWithLifecycle()
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
+    val informationDensity by viewModel.informationDensity.collectAsStateWithLifecycle()
     val isPreviewing by viewModel.isPreviewing.collectAsStateWithLifecycle()
     val adhanReadiness by viewModel.adhanReadiness.collectAsStateWithLifecycle()
 
@@ -302,6 +308,8 @@ fun PrayerSettingsScreen(
         customizingPrayer?.let { prayer ->
             AdhanCustomizeDialog(
                 prayer = prayer,
+                density = informationDensity,
+                onDensityChange = viewModel::setInformationDensity,
                 initial = AdhanCustomization(
                     option = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
                     sound = BundledAdhanSound.fromId(
@@ -933,6 +941,8 @@ internal data class AdhanCustomization(
 @Composable
 internal fun AdhanCustomizeDialog(
     prayer: Prayer,
+    density: AppInformationDensity,
+    onDensityChange: (AppInformationDensity) -> Unit,
     initial: AdhanCustomization,
     onPreview: (BundledAdhanSound, Int) -> Unit,
     onLiveVolume: (Int) -> Unit,
@@ -940,18 +950,27 @@ internal fun AdhanCustomizeDialog(
     onConfirm: (AdhanCustomization) -> Unit,
 ) {
     var selection by remember(initial) { mutableStateOf(initial) }
+    val configuration = LocalConfiguration.current
+    val compactHeight = configuration.screenHeightDp < 640
+    val maximumContentHeight = (configuration.screenHeightDp * if (compactHeight) 0.52f else 0.62f).dp
+    val maximumDialogWidth = if (configuration.screenWidthDp >= 600) 560.dp else 600.dp
 
     AlertDialog(
         onDismissRequest = onDismiss,
+        modifier = Modifier.widthIn(max = maximumDialogWidth),
         title = { Text(stringResource(R.string.settings_adhan_customize_title, stringResource(prayerLabelRes(prayer)))) },
         text = {
-            AdhanCustomizationFields(
-                prayer = prayer,
-                selection = selection,
-                onSelectionChanged = { selection = it },
-                onPreview = onPreview,
-                onLiveVolume = onLiveVolume,
-            )
+            Box(modifier = Modifier.heightIn(max = maximumContentHeight)) {
+                AdhanCustomizationFields(
+                    prayer = prayer,
+                    density = density,
+                    onDensityChange = onDensityChange,
+                    selection = selection,
+                    onSelectionChanged = { selection = it },
+                    onPreview = onPreview,
+                    onLiveVolume = onLiveVolume,
+                )
+            }
         },
         confirmButton = {
             TextButton(onClick = { onConfirm(selection) }) {
@@ -969,23 +988,34 @@ internal fun AdhanCustomizeDialog(
 @Composable
 private fun AdhanCustomizationFields(
     prayer: Prayer,
+    density: AppInformationDensity,
+    onDensityChange: (AppInformationDensity) -> Unit,
     selection: AdhanCustomization,
     onSelectionChanged: (AdhanCustomization) -> Unit,
     onPreview: (BundledAdhanSound, Int) -> Unit,
     onLiveVolume: (Int) -> Unit,
 ) {
+    val compact = density == AppInformationDensity.Compact
     Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+        AdhanInformationDensitySelector(
+            density = density,
+            onDensityChange = onDensityChange,
+            compact = compact,
+        )
         AdhanAlertTypeSection(
             selected = selection.option,
+            compact = compact,
             onSelected = { onSelectionChanged(selection.copy(option = it)) },
         )
         AdhanTimeAdjustmentSection(
             prayer = prayer,
             adjustmentMinutes = selection.adjustmentMinutes,
+            compact = compact,
             onChanged = { onSelectionChanged(selection.copy(adjustmentMinutes = it)) },
         )
         BundledAdhanSoundSection(
             selected = selection.sound,
+            compact = compact,
             onSelected = { sound ->
                 onSelectionChanged(selection.copy(sound = sound))
                 onPreview(sound, selection.volume)
@@ -994,6 +1024,7 @@ private fun AdhanCustomizationFields(
         )
         AdhanPlaybackControlsSection(
             selection = selection,
+            compact = compact,
             onSelectionChanged = onSelectionChanged,
             onPreview = onPreview,
             onLiveVolume = onLiveVolume,
@@ -1002,11 +1033,38 @@ private fun AdhanCustomizationFields(
 }
 
 @Composable
+private fun AdhanInformationDensitySelector(
+    density: AppInformationDensity,
+    onDensityChange: (AppInformationDensity) -> Unit,
+    compact: Boolean,
+) {
+    DialogSectionTitle(R.string.settings_information_density, compact)
+    Row(modifier = Modifier.fillMaxWidth()) {
+        OutlinedButton(
+            onClick = { onDensityChange(AppInformationDensity.Comfortable) },
+            enabled = density != AppInformationDensity.Comfortable,
+            modifier = Modifier.weight(1f),
+        ) {
+            Text(stringResource(R.string.settings_information_density_comfortable))
+        }
+        Spacer(Modifier.width(if (compact) 4.dp else 8.dp))
+        OutlinedButton(
+            onClick = { onDensityChange(AppInformationDensity.Compact) },
+            enabled = density != AppInformationDensity.Compact,
+            modifier = Modifier.weight(1f),
+        ) {
+            Text(stringResource(R.string.settings_information_density_compact))
+        }
+    }
+}
+
+@Composable
 private fun AdhanAlertTypeSection(
     selected: AdhanSoundOption,
+    compact: Boolean,
     onSelected: (AdhanSoundOption) -> Unit,
 ) {
-    DialogSectionTitle(R.string.settings_adhan_alert_type)
+    DialogSectionTitle(R.string.settings_adhan_alert_type, compact)
     AdhanSoundOption.entries.forEach { option ->
         RadioRow(
             label = stringResource(adhanOptionLabelRes(option)),
@@ -1020,9 +1078,10 @@ private fun AdhanAlertTypeSection(
 private fun AdhanTimeAdjustmentSection(
     prayer: Prayer,
     adjustmentMinutes: Int,
+    compact: Boolean,
     onChanged: (Int) -> Unit,
 ) {
-    DialogSectionTitle(R.string.settings_adjustments)
+    DialogSectionTitle(R.string.settings_adjustments, compact)
     StepperRow(
         label = stringResource(prayerLabelRes(prayer)),
         value = adjustmentMinutes,
@@ -1033,16 +1092,17 @@ private fun AdhanTimeAdjustmentSection(
 @Composable
 private fun BundledAdhanSoundSection(
     selected: BundledAdhanSound,
+    compact: Boolean,
     onSelected: (BundledAdhanSound) -> Unit,
     onPreview: (BundledAdhanSound) -> Unit,
 ) {
-    DialogSectionTitle(R.string.settings_adhan_sound_choice)
+    DialogSectionTitle(R.string.settings_adhan_sound_choice, compact)
     BundledAdhanSound.entries.forEach { sound ->
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable { onSelected(sound) }
-                .padding(vertical = 2.dp),
+                .padding(vertical = if (compact) 0.dp else 2.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             RadioButton(selected = selected == sound, onClick = { onSelected(sound) })
@@ -1064,17 +1124,18 @@ private fun BundledAdhanSoundSection(
 @Composable
 private fun AdhanPlaybackControlsSection(
     selection: AdhanCustomization,
+    compact: Boolean,
     onSelectionChanged: (AdhanCustomization) -> Unit,
     onPreview: (BundledAdhanSound, Int) -> Unit,
     onLiveVolume: (Int) -> Unit,
 ) {
-    Spacer(Modifier.height(8.dp))
+    Spacer(Modifier.height(if (compact) 4.dp else 8.dp))
     SwitchRow(
         label = stringResource(R.string.settings_adhan_global_volume),
         checked = selection.useGlobalVolume,
         onCheckedChange = { onSelectionChanged(selection.copy(useGlobalVolume = it)) },
     )
-    if (selection.useGlobalVolume) {
+    if (selection.useGlobalVolume && !compact) {
         Text(
             text = stringResource(R.string.settings_adhan_global_volume_desc),
             style = MaterialTheme.typography.bodySmall,
@@ -1087,6 +1148,7 @@ private fun AdhanPlaybackControlsSection(
         onChanged = { onSelectionChanged(selection.copy(volume = it)) },
         onPreview = { onPreview(selection.sound, selection.volume) },
         onLiveVolume = onLiveVolume,
+        compact = compact,
     )
     SwitchRow(
         label = stringResource(R.string.settings_vibrate),
@@ -1096,8 +1158,11 @@ private fun AdhanPlaybackControlsSection(
 }
 
 @Composable
-private fun DialogSectionTitle(@androidx.annotation.StringRes labelRes: Int) {
-    Spacer(Modifier.height(8.dp))
+private fun DialogSectionTitle(
+    @androidx.annotation.StringRes labelRes: Int,
+    compact: Boolean,
+) {
+    Spacer(Modifier.height(if (compact) 3.dp else 8.dp))
     Text(
         text = stringResource(labelRes),
         style = MaterialTheme.typography.titleSmall,
@@ -1139,9 +1204,10 @@ private fun VolumeRow(
     onChanged: (Int) -> Unit,
     onPreview: () -> Unit,
     onLiveVolume: (Int) -> Unit,
+    compact: Boolean = false,
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+        modifier = Modifier.fillMaxWidth().padding(vertical = if (compact) 0.dp else 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
