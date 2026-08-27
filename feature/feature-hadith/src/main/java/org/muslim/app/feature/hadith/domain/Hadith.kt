@@ -14,6 +14,8 @@ data class Hadith(
 
 /** A chapter entry built from the currently opened collection only. */
 data class HadithChapter(
+    val collection: HadithCollection,
+    /** Stable source title used for Room filtering and navigation. */
     val title: String,
     val firstHadithNumber: Int?,
     val lastHadithNumber: Int?,

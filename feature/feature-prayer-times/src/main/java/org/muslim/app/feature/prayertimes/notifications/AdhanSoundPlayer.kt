@@ -37,6 +37,8 @@ class AdhanSoundPlayer @Inject constructor(
     private var mediaPlayer: MediaPlayer? = null
     @Volatile
     private var audioTrack: AudioTrack? = null
+    /** Serializes every native AudioTrack operation with invalidation and release. */
+    private val audioTrackLock = Any()
     private var audioFocusRequest: AudioFocusRequest? = null
     private var hasFocus = false
 
@@ -49,17 +51,21 @@ class AdhanSoundPlayer @Inject constructor(
             AudioManager.AUDIOFOCUS_LOSS_TRANSIENT -> {
                 // Pause briefly, resume when focus is regained.
                 mediaPlayer?.let { if (it.isPlaying) it.pause() }
-                audioTrack?.let { track ->
-                    runCatching {
-                        if (track.playState == AudioTrack.PLAYSTATE_PLAYING) track.pause()
+                synchronized(audioTrackLock) {
+                    audioTrack?.let { track ->
+                        runCatching {
+                            if (track.playState == AudioTrack.PLAYSTATE_PLAYING) track.pause()
+                        }
                     }
                 }
             }
             AudioManager.AUDIOFOCUS_GAIN -> {
                 mediaPlayer?.let { if (!it.isPlaying) runCatching { it.start() } }
-                audioTrack?.let { track ->
-                    runCatching {
-                        if (track.playState == AudioTrack.PLAYSTATE_PAUSED) track.play()
+                synchronized(audioTrackLock) {
+                    audioTrack?.let { track ->
+                        runCatching {
+                            if (track.playState == AudioTrack.PLAYSTATE_PAUSED) track.play()
+                        }
                     }
                 }
             }
@@ -283,9 +289,14 @@ class AdhanSoundPlayer @Inject constructor(
             onFinished()
             return
         }
-        audioTrack = track
+        synchronized(audioTrackLock) {
+            audioTrack = track
+        }
         val target = (volumePercent / 100f).coerceIn(0f, 1f)
-        if (runCatching { track.setVolume(target) }.isFailure) {
+        val volumeApplied = synchronized(audioTrackLock) {
+            audioTrack === track && runCatching { track.setVolume(target) }.isSuccess
+        }
+        if (!volumeApplied) {
             finishSynthesizedTrack(track, onFinished)
             return
         }
@@ -360,10 +371,13 @@ class AdhanSoundPlayer @Inject constructor(
         }, "Muslim-AdhanAudioTrack").start()
     }
 
-    private fun startSynthesizedTrack(track: AudioTrack): Boolean = runCatching {
-        track.play()
-        track.playState == AudioTrack.PLAYSTATE_PLAYING
-    }.getOrDefault(false)
+    private fun startSynthesizedTrack(track: AudioTrack): Boolean = synchronized(audioTrackLock) {
+        if (audioTrack !== track) return@synchronized false
+        runCatching {
+            track.play()
+            track.playState == AudioTrack.PLAYSTATE_PLAYING
+        }.getOrDefault(false)
+    }
 
     /** Returns a negative AudioTrack status when a concurrent stop invalidates the stream. */
     private fun writeTrackChunk(
@@ -371,17 +385,24 @@ class AdhanSoundPlayer @Inject constructor(
         samples: ShortArray,
         offset: Int,
         size: Int,
-    ): Int = runCatching {
-        if (audioTrack !== track) return@runCatching AudioTrack.ERROR_INVALID_OPERATION
-        track.write(samples, offset, size, AudioTrack.WRITE_BLOCKING)
-    }.getOrDefault(AudioTrack.ERROR_INVALID_OPERATION)
+    ): Int = synchronized(audioTrackLock) {
+        if (audioTrack !== track) return@synchronized AudioTrack.ERROR_INVALID_OPERATION
+        runCatching {
+            track.write(samples, offset, size, AudioTrack.WRITE_BLOCKING)
+        }.getOrDefault(AudioTrack.ERROR_INVALID_OPERATION)
+    }
 
     private fun finishSynthesizedTrack(track: AudioTrack, onFinished: () -> Unit) {
         android.os.Handler(android.os.Looper.getMainLooper()).post {
-            if (audioTrack !== track) return@post
-            runCatching { track.stop() }
-            runCatching { track.release() }
-            audioTrack = null
+            val finished = synchronized(audioTrackLock) {
+                if (audioTrack !== track) return@synchronized false
+                // Invalidate before native release so no writer can pass a stale identity check.
+                audioTrack = null
+                runCatching { track.stop() }
+                runCatching { track.release() }
+                true
+            }
+            if (!finished) return@post
             abandonFocus()
             onFinished()
         }
@@ -395,7 +416,9 @@ class AdhanSoundPlayer @Inject constructor(
     fun setVolume(volumePercent: Int) {
         val target = (volumePercent / 100f).coerceIn(0f, 1f)
         mediaPlayer?.let { runCatching { it.setVolume(target, target) } }
-        audioTrack?.let { runCatching { it.setVolume(target) } }
+        synchronized(audioTrackLock) {
+            audioTrack?.let { runCatching { it.setVolume(target) } }
+        }
     }
 
     fun stop() {
@@ -404,11 +427,15 @@ class AdhanSoundPlayer @Inject constructor(
             runCatching { it.release() }
         }
         mediaPlayer = null
-        audioTrack?.let {
-            runCatching { it.stop() }
-            runCatching { it.release() }
+        synchronized(audioTrackLock) {
+            val track = audioTrack
+            // The writer observes null under the same lock before this track can be released.
+            audioTrack = null
+            track?.let {
+                runCatching { it.stop() }
+                runCatching { it.release() }
+            }
         }
-        audioTrack = null
         abandonFocus()
     }
 

@@ -134,6 +134,7 @@ class HadithRepository @Inject constructor(
         hadithDao.observeChapters(collection.id).map { rows ->
             rows.map { row ->
                 HadithChapter(
+                    collection = collection,
                     title = row.title,
                     firstHadithNumber = row.firstHadithNumber,
                     lastHadithNumber = row.lastHadithNumber,

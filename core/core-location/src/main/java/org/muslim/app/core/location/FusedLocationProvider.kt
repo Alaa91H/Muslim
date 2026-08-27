@@ -9,6 +9,7 @@ import android.location.LocationManager
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
@@ -30,7 +31,8 @@ class FusedLocationProvider(context: Context) : LocationProvider {
     private val client = LocationServices.getFusedLocationProviderClient(appContext)
     private val platformLocationManager = appContext.getSystemService(LocationManager::class.java)
 
-    override suspend fun currentLocation(): GeoLocation? = withContext(Dispatchers.IO) {
+    override suspend fun currentLocation(): GeoLocation? = try {
+        withContext(Dispatchers.IO) {
         val hasFine = ContextCompat.checkSelfPermission(
             appContext,
             Manifest.permission.ACCESS_FINE_LOCATION,
@@ -49,19 +51,29 @@ class FusedLocationProvider(context: Context) : LocationProvider {
         val location = withTimeoutOrNull(20_000) { awaitCurrentLocation(priority) }
             ?: withTimeoutOrNull(5_000) { awaitLastKnownLocation() }
             ?: mostRecentPlatformLocation()
-        location?.takeIf { it.latitude.isFinite() && it.longitude.isFinite() }?.let { geo ->
-            GeoLocation(
-                latitude = geo.latitude,
-                longitude = geo.longitude,
-                altitude = if (geo.hasAltitude()) geo.altitude else null,
-            )
+            location?.takeIf { it.latitude.isFinite() && it.longitude.isFinite() }?.let { geo ->
+                GeoLocation(
+                    latitude = geo.latitude,
+                    longitude = geo.longitude,
+                    altitude = if (geo.hasAltitude()) geo.altitude else null,
+                )
+            }
         }
+    } catch (error: CancellationException) {
+        throw error
+    } catch (_: Throwable) {
+        // Play Services and OEM location stacks can fail before any task callback.
+        null
     }
 
     // Permission is checked in [currentLocation] before these methods are invoked.
     @SuppressLint("MissingPermission")
     private suspend fun awaitCurrentLocation(priority: Int): Location? = suspendCancellableCoroutine { continuation ->
-        val task = client.getCurrentLocation(priority, null)
+        val task = runCatching { client.getCurrentLocation(priority, null) }
+            .getOrElse {
+                if (continuation.isActive) continuation.resume(null)
+                return@suspendCancellableCoroutine
+            }
         task.addOnSuccessListener { location ->
             if (continuation.isActive) continuation.resume(location)
         }
@@ -75,7 +87,11 @@ class FusedLocationProvider(context: Context) : LocationProvider {
 
     @SuppressLint("MissingPermission")
     private suspend fun awaitLastKnownLocation(): Location? = suspendCancellableCoroutine { continuation ->
-        val task = client.lastLocation
+        val task = runCatching { client.lastLocation }
+            .getOrElse {
+                if (continuation.isActive) continuation.resume(null)
+                return@suspendCancellableCoroutine
+            }
         task.addOnSuccessListener { location ->
             if (continuation.isActive) continuation.resume(location)
         }

@@ -79,6 +79,7 @@ import org.muslim.app.feature.hadith.R
 import org.muslim.app.feature.hadith.data.HadithCorpusState
 import org.muslim.app.feature.hadith.domain.Hadith
 import org.muslim.app.feature.hadith.domain.HadithChapter
+import org.muslim.app.feature.hadith.domain.HadithChapterArabicTitles
 import org.muslim.app.feature.hadith.domain.HadithCollection
 
 /** 30-minute increments across a full day, as minutes from midnight. */
@@ -549,6 +550,12 @@ private fun HadithBookHeader(collection: HadithCollection) {
 
 @Composable
 private fun HadithChapterRow(chapter: HadithChapter, onClick: () -> Unit) {
+    val sourceTitle = chapter.title.ifBlank { stringResource(R.string.hadith_all_chapters) }
+    val displayTitle = if (AppLanguage.isArabicUi()) {
+        HadithChapterArabicTitles.displayTitle(chapter.collection, sourceTitle)
+    } else {
+        sourceTitle
+    }
     val range = if (chapter.firstHadithNumber != null && chapter.lastHadithNumber != null) {
         "${chapter.firstHadithNumber}–${chapter.lastHadithNumber}"
     } else {
@@ -576,7 +583,7 @@ private fun HadithChapterRow(chapter: HadithChapter, onClick: () -> Unit) {
         Spacer(Modifier.width(IslamicSpacing.Medium))
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = chapter.title.ifBlank { stringResource(R.string.hadith_all_chapters) },
+                text = displayTitle,
                 style = MaterialTheme.typography.titleSmall,
                 fontWeight = FontWeight.Medium,
                 maxLines = 2,

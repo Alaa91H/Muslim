@@ -74,11 +74,11 @@ class LocationViewModel @Inject constructor(
             messages.value = Message.Error("invalid")
             return false
         }
-        viewModelScope.launch {
+        launchLocationAction {
             val timeZone = coordinateTimeZoneResolver.resolve(latitude, longitude)
             if (timeZone == null) {
                 messages.value = Message.Error("gps_failed")
-                return@launch
+                return@launchLocationAction
             }
             persistNow(
                 SelectedLocation(
@@ -93,37 +93,26 @@ class LocationViewModel @Inject constructor(
     }
 
     /** Fetches the current GPS location (caller must hold the permission). */
-    fun useGps() {
-        viewModelScope.launch {
-            try {
-                val geo = locationProvider.currentLocation()
-                if (geo == null) {
-                    messages.value = Message.Error("gps_failed")
-                    return@launch
-                }
-                val timeZone = coordinateTimeZoneResolver.resolve(geo.latitude, geo.longitude)
-                if (timeZone == null) {
-                    messages.value = Message.Error("gps_failed")
-                    return@launch
-                }
-                persistNow(
-                    SelectedLocation(
-                        name = resolveRegionName(geo.latitude, geo.longitude),
-                        latitude = geo.latitude,
-                        longitude = geo.longitude,
-                        timeZone = timeZone,
-                        elevation = geo.altitude ?: 0.0,
-                    ),
-                )
-            } catch (error: CancellationException) {
-                throw error
-            } catch (_: Throwable) {
-                // GPS, reverse geocoding, persistence and rescheduling are all
-                // best-effort app operations. A platform or provider failure
-                // must become the existing recoverable GPS message, never an FC.
-                messages.value = Message.Error("gps_failed")
-            }
+    fun useGps() = launchLocationAction {
+        val geo = locationProvider.currentLocation()
+        if (geo == null) {
+            messages.value = Message.Error("gps_failed")
+            return@launchLocationAction
         }
+        val timeZone = coordinateTimeZoneResolver.resolve(geo.latitude, geo.longitude)
+        if (timeZone == null) {
+            messages.value = Message.Error("gps_failed")
+            return@launchLocationAction
+        }
+        persistNow(
+            SelectedLocation(
+                name = resolveRegionName(geo.latitude, geo.longitude),
+                latitude = geo.latitude,
+                longitude = geo.longitude,
+                timeZone = timeZone,
+                elevation = geo.altitude ?: 0.0,
+            ),
+        )
     }
 
     /**
@@ -163,8 +152,25 @@ class LocationViewModel @Inject constructor(
         messages.value = null
     }
 
-    private fun persist(location: SelectedLocation) {
-        viewModelScope.launch { persistNow(location) }
+    private fun persist(location: SelectedLocation) = launchLocationAction {
+        persistNow(location)
+    }
+
+    /**
+     * A single failure boundary for every user-selected location route. Android
+     * providers, geocoders, timezone data, alarm scheduling and widget updates
+     * can each fail independently; none may take down the visible picker.
+     */
+    private fun launchLocationAction(action: suspend () -> Unit) {
+        viewModelScope.launch {
+            try {
+                action()
+            } catch (error: CancellationException) {
+                throw error
+            } catch (_: Throwable) {
+                messages.value = Message.Error("gps_failed")
+            }
+        }
     }
 
     /**

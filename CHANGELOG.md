@@ -3,6 +3,15 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Unreleased
+
+### Arabic Hadith Index and Device-Path Reliability
+
+- Localized all **417** collection-scoped Hadith chapter-index labels for the Arabic UI. The original source chapter title remains the Room/Paging/navigation key, while English and non-Arabic interfaces retain their existing source labels.
+- Reworked synthesized-Adhan `AudioTrack` ownership around one synchronization lock. Every native write, start, pause, volume update, invalidation, stop, and release now shares the same session boundary, and ownership is cleared before release to prevent a stale writer from reaching Android’s invalid track state.
+- Added a second defensive failure boundary to the fused-location provider and one unified recoverable coroutine boundary for GPS, manual coordinates, city selection, reverse geocoding, coordinate-to-IANA resolution, persistence, alarm rescheduling, countdown refresh, and widget refresh. Cancellation remains propagated normally.
+- Added CI checks that require complete Arabic chapter-label coverage and serialized audio-track release/write handling, while preserving the existing Hadith paging, Isha, notification, and GPS contract checks.
+
 ## Muslim v1.25.11
 
 ### Reliability and Adaptive Islamic Design
