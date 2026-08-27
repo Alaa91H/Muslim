@@ -27,14 +27,10 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Train
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
@@ -62,6 +58,11 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.location.MagneticDeclination
 import org.muslim.app.core.permissions.AppPermission
 import org.muslim.app.core.permissions.PermissionEntryPoint
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicPrimaryButton
+import org.muslim.app.core.ui.theme.IslamicSecondaryButton
+import org.muslim.app.core.ui.theme.MuslimStateSurface
+import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.HighLatitudeRuleInfo
 import org.muslim.app.feature.learn.domain.TravelContent
@@ -181,11 +182,10 @@ private fun TravelDistanceTab(
 
 @Composable
 private fun TravelNotice() {
-    InfoCard(
-        text = stringResource(R.string.traveler_distance_notice),
+    MuslimStateSurface(
+        title = stringResource(R.string.traveler_distance_notice),
+        tone = MuslimStateTone.Information,
         icon = Icons.Filled.Info,
-        color = MaterialTheme.colorScheme.secondaryContainer,
-        contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
     )
 }
 
@@ -196,39 +196,46 @@ private fun GpsControls(
     onSetOrigin: () -> Unit,
     onClearOrigin: () -> Unit,
 ) {
-    Card {
-        Column(modifier = Modifier.padding(18.dp)) {
-            Text(stringResource(R.string.traveler_gps_title), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-            Text(
-                stringResource(R.string.traveler_gps_privacy),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(top = 5.dp),
-            )
-            OutlinedButton(
-                onClick = onRefresh,
-                enabled = state.gpsState != TravelerGpsState.Requesting,
-                modifier = Modifier.padding(top = 12.dp),
-            ) {
-                Icon(Icons.Filled.MyLocation, contentDescription = null)
-                Spacer(Modifier.width(8.dp))
-                Text(stringResource(R.string.traveler_refresh_gps))
-            }
-            GpsStatus(state.gpsState)
-            OriginStatus(origin = state.origin)
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(top = 10.dp)) {
-                Button(
-                    onClick = onSetOrigin,
-                    enabled = state.gpsState is TravelerGpsState.Fix,
-                ) {
-                    Icon(Icons.Filled.LocationOn, contentDescription = null)
-                    Spacer(Modifier.width(6.dp))
-                    Text(stringResource(R.string.traveler_set_departure))
-                }
-                OutlinedButton(onClick = onClearOrigin, enabled = state.origin != null) {
-                    Text(stringResource(R.string.traveler_clear_departure))
-                }
-            }
+    IslamicCard {
+        Text(stringResource(R.string.traveler_gps_title), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+        Text(
+            stringResource(R.string.traveler_gps_privacy),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = 5.dp),
+        )
+        IslamicSecondaryButton(
+            onClick = onRefresh,
+            enabled = state.gpsState != TravelerGpsState.Requesting,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 12.dp),
+        ) {
+            Icon(Icons.Filled.MyLocation, contentDescription = null)
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.traveler_refresh_gps))
+        }
+        GpsStatus(state.gpsState)
+        OriginStatus(origin = state.origin)
+        IslamicPrimaryButton(
+            onClick = onSetOrigin,
+            enabled = state.gpsState is TravelerGpsState.Fix,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 12.dp),
+        ) {
+            Icon(Icons.Filled.LocationOn, contentDescription = null)
+            Spacer(Modifier.width(6.dp))
+            Text(stringResource(R.string.traveler_set_departure))
+        }
+        IslamicSecondaryButton(
+            onClick = onClearOrigin,
+            enabled = state.origin != null,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp),
+        ) {
+            Text(stringResource(R.string.traveler_clear_departure))
         }
     }
 }
@@ -241,12 +248,20 @@ private fun GpsStatus(gpsState: TravelerGpsState) {
         is TravelerGpsState.Fix -> stringResource(R.string.traveler_gps_ready)
         TravelerGpsState.Error -> stringResource(R.string.traveler_gps_error)
     }
-    Text(
-        text = message,
-        style = MaterialTheme.typography.bodySmall,
-        color = if (gpsState is TravelerGpsState.Error) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurfaceVariant,
-        modifier = Modifier.padding(top = 8.dp),
-    )
+    if (gpsState is TravelerGpsState.Error) {
+        MuslimStateSurface(
+            title = message,
+            tone = MuslimStateTone.Critical,
+            modifier = Modifier.padding(top = 8.dp),
+        )
+    } else {
+        Text(
+            text = message,
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = 8.dp),
+        )
+    }
 }
 
 @Composable
@@ -264,30 +279,28 @@ private fun ThresholdSelector(
     selected: TravelDistanceThreshold,
     onSelect: (TravelDistanceThreshold) -> Unit,
 ) {
-    Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)) {
-        Column(modifier = Modifier.padding(18.dp)) {
-            Text(stringResource(R.string.traveler_threshold_title), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-            Text(
-                stringResource(R.string.traveler_threshold_subtitle),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(top = 4.dp),
-            )
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(top = 10.dp)) {
-                TravelDistanceThreshold.entries.forEach { threshold ->
-                    AssistChip(
-                        onClick = { onSelect(threshold) },
-                        label = { Text("${threshold.kilometres.toInt()} km") },
-                        leadingIcon = if (threshold == selected) {
-                            { Icon(Icons.Filled.LocationOn, contentDescription = null) }
-                        } else {
-                            null
-                        },
-                        colors = AssistChipDefaults.assistChipColors(
-                            containerColor = if (threshold == selected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surface,
-                        ),
-                    )
-                }
+    IslamicCard(containerColor = MaterialTheme.colorScheme.surfaceContainerLow) {
+        Text(stringResource(R.string.traveler_threshold_title), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+        Text(
+            stringResource(R.string.traveler_threshold_subtitle),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = 4.dp),
+        )
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(top = 10.dp)) {
+            TravelDistanceThreshold.entries.forEach { threshold ->
+                AssistChip(
+                    onClick = { onSelect(threshold) },
+                    label = { Text("${threshold.kilometres.toInt()} km") },
+                    leadingIcon = if (threshold == selected) {
+                        { Icon(Icons.Filled.LocationOn, contentDescription = null) }
+                    } else {
+                        null
+                    },
+                    colors = AssistChipDefaults.assistChipColors(
+                        containerColor = if (threshold == selected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surface,
+                    ),
+                )
             }
         }
     }
@@ -297,11 +310,10 @@ private fun ThresholdSelector(
 private fun DistanceAssessmentCard(state: TravelerUiState) {
     val assessment = state.distanceAssessment
     if (assessment == null) {
-        InfoCard(
-            text = stringResource(R.string.traveler_distance_waiting),
+        MuslimStateSurface(
+            title = stringResource(R.string.traveler_distance_waiting),
+            tone = MuslimStateTone.Neutral,
             icon = Icons.Filled.LocationOn,
-            color = MaterialTheme.colorScheme.surfaceVariant,
-            contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         return
     }
@@ -315,27 +327,25 @@ private fun DistanceAssessmentCard(state: TravelerUiState) {
             assessment.threshold.kilometres.toInt(),
         )
     }
-    Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer)) {
-        Column(modifier = Modifier.padding(20.dp)) {
-            Text(
-                text = stringResource(R.string.traveler_distance_label, assessment.distanceKm),
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
-            )
-            Text(
-                text = statusText,
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                modifier = Modifier.padding(top = 8.dp),
-            )
-            Text(
-                text = stringResource(R.string.traveler_distance_disclaimer),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                modifier = Modifier.padding(top = 10.dp),
-            )
-        }
+    IslamicCard(containerColor = MaterialTheme.colorScheme.primaryContainer) {
+        Text(
+            text = stringResource(R.string.traveler_distance_label, assessment.distanceKm),
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
+        )
+        Text(
+            text = statusText,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
+            modifier = Modifier.padding(top = 8.dp),
+        )
+        Text(
+            text = stringResource(R.string.traveler_distance_disclaimer),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
+            modifier = Modifier.padding(top = 10.dp),
+        )
     }
 }
 
@@ -348,16 +358,14 @@ private fun TravelGuides(sections: List<TravelGuideSection>) {
 
 @Composable
 private fun TravelGuideCard(section: TravelGuideSection, isArabic: Boolean) {
-    Card {
-        Column(modifier = Modifier.padding(18.dp)) {
-            Text(section.title.resolve(isArabic), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-            section.paragraphs.forEach { paragraph ->
-                Text(
-                    text = paragraph.resolve(isArabic),
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(top = 8.dp),
-                )
-            }
+    IslamicCard {
+        Text(section.title.resolve(isArabic), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+        section.paragraphs.forEach { paragraph ->
+            Text(
+                text = paragraph.resolve(isArabic),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(top = 8.dp),
+            )
         }
     }
 }
@@ -371,11 +379,10 @@ private fun TransportPrayerTab(state: TravelerUiState, onRefresh: () -> Unit) {
         modifier = Modifier.fillMaxSize(),
     ) {
         item {
-            InfoCard(
-                text = stringResource(R.string.traveler_transport_notice),
+            MuslimStateSurface(
+                title = stringResource(R.string.traveler_transport_notice),
+                tone = MuslimStateTone.Information,
                 icon = Icons.Filled.Flight,
-                color = MaterialTheme.colorScheme.secondaryContainer,
-                contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
             )
         }
         item { OfflineQiblaCompass(point = currentPoint, onRefresh = onRefresh, gpsState = state.gpsState) }
@@ -403,8 +410,8 @@ private fun OfflineQiblaCompass(
     onRefresh: () -> Unit,
     gpsState: TravelerGpsState,
 ) {
-    Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)) {
-        Column(modifier = Modifier.padding(18.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+    IslamicCard(containerColor = MaterialTheme.colorScheme.surfaceContainerLow) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Text(stringResource(R.string.traveler_offline_compass_title), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
             Text(
                 stringResource(R.string.traveler_offline_compass_subtitle),
@@ -414,7 +421,13 @@ private fun OfflineQiblaCompass(
                 modifier = Modifier.padding(top = 4.dp),
             )
             if (point == null) {
-                OutlinedButton(onClick = onRefresh, enabled = gpsState != TravelerGpsState.Requesting, modifier = Modifier.padding(top = 12.dp)) {
+                IslamicSecondaryButton(
+                    onClick = onRefresh,
+                    enabled = gpsState != TravelerGpsState.Requesting,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 12.dp),
+                ) {
                     Icon(Icons.Filled.MyLocation, contentDescription = null)
                     Spacer(Modifier.width(8.dp))
                     Text(stringResource(R.string.traveler_refresh_gps))
@@ -504,36 +517,38 @@ private fun HighLatitudeTab(state: TravelerUiState, onOpenPrayerSettings: () -> 
 
 @Composable
 private fun HighLatitudeNotice() {
-    InfoCard(
-        text = stringResource(R.string.traveler_high_latitude_notice),
+    MuslimStateSurface(
+        title = stringResource(R.string.traveler_high_latitude_notice),
+        tone = MuslimStateTone.Information,
         icon = Icons.Filled.Info,
-        color = MaterialTheme.colorScheme.secondaryContainer,
-        contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
     )
 }
 
 @Composable
 private fun HighLatitudePreviewCard(preview: HighLatitudePreview?, onOpenPrayerSettings: () -> Unit) {
-    Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer)) {
-        Column(modifier = Modifier.padding(18.dp)) {
-            Text(stringResource(R.string.traveler_high_latitude_preview), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-            if (preview == null) {
-                Text(stringResource(R.string.traveler_high_latitude_location_missing), modifier = Modifier.padding(top = 8.dp))
-            } else if (!preview.calculationAvailable) {
-                Text(stringResource(R.string.traveler_high_latitude_unavailable), modifier = Modifier.padding(top = 8.dp))
-            } else {
-                Text(
-                    stringResource(R.string.traveler_high_latitude_location, preview.latitude),
-                    modifier = Modifier.padding(top = 8.dp),
-                )
-                Text(stringResource(R.string.traveler_high_latitude_fajr, preview.fajr.orEmpty()), modifier = Modifier.padding(top = 4.dp))
-                Text(stringResource(R.string.traveler_high_latitude_isha, preview.isha.orEmpty()), modifier = Modifier.padding(top = 2.dp))
-            }
-            OutlinedButton(onClick = onOpenPrayerSettings, modifier = Modifier.padding(top = 12.dp)) {
-                Icon(Icons.Filled.Settings, contentDescription = null)
-                Spacer(Modifier.width(8.dp))
-                Text(stringResource(R.string.traveler_high_latitude_settings))
-            }
+    IslamicCard(containerColor = MaterialTheme.colorScheme.primaryContainer) {
+        Text(stringResource(R.string.traveler_high_latitude_preview), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+        if (preview == null) {
+            Text(stringResource(R.string.traveler_high_latitude_location_missing), modifier = Modifier.padding(top = 8.dp))
+        } else if (!preview.calculationAvailable) {
+            Text(stringResource(R.string.traveler_high_latitude_unavailable), modifier = Modifier.padding(top = 8.dp))
+        } else {
+            Text(
+                stringResource(R.string.traveler_high_latitude_location, preview.latitude),
+                modifier = Modifier.padding(top = 8.dp),
+            )
+            Text(stringResource(R.string.traveler_high_latitude_fajr, preview.fajr.orEmpty()), modifier = Modifier.padding(top = 4.dp))
+            Text(stringResource(R.string.traveler_high_latitude_isha, preview.isha.orEmpty()), modifier = Modifier.padding(top = 2.dp))
+        }
+        IslamicSecondaryButton(
+            onClick = onOpenPrayerSettings,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 12.dp),
+        ) {
+            Icon(Icons.Filled.Settings, contentDescription = null)
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.traveler_high_latitude_settings))
         }
     }
 }
@@ -546,49 +561,30 @@ private fun HighLatitudeBandCard(latitude: Double?) {
         abs(latitude) < 66.0 -> stringResource(R.string.traveler_high_latitude_band_second)
         else -> stringResource(R.string.traveler_high_latitude_band_third)
     }
-    InfoCard(
-        text = text,
+    MuslimStateSurface(
+        title = text,
+        tone = MuslimStateTone.Neutral,
         icon = Icons.Filled.Info,
-        color = MaterialTheme.colorScheme.surfaceVariant,
-        contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
     )
 }
 
 @Composable
 private fun HighLatitudeRuleCard(rule: HighLatitudeRuleInfo, isSelected: Boolean) {
-    Card(colors = CardDefaults.cardColors(
-        containerColor = if (isSelected) MaterialTheme.colorScheme.tertiaryContainer else MaterialTheme.colorScheme.surface,
-    )) {
-        Column(modifier = Modifier.padding(18.dp)) {
-            Text(rule.title.resolve(isArabicLocale()), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-            Text(rule.description.resolve(isArabicLocale()), style = MaterialTheme.typography.bodyMedium, modifier = Modifier.padding(top = 6.dp))
-            if (isSelected) {
-                Text(
-                    stringResource(R.string.traveler_high_latitude_selected),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.padding(top = 8.dp),
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun InfoCard(
-    text: String,
-    icon: androidx.compose.ui.graphics.vector.ImageVector,
-    color: Color,
-    contentColor: Color,
-) {
-    Card(colors = CardDefaults.cardColors(containerColor = color), modifier = Modifier.fillMaxWidth()) {
-        Row(modifier = Modifier.padding(16.dp), verticalAlignment = Alignment.Top) {
-            Icon(icon, contentDescription = null, tint = contentColor)
+    IslamicCard(
+        containerColor = if (isSelected) {
+            MaterialTheme.colorScheme.tertiaryContainer
+        } else {
+            MaterialTheme.colorScheme.surface
+        },
+    ) {
+        Text(rule.title.resolve(isArabicLocale()), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+        Text(rule.description.resolve(isArabicLocale()), style = MaterialTheme.typography.bodyMedium, modifier = Modifier.padding(top = 6.dp))
+        if (isSelected) {
             Text(
-                text = text,
-                style = MaterialTheme.typography.bodyMedium,
-                color = contentColor,
-                modifier = Modifier.padding(start = 12.dp),
+                stringResource(R.string.traveler_high_latitude_selected),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(top = 8.dp),
             )
         }
     }

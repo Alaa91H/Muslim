@@ -1,6 +1,6 @@
 # UI/UX Transformation Plan
 
-> **Status:** The core `ui/premium-islamic-experience` workstream was merged into `main` and released in `v1.25.0`. Follow-up consistency passes shipped in `v1.25.2`, `v1.25.4`, and `v1.25.5`; a Hajj-days calculator pass is in progress and remains untagged until validation completes. This document describes presentation and interaction improvements only. It does not change religious content, prayer calculations, offline-first behaviour, notification delivery, or data contracts.
+> **Status:** The core `ui/premium-islamic-experience` workstream was merged into `main` and released in `v1.25.0`. Follow-up consistency passes shipped in `v1.25.2`, `v1.25.4`, `v1.25.5`, and `v1.25.6`; a travel and expat pass is in progress and remains untagged until validation completes. This document describes presentation and interaction improvements only. It does not change religious content, prayer calculations, offline-first behaviour, notification delivery, or data contracts.
 
 ## Product intent
 
@@ -56,7 +56,9 @@ The reading, planning and utility pass extends the same principles to the Ramada
 
 The Family Life pass standardises Ruqyah, baby-name search, Aqiqah and family guidance surfaces using the same cards, state treatment and minimum-touch-target actions. Its scope remains presentation-only: safe-audio URL validation, external audio launch, bilingual content selection, name search, birth-date parsing, schedule calculation and locally persisted reminder state remain unchanged.
 
-The current Hajj-days calculator pass applies shared hierarchy to its intro, entered-date and seasonal key-day results, and introduces a semantic critical state for an incomplete or invalid Hijri date. Digit normalization, input parsing, Hijri/Gregorian conversion, calculated key dates and relative-day labels remain unchanged.
+The Hajj-days calculator pass applies shared hierarchy to its intro, entered-date and seasonal key-day results, and introduces a semantic critical state for an incomplete or invalid Hijri date. Digit normalization, input parsing, Hijri/Gregorian conversion, calculated key dates and relative-day labels remain unchanged.
+
+The current travel and expat pass applies the same semantic hierarchy to GPS controls, travel-distance assessment, travel guidance, offline compass and high-latitude planning. It uses shared informational, neutral and critical state surfaces, plus common touch-target-safe actions, while preserving location permissions, origin storage, distance assessment, compass calculation, high-latitude preview and prayer-settings navigation.
 
 ## Component policy
 

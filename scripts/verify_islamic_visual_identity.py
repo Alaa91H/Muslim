@@ -131,6 +131,13 @@ REQUIRED_SNIPPETS = {
         "MuslimStateSurface",
         "MuslimStateTone.Critical",
     ],
+    "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/TravelerExpatsScreen.kt": [
+        "IslamicCard",
+        "IslamicPrimaryButton",
+        "IslamicSecondaryButton",
+        "MuslimStateSurface",
+        "MuslimStateTone.Critical",
+    ],
     "docs/islamic_visual_identity.md": [
         "Modern Islamic Minimalism",
         "Ornament catalogue and opacity",

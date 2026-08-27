@@ -5,6 +5,15 @@ sectioned format as v1.10.0 and are generated from the commits for each tag.
 
 ## Unreleased
 
+### Travel and Expat Surface Consistency
+
+- Unified the travel-distance controls and assessment, travel guidance, offline compass, and high-latitude planning surfaces on shared Modern Islamic Minimalism cards and semantic state treatments.
+- Promoted location, calculation-context and travel guidance notices to shared informational or neutral state surfaces, while presenting GPS failure through the shared critical state.
+- Standardised the GPS refresh, departure-location and prayer-settings actions with shared accessible buttons; GPS permissions, origin storage, distance assessment, compass direction, high-latitude preview and prayer-settings navigation are unchanged.
+- Extended the visual-identity verifier to protect the shared travel and expat surface, action and critical-state treatment.
+
+## Muslim v1.25.6
+
 ### Hajj Days Calculator Surface Consistency
 
 - Unified the Hajj-days calculator introduction, entered-date result and key-day cards on the shared Modern Islamic Minimalism surface primitive.
