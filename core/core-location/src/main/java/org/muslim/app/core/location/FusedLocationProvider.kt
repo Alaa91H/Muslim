@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
 import androidx.core.content.ContextCompat
+import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import kotlinx.coroutines.CancellationException
@@ -28,8 +29,18 @@ import kotlin.coroutines.resume
 class FusedLocationProvider(context: Context) : LocationProvider {
 
     private val appContext = context.applicationContext
-    private val client = LocationServices.getFusedLocationProviderClient(appContext)
-    private val platformLocationManager = appContext.getSystemService(LocationManager::class.java)
+
+    /**
+     * Some Google Play Services/OEM stacks can fail while constructing the fused
+     * client itself. Keep that platform work inside a recoverable lazy result so
+     * choosing GPS cannot terminate the process before [currentLocation] runs.
+     */
+    private val client: FusedLocationProviderClient? by lazy {
+        runCatching { LocationServices.getFusedLocationProviderClient(appContext) }.getOrNull()
+    }
+
+    private val platformLocationManager: LocationManager?
+        get() = runCatching { appContext.getSystemService(LocationManager::class.java) }.getOrNull()
 
     override suspend fun currentLocation(): GeoLocation? = try {
         withContext(Dispatchers.IO) {
@@ -69,7 +80,11 @@ class FusedLocationProvider(context: Context) : LocationProvider {
     // Permission is checked in [currentLocation] before these methods are invoked.
     @SuppressLint("MissingPermission")
     private suspend fun awaitCurrentLocation(priority: Int): Location? = suspendCancellableCoroutine { continuation ->
-        val task = runCatching { client.getCurrentLocation(priority, null) }
+        val fusedClient = client ?: run {
+            if (continuation.isActive) continuation.resume(null)
+            return@suspendCancellableCoroutine
+        }
+        val task = runCatching { fusedClient.getCurrentLocation(priority, null) }
             .getOrElse {
                 if (continuation.isActive) continuation.resume(null)
                 return@suspendCancellableCoroutine
@@ -87,7 +102,11 @@ class FusedLocationProvider(context: Context) : LocationProvider {
 
     @SuppressLint("MissingPermission")
     private suspend fun awaitLastKnownLocation(): Location? = suspendCancellableCoroutine { continuation ->
-        val task = runCatching { client.lastLocation }
+        val fusedClient = client ?: run {
+            if (continuation.isActive) continuation.resume(null)
+            return@suspendCancellableCoroutine
+        }
+        val task = runCatching { fusedClient.lastLocation }
             .getOrElse {
                 if (continuation.isActive) continuation.resume(null)
                 return@suspendCancellableCoroutine
@@ -106,8 +125,9 @@ class FusedLocationProvider(context: Context) : LocationProvider {
     /** Local Android GPS/network cache fallback for devices without a current fused fix. */
     @SuppressLint("MissingPermission")
     private fun mostRecentPlatformLocation(): Location? = runCatching {
+        val locationManager = platformLocationManager ?: return@runCatching null
         listOf(LocationManager.GPS_PROVIDER, LocationManager.NETWORK_PROVIDER, LocationManager.PASSIVE_PROVIDER)
-            .mapNotNull { provider -> platformLocationManager.getLastKnownLocation(provider) }
+            .mapNotNull { provider -> locationManager.getLastKnownLocation(provider) }
             .maxByOrNull { location -> location.time }
     }.getOrNull()
 }

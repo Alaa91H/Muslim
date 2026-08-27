@@ -3,6 +3,13 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Unreleased
+
+### GPS startup resilience
+
+- Moved construction of the fused Google Play Services client and Android `LocationManager` behind recoverable, application-context lookups. A device whose Play Services or OEM location stack fails during client creation now returns the existing retryable GPS-unavailable state instead of terminating the process before a location request can begin.
+- Preserved approximate/precise permission support, live high-accuracy retrieval, fused and platform fallbacks, coordinate-derived IANA timezone resolution, and normal coroutine cancellation behavior. Added a CI guard that prevents client or platform-manager construction from escaping the GPS recovery boundary.
+
 ## Muslim v1.25.12
 
 ### Arabic Hadith Index and Device-Path Reliability
