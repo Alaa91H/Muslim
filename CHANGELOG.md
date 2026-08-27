@@ -5,6 +5,8 @@ sectioned format as v1.10.0 and are generated from the commits for each tag.
 
 ## Unreleased
 
+## Muslim v1.25.8
+
 ### Per-Prayer Alert Controls and Live Adhan Ownership
 
 - Added a clear alert-status icon to each prayer-time row. For the five scheduled prayers, it opens the existing full customisation dialog with alert type, bundled Adhan selection, live preview, per-prayer or global volume, vibration and manual time adjustment; sunrise remains visibly unavailable because it is not scheduled as an Adhan alarm.

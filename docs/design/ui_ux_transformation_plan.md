@@ -1,6 +1,6 @@
 # UI/UX Transformation Plan
 
-> **Status:** The core `ui/premium-islamic-experience` workstream was merged into `main` and released in `v1.25.0`. Follow-up consistency passes shipped in `v1.25.2`, `v1.25.4`, `v1.25.5`, `v1.25.6`, and `v1.25.7`; a per-prayer alert and live-Adhan ownership pass is in progress and remains untagged until validation completes. This document preserves religious content, calculation semantics, offline-first behaviour and data contracts while refining their presentation and notification ownership.
+> **Status:** The core `ui/premium-islamic-experience` workstream was merged into `main` and released in `v1.25.0`. Follow-up consistency passes shipped in `v1.25.2`, `v1.25.4`, `v1.25.5`, `v1.25.6`, `v1.25.7`, and `v1.25.8`; the per-prayer alert and live-Adhan ownership pass is now published. This document preserves religious content, calculation semantics, offline-first behaviour and data contracts while refining their presentation and notification ownership.
 
 ## Product intent
 
@@ -60,7 +60,7 @@ The Hajj-days calculator pass applies shared hierarchy to its intro, entered-dat
 
 The travel and expat pass applies the same semantic hierarchy to GPS controls, travel-distance assessment, travel guidance, offline compass and high-latitude planning. It uses shared informational, neutral and critical state surfaces, plus common touch-target-safe actions, while preserving location permissions, origin storage, distance assessment, compass calculation, high-latitude preview and prayer-settings navigation.
 
-The current prayer-alert pass adds an explicit per-prayer status/control entry to the daily time rows and reuses the settings-owned dialog for alert mode, bundled Adhan, preview, individual/global volume, vibration and time adjustment. It deliberately leaves sunrise unavailable because the scheduler excludes it. The normal active card is now owned by the live foreground service instead of a preliminary receiver post, is reaffirmed on task removal, and remains tied to playback completion or the explicit Stop action; Android remains the final authority for permission, channel, lock-screen and heads-up presentation.
+The published prayer-alert pass adds an explicit per-prayer status/control entry to the daily time rows and reuses the settings-owned dialog for alert mode, bundled Adhan, preview, individual/global volume, vibration and time adjustment. It deliberately leaves sunrise unavailable because the scheduler excludes it. The normal active card is now owned by the live foreground service instead of a preliminary receiver post, is reaffirmed on task removal, and remains tied to playback completion or the explicit Stop action; Android remains the final authority for permission, channel, lock-screen and heads-up presentation.
 
 ## Component policy
 

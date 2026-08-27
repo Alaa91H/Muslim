@@ -1,6 +1,6 @@
 # Android System-Icon Identity Repair
 
-> **Status:** The icon-retention repair and the focused UI consistency passes through `v1.25.7` are published. The per-prayer alert and live-Adhan ownership follow-up described below is source-level work and does not claim a tagged APK or universal physical-device verification before its next release is approved.
+> **Status:** The icon-retention repair, focused UI consistency passes, and per-prayer alert/live-Adhan ownership follow-up are published through `v1.25.8`. The release passed source, CI and emulator checks; it does not claim universal physical-device verification before users test their own Android configuration.
 
 ## Purpose and scope
 
