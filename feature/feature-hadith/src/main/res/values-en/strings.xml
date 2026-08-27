@@ -46,7 +46,7 @@
     <string name="hadith_collection_muslim">Muslim</string>
     <string name="hadith_collection_tirmidhi">At-Tirmidhi</string>
     <string name="hadith_collection_abudawud">Abu Dawud</string>
-    <string name="hadith_collection_nasai">An-Nasa\'i</string>
+    <string name="hadith_collection_nasai">An-Nasai</string>
     <string name="hadith_collection_ibnmajah">Ibn Majah</string>
     <string name="hadith_collection_muwatta">Muwatta Malik</string>
     <string name="hadith_collection_other">Other</string>
@@ -55,7 +55,7 @@
     <string name="hadith_collection_muslim_description">Imam Muslim collection with its bundled chapter index and text.</string>
     <string name="hadith_collection_abudawud_description">Sunan Abi Dawud with its bundled chapter index and text.</string>
     <string name="hadith_collection_tirmidhi_description">Jami at-Tirmidhi with its bundled chapter index and text.</string>
-    <string name="hadith_collection_nasai_description">Sunan an-Nasa'i with its bundled chapter index and text.</string>
+    <string name="hadith_collection_nasai_description">Sunan an-Nasai with its bundled chapter index and text.</string>
     <string name="hadith_collection_ibnmajah_description">Sunan Ibn Majah with its bundled chapter index and text.</string>
     <string name="hadith_collection_muwatta_description">Muwatta Malik with its bundled chapter index and text.</string>
     <string name="hadith_collection_riyad_description">Riyad as-Salihin with its bundled topic index and text.</string>
