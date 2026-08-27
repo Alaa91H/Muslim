@@ -1,6 +1,6 @@
 # Lazy Hadith Library, Location Recovery and Notification Audit
 
-**Status:** Implemented on `main`; local static guards passed. Android compilation, emulator execution, signing and release publication remain CI-gated because this workspace has no configured Android SDK.
+**Status:** Published as [`v1.25.10`](https://github.com/Alaa91H/Muslim/releases/tag/v1.25.10) after the tag CI completed successfully: quality, Android emulator, and signed release-artifact jobs passed. The phone and Wear APK SHA-256 values downloaded from the release matched GitHub's published asset digests. This workspace still has no configured Android SDK, so its local evidence remains limited to static guards and Detekt.
 
 ## Scope
 
