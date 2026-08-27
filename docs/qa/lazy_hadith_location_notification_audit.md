@@ -1,6 +1,6 @@
 # Lazy Hadith Library, Location Recovery and Notification Audit
 
-**Status:** Published as [`v1.25.10`](https://github.com/Alaa91H/Muslim/releases/tag/v1.25.10) after the tag CI completed successfully: quality, Android emulator, and signed release-artifact jobs passed. The phone and Wear APK SHA-256 values downloaded from the release matched GitHub's published asset digests. This workspace still has no configured Android SDK, so its local evidence remains limited to static guards and Detekt.
+**Status:** Published as [`v1.25.11`](https://github.com/Alaa91H/Muslim/releases/tag/v1.25.11) after [tag CI](https://github.com/Alaa91H/Muslim/actions/runs/33074335625) completed successfully: quality, Android emulator, and signed release-artifact jobs passed. The phone `app-release.apk` SHA-256 (`01feb87dda796de2f41b531c2d81c88ea8024901b32e3b24f05fb4be0a59ecae`) and Wear `wear-release.apk` SHA-256 (`be435e545930bcbb52f42a741519e48c8384bbc7d1130f0bc04c085f4baa89b2`) were downloaded from the release and matched GitHub's published asset digests. This workspace still has no configured Android SDK, so its local evidence remains limited to static guards and Detekt.
 
 ## Scope
 
@@ -8,13 +8,13 @@ This audit covers the new on-demand Hadith catalogue, foreground GPS recovery fo
 
 | Surface | Implemented contract | Verification boundary |
 |---|---|---|
-| Hadith library | The catalogue is metadata-only. A user opening a collection imports that single compressed book in bounded 150-row Room transactions; chapters and search stay scoped to the active book and Compose consumes Paging. | Static asset, repository, DAO and UI guards pass locally. Android memory profiling and device scrolling remain CI/device work. |
-| Location | The picker accepts approximate or precise foreground permission. Precise access requests a high-accuracy current fix; a recent fused/platform fix is a local fallback. Coordinates must resolve to an IANA zone before persistence. | Code and static contract pass locally. Availability also depends on a user-enabled Android location provider and granted permission. |
+| Hadith library | The catalogue is metadata-only. A user opening a collection imports that single book in bounded 150-row Room transactions; it supports its retained GZIP asset or Android’s unpacked NDJSON asset representation, and chapters and search stay scoped to the active book while Compose consumes Paging. Reader-facing recovery is localized and does not expose paths or exceptions. | Static asset, repository, DAO and UI guards pass locally. Android memory profiling and device scrolling remain CI/device work. |
+| Location | The picker accepts approximate or precise foreground permission. Precise access requests a high-accuracy current fix; a recent fused/platform fix is a local fallback. Coordinates must resolve to an IANA zone before persistence. Provider, geocoding, timezone, save, and rescheduling failures are contained in the recoverable UI state. | Code and static contract pass locally. Availability also depends on a user-enabled Android location provider and granted permission. |
 | Isha | The default profile is MWL: Fajr 18°, Isha 17°, Standard Asr, zero manual Isha offset and Seventh-of-the-Night high-latitude bound. | Seasonal Berlin and 14-city vectors are compared with the Adhan Kotlin reference in the unit suite. Religious/community convention choices remain user controlled. |
 | Ramadan navigation | Ramadan occupies the bottom bar only when the app-wide adjusted Umm al-Qura date has Hijri month 9. It is inserted between Quran and Qibla; outside the month it remains an item in More. | Pure unit coverage checks Ramadan boundaries and the user adjustment. No background job is used or needed. |
 | Countdown notification | The upcoming prayer time is green; remaining and elapsed durations are red. The duration-colour picker was removed because live delivery is deliberately semantic and non-configurable. | Static guard and Android instrumentation coverage are configured. System templates ultimately render spans. |
 | Per-prayer alert icon | Tapping a scheduled-prayer alert icon opens the persisted customisation dialog in the home screen and does not navigate to prayer settings. Its width and visible content height respond to screen dimensions, it scrolls safely when constrained, and the user can persist comfortable or compact information density. | Static guards protect the modal-only and responsive paths; emulator UI coverage remains CI-gated. |
-| Live Adhan | While playback owns the foreground service, its public high-priority, ongoing, non-auto-cancelable notification remains in the drawer and lock screen. The sole action is Stop Adhan and it does not require authentication when invoked from the lock screen. Task removal re-posts the same card. | Android instrumentation verifies the card configuration and active-card posting. Lock-screen visibility and heads-up availability remain user/channel/OEM controlled. |
+| Live Adhan | While playback owns the foreground service, its public high-priority, ongoing, non-auto-cancelable notification remains in the drawer and lock screen. The sole action is Stop Adhan and it does not require authentication when invoked from the lock screen. Task removal re-posts the same card. The synthesized fallback handles a concurrent invalidated `AudioTrack` write as a safe terminal session rather than an app-closing exception. | Android instrumentation verifies the card configuration and active-card posting. Lock-screen visibility and heads-up availability remain user/channel/OEM controlled. |
 
 ## Hadith data and deferred loading
 
@@ -25,7 +25,7 @@ The previous release carried one 56,918,179-byte uncompressed `hadith_full.ndjso
 | Sahih al-Bukhari, Sahih Muslim, Abu Dawud, Tirmidhi, an-Nasai, Ibn Majah, Muwatta Malik | Versioned Arabic/English editions from `fawazahmed0/hadith-api`, whose repository declares The Unlicense. [1] [2] | Only the selected book is opened through `GZIPInputStream`, parsed line by line, and committed in batches of 150. |
 | Riyad as-Salihin, Forty Hadith of al-Nawawi | Prior owner-attested production corpus, preserved without text transformation. | Same selected-book import path. |
 
-The per-asset source, licence, attribution and review status are recorded in `docs/content/content_approvals.json` and machine-verified through `docs/content/content_manifest.json`. This tracks distribution provenance; it is not a claim of an independent scholarly certification.
+The per-asset source, licence, attribution and review status are recorded in `docs/content/content_approvals.json` and machine-verified through `docs/content/content_manifest.json`. The separate [`hadith_cover_source_candidates.md`](../content/hadith_cover_source_candidates.md) record identifies the public-domain physical-volume and manuscript/title-page imagery used for the catalogue and makes clear where a general volume photograph is used as contextual collection imagery rather than an asserted publisher edition. This tracks distribution provenance; it is not a claim of an independent scholarly certification.
 
 ## GPS recovery and Isha diagnosis
 
@@ -62,6 +62,7 @@ scripts/verify_hadith_paging_and_navigation.py
 scripts/verify_prayer_location_notification_contract.py
 scripts/verify_adhan_notification_lifecycle.py
 scripts/verify_responsive_customization_layout.py
+scripts/verify_design_system_adoption.py
 ```
 
 The local static pass does not substitute for Android compilation, emulator tests, real lock-screen validation, OEM notification presentation, user Android permissions/channel settings, location-provider availability, or qualified religious review.
