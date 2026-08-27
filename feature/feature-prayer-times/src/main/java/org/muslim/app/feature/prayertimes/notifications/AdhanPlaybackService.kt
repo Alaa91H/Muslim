@@ -25,7 +25,11 @@ import javax.inject.Inject
  * service cannot be observed directly, but both live in the same process).
  */
 object AdhanPlaybackStatus {
+    /** True while any foreground Adhan playback session owns the service. */
     val isPlaying = MutableStateFlow(false)
+
+    /** True only for an audio preview explicitly started from settings. */
+    val isPreviewing = MutableStateFlow(false)
 }
 
 /**
@@ -53,7 +57,10 @@ class AdhanPlaybackService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         startPlayback(playbackRequest(intent))
-        return START_NOT_STICKY
+        // Preserve the active foreground session if Android must recreate the
+        // process during a live Adhan. Explicit stop and natural completion
+        // still call stopSelf(), so they do not trigger redelivery.
+        return START_REDELIVER_INTENT
     }
 
     private fun playbackRequest(intent: Intent?): PlaybackRequest = PlaybackRequest(
@@ -66,8 +73,7 @@ class AdhanPlaybackService : Service() {
         soundPath = intent?.getStringExtra(EXTRA_SOUND_PATH),
         bundledSound = BundledAdhanSound.fromId(intent?.getStringExtra(EXTRA_BUNDLED_SOUND)),
         isProbe = intent?.getBooleanExtra(EXTRA_IS_PROBE, false) ?: false,
-        notificationDismissible = intent?.getBooleanExtra(EXTRA_NOTIFICATION_DISMISSIBLE, false) ?: false,
-        stopOnNotificationDismiss = intent?.getBooleanExtra(EXTRA_STOP_ON_NOTIFICATION_DISMISS, false) ?: false,
+        isPreview = intent?.getBooleanExtra(EXTRA_IS_PREVIEW, false) ?: false,
     )
 
     private fun startPlayback(request: PlaybackRequest) {
@@ -77,11 +83,7 @@ class AdhanPlaybackService : Service() {
             stopSelf()
             return
         }
-        val foregroundStarted = startForegroundNotification(
-            prayer = request.prayer,
-            dismissible = request.notificationDismissible,
-            stopOnDismiss = request.stopOnNotificationDismiss,
-        )
+        val foregroundStarted = startForegroundNotification(prayer = request.prayer)
         if (foregroundStarted.isFailure) {
             startForegroundFailureFallback(request, plan, foregroundStarted.exceptionOrNull())
             return
@@ -100,6 +102,7 @@ class AdhanPlaybackService : Service() {
             "Foreground notification failed: ${error?.javaClass?.simpleName}; synthetic fallback started",
         )
         AdhanPlaybackStatus.isPlaying.value = true
+        AdhanPlaybackStatus.isPreviewing.value = request.isPreview
         acquireWakeLock()
         val onFinished = { stopSelf() }
         if (plan.playSound) {
@@ -112,19 +115,18 @@ class AdhanPlaybackService : Service() {
             vibrate()
             mainHandler().postDelayed(onFinished, VIBRATION_DURATION_MS)
         }
-        scheduleServiceStop()
     }
 
     private fun startManagedPlayback(request: PlaybackRequest, plan: AdhanPlaybackPlan.Plan) {
         deliveryJournal.serviceStarted(request.prayer, request.isProbe)
         val deliveryStartedAt = System.currentTimeMillis()
         AdhanPlaybackStatus.isPlaying.value = true
+        AdhanPlaybackStatus.isPreviewing.value = request.isPreview
         acquireWakeLock()
         val onFinished = { stopSelf() }
         val onAudioStarted = { deliveryJournal.audioStarted(request.prayer, request.isProbe) }
         startRequestedAudio(request, plan, onAudioStarted, onFinished)
         scheduleAudioFallback(request, plan, deliveryStartedAt, onAudioStarted, onFinished)
-        scheduleServiceStop()
     }
 
     private fun startRequestedAudio(
@@ -180,10 +182,6 @@ class AdhanPlaybackService : Service() {
 
     private fun mainHandler() = android.os.Handler(android.os.Looper.getMainLooper())
 
-    private fun scheduleServiceStop() {
-        mainHandler().postDelayed({ stopSelf() }, MAX_PLAYBACK_MS)
-    }
-
     private data class PlaybackRequest(
         val prayer: Prayer,
         val option: AdhanSoundOption,
@@ -192,8 +190,7 @@ class AdhanPlaybackService : Service() {
         val soundPath: String?,
         val bundledSound: BundledAdhanSound,
         val isProbe: Boolean,
-        val notificationDismissible: Boolean,
-        val stopOnNotificationDismiss: Boolean,
+        val isPreview: Boolean,
     )
 
     private fun vibrate() {
@@ -219,25 +216,16 @@ class AdhanPlaybackService : Service() {
             "Muslim:AdhanPlayback",
         ).apply {
             setReferenceCounted(false)
-            acquire(MAX_PLAYBACK_MS)
+            acquire(PLAYBACK_WAKELOCK_TIMEOUT_MS)
         }
     }
 
-    private fun startForegroundNotification(
-        prayer: Prayer,
-        dismissible: Boolean,
-        stopOnDismiss: Boolean,
-    ) = runCatching {
+    private fun startForegroundNotification(prayer: Prayer) = runCatching {
         NotificationChannels.create(this)
         AdhanNotifications.cancelRetiredAdhan(this)
         startForeground(
             AdhanNotifications.ADHAN_NOTIFICATION_ID,
-            AdhanNotifications.adhanNotification(
-                context = this,
-                prayer = prayer,
-                dismissible = dismissible,
-                stopOnDismiss = stopOnDismiss,
-            ),
+            AdhanNotifications.adhanNotification(context = this, prayer = prayer),
         )
     }
 
@@ -245,6 +233,8 @@ class AdhanPlaybackService : Service() {
         wakeLock?.let { runCatching { if (it.isHeld) it.release() } }
         wakeLock = null
         AdhanPlaybackStatus.isPlaying.value = false
+        AdhanPlaybackStatus.isPreviewing.value = false
+        AdhanNotifications.cancelActiveAdhan(this)
         soundPlayer.stop()
         super.onDestroy()
     }
@@ -257,11 +247,10 @@ class AdhanPlaybackService : Service() {
         private const val EXTRA_SOUND_PATH = "extra_sound_path"
         private const val EXTRA_BUNDLED_SOUND = "extra_bundled_sound"
         private const val EXTRA_IS_PROBE = "extra_is_probe"
-        private const val EXTRA_NOTIFICATION_DISMISSIBLE = "extra_notification_dismissible"
-        private const val EXTRA_STOP_ON_NOTIFICATION_DISMISS = "extra_stop_on_notification_dismiss"
+        private const val EXTRA_IS_PREVIEW = "extra_is_preview"
         private const val AUDIO_START_TIMEOUT_MS = 12_000L
         private const val FALLBACK_AUDIO_START_TIMEOUT_MS = 5_000L
-        private const val MAX_PLAYBACK_MS = 5 * 60 * 1000L
+        private const val PLAYBACK_WAKELOCK_TIMEOUT_MS = 15 * 60 * 1000L
         private const val VIBRATION_DURATION_MS = 2_800L
 
         fun start(
@@ -273,8 +262,7 @@ class AdhanPlaybackService : Service() {
             soundPath: String? = null,
             bundledSoundId: String = BundledAdhanSound.DEFAULT_ID,
             isProbe: Boolean = false,
-            notificationDismissible: Boolean = false,
-            stopOnNotificationDismiss: Boolean = false,
+            isPreview: Boolean = false,
         ) {
             val intent = Intent(context, AdhanPlaybackService::class.java)
                 .putExtra(EXTRA_PRAYER, prayer.name)
@@ -284,8 +272,7 @@ class AdhanPlaybackService : Service() {
                 .putExtra(EXTRA_SOUND_PATH, soundPath)
                 .putExtra(EXTRA_BUNDLED_SOUND, bundledSoundId)
                 .putExtra(EXTRA_IS_PROBE, isProbe)
-                .putExtra(EXTRA_NOTIFICATION_DISMISSIBLE, notificationDismissible)
-                .putExtra(EXTRA_STOP_ON_NOTIFICATION_DISMISS, stopOnNotificationDismiss)
+                .putExtra(EXTRA_IS_PREVIEW, isPreview)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 context.startForegroundService(intent)
             } else {
@@ -293,9 +280,14 @@ class AdhanPlaybackService : Service() {
             }
         }
 
-        /** Stops any in-progress adhan playback (e.g. a preview). */
+        /** Stops the current playback only when the explicit notification action requests it. */
         fun stop(context: Context) {
             context.stopService(Intent(context, AdhanPlaybackService::class.java))
+        }
+
+        /** Stops settings audio only when the current service session is an explicit preview. */
+        fun stopPreview(context: Context) {
+            if (AdhanPlaybackStatus.isPreviewing.value) stop(context)
         }
     }
 }

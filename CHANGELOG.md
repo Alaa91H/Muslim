@@ -5,6 +5,17 @@ sectioned format as v1.10.0 and are generated from the commits for each tag.
 
 ## Unreleased
 
+### Persistent Adhan Delivery and Notification Lifecycle
+
+- Made the active Adhan notification a non-dismissible, ongoing foreground card with one explicit **Stop Adhan** action. It is public on the lock screen, requests high-priority heads-up presentation, and remains present while the live service owns playback.
+- Separated settings previews from live scheduled Adhan sessions. The settings stop control now terminates an explicit preview only; it cannot stop a live Adhan session.
+- Removed the legacy notification-dismissal policy and its settings controls. Natural audio completion and the explicit notification action remain the intentional end points, while service commands are redelivered if Android recreates the process mid-playback.
+- Cancels the pre-prayer reminder as the real Adhan window begins and when the active Adhan card is posted, preventing both cards from appearing together.
+- Rotated the Android Adhan channel to `adhan_alert_v3` with the existing high-importance, audible, vibrating defaults. This gives existing installs a fresh channel whose initial configuration supports a lock-screen card and heads-up alert; Android system settings remain user-controlled.
+- Extended Android regression coverage for the ongoing/non-auto-cancelable, public, high-priority Adhan notification, its single explicit action, and reminder retirement.
+
+## Muslim v1.25.2
+
 ### Secondary Experience Polish
 
 - Refined the Qibla screen into a calm, responsive hierarchy with a semantic location surface, accessible compass description, current-location recovery state, and a device-independent geometric Qibla marker instead of an emoji glyph.

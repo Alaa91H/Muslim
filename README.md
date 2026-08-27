@@ -83,11 +83,14 @@ The current `main` branch replaces the prior Android-facing icon identities with
 
 A resource-name change alone cannot remove a notification that Android retained from an earlier APK. A package-replaced receiver, the application, and the relevant services explicitly cancel the known older Adhan, countdown, and Quran-recitation notification IDs before publishing their current cards. The receiver runs immediately after an in-place package update, so cleanup does not depend on the user opening the app first. The replacement uses fresh current IDs, which prevents a retained card from sharing the visual identity of the newly posted card. The app deliberately does not supply a `setLargeIcon` image to the Adhan, countdown, or Quran media cards; Android may still render its own application identity in a system template.
 
+A live Adhan is a non-dismissible, ongoing foreground card with one explicit **Stop Adhan** action. It uses the fresh high-importance `adhan_alert_v3` channel, requests public lock-screen visibility and high-priority heads-up presentation, and cancels the prior pre-prayer reminder when the real Adhan begins. Settings previews are explicitly separate and cannot stop a live scheduled Adhan. Android still owns the final lock-screen, banner, notification-permission, and user-edited channel behaviour.
+
 | System surface | Current behaviour | What Android still controls |
 |---|---|---|
 | Launcher | New `v2028` adaptive and round-icon resource identities reference the approved full-colour geometric mark. | Mask shape, themed-icon tint, badge and cache-refresh timing. |
 | Status bar | Every small notification icon resolves to the `v2028` monochrome geometric glyph. | Final light/dark/system tint and status-bar layout. |
-| Adhan and countdown | Retired ongoing cards are cancelled; fresh card IDs are then posted. | Permission, channel state, importance, grouping and visibility. |
+| Active Adhan | A persistent foreground card uses the `adhan_alert_v3` high-importance channel, public lock-screen visibility, and a single explicit Stop Adhan action; it also retires the prior reminder. | The system and user-owned Android settings control final banner, lock-screen, interruption, and channel presentation. |
+| Next-prayer countdown | Retired ongoing cards are cancelled; a fresh quiet card ID is then posted. | Permission, channel state, grouping and visibility. |
 | Quran media playback | The foreground `MediaStyle` service clears its retired card before publishing its new media-card ID. | Media-card template, controls layout and lock-screen presentation. |
 
 See [`docs/qa/notification_identity_repair.md`](docs/qa/notification_identity_repair.md) for the exact migration map, verification strategy, and upgrade note. Android documents the system-owned notification-template model and adaptive-icon masking separately. [1] [2]

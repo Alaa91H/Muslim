@@ -60,6 +60,13 @@ jobs:
           python3 scripts/verify_content_manifest.py
           git diff --exit-code -- docs/content/content_manifest.json
 
+      - name: Verify product identity and Adhan notification lifecycle
+        run: |
+          python3 scripts/verify_islamic_visual_identity.py
+          python3 scripts/verify_accessibility.py
+          python3 scripts/verify_adhan_notification_lifecycle.py
+          git diff --check
+
       - name: Build debug APKs
         run: ./gradlew :app:assembleDebug :wear:assembleDebug --stacktrace
 

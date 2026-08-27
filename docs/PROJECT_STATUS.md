@@ -89,11 +89,11 @@ The `main` branch uses a full-colour geometric Islamic mark for its `v2028` adap
 
 | System surface | Migration behaviour | Boundary |
 |---|---|---|
-| Active Adhan | Retires `1001`, `1005`, `1010`, and `1012`; posts the current card as `1014`. | Visibility and alerting continue to depend on runtime permission, channel state, and Android policy. |
+| Active Adhan | Retires `1001`, `1005`, `1010`, and `1012`; posts the current `1014` card as a non-dismissible ongoing foreground notification with one Stop Adhan action, and retires the earlier reminder. | The fresh `adhan_alert_v3` channel defaults to high importance; final lock-screen, heads-up, permission, and user-edited channel behaviour remains Android-controlled. |
 | Next-prayer countdown | Retires `1003`, `1004`, `1011`, and `1013`; posts the current card as `1015`. | The card is a quiet system status surface, not a custom full-colour notification layout. |
 | Quran recitation | Retires media cards `7006` and `7007`; the foreground service posts media card `7008`. | Android controls `MediaStyle` layout and lock-screen treatment. |
 
-An internal package-replaced receiver clears all listed retired cards immediately after an in-place update; application startup also repeats the cleanup. The Adhan and countdown service paths repeat their cleanup before current work is published, while the Quran playback service does so during service creation. The migration does not provide a custom large icon to these notification builders; system templates may show the new application identity independently. Detailed implementation and verification limits are in [`qa/notification_identity_repair.md`](qa/notification_identity_repair.md).
+An internal package-replaced receiver clears all listed retired cards immediately after an in-place update; application startup also repeats the cleanup. The Adhan and countdown service paths repeat their cleanup before current work is published, while the Quran playback service does so during service creation. A live Adhan declares public lock-screen visibility, high-priority presentation, and immediate foreground-service behaviour. Settings previews track a separate state and cannot stop a live scheduled Adhan; the live card ends through natural audio completion or its explicit Stop Adhan action. The migration does not provide a custom large icon to these notification builders; system templates may show the new application identity independently. Detailed implementation and verification limits are in [`qa/notification_identity_repair.md`](qa/notification_identity_repair.md).
 
 ## Quality and release process
 

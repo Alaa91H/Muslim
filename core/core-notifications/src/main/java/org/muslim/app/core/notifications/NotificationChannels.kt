@@ -18,13 +18,13 @@ object NotificationChannels {
     /**
      * High-importance channel for the Adhan itself.
      *
-     * This identifier intentionally replaces the retired `adhan` channel. On
-     * Android 8+ channel alert behavior is immutable after creation, so an old
-     * silent channel cannot be repaired reliably from app code. A new identity
-     * gives the Adhan a fresh, visible high-importance channel without touching
-     * any of the user's sound or volume settings.
+     * This identifier intentionally replaces the retired `adhan_alert_v2`
+     * channel. On Android 8+ channel alert behavior is immutable after creation,
+     * so a prior low-importance or non-banner channel cannot be raised reliably
+     * from app code. A new identity gives the Adhan a fresh, visible
+     * high-importance channel without touching its configured Adhan audio.
      */
-    const val ADHAN = "adhan_alert_v2"
+    const val ADHAN = "adhan_alert_v3"
 
     /** Default-importance channel for pre-prayer reminders. */
     const val REMINDER = "prayer_reminder"

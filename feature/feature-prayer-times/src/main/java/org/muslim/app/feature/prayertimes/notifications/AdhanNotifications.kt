@@ -55,25 +55,12 @@ object AdhanNotifications {
         val detail: String? = null,
     )
 
-    fun adhanNotification(
-        context: Context,
-        prayer: Prayer,
-        dismissible: Boolean = false,
-        stopOnDismiss: Boolean = false,
-    ): Notification {
+    fun adhanNotification(context: Context, prayer: Prayer): Notification {
         val stopIntent = PendingIntent.getBroadcast(
             context,
             ADHAN_NOTIFICATION_ID,
             Intent(context, AdhanNotificationActionReceiver::class.java)
                 .setAction(AdhanNotificationActionReceiver.ACTION_STOP),
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
-        )
-        val dismissIntent = PendingIntent.getBroadcast(
-            context,
-            ADHAN_NOTIFICATION_ID + 1,
-            Intent(context, AdhanNotificationActionReceiver::class.java)
-                .setAction(AdhanNotificationActionReceiver.ACTION_DISMISSED)
-                .putExtra(AdhanNotificationActionReceiver.EXTRA_STOP_ON_DISMISS, stopOnDismiss),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
         return NotificationCompat.Builder(context, NotificationChannels.ADHAN)
@@ -86,14 +73,22 @@ object AdhanNotifications {
             .setContentText(context.getString(R.string.prayer_name, context.getString(prayerNameRes(prayer))))
             .setStyle(NotificationCompat.BigTextStyle())
             .setCategory(NotificationCompat.CATEGORY_ALARM)
+            // Android uses the high-importance channel for the heads-up surface.
+            // These compatibility flags cover pre-channel devices and declare that
+            // the content is safe for the device lock screen.
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+            .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
             .addAction(
                 org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028,
                 context.getString(R.string.adhan_notification_stop),
                 stopIntent,
             )
-            .setDeleteIntent(if (dismissible) dismissIntent else null)
-            .setOngoing(!dismissible)
-            .setAutoCancel(dismissible)
+            // A live Adhan remains visible and cannot be swiped away. The sole
+            // explicit in-notification termination path is the Stop Adhan action.
+            .setOngoing(true)
+            .setAutoCancel(false)
+            .setOnlyAlertOnce(true)
             .build()
     }
 
@@ -135,6 +130,7 @@ object AdhanNotifications {
      * proof that the user could see it.
      */
     fun showAdhan(context: Context, prayer: Prayer): PostResult {
+        cancelReminder(context)
         cancelRetiredAdhan(context)
         val preflight = notificationPreflight(context)
         if (!preflight.posted) return preflight
@@ -171,6 +167,16 @@ object AdhanNotifications {
                 )
             },
         )
+    }
+
+    /** Removes the single active card only after playback ends or the user stops it. */
+    fun cancelActiveAdhan(context: Context) {
+        context.getSystemService(NotificationManager::class.java).cancel(ADHAN_NOTIFICATION_ID)
+    }
+
+    /** Removes the single pre-prayer card as soon as the real Adhan begins. */
+    fun cancelReminder(context: Context) {
+        context.getSystemService(NotificationManager::class.java).cancel(REMINDER_NOTIFICATION_ID)
     }
 
     fun showReminder(context: Context, prayer: Prayer, minutesBefore: Int) {

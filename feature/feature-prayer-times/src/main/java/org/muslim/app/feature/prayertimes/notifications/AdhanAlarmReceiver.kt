@@ -68,6 +68,10 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 AdhanNotifications.showReminder(appContext, prayer, settings.reminderMinutes)
             }
         } else {
+            // The reminder is useful before the prayer only. Once the real
+            // Adhan window starts, never leave the earlier card beside the
+            // persistent active-Adhan foreground notification.
+            AdhanNotifications.cancelReminder(appContext)
             val deliveryPolicy = AdhanAlarmDeliveryPolicy.resolve(
                 adhanEnabled = settings.adhanEnabled,
                 presentationAllowed = appContext.notificationAllowed(NotificationCategory.Adhan),
@@ -114,8 +118,6 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                         volume = settings.adhanVolumeFor(prayer),
                         soundPath = soundPath,
                         bundledSoundId = bundledSoundId,
-                        notificationDismissible = settings.adhanNotificationDismissible,
-                        stopOnNotificationDismiss = settings.stopAdhanOnNotificationDismiss,
                     ),
                 )
                 // Supplementary automation is intentionally restricted to an
@@ -145,8 +147,6 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
         val volume: Int,
         val soundPath: String?,
         val bundledSoundId: String,
-        val notificationDismissible: Boolean,
-        val stopOnNotificationDismiss: Boolean,
     )
 
     /** Starts foreground audio then verifies actual playback before a local fallback. */
@@ -172,8 +172,6 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 soundPath = request.soundPath,
                 bundledSoundId = request.bundledSoundId,
                 isProbe = request.isProbe,
-                notificationDismissible = request.notificationDismissible,
-                stopOnNotificationDismiss = request.stopOnNotificationDismiss,
             )
         }
         if (serviceStart.isFailure) {
@@ -252,6 +250,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 )
             }
             if (fallbackWakeLock.isHeld) fallbackWakeLock.release()
+            AdhanNotifications.cancelActiveAdhan(appContext)
         }
         // Use an offline AudioTrack here rather than retrying the same
         // MediaPlayer source whose service path never became reachable. This is

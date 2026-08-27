@@ -328,12 +328,12 @@ class PrayerSettingsViewModel @Inject constructor(
         it.copy(useGlobalAdhanVolume = enabled)
     }
 
-    /** True while an adhan preview is ringing (drives the preview/stop toggle). */
-    val isPreviewing = AdhanPlaybackStatus.isPlaying
+    /** True only while an explicitly user-started settings preview is ringing. */
+    val isPreviewing = AdhanPlaybackStatus.isPreviewing
 
-    /** Stops any adhan preview currently playing. */
+    /** Stops a settings preview without affecting a live scheduled Adhan. */
     fun stopPreview() {
-        AdhanPlaybackService.stop(context)
+        AdhanPlaybackService.stopPreview(context)
     }
 
     /** Live-adjusts the volume of the currently playing preview (0..100). */
@@ -342,17 +342,6 @@ class PrayerSettingsViewModel @Inject constructor(
     }
 
     fun setReminderMinutes(minutes: Int) = update { it.copy(reminderMinutes = minutes) }
-
-    fun setAdhanNotificationDismissible(enabled: Boolean) = update {
-        it.copy(
-            adhanNotificationDismissible = enabled,
-            stopAdhanOnNotificationDismiss = if (enabled) it.stopAdhanOnNotificationDismiss else false,
-        )
-    }
-
-    fun setStopAdhanOnNotificationDismiss(enabled: Boolean) = update {
-        it.copy(stopAdhanOnNotificationDismiss = enabled)
-    }
 
     fun setDndEnabled(enabled: Boolean) = update { it.copy(dndEnabled = enabled) }
 
@@ -381,6 +370,7 @@ class PrayerSettingsViewModel @Inject constructor(
                 volumePercent = volumePercent.coerceIn(0, 100),
                 soundPath = null,
                 bundledSoundId = sound.id,
+                isPreview = true,
             )
         }
     }
@@ -400,6 +390,7 @@ class PrayerSettingsViewModel @Inject constructor(
                 soundPath = soundPath,
                 bundledSoundId = current.bundledAdhanSounds[prayer]
                     ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID,
+                isPreview = true,
             )
         }
     }

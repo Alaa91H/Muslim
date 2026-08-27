@@ -1,6 +1,6 @@
 # Android System-Icon Identity Repair
 
-> **Status:** Unreleased follow-up prepared after `v1.25.0`. This note describes the source-level repair and does not claim a tagged APK or universal device verification before the next release is approved.
+> **Status:** The `v1.25.1` icon-retention repair and the `v1.25.2` secondary UI consistency pass are published. The active Adhan lifecycle follow-up described below is source-level work and does not claim a tagged APK or universal device verification before its next release is approved.
 
 ## Purpose and scope
 
@@ -11,7 +11,7 @@ This follow-up addresses stale visual identities that can survive an in-place An
 | Launcher and round launcher | The phone manifest points to new `v2028` adaptive-icon resources using the approved geometric Islamic mark. | Android launchers control masks, themed-icon tinting, cache timing, and badge presentation. |
 | Wear OS launcher | The Wear manifest points to a dedicated `v2028` geometric-star-and-mihrab resource; the previous standalone crescent-and-star resource is removed. | Wear OS controls the final circular presentation and cache refresh timing. |
 | Status bar | Every production notification producer uses `ic_muslim_status_bar_v2028`. | Android applies the final light/dark system tint to a small notification icon. |
-| Active Adhan | A fresh notification ID is used and every earlier retained Adhan identity is cancelled. | Visibility and alert behaviour remain subject to permission, channel settings, and the operating system. |
+| Active Adhan | The current card is an ongoing, non-dismissible foreground notification with a single explicit Stop Adhan action, public lock-screen visibility, high-priority presentation, and reminder retirement at the real Adhan window. | The system owns final lock-screen, heads-up, interruption, and notification-permission behaviour; users can still change notification-channel settings in Android. |
 | Next-prayer countdown | A fresh ongoing-card ID is used and every earlier countdown identity is cancelled. | This remains a silent, system-rendered status surface rather than a custom full-colour panel. |
 | Quran recitation | The media foreground service uses a fresh ID, clears both prior cards, and retains standard `MediaStyle` controls. | Android and media-system templates control the transport-card layout. |
 
@@ -25,6 +25,7 @@ Android can retain a running notification or cache an adaptive icon across an ap
 | Wear OS launcher | `ic_wear_launcher` | `ic_wear_launcher_v2028` |
 | Status-bar glyph | `ic_muslim_status_bar_v1252`, `ic_muslim_status_bar_v2026`, `ic_muslim_status_bar_v2027` | `ic_muslim_status_bar_v2028` |
 | Active Adhan card | `1001`, `1005`, `1010`, `1012` | `1014` |
+| Adhan alert channel | `adhan_alert_v2` | `adhan_alert_v3` |
 | Next-prayer countdown | `1003`, `1004`, `1011`, `1013` | `1015` |
 | Quran recitation media card | `7006`, `7007` | `7008` |
 
@@ -32,13 +33,13 @@ Android can retain a running notification or cache an adaptive icon across an ap
 
 ## Verification approach
 
-The implementation is verified through focused source checks, Kotlin tests, Android instrumentation coverage, and continuous integration. Device tests post synthetic retained cards for every retired ID, invoke the matching production migration function, and require the Android active-notification list to stop containing them. The package-replaced receiver calls those same tested production cleanup functions immediately after an in-place upgrade. The tests also assert the `v2028` launcher and status-bar identities.
+The implementation is verified through focused source checks, Kotlin tests, Android instrumentation coverage, and continuous integration. Device tests post synthetic retained cards for every retired ID, invoke the matching production migration function, and require the Android active-notification list to stop containing them. The package-replaced receiver calls those same tested production cleanup functions immediately after an in-place upgrade. Active-Adhan tests also assert the ongoing/non-auto-cancelable policy, the single Stop Adhan action, public lock-screen visibility, high priority, and cancellation of the prior reminder when the live card is posted. The tests also assert the `v2028` launcher and status-bar identities.
 
 | Check | Evidence expected before a public repair release |
 |---|---|
 | Resource audit | No production source or packaged resource reference remains to retired `v1252`, `v2026`, or `v2027` identities. |
 | Static quality | `git diff --check`, relevant Gradle unit tests, Android Lint, and Detekt pass. |
-| Application instrumentation | Adhan, countdown, and Quran notification-migration tests compile and pass in the real application APK environment. |
+| Application instrumentation | Adhan, countdown, and Quran notification-migration tests compile and pass in the real application APK environment, including the active-Adhan lifecycle and reminder retirement checks. |
 | Continuous integration | The `main` workflow is green before a repair tag is created. |
 | Physical-device review | Install over a compatible older build and confirm that retained cards disappear immediately after the package update; then verify a newly posted Adhan/countdown card and Quran playback card. |
 
@@ -46,7 +47,7 @@ The implementation is verified through focused source checks, Kotlin tests, Andr
 
 ## Upgrade and support notes
 
-Install the next repair APK over a compatible existing installation. The package-replaced receiver cancels retained cards without requiring an app launch; opening Muslim afterward remains safe and refreshes scheduled work normally. A launcher may still refresh its cached icon on its own timing, because launcher caches are controlled by the launcher rather than app data. No uninstall, data reset, or change to saved worship settings is required.
+Install the next repair APK over a compatible existing installation. The package-replaced receiver cancels retained cards without requiring an app launch; when a real Adhan begins, its prior reminder is cancelled and the ongoing card remains until audio completes naturally or the user selects Stop Adhan from that card. Opening Muslim afterward remains safe and refreshes scheduled work normally. A launcher may still refresh its cached icon on its own timing, because launcher caches are controlled by the launcher rather than app data. No uninstall, data reset, or change to saved worship settings is required.
 
 For a reproducible defect, include the Android version, device and launcher, notification type, whether the update was installed in place, and a screenshot with personal information removed. Project ownership and support links are limited to the confirmed public links below.
 

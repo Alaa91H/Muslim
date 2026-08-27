@@ -1,5 +1,6 @@
 package org.muslim.app.feature.prayertimes.notifications
 
+import android.app.Notification
 import android.app.NotificationManager
 import android.os.Build
 import android.os.SystemClock
@@ -8,6 +9,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -37,12 +39,24 @@ class AdhanNotificationsInstrumentedTest {
                 .close()
         }
         NotificationChannels.create(context)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val adhanChannel = checkNotNull(
+                notificationManager.getNotificationChannel(NotificationChannels.ADHAN),
+            )
+            assertEquals(NotificationManager.IMPORTANCE_HIGH, adhanChannel.importance)
+        }
     }
 
     @After
     fun clearActiveAdhanNotification() {
-        listOf(AdhanNotifications.ADHAN_NOTIFICATION_ID, 1012, 1010, 1005, 1001)
-            .forEach(notificationManager::cancel)
+        listOf(
+            AdhanNotifications.ADHAN_NOTIFICATION_ID,
+            AdhanNotifications.REMINDER_NOTIFICATION_ID,
+            1012,
+            1010,
+            1005,
+            1001,
+        ).forEach(notificationManager::cancel)
     }
 
     @Test
@@ -119,11 +133,37 @@ class AdhanNotificationsInstrumentedTest {
     }
 
     @Test
-    fun showAdhan_confirmsTheFreshActiveAdhanNotificationAndChannel() {
+    fun activeAdhan_isOngoingPublicHighPriority_andExposesOnlyTheExplicitStopAction() {
+        val notification = AdhanNotifications.adhanNotification(context, Prayer.Fajr)
+
+        assertTrue(notification.flags and Notification.FLAG_ONGOING_EVENT != 0)
+        assertFalse(notification.flags and Notification.FLAG_AUTO_CANCEL != 0)
+        assertNull(notification.deleteIntent)
+        assertEquals(NotificationCompat.VISIBILITY_PUBLIC, notification.visibility)
+        assertEquals(NotificationCompat.PRIORITY_HIGH, notification.priority)
+        assertEquals(1, notification.actions.size)
+        assertEquals(
+            context.getString(org.muslim.app.feature.prayertimes.R.string.adhan_notification_stop),
+            notification.actions.single().title,
+        )
+    }
+
+    @Test
+    fun showAdhan_confirmsTheFreshActiveCard_andCancelsTheEarlierReminder() {
+        notificationManager.notify(
+            AdhanNotifications.REMINDER_NOTIFICATION_ID,
+            NotificationCompat.Builder(context, NotificationChannels.REMINDER)
+                .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
+                .setContentTitle("Earlier reminder")
+                .build(),
+        )
+        awaitNotificationState(AdhanNotifications.REMINDER_NOTIFICATION_ID, expectedActive = true)
+
         val result = AdhanNotifications.showAdhan(context, Prayer.Fajr)
 
         assertTrue("Adhan notification was blocked: ${result.detail}", result.posted)
         assertNull(result.detail)
+        awaitNotificationState(AdhanNotifications.REMINDER_NOTIFICATION_ID, expectedActive = false)
         val activeAdhan = notificationManager.activeNotifications.single { statusBarNotification ->
             statusBarNotification.id == AdhanNotifications.ADHAN_NOTIFICATION_ID &&
                 statusBarNotification.notification.channelId == NotificationChannels.ADHAN

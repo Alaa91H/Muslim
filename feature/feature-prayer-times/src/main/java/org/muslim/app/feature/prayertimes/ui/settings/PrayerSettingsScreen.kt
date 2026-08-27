@@ -183,24 +183,6 @@ fun PrayerSettingsScreen(
 
         SectionHeader(stringResource(R.string.settings_adhan))
         SwitchRow(stringResource(R.string.settings_adhan_enabled), settings.adhanEnabled, viewModel::setAdhanEnabled)
-        SwitchRow(
-            stringResource(R.string.settings_adhan_notification_dismissible),
-            settings.adhanNotificationDismissible,
-            viewModel::setAdhanNotificationDismissible,
-        )
-        if (settings.adhanNotificationDismissible) {
-            SwitchRow(
-                stringResource(R.string.settings_adhan_stop_on_dismiss),
-                settings.stopAdhanOnNotificationDismiss,
-                viewModel::setStopAdhanOnNotificationDismiss,
-            )
-            Text(
-                text = stringResource(R.string.settings_adhan_stop_on_dismiss_desc),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(start = 4.dp, bottom = 4.dp),
-            )
-        }
         AdhanReadinessCard(
             readiness = adhanReadiness,
             onVerify = viewModel::verifyAdhanReadiness,
