@@ -1,6 +1,7 @@
 package org.muslim.app.feature.hadith.data
 
 import android.content.Context
+import java.io.InputStream
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
@@ -157,8 +158,7 @@ class HadithRepository @Inject constructor(
     suspend fun byId(id: Long): Hadith? = hadithDao.byId(id)?.toDomain()
 
     private suspend fun seedCompressedCollection(collection: HadithCollection) {
-        val asset = "$BOOK_ASSET_DIRECTORY/${collection.id}.ndjson.gz"
-        GZIPInputStream(context.assets.open(asset)).bufferedReader(Charsets.UTF_8).use { reader ->
+        openCollectionAsset(collection).bufferedReader(Charsets.UTF_8).use { reader ->
             val batch = ArrayList<HadithSeedItem>(INSERT_BATCH_SIZE)
             var imported = 0
             while (true) {
@@ -178,6 +178,21 @@ class HadithRepository @Inject constructor(
                 mutableCorpusState.value = HadithCorpusState.Importing(collection, imported)
             }
         }
+    }
+
+    /**
+     * Android's asset packager can transparently uncompress an asset ending in
+     * `.gz` and expose it without that suffix. Support both representations so
+     * the repository remains stream-only on every generated APK variant.
+     */
+    private fun openCollectionAsset(collection: HadithCollection): InputStream {
+        val asset = "$BOOK_ASSET_DIRECTORY/${collection.id}.ndjson.gz"
+        val unpackedAsset = "$BOOK_ASSET_DIRECTORY/${collection.id}.ndjson"
+        return runCatching { GZIPInputStream(context.assets.open(asset)) }
+            .recoverCatching { context.assets.open(unpackedAsset) }
+            .getOrElse { error ->
+                throw IllegalStateException("The selected offline Hadith book is unavailable.", error)
+            }
     }
 
     private suspend fun persistBatch(

@@ -341,7 +341,6 @@ private fun HadithBookContent(
         )
         is HadithCorpusState.Failed -> HadithBookFailure(
             collection = corpusState.collection,
-            message = corpusState.message,
             onRetry = actions.onRetry,
             modifier = modifier,
         )
@@ -392,13 +391,15 @@ private fun HadithBookProgress(
 @Composable
 private fun HadithBookFailure(
     collection: HadithCollection,
-    message: String,
     onRetry: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     MuslimStateSurface(
         title = stringResource(R.string.hadith_book_load_failed),
-        supportingText = "${stringResource(collection.titleRes)}: $message",
+        supportingText = stringResource(
+            R.string.hadith_book_load_failed_supporting,
+            stringResource(collection.titleRes),
+        ),
         modifier = modifier.padding(IslamicSpacing.Large),
         tone = MuslimStateTone.Critical,
         actionLabel = stringResource(R.string.hadith_retry),

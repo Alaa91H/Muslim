@@ -35,6 +35,7 @@ class AdhanSoundPlayer @Inject constructor(
 ) {
 
     private var mediaPlayer: MediaPlayer? = null
+    @Volatile
     private var audioTrack: AudioTrack? = null
     private var audioFocusRequest: AudioFocusRequest? = null
     private var hasFocus = false
@@ -48,11 +49,19 @@ class AdhanSoundPlayer @Inject constructor(
             AudioManager.AUDIOFOCUS_LOSS_TRANSIENT -> {
                 // Pause briefly, resume when focus is regained.
                 mediaPlayer?.let { if (it.isPlaying) it.pause() }
-                audioTrack?.let { if (it.playState == AudioTrack.PLAYSTATE_PLAYING) it.pause() }
+                audioTrack?.let { track ->
+                    runCatching {
+                        if (track.playState == AudioTrack.PLAYSTATE_PLAYING) track.pause()
+                    }
+                }
             }
             AudioManager.AUDIOFOCUS_GAIN -> {
                 mediaPlayer?.let { if (!it.isPlaying) runCatching { it.start() } }
-                audioTrack?.let { if (it.playState == AudioTrack.PLAYSTATE_PAUSED) it.play() }
+                audioTrack?.let { track ->
+                    runCatching {
+                        if (track.playState == AudioTrack.PLAYSTATE_PAUSED) track.play()
+                    }
+                }
             }
         }
     }
@@ -269,16 +278,28 @@ class AdhanSoundPlayer @Inject constructor(
                 onFinished()
                 return
             }
+        val track = createSynthesizedTrack() ?: run {
+            abandonFocus()
+            onFinished()
+            return
+        }
+        audioTrack = track
+        val target = (volumePercent / 100f).coerceIn(0f, 1f)
+        if (runCatching { track.setVolume(target) }.isFailure) {
+            finishSynthesizedTrack(track, onFinished)
+            return
+        }
+        streamSynthesizedTrack(track, samples, onStarted, onFinished)
+    }
+
+    /** Creates a valid stream-mode track, releasing partially initialized tracks safely. */
+    private fun createSynthesizedTrack(): AudioTrack? {
         val minBuffer = AudioTrack.getMinBufferSize(
             AdhanSynthesizer.SAMPLE_RATE,
             AudioFormat.CHANNEL_OUT_MONO,
             AudioFormat.ENCODING_PCM_16BIT,
         )
-        if (minBuffer <= 0) {
-            abandonFocus()
-            onFinished()
-            return
-        }
+        if (minBuffer <= 0) return null
         val track = runCatching {
             AudioTrack.Builder()
                 .setAudioAttributes(
@@ -298,46 +319,62 @@ class AdhanSoundPlayer @Inject constructor(
                 .setTransferMode(AudioTrack.MODE_STREAM)
                 .build()
         }.getOrNull()
-        if (track == null || track.state != AudioTrack.STATE_INITIALIZED) {
-            runCatching { track?.release() }
-            abandonFocus()
-            onFinished()
-            return
-        }
-        audioTrack = track
-        track.setVolume((volumePercent / 100f).coerceIn(0f, 1f))
+        return track?.takeIf { it.state == AudioTrack.STATE_INITIALIZED }
+            ?: run {
+                runCatching { track?.release() }
+                null
+            }
+    }
 
+    /** Streams bounded PCM chunks and contains OEM release races inside the playback session. */
+    private fun streamSynthesizedTrack(
+        track: AudioTrack,
+        samples: ShortArray,
+        onStarted: () -> Unit,
+        onFinished: () -> Unit,
+    ) {
         Thread({
-            if (audioTrack !== track) return@Thread
-            val firstChunk = min(STREAM_CHUNK_SAMPLES, samples.size)
-            val firstWritten = track.write(samples, 0, firstChunk, AudioTrack.WRITE_BLOCKING)
-            if (firstWritten <= 0) {
-                finishSynthesizedTrack(track, onFinished)
-                return@Thread
-            }
-            runCatching { track.play() }
-            if (track.playState != AudioTrack.PLAYSTATE_PLAYING) {
-                finishSynthesizedTrack(track, onFinished)
-                return@Thread
-            }
-            android.os.Handler(android.os.Looper.getMainLooper()).post(onStarted)
-            var offset = firstWritten
-            while (offset < samples.size && audioTrack === track) {
-                val written = track.write(
-                    samples,
-                    offset,
-                    min(STREAM_CHUNK_SAMPLES, samples.size - offset),
-                    AudioTrack.WRITE_BLOCKING,
-                )
-                if (written <= 0) {
+            try {
+                if (audioTrack !== track) return@Thread
+                val firstWritten = writeTrackChunk(track, samples, 0, min(STREAM_CHUNK_SAMPLES, samples.size))
+                if (firstWritten <= 0 || !startSynthesizedTrack(track)) {
                     finishSynthesizedTrack(track, onFinished)
                     return@Thread
                 }
-                offset += written
+                android.os.Handler(android.os.Looper.getMainLooper()).post(onStarted)
+                var offset = firstWritten
+                while (offset < samples.size && audioTrack === track) {
+                    val written = writeTrackChunk(track, samples, offset, min(STREAM_CHUNK_SAMPLES, samples.size - offset))
+                    if (written <= 0) {
+                        finishSynthesizedTrack(track, onFinished)
+                        return@Thread
+                    }
+                    offset += written
+                }
+                if (audioTrack === track) finishSynthesizedTrack(track, onFinished)
+            } catch (_: Throwable) {
+                // An OEM may invalidate a stream during a concurrent stop. The
+                // fallback must end quietly rather than terminating the app.
+                finishSynthesizedTrack(track, onFinished)
             }
-            if (audioTrack === track) finishSynthesizedTrack(track, onFinished)
         }, "Muslim-AdhanAudioTrack").start()
     }
+
+    private fun startSynthesizedTrack(track: AudioTrack): Boolean = runCatching {
+        track.play()
+        track.playState == AudioTrack.PLAYSTATE_PLAYING
+    }.getOrDefault(false)
+
+    /** Returns a negative AudioTrack status when a concurrent stop invalidates the stream. */
+    private fun writeTrackChunk(
+        track: AudioTrack,
+        samples: ShortArray,
+        offset: Int,
+        size: Int,
+    ): Int = runCatching {
+        if (audioTrack !== track) return@runCatching AudioTrack.ERROR_INVALID_OPERATION
+        track.write(samples, offset, size, AudioTrack.WRITE_BLOCKING)
+    }.getOrDefault(AudioTrack.ERROR_INVALID_OPERATION)
 
     private fun finishSynthesizedTrack(track: AudioTrack, onFinished: () -> Unit) {
         android.os.Handler(android.os.Looper.getMainLooper()).post {

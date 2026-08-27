@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -94,25 +95,34 @@ class LocationViewModel @Inject constructor(
     /** Fetches the current GPS location (caller must hold the permission). */
     fun useGps() {
         viewModelScope.launch {
-            val geo = locationProvider.currentLocation()
-            if (geo == null) {
+            try {
+                val geo = locationProvider.currentLocation()
+                if (geo == null) {
+                    messages.value = Message.Error("gps_failed")
+                    return@launch
+                }
+                val timeZone = coordinateTimeZoneResolver.resolve(geo.latitude, geo.longitude)
+                if (timeZone == null) {
+                    messages.value = Message.Error("gps_failed")
+                    return@launch
+                }
+                persistNow(
+                    SelectedLocation(
+                        name = resolveRegionName(geo.latitude, geo.longitude),
+                        latitude = geo.latitude,
+                        longitude = geo.longitude,
+                        timeZone = timeZone,
+                        elevation = geo.altitude ?: 0.0,
+                    ),
+                )
+            } catch (error: CancellationException) {
+                throw error
+            } catch (_: Throwable) {
+                // GPS, reverse geocoding, persistence and rescheduling are all
+                // best-effort app operations. A platform or provider failure
+                // must become the existing recoverable GPS message, never an FC.
                 messages.value = Message.Error("gps_failed")
-                return@launch
             }
-            val timeZone = coordinateTimeZoneResolver.resolve(geo.latitude, geo.longitude)
-            if (timeZone == null) {
-                messages.value = Message.Error("gps_failed")
-                return@launch
-            }
-            persistNow(
-                SelectedLocation(
-                    name = resolveRegionName(geo.latitude, geo.longitude),
-                    latitude = geo.latitude,
-                    longitude = geo.longitude,
-                    timeZone = timeZone,
-                    elevation = geo.altitude ?: 0.0,
-                ),
-            )
         }
     }
 

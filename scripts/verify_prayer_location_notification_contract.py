@@ -9,6 +9,8 @@ ROOT = Path(__file__).resolve().parents[1]
 LOCATION_SCREEN = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/location/LocationScreen.kt"
 LOCATION_VM = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/location/LocationViewModel.kt"
 FUSED_PROVIDER = ROOT / "core/core-location/src/main/java/org/muslim/app/core/location/FusedLocationProvider.kt"
+GEOCODER_RESOLVER = ROOT / "core/core-location/src/main/java/org/muslim/app/core/location/GeocoderRegionNameResolver.kt"
+ADHAN_SOUND_PLAYER = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/notifications/AdhanSoundPlayer.kt"
 SETTINGS = ROOT / "core/core-datastore/src/main/java/org/muslim/app/core/datastore/prayer/PrayerSettings.kt"
 SETTINGS_PARAMETERS = ROOT / "core/core-datastore/src/main/java/org/muslim/app/core/datastore/prayer/PrayerSettingsParameters.kt"
 METHOD = ROOT / "core/core-common/src/main/java/org/muslim/app/core/common/prayer/CalculationMethod.kt"
@@ -28,6 +30,8 @@ def main() -> None:
     location_screen = LOCATION_SCREEN.read_text(encoding="utf-8")
     location_vm = LOCATION_VM.read_text(encoding="utf-8")
     fused = FUSED_PROVIDER.read_text(encoding="utf-8")
+    geocoder_resolver = GEOCODER_RESOLVER.read_text(encoding="utf-8")
+    adhan_sound_player = ADHAN_SOUND_PLAYER.read_text(encoding="utf-8")
     settings = SETTINGS.read_text(encoding="utf-8")
     settings_parameters = SETTINGS_PARAMETERS.read_text(encoding="utf-8")
     method = METHOD.read_text(encoding="utf-8")
@@ -45,6 +49,12 @@ def main() -> None:
     require("awaitLastKnownLocation()" in fused and "mostRecentPlatformLocation()" in fused, "GPS must retain local fallback paths")
     require("TimeZone.getDefault" not in location_vm, "GPS must not assign the device timezone to coordinates")
     require("coordinateTimeZoneResolver.resolve(geo.latitude, geo.longitude)" in location_vm, "GPS must resolve a coordinate IANA zone")
+    require("catch (error: CancellationException)" in location_vm, "GPS cancellation must propagate without treating it as an app failure")
+    require("messages.value = Message.Error(\"gps_failed\")" in location_vm, "GPS provider failures must become a recoverable UI state")
+    require("runCatching" in geocoder_resolver and "geocoder.getFromLocation" in geocoder_resolver, "reverse geocoding must contain platform failures")
+    require("writeTrackChunk" in adhan_sound_player, "synthesized Adhan must guard AudioTrack writes")
+    require("AudioTrack.ERROR_INVALID_OPERATION" in adhan_sound_player, "invalidated AudioTrack writes must end safely")
+    require("@Volatile" in adhan_sound_player, "AudioTrack session ownership must be visible to its writer thread")
 
     require("CalculationMethod.MuslimWorldLeague" in settings, "global prayer default must remain MWL")
     require("customIshaAngle: Double = 17.0" in settings, "custom Isha fallback must remain 17 degrees")
@@ -62,7 +72,7 @@ def main() -> None:
     require("onClick = { customizingPrayer = prayer }" in home, "home alert icon must not navigate to prayer settings")
     require("PrayerSettingsViewModel" in home_dialog and "saveAdhanCustomization" in home_dialog, "home modal must share the persisted customisation flow")
 
-    print("Prayer GPS, Isha, notification colour and direct-customisation contract verified.")
+    print("Prayer GPS, Isha, AudioTrack, notification colour and direct-customisation contract verified.")
 
 
 if __name__ == "__main__":

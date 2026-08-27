@@ -70,6 +70,7 @@ def main() -> None:
     require("ArrayList<HadithSeedItem>(INSERT_BATCH_SIZE)" in repository, "batch must be bounded")
     require("hadithFtsDao.clearAll()" in repository and "hadithDao.clearAll()" in repository, "one-book cache must clear the prior corpus")
     require("context.assets.open(asset)" in repository, "must open a selected asset, not all assets")
+    require("unpackedAsset" in repository and ".ndjson\"" in repository, "Android-unpacked book assets must remain supported")
     require("readText()" not in repository, "Hadith assets must never be read all at once")
     require("hadithDao.byCollectionOffset" in repository, "daily row must be scoped to the opened collection")
     require("mutableActiveCollection.value ?: return null" in repository, "daily Hadith must not trigger hidden loading")

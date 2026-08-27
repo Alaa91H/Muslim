@@ -35,6 +35,7 @@
     <string name="hadith_loading_book">يتم تجهيز %1$s محلياً…</string>
     <string name="hadith_loading_book_progress">يتم تجهيز %1$s محلياً (%2$d حديثاً)…</string>
     <string name="hadith_book_load_failed">تعذر تجهيز هذا الكتاب</string>
+    <string name="hadith_book_load_failed_supporting">تعذر فتح بيانات %1$s المحفوظة على جهازك. أعد المحاولة.</string>
     <string name="hadith_select_book_for_search">اختر كتاباً أولاً للبحث داخله.</string>
     <string name="hadith_all_chapters">كل الفصول</string>
     <string name="hadith_chapter_back">العودة إلى فهرس الفصول</string>

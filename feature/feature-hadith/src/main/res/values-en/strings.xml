@@ -35,6 +35,7 @@
     <string name="hadith_loading_book">Preparing %1$s locally…</string>
     <string name="hadith_loading_book_progress">Preparing %1$s locally (%2$d hadiths)…</string>
     <string name="hadith_book_load_failed">Could not prepare this book</string>
+    <string name="hadith_book_load_failed_supporting">The offline data for %1$s could not be opened. Please try again.</string>
     <string name="hadith_select_book_for_search">Open a book first to search within it.</string>
     <string name="hadith_all_chapters">All chapters</string>
     <string name="hadith_chapter_back">Back to chapter index</string>

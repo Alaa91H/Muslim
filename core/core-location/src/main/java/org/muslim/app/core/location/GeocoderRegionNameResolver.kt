@@ -34,17 +34,24 @@ class GeocoderRegionNameResolver(
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private suspend fun geocodeAsync(latitude: Double, longitude: Double): String? =
         suspendCancellableCoroutine { continuation ->
-            geocoder.getFromLocation(latitude, longitude, 1, object : Geocoder.GeocodeListener {
-                override fun onGeocode(addresses: MutableList<Address>) {
-                    if (continuation.isActive) {
-                        continuation.resume(addresses.firstOrNull()?.toDisplayName())
+            // Framework and backend implementations may fail before registering
+            // the listener. Reverse geocoding is optional display enrichment, so
+            // every such failure must fall back to the local name strategy.
+            runCatching {
+                geocoder.getFromLocation(latitude, longitude, 1, object : Geocoder.GeocodeListener {
+                    override fun onGeocode(addresses: MutableList<Address>) {
+                        if (continuation.isActive) {
+                            continuation.resume(addresses.firstOrNull()?.toDisplayName())
+                        }
                     }
-                }
 
-                override fun onError(errorMessage: String?) {
-                    if (continuation.isActive) continuation.resume(null)
-                }
-            })
+                    override fun onError(errorMessage: String?) {
+                        if (continuation.isActive) continuation.resume(null)
+                    }
+                })
+            }.onFailure {
+                if (continuation.isActive) continuation.resume(null)
+            }
         }
 
     @Suppress("DEPRECATION")
