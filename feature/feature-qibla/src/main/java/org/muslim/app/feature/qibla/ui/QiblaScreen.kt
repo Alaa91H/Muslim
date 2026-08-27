@@ -33,13 +33,18 @@ import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.PrimaryTabRow
+import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.mutableDoubleStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -72,6 +77,8 @@ import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.qibla.R
 import org.muslim.app.feature.qibla.domain.QiblaCalculator
+import org.muslim.app.feature.qibla.mosques.NearbyMosquesTab
+import org.muslim.app.feature.qibla.mosques.NearbyMosquesViewModel
 import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
@@ -94,6 +101,82 @@ fun QiblaScreen(
     locationName: String,
     modifier: Modifier = Modifier,
     viewModel: QiblaGpsViewModel = hiltViewModel(),
+    nearbyMosquesViewModel: NearbyMosquesViewModel = hiltViewModel(),
+) {
+    val context = LocalContext.current
+    var selectedTab by rememberSaveable { mutableIntStateOf(QIBLA_TAB_INDEX) }
+    val mosquePresentation by nearbyMosquesViewModel.presentation.collectAsStateWithLifecycle()
+    val requestLocationFor = rememberLocationRefreshAction(
+        context = context,
+        qiblaViewModel = viewModel,
+        mosquesViewModel = nearbyMosquesViewModel,
+    )
+    DisposableEffect(selectedTab) {
+        onDispose {
+            if (selectedTab != QIBLA_TAB_INDEX) nearbyMosquesViewModel.deactivate()
+        }
+    }
+    LaunchedEffect(selectedTab) {
+        if (selectedTab != QIBLA_TAB_INDEX) requestLocationFor(LocationConsumer.Mosques)
+    }
+
+    Column(modifier = modifier.fillMaxSize()) {
+        QiblaTopTabs(
+            selectedTab = selectedTab,
+            onSelect = { tab ->
+                selectedTab = tab
+                if (tab == QIBLA_TAB_INDEX) nearbyMosquesViewModel.deactivate()
+            },
+        )
+        if (selectedTab == QIBLA_TAB_INDEX) {
+            QiblaCompassTab(
+                latitude = latitude,
+                longitude = longitude,
+                locationName = locationName,
+                viewModel = viewModel,
+                onGpsRefresh = { requestLocationFor(LocationConsumer.Qibla) },
+                modifier = Modifier.weight(1f),
+            )
+        } else {
+            NearbyMosquesTab(
+                presentation = mosquePresentation,
+                onRefresh = { requestLocationFor(LocationConsumer.Mosques) },
+                onRadiusSelected = nearbyMosquesViewModel::selectRadius,
+                modifier = Modifier.weight(1f),
+            )
+        }
+    }
+}
+
+private const val QIBLA_TAB_INDEX = 0
+
+private enum class LocationConsumer { Qibla, Mosques }
+
+@Composable
+internal fun QiblaTopTabs(selectedTab: Int, onSelect: (Int) -> Unit) {
+    val labels = listOf(
+        stringResource(R.string.qibla_tab_qibla),
+        stringResource(R.string.qibla_tab_mosques),
+    )
+    PrimaryTabRow(selectedTabIndex = selectedTab) {
+        labels.forEachIndexed { index, label ->
+            Tab(
+                selected = selectedTab == index,
+                onClick = { onSelect(index) },
+                text = { Text(label, maxLines = 2) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun QiblaCompassTab(
+    latitude: Double,
+    longitude: Double,
+    locationName: String,
+    viewModel: QiblaGpsViewModel,
+    onGpsRefresh: () -> Unit,
+    modifier: Modifier,
 ) {
     val context = LocalContext.current
     val gpsState by viewModel.gpsState.collectAsStateWithLifecycle()
@@ -102,7 +185,6 @@ fun QiblaScreen(
     var effectiveLat by remember { mutableDoubleStateOf(latitude) }
     var effectiveLng by remember { mutableDoubleStateOf(longitude) }
     var effectiveName by remember { mutableStateOf(locationName) }
-    var usingGps by remember { mutableStateOf(false) }
     val gpsLiveName = stringResource(R.string.qibla_gps_live)
 
     LaunchedEffect(gpsState) {
@@ -111,13 +193,12 @@ fun QiblaScreen(
                 effectiveLat = s.latitude
                 effectiveLng = s.longitude
                 effectiveName = gpsLiveName
-                usingGps = true
             }
             else -> Unit
         }
     }
 
-    // Dial must match the screen top in both portrait and landscape.
+    // Sensor work is composed only while the Qibla tab is visible.
     val displayRotation = displayRotationDegrees(context)
     val declination = remember(effectiveLat, effectiveLng) {
         MagneticDeclination.declinationDegrees(context, effectiveLat, effectiveLng)
@@ -128,8 +209,6 @@ fun QiblaScreen(
     val bearing = QiblaCalculator.direction(effectiveLat, effectiveLng)
     val distanceKm = QiblaCalculator.distanceKm(effectiveLat, effectiveLng)
     val trueHeading = (heading.heading + declination) % 360f
-
-    // Clockwise turn needed to face the Kaaba from the current heading.
     val turnClockwise = ((bearing - trueHeading) % 360.0 + 360.0) % 360.0
     val facingQibla = turnClockwise < 2.0 || turnClockwise > 358.0
     val turnRight = turnClockwise <= 180.0
@@ -138,16 +217,12 @@ fun QiblaScreen(
     val cardinalNames = stringArrayResource(R.array.qibla_cardinal_directions)
     fun cardinal(degrees: Double): String = cardinalNames[(((degrees + 22.5) / 45.0).toInt() % 8 + 8) % 8]
 
-    // Haptic pulse + short confirmation beep the moment the phone faces the qibla.
     var wasFacingQibla by remember { mutableStateOf(false) }
     LaunchedEffect(facingQibla) {
-        if (facingQibla && !wasFacingQibla) {
-            triggerQiblaFeedback(context)
-        }
+        if (facingQibla && !wasFacingQibla) triggerQiblaFeedback(context)
         wasFacingQibla = facingQibla
     }
 
-    val requestGpsRefresh = rememberGpsRefreshAction(context, viewModel)
     QiblaCompassContent(
         gpsState = gpsState,
         presentation = QiblaPresentation(
@@ -163,7 +238,7 @@ fun QiblaScreen(
             needsCalibration = heading.accuracy < SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM,
         ),
         modifier = modifier,
-        onGpsRefresh = requestGpsRefresh,
+        onGpsRefresh = onGpsRefresh,
     )
 }
 
@@ -182,20 +257,42 @@ private data class QiblaPresentation(
 )
 
 @Composable
-private fun rememberGpsRefreshAction(context: Context, viewModel: QiblaGpsViewModel): () -> Unit {
+private fun rememberLocationRefreshAction(
+    context: Context,
+    qiblaViewModel: QiblaGpsViewModel,
+    mosquesViewModel: NearbyMosquesViewModel,
+): (LocationConsumer) -> Unit {
+    var pendingConsumer by remember { mutableStateOf<LocationConsumer?>(null) }
     val permissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions(),
     ) { result ->
-        if (result.values.any { it }) viewModel.refresh()
+        val consumer = pendingConsumer
+        pendingConsumer = null
+        if (result.values.any { it }) {
+            when (consumer) {
+                LocationConsumer.Qibla -> qiblaViewModel.refresh()
+                LocationConsumer.Mosques -> mosquesViewModel.refresh()
+                null -> Unit
+            }
+        } else if (consumer == LocationConsumer.Mosques) {
+            mosquesViewModel.onPermissionDenied()
+        }
     }
-    return {
+    return { consumer ->
         val entryPoint = EntryPointAccessors.fromApplication(
             context.applicationContext,
             PermissionEntryPoint::class.java,
         )
         val manager = entryPoint.permissionManager()
-        if (manager.isGranted(AppPermission.Location)) viewModel.refresh()
-        else permissionLauncher.launch(manager.runtimeRequestArray(AppPermission.Location) ?: arrayOf())
+        if (manager.isGranted(AppPermission.Location)) {
+            when (consumer) {
+                LocationConsumer.Qibla -> qiblaViewModel.refresh()
+                LocationConsumer.Mosques -> mosquesViewModel.refresh()
+            }
+        } else {
+            pendingConsumer = consumer
+            permissionLauncher.launch(manager.runtimeRequestArray(AppPermission.Location) ?: arrayOf())
+        }
     }
 }
 

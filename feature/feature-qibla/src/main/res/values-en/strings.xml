@@ -48,6 +48,35 @@
     <string name="mosque_finder_show_all">Show all mosques</string>
     <string name="mosque_finder_cached_results">Showing the last successful results saved on this device — tap Retry to refresh</string>
 
+    <!-- Nearby Mosques: list-based Qibla sub-tab; no embedded map. -->
+    <string name="qibla_tab_qibla">Qibla</string>
+    <string name="qibla_tab_mosques">Nearby Mosques</string>
+    <string name="nearby_mosques_title">Nearby Mosques</string>
+    <string name="nearby_mosques_location_status">Your current location</string>
+    <string name="nearby_mosques_refresh">Refresh</string>
+    <string name="nearby_mosques_radius">Search radius</string>
+    <string name="nearby_mosques_radius_value">%1$d km</string>
+    <string name="nearby_mosques_kilometers">km</string>
+    <string name="nearby_mosques_radius_option_description">Search radius %1$d kilometres</string>
+    <string name="nearby_mosques_ready">Choose a search radius, then refresh nearby mosques.</string>
+    <string name="nearby_mosques_loading_location">Getting your location…</string>
+    <string name="nearby_mosques_loading_mosques">Searching for nearby mosques…</string>
+    <string name="nearby_mosques_refreshing_cache">Showing saved results while nearby mosques are refreshed.</string>
+    <string name="nearby_mosques_cached_locations_loading">Showing saved mosque locations without distances until your current location is updated.</string>
+    <string name="nearby_mosques_empty">No mosques were found in this radius.</string>
+    <string name="nearby_mosques_error">Could not search for nearby mosques. Check your connection and try again.</string>
+    <string name="nearby_mosques_offline_cache">Nearby-mosque data is temporarily saved on this device.</string>
+    <string name="nearby_mosques_permission_denied">Location permission is needed to find nearby mosques.</string>
+    <string name="nearby_mosques_location_unavailable">Your current location is unavailable. Try again or select a location manually.</string>
+    <string name="nearby_mosques_retry">Try again</string>
+    <string name="nearby_mosques_unnamed">Mosque</string>
+    <string name="nearby_mosques_distance_meters">%1$d m</string>
+    <string name="nearby_mosques_distance_kilometers">%1$.1f km</string>
+    <string name="nearby_mosques_directions">Directions to %1$s</string>
+    <string name="nearby_mosques_directions_action">Directions</string>
+    <string name="nearby_mosques_item_description">%1$s, %2$s away</string>
+    <string name="nearby_mosques_cached_item_description">%1$s, saved location; distance updates when your current location is available</string>
+
     <!-- Offline maps download -->
     <string name="offline_maps_title">Offline maps</string>
     <string name="offline_maps_back">Back</string>

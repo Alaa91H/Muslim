@@ -48,6 +48,35 @@
     <string name="mosque_finder_show_all">عرض كل المساجد</string>
     <string name="mosque_finder_cached_results" tools:ignore="MissingTranslation">تُعرض آخر نتائج ناجحة محفوظة محليًا — اضغط إعادة المحاولة للتحديث</string>
 
+    <!-- Nearby Mosques: list-based Qibla sub-tab; no embedded map. -->
+    <string name="qibla_tab_qibla" tools:ignore="MissingTranslation">القبلة</string>
+    <string name="qibla_tab_mosques" tools:ignore="MissingTranslation">المساجد القريبة</string>
+    <string name="nearby_mosques_title" tools:ignore="MissingTranslation">المساجد القريبة</string>
+    <string name="nearby_mosques_location_status" tools:ignore="MissingTranslation">موقعك الحالي</string>
+    <string name="nearby_mosques_refresh" tools:ignore="MissingTranslation">تحديث</string>
+    <string name="nearby_mosques_radius" tools:ignore="MissingTranslation">نطاق البحث</string>
+    <string name="nearby_mosques_radius_value" tools:ignore="MissingTranslation">%1$d كم</string>
+    <string name="nearby_mosques_kilometers" tools:ignore="MissingTranslation">كم</string>
+    <string name="nearby_mosques_radius_option_description" tools:ignore="MissingTranslation">نطاق بحث %1$d كيلومتر</string>
+    <string name="nearby_mosques_ready" tools:ignore="MissingTranslation">حدّد نطاق البحث ثم حدّث قائمة المساجد القريبة.</string>
+    <string name="nearby_mosques_loading_location" tools:ignore="MissingTranslation">جارٍ تحديد موقعك…</string>
+    <string name="nearby_mosques_loading_mosques" tools:ignore="MissingTranslation">جارٍ البحث عن المساجد القريبة…</string>
+    <string name="nearby_mosques_refreshing_cache" tools:ignore="MissingTranslation">تُعرض نتائج محفوظة مؤقتًا أثناء تحديث المساجد القريبة.</string>
+    <string name="nearby_mosques_cached_locations_loading" tools:ignore="MissingTranslation">تُعرض مواقع محفوظة مؤقتًا بلا مسافات إلى حين تحديث موقعك الحالي.</string>
+    <string name="nearby_mosques_empty" tools:ignore="MissingTranslation">لم يتم العثور على مساجد في هذا النطاق.</string>
+    <string name="nearby_mosques_error" tools:ignore="MissingTranslation">تعذّر البحث عن المساجد القريبة. تحقّق من اتصالك وحاول مرة أخرى.</string>
+    <string name="nearby_mosques_offline_cache" tools:ignore="MissingTranslation">بيانات المساجد محفوظة مؤقتًا.</string>
+    <string name="nearby_mosques_permission_denied" tools:ignore="MissingTranslation">يلزم السماح بالموقع للعثور على المساجد القريبة.</string>
+    <string name="nearby_mosques_location_unavailable" tools:ignore="MissingTranslation">تعذّر الحصول على موقعك الحالي. حاول مرة أخرى أو حدّد موقعًا يدويًا.</string>
+    <string name="nearby_mosques_retry" tools:ignore="MissingTranslation">إعادة المحاولة</string>
+    <string name="nearby_mosques_unnamed" tools:ignore="MissingTranslation">مسجد</string>
+    <string name="nearby_mosques_distance_meters" tools:ignore="MissingTranslation">%1$d م</string>
+    <string name="nearby_mosques_distance_kilometers" tools:ignore="MissingTranslation">%1$.1f كم</string>
+    <string name="nearby_mosques_directions" tools:ignore="MissingTranslation">الملاحة إلى %1$s</string>
+    <string name="nearby_mosques_directions_action" tools:ignore="MissingTranslation">الملاحة</string>
+    <string name="nearby_mosques_item_description" tools:ignore="MissingTranslation">%1$s، على بُعد %2$s</string>
+    <string name="nearby_mosques_cached_item_description" tools:ignore="MissingTranslation">%1$s، موقع محفوظ مؤقتًا؛ تُحدّث المسافة عند تحديد موقعك الحالي</string>
+
     <!-- Offline maps download -->
     <string name="offline_maps_title">خرائط بدون إنترنت</string>
     <string name="offline_maps_back">رجوع</string>

@@ -3,6 +3,16 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.25.15
+
+### Nearby Mosques in Qibla
+
+- Added a second, localized **Nearby Mosques** top tab inside the existing Qibla screen. The compass, sensor lifecycle, calibration guidance, and Qibla-direction calculation remain in the original tab, while the mosque lookup starts only when the new tab is entered.
+- Reused the established foreground-location permission path and injected `LocationProvider`; no additional location client, permission manager, tracking loop, embedded map, map tile renderer, Google Maps SDK, or maps API key was added. The lightweight Overpass query is bounded to 1, 3, 5, or 10 km (5 km by default), rate-conscious, cancellable, and sent through the shared network client with the application user agent.
+- Added locally calculated Haversine distances and nearest-first ordering, optional addresses, and external directions. Google Maps is preferred when installed, with the standard `geo:` intent as the compatible fallback; both routes retain the stored mosque coordinates rather than user coordinates.
+- Persisted the selected search radius and raw mosque places through the existing preferences store. Cached place names can appear immediately during a new location fix without showing stale distances; once a current fix is available, distances are recalculated locally. Fresh cache avoids unnecessary requests, while stale/offline cache and location/permission failures expose explicit recoverable UI states.
+- Added Arabic and English resources, screen-reader descriptions, unit coverage for query boundaries, parsing/cache freshness, local ordering, explicit states, cache-first presentation, cancellation, radius persistence, and exact navigation coordinates. Added a device-level tab-selection regression and a CI contract guard that prevents regression to a duplicate location stack or embedded-map implementation.
+
 ## Muslim v1.25.14
 
 ### GPS Crash Resilience and Regression Coverage

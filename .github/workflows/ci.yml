@@ -69,6 +69,7 @@ jobs:
           python3 scripts/verify_hadith_paging_and_navigation.py
           python3 scripts/verify_hadith_chapter_localization.py
           python3 scripts/verify_prayer_location_notification_contract.py
+          python3 scripts/verify_nearby_mosques_contract.py
           python3 scripts/verify_responsive_customization_layout.py
           python3 scripts/verify_design_system_adoption.py
           git diff --check
@@ -106,13 +107,13 @@ jobs:
 
   # ---------------------------------------------------------------------------
   # Device tests: real Compose UI instrumentation tests on an Android emulator
-  # for the critical prayer home screen (feature-prayer-times). Kept in its
+  # for the critical prayer home and Qibla/Nearby Mosques flows. Kept in its
   # own job so emulator boot time does not delay the fast gate, but it is a
   # hard requirement — no continue-on-error — so a broken critical path can
   # never merge.
   # ---------------------------------------------------------------------------
   emulator-tests:
-    name: Emulator tests (prayer home)
+    name: Emulator tests (prayer home + Qibla mosques)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -159,7 +160,7 @@ jobs:
           disable-animations: true
           script: |
             adb shell cmd audio set-enable-hardening throw
-            ./gradlew :app:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest
+            ./gradlew :app:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :feature:feature-qibla:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest
 
       # Instrumentation failures are the hardest to reproduce locally, so the
       # device test report is always kept when this job fails.

@@ -55,6 +55,12 @@ class AppPreferencesRepository @Inject constructor(
             updateCheckFrequency = prefs[Keys.UPDATE_CHECK_FREQUENCY] ?: AppPreferences.UPDATE_CHECK_DAILY,
             autoUpdateEnabled = prefs[Keys.AUTO_UPDATE_ENABLED] ?: false,
             lastUpdateCheckEpoch = prefs[Keys.LAST_UPDATE_CHECK] ?: 0L,
+            nearbyMosqueSearchRadiusKm = (prefs[Keys.NEARBY_MOSQUE_SEARCH_RADIUS_KM]
+                ?: AppPreferences.DEFAULT_NEARBY_MOSQUE_RADIUS_KM)
+                .takeIf { it in NEARBY_MOSQUE_RADIUS_OPTIONS_KM }
+                ?: AppPreferences.DEFAULT_NEARBY_MOSQUE_RADIUS_KM,
+            nearbyMosqueCacheJson = prefs[Keys.NEARBY_MOSQUE_CACHE_JSON].orEmpty(),
+            nearbyMosqueCacheSavedAtEpochMillis = prefs[Keys.NEARBY_MOSQUE_CACHE_SAVED_AT] ?: 0L,
         )
     }
 
@@ -176,6 +182,20 @@ class AppPreferencesRepository @Inject constructor(
         edit { prefs -> prefs[Keys.LAST_UPDATE_CHECK] = epochMillis }
     }
 
+    /** Persists a supported nearby-mosque radius and rejects corrupted values. */
+    suspend fun setNearbyMosqueSearchRadiusKm(radiusKm: Int) {
+        require(radiusKm in NEARBY_MOSQUE_RADIUS_OPTIONS_KM) { "Unsupported mosque radius: $radiusKm" }
+        edit { prefs -> prefs[Keys.NEARBY_MOSQUE_SEARCH_RADIUS_KM] = radiusKm }
+    }
+
+    /** Stores raw mosque places and their refresh timestamp; user distances are always recalculated. */
+    suspend fun setNearbyMosqueCache(serializedPlaces: String, savedAtEpochMillis: Long) {
+        edit { prefs ->
+            prefs[Keys.NEARBY_MOSQUE_CACHE_JSON] = serializedPlaces
+            prefs[Keys.NEARBY_MOSQUE_CACHE_SAVED_AT] = savedAtEpochMillis
+        }
+    }
+
     /** Blocking read of the 24-hour flag, safe for services and widget workers. */
     fun readTimeFormat24hSync(): Boolean =
         timeFormatMirror.getBoolean(Keys.TIME_FORMAT_24H.name, false)
@@ -214,6 +234,7 @@ class AppPreferencesRepository @Inject constructor(
         /** Mirror file/key for the UI language (see [setLanguage]). */
         const val LOCALE_MIRROR_FILE = "app_locale"
         const val LOCALE_MIRROR_KEY = "language"
+        private val NEARBY_MOSQUE_RADIUS_OPTIONS_KM = setOf(1, 3, 5, 10)
     }
 
     private object Keys {
@@ -240,6 +261,10 @@ class AppPreferencesRepository @Inject constructor(
         val UPDATE_CHECK_FREQUENCY = stringPreferencesKey("update_check_frequency")
         val AUTO_UPDATE_ENABLED = booleanPreferencesKey("auto_update_enabled")
         val LAST_UPDATE_CHECK = androidx.datastore.preferences.core.longPreferencesKey("last_update_check")
+        val NEARBY_MOSQUE_SEARCH_RADIUS_KM = androidx.datastore.preferences.core.intPreferencesKey("nearby_mosque_search_radius_km")
+        val NEARBY_MOSQUE_CACHE_JSON = stringPreferencesKey("nearby_mosque_cache_json")
+        val NEARBY_MOSQUE_CACHE_SAVED_AT = androidx.datastore.preferences.core.longPreferencesKey("nearby_mosque_cache_saved_at")
         val INITIAL_PERMISSION_SETUP_HANDLED = booleanPreferencesKey("initial_permission_setup_handled")
     }
+
 }
