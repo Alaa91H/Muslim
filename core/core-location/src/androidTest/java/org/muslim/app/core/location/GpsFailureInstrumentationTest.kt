@@ -5,7 +5,6 @@ import android.content.Context
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import kotlinx.coroutines.runBlocking
-import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Before
@@ -27,14 +26,6 @@ class GpsFailureInstrumentationTest {
     @Before
     fun grantForegroundLocation() {
         InstrumentationRegistry.getInstrumentation().uiAutomation.grantRuntimePermission(
-            context.packageName,
-            Manifest.permission.ACCESS_FINE_LOCATION,
-        )
-    }
-
-    @After
-    fun revokeForegroundLocation() {
-        InstrumentationRegistry.getInstrumentation().uiAutomation.revokeRuntimePermission(
             context.packageName,
             Manifest.permission.ACCESS_FINE_LOCATION,
         )
