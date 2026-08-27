@@ -29,14 +29,11 @@ import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Security
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.SnackbarHost
@@ -70,6 +67,10 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.launch
 import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.core.ui.text.DigitNormalizedOutlinedTextField
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicSecondaryButton
+import org.muslim.app.core.ui.theme.MuslimStateSurface
+import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.AqiqahCalculator
 import org.muslim.app.feature.learn.domain.BabyNameGender
@@ -244,8 +245,8 @@ private fun RuqyahPassageCard(
     isArabic: Boolean,
     onPlay: () -> Unit,
 ) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(Modifier.padding(16.dp)) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = passage.title.pick(isArabic),
@@ -280,9 +281,8 @@ private fun AudioTrackCard(
     isArabic: Boolean,
     onPlay: () -> Unit,
 ) {
-    Card(modifier = Modifier.fillMaxWidth()) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
         Row(
-            modifier = Modifier.padding(14.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Surface(shape = CircleShape, color = MaterialTheme.colorScheme.primaryContainer) {
@@ -360,7 +360,13 @@ private fun BabyNamesContent(isArabic: Boolean) {
             }
             items(results, key = { it.id }) { name -> BabyNameCard(name, isArabic) }
             if (results.isEmpty()) {
-                item { Text(stringResource(R.string.family_names_empty), modifier = Modifier.padding(20.dp)) }
+                item {
+                    MuslimStateSurface(
+                        title = stringResource(R.string.family_names_empty),
+                        tone = MuslimStateTone.Neutral,
+                        icon = Icons.Filled.Search,
+                    )
+                }
             }
         }
     }
@@ -368,8 +374,8 @@ private fun BabyNamesContent(isArabic: Boolean) {
 
 @Composable
 private fun BabyNameCard(name: IslamicBabyName, isArabic: Boolean) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Row(Modifier.padding(14.dp), verticalAlignment = Alignment.CenterVertically) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             Surface(shape = CircleShape, color = MaterialTheme.colorScheme.secondaryContainer) {
                 Text(
                     text = name.nameArabic.take(1),
@@ -440,7 +446,7 @@ private fun AqiqahContent(
             )
         }
         item {
-            OutlinedButton(
+            IslamicSecondaryButton(
                 onClick = {
                     if (birthDate == null) parseError = true else viewModel.setBirthDate(birthDate)
                 },
@@ -478,8 +484,8 @@ private fun AqiqahReminderCard(
     reminderEnabled: Boolean,
     onToggleReminder: (Boolean) -> Unit,
 ) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(Icons.Filled.NotificationsActive, contentDescription = null)
             Spacer(Modifier.width(10.dp))
             Column(Modifier.weight(1f)) {
@@ -510,8 +516,8 @@ private fun AqiqahDatesCard(
         R.string.family_aqiqah_day_fourteen to schedule.fourteenthDay,
         R.string.family_aqiqah_day_twenty_one to schedule.twentyFirstDay,
     )
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(Modifier.padding(16.dp)) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Column {
             Text(stringResource(R.string.family_aqiqah_dates_title), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
             Spacer(Modifier.height(8.dp))
             dates.forEach { (labelRes, date) ->
@@ -548,8 +554,8 @@ private fun MarriageContent(isArabic: Boolean) {
 
 @Composable
 private fun FamilyArticleCard(article: FamilyGuideArticle, isArabic: Boolean) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(Modifier.padding(16.dp)) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Column {
             Text(article.title.pick(isArabic), style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
             Spacer(Modifier.height(6.dp))
             Text(article.summary.pick(isArabic), style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -567,34 +573,21 @@ private fun FamilyArticleCard(article: FamilyGuideArticle, isArabic: Boolean) {
 
 @Composable
 private fun FamilyIntroCard(icon: ImageVector, title: String, text: String) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
-    ) {
-        Row(Modifier.padding(16.dp), verticalAlignment = Alignment.Top) {
-            Icon(icon, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(28.dp))
-            Spacer(Modifier.width(12.dp))
-            Column {
-                Text(title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                Spacer(Modifier.height(5.dp))
-                Text(text, style = MaterialTheme.typography.bodyLarge)
-            }
-        }
-    }
+    MuslimStateSurface(
+        title = title,
+        supportingText = text,
+        tone = MuslimStateTone.Positive,
+        icon = icon,
+    )
 }
 
 @Composable
 private fun NoticeCard(icon: ImageVector, text: String) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer),
-    ) {
-        Row(Modifier.padding(14.dp), verticalAlignment = Alignment.Top) {
-            Icon(icon, contentDescription = null, modifier = Modifier.size(22.dp))
-            Spacer(Modifier.width(10.dp))
-            Text(text, style = MaterialTheme.typography.bodyMedium)
-        }
-    }
+    MuslimStateSurface(
+        title = text,
+        tone = MuslimStateTone.Warning,
+        icon = icon,
+    )
 }
 
 private fun LocalizedFamilyText.pick(isArabic: Boolean): String = if (isArabic) arabic else english

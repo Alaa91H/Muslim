@@ -5,6 +5,15 @@ sectioned format as v1.10.0 and are generated from the commits for each tag.
 
 ## Unreleased
 
+### Family Guidance Surface Consistency
+
+- Unified Ruqyah passages and audio rows, baby-name results and empty search feedback, Aqiqah application/reminder/date surfaces, and family guidance articles on the shared Modern Islamic Minimalism card and state primitives.
+- Replaced screen-local informational and caution cards with semantic positive and warning surfaces, preserving their original educational scope, translation selection and safe external-audio validation.
+- Replaced the Aqiqah form’s local outlined control with the shared accessible secondary action while preserving date parsing, schedule calculation and reminder availability rules.
+- Extended the visual-identity verifier to ensure the Family Life experience continues to use the shared card, state and secondary-action primitives.
+
+## Muslim v1.25.4
+
 ### Reading, Planning and Utility Surface Consistency
 
 - Applied the shared Modern Islamic Minimalism card, action, section and state primitives to the Ramadan overview, the reusable Ramadan habit tracker, Zakat calculator, reference library, and Quran downloads hub.

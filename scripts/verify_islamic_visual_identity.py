@@ -121,6 +121,11 @@ REQUIRED_SNIPPETS = {
         "IslamicCard",
         "IslamicPrimaryButton",
     ],
+    "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/FamilyLifeScreen.kt": [
+        "IslamicCard",
+        "IslamicSecondaryButton",
+        "MuslimStateSurface",
+    ],
     "docs/islamic_visual_identity.md": [
         "Modern Islamic Minimalism",
         "Ornament catalogue and opacity",
