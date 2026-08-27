@@ -26,12 +26,18 @@ class GpsFailureInstrumentationTest {
 
     @Before
     fun grantForegroundLocation() {
-        runShell("pm grant ${context.packageName} ${Manifest.permission.ACCESS_FINE_LOCATION}")
+        InstrumentationRegistry.getInstrumentation().uiAutomation.grantRuntimePermission(
+            context.packageName,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+        )
     }
 
     @After
     fun revokeForegroundLocation() {
-        runShell("pm revoke ${context.packageName} ${Manifest.permission.ACCESS_FINE_LOCATION}")
+        InstrumentationRegistry.getInstrumentation().uiAutomation.revokeRuntimePermission(
+            context.packageName,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+        )
     }
 
     @Test
@@ -53,9 +59,5 @@ class GpsFailureInstrumentationTest {
         assertNull(runBlocking { provider.currentLocation() })
         assertEquals(1, fusedFactoryCalls)
         assertEquals(1, platformFactoryCalls)
-    }
-
-    private fun runShell(command: String) {
-        InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand(command).close()
     }
 }
