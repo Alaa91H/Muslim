@@ -88,6 +88,7 @@ import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 import java.time.LocalTime
 
+@Suppress("LongMethod")
 @Composable
 fun PrayerSettingsScreen(
     onOpenLocation: () -> Unit,
@@ -316,30 +317,32 @@ fun PrayerSettingsScreen(
         customizingPrayer?.let { prayer ->
             AdhanCustomizeDialog(
                 prayer = prayer,
-                option = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
-                sound = BundledAdhanSound.fromId(
-                    settings.bundledAdhanSounds[prayer]
-                        ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID
+                initial = AdhanCustomization(
+                    option = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
+                    sound = BundledAdhanSound.fromId(
+                        settings.bundledAdhanSounds[prayer]
+                            ?: org.muslim.app.core.common.prayer.BundledAdhanSound.DEFAULT_ID,
+                    ),
+                    volume = settings.adhanVolumeFor(prayer),
+                    vibrate = settings.vibrateFor(prayer),
+                    adjustmentMinutes = settings.adjustments[prayer],
+                    useGlobalVolume = settings.useGlobalAdhanVolume,
                 ),
-                volume = settings.adhanVolumeFor(prayer),
-                vibrate = settings.vibrateFor(prayer),
-                adjustmentMinutes = settings.adjustments[prayer],
-                useGlobalVolume = settings.useGlobalAdhanVolume,
-                onPreview = { sound, vol -> viewModel.previewBundled(prayer, sound, vol) },
+                onPreview = { sound, volume -> viewModel.previewBundled(prayer, sound, volume) },
                 onLiveVolume = viewModel::setLivePreviewVolume,
                 onDismiss = {
                     viewModel.stopPreview()
                     customizingPrayer = null
                 },
-                onConfirm = { chosenOption, chosenSound, chosenVolume, chosenVibrate, chosenAdjustment, globalVolume ->
+                onConfirm = { selected ->
                     viewModel.saveAdhanCustomization(
                         prayer = prayer,
-                        option = chosenOption,
-                        bundledSound = chosenSound,
-                        volume = chosenVolume,
-                        vibrate = chosenVibrate,
-                        adjustmentMinutes = chosenAdjustment,
-                        useGlobalVolume = globalVolume,
+                        option = selected.option,
+                        bundledSound = selected.sound,
+                        volume = selected.volume,
+                        vibrate = selected.vibrate,
+                        adjustmentMinutes = selected.adjustmentMinutes,
+                        useGlobalVolume = selected.useGlobalVolume,
                     )
                     viewModel.stopPreview()
                     customizingPrayer = null
@@ -929,140 +932,44 @@ private fun AdhanSoundRow(
     }
 }
 
+internal data class AdhanCustomization(
+    val option: AdhanSoundOption,
+    val sound: BundledAdhanSound,
+    val volume: Int,
+    val vibrate: Boolean,
+    val adjustmentMinutes: Int,
+    val useGlobalVolume: Boolean,
+)
+
 /**
  * Alert dialog to fully customise one prayer's adhan: alert type, sound,
- * per-prayer volume and per-prayer vibration, with live preview.
+ * volume, vibration and manual time adjustment, with live preview.
  */
 @Composable
 internal fun AdhanCustomizeDialog(
     prayer: Prayer,
-    option: AdhanSoundOption,
-    sound: BundledAdhanSound,
-    volume: Int,
-    vibrate: Boolean,
-    adjustmentMinutes: Int,
-    useGlobalVolume: Boolean,
+    initial: AdhanCustomization,
     onPreview: (BundledAdhanSound, Int) -> Unit,
     onLiveVolume: (Int) -> Unit,
     onDismiss: () -> Unit,
-    onConfirm: (AdhanSoundOption, BundledAdhanSound, Int, Boolean, Int, Boolean) -> Unit,
+    onConfirm: (AdhanCustomization) -> Unit,
 ) {
-    var chosenOption by remember { mutableStateOf(option) }
-    var chosenSound by remember { mutableStateOf(sound) }
-    var chosenVolume by remember { mutableIntStateOf(volume) }
-    var chosenVibrate by remember { mutableStateOf(vibrate) }
-    var chosenAdjustment by remember { mutableIntStateOf(adjustmentMinutes) }
-    var chosenGlobalVolume by remember { mutableStateOf(useGlobalVolume) }
+    var selection by remember(initial) { mutableStateOf(initial) }
 
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.settings_adhan_customize_title, stringResource(prayerLabelRes(prayer)))) },
         text = {
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                Text(
-                    text = stringResource(R.string.settings_adhan_alert_type),
-                    style = MaterialTheme.typography.titleSmall,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-                AdhanSoundOption.entries.forEach { entry ->
-                    RadioRow(
-                        label = stringResource(adhanOptionLabelRes(entry)),
-                        selected = chosenOption == entry,
-                        onClick = { chosenOption = entry },
-                    )
-                }
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    text = stringResource(R.string.settings_adjustments),
-                    style = MaterialTheme.typography.titleSmall,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-                StepperRow(
-                    label = stringResource(prayerLabelRes(prayer)),
-                    value = chosenAdjustment,
-                    onChanged = { chosenAdjustment = it },
-                )
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    text = stringResource(R.string.settings_adhan_sound_choice),
-                    style = MaterialTheme.typography.titleSmall,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-                BundledAdhanSound.entries.forEach { entry ->
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                chosenSound = entry
-                                onPreview(entry, chosenVolume)
-                            }
-                            .padding(vertical = 2.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        RadioButton(
-                            selected = chosenSound == entry,
-                            onClick = {
-                                chosenSound = entry
-                                onPreview(entry, chosenVolume)
-                            },
-                        )
-                        Text(
-                            text = stringResource(bundledSoundLabelRes(entry)),
-                            style = MaterialTheme.typography.bodyMedium,
-                            modifier = Modifier.weight(1f),
-                        )
-                        IconButton(onClick = { onPreview(entry, chosenVolume) }) {
-                            Icon(
-                                imageVector = Icons.Filled.PlayArrow,
-                                contentDescription = stringResource(R.string.settings_listen),
-                            )
-                        }
-                    }
-                }
-                Spacer(Modifier.height(8.dp))
-                SwitchRow(
-                    label = stringResource(R.string.settings_adhan_global_volume),
-                    checked = chosenGlobalVolume,
-                    onCheckedChange = { chosenGlobalVolume = it },
-                )
-                if (chosenGlobalVolume) {
-                    Text(
-                        text = stringResource(R.string.settings_adhan_global_volume_desc),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.padding(top = 4.dp),
-                    )
-                }
-                VolumeRow(
-                    volume = chosenVolume,
-                    onChanged = { chosenVolume = it },
-                    // Preview instantly at the chosen level so the volume
-                    // slider is audible while adjusting; also push the new
-                    // level into the playing player so the change is heard
-                    // without restarting the preview.
-                    onPreview = { onPreview(chosenSound, chosenVolume) },
-                    onLiveVolume = onLiveVolume,
-                )
-                SwitchRow(
-                    label = stringResource(R.string.settings_vibrate),
-                    checked = chosenVibrate,
-                    onCheckedChange = { chosenVibrate = it },
-                )
-            }
+            AdhanCustomizationFields(
+                prayer = prayer,
+                selection = selection,
+                onSelectionChanged = { selection = it },
+                onPreview = onPreview,
+                onLiveVolume = onLiveVolume,
+            )
         },
         confirmButton = {
-            TextButton(
-                onClick = {
-                    onConfirm(
-                        chosenOption,
-                        chosenSound,
-                        chosenVolume,
-                        chosenVibrate,
-                        chosenAdjustment,
-                        chosenGlobalVolume,
-                    )
-                },
-            ) {
+            TextButton(onClick = { onConfirm(selection) }) {
                 Text(stringResource(R.string.settings_adhan_confirm))
             }
         },
@@ -1071,6 +978,145 @@ internal fun AdhanCustomizeDialog(
                 Text(stringResource(R.string.settings_adhan_cancel))
             }
         },
+    )
+}
+
+@Composable
+private fun AdhanCustomizationFields(
+    prayer: Prayer,
+    selection: AdhanCustomization,
+    onSelectionChanged: (AdhanCustomization) -> Unit,
+    onPreview: (BundledAdhanSound, Int) -> Unit,
+    onLiveVolume: (Int) -> Unit,
+) {
+    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+        AdhanAlertTypeSection(
+            selected = selection.option,
+            onSelected = { onSelectionChanged(selection.copy(option = it)) },
+        )
+        AdhanTimeAdjustmentSection(
+            prayer = prayer,
+            adjustmentMinutes = selection.adjustmentMinutes,
+            onChanged = { onSelectionChanged(selection.copy(adjustmentMinutes = it)) },
+        )
+        BundledAdhanSoundSection(
+            selected = selection.sound,
+            onSelected = { sound ->
+                onSelectionChanged(selection.copy(sound = sound))
+                onPreview(sound, selection.volume)
+            },
+            onPreview = { onPreview(it, selection.volume) },
+        )
+        AdhanPlaybackControlsSection(
+            selection = selection,
+            onSelectionChanged = onSelectionChanged,
+            onPreview = onPreview,
+            onLiveVolume = onLiveVolume,
+        )
+    }
+}
+
+@Composable
+private fun AdhanAlertTypeSection(
+    selected: AdhanSoundOption,
+    onSelected: (AdhanSoundOption) -> Unit,
+) {
+    DialogSectionTitle(R.string.settings_adhan_alert_type)
+    AdhanSoundOption.entries.forEach { option ->
+        RadioRow(
+            label = stringResource(adhanOptionLabelRes(option)),
+            selected = selected == option,
+            onClick = { onSelected(option) },
+        )
+    }
+}
+
+@Composable
+private fun AdhanTimeAdjustmentSection(
+    prayer: Prayer,
+    adjustmentMinutes: Int,
+    onChanged: (Int) -> Unit,
+) {
+    DialogSectionTitle(R.string.settings_adjustments)
+    StepperRow(
+        label = stringResource(prayerLabelRes(prayer)),
+        value = adjustmentMinutes,
+        onChanged = onChanged,
+    )
+}
+
+@Composable
+private fun BundledAdhanSoundSection(
+    selected: BundledAdhanSound,
+    onSelected: (BundledAdhanSound) -> Unit,
+    onPreview: (BundledAdhanSound) -> Unit,
+) {
+    DialogSectionTitle(R.string.settings_adhan_sound_choice)
+    BundledAdhanSound.entries.forEach { sound ->
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { onSelected(sound) }
+                .padding(vertical = 2.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            RadioButton(selected = selected == sound, onClick = { onSelected(sound) })
+            Text(
+                text = stringResource(bundledSoundLabelRes(sound)),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f),
+            )
+            IconButton(onClick = { onPreview(sound) }) {
+                Icon(
+                    imageVector = Icons.Filled.PlayArrow,
+                    contentDescription = stringResource(R.string.settings_listen),
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun AdhanPlaybackControlsSection(
+    selection: AdhanCustomization,
+    onSelectionChanged: (AdhanCustomization) -> Unit,
+    onPreview: (BundledAdhanSound, Int) -> Unit,
+    onLiveVolume: (Int) -> Unit,
+) {
+    Spacer(Modifier.height(8.dp))
+    SwitchRow(
+        label = stringResource(R.string.settings_adhan_global_volume),
+        checked = selection.useGlobalVolume,
+        onCheckedChange = { onSelectionChanged(selection.copy(useGlobalVolume = it)) },
+    )
+    if (selection.useGlobalVolume) {
+        Text(
+            text = stringResource(R.string.settings_adhan_global_volume_desc),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = 4.dp),
+        )
+    }
+    VolumeRow(
+        volume = selection.volume,
+        onChanged = { onSelectionChanged(selection.copy(volume = it)) },
+        onPreview = { onPreview(selection.sound, selection.volume) },
+        onLiveVolume = onLiveVolume,
+    )
+    SwitchRow(
+        label = stringResource(R.string.settings_vibrate),
+        checked = selection.vibrate,
+        onCheckedChange = { onSelectionChanged(selection.copy(vibrate = it)) },
+    )
+}
+
+@Composable
+private fun DialogSectionTitle(@androidx.annotation.StringRes labelRes: Int) {
+    Spacer(Modifier.height(8.dp))
+    Text(
+        text = stringResource(labelRes),
+        style = MaterialTheme.typography.titleSmall,
+        color = MaterialTheme.colorScheme.primary,
     )
 }
 

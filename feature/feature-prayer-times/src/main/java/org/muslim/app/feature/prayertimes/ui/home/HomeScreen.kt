@@ -81,6 +81,7 @@ import org.muslim.app.core.datastore.prayer.trackablePrayers
  * Main screen: Hijri/Gregorian date, live next-prayer countdown and today's
  * prayer times (PROJECT_PROMPT.md §6 Phase 1).
  */
+@Suppress("LongMethod")
 @Composable
 fun HomeScreen(
     onSelectLocation: () -> Unit,
