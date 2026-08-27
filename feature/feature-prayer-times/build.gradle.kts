@@ -68,6 +68,9 @@ dependencies {
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
+    // Unit tests run on the JVM, so they need the JAR counterpart of the
+    // Android Zstandard AAR used by timezonemap's bundled boundary data.
+    testImplementation("com.github.luben:zstd-jni:1.4.9-5")
     testImplementation(libs.truth)
     testImplementation(libs.mockk)
     testImplementation(libs.turbine)

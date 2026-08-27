@@ -17,6 +17,7 @@ import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerCompletionRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.SelectedLocation
+import org.muslim.app.core.common.prayer.PrayerCalculationProfile
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import org.muslim.app.core.common.prayer.PrayerTimesResult
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
@@ -54,7 +55,7 @@ class HomeScreenTest {
         every { completionRepository.completedPrayers(any()) } returns flowOf(emptySet())
         val calculator = mockk<PrayerTimesCalculator>()
         every {
-            calculator.compute(any(), any(), any(), any(), any(), any())
+            calculator.compute(any(), any(), any<PrayerCalculationProfile>(), any())
         } answers {
             val date = firstArg<LocalDate>()
             PrayerTimesResult(
