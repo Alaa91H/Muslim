@@ -18,6 +18,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.muslim.app.core.common.prayer.AdhanSoundOption
 import org.muslim.app.core.common.prayer.AsrMethod
+import org.muslim.app.core.common.prayer.BundledAdhanSound
 import org.muslim.app.core.common.prayer.Coordinates
 import org.muslim.app.core.common.prayer.NextPrayer
 import org.muslim.app.core.common.prayer.PrayerTimesCalculator
