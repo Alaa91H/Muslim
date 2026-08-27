@@ -1,6 +1,6 @@
 # UI/UX Transformation Plan
 
-> **Status:** The core `ui/premium-islamic-experience` workstream was merged into `main` and released in `v1.25.0`. Follow-up consistency passes shipped in `v1.25.2`, `v1.25.4`, `v1.25.5`, `v1.25.6`, `v1.25.7`, and `v1.25.8`; the per-prayer alert and live-Adhan ownership pass is published. The current unreleased pass hardens the prayer-time calculation contract, default profile and location timezone path without changing religious content, user-selectable conventions, offline-first behaviour or notification ownership.
+> **Status:** The core `ui/premium-islamic-experience` workstream was merged into `main` and released in `v1.25.0`. Follow-up consistency passes shipped in `v1.25.2`, `v1.25.4`, `v1.25.5`, `v1.25.6`, `v1.25.7`, `v1.25.8`, and `v1.25.9`. The v1.25.9 pass hardens the prayer-time calculation contract, default profile and location timezone path without changing religious content, user-selectable conventions, offline-first behaviour or notification ownership.
 
 ## Product intent
 

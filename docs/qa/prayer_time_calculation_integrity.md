@@ -1,6 +1,6 @@
 # Prayer-Time Calculation Integrity Audit
 
-> **Status:** Implemented on the `main` development line; pending the release gate at the time of this document update.
+> **Status:** Published in [`v1.25.9`](https://github.com/Alaa91H/Muslim/releases/tag/v1.25.9) after the tagged CI workflow completed successfully on 27 August 2026.
 > **Scope:** Software calculation and data-flow verification. This is not a religious certification, a timetable-provider endorsement, or evidence of physical-device verification.
 
 ## Purpose
