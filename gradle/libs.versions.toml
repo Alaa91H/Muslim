@@ -122,6 +122,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
 androidx-test-core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "androidxTestCore" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTestCore" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 # Android instrumented tests must use the Android variant of MockK (the JVM
 # artifact fails at runtime with NoClassDefFoundError on a device/emulator).
