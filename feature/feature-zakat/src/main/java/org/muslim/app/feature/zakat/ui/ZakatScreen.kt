@@ -17,9 +17,6 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Save
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -50,6 +47,12 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.zakat.R
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicPrimaryButton
+import org.muslim.app.core.ui.theme.MuslimCenteredStatus
+import org.muslim.app.core.ui.theme.MuslimSectionHeader
+import org.muslim.app.core.ui.theme.MuslimStateSurface
+import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.zakat.domain.CountryCurrency
 import java.text.NumberFormat
 import java.time.LocalDate
@@ -96,10 +99,7 @@ fun ZakatScreen(
             Spacer(Modifier.height(16.dp))
             HorizontalDivider()
             Spacer(Modifier.height(12.dp))
-            Text(
-                text = stringResource(R.string.zakat_money_section),
-                style = MaterialTheme.typography.titleMedium,
-            )
+            MuslimSectionHeader(title = stringResource(R.string.zakat_money_section))
             Spacer(Modifier.height(8.dp))
             MoneyForm(state, viewModel, formatter)
             Spacer(Modifier.height(12.dp))
@@ -125,10 +125,7 @@ fun ZakatScreen(
 
 @Composable
 private fun CountrySection(state: ZakatUiState, viewModel: ZakatViewModel) {
-    Text(
-        text = stringResource(R.string.zakat_country_section),
-        style = MaterialTheme.typography.titleMedium,
-    )
+    MuslimSectionHeader(title = stringResource(R.string.zakat_country_section))
     Spacer(Modifier.height(8.dp))
     CountryDropdown(
         selected = state.selectedCountry,
@@ -157,7 +154,7 @@ private fun CountrySection(state: ZakatUiState, viewModel: ZakatViewModel) {
         )
     }
     Spacer(Modifier.height(8.dp))
-    Button(
+    IslamicPrimaryButton(
         onClick = viewModel::fetchPrices,
         enabled = state.selectedCountry != null && !state.isFetching,
         modifier = Modifier.fillMaxWidth(),
@@ -177,10 +174,9 @@ private fun CountrySection(state: ZakatUiState, viewModel: ZakatViewModel) {
     }
     if (state.fetchFailed) {
         Spacer(Modifier.height(6.dp))
-        Text(
-            text = stringResource(R.string.zakat_fetch_failed),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.error,
+        MuslimStateSurface(
+            title = stringResource(R.string.zakat_fetch_failed),
+            tone = MuslimStateTone.Critical,
         )
     }
     if (state.lastUpdatedAt != null) {
@@ -327,17 +323,15 @@ private fun ResultCard(
     viewModel: ZakatViewModel,
 ) {
     val result = state.result
-    Card(
+    IslamicCard(
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(
-            containerColor = if (result.nisabExceeded) {
-                MaterialTheme.colorScheme.primaryContainer
-            } else {
-                MaterialTheme.colorScheme.surfaceVariant
-            },
-        ),
+        containerColor = if (result.nisabExceeded) {
+            MaterialTheme.colorScheme.primaryContainer
+        } else {
+            MaterialTheme.colorScheme.surfaceContainerLow
+        },
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
+        Column {
             ResultRow(stringResource(R.string.zakat_total_assets), formatter.format(result.totalAssets))
             ResultRow(stringResource(R.string.zakat_zakatable), formatter.format(result.zakatableAmount))
             ResultRow(stringResource(R.string.zakat_nisab_gold), formatter.format(result.goldNisab))
@@ -359,7 +353,7 @@ private fun ResultCard(
             )
             if (result.zakatableAmount > 0) {
                 Spacer(Modifier.height(8.dp))
-                Button(onClick = viewModel::saveCalculation) {
+                IslamicPrimaryButton(onClick = viewModel::saveCalculation) {
                     Icon(Icons.Filled.Save, contentDescription = null, modifier = Modifier.width(18.dp))
                     Spacer(Modifier.width(6.dp))
                     Text(stringResource(R.string.zakat_save_result))
@@ -388,10 +382,7 @@ private fun ResultRow(label: String, value: String) {
 
 @Composable
 private fun FitrSection(state: ZakatUiState, viewModel: ZakatViewModel, formatter: NumberFormat) {
-    Text(
-        text = stringResource(R.string.zakat_fitr_section),
-        style = MaterialTheme.typography.titleMedium,
-    )
+    MuslimSectionHeader(title = stringResource(R.string.zakat_fitr_section))
     Spacer(Modifier.height(8.dp))
     NumberField(stringResource(R.string.zakat_fitr_saa_value), state.fitrSaaValue, formatter, viewModel::setFitrSaaValue)
     OutlinedTextField(
@@ -430,11 +421,7 @@ private fun HistorySection(state: ZakatUiState, viewModel: ZakatViewModel, forma
         }
     }
     if (state.history.isEmpty()) {
-        Text(
-            text = stringResource(R.string.zakat_history_empty),
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
+        MuslimCenteredStatus(text = stringResource(R.string.zakat_history_empty))
     }
     state.history.forEach { entry ->
         Row(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)) {

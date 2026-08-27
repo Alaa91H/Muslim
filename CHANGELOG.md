@@ -5,6 +5,17 @@ sectioned format as v1.10.0 and are generated from the commits for each tag.
 
 ## Unreleased
 
+### Reading, Planning and Utility Surface Consistency
+
+- Applied the shared Modern Islamic Minimalism card, action, section and state primitives to the Ramadan overview, the reusable Ramadan habit tracker, Zakat calculator, reference library, and Quran downloads hub.
+- Refined Ramadan into calmer primary and planning surfaces while preserving fasting-day tracking, Iftar/Suhoor timing, reminder controls and the local habit model. Location-dependent Iftar recovery is now presented through a semantic critical state surface.
+- Standardised Zakat price retrieval, Nisab outcomes, saved-calculation action and history-empty feedback without changing calculation inputs, country/currency selection, local history or optional price providers.
+- Reworked reference-library book, search-empty and reading-paragraph surfaces for more consistent scholarly hierarchy while retaining Arabic/English content, search, copy/share and internal book/topic navigation.
+- Applied the same low-elevation, semantic surfaces and accessible primary action to Quran recitation-download summaries, coverage, reciter status and active transfer cards without changing scopes, queue management, downloads or deletion confirmation.
+- Extended the visual-identity verifier to guard this secondary-surface component adoption alongside existing theme, accessibility and system-icon checks.
+
+## Muslim v1.25.3
+
 ### Persistent Adhan Delivery and Notification Lifecycle
 
 - Made the active Adhan notification a non-dismissible, ongoing foreground card with one explicit **Stop Adhan** action. It is public on the lock screen, requests high-priority heads-up presentation, and remains present while the live service owns playback.

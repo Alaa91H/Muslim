@@ -24,8 +24,6 @@ import androidx.compose.material.icons.filled.Groups
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -56,6 +54,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.muslim.app.feature.reference.R
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.MuslimStateSurface
+import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.reference.domain.ReferenceBook
 import org.muslim.app.feature.reference.domain.ReferenceLibrary
 import org.muslim.app.feature.reference.domain.RefLang
@@ -168,17 +169,14 @@ private fun HubContent(
 ) {
     LazyColumn(modifier = modifier.fillMaxSize()) {
         items(ReferenceLibrary.books, key = { it.id }) { book ->
-            Card(
+            IslamicCard(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp, vertical = 8.dp)
                     .clickable { onOpenBook(book) },
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceVariant,
-                ),
+                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
             ) {
                 Row(
-                    modifier = Modifier.padding(16.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Surface(
@@ -241,12 +239,11 @@ private fun BookContent(
                 .padding(horizontal = 16.dp, vertical = 8.dp),
         )
         if (results.isEmpty()) {
-            Text(
-                text = stringResource(R.string.reference_no_results),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth().padding(24.dp),
+            MuslimStateSurface(
+                title = stringResource(R.string.reference_no_results),
+                tone = MuslimStateTone.Neutral,
+                icon = Icons.Filled.Search,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 24.dp),
             )
         } else {
             LazyColumn(modifier = Modifier.fillMaxSize()) {
@@ -329,19 +326,16 @@ private fun TopicContent(
                 modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp),
             )
             section.paragraphs.forEach { paragraph ->
-                Card(
+                IslamicCard(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp, vertical = 5.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.surface,
-                    ),
+                    containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
                 ) {
                     Text(
                         text = paragraph.text(lang),
                         style = MaterialTheme.typography.bodyMedium.copy(fontSize = 17.sp),
                         lineHeight = 28.sp,
-                        modifier = Modifier.padding(16.dp),
                     )
                 }
             }

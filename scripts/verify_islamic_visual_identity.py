@@ -99,6 +99,28 @@ REQUIRED_SNIPPETS = {
         "wear_vibration_off",
         "wear_increment",
     ],
+    "feature/feature-ramadan/src/main/java/org/muslim/app/feature/ramadan/ui/RamadanScreen.kt": [
+        "IslamicCard",
+        "MuslimSectionHeader",
+        "MuslimStateSurface",
+    ],
+    "feature/feature-ramadan/src/main/java/org/muslim/app/feature/ramadan/ui/HabitTrackerScreen.kt": [
+        "IslamicCard",
+        "MuslimSectionHeader",
+    ],
+    "feature/feature-zakat/src/main/java/org/muslim/app/feature/zakat/ui/ZakatScreen.kt": [
+        "IslamicCard",
+        "IslamicPrimaryButton",
+        "MuslimStateSurface",
+    ],
+    "feature/feature-reference/src/main/java/org/muslim/app/feature/reference/ui/ReferenceScreen.kt": [
+        "IslamicCard",
+        "MuslimStateSurface",
+    ],
+    "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/QuranDownloadsScreen.kt": [
+        "IslamicCard",
+        "IslamicPrimaryButton",
+    ],
     "docs/islamic_visual_identity.md": [
         "Modern Islamic Minimalism",
         "Ornament catalogue and opacity",

@@ -24,8 +24,6 @@ import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.NightsStay
 import androidx.compose.material.icons.filled.SelfImprovement
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -49,6 +47,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.ramadan.R
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.feature.ramadan.domain.HabitBadge
 import org.muslim.app.feature.ramadan.domain.HabitDaySummary
 import org.muslim.app.feature.ramadan.domain.HabitId
@@ -102,11 +102,11 @@ fun HabitTrackerPanel(
     Column(
         modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp),
     ) {
-        Card(
+        IslamicCard(
             modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
         ) {
-            Column(Modifier.padding(16.dp)) {
+            Column {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
                         Icons.Filled.CheckCircle,
@@ -174,8 +174,8 @@ private fun PrayerTrackerCard(
     onShowOnHomeChanged: (Boolean) -> Unit,
 ) {
     val homeToggleDescription = stringResource(R.string.habit_prayer_tracker_title)
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(Modifier.padding(16.dp)) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
                     imageVector = Icons.Filled.CheckCircle,
@@ -256,11 +256,7 @@ private fun HabitChecklist(
     summary: HabitDaySummary,
     viewModel: RamadanViewModel,
 ) {
-    Text(
-        text = stringResource(R.string.habit_tracker_daily_title),
-        style = MaterialTheme.typography.titleMedium,
-        fontWeight = FontWeight.SemiBold,
-    )
+    MuslimSectionHeader(title = stringResource(R.string.habit_tracker_daily_title))
     Spacer(Modifier.height(4.dp))
     HabitId.entries.forEach { habit ->
         Row(
@@ -284,11 +280,7 @@ private fun HabitChecklist(
 
 @Composable
 private fun HabitReports(summary: org.muslim.app.feature.ramadan.domain.HabitSummary) {
-    Text(
-        text = stringResource(R.string.habit_tracker_reports),
-        style = MaterialTheme.typography.titleMedium,
-        fontWeight = FontWeight.SemiBold,
-    )
+    MuslimSectionHeader(title = stringResource(R.string.habit_tracker_reports))
     Spacer(Modifier.height(8.dp))
     HabitWeekChart(summary.week)
     Spacer(Modifier.height(8.dp))
@@ -338,8 +330,8 @@ private fun HabitReports(summary: org.muslim.app.feature.ramadan.domain.HabitSum
 
 @Composable
 private fun ReportCard(title: String, value: String, modifier: Modifier = Modifier) {
-    Card(modifier = modifier) {
-        Column(Modifier.padding(10.dp)) {
+    IslamicCard(modifier = modifier) {
+        Column {
             Text(title, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             Spacer(Modifier.height(3.dp))
             Text(value, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
@@ -384,14 +376,12 @@ private fun HabitWeekChart(days: List<HabitDaySummary>) {
 private fun RamadanPlanCard(state: RamadanUiState, viewModel: RamadanViewModel) {
     val active = state.info.isRamadanDay(state.today)
     val plan = state.habitState
-    Card(
+    IslamicCard(
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(
-            containerColor = if (active) MaterialTheme.colorScheme.tertiaryContainer
-            else MaterialTheme.colorScheme.surfaceVariant,
-        ),
+        containerColor = if (active) MaterialTheme.colorScheme.tertiaryContainer
+        else MaterialTheme.colorScheme.surfaceContainerLow,
     ) {
-        Column(Modifier.padding(16.dp)) {
+        Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Filled.NightsStay, contentDescription = null)
                 Spacer(Modifier.width(8.dp))

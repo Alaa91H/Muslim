@@ -22,8 +22,6 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -61,6 +59,8 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import kotlinx.coroutines.launch
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.quran.R
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicPrimaryButton
 import org.muslim.app.feature.quran.data.DownloadScope
 import org.muslim.app.feature.quran.data.DownloadStatus
 import org.muslim.app.feature.quran.data.DownloadTaskUi
@@ -329,7 +329,7 @@ fun QuranDownloadsScreen(
 
                     Spacer(Modifier.height(12.dp))
 
-                    Button(
+                    IslamicPrimaryButton(
                         onClick = viewModel::startDownload,
                         enabled = estimateBytes != null,
                         modifier = Modifier.fillMaxWidth(),
@@ -469,13 +469,13 @@ private fun TimeDropdown(
 /** Summary of all downloaded recitation audio across every reciter. */
 @Composable
 private fun TotalSummaryCard(summary: TotalDownloadSummary) {
-    Card(
+    IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
@@ -524,12 +524,13 @@ private fun SurahCoverageSection(
     activeReciterCount: Int,
     totalMushafAyahs: Int,
 ) {
-    Card(
+    IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 4.dp),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
     ) {
-        Column(modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp)) {
+        Column {
             Text(
                 text = stringResource(R.string.quran_downloads_coverage_title),
                 style = MaterialTheme.typography.labelMedium,
@@ -610,8 +611,11 @@ private fun TaskRow(
     onResume: () -> Unit,
     onCancel: () -> Unit,
 ) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(12.dp)) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Column(modifier = Modifier.weight(1f)) {
                     Text(task.label, style = MaterialTheme.typography.bodyLarge)
@@ -705,11 +709,11 @@ private fun ReciterHeaderSummary(
 ) {
     val downloaded = state?.downloadedAyahs ?: 0
     val progress = if (totalMushafAyahs > 0) downloaded.toFloat() / totalMushafAyahs else 0f
-    Card(
+    IslamicCard(
         modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(

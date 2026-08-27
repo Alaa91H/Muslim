@@ -1,6 +1,6 @@
 # Muslim Project Status and Documentation Map
 
-> **Status date:** 26 August 2026
+> **Status date:** 27 August 2026
 > **Scope:** This document describes the code and product boundaries present on the `main` development line. It is not a store-approval statement, a security certification, or a religious ruling.
 
 ## Purpose
@@ -25,14 +25,15 @@ This consolidation preserves all implemented destinations while reducing repeate
 | Capability | Current implementation | Important boundary |
 |---|---|---|
 | Prayer times and Adhan | Local calculation, method/school/high-latitude preferences, saved or one-time location, scheduled notifications and playback controls. | Calculations and guides are technical/educational aids, not personalised rulings or a guarantee of delivery under every OS battery policy. |
-| Quran | Offline mushaf experience, bookmarks/progress, search/frequency tools, and user-managed recitation playback/downloads. | Provider content and network terms apply to optional downloads. |
+| Quran | Offline mushaf experience, bookmarks/progress, search/frequency tools, and user-managed recitation playback/downloads with a calm shared hierarchy for library summaries, coverage, reciter state and transfers. | Provider content and network terms apply to optional downloads. |
 | Hadith | Offline corpus preparation, collection browse, Arabic-normalised FTS search, bookmarks, sharing/copying, daily notification. | Search returns corpus text and metadata, not a comprehensive scholarly judgement about authenticity/context. |
 | Hadith performance model | `hadith_full.ndjson.gz` is streamed on `Dispatchers.IO`, inserted into Room in 150-row batches, and shown through Paging 3 with 24-row pages and a prefetch window. | Preparation progress and retry states are user-visible; no complete corpus list is held by the Hadith UI state. |
 | Adhkar and Tasbih | Local counters, optional feedback/reminders, logs and widget support, with calm content surfaces and a single accessible primary Tasbih counting action. | Reminder/overlay availability remains subject to Android permissions and system restrictions. |
-| Learning and reference | Local guides, Names of Allah, Hajj/Umrah, reference content, history/timeline/atlas, family and funeral/will materials, presented through grouped knowledge destinations and structured reading steps. | Religious and historical material is educational and requires source/specialist review outside software CI. |
+| Ramadan planning | Iftar/Suhoor timing and reminders, fasting-day tracker, reusable habit tracker, prayer completion and local Khatma/Taraweeh/Itikaf planning are presented through shared planning, section and recovery surfaces. | Fasting records, reminders, prayer completion and plan state remain local feature-owned data. |
+| Learning and reference | Local guides, Names of Allah, Hajj/Umrah, reference content, history/timeline/atlas, family and funeral/will materials, presented through grouped knowledge destinations and structured reading steps. The reference hub, search-empty state and paragraph reader use the shared scholarly hierarchy. | Religious and historical material is educational and requires source/specialist review outside software CI. |
 | Scholarly Library | Starter catalogue, Arabic-normalised local search, citation fields, notes, flashcards, and authorised local pack import. | No third-party digital library, publisher edition, or automatically downloaded corpus is represented as bundled content. |
 | Travel and expatriate tools | Distance reference, local qibla with a semantic compass hierarchy and calibration/recovery states, transport orientation, high-latitude explainer. | A distance or calculation output is not a personal verdict on qasr, jam', or another fiqh question. |
-| Finance | Educational transactions guide, provider shortcuts for external screening, local debt log, and semantic validation, empty, notice, and action surfaces. | It is not investment advice, a screening ruling, or a financial service. |
+| Finance and Zakat | Educational transactions guide, provider shortcuts for external screening, local debt log, and a Zakat calculator with semantic price-fetch, Nisab, history and primary-action surfaces. | It is not investment advice, a screening ruling, a financial service, or a substitute for personal religious guidance. |
 | Accessibility | High contrast, clearer Arabic reading, labelled controls, one-shot voice navigation and supplementary external links. | The implementation is not a certification of complete accessibility compliance or sign-language universality. |
 | Android Auto | Media browsing/control and voice search for locally complete Quran recitations. | No driving-time download, video, or general interactive content. |
 | Wear OS | Opt-in paired countdown/tasbih companion with a glanceable next-prayer hierarchy, explicit haptic-state feedback, local watch snapshot, and filtered increment request. | Non-standalone; phone is authoritative; no location/account/audio snapshot. |
@@ -103,6 +104,8 @@ The project contains both focused unit tests and static boundary verifiers. Curr
 python3 scripts/verify_hadith_paging_and_navigation.py
 python3 scripts/verify_scholar_library.py
 python3 scripts/verify_iot_integration.py
+python3 scripts/verify_accessibility.py
+python3 scripts/verify_islamic_visual_identity.py
 ./gradlew testDebugUnitTest :wear:testDebugUnitTest
 ./gradlew lintDebug
 ./gradlew detekt

@@ -24,8 +24,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.NightsStay
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
@@ -47,6 +45,10 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.ramadan.R
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.MuslimSectionHeader
+import org.muslim.app.core.ui.theme.MuslimStateSurface
+import org.muslim.app.core.ui.theme.MuslimStateTone
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalTime
@@ -120,16 +122,11 @@ private fun RamadanHeaderCard(state: RamadanUiState) {
     val untilStart = info.daysUntilStart(state.today)
     val remaining = info.daysRemaining(state.today)
 
-    Card(
+    IslamicCard(
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-        ),
+        containerColor = MaterialTheme.colorScheme.primaryContainer,
     ) {
-        Column(
-            modifier = Modifier.padding(20.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Icon(
                 Icons.Filled.NightsStay,
                 contentDescription = null,
@@ -169,8 +166,8 @@ private fun RamadanHeaderCard(state: RamadanUiState) {
 
 @Composable
 private fun IftarCard(state: RamadanUiState, viewModel: RamadanViewModel, use24h: Boolean) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(16.dp)) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
                     Icons.Filled.LightMode,
@@ -202,10 +199,9 @@ private fun IftarCard(state: RamadanUiState, viewModel: RamadanViewModel, use24h
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.primary,
                 )
-            } ?: Text(
-                text = stringResource(R.string.ramadan_location_required),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.error,
+            } ?: MuslimStateSurface(
+                title = stringResource(R.string.ramadan_location_required),
+                tone = MuslimStateTone.Critical,
             )
             Spacer(Modifier.height(10.dp))
             Text(
@@ -219,8 +215,8 @@ private fun IftarCard(state: RamadanUiState, viewModel: RamadanViewModel, use24h
 
 @Composable
 private fun SuhoorCard(state: RamadanUiState, viewModel: RamadanViewModel, use24h: Boolean) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(16.dp)) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
                     Icons.Filled.NightsStay,
@@ -294,19 +290,13 @@ private fun FastingTracker(
     onToggle: (LocalDate) -> Unit,
 ) {
     Column {
-        Text(
-            text = stringResource(R.string.ramadan_fasting_tracker),
-            style = MaterialTheme.typography.titleMedium,
-        )
-        Spacer(Modifier.height(4.dp))
-        Text(
-            text = stringResource(
+        MuslimSectionHeader(
+            title = stringResource(R.string.ramadan_fasting_tracker),
+            supportingText = stringResource(
                 R.string.ramadan_fasting_progress,
                 fastingDays.count { it in info.days }.toString(),
                 info.days.size.toString(),
             ),
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         Spacer(Modifier.height(10.dp))
         FlowRow(
