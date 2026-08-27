@@ -1,6 +1,6 @@
 # UI/UX Transformation Plan
 
-> **Status:** The core `ui/premium-islamic-experience` workstream was merged into `main` and released in `v1.25.0`. The first follow-up consistency pass shipped in `v1.25.2`, and the reading, planning and utility-surface pass shipped in `v1.25.4`; a Family Life consistency pass is in progress and remains untagged until validation completes. This document describes presentation and interaction improvements only. It does not change religious content, prayer calculations, offline-first behaviour, notification delivery, or data contracts.
+> **Status:** The core `ui/premium-islamic-experience` workstream was merged into `main` and released in `v1.25.0`. Follow-up consistency passes shipped in `v1.25.2`, `v1.25.4`, and `v1.25.5`; a Hajj-days calculator pass is in progress and remains untagged until validation completes. This document describes presentation and interaction improvements only. It does not change religious content, prayer calculations, offline-first behaviour, notification delivery, or data contracts.
 
 ## Product intent
 
@@ -54,7 +54,9 @@ The post-`v1.25.0` pass applies the established system to genuinely remaining ga
 
 The reading, planning and utility pass extends the same principles to the Ramadan overview and reusable habit dashboard, Zakat calculator, reference-library hub and reader, and Quran download library. It focuses on shared low-elevation surfaces, semantic success/critical/empty-state treatment, readable section hierarchy and accessible primary actions. Fasting records, prayer completion, Ramadan planning, calculation inputs, price-provider boundaries, downloaded-audio state, search, content language and internal navigation remain feature-owned and unchanged.
 
-The current Family Life pass standardises Ruqyah, baby-name search, Aqiqah and family guidance surfaces using the same cards, state treatment and minimum-touch-target actions. Its scope remains presentation-only: safe-audio URL validation, external audio launch, bilingual content selection, name search, birth-date parsing, schedule calculation and locally persisted reminder state remain unchanged.
+The Family Life pass standardises Ruqyah, baby-name search, Aqiqah and family guidance surfaces using the same cards, state treatment and minimum-touch-target actions. Its scope remains presentation-only: safe-audio URL validation, external audio launch, bilingual content selection, name search, birth-date parsing, schedule calculation and locally persisted reminder state remain unchanged.
+
+The current Hajj-days calculator pass applies shared hierarchy to its intro, entered-date and seasonal key-day results, and introduces a semantic critical state for an incomplete or invalid Hijri date. Digit normalization, input parsing, Hijri/Gregorian conversion, calculated key dates and relative-day labels remain unchanged.
 
 ## Component policy
 

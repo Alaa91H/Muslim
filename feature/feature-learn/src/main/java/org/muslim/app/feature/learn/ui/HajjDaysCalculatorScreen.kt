@@ -18,8 +18,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Calculate
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -41,6 +39,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import org.muslim.app.core.common.time.HijriDate
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.MuslimStateSurface
+import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.HajjDaysCalculator
 import org.muslim.app.feature.learn.domain.HajjKeyDay
@@ -102,17 +103,14 @@ private fun HajjDaysCalculatorContent(modifier: Modifier = Modifier) {
             .verticalScroll(rememberScrollState())
             .padding(16.dp),
     ) {
-        Card(
+        IslamicCard(
             modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.primaryContainer,
-            ),
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
         ) {
             Text(
                 text = stringResource(R.string.hajj_calc_intro),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
-                modifier = Modifier.padding(14.dp),
             )
         }
 
@@ -141,10 +139,9 @@ private fun HajjDaysCalculatorContent(modifier: Modifier = Modifier) {
 
         if (computed == null) {
             Spacer(Modifier.height(10.dp))
-            Text(
-                text = stringResource(R.string.hajj_calc_error),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.error,
+            MuslimStateSurface(
+                title = stringResource(R.string.hajj_calc_error),
+                tone = MuslimStateTone.Critical,
             )
         }
 
@@ -178,14 +175,11 @@ private fun NumberField(
 
 @Composable
 private fun EnteredDateCard(entered: HijriDate) {
-    Card(
+    IslamicCard(
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.secondaryContainer,
-        ),
-        shape = RoundedCornerShape(16.dp),
+        containerColor = MaterialTheme.colorScheme.secondaryContainer,
     ) {
-        Column(modifier = Modifier.padding(14.dp)) {
+        Column {
             Text(
                 text = stringResource(R.string.hajj_calc_entered),
                 style = MaterialTheme.typography.labelLarge,
@@ -213,18 +207,15 @@ private fun EnteredDateCard(entered: HijriDate) {
 private fun KeyDayCard(day: HajjKeyDay, entered: HijriDate) {
     val diff = day.daysFrom(entered)
     val highlight = diff == 0L
-    Card(
+    IslamicCard(
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(
-            containerColor = if (highlight) {
-                MaterialTheme.colorScheme.primaryContainer
-            } else {
-                MaterialTheme.colorScheme.surface
-            },
-        ),
-        shape = RoundedCornerShape(16.dp),
+        containerColor = if (highlight) {
+            MaterialTheme.colorScheme.primaryContainer
+        } else {
+            MaterialTheme.colorScheme.surfaceContainerLow
+        },
     ) {
-        Column(modifier = Modifier.padding(14.dp)) {
+        Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = dayTitle(day),

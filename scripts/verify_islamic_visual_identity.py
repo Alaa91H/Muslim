@@ -126,6 +126,11 @@ REQUIRED_SNIPPETS = {
         "IslamicSecondaryButton",
         "MuslimStateSurface",
     ],
+    "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/HajjDaysCalculatorScreen.kt": [
+        "IslamicCard",
+        "MuslimStateSurface",
+        "MuslimStateTone.Critical",
+    ],
     "docs/islamic_visual_identity.md": [
         "Modern Islamic Minimalism",
         "Ornament catalogue and opacity",

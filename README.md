@@ -30,7 +30,7 @@ The phone app has four primary destinations: **Prayer Times**, **Quran**, **Qibl
 
 ## Product UI and accessibility system
 
-The Compose interface follows **Modern Islamic Minimalism**: clear Arabic and Latin hierarchy, calm tonal surfaces, restrained geometric detail, and central semantic components rather than feature-specific visual inventions. The current main line applies this system to the flagship Prayer Times, Quran, Hadith, More, and Settings experiences as well as focused consistency passes across Qibla, Tasbih, Adhkar, Learning, Islamic Finance, Wear, Ramadan planning, Zakat, the reference library, Quran downloads, and Family Life.
+The Compose interface follows **Modern Islamic Minimalism**: clear Arabic and Latin hierarchy, calm tonal surfaces, restrained geometric detail, and central semantic components rather than feature-specific visual inventions. The current main line applies this system to the flagship Prayer Times, Quran, Hadith, More, and Settings experiences as well as focused consistency passes across Qibla, Tasbih, Adhkar, Learning, Islamic Finance, Wear, Ramadan planning, Zakat, the reference library, Quran downloads, Family Life, and Hajj-day planning.
 
 | Surface | Experience decision | Preserved boundary |
 |---|---|---|
@@ -40,6 +40,7 @@ The Compose interface follows **Modern Islamic Minimalism**: clear Arabic and La
 | **Ramadan and Zakat** | Ramadan planning, habit progress, Iftar/Suhoor feedback, price retrieval, Nisab outcomes, and saved calculations use calm shared surfaces and clear state treatment. | Fasting records, prayer completion, Ramadan reminders, Zakat inputs, price-provider boundaries, calculations, and history remain unchanged. |
 | **Reference and downloads** | Reference content uses more deliberate book, search-empty, and reading surfaces; Quran download summaries, coverage, reciter state, and transfer cards share the same hierarchy. | Study content, language switching, internal navigation, downloads, reciter queues, local files, and deletion confirmation remain unchanged. |
 | **Family Life** | Ruqyah, baby-name results, Aqiqah planning and family guidance use shared cards, state surfaces and an accessible secondary action. | Bilingual content, safe-audio validation, external audio launch, name search, date parsing, schedule calculation and reminder persistence remain unchanged. |
+| **Hajj-day planning** | The Hijri-date introduction, entered-date result and calculated key-day cards share a calm hierarchy; an invalid date has a clear critical recovery state. | Digit handling, date parsing, Hijri/Gregorian conversion, calendar calculation and relative-day semantics remain unchanged. |
 | **Wear OS** | Next prayer, countdown, Tasbih, synchronization, and haptic state are organised for fast reading on a small round display. | The companion remains opt-in and paired; the phone stays authoritative. |
 
 See [`docs/design/ui_ux_transformation_plan.md`](docs/design/ui_ux_transformation_plan.md) for system decisions, scope, and verification boundaries.

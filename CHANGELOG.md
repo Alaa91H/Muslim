@@ -5,6 +5,14 @@ sectioned format as v1.10.0 and are generated from the commits for each tag.
 
 ## Unreleased
 
+### Hajj Days Calculator Surface Consistency
+
+- Unified the Hajj-days calculator introduction, entered-date result and key-day cards on the shared Modern Islamic Minimalism surface primitive.
+- Replaced the screen-local invalid Hijri-date error with the shared critical state surface, giving a clearer recovery hierarchy without changing digit handling, parsing, calendar calculation, Gregorian conversion or relative-day semantics.
+- Extended the visual-identity verifier to require the shared Hajj calculator card and critical-state treatment.
+
+## Muslim v1.25.5
+
 ### Family Guidance Surface Consistency
 
 - Unified Ruqyah passages and audio rows, baby-name results and empty search feedback, Aqiqah application/reminder/date surfaces, and family guidance articles on the shared Modern Islamic Minimalism card and state primitives.
