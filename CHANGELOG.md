@@ -3,6 +3,18 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Unreleased
+
+### Reliability and Adaptive Islamic Design
+
+- Fixed a concurrent synthesized-Adhan audio race that could attempt an `AudioTrack` write after the track had been stopped or released. Invalidated platform audio streams now end the fallback session safely instead of propagating a playback exception to the application.
+- Hardened GPS selection so provider, reverse-geocoding, timezone-resolution, persistence, and rescheduling failures are reported through the existing recoverable location state. Coroutine cancellation still propagates normally, and saved coordinates continue to require a coordinate-derived IANA timezone.
+- Fixed per-book Hadith preparation in Android packages that expose compressed assets without the `.gz` suffix. The repository now opens the selected collection as a GZIP stream when available and falls back to Android’s unpacked NDJSON representation while retaining bounded 150-row imports, book scoping, chapter indexing, and Paging.
+- Replaced technical Hadith preparation errors in the UI with a localized, retryable offline-data message. File paths and implementation exceptions are no longer presented to readers.
+- Replaced the illustrative Hadith catalogue covers with compact resources derived from verified public-domain photographs of physical Hadith volumes and historical manuscript/title-page sources. The provenance record documents each resource and does not represent a general volume photograph as a specific publisher edition.
+- Added a central application scaffold, adaptive content frame, and reduced-motion preference provider. The prayer home, GPS location, Hadith library, More hub, and Settings now share a deliberate width bound on large screens while specialist reading surfaces keep their own layout responsibility.
+- Added CI guardrails for the AudioTrack/GPS/Hadith failure recoveries and central adaptive design-system adoption, alongside the existing accessibility, identity, prayer-calculation, notification, content, and paging checks.
+
 ## Muslim v1.25.10
 
 ### Lazy Hadith Library, Location Recovery and Prayer Alerts

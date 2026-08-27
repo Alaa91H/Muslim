@@ -19,7 +19,7 @@ The phone app has four primary destinations: **Prayer Times**, **Quran**, **Qibl
 |---|---|
 | **Prayer and Adhan** | Local prayer-time calculation, selectable calculation methods and Asr school, high-latitude guidance, saved/manual location or one-time location refresh, Hijri adjustment, per-prayer notification controls, Adhan playback, reminders, quiet hours, and next-prayer countdowns. |
 | **Quran** | Offline Quran reading, bookmarks and reading progress, translations/tafsir where supplied, Arabic search and word-frequency tools, reciter selection, playback, and user-managed recitation downloads. |
-| **Hadith Library** | A local catalogue of nine independently compressed Hadith books with original cover artwork, book and chapter indexes, Arabic-normalized book-scoped FTS search, bookmarks, sharing/copying, and Room/Compose Paging. Entering the catalogue imports no religious text; opening a book streams only that book in bounded local batches. |
+| **Hadith Library** | A local catalogue of nine independently compressed Hadith books with verified public-domain physical-volume and manuscript imagery, book and chapter indexes, Arabic-normalized book-scoped FTS search, bookmarks, sharing/copying, and Room/Compose Paging. Entering the catalogue imports no religious text; opening a book streams only that book in bounded local batches. |
 | **Adhkar and Tasbih** | Categorised adhkar, local counters, optional haptics, tasbih logs, a widget, and optional reminder surfaces under user control. |
 | **Learning Centre** | Structured guides for faith, purification, salah, fasting, zakat, funerals, and selected madhhab-orientation material, together with integrated Names of Allah and Hajj/Umrah experiences. |
 | **Reference and study** | Local reference material, historical timeline and schematic atlas content, a scholarly-library starter catalogue, citation-aware notes, and local flashcards. The scholarly-library starter is not a redistributed copy of third-party digital libraries or publisher editions. |
@@ -40,7 +40,7 @@ For a GPS or manually entered location, the app resolves an **IANA** timezone lo
 
 ## Product UI and accessibility system
 
-The Compose interface follows **Modern Islamic Minimalism**: clear Arabic and Latin hierarchy, calm tonal surfaces, restrained geometric detail, and central semantic components rather than feature-specific visual inventions. The current main line applies this system to the flagship Prayer Times, Quran, Hadith, More, and Settings experiences as well as focused consistency passes across Qibla, Tasbih, Adhkar, Learning, Islamic Finance, Wear, Ramadan planning, Zakat, the reference library, Quran downloads, Family Life, Hajj-day planning, and travel/expat planning.
+The Compose interface follows **Modern Islamic Minimalism**: clear Arabic and Latin hierarchy, calm tonal surfaces, restrained geometric detail, and central semantic components rather than feature-specific visual inventions. The current main line applies this system to the flagship Prayer Times, Quran, Hadith, More, and Settings experiences as well as focused consistency passes across Qibla, Tasbih, Adhkar, Learning, Islamic Finance, Wear, Ramadan planning, Zakat, the reference library, Quran downloads, Family Life, Hajj-day planning, and travel/expat planning. The application shell now centralises its scaffold, adapts ordinary task content to a readable large-screen width, and exposes the saved reduced-motion preference to shared Compose consumers.
 
 | Surface | Experience decision | Preserved boundary |
 |---|---|---|
@@ -54,15 +54,15 @@ The Compose interface follows **Modern Islamic Minimalism**: clear Arabic and La
 | **Travel and expat planning** | GPS controls, travel-distance assessment, local compass and high-latitude guidance use shared cards, semantic notices and accessible actions. | Location permissions, saved origin, distance assessment, Qibla direction, high-latitude preview and prayer-settings navigation remain unchanged. |
 | **Wear OS** | Next prayer, countdown, Tasbih, synchronization, and haptic state are organised for fast reading on a small round display. | The companion remains opt-in and paired; the phone stays authoritative. |
 
-See [`docs/design/ui_ux_transformation_plan.md`](docs/design/ui_ux_transformation_plan.md) for system decisions, scope, and verification boundaries.
+See [`docs/design/ui_ux_transformation_plan.md`](docs/design/ui_ux_transformation_plan.md) and [`docs/design/premium_islamic_design_system.md`](docs/design/premium_islamic_design_system.md) for system decisions, shared primitives, and verification boundaries.
 
 ## Hadith library reliability and loading model
 
 The Hadith screen is deliberately designed for a large offline library without blocking the main UI thread or materialising the whole library as one list.
 
-> Each supported collection is shipped as its own compressed line-delimited JSON asset. Entering the catalogue reads only static collection metadata. Only after the user selects a book is that book read on `Dispatchers.IO`, streamed through a `GZIPInputStream`, and inserted into Room in bounded 150-row transactions. Chapters and Arabic search are restricted to the selected book; Compose receives the visible page and its prefetch window through Paging.
+> Each supported collection is shipped as its own compressed line-delimited JSON asset. Entering the catalogue reads only static collection metadata. Only after the user selects a book is that book read on `Dispatchers.IO`, streamed through a `GZIPInputStream` when that suffix is retained or Android’s equivalent unpacked NDJSON asset representation when packaging removes it, and inserted into Room in bounded 150-row transactions. Chapters and Arabic search are restricted to the selected book; Compose receives the visible page and its prefetch window through Paging.
 
-The screen exposes collection preparation progress, retry for a failed selected-book import, chapter indexes, and page load-state retry. The daily-Hadith worker does not trigger a hidden all-library import. The current versioned catalogue tracks **37,919** streamed records across Sahih al-Bukhari, Sahih Muslim, Sunan Abi Dawud, Jami at-Tirmidhi, Sunan an-Nasai, Sunan Ibn Majah, Muwatta Malik, Riyad as-Salihin and Forty Hadith of al-Nawawi. It is not a claim that all editions, translations, grading choices, or scholarly contexts are exhaustive. Religious-content and source review remain separate from software review. See [the lazy library and notification audit](docs/qa/lazy_hadith_location_notification_audit.md) and the [official Paging overview](https://developer.android.com/topic/libraries/architecture/paging/v3-overview).
+The screen exposes collection preparation progress, retry for a failed selected-book import, chapter indexes, and page load-state retry; readers receive a localized recovery message rather than an asset path or an implementation exception. The daily-Hadith worker does not trigger a hidden all-library import. The current versioned catalogue tracks **37,919** streamed records across Sahih al-Bukhari, Sahih Muslim, Sunan Abi Dawud, Jami at-Tirmidhi, Sunan an-Nasai, Sunan Ibn Majah, Muwatta Malik, Riyad as-Salihin and Forty Hadith of al-Nawawi. It is not a claim that all editions, translations, grading choices, or scholarly contexts are exhaustive. Religious-content and source review remain separate from software review. See [the lazy library and notification audit](docs/qa/lazy_hadith_location_notification_audit.md), the [cover provenance record](docs/content/hadith_cover_source_candidates.md), and the [official Paging overview](https://developer.android.com/topic/libraries/architecture/paging/v3-overview).
 
 ## Cross-platform and automation boundaries
 
@@ -153,6 +153,7 @@ python3 scripts/verify_islamic_visual_identity.py
 python3 scripts/verify_prayer_calculation_integrity.py
 python3 scripts/verify_prayer_location_notification_contract.py
 python3 scripts/verify_responsive_customization_layout.py
+python3 scripts/verify_design_system_adoption.py
 ```
 
 The GitHub Actions workflow builds both applications, runs unit tests, Android Lint, Detekt, and emulator tests, and creates signed phone and Wear release APKs. Tagged `v*` builds publish a GitHub Release with both artifacts. The release workflow is an automated safety net, not a substitute for device, vehicle, watch, accessibility, or content-provider review.
