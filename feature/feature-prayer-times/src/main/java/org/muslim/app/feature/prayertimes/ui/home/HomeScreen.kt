@@ -42,11 +42,7 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -65,7 +61,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.core.common.appearance.AppOrnamentStyle
 import org.muslim.app.core.common.prayer.AdhanSoundOption
-import org.muslim.app.core.common.prayer.BundledAdhanSound
 import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.feature.prayertimes.ui.formatCountdown
 import org.muslim.app.feature.prayertimes.ui.localDateFormatter
@@ -80,8 +75,6 @@ import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.core.designsystem.IslamicIconSize
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
-import org.muslim.app.feature.prayertimes.ui.settings.AdhanCustomizeDialog
-import org.muslim.app.feature.prayertimes.ui.settings.PrayerSettingsViewModel
 import org.muslim.app.core.datastore.prayer.trackablePrayers
 
 /**
@@ -91,22 +84,14 @@ import org.muslim.app.core.datastore.prayer.trackablePrayers
 @Composable
 fun HomeScreen(
     onSelectLocation: () -> Unit,
+    onConfigurePrayerAlert: (Prayer) -> Unit = {},
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
-    alertSettingsViewModel: PrayerSettingsViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
-    val alertSettings by alertSettingsViewModel.settings.collectAsStateWithLifecycle()
-    var customizingPrayer by remember { mutableStateOf<Prayer?>(null) }
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
     val ornamentStyle by viewModel.ornamentStyle.collectAsStateWithLifecycle()
     val showPrayerTrackerOnHome by viewModel.showPrayerTrackerOnHome.collectAsStateWithLifecycle()
-
-    // A configuration preview is never allowed to outlive this screen or to
-    // interfere with an actual scheduled Adhan session.
-    DisposableEffect(Unit) {
-        onDispose { alertSettingsViewModel.stopPreview() }
-    }
 
     val context = LocalContext.current
 
@@ -303,11 +288,9 @@ fun HomeScreen(
                         }
                         PrayerAlertAction(
                             prayer = prayer,
-                            adhanEnabled = alertSettings.adhanEnabled,
-                            option = alertSettings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
-                            volume = alertSettings.adhanVolumeFor(prayer),
+                            alert = state.prayerAlerts[prayer] ?: HomeViewModel.PrayerAlert(),
                             isNextPrayer = isNextPrayer,
-                            onClick = { customizingPrayer = prayer },
+                            onClick = { onConfigurePrayerAlert(prayer) },
                         )
                     }
                     }
@@ -360,41 +343,6 @@ fun HomeScreen(
             MonthlyGrid(state, use24h)
         }
 
-        customizingPrayer?.let { prayer ->
-            AdhanCustomizeDialog(
-                prayer = prayer,
-                option = alertSettings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
-                sound = BundledAdhanSound.fromId(
-                    alertSettings.bundledAdhanSounds[prayer] ?: BundledAdhanSound.DEFAULT_ID,
-                ),
-                volume = alertSettings.adhanVolumeFor(prayer),
-                vibrate = alertSettings.vibrateFor(prayer),
-                adjustmentMinutes = alertSettings.adjustments[prayer],
-                useGlobalVolume = alertSettings.useGlobalAdhanVolume,
-                onPreview = { sound, volume ->
-                    alertSettingsViewModel.previewBundled(prayer, sound, volume)
-                },
-                onLiveVolume = alertSettingsViewModel::setLivePreviewVolume,
-                onDismiss = {
-                    alertSettingsViewModel.stopPreview()
-                    customizingPrayer = null
-                },
-                onConfirm = { option, sound, volume, vibrate, adjustment, useGlobalVolume ->
-                    alertSettingsViewModel.saveAdhanCustomization(
-                        prayer = prayer,
-                        option = option,
-                        bundledSound = sound,
-                        volume = volume,
-                        vibrate = vibrate,
-                        adjustmentMinutes = adjustment,
-                        useGlobalVolume = useGlobalVolume,
-                    )
-                    alertSettingsViewModel.stopPreview()
-                    customizingPrayer = null
-                },
-            )
-        }
-
         if (showPrayerTrackerOnHome) {
             Spacer(Modifier.height(IslamicSpacing.SectionVertical))
             PrayerCompletionCard(
@@ -428,16 +376,14 @@ private fun prayerIcon(prayer: Prayer): ImageVector = when (prayer) {
 @Composable
 private fun PrayerAlertAction(
     prayer: Prayer,
-    adhanEnabled: Boolean,
-    option: AdhanSoundOption,
-    volume: Int,
+    alert: HomeViewModel.PrayerAlert,
     isNextPrayer: Boolean,
     onClick: () -> Unit,
 ) {
     val configurable = prayer != Prayer.Sunrise
     val icon = when {
-        !configurable || !adhanEnabled || option == AdhanSoundOption.Silent -> Icons.Filled.NotificationsOff
-        option == AdhanSoundOption.VibrateOnly -> Icons.Filled.Vibration
+        !configurable || !alert.adhanEnabled || alert.option == AdhanSoundOption.Silent -> Icons.Filled.NotificationsOff
+        alert.option == AdhanSoundOption.VibrateOnly -> Icons.Filled.Vibration
         else -> Icons.Filled.NotificationsActive
     }
     val contentColor = if (isNextPrayer) {
@@ -448,7 +394,7 @@ private fun PrayerAlertAction(
     val contentDescription = if (configurable) {
         stringResource(R.string.settings_adhan_customize_title, stringResource(prayerLabelRes(prayer)))
     } else {
-        stringResource(R.string.home_prayer_alert_unavailable)
+        stringResource(R.string.adhan_option_silent)
     }
 
     Column(
@@ -457,7 +403,7 @@ private fun PrayerAlertAction(
     ) {
         if (configurable) {
             Text(
-                text = "$volume%",
+                text = "${alert.volume}%",
                 style = MaterialTheme.typography.labelSmall,
                 color = contentColor,
             )

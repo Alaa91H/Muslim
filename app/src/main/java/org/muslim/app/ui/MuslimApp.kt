@@ -37,6 +37,7 @@ import androidx.navigation.navArgument
 import org.muslim.app.BuildConfig
 import org.muslim.app.R
 import org.muslim.app.crash.CrashReportDialog
+import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.datastore.AppThemeMode
 import org.muslim.app.core.ui.theme.AppTheme
 import org.muslim.app.feature.prayertimes.ui.home.HomeScreen
@@ -231,7 +232,12 @@ fun MuslimApp(
                 modifier = Modifier.padding(innerPadding),
             ) {
                 composable("home") {
-                    HomeScreen(onSelectLocation = { navController.navigate("location") })
+                    HomeScreen(
+                        onSelectLocation = { navController.navigate("location") },
+                        onConfigurePrayerAlert = { prayer ->
+                            navController.navigate("$PRAYER_SETTINGS_ROUTE?alertPrayer=${prayer.name}")
+                        },
+                    )
                 }
                 composable("quran") {
                     SurahListScreen(
@@ -403,8 +409,22 @@ fun MuslimApp(
                 composable(QURAN_DOWNLOADS_ROUTE) {
                     QuranDownloadsScreen(onBack = { navController.popBackStack() })
                 }
-                composable(PRAYER_SETTINGS_ROUTE) {
-                    PrayerSettingsScreen(onOpenLocation = { navController.navigate("location") })
+                composable(
+                    route = "$PRAYER_SETTINGS_ROUTE?alertPrayer={alertPrayer}",
+                    arguments = listOf(
+                        navArgument("alertPrayer") {
+                            type = NavType.StringType
+                            defaultValue = ""
+                        },
+                    ),
+                ) { entry ->
+                    val initialCustomizingPrayer = entry.arguments
+                        ?.getString("alertPrayer")
+                        ?.let { name -> runCatching { Prayer.valueOf(name) }.getOrNull() }
+                    PrayerSettingsScreen(
+                        onOpenLocation = { navController.navigate("location") },
+                        initialCustomizingPrayer = initialCustomizingPrayer,
+                    )
                 }
                 composable(ABOUT_ROUTE) {
                     AboutScreen(

@@ -91,6 +91,7 @@ import java.time.LocalTime
 @Composable
 fun PrayerSettingsScreen(
     onOpenLocation: () -> Unit,
+    initialCustomizingPrayer: Prayer? = null,
     modifier: Modifier = Modifier,
     viewModel: PrayerSettingsViewModel = hiltViewModel(),
 ) {
@@ -107,7 +108,9 @@ fun PrayerSettingsScreen(
 
     var pendingSoundPrayer by remember { mutableStateOf<Prayer?>(null) }
     var downloadPrayer by remember { mutableStateOf<Prayer?>(null) }
-    var customizingPrayer by remember { mutableStateOf<Prayer?>(null) }
+    var customizingPrayer by remember(initialCustomizingPrayer) {
+        mutableStateOf(initialCustomizingPrayer?.takeIf { it != Prayer.Sunrise })
+    }
 
     // The prayer whose adhan is currently ringing as a preview. Cleared when
     // the playback ends on its own (or when the user stops it) so the card

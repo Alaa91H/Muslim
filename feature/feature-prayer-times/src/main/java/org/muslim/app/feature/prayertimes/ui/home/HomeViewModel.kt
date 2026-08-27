@@ -21,6 +21,7 @@ import org.muslim.app.core.datastore.prayer.PrayerCompletionRepository
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.datastore.prayer.toPrayerParameters
+import org.muslim.app.core.common.prayer.AdhanSoundOption
 import org.muslim.app.core.common.prayer.Coordinates
 import org.muslim.app.core.common.prayer.NextPrayer
 import org.muslim.app.core.common.prayer.Prayer
@@ -67,6 +68,13 @@ class HomeViewModel @Inject constructor(
         val maghrib: LocalTime?,
     )
 
+    /** Read-only alert presentation for a row; detailed editing remains in Prayer Settings. */
+    data class PrayerAlert(
+        val adhanEnabled: Boolean = true,
+        val option: AdhanSoundOption = AdhanSoundOption.Default,
+        val volume: Int = 100,
+    )
+
     data class UiState(
         val hasLocation: Boolean = false,
         val locationName: String = "",
@@ -85,6 +93,8 @@ class HomeViewModel @Inject constructor(
         val monthDays: List<DayTimes> = emptyList(),
         /** Local-only prayer checklist for the selected day; sunrise is excluded. */
         val completedPrayers: Set<Prayer> = emptySet(),
+        /** Per-prayer alert state shown beside the daily timetable. */
+        val prayerAlerts: Map<Prayer, PrayerAlert> = emptyMap(),
     )
 
     private val clock = flow {
@@ -162,6 +172,13 @@ class HomeViewModel @Inject constructor(
                 emptyList()
             },
             completedPrayers = completedPrayers,
+            prayerAlerts = Prayer.entries.associateWith { prayer ->
+                PrayerAlert(
+                    adhanEnabled = settings.adhanEnabled,
+                    option = settings.adhanSounds[prayer] ?: AdhanSoundOption.Default,
+                    volume = settings.adhanVolumeFor(prayer),
+                )
+            },
         )
     }
 

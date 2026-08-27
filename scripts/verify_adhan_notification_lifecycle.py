@@ -47,8 +47,8 @@ REQUIRED_SNIPPETS = {
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeScreen.kt": [
         "PrayerAlertAction(",
-        "AdhanCustomizeDialog(",
-        "alertSettings.adhanVolumeFor(prayer)",
+        "onConfigurePrayerAlert: (Prayer) -> Unit",
+        "state.prayerAlerts[prayer]",
         "Prayer.Sunrise",
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/settings/PrayerSettingsScreen.kt": [
