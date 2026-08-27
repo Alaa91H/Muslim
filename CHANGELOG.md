@@ -3,6 +3,19 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.25.14
+
+### GPS Crash Resilience and Regression Coverage
+
+- Removed the remaining construction-time failure path from GPS selection. The fused Google Play Services client and Android framework location manager are now resolved only when a current location is requested and are each contained behind a recoverable boundary. A device with unavailable, corrupted, or vendor-modified location services therefore receives the existing retryable GPS-unavailable state instead of a process-terminating exception.
+- Preserved both Android foreground-location grants: precise permission continues to request a high-accuracy live fix, while approximate permission remains a supported path with local fused and framework fallbacks. Provider results are now rejected before persistence when latitude or longitude is non-finite or outside the valid geographic range.
+- Added five Android-environment unit regressions for deferred initialization, simultaneous Google Play Services and OEM framework failures, approximate-permission fallback, invalid coordinates, and missing permission. Added ViewModel regressions that prove provider and reverse-geocoding exceptions are surfaced as the recoverable `gps_failed` state.
+- Added a device-level no-crash regression to the location module and made it an explicit part of the required Android emulator suite. The release pipeline now exercises this exact failure mode on a booted Android emulator before a tagged release can publish.
+
+### Verification
+
+- The release candidate passed debug assembly, unit tests, Android Lint, Detekt, and the Android emulator suite in CI. The GPS recovery contract guard also verifies that the deferred initialization, safety checks, and regression tests remain present in future changes.
+
 ## Muslim v1.25.13
 
 ### GPS startup resilience
