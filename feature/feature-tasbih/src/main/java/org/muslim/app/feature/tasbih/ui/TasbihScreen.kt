@@ -32,15 +32,11 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.automirrored.filled.Undo
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -61,10 +57,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -72,6 +73,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicSecondaryButton
+import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.feature.tasbih.R
 import org.muslim.app.feature.tasbih.domain.DailyCount
 import org.muslim.app.feature.tasbih.domain.TargetSoundSettings
@@ -105,6 +109,9 @@ fun TasbihScreen(
     val currentSoundSettings by rememberUpdatedState(soundSettings)
     var selectedCategory by remember { mutableStateOf(state.phrase.category) }
     var showTargetDialog by remember { mutableStateOf(false) }
+    val counterDescription = "${state.phrase.text}. ${state.count}. " +
+        stringResource(R.string.tasbih_of_target, state.target.toString()) + ". " +
+        stringResource(R.string.tasbih_tap_hint)
 
     // Vibrate + announce + optional tone whenever a full round completes (33/99/100/…).
     LaunchedEffect(Unit) {
@@ -159,7 +166,7 @@ fun TasbihScreen(
 
             Spacer(Modifier.height(20.dp))
 
-            // Big tappable counter circle
+            // The counter remains the single, deliberately generous primary action.
             Box(
                 modifier = Modifier
                     .size(260.dp)
@@ -168,6 +175,10 @@ fun TasbihScreen(
                     .clickable {
                         haptics.performHapticFeedback(HapticFeedbackType.LongPress)
                         viewModel.increment()
+                    }
+                    .semantics {
+                        role = Role.Button
+                        contentDescription = counterDescription
                     },
                 contentAlignment = Alignment.Center,
             ) {
@@ -177,6 +188,8 @@ fun TasbihScreen(
                     } else {
                         0f
                     },
+                    trackColor = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.22f),
+                    progressColor = MaterialTheme.colorScheme.onPrimaryContainer,
                 )
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
@@ -194,7 +207,7 @@ fun TasbihScreen(
                         Text(
                             text = stringResource(R.string.tasbih_target_reached),
                             style = MaterialTheme.typography.titleSmall,
-                            color = MaterialTheme.colorScheme.primary,
+                            color = MaterialTheme.colorScheme.onPrimaryContainer,
                         )
                     }
                     if (state.rounds > 0) {
@@ -231,27 +244,23 @@ fun TasbihScreen(
 
             Spacer(Modifier.height(12.dp))
 
-            // Virtue of the selected dhikr
-            Card(
+            // Supporting meaning stays present but subordinate to the counting action.
+            IslamicCard(
                 modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                ),
+                containerColor = MaterialTheme.colorScheme.secondaryContainer,
             ) {
-                Column(modifier = Modifier.padding(12.dp)) {
-                    Text(
-                        text = stringResource(R.string.tasbih_virtue_label),
-                        style = MaterialTheme.typography.labelLarge,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        text = state.phrase.virtue,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    )
-                }
+                Text(
+                    text = stringResource(R.string.tasbih_virtue_label),
+                    style = MaterialTheme.typography.labelLarge,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = state.phrase.virtue,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                )
             }
 
             Spacer(Modifier.height(12.dp))
@@ -261,7 +270,7 @@ fun TasbihScreen(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                OutlinedButton(
+                IslamicSecondaryButton(
                     onClick = viewModel::decrement,
                     modifier = Modifier.weight(1f),
                 ) {
@@ -269,7 +278,7 @@ fun TasbihScreen(
                     Spacer(Modifier.width(6.dp))
                     Text(stringResource(R.string.tasbih_undo))
                 }
-                OutlinedButton(
+                IslamicSecondaryButton(
                     onClick = viewModel::reset,
                     modifier = Modifier.weight(1f),
                 ) {
@@ -277,7 +286,7 @@ fun TasbihScreen(
                     Spacer(Modifier.width(6.dp))
                     Text(stringResource(R.string.tasbih_reset))
                 }
-                OutlinedButton(
+                IslamicSecondaryButton(
                     onClick = viewModel::resetAll,
                     modifier = Modifier.weight(1f),
                 ) {
@@ -324,16 +333,10 @@ fun TasbihScreen(
 
             Spacer(Modifier.height(20.dp))
 
-            // Stats
-            Text(
-                text = stringResource(R.string.tasbih_total_today, state.totalToday),
-                style = MaterialTheme.typography.titleSmall,
-                modifier = Modifier.fillMaxWidth(),
-            )
-            Text(
-                text = stringResource(R.string.tasbih_week_stats),
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.fillMaxWidth(),
+            // Keep the summary compact and readable after the primary devotional action.
+            MuslimSectionHeader(
+                title = stringResource(R.string.tasbih_week_stats),
+                supportingText = stringResource(R.string.tasbih_total_today, state.totalToday),
             )
             Spacer(Modifier.height(8.dp))
             WeeklyChart(
@@ -450,13 +453,17 @@ private fun CustomTargetDialog(
 
 /** Progress ring drawn behind the count (arc cycles with the target). */
 @Composable
-private fun CounterRing(progress: Float) {
+private fun CounterRing(
+    progress: Float,
+    trackColor: Color,
+    progressColor: Color,
+) {
     Canvas(modifier = Modifier.fillMaxSize()) {
         val stroke = 10.dp.toPx()
         val inset = stroke / 2
         val arcSize = Size(size.width - stroke, size.height - stroke)
         drawArc(
-            color = androidx.compose.ui.graphics.Color.White.copy(alpha = 0.35f),
+            color = trackColor,
             startAngle = -90f,
             sweepAngle = 360f,
             useCenter = false,
@@ -465,7 +472,7 @@ private fun CounterRing(progress: Float) {
             style = androidx.compose.ui.graphics.drawscope.Stroke(width = stroke),
         )
         drawArc(
-            color = androidx.compose.ui.graphics.Color.White,
+            color = progressColor,
             startAngle = -90f,
             sweepAngle = 360f * progress.coerceIn(0f, 1f),
             useCenter = false,
@@ -482,26 +489,27 @@ private fun TargetSoundCard(
     settings: TargetSoundSettings,
     onToggle: (Boolean) -> Unit,
 ) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(12.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Column(modifier = Modifier.weight(1f)) {
-                    Text(
-                        text = stringResource(R.string.tasbih_sound_title),
-                        style = MaterialTheme.typography.titleSmall,
-                        fontWeight = FontWeight.SemiBold,
-                    )
-                    Text(
-                        text = stringResource(R.string.tasbih_sound_desc),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-                Switch(
-                    checked = settings.enabled,
-                    onCheckedChange = onToggle,
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = stringResource(R.string.tasbih_sound_title),
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.SemiBold,
+                )
+                Text(
+                    text = stringResource(R.string.tasbih_sound_desc),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
+            Switch(
+                checked = settings.enabled,
+                onCheckedChange = onToggle,
+            )
         }
     }
 }

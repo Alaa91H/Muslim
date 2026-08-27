@@ -8,7 +8,10 @@ import androidx.core.content.edit
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -21,6 +24,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material3.Button
 import androidx.wear.compose.material3.MaterialTheme
@@ -75,19 +80,34 @@ private fun WearCompanionApp() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Text(text = stringResource(org.muslim.app.wear.R.string.wear_next_prayer))
-            PrayerOverview(snapshot = snapshot, nowMillis = nowMillis)
-            Text(text = stringResource(org.muslim.app.wear.R.string.wear_tasbih))
             Text(
-                text = snapshot?.let { state ->
-                    stringResource(
+                text = stringResource(org.muslim.app.wear.R.string.wear_next_prayer),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            PrayerOverview(snapshot = snapshot, nowMillis = nowMillis)
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = stringResource(org.muslim.app.wear.R.string.wear_tasbih),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            snapshot?.let { state ->
+                Text(
+                    text = state.tasbihPhrase,
+                    style = MaterialTheme.typography.titleSmall,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Text(
+                    text = stringResource(
                         org.muslim.app.wear.R.string.wear_tasbih_count,
                         state.tasbihCount,
                         state.tasbihTarget,
-                    )
-                } ?: stringResource(org.muslim.app.wear.R.string.wear_sync_waiting),
-            )
-            snapshot?.let { state ->
+                    ),
+                    style = MaterialTheme.typography.displaySmall,
+                    fontWeight = FontWeight.Bold,
+                )
                 Button(
                     onClick = {
                         if (hapticsEnabled) {
@@ -98,9 +118,14 @@ private fun WearCompanionApp() {
                         requestTasbihIncrement(context)
                     },
                 ) {
-                    Text(text = state.tasbihPhrase)
+                    Text(text = stringResource(org.muslim.app.wear.R.string.wear_increment))
                 }
-            }
+            } ?: Text(
+                text = stringResource(org.muslim.app.wear.R.string.wear_sync_waiting),
+                style = MaterialTheme.typography.bodySmall,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth(),
+            )
             Button(
                 onClick = {
                     hapticsEnabled = !hapticsEnabled
@@ -109,8 +134,15 @@ private fun WearCompanionApp() {
                     }
                 },
             ) {
-                val status = if (hapticsEnabled) "✓" else "×"
-                Text(text = "${stringResource(org.muslim.app.wear.R.string.wear_vibration)} $status")
+                Text(
+                    text = stringResource(
+                        if (hapticsEnabled) {
+                            org.muslim.app.wear.R.string.wear_vibration_on
+                        } else {
+                            org.muslim.app.wear.R.string.wear_vibration_off
+                        },
+                    ),
+                )
             }
         }
     }
@@ -124,13 +156,22 @@ private fun PrayerOverview(snapshot: WearPrayerSnapshot?, nowMillis: Long) {
         Text(text = stringResource(org.muslim.app.wear.R.string.wear_no_prayer))
         return
     }
-    Text(text = nextPrayerName)
-    Text(text = DateFormat.getTimeInstance(DateFormat.SHORT).format(Date(nextPrayerAt)))
+    Text(
+        text = nextPrayerName,
+        style = MaterialTheme.typography.titleLarge,
+        fontWeight = FontWeight.SemiBold,
+    )
+    Text(
+        text = DateFormat.getTimeInstance(DateFormat.SHORT).format(Date(nextPrayerAt)),
+        style = MaterialTheme.typography.bodySmall,
+    )
     Text(
         text = stringResource(
             org.muslim.app.wear.R.string.wear_countdown,
             formatCountdown((nextPrayerAt - nowMillis).coerceAtLeast(0L)),
         ),
+        style = MaterialTheme.typography.titleMedium,
+        color = MaterialTheme.colorScheme.primary,
     )
 }
 

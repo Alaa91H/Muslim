@@ -68,6 +68,37 @@ REQUIRED_SNIPPETS = {
     "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/SurahListScreen.kt": [
         "IslamicOrnament.SurahHeader",
     ],
+    "feature/feature-qibla/src/main/java/org/muslim/app/feature/qibla/ui/QiblaScreen.kt": [
+        "IslamicCard",
+        "MuslimStateSurface",
+        "contentDescription = compassDescription",
+        "drawRoundRect(",
+    ],
+    "feature/feature-tasbih/src/main/java/org/muslim/app/feature/tasbih/ui/TasbihScreen.kt": [
+        "IslamicSecondaryButton",
+        "MuslimSectionHeader",
+        "role = Role.Button",
+    ],
+    "feature/feature-adhkar/src/main/java/org/muslim/app/feature/adhkar/ui/AdhkarScreen.kt": [
+        "IslamicCard",
+        "MuslimSectionHeader",
+        "LocalAccessibilityVisuals",
+    ],
+    "feature/feature-finance/src/main/java/org/muslim/app/feature/finance/ui/IslamicFinanceScreen.kt": [
+        "IslamicCard",
+        "IslamicPrimaryButton",
+        "MuslimStateSurface",
+    ],
+    "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/LearnScreen.kt": [
+        "IslamicCard",
+        "MuslimSectionHeader",
+        "Arrangement.spacedBy(8.dp)",
+    ],
+    "wear/src/main/java/org/muslim/app/wear/WearMainActivity.kt": [
+        "wear_vibration_on",
+        "wear_vibration_off",
+        "wear_increment",
+    ],
     "docs/islamic_visual_identity.md": [
         "Modern Islamic Minimalism",
         "Ornament catalogue and opacity",
@@ -110,6 +141,13 @@ FORBIDDEN_SNIPPETS = {
     "core/core-design-system/src/main/java/org/muslim/app/core/designsystem/Color.kt": [
         "0xFFFFD700",
         "0xFFFFD700",
+    ],
+    "feature/feature-qibla/src/main/java/org/muslim/app/feature/qibla/ui/QiblaScreen.kt": [
+        'AnnotatedString("🕋")',
+    ],
+    "wear/src/main/java/org/muslim/app/wear/WearMainActivity.kt": [
+        '"✓"',
+        '"×"',
     ],
 }
 

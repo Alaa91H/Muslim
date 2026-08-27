@@ -7,6 +7,7 @@
     <string name="wear_tasbih" tools:ignore="MissingTranslation">التسبيح</string>
     <string name="wear_tasbih_count" tools:ignore="MissingTranslation">%1$d من %2$d</string>
     <string name="wear_increment" tools:ignore="MissingTranslation">زد التسبيح</string>
-    <string name="wear_vibration" tools:ignore="MissingTranslation">اهتزاز عند الهدف</string>
+    <string name="wear_vibration_on" tools:ignore="MissingTranslation">الاهتزاز عند الهدف: مفعّل</string>
+    <string name="wear_vibration_off" tools:ignore="MissingTranslation">الاهتزاز عند الهدف: متوقف</string>
     <string name="wear_sync_waiting" tools:ignore="MissingTranslation">بانتظار المزامنة الآمنة مع الهاتف</string>
 </resources>

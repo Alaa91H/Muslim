@@ -28,6 +28,19 @@ The phone app has four primary destinations: **Prayer Times**, **Quran**, **Qibl
 | **Accessibility** | TalkBack-oriented labels and guidance, high-contrast and clearer-Arabic-reading options, visible one-shot voice navigation, and carefully labelled external supplementary sign-language learning links. |
 | **Companion devices** | Android Auto browsing for already-downloaded Quran recitations only; an opt-in, paired Wear OS tasbih and next-prayer companion; and an optional HTTPS home-automation event bridge. |
 
+## Product UI and accessibility system
+
+The Compose interface follows **Modern Islamic Minimalism**: clear Arabic and Latin hierarchy, calm tonal surfaces, restrained geometric detail, and central semantic components rather than feature-specific visual inventions. The current main line applies this system to the flagship Prayer Times, Quran, Hadith, More, and Settings experiences as well as a focused consistency pass across Qibla, Tasbih, Adhkar, Learning, Islamic Finance, and the glanceable Wear companion.
+
+| Surface | Experience decision | Preserved boundary |
+|---|---|---|
+| **Qibla** | A semantic location and direction hierarchy, calibration/recovery states, and a device-independent geometric Qibla marker replace text-glyph rendering. | Direction calculation, sensor use, location permissions, and confirmation feedback remain unchanged. |
+| **Tasbih and Adhkar** | The count remains the obvious accessible action; supporting devotional text uses quiet, consistent surfaces. | Local counters, repetition limits, haptics, reminders, sharing, and persistence are unchanged. |
+| **Learning and finance** | Grouped knowledge paths, readable steps, semantic notices, validation, empty states, and actions improve task clarity. | Educational content, local debt data, and external screening-provider boundaries remain unchanged. |
+| **Wear OS** | Next prayer, countdown, Tasbih, synchronization, and haptic state are organised for fast reading on a small round display. | The companion remains opt-in and paired; the phone stays authoritative. |
+
+See [`docs/design/ui_ux_transformation_plan.md`](docs/design/ui_ux_transformation_plan.md) for system decisions, scope, and verification boundaries.
+
 ## Hadith library reliability and loading model
 
 The Hadith screen is deliberately designed for a large offline corpus without blocking the main UI thread or materialising the full library as one list.

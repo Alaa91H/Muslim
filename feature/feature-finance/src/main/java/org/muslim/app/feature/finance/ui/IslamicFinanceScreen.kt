@@ -33,9 +33,6 @@ import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.Save
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
@@ -69,6 +66,11 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.core.common.text.Digits
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicPrimaryButton
+import org.muslim.app.core.ui.theme.MuslimSectionHeader
+import org.muslim.app.core.ui.theme.MuslimStateSurface
+import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.finance.R
 import org.muslim.app.feature.finance.domain.DebtDirection
 import org.muslim.app.feature.finance.domain.DebtEntry
@@ -198,8 +200,15 @@ private fun TransactionsContent(isArabic: Boolean) {
 @Composable
 private fun TransactionsGuideCard(guide: TransactionsGuide, isArabic: Boolean) {
     var expanded by rememberSaveable(guide.id) { mutableStateOf(false) }
-    Card(Modifier.fillMaxWidth().clickable { expanded = !expanded }) {
-        Column(Modifier.padding(16.dp)) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth().clickable { expanded = !expanded },
+        containerColor = if (expanded) {
+            MaterialTheme.colorScheme.surfaceContainerLow
+        } else {
+            MaterialTheme.colorScheme.surface
+        },
+    ) {
+        Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Column(Modifier.weight(1f)) {
                     Text(guide.title.pick(isArabic), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
@@ -260,7 +269,7 @@ private fun StockCheckerContent(isArabic: Boolean) {
             )
         }
         item {
-            Text(stringResource(R.string.finance_stock_provider), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+            MuslimSectionHeader(title = stringResource(R.string.finance_stock_provider))
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(top = 6.dp)) {
                 ScreeningProvider.entries.forEach { provider ->
                     FilterChip(
@@ -278,7 +287,7 @@ private fun StockCheckerContent(isArabic: Boolean) {
             Text(stringResource(R.string.finance_stock_provider_note), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
         item {
-            Button(
+            IslamicPrimaryButton(
                 onClick = {
                     if (query.trim().isBlank()) showQueryError = true
                     else openScreeningProvider(context, selectedProvider, query)
@@ -346,14 +355,15 @@ private fun DebtLedgerContent(state: IslamicFinanceUiState, viewModel: IslamicFi
         }
         item { DebtSummaryCard(state, formatter) }
         item {
-            Text(
-                stringResource(R.string.finance_debt_saved),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-            )
+            MuslimSectionHeader(title = stringResource(R.string.finance_debt_saved))
         }
         if (state.debts.isEmpty()) {
-            item { Text(stringResource(R.string.finance_debt_empty), color = MaterialTheme.colorScheme.onSurfaceVariant) }
+            item {
+                MuslimStateSurface(
+                    title = stringResource(R.string.finance_debt_empty),
+                    tone = MuslimStateTone.Neutral,
+                )
+            }
         } else {
             items(state.debts, key = DebtEntry::id) { entry ->
                 DebtCard(entry, formatter, onDelete = { viewModel.deleteDebt(entry) })
@@ -375,20 +385,18 @@ private fun DebtEntryForm(
         DebtAmountAndDateFields(draft, onDraftChange)
         DebtReminderAndNotesFields(draft, onDraftChange)
         if (showValidationError) {
-            Text(
-                stringResource(R.string.finance_debt_invalid),
-                color = MaterialTheme.colorScheme.error,
-                style = MaterialTheme.typography.bodySmall,
+            MuslimStateSurface(
+                title = stringResource(R.string.finance_debt_invalid),
+                tone = MuslimStateTone.Critical,
             )
         }
         if (reminderUnavailable) {
-            Text(
-                stringResource(R.string.finance_debt_reminder_unavailable),
-                color = MaterialTheme.colorScheme.error,
-                style = MaterialTheme.typography.bodySmall,
+            MuslimStateSurface(
+                title = stringResource(R.string.finance_debt_reminder_unavailable),
+                tone = MuslimStateTone.Warning,
             )
         }
-        Button(onClick = onSave, modifier = Modifier.fillMaxWidth()) {
+        IslamicPrimaryButton(onClick = onSave, modifier = Modifier.fillMaxWidth()) {
             Icon(Icons.Filled.Save, contentDescription = null, modifier = Modifier.size(18.dp))
             Spacer(Modifier.width(8.dp))
             Text(stringResource(R.string.finance_debt_save))
@@ -481,11 +489,11 @@ private fun DebtReminderAndNotesFields(draft: DebtDraft, onDraftChange: (DebtDra
 
 @Composable
 private fun DebtSummaryCard(state: IslamicFinanceUiState, formatter: NumberFormat) {
-    Card(
+    IslamicCard(
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
+        containerColor = MaterialTheme.colorScheme.primaryContainer,
     ) {
-        Column(Modifier.padding(16.dp)) {
+        Column {
             DebtSummaryRows(stringResource(R.string.finance_debt_summary_receivable), state.receivableByCurrency, formatter)
             Spacer(Modifier.height(8.dp))
             DebtSummaryRows(stringResource(R.string.finance_debt_summary_payable), state.payableByCurrency, formatter)
@@ -507,8 +515,11 @@ private fun DebtSummaryRows(label: String, amounts: Map<String, Double>, formatt
 
 @Composable
 private fun DebtCard(entry: DebtEntry, formatter: NumberFormat, onDelete: () -> Unit) {
-    Card(Modifier.fillMaxWidth()) {
-        Row(Modifier.padding(14.dp), verticalAlignment = Alignment.Top) {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Row(verticalAlignment = Alignment.Top) {
             Surface(shape = CircleShape, color = MaterialTheme.colorScheme.secondaryContainer) {
                 Icon(
                     if (entry.direction == DebtDirection.Receivable) Icons.AutoMirrored.Filled.TrendingUp else Icons.Filled.AccountBalanceWallet,
@@ -540,11 +551,11 @@ private fun DebtCard(entry: DebtEntry, formatter: NumberFormat, onDelete: () -> 
 
 @Composable
 private fun FinanceIntroCard(icon: ImageVector, title: String, text: String) {
-    Card(
+    IslamicCard(
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
+        containerColor = MaterialTheme.colorScheme.primaryContainer,
     ) {
-        Row(Modifier.padding(16.dp), verticalAlignment = Alignment.Top) {
+        Row(verticalAlignment = Alignment.Top) {
             Icon(icon, contentDescription = null, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(28.dp))
             Spacer(Modifier.width(12.dp))
             Column {
@@ -558,16 +569,11 @@ private fun FinanceIntroCard(icon: ImageVector, title: String, text: String) {
 
 @Composable
 private fun FinanceNoticeCard(text: String) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer),
-    ) {
-        Row(Modifier.padding(14.dp), verticalAlignment = Alignment.Top) {
-            Icon(Icons.Filled.Info, contentDescription = null, modifier = Modifier.size(22.dp))
-            Spacer(Modifier.width(10.dp))
-            Text(text, style = MaterialTheme.typography.bodyMedium)
-        }
-    }
+    MuslimStateSurface(
+        title = text,
+        tone = MuslimStateTone.Information,
+        icon = Icons.Filled.Info,
+    )
 }
 
 private fun LocalizedFinanceText.pick(isArabic: Boolean): String = if (isArabic) arabic else english

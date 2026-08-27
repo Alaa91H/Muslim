@@ -26,7 +26,6 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.StarBorder
-import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilledIconButton
@@ -60,6 +59,8 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.core.ui.accessibility.LocalAccessibilityVisuals
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.feature.adhkar.R
 import org.muslim.app.feature.adhkar.domain.Dhikr
 import org.muslim.app.feature.adhkar.domain.DhikrCategory
@@ -191,11 +192,8 @@ private fun AdhkarLibraryContent(
             ) {
                 if (favorites.isNotEmpty()) {
                     item(key = "favorites-header") {
-                        Text(
-                            text = stringResource(R.string.adhkar_favorites),
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.SemiBold,
-                            color = MaterialTheme.colorScheme.primary,
+                        MuslimSectionHeader(
+                            title = stringResource(R.string.adhkar_favorites),
                             modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                         )
                     }
@@ -265,12 +263,17 @@ private fun DhikrCard(
         runCatching { context.startActivity(Intent.createChooser(intent, null)) }
     }
 
-    Card(
+    IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp),
+        containerColor = if (complete) {
+            MaterialTheme.colorScheme.secondaryContainer
+        } else {
+            MaterialTheme.colorScheme.surfaceContainerLow
+        },
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
+        Column {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.Top,

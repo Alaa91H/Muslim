@@ -21,17 +21,18 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -49,6 +50,8 @@ import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.stringArrayResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
@@ -62,6 +65,10 @@ import dagger.hilt.android.EntryPointAccessors
 import org.muslim.app.core.location.MagneticDeclination
 import org.muslim.app.core.permissions.AppPermission
 import org.muslim.app.core.permissions.PermissionEntryPoint
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicSecondaryButton
+import org.muslim.app.core.ui.theme.MuslimStateSurface
+import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.qibla.R
 import org.muslim.app.feature.qibla.domain.QiblaCalculator
 import kotlin.math.cos
@@ -198,30 +205,68 @@ private fun QiblaCompassContent(
     modifier: Modifier,
     onGpsRefresh: () -> Unit,
 ) {
+    val compassDescription = stringResource(
+        R.string.qibla_heading_degree,
+        presentation.trueHeading,
+        presentation.headingCardinal,
+    )
     Column(
-        modifier = modifier.fillMaxSize().padding(24.dp).verticalScroll(rememberScrollState()),
+        modifier = modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = 16.dp, vertical = 12.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Spacer(Modifier.height(8.dp))
-        Text(presentation.locationName, style = MaterialTheme.typography.titleLarge)
+        IslamicCard(
+            modifier = Modifier.fillMaxWidth().widthIn(max = 560.dp),
+            shape = MaterialTheme.shapes.extraLarge,
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+        ) {
+            Text(
+                text = presentation.locationName,
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.SemiBold,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = stringResource(R.string.qibla_bearing_cardinal, presentation.bearingCardinal),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.82f),
+            )
+            Spacer(Modifier.height(16.dp))
+            GpsRefreshControl(gpsState, onGpsRefresh)
+        }
         Spacer(Modifier.height(16.dp))
-        GpsRefreshControl(gpsState, onGpsRefresh)
-        Spacer(Modifier.height(16.dp))
-        Surface(shape = MaterialTheme.shapes.extraLarge) {
+        IslamicCard(
+            modifier = Modifier.fillMaxWidth().widthIn(max = 420.dp),
+            shape = MaterialTheme.shapes.extraLarge,
+            containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+        ) {
             CompassRose(
                 trueHeading = presentation.trueHeading,
                 bearing = presentation.bearing,
-                modifier = Modifier.size(320.dp).padding(8.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(1f)
+                    .semantics { contentDescription = compassDescription },
             )
         }
         Spacer(Modifier.height(16.dp))
-        QiblaDirectionDetails(presentation)
+        QiblaDirectionDetails(
+            presentation = presentation,
+            modifier = Modifier.fillMaxWidth().widthIn(max = 560.dp),
+        )
+        Spacer(Modifier.height(12.dp))
     }
 }
 
 @Composable
 private fun GpsRefreshControl(gpsState: QiblaGpsState, onGpsRefresh: () -> Unit) {
-    OutlinedButton(onClick = onGpsRefresh, enabled = gpsState != QiblaGpsState.Requesting) {
+    IslamicSecondaryButton(
+        onClick = onGpsRefresh,
+        enabled = gpsState != QiblaGpsState.Requesting,
+    ) {
         if (gpsState == QiblaGpsState.Requesting) {
             CircularProgressIndicator(modifier = Modifier.size(18.dp), strokeWidth = 2.dp)
         } else {
@@ -231,59 +276,78 @@ private fun GpsRefreshControl(gpsState: QiblaGpsState, onGpsRefresh: () -> Unit)
         Text(stringResource(if (gpsState == QiblaGpsState.Requesting) R.string.qibla_gps_refreshing else R.string.qibla_gps_refresh))
     }
     if (gpsState == QiblaGpsState.Error) {
-        Spacer(Modifier.height(8.dp))
-        Text(
-            stringResource(R.string.qibla_gps_error),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.error,
+        Spacer(Modifier.height(12.dp))
+        MuslimStateSurface(
+            title = stringResource(R.string.qibla_gps_error),
+            tone = MuslimStateTone.Critical,
         )
     }
 }
 
 @Composable
-private fun QiblaDirectionDetails(presentation: QiblaPresentation) {
-    Text(
-        stringResource(R.string.qibla_bearing_degree, presentation.bearing),
-        style = MaterialTheme.typography.headlineLarge,
-        fontWeight = FontWeight.Bold,
-        color = MaterialTheme.colorScheme.primary,
-    )
-    Text(
-        "🕋 " + stringResource(R.string.qibla_bearing_cardinal, presentation.bearingCardinal),
-        style = MaterialTheme.typography.titleMedium,
-    )
-    Spacer(Modifier.height(8.dp))
-    Text(
-        stringResource(R.string.qibla_heading_degree, presentation.trueHeading, presentation.headingCardinal),
-        style = MaterialTheme.typography.bodyLarge,
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
-    )
-    Spacer(Modifier.height(4.dp))
-    Text(
-        when {
-            presentation.facingQibla -> stringResource(R.string.qibla_facing)
-            presentation.turnRight -> stringResource(R.string.qibla_turn_right, presentation.turnDegrees)
-            else -> stringResource(R.string.qibla_turn_left, presentation.turnDegrees)
+private fun QiblaDirectionDetails(presentation: QiblaPresentation, modifier: Modifier = Modifier) {
+    val direction = when {
+        presentation.facingQibla -> stringResource(R.string.qibla_facing)
+        presentation.turnRight -> stringResource(R.string.qibla_turn_right, presentation.turnDegrees)
+        else -> stringResource(R.string.qibla_turn_left, presentation.turnDegrees)
+    }
+    IslamicCard(
+        modifier = modifier,
+        shape = MaterialTheme.shapes.large,
+        containerColor = if (presentation.facingQibla) {
+            MaterialTheme.colorScheme.secondaryContainer
+        } else {
+            MaterialTheme.colorScheme.surface
         },
-        style = MaterialTheme.typography.titleMedium,
-        fontWeight = FontWeight.SemiBold,
-        color = if (presentation.facingQibla) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
-    )
-    if (presentation.needsCalibration) {
+    ) {
+        Text(
+            text = stringResource(R.string.qibla_bearing_degree, presentation.bearing),
+            style = MaterialTheme.typography.headlineLarge,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        Text(
+            text = stringResource(R.string.qibla_bearing_cardinal, presentation.bearingCardinal),
+            style = MaterialTheme.typography.titleMedium,
+        )
         Spacer(Modifier.height(12.dp))
         Text(
-            stringResource(R.string.qibla_calibrate),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.tertiary,
+            text = direction,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.SemiBold,
+            color = if (presentation.facingQibla) {
+                MaterialTheme.colorScheme.onSecondaryContainer
+            } else {
+                MaterialTheme.colorScheme.onSurface
+            },
+        )
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = stringResource(
+                R.string.qibla_heading_degree,
+                presentation.trueHeading,
+                presentation.headingCardinal,
+            ),
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        if (presentation.needsCalibration) {
+            Spacer(Modifier.height(12.dp))
+            MuslimStateSurface(
+                title = stringResource(R.string.qibla_calibrate),
+                tone = MuslimStateTone.Warning,
+            )
+        }
+        Spacer(Modifier.height(16.dp))
+        Text(
+            text = stringResource(
+                R.string.qibla_distance,
+                stringResource(R.string.qibla_distance_km, presentation.distanceKm),
+            ),
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
     }
-    Spacer(Modifier.height(16.dp))
-    Text(
-        stringResource(R.string.qibla_distance, stringResource(R.string.qibla_distance_km, presentation.distanceKm)),
-        style = MaterialTheme.typography.bodyLarge,
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
-    )
-    Spacer(Modifier.height(24.dp))
 }
 
 /** Current display rotation in degrees (0/90/180/270), API-agnostic. */
@@ -309,6 +373,8 @@ private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier 
     val tickColor = MaterialTheme.colorScheme.onSurfaceVariant
     val labelColor = MaterialTheme.colorScheme.onSurfaceVariant
     val rimColor = MaterialTheme.colorScheme.outline
+    val markerColor = MaterialTheme.colorScheme.primary
+    val markerContentColor = MaterialTheme.colorScheme.onPrimary
 
     // Smooth dial motion — the needle glides instead of jumping.
     val animatedHeading by animateFloatAsState(
@@ -318,10 +384,6 @@ private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier 
     )
 
     val textMeasurer = rememberTextMeasurer()
-    val kaabaStyle = remember { TextStyle(fontSize = 34.sp) }
-    val kaabaLayout = remember(textMeasurer) {
-        textMeasurer.measure(AnnotatedString("🕋"), kaabaStyle)
-    }
     // Degree numbers every 30° around the rim, oriented radially like a real compass.
     val degreeStyle = remember { TextStyle(fontSize = 13.sp, fontWeight = FontWeight.Bold) }
     val degreeLayouts = remember(textMeasurer) {
@@ -419,16 +481,28 @@ private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier 
 
         }
 
-        // The Kaaba marker rides just outside the rim at the dial-relative
-        // bearing, always upright, with a clearance gap so it never touches
-        // the ring.
+        // A calm geometric Qibla marker rides just outside the rim at the
+        // dial-relative bearing. Drawing it locally avoids an inconsistent
+        // text-glyph/emoji rendering path across Android devices.
         val dialAngle = Math.toRadians(bearing - animatedHeading)
-        val markerRadius = radius + kaabaLayout.size.height / 2f + 10.dp.toPx()
-        val markerPos = Offset(
-            center.x + (markerRadius * sin(dialAngle)).toFloat() - kaabaLayout.size.width / 2f,
-            center.y - (markerRadius * cos(dialAngle)).toFloat() - kaabaLayout.size.height / 2f,
+        val markerRadius = radius + 20.dp.toPx()
+        val markerCenter = Offset(
+            center.x + (markerRadius * sin(dialAngle)).toFloat(),
+            center.y - (markerRadius * cos(dialAngle)).toFloat(),
         )
-        drawText(kaabaLayout, topLeft = markerPos)
+        val markerSize = 18.dp.toPx()
+        drawCircle(color = markerColor.copy(alpha = 0.14f), radius = markerSize, center = markerCenter)
+        drawRoundRect(
+            color = markerColor,
+            topLeft = Offset(markerCenter.x - markerSize * 0.5f, markerCenter.y - markerSize * 0.45f),
+            size = Size(markerSize, markerSize * 0.9f),
+            cornerRadius = androidx.compose.ui.geometry.CornerRadius(3.dp.toPx()),
+        )
+        drawRect(
+            color = markerContentColor,
+            topLeft = Offset(markerCenter.x - markerSize * 0.12f, markerCenter.y + markerSize * 0.06f),
+            size = Size(markerSize * 0.24f, markerSize * 0.39f),
+        )
 
         // Fixed indicator at the top: the phone's forward direction.
         val indicator = Path().apply {

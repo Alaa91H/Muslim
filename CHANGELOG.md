@@ -5,6 +5,16 @@ sectioned format as v1.10.0 and are generated from the commits for each tag.
 
 ## Unreleased
 
+### Secondary Experience Polish
+
+- Refined the Qibla screen into a calm, responsive hierarchy with a semantic location surface, accessible compass description, current-location recovery state, and a device-independent geometric Qibla marker instead of an emoji glyph.
+- Made Tasbih more tactile and accessible by preserving its single generous counting action, adding a clear screen-reader description, applying semantic progress-ring colours, and standardising devotional, sound, and action surfaces.
+- Reworked the Learning Centre into a structured knowledge experience with visually distinct destinations, calmer topic rows, consistent section hierarchy, and readable step and note surfaces without changing learning content or favourites.
+- Unified Islamic Finance guidance, provider selection, debt validation, empty states, ledger entries, and primary actions on the shared design-system surfaces while retaining local data, provider, and calculation boundaries.
+- Improved the glanceable Wear OS companion hierarchy for next prayer, countdown, Tasbih, synchronization, and explicit haptic-state feedback; no paired-phone or Wear data contract changed.
+
+## Muslim v1.25.1
+
 ### Strict System Icon Cleanup
 
 - Rotated the phone launcher, round-launcher, themed monochrome, status-bar, and dedicated Wear OS launcher identities again to fresh `v2028` resources, then removed every packaged retired resource so no current producer can resolve the retired identity.

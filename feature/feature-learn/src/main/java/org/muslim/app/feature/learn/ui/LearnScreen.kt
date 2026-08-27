@@ -1,6 +1,7 @@
 package org.muslim.app.feature.learn.ui
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -38,13 +39,9 @@ import androidx.compose.material.icons.filled.VerifiedUser
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material.icons.filled.WaterDrop
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -63,6 +60,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.MuslimSectionHeader
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.LearnContent
 import org.muslim.app.feature.learn.domain.LearnTopic
@@ -201,7 +200,11 @@ private fun TopicList(
     onOpen: (LearnTopic) -> Unit,
     onOpenSpecial: (LearnSpecialDestination) -> Unit,
 ) {
-    LazyColumn(modifier = modifier.fillMaxSize()) {
+    LazyColumn(
+        modifier = modifier.fillMaxSize(),
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
         specialDestinationItems(onOpenSpecial)
         favouriteTopicItems(favoriteIds, onToggleFavorite, onOpen)
         categoryTopicItems(favoriteIds, onToggleFavorite, onOpen)
@@ -238,13 +241,27 @@ private fun LazyListScope.specialDestinationItem(
     onOpenSpecial: (LearnSpecialDestination) -> Unit,
 ) {
     item(key = key) {
-        ListItem(
-            headlineContent = { Text(stringResource(titleRes)) },
-            supportingContent = { Text(stringResource(subtitleRes)) },
-            leadingContent = { SpecialDestinationIcon(icon) },
+        IslamicCard(
             modifier = Modifier.fillMaxWidth().clickable { onOpenSpecial(destination) },
-        )
-        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+        ) {
+            Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
+                SpecialDestinationIcon(icon)
+                Column(modifier = Modifier.padding(start = 12.dp).weight(1f)) {
+                    Text(
+                        text = stringResource(titleRes),
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.SemiBold,
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        text = stringResource(subtitleRes),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.82f),
+                    )
+                }
+            }
+        }
     }
 }
 
@@ -294,7 +311,6 @@ private fun LazyListScope.topicRows(
 ) {
     items(topics, key = { "$keyPrefix${it.id}" }) { topic ->
         TopicListItem(topic, isFavorite(topic), onToggleFavorite, onOpen)
-        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
     }
 }
 
@@ -305,10 +321,11 @@ private fun TopicListItem(
     onToggleFavorite: (String) -> Unit,
     onOpen: (LearnTopic) -> Unit,
 ) {
-    ListItem(
-        headlineContent = { Text(stringResource(topic.titleRes)) },
-        supportingContent = { Text(stringResource(topic.subtitleRes)) },
-        leadingContent = {
+    IslamicCard(
+        modifier = Modifier.fillMaxWidth().clickable { onOpen(topic) },
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
             Surface(
                 shape = CircleShape,
                 color = MaterialTheme.colorScheme.secondaryContainer,
@@ -320,8 +337,19 @@ private fun TopicListItem(
                     modifier = Modifier.padding(8.dp).size(20.dp),
                 )
             }
-        },
-        trailingContent = {
+            Column(modifier = Modifier.padding(start = 12.dp).weight(1f)) {
+                Text(
+                    text = stringResource(topic.titleRes),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = stringResource(topic.subtitleRes),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
             IconButton(onClick = { onToggleFavorite(topic.id) }) {
                 Icon(
                     imageVector = if (isFavorite) Icons.Filled.Star else Icons.Outlined.StarBorder,
@@ -335,21 +363,15 @@ private fun TopicListItem(
                     },
                 )
             }
-        },
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable { onOpen(topic) },
-    )
+        }
+    }
 }
 
 @Composable
 private fun CategoryHeader(title: String) {
-    Text(
-        text = title,
-        style = MaterialTheme.typography.labelLarge,
-        fontWeight = FontWeight.Bold,
-        color = MaterialTheme.colorScheme.primary,
-        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 4.dp),
+    MuslimSectionHeader(
+        title = title,
+        modifier = Modifier.padding(top = 12.dp, bottom = 2.dp),
     )
 }
 
@@ -357,18 +379,15 @@ private fun CategoryHeader(title: String) {
 private fun GuideContent(topic: LearnTopic, modifier: Modifier = Modifier) {
     LazyColumn(
         modifier = modifier.fillMaxSize(),
-        contentPadding = PaddingValues(bottom = 24.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         itemsIndexed(topic.steps) { index, step ->
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 6.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surface,
-                ),
+            IslamicCard(
+                modifier = Modifier.fillMaxWidth(),
+                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
             ) {
-                Row(modifier = Modifier.padding(16.dp)) {
+                Row {
                     Surface(
                         shape = CircleShape,
                         color = MaterialTheme.colorScheme.primaryContainer,
@@ -380,8 +399,7 @@ private fun GuideContent(topic: LearnTopic, modifier: Modifier = Modifier) {
                             modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
                         )
                     }
-                    Spacer(Modifier.height(0.dp))
-                    Column(modifier = Modifier.padding(start = 12.dp)) {
+                    Column(modifier = Modifier.padding(start = 12.dp).weight(1f)) {
                         Text(
                             text = step.title,
                             style = MaterialTheme.typography.titleMedium,
@@ -407,19 +425,14 @@ private fun GuideContent(topic: LearnTopic, modifier: Modifier = Modifier) {
         }
         topic.notes?.let { notes ->
             item {
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                    ),
+                IslamicCard(
+                    modifier = Modifier.fillMaxWidth(),
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
                 ) {
                     Text(
                         text = notes,
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSecondaryContainer,
-                        modifier = Modifier.padding(16.dp),
                     )
                 }
             }

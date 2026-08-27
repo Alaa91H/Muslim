@@ -1,6 +1,6 @@
 # UI/UX Transformation Plan
 
-> **Status:** Active implementation plan for the `ui/premium-islamic-experience` workstream. This document describes presentation and interaction improvements only. It does not change religious content, prayer calculations, offline-first behaviour, notification delivery, or data contracts.
+> **Status:** The core `ui/premium-islamic-experience` workstream was merged into `main` and released in `v1.25.0`. A follow-up consistency pass for selected secondary product surfaces is in progress and remains untagged until validation completes. This document describes presentation and interaction improvements only. It does not change religious content, prayer calculations, offline-first behaviour, notification delivery, or data contracts.
 
 ## Product intent
 
@@ -20,7 +20,7 @@ The application already has a sound architectural foundation: a Compose `AppThem
 | Quran | Reader supports reading themes, Arabic sizing, bookmarks, playback, paging, tafsir, tajweed and wide-screen spreads. | The entry list and media controls use screen-local surfaces; any reader work must stay presentation-only because its state machine is intentionally dense. |
 | Hadith | Offline preparation, Paging, filters, daily item, bookmarks, copy/share and retry paths are explicit. | Loading, error and empty states are functional but inconsistent and visually minimal. |
 | More and Settings | More groups are persisted/reorderable/hideable; Settings exposes rich user choices. | Both use repeated local cards and accordion/list patterns that can be made clearer without altering routes or persistence. |
-| Secondary features and Wear | Qibla, Adhkar, Tasbih, Learning and Wear have independent focused surfaces. | Shared hierarchy, state treatment, responsive behaviour and accessibility affordances require a consistency pass. |
+| Secondary features and Wear | Qibla, Adhkar, Tasbih, Learning and Wear have independent focused surfaces. | Qibla, Tasbih, Learning, Islamic Finance, and Wear are the selected follow-up scope for shared hierarchy, state treatment, responsive behaviour, and accessibility consistency. |
 
 ## Design decisions
 
@@ -47,6 +47,10 @@ The work is deliberately incremental so each commit remains reviewable and each 
 | Knowledge, worship and settings | Consistent scholarly reading, calm devotional controls, clear settings sections and contextual explanations. | Paging and state tests, preference persistence and accessibility checks. |
 | Responsive, accessibility and Wear | Large-text/RTL validation, adaptive content widths and concise Wear consistency. | Accessibility verifier, representative previews/tests and existing Wear checks. |
 | Final verification | Visual/debt audit, documentation and full CI. | Gradle unit tests, Lint, Detekt, relevant static verifiers and application emulator coverage. |
+
+## Secondary-surface consistency follow-up
+
+The post-`v1.25.0` pass applies the established system to genuinely remaining gaps rather than repeating the completed flagship navigation, Prayer Times, Quran, Hadith, and Settings work. Qibla gains a semantic hierarchy and a device-independent geometric direction marker; Tasbih gains a screen-reader description for its primary counter and semantic progress colours; Learning and Islamic Finance adopt the shared section, state, card, and action primitives; Wear improves its glanceable prayer and Tasbih hierarchy. The paired-phone contract, local finance ledger, Qibla calculation, sensor handling, haptic setting, devotional content, and all navigation destinations remain unchanged.
 
 ## Component policy
 
