@@ -26,4 +26,14 @@ dependencies {
     // gracefully to manual coordinates / the offline city list when the
     // permission is denied or Play services are unavailable.
     implementation(libs.google.play.services.location)
+
+    // JVM Android-environment tests cover provider initialization and fallback
+    // failures without needing a physical GPS receiver.
+    testImplementation(libs.junit)
+    testImplementation(libs.truth)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.mockk)
+    testImplementation(libs.androidx.test.core.ktx)
+
+    androidTestImplementation(libs.androidx.junit)
 }

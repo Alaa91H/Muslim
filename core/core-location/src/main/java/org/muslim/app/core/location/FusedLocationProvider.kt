@@ -26,43 +26,89 @@ import kotlin.coroutines.resume
  * unavailable, the most recent fused location is used as an explicit local
  * fallback. No location is sent to the network and no device timezone is used.
  */
-class FusedLocationProvider(context: Context) : LocationProvider {
-
-    private val appContext = context.applicationContext
+class FusedLocationProvider private constructor(
+    private val appContext: Context,
+    /**
+     * Platform construction is deliberately deferred and injectable for module
+     * regression tests. Some Play Services/OEM stacks throw while obtaining
+     * this client; that failure must become an unavailable location instead of
+     * terminating the app.
+     */
+    private val fusedClientFactory: () -> FusedLocationProviderClient,
+    /** The framework fallback is isolated for the same failure-containment reason. */
+    private val platformLocationManagerFactory: () -> LocationManager?,
+) : LocationProvider {
 
     /**
-     * Some Google Play Services/OEM stacks can fail while constructing the fused
-     * client itself. Keep that platform work inside a recoverable lazy result so
-     * choosing GPS cannot terminate the process before [currentLocation] runs.
+     * Production entry point. Its public signature deliberately exposes no
+     * Google Play Services type, so consumers only depend on [LocationProvider].
+     */
+    constructor(context: Context) : this(
+        appContext = context.applicationContext,
+        fusedClientFactory = {
+            LocationServices.getFusedLocationProviderClient(context.applicationContext)
+        },
+        platformLocationManagerFactory = {
+            context.applicationContext.getSystemService(LocationManager::class.java)
+        },
+    )
+
+    companion object {
+        /**
+         * Test-only construction seam for forcing Play Services and framework
+         * failures. It remains internal so the app cannot accidentally replace
+         * its real location services at runtime.
+         */
+        internal fun createForTesting(
+            context: Context,
+            fusedClientFactory: () -> FusedLocationProviderClient,
+            platformLocationManagerFactory: () -> LocationManager? = {
+                context.applicationContext.getSystemService(LocationManager::class.java)
+            },
+        ): FusedLocationProvider = FusedLocationProvider(
+            appContext = context.applicationContext,
+            fusedClientFactory = fusedClientFactory,
+            platformLocationManagerFactory = platformLocationManagerFactory,
+        )
+    }
+
+    /**
+     * The client is not resolved during construction. This is important because
+     * the picker ViewModel is created as soon as the screen opens, before any
+     * GPS operation is requested. A broken or missing Play Services stack can
+     * therefore never crash the screen merely by instantiating this provider.
      */
     private val client: FusedLocationProviderClient? by lazy {
-        runCatching { LocationServices.getFusedLocationProviderClient(appContext) }.getOrNull()
+        runCatching { fusedClientFactory() }.getOrNull()
     }
 
     private val platformLocationManager: LocationManager?
-        get() = runCatching { appContext.getSystemService(LocationManager::class.java) }.getOrNull()
+        get() = runCatching { platformLocationManagerFactory() }.getOrNull()
 
     override suspend fun currentLocation(): GeoLocation? = try {
         withContext(Dispatchers.IO) {
-        val hasFine = ContextCompat.checkSelfPermission(
-            appContext,
-            Manifest.permission.ACCESS_FINE_LOCATION,
-        ) == PackageManager.PERMISSION_GRANTED
-        val hasCoarse = ContextCompat.checkSelfPermission(
-            appContext,
-            Manifest.permission.ACCESS_COARSE_LOCATION,
-        ) == PackageManager.PERMISSION_GRANTED
-        if (!hasFine && !hasCoarse) return@withContext null
+            val hasFine = ContextCompat.checkSelfPermission(
+                appContext,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            ) == PackageManager.PERMISSION_GRANTED
+            val hasCoarse = ContextCompat.checkSelfPermission(
+                appContext,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+            ) == PackageManager.PERMISSION_GRANTED
+            if (!hasFine && !hasCoarse) return@withContext null
 
-        val priority = if (hasFine) {
-            Priority.PRIORITY_HIGH_ACCURACY
-        } else {
-            Priority.PRIORITY_BALANCED_POWER_ACCURACY
-        }
-        val location = withTimeoutOrNull(20_000) { awaitCurrentLocation(priority) }
-            ?: withTimeoutOrNull(5_000) { awaitLastKnownLocation() }
-            ?: mostRecentPlatformLocation()
-            location?.takeIf { it.latitude.isFinite() && it.longitude.isFinite() }?.let { geo ->
+            val priority = if (hasFine) {
+                Priority.PRIORITY_HIGH_ACCURACY
+            } else {
+                Priority.PRIORITY_BALANCED_POWER_ACCURACY
+            }
+            val location = withTimeoutOrNull(20_000) { awaitCurrentLocation(priority) }
+                ?: withTimeoutOrNull(5_000) { awaitLastKnownLocation() }
+                ?: mostRecentPlatformLocation()
+            location?.takeIf {
+                it.latitude.isFinite() && it.longitude.isFinite() &&
+                    it.latitude in -90.0..90.0 && it.longitude in -180.0..180.0
+            }?.let { geo ->
                 GeoLocation(
                     latitude = geo.latitude,
                     longitude = geo.longitude,

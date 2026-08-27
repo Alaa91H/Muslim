@@ -9,6 +9,9 @@ ROOT = Path(__file__).resolve().parents[1]
 LOCATION_SCREEN = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/location/LocationScreen.kt"
 LOCATION_VM = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/location/LocationViewModel.kt"
 FUSED_PROVIDER = ROOT / "core/core-location/src/main/java/org/muslim/app/core/location/FusedLocationProvider.kt"
+FUSED_PROVIDER_TEST = ROOT / "core/core-location/src/test/java/org/muslim/app/core/location/FusedLocationProviderTest.kt"
+LOCATION_VM_GPS_FAILURE_TEST = ROOT / "feature/feature-prayer-times/src/test/java/org/muslim/app/feature/prayertimes/ui/location/LocationViewModelGpsFailureTest.kt"
+GPS_FAILURE_INSTRUMENTATION_TEST = ROOT / "core/core-location/src/androidTest/java/org/muslim/app/core/location/GpsFailureInstrumentationTest.kt"
 GEOCODER_RESOLVER = ROOT / "core/core-location/src/main/java/org/muslim/app/core/location/GeocoderRegionNameResolver.kt"
 ADHAN_SOUND_PLAYER = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/notifications/AdhanSoundPlayer.kt"
 SETTINGS = ROOT / "core/core-datastore/src/main/java/org/muslim/app/core/datastore/prayer/PrayerSettings.kt"
@@ -30,6 +33,9 @@ def main() -> None:
     location_screen = LOCATION_SCREEN.read_text(encoding="utf-8")
     location_vm = LOCATION_VM.read_text(encoding="utf-8")
     fused = FUSED_PROVIDER.read_text(encoding="utf-8")
+    fused_provider_test = FUSED_PROVIDER_TEST.read_text(encoding="utf-8")
+    location_vm_gps_failure_test = LOCATION_VM_GPS_FAILURE_TEST.read_text(encoding="utf-8")
+    gps_failure_instrumentation_test = GPS_FAILURE_INSTRUMENTATION_TEST.read_text(encoding="utf-8")
     geocoder_resolver = GEOCODER_RESOLVER.read_text(encoding="utf-8")
     adhan_sound_player = ADHAN_SOUND_PLAYER.read_text(encoding="utf-8")
     settings = SETTINGS.read_text(encoding="utf-8")
@@ -47,9 +53,18 @@ def main() -> None:
     require("hasFine && !hasCoarse" in fused, "provider must only reject GPS when neither permission is present")
     require("Priority.PRIORITY_HIGH_ACCURACY" in fused, "precise GPS must request a high-accuracy current fix")
     require("awaitLastKnownLocation()" in fused and "mostRecentPlatformLocation()" in fused, "GPS must retain local fallback paths")
-    require("private val client: FusedLocationProviderClient? by lazy" in fused, "fused client construction must remain recoverable")
-    require("runCatching { LocationServices.getFusedLocationProviderClient(appContext) }.getOrNull()" in fused, "fused client construction must not escape the GPS failure boundary")
+    require("private val fusedClientFactory" in fused, "fused client initialization must stay injectable for regression coverage")
+    require("private val client: FusedLocationProviderClient? by lazy" in fused, "fused client construction must remain deferred and recoverable")
+    require("runCatching { fusedClientFactory() }.getOrNull()" in fused, "fused client construction must not escape the GPS failure boundary")
+    require("private val platformLocationManagerFactory" in fused, "platform location-manager lookup must remain injectable for regression coverage")
     require("private val platformLocationManager: LocationManager?" in fused and "getOrNull()" in fused, "platform location manager lookup must remain recoverable")
+    require("it.latitude in -90.0..90.0 && it.longitude in -180.0..180.0" in fused, "GPS must reject out-of-range provider coordinates")
+    require("construction defers fused client initialization" in fused_provider_test, "GPS tests must prevent eager client initialization")
+    require("fused and platform initialization failures return unavailable location instead of throwing" in fused_provider_test, "GPS tests must contain provider initialization failures")
+    require("approximate permission accepts a valid platform fallback" in fused_provider_test, "GPS tests must retain approximate-permission fallback coverage")
+    require("GPS provider failure is surfaced as a recoverable picker error" in location_vm_gps_failure_test, "GPS-click provider failures must remain covered at the ViewModel boundary")
+    require("reverse geocoding failure after a valid GPS fix remains a recoverable picker error" in location_vm_gps_failure_test, "post-fix GPS failures must remain covered at the ViewModel boundary")
+    require("brokenGpsServicesDoNotCrashTheAndroidProcess" in gps_failure_instrumentation_test, "the Android device test must retain the no-crash GPS regression")
     require("TimeZone.getDefault" not in location_vm, "GPS must not assign the device timezone to coordinates")
     require("coordinateTimeZoneResolver.resolve(geo.latitude, geo.longitude)" in location_vm, "GPS must resolve a coordinate IANA zone")
     require("catch (error: CancellationException)" in location_vm, "GPS cancellation must propagate without treating it as an app failure")
