@@ -180,11 +180,24 @@ class LocationViewModel @Inject constructor(
     private suspend fun persistNow(location: SelectedLocation) {
         val settings = repository.settings.first().copy(location = location)
         repository.save(settings)
-        scheduler.schedule(settings)
-        // The countdown notification must reflect the new location.
-        NextAdhanService.start(context)
-        // The home-screen widget shows the next prayer for this location.
-        PrayerTimesWidget().updateAll(context)
+        // A selected location is durable as soon as it is stored. These follow-up
+        // refreshes are best-effort and must not turn a successful GPS selection
+        // into a process exit on a device with an unavailable alarm, foreground
+        // service, notification, or widget implementation.
+        runPostSaveSideEffect { scheduler.schedule(settings) }
+        runPostSaveSideEffect { NextAdhanService.start(context) }
+        runPostSaveSideEffect { PrayerTimesWidget().updateAll(context) }
         messages.value = Message.Saved
+    }
+
+    private suspend fun runPostSaveSideEffect(action: suspend () -> Unit) {
+        try {
+            action()
+        } catch (error: CancellationException) {
+            throw error
+        } catch (_: Throwable) {
+            // The next normal app/service start retries these derived updates.
+            // The already persisted user-selected location remains valid.
+        }
     }
 }

@@ -54,7 +54,7 @@ class NextAdhanService : Service() {
 
     override fun onBind(intent: Intent?): IBinder? = null
 
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int = try {
         // Android can retain an ongoing notification posted by an older APK
         // across an app update. Remove the retired identity before the new
         // one is posted so only the current single-icon status card remains.
@@ -71,42 +71,56 @@ class NextAdhanService : Service() {
         )
         cancelRestartAlarm()
         tick()
-        return START_STICKY
+        START_STICKY
+    } catch (_: Throwable) {
+        // The countdown is optional. A framework, notification, or OEM service
+        // failure must never terminate the process that has just saved a location.
+        stopSelf(startId)
+        START_NOT_STICKY
     }
 
     /** Recomputes and refreshes the notification, then schedules the next tick in a minute. */
     private fun tick() {
         scope.launch {
-            val now = System.currentTimeMillis()
-            val enabled = notificationPrefs.isEnabled(NotificationCategory.PrayerCountdown)
-            val quietActive = notificationPrefs.isQuietHourActive(now)
-            val showMissed = notificationPrefs.showMissedAdhan.first()
-            val settings = settingsRepository.settings.first()
-            val data = PrayerCountdownData.compute(settings, calculator, now)
+            try {
+                val now = System.currentTimeMillis()
+                val enabled = notificationPrefs.isEnabled(NotificationCategory.PrayerCountdown)
+                val quietActive = notificationPrefs.isQuietHourActive(now)
+                val showMissed = notificationPrefs.showMissedAdhan.first()
+                val settings = settingsRepository.settings.first()
+                val data = PrayerCountdownData.compute(settings, calculator, now)
 
-            if (!enabled || !data.hasLocation) {
-                // Category off or no location: nothing to show; stop and cancel.
-                stopSelfAndCancel(enabled, quietActive, settings)
-                return@launch
-            }
-            if (quietActive) {
-                // Quiet hours: hide the status line and wake up exactly when they end.
-                stopSelfAndCancel(enabled, quietActive, settings)
-                return@launch
-            }
+                if (!enabled || !data.hasLocation) {
+                    // Category off or no location: nothing to show; stop and cancel.
+                    stopSelfAndCancel(enabled, quietActive, settings)
+                    return@launch
+                }
+                if (quietActive) {
+                    // Quiet hours: hide the status line and wake up exactly when they end.
+                    stopSelfAndCancel(enabled, quietActive, settings)
+                    return@launch
+                }
 
-            lastData = data
-            val manager = getSystemService(NotificationManager::class.java)
-            manager.notify(
-                NextAdhanNotifications.NEXT_ADHAN_NOTIFICATION_ID,
-                NextAdhanNotifications.build(
-                    this@NextAdhanService,
-                    data,
-                    showMissed,
-                    use24h = appPreferencesRepository.readTimeFormat24hSync(),
-                ),
-            )
-            handler.postDelayed({ tick() }, TICK_MILLIS)
+                lastData = data
+                val manager = getSystemService(NotificationManager::class.java)
+                manager.notify(
+                    NextAdhanNotifications.NEXT_ADHAN_NOTIFICATION_ID,
+                    NextAdhanNotifications.build(
+                        this@NextAdhanService,
+                        data,
+                        showMissed,
+                        use24h = appPreferencesRepository.readTimeFormat24hSync(),
+                    ),
+                )
+                handler.postDelayed({ tick() }, TICK_MILLIS)
+            } catch (error: kotlinx.coroutines.CancellationException) {
+                throw error
+            } catch (_: Throwable) {
+                // Do not let an asynchronous notification/OEM failure crash the
+                // application after a user selects their current location.
+                handler.removeCallbacksAndMessages(null)
+                stopSelf()
+            }
         }
     }
 
@@ -178,10 +192,12 @@ class NextAdhanService : Service() {
 
         fun start(context: Context) {
             val appContext = context.applicationContext
-            NextAdhanNotifications.cancelRetiredCountdown(appContext)
-            val intent = Intent(appContext, NextAdhanService::class.java)
-            // minSdk is 26 (O), so the foreground-service API is always available.
-            appContext.startForegroundService(intent)
+            runCatching {
+                NextAdhanNotifications.cancelRetiredCountdown(appContext)
+                val intent = Intent(appContext, NextAdhanService::class.java)
+                // minSdk is 26 (O), so the foreground-service API is always available.
+                appContext.startForegroundService(intent)
+            }
         }
     }
 }

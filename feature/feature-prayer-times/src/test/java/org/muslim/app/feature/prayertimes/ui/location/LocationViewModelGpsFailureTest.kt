@@ -3,15 +3,21 @@ package org.muslim.app.feature.prayertimes.ui.location
 import android.content.Context
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.every
+import io.mockk.just
 import io.mockk.mockk
+import io.mockk.runs
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.Test
+import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
 import org.muslim.app.core.location.GeoLocation
 import org.muslim.app.core.location.LocationProvider
@@ -70,15 +76,52 @@ class LocationViewModelGpsFailureTest {
         }
     }
 
+    @Test
+    fun `GPS location remains saved when a derived scheduler refresh fails`() = runTest {
+        Dispatchers.setMain(StandardTestDispatcher(testScheduler))
+        try {
+            val locationProvider = mockk<LocationProvider>()
+            coEvery { locationProvider.currentLocation() } returns GeoLocation(24.7136, 46.6753)
+            val repository = mockk<PrayerSettingsRepository>()
+            every { repository.settings } returns flowOf(PrayerSettings())
+            coEvery { repository.save(any()) } just runs
+            val scheduler = mockk<AdhanScheduler>()
+            every { scheduler.schedule(any()) } throws IllegalStateException("Alarm manager unavailable")
+            val regionNameResolver = mockk<RegionNameResolver>()
+            coEvery { regionNameResolver.resolve(any(), any()) } returns "Riyadh, Saudi Arabia"
+            val timeZoneResolver = mockk<CoordinateTimeZoneResolver>()
+            coEvery { timeZoneResolver.resolve(any(), any()) } returns "Asia/Riyadh"
+            val viewModel = newViewModel(
+                locationProvider = locationProvider,
+                repository = repository,
+                scheduler = scheduler,
+                regionNameResolver = regionNameResolver,
+                timeZoneResolver = timeZoneResolver,
+            )
+
+            viewModel.useGps()
+            advanceUntilIdle()
+
+            assertThat(viewModel.messages.value).isEqualTo(LocationViewModel.Message.Saved)
+            coVerify(exactly = 1) { repository.save(match { it.location?.timeZone == "Asia/Riyadh" }) }
+        } finally {
+            Dispatchers.resetMain()
+        }
+    }
+
     private fun newViewModel(
         locationProvider: LocationProvider = mockk(),
+        repository: PrayerSettingsRepository = mockk<PrayerSettingsRepository>(relaxed = true).also {
+            every { it.settings } returns flowOf(PrayerSettings())
+        },
+        scheduler: AdhanScheduler = mockk<AdhanScheduler>(relaxed = true),
         regionNameResolver: RegionNameResolver = mockk(),
         timeZoneResolver: CoordinateTimeZoneResolver = mockk(),
     ): LocationViewModel = LocationViewModel(
         context = mockk<Context>(relaxed = true),
-        repository = mockk<PrayerSettingsRepository>(relaxed = true),
+        repository = repository,
         locationProvider = locationProvider,
-        scheduler = mockk<AdhanScheduler>(relaxed = true),
+        scheduler = scheduler,
         regionNameResolver = regionNameResolver,
         coordinateTimeZoneResolver = timeZoneResolver,
     )

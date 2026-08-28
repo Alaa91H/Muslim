@@ -7,6 +7,8 @@ import android.location.LocationManager
 import androidx.test.core.app.ApplicationProvider
 import com.google.common.truth.Truth.assertThat
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.tasks.CancellationToken
+import com.google.android.gms.tasks.Task
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -119,6 +121,23 @@ class FusedLocationProviderTest {
             context = application,
             fusedClientFactory = { throw IllegalStateException("Fused unavailable") },
             platformLocationManagerFactory = { locationManager },
+        )
+
+        assertThat(runBlocking { provider.currentLocation() }).isNull()
+    }
+
+    @Test
+    fun `Play Services listener registration failure returns unavailable location safely`() {
+        shadowOf(application).grantPermissions(Manifest.permission.ACCESS_FINE_LOCATION)
+        val task = mockk<Task<Location>>()
+        every { task.addOnSuccessListener(any()) } throws IllegalStateException("Listener registration failed")
+        val fusedClient = mockk<FusedLocationProviderClient>()
+        every { fusedClient.getCurrentLocation(any<Int>(), any<CancellationToken>()) } returns task
+        every { fusedClient.lastLocation } returns task
+        val provider = FusedLocationProvider.createForTesting(
+            context = application,
+            fusedClientFactory = { fusedClient },
+            platformLocationManagerFactory = { null },
         )
 
         assertThat(runBlocking { provider.currentLocation() }).isNull()

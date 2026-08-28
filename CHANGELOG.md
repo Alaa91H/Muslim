@@ -9,6 +9,14 @@ Updates install directly over v1.25.15 or earlier releases with the same package
 name (`org.muslim.app`) and stable signing identity. No uninstall or data reset
 is required.
 
+### Silent Qibla Alignment and GPS Selection Resilience
+
+- Removed the automatic `ToneGenerator` confirmation beep from Qibla alignment. The compass now provides an optional non-audio haptic pulse only, so entering or aligning the Qibla screen cannot emit a system notification tone.
+- Hardened the shared fused-location request after the Android permission flow: coroutine cancellation now cancels the active Play Services request, and failures while registering task listeners are contained as the existing recoverable unavailable-location result.
+- Isolated the post-save work triggered by a valid GPS fix. Alarm rescheduling, the countdown foreground-service refresh, and widget refresh are now best-effort follow-up actions; a platform, notification, OEM, alarm, or widget failure can no longer discard the stored location or terminate the picker flow.
+- Added failure containment inside the Next Adhan countdown service for foreground-service startup and asynchronous notification refresh failures, preventing a derived notification update from crashing the app process after location selection.
+- Expanded regression coverage with a Play Services listener-registration failure test, a successful GPS-save test with a failing derived scheduler, and a device-level Compose test that presses **Use my current location**, persists a valid fix, and returns through the saved callback. The existing static contract now prevents the automatic Qibla tone and the new GPS safety boundaries from being removed.
+
 ### Nearby Mosques Static-Analysis Clean-up
 
 - Removed two unused imports (`kotlin.math.PI` in the mosque repository and the

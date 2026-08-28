@@ -8,6 +8,7 @@ import android.location.Location
 import android.location.LocationManager
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.tasks.CancellationTokenSource
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import kotlinx.coroutines.CancellationException
@@ -130,18 +131,24 @@ class FusedLocationProvider private constructor(
             if (continuation.isActive) continuation.resume(null)
             return@suspendCancellableCoroutine
         }
-        val task = runCatching { fusedClient.getCurrentLocation(priority, null) }
+        val cancellationToken = CancellationTokenSource()
+        continuation.invokeOnCancellation { cancellationToken.cancel() }
+        val task = runCatching { fusedClient.getCurrentLocation(priority, cancellationToken.token) }
             .getOrElse {
                 if (continuation.isActive) continuation.resume(null)
                 return@suspendCancellableCoroutine
             }
-        task.addOnSuccessListener { location ->
-            if (continuation.isActive) continuation.resume(location)
-        }
-        task.addOnFailureListener {
-            if (continuation.isActive) continuation.resume(null)
-        }
-        task.addOnCanceledListener {
+        runCatching {
+            task.addOnSuccessListener { location ->
+                if (continuation.isActive) continuation.resume(location)
+            }
+            task.addOnFailureListener {
+                if (continuation.isActive) continuation.resume(null)
+            }
+            task.addOnCanceledListener {
+                if (continuation.isActive) continuation.resume(null)
+            }
+        }.onFailure {
             if (continuation.isActive) continuation.resume(null)
         }
     }
@@ -157,13 +164,17 @@ class FusedLocationProvider private constructor(
                 if (continuation.isActive) continuation.resume(null)
                 return@suspendCancellableCoroutine
             }
-        task.addOnSuccessListener { location ->
-            if (continuation.isActive) continuation.resume(location)
-        }
-        task.addOnFailureListener {
-            if (continuation.isActive) continuation.resume(null)
-        }
-        task.addOnCanceledListener {
+        runCatching {
+            task.addOnSuccessListener { location ->
+                if (continuation.isActive) continuation.resume(location)
+            }
+            task.addOnFailureListener {
+                if (continuation.isActive) continuation.resume(null)
+            }
+            task.addOnCanceledListener {
+                if (continuation.isActive) continuation.resume(null)
+            }
+        }.onFailure {
             if (continuation.isActive) continuation.resume(null)
         }
     }

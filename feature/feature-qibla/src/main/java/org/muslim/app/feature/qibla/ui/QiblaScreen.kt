@@ -2,11 +2,7 @@ package org.muslim.app.feature.qibla.ui
 
 import android.content.Context
 import android.hardware.SensorManager
-import android.media.AudioManager
-import android.media.ToneGenerator
 import android.os.Build
-import android.os.Handler
-import android.os.Looper
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
@@ -219,7 +215,7 @@ private fun QiblaCompassTab(
 
     var wasFacingQibla by remember { mutableStateOf(false) }
     LaunchedEffect(facingQibla) {
-        if (facingQibla && !wasFacingQibla) triggerQiblaFeedback(context)
+        if (facingQibla && !wasFacingQibla) triggerQiblaHapticFeedback(context)
         wasFacingQibla = facingQibla
     }
 
@@ -617,10 +613,10 @@ private fun CompassRose(trueHeading: Float, bearing: Double, modifier: Modifier 
 }
 
 /**
- * Haptic pulse + short confirmation beep fired once when the phone first
- * aligns with the qibla (then again only after the user turns away).
+ * A non-audio haptic pulse fired once when the phone first aligns with the
+ * Qibla (then again only after the user turns away). No system tone is used.
  */
-private fun triggerQiblaFeedback(context: Context) {
+private fun triggerQiblaHapticFeedback(context: Context) {
     val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
         (context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as? VibratorManager)?.defaultVibrator
     } else {
@@ -631,10 +627,5 @@ private fun triggerQiblaFeedback(context: Context) {
         runCatching {
             vibrator.vibrate(VibrationEffect.createOneShot(120, VibrationEffect.DEFAULT_AMPLITUDE))
         }
-    }
-    runCatching {
-        val tone = ToneGenerator(AudioManager.STREAM_NOTIFICATION, 85)
-        tone.startTone(ToneGenerator.TONE_PROP_BEEP2, 150)
-        Handler(Looper.getMainLooper()).postDelayed({ tone.release() }, 400)
     }
 }
