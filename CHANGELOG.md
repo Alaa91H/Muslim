@@ -3,6 +3,20 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.25.16
+
+Updates install directly over v1.25.15 or earlier releases with the same package
+name (`org.muslim.app`) and stable signing identity. No uninstall or data reset
+is required.
+
+### Nearby Mosques Static-Analysis Clean-up
+
+- Removed two unused imports (`kotlin.math.PI` in the mosque repository and the
+  Compose `padding` modifier in the mosque tab) that Detekt flagged as dead code
+  in the Nearby Mosques feature shipped in v1.25.15. This is a source-cleanliness
+  change only: the mosque search, distance ordering, radius persistence, and
+  external-directions behaviour are unchanged.
+
 ## Muslim v1.25.15
 
 ### Nearby Mosques in Qibla
