@@ -1,6 +1,7 @@
 package org.muslim.app.feature.prayertimes.ui.location
 
 import android.Manifest
+import android.content.Context
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -60,7 +61,7 @@ class LocationScreenGpsInstrumentationTest {
         val timeZoneResolver = mockk<CoordinateTimeZoneResolver>()
         coEvery { timeZoneResolver.resolve(any(), any()) } returns "Asia/Riyadh"
         val viewModel = LocationViewModel(
-            context = targetContext,
+            context = mockk<Context>(relaxed = true),
             repository = repository,
             locationProvider = locationProvider,
             scheduler = scheduler,
