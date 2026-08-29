@@ -3,6 +3,16 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.25.17
+
+### Silent Qibla Alignment and GPS Selection Resilience
+
+- Removed the automatic `ToneGenerator` confirmation beep from Qibla alignment. The compass retains a non-audio haptic pulse only, so Qibla alignment cannot emit the unwanted system notification tone.
+- Hardened the shared fused-location request: coroutine cancellation now cancels the active Play Services request, and failures while registering task listeners remain contained as the existing recoverable unavailable-location state.
+- Isolated post-save work after a valid GPS fix. Alarm rescheduling, countdown foreground-service refresh, and widget refresh are best-effort follow-up actions; failures in those derived services cannot discard the saved location or terminate the picker flow.
+- Added failure containment inside the Next Adhan countdown service for foreground-service startup and asynchronous notification refresh failures.
+- Added regression coverage for Play Services listener-registration failure, successful GPS persistence when a derived scheduler fails, and a device-level Compose flow that presses **Use my current location** and returns through the saved callback.
+
 ## Muslim v1.25.16
 
 Updates install directly over v1.25.15 or earlier releases with the same package
