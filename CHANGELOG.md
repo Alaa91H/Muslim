@@ -12,6 +12,12 @@ sectioned format as v1.10.0 and are generated from the commits for each tag.
 - Made the daily/monthly view and sharing actions responsive equal-width controls so translated labels remain readable on narrow phone screens.
 - Added a CI-protected UI/UX contract covering accessibility semantics, localization, and responsive action layout.
 
+## Muslim v1.25.18
+### GPS Selection and Dynamic MWL Isha
+- Serialized the complete location-selection action from GPS acquisition through coordinate-to-IANA resolution, persistence and refresh work, preventing overlapping taps or permission callbacks from racing through the same ViewModel flow.
+- Preserved the recoverable GPS provider boundaries and the latest device-level GPS failure and success-flow regression coverage already present on main.
+- Added a calculation regression that explicitly keeps the default Muslim World League Isha input at a 17° solar angle with zero fixed-minute interval and verifies location/date-dependent output. No fixed `22:08` time or hidden Isha offset is used.
+
 ## Muslim v1.25.17
 
 ### Silent Qibla Alignment and GPS Selection Resilience
