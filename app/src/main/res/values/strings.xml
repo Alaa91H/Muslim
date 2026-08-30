@@ -58,6 +58,7 @@
     <string name="more_section_knowledge">العلم والمعرفة</string>
     <string name="more_section_tools">الأدوات</string>
     <string name="more_section_app">التطبيق</string>
+    <string name="more_open_item">فتح العنصر</string>
 
     <!-- More hub section order customization -->
     <string name="more_order_title">ترتيب أقسام المزيد</string>

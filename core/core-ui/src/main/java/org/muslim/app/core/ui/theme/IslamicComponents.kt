@@ -173,6 +173,77 @@ fun MuslimSectionHeader(
     }
 }
 
+/**
+ * A reusable feature/list row for secondary navigation and settings surfaces.
+ * The entire row is one accessible target with a stable title/subtitle hierarchy.
+ */
+@Composable
+fun IslamicListItem(
+    title: String,
+    subtitle: String? = null,
+    icon: ImageVector? = null,
+    iconContentDescription: String? = null,
+    onClick: (() -> Unit)? = null,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    trailingIcon: ImageVector? = null,
+    trailingContentDescription: String? = null,
+) {
+    val rowModifier = modifier
+        .fillMaxWidth()
+        .defaultMinSize(minHeight = 64.dp)
+        .then(
+            if (onClick != null) {
+                Modifier.semantics {
+                    role = androidx.compose.ui.semantics.Role.Button
+                }
+            } else {
+                Modifier
+            },
+        )
+    Surface(
+        modifier = rowModifier,
+        shape = MaterialTheme.shapes.medium,
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        contentColor = MaterialTheme.colorScheme.onSurface,
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+        enabled = enabled,
+        onClick = onClick ?: {},
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Compact),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Compact),
+        ) {
+            icon?.let {
+                Icon(
+                    imageVector = it,
+                    contentDescription = iconContentDescription,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(IslamicIconSize.Standard),
+                )
+            }
+            Column(modifier = Modifier.weight(1f)) {
+                Text(text = title, style = MaterialTheme.typography.titleMedium)
+                subtitle?.takeIf(String::isNotBlank)?.let {
+                    Text(
+                        text = it,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+            trailingIcon?.let {
+                Icon(
+                    imageVector = it,
+                    contentDescription = trailingContentDescription,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+    }
+}
+
 /** Primary action with an explicit accessible minimum height. */
 @Composable
 fun IslamicPrimaryButton(
