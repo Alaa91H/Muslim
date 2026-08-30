@@ -4,7 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -194,9 +194,15 @@ fun IslamicListItem(
         .defaultMinSize(minHeight = 64.dp)
         .then(
             if (onClick != null) {
-                Modifier.semantics {
-                    role = androidx.compose.ui.semantics.Role.Button
-                }
+                Modifier
+                    .clickable(
+                        enabled = enabled,
+                        role = androidx.compose.ui.semantics.Role.Button,
+                        onClick = onClick,
+                    )
+                    .semantics {
+                        role = androidx.compose.ui.semantics.Role.Button
+                    }
             } else {
                 Modifier
             },
@@ -207,8 +213,6 @@ fun IslamicListItem(
         color = MaterialTheme.colorScheme.surfaceContainerLow,
         contentColor = MaterialTheme.colorScheme.onSurface,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
-        enabled = enabled,
-        onClick = onClick ?: {},
     ) {
         Row(
             modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Compact),
