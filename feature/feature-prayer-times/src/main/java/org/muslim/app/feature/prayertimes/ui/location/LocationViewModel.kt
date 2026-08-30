@@ -15,6 +15,8 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import org.muslim.app.core.location.LocationProvider
 import org.muslim.app.core.location.RegionNameResolver
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
@@ -47,6 +49,9 @@ class LocationViewModel @Inject constructor(
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     val messages = MutableStateFlow<Message?>(null)
+
+    /** Serializes location resolution, persistence, scheduling and widget refresh. */
+    private val locationActionMutex = Mutex()
 
     /** Saves a city from the offline database with its explicit IANA zone. */
     fun selectCity(city: City) {
@@ -164,7 +169,9 @@ class LocationViewModel @Inject constructor(
     private fun launchLocationAction(action: suspend () -> Unit) {
         viewModelScope.launch {
             try {
-                action()
+                locationActionMutex.withLock {
+                    action()
+                }
             } catch (error: CancellationException) {
                 throw error
             } catch (_: Throwable) {
