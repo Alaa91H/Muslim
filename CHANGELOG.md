@@ -3,6 +3,20 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.25.20
+
+### Shared UI Component Foundation
+
+- Added a reusable `IslamicListItem` for secondary navigation and settings-style surfaces, with a consistent title/subtitle hierarchy, semantic Material colours, RTL-safe trailing affordances, and a comfortable 64dp minimum row height.
+- Updated the More hub to use the shared list-item component instead of a screen-local card implementation, reducing visual duplication while preserving existing section ordering, hide/show preferences, and navigation destinations.
+- Added localized Arabic and English accessibility text for opening More items and extended the design-system CI guard so this shared component remains adopted by the hub.
+- Kept prayer calculations, GPS recovery, Hadith Paging, Quran navigation, notifications, local-first data boundaries, and current launcher/notification identity unchanged.
+
+### Verification
+
+- UI/UX static guards, accessibility checks, responsive-layout checks, Islamic visual-identity checks, and Detekt passed locally.
+- The tagged workflow must pass Quality, emulator tests, and signed artifact generation before this release is considered published.
+
 ## Muslim v1.25.18
 
 ### Home Screen UI/UX Refinement
