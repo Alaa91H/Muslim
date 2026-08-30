@@ -3,6 +3,15 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.25.18
+
+### Home Screen UI/UX Refinement
+
+- Improved the Home screen's location control with a clear localized action description for screen readers while preserving the existing location-selection flow.
+- Added an accessible summary for the next-prayer card, including the prayer name, scheduled time, and remaining countdown.
+- Made the daily/monthly view and sharing actions responsive equal-width controls so translated labels remain readable on narrow phone screens.
+- Added a CI-protected UI/UX contract covering accessibility semantics, localization, and responsive action layout.
+
 ## Muslim v1.25.17
 
 ### Silent Qibla Alignment and GPS Selection Resilience

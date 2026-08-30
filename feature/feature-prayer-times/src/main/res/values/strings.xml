@@ -18,6 +18,8 @@
     <!-- Home -->
     <string name="home_next_prayer">الصلاة القادمة</string>
     <string name="home_select_location">اختر الموقع</string>
+    <string name="home_location_action">تغيير الموقع: %1$s</string>
+    <string name="home_next_prayer_accessibility">الصلاة القادمة: %1$s، الساعة %2$s، المتبقي %3$s</string>
     <string name="home_location_unknown">لم يُحدَّد الموقع بعد</string>
     <string name="home_today_times">مواقيت اليوم</string>
     <string name="home_cannot_compute">تعذّر حساب الأوقات لهذا اليوم</string>

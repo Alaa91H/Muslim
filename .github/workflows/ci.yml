@@ -72,6 +72,7 @@ jobs:
           python3 scripts/verify_nearby_mosques_contract.py
           python3 scripts/verify_responsive_customization_layout.py
           python3 scripts/verify_design_system_adoption.py
+          python3 scripts/verify_home_uiux_contract.py
           git diff --check
 
       - name: Build debug APKs

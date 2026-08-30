@@ -54,6 +54,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
@@ -98,6 +101,20 @@ fun HomeScreen(
     val showPrayerTrackerOnHome by viewModel.showPrayerTrackerOnHome.collectAsStateWithLifecycle()
 
     val context = LocalContext.current
+    val locationLabel = if (state.hasLocation) state.locationName else stringResource(R.string.home_select_location)
+    val locationDescription = stringResource(R.string.home_location_action, locationLabel)
+    val nextPrayerLabel = state.nextPrayer?.let { stringResource(prayerLabelRes(it)) }
+    val nextPrayerTime = state.nextPrayerAt?.format(TimeFormats.timeFormatter(use24h))
+    val nextPrayerDescription = if (nextPrayerLabel != null && nextPrayerTime != null) {
+        stringResource(
+            R.string.home_next_prayer_accessibility,
+            nextPrayerLabel,
+            nextPrayerTime,
+            formatCountdown(state.countdownSeconds),
+        )
+    } else {
+        stringResource(R.string.home_next_prayer)
+    }
     // Kept in the home composition so the alert action opens a modal and never
     // pushes the user into the full prayer-settings destination.
     var customizingPrayer by remember { mutableStateOf<Prayer?>(null) }
@@ -141,6 +158,10 @@ fun HomeScreen(
                 onClick = onSelectLocation,
                 shape = MaterialTheme.shapes.large,
                 color = MaterialTheme.colorScheme.secondaryContainer,
+                modifier = Modifier.semantics {
+                    contentDescription = locationDescription
+                    role = Role.Button
+                },
             ) {
                 Row(
                     modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
@@ -149,8 +170,7 @@ fun HomeScreen(
                     Icon(Icons.Default.Place, contentDescription = null, modifier = Modifier.height(16.dp))
                     Spacer(Modifier.padding(start = 4.dp))
                     Text(
-                        text = if (state.hasLocation) state.locationName
-                        else stringResource(R.string.home_select_location),
+                        text = locationLabel,
                         style = MaterialTheme.typography.labelLarge,
                     )
                 }
@@ -171,7 +191,9 @@ fun HomeScreen(
 
         // ---- Next prayer + countdown ----
         IslamicCard(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .semantics { contentDescription = nextPrayerDescription },
             containerColor = MaterialTheme.colorScheme.primaryContainer,
             contentPadding = androidx.compose.foundation.layout.PaddingValues(IslamicSpacing.Comfortable),
         ) {
@@ -336,13 +358,17 @@ fun HomeScreen(
             horizontalArrangement = Arrangement.End,
         ) {
             OutlinedButton(
+                modifier = Modifier.weight(1f),
                 onClick = { shareDailyTimes(context, state, use24h) },
                 enabled = state.isValid,
             ) {
                 Text(stringResource(R.string.times_share))
             }
             Spacer(Modifier.width(8.dp))
-            OutlinedButton(onClick = viewModel::toggleMonthly) {
+            OutlinedButton(
+                modifier = Modifier.weight(1f),
+                onClick = viewModel::toggleMonthly,
+            ) {
                 Text(stringResource(if (state.monthly) R.string.times_daily else R.string.times_monthly))
             }
         }
