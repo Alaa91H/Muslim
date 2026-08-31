@@ -277,6 +277,11 @@ fun HomeScreen(
                     Prayer.entries.forEachIndexed { index, prayer ->
                     if (index > 0) HorizontalDivider()
                     val isNextPrayer = prayer == state.nextPrayer
+                    val nextPrayerStateDescription = if (isNextPrayer) {
+                        stringResource(R.string.home_next_prayer)
+                    } else {
+                        null
+                    }
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -290,13 +295,9 @@ fun HomeScreen(
                                 vertical = IslamicSpacing.Small,
                             )
                             .then(
-                                if (isNextPrayer) {
-                                    Modifier.semantics {
-                                        stateDescription = stringResource(R.string.home_next_prayer)
-                                    }
-                                } else {
-                                    Modifier
-                                },
+                                nextPrayerStateDescription?.let { description ->
+                                    Modifier.semantics { stateDescription = description }
+                                } ?: Modifier,
                             ),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
