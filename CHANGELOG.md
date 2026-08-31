@@ -3,6 +3,19 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.25.21
+
+### Prayer Home UI/UX Refinement
+
+- Replaced scattered Prayer Home spacing values with the shared Islamic spacing tokens for a more consistent visual rhythm across prayer cards, day navigation, and daily/monthly actions.
+- Added an explicit accessibility state description for the next prayer row so TalkBack users can distinguish it from the other prayer times without relying on colour alone.
+- Preserved the existing prayer calculation engine, Muslim World League and Isha settings, GPS flow, per-prayer customisation, notification behaviour, daily/monthly navigation, and completion tracking.
+
+### Verification
+
+- The preceding implementation commit passed UI/UX contract checks, accessibility checks, responsive-layout checks, Detekt, the full Quality workflow, Android emulator tests, Closed beta APK generation, and signed release-artifact generation in CI.
+- This release remains an incremental UI/UX refinement; it does not claim that every application screen has been completely redesigned.
+
 ## Muslim v1.25.20
 
 ### Shared UI Component Foundation
