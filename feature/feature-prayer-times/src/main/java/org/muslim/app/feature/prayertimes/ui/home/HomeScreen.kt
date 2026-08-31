@@ -205,7 +205,7 @@ fun HomeScreen(
                         style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                     )
-                    Spacer(Modifier.height(8.dp))
+                    Spacer(Modifier.height(IslamicSpacing.Small))
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Column(modifier = Modifier.weight(1f)) {
                             state.nextPrayer?.let { prayer ->
@@ -280,7 +280,7 @@ fun HomeScreen(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 4.dp)
+                            .padding(vertical = IslamicSpacing.XSmall)
                             .clip(MaterialTheme.shapes.medium)
                             .background(
                                 if (isNextPrayer) MaterialTheme.colorScheme.tertiaryContainer else Color.Transparent,
@@ -288,6 +288,15 @@ fun HomeScreen(
                             .padding(
                                 horizontal = IslamicSpacing.Compact,
                                 vertical = IslamicSpacing.Small,
+                            )
+                            .then(
+                                if (isNextPrayer) {
+                                    Modifier.semantics {
+                                        stateDescription = stringResource(R.string.home_next_prayer)
+                                    }
+                                } else {
+                                    Modifier
+                                },
                             ),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
@@ -328,7 +337,7 @@ fun HomeScreen(
             }
         }
 
-        Spacer(Modifier.height(12.dp))
+        Spacer(Modifier.height(IslamicSpacing.Medium))
 
         // ---- Day navigation + share + daily/monthly toggle ----
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -354,7 +363,9 @@ fun HomeScreen(
         }
 
         Row(
-            modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = IslamicSpacing.XSmall),
             horizontalArrangement = Arrangement.End,
         ) {
             OutlinedButton(
@@ -364,7 +375,7 @@ fun HomeScreen(
             ) {
                 Text(stringResource(R.string.times_share))
             }
-            Spacer(Modifier.width(8.dp))
+            Spacer(Modifier.width(IslamicSpacing.Small))
             OutlinedButton(
                 modifier = Modifier.weight(1f),
                 onClick = viewModel::toggleMonthly,
