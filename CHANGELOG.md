@@ -3,6 +3,20 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.25.22
+
+### Quran Surah List UI/UX Refinement
+
+- Replaced scattered spacing values in the Khatma progress card with the shared Islamic spacing tokens for a more consistent reading-oriented rhythm.
+- Marked each surah row as a semantic button so keyboard, switch-access, and TalkBack users receive a clear interactive affordance while opening a surah remains unchanged.
+- Preserved offline Quran data, surah navigation, bookmarks, playback actions, reading progress, translations, and existing RTL/LTR behaviour.
+
+### Verification
+
+- UI, accessibility, responsive-layout, visual-identity, documentation, and design-system guards passed locally.
+- The main CI workflow passed Quality (build, unit tests, Lint, and Detekt), Android emulator tests, Closed beta APK generation, and signed release artifact generation before this tag.
+- This remains an incremental UI/UX refinement and does not claim that every application surface has been completely redesigned.
+
 ## Muslim v1.25.21
 
 ### Prayer Home UI/UX Refinement
