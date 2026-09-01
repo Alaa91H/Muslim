@@ -26,9 +26,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.ui.theme.IslamicOrnament
@@ -155,12 +155,12 @@ private fun KhatmaProgressCard(readThrough: Int, totalAyahs: Int, fraction: Floa
                     color = MaterialTheme.colorScheme.primary,
                 )
             }
-            Spacer(Modifier.padding(top = 8.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             LinearProgressIndicator(
                 progress = { fraction },
                 modifier = Modifier.fillMaxWidth(),
             )
-            Spacer(Modifier.padding(top = 6.dp))
+            Spacer(Modifier.height(IslamicSpacing.XSmall))
             Text(
                 text = stringResource(
                     R.string.quran_khatma_detail,
@@ -213,7 +213,10 @@ private fun SurahRow(surah: Surah, onClick: () -> Unit, onPlay: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick)
+            .clickable(
+                role = Role.Button,
+                onClick = onClick,
+            )
             .padding(
                 horizontal = IslamicSpacing.PageHorizontal,
                 vertical = IslamicSpacing.Compact,
