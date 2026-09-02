@@ -25,6 +25,9 @@ NOTIFICATION_SERVICE = ROOT / "feature/feature-prayer-times/src/main/java/org/mu
 HOME = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeScreen.kt"
 HOME_DIALOG = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeAdhanCustomizationDialog.kt"
 QIBLA_SCREEN = ROOT / "feature/feature-qibla/src/main/java/org/muslim/app/feature/qibla/ui/QiblaScreen.kt"
+COMPASS_SENSOR = ROOT / "feature/feature-qibla/src/main/java/org/muslim/app/feature/qibla/ui/CompassSensor.kt"
+COMPASS_POSTURE = ROOT / "feature/feature-qibla/src/main/java/org/muslim/app/feature/qibla/domain/CompassPosture.kt"
+COMPASS_POSTURE_TEST = ROOT / "feature/feature-qibla/src/test/java/org/muslim/app/feature/qibla/domain/CompassPostureTest.kt"
 APP_PROGUARD = ROOT / "app/proguard-rules.pro"
 
 
@@ -53,6 +56,9 @@ def main() -> None:
     home = HOME.read_text(encoding="utf-8")
     home_dialog = HOME_DIALOG.read_text(encoding="utf-8")
     qibla_screen = QIBLA_SCREEN.read_text(encoding="utf-8")
+    compass_sensor = COMPASS_SENSOR.read_text(encoding="utf-8")
+    compass_posture = COMPASS_POSTURE.read_text(encoding="utf-8")
+    compass_posture_test = COMPASS_POSTURE_TEST.read_text(encoding="utf-8")
     app_proguard = APP_PROGUARD.read_text(encoding="utf-8")
 
     require("RequestMultiplePermissions" in location_screen, "GPS must request Android location permission pair")
@@ -112,6 +118,12 @@ def main() -> None:
     require("onClick = { customizingPrayer = prayer }" in home, "home alert icon must not navigate to prayer settings")
     require("PrayerSettingsViewModel" in home_dialog and "saveAdhanCustomization" in home_dialog, "home modal must share the persisted customisation flow")
     require("triggerQiblaHapticFeedback" in qibla_screen, "Qibla may retain non-audio haptic feedback")
+    require("CompassPosture.isLevel" in compass_sensor, "compass must reject invalid upright or excessive-tilt postures")
+    require("SensorManager.AXIS_Y to SensorManager.AXIS_MINUS_X" in compass_sensor, "compass must remap landscape rotation using the display frame")
+    require("heading.isLevel &&" in qibla_screen, "Qibla alignment must not use an invalid upright heading")
+    require("qibla_hold_flat" in qibla_screen, "Qibla must explain the required flat phone posture")
+    require("MAX_TILT_DEGREES = 60f" in compass_posture and "isFinite" in compass_posture, "compass posture validation must reject non-finite and excessive tilt")
+    require("uprightPhoneIsRejected" in compass_posture_test, "compass posture must have a regression test for upright phones")
     require("ToneGenerator" not in qibla_screen and "startTone" not in qibla_screen, "Qibla must not generate automatic tones")
 
     print("Prayer GPS, Isha, AudioTrack, notification colour and direct-customisation contract verified.")

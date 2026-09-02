@@ -10,6 +10,7 @@
     <string name="qibla_distance">Distance to Makkah: %1$s</string>
     <string name="qibla_distance_km">%,.0f km</string>
     <string name="qibla_calibrate">Move your phone in a figure-eight to calibrate</string>
+    <string name="qibla_hold_flat">Hold the phone flat, not upright, to measure the Qibla direction</string>
     <string name="qibla_mode_compass">Compass</string>
     <string name="qibla_mode_map">Map</string>
     <string name="qibla_map_you">You</string>

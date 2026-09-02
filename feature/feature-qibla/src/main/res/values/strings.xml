@@ -10,6 +10,7 @@
     <string name="qibla_distance">المسافة إلى مكة: %1$s</string>
     <string name="qibla_distance_km">%,.0f كم</string>
     <string name="qibla_calibrate">حرّك الهاتف بشكل ثماني لمعايرة البوصلة</string>
+    <string name="qibla_hold_flat">ضع الهاتف أفقيًا ومسطحًا، وليس عموديًا، لقياس اتجاه القبلة</string>
     <string name="qibla_mode_compass">البوصلة</string>
     <string name="qibla_mode_map">الخريطة</string>
     <string name="qibla_map_you">موقعك</string>

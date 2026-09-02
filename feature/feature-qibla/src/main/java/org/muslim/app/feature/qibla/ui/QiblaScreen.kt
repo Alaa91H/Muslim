@@ -206,7 +206,7 @@ private fun QiblaCompassTab(
     val distanceKm = QiblaCalculator.distanceKm(effectiveLat, effectiveLng)
     val trueHeading = (heading.heading + declination) % 360f
     val turnClockwise = ((bearing - trueHeading) % 360.0 + 360.0) % 360.0
-    val facingQibla = turnClockwise < 2.0 || turnClockwise > 358.0
+    val facingQibla = heading.isLevel && (turnClockwise < 2.0 || turnClockwise > 358.0)
     val turnRight = turnClockwise <= 180.0
     val turnDegrees = if (turnRight) turnClockwise else 360.0 - turnClockwise
 
@@ -232,6 +232,7 @@ private fun QiblaCompassTab(
             turnRight = turnRight,
             turnDegrees = turnDegrees,
             needsCalibration = heading.accuracy < SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM,
+            needsFlatPosture = !heading.isLevel,
         ),
         modifier = modifier,
         onGpsRefresh = onGpsRefresh,
@@ -250,6 +251,7 @@ private data class QiblaPresentation(
     val turnRight: Boolean,
     val turnDegrees: Double,
     val needsCalibration: Boolean,
+    val needsFlatPosture: Boolean,
 )
 
 @Composable
@@ -425,7 +427,13 @@ private fun QiblaDirectionDetails(presentation: QiblaPresentation, modifier: Mod
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
-        if (presentation.needsCalibration) {
+        if (presentation.needsFlatPosture) {
+            Spacer(Modifier.height(12.dp))
+            MuslimStateSurface(
+                title = stringResource(R.string.qibla_hold_flat),
+                tone = MuslimStateTone.Warning,
+            )
+        } else if (presentation.needsCalibration) {
             Spacer(Modifier.height(12.dp))
             MuslimStateSurface(
                 title = stringResource(R.string.qibla_calibrate),

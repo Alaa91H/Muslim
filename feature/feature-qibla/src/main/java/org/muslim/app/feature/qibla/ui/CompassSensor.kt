@@ -11,33 +11,26 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
-import org.muslim.app.feature.qibla.domain.HeadingSmoother
 import kotlin.math.PI
+import org.muslim.app.feature.qibla.domain.CompassPosture
+import org.muslim.app.feature.qibla.domain.HeadingSmoother
 
-/** Device heading (degrees from magnetic north, 0..360) and sensor accuracy. */
+/** Device heading and whether the phone is held in a valid flat measuring posture. */
 data class CompassHeading(
     val heading: Float,
     val accuracy: Int,
+    val isLevel: Boolean = false,
 )
 
 /**
- * Feeds the phone's heading for the qibla compass.
+ * Feeds a tilt-compensated heading for the Qibla compass.
  *
- * Source priority (best first, never faked):
- *  1. [Sensor.TYPE_ROTATION_VECTOR] — the framework's fused product
- *     (gyroscope + accelerometer + magnetometer), the most stable source.
- *  2. [Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR] — fusion without gyroscope
- *     drift; ideal on devices with a weak gyro.
- *  3. Accelerometer + magnetometer — tilt-compensated fallback using the
- *     classic rotation-matrix algorithm.
- *
- * The raw azimuth is passed through an exponential angle smoother
- * ([HeadingSmoother]) so the dial does not jitter, and is corrected by the
- * current screen rotation so the reading always matches the top of the
- * display in both portrait and landscape.
- *
- * Sensors run only while this composable is composed — never in the
- * background (battery principle).
+ * A compass bearing is meaningful only while the phone's screen plane is
+ * reasonably horizontal. In particular, a phone held vertically produces an
+ * azimuth that can look plausible while being physically unsuitable for a
+ * flat compass reading. Such samples are rejected and never used for Qibla
+ * alignment. Screen rotation is remapped explicitly rather than using a
+ * fixed X/Z transform, so portrait and landscape do not change the bearing.
  */
 @Composable
 fun rememberCompassHeading(
@@ -51,7 +44,6 @@ fun rememberCompassHeading(
 
     DisposableEffect(context, displayRotationDegrees) {
         val sensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-
         val rotationMatrix = FloatArray(9)
         val remapped = FloatArray(9)
         val orientation = FloatArray(3)
@@ -62,24 +54,33 @@ fun rememberCompassHeading(
         var sourceAccuracy = SensorManager.SENSOR_STATUS_UNRELIABLE
 
         fun emit(matrix: FloatArray) {
-            // Screen-up remap so the dial follows the natural device posture.
-            if (SensorManager.remapCoordinateSystem(
-                    matrix,
-                    SensorManager.AXIS_X,
-                    SensorManager.AXIS_Z,
-                    remapped,
-                )
-            ) {
-                SensorManager.getOrientation(remapped, orientation)
-                // orientation[0]: azimuth in radians from magnetic north (-π..π).
-                val azimuth = (((orientation[0] / PI * 180.0) % 360.0 + 360.0) % 360.0).toFloat()
-                if (azimuth.isNaN() || azimuth.isInfinite()) return
-                val smoothed = smoother.update(azimuth)
-                // Rotate into the display frame: when the device is held
-                // sideways the screen top no longer matches the device top.
-                val displayHeading = (smoothed - displayRotationDegrees + 360f) % 360f
-                state.value = CompassHeading(displayHeading, sourceAccuracy)
+            val (xAxis, yAxis) = when (displayRotationDegrees) {
+                90 -> SensorManager.AXIS_Y to SensorManager.AXIS_MINUS_X
+                180 -> SensorManager.AXIS_MINUS_X to SensorManager.AXIS_MINUS_Y
+                270 -> SensorManager.AXIS_MINUS_Y to SensorManager.AXIS_X
+                else -> SensorManager.AXIS_X to SensorManager.AXIS_Y
             }
+            if (!SensorManager.remapCoordinateSystem(matrix, xAxis, yAxis, remapped)) return
+            SensorManager.getOrientation(remapped, orientation)
+
+            val pitchDegrees = orientation[1] / PI.toFloat() * 180f
+            val rollDegrees = orientation[2] / PI.toFloat() * 180f
+            val isLevel = CompassPosture.isLevel(pitchDegrees, rollDegrees)
+            if (!isLevel) {
+                // Keep the last valid heading, but make the invalid posture
+                // visible to the Qibla UI so it cannot report a false match.
+                state.value = state.value.copy(
+                    accuracy = sourceAccuracy,
+                    isLevel = false,
+                )
+                return
+            }
+
+            val azimuth = (((orientation[0] / PI * 180.0) % 360.0 + 360.0) % 360.0).toFloat()
+            if (azimuth.isNaN() || azimuth.isInfinite()) return
+            val smoothed = smoother.update(azimuth)
+            val displayHeading = (smoothed + 360f) % 360f
+            state.value = CompassHeading(displayHeading, sourceAccuracy, isLevel = true)
         }
 
         val listener = object : SensorEventListener {
