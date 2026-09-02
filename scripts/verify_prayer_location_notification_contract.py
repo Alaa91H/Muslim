@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 LOCATION_SCREEN = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/location/LocationScreen.kt"
@@ -29,6 +30,8 @@ COMPASS_SENSOR = ROOT / "feature/feature-qibla/src/main/java/org/muslim/app/feat
 COMPASS_POSTURE = ROOT / "feature/feature-qibla/src/main/java/org/muslim/app/feature/qibla/domain/CompassPosture.kt"
 COMPASS_POSTURE_TEST = ROOT / "feature/feature-qibla/src/test/java/org/muslim/app/feature/qibla/domain/CompassPostureTest.kt"
 APP_PROGUARD = ROOT / "app/proguard-rules.pro"
+LAUNCHER_MONOCHROME = ROOT / "app/src/main/res/drawable/ic_muslim_launcher_monochrome_v2028.xml"
+STATUS_BAR_ICON = ROOT / "core/core-notifications/src/main/res/drawable/ic_muslim_status_bar_v2028.xml"
 
 
 def require(condition: bool, message: str) -> None:
@@ -60,6 +63,8 @@ def main() -> None:
     compass_posture = COMPASS_POSTURE.read_text(encoding="utf-8")
     compass_posture_test = COMPASS_POSTURE_TEST.read_text(encoding="utf-8")
     app_proguard = APP_PROGUARD.read_text(encoding="utf-8")
+    launcher_monochrome = LAUNCHER_MONOCHROME.read_text(encoding="utf-8")
+    status_bar_icon = STATUS_BAR_ICON.read_text(encoding="utf-8")
 
     require("RequestMultiplePermissions" in location_screen, "GPS must request Android location permission pair")
     require("ACCESS_FINE_LOCATION" in location_screen and "ACCESS_COARSE_LOCATION" in location_screen, "GPS UI must accept precise or approximate permission")
@@ -93,6 +98,10 @@ def main() -> None:
     require("runPostSaveSideEffect" in location_vm, "derived refresh failures must not undo a saved GPS location")
     require("com.github.luben.zstd.ZstdInputStreamNoFinalizer { *; }" in app_proguard, "R8 must preserve zstd JNI fields used by coordinate timezone lookup")
     require("com.github.luben.zstd.ZstdOutputStreamNoFinalizer { *; }" in app_proguard, "R8 must preserve zstd JNI output compatibility")
+    launcher_path = re.search(r'android:pathData="([^"]+)"', launcher_monochrome)
+    status_path = re.search(r'android:pathData="([^"]+)"', status_bar_icon)
+    require(launcher_path is not None and status_path is not None, "launcher and status icons must define vector path data")
+    require(launcher_path.group(1) == status_path.group(1), "status-bar icon silhouette must match launcher monochrome silhouette")
     require("runCatching" in geocoder_resolver and "geocoder.getFromLocation" in geocoder_resolver, "reverse geocoding must contain platform failures")
     require("writeTrackChunk" in adhan_sound_player, "synthesized Adhan must guard AudioTrack writes")
     require("AudioTrack.ERROR_INVALID_OPERATION" in adhan_sound_player, "invalidated AudioTrack writes must end safely")

@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Android notification small icon: a single-color eight-point Islamic star
-     with a cut-out mihrab. Kept deliberately bold for 24dp status-bar rendering. -->
+<!-- Notification small icon: the same geometric Islamic mark as the adaptive launcher icon. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
+    android:viewportWidth="108"
+    android:viewportHeight="108">
     <path
         android:fillColor="#FFFFFFFF"
         android:fillType="evenOdd"
-        android:pathData="M12,1.5L14.35,7.65L20.5,5.3L17.35,11.5L22.5,12L17.35,12.5L20.5,18.7L14.35,16.35L12,22.5L9.65,16.35L3.5,18.7L6.65,12.5L1.5,12L6.65,11.5L3.5,5.3L9.65,7.65ZM12,8.25C10.05,9.55 9,11.1 9,13V16H15V13C15,11.1 13.95,9.55 12,8.25ZM12,10.7C12.62,11.3 13,12.05 13,13V14H11V13C11,12.05 11.38,11.3 12,10.7Z" />
+        android:pathData="M54,6.75L64.575,34.425L92.25,23.85L78.075,51.75L101.25,54L78.075,56.25L92.25,84.15L64.575,73.575L54,101.25L43.425,73.575L15.75,84.15L29.925,56.25L6.75,54L29.925,51.75L15.75,23.85L43.425,34.425ZM54,37.125C45.225,42.975 40.5,49.95 40.5,58.5V72H67.5V58.5C67.5,49.95 62.775,42.975 54,37.125ZM54,48.15C56.79,50.85 58.5,54.225 58.5,58.5V63H49.5V58.5C49.5,54.225 51.21,50.85 54,48.15ZM54,20A13.5,13.5 0,1 0,69.5,35.5A11,11 0,1 1,54,20Z" />
 </vector>
