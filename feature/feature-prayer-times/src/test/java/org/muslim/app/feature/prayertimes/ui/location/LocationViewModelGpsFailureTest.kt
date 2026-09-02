@@ -8,7 +8,9 @@ import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
 import io.mockk.runs
+import java.util.concurrent.atomic.AtomicInteger
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -71,6 +73,46 @@ class LocationViewModelGpsFailureTest {
 
             assertThat(viewModel.messages.value)
                 .isEqualTo(LocationViewModel.Message.Error("gps_failed"))
+        } finally {
+            Dispatchers.resetMain()
+        }
+    }
+
+    @Test
+    fun `concurrent GPS clicks are serialized and both remain recoverable`() = runTest {
+        Dispatchers.setMain(StandardTestDispatcher(testScheduler))
+        try {
+            val activeRequests = AtomicInteger(0)
+            val maximumConcurrentRequests = AtomicInteger(0)
+            val locationProvider = mockk<LocationProvider>()
+            coEvery { locationProvider.currentLocation() } coAnswers {
+                val active = activeRequests.incrementAndGet()
+                maximumConcurrentRequests.set(maxOf(maximumConcurrentRequests.get(), active))
+                delay(100)
+                activeRequests.decrementAndGet()
+                GeoLocation(24.7136, 46.6753)
+            }
+            val regionNameResolver = mockk<RegionNameResolver>()
+            coEvery { regionNameResolver.resolve(any(), any()) } returns "Riyadh, Saudi Arabia"
+            val timeZoneResolver = mockk<CoordinateTimeZoneResolver>()
+            coEvery { timeZoneResolver.resolve(any(), any()) } returns "Asia/Riyadh"
+            val repository = mockk<PrayerSettingsRepository>(relaxed = true).also {
+                every { it.settings } returns flowOf(PrayerSettings())
+            }
+            val viewModel = newViewModel(
+                locationProvider = locationProvider,
+                repository = repository,
+                regionNameResolver = regionNameResolver,
+                timeZoneResolver = timeZoneResolver,
+            )
+
+            viewModel.useGps()
+            viewModel.useGps()
+            advanceUntilIdle()
+
+            assertThat(maximumConcurrentRequests.get()).isEqualTo(1)
+            assertThat(viewModel.messages.value).isEqualTo(LocationViewModel.Message.Saved)
+            coVerify(exactly = 2) { repository.save(any()) }
         } finally {
             Dispatchers.resetMain()
         }
