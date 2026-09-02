@@ -13,6 +13,7 @@ FUSED_PROVIDER_TEST = ROOT / "core/core-location/src/test/java/org/muslim/app/co
 LOCATION_VM_GPS_FAILURE_TEST = ROOT / "feature/feature-prayer-times/src/test/java/org/muslim/app/feature/prayertimes/ui/location/LocationViewModelGpsFailureTest.kt"
 GPS_FAILURE_INSTRUMENTATION_TEST = ROOT / "core/core-location/src/androidTest/java/org/muslim/app/core/location/GpsFailureInstrumentationTest.kt"
 LOCATION_SCREEN_GPS_INSTRUMENTATION_TEST = ROOT / "feature/feature-prayer-times/src/androidTest/java/org/muslim/app/feature/prayertimes/ui/location/LocationScreenGpsInstrumentationTest.kt"
+TIMEZONE_RESOLVER_INSTRUMENTATION_TEST = ROOT / "feature/feature-prayer-times/src/androidTest/java/org/muslim/app/feature/prayertimes/ui/location/CoordinateTimeZoneResolverInstrumentationTest.kt"
 GEOCODER_RESOLVER = ROOT / "core/core-location/src/main/java/org/muslim/app/core/location/GeocoderRegionNameResolver.kt"
 ADHAN_SOUND_PLAYER = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/notifications/AdhanSoundPlayer.kt"
 SETTINGS = ROOT / "core/core-datastore/src/main/java/org/muslim/app/core/datastore/prayer/PrayerSettings.kt"
@@ -24,6 +25,7 @@ NOTIFICATION_SERVICE = ROOT / "feature/feature-prayer-times/src/main/java/org/mu
 HOME = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeScreen.kt"
 HOME_DIALOG = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeAdhanCustomizationDialog.kt"
 QIBLA_SCREEN = ROOT / "feature/feature-qibla/src/main/java/org/muslim/app/feature/qibla/ui/QiblaScreen.kt"
+APP_PROGUARD = ROOT / "app/proguard-rules.pro"
 
 
 def require(condition: bool, message: str) -> None:
@@ -39,6 +41,7 @@ def main() -> None:
     location_vm_gps_failure_test = LOCATION_VM_GPS_FAILURE_TEST.read_text(encoding="utf-8")
     gps_failure_instrumentation_test = GPS_FAILURE_INSTRUMENTATION_TEST.read_text(encoding="utf-8")
     location_screen_gps_instrumentation_test = LOCATION_SCREEN_GPS_INSTRUMENTATION_TEST.read_text(encoding="utf-8")
+    timezone_resolver_instrumentation_test = TIMEZONE_RESOLVER_INSTRUMENTATION_TEST.read_text(encoding="utf-8")
     geocoder_resolver = GEOCODER_RESOLVER.read_text(encoding="utf-8")
     adhan_sound_player = ADHAN_SOUND_PLAYER.read_text(encoding="utf-8")
     settings = SETTINGS.read_text(encoding="utf-8")
@@ -50,6 +53,7 @@ def main() -> None:
     home = HOME.read_text(encoding="utf-8")
     home_dialog = HOME_DIALOG.read_text(encoding="utf-8")
     qibla_screen = QIBLA_SCREEN.read_text(encoding="utf-8")
+    app_proguard = APP_PROGUARD.read_text(encoding="utf-8")
 
     require("RequestMultiplePermissions" in location_screen, "GPS must request Android location permission pair")
     require("ACCESS_FINE_LOCATION" in location_screen and "ACCESS_COARSE_LOCATION" in location_screen, "GPS UI must accept precise or approximate permission")
@@ -73,12 +77,16 @@ def main() -> None:
     require("GPS location remains saved when a derived scheduler refresh fails" in location_vm_gps_failure_test, "post-save GPS failures must remain covered at the ViewModel boundary")
     require("brokenGpsServicesDoNotCrashTheAndroidProcess" in gps_failure_instrumentation_test, "the Android device test must retain the no-crash GPS regression")
     require("useCurrentLocationPersistsGpsFixAndStaysInThePickerFlow" in location_screen_gps_instrumentation_test, "the location picker must retain a device-level successful GPS-flow regression")
+    require("riyadhCoordinatesResolveThroughTheRealTimezoneIndex" in timezone_resolver_instrumentation_test, "GPS must exercise the real compressed timezone index on Android")
+    require("CoordinateTimeZoneResolver().resolve(24.7136, 46.6753)" in timezone_resolver_instrumentation_test, "timezone regression must not replace the zstd path with a mock")
     require("TimeZone.getDefault" not in location_vm, "GPS must not assign the device timezone to coordinates")
     require("coordinateTimeZoneResolver.resolve(geo.latitude, geo.longitude)" in location_vm, "GPS must resolve a coordinate IANA zone")
     require("catch (error: CancellationException)" in location_vm, "GPS cancellation must propagate without treating it as an app failure")
     require("messages.value = Message.Error(\"gps_failed\")" in location_vm, "GPS provider failures must become a recoverable UI state")
     require("private suspend fun persistNow" in location_vm, "location persistence must remain behind one guarded path")
     require("runPostSaveSideEffect" in location_vm, "derived refresh failures must not undo a saved GPS location")
+    require("com.github.luben.zstd.ZstdInputStreamNoFinalizer { *; }" in app_proguard, "R8 must preserve zstd JNI fields used by coordinate timezone lookup")
+    require("com.github.luben.zstd.ZstdOutputStreamNoFinalizer { *; }" in app_proguard, "R8 must preserve zstd JNI output compatibility")
     require("runCatching" in geocoder_resolver and "geocoder.getFromLocation" in geocoder_resolver, "reverse geocoding must contain platform failures")
     require("writeTrackChunk" in adhan_sound_player, "synthesized Adhan must guard AudioTrack writes")
     require("AudioTrack.ERROR_INVALID_OPERATION" in adhan_sound_player, "invalidated AudioTrack writes must end safely")

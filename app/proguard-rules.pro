@@ -26,3 +26,11 @@
 # --- Glance widgets ---
 -keep class * extends androidx.glance.appwidget.GlanceAppWidgetReceiver
 -keep class * extends androidx.glance.action.ActionCallback
+
+# --- zstd-jni / timezonemap JNI compatibility ---
+# ZstdInputStreamNoFinalizer.initDStream() resolves srcPos and dstPos by
+# exact field name from native code. R8 must not remove or rename these
+# fields, otherwise release builds abort with NoSuchFieldError before the
+# Kotlin failure boundary can handle the GPS timezone lookup.
+-keep class com.github.luben.zstd.ZstdInputStreamNoFinalizer { *; }
+-keep class com.github.luben.zstd.ZstdOutputStreamNoFinalizer { *; }
