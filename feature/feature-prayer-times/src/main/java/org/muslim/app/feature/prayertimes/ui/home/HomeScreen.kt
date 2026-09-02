@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -120,15 +121,18 @@ fun HomeScreen(
     var customizingPrayer by remember { mutableStateOf<Prayer?>(null) }
 
     MuslimContentFrame(modifier = modifier) {
-        Box(modifier = Modifier.fillMaxSize()) {
+        BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+        val compactLayout = maxHeight < 760.dp
+        val cardPadding = if (compactLayout) IslamicSpacing.Compact else IslamicSpacing.Comfortable
+        val sectionGap = if (compactLayout) IslamicSpacing.Medium else IslamicSpacing.SectionVertical
         IslamicOrnamentImage(
             ornament = ornamentStyle.toIslamicOrnament(),
             tint = MaterialTheme.colorScheme.primary,
             alpha = IslamicOrnamentOpacity.LightBackground,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(220.dp)
-                .padding(top = IslamicSpacing.Large),
+                .height(if (compactLayout) 72.dp else 104.dp)
+                .padding(top = if (compactLayout) IslamicSpacing.Small else IslamicSpacing.Medium),
         )
         Column(
             modifier = Modifier
@@ -177,7 +181,7 @@ fun HomeScreen(
             }
         }
 
-        Spacer(Modifier.height(IslamicSpacing.Medium))
+        Spacer(Modifier.height(if (compactLayout) IslamicSpacing.Small else IslamicSpacing.Medium))
 
         if (!state.hasLocation) {
             MuslimStateSurface(
@@ -195,7 +199,7 @@ fun HomeScreen(
                 .fillMaxWidth()
                 .semantics { contentDescription = nextPrayerDescription },
             containerColor = MaterialTheme.colorScheme.primaryContainer,
-            contentPadding = androidx.compose.foundation.layout.PaddingValues(IslamicSpacing.Comfortable),
+            contentPadding = androidx.compose.foundation.layout.PaddingValues(cardPadding),
         ) {
             Box {
                 PrayerCardEdgeOrnaments(tint = MaterialTheme.colorScheme.tertiary)
@@ -245,7 +249,7 @@ fun HomeScreen(
             }
         }
 
-        Spacer(Modifier.height(IslamicSpacing.SectionVertical))
+        Spacer(Modifier.height(sectionGap))
 
         // ---- Today's times ----
         MuslimSectionHeader(
@@ -267,8 +271,8 @@ fun HomeScreen(
             modifier = Modifier.fillMaxWidth(),
             containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
             contentPadding = androidx.compose.foundation.layout.PaddingValues(
-                horizontal = IslamicSpacing.Medium,
-                vertical = IslamicSpacing.Small,
+                horizontal = if (compactLayout) IslamicSpacing.Compact else IslamicSpacing.Medium,
+                vertical = IslamicSpacing.XSmall,
             ),
         ) {
             Box {
@@ -285,14 +289,14 @@ fun HomeScreen(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = IslamicSpacing.XSmall)
+                            .padding(vertical = IslamicSpacing.XXSmall)
                             .clip(MaterialTheme.shapes.medium)
                             .background(
                                 if (isNextPrayer) MaterialTheme.colorScheme.tertiaryContainer else Color.Transparent,
                             )
                             .padding(
                                 horizontal = IslamicSpacing.Compact,
-                                vertical = IslamicSpacing.Small,
+                                vertical = IslamicSpacing.XSmall,
                             )
                             .then(
                                 nextPrayerStateDescription?.let { description ->
@@ -338,7 +342,7 @@ fun HomeScreen(
             }
         }
 
-        Spacer(Modifier.height(IslamicSpacing.Medium))
+        Spacer(Modifier.height(if (compactLayout) IslamicSpacing.Small else IslamicSpacing.Medium))
 
         // ---- Day navigation + share + daily/monthly toggle ----
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -390,7 +394,7 @@ fun HomeScreen(
         }
 
         if (showPrayerTrackerOnHome) {
-            Spacer(Modifier.height(IslamicSpacing.SectionVertical))
+            Spacer(Modifier.height(sectionGap))
             PrayerCompletionCard(
                 completedPrayers = state.completedPrayers,
                 onToggle = viewModel::togglePrayerCompletion,
@@ -504,7 +508,7 @@ private fun PrayerCompletionCard(
 ) {
     IslamicCard(
         modifier = Modifier.fillMaxWidth(),
-        contentPadding = androidx.compose.foundation.layout.PaddingValues(IslamicSpacing.Medium),
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(IslamicSpacing.Compact),
     ) {
         Box {
             PrayerCardEdgeOrnaments(tint = MaterialTheme.colorScheme.primary)
@@ -514,13 +518,13 @@ private fun PrayerCompletionCard(
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.SemiBold,
             )
-            Spacer(Modifier.height(4.dp))
+            Spacer(Modifier.height(IslamicSpacing.XSmall))
             Text(
                 text = stringResource(R.string.home_prayer_tracker_description),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Spacer(Modifier.height(10.dp))
+            Spacer(Modifier.height(IslamicSpacing.Small))
             Text(
                 text = stringResource(
                     R.string.home_prayer_tracker_progress,
@@ -530,7 +534,7 @@ private fun PrayerCompletionCard(
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.primary,
             )
-            Spacer(Modifier.height(6.dp))
+            Spacer(Modifier.height(IslamicSpacing.XSmall))
             trackablePrayers.forEach { prayer ->
                 val completed = prayer in completedPrayers
                 val label = stringResource(prayerLabelRes(prayer))
