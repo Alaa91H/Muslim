@@ -97,7 +97,7 @@
     <string name="quran_pause_notif_listener">إيقاف التلاوة عند الإشعارات</string>
     <string name="quran_recitation_notif_previous">السابقة</string>
     <string name="quran_recitation_notif_next">التالية</string>
-    <string name="quran_recitation_notif_subtext">القرآن الكريم — تلاوة مباركة</string>
+    <string name="quran_recitation_notif_subtext" tools:ignore="MissingTranslation">القرآن الكريم — تلاوة مباركة</string>
 
     <!-- Meanings/tafsir controls -->
     <string name="quran_supplement_controls">المعاني والتفسير</string>

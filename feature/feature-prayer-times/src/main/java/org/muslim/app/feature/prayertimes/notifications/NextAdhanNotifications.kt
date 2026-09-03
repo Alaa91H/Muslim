@@ -80,20 +80,9 @@ object NextAdhanNotifications {
 
         // BigText is deliberately supplied only for the optional second line.
         // The system keeps [compactLine] as the one-line collapsed presentation.
-        // When expanded, show both compact line and missed-adhan line together
-        // for a complete picture without losing the countdown.
         if (textLines.expandedMissed.isNotEmpty()) {
-            val big = SpannableStringBuilder().apply {
-                append(textLines.compact)
-                append("\n")
-                append(textLines.expandedMissed)
-            }
-            builder.setStyle(NotificationCompat.BigTextStyle().bigText(big).setSummaryText(context.getString(R.string.next_adhan_summary)))
-        } else if (textLines.compact.isNotEmpty()) {
-            builder.setStyle(NotificationCompat.BigTextStyle().bigText(textLines.compact))
+            builder.setStyle(NotificationCompat.BigTextStyle().bigText(textLines.expandedMissed))
         }
-        // Semantic green for the upcoming time — not a full colorized notification,
-        // just an accent that highlights the time without overwhelming the shade.
         if (data.nextPrayerAt != null) {
             builder.setColor(upcomingTimeColor)
         }
