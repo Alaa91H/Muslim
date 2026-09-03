@@ -4,6 +4,10 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.media.AudioAttributes
 import android.media.AudioFocusRequest
 import android.media.AudioManager
@@ -269,13 +273,18 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
             getString(R.string.quran_recitation_notif_play)
         }
 
-        // Professional transport notification: unified small-icon identity, rich subText
-        // for the reciter context, correct public visibility for lock-screen, and
-        // compact-view that exposes the three primary transport controls (prev /
-        // play-pause / next) exactly as a native music app — stop remains in the
-        // expanded shade so the card never exceeds the system's action limit.
+        // Professional transport notification: unified small-icon identity (white, tinted
+        // for status bar) + official gold largeIcon for the shade so the media card
+        // matches the countdown card's gold emblem. The largeIcon is the app's
+        // launcher icon (gold hollow star on navy) obtained via PackageManager so
+        // no cross-module resource reference is needed.
+        val largeIcon: Bitmap? = try {
+            val drawable: Drawable = packageManager.getApplicationIcon(packageName)
+            drawableToBitmap(drawable)
+        } catch (_: Exception) { null }
         return NotificationCompat.Builder(this, NotificationChannels.RECITATION)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
+            .setLargeIcon(largeIcon)
             .setContentTitle(title)
             .setContentText(text)
             .setSubText(getString(R.string.quran_recitation_notif_subtext))
@@ -311,6 +320,17 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
                 actionPendingIntent(RecitationActionReceiver.ACTION_STOP),
             )
             .build()
+    }
+
+    private fun drawableToBitmap(drawable: Drawable): Bitmap {
+        if (drawable is BitmapDrawable && drawable.bitmap != null) return drawable.bitmap
+        val width = drawable.intrinsicWidth.takeIf { it > 0 } ?: 256
+        val height = drawable.intrinsicHeight.takeIf { it > 0 } ?: 256
+        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        drawable.setBounds(0, 0, canvas.width, canvas.height)
+        drawable.draw(canvas)
+        return bitmap
     }
 
     private fun actionPendingIntent(action: String): PendingIntent =
