@@ -3,6 +3,21 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.25.24
+
+### Notification Icon Identity Alignment
+
+- Replaced the previous monochrome launcher and status-bar artwork with the same geometric Islamic mark used by the primary app identity: the eight-point star, central mihrab, and crescent silhouette.
+- Aligned the notification small icon used by prayer, Quran recitation, Hadith, daily content, Ramadan, Adhkar, Hajj, update, and reminder notifications with the launcher monochrome path data.
+- Preserved Android's single-colour notification treatment and kept MediaStyle transport controls as functional play, pause, previous, next, and stop actions rather than branding artwork.
+- Added a CI contract that compares launcher monochrome and status-bar vector path data so the two identities cannot silently diverge.
+
+### Verification
+
+- Local contract checks, XML validation, and `git diff --check` passed.
+- The full main CI workflow passed Quality, Android emulator tests, Closed beta APK generation, and signed release artifact generation for the implementation commit.
+- This release changes icon identity consistency only; it does not claim that Android notification tinting is identical across every OEM skin.
+
 ## Muslim v1.25.22
 
 ### Quran Surah List UI/UX Refinement
