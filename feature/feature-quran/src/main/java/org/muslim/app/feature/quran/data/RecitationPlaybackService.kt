@@ -283,7 +283,7 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
             drawableToBitmap(drawable)
         } catch (_: Exception) { null }
         return NotificationCompat.Builder(this, NotificationChannels.RECITATION)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_transparent)
             .setLargeIcon(largeIcon)
             .setContentTitle(title)
             .setContentText(text)

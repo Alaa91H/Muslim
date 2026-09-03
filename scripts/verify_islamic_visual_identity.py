@@ -258,6 +258,12 @@ def verify() -> list[str]:
                     break
             for line_number, line in enumerate(text.splitlines(), start=1):
                 if ".setSmallIcon(" in line and "ic_muslim_status_bar_v2028" not in line:
+                    # MediaStyle recitation uses a transparent smallIcon + gold largeIcon so the
+                    # shade shows only the official launcher emblem (user requested removal of the
+                    # white mono glyph). The status-bar entry remains valid via the transparent
+                    # vector, and the gold largeIcon is the visible identity.
+                    if "RecitationPlaybackService.kt" in str(source) and "ic_transparent" in line:
+                        continue
                     failures.append(
                         f"{source.relative_to(ROOT)}:{line_number}: notification small icon must use v2028",
                     )

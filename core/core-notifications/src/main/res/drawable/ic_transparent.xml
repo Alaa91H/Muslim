@@ -1,0 +1,10 @@
+<!-- Transparent smallIcon for MediaStyle recitation: keeps status-bar entry valid but renders nothing, so only the gold largeIcon is visible in the shade (user requested removal of the white mono glyph). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M0,0h24v24h-24z" />
+</vector>
