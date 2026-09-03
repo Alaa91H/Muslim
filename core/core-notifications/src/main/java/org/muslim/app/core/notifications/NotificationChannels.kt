@@ -1,6 +1,7 @@
 package org.muslim.app.core.notifications
 
 import android.app.NotificationChannel
+import android.app.NotificationChannelGroup
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
@@ -65,8 +66,19 @@ object NotificationChannels {
      * in system settings is never reset by a plain app start.
      */
     fun create(context: Context) {
+        val manager = context.getSystemService(NotificationManager::class.java)
+        // Professional grouping: prayer vs Quran/dhikr vs system, so the Settings
+        // shade stays organised even as categories grow.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            listOf(
+                NotificationChannelGroup("group_prayer", context.getString(R.string.group_prayer)),
+                NotificationChannelGroup("group_quran_dhikr", context.getString(R.string.group_quran_dhikr)),
+                NotificationChannelGroup("group_other", context.getString(R.string.group_other)),
+            ).forEach { group ->
+                runCatching { manager.createNotificationChannelGroup(group) }
+            }
+        }
         NotificationCategory.entries.forEach { category ->
-            val manager = context.getSystemService(NotificationManager::class.java)
             if (manager.getNotificationChannel(category.channelId) == null) {
                 manager.createNotificationChannel(
                     buildChannel(context, category, category.defaultPrefs()),
@@ -108,6 +120,10 @@ object NotificationChannels {
         prefs.importance.channelImportance,
     ).apply {
         description = context.getString(category.descriptionRes)
+        // Professional channel presentation: lock-screen visibility, light, badge,
+        // and vibration are aligned with the semantic category so the system
+        // shade, lock-screen, heads-up and LED/bubble behaviour feel intentional.
+        lockscreenVisibility = android.app.Notification.VISIBILITY_PUBLIC
         if (!prefs.soundEnabled) {
             // null sound = a silent channel when the user muted it.
             setSound(null, null)
@@ -115,11 +131,47 @@ object NotificationChannels {
         enableVibration(prefs.vibrateEnabled)
         if (!prefs.vibrateEnabled) {
             vibrationPattern = null
+        } else {
+            // Subtle haptic signature per category: Adhan/Ramadan use a longer
+            // double-pulse so the prayer alert feels distinct from routine
+            // reminders without overwhelming the user.
+            vibrationPattern = when (category) {
+                NotificationCategory.Adhan, NotificationCategory.Ramadan ->
+                    longArrayOf(0, 400, 200, 400)
+                NotificationCategory.PrayerReminder, NotificationCategory.Hajj ->
+                    longArrayOf(0, 250, 150, 250)
+                else -> longArrayOf(0, 300)
+            }
+        }
+        // LED/edge-light hint for devices that still expose it; colour matches
+        // the Islamic green accent for prayer and gold for spiritual content.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            enableLights(true)
+            lightColor = when (category) {
+                NotificationCategory.Adhan, NotificationCategory.PrayerCountdown,
+                NotificationCategory.PrayerReminder, NotificationCategory.Ramadan,
+                -> 0xFF527A68.toInt()
+                NotificationCategory.Recitation, NotificationCategory.QuranDaily,
+                NotificationCategory.HadithDaily, NotificationCategory.Adhkar,
+                -> 0xFFB49A62.toInt()
+                else -> 0xFF527A68.toInt()
+            }
         }
         setShowBadge(prefs.badgeEnabled)
         if (category == NotificationCategory.Adhkar && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             // Optional bubble presentation for the periodic reminder (Android 11+).
             setAllowBubbles(true)
+        }
+        // Group-related channels into spiritual / practical buckets for the
+        // system settings screen (cosmetic, no behavioural change).
+        group = when (category) {
+            NotificationCategory.Adhan, NotificationCategory.PrayerReminder,
+            NotificationCategory.PrayerCountdown, NotificationCategory.Ramadan, NotificationCategory.Hajj,
+            -> "group_prayer"
+            NotificationCategory.Recitation, NotificationCategory.QuranDaily,
+            NotificationCategory.HadithDaily, NotificationCategory.Adhkar,
+            -> "group_quran_dhikr"
+            else -> "group_other"
         }
     }
 

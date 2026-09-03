@@ -3,6 +3,38 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.25.25
+
+### Media Monochrome Icon — Complete Replacement
+
+- **Fully replaced** the single-colour media / monochrome icon so it is now pixel-identical to the primary app mark across every surface. The new silhouette is a **hollow 8-point star** formed by two interlaced squares (0° + 45°) rendered with an outer + inner contour (`evenOdd`), matching the thick gold hollow frames of `ic_muslim_launcher_foreground_v2028.png` instead of the previous solid star blob.
+- The interior holds a hollow **mihrab arch** (outer + inner) with a crescent (difference of two circles, R13.5 / R11) perched on its apex — the same geometry the full-colour launcher shows on navy.
+- Applied identically to `app/.../ic_muslim_launcher_monochrome_v2028.xml` (108 dp, themed-icon layer) and `core-notifications/.../ic_muslim_status_bar_v2028.xml` (24 dp, every `setSmallIcon` call). The existing CI guard that compares the two `pathData` strings now validates the new hollow design, so the launcher ↔ themed icon ↔ status-bar ↔ media glyph cannot silently diverge again.
+- **Wear OS** launcher (`wear/.../ic_wear_launcher_v2028.xml`) updated to the same hollow-frame language on its dark circular background (48 dp, glanceable thickness), so phone and watch share one visual identity.
+
+### Notifications — Professional System Polish
+
+- **Quran recitation (MediaStyle)** — compact view now exposes `previous / play-pause / next` (0,1,2) like a native music app, `stop` stays in the expanded shade; added `subText`, `contentInfo`, `showWhen=false`, `badgeIconType`, and `colorized=false` for a calm transport card. The existing `setSmallIcon(ic_muslim_status_bar_v2028)` contract is preserved.
+- **Active Adhan** — added `bigText` expansion, `subText` + `ticker` with the prayer name, `color` (adhan green), `badgeIconType`, `showWhen`, and a 10-minute `timeoutAfter` guard if the foreground service dies; `ongoing=true`, `onlyAlertOnce=true`, `foregroundServiceImmediate` preserved.
+- **Pre-prayer reminder** — upgraded to `CATEGORY_REMINDER`, `VISIBILITY_PUBLIC`, `priority=DEFAULT`, `badge`, `showWhen`, `BigTextStyle`, and a 15-minute timeout; still uses the unified monochrome small icon.
+- **Next-Adhan countdown** — permanent `CATEGORY_STATUS` card now carries `subText` (prayer label), `PRIORITY_LOW`, `BADGE_ICON_NONE`, `BigTextStyle` with both compact + missed lines + `summaryText`, and a semantic green `setColor` accent (not full colorized).
+- **Adhkar / Ramadan / Download** — enriched with `CATEGORY_REMINDER` / `CATEGORY_PROGRESS`, `BigTextStyle`, `subText`, `visibility`, `priority`, `progress` ongoing handling and `badge` — all still anchored to the unified monochrome glyph.
+- **Channels** — introduced three channel groups (`group_prayer`, `group_quran_dhikr`, `group_other`), `lockscreenVisibility=PUBLIC`, `enableLights` with Islamic green / gold, per-category `vibrationPattern` (Adhan/Ramadan double-pulse), and English/Arabic group names; creation stays idempotent so user-overridden channels are never reset on app start.
+
+### UI/UX — Premium Refinement
+
+- **IslamicCard** — optional `onClick` path, pressed/focused elevation (`Resting 1 dp → Raised 3 dp`), and correct minimum touch handling while preserving the quiet `outlineVariant` border and `Medium` shape (20 dp).
+- **MuslimStateSurface** — `tonalElevation` for non-neutral tones, `outlineVariant` at 85% alpha, and icon tint now follows `content` colour so `Neutral / Information / Positive / Warning / Critical` are communicated by container + icon + title + action together, not colour alone.
+- **MuslimSectionHeader** — `Arrangement.spacedBy(Small)` and explicit `onSurface` title colour for calmer hierarchy.
+- **IslamicPrimaryButton / Secondary** — explicit `Medium` shape, 1 dp / 2 dp elevation, and secondary now uses `primary` content colour (consistent with the design-system tertiary→primary migration) while still meeting 48 dp touch targets.
+- **Theme / Dimens** — expanded KDoc to clarify dynamic-color fallback, low elevation / 20-24 dp radii, and the reading-first intent; `Dimens` radius docs now call out `Card 20 dp / Large 24 dp` as the premium roundness.
+
+### Verification
+
+- `python3 scripts/verify_islamic_visual_identity.py` and `python3 scripts/verify_prayer_location_notification_contract.py` pass locally (pathData identity, `adhan_accent` foreground span, `MissedAdhanColors.DEFAULT`, POST_NOTIFICATIONS preflight, GPS/timezone, AudioTrack guards, etc.).
+- `git diff --check` clean; vectors parse as valid Android `vector` XML.
+- No retired `v1252 / v2026 / v2027` identifiers reintroduced; every `setSmallIcon` still resolves to `ic_muslim_status_bar_v2028`.
+
 ## Muslim v1.25.24
 
 ### Notification Icon Identity Alignment

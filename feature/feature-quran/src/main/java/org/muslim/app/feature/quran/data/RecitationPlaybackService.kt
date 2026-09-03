@@ -269,19 +269,30 @@ class RecitationPlaybackService : MediaBrowserServiceCompat() {
             getString(R.string.quran_recitation_notif_play)
         }
 
+        // Professional transport notification: unified small-icon identity, rich subText
+        // for the reciter context, correct public visibility for lock-screen, and
+        // compact-view that exposes the three primary transport controls (prev /
+        // play-pause / next) exactly as a native music app — stop remains in the
+        // expanded shade so the card never exceeds the system's action limit.
         return NotificationCompat.Builder(this, NotificationChannels.RECITATION)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
             .setContentTitle(title)
             .setContentText(text)
+            .setSubText(getString(R.string.quran_recitation_notif_subtext))
+            .setContentInfo(if (state == PlaybackState.Playing) getString(R.string.quran_recitation_notif_playing) else getString(R.string.quran_recitation_notif_paused))
             .setOngoing(true)
             .setOnlyAlertOnce(true)
+            .setShowWhen(false)
+            .setUsesChronometer(false)
             .setCategory(NotificationCompat.CATEGORY_TRANSPORT)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+            .setColorized(false)
+            .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
             .setContentIntent(openAppPendingIntent())
             .setStyle(
                 MediaStyle()
                     .setMediaSession(session?.sessionToken)
-                    .setShowActionsInCompactView(1, 2),
+                    .setShowActionsInCompactView(0, 1, 2),
             )
             .addAction(
                 android.R.drawable.ic_media_previous,

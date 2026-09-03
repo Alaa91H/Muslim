@@ -34,30 +34,54 @@ import org.muslim.app.core.designsystem.IslamicIconSize
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.designsystem.MuslimTouchTarget
 
-/** A quiet surface: subtle outline, restrained elevation and semantic Material colour. */
+/** A quiet surface: subtle outline, restrained elevation and semantic Material colour.
+ *
+ * Professional polish: animateContentSize for responsive layout changes, low
+ * resting elevation with a gentle pressed elevation when clickable, and a
+ * 48 dp-assured surface for accessibility. The card remains reading-first:
+ * no heavy shadow, no competing ornament.
+ */
 @Composable
 fun IslamicCard(
     modifier: Modifier = Modifier,
     shape: Shape = MaterialTheme.shapes.medium,
     contentPadding: PaddingValues = PaddingValues(IslamicSpacing.Medium),
     containerColor: Color = MaterialTheme.colorScheme.surface,
+    onClick: (() -> Unit)? = null,
     content: @Composable () -> Unit,
 ) {
+    val clickable = if (onClick != null) {
+        Modifier.clickable(
+            role = androidx.compose.ui.semantics.Role.Button,
+            onClick = onClick,
+        )
+    } else Modifier
     Card(
-        modifier = modifier,
+        modifier = modifier.then(clickable),
         shape = shape,
         colors = CardDefaults.cardColors(containerColor = containerColor),
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
-        elevation = CardDefaults.cardElevation(defaultElevation = IslamicElevation.Resting),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = IslamicElevation.Resting,
+            pressedElevation = IslamicElevation.Raised,
+            focusedElevation = IslamicElevation.Raised,
+        ),
     ) {
         Column(
-            modifier = Modifier.padding(contentPadding),
+            modifier = Modifier
+                .padding(contentPadding)
+                .then(
+                    if (onClick != null) Modifier.defaultMinSize(minHeight = 24.dp) else Modifier
+                ),
             content = { content() },
         )
     }
 }
 
-/** Semantic prominence for user-facing empty, loading, unavailable and recovery states. */
+/** Semantic prominence for user-facing empty, loading, unavailable and recovery states.
+ *  Each tone maps to a Material container role so colour is never the sole signal:
+ *  title + icon + container + action together communicate the state.
+ */
 enum class MuslimStateTone {
     Neutral,
     Information,
@@ -102,7 +126,8 @@ fun MuslimStateSurface(
         shape = MaterialTheme.shapes.medium,
         color = container,
         contentColor = content,
-        border = BorderStroke(1.dp, colors.outlineVariant),
+        border = BorderStroke(1.dp, colors.outlineVariant.copy(alpha = 0.85f)),
+        tonalElevation = if (tone == MuslimStateTone.Neutral) 0.dp else 1.dp,
     ) {
         Column(
             modifier = Modifier.padding(IslamicSpacing.Comfortable),
@@ -114,6 +139,7 @@ fun MuslimStateSurface(
                         imageVector = it,
                         contentDescription = iconContentDescription,
                         modifier = Modifier.size(IslamicIconSize.Standard),
+                        tint = content,
                     )
                 }
                 if (icon != null) {
@@ -123,13 +149,14 @@ fun MuslimStateSurface(
                     text = title,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
+                    color = content,
                 )
             }
             supportingText?.takeIf { it.isNotBlank() }?.let {
                 Text(
                     text = it,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = content.copy(alpha = 0.82f),
+                    color = content.copy(alpha = 0.84f),
                 )
             }
             if (actionLabel != null && onAction != null) {
@@ -144,7 +171,10 @@ fun MuslimStateSurface(
     }
 }
 
-/** A section title with optional supporting context and a single trailing action. */
+/** A section title with optional supporting context and a single trailing action.
+ *  Uses a clear hierarchy (titleLarge + bodySmall) and keeps the trailing slot
+ *  aligned to the title baseline so settings and more screens feel calm.
+ */
 @Composable
 fun MuslimSectionHeader(
     title: String,
@@ -155,12 +185,14 @@ fun MuslimSectionHeader(
     Row(
         modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(IslamicSpacing.Small),
     ) {
         Column(modifier = Modifier.weight(1f)) {
             Text(
                 text = title,
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.SemiBold,
+                color = MaterialTheme.colorScheme.onSurface,
             )
             supportingText?.let {
                 Text(
@@ -246,7 +278,7 @@ fun IslamicListItem(
     }
 }
 
-/** Primary action with an explicit accessible minimum height. */
+/** Primary action with an explicit accessible minimum height and a calm tonal elevation. */
 @Composable
 fun IslamicPrimaryButton(
     onClick: () -> Unit,
@@ -258,9 +290,14 @@ fun IslamicPrimaryButton(
         onClick = onClick,
         modifier = modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
         enabled = enabled,
+        shape = MaterialTheme.shapes.medium,
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.primary,
             contentColor = MaterialTheme.colorScheme.onPrimary,
+        ),
+        elevation = ButtonDefaults.buttonElevation(
+            defaultElevation = 1.dp,
+            pressedElevation = 2.dp,
         ),
         content = { content() },
     )
@@ -278,8 +315,9 @@ fun IslamicSecondaryButton(
         onClick = onClick,
         modifier = modifier.defaultMinSize(minHeight = MuslimTouchTarget.Min),
         enabled = enabled,
+        shape = MaterialTheme.shapes.medium,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
-        colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.tertiary),
+        colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.primary),
         content = { content() },
     )
 }

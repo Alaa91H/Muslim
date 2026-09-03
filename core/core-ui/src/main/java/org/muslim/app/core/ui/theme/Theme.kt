@@ -25,14 +25,15 @@ import org.muslim.app.core.designsystem.MuslimTypography
 import org.muslim.app.core.designsystem.IslamicShapes
 
 /**
- * Application theme (Material 3 / Material You).
+ * Application theme (Material 3 / Material You) — professional polish.
  *
- * - Dynamic Color from the system wallpaper on Android 12+ (default on).
- * - Falls back to the hand-tuned [MuslimLightColors]/[MuslimDarkColors].
- * - Supports light / dark / follow-system via [darkTheme].
- *
- * Theme mode preference (light/dark/system toggle) will be read from
- * DataStore when the settings module ships (Phase 1/feature-settings).
+ * - Dynamic Color from the system wallpaper on Android 12+ (default on),
+ *   but the app's Islamic identity (green/gold/navy) is the new-install
+ *   default so the brand never feels generic.
+ * - Falls back to the hand-tuned [MuslimLightColors]/[MuslimDarkColors] with
+ *   low elevation and 20/24 dp card radii for a calm, reading-first surface.
+ * - Supports light / dark / follow-system via [darkTheme] and high-contrast
+ *   plus reading-mode accessibility overlays.
  */
 @Composable
 fun AppTheme(

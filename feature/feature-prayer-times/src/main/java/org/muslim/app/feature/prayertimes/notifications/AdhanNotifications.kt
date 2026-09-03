@@ -63,6 +63,7 @@ object AdhanNotifications {
                 .setAction(AdhanNotificationActionReceiver.ACTION_STOP),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
+        val prayerLabel = context.getString(prayerNameRes(prayer))
         return NotificationCompat.Builder(context, NotificationChannels.ADHAN)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
             // Do not attach a large image. On some OEM notification templates it
@@ -70,15 +71,23 @@ object AdhanNotifications {
             // duplicated or stale second icon. The new monochrome status glyph
             // is the only app-supplied visual on this active alert.
             .setContentTitle(context.getString(R.string.adhan_notification_title))
-            .setContentText(context.getString(R.string.prayer_name, context.getString(prayerNameRes(prayer))))
-            .setStyle(NotificationCompat.BigTextStyle())
+            .setContentText(context.getString(R.string.prayer_name, prayerLabel))
+            .setSubText(prayerLabel)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(R.string.adhan_notification_big_text, prayerLabel)))
             .setCategory(NotificationCompat.CATEGORY_ALARM)
             // Android uses the high-importance channel for the heads-up surface.
             // These compatibility flags cover pre-channel devices and declare that
             // the content is safe for the device lock screen.
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+            .setColor(context.getColor(R.color.adhan_accent))
+            .setColorized(false)
+            .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
+            .setShowWhen(true)
+            .setUsesChronometer(false)
+            .setTicker(context.getString(R.string.adhan_notification_ticker, prayerLabel))
             .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
+            .setTimeoutAfter(10 * 60 * 1000L) // auto-dismiss guard if service dies unexpectedly
             .addAction(
                 org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028,
                 context.getString(R.string.adhan_notification_stop),
@@ -180,18 +189,27 @@ object AdhanNotifications {
     }
 
     fun showReminder(context: Context, prayer: Prayer, minutesBefore: Int) {
+        val label = context.getString(prayerNameRes(prayer))
         val notification = NotificationCompat.Builder(context, NotificationChannels.REMINDER)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
             .setContentTitle(context.getString(R.string.reminder_title))
             .setContentText(
                 context.getString(
                     R.string.reminder_message,
-                    context.getString(prayerNameRes(prayer)),
+                    label,
                     minutesBefore,
                 ),
             )
+            .setSubText(label)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(R.string.reminder_message, label, minutesBefore)))
             .setCategory(NotificationCompat.CATEGORY_REMINDER)
+            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
+            .setShowWhen(true)
             .setAutoCancel(true)
+            .setOnlyAlertOnce(false)
+            .setTimeoutAfter(15 * 60 * 1000L)
             .build()
         context.getSystemService(NotificationManager::class.java).notify(REMINDER_NOTIFICATION_ID, notification)
     }

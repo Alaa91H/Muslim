@@ -1,4 +1,13 @@
-<!-- Notification small icon: the same geometric Islamic mark as the adaptive launcher icon. -->
+<!--
+  Notification small icon — pixel-identical to the themed launcher monochrome layer.
+
+  Android tints this white silhouette to the final light/dark status-bar colour, so it
+  must remain single-colour, centred, and hollow (outer star + inner star evenOdd) to
+  match the full-colour launcher. Any divergence breaks the launcher ↔ media ↔ Adhan
+  visual continuity that the verification scripts enforce.
+
+  Keep pathData byte-identical to ic_muslim_launcher_monochrome_v2028.xml.
+-->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"
@@ -7,5 +16,5 @@
     <path
         android:fillColor="#FFFFFFFF"
         android:fillType="evenOdd"
-        android:pathData="M54,6.75L64.575,34.425L92.25,23.85L78.075,51.75L101.25,54L78.075,56.25L92.25,84.15L64.575,73.575L54,101.25L43.425,73.575L15.75,84.15L29.925,56.25L6.75,54L29.925,51.75L15.75,23.85L43.425,34.425ZM54,37.125C45.225,42.975 40.5,49.95 40.5,58.5V72H67.5V58.5C67.5,49.95 62.775,42.975 54,37.125ZM54,48.15C56.79,50.85 58.5,54.225 58.5,58.5V63H49.5V58.5C49.5,54.225 51.21,50.85 54,48.15ZM54,20A13.5,13.5 0,1 0,69.5,35.5A11,11 0,1 1,54,20Z" />
+        android:pathData="M54,6.75L64.575,34.425L92.25,23.85L78.075,51.75L101.25,54L78.075,56.25L92.25,84.15L64.575,73.575L54,101.25L43.425,73.575L15.75,84.15L29.925,56.25L6.75,54L29.925,51.75L15.75,23.85L43.425,34.425ZM54,15.255L62.672,37.949L85.365,29.277L73.742,52.155L92.745,54L73.742,55.845L85.365,78.723L62.672,70.052L54,92.745L45.329,70.052L22.635,78.723L34.259,55.845L15.255,54L34.259,52.155L22.635,29.277L45.329,37.949ZM54,37.125C45.225,42.975 40.5,49.95 40.5,58.5V72H67.5V58.5C67.5,49.95 62.775,42.975 54,37.125ZM54,48.15C56.79,50.85 58.5,54.225 58.5,58.5V63H49.5V58.5C49.5,54.225 51.21,50.85 54,48.15ZM54,20A13.5,13.5 0,1 0,69.5,35.5A11,11 0,1 1,54,20Z" />
 </vector>

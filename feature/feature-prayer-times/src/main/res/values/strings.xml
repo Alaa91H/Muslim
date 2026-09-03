@@ -12,6 +12,8 @@
     <!-- Notifications -->
     <string name="adhan_notification_title">حان الآن وقت الصلاة</string>
     <string name="adhan_notification_stop">إيقاف الأذان</string>
+    <string name="adhan_notification_big_text">حان وقت صلاة %1$s — اضغط إيقاف الأذان لإنهاء التنبيه. يبقى هذا الإشعار ظاهرًا حتى ينتهي صوت الأذان أو توقفه يدويًا.</string>
+    <string name="adhan_notification_ticker">أذان %1$s — حان الآن</string>
     <string name="reminder_title">تذكير الصلاة</string>
     <string name="reminder_message">صلاة %1$s بعد %2$d دقائق</string>
 
@@ -189,6 +191,7 @@
     <string name="next_adhan_missed">الأذان الفائت: %1$s — %2$s</string>
     <string name="next_adhan_elapsed">مضى عليه: %1$s</string>
     <string name="next_adhan_no_location">حدِّد موقعك لعرض مواقيت الصلاة</string>
+    <string name="next_adhan_summary">المسلم — مواقيت الصلاة</string>
 
     <string name="bundled_adhan_madinah">أذان المدينة</string>
     <string name="bundled_adhan_egypt">أذان مصر</string>

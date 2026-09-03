@@ -24,4 +24,7 @@
     <string name="channel_finance_desc">تذكيرات مواعيد سداد الديون التي يحددها المستخدم</string>
     <string name="channel_app_update">تحديثات التطبيق</string>
     <string name="channel_app_update_desc">إشعار عند توفّر نسخة جديدة من التطبيق</string>
+    <string name="group_prayer">الصلاة والعبادة</string>
+    <string name="group_quran_dhikr">القرآن والذكر</string>
+    <string name="group_other">عام</string>
 </resources>

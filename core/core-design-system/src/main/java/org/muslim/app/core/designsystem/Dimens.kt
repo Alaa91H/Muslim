@@ -39,7 +39,10 @@ object IslamicIconSize {
     val Hero = 48.dp
 }
 
-/** Calm surfaces favour generous corners and subtle outlines over heavy shadows. */
+/** Calm surfaces favour generous corners and subtle outlines over heavy shadows.
+ *  Card 20 dp / Large 24 dp give the app its quiet, premium roundness without
+ *  feeling bubbly; Small 12 dp is reserved for chips and markers.
+ */
 object IslamicRadius {
     val Small = 12.dp
     val AyahMarker = 16.dp

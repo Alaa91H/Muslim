@@ -24,4 +24,7 @@
     <string name="channel_finance_desc">User-scheduled debt due-date reminders</string>
     <string name="channel_app_update">App updates</string>
     <string name="channel_app_update_desc">Notification when a new app version is available</string>
+    <string name="group_prayer">Prayer &amp; Worship</string>
+    <string name="group_quran_dhikr">Qur\'an &amp; Dhikr</string>
+    <string name="group_other">General</string>
 </resources>

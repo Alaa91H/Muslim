@@ -29,14 +29,21 @@ internal object AdhkarNotifications {
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
             .setContentTitle(context.getString(R.string.adhkar_reminder_notification_title))
             .setContentText(dhikr.arabic)
-            .setStyle(NotificationCompat.BigTextStyle().bigText(dhikr.arabic))
+            .setSubText(context.getString(R.string.adhkar_reminder_notification_title))
+            .setStyle(NotificationCompat.BigTextStyle().bigText(dhikr.arabic).setSummaryText(dhikr.translation))
             .setContentIntent(contentIntent?.let {
                 PendingIntent.getActivity(
                     context, 0, it,
                     PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
                 )
             })
+            .setCategory(NotificationCompat.CATEGORY_REMINDER)
+            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setShowWhen(true)
             .setAutoCancel(true)
+            .setOnlyAlertOnce(false)
+            .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
             .build()
         context.getSystemService(NotificationManager::class.java)
             .notify(REMINDER_NOTIFICATION_ID, notification)

@@ -67,18 +67,33 @@ object NextAdhanNotifications {
             // It must never attach a large icon that could make the compact card
             // look like a duplicate, retired, or active alarm notification.
             .setContentTitle(textLines.compact)
+            .setSubText(data.nextPrayer?.let { context.getString(prayerLabelRes(it)) })
             .setCategory(NotificationCompat.CATEGORY_STATUS)
+            .setPriority(NotificationCompat.PRIORITY_LOW)
+            .setBadgeIconType(NotificationCompat.BADGE_ICON_NONE)
             .setOngoing(true)
             .setOnlyAlertOnce(true)
             .setShowWhen(false)
+            .setUsesChronometer(false)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             .setContentIntent(contentIntent)
 
         // BigText is deliberately supplied only for the optional second line.
         // The system keeps [compactLine] as the one-line collapsed presentation.
+        // When expanded, show both compact line and missed-adhan line together
+        // for a complete picture without losing the countdown.
         if (textLines.expandedMissed.isNotEmpty()) {
-            builder.setStyle(NotificationCompat.BigTextStyle().bigText(textLines.expandedMissed))
+            val big = SpannableStringBuilder().apply {
+                append(textLines.compact)
+                append("\n")
+                append(textLines.expandedMissed)
+            }
+            builder.setStyle(NotificationCompat.BigTextStyle().bigText(big).setSummaryText(context.getString(R.string.next_adhan_summary)))
+        } else if (textLines.compact.isNotEmpty()) {
+            builder.setStyle(NotificationCompat.BigTextStyle().bigText(textLines.compact))
         }
+        // Semantic green for the upcoming time — not a full colorized notification,
+        // just an accent that highlights the time without overwhelming the shade.
         if (data.nextPrayerAt != null) {
             builder.setColor(upcomingTimeColor)
         }

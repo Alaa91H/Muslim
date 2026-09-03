@@ -32,16 +32,20 @@ class RamadanNotifier @Inject constructor(
 
     fun notify(type: String) {
         val isIftar = type == RamadanAlarmReceiver.TYPE_IFTAR
+        val title = context.getString(if (isIftar) R.string.ramadan_notification_iftar_title else R.string.ramadan_notification_suhoor_title)
+        val body = context.getString(if (isIftar) R.string.ramadan_notification_iftar_body else R.string.ramadan_notification_suhoor_body)
         val notification = NotificationCompat.Builder(context, NotificationChannels.RAMADAN)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
-            .setContentTitle(
-                context.getString(if (isIftar) R.string.ramadan_notification_iftar_title else R.string.ramadan_notification_suhoor_title)
-            )
-            .setContentText(
-                context.getString(if (isIftar) R.string.ramadan_notification_iftar_body else R.string.ramadan_notification_suhoor_body)
-            )
-            .setAutoCancel(true)
+            .setContentTitle(title)
+            .setContentText(body)
+            .setSubText(title)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(body))
+            .setCategory(NotificationCompat.CATEGORY_REMINDER)
+            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
+            .setAutoCancel(true)
+            .setShowWhen(true)
             .build()
         val manager = context.getSystemService(NotificationManager::class.java)
         manager.notify(if (isIftar) 3001 else 3002, notification)

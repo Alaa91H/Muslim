@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Wear launcher identity: the same eight-point geometric star and mihrab
-     used by the phone app, enlarged for circular Wear OS surfaces. -->
+<!--
+  Wear OS launcher — hollow gold frame on deep navy, matching the phone's
+  v2028 hollow-star identity. The star is now an outline (outer star + inner
+  star evenOdd) so the dark circular background shows through, exactly like
+  the phone foreground's gold frames on navy. Mihrab remains a hollow arch
+  inside the star's interior hole; crescent perched on its apex.
+
+  The outer dark circle guarantees contrast on Wear's round masks; the gold
+  frame thickness is tuned for 48 dp glanceability (≈2.5 dp visual at Wear
+  launcher size).
+-->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="48dp"
     android:height="48dp"
@@ -12,5 +21,5 @@
     <path
         android:fillColor="#FFB49A62"
         android:fillType="evenOdd"
-        android:pathData="M24,3L28.7,15.3L41,10.6L34.7,23L45,24L34.7,25L41,37.4L28.7,32.7L24,45L19.3,32.7L7,37.4L13.3,25L3,24L13.3,23L7,10.6L19.3,15.3ZM24,16.5C20.1,19.1 18,22.2 18,26V32H30V26C30,22.2 27.9,19.1 24,16.5ZM24,21.4C25.2,22.6 26,24.1 26,26V28H22V26C22,24.1 22.8,22.6 24,21.4Z" />
+        android:pathData="M24,3L28.7,15.3L41,10.6L34.7,23L45,24L34.7,25L41,37.4L28.7,32.7L24,45L19.3,32.7L7,37.4L13.3,25L3,24L13.3,23L7,10.6L19.3,15.3ZM24,6.78L27.85,16.87L37.94,13.01L32.77,23.18L41.22,24L32.77,24.82L37.94,34.99L27.85,31.13L24,41.22L20.15,31.13L10.06,34.99L15.23,24.82L6.78,24L15.23,23.18L10.06,13.01L20.15,16.87ZM24,16.5C20.1,19.1 18,22.2 18,26V32H30V26C30,22.2 27.9,19.1 24,16.5ZM24,21.4C25.2,22.6 26,24.1 26,26V28H22V26C22,24.1 22.8,22.6 24,21.4ZM24,9.33A6,6 0,1 0,30.89,15.78A4.89,4.89 0,1 1,24,9.33Z" />
 </vector>
