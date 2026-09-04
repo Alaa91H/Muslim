@@ -32,7 +32,7 @@ open class HajjCompanionNotifier(private val context: Context) {
         val title = context.getString(titleRes(mansik))
         val body = context.getString(messageRes(mansik))
         val notification = Notification.Builder(context, NotificationChannels.HAJJ)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029)
             .setContentTitle(title)
             .setContentText(body)
             .setStyle(Notification.BigTextStyle().bigText(body))

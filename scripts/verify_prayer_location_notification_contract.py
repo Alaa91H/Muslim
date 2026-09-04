@@ -32,6 +32,7 @@ COMPASS_POSTURE_TEST = ROOT / "feature/feature-qibla/src/test/java/org/muslim/ap
 APP_PROGUARD = ROOT / "app/proguard-rules.pro"
 LAUNCHER_MONOCHROME = ROOT / "app/src/main/res/drawable/ic_muslim_launcher_monochrome_v2028.xml"
 STATUS_BAR_ICON = ROOT / "core/core-notifications/src/main/res/drawable/ic_muslim_status_bar_v2028.xml"
+NOTIFICATION_SOURCES = tuple(ROOT.glob("feature/*/src/main/**/*.kt"))
 
 
 def require(condition: bool, message: str) -> None:
@@ -65,6 +66,7 @@ def main() -> None:
     app_proguard = APP_PROGUARD.read_text(encoding="utf-8")
     launcher_monochrome = LAUNCHER_MONOCHROME.read_text(encoding="utf-8")
     status_bar_icon = STATUS_BAR_ICON.read_text(encoding="utf-8")
+    notification_sources = "\n".join(path.read_text(encoding="utf-8") for path in NOTIFICATION_SOURCES)
 
     require("RequestMultiplePermissions" in location_screen, "GPS must request Android location permission pair")
     require("ACCESS_FINE_LOCATION" in location_screen and "ACCESS_COARSE_LOCATION" in location_screen, "GPS UI must accept precise or approximate permission")
@@ -102,6 +104,8 @@ def main() -> None:
     status_path = re.search(r'android:pathData="([^"]+)"', status_bar_icon)
     require(launcher_path is not None and status_path is not None, "launcher and status icons must define vector path data")
     require(launcher_path.group(1) == status_path.group(1), "status-bar icon silhouette must match launcher monochrome silhouette")
+    require("ic_muslim_status_bar_v2028" not in notification_sources, "notification producers must not retain the retired status-bar icon")
+    require("ic_muslim_status_bar_v2029" in notification_sources, "notification producers must use the current status-bar icon")
     require("runCatching" in geocoder_resolver and "geocoder.getFromLocation" in geocoder_resolver, "reverse geocoding must contain platform failures")
     require("writeTrackChunk" in adhan_sound_player, "synthesized Adhan must guard AudioTrack writes")
     require("AudioTrack.ERROR_INVALID_OPERATION" in adhan_sound_player, "invalidated AudioTrack writes must end safely")

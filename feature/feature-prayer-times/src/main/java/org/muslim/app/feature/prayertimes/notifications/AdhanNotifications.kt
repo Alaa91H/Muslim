@@ -65,7 +65,7 @@ object AdhanNotifications {
         )
         val prayerLabel = context.getString(prayerNameRes(prayer))
         return NotificationCompat.Builder(context, NotificationChannels.ADHAN)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029)
             // Do not attach a large image. On some OEM notification templates it
             // is rendered alongside the launcher/app identity and looks like a
             // duplicated or stale second icon. The new monochrome status glyph
@@ -89,7 +89,7 @@ object AdhanNotifications {
             .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
             .setTimeoutAfter(10 * 60 * 1000L) // auto-dismiss guard if service dies unexpectedly
             .addAction(
-                org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028,
+                org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029,
                 context.getString(R.string.adhan_notification_stop),
                 stopIntent,
             )
@@ -191,7 +191,7 @@ object AdhanNotifications {
     fun showReminder(context: Context, prayer: Prayer, minutesBefore: Int) {
         val label = context.getString(prayerNameRes(prayer))
         val notification = NotificationCompat.Builder(context, NotificationChannels.REMINDER)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029)
             .setContentTitle(context.getString(R.string.reminder_title))
             .setContentText(
                 context.getString(

@@ -162,7 +162,7 @@ class AdhkarOverlayService : Service() {
 
     private fun foregroundNotification(arabic: String?): Notification =
         NotificationCompat.Builder(this, NotificationChannels.ADHKAR)
-            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
+            .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029)
             .setContentTitle(getString(R.string.adhkar_overlay_notification_title))
             .setContentText(arabic ?: getString(R.string.adhkar_overlay_notification_text))
             .setOngoing(false)
