@@ -48,7 +48,7 @@ class NextAdhanCountdownMigrationInstrumentedTest {
             notificationManager.notify(
                 notificationId,
                 NotificationCompat.Builder(context, NotificationChannels.PRAYER_COUNTDOWN)
-                    .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
+                    .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029)
                     .setContentTitle("Legacy countdown")
                     .setOngoing(true)
                     .build(),
@@ -86,7 +86,7 @@ class NextAdhanCountdownMigrationInstrumentedTest {
 
         assertTrue(
             notification.smallIcon.resId ==
-                org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028,
+                org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029,
         )
         val compactLine = requireNotNull(notification.extras.getCharSequence(Notification.EXTRA_TITLE))
         assertNotNull(compactLine)

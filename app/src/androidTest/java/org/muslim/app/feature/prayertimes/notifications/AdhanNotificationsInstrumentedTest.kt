@@ -77,7 +77,7 @@ class AdhanNotificationsInstrumentedTest {
             notificationManager.notify(
                 notificationId,
                 NotificationCompat.Builder(context, NotificationChannels.ADHAN)
-                    .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
+                    .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029)
                     .setContentTitle("Retired Adhan alert")
                     .setOngoing(true)
                     .build(),
@@ -127,7 +127,7 @@ class AdhanNotificationsInstrumentedTest {
         )
 
         assertEquals(
-            org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028,
+            org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029,
             notification.smallIcon.resId,
         )
     }
@@ -155,7 +155,7 @@ class AdhanNotificationsInstrumentedTest {
         notificationManager.notify(
             AdhanNotifications.REMINDER_NOTIFICATION_ID,
             NotificationCompat.Builder(context, NotificationChannels.REMINDER)
-                .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
+                .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029)
                 .setContentTitle("Earlier reminder")
                 .build(),
         )
@@ -171,7 +171,7 @@ class AdhanNotificationsInstrumentedTest {
                 statusBarNotification.notification.channelId == NotificationChannels.ADHAN
         }.notification
         assertEquals(
-            org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028,
+            org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029,
             activeAdhan.smallIcon.resId,
         )
     }

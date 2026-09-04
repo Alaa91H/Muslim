@@ -48,7 +48,7 @@ class RecitationNotificationMigrationInstrumentedTest {
             notificationManager.notify(
                 notificationId,
                 NotificationCompat.Builder(context, NotificationChannels.RECITATION)
-                    .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2028)
+                    .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029)
                     .setContentTitle("Retired recitation card")
                     .setOngoing(true)
                     .build(),
