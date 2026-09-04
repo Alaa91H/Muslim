@@ -3,6 +3,22 @@
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
+## Muslim v1.25.26
+
+### Recitation Icon — Gold-Only Media Card (User Request)
+
+- **Removed the white monochrome `smallIcon` from the Quran recitation `MediaStyle` card entirely** (`RecitationPlaybackService.kt:278` now uses `ic_transparent` + `largeIcon`). The status-bar entry remains valid via the transparent vector, but the shade shows **only the official gold launcher emblem** on the right — exactly like the “next adhan” countdown card. The previous hollow white star (visible in the light-blue “This phone” chip) is gone.
+- **Bolder hollow monochrome** for all remaining `smallIcon` surfaces: inner star scale tightened from `0.82` to `0.72` and crescent enlarged to `R14.5/R12` (`app/.../ic_muslim_launcher_monochrome_v2028.xml:30`, `core/.../ic_muslim_status_bar_v2028.xml:18`, `wear/.../ic_wear_launcher_v2028.xml:24`) so the white silhouette reads as strongly as the gold at `24dp`.
+
+### High-Latitude Default — Middle of the Night
+
+- Changed the global default for `highLatitudeRule` from `SeventhOfTheNight` to `MiddleOfTheNight` (`PrayerSettings.kt:30`, `PrayerSettingsRepository.kt:54`). New installs and any install without a persisted value now use **منتصف الليل** as the out-of-the-box bound for Fajr/Isha at high latitudes (e.g., Scandinavia, Alaska). Existing users who have explicitly chosen a rule keep their choice; the per-latitude recommendation in `PrayerTimesCalculator.kt:226` (Seventh for |lat|>48°, else Middle) remains unchanged.
+- Updated `scripts/verify_prayer_calculation_integrity.py:24` to enforce the new default.
+
+### Verification
+
+- `verify_prayer_calculation_integrity.py`, `verify_islamic_visual_identity.py`, `verify_prayer_location_notification_contract.py` pass; `git diff --check` clean.
+
 ## Muslim v1.25.25
 
 ### Media Monochrome Icon — Complete Replacement

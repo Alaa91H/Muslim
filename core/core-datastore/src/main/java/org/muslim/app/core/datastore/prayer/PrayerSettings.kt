@@ -24,10 +24,10 @@ data class PrayerSettings(
     val asrMethod: AsrMethod = AsrMethod.Standard,
     /**
      * The global bound used when Fajr or Isha cannot be resolved directly.
-     * Seventh of the Night is the app-wide default; users may deliberately
-     * select either of the other documented high-latitude rules.
+     * Middle of the Night is now the app-wide default (user requested); users
+     * may deliberately select either of the other documented high-latitude rules.
      */
-    val highLatitudeRule: HighLatitudeRule = HighLatitudeRule.SeventhOfTheNight,
+    val highLatitudeRule: HighLatitudeRule = HighLatitudeRule.MiddleOfTheNight,
     /** Manual per-prayer offsets in minutes. */
     val adjustments: PrayerAdjustments = PrayerAdjustments(),
     val location: SelectedLocation? = null,

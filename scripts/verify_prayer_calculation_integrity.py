@@ -21,10 +21,10 @@ REQUIRED_SNIPPETS = {
     "core/core-datastore/src/main/java/org/muslim/app/core/datastore/prayer/PrayerSettings.kt": [
         "val method: CalculationMethod = CalculationMethod.MuslimWorldLeague",
         "val asrMethod: AsrMethod = AsrMethod.Standard",
-        "val highLatitudeRule: HighLatitudeRule = HighLatitudeRule.SeventhOfTheNight",
+        "val highLatitudeRule: HighLatitudeRule = HighLatitudeRule.MiddleOfTheNight",
     ],
     "core/core-datastore/src/main/java/org/muslim/app/core/datastore/prayer/PrayerSettingsRepository.kt": [
-        "?: HighLatitudeRule.SeventhOfTheNight",
+        "?: HighLatitudeRule.MiddleOfTheNight",
         "prefs[Keys.HIGH_LAT] = newSettings.highLatitudeRule.name",
         "location = prefs[Keys.LOCATION_ZONE]",
     ],

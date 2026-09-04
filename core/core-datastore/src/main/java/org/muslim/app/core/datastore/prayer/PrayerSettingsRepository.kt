@@ -48,10 +48,11 @@ class PrayerSettingsRepository @Inject constructor(
             asrMethod = enumOr(prefs[Keys.ASR], AsrMethod.Standard),
             // Older installs did not persist a high-latitude rule. Migrate a
             // missing or invalid legacy value to the documented global default
-            // instead of retaining location-dependent automatic behaviour.
+            // (now MiddleOfTheNight per user request) instead of retaining
+            // location-dependent automatic behaviour.
             highLatitudeRule = prefs[Keys.HIGH_LAT]
                 ?.let { runCatching { HighLatitudeRule.valueOf(it) }.getOrNull() }
-                ?: HighLatitudeRule.SeventhOfTheNight,
+                ?: HighLatitudeRule.MiddleOfTheNight,
             adjustments = PrayerAdjustments(
                 fajr = prefs[Keys.ADJ_FAJR] ?: 0,
                 sunrise = prefs[Keys.ADJ_SUNRISE] ?: 0,
