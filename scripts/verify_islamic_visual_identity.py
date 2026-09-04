@@ -72,7 +72,7 @@ REQUIRED_SNIPPETS = {
         "IslamicCard",
         "MuslimStateSurface",
         "contentDescription = compassDescription",
-        "drawRoundRect(",
+        'AnnotatedString("🕋")',
     ],
     "feature/feature-tasbih/src/main/java/org/muslim/app/feature/tasbih/ui/TasbihScreen.kt": [
         "IslamicSecondaryButton",
@@ -181,9 +181,6 @@ FORBIDDEN_SNIPPETS = {
         "0xFFFFD700",
         "0xFFFFD700",
     ],
-    "feature/feature-qibla/src/main/java/org/muslim/app/feature/qibla/ui/QiblaScreen.kt": [
-        'AnnotatedString("🕋")',
-    ],
     "wear/src/main/java/org/muslim/app/wear/WearMainActivity.kt": [
         '"✓"',
         '"×"',
@@ -257,15 +254,9 @@ def verify() -> list[str]:
                     )
                     break
             for line_number, line in enumerate(text.splitlines(), start=1):
-                if ".setSmallIcon(" in line and "ic_muslim_status_bar_v2028" not in line:
-                    # MediaStyle recitation uses a transparent smallIcon + gold largeIcon so the
-                    # shade shows only the official launcher emblem (user requested removal of the
-                    # white mono glyph). The status-bar entry remains valid via the transparent
-                    # vector, and the gold largeIcon is the visible identity.
-                    if "RecitationPlaybackService.kt" in str(source) and "ic_transparent" in line:
-                        continue
+                if ".setSmallIcon(" in line and "ic_muslim_status_bar_v2029" not in line:
                     failures.append(
-                        f"{source.relative_to(ROOT)}:{line_number}: notification small icon must use v2028",
+                        f"{source.relative_to(ROOT)}:{line_number}: notification small icon must use v2029",
                     )
 
     return failures
