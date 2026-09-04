@@ -31,7 +31,7 @@ COMPASS_POSTURE = ROOT / "feature/feature-qibla/src/main/java/org/muslim/app/fea
 COMPASS_POSTURE_TEST = ROOT / "feature/feature-qibla/src/test/java/org/muslim/app/feature/qibla/domain/CompassPostureTest.kt"
 APP_PROGUARD = ROOT / "app/proguard-rules.pro"
 LAUNCHER_MONOCHROME = ROOT / "app/src/main/res/drawable/ic_muslim_launcher_monochrome_v2028.xml"
-STATUS_BAR_ICON = ROOT / "core/core-notifications/src/main/res/drawable/ic_muslim_status_bar_v2028.xml"
+STATUS_BAR_ICON = ROOT / "core/core-notifications/src/main/res/drawable/ic_muslim_status_bar_v2029.xml"
 NOTIFICATION_SOURCES = tuple(ROOT.glob("feature/*/src/main/**/*.kt"))
 
 
