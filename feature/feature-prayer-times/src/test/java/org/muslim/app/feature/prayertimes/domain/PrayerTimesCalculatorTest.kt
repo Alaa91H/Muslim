@@ -390,7 +390,7 @@ class PrayerTimesCalculatorTest {
             .isEqualTo(AsrMethod.Standard)
         val defaultProfile = PrayerSettings().toPrayerCalculationProfile()
         assertThat(defaultProfile.highLatitudeRule)
-            .isEqualTo(HighLatitudeRule.SeventhOfTheNight)
+            .isEqualTo(HighLatitudeRule.MiddleOfTheNight)
         assertThat(defaultProfile.ishaAngle).isEqualTo(17.0)
         assertThat(defaultProfile.ishaMinutes).isEqualTo(0)
         assertThat(defaultProfile.userAdjustments[Prayer.Isha]).isEqualTo(0)
@@ -426,7 +426,9 @@ class PrayerTimesCalculatorTest {
     }
 
     private fun assertMwlSeventhReferenceCase(case: MwlReferenceCase) {
-        val profile = PrayerSettings().toPrayerCalculationProfile()
+        // Reference vectors were generated for SeventhOfTheNight; keep them stable
+        // even though the app default is now MiddleOfTheNight per user request.
+        val profile = PrayerSettings(highLatitudeRule = HighLatitudeRule.SeventhOfTheNight).toPrayerCalculationProfile()
         val result = calculator.compute(
             date = case.date,
             coordinates = Coordinates(case.latitude, case.longitude),
