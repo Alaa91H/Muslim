@@ -18,6 +18,7 @@ TIMEZONE_RESOLVER_INSTRUMENTATION_TEST = ROOT / "feature/feature-prayer-times/sr
 GEOCODER_RESOLVER = ROOT / "core/core-location/src/main/java/org/muslim/app/core/location/GeocoderRegionNameResolver.kt"
 ADHAN_SOUND_PLAYER = ROOT / "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/notifications/AdhanSoundPlayer.kt"
 SETTINGS = ROOT / "core/core-datastore/src/main/java/org/muslim/app/core/datastore/prayer/PrayerSettings.kt"
+SETTINGS_REPOSITORY = ROOT / "core/core-datastore/src/main/java/org/muslim/app/core/datastore/prayer/PrayerSettingsRepository.kt"
 SETTINGS_PARAMETERS = ROOT / "core/core-datastore/src/main/java/org/muslim/app/core/datastore/prayer/PrayerSettingsParameters.kt"
 METHOD = ROOT / "core/core-common/src/main/java/org/muslim/app/core/common/prayer/CalculationMethod.kt"
 CALCULATOR_TEST = ROOT / "feature/feature-prayer-times/src/test/java/org/muslim/app/feature/prayertimes/domain/PrayerTimesCalculatorTest.kt"
@@ -52,6 +53,7 @@ def main() -> None:
     geocoder_resolver = GEOCODER_RESOLVER.read_text(encoding="utf-8")
     adhan_sound_player = ADHAN_SOUND_PLAYER.read_text(encoding="utf-8")
     settings = SETTINGS.read_text(encoding="utf-8")
+    settings_repository = SETTINGS_REPOSITORY.read_text(encoding="utf-8")
     settings_parameters = SETTINGS_PARAMETERS.read_text(encoding="utf-8")
     method = METHOD.read_text(encoding="utf-8")
     calculator_test = CALCULATOR_TEST.read_text(encoding="utf-8")
@@ -115,6 +117,8 @@ def main() -> None:
     require("audioTrack = null\n            track?.let" in adhan_sound_player, "AudioTrack must invalidate ownership before native release")
 
     require("CalculationMethod.MuslimWorldLeague" in settings, "global prayer default must remain MWL")
+    require("highLatitudeRule: HighLatitudeRule = HighLatitudeRule.MiddleOfTheNight" in settings, "high-latitude default must remain MiddleOfTheNight")
+    require("?: HighLatitudeRule.MiddleOfTheNight" in settings_repository, "legacy settings must migrate missing high-latitude rules to MiddleOfTheNight")
     require("customIshaAngle: Double = 17.0" in settings, "custom Isha fallback must remain 17 degrees")
     require("ishaAngle = 17.0" in method, "MWL Isha must remain 17 degrees")
     require("PrayerParameters.of(method)" in settings_parameters, "all non-custom methods must use official parameter profiles")
