@@ -301,9 +301,10 @@ private fun QiblaCompassContent(
     onGpsRefresh: () -> Unit,
 ) {
     val compassDescription = stringResource(
-        R.string.qibla_heading_degree,
+        R.string.qibla_compass_description,
         presentation.trueHeading,
         presentation.headingCardinal,
+        stringResource(R.string.qibla_marker_description),
     )
     Column(
         modifier = modifier

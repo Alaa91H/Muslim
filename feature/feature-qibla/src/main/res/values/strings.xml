@@ -4,6 +4,8 @@
     <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
     <string name="qibla_bearing_cardinal">اتجاه القبلة: %1$s</string>
     <string name="qibla_heading_degree">اتجاه هاتفك: %1$.0f° (%2$s)</string>
+    <string name="qibla_compass_description">اتجاه هاتفك: %1$.0f° (%2$s). %3$s</string>
+    <string name="qibla_marker_description">مؤشر الكعبة يحدد اتجاه القبلة المحسوب</string>
     <string name="qibla_facing">أنت متجه نحو القبلة 🕋</string>
     <string name="qibla_turn_right">أدر هاتفك يمينًا %1$.1f°</string>
     <string name="qibla_turn_left">أدر هاتفك يسارًا %1$.1f°</string>

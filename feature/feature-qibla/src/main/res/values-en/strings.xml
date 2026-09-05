@@ -4,6 +4,8 @@
     <string name="qibla_bearing_degree">🕋 %1$.0f°</string>
     <string name="qibla_bearing_cardinal">Qibla direction: %1$s</string>
     <string name="qibla_heading_degree">Phone heading: %1$.0f° (%2$s)</string>
+    <string name="qibla_compass_description">Phone heading: %1$.0f° (%2$s). %3$s</string>
+    <string name="qibla_marker_description">The Kaaba marker indicates the calculated Qibla direction</string>
     <string name="qibla_facing">You are facing the Qibla 🕋</string>
     <string name="qibla_turn_right">Turn right %1$.1f°</string>
     <string name="qibla_turn_left">Turn left %1$.1f°</string>
