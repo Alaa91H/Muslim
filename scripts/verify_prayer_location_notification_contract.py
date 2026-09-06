@@ -99,6 +99,7 @@ def main() -> None:
     require("riyadhCoordinatesResolveThroughTheRealTimezoneIndex" in timezone_resolver_instrumentation_test, "GPS must exercise the real compressed timezone index on Android")
     require(":feature:feature-prayer-times:connectedDebugAndroidTest" in ci_workflow, "CI must execute prayer-time GPS instrumentation tests")
     require(":feature:feature-qibla:connectedDebugAndroidTest" in ci_workflow, "CI must execute Qibla instrumentation tests")
+    require("api-level: [26, 36]" in ci_workflow, "CI emulator coverage must include the minimum and current Android API levels")
     require("QiblaCompassAccessibilityInstrumentationTest" in qibla_accessibility_test, "Qibla must retain the compass accessibility instrumentation suite")
     require("CoordinateTimeZoneResolver().resolve(24.7136, 46.6753)" in timezone_resolver_instrumentation_test, "timezone regression must not replace the zstd path with a mock")
     require("TimeZone.getDefault" not in location_vm, "GPS must not assign the device timezone to coordinates")

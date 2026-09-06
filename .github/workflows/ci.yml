@@ -114,8 +114,12 @@ jobs:
   # never merge.
   # ---------------------------------------------------------------------------
   emulator-tests:
-    name: Emulator tests (prayer home + Qibla mosques)
+    name: Emulator tests (prayer home + Qibla mosques · API ${{ matrix.api-level }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        api-level: [26, 36]
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -153,10 +157,9 @@ jobs:
       - name: Run instrumented tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          # Android 16 / API 36 is the stable runner-supported test target. This suite exercises
-          # the exact-alarm receiver, foreground Adhan service and notification
-          # path under the platform's new background-audio restrictions.
-          api-level: 36
+          # API 26 covers the app's minimum supported Android generation, while
+          # API 36 exercises current background-audio and notification restrictions.
+          api-level: ${{ matrix.api-level }}
           arch: x86_64
           disable-animations: true
           script: |
