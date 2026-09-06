@@ -239,7 +239,7 @@ private fun QiblaCompassTab(
 }
 
 
-private data class QiblaPresentation(
+internal data class QiblaPresentation(
     val locationName: String,
     val trueHeading: Float,
     val bearing: Double,
@@ -294,7 +294,7 @@ private fun rememberLocationRefreshAction(
 }
 
 @Composable
-private fun QiblaCompassContent(
+internal fun QiblaCompassContent(
     gpsState: QiblaGpsState,
     presentation: QiblaPresentation,
     modifier: Modifier,
