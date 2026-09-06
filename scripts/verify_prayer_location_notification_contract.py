@@ -30,10 +30,12 @@ QIBLA_SCREEN = ROOT / "feature/feature-qibla/src/main/java/org/muslim/app/featur
 COMPASS_SENSOR = ROOT / "feature/feature-qibla/src/main/java/org/muslim/app/feature/qibla/ui/CompassSensor.kt"
 COMPASS_POSTURE = ROOT / "feature/feature-qibla/src/main/java/org/muslim/app/feature/qibla/domain/CompassPosture.kt"
 COMPASS_POSTURE_TEST = ROOT / "feature/feature-qibla/src/test/java/org/muslim/app/feature/qibla/domain/CompassPostureTest.kt"
+QIBLA_ACCESSIBILITY_TEST = ROOT / "feature/feature-qibla/src/androidTest/java/org/muslim/app/feature/qibla/ui/QiblaCompassAccessibilityInstrumentationTest.kt"
 APP_PROGUARD = ROOT / "app/proguard-rules.pro"
 LAUNCHER_MONOCHROME = ROOT / "app/src/main/res/drawable/ic_muslim_launcher_monochrome_v2028.xml"
 STATUS_BAR_ICON = ROOT / "core/core-notifications/src/main/res/drawable/ic_muslim_status_bar_v2029.xml"
 NOTIFICATION_SOURCES = tuple(ROOT.glob("feature/*/src/main/**/*.kt"))
+CI_WORKFLOW = ROOT / ".github/workflows/ci.yml"
 
 
 def require(condition: bool, message: str) -> None:
@@ -65,10 +67,12 @@ def main() -> None:
     compass_sensor = COMPASS_SENSOR.read_text(encoding="utf-8")
     compass_posture = COMPASS_POSTURE.read_text(encoding="utf-8")
     compass_posture_test = COMPASS_POSTURE_TEST.read_text(encoding="utf-8")
+    qibla_accessibility_test = QIBLA_ACCESSIBILITY_TEST.read_text(encoding="utf-8")
     app_proguard = APP_PROGUARD.read_text(encoding="utf-8")
     launcher_monochrome = LAUNCHER_MONOCHROME.read_text(encoding="utf-8")
     status_bar_icon = STATUS_BAR_ICON.read_text(encoding="utf-8")
     notification_sources = "\n".join(path.read_text(encoding="utf-8") for path in NOTIFICATION_SOURCES)
+    ci_workflow = CI_WORKFLOW.read_text(encoding="utf-8")
 
     require("RequestMultiplePermissions" in location_screen, "GPS must request Android location permission pair")
     require("ACCESS_FINE_LOCATION" in location_screen and "ACCESS_COARSE_LOCATION" in location_screen, "GPS UI must accept precise or approximate permission")
@@ -93,6 +97,9 @@ def main() -> None:
     require("brokenGpsServicesDoNotCrashTheAndroidProcess" in gps_failure_instrumentation_test, "the Android device test must retain the no-crash GPS regression")
     require("useCurrentLocationPersistsGpsFixAndStaysInThePickerFlow" in location_screen_gps_instrumentation_test, "the location picker must retain a device-level successful GPS-flow regression")
     require("riyadhCoordinatesResolveThroughTheRealTimezoneIndex" in timezone_resolver_instrumentation_test, "GPS must exercise the real compressed timezone index on Android")
+    require(":feature:feature-prayer-times:connectedDebugAndroidTest" in ci_workflow, "CI must execute prayer-time GPS instrumentation tests")
+    require(":feature:feature-qibla:connectedDebugAndroidTest" in ci_workflow, "CI must execute Qibla instrumentation tests")
+    require("QiblaCompassAccessibilityInstrumentationTest" in qibla_accessibility_test, "Qibla must retain the compass accessibility instrumentation suite")
     require("CoordinateTimeZoneResolver().resolve(24.7136, 46.6753)" in timezone_resolver_instrumentation_test, "timezone regression must not replace the zstd path with a mock")
     require("TimeZone.getDefault" not in location_vm, "GPS must not assign the device timezone to coordinates")
     require("coordinateTimeZoneResolver.resolve(geo.latitude, geo.longitude)" in location_vm, "GPS must resolve a coordinate IANA zone")
