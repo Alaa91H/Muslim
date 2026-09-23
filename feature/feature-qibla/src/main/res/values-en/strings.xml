@@ -82,6 +82,22 @@
     <string name="nearby_mosques_directions_action">Directions</string>
     <string name="nearby_mosques_item_description">%1$s, %2$s away</string>
     <string name="nearby_mosques_cached_item_description">%1$s, saved location; distance updates when your current location is available</string>
+    <string name="nearby_mosques_search_hint">Search by mosque name or address</string>
+    <string name="nearby_mosques_search_clear">Clear search</string>
+    <string name="nearby_mosques_results_count">Showing %1$d of %2$d mosques</string>
+    <string name="nearby_mosques_sort_distance">Nearest</string>
+    <string name="nearby_mosques_sort_name">Name</string>
+    <string name="nearby_mosques_nearest">Nearest</string>
+    <string name="nearby_mosques_more_actions">More actions</string>
+    <string name="nearby_mosques_share">Share location</string>
+    <string name="nearby_mosques_share_chooser">Share mosque via</string>
+    <string name="nearby_mosques_copy_address">Copy address</string>
+    <string name="nearby_mosques_copy_coordinates">Copy coordinates</string>
+    <string name="nearby_mosques_copied">Copied</string>
+    <string name="nearby_mosques_empty_detail">No results were found within %1$d km of your current location.</string>
+    <string name="nearby_mosques_expand_radius">Search within %1$d km</string>
+    <string name="nearby_mosques_search_empty">No matching mosques</string>
+    <string name="nearby_mosques_search_empty_detail">Try a shorter name, search by address, or clear the search to show every mosque.</string>
 
     <!-- Offline maps download -->
     <string name="offline_maps_title">Offline maps</string>
