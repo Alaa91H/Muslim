@@ -473,6 +473,11 @@ private fun AppOrnamentStyle.toIslamicOrnament(): IslamicOrnament = when (this) 
     AppOrnamentStyle.Geometry -> IslamicOrnament.Geometric12
     AppOrnamentStyle.Arabesque -> IslamicOrnament.Arabesque
     AppOrnamentStyle.Stars -> IslamicOrnament.Star12
+    AppOrnamentStyle.Andalusian -> IslamicOrnament.Geometric8
+    AppOrnamentStyle.Mashrabiya -> IslamicOrnament.Geometric12
+    AppOrnamentStyle.Ottoman -> IslamicOrnament.Arabesque
+    AppOrnamentStyle.Mushaf -> IslamicOrnament.SurahHeader
+    AppOrnamentStyle.Royal -> IslamicOrnament.Star12
     AppOrnamentStyle.Minimal -> IslamicOrnament.Corner
 }
 
