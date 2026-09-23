@@ -3,7 +3,9 @@ package org.muslim.app.feature.adhkar.data
 import android.content.Context
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -37,6 +39,12 @@ data class AdhkarPrefs(
     val disabledDhikrIds: Set<Long> = emptySet(),
     /** Dhikr ids the user pinned as favorites (shown at the top of the list). */
     val favoriteDhikrIds: Set<Long> = emptySet(),
+    /** Read adhkar aloud using an Arabic voice available on this device. */
+    val speechEnabled: Boolean = false,
+    /** Selected Android TTS voice name; null selects the first available local Arabic voice. */
+    val speechVoiceName: String? = null,
+    /** Speech-rate multiplier, where 1.0 is the normal engine speed. */
+    val speechRate: Float = 1.0f,
     /** Daily morning adhkar reminder (default 06:00). */
     val morningReminderEnabled: Boolean = false,
     val morningHour: Int = 6,
@@ -106,6 +114,9 @@ class AdhkarPrefsRepository @Inject constructor(
             favoriteDhikrIds = (p[Keys.FAVORITE_DHIKR_IDS] ?: emptySet())
                 .mapNotNull { it.toLongOrNull() }
                 .toSet(),
+            speechEnabled = p[Keys.SPEECH_ENABLED] ?: false,
+            speechVoiceName = p[Keys.SPEECH_VOICE_NAME],
+            speechRate = (p[Keys.SPEECH_RATE] ?: 1.0f).coerceIn(0.5f, 2.0f),
             morningReminderEnabled = p[Keys.MORNING_ENABLED] ?: false,
             morningHour = (p[Keys.MORNING_HOUR] ?: 6).coerceIn(0, 23),
             morningMinute = (p[Keys.MORNING_MINUTE] ?: 0).coerceIn(0, 59),
@@ -172,6 +183,22 @@ class AdhkarPrefsRepository @Inject constructor(
             if (favorite) current + id.toString() else current - id.toString()
     }
 
+    suspend fun setSpeechEnabled(enabled: Boolean) = edit {
+        it[Keys.SPEECH_ENABLED] = enabled
+    }
+
+    suspend fun setSpeechVoiceName(voiceName: String?) = edit {
+        if (voiceName.isNullOrBlank()) {
+            it.remove(Keys.SPEECH_VOICE_NAME)
+        } else {
+            it[Keys.SPEECH_VOICE_NAME] = voiceName
+        }
+    }
+
+    suspend fun setSpeechRate(rate: Float) = edit {
+        it[Keys.SPEECH_RATE] = rate.coerceIn(0.5f, 2.0f)
+    }
+
     suspend fun setMorningReminder(enabled: Boolean, hour: Int, minute: Int) = edit {
         it[Keys.MORNING_ENABLED] = enabled
         it[Keys.MORNING_HOUR] = hour.coerceIn(0, 23)
@@ -225,6 +252,9 @@ class AdhkarPrefsRepository @Inject constructor(
         val OVERLAY_FONT_SIZE = intPreferencesKey("overlay_font_size_sp")
         val DISABLED_DHIKR_IDS = stringSetPreferencesKey("disabled_dhikr_ids")
         val FAVORITE_DHIKR_IDS = stringSetPreferencesKey("favorite_dhikr_ids")
+        val SPEECH_ENABLED = booleanPreferencesKey("speech_enabled")
+        val SPEECH_VOICE_NAME = stringPreferencesKey("speech_voice_name")
+        val SPEECH_RATE = floatPreferencesKey("speech_rate")
         val MORNING_ENABLED = booleanPreferencesKey("morning_reminder_enabled")
         val MORNING_HOUR = intPreferencesKey("morning_reminder_hour")
         val MORNING_MINUTE = intPreferencesKey("morning_reminder_minute")
