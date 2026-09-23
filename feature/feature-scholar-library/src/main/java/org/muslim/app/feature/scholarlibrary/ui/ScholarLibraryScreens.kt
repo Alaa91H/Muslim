@@ -590,17 +590,17 @@ private fun LazyListScope.studyActivityItems(
                 Text(
                     stringResource(
                         R.string.scholar_library_activity_reviews,
-                        summary.reviewsToday,
-                        summary.reviewsLast7Days,
-                        summary.cardsReviewedLast7Days,
+                        summary.review.reviewsToday,
+                        summary.review.reviewsLast7Days,
+                        summary.review.cardsReviewedLast7Days,
                     ),
                 )
                 Text(
                     stringResource(
                         R.string.scholar_library_activity_sessions,
-                        summary.completedSessionsLast7Days,
-                        summary.studiedPassagesLast7Days,
-                        summary.dueCards,
+                        summary.study.completedSessionsLast7Days,
+                        summary.study.studiedPassagesLast7Days,
+                        summary.study.dueCards,
                     ),
                 )
                 Button(onClick = onOpenReviewCenter) {
