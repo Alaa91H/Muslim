@@ -498,14 +498,14 @@
       "id": "feature_feature-reference_src_main_res_raw_reference_islam_v2_json",
       "kind": "reference_corpus",
       "path": "feature/feature-reference/src/main/res/raw/reference_islam_v2.json",
-      "size_bytes": 91115,
-      "sha256": "413d4ab47e4ad6d198e2bd3849d09760c5f20d457824b6de679f9340c63285f1",
+      "size_bytes": 247584,
+      "sha256": "169ff4d8ee9a8ee2624f990d2649be98c3fa6c27dcbaa539b30907b04cb0dae9",
       "production_status": "approved",
       "source": "Project-authored Introduction to Islam corpus migrated verbatim from IslamIntroContent.kt; migration parity is enforced by scripts/verify_reference_library_assets.py.",
       "licence": "Project source licence; this JSON is a structured representation of project-authored reference content.",
       "attribution": "Islamic Reference Library content bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed by this structural migration; every migrated topic remains marked NeedsReview until article-level review is completed.",
-      "notes": "Schema v2 preserves all 14 legacy topics verbatim and expands the book to 23 topics, 46 sections, and 92 bilingual paragraphs. New articles include structured Quran citations and remain NeedsReview pending independent article-level review.",
+      "notes": "Schema v2 preserves all 14 legacy topics verbatim and expands Introduction to Islam to 63 topics, 126 sections, and 252 bilingual paragraphs across 7 chapters. New articles include structured Quran/Hadith citations and remain NeedsReview pending independent article-level review.",
       "required_actions": []
     }
   ],
