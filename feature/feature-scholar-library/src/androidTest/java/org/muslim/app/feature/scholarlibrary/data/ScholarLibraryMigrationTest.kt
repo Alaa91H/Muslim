@@ -141,6 +141,95 @@ class ScholarLibraryMigrationTest {
         helper.close()
     }
 
+    @Test
+    fun migration4To5PreservesFlashcardsAndAddsAdaptiveReviewState() {
+        createVersion4Database()
+
+        val helper = FrameworkSQLiteOpenHelperFactory().create(
+            SupportSQLiteOpenHelper.Configuration.builder(context)
+                .name(databaseName)
+                .callback(
+                    object : SupportSQLiteOpenHelper.Callback(5) {
+                        override fun onCreate(db: SupportSQLiteDatabase) = Unit
+
+                        override fun onUpgrade(
+                            db: SupportSQLiteDatabase,
+                            oldVersion: Int,
+                            newVersion: Int,
+                        ) {
+                            assertThat(oldVersion).isEqualTo(4)
+                            assertThat(newVersion).isEqualTo(5)
+                            ScholarLibraryDatabase.MIGRATION_4_5.migrate(db)
+                        }
+                    },
+                )
+                .build(),
+        )
+
+        val db = helper.writableDatabase
+        db.query(
+            """
+            SELECT id, front, reviewCount, dueAtEpochMillis, intervalDays, easeFactor,
+                   lapseCount, lastReviewedAtEpochMillis, lastRating
+            FROM scholar_flashcards WHERE id = 1
+            """.trimIndent(),
+        ).use { cursor ->
+            assertThat(cursor.moveToFirst()).isTrue()
+            assertThat(cursor.getString(cursor.getColumnIndexOrThrow("front"))).isEqualTo("question")
+            assertThat(cursor.getInt(cursor.getColumnIndexOrThrow("reviewCount"))).isEqualTo(3)
+            assertThat(cursor.getLong(cursor.getColumnIndexOrThrow("dueAtEpochMillis"))).isEqualTo(9000L)
+            assertThat(cursor.getInt(cursor.getColumnIndexOrThrow("intervalDays"))).isEqualTo(0)
+            assertThat(cursor.getDouble(cursor.getColumnIndexOrThrow("easeFactor"))).isEqualTo(2.5)
+            assertThat(cursor.getInt(cursor.getColumnIndexOrThrow("lapseCount"))).isEqualTo(0)
+            assertThat(cursor.isNull(cursor.getColumnIndexOrThrow("lastReviewedAtEpochMillis"))).isTrue()
+            assertThat(cursor.isNull(cursor.getColumnIndexOrThrow("lastRating"))).isTrue()
+        }
+
+        helper.close()
+    }
+
+    private fun createVersion4Database() {
+        val helper = FrameworkSQLiteOpenHelperFactory().create(
+            SupportSQLiteOpenHelper.Configuration.builder(context)
+                .name(databaseName)
+                .callback(
+                    object : SupportSQLiteOpenHelper.Callback(4) {
+                        override fun onCreate(db: SupportSQLiteDatabase) {
+                            db.execSQL(
+                                """
+                                CREATE TABLE scholar_flashcards (
+                                    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                                    passageId TEXT NOT NULL,
+                                    front TEXT NOT NULL,
+                                    back TEXT NOT NULL,
+                                    reviewCount INTEGER NOT NULL,
+                                    dueAtEpochMillis INTEGER NOT NULL,
+                                    createdAtEpochMillis INTEGER NOT NULL
+                                )
+                                """.trimIndent(),
+                            )
+                            db.execSQL(
+                                """
+                                INSERT INTO scholar_flashcards(
+                                    id, passageId, front, back, reviewCount, dueAtEpochMillis, createdAtEpochMillis
+                                ) VALUES(1, 'passage-one', 'question', 'answer', 3, 9000, 1000)
+                                """.trimIndent(),
+                            )
+                        }
+
+                        override fun onUpgrade(
+                            db: SupportSQLiteDatabase,
+                            oldVersion: Int,
+                            newVersion: Int,
+                        ) = Unit
+                    },
+                )
+                .build(),
+        )
+        helper.writableDatabase
+        helper.close()
+    }
+
     private fun createVersion3Database() {
         val helper = FrameworkSQLiteOpenHelperFactory().create(
             SupportSQLiteOpenHelper.Configuration.builder(context)
