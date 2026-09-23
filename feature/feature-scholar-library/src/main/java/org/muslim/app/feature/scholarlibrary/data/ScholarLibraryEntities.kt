@@ -44,6 +44,8 @@ data class ScholarPassageEntity(
     val volume: String?,
     val page: String?,
     val text: String,
+    val section: String? = null,
+    @ColumnInfo(defaultValue = "0") val orderIndex: Int = 0,
 )
 
 /** Normalized Arabic content index for private, offline full-text study search. */
@@ -110,5 +112,20 @@ data class ScholarReadingProgressEntity(
     val lastPassageId: String?,
     val status: String,
     val progressPercent: Int,
+    val updatedAtEpochMillis: Long,
+)
+
+@Entity(
+    tableName = "scholar_study_plans",
+    indices = [Index(value = ["pathId"]), Index(value = ["active"])],
+)
+data class ScholarStudyPlanEntity(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val pathId: String,
+    val sessionsPerWeek: Int,
+    val minutesPerSession: Int,
+    val targetPassagesPerSession: Int,
+    val active: Boolean,
+    val createdAtEpochMillis: Long,
     val updatedAtEpochMillis: Long,
 )
