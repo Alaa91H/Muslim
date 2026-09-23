@@ -64,11 +64,22 @@ data class HistoricalEvent(
     val sourceIds: List<String> = emptyList(),
 )
 
+enum class HistoryRegion {
+    MultiRegional,
+    Arabia,
+    EgyptAndLevant,
+    MaghrebAndAlAndalus,
+    Anatolia,
+    IranAndCentralAsia,
+    SouthAsia,
+}
+
 data class HistoricalState(
     val id: String,
     val title: HistoryText,
     val period: HistoricalDate,
     val summary: HistoryText,
+    val region: HistoryRegion,
     val capitalPlaceIds: List<String> = emptyList(),
     val eraIds: List<String> = emptyList(),
     val sourceIds: List<String> = emptyList(),
