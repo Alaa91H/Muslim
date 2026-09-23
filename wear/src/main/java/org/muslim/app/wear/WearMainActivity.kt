@@ -184,8 +184,7 @@ private fun WearOrnamentBand(
         when (style) {
             AppOrnamentStyle.Geometry,
             AppOrnamentStyle.Andalusian,
-            AppOrnamentStyle.Mashrabiya,
-            -> listOf(centerX - size.height, centerX, centerX + size.height).forEach { x ->
+            AppOrnamentStyle.Mashrabiya -> listOf(centerX - size.height, centerX, centerX + size.height).forEach { x ->
                 drawLine(color, Offset(x, centerY - unit), Offset(x + unit, centerY), stroke)
                 drawLine(color, Offset(x + unit, centerY), Offset(x, centerY + unit), stroke)
                 drawLine(color, Offset(x, centerY + unit), Offset(x - unit, centerY), stroke)
@@ -193,16 +192,14 @@ private fun WearOrnamentBand(
             }
 
             AppOrnamentStyle.Stars,
-            AppOrnamentStyle.Royal,
-            -> listOf(centerX - size.height, centerX, centerX + size.height).forEach { x ->
+            AppOrnamentStyle.Royal -> listOf(centerX - size.height, centerX, centerX + size.height).forEach { x ->
                 drawCircle(color = color, radius = unit * 0.48f, center = Offset(x, centerY))
                 drawLine(color, Offset(x - unit, centerY), Offset(x + unit, centerY), stroke)
                 drawLine(color, Offset(x, centerY - unit), Offset(x, centerY + unit), stroke)
             }
 
             AppOrnamentStyle.Arabesque,
-            AppOrnamentStyle.Ottoman,
-            -> {
+            AppOrnamentStyle.Ottoman -> {
                 drawCircle(
                     color = color,
                     radius = unit,
@@ -218,8 +215,7 @@ private fun WearOrnamentBand(
             }
 
             AppOrnamentStyle.Mushaf,
-            AppOrnamentStyle.Minimal,
-            -> {
+            AppOrnamentStyle.Minimal -> {
                 drawLine(
                     color = color,
                     start = Offset(centerX - size.width * 0.22f, centerY),
