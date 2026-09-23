@@ -7,7 +7,7 @@ import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-@Suppress("TooManyFunctions") // One Room transaction boundary for catalog, notes, and flashcards.
+@Suppress("TooManyFunctions") // One Room boundary for catalog and local study state.
 interface ScholarLibraryDao {
     @Query("SELECT * FROM scholar_books ORDER BY category, title")
     fun observeBooks(): Flow<List<ScholarBookEntity>>
@@ -59,6 +59,36 @@ interface ScholarLibraryDao {
 
     @Query("DELETE FROM scholar_flashcards WHERE id = :id")
     suspend fun deleteFlashcard(id: Long)
+
+    @Query("SELECT * FROM scholar_bookmarks ORDER BY createdAtEpochMillis DESC")
+    fun observeBookmarks(): Flow<List<ScholarBookmarkEntity>>
+
+    @Query("SELECT * FROM scholar_bookmarks WHERE passageId = :passageId LIMIT 1")
+    suspend fun bookmarkByPassage(passageId: String): ScholarBookmarkEntity?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertBookmark(bookmark: ScholarBookmarkEntity)
+
+    @Query("DELETE FROM scholar_bookmarks WHERE passageId = :passageId")
+    suspend fun deleteBookmark(passageId: String)
+
+    @Query("SELECT * FROM scholar_highlights ORDER BY createdAtEpochMillis DESC")
+    fun observeHighlights(): Flow<List<ScholarHighlightEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertHighlight(highlight: ScholarHighlightEntity): Long
+
+    @Query("DELETE FROM scholar_highlights WHERE id = :id")
+    suspend fun deleteHighlight(id: Long)
+
+    @Query("SELECT * FROM scholar_reading_progress ORDER BY updatedAtEpochMillis DESC")
+    fun observeReadingProgress(): Flow<List<ScholarReadingProgressEntity>>
+
+    @Query("SELECT * FROM scholar_reading_progress WHERE bookId = :bookId LIMIT 1")
+    suspend fun readingProgressByBook(bookId: String): ScholarReadingProgressEntity?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertReadingProgress(progress: ScholarReadingProgressEntity)
 }
 
 @Dao
