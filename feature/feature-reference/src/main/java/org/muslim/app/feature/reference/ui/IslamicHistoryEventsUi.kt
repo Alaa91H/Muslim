@@ -18,6 +18,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -39,10 +40,21 @@ import org.muslim.app.feature.reference.domain.IslamicHistorySources
 import org.muslim.app.feature.reference.domain.IslamicHistoryStates
 
 @Composable
-internal fun EventsTab(language: HistoryLanguage) {
+internal fun EventsTab(
+    language: HistoryLanguage,
+    target: HistoryNavigationTarget?,
+    onTargetConsumed: () -> Unit,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
+) {
     var selectedCategory by remember { mutableStateOf<HistoricalEventCategory?>(null) }
     var selectedEraId by remember { mutableStateOf<String?>(null) }
     var selectedEventId by remember { mutableStateOf<String?>(null) }
+    LaunchedEffect(target) {
+        if (target?.type == HistoryTargetType.Event) {
+            selectedEventId = target.id
+            onTargetConsumed()
+        }
+    }
     val selectedEvent = selectedEventId?.let(IslamicHistoricalEvents::byId)
 
     if (selectedEvent != null) {
@@ -50,6 +62,7 @@ internal fun EventsTab(language: HistoryLanguage) {
             event = selectedEvent,
             language = language,
             onBack = { selectedEventId = null },
+            onNavigate = onNavigate,
         )
         return
     }
@@ -231,6 +244,7 @@ private fun HistoricalEventView(
     event: HistoricalEvent,
     language: HistoryLanguage,
     onBack: () -> Unit,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
 ) {
     BackHandler(onBack = onBack)
     LazyColumn(
@@ -254,7 +268,13 @@ private fun HistoricalEventView(
                 language = language,
             )
         }
-        item { EventRelations(event = event, language = language) }
+        item {
+            EventRelations(
+                event = event,
+                language = language,
+                onNavigate = onNavigate,
+            )
+        }
         item { EventSources(event = event, language = language) }
     }
 }
@@ -326,51 +346,71 @@ private fun EventDetailCard(
 private fun EventRelations(
     event: HistoricalEvent,
     language: HistoryLanguage,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
 ) {
-    val stateNames = event.stateIds.mapNotNull { id ->
-        IslamicHistoryStates.byId(id)?.title?.resolve(language)
-    }
-    val peopleNames = event.personIds.mapNotNull { id ->
-        IslamicHistoryContent.personalities.firstOrNull { it.id == id }?.name?.resolve(language)
-    }
-    val placeNames = event.placeIds.mapNotNull { id ->
-        IslamicHistoryContent.atlasLayers
-            .asSequence()
-            .flatMap { it.places.asSequence() }
-            .firstOrNull { it.id == id }
-            ?.title
-            ?.resolve(language)
-    }
-
-    val rows = buildList {
-        if (stateNames.isNotEmpty()) {
-            add((if (language == HistoryLanguage.Arabic) "الدول المرتبطة" else "Related states") to stateNames)
+    val links = buildList {
+        event.stateIds.forEach { id ->
+            IslamicHistoryStates.byId(id)?.let { state ->
+                add(
+                    Triple(
+                        if (language == HistoryLanguage.Arabic) "دولة" else "State",
+                        state.title.resolve(language),
+                        HistoryNavigationTarget(HistoryTargetType.State, id),
+                    ),
+                )
+            }
         }
-        if (peopleNames.isNotEmpty()) {
-            add((if (language == HistoryLanguage.Arabic) "الشخصيات المرتبطة" else "Related people") to peopleNames)
+        event.personIds.forEach { id ->
+            IslamicHistoryContent.personalities.firstOrNull { it.id == id }?.let { person ->
+                add(
+                    Triple(
+                        if (language == HistoryLanguage.Arabic) "شخصية" else "Person",
+                        person.name.resolve(language),
+                        HistoryNavigationTarget(HistoryTargetType.Person, id),
+                    ),
+                )
+            }
         }
-        if (placeNames.isNotEmpty()) {
-            add((if (language == HistoryLanguage.Arabic) "الأماكن المرتبطة" else "Related places") to placeNames)
+        event.placeIds.forEach { id ->
+            IslamicHistoryContent.atlasLayers
+                .asSequence()
+                .flatMap { it.places.asSequence() }
+                .firstOrNull { it.id == id }
+                ?.let { place ->
+                    add(
+                        Triple(
+                            if (language == HistoryLanguage.Arabic) "مكان" else "Place",
+                            place.title.resolve(language),
+                            HistoryNavigationTarget(HistoryTargetType.Place, id),
+                        ),
+                    )
+                }
+        }
+        event.relatedTopicIds.forEach { id ->
+            org.muslim.app.feature.reference.domain.IslamicCivilizationContent.byId(id)?.let { topic ->
+                add(
+                    Triple(
+                        if (language == HistoryLanguage.Arabic) "موضوع حضاري" else "Civilization",
+                        topic.title.resolve(language),
+                        HistoryNavigationTarget(HistoryTargetType.CivilizationTopic, id),
+                    ),
+                )
+            }
         }
     }
-    if (rows.isEmpty()) return
+    if (links.isEmpty()) return
 
     Card {
         Column(modifier = Modifier.padding(18.dp)) {
-            rows.forEachIndexed { index, (label, names) ->
-                if (index > 0) {
-                    androidx.compose.foundation.layout.Spacer(modifier = Modifier.padding(top = 5.dp))
+            Text(
+                text = if (language == HistoryLanguage.Arabic) "روابط مرتبطة" else "Related entries",
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+            links.forEach { (kind, label, target) ->
+                TextButton(onClick = { onNavigate(target) }) {
+                    Text("$kind: $label")
                 }
-                Text(
-                    text = label,
-                    style = MaterialTheme.typography.labelLarge,
-                    fontWeight = FontWeight.Bold,
-                )
-                Text(
-                    text = names.joinToString(" • "),
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(top = 4.dp),
-                )
             }
         }
     }
