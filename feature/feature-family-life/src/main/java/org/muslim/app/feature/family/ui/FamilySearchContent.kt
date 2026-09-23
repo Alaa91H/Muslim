@@ -75,72 +75,107 @@ internal fun FamilyGlobalSearchContent(
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         item {
+            FamilyGlobalSearchControls(
+                query = query,
+                selectedKind = selectedKind,
+                isArabic = isArabic,
+                onQueryChange = { query = it },
+                onKindChange = { selectedKindName = it?.name },
+            )
+        }
+        familyGlobalSearchResults(
+            query = query,
+            results = results,
+            isArabic = isArabic,
+            onOpenArticle = onOpenArticle,
+            onOpenNames = onOpenNames,
+            onOpenRuqyah = onOpenRuqyah,
+            onOpenChecklist = onOpenChecklist,
+        )
+    }
+}
+
+@Composable
+private fun FamilyGlobalSearchControls(
+    query: String,
+    selectedKind: FamilySearchKind?,
+    isArabic: Boolean,
+    onQueryChange: (String) -> Unit,
+    onKindChange: (FamilySearchKind?) -> Unit,
+) {
+    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        MuslimStateSurface(
+            title = stringResource(R.string.family_global_search_title),
+            supportingText = stringResource(R.string.family_global_search_intro),
+            tone = MuslimStateTone.Information,
+            icon = Icons.Filled.Search,
+        )
+        DigitNormalizedOutlinedTextField(
+            value = query,
+            onValueChange = onQueryChange,
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag(FamilyUiTags.GLOBAL_SEARCH_FIELD),
+            singleLine = true,
+            placeholder = { Text(stringResource(R.string.family_global_search_hint)) },
+            leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+        )
+        FamilySearchKindFilters(
+            selectedKind = selectedKind,
+            isArabic = isArabic,
+            onSelected = onKindChange,
+        )
+    }
+}
+
+private fun androidx.compose.foundation.lazy.LazyListScope.familyGlobalSearchResults(
+    query: String,
+    results: List<FamilyGlobalSearchHit>,
+    isArabic: Boolean,
+    onOpenArticle: (String) -> Unit,
+    onOpenNames: () -> Unit,
+    onOpenRuqyah: () -> Unit,
+    onOpenChecklist: (String) -> Unit,
+) {
+    if (query.isBlank()) {
+        item {
             MuslimStateSurface(
-                title = stringResource(R.string.family_global_search_title),
-                supportingText = stringResource(R.string.family_global_search_intro),
-                tone = MuslimStateTone.Information,
+                title = stringResource(R.string.family_global_search_start_title),
+                supportingText = stringResource(R.string.family_global_search_start_text),
+                tone = MuslimStateTone.Neutral,
                 icon = Icons.Filled.Search,
             )
         }
-        item {
-            DigitNormalizedOutlinedTextField(
-                value = query,
-                onValueChange = { query = it },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .testTag(FamilyUiTags.GLOBAL_SEARCH_FIELD),
-                singleLine = true,
-                placeholder = { Text(stringResource(R.string.family_global_search_hint)) },
-                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-            )
-        }
-        item {
-            FamilySearchKindFilters(
-                selectedKind = selectedKind,
-                isArabic = isArabic,
-                onSelected = { selectedKindName = it?.name },
-            )
-        }
-        if (query.isBlank()) {
-            item {
-                MuslimStateSurface(
-                    title = stringResource(R.string.family_global_search_start_title),
-                    supportingText = stringResource(R.string.family_global_search_start_text),
-                    tone = MuslimStateTone.Neutral,
-                    icon = Icons.Filled.Search,
-                )
-            }
-        } else {
-            item {
-                Text(
-                    text = stringResource(R.string.family_global_search_count, results.size),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-            }
-            items(results, key = { it.kind.name + ":" + it.id }) { hit ->
-                FamilyGlobalSearchResultCard(
-                    hit = hit,
-                    isArabic = isArabic,
-                    onClick = {
-                        when (hit.kind) {
-                            FamilySearchKind.Article -> onOpenArticle(hit.id)
-                            FamilySearchKind.BabyName -> onOpenNames()
-                            FamilySearchKind.Ruqyah -> onOpenRuqyah()
-                            FamilySearchKind.Checklist -> onOpenChecklist(hit.id)
-                        }
-                    },
-                )
-            }
-            if (results.isEmpty()) {
-                item {
-                    MuslimStateSurface(
-                        title = stringResource(R.string.family_global_search_empty),
-                        tone = MuslimStateTone.Neutral,
-                        icon = Icons.Filled.Search,
-                    )
+        return
+    }
+    item {
+        Text(
+            text = stringResource(R.string.family_global_search_count, results.size),
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.primary,
+        )
+    }
+    items(results, key = { it.kind.name + ":" + it.id }) { hit ->
+        FamilyGlobalSearchResultCard(
+            hit = hit,
+            isArabic = isArabic,
+            onClick = {
+                when (hit.kind) {
+                    FamilySearchKind.Article -> onOpenArticle(hit.id)
+                    FamilySearchKind.BabyName -> onOpenNames()
+                    FamilySearchKind.Ruqyah -> onOpenRuqyah()
+                    FamilySearchKind.Checklist -> onOpenChecklist(hit.id)
                 }
-            }
+            },
+        )
+    }
+    if (results.isEmpty()) {
+        item {
+            MuslimStateSurface(
+                title = stringResource(R.string.family_global_search_empty),
+                tone = MuslimStateTone.Neutral,
+                icon = Icons.Filled.Search,
+            )
         }
     }
 }
