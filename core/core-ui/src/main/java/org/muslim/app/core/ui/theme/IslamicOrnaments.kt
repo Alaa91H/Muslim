@@ -6,17 +6,28 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import org.muslim.app.core.ui.R
 
-/** Small, reusable vector ornaments. These are decorative only and have no semantics. */
+/**
+ * Small reusable vector ornaments.
+ *
+ * Every app-level appearance style resolves to its own primary ornament so the
+ * selector represents a genuinely different visual identity instead of merely
+ * relabelling the same asset.
+ */
 enum class IslamicOrnament(@DrawableRes val drawableRes: Int) {
     Geometric8(R.drawable.ic_ornament_geometric_8),
     Geometric12(R.drawable.ic_ornament_geometric_12),
     Arabesque(R.drawable.ic_ornament_arabesque),
     Star8(R.drawable.ic_ornament_star_8),
     Star12(R.drawable.ic_ornament_star_12),
+    Andalusian(R.drawable.ic_ornament_andalusian),
+    Mashrabiya(R.drawable.ic_ornament_mashrabiya),
+    Ottoman(R.drawable.ic_ornament_ottoman),
+    Royal(R.drawable.ic_ornament_royal),
+    Minimal(R.drawable.ic_ornament_minimal),
     MushafDivider(R.drawable.ic_ornament_mushaf_divider),
     SurahHeader(R.drawable.ic_ornament_surah_header),
     Corner(R.drawable.ic_ornament_corner),
@@ -38,12 +49,12 @@ fun IslamicOrnamentImage(
     tint: Color,
     alpha: Float,
     modifier: Modifier = Modifier,
-    painter: Painter = painterResource(ornament.drawableRes),
 ) {
     Image(
-        painter = painter,
+        painter = painterResource(ornament.drawableRes),
         contentDescription = null,
-        colorFilter = ColorFilter.tint(tint.copy(alpha = alpha)),
+        colorFilter = ColorFilter.tint(tint.copy(alpha = alpha.coerceIn(0f, 1f))),
+        contentScale = ContentScale.Fit,
         modifier = modifier,
     )
 }
