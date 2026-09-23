@@ -119,7 +119,7 @@ fun ScholarStudyPathScreen(
         },
     ) { padding ->
         when {
-            state.loading -> {
+            state.loading || state.catalogMetadataLoading -> {
                 Column(
                     modifier = Modifier.fillMaxSize().padding(padding),
                     verticalArrangement = Arrangement.Center,
@@ -241,7 +241,7 @@ fun ScholarAuthorsScreen(
             )
         },
     ) { padding ->
-        if (state.loading) {
+        if (state.loading || state.catalogMetadataLoading) {
             Column(
                 modifier = Modifier.fillMaxSize().padding(padding),
                 verticalArrangement = Arrangement.Center,
