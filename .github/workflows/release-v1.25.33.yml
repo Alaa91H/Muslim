@@ -1,0 +1,160 @@
+name: Publish Muslim v1.25.33
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-muslim-v1.25.33
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Tag and publish v1.25.33
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout verified main commit
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Confirm release marker
+        id: marker
+        shell: bash
+        run: |
+          subject="$(git log -1 --pretty=%s)"
+          if [ "$subject" = "release: prepare v1.25.33" ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "Verified CI run is not the v1.25.33 release marker; nothing to publish."
+          fi
+
+      - name: Set up JDK 17
+        if: steps.marker.outputs.publish == 'true'
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        if: steps.marker.outputs.publish == 'true'
+        uses: android-actions/setup-android@v4
+
+      - name: Grant execute permission for Gradle
+        if: steps.marker.outputs.publish == 'true'
+        run: chmod +x gradlew
+
+      - name: Set up Gradle cache
+        if: steps.marker.outputs.publish == 'true'
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Verify production release gates
+        if: steps.marker.outputs.publish == 'true'
+        run: ./gradlew :app:verifyProductionRelease --stacktrace
+        env:
+          SIGNING_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+
+      - name: Prepare local release tag
+        if: steps.marker.outputs.publish == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="v1.25.33"
+          HEAD_SHA="$(git rev-parse HEAD)"
+          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
+            git fetch origin "refs/tags/$TAG:refs/tags/$TAG"
+            TAG_SHA="$(git rev-list -n 1 "$TAG")"
+            if [ "$TAG_SHA" != "$HEAD_SHA" ]; then
+              echo "::error::$TAG already exists on a different commit ($TAG_SHA)."
+              exit 1
+            fi
+            echo "$TAG already points to the verified release commit."
+          else
+            git tag -a "$TAG" -m "Release $TAG"
+          fi
+
+      - name: Build signed release APK, AAB, and Wear APK
+        if: steps.marker.outputs.publish == 'true'
+        run: ./gradlew :app:assembleRelease :app:bundleProductionRelease :wear:assembleRelease --stacktrace
+        env:
+          SIGNING_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+
+      - name: Verify signed artifacts
+        if: steps.marker.outputs.publish == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          PHONE_APK="$(find app/build/outputs/apk/release -name '*.apk' | head -1)"
+          WEAR_APK="$(find wear/build/outputs/apk/release -name '*.apk' | head -1)"
+          AAB="$(find app/build/outputs/bundle -name '*.aab' | head -1)"
+          [ -n "$PHONE_APK" ] || { echo "::error::Phone release APK not found."; exit 1; }
+          [ -n "$WEAR_APK" ] || { echo "::error::Wear OS release APK not found."; exit 1; }
+          [ -n "$AAB" ] || { echo "::error::Production AAB not found."; exit 1; }
+
+          BUILD_TOOLS="$(ls -d "$ANDROID_HOME/build-tools/"* | sort -V | tail -1)"
+          APKSIGNER="$BUILD_TOOLS/apksigner"
+          "$APKSIGNER" verify --print-certs "$PHONE_APK" > /tmp/phone-certs.txt
+          if grep -qi "Android Debug" /tmp/phone-certs.txt; then
+            echo "::error::Production APK is debug-signed."
+            exit 1
+          fi
+
+          echo "PHONE_APK=$PHONE_APK" >> "$GITHUB_ENV"
+          echo "WEAR_APK=$WEAR_APK" >> "$GITHUB_ENV"
+          echo "AAB=$AAB" >> "$GITHUB_ENV"
+
+      - name: Push release tag
+        if: steps.marker.outputs.publish == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="v1.25.33"
+          if ! git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
+            git push origin "$TAG"
+          fi
+
+      - name: Publish GitHub Release
+        if: steps.marker.outputs.publish == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="v1.25.33"
+          NOTES="docs/releases/v1.25.33.md"
+
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG"               --title "Muslim $TAG"               --notes-file "$NOTES"               --draft
+          else
+            gh release edit "$TAG"               --title "Muslim $TAG"               --notes-file "$NOTES"
+          fi
+
+          gh release upload "$TAG" "$PHONE_APK" "$WEAR_APK" "$AAB" --clobber
+          gh release edit "$TAG" --draft=false --prerelease=false
+          gh release view "$TAG" --json url,tagName,name,isDraft,isPrerelease
+
+      - name: Release summary
+        if: steps.marker.outputs.publish == 'true'
+        run: |
+          {
+            echo "## Muslim v1.25.33"
+            echo
+            echo "Production gates passed, stable-signed artifacts were built, the tag was pushed, and the GitHub Release was published."
+          } >> "$GITHUB_STEP_SUMMARY"
