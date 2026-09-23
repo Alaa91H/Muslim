@@ -50,10 +50,10 @@ data class NearbyMosqueCache(
 )
 
 /** Values shown in the radius selector and accepted by the network query. */
-val NearbyMosqueRadiusOptionsKm = listOf(1, 3, 5, 10)
+val NearbyMosqueRadiusOptionsKm: List<Int> = AppPreferences.NEARBY_MOSQUE_RADIUS_OPTIONS_KM
 
 private const val CACHE_FRESH_FOR_MILLIS = 10 * 60 * 1_000L
-private const val MAX_RESULTS = 100
+private const val MAX_RESULTS = 250
 private const val EARTH_RADIUS_METERS = 6_371_008.8
 private const val OVERPASS_ENDPOINT = "https://overpass-api.de/api/interpreter"
 
@@ -96,7 +96,7 @@ class OverpassMosqueDataSource @Inject constructor(
         val latitude = "%.6f".format(java.util.Locale.US, location.latitude)
         val longitude = "%.6f".format(java.util.Locale.US, location.longitude)
         return """
-            [out:json][timeout:8];
+            [out:json][timeout:12];
             (
               nwr["amenity"="place_of_worship"]["religion"="muslim"](around:$radiusMeters,$latitude,$longitude);
               nwr["amenity"="place_of_worship"]["place_of_worship"="mosque"](around:$radiusMeters,$latitude,$longitude);
