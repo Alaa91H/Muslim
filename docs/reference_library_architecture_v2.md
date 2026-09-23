@@ -101,11 +101,13 @@ After that migration is stable, the same path can be used for Sira and Prophets 
 
 The migration described above is now substantially implemented. The Android repository loads versioned JSON books in addition to the compatibility facade, the reader supports chapter navigation, citations, related topics, and library-wide ranked search, and CI validates source metadata and cross-book relations.
 
-With the Places/Landmarks and Expanded Glossary phase, the versioned corpus reaches **15 books, 959 topics, 1,628 sections, and 1,836 bilingual Arabic/English paragraphs**.
+With the FAQ/Misconceptions phase, the versioned corpus reaches **16 books, 1,031 topics, 1,772 sections, and 1,980 bilingual Arabic/English paragraphs**.
 
 The expanded glossary intentionally stays concise and links each term back to a long-form reference domain instead of duplicating full articles. The FAQ book follows the same principle: short answers resolve a misconception quickly, then route the reader to the sourced long-form topic. The places book explicitly distinguishes:
 - ritually sacred sites established by Quran/Sunnah;
 - Sira and early-history locations;
 - historical/civilizational landmarks whose importance does not create a special act of worship.
 
-The next architecture milestone is no longer basic asset migration. It is reader-scale work: persistent bookmarks/progress, article table of contents, typography controls, previous/next navigation, and eventually Room/FTS indexing when profiling shows the in-memory search is no longer appropriate.
+Reader-scale work is now implemented as well: device-local bookmarks, a Continue Reading shortcut, per-topic scroll restoration, four-step typography controls, article table of contents with section jumps, previous/next topic navigation, bookmark indicators in book lists, and direct opening of citation URLs when a source provides one.
+
+The next architecture milestone is performance and editorial maturity rather than basic reader capability: profile library-wide search on lower-end devices, introduce Room/FTS only if measurements justify it, continue article-level scholarly review, and improve citation locators/URLs where primary or stable academic sources are available.
