@@ -375,7 +375,6 @@ internal fun mosqueMapUri(mosque: MosquePlace): String {
  * otherwise any geo-capable application, then OpenStreetMap in a browser, may handle it.
  */
 internal fun openExternalMap(context: Context, mosque: MosquePlace) {
-    val coordinates = navigationCoordinates(mosque)
     val geoUri = Uri.parse(mosqueMapUri(mosque))
     val googleMaps = Intent(Intent.ACTION_VIEW, geoUri).setPackage("com.google.android.apps.maps")
     val genericMap = Intent(Intent.ACTION_VIEW, geoUri)
