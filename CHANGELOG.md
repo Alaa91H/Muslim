@@ -1,5 +1,37 @@
 # Changelog
 
+## Muslim v1.25.33
+
+### Prayer Countdown Notification — Five-Prayer Timeline
+
+- Rebuilt the persistent next-Adhan notification with custom Android `RemoteViews` for a cleaner, more modern prayer-status experience.
+- The expanded notification now presents **Fajr, Dhuhr, Asr, Maghrib, and Isha horizontally**, with each prayer name paired with its scheduled time.
+- The upcoming prayer is highlighted with the app's primary Islamic green and gold accent treatment, while the most recently elapsed prayer uses the semantic error accent for immediate visual distinction.
+- Added live **remaining-time** and **elapsed-time** counters directly beneath the relevant prayer cells.
+- Kept the collapsed notification intentionally compact so the next prayer and its remaining time stay readable at a glance.
+
+### App Theme, RTL, and Time Formatting
+
+- Aligned notification light and dark colors with the application's central `IslamicPalette`, including matching surfaces, borders, primary green, gold, text hierarchy, and semantic error colors.
+- Added locale-aware RTL/LTR behavior so Arabic notification layouts remain correctly ordered and balanced.
+- Preserved the application's existing 12-hour / 24-hour time-format preference across all prayer times shown in the notification.
+- Excluded Sunrise from the five-prayer notification strip while retaining it in the underlying prayer calculation model where required.
+
+### Performance and Prayer-State Accuracy
+
+- Replaced second-by-second full notification rebuilds with Android system `Chronometer` views for the live countdown and elapsed timer.
+- Reduced full notification recomputation from once per second to once per minute while keeping the visible timers updating every second.
+- Extended the prayer countdown snapshot with the five visible prayer times and preserved exact next/missed prayer times across midnight rollovers.
+- Kept the existing notification channel, foreground-service lifecycle, quiet-hours behavior, and tap-through to the prayer-times screen.
+
+### Reliability and Verification
+
+- Updated static notification contracts for the new custom prayer card and app-theme color semantics.
+- Expanded domain and instrumentation coverage for the five-prayer schedule, custom compact/expanded surfaces, midnight rollover behavior, and live timer states.
+- Quality checks passed before merge: debug builds, unit tests, Android Lint, and Detekt.
+- Instrumented emulator tests passed on **Android API 26** and **Android API 36**.
+- Production release publication remains gated by the repository's stable-signing and approved-content checks.
+
 ## Muslim v1.25.32
 
 ### Notification Identity — Approved Launcher-Matched Small Icon
