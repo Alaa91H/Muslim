@@ -71,7 +71,7 @@ class FuneralContentTest {
     @Test
     fun `will education search matches content and empty query returns all`() {
         val matches = FuneralContent.searchWillEducationSections(
-            query = "password",
+            query = "digital secrets",
             isArabic = false,
         )
         val all = FuneralContent.searchWillEducationSections(
@@ -82,6 +82,7 @@ class FuneralContentTest {
         assertThat(matches.map(WillEducationSection::id)).contains("executor_and_documents")
         assertThat(all).hasSize(FuneralContent.willEducationSections.size)
     }
+
     @Test
     fun `arabic search tolerates common alif variants and diacritics`() {
         val matches = FuneralContent.searchGuideSections(
