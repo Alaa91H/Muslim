@@ -1,5 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Accent used by the permanent countdown notification (Islamic green). -->
+    <!-- Existing prayer accent retained for in-app prayer surfaces. -->
     <color name="adhan_accent">#1B5E20</color>
+
+    <!--
+      Notification tokens mirror core-design-system/IslamicPalette.Light.
+      Night-mode counterparts live in values-night/colors.xml.
+    -->
+    <color name="notification_surface">#FAF8F1</color>
+    <color name="notification_surface_elevated">#F2EEE3</color>
+    <color name="notification_primary">#3F6655</color>
+    <color name="notification_primary_container">#DCE8DF</color>
+    <color name="notification_text_primary">#252923</color>
+    <color name="notification_text_secondary">#62685F</color>
+    <color name="notification_text_muted">#858980</color>
+    <color name="notification_border">#D5D0C4</color>
+    <color name="notification_gold">#927744</color>
+    <color name="notification_error">#BA1A1A</color>
 </resources>
