@@ -216,11 +216,22 @@ def main() -> int:
         failures.append("Reference book must contain a topics array.")
         asset_topics = []
 
-    comparable_topics = [comparable_asset_topic(topic) for topic in asset_topics]
-    if comparable_topics != legacy_topics:
-        failures.append(
-            "Migrated Introduction to Islam content differs from the legacy Kotlin corpus."
-        )
+    asset_by_id = {
+        topic["id"]: comparable_asset_topic(topic)
+        for topic in asset_topics
+        if isinstance(topic, dict) and isinstance(topic.get("id"), str)
+    }
+    legacy_ids = [topic["id"] for topic in legacy_topics]
+    migrated_ids = [topic["id"] for topic in asset_topics if topic.get("id") in set(legacy_ids)]
+    if migrated_ids != legacy_ids:
+        failures.append("Legacy Introduction to Islam topic order changed during migration.")
+
+    for legacy_topic in legacy_topics:
+        topic_id = legacy_topic["id"]
+        if topic_id not in asset_by_id:
+            failures.append(f"Legacy topic missing from v2 asset: {topic_id}")
+        elif asset_by_id[topic_id] != legacy_topic:
+            failures.append(f"Migrated legacy topic changed unexpectedly: {topic_id}")
 
     topic_ids = [topic["id"] for topic in asset_topics if isinstance(topic, dict)]
     failures.extend(verify_chapter_coverage(book, topic_ids))
