@@ -12,11 +12,12 @@ import java.time.LocalTime
 import java.time.ZoneId
 
 /**
- * Immutable snapshot of what the permanent "next adhan" notification shows:
- * the upcoming prayer with its wall-clock time and a live countdown, plus —
- * in red — the most recent prayer whose time already passed ("missed adhan")
- * with how long ago its adhan was. Pure and JVM-testable (see
- * `PrayerCountdownDataTest`); the notification layer only maps this to UI.
+ * Immutable snapshot used by the permanent prayer-status notification.
+ *
+ * In addition to the live next/missed prayer state, [prayerTimes] contains the
+ * five visible prayer times used by the expanded notification. The next and
+ * missed entries are deliberately overwritten with the exact instants that the
+ * counters refer to, so the horizontal strip remains correct across midnight.
  */
 data class PrayerCountdownData(
     val hasLocation: Boolean,
@@ -27,6 +28,7 @@ data class PrayerCountdownData(
     val missedPrayer: Prayer?,
     val missedPrayerAt: LocalTime?,
     val elapsedSeconds: Long,
+    val prayerTimes: Map<Prayer, LocalTime> = emptyMap(),
 ) {
 
     companion object {
@@ -98,15 +100,33 @@ data class PrayerCountdownData(
                 }
             }
 
+            val nextPrayerAt = next?.atEpochMillis
+                ?.let { Instant.ofEpochMilli(it).atZone(zone).toLocalTime() }
+            val missedPrayerAt = missed?.second
+                ?.let { Instant.ofEpochMilli(it).atZone(zone).toLocalTime() }
+
+            // Start with today's five prayer times, then make the two
+            // state-bearing cells exact even around the midnight rollover.
+            val visibleTimes = LinkedHashMap(
+                todayResult.times.filterKeys { it != Prayer.Sunrise },
+            )
+            if (next != null && nextPrayerAt != null) {
+                visibleTimes[next.prayer] = nextPrayerAt
+            }
+            if (missed != null && missedPrayerAt != null) {
+                visibleTimes[missed.first] = missedPrayerAt
+            }
+
             return PrayerCountdownData(
                 hasLocation = true,
                 isValid = todayResult.isValid,
                 nextPrayer = next?.prayer,
-                nextPrayerAt = next?.atEpochMillis?.let { Instant.ofEpochMilli(it).atZone(zone).toLocalTime() },
+                nextPrayerAt = nextPrayerAt,
                 remainingSeconds = next?.let { NextPrayer.countdownSeconds(it.atEpochMillis, nowMillis) } ?: 0,
                 missedPrayer = missed?.first,
-                missedPrayerAt = missed?.second?.let { Instant.ofEpochMilli(it).atZone(zone).toLocalTime() },
+                missedPrayerAt = missedPrayerAt,
                 elapsedSeconds = missed?.let { ((nowMillis - it.second).coerceAtLeast(0) + 999) / 1000 } ?: 0,
+                prayerTimes = visibleTimes,
             )
         }
     }
