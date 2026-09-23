@@ -117,8 +117,10 @@ data class PalettePreviewColors(
 fun previewColorsForPalette(
     palette: AppColorPalette,
     darkTheme: Boolean,
+    amoledBlack: Boolean = false,
 ): PalettePreviewColors {
-    val scheme = appPaletteColorScheme(palette, darkTheme)
+    val base = appPaletteColorScheme(palette, darkTheme)
+    val scheme = if (amoledBlack && darkTheme) base.withAmoledBlackSurfaces() else base
     return PalettePreviewColors(
         primary = scheme.primary,
         secondary = scheme.secondary,
