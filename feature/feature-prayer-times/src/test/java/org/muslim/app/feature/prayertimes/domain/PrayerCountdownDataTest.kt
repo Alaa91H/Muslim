@@ -31,6 +31,7 @@ class PrayerCountdownDataTest {
         assertThat(data.missedPrayer).isNull()
         assertThat(data.remainingSeconds).isEqualTo(0)
         assertThat(data.elapsedSeconds).isEqualTo(0)
+        assertThat(data.prayerTimes).isEmpty()
     }
 
     @Test
@@ -42,10 +43,20 @@ class PrayerCountdownDataTest {
         assertThat(data.isValid).isTrue()
         assertThat(data.nextPrayer).isEqualTo(Prayer.Dhuhr)
         assertThat(data.remainingSeconds).isGreaterThan(0)
-        // Fajr has already passed and is reported as the missed adhan with elapsed time.
         assertThat(data.missedPrayer).isEqualTo(Prayer.Fajr)
         assertThat(data.missedPrayerAt).isNotNull()
         assertThat(data.elapsedSeconds).isGreaterThan(0)
+
+        assertThat(data.prayerTimes.keys).containsExactly(
+            Prayer.Fajr,
+            Prayer.Dhuhr,
+            Prayer.Asr,
+            Prayer.Maghrib,
+            Prayer.Isha,
+        )
+        assertThat(data.prayerTimes).doesNotContainKey(Prayer.Sunrise)
+        assertThat(data.prayerTimes[Prayer.Dhuhr]).isEqualTo(data.nextPrayerAt)
+        assertThat(data.prayerTimes[Prayer.Fajr]).isEqualTo(data.missedPrayerAt)
     }
 
     @Test
@@ -55,9 +66,11 @@ class PrayerCountdownDataTest {
         )
         assertThat(data.nextPrayer).isEqualTo(Prayer.Fajr)
         assertThat(data.remainingSeconds).isGreaterThan(0)
-        assertThat(data.remainingSeconds).isLessThan(6 * 3600) // Fajr before ~05:00 local
+        assertThat(data.remainingSeconds).isLessThan(6 * 3600)
         assertThat(data.missedPrayer).isEqualTo(Prayer.Isha)
         assertThat(data.elapsedSeconds).isGreaterThan(0)
+        assertThat(data.prayerTimes[Prayer.Fajr]).isEqualTo(data.nextPrayerAt)
+        assertThat(data.prayerTimes[Prayer.Isha]).isEqualTo(data.missedPrayerAt)
     }
 
     @Test
@@ -68,8 +81,9 @@ class PrayerCountdownDataTest {
         assertThat(data.nextPrayer).isEqualTo(Prayer.Fajr)
         assertThat(data.remainingSeconds).isGreaterThan(0)
         assertThat(data.missedPrayer).isEqualTo(Prayer.Isha)
-        // Roughly 7+ hours since yesterday's Isha (after ~19:30 local).
         assertThat(data.elapsedSeconds).isGreaterThan(5 * 3600)
+        assertThat(data.prayerTimes[Prayer.Fajr]).isEqualTo(data.nextPrayerAt)
+        assertThat(data.prayerTimes[Prayer.Isha]).isEqualTo(data.missedPrayerAt)
     }
 
     @Test
@@ -87,25 +101,23 @@ class PrayerCountdownDataTest {
 
     @Test
     fun `elapsed count-up grows over time after the missed adhan`() {
-        val t0 = epochAt(LocalDate.of(2026, 8, 14), 16, 5) // just after Asr (16:0x)
+        val t0 = epochAt(LocalDate.of(2026, 8, 14), 16, 5)
         val t1 = t0 + 61_000L
         val t2 = t0 + 3_661_000L
         val atT0 = PrayerCountdownData.compute(settingsWithLocation(), calculator, t0)
         val atT1 = PrayerCountdownData.compute(settingsWithLocation(), calculator, t1)
         val atT2 = PrayerCountdownData.compute(settingsWithLocation(), calculator, t2)
-        // The missed prayer stays the same while the elapsed counter climbs.
         assertThat(atT0.missedPrayer).isEqualTo(atT1.missedPrayer)
         assertThat(atT0.missedPrayer).isEqualTo(atT2.missedPrayer)
         assertThat(atT1.elapsedSeconds).isGreaterThan(atT0.elapsedSeconds)
         assertThat(atT2.elapsedSeconds).isGreaterThan(atT1.elapsedSeconds)
-        // ~1 minute and ~1 hour of elapsed time respectively.
         assertThat(atT1.elapsedSeconds).isAtLeast(60L)
         assertThat(atT2.elapsedSeconds).isAtLeast(3600L)
     }
 
     @Test
     fun `countdown shrinks by one second per second before the prayer`() {
-        val base = epochAt(LocalDate.of(2026, 8, 14), 11, 0) // ~1h before Dhuhr
+        val base = epochAt(LocalDate.of(2026, 8, 14), 11, 0)
         val a = PrayerCountdownData.compute(settingsWithLocation(), calculator, base)
         val b = PrayerCountdownData.compute(settingsWithLocation(), calculator, base + 5_000L)
         assertThat(a.nextPrayer).isEqualTo(Prayer.Dhuhr)
