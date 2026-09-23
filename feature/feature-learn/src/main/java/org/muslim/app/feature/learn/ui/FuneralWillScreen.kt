@@ -114,6 +114,31 @@ private data class WillDraftIntroState(
     val actions: WillIntroActions,
 )
 
+private data class FuneralWillUiState(
+    val selectedTab: Int,
+    val draft: WillDraft,
+    val storedDraft: WillDraft,
+    val isArabic: Boolean,
+    val storageError: Boolean,
+    val introVisibility: FuneralWillIntroVisibility,
+    val protection: WillDraftProtectionSession,
+)
+
+private data class FuneralWillUiActions(
+    val onBack: () -> Unit,
+    val onSelectTab: (Int) -> Unit,
+    val draft: WillDraftActions,
+    val intro: WillIntroActions,
+)
+
+private data class WillDraftContentState(
+    val draft: WillDraft,
+    val isArabic: Boolean,
+    val introVisibility: FuneralWillIntroVisibility,
+    val isDirty: Boolean,
+    val storageError: Boolean,
+)
+
 private val WillDraftSaver: Saver<WillDraft, List<String>> = Saver(
     save = { draft ->
         listOf(
@@ -180,6 +205,7 @@ fun FuneralWillScreen(
     val storageError by viewModel.storageError.collectAsStateWithLifecycle()
     val pdfExportStatus by viewModel.pdfExportStatus.collectAsStateWithLifecycle()
     val introVisibility by viewModel.introVisibility.collectAsStateWithLifecycle()
+    val draftProtection by viewModel.draftProtection.collectAsStateWithLifecycle()
     var draft by rememberSaveable(stateSaver = WillDraftSaver) { mutableStateOf(WillDraft()) }
     var selectedTab by rememberSaveable { mutableIntStateOf(FuneralWillTab.Will.ordinal) }
     var showClearConfirmation by rememberSaveable { mutableStateOf(false) }
@@ -190,6 +216,10 @@ fun FuneralWillScreen(
         draft = draft,
         isArabic = isArabic,
         status = pdfExportStatus,
+    )
+    val protectionSession = rememberWillDraftProtectionSession(
+        state = draftProtection,
+        onSetEnabled = viewModel::setDraftProtectionEnabled,
     )
 
     LaunchedEffect(storedDraft) {
@@ -214,20 +244,32 @@ fun FuneralWillScreen(
 
     FuneralWillScaffold(
         modifier = modifier,
-        onBack = onBack,
-        selectedTab = selectedTab,
-        onSelectTab = { selectedTab = it },
-        draft = draft,
-        storedDraft = storedDraft,
-        isArabic = isArabic,
-        storageError = storageError,
-        introVisibility = introVisibility,
-        onDraftChange = { draft = it },
-        onSave = { viewModel.save(draft) },
-        onShare = { showShareConfirmation = true },
-        onExportPdf = exportPdf,
-        onClear = { showClearConfirmation = true },
-        viewModel = viewModel,
+        state = FuneralWillUiState(
+            selectedTab = selectedTab,
+            draft = draft,
+            storedDraft = storedDraft,
+            isArabic = isArabic,
+            storageError = storageError,
+            introVisibility = introVisibility,
+            protection = protectionSession,
+        ),
+        actions = FuneralWillUiActions(
+            onBack = onBack,
+            onSelectTab = { selectedTab = it },
+            draft = WillDraftActions(
+                onChange = { draft = it },
+                onSave = { viewModel.save(draft) },
+                onShare = { showShareConfirmation = true },
+                onExportPdf = exportPdf,
+                onClear = { showClearConfirmation = true },
+            ),
+            intro = WillIntroActions(
+                dismissDraftIntro = viewModel::dismissDraftIntro,
+                dismissLegalNotice = viewModel::dismissLegalNotice,
+                dismissPrivacyNotice = viewModel::dismissPrivacyNotice,
+                restoreAll = viewModel::restoreIntroCards,
+            ),
+        ),
     )
 }
 
@@ -323,20 +365,8 @@ private fun ConfirmationDialog(
 @Composable
 private fun FuneralWillScaffold(
     modifier: Modifier,
-    onBack: () -> Unit,
-    selectedTab: Int,
-    onSelectTab: (Int) -> Unit,
-    draft: WillDraft,
-    storedDraft: WillDraft,
-    isArabic: Boolean,
-    storageError: Boolean,
-    introVisibility: FuneralWillIntroVisibility,
-    onDraftChange: (WillDraft) -> Unit,
-    onSave: () -> Unit,
-    onShare: () -> Unit,
-    onExportPdf: () -> Unit,
-    onClear: () -> Unit,
-    viewModel: FuneralWillViewModel,
+    state: FuneralWillUiState,
+    actions: FuneralWillUiActions,
 ) {
     MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
@@ -344,7 +374,7 @@ private fun FuneralWillScaffold(
             TopAppBar(
                 title = { Text(stringResource(R.string.funeral_will_title)) },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
+                    IconButton(onClick = actions.onBack) {
                         Icon(
                             Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = stringResource(R.string.funeral_will_back),
@@ -356,19 +386,8 @@ private fun FuneralWillScaffold(
     ) { innerPadding ->
         FuneralWillBody(
             modifier = Modifier.padding(innerPadding),
-            selectedTab = selectedTab,
-            onSelectTab = onSelectTab,
-            draft = draft,
-            storedDraft = storedDraft,
-            isArabic = isArabic,
-            storageError = storageError,
-            introVisibility = introVisibility,
-            onDraftChange = onDraftChange,
-            onSave = onSave,
-            onShare = onShare,
-            onExportPdf = onExportPdf,
-            onClear = onClear,
-            viewModel = viewModel,
+            state = state,
+            actions = actions,
         )
     }
 }
@@ -376,19 +395,8 @@ private fun FuneralWillScaffold(
 @Composable
 private fun FuneralWillBody(
     modifier: Modifier,
-    selectedTab: Int,
-    onSelectTab: (Int) -> Unit,
-    draft: WillDraft,
-    storedDraft: WillDraft,
-    isArabic: Boolean,
-    storageError: Boolean,
-    introVisibility: FuneralWillIntroVisibility,
-    onDraftChange: (WillDraft) -> Unit,
-    onSave: () -> Unit,
-    onShare: () -> Unit,
-    onExportPdf: () -> Unit,
-    onClear: () -> Unit,
-    viewModel: FuneralWillViewModel,
+    state: FuneralWillUiState,
+    actions: FuneralWillUiActions,
 ) {
     Column(modifier.fillMaxSize()) {
         IslamicDecorationBand(
@@ -396,36 +404,53 @@ private fun FuneralWillBody(
             compact = true,
         )
         FuneralWillTabs(
-            selectedTab = selectedTab,
-            onSelect = onSelectTab,
+            selectedTab = state.selectedTab,
+            onSelect = actions.onSelectTab,
         )
         IslamicDecorationDivider(
             tint = MaterialTheme.colorScheme.tertiary,
             modifier = Modifier.padding(horizontal = 24.dp),
         )
-        when (FuneralWillTab.entries[selectedTab]) {
-            FuneralWillTab.Will -> WillDraftContent(
-                draft = draft,
-                isArabic = isArabic,
-                introVisibility = introVisibility,
-                isDirty = draft != storedDraft,
-                storageError = storageError,
-                draftActions = WillDraftActions(
-                    onChange = onDraftChange,
-                    onSave = onSave,
-                    onShare = onShare,
-                    onExportPdf = onExportPdf,
-                    onClear = onClear,
-                ),
-                introActions = WillIntroActions(
-                    dismissDraftIntro = viewModel::dismissDraftIntro,
-                    dismissLegalNotice = viewModel::dismissLegalNotice,
-                    dismissPrivacyNotice = viewModel::dismissPrivacyNotice,
-                    restoreAll = viewModel::restoreIntroCards,
-                ),
+        when (FuneralWillTab.entries[state.selectedTab]) {
+            FuneralWillTab.Will -> PrivateWillTab(
+                state = state,
+                actions = actions,
             )
 
-            FuneralWillTab.FuneralGuide -> FuneralGuideContent(isArabic = isArabic)
+            FuneralWillTab.FuneralGuide -> FuneralGuideContent(
+                isArabic = state.isArabic,
+            )
+        }
+    }
+}
+
+@Composable
+private fun PrivateWillTab(
+    state: FuneralWillUiState,
+    actions: FuneralWillUiActions,
+) {
+    when {
+        !state.protection.loaded -> {
+            WillDraftProtectionLoading()
+        }
+
+        state.protection.enabled && !state.protection.unlocked -> {
+            WillDraftLockedContent(session = state.protection)
+        }
+
+        else -> {
+            WillDraftContent(
+                state = WillDraftContentState(
+                    draft = state.draft,
+                    isArabic = state.isArabic,
+                    introVisibility = state.introVisibility,
+                    isDirty = state.draft != state.storedDraft,
+                    storageError = state.storageError,
+                ),
+                draftActions = actions.draft,
+                introActions = actions.intro,
+                protection = state.protection,
+            )
         }
     }
 }
@@ -462,13 +487,10 @@ private fun FuneralWillTabs(
 
 @Composable
 private fun WillDraftContent(
-    draft: WillDraft,
-    isArabic: Boolean,
-    introVisibility: FuneralWillIntroVisibility,
-    isDirty: Boolean,
-    storageError: Boolean,
+    state: WillDraftContentState,
     draftActions: WillDraftActions,
     introActions: WillIntroActions,
+    protection: WillDraftProtectionSession,
 ) {
     var educationQuery by rememberSaveable { mutableStateOf("") }
 
@@ -478,9 +500,9 @@ private fun WillDraftContent(
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         willDraftIntroduction(
-            isArabic = isArabic,
+            isArabic = state.isArabic,
             state = WillDraftIntroState(
-                visibility = introVisibility,
+                visibility = state.introVisibility,
                 query = educationQuery,
                 onQueryChange = { educationQuery = it },
                 actions = introActions,
@@ -490,7 +512,7 @@ private fun WillDraftContent(
             NoticeCard(
                 icon = Icons.Filled.Security,
                 text = stringResource(
-                    if (storageError) {
+                    if (state.storageError) {
                         R.string.funeral_will_encryption_error
                     } else {
                         R.string.funeral_will_encrypted_notice
@@ -498,11 +520,14 @@ private fun WillDraftContent(
                 ),
             )
         }
-        if (!storageError) {
-            willDraftFields(draft, draftActions.onChange)
+        item {
+            WillDraftProtectionCard(session = protection)
+        }
+        if (!state.storageError) {
+            willDraftFields(state.draft, draftActions.onChange)
             willDraftActions(
-                draft = draft,
-                isDirty = isDirty,
+                draft = state.draft,
+                isDirty = state.isDirty,
                 onSave = draftActions.onSave,
                 onShare = draftActions.onShare,
                 onExportPdf = draftActions.onExportPdf,
