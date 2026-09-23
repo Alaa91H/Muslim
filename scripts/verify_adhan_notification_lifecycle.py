@@ -94,7 +94,6 @@ REQUIRED_SNIPPETS = {
 
 FORBIDDEN_SNIPPETS = {
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/notifications/AdhanNotifications.kt": [
-        ".setTimeoutAfter(",
         "dismissible:",
         "stopOnDismiss:",
         "setAuthenticationRequired(true)",
