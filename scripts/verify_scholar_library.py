@@ -122,6 +122,9 @@ def main() -> None:
     require("data class ScholarReadingProgress" in models, "v2 must expose reading progress")
     require("data class ScholarHighlight" in models, "v2 must expose highlights")
     require("data class ScholarBookmark" in models, "v2 must expose bookmarks")
+    require("data class ScholarBookHierarchy" in models, "v3 must expose full book hierarchy")
+    require("data class ScholarStudyPlan" in models, "v3 must expose local study plans")
+    require("data class ScholarPathProgress" in models, "v3 must expose derived path progress")
 
     screens = SCREENS.read_text(encoding="utf-8")
     require("scholar_library_continue_reading" in screens, "home must expose continue-reading state")
@@ -142,7 +145,7 @@ def main() -> None:
     require(POLICY.exists(), "content policy document must be present")
 
     print(
-        "Scholar Library v2 verified: "
+        "Scholar Library v3 verified: "
         f"{len(books)} references, {len(passage_ids)} study passages, "
         f"{len(categories)} categories, {len(paths)} study paths, hierarchy + plans + migrations present."
     )
