@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
@@ -307,7 +308,7 @@ private fun HubContent(
         repository.searchAll(query, lang, limit = 80)
     }
     val bookmarkedTopics = remember(repository, bookmarkKeys) {
-        bookmarkKeys.mapNotNull { key -> resolveStoredTopic(repository, key) }
+        bookmarkKeys.sorted().mapNotNull { key -> resolveStoredTopic(repository, key) }
     }
     val lastReadTarget = remember(repository, lastRead) {
         lastRead?.let { resolveStoredTopic(repository, "${it.bookId}/${it.topicId}") }
@@ -315,102 +316,18 @@ private fun HubContent(
 
     LazyColumn(modifier = modifier.fillMaxSize()) {
         item(key = "library-search") {
-            OutlinedTextField(
-                value = query,
-                onValueChange = onQueryChanged,
-                placeholder = {
-                    Text(
-                        if (lang == RefLang.Arabic) {
-                            "ابحث في جميع كتب المكتبة…"
-                        } else {
-                            "Search the entire library…"
-                        },
-                    )
-                },
-                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 8.dp),
-            )
+            LibrarySearchField(query = query, lang = lang, onQueryChanged = onQueryChanged)
         }
-
-        if (query.isBlank()) {
-            item(key = "reference-decoration") {
-                IslamicDecorationBand(
-                    tint = MaterialTheme.colorScheme.tertiary,
-                    compact = true,
-                    modifier = Modifier.padding(horizontal = 16.dp),
-                )
-            }
-            lastReadTarget?.let { (lastBook, lastTopic) ->
-                item(key = "continue-reading") {
-                    IslamicCard(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 8.dp)
-                            .clickable { onOpenTopic(lastBook, lastTopic) },
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    ) {
-                        Column {
-                            Text(
-                                text = if (lang == RefLang.Arabic) "متابعة القراءة" else "Continue reading",
-                                style = MaterialTheme.typography.labelLarge,
-                                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                            )
-                            Spacer(Modifier.height(4.dp))
-                            Text(
-                                text = lastTopic.title(lang),
-                                style = MaterialTheme.typography.titleMedium,
-                                fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                            )
-                            Text(
-                                text = lastBook.title(lang),
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                            )
-                        }
-                    }
-                }
-            }
-            if (bookmarkedTopics.isNotEmpty()) {
-                item(key = "bookmarks-title") {
-                    SectionLabel(
-                        text = if (lang == RefLang.Arabic) "المفضلة" else "Bookmarks",
-                    )
-                }
-                items(
-                    items = bookmarkedTopics,
-                    key = { (savedBook, savedTopic) -> "bookmark-${savedBook.id}/${savedTopic.id}" },
-                ) { (savedBook, savedTopic) ->
-                    ListItem(
-                        headlineContent = {
-                            Text(savedTopic.title(lang), fontWeight = FontWeight.Medium)
-                        },
-                        supportingContent = {
-                            Text(savedBook.title(lang), maxLines = 1)
-                        },
-                        leadingContent = {
-                            Icon(Icons.Filled.Bookmark, contentDescription = null)
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable { onOpenTopic(savedBook, savedTopic) },
-                    )
-                }
-                item(key = "library-books-title") {
-                    SectionLabel(
-                        text = if (lang == RefLang.Arabic) "الكتب" else "Books",
-                    )
-                }
-            }
-            items(repository.books, key = { it.id }) { book ->
-                ReferenceBookCard(book = book, lang = lang, onOpenBook = onOpenBook)
-            }
-        } else if (results.isEmpty()) {
-            item(key = "library-no-results") {
+        when {
+            query.isBlank() -> defaultHubItems(
+                repository = repository,
+                lang = lang,
+                bookmarkedTopics = bookmarkedTopics,
+                lastReadTarget = lastReadTarget,
+                onOpenBook = onOpenBook,
+                onOpenTopic = onOpenTopic,
+            )
+            results.isEmpty() -> item(key = "library-no-results") {
                 MuslimStateSurface(
                     title = stringResource(R.string.reference_no_results),
                     tone = MuslimStateTone.Neutral,
@@ -418,28 +335,164 @@ private fun HubContent(
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 24.dp),
                 )
             }
-        } else {
-            items(
-                items = results,
-                key = { result -> "${result.book.id}/${result.topic.id}" },
-            ) { result ->
-                ListItem(
-                    headlineContent = {
-                        Text(result.topic.title(lang), fontWeight = FontWeight.Medium)
-                    },
-                    supportingContent = {
-                        Text(
-                            text = "${result.book.title(lang)} • ${result.topic.summary(lang)}",
-                            maxLines = 2,
-                        )
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { onOpenTopic(result.book, result.topic) },
-                )
-                HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
-            }
+            else -> searchResultItems(results = results, lang = lang, onOpenTopic = onOpenTopic)
         }
+    }
+}
+
+@Composable
+private fun LibrarySearchField(
+    query: String,
+    lang: RefLang,
+    onQueryChanged: (String) -> Unit,
+) {
+    OutlinedTextField(
+        value = query,
+        onValueChange = onQueryChanged,
+        placeholder = {
+            Text(
+                if (lang == RefLang.Arabic) {
+                    "ابحث في جميع كتب المكتبة…"
+                } else {
+                    "Search the entire library…"
+                },
+            )
+        },
+        leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+    )
+}
+
+private fun LazyListScope.defaultHubItems(
+    repository: ReferenceRepository,
+    lang: RefLang,
+    bookmarkedTopics: List<Pair<ReferenceBook, RefTopic>>,
+    lastReadTarget: Pair<ReferenceBook, RefTopic>?,
+    onOpenBook: (ReferenceBook) -> Unit,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
+) {
+    item(key = "reference-decoration") {
+        IslamicDecorationBand(
+            tint = MaterialTheme.colorScheme.tertiary,
+            compact = true,
+            modifier = Modifier.padding(horizontal = 16.dp),
+        )
+    }
+    lastReadTarget?.let { (lastBook, lastTopic) ->
+        item(key = "continue-reading") {
+            ContinueReadingCard(
+                book = lastBook,
+                topic = lastTopic,
+                lang = lang,
+                onOpenTopic = onOpenTopic,
+            )
+        }
+    }
+    if (bookmarkedTopics.isNotEmpty()) {
+        item(key = "bookmarks-title") {
+            SectionLabel(text = if (lang == RefLang.Arabic) "المفضلة" else "Bookmarks")
+        }
+        items(
+            items = bookmarkedTopics,
+            key = { (savedBook, savedTopic) -> "bookmark-${savedBook.id}/${savedTopic.id}" },
+        ) { (savedBook, savedTopic) ->
+            SavedTopicRow(
+                book = savedBook,
+                topic = savedTopic,
+                lang = lang,
+                onOpenTopic = onOpenTopic,
+            )
+        }
+        item(key = "library-books-title") {
+            SectionLabel(text = if (lang == RefLang.Arabic) "الكتب" else "Books")
+        }
+    }
+    items(repository.books, key = { it.id }) { book ->
+        ReferenceBookCard(book = book, lang = lang, onOpenBook = onOpenBook)
+    }
+}
+
+@Composable
+private fun ContinueReadingCard(
+    book: ReferenceBook,
+    topic: RefTopic,
+    lang: RefLang,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
+) {
+    IslamicCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .clickable { onOpenTopic(book, topic) },
+        containerColor = MaterialTheme.colorScheme.primaryContainer,
+    ) {
+        Column {
+            Text(
+                text = if (lang == RefLang.Arabic) "متابعة القراءة" else "Continue reading",
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = topic.title(lang),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+            )
+            Text(
+                text = book.title(lang),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+            )
+        }
+    }
+}
+
+@Composable
+private fun SavedTopicRow(
+    book: ReferenceBook,
+    topic: RefTopic,
+    lang: RefLang,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
+) {
+    ListItem(
+        headlineContent = { Text(topic.title(lang), fontWeight = FontWeight.Medium) },
+        supportingContent = { Text(book.title(lang), maxLines = 1) },
+        leadingContent = { Icon(Icons.Filled.Bookmark, contentDescription = null) },
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onOpenTopic(book, topic) },
+    )
+}
+
+private fun LazyListScope.searchResultItems(
+    results: List<org.muslim.app.feature.reference.domain.ReferenceSearchResult>,
+    lang: RefLang,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
+) {
+    items(
+        items = results,
+        key = { result -> "${result.book.id}/${result.topic.id}" },
+    ) { result ->
+        ListItem(
+            headlineContent = {
+                Text(result.topic.title(lang), fontWeight = FontWeight.Medium)
+            },
+            supportingContent = {
+                Text(
+                    text = "${result.book.title(lang)} • ${result.topic.summary(lang)}",
+                    maxLines = 2,
+                )
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { onOpenTopic(result.book, result.topic) },
+        )
+        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
     }
 }
 
