@@ -20,8 +20,11 @@ The history feature now separates **UI**, **content contracts**, and **curated c
 - `IslamicHistoryPeopleProfiles.kt` and `IslamicHistoryPlaceProfiles.kt` hold the long-form profile catalogues for all 8 exposed historical figures and all 13 atlas places.
 - `IslamicHistoryProfiles.kt` is the compact lookup facade used by UI, validation, and search code.
 - `IslamicHistorySearch.kt` remains the dependency-free in-memory search/fallback implementation and Arabic normalization utility.
-- `assets/history/search_index.json` packages the current 79 searchable entities as a versioned JSON snapshot (6 eras, 18 states, 22 events, 12 civilization topics, 8 people, and 13 places).
-- `IslamicHistorySearchDatabase.kt` stores that snapshot in a local Room FTS4 index, while `IslamicHistorySearchRepository.kt` handles version-aware seeding, typed FTS queries, ranking, and automatic fallback to the in-memory search if database/asset initialization fails.
+- `assets/history/search_index.json` packages the current 79 searchable entities as a versioned JSON search snapshot (6 eras, 18 states, 22 events, 12 civilization topics, 8 people, and 13 places).
+- `assets/history/content_v1.json` packages the matching **79 structured long-form records**: 6 era articles, 18 states, 22 events, 12 civilization topics, 8 person profiles, and 13 place profiles.
+- `IslamicHistorySearchDatabase.kt` now stores both the local Room FTS4 index and structured content payloads with independent version metadata.
+- `IslamicHistorySearchRepository.kt` handles search-index seeding, typed FTS queries, ranking, and search fallback.
+- `IslamicHistoryContentRepository.kt` handles transactional long-form content seeding and repository-backed article/state/event/topic/person/place detail reads, with the legacy Kotlin catalogue retained only as a migration fallback.
 - `IslamicHistoryNavigation.kt` provides stable cross-section navigation targets so search results and related-entity links can open the correct destination.
 - `HistoryContentValidator.kt` validates unique IDs, bilingual completeness, chronology sanity, atlas time ranges, source references, related-era/topic references, state/era links, event references, person/place links, profile coverage, and section structure.
 - `HistoryContentValidatorTest.kt` makes those rules part of CI so broken references or incomplete articles are caught before merge.
@@ -48,18 +51,26 @@ The Compose screen now exposes dedicated **States & Dynasties**, **Civilization*
 
 ## Packaged content and Room/FTS migration boundary
 
-Phase 7 establishes the storage boundary needed to move the growing reference catalogue out of Kotlin constants without forcing a risky all-at-once rewrite.
+Phase 7 established the storage boundary with the versioned search index and Room FTS. Phase 8 moves the **structured long-form detail layer** across that boundary.
 
-The first migrated artifact is the **search/content index**:
+Two independent packaged assets now exist:
 
-- the current 79 public history entities are serialized into a packaged, versioned JSON asset;
-- the asset declares both a schema version and a content version;
-- startup/search initialization validates schema compatibility, unique entity keys, known entity types, and bilingual titles before indexing;
-- a local Room FTS4 database is rebuilt transactionally only when the packaged content version or document count changes;
-- search queries are debounced in Compose, normalized for Arabic matching, converted to safe prefix-token FTS expressions, and can be restricted to one entity type;
-- failures in asset loading, Room initialization, or FTS querying fall back to the existing dependency-free search so the reference screen remains usable.
+- `search_index.json` is optimized for discovery and FTS indexing;
+- `content_v1.json` preserves structured records and relationships for reader screens.
 
-The long-form canonical domain records (articles, state/event/topic/profile details) still remain in Kotlin during this migration step. This is intentional: Phase 7 moves indexing and persistence first, then later content batches can be moved into packaged JSON/Room behind the same repository boundary without rewriting navigation and reader UI again.
+The long-form asset contains the same 79 current detail records as the Kotlin catalogue: 6 era articles, 18 states, 22 events, 12 civilization topics, 8 person profiles, and 13 place profiles. It preserves bilingual text, article/profile sections, structured dates and precision, categories/regions, entity relationships, and source IDs.
+
+On first use, `IslamicHistoryContentRepository` validates the asset and transactionally seeds `history_content_records` plus independent content-version metadata. Subsequent launches skip the rebuild while the content version and record count match. The Timeline article reader, State details, Event details, Civilization topic reader, Person profiles, and Place profiles now request their selected detail record through this repository rather than reading the long-form Kotlin object directly.
+
+Migration safety remains explicit:
+
+- CI contains a parity test that decodes all packaged records back to the domain models and compares them with the current curated Kotlin catalogue in order;
+- schema version, content version, unique keys, required sections, and required sources are validated before seeding;
+- coroutine cancellation is preserved;
+- asset/Room/decode failures fall back to the existing Kotlin record for the requested entity instead of breaking the reader;
+- list/navigation metadata remains in Kotlin during this phase, so the old long-form catalogue can be removed only after the remaining list layer is migrated in a later batch.
+
+This staged approach makes the packaged JSON/Room copy the tested primary source for detail readers while keeping a safe rollback path during migration.
 
 ## Search, cross-navigation, and atlas time filter
 
