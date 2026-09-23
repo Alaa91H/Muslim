@@ -13,6 +13,11 @@
     <string name="settings_updates_check">التحقق من وجود تحديثات</string>
     <string name="settings_updates_check_desc">فحص إصدارات GitHub دوريًا وإرسال إشعار مرة واحدة عند اكتشاف إصدار أحدث</string>
     <string name="settings_updates_frequency">تكرار التحقق</string>
+    <string name="settings_updates_channel">قناة التحديث</string>
+    <string name="settings_updates_channel_stable">مستقرة</string>
+    <string name="settings_updates_channel_beta">تجريبية</string>
+    <string name="settings_updates_channel_stable_desc">استقبال الإصدارات النهائية المنشورة فقط.</string>
+    <string name="settings_updates_channel_beta_desc">استقبال الإصدارات التجريبية بالإضافة إلى الإصدارات المستقرة. قد تتضمن خصائص قيد الاختبار.</string>
     <string name="settings_updates_daily">يوميا</string>
     <string name="settings_updates_weekly">أسبوعيا</string>
     <string name="settings_updates_monthly">شهريا</string>
