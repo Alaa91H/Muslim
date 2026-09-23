@@ -59,6 +59,11 @@ REQUIRED_SNIPPETS = {
         "fun IslamicPrimaryButton",
         "fun IslamicSecondaryButton",
     ],
+    "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/WidgetOrnamentSpec.kt": [
+        "data class WidgetOrnamentSpec",
+        "fun widgetOrnamentSpec",
+        "OrnamentIntensity.Off",
+    ],
     "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/IslamicDesignShowcase.kt": [
         "fun IslamicDesignShowcase",
         "MuslimLightColors",
@@ -127,7 +132,27 @@ REQUIRED_SNIPPETS = {
         "MuslimSectionHeader",
         "Arrangement.spacedBy(8.dp)",
     ],
+    "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/widget/PrayerTimesWidget.kt": [
+        "widgetOrnamentSpec",
+        "WidgetOrnamentAccent",
+        "appPreferences.ornamentStyle",
+        "appPreferences.ornamentIntensity",
+    ],
+    "feature/feature-tasbih/src/main/java/org/muslim/app/feature/tasbih/widget/MisbahaWidget.kt": [
+        "widgetOrnamentSpec",
+        "MisbahaOrnamentAccent",
+        "appPreferencesRepository",
+    ],
+    "core/core-common/src/main/java/org/muslim/app/core/common/wear/WearSyncContract.kt": [
+        "KEY_ORNAMENT_STYLE",
+        "KEY_ORNAMENT_INTENSITY",
+        "ornamentStyle",
+        "ornamentIntensity",
+    ],
     "wear/src/main/java/org/muslim/app/wear/WearMainActivity.kt": [
+        "WearOrnamentBand",
+        "ornamentStyle",
+        "ornamentIntensity",
         "wear_vibration_on",
         "wear_vibration_off",
         "wear_increment",
