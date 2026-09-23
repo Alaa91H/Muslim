@@ -203,7 +203,7 @@ val generateWearLocaleResources = tasks.register("generateWearLocaleResources") 
     }
 }
 
-android.sourceSets.getByName("main").res.srcDir(generatedWearLocaleRes)
+android.sourceSets.getByName("main").res.directories.add(generatedWearLocaleRes.get().asFile)
 tasks.matching { it.name == "preBuild" }.configureEach {
     dependsOn(generateWearLocaleResources)
 }
