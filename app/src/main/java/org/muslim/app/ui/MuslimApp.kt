@@ -60,7 +60,7 @@ import org.muslim.app.feature.prayertimes.widget.refreshPrayerTimesWidgets
 import org.muslim.app.feature.adhkar.ui.AdhkarScreen
 import org.muslim.app.feature.hadith.ui.HadithScreen
 import org.muslim.app.feature.learn.ui.LearnScreen
-import org.muslim.app.feature.learn.ui.FamilyLifeScreen
+import org.muslim.app.feature.family.ui.FamilyLifeScreen
 import org.muslim.app.feature.learn.ui.FuneralWillScreen
 import org.muslim.app.feature.learn.ui.NooraniNewMuslimScreen
 import org.muslim.app.feature.learn.ui.TravelerExpatsScreen
