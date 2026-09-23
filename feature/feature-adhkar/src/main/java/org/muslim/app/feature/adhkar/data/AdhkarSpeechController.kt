@@ -127,7 +127,12 @@ class AdhkarSpeechController @Inject constructor(
         return false
     }
 
-    fun stop() {
+    /**
+     * Stops speech only when [utteranceId] still owns the engine. Passing null
+     * keeps the explicit global-stop behaviour used by the master toggle.
+     */
+    fun stop(utteranceId: String? = null) {
+        if (utteranceId != null && _activeUtteranceId.value != utteranceId) return
         textToSpeech.stop()
         _activeUtteranceId.value = null
     }
