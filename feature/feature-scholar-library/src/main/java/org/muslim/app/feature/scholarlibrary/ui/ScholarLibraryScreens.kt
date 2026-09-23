@@ -628,6 +628,7 @@ private fun BookMetadataCard(book: ScholarBook) {
 
 @Composable
 private fun difficultyLabel(difficulty: ScholarDifficulty): String = when (difficulty) {
+    ScholarDifficulty.Unspecified -> stringResource(R.string.scholar_library_level_unspecified)
     ScholarDifficulty.Foundation -> stringResource(R.string.scholar_library_level_foundation)
     ScholarDifficulty.Intermediate -> stringResource(R.string.scholar_library_level_intermediate)
     ScholarDifficulty.Advanced -> stringResource(R.string.scholar_library_level_advanced)
