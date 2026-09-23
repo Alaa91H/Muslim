@@ -14,6 +14,8 @@ REPOSITORY = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/ap
 DATABASE = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/data/ScholarLibraryDatabase.kt"
 MODELS = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/domain/ScholarLibraryModels.kt"
 SCREENS = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/ui/ScholarLibraryScreens.kt"
+CURRICULUM_SCREENS = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/ui/ScholarCurriculumScreens.kt"
+SESSION_SCREEN = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/ui/ScholarStudySessionScreen.kt"
 NAVIGATION = ROOT / "app/src/main/java/org/muslim/app/ui/MuslimApp.kt"
 POLICY = ROOT / "docs/scholar_library_content_policy.md"
 ID_RE = re.compile(r"[A-Za-z0-9_-]{3,120}$")
@@ -105,17 +107,25 @@ def main() -> None:
     require("bookHierarchy(" in repository, "repository must expose the full book hierarchy")
     require("createStudyPlan(" in repository, "repository must persist study plans")
     require("observeStudyPlans()" in repository, "repository must expose study plans")
+    require("observeStudySessions()" in repository, "repository must expose study-session history")
+    require("startOrResumeStudySession(" in repository, "repository must start or resume study sessions")
+    require("completeNextSessionPassage(" in repository, "repository must advance sessions in order")
 
     database = DATABASE.read_text(encoding="utf-8")
-    require("version = 3" in database, "Scholar Library Room database must be version 3")
+    require("version = 4" in database, "Scholar Library Room database must be version 4")
     require("MIGRATION_1_2" in database, "database v2 must provide a non-destructive 1->2 migration")
     require("MIGRATION_2_3" in database, "database v3 must provide a non-destructive 2->3 migration")
+    require("MIGRATION_3_4" in database, "database v4 must provide a non-destructive 3->4 migration")
+    require("scholar_study_sessions" in database, "database v4 must create study-session storage")
     require("scholar_study_plans" in database, "database v3 must create study-plan storage")
     require("ALTER TABLE scholar_passages ADD COLUMN section TEXT" in database, "v3 must add passage section")
     require("ALTER TABLE scholar_passages ADD COLUMN orderIndex INTEGER NOT NULL DEFAULT 0" in database, "v3 must add passage order")
     for table in ("scholar_bookmarks", "scholar_highlights", "scholar_reading_progress"):
         require(table in database, f"database migration must create {table}")
-    require(".addMigrations(MIGRATION_1_2, MIGRATION_2_3)" in database, "Room builder must install both migrations")
+    require(
+        ".addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)" in database,
+        "Room builder must install all Scholar Library migrations",
+    )
 
     models = MODELS.read_text(encoding="utf-8")
     require("ScholarDifficulty.Unspecified" in models, "legacy books must not receive an invented difficulty")
@@ -125,6 +135,8 @@ def main() -> None:
     require("data class ScholarBookHierarchy" in models, "v3 must expose full book hierarchy")
     require("data class ScholarStudyPlan" in models, "v3 must expose local study plans")
     require("data class ScholarPathProgress" in models, "v3 must expose derived path progress")
+    require("data class ScholarStudySession" in models, "v4 must expose study sessions")
+    require("data class ScholarWeeklyStudySummary" in models, "v4 must expose weekly summaries")
 
     screens = SCREENS.read_text(encoding="utf-8")
     require("scholar_library_continue_reading" in screens, "home must expose continue-reading state")
@@ -135,6 +147,15 @@ def main() -> None:
     require("studyPathItems" in screens, "library home must expose study paths")
     require("BookHierarchyCard" in screens, "book reader must expose the volume/chapter/section hierarchy")
 
+    curriculum_screens = CURRICULUM_SCREENS.read_text(encoding="utf-8")
+    require("WeeklyStudySummaryCard" in curriculum_screens, "study paths must expose weekly summaries")
+    require("scholar_library_open_study_session" in curriculum_screens, "study paths must expose session entry")
+
+    session_screen = SESSION_SCREEN.read_text(encoding="utf-8")
+    require("loadStudySession" in session_screen, "session screen must load/resume a session")
+    require("completeNextStudySessionPassage" in session_screen, "session screen must advance passages in order")
+    require("ScholarStudySessionStatus.Completed" in session_screen, "session screen must render completion")
+
     navigation = NAVIGATION.read_text(encoding="utf-8")
     require("SCHOLAR_LIBRARY_ROUTE" in navigation, "library route must be registered")
     require("ScholarLibraryScreen" in navigation, "library screen must be reachable")
@@ -142,12 +163,14 @@ def main() -> None:
     require("ScholarStudyPathScreen" in navigation, "study path screen must be reachable")
     require("SCHOLAR_LIBRARY_AUTHORS_ROUTE" in navigation, "author directory route must be registered")
     require("ScholarAuthorsScreen" in navigation, "author directory screen must be reachable")
+    require("SCHOLAR_LIBRARY_SESSION_ROUTE" in navigation, "study-session route must be registered")
+    require("ScholarStudySessionScreen" in navigation, "study-session screen must be reachable")
     require(POLICY.exists(), "content policy document must be present")
 
     print(
-        "Scholar Library v3 verified: "
+        "Scholar Library v4 verified: "
         f"{len(books)} references, {len(passage_ids)} study passages, "
-        f"{len(categories)} categories, {len(paths)} study paths, hierarchy + plans + migrations present."
+        f"{len(categories)} categories, {len(paths)} study paths, hierarchy + plans + sessions + migrations present."
     )
 
 
