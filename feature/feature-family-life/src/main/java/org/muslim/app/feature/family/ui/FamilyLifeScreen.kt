@@ -1,7 +1,10 @@
 package org.muslim.app.feature.family.ui
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -72,9 +75,12 @@ import org.muslim.app.feature.family.R
 import org.muslim.app.feature.family.domain.AqiqahCalculator
 import org.muslim.app.feature.family.domain.AqiqahReminderDay
 import org.muslim.app.feature.family.domain.BabyNameGender
+import org.muslim.app.feature.family.domain.FamilyArticleTextFormatter
+import org.muslim.app.feature.family.domain.FamilyEvidenceReference
 import org.muslim.app.feature.family.domain.FamilyGuideArticle
 import org.muslim.app.feature.family.domain.FamilyTopicCategory
 import org.muslim.app.feature.family.domain.FamilyLifeContent
+import org.muslim.app.feature.family.domain.FamilyReferenceParser
 import org.muslim.app.feature.family.domain.IslamicBabyName
 import org.muslim.app.feature.family.domain.LocalizedFamilyText
 import org.muslim.app.feature.family.domain.RuqyahAudioTrack
@@ -85,6 +91,7 @@ import java.time.format.DateTimeFormatter
 
 private enum class FamilySection {
     Home,
+    Search,
     Guide,
     Saved,
     Tools,
@@ -97,6 +104,7 @@ private data class FamilyScreenModel(
     val section: FamilySection,
     val selectedCategory: FamilyTopicCategory?,
     val selectedArticle: FamilyGuideArticle?,
+    val selectedChecklistId: String?,
     val isArabic: Boolean,
 )
 
@@ -104,8 +112,9 @@ private data class FamilyDestinationActions(
     val openSection: (FamilySection) -> Unit,
     val openCategory: (FamilyTopicCategory) -> Unit,
     val openArticle: (String) -> Unit,
+    val openChecklist: (String) -> Unit,
     val onAudioFailure: (String) -> Unit,
-    val openQuran: () -> Unit,
+    val openQuran: (Int?, Int?) -> Unit,
     val openHadith: () -> Unit,
     val openAdhkar: () -> Unit,
 )
@@ -114,7 +123,7 @@ private data class FamilyDestinationActions(
 @Composable
 fun FamilyLifeScreen(
     onBack: () -> Unit,
-    onOpenQuran: () -> Unit,
+    onOpenQuran: (Int?, Int?) -> Unit,
     onOpenHadith: () -> Unit,
     onOpenAdhkar: () -> Unit,
     modifier: Modifier = Modifier,
@@ -123,6 +132,7 @@ fun FamilyLifeScreen(
     var sectionName by rememberSaveable { mutableStateOf(FamilySection.Home.name) }
     var categoryName by rememberSaveable { mutableStateOf<String?>(null) }
     var articleId by rememberSaveable { mutableStateOf<String?>(null) }
+    var checklistId by rememberSaveable { mutableStateOf<String?>(null) }
     val section = FamilySection.entries.firstOrNull { it.name == sectionName } ?: FamilySection.Home
     val selectedCategory = categoryName?.let { saved ->
         FamilyTopicCategory.entries.firstOrNull { it.name == saved }
@@ -133,6 +143,7 @@ fun FamilyLifeScreen(
         section = section,
         selectedCategory = selectedCategory,
         selectedArticle = selectedArticle,
+        selectedChecklistId = checklistId,
         isArabic = AppLanguage.isArabicUi(),
     )
     val context = LocalContext.current
@@ -147,12 +158,22 @@ fun FamilyLifeScreen(
         sectionName = target.name
         categoryName = category?.name
         articleId = null
+        checklistId = null
     }
 
     val actions = FamilyDestinationActions(
         openSection = { navigate(it) },
         openCategory = { navigate(FamilySection.Guide, it) },
-        openArticle = { articleId = it },
+        openArticle = {
+            articleId = it
+            checklistId = null
+        },
+        openChecklist = {
+            sectionName = FamilySection.Tools.name
+            categoryName = null
+            articleId = null
+            checklistId = it
+        },
         onAudioFailure = { message ->
             scope.launch { snackbarHostState.showSnackbar(message) }
         },
@@ -168,13 +189,37 @@ fun FamilyLifeScreen(
         }
     }
 
+    FamilyLifeScaffold(
+        modifier = modifier,
+        model = model,
+        state = state,
+        viewModel = viewModel,
+        context = context,
+        actions = actions,
+        snackbarHostState = snackbarHostState,
+        onBack = navigateBack,
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun FamilyLifeScaffold(
+    model: FamilyScreenModel,
+    state: FamilyLifeUiState,
+    viewModel: FamilyLifeViewModel,
+    context: Context,
+    actions: FamilyDestinationActions,
+    snackbarHostState: SnackbarHostState,
+    onBack: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             FamilyLifeTopBar(
-                title = selectedArticle?.title?.pick(model.isArabic) ?: section.title(),
-                onBack = navigateBack,
+                title = model.selectedArticle?.title?.pick(model.isArabic) ?: model.section.title(),
+                onBack = onBack,
             )
         },
     ) { innerPadding ->
@@ -227,31 +272,25 @@ private fun FamilyLifeDestination(
 ) {
     val article = model.selectedArticle
     when {
-        article != null -> FamilyArticleDetailContent(
+        article != null -> FamilyArticleDestination(
             article = article,
             isArabic = model.isArabic,
-            isFavorite = article.id in state.favoriteArticleIds,
-            relatedArticles = FamilyLifeContent.relatedArticles(article.id),
-            onToggleFavorite = { viewModel.toggleArticleFavorite(article.id) },
-            onOpenArticle = actions.openArticle,
+            state = state,
+            viewModel = viewModel,
+            context = context,
+            actions = actions,
         )
-        model.section == FamilySection.Home -> FamilyHubContent(
+        model.section == FamilySection.Home -> FamilyHomeDestination(
             isArabic = model.isArabic,
-            favoriteCount = state.favoriteArticleIds.size,
-            recentCount = state.recentArticleIds.size,
-            onOpenCategory = actions.openCategory,
-            onOpenDestination = { destination ->
-                when (destination) {
-                    FamilyHubDestination.Saved -> actions.openSection(FamilySection.Saved)
-                    FamilyHubDestination.Tools -> actions.openSection(FamilySection.Tools)
-                    FamilyHubDestination.Ruqyah -> actions.openSection(FamilySection.Ruqyah)
-                    FamilyHubDestination.Names -> actions.openSection(FamilySection.Names)
-                    FamilyHubDestination.Aqiqah -> actions.openSection(FamilySection.Aqiqah)
-                    FamilyHubDestination.Quran -> actions.openQuran()
-                    FamilyHubDestination.Hadith -> actions.openHadith()
-                    FamilyHubDestination.Adhkar -> actions.openAdhkar()
-                }
-            },
+            state = state,
+            actions = actions,
+        )
+        model.section == FamilySection.Search -> FamilyGlobalSearchContent(
+            isArabic = model.isArabic,
+            onOpenArticle = actions.openArticle,
+            onOpenNames = { actions.openSection(FamilySection.Names) },
+            onOpenRuqyah = { actions.openSection(FamilySection.Ruqyah) },
+            onOpenChecklist = actions.openChecklist,
         )
         model.section == FamilySection.Guide -> FamilyGuideCatalogContent(
             isArabic = model.isArabic,
@@ -270,6 +309,7 @@ private fun FamilyLifeDestination(
         model.section == FamilySection.Tools -> FamilyToolsContent(
             isArabic = model.isArabic,
             completedItemIds = state.completedChecklistItemIds,
+            initialChecklistId = model.selectedChecklistId,
             onSetCompleted = viewModel::setChecklistItemCompleted,
         )
         model.section == FamilySection.Ruqyah -> RuqyahContent(
@@ -282,6 +322,62 @@ private fun FamilyLifeDestination(
             state = state,
             viewModel = viewModel,
         )
+    }
+}
+
+@Composable
+private fun FamilyArticleDestination(
+    article: FamilyGuideArticle,
+    isArabic: Boolean,
+    state: FamilyLifeUiState,
+    viewModel: FamilyLifeViewModel,
+    context: Context,
+    actions: FamilyDestinationActions,
+) {
+    FamilyArticleDetailContent(
+        article = article,
+        isArabic = isArabic,
+        isFavorite = article.id in state.favoriteArticleIds,
+        relatedArticles = FamilyLifeContent.relatedArticles(article.id),
+        actions = FamilyArticleReaderActions(
+            onToggleFavorite = { viewModel.toggleArticleFavorite(article.id) },
+            onCopyArticle = { copyFamilyArticle(context, article, isArabic) },
+            onShareArticle = { shareFamilyArticle(context, article, isArabic) },
+            onOpenReference = { reference -> openFamilyReference(reference, actions) },
+            onOpenArticle = actions.openArticle,
+        ),
+    )
+}
+
+@Composable
+private fun FamilyHomeDestination(
+    isArabic: Boolean,
+    state: FamilyLifeUiState,
+    actions: FamilyDestinationActions,
+) {
+    FamilyHubContent(
+        isArabic = isArabic,
+        favoriteCount = state.favoriteArticleIds.size,
+        recentCount = state.recentArticleIds.size,
+        onOpenCategory = actions.openCategory,
+        onOpenDestination = { destination -> openFamilyHubDestination(destination, actions) },
+    )
+}
+
+private fun openFamilyHubDestination(
+    destination: FamilyHubDestination,
+    actions: FamilyDestinationActions,
+) {
+    when (destination) {
+        FamilyHubDestination.Search -> actions.openSection(FamilySection.Search)
+        FamilyHubDestination.Saved -> actions.openSection(FamilySection.Saved)
+        FamilyHubDestination.Tools -> actions.openSection(FamilySection.Tools)
+        FamilyHubDestination.Ruqyah -> actions.openSection(FamilySection.Ruqyah)
+        FamilyHubDestination.Names -> actions.openSection(FamilySection.Names)
+        FamilyHubDestination.Aqiqah -> actions.openSection(FamilySection.Aqiqah)
+        FamilyHubDestination.Quran -> actions.openQuran(null, null)
+        FamilyHubDestination.Hadith -> actions.openHadith()
+        FamilyHubDestination.Adhkar -> actions.openAdhkar()
     }
 }
 
@@ -307,6 +403,7 @@ private fun FamilyLifeTopBar(
 @Composable
 private fun FamilySection.title(): String = when (this) {
     FamilySection.Home -> stringResource(R.string.family_life_title)
+    FamilySection.Search -> stringResource(R.string.family_global_search_title)
     FamilySection.Guide -> stringResource(R.string.family_guide_all_title)
     FamilySection.Saved -> stringResource(R.string.family_saved_title)
     FamilySection.Tools -> stringResource(R.string.family_checklists_title)
@@ -801,6 +898,55 @@ private fun NoticeCard(icon: ImageVector, text: String) {
 }
 
 private fun LocalizedFamilyText.pick(isArabic: Boolean): String = if (isArabic) arabic else english
+
+private fun copyFamilyArticle(
+    context: Context,
+    article: FamilyGuideArticle,
+    isArabic: Boolean,
+) {
+    val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+    clipboard.setPrimaryClip(
+        ClipData.newPlainText(
+            article.title.pick(isArabic),
+            FamilyArticleTextFormatter.format(article, isArabic),
+        ),
+    )
+    Toast.makeText(
+        context,
+        context.getString(R.string.family_article_copied),
+        Toast.LENGTH_SHORT,
+    ).show()
+}
+
+private fun shareFamilyArticle(
+    context: Context,
+    article: FamilyGuideArticle,
+    isArabic: Boolean,
+) {
+    val shareIntent = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_SUBJECT, article.title.pick(isArabic))
+        putExtra(Intent.EXTRA_TEXT, FamilyArticleTextFormatter.format(article, isArabic))
+    }
+    context.startActivity(
+        Intent.createChooser(
+            shareIntent,
+            context.getString(R.string.family_share_article),
+        ),
+    )
+}
+
+private fun openFamilyReference(
+    reference: FamilyEvidenceReference,
+    actions: FamilyDestinationActions,
+) {
+    val quran = FamilyReferenceParser.quranReference(reference)
+    when {
+        quran != null -> actions.openQuran(quran.surahNumber, quran.firstAyah)
+        reference.type == org.muslim.app.feature.family.domain.FamilyEvidenceType.Hadith ->
+            actions.openHadith()
+    }
+}
 
 private fun openAudio(context: Context, url: String) {
     runCatching {

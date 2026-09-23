@@ -474,12 +474,20 @@ object FamilyLifeContent {
     fun searchArticles(
         query: String,
         category: FamilyTopicCategory? = null,
+        evidenceType: FamilyEvidenceType? = null,
     ): List<FamilyGuideArticle> {
         val normalized = normalizeSearch(query)
         val categoryFiltered = if (category == null) familyArticles else articlesFor(category)
-        if (normalized.isEmpty()) return categoryFiltered
+        val sourceFiltered = if (evidenceType == null) {
+            categoryFiltered
+        } else {
+            categoryFiltered.filter { article ->
+                article.references.any { it.type == evidenceType }
+            }
+        }
+        if (normalized.isEmpty()) return sourceFiltered
         val metadata = familyArticleMetadata.associateBy { it.articleId }
-        return categoryFiltered.filter { article ->
+        return sourceFiltered.filter { article ->
             val text = buildList {
                 add(article.title.arabic)
                 add(article.title.english)
@@ -514,7 +522,7 @@ object FamilyLifeContent {
             .toList()
     }
 
-    private fun normalizeSearch(value: String): String =
+    internal fun normalizeSearch(value: String): String =
         value.trim()
             .lowercase()
             .replace(Regex("[\\u064B-\\u065F\\u0670]"), "")

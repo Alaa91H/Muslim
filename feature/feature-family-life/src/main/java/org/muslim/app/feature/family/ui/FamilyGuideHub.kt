@@ -22,6 +22,7 @@ import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.BookmarkBorder
 import androidx.compose.material.icons.filled.Checklist
+import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.DeleteSweep
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.ChildCare
@@ -35,6 +36,7 @@ import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.FilterChip
@@ -53,6 +55,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -66,11 +71,13 @@ import org.muslim.app.feature.family.domain.FamilyEvidenceReference
 import org.muslim.app.feature.family.domain.FamilyEvidenceType
 import org.muslim.app.feature.family.domain.FamilyGuideArticle
 import org.muslim.app.feature.family.domain.FamilyLifeContent
+import org.muslim.app.feature.family.domain.FamilyReferenceParser
 import org.muslim.app.feature.family.domain.FamilyTopicCategory
 import org.muslim.app.feature.family.domain.FamilyUtilityContent
 import org.muslim.app.feature.family.domain.LocalizedFamilyText
 
 internal enum class FamilyHubDestination {
+    Search,
     Saved,
     Tools,
     Ruqyah,
@@ -80,6 +87,28 @@ internal enum class FamilyHubDestination {
     Hadith,
     Adhkar,
 }
+
+internal data class FamilyArticleReaderActions(
+    val onToggleFavorite: () -> Unit,
+    val onCopyArticle: () -> Unit,
+    val onShareArticle: () -> Unit,
+    val onOpenReference: (FamilyEvidenceReference) -> Unit,
+    val onOpenArticle: (String) -> Unit,
+)
+
+private data class FamilyGuideFilterState(
+    val category: FamilyTopicCategory?,
+    val evidenceType: FamilyEvidenceType?,
+    val favoritesOnly: Boolean,
+    val query: String,
+)
+
+private data class FamilyGuideFilterActions(
+    val onQueryChange: (String) -> Unit,
+    val onCategoryChange: (FamilyTopicCategory?) -> Unit,
+    val onEvidenceTypeChange: (FamilyEvidenceType?) -> Unit,
+    val onFavoritesOnlyChange: (Boolean) -> Unit,
+)
 
 @Composable
 internal fun FamilyHubContent(
@@ -95,6 +124,7 @@ internal fun FamilyHubContent(
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         familyHubIntro()
+        familyGlobalSearchItem(onOpenDestination)
         familyCategoryItems(isArabic, onOpenCategory)
         familyLibraryItems(favoriteCount, recentCount, onOpenDestination)
         familyPracticalToolItems(onOpenDestination)
@@ -109,6 +139,19 @@ private fun LazyListScope.familyHubIntro() {
             supportingText = stringResource(R.string.family_hub_intro_text),
             tone = MuslimStateTone.Positive,
             icon = Icons.Filled.FamilyRestroom,
+        )
+    }
+}
+
+private fun LazyListScope.familyGlobalSearchItem(
+    onOpenDestination: (FamilyHubDestination) -> Unit,
+) {
+    item {
+        FamilyToolCard(
+            icon = Icons.Filled.Search,
+            title = stringResource(R.string.family_global_search_title),
+            description = stringResource(R.string.family_global_search_hub_desc),
+            onClick = { onOpenDestination(FamilyHubDestination.Search) },
         )
     }
 }
@@ -219,6 +262,7 @@ private fun FamilyHubHeading(text: String) {
         text = text,
         style = MaterialTheme.typography.titleLarge,
         fontWeight = FontWeight.Bold,
+        modifier = Modifier.semantics { heading() },
     )
 }
 
@@ -306,11 +350,26 @@ internal fun FamilyGuideCatalogContent(
 ) {
     var query by rememberSaveable { mutableStateOf("") }
     var categoryName by rememberSaveable(initialCategory) { mutableStateOf(initialCategory?.name) }
+    var evidenceTypeName by rememberSaveable { mutableStateOf<String?>(null) }
+    var favoritesOnly by rememberSaveable { mutableStateOf(false) }
     val category = categoryName?.let { name ->
         FamilyTopicCategory.entries.firstOrNull { it.name == name }
     }
-    val results = remember(query, categoryName) {
-        FamilyLifeContent.searchArticles(query = query, category = category)
+    val evidenceType = evidenceTypeName?.let { name ->
+        FamilyEvidenceType.entries.firstOrNull { it.name == name }
+    }
+    val results = remember(
+        query,
+        categoryName,
+        evidenceTypeName,
+        favoritesOnly,
+        favoriteIds,
+    ) {
+        FamilyLifeContent.searchArticles(
+            query = query,
+            category = category,
+            evidenceType = evidenceType,
+        ).filter { !favoritesOnly || it.id in favoriteIds }
     }
 
     LazyColumn(
@@ -321,36 +380,60 @@ internal fun FamilyGuideCatalogContent(
         item {
             FamilyGuideFilters(
                 isArabic = isArabic,
-                category = category,
-                query = query,
-                onQueryChange = { query = it },
-                onCategoryChange = { categoryName = it?.name },
+                state = FamilyGuideFilterState(
+                    category = category,
+                    evidenceType = evidenceType,
+                    favoritesOnly = favoritesOnly,
+                    query = query,
+                ),
+                actions = FamilyGuideFilterActions(
+                    onQueryChange = { query = it },
+                    onCategoryChange = { categoryName = it?.name },
+                    onEvidenceTypeChange = { evidenceTypeName = it?.name },
+                    onFavoritesOnlyChange = { favoritesOnly = it },
+                ),
             )
         }
+        familyGuideResultItems(
+            results = results,
+            isArabic = isArabic,
+            favoriteIds = favoriteIds,
+            onOpenArticle = onOpenArticle,
+            onToggleFavorite = onToggleFavorite,
+        )
+    }
+}
+
+private fun LazyListScope.familyGuideResultItems(
+    results: List<FamilyGuideArticle>,
+    isArabic: Boolean,
+    favoriteIds: Set<String>,
+    onOpenArticle: (String) -> Unit,
+    onToggleFavorite: (String) -> Unit,
+) {
+    item {
+        Text(
+            text = stringResource(R.string.family_articles_count, results.size),
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.primary,
+        )
+    }
+    items(results, key = { it.id }) { article ->
+        FamilyGuideResultCard(
+            article = article,
+            isArabic = isArabic,
+            isFavorite = article.id in favoriteIds,
+            onClick = { onOpenArticle(article.id) },
+            onToggleFavorite = { onToggleFavorite(article.id) },
+        )
+    }
+    if (results.isEmpty()) {
         item {
-            Text(
-                text = stringResource(R.string.family_articles_count, results.size),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.primary,
+            MuslimStateSurface(
+                title = stringResource(R.string.family_articles_empty),
+                tone = MuslimStateTone.Neutral,
+                icon = Icons.Filled.Search,
             )
-        }
-        items(results, key = { it.id }) { article ->
-            FamilyGuideResultCard(
-                article = article,
-                isArabic = isArabic,
-                isFavorite = article.id in favoriteIds,
-                onClick = { onOpenArticle(article.id) },
-                onToggleFavorite = { onToggleFavorite(article.id) },
-            )
-        }
-        if (results.isEmpty()) {
-            item {
-                MuslimStateSurface(
-                    title = stringResource(R.string.family_articles_empty),
-                    tone = MuslimStateTone.Neutral,
-                    icon = Icons.Filled.Search,
-                )
-            }
         }
     }
 }
@@ -358,22 +441,22 @@ internal fun FamilyGuideCatalogContent(
 @Composable
 private fun FamilyGuideFilters(
     isArabic: Boolean,
-    category: FamilyTopicCategory?,
-    query: String,
-    onQueryChange: (String) -> Unit,
-    onCategoryChange: (FamilyTopicCategory?) -> Unit,
+    state: FamilyGuideFilterState,
+    actions: FamilyGuideFilterActions,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         MuslimStateSurface(
-            title = category?.title(isArabic) ?: stringResource(R.string.family_guide_all_title),
+            title = state.category?.title(isArabic) ?: stringResource(R.string.family_guide_all_title),
             supportingText = stringResource(R.string.family_guide_intro),
             tone = MuslimStateTone.Information,
-            icon = category?.icon() ?: Icons.AutoMirrored.Filled.MenuBook,
+            icon = state.category?.icon() ?: Icons.AutoMirrored.Filled.MenuBook,
         )
         DigitNormalizedOutlinedTextField(
-            value = query,
-            onValueChange = onQueryChange,
-            modifier = Modifier.fillMaxWidth(),
+            value = state.query,
+            onValueChange = actions.onQueryChange,
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag(FamilyUiTags.GUIDE_SEARCH_FIELD),
             singleLine = true,
             placeholder = { Text(stringResource(R.string.family_articles_search)) },
             leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
@@ -381,18 +464,64 @@ private fun FamilyGuideFilters(
         LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             item {
                 FilterChip(
-                    selected = category == null,
-                    onClick = { onCategoryChange(null) },
+                    selected = state.category == null,
+                    onClick = { actions.onCategoryChange(null) },
                     label = { Text(stringResource(R.string.family_guide_filter_all)) },
                 )
             }
             items(FamilyTopicCategory.entries, key = { it.name }) { item ->
                 FilterChip(
-                    selected = category == item,
-                    onClick = { onCategoryChange(item) },
+                    selected = state.category == item,
+                    onClick = { actions.onCategoryChange(item) },
                     label = { Text(item.title(isArabic)) },
                 )
             }
+        }
+        FamilyEvidenceFilters(
+            isArabic = isArabic,
+            evidenceType = state.evidenceType,
+            favoritesOnly = state.favoritesOnly,
+            onEvidenceTypeChange = actions.onEvidenceTypeChange,
+            onFavoritesOnlyChange = actions.onFavoritesOnlyChange,
+        )
+    }
+}
+
+@Composable
+private fun FamilyEvidenceFilters(
+    isArabic: Boolean,
+    evidenceType: FamilyEvidenceType?,
+    favoritesOnly: Boolean,
+    onEvidenceTypeChange: (FamilyEvidenceType?) -> Unit,
+    onFavoritesOnlyChange: (Boolean) -> Unit,
+) {
+    LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        item {
+            FilterChip(
+                selected = evidenceType == null,
+                onClick = { onEvidenceTypeChange(null) },
+                label = { Text(stringResource(R.string.family_source_filter_all)) },
+            )
+        }
+        items(FamilyEvidenceType.entries, key = { it.name }) { type ->
+            FilterChip(
+                selected = evidenceType == type,
+                onClick = { onEvidenceTypeChange(type) },
+                label = { Text(type.label(isArabic)) },
+            )
+        }
+        item {
+            FilterChip(
+                selected = favoritesOnly,
+                onClick = { onFavoritesOnlyChange(!favoritesOnly) },
+                label = { Text(stringResource(R.string.family_filter_favorites)) },
+                leadingIcon = {
+                    Icon(
+                        imageVector = if (favoritesOnly) Icons.Filled.Bookmark else Icons.Filled.BookmarkBorder,
+                        contentDescription = null,
+                    )
+                },
+            )
         }
     }
 }
@@ -457,15 +586,16 @@ internal fun FamilyArticleDetailContent(
     isArabic: Boolean,
     isFavorite: Boolean,
     relatedArticles: List<FamilyGuideArticle>,
-    onToggleFavorite: () -> Unit,
-    onOpenArticle: (String) -> Unit,
+    actions: FamilyArticleReaderActions,
 ) {
     val category = FamilyLifeContent.categoryFor(article.id)
     val sensitive = category == FamilyTopicCategory.ConflictResolution ||
         category == FamilyTopicCategory.Separation
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .testTag(FamilyUiTags.ARTICLE_READER),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 14.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
@@ -475,7 +605,13 @@ internal fun FamilyArticleDetailContent(
                 category = category,
                 isArabic = isArabic,
                 isFavorite = isFavorite,
-                onToggleFavorite = onToggleFavorite,
+                onToggleFavorite = actions.onToggleFavorite,
+            )
+        }
+        item {
+            FamilyArticleActions(
+                onCopyArticle = actions.onCopyArticle,
+                onShareArticle = actions.onShareArticle,
             )
         }
         if (sensitive) {
@@ -487,7 +623,15 @@ internal fun FamilyArticleDetailContent(
         if (article.references.isNotEmpty()) {
             item { FamilyReferencesHeading() }
             items(article.references, key = { it.citation }) { reference ->
-                FamilyReferenceCard(reference = reference, isArabic = isArabic)
+                FamilyReferenceCard(
+                    reference = reference,
+                    isArabic = isArabic,
+                    onOpen = if (FamilyReferenceParser.canOpenInApp(reference)) {
+                        { actions.onOpenReference(reference) }
+                    } else {
+                        null
+                    },
+                )
             }
         }
         if (relatedArticles.isNotEmpty()) {
@@ -496,7 +640,7 @@ internal fun FamilyArticleDetailContent(
                 FamilyRelatedArticleCard(
                     article = related,
                     isArabic = isArabic,
-                    onClick = { onOpenArticle(related.id) },
+                    onClick = { actions.onOpenArticle(related.id) },
                 )
             }
         }
@@ -517,7 +661,9 @@ private fun FamilyArticleHeader(
             text = article.title.pick(isArabic),
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.weight(1f),
+            modifier = Modifier
+                .weight(1f)
+                .semantics { heading() },
         )
         IconButton(onClick = onToggleFavorite) {
             Icon(
@@ -546,6 +692,31 @@ private fun FamilyArticleHeader(
 }
 
 @Composable
+private fun FamilyArticleActions(
+    onCopyArticle: () -> Unit,
+    onShareArticle: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .testTag(FamilyUiTags.ARTICLE_ACTIONS),
+        horizontalArrangement = Arrangement.End,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        TextButton(onClick = onCopyArticle) {
+            Icon(Icons.Filled.ContentCopy, contentDescription = null)
+            Spacer(Modifier.width(6.dp))
+            Text(stringResource(R.string.family_copy_article))
+        }
+        TextButton(onClick = onShareArticle) {
+            Icon(Icons.Filled.Share, contentDescription = null)
+            Spacer(Modifier.width(6.dp))
+            Text(stringResource(R.string.family_share_article))
+        }
+    }
+}
+
+@Composable
 private fun FamilySensitiveNotice() {
     MuslimStateSurface(
         title = stringResource(R.string.family_sensitive_notice_title),
@@ -567,6 +738,7 @@ private fun FamilyArticleSectionCard(
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.semantics { heading() },
         )
         paragraphs.forEach { paragraph ->
             Spacer(Modifier.height(8.dp))
@@ -591,6 +763,7 @@ private fun FamilyReferencesHeading() {
 private fun FamilyReferenceCard(
     reference: FamilyEvidenceReference,
     isArabic: Boolean,
+    onOpen: (() -> Unit)?,
 ) {
     IslamicCard(modifier = Modifier.fillMaxWidth()) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -622,6 +795,19 @@ private fun FamilyReferenceCard(
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
+                }
+                if (onOpen != null) {
+                    TextButton(onClick = onOpen) {
+                        Text(
+                            stringResource(
+                                if (reference.type == FamilyEvidenceType.Quran) {
+                                    R.string.family_open_quran_reference
+                                } else {
+                                    R.string.family_open_hadith_reference
+                                },
+                            ),
+                        )
+                    }
                 }
             }
         }
@@ -740,9 +926,12 @@ internal fun FamilySavedContent(
 internal fun FamilyToolsContent(
     isArabic: Boolean,
     completedItemIds: Set<String>,
+    initialChecklistId: String? = null,
     onSetCompleted: (String, String, Boolean) -> Unit,
 ) {
-    var selectedChecklistId by rememberSaveable { mutableStateOf<String?>(null) }
+    var selectedChecklistId by rememberSaveable(initialChecklistId) {
+        mutableStateOf(initialChecklistId)
+    }
     val selected = selectedChecklistId?.let(FamilyUtilityContent::checklistById)
     if (selected == null) {
         FamilyChecklistCatalog(

@@ -88,4 +88,20 @@
     <string name="family_open_hadith_desc">Open the Hadith section for reading and searching narrations</string>
     <string name="family_open_adhkar_title">Adhkar</string>
     <string name="family_open_adhkar_desc">Open the Adhkar section for daily, morning and evening remembrance</string>
+    <string name="family_global_search_title">Search Family Life</string>
+    <string name="family_global_search_hub_desc">Search articles, names, ruqyah and practical checklists in one place</string>
+    <string name="family_global_search_intro">Unified search across Family Fiqh and daily-life content, with result-type filters.</string>
+    <string name="family_global_search_hint">Search a topic, name, supplication or checklist…</string>
+    <string name="family_global_search_all">All</string>
+    <string name="family_global_search_start_title">Start typing to search</string>
+    <string name="family_global_search_start_text">Searches articles, the baby-name catalogue, ruqyah and practical checklists stored in the app.</string>
+    <string name="family_global_search_count">Results: %1$d</string>
+    <string name="family_global_search_empty">No matching results</string>
+    <string name="family_source_filter_all">All sources</string>
+    <string name="family_filter_favorites">Favourites only</string>
+    <string name="family_copy_article">Copy</string>
+    <string name="family_share_article">Share</string>
+    <string name="family_article_copied">Article copied</string>
+    <string name="family_open_quran_reference">Open reference in Quran</string>
+    <string name="family_open_hadith_reference">Open Hadith section</string>
 </resources>
