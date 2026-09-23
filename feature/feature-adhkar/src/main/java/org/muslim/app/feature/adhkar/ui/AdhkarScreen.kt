@@ -25,6 +25,8 @@ import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.StopCircle
+import androidx.compose.material.icons.filled.VolumeUp
 import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
@@ -33,6 +35,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -110,6 +113,9 @@ private fun AdhkarLibraryContent(
     val favoriteIds by viewModel.favoriteIds.collectAsStateWithLifecycle()
     val selectedCategory by viewModel.selectedCategory.collectAsStateWithLifecycle()
     val morningEveningReminderEnabled by viewModel.morningEveningReminderEnabled.collectAsStateWithLifecycle()
+    val speechEnabled by viewModel.speechEnabled.collectAsStateWithLifecycle()
+    val speechReady by viewModel.speechReady.collectAsStateWithLifecycle()
+    val speakingDhikrId by viewModel.speakingDhikrId.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val copiedMessage = stringResource(R.string.adhkar_copied)
@@ -205,6 +211,9 @@ private fun AdhkarLibraryContent(
                             onToggleFavorite = { viewModel.toggleFavorite(dhikr.id) },
                             onIncrement = { viewModel.increment(dhikr.id) },
                             onReset = { viewModel.reset(dhikr.id) },
+                            speechEnabled = speechEnabled && speechReady,
+                            isSpeaking = speakingDhikrId == dhikr.id,
+                            onToggleSpeech = { viewModel.toggleSpeech(dhikr) },
                             onCopied = onCopied,
                         )
                         HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
@@ -218,6 +227,9 @@ private fun AdhkarLibraryContent(
                         onToggleFavorite = { viewModel.toggleFavorite(dhikr.id) },
                         onIncrement = { viewModel.increment(dhikr.id) },
                         onReset = { viewModel.reset(dhikr.id) },
+                        speechEnabled = speechEnabled && speechReady,
+                        isSpeaking = speakingDhikrId == dhikr.id,
+                        onToggleSpeech = { viewModel.toggleSpeech(dhikr) },
                         onCopied = onCopied,
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
@@ -235,6 +247,9 @@ private fun DhikrCard(
     onToggleFavorite: () -> Unit,
     onIncrement: () -> Unit,
     onReset: () -> Unit,
+    speechEnabled: Boolean,
+    isSpeaking: Boolean,
+    onToggleSpeech: () -> Unit,
     onCopied: () -> Unit,
 ) {
     val currentCount by count
@@ -356,6 +371,20 @@ private fun DhikrCard(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
+                if (speechEnabled) {
+                    OutlinedIconButton(
+                        onClick = onToggleSpeech,
+                        modifier = Modifier.size(48.dp),
+                    ) {
+                        Icon(
+                            imageVector = if (isSpeaking) Icons.Filled.StopCircle else Icons.Filled.VolumeUp,
+                            contentDescription = stringResource(
+                                if (isSpeaking) R.string.adhkar_speech_stop else R.string.adhkar_speech_play,
+                            ),
+                        )
+                    }
+                    Spacer(Modifier.size(12.dp))
+                }
                 FilledIconButton(
                     onClick = {
                         haptics.performHapticFeedback(HapticFeedbackType.LongPress)
