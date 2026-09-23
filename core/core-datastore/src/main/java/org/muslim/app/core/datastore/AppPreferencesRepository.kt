@@ -68,6 +68,8 @@ class AppPreferencesRepository @Inject constructor(
             updateDownloadId = prefs[Keys.UPDATE_DOWNLOAD_ID] ?: -1L,
             updateDownloadVersion = prefs[Keys.UPDATE_DOWNLOAD_VERSION].orEmpty(),
             updateDownloadFileName = prefs[Keys.UPDATE_DOWNLOAD_FILE_NAME].orEmpty(),
+            updateDownloadSha256 = prefs[Keys.UPDATE_DOWNLOAD_SHA256].orEmpty(),
+            updateDownloadVersionCode = prefs[Keys.UPDATE_DOWNLOAD_VERSION_CODE] ?: 0L,
         )
     }
 
@@ -204,11 +206,21 @@ class AppPreferencesRepository @Inject constructor(
     }
 
     /** Persists the DownloadManager record so download state survives process death. */
-    suspend fun setUpdateDownload(id: Long, version: String, fileName: String) {
+    suspend fun setUpdateDownload(
+        id: Long,
+        version: String,
+        fileName: String,
+        sha256: String?,
+        versionCode: Long?,
+    ) {
         edit { prefs ->
             prefs[Keys.UPDATE_DOWNLOAD_ID] = id
             prefs[Keys.UPDATE_DOWNLOAD_VERSION] = version.trim()
             prefs[Keys.UPDATE_DOWNLOAD_FILE_NAME] = fileName
+            if (sha256.isNullOrBlank()) prefs.remove(Keys.UPDATE_DOWNLOAD_SHA256)
+            else prefs[Keys.UPDATE_DOWNLOAD_SHA256] = sha256.trim().lowercase()
+            if (versionCode == null || versionCode <= 0L) prefs.remove(Keys.UPDATE_DOWNLOAD_VERSION_CODE)
+            else prefs[Keys.UPDATE_DOWNLOAD_VERSION_CODE] = versionCode
         }
     }
 
@@ -218,6 +230,8 @@ class AppPreferencesRepository @Inject constructor(
             prefs.remove(Keys.UPDATE_DOWNLOAD_ID)
             prefs.remove(Keys.UPDATE_DOWNLOAD_VERSION)
             prefs.remove(Keys.UPDATE_DOWNLOAD_FILE_NAME)
+            prefs.remove(Keys.UPDATE_DOWNLOAD_SHA256)
+            prefs.remove(Keys.UPDATE_DOWNLOAD_VERSION_CODE)
         }
     }
 
@@ -305,6 +319,8 @@ class AppPreferencesRepository @Inject constructor(
         val UPDATE_DOWNLOAD_ID = androidx.datastore.preferences.core.longPreferencesKey("update_download_id")
         val UPDATE_DOWNLOAD_VERSION = stringPreferencesKey("update_download_version")
         val UPDATE_DOWNLOAD_FILE_NAME = stringPreferencesKey("update_download_file_name")
+        val UPDATE_DOWNLOAD_SHA256 = stringPreferencesKey("update_download_sha256")
+        val UPDATE_DOWNLOAD_VERSION_CODE = androidx.datastore.preferences.core.longPreferencesKey("update_download_version_code")
         val NEARBY_MOSQUE_SEARCH_RADIUS_KM = androidx.datastore.preferences.core.intPreferencesKey("nearby_mosque_search_radius_km")
         val NEARBY_MOSQUE_CACHE_JSON = stringPreferencesKey("nearby_mosque_cache_json")
         val NEARBY_MOSQUE_CACHE_SAVED_AT = androidx.datastore.preferences.core.longPreferencesKey("nearby_mosque_cache_saved_at")
