@@ -15,6 +15,7 @@ internal class IslamicHistorySearchRepository private constructor(
     private val database by lazy { IslamicHistorySearchDatabase.get(context) }
     private val dao by lazy { database.searchDao() }
     private val assetLoader by lazy { HistorySearchAssetLoader(context.applicationContext) }
+    private val searchAsset by lazy { assetLoader.load() }
     private val seedMutex = Mutex()
 
     suspend fun search(
@@ -51,13 +52,13 @@ internal class IslamicHistorySearchRepository private constructor(
 
     suspend fun ensureSeeded() {
         seedMutex.withLock {
-            val asset = assetLoader.load()
+            val asset = searchAsset
             val metadata = dao.metadata()
             if (
                 metadata?.contentVersion == asset.contentVersion &&
                 metadata.documentCount == asset.documents.size
             ) {
-                return
+                return@withLock
             }
 
             val rows = asset.documents.map { it.toEntity() }
