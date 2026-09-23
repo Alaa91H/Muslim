@@ -53,6 +53,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -306,11 +307,26 @@ internal fun FamilyGuideCatalogContent(
 ) {
     var query by rememberSaveable { mutableStateOf("") }
     var categoryName by rememberSaveable(initialCategory) { mutableStateOf(initialCategory?.name) }
+    var evidenceTypeName by rememberSaveable { mutableStateOf<String?>(null) }
+    var favoritesOnly by rememberSaveable { mutableStateOf(false) }
     val category = categoryName?.let { name ->
         FamilyTopicCategory.entries.firstOrNull { it.name == name }
     }
-    val results = remember(query, categoryName) {
-        FamilyLifeContent.searchArticles(query = query, category = category)
+    val evidenceType = evidenceTypeName?.let { name ->
+        FamilyEvidenceType.entries.firstOrNull { it.name == name }
+    }
+    val results = remember(
+        query,
+        categoryName,
+        evidenceTypeName,
+        favoritesOnly,
+        favoriteIds,
+    ) {
+        FamilyLifeContent.searchArticles(
+            query = query,
+            category = category,
+            evidenceType = evidenceType,
+        ).filter { !favoritesOnly || it.id in favoriteIds }
     }
 
     LazyColumn(
@@ -322,9 +338,13 @@ internal fun FamilyGuideCatalogContent(
             FamilyGuideFilters(
                 isArabic = isArabic,
                 category = category,
+                evidenceType = evidenceType,
+                favoritesOnly = favoritesOnly,
                 query = query,
                 onQueryChange = { query = it },
                 onCategoryChange = { categoryName = it?.name },
+                onEvidenceTypeChange = { evidenceTypeName = it?.name },
+                onFavoritesOnlyChange = { favoritesOnly = it },
             )
         }
         item {
@@ -359,9 +379,13 @@ internal fun FamilyGuideCatalogContent(
 private fun FamilyGuideFilters(
     isArabic: Boolean,
     category: FamilyTopicCategory?,
+    evidenceType: FamilyEvidenceType?,
+    favoritesOnly: Boolean,
     query: String,
     onQueryChange: (String) -> Unit,
     onCategoryChange: (FamilyTopicCategory?) -> Unit,
+    onEvidenceTypeChange: (FamilyEvidenceType?) -> Unit,
+    onFavoritesOnlyChange: (Boolean) -> Unit,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         MuslimStateSurface(
@@ -373,7 +397,9 @@ private fun FamilyGuideFilters(
         DigitNormalizedOutlinedTextField(
             value = query,
             onValueChange = onQueryChange,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag(FamilyUiTags.GUIDE_SEARCH_FIELD),
             singleLine = true,
             placeholder = { Text(stringResource(R.string.family_articles_search)) },
             leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
@@ -393,6 +419,52 @@ private fun FamilyGuideFilters(
                     label = { Text(item.title(isArabic)) },
                 )
             }
+        }
+        FamilyEvidenceFilters(
+            isArabic = isArabic,
+            evidenceType = evidenceType,
+            favoritesOnly = favoritesOnly,
+            onEvidenceTypeChange = onEvidenceTypeChange,
+            onFavoritesOnlyChange = onFavoritesOnlyChange,
+        )
+    }
+}
+
+@Composable
+private fun FamilyEvidenceFilters(
+    isArabic: Boolean,
+    evidenceType: FamilyEvidenceType?,
+    favoritesOnly: Boolean,
+    onEvidenceTypeChange: (FamilyEvidenceType?) -> Unit,
+    onFavoritesOnlyChange: (Boolean) -> Unit,
+) {
+    LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        item {
+            FilterChip(
+                selected = evidenceType == null,
+                onClick = { onEvidenceTypeChange(null) },
+                label = { Text(stringResource(R.string.family_source_filter_all)) },
+            )
+        }
+        items(FamilyEvidenceType.entries, key = { it.name }) { type ->
+            FilterChip(
+                selected = evidenceType == type,
+                onClick = { onEvidenceTypeChange(type) },
+                label = { Text(type.label(isArabic)) },
+            )
+        }
+        item {
+            FilterChip(
+                selected = favoritesOnly,
+                onClick = { onFavoritesOnlyChange(!favoritesOnly) },
+                label = { Text(stringResource(R.string.family_filter_favorites)) },
+                leadingIcon = {
+                    Icon(
+                        imageVector = if (favoritesOnly) Icons.Filled.Bookmark else Icons.Filled.BookmarkBorder,
+                        contentDescription = null,
+                    )
+                },
+            )
         }
     }
 }
