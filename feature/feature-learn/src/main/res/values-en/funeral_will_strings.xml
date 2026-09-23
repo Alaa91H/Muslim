@@ -43,4 +43,18 @@
     <string name="funeral_will_export_pdf_success">The PDF was saved successfully.</string>
     <string name="funeral_will_export_pdf_error">The PDF could not be created. Try another location or try again.</string>
     <string name="funeral_will_pdf_filename">islamic-will-draft.pdf</string>
+    <string name="funeral_will_protection_title">Private draft lock</string>
+    <string name="funeral_will_protection_description">You can require an enrolled biometric or the device PIN, pattern, or password before showing the will draft. The app does not store its own PIN.</string>
+    <string name="funeral_will_protection_enabled">Protection is enabled for this draft.</string>
+    <string name="funeral_will_protection_enable">Enable device lock</string>
+    <string name="funeral_will_protection_disable">Turn off protection</string>
+    <string name="funeral_will_protection_lock_now">Lock draft now</string>
+    <string name="funeral_will_locked_title">Draft locked</string>
+    <string name="funeral_will_locked_text">The draft content and save, share, and export actions are hidden. Unlock it with an authentication method enrolled on this device.</string>
+    <string name="funeral_will_unlock">Unlock draft</string>
+    <string name="funeral_will_auth_prompt_title">Unlock will draft</string>
+    <string name="funeral_will_auth_prompt_subtitle">Use biometrics or your device lock to continue</string>
+    <string name="funeral_will_auth_not_configured">No eligible authentication method is configured. Set up a screen lock or biometric in Android settings first.</string>
+    <string name="funeral_will_auth_unavailable">Biometric or device-lock authentication is not available on this device.</string>
+    <string name="funeral_will_protection_loading">Checking draft protection settings…</string>
 </resources>
