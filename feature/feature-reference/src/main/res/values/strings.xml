@@ -16,6 +16,7 @@
     <string name="history_events_tab" tools:ignore="MissingTranslation">الأحداث</string>
     <string name="history_atlas_tab" tools:ignore="MissingTranslation">الأطلس</string>
     <string name="history_people_tab" tools:ignore="MissingTranslation">الأعلام</string>
+    <string name="history_search_tab" tools:ignore="MissingTranslation">البحث</string>
     <string name="history_language_english" tools:ignore="MissingTranslation">English</string>
     <string name="history_language_arabic" tools:ignore="MissingTranslation">العربية</string>
     <string name="history_timeline_intro" tools:ignore="MissingTranslation">خط زمني تعليمي مختصر من البعثة إلى العصر الحديث. يعرض محطات كبرى ولا يغني عن دراسة المصادر المتخصصة.</string>
