@@ -37,11 +37,17 @@ data class FamilyGuideSection(
     val paragraphs: List<LocalizedFamilyText>,
 )
 
+data class FamilyEvidenceReference(
+    val title: LocalizedFamilyText,
+    val citation: String,
+)
+
 data class FamilyGuideArticle(
     val id: String,
     val title: LocalizedFamilyText,
     val summary: LocalizedFamilyText,
     val sections: List<FamilyGuideSection>,
+    val references: List<FamilyEvidenceReference> = emptyList(),
 )
 
 enum class FamilyTopicCategory {
@@ -417,8 +423,7 @@ object FamilyLifeContent {
                 ),
             ),
         )
-    )
-
+    ) + FamilyAdvancedContent.articles
 
     val familyArticleMetadata: List<FamilyTopicMetadata> = listOf(
         FamilyTopicMetadata("engagement", FamilyTopicCategory.BeforeMarriage, listOf("خطبة", "تعارف", "engagement", "istikhara")),
@@ -430,13 +435,23 @@ object FamilyLifeContent {
         FamilyTopicMetadata("newborn", FamilyTopicCategory.Newborn, listOf("مولود", "عقيقة", "رضاعة", "newborn", "aqiqah")),
         FamilyTopicMetadata("kinship", FamilyTopicCategory.Kinship, listOf("والدان", "رحم", "أقارب", "parents", "kinship")),
         FamilyTopicMetadata("daily_family_life", FamilyTopicCategory.DailyLife, listOf("بيت", "خصوصية", "تقنية", "home", "privacy")),
-    )
+    ) + FamilyAdvancedContent.metadata
 
-    fun searchArticles(query: String): List<FamilyGuideArticle> {
+    fun articleById(articleId: String): FamilyGuideArticle? =
+        familyArticles.firstOrNull { it.id == articleId }
+
+    fun articlesFor(category: FamilyTopicCategory): List<FamilyGuideArticle> =
+        familyArticles.filter { categoryFor(it.id) == category }
+
+    fun searchArticles(
+        query: String,
+        category: FamilyTopicCategory? = null,
+    ): List<FamilyGuideArticle> {
         val normalized = normalizeSearch(query)
-        if (normalized.isEmpty()) return familyArticles
+        val categoryFiltered = if (category == null) familyArticles else articlesFor(category)
+        if (normalized.isEmpty()) return categoryFiltered
         val metadata = familyArticleMetadata.associateBy { it.articleId }
-        return familyArticles.filter { article ->
+        return categoryFiltered.filter { article ->
             val text = buildList {
                 add(article.title.arabic)
                 add(article.title.english)
