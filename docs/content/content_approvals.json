@@ -352,6 +352,13 @@
       "attribution": "Expanded Islamic Glossary bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed. Every glossary entry remains NeedsReview pending terminology review, especially school-dependent legal terms, hadith terminology, and theological usage.",
       "notes": "First versioned edition contains exactly 300 bilingual Arabic-English entries organized across nine domains with one concise definition and an internal source link per entry."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_faq_misconceptions_v2_json": {
+      "source": "Project-authored FAQ and common-misconceptions corpus. Answers are intentionally short and cite the app's sourced Aqeedah, Quranic Sciences, Hadith Sciences, Fiqh, Ethics, History, Places, and Introduction-to-Islam corpora, with direct Quran or authentic-hadith references where a concise primary citation materially improves the answer.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "FAQs and Common Misconceptions reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every FAQ remains NeedsReview pending specialist review, with heightened review required for sectarian-sensitive questions, family-law wording, jihad/armed-conflict framing, inheritance/testimony summaries, and any answer that could be mistaken for a personal fatwa.",
+      "notes": "First versioned edition: 72 questions, 9 chapters, 144 sections, and 144 bilingual paragraphs. The book explicitly distinguishes education from personalized fatwa and links every answer to long-form source material."
     }
   }
 }
