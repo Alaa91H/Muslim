@@ -89,7 +89,7 @@ class AdhkarViewModel @Inject constructor(
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     val resultCount: StateFlow<Int> = visibleAdhkar
-        .map(List<Dhikr>::size)
+        .map { it.size }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), 0)
 
     /** Cache of per-dhikr counters so each card collects a stable flow. */
