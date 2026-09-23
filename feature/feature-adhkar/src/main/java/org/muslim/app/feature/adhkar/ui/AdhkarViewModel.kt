@@ -141,6 +141,7 @@ class AdhkarViewModel @Inject constructor(
                     text = dhikr.arabic,
                     voiceName = prefs.speechVoiceName,
                     rate = prefs.speechRate,
+                    allowNetworkVoices = prefs.speechAllowNetworkVoices,
                     utteranceId = "$SPEECH_UTTERANCE_PREFIX${dhikr.id}",
                 )
             }
