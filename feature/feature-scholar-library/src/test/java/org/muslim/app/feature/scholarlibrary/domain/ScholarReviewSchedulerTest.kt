@@ -70,11 +70,13 @@ class ScholarReviewSchedulerTest {
         passageId = "passage-$id",
         front = "سؤال",
         back = "جواب",
-        reviewCount = 2,
-        dueAtEpochMillis = dueAtEpochMillis,
         createdAtEpochMillis = 0L,
-        intervalDays = intervalDays,
-        easeFactor = easeFactor,
-        lapseCount = lapseCount,
+        reviewState = ScholarFlashcardReviewState(
+            reviewCount = 2,
+            dueAtEpochMillis = dueAtEpochMillis,
+            intervalDays = intervalDays,
+            easeFactor = easeFactor,
+            lapseCount = lapseCount,
+        ),
     )
 }
