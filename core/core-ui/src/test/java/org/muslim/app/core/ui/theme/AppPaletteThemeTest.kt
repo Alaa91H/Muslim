@@ -72,6 +72,19 @@ class AppPaletteThemeTest {
     }
 
     @Test
+    fun `AMOLED palette previews show true black in dark mode`() {
+        AppColorPalette.entries.forEach { palette ->
+            val preview = previewColorsForPalette(
+                palette = palette,
+                darkTheme = true,
+                amoledBlack = true,
+            )
+            assertEquals(Color.Black, preview.background)
+            assertEquals(Color.Black, preview.surface)
+        }
+    }
+
+    @Test
     fun `preview swatches are sourced from the real palette scheme`() {
         AppColorPalette.entries.forEach { palette ->
             listOf(false, true).forEach { darkTheme ->
