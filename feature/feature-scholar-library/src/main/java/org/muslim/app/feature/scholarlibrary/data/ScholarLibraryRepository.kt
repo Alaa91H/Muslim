@@ -203,8 +203,8 @@ class ScholarLibraryRepository @Inject constructor(
     fun observeStudySessions(): Flow<List<ScholarStudySession>> =
         libraryDao.observeStudySessions().map { rows -> rows.map { it.toDomain() } }
 
-    fun observeReviewEvents(): Flow<List<ScholarReviewEvent>> =
-        libraryDao.observeReviewEvents().map { rows -> rows.map { it.toDomain() } }
+    val reviewEvents: Flow<List<ScholarReviewEvent>>
+        get() = libraryDao.observeReviewEvents().map { rows -> rows.map { it.toDomain() } }
 
     suspend fun book(bookId: String): ScholarBook? = libraryDao.bookById(bookId)?.toDomain()
 
