@@ -532,6 +532,7 @@ private fun ScholarBookDialogs(
 fun ScholarStudyDeskScreen(
     onBack: () -> Unit,
     onOpenSession: (String) -> Unit,
+    onOpenReviewCenter: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: ScholarLibraryViewModel = hiltViewModel(),
 ) {
@@ -556,6 +557,7 @@ fun ScholarStudyDeskScreen(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
+            studyActivityItems(state, onOpenReviewCenter)
             studySessionItems(state, onOpenSession)
             studyReviewItems(
                 state = state,
@@ -566,6 +568,45 @@ fun ScholarStudyDeskScreen(
             studyBookmarkItems(state, viewModel)
             studyHighlightItems(state, viewModel)
             studyNoteItems(state, viewModel)
+        }
+    }
+}
+
+private fun LazyListScope.studyActivityItems(
+    state: ScholarLibraryUiState,
+    onOpenReviewCenter: () -> Unit,
+) {
+    val summary = state.studyActivitySummary
+    item {
+        Card(
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
+        ) {
+            Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(
+                    stringResource(R.string.scholar_library_activity_summary),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
+                Text(
+                    stringResource(
+                        R.string.scholar_library_activity_reviews,
+                        summary.reviewsToday,
+                        summary.reviewsLast7Days,
+                        summary.cardsReviewedLast7Days,
+                    ),
+                )
+                Text(
+                    stringResource(
+                        R.string.scholar_library_activity_sessions,
+                        summary.completedSessionsLast7Days,
+                        summary.studiedPassagesLast7Days,
+                        summary.dueCards,
+                    ),
+                )
+                Button(onClick = onOpenReviewCenter) {
+                    Text(stringResource(R.string.scholar_library_open_review_center))
+                }
+            }
         }
     }
 }
