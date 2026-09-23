@@ -48,7 +48,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Scaffold
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -135,7 +135,7 @@ fun NotificationSettingsScreen(
     var showEndPicker by remember { mutableStateOf(false) }
     var showHadithTimePicker by remember { mutableStateOf(false) }
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(

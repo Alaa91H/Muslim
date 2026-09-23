@@ -74,6 +74,8 @@ class WearCompanionPublisher @Inject constructor(
             tasbihCount = inputs.tasbih.count,
             tasbihTarget = inputs.tasbih.target,
             syncedAtEpochMillis = inputs.nowMillis,
+            ornamentStyle = inputs.preferences.ornamentStyle,
+            ornamentIntensity = inputs.preferences.ornamentIntensity,
         )
         if (!snapshot.isValid()) return
 
@@ -84,6 +86,8 @@ class WearCompanionPublisher @Inject constructor(
             dataMap.putInt(WearSyncContract.KEY_TASBIH_COUNT, snapshot.tasbihCount)
             dataMap.putInt(WearSyncContract.KEY_TASBIH_TARGET, snapshot.tasbihTarget)
             dataMap.putLong(WearSyncContract.KEY_SYNCED_AT, snapshot.syncedAtEpochMillis)
+            dataMap.putString(WearSyncContract.KEY_ORNAMENT_STYLE, snapshot.ornamentStyle.name)
+            dataMap.putString(WearSyncContract.KEY_ORNAMENT_INTENSITY, snapshot.ornamentIntensity.name)
         }.asPutDataRequest()
         Wearable.getDataClient(context).putDataItem(request)
     }

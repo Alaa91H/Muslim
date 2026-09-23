@@ -5,6 +5,8 @@ import androidx.core.content.edit
 import com.google.android.gms.wearable.DataEventBuffer
 import com.google.android.gms.wearable.DataMapItem
 import com.google.android.gms.wearable.WearableListenerService
+import org.muslim.app.core.common.appearance.AppOrnamentStyle
+import org.muslim.app.core.common.appearance.OrnamentIntensity
 import org.muslim.app.core.common.wear.WearPrayerSnapshot
 import org.muslim.app.core.common.wear.WearSyncContract
 
@@ -29,6 +31,14 @@ class WearDataLayerService : WearableListenerService() {
                         tasbihCount = data.getInt(WearSyncContract.KEY_TASBIH_COUNT, 0),
                         tasbihTarget = data.getInt(WearSyncContract.KEY_TASBIH_TARGET, 33),
                         syncedAtEpochMillis = data.getLong(WearSyncContract.KEY_SYNCED_AT, 0L),
+                        ornamentStyle = enumOr(
+                            data.getString(WearSyncContract.KEY_ORNAMENT_STYLE),
+                            AppOrnamentStyle.Geometry,
+                        ),
+                        ornamentIntensity = enumOr(
+                            data.getString(WearSyncContract.KEY_ORNAMENT_INTENSITY),
+                            OrnamentIntensity.Balanced,
+                        ),
                     )
                     if (snapshot.isValid()) WearSnapshotStore.save(applicationContext, snapshot)
                 }
@@ -47,6 +57,8 @@ internal object WearSnapshotStore {
     private const val TASBIH_COUNT = "tasbih_count"
     private const val TASBIH_TARGET = "tasbih_target"
     private const val SYNCED_AT = "synced_at"
+    private const val ORNAMENT_STYLE = "ornament_style"
+    private const val ORNAMENT_INTENSITY = "ornament_intensity"
 
     fun save(context: Context, snapshot: WearPrayerSnapshot) {
         context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE).edit {
@@ -56,6 +68,8 @@ internal object WearSnapshotStore {
             putInt(TASBIH_COUNT, snapshot.tasbihCount)
             putInt(TASBIH_TARGET, snapshot.tasbihTarget)
             putLong(SYNCED_AT, snapshot.syncedAtEpochMillis)
+            putString(ORNAMENT_STYLE, snapshot.ornamentStyle.name)
+            putString(ORNAMENT_INTENSITY, snapshot.ornamentIntensity.name)
         }
     }
 
@@ -68,7 +82,18 @@ internal object WearSnapshotStore {
             tasbihCount = prefs.getInt(TASBIH_COUNT, 0),
             tasbihTarget = prefs.getInt(TASBIH_TARGET, 33),
             syncedAtEpochMillis = prefs.getLong(SYNCED_AT, 0L),
+            ornamentStyle = enumOr(
+                prefs.getString(ORNAMENT_STYLE, null),
+                AppOrnamentStyle.Geometry,
+            ),
+            ornamentIntensity = enumOr(
+                prefs.getString(ORNAMENT_INTENSITY, null),
+                OrnamentIntensity.Balanced,
+            ),
         )
         return snapshot.takeIf(WearPrayerSnapshot::isValid)
     }
 }
+private fun <T : Enum<T>> enumOr(value: String?, default: T): T =
+    value?.let { raw -> default::class.java.enumConstants?.firstOrNull { it.name == raw } } ?: default
+
