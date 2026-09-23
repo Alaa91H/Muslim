@@ -31,4 +31,8 @@
     <string name="funeral_will_share_dialog_title" tools:ignore="MissingTranslation">مشاركة نسخة من المسودة؟</string>
     <string name="funeral_will_share_dialog_text" tools:ignore="MissingTranslation">سيُنشئ التطبيق نسخة نصية من البيانات الظاهرة حاليًا ويفتح نافذة المشاركة في Android. راجع المحتوى وتحقق من المستلم، ولا تشارك أسرار الدخول أو البيانات الحساسة مع جهة غير موثوقة.</string>
     <string name="funeral_will_share_confirm" tools:ignore="MissingTranslation">متابعة للمشاركة</string>
+    <string name="funeral_will_search" tools:ignore="MissingTranslation">البحث في هذا القسم</string>
+    <string name="funeral_will_search_clear" tools:ignore="MissingTranslation">مسح البحث</string>
+    <string name="funeral_will_search_results" tools:ignore="MissingTranslation">%1$d موضوع مطابق</string>
+    <string name="funeral_will_search_empty" tools:ignore="MissingTranslation">لا توجد موضوعات مطابقة. جرّب كلمة أخرى أو امسح البحث.</string>
 </resources>
