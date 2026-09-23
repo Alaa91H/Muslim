@@ -27,4 +27,10 @@ class ManualReadingFollowTest {
         assertThat(ayahAtReaderTop(positions, viewportTopPx = 300f)).isEqualTo(103)
         assertThat(ayahAtReaderTop(emptyList(), viewportTopPx = 0f)).isNull()
     }
+
+    @Test
+    fun `reader pager mapping accounts for the leading virtual edge page`() {
+        assertThat(contentIndexToReaderPagerPage(0)).isEqualTo(1)
+        assertThat(contentIndexToReaderPagerPage(7)).isEqualTo(8)
+    }
 }
