@@ -107,6 +107,13 @@ private data class WillDraftActions(
     val onClear: () -> Unit,
 )
 
+private data class WillDraftIntroState(
+    val visibility: FuneralWillIntroVisibility,
+    val query: String,
+    val onQueryChange: (String) -> Unit,
+    val actions: WillIntroActions,
+)
+
 private val WillDraftSaver: Saver<WillDraft, List<String>> = Saver(
     save = { draft ->
         listOf(
@@ -178,10 +185,64 @@ fun FuneralWillScreen(
     var showClearConfirmation by rememberSaveable { mutableStateOf(false) }
     var showShareConfirmation by rememberSaveable { mutableStateOf(false) }
     val context = LocalContext.current
-    val pdfFilename = stringResource(R.string.funeral_will_pdf_filename)
-    val pdfExportSuccessMessage = stringResource(R.string.funeral_will_export_pdf_success)
-    val pdfExportErrorMessage = stringResource(R.string.funeral_will_export_pdf_error)
-    val pdfLauncher = rememberLauncherForActivityResult(
+    val exportPdf = rememberPdfExportAction(
+        viewModel = viewModel,
+        draft = draft,
+        isArabic = isArabic,
+        status = pdfExportStatus,
+    )
+
+    LaunchedEffect(storedDraft) {
+        draft = storedDraft
+    }
+
+    WillDraftDialogs(
+        showShare = showShareConfirmation,
+        showClear = showClearConfirmation,
+        onDismissShare = { showShareConfirmation = false },
+        onDismissClear = { showClearConfirmation = false },
+        onConfirmShare = {
+            shareWillDraft(context, draft, isArabic)
+            showShareConfirmation = false
+        },
+        onConfirmClear = {
+            draft = WillDraft()
+            viewModel.clear()
+            showClearConfirmation = false
+        },
+    )
+
+    FuneralWillScaffold(
+        modifier = modifier,
+        onBack = onBack,
+        selectedTab = selectedTab,
+        onSelectTab = { selectedTab = it },
+        draft = draft,
+        storedDraft = storedDraft,
+        isArabic = isArabic,
+        storageError = storageError,
+        introVisibility = introVisibility,
+        onDraftChange = { draft = it },
+        onSave = { viewModel.save(draft) },
+        onShare = { showShareConfirmation = true },
+        onExportPdf = exportPdf,
+        onClear = { showClearConfirmation = true },
+        viewModel = viewModel,
+    )
+}
+
+@Composable
+private fun rememberPdfExportAction(
+    viewModel: FuneralWillViewModel,
+    draft: WillDraft,
+    isArabic: Boolean,
+    status: WillPdfExportStatus,
+): () -> Unit {
+    val context = LocalContext.current
+    val filename = stringResource(R.string.funeral_will_pdf_filename)
+    val successMessage = stringResource(R.string.funeral_will_export_pdf_success)
+    val errorMessage = stringResource(R.string.funeral_will_export_pdf_error)
+    val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.CreateDocument("application/pdf"),
     ) { destination ->
         if (destination != null) {
@@ -189,81 +250,94 @@ fun FuneralWillScreen(
         }
     }
 
-    LaunchedEffect(pdfExportStatus) {
-        when (pdfExportStatus) {
-            WillPdfExportStatus.Success -> {
-                Toast.makeText(
-                    context,
-                    pdfExportSuccessMessage,
-                    Toast.LENGTH_SHORT,
-                ).show()
-                viewModel.consumePdfExportStatus()
-            }
-
-            WillPdfExportStatus.Error -> {
-                Toast.makeText(
-                    context,
-                    pdfExportErrorMessage,
-                    Toast.LENGTH_LONG,
-                ).show()
-                viewModel.consumePdfExportStatus()
-            }
-
-            WillPdfExportStatus.Idle -> Unit
+    LaunchedEffect(status) {
+        val message = when (status) {
+            WillPdfExportStatus.Success -> successMessage
+            WillPdfExportStatus.Error -> errorMessage
+            WillPdfExportStatus.Idle -> null
+        }
+        if (message != null) {
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+            viewModel.consumePdfExportStatus()
         }
     }
 
-    LaunchedEffect(storedDraft) {
-        draft = storedDraft
-    }
+    return { launcher.launch(filename) }
+}
 
-    if (showShareConfirmation) {
-        AlertDialog(
-            onDismissRequest = { showShareConfirmation = false },
-            title = { Text(stringResource(R.string.funeral_will_share_dialog_title)) },
-            text = { Text(stringResource(R.string.funeral_will_share_dialog_text)) },
-            confirmButton = {
-                Button(
-                    onClick = {
-                        shareWillDraft(context, draft, isArabic)
-                        showShareConfirmation = false
-                    },
-                ) {
-                    Text(stringResource(R.string.funeral_will_share_confirm))
-                }
-            },
-            dismissButton = {
-                OutlinedButton(onClick = { showShareConfirmation = false }) {
-                    Text(stringResource(R.string.funeral_will_cancel))
-                }
-            },
+@Composable
+private fun WillDraftDialogs(
+    showShare: Boolean,
+    showClear: Boolean,
+    onDismissShare: () -> Unit,
+    onDismissClear: () -> Unit,
+    onConfirmShare: () -> Unit,
+    onConfirmClear: () -> Unit,
+) {
+    if (showShare) {
+        ConfirmationDialog(
+            title = stringResource(R.string.funeral_will_share_dialog_title),
+            text = stringResource(R.string.funeral_will_share_dialog_text),
+            confirmText = stringResource(R.string.funeral_will_share_confirm),
+            onConfirm = onConfirmShare,
+            onDismiss = onDismissShare,
         )
     }
-
-    if (showClearConfirmation) {
-        AlertDialog(
-            onDismissRequest = { showClearConfirmation = false },
-            title = { Text(stringResource(R.string.funeral_will_clear_dialog_title)) },
-            text = { Text(stringResource(R.string.funeral_will_clear_dialog_text)) },
-            confirmButton = {
-                Button(
-                    onClick = {
-                        draft = WillDraft()
-                        viewModel.clear()
-                        showClearConfirmation = false
-                    },
-                ) {
-                    Text(stringResource(R.string.funeral_will_clear_confirm))
-                }
-            },
-            dismissButton = {
-                OutlinedButton(onClick = { showClearConfirmation = false }) {
-                    Text(stringResource(R.string.funeral_will_cancel))
-                }
-            },
+    if (showClear) {
+        ConfirmationDialog(
+            title = stringResource(R.string.funeral_will_clear_dialog_title),
+            text = stringResource(R.string.funeral_will_clear_dialog_text),
+            confirmText = stringResource(R.string.funeral_will_clear_confirm),
+            onConfirm = onConfirmClear,
+            onDismiss = onDismissClear,
         )
     }
+}
 
+@Composable
+private fun ConfirmationDialog(
+    title: String,
+    text: String,
+    confirmText: String,
+    onConfirm: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(title) },
+        text = { Text(text) },
+        confirmButton = {
+            Button(onClick = onConfirm) {
+                Text(confirmText)
+            }
+        },
+        dismissButton = {
+            OutlinedButton(onClick = onDismiss) {
+                Text(stringResource(R.string.funeral_will_cancel))
+            }
+        },
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun FuneralWillScaffold(
+    modifier: Modifier,
+    onBack: () -> Unit,
+    selectedTab: Int,
+    onSelectTab: (Int) -> Unit,
+    draft: WillDraft,
+    storedDraft: WillDraft,
+    isArabic: Boolean,
+    storageError: Boolean,
+    introVisibility: FuneralWillIntroVisibility,
+    onDraftChange: (WillDraft) -> Unit,
+    onSave: () -> Unit,
+    onShare: () -> Unit,
+    onExportPdf: () -> Unit,
+    onClear: () -> Unit,
+    viewModel: FuneralWillViewModel,
+) {
     MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
@@ -280,43 +354,78 @@ fun FuneralWillScreen(
             )
         },
     ) { innerPadding ->
-        Column(Modifier.fillMaxSize().padding(innerPadding)) {
-            IslamicDecorationBand(
-                tint = MaterialTheme.colorScheme.tertiary,
-                compact = true,
-            )
-            FuneralWillTabs(
-                selectedTab = selectedTab,
-                onSelect = { selectedTab = it },
-            )
-            IslamicDecorationDivider(
-                tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 24.dp),
-            )
-            when (FuneralWillTab.entries[selectedTab]) {
-                FuneralWillTab.Will -> WillDraftContent(
-                    draft = draft,
-                    isArabic = isArabic,
-                    introVisibility = introVisibility,
-                    isDirty = draft != storedDraft,
-                    storageError = storageError,
-                    draftActions = WillDraftActions(
-                        onChange = { draft = it },
-                        onSave = { viewModel.save(draft) },
-                        onShare = { showShareConfirmation = true },
-                        onExportPdf = { pdfLauncher.launch(pdfFilename) },
-                        onClear = { showClearConfirmation = true },
-                    ),
-                    introActions = WillIntroActions(
-                        dismissDraftIntro = viewModel::dismissDraftIntro,
-                        dismissLegalNotice = viewModel::dismissLegalNotice,
-                        dismissPrivacyNotice = viewModel::dismissPrivacyNotice,
-                        restoreAll = viewModel::restoreIntroCards,
-                    ),
-                )
+        FuneralWillBody(
+            modifier = Modifier.padding(innerPadding),
+            selectedTab = selectedTab,
+            onSelectTab = onSelectTab,
+            draft = draft,
+            storedDraft = storedDraft,
+            isArabic = isArabic,
+            storageError = storageError,
+            introVisibility = introVisibility,
+            onDraftChange = onDraftChange,
+            onSave = onSave,
+            onShare = onShare,
+            onExportPdf = onExportPdf,
+            onClear = onClear,
+            viewModel = viewModel,
+        )
+    }
+}
 
-                FuneralWillTab.FuneralGuide -> FuneralGuideContent(isArabic = isArabic)
-            }
+@Composable
+private fun FuneralWillBody(
+    modifier: Modifier,
+    selectedTab: Int,
+    onSelectTab: (Int) -> Unit,
+    draft: WillDraft,
+    storedDraft: WillDraft,
+    isArabic: Boolean,
+    storageError: Boolean,
+    introVisibility: FuneralWillIntroVisibility,
+    onDraftChange: (WillDraft) -> Unit,
+    onSave: () -> Unit,
+    onShare: () -> Unit,
+    onExportPdf: () -> Unit,
+    onClear: () -> Unit,
+    viewModel: FuneralWillViewModel,
+) {
+    Column(modifier.fillMaxSize()) {
+        IslamicDecorationBand(
+            tint = MaterialTheme.colorScheme.tertiary,
+            compact = true,
+        )
+        FuneralWillTabs(
+            selectedTab = selectedTab,
+            onSelect = onSelectTab,
+        )
+        IslamicDecorationDivider(
+            tint = MaterialTheme.colorScheme.tertiary,
+            modifier = Modifier.padding(horizontal = 24.dp),
+        )
+        when (FuneralWillTab.entries[selectedTab]) {
+            FuneralWillTab.Will -> WillDraftContent(
+                draft = draft,
+                isArabic = isArabic,
+                introVisibility = introVisibility,
+                isDirty = draft != storedDraft,
+                storageError = storageError,
+                draftActions = WillDraftActions(
+                    onChange = onDraftChange,
+                    onSave = onSave,
+                    onShare = onShare,
+                    onExportPdf = onExportPdf,
+                    onClear = onClear,
+                ),
+                introActions = WillIntroActions(
+                    dismissDraftIntro = viewModel::dismissDraftIntro,
+                    dismissLegalNotice = viewModel::dismissLegalNotice,
+                    dismissPrivacyNotice = viewModel::dismissPrivacyNotice,
+                    restoreAll = viewModel::restoreIntroCards,
+                ),
+            )
+
+            FuneralWillTab.FuneralGuide -> FuneralGuideContent(isArabic = isArabic)
         }
     }
 }
@@ -370,13 +479,12 @@ private fun WillDraftContent(
     ) {
         willDraftIntroduction(
             isArabic = isArabic,
-            visibility = introVisibility,
-            onDismissDraftIntro = introActions.dismissDraftIntro,
-            onDismissLegalNotice = introActions.dismissLegalNotice,
-            onDismissPrivacyNotice = introActions.dismissPrivacyNotice,
-            onRestoreIntroCards = introActions.restoreAll,
-            educationQuery = educationQuery,
-            onEducationQueryChange = { educationQuery = it },
+            state = WillDraftIntroState(
+                visibility = introVisibility,
+                query = educationQuery,
+                onQueryChange = { educationQuery = it },
+                actions = introActions,
+            ),
         )
         item {
             NoticeCard(
@@ -406,13 +514,30 @@ private fun WillDraftContent(
 
 private fun LazyListScope.willDraftIntroduction(
     isArabic: Boolean,
+    state: WillDraftIntroState,
+) {
+    willIntroNotices(
+        visibility = state.visibility,
+        actions = state.actions,
+    )
+    willChecklist(isArabic)
+    willEducation(
+        isArabic = isArabic,
+        query = state.query,
+        onQueryChange = state.onQueryChange,
+    )
+    item {
+        Text(
+            text = stringResource(R.string.funeral_will_form_title),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+        )
+    }
+}
+
+private fun LazyListScope.willIntroNotices(
     visibility: FuneralWillIntroVisibility,
-    onDismissDraftIntro: () -> Unit,
-    onDismissLegalNotice: () -> Unit,
-    onDismissPrivacyNotice: () -> Unit,
-    onRestoreIntroCards: () -> Unit,
-    educationQuery: String,
-    onEducationQueryChange: (String) -> Unit,
+    actions: WillIntroActions,
 ) {
     if (visibility.draftIntroVisible) {
         item {
@@ -420,7 +545,7 @@ private fun LazyListScope.willDraftIntroduction(
                 icon = Icons.Filled.Security,
                 title = stringResource(R.string.funeral_will_draft_title),
                 text = stringResource(R.string.funeral_will_draft_intro),
-                onDismiss = onDismissDraftIntro,
+                onDismiss = actions.dismissDraftIntro,
             )
         }
     }
@@ -429,7 +554,7 @@ private fun LazyListScope.willDraftIntroduction(
             NoticeCard(
                 icon = Icons.Filled.Info,
                 text = stringResource(R.string.funeral_will_legal_notice),
-                onDismiss = onDismissLegalNotice,
+                onDismiss = actions.dismissLegalNotice,
             )
         }
     }
@@ -438,7 +563,7 @@ private fun LazyListScope.willDraftIntroduction(
             NoticeCard(
                 icon = Icons.Filled.Security,
                 text = stringResource(R.string.funeral_will_privacy_notice),
-                onDismiss = onDismissPrivacyNotice,
+                onDismiss = actions.dismissPrivacyNotice,
             )
         }
     }
@@ -448,12 +573,15 @@ private fun LazyListScope.willDraftIntroduction(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.End,
             ) {
-                TextButton(onClick = onRestoreIntroCards) {
+                TextButton(onClick = actions.restoreAll) {
                     Text(stringResource(R.string.funeral_will_restore_intro_cards))
                 }
             }
         }
     }
+}
+
+private fun LazyListScope.willChecklist(isArabic: Boolean) {
     item {
         Text(
             text = stringResource(R.string.funeral_will_checklist_title),
@@ -471,6 +599,13 @@ private fun LazyListScope.willDraftIntroduction(
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
     }
+}
+
+private fun LazyListScope.willEducation(
+    isArabic: Boolean,
+    query: String,
+    onQueryChange: (String) -> Unit,
+) {
     item {
         Column {
             Text(
@@ -488,8 +623,8 @@ private fun LazyListScope.willDraftIntroduction(
     }
     item {
         FuneralWillSearchField(
-            query = educationQuery,
-            onQueryChange = onEducationQueryChange,
+            query = query,
+            onQueryChange = onQueryChange,
         )
     }
     item {
@@ -497,14 +632,15 @@ private fun LazyListScope.willDraftIntroduction(
             labels = FuneralContent.willEducationSections.map {
                 it.title.pick(isArabic)
             },
-            onSelect = onEducationQueryChange,
+            onSelect = onQueryChange,
         )
     }
+
     val matchingEducation = FuneralContent.searchWillEducationSections(
-        query = educationQuery,
+        query = query,
         isArabic = isArabic,
     )
-    if (educationQuery.isNotBlank()) {
+    if (query.isNotBlank()) {
         item {
             SearchResultSummary(count = matchingEducation.size)
         }
@@ -517,13 +653,6 @@ private fun LazyListScope.willDraftIntroduction(
         items(matchingEducation, key = { it.id }) { section ->
             WillEducationCard(section = section, isArabic = isArabic)
         }
-    }
-    item {
-        Text(
-            text = stringResource(R.string.funeral_will_form_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
     }
 }
 
@@ -688,6 +817,46 @@ private fun LazyListScope.willDraftActions(
     onExportPdf: () -> Unit,
     onClear: () -> Unit,
 ) {
+    willDraftSaveState(draft, isDirty)
+    item {
+        WillDraftActionButton(
+            label = stringResource(R.string.funeral_will_save),
+            icon = Icons.Filled.Save,
+            enabled = isDirty,
+            primary = true,
+            onClick = onSave,
+        )
+    }
+    item {
+        WillDraftActionButton(
+            label = stringResource(R.string.funeral_will_share),
+            icon = Icons.Filled.Share,
+            enabled = !draft.isEmpty(),
+            onClick = onShare,
+        )
+    }
+    item {
+        WillDraftActionButton(
+            label = stringResource(R.string.funeral_will_export_pdf),
+            icon = Icons.Filled.PictureAsPdf,
+            enabled = !draft.isEmpty(),
+            onClick = onExportPdf,
+        )
+    }
+    item {
+        WillDraftActionButton(
+            label = stringResource(R.string.funeral_will_clear),
+            icon = Icons.Filled.DeleteOutline,
+            enabled = !draft.isEmpty(),
+            onClick = onClear,
+        )
+    }
+}
+
+private fun LazyListScope.willDraftSaveState(
+    draft: WillDraft,
+    isDirty: Boolean,
+) {
     if (!draft.isEmpty()) {
         item {
             Text(
@@ -708,66 +877,47 @@ private fun LazyListScope.willDraftActions(
             )
         }
     }
-    item {
+}
+
+@Composable
+private fun WillDraftActionButton(
+    label: String,
+    icon: ImageVector,
+    enabled: Boolean,
+    primary: Boolean = false,
+    onClick: () -> Unit,
+) {
+    if (primary) {
         Button(
-            onClick = onSave,
-            enabled = isDirty,
+            onClick = onClick,
+            enabled = enabled,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Icon(
-                Icons.Filled.Save,
-                contentDescription = null,
-                modifier = Modifier.size(18.dp),
-            )
-            Spacer(Modifier.width(8.dp))
-            Text(stringResource(R.string.funeral_will_save))
+            WillDraftActionButtonContent(label, icon)
         }
-    }
-    item {
+    } else {
         OutlinedButton(
-            onClick = onShare,
-            enabled = !draft.isEmpty(),
+            onClick = onClick,
+            enabled = enabled,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Icon(
-                Icons.Filled.Share,
-                contentDescription = null,
-                modifier = Modifier.size(18.dp),
-            )
-            Spacer(Modifier.width(8.dp))
-            Text(stringResource(R.string.funeral_will_share))
+            WillDraftActionButtonContent(label, icon)
         }
     }
-    item {
-        OutlinedButton(
-            onClick = onExportPdf,
-            enabled = !draft.isEmpty(),
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Icon(
-                Icons.Filled.PictureAsPdf,
-                contentDescription = null,
-                modifier = Modifier.size(18.dp),
-            )
-            Spacer(Modifier.width(8.dp))
-            Text(stringResource(R.string.funeral_will_export_pdf))
-        }
-    }
-    item {
-        OutlinedButton(
-            onClick = onClear,
-            enabled = !draft.isEmpty(),
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            Icon(
-                Icons.Filled.DeleteOutline,
-                contentDescription = null,
-                modifier = Modifier.size(18.dp),
-            )
-            Spacer(Modifier.width(8.dp))
-            Text(stringResource(R.string.funeral_will_clear))
-        }
-    }
+}
+
+@Composable
+private fun WillDraftActionButtonContent(
+    label: String,
+    icon: ImageVector,
+) {
+    Icon(
+        icon,
+        contentDescription = null,
+        modifier = Modifier.size(18.dp),
+    )
+    Spacer(Modifier.width(8.dp))
+    Text(label)
 }
 
 @Composable
