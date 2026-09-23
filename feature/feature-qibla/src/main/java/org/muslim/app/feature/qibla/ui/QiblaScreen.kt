@@ -15,6 +15,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
@@ -67,6 +68,8 @@ import org.muslim.app.core.location.MagneticDeclination
 import org.muslim.app.core.permissions.AppPermission
 import org.muslim.app.core.permissions.PermissionEntryPoint
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
+import org.muslim.app.core.ui.theme.IslamicDecorationMedallion
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
@@ -333,20 +336,34 @@ internal fun QiblaCompassContent(
             Spacer(Modifier.height(16.dp))
             GpsRefreshControl(gpsState, onGpsRefresh)
         }
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.height(8.dp))
+        IslamicDecorationDivider(
+            tint = MaterialTheme.colorScheme.tertiary,
+            modifier = Modifier.fillMaxWidth().widthIn(max = 360.dp),
+        )
+        Spacer(Modifier.height(8.dp))
         IslamicCard(
             modifier = Modifier.fillMaxWidth().widthIn(max = 420.dp),
             shape = MaterialTheme.shapes.extraLarge,
             containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
         ) {
-            CompassRose(
-                trueHeading = presentation.trueHeading,
-                bearing = presentation.bearing,
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .aspectRatio(1f)
-                    .semantics { contentDescription = compassDescription },
-            )
+                    .aspectRatio(1f),
+            ) {
+                IslamicDecorationMedallion(
+                    tint = MaterialTheme.colorScheme.tertiary,
+                    modifier = Modifier.fillMaxSize(),
+                )
+                CompassRose(
+                    trueHeading = presentation.trueHeading,
+                    bearing = presentation.bearing,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .semantics { contentDescription = compassDescription },
+                )
+            }
         }
         Spacer(Modifier.height(16.dp))
         QiblaDirectionDetails(
