@@ -39,12 +39,17 @@ class TasbihSessionRepository @Inject constructor(
         dao.observeRecent(limit.coerceIn(1, MAX_HISTORY_LIMIT))
             .map { sessions -> sessions.map { it.toHistoryItem() } }
 
+    fun observeActive(): Flow<TasbihSessionHistoryItem?> =
+        dao.observeActive().map { it?.toHistoryItem() }
+
     suspend fun increment(
         phrase: TasbihPhrase,
         target: Int,
+        mode: TasbihSessionMode = TasbihSessionMode.Free,
+        roundsGoal: Int = 1,
         nowEpochMillis: Long = System.currentTimeMillis(),
     ): TasbihSessionTransition = mutationMutex.withLock {
-        val config = currentUiConfig(phrase, target)
+        val config = currentUiConfig(phrase, target, mode, roundsGoal)
         val active = dao.getActive()
         val crossedDayBoundary = active?.let {
             !isSameLocalDay(it.lastUpdatedAtEpochMillis, nowEpochMillis)
@@ -88,10 +93,12 @@ class TasbihSessionRepository @Inject constructor(
     suspend fun decrement(
         phrase: TasbihPhrase,
         target: Int,
+        mode: TasbihSessionMode = TasbihSessionMode.Free,
+        roundsGoal: Int = 1,
         nowEpochMillis: Long = System.currentTimeMillis(),
     ) = mutationMutex.withLock {
         val active = dao.getActive() ?: return@withLock
-        val config = currentUiConfig(phrase, target)
+        val config = currentUiConfig(phrase, target, mode, roundsGoal)
         if (!active.matches(config)) return@withLock
 
         val next = TasbihSessionEngine.decrement(active.toDomainState(), nowEpochMillis)
@@ -112,15 +119,17 @@ class TasbihSessionRepository @Inject constructor(
         return first == second
     }
 
-    private fun currentUiConfig(phrase: TasbihPhrase, target: Int) =
+    private fun currentUiConfig(
+        phrase: TasbihPhrase,
+        target: Int,
+        mode: TasbihSessionMode,
+        roundsGoal: Int,
+    ) =
         TasbihSessionConfig(
             phraseId = phrase.storageId,
-            // The existing screen intentionally keeps counting after each
-            // target. Free mode preserves that behaviour while the engine still
-            // reports every completed round based on [target].
-            mode = TasbihSessionMode.Free,
+            mode = mode,
             target = target.coerceIn(1, 100_000),
-            roundsGoal = 1,
+            roundsGoal = roundsGoal.coerceIn(1, TasbihRepository.MAX_ROUNDS_GOAL),
         )
 
     private fun TasbihSessionEntity.matches(config: TasbihSessionConfig): Boolean =
