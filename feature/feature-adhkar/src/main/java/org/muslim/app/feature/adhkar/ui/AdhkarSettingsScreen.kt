@@ -3,6 +3,7 @@ package org.muslim.app.feature.adhkar.ui
 import android.content.Intent
 import androidx.core.net.toUri
 import android.provider.Settings
+import android.speech.tts.TextToSpeech
 import java.util.Locale
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
@@ -120,43 +121,108 @@ fun AdhkarSettingsScreen(
         ) {
             SectionHeader(stringResource(R.string.adhkar_speech_section))
 
-            SwitchRow(
-                label = stringResource(R.string.adhkar_speech_toggle),
-                checked = prefs.speechEnabled,
-                onCheckedChange = viewModel::setSpeechEnabled,
-            )
-            Text(
-                text = stringResource(R.string.adhkar_speech_desc),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            if (prefs.speechEnabled) {
-                Spacer(Modifier.height(10.dp))
-                SpeechVoiceDropdown(
-                    voices = speechVoices,
-                    currentVoiceName = prefs.speechVoiceName,
-                    onSelected = viewModel::setSpeechVoiceName,
-                )
-                Spacer(Modifier.height(10.dp))
-                SpeechRateControl(
-                    rate = prefs.speechRate,
-                    onRateChanged = viewModel::setSpeechRate,
-                )
-                Spacer(Modifier.height(10.dp))
-                OutlinedButton(
-                    onClick = viewModel::previewSpeech,
-                    enabled = speechReady && previewDhikr != null,
-                    modifier = Modifier.fillMaxWidth(),
-                ) {
-                    Text(stringResource(R.string.adhkar_speech_preview))
-                }
-                if (speechInitializationFailed) {
-                    Spacer(Modifier.height(6.dp))
-                    Text(
-                        text = stringResource(R.string.adhkar_speech_unavailable),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.error,
+            val localSpeechVoices = speechVoices.filterNot { it.requiresNetwork }
+            val networkSpeechVoices = speechVoices.filter { it.requiresNetwork }
+            val visibleSpeechVoices = if (prefs.speechAllowNetworkVoices) {
+                speechVoices
+            } else {
+                localSpeechVoices
+            }
+
+            Card(modifier = Modifier.fillMaxWidth()) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    SwitchRow(
+                        label = stringResource(R.string.adhkar_speech_toggle),
+                        checked = prefs.speechEnabled,
+                        onCheckedChange = viewModel::setSpeechEnabled,
                     )
+                    Text(
+                        text = stringResource(R.string.adhkar_speech_desc),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+
+                    if (prefs.speechEnabled) {
+                        Spacer(Modifier.height(12.dp))
+
+                        Text(
+                            text = stringResource(
+                                R.string.adhkar_speech_voice_summary,
+                                localSpeechVoices.size,
+                                networkSpeechVoices.size,
+                            ),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+
+                        if (networkSpeechVoices.isNotEmpty()) {
+                            Spacer(Modifier.height(4.dp))
+                            SwitchRow(
+                                label = stringResource(R.string.adhkar_speech_allow_network),
+                                checked = prefs.speechAllowNetworkVoices,
+                                onCheckedChange = viewModel::setSpeechAllowNetworkVoices,
+                            )
+                            Text(
+                                text = stringResource(R.string.adhkar_speech_allow_network_desc),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+
+                        Spacer(Modifier.height(12.dp))
+                        SpeechVoiceDropdown(
+                            voices = visibleSpeechVoices,
+                            currentVoiceName = prefs.speechVoiceName,
+                            onSelected = viewModel::setSpeechVoiceName,
+                        )
+
+                        Spacer(Modifier.height(12.dp))
+                        SpeechRateControl(
+                            rate = prefs.speechRate,
+                            onRateChanged = viewModel::setSpeechRate,
+                        )
+
+                        Spacer(Modifier.height(12.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        ) {
+                            OutlinedButton(
+                                onClick = viewModel::previewSpeech,
+                                enabled = speechReady && previewDhikr != null && visibleSpeechVoices.isNotEmpty(),
+                                modifier = Modifier.weight(1f),
+                            ) {
+                                Text(stringResource(R.string.adhkar_speech_preview))
+                            }
+                            OutlinedButton(
+                                onClick = viewModel::refreshSpeechVoices,
+                                modifier = Modifier.weight(1f),
+                            ) {
+                                Text(stringResource(R.string.adhkar_speech_refresh))
+                            }
+                        }
+
+                        Spacer(Modifier.height(8.dp))
+                        OutlinedButton(
+                            onClick = {
+                                runCatching {
+                                    context.startActivity(Intent(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA))
+                                }
+                            },
+                            modifier = Modifier.fillMaxWidth(),
+                        ) {
+                            Text(stringResource(R.string.adhkar_speech_manage_voices))
+                        }
+
+                        if (speechInitializationFailed || visibleSpeechVoices.isEmpty()) {
+                            Spacer(Modifier.height(8.dp))
+                            Text(
+                                text = stringResource(R.string.adhkar_speech_unavailable),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.error,
+                            )
+                        }
+                    }
                 }
             }
 
@@ -623,7 +689,8 @@ private fun SpeechVoiceDropdown(
 ) {
     var expanded by remember { mutableStateOf(false) }
     val defaultLabel = stringResource(R.string.adhkar_speech_voice_default)
-    val currentLabel = voices.firstOrNull { it.name == currentVoiceName }?.label ?: defaultLabel
+    val currentVoice = voices.firstOrNull { it.name == currentVoiceName }
+    val currentLabel = currentVoice?.label ?: defaultLabel
 
     ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
         OutlinedTextField(
@@ -631,6 +698,17 @@ private fun SpeechVoiceDropdown(
             onValueChange = {},
             readOnly = true,
             label = { Text(stringResource(R.string.adhkar_speech_voice)) },
+            supportingText = currentVoice?.let { voice ->
+                {
+                    Text(
+                        text = if (voice.requiresNetwork) {
+                            stringResource(R.string.adhkar_speech_voice_network)
+                        } else {
+                            stringResource(R.string.adhkar_speech_voice_local)
+                        },
+                    )
+                }
+            },
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
             modifier = Modifier
                 .fillMaxWidth()
@@ -638,7 +716,16 @@ private fun SpeechVoiceDropdown(
         )
         ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
             DropdownMenuItem(
-                text = { Text(defaultLabel) },
+                text = {
+                    Column {
+                        Text(defaultLabel)
+                        Text(
+                            text = stringResource(R.string.adhkar_speech_voice_default_desc),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                },
                 onClick = {
                     expanded = false
                     onSelected(null)
@@ -647,11 +734,22 @@ private fun SpeechVoiceDropdown(
             voices.forEach { voice ->
                 DropdownMenuItem(
                     text = {
-                        Text(
-                            text = voice.label,
-                            maxLines = 2,
-                            overflow = TextOverflow.Ellipsis,
-                        )
+                        Column {
+                            Text(
+                                text = voice.label,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                            )
+                            Text(
+                                text = if (voice.requiresNetwork) {
+                                    stringResource(R.string.adhkar_speech_voice_network)
+                                } else {
+                                    stringResource(R.string.adhkar_speech_voice_local)
+                                },
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
                     },
                     onClick = {
                         expanded = false
@@ -681,7 +779,7 @@ private fun SpeechRateControl(
         value = pendingRate,
         onValueChange = { pendingRate = it },
         onValueChangeFinished = { onRateChanged(pendingRate) },
-        valueRange = 0.5f..2.0f,
+        valueRange = 0.75f..1.50f,
         steps = 5,
         modifier = Modifier.fillMaxWidth(),
     )
