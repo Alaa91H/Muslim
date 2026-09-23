@@ -1,50 +1,19 @@
 <!doctype html>
 <html dir="rtl" lang="ar">
-<head>
-<meta charset="utf-8">
-<title>معاينة هوية أيقونة الإشعار</title>
+<head><meta charset="utf-8"><title>معاينة أيقونة الإشعار المعتمدة</title>
 <style>
-body{margin:0;background:#0d1117;color:#e9e5d8;font-family:system-ui;padding:28px}
-h1{color:#d5b56f;text-align:center}
-p{max-width:900px;margin:0 auto 24px;color:#bcc5cc;text-align:center}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:900px;margin:auto}
-.card{background:#111820;border:1px solid #2d3941;border-radius:22px;padding:22px;text-align:center}
-.icon{width:240px;height:240px;margin:auto;background:#071522;border-radius:44px;display:grid;place-items:center;overflow:hidden}
-.icon img,.icon svg{width:100%;height:100%;object-fit:contain}
-.label{font-size:20px;font-weight:700;margin-top:16px}
-.small{font-size:14px;color:#9aa6ae;margin-top:8px}
-.status{display:inline-block;margin-top:24px;padding:8px 14px;border-radius:999px;background:#173429;color:#9af0bd}
-</style>
-</head>
+body{background:#0d1117;color:#eee;font-family:system-ui;padding:32px;text-align:center}
+.wrap{display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
+.card{background:#111820;border:1px solid #33404a;border-radius:24px;padding:22px;width:340px}
+.icon{background:#071522;border-radius:44px;width:300px;height:300px;margin:auto}
+.icon svg,.icon img{width:100%;height:100%;object-fit:contain}
+h1{color:#d5b56f}.small{color:#aab4bc}
+</style></head>
 <body>
-<h1>المعاينة المعتمدة — أيقونة التطبيق مقابل الإشعار</h1>
-<p>الإشعار يحافظ على نفس اللغة الهندسية للأيقونة الرسمية، لكن بصيغة أحادية شفافة مناسبة لقواعد Android وحجم 24dp.</p>
-<div class="grid">
-  <div class="card">
-    <div class="icon"><img src="official_gold.png" alt="أيقونة التطبيق الرسمية"></div>
-    <div class="label">أيقونة التطبيق الرسمية</div>
-    <div class="small">ذهبي + كحلي + تفاصيل لونية كاملة للـLauncher.</div>
-  </div>
-  <div class="card">
-    <div class="icon">
-      <svg viewBox="0 0 108 108" aria-label="أيقونة الإشعار المعتمدة">
-        <g fill="none" stroke="#fff" stroke-width="5.5" stroke-linejoin="miter" stroke-linecap="square">
-          <path d="M21.5,21.5H86.5V86.5H21.5Z"/>
-          <path d="M54,7.5L100.5,54L54,100.5L7.5,54Z"/>
-          <path d="M54,22L79,39V68L54,91L29,68V39Z"/>
-        </g>
-        <g fill="none" stroke="#fff" stroke-width="4.6" stroke-linejoin="round" stroke-linecap="round">
-          <path d="M29,39C36,38 43,36 49.5,31.5"/>
-          <path d="M58.5,31.5C65,36 72,38 79,39"/>
-          <path d="M42,79V59C42,51 47,46 54,41C61,46 66,51 66,59V79"/>
-        </g>
-        <path fill="#fff" fill-rule="evenodd" d="M53.5,28A8.5,8.5 0,1 0,63.5,38A7,7 0,1 1,53.5,28Z"/>
-      </svg>
-    </div>
-    <div class="label">أيقونة الإشعار المعتمدة</div>
-    <div class="small">أبيض أحادي، مساحة سالبة واضحة، ومحافظة على الإطار الهندسي والمحراب والهلال.</div>
-  </div>
+<h1>الهوية المعتمدة لأيقونة الإشعار</h1>
+<p class="small">المعاينة اليمنى تُرسم مباشرة من نفس pathData المستخدم في Android VectorDrawable.</p>
+<div class="wrap">
+<div class="card"><div class="icon"><img src="official_gold.png" alt="أيقونة التطبيق الرسمية"></div><h2>أيقونة التطبيق</h2></div>
+<div class="card"><div class="icon"><svg viewBox="0 0 108 108"><path fill="#fff" fill-rule="evenodd" d="M54.146,7.437L51.526,9.765L39.885,22.570L20.387,22.570L20.387,42.941L7.000,56.037L7.000,56.910L20.387,69.715L20.387,88.341L41.632,88.341L53.563,100.563L66.077,88.341L87.322,88.341L87.322,69.715L101.000,56.619L87.322,42.941L87.322,22.570L67.824,22.570Z M54.146,14.130L70.443,31.882L71.025,36.539L71.025,47.598L75.972,54.291L78.591,51.672L78.591,50.799L75.099,46.142L75.099,30.718L71.898,26.935L83.248,26.935L83.248,38.285L82.084,38.285L80.337,36.539L76.263,36.539L76.263,40.613L78.882,40.904L94.598,56.619L78.591,72.043L76.263,72.043L76.263,76.118L80.628,76.118L82.666,74.080L83.248,74.372L82.957,84.266L70.443,83.975L75.099,79.028L75.099,66.805L78.882,61.567L75.972,58.365L70.734,65.350L70.734,77.282L53.563,94.161L36.975,76.991L36.975,65.059L32.028,58.365L29.700,60.402L29.118,61.858L32.901,66.805L32.901,79.319L37.266,83.975L24.752,84.266L24.461,74.372L25.625,74.372L27.372,76.118L31.737,76.118L31.737,72.043L29.118,72.043L13.111,56.328L29.118,40.904L31.737,40.613L31.737,36.539L27.663,36.539L25.043,38.867L24.461,38.576L24.461,26.935L36.102,26.935L32.901,30.718L32.901,45.851L29.118,51.090L31.446,54.291L32.028,54.291L37.266,47.307L37.266,32.173L51.235,16.749Z M83.539,47.307L76.263,55.746L75.972,56.619L83.539,65.350L84.121,65.350L86.740,62.440L82.375,57.492L81.793,56.037L86.449,50.799L86.740,49.926L84.121,47.307Z M23.879,47.307L21.260,49.926L21.260,50.508L25.625,55.455L25.916,56.619L20.969,62.731L23.297,65.059L24.461,65.350L31.446,57.201L31.737,56.037L25.916,49.053Z M52.690,39.158L51.526,40.031L50.944,41.195L50.944,43.232L52.108,44.978L53.854,45.851L53.272,47.307L49.489,51.381L46.870,53.127L43.960,56.037L42.796,58.074L42.796,63.604L41.341,65.059L40.467,67.096L40.467,79.319L44.251,82.811L44.251,67.969L44.833,66.514L47.161,64.477L45.997,62.149L45.997,60.111L47.161,57.783L53.854,51.672L54.437,51.672L56.474,54.000L60.548,57.201L62.003,59.820L62.003,62.149L60.839,64.477L62.876,66.223L63.749,68.551L63.458,82.811L64.040,82.811L67.533,79.028L67.533,67.387L66.950,65.641L65.204,63.604L65.495,58.656L64.040,55.746L61.712,53.418L59.093,51.672L55.310,47.598L54.728,45.851L56.474,44.978L57.638,43.232L55.601,44.396L53.272,43.814L52.108,42.068L52.399,40.322L53.272,39.449Z M52.108,33.628L49.489,31.300L48.325,31.300L43.669,35.084L38.430,35.666L38.430,40.031L45.706,38.867Z M56.183,33.337L56.183,33.920L62.294,38.867L69.861,39.740L69.570,35.666L64.331,35.084L59.675,31.009L59.093,31.009Z M44.833,25.771L45.997,27.226L53.854,33.920L55.019,33.337L63.167,26.062L63.167,25.480L60.548,22.861L54.146,28.099L47.743,22.861Z"/></svg></div><h2>Vector الإشعار المعتمد</h2></div>
 </div>
-<div style="text-align:center"><span class="status">جاهزة لاختبار CI والجهاز الحقيقي</span></div>
-</body>
-</html>
+</body></html>
