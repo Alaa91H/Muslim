@@ -58,6 +58,7 @@ jobs:
         run: |
           python3 scripts/generate_content_manifest.py
           python3 scripts/verify_content_manifest.py
+          python3 scripts/verify_reference_library_assets.py
           git diff --exit-code -- docs/content/content_manifest.json
 
       - name: Verify product identity and Adhan notification lifecycle
