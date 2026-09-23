@@ -13,11 +13,16 @@ import kotlinx.coroutines.launch
 import org.muslim.app.feature.scholarlibrary.data.ScholarLibraryImportResult
 import org.muslim.app.feature.scholarlibrary.data.ScholarLibraryRepository
 import org.muslim.app.feature.scholarlibrary.domain.FlashcardWithCitation
+import org.muslim.app.feature.scholarlibrary.domain.ScholarAuthorSummary
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
+import org.muslim.app.feature.scholarlibrary.domain.ScholarBookOutlineSection
 import org.muslim.app.feature.scholarlibrary.domain.ScholarCategory
+import org.muslim.app.feature.scholarlibrary.domain.ScholarDifficulty
 import org.muslim.app.feature.scholarlibrary.domain.ScholarHighlightStyle
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
+import org.muslim.app.feature.scholarlibrary.domain.ScholarSearchFilters
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPath
 import org.muslim.app.feature.scholarlibrary.domain.SearchHit
 import org.muslim.app.feature.scholarlibrary.domain.StudyBookmarkWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.StudyHighlightWithCitation
@@ -26,11 +31,16 @@ import org.muslim.app.feature.scholarlibrary.domain.StudyNoteWithCitation
 internal data class ScholarLibraryUiState(
     val loading: Boolean = true,
     val books: List<ScholarBook> = emptyList(),
+    val authors: List<ScholarAuthorSummary> = emptyList(),
+    val studyPaths: List<ScholarStudyPath> = emptyList(),
     val selectedCategory: ScholarCategory? = null,
+    val selectedDifficulty: ScholarDifficulty? = null,
+    val selectedAuthorName: String? = null,
     val query: String = "",
     val searchResults: List<SearchHit> = emptyList(),
     val selectedBook: ScholarBook? = null,
     val selectedBookPassages: List<ScholarPassage> = emptyList(),
+    val selectedBookOutline: List<ScholarBookOutlineSection> = emptyList(),
     val notes: List<StudyNoteWithCitation> = emptyList(),
     val flashcards: List<FlashcardWithCitation> = emptyList(),
     val bookmarks: List<StudyBookmarkWithCitation> = emptyList(),
@@ -59,6 +69,16 @@ class ScholarLibraryViewModel @Inject constructor(
             repository.observeBooks().collect { books -> update { it.copy(books = books) } }
         }
         viewModelScope.launch {
+            runCatching {
+                repository.ensureSeeded()
+                repository.authors() to repository.studyPaths()
+            }.onSuccess { (authors, paths) ->
+                update { it.copy(authors = authors, studyPaths = paths) }
+            }.onFailure {
+                update { it.copy(statusMessage = "تعذر تجهيز المسارات الدراسية.") }
+            }
+        }
+        viewModelScope.launch {
             repository.observeNotes().collect { notes -> update { it.copy(notes = notes) } }
         }
         viewModelScope.launch {
@@ -75,15 +95,60 @@ class ScholarLibraryViewModel @Inject constructor(
         }
     }
 
-    fun selectCategory(category: ScholarCategory?) = update { it.copy(selectedCategory = category) }
+    fun selectCategory(category: ScholarCategory?) {
+        update { it.copy(selectedCategory = category) }
+        refreshSearch()
+    }
+
+    fun selectDifficulty(difficulty: ScholarDifficulty?) {
+        update { it.copy(selectedDifficulty = difficulty) }
+        refreshSearch()
+    }
+
+    fun selectAuthor(authorName: String?) {
+        update { it.copy(selectedAuthorName = authorName) }
+        refreshSearch()
+    }
+
+    fun clearSearchFilters() {
+        update {
+            it.copy(
+                selectedCategory = null,
+                selectedDifficulty = null,
+                selectedAuthorName = null,
+            )
+        }
+        refreshSearch()
+    }
 
     fun updateQuery(query: String) {
         update { it.copy(query = query, searchResults = if (query.isBlank()) emptyList() else it.searchResults) }
+        refreshSearch()
+    }
+
+    private fun refreshSearch() {
         searchJob?.cancel()
-        if (query.isBlank()) return
+        val snapshot = mutableState.value
+        if (snapshot.query.isBlank()) {
+            update { it.copy(searchResults = emptyList()) }
+            return
+        }
+        val filters = ScholarSearchFilters(
+            category = snapshot.selectedCategory,
+            difficulty = snapshot.selectedDifficulty,
+            authorName = snapshot.selectedAuthorName,
+        )
         searchJob = viewModelScope.launch {
-            val results = runCatching { repository.search(query) }.getOrDefault(emptyList())
-            if (mutableState.value.query == query) update { it.copy(searchResults = results) }
+            val results = runCatching { repository.search(snapshot.query, filters) }.getOrDefault(emptyList())
+            val current = mutableState.value
+            if (
+                current.query == snapshot.query &&
+                current.selectedCategory == filters.category &&
+                current.selectedDifficulty == filters.difficulty &&
+                current.selectedAuthorName == filters.authorName
+            ) {
+                update { it.copy(searchResults = results) }
+            }
         }
     }
 
@@ -91,7 +156,14 @@ class ScholarLibraryViewModel @Inject constructor(
         bookJob?.cancel()
         bookJob = viewModelScope.launch {
             val book = repository.book(bookId)
-            update { it.copy(selectedBook = book, selectedBookPassages = emptyList()) }
+            val outline = if (book == null) emptyList() else repository.bookOutline(bookId)
+            update {
+                it.copy(
+                    selectedBook = book,
+                    selectedBookPassages = emptyList(),
+                    selectedBookOutline = outline,
+                )
+            }
             if (book != null) {
                 repository.markBookOpened(bookId)
                 repository.observeBookPassages(bookId).collect { passages ->
@@ -103,7 +175,13 @@ class ScholarLibraryViewModel @Inject constructor(
 
     fun clearBook() {
         bookJob?.cancel()
-        update { it.copy(selectedBook = null, selectedBookPassages = emptyList()) }
+        update {
+            it.copy(
+                selectedBook = null,
+                selectedBookPassages = emptyList(),
+                selectedBookOutline = emptyList(),
+            )
+        }
     }
 
     fun addNote(passageId: String, text: String) {
