@@ -23,6 +23,35 @@ class CorpusSpec:
     min_revision: int
 
 
+NAMED_PROPHET_TOPIC_IDS = {
+    "adam",
+    "idris",
+    "nuh",
+    "hud",
+    "salih",
+    "ibrahim",
+    "lut",
+    "ismail",
+    "ishaq",
+    "yaqub",
+    "yusuf",
+    "ayyub",
+    "shuayb",
+    "musa",
+    "harun",
+    "dhul_kifl",
+    "dawud",
+    "sulayman",
+    "ilyas",
+    "alyasa",
+    "yunus",
+    "zakariyya",
+    "yahya",
+    "isa",
+    "muhammad",
+}
+
+
 CORPORA = (
     CorpusSpec(
         name="Introduction to Islam",
@@ -359,6 +388,14 @@ def verify_corpus(
         topic["id"] for topic in asset_topics if isinstance(topic, dict)
     ]
     failures.extend(verify_chapter_coverage(spec.name, book, topic_ids))
+
+    if spec.name == "Stories of the Prophets":
+        missing_named_prophets = sorted(NAMED_PROPHET_TOPIC_IDS - set(topic_ids))
+        if missing_named_prophets:
+            failures.append(
+                "Stories of the Prophets: missing individual articles for named prophets: "
+                + ", ".join(missing_named_prophets)
+            )
 
     if len(asset_topics) < spec.min_topics:
         failures.append(
