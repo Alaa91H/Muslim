@@ -2,6 +2,7 @@ package org.muslim.app.feature.scholarlibrary.data
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
+import java.security.MessageDigest
 import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -20,6 +21,7 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBookHierarchy
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBookOutlineSection
 import org.muslim.app.feature.scholarlibrary.domain.ScholarCategory
+import org.muslim.app.feature.scholarlibrary.domain.ScholarContentPack
 import org.muslim.app.feature.scholarlibrary.domain.ScholarDifficulty
 import org.muslim.app.feature.scholarlibrary.domain.ScholarHighlightStyle
 import org.muslim.app.feature.scholarlibrary.domain.ScholarLibraryIndex
@@ -41,7 +43,14 @@ import org.muslim.app.feature.scholarlibrary.domain.StudyHighlightWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.StudyNoteWithCitation
 
 sealed interface ScholarLibraryImportResult {
-    data class Success(val importedBooks: Int, val importedPassages: Int) : ScholarLibraryImportResult
+    data class Success(
+        val importedBooks: Int,
+        val importedPassages: Int,
+        val packName: String,
+        val packVersion: Int,
+        val replacedExisting: Boolean,
+    ) : ScholarLibraryImportResult
+
     data class Failure(val message: String) : ScholarLibraryImportResult
 }
 
@@ -51,6 +60,10 @@ private data class ScholarPack(
     val packName: String,
     val licenseNotice: String,
     val books: List<ScholarPackBook>,
+    val packId: String? = null,
+    val packVersion: Int = 1,
+    val sourceName: String? = null,
+    val sourceUrl: String? = null,
 )
 
 @Serializable
