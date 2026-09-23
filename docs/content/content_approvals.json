@@ -253,7 +253,7 @@
       "licence": "Project source licence; this JSON is a structured representation of project-authored reference content.",
       "attribution": "Islamic Reference Library content bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed by this structural migration; every migrated topic remains marked NeedsReview until article-level review is completed.",
-      "notes": "Schema v2 preserves the 14 legacy topics, 28 sections, and 56 bilingual paragraphs while adding chapter and editorial metadata."
+      "notes": "Schema v2 preserves all 14 legacy topics verbatim and expands the book to 23 topics, 46 sections, and 92 bilingual paragraphs. New articles include structured Quran citations and remain NeedsReview pending independent article-level review."
     }
   }
 }
