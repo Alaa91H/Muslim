@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -70,29 +71,8 @@ interface ScholarLibraryDao {
     @Query("SELECT * FROM scholar_flashcards WHERE id = :id LIMIT 1")
     suspend fun flashcardById(id: Long): ScholarFlashcardEntity?
 
-    @Query(
-        """
-        UPDATE scholar_flashcards
-        SET reviewCount = :reviewCount,
-            dueAtEpochMillis = :dueAt,
-            intervalDays = :intervalDays,
-            easeFactor = :easeFactor,
-            lapseCount = :lapseCount,
-            lastReviewedAtEpochMillis = :lastReviewedAt,
-            lastRating = :lastRating
-        WHERE id = :id
-        """,
-    )
-    suspend fun updateFlashcardReview(
-        id: Long,
-        reviewCount: Int,
-        dueAt: Long,
-        intervalDays: Int,
-        easeFactor: Double,
-        lapseCount: Int,
-        lastReviewedAt: Long,
-        lastRating: String,
-    )
+    @Update
+    suspend fun updateFlashcard(card: ScholarFlashcardEntity)
 
     @Query("DELETE FROM scholar_flashcards WHERE id = :id")
     suspend fun deleteFlashcard(id: Long)
