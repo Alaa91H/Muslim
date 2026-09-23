@@ -16,11 +16,12 @@ RAW = ROOT / "feature/feature-reference/src/main/res/raw"
 @dataclass(frozen=True)
 class CorpusSpec:
     name: str
-    legacy: Path
+    legacy: Path | None
     asset: Path
     min_topics: int
     min_chapters: int
     min_revision: int
+    required_topic_ids: frozenset[str] = frozenset()
 
 
 NAMED_PROPHET_TOPIC_IDS = {
@@ -76,6 +77,98 @@ CORPORA = (
         min_topics=65,
         min_chapters=9,
         min_revision=3,
+        required_topic_ids=frozenset(NAMED_PROPHET_TOPIC_IDS),
+    ),
+    CorpusSpec(
+        name="The Companions",
+        legacy=None,
+        asset=RAW / "reference_companions_v2.json",
+        min_topics=34,
+        min_chapters=5,
+        min_revision=1,
+        required_topic_ids=frozenset(
+            {
+                "abu_bakr",
+                "umar",
+                "uthman",
+                "ali",
+                "bilal",
+                "ammar",
+                "sumayya",
+                "musab",
+                "salman",
+                "ibn_masud",
+                "ubayy",
+                "muadh",
+                "abu_hurayra",
+                "ibn_abbas",
+                "ibn_umar",
+                "zayd_thabit",
+                "asma",
+                "umm_sulaym",
+                "nusaybah",
+            }
+        ),
+    ),
+    CorpusSpec(
+        name="Mothers of the Believers",
+        legacy=None,
+        asset=RAW / "reference_mothers_v2.json",
+        min_topics=15,
+        min_chapters=3,
+        min_revision=1,
+        required_topic_ids=frozenset(
+            {
+                "khadijah",
+                "sawda",
+                "aisha",
+                "hafsa",
+                "zaynab_khuzayma",
+                "umm_salama",
+                "zaynab_jahsh",
+                "juwayriyya",
+                "umm_habiba",
+                "safiyya",
+                "maymuna",
+            }
+        ),
+    ),
+    CorpusSpec(
+        name="Ahl al-Bayt",
+        legacy=None,
+        asset=RAW / "reference_ahl_al_bayt_v2.json",
+        min_topics=18,
+        min_chapters=4,
+        min_revision=1,
+        required_topic_ids=frozenset(
+            {
+                "ali_household",
+                "fatimah",
+                "hasan",
+                "husayn",
+                "abbas",
+                "hamza",
+                "jafar",
+                "aqil",
+            }
+        ),
+    ),
+    CorpusSpec(
+        name="Rightly Guided Caliphs",
+        legacy=None,
+        asset=RAW / "reference_rashidun_v2.json",
+        min_topics=25,
+        min_chapters=6,
+        min_revision=1,
+        required_topic_ids=frozenset(
+            {
+                "abu_bakr_caliph",
+                "umar_caliph",
+                "uthman_caliph",
+                "ali_caliph",
+                "hasan_reconciliation",
+            }
+        ),
     ),
 )
 
@@ -345,13 +438,22 @@ def verify_corpus(
     books: dict[str, dict[str, object]],
 ) -> tuple[list[str], str]:
     failures: list[str] = []
-    if not spec.legacy.exists() or not spec.asset.exists():
+    if not spec.asset.exists():
         return (
-            [f"{spec.name}: missing legacy source or asset."],
+            [f"{spec.name}: missing reference asset."],
+            f"{spec.name}: unavailable",
+        )
+    if spec.legacy is not None and not spec.legacy.exists():
+        return (
+            [f"{spec.name}: missing legacy source."],
             f"{spec.name}: unavailable",
         )
 
-    legacy_topics = parse_legacy_topics(spec.legacy.read_text(encoding="utf-8"))
+    legacy_topics = (
+        parse_legacy_topics(spec.legacy.read_text(encoding="utf-8"))
+        if spec.legacy is not None
+        else []
+    )
     pack = json.loads(spec.asset.read_text(encoding="utf-8"))
     if pack.get("schemaVersion") != 2:
         failures.append(f"{spec.name}: asset must use schemaVersion=2.")
@@ -389,13 +491,12 @@ def verify_corpus(
     ]
     failures.extend(verify_chapter_coverage(spec.name, book, topic_ids))
 
-    if spec.name == "Stories of the Prophets":
-        missing_named_prophets = sorted(NAMED_PROPHET_TOPIC_IDS - set(topic_ids))
-        if missing_named_prophets:
-            failures.append(
-                "Stories of the Prophets: missing individual articles for named prophets: "
-                + ", ".join(missing_named_prophets)
-            )
+    missing_required_topics = sorted(spec.required_topic_ids - set(topic_ids))
+    if missing_required_topics:
+        failures.append(
+            f"{spec.name}: missing required topic coverage: "
+            + ", ".join(missing_required_topics)
+        )
 
     if len(asset_topics) < spec.min_topics:
         failures.append(
