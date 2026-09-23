@@ -1,5 +1,7 @@
 package org.muslim.app.feature.learn.ui
 
+import android.content.Context
+import android.content.ContextWrapper
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
@@ -48,7 +50,7 @@ fun rememberWillDraftProtectionSession(
     state: WillDraftProtectionState,
     onSetEnabled: (Boolean) -> Unit,
 ): WillDraftProtectionSession {
-    val activity = LocalContext.current as? FragmentActivity
+    val activity = LocalContext.current.findFragmentActivity()
     val authenticator = remember(activity) {
         activity?.let(::WillDraftAuthenticator)
     }
@@ -146,4 +148,11 @@ private fun requestDraftAuthentication(
             onError(messages.unavailable)
         }
     }
+}
+
+
+private tailrec fun Context.findFragmentActivity(): FragmentActivity? = when (this) {
+    is FragmentActivity -> this
+    is ContextWrapper -> baseContext.findFragmentActivity()
+    else -> null
 }
