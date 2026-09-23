@@ -34,10 +34,16 @@ internal class UpdateDownloadManager(
         val url = release.apkUrl ?: return UpdateDownloadState.Failed(UpdateDownloadFailure.DownloadFailed)
         val currentPrefs = preferencesRepository.preferences.first()
 
-        if (
-            currentPrefs.updateDownloadId > 0L &&
-            currentPrefs.updateDownloadVersion == release.version
-        ) {
+        val sameRelease = currentPrefs.updateDownloadVersion == release.version &&
+            (
+                release.apkSha256.isNullOrBlank() ||
+                    currentPrefs.updateDownloadSha256.equals(release.apkSha256, ignoreCase = true)
+            ) &&
+            (
+                release.versionCode == null ||
+                    currentPrefs.updateDownloadVersionCode == release.versionCode
+            )
+        if (currentPrefs.updateDownloadId > 0L && sameRelease) {
             when (val current = state(currentPrefs)) {
                 is UpdateDownloadState.Downloading,
                 is UpdateDownloadState.Paused,
