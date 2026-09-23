@@ -75,4 +75,7 @@
     <string name="scholar_library_all_authors">كل المؤلفين</string>
     <string name="scholar_library_clear_filters">مسح الفلاتر</string>
     <string name="scholar_library_authors">المؤلفون</string>
+
+    <string name="scholar_library_author_book_count">%1$d كتاب/كتب في المكتبة</string>
+    <string name="scholar_library_outline_more">و%1$d باب/قسم إضافي…</string>
 </resources>
