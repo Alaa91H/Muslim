@@ -7,7 +7,6 @@ import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
-import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -15,7 +14,6 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
 
-private val Context.adhkarPrefsDataStore by preferencesDataStore(name = "adhkar_prefs")
 
 /**
  * User preferences for the adhkar experience (PROJECT_PROMPT.md §6 Phase 4):
@@ -92,7 +90,7 @@ class AdhkarPrefsRepository @Inject constructor(
     @ApplicationContext private val context: Context,
 ) {
 
-    val prefs: Flow<AdhkarPrefs> = context.adhkarPrefsDataStore.data
+    val prefs: Flow<AdhkarPrefs> = context.adhkarDataStore.data
         .map { p ->
         AdhkarPrefs(
             overlayEnabled = p[Keys.OVERLAY_ENABLED] ?: true,
@@ -240,7 +238,7 @@ class AdhkarPrefsRepository @Inject constructor(
     }
 
     private suspend fun edit(transform: (androidx.datastore.preferences.core.MutablePreferences) -> Unit) {
-        context.adhkarPrefsDataStore.edit { transform(it) }
+        context.adhkarDataStore.edit { transform(it) }
     }
 
     private object Keys {
