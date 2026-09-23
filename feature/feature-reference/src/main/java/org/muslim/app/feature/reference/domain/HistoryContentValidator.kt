@@ -7,6 +7,7 @@ package org.muslim.app.feature.reference.domain
  * future import/build tooling when the catalogue moves to JSON/Room.
  */
 object HistoryContentValidator {
+    @Suppress("LongParameterList")
     fun validate(
         eras: List<HistoryEra> = IslamicHistoryContent.timeline,
         articles: List<HistoryArticle> = IslamicHistoryArticles.articles,
@@ -188,6 +189,7 @@ object HistoryContentValidator {
         }
     }
 
+    @Suppress("LongParameterList")
     private fun validateEvents(
         events: List<HistoricalEvent>,
         eraIds: Set<String>,
