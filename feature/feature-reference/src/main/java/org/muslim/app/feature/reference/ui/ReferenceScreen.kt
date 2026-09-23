@@ -97,17 +97,15 @@ fun ReferenceScreen(
     var query by rememberSaveable { mutableStateOf("") }
     var hubQuery by rememberSaveable { mutableStateOf("") }
 
-    // System back steps out of the topic, then the book, then the screen
-    // (mirrors the toolbar arrow) — never skips straight to the More root.
-    BackHandler(enabled = selectedTopic != null || selectedBook != null) {
-        when {
-            selectedTopic != null -> selectedTopic = null
-            selectedBook != null -> {
-                selectedBook = null
-                query = ""
-            }
-        }
-    }
+    ReferenceBackHandler(
+        selectedTopic = selectedTopic,
+        selectedBook = selectedBook,
+        onClearTopic = { selectedTopic = null },
+        onClearBook = {
+            selectedBook = null
+            query = ""
+        },
+    )
 
     val book = selectedBook
 
@@ -173,6 +171,22 @@ fun ReferenceScreen(
                 },
                 modifier = contentModifier,
             )
+        }
+    }
+}
+
+@Composable
+private fun ReferenceBackHandler(
+    selectedTopic: RefTopic?,
+    selectedBook: ReferenceBook?,
+    onClearTopic: () -> Unit,
+    onClearBook: () -> Unit,
+) {
+    BackHandler(enabled = selectedTopic != null || selectedBook != null) {
+        if (selectedTopic != null) {
+            onClearTopic()
+        } else if (selectedBook != null) {
+            onClearBook()
         }
     }
 }
