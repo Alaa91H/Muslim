@@ -67,6 +67,11 @@ dependencies {
 
     implementation(libs.kotlinx.serialization.json)
 
+    // Circular reciter portraits in the recitation picker. Coil provides
+    // memory/disk caching and reuses the app's OkHttp stack for HTTPS images.
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
     // Daily "ayah of the day" notification
     implementation(libs.androidx.work.runtime.ktx)
 
