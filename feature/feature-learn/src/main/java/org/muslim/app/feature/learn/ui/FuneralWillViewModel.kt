@@ -24,6 +24,11 @@ enum class WillPdfExportStatus {
     Error,
 }
 
+data class WillDraftProtectionState(
+    val loaded: Boolean = false,
+    val enabled: Boolean = false,
+)
+
 @HiltViewModel
 class FuneralWillViewModel @Inject constructor(
     private val willDraftRepository: WillDraftRepository,
@@ -49,6 +54,20 @@ class FuneralWillViewModel @Inject constructor(
             started = SharingStarted.WhileSubscribed(5_000),
             initialValue = false,
         )
+
+    val draftProtection: StateFlow<WillDraftProtectionState> =
+        preferencesRepository.draftProtectionEnabled
+            .map { enabled ->
+                WillDraftProtectionState(
+                    loaded = true,
+                    enabled = enabled,
+                )
+            }
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(5_000),
+                initialValue = WillDraftProtectionState(),
+            )
 
     private val _pdfExportStatus = MutableStateFlow(WillPdfExportStatus.Idle)
     val pdfExportStatus: StateFlow<WillPdfExportStatus> = _pdfExportStatus.asStateFlow()
@@ -84,6 +103,12 @@ class FuneralWillViewModel @Inject constructor(
 
     fun consumePdfExportStatus() {
         _pdfExportStatus.value = WillPdfExportStatus.Idle
+    }
+
+    fun setDraftProtectionEnabled(enabled: Boolean) {
+        viewModelScope.launch {
+            preferencesRepository.setDraftProtectionEnabled(enabled)
+        }
     }
 
     fun dismissDraftIntro() {
