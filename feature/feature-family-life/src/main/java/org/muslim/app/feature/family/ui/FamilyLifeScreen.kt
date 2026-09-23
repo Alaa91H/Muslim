@@ -72,6 +72,7 @@ import org.muslim.app.feature.family.R
 import org.muslim.app.feature.family.domain.AqiqahCalculator
 import org.muslim.app.feature.family.domain.AqiqahReminderDay
 import org.muslim.app.feature.family.domain.BabyNameGender
+import org.muslim.app.feature.family.domain.FamilyGuideArticle
 import org.muslim.app.feature.family.domain.FamilyTopicCategory
 import org.muslim.app.feature.family.domain.FamilyLifeContent
 import org.muslim.app.feature.family.domain.IslamicBabyName
@@ -92,6 +93,23 @@ private enum class FamilySection {
     Aqiqah,
 }
 
+private data class FamilyScreenModel(
+    val section: FamilySection,
+    val selectedCategory: FamilyTopicCategory?,
+    val selectedArticle: FamilyGuideArticle?,
+    val isArabic: Boolean,
+)
+
+private data class FamilyDestinationActions(
+    val openSection: (FamilySection) -> Unit,
+    val openCategory: (FamilyTopicCategory) -> Unit,
+    val openArticle: (String) -> Unit,
+    val onAudioFailure: (String) -> Unit,
+    val openQuran: () -> Unit,
+    val openHadith: () -> Unit,
+    val openAdhkar: () -> Unit,
+)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FamilyLifeScreen(
@@ -111,13 +129,19 @@ fun FamilyLifeScreen(
     }
     val selectedArticle = articleId?.let(FamilyLifeContent::articleById)
     val state by viewModel.state.collectAsStateWithLifecycle()
-    LaunchedEffect(selectedArticle?.id) {
-        selectedArticle?.id?.let(viewModel::recordArticleOpened)
-    }
-    val isArabic = AppLanguage.isArabicUi()
+    val model = FamilyScreenModel(
+        section = section,
+        selectedCategory = selectedCategory,
+        selectedArticle = selectedArticle,
+        isArabic = AppLanguage.isArabicUi(),
+    )
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
+
+    LaunchedEffect(selectedArticle?.id) {
+        selectedArticle?.id?.let(viewModel::recordArticleOpened)
+    }
 
     fun navigate(target: FamilySection, category: FamilyTopicCategory? = null) {
         sectionName = target.name
@@ -125,7 +149,18 @@ fun FamilyLifeScreen(
         articleId = null
     }
 
-    fun navigateBack() {
+    val actions = FamilyDestinationActions(
+        openSection = { navigate(it) },
+        openCategory = { navigate(FamilySection.Guide, it) },
+        openArticle = { articleId = it },
+        onAudioFailure = { message ->
+            scope.launch { snackbarHostState.showSnackbar(message) }
+        },
+        openQuran = onOpenQuran,
+        openHadith = onOpenHadith,
+        openAdhkar = onOpenAdhkar,
+    )
+    val navigateBack = {
         when {
             articleId != null -> articleId = null
             section != FamilySection.Home -> navigate(FamilySection.Home)
@@ -138,76 +173,111 @@ fun FamilyLifeScreen(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             FamilyLifeTopBar(
-                title = selectedArticle?.title?.pick(isArabic) ?: section.title(),
-                onBack = ::navigateBack,
+                title = selectedArticle?.title?.pick(model.isArabic) ?: section.title(),
+                onBack = navigateBack,
             )
         },
     ) { innerPadding ->
-        Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
-            IslamicDecorationBand(
-                tint = MaterialTheme.colorScheme.tertiary,
-                compact = true,
-            )
-            IslamicDecorationDivider(
-                tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 24.dp),
-            )
-            when {
-                selectedArticle != null -> FamilyArticleDetailContent(
-                    article = selectedArticle,
-                    isArabic = isArabic,
-                    isFavorite = selectedArticle.id in state.favoriteArticleIds,
-                    relatedArticles = FamilyLifeContent.relatedArticles(selectedArticle.id),
-                    onToggleFavorite = { viewModel.toggleArticleFavorite(selectedArticle.id) },
-                    onOpenArticle = { articleId = it },
-                )
-                section == FamilySection.Home -> FamilyHubContent(
-                    isArabic = isArabic,
-                    favoriteCount = state.favoriteArticleIds.size,
-                    recentCount = state.recentArticleIds.size,
-                    onOpenCategory = { category -> navigate(FamilySection.Guide, category) },
-                    onOpenSaved = { navigate(FamilySection.Saved) },
-                    onOpenTools = { navigate(FamilySection.Tools) },
-                    onOpenRuqyah = { navigate(FamilySection.Ruqyah) },
-                    onOpenNames = { navigate(FamilySection.Names) },
-                    onOpenAqiqah = { navigate(FamilySection.Aqiqah) },
-                    onOpenQuran = onOpenQuran,
-                    onOpenHadith = onOpenHadith,
-                    onOpenAdhkar = onOpenAdhkar,
-                )
-                section == FamilySection.Guide -> FamilyGuideCatalogContent(
-                    isArabic = isArabic,
-                    initialCategory = selectedCategory,
-                    favoriteIds = state.favoriteArticleIds,
-                    onOpenArticle = { articleId = it },
-                    onToggleFavorite = viewModel::toggleArticleFavorite,
-                )
-                section == FamilySection.Saved -> FamilySavedContent(
-                    isArabic = isArabic,
-                    favoriteIds = state.favoriteArticleIds,
-                    recentArticleIds = state.recentArticleIds,
-                    onOpenArticle = { articleId = it },
-                    onClearHistory = viewModel::clearReadingHistory,
-                )
-                section == FamilySection.Tools -> FamilyToolsContent(
-                    isArabic = isArabic,
-                    completedItemIds = state.completedChecklistItemIds,
-                    onSetCompleted = viewModel::setChecklistItemCompleted,
-                )
-                section == FamilySection.Ruqyah -> RuqyahContent(
-                    isArabic = isArabic,
-                    onPlay = { url -> openAudio(context = context, url = url) },
-                    onAudioFailure = { message ->
-                        scope.launch { snackbarHostState.showSnackbar(message) }
-                    },
-                )
-                section == FamilySection.Names -> BabyNamesContent(isArabic = isArabic)
-                section == FamilySection.Aqiqah -> AqiqahContent(
-                    state = state,
-                    viewModel = viewModel,
-                )
-            }
-        }
+        FamilyLifeContentHost(
+            modifier = Modifier.padding(innerPadding),
+            model = model,
+            state = state,
+            viewModel = viewModel,
+            context = context,
+            actions = actions,
+        )
+    }
+}
+
+@Composable
+private fun FamilyLifeContentHost(
+    model: FamilyScreenModel,
+    state: FamilyLifeUiState,
+    viewModel: FamilyLifeViewModel,
+    context: Context,
+    actions: FamilyDestinationActions,
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier = modifier.fillMaxSize()) {
+        IslamicDecorationBand(
+            tint = MaterialTheme.colorScheme.tertiary,
+            compact = true,
+        )
+        IslamicDecorationDivider(
+            tint = MaterialTheme.colorScheme.tertiary,
+            modifier = Modifier.padding(horizontal = 24.dp),
+        )
+        FamilyLifeDestination(
+            model = model,
+            state = state,
+            viewModel = viewModel,
+            context = context,
+            actions = actions,
+        )
+    }
+}
+
+@Composable
+private fun FamilyLifeDestination(
+    model: FamilyScreenModel,
+    state: FamilyLifeUiState,
+    viewModel: FamilyLifeViewModel,
+    context: Context,
+    actions: FamilyDestinationActions,
+) {
+    val article = model.selectedArticle
+    when {
+        article != null -> FamilyArticleDetailContent(
+            article = article,
+            isArabic = model.isArabic,
+            isFavorite = article.id in state.favoriteArticleIds,
+            relatedArticles = FamilyLifeContent.relatedArticles(article.id),
+            onToggleFavorite = { viewModel.toggleArticleFavorite(article.id) },
+            onOpenArticle = actions.openArticle,
+        )
+        model.section == FamilySection.Home -> FamilyHubContent(
+            isArabic = model.isArabic,
+            favoriteCount = state.favoriteArticleIds.size,
+            recentCount = state.recentArticleIds.size,
+            onOpenCategory = actions.openCategory,
+            onOpenSaved = { actions.openSection(FamilySection.Saved) },
+            onOpenTools = { actions.openSection(FamilySection.Tools) },
+            onOpenRuqyah = { actions.openSection(FamilySection.Ruqyah) },
+            onOpenNames = { actions.openSection(FamilySection.Names) },
+            onOpenAqiqah = { actions.openSection(FamilySection.Aqiqah) },
+            onOpenQuran = actions.openQuran,
+            onOpenHadith = actions.openHadith,
+            onOpenAdhkar = actions.openAdhkar,
+        )
+        model.section == FamilySection.Guide -> FamilyGuideCatalogContent(
+            isArabic = model.isArabic,
+            initialCategory = model.selectedCategory,
+            favoriteIds = state.favoriteArticleIds,
+            onOpenArticle = actions.openArticle,
+            onToggleFavorite = viewModel::toggleArticleFavorite,
+        )
+        model.section == FamilySection.Saved -> FamilySavedContent(
+            isArabic = model.isArabic,
+            favoriteIds = state.favoriteArticleIds,
+            recentArticleIds = state.recentArticleIds,
+            onOpenArticle = actions.openArticle,
+            onClearHistory = viewModel::clearReadingHistory,
+        )
+        model.section == FamilySection.Tools -> FamilyToolsContent(
+            isArabic = model.isArabic,
+            completedItemIds = state.completedChecklistItemIds,
+            onSetCompleted = viewModel::setChecklistItemCompleted,
+        )
+        model.section == FamilySection.Ruqyah -> RuqyahContent(
+            isArabic = model.isArabic,
+            onPlay = { url -> openAudio(context = context, url = url) },
+            onAudioFailure = actions.onAudioFailure,
+        )
+        model.section == FamilySection.Names -> BabyNamesContent(isArabic = model.isArabic)
+        model.section == FamilySection.Aqiqah -> AqiqahContent(
+            state = state,
+            viewModel = viewModel,
+        )
     }
 }
 
