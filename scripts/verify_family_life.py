@@ -10,6 +10,8 @@ ROOT = Path(__file__).resolve().parents[1]
 MODULE = ROOT / "feature/feature-family-life"
 SCREEN = MODULE / "src/main/java/org/muslim/app/feature/family/ui/FamilyLifeScreen.kt"
 CONTENT = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyLifeContent.kt"
+ADVANCED_CONTENT = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyAdvancedContent.kt"
+GUIDE_HUB = MODULE / "src/main/java/org/muslim/app/feature/family/ui/FamilyGuideHub.kt"
 AR_STRINGS = MODULE / "src/main/res/values/strings.xml"
 EN_STRINGS = MODULE / "src/main/res/values-en/strings.xml"
 SETTINGS = ROOT / "settings.gradle.kts"
@@ -34,6 +36,8 @@ def main() -> int:
         MODULE / "src/main/AndroidManifest.xml",
         SCREEN,
         CONTENT,
+        ADVANCED_CONTENT,
+        GUIDE_HUB,
         MODULE / "src/main/java/org/muslim/app/feature/family/ui/FamilyLifeViewModel.kt",
         MODULE / "src/main/java/org/muslim/app/feature/family/domain/AqiqahCalculator.kt",
         MODULE / "src/main/java/org/muslim/app/feature/family/data/AqiqahPrefsRepository.kt",
@@ -72,8 +76,9 @@ def main() -> int:
     arabic = string_names(AR_STRINGS)
     english = string_names(EN_STRINGS)
     screen_text = SCREEN.read_text(encoding="utf-8")
+    guide_text = GUIDE_HUB.read_text(encoding="utf-8")
     worker_text = (MODULE / "src/main/java/org/muslim/app/feature/family/data/AqiqahReminderWorker.kt").read_text(encoding="utf-8")
-    used = set(re.findall(r"R\.string\.([A-Za-z0-9_]+)", screen_text + "\n" + worker_text))
+    used = set(re.findall(r"R\.string\.([A-Za-z0-9_]+)", screen_text + "\n" + guide_text + "\n" + worker_text))
     missing_ar = sorted(used - arabic)
     missing_en = sorted(used - english)
     if missing_ar or missing_en:
@@ -84,12 +89,34 @@ def main() -> int:
         return 1
 
     content = CONTENT.read_text(encoding="utf-8")
-    article_ids = re.findall(r'FamilyGuideArticle\(\s*id\s*=\s*"([^"]+)"', content)
+    advanced_content = ADVANCED_CONTENT.read_text(encoding="utf-8")
+    article_ids = re.findall(r'FamilyGuideArticle\(\s*id\s*=\s*"([^"]+)"', content + "\n" + advanced_content)
     if len(article_ids) != len(set(article_ids)):
         return fail("Duplicate family article IDs detected")
-    required_articles = {"engagement", "nikah", "marital_rights", "parenting"}
+    required_articles = {
+        "engagement",
+        "choosing_spouse",
+        "premarital_conversations",
+        "nikah",
+        "mahr_financial_agreements",
+        "marriage_documentation",
+        "marital_rights",
+        "marital_communication",
+        "household_finances",
+        "parenting",
+        "conflict_resolution",
+        "mediation_reconciliation",
+        "abuse_safety",
+        "separation_divorce",
+        "divorce_general_principles",
+        "khul_annulment",
+    }
     if not required_articles.issubset(article_ids):
-        return fail("Core family guide articles are missing")
+        return fail("Expanded family guide articles are missing")
+    if len(article_ids) < 19:
+        return fail(f"Family guide unexpectedly small: {len(article_ids)} articles")
+    if "FamilyArticleDetailContent" not in screen_text or "FamilyHubContent" not in screen_text:
+        return fail("FamilyLifeScreen is not wired to the hub/article reader")
 
     audio_urls = re.findall(r'https://everyayah\.com/data/[^"\s]+\.mp3', content)
     if len(audio_urls) < 3:
