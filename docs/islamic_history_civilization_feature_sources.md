@@ -16,10 +16,11 @@ The history feature now separates **UI**, **content contracts**, and **curated c
 - `IslamicHistoryArticles.kt` contains the first long-form bilingual article set.
 - `IslamicHistoryStates.kt` adds 18 major overlapping states and dynasties, grouped by broad region instead of forcing them into a single succession.
 - `IslamicCivilizationContent.kt` adds 12 long-form thematic topics across knowledge/sciences, institutions, society/economy, and arts/built environment.
-- `HistoryContentValidator.kt` validates unique IDs, bilingual completeness, chronology sanity, source references, related-era/topic references, state/era links, person links, and section structure.
+- `IslamicHistoricalEvents.kt` adds 22 structured chronological anchors with context, significance, category, and links to eras, states, atlas places, people, civilization topics, and sources.
+- `HistoryContentValidator.kt` validates unique IDs, bilingual completeness, chronology sanity, source references, related-era/topic references, state/era links, event references, person/place links, and section structure.
 - `HistoryContentValidatorTest.kt` makes those rules part of CI so broken references or incomplete articles are caught before merge.
 
-The Compose screen now exposes dedicated **States & Dynasties** and **Civilization** tabs. The former uses regional filters to make overlapping political histories visible side by side; the latter uses thematic filters and dedicated readers so science, institutions, economic life, cities, architecture, and visual culture are not reduced to political chronology. This separation is also the migration boundary for a later move from Kotlin constants to packaged JSON/Room content without rewriting the readers.
+The Compose screen now exposes dedicated **States & Dynasties**, **Civilization**, and **Events** tabs. States use regional filters to make overlapping political histories visible side by side; Civilization uses thematic filters and dedicated readers so science, institutions, economic life, cities, architecture, and visual culture are not reduced to political chronology; Events adds chronological anchors with category and era filters plus detailed context/significance views. The tab row is scrollable so the expanded information architecture remains usable on small screens. This separation is also the migration boundary for a later move from Kotlin constants to packaged JSON/Room content without rewriting the readers.
 
 ## Sources reviewed
 
@@ -35,6 +36,19 @@ The Compose screen now exposes dedicated **States & Dynasties** and **Civilizati
 | Trade and caravan networks | [UNESCO: About the Silk Roads](https://www.unesco.org/en/silk-roads/about-silk-roads) | Supports the framing of land and maritime routes as shifting networks carrying goods, ideas, languages, and beliefs rather than one fixed route. |
 | Caliphal chronology context | [World History Encyclopedia: Islamic Caliphates](https://www.worldhistory.org/Islamic_Caliphates/) | Used only as a supplementary overview and cross-checked against the museum chronology; the app avoids importing its interpretive language. |
 | Ibn Khaldun profile | [Ibn Haldun University: About Ibn Haldun](https://www.ihu.edu.tr/en/ibn-haldun-kimdir) | Used for basic dates, roles, and the scope of the *Muqaddimah* in the Ibn Khaldun card. |
+
+
+## Event catalogue policy
+
+The event catalogue is an **index of chronological anchors**, not a claim that Islamic history is primarily a sequence of wars, dynastic changes, or decisions made by rulers. Events include community/religious transitions, political changes, conflict, urban foundations, knowledge/cultural developments, and institutional changes. Each record contains:
+
+- a structured CE date with exact/approximate/range/disputed precision;
+- a bilingual summary, context paragraph, and significance paragraph;
+- links to one or more broad eras;
+- optional links to known states, atlas places, people, and civilization topics;
+- explicit source IDs.
+
+When an event is contested in interpretation, the record should describe the documented sequence and attribute interpretive claims rather than assigning motives as fact.
 
 ## Map policy
 
