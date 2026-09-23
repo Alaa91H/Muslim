@@ -23,8 +23,9 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         ScholarReadingProgressEntity::class,
         ScholarStudyPlanEntity::class,
         ScholarStudySessionEntity::class,
+        ScholarReviewEventEntity::class,
     ],
-    version = 5,
+    version = 6,
     exportSchema = false,
 )
 abstract class ScholarLibraryDatabase : RoomDatabase() {
@@ -218,6 +219,47 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
             }
         }
 
+        /**
+         * v6 records immutable local review events for accurate activity
+         * summaries and filtered review-center history.
+         */
+        internal val MIGRATION_5_6 = object : Migration(5, 6) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS scholar_review_events (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                        flashcardId INTEGER NOT NULL,
+                        passageId TEXT NOT NULL,
+                        bookId TEXT NOT NULL,
+                        category TEXT NOT NULL,
+                        reviewedAtEpochMillis INTEGER NOT NULL,
+                        rating TEXT NOT NULL,
+                        scheduledIntervalDays INTEGER NOT NULL,
+                        lapseCountAfterReview INTEGER NOT NULL,
+                        easeFactorAfterReview REAL NOT NULL
+                    )
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_review_events_flashcardId " +
+                        "ON scholar_review_events (flashcardId)",
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_review_events_bookId " +
+                        "ON scholar_review_events (bookId)",
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_review_events_category " +
+                        "ON scholar_review_events (category)",
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_review_events_reviewedAtEpochMillis " +
+                        "ON scholar_review_events (reviewedAtEpochMillis)",
+                )
+            }
+        }
+
         @Volatile
         private var instance: ScholarLibraryDatabase? = null
 
@@ -228,7 +270,7 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
                     ScholarLibraryDatabase::class.java,
                     DB_NAME,
                 )
-                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5)
+                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5, MIGRATION_5_6)
                     .build()
                     .also { instance = it }
             }
