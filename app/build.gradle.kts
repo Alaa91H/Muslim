@@ -237,6 +237,7 @@ dependencies {
     implementation(libs.androidx.window)
     implementation(libs.androidx.media)
     implementation(libs.google.play.services.wearable)
+    implementation(libs.kotlinx.coroutines.play.services)
 
     // Compose (versions from BOM)
     implementation(platform(libs.androidx.compose.bom))
