@@ -144,26 +144,38 @@ class SettingsViewModel @Inject constructor(
     private val _updateCheckError = MutableStateFlow<String?>(null)
     val updateCheckError: StateFlow<String?> = _updateCheckError.asStateFlow()
 
+    /** Prevents duplicate manual checks and drives the Settings progress UI. */
+    private val _isCheckingForUpdates = MutableStateFlow(false)
+    val isCheckingForUpdates: StateFlow<Boolean> = _isCheckingForUpdates.asStateFlow()
+
     /**
      * Runs an immediate check against the GitHub releases page. When a newer
      * version exists the update-available notification is posted; the caller
      * (settings screen) opens the update screen for the details. Failures are
      * surfaced with the underlying reason instead of crashing the screen.
      */
-    fun checkForUpdatesNow() = launch {
-        _updateCheckResult.value = null
-        _updateCheckError.value = null
-        runCatching { updateChecker.checkAndNotify() }
-            .onSuccess { result ->
-                _updateCheckResult.value = result
-                if (result !is UpdateChecker.Result.Unavailable) {
-                    appPreferencesRepository.setLastUpdateCheck(System.currentTimeMillis())
-                }
+    fun checkForUpdatesNow() {
+        if (_isCheckingForUpdates.value) return
+        viewModelScope.launch {
+            _isCheckingForUpdates.value = true
+            _updateCheckResult.value = null
+            _updateCheckError.value = null
+            try {
+                runCatching { updateChecker.checkAndNotify() }
+                    .onSuccess { result ->
+                        _updateCheckResult.value = result
+                        if (result !is UpdateChecker.Result.Unavailable) {
+                            appPreferencesRepository.setLastUpdateCheck(System.currentTimeMillis())
+                        }
+                    }
+                    .onFailure { e ->
+                        _updateCheckError.value = e.message?.takeIf { it.isNotBlank() }
+                            ?: e.javaClass.simpleName
+                    }
+            } finally {
+                _isCheckingForUpdates.value = false
             }
-            .onFailure { e ->
-                _updateCheckError.value = e.message?.takeIf { it.isNotBlank() }
-                    ?: e.javaClass.simpleName
-            }
+        }
     }
 
     /** Clears the last manual-check error (after the UI consumed it). */
