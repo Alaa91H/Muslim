@@ -261,4 +261,62 @@ object WillEducationContent {
         "التأصيل العام: البقرة 2:180؛ النساء 4:11–12 و4:176؛ صحيح البخاري، كتاب الوصايا. الوصية المالية والميراث يحتاجان مراجعة عالم موثوق ومحامٍ أو كاتب عدل وفق بلدك.",
         "General basis: Qur'an 2:180; 4:11-12 and 4:176; Sahih al-Bukhari, Book of Wills. Financial bequests and inheritance need review by a qualified scholar and a lawyer or notary in your jurisdiction.",
     )
+
+    val willReferenceIndex = listOf(
+        WillReferenceEntry(
+            id = "quran_will",
+            source = LocalizedFuneralText(
+                "القرآن الكريم: البقرة 2:180",
+                "Qur'an 2:180",
+            ),
+            scope = LocalizedFuneralText(
+                "تأصيل عام لموضوع الوصية مع مراعاة بقية أحكام المواريث والفقه.",
+                "General basis for wills, read together with the wider Islamic law of inheritance.",
+            ),
+        ),
+        WillReferenceEntry(
+            id = "quran_inheritance",
+            source = LocalizedFuneralText(
+                "القرآن الكريم: النساء 4:11–12 و4:176",
+                "Qur'an 4:11-12 and 4:176",
+            ),
+            scope = LocalizedFuneralText(
+                "آيات المواريث الأساسية؛ التطبيق على حالة بعينها يحتاج ضبط الورثة والحقوق والديون.",
+                "Core inheritance verses; applying them to a real estate requires accurate facts about heirs, rights, and debts.",
+            ),
+        ),
+        WillReferenceEntry(
+            id = "one_third_hadith",
+            source = LocalizedFuneralText(
+                "الصحيحان: حديث سعد بن أبي وقاص في الثلث",
+                "Sahih al-Bukhari and Sahih Muslim: the hadith of Sa'd ibn Abi Waqqas concerning one third",
+            ),
+            scope = LocalizedFuneralText(
+                "تأصيل عام لحد الوصية المالية الوارد في الحديث، مع الحاجة إلى تطبيق فقهي صحيح.",
+                "General basis for the bequest limit mentioned in the hadith, with qualified fiqh application still required.",
+            ),
+        ),
+        WillReferenceEntry(
+            id = "bukhari_wills",
+            source = LocalizedFuneralText(
+                "صحيح البخاري: كتاب الوصايا",
+                "Sahih al-Bukhari: Book of Wills",
+            ),
+            scope = LocalizedFuneralText(
+                "مرجع حديثي عام لأبواب الوصايا، ولا يغني وحده عن جمع النصوص وأقوال أهل العلم.",
+                "A general hadith reference for wills; it does not replace reading the relevant evidence and qualified scholarship together.",
+            ),
+        ),
+        WillReferenceEntry(
+            id = "qualified_review",
+            source = LocalizedFuneralText(
+                "مراجعة عالم موثوق وجهة قانونية محلية مؤهلة",
+                "Qualified scholar and local legal review",
+            ),
+            scope = LocalizedFuneralText(
+                "ضرورية عند تحويل المسودة إلى وثيقة يعتمد عليها شرعًا وقانونًا، خصوصًا مع اختلاف البلد أو ظروف الأسرة والمال.",
+                "Needed before treating the draft as an Islamic or legal instrument, especially where jurisdiction, family, or financial circumstances differ.",
+            ),
+        ),
+    )
 }
