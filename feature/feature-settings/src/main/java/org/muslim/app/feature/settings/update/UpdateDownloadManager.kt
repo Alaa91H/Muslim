@@ -14,6 +14,9 @@ import java.io.File
  *
  * The DownloadManager id + release metadata are persisted in DataStore, so
  * transfers and their UI state survive Activity recreation and process death.
+ * APKs stay inside the app-specific external-files directory: DownloadManager
+ * can write them without storage permission and FileProvider can expose only
+ * the verified update to Android's package installer.
  */
 internal class UpdateDownloadManager(
     private val context: Context,
