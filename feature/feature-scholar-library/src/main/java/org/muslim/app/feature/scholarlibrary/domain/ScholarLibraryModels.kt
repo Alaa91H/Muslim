@@ -90,6 +90,8 @@ data class ScholarPassage(
     val volume: String?,
     val page: String?,
     val text: String,
+    val section: String? = null,
+    val orderIndex: Int = 0,
 )
 
 data class ScholarNote(
@@ -146,6 +148,25 @@ data class ScholarBookOutlineSection(
     val passageIds: List<String>,
 )
 
+data class ScholarBookHierarchy(
+    val volumes: List<ScholarVolumeNode>,
+)
+
+data class ScholarVolumeNode(
+    val label: String?,
+    val chapters: List<ScholarChapterNode>,
+)
+
+data class ScholarChapterNode(
+    val title: String,
+    val sections: List<ScholarSectionNode>,
+)
+
+data class ScholarSectionNode(
+    val title: String?,
+    val passageIds: List<String>,
+)
+
 data class ScholarStudyPath(
     val id: String,
     val title: String,
@@ -160,6 +181,25 @@ data class ScholarStudyStage(
     val title: String,
     val description: String,
     val bookIds: List<String>,
+)
+
+data class ScholarPathProgress(
+    val pathId: String,
+    val completedBooks: Int,
+    val totalBooks: Int,
+    val progressPercent: Int,
+    val currentBookId: String?,
+)
+
+data class ScholarStudyPlan(
+    val id: Long,
+    val pathId: String,
+    val sessionsPerWeek: Int,
+    val minutesPerSession: Int,
+    val targetPassagesPerSession: Int,
+    val active: Boolean,
+    val createdAtEpochMillis: Long,
+    val updatedAtEpochMillis: Long,
 )
 
 data class ScholarSearchFilters(
