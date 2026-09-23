@@ -139,7 +139,7 @@ def main() -> int:
         return fail("Expanded family guide articles are missing")
     if len(article_ids) < 34:
         return fail(f"Family guide unexpectedly small: {len(article_ids)} articles")
-    expanded_names = re.findall(r'(?:prophet|arabic)\("([^"]+)"', names_expansion)
+    expanded_names = re.findall(r'(?:prophet|arabicBoy|arabicGirl)\("([^"]+)"', names_expansion)
     if len(expanded_names) < 60:
         return fail(f"Baby-name expansion unexpectedly small: {len(expanded_names)} names")
     ruqyah_duas = re.findall(r'RuqyahSupplication\(\s*id\s*=\s*"([^"]+)"', parenting_content)
