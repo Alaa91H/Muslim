@@ -27,6 +27,8 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarSearchFilters
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPath
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPlan
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySession
+import org.muslim.app.feature.scholarlibrary.domain.ScholarWeeklyStudySummary
 import org.muslim.app.feature.scholarlibrary.domain.SearchHit
 import org.muslim.app.feature.scholarlibrary.domain.StudyBookmarkWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.StudyHighlightWithCitation
@@ -39,6 +41,11 @@ internal data class ScholarLibraryUiState(
     val studyPaths: List<ScholarStudyPath> = emptyList(),
     val pathProgress: List<ScholarPathProgress> = emptyList(),
     val studyPlans: List<ScholarStudyPlan> = emptyList(),
+    val studySessions: List<ScholarStudySession> = emptyList(),
+    val weeklyStudySummaries: List<ScholarWeeklyStudySummary> = emptyList(),
+    val selectedStudySession: ScholarStudySession? = null,
+    val selectedSessionPassages: List<ScholarPassage> = emptyList(),
+    val selectedSessionPathId: String? = null,
     val catalogMetadataLoading: Boolean = true,
     val selectedCategory: ScholarCategory? = null,
     val selectedDifficulty: ScholarDifficulty? = null,
@@ -66,6 +73,7 @@ class ScholarLibraryViewModel @Inject constructor(
 
     private var searchJob: Job? = null
     private var bookJob: Job? = null
+    private var sessionJob: Job? = null
 
     init {
         viewModelScope.launch {
@@ -114,6 +122,26 @@ class ScholarLibraryViewModel @Inject constructor(
         viewModelScope.launch {
             repository.observeStudyPlans().collect { plans ->
                 update { it.copy(studyPlans = plans) }
+            }
+        }
+        viewModelScope.launch {
+            repository.observeStudySessions().collect { sessions ->
+                update { state ->
+                    val selected = state.selectedStudySession?.let { current ->
+                        sessions.firstOrNull { it.id == current.id } ?: current
+                    }
+                    state.copy(
+                        studySessions = sessions,
+                        selectedStudySession = selected,
+                        weeklyStudySummaries = state.studyPaths.map { path ->
+                            ScholarLibraryIndex.weeklyStudySummary(
+                                pathId = path.id,
+                                sessions = sessions,
+                                nowEpochMillis = System.currentTimeMillis(),
+                            )
+                        },
+                    )
+                }
             }
         }
     }
@@ -343,6 +371,47 @@ class ScholarLibraryViewModel @Inject constructor(
         }
     }
 
+    fun loadStudySession(pathId: String) {
+        sessionJob?.cancel()
+        sessionJob = viewModelScope.launch {
+            val session = repository.startOrResumeStudySession(pathId)
+            val passages = session?.let { repository.studySessionPassages(it.id) }.orEmpty()
+            update {
+                it.copy(
+                    selectedSessionPathId = pathId,
+                    selectedStudySession = session,
+                    selectedSessionPassages = passages,
+                    statusMessage = if (session == null) {
+                        "لا توجد جلسة متاحة؛ فعّل خطة وتأكد من وجود مادة متبقية في المسار."
+                    } else {
+                        it.statusMessage
+                    },
+                )
+            }
+        }
+    }
+
+    fun completeNextStudySessionPassage(passageId: String) {
+        val session = mutableState.value.selectedStudySession ?: return
+        viewModelScope.launch {
+            val completed = repository.completeNextSessionPassage(session.id, passageId)
+            update {
+                it.copy(
+                    statusMessage = if (completed) {
+                        "تم تسجيل دراسة المقطع وتحديث تقدم الكتاب."
+                    } else {
+                        "تعذر تسجيل المقطع؛ يجب إكمال أهداف الجلسة بالترتيب."
+                    },
+                )
+            }
+        }
+    }
+
+    fun startNextStudySession() {
+        val pathId = mutableState.value.selectedSessionPathId ?: return
+        loadStudySession(pathId)
+    }
+
     private fun saveStudyPlan(
         pathId: String,
         sessionsPerWeek: Int,
@@ -390,6 +459,13 @@ class ScholarLibraryViewModel @Inject constructor(
                 authors = authors,
                 studyPaths = paths,
                 pathProgress = ScholarLibraryIndex.pathProgress(paths, it.readingProgress),
+                weeklyStudySummaries = paths.map { path ->
+                    ScholarLibraryIndex.weeklyStudySummary(
+                        pathId = path.id,
+                        sessions = it.studySessions,
+                        nowEpochMillis = System.currentTimeMillis(),
+                    )
+                },
                 catalogMetadataLoading = false,
             )
         }
