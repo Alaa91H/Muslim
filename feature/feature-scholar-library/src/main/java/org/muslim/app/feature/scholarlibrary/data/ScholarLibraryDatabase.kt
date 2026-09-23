@@ -23,8 +23,10 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         ScholarReadingProgressEntity::class,
         ScholarStudyPlanEntity::class,
         ScholarStudySessionEntity::class,
+        ScholarReviewEventEntity::class,
+        ScholarContentPackEntity::class,
     ],
-    version = 4,
+    version = 7,
     exportSchema = false,
 )
 abstract class ScholarLibraryDatabase : RoomDatabase() {
@@ -181,6 +183,121 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
             }
         }
 
+        /**
+         * v5 enriches existing flashcards with adaptive spaced-review state.
+         * Existing cards remain due exactly when they were before this upgrade.
+         */
+        internal val MIGRATION_4_5 = object : Migration(4, 5) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    "ALTER TABLE scholar_flashcards ADD COLUMN intervalDays INTEGER NOT NULL DEFAULT 0",
+                )
+                database.execSQL(
+                    "ALTER TABLE scholar_flashcards ADD COLUMN easeFactor REAL NOT NULL DEFAULT 2.5",
+                )
+                database.execSQL(
+                    "ALTER TABLE scholar_flashcards ADD COLUMN lapseCount INTEGER NOT NULL DEFAULT 0",
+                )
+                database.execSQL(
+                    "ALTER TABLE scholar_flashcards ADD COLUMN lastReviewedAtEpochMillis INTEGER",
+                )
+                database.execSQL(
+                    "ALTER TABLE scholar_flashcards ADD COLUMN lastRating TEXT",
+                )
+                database.execSQL(
+                    """
+                    UPDATE scholar_flashcards
+                    SET intervalDays = CASE
+                        WHEN reviewCount <= 0 THEN 0
+                        WHEN reviewCount = 1 THEN 1
+                        WHEN reviewCount = 2 THEN 3
+                        WHEN reviewCount = 3 THEN 7
+                        WHEN reviewCount = 4 THEN 14
+                        ELSE 30
+                    END
+                    """.trimIndent(),
+                )
+            }
+        }
+
+        /**
+         * v6 records immutable local review events for accurate activity
+         * summaries and filtered review-center history.
+         */
+        internal val MIGRATION_5_6 = object : Migration(5, 6) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS scholar_review_events (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                        flashcardId INTEGER NOT NULL,
+                        passageId TEXT NOT NULL,
+                        bookId TEXT NOT NULL,
+                        category TEXT NOT NULL,
+                        reviewedAtEpochMillis INTEGER NOT NULL,
+                        rating TEXT NOT NULL,
+                        scheduledIntervalDays INTEGER NOT NULL,
+                        lapseCountAfterReview INTEGER NOT NULL,
+                        easeFactorAfterReview REAL NOT NULL
+                    )
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_review_events_flashcardId " +
+                        "ON scholar_review_events (flashcardId)",
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_review_events_bookId " +
+                        "ON scholar_review_events (bookId)",
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_review_events_category " +
+                        "ON scholar_review_events (category)",
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_review_events_reviewedAtEpochMillis " +
+                        "ON scholar_review_events (reviewedAtEpochMillis)",
+                )
+            }
+        }
+
+        /**
+         * v7 adds a local registry for bundled/imported content packs. Existing
+         * catalog and study data remain untouched.
+         */
+        internal val MIGRATION_6_7 = object : Migration(6, 7) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS scholar_content_packs (
+                        packId TEXT NOT NULL,
+                        packName TEXT NOT NULL,
+                        packVersion INTEGER NOT NULL,
+                        schemaVersion INTEGER NOT NULL,
+                        licenseNotice TEXT NOT NULL,
+                        sourceName TEXT NOT NULL,
+                        sourceUrl TEXT,
+                        originName TEXT,
+                        bookIds TEXT NOT NULL,
+                        imported INTEGER NOT NULL,
+                        managed INTEGER NOT NULL,
+                        installedAtEpochMillis INTEGER NOT NULL,
+                        updatedAtEpochMillis INTEGER NOT NULL,
+                        PRIMARY KEY(packId)
+                    )
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_content_packs_imported " +
+                        "ON scholar_content_packs (imported)",
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_content_packs_updatedAtEpochMillis " +
+                        "ON scholar_content_packs (updatedAtEpochMillis)",
+                )
+            }
+        }
+
         @Volatile
         private var instance: ScholarLibraryDatabase? = null
 
@@ -191,7 +308,14 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
                     ScholarLibraryDatabase::class.java,
                     DB_NAME,
                 )
-                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
+                    .addMigrations(
+                        MIGRATION_1_2,
+                        MIGRATION_2_3,
+                        MIGRATION_3_4,
+                        MIGRATION_4_5,
+                        MIGRATION_5_6,
+                        MIGRATION_6_7,
+                    )
                     .build()
                     .also { instance = it }
             }
