@@ -743,7 +743,8 @@ internal fun navigationCoordinates(mosque: MosquePlace): String =
 /** Standard geo URI for showing a mosque marker without starting turn-by-turn navigation. */
 internal fun mosqueMapUri(mosque: MosquePlace): String {
     val coordinates = navigationCoordinates(mosque)
-    val label = Uri.encode(mosque.name ?: "Mosque")
+    val label = java.net.URLEncoder.encode(mosque.name ?: "Mosque", Charsets.UTF_8.name())
+        .replace("+", "%20")
     return "geo:$coordinates?q=$coordinates($label)"
 }
 
