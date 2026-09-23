@@ -79,6 +79,11 @@ data class ScholarFlashcardEntity(
     val reviewCount: Int,
     val dueAtEpochMillis: Long,
     val createdAtEpochMillis: Long,
+    @ColumnInfo(defaultValue = "0") val intervalDays: Int = 0,
+    @ColumnInfo(defaultValue = "2.5") val easeFactor: Double = 2.5,
+    @ColumnInfo(defaultValue = "0") val lapseCount: Int = 0,
+    val lastReviewedAtEpochMillis: Long? = null,
+    val lastRating: String? = null,
 )
 
 @Entity(
