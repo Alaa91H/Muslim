@@ -22,6 +22,8 @@ internal object AdhanDirectFallbackSession {
         generation += 1L
         releaseWakeLockLocked()
         wakeLock = newWakeLock
+        AdhanPlaybackStatus.isPlaying.value = true
+        AdhanPlaybackStatus.isPreviewing.value = false
         generation
     }
 
@@ -36,6 +38,8 @@ internal object AdhanDirectFallbackSession {
             }
         }
         if (ownsSession) {
+            AdhanPlaybackStatus.isPlaying.value = false
+            AdhanPlaybackStatus.isPreviewing.value = false
             AdhanNotifications.cancelActiveAdhan(context)
         }
     }
@@ -52,6 +56,8 @@ internal object AdhanDirectFallbackSession {
             generation += 1L
             releaseWakeLockLocked()
         }
+        AdhanPlaybackStatus.isPlaying.value = false
+        AdhanPlaybackStatus.isPreviewing.value = false
         val entryPoint = EntryPointAccessors.fromApplication(
             context.applicationContext,
             AdhanEntryPoint::class.java,
