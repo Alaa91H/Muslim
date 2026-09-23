@@ -25,6 +25,7 @@ object AndroidReferenceRepositoryFactory {
             decode(context, R.raw.reference_aqeedah_v2),
             decode(context, R.raw.reference_quran_sciences_v2),
             decode(context, R.raw.reference_hadith_sciences_v2),
+            decode(context, R.raw.reference_fiqh_worship_v2),
         ),
     )
 
