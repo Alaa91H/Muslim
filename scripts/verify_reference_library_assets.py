@@ -242,6 +242,39 @@ CORPORA = (
             }
         ),
     ),
+    CorpusSpec(
+        name="Fiqh of Worship",
+        legacy=None,
+        asset=RAW / "reference_fiqh_worship_v2.json",
+        min_topics=57,
+        min_chapters=6,
+        min_revision=1,
+        required_topic_ids=frozenset(
+            {
+                "fiqh_intro",
+                "madhhabs",
+                "fiqh_disagreement",
+                "fatwa_guidance",
+                "wudu",
+                "ghusl",
+                "tayammum",
+                "menstruation_nifas",
+                "prayer_times",
+                "prayer_pillars",
+                "jumuah",
+                "traveler_prayer",
+                "zakat_principles",
+                "zakat_recipients",
+                "fasting_obligation",
+                "fasting_invalidators",
+                "qada_fidya_kaffara",
+                "hajj_obligation",
+                "tawaf",
+                "sai",
+                "arafah",
+            }
+        ),
+    ),
 )
 
 
