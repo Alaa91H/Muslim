@@ -220,6 +220,7 @@ data class Citation(
     val edition: String? = null,
     val publisher: String? = null,
     val publicationYear: String? = null,
+    val section: String? = null,
 ) {
     fun compactLabel(): String = buildString {
         append(bookTitle)
@@ -228,6 +229,7 @@ data class Citation(
         if (!volume.isNullOrBlank()) append("، ج. ").append(volume)
         if (!page.isNullOrBlank()) append("، ص. ").append(page)
         if (chapter.isNotBlank()) append("، ").append(chapter)
+        if (!section.isNullOrBlank()) append("، ").append(section)
         if (!edition.isNullOrBlank()) append("، ").append(edition)
     }
 }
