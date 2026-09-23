@@ -77,9 +77,7 @@ internal fun HistoryPeopleProfilesTab(
             PersonProfileCard(
                 person = person,
                 language = language,
-                onOpen = IslamicHistoryProfiles.personById(person.id)?.let {
-                    { selectedPersonId = person.id }
-                },
+                onOpen = { selectedPersonId = person.id },
             )
         }
         item {
