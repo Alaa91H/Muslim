@@ -140,7 +140,12 @@ class MisbahaIncrementAction : ActionCallback {
         )
         val repository = entryPoint.tasbihRepository()
         val state = repository.state.first()
-        entryPoint.tasbihActionCoordinator().increment(state.phrase, state.target)
+        entryPoint.tasbihActionCoordinator().increment(
+            phrase = state.phrase,
+            target = state.target,
+            mode = state.sessionMode,
+            roundsGoal = state.roundsGoal,
+        )
         MisbahaWidget.update(context)
     }
 }
