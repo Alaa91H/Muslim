@@ -202,7 +202,7 @@
     <string name="settings_auto_update_confirm_body">New versions will be downloaded and installed automatically in the background when available. Continue?</string>
     <string name="settings_auto_update_confirm">Enable</string>
     <string name="settings_cancel">Cancel</string>
-    <string name="settings_updates_check_desc">Periodically check the GitHub releases page for a new version</string>
+    <string name="settings_updates_check_desc">Periodically check GitHub Releases and notify once when a newer version is discovered</string>
     <string name="settings_updates_frequency">Check frequency</string>
     <string name="settings_updates_daily">Daily</string>
     <string name="settings_updates_weekly">Weekly</string>
@@ -216,7 +216,7 @@
     <!-- Update screen -->
     <string name="update_title">App updates</string>
     <string name="update_checking">Checking for updates…</string>
-    <string name="update_up_to_date">You are up to date ✅</string>
+    <string name="update_up_to_date">You are using the latest version</string>
     <string name="update_unavailable">Could not reach the releases page.</string>
     <string name="update_retry">Retry</string>
     <string name="update_new_version">New version %1$s</string>
@@ -228,8 +228,9 @@
     <string name="update_installing">Opening the system installer…</string>
     <string name="update_download_failed">Download failed — try again</string>
     <string name="update_available_title">A new update is available</string>
-    <string name="update_available_text">Version %1$s is now available — tap to update</string>
-    <string name="update_last_check">Last check: %1$s</string>
+    <string name="update_available_text">Version %1$s is available — tap to view details</string>
+    <string name="update_notification_action_view">View details</string>
+    <string name="update_last_check">Last successful check: %1$s</string>
     <string name="update_open_releases">Open the releases page in the browser</string>
     <!-- Accessibility Centre -->
     <string name="accessibility_title">Accessibility Centre</string>
