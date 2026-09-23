@@ -53,7 +53,6 @@ import org.muslim.app.feature.reference.domain.HistoryRegion
 import org.muslim.app.feature.reference.domain.HistoricalMapLayer
 import org.muslim.app.feature.reference.domain.HistoricalState
 import org.muslim.app.feature.reference.domain.IslamicCivilizationContent
-import org.muslim.app.feature.reference.domain.IslamicHistoryArticles
 import org.muslim.app.feature.reference.domain.IslamicHistoryContent
 import org.muslim.app.feature.reference.domain.IslamicHistorySources
 import org.muslim.app.feature.reference.domain.IslamicHistoryStates
