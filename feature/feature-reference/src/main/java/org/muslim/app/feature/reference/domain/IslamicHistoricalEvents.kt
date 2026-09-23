@@ -206,6 +206,30 @@ object IslamicHistoricalEvents {
             sourceIds = listOf("met_chronology", "met_science"),
         ),
         HistoricalEvent(
+            id = "abbasid_translation_scholarship",
+            date = HistoricalDate(800, 900, HistoryDatePrecision.Range),
+            category = HistoricalEventCategory.KnowledgeAndCulture,
+            title = HistoryText("ازدهار الترجمة والتأليف في بغداد العباسية", "Expansion of translation and scholarship in Abbasid Baghdad"),
+            summary = HistoryText(
+                "ازدهرت في القرنين الثامن والتاسع أنشطة الترجمة والتأليف والحساب والفلك والطب في بغداد ومراكز أخرى.",
+                "During the eighth and ninth centuries, translation, authorship, calculation, astronomy, and medicine expanded in Baghdad and other centers.",
+            ),
+            context = HistoryText(
+                "اعتمدت هذه الأنشطة على رعاية متعددة، وكتّاب ومترجمين وعلماء من خلفيات متنوعة، وعلى شبكات الكتب والمعرفة القادمة من لغات ومناطق مختلفة.",
+                "These activities depended on varied patronage, writers, translators, and scholars from diverse backgrounds, as well as book and knowledge networks spanning multiple languages and regions.",
+            ),
+            significance = HistoryText(
+                "أنتجت المرحلة مؤلفات وشروحاً وترجمات أثرت في تقاليد علمية لاحقة داخل العالم الإسلامي وخارجه، من دون اختزالها في مؤسسة واحدة أو لحظة واحدة.",
+                "The period produced works, commentaries, and translations that influenced later scholarly traditions within and beyond the Islamic world, without being reducible to one institution or single moment.",
+            ),
+            eraIds = listOf("abbasid"),
+            stateIds = listOf("abbasid_caliphate"),
+            placeIds = listOf("baghdad"),
+            personIds = listOf("al_khwarizmi"),
+            relatedTopicIds = listOf("translation_books", "mathematics", "astronomy"),
+            sourceIds = listOf("met_science", "met_chronology"),
+        ),
+        HistoricalEvent(
             id = "fatimid_909",
             date = HistoricalDate(909),
             category = HistoricalEventCategory.PoliticalTransition,
