@@ -41,6 +41,8 @@ data class HistoricalRoute(
 data class HistoricalMapLayer(
     val id: String,
     val eraId: String,
+    val startCe: Int,
+    val endCe: Int?,
     val title: HistoryText,
     val summary: HistoryText,
     val schematicArea: List<HistoryCoordinate>,
@@ -158,6 +160,8 @@ object IslamicHistoryContent {
         HistoricalMapLayer(
             id = "early_hijaz",
             eraId = "prophetic_era",
+            startCe = 610,
+            endCe = 632,
             title = HistoryText("الحجاز ومحطات السيرة", "Hijaz and selected sira locations"),
             summary = HistoryText(
                 "علامات جغرافية تعليمية مختارة من السيرة؛ راجع قسم السيرة للنص والسياق الكامل.",
@@ -193,6 +197,8 @@ object IslamicHistoryContent {
         HistoricalMapLayer(
             id = "umayyad_extent",
             eraId = "umayyad",
+            startCe = 661,
+            endCe = 750,
             title = HistoryText("الأمويون: نطاق تقريبي", "Umayyads: schematic reach"),
             summary = HistoryText(
                 "منطقة تعليمية تقريبية للنطاق في فترات الذروة؛ ليست حدوداً سياسية دقيقة أو ثابتة.",
@@ -221,6 +227,8 @@ object IslamicHistoryContent {
         HistoricalMapLayer(
             id = "abbasid_networks",
             eraId = "abbasid",
+            startCe = 750,
+            endCe = 1258,
             title = HistoryText("شبكات عباسية وطرق قوافل", "Abbasid networks and caravan routes"),
             summary = HistoryText(
                 "مسارات تعليمية مختارة تربط مدناً تجارية وعلمية؛ كانت شبكات القوافل متعددة ومتغيرة وليست خطاً واحداً.",
@@ -268,6 +276,8 @@ object IslamicHistoryContent {
         HistoricalMapLayer(
             id = "ottoman_world",
             eraId = "ottoman_modern",
+            startCe = 1299,
+            endCe = 1924,
             title = HistoryText("العثمانيون: نطاق تقريبي", "Ottomans: schematic reach"),
             summary = HistoryText(
                 "منطقة تقريبية تعليمية لدولة اتسع نفوذها وانكمش عبر قرون، مع وجود دول ومجتمعات إسلامية أخرى متزامنة.",
