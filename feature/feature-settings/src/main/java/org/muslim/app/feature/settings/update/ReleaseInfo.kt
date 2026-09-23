@@ -18,6 +18,14 @@ data class ReleaseInfo(
     val apkUrl: String?,
     /** Size of the APK in bytes (0 when unknown). */
     val apkSizeBytes: Long,
+    /** Authoritative Android versionCode from update-manifest.json when available. */
+    val versionCode: Long? = null,
+    /** SHA-256 of the published phone/tablet APK when release metadata is available. */
+    val apkSha256: String? = null,
+    /** Minimum Android API declared by the published APK metadata, when available. */
+    val minSdk: Int? = null,
+    /** True only when update-manifest.json matched this release/tag/APK asset. */
+    val hasVerifiedMetadata: Boolean = false,
 )
 
 /** Compares dotted version strings ("1.5.0" > "1.4.9"). Purely numeric. */
