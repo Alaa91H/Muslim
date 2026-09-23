@@ -69,6 +69,11 @@ data class AppPreferences(
      */
     val updateCheckFrequency: String = UPDATE_CHECK_DAILY,
     /**
+     * Release channel used by update discovery. Stable ignores GitHub
+     * prereleases; Beta accepts both stable and prerelease builds.
+     */
+    val updateChannel: String = UPDATE_CHANNEL_STABLE,
+    /**
      * Automatic update downloads. Android still owns the final installation
      * confirmation; this flag never implies silent installation.
      */
@@ -124,6 +129,9 @@ data class AppPreferences(
         const val UPDATE_CHECK_DAILY = "daily"
         const val UPDATE_CHECK_WEEKLY = "weekly"
         const val UPDATE_CHECK_MONTHLY = "monthly"
+
+        const val UPDATE_CHANNEL_STABLE = "stable"
+        const val UPDATE_CHANNEL_BETA = "beta"
 
         /**
          * Decodes a persisted comma-separated section order into a full, valid
