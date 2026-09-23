@@ -22,8 +22,9 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         ScholarHighlightEntity::class,
         ScholarReadingProgressEntity::class,
         ScholarStudyPlanEntity::class,
+        ScholarStudySessionEntity::class,
     ],
-    version = 3,
+    version = 4,
     exportSchema = false,
 )
 abstract class ScholarLibraryDatabase : RoomDatabase() {
@@ -143,6 +144,43 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
             }
         }
 
+        /**
+         * v4 adds executable study sessions. It is additive and leaves all
+         * catalog, annotations, plans and reading progress untouched.
+         */
+        internal val MIGRATION_3_4 = object : Migration(3, 4) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS scholar_study_sessions (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                        pathId TEXT NOT NULL,
+                        planId INTEGER,
+                        bookId TEXT NOT NULL,
+                        targetPassageIds TEXT NOT NULL,
+                        completedPassageIds TEXT NOT NULL,
+                        plannedMinutes INTEGER NOT NULL,
+                        status TEXT NOT NULL,
+                        startedAtEpochMillis INTEGER NOT NULL,
+                        completedAtEpochMillis INTEGER
+                    )
+                    """.trimIndent(),
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_study_sessions_pathId " +
+                        "ON scholar_study_sessions (pathId)",
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_study_sessions_status " +
+                        "ON scholar_study_sessions (status)",
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_scholar_study_sessions_completedAtEpochMillis " +
+                        "ON scholar_study_sessions (completedAtEpochMillis)",
+                )
+            }
+        }
+
         @Volatile
         private var instance: ScholarLibraryDatabase? = null
 
@@ -153,7 +191,7 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
                     ScholarLibraryDatabase::class.java,
                     DB_NAME,
                 )
-                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
                     .build()
                     .also { instance = it }
             }
