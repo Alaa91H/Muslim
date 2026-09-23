@@ -37,6 +37,7 @@ dependencies {
     implementation(project(":core:core-ui"))
     implementation(project(":core:core-common"))
     implementation(project(":core:core-datastore"))
+    implementation(project(":core:core-database"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -46,6 +47,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.compose)
 
     implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.glance.appwidget)
 
     implementation(libs.hilt.android)

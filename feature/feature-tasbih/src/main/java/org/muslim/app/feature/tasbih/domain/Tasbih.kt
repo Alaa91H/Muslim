@@ -167,7 +167,49 @@ enum class TasbihPhrase(
         "Ya Hayyu ya Qayyumu bi-rahmatika astaghith",
         "«كان ﷺ يقولها عند الكرب» (رواه الترمذي وحسنه)",
         TasbihCategory.General,
-    ),
+    );
+
+    /**
+     * Stable persistence identifier. Unlike [ordinal], this value is part of
+     * the storage contract and remains valid when phrases are reordered or
+     * enum constant names are refactored.
+     */
+    val storageId: String
+        get() = when (this) {
+            SubhanAllah -> "subhan_allah"
+            SubhanAllahiWaBihamdihi -> "subhan_allah_wa_bihamdihi"
+            SubhanAllahilAzimWaBihamdihi -> "subhan_allah_al_azim_wa_bihamdihi"
+            SubhanAllahiAdadaKhalqihi -> "subhan_allah_adada_khalqihi"
+            Alhamdulillah -> "alhamdulillah"
+            AlhamdulillahiHamdanKathiran -> "alhamdulillah_hamdan_kathiran"
+            AlhamdulillahiBinimatihi -> "alhamdulillah_binimatihi"
+            AlhamdulillahiHamdanYuwafi -> "alhamdulillah_hamdan_yuwafi"
+            AllahuAkbar -> "allahu_akbar"
+            LaIlahaIllaAllah -> "la_ilaha_illa_allah"
+            LaIlahaIllaAllahWahdahu -> "la_ilaha_illa_allah_wahdahu"
+            LaIlahaIllaAllahYuhyiWaYumit -> "la_ilaha_illa_allah_yuhyi_wa_yumit"
+            Astaghfirullah -> "astaghfirullah"
+            AstaghfirullahaWaAtubuIlaih -> "astaghfirullah_wa_atubu_ilaih"
+            RabbiGhfirliWaTubAlayya -> "rabbi_ghfirli_wa_tub_alayya"
+            AllahummaGhfirliWarhamni -> "allahumma_ghfirli_warhamni"
+            AllahummaSalliAlaMuhammad -> "allahumma_salli_ala_muhammad"
+            AllahummaSalliAlaMuhammadWaAlaAlihi -> "allahumma_salli_ala_muhammad_wa_ala_alihi"
+            SalawatJamiah -> "salawat_jamiah"
+            LaHawlaWalaQuwwata -> "la_hawla_wala_quwwata"
+            Hasbiyallahu -> "hasbiyallahu"
+            AudhuBikalimatillah -> "audhu_bikalimatillah"
+            BismillahilladhiLaYadurru -> "bismillahilladhi_la_yadurru"
+            YaHayyuYaQayyum -> "ya_hayyu_ya_qayyum"
+        }
+
+    companion object {
+        private val byStorageId: Map<String, TasbihPhrase> by lazy {
+            entries.associateBy(TasbihPhrase::storageId)
+        }
+
+        fun fromStorageId(id: String?): TasbihPhrase? =
+            id?.let(byStorageId::get)
+    }
 }
 
 /** One day's total count, for the history chart. */
@@ -196,6 +238,8 @@ data class TasbihState(
     val target: Int,
     val phrase: TasbihPhrase,
     val history: List<DailyCount>,
+    val sessionMode: TasbihSessionMode = TasbihSessionMode.Free,
+    val roundsGoal: Int = 3,
 ) {
     /** Count for the currently selected phrase. */
     val count: Int get() = counts[phrase] ?: 0

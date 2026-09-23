@@ -40,6 +40,7 @@ import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.ui.theme.WidgetOrnamentSpec
 import org.muslim.app.core.ui.theme.widgetOrnamentSpec
 import org.muslim.app.feature.tasbih.R
+import org.muslim.app.feature.tasbih.data.TasbihActionCoordinator
 import org.muslim.app.feature.tasbih.data.TasbihRepository
 
 private val DayBackground = Color(0xFF0E3B2A)
@@ -133,12 +134,18 @@ class MisbahaIncrementAction : ActionCallback {
         glanceId: GlanceId,
         parameters: ActionParameters,
     ) {
-        val repository = EntryPointAccessors.fromApplication(
+        val entryPoint = EntryPointAccessors.fromApplication(
             context.applicationContext,
             MisbahaWidgetEntryPoint::class.java,
-        ).tasbihRepository()
+        )
+        val repository = entryPoint.tasbihRepository()
         val state = repository.state.first()
-        repository.increment(state.phrase)
+        entryPoint.tasbihActionCoordinator().increment(
+            phrase = state.phrase,
+            target = state.target,
+            mode = state.sessionMode,
+            roundsGoal = state.roundsGoal,
+        )
         MisbahaWidget.update(context)
     }
 }
@@ -147,5 +154,6 @@ class MisbahaIncrementAction : ActionCallback {
 @InstallIn(SingletonComponent::class)
 interface MisbahaWidgetEntryPoint {
     fun tasbihRepository(): TasbihRepository
+    fun tasbihActionCoordinator(): TasbihActionCoordinator
     fun appPreferencesRepository(): AppPreferencesRepository
 }
