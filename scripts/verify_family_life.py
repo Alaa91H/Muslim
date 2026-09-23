@@ -54,6 +54,7 @@ def main() -> int:
         SEARCH_UI,
         GLOBAL_SEARCH,
         READER_TOOLS,
+        MODULE / "src/androidTest/java/org/muslim/app/feature/family/ui/FamilyReaderInstrumentationTest.kt",
         MODULE / "src/main/java/org/muslim/app/feature/family/ui/FamilyLifeViewModel.kt",
         MODULE / "src/main/java/org/muslim/app/feature/family/domain/AqiqahCalculator.kt",
         MODULE / "src/main/java/org/muslim/app/feature/family/data/AqiqahPrefsRepository.kt",
@@ -76,7 +77,8 @@ def main() -> int:
     if "org.muslim.app.feature.family.ui.FamilyLifeScreen" not in app_nav:
         return fail("app navigation does not use the extracted FamilyLifeScreen")
     family_links = (
-        'onOpenQuran = { navController.navigate("quran") }',
+        'navController.navigate("quran")',
+        'navController.navigate("$READER_ROUTE/$surahNumber")',
         "onOpenHadith = { navController.navigate(HADITH_ROUTE) }",
         "onOpenAdhkar = { navController.navigate(ADHKAR_ROUTE) }",
     )
