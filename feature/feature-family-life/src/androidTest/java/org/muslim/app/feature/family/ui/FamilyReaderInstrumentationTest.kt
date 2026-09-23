@@ -8,6 +8,7 @@ import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performTextInput
 import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
@@ -40,7 +41,7 @@ class FamilyReaderInstrumentationTest {
         }
 
         composeRule.onNodeWithTag(FamilyUiTags.GUIDE_SEARCH_FIELD)
-            .performTextInput("budget")
+            .performTextInput("Household spending without excess or deprivation")
         composeRule.onNodeWithText("Household spending without excess or deprivation")
             .assertIsDisplayed()
 
@@ -79,6 +80,7 @@ class FamilyReaderInstrumentationTest {
         composeRule.onNodeWithText(context.getString(R.string.family_copy_article)).performClick()
         composeRule.onNodeWithText(context.getString(R.string.family_share_article)).performClick()
         composeRule.onNodeWithText(context.getString(R.string.family_open_quran_reference))
+            .performScrollTo()
             .performClick()
 
         assertThat(copied).isTrue()
