@@ -14,6 +14,7 @@ import org.muslim.app.feature.tasbih.domain.DailyCount
 import org.muslim.app.feature.tasbih.domain.TasbihCounter
 import org.muslim.app.feature.tasbih.domain.TargetSoundSettings
 import org.muslim.app.feature.tasbih.domain.TasbihPhrase
+import org.muslim.app.feature.tasbih.domain.TasbihSessionMode
 import org.muslim.app.feature.tasbih.domain.TasbihState
 import java.time.LocalDate
 import javax.inject.Inject
@@ -65,6 +66,8 @@ class TasbihRepository @Inject constructor(
                     legacyOrdinal = prefs[Keys.PHRASE],
                 ),
                 history = decodeHistory(prefs[Keys.HISTORY]),
+                sessionMode = TasbihSessionMode.fromStorageId(prefs[Keys.SESSION_MODE]),
+                roundsGoal = (prefs[Keys.ROUNDS_GOAL] ?: DEFAULT_ROUNDS_GOAL).coerceIn(1, MAX_ROUNDS_GOAL),
             )
         }
         // Corrupt persisted data must never crash the misbaha on entry.
@@ -112,6 +115,18 @@ class TasbihRepository @Inject constructor(
 
     suspend fun setTarget(target: Int) {
         context.tasbihDataStore.edit { prefs -> prefs[Keys.TARGET] = target.coerceIn(1, 100_000) }
+    }
+
+    suspend fun setSessionConfig(
+        mode: TasbihSessionMode,
+        target: Int,
+        roundsGoal: Int,
+    ) {
+        context.tasbihDataStore.edit { prefs ->
+            prefs[Keys.SESSION_MODE] = mode.storageId
+            prefs[Keys.TARGET] = target.coerceIn(1, 100_000)
+            prefs[Keys.ROUNDS_GOAL] = roundsGoal.coerceIn(1, MAX_ROUNDS_GOAL)
+        }
     }
 
     suspend fun setPhrase(phrase: TasbihPhrase) {
@@ -181,11 +196,15 @@ class TasbihRepository @Inject constructor(
         val PHRASE_ID = stringPreferencesKey("phrase_id")
         val STORAGE_VERSION = intPreferencesKey("storage_version")
         val HISTORY = stringPreferencesKey("history")
+        val SESSION_MODE = stringPreferencesKey("session_mode")
+        val ROUNDS_GOAL = intPreferencesKey("rounds_goal")
         val SOUND_ENABLED = androidx.datastore.preferences.core.booleanPreferencesKey("sound_on_target_enabled")
         val SOUND_TONE = stringPreferencesKey("sound_on_target_tone")
     }
 
     companion object {
         const val DEFAULT_TARGET = 33
+        const val DEFAULT_ROUNDS_GOAL = 3
+        const val MAX_ROUNDS_GOAL = 1000
     }
 }
