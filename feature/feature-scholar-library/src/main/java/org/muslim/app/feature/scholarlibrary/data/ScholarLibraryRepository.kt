@@ -460,6 +460,12 @@ class ScholarLibraryRepository @Inject constructor(
         val passage = libraryDao.passageById(passageId)?.toDomain() ?: return false
         if (passage.bookId != session.bookId) return false
 
+        val passages = libraryDao.observePassagesForBook(session.bookId).first().map { it.toDomain() }
+        val index = passages.indexOfFirst { it.id == passageId }
+        if (index < 0) return false
+        val percent = ((index + 1) * 100 / passages.size.coerceAtLeast(1)).coerceIn(0, 100)
+        if (!updateReadingProgress(session.bookId, passageId, percent)) return false
+
         val completed = session.completedPassageIds + passageId
         val allDone = completed.size == session.targetPassageIds.size
         val now = System.currentTimeMillis()
@@ -474,13 +480,6 @@ class ScholarLibraryRepository @Inject constructor(
                 completedAtEpochMillis = if (allDone) now else null,
             ),
         )
-
-        val passages = libraryDao.observePassagesForBook(session.bookId).first().map { it.toDomain() }
-        val index = passages.indexOfFirst { it.id == passageId }
-        if (index >= 0) {
-            val percent = ((index + 1) * 100 / passages.size.coerceAtLeast(1)).coerceIn(0, 100)
-            updateReadingProgress(session.bookId, passageId, percent)
-        }
         return true
     }
 
