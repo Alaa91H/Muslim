@@ -129,3 +129,25 @@ data class ScholarStudyPlanEntity(
     val createdAtEpochMillis: Long,
     val updatedAtEpochMillis: Long,
 )
+
+
+@Entity(
+    tableName = "scholar_study_sessions",
+    indices = [
+        Index(value = ["pathId"]),
+        Index(value = ["status"]),
+        Index(value = ["completedAtEpochMillis"]),
+    ],
+)
+data class ScholarStudySessionEntity(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val pathId: String,
+    val planId: Long?,
+    val bookId: String,
+    val targetPassageIds: String,
+    val completedPassageIds: String,
+    val plannedMinutes: Int,
+    val status: String,
+    val startedAtEpochMillis: Long,
+    val completedAtEpochMillis: Long?,
+)
