@@ -4,12 +4,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
-import androidx.compose.ui.test.performScrollTo
+import androidx.compose.ui.test.performScrollToNode
 import androidx.compose.ui.test.performTextInput
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
@@ -84,8 +85,10 @@ class FamilyReaderInstrumentationTest {
         composeRule.onNodeWithTag(FamilyUiTags.ARTICLE_READER).assertIsDisplayed()
         composeRule.onNodeWithText(context.getString(R.string.family_copy_article)).performClick()
         composeRule.onNodeWithText(context.getString(R.string.family_share_article)).performClick()
-        composeRule.onNodeWithText(context.getString(R.string.family_open_quran_reference))
-            .performScrollTo()
+        val openQuranReference = context.getString(R.string.family_open_quran_reference)
+        composeRule.onNodeWithTag(FamilyUiTags.ARTICLE_READER)
+            .performScrollToNode(hasText(openQuranReference))
+        composeRule.onNodeWithText(openQuranReference)
             .performClick()
 
         assertThat(copied).isTrue()
