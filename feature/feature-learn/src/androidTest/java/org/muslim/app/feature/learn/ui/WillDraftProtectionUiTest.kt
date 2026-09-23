@@ -108,9 +108,11 @@ class WillDraftProtectionUiTest {
         unlocked = unlocked,
         availability = WillDraftAuthenticationAvailability.Available,
         errorMessage = null,
-        unlock = onUnlock,
-        enable = onEnable,
-        disable = onDisable,
-        lockNow = onLockNow,
+        actions = WillDraftProtectionActions(
+            unlock = onUnlock,
+            enable = onEnable,
+            disable = onDisable,
+            lockNow = onLockNow,
+        ),
     )
 }
