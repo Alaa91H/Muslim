@@ -146,6 +146,7 @@ def main() -> None:
     require("LibraryAdvancedFilters" in screens, "library must expose advanced filters")
     require("studyPathItems" in screens, "library home must expose study paths")
     require("BookHierarchyCard" in screens, "book reader must expose the volume/chapter/section hierarchy")
+    require("studySessionItems" in screens, "study desk must expose recent study-session history")
 
     curriculum_screens = CURRICULUM_SCREENS.read_text(encoding="utf-8")
     require("WeeklyStudySummaryCard" in curriculum_screens, "study paths must expose weekly summaries")
