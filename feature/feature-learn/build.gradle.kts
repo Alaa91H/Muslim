@@ -61,4 +61,6 @@ dependencies {
 
     testImplementation(libs.junit)
     testImplementation(libs.truth)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.truth)
 }
