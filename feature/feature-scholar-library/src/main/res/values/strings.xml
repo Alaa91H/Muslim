@@ -62,4 +62,17 @@
     <string name="scholar_library_editor">المحقق/المحرر: %1$s</string>
     <string name="scholar_library_publication_year">سنة النشر: %1$s</string>
     <string name="scholar_library_volume_count">عدد المجلدات: %1$d</string>
+
+    <string name="scholar_library_study_paths">المسارات العلمية</string>
+    <string name="scholar_library_path_summary">%1$d مراحل · %2$d كتب · المستوى: %3$s</string>
+    <string name="scholar_library_path_editorial_notice">ترتيب تحريري للمطالعة داخل التطبيق، وليس منهجاً إلزامياً أو بديلاً عن التلقي على أهل الاختصاص.</string>
+    <string name="scholar_library_path_stage">المرحلة %1$d: %2$s</string>
+    <string name="scholar_library_path_not_found">تعذر العثور على هذا المسار الدراسي.</string>
+    <string name="scholar_library_book_outline">بنية الكتاب</string>
+    <string name="scholar_library_volume_label">المجلد %1$s</string>
+    <string name="scholar_library_filters">فلاتر البحث والفهرس</string>
+    <string name="scholar_library_all_levels">كل المستويات</string>
+    <string name="scholar_library_all_authors">كل المؤلفين</string>
+    <string name="scholar_library_clear_filters">مسح الفلاتر</string>
+    <string name="scholar_library_authors">المؤلفون</string>
 </resources>
