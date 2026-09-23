@@ -72,12 +72,16 @@ private val bookIcons = mapOf(
     "islam" to Icons.Filled.AutoStories,
     "sira" to Icons.Filled.History,
     "prophets" to Icons.Filled.Groups,
+    "companions" to Icons.Filled.Groups,
+    "mothers" to Icons.Filled.Groups,
+    "ahl_al_bayt" to Icons.Filled.Groups,
+    "rashidun" to Icons.Filled.History,
 )
 
 /**
  * المرجعية الإسلامية (feature-reference): مكتبة مرجعية شاملة ومفهرسة تعرض
- * ثلاثة كتب — «التعريف بالإسلام»، «السيرة النبوية»، «قصص الأنبياء» — مع
- * بحث نصي في كل كتاب وتبديل لغة المحتوى (عربي/English).
+ * مجموعة كتب مترابطة مع بحث شامل وبحث داخل كل كتاب وتبديل لغة المحتوى
+ * (عربي/English).
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -156,6 +160,10 @@ fun ReferenceScreen(
                 repository = repository,
                 lang = lang,
                 onOpenBook = { selectedBook = it },
+                onOpenTopic = { targetBook, targetTopic ->
+                    selectedBook = targetBook
+                    selectedTopic = targetTopic
+                },
                 modifier = contentModifier,
             )
         }
@@ -206,8 +214,14 @@ private fun HubContent(
     repository: ReferenceRepository,
     lang: RefLang,
     onOpenBook: (ReferenceBook) -> Unit,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    var query by rememberSaveable { mutableStateOf("") }
+    val results = remember(repository, query, lang) {
+        if (query.isBlank()) emptyList() else repository.searchAll(query, lang, limit = 40)
+    }
+
     LazyColumn(modifier = modifier.fillMaxSize()) {
         item(key = "reference-decoration") {
             IslamicDecorationBand(
@@ -216,49 +230,108 @@ private fun HubContent(
                 modifier = Modifier.padding(horizontal = 16.dp),
             )
         }
-        items(repository.books, key = { it.id }) { book ->
-            IslamicCard(
+        item(key = "library-search") {
+            OutlinedTextField(
+                value = query,
+                onValueChange = { query = it },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 8.dp)
-                    .clickable { onOpenBook(book) },
-                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+                placeholder = {
+                    Text(
+                        if (lang == RefLang.Arabic) {
+                            "ابحث في جميع كتب المكتبة…"
+                        } else {
+                            "Search the entire library…"
+                        },
+                    )
+                },
+                singleLine = true,
+            )
+        }
+
+        if (query.isBlank()) {
+            items(repository.books, key = { it.id }) { book ->
+                ReferenceBookCard(book = book, lang = lang, onOpenBook = onOpenBook)
+            }
+        } else if (results.isEmpty()) {
+            item(key = "global-no-results") {
+                MuslimStateSurface(
+                    title = stringResource(R.string.reference_no_results),
+                    tone = MuslimStateTone.Empty,
+                    modifier = Modifier.padding(16.dp),
+                )
+            }
+        } else {
+            items(
+                items = results,
+                key = { result -> "${result.book.id}/${result.topic.id}" },
+            ) { result ->
+                ListItem(
+                    headlineContent = {
+                        Text(result.topic.title(lang), fontWeight = FontWeight.Medium)
+                    },
+                    supportingContent = {
+                        Text(
+                            text = "${result.book.title(lang)} • ${result.topic.summary(lang)}",
+                            maxLines = 2,
+                        )
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { onOpenTopic(result.book, result.topic) },
+                )
+                HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+            }
+        }
+    }
+}
+
+@Composable
+private fun ReferenceBookCard(
+    book: ReferenceBook,
+    lang: RefLang,
+    onOpenBook: (ReferenceBook) -> Unit,
+) {
+    IslamicCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .clickable { onOpenBook(book) },
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Surface(
+                shape = CircleShape,
+                color = MaterialTheme.colorScheme.primaryContainer,
             ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Surface(
-                        shape = CircleShape,
-                        color = MaterialTheme.colorScheme.primaryContainer,
-                    ) {
-                        Icon(
-                            imageVector = bookIcons[book.id] ?: Icons.AutoMirrored.Filled.MenuBook,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                            modifier = Modifier.padding(10.dp).size(24.dp),
-                        )
-                    }
-                    Spacer(Modifier.size(16.dp))
-                    Column {
-                        Text(
-                            text = book.title(lang),
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold,
-                        )
-                        Spacer(Modifier.height(4.dp))
-                        Text(
-                            text = book.subtitle(lang),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                        Spacer(Modifier.height(6.dp))
-                        Text(
-                            text = "${book.topics.size} ${stringResource(R.string.reference_topics_count)}",
-                            style = MaterialTheme.typography.labelMedium,
-                            color = MaterialTheme.colorScheme.primary,
-                        )
-                    }
-                }
+                Icon(
+                    imageVector = bookIcons[book.id] ?: Icons.AutoMirrored.Filled.MenuBook,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                    modifier = Modifier.padding(10.dp).size(24.dp),
+                )
+            }
+            Spacer(Modifier.size(16.dp))
+            Column {
+                Text(
+                    text = book.title(lang),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = book.subtitle(lang),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.height(6.dp))
+                Text(
+                    text = "${book.topics.size} ${stringResource(R.string.reference_topics_count)}",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                )
             }
         }
     }
