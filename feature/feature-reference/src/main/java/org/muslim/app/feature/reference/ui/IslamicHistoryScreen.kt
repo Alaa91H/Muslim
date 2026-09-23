@@ -1,5 +1,6 @@
 package org.muslim.app.feature.reference.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -31,6 +32,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -38,10 +40,12 @@ import androidx.compose.ui.unit.dp
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.reference.R
+import org.muslim.app.feature.reference.domain.HistoryArticle
 import org.muslim.app.feature.reference.domain.HistoryEra
 import org.muslim.app.feature.reference.domain.HistoryLanguage
 import org.muslim.app.feature.reference.domain.HistoryPerson
 import org.muslim.app.feature.reference.domain.HistoricalMapLayer
+import org.muslim.app.feature.reference.domain.IslamicHistoryArticles
 import org.muslim.app.feature.reference.domain.IslamicHistoryContent
 
 /** A standalone, bilingual history destination with source-aware map boundaries. */
@@ -122,21 +126,42 @@ private fun HistoryTabs(selectedTab: Int, onSelect: (Int) -> Unit) {
 
 @Composable
 private fun TimelineTab(language: HistoryLanguage) {
-    LazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-    ) {
-        item { HistoryNotice(stringResource(R.string.history_timeline_intro)) }
-        items(IslamicHistoryContent.timeline, key = { it.id }) { era ->
-            TimelineEraCard(era = era, language = language)
+    var selectedEraId by remember { mutableStateOf<String?>(null) }
+    val selectedArticle = selectedEraId?.let(IslamicHistoryArticles::articleForEra)
+
+    if (selectedArticle != null) {
+        HistoryArticleView(
+            article = selectedArticle,
+            language = language,
+            onBack = { selectedEraId = null },
+        )
+    } else {
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            item { HistoryNotice(stringResource(R.string.history_timeline_intro)) }
+            items(IslamicHistoryContent.timeline, key = { it.id }) { era ->
+                TimelineEraCard(
+                    era = era,
+                    language = language,
+                    onOpenDetails = IslamicHistoryArticles.articleForEra(era.id)?.let {
+                        { selectedEraId = era.id }
+                    },
+                )
+            }
+            item { HistoryNotice(stringResource(R.string.history_sources_notice)) }
         }
-        item { HistoryNotice(stringResource(R.string.history_sources_notice)) }
     }
 }
 
 @Composable
-private fun TimelineEraCard(era: HistoryEra, language: HistoryLanguage) {
+private fun TimelineEraCard(
+    era: HistoryEra,
+    language: HistoryLanguage,
+    onOpenDetails: (() -> Unit)? = null,
+) {
     Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)) {
         Column(modifier = Modifier.padding(18.dp)) {
             Text(
@@ -167,6 +192,115 @@ private fun TimelineEraCard(era: HistoryEra, language: HistoryLanguage) {
                     style = MaterialTheme.typography.bodySmall,
                     modifier = Modifier.padding(top = 5.dp),
                 )
+            }
+            if (onOpenDetails != null) {
+                TextButton(
+                    onClick = onOpenDetails,
+                    modifier = Modifier.padding(top = 8.dp),
+                ) {
+                    Text(
+                        if (language == HistoryLanguage.Arabic) {
+                            "قراءة الموضوع بالتفصيل"
+                        } else {
+                            "Read full article"
+                        },
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun HistoryArticleView(
+    article: HistoryArticle,
+    language: HistoryLanguage,
+    onBack: () -> Unit,
+) {
+    BackHandler(onBack = onBack)
+    val uriHandler = LocalUriHandler.current
+    val sources = article.sourceIds.mapNotNull(IslamicHistoryArticles::sourceById)
+
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
+        item {
+            TextButton(onClick = onBack) {
+                Text(
+                    if (language == HistoryLanguage.Arabic) {
+                        "العودة إلى الخط الزمني"
+                    } else {
+                        "Back to timeline"
+                    },
+                )
+            }
+        }
+        item {
+            Text(
+                text = article.title.resolve(language),
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Bold,
+            )
+        }
+        item { HistoryNotice(article.lead.resolve(language)) }
+        items(article.sections, key = { it.id }) { section ->
+            Card {
+                Column(modifier = Modifier.padding(18.dp)) {
+                    Text(
+                        text = section.title.resolve(language),
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
+                    )
+                    section.paragraphs.forEach { paragraph ->
+                        Text(
+                            text = paragraph.resolve(language),
+                            style = MaterialTheme.typography.bodyLarge,
+                            modifier = Modifier.padding(top = 10.dp),
+                        )
+                    }
+                }
+            }
+        }
+        if (sources.isNotEmpty()) {
+            item {
+                Text(
+                    text = if (language == HistoryLanguage.Arabic) "المصادر والمراجع" else "Sources and references",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(top = 4.dp),
+                )
+            }
+            items(sources, key = { it.id }) { source ->
+                Card {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(
+                            text = source.title.resolve(language),
+                            style = MaterialTheme.typography.titleSmall,
+                            fontWeight = FontWeight.SemiBold,
+                        )
+                        source.note?.let { note ->
+                            Text(
+                                text = note.resolve(language),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.padding(top = 6.dp),
+                            )
+                        }
+                        source.url?.let { url ->
+                            TextButton(onClick = { uriHandler.openUri(url) }) {
+                                Text(
+                                    if (language == HistoryLanguage.Arabic) {
+                                        "فتح المصدر"
+                                    } else {
+                                        "Open source"
+                                    },
+                                )
+                            }
+                        }
+                    }
+                }
             }
         }
     }
