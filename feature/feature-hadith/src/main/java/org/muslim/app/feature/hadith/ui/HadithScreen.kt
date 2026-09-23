@@ -285,11 +285,11 @@ private fun HadithBookCover(
                     .fillMaxSize()
                     .background(
                         Brush.horizontalGradient(
-                            colorStops = arrayOf(
-                                0f to MaterialTheme.colorScheme.onSurface.copy(alpha = 0.10f),
-                                0.14f to Color.Transparent,
-                                0.86f to Color.Transparent,
-                                1f to MaterialTheme.colorScheme.onSurface.copy(alpha = 0.05f),
+                            colors = listOf(
+                                MaterialTheme.colorScheme.onSurface.copy(alpha = 0.10f),
+                                Color.Transparent,
+                                Color.Transparent,
+                                MaterialTheme.colorScheme.onSurface.copy(alpha = 0.05f),
                             ),
                         ),
                     ),
