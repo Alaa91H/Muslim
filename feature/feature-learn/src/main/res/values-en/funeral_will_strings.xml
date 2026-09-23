@@ -6,4 +6,26 @@
     <string name="funeral_will_education_intro">Core topics to help organise the draft and identify what needs qualified Islamic and legal review before relying on a will.</string>
     <string name="funeral_will_guide_quick_title">What should I do now?</string>
     <string name="funeral_will_guide_quick_intro">A short practical sequence for the first steps after a death. Official procedures can differ by country, hospital, and cemetery.</string>
+
+    <string name="funeral_will_section_identity">Identity and document access</string>
+    <string name="funeral_will_section_financial">Rights, finances, and entrusted property</string>
+    <string name="funeral_will_section_family">Family, funeral, and bequests</string>
+    <string name="funeral_will_section_review">Review and notes</string>
+
+    <string name="funeral_will_document_location">Important document location</string>
+    <string name="funeral_will_document_location_hint">For example, a home safe or documented file location; do not enter passwords or unlock codes</string>
+    <string name="funeral_will_trusted_contacts">Trusted contacts</string>
+    <string name="funeral_will_trusted_contacts_hint">Names and contact methods for people who should be informed or consulted</string>
+    <string name="funeral_will_assets_accounts">Assets, accounts, and document locations</string>
+    <string name="funeral_will_assets_accounts_hint">Describe assets, organisations, and document locations without storing login secrets</string>
+    <string name="funeral_will_entrusted_property">Entrusted or third-party property</string>
+    <string name="funeral_will_entrusted_property_hint">What must be returned to its owner and where evidence or documents can be found</string>
+    <string name="funeral_will_digital_access">Secure digital-access instructions</string>
+    <string name="funeral_will_digital_access_hint">Record only where a separate secure access plan is kept; never enter passwords, PINs, recovery phrases, or private keys</string>
+    <string name="funeral_will_last_review">Last review date</string>
+    <string name="funeral_will_last_review_hint">For example: 2026-09-23</string>
+
+    <string name="funeral_will_unsaved_changes">There are unsaved changes on this device.</string>
+    <string name="funeral_will_saved_locally">All current changes are saved locally on this device.</string>
+    <string name="funeral_will_sensitive_data_notice">Security: do not store passwords, PINs, recovery phrases, or private keys in this draft. Record only where a separate secure access plan can be found.</string>
 </resources>
