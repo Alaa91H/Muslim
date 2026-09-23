@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.delay
 import org.muslim.app.feature.reference.data.IslamicHistorySearchRepository
 import org.muslim.app.feature.reference.domain.HistoryLanguage
 import org.muslim.app.feature.reference.domain.HistorySearchResult
@@ -52,6 +53,7 @@ internal fun HistorySearchTab(
             isLoading = false
         } else {
             isLoading = true
+            delay(SEARCH_DEBOUNCE_MS)
             results = repository.search(query = query, type = selectedType)
             isLoading = false
         }
@@ -245,3 +247,6 @@ private fun searchTypeLabel(
     HistorySearchType.CivilizationTopic ->
         if (language == HistoryLanguage.Arabic) "حضارة" else "Civilization"
 }
+
+
+private const val SEARCH_DEBOUNCE_MS = 180L
