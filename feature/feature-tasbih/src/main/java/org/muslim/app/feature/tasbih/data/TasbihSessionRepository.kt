@@ -57,7 +57,12 @@ class TasbihSessionRepository @Inject constructor(
                 } else {
                     TasbihSessionEndReason.ContextChanged
                 }
-                dao.endActive(nowEpochMillis, reason.storageId)
+                val endAt = if (crossedDayBoundary) {
+                    active.lastUpdatedAtEpochMillis
+                } else {
+                    nowEpochMillis
+                }
+                dao.endActive(endAt, reason.storageId)
             }
             val fresh = TasbihSessionEngine.start(config, nowEpochMillis)
             val id = dao.insert(fresh.toEntity())
