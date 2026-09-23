@@ -1,7 +1,10 @@
 package org.muslim.app.feature.family.ui
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -22,8 +25,6 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.ChildCare
 import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material.icons.filled.FamilyRestroom
-import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.PlayArrow
@@ -34,19 +35,16 @@ import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
-import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -75,99 +73,343 @@ import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.family.R
 import org.muslim.app.feature.family.domain.AqiqahCalculator
+import org.muslim.app.feature.family.domain.AqiqahReminderDay
 import org.muslim.app.feature.family.domain.BabyNameGender
+import org.muslim.app.feature.family.domain.FamilyArticleTextFormatter
+import org.muslim.app.feature.family.domain.FamilyEvidenceReference
 import org.muslim.app.feature.family.domain.FamilyGuideArticle
+import org.muslim.app.feature.family.domain.FamilyTopicCategory
 import org.muslim.app.feature.family.domain.FamilyLifeContent
+import org.muslim.app.feature.family.domain.FamilyReferenceParser
 import org.muslim.app.feature.family.domain.IslamicBabyName
 import org.muslim.app.feature.family.domain.LocalizedFamilyText
 import org.muslim.app.feature.family.domain.RuqyahAudioTrack
 import org.muslim.app.feature.family.domain.RuqyahPassage
+import org.muslim.app.feature.family.domain.RuqyahSupplication
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-private enum class FamilyTab(val icon: ImageVector) {
-    Ruqyah(Icons.Filled.HealthAndSafety),
-    Names(Icons.Filled.ChildCare),
-    Aqiqah(Icons.Filled.DateRange),
-    Marriage(Icons.Filled.FamilyRestroom),
+private enum class FamilySection {
+    Home,
+    Search,
+    Guide,
+    Saved,
+    Tools,
+    Ruqyah,
+    Names,
+    Aqiqah,
 }
+
+private data class FamilyScreenModel(
+    val section: FamilySection,
+    val selectedCategory: FamilyTopicCategory?,
+    val selectedArticle: FamilyGuideArticle?,
+    val selectedChecklistId: String?,
+    val isArabic: Boolean,
+)
+
+private data class FamilyDestinationActions(
+    val openSection: (FamilySection) -> Unit,
+    val openCategory: (FamilyTopicCategory) -> Unit,
+    val openArticle: (String) -> Unit,
+    val openChecklist: (String) -> Unit,
+    val onAudioFailure: (String) -> Unit,
+    val openQuran: (Int?, Int?) -> Unit,
+    val openHadith: () -> Unit,
+    val openAdhkar: () -> Unit,
+)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FamilyLifeScreen(
     onBack: () -> Unit,
+    onOpenQuran: (Int?, Int?) -> Unit,
+    onOpenHadith: () -> Unit,
+    onOpenAdhkar: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: FamilyLifeViewModel = hiltViewModel(),
 ) {
-    var selectedTab by rememberSaveable { mutableIntStateOf(FamilyTab.Ruqyah.ordinal) }
+    var sectionName by rememberSaveable { mutableStateOf(FamilySection.Home.name) }
+    var categoryName by rememberSaveable { mutableStateOf<String?>(null) }
+    var articleId by rememberSaveable { mutableStateOf<String?>(null) }
+    var checklistId by rememberSaveable { mutableStateOf<String?>(null) }
+    val section = FamilySection.entries.firstOrNull { it.name == sectionName } ?: FamilySection.Home
+    val selectedCategory = categoryName?.let { saved ->
+        FamilyTopicCategory.entries.firstOrNull { it.name == saved }
+    }
+    val selectedArticle = articleId?.let(FamilyLifeContent::articleById)
     val state by viewModel.state.collectAsStateWithLifecycle()
-    val isArabic = AppLanguage.isArabicUi()
+    val model = FamilyScreenModel(
+        section = section,
+        selectedCategory = selectedCategory,
+        selectedArticle = selectedArticle,
+        selectedChecklistId = checklistId,
+        isArabic = AppLanguage.isArabicUi(),
+    )
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
+    LaunchedEffect(selectedArticle?.id) {
+        selectedArticle?.id?.let(viewModel::recordArticleOpened)
+    }
+
+    fun navigate(target: FamilySection, category: FamilyTopicCategory? = null) {
+        sectionName = target.name
+        categoryName = category?.name
+        articleId = null
+        checklistId = null
+    }
+
+    val actions = FamilyDestinationActions(
+        openSection = { navigate(it) },
+        openCategory = { navigate(FamilySection.Guide, it) },
+        openArticle = {
+            articleId = it
+            checklistId = null
+        },
+        openChecklist = {
+            sectionName = FamilySection.Tools.name
+            categoryName = null
+            articleId = null
+            checklistId = it
+        },
+        onAudioFailure = { message ->
+            scope.launch { snackbarHostState.showSnackbar(message) }
+        },
+        openQuran = onOpenQuran,
+        openHadith = onOpenHadith,
+        openAdhkar = onOpenAdhkar,
+    )
+    val navigateBack = {
+        when {
+            articleId != null -> articleId = null
+            section != FamilySection.Home -> navigate(FamilySection.Home)
+            else -> onBack()
+        }
+    }
+
+    FamilyLifeScaffold(
+        modifier = modifier,
+        model = model,
+        state = state,
+        viewModel = viewModel,
+        context = context,
+        actions = actions,
+        snackbarHostState = snackbarHostState,
+        onBack = navigateBack,
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun FamilyLifeScaffold(
+    model: FamilyScreenModel,
+    state: FamilyLifeUiState,
+    viewModel: FamilyLifeViewModel,
+    context: Context,
+    actions: FamilyDestinationActions,
+    snackbarHostState: SnackbarHostState,
+    onBack: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.family_life_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.learn_back))
-                    }
-                },
+            FamilyLifeTopBar(
+                title = model.selectedArticle?.title?.pick(model.isArabic) ?: model.section.title(),
+                onBack = onBack,
             )
         },
     ) { innerPadding ->
-        Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
-            IslamicDecorationBand(
-                tint = MaterialTheme.colorScheme.tertiary,
-                compact = true,
-            )
-            PrimaryScrollableTabRow(
-                selectedTabIndex = selectedTab,
-                edgePadding = 12.dp,
-            ) {
-                FamilyTab.entries.forEach { tab ->
-                    Tab(
-                        selected = selectedTab == tab.ordinal,
-                        onClick = { selectedTab = tab.ordinal },
-                        text = {
-                            Text(
-                                when (tab) {
-                                    FamilyTab.Ruqyah -> stringResource(R.string.family_tab_ruqyah)
-                                    FamilyTab.Names -> stringResource(R.string.family_tab_names)
-                                    FamilyTab.Aqiqah -> stringResource(R.string.family_tab_aqiqah)
-                                    FamilyTab.Marriage -> stringResource(R.string.family_tab_marriage)
-                                },
-                            )
-                        },
-                        icon = { Icon(tab.icon, contentDescription = null, modifier = Modifier.size(18.dp)) },
-                    )
-                }
-            }
-            IslamicDecorationDivider(
-                tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 24.dp),
-            )
-            when (FamilyTab.entries[selectedTab]) {
-                FamilyTab.Ruqyah -> RuqyahContent(
-                    isArabic = isArabic,
-                    onPlay = { url -> openAudio(context = context, url = url) },
-                    onAudioFailure = {
-                        scope.launch { snackbarHostState.showSnackbar(it) }
-                    },
-                )
-                FamilyTab.Names -> BabyNamesContent(isArabic = isArabic)
-                FamilyTab.Aqiqah -> AqiqahContent(
-                    state = state,
-                    viewModel = viewModel,
-                )
-                FamilyTab.Marriage -> MarriageContent(isArabic = isArabic)
-            }
-        }
+        FamilyLifeContentHost(
+            modifier = Modifier.padding(innerPadding),
+            model = model,
+            state = state,
+            viewModel = viewModel,
+            context = context,
+            actions = actions,
+        )
     }
+}
+
+@Composable
+private fun FamilyLifeContentHost(
+    model: FamilyScreenModel,
+    state: FamilyLifeUiState,
+    viewModel: FamilyLifeViewModel,
+    context: Context,
+    actions: FamilyDestinationActions,
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier = modifier.fillMaxSize()) {
+        IslamicDecorationBand(
+            tint = MaterialTheme.colorScheme.tertiary,
+            compact = true,
+        )
+        IslamicDecorationDivider(
+            tint = MaterialTheme.colorScheme.tertiary,
+            modifier = Modifier.padding(horizontal = 24.dp),
+        )
+        FamilyLifeDestination(
+            model = model,
+            state = state,
+            viewModel = viewModel,
+            context = context,
+            actions = actions,
+        )
+    }
+}
+
+@Composable
+private fun FamilyLifeDestination(
+    model: FamilyScreenModel,
+    state: FamilyLifeUiState,
+    viewModel: FamilyLifeViewModel,
+    context: Context,
+    actions: FamilyDestinationActions,
+) {
+    val article = model.selectedArticle
+    when {
+        article != null -> FamilyArticleDestination(
+            article = article,
+            isArabic = model.isArabic,
+            state = state,
+            viewModel = viewModel,
+            context = context,
+            actions = actions,
+        )
+        model.section == FamilySection.Home -> FamilyHomeDestination(
+            isArabic = model.isArabic,
+            state = state,
+            actions = actions,
+        )
+        model.section == FamilySection.Search -> FamilyGlobalSearchContent(
+            isArabic = model.isArabic,
+            onOpenArticle = actions.openArticle,
+            onOpenNames = { actions.openSection(FamilySection.Names) },
+            onOpenRuqyah = { actions.openSection(FamilySection.Ruqyah) },
+            onOpenChecklist = actions.openChecklist,
+        )
+        model.section == FamilySection.Guide -> FamilyGuideCatalogContent(
+            isArabic = model.isArabic,
+            initialCategory = model.selectedCategory,
+            favoriteIds = state.favoriteArticleIds,
+            onOpenArticle = actions.openArticle,
+            onToggleFavorite = viewModel::toggleArticleFavorite,
+        )
+        model.section == FamilySection.Saved -> FamilySavedContent(
+            isArabic = model.isArabic,
+            favoriteIds = state.favoriteArticleIds,
+            recentArticleIds = state.recentArticleIds,
+            onOpenArticle = actions.openArticle,
+            onClearHistory = viewModel::clearReadingHistory,
+        )
+        model.section == FamilySection.Tools -> FamilyToolsContent(
+            isArabic = model.isArabic,
+            completedItemIds = state.completedChecklistItemIds,
+            initialChecklistId = model.selectedChecklistId,
+            onSetCompleted = viewModel::setChecklistItemCompleted,
+        )
+        model.section == FamilySection.Ruqyah -> RuqyahContent(
+            isArabic = model.isArabic,
+            onPlay = { url -> openAudio(context = context, url = url) },
+            onAudioFailure = actions.onAudioFailure,
+        )
+        model.section == FamilySection.Names -> BabyNamesContent(isArabic = model.isArabic)
+        model.section == FamilySection.Aqiqah -> AqiqahContent(
+            state = state,
+            viewModel = viewModel,
+        )
+    }
+}
+
+@Composable
+private fun FamilyArticleDestination(
+    article: FamilyGuideArticle,
+    isArabic: Boolean,
+    state: FamilyLifeUiState,
+    viewModel: FamilyLifeViewModel,
+    context: Context,
+    actions: FamilyDestinationActions,
+) {
+    FamilyArticleDetailContent(
+        article = article,
+        isArabic = isArabic,
+        isFavorite = article.id in state.favoriteArticleIds,
+        relatedArticles = FamilyLifeContent.relatedArticles(article.id),
+        actions = FamilyArticleReaderActions(
+            onToggleFavorite = { viewModel.toggleArticleFavorite(article.id) },
+            onCopyArticle = { copyFamilyArticle(context, article, isArabic) },
+            onShareArticle = { shareFamilyArticle(context, article, isArabic) },
+            onOpenReference = { reference -> openFamilyReference(reference, actions) },
+            onOpenArticle = actions.openArticle,
+        ),
+    )
+}
+
+@Composable
+private fun FamilyHomeDestination(
+    isArabic: Boolean,
+    state: FamilyLifeUiState,
+    actions: FamilyDestinationActions,
+) {
+    FamilyHubContent(
+        isArabic = isArabic,
+        favoriteCount = state.favoriteArticleIds.size,
+        recentCount = state.recentArticleIds.size,
+        onOpenCategory = actions.openCategory,
+        onOpenDestination = { destination -> openFamilyHubDestination(destination, actions) },
+    )
+}
+
+private fun openFamilyHubDestination(
+    destination: FamilyHubDestination,
+    actions: FamilyDestinationActions,
+) {
+    when (destination) {
+        FamilyHubDestination.Search -> actions.openSection(FamilySection.Search)
+        FamilyHubDestination.Saved -> actions.openSection(FamilySection.Saved)
+        FamilyHubDestination.Tools -> actions.openSection(FamilySection.Tools)
+        FamilyHubDestination.Ruqyah -> actions.openSection(FamilySection.Ruqyah)
+        FamilyHubDestination.Names -> actions.openSection(FamilySection.Names)
+        FamilyHubDestination.Aqiqah -> actions.openSection(FamilySection.Aqiqah)
+        FamilyHubDestination.Quran -> actions.openQuran(null, null)
+        FamilyHubDestination.Hadith -> actions.openHadith()
+        FamilyHubDestination.Adhkar -> actions.openAdhkar()
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun FamilyLifeTopBar(
+    title: String,
+    onBack: () -> Unit,
+) {
+    TopAppBar(
+        title = { Text(title) },
+        navigationIcon = {
+            IconButton(onClick = onBack) {
+                Icon(
+                    Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = stringResource(R.string.learn_back),
+                )
+            }
+        },
+    )
+}
+
+@Composable
+private fun FamilySection.title(): String = when (this) {
+    FamilySection.Home -> stringResource(R.string.family_life_title)
+    FamilySection.Search -> stringResource(R.string.family_global_search_title)
+    FamilySection.Guide -> stringResource(R.string.family_guide_all_title)
+    FamilySection.Saved -> stringResource(R.string.family_saved_title)
+    FamilySection.Tools -> stringResource(R.string.family_checklists_title)
+    FamilySection.Ruqyah -> stringResource(R.string.family_tab_ruqyah)
+    FamilySection.Names -> stringResource(R.string.family_tab_names)
+    FamilySection.Aqiqah -> stringResource(R.string.family_tab_aqiqah)
 }
 
 @Composable
@@ -182,42 +424,8 @@ private fun RuqyahContent(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
-        item {
-            FamilyIntroCard(
-                icon = Icons.Filled.Security,
-                title = stringResource(R.string.family_ruqyah_method_title),
-                text = stringResource(R.string.family_ruqyah_method_intro),
-            )
-        }
-        item {
-            NoticeCard(
-                icon = Icons.Filled.Info,
-                text = stringResource(R.string.family_ruqyah_health_notice),
-            )
-        }
-        item {
-            Text(
-                text = stringResource(R.string.family_ruqyah_steps_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-            )
-        }
-        items(FamilyLifeContent.ruqyahGuidance) { guidance ->
-            Text(
-                text = guidance.pick(isArabic),
-                style = MaterialTheme.typography.bodyLarge,
-                lineHeight = MaterialTheme.typography.bodyLarge.lineHeight,
-                modifier = Modifier.padding(horizontal = 4.dp),
-            )
-        }
-        item {
-            Text(
-                text = stringResource(R.string.family_ruqyah_passages_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(top = 4.dp),
-            )
-        }
+        item { RuqyahIntroAndGuidance(isArabic) }
+        item { FamilySectionHeading(stringResource(R.string.family_ruqyah_passages_title)) }
         items(FamilyLifeContent.ruqyahPassages, key = { it.id }) { passage ->
             RuqyahPassageCard(
                 passage = passage,
@@ -228,14 +436,11 @@ private fun RuqyahContent(
                 },
             )
         }
-        item {
-            Text(
-                text = stringResource(R.string.family_ruqyah_audio_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(top = 4.dp),
-            )
+        item { FamilySectionHeading(stringResource(R.string.family_ruqyah_supplications_title)) }
+        items(FamilyLifeContent.ruqyahSupplications, key = { it.id }) { supplication ->
+            RuqyahSupplicationCard(supplication = supplication, isArabic = isArabic)
         }
+        item { FamilySectionHeading(stringResource(R.string.family_ruqyah_audio_title)) }
         items(FamilyLifeContent.ruqyahAudio, key = { it.id }) { track ->
             AudioTrackCard(
                 track = track,
@@ -247,6 +452,39 @@ private fun RuqyahContent(
             )
         }
     }
+}
+
+@Composable
+private fun RuqyahIntroAndGuidance(isArabic: Boolean) {
+    Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        FamilyIntroCard(
+            icon = Icons.Filled.Security,
+            title = stringResource(R.string.family_ruqyah_method_title),
+            text = stringResource(R.string.family_ruqyah_method_intro),
+        )
+        NoticeCard(
+            icon = Icons.Filled.Info,
+            text = stringResource(R.string.family_ruqyah_health_notice),
+        )
+        FamilySectionHeading(stringResource(R.string.family_ruqyah_steps_title))
+        FamilyLifeContent.ruqyahGuidance.forEach { guidance ->
+            Text(
+                text = guidance.pick(isArabic),
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.padding(horizontal = 4.dp),
+            )
+        }
+    }
+}
+
+@Composable
+private fun FamilySectionHeading(text: String) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.Bold,
+        modifier = Modifier.padding(top = 4.dp),
+    )
 }
 
 @Composable
@@ -282,6 +520,40 @@ private fun RuqyahPassageCard(
                 color = MaterialTheme.colorScheme.primary,
             )
         }
+    }
+}
+
+@Composable
+private fun RuqyahSupplicationCard(
+    supplication: RuqyahSupplication,
+    isArabic: Boolean,
+) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Text(
+            text = supplication.title.pick(isArabic),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        Spacer(Modifier.height(8.dp))
+        Text(
+            text = supplication.arabic,
+            style = MaterialTheme.typography.bodyLarge,
+            textAlign = TextAlign.End,
+            modifier = Modifier.fillMaxWidth(),
+        )
+        Spacer(Modifier.height(8.dp))
+        Text(
+            text = supplication.meaning.pick(isArabic),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Spacer(Modifier.height(6.dp))
+        Text(
+            text = supplication.reference.pick(isArabic),
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.primary,
+        )
     }
 }
 
@@ -403,6 +675,20 @@ private fun BabyNameCard(name: IslamicBabyName, isArabic: Boolean) {
                     text = if (isArabic) name.meaningArabic else name.meaningEnglish,
                     style = MaterialTheme.typography.bodyMedium,
                 )
+                name.origin?.let { origin ->
+                    Text(
+                        text = stringResource(R.string.family_name_origin, origin.pick(isArabic)),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+                name.note?.let { note ->
+                    Text(
+                        text = note.pick(isArabic),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
             }
         }
     }
@@ -422,7 +708,9 @@ private fun AqiqahContent(
         if (text.isEmpty()) null else runCatching { LocalDate.parse(text) }.getOrNull()
     }
     val schedule = birthDate?.let(AqiqahCalculator::schedule)
-    val daysUntil = birthDate?.let { AqiqahCalculator.daysUntilFirst(it, LocalDate.now()) }
+    val daysUntil = birthDate?.let {
+        AqiqahCalculator.daysUntil(it, state.aqiqahReminderDay, LocalDate.now())
+    }
     val reminderAvailable = daysUntil != null && daysUntil >= 0
 
     LazyColumn(
@@ -438,41 +726,31 @@ private fun AqiqahContent(
             )
         }
         item {
-            DigitNormalizedOutlinedTextField(
+            AqiqahBirthDateEditor(
                 value = birthDateText,
+                parseError = parseError,
                 onValueChange = {
                     birthDateText = it
                     parseError = false
                 },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                label = { Text(stringResource(R.string.family_aqiqah_birth_date)) },
-                placeholder = { Text(stringResource(R.string.family_aqiqah_date_hint)) },
-                isError = parseError,
-                supportingText = if (parseError) {
-                    { Text(stringResource(R.string.family_aqiqah_invalid_date)) }
-                } else null,
-                keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(keyboardType = KeyboardType.Text),
-            )
-        }
-        item {
-            IslamicSecondaryButton(
-                onClick = {
+                onSave = {
                     if (birthDate == null) parseError = true else viewModel.setBirthDate(birthDate)
                 },
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(stringResource(R.string.family_aqiqah_apply))
-            }
+            )
         }
-        if (schedule != null) {
-            item {
-                AqiqahDatesCard(schedule = schedule)
-            }
+        schedule?.let { calculated ->
+            item { AqiqahDatesCard(schedule = calculated) }
+        }
+        item {
+            AqiqahReminderDaySelector(
+                selectedDay = state.aqiqahReminderDay,
+                onSelected = viewModel::setAqiqahReminderDay,
+            )
         }
         item {
             AqiqahReminderCard(
                 birthDate = birthDate,
+                reminderDay = state.aqiqahReminderDay,
                 reminderAvailable = reminderAvailable,
                 reminderEnabled = state.aqiqahReminderEnabled,
                 onToggleReminder = { viewModel.setAqiqahReminderEnabled(it) },
@@ -488,8 +766,63 @@ private fun AqiqahContent(
 }
 
 @Composable
+private fun AqiqahBirthDateEditor(
+    value: String,
+    parseError: Boolean,
+    onValueChange: (String) -> Unit,
+    onSave: () -> Unit,
+) {
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        DigitNormalizedOutlinedTextField(
+            value = value,
+            onValueChange = onValueChange,
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true,
+            label = { Text(stringResource(R.string.family_aqiqah_birth_date)) },
+            placeholder = { Text(stringResource(R.string.family_aqiqah_date_hint)) },
+            isError = parseError,
+            supportingText = if (parseError) {
+                { Text(stringResource(R.string.family_aqiqah_invalid_date)) }
+            } else null,
+            keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(keyboardType = KeyboardType.Text),
+        )
+        IslamicSecondaryButton(
+            onClick = onSave,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Text(stringResource(R.string.family_aqiqah_apply))
+        }
+    }
+}
+
+@Composable
+private fun AqiqahReminderDaySelector(
+    selectedDay: AqiqahReminderDay,
+    onSelected: (AqiqahReminderDay) -> Unit,
+) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Text(
+            text = stringResource(R.string.family_aqiqah_choose_reminder_day),
+            style = MaterialTheme.typography.titleSmall,
+            fontWeight = FontWeight.Bold,
+        )
+        Spacer(Modifier.height(8.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            AqiqahReminderDay.entries.forEach { day ->
+                FilterChip(
+                    selected = selectedDay == day,
+                    onClick = { onSelected(day) },
+                    label = { Text(stringResource(R.string.family_aqiqah_day_number, day.offsetDays)) },
+                )
+            }
+        }
+    }
+}
+
+@Composable
 private fun AqiqahReminderCard(
     birthDate: LocalDate?,
+    reminderDay: AqiqahReminderDay,
     reminderAvailable: Boolean,
     reminderEnabled: Boolean,
     onToggleReminder: (Boolean) -> Unit,
@@ -502,8 +835,11 @@ private fun AqiqahReminderCard(
                 Text(stringResource(R.string.family_aqiqah_reminder), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
                 Text(
                     text = if (birthDate == null) stringResource(R.string.family_aqiqah_set_birth_first)
-                    else if (reminderAvailable) stringResource(R.string.family_aqiqah_reminder_desc)
-                    else stringResource(R.string.family_aqiqah_date_passed),
+                    else if (reminderAvailable) {
+                        stringResource(R.string.family_aqiqah_reminder_desc, reminderDay.offsetDays)
+                    } else {
+                        stringResource(R.string.family_aqiqah_selected_date_passed, reminderDay.offsetDays)
+                    },
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -543,74 +879,6 @@ private fun AqiqahDatesCard(
 }
 
 @Composable
-private fun MarriageContent(isArabic: Boolean) {
-    var query by rememberSaveable { mutableStateOf("") }
-    val results = remember(query) { FamilyLifeContent.searchArticles(query) }
-    LazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp),
-    ) {
-        item {
-            FamilyIntroCard(
-                icon = Icons.Filled.FamilyRestroom,
-                title = stringResource(R.string.family_marriage_title),
-                text = stringResource(R.string.family_marriage_intro),
-            )
-        }
-        item {
-            DigitNormalizedOutlinedTextField(
-                value = query,
-                onValueChange = { query = it },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                placeholder = { Text(stringResource(R.string.family_articles_search)) },
-                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-                keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(keyboardType = KeyboardType.Text),
-            )
-        }
-        item {
-            Text(
-                text = stringResource(R.string.family_articles_count, results.size),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.primary,
-            )
-        }
-        items(results, key = { it.id }) { article ->
-            FamilyArticleCard(article, isArabic)
-        }
-        if (results.isEmpty()) {
-            item {
-                MuslimStateSurface(
-                    title = stringResource(R.string.family_articles_empty),
-                    tone = MuslimStateTone.Neutral,
-                    icon = Icons.Filled.Search,
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun FamilyArticleCard(article: FamilyGuideArticle, isArabic: Boolean) {
-    IslamicCard(modifier = Modifier.fillMaxWidth()) {
-        Column {
-            Text(article.title.pick(isArabic), style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
-            Spacer(Modifier.height(6.dp))
-            Text(article.summary.pick(isArabic), style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            article.sections.forEach { section ->
-                Spacer(Modifier.height(12.dp))
-                Text(section.title.pick(isArabic), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.primary)
-                section.paragraphs.forEach { paragraph ->
-                    Spacer(Modifier.height(6.dp))
-                    Text(paragraph.pick(isArabic), style = MaterialTheme.typography.bodyLarge, lineHeight = MaterialTheme.typography.bodyLarge.lineHeight)
-                }
-            }
-        }
-    }
-}
-
-@Composable
 private fun FamilyIntroCard(icon: ImageVector, title: String, text: String) {
     MuslimStateSurface(
         title = title,
@@ -630,6 +898,55 @@ private fun NoticeCard(icon: ImageVector, text: String) {
 }
 
 private fun LocalizedFamilyText.pick(isArabic: Boolean): String = if (isArabic) arabic else english
+
+private fun copyFamilyArticle(
+    context: Context,
+    article: FamilyGuideArticle,
+    isArabic: Boolean,
+) {
+    val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+    clipboard.setPrimaryClip(
+        ClipData.newPlainText(
+            article.title.pick(isArabic),
+            FamilyArticleTextFormatter.format(article, isArabic),
+        ),
+    )
+    Toast.makeText(
+        context,
+        context.getString(R.string.family_article_copied),
+        Toast.LENGTH_SHORT,
+    ).show()
+}
+
+private fun shareFamilyArticle(
+    context: Context,
+    article: FamilyGuideArticle,
+    isArabic: Boolean,
+) {
+    val shareIntent = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_SUBJECT, article.title.pick(isArabic))
+        putExtra(Intent.EXTRA_TEXT, FamilyArticleTextFormatter.format(article, isArabic))
+    }
+    context.startActivity(
+        Intent.createChooser(
+            shareIntent,
+            context.getString(R.string.family_share_article),
+        ),
+    )
+}
+
+private fun openFamilyReference(
+    reference: FamilyEvidenceReference,
+    actions: FamilyDestinationActions,
+) {
+    val quran = FamilyReferenceParser.quranReference(reference)
+    when {
+        quran != null -> actions.openQuran(quran.surahNumber, quran.firstAyah)
+        reference.type == org.muslim.app.feature.family.domain.FamilyEvidenceType.Hadith ->
+            actions.openHadith()
+    }
+}
 
 private fun openAudio(context: Context, url: String) {
     runCatching {

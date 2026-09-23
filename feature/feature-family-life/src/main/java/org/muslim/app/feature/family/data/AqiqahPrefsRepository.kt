@@ -9,6 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import org.muslim.app.feature.family.domain.AqiqahCalculator
+import org.muslim.app.feature.family.domain.AqiqahReminderDay
 import java.time.LocalDate
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -28,6 +29,12 @@ class AqiqahPrefsRepository @Inject constructor(
         preferences[Keys.REMINDER_ENABLED] ?: false
     }
 
+    val reminderDay: Flow<AqiqahReminderDay> = context.aqiqahDataStore.data.map { preferences ->
+        preferences[Keys.REMINDER_DAY]
+            ?.let { stored -> AqiqahReminderDay.entries.firstOrNull { it.name == stored } }
+            ?: AqiqahReminderDay.Seventh
+    }
+
     suspend fun setBirthDate(date: LocalDate?) {
         context.aqiqahDataStore.edit { preferences ->
             if (date == null) preferences.remove(Keys.BIRTH_DATE)
@@ -41,6 +48,12 @@ class AqiqahPrefsRepository @Inject constructor(
         }
     }
 
+    suspend fun setReminderDay(day: AqiqahReminderDay) {
+        context.aqiqahDataStore.edit { preferences ->
+            preferences[Keys.REMINDER_DAY] = day.name
+        }
+    }
+
     /** Only used by tests and migration-safe callers to validate the limit. */
     fun isReminderDateSupported(date: LocalDate, today: LocalDate): Boolean =
         AqiqahCalculator.daysUntilFirst(date, today) >= 0
@@ -48,5 +61,6 @@ class AqiqahPrefsRepository @Inject constructor(
     private object Keys {
         val BIRTH_DATE = stringPreferencesKey("aqiqah_birth_date")
         val REMINDER_ENABLED = booleanPreferencesKey("aqiqah_reminder_enabled")
+        val REMINDER_DAY = stringPreferencesKey("aqiqah_reminder_day")
     }
 }

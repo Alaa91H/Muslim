@@ -81,6 +81,18 @@ object QuranAyahIndex {
         return remaining
     }
 
+    /** Global mushaf ayah number for a surah-local reference, or -1 when invalid. */
+    fun globalNumber(
+        surahNumber: Int,
+        ayahNumber: Int,
+    ): Int {
+        val count = AYAH_COUNTS.getOrNull(surahNumber - 1) ?: return -1
+        if (ayahNumber !in 1..count) return -1
+        return AYAH_COUNTS
+            .take(surahNumber - 1)
+            .sum() + ayahNumber
+    }
+
     /** Display name of [surahNumber] (1..114), or empty when invalid. */
     fun surahName(surahNumber: Int): String =
         SURAH_NAMES.getOrNull(surahNumber - 1) ?: ""
