@@ -122,11 +122,13 @@ fun IslamicHistoryScreen(
                     language = language,
                     target = pendingTarget,
                     onTargetConsumed = { pendingTarget = null },
+                    onNavigate = openTarget,
                 )
                 2 -> CivilizationTab(
                     language = language,
                     target = pendingTarget,
                     onTargetConsumed = { pendingTarget = null },
+                    onNavigate = openTarget,
                 )
                 3 -> EventsTab(
                     language = language,
@@ -407,6 +409,7 @@ private fun StatesTab(
     language: HistoryLanguage,
     target: HistoryNavigationTarget?,
     onTargetConsumed: () -> Unit,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
 ) {
     var selectedRegion by remember { mutableStateOf<HistoryRegion?>(null) }
     var selectedStateId by remember { mutableStateOf<String?>(null) }
@@ -422,6 +425,7 @@ private fun StatesTab(
             state = selectedState,
             language = language,
             onBack = { selectedStateId = null },
+            onNavigate = onNavigate,
         )
         return
     }
@@ -552,6 +556,7 @@ private fun HistoricalStateDetail(
     state: HistoricalState,
     language: HistoryLanguage,
     onBack: () -> Unit,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
 ) {
     BackHandler(onBack = onBack)
     val sources = state.sourceIds.mapNotNull(IslamicHistorySources::byId)
@@ -602,11 +607,30 @@ private fun HistoricalStateDetail(
             }
             items(events, key = { it.id }) { event ->
                 Card {
-                    Text(
-                        text = event.title.resolve(language),
-                        style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.padding(16.dp),
-                    )
+                    Column(modifier = Modifier.padding(12.dp)) {
+                        Text(
+                            text = event.title.resolve(language),
+                            style = MaterialTheme.typography.bodyMedium,
+                        )
+                        TextButton(
+                            onClick = {
+                                onNavigate(
+                                    HistoryNavigationTarget(
+                                        HistoryTargetType.Event,
+                                        event.id,
+                                    ),
+                                )
+                            },
+                        ) {
+                            Text(
+                                if (language == HistoryLanguage.Arabic) {
+                                    "فتح الحدث"
+                                } else {
+                                    "Open event"
+                                },
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -655,6 +679,7 @@ private fun CivilizationTab(
     language: HistoryLanguage,
     target: HistoryNavigationTarget?,
     onTargetConsumed: () -> Unit,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
 ) {
     var selectedCategory by remember { mutableStateOf<CivilizationCategory?>(null) }
     var selectedTopicId by remember { mutableStateOf<String?>(null) }
@@ -671,6 +696,7 @@ private fun CivilizationTab(
             topic = selectedTopic,
             language = language,
             onBack = { selectedTopicId = null },
+            onNavigate = onNavigate,
         )
         return
     }
@@ -777,6 +803,7 @@ private fun CivilizationTopicView(
     topic: CivilizationTopic,
     language: HistoryLanguage,
     onBack: () -> Unit,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
 ) {
     BackHandler(onBack = onBack)
     val sources = topic.sourceIds.mapNotNull(IslamicHistorySources::byId)
@@ -820,7 +847,69 @@ private fun CivilizationTopicView(
                 )
             }
             items(people, key = { it.id }) { person ->
-                PersonCard(person = person, language = language)
+                Card {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(
+                            text = person.name.resolve(language),
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold,
+                        )
+                        Text(
+                            text = person.summary.resolve(language),
+                            style = MaterialTheme.typography.bodySmall,
+                            modifier = Modifier.padding(top = 6.dp),
+                        )
+                        TextButton(
+                            onClick = {
+                                onNavigate(
+                                    HistoryNavigationTarget(
+                                        HistoryTargetType.Person,
+                                        person.id,
+                                    ),
+                                )
+                            },
+                        ) {
+                            Text(
+                                if (language == HistoryLanguage.Arabic) {
+                                    "فتح ملف الشخصية"
+                                } else {
+                                    "Open person profile"
+                                },
+                            )
+                        }
+                    }
+                }
+            }
+        }
+        if (topic.relatedTopicIds.isNotEmpty()) {
+            item {
+                Text(
+                    text = if (language == HistoryLanguage.Arabic) {
+                        "موضوعات حضارية مرتبطة"
+                    } else {
+                        "Related civilization topics"
+                    },
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
+            items(topic.relatedTopicIds, key = { it }) { relatedId ->
+                IslamicCivilizationContent.byId(relatedId)?.let { related ->
+                    Card {
+                        TextButton(
+                            onClick = {
+                                onNavigate(
+                                    HistoryNavigationTarget(
+                                        HistoryTargetType.CivilizationTopic,
+                                        relatedId,
+                                    ),
+                                )
+                            },
+                        ) {
+                            Text(related.title.resolve(language))
+                        }
+                    }
+                }
             }
         }
         if (sources.isNotEmpty()) {
