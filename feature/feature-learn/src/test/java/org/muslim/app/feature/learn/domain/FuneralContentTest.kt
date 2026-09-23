@@ -92,4 +92,27 @@ class FuneralContentTest {
 
         assertThat(matches.map(FuneralGuideSection::id)).contains("first_steps")
     }
+    @Test
+    fun `will reference index covers Quran hadith and qualified review`() {
+        val ids = FuneralContent.willReferenceIndex.map(WillReferenceEntry::id)
+
+        assertThat(ids).containsExactly(
+            "quran_will",
+            "quran_inheritance",
+            "one_third_hadith",
+            "bukhari_wills",
+            "qualified_review",
+        ).inOrder()
+        assertThat(
+            FuneralContent.willReferenceIndex.any {
+                it.source.arabic.contains("البقرة 2:180") &&
+                    it.source.english.contains("Qur'an 2:180")
+            },
+        ).isTrue()
+        assertThat(
+            FuneralContent.willReferenceIndex.any {
+                it.source.english.contains("Sa'd ibn Abi Waqqas")
+            },
+        ).isTrue()
+    }
 }
