@@ -11,11 +11,9 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import io.mockk.coEvery
-import io.mockk.coVerify
-import io.mockk.every
-import io.mockk.mockk
-import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
@@ -23,10 +21,12 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.muslim.app.core.datastore.prayer.PrayerSettings
 import org.muslim.app.core.datastore.prayer.PrayerSettingsRepository
+import org.muslim.app.core.common.prayer.PrayerTimesCalculator
 import org.muslim.app.core.location.GeoLocation
 import org.muslim.app.core.location.LocationProvider
 import org.muslim.app.core.location.RegionNameResolver
 import org.muslim.app.feature.prayertimes.R
+import org.muslim.app.feature.prayertimes.notifications.AdhanDeliveryJournal
 import org.muslim.app.feature.prayertimes.notifications.AdhanScheduler
 
 /**
@@ -61,23 +61,27 @@ class LocationScreenGpsInstrumentationTest {
     @Test
     fun useCurrentLocationPersistsGpsFixAndStaysInThePickerFlow() {
         val targetContext = InstrumentationRegistry.getInstrumentation().targetContext
-        val locationProvider = mockk<LocationProvider>()
-        coEvery { locationProvider.currentLocation() } returns GeoLocation(24.7136, 46.6753)
-        val repository = mockk<PrayerSettingsRepository>()
-        every { repository.settings } returns flowOf(PrayerSettings())
-        coEvery { repository.save(any()) } returns Unit
-        val scheduler = mockk<AdhanScheduler>(relaxed = true)
-        val regionNameResolver = mockk<RegionNameResolver>()
-        coEvery { regionNameResolver.resolve(any(), any()) } returns "Riyadh, Saudi Arabia"
-        val timeZoneResolver = mockk<CoordinateTimeZoneResolver>()
-        coEvery { timeZoneResolver.resolve(any(), any()) } returns "Asia/Riyadh"
+        val locationProvider = object : LocationProvider {
+            override suspend fun currentLocation(): GeoLocation = GeoLocation(24.7136, 46.6753)
+        }
+        val repository = PrayerSettingsRepository(targetContext)
+        runBlocking { repository.save(PrayerSettings(adhanEnabled = false)) }
+        val scheduler = AdhanScheduler(
+            context = targetContext,
+            calculator = PrayerTimesCalculator(),
+            deliveryJournal = AdhanDeliveryJournal(targetContext),
+        )
+        val regionNameResolver = object : RegionNameResolver {
+            override suspend fun resolve(latitude: Double, longitude: Double): String =
+                "Riyadh, Saudi Arabia"
+        }
         val viewModel = LocationViewModel(
-            context = mockk<Context>(relaxed = true),
+            context = targetContext,
             repository = repository,
             locationProvider = locationProvider,
             scheduler = scheduler,
             regionNameResolver = regionNameResolver,
-            coordinateTimeZoneResolver = timeZoneResolver,
+            coordinateTimeZoneResolver = CoordinateTimeZoneResolver(),
         )
         var saved = false
         val gpsText = targetContext.getString(R.string.location_use_gps)
@@ -93,12 +97,9 @@ class LocationScreenGpsInstrumentationTest {
         composeRule.waitUntil(timeoutMillis = 10_000) { saved }
 
         assertTrue(saved)
-        coVerify(exactly = 1) {
-            repository.save(match { settings ->
-                settings.location?.latitude == 24.7136 &&
-                    settings.location?.longitude == 46.6753 &&
-                    settings.location?.timeZone == "Asia/Riyadh"
-            })
-        }
+        val persisted = runBlocking { repository.settings.first() }
+        assertEquals(24.7136, persisted.location?.latitude ?: Double.NaN, 0.0)
+        assertEquals(46.6753, persisted.location?.longitude ?: Double.NaN, 0.0)
+        assertEquals("Asia/Riyadh", persisted.location?.timeZone)
     }
 }
