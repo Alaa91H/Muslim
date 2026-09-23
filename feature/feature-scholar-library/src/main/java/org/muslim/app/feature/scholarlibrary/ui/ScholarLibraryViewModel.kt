@@ -1,6 +1,8 @@
 package org.muslim.app.feature.scholarlibrary.ui
 
 import androidx.lifecycle.ViewModel
+import java.time.LocalDate
+import java.time.ZoneId
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -24,9 +26,12 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarLibraryIndex
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPathProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewEvent
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewRating
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewScheduler
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewSummary
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyActivitySummary
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyAnalytics
 import org.muslim.app.feature.scholarlibrary.domain.ScholarCategoryMastery
 import org.muslim.app.feature.scholarlibrary.domain.ScholarSearchFilters
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPath
@@ -64,6 +69,19 @@ internal data class ScholarLibraryUiState(
     val flashcards: List<FlashcardWithCitation> = emptyList(),
     val reviewSummary: ScholarReviewSummary = ScholarReviewSummary(0, 0, 0, 0, 0),
     val categoryMastery: List<ScholarCategoryMastery> = emptyList(),
+    val reviewEvents: List<ScholarReviewEvent> = emptyList(),
+    val studyActivitySummary: ScholarStudyActivitySummary = ScholarStudyActivitySummary(
+        reviewsToday = 0,
+        reviewsLast7Days = 0,
+        cardsReviewedLast7Days = 0,
+        againLast7Days = 0,
+        hardLast7Days = 0,
+        goodLast7Days = 0,
+        easyLast7Days = 0,
+        completedSessionsLast7Days = 0,
+        studiedPassagesLast7Days = 0,
+        dueCards = 0,
+    ),
     val bookmarks: List<StudyBookmarkWithCitation> = emptyList(),
     val highlights: List<StudyHighlightWithCitation> = emptyList(),
     val readingProgress: List<ScholarReadingProgress> = emptyList(),
@@ -114,6 +132,10 @@ class ScholarLibraryViewModel @Inject constructor(
                         flashcards = cards,
                         reviewSummary = ScholarReviewScheduler.reviewSummary(cards.map { item -> item.card }, now),
                         categoryMastery = ScholarReviewScheduler.categoryMastery(cards, now),
+                        studyActivitySummary = studyActivitySummary(
+                            state = it,
+                            cards = cards,
+                        ),
                     )
                 }
             }
@@ -155,9 +177,26 @@ class ScholarLibraryViewModel @Inject constructor(
                                 nowEpochMillis = System.currentTimeMillis(),
                             )
                         },
+                        studyActivitySummary = studyActivitySummary(
+                            state = state,
+                            sessions = sessions,
+                        ),
                     )
                 }
             }
+        viewModelScope.launch {
+            repository.observeReviewEvents().collect { events ->
+                update {
+                    it.copy(
+                        reviewEvents = events,
+                        studyActivitySummary = studyActivitySummary(
+                            state = it,
+                            reviewEvents = events,
+                        ),
+                    )
+                }
+            }
+        }
         }
     }
 
@@ -505,7 +544,30 @@ class ScholarLibraryViewModel @Inject constructor(
         }
     }
 
+    private fun studyActivitySummary(
+        state: ScholarLibraryUiState,
+        cards: List<FlashcardWithCitation> = state.flashcards,
+        sessions: List<ScholarStudySession> = state.studySessions,
+        reviewEvents: List<ScholarReviewEvent> = state.reviewEvents,
+    ): ScholarStudyActivitySummary {
+        val zone = ZoneId.systemDefault()
+        val now = System.currentTimeMillis()
+        val todayStart = LocalDate.now(zone).atStartOfDay(zone).toInstant().toEpochMilli()
+        return ScholarStudyAnalytics.activitySummary(
+            reviewEvents = reviewEvents,
+            sessions = sessions,
+            cards = cards.map { it.card },
+            nowEpochMillis = now,
+            todayStartEpochMillis = todayStart,
+            sevenDaysStartEpochMillis = now - SEVEN_DAYS_MILLIS,
+        )
+    }
+
     private fun update(transform: (ScholarLibraryUiState) -> ScholarLibraryUiState) {
         mutableState.value = transform(mutableState.value)
+    }
+
+    private companion object {
+        const val SEVEN_DAYS_MILLIS = 7L * 24 * 60 * 60 * 1000
     }
 }
