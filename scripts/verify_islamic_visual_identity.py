@@ -153,9 +153,10 @@ REQUIRED_SNIPPETS = {
         "WearOrnamentBand",
         "ornamentStyle",
         "ornamentIntensity",
-        "wear_vibration_on",
-        "wear_vibration_off",
+        "wear_vibration",
         "wear_increment",
+        "wear_tasbih_of_target",
+        "localizedPrayerName",
     ],
     "feature/feature-ramadan/src/main/java/org/muslim/app/feature/ramadan/ui/RamadanScreen.kt": [
         "IslamicCard",
