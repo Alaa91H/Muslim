@@ -188,6 +188,8 @@ fun MuslimApp(
         reduceAnimations = preferences.reduceAnimations,
         colorPalette = preferences.colorPalette,
         cardCornerStyle = preferences.cardCornerStyle,
+        ornamentStyle = preferences.ornamentStyle,
+        ornamentIntensity = preferences.ornamentIntensity,
     ) {
         MuslimAppScaffold(
             modifier = modifier,
