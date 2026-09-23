@@ -593,16 +593,26 @@ private fun LazyListScope.studySessionItems(
                     ),
                     style = MaterialTheme.typography.labelMedium,
                 )
-                if (session.status == ScholarStudySessionStatus.InProgress) {
-                    Button(onClick = { onOpenSession(session.pathId) }) {
-                        Text(stringResource(R.string.scholar_library_resume_session))
+                when (session.status) {
+                    ScholarStudySessionStatus.InProgress -> {
+                        Button(onClick = { onOpenSession(session.pathId) }) {
+                            Text(stringResource(R.string.scholar_library_resume_session))
+                        }
                     }
-                } else {
-                    Text(
-                        stringResource(R.string.scholar_library_session_history_completed),
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.primary,
-                    )
+                    ScholarStudySessionStatus.Completed -> {
+                        Text(
+                            stringResource(R.string.scholar_library_session_history_completed),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.primary,
+                        )
+                    }
+                    ScholarStudySessionStatus.Abandoned -> {
+                        Text(
+                            stringResource(R.string.scholar_library_session_history_abandoned),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 }
             }
         }
