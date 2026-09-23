@@ -50,11 +50,15 @@ internal fun HistoryPeopleProfilesTab(
             onTargetConsumed()
         }
     }
-    val profile = selectedPersonId?.let(IslamicHistoryProfiles::personById)
+    val profile by rememberHistoryPersonProfile(selectedPersonId)
 
-    if (profile != null) {
+    if (selectedPersonId != null) {
+        if (profile == null) {
+            HistoryContentLoading()
+            return
+        }
         PersonProfileView(
-            profile = profile,
+            profile = requireNotNull(profile),
             language = language,
             onBack = { selectedPersonId = null },
             onNavigate = onNavigate,
@@ -161,15 +165,15 @@ private fun PersonProfileView(
             ProfileHeader(
                 title = person.name.resolve(language),
                 subtitle = person.years,
-                summary = profile.overview.resolve(language),
+                summary = loadedProfile.overview.resolve(language),
             )
         }
-        items(profile.sections, key = { it.id }) { section ->
+        items(loadedProfile.sections, key = { it.id }) { section ->
             ProfileSectionCard(section = section, language = language)
         }
         item {
             PersonRelationsCard(
-                profile = profile,
+                profile = loadedProfile,
                 language = language,
                 onNavigate = onNavigate,
             )
@@ -190,9 +194,14 @@ internal fun HistoryPlaceProfileView(
     onBack: () -> Unit,
     onNavigate: (HistoryNavigationTarget) -> Unit,
 ) {
-    val profile = IslamicHistoryProfiles.placeById(placeId) ?: return
+    val profile by rememberHistoricalPlaceProfile(placeId)
     val place = IslamicHistoryProfiles.atlasPlaceById(placeId) ?: return
-    val sources = profile.sourceIds.mapNotNull(IslamicHistorySources::byId)
+    if (profile == null) {
+        HistoryContentLoading()
+        return
+    }
+    val loadedProfile = requireNotNull(profile)
+    val sources = loadedProfile.sourceIds.mapNotNull(IslamicHistorySources::byId)
     BackHandler(onBack = onBack)
 
     LazyColumn(
