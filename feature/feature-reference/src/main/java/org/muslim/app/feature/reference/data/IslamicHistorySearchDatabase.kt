@@ -85,7 +85,10 @@ internal interface HistorySearchDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertMetadata(metadata: HistorySearchMetaEntity)
+}
 
+@Dao
+internal interface HistoryContentDao {
     @Query(
         """
         SELECT * FROM history_content_records
@@ -105,10 +108,10 @@ internal interface HistorySearchDao {
     suspend fun insertContent(rows: List<HistoryContentEntity>)
 
     @Query("SELECT * FROM history_content_meta WHERE id = 1 LIMIT 1")
-    suspend fun contentMetadata(): HistoryContentMetaEntity?
+    suspend fun metadata(): HistoryContentMetaEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun upsertContentMetadata(metadata: HistoryContentMetaEntity)
+    suspend fun upsertMetadata(metadata: HistoryContentMetaEntity)
 }
 
 @Database(
@@ -123,6 +126,8 @@ internal interface HistorySearchDao {
 )
 internal abstract class IslamicHistorySearchDatabase : RoomDatabase() {
     abstract fun searchDao(): HistorySearchDao
+
+    abstract fun contentDao(): HistoryContentDao
 
     companion object {
         @Volatile
