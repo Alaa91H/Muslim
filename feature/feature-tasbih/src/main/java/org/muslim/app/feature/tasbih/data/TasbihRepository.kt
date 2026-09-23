@@ -9,6 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 import org.muslim.app.feature.tasbih.domain.DailyCount
 import org.muslim.app.feature.tasbih.domain.TasbihCounter
 import org.muslim.app.feature.tasbih.domain.TargetSoundSettings
@@ -51,6 +52,7 @@ class TasbihRepository @Inject constructor(
     }
 
     val state: Flow<TasbihState> = context.tasbihDataStore.data
+        .onStart { migrateLegacyStorageIfNeeded() }
         .map { prefs ->
             val today = LocalDate.now()
             val storedCounts = decodeCounts(prefs[Keys.COUNTS])
@@ -58,7 +60,10 @@ class TasbihRepository @Inject constructor(
             TasbihState(
                 counts = TasbihCounter.effectiveCounts(storedCounts, storedDate, today),
                 target = prefs[Keys.TARGET] ?: DEFAULT_TARGET,
-                phrase = TasbihPhrase.entries.getOrElse(prefs[Keys.PHRASE] ?: 0) { TasbihPhrase.SubhanAllah },
+                phrase = TasbihPersistenceCodec.resolveSelectedPhrase(
+                    stableId = prefs[Keys.PHRASE_ID],
+                    legacyOrdinal = prefs[Keys.PHRASE],
+                ),
                 history = decodeHistory(prefs[Keys.HISTORY]),
             )
         }
@@ -110,7 +115,35 @@ class TasbihRepository @Inject constructor(
     }
 
     suspend fun setPhrase(phrase: TasbihPhrase) {
-        context.tasbihDataStore.edit { prefs -> prefs[Keys.PHRASE] = phrase.ordinal }
+        context.tasbihDataStore.edit { prefs ->
+            prefs[Keys.PHRASE_ID] = phrase.storageId
+            // Keep writing the legacy ordinal during the transition so a rollback
+            // to an older app version still opens on the same phrase.
+            prefs[Keys.PHRASE] = phrase.ordinal
+            prefs[Keys.STORAGE_VERSION] = TasbihPersistenceCodec.CURRENT_VERSION
+        }
+    }
+
+    /**
+     * Upgrades ordinal-based v1 storage to stable-id v2 storage exactly once.
+     * The legacy selected-phrase ordinal is intentionally retained for rollback
+     * compatibility, while all counters are rewritten with stable ids.
+     */
+    private suspend fun migrateLegacyStorageIfNeeded() {
+        context.tasbihDataStore.edit { prefs ->
+            val version = prefs[Keys.STORAGE_VERSION] ?: 1
+            if (version >= TasbihPersistenceCodec.CURRENT_VERSION) return@edit
+
+            prefs[Keys.COUNTS] = TasbihPersistenceCodec.encodeCounts(
+                TasbihPersistenceCodec.decodeCounts(prefs[Keys.COUNTS]),
+            )
+            val selected = TasbihPersistenceCodec.resolveSelectedPhrase(
+                stableId = prefs[Keys.PHRASE_ID],
+                legacyOrdinal = prefs[Keys.PHRASE],
+            )
+            prefs[Keys.PHRASE_ID] = selected.storageId
+            prefs[Keys.STORAGE_VERSION] = TasbihPersistenceCodec.CURRENT_VERSION
+        }
     }
 
     /** The active daily counters, normalized for [today] (empty on a new day). */
@@ -124,18 +157,10 @@ class TasbihRepository @Inject constructor(
     }
 
     private fun encodeCounts(counts: Map<TasbihPhrase, Int>): String =
-        counts.entries.joinToString(";") { "${it.key.ordinal}:${it.value}" }
+        TasbihPersistenceCodec.encodeCounts(counts)
 
     private fun decodeCounts(raw: String?): Map<TasbihPhrase, Int> =
-        raw.orEmpty().split(";").mapNotNull { entry ->
-            if (entry.isEmpty()) return@mapNotNull null
-            val parts = entry.split(":")
-            if (parts.size != 2) return@mapNotNull null
-            val phrase = TasbihPhrase.entries.getOrNull(parts[0].toIntOrNull() ?: return@mapNotNull null)
-                ?: return@mapNotNull null
-            val count = parts[1].toIntOrNull() ?: return@mapNotNull null
-            phrase to count
-        }.toMap()
+        TasbihPersistenceCodec.decodeCounts(raw)
 
     private fun encodeHistory(history: List<DailyCount>): String =
         history.joinToString(";") { "${it.date}|${it.count}" }
@@ -153,6 +178,8 @@ class TasbihRepository @Inject constructor(
         val DATE = stringPreferencesKey("date")
         val TARGET = intPreferencesKey("target")
         val PHRASE = intPreferencesKey("phrase")
+        val PHRASE_ID = stringPreferencesKey("phrase_id")
+        val STORAGE_VERSION = intPreferencesKey("storage_version")
         val HISTORY = stringPreferencesKey("history")
         val SOUND_ENABLED = androidx.datastore.preferences.core.booleanPreferencesKey("sound_on_target_enabled")
         val SOUND_TONE = stringPreferencesKey("sound_on_target_tone")
