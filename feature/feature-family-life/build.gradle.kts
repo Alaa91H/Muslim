@@ -36,6 +36,7 @@ dependencies {
     implementation(project(":core:core-common"))
     implementation(project(":core:core-datastore"))
     implementation(project(":core:core-notifications"))
+    implementation(libs.androidx.core.ktx)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
