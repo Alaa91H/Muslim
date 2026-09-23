@@ -17,7 +17,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Checklist
 import androidx.compose.material.icons.filled.ChildCare
 import androidx.compose.material.icons.filled.HealthAndSafety
-import androidx.compose.material.icons.filled.MenuBook
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
@@ -182,7 +182,7 @@ private fun FamilyGlobalSearchResultCard(
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
                 imageVector = when (hit.kind) {
-                    FamilySearchKind.Article -> Icons.Filled.MenuBook
+                    FamilySearchKind.Article -> Icons.AutoMirrored.Filled.MenuBook
                     FamilySearchKind.BabyName -> Icons.Filled.ChildCare
                     FamilySearchKind.Ruqyah -> Icons.Filled.HealthAndSafety
                     FamilySearchKind.Checklist -> Icons.Filled.Checklist
