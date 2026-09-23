@@ -41,4 +41,7 @@
     <string name="family_marriage_intro" tools:ignore="MissingTranslation">مقالات فقهية وتربوية مبسطة عن الخطبة، وعقد النكاح، والحقوق الزوجية، والخلاف، وتربية الأبناء. المحتوى تعليمي عام وليس فتوى لحالة خاصة.</string>
     <string name="aqiqah_notification_title" tools:ignore="MissingTranslation">تذكير العقيقة</string>
     <string name="aqiqah_notification_body" tools:ignore="MissingTranslation">حلّ اليوم السابع المقترح للعقيقة. تقبل الله منكم.</string>
+    <string name="family_articles_search" tools:ignore="MissingTranslation">ابحث في الزواج والأسرة والحياة اليومية</string>
+    <string name="family_articles_count" tools:ignore="MissingTranslation">الموضوعات: %1$d</string>
+    <string name="family_articles_empty" tools:ignore="MissingTranslation">لا توجد موضوعات مطابقة لبحثك</string>
 </resources>
