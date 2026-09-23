@@ -18,6 +18,7 @@ import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.feature.adhkar.data.AdhkarPrefs
 import org.muslim.app.feature.adhkar.data.AdhkarPrefsRepository
 import org.muslim.app.feature.adhkar.data.AdhkarReminderScheduler
+import org.muslim.app.feature.adhkar.data.AdhkarSpeechController
 import org.muslim.app.feature.adhkar.data.PeriodicAdhkarReminderScheduler
 import org.muslim.app.feature.adhkar.data.AdhkarRepository
 import org.muslim.app.feature.adhkar.domain.Dhikr
@@ -29,6 +30,7 @@ class AdhkarSettingsViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val prefsRepository: AdhkarPrefsRepository,
     private val adhkarRepository: AdhkarRepository,
+    private val speechController: AdhkarSpeechController,
     private val scheduler: AdhkarReminderScheduler,
     private val periodicScheduler: PeriodicAdhkarReminderScheduler,
     private val appPreferencesRepository: AppPreferencesRepository,
@@ -36,6 +38,10 @@ class AdhkarSettingsViewModel @Inject constructor(
 
     val prefs: StateFlow<AdhkarPrefs> = prefsRepository.prefs
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), AdhkarPrefs())
+
+    val speechVoices = speechController.voices
+    val speechReady = speechController.ready
+    val speechInitializationFailed = speechController.initializationFailed
 
     /** The app-wide 12/24-hour clock chosen in Settings (default 12h). */
     val use24h: StateFlow<Boolean> =
@@ -60,6 +66,35 @@ class AdhkarSettingsViewModel @Inject constructor(
 
     val overlayPermissionGranted: Boolean
         get() = Settings.canDrawOverlays(context)
+
+    fun setSpeechEnabled(enabled: Boolean) {
+        viewModelScope.launch {
+            prefsRepository.setSpeechEnabled(enabled)
+            if (!enabled) speechController.stop()
+        }
+    }
+
+    fun setSpeechVoiceName(voiceName: String?) {
+        viewModelScope.launch { prefsRepository.setSpeechVoiceName(voiceName) }
+    }
+
+    fun setSpeechRate(rate: Float) {
+        viewModelScope.launch { prefsRepository.setSpeechRate(rate) }
+    }
+
+    fun previewSpeech() {
+        viewModelScope.launch {
+            val current = prefsRepository.prefs.first()
+            val sample = _previewDhikr.value ?: return@launch
+            if (!current.speechEnabled) return@launch
+            speechController.speak(
+                text = sample.arabic,
+                voiceName = current.speechVoiceName,
+                rate = current.speechRate,
+                utteranceId = SPEECH_PREVIEW_UTTERANCE_ID,
+            )
+        }
+    }
 
     fun setOverlayEnabled(enabled: Boolean) = save { prefsRepository.setOverlayEnabled(enabled) }
 
@@ -136,5 +171,9 @@ class AdhkarSettingsViewModel @Inject constructor(
             scheduler.schedule(current)
             periodicScheduler.schedule(current)
         }
+    }
+
+    private companion object {
+        const val SPEECH_PREVIEW_UTTERANCE_ID = "adhkar-settings-preview"
     }
 }
