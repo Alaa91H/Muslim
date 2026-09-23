@@ -26,6 +26,7 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarLibraryIndex
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingStatus
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewEvent
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewRating
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewScheduler
 import org.muslim.app.feature.scholarlibrary.domain.ScholarSearchFilters
@@ -202,6 +203,9 @@ class ScholarLibraryRepository @Inject constructor(
     fun observeStudySessions(): Flow<List<ScholarStudySession>> =
         libraryDao.observeStudySessions().map { rows -> rows.map { it.toDomain() } }
 
+    fun observeReviewEvents(): Flow<List<ScholarReviewEvent>> =
+        libraryDao.observeReviewEvents().map { rows -> rows.map { it.toDomain() } }
+
     suspend fun book(bookId: String): ScholarBook? = libraryDao.bookById(bookId)?.toDomain()
 
     suspend fun authors(): List<ScholarAuthorSummary> {
@@ -347,24 +351,39 @@ class ScholarLibraryRepository @Inject constructor(
 
     suspend fun reviewFlashcard(id: Long, rating: ScholarReviewRating): Boolean {
         val entity = libraryDao.flashcardById(id) ?: return false
+        val passage = libraryDao.passageById(entity.passageId) ?: return false
+        val book = libraryDao.bookById(passage.bookId) ?: return false
+        val reviewedAt = System.currentTimeMillis()
         val schedule = ScholarReviewScheduler.schedule(
             card = entity.toDomain(),
             rating = rating,
-            reviewedAtEpochMillis = System.currentTimeMillis(),
+            reviewedAtEpochMillis = reviewedAt,
         )
-        libraryDao.updateFlashcard(
-            entity.copy(
-                reviewState = ScholarFlashcardReviewStateEntity(
-                    reviewCount = schedule.reviewCount,
-                    dueAtEpochMillis = schedule.dueAtEpochMillis,
-                    intervalDays = schedule.intervalDays,
-                    easeFactor = schedule.easeFactor,
-                    lapseCount = schedule.lapseCount,
-                    lastReviewedAtEpochMillis = schedule.lastReviewedAtEpochMillis,
-                    lastRating = schedule.lastRating.name,
-                ),
+        val updatedCard = entity.copy(
+            reviewState = ScholarFlashcardReviewStateEntity(
+                reviewCount = schedule.reviewCount,
+                dueAtEpochMillis = schedule.dueAtEpochMillis,
+                intervalDays = schedule.intervalDays,
+                easeFactor = schedule.easeFactor,
+                lapseCount = schedule.lapseCount,
+                lastReviewedAtEpochMillis = schedule.lastReviewedAtEpochMillis,
+                lastRating = schedule.lastRating.name,
             ),
         )
+        val reviewEvent = ScholarReviewEventEntity(
+            flashcardId = entity.id,
+            passageId = passage.id,
+            bookId = book.id,
+            category = book.category,
+            reviewedAtEpochMillis = reviewedAt,
+            outcome = ScholarReviewOutcomeEntity(
+                rating = schedule.lastRating.name,
+                scheduledIntervalDays = schedule.intervalDays,
+                lapseCountAfterReview = schedule.lapseCount,
+                easeFactorAfterReview = schedule.easeFactor,
+            ),
+        )
+        libraryDao.applyFlashcardReview(updatedCard, reviewEvent)
         return true
     }
 
