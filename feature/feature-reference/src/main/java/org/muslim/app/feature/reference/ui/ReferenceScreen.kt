@@ -107,6 +107,7 @@ private val bookIcons = mapOf(
 private data class ReferenceReaderUiState(
     val preferences: ReferenceReaderPreferences,
     val bookmarkKeys: Set<String>,
+    val lastRead: ReferenceReaderLocation?,
     val fontStep: Int,
     val onBookmarkKeysChanged: (Set<String>) -> Unit,
     val onFontStepChanged: (Int) -> Unit,
@@ -122,7 +123,6 @@ private data class ReferenceScreenViewState(
     val query: String,
     val hubQuery: String,
     val readerState: ReferenceReaderUiState,
-    val lastRead: ReferenceReaderLocation?,
 )
 
 private data class ReferenceScreenActions(
@@ -189,6 +189,7 @@ fun ReferenceScreen(
     val readerState = ReferenceReaderUiState(
         preferences = readerPreferences,
         bookmarkKeys = bookmarkKeys,
+        lastRead = lastRead,
         fontStep = fontStep,
         onBookmarkKeysChanged = { bookmarkKeys = it },
         onFontStepChanged = { fontStep = readerPreferences.setFontStep(it) },
@@ -202,7 +203,6 @@ fun ReferenceScreen(
         query = query,
         hubQuery = hubQuery,
         readerState = readerState,
-        lastRead = lastRead,
     )
     val actions = ReferenceScreenActions(
         onBack = onBack,
@@ -280,8 +280,7 @@ private fun ReferenceScreenBody(
                 lang = state.lang,
                 query = state.hubQuery,
                 onQueryChanged = actions.onHubQueryChanged,
-                bookmarkKeys = state.readerState.bookmarkKeys,
-                lastRead = state.lastRead,
+                readerState = state.readerState,
                 onOpenBook = actions.onOpenBook,
                 onOpenTopic = { targetBook, targetTopic ->
                     actions.onOpenTopic(targetBook, targetTopic)
@@ -363,8 +362,7 @@ private fun HubContent(
     lang: RefLang,
     query: String,
     onQueryChanged: (String) -> Unit,
-    bookmarkKeys: Set<String>,
-    lastRead: ReferenceReaderLocation?,
+    readerState: ReferenceReaderUiState,
     onOpenBook: (ReferenceBook) -> Unit,
     onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
     modifier: Modifier = Modifier,
@@ -372,11 +370,11 @@ private fun HubContent(
     val results = remember(repository, query, lang) {
         repository.searchAll(query, lang, limit = 80)
     }
-    val bookmarkedTopics = remember(repository, bookmarkKeys) {
-        bookmarkKeys.sorted().mapNotNull { key -> resolveStoredTopic(repository, key) }
+    val bookmarkedTopics = remember(repository, readerState.bookmarkKeys) {
+        readerState.bookmarkKeys.sorted().mapNotNull { key -> resolveStoredTopic(repository, key) }
     }
-    val lastReadTarget = remember(repository, lastRead) {
-        lastRead?.let { resolveStoredTopic(repository, "${it.bookId}/${it.topicId}") }
+    val lastReadTarget = remember(repository, readerState.lastRead) {
+        readerState.lastRead?.let { resolveStoredTopic(repository, "${it.bookId}/${it.topicId}") }
     }
 
     LazyColumn(modifier = modifier.fillMaxSize()) {
