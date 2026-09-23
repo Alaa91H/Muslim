@@ -33,6 +33,7 @@ class SettingsViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val appPreferencesRepository: AppPreferencesRepository,
     private val smartHomeBridgeSecretStore: SmartHomeBridgeSecretStore,
+    private val updateChecker: UpdateChecker,
 ) : ViewModel() {
 
     val preferences: StateFlow<AppPreferences> =
@@ -152,7 +153,7 @@ class SettingsViewModel @Inject constructor(
     fun checkForUpdatesNow() = launch {
         _updateCheckResult.value = null
         _updateCheckError.value = null
-        runCatching { UpdateChecker(context).checkAndNotify() }
+        runCatching { updateChecker.checkAndNotify() }
             .onSuccess { result ->
                 _updateCheckResult.value = result
                 if (result !is UpdateChecker.Result.Unavailable) {
