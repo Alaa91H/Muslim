@@ -13,12 +13,14 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.muslim.app.feature.family.data.AqiqahPrefsRepository
 import org.muslim.app.feature.family.data.AqiqahReminderScheduler
+import org.muslim.app.feature.family.domain.AqiqahReminderDay
 import java.time.LocalDate
 import javax.inject.Inject
 
 data class FamilyLifeUiState(
     val birthDate: LocalDate? = null,
     val aqiqahReminderEnabled: Boolean = false,
+    val aqiqahReminderDay: AqiqahReminderDay = AqiqahReminderDay.Seventh,
 )
 
 @HiltViewModel
@@ -29,16 +31,18 @@ class FamilyLifeViewModel @Inject constructor(
     val state: StateFlow<FamilyLifeUiState> = combine(
         aqiqahPrefsRepository.birthDate,
         aqiqahPrefsRepository.reminderEnabled,
-    ) { birthDate, reminderEnabled ->
-        FamilyLifeUiState(birthDate, reminderEnabled)
+        aqiqahPrefsRepository.reminderDay,
+    ) { birthDate, reminderEnabled, reminderDay ->
+        FamilyLifeUiState(birthDate, reminderEnabled, reminderDay)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), FamilyLifeUiState())
 
     init {
         viewModelScope.launch {
             val birthDate = aqiqahPrefsRepository.birthDate.first()
             val reminderEnabled = aqiqahPrefsRepository.reminderEnabled.first()
+            val reminderDay = aqiqahPrefsRepository.reminderDay.first()
             if (reminderEnabled && birthDate != null) {
-                AqiqahReminderScheduler.schedule(context, birthDate)
+                AqiqahReminderScheduler.schedule(context, birthDate, reminderDay)
             }
         }
     }
@@ -47,7 +51,12 @@ class FamilyLifeViewModel @Inject constructor(
         viewModelScope.launch {
             aqiqahPrefsRepository.setBirthDate(date)
             if (state.value.aqiqahReminderEnabled) {
-                if (date == null || !AqiqahReminderScheduler.schedule(context, date)) {
+                if (date == null || !AqiqahReminderScheduler.schedule(
+                        context,
+                        date,
+                        state.value.aqiqahReminderDay,
+                    )
+                ) {
                     aqiqahPrefsRepository.setReminderEnabled(false)
                     AqiqahReminderScheduler.cancel(context)
                 }
@@ -55,13 +64,32 @@ class FamilyLifeViewModel @Inject constructor(
         }
     }
 
-    /** Returns false when no future seventh-day reminder can be scheduled. */
+
+    fun setAqiqahReminderDay(day: AqiqahReminderDay) {
+        viewModelScope.launch {
+            aqiqahPrefsRepository.setReminderDay(day)
+            val current = state.value
+            if (current.aqiqahReminderEnabled && current.birthDate != null) {
+                if (!AqiqahReminderScheduler.schedule(context, current.birthDate, day)) {
+                    aqiqahPrefsRepository.setReminderEnabled(false)
+                    AqiqahReminderScheduler.cancel(context)
+                }
+            }
+        }
+    }
+
+    /** Returns false when no future selected-day reminder can be scheduled. */
     fun setAqiqahReminderEnabled(enabled: Boolean): Boolean {
         val date = state.value.birthDate
         if (enabled && date == null) return false
         viewModelScope.launch {
             if (enabled && date != null) {
-                if (AqiqahReminderScheduler.schedule(context, date)) {
+                if (AqiqahReminderScheduler.schedule(
+                        context,
+                        date,
+                        state.value.aqiqahReminderDay,
+                    )
+                ) {
                     aqiqahPrefsRepository.setReminderEnabled(true)
                 }
             } else {
