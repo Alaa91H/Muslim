@@ -412,48 +412,48 @@ private fun FocusedReviewQueue(
             )
             if (card == null) {
                 Text(stringResource(R.string.scholar_library_review_queue_empty))
-                return@Column
-            }
-            Text(
-                stringResource(R.string.scholar_library_review_queue_remaining, queue.size),
-                style = MaterialTheme.typography.labelMedium,
-            )
-            Text(card.card.front, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-            if (revealedCardId == card.card.id) {
-                Text(card.card.back, style = MaterialTheme.typography.bodyLarge)
-                Text(
-                    card.citation.compactLabel(),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                FlowRow(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    ReviewRatingButton(
-                        label = stringResource(R.string.scholar_library_rating_again),
-                        rating = ScholarReviewRating.Again,
-                        onRate = { onRate(card.card.id, it) },
-                    )
-                    ReviewRatingButton(
-                        label = stringResource(R.string.scholar_library_rating_hard),
-                        rating = ScholarReviewRating.Hard,
-                        onRate = { onRate(card.card.id, it) },
-                    )
-                    Button(onClick = { onRate(card.card.id, ScholarReviewRating.Good) }) {
-                        Icon(Icons.Filled.Check, contentDescription = null)
-                        Spacer(Modifier.width(6.dp))
-                        Text(stringResource(R.string.scholar_library_rating_good))
-                    }
-                    ReviewRatingButton(
-                        label = stringResource(R.string.scholar_library_rating_easy),
-                        rating = ScholarReviewRating.Easy,
-                        onRate = { onRate(card.card.id, it) },
-                    )
-                }
             } else {
-                Button(onClick = { onReveal(card.card.id) }) {
-                    Text(stringResource(R.string.scholar_library_show_answer))
+                Text(
+                    stringResource(R.string.scholar_library_review_queue_remaining, queue.size),
+                    style = MaterialTheme.typography.labelMedium,
+                )
+                Text(card.card.front, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                if (revealedCardId == card.card.id) {
+                    Text(card.card.back, style = MaterialTheme.typography.bodyLarge)
+                    Text(
+                        card.citation.compactLabel(),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    FlowRow(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        ReviewRatingButton(
+                            label = stringResource(R.string.scholar_library_rating_again),
+                            rating = ScholarReviewRating.Again,
+                            onRate = { onRate(card.card.id, it) },
+                        )
+                        ReviewRatingButton(
+                            label = stringResource(R.string.scholar_library_rating_hard),
+                            rating = ScholarReviewRating.Hard,
+                            onRate = { onRate(card.card.id, it) },
+                        )
+                        Button(onClick = { onRate(card.card.id, ScholarReviewRating.Good) }) {
+                            Icon(Icons.Filled.Check, contentDescription = null)
+                            Spacer(Modifier.width(6.dp))
+                            Text(stringResource(R.string.scholar_library_rating_good))
+                        }
+                        ReviewRatingButton(
+                            label = stringResource(R.string.scholar_library_rating_easy),
+                            rating = ScholarReviewRating.Easy,
+                            onRate = { onRate(card.card.id, it) },
+                        )
+                    }
+                } else {
+                    Button(onClick = { onReveal(card.card.id) }) {
+                        Text(stringResource(R.string.scholar_library_show_answer))
+                    }
                 }
             }
         }
