@@ -19,6 +19,16 @@
     <string name="adhkar_reset">إعادة العداد</string>
     <string name="adhkar_show_translation">عرض الترجمة</string>
     <string name="adhkar_settings_title">إعدادات الأذكار</string>
+    <string name="adhkar_speech_section">القراءة الصوتية</string>
+    <string name="adhkar_speech_toggle">قراءة الأذكار بصوت مسموع</string>
+    <string name="adhkar_speech_desc">يستخدم صوتًا عربيًا محليًا متاحًا على جهازك لقراءة نص الذكر، وتبقى الميزة متوقفة افتراضيًا.</string>
+    <string name="adhkar_speech_voice">الصوت</string>
+    <string name="adhkar_speech_voice_default">الصوت العربي المحلي الافتراضي</string>
+    <string name="adhkar_speech_rate_value">السرعة: %1$s×</string>
+    <string name="adhkar_speech_preview">تجربة الصوت</string>
+    <string name="adhkar_speech_unavailable">لا يتوفر حاليًا صوت عربي محلي للقراءة على هذا الجهاز. ثبّت بيانات صوت عربية في إعدادات تحويل النص إلى كلام.</string>
+    <string name="adhkar_speech_play">قراءة الذكر</string>
+    <string name="adhkar_speech_stop">إيقاف القراءة</string>
     <string name="adhkar_overlay_section">الرسالة العائمة</string>
     <string name="adhkar_overlay_toggle">عرض الأذكار كرسالة فوق جميع التطبيقات</string>
     <string name="adhkar_overlay_desc">تظهر رسالة قصيرة بالذكر المختار فوق أي تطبيق، وتختفي تلقائيًا بعد المدة التي تحددها أو فور الضغط عليها.</string>
