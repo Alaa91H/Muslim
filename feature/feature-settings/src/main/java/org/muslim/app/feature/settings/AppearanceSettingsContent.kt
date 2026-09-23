@@ -50,6 +50,17 @@ import org.muslim.app.core.ui.theme.AppTheme
 import org.muslim.app.core.ui.theme.IslamicDecorationPreview
 import org.muslim.app.core.ui.theme.previewColorsForPalette
 
+internal data class AppearanceSettingsActions(
+    val onThemeModeChanged: (AppThemeMode) -> Unit,
+    val onDynamicColorChanged: (Boolean) -> Unit,
+    val onAmoledBlackChanged: (Boolean) -> Unit,
+    val onPaletteChanged: (AppColorPalette) -> Unit,
+    val onCornerStyleChanged: (CardCornerStyle) -> Unit,
+    val onOrnamentChanged: (AppOrnamentStyle) -> Unit,
+    val onOrnamentIntensityChanged: (OrnamentIntensity) -> Unit,
+    val onReduceAnimationsChanged: (Boolean) -> Unit,
+)
+
 /**
  * Focused appearance editor extracted from the settings hub.
  *
@@ -57,17 +68,11 @@ import org.muslim.app.core.ui.theme.previewColorsForPalette
  * real [AppTheme], so the settings screen and the rest of the app cannot drift
  * into different interpretations of a palette, card radius, or ornament.
  */
+@Suppress("LongMethod")
 @Composable
 internal fun AppearanceSettingsContent(
     preferences: AppPreferences,
-    onThemeModeChanged: (AppThemeMode) -> Unit,
-    onDynamicColorChanged: (Boolean) -> Unit,
-    onAmoledBlackChanged: (Boolean) -> Unit,
-    onPaletteChanged: (AppColorPalette) -> Unit,
-    onCornerStyleChanged: (CardCornerStyle) -> Unit,
-    onOrnamentChanged: (AppOrnamentStyle) -> Unit,
-    onOrnamentIntensityChanged: (OrnamentIntensity) -> Unit,
-    onReduceAnimationsChanged: (Boolean) -> Unit,
+    actions: AppearanceSettingsActions,
 ) {
     val systemDark = isSystemInDarkTheme()
     val resolvedDark = when (preferences.themeMode) {
@@ -96,7 +101,7 @@ internal fun AppearanceSettingsContent(
     )
     AppearanceThemeModeSelector(
         selected = preferences.themeMode,
-        onSelect = onThemeModeChanged,
+        onSelect = actions.onThemeModeChanged,
     )
 
     ListItem(
@@ -106,7 +111,7 @@ internal fun AppearanceSettingsContent(
         trailingContent = {
             Switch(
                 checked = preferences.amoledBlack,
-                onCheckedChange = onAmoledBlackChanged,
+                onCheckedChange = actions.onAmoledBlackChanged,
             )
         },
     )
@@ -129,7 +134,7 @@ internal fun AppearanceSettingsContent(
             Switch(
                 checked = dynamicActive,
                 enabled = dynamicSupported,
-                onCheckedChange = onDynamicColorChanged,
+                onCheckedChange = actions.onDynamicColorChanged,
             )
         },
     )
@@ -150,7 +155,7 @@ internal fun AppearanceSettingsContent(
             selected = preferences.colorPalette,
             darkTheme = resolvedDark,
             amoledBlack = preferences.amoledBlack,
-            onSelect = onPaletteChanged,
+            onSelect = actions.onPaletteChanged,
         )
     }
 
@@ -161,7 +166,7 @@ internal fun AppearanceSettingsContent(
     )
     AppearanceCornerSelector(
         selected = preferences.cardCornerStyle,
-        onSelect = onCornerStyleChanged,
+        onSelect = actions.onCornerStyleChanged,
     )
 
     Text(
@@ -172,7 +177,7 @@ internal fun AppearanceSettingsContent(
     AppearanceOrnamentSelector(
         selected = preferences.ornamentStyle,
         intensity = preferences.ornamentIntensity,
-        onSelect = onOrnamentChanged,
+        onSelect = actions.onOrnamentChanged,
     )
 
     Text(
@@ -182,7 +187,7 @@ internal fun AppearanceSettingsContent(
     )
     AppearanceOrnamentIntensitySelector(
         selected = preferences.ornamentIntensity,
-        onSelect = onOrnamentIntensityChanged,
+        onSelect = actions.onOrnamentIntensityChanged,
     )
 
     ListItem(
@@ -191,12 +196,13 @@ internal fun AppearanceSettingsContent(
         trailingContent = {
             Switch(
                 checked = preferences.reduceAnimations,
-                onCheckedChange = onReduceAnimationsChanged,
+                onCheckedChange = actions.onReduceAnimationsChanged,
             )
         },
     )
 }
 
+@Suppress("LongMethod")
 @Composable
 private fun AppearanceLivePreview(
     darkTheme: Boolean,
