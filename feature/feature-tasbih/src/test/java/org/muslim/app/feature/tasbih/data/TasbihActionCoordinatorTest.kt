@@ -32,13 +32,44 @@ class TasbihActionCoordinatorTest {
             ),
         )
         coEvery { counterRepository.increment(phrase) } returns Unit
-        coEvery { sessionRepository.increment(phrase, 33, any()) } returns transition
+        coEvery {
+            sessionRepository.increment(
+                phrase,
+                33,
+                TasbihSessionMode.Free,
+                TasbihRepository.DEFAULT_ROUNDS_GOAL,
+                any(),
+            )
+        } returns transition
 
         coordinator.increment(phrase, 33)
 
         coVerifyOrder {
             counterRepository.increment(phrase)
-            sessionRepository.increment(phrase, 33, any())
+            sessionRepository.increment(
+                phrase,
+                33,
+                TasbihSessionMode.Free,
+                TasbihRepository.DEFAULT_ROUNDS_GOAL,
+                any(),
+            )
+        }
+    }
+
+    @Test
+    fun `session configuration closes active session then persists new config`() = runTest {
+        coEvery {
+            sessionRepository.endActive(TasbihSessionEndReason.ContextChanged, any())
+        } returns Unit
+        coEvery {
+            counterRepository.setSessionConfig(TasbihSessionMode.Rounds, 33, 3)
+        } returns Unit
+
+        coordinator.configureSession(TasbihSessionMode.Rounds, 33, 3)
+
+        coVerifyOrder {
+            sessionRepository.endActive(TasbihSessionEndReason.ContextChanged, any())
+            counterRepository.setSessionConfig(TasbihSessionMode.Rounds, 33, 3)
         }
     }
 
