@@ -18,17 +18,19 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import org.muslim.app.feature.reference.data.IslamicHistorySearchRepository
 import org.muslim.app.feature.reference.domain.HistoryLanguage
 import org.muslim.app.feature.reference.domain.HistorySearchResult
 import org.muslim.app.feature.reference.domain.HistorySearchType
-import org.muslim.app.feature.reference.domain.IslamicHistorySearch
 
 @Composable
 internal fun HistorySearchTab(
@@ -37,8 +39,22 @@ internal fun HistorySearchTab(
 ) {
     var query by remember { mutableStateOf("") }
     var selectedType by remember { mutableStateOf<HistorySearchType?>(null) }
-    val results = remember(query, selectedType) {
-        IslamicHistorySearch.search(query = query, type = selectedType)
+    var results by remember { mutableStateOf<List<HistorySearchResult>>(emptyList()) }
+    var isLoading by remember { mutableStateOf(false) }
+    val context = LocalContext.current
+    val repository = remember(context) {
+        IslamicHistorySearchRepository.get(context.applicationContext)
+    }
+
+    LaunchedEffect(query, selectedType, repository) {
+        if (query.isBlank()) {
+            results = emptyList()
+            isLoading = false
+        } else {
+            isLoading = true
+            results = repository.search(query = query, type = selectedType)
+            isLoading = false
+        }
     }
 
     Column(modifier = Modifier.fillMaxSize()) {
@@ -67,6 +83,7 @@ internal fun HistorySearchTab(
         SearchResults(
             query = query,
             results = results,
+            isLoading = isLoading,
             language = language,
             onOpen = onOpen,
         )
@@ -101,6 +118,7 @@ private fun SearchTypeFilters(
 private fun SearchResults(
     query: String,
     results: List<HistorySearchResult>,
+    isLoading: Boolean,
     language: HistoryLanguage,
     onOpen: (HistoryNavigationTarget) -> Unit,
 ) {
@@ -116,6 +134,16 @@ private fun SearchResults(
                         "ابحث باسم حقبة أو دولة أو حدث أو شخصية أو مدينة أو موضوع حضاري. يعمل البحث محلياً دون اتصال بالإنترنت."
                     } else {
                         "Search for an era, state, event, person, place, or civilization topic. Search works offline."
+                    },
+                )
+            }
+        } else if (isLoading) {
+            item {
+                SearchNotice(
+                    if (language == HistoryLanguage.Arabic) {
+                        "جارٍ فهرسة المحتوى والبحث…"
+                    } else {
+                        "Indexing content and searching…"
                     },
                 )
             }
