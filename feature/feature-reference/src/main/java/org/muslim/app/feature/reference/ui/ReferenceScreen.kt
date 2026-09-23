@@ -70,6 +70,7 @@ import org.muslim.app.core.ui.theme.MuslimStateTone
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import org.muslim.app.feature.reference.data.AndroidReferenceRepositoryFactory
+import org.muslim.app.feature.reference.data.ReferenceReaderKeyCodec
 import org.muslim.app.feature.reference.data.ReferenceReaderLocation
 import org.muslim.app.feature.reference.data.ReferenceReaderPreferences
 import org.muslim.app.feature.reference.domain.ReferenceBook
@@ -284,12 +285,20 @@ private fun HubContent(
     lang: RefLang,
     query: String,
     onQueryChanged: (String) -> Unit,
+    bookmarkKeys: Set<String>,
+    lastRead: ReferenceReaderLocation?,
     onOpenBook: (ReferenceBook) -> Unit,
     onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val results = remember(repository, query, lang) {
         repository.searchAll(query, lang, limit = 80)
+    }
+    val bookmarkedTopics = remember(repository, bookmarkKeys) {
+        bookmarkKeys.mapNotNull { key -> resolveStoredTopic(repository, key) }
+    }
+    val lastReadTarget = remember(repository, lastRead) {
+        lastRead?.let { resolveStoredTopic(repository, "${it.bookId}/${it.topicId}") }
     }
 
     LazyColumn(modifier = modifier.fillMaxSize()) {
@@ -322,6 +331,68 @@ private fun HubContent(
                     compact = true,
                     modifier = Modifier.padding(horizontal = 16.dp),
                 )
+            }
+            lastReadTarget?.let { (lastBook, lastTopic) ->
+                item(key = "continue-reading") {
+                    IslamicCard(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp, vertical = 8.dp)
+                            .clickable { onOpenTopic(lastBook, lastTopic) },
+                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    ) {
+                        Column {
+                            Text(
+                                text = if (lang == RefLang.Arabic) "متابعة القراءة" else "Continue reading",
+                                style = MaterialTheme.typography.labelLarge,
+                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            )
+                            Spacer(Modifier.height(4.dp))
+                            Text(
+                                text = lastTopic.title(lang),
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            )
+                            Text(
+                                text = lastBook.title(lang),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            )
+                        }
+                    }
+                }
+            }
+            if (bookmarkedTopics.isNotEmpty()) {
+                item(key = "bookmarks-title") {
+                    SectionLabel(
+                        text = if (lang == RefLang.Arabic) "المفضلة" else "Bookmarks",
+                    )
+                }
+                items(
+                    items = bookmarkedTopics,
+                    key = { (savedBook, savedTopic) -> "bookmark-${savedBook.id}/${savedTopic.id}" },
+                ) { (savedBook, savedTopic) ->
+                    ListItem(
+                        headlineContent = {
+                            Text(savedTopic.title(lang), fontWeight = FontWeight.Medium)
+                        },
+                        supportingContent = {
+                            Text(savedBook.title(lang), maxLines = 1)
+                        },
+                        leadingContent = {
+                            Icon(Icons.Filled.Bookmark, contentDescription = null)
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { onOpenTopic(savedBook, savedTopic) },
+                    )
+                }
+                item(key = "library-books-title") {
+                    SectionLabel(
+                        text = if (lang == RefLang.Arabic) "الكتب" else "Books",
+                    )
+                }
             }
             items(repository.books, key = { it.id }) { book ->
                 ReferenceBookCard(book = book, lang = lang, onOpenBook = onOpenBook)
@@ -416,6 +487,7 @@ private fun BookContent(
     lang: RefLang,
     query: String,
     onQueryChanged: (String) -> Unit,
+    bookmarkKeys: Set<String>,
     onOpenTopic: (RefTopic) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -477,12 +549,22 @@ private fun BookContent(
                             items = chapterTopics,
                             key = { topic -> "chapter-${chapter.id}-${topic.id}" },
                         ) { topic ->
-                            TopicListItem(topic = topic, lang = lang, onOpenTopic = onOpenTopic)
+                            TopicListItem(
+                                topic = topic,
+                                lang = lang,
+                                bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in bookmarkKeys,
+                                onOpenTopic = onOpenTopic,
+                            )
                         }
                     }
                 } else {
                     items(results, key = { it.id }) { topic ->
-                        TopicListItem(topic = topic, lang = lang, onOpenTopic = onOpenTopic)
+                        TopicListItem(
+                            topic = topic,
+                            lang = lang,
+                            bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in bookmarkKeys,
+                            onOpenTopic = onOpenTopic,
+                        )
                     }
                 }
             }
@@ -494,11 +576,17 @@ private fun BookContent(
 private fun TopicListItem(
     topic: RefTopic,
     lang: RefLang,
+    bookmarked: Boolean,
     onOpenTopic: (RefTopic) -> Unit,
 ) {
     ListItem(
         headlineContent = { Text(topic.title(lang), fontWeight = FontWeight.Medium) },
         supportingContent = { Text(topic.summary(lang), maxLines = 2) },
+        trailingContent = {
+            if (bookmarked) {
+                Icon(Icons.Filled.Bookmark, contentDescription = null)
+            }
+        },
         modifier = Modifier
             .fillMaxWidth()
             .clickable { onOpenTopic(topic) },
