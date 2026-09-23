@@ -112,7 +112,7 @@ class NextAdhanService : Service() {
                         use24h = appPreferencesRepository.readTimeFormat24hSync(),
                     ),
                 )
-                handler.postDelayed({ tick() }, TICK_MILLIS)
+                scheduleNextTick()
             } catch (error: kotlinx.coroutines.CancellationException) {
                 throw error
             } catch (_: Throwable) {
@@ -162,6 +162,19 @@ class NextAdhanService : Service() {
         )
     }
 
+    /**
+     * The custom notification uses system Chronometers for second-by-second
+     * countdown/count-up rendering, so the service only needs to recompute the
+     * prayer state at minute boundaries. This keeps the five-cell RemoteViews
+     * visually live without sending a full notification update every second.
+     */
+    private fun scheduleNextTick() {
+        handler.removeCallbacksAndMessages(null)
+        val now = System.currentTimeMillis()
+        val delay = (TICK_MILLIS - (now % TICK_MILLIS)).coerceAtLeast(1_000L)
+        handler.postDelayed({ tick() }, delay)
+    }
+
     override fun onDestroy() {
         handler.removeCallbacksAndMessages(null)
         scope.cancel()
@@ -179,15 +192,8 @@ class NextAdhanService : Service() {
             missedPrayer = null, missedPrayerAt = null, elapsedSeconds = 0,
         )
 
-        /**
-         * Refresh cadence. One second keeps the countdown/count-up timers
-         * visibly live; the notification is only ever updated in place
-         * (same id, [androidx.core.app.NotificationCompat.Builder.setOnlyAlertOnce]),
-         * so the cost is a small text rebuild — far cheaper than keeping the
-         * CPU awake via exact alarms. Quiet hours and the enabled toggle
-         * still stop the service entirely, so no work happens when hidden.
-         */
-        private const val TICK_MILLIS = 1_000L
+        /** Recompute static prayer state once per minute; Chronometers animate the seconds. */
+        private const val TICK_MILLIS = 60_000L
         private const val RESTART_REQUEST_CODE = 9001
 
         fun start(context: Context) {
