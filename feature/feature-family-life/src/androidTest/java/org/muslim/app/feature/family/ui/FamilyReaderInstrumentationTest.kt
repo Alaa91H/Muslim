@@ -44,7 +44,7 @@ class FamilyReaderInstrumentationTest {
         }
 
         composeRule.onNodeWithTag(FamilyUiTags.GUIDE_SEARCH_FIELD)
-            .performTextInput("Household spending without excess or deprivation")
+            .performTextInput("status spending")
         composeRule.onNodeWithText("Household spending without excess or deprivation")
             .assertIsDisplayed()
 
