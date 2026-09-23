@@ -105,4 +105,10 @@
     <string name="scholar_library_session_completed">اكتملت أهداف هذه الجلسة وتم تحديث تقدم الكتاب.</string>
     <string name="scholar_library_start_next_session">بدء الجلسة التالية</string>
     <string name="scholar_library_page_label">الصفحة: %1$s</string>
+
+    <string name="scholar_library_recent_study_sessions">الجلسات الأخيرة</string>
+    <string name="scholar_library_no_study_sessions">لا توجد جلسات دراسة بعد. ابدأ من أحد المسارات العلمية.</string>
+    <string name="scholar_library_session_history_progress">%1$d من %2$d مقاطع منجزة</string>
+    <string name="scholar_library_session_history_completed">جلسة مكتملة</string>
+    <string name="scholar_library_resume_session">متابعة الجلسة</string>
 </resources>
