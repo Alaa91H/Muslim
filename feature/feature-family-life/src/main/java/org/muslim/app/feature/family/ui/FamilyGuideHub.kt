@@ -671,7 +671,7 @@ internal fun FamilySavedContent(
     onOpenArticle: (String) -> Unit,
     onClearHistory: () -> Unit,
 ) {
-    val favorites = favoriteIds.mapNotNull(FamilyLifeContent::articleById)
+    val favorites = FamilyLifeContent.familyArticles.filter { it.id in favoriteIds }
     val recent = recentArticleIds.mapNotNull(FamilyLifeContent::articleById)
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
