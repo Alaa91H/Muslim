@@ -44,7 +44,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.PrimaryScrollableTabRow
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
@@ -68,6 +67,9 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.common.lang.AppLanguage
+import org.muslim.app.core.ui.theme.IslamicDecorationBand
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.FuneralContent
 import org.muslim.app.feature.learn.domain.FuneralGuideSection
@@ -150,7 +152,7 @@ fun FuneralWillScreen(
         )
     }
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
@@ -164,6 +166,10 @@ fun FuneralWillScreen(
         },
     ) { innerPadding ->
         Column(Modifier.fillMaxSize().padding(innerPadding)) {
+            IslamicDecorationBand(
+                tint = MaterialTheme.colorScheme.tertiary,
+                compact = true,
+            )
             PrimaryScrollableTabRow(selectedTabIndex = selectedTab, edgePadding = 12.dp) {
                 FuneralWillTab.entries.forEach { tab ->
                     Tab(
@@ -181,6 +187,10 @@ fun FuneralWillScreen(
                     )
                 }
             }
+            IslamicDecorationDivider(
+                tint = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(horizontal = 24.dp),
+            )
             when (FuneralWillTab.entries[selectedTab]) {
                 FuneralWillTab.Will -> WillDraftContent(
                     draft = draft,
