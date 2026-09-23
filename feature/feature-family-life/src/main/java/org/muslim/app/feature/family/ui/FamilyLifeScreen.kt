@@ -46,7 +46,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -77,6 +76,7 @@ import org.muslim.app.feature.family.R
 import org.muslim.app.feature.family.domain.AqiqahCalculator
 import org.muslim.app.feature.family.domain.BabyNameGender
 import org.muslim.app.feature.family.domain.FamilyGuideArticle
+import org.muslim.app.feature.family.domain.FamilyTopicCategory
 import org.muslim.app.feature.family.domain.FamilyLifeContent
 import org.muslim.app.feature.family.domain.IslamicBabyName
 import org.muslim.app.feature.family.domain.LocalizedFamilyText
@@ -85,11 +85,12 @@ import org.muslim.app.feature.family.domain.RuqyahPassage
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-private enum class FamilyTab(val icon: ImageVector) {
-    Ruqyah(Icons.Filled.HealthAndSafety),
-    Names(Icons.Filled.ChildCare),
-    Aqiqah(Icons.Filled.DateRange),
-    Marriage(Icons.Filled.FamilyRestroom),
+private enum class FamilySection {
+    Home,
+    Guide,
+    Ruqyah,
+    Names,
+    Aqiqah,
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -99,22 +100,57 @@ fun FamilyLifeScreen(
     modifier: Modifier = Modifier,
     viewModel: FamilyLifeViewModel = hiltViewModel(),
 ) {
-    var selectedTab by rememberSaveable { mutableIntStateOf(FamilyTab.Ruqyah.ordinal) }
+    var sectionName by rememberSaveable { mutableStateOf(FamilySection.Home.name) }
+    var categoryName by rememberSaveable { mutableStateOf<String?>(null) }
+    var articleId by rememberSaveable { mutableStateOf<String?>(null) }
+    val section = FamilySection.entries.firstOrNull { it.name == sectionName } ?: FamilySection.Home
+    val selectedCategory = categoryName?.let { saved ->
+        FamilyTopicCategory.entries.firstOrNull { it.name == saved }
+    }
+    val selectedArticle = articleId?.let(FamilyLifeContent::articleById)
     val state by viewModel.state.collectAsStateWithLifecycle()
     val isArabic = AppLanguage.isArabicUi()
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
+    fun navigate(target: FamilySection, category: FamilyTopicCategory? = null) {
+        sectionName = target.name
+        categoryName = category?.name
+        articleId = null
+    }
+
+    fun navigateBack() {
+        when {
+            articleId != null -> articleId = null
+            section != FamilySection.Home -> navigate(FamilySection.Home)
+            else -> onBack()
+        }
+    }
+
     MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
-                title = { Text(stringResource(R.string.family_life_title)) },
+                title = {
+                    Text(
+                        selectedArticle?.title?.pick(isArabic)
+                            ?: when (section) {
+                                FamilySection.Home -> stringResource(R.string.family_life_title)
+                                FamilySection.Guide -> stringResource(R.string.family_guide_all_title)
+                                FamilySection.Ruqyah -> stringResource(R.string.family_tab_ruqyah)
+                                FamilySection.Names -> stringResource(R.string.family_tab_names)
+                                FamilySection.Aqiqah -> stringResource(R.string.family_tab_aqiqah)
+                            },
+                    )
+                },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.learn_back))
+                    IconButton(onClick = ::navigateBack) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.learn_back),
+                        )
                     }
                 },
             )
@@ -125,46 +161,39 @@ fun FamilyLifeScreen(
                 tint = MaterialTheme.colorScheme.tertiary,
                 compact = true,
             )
-            PrimaryScrollableTabRow(
-                selectedTabIndex = selectedTab,
-                edgePadding = 12.dp,
-            ) {
-                FamilyTab.entries.forEach { tab ->
-                    Tab(
-                        selected = selectedTab == tab.ordinal,
-                        onClick = { selectedTab = tab.ordinal },
-                        text = {
-                            Text(
-                                when (tab) {
-                                    FamilyTab.Ruqyah -> stringResource(R.string.family_tab_ruqyah)
-                                    FamilyTab.Names -> stringResource(R.string.family_tab_names)
-                                    FamilyTab.Aqiqah -> stringResource(R.string.family_tab_aqiqah)
-                                    FamilyTab.Marriage -> stringResource(R.string.family_tab_marriage)
-                                },
-                            )
-                        },
-                        icon = { Icon(tab.icon, contentDescription = null, modifier = Modifier.size(18.dp)) },
-                    )
-                }
-            }
             IslamicDecorationDivider(
                 tint = MaterialTheme.colorScheme.tertiary,
                 modifier = Modifier.padding(horizontal = 24.dp),
             )
-            when (FamilyTab.entries[selectedTab]) {
-                FamilyTab.Ruqyah -> RuqyahContent(
+            when {
+                selectedArticle != null -> FamilyArticleDetailContent(
+                    article = selectedArticle,
+                    isArabic = isArabic,
+                )
+                section == FamilySection.Home -> FamilyHubContent(
+                    isArabic = isArabic,
+                    onOpenCategory = { category -> navigate(FamilySection.Guide, category) },
+                    onOpenRuqyah = { navigate(FamilySection.Ruqyah) },
+                    onOpenNames = { navigate(FamilySection.Names) },
+                    onOpenAqiqah = { navigate(FamilySection.Aqiqah) },
+                )
+                section == FamilySection.Guide -> FamilyGuideCatalogContent(
+                    isArabic = isArabic,
+                    initialCategory = selectedCategory,
+                    onOpenArticle = { articleId = it },
+                )
+                section == FamilySection.Ruqyah -> RuqyahContent(
                     isArabic = isArabic,
                     onPlay = { url -> openAudio(context = context, url = url) },
-                    onAudioFailure = {
-                        scope.launch { snackbarHostState.showSnackbar(it) }
+                    onAudioFailure = { message ->
+                        scope.launch { snackbarHostState.showSnackbar(message) }
                     },
                 )
-                FamilyTab.Names -> BabyNamesContent(isArabic = isArabic)
-                FamilyTab.Aqiqah -> AqiqahContent(
+                section == FamilySection.Names -> BabyNamesContent(isArabic = isArabic)
+                section == FamilySection.Aqiqah -> AqiqahContent(
                     state = state,
                     viewModel = viewModel,
                 )
-                FamilyTab.Marriage -> MarriageContent(isArabic = isArabic)
             }
         }
     }
