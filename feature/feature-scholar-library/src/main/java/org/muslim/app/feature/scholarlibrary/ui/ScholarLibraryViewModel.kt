@@ -5,6 +5,9 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.muslim.app.feature.scholarlibrary.data.ScholarLibraryImportResult
@@ -12,12 +15,13 @@ import org.muslim.app.feature.scholarlibrary.data.ScholarLibraryRepository
 import org.muslim.app.feature.scholarlibrary.domain.FlashcardWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
 import org.muslim.app.feature.scholarlibrary.domain.ScholarCategory
+import org.muslim.app.feature.scholarlibrary.domain.ScholarHighlightStyle
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
 import org.muslim.app.feature.scholarlibrary.domain.SearchHit
+import org.muslim.app.feature.scholarlibrary.domain.StudyBookmarkWithCitation
+import org.muslim.app.feature.scholarlibrary.domain.StudyHighlightWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.StudyNoteWithCitation
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 
 internal data class ScholarLibraryUiState(
     val loading: Boolean = true,
@@ -29,6 +33,9 @@ internal data class ScholarLibraryUiState(
     val selectedBookPassages: List<ScholarPassage> = emptyList(),
     val notes: List<StudyNoteWithCitation> = emptyList(),
     val flashcards: List<FlashcardWithCitation> = emptyList(),
+    val bookmarks: List<StudyBookmarkWithCitation> = emptyList(),
+    val highlights: List<StudyHighlightWithCitation> = emptyList(),
+    val readingProgress: List<ScholarReadingProgress> = emptyList(),
     val statusMessage: String? = null,
 )
 
@@ -57,6 +64,15 @@ class ScholarLibraryViewModel @Inject constructor(
         viewModelScope.launch {
             repository.observeFlashcards().collect { cards -> update { it.copy(flashcards = cards) } }
         }
+        viewModelScope.launch {
+            repository.observeBookmarks().collect { bookmarks -> update { it.copy(bookmarks = bookmarks) } }
+        }
+        viewModelScope.launch {
+            repository.observeHighlights().collect { highlights -> update { it.copy(highlights = highlights) } }
+        }
+        viewModelScope.launch {
+            repository.observeReadingProgress().collect { progress -> update { it.copy(readingProgress = progress) } }
+        }
     }
 
     fun selectCategory(category: ScholarCategory?) = update { it.copy(selectedCategory = category) }
@@ -77,6 +93,7 @@ class ScholarLibraryViewModel @Inject constructor(
             val book = repository.book(bookId)
             update { it.copy(selectedBook = book, selectedBookPassages = emptyList()) }
             if (book != null) {
+                repository.markBookOpened(bookId)
                 repository.observeBookPassages(bookId).collect { passages ->
                     update { it.copy(selectedBookPassages = passages) }
                 }
@@ -129,6 +146,69 @@ class ScholarLibraryViewModel @Inject constructor(
         viewModelScope.launch {
             repository.deleteFlashcard(id)
             update { it.copy(statusMessage = "حُذفت البطاقة.") }
+        }
+    }
+
+    fun toggleBookmark(passageId: String) {
+        val shouldAdd = mutableState.value.bookmarks.none { it.bookmark.passageId == passageId }
+        viewModelScope.launch {
+            val updated = repository.setBookmark(passageId, shouldAdd)
+            update {
+                it.copy(
+                    statusMessage = when {
+                        !updated -> "تعذر تحديث الإشارة المرجعية."
+                        shouldAdd -> "أُضيف المقطع إلى الإشارات المرجعية."
+                        else -> "أُزيل المقطع من الإشارات المرجعية."
+                    },
+                )
+            }
+        }
+    }
+
+    fun togglePassageHighlight(passage: ScholarPassage) {
+        val existing = mutableState.value.highlights.firstOrNull { it.highlight.passageId == passage.id }
+        viewModelScope.launch {
+            val updated = if (existing == null) {
+                repository.addHighlight(
+                    passageId = passage.id,
+                    quote = passage.text,
+                    style = ScholarHighlightStyle.Important,
+                )
+            } else {
+                repository.deleteHighlight(existing.highlight.id)
+                true
+            }
+            update {
+                it.copy(
+                    statusMessage = when {
+                        !updated -> "تعذر تحديث التظليل."
+                        existing == null -> "حُفظ المقطع ضمن التظليلات."
+                        else -> "أُزيل التظليل."
+                    },
+                )
+            }
+        }
+    }
+
+    fun markStudied(bookId: String, passageId: String, progressPercent: Int) {
+        viewModelScope.launch {
+            val updated = repository.updateReadingProgress(bookId, passageId, progressPercent)
+            update {
+                it.copy(
+                    statusMessage = if (updated) {
+                        if (progressPercent >= 100) "اكتملت دراسة هذا الكتاب." else "حُفظ تقدمك الدراسي."
+                    } else {
+                        "تعذر تحديث تقدم القراءة."
+                    },
+                )
+            }
+        }
+    }
+
+    fun deleteHighlight(id: Long) {
+        viewModelScope.launch {
+            repository.deleteHighlight(id)
+            update { it.copy(statusMessage = "حُذف التظليل.") }
         }
     }
 
