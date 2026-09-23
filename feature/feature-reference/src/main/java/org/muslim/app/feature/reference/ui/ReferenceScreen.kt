@@ -262,16 +262,19 @@ private fun ReferenceScreenBody(
                 },
                 modifier = contentModifier,
             )
-            state.book != null -> BookContent(
-                repository = state.repository,
-                book = state.book,
-                lang = state.lang,
-                query = state.query,
-                onQueryChanged = actions.onQueryChanged,
-                bookmarkKeys = state.readerState.bookmarkKeys,
-                onOpenTopic = { actions.onOpenTopic(state.book, it) },
-                modifier = contentModifier,
-            )
+            state.book != null -> {
+                val currentBook = state.book
+                BookContent(
+                    repository = state.repository,
+                    book = currentBook,
+                    lang = state.lang,
+                    query = state.query,
+                    onQueryChanged = actions.onQueryChanged,
+                    bookmarkKeys = state.readerState.bookmarkKeys,
+                    onOpenTopic = { actions.onOpenTopic(currentBook, it) },
+                    modifier = contentModifier,
+                )
+            }
             else -> HubContent(
                 repository = state.repository,
                 lang = state.lang,
