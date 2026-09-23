@@ -147,7 +147,12 @@ class SettingsViewModel @Inject constructor(
         _updateCheckResult.value = null
         _updateCheckError.value = null
         runCatching { UpdateChecker(context).checkAndNotify() }
-            .onSuccess { _updateCheckResult.value = it }
+            .onSuccess { result ->
+                _updateCheckResult.value = result
+                if (result !is UpdateChecker.Result.Unavailable) {
+                    appPreferencesRepository.setLastUpdateCheck(System.currentTimeMillis())
+                }
+            }
             .onFailure { e ->
                 _updateCheckError.value = e.message?.takeIf { it.isNotBlank() }
                     ?: e.javaClass.simpleName
