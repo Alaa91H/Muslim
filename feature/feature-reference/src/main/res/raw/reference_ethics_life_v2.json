@@ -1,0 +1,4758 @@
+{
+  "schemaVersion": 2,
+  "book": {
+    "id": "ethics_life",
+    "titleAr": "الأخلاق والآداب وحياة المسلم",
+    "titleEn": "Ethics, Manners, and Muslim Life",
+    "subtitleAr": "مرجع عملي للأخلاق والأسرة والعمل والمجتمع والحياة الرقمية",
+    "subtitleEn": "A practical guide to character, family, work, community, and digital life",
+    "contentRevision": 1,
+    "chapters": [
+      {
+        "id": "inner_character",
+        "titleAr": "بناء الخلق الداخلي",
+        "titleEn": "Inner Character",
+        "summaryAr": "النية والصدق والأمانة والصبر والشكر والتواضع والرحمة والعدل.",
+        "summaryEn": "Intention, truthfulness, trust, patience, gratitude, humility, mercy, and justice.",
+        "topicIds": [
+          "ethics_foundations",
+          "intention_sincerity",
+          "truthfulness",
+          "trustworthiness",
+          "patience",
+          "gratitude",
+          "humility",
+          "mercy",
+          "justice",
+          "forgiveness",
+          "anger",
+          "envy",
+          "arrogance",
+          "gentleness"
+        ]
+      },
+      {
+        "id": "speech_social",
+        "titleAr": "الكلام والعلاقات الاجتماعية",
+        "titleEn": "Speech and Social Conduct",
+        "summaryAr": "حفظ اللسان والغيبة والشائعات والوعود والسلام والخصوصية.",
+        "summaryEn": "Speech, backbiting, rumors, commitments, greetings, and privacy.",
+        "topicIds": [
+          "speech_ethics",
+          "backbiting_slander",
+          "suspicion_spying",
+          "verification_rumors",
+          "promises",
+          "humor",
+          "greeting",
+          "privacy_permission",
+          "responsible_advice",
+          "public_disagreement"
+        ]
+      },
+      {
+        "id": "daily_life",
+        "titleAr": "آداب الحياة اليومية",
+        "titleEn": "Daily Life Etiquette",
+        "summaryAr": "الطعام واللباس والنظافة والنوم والوقت والعلم والترفيه والسفر.",
+        "summaryEn": "Food, dress, cleanliness, sleep, time, learning, recreation, and travel.",
+        "topicIds": [
+          "eating_etiquette",
+          "dress_modesty",
+          "cleanliness",
+          "sleep_rest",
+          "time_management",
+          "knowledge_etiquette",
+          "modesty_chastity",
+          "recreation_balance",
+          "hospitality_visiting",
+          "travel_etiquette"
+        ]
+      },
+      {
+        "id": "family_relations",
+        "titleAr": "الأسرة والرحم",
+        "titleEn": "Family and Kinship",
+        "summaryAr": "الوالدان والزوجان والأبناء والأرحام والضعفاء داخل الأسرة.",
+        "summaryEn": "Parents, spouses, children, relatives, and vulnerable family members.",
+        "topicIds": [
+          "parents",
+          "spouses",
+          "children",
+          "relatives",
+          "manners_elderly_children",
+          "apology_repair",
+          "boundaries_harm"
+        ]
+      },
+      {
+        "id": "community",
+        "titleAr": "المجتمع والحقوق",
+        "titleEn": "Community and Rights",
+        "summaryAr": "الجار والضيف والصداقة والخلاف وخدمة المجتمع والكرامة والإصلاح.",
+        "summaryEn": "Neighbors, guests, friendship, disagreement, service, dignity, and reconciliation.",
+        "topicIds": [
+          "neighbors",
+          "guests",
+          "friendship",
+          "disagreement_adab",
+          "nonmuslims",
+          "poor_orphans",
+          "charity_generosity",
+          "community_service",
+          "conflict_reconciliation",
+          "rights_dignity",
+          "social_responsibility",
+          "hospital_sick_visit",
+          "funeral_condolence"
+        ]
+      },
+      {
+        "id": "work_wealth",
+        "titleAr": "العمل والمال والمسؤولية",
+        "titleEn": "Work, Wealth, and Responsibility",
+        "summaryAr": "أخلاق العمل والتجارة والدين والإنفاق والقيادة والشورى.",
+        "summaryEn": "Work ethics, trade, debt, spending, leadership, and consultation.",
+        "topicIds": [
+          "work_ethics",
+          "workplace_conduct",
+          "trade_honesty",
+          "debt",
+          "wealth_moderation",
+          "leadership_responsibility",
+          "consultation",
+          "consent_property",
+          "gratitude_to_people"
+        ]
+      },
+      {
+        "id": "public_environment",
+        "titleAr": "المكان العام والبيئة والجسد",
+        "titleEn": "Public Space, Environment, and Well-being",
+        "summaryAr": "البيئة والطريق وحق الجسد والتعامل مع الحزن.",
+        "summaryEn": "Environment, public spaces, bodily care, and grief.",
+        "topicIds": [
+          "environment_animals",
+          "public_space",
+          "health_body_balance",
+          "hardship_grief"
+        ]
+      },
+      {
+        "id": "digital_life",
+        "titleAr": "الأخلاق الرقمية",
+        "titleEn": "Digital Ethics",
+        "summaryAr": "الكلام والخصوصية والوقت والمقارنة والمعلومات المضللة والخلاف الديني عبر الإنترنت.",
+        "summaryEn": "Speech, privacy, time, comparison, misinformation, and religious disagreement online.",
+        "topicIds": [
+          "digital_speech",
+          "digital_privacy",
+          "digital_time",
+          "social_media_time",
+          "digital_misinformation",
+          "online_disagreement"
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "ethics_foundations",
+        "titleAr": "أسس الأخلاق في الإسلام",
+        "titleEn": "Foundations of Islamic ethics",
+        "summaryAr": "ترتبط الأخلاق بالإيمان والعبادة وحقوق الناس، ولا تنفصل عن الصدق والعدل والرحمة.",
+        "summaryEn": "Islamic ethics connect faith and worship with truthfulness, justice, mercy, and the rights of others.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/ethics",
+          "aqeedah/faith_components"
+        ],
+        "citations": [
+          {
+            "id": "quran-16-90",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:90"
+          },
+          {
+            "id": "muslim-righteousness",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Virtue: righteousness and good character"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "integrated",
+            "titleAr": "الدين والسلوك",
+            "titleEn": "Faith and conduct",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تجمع النصوص بين العبادة وحسن التعامل، فلا يكتمل أثر العبادة إذا تحولت حياة المسلم إلى ظلم أو غش أو أذى للناس.",
+                "en": "Revelation joins worship with ethical conduct; religious practice is not meant to coexist with injustice, fraud, or harm toward others.",
+                "citationIds": [
+                  "quran-16-90"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "character",
+            "titleAr": "البر وحسن الخلق",
+            "titleEn": "Righteousness and good character",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف السنة البر بحسن الخلق في معنى جامع يربط الإيمان العملي بسلوك الإنسان مع الناس.",
+                "en": "The Sunnah describes righteousness through good character in a broad sense linking lived faith with conduct toward people.",
+                "citationIds": [
+                  "muslim-righteousness"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "intention_sincerity",
+        "titleAr": "النية والإخلاص",
+        "titleEn": "Intention and sincerity",
+        "summaryAr": "صلاح العمل يتأثر بقصد صاحبه، والإخلاص يحرر العبادة والعمل الصالح من طلب السمعة.",
+        "summaryEn": "The value of actions is tied to intention, and sincerity frees worship and good deeds from the pursuit of reputation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/sincerity",
+          "aqeedah/worship_for_god"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-intentions-ethics",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Beginning of Revelation: actions are by intentions"
+          },
+          {
+            "id": "quran-98-5",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "98:5"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "intention",
+            "titleAr": "إنما الأعمال بالنيات",
+            "titleEn": "Actions are by intentions",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "حديث النيات أصل في ربط العمل بقصد صاحبه، ويشمل العبادات وكثيرًا من التصرفات التي يتغير معناها بالنية.",
+                "en": "The hadith on intentions is foundational for linking acts to purpose, including worship and many ordinary acts whose meaning changes with intent.",
+                "citationIds": [
+                  "bukhari-intentions-ethics"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sincerity",
+            "titleAr": "مخلصين له الدين",
+            "titleEn": "Sincere devotion",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بإخلاص الدين لله، ولذلك يتجنب المسلم تحويل الطاعة أو الصدقة أو العلم إلى وسيلة للرياء.",
+                "en": "The Quran commands sincere devotion to God, so worship, charity, and learning should not be turned into performances for praise.",
+                "citationIds": [
+                  "quran-98-5"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "truthfulness",
+        "titleAr": "الصدق",
+        "titleEn": "Truthfulness",
+        "summaryAr": "الصدق أساس في الكلام والوعد والشهادة والمعاملة، والكذب يهدم الثقة ويقود إلى فساد أوسع.",
+        "summaryEn": "Truthfulness underpins speech, promises, testimony, and dealings, while lying corrodes trust and leads to wider harm.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/honesty_trust",
+          "trade_honesty"
+        ],
+        "citations": [
+          {
+            "id": "quran-9-119",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:119"
+          },
+          {
+            "id": "bukhari-truthfulness",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Manners: truthfulness and lying"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "command",
+            "titleAr": "كونوا مع الصادقين",
+            "titleEn": "Be with the truthful",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن المؤمنين بتقوى الله وملازمة الصادقين، فيجعل الصدق سمة جماعية لا فضيلة فردية فقط.",
+                "en": "The Quran commands believers to fear God and be with the truthful, presenting honesty as a communal as well as personal virtue.",
+                "citationIds": [
+                  "quran-9-119"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "habit",
+            "titleAr": "الصدق يصير خلقًا",
+            "titleEn": "Truth becomes character",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف السنة تكرار الصدق بأنه طريق يثبت صاحبه عند الله في الصادقين، وتحذر من اعتياد الكذب.",
+                "en": "The Sunnah describes persistent truthfulness as a path to being recorded among the truthful and warns against habitual lying.",
+                "citationIds": [
+                  "bukhari-truthfulness"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "trustworthiness",
+        "titleAr": "الأمانة",
+        "titleEn": "Trustworthiness",
+        "summaryAr": "تشمل الأمانة المال والسر والعمل والمسؤولية والوقت والعهود.",
+        "summaryEn": "Trustworthiness covers money, secrets, work, responsibility, time, and commitments.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/honesty_trust",
+          "workplace_conduct"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-58",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:58"
+          },
+          {
+            "id": "quran-23-8",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "23:8"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "rights",
+            "titleAr": "أداء الأمانات",
+            "titleEn": "Returning trusts",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بأداء الأمانات إلى أهلها والحكم بالعدل، فتدخل في ذلك الأموال والمسؤوليات والحقوق.",
+                "en": "The Quran commands returning trusts to those entitled to them and judging fairly, covering property, responsibilities, and rights.",
+                "citationIds": [
+                  "quran-4-58"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "character",
+            "titleAr": "رعاية العهد",
+            "titleEn": "Keeping trusts and covenants",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف سورة المؤمنون المؤمنين برعاية أماناتهم وعهدهم، ما يجعل الأمانة خلقًا مستمرًا لا موقفًا عابرًا.",
+                "en": "Surat al-Mu'minun describes believers as guarding their trusts and covenants, making trustworthiness an ongoing character trait.",
+                "citationIds": [
+                  "quran-23-8"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "patience",
+        "titleAr": "الصبر",
+        "titleEn": "Patience",
+        "summaryAr": "الصبر ثبات على الطاعة، وترك للمعصية، وتحمل للمشقة دون ظلم أو يأس.",
+        "summaryEn": "Patience includes perseverance in obedience, restraint from wrongdoing, and endurance through hardship without injustice or despair.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/patience",
+          "hardship_grief"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-153",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:153"
+          },
+          {
+            "id": "quran-39-10",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "39:10"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "help",
+            "titleAr": "استعينوا بالصبر والصلاة",
+            "titleEn": "Seek help through patience and prayer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن الصبر بالصلاة وبمعية الله للصابرين، فيجعل الصبر قوة عملية مرتبطة بالعبادة.",
+                "en": "The Quran links patience with prayer and God's support for the patient, presenting patience as an active spiritual discipline.",
+                "citationIds": [
+                  "quran-2-153"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "reward",
+            "titleAr": "أجر بغير حساب",
+            "titleEn": "Reward beyond measure",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة الزمر أن الصابرين يوفون أجرهم بغير حساب، وهو حافز على الثبات في الطويل والصعب.",
+                "en": "Surat al-Zumar states that the patient will receive reward without measure, encouraging endurance through prolonged difficulty.",
+                "citationIds": [
+                  "quran-39-10"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gratitude",
+        "titleAr": "الشكر",
+        "titleEn": "Gratitude",
+        "summaryAr": "الشكر اعتراف بالنعمة واستعمالها في الخير، وليس مجرد عبارة باللسان.",
+        "summaryEn": "Gratitude is recognizing blessings and using them well, not merely saying thanks.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/gratitude",
+          "wealth_moderation"
+        ],
+        "citations": [
+          {
+            "id": "quran-14-7",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "14:7"
+          },
+          {
+            "id": "quran-2-152",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:152"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "recognition",
+            "titleAr": "لئن شكرتم لأزيدنكم",
+            "titleEn": "If you are grateful, I will increase you",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن الشكر بالزيادة ويجعل تذكر النعمة بابًا لمقاومة الاعتياد والجحود.",
+                "en": "The Quran links gratitude with increase and makes conscious recognition of blessing an antidote to entitlement and forgetfulness.",
+                "citationIds": [
+                  "quran-14-7"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "practice",
+            "titleAr": "اذكروني واشكروا لي",
+            "titleEn": "Remember and thank Me",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقترن الشكر بالذكر والعمل، فيظهر أثره في الإنفاق والرحمة وحسن استعمال الوقت والقدرة.",
+                "en": "Gratitude is joined with remembrance and action, appearing in generosity, mercy, and responsible use of time and ability.",
+                "citationIds": [
+                  "quran-2-152"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "humility",
+        "titleAr": "التواضع",
+        "titleEn": "Humility",
+        "summaryAr": "التواضع ترك التعالي على الناس مع حفظ الكرامة وعدم قبول الظلم.",
+        "summaryEn": "Humility means avoiding superiority over others while preserving dignity and not accepting injustice.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "arrogance",
+          "companions/diversity"
+        ],
+        "citations": [
+          {
+            "id": "quran-25-63",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "25:63"
+          },
+          {
+            "id": "muslim-arrogance",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Faith: arrogance and rejecting truth"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "conduct",
+            "titleAr": "يمشون على الأرض هونًا",
+            "titleEn": "Walk humbly",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف سورة الفرقان عباد الرحمن بالسكينة والتواضع في مشيهم وخطابهم عند الجهل.",
+                "en": "Surat al-Furqan describes God's servants as walking humbly and responding peacefully when addressed foolishly.",
+                "citationIds": [
+                  "quran-25-63"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "not_weakness",
+            "titleAr": "التواضع ليس مهانة",
+            "titleEn": "Not weakness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعرف السنة الكبر برد الحق واحتقار الناس، فيظهر أن التواضع قبول الحق واحترام الآخرين لا إلغاء الشخصية.",
+                "en": "The Sunnah defines arrogance as rejecting truth and looking down on people, showing that humility means accepting truth and respecting others, not erasing healthy self-respect.",
+                "citationIds": [
+                  "muslim-arrogance"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mercy",
+        "titleAr": "الرحمة",
+        "titleEn": "Mercy",
+        "summaryAr": "الرحمة خلق يمتد إلى الضعيف والطفل والكبير والحيوان، ويضبط القوة والمسؤولية.",
+        "summaryEn": "Mercy extends to the vulnerable, children, elders, and animals and disciplines the use of power.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/justice_mercy",
+          "environment_animals"
+        ],
+        "citations": [
+          {
+            "id": "quran-21-107",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "21:107"
+          },
+          {
+            "id": "muslim-mercy",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Virtue: mercy toward creation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "prophetic",
+            "titleAr": "رحمة للعالمين",
+            "titleEn": "Mercy to the worlds",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن رسالة النبي ﷺ بالرحمة للعالمين، فتظهر الرحمة مبدأ واسعًا في الدعوة والسلوك.",
+                "en": "The Quran describes the Prophet's ﷺ mission as mercy to the worlds, making mercy a broad principle in conduct and teaching.",
+                "citationIds": [
+                  "quran-21-107"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mutual",
+            "titleAr": "ارحموا من في الأرض",
+            "titleEn": "Mercy in relationships",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تدعو السنة إلى الرحمة وتربطها برحمة الله للعبد، فيدخل فيها الرفق بمن تحت المسؤولية ومن يحتاج المساعدة.",
+                "en": "The Sunnah urges mercy and connects it with God's mercy toward a person, extending to those under one's care and those in need.",
+                "citationIds": [
+                  "muslim-mercy"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "justice",
+        "titleAr": "العدل والإنصاف",
+        "titleEn": "Justice and fairness",
+        "summaryAr": "العدل مطلوب مع القريب والبعيد وحتى مع من نختلف معه.",
+        "summaryEn": "Justice is required with relatives, strangers, and even those with whom one strongly disagrees.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/justice_mercy",
+          "rights_dignity"
+        ],
+        "citations": [
+          {
+            "id": "quran-5-8",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:8"
+          },
+          {
+            "id": "quran-4-135",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:135"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "opponents",
+            "titleAr": "لا يجرمنكم شنآن قوم",
+            "titleEn": "Do not let hatred make you unjust",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يحذر القرآن من أن يدفع البغض إلى الظلم، ويأمر بالعدل لأنه أقرب للتقوى.",
+                "en": "The Quran warns against allowing hostility to produce injustice and commands fairness as nearer to God-consciousness.",
+                "citationIds": [
+                  "quran-5-8"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "self_family",
+            "titleAr": "ولو على أنفسكم",
+            "titleEn": "Even against yourselves",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأمر سورة النساء بالقسط ولو على النفس أو الوالدين والأقربين، فلا يحول الولاء الشخصي دون الحق.",
+                "en": "Surat al-Nisa commands justice even when it weighs against oneself or close relatives, preventing loyalty from overriding truth.",
+                "citationIds": [
+                  "quran-4-135"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "forgiveness",
+        "titleAr": "العفو والمسامحة",
+        "titleEn": "Forgiveness",
+        "summaryAr": "العفو فضيلة عظيمة عندما يحقق الإصلاح، لكنه لا يمنع طلب الحق أو الحماية من الأذى.",
+        "summaryEn": "Forgiveness is a major virtue when it serves reconciliation, but it does not forbid seeking justice or protection from harm.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/forgiveness_reconciliation",
+          "conflict_reconciliation"
+        ],
+        "citations": [
+          {
+            "id": "quran-42-40",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "42:40"
+          },
+          {
+            "id": "quran-24-22",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "24:22"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "reform",
+            "titleAr": "فمن عفا وأصلح",
+            "titleEn": "Forgive and reconcile",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمدح القرآن العفو المقرون بالإصلاح، فيبين أن الغاية ليست إسكات المتضرر بل إصلاح العلاقة حيث يكون ذلك ممكنًا وآمنًا.",
+                "en": "The Quran praises forgiveness joined with reconciliation, showing that the aim is not silencing the harmed person but repairing relationships where safe and possible.",
+                "citationIds": [
+                  "quran-42-40"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "generosity",
+            "titleAr": "ألا تحبون أن يغفر الله لكم",
+            "titleEn": "Would you not love God's forgiveness?",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تدعو سورة النور إلى العفو والصفح في سياق أذى حقيقي، وتربطه برجاء مغفرة الله.",
+                "en": "Surat al-Nur calls for pardon in the context of real harm and connects forgiveness with hoping for God's forgiveness.",
+                "citationIds": [
+                  "quran-24-22"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "anger",
+        "titleAr": "الغضب وضبط النفس",
+        "titleEn": "Anger and self-control",
+        "summaryAr": "الغضب شعور طبيعي، والمطلوب ضبط السلوك ومنع الظلم والقول الذي يندم عليه الإنسان.",
+        "summaryEn": "Anger is natural, but behavior must be controlled to prevent injustice and speech that causes lasting harm.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "forgiveness",
+          "conflict_reconciliation"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-134",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:134"
+          },
+          {
+            "id": "bukhari-anger",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Manners: advice not to give in to anger"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "restraint",
+            "titleAr": "الكاظمين الغيظ",
+            "titleEn": "Those who restrain anger",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمدح القرآن كظم الغيظ والعفو عن الناس، وهو تحكم في رد الفعل لا إنكار للمشاعر.",
+                "en": "The Quran praises those who restrain anger and pardon people, emphasizing control of reaction rather than denial of emotion.",
+                "citationIds": [
+                  "quran-3-134"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "advice",
+            "titleAr": "لا تغضب",
+            "titleEn": "Do not give anger control",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تكرار الوصية النبوية «لا تغضب» يفهم في سياق منع الاستسلام للغضب وآثاره المؤذية.",
+                "en": "The repeated Prophetic advice 'do not become angry' is understood as not surrendering control to anger and its harmful consequences.",
+                "citationIds": [
+                  "bukhari-anger"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "envy",
+        "titleAr": "الحسد",
+        "titleEn": "Envy",
+        "summaryAr": "الحسد يتمنى زوال نعمة الغير، ويعالجه المسلم بالشكر والدعاء والعمل بدل مقارنة النفس بالناس.",
+        "summaryEn": "Envy resents another person's blessing; it is countered through gratitude, prayer, and constructive effort rather than constant comparison.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "gratitude",
+          "social_media_time"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-32",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:32"
+          },
+          {
+            "id": "quran-113-5",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "113:5"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "comparison",
+            "titleAr": "ولا تتمنوا ما فضل الله به بعضكم",
+            "titleEn": "Do not covet what others were given",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينهى القرآن عن تمني ما في أيدي الآخرين على وجه يولد السخط، ويوجه إلى سؤال الله من فضله.",
+                "en": "The Quran discourages coveting what others have in ways that breed resentment and directs people to ask God from His bounty.",
+                "citationIds": [
+                  "quran-4-32"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "harm",
+            "titleAr": "شر حاسد إذا حسد",
+            "titleEn": "The harm of active envy",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة الفلق الاستعاذة من شر الحاسد إذا حسد، فتلفت إلى أن الحسد قد يتحول من شعور إلى أذى.",
+                "en": "Surat al-Falaq seeks protection from the harm of an envier when envy becomes active, recognizing how resentment can become harmful conduct.",
+                "citationIds": [
+                  "quran-113-5"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "arrogance",
+        "titleAr": "الكبر واحتقار الناس",
+        "titleEn": "Arrogance and contempt",
+        "summaryAr": "الكبر ليس مجرد الثقة بالنفس، بل يظهر في رد الحق واحتقار الآخرين.",
+        "summaryEn": "Arrogance is not healthy confidence; it manifests in rejecting truth and looking down on others.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "humility",
+          "rights_dignity"
+        ],
+        "citations": [
+          {
+            "id": "quran-31-18",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "31:18"
+          },
+          {
+            "id": "muslim-arrogance-definition",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Faith: arrogance is rejecting truth and despising people"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "conduct",
+            "titleAr": "ولا تصعر خدك للناس",
+            "titleEn": "Do not turn your cheek in contempt",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنهى وصايا لقمان عن التعالي في التعامل وعن المشي في الأرض مرحًا.",
+                "en": "Luqman's counsel forbids contemptuous behavior toward people and boastful self-display.",
+                "citationIds": [
+                  "quran-31-18"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "definition",
+            "titleAr": "بطر الحق وغمط الناس",
+            "titleEn": "Rejecting truth and despising people",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقدم السنة تعريفًا عمليًا للكبر يجمع بين رفض الحق والنظر للناس باحتقار.",
+                "en": "The Sunnah gives a practical definition of arrogance: rejecting truth and despising people.",
+                "citationIds": [
+                  "muslim-arrogance-definition"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "speech_ethics",
+        "titleAr": "حفظ اللسان",
+        "titleEn": "Ethics of speech",
+        "summaryAr": "الكلمة قد تبني أو تهدم، ويؤمر المسلم بقول الخير أو الصمت عن الأذى.",
+        "summaryEn": "Words can build or destroy; Muslims are taught to speak good or refrain from harmful speech.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "backbiting_slander",
+          "digital_speech"
+        ],
+        "citations": [
+          {
+            "id": "quran-17-53",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:53"
+          },
+          {
+            "id": "bukhari-good-speech",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Manners: speak good or remain silent"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "best",
+            "titleAr": "يقولوا التي هي أحسن",
+            "titleEn": "Say what is best",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن باختيار أحسن الكلام لأن النزاع قد يتفاقم بكلمة مستفزة أو مهينة.",
+                "en": "The Quran commands choosing the best manner of speech because conflict can escalate through provocative or humiliating words.",
+                "citationIds": [
+                  "quran-17-53"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "filter",
+            "titleAr": "خيرًا أو ليصمت",
+            "titleEn": "Good speech or silence",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تضع السنة معيارًا بسيطًا: إن لم يكن في الكلام خير معتبر فتركه قد يكون أسلم من الأذى واللغو.",
+                "en": "The Sunnah offers a simple filter: if speech carries no worthwhile good, silence may be safer than harm or pointless talk.",
+                "citationIds": [
+                  "bukhari-good-speech"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "backbiting_slander",
+        "titleAr": "الغيبة والبهتان",
+        "titleEn": "Backbiting and slander",
+        "summaryAr": "الغيبة ذكر الإنسان بما يكره في غيبته، والبهتان يزيد عليها بنسبة ما ليس فيه.",
+        "summaryEn": "Backbiting mentions a person in a way they would dislike behind their back; slander adds false attribution.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "speech_ethics",
+          "digital_speech"
+        ],
+        "citations": [
+          {
+            "id": "quran-49-12",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:12"
+          },
+          {
+            "id": "muslim-backbiting",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Virtue: definition of backbiting"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "quran",
+            "titleAr": "ولا يغتب بعضكم بعضًا",
+            "titleEn": "Do not backbite one another",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تشبه سورة الحجرات الغيبة بصورة شديدة النفور لتغرس احترام عرض الإنسان حتى في غيابه.",
+                "en": "Surat al-Hujurat uses a striking image to condemn backbiting and protect a person's dignity even in their absence.",
+                "citationIds": [
+                  "quran-49-12"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "definition",
+            "titleAr": "ذكر أخاك بما يكره",
+            "titleEn": "Mentioning what your brother dislikes",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "توضح السنة أن الكلام قد يكون غيبة حتى لو كان صحيحًا، فإن كان باطلًا فهو بهتان.",
+                "en": "The Sunnah explains that true negative speech can still be backbiting; if the claim is false, it becomes slander.",
+                "citationIds": [
+                  "muslim-backbiting"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "suspicion_spying",
+        "titleAr": "سوء الظن والتجسس",
+        "titleEn": "Suspicion and spying",
+        "summaryAr": "ينهى القرآن عن كثير من الظن وعن التجسس، ويحمي الخصوصية من التتبع بلا حق.",
+        "summaryEn": "The Quran warns against much suspicion and forbids spying, protecting privacy from unjustified intrusion.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "privacy_permission",
+          "digital_privacy"
+        ],
+        "citations": [
+          {
+            "id": "quran-49-12",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:12"
+          },
+          {
+            "id": "quran-24-27",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "24:27"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "suspicion",
+            "titleAr": "اجتنبوا كثيرًا من الظن",
+            "titleEn": "Avoid much suspicion",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ليس كل خاطر حكمًا، ويمنع القرآن تحويل الظنون غير المستندة إلى بينة إلى اتهامات أو إساءة.",
+                "en": "Not every thought is evidence; the Quran prevents unsupported suspicion from becoming accusation or mistreatment.",
+                "citationIds": [
+                  "quran-49-12"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "spying",
+            "titleAr": "ولا تجسسوا",
+            "titleEn": "Do not spy",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يحظر النص تتبع عورات الناس بلا حق، ويشمل المبدأ في العصر الرقمي الدخول إلى الرسائل أو الأجهزة أو الحسابات دون إذن.",
+                "en": "The prohibition of spying extends in principle to unauthorized access to messages, devices, or accounts in modern contexts.",
+                "citationIds": [
+                  "quran-49-12",
+                  "quran-24-27"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "verification_rumors",
+        "titleAr": "التثبت من الأخبار والشائعات",
+        "titleEn": "Verifying news and rumors",
+        "summaryAr": "نقل الخبر مسؤولية، ويجب التثبت قبل الإضرار بالناس أو نشر معلومة لم تتضح.",
+        "summaryEn": "Sharing information carries responsibility; verification is required before spreading claims that may harm others.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "digital_misinformation",
+          "speech_ethics"
+        ],
+        "citations": [
+          {
+            "id": "quran-49-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:6"
+          },
+          {
+            "id": "quran-24-15-16",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "24:15-16"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "verify",
+            "titleAr": "فتبينوا",
+            "titleEn": "Verify first",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأمر سورة الحجرات بالتبين عند مجيء خبر قد يؤدي إلى إصابة قوم بجهالة ثم الندم.",
+                "en": "Surat al-Hujurat commands verification when a report could lead to harming people in ignorance and later regret.",
+                "citationIds": [
+                  "quran-49-6"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "rumor",
+            "titleAr": "تلقونه بألسنتكم",
+            "titleEn": "Passing rumors from tongue to tongue",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف سورة النور خطر تناقل كلام لا علم للناس به وعدّه أمرًا هينًا وهو عند الله عظيم.",
+                "en": "Surat al-Nur condemns passing along claims people do not actually know, treating serious rumors as though they were trivial.",
+                "citationIds": [
+                  "quran-24-15-16"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "promises",
+        "titleAr": "الوعود والعهود",
+        "titleEn": "Promises and commitments",
+        "summaryAr": "الوفاء بالعهد خلق شرعي يشمل الالتزامات الشخصية والتعاقدية ما لم تتضمن معصية.",
+        "summaryEn": "Keeping commitments is an ethical obligation covering personal and contractual promises unless they require wrongdoing.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "trustworthiness",
+          "workplace_conduct"
+        ],
+        "citations": [
+          {
+            "id": "quran-17-34",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:34"
+          },
+          {
+            "id": "quran-5-1",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:1"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "covenant",
+            "titleAr": "وأوفوا بالعهد",
+            "titleEn": "Fulfill covenants",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بالوفاء بالعهد ويذكر أن الإنسان مسؤول عنه.",
+                "en": "The Quran commands fulfilling covenants and states that commitments will be questioned about.",
+                "citationIds": [
+                  "quran-17-34"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "contracts",
+            "titleAr": "أوفوا بالعقود",
+            "titleEn": "Honor contracts",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يفتتح القرآن سورة المائدة بالأمر بالوفاء بالعقود، وهو أصل أخلاقي في المعاملات المهنية والمالية.",
+                "en": "Surat al-Ma'idah opens with a command to honor contracts, a foundational ethic in work and financial dealings.",
+                "citationIds": [
+                  "quran-5-1"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "humor",
+        "titleAr": "المزاح والضحك",
+        "titleEn": "Humor and laughter",
+        "summaryAr": "المزاح مباح إذا خلا من الكذب والإهانة والترويع، ولا ينبغي أن يتحول إلى أذى أو إهدار للوقت.",
+        "summaryEn": "Humor is permissible when free of lies, humiliation, and intimidation and should not become a source of harm or constant distraction.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "speech_ethics",
+          "friendship"
+        ],
+        "citations": [
+          {
+            "id": "adab-humor",
+            "kind": "ClassicalBook",
+            "titleAr": "الأدب المفرد للبخاري",
+            "titleEn": "Al-Bukhari, al-Adab al-Mufrad",
+            "locator": "Humor and social conduct"
+          },
+          {
+            "id": "quran-49-11",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:11"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "respect",
+            "titleAr": "لا يسخر قوم من قوم",
+            "titleEn": "Do not ridicule people",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينهى القرآن عن السخرية والتنابز، فيضع حدًا للمزاح عندما يصير إهانة أو تنمرًا.",
+                "en": "The Quran forbids ridicule and insulting labels, drawing a line where humor becomes humiliation or bullying.",
+                "citationIds": [
+                  "quran-49-11"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "truth",
+            "titleAr": "المزاح بلا كذب",
+            "titleEn": "Humor without lying",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنقل كتب الأدب مواقف من مزاح النبي ﷺ دون جعله وسيلة للكذب أو كسر كرامة الآخرين.",
+                "en": "Adab literature preserves examples of Prophetic humor without using it as a license for lying or degrading others.",
+                "citationIds": [
+                  "adab-humor"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "greeting",
+        "titleAr": "السلام وآداب اللقاء",
+        "titleEn": "Greeting and meeting etiquette",
+        "summaryAr": "السلام وسيلة لنشر الأمان والمودة، وتوجد آداب للرد والمصافحة والمجلس.",
+        "summaryEn": "Salam spreads safety and goodwill, and Islamic etiquette includes manners for replying, meeting, and gathering.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "friendship",
+          "guests"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-86",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:86"
+          },
+          {
+            "id": "muslim-salam",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Faith: spreading salam"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "reply",
+            "titleAr": "فحيوا بأحسن منها أو ردوها",
+            "titleEn": "Return a greeting well",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن برد التحية بمثلها أو أحسن منها، فيحول اللقاء اليومي إلى فرصة لاحترام الناس.",
+                "en": "The Quran commands returning a greeting equally or better, turning ordinary encounters into acts of respect.",
+                "citationIds": [
+                  "quran-4-86"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "spread",
+            "titleAr": "أفشوا السلام",
+            "titleEn": "Spread salam",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحث السنة على نشر السلام بين الناس لما فيه من بناء الألفة وتقليل الجفاء.",
+                "en": "The Sunnah encourages spreading salam because it builds familiarity and reduces social coldness.",
+                "citationIds": [
+                  "muslim-salam"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "privacy_permission",
+        "titleAr": "الاستئذان وحرمة البيوت",
+        "titleEn": "Permission and household privacy",
+        "summaryAr": "لا يدخل الإنسان بيوت الناس أو مساحاتهم الخاصة دون إذن، ويحفظ خصوصيتهم من الاطلاع.",
+        "summaryEn": "People should not enter others' homes or private spaces without permission and must respect privacy.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "suspicion_spying",
+          "digital_privacy"
+        ],
+        "citations": [
+          {
+            "id": "quran-24-27-28",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "24:27-28"
+          },
+          {
+            "id": "quran-24-58",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "24:58"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "homes",
+            "titleAr": "حتى تستأنسوا وتسلموا",
+            "titleEn": "Seek permission and greet",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأمر سورة النور بالاستئذان قبل دخول البيوت وبالرجوع إذا طلب أصحابها ذلك.",
+                "en": "Surat al-Nur requires permission before entering homes and instructs visitors to leave when asked.",
+                "citationIds": [
+                  "quran-24-27-28"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "family_privacy",
+            "titleAr": "أوقات الخصوصية",
+            "titleEn": "Times of privacy",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر السورة نفسها أوقاتًا داخل البيت يستأذن فيها الصغار والخدم، ما يرسخ مبدأ الخصوصية داخل الأسرة أيضًا.",
+                "en": "The same surah identifies private times within the household when children and dependents should seek permission, extending privacy principles inside the family.",
+                "citationIds": [
+                  "quran-24-58"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "eating_etiquette",
+        "titleAr": "آداب الطعام",
+        "titleEn": "Eating etiquette",
+        "summaryAr": "يربط الإسلام الطعام بالحلال والاعتدال والشكر وعدم الإسراف.",
+        "summaryEn": "Islamic eating etiquette combines lawful food, moderation, gratitude, and avoidance of waste.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/lawful_food",
+          "wealth_moderation"
+        ],
+        "citations": [
+          {
+            "id": "quran-7-31",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "7:31"
+          },
+          {
+            "id": "bukhari-eating",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Food: eating etiquette"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "moderation",
+            "titleAr": "كلوا واشربوا ولا تسرفوا",
+            "titleEn": "Eat and drink without excess",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يبيح القرآن الطيبات وينهى عن الإسراف، فيجعل الاعتدال جزءًا من أخلاق الطعام.",
+                "en": "The Quran permits wholesome food while forbidding excess, making moderation part of eating ethics.",
+                "citationIds": [
+                  "quran-7-31"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "manners",
+            "titleAr": "التسمية والأكل مما يلي",
+            "titleEn": "Table manners",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنقل السنة التسمية والأكل باليمين ومما يلي الإنسان ضمن آداب الطعام العملية.",
+                "en": "The Sunnah transmits practical manners such as naming God, eating with the right hand, and eating from what is nearest.",
+                "citationIds": [
+                  "bukhari-eating"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dress_modesty",
+        "titleAr": "اللباس والستر والاعتدال",
+        "titleEn": "Dress, modesty, and balance",
+        "summaryAr": "اللباس يستر ويزين، وتضبطه أحكام عامة في العورة وعدم التبرج أو الكبر والإسراف.",
+        "summaryEn": "Clothing covers and beautifies while remaining subject to broad principles of modesty, avoiding display, arrogance, and excess.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/modesty_chastity",
+          "cleanliness"
+        ],
+        "citations": [
+          {
+            "id": "quran-7-26",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "7:26"
+          },
+          {
+            "id": "quran-24-30-31",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "24:30-31"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "purpose",
+            "titleAr": "لباسًا يواري سوآتكم وريشًا",
+            "titleEn": "Covering and adornment",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن وظيفتي الستر والزينة في اللباس، مع جعل لباس التقوى خيرًا.",
+                "en": "The Quran names covering and adornment as purposes of clothing while describing the garment of God-consciousness as best.",
+                "citationIds": [
+                  "quran-7-26"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "modesty",
+            "titleAr": "غض البصر وحفظ الفروج",
+            "titleEn": "Modesty in conduct",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ترتبط أحكام اللباس بمنظومة أوسع تشمل غض البصر وحفظ الفروج والبعد عن الإثارة المتعمدة.",
+                "en": "Dress ethics are part of a broader framework including lowering the gaze, sexual restraint, and avoiding deliberately provocative display.",
+                "citationIds": [
+                  "quran-24-30-31"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cleanliness",
+        "titleAr": "النظافة والعناية بالمظهر",
+        "titleEn": "Cleanliness and personal care",
+        "summaryAr": "النظافة مطلوبة في العبادة والحياة اليومية، وتشمل البدن والثياب والفم والمكان.",
+        "summaryEn": "Cleanliness is valued in worship and daily life, including body, clothing, oral care, and surroundings.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "fiqh_worship/wudu",
+          "public_space"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-222",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:222"
+          },
+          {
+            "id": "muslim-purity",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Purification: cleanliness and purity"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "value",
+            "titleAr": "إن الله يحب التوابين ويحب المتطهرين",
+            "titleEn": "God loves purification",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن الطهارة بالمحبة الإلهية، وتظهر السنة عناية متكررة بالنظافة.",
+                "en": "The Quran connects purification with divine love, while the Sunnah repeatedly emphasizes cleanliness.",
+                "citationIds": [
+                  "quran-2-222"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "daily",
+            "titleAr": "نظافة يومية",
+            "titleEn": "Daily hygiene",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "العناية بالفم والجسد والثياب والروائح الحسنة من أسباب احترام النفس والناس، مع تجنب الوسوسة والتكلف.",
+                "en": "Care for oral hygiene, body, clothing, and pleasant scent supports dignity and consideration for others without obsessive excess.",
+                "citationIds": [
+                  "muslim-purity"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sleep_rest",
+        "titleAr": "النوم والراحة",
+        "titleEn": "Sleep and rest",
+        "summaryAr": "الراحة حق للجسد، وينظم المسلم النوم بما يعينه على الصلاة والعمل والصحة.",
+        "summaryEn": "Rest is a bodily need, and sleep can be organized to support prayer, work, and well-being.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "time_management",
+          "health_body_balance"
+        ],
+        "citations": [
+          {
+            "id": "quran-78-9",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "78:9"
+          },
+          {
+            "id": "bukhari-body-right",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Fasting: your body has a right over you"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "rest",
+            "titleAr": "وجعلنا نومكم سباتًا",
+            "titleEn": "Sleep as rest",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن النوم سكنًا وراحة، فلا ينظر إلى الحاجة الطبيعية للنوم ككسل في ذاتها.",
+                "en": "The Quran presents sleep as rest, so the natural need for sleep is not itself laziness.",
+                "citationIds": [
+                  "quran-78-9"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "balance",
+            "titleAr": "لجسدك عليك حق",
+            "titleEn": "Your body has a right over you",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقرر السنة مبدأ إعطاء البدن حقه، فيشمل ذلك نومًا كافيًا دون إضاعة الفرائض والمسؤوليات.",
+                "en": "The Sunnah affirms that the body has rights, including adequate rest without neglecting obligations and responsibilities.",
+                "citationIds": [
+                  "bukhari-body-right"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "time_management",
+        "titleAr": "الوقت وترتيب الأولويات",
+        "titleEn": "Time and priorities",
+        "summaryAr": "الوقت مورد لا يعود، ويحتاج المسلم إلى موازنة العبادة والعمل والأسرة والراحة.",
+        "summaryEn": "Time is nonrenewable and requires balancing worship, work, family, and rest.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sleep_rest",
+          "digital_time"
+        ],
+        "citations": [
+          {
+            "id": "quran-103-1-3",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "103:1-3"
+          },
+          {
+            "id": "bukhari-two-blessings",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Heart-softening: health and free time"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "loss",
+            "titleAr": "والعصر إن الإنسان لفي خسر",
+            "titleEn": "Time and loss",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تربط سورة العصر النجاة بالإيمان والعمل والحق والصبر، وتذكّر بأن مرور الوقت وحده قد يكون خسارة.",
+                "en": "Surat al-Asr links salvation with faith, action, truth, and patience, warning that passing time alone can become loss.",
+                "citationIds": [
+                  "quran-103-1-3"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "blessings",
+            "titleAr": "الصحة والفراغ",
+            "titleEn": "Health and free time",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر السنة أن كثيرًا من الناس مغبونون في الصحة والفراغ، فيستفاد منها التخطيط وعدم التسويف.",
+                "en": "The Sunnah notes that many people waste the blessings of health and free time, encouraging planning and resistance to procrastination.",
+                "citationIds": [
+                  "bukhari-two-blessings"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "knowledge_etiquette",
+        "titleAr": "آداب طلب العلم",
+        "titleEn": "Etiquette of seeking knowledge",
+        "summaryAr": "طلب العلم يحتاج إخلاصًا وتثبتًا وتدرجًا واحترامًا للمتخصصين وعدم الكلام بغير علم.",
+        "summaryEn": "Seeking knowledge requires sincerity, verification, gradual learning, respect for expertise, and restraint from speaking without knowledge.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/seeking_knowledge",
+          "quran_sciences/tafsir_principles"
+        ],
+        "citations": [
+          {
+            "id": "quran-17-36",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:36"
+          },
+          {
+            "id": "quran-20-114",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "20:114"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "evidence",
+            "titleAr": "ولا تقف ما ليس لك به علم",
+            "titleEn": "Do not follow what you do not know",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينهى القرآن عن اتباع ما لا علم به، وهو أصل ضد الجزم بلا مصدر أو تخصص.",
+                "en": "The Quran forbids following what one has no knowledge of, a foundation against confident claims without evidence or expertise.",
+                "citationIds": [
+                  "quran-17-36"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "growth",
+            "titleAr": "وقل رب زدني علمًا",
+            "titleEn": "Ask for increase in knowledge",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يدعو القرآن النبي ﷺ لطلب الزيادة من العلم، فيرسخ التواضع العلمي واستمرار التعلم.",
+                "en": "The Quran teaches the Prophet ﷺ to ask for increased knowledge, reinforcing intellectual humility and lifelong learning.",
+                "citationIds": [
+                  "quran-20-114"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "parents",
+        "titleAr": "بر الوالدين",
+        "titleEn": "Parents",
+        "summaryAr": "الإحسان إلى الوالدين من أوكد الحقوق، مع بقاء حدود الطاعة وعدم اتباعهما في المعصية.",
+        "summaryEn": "Kindness to parents is among the strongest duties, while obedience has limits where wrongdoing is commanded.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/parents",
+          "relatives"
+        ],
+        "citations": [
+          {
+            "id": "quran-17-23-24",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:23-24"
+          },
+          {
+            "id": "quran-31-14-15",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "31:14-15"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "kindness",
+            "titleAr": "وبالوالدين إحسانًا",
+            "titleEn": "Excellence toward parents",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأمر سورة الإسراء بالإحسان وخفض جناح الرحمة وتنهى حتى عن التأفف في الكبر.",
+                "en": "Surat al-Isra commands excellent treatment and compassionate humility toward parents, especially in old age.",
+                "citationIds": [
+                  "quran-17-23-24"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "limits",
+            "titleAr": "لا طاعة في المعصية",
+            "titleEn": "Limits of obedience",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة لقمان عدم طاعة الوالدين في الشرك مع استمرار صحبتهما في الدنيا بالمعروف، فتجمع الحدود مع الاحترام.",
+                "en": "Surat Luqman says not to obey parents in wrongdoing while continuing to accompany them kindly, combining moral boundaries with respect.",
+                "citationIds": [
+                  "quran-31-14-15"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "spouses",
+        "titleAr": "المعاشرة بين الزوجين",
+        "titleEn": "Marriage and mutual conduct",
+        "summaryAr": "الزواج يقوم على المودة والرحمة والمعروف، والحقوق متبادلة ولا تبرر الإساءة أو الإكراه.",
+        "summaryEn": "Marriage is built on affection, mercy, and recognized good treatment; rights are reciprocal and do not justify abuse or coercion.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/family_in_islam",
+          "conflict_reconciliation"
+        ],
+        "citations": [
+          {
+            "id": "quran-30-21",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "30:21"
+          },
+          {
+            "id": "quran-4-19",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:19"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "affection",
+            "titleAr": "مودة ورحمة",
+            "titleEn": "Affection and mercy",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف سورة الروم الزواج بالسكن والمودة والرحمة، وهي معانٍ تتجاوز العقد إلى جودة الحياة المشتركة.",
+                "en": "Surat al-Rum describes marriage through tranquility, affection, and mercy, extending beyond legal form to the quality of shared life.",
+                "citationIds": [
+                  "quran-30-21"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "kindness",
+            "titleAr": "وعاشروهن بالمعروف",
+            "titleEn": "Live together honorably",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بالمعاشرة بالمعروف، فيدخل فيها الاحترام والإنفاق المناسب وعدم الإيذاء.",
+                "en": "The Quran commands honorable marital conduct, encompassing respect, appropriate support, and avoidance of harm.",
+                "citationIds": [
+                  "quran-4-19"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "children",
+        "titleAr": "تربية الأبناء",
+        "titleEn": "Raising children",
+        "summaryAr": "التربية مسؤولية تجمع الرحمة والتعليم والقدوة والحماية دون إذلال أو إهمال.",
+        "summaryEn": "Parenting combines mercy, teaching, example, and protection without humiliation or neglect.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/family_in_islam",
+          "parents"
+        ],
+        "citations": [
+          {
+            "id": "quran-66-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "66:6"
+          },
+          {
+            "id": "quran-31-13-19",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "31:13-19"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "responsibility",
+            "titleAr": "قوا أنفسكم وأهليكم نارًا",
+            "titleEn": "Protect yourselves and your families",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تضع سورة التحريم على الأسرة مسؤولية التربية والحماية الدينية والأخلاقية.",
+                "en": "Surat al-Tahrim places responsibility on families for moral and religious care.",
+                "citationIds": [
+                  "quran-66-6"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "method",
+            "titleAr": "وصايا لقمان",
+            "titleEn": "Luqman's teaching method",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعرض سورة لقمان نموذجًا يجمع العقيدة والصلاة والأخلاق والصبر والتواضع، بما يظهر شمول التربية.",
+                "en": "Luqman's counsel combines belief, prayer, ethics, patience, and humility, illustrating a holistic model of upbringing.",
+                "citationIds": [
+                  "quran-31-13-19"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relatives",
+        "titleAr": "صلة الرحم",
+        "titleEn": "Maintaining family ties",
+        "summaryAr": "صلة الرحم تشمل التواصل والإحسان والمساعدة مع مراعاة السلامة والحدود عند وجود أذى.",
+        "summaryEn": "Maintaining family ties includes contact, kindness, and support while allowing reasonable boundaries when harm is present.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/relatives",
+          "parents"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-1",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:1"
+          },
+          {
+            "id": "bukhari-kinship",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Manners: maintaining kinship"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "value",
+            "titleAr": "واتقوا الله الذي تساءلون به والأرحام",
+            "titleEn": "Honor kinship",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تربط سورة النساء التقوى بحرمة الأرحام، فتجعل روابط القرابة مسؤولية اجتماعية.",
+                "en": "Surat al-Nisa links God-consciousness with respect for kinship, making family ties a social responsibility.",
+                "citationIds": [
+                  "quran-4-1"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "not_transaction",
+            "titleAr": "الصلة ليست مكافأة فقط",
+            "titleEn": "More than reciprocity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف السنة الواصل الحقيقي بأنه لا يكتفي بمكافأة من وصله، بل يحافظ على الخير عند انقطاع الآخر قدر استطاعته.",
+                "en": "The Sunnah describes true maintenance of kinship as more than simple reciprocity, continuing good where reasonably possible even when others withdraw.",
+                "citationIds": [
+                  "bukhari-kinship"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "neighbors",
+        "titleAr": "حقوق الجار",
+        "titleEn": "Rights of neighbors",
+        "summaryAr": "للجار حق في كف الأذى والإحسان والمساعدة بصرف النظر عن قربه الشخصي.",
+        "summaryEn": "Neighbors have rights to safety from harm, kindness, and support regardless of personal closeness.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/neighbors",
+          "community_service"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-36",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:36"
+          },
+          {
+            "id": "bukhari-neighbor",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Manners: rights of neighbors"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "quran",
+            "titleAr": "الجار ذي القربى والجار الجنب",
+            "titleEn": "Near and farther neighbors",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة النساء الإحسان إلى الجار القريب والجار الجنب ضمن منظومة الحقوق الاجتماعية.",
+                "en": "Surat al-Nisa includes both near and farther neighbors within a wider framework of social rights.",
+                "citationIds": [
+                  "quran-4-36"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "harm",
+            "titleAr": "لا يؤذ جاره",
+            "titleEn": "Do not harm your neighbor",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تربط السنة الإيمان بكف الأذى عن الجار، وهو معيار عملي يتقدم على المجاملة الشكلية.",
+                "en": "The Sunnah connects faith with not harming one's neighbor, a practical standard beyond superficial friendliness.",
+                "citationIds": [
+                  "bukhari-neighbor"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "guests",
+        "titleAr": "إكرام الضيف",
+        "titleEn": "Hospitality",
+        "summaryAr": "إكرام الضيف من مكارم الأخلاق، ويوازن بين الكرم وعدم التكلف أو إثقال المضيف.",
+        "summaryEn": "Hospitality is a noble trait balanced by avoiding waste, pretension, or unreasonable burden on the host.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "greeting",
+          "wealth_moderation"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-guest",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Manners: honoring the guest"
+          },
+          {
+            "id": "quran-51-24-27",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "51:24-27"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "prophetic",
+            "titleAr": "فليكرم ضيفه",
+            "titleEn": "Honor the guest",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحث السنة على إكرام الضيف وتربطه بالإيمان بالله واليوم الآخر.",
+                "en": "The Sunnah encourages honoring guests and connects hospitality with faith in God and the Last Day.",
+                "citationIds": [
+                  "bukhari-guest"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "abraham",
+            "titleAr": "ضيافة إبراهيم",
+            "titleEn": "Abraham's hospitality",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعرض سورة الذاريات قصة ضيوف إبراهيم وسرعة إكرامه لهم، فتقدم نموذجًا في المبادرة بالضيافة.",
+                "en": "Surat al-Dhariyat presents Abraham's quick hospitality toward his guests as a model of generous initiative.",
+                "citationIds": [
+                  "quran-51-24-27"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "friendship",
+        "titleAr": "اختيار الصحبة والصداقة",
+        "titleEn": "Friendship and companionship",
+        "summaryAr": "الصحبة تؤثر في العادات والقيم، لذلك يختار المسلم من يعينه على الخير ويحترم حدوده.",
+        "summaryEn": "Companionship shapes habits and values, so friendships should support good conduct and respect personal boundaries.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "greeting",
+          "disagreement_adab"
+        ],
+        "citations": [
+          {
+            "id": "quran-25-27-29",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "25:27-29"
+          },
+          {
+            "id": "riyad-friendship",
+            "kind": "ClassicalBook",
+            "titleAr": "رياض الصالحين للنووي",
+            "titleEn": "Al-Nawawi, Riyad al-Salihin",
+            "locator": "Companionship and good company"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "influence",
+            "titleAr": "أثر الصاحب",
+            "titleEn": "Influence of companions",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعرض سورة الفرقان ندم من اتخذ صحبة أبعدته عن الذكر، فتلفت إلى قوة تأثير البيئة الاجتماعية.",
+                "en": "Surat al-Furqan depicts regret over companionship that led someone away from guidance, highlighting social influence.",
+                "citationIds": [
+                  "quran-25-27-29"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "quality",
+            "titleAr": "صحبة تعين على الخير",
+            "titleEn": "Friendship that supports good",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تجمع كتب الآداب أحاديث في اختيار الصحبة الصالحة والنصيحة والوفاء وعدم استغلال الصديق.",
+                "en": "Classical adab literature emphasizes good company, sincere advice, loyalty, and not exploiting friends.",
+                "citationIds": [
+                  "riyad-friendship"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "disagreement_adab",
+        "titleAr": "أدب الاختلاف والحوار",
+        "titleEn": "Disagreement and dialogue",
+        "summaryAr": "يمكن الاختلاف دون إساءة أو تشويه، ويطلب الحوار بالحكمة والعدل والاستماع.",
+        "summaryEn": "People can disagree without abuse or distortion; dialogue should use wisdom, fairness, and listening.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "aqeedah/disagreement_adab",
+          "conflict_reconciliation"
+        ],
+        "citations": [
+          {
+            "id": "quran-16-125",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:125"
+          },
+          {
+            "id": "quran-29-46",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "29:46"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "best",
+            "titleAr": "جادل بالتي هي أحسن",
+            "titleEn": "Argue in the best manner",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بالمجادلة بالتي هي أحسن، فيضبط الأسلوب حتى عند وجود خلاف حقيقي.",
+                "en": "The Quran commands arguing in the best manner, disciplining tone even when disagreement is real.",
+                "citationIds": [
+                  "quran-16-125"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "respect",
+            "titleAr": "لا تحول الخلاف إلى إهانة",
+            "titleEn": "Do not turn disagreement into humiliation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الحوار الجيد يفرق بين نقد الفكرة وإسقاط كرامة صاحبها، ويبتعد عن الكذب والنسب الباطلة.",
+                "en": "Good dialogue separates critique of an idea from attacking a person's dignity and avoids lies or false attribution.",
+                "citationIds": [
+                  "quran-29-46"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "nonmuslims",
+        "titleAr": "التعامل مع غير المسلمين",
+        "titleEn": "Relations with non-Muslims",
+        "summaryAr": "العدل والبر مشروعان مع من لا يعتدي، مع بقاء الاختلاف الديني واضحًا دون ظلم أو عدوان.",
+        "summaryEn": "Justice and kindness are required toward those who are not hostile, while religious differences remain clear without injustice or aggression.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/relations_with_non_muslims",
+          "justice"
+        ],
+        "citations": [
+          {
+            "id": "quran-60-8",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "60:8"
+          },
+          {
+            "id": "quran-5-8",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:8"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "kindness",
+            "titleAr": "أن تبروهم وتقسطوا إليهم",
+            "titleEn": "Kindness and fairness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصرح سورة الممتحنة بالبر والقسط مع من لا يقاتل المسلمين بسبب الدين ولا يخرجهم من ديارهم.",
+                "en": "Surat al-Mumtahanah explicitly permits kindness and justice toward those who do not fight Muslims because of religion or expel them from their homes.",
+                "citationIds": [
+                  "quran-60-8"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "justice",
+            "titleAr": "العدل مع المخالف",
+            "titleEn": "Justice with opponents",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمنع القرآن العداوة من أن تصبح مبررًا للظلم، وهو أصل يتجاوز العلاقات داخل الجماعة الدينية.",
+                "en": "The Quran forbids hostility from becoming an excuse for injustice, a principle that extends beyond internal religious relationships.",
+                "citationIds": [
+                  "quran-5-8"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "poor_orphans",
+        "titleAr": "الفقراء والأيتام والضعفاء",
+        "titleEn": "The poor, orphans, and vulnerable people",
+        "summaryAr": "تتكرر في القرآن الوصية بالفقراء والأيتام وابن السبيل، وتعد رعايتهم معيارًا أخلاقيًا للمجتمع.",
+        "summaryEn": "The Quran repeatedly emphasizes care for the poor, orphans, and travelers, making protection of vulnerable people a moral test for society.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/care_orphans_poor",
+          "charity_generosity"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-177",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:177"
+          },
+          {
+            "id": "quran-93-9-10",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "93:9-10"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "righteousness",
+            "titleAr": "البر والإنفاق",
+            "titleEn": "Righteousness and giving",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تربط آية البر الإيمان بإعطاء المال مع محبته لذوي القربى واليتامى والمساكين وابن السبيل.",
+                "en": "The verse of righteousness links faith with giving valued wealth to relatives, orphans, the needy, and travelers.",
+                "citationIds": [
+                  "quran-2-177"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "dignity",
+            "titleAr": "فأما اليتيم فلا تقهر",
+            "titleEn": "Do not oppress the orphan",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تنهى سورة الضحى عن قهر اليتيم ونهر السائل، فتحمي كرامة المحتاج لا مجرد حاجته المادية.",
+                "en": "Surat al-Duha forbids oppressing the orphan or harshly dismissing the petitioner, protecting dignity as well as material need.",
+                "citationIds": [
+                  "quran-93-9-10"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "charity_generosity",
+        "titleAr": "الصدقة والكرم",
+        "titleEn": "Charity and generosity",
+        "summaryAr": "الكرم هو بذل الخير دون منّ أو أذى أو تبذير، والصدقة تشمل المال وغيره.",
+        "summaryEn": "Generosity gives good without humiliation, reminders of favor, or waste, and charity extends beyond money.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/charity",
+          "poor_orphans"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-262-264",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:262-264"
+          },
+          {
+            "id": "muslim-charity",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Zakat: every good act is charity"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "no_harm",
+            "titleAr": "لا تبطلوا صدقاتكم بالمن والأذى",
+            "titleEn": "Do not spoil charity with reminders and harm",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يحذر القرآن من إفساد الصدقة بالمن والأذى، فيجعل كرامة المتلقي جزءًا من أخلاق العطاء.",
+                "en": "The Quran warns against spoiling charity through reminders of favor and harm, making recipient dignity part of ethical giving.",
+                "citationIds": [
+                  "quran-2-262-264"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "broad",
+            "titleAr": "كل معروف صدقة",
+            "titleEn": "Every good act is charity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "توسع السنة مفهوم الصدقة ليشمل صورًا متعددة من النفع والإحسان، فلا يحصر الخير في المال.",
+                "en": "The Sunnah broadens charity to many forms of beneficial and kind action rather than restricting it to money.",
+                "citationIds": [
+                  "muslim-charity"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "community_service",
+        "titleAr": "خدمة المجتمع والتعاون",
+        "titleEn": "Community service and cooperation",
+        "summaryAr": "التعاون يكون على البر والتقوى لا على الإثم والعدوان، ويشمل المبادرات النافعة للناس.",
+        "summaryEn": "Cooperation should serve righteousness rather than wrongdoing and includes useful civic and community initiatives.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "neighbors",
+          "public_space"
+        ],
+        "citations": [
+          {
+            "id": "quran-5-2",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:2"
+          },
+          {
+            "id": "quran-2-148",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:148"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "cooperate",
+            "titleAr": "تعاونوا على البر والتقوى",
+            "titleEn": "Cooperate in goodness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بالتعاون على البر والتقوى وينهى عن التعاون على الإثم والعدوان، وهو معيار للمشروعات المشتركة.",
+                "en": "The Quran commands cooperation in righteousness and God-consciousness while forbidding cooperation in sin and aggression, a framework for collective action.",
+                "citationIds": [
+                  "quran-5-2"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "compete",
+            "titleAr": "فاستبقوا الخيرات",
+            "titleEn": "Compete in good works",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يدعو القرآن إلى المسابقة في الخيرات، فيشمل ذلك التعليم والإغاثة والنظافة وخدمة الضعفاء.",
+                "en": "The Quran calls people to compete in good works, including education, relief, cleanliness, and support for vulnerable people.",
+                "citationIds": [
+                  "quran-2-148"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "work_ethics",
+        "titleAr": "أخلاق العمل والكسب",
+        "titleEn": "Work ethic and earning",
+        "summaryAr": "العمل المباح والكسب الحلال يرتبطان بالإتقان والأمانة وعدم استغلال الآخرين.",
+        "summaryEn": "Lawful work and earning are linked with competence, trustworthiness, and avoiding exploitation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/work_earning",
+          "workplace_conduct",
+          "trade_honesty"
+        ],
+        "citations": [
+          {
+            "id": "quran-62-10",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "62:10"
+          },
+          {
+            "id": "quran-28-26",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "28:26"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "earning",
+            "titleAr": "فانتشروا في الأرض وابتغوا من فضل الله",
+            "titleEn": "Seek God's bounty",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعد صلاة الجمعة يأذن القرآن بالانتشار وطلب الرزق، فيجمع العبادة والعمل بدل وضعهما في تعارض.",
+                "en": "After Friday prayer the Quran permits people to disperse and seek God's bounty, combining worship and productive work rather than opposing them.",
+                "citationIds": [
+                  "quran-62-10"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "competence",
+            "titleAr": "القوي الأمين",
+            "titleEn": "Competence and trust",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تجمع قصة موسى بين القوة والأمانة كصفتين للعمل والمسؤولية، وهو مبدأ عملي في اختيار الموظف أو مقدم الخدمة.",
+                "en": "The story of Moses joins competence with trustworthiness as qualities for responsibility, a practical principle in hiring and service.",
+                "citationIds": [
+                  "quran-28-26"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "workplace_conduct",
+        "titleAr": "السلوك المهني",
+        "titleEn": "Professional conduct",
+        "summaryAr": "يحفظ المسلم وقت العمل وموارد المؤسسة وخصوصية الزملاء ويؤدي ما التزم به بعدل.",
+        "summaryEn": "A Muslim respects work time, organizational resources, colleague privacy, and agreed responsibilities fairly.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "trustworthiness",
+          "promises",
+          "work_ethics"
+        ],
+        "citations": [
+          {
+            "id": "quran-5-1",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:1"
+          },
+          {
+            "id": "quran-4-58",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:58"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "contracts",
+            "titleAr": "الالتزام بالعقد",
+            "titleEn": "Honoring employment commitments",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عقد العمل التزام متبادل، فيدخل فيه أداء الواجبات والأجر المتفق عليه وعدم استعمال الموارد على خلاف الإذن.",
+                "en": "Employment is a mutual commitment involving duties, agreed pay, and responsible use of resources according to permission.",
+                "citationIds": [
+                  "quran-5-1"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "confidentiality",
+            "titleAr": "الأمانة والسرية",
+            "titleEn": "Trust and confidentiality",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الملفات والمعلومات التي يؤتمن عليها الموظف تدخل في الأمانة، ولا يجوز كشفها أو استغلالها لمصلحة شخصية بغير حق.",
+                "en": "Files and information entrusted to a worker are part of professional trust and should not be disclosed or exploited without right.",
+                "citationIds": [
+                  "quran-4-58"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "trade_honesty",
+        "titleAr": "الصدق في البيع والشراء",
+        "titleEn": "Honesty in trade",
+        "summaryAr": "المعاملة التجارية تقوم على رضا الأطراف ووضوح السلعة والثمن ومنع الغش والكتمان.",
+        "summaryEn": "Trade requires consent, clarity about goods and price, and avoidance of fraud or concealment.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/work_earning",
+          "fiqh_worship/fiqh_sources"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-29",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:29"
+          },
+          {
+            "id": "muslim-fraud",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Faith: whoever cheats us is not of us"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "consent",
+            "titleAr": "تجارة عن تراض",
+            "titleEn": "Mutual consent",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينهى القرآن عن أكل أموال الناس بالباطل ويستثني التجارة القائمة على التراضي.",
+                "en": "The Quran forbids taking wealth wrongfully and permits trade based on mutual consent.",
+                "citationIds": [
+                  "quran-4-29"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "fraud",
+            "titleAr": "من غشنا فليس منا",
+            "titleEn": "No cheating",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحذر السنة من الغش وإخفاء العيب، فيلزم البائع بيان ما يؤثر في قرار المشتري.",
+                "en": "The Sunnah condemns cheating and concealment of defects, requiring sellers to disclose material information affecting a buyer's decision.",
+                "citationIds": [
+                  "muslim-fraud"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "debt",
+        "titleAr": "الدَّين والوفاء المالي",
+        "titleEn": "Debt and financial responsibility",
+        "summaryAr": "الدين حق يجب توثيقه وأداؤه، ويُمهل المعسر ولا يستغل المحتاج.",
+        "summaryEn": "Debt is a serious obligation that should be documented and repaid, while genuine hardship calls for forbearance rather than exploitation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/wealth_debt",
+          "promises"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-282",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:282"
+          },
+          {
+            "id": "quran-2-280",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:280"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "document",
+            "titleAr": "فاكتبوه",
+            "titleEn": "Document debts",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تأمر أطول آية في القرآن بتوثيق الديون المؤجلة، حمايةً للحقوق وتقليلًا للنزاع.",
+                "en": "The Quran's longest verse instructs documenting deferred debts, protecting rights and reducing disputes.",
+                "citationIds": [
+                  "quran-2-282"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "hardship",
+            "titleAr": "فنظرة إلى ميسرة",
+            "titleEn": "Give time to the debtor in hardship",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بإنظار المعسر إلى الميسرة ويشجع على التصدق بالدين في حال القدرة.",
+                "en": "The Quran commands giving a debtor in genuine hardship more time and praises forgiving the debt where possible.",
+                "citationIds": [
+                  "quran-2-280"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wealth_moderation",
+        "titleAr": "المال والاعتدال في الإنفاق",
+        "titleEn": "Wealth and moderation",
+        "summaryAr": "المال أمانة ووسيلة، ويضبط الإنفاق بين الإسراف والبخل مع أداء الحقوق.",
+        "summaryEn": "Wealth is a trust and means rather than an ultimate goal, and spending is balanced between waste and stinginess.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/wealth_debt",
+          "gratitude"
+        ],
+        "citations": [
+          {
+            "id": "quran-25-67",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "25:67"
+          },
+          {
+            "id": "quran-17-29",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:29"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "middle",
+            "titleAr": "لم يسرفوا ولم يقتروا",
+            "titleEn": "Neither wasteful nor stingy",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تمدح سورة الفرقان من لا يسرف ولا يبخل بل يجعل إنفاقه قوامًا.",
+                "en": "Surat al-Furqan praises those whose spending is neither wasteful nor miserly but balanced.",
+                "citationIds": [
+                  "quran-25-67"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "planning",
+            "titleAr": "لا تجعل يدك مغلولة ولا مبسوطة كل البسط",
+            "titleEn": "Avoid both extremes",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يستخدم القرآن صورة قوية ضد البخل وضد إنفاق كل شيء بلا حساب، فيؤسس للتخطيط المالي المسؤول.",
+                "en": "The Quran uses vivid imagery against both stinginess and spending everything recklessly, supporting responsible financial planning.",
+                "citationIds": [
+                  "quran-17-29"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "environment_animals",
+        "titleAr": "البيئة والرفق بالحيوان",
+        "titleEn": "Environment and animal welfare",
+        "summaryAr": "الاستخلاف لا يعني الإفساد، والرحمة تشمل الحيوان والموارد والبيئة.",
+        "summaryEn": "Human stewardship does not justify corruption; mercy extends to animals, resources, and the environment.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "mercy",
+          "public_space"
+        ],
+        "citations": [
+          {
+            "id": "quran-7-56",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "7:56"
+          },
+          {
+            "id": "muslim-animal-mercy",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Salam and Virtue: mercy toward animals"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "earth",
+            "titleAr": "ولا تفسدوا في الأرض",
+            "titleEn": "Do not spread corruption on earth",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينهى القرآن عن الفساد بعد الإصلاح، وهو مبدأ عام في منع الإضرار بالناس والموارد والبيئة.",
+                "en": "The Quran forbids corruption on earth after its ordering, a broad principle against harming people, resources, and the environment.",
+                "citationIds": [
+                  "quran-7-56"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "animals",
+            "titleAr": "الإحسان إلى الحيوان",
+            "titleEn": "Kindness to animals",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تروي السنة الثواب على سقي الحيوان والوعيد في تعذيبه، فتجعل الرفق بالحيوان التزامًا أخلاقيًا.",
+                "en": "The Sunnah reports reward for giving water to animals and warning against cruelty, making animal welfare an ethical duty.",
+                "citationIds": [
+                  "muslim-animal-mercy"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "public_space",
+        "titleAr": "الطريق والمكان العام",
+        "titleEn": "Public spaces and shared rights",
+        "summaryAr": "الطريق والمرافق العامة حقوق مشتركة، ومن الأخلاق إزالة الأذى وعدم التضييق أو التلويث.",
+        "summaryEn": "Roads and public facilities are shared rights; ethical conduct includes removing harm and avoiding obstruction or pollution.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "community_service",
+          "environment_animals"
+        ],
+        "citations": [
+          {
+            "id": "muslim-road-rights",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Dress and Manners: rights of the road"
+          },
+          {
+            "id": "bukhari-remove-harm",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Faith: removing harm from the road"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "rights",
+            "titleAr": "حق الطريق",
+            "titleEn": "Rights of the road",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر السنة حقوقًا للمكان العام مثل كف الأذى ورد السلام وغض البصر، فتربط الأخلاق باستخدام المجال المشترك.",
+                "en": "The Sunnah describes rights of public space such as avoiding harm, returning greetings, and lowering the gaze, connecting ethics with shared environments.",
+                "citationIds": [
+                  "muslim-road-rights"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "remove",
+            "titleAr": "إماطة الأذى",
+            "titleEn": "Removing harm",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعد إزالة الأذى عن الطريق من شعب الخير، وهو مفهوم يمتد إلى النظافة والسلامة وعدم إعاقة الآخرين.",
+                "en": "Removing harm from a path is treated as a good deed, extending to cleanliness, safety, and not obstructing others.",
+                "citationIds": [
+                  "bukhari-remove-harm"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "health_body_balance",
+        "titleAr": "حق الجسد والتوازن",
+        "titleEn": "Bodily care and balance",
+        "summaryAr": "يعطي الإسلام للبدن حقًا في الطعام والنوم والعلاج والراحة دون عبادة الجسد أو إهماله.",
+        "summaryEn": "Islam recognizes bodily rights to food, sleep, treatment, and rest without idolizing or neglecting the body.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sleep_rest",
+          "hardship_grief"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-body-right-2",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Fasting: your body has a right over you"
+          },
+          {
+            "id": "quran-2-195",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:195"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "right",
+            "titleAr": "لجسدك عليك حق",
+            "titleEn": "Your body has a right over you",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تمنع السنة بعض صور الغلو في العبادة التي تضر بالجسد أو تهدم التوازن بين الحقوق.",
+                "en": "The Sunnah rejects forms of excessive devotion that harm the body or destroy balance among responsibilities.",
+                "citationIds": [
+                  "bukhari-body-right-2"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "harm",
+            "titleAr": "ولا تلقوا بأيديكم إلى التهلكة",
+            "titleEn": "Do not throw yourselves into destruction",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يفهم من النصوص وجوب تجنب الإضرار بالنفس بلا حق وطلب أسباب السلامة والعلاج المباح عند الحاجة.",
+                "en": "Revelation supports avoiding unjustified self-harm and using lawful means of safety and treatment when needed.",
+                "citationIds": [
+                  "quran-2-195"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hardship_grief",
+        "titleAr": "الحزن والمصيبة والابتلاء",
+        "titleEn": "Grief, loss, and hardship",
+        "summaryAr": "الحزن لا يناقض الإيمان، ويجمع المسلم بين الصبر والتعبير المشروع وطلب المساندة.",
+        "summaryEn": "Grief does not negate faith; a Muslim can combine patience with healthy expression and seeking support.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "patience",
+          "aqeedah/hope_fear"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-155-157",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:155-157"
+          },
+          {
+            "id": "quran-12-86",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "12:86"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "trial",
+            "titleAr": "وبشر الصابرين",
+            "titleEn": "Good news for the patient",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة البقرة الابتلاء بالخوف والجوع والنقص ثم تبشر الصابرين الذين يرجعون إلى الله.",
+                "en": "Surat al-Baqarah describes trials of fear, hunger, and loss and gives good news to those who respond with patience and return to God.",
+                "citationIds": [
+                  "quran-2-155-157"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "expression",
+            "titleAr": "إنما أشكو بثي وحزني إلى الله",
+            "titleEn": "Expressing sorrow",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عبارة يعقوب في سورة يوسف تبين أن الحزن والشكوى إلى الله لا يناقضان الصبر.",
+                "en": "Jacob's words in Surat Yusuf show that grief and expressing sorrow to God do not contradict patience.",
+                "citationIds": [
+                  "quran-12-86"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "digital_speech",
+        "titleAr": "أخلاق الكلام الرقمي",
+        "titleEn": "Digital speech ethics",
+        "summaryAr": "التعليق والمنشور والرسالة تخضع لأخلاق الكلام نفسها: الصدق، والاحترام، وعدم الغيبة والتهديد.",
+        "summaryEn": "Comments, posts, and messages are subject to the same ethics as speech: truthfulness, respect, and avoidance of backbiting or threats.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "speech_ethics",
+          "backbiting_slander",
+          "digital_misinformation"
+        ],
+        "citations": [
+          {
+            "id": "quran-50-18",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "50:18"
+          },
+          {
+            "id": "quran-49-11-12",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:11-12"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "recorded",
+            "titleAr": "ما يلفظ من قول",
+            "titleEn": "Every utterance matters",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن أن القول محسوب ومراقب، والمبدأ يشمل ما يكتبه الإنسان وينشره كما يشمل ما ينطقه.",
+                "en": "The Quran reminds people that speech is accountable; the principle applies to written and published words as well as spoken ones.",
+                "citationIds": [
+                  "quran-50-18"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "online",
+            "titleAr": "لا استثناء خلف الشاشة",
+            "titleEn": "No exemption behind a screen",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "السخرية والغيبة والاتهام لا تصبح مباحة لأنها مكتوبة من حساب أو خلف شاشة، وتبقى آثارها على الأشخاص حقيقية.",
+                "en": "Ridicule, backbiting, and accusation do not become permissible because they are typed behind a screen; their effects on people remain real.",
+                "citationIds": [
+                  "quran-49-11-12"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "digital_privacy",
+        "titleAr": "الخصوصية الرقمية",
+        "titleEn": "Digital privacy",
+        "summaryAr": "الرسائل والصور والحسابات والبيانات الشخصية أمانة، ولا تنشر أو تدخل دون حق أو إذن.",
+        "summaryEn": "Messages, photos, accounts, and personal data are trusts and should not be accessed or shared without right or permission.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "privacy_permission",
+          "suspicion_spying"
+        ],
+        "citations": [
+          {
+            "id": "quran-49-12",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:12"
+          },
+          {
+            "id": "quran-24-27",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "24:27"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "access",
+            "titleAr": "عدم التجسس",
+            "titleEn": "No unauthorized access",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمتد مبدأ منع التجسس إلى فتح جهاز أو بريد أو محادثة خاصة دون إذن مشروع.",
+                "en": "The prohibition on spying extends in principle to opening someone else's device, email, or private conversation without legitimate authorization.",
+                "citationIds": [
+                  "quran-49-12"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sharing",
+            "titleAr": "النشر يحتاج إذنًا",
+            "titleEn": "Sharing requires permission",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "القدرة التقنية على حفظ صورة أو إعادة توجيه رسالة لا تعني وجود حق أخلاقي في نشرها.",
+                "en": "Technical ability to save an image or forward a message does not automatically create an ethical right to publish it.",
+                "citationIds": [
+                  "quran-24-27"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "digital_time",
+        "titleAr": "إدارة الوقت مع الأجهزة",
+        "titleEn": "Managing device time",
+        "summaryAr": "الأجهزة أدوات نافعة لكنها قد تستهلك الوقت وتشتت الصلاة والعمل والأسرة إن غابت الحدود.",
+        "summaryEn": "Devices are useful tools but can consume time and disrupt prayer, work, and family life when boundaries are absent.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "time_management",
+          "sleep_rest"
+        ],
+        "citations": [
+          {
+            "id": "quran-103-1-3",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "103:1-3"
+          },
+          {
+            "id": "bukhari-two-blessings-digital",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Heart-softening: health and free time"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "attention",
+            "titleAr": "الوقت مورد أخلاقي",
+            "titleEn": "Time as an ethical resource",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "إدارة الإشعارات والتطبيقات جزء من حفظ الوقت عندما تتحول المقاطعات المتكررة إلى تعطيل للواجبات.",
+                "en": "Managing notifications and apps becomes an ethical issue when constant interruption undermines obligations and meaningful attention.",
+                "citationIds": [
+                  "quran-103-1-3"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "boundaries",
+            "titleAr": "حدود عملية",
+            "titleEn": "Practical boundaries",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمكن تخصيص أوقات بلا شاشة للصلاة والنوم والأسرة والعمل العميق دون تحويل التقنية إلى عدو مطلق.",
+                "en": "Practical screen-free periods for prayer, sleep, family, and focused work can create balance without treating technology itself as inherently bad.",
+                "citationIds": [
+                  "bukhari-two-blessings-digital"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "social_media_time",
+        "titleAr": "المقارنة الاجتماعية والاستعراض",
+        "titleEn": "Social comparison and self-display",
+        "summaryAr": "قد تضخم المنصات المقارنة والحسد والرياء، فيحتاج المستخدم إلى وعي بالنية وبالآثار النفسية والاجتماعية لما يتابعه وينشره.",
+        "summaryEn": "Social platforms can intensify comparison, envy, and self-display, requiring awareness of intention and the effects of what one follows and posts.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "envy",
+          "intention_sincerity",
+          "digital_time"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-32",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:32"
+          },
+          {
+            "id": "quran-57-20",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "57:20"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "comparison",
+            "titleAr": "عدم بناء القيمة على مقارنة الصور",
+            "titleEn": "Do not base worth on comparison",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا تمثل الصور والمنشورات حياة الناس كاملة، والاستغراق في المقارنة قد يولد سخطًا أو حسدًا أو شعورًا زائفًا بالنقص.",
+                "en": "Posts and images do not represent whole lives; constant comparison can breed resentment, envy, or a distorted sense of inadequacy.",
+                "citationIds": [
+                  "quran-4-32"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "display",
+            "titleAr": "الاستعراض والنية",
+            "titleEn": "Display and intention",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قبل النشر يفيد سؤال النفس: هل في المحتوى نفع أو تواصل مشروع، أم أن المقصود طلب المديح وإثارة المقارنة؟",
+                "en": "Before posting, it can help to ask whether the content serves a legitimate purpose or mainly seeks praise and comparison.",
+                "citationIds": [
+                  "quran-57-20"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "digital_misinformation",
+        "titleAr": "المعلومات المضللة وإعادة النشر",
+        "titleEn": "Misinformation and forwarding",
+        "summaryAr": "إعادة النشر مشاركة في أثر الخبر، لذلك يتحقق المستخدم من المصدر والسياق قبل تمريره.",
+        "summaryEn": "Forwarding makes a person part of a claim's impact, so source and context should be checked before sharing.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "verification_rumors",
+          "digital_speech"
+        ],
+        "citations": [
+          {
+            "id": "quran-49-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:6"
+          },
+          {
+            "id": "muslim-every-hears",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Introduction: enough falsehood to repeat everything one hears"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "verify",
+            "titleAr": "المصدر قبل المشاركة",
+            "titleEn": "Source before share",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قاعدة التبين تعني عمليًا النظر في المصدر الأصلي والتاريخ والسياق وعدم الاكتفاء بصورة مقتطعة أو عنوان مثير.",
+                "en": "The Quranic principle of verification translates into checking original source, date, and context rather than relying on a cropped screenshot or sensational headline.",
+                "citationIds": [
+                  "quran-49-6"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "forward",
+            "titleAr": "ليس كل ما يصل يُنشر",
+            "titleEn": "Not everything received should be forwarded",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحذر السنة من أن يكرر الإنسان كل ما يسمع، لأن مجرد النقل يمكن أن يجعله ناشرًا للكذب دون قصد.",
+                "en": "The Sunnah warns against repeating everything one hears, since uncritical forwarding can make someone a distributor of falsehood even without malicious intent.",
+                "citationIds": [
+                  "muslim-every-hears"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "leadership_responsibility",
+        "titleAr": "المسؤولية والقيادة",
+        "titleEn": "Responsibility and leadership",
+        "summaryAr": "كل موقع سلطة أمانة، من الأسرة إلى العمل والمؤسسة، ويحاسب صاحبه على من تحت رعايته.",
+        "summaryEn": "Every position of authority is a trust, from family to workplace and institutions, carrying responsibility toward those under one's care.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "trustworthiness",
+          "consultation"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-shepherd",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Judgments: each of you is a shepherd and responsible"
+          },
+          {
+            "id": "quran-4-58",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:58"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "accountability",
+            "titleAr": "كلكم راع",
+            "titleEn": "Everyone is responsible",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "توسع السنة معنى الرعاية ليشمل الحاكم والرجل والمرأة ومن يتولى مالًا أو مسؤولية.",
+                "en": "The Sunnah broadens responsibility to leaders, family members, and those entrusted with people or property.",
+                "citationIds": [
+                  "bukhari-shepherd"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "trust",
+            "titleAr": "الأمانة والعدل",
+            "titleEn": "Trust and justice",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن تسليم الأمانة لأهلها بالحكم بالعدل، فلا تكون السلطة امتيازًا بلا محاسبة.",
+                "en": "The Quran links entrusting responsibilities to qualified people with just judgment, preventing authority from becoming privilege without accountability.",
+                "citationIds": [
+                  "quran-4-58"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "consultation",
+        "titleAr": "الشورى والاستماع",
+        "titleEn": "Consultation and listening",
+        "summaryAr": "المشاورة تجمع الخبرات وتقلل الاستبداد بالرأي، مع بقاء مسؤولية القرار على من يتولاه.",
+        "summaryEn": "Consultation gathers expertise and reduces unilateral decision-making while leaving responsibility with the decision-maker.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "leadership_responsibility",
+          "disagreement_adab"
+        ],
+        "citations": [
+          {
+            "id": "quran-42-38",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "42:38"
+          },
+          {
+            "id": "quran-3-159",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:159"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "community",
+            "titleAr": "وأمرهم شورى بينهم",
+            "titleEn": "Their affairs are by consultation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف سورة الشورى المؤمنين بالتشاور في شؤونهم، فتجعل الاستماع للآخرين قيمة اجتماعية.",
+                "en": "Surat al-Shura describes believers as conducting affairs through consultation, making listening to others a social virtue.",
+                "citationIds": [
+                  "quran-42-38"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "prophetic",
+            "titleAr": "وشاورهم في الأمر",
+            "titleEn": "Consult them in affairs",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن النبي ﷺ بالمشاورة في سياق القيادة، مع الحزم في القرار بعد التشاور.",
+                "en": "The Quran instructs the Prophet ﷺ to consult others in leadership and then act decisively once a course is chosen.",
+                "citationIds": [
+                  "quran-3-159"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "conflict_reconciliation",
+        "titleAr": "حل النزاع والإصلاح",
+        "titleEn": "Conflict resolution and reconciliation",
+        "summaryAr": "الإصلاح بين الناس مقصد أخلاقي، ويحتاج عدلًا وسماعًا للطرفين ومنعًا لتصعيد الظلم.",
+        "summaryEn": "Reconciliation is an ethical goal requiring fairness, listening to both sides, and preventing escalation of injustice.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "forgiveness",
+          "disagreement_adab"
+        ],
+        "citations": [
+          {
+            "id": "quran-49-9-10",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:9-10"
+          },
+          {
+            "id": "quran-4-35",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:35"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "fair",
+            "titleAr": "فأصلحوا بينهما بالعدل",
+            "titleEn": "Reconcile with justice",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تربط سورة الحجرات الإصلاح بالعدل، فلا يكون الصلح الحقيقي مجرد ضغط على الأضعف للتنازل.",
+                "en": "Surat al-Hujurat ties reconciliation to justice, so genuine peace is not simply pressuring the weaker party to surrender rights.",
+                "citationIds": [
+                  "quran-49-9-10"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mediation",
+            "titleAr": "حكم من أهله وحكم من أهلها",
+            "titleEn": "Mediation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في النزاع الأسري يذكر القرآن الاستعانة بحكم من كل طرف، ما يبين قيمة الوساطة الموثوقة عند تعقد الخلاف.",
+                "en": "In family conflict the Quran mentions appointing representatives from both sides, illustrating the value of trusted mediation when disputes become difficult.",
+                "citationIds": [
+                  "quran-4-35"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rights_dignity",
+        "titleAr": "كرامة الإنسان والحقوق",
+        "titleEn": "Human dignity and rights",
+        "summaryAr": "كرم الله بني آدم، وتنعكس الكرامة في تحريم الظلم والاعتداء والإهانة بغير حق.",
+        "summaryEn": "God honored the children of Adam, and this dignity is reflected in prohibitions on injustice, abuse, and unwarranted humiliation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/human_dignity",
+          "justice"
+        ],
+        "citations": [
+          {
+            "id": "quran-17-70",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:70"
+          },
+          {
+            "id": "quran-49-11",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:11"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "dignity",
+            "titleAr": "ولقد كرمنا بني آدم",
+            "titleEn": "Human dignity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقرر سورة الإسراء تكريم بني آدم، وهو أصل في النظر إلى الإنسان بوصفه صاحب حرمة ومسؤولية.",
+                "en": "Surat al-Isra affirms the honoring of the children of Adam, grounding a view of humans as bearers of dignity and responsibility.",
+                "citationIds": [
+                  "quran-17-70"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "insults",
+            "titleAr": "لا يسخر قوم من قوم",
+            "titleEn": "No ridicule",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحظر سورة الحجرات السخرية واللمز والتنابز، فتحمي كرامة الناس من الإهانة الاجتماعية.",
+                "en": "Surat al-Hujurat forbids ridicule, insult, and offensive labels, protecting people from social humiliation.",
+                "citationIds": [
+                  "quran-49-11"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "apology_repair",
+        "titleAr": "الاعتذار وإصلاح الخطأ",
+        "titleEn": "Apology and repairing harm",
+        "summaryAr": "التوبة من خطأ بين الناس لا تكتمل بمجرد الندم الداخلي إذا بقي حق أو ضرر يحتاج إلى إصلاح.",
+        "summaryEn": "Repenting from interpersonal wrongdoing requires more than private regret when a right or harm still needs repair.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "aqeedah/repentance",
+          "forgiveness"
+        ],
+        "citations": [
+          {
+            "id": "quran-25-70-71",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "25:70-71"
+          },
+          {
+            "id": "bukhari-wronged-brother",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Wrongdoing: seek forgiveness from one you wronged"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "change",
+            "titleAr": "تاب وعمل صالحًا",
+            "titleEn": "Repentance with reform",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن التوبة بالإيمان والعمل الصالح، ما يعني أن الرجوع الحقيقي يظهر في تغيير السلوك.",
+                "en": "The Quran connects repentance with faith and righteous action, showing that genuine return appears in changed conduct.",
+                "citationIds": [
+                  "quran-25-70-71"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "rights",
+            "titleAr": "رد الحقوق وطلب المسامحة",
+            "titleEn": "Restoring rights",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحث السنة من ظلم أخاه في عرض أو حق على التحلل منه قبل يوم لا ينفع فيه المال، فيلزم إصلاح ما يمكن إصلاحه.",
+                "en": "The Sunnah urges someone who wronged another in honor or rights to seek release from that claim before the Hereafter, requiring practical repair where possible.",
+                "citationIds": [
+                  "bukhari-wronged-brother"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "boundaries_harm",
+        "titleAr": "الحدود الشخصية ومنع الأذى",
+        "titleEn": "Personal boundaries and preventing harm",
+        "summaryAr": "الرحمة والعفو لا يعنيان تمكين المعتدي من تكرار الأذى، ويجوز اتخاذ حدود معقولة لحماية النفس والآخرين.",
+        "summaryEn": "Mercy and forgiveness do not require enabling repeated harm; reasonable boundaries can protect oneself and others.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "forgiveness",
+          "rights_dignity"
+        ],
+        "citations": [
+          {
+            "id": "quran-42-41",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "42:41"
+          },
+          {
+            "id": "quran-4-148",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:148"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "defense",
+            "titleAr": "ولمن انتصر بعد ظلمه",
+            "titleEn": "Responding after being wronged",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يقر القرآن حق المظلوم في الانتصار لنفسه ضمن العدل، مع بقاء العفو فضيلة عندما يكون أصلح.",
+                "en": "The Quran recognizes the wronged person's right to defend themselves within justice while still praising forgiveness when it is better.",
+                "citationIds": [
+                  "quran-42-41"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "speak",
+            "titleAr": "الجهر بالسوء لمن ظلم",
+            "titleEn": "Speaking about injustice",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يستثني القرآن المظلوم من بعض صور الجهر بالسوء، ما يسمح بطلب الإنصاف وشرح الضرر دون كذب أو تجاوز.",
+                "en": "The Quran gives the wronged person space to speak about harm, supporting help-seeking and accountability without falsehood or excess.",
+                "citationIds": [
+                  "quran-4-148"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "social_responsibility",
+        "titleAr": "الأمر بالمعروف والمسؤولية الاجتماعية",
+        "titleEn": "Encouraging good and social responsibility",
+        "summaryAr": "النصيحة والإصلاح يحتاجان علمًا وحكمة وقدرة، ولا يبرران التجسس أو الفوضى أو الاعتداء.",
+        "summaryEn": "Encouraging good requires knowledge, wisdom, and capacity and does not justify spying, disorder, or aggression.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "community_service",
+          "disagreement_adab"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-104",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:104"
+          },
+          {
+            "id": "quran-16-125",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:125"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "good",
+            "titleAr": "يدعون إلى الخير",
+            "titleEn": "Calling to good",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة آل عمران الدعوة إلى الخير والأمر بالمعروف والنهي عن المنكر بوصفها وظيفة إصلاحية للمجتمع.",
+                "en": "Surat Al Imran presents calling to good and discouraging wrong as a reform-oriented social responsibility.",
+                "citationIds": [
+                  "quran-3-104"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "method",
+            "titleAr": "بالحكمة",
+            "titleEn": "With wisdom",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يضبط القرآن الدعوة بالحكمة والموعظة الحسنة، فلا يكفي حسن المقصد إذا كانت الوسيلة ظالمة أو جاهلة.",
+                "en": "The Quran regulates invitation through wisdom and good counsel, so a good intention does not justify unjust or ignorant methods.",
+                "citationIds": [
+                  "quran-16-125"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "modesty_chastity",
+        "titleAr": "الحياء والعفة",
+        "titleEn": "Modesty and chastity",
+        "summaryAr": "العفة تشمل السلوك والنظر والعلاقات وحماية النفس من الاستغلال، والحياء لا يعني الصمت عن الحق.",
+        "summaryEn": "Chastity includes conduct, gaze, relationships, and protection from exploitation, while modesty does not mean silence in the face of wrongdoing.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/modesty_chastity",
+          "dress_modesty"
+        ],
+        "citations": [
+          {
+            "id": "quran-24-30-31",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "24:30-31"
+          },
+          {
+            "id": "bukhari-modesty",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Faith: modesty is part of faith"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "gaze",
+            "titleAr": "غض البصر وحفظ الفرج",
+            "titleEn": "Lowering the gaze and guarding chastity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يخاطب القرآن الرجال والنساء بغض البصر وحفظ الفروج، فيجعل العفة مسؤولية مشتركة.",
+                "en": "The Quran addresses both men and women with lowering the gaze and guarding chastity, making modest conduct a shared responsibility.",
+                "citationIds": [
+                  "quran-24-30-31"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "character",
+            "titleAr": "الحياء من الإيمان",
+            "titleEn": "Modesty as character",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف السنة الحياء بأنه من الإيمان، مع فهمه خلقًا يمنع القبيح لا عجزًا عن المطالبة بالحق.",
+                "en": "The Sunnah describes modesty as part of faith, understood as restraint from indecency rather than inability to assert legitimate rights.",
+                "citationIds": [
+                  "bukhari-modesty"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "recreation_balance",
+        "titleAr": "الترفيه المباح والتوازن",
+        "titleEn": "Permissible recreation and balance",
+        "summaryAr": "الراحة والرياضة والمرح المباح يمكن أن تخدم التوازن إذا لم تضيع الفرائض أو تتحول إلى إدمان أو أذى.",
+        "summaryEn": "Permissible recreation, exercise, and enjoyment can support balance when they do not displace obligations or become addictive or harmful.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "health_body_balance",
+          "time_management"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-family-right",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Fasting: your family and body have rights"
+          },
+          {
+            "id": "quran-28-77",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "28:77"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "share",
+            "titleAr": "ولا تنس نصيبك من الدنيا",
+            "titleEn": "Do not forget your share of this world",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تدعو آية القصص إلى طلب الآخرة مع عدم نسيان النصيب المباح من الدنيا والإحسان.",
+                "en": "A verse in al-Qasas calls people to seek the Hereafter without forgetting their lawful share of worldly life and goodness.",
+                "citationIds": [
+                  "quran-28-77"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "balance",
+            "titleAr": "للأهل والجسد حق",
+            "titleEn": "Family and body have rights",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقرر السنة توازنًا بين العبادة وحقوق النفس والأسرة، فيدخل فيه الترويح المباح إذا بقي ضمن هذا التوازن.",
+                "en": "The Sunnah affirms balance between devotion and the rights of body and family, leaving room for lawful recreation within that balance.",
+                "citationIds": [
+                  "bukhari-family-right"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hospitality_visiting",
+        "titleAr": "الزيارة وآداب المجالس",
+        "titleEn": "Visiting and gathering etiquette",
+        "summaryAr": "للزيارة والمجلس آداب في الاستئذان وعدم الإطالة واحترام خصوصية المضيف والآخرين.",
+        "summaryEn": "Visits and gatherings have etiquette around permission, duration, privacy, and consideration for hosts and others.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "guests",
+          "privacy_permission"
+        ],
+        "citations": [
+          {
+            "id": "quran-33-53",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:53"
+          },
+          {
+            "id": "quran-24-27",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "24:27"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "duration",
+            "titleAr": "لا تستأنسوا لحديث",
+            "titleEn": "Do not linger unnecessarily",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة الأحزاب مثالًا على عدم إطالة الجلوس بما يحرج المضيف، وهو أصل في مراعاة راحة الناس.",
+                "en": "Surat al-Ahzab gives an example of not lingering in ways that burden a host, a principle of social consideration.",
+                "citationIds": [
+                  "quran-33-53"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "permission",
+            "titleAr": "الاستئذان قبل الزيارة",
+            "titleEn": "Permission before visiting",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الزيارة الحسنة تبدأ بتنسيق واستئذان وتحترم الاعتذار أو عدم المناسبة بدل اعتبار الدخول حقًا.",
+                "en": "Good visiting begins with permission and respects when the timing is unsuitable rather than treating access as an entitlement.",
+                "citationIds": [
+                  "quran-24-27"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "public_disagreement",
+        "titleAr": "الخلاف في المجال العام",
+        "titleEn": "Disagreement in public spaces",
+        "summaryAr": "النقاش العام يحتاج عدلًا في نقل أقوال المخالفين وتجنب التحريض والإهانة، خصوصًا عند اتساع الجمهور.",
+        "summaryEn": "Public disagreement requires fair representation of others' views and avoidance of incitement or humiliation, especially with large audiences.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "disagreement_adab",
+          "digital_speech"
+        ],
+        "citations": [
+          {
+            "id": "quran-5-8",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "5:8"
+          },
+          {
+            "id": "quran-49-11",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:11"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "fairness",
+            "titleAr": "العدل مع الخصوم",
+            "titleEn": "Fairness toward opponents",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "حتى عند الخلاف الشديد لا يبيح القرآن الظلم أو اختلاق قول على الخصم لم يقله.",
+                "en": "Even in serious disagreement, the Quran does not permit injustice or inventing positions an opponent did not hold.",
+                "citationIds": [
+                  "quran-5-8"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "tone",
+            "titleAr": "منع السخرية والإهانة",
+            "titleEn": "No ridicule or humiliation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "النقاش العام لا يحتاج السخرية من الأشخاص أو ألقابًا مهينة حتى لو كان النقد للمواقف قويًا.",
+                "en": "Public debate does not require ridicule or degrading labels even when criticism of ideas is strong.",
+                "citationIds": [
+                  "quran-49-11"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "consent_property",
+        "titleAr": "الاستئذان في المال والممتلكات",
+        "titleEn": "Consent and property",
+        "summaryAr": "لا يجوز استعمال مال أو ممتلكات الغير لمجرد القدرة على الوصول إليها؛ الأصل رضا المالك أو إذنه.",
+        "summaryEn": "Access does not create ownership rights; another person's property should be used only with permission or legitimate authorization.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "trustworthiness",
+          "workplace_conduct"
+        ],
+        "citations": [
+          {
+            "id": "quran-4-29",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "4:29"
+          },
+          {
+            "id": "quran-2-188",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:188"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "consent",
+            "titleAr": "عن تراض منكم",
+            "titleEn": "By mutual consent",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن التصرف المالي المشروع بالتراضي ويمنع أكل الأموال بالباطل.",
+                "en": "The Quran links legitimate financial exchange with mutual consent and forbids wrongful taking of wealth.",
+                "citationIds": [
+                  "quran-4-29"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "misuse",
+            "titleAr": "عدم الاستيلاء بالخداع",
+            "titleEn": "No wrongful appropriation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يحظر القرآن أكل أموال الناس بالباطل، ويدخل في المبدأ الاستعمال غير المأذون للممتلكات أو الحسابات أو الموارد.",
+                "en": "The Quran forbids wrongful consumption of others' wealth, a principle covering unauthorized use of property, accounts, or resources.",
+                "citationIds": [
+                  "quran-2-188"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "responsible_advice",
+        "titleAr": "النصيحة والستر",
+        "titleEn": "Advice and discretion",
+        "summaryAr": "النصيحة تهدف إلى الإصلاح لا الفضيحة، وتوازن بين الستر وبين ضرورة التحذير عند وجود ضرر حقيقي.",
+        "summaryEn": "Advice aims at reform rather than humiliation, balancing discretion with necessary warning when real harm exists.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "social_responsibility",
+          "verification_rumors"
+        ],
+        "citations": [
+          {
+            "id": "muslim-religion-advice",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Faith: religion is sincere counsel"
+          },
+          {
+            "id": "quran-49-12",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "49:12"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "sincerity",
+            "titleAr": "الدين النصيحة",
+            "titleEn": "Religion includes sincere counsel",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف السنة النصيحة بأنها من معاني الدين، فتكون مبنية على إرادة الخير لا على التشفي.",
+                "en": "The Sunnah describes sincere counsel as a core religious value, so advice should seek good rather than humiliation or revenge.",
+                "citationIds": [
+                  "muslim-religion-advice"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "privacy",
+            "titleAr": "الستر وعدم التتبع",
+            "titleEn": "Discretion and privacy",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ليس كل خطأ يحتاج نشرًا عامًا؛ الأصل اختيار الطريقة التي تصلح الضرر بأقل كشف ممكن، إلا إذا استلزم حفظ الناس تحذيرًا مشروعًا.",
+                "en": "Not every mistake requires public exposure; repair should use the least invasive effective method unless protecting others requires a legitimate warning.",
+                "citationIds": [
+                  "quran-49-12"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "manners_elderly_children",
+        "titleAr": "الرحمة بالصغير وتوقير الكبير",
+        "titleEn": "Children and elders",
+        "summaryAr": "من أخلاق المجتمع رحمة الصغار وتوقير الكبار ومراعاة ضعفهم واحتياجاتهم.",
+        "summaryEn": "A healthy community shows mercy to children and respect for elders, accommodating vulnerability and need.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "mercy",
+          "children"
+        ],
+        "citations": [
+          {
+            "id": "adab-young-old",
+            "kind": "ClassicalBook",
+            "titleAr": "الأدب المفرد للبخاري",
+            "titleEn": "Al-Bukhari, al-Adab al-Mufrad",
+            "locator": "Mercy to the young and respect for elders"
+          },
+          {
+            "id": "quran-17-23",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:23"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "young",
+            "titleAr": "الرحمة بالصغير",
+            "titleEn": "Mercy toward children",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تجمع كتب السنة والآداب أخبارًا كثيرة في ملاطفة الأطفال وحملهم وعدم القسوة عليهم.",
+                "en": "Hadith and adab literature preserve many examples of kindness toward children and avoidance of harshness.",
+                "citationIds": [
+                  "adab-young-old"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "old",
+            "titleAr": "توقير الكبير",
+            "titleEn": "Respect for elders",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تزداد حاجة الكبير إلى الصبر والمساعدة وعدم الإهانة، ويظهر ذلك بوضوح في خطاب القرآن عن الوالدين عند الكبر.",
+                "en": "Elders often require extra patience, assistance, and protection from humiliation, clearly reflected in Quranic teaching on aging parents.",
+                "citationIds": [
+                  "quran-17-23"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hospital_sick_visit",
+        "titleAr": "عيادة المريض ومساندته",
+        "titleEn": "Visiting and supporting the sick",
+        "summaryAr": "عيادة المريض باب من الرحمة، وتراعى فيها حاجة المريض للراحة والخصوصية وعدم إرهاقه.",
+        "summaryEn": "Visiting the sick is an act of mercy while respecting the patient's need for rest, privacy, and limited stimulation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "mercy",
+          "health_body_balance"
+        ],
+        "citations": [
+          {
+            "id": "muslim-sick-visit",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Virtue: visiting the sick"
+          },
+          {
+            "id": "bukhari-sick-visit",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Patients: visiting the sick"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "virtue",
+            "titleAr": "فضل العيادة",
+            "titleEn": "Virtue of visiting",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحث السنة على عيادة المريض والدعاء له ومواساته، بما يقلل شعور العزلة.",
+                "en": "The Sunnah encourages visiting the sick, praying for them, and offering comfort, reducing isolation.",
+                "citationIds": [
+                  "muslim-sick-visit"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "etiquette",
+            "titleAr": "المريض محور الزيارة",
+            "titleEn": "Patient-centered etiquette",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "الزيارة النافعة لا تطول على حساب راحة المريض ولا تفرض عليه الحديث أو الطعام أو كشف تفاصيل صحته.",
+                "en": "A helpful visit does not burden the patient with long stays, forced conversation, food, or disclosure of private health details.",
+                "citationIds": [
+                  "bukhari-sick-visit"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "funeral_condolence",
+        "titleAr": "التعزية ومواساة أهل المصاب",
+        "titleEn": "Condolence and supporting the bereaved",
+        "summaryAr": "التعزية تهدف إلى المواساة والدعاء وتخفيف العبء، لا إلى فرض عبارات أو ممارسات تزيد المشقة.",
+        "summaryEn": "Condolence aims to comfort, pray, and reduce burdens rather than impose practices that make grief harder.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "hardship_grief",
+          "fiqh_worship/janazah_prayer"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-condolence",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Funerals: patience at the first shock"
+          },
+          {
+            "id": "muslim-loss",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Funerals: supplication in loss"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "patience",
+            "titleAr": "الصبر عند الصدمة",
+            "titleEn": "Patience at the first shock",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر السنة أن الصبر يظهر خصوصًا عند الصدمة الأولى، مع الاعتراف بأن الحزن نفسه شعور إنساني.",
+                "en": "The Sunnah highlights patience at the first shock while recognizing grief itself as a human response.",
+                "citationIds": [
+                  "bukhari-condolence"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "support",
+            "titleAr": "مساندة عملية",
+            "titleEn": "Practical support",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "من أفضل المواساة تخفيف الأعمال والاحتياجات عن أهل المصاب واحترام رغبتهم في الحديث أو الصمت.",
+                "en": "Practical help with tasks and needs, while respecting whether the bereaved wish to speak or be quiet, can be more useful than formulaic words.",
+                "citationIds": [
+                  "muslim-loss"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "travel_etiquette",
+        "titleAr": "آداب السفر",
+        "titleEn": "Travel etiquette",
+        "summaryAr": "السفر يجمع التوكل بالأخذ بالأسباب وحفظ الحقوق والرفق بالرفقة واحترام أنظمة المكان ما لم تأمر بمعصية.",
+        "summaryEn": "Travel combines trust in God with preparation, respect for companions, and lawful compliance with local rules.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "fiqh_worship/traveler_prayer",
+          "trustworthiness"
+        ],
+        "citations": [
+          {
+            "id": "quran-67-15",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "67:15"
+          },
+          {
+            "id": "muslim-travel",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Hajj and Travel: travel supplications and companionship"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "means",
+            "titleAr": "فامشوا في مناكبها",
+            "titleEn": "Travel through the earth responsibly",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يبيح القرآن الحركة في الأرض وطلب الرزق، مع بقاء الإنسان مسؤولًا عن سلوكه وحقوق الآخرين.",
+                "en": "The Quran permits movement through the earth and seeking provision while preserving responsibility for conduct and others' rights.",
+                "citationIds": [
+                  "quran-67-15"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "companions",
+            "titleAr": "الرفق بالرفقة",
+            "titleEn": "Consideration for companions",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعرض السنة أدعية وآدابًا للسفر، ومن مقاصدها حفظ النفس والرفقة والأهل والمال.",
+                "en": "The Sunnah includes travel supplications and manners oriented toward protecting oneself, companions, family, and property.",
+                "citationIds": [
+                  "muslim-travel"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "online_disagreement",
+        "titleAr": "الخلاف الديني على الإنترنت",
+        "titleEn": "Religious disagreement online",
+        "summaryAr": "النقاش الديني الرقمي يحتاج علمًا ونسبة الأقوال لأصحابها وعدم التكفير أو التبديع أو التشهير بغير بينة.",
+        "summaryEn": "Online religious debate requires knowledge, accurate attribution, and restraint from excommunication, labeling, or public shaming without evidence.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "aqeedah/takfir_caution",
+          "digital_speech",
+          "disagreement_adab"
+        ],
+        "citations": [
+          {
+            "id": "quran-17-36",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:36"
+          },
+          {
+            "id": "quran-16-125",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:125"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "knowledge",
+            "titleAr": "لا تتكلم بغير علم",
+            "titleEn": "Do not speak without knowledge",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "سهولة النشر لا تحول غير المتخصص إلى مرجع، ويظل التثبت من النص والمذهب ونسبة القول واجبًا.",
+                "en": "Ease of posting does not turn a non-specialist into an authority; verifying texts, positions, and attribution remains necessary.",
+                "citationIds": [
+                  "quran-17-36"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "tone",
+            "titleAr": "الحكمة في النقاش",
+            "titleEn": "Wisdom in debate",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "حتى عند الرد على خطأ ديني لا يسقط الأمر بالمجادلة بالتي هي أحسن والعدل في عرض كلام المخالف.",
+                "en": "Even when correcting religious error, the command to argue in the best manner and represent an opponent fairly still applies.",
+                "citationIds": [
+                  "quran-16-125"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gratitude_to_people",
+        "titleAr": "شكر الناس ورد الجميل",
+        "titleEn": "Thanking people and returning kindness",
+        "summaryAr": "الاعتراف بفضل الناس لا يناقض شكر الله، بل يشجع على ثقافة التقدير ورد المعروف.",
+        "summaryEn": "Recognizing people's kindness does not compete with gratitude to God; it builds a culture of appreciation and reciprocation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "gratitude",
+          "charity_generosity"
+        ],
+        "citations": [
+          {
+            "id": "adab-thanks",
+            "kind": "ClassicalBook",
+            "titleAr": "الأدب المفرد للبخاري",
+            "titleEn": "Al-Bukhari, al-Adab al-Mufrad",
+            "locator": "Thanking people and reciprocating kindness"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "recognition",
+            "titleAr": "ذكر المعروف",
+            "titleEn": "Acknowledging good",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "من حسن الخلق أن يذكر الإنسان فضل من أحسن إليه ويشكره بدل اعتبار المساعدة حقًا مكتسبًا دائمًا.",
+                "en": "Good character includes acknowledging and thanking those who help rather than treating assistance as an entitlement.",
+                "citationIds": [
+                  "adab-thanks"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "return",
+            "titleAr": "مكافأة المعروف",
+            "titleEn": "Returning kindness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "رد الجميل قد يكون بعمل مماثل أو دعاء أو كلمة صادقة بحسب القدرة والموقف.",
+                "en": "Returning kindness can take the form of reciprocal help, prayer, or sincere appreciation depending on ability and context.",
+                "citationIds": [
+                  "adab-thanks"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gentleness",
+        "titleAr": "الرفق",
+        "titleEn": "Gentleness",
+        "summaryAr": "الرفق يحسن التعامل والتعليم والإدارة، ولا يعني التنازل عن الحق أو غياب الحزم.",
+        "summaryEn": "Gentleness improves teaching, management, and relationships without eliminating firmness or legitimate boundaries.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "mercy",
+          "leadership_responsibility"
+        ],
+        "citations": [
+          {
+            "id": "muslim-gentleness",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Virtue: gentleness beautifies matters"
+          },
+          {
+            "id": "quran-3-159",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:159"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "beauty",
+            "titleAr": "ما كان الرفق في شيء إلا زانه",
+            "titleEn": "Gentleness beautifies",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تقرر السنة أن الرفق يزين الأمور وأن العنف يفسد كثيرًا من المواقف التي يمكن إصلاحها بهدوء.",
+                "en": "The Sunnah teaches that gentleness beautifies situations while harshness often damages what calmness could repair.",
+                "citationIds": [
+                  "muslim-gentleness"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "leadership",
+            "titleAr": "فبما رحمة من الله لنت لهم",
+            "titleEn": "Gentleness in leadership",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يربط القرآن لين النبي ﷺ برحمة الله ويبين أن الفظاظة تنفر الناس حتى مع صحة الرسالة.",
+                "en": "The Quran links the Prophet's ﷺ gentleness with divine mercy and notes that harshness would drive people away even from a true message.",
+                "citationIds": [
+                  "quran-3-159"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

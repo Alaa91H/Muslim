@@ -537,6 +537,48 @@
       "required_actions": []
     },
     {
+      "id": "feature_feature-reference_src_main_res_raw_reference_ethics_life_v2_json",
+      "kind": "reference_corpus",
+      "path": "feature/feature-reference/src/main/res/raw/reference_ethics_life_v2.json",
+      "size_bytes": 192986,
+      "sha256": "09e9e3adb0f9aedd26da9996f703db2fd41aed71679c4affc34be6b10cf9a70f",
+      "production_status": "approved",
+      "source": "Project-authored Ethics, Manners, and Muslim Life corpus using structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, and classical adab works. Modern digital-life articles apply general ethical principles transparently rather than presenting platform-specific customs as revelation.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Ethics, Manners, and Muslim Life reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, legal/ethical formulations, and modern applications.",
+      "notes": "First versioned edition: 73 topics, 146 sections, and 146 bilingual paragraphs covering character, speech, daily life, family, community, work/wealth, public responsibility, and digital ethics.",
+      "required_actions": []
+    },
+    {
+      "id": "feature_feature-reference_src_main_res_raw_reference_faq_misconceptions_v2_json",
+      "kind": "reference_corpus",
+      "path": "feature/feature-reference/src/main/res/raw/reference_faq_misconceptions_v2.json",
+      "size_bytes": 212269,
+      "sha256": "3d07813bec7807cd7abd8e533786ff2d939b3512835cba3213306a01fae02765",
+      "production_status": "approved",
+      "source": "Project-authored FAQ and common-misconceptions corpus. Answers are intentionally short and cite the app's sourced Aqeedah, Quranic Sciences, Hadith Sciences, Fiqh, Ethics, History, Places, and Introduction-to-Islam corpora, with direct Quran or authentic-hadith references where a concise primary citation materially improves the answer.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "FAQs and Common Misconceptions reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every FAQ remains NeedsReview pending specialist review, with heightened review required for sectarian-sensitive questions, family-law wording, jihad/armed-conflict framing, inheritance/testimony summaries, and any answer that could be mistaken for a personal fatwa.",
+      "notes": "First versioned edition: 72 questions, 9 chapters, 144 sections, and 144 bilingual paragraphs. The book explicitly distinguishes education from personalized fatwa and links every answer to long-form source material.",
+      "required_actions": []
+    },
+    {
+      "id": "feature_feature-reference_src_main_res_raw_reference_fiqh_worship_v2_json",
+      "kind": "reference_corpus",
+      "path": "feature/feature-reference/src/main/res/raw/reference_fiqh_worship_v2.json",
+      "size_bytes": 158400,
+      "sha256": "1f7076d3fab80b8015d6ba5a939b1847ec837c30dca18acbdce742725c3645c2",
+      "production_status": "approved",
+      "source": "Project-authored Fiqh of Worship corpus using structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, and recognized comparative/classical fiqh works including Bidayat al-Mujtahid, al-Majmu', al-Mughni, and usul/ifta literature. Disputed juristic questions are explicitly marked rather than flattened into a single ruling.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Fiqh of Worship reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of legal formulations, school-specific differences, hadith citations, and practical edge cases.",
+      "notes": "First versioned edition: 57 topics, 114 sections, and 114 bilingual paragraphs covering fiqh methodology, purification, prayer, zakat, fasting, and Hajj.",
+      "required_actions": []
+    },
+    {
       "id": "feature_feature-reference_src_main_res_raw_reference_hadith_sciences_v2_json",
       "kind": "reference_corpus",
       "path": "feature/feature-reference/src/main/res/raw/reference_hadith_sciences_v2.json",
@@ -548,6 +590,20 @@
       "attribution": "Hadith and Sunnah Sciences reference content bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, hadith grading, technical terminology, and disputed scholarly formulations.",
       "notes": "First versioned edition: Sunnah authority, isnad/matn, hadith grades, chain continuity, narrator criticism, hidden defects, takhrij, grading disagreement, major collections, apparent conflict, weak reports, numbering, and digital verification.",
+      "required_actions": []
+    },
+    {
+      "id": "feature_feature-reference_src_main_res_raw_reference_history_civilization_v2_json",
+      "kind": "reference_corpus",
+      "path": "feature/feature-reference/src/main/res/raw/reference_history_civilization_v2.json",
+      "size_bytes": 267079,
+      "sha256": "070377c30378babd6399ea58d31ca65c59506fd9a2c1489516076e42913f56e4",
+      "production_status": "approved",
+      "source": "Project-authored Islamic History and Civilization corpus using structured references to the Metropolitan Museum of Art chronology/resources, UNESCO Silk Roads materials, selected classical historical works, and academic references. Political chronology is kept separate from civilizational analysis, and contested or schematic material is explicitly qualified.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Islamic History and Civilization reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending specialist review of chronology, historical reports, political terminology, sectarian-sensitive material, regional coverage, and scientific-history wording.",
+      "notes": "First versioned edition: 91 topics, 182 sections, and 182 bilingual paragraphs covering methodology, dynasties and regions, Africa/Asia/Indian Ocean networks, sciences, institutions, trade, cities, arts, languages, and historiography.",
       "required_actions": []
     },
     {
@@ -565,6 +621,20 @@
       "required_actions": []
     },
     {
+      "id": "feature_feature-reference_src_main_res_raw_reference_islamic_glossary_v2_json",
+      "kind": "reference_corpus",
+      "path": "feature/feature-reference/src/main/res/raw/reference_islamic_glossary_v2.json",
+      "size_bytes": 491623,
+      "sha256": "61ef07a33cb362b1d5616f8811d01c2d58a8a54b7fc83078510f5d55070dcbb7",
+      "production_status": "approved",
+      "source": "Project-authored 300-term Islamic glossary. Definitions are linked to the app's sourced Aqeedah, Quranic Sciences, Hadith Sciences, Fiqh of Worship, Ethics, History, and Places corpora so glossary wording remains consistent with the long-form reference library.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Expanded Islamic Glossary bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every glossary entry remains NeedsReview pending terminology review, especially school-dependent legal terms, hadith terminology, and theological usage.",
+      "notes": "First versioned edition contains exactly 300 bilingual Arabic-English entries organized across nine domains with one concise definition and an internal source link per entry.",
+      "required_actions": []
+    },
+    {
       "id": "feature_feature-reference_src_main_res_raw_reference_mothers_v2_json",
       "kind": "reference_corpus",
       "path": "feature/feature-reference/src/main/res/raw/reference_mothers_v2.json",
@@ -576,6 +646,20 @@
       "attribution": "Mothers of the Believers reference content bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed. All articles remain marked NeedsReview pending article-level review of hadith grading, historical transmission, names, chronology, and contested reports.",
       "notes": "First versioned edition: dedicated biographies of the eleven wives represented in the corpus plus methodology, household learning, and charity/simplicity articles.",
+      "required_actions": []
+    },
+    {
+      "id": "feature_feature-reference_src_main_res_raw_reference_places_landmarks_v2_json",
+      "kind": "reference_corpus",
+      "path": "feature/feature-reference/src/main/res/raw/reference_places_landmarks_v2.json",
+      "size_bytes": 177787,
+      "sha256": "f47e43367ab0f0436a04504fcf60a1562600e85db9581105872ead5c5bcd65a5",
+      "production_status": "approved",
+      "source": "Project-authored Islamic Places and Landmarks corpus using structured Quran and authentic hadith references for sacred status and ritual significance, plus cross-links to the app's sourced Sira, Rashidun, and Islamic History corpora and selected museum/UNESCO historical references for civilizational sites.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Islamic Places and Landmarks reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending specialist review of sacred-status claims, Sira locations, local historical traditions, sectarian-sensitive sites, and geographic wording.",
+      "notes": "First versioned edition distinguishes sacred sites from Sira locations and historical/civilizational landmarks and explicitly avoids creating devotional merit where no text establishes it.",
       "required_actions": []
     },
     {
@@ -636,8 +720,8 @@
     }
   ],
   "summary": {
-    "asset_count": 43,
-    "approved_for_production": 43,
+    "asset_count": 49,
+    "approved_for_production": 49,
     "blocked_pending_review": 0
   }
 }
