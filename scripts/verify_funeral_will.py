@@ -33,6 +33,14 @@ DRAFT_AUTHENTICATOR = (
     ROOT
     / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/WillDraftAuthenticator.kt"
 )
+PROTECTION_UI = (
+    ROOT
+    / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/WillDraftProtectionUi.kt"
+)
+PROTECTION_SESSION = (
+    ROOT
+    / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/WillDraftProtectionSession.kt"
+)
 APP_MANIFEST = ROOT / "app/src/main/AndroidManifest.xml"
 BACKUP_RULES = ROOT / "app/src/main/res/xml/backup_rules.xml"
 DATA_EXTRACTION_RULES = ROOT / "app/src/main/res/xml/data_extraction_rules.xml"
@@ -73,10 +81,14 @@ def main() -> int:
         print(f"Resource verification failed: {error}", file=sys.stderr)
         return 1
 
+    ui_resource_text = "\n".join(
+        path.read_text(encoding="utf-8")
+        for path in (SCREEN, PROTECTION_UI, PROTECTION_SESSION)
+    )
     used_names = set(
         re.findall(
             r"R\.string\.(funeral_will_[A-Za-z0-9_]+)",
-            SCREEN.read_text(encoding="utf-8"),
+            ui_resource_text,
         )
     )
     missing_arabic = sorted(used_names - feature_arabic)
@@ -114,6 +126,8 @@ def main() -> int:
         return 1
 
     screen_text = SCREEN.read_text(encoding="utf-8")
+    protection_ui_text = PROTECTION_UI.read_text(encoding="utf-8")
+    protection_session_text = PROTECTION_SESSION.read_text(encoding="utf-8")
     required_ui_contract = {
         "funeral_will_restore_intro_cards",
         "dismissDraftIntro",
@@ -129,10 +143,20 @@ def main() -> int:
         "ActivityResultContracts.CreateDocument",
         "rememberWillDraftProtectionSession",
         "WillDraftLockedContent",
-        "funeral_will_protection_enable",
     }
     missing_ui_contract = sorted(
         token for token in required_ui_contract if token not in screen_text
+    )
+    protection_ui_contract = {
+        "funeral_will_protection_enable": protection_ui_text,
+        "funeral_will_protection_lock_now": protection_ui_text,
+        "WillDraftProtectionTestTags": protection_ui_text,
+        "Lifecycle.Event.ON_STOP": protection_session_text,
+    }
+    missing_ui_contract += sorted(
+        token
+        for token, source in protection_ui_contract.items()
+        if token not in source
     )
     if missing_ui_contract:
         print(
