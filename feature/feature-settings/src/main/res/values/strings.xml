@@ -236,6 +236,7 @@
     <string name="update_download_paused">التنزيل متوقف مؤقتًا</string>
     <string name="update_verifying">جارٍ التحقق من ملف التحديث وتوقيعه…</string>
     <string name="update_ready_to_install">اكتمل التنزيل وتم التحقق من هوية الحزمة والتوقيع. أصبح التحديث جاهزًا للتثبيت.</string>
+    <string name="update_ready_offline">التحديث الذي تم تنزيله والتحقق منه جاهز للتثبيت حتى بدون اتصال بالإنترنت.</string>
     <string name="update_install">تثبيت التحديث</string>
     <string name="update_retry_download">إعادة تنزيل التحديث</string>
     <string name="update_failed_download">تعذر إكمال تنزيل التحديث.</string>
