@@ -3,7 +3,6 @@ package org.muslim.app.feature.adhkar.data
 import android.content.Context
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
-import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -16,7 +15,6 @@ import org.muslim.app.feature.adhkar.domain.DhikrCategory
 import javax.inject.Inject
 import javax.inject.Singleton
 
-private val Context.adhkarDataStore by preferencesDataStore(name = "adhkar_prefs")
 
 @Serializable
 private data class AdhkarSeedFile(val note: String = "", val adhkar: List<AdhkarSeedItem>)
