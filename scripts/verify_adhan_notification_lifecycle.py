@@ -16,19 +16,25 @@ REQUIRED_SNIPPETS = {
         ".setVisibility(NotificationCompat.VISIBILITY_PUBLIC)",
         ".setPriority(NotificationCompat.PRIORITY_HIGH)",
         ".setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)",
+        ".setDeleteIntent(dismissIntent)",
+        ".setFullScreenIntent(alarmScreenIntent, true)",
         "fun cancelActiveAdhan(context: Context)",
         "fun cancelReminder(context: Context)",
         "cancelReminder(context)",
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/notifications/AdhanNotificationActionReceiver.kt": [
         "ACTION_STOP",
-        "AdhanPlaybackService.stop(context)",
+        "ACTION_DISMISS",
+        "AdhanPlaybackService.stop(context.applicationContext)",
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/notifications/AdhanPlaybackService.kt": [
         "START_REDELIVER_INTENT",
         "val isPreviewing = MutableStateFlow(false)",
         "fun stopPreview(context: Context)",
         "PLAYBACK_WAKELOCK_TIMEOUT_MS",
+        "MAX_PLAYBACK_DURATION_MS",
+        "mainHandler.removeCallbacksAndMessages(null)",
+        "AdhanDirectFallbackSession.stop(context.applicationContext)",
         "private var activeRequest: PlaybackRequest? = null",
         "override fun onTaskRemoved(rootIntent: Intent?)",
         "startForegroundNotification(request)",
@@ -37,7 +43,21 @@ REQUIRED_SNIPPETS = {
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/notifications/AdhanAlarmReceiver.kt": [
         "AdhanNotifications.cancelReminder(appContext)",
         "presentationAllowed = deliveryPolicy.postVisibleNotification",
-        "AdhanNotifications.cancelActiveAdhan(appContext)",
+        "AdhanDirectFallbackSession.begin(fallbackWakeLock)",
+        "AdhanDirectFallbackSession.finish(appContext, fallbackSession)",
+    ],
+    "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/notifications/AdhanDirectFallbackSession.kt": [
+        "entryPoint.soundPlayer().stop()",
+        "AdhanNotifications.cancelActiveAdhan(context)",
+        "releaseWakeLockLocked()",
+    ],
+    "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/notifications/AdhanAlarmActivity.kt": [
+        "KeyEvent.KEYCODE_VOLUME_UP",
+        "KeyEvent.KEYCODE_VOLUME_DOWN",
+        "KeyEvent.KEYCODE_VOLUME_MUTE",
+        "AdhanPlaybackService.stop(applicationContext)",
+        "setShowWhenLocked(true)",
+        "setTurnScreenOn(true)",
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/settings/PrayerSettingsViewModel.kt": [
         "val isPreviewing = AdhanPlaybackStatus.isPreviewing",
@@ -62,17 +82,18 @@ REQUIRED_SNIPPETS = {
         "fun AdhanCustomizeDialog(",
     ],
     "app/src/androidTest/java/org/muslim/app/feature/prayertimes/notifications/AdhanNotificationsInstrumentedTest.kt": [
-        "activeAdhan_isOngoingPublicHighPriority_andExposesOnlyTheExplicitStopAction",
+        "activeAdhan_exposesStopDismissAndLockScreenControls",
         "showAdhan_confirmsTheFreshActiveCard_andCancelsTheEarlierReminder",
         "NotificationCompat.VISIBILITY_PUBLIC",
         "NotificationCompat.PRIORITY_HIGH",
+        "Swipe dismissal must reach the Adhan stop receiver",
+        "Alarm notification must expose lock-screen controls",
         "The sole Stop action must be executable",
     ],
 }
 
 FORBIDDEN_SNIPPETS = {
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/notifications/AdhanNotifications.kt": [
-        ".setDeleteIntent(",
         "dismissible:",
         "stopOnDismiss:",
         "setAuthenticationRequired(true)",
