@@ -331,6 +331,13 @@
       "attribution": "Ethics, Manners, and Muslim Life reference content bundled with the Muslim app.",
       "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, legal/ethical formulations, and modern applications.",
       "notes": "First versioned edition: 73 topics, 146 sections, and 146 bilingual paragraphs covering character, speech, daily life, family, community, work/wealth, public responsibility, and digital ethics."
+    },
+    "feature_feature-reference_src_main_res_raw_reference_history_civilization_v2_json": {
+      "source": "Project-authored Islamic History and Civilization corpus using structured references to the Metropolitan Museum of Art chronology/resources, UNESCO Silk Roads materials, selected classical historical works, and academic references. Political chronology is kept separate from civilizational analysis, and contested or schematic material is explicitly qualified.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Islamic History and Civilization reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending specialist review of chronology, historical reports, political terminology, sectarian-sensitive material, regional coverage, and scientific-history wording.",
+      "notes": "First versioned edition: 91 topics, 182 sections, and 182 bilingual paragraphs covering methodology, dynasties and regions, Africa/Asia/Indian Ocean networks, sciences, institutions, trade, cities, arts, languages, and historiography."
     }
   }
 }
