@@ -332,15 +332,17 @@ fun QuranReaderScreen(
 
     // Auto-scroll state so the selected / recited ayah stays fully visible.
     var scrollTargetAyah by remember { mutableStateOf<Int?>(null) }
-    var targetAyahRootTopPx by remember { mutableStateOf<Float?>(null) }
+    var targetAyahRootBoundsPx by remember { mutableStateOf<AyahViewportBounds?>(null) }
     var viewportTopPx by remember { mutableFloatStateOf(0f) }
     var viewportHeightPx by remember { mutableIntStateOf(0) }
     // Only accept position reports for the ayah we are currently tracking — a
     // neighbouring page's measurement for an older target must never clobber
     // the live follow-along position.
-    val reportAyahTop = remember {
-        { ayahGlobal: Int, top: Float ->
-            if (ayahGlobal == scrollTargetAyah) targetAyahRootTopPx = top
+    val reportAyahBounds = remember {
+        { ayahGlobal: Int, top: Float, bottom: Float ->
+            if (ayahGlobal == scrollTargetAyah) {
+                targetAyahRootBoundsPx = AyahViewportBounds(topPx = top, bottomPx = bottom)
+            }
         }
     }
 
@@ -422,7 +424,7 @@ fun QuranReaderScreen(
                 openedTargetGlobal = targetGlobal
                 scrollTargetAyah = targetGlobal
                 centerInitialAyah = true
-                targetAyahRootTopPx = null
+                targetAyahRootBoundsPx = null
             }
         }
         scrolledToInitial = true
@@ -436,7 +438,7 @@ fun QuranReaderScreen(
     LaunchedEffect(currentAudioAyah) {
         if (currentAudioAyah == null && centerInitialAyah) return@LaunchedEffect
         scrollTargetAyah = currentAudioAyah
-        targetAyahRootTopPx = null
+        targetAyahRootBoundsPx = null
     }
 
     // Phase 1: jump to the page/spread holding the target ayah only when it is
@@ -459,8 +461,8 @@ fun QuranReaderScreen(
     // just enough to keep it inside the top/bottom band of the viewport.
     // On the one-shot initial open (search/bookmark/resume) the ayah is
     // centered vertically instead, then normal band-following resumes.
-    LaunchedEffect(targetAyahRootTopPx, viewportTopPx, viewportHeightPx) {
-        val ayahTop = targetAyahRootTopPx ?: return@LaunchedEffect
+    LaunchedEffect(targetAyahRootBoundsPx, viewportTopPx, viewportHeightPx) {
+        val ayahBounds = targetAyahRootBoundsPx ?: return@LaunchedEffect
         if (viewportHeightPx <= 0) return@LaunchedEffect
         // Only align when the measurement comes from the CURRENT pager page.
         // While a page-slide animation runs, measurements from the incoming
@@ -477,20 +479,19 @@ fun QuranReaderScreen(
             contentIndexToReaderPagerPage(targetPageIndex)
         }
         if (pagerState.currentPage != targetItem) return@LaunchedEffect
-        val pad = viewportHeightPx * 0.12f
-        val topBound = viewportTopPx + pad
-        val bottomBound = viewportTopPx + viewportHeightPx - pad
         // ScrollState.scrollBy uses the conventional scroll offset: a
         // positive value moves the content toward the end (up on screen),
         // while a negative value moves it back toward the start (down).
-        // Therefore an ayah below the viewport needs a positive delta and an
-        // ayah above it needs a negative delta.
-        val delta = when {
-            centerInitialAyah -> ayahTop - (viewportTopPx + viewportHeightPx / 2f)
-            ayahTop < topBound -> ayahTop - topBound
-            ayahTop > bottomBound -> ayahTop - bottomBound
-            else -> 0f
-        }
+        // Follow the COMPLETE ayah bounds, not only its first line, so a
+        // multi-line recited ayah is never left partially hidden behind the
+        // recitation controls when the whole ayah can fit in the viewport.
+        val delta = calculateAyahFollowScrollDelta(
+            ayahTopPx = ayahBounds.topPx,
+            ayahBottomPx = ayahBounds.bottomPx,
+            viewportTopPx = viewportTopPx,
+            viewportHeightPx = viewportHeightPx,
+            center = centerInitialAyah,
+        )
         if (delta < -2f || delta > 2f) pageScrollStates[pagerState.currentPage]?.scrollBy(delta)
         if (centerInitialAyah) {
             // The one-shot centering is done; hand control back to the
@@ -782,9 +783,9 @@ fun QuranReaderScreen(
                             userSelectedAyah = ayah.globalNumber
                             tappedAyahGlobal = ayah.globalNumber
                             scrollTargetAyah = ayah.globalNumber
-                            targetAyahRootTopPx = null
+                            targetAyahRootBoundsPx = null
                         },
-                        onAyahRootTopPx = reportAyahTop,
+                        onAyahRootBoundsPx = reportAyahBounds,
                         onAyahPositionsChanged = { page, positions ->
                             ayahPositionsByPage[page] = positions
                         },
@@ -1377,6 +1378,49 @@ private fun rangeButtonLabel(range: RecitationRange): String = when (range) {
 /** One ayah's top coordinate inside the reader's root layout. */
 internal data class AyahViewportPosition(val globalNumber: Int, val topPx: Float)
 
+/** Full vertical bounds of one rendered ayah inside the reader root. */
+internal data class AyahViewportBounds(val topPx: Float, val bottomPx: Float)
+
+/**
+ * Calculates the minimum vertical scroll needed to keep a complete ayah inside
+ * the reader's comfortable viewport band. If an ayah is taller than the band,
+ * its first line is aligned to the top band so reading starts predictably.
+ */
+internal fun calculateAyahFollowScrollDelta(
+    ayahTopPx: Float,
+    ayahBottomPx: Float,
+    viewportTopPx: Float,
+    viewportHeightPx: Int,
+    paddingFraction: Float = 0.12f,
+    center: Boolean = false,
+): Float {
+    if (viewportHeightPx <= 0) return 0f
+    val safePaddingFraction = paddingFraction.coerceIn(0f, 0.45f)
+    val pad = viewportHeightPx * safePaddingFraction
+    val topBound = viewportTopPx + pad
+    val bottomBound = viewportTopPx + viewportHeightPx - pad
+    val top = minOf(ayahTopPx, ayahBottomPx)
+    val bottom = maxOf(ayahTopPx, ayahBottomPx)
+    val ayahHeight = bottom - top
+    val availableHeight = bottomBound - topBound
+
+    if (center) {
+        val ayahCenter = (top + bottom) / 2f
+        val viewportCenter = viewportTopPx + viewportHeightPx / 2f
+        return ayahCenter - viewportCenter
+    }
+
+    if (ayahHeight > availableHeight) {
+        return top - topBound
+    }
+
+    return when {
+        bottom > bottomBound -> bottom - bottomBound
+        top < topBound -> top - topBound
+        else -> 0f
+    }
+}
+
 /** Maps a real mushaf content index to the pager index after the leading edge page. */
 internal fun contentIndexToReaderPagerPage(contentIndex: Int): Int = contentIndex + 1
 
@@ -1397,7 +1441,7 @@ private data class MushafPagePresentation(
 private data class MushafPageCallbacks(
     val onPageClick: (List<Ayah>) -> Unit,
     val onAyahClick: (Ayah) -> Unit,
-    val onAyahRootTopPx: (Int, Float) -> Unit,
+    val onAyahRootBoundsPx: (Int, Float, Float) -> Unit,
     val onAyahPositionsChanged: (Int, List<AyahViewportPosition>) -> Unit,
 )
 
@@ -1489,7 +1533,9 @@ private fun MushafPageCard(
     val accessibilityVisuals = LocalAccessibilityVisuals.current
     var textRootTopPx by remember { mutableFloatStateOf(0f) }
     var targetCharOffset by remember { mutableIntStateOf(-1) }
+    var targetCharEndExclusive by remember { mutableIntStateOf(-1) }
     var targetLineTopPx by remember { mutableFloatStateOf(-1f) }
+    var targetLineBottomPx by remember { mutableFloatStateOf(-1f) }
     var ayahLineTops by remember { mutableStateOf<List<AyahViewportPosition>>(emptyList()) }
     val playingHighlightAlpha by animateFloatAsState(
         targetValue = if (presentation.playingAyahGlobal != null) 0.14f else 0f,
@@ -1497,15 +1543,24 @@ private fun MushafPageCard(
         label = "ayah_playback_highlight",
     )
 
-    // Report the target ayah's absolute on-screen top once it is laid out in
-    // this page so the screen can scroll it into view. Only pages that
-    // actually contain the target ayah may report — a page whose previous
-    // target moved away would otherwise keep reporting a stale offset.
-    LaunchedEffect(textRootTopPx, targetLineTopPx, presentation.scrollTargetAyahGlobal, ayahs) {
+    // Report the target ayah's complete absolute on-screen bounds once it is
+    // laid out. Measuring both first and last lines lets the reader keep the
+    // whole highlighted ayah visible instead of tracking only its first line.
+    LaunchedEffect(
+        textRootTopPx,
+        targetLineTopPx,
+        targetLineBottomPx,
+        presentation.scrollTargetAyahGlobal,
+        ayahs,
+    ) {
         val target = presentation.scrollTargetAyahGlobal ?: return@LaunchedEffect
         if (ayahs.none { it.globalNumber == target }) return@LaunchedEffect
-        if (targetLineTopPx < 0f) return@LaunchedEffect
-        callbacks.onAyahRootTopPx(target, textRootTopPx + targetLineTopPx)
+        if (targetLineTopPx < 0f || targetLineBottomPx < targetLineTopPx) return@LaunchedEffect
+        callbacks.onAyahRootBoundsPx(
+            target,
+            textRootTopPx + targetLineTopPx,
+            textRootTopPx + targetLineBottomPx,
+        )
     }
     LaunchedEffect(pageNumber, textRootTopPx, ayahLineTops) {
         if (ayahLineTops.isNotEmpty()) {
@@ -1526,8 +1581,9 @@ private fun MushafPageCard(
     val ayahCharOffsets = ArrayList<AyahViewportPosition>(ayahs.size)
     val annotated = buildAnnotatedString {
         // Reset before scanning so a page whose target moved away (or a
-        // follow-along advance within this page) never reports a stale offset.
+        // follow-along advance within this page) never reports stale bounds.
         targetCharOffset = -1
+        targetCharEndExclusive = -1
         ayahs.forEach { ayah ->
             ayahCharOffsets += AyahViewportPosition(ayah.globalNumber, length.toFloat())
             if (ayah.globalNumber == presentation.scrollTargetAyahGlobal) targetCharOffset = length
@@ -1609,6 +1665,12 @@ private fun MushafPageCard(
                     }
                     append(" ")
                 }
+            }
+            if (ayah.globalNumber == presentation.scrollTargetAyahGlobal) {
+                // Exclude the separator space after the ayah marker from the
+                // measured bounds so a wrapped trailing blank cannot create a
+                // phantom extra line at the bottom.
+                targetCharEndExclusive = (length - 1).coerceAtLeast(targetCharOffset + 1)
             }
         }
     }
@@ -1708,15 +1770,24 @@ private fun MushafPageCard(
                         val line = result.getLineForOffset(offset)
                         AyahViewportPosition(globalNumber, result.getLineTop(line))
                     }
-                    if (targetCharOffset >= 0 && result.layoutInput.text.isNotEmpty()) {
-                        val offset = targetCharOffset.coerceIn(0, result.layoutInput.text.length - 1)
-                        val line = result.getLineForOffset(offset)
-                        targetLineTopPx = result.getLineTop(line)
+                    if (
+                        targetCharOffset >= 0 &&
+                        targetCharEndExclusive > targetCharOffset &&
+                        result.layoutInput.text.isNotEmpty()
+                    ) {
+                        val startOffset = targetCharOffset.coerceIn(0, result.layoutInput.text.length - 1)
+                        val endOffset = (targetCharEndExclusive - 1)
+                            .coerceIn(startOffset, result.layoutInput.text.length - 1)
+                        val startLine = result.getLineForOffset(startOffset)
+                        val endLine = result.getLineForOffset(endOffset)
+                        targetLineTopPx = result.getLineTop(startLine)
+                        targetLineBottomPx = result.getLineBottom(endLine)
                     } else {
-                        // The target ayah is not on this page: reset the line
-                        // offset so the report above stays silent instead of
-                        // reusing a stale measurement from an earlier target.
+                        // The target ayah is not on this page: reset both bounds
+                        // so the report above stays silent instead of reusing a
+                        // stale measurement from an earlier target.
                         targetLineTopPx = -1f
+                        targetLineBottomPx = -1f
                     }
                 },
             )
