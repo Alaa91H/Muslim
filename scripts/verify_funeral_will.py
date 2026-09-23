@@ -105,6 +105,9 @@ def main() -> int:
         "dismissPrivacyNotice",
         "willEducationSections",
         "quickActionSteps",
+        "funeral_will_search",
+        "searchGuideSections",
+        "searchWillEducationSections",
     }
     missing_ui_contract = sorted(
         token for token in required_ui_contract if token not in screen_text
