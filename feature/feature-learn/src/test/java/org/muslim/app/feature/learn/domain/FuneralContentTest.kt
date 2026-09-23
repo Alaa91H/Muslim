@@ -53,4 +53,33 @@ class FuneralContentTest {
             },
         ).isTrue()
     }
+    @Test
+    fun `funeral search matches titles and practical steps in both languages`() {
+        val english = FuneralContent.searchGuideSections(
+            query = "burial",
+            isArabic = false,
+        )
+        val arabic = FuneralContent.searchGuideSections(
+            query = "التكفين",
+            isArabic = true,
+        )
+
+        assertThat(english.map(FuneralGuideSection::id)).contains("burial")
+        assertThat(arabic.map(FuneralGuideSection::id)).contains("shrouding")
+    }
+
+    @Test
+    fun `will education search matches content and empty query returns all`() {
+        val matches = FuneralContent.searchWillEducationSections(
+            query = "password",
+            isArabic = false,
+        )
+        val all = FuneralContent.searchWillEducationSections(
+            query = "   ",
+            isArabic = false,
+        )
+
+        assertThat(matches.map(WillEducationSection::id)).contains("executor_and_documents")
+        assertThat(all).hasSize(FuneralContent.willEducationSections.size)
+    }
 }
