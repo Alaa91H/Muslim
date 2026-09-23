@@ -97,7 +97,7 @@ def main() -> None:
             require(set(referenced_books) <= book_ids, f"{stage_id} references a missing book")
 
     repository = REPOSITORY.read_text(encoding="utf-8")
-    require("ScholarPassageFtsEntity" in repository, "repository search must use the full-text index")
+    require("ftsDao.searchPassageIds" in repository, "repository search must use the full-text index")
     require("packManager.ensureSeeded()" in repository, "repository must delegate catalog seeding to pack manager")
 
     pack_manager = PACK_MANAGER.read_text(encoding="utf-8")
