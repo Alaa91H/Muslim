@@ -34,14 +34,15 @@ class UpdateDownloadReceiver : BroadcastReceiver() {
         CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
             try {
                 val appContext = context.applicationContext
-                val repository = EntryPointAccessors.fromApplication(
+                val dependencies = EntryPointAccessors.fromApplication(
                     appContext,
                     UpdateDownloadEntryPoint::class.java,
-                ).prefs()
+                )
+                val repository = dependencies.prefs()
                 val prefs = repository.preferences.first()
                 if (prefs.updateDownloadId != completedId) return@launch
 
-                val state = UpdateDownloadManager(appContext, repository).currentState()
+                val state = dependencies.downloads().currentState()
                 if (!appContext.notificationAllowed(NotificationCategory.AppUpdate)) return@launch
 
                 val notifier = UpdateDownloadNotifier(appContext)
@@ -60,5 +61,6 @@ class UpdateDownloadReceiver : BroadcastReceiver() {
     @InstallIn(SingletonComponent::class)
     interface UpdateDownloadEntryPoint {
         fun prefs(): AppPreferencesRepository
+        fun downloads(): UpdateDownloadManager
     }
 }
