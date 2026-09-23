@@ -29,6 +29,10 @@ PDF_EXPORTER = (
     ROOT
     / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/data/WillDraftPdfExporter.kt"
 )
+DRAFT_AUTHENTICATOR = (
+    ROOT
+    / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/WillDraftAuthenticator.kt"
+)
 APP_MANIFEST = ROOT / "app/src/main/AndroidManifest.xml"
 BACKUP_RULES = ROOT / "app/src/main/res/xml/backup_rules.xml"
 DATA_EXTRACTION_RULES = ROOT / "app/src/main/res/xml/data_extraction_rules.xml"
@@ -96,6 +100,7 @@ def main() -> int:
         "hide_legal_notice",
         "hide_privacy_notice",
         "intro_content_version",
+        "protect_draft_with_device_auth",
     }
     missing_preferences = sorted(
         key for key in preference_contract if key not in preferences_text
@@ -122,6 +127,9 @@ def main() -> int:
         "funeral_will_encrypted_notice",
         "funeral_will_export_pdf",
         "ActivityResultContracts.CreateDocument",
+        "rememberWillDraftProtectionSession",
+        "WillDraftLockedContent",
+        "funeral_will_protection_enable",
     }
     missing_ui_contract = sorted(
         token for token in required_ui_contract if token not in screen_text
@@ -163,6 +171,8 @@ def main() -> int:
         "AndroidKeyStore": DRAFT_CRYPTO.read_text(encoding="utf-8"),
         "AES/GCM/NoPadding": DRAFT_CRYPTO.read_text(encoding="utf-8"),
         "PdfDocument": PDF_EXPORTER.read_text(encoding="utf-8"),
+        "BiometricPrompt": DRAFT_AUTHENTICATOR.read_text(encoding="utf-8"),
+        "DEVICE_CREDENTIAL": DRAFT_AUTHENTICATOR.read_text(encoding="utf-8"),
     }
     missing_security = sorted(
         token for token, source in security_contract.items() if token not in source
