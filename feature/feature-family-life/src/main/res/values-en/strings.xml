@@ -81,4 +81,11 @@
     <string name="family_checklists_back">Back to checklists</string>
     <string name="family_checklists_notice_title">Organisation tool</string>
     <string name="family_checklists_notice_text">Adapt each checklist to your family's situation. Items are not a fatwa, diagnosis or legal requirement.</string>
+    <string name="family_hub_related_sections_title">Related app sections</string>
+    <string name="family_open_quran_title">Quran</string>
+    <string name="family_open_quran_desc">Open the Quran section for reading, reflection and referenced verses</string>
+    <string name="family_open_hadith_title">Hadith</string>
+    <string name="family_open_hadith_desc">Open the Hadith section for reading and searching narrations</string>
+    <string name="family_open_adhkar_title">Adhkar</string>
+    <string name="family_open_adhkar_desc">Open the Adhkar section for daily, morning and evening remembrance</string>
 </resources>
