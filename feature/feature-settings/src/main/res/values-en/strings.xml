@@ -233,6 +233,7 @@
     <string name="update_download_paused">Download paused</string>
     <string name="update_verifying">Verifying the update package and signature…</string>
     <string name="update_ready_to_install">Download complete. The package identity and signing certificate were verified and the update is ready to install.</string>
+    <string name="update_ready_offline">The downloaded and verified update is ready to install even while you are offline.</string>
     <string name="update_install">Install update</string>
     <string name="update_retry_download">Download again</string>
     <string name="update_failed_download">The update download could not be completed.</string>
