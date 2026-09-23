@@ -154,8 +154,8 @@ fun ReferenceScreen(
     val book = selectedBook
     val readerState = ReferenceReaderUiState(
         preferences = readerPreferences,
-        bookmarkKeys = readerState.bookmarkKeys,
-        fontStep = readerState.fontStep,
+        bookmarkKeys = bookmarkKeys,
+        fontStep = fontStep,
         onBookmarkKeysChanged = { bookmarkKeys = it },
         onFontStepChanged = { fontStep = readerPreferences.setFontStep(it) },
         onLastReadChanged = { lastRead = it },
@@ -564,7 +564,7 @@ private fun BookContent(
                             TopicListItem(
                                 topic = topic,
                                 lang = lang,
-                                bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in readerState.bookmarkKeys,
+                                bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in bookmarkKeys,
                                 onOpenTopic = onOpenTopic,
                             )
                         }
@@ -574,7 +574,7 @@ private fun BookContent(
                         TopicListItem(
                             topic = topic,
                             lang = lang,
-                            bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in readerState.bookmarkKeys,
+                            bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in bookmarkKeys,
                             onOpenTopic = onOpenTopic,
                         )
                     }
@@ -617,7 +617,7 @@ private fun TopicContent(
     modifier: Modifier = Modifier,
 ) {
     val safeInitialIndex = remember(book.id, topic.id) {
-        readerPreferences
+        readerState.preferences
             .savedScrollIndex(book.id, topic.id)
             .coerceAtMost(topic.sections.size + topic.relatedTopicIds.size + 8)
     }
@@ -632,7 +632,7 @@ private fun TopicContent(
     val previousTopic = book.topics.getOrNull(topicIndex - 1)
     val nextTopic = book.topics.getOrNull(topicIndex + 1)
     val bookmarkKey = ReferenceReaderKeyCodec.topicKey(book.id, topic.id)
-    val bookmarked = bookmarkKey in bookmarkKeys
+    val bookmarked = bookmarkKey in readerState.bookmarkKeys
 
     LaunchedEffect(listState, book.id, topic.id) {
         snapshotFlow { listState.firstVisibleItemIndex }
