@@ -24,7 +24,7 @@ data class ScholarBookEntity(
     val imported: Boolean,
     val subtitle: String? = null,
     @ColumnInfo(defaultValue = "'ar'") val language: String = "ar",
-    @ColumnInfo(defaultValue = "'Foundation'") val difficulty: String = "Foundation",
+    @ColumnInfo(defaultValue = "'Unspecified'") val difficulty: String = "Unspecified",
     val publisher: String? = null,
     val edition: String? = null,
     val editor: String? = null,
