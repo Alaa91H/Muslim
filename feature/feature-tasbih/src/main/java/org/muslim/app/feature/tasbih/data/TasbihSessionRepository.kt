@@ -4,6 +4,8 @@ import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import org.muslim.app.core.database.AppDatabase
 import org.muslim.app.core.database.entity.TasbihSessionEntity
 import org.muslim.app.feature.tasbih.domain.TasbihPhrase
@@ -14,6 +16,8 @@ import org.muslim.app.feature.tasbih.domain.TasbihSessionHistoryItem
 import org.muslim.app.feature.tasbih.domain.TasbihSessionMode
 import org.muslim.app.feature.tasbih.domain.TasbihSessionState
 import org.muslim.app.feature.tasbih.domain.TasbihSessionTransition
+import java.time.Instant
+import java.time.ZoneId
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -29,6 +33,7 @@ class TasbihSessionRepository @Inject constructor(
     @ApplicationContext context: Context,
 ) {
     private val dao = AppDatabase.getInstance(context).tasbihSessionDao()
+    private val mutationMutex = Mutex()
 
     fun observeRecent(limit: Int = DEFAULT_HISTORY_LIMIT): Flow<List<TasbihSessionHistoryItem>> =
         dao.observeRecent(limit.coerceIn(1, MAX_HISTORY_LIMIT))
@@ -38,13 +43,21 @@ class TasbihSessionRepository @Inject constructor(
         phrase: TasbihPhrase,
         target: Int,
         nowEpochMillis: Long = System.currentTimeMillis(),
-    ): TasbihSessionTransition {
+    ): TasbihSessionTransition = mutationMutex.withLock {
         val config = currentUiConfig(phrase, target)
         val active = dao.getActive()
+        val crossedDayBoundary = active?.let {
+            !isSameLocalDay(it.lastUpdatedAtEpochMillis, nowEpochMillis)
+        } ?: false
 
-        val sessionWithId = if (active == null || !active.matches(config)) {
+        val sessionWithId = if (active == null || crossedDayBoundary || !active.matches(config)) {
             if (active != null) {
-                dao.endActive(nowEpochMillis, TasbihSessionEndReason.ContextChanged.storageId)
+                val reason = if (crossedDayBoundary) {
+                    TasbihSessionEndReason.DayChanged
+                } else {
+                    TasbihSessionEndReason.ContextChanged
+                }
+                dao.endActive(nowEpochMillis, reason.storageId)
             }
             val fresh = TasbihSessionEngine.start(config, nowEpochMillis)
             val id = dao.insert(fresh.toEntity())
@@ -64,17 +77,17 @@ class TasbihSessionRepository @Inject constructor(
                 },
             )
         )
-        return transition
+        transition
     }
 
     suspend fun decrement(
         phrase: TasbihPhrase,
         target: Int,
         nowEpochMillis: Long = System.currentTimeMillis(),
-    ) {
-        val active = dao.getActive() ?: return
+    ) = mutationMutex.withLock {
+        val active = dao.getActive() ?: return@withLock
         val config = currentUiConfig(phrase, target)
-        if (!active.matches(config)) return
+        if (!active.matches(config)) return@withLock
 
         val next = TasbihSessionEngine.decrement(active.toDomainState(), nowEpochMillis)
         dao.update(next.toEntity(id = active.id))
@@ -83,8 +96,15 @@ class TasbihSessionRepository @Inject constructor(
     suspend fun endActive(
         reason: TasbihSessionEndReason,
         nowEpochMillis: Long = System.currentTimeMillis(),
-    ) {
+    ) = mutationMutex.withLock {
         dao.endActive(nowEpochMillis, reason.storageId)
+    }
+
+    private fun isSameLocalDay(firstEpochMillis: Long, secondEpochMillis: Long): Boolean {
+        val zone = ZoneId.systemDefault()
+        val first = Instant.ofEpochMilli(firstEpochMillis).atZone(zone).toLocalDate()
+        val second = Instant.ofEpochMilli(secondEpochMillis).atZone(zone).toLocalDate()
+        return first == second
     }
 
     private fun currentUiConfig(phrase: TasbihPhrase, target: Int) =
