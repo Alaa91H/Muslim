@@ -39,75 +39,148 @@ data class IslamicDecorationPreferences(
 
 val LocalIslamicDecoration = staticCompositionLocalOf { IslamicDecorationPreferences() }
 
-private data class IslamicDecorationSpec(
+internal enum class IslamicDecorationTintRole {
+    Primary,
+    Tertiary,
+}
+
+/**
+ * One authoritative visual identity for every appearance ornament style.
+ *
+ * Keeping all roles in a single spec prevents the settings chooser, screen
+ * backgrounds, section bands, dividers, corners and widgets from drifting
+ * into unrelated motifs.
+ */
+@Immutable
+internal data class IslamicDecorationSpec(
     val primary: IslamicOrnament,
     val secondary: IslamicOrnament,
+    val section: IslamicOrnament,
+    val divider: IslamicOrnament,
+    val corner: IslamicOrnament,
     val primarySize: Dp,
     val secondarySize: Dp,
+    val tintRole: IslamicDecorationTintRole,
+    val secondaryRotation: Float = 0f,
 )
 
-private fun AppOrnamentStyle.spec(): IslamicDecorationSpec = when (this) {
+@Suppress("LongMethod")
+internal fun AppOrnamentStyle.decorationSpec(): IslamicDecorationSpec = when (this) {
     AppOrnamentStyle.Geometry -> IslamicDecorationSpec(
-        IslamicOrnament.Geometric12,
-        IslamicOrnament.Geometric8,
-        260.dp,
-        190.dp,
+        primary = IslamicOrnament.Geometric12,
+        secondary = IslamicOrnament.Geometric8,
+        section = IslamicOrnament.Geometric12,
+        divider = IslamicOrnament.Geometric8,
+        corner = IslamicOrnament.Geometric8,
+        primarySize = 260.dp,
+        secondarySize = 190.dp,
+        tintRole = IslamicDecorationTintRole.Primary,
     )
     AppOrnamentStyle.Arabesque -> IslamicDecorationSpec(
-        IslamicOrnament.Arabesque,
-        IslamicOrnament.Corner,
-        280.dp,
-        180.dp,
+        primary = IslamicOrnament.Arabesque,
+        secondary = IslamicOrnament.Corner,
+        section = IslamicOrnament.Arabesque,
+        divider = IslamicOrnament.Arabesque,
+        corner = IslamicOrnament.Corner,
+        primarySize = 280.dp,
+        secondarySize = 180.dp,
+        tintRole = IslamicDecorationTintRole.Primary,
+        secondaryRotation = 180f,
     )
     AppOrnamentStyle.Stars -> IslamicDecorationSpec(
-        IslamicOrnament.Star12,
-        IslamicOrnament.Star8,
-        250.dp,
-        180.dp,
+        primary = IslamicOrnament.Star12,
+        secondary = IslamicOrnament.Star8,
+        section = IslamicOrnament.Star12,
+        divider = IslamicOrnament.Star8,
+        corner = IslamicOrnament.Star8,
+        primarySize = 250.dp,
+        secondarySize = 180.dp,
+        tintRole = IslamicDecorationTintRole.Primary,
     )
     AppOrnamentStyle.Andalusian -> IslamicDecorationSpec(
-        IslamicOrnament.Geometric8,
-        IslamicOrnament.Corner,
-        275.dp,
-        190.dp,
+        primary = IslamicOrnament.Andalusian,
+        secondary = IslamicOrnament.Andalusian,
+        section = IslamicOrnament.Andalusian,
+        divider = IslamicOrnament.Andalusian,
+        corner = IslamicOrnament.Andalusian,
+        primarySize = 275.dp,
+        secondarySize = 184.dp,
+        tintRole = IslamicDecorationTintRole.Primary,
+        secondaryRotation = 180f,
     )
     AppOrnamentStyle.Mashrabiya -> IslamicDecorationSpec(
-        IslamicOrnament.Geometric12,
-        IslamicOrnament.Geometric8,
-        300.dp,
-        210.dp,
+        primary = IslamicOrnament.Mashrabiya,
+        secondary = IslamicOrnament.Mashrabiya,
+        section = IslamicOrnament.Mashrabiya,
+        divider = IslamicOrnament.Mashrabiya,
+        corner = IslamicOrnament.Mashrabiya,
+        primarySize = 292.dp,
+        secondarySize = 204.dp,
+        tintRole = IslamicDecorationTintRole.Primary,
+        secondaryRotation = 45f,
     )
     AppOrnamentStyle.Ottoman -> IslamicDecorationSpec(
-        IslamicOrnament.Arabesque,
-        IslamicOrnament.Star8,
-        285.dp,
-        185.dp,
+        primary = IslamicOrnament.Ottoman,
+        secondary = IslamicOrnament.Arabesque,
+        section = IslamicOrnament.Ottoman,
+        divider = IslamicOrnament.Arabesque,
+        corner = IslamicOrnament.Ottoman,
+        primarySize = 276.dp,
+        secondarySize = 176.dp,
+        tintRole = IslamicDecorationTintRole.Tertiary,
+        secondaryRotation = 180f,
     )
     AppOrnamentStyle.Mushaf -> IslamicDecorationSpec(
-        IslamicOrnament.SurahHeader,
-        IslamicOrnament.MushafDivider,
-        300.dp,
-        240.dp,
+        primary = IslamicOrnament.SurahHeader,
+        secondary = IslamicOrnament.MushafDivider,
+        section = IslamicOrnament.SurahHeader,
+        divider = IslamicOrnament.MushafDivider,
+        corner = IslamicOrnament.Corner,
+        primarySize = 300.dp,
+        secondarySize = 240.dp,
+        tintRole = IslamicDecorationTintRole.Tertiary,
     )
     AppOrnamentStyle.Royal -> IslamicDecorationSpec(
-        IslamicOrnament.Star12,
-        IslamicOrnament.Corner,
-        290.dp,
-        200.dp,
+        primary = IslamicOrnament.Royal,
+        secondary = IslamicOrnament.Star8,
+        section = IslamicOrnament.Royal,
+        divider = IslamicOrnament.Royal,
+        corner = IslamicOrnament.Royal,
+        primarySize = 286.dp,
+        secondarySize = 190.dp,
+        tintRole = IslamicDecorationTintRole.Tertiary,
+        secondaryRotation = 22.5f,
     )
     AppOrnamentStyle.Minimal -> IslamicDecorationSpec(
-        IslamicOrnament.Corner,
-        IslamicOrnament.MushafDivider,
-        180.dp,
-        200.dp,
+        primary = IslamicOrnament.Minimal,
+        secondary = IslamicOrnament.Minimal,
+        section = IslamicOrnament.Minimal,
+        divider = IslamicOrnament.Minimal,
+        corner = IslamicOrnament.Minimal,
+        primarySize = 190.dp,
+        secondarySize = 150.dp,
+        tintRole = IslamicDecorationTintRole.Primary,
+        secondaryRotation = 180f,
     )
 }
 
-private fun OrnamentIntensity.alpha(darkTheme: Boolean): Float = when (this) {
+internal fun OrnamentIntensity.backgroundAlpha(darkTheme: Boolean): Float = when (this) {
     OrnamentIntensity.Off -> 0f
     OrnamentIntensity.Subtle -> if (darkTheme) 0.038f else 0.044f
     OrnamentIntensity.Balanced -> if (darkTheme) 0.060f else 0.070f
     OrnamentIntensity.Rich -> if (darkTheme) 0.088f else 0.100f
+}
+
+/**
+ * Preview opacity is intentionally stronger than the real background opacity:
+ * thumbnails must communicate the motif clearly without making live content
+ * visually noisy.
+ */
+internal fun OrnamentIntensity.previewAlpha(darkTheme: Boolean): Float = when (this) {
+    OrnamentIntensity.Off -> 0f
+    OrnamentIntensity.Subtle -> if (darkTheme) 0.18f else 0.20f
+    OrnamentIntensity.Balanced -> if (darkTheme) 0.24f else 0.27f
+    OrnamentIntensity.Rich -> if (darkTheme) 0.31f else 0.35f
 }
 
 /**
@@ -117,20 +190,24 @@ private fun OrnamentIntensity.alpha(darkTheme: Boolean): Float = when (this) {
 @Composable
 fun IslamicDecorationLayer(
     modifier: Modifier = Modifier,
+    previewMode: Boolean = false,
 ) {
     val preferences = LocalIslamicDecoration.current
     if (preferences.intensity == OrnamentIntensity.Off) return
 
-    val spec = preferences.style.spec()
-    val alpha = preferences.intensity.alpha(preferences.darkTheme)
-    val tint = when (preferences.style) {
-        AppOrnamentStyle.Mushaf,
-        AppOrnamentStyle.Royal,
-        AppOrnamentStyle.Ottoman,
-        -> MaterialTheme.colorScheme.tertiary
-
-        else -> MaterialTheme.colorScheme.primary
+    val spec = preferences.style.decorationSpec()
+    val alpha = if (previewMode) {
+        preferences.intensity.previewAlpha(preferences.darkTheme)
+    } else {
+        preferences.intensity.backgroundAlpha(preferences.darkTheme)
     }
+    val tint = when (spec.tintRole) {
+        IslamicDecorationTintRole.Primary -> MaterialTheme.colorScheme.primary
+        IslamicDecorationTintRole.Tertiary -> MaterialTheme.colorScheme.tertiary
+    }
+    val sizeFactor = if (previewMode) 0.42f else 1f
+    val primarySize = spec.primarySize * sizeFactor
+    val secondarySize = spec.secondarySize * sizeFactor
 
     Box(
         modifier = modifier
@@ -142,29 +219,31 @@ fun IslamicDecorationLayer(
             tint = tint,
             alpha = alpha,
             modifier = Modifier
-                .size(spec.primarySize)
+                .size(primarySize)
                 .align(Alignment.TopEnd),
         )
 
-        if (preferences.style != AppOrnamentStyle.Minimal) {
+        if (preferences.style != AppOrnamentStyle.Minimal || previewMode) {
             IslamicOrnamentImage(
                 ornament = spec.secondary,
                 tint = tint,
                 alpha = alpha * 0.80f,
                 modifier = Modifier
-                    .size(spec.secondarySize)
-                    .align(Alignment.BottomStart),
+                    .size(secondarySize)
+                    .align(Alignment.BottomStart)
+                    .graphicsLayer(rotationZ = spec.secondaryRotation),
             )
         }
 
-        if (preferences.intensity == OrnamentIntensity.Rich) {
+        if (preferences.intensity == OrnamentIntensity.Rich && !previewMode) {
             IslamicOrnamentImage(
                 ornament = spec.secondary,
                 tint = tint,
                 alpha = alpha * 0.55f,
                 modifier = Modifier
-                    .size(spec.secondarySize * 0.72f)
-                    .align(Alignment.CenterEnd),
+                    .size(secondarySize * 0.72f)
+                    .align(Alignment.CenterEnd)
+                    .graphicsLayer(rotationZ = -spec.secondaryRotation),
             )
         }
     }
@@ -225,8 +304,9 @@ fun IslamicReadingBasmalaAccent(
 }
 
 /**
- * Compact live preview used by Appearance settings. It reuses the exact same
- * renderer as the app background, so the chooser never lies about the result.
+ * Compact high-clarity preview used by Appearance settings. The same
+ * decoration spec is reused, but preview opacity and scale are tuned so the
+ * user can actually distinguish similar motifs before selecting them.
  */
 @Composable
 fun IslamicDecorationPreview(
@@ -243,9 +323,13 @@ fun IslamicDecorationPreview(
     }
 
     Surface(
-        modifier = modifier.height(72.dp),
+        modifier = modifier.height(96.dp),
         shape = MaterialTheme.shapes.medium,
-        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        color = if (selected) {
+            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.18f)
+        } else {
+            MaterialTheme.colorScheme.surfaceContainerLow
+        },
         border = border,
     ) {
         CompositionLocalProvider(
@@ -254,11 +338,10 @@ fun IslamicDecorationPreview(
                 intensity = intensity,
             ),
         ) {
-            IslamicDecorationLayer()
+            IslamicDecorationLayer(previewMode = true)
         }
     }
 }
-
 
 internal fun OrnamentIntensity.featureAlpha(darkTheme: Boolean): Float = when (this) {
     OrnamentIntensity.Off -> 0f
@@ -267,49 +350,14 @@ internal fun OrnamentIntensity.featureAlpha(darkTheme: Boolean): Float = when (t
     OrnamentIntensity.Rich -> if (darkTheme) 0.125f else 0.145f
 }
 
-internal fun AppOrnamentStyle.sectionOrnament(): IslamicOrnament = when (this) {
-    AppOrnamentStyle.Geometry -> IslamicOrnament.Geometric12
-    AppOrnamentStyle.Arabesque -> IslamicOrnament.Arabesque
-    AppOrnamentStyle.Stars -> IslamicOrnament.Star12
-    AppOrnamentStyle.Andalusian -> IslamicOrnament.Geometric8
-    AppOrnamentStyle.Mashrabiya -> IslamicOrnament.Geometric12
-    AppOrnamentStyle.Ottoman -> IslamicOrnament.Arabesque
-    AppOrnamentStyle.Mushaf -> IslamicOrnament.SurahHeader
-    AppOrnamentStyle.Royal -> IslamicOrnament.Star12
-    AppOrnamentStyle.Minimal -> IslamicOrnament.Corner
-}
+internal fun AppOrnamentStyle.sectionOrnament(): IslamicOrnament =
+    decorationSpec().section
 
-internal fun AppOrnamentStyle.dividerOrnament(): IslamicOrnament = when (this) {
-    AppOrnamentStyle.Mushaf,
-    AppOrnamentStyle.Minimal,
-    -> IslamicOrnament.MushafDivider
+internal fun AppOrnamentStyle.dividerOrnament(): IslamicOrnament =
+    decorationSpec().divider
 
-    AppOrnamentStyle.Arabesque,
-    AppOrnamentStyle.Ottoman,
-    -> IslamicOrnament.Arabesque
-
-    AppOrnamentStyle.Stars,
-    AppOrnamentStyle.Royal,
-    -> IslamicOrnament.Star8
-
-    AppOrnamentStyle.Geometry,
-    AppOrnamentStyle.Andalusian,
-    AppOrnamentStyle.Mashrabiya,
-    -> IslamicOrnament.Geometric8
-}
-
-internal fun AppOrnamentStyle.cornerOrnament(): IslamicOrnament = when (this) {
-    AppOrnamentStyle.Geometry -> IslamicOrnament.Geometric8
-    AppOrnamentStyle.Stars -> IslamicOrnament.Star8
-    AppOrnamentStyle.Mashrabiya -> IslamicOrnament.Geometric12
-    AppOrnamentStyle.Ottoman -> IslamicOrnament.Arabesque
-    AppOrnamentStyle.Arabesque,
-    AppOrnamentStyle.Andalusian,
-    AppOrnamentStyle.Mushaf,
-    AppOrnamentStyle.Royal,
-    AppOrnamentStyle.Minimal,
-    -> IslamicOrnament.Corner
-}
+internal fun AppOrnamentStyle.cornerOrnament(): IslamicOrnament =
+    decorationSpec().corner
 
 /**
  * Centered motif for circular worship controls such as the Qibla compass and
@@ -319,14 +367,20 @@ internal fun AppOrnamentStyle.cornerOrnament(): IslamicOrnament = when (this) {
 @Composable
 fun IslamicDecorationMedallion(
     modifier: Modifier = Modifier,
-    tint: Color = MaterialTheme.colorScheme.tertiary,
+    tint: Color? = null,
 ) {
     val preferences = LocalIslamicDecoration.current
     if (preferences.intensity == OrnamentIntensity.Off) return
 
+    val spec = preferences.style.decorationSpec()
+    val resolvedTint = tint ?: when (spec.tintRole) {
+        IslamicDecorationTintRole.Primary -> MaterialTheme.colorScheme.primary
+        IslamicDecorationTintRole.Tertiary -> MaterialTheme.colorScheme.tertiary
+    }
+
     IslamicOrnamentImage(
-        ornament = preferences.style.sectionOrnament(),
-        tint = tint,
+        ornament = spec.section,
+        tint = resolvedTint,
         alpha = preferences.intensity.featureAlpha(preferences.darkTheme) * 0.56f,
         modifier = modifier.fillMaxSize(),
     )
@@ -340,15 +394,21 @@ fun IslamicDecorationMedallion(
 @Composable
 fun IslamicDecorationBand(
     modifier: Modifier = Modifier,
-    tint: Color = MaterialTheme.colorScheme.primary,
+    tint: Color? = null,
     compact: Boolean = false,
 ) {
     val preferences = LocalIslamicDecoration.current
     if (preferences.intensity == OrnamentIntensity.Off) return
 
+    val spec = preferences.style.decorationSpec()
+    val resolvedTint = tint ?: when (spec.tintRole) {
+        IslamicDecorationTintRole.Primary -> MaterialTheme.colorScheme.primary
+        IslamicDecorationTintRole.Tertiary -> MaterialTheme.colorScheme.tertiary
+    }
+
     IslamicOrnamentImage(
-        ornament = preferences.style.sectionOrnament(),
-        tint = tint,
+        ornament = spec.section,
+        tint = resolvedTint,
         alpha = preferences.intensity.featureAlpha(preferences.darkTheme),
         modifier = modifier
             .fillMaxWidth()
@@ -360,14 +420,20 @@ fun IslamicDecorationBand(
 @Composable
 fun IslamicDecorationDivider(
     modifier: Modifier = Modifier,
-    tint: Color = MaterialTheme.colorScheme.tertiary,
+    tint: Color? = null,
 ) {
     val preferences = LocalIslamicDecoration.current
     if (preferences.intensity == OrnamentIntensity.Off) return
 
+    val spec = preferences.style.decorationSpec()
+    val resolvedTint = tint ?: when (spec.tintRole) {
+        IslamicDecorationTintRole.Primary -> MaterialTheme.colorScheme.primary
+        IslamicDecorationTintRole.Tertiary -> MaterialTheme.colorScheme.tertiary
+    }
+
     IslamicOrnamentImage(
-        ornament = preferences.style.dividerOrnament(),
-        tint = tint,
+        ornament = spec.divider,
+        tint = resolvedTint,
         alpha = preferences.intensity.featureAlpha(preferences.darkTheme) * 0.82f,
         modifier = modifier
             .fillMaxWidth()
@@ -381,21 +447,25 @@ fun IslamicDecorationDivider(
  */
 @Composable
 fun IslamicDecorationCorners(
-    tint: Color,
+    tint: Color? = null,
     modifier: Modifier = Modifier,
     compact: Boolean = false,
 ) {
     val preferences = LocalIslamicDecoration.current
     if (preferences.intensity == OrnamentIntensity.Off) return
 
-    val ornament = preferences.style.cornerOrnament()
+    val spec = preferences.style.decorationSpec()
+    val resolvedTint = tint ?: when (spec.tintRole) {
+        IslamicDecorationTintRole.Primary -> MaterialTheme.colorScheme.primary
+        IslamicDecorationTintRole.Tertiary -> MaterialTheme.colorScheme.tertiary
+    }
     val alpha = preferences.intensity.featureAlpha(preferences.darkTheme)
     val ornamentSize = if (compact) 52.dp else 68.dp
 
     Box(modifier = modifier.fillMaxSize().clipToBounds()) {
         IslamicOrnamentImage(
-            ornament = ornament,
-            tint = tint,
+            ornament = spec.corner,
+            tint = resolvedTint,
             alpha = alpha,
             modifier = Modifier
                 .align(Alignment.TopStart)
@@ -403,8 +473,8 @@ fun IslamicDecorationCorners(
                 .size(ornamentSize),
         )
         IslamicOrnamentImage(
-            ornament = ornament,
-            tint = tint,
+            ornament = spec.corner,
+            tint = resolvedTint,
             alpha = alpha,
             modifier = Modifier
                 .align(Alignment.BottomEnd)
