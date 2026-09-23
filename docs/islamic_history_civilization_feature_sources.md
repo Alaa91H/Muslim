@@ -18,11 +18,13 @@ The history feature now separates **UI**, **content contracts**, and **curated c
 - `IslamicCivilizationContent.kt` adds 12 long-form thematic topics across knowledge/sciences, institutions, society/economy, and arts/built environment.
 - `IslamicHistoricalEvents.kt` adds 22 structured chronological anchors with context, significance, category, and links to eras, states, atlas places, people, civilization topics, and sources.
 - `IslamicHistoryPeopleProfiles.kt` and `IslamicHistoryPlaceProfiles.kt` hold the long-form profile catalogues for all 8 exposed historical figures and all 13 atlas places.
-- `IslamicHistoryProfiles.kt` is the compact lookup facade used by UI, validation, and future search code.
-- `HistoryContentValidator.kt` validates unique IDs, bilingual completeness, chronology sanity, source references, related-era/topic references, state/era links, event references, person/place links, profile coverage, and section structure.
+- `IslamicHistoryProfiles.kt` is the compact lookup facade used by UI, validation, and search code.
+- `IslamicHistorySearch.kt` provides offline unified search across eras, states, events, people, places, and civilization topics, including Arabic diacritic/orthographic normalization.
+- `IslamicHistoryNavigation.kt` provides stable cross-section navigation targets so search results and related-entity links can open the correct destination.
+- `HistoryContentValidator.kt` validates unique IDs, bilingual completeness, chronology sanity, atlas time ranges, source references, related-era/topic references, state/era links, event references, person/place links, profile coverage, and section structure.
 - `HistoryContentValidatorTest.kt` makes those rules part of CI so broken references or incomplete articles are caught before merge.
 
-The Compose screen now exposes dedicated **States & Dynasties**, **Civilization**, and **Events** tabs. States use regional filters to make overlapping political histories visible side by side; Civilization uses thematic filters and dedicated readers so science, institutions, economic life, cities, architecture, and visual culture are not reduced to political chronology; Events adds chronological anchors with category and era filters plus detailed context/significance views. The People tab and atlas place cards now open full profiles rather than ending at short summaries. The tab row is scrollable so the expanded information architecture remains usable on small screens. This separation is also the migration boundary for a later move from Kotlin constants to packaged JSON/Room content without rewriting the readers.
+The Compose screen now exposes dedicated **States & Dynasties**, **Civilization**, **Events**, and **Search** destinations. States use regional filters to make overlapping political histories visible side by side; Civilization uses thematic filters and dedicated readers so science, institutions, economic life, cities, architecture, and visual culture are not reduced to political chronology; Events adds chronological anchors with category and era filters plus detailed context/significance views. Search works locally across all major entity types and opens the matching detailed destination directly. Related states, events, people, places, and civilization topics are now actionable cross-links instead of dead-end labels. The People tab and atlas place cards open full profiles rather than ending at short summaries. The tab row is scrollable so the expanded information architecture remains usable on small screens. This separation is also the migration boundary for a later move from Kotlin constants to packaged JSON/Room content without rewriting the readers.
 
 ## Sources reviewed
 
@@ -40,6 +42,15 @@ The Compose screen now exposes dedicated **States & Dynasties**, **Civilization*
 | Ibn Khaldun profile | [Ibn Haldun University: About Ibn Haldun](https://www.ihu.edu.tr/en/ibn-haldun-kimdir) | Used for basic dates, roles, and the scope of the *Muqaddimah* in the Ibn Khaldun card. |
 
 
+
+
+## Search, cross-navigation, and atlas time filter
+
+The feature now provides an offline unified search index over the curated in-app catalogue. Search covers era titles and summaries, states/dynasties, event context and significance, people and their long-form profile sections, atlas places and place profiles, and civilization-topic sections. Arabic search removes Qur'anic/Arabic diacritics and tatweel and normalizes common alef, ya, hamza-seat, and ta-marbuta variants to improve matching without network services.
+
+Search results use typed navigation targets. Opening a result switches to the appropriate destination and opens the detailed era, state, event, person, place, or civilization topic when that entity supports a detail reader. The same navigation targets are reused for related-entity links inside event, state, civilization, person, and place detail views.
+
+Atlas layers now carry explicit CE start/end metadata. A 610–1924 CE time slider selects the closest available educational map layer and displays states/dynasties active in the selected year plus the nearest structured events. This is a contextual learning aid, not a claim that the selected map overlay is a precise political boundary snapshot for that year; the existing schematic-map warning remains in force.
 
 ## People and place profile policy
 
