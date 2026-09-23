@@ -672,6 +672,13 @@ private fun LazyListScope.studyReviewItems(
 
 private fun LazyListScope.studyMasteryItems(state: ScholarLibraryUiState) {
     item { SectionLabel(stringResource(R.string.scholar_library_mastery_by_category)) }
+    item {
+        Text(
+            stringResource(R.string.scholar_library_mastery_disclaimer),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
     if (state.categoryMastery.isEmpty()) {
         item { EmptyState(stringResource(R.string.scholar_library_no_mastery_data)) }
         return
