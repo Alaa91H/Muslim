@@ -70,20 +70,24 @@ import org.muslim.app.feature.family.domain.FamilyTopicCategory
 import org.muslim.app.feature.family.domain.FamilyUtilityContent
 import org.muslim.app.feature.family.domain.LocalizedFamilyText
 
+internal enum class FamilyHubDestination {
+    Saved,
+    Tools,
+    Ruqyah,
+    Names,
+    Aqiqah,
+    Quran,
+    Hadith,
+    Adhkar,
+}
+
 @Composable
 internal fun FamilyHubContent(
     isArabic: Boolean,
     favoriteCount: Int,
     recentCount: Int,
     onOpenCategory: (FamilyTopicCategory) -> Unit,
-    onOpenSaved: () -> Unit,
-    onOpenTools: () -> Unit,
-    onOpenRuqyah: () -> Unit,
-    onOpenNames: () -> Unit,
-    onOpenAqiqah: () -> Unit,
-    onOpenQuran: () -> Unit,
-    onOpenHadith: () -> Unit,
-    onOpenAdhkar: () -> Unit,
+    onOpenDestination: (FamilyHubDestination) -> Unit,
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -92,9 +96,9 @@ internal fun FamilyHubContent(
     ) {
         familyHubIntro()
         familyCategoryItems(isArabic, onOpenCategory)
-        familyLibraryItems(favoriteCount, recentCount, onOpenSaved, onOpenTools)
-        familyPracticalToolItems(onOpenRuqyah, onOpenNames, onOpenAqiqah)
-        familyCrossFeatureItems(onOpenQuran, onOpenHadith, onOpenAdhkar)
+        familyLibraryItems(favoriteCount, recentCount, onOpenDestination)
+        familyPracticalToolItems(onOpenDestination)
+        familyCrossFeatureItems(onOpenDestination)
     }
 }
 
@@ -127,8 +131,7 @@ private fun LazyListScope.familyCategoryItems(
 private fun LazyListScope.familyLibraryItems(
     favoriteCount: Int,
     recentCount: Int,
-    onOpenSaved: () -> Unit,
-    onOpenTools: () -> Unit,
+    onOpenDestination: (FamilyHubDestination) -> Unit,
 ) {
     item { FamilyHubHeading(stringResource(R.string.family_hub_library_title)) }
     item {
@@ -136,7 +139,7 @@ private fun LazyListScope.familyLibraryItems(
             icon = Icons.Filled.Bookmark,
             title = stringResource(R.string.family_saved_title),
             description = stringResource(R.string.family_saved_summary, favoriteCount, recentCount),
-            onClick = onOpenSaved,
+            onClick = { onOpenDestination(FamilyHubDestination.Saved) },
         )
     }
     item {
@@ -144,15 +147,13 @@ private fun LazyListScope.familyLibraryItems(
             icon = Icons.Filled.Checklist,
             title = stringResource(R.string.family_checklists_title),
             description = stringResource(R.string.family_checklists_summary),
-            onClick = onOpenTools,
+            onClick = { onOpenDestination(FamilyHubDestination.Tools) },
         )
     }
 }
 
 private fun LazyListScope.familyPracticalToolItems(
-    onOpenRuqyah: () -> Unit,
-    onOpenNames: () -> Unit,
-    onOpenAqiqah: () -> Unit,
+    onOpenDestination: (FamilyHubDestination) -> Unit,
 ) {
     item { FamilyHubHeading(stringResource(R.string.family_hub_tools_title)) }
     item {
@@ -160,7 +161,7 @@ private fun LazyListScope.familyPracticalToolItems(
             icon = Icons.Filled.HealthAndSafety,
             title = stringResource(R.string.family_tab_ruqyah),
             description = stringResource(R.string.family_hub_ruqyah_desc),
-            onClick = onOpenRuqyah,
+            onClick = { onOpenDestination(FamilyHubDestination.Ruqyah) },
         )
     }
     item {
@@ -168,7 +169,7 @@ private fun LazyListScope.familyPracticalToolItems(
             icon = Icons.Filled.Translate,
             title = stringResource(R.string.family_tab_names),
             description = stringResource(R.string.family_hub_names_desc),
-            onClick = onOpenNames,
+            onClick = { onOpenDestination(FamilyHubDestination.Names) },
         )
     }
     item {
@@ -176,15 +177,13 @@ private fun LazyListScope.familyPracticalToolItems(
             icon = Icons.Filled.ChildCare,
             title = stringResource(R.string.family_tab_aqiqah),
             description = stringResource(R.string.family_hub_aqiqah_desc),
-            onClick = onOpenAqiqah,
+            onClick = { onOpenDestination(FamilyHubDestination.Aqiqah) },
         )
     }
 }
 
 private fun LazyListScope.familyCrossFeatureItems(
-    onOpenQuran: () -> Unit,
-    onOpenHadith: () -> Unit,
-    onOpenAdhkar: () -> Unit,
+    onOpenDestination: (FamilyHubDestination) -> Unit,
 ) {
     item { FamilyHubHeading(stringResource(R.string.family_hub_related_sections_title)) }
     item {
@@ -192,7 +191,7 @@ private fun LazyListScope.familyCrossFeatureItems(
             icon = Icons.AutoMirrored.Filled.MenuBook,
             title = stringResource(R.string.family_open_quran_title),
             description = stringResource(R.string.family_open_quran_desc),
-            onClick = onOpenQuran,
+            onClick = { onOpenDestination(FamilyHubDestination.Quran) },
         )
     }
     item {
@@ -200,7 +199,7 @@ private fun LazyListScope.familyCrossFeatureItems(
             icon = Icons.Filled.AutoStories,
             title = stringResource(R.string.family_open_hadith_title),
             description = stringResource(R.string.family_open_hadith_desc),
-            onClick = onOpenHadith,
+            onClick = { onOpenDestination(FamilyHubDestination.Hadith) },
         )
     }
     item {
@@ -208,7 +207,7 @@ private fun LazyListScope.familyCrossFeatureItems(
             icon = Icons.Filled.Favorite,
             title = stringResource(R.string.family_open_adhkar_title),
             description = stringResource(R.string.family_open_adhkar_desc),
-            onClick = onOpenAdhkar,
+            onClick = { onOpenDestination(FamilyHubDestination.Adhkar) },
         )
     }
 }
