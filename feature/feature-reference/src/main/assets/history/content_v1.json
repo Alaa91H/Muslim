@@ -1452,47 +1452,6 @@
       ]
     },
     {
-      "id": "baghdad_1258",
-      "date": {
-        "startCe": 1258,
-        "endCe": null,
-        "precision": "Exact"
-      },
-      "category": "Conflict",
-      "title": {
-        "arabic": "سقوط بغداد بيد المغول",
-        "english": "Mongol capture of Baghdad"
-      },
-      "summary": {
-        "arabic": "استولى جيش هولاكو على بغداد سنة 1258م وانتهت بذلك الخلافة العباسية في المدينة.",
-        "english": "Hulagu’s army captured Baghdad in 1258 CE, ending the Abbasid caliphate in the city."
-      },
-      "context": {
-        "arabic": "جاء الحدث ضمن التوسع المغولي في غرب آسيا، وأصاب العراق بأضرار بشرية وعمرانية وسياسية كبيرة.",
-        "english": "The event formed part of Mongol expansion into western Asia and caused major human, urban, and political damage in Iraq."
-      },
-      "significance": {
-        "arabic": "كان تحولاً كبيراً في تاريخ العراق والخلافة، لكنه لم يمثل نهاية المجتمعات أو الدول أو النشاط العلمي الإسلامي في مناطق أخرى.",
-        "english": "It was a major turning point for Iraq and the caliphate, but it did not mark the end of Muslim societies, states, or scholarship elsewhere."
-      },
-      "eraIds": [
-        "abbasid",
-        "regional_civilizations"
-      ],
-      "stateIds": [
-        "abbasid_caliphate"
-      ],
-      "placeIds": [
-        "baghdad"
-      ],
-      "personIds": [],
-      "relatedTopicIds": [],
-      "sourceIds": [
-        "met_chronology",
-        "met_ilkhanid"
-      ]
-    },
-    {
       "id": "mamluk_1250",
       "date": {
         "startCe": 1250,
@@ -1532,6 +1491,47 @@
       ],
       "sourceIds": [
         "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "baghdad_1258",
+      "date": {
+        "startCe": 1258,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "Conflict",
+      "title": {
+        "arabic": "سقوط بغداد بيد المغول",
+        "english": "Mongol capture of Baghdad"
+      },
+      "summary": {
+        "arabic": "استولى جيش هولاكو على بغداد سنة 1258م وانتهت بذلك الخلافة العباسية في المدينة.",
+        "english": "Hulagu’s army captured Baghdad in 1258 CE, ending the Abbasid caliphate in the city."
+      },
+      "context": {
+        "arabic": "جاء الحدث ضمن التوسع المغولي في غرب آسيا، وأصاب العراق بأضرار بشرية وعمرانية وسياسية كبيرة.",
+        "english": "The event formed part of Mongol expansion into western Asia and caused major human, urban, and political damage in Iraq."
+      },
+      "significance": {
+        "arabic": "كان تحولاً كبيراً في تاريخ العراق والخلافة، لكنه لم يمثل نهاية المجتمعات أو الدول أو النشاط العلمي الإسلامي في مناطق أخرى.",
+        "english": "It was a major turning point for Iraq and the caliphate, but it did not mark the end of Muslim societies, states, or scholarship elsewhere."
+      },
+      "eraIds": [
+        "abbasid",
+        "regional_civilizations"
+      ],
+      "stateIds": [
+        "abbasid_caliphate"
+      ],
+      "placeIds": [
+        "baghdad"
+      ],
+      "personIds": [],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "met_chronology",
+        "met_ilkhanid"
       ]
     },
     {
