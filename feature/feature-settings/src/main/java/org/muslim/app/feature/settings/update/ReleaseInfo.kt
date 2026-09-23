@@ -28,7 +28,16 @@ data class ReleaseInfo(
     val hasVerifiedMetadata: Boolean = false,
 )
 
-/** Compares dotted version strings ("1.5.0" > "1.4.9"). Purely numeric. */
+/** Selects the strongest available update-order signal. */
+object ReleaseVersionPolicy {
+    fun isNewer(release: ReleaseInfo, installedVersionCode: Long, installedVersion: String): Boolean {
+        val releaseCode = release.versionCode?.takeIf { it > 0L }
+        return releaseCode?.let { it > installedVersionCode }
+            ?: VersionCompare.isNewer(release.version, installedVersion)
+    }
+}
+
+/** Compares dotted version strings ("1.5.0" > "1.4.9"). Purely numeric fallback. */
 object VersionCompare {
     fun isNewer(latest: String, installed: String): Boolean {
         val a = latest.trim().trimStart('v').split('.').map { it.toIntOrNull() ?: 0 }
