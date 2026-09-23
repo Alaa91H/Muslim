@@ -15,7 +15,20 @@ interface ScholarLibraryDao {
     @Query("SELECT * FROM scholar_books WHERE id = :bookId")
     suspend fun bookById(bookId: String): ScholarBookEntity?
 
-    @Query("SELECT * FROM scholar_passages WHERE bookId = :bookId ORDER BY id")
+    @Query(
+        """
+        SELECT * FROM scholar_passages
+        WHERE bookId = :bookId
+        ORDER BY
+            CASE WHEN volume IS NULL THEN 0 ELSE 1 END,
+            volume,
+            chapter,
+            CASE WHEN section IS NULL THEN 0 ELSE 1 END,
+            section,
+            orderIndex,
+            id
+        """,
+    )
     fun observePassagesForBook(bookId: String): Flow<List<ScholarPassageEntity>>
 
     @Query("SELECT * FROM scholar_passages WHERE id = :passageId")
@@ -89,6 +102,18 @@ interface ScholarLibraryDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertReadingProgress(progress: ScholarReadingProgressEntity)
+
+    @Query("SELECT * FROM scholar_study_plans ORDER BY active DESC, updatedAtEpochMillis DESC, id DESC")
+    fun observeStudyPlans(): Flow<List<ScholarStudyPlanEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertStudyPlan(plan: ScholarStudyPlanEntity): Long
+
+    @Query("DELETE FROM scholar_study_plans WHERE id = :id")
+    suspend fun deleteStudyPlan(id: Long)
+
+    @Query("UPDATE scholar_study_plans SET active = :active, updatedAtEpochMillis = :updatedAt WHERE id = :id")
+    suspend fun updateStudyPlanActive(id: Long, active: Boolean, updatedAt: Long)
 }
 
 @Dao
