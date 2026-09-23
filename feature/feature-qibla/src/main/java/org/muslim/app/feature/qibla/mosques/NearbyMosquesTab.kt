@@ -747,19 +747,19 @@ internal fun mosqueMapUri(mosque: MosquePlace): String {
     return "geo:$coordinates?q=$coordinates($label)"
 }
 
-internal fun mosqueOpenStreetMapUrl(mosque: MosquePlace): String =
-    "https://www.openstreetmap.org/?mlat=${mosque.latitude}&mlon=${mosque.longitude}#map=18/${mosque.latitude}/${mosque.longitude}"
+internal fun mosqueWebMapUrl(mosque: MosquePlace): String =
+    "https://www.google.com/maps/search/?api=1&query=${mosque.latitude},${mosque.longitude}"
 
 /**
  * Opens the mosque as a map marker. Google Maps is preferred when installed;
- * otherwise any geo-capable application, then OpenStreetMap in a browser, may handle it.
+ * otherwise any geo-capable application, then a browser-based map, may handle it.
  */
 internal fun openExternalMap(context: Context, mosque: MosquePlace) {
     val geoUri = Uri.parse(mosqueMapUri(mosque))
     val googleMaps = Intent(Intent.ACTION_VIEW, geoUri).setPackage("com.google.android.apps.maps")
     val genericMap = Intent(Intent.ACTION_VIEW, geoUri)
-    val openStreetMap = Intent(Intent.ACTION_VIEW, Uri.parse(mosqueOpenStreetMapUrl(mosque)))
-    startFirstAvailable(context, googleMaps, genericMap, openStreetMap)
+    val webMap = Intent(Intent.ACTION_VIEW, Uri.parse(mosqueWebMapUrl(mosque)))
+    startFirstAvailable(context, googleMaps, genericMap, webMap)
 }
 
 /**
@@ -789,7 +789,7 @@ private fun shareMosque(context: Context, mosque: MosquePlace, chooserTitle: Str
             append(it)
         }
         append("\n")
-        append(mosqueOpenStreetMapUrl(mosque))
+        append(mosqueWebMapUrl(mosque))
     }
     val intent = Intent(Intent.ACTION_SEND)
         .setType("text/plain")

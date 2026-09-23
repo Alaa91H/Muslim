@@ -72,7 +72,7 @@ class NearbyMosquesUiLogicTest {
         val mosque = nearbyMasjid.place
 
         assertThat(mosqueMapUri(mosque)).contains("52.01,13.01")
-        assertThat(mosqueOpenStreetMapUrl(mosque)).contains("mlat=52.01")
-        assertThat(mosqueOpenStreetMapUrl(mosque)).contains("mlon=13.01")
+        assertThat(mosqueWebMapUrl(mosque)).contains("query=52.01,13.01")
+        assertThat(mosqueWebMapUrl(mosque)).contains("52.01,13.01")
     }
 }
