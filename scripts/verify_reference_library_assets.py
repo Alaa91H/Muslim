@@ -16,39 +16,56 @@ RAW = ROOT / "feature/feature-reference/src/main/res/raw"
 @dataclass(frozen=True)
 class CorpusSpec:
     name: str
-    legacy: Path
+    legacy: Path | None
     asset: Path
     min_topics: int
     min_chapters: int
     min_revision: int
 
 
-NAMED_PROPHET_TOPIC_IDS = {
-    "adam",
-    "idris",
-    "nuh",
-    "hud",
-    "salih",
-    "ibrahim",
-    "lut",
-    "ismail",
-    "ishaq",
-    "yaqub",
-    "yusuf",
-    "ayyub",
-    "shuayb",
-    "musa",
-    "harun",
-    "dhul_kifl",
-    "dawud",
-    "sulayman",
-    "ilyas",
-    "alyasa",
-    "yunus",
-    "zakariyya",
-    "yahya",
-    "isa",
-    "muhammad",
+REQUIRED_TOPIC_IDS_BY_BOOK = {
+    "prophets": {
+        "adam",
+        "idris",
+        "nuh",
+        "hud",
+        "salih",
+        "ibrahim",
+        "lut",
+        "ismail",
+        "ishaq",
+        "yaqub",
+        "yusuf",
+        "ayyub",
+        "shuayb",
+        "musa",
+        "harun",
+        "dhul_kifl",
+        "dawud",
+        "sulayman",
+        "ilyas",
+        "alyasa",
+        "yunus",
+        "zakariyya",
+        "yahya",
+        "isa",
+        "muhammad",
+    },
+    "mothers": {
+        "khadijah",
+        "sawdah",
+        "aisha",
+        "hafsah",
+        "zaynab_khuzayma",
+        "umm_salama",
+        "zaynab_jahsh",
+        "juwayriya",
+        "umm_habiba",
+        "safiyya",
+        "maymuna",
+    },
+    "rashidun": {"abu_bakr", "umar", "uthman", "ali"},
+    "ahl_al_bayt": {"household_scope", "fatimah", "ali_household", "hasan", "husayn"},
 }
 
 
@@ -76,6 +93,38 @@ CORPORA = (
         min_topics=65,
         min_chapters=9,
         min_revision=3,
+    ),
+    CorpusSpec(
+        name="Companions of the Prophet",
+        legacy=None,
+        asset=RAW / "reference_companions_v2.json",
+        min_topics=18,
+        min_chapters=5,
+        min_revision=1,
+    ),
+    CorpusSpec(
+        name="Mothers of the Believers",
+        legacy=None,
+        asset=RAW / "reference_mothers_v2.json",
+        min_topics=12,
+        min_chapters=3,
+        min_revision=1,
+    ),
+    CorpusSpec(
+        name="Ahl al-Bayt",
+        legacy=None,
+        asset=RAW / "reference_ahl_al_bayt_v2.json",
+        min_topics=10,
+        min_chapters=3,
+        min_revision=1,
+    ),
+    CorpusSpec(
+        name="Rashidun Caliphs",
+        legacy=None,
+        asset=RAW / "reference_rashidun_v2.json",
+        min_topics=14,
+        min_chapters=5,
+        min_revision=1,
     ),
 )
 
@@ -345,13 +394,22 @@ def verify_corpus(
     books: dict[str, dict[str, object]],
 ) -> tuple[list[str], str]:
     failures: list[str] = []
-    if not spec.legacy.exists() or not spec.asset.exists():
+    if not spec.asset.exists():
         return (
-            [f"{spec.name}: missing legacy source or asset."],
+            [f"{spec.name}: missing reference asset."],
+            f"{spec.name}: unavailable",
+        )
+    if spec.legacy is not None and not spec.legacy.exists():
+        return (
+            [f"{spec.name}: missing legacy source."],
             f"{spec.name}: unavailable",
         )
 
-    legacy_topics = parse_legacy_topics(spec.legacy.read_text(encoding="utf-8"))
+    legacy_topics = (
+        parse_legacy_topics(spec.legacy.read_text(encoding="utf-8"))
+        if spec.legacy is not None
+        else []
+    )
     pack = json.loads(spec.asset.read_text(encoding="utf-8"))
     if pack.get("schemaVersion") != 2:
         failures.append(f"{spec.name}: asset must use schemaVersion=2.")
@@ -389,13 +447,14 @@ def verify_corpus(
     ]
     failures.extend(verify_chapter_coverage(spec.name, book, topic_ids))
 
-    if spec.name == "Stories of the Prophets":
-        missing_named_prophets = sorted(NAMED_PROPHET_TOPIC_IDS - set(topic_ids))
-        if missing_named_prophets:
-            failures.append(
-                "Stories of the Prophets: missing individual articles for named prophets: "
-                + ", ".join(missing_named_prophets)
-            )
+    book_id = book.get("id")
+    required_topic_ids = REQUIRED_TOPIC_IDS_BY_BOOK.get(book_id, set())
+    missing_required_topics = sorted(required_topic_ids - set(topic_ids))
+    if missing_required_topics:
+        failures.append(
+            f"{spec.name}: missing required topics: "
+            + ", ".join(missing_required_topics)
+        )
 
     if len(asset_topics) < spec.min_topics:
         failures.append(
