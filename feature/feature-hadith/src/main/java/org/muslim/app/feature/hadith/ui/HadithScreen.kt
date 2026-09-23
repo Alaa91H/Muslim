@@ -2,22 +2,31 @@ package org.muslim.app.feature.hadith.ui
 
 import android.content.ClipData
 import android.content.Intent
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items as gridItems
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -46,6 +55,7 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -55,13 +65,20 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.paging.LoadState
@@ -88,6 +105,32 @@ import org.muslim.app.feature.hadith.domain.HadithCollection
 
 /** 30-minute increments across a full day, as minutes from midnight. */
 private val hadithTimeOptions: List<Int> = (0 until 24 * 60 step 30).toList()
+
+private val HadithLibraryBackground = Color(0xFF062F24)
+private val HadithLibrarySurface = Color(0xFF0B3B2E)
+private val HadithLibrarySurfaceRaised = Color(0xFF104536)
+private val HadithGold = Color(0xFFE9C36D)
+private val HadithIvory = Color(0xFFFFF5DA)
+
+@Composable
+private fun HadithLibraryTheme(content: @Composable () -> Unit) {
+    val base = MaterialTheme.colorScheme
+    MaterialTheme(
+        colorScheme = base.copy(
+            primary = HadithGold,
+            onPrimary = HadithLibraryBackground,
+            surface = HadithLibraryBackground,
+            onSurface = HadithIvory,
+            surfaceVariant = HadithLibrarySurface,
+            onSurfaceVariant = HadithIvory.copy(alpha = 0.72f),
+            secondaryContainer = HadithLibrarySurfaceRaised,
+            onSecondaryContainer = HadithIvory,
+            outline = HadithGold.copy(alpha = 0.42f),
+            outlineVariant = HadithGold.copy(alpha = 0.22f),
+        ),
+        content = content,
+    )
+}
 
 /**
  * Collection-first offline Hadith library. The catalogue has no corpus query.
@@ -193,7 +236,14 @@ private fun HadithTopBar(
     backDescription: String,
 ) {
     TopAppBar(
-        title = { Text(title, maxLines = 1, overflow = TextOverflow.Ellipsis) },
+        title = {
+            Text(
+                text = title,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                fontWeight = FontWeight.Bold,
+            )
+        },
         navigationIcon = {
             IconButton(onClick = onBack) {
                 Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = backDescription)
@@ -204,6 +254,12 @@ private fun HadithTopBar(
                 Icon(Icons.Filled.Settings, contentDescription = stringResource(R.string.hadith_notification_settings))
             }
         },
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = HadithLibraryBackground,
+            titleContentColor = HadithGold,
+            navigationIconContentColor = HadithIvory,
+            actionIconContentColor = HadithIvory,
+        ),
     )
 }
 
@@ -212,43 +268,257 @@ private fun HadithCatalogue(
     onOpenCollection: (HadithCollection) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    LazyColumn(
-        modifier = modifier.fillMaxSize(),
-        contentPadding = PaddingValues(bottom = IslamicSpacing.Large),
-    ) {
-        item(key = "catalogue-header") {
-            Column(modifier = Modifier.padding(IslamicSpacing.PageHorizontal)) {
-                IslamicDecorationBand(
-                    tint = MaterialTheme.colorScheme.tertiary,
-                    compact = true,
-                )
-                Text(
-                    text = stringResource(R.string.hadith_title),
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Bold,
-                )
-                Spacer(Modifier.height(IslamicSpacing.Compact))
-                Text(
-                    text = stringResource(R.string.hadith_catalog_subtitle),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                Spacer(Modifier.height(IslamicSpacing.Compact))
-                Surface(
-                    shape = MaterialTheme.shapes.medium,
-                    color = MaterialTheme.colorScheme.secondaryContainer,
+    HadithLibraryTheme {
+        Box(
+            modifier = modifier
+                .fillMaxSize()
+                .background(
+                    Brush.verticalGradient(
+                        colors = listOf(
+                            Color(0xFF07372A),
+                            HadithLibraryBackground,
+                            Color(0xFF041F18),
+                        ),
+                    ),
+                ),
+        ) {
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(3),
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = PaddingValues(
+                    start = 12.dp,
+                    end = 12.dp,
+                    top = 6.dp,
+                    bottom = IslamicSpacing.Large,
+                ),
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                verticalArrangement = Arrangement.spacedBy(18.dp),
+            ) {
+                item(
+                    key = "catalogue-header",
+                    span = { GridItemSpan(maxLineSpan) },
                 ) {
-                    Text(
-                        text = stringResource(R.string.hadith_catalog_loading_contract),
-                        modifier = Modifier.padding(horizontal = IslamicSpacing.Medium, vertical = IslamicSpacing.Compact),
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(
+                                start = IslamicSpacing.PageHorizontal,
+                                end = IslamicSpacing.PageHorizontal,
+                                bottom = 8.dp,
+                            ),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                    ) {
+                        Text(
+                            text = stringResource(R.string.hadith_catalog_subtitle),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = HadithIvory.copy(alpha = 0.86f),
+                            textAlign = TextAlign.Center,
+                        )
+                        Spacer(Modifier.height(8.dp))
+                        Surface(
+                            shape = RoundedCornerShape(50),
+                            color = HadithGold.copy(alpha = 0.10f),
+                            border = BorderStroke(1.dp, HadithGold.copy(alpha = 0.24f)),
+                        ) {
+                            Text(
+                                text = stringResource(R.string.hadith_catalog_loading_contract),
+                                modifier = Modifier.padding(horizontal = 14.dp, vertical = 7.dp),
+                                style = MaterialTheme.typography.labelMedium,
+                                color = HadithGold,
+                                textAlign = TextAlign.Center,
+                            )
+                        }
+                    }
+                }
+
+                gridItems(
+                    items = HadithCollection.browsableCollections,
+                    key = { it.id },
+                ) { collection ->
+                    HadithCollectionCard(
+                        collection = collection,
+                        onClick = { onOpenCollection(collection) },
                     )
                 }
             }
         }
-        items(HadithCollection.browsableCollections, key = { it.id }) { collection ->
-            HadithCollectionCard(collection = collection, onClick = { onOpenCollection(collection) })
+    }
+}
+
+private data class HadithCoverPalette(
+    val background: Color,
+    val accent: Color,
+    val foreground: Color,
+)
+
+private fun HadithCollection.coverPalette(): HadithCoverPalette = when (this) {
+    HadithCollection.Bukhari -> HadithCoverPalette(Color(0xFF174C3B), Color(0xFFD5B568), Color(0xFFF5E8C8))
+    HadithCollection.Muslim -> HadithCoverPalette(Color(0xFF30334B), Color(0xFFC9A96E), Color(0xFFF4E8CC))
+    HadithCollection.AbuDawud -> HadithCoverPalette(Color(0xFF6B352E), Color(0xFFD5AD63), Color(0xFFF7E7C5))
+    HadithCollection.Tirmidhi -> HadithCoverPalette(Color(0xFF3A4966), Color(0xFFCCAA5F), Color(0xFFF3E5C4))
+    HadithCollection.Nasai -> HadithCoverPalette(Color(0xFF28505A), Color(0xFFC7A96B), Color(0xFFF0E4C9))
+    HadithCollection.IbnMajah -> HadithCoverPalette(Color(0xFF583A60), Color(0xFFD0AA69), Color(0xFFF5E5C9))
+    HadithCollection.Muwatta -> HadithCoverPalette(Color(0xFF31543A), Color(0xFFCBAE6B), Color(0xFFF3E6CA))
+    HadithCollection.Riyad -> HadithCoverPalette(Color(0xFF4C482F), Color(0xFFD7B56B), Color(0xFFF5E7C7))
+    HadithCollection.Nawawi40 -> HadithCoverPalette(Color(0xFF67373A), Color(0xFFD3AA6A), Color(0xFFF6E4C5))
+    HadithCollection.Other -> HadithCoverPalette(Color(0xFF454545), Color(0xFFB8A77A), Color(0xFFF2ECDD))
+}
+
+@Composable
+private fun HadithBookCover(
+    collection: HadithCollection,
+    width: Dp,
+    height: Dp,
+    modifier: Modifier = Modifier,
+) {
+    val palette = collection.coverPalette()
+    val title = stringResource(collection.titleRes)
+    val largeCover = width >= 108.dp
+    val titleSize = if (largeCover) 18.sp else if (width >= 90.dp) 13.sp else 11.sp
+    val coverShape = RoundedCornerShape(if (largeCover) 12.dp else 9.dp)
+
+    Surface(
+        modifier = modifier.size(width = width, height = height),
+        shape = coverShape,
+        color = palette.background,
+        tonalElevation = 3.dp,
+        shadowElevation = if (largeCover) 14.dp else 9.dp,
+        border = BorderStroke(1.dp, palette.accent.copy(alpha = 0.92f)),
+    ) {
+        Box(modifier = Modifier.fillMaxSize()) {
+            Canvas(modifier = Modifier.fillMaxSize()) {
+                val stroke = (size.minDimension * 0.017f).coerceAtLeast(1f)
+                val edge = stroke * 1.65f
+                val corner = CornerRadius(size.minDimension * 0.06f)
+
+                drawRoundRect(
+                    color = palette.accent,
+                    topLeft = Offset(edge, edge),
+                    size = Size(size.width - edge * 2f, size.height - edge * 2f),
+                    cornerRadius = corner,
+                    style = Stroke(width = stroke),
+                )
+                drawRoundRect(
+                    color = palette.accent.copy(alpha = 0.58f),
+                    topLeft = Offset(edge * 2.5f, edge * 2.5f),
+                    size = Size(size.width - edge * 5f, size.height - edge * 5f),
+                    cornerRadius = CornerRadius(size.minDimension * 0.045f),
+                    style = Stroke(width = stroke * 0.55f),
+                )
+
+                val center = Offset(size.width * 0.53f, size.height * 0.40f)
+                val medallionRadius = size.width * 0.30f
+                drawCircle(
+                    color = palette.accent.copy(alpha = 0.90f),
+                    radius = medallionRadius,
+                    center = center,
+                    style = Stroke(width = stroke * 0.9f),
+                )
+                drawCircle(
+                    color = palette.accent.copy(alpha = 0.42f),
+                    radius = medallionRadius * 0.83f,
+                    center = center,
+                    style = Stroke(width = stroke * 0.48f),
+                )
+
+                val points = listOf(
+                    0f to -1f,
+                    0.707f to -0.707f,
+                    1f to 0f,
+                    0.707f to 0.707f,
+                    0f to 1f,
+                    -0.707f to 0.707f,
+                    -1f to 0f,
+                    -0.707f to -0.707f,
+                )
+                points.forEach { (dx, dy) ->
+                    drawCircle(
+                        color = palette.accent,
+                        radius = stroke * 0.72f,
+                        center = Offset(
+                            center.x + dx * medallionRadius,
+                            center.y + dy * medallionRadius,
+                        ),
+                    )
+                }
+
+                // Small geometric crown mark.
+                val crownY = size.height * 0.13f
+                drawLine(
+                    color = palette.accent,
+                    start = Offset(size.width * 0.42f, crownY),
+                    end = Offset(size.width * 0.53f, crownY - size.width * 0.055f),
+                    strokeWidth = stroke * 0.8f,
+                )
+                drawLine(
+                    color = palette.accent,
+                    start = Offset(size.width * 0.53f, crownY - size.width * 0.055f),
+                    end = Offset(size.width * 0.64f, crownY),
+                    strokeWidth = stroke * 0.8f,
+                )
+
+                // Minimal mosque silhouette at the bottom, matching the approved visual direction.
+                val baseY = size.height * 0.84f
+                val mosqueCenter = size.width * 0.53f
+                val domeRadius = size.width * 0.085f
+                drawLine(
+                    color = palette.accent.copy(alpha = 0.92f),
+                    start = Offset(size.width * 0.27f, baseY),
+                    end = Offset(size.width * 0.79f, baseY),
+                    strokeWidth = stroke * 0.72f,
+                )
+                drawRect(
+                    color = palette.accent.copy(alpha = 0.90f),
+                    topLeft = Offset(mosqueCenter - domeRadius, baseY - domeRadius * 0.95f),
+                    size = Size(domeRadius * 2f, domeRadius * 0.95f),
+                    style = Stroke(width = stroke * 0.65f),
+                )
+                drawCircle(
+                    color = palette.accent.copy(alpha = 0.92f),
+                    radius = domeRadius,
+                    center = Offset(mosqueCenter, baseY - domeRadius * 0.95f),
+                    style = Stroke(width = stroke * 0.65f),
+                )
+                listOf(size.width * 0.34f, size.width * 0.72f).forEach { x ->
+                    drawLine(
+                        color = palette.accent.copy(alpha = 0.92f),
+                        start = Offset(x, baseY),
+                        end = Offset(x, baseY - size.height * 0.12f),
+                        strokeWidth = stroke * 0.72f,
+                    )
+                    drawCircle(
+                        color = palette.accent.copy(alpha = 0.92f),
+                        radius = stroke * 1.15f,
+                        center = Offset(x, baseY - size.height * 0.12f),
+                    )
+                }
+
+                // Book-spine cue.
+                drawLine(
+                    color = palette.accent.copy(alpha = 0.50f),
+                    start = Offset(size.width * 0.105f, size.height * 0.06f),
+                    end = Offset(size.width * 0.105f, size.height * 0.94f),
+                    strokeWidth = stroke * 0.86f,
+                )
+            }
+
+            Text(
+                text = title,
+                color = palette.foreground,
+                fontSize = titleSize,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
+                lineHeight = titleSize * 1.08f,
+                maxLines = 3,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .padding(
+                        start = if (largeCover) 16.dp else 8.dp,
+                        end = if (largeCover) 16.dp else 8.dp,
+                        bottom = height * 0.08f,
+                    ),
+            )
         }
     }
 }
@@ -258,64 +528,43 @@ private fun HadithCollectionCard(
     collection: HadithCollection,
     onClick: () -> Unit,
 ) {
-    Card(
+    BoxWithConstraints(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = IslamicSpacing.PageHorizontal, vertical = IslamicSpacing.Compact)
             .clickable(onClick = onClick),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerLow),
     ) {
-        Row(
-            modifier = Modifier.padding(IslamicSpacing.Medium),
-            verticalAlignment = Alignment.CenterVertically,
+        val coverWidth = (maxWidth - 4.dp).coerceAtMost(112.dp)
+        val coverHeight = coverWidth * 1.46f
+
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Image(
-                painter = painterResource(collection.coverRes),
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.size(width = 84.dp, height = 126.dp),
+            HadithBookCover(
+                collection = collection,
+                width = coverWidth,
+                height = coverHeight,
             )
-            Spacer(Modifier.width(IslamicSpacing.Medium))
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = stringResource(collection.titleRes),
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.SemiBold,
-                )
-                Spacer(Modifier.height(6.dp))
-                Text(
-                    text = stringResource(collection.descriptionRes),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 3,
-                    overflow = TextOverflow.Ellipsis,
-                )
-                Spacer(Modifier.height(IslamicSpacing.Medium))
-                Text(
-                    text = stringResource(
-                        R.string.hadith_book_summary,
-                        collection.hadithCount,
-                        collection.chapterCount,
-                    ),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-                Spacer(Modifier.height(IslamicSpacing.Compact))
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = stringResource(R.string.hadith_open_index),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.primary,
-                    )
-                    Spacer(Modifier.width(4.dp))
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(18.dp),
-                    )
-                }
-            }
+            Spacer(Modifier.height(8.dp))
+            Text(
+                text = stringResource(collection.titleRes),
+                color = HadithIvory,
+                fontSize = 12.sp,
+                fontWeight = FontWeight.SemiBold,
+                textAlign = TextAlign.Center,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.fillMaxWidth(),
+            )
+            Spacer(Modifier.height(2.dp))
+            Text(
+                text = stringResource(R.string.hadith_grid_count, collection.hadithCount),
+                color = HadithGold.copy(alpha = 0.92f),
+                fontSize = 10.sp,
+                textAlign = TextAlign.Center,
+                maxLines = 1,
+                modifier = Modifier.fillMaxWidth(),
+            )
         }
     }
 }
@@ -426,73 +675,88 @@ private fun HadithBookIndexOrPages(
     actions: HadithBookActions,
     modifier: Modifier = Modifier,
 ) {
-    LazyColumn(
-        modifier = modifier.fillMaxSize(),
-        contentPadding = PaddingValues(bottom = IslamicSpacing.Large),
-    ) {
-        item(key = "book-header") { HadithBookHeader(collection) }
-        item(key = "book-decoration") {
-            IslamicDecorationDivider(
-                tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
-            )
-        }
-        item(key = "search") {
-            DigitNormalizedOutlinedTextField(
-                value = state.query,
-                onValueChange = actions.onQueryChanged,
-                label = { Text(stringResource(R.string.hadith_search_hint)) },
-                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth().padding(horizontal = IslamicSpacing.PageHorizontal, vertical = 8.dp),
-            )
-        }
-
-        if (state.query.isBlank() && state.chapter == null) {
-            state.daily?.let { hadith ->
-                item(key = "daily") {
-                    DailyHadithCard(
-                        hadith = hadith,
-                        bookmarked = hadith.id in state.bookmarkedIds,
-                        onToggleBookmark = { actions.onToggleBookmark(hadith.id) },
-                        onCopied = actions.onCopied,
+    HadithLibraryTheme {
+        LazyColumn(
+            modifier = modifier
+                .fillMaxSize()
+                .background(HadithLibraryBackground),
+            contentPadding = PaddingValues(bottom = IslamicSpacing.Large),
+        ) {
+            item(key = "book-header") { HadithBookHeader(collection) }
+            item(key = "search") {
+                Surface(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = IslamicSpacing.PageHorizontal, vertical = 10.dp),
+                    shape = RoundedCornerShape(18.dp),
+                    color = HadithLibrarySurfaceRaised,
+                    border = BorderStroke(1.dp, HadithGold.copy(alpha = 0.32f)),
+                ) {
+                    DigitNormalizedOutlinedTextField(
+                        value = state.query,
+                        onValueChange = actions.onQueryChanged,
+                        label = { Text(stringResource(R.string.hadith_search_hint)) },
+                        leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth(),
                     )
                 }
             }
-            item(key = "index-label") {
-                Text(
-                    text = stringResource(R.string.hadith_book_index),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    modifier = Modifier.padding(
-                        horizontal = IslamicSpacing.PageHorizontal,
-                        vertical = IslamicSpacing.Medium,
-                    ),
+
+            if (state.query.isBlank() && state.chapter == null) {
+                state.daily?.let { hadith ->
+                    item(key = "daily") {
+                        DailyHadithCard(
+                            hadith = hadith,
+                            bookmarked = hadith.id in state.bookmarkedIds,
+                            onToggleBookmark = { actions.onToggleBookmark(hadith.id) },
+                            onCopied = actions.onCopied,
+                        )
+                    }
+                }
+                item(key = "index-label") {
+                    Text(
+                        text = stringResource(R.string.hadith_book_index),
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = HadithGold,
+                        modifier = Modifier.padding(
+                            horizontal = IslamicSpacing.PageHorizontal,
+                            vertical = IslamicSpacing.Medium,
+                        ),
+                    )
+                }
+                itemsIndexed(
+                    items = state.chapters,
+                    key = { _, item -> item.title },
+                ) { index, item ->
+                    HadithChapterRow(
+                        number = index + 1,
+                        chapter = item,
+                        onClick = { actions.onOpenChapter(item) },
+                    )
+                }
+                item(key = "source-notice") { HadithSourceNotice() }
+            } else {
+                item(key = "results-label") {
+                    Text(
+                        text = if (state.query.isBlank()) state.chapter.orEmpty() else stringResource(R.string.hadith_search_hint),
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.SemiBold,
+                        color = HadithGold,
+                        modifier = Modifier.padding(
+                            horizontal = IslamicSpacing.PageHorizontal,
+                            vertical = IslamicSpacing.Medium,
+                        ),
+                    )
+                }
+                pagedHadithRows(
+                    state.pagedHadiths,
+                    state.bookmarkedIds,
+                    actions.onToggleBookmark,
+                    actions.onCopied,
                 )
             }
-            items(state.chapters, key = { it.title }) { item ->
-                HadithChapterRow(item, onClick = { actions.onOpenChapter(item) })
-                HorizontalDivider(modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal))
-            }
-            item(key = "source-notice") { HadithSourceNotice() }
-        } else {
-            item(key = "results-label") {
-                Text(
-                    text = if (state.query.isBlank()) state.chapter.orEmpty() else stringResource(R.string.hadith_search_hint),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    modifier = Modifier.padding(
-                        horizontal = IslamicSpacing.PageHorizontal,
-                        vertical = IslamicSpacing.Medium,
-                    ),
-                )
-            }
-            pagedHadithRows(
-                state.pagedHadiths,
-                state.bookmarkedIds,
-                actions.onToggleBookmark,
-                actions.onCopied,
-            )
         }
     }
 }
@@ -514,7 +778,10 @@ private fun androidx.compose.foundation.lazy.LazyListScope.pagedHadithRows(
                 onToggleBookmark = { onToggleBookmark(hadith.id) },
                 onCopied = onCopied,
             )
-            HorizontalDivider(modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal))
+            HorizontalDivider(
+                modifier = Modifier.padding(horizontal = IslamicSpacing.PageHorizontal),
+                color = HadithGold.copy(alpha = 0.14f),
+            )
         }
     }
     when (val refresh = pagedHadiths.loadState.refresh) {
@@ -531,39 +798,120 @@ private fun androidx.compose.foundation.lazy.LazyListScope.pagedHadithRows(
 
 @Composable
 private fun HadithBookHeader(collection: HadithCollection) {
-    Row(
-        modifier = Modifier.fillMaxWidth().padding(IslamicSpacing.PageHorizontal),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Image(
-            painter = painterResource(collection.coverRes),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier.size(width = 64.dp, height = 96.dp),
-        )
-        Spacer(Modifier.width(IslamicSpacing.Medium))
-        Column(modifier = Modifier.weight(1f)) {
-            Text(
-                text = stringResource(collection.titleRes),
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
-            )
-            Spacer(Modifier.height(4.dp))
-            Text(
-                text = stringResource(
-                    R.string.hadith_book_index_subtitle,
-                    collection.hadithCount,
-                    collection.chapterCount,
+    val palette = collection.coverPalette()
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(
+                Brush.verticalGradient(
+                    colors = listOf(
+                        palette.background.copy(alpha = 0.96f),
+                        HadithLibraryBackground,
+                    ),
                 ),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            .padding(
+                start = IslamicSpacing.PageHorizontal,
+                end = IslamicSpacing.PageHorizontal,
+                top = 10.dp,
+                bottom = 16.dp,
+            ),
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            HadithBookCover(
+                collection = collection,
+                width = 116.dp,
+                height = 174.dp,
+            )
+            Spacer(Modifier.width(18.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = stringResource(collection.titleRes),
+                    color = HadithIvory,
+                    fontSize = 26.sp,
+                    lineHeight = 31.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+                Spacer(Modifier.height(10.dp))
+                Text(
+                    text = stringResource(collection.descriptionRes),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = HadithIvory.copy(alpha = 0.84f),
+                    maxLines = 5,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+        }
+
+        Spacer(Modifier.height(18.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            HadithStatCard(
+                value = collection.hadithCount.toString(),
+                label = stringResource(R.string.hadith_stat_hadiths),
+                modifier = Modifier.weight(1f),
+            )
+            HadithStatCard(
+                value = collection.chapterCount.toString(),
+                label = stringResource(R.string.hadith_stat_chapters),
+                modifier = Modifier.weight(1f),
+            )
+            HadithStatCard(
+                value = "✓",
+                label = stringResource(R.string.hadith_stat_offline),
+                modifier = Modifier.weight(1f),
             )
         }
     }
 }
 
 @Composable
-private fun HadithChapterRow(chapter: HadithChapter, onClick: () -> Unit) {
+private fun HadithStatCard(
+    value: String,
+    label: String,
+    modifier: Modifier = Modifier,
+) {
+    Surface(
+        modifier = modifier,
+        shape = RoundedCornerShape(14.dp),
+        color = HadithLibrarySurface.copy(alpha = 0.86f),
+        border = BorderStroke(1.dp, HadithGold.copy(alpha = 0.26f)),
+    ) {
+        Column(
+            modifier = Modifier.padding(horizontal = 8.dp, vertical = 10.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Text(
+                text = value,
+                color = HadithGold,
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                maxLines = 1,
+            )
+            Spacer(Modifier.height(2.dp))
+            Text(
+                text = label,
+                color = HadithIvory.copy(alpha = 0.76f),
+                style = MaterialTheme.typography.labelSmall,
+                textAlign = TextAlign.Center,
+                maxLines = 1,
+            )
+        }
+    }
+}
+
+@Composable
+private fun HadithChapterRow(
+    number: Int,
+    chapter: HadithChapter,
+    onClick: () -> Unit,
+) {
     val sourceTitle = chapter.title.ifBlank { stringResource(R.string.hadith_all_chapters) }
     val displayTitle = if (AppLanguage.isArabicUi()) {
         HadithChapterArabicTitles.displayTitle(chapter.collection, sourceTitle)
@@ -575,46 +923,58 @@ private fun HadithChapterRow(chapter: HadithChapter, onClick: () -> Unit) {
     } else {
         stringResource(R.string.hadith_chapter_unknown_range)
     }
-    Row(
+
+    Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick)
-            .padding(horizontal = IslamicSpacing.PageHorizontal, vertical = IslamicSpacing.Medium),
-        verticalAlignment = Alignment.CenterVertically,
+            .padding(horizontal = IslamicSpacing.PageHorizontal, vertical = 4.dp)
+            .clickable(onClick = onClick),
+        shape = RoundedCornerShape(16.dp),
+        color = HadithLibrarySurface.copy(alpha = 0.92f),
+        border = BorderStroke(1.dp, HadithGold.copy(alpha = 0.22f)),
     ) {
-        Surface(
-            shape = MaterialTheme.shapes.small,
-            color = MaterialTheme.colorScheme.secondaryContainer,
-            modifier = Modifier.size(36.dp),
+        Row(
+            modifier = Modifier.padding(horizontal = 12.dp, vertical = 11.dp),
+            verticalAlignment = Alignment.CenterVertically,
         ) {
+            Surface(
+                shape = RoundedCornerShape(50),
+                color = HadithGold,
+                modifier = Modifier.size(36.dp),
+                shadowElevation = 3.dp,
+            ) {
+                Box(contentAlignment = Alignment.Center) {
+                    Text(
+                        text = number.toString(),
+                        color = HadithLibraryBackground,
+                        style = MaterialTheme.typography.labelLarge,
+                        fontWeight = FontWeight.Bold,
+                    )
+                }
+            }
+            Spacer(Modifier.width(12.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = displayTitle,
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.SemiBold,
+                    color = HadithIvory,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Spacer(Modifier.height(3.dp))
+                Text(
+                    text = stringResource(R.string.hadith_chapter_summary, chapter.hadithCount, range),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = HadithIvory.copy(alpha = 0.66f),
+                )
+            }
             Icon(
-                imageVector = Icons.Filled.Book,
+                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSecondaryContainer,
-                modifier = Modifier.padding(8.dp),
+                tint = HadithGold.copy(alpha = 0.90f),
             )
         }
-        Spacer(Modifier.width(IslamicSpacing.Medium))
-        Column(modifier = Modifier.weight(1f)) {
-            Text(
-                text = displayTitle,
-                style = MaterialTheme.typography.titleSmall,
-                fontWeight = FontWeight.Medium,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-            )
-            Spacer(Modifier.height(2.dp))
-            Text(
-                text = stringResource(R.string.hadith_chapter_summary, chapter.hadithCount, range),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-        Icon(
-            imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-            contentDescription = null,
-            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
     }
 }
 
@@ -725,7 +1085,7 @@ private fun HadithNotificationPreview(hadith: Hadith?, timeMinutes: Int, enabled
 private fun DailyHadithCard(hadith: Hadith, bookmarked: Boolean, onToggleBookmark: () -> Unit, onCopied: () -> Unit) {
     Card(
         modifier = Modifier.fillMaxWidth().padding(horizontal = IslamicSpacing.PageHorizontal, vertical = IslamicSpacing.Compact),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
+        colors = CardDefaults.cardColors(containerColor = HadithLibrarySurfaceRaised),
     ) {
         Box {
             IslamicDecorationCorners(

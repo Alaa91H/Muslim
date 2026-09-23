@@ -30,6 +30,10 @@
     <string name="hadith_book_summary">%1$d حديثاً · %2$d فصلاً</string>
     <string name="hadith_book_index">فهرس الكتاب</string>
     <string name="hadith_book_index_subtitle">%1$d حديثاً في %2$d فصلاً</string>
+    <string name="hadith_grid_count">%1$d حديث</string>
+    <string name="hadith_stat_hadiths">حديث</string>
+    <string name="hadith_stat_chapters">فصل</string>
+    <string name="hadith_stat_offline">محلي</string>
     <string name="hadith_chapter_summary">%1$d حديثاً · %2$s</string>
     <string name="hadith_chapter_unknown_range">الأرقام بحسب المصدر</string>
     <string name="hadith_loading_book">يتم تجهيز %1$s محلياً…</string>
@@ -43,12 +47,12 @@
 
     <string name="hadith_collection_nawawi">الأربعون النووية</string>
     <string name="hadith_collection_riyad">رياض الصالحين</string>
-    <string name="hadith_collection_bukhari">البخاري</string>
-    <string name="hadith_collection_muslim">مسلم</string>
-    <string name="hadith_collection_tirmidhi">الترمذي</string>
-    <string name="hadith_collection_abudawud">أبو داود</string>
-    <string name="hadith_collection_nasai">النسائي</string>
-    <string name="hadith_collection_ibnmajah">ابن ماجه</string>
+    <string name="hadith_collection_bukhari">صحيح البخاري</string>
+    <string name="hadith_collection_muslim">صحيح مسلم</string>
+    <string name="hadith_collection_tirmidhi">سنن الترمذي</string>
+    <string name="hadith_collection_abudawud">سنن أبي داود</string>
+    <string name="hadith_collection_nasai">سنن النسائي</string>
+    <string name="hadith_collection_ibnmajah">سنن ابن ماجه</string>
     <string name="hadith_collection_muwatta">موطأ مالك</string>
     <string name="hadith_collection_other">أخرى</string>
 
