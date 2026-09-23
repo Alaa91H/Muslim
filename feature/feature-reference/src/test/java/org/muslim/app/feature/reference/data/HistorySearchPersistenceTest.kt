@@ -64,8 +64,12 @@ class HistorySearchPersistenceTest {
 
     @Test
     fun `packaged search index covers the complete current catalogue`() {
-        val file = File("src/main/assets/history/search_index.json")
-        assertThat(file.exists()).isTrue()
+        val file = listOf(
+            File("src/main/assets/history/search_index.json"),
+            File("feature/feature-reference/src/main/assets/history/search_index.json"),
+        ).firstOrNull { it.exists() }
+        assertThat(file).isNotNull()
+        requireNotNull(file)
 
         val asset = Json {
             ignoreUnknownKeys = true
