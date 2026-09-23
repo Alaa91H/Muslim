@@ -687,8 +687,18 @@ private fun civilizationCategoryLabel(
 @Composable
 private fun AtlasTab(language: HistoryLanguage) {
     var selectedIndex by remember { mutableIntStateOf(0) }
+    var selectedPlaceId by remember { mutableStateOf<String?>(null) }
     val layers = IslamicHistoryContent.atlasLayers
     val layer = layers[selectedIndex]
+
+    selectedPlaceId?.let { placeId ->
+        HistoryPlaceProfileView(
+            placeId = placeId,
+            language = language,
+            onBack = { selectedPlaceId = null },
+        )
+        return
+    }
 
     Column(modifier = Modifier.fillMaxSize()) {
         AtlasSelector(
@@ -700,6 +710,7 @@ private fun AtlasTab(language: HistoryLanguage) {
         AtlasList(
             layer = layer,
             language = language,
+            onOpenPlace = { selectedPlaceId = it },
             modifier = Modifier.weight(1f),
         )
     }
@@ -740,6 +751,7 @@ private fun AtlasSelector(
 private fun AtlasList(
     layer: HistoricalMapLayer,
     language: HistoryLanguage,
+    onOpenPlace: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     LazyColumn(
@@ -780,12 +792,28 @@ private fun AtlasList(
         items(layer.places, key = { it.id }) { place ->
             Card {
                 Column(Modifier.padding(16.dp)) {
-                    Text(place.title.resolve(language), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                    Text(
+                        place.title.resolve(language),
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                    )
                     Text(
                         place.note.resolve(language),
                         style = MaterialTheme.typography.bodyMedium,
                         modifier = Modifier.padding(top = 6.dp),
                     )
+                    TextButton(
+                        onClick = { onOpenPlace(place.id) },
+                        modifier = Modifier.padding(top = 4.dp),
+                    ) {
+                        Text(
+                            if (language == HistoryLanguage.Arabic) {
+                                "فتح ملف المكان"
+                            } else {
+                                "Open place profile"
+                            },
+                        )
+                    }
                 }
             }
         }
@@ -794,17 +822,7 @@ private fun AtlasList(
 
 @Composable
 private fun PeopleTab(language: HistoryLanguage) {
-    LazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-    ) {
-        item { HistoryNotice(stringResource(R.string.history_people_intro)) }
-        items(IslamicHistoryContent.personalities, key = { it.id }) { person ->
-            PersonCard(person = person, language = language)
-        }
-        item { HistoryNotice(stringResource(R.string.history_sources_notice)) }
-    }
+    HistoryPeopleProfilesTab(language = language)
 }
 
 @Composable
