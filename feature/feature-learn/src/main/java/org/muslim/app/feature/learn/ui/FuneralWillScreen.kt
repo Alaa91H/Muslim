@@ -179,6 +179,8 @@ fun FuneralWillScreen(
     var showShareConfirmation by rememberSaveable { mutableStateOf(false) }
     val context = LocalContext.current
     val pdfFilename = stringResource(R.string.funeral_will_pdf_filename)
+    val pdfExportSuccessMessage = stringResource(R.string.funeral_will_export_pdf_success)
+    val pdfExportErrorMessage = stringResource(R.string.funeral_will_export_pdf_error)
     val pdfLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.CreateDocument("application/pdf"),
     ) { destination ->
@@ -192,7 +194,7 @@ fun FuneralWillScreen(
             WillPdfExportStatus.Success -> {
                 Toast.makeText(
                     context,
-                    context.getString(R.string.funeral_will_export_pdf_success),
+                    pdfExportSuccessMessage,
                     Toast.LENGTH_SHORT,
                 ).show()
                 viewModel.consumePdfExportStatus()
@@ -201,7 +203,7 @@ fun FuneralWillScreen(
             WillPdfExportStatus.Error -> {
                 Toast.makeText(
                     context,
-                    context.getString(R.string.funeral_will_export_pdf_error),
+                    pdfExportErrorMessage,
                     Toast.LENGTH_LONG,
                 ).show()
                 viewModel.consumePdfExportStatus()
