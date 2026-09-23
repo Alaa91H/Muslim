@@ -15,6 +15,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import org.muslim.app.core.common.appearance.AppColorPalette
 import org.muslim.app.core.common.appearance.CardCornerStyle
+import org.muslim.app.core.common.appearance.AppOrnamentStyle
+import org.muslim.app.core.common.appearance.OrnamentIntensity
 import org.muslim.app.core.designsystem.MuslimDarkColors
 import org.muslim.app.core.ui.accessibility.AccessibilityDarkColors
 import org.muslim.app.core.ui.accessibility.AccessibilityLightColors
@@ -44,6 +46,8 @@ fun AppTheme(
     reduceAnimations: Boolean = false,
     colorPalette: AppColorPalette = AppColorPalette.Classic,
     cardCornerStyle: CardCornerStyle = CardCornerStyle.Soft,
+    ornamentStyle: AppOrnamentStyle = AppOrnamentStyle.Geometry,
+    ornamentIntensity: OrnamentIntensity = OrnamentIntensity.Balanced,
     content: @Composable () -> Unit,
 ) {
     val colorScheme = when {
@@ -59,6 +63,11 @@ fun AppTheme(
     CompositionLocalProvider(
         LocalAccessibilityVisuals provides AccessibilityVisuals(accessibilityReadingMode),
         LocalMuslimMotionPreferences provides MuslimMotionPreferences(reduceAnimations),
+        LocalIslamicDecoration provides IslamicDecorationPreferences(
+            style = ornamentStyle,
+            intensity = ornamentIntensity,
+            darkTheme = darkTheme,
+        ),
     ) {
         MaterialTheme(
             colorScheme = colorScheme,
