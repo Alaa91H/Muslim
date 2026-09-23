@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "feature/feature-scholar-library/src/main/assets/scholar_library_catalog.json"
 STUDY_PATHS = ROOT / "feature/feature-scholar-library/src/main/assets/scholar_study_paths.json"
 REPOSITORY = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/data/ScholarLibraryRepository.kt"
+PACK_MANAGER = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/data/ScholarContentPackManager.kt"
 DATABASE = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/data/ScholarLibraryDatabase.kt"
 MODELS = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/domain/ScholarLibraryModels.kt"
 SCREENS = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/ui/ScholarLibraryScreens.kt"
@@ -96,17 +97,20 @@ def main() -> None:
             require(set(referenced_books) <= book_ids, f"{stage_id} references a missing book")
 
     repository = REPOSITORY.read_text(encoding="utf-8")
-    require("ScholarPassageFtsEntity" in repository, "repository must maintain a full-text index")
-    require("sourceName.isNotBlank() && book.licenseSummary.isNotBlank()" in repository, "imports require source and licence")
-    require("rebuildIndex()" in repository, "imports must rebuild the search index")
-    require("PACK_MAX_CHARS" in repository, "imports must have a size limit")
-    require("MIN_PACK_SCHEMA_VERSION = 1" in repository, "v1 user packs must remain import-compatible")
-    require("CURRENT_PACK_SCHEMA_VERSION = 4" in repository, "v4 must be the current pack schema")
-    require("packId" in repository and "packVersion" in repository, "v4 packs must carry identity and version")
-    require("contentPacks: Flow<List<ScholarContentPack>>" in repository, "repository must expose installed packs")
-    require("installContentPack" in repository, "pack install must use the transactional DAO boundary")
-    require("التحديث الآمن لا يسمح بحذف كتاب" in repository, "pack updates must reject destructive book removal")
-    require("التحديث الآمن لا يسمح بحذف مقاطع" in repository, "pack updates must reject destructive passage removal")
+    require("ScholarPassageFtsEntity" in repository, "repository search must use the full-text index")
+    require("packManager.ensureSeeded()" in repository, "repository must delegate catalog seeding to pack manager")
+
+    pack_manager = PACK_MANAGER.read_text(encoding="utf-8")
+    require("book.sourceName.isNotBlank() && book.licenseSummary.isNotBlank()" in pack_manager, "imports require source and licence")
+    require("rebuildIndex()" in pack_manager, "imports must rebuild the search index")
+    require("PACK_MAX_CHARS" in pack_manager, "imports must have a size limit")
+    require("MIN_PACK_SCHEMA_VERSION = 1" in pack_manager, "v1 user packs must remain import-compatible")
+    require("CURRENT_PACK_SCHEMA_VERSION = 4" in pack_manager, "v4 must be the current pack schema")
+    require("packId" in pack_manager and "packVersion" in pack_manager, "v4 packs must carry identity and version")
+    require("contentPacks: Flow<List<ScholarContentPack>>" in pack_manager, "pack manager must expose installed packs")
+    require("installContentPack" in pack_manager, "pack install must use the transactional DAO boundary")
+    require("التحديث الآمن لا يسمح بحذف كتاب" in pack_manager, "pack updates must reject destructive book removal")
+    require("التحديث الآمن لا يسمح بحذف مقاطع" in pack_manager, "pack updates must reject destructive passage removal")
     require("setBookmark(" in repository, "v2 repository must persist bookmarks")
     require("addHighlight(" in repository, "v2 repository must persist highlights")
     require("updateReadingProgress(" in repository, "v2 repository must persist reading progress")
