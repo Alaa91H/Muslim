@@ -1,0 +1,3535 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": 1,
+  "articles": [
+    {
+      "id": "era_prophetic_mission",
+      "eraId": "prophetic_era",
+      "title": {
+        "arabic": "البعثة والسيرة النبوية",
+        "english": "Prophetic mission and sira"
+      },
+      "lead": {
+        "arabic": "تضع هذه المرحلة نشأة المجتمع الإسلامي الأول في سياقها الزمني بين مكة والمدينة، مع إبقاء تفاصيل السيرة في قسمها المتخصص داخل المكتبة.",
+        "english": "This period places the formation of the first Muslim community in chronological context between Mecca and Medina, while detailed Sira remains in its dedicated library section."
+      },
+      "sections": [
+        {
+          "id": "meccan_phase",
+          "title": {
+            "arabic": "المرحلة المكية",
+            "english": "The Meccan phase"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ترتبط بداية الدعوة الإسلامية في الموروث الإسلامي ببدء الوحي سنة 610م تقريباً. شهدت المرحلة المكية تشكل الجماعة المسلمة الأولى وتركيز الخطاب على التوحيد والمسؤولية الأخلاقية واليوم الآخر، في بيئة اجتماعية وتجارية قبلية معقدة.",
+              "english": "Islamic tradition associates the beginning of the mission with the start of revelation around 610 CE. The Meccan phase saw the formation of the first Muslim community and a strong emphasis on monotheism, moral responsibility, and the afterlife within a complex tribal and commercial society."
+            }
+          ]
+        },
+        {
+          "id": "hijra",
+          "title": {
+            "arabic": "الهجرة والتحول إلى المدينة",
+            "english": "Migration and the move to Medina"
+          },
+          "paragraphs": [
+            {
+              "arabic": "أصبحت الهجرة إلى المدينة سنة 622م نقطة تحول زمنية ومجتمعية؛ ومنها يبدأ التقويم الهجري. انتقل المسلمون من جماعة مضغوطة في مكة إلى مجتمع منظم في المدينة له علاقات وتحالفات ومسؤوليات عامة أوسع.",
+              "english": "The migration to Medina in 622 CE became a major chronological and social turning point and later the starting point of the Hijri calendar. Muslims moved from a pressured community in Mecca into a more organized society in Medina with broader alliances and public responsibilities."
+            }
+          ]
+        },
+        {
+          "id": "medinan_community",
+          "title": {
+            "arabic": "المجتمع المدني",
+            "english": "The Medinan community"
+          },
+          "paragraphs": [
+            {
+              "arabic": "شهدت السنوات المدنية بناء مؤسسات المجتمع، وتنظيم علاقاته الداخلية والخارجية، ووقوع عدد من المواجهات والاتفاقات التي تعرضها كتب السيرة بتفاصيل وروايات متفاوتة. لهذا يعرض قسم التاريخ الإطار العام ويُحيل إلى قسم السيرة للقراءة التفصيلية.",
+              "english": "The Medinan years included institution-building, the organization of internal and external relations, and a series of conflicts and agreements described in Sira literature with varying levels of detail and transmission. The history section therefore provides the broad frame and links to the dedicated Sira material for fuller study."
+            }
+          ]
+        },
+        {
+          "id": "transition_632",
+          "title": {
+            "arabic": "سنة 632م والانتقال التاريخي",
+            "english": "632 CE and the historical transition"
+          },
+          "paragraphs": [
+            {
+              "arabic": "توفي النبي محمد ﷺ سنة 632م، وبدأت بعد ذلك مرحلة سياسية جديدة قادها الخلفاء الراشدون. لفهم هذا الانتقال يجب التمييز بين السيرة الدينية للنبي ﷺ وبين التاريخ السياسي والإداري اللاحق للدولة والمجتمعات الإسلامية.",
+              "english": "Prophet Muhammad died in 632 CE, after which a new political phase began under the Rashidun caliphs. Understanding this transition benefits from distinguishing the Prophet’s religious biography from the later political and administrative history of Muslim states and societies."
+            }
+          ]
+        }
+      ],
+      "sourceIds": [
+        "met_chronology",
+        "internal_sira"
+      ],
+      "relatedEraIds": [
+        "rashidun"
+      ],
+      "tags": [
+        "sira",
+        "mecca",
+        "medina",
+        "hijra"
+      ]
+    },
+    {
+      "id": "era_rashidun",
+      "eraId": "rashidun",
+      "title": {
+        "arabic": "الخلافة الراشدة",
+        "english": "Rashidun caliphate"
+      },
+      "lead": {
+        "arabic": "مرحلة 632–661م شكلت الانتقال من مجتمع المدينة في أواخر السيرة إلى دولة أوسع جغرافياً، مع تغيرات سريعة في الإدارة والحرب والموارد ومراكز السلطة.",
+        "english": "The period from 632 to 661 CE marked the transition from the Medinan community of the late Sira to a much wider polity, accompanied by rapid changes in administration, warfare, resources, and centers of authority."
+      },
+      "sections": [
+        {
+          "id": "succession",
+          "title": {
+            "arabic": "الخلافة بعد وفاة النبي ﷺ",
+            "english": "Leadership after the Prophet’s death"
+          },
+          "paragraphs": [
+            {
+              "arabic": "بدأت المرحلة بخلافة أبي بكر ثم عمر ثم عثمان ثم علي رضي الله عنهم. وتتناول المصادر الإسلامية المبكرة واللاحقة تفاصيل البيعة والإدارة والخلافات السياسية بدرجات مختلفة من السرد والتفسير، لذلك ينبغي عرض المسائل المتنازع عليها مع نسب الأقوال إلى مصادرها.",
+              "english": "The period proceeded through the caliphates of Abu Bakr, Umar, Uthman, and Ali. Early and later Muslim sources describe questions of allegiance, administration, and political disagreement with differing levels of detail and interpretation, so disputed matters should be presented with claims attributed to their sources."
+            }
+          ]
+        },
+        {
+          "id": "expansion",
+          "title": {
+            "arabic": "الاتساع والتحول الإداري",
+            "english": "Expansion and administrative change"
+          },
+          "paragraphs": [
+            {
+              "arabic": "اتسعت مناطق الحكم بسرعة خارج الجزيرة العربية إلى بلاد الشام والعراق ومصر وأجزاء من إيران. فرض هذا الاتساع تحديات جديدة في إدارة المدن والجند والموارد والضرائب، وأسهم في ظهور أمصار ومراكز إدارية وعسكرية جديدة.",
+              "english": "Rule expanded rapidly beyond Arabia into the Levant, Iraq, Egypt, and parts of Iran. This expansion created new challenges in managing cities, armies, resources, and taxation and contributed to the rise of new garrison towns and administrative centers."
+            }
+          ]
+        },
+        {
+          "id": "centres",
+          "title": {
+            "arabic": "المدينة والكوفة ومراكز الحكم",
+            "english": "Medina, Kufa, and centers of rule"
+          },
+          "paragraphs": [
+            {
+              "arabic": "بقيت المدينة مركزاً سياسياً ورمزياً أساسياً في معظم المرحلة، ثم برزت الكوفة بصورة خاصة في خلافة علي. ويكشف انتقال مركز القرار بين المدن عن ارتباط السياسة بالتغيرات العسكرية والجغرافية والاجتماعية.",
+              "english": "Medina remained a major political and symbolic center through much of the period, while Kufa became especially important during Ali’s caliphate. The movement of decision-making between cities illustrates the connection between politics and military, geographic, and social change."
+            }
+          ]
+        },
+        {
+          "id": "first_fitna",
+          "title": {
+            "arabic": "الفتنة الأولى ونهاية المرحلة",
+            "english": "The First Fitna and the end of the period"
+          },
+          "paragraphs": [
+            {
+              "arabic": "شهدت أواخر المرحلة صراعات داخلية عميقة عُرفت في التأريخ الإسلامي بالفتنة الأولى. تختلف الروايات في بعض تفاصيل الأحداث ودوافع المشاركين، ولهذا يعرض التطبيق التسلسل المتفق عليه قدر الإمكان ويتجنب تحويل الروايات الجدلية إلى حقائق غير منسوبة.",
+              "english": "The later years saw deep internal conflicts commonly known in Islamic historiography as the First Fitna. Sources differ on some details and on interpretations of participants’ motives, so the app presents the broad chronology where possible and avoids turning contested narratives into unattributed fact."
+            }
+          ]
+        }
+      ],
+      "sourceIds": [
+        "met_chronology",
+        "world_history_caliphates"
+      ],
+      "relatedEraIds": [
+        "prophetic_era",
+        "umayyad"
+      ],
+      "tags": [
+        "caliphate",
+        "administration",
+        "expansion",
+        "fitna"
+      ]
+    },
+    {
+      "id": "era_umayyad",
+      "eraId": "umayyad",
+      "title": {
+        "arabic": "الدولة الأموية",
+        "english": "Umayyad caliphate"
+      },
+      "lead": {
+        "arabic": "بين 661 و750م أصبحت دمشق مركزاً لدولة واسعة ربطت أقاليم متعددة من غرب المتوسط إلى آسيا الوسطى، ورافقت ذلك تحولات إدارية ونقدية وعمرانية كبيرة.",
+        "english": "Between 661 and 750 CE, Damascus became the center of a wide state linking regions from the western Mediterranean to Central Asia, alongside major administrative, monetary, and urban changes."
+      },
+      "sections": [
+        {
+          "id": "damascus",
+          "title": {
+            "arabic": "دمشق مركزاً للحكم",
+            "english": "Damascus as a center of rule"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ارتبط قيام الدولة الأموية بانتقال مركز الحكم إلى دمشق، وهي مدينة ذات موقع استراتيجي وشبكات إدارية وتجارية راسخة. ساعدت هذه البيئة في إدارة أقاليم واسعة ومتنوعة سكانياً ولغوياً.",
+              "english": "The rise of Umayyad rule was associated with the transfer of the political center to Damascus, a strategically located city with established administrative and commercial networks. This setting helped govern a wide and linguistically and socially diverse set of provinces."
+            }
+          ]
+        },
+        {
+          "id": "administration",
+          "title": {
+            "arabic": "الإدارة والعملة واللغة",
+            "english": "Administration, coinage, and language"
+          },
+          "paragraphs": [
+            {
+              "arabic": "شهد العصر الأموي عمليات متدرجة لتعريب جانب من الإدارة وتطوير أنماط نقدية وإدارية أكثر توحيداً. لم تكن هذه التحولات لحظة واحدة، بل مساراً اختلف توقيته وطبيعته من إقليم إلى آخر.",
+              "english": "The Umayyad period saw gradual processes of Arabizing parts of the administration and developing more standardized monetary and administrative practices. These changes were not a single event and varied in timing and form across regions."
+            }
+          ]
+        },
+        {
+          "id": "west_east",
+          "title": {
+            "arabic": "من الأندلس إلى آسيا الوسطى",
+            "english": "From al-Andalus to Central Asia"
+          },
+          "paragraphs": [
+            {
+              "arabic": "شهد القرن الثامن توسعاً في الغرب إلى شبه الجزيرة الإيبيرية وفي الشرق نحو مناطق آسيا الوسطى والسند. ويجب قراءة هذه التحركات ضمن سياقات محلية متعددة، لا باعتبارها عملية متطابقة في كل المناطق.",
+              "english": "The eighth century saw expansion westward into the Iberian Peninsula and eastward toward parts of Central Asia and Sindh. These developments should be read within distinct local contexts rather than as an identical process everywhere."
+            }
+          ]
+        },
+        {
+          "id": "transition_750",
+          "title": {
+            "arabic": "التحول إلى العصر العباسي",
+            "english": "Transition to Abbasid rule"
+          },
+          "paragraphs": [
+            {
+              "arabic": "انتهى الحكم الأموي في المشرق سنة 750م بعد الثورة العباسية، بينما استمر فرع أموي لاحقاً في الأندلس. لذلك لا تمثل سنة 750م نهاية الحضور الأموي في التاريخ الإسلامي كله.",
+              "english": "Umayyad rule in the eastern caliphate ended in 750 CE after the Abbasid revolution, while an Umayyad branch later continued in al-Andalus. The year 750 therefore did not mark the end of all Umayyad political presence in Islamic history."
+            }
+          ]
+        }
+      ],
+      "sourceIds": [
+        "met_chronology",
+        "world_history_caliphates"
+      ],
+      "relatedEraIds": [
+        "rashidun",
+        "abbasid",
+        "regional_civilizations"
+      ],
+      "tags": [
+        "damascus",
+        "administration",
+        "al-andalus",
+        "coinage"
+      ]
+    },
+    {
+      "id": "era_abbasid",
+      "eraId": "abbasid",
+      "title": {
+        "arabic": "الدولة العباسية",
+        "english": "Abbasid caliphate"
+      },
+      "lead": {
+        "arabic": "بدأ الحكم العباسي سنة 750م، وأصبحت بغداد منذ تأسيسها في القرن الثامن إحدى أهم مدن السياسة والتجارة والمعرفة في العالم الإسلامي، مع تغير قوة الخلافة وظهور دول إقليمية عبر القرون.",
+        "english": "Abbasid rule began in 750 CE, and Baghdad, founded in the eighth century, became one of the most important political, commercial, and intellectual cities of the Islamic world, even as caliphal power changed and regional states emerged over the centuries."
+      },
+      "sections": [
+        {
+          "id": "baghdad",
+          "title": {
+            "arabic": "بغداد وشبكات الدولة",
+            "english": "Baghdad and imperial networks"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تأسست بغداد سنة 762م وأصبحت مركزاً إدارياً واقتصادياً متصلاً بالعراق وإيران وآسيا الوسطى والخليج وطرق أبعد. أسهم موقعها وشبكاتها النهرية والبرية في نموها السريع.",
+              "english": "Baghdad was founded in 762 CE and became an administrative and economic center connected to Iraq, Iran, Central Asia, the Gulf, and more distant routes. Its location and river and overland networks contributed to its rapid growth."
+            }
+          ]
+        },
+        {
+          "id": "knowledge",
+          "title": {
+            "arabic": "العلم والترجمة",
+            "english": "Learning and translation"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ازدهرت في بغداد ومدن أخرى أنشطة الترجمة والتأليف والطب والفلك والرياضيات. شارك في هذه الحياة العلمية مسلمون ومسيحيون ويهود وصابئة وغيرهم، وكان انتقال المعرفة عملية تراكمية عبر لغات ومؤسسات وشبكات رعاية متعددة.",
+              "english": "Baghdad and other cities supported major activity in translation, authorship, medicine, astronomy, and mathematics. Muslims, Christians, Jews, Sabians, and others participated in this intellectual life, and knowledge moved cumulatively through multiple languages, institutions, and patronage networks."
+            }
+          ]
+        },
+        {
+          "id": "regional_power",
+          "title": {
+            "arabic": "صعود الدول والمراكز الإقليمية",
+            "english": "The rise of regional states and centers"
+          },
+          "paragraphs": [
+            {
+              "arabic": "مع مرور الوقت لم تعد السلطة السياسية مركزة بصورة واحدة في بغداد؛ ظهرت سلالات ودول إقليمية تمتعت بدرجات مختلفة من الاستقلال، بينما استمرت مكانة الخلافة العباسية الدينية والسياسية بأشكال متغيرة.",
+              "english": "Over time, political authority was no longer concentrated in a single way in Baghdad. Regional dynasties and states exercised varying degrees of independence while the Abbasid caliphate retained changing forms of religious and political significance."
+            }
+          ]
+        },
+        {
+          "id": "1258",
+          "title": {
+            "arabic": "سقوط بغداد سنة 1258م",
+            "english": "The fall of Baghdad in 1258"
+          },
+          "paragraphs": [
+            {
+              "arabic": "استولى المغول على بغداد سنة 1258م، وكان الحدث تحوّلاً كبيراً في تاريخ العراق والخلافة العباسية في المدينة. لكنه لم يكن نهاية الحضارة الإسلامية أو المجتمعات المسلمة؛ فقد استمرت مراكز سياسية وعلمية عديدة في مصر والشام والأناضول وإيران وآسيا الوسطى وغيرها.",
+              "english": "The Mongols captured Baghdad in 1258 CE, a major turning point for Iraq and the Abbasid caliphate in the city. It was not the end of Islamic civilization or Muslim societies, however; numerous political and intellectual centers continued in Egypt, the Levant, Anatolia, Iran, Central Asia, and elsewhere."
+            }
+          ]
+        }
+      ],
+      "sourceIds": [
+        "met_chronology",
+        "met_science",
+        "unesco_silk_roads"
+      ],
+      "relatedEraIds": [
+        "umayyad",
+        "regional_civilizations"
+      ],
+      "tags": [
+        "baghdad",
+        "translation",
+        "science",
+        "trade"
+      ]
+    },
+    {
+      "id": "era_regional_civilizations",
+      "eraId": "regional_civilizations",
+      "title": {
+        "arabic": "حضارات ومراكز إقليمية",
+        "english": "Regional civilizations and centers"
+      },
+      "lead": {
+        "arabic": "لا يمكن اختزال التاريخ الإسلامي الوسيط في خلافة واحدة؛ فقد تزامنت مراكز ودول ومجتمعات متعددة من الأندلس والمغرب إلى مصر والشام وإيران وآسيا الوسطى والهند وإفريقيا.",
+        "english": "Medieval Islamic history cannot be reduced to a single caliphate. Multiple centers, states, and societies coexisted from al-Andalus and the Maghreb to Egypt, the Levant, Iran, Central Asia, India, and Africa."
+      },
+      "sections": [
+        {
+          "id": "plural_centres",
+          "title": {
+            "arabic": "تعدد المراكز",
+            "english": "Multiple centers"
+          },
+          "paragraphs": [
+            {
+              "arabic": "كانت قرطبة والقاهرة والقيروان وفاس ودمشق وبخارى وسمرقند وغيرها مراكز سياسية أو علمية أو تجارية في أزمنة مختلفة. ويكشف هذا التعدد أن النشاط الحضاري لم ينتقل في خط واحد من عاصمة إلى أخرى.",
+              "english": "Cordoba, Cairo, Kairouan, Fez, Damascus, Bukhara, Samarkand, and other cities served as political, intellectual, or commercial centers at different times. This plurality shows that cultural activity did not move along a single line from one capital to another."
+            }
+          ]
+        },
+        {
+          "id": "trade",
+          "title": {
+            "arabic": "التجارة وحركة الناس والأفكار",
+            "english": "Trade and the movement of people and ideas"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ربطت شبكات برية وبحرية مناطق البحر المتوسط والصحراء الكبرى والبحر الأحمر والخليج والمحيط الهندي وآسيا الوسطى. نقلت هذه الشبكات السلع والكتب والتقنيات واللغات والأفكار، وكانت طرقها تتغير بتغير الأمن والأسواق والدول.",
+              "english": "Overland and maritime networks connected the Mediterranean, the Sahara, the Red Sea, the Gulf, the Indian Ocean, and Central Asia. These networks carried goods, books, technologies, languages, and ideas, while routes shifted with security, markets, and political change."
+            }
+          ]
+        },
+        {
+          "id": "institutions",
+          "title": {
+            "arabic": "مؤسسات العلم والمدينة",
+            "english": "Institutions of learning and urban life"
+          },
+          "paragraphs": [
+            {
+              "arabic": "دعمت المساجد والمدارس والمكتبات والبيمارستانات والأوقاف أشكالاً مختلفة من التعليم والخدمة العامة. اختلفت هذه المؤسسات من مكان إلى آخر ومن عصر إلى آخر، لذلك يتجنب التطبيق تقديم نموذج حضاري واحد ثابت لكل العالم الإسلامي.",
+              "english": "Mosques, madrasas, libraries, hospitals, and endowments supported different forms of learning and public service. These institutions varied by region and period, so the app avoids presenting a single fixed institutional model for the entire Islamic world."
+            }
+          ]
+        },
+        {
+          "id": "arts",
+          "title": {
+            "arabic": "الفنون والعمارة",
+            "english": "Arts and architecture"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تطورت أنماط معمارية وفنية محلية متعددة تحت تأثير المواد المتاحة والتقاليد السابقة وشبكات الحرفيين والرعاية السياسية والدينية. لذلك يدرس القسم الحضارة بوصفها شبكة من التجارب الإقليمية المتفاعلة.",
+              "english": "Multiple local architectural and artistic traditions developed through available materials, earlier traditions, artisan networks, and political and religious patronage. The civilization section therefore treats Islamic civilization as a network of interacting regional experiences."
+            }
+          ]
+        }
+      ],
+      "sourceIds": [
+        "met_chronology",
+        "met_science",
+        "unesco_silk_roads"
+      ],
+      "relatedEraIds": [
+        "umayyad",
+        "abbasid",
+        "ottoman_modern"
+      ],
+      "tags": [
+        "cities",
+        "trade",
+        "institutions",
+        "architecture"
+      ]
+    },
+    {
+      "id": "era_ottoman_modern",
+      "eraId": "ottoman_modern",
+      "title": {
+        "arabic": "العثمانيون والعصر الحديث",
+        "english": "Ottomans and the modern era"
+      },
+      "lead": {
+        "arabic": "يمتد هذا المدخل من نشوء الدولة العثمانية أواخر القرن الثالث عشر إلى التحولات الكبرى التي أعادت تشكيل المجتمعات والدول ذات الأغلبية المسلمة في العصر الحديث.",
+        "english": "This entry runs from the rise of the Ottoman state in the late thirteenth century to the major transformations that reshaped Muslim-majority societies and states in the modern era."
+      },
+      "sections": [
+        {
+          "id": "rise",
+          "title": {
+            "arabic": "النشوء والتوسع",
+            "english": "Formation and expansion"
+          },
+          "paragraphs": [
+            {
+              "arabic": "نشأت الدولة العثمانية في الأناضول ضمن بيئة سياسية متعددة القوى، ثم توسعت في البلقان والأناضول وشرق المتوسط. كان فتح القسطنطينية سنة 1453م محطة بارزة جعلت إسطنبول مركزاً إمبراطورياً مهماً.",
+              "english": "The Ottoman state emerged in Anatolia within a politically fragmented environment and later expanded through the Balkans, Anatolia, and the eastern Mediterranean. The conquest of Constantinople in 1453 CE was a major milestone that made Istanbul an important imperial center."
+            }
+          ]
+        },
+        {
+          "id": "institutions",
+          "title": {
+            "arabic": "الإدارة والمجتمع",
+            "english": "Administration and society"
+          },
+          "paragraphs": [
+            {
+              "arabic": "حكم العثمانيون أقاليم شديدة التنوع الديني واللغوي والاجتماعي عبر مؤسسات تغيرت عبر القرون. لا ينبغي تصوير النظام العثماني كتركيب ثابت؛ فقد تطورت علاقات المركز بالأقاليم والجيش والضرائب والقضاء باستمرار.",
+              "english": "The Ottomans governed highly diverse religious, linguistic, and social populations through institutions that changed over centuries. The Ottoman system should not be treated as static; relations between the center, provinces, military, taxation, and courts evolved continuously."
+            }
+          ]
+        },
+        {
+          "id": "coexisting_states",
+          "title": {
+            "arabic": "عالم إسلامي متعدد الدول",
+            "english": "A multi-state Islamic world"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تزامنت الدولة العثمانية مع دول إسلامية كبرى أخرى، منها الصفويون في إيران والمغول في الهند، إضافة إلى دول ومجتمعات في إفريقيا وآسيا الوسطى وجنوب شرق آسيا. ولهذا لا يستخدم التطبيق العثمانيين بوصفهم إطاراً وحيداً لكل التاريخ الإسلامي المتأخر.",
+              "english": "The Ottoman state coexisted with other major Muslim powers, including the Safavids in Iran and the Mughals in India, alongside states and societies in Africa, Central Asia, and Southeast Asia. The app therefore does not use the Ottoman experience as the sole framework for later Islamic history."
+            }
+          ]
+        },
+        {
+          "id": "modern_transition",
+          "title": {
+            "arabic": "التحول إلى العصر الحديث",
+            "english": "Transition into the modern era"
+          },
+          "paragraphs": [
+            {
+              "arabic": "شهد القرنان التاسع عشر والعشرون إصلاحات داخلية، وضغوطاً إمبراطورية أوروبية، وحروباً وتغيرات اقتصادية وحدودية واسعة. أُلغيت مؤسسة الخلافة العثمانية في تركيا سنة 1924م، بينما استمرت المجتمعات المسلمة بعد ذلك في مسارات وطنية وإقليمية وعالمية متعددة.",
+              "english": "The nineteenth and twentieth centuries brought internal reforms, European imperial pressure, wars, and broad economic and territorial change. The Ottoman caliphate institution was abolished in Türkiye in 1924, while Muslim societies thereafter continued along diverse national, regional, and global trajectories."
+            }
+          ]
+        }
+      ],
+      "sourceIds": [
+        "met_chronology",
+        "unesco_silk_roads"
+      ],
+      "relatedEraIds": [
+        "regional_civilizations"
+      ],
+      "tags": [
+        "ottoman",
+        "istanbul",
+        "modern",
+        "institutions"
+      ]
+    }
+  ],
+  "states": [
+    {
+      "id": "rashidun",
+      "title": {
+        "arabic": "الخلافة الراشدة",
+        "english": "Rashidun caliphate"
+      },
+      "period": {
+        "startCe": 632,
+        "endCe": 661,
+        "precision": "Exact"
+      },
+      "summary": {
+        "arabic": "مرحلة الحكم التي تلت وفاة النبي ﷺ واتسعت خلالها سلطة الدولة خارج الجزيرة العربية.",
+        "english": "The period of rule after the Prophet’s death, during which authority expanded beyond Arabia."
+      },
+      "region": "MultiRegional",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "rashidun"
+      ],
+      "sourceIds": [
+        "met_chronology",
+        "world_history_caliphates"
+      ]
+    },
+    {
+      "id": "umayyad_caliphate",
+      "title": {
+        "arabic": "الدولة الأموية",
+        "english": "Umayyad caliphate"
+      },
+      "period": {
+        "startCe": 661,
+        "endCe": 750,
+        "precision": "Exact"
+      },
+      "summary": {
+        "arabic": "دولة اتخذت دمشق مركزاً وربطت أقاليم واسعة من غرب المتوسط إلى آسيا الوسطى.",
+        "english": "A Damascus-centered state spanning wide regions from the western Mediterranean to Central Asia."
+      },
+      "region": "MultiRegional",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "umayyad"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "abbasid_caliphate",
+      "title": {
+        "arabic": "الدولة العباسية",
+        "english": "Abbasid caliphate"
+      },
+      "period": {
+        "startCe": 750,
+        "endCe": 1258,
+        "precision": "Exact"
+      },
+      "summary": {
+        "arabic": "خلافة ارتبطت بغداد بمراحلها المركزية مع ظهور دول إقليمية متزامنة.",
+        "english": "A caliphate strongly associated with Baghdad alongside the rise of concurrent regional states."
+      },
+      "region": "MultiRegional",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "abbasid"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "umayyads_al_andalus",
+      "title": {
+        "arabic": "الأمويون في الأندلس",
+        "english": "Umayyads of al-Andalus"
+      },
+      "period": {
+        "startCe": 756,
+        "endCe": 1031,
+        "precision": "Exact"
+      },
+      "summary": {
+        "arabic": "حكم أموي مستقل في الأندلس تطور من إمارة إلى خلافة، وكانت قرطبة أبرز مراكزه.",
+        "english": "An independent Umayyad polity in al-Andalus that developed from an emirate into a caliphate centered on Cordoba."
+      },
+      "region": "MaghrebAndAlAndalus",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "samanids",
+      "title": {
+        "arabic": "الدولة السامانية",
+        "english": "Samanids"
+      },
+      "period": {
+        "startCe": 819,
+        "endCe": 1005,
+        "precision": "Exact"
+      },
+      "summary": {
+        "arabic": "سلالة حكمت أجزاء من إيران وآسيا الوسطى وأسهمت مدنها في شبكات التجارة والثقافة.",
+        "english": "A dynasty ruling parts of Iran and Central Asia whose cities participated in major commercial and cultural networks."
+      },
+      "region": "IranAndCentralAsia",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "abbasid",
+        "regional_civilizations"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "fatimids",
+      "title": {
+        "arabic": "الدولة الفاطمية",
+        "english": "Fatimid dynasty"
+      },
+      "period": {
+        "startCe": 909,
+        "endCe": 1171,
+        "precision": "Exact"
+      },
+      "summary": {
+        "arabic": "نشأت في شمال إفريقيا ثم اتخذت القاهرة مركزاً رئيسياً وتركت إرثاً عمرانياً وفنياً وعلمياً واسعاً.",
+        "english": "A dynasty that emerged in North Africa and later made Cairo a principal center, leaving a major urban, artistic, and scholarly legacy."
+      },
+      "region": "EgyptAndLevant",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "sourceIds": [
+        "met_fatimid"
+      ]
+    },
+    {
+      "id": "seljuqs_iran",
+      "title": {
+        "arabic": "السلاجقة في إيران",
+        "english": "Seljuqs of Iran"
+      },
+      "period": {
+        "startCe": 1040,
+        "endCe": 1196,
+        "precision": "Approximate"
+      },
+      "summary": {
+        "arabic": "قوة إقليمية واسعة امتدت عبر إيران وآسيا الوسطى وأجزاء من العراق والأناضول.",
+        "english": "A major regional power spanning Iran, Central Asia, and parts of Iraq and Anatolia."
+      },
+      "region": "IranAndCentralAsia",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "almoravids",
+      "title": {
+        "arabic": "المرابطون",
+        "english": "Almoravids"
+      },
+      "period": {
+        "startCe": 1062,
+        "endCe": 1147,
+        "precision": "Approximate"
+      },
+      "summary": {
+        "arabic": "دولة امتد نفوذها في المغرب والأندلس وربطت مناطق صحراوية ومتوسطية.",
+        "english": "A state spanning the Maghreb and al-Andalus and linking Saharan and Mediterranean regions."
+      },
+      "region": "MaghrebAndAlAndalus",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "seljuqs_rum",
+      "title": {
+        "arabic": "سلاجقة الروم",
+        "english": "Seljuqs of Rum"
+      },
+      "period": {
+        "startCe": 1081,
+        "endCe": 1307,
+        "precision": "Exact"
+      },
+      "summary": {
+        "arabic": "دولة أناضولية ربطت طرق التجارة بين الأناضول وشرق المتوسط والداخل الآسيوي.",
+        "english": "An Anatolian state connecting trade routes between Anatolia, the eastern Mediterranean, and inland Asia."
+      },
+      "region": "Anatolia",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "almohads",
+      "title": {
+        "arabic": "الموحدون",
+        "english": "Almohads"
+      },
+      "period": {
+        "startCe": 1130,
+        "endCe": 1269,
+        "precision": "Approximate"
+      },
+      "summary": {
+        "arabic": "دولة خلفت المرابطين في أجزاء واسعة من المغرب والأندلس.",
+        "english": "A state that succeeded the Almoravids across much of the Maghreb and al-Andalus."
+      },
+      "region": "MaghrebAndAlAndalus",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "ayyubids",
+      "title": {
+        "arabic": "الدولة الأيوبية",
+        "english": "Ayyubid dynasty"
+      },
+      "period": {
+        "startCe": 1171,
+        "endCe": 1260,
+        "precision": "Approximate"
+      },
+      "summary": {
+        "arabic": "دولة أسسها صلاح الدين في مصر ثم امتدت سلطتها إلى مناطق من الشام واليمن.",
+        "english": "A dynasty founded by Salah al-Din in Egypt whose authority extended into parts of the Levant and Yemen."
+      },
+      "region": "EgyptAndLevant",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "sourceIds": [
+        "met_ayyubid"
+      ]
+    },
+    {
+      "id": "nasrids",
+      "title": {
+        "arabic": "مملكة بني نصر في غرناطة",
+        "english": "Nasrid kingdom of Granada"
+      },
+      "period": {
+        "startCe": 1232,
+        "endCe": 1492,
+        "precision": "Exact"
+      },
+      "summary": {
+        "arabic": "آخر دولة إسلامية كبرى في الأندلس، تمركزت في غرناطة وارتبطت بإرث معماري بارز.",
+        "english": "The last major Muslim-ruled state in al-Andalus, centered on Granada and associated with a major architectural legacy."
+      },
+      "region": "MaghrebAndAlAndalus",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "mamluks",
+      "title": {
+        "arabic": "سلطنة المماليك",
+        "english": "Mamluk sultanate"
+      },
+      "period": {
+        "startCe": 1250,
+        "endCe": 1517,
+        "precision": "Exact"
+      },
+      "summary": {
+        "arabic": "سلطنة تمركزت في مصر والشام وكانت القاهرة أحد أهم مراكزها السياسية والعلمية والتجارية.",
+        "english": "A sultanate centered in Egypt and the Levant, with Cairo among its major political, scholarly, and commercial centers."
+      },
+      "region": "EgyptAndLevant",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "ilkhanids",
+      "title": {
+        "arabic": "الدولة الإيلخانية",
+        "english": "Ilkhanids"
+      },
+      "period": {
+        "startCe": 1256,
+        "endCe": 1353,
+        "precision": "Exact"
+      },
+      "summary": {
+        "arabic": "فرع مغولي حكم إيران والعراق وأقاليم مجاورة ثم أصبح جزء من نخبه الحاكمة مسلماً.",
+        "english": "A Mongol dynasty ruling Iran, Iraq, and neighboring regions, whose ruling elite later included Muslim converts."
+      },
+      "region": "IranAndCentralAsia",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "sourceIds": [
+        "met_ilkhanid"
+      ]
+    },
+    {
+      "id": "ottomans",
+      "title": {
+        "arabic": "الدولة العثمانية",
+        "english": "Ottoman empire"
+      },
+      "period": {
+        "startCe": 1299,
+        "endCe": 1923,
+        "precision": "Exact"
+      },
+      "summary": {
+        "arabic": "دولة طويلة العمر نشأت في الأناضول واتسعت عبر البلقان وشرق المتوسط وأجزاء من المشرق وشمال إفريقيا.",
+        "english": "A long-lived state that emerged in Anatolia and expanded across the Balkans, eastern Mediterranean, parts of the Middle East, and North Africa."
+      },
+      "region": "MultiRegional",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "ottoman_modern"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "timurids",
+      "title": {
+        "arabic": "الدولة التيمورية",
+        "english": "Timurids"
+      },
+      "period": {
+        "startCe": 1370,
+        "endCe": 1507,
+        "precision": "Approximate"
+      },
+      "summary": {
+        "arabic": "سلالة تمركزت في آسيا الوسطى وإيران واشتهرت برعاية العمارة والفنون والكتب.",
+        "english": "A dynasty centered in Central Asia and Iran and noted for patronage of architecture, arts, and books."
+      },
+      "region": "IranAndCentralAsia",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "sourceIds": [
+        "met_timurid"
+      ]
+    },
+    {
+      "id": "safavids",
+      "title": {
+        "arabic": "الدولة الصفوية",
+        "english": "Safavid empire"
+      },
+      "period": {
+        "startCe": 1501,
+        "endCe": 1722,
+        "precision": "Exact"
+      },
+      "summary": {
+        "arabic": "دولة تمركزت في إيران وأعادت تشكيل الحياة السياسية والثقافية والدينية في المنطقة.",
+        "english": "A state centered in Iran that reshaped the region’s political, cultural, and religious life."
+      },
+      "region": "IranAndCentralAsia",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "ottoman_modern"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "mughals",
+      "title": {
+        "arabic": "الدولة المغولية في الهند",
+        "english": "Mughal empire"
+      },
+      "period": {
+        "startCe": 1526,
+        "endCe": 1858,
+        "precision": "Exact"
+      },
+      "summary": {
+        "arabic": "إمبراطورية حكمت معظم شبه القارة الهندية في مراحل مختلفة وارتبطت بإدارة واسعة ورعاية كبيرة للفنون والعمارة.",
+        "english": "An empire that ruled much of the Indian subcontinent at different times and was associated with extensive administration and major artistic and architectural patronage."
+      },
+      "region": "SouthAsia",
+      "capitalPlaceIds": [],
+      "eraIds": [
+        "ottoman_modern"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "revelation_begins",
+      "date": {
+        "startCe": 610,
+        "endCe": null,
+        "precision": "Approximate"
+      },
+      "category": "ReligiousAndCommunity",
+      "title": {
+        "arabic": "بداية الوحي",
+        "english": "Beginning of revelation"
+      },
+      "summary": {
+        "arabic": "يرتبط عام 610م تقريباً في الموروث الإسلامي ببداية نزول الوحي على النبي محمد ﷺ في مكة.",
+        "english": "Around 610 CE is associated in Islamic tradition with the beginning of revelation to Prophet Muhammad in Mecca."
+      },
+      "context": {
+        "arabic": "كانت مكة مركزاً دينياً وتجارياً في غرب الجزيرة العربية، وبدأت الدعوة الإسلامية في بيئة قبلية متعددة الروابط والمصالح.",
+        "english": "Mecca was a religious and commercial center in western Arabia, and the Islamic mission began within a tribal society shaped by multiple networks and interests."
+      },
+      "significance": {
+        "arabic": "يمثل الحدث بداية الإطار الزمني للسيرة النبوية في التطبيق، بينما تبقى الروايات التفصيلية في قسم السيرة المتخصص.",
+        "english": "This marks the beginning of the app’s Sira chronology, while detailed narrative material remains in the dedicated Sira section."
+      },
+      "eraIds": [
+        "prophetic_era"
+      ],
+      "stateIds": [],
+      "placeIds": [
+        "mecca"
+      ],
+      "personIds": [],
+      "relatedTopicIds": [
+        "translation_books"
+      ],
+      "sourceIds": [
+        "internal_sira",
+        "met_chronology"
+      ]
+    },
+    {
+      "id": "hijra_medina",
+      "date": {
+        "startCe": 622,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "ReligiousAndCommunity",
+      "title": {
+        "arabic": "الهجرة إلى المدينة",
+        "english": "Hijra to Medina"
+      },
+      "summary": {
+        "arabic": "هاجر النبي ﷺ والمسلمون من مكة إلى المدينة سنة 622م، وأصبحت الهجرة لاحقاً نقطة ابتداء التقويم الهجري.",
+        "english": "Prophet Muhammad and the Muslim community migrated from Mecca to Medina in 622 CE; the Hijra later became the starting point of the Hijri calendar."
+      },
+      "context": {
+        "arabic": "جاءت الهجرة بعد سنوات من الدعوة في مكة واتصالات مع أهل يثرب، وأعادت تشكيل المجال الاجتماعي والسياسي للجماعة المسلمة.",
+        "english": "The migration followed years of preaching in Mecca and contacts with people in Yathrib, reshaping the social and political setting of the Muslim community."
+      },
+      "significance": {
+        "arabic": "يمثل الحدث انتقالاً من المرحلة المكية إلى بناء مجتمع منظم في المدينة، ويشكل أحد أهم المراسي الزمنية في التاريخ الإسلامي.",
+        "english": "The event marks the transition from the Meccan phase to an organized community in Medina and is one of the central chronological anchors of Islamic history."
+      },
+      "eraIds": [
+        "prophetic_era"
+      ],
+      "stateIds": [],
+      "placeIds": [
+        "mecca",
+        "medina"
+      ],
+      "personIds": [],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "internal_sira",
+        "met_chronology"
+      ]
+    },
+    {
+      "id": "battle_badr",
+      "date": {
+        "startCe": 624,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "Conflict",
+      "title": {
+        "arabic": "غزوة بدر",
+        "english": "Battle of Badr"
+      },
+      "summary": {
+        "arabic": "وقعت بدر سنة 624م بين المسلمين من المدينة وقوة مكية، وتعد من أبرز أحداث السيرة المبكرة.",
+        "english": "Badr took place in 624 CE between the Medinan Muslim community and a Meccan force and is a major event in the early Sira."
+      },
+      "context": {
+        "arabic": "وقعت المواجهة ضمن توتر متصاعد بين المدينة ومكة بعد الهجرة، وتعرضها مصادر السيرة بتفاصيل متفاوتة.",
+        "english": "The confrontation occurred amid escalating tension between Medina and Mecca after the Hijra, and Sira sources preserve differing levels of detail."
+      },
+      "significance": {
+        "arabic": "أثرت بدر في توازنات المرحلة المبكرة وفي الذاكرة الدينية والتاريخية الإسلامية، من دون اختزال التطورات اللاحقة في نتيجة معركة واحدة.",
+        "english": "Badr affected early political balances and later Islamic religious and historical memory, without reducing subsequent developments to the outcome of a single battle."
+      },
+      "eraIds": [
+        "prophetic_era"
+      ],
+      "stateIds": [],
+      "placeIds": [
+        "badr",
+        "medina"
+      ],
+      "personIds": [],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "internal_sira"
+      ]
+    },
+    {
+      "id": "prophet_death_632",
+      "date": {
+        "startCe": 632,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "PoliticalTransition",
+      "title": {
+        "arabic": "وفاة النبي محمد ﷺ",
+        "english": "Death of Prophet Muhammad"
+      },
+      "summary": {
+        "arabic": "توفي النبي محمد ﷺ في المدينة سنة 632م، وبدأت بعد ذلك مرحلة الخلافة الراشدة.",
+        "english": "Prophet Muhammad died in Medina in 632 CE, after which the Rashidun period began."
+      },
+      "context": {
+        "arabic": "أوجدت الوفاة أسئلة عملية وسياسية حول القيادة وإدارة المجتمع الذي توسعت علاقاته في أواخر العهد المدني.",
+        "english": "The death created immediate practical and political questions about leadership and governance in a community whose relationships had expanded during the Medinan years."
+      },
+      "significance": {
+        "arabic": "يفصل التطبيق هنا بين السيرة النبوية من جهة والتاريخ السياسي والإداري اللاحق من جهة أخرى، مع بقاء التداخل بينهما مفهوماً تاريخياً.",
+        "english": "The app uses this point to distinguish the Prophet’s biography from later political and administrative history while recognizing their historical continuity."
+      },
+      "eraIds": [
+        "prophetic_era",
+        "rashidun"
+      ],
+      "stateIds": [],
+      "placeIds": [
+        "medina"
+      ],
+      "personIds": [],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "internal_sira",
+        "met_chronology"
+      ]
+    },
+    {
+      "id": "rashidun_expansion_630s",
+      "date": {
+        "startCe": 636,
+        "endCe": null,
+        "precision": "Approximate"
+      },
+      "category": "Conflict",
+      "title": {
+        "arabic": "تحولات الشام والعراق في ثلاثينيات القرن السابع",
+        "english": "Levant and Iraq transformations in the 630s"
+      },
+      "summary": {
+        "arabic": "شهدت ثلاثينيات القرن السابع معارك وتحولات سياسية كبرى في الشام والعراق ضمن توسع الدولة في عهد الخلفاء الراشدين.",
+        "english": "The 630s saw major battles and political transformations in the Levant and Iraq during the expansion of the Rashidun state."
+      },
+      "context": {
+        "arabic": "تداخلت الحرب مع انهيار أو تراجع هياكل إمبراطورية سابقة وتغير الإدارة والضرائب والحاميات والمدن.",
+        "english": "Warfare intersected with the weakening or collapse of earlier imperial structures and with changes in administration, taxation, garrisons, and cities."
+      },
+      "significance": {
+        "arabic": "فتحت هذه التحولات مرحلة جديدة في تاريخ المشرق، لكن نتائجها المحلية اختلفت من إقليم إلى آخر ولم تقع بصورة متطابقة.",
+        "english": "These changes opened a new phase in Middle Eastern history, but local outcomes differed by region and did not unfold identically everywhere."
+      },
+      "eraIds": [
+        "rashidun"
+      ],
+      "stateIds": [
+        "rashidun"
+      ],
+      "placeIds": [],
+      "personIds": [
+        "khalid_ibn_al_walid"
+      ],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "met_chronology",
+        "world_history_caliphates"
+      ]
+    },
+    {
+      "id": "umayyad_rule_661",
+      "date": {
+        "startCe": 661,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "PoliticalTransition",
+      "title": {
+        "arabic": "بداية الحكم الأموي",
+        "english": "Beginning of Umayyad rule"
+      },
+      "summary": {
+        "arabic": "يؤرخ عام 661م عادة لبداية الدولة الأموية واتخاذ دمشق مركزاً للحكم.",
+        "english": "The year 661 CE is conventionally used to mark the beginning of Umayyad rule, centered on Damascus."
+      },
+      "context": {
+        "arabic": "جاء الانتقال بعد سنوات من النزاع الداخلي في الفتنة الأولى، وتختلف المصادر في بعض تفاصيلها وتقييماتها.",
+        "english": "The transition followed years of internal conflict during the First Fitna, whose details and interpretations vary across sources."
+      },
+      "significance": {
+        "arabic": "أصبح مركز القرار السياسي في دمشق، وبدأت مرحلة جديدة من التنظيم الإداري والاتساع الإقليمي.",
+        "english": "Political decision-making became centered in Damascus, opening a new phase of administrative development and territorial expansion."
+      },
+      "eraIds": [
+        "rashidun",
+        "umayyad"
+      ],
+      "stateIds": [
+        "umayyad_caliphate"
+      ],
+      "placeIds": [
+        "damascus"
+      ],
+      "personIds": [],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "met_major_dynasties",
+        "world_history_caliphates"
+      ]
+    },
+    {
+      "id": "al_andalus_711",
+      "date": {
+        "startCe": 711,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "Conflict",
+      "title": {
+        "arabic": "بداية الحكم الإسلامي في الأندلس",
+        "english": "Beginning of Muslim rule in al-Andalus"
+      },
+      "summary": {
+        "arabic": "شهد عام 711م عبور قوات إلى شبه الجزيرة الإيبيرية وبداية مرحلة جديدة من الحكم الإسلامي في الأندلس.",
+        "english": "In 711 CE, forces crossed into the Iberian Peninsula, beginning a new period of Muslim rule in al-Andalus."
+      },
+      "context": {
+        "arabic": "كانت التحولات جزءاً من تغيرات سياسية أوسع في غرب المتوسط، وتلتها مراحل متعددة من الفتح والاستقرار وإعادة التنظيم.",
+        "english": "The developments formed part of wider political changes in the western Mediterranean and were followed by multiple phases of conquest, settlement, and reorganization."
+      },
+      "significance": {
+        "arabic": "ارتبطت الأندلس لاحقاً بدول ومراكز حضرية وثقافية متعددة، ولا يختزل تاريخها في حدث العبور الأول وحده.",
+        "english": "Al-Andalus later developed multiple states and urban and cultural centers, and its history cannot be reduced to the initial crossing alone."
+      },
+      "eraIds": [
+        "umayyad",
+        "regional_civilizations"
+      ],
+      "stateIds": [
+        "umayyad_caliphate"
+      ],
+      "placeIds": [
+        "cordoba"
+      ],
+      "personIds": [
+        "tariq_ibn_ziyad"
+      ],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "met_chronology",
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "abbasid_revolution_750",
+      "date": {
+        "startCe": 750,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "PoliticalTransition",
+      "title": {
+        "arabic": "قيام الدولة العباسية",
+        "english": "Beginning of Abbasid rule"
+      },
+      "summary": {
+        "arabic": "انتهى الحكم الأموي في المشرق سنة 750م وبدأ الحكم العباسي، بينما استمر الوجود الأموي لاحقاً في الأندلس.",
+        "english": "Umayyad rule in the eastern caliphate ended in 750 CE and Abbasid rule began, while an Umayyad polity later continued in al-Andalus."
+      },
+      "context": {
+        "arabic": "جاء التحول بعد حركة سياسية وعسكرية واسعة استندت إلى شبكات في خراسان والعراق ومناطق أخرى.",
+        "english": "The transition followed a broad political and military movement supported by networks in Khurasan, Iraq, and elsewhere."
+      },
+      "significance": {
+        "arabic": "غيرت المرحلة مركز الثقل السياسي وأعادت تشكيل شبكات النخبة والإدارة، لكنها لم تُلغِ تعدد المراكز الإسلامية.",
+        "english": "The change shifted political centers of gravity and reshaped elite and administrative networks without eliminating the plurality of Muslim centers."
+      },
+      "eraIds": [
+        "umayyad",
+        "abbasid"
+      ],
+      "stateIds": [
+        "umayyad_caliphate",
+        "abbasid_caliphate"
+      ],
+      "placeIds": [],
+      "personIds": [],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "met_chronology",
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "baghdad_founded_762",
+      "date": {
+        "startCe": 762,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "FoundationAndUrbanism",
+      "title": {
+        "arabic": "تأسيس بغداد",
+        "english": "Foundation of Baghdad"
+      },
+      "summary": {
+        "arabic": "أسس الخليفة العباسي المنصور بغداد سنة 762م، وأصبحت لاحقاً من أبرز مدن الحكم والتجارة والعلم.",
+        "english": "The Abbasid caliph al-Mansur founded Baghdad in 762 CE, and it later became a major center of government, trade, and learning."
+      },
+      "context": {
+        "arabic": "اختير موقع المدينة في العراق ضمن شبكة نهرية وبرية كثيفة تربط مناطق زراعية وتجارية واسعة.",
+        "english": "The city’s Iraqi location sat within dense river and overland networks connecting major agricultural and commercial regions."
+      },
+      "significance": {
+        "arabic": "غدت بغداد عقدة سياسية واقتصادية ومعرفية أثرت في تاريخ مناطق واسعة، مع استمرار مراكز أخرى بالتوازي معها.",
+        "english": "Baghdad became a major political, economic, and intellectual node influencing wide regions while other centers continued in parallel."
+      },
+      "eraIds": [
+        "abbasid"
+      ],
+      "stateIds": [
+        "abbasid_caliphate"
+      ],
+      "placeIds": [
+        "baghdad"
+      ],
+      "personIds": [],
+      "relatedTopicIds": [
+        "translation_books",
+        "cities_urban_life"
+      ],
+      "sourceIds": [
+        "met_chronology",
+        "met_science"
+      ]
+    },
+    {
+      "id": "abbasid_translation_scholarship",
+      "date": {
+        "startCe": 800,
+        "endCe": 900,
+        "precision": "Range"
+      },
+      "category": "KnowledgeAndCulture",
+      "title": {
+        "arabic": "ازدهار الترجمة والتأليف في بغداد العباسية",
+        "english": "Expansion of translation and scholarship in Abbasid Baghdad"
+      },
+      "summary": {
+        "arabic": "ازدهرت في القرنين الثامن والتاسع أنشطة الترجمة والتأليف والحساب والفلك والطب في بغداد ومراكز أخرى.",
+        "english": "During the eighth and ninth centuries, translation, authorship, calculation, astronomy, and medicine expanded in Baghdad and other centers."
+      },
+      "context": {
+        "arabic": "اعتمدت هذه الأنشطة على رعاية متعددة، وكتّاب ومترجمين وعلماء من خلفيات متنوعة، وعلى شبكات الكتب والمعرفة القادمة من لغات ومناطق مختلفة.",
+        "english": "These activities depended on varied patronage, writers, translators, and scholars from diverse backgrounds, as well as book and knowledge networks spanning multiple languages and regions."
+      },
+      "significance": {
+        "arabic": "أنتجت المرحلة مؤلفات وشروحاً وترجمات أثرت في تقاليد علمية لاحقة داخل العالم الإسلامي وخارجه، من دون اختزالها في مؤسسة واحدة أو لحظة واحدة.",
+        "english": "The period produced works, commentaries, and translations that influenced later scholarly traditions within and beyond the Islamic world, without being reducible to one institution or single moment."
+      },
+      "eraIds": [
+        "abbasid"
+      ],
+      "stateIds": [
+        "abbasid_caliphate"
+      ],
+      "placeIds": [
+        "baghdad"
+      ],
+      "personIds": [
+        "al_khwarizmi"
+      ],
+      "relatedTopicIds": [
+        "translation_books",
+        "mathematics",
+        "astronomy"
+      ],
+      "sourceIds": [
+        "met_science",
+        "met_chronology"
+      ]
+    },
+    {
+      "id": "fatimid_909",
+      "date": {
+        "startCe": 909,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "PoliticalTransition",
+      "title": {
+        "arabic": "قيام الدولة الفاطمية",
+        "english": "Beginning of Fatimid rule"
+      },
+      "summary": {
+        "arabic": "قامت الدولة الفاطمية في شمال إفريقيا سنة 909م قبل انتقال مركزها لاحقاً إلى مصر.",
+        "english": "The Fatimid state was established in North Africa in 909 CE before its center later shifted to Egypt."
+      },
+      "context": {
+        "arabic": "نشأت في فضاء مغاربي متعدد القوى ثم توسعت تدريجياً شرقاً، في وقت استمرت فيه دول أخرى في الأندلس والمشرق.",
+        "english": "It emerged in a politically diverse Maghrebi setting and later expanded eastward while other states continued in al-Andalus and the eastern Islamic world."
+      },
+      "significance": {
+        "arabic": "أضافت الدولة مركزاً سياسياً وثقافياً مهماً إلى خريطة العالم الإسلامي المتعدد السلالات.",
+        "english": "The dynasty added an important political and cultural center to an Islamic world already characterized by multiple concurrent dynasties."
+      },
+      "eraIds": [
+        "abbasid",
+        "regional_civilizations"
+      ],
+      "stateIds": [
+        "fatimids"
+      ],
+      "placeIds": [],
+      "personIds": [],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "met_fatimid"
+      ]
+    },
+    {
+      "id": "cairo_founded_969",
+      "date": {
+        "startCe": 969,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "FoundationAndUrbanism",
+      "title": {
+        "arabic": "تأسيس القاهرة الفاطمية",
+        "english": "Foundation of Fatimid Cairo"
+      },
+      "summary": {
+        "arabic": "بعد دخول الفاطميين مصر سنة 969م أُنشئت القاهرة لتكون مركزاً جديداً للحكم.",
+        "english": "After the Fatimid conquest of Egypt in 969 CE, Cairo was founded as a new center of rule."
+      },
+      "context": {
+        "arabic": "نشأت المدينة قرب الفسطاط ضمن وادي النيل، ثم تطورت علاقتها بالمراكز السكانية والتجارية القائمة حولها.",
+        "english": "The city arose near Fustat in the Nile Valley and developed in relation to existing population and commercial centers around it."
+      },
+      "significance": {
+        "arabic": "أصبحت القاهرة لاحقاً إحدى أهم مدن العالم الإسلامي في السياسة والتعليم والتجارة والعمران عبر دول متعاقبة.",
+        "english": "Cairo later became one of the Islamic world’s major cities for politics, learning, trade, and urban culture across successive states."
+      },
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "stateIds": [
+        "fatimids"
+      ],
+      "placeIds": [
+        "cairo"
+      ],
+      "personIds": [],
+      "relatedTopicIds": [
+        "cities_urban_life",
+        "education_libraries"
+      ],
+      "sourceIds": [
+        "met_fatimid",
+        "met_chronology"
+      ]
+    },
+    {
+      "id": "ayyubid_1171",
+      "date": {
+        "startCe": 1171,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "PoliticalTransition",
+      "title": {
+        "arabic": "بداية الحكم الأيوبي في مصر",
+        "english": "Beginning of Ayyubid rule in Egypt"
+      },
+      "summary": {
+        "arabic": "انتهى الحكم الفاطمي في مصر سنة 1171م وبدأت المرحلة الأيوبية بقيادة صلاح الدين.",
+        "english": "Fatimid rule in Egypt ended in 1171 CE, beginning the Ayyubid period under Salah al-Din."
+      },
+      "context": {
+        "arabic": "جاء التحول ضمن صراعات إقليمية واسعة شملت مصر والشام والقوى الصليبية ومراكز سياسية متعددة.",
+        "english": "The transition occurred amid wider regional struggles involving Egypt, the Levant, Crusader powers, and multiple political centers."
+      },
+      "significance": {
+        "arabic": "أعاد الأيوبيون تشكيل علاقات مصر والشام وأنماط الرعاية السياسية والعسكرية والعمرانية في المنطقة.",
+        "english": "Ayyubid rule reshaped relations between Egypt and the Levant and patterns of political, military, and architectural patronage in the region."
+      },
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "stateIds": [
+        "ayyubids"
+      ],
+      "placeIds": [
+        "cairo"
+      ],
+      "personIds": [],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "met_ayyubid"
+      ]
+    },
+    {
+      "id": "baghdad_1258",
+      "date": {
+        "startCe": 1258,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "Conflict",
+      "title": {
+        "arabic": "سقوط بغداد بيد المغول",
+        "english": "Mongol capture of Baghdad"
+      },
+      "summary": {
+        "arabic": "استولى جيش هولاكو على بغداد سنة 1258م وانتهت بذلك الخلافة العباسية في المدينة.",
+        "english": "Hulagu’s army captured Baghdad in 1258 CE, ending the Abbasid caliphate in the city."
+      },
+      "context": {
+        "arabic": "جاء الحدث ضمن التوسع المغولي في غرب آسيا، وأصاب العراق بأضرار بشرية وعمرانية وسياسية كبيرة.",
+        "english": "The event formed part of Mongol expansion into western Asia and caused major human, urban, and political damage in Iraq."
+      },
+      "significance": {
+        "arabic": "كان تحولاً كبيراً في تاريخ العراق والخلافة، لكنه لم يمثل نهاية المجتمعات أو الدول أو النشاط العلمي الإسلامي في مناطق أخرى.",
+        "english": "It was a major turning point for Iraq and the caliphate, but it did not mark the end of Muslim societies, states, or scholarship elsewhere."
+      },
+      "eraIds": [
+        "abbasid",
+        "regional_civilizations"
+      ],
+      "stateIds": [
+        "abbasid_caliphate"
+      ],
+      "placeIds": [
+        "baghdad"
+      ],
+      "personIds": [],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "met_chronology",
+        "met_ilkhanid"
+      ]
+    },
+    {
+      "id": "mamluk_1250",
+      "date": {
+        "startCe": 1250,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "PoliticalTransition",
+      "title": {
+        "arabic": "قيام سلطنة المماليك",
+        "english": "Beginning of the Mamluk sultanate"
+      },
+      "summary": {
+        "arabic": "بدأ حكم المماليك في مصر سنة 1250م، ثم ارتبطت السلطنة بمصر والشام حتى الفتح العثماني سنة 1517م.",
+        "english": "Mamluk rule in Egypt began in 1250 CE, and the sultanate later encompassed Egypt and the Levant until the Ottoman conquest in 1517."
+      },
+      "context": {
+        "arabic": "نشأت السلطنة في أعقاب أزمة الخلافة الأيوبية في مصر وفي سياق حروب إقليمية وتحولات عسكرية واسعة.",
+        "english": "The sultanate emerged after a crisis in Ayyubid rule in Egypt amid regional warfare and wider military change."
+      },
+      "significance": {
+        "arabic": "أصبحت القاهرة مركزاً سياسياً وعلمياً وتجارياً بارزاً، وربطت السلطنة شرق المتوسط والبحر الأحمر والحجاز.",
+        "english": "Cairo became a major political, scholarly, and commercial center, while the sultanate linked the eastern Mediterranean, Red Sea, and Hijaz."
+      },
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "stateIds": [
+        "mamluks"
+      ],
+      "placeIds": [
+        "cairo"
+      ],
+      "personIds": [],
+      "relatedTopicIds": [
+        "trade_markets",
+        "education_libraries"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "ottoman_emergence_1299",
+      "date": {
+        "startCe": 1299,
+        "endCe": null,
+        "precision": "Approximate"
+      },
+      "category": "PoliticalTransition",
+      "title": {
+        "arabic": "نشوء الدولة العثمانية",
+        "english": "Emergence of the Ottoman state"
+      },
+      "summary": {
+        "arabic": "يستخدم عام 1299م تقليدياً كتاريخ تقريبي لنشوء الإمارة العثمانية في شمال غربي الأناضول.",
+        "english": "The year 1299 CE is conventionally used as an approximate date for the emergence of the Ottoman principality in northwestern Anatolia."
+      },
+      "context": {
+        "arabic": "نشأت الإمارة في بيئة أناضولية متعددة الإمارات والقوى بعد تراجع السلطة السلجوقية والمغولية المباشرة.",
+        "english": "The principality emerged in a fragmented Anatolian environment of multiple powers following the decline of direct Seljuq and Mongol authority."
+      },
+      "significance": {
+        "arabic": "توسعت الدولة لاحقاً عبر الأناضول والبلقان ثم صارت إحدى القوى الكبرى في شرق المتوسط ومناطق أخرى.",
+        "english": "The state later expanded across Anatolia and the Balkans and became a major power in the eastern Mediterranean and beyond."
+      },
+      "eraIds": [
+        "regional_civilizations",
+        "ottoman_modern"
+      ],
+      "stateIds": [
+        "ottomans"
+      ],
+      "placeIds": [],
+      "personIds": [],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "constantinople_1453",
+      "date": {
+        "startCe": 1453,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "Conflict",
+      "title": {
+        "arabic": "فتح القسطنطينية",
+        "english": "Ottoman conquest of Constantinople"
+      },
+      "summary": {
+        "arabic": "استولى العثمانيون بقيادة محمد الثاني على القسطنطينية سنة 1453م.",
+        "english": "The Ottomans under Mehmed II captured Constantinople in 1453 CE."
+      },
+      "context": {
+        "arabic": "جاء الحصار بعد عقود من التوسع العثماني في الأناضول والبلقان وفي ظل تراجع الإمبراطورية البيزنطية.",
+        "english": "The siege followed decades of Ottoman expansion in Anatolia and the Balkans amid the long decline of the Byzantine Empire."
+      },
+      "significance": {
+        "arabic": "أصبحت المدينة عاصمة عثمانية كبرى ومركزاً سياسياً وتجارياً وعمرانياً متعدد السكان والتقاليد.",
+        "english": "The city became a major Ottoman capital and a political, commercial, and urban center with a diverse population and cultural traditions."
+      },
+      "eraIds": [
+        "ottoman_modern"
+      ],
+      "stateIds": [
+        "ottomans"
+      ],
+      "placeIds": [
+        "istanbul"
+      ],
+      "personIds": [],
+      "relatedTopicIds": [
+        "cities_urban_life",
+        "architecture"
+      ],
+      "sourceIds": [
+        "met_chronology",
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "granada_1492",
+      "date": {
+        "startCe": 1492,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "PoliticalTransition",
+      "title": {
+        "arabic": "نهاية حكم بني نصر في غرناطة",
+        "english": "End of Nasrid rule in Granada"
+      },
+      "summary": {
+        "arabic": "استسلمت غرناطة سنة 1492م، منهية الحكم السياسي لبني نصر وآخر دولة إسلامية كبرى في الأندلس.",
+        "english": "Granada surrendered in 1492 CE, ending Nasrid political rule and the last major Muslim-ruled state in al-Andalus."
+      },
+      "context": {
+        "arabic": "سبق الحدث قرون من التحولات السياسية والعسكرية في شبه الجزيرة الإيبيرية، ولم يؤدِ فوراً إلى اختفاء المجتمعات المسلمة المحلية.",
+        "english": "The event followed centuries of political and military change in Iberia and did not immediately erase local Muslim communities."
+      },
+      "significance": {
+        "arabic": "يمثل نهاية مرحلة سياسية، بينما استمرت آثار الأندلس الثقافية والعمرانية والفكرية بعد زوال الدولة.",
+        "english": "It marks the end of a political phase, while Andalusi cultural, architectural, and intellectual legacies continued beyond the state’s fall."
+      },
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "stateIds": [
+        "nasrids"
+      ],
+      "placeIds": [],
+      "personIds": [],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "safavid_1501",
+      "date": {
+        "startCe": 1501,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "PoliticalTransition",
+      "title": {
+        "arabic": "قيام الدولة الصفوية",
+        "english": "Beginning of Safavid rule"
+      },
+      "summary": {
+        "arabic": "أسس الشاه إسماعيل الأول الدولة الصفوية في إيران سنة 1501م.",
+        "english": "Shah Ismail I established Safavid rule in Iran in 1501 CE."
+      },
+      "context": {
+        "arabic": "ظهرت الدولة في فضاء إيراني وآسيوي غربي متداخل القوى، وتنافست لاحقاً مع العثمانيين والأوزبك وغيرهم.",
+        "english": "The state emerged in a politically complex Iranian and western Asian setting and later competed with the Ottomans, Uzbeks, and others."
+      },
+      "significance": {
+        "arabic": "أعادت الدولة تشكيل السياسة والثقافة والمؤسسات الدينية في إيران خلال القرنين السادس عشر والسابع عشر.",
+        "english": "Safavid rule reshaped politics, culture, and religious institutions in Iran during the sixteenth and seventeenth centuries."
+      },
+      "eraIds": [
+        "ottoman_modern"
+      ],
+      "stateIds": [
+        "safavids"
+      ],
+      "placeIds": [],
+      "personIds": [],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "ottoman_egypt_1517",
+      "date": {
+        "startCe": 1517,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "PoliticalTransition",
+      "title": {
+        "arabic": "دخول مصر والشام تحت الحكم العثماني",
+        "english": "Egypt and the Levant under Ottoman rule"
+      },
+      "summary": {
+        "arabic": "هزم العثمانيون سلطنة المماليك سنة 1517م، وأصبحت مصر وأجزاء واسعة من الشام ضمن الدولة العثمانية.",
+        "english": "The Ottomans defeated the Mamluk sultanate in 1517 CE, bringing Egypt and much of the Levant under Ottoman rule."
+      },
+      "context": {
+        "arabic": "جاء التحول ضمن تنافسات عسكرية وتجارية أوسع في شرق المتوسط والبحر الأحمر.",
+        "english": "The transition occurred amid wider military and commercial rivalries in the eastern Mediterranean and Red Sea."
+      },
+      "significance": {
+        "arabic": "أعاد الحدث ترتيب الإدارة والطرق السياسية والاقتصادية في المنطقة، مع استمرار أدوار النخب والمؤسسات المحلية بأشكال مختلفة.",
+        "english": "The event reorganized administration and political-economic networks in the region while many local elites and institutions continued in changing forms."
+      },
+      "eraIds": [
+        "ottoman_modern"
+      ],
+      "stateIds": [
+        "mamluks",
+        "ottomans"
+      ],
+      "placeIds": [
+        "cairo"
+      ],
+      "personIds": [],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "mughal_1526",
+      "date": {
+        "startCe": 1526,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "PoliticalTransition",
+      "title": {
+        "arabic": "بداية الدولة المغولية في الهند",
+        "english": "Beginning of Mughal rule in India"
+      },
+      "summary": {
+        "arabic": "أسس بابر دولة المغول في شمال الهند بعد معركة بانيبات الأولى سنة 1526م.",
+        "english": "Babur established Mughal rule in northern India after the First Battle of Panipat in 1526 CE."
+      },
+      "context": {
+        "arabic": "جاء قيام الدولة في فضاء سياسي هندي وآسيوي أوسط متعدد السلالات وشبكات الهجرة والعسكر والثقافة الفارسية.",
+        "english": "The state emerged within a politically diverse Indian and Central Asian world shaped by dynasties, migration, military networks, and Persianate culture."
+      },
+      "significance": {
+        "arabic": "تطورت الإمبراطورية لاحقاً إلى إحدى أكبر دول جنوب آسيا، وأسهمت في تشكيل الإدارة والفنون والعمارة والاقتصاد في المنطقة.",
+        "english": "The empire later became one of South Asia’s largest states and shaped administration, arts, architecture, and economic life across the region."
+      },
+      "eraIds": [
+        "ottoman_modern"
+      ],
+      "stateIds": [
+        "mughals"
+      ],
+      "placeIds": [],
+      "personIds": [],
+      "relatedTopicIds": [
+        "architecture",
+        "calligraphy_decorative_arts"
+      ],
+      "sourceIds": [
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "id": "ottoman_caliphate_abolished_1924",
+      "date": {
+        "startCe": 1924,
+        "endCe": null,
+        "precision": "Exact"
+      },
+      "category": "InstitutionalChange",
+      "title": {
+        "arabic": "إلغاء مؤسسة الخلافة العثمانية",
+        "english": "Abolition of the Ottoman caliphate"
+      },
+      "summary": {
+        "arabic": "ألغت الجمهورية التركية مؤسسة الخلافة سنة 1924م بعد انتهاء السلطنة العثمانية.",
+        "english": "The Turkish Republic abolished the caliphate institution in 1924 after the end of the Ottoman sultanate."
+      },
+      "context": {
+        "arabic": "جاء القرار ضمن إعادة بناء مؤسسات الدولة التركية بعد الحرب العالمية الأولى وحرب الاستقلال التركية.",
+        "english": "The decision formed part of the institutional reconstruction of the Turkish state after the First World War and the Turkish War of Independence."
+      },
+      "significance": {
+        "arabic": "أنهى القرار مؤسسة سياسية تاريخية مرتبطة بالدولة العثمانية، لكنه لم ينهِ التنوع السياسي والديني للمجتمعات المسلمة في العالم الحديث.",
+        "english": "The decision ended a historic political institution associated with the Ottoman state but did not end the political or religious diversity of Muslim societies in the modern world."
+      },
+      "eraIds": [
+        "ottoman_modern"
+      ],
+      "stateIds": [
+        "ottomans"
+      ],
+      "placeIds": [],
+      "personIds": [],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "met_chronology"
+      ]
+    }
+  ],
+  "civilizationTopics": [
+    {
+      "id": "translation_books",
+      "category": "KnowledgeAndSciences",
+      "title": {
+        "arabic": "الترجمة والكتاب وانتقال المعرفة",
+        "english": "Translation, books, and knowledge circulation"
+      },
+      "summary": {
+        "arabic": "حركة معرفية متعددة المراكز واللغات نقلت النصوص وشرحتها وراجعتها وأعادت توظيفها في سياقات جديدة.",
+        "english": "A multilingual and multi-centered scholarly process in which texts were translated, commented on, revised, and reused in new contexts."
+      },
+      "sections": [
+        {
+          "id": "languages_networks",
+          "title": {
+            "arabic": "لغات وشبكات متعددة",
+            "english": "Multiple languages and networks"
+          },
+          "paragraphs": [
+            {
+              "arabic": "انتقلت المعرفة عبر العربية والسريانية والفارسية واليونانية وغيرها، وشارك في الترجمة والتأليف علماء من خلفيات دينية واجتماعية متعددة. لذلك لا يعرض التطبيق حركة الترجمة باعتبارها عملاً لمؤسسة واحدة أو جماعة واحدة.",
+              "english": "Knowledge circulated through Arabic, Syriac, Persian, Greek, and other languages, with scholars from varied religious and social backgrounds participating in translation and authorship. The app therefore avoids presenting translation as the work of one institution or one community."
+            }
+          ]
+        },
+        {
+          "id": "book_culture",
+          "title": {
+            "arabic": "ثقافة الكتاب",
+            "english": "Book culture"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ساعد انتشار الورق والنسخ والتجارة بالكتب ورعاية المكتبات على تكوين بيئات للقراءة والنسخ والتعليق. واختلف حجم هذه البيئات وتنظيمها من مدينة إلى أخرى ومن عصر إلى آخر.",
+              "english": "The spread of paper, copying, book commerce, and library patronage supported environments of reading, reproduction, and commentary. Their scale and organization varied significantly by city and period."
+            }
+          ]
+        }
+      ],
+      "personIds": [],
+      "placeIds": [],
+      "sourceIds": [
+        "met_science",
+        "met_chronology"
+      ],
+      "relatedTopicIds": [
+        "education_libraries",
+        "mathematics",
+        "astronomy"
+      ]
+    },
+    {
+      "id": "mathematics",
+      "category": "KnowledgeAndSciences",
+      "title": {
+        "arabic": "الرياضيات والحساب",
+        "english": "Mathematics and calculation"
+      },
+      "summary": {
+        "arabic": "تطورت تقاليد الحساب والجبر والهندسة ضمن تفاعل بين حاجات عملية وتراثات علمية سابقة ومؤلفات جديدة.",
+        "english": "Traditions of calculation, algebra, and geometry developed through interaction between practical needs, earlier scholarly traditions, and new writing."
+      },
+      "sections": [
+        {
+          "id": "algebra_calculation",
+          "title": {
+            "arabic": "الجبر والحساب",
+            "english": "Algebra and calculation"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ارتبط اسم الخوارزمي بتاريخ مبكر للجبر والحساب باللغة العربية، لكن تطور الرياضيات كان تراكمياً وشارك فيه علماء كثيرون قبلَه وبعده في مناطق متعددة. يعرض التطبيق هذا التطور كسلسلة من الإضافات لا كاختراع منفرد.",
+              "english": "Al-Khwarizmi is strongly associated with early Arabic works on algebra and calculation, but mathematical development was cumulative and involved many scholars before and after him across several regions. The app presents this as a chain of contributions rather than a single invention."
+            }
+          ]
+        },
+        {
+          "id": "applications",
+          "title": {
+            "arabic": "تطبيقات عملية",
+            "english": "Practical applications"
+          },
+          "paragraphs": [
+            {
+              "arabic": "استخدمت الرياضيات في التجارة والمواريث والمساحة والفلك وضبط الزمن والعمارة وغيرها. كما دفعت المسائل النظرية إلى تطوير طرق جديدة في البرهان والحساب.",
+              "english": "Mathematics was used in commerce, inheritance calculation, surveying, astronomy, timekeeping, architecture, and other fields. Theoretical problems also encouraged new methods of proof and calculation."
+            }
+          ]
+        }
+      ],
+      "personIds": [
+        "al_khwarizmi"
+      ],
+      "placeIds": [],
+      "sourceIds": [
+        "met_science"
+      ],
+      "relatedTopicIds": [
+        "astronomy",
+        "architecture"
+      ]
+    },
+    {
+      "id": "astronomy",
+      "category": "KnowledgeAndSciences",
+      "title": {
+        "arabic": "الفلك وضبط الزمن",
+        "english": "Astronomy and timekeeping"
+      },
+      "summary": {
+        "arabic": "جمع علم الفلك بين الرصد والحساب وصناعة الأدوات وتطبيقات التقويم والمواقيت والاتجاهات.",
+        "english": "Astronomy combined observation, calculation, instrument making, and applications involving calendars, timekeeping, and direction."
+      },
+      "sections": [
+        {
+          "id": "observation",
+          "title": {
+            "arabic": "الرصد والجداول",
+            "english": "Observation and tables"
+          },
+          "paragraphs": [
+            {
+              "arabic": "أنتج علماء في مدن ومراصد مختلفة جداول وحسابات فلكية وصححوا نماذج موروثة وناقشوا دقة الرصد. ولم تكن الممارسة الفلكية موحدة؛ فقد اختلفت المدارس والأدوات وطرق الحساب عبر الزمن.",
+              "english": "Scholars working in different cities and observatories produced astronomical tables and calculations, revised inherited models, and debated observational accuracy. Astronomical practice was not uniform; schools, instruments, and computational methods changed over time."
+            }
+          ]
+        },
+        {
+          "id": "instruments_time",
+          "title": {
+            "arabic": "الأدوات والمواقيت",
+            "english": "Instruments and timekeeping"
+          },
+          "paragraphs": [
+            {
+              "arabic": "استخدمت أدوات مثل الأسطرلاب وأجهزة الرصد في التعليم والقياس، وربطت بعض التطبيقات بين الفلك وتحديد الزمن والاتجاهات. ويجب التمييز بين المعرفة الفلكية النظرية وبين الاستخدامات اليومية المحلية.",
+              "english": "Instruments such as astrolabes and observational devices were used in teaching and measurement, while some applications connected astronomy to determining time and direction. Theoretical astronomy and local everyday practice should be distinguished."
+            }
+          ]
+        }
+      ],
+      "personIds": [],
+      "placeIds": [],
+      "sourceIds": [
+        "met_science"
+      ],
+      "relatedTopicIds": [
+        "mathematics",
+        "translation_books"
+      ]
+    },
+    {
+      "id": "medicine_bimaristans",
+      "category": "KnowledgeAndSciences",
+      "title": {
+        "arabic": "الطب والبيمارستانات",
+        "english": "Medicine and bimaristans"
+      },
+      "summary": {
+        "arabic": "تطور الطب من خلال التأليف والتعليم والممارسة والمؤسسات العلاجية في مدن متعددة، مع اختلاف كبير بين الأزمنة والأماكن.",
+        "english": "Medicine developed through writing, teaching, practice, and care institutions in many cities, with major variation across periods and places."
+      },
+      "sections": [
+        {
+          "id": "medical_writing",
+          "title": {
+            "arabic": "التأليف الطبي",
+            "english": "Medical writing"
+          },
+          "paragraphs": [
+            {
+              "arabic": "جمع أطباء مثل الرازي وابن سينا بين تراثات طبية سابقة والملاحظة والتصنيف والتدريس، ثم أصبحت مؤلفاتهم جزءاً من تقاليد تعليمية واسعة داخل العالم الإسلامي وخارجه.",
+              "english": "Physicians such as al-Razi and Ibn Sina combined earlier medical traditions with observation, classification, and teaching, and their works later became part of broad educational traditions within and beyond the Islamic world."
+            }
+          ]
+        },
+        {
+          "id": "care_institutions",
+          "title": {
+            "arabic": "مؤسسات الرعاية",
+            "english": "Institutions of care"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ظهرت بيمارستانات في عدد من المدن بوصفها مؤسسات للعلاج، وفي بعض البيئات ارتبطت بالتدريب أو الصيدلة أو الأوقاف. لا يفترض التطبيق نموذجاً موحداً لكل بيمارستان، لأن التنظيم والتمويل والخدمات اختلفت تاريخياً.",
+              "english": "Bimaristans appeared in a number of cities as institutions of care, and in some settings were connected to training, pharmacy, or endowments. The app does not assume one universal hospital model because organization, funding, and services varied historically."
+            }
+          ]
+        }
+      ],
+      "personIds": [
+        "al_razi",
+        "ibn_sina"
+      ],
+      "placeIds": [],
+      "sourceIds": [
+        "met_science"
+      ],
+      "relatedTopicIds": [
+        "waqf",
+        "education_libraries"
+      ]
+    },
+    {
+      "id": "optics",
+      "category": "KnowledgeAndSciences",
+      "title": {
+        "arabic": "البصريات ودراسة الضوء",
+        "english": "Optics and the study of light"
+      },
+      "summary": {
+        "arabic": "مثلت دراسة الضوء والرؤية مجالاً تداخلت فيه الرياضيات والملاحظة والنقاش الفلسفي والطبي.",
+        "english": "The study of light and vision brought together mathematics, observation, and philosophical and medical debate."
+      },
+      "sections": [
+        {
+          "id": "vision_light",
+          "title": {
+            "arabic": "الرؤية والضوء",
+            "english": "Vision and light"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ناقش علماء البصريات كيفية حدوث الرؤية وانتقال الضوء وخصائص الانعكاس والانكسار. ارتبط ابن الهيثم بصورة خاصة بتقاليد البحث في هذا المجال، مع اعتماد أعماله على نقاشات سابقة وتأثيرها في نقاشات لاحقة.",
+              "english": "Scholars of optics debated how vision occurs, how light travels, and how reflection and refraction behave. Ibn al-Haytham is especially associated with this field, while his work drew on earlier debates and influenced later ones."
+            }
+          ]
+        },
+        {
+          "id": "observation_geometry",
+          "title": {
+            "arabic": "الملاحظة والهندسة",
+            "english": "Observation and geometry"
+          },
+          "paragraphs": [
+            {
+              "arabic": "جمع البحث البصري بين بناء مسائل هندسية وملاحظة الظواهر وتجارب توضيحية. ويعرض التطبيق هذه الممارسات دون إسقاط مفهوم المختبر الحديث عليها بصورة غير تاريخية.",
+              "english": "Optical inquiry combined geometric problem-solving, observation of phenomena, and demonstrative experiments. The app presents these practices without projecting the modern laboratory model backward onto them."
+            }
+          ]
+        }
+      ],
+      "personIds": [
+        "ibn_al_haytham"
+      ],
+      "placeIds": [],
+      "sourceIds": [
+        "met_science"
+      ],
+      "relatedTopicIds": [
+        "mathematics"
+      ]
+    },
+    {
+      "id": "education_libraries",
+      "category": "Institutions",
+      "title": {
+        "arabic": "التعليم والمدارس والمكتبات",
+        "english": "Education, madrasas, and libraries"
+      },
+      "summary": {
+        "arabic": "تشكل التعليم عبر حلقات المساجد والمجالس والمدارس والمكتبات وبيوت العلماء، ولم يكن محصوراً في مؤسسة واحدة.",
+        "english": "Education took shape through mosque circles, scholarly gatherings, madrasas, libraries, and scholars’ households rather than a single institutional form."
+      },
+      "sections": [
+        {
+          "id": "learning_settings",
+          "title": {
+            "arabic": "بيئات التعلم",
+            "english": "Settings of learning"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تلقى الطلاب العلم في المساجد والبيوت والمدارس ومجالس العلماء، وكانت الإجازة والعلاقة المباشرة بالشيخ من عناصر نقل المعرفة في مجالات عديدة. اختلفت هذه الترتيبات حسب التخصص والمدينة والعصر.",
+              "english": "Students learned in mosques, homes, madrasas, and scholarly gatherings, while authorization and direct teacher-student relationships played roles in transmitting knowledge across many fields. Arrangements varied by subject, city, and period."
+            }
+          ]
+        },
+        {
+          "id": "libraries",
+          "title": {
+            "arabic": "المكتبات والنسخ",
+            "english": "Libraries and copying"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ضمت بعض المؤسسات والمجموعات الخاصة خزائن كتب، وأسهم النسخ والوقف والشراء والتجارة في تداول المؤلفات. ولا تعني شهرة مكتبة معينة أنها كانت النموذج الوحيد أو الأكبر في كل عصر.",
+              "english": "Some institutions and private collections maintained book holdings, while copying, endowment, purchase, and trade helped circulate texts. The fame of a particular library does not mean it was the only or largest model in every period."
+            }
+          ]
+        }
+      ],
+      "personIds": [],
+      "placeIds": [],
+      "sourceIds": [
+        "britannica_madrasah",
+        "met_chronology"
+      ],
+      "relatedTopicIds": [
+        "translation_books",
+        "waqf"
+      ]
+    },
+    {
+      "id": "waqf",
+      "category": "Institutions",
+      "title": {
+        "arabic": "الوقف والخدمات العامة",
+        "english": "Waqf and public services"
+      },
+      "summary": {
+        "arabic": "كان الوقف أحد الأطر القانونية والمالية التي دعمت مؤسسات دينية وتعليمية وخيرية وخدمية في مناطق وفترات متعددة.",
+        "english": "Waqf was one legal and financial framework used to support religious, educational, charitable, and service institutions across many regions and periods."
+      },
+      "sections": [
+        {
+          "id": "endowment_structure",
+          "title": {
+            "arabic": "فكرة الوقف",
+            "english": "The endowment framework"
+          },
+          "paragraphs": [
+            {
+              "arabic": "يقوم الوقف تاريخياً على تخصيص أصل أو ريع لغرض مستمر وفق شروط الواقف والأحكام القانونية السائدة. تنوعت الأصول الموقوفة بين العقارات والأراضي والمتاجر وغيرها.",
+              "english": "Historically, waqf involved dedicating an asset or its revenue to an ongoing purpose under the founder’s conditions and prevailing legal rules. Endowed assets could include property, land, shops, and other resources."
+            }
+          ]
+        },
+        {
+          "id": "supported_services",
+          "title": {
+            "arabic": "مجالات الإنفاق",
+            "english": "Supported services"
+          },
+          "paragraphs": [
+            {
+              "arabic": "مولت الأوقاف في بعض البيئات مساجد ومدارس ومياه وطرقاً ورعاية للفقراء ومؤسسات علاجية. وكانت الإدارة والرقابة والأثر الاقتصادي تختلف تبعاً للقانون المحلي والسياسة والظروف الاجتماعية.",
+              "english": "In some settings, endowments funded mosques, schools, water provision, roads, poor relief, and care institutions. Administration, oversight, and economic impact varied according to local law, politics, and social conditions."
+            }
+          ]
+        }
+      ],
+      "personIds": [],
+      "placeIds": [],
+      "sourceIds": [
+        "britannica_waqf"
+      ],
+      "relatedTopicIds": [
+        "education_libraries",
+        "medicine_bimaristans",
+        "cities_urban_life"
+      ]
+    },
+    {
+      "id": "trade_markets",
+      "category": "SocietyAndEconomy",
+      "title": {
+        "arabic": "التجارة والأسواق وشبكات الطرق",
+        "english": "Trade, markets, and route networks"
+      },
+      "summary": {
+        "arabic": "ربطت شبكات برية وبحرية مدناً وأقاليم متباعدة، وتحركت عبرها السلع والناس واللغات والأفكار.",
+        "english": "Overland and maritime networks connected distant cities and regions, carrying goods, people, languages, and ideas."
+      },
+      "sections": [
+        {
+          "id": "routes",
+          "title": {
+            "arabic": "شبكات متغيرة لا طريق واحد",
+            "english": "Changing networks, not one route"
+          },
+          "paragraphs": [
+            {
+              "arabic": "لم تكن طرق الحرير أو التجارة في المحيط الهندي خطاً ثابتاً واحداً؛ بل شبكات تتغير بحسب المواسم والأمن والسياسة والأسواق. ولهذا يستخدم الأطلس في التطبيق خطوطاً تعليمية تقريبية فقط.",
+              "english": "The Silk Roads and Indian Ocean trade were not single fixed lines but networks that changed with seasons, security, politics, and markets. The app therefore uses only schematic educational route lines in its atlas."
+            }
+          ]
+        },
+        {
+          "id": "market_life",
+          "title": {
+            "arabic": "الأسواق والحرف",
+            "english": "Markets and crafts"
+          },
+          "paragraphs": [
+            {
+              "arabic": "جمعت المدن بين أسواق محلية وتجارة بعيدة المدى وحرف متخصصة. اختلف تنظيم الأسواق والضرائب والرقابة والعملات من دولة إلى أخرى، فلا توجد بنية اقتصادية واحدة تصلح لوصف جميع المجتمعات الإسلامية.",
+              "english": "Cities combined local markets, long-distance trade, and specialized crafts. Market regulation, taxation, oversight, and currencies differed from state to state, so no single economic structure describes all Muslim societies."
+            }
+          ]
+        }
+      ],
+      "personIds": [],
+      "placeIds": [],
+      "sourceIds": [
+        "unesco_silk_roads",
+        "met_chronology"
+      ],
+      "relatedTopicIds": [
+        "cities_urban_life",
+        "agriculture_water"
+      ]
+    },
+    {
+      "id": "agriculture_water",
+      "category": "SocietyAndEconomy",
+      "title": {
+        "arabic": "الزراعة والمياه والبيئة",
+        "english": "Agriculture, water, and environment"
+      },
+      "summary": {
+        "arabic": "اعتمدت المجتمعات على نظم زراعية ومائية محلية تأثرت بالمناخ والتربة والمعرفة التقنية وشبكات التجارة.",
+        "english": "Communities relied on local agricultural and water systems shaped by climate, soil, technical knowledge, and trade networks."
+      },
+      "sections": [
+        {
+          "id": "water_systems",
+          "title": {
+            "arabic": "إدارة المياه",
+            "english": "Water management"
+          },
+          "paragraphs": [
+            {
+              "arabic": "استخدمت مناطق مختلفة الآبار والقنوات والسواقي والخزانات وغيرها من التقنيات بحسب البيئة. غالباً ما كانت هذه النظم امتداداً لتقاليد محلية قديمة جرى تطويرها أو صيانتها في عصور إسلامية مختلفة.",
+              "english": "Different regions used wells, channels, waterwheels, reservoirs, and other techniques according to local conditions. Such systems often extended older local traditions that were maintained or adapted during different Islamic periods."
+            }
+          ]
+        },
+        {
+          "id": "crops_exchange",
+          "title": {
+            "arabic": "المحاصيل والتبادل",
+            "english": "Crops and exchange"
+          },
+          "paragraphs": [
+            {
+              "arabic": "أسهمت التجارة والهجرة في انتقال بعض النباتات والمحاصيل والمعارف الزراعية بين الأقاليم، لكن سرعة الانتقال وحجمه اختلفا ولا يمكن تفسيرهما بعامل سياسي واحد.",
+              "english": "Trade and migration contributed to the movement of some plants, crops, and agricultural knowledge between regions, but the speed and scale of transfer varied and cannot be explained by one political factor."
+            }
+          ]
+        }
+      ],
+      "personIds": [],
+      "placeIds": [],
+      "sourceIds": [
+        "unesco_silk_roads",
+        "met_chronology"
+      ],
+      "relatedTopicIds": [
+        "trade_markets",
+        "cities_urban_life"
+      ]
+    },
+    {
+      "id": "cities_urban_life",
+      "category": "SocietyAndEconomy",
+      "title": {
+        "arabic": "المدن والحياة الحضرية",
+        "english": "Cities and urban life"
+      },
+      "summary": {
+        "arabic": "كانت المدينة ملتقى للإدارة والعبادة والتجارة والحرف والتعليم والسكن، مع اختلاف كبير بين بغداد والقاهرة وقرطبة ودمشق وسمرقند وغيرها.",
+        "english": "Cities brought together administration, worship, trade, crafts, education, and residence, with major differences among Baghdad, Cairo, Cordoba, Damascus, Samarkand, and other centers."
+      },
+      "sections": [
+        {
+          "id": "urban_functions",
+          "title": {
+            "arabic": "وظائف المدينة",
+            "english": "Urban functions"
+          },
+          "paragraphs": [
+            {
+              "arabic": "قد تضم المدينة مساجد وأسواقاً ومؤسسات تعليمية وحمامات وورشاً وأحياء سكنية ومرافق للمياه، لكن شكلها لم يكن ثابتاً. كانت الجغرافيا والسياسة والاقتصاد والتقاليد العمرانية المحلية عوامل حاسمة في تطورها.",
+              "english": "A city might contain mosques, markets, educational institutions, baths, workshops, residential quarters, and water facilities, but there was no fixed form. Geography, politics, economy, and local building traditions strongly shaped development."
+            }
+          ]
+        },
+        {
+          "id": "people_mobility",
+          "title": {
+            "arabic": "السكان والحركة",
+            "english": "Population and mobility"
+          },
+          "paragraphs": [
+            {
+              "arabic": "استقبلت المراكز الكبرى تجاراً وطلاباً وحرفيين وموظفين وحجاجاً ومهاجرين، ما جعلها أماكن لتبادل اللغات والعادات والمعارف. تغير حجم المدن وتركيبها مراراً بسبب الحرب والوباء والتجارة والتحولات السياسية.",
+              "english": "Major centers received merchants, students, artisans, officials, pilgrims, and migrants, making them sites of linguistic, social, and intellectual exchange. Urban size and composition changed repeatedly through war, epidemic disease, trade, and political transformation."
+            }
+          ]
+        }
+      ],
+      "personIds": [],
+      "placeIds": [],
+      "sourceIds": [
+        "met_chronology",
+        "unesco_silk_roads"
+      ],
+      "relatedTopicIds": [
+        "trade_markets",
+        "waqf",
+        "architecture"
+      ]
+    },
+    {
+      "id": "architecture",
+      "category": "ArtsAndBuiltEnvironment",
+      "title": {
+        "arabic": "العمارة وتشكيل المكان",
+        "english": "Architecture and the shaping of space"
+      },
+      "summary": {
+        "arabic": "تطورت عمارة المساجد والمدارس والقصور والتحصينات والمنشآت العامة عبر تقاليد إقليمية متعددة لا أسلوب إسلامي واحد ثابت.",
+        "english": "Mosques, madrasas, palaces, fortifications, and public works developed through many regional traditions rather than one fixed Islamic architectural style."
+      },
+      "sections": [
+        {
+          "id": "regional_traditions",
+          "title": {
+            "arabic": "تقاليد إقليمية",
+            "english": "Regional traditions"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تأثرت المباني بالمواد المتاحة والمناخ والتقنيات المحلية والتقاليد السابقة وشبكات الحرفيين والرعاية السياسية والدينية. لذلك تختلف عمارة المغرب والأندلس عن مصر والشام والأناضول وإيران والهند رغم وجود عناصر مشتركة أحياناً.",
+              "english": "Buildings were shaped by available materials, climate, local techniques, earlier traditions, artisan networks, and political or religious patronage. Architecture in the Maghreb and al-Andalus therefore differs from Egypt, the Levant, Anatolia, Iran, and India despite some shared elements."
+            }
+          ]
+        },
+        {
+          "id": "public_space",
+          "title": {
+            "arabic": "المبنى والمدينة",
+            "english": "Buildings and the city"
+          },
+          "paragraphs": [
+            {
+              "arabic": "لا تُقرأ العمارة بوصفها زخرفة فقط؛ فالمساجد والمدارس والأسواق والجسور والحمامات والمنشآت المائية أدت وظائف اجتماعية واقتصادية ودينية وإدارية داخل المدينة.",
+              "english": "Architecture is not only decoration: mosques, madrasas, markets, bridges, baths, and water structures performed social, economic, religious, and administrative functions within urban life."
+            }
+          ]
+        }
+      ],
+      "personIds": [
+        "mimar_sinan"
+      ],
+      "placeIds": [],
+      "sourceIds": [
+        "met_islamic_art",
+        "met_chronology"
+      ],
+      "relatedTopicIds": [
+        "cities_urban_life",
+        "calligraphy_decorative_arts"
+      ]
+    },
+    {
+      "id": "calligraphy_decorative_arts",
+      "category": "ArtsAndBuiltEnvironment",
+      "title": {
+        "arabic": "الخط والفنون الزخرفية",
+        "english": "Calligraphy and decorative arts"
+      },
+      "summary": {
+        "arabic": "ظهر الخط والزخرفة في المخطوطات والعمارة والخزف والمنسوجات والمعادن وغيرها، وتنوعت الأساليب بحسب الإقليم والوظيفة والعصر.",
+        "english": "Calligraphy and ornament appeared in manuscripts, architecture, ceramics, textiles, metalwork, and other media, with styles varying by region, function, and period."
+      },
+      "sections": [
+        {
+          "id": "calligraphy",
+          "title": {
+            "arabic": "الخط",
+            "english": "Calligraphy"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ارتبط الخط بنسخ القرآن والكتب والمراسلات والنقوش المعمارية، وتطورت أنماط متعددة على أيدي خطاطين ومدارس محلية. لا يمثل نوع خط واحد جميع العصور أو الأقاليم.",
+              "english": "Calligraphy was used for Qur’an manuscripts, books, correspondence, and architectural inscriptions, while multiple scripts developed through calligraphers and local schools. No single script represents every region or period."
+            }
+          ]
+        },
+        {
+          "id": "ornament_materials",
+          "title": {
+            "arabic": "الزخرفة والمواد",
+            "english": "Ornament and materials"
+          },
+          "paragraphs": [
+            {
+              "arabic": "استخدم الفنانون والحرفيون أشكالاً هندسية ونباتية وكتابية وتمثيلية بدرجات مختلفة بحسب الوسط والسياق. وتكشف المواد وتقنيات الصنع عن شبكات تجارة وحرف وتبادل فني واسعة.",
+              "english": "Artists and artisans used geometric, vegetal, epigraphic, and figural forms to varying degrees depending on medium and context. Materials and production techniques reveal broad networks of trade, craft, and artistic exchange."
+            }
+          ]
+        }
+      ],
+      "personIds": [],
+      "placeIds": [],
+      "sourceIds": [
+        "met_islamic_art"
+      ],
+      "relatedTopicIds": [
+        "architecture",
+        "translation_books"
+      ]
+    }
+  ],
+  "peopleProfiles": [
+    {
+      "personId": "khalid_ibn_al_walid",
+      "overview": {
+        "arabic": "قائد من الجيل الإسلامي الأول ارتبطت سيرته بتحولات عسكرية وسياسية في الجزيرة العربية والشام والعراق خلال العقود الأولى من القرن السابع.",
+        "english": "An early Muslim commander whose career is associated with military and political transformations in Arabia, the Levant, and Iraq during the early seventh century."
+      },
+      "sections": [
+        {
+          "id": "career_context",
+          "title": {
+            "arabic": "السياق التاريخي",
+            "english": "Historical context"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تظهر أخبار خالد بن الوليد في مصادر السيرة والفتوح والتاريخ ضمن فترة تغير سريع بعد الهجرة ثم بعد وفاة النبي ﷺ. وتختلف الروايات في بعض التفاصيل، لذلك تُعرض سيرته هنا بوصفها مدخلاً لفهم المرحلة لا حكماً نهائياً على كل خبر.",
+              "english": "Accounts of Khalid ibn al-Walid appear in Sira, conquest, and historical literature during a period of rapid change after the Hijra and after the Prophet’s death. Sources differ on some details, so the profile is presented as an orientation to the period rather than a final judgment on every report."
+            }
+          ]
+        },
+        {
+          "id": "legacy",
+          "title": {
+            "arabic": "الحضور في الذاكرة التاريخية",
+            "english": "Historical memory"
+          },
+          "paragraphs": [
+            {
+              "arabic": "يرتبط اسمه في الذاكرة الإسلامية بالقيادة العسكرية المبكرة، كما يُستخدم تتبع تحركاته لفهم علاقة الجيوش والمدن والطرق والتحولات السياسية في تلك المرحلة.",
+              "english": "His name is strongly associated in Islamic memory with early military leadership, and tracing his movements helps explain relationships among armies, cities, routes, and political change in the period."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "prophetic_era",
+        "rashidun"
+      ],
+      "stateIds": [],
+      "placeIds": [],
+      "eventIds": [
+        "rashidun_expansion_630s"
+      ],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "internal_sira",
+        "met_chronology"
+      ]
+    },
+    {
+      "personId": "tariq_ibn_ziyad",
+      "overview": {
+        "arabic": "قائد ارتبط في المصادر ببدايات دخول القوات الإسلامية إلى شبه الجزيرة الإيبيرية سنة 711م وبالمراحل الأولى لتشكل الأندلس الإسلامية.",
+        "english": "A commander associated in historical sources with the 711 CE crossing into the Iberian Peninsula and the earliest formation of Muslim al-Andalus."
+      },
+      "sections": [
+        {
+          "id": "711_context",
+          "title": {
+            "arabic": "سياق سنة 711م",
+            "english": "The context of 711"
+          },
+          "paragraphs": [
+            {
+              "arabic": "وقع العبور ضمن تحولات أوسع في غرب المتوسط وشمال إفريقيا وشبه الجزيرة الإيبيرية، وتبعته سنوات من الحملات والتفاوض وإعادة تنظيم السلطة المحلية.",
+              "english": "The crossing formed part of wider changes in the western Mediterranean, North Africa, and Iberia and was followed by years of campaigns, negotiation, and reorganization of local authority."
+            }
+          ]
+        },
+        {
+          "id": "sources_memory",
+          "title": {
+            "arabic": "المصادر والذاكرة",
+            "english": "Sources and memory"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تعود كثير من الروايات التفصيلية عن طارق إلى مصادر متأخرة زمنياً عن الحدث، ولذلك يميز التطبيق بين الحقائق الزمنية العامة والروايات الأدبية أو المختلف في تفاصيلها.",
+              "english": "Many detailed narratives about Tariq survive in sources written later than the events, so the app distinguishes broad chronological facts from literary or disputed details."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "umayyad",
+        "regional_civilizations"
+      ],
+      "stateIds": [
+        "umayyad_caliphate"
+      ],
+      "placeIds": [
+        "cordoba"
+      ],
+      "eventIds": [
+        "al_andalus_711"
+      ],
+      "relatedTopicIds": [],
+      "sourceIds": [
+        "met_chronology",
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "personId": "al_khwarizmi",
+      "overview": {
+        "arabic": "عالم ارتبط ببيئة بغداد العباسية وبأعمال في الحساب والجبر والجغرافيا والجداول الفلكية ضمن شبكة أوسع من الترجمة والتأليف.",
+        "english": "A scholar associated with Abbasid Baghdad and with works in arithmetic, algebra, geography, and astronomical tables within a wider network of translation and authorship."
+      },
+      "sections": [
+        {
+          "id": "works",
+          "title": {
+            "arabic": "مجالات العمل",
+            "english": "Fields of work"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تُنسب إلى الخوارزمي مؤلفات مؤثرة في الحساب والجبر، كما ارتبط اسمه بأعمال فلكية وجغرافية. جاءت هذه الأعمال ضمن ثقافة علمية متعددة المصادر واللغات.",
+              "english": "Al-Khwarizmi is associated with influential works on arithmetic and algebra and with astronomical and geographical writing. These works emerged within a scholarly culture drawing on multiple languages and traditions."
+            }
+          ]
+        },
+        {
+          "id": "transmission",
+          "title": {
+            "arabic": "انتقال المؤلفات",
+            "english": "Transmission of works"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ساعد نسخ الكتب وترجمتها ودراستها في انتقال بعض أعماله إلى بيئات تعليمية لاحقة، وأصبح اسمه مرتبطاً بتاريخ الجبر والحساب في دراسات كثيرة.",
+              "english": "Copying, translation, and study helped transmit some of his works into later educational settings, and his name became closely associated with the history of algebra and calculation."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "abbasid"
+      ],
+      "stateIds": [
+        "abbasid_caliphate"
+      ],
+      "placeIds": [
+        "baghdad"
+      ],
+      "eventIds": [
+        "abbasid_translation_scholarship"
+      ],
+      "relatedTopicIds": [
+        "mathematics",
+        "astronomy",
+        "translation_books"
+      ],
+      "sourceIds": [
+        "met_science",
+        "met_chronology"
+      ]
+    },
+    {
+      "personId": "al_razi",
+      "overview": {
+        "arabic": "طبيب ومؤلف ارتبط اسمه بتاريخ الطب باللغة العربية وبالممارسة الطبية والتأليف في مدن من بينها الري وبغداد.",
+        "english": "A physician and author associated with the history of Arabic-language medicine and with medical practice and writing in cities including Rayy and Baghdad."
+      },
+      "sections": [
+        {
+          "id": "medicine",
+          "title": {
+            "arabic": "الطب والتأليف",
+            "english": "Medicine and writing"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تُظهر مؤلفاته اهتماماً بالتشخيص والعلاج وتنظيم المعرفة الطبية، وتعكس تراكماً يجمع بين تراثات سابقة والممارسة والخبرة السريرية.",
+              "english": "His writings show sustained interest in diagnosis, treatment, and the organization of medical knowledge and reflect a cumulative tradition combining earlier learning with practice and clinical experience."
+            }
+          ]
+        },
+        {
+          "id": "institutions",
+          "title": {
+            "arabic": "الممارسة والمؤسسات",
+            "english": "Practice and institutions"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تساعد دراسة سيرته على فهم علاقة الطبيب بالمدينة والبيمارستان والكتاب، مع ضرورة تجنب إسقاط تنظيم المستشفى الحديث على مؤسسات العصور الوسطى.",
+              "english": "His career helps illuminate relationships among physician, city, bimaristan, and book culture while avoiding the projection of the modern hospital model onto medieval institutions."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "abbasid",
+        "regional_civilizations"
+      ],
+      "stateIds": [],
+      "placeIds": [
+        "baghdad"
+      ],
+      "eventIds": [],
+      "relatedTopicIds": [
+        "medicine_bimaristans",
+        "education_libraries"
+      ],
+      "sourceIds": [
+        "met_science"
+      ]
+    },
+    {
+      "personId": "ibn_al_haytham",
+      "overview": {
+        "arabic": "باحث في البصريات والرياضيات ارتبطت أهم مراحل عمله بمصر، واشتهر بمناقشة الضوء والرؤية والاستدلال الهندسي والملاحظة.",
+        "english": "A scholar of optics and mathematics whose major career is associated with Egypt and who is known for work on light, vision, geometrical reasoning, and observation."
+      },
+      "sections": [
+        {
+          "id": "optics",
+          "title": {
+            "arabic": "البصريات",
+            "english": "Optics"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ناقش ابن الهيثم نظريات الرؤية وخصائص الضوء والانعكاس والانكسار ضمن تقليد علمي سابق عليه، وطور معالجة مؤثرة في تاريخ البصريات.",
+              "english": "Ibn al-Haytham examined theories of vision and the behavior of light, reflection, and refraction within an older scholarly tradition and developed an influential treatment in the history of optics."
+            }
+          ]
+        },
+        {
+          "id": "method",
+          "title": {
+            "arabic": "الملاحظة والاستدلال",
+            "english": "Observation and reasoning"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تجمع أعماله بين الهندسة والمناقشة النظرية والاستعانة بالملاحظة والتجارب التوضيحية، ويُفضّل وصف ذلك في سياقه التاريخي بدلاً من مطابقته مباشرة بمنهج علمي حديث.",
+              "english": "His work combines geometry, theoretical argument, observation, and demonstrative experiments and is best described in its historical context rather than equated directly with a modern scientific method."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "abbasid",
+        "regional_civilizations"
+      ],
+      "stateIds": [],
+      "placeIds": [
+        "cairo"
+      ],
+      "eventIds": [],
+      "relatedTopicIds": [
+        "optics",
+        "mathematics"
+      ],
+      "sourceIds": [
+        "met_science"
+      ]
+    },
+    {
+      "personId": "ibn_sina",
+      "overview": {
+        "arabic": "طبيب وفيلسوف من آسيا الوسطى وإيران ألّف أعمالاً واسعة الانتشار في الطب والفلسفة والمنطق والعلوم الطبيعية.",
+        "english": "A physician and philosopher from Central Asia and Iran whose works in medicine, philosophy, logic, and natural inquiry circulated widely."
+      },
+      "sections": [
+        {
+          "id": "canon",
+          "title": {
+            "arabic": "الطب",
+            "english": "Medicine"
+          },
+          "paragraphs": [
+            {
+              "arabic": "أصبح القانون في الطب من أشهر مؤلفاته، وجمع مادة طبية منظمة أثرت في تقاليد تعليمية متعددة عبر قرون.",
+              "english": "The Canon of Medicine became one of his best-known works, organizing medical material that influenced multiple teaching traditions over centuries."
+            }
+          ]
+        },
+        {
+          "id": "philosophy",
+          "title": {
+            "arabic": "الفلسفة وانتقال المعرفة",
+            "english": "Philosophy and knowledge transmission"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تداخل مشروعه الفلسفي والطبي مع شبكات المخطوطات والتعليم والترجمة، ما يوضح كيف انتقلت الأفكار بين مدن ولغات ومؤسسات مختلفة.",
+              "english": "His philosophical and medical project intersected with manuscript, educational, and translation networks, illustrating how ideas moved among cities, languages, and institutions."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "abbasid",
+        "regional_civilizations"
+      ],
+      "stateIds": [],
+      "placeIds": [],
+      "eventIds": [],
+      "relatedTopicIds": [
+        "medicine_bimaristans",
+        "translation_books",
+        "education_libraries"
+      ],
+      "sourceIds": [
+        "met_science",
+        "unesco_silk_roads"
+      ]
+    },
+    {
+      "personId": "ibn_khaldun",
+      "overview": {
+        "arabic": "مؤرخ وقاضٍ ورجل دولة تنقل بين المغرب والأندلس ومصر، واشتهر بالمقدمة التي ناقش فيها العمران والدولة والمجتمع وطرائق قراءة الأخبار.",
+        "english": "A historian, judge, and statesman who moved through the Maghreb, al-Andalus, and Egypt and is known for the Muqaddimah on society, states, urban life, and the evaluation of reports."
+      },
+      "sections": [
+        {
+          "id": "career",
+          "title": {
+            "arabic": "حياة بين المراكز السياسية",
+            "english": "A career across political centers"
+          },
+          "paragraphs": [
+            {
+              "arabic": "عاش ابن خلدون في بيئة سياسية متغيرة وخدم في وظائف إدارية وقضائية متعددة، ثم استقر في مصر في جزء من حياته المتأخرة.",
+              "english": "Ibn Khaldun lived in a changing political environment, held several administrative and judicial positions, and spent part of his later life in Egypt."
+            }
+          ]
+        },
+        {
+          "id": "muqaddimah",
+          "title": {
+            "arabic": "المقدمة وقراءة التاريخ",
+            "english": "The Muqaddimah and reading history"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ناقشت المقدمة أسباب قيام الدول وتحولها، والعمران والاقتصاد والتعليم، كما شددت على نقد الأخبار ومقارنتها بأحوال المجتمع والإمكان التاريخي.",
+              "english": "The Muqaddimah discusses state formation and change, urban life, economy, and education and emphasizes evaluating reports against social conditions and historical plausibility."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "stateIds": [
+        "mamluks"
+      ],
+      "placeIds": [
+        "cairo"
+      ],
+      "eventIds": [],
+      "relatedTopicIds": [
+        "cities_urban_life",
+        "education_libraries"
+      ],
+      "sourceIds": [
+        "met_chronology"
+      ]
+    },
+    {
+      "personId": "mimar_sinan",
+      "overview": {
+        "arabic": "المعمار العثماني الأشهر في القرن السادس عشر، ارتبط بمشروعات مساجد ومنشآت عامة في إسطنبول ومدن أخرى ضمن جهاز الدولة العثمانية.",
+        "english": "The best-known Ottoman architect of the sixteenth century, associated with mosques and public works in Istanbul and other cities within the Ottoman state."
+      },
+      "sections": [
+        {
+          "id": "imperial_architecture",
+          "title": {
+            "arabic": "العمارة الإمبراطورية",
+            "english": "Imperial architecture"
+          },
+          "paragraphs": [
+            {
+              "arabic": "عمل سنان ضمن مؤسسة معمارية مرتبطة بالدولة، وصمم وأشرف على مشروعات دينية ومدنية ومائية عديدة، مع اعتماد واسع على الحرفيين وفرق البناء.",
+              "english": "Sinan worked within an architectural institution tied to the Ottoman state and designed or supervised many religious, civic, and water-related projects that depended on large teams of artisans and builders."
+            }
+          ]
+        },
+        {
+          "id": "urban_legacy",
+          "title": {
+            "arabic": "الأثر الحضري",
+            "english": "Urban legacy"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تكشف أعماله علاقة المسجد بالمجمعات الخدمية والمياه والطرق والمشهد الحضري، لذلك تُقرأ سيرته ضمن تاريخ المدينة والمؤسسات لا ضمن تاريخ الفن وحده.",
+              "english": "His works reveal relationships among mosques, service complexes, water, roads, and urban form, so his career belongs to the history of cities and institutions as well as art."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "ottoman_modern"
+      ],
+      "stateIds": [
+        "ottomans"
+      ],
+      "placeIds": [
+        "istanbul"
+      ],
+      "eventIds": [],
+      "relatedTopicIds": [
+        "architecture",
+        "cities_urban_life",
+        "waqf"
+      ],
+      "sourceIds": [
+        "met_islamic_art",
+        "met_chronology"
+      ]
+    }
+  ],
+  "placeProfiles": [
+    {
+      "placeId": "mecca",
+      "overview": {
+        "arabic": "مكة مدينة محورية في السيرة والحج والتاريخ الديني الإسلامي، وكانت أيضاً جزءاً من شبكات التجارة والحركة في غرب الجزيرة العربية.",
+        "english": "Mecca is central to the Sira, Hajj, and Islamic religious history and also formed part of wider networks of trade and movement in western Arabia."
+      },
+      "sections": [
+        {
+          "id": "sira",
+          "title": {
+            "arabic": "مكة في السيرة",
+            "english": "Mecca in the Sira"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ارتبطت المرحلة المكية ببداية الوحي والدعوة وتكوين الجماعة المسلمة الأولى، وتفاصيلها متاحة في قسم السيرة المتخصص.",
+              "english": "The Meccan phase is associated with the beginning of revelation, preaching, and the formation of the first Muslim community, with details available in the dedicated Sira section."
+            }
+          ]
+        },
+        {
+          "id": "pilgrimage",
+          "title": {
+            "arabic": "الحج والحركة",
+            "english": "Pilgrimage and mobility"
+          },
+          "paragraphs": [
+            {
+              "arabic": "أصبحت مكة عبر القرون عقدة لحركة الحجاج من مناطق بعيدة، ما ربطها بطرق برية وبحرية وأسواق وخدمات متعددة.",
+              "english": "Over centuries Mecca became a major node for pilgrims arriving from distant regions, linking the city to overland and maritime routes, markets, and services."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "prophetic_era",
+        "rashidun",
+        "umayyad",
+        "abbasid",
+        "ottoman_modern"
+      ],
+      "stateIds": [],
+      "eventIds": [
+        "revelation_begins",
+        "hijra_medina"
+      ],
+      "relatedTopicIds": [
+        "trade_markets",
+        "cities_urban_life"
+      ],
+      "relatedPersonIds": [],
+      "sourceIds": [
+        "internal_sira",
+        "met_chronology"
+      ]
+    },
+    {
+      "placeId": "medina",
+      "overview": {
+        "arabic": "المدينة كانت مركز المجتمع الإسلامي في العهد المدني ومركزاً سياسياً مهماً في العقود الأولى بعد وفاة النبي ﷺ.",
+        "english": "Medina was the center of the Muslim community during the Medinan period and an important political center in the first decades after the Prophet’s death."
+      },
+      "sections": [
+        {
+          "id": "community",
+          "title": {
+            "arabic": "المجتمع المدني",
+            "english": "The Medinan community"
+          },
+          "paragraphs": [
+            {
+              "arabic": "شهدت المدينة بناء مؤسسات المجتمع وتنظيم علاقاته ووقوع أحداث مركزية في السيرة بين 622 و632م.",
+              "english": "Medina saw the organization of the community, development of institutions, and central Sira events between 622 and 632 CE."
+            }
+          ]
+        },
+        {
+          "id": "early_caliphate",
+          "title": {
+            "arabic": "المركز السياسي المبكر",
+            "english": "Early political center"
+          },
+          "paragraphs": [
+            {
+              "arabic": "بقيت المدينة مركزاً للقيادة في معظم فترة الخلفاء الثلاثة الأوائل، قبل أن تتغير مراكز القرار السياسي في مراحل لاحقة.",
+              "english": "Medina remained a center of leadership through most of the first three caliphates before political decision-making shifted in later phases."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "prophetic_era",
+        "rashidun"
+      ],
+      "stateIds": [],
+      "eventIds": [
+        "hijra_medina",
+        "battle_badr",
+        "prophet_death_632"
+      ],
+      "relatedTopicIds": [
+        "cities_urban_life"
+      ],
+      "relatedPersonIds": [],
+      "sourceIds": [
+        "internal_sira",
+        "met_chronology"
+      ]
+    },
+    {
+      "placeId": "badr",
+      "overview": {
+        "arabic": "بدر موضع في منطقة الحجاز ارتبط بغزوة بدر سنة 624م وبأحد أبرز أحداث السيرة النبوية.",
+        "english": "Badr is a locality in the Hijaz associated with the Battle of Badr in 624 CE, one of the major events of the Sira."
+      },
+      "sections": [
+        {
+          "id": "event",
+          "title": {
+            "arabic": "الحدث التاريخي",
+            "english": "Historical event"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تعرض المصادر الإسلامية غزوة بدر ضمن سياق التوتر بين مكة والمدينة بعد الهجرة، مع اختلاف في تفاصيل بعض الروايات.",
+              "english": "Islamic sources present Badr within the context of post-Hijra tensions between Mecca and Medina, with some variation in narrative detail."
+            }
+          ]
+        },
+        {
+          "id": "memory",
+          "title": {
+            "arabic": "المكان والذاكرة",
+            "english": "Place and memory"
+          },
+          "paragraphs": [
+            {
+              "arabic": "اكتسب المكان مكانة في الذاكرة الدينية والتاريخية بسبب ارتباطه بالحدث، لذلك يظهر في الأطلس كموضع تاريخي لا كمدينة حضرية كبرى.",
+              "english": "The site acquired religious and historical significance through its association with the event and is therefore shown in the atlas as a historical locality rather than a major urban center."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "prophetic_era"
+      ],
+      "stateIds": [],
+      "eventIds": [
+        "battle_badr"
+      ],
+      "relatedTopicIds": [],
+      "relatedPersonIds": [],
+      "sourceIds": [
+        "internal_sira"
+      ]
+    },
+    {
+      "placeId": "uhud",
+      "overview": {
+        "arabic": "أحد منطقة جبلية قرب المدينة ارتبطت بغزوة أحد سنة 625م في روايات السيرة.",
+        "english": "Uhud is a mountainous area near Medina associated with the Battle of Uhud in 625 CE in Sira accounts."
+      },
+      "sections": [
+        {
+          "id": "location",
+          "title": {
+            "arabic": "الموقع",
+            "english": "Location"
+          },
+          "paragraphs": [
+            {
+              "arabic": "يقع جبل أحد شمال المدينة، وقد جعل قربه من المدينة الموقع جزءاً مهماً من جغرافية السيرة المدنية.",
+              "english": "Mount Uhud lies north of Medina, and its proximity to the city makes it an important part of the geography of the Medinan Sira."
+            }
+          ]
+        },
+        {
+          "id": "narratives",
+          "title": {
+            "arabic": "روايات السيرة",
+            "english": "Sira narratives"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تتناول كتب السيرة تفاصيل المعركة وأحداثها، ويكتفي قسم التاريخ هنا بالتعريف الجغرافي والإحالة إلى المصادر المتخصصة.",
+              "english": "Sira works provide detailed accounts of the battle; the history section limits itself to geographic orientation and directs readers to specialist material."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "prophetic_era"
+      ],
+      "stateIds": [],
+      "eventIds": [],
+      "relatedTopicIds": [],
+      "relatedPersonIds": [],
+      "sourceIds": [
+        "internal_sira"
+      ]
+    },
+    {
+      "placeId": "tabuk",
+      "overview": {
+        "arabic": "تبوك مدينة وواحة في شمال غرب الجزيرة العربية ارتبطت في السيرة بحملة تبوك وبطرق الحركة بين الحجاز وبلاد الشام.",
+        "english": "Tabuk is a city and oasis in northwestern Arabia associated in the Sira with the Tabuk expedition and with routes linking the Hijaz and the Levant."
+      },
+      "sections": [
+        {
+          "id": "routes",
+          "title": {
+            "arabic": "الموقع والطرق",
+            "english": "Location and routes"
+          },
+          "paragraphs": [
+            {
+              "arabic": "جعل موقع تبوك بينها وبين بلاد الشام محطة مهمة في طرق برية تاريخية، مع تغير أهمية المسارات بحسب العصور والظروف السياسية.",
+              "english": "Tabuk’s position toward the Levant made it an important point on historic overland routes, whose importance changed across periods and political conditions."
+            }
+          ]
+        },
+        {
+          "id": "sira",
+          "title": {
+            "arabic": "في السيرة",
+            "english": "In the Sira"
+          },
+          "paragraphs": [
+            {
+              "arabic": "يرتبط اسمها بحملة تبوك في أواخر العهد المدني، بينما تُترك تفاصيل الروايات العسكرية والسياسية لقسم السيرة والمصادر.",
+              "english": "Its name is associated with the Tabuk expedition late in the Medinan period, while detailed military and political narratives remain in the Sira and source material."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "prophetic_era"
+      ],
+      "stateIds": [],
+      "eventIds": [],
+      "relatedTopicIds": [
+        "trade_markets"
+      ],
+      "relatedPersonIds": [],
+      "sourceIds": [
+        "internal_sira"
+      ]
+    },
+    {
+      "placeId": "damascus",
+      "overview": {
+        "arabic": "دمشق مدينة قديمة أصبحت مركز الحكم الأموي وأحد أهم المراكز السياسية والعمرانية في تاريخ بلاد الشام.",
+        "english": "Damascus is an ancient city that became the center of Umayyad rule and one of the major political and urban centers in the history of the Levant."
+      },
+      "sections": [
+        {
+          "id": "umayyad",
+          "title": {
+            "arabic": "العصر الأموي",
+            "english": "The Umayyad period"
+          },
+          "paragraphs": [
+            {
+              "arabic": "منذ 661م ارتبطت دمشق بمركز الدولة الأموية، وأصبحت نقطة إدارة لأقاليم واسعة وشبكات عسكرية ومالية متعددة.",
+              "english": "From 661 CE Damascus was associated with the center of Umayyad rule and administration of wide provinces and military and fiscal networks."
+            }
+          ]
+        },
+        {
+          "id": "continuity",
+          "title": {
+            "arabic": "الاستمرار الحضري",
+            "english": "Urban continuity"
+          },
+          "paragraphs": [
+            {
+              "arabic": "استمرت أهمية دمشق بعد نهاية الحكم الأموي بوصفها مدينة تجارية وعلمية ودينية في دول لاحقة.",
+              "english": "Damascus remained important after Umayyad rule as a commercial, scholarly, and religious city under later states."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "umayyad",
+        "regional_civilizations",
+        "ottoman_modern"
+      ],
+      "stateIds": [
+        "umayyad_caliphate",
+        "ayyubids",
+        "mamluks",
+        "ottomans"
+      ],
+      "eventIds": [
+        "umayyad_rule_661"
+      ],
+      "relatedTopicIds": [
+        "cities_urban_life",
+        "architecture"
+      ],
+      "relatedPersonIds": [],
+      "sourceIds": [
+        "met_chronology",
+        "met_major_dynasties"
+      ]
+    },
+    {
+      "placeId": "cordoba",
+      "overview": {
+        "arabic": "قرطبة كانت من أبرز مراكز الأندلس السياسية والحضرية والثقافية، ولا سيما في عهد الأمويين في الأندلس.",
+        "english": "Cordoba was one of the leading political, urban, and cultural centers of al-Andalus, especially under the Umayyads of al-Andalus."
+      },
+      "sections": [
+        {
+          "id": "capital",
+          "title": {
+            "arabic": "مركز الحكم",
+            "english": "Center of rule"
+          },
+          "paragraphs": [
+            {
+              "arabic": "أصبحت قرطبة مركز الإمارة الأموية ثم الخلافة الأموية في الأندلس، وربطت الإدارة بالحياة الحضرية والتجارة.",
+              "english": "Cordoba became the center of the Umayyad emirate and later caliphate in al-Andalus, linking government to urban and commercial life."
+            }
+          ]
+        },
+        {
+          "id": "culture",
+          "title": {
+            "arabic": "العلم والعمران",
+            "english": "Learning and urban culture"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ارتبطت المدينة بالمكتبات والتعليم والحرف والعمارة، لكن حجم هذه الأنشطة وتقديرات السكان تختلف باختلاف المصادر والفترات.",
+              "english": "The city is associated with libraries, learning, crafts, and architecture, although estimates of their scale and of population vary across sources and periods."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "regional_civilizations"
+      ],
+      "stateIds": [
+        "umayyads_al_andalus"
+      ],
+      "eventIds": [
+        "al_andalus_711"
+      ],
+      "relatedTopicIds": [
+        "cities_urban_life",
+        "education_libraries",
+        "architecture"
+      ],
+      "relatedPersonIds": [],
+      "sourceIds": [
+        "met_major_dynasties",
+        "met_islamic_art"
+      ]
+    },
+    {
+      "placeId": "kairouan",
+      "overview": {
+        "arabic": "القيروان مدينة أسست في القرن السابع في إفريقية وأصبحت مركزاً سياسياً ودينياً وعلمياً مهماً في المغرب الإسلامي.",
+        "english": "Kairouan was founded in the seventh century in Ifriqiya and became an important political, religious, and scholarly center in the Islamic Maghreb."
+      },
+      "sections": [
+        {
+          "id": "regional_center",
+          "title": {
+            "arabic": "مركز إقليمي",
+            "english": "Regional center"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ارتبطت القيروان بإدارة إفريقية وبحركة العلماء والتجار والحجاج بين المغرب والمشرق عبر فترات مختلفة.",
+              "english": "Kairouan was tied to the administration of Ifriqiya and to movements of scholars, merchants, and pilgrims between the Maghreb and the eastern Islamic world."
+            }
+          ]
+        },
+        {
+          "id": "built_environment",
+          "title": {
+            "arabic": "العمران",
+            "english": "Built environment"
+          },
+          "paragraphs": [
+            {
+              "arabic": "تُعد منشآتها الدينية والعمرانية من الشواهد المهمة على تطور المدن في شمال إفريقيا، مع تعرض المدينة لتحولات سياسية واقتصادية متعاقبة.",
+              "english": "Its religious and urban monuments provide important evidence for the development of North African cities amid repeated political and economic change."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "umayyad",
+        "regional_civilizations"
+      ],
+      "stateIds": [],
+      "eventIds": [],
+      "relatedTopicIds": [
+        "cities_urban_life",
+        "architecture",
+        "education_libraries"
+      ],
+      "relatedPersonIds": [],
+      "sourceIds": [
+        "met_chronology",
+        "met_islamic_art"
+      ]
+    },
+    {
+      "placeId": "baghdad",
+      "overview": {
+        "arabic": "بغداد أسست سنة 762م وأصبحت أحد أهم مراكز الحكم والتجارة والعلم في العصر العباسي ومراحل لاحقة.",
+        "english": "Baghdad was founded in 762 CE and became one of the most important centers of government, commerce, and learning in the Abbasid period and beyond."
+      },
+      "sections": [
+        {
+          "id": "foundation",
+          "title": {
+            "arabic": "التأسيس والموقع",
+            "english": "Foundation and location"
+          },
+          "paragraphs": [
+            {
+              "arabic": "استفاد موقع بغداد على دجلة وقرب مناطق زراعية وطرق برية من شبكات العراق الاقتصادية، وساعد ذلك على نموها السريع.",
+              "english": "Baghdad’s location on the Tigris near agricultural zones and overland routes connected it to Iraq’s economic networks and supported rapid growth."
+            }
+          ]
+        },
+        {
+          "id": "knowledge",
+          "title": {
+            "arabic": "العلم والكتاب",
+            "english": "Learning and book culture"
+          },
+          "paragraphs": [
+            {
+              "arabic": "احتضنت المدينة علماء ومترجمين وأطباء وكتّاباً وحرفيين، وأصبحت جزءاً من شبكات واسعة للكتاب والتعليم والرعاية العلمية.",
+              "english": "The city hosted scholars, translators, physicians, writers, and artisans and became part of wide networks of books, education, and scholarly patronage."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "abbasid",
+        "regional_civilizations"
+      ],
+      "stateIds": [
+        "abbasid_caliphate",
+        "ilkhanids"
+      ],
+      "eventIds": [
+        "baghdad_founded_762",
+        "abbasid_translation_scholarship",
+        "baghdad_1258"
+      ],
+      "relatedTopicIds": [
+        "translation_books",
+        "education_libraries",
+        "cities_urban_life"
+      ],
+      "relatedPersonIds": [],
+      "sourceIds": [
+        "met_chronology",
+        "met_science"
+      ]
+    },
+    {
+      "placeId": "basra",
+      "overview": {
+        "arabic": "البصرة مركز حضري وميناء مهم في جنوب العراق، ارتبط بالتجارة واللغة والعلوم الدينية والأدبية في عصور مبكرة.",
+        "english": "Basra was an important urban center and port in southern Iraq, associated with trade, language, religious learning, and literary scholarship from early periods."
+      },
+      "sections": [
+        {
+          "id": "port",
+          "title": {
+            "arabic": "الميناء والشبكات",
+            "english": "Port and networks"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ربط موقع البصرة العراق بالخليج والمحيط الهندي، وكانت طرق الملاحة والتجارة تتغير بحسب المواسم والدول والأمن.",
+              "english": "Basra’s location connected Iraq with the Gulf and Indian Ocean, while maritime and commercial routes changed with seasons, states, and security."
+            }
+          ]
+        },
+        {
+          "id": "learning",
+          "title": {
+            "arabic": "مركز معرفي",
+            "english": "Center of learning"
+          },
+          "paragraphs": [
+            {
+              "arabic": "ارتبطت المدينة بمدارس مبكرة في اللغة والأدب والعلوم الدينية، وأسهمت الحركة بين البصرة ومدن العراق الأخرى في تداول المعرفة.",
+              "english": "The city is associated with early traditions of language, literature, and religious learning, with movement between Basra and other Iraqi cities supporting knowledge circulation."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "rashidun",
+        "umayyad",
+        "abbasid"
+      ],
+      "stateIds": [],
+      "eventIds": [],
+      "relatedTopicIds": [
+        "trade_markets",
+        "education_libraries"
+      ],
+      "relatedPersonIds": [],
+      "sourceIds": [
+        "unesco_silk_roads",
+        "met_chronology"
+      ]
+    },
+    {
+      "placeId": "samarkand",
+      "overview": {
+        "arabic": "سمرقند مدينة رئيسية في آسيا الوسطى ارتبطت بطرق التجارة وبسلالات ومراكز علم وفن متعددة عبر القرون.",
+        "english": "Samarkand is a major Central Asian city associated with trade routes and with multiple dynasties and centers of learning and art across centuries."
+      },
+      "sections": [
+        {
+          "id": "silk_roads",
+          "title": {
+            "arabic": "طرق التجارة",
+            "english": "Trade routes"
+          },
+          "paragraphs": [
+            {
+              "arabic": "كان موقع سمرقند ضمن شبكات آسيا الوسطى يجعلها نقطة تبادل للسلع والأشخاص واللغات والأفكار، لا محطة على طريق واحد ثابت.",
+              "english": "Samarkand’s place within Central Asian networks made it a point of exchange for goods, people, languages, and ideas rather than a stop on one fixed route."
+            }
+          ]
+        },
+        {
+          "id": "timurid",
+          "title": {
+            "arabic": "العصر التيموري",
+            "english": "The Timurid period"
+          },
+          "paragraphs": [
+            {
+              "arabic": "برزت المدينة بصورة خاصة في العصر التيموري بوصفها مركزاً للرعاية المعمارية والفنية والعلمية.",
+              "english": "The city became especially prominent under the Timurids as a center of architectural, artistic, and scholarly patronage."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "abbasid",
+        "regional_civilizations",
+        "ottoman_modern"
+      ],
+      "stateIds": [
+        "samanids",
+        "timurids"
+      ],
+      "eventIds": [],
+      "relatedTopicIds": [
+        "trade_markets",
+        "architecture",
+        "astronomy"
+      ],
+      "relatedPersonIds": [],
+      "sourceIds": [
+        "unesco_silk_roads",
+        "met_timurid"
+      ]
+    },
+    {
+      "placeId": "istanbul",
+      "overview": {
+        "arabic": "إسطنبول، القسطنطينية سابقاً، أصبحت عاصمة عثمانية بعد 1453م ومركزاً سياسياً وتجارياً وعمرانياً رئيسياً.",
+        "english": "Istanbul, formerly Constantinople, became an Ottoman capital after 1453 and a major political, commercial, and urban center."
+      },
+      "sections": [
+        {
+          "id": "capital",
+          "title": {
+            "arabic": "العاصمة العثمانية",
+            "english": "Ottoman capital"
+          },
+          "paragraphs": [
+            {
+              "arabic": "بعد الفتح العثماني أعيد تنظيم أجزاء من المدينة واستمرت فيها جماعات دينية ولغوية متعددة ضمن نظام إمبراطوري متغير.",
+              "english": "After the Ottoman conquest parts of the city were reorganized, while multiple religious and linguistic communities continued within a changing imperial system."
+            }
+          ]
+        },
+        {
+          "id": "urbanism",
+          "title": {
+            "arabic": "العمران والمؤسسات",
+            "english": "Urbanism and institutions"
+          },
+          "paragraphs": [
+            {
+              "arabic": "شكلت المساجد والأسواق والأوقاف والمياه والطرق والمرافئ جزءاً من نمو المدينة، وارتبطت مشاريع معمار سنان خصوصاً بمشهدها في القرن السادس عشر.",
+              "english": "Mosques, markets, endowments, water systems, roads, and ports shaped the city’s growth, with Mimar Sinan’s projects especially influential in the sixteenth-century urban landscape."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "ottoman_modern"
+      ],
+      "stateIds": [
+        "ottomans"
+      ],
+      "eventIds": [
+        "constantinople_1453"
+      ],
+      "relatedTopicIds": [
+        "architecture",
+        "waqf",
+        "cities_urban_life"
+      ],
+      "relatedPersonIds": [
+        "mimar_sinan"
+      ],
+      "sourceIds": [
+        "met_chronology",
+        "met_islamic_art"
+      ]
+    },
+    {
+      "placeId": "cairo",
+      "overview": {
+        "arabic": "القاهرة تأسست في العصر الفاطمي وأصبحت عبر دول لاحقة مركزاً سياسياً وعلمياً وتجارياً وعمرانياً من أهم مدن المنطقة.",
+        "english": "Cairo was founded in the Fatimid period and became under later states one of the region’s major political, scholarly, commercial, and urban centers."
+      },
+      "sections": [
+        {
+          "id": "fatimid_foundation",
+          "title": {
+            "arabic": "التأسيس الفاطمي",
+            "english": "Fatimid foundation"
+          },
+          "paragraphs": [
+            {
+              "arabic": "أُنشئت القاهرة سنة 969م قرب الفسطاط لتكون مركزاً للحكم الفاطمي، ثم اتسع المجال الحضري واندفعت المدينة إلى علاقات معقدة مع المراكز الأقدم حولها.",
+              "english": "Cairo was founded in 969 CE near Fustat as a center of Fatimid rule; the urban area later expanded through complex relationships with older settlements around it."
+            }
+          ]
+        },
+        {
+          "id": "later_centuries",
+          "title": {
+            "arabic": "الأيوبيون والمماليك والعثمانيون",
+            "english": "Ayyubids, Mamluks, and Ottomans"
+          },
+          "paragraphs": [
+            {
+              "arabic": "حافظت القاهرة على مكانة كبيرة في دول لاحقة، وارتبطت بالمدارس والبيمارستانات والأسواق والأوقاف والحرف وشبكات البحر الأحمر وشرق المتوسط.",
+              "english": "Cairo retained major importance under later states and was associated with madrasas, bimaristans, markets, endowments, crafts, and networks linking the Red Sea and eastern Mediterranean."
+            }
+          ]
+        }
+      ],
+      "eraIds": [
+        "regional_civilizations",
+        "ottoman_modern"
+      ],
+      "stateIds": [
+        "fatimids",
+        "ayyubids",
+        "mamluks",
+        "ottomans"
+      ],
+      "eventIds": [
+        "cairo_founded_969",
+        "ayyubid_1171",
+        "mamluk_1250",
+        "ottoman_egypt_1517"
+      ],
+      "relatedTopicIds": [
+        "cities_urban_life",
+        "education_libraries",
+        "medicine_bimaristans",
+        "waqf"
+      ],
+      "relatedPersonIds": [
+        "ibn_al_haytham",
+        "ibn_khaldun"
+      ],
+      "sourceIds": [
+        "met_fatimid",
+        "met_ayyubid",
+        "met_chronology"
+      ]
+    }
+  ]
+}
