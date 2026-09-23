@@ -59,13 +59,9 @@
                 <data
                     android:scheme="wear"
                     android:host="*"
-                    android:pathPrefix="/muslim/wear/tasbih/increment/v1" />
+                    android:pathPrefix="/muslim/wear/" />
             </intent-filter>
         </service>
-
-        <meta-data
-            android:name="com.google.android.wearable.capability"
-            android:value="muslim_wear_companion_v1" />
 
         <meta-data
             android:name="com.google.android.gms.car.application"

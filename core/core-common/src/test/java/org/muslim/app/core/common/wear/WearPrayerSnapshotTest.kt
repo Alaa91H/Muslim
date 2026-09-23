@@ -48,6 +48,8 @@ class WearPrayerSnapshotTest {
 
         assertThat(snapshot.ornamentStyle).isEqualTo(AppOrnamentStyle.Geometry)
         assertThat(snapshot.ornamentIntensity).isEqualTo(OrnamentIntensity.Balanced)
+        assertThat(snapshot.nextPrayerId).isNull()
+        assertThat(snapshot.languageTag).isNull()
     }
 
     @Test
@@ -69,8 +71,35 @@ class WearPrayerSnapshotTest {
     }
 
     @Test
-    fun `recognizes only the versioned increment path`() {
+    fun `snapshot carries phone language and stable prayer id`() {
+        val snapshot = WearPrayerSnapshot(
+            nextPrayerName = "Fajr",
+            nextPrayerId = "fajr",
+            nextPrayerAtEpochMillis = 1_700_000_000_000L,
+            tasbihPhrase = "Subhan Allah",
+            tasbihCount = 1,
+            tasbihTarget = 33,
+            syncedAtEpochMillis = 1_699_999_000_000L,
+            languageTag = "de",
+        )
+
+        assertThat(snapshot.nextPrayerId).isEqualTo("fajr")
+        assertThat(snapshot.languageTag).isEqualTo("de")
+        assertThat(snapshot.isValid()).isTrue()
+    }
+
+    @Test
+    fun `recognizes only versioned watch command paths`() {
         assertThat(WearSyncContract.isSupportedIncrementPath(WearSyncContract.TASBIH_INCREMENT_PATH)).isTrue()
+        assertThat(WearSyncContract.isSupportedSyncRequestPath(WearSyncContract.SYNC_REQUEST_PATH)).isTrue()
         assertThat(WearSyncContract.isSupportedIncrementPath("/muslim/wear/unknown")).isFalse()
+        assertThat(WearSyncContract.isSupportedSyncRequestPath("/muslim/wear/unknown")).isFalse()
+    }
+
+    @Test
+    fun `phone and watch advertise distinct capabilities`() {
+        assertThat(WearSyncContract.CAPABILITY_PHONE_APP).isNotEqualTo(WearSyncContract.CAPABILITY_WATCH_APP)
+        assertThat(WearSyncContract.CAPABILITY_PHONE_APP).contains("phone")
+        assertThat(WearSyncContract.CAPABILITY_WATCH_APP).contains("watch")
     }
 }

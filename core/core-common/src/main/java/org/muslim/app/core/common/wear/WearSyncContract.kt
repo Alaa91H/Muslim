@@ -9,11 +9,18 @@ import org.muslim.app.core.common.appearance.OrnamentIntensity
  * account identifiers, or home-automation credentials.
  */
 object WearSyncContract {
-    const val CAPABILITY = "muslim_wear_companion_v1"
+    /** Capability advertised by the Android phone app. */
+    const val CAPABILITY_PHONE_APP = "muslim_phone_companion_v1"
+
+    /** Capability advertised by the Wear OS companion app. */
+    const val CAPABILITY_WATCH_APP = "muslim_watch_companion_v1"
+
     const val DATA_PATH = "/muslim/wear/state/v1"
+    const val SYNC_REQUEST_PATH = "/muslim/wear/sync-request/v1"
     const val TASBIH_INCREMENT_PATH = "/muslim/wear/tasbih/increment/v1"
 
     const val KEY_NEXT_PRAYER = "next_prayer"
+    const val KEY_NEXT_PRAYER_ID = "next_prayer_id"
     const val KEY_NEXT_PRAYER_AT = "next_prayer_at"
     const val KEY_TASBIH_PHRASE = "tasbih_phrase"
     const val KEY_TASBIH_COUNT = "tasbih_count"
@@ -21,13 +28,18 @@ object WearSyncContract {
     const val KEY_SYNCED_AT = "synced_at"
     const val KEY_ORNAMENT_STYLE = "ornament_style"
     const val KEY_ORNAMENT_INTENSITY = "ornament_intensity"
+    const val KEY_LANGUAGE_TAG = "language_tag"
 
     fun isSupportedIncrementPath(path: String): Boolean = path == TASBIH_INCREMENT_PATH
+
+    fun isSupportedSyncRequestPath(path: String): Boolean = path == SYNC_REQUEST_PATH
 }
 
 /** A privacy-minimal snapshot rendered on the watch. */
 data class WearPrayerSnapshot(
     val nextPrayerName: String?,
+    /** Stable non-localized id used by the watch to render the prayer in its synced locale. */
+    val nextPrayerId: String? = null,
     val nextPrayerAtEpochMillis: Long?,
     val tasbihPhrase: String,
     val tasbihCount: Int,
@@ -35,6 +47,8 @@ data class WearPrayerSnapshot(
     val syncedAtEpochMillis: Long,
     val ornamentStyle: AppOrnamentStyle = AppOrnamentStyle.Geometry,
     val ornamentIntensity: OrnamentIntensity = OrnamentIntensity.Balanced,
+    /** Effective BCP-47 UI language resolved from the phone app setting. */
+    val languageTag: String? = null,
 ) {
     fun isValid(): Boolean =
         tasbihPhrase.isNotBlank() &&

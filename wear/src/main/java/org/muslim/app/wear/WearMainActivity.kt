@@ -1,6 +1,8 @@
 package org.muslim.app.wear
 
 import android.app.Activity
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.HapticFeedbackConstants
 import androidx.activity.ComponentActivity
@@ -20,6 +22,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,13 +36,16 @@ import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material3.Button
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.material3.Text
-import com.google.android.gms.wearable.CapabilityClient
-import com.google.android.gms.wearable.Wearable
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.muslim.app.core.common.appearance.AppOrnamentStyle
 import org.muslim.app.core.common.appearance.OrnamentIntensity
 import org.muslim.app.core.common.wear.WearPrayerSnapshot
-import org.muslim.app.core.common.wear.WearSyncContract
 import java.text.DateFormat
 import java.util.Date
 
@@ -48,11 +54,49 @@ import java.util.Date
  * or stores location: it renders the latest snapshot the phone explicitly
  * synchronized and relays a single tasbih increment when tapped.
  */
-class WearMainActivity : ComponentActivity() {
+class WearMainActivity : ComponentActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
+
+    private val connectionScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+    private var refreshJob: Job? = null
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(
+            newBase.withSyncedWearLocale(WearSnapshotStore.readLanguageTag(newBase)),
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent { WearCompanionApp() }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        WearSnapshotStore.preferences(this).registerOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshJob?.cancel()
+        refreshJob = connectionScope.launch {
+            WearConnectionManager.refreshFromPhone(applicationContext)
+        }
+    }
+
+    override fun onStop() {
+        WearSnapshotStore.preferences(this).unregisterOnSharedPreferenceChangeListener(this)
+        super.onStop()
+    }
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        if (key == WearSnapshotStore.LANGUAGE_PREFERENCE_KEY && !isFinishing) {
+            recreate()
+        }
+    }
+
+    override fun onDestroy() {
+        connectionScope.cancel()
+        super.onDestroy()
     }
 }
 
@@ -60,6 +104,7 @@ class WearMainActivity : ComponentActivity() {
 @Composable
 private fun WearCompanionApp() {
     val context = LocalContext.current
+    val actionScope = rememberCoroutineScope()
     var snapshot by remember { mutableStateOf(WearSnapshotStore.read(context)) }
     var nowMillis by remember { mutableLongStateOf(System.currentTimeMillis()) }
     var hapticsEnabled by remember {
@@ -94,14 +139,14 @@ private fun WearCompanionApp() {
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.primary,
             )
-            PrayerOverview(snapshot = snapshot, nowMillis = nowMillis)
-            Spacer(Modifier.height(4.dp))
-            Text(
-                text = stringResource(org.muslim.app.wear.R.string.wear_tasbih),
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.primary,
-            )
             snapshot?.let { state ->
+                PrayerOverview(snapshot = state, nowMillis = nowMillis)
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = stringResource(org.muslim.app.wear.R.string.wear_tasbih),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                )
                 Text(
                     text = state.tasbihPhrase,
                     style = MaterialTheme.typography.titleSmall,
@@ -109,13 +154,16 @@ private fun WearCompanionApp() {
                     modifier = Modifier.fillMaxWidth(),
                 )
                 Text(
-                    text = stringResource(
-                        org.muslim.app.wear.R.string.wear_tasbih_count,
-                        state.tasbihCount,
-                        state.tasbihTarget,
-                    ),
+                    text = state.tasbihCount.toString(),
                     style = MaterialTheme.typography.displaySmall,
                     fontWeight = FontWeight.Bold,
+                )
+                Text(
+                    text = stringResource(
+                        org.muslim.app.wear.R.string.wear_tasbih_of_target,
+                        state.tasbihTarget,
+                    ),
+                    style = MaterialTheme.typography.bodySmall,
                 )
                 Button(
                     onClick = {
@@ -124,13 +172,13 @@ private fun WearCompanionApp() {
                                 HapticFeedbackConstants.CONFIRM,
                             )
                         }
-                        requestTasbihIncrement(context)
+                        actionScope.launch { WearConnectionManager.sendTasbihIncrement(context) }
                     },
                 ) {
                     Text(text = stringResource(org.muslim.app.wear.R.string.wear_increment))
                 }
             } ?: Text(
-                text = stringResource(org.muslim.app.wear.R.string.wear_sync_waiting),
+                text = stringResource(org.muslim.app.wear.R.string.wear_app_name),
                 style = MaterialTheme.typography.bodySmall,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth(),
@@ -144,13 +192,8 @@ private fun WearCompanionApp() {
                 },
             ) {
                 Text(
-                    text = stringResource(
-                        if (hapticsEnabled) {
-                            org.muslim.app.wear.R.string.wear_vibration_on
-                        } else {
-                            org.muslim.app.wear.R.string.wear_vibration_off
-                        },
-                    ),
+                    text = (if (hapticsEnabled) "✓ " else "○ ") +
+                        stringResource(org.muslim.app.wear.R.string.wear_vibration),
                 )
             }
         }
@@ -229,10 +272,10 @@ private fun WearOrnamentBand(
 }
 
 @Composable
-private fun PrayerOverview(snapshot: WearPrayerSnapshot?, nowMillis: Long) {
-    val nextPrayerName = snapshot?.nextPrayerName
-    val nextPrayerAt = snapshot?.nextPrayerAtEpochMillis
-    if (nextPrayerName == null || nextPrayerAt == null) {
+private fun PrayerOverview(snapshot: WearPrayerSnapshot, nowMillis: Long) {
+    val nextPrayerAt = snapshot.nextPrayerAtEpochMillis
+    val nextPrayerName = localizedPrayerName(snapshot)
+    if (nextPrayerAt == null || nextPrayerName.isBlank()) {
         Text(text = stringResource(org.muslim.app.wear.R.string.wear_no_prayer))
         return
     }
@@ -255,19 +298,17 @@ private fun PrayerOverview(snapshot: WearPrayerSnapshot?, nowMillis: Long) {
     )
 }
 
-private fun requestTasbihIncrement(context: android.content.Context) {
-    Wearable.getCapabilityClient(context)
-        .getCapability(WearSyncContract.CAPABILITY, CapabilityClient.FILTER_REACHABLE)
-        .addOnSuccessListener { capability ->
-            capability.nodes.forEach { node ->
-                Wearable.getMessageClient(context).sendMessage(
-                    node.id,
-                    WearSyncContract.TASBIH_INCREMENT_PATH,
-                    byteArrayOf(),
-                )
-            }
-        }
-}
+@Composable
+private fun localizedPrayerName(snapshot: WearPrayerSnapshot): String =
+    when (snapshot.nextPrayerId) {
+        "fajr" -> stringResource(org.muslim.app.wear.R.string.wear_prayer_fajr)
+        "sunrise" -> stringResource(org.muslim.app.wear.R.string.wear_prayer_sunrise)
+        "dhuhr" -> stringResource(org.muslim.app.wear.R.string.wear_prayer_dhuhr)
+        "asr" -> stringResource(org.muslim.app.wear.R.string.wear_prayer_asr)
+        "maghrib" -> stringResource(org.muslim.app.wear.R.string.wear_prayer_maghrib)
+        "isha" -> stringResource(org.muslim.app.wear.R.string.wear_prayer_isha)
+        else -> snapshot.nextPrayerName.orEmpty()
+    }
 
 private fun formatCountdown(millis: Long): String {
     val totalSeconds = millis / 1_000L

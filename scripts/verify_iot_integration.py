@@ -12,18 +12,37 @@ REQUIRED_SNIPPETS = {
     "settings.gradle.kts": [
         'include(":wear")',
     ],
+    "gradle.properties": [
+        "muslim.applicationId=org.muslim.app",
+    ],
     "wear/build.gradle.kts": [
-        'applicationId = "org.muslim.app"',
+        "applicationId = muslimApplicationId",
+        "generateWearLocaleResources",
+        "wearLocaleCatalogRes",
+        "wearPrayerRes",
+        "wearTasbihRes",
+        "wear_prayer_fajr",
         'implementation(libs.google.play.services.wearable)',
+        'implementation(libs.kotlinx.coroutines.play.services)',
         'implementation(libs.androidx.wear.compose.material3)',
     ],
     "app/build.gradle.kts": [
+        "applicationId = muslimApplicationId",
         'implementation(libs.google.play.services.wearable)',
+        'implementation(libs.kotlinx.coroutines.play.services)',
+    ],
+    "app/src/main/res/values/wear.xml": [
+        "android_wear_capabilities",
+        "muslim_phone_companion_v1",
+    ],
+    "wear/src/main/res/values/wear.xml": [
+        "android_wear_capabilities",
+        "muslim_watch_companion_v1",
     ],
     "app/src/main/AndroidManifest.xml": [
         "WearCompanionDataService",
         "com.google.android.gms.wearable.MESSAGE_RECEIVED",
-        "/muslim/wear/tasbih/increment/v1",
+        'android:pathPrefix="/muslim/wear/"',
         "android.media.browse.MediaBrowserService",
         "android.media.action.MEDIA_PLAY_FROM_SEARCH",
         "com.google.android.gms.car.application",
@@ -36,18 +55,56 @@ REQUIRED_SNIPPETS = {
         'android:value="false"',
     ],
     "core/core-common/src/main/java/org/muslim/app/core/common/wear/WearSyncContract.kt": [
+        "CAPABILITY_PHONE_APP",
+        "CAPABILITY_WATCH_APP",
         "DATA_PATH",
+        "SYNC_REQUEST_PATH",
         "TASBIH_INCREMENT_PATH",
+        "KEY_NEXT_PRAYER_ID",
+        "KEY_LANGUAGE_TAG",
+        "languageTag",
         "isValid",
     ],
     "app/src/main/java/org/muslim/app/wear/WearCompanionPublisher.kt": [
         "wearCompanionEnabled",
         "WearSyncContract.DATA_PATH",
+        "WearSyncContract.CAPABILITY_WATCH_APP",
+        "KEY_LANGUAGE_TAG",
+        "resolvedLanguageTag",
+        "watchId()",
+        "pushNow()",
+        "setUrgent()",
         "No location, calculation method",
     ],
     "app/src/main/java/org/muslim/app/wear/WearCompanionDataService.kt": [
-        "isSupportedIncrementPath",
+        "WearSyncContract.SYNC_REQUEST_PATH",
+        "wearCompanionPublisher.pushNow()",
         "wearCompanionEnabled",
+    ],
+    "wear/src/main/java/org/muslim/app/wear/WearConnectionManager.kt": [
+        "CAPABILITY_PHONE_APP",
+        "connectedNodes",
+        "SYNC_REQUEST_PATH",
+        "MAX_SYNC_ATTEMPTS",
+        "sendTasbihIncrement",
+    ],
+    "wear/src/main/java/org/muslim/app/wear/WearLocale.kt": [
+        "withSyncedWearLocale",
+        "Locale.forLanguageTag",
+        "nu",
+        "latn",
+    ],
+    "wear/src/main/java/org/muslim/app/wear/WearMainActivity.kt": [
+        "withSyncedWearLocale",
+        "LANGUAGE_PREFERENCE_KEY",
+        "localizedPrayerName",
+        "wear_tasbih_of_target",
+    ],
+    "wear/src/main/java/org/muslim/app/wear/WearDataLayerService.kt": [
+        "KEY_NEXT_PRAYER_ID",
+        "KEY_LANGUAGE_TAG",
+        "readLanguageTag",
+        "LANGUAGE_PREFERENCE_KEY",
     ],
     "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/data/RecitationPlaybackService.kt": [
         "MediaBrowserServiceCompat",
@@ -88,8 +145,8 @@ XML_FILES = [
     "app/src/main/res/xml/automotive_app_desc.xml",
     "feature/feature-quran/src/main/AndroidManifest.xml",
     "wear/src/main/AndroidManifest.xml",
-    "wear/src/main/res/values/strings.xml",
-    "wear/src/main/res/values-en/strings.xml",
+    "app/src/main/res/values/wear.xml",
+    "wear/src/main/res/values/wear.xml",
     "feature/feature-settings/src/main/res/values/strings.xml",
     "feature/feature-settings/src/main/res/values-en/strings.xml",
 ]
@@ -117,6 +174,29 @@ def verify() -> list[str]:
     secret_store = (ROOT / "core/core-datastore/src/main/java/org/muslim/app/core/datastore/SmartHomeBridgeSecretStore.kt").read_text(encoding="utf-8")
     if "datastore.preferences" in secret_store:
         failures.append("smart-home token store must not use DataStore")
+
+    # Wear must inherit the same locale catalog exposed by the phone settings
+    # rather than maintaining a separate Arabic/English-only string corpus.
+    locale_root = ROOT / "feature/feature-settings/src/main/res"
+    app_locale_dirs = [
+        path for path in locale_root.iterdir()
+        if path.is_dir() and (path.name == "values" or (
+            path.name.startswith("values-")
+            and 2 <= len(path.name.removeprefix("values-")) <= 3
+            and path.name.removeprefix("values-").isalpha()
+        ))
+    ]
+    if len(app_locale_dirs) < 150:
+        failures.append(
+            f"expected the full app locale catalog for Wear generation, found only {len(app_locale_dirs)}"
+        )
+
+    for legacy in (
+        ROOT / "wear/src/main/res/values/strings.xml",
+        ROOT / "wear/src/main/res/values-en/strings.xml",
+    ):
+        if legacy.exists():
+            failures.append(f"Wear must not keep a divergent static locale file: {legacy.relative_to(ROOT)}")
 
     return failures
 
