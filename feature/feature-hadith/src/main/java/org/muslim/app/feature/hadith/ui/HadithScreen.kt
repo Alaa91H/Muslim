@@ -2,13 +2,17 @@ package org.muslim.app.feature.hadith.ui
 
 import android.content.ClipData
 import android.content.Intent
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -54,12 +58,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -246,6 +253,59 @@ private fun HadithCatalogue(
 }
 
 @Composable
+private fun HadithBookCover(
+    collection: HadithCollection,
+    width: Dp,
+    height: Dp,
+    modifier: Modifier = Modifier,
+) {
+    val coverShape = RoundedCornerShape(13.dp)
+    Surface(
+        modifier = modifier.size(width = width, height = height),
+        shape = coverShape,
+        color = MaterialTheme.colorScheme.surfaceContainerHighest,
+        tonalElevation = 2.dp,
+        shadowElevation = 7.dp,
+        border = BorderStroke(
+            width = 1.dp,
+            color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.7f),
+        ),
+    ) {
+        Box {
+            Image(
+                painter = painterResource(collection.coverRes),
+                contentDescription = null,
+                contentScale = ContentScale.Fit,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.surfaceContainerHighest),
+            )
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(
+                        Brush.horizontalGradient(
+                            colorStops = arrayOf(
+                                0f to MaterialTheme.colorScheme.onSurface.copy(alpha = 0.10f),
+                                0.14f to Color.Transparent,
+                                0.86f to Color.Transparent,
+                                1f to MaterialTheme.colorScheme.onSurface.copy(alpha = 0.05f),
+                            ),
+                        ),
+                    ),
+            )
+            Box(
+                modifier = Modifier
+                    .align(Alignment.CenterStart)
+                    .fillMaxHeight()
+                    .width(3.dp)
+                    .background(MaterialTheme.colorScheme.onSurface.copy(alpha = 0.10f)),
+            )
+        }
+    }
+}
+
+@Composable
 private fun HadithCollectionCard(
     collection: HadithCollection,
     onClick: () -> Unit,
@@ -255,17 +315,18 @@ private fun HadithCollectionCard(
             .fillMaxWidth()
             .padding(horizontal = IslamicSpacing.PageHorizontal, vertical = IslamicSpacing.Compact)
             .clickable(onClick = onClick),
+        shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerLow),
+        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
     ) {
         Row(
             modifier = Modifier.padding(IslamicSpacing.Medium),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Image(
-                painter = painterResource(collection.coverRes),
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.size(width = 84.dp, height = 126.dp),
+            HadithBookCover(
+                collection = collection,
+                width = 88.dp,
+                height = 132.dp,
             )
             Spacer(Modifier.width(IslamicSpacing.Medium))
             Column(modifier = Modifier.weight(1f)) {
@@ -521,11 +582,10 @@ private fun HadithBookHeader(collection: HadithCollection) {
         modifier = Modifier.fillMaxWidth().padding(IslamicSpacing.PageHorizontal),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Image(
-            painter = painterResource(collection.coverRes),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier.size(width = 64.dp, height = 96.dp),
+        HadithBookCover(
+            collection = collection,
+            width = 68.dp,
+            height = 102.dp,
         )
         Spacer(Modifier.width(IslamicSpacing.Medium))
         Column(modifier = Modifier.weight(1f)) {
