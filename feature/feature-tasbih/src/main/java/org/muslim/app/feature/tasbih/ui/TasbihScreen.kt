@@ -103,6 +103,8 @@ fun TasbihScreen(
     viewModel: TasbihViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val activeSession by viewModel.activeSession.collectAsStateWithLifecycle()
+    val sessionHistory by viewModel.sessionHistory.collectAsStateWithLifecycle()
     val soundSettings by viewModel.targetSoundSettings.collectAsStateWithLifecycle()
     val haptics = LocalHapticFeedback.current
     val snackbarHostState = remember { SnackbarHostState() }
@@ -308,6 +310,16 @@ fun TasbihScreen(
 
             Spacer(Modifier.height(16.dp))
 
+            TasbihSessionControls(
+                state = state,
+                activeSession = activeSession,
+                onModeSelected = viewModel::setSessionMode,
+                onRoundsGoalSelected = viewModel::setRoundsGoal,
+                onPresetSelected = viewModel::applySessionPreset,
+            )
+
+            Spacer(Modifier.height(16.dp))
+
             // Target presets + custom target
             Row(
                 modifier = Modifier
@@ -354,6 +366,10 @@ fun TasbihScreen(
                     .sortedBy { it.date }
                     .takeLast(7),
             )
+
+            Spacer(Modifier.height(20.dp))
+            RecentTasbihSessions(sessions = sessionHistory)
+
             Spacer(Modifier.height(24.dp))
         }
     }
