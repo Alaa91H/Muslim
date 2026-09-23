@@ -214,6 +214,22 @@ fun UpdateScreen(
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                             )
+                            if (state.release.isPrerelease) {
+                                Spacer(Modifier.height(6.dp))
+                                Text(
+                                    text = stringResource(R.string.update_beta_release),
+                                    style = MaterialTheme.typography.labelLarge,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                )
+                            }
+                            if (state.release.hasVerifiedMetadata) {
+                                Spacer(Modifier.height(6.dp))
+                                Text(
+                                    text = stringResource(R.string.update_integrity_metadata_available),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                )
+                            }
                         }
                     }
 
@@ -447,7 +463,9 @@ private fun downloadFailureMessage(reason: UpdateDownloadFailure): Int = when (r
     UpdateDownloadFailure.InvalidPackage -> R.string.update_failed_invalid_package
     UpdateDownloadFailure.WrongPackage -> R.string.update_failed_wrong_package
     UpdateDownloadFailure.SignatureMismatch -> R.string.update_failed_signature
+    UpdateDownloadFailure.ChecksumMismatch -> R.string.update_failed_checksum
     UpdateDownloadFailure.VersionMismatch -> R.string.update_failed_version
+    UpdateDownloadFailure.VersionCodeMismatch -> R.string.update_failed_version_code
     UpdateDownloadFailure.NotNewer -> R.string.update_failed_not_newer
     UpdateDownloadFailure.Unknown -> R.string.update_failed_generic
 }

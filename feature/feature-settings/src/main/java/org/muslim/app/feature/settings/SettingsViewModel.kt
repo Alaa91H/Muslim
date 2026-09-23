@@ -120,6 +120,11 @@ class SettingsViewModel @Inject constructor(
         }
     }
 
+    /** Changes the GitHub release channel used by update discovery. */
+    fun setUpdateChannel(channel: String) = launch {
+        appPreferencesRepository.setUpdateChannel(channel)
+    }
+
     /** Enables automatic download of newly discovered releases. */
     fun setAutoUpdateEnabled(enabled: Boolean) = launch {
         appPreferencesRepository.setAutoUpdateEnabled(enabled)

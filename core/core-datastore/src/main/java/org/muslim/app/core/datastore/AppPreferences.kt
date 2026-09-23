@@ -69,6 +69,11 @@ data class AppPreferences(
      */
     val updateCheckFrequency: String = UPDATE_CHECK_DAILY,
     /**
+     * Release channel used by update discovery. Stable ignores GitHub
+     * prereleases; Beta accepts both stable and prerelease builds.
+     */
+    val updateChannel: String = UPDATE_CHANNEL_STABLE,
+    /**
      * Automatic update downloads. Android still owns the final installation
      * confirmation; this flag never implies silent installation.
      */
@@ -95,6 +100,10 @@ data class AppPreferences(
     val updateDownloadVersion: String = "",
     /** File name associated with [updateDownloadId] inside the app updates directory. */
     val updateDownloadFileName: String = "",
+    /** Expected SHA-256 for the persisted APK, empty for legacy releases without metadata. */
+    val updateDownloadSha256: String = "",
+    /** Expected release versionCode, 0 for legacy releases without metadata. */
+    val updateDownloadVersionCode: Long = 0L,
 ) {
     companion object {
         const val SYSTEM_LANGUAGE = "system"
@@ -120,6 +129,9 @@ data class AppPreferences(
         const val UPDATE_CHECK_DAILY = "daily"
         const val UPDATE_CHECK_WEEKLY = "weekly"
         const val UPDATE_CHECK_MONTHLY = "monthly"
+
+        const val UPDATE_CHANNEL_STABLE = "stable"
+        const val UPDATE_CHANNEL_BETA = "beta"
 
         /**
          * Decodes a persisted comma-separated section order into a full, valid

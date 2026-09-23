@@ -206,6 +206,11 @@
     <string name="settings_cancel">Cancel</string>
     <string name="settings_updates_check_desc">Periodically check GitHub Releases and notify once when a newer version is discovered</string>
     <string name="settings_updates_frequency">Check frequency</string>
+    <string name="settings_updates_channel">Update channel</string>
+    <string name="settings_updates_channel_stable">Stable</string>
+    <string name="settings_updates_channel_beta">Beta</string>
+    <string name="settings_updates_channel_stable_desc">Receive published final releases only.</string>
+    <string name="settings_updates_channel_beta_desc">Receive prereleases as well as stable releases. Beta builds may contain features still being tested.</string>
     <string name="settings_updates_daily">Daily</string>
     <string name="settings_updates_weekly">Weekly</string>
     <string name="settings_updates_monthly">Monthly</string>
@@ -222,6 +227,7 @@
     <string name="update_unavailable">Could not reach the releases page.</string>
     <string name="update_retry">Retry</string>
     <string name="update_new_version">New version %1$s</string>
+    <string name="update_beta_release">Beta release — may contain features still being tested</string>
     <string name="update_current_version">Your current version: %1$s</string>
     <string name="update_changelog">Changelog</string>
     <string name="update_no_changelog">No description for this version.</string>
@@ -233,6 +239,7 @@
     <string name="update_download_paused">Download paused</string>
     <string name="update_verifying">Verifying the update package and signature…</string>
     <string name="update_ready_to_install">Download complete. The package identity and signing certificate were verified and the update is ready to install.</string>
+    <string name="update_integrity_metadata_available">This release includes SHA-256 integrity metadata and an authoritative version code for verification before installation.</string>
     <string name="update_ready_offline">The downloaded and verified update is ready to install even while you are offline.</string>
     <string name="update_install">Install update</string>
     <string name="update_retry_download">Download again</string>
@@ -241,7 +248,9 @@
     <string name="update_failed_invalid_package">The downloaded file is not a valid Android package.</string>
     <string name="update_failed_wrong_package">The file was rejected because it does not belong to Muslim.</string>
     <string name="update_failed_signature">The update was rejected because its signing certificate does not match the installed app.</string>
+    <string name="update_failed_checksum">The update was rejected because the APK SHA-256 does not match the published release metadata.</string>
     <string name="update_failed_version">The APK version does not match the published release.</string>
+    <string name="update_failed_version_code">The update was rejected because the APK versionCode does not match the release metadata.</string>
     <string name="update_failed_not_newer">The APK is not newer than the installed version.</string>
     <string name="update_failed_generic">The update could not be verified safely.</string>
     <string name="update_available_title">A new update is available</string>
