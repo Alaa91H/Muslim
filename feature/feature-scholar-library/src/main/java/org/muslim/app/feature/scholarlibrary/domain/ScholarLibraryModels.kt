@@ -101,6 +101,19 @@ data class ScholarNote(
     val createdAtEpochMillis: Long,
 )
 
+enum class ScholarReviewRating {
+    Again,
+    Hard,
+    Good,
+    Easy,
+    ;
+
+    companion object {
+        fun fromId(id: String?): ScholarReviewRating? =
+            id?.let { raw -> entries.firstOrNull { it.name.equals(raw, ignoreCase = true) } }
+    }
+}
+
 data class StudyFlashcard(
     val id: Long,
     val passageId: String,
@@ -109,6 +122,11 @@ data class StudyFlashcard(
     val reviewCount: Int,
     val dueAtEpochMillis: Long,
     val createdAtEpochMillis: Long,
+    val intervalDays: Int = 0,
+    val easeFactor: Double = 2.5,
+    val lapseCount: Int = 0,
+    val lastReviewedAtEpochMillis: Long? = null,
+    val lastRating: ScholarReviewRating? = null,
 )
 
 data class ScholarBookmark(
@@ -289,6 +307,23 @@ data class StudyNoteWithCitation(
 data class FlashcardWithCitation(
     val card: StudyFlashcard,
     val citation: Citation,
+    val bookId: String,
+    val category: ScholarCategory,
+)
+
+data class ScholarReviewSummary(
+    val totalCards: Int,
+    val dueCards: Int,
+    val learningCards: Int,
+    val matureCards: Int,
+    val estimatedMasteryPercent: Int,
+)
+
+data class ScholarCategoryMastery(
+    val category: ScholarCategory,
+    val totalCards: Int,
+    val dueCards: Int,
+    val estimatedMasteryPercent: Int,
 )
 
 data class StudyBookmarkWithCitation(
