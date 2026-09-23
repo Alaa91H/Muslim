@@ -29,77 +29,78 @@ data class WillDraft(
 ) {
     fun isEmpty(): Boolean = allValues().all(String::isBlank)
 
-    fun toDocument(isArabic: Boolean): WillDraftDocument = if (isArabic) {
-        WillDraftDocument(
-            title = "مسودة وصية شرعية",
-            subtitle = "نسخة شخصية تنظيمية — راجع عالمًا موثوقًا ومحاميًا/كاتب عدل قبل اعتمادها.",
-            sections = listOf(
-                section(
-                    title = "البيانات والوصول",
-                    "الاسم الكامل" to fullName,
-                    "مكان حفظ الوثائق المهمة" to documentLocation,
-                    "المنفذ أو الشخص الموثوق" to executorName,
-                    "وسيلة تواصل المنفذ" to executorContact,
-                    "جهات اتصال موثوقة" to trustedContacts,
-                ),
-                section(
-                    title = "الحقوق والأموال والأمانات",
-                    "الديون والحقوق والالتزامات" to debtsAndRights,
-                    "الأصول والحسابات ومكان مستنداتها" to assetsAndAccounts,
-                    "الأمانات وممتلكات الغير" to entrustedProperty,
-                    "تعليمات الوصول الرقمي الآمن" to digitalAccessInstructions,
-                ),
-                section(
-                    title = "الأسرة والجنازة والوصايا",
-                    "وصايا التجهيز والجنازة" to funeralWishes,
-                    "ملاحظات الوصاية على القُصَّر" to guardianshipNotes,
-                    "الوصايا الخيرية" to charitableBequests,
-                ),
-                section(
-                    title = "المراجعة والملاحظات",
-                    "تاريخ آخر مراجعة" to lastReviewDate,
-                    "ملاحظات إضافية" to additionalNotes,
-                ),
+    fun toDocument(isArabic: Boolean): WillDraftDocument =
+        if (isArabic) arabicDocument() else englishDocument()
+
+    private fun arabicDocument(): WillDraftDocument = WillDraftDocument(
+        title = "مسودة وصية شرعية",
+        subtitle = "نسخة شخصية تنظيمية — راجع عالمًا موثوقًا ومحاميًا/كاتب عدل قبل اعتمادها.",
+        sections = listOf(
+            section(
+                title = "البيانات والوصول",
+                "الاسم الكامل" to fullName,
+                "مكان حفظ الوثائق المهمة" to documentLocation,
+                "المنفذ أو الشخص الموثوق" to executorName,
+                "وسيلة تواصل المنفذ" to executorContact,
+                "جهات اتصال موثوقة" to trustedContacts,
             ),
-            privacyReminder = "تنبيه للخصوصية: لا تُدرج كلمات مرور أو رموز PIN أو عبارات استرداد أو مفاتيح خاصة داخل هذه المسودة.",
-            sharingReminder = "تحقّق من الجهة المستلمة ووسيلة الإرسال قبل مشاركة أي نسخة.",
-        )
-    } else {
-        WillDraftDocument(
-            title = "Islamic Will Draft",
-            subtitle = "Personal organisational copy — consult a qualified scholar and a lawyer/notary before relying on it.",
-            sections = listOf(
-                section(
-                    title = "Identity and access",
-                    "Full name" to fullName,
-                    "Important document location" to documentLocation,
-                    "Executor or trusted person" to executorName,
-                    "Executor contact" to executorContact,
-                    "Trusted contacts" to trustedContacts,
-                ),
-                section(
-                    title = "Rights, finances, and entrusted property",
-                    "Debts, rights, and obligations" to debtsAndRights,
-                    "Assets, accounts, and document locations" to assetsAndAccounts,
-                    "Entrusted or third-party property" to entrustedProperty,
-                    "Secure digital-access instructions" to digitalAccessInstructions,
-                ),
-                section(
-                    title = "Family, funeral, and bequests",
-                    "Funeral wishes" to funeralWishes,
-                    "Guardianship notes for minors" to guardianshipNotes,
-                    "Charitable bequests" to charitableBequests,
-                ),
-                section(
-                    title = "Review and notes",
-                    "Last review date" to lastReviewDate,
-                    "Additional notes" to additionalNotes,
-                ),
+            section(
+                title = "الحقوق والأموال والأمانات",
+                "الديون والحقوق والالتزامات" to debtsAndRights,
+                "الأصول والحسابات ومكان مستنداتها" to assetsAndAccounts,
+                "الأمانات وممتلكات الغير" to entrustedProperty,
+                "تعليمات الوصول الرقمي الآمن" to digitalAccessInstructions,
             ),
-            privacyReminder = "Privacy reminder: do not include passwords, PINs, recovery phrases, or private keys in this draft.",
-            sharingReminder = "Verify the recipient and sharing method before sending any copy.",
-        )
-    }
+            section(
+                title = "الأسرة والجنازة والوصايا",
+                "وصايا التجهيز والجنازة" to funeralWishes,
+                "ملاحظات الوصاية على القُصَّر" to guardianshipNotes,
+                "الوصايا الخيرية" to charitableBequests,
+            ),
+            section(
+                title = "المراجعة والملاحظات",
+                "تاريخ آخر مراجعة" to lastReviewDate,
+                "ملاحظات إضافية" to additionalNotes,
+            ),
+        ),
+        privacyReminder = "تنبيه للخصوصية: لا تُدرج كلمات مرور أو رموز PIN أو عبارات استرداد أو مفاتيح خاصة داخل هذه المسودة.",
+        sharingReminder = "تحقّق من الجهة المستلمة ووسيلة الإرسال قبل مشاركة أي نسخة.",
+    )
+
+    private fun englishDocument(): WillDraftDocument = WillDraftDocument(
+        title = "Islamic Will Draft",
+        subtitle = "Personal organisational copy — consult a qualified scholar and a lawyer/notary before relying on it.",
+        sections = listOf(
+            section(
+                title = "Identity and access",
+                "Full name" to fullName,
+                "Important document location" to documentLocation,
+                "Executor or trusted person" to executorName,
+                "Executor contact" to executorContact,
+                "Trusted contacts" to trustedContacts,
+            ),
+            section(
+                title = "Rights, finances, and entrusted property",
+                "Debts, rights, and obligations" to debtsAndRights,
+                "Assets, accounts, and document locations" to assetsAndAccounts,
+                "Entrusted or third-party property" to entrustedProperty,
+                "Secure digital-access instructions" to digitalAccessInstructions,
+            ),
+            section(
+                title = "Family, funeral, and bequests",
+                "Funeral wishes" to funeralWishes,
+                "Guardianship notes for minors" to guardianshipNotes,
+                "Charitable bequests" to charitableBequests,
+            ),
+            section(
+                title = "Review and notes",
+                "Last review date" to lastReviewDate,
+                "Additional notes" to additionalNotes,
+            ),
+        ),
+        privacyReminder = "Privacy reminder: do not include passwords, PINs, recovery phrases, or private keys in this draft.",
+        sharingReminder = "Verify the recipient and sharing method before sending any copy.",
+    )
 
     /** A readable plain-text copy for the user's intentional, system-mediated sharing. */
     fun toShareText(isArabic: Boolean): String {
