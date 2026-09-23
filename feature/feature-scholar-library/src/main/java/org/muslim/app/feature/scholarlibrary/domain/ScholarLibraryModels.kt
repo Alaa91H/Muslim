@@ -114,20 +114,32 @@ enum class ScholarReviewRating {
     }
 }
 
-data class StudyFlashcard(
-    val id: Long,
-    val passageId: String,
-    val front: String,
-    val back: String,
-    val reviewCount: Int,
-    val dueAtEpochMillis: Long,
-    val createdAtEpochMillis: Long,
+data class ScholarFlashcardReviewState(
+    val reviewCount: Int = 0,
+    val dueAtEpochMillis: Long = 0L,
     val intervalDays: Int = 0,
     val easeFactor: Double = 2.5,
     val lapseCount: Int = 0,
     val lastReviewedAtEpochMillis: Long? = null,
     val lastRating: ScholarReviewRating? = null,
 )
+
+data class StudyFlashcard(
+    val id: Long,
+    val passageId: String,
+    val front: String,
+    val back: String,
+    val createdAtEpochMillis: Long,
+    val reviewState: ScholarFlashcardReviewState = ScholarFlashcardReviewState(),
+) {
+    val reviewCount: Int get() = reviewState.reviewCount
+    val dueAtEpochMillis: Long get() = reviewState.dueAtEpochMillis
+    val intervalDays: Int get() = reviewState.intervalDays
+    val easeFactor: Double get() = reviewState.easeFactor
+    val lapseCount: Int get() = reviewState.lapseCount
+    val lastReviewedAtEpochMillis: Long? get() = reviewState.lastReviewedAtEpochMillis
+    val lastRating: ScholarReviewRating? get() = reviewState.lastRating
+}
 
 data class ScholarBookmark(
     val passageId: String,
