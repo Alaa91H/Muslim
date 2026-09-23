@@ -111,6 +111,7 @@ private data class FamilyDestinationActions(
     val openSection: (FamilySection) -> Unit,
     val openCategory: (FamilyTopicCategory) -> Unit,
     val openArticle: (String) -> Unit,
+    val openChecklist: (String) -> Unit,
     val onAudioFailure: (String) -> Unit,
     val openQuran: (Int?) -> Unit,
     val openHadith: () -> Unit,
@@ -165,6 +166,12 @@ fun FamilyLifeScreen(
         openArticle = {
             articleId = it
             checklistId = null
+        },
+        openChecklist = {
+            sectionName = FamilySection.Tools.name
+            categoryName = null
+            articleId = null
+            checklistId = it
         },
         onAudioFailure = { message ->
             scope.launch { snackbarHostState.showSnackbar(message) }
@@ -289,10 +296,7 @@ private fun FamilyLifeDestination(
             onOpenArticle = actions.openArticle,
             onOpenNames = { actions.openSection(FamilySection.Names) },
             onOpenRuqyah = { actions.openSection(FamilySection.Ruqyah) },
-            onOpenChecklist = { checklistId ->
-                actions.openSection(FamilySection.Tools)
-                // The destination is rendered from the screen model on the next frame.
-            },
+            onOpenChecklist = actions.openChecklist,
         )
         model.section == FamilySection.Guide -> FamilyGuideCatalogContent(
             isArabic = model.isArabic,
