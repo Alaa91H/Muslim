@@ -38,8 +38,7 @@ internal class UpdateDownloadManager(
             when (val current = state(currentPrefs)) {
                 is UpdateDownloadState.Downloading,
                 is UpdateDownloadState.Paused,
-                is UpdateDownloadState.ReadyToInstall,
-                -> return current
+                is UpdateDownloadState.ReadyToInstall -> return current
                 else -> Unit
             }
         }
@@ -116,8 +115,8 @@ internal class UpdateDownloadManager(
 
                 return when (status) {
                     DownloadManager.STATUS_PENDING,
-                    DownloadManager.STATUS_RUNNING,
-                    -> UpdateDownloadState.Downloading(downloaded, total, progress)
+                    DownloadManager.STATUS_RUNNING ->
+                        UpdateDownloadState.Downloading(downloaded, total, progress)
 
                     DownloadManager.STATUS_PAUSED ->
                         UpdateDownloadState.Paused(downloaded, total, progress)
