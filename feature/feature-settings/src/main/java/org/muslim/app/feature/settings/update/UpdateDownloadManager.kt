@@ -73,7 +73,13 @@ internal class UpdateDownloadManager(
         val id = runCatching { downloadManager.enqueue(request) }
             .getOrElse { return UpdateDownloadState.Failed(UpdateDownloadFailure.DownloadFailed) }
 
-        preferencesRepository.setUpdateDownload(id, release.version, fileName)
+        preferencesRepository.setUpdateDownload(
+            id = id,
+            version = release.version,
+            fileName = fileName,
+            sha256 = release.apkSha256,
+            versionCode = release.versionCode,
+        )
         return UpdateDownloadState.Downloading(
             downloadedBytes = 0L,
             totalBytes = release.apkSizeBytes,
@@ -101,7 +107,7 @@ internal class UpdateDownloadManager(
             ?.let { File(directory, it) }
             ?: return UpdateDownloadState.Failed(UpdateDownloadFailure.MissingFile)
 
-        val failure = verifier.verify(file, prefs.updateDownloadVersion)
+        val failure = verify(file, prefs)
         return if (failure == null) {
             UpdateDownloadState.ReadyToInstall(prefs.updateDownloadVersion)
         } else {
@@ -141,7 +147,7 @@ internal class UpdateDownloadManager(
 
                     DownloadManager.STATUS_SUCCESSFUL -> {
                         val file = File(directory, prefs.updateDownloadFileName)
-                        val failure = verifier.verify(file, prefs.updateDownloadVersion)
+                        val failure = verify(file, prefs)
                         if (failure == null) {
                             UpdateDownloadState.ReadyToInstall(prefs.updateDownloadVersion)
                         } else {
@@ -158,7 +164,7 @@ internal class UpdateDownloadManager(
         // is still usable only after the same package/signature verification.
         val file = File(directory, prefs.updateDownloadFileName)
         if (file.exists()) {
-            val failure = verifier.verify(file, prefs.updateDownloadVersion)
+            val failure = verify(file, prefs)
             return if (failure == null) {
                 UpdateDownloadState.ReadyToInstall(prefs.updateDownloadVersion)
             } else {
@@ -167,6 +173,14 @@ internal class UpdateDownloadManager(
         }
         return UpdateDownloadState.Failed(UpdateDownloadFailure.MissingFile)
     }
+
+    private fun verify(file: File, prefs: AppPreferences): UpdateDownloadFailure? =
+        verifier.verify(
+            file = file,
+            expectedVersion = prefs.updateDownloadVersion,
+            expectedSha256 = prefs.updateDownloadSha256.takeIf(String::isNotBlank),
+            expectedVersionCode = prefs.updateDownloadVersionCode.takeIf { it > 0L },
+        )
 
     private suspend fun clearPrevious(prefs: AppPreferences) {
         if (prefs.updateDownloadId > 0L) {
