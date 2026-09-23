@@ -26,7 +26,7 @@ def require(condition: bool, message: str) -> None:
 
 def main() -> None:
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
-    require(catalog.get("schemaVersion") == 2, "bundled catalog schemaVersion must be 2")
+    require(catalog.get("schemaVersion") == 3, "bundled catalog schemaVersion must be 3")
     require(bool(catalog.get("packName")), "catalog must state a pack name")
     require(bool(catalog.get("licenseNotice")), "catalog must state a licence boundary")
     books = catalog.get("books", [])
@@ -52,6 +52,10 @@ def main() -> None:
             passage_ids.add(passage_id)
             require(bool(passage.get("chapter")), f"{passage_id} must include a chapter")
             require(bool(passage.get("text")), f"{passage_id} must include text")
+            require("orderIndex" in passage and isinstance(passage["orderIndex"], int), f"{passage_id} needs orderIndex")
+            require(passage["orderIndex"] >= 0, f"{passage_id} orderIndex must be non-negative")
+            if "section" in passage:
+                require(isinstance(passage["section"], str), f"{passage_id} section must be text")
 
     required_categories = {"Fiqh", "Usul", "Aqidah", "Hadith", "Tafsir", "Arabic"}
     require(required_categories <= categories, "starter catalog must cover core study categories")
@@ -89,7 +93,7 @@ def main() -> None:
     require("rebuildIndex()" in repository, "imports must rebuild the search index")
     require("PACK_MAX_CHARS" in repository, "imports must have a size limit")
     require("MIN_PACK_SCHEMA_VERSION = 1" in repository, "v1 user packs must remain import-compatible")
-    require("CURRENT_PACK_SCHEMA_VERSION = 2" in repository, "v2 must be the current pack schema")
+    require("CURRENT_PACK_SCHEMA_VERSION = 3" in repository, "v3 must be the current pack schema")
     require("setBookmark(" in repository, "v2 repository must persist bookmarks")
     require("addHighlight(" in repository, "v2 repository must persist highlights")
     require("updateReadingProgress(" in repository, "v2 repository must persist reading progress")
@@ -98,13 +102,20 @@ def main() -> None:
     require("bookOutline(" in repository, "repository must expose book volume/chapter outlines")
     require("ScholarSearchFilters" in repository, "repository search must support advanced filters")
     require("matchesMetadataQuery" in repository, "search must include book metadata matching")
+    require("bookHierarchy(" in repository, "repository must expose the full book hierarchy")
+    require("createStudyPlan(" in repository, "repository must persist study plans")
+    require("observeStudyPlans()" in repository, "repository must expose study plans")
 
     database = DATABASE.read_text(encoding="utf-8")
-    require("version = 2" in database, "Scholar Library Room database must be version 2")
+    require("version = 3" in database, "Scholar Library Room database must be version 3")
     require("MIGRATION_1_2" in database, "database v2 must provide a non-destructive 1->2 migration")
+    require("MIGRATION_2_3" in database, "database v3 must provide a non-destructive 2->3 migration")
+    require("scholar_study_plans" in database, "database v3 must create study-plan storage")
+    require("ALTER TABLE scholar_passages ADD COLUMN section TEXT" in database, "v3 must add passage section")
+    require("ALTER TABLE scholar_passages ADD COLUMN orderIndex INTEGER NOT NULL DEFAULT 0" in database, "v3 must add passage order")
     for table in ("scholar_bookmarks", "scholar_highlights", "scholar_reading_progress"):
         require(table in database, f"database migration must create {table}")
-    require(".addMigrations(MIGRATION_1_2)" in database, "Room builder must install MIGRATION_1_2")
+    require(".addMigrations(MIGRATION_1_2, MIGRATION_2_3)" in database, "Room builder must install both migrations")
 
     models = MODELS.read_text(encoding="utf-8")
     require("ScholarDifficulty.Unspecified" in models, "legacy books must not receive an invented difficulty")
@@ -119,7 +130,7 @@ def main() -> None:
     require("markStudied" in screens, "reader must expose explicit progress updates")
     require("LibraryAdvancedFilters" in screens, "library must expose advanced filters")
     require("studyPathItems" in screens, "library home must expose study paths")
-    require("BookOutlineCard" in screens, "book reader must expose the volume/chapter outline")
+    require("BookHierarchyCard" in screens, "book reader must expose the volume/chapter/section hierarchy")
 
     navigation = NAVIGATION.read_text(encoding="utf-8")
     require("SCHOLAR_LIBRARY_ROUTE" in navigation, "library route must be registered")
@@ -133,7 +144,7 @@ def main() -> None:
     print(
         "Scholar Library v2 verified: "
         f"{len(books)} references, {len(passage_ids)} study passages, "
-        f"{len(categories)} categories, {len(paths)} study paths, migration + study state present."
+        f"{len(categories)} categories, {len(paths)} study paths, hierarchy + plans + migrations present."
     )
 
 
