@@ -40,6 +40,8 @@ import androidx.compose.ui.unit.dp
 import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.reference.R
+import org.muslim.app.feature.reference.domain.CivilizationCategory
+import org.muslim.app.feature.reference.domain.CivilizationTopic
 import org.muslim.app.feature.reference.domain.HistoryArticle
 import org.muslim.app.feature.reference.domain.HistoryDatePrecision
 import org.muslim.app.feature.reference.domain.HistoryEra
@@ -48,6 +50,7 @@ import org.muslim.app.feature.reference.domain.HistoryPerson
 import org.muslim.app.feature.reference.domain.HistoryRegion
 import org.muslim.app.feature.reference.domain.HistoricalMapLayer
 import org.muslim.app.feature.reference.domain.HistoricalState
+import org.muslim.app.feature.reference.domain.IslamicCivilizationContent
 import org.muslim.app.feature.reference.domain.IslamicHistoryArticles
 import org.muslim.app.feature.reference.domain.IslamicHistoryContent
 import org.muslim.app.feature.reference.domain.IslamicHistorySources
@@ -105,7 +108,8 @@ fun IslamicHistoryScreen(
             when (selectedTab) {
                 0 -> TimelineTab(language = language)
                 1 -> StatesTab(language = language)
-                2 -> AtlasTab(language = language)
+                2 -> CivilizationTab(language = language)
+                3 -> AtlasTab(language = language)
                 else -> PeopleTab(language = language)
             }
         }
@@ -117,6 +121,7 @@ private fun HistoryTabs(selectedTab: Int, onSelect: (Int) -> Unit) {
     val labels = listOf(
         stringResource(R.string.history_timeline_tab),
         stringResource(R.string.history_states_tab),
+        stringResource(R.string.history_civilization_tab),
         stringResource(R.string.history_atlas_tab),
         stringResource(R.string.history_people_tab),
     )
@@ -484,6 +489,194 @@ private fun historyRegionLabel(region: HistoryRegion?, language: HistoryLanguage
             if (language == HistoryLanguage.Arabic) "إيران وآسيا الوسطى" else "Iran & Central Asia"
         HistoryRegion.SouthAsia ->
             if (language == HistoryLanguage.Arabic) "جنوب آسيا" else "South Asia"
+    }
+
+@Composable
+private fun CivilizationTab(language: HistoryLanguage) {
+    var selectedCategory by remember { mutableStateOf<CivilizationCategory?>(null) }
+    var selectedTopicId by remember { mutableStateOf<String?>(null) }
+    val selectedTopic = selectedTopicId?.let(IslamicCivilizationContent::byId)
+
+    if (selectedTopic != null) {
+        CivilizationTopicView(
+            topic = selectedTopic,
+            language = language,
+            onBack = { selectedTopicId = null },
+        )
+        return
+    }
+
+    Column(modifier = Modifier.fillMaxSize()) {
+        CivilizationCategorySelector(
+            selectedCategory = selectedCategory,
+            language = language,
+            onSelect = { selectedCategory = it },
+        )
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            item { HistoryNotice(stringResource(R.string.history_civilization_intro)) }
+            items(
+                IslamicCivilizationContent.byCategory(selectedCategory),
+                key = { it.id },
+            ) { topic ->
+                CivilizationTopicCard(
+                    topic = topic,
+                    language = language,
+                    onOpen = { selectedTopicId = topic.id },
+                )
+            }
+            item { HistoryNotice(stringResource(R.string.history_sources_notice)) }
+        }
+    }
+}
+
+@Composable
+private fun CivilizationCategorySelector(
+    selectedCategory: CivilizationCategory?,
+    language: HistoryLanguage,
+    onSelect: (CivilizationCategory?) -> Unit,
+) {
+    val categories = listOf<CivilizationCategory?>(
+        null,
+        CivilizationCategory.KnowledgeAndSciences,
+        CivilizationCategory.Institutions,
+        CivilizationCategory.SocietyAndEconomy,
+        CivilizationCategory.ArtsAndBuiltEnvironment,
+    )
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .horizontalScroll(rememberScrollState())
+            .padding(horizontal = 16.dp, vertical = 10.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        categories.forEach { category ->
+            FilterChip(
+                selected = selectedCategory == category,
+                onClick = { onSelect(category) },
+                label = { Text(civilizationCategoryLabel(category, language)) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun CivilizationTopicCard(
+    topic: CivilizationTopic,
+    language: HistoryLanguage,
+    onOpen: () -> Unit,
+) {
+    Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)) {
+        Column(modifier = Modifier.padding(18.dp)) {
+            Text(
+                text = topic.title.resolve(language),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                text = civilizationCategoryLabel(topic.category, language),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(top = 4.dp),
+            )
+            Text(
+                text = topic.summary.resolve(language),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(top = 10.dp),
+            )
+            TextButton(
+                onClick = onOpen,
+                modifier = Modifier.padding(top = 6.dp),
+            ) {
+                Text(
+                    if (language == HistoryLanguage.Arabic) {
+                        "قراءة الموضوع"
+                    } else {
+                        "Read topic"
+                    },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun CivilizationTopicView(
+    topic: CivilizationTopic,
+    language: HistoryLanguage,
+    onBack: () -> Unit,
+) {
+    BackHandler(onBack = onBack)
+    val sources = topic.sourceIds.mapNotNull(IslamicHistorySources::byId)
+    val people = topic.personIds.mapNotNull { id ->
+        IslamicHistoryContent.personalities.firstOrNull { it.id == id }
+    }
+
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
+        item {
+            TextButton(onClick = onBack) {
+                Text(
+                    if (language == HistoryLanguage.Arabic) {
+                        "العودة إلى موضوعات الحضارة"
+                    } else {
+                        "Back to civilization topics"
+                    },
+                )
+            }
+        }
+        item {
+            Text(
+                text = topic.title.resolve(language),
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Bold,
+            )
+        }
+        item { HistoryNotice(topic.summary.resolve(language)) }
+        items(topic.sections, key = { it.id }) { section ->
+            HistoryArticleSectionCard(section = section, language = language)
+        }
+        if (people.isNotEmpty()) {
+            item {
+                Text(
+                    text = if (language == HistoryLanguage.Arabic) "شخصيات مرتبطة" else "Related people",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
+            items(people, key = { it.id }) { person ->
+                PersonCard(person = person, language = language)
+            }
+        }
+        if (sources.isNotEmpty()) {
+            item { HistorySourcesHeading(language = language) }
+            items(sources, key = { it.id }) { source ->
+                HistorySourceCard(source = source, language = language)
+            }
+        }
+    }
+}
+
+private fun civilizationCategoryLabel(
+    category: CivilizationCategory?,
+    language: HistoryLanguage,
+): String =
+    when (category) {
+        null -> if (language == HistoryLanguage.Arabic) "الكل" else "All"
+        CivilizationCategory.KnowledgeAndSciences ->
+            if (language == HistoryLanguage.Arabic) "العلوم والمعرفة" else "Knowledge & sciences"
+        CivilizationCategory.Institutions ->
+            if (language == HistoryLanguage.Arabic) "المؤسسات" else "Institutions"
+        CivilizationCategory.SocietyAndEconomy ->
+            if (language == HistoryLanguage.Arabic) "المجتمع والاقتصاد" else "Society & economy"
+        CivilizationCategory.ArtsAndBuiltEnvironment ->
+            if (language == HistoryLanguage.Arabic) "الفنون والعمران" else "Arts & built environment"
     }
 
 @Composable
