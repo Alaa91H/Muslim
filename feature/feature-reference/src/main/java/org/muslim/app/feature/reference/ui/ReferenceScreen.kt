@@ -558,17 +558,7 @@ private fun BookContent(
 ) {
     val results = repository.search(book, query, lang)
     Column(modifier = modifier.fillMaxSize()) {
-        OutlinedTextField(
-            value = query,
-            onValueChange = onQueryChanged,
-            placeholder = { Text(stringResource(R.string.reference_search_hint)) },
-            leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-            singleLine = true,
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 8.dp),
-        )
+        BookSearchField(query = query, onQueryChanged = onQueryChanged)
         IslamicDecorationDivider(
             tint = MaterialTheme.colorScheme.tertiary,
             modifier = Modifier.padding(horizontal = 24.dp),
@@ -583,56 +573,114 @@ private fun BookContent(
         } else {
             LazyColumn(modifier = Modifier.fillMaxSize()) {
                 if (query.isBlank() && book.chapters.isNotEmpty()) {
-                    book.chapters.forEach { chapter ->
-                        item(key = "chapter-header-${chapter.id}") {
-                            Column(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(horizontal = 20.dp, vertical = 12.dp),
-                            ) {
-                                Text(
-                                    text = chapter.title(lang),
-                                    style = MaterialTheme.typography.titleMedium,
-                                    fontWeight = FontWeight.Bold,
-                                    color = MaterialTheme.colorScheme.primary,
-                                )
-                                val summary = chapter.summary(lang)
-                                if (summary.isNotBlank()) {
-                                    Spacer(Modifier.height(4.dp))
-                                    Text(
-                                        text = summary,
-                                        style = MaterialTheme.typography.bodySmall,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    )
-                                }
-                            }
-                        }
-                        val chapterTopics = chapter.topicIds.mapNotNull { topicId ->
-                            book.topics.firstOrNull { it.id == topicId }
-                        }
-                        items(
-                            items = chapterTopics,
-                            key = { topic -> "chapter-${chapter.id}-${topic.id}" },
-                        ) { topic ->
-                            TopicListItem(
-                                topic = topic,
-                                lang = lang,
-                                bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in bookmarkKeys,
-                                onOpenTopic = onOpenTopic,
-                            )
-                        }
-                    }
+                    chapterTopicItems(
+                        book = book,
+                        lang = lang,
+                        bookmarkKeys = bookmarkKeys,
+                        onOpenTopic = onOpenTopic,
+                    )
                 } else {
-                    items(results, key = { it.id }) { topic ->
-                        TopicListItem(
-                            topic = topic,
-                            lang = lang,
-                            bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in bookmarkKeys,
-                            onOpenTopic = onOpenTopic,
-                        )
-                    }
+                    topicResultItems(
+                        book = book,
+                        topics = results,
+                        lang = lang,
+                        bookmarkKeys = bookmarkKeys,
+                        onOpenTopic = onOpenTopic,
+                    )
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun BookSearchField(
+    query: String,
+    onQueryChanged: (String) -> Unit,
+) {
+    OutlinedTextField(
+        value = query,
+        onValueChange = onQueryChanged,
+        placeholder = { Text(stringResource(R.string.reference_search_hint)) },
+        leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+    )
+}
+
+private fun LazyListScope.chapterTopicItems(
+    book: ReferenceBook,
+    lang: RefLang,
+    bookmarkKeys: Set<String>,
+    onOpenTopic: (RefTopic) -> Unit,
+) {
+    book.chapters.forEach { chapter ->
+        item(key = "chapter-header-${chapter.id}") {
+            BookChapterHeader(
+                title = chapter.title(lang),
+                summary = chapter.summary(lang),
+            )
+        }
+        val chapterTopics = chapter.topicIds.mapNotNull { topicId ->
+            book.topics.firstOrNull { it.id == topicId }
+        }
+        items(
+            items = chapterTopics,
+            key = { topic -> "chapter-${chapter.id}-${topic.id}" },
+        ) { topic ->
+            TopicListItem(
+                topic = topic,
+                lang = lang,
+                bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in bookmarkKeys,
+                onOpenTopic = onOpenTopic,
+            )
+        }
+    }
+}
+
+private fun LazyListScope.topicResultItems(
+    book: ReferenceBook,
+    topics: List<RefTopic>,
+    lang: RefLang,
+    bookmarkKeys: Set<String>,
+    onOpenTopic: (RefTopic) -> Unit,
+) {
+    items(topics, key = { it.id }) { topic ->
+        TopicListItem(
+            topic = topic,
+            lang = lang,
+            bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in bookmarkKeys,
+            onOpenTopic = onOpenTopic,
+        )
+    }
+}
+
+@Composable
+private fun BookChapterHeader(
+    title: String,
+    summary: String,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 20.dp, vertical = 12.dp),
+    ) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        if (summary.isNotBlank()) {
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = summary,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
     }
 }
