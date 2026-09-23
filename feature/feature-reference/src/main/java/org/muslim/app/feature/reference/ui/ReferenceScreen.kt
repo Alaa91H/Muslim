@@ -114,12 +114,25 @@ fun ReferenceScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val appContext = LocalContext.current.applicationContext
     val repository = rememberReferenceRepository()
+    val readerPreferences = remember(appContext) { ReferenceReaderPreferences(appContext) }
     var lang by remember { mutableStateOf(RefLang.Arabic) }
     var selectedBook by remember { mutableStateOf<ReferenceBook?>(null) }
     var selectedTopic by remember { mutableStateOf<RefTopic?>(null) }
     var query by rememberSaveable { mutableStateOf("") }
     var hubQuery by rememberSaveable { mutableStateOf("") }
+    var bookmarkKeys by remember { mutableStateOf(readerPreferences.bookmarkKeys()) }
+    var lastRead by remember { mutableStateOf(readerPreferences.lastRead()) }
+    var fontStep by remember { mutableStateOf(readerPreferences.fontStep()) }
+
+    fun openTopic(targetBook: ReferenceBook, targetTopic: RefTopic) {
+        val location = ReferenceReaderLocation(targetBook.id, targetTopic.id)
+        readerPreferences.saveLastRead(location)
+        lastRead = location
+        selectedBook = targetBook
+        selectedTopic = targetTopic
+    }
 
     ReferenceBackHandler(selectedTopic, selectedBook, { selectedTopic = null }) {
         selectedBook = null
@@ -156,9 +169,16 @@ fun ReferenceScreen(
                 book = book,
                 topic = selectedTopic!!,
                 lang = lang,
+                readerPreferences = readerPreferences,
+                bookmarkKeys = bookmarkKeys,
+                fontStep = fontStep,
+                onBookmarkKeysChanged = { bookmarkKeys = it },
+                onFontStepChanged = {
+                    fontStep = readerPreferences.setFontStep(it)
+                },
+                onLastReadChanged = { lastRead = it },
                 onOpenTopic = { targetBook, targetTopic ->
-                    selectedBook = targetBook
-                    selectedTopic = targetTopic
+                    openTopic(targetBook, targetTopic)
                     query = ""
                 },
                 modifier = contentModifier,
@@ -169,7 +189,8 @@ fun ReferenceScreen(
                 lang = lang,
                 query = query,
                 onQueryChanged = { query = it },
-                onOpenTopic = { selectedTopic = it },
+                bookmarkKeys = bookmarkKeys,
+                onOpenTopic = { openTopic(book, it) },
                 modifier = contentModifier,
             )
             else -> HubContent(
@@ -177,13 +198,14 @@ fun ReferenceScreen(
                 lang = lang,
                 query = hubQuery,
                 onQueryChanged = { hubQuery = it },
+                bookmarkKeys = bookmarkKeys,
+                lastRead = lastRead,
                 onOpenBook = {
                     selectedBook = it
                     hubQuery = ""
                 },
                 onOpenTopic = { targetBook, targetTopic ->
-                    selectedBook = targetBook
-                    selectedTopic = targetTopic
+                    openTopic(targetBook, targetTopic)
                     hubQuery = ""
                 },
                 modifier = contentModifier,
