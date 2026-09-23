@@ -111,4 +111,5 @@
     <string name="scholar_library_session_history_progress">%1$d من %2$d مقاطع منجزة</string>
     <string name="scholar_library_session_history_completed">جلسة مكتملة</string>
     <string name="scholar_library_resume_session">متابعة الجلسة</string>
+    <string name="scholar_library_session_history_abandoned">جلسة غير مكتملة أُغلقت بعد تغيّر محتواها.</string>
 </resources>
