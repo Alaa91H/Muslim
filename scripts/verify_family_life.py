@@ -17,6 +17,9 @@ UTILITY_CONTENT = MODULE / "src/main/java/org/muslim/app/feature/family/domain/F
 LIBRARY_PREFS = MODULE / "src/main/java/org/muslim/app/feature/family/data/FamilyLibraryPrefsRepository.kt"
 NAMES_EXPANSION = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyNamesExpansion.kt"
 GUIDE_HUB = MODULE / "src/main/java/org/muslim/app/feature/family/ui/FamilyGuideHub.kt"
+SEARCH_UI = MODULE / "src/main/java/org/muslim/app/feature/family/ui/FamilySearchContent.kt"
+GLOBAL_SEARCH = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyGlobalSearch.kt"
+READER_TOOLS = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyReaderTools.kt"
 AR_STRINGS = MODULE / "src/main/res/values/strings.xml"
 EN_STRINGS = MODULE / "src/main/res/values-en/strings.xml"
 SETTINGS = ROOT / "settings.gradle.kts"
@@ -48,6 +51,9 @@ def main() -> int:
         LIBRARY_PREFS,
         NAMES_EXPANSION,
         GUIDE_HUB,
+        SEARCH_UI,
+        GLOBAL_SEARCH,
+        READER_TOOLS,
         MODULE / "src/main/java/org/muslim/app/feature/family/ui/FamilyLifeViewModel.kt",
         MODULE / "src/main/java/org/muslim/app/feature/family/domain/AqiqahCalculator.kt",
         MODULE / "src/main/java/org/muslim/app/feature/family/data/AqiqahPrefsRepository.kt",
@@ -94,8 +100,15 @@ def main() -> int:
     english = string_names(EN_STRINGS)
     screen_text = SCREEN.read_text(encoding="utf-8")
     guide_text = GUIDE_HUB.read_text(encoding="utf-8")
+    search_text = SEARCH_UI.read_text(encoding="utf-8")
+    reader_tools_text = READER_TOOLS.read_text(encoding="utf-8")
     worker_text = (MODULE / "src/main/java/org/muslim/app/feature/family/data/AqiqahReminderWorker.kt").read_text(encoding="utf-8")
-    used = set(re.findall(r"R\.string\.([A-Za-z0-9_]+)", screen_text + "\n" + guide_text + "\n" + worker_text))
+    used = set(
+        re.findall(
+            r"R\.string\.([A-Za-z0-9_]+)",
+            screen_text + "\n" + guide_text + "\n" + search_text + "\n" + worker_text,
+        )
+    )
     missing_ar = sorted(used - arabic)
     missing_en = sorted(used - english)
     if missing_ar or missing_en:
@@ -191,6 +204,21 @@ def main() -> int:
     )
     if not all(symbol in screen_text + "\n" + guide_text for symbol in required_ui):
         return fail("Family Life UI is missing hub, saved library or checklist wiring")
+    reader_contract = (
+        "FamilyGlobalSearchContent",
+        "onCopyArticle",
+        "onShareArticle",
+        "onOpenReference",
+        "FamilyEvidenceFilters",
+    )
+    combined_ui = screen_text + "\n" + guide_text + "\n" + search_text
+    if not all(symbol in combined_ui for symbol in reader_contract):
+        return fail("Family reader polish/search contract is incomplete")
+    if "FamilyArticleTextFormatter" not in reader_tools_text or "FamilyReferenceParser" not in reader_tools_text:
+        return fail("Family reader formatter/reference parser is missing")
+    ci_text = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
+    if ":feature:feature-family-life:connectedDebugAndroidTest" not in ci_text:
+        return fail("Family Life Compose instrumentation tests are not part of CI")
 
     audio_urls = re.findall(r'https://everyayah\.com/data/[^"\s]+\.mp3', content)
     if len(audio_urls) < 3:
