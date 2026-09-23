@@ -10,6 +10,12 @@
     <string name="adhkar_category_waking">الاستيقاظ</string>
     <string name="adhkar_category_food">الطعام</string>
     <string name="adhkar_category_travel">السفر</string>
+    <string name="adhkar_category_home" tools:ignore="MissingTranslation">المنزل</string>
+    <string name="adhkar_category_mosque" tools:ignore="MissingTranslation">المسجد</string>
+    <string name="adhkar_category_wudu" tools:ignore="MissingTranslation">الوضوء</string>
+    <string name="adhkar_category_clothing" tools:ignore="MissingTranslation">اللباس</string>
+    <string name="adhkar_category_restroom" tools:ignore="MissingTranslation">دخول الخلاء والخروج منه</string>
+    <string name="adhkar_category_illness" tools:ignore="MissingTranslation">المرض والعيادة</string>
     <string name="adhkar_category_general">أذكار وأدعية عامة</string>
     <string name="adhkar_category_dua_quranic">أدعية قرآنية</string>
     <string name="adhkar_category_dua_daily">أدعية الحياة اليومية</string>
@@ -18,6 +24,17 @@
     <string name="adhkar_complete">تم</string>
     <string name="adhkar_reset">إعادة العداد</string>
     <string name="adhkar_show_translation">عرض الترجمة</string>
+    <string name="adhkar_search_hint" tools:ignore="MissingTranslation">ابحث في نص الذكر أو المصدر أو الفضل</string>
+    <string name="adhkar_search_clear" tools:ignore="MissingTranslation">مسح البحث</string>
+    <string name="adhkar_filter_favorites_only" tools:ignore="MissingTranslation">المفضلة فقط</string>
+    <string name="adhkar_results_count" tools:ignore="MissingTranslation">%1$d نتيجة</string>
+    <string name="adhkar_no_results" tools:ignore="MissingTranslation">لا توجد أذكار مطابقة للبحث أو التصفية الحالية.</string>
+    <string name="adhkar_reader_start" tools:ignore="MissingTranslation">القراءة المتتابعة</string>
+    <string name="adhkar_reader_title" tools:ignore="MissingTranslation">القراءة المتتابعة</string>
+    <string name="adhkar_reader_progress" tools:ignore="MissingTranslation">%1$d من %2$d</string>
+    <string name="adhkar_reader_previous" tools:ignore="MissingTranslation">السابق</string>
+    <string name="adhkar_reader_next" tools:ignore="MissingTranslation">التالي</string>
+    <string name="adhkar_reader_finish" tools:ignore="MissingTranslation">إنهاء</string>
     <string name="adhkar_settings_title">إعدادات الأذكار</string>
     <string name="adhkar_speech_section" tools:ignore="MissingTranslation">القراءة الصوتية</string>
     <string name="adhkar_speech_toggle" tools:ignore="MissingTranslation">قراءة الأذكار بصوت مسموع</string>
