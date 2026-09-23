@@ -95,3 +95,17 @@ The next PR should introduce the versioned asset schema and migrate **Introducti
 - citations/review metadata can be added without changing reader code.
 
 After that migration is stable, the same path can be used for Sira and Prophets before expanding the corpus to the larger reference roadmap.
+
+
+## Current implementation status
+
+The migration described above is now substantially implemented. The Android repository loads versioned JSON books in addition to the compatibility facade, the reader supports chapter navigation, citations, related topics, and library-wide ranked search, and CI validates source metadata and cross-book relations.
+
+With the Places/Landmarks and Expanded Glossary phase, the versioned corpus reaches **15 books, 959 topics, 1,628 sections, and 1,836 bilingual Arabic/English paragraphs**.
+
+The expanded glossary intentionally stays concise and links each term back to a long-form reference domain instead of duplicating full articles. The places book explicitly distinguishes:
+- ritually sacred sites established by Quran/Sunnah;
+- Sira and early-history locations;
+- historical/civilizational landmarks whose importance does not create a special act of worship.
+
+The next architecture milestone is no longer basic asset migration. It is reader-scale work: persistent bookmarks/progress, article table of contents, typography controls, previous/next navigation, and eventually Room/FTS indexing when profiling shows the in-memory search is no longer appropriate.
