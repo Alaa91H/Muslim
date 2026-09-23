@@ -14,6 +14,10 @@ import javax.inject.Singleton
 @Singleton
 class DuasRepository @Inject constructor() {
 
+    // Instance-local counter keeps generated ids deterministic whenever the
+    // repository is recreated (tests, process recreation, or future scopes).
+    private var allDuasIndex = 0L
+
     /** All duas, in a stable order (ids are offset to avoid seed collisions). */
     val allDuas: List<Dhikr> by lazy {
         quranicDuas() + dailyDuas() + occasionDuas()
@@ -184,6 +188,5 @@ class DuasRepository @Inject constructor() {
     private companion object {
         /** Offset above the bundled seed ids so the two id spaces never collide. */
         const val ID_OFFSET = 1_000_000L
-        var allDuasIndex = 0L
     }
 }
