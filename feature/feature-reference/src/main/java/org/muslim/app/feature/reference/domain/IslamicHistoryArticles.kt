@@ -8,61 +8,6 @@ package org.muslim.app.feature.reference.domain
  * catalogue is built out incrementally.
  */
 object IslamicHistoryArticles {
-    val sources = listOf(
-        HistorySource(
-            id = "met_chronology",
-            title = HistoryText(
-                "التسلسل الزمني للعالم الإسلامي — متحف المتروبوليتان للفنون",
-                "Chronology of the Islamic World — The Metropolitan Museum of Art",
-            ),
-            kind = HistorySourceKind.Museum,
-            url = "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/introduction/chronology",
-        ),
-        HistorySource(
-            id = "met_science",
-            title = HistoryText(
-                "العلم وفنون العالم الإسلامي — متحف المتروبوليتان للفنون",
-                "Science and the Art of the Islamic World — The Metropolitan Museum of Art",
-            ),
-            kind = HistorySourceKind.Museum,
-            url = "https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/unit-four",
-        ),
-        HistorySource(
-            id = "unesco_silk_roads",
-            title = HistoryText(
-                "حول طرق الحرير — اليونسكو",
-                "About the Silk Roads — UNESCO",
-            ),
-            kind = HistorySourceKind.Unesco,
-            url = "https://www.unesco.org/en/silk-roads/about-silk-roads",
-        ),
-        HistorySource(
-            id = "world_history_caliphates",
-            title = HistoryText(
-                "الخلافات الإسلامية — موسوعة التاريخ العالمي",
-                "Islamic Caliphates — World History Encyclopedia",
-            ),
-            kind = HistorySourceKind.Reference,
-            url = "https://www.worldhistory.org/Islamic_Caliphates/",
-            note = HistoryText(
-                "مرجع تمهيدي مساعد، ويُقارن بالمراجع المتحفية والأكاديمية قبل اعتماد التفاصيل.",
-                "A supplementary orientation source; details are cross-checked against museum and academic references.",
-            ),
-        ),
-        HistorySource(
-            id = "internal_sira",
-            title = HistoryText(
-                "قسم السيرة النبوية في المكتبة المرجعية داخل التطبيق",
-                "The in-app Sira reference library",
-            ),
-            kind = HistorySourceKind.Internal,
-            note = HistoryText(
-                "يُستخدم للربط مع السرد التفصيلي للسيرة بدلاً من تكراره داخل قسم التاريخ.",
-                "Used to link to the detailed Sira narrative rather than duplicating it in the history section.",
-            ),
-        ),
-    )
-
     val articles = listOf(
         HistoryArticle(
             id = "era_prophetic_mission",
@@ -391,6 +336,4 @@ object IslamicHistoryArticles {
     )
 
     fun articleForEra(eraId: String): HistoryArticle? = articles.firstOrNull { it.eraId == eraId }
-
-    fun sourceById(id: String): HistorySource? = sources.firstOrNull { it.id == id }
 }
