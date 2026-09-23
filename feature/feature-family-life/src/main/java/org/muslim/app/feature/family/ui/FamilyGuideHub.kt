@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.AutoStories
 import androidx.compose.material.icons.filled.ChildCare
 import androidx.compose.material.icons.filled.FamilyRestroom
@@ -27,7 +28,6 @@ import androidx.compose.material.icons.filled.Handshake
 import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Translate
 import androidx.compose.material3.FilterChip
@@ -227,7 +227,7 @@ internal fun FamilyGuideCatalogContent(
                 title = category?.title(isArabic) ?: stringResource(R.string.family_guide_all_title),
                 supportingText = stringResource(R.string.family_guide_intro),
                 tone = MuslimStateTone.Information,
-                icon = category?.icon() ?: Icons.Filled.MenuBook,
+                icon = category?.icon() ?: Icons.AutoMirrored.Filled.MenuBook,
             )
         }
         item {
@@ -338,96 +338,130 @@ internal fun FamilyArticleDetailContent(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 14.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        item {
-            Text(
-                text = article.title.pick(isArabic),
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
-            )
-            Spacer(Modifier.height(6.dp))
-            Text(
-                text = article.summary.pick(isArabic),
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            category?.let {
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    text = it.title(isArabic),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-            }
-        }
+        item { FamilyArticleHeader(article, category, isArabic) }
         if (sensitive) {
-            item {
-                MuslimStateSurface(
-                    title = stringResource(R.string.family_sensitive_notice_title),
-                    supportingText = stringResource(R.string.family_sensitive_notice_text),
-                    tone = MuslimStateTone.Warning,
-                    icon = Icons.Filled.Info,
-                )
-            }
+            item { FamilySensitiveNotice() }
         }
         items(article.sections, key = { it.title.arabic + it.title.english }) { section ->
-            IslamicCard(modifier = Modifier.fillMaxWidth()) {
-                Text(
-                    text = section.title.pick(isArabic),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-                section.paragraphs.forEach { paragraph ->
-                    Spacer(Modifier.height(8.dp))
-                    Text(
-                        text = paragraph.pick(isArabic),
-                        style = MaterialTheme.typography.bodyLarge,
-                    )
-                }
-            }
+            FamilyArticleSectionCard(section.title, section.paragraphs, isArabic)
         }
         if (article.references.isNotEmpty()) {
-            item {
-                Text(
-                    text = stringResource(R.string.family_references_title),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                )
-            }
+            item { FamilyReferencesHeading() }
             items(article.references, key = { it.citation }) { reference ->
-                IslamicCard(modifier = Modifier.fillMaxWidth()) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(
-                            Icons.Filled.AutoStories,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.primary,
-                        )
-                        Spacer(Modifier.width(10.dp))
-                        Column {
-                            Text(
-                                text = reference.title.pick(isArabic),
-                                style = MaterialTheme.typography.titleSmall,
-                                fontWeight = FontWeight.SemiBold,
-                            )
-                            Text(
-                                text = reference.citation,
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                        }
-                    }
-                }
+                FamilyReferenceCard(reference.title, reference.citation, isArabic)
             }
         }
-        item {
-            MuslimStateSurface(
-                title = stringResource(R.string.family_education_notice_title),
-                supportingText = stringResource(R.string.family_education_notice_text),
-                tone = MuslimStateTone.Neutral,
-                icon = Icons.Filled.Info,
+        item { FamilyEducationNotice() }
+    }
+}
+
+@Composable
+private fun FamilyArticleHeader(
+    article: FamilyGuideArticle,
+    category: FamilyTopicCategory?,
+    isArabic: Boolean,
+) {
+    Text(
+        text = article.title.pick(isArabic),
+        style = MaterialTheme.typography.headlineSmall,
+        fontWeight = FontWeight.Bold,
+    )
+    Spacer(Modifier.height(6.dp))
+    Text(
+        text = article.summary.pick(isArabic),
+        style = MaterialTheme.typography.bodyLarge,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+    category?.let {
+        Spacer(Modifier.height(8.dp))
+        Text(
+            text = it.title(isArabic),
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.primary,
+        )
+    }
+}
+
+@Composable
+private fun FamilySensitiveNotice() {
+    MuslimStateSurface(
+        title = stringResource(R.string.family_sensitive_notice_title),
+        supportingText = stringResource(R.string.family_sensitive_notice_text),
+        tone = MuslimStateTone.Warning,
+        icon = Icons.Filled.Info,
+    )
+}
+
+@Composable
+private fun FamilyArticleSectionCard(
+    title: LocalizedFamilyText,
+    paragraphs: List<LocalizedFamilyText>,
+    isArabic: Boolean,
+) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Text(
+            text = title.pick(isArabic),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        paragraphs.forEach { paragraph ->
+            Spacer(Modifier.height(8.dp))
+            Text(
+                text = paragraph.pick(isArabic),
+                style = MaterialTheme.typography.bodyLarge,
             )
         }
     }
+}
+
+@Composable
+private fun FamilyReferencesHeading() {
+    Text(
+        text = stringResource(R.string.family_references_title),
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.Bold,
+    )
+}
+
+@Composable
+private fun FamilyReferenceCard(
+    title: LocalizedFamilyText,
+    citation: String,
+    isArabic: Boolean,
+) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Icon(
+                Icons.Filled.AutoStories,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+            )
+            Spacer(Modifier.width(10.dp))
+            Column {
+                Text(
+                    text = title.pick(isArabic),
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.SemiBold,
+                )
+                Text(
+                    text = citation,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun FamilyEducationNotice() {
+    MuslimStateSurface(
+        title = stringResource(R.string.family_education_notice_title),
+        supportingText = stringResource(R.string.family_education_notice_text),
+        tone = MuslimStateTone.Neutral,
+        icon = Icons.Filled.Info,
+    )
 }
 
 private fun LocalizedFamilyText.pick(isArabic: Boolean): String = if (isArabic) arabic else english
@@ -465,5 +499,5 @@ private fun FamilyTopicCategory.icon(): ImageVector = when (this) {
     FamilyTopicCategory.Newborn -> Icons.Filled.ChildCare
     FamilyTopicCategory.Parenting -> Icons.Filled.FamilyRestroom
     FamilyTopicCategory.Kinship -> Icons.Filled.Groups
-    FamilyTopicCategory.DailyLife -> Icons.Filled.MenuBook
+    FamilyTopicCategory.DailyLife -> Icons.AutoMirrored.Filled.MenuBook
 }
