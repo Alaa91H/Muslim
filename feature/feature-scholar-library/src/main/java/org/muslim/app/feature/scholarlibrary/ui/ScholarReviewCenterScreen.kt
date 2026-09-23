@@ -52,7 +52,29 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewRating
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyAnalytics
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPath
 
-@OptIn(ExperimentalMaterial3Api::class)
+private data class ReviewCenterSelection(
+    val categoryName: String?,
+    val pathId: String?,
+    val bookId: String?,
+    val revealedCardId: Long?,
+)
+
+private data class ReviewCenterActions(
+    val onBack: () -> Unit,
+    val onCategory: (String?) -> Unit,
+    val onPath: (String?) -> Unit,
+    val onBook: (String?) -> Unit,
+    val onClear: () -> Unit,
+    val onReveal: (Long) -> Unit,
+    val onRate: (Long, ScholarReviewRating) -> Unit,
+)
+
+private data class ReviewCenterDerivedState(
+    val queue: List<FlashcardWithCitation>,
+    val filterBooks: List<ScholarBook>,
+    val relevantBookCount: Int,
+)
+
 @Composable
 fun ScholarReviewCenterScreen(
     onBack: () -> Unit,
@@ -61,9 +83,9 @@ fun ScholarReviewCenterScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
-    var selectedCategoryName by rememberSaveable { mutableStateOf<String?>(null) }
-    var selectedPathId by rememberSaveable { mutableStateOf<String?>(null) }
-    var selectedBookId by rememberSaveable { mutableStateOf<String?>(null) }
+    var categoryName by rememberSaveable { mutableStateOf<String?>(null) }
+    var pathId by rememberSaveable { mutableStateOf<String?>(null) }
+    var bookId by rememberSaveable { mutableStateOf<String?>(null) }
     var revealedCardId by rememberSaveable { mutableStateOf<Long?>(null) }
 
     LaunchedEffect(state.statusMessage) {
@@ -73,22 +95,52 @@ fun ScholarReviewCenterScreen(
         }
     }
 
-    val category = selectedCategoryName?.let { ScholarCategory.fromId(it) }
-    val path = state.studyPaths.firstOrNull { it.id == selectedPathId }
-    val queue = ScholarStudyAnalytics.dueCards(
-        cards = state.flashcards,
-        nowEpochMillis = System.currentTimeMillis(),
-        category = category,
-        path = path,
-        bookId = selectedBookId,
+    ReviewCenterLayout(
+        state = state,
+        selection = ReviewCenterSelection(categoryName, pathId, bookId, revealedCardId),
+        actions = ReviewCenterActions(
+            onBack = onBack,
+            onCategory = {
+                categoryName = it
+                bookId = null
+                revealedCardId = null
+            },
+            onPath = {
+                pathId = it
+                bookId = null
+                revealedCardId = null
+            },
+            onBook = {
+                bookId = it
+                revealedCardId = null
+            },
+            onClear = {
+                categoryName = null
+                pathId = null
+                bookId = null
+                revealedCardId = null
+            },
+            onReveal = { revealedCardId = it },
+            onRate = { cardId, rating ->
+                revealedCardId = null
+                viewModel.reviewFlashcard(cardId, rating)
+            },
+        ),
+        snackbarHostState = snackbarHostState,
+        modifier = modifier,
     )
-    val relevantBookIds = queue.map { it.bookId }.toSet()
-    val filterBooks = state.books.filter { book ->
-        state.flashcards.any { it.bookId == book.id } &&
-            (selectedCategoryName == null || book.category.name == selectedCategoryName) &&
-            (path == null || path.containsBook(book.id))
-    }
+}
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ReviewCenterLayout(
+    state: ScholarLibraryUiState,
+    selection: ReviewCenterSelection,
+    actions: ReviewCenterActions,
+    snackbarHostState: SnackbarHostState,
+    modifier: Modifier,
+) {
+    val derived = deriveReviewCenterState(state, selection)
     MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -96,7 +148,7 @@ fun ScholarReviewCenterScreen(
             TopAppBar(
                 title = { Text(stringResource(R.string.scholar_library_review_center)) },
                 navigationIcon = {
-                    IconButton(onClick = onBack) {
+                    IconButton(onClick = actions.onBack) {
                         Icon(
                             Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = stringResource(R.string.scholar_library_back),
@@ -111,81 +163,96 @@ fun ScholarReviewCenterScreen(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            item { ReviewActivityCard(state) }
-            item {
-                ReviewFilters(
-                    state = state,
-                    filterState = ReviewFilterState(
-                        selectedCategoryName = selectedCategoryName,
-                        selectedPathId = selectedPathId,
-                        selectedBookId = selectedBookId,
-                        filterBooks = filterBooks,
-                    ),
-                    actions = ReviewFilterActions(
-                        onCategory = {
-                            selectedCategoryName = it
-                            selectedBookId = null
-                            revealedCardId = null
-                        },
-                        onPath = {
-                            selectedPathId = it
-                            selectedBookId = null
-                            revealedCardId = null
-                        },
-                        onBook = {
-                            selectedBookId = it
-                            revealedCardId = null
-                        },
-                        onClear = {
-                            selectedCategoryName = null
-                            selectedPathId = null
-                            selectedBookId = null
-                            revealedCardId = null
-                        },
-                    ),
-                )
-            }
-            item {
-                FocusedReviewQueue(
-                    queue = queue,
-                    revealedCardId = revealedCardId,
-                    onReveal = { revealedCardId = it },
-                    onRate = { cardId, rating ->
-                        revealedCardId = null
-                        viewModel.reviewFlashcard(cardId, rating)
-                    },
-                )
-            }
-            item {
-                Text(
-                    stringResource(
-                        R.string.scholar_library_review_filter_match,
-                        queue.size,
-                        relevantBookIds.size,
-                    ),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-            item {
-                Text(
-                    stringResource(R.string.scholar_library_recent_review_activity),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                )
-            }
-            items(state.reviewEvents.take(10), key = { "review_event_${it.id}" }) { event ->
-                ReviewHistoryCard(event = event, state = state)
-            }
-            if (state.reviewEvents.isEmpty()) {
-                item {
-                    Text(
-                        stringResource(R.string.scholar_library_no_review_activity),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-            }
+            reviewCenterItems(state, selection, actions, derived)
+        }
+    }
+}
+
+private fun deriveReviewCenterState(
+    state: ScholarLibraryUiState,
+    selection: ReviewCenterSelection,
+): ReviewCenterDerivedState {
+    val category = selection.categoryName?.let { ScholarCategory.fromId(it) }
+    val path = state.studyPaths.firstOrNull { it.id == selection.pathId }
+    val queue = ScholarStudyAnalytics.dueCards(
+        cards = state.flashcards,
+        nowEpochMillis = System.currentTimeMillis(),
+        category = category,
+        path = path,
+        bookId = selection.bookId,
+    )
+    val filterBooks = state.books.filter { book ->
+        state.flashcards.any { it.bookId == book.id } &&
+            (selection.categoryName == null || book.category.name == selection.categoryName) &&
+            (path == null || path.containsBook(book.id))
+    }
+    return ReviewCenterDerivedState(
+        queue = queue,
+        filterBooks = filterBooks,
+        relevantBookCount = queue.map { it.bookId }.distinct().size,
+    )
+}
+
+private fun androidx.compose.foundation.lazy.LazyListScope.reviewCenterItems(
+    state: ScholarLibraryUiState,
+    selection: ReviewCenterSelection,
+    actions: ReviewCenterActions,
+    derived: ReviewCenterDerivedState,
+) {
+    item { ReviewActivityCard(state) }
+    item {
+        ReviewFilters(
+            state = state,
+            filterState = ReviewFilterState(
+                selectedCategoryName = selection.categoryName,
+                selectedPathId = selection.pathId,
+                selectedBookId = selection.bookId,
+                filterBooks = derived.filterBooks,
+            ),
+            actions = ReviewFilterActions(
+                onCategory = actions.onCategory,
+                onPath = actions.onPath,
+                onBook = actions.onBook,
+                onClear = actions.onClear,
+            ),
+        )
+    }
+    item {
+        FocusedReviewQueue(
+            queue = derived.queue,
+            revealedCardId = selection.revealedCardId,
+            onReveal = actions.onReveal,
+            onRate = actions.onRate,
+        )
+    }
+    item {
+        Text(
+            stringResource(
+                R.string.scholar_library_review_filter_match,
+                derived.queue.size,
+                derived.relevantBookCount,
+            ),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+    item {
+        Text(
+            stringResource(R.string.scholar_library_recent_review_activity),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+        )
+    }
+    items(state.reviewEvents.take(10), key = { "review_event_${it.id}" }) { event ->
+        ReviewHistoryCard(event = event, state = state)
+    }
+    if (state.reviewEvents.isEmpty()) {
+        item {
+            Text(
+                stringResource(R.string.scholar_library_no_review_activity),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
     }
 }
