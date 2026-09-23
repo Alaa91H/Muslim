@@ -167,7 +167,7 @@ fun SettingsScreen(
     // the previously expanded section (single expanded card at a time).
     var expandedSection by rememberSaveable { mutableStateOf<String?>(null) }
 
-    // One-time confirmation before fully-automatic updates can install APKs.
+    // One-time confirmation before background update downloads are enabled.
     var confirmAutoUpdate by remember { mutableStateOf(false) }
 
     // Every locale the APK ships resources for, shown in its own native name
@@ -542,6 +542,56 @@ fun SettingsScreen(
                                 )
                             },
                         )
+                        if (preferences.autoUpdateEnabled) {
+                            ListItem(
+                                headlineContent = {
+                                    Text(stringResource(R.string.settings_auto_update_wifi_only))
+                                },
+                                supportingContent = {
+                                    Text(stringResource(R.string.settings_auto_update_wifi_only_desc))
+                                },
+                                leadingContent = { Icon(Icons.Filled.Download, contentDescription = null) },
+                                trailingContent = {
+                                    Switch(
+                                        checked = preferences.autoUpdateWifiOnly,
+                                        onCheckedChange = viewModel::setAutoUpdateWifiOnly,
+                                    )
+                                },
+                            )
+                        }
+                        Text(
+                            text = stringResource(R.string.settings_updates_channel),
+                            style = MaterialTheme.typography.labelLarge,
+                            modifier = Modifier.padding(start = 16.dp, top = 8.dp, bottom = 4.dp),
+                        )
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp)
+                                .selectableGroup(),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        ) {
+                            updateChannelOptions.forEach { option ->
+                                FilterChip(
+                                    selected = preferences.updateChannel == option.channel,
+                                    onClick = { viewModel.setUpdateChannel(option.channel) },
+                                    label = { Text(stringResource(option.labelRes)) },
+                                )
+                            }
+                        }
+                        Text(
+                            text = stringResource(
+                                if (preferences.updateChannel == AppPreferences.UPDATE_CHANNEL_BETA) {
+                                    R.string.settings_updates_channel_beta_desc
+                                } else {
+                                    R.string.settings_updates_channel_stable_desc
+                                },
+                            ),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+                        )
+
                         Text(
                             text = stringResource(R.string.settings_updates_frequency),
                             style = MaterialTheme.typography.labelLarge,
@@ -746,6 +796,14 @@ private val updateFrequencyOptions = listOf(
     UpdateFrequencyOption(AppPreferences.UPDATE_CHECK_DAILY, R.string.settings_updates_daily),
     UpdateFrequencyOption(AppPreferences.UPDATE_CHECK_WEEKLY, R.string.settings_updates_weekly),
     UpdateFrequencyOption(AppPreferences.UPDATE_CHECK_MONTHLY, R.string.settings_updates_monthly),
+)
+
+/** Release channels: stable-only or beta-inclusive. */
+private data class UpdateChannelOption(val channel: String, val labelRes: Int)
+
+private val updateChannelOptions = listOf(
+    UpdateChannelOption(AppPreferences.UPDATE_CHANNEL_STABLE, R.string.settings_updates_channel_stable),
+    UpdateChannelOption(AppPreferences.UPDATE_CHANNEL_BETA, R.string.settings_updates_channel_beta),
 )
 
 @Composable

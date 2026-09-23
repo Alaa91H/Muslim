@@ -120,13 +120,19 @@ class SettingsViewModel @Inject constructor(
         }
     }
 
-    /**
-     * Turns the fully-automatic update on/off (Session API install, one-time
-     * confirmation shown by the screen before this is called). Requires the
-     * periodic check to be enabled so a newly-found release auto-downloads.
-     */
+    /** Changes the GitHub release channel used by update discovery. */
+    fun setUpdateChannel(channel: String) = launch {
+        appPreferencesRepository.setUpdateChannel(channel)
+    }
+
+    /** Enables automatic download of newly discovered releases. */
     fun setAutoUpdateEnabled(enabled: Boolean) = launch {
         appPreferencesRepository.setAutoUpdateEnabled(enabled)
+    }
+
+    /** Restricts automatic release downloads to Wi-Fi. */
+    fun setAutoUpdateWifiOnly(enabled: Boolean) = launch {
+        appPreferencesRepository.setAutoUpdateWifiOnly(enabled)
     }
 
     /** Result of the last manual "check now" run (null until one is done). */
