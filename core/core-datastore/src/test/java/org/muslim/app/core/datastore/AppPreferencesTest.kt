@@ -8,6 +8,19 @@ class AppPreferencesTest {
     private val default = AppPreferences.DEFAULT_MORE_SECTION_ORDER
 
     @Test
+    fun `decoration defaults are balanced geometric`() {
+        val preferences = AppPreferences()
+        assertEquals(
+            org.muslim.app.core.common.appearance.AppOrnamentStyle.Geometry,
+            preferences.ornamentStyle,
+        )
+        assertEquals(
+            org.muslim.app.core.common.appearance.OrnamentIntensity.Balanced,
+            preferences.ornamentIntensity,
+        )
+    }
+
+    @Test
     fun `null or blank raw order falls back to default`() {
         assertEquals(default, AppPreferences.decodeSectionOrder(null))
         assertEquals(default, AppPreferences.decodeSectionOrder(""))
