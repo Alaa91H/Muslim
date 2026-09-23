@@ -63,6 +63,19 @@ object AdhanNotifications {
                 .setAction(AdhanNotificationActionReceiver.ACTION_STOP),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
+        val dismissIntent = PendingIntent.getBroadcast(
+            context,
+            ADHAN_NOTIFICATION_ID + 1,
+            Intent(context, AdhanNotificationActionReceiver::class.java)
+                .setAction(AdhanNotificationActionReceiver.ACTION_DISMISS),
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+        )
+        val alarmScreenIntent = PendingIntent.getActivity(
+            context,
+            ADHAN_NOTIFICATION_ID + 2,
+            AdhanAlarmActivity.intent(context, prayer),
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+        )
         val prayerLabel = context.getString(prayerNameRes(prayer))
         return NotificationCompat.Builder(context, NotificationChannels.ADHAN)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029)
@@ -87,14 +100,21 @@ object AdhanNotifications {
             .setUsesChronometer(false)
             .setTicker(context.getString(R.string.adhan_notification_ticker, prayerLabel))
             .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
-            .setTimeoutAfter(10 * 60 * 1000L) // auto-dismiss guard if service dies unexpectedly
+            // Tapping opens the lock-screen controls. On supported Android
+            // versions the high-priority alarm may surface them immediately.
+            .setContentIntent(alarmScreenIntent)
+            .setFullScreenIntent(alarmScreenIntent, true)
+            // Android 13+ permits users to dismiss foreground-service cards.
+            // Treat that gesture as an explicit Adhan stop rather than leaving
+            // audio detached from its controls.
+            .setDeleteIntent(dismissIntent)
             .addAction(
                 org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029,
                 context.getString(R.string.adhan_notification_stop),
                 stopIntent,
             )
-            // A live Adhan remains visible and cannot be swiped away. The sole
-            // explicit in-notification termination path is the Stop Adhan action.
+            // Pre-Android 13 foreground-service alerts can remain non-dismissible
+            // by platform design; the explicit Stop action remains available.
             .setOngoing(true)
             .setAutoCancel(false)
             .setOnlyAlertOnce(true)
