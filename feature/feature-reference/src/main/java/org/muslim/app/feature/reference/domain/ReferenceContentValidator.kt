@@ -305,21 +305,22 @@ object ReferenceContentValidator {
         }
     }
 
-    private fun validateCitationIds(
-        ids: List<String>,
-        knownIds: Set<String>,
-        path: String,
-        destination: MutableList<ReferenceValidationIssue>,
-    ) {
-        ids.filterNot(knownIds::contains).forEach { missing ->
-            destination += issue(
-                "missing_citation",
-                path,
-                "Citation '$missing' is referenced but not declared by the topic.",
-            )
-        }
-    }
-
-    private fun issue(code: String, path: String, message: String) =
-        ReferenceValidationIssue(code = code, path = path, message = message)
 }
+
+private fun validateCitationIds(
+    ids: List<String>,
+    knownIds: Set<String>,
+    path: String,
+    destination: MutableList<ReferenceValidationIssue>,
+) {
+    ids.filterNot(knownIds::contains).forEach { missing ->
+        destination += issue(
+            "missing_citation",
+            path,
+            "Citation '$missing' is referenced but not declared by the topic.",
+        )
+    }
+}
+
+private fun issue(code: String, path: String, message: String) =
+    ReferenceValidationIssue(code = code, path = path, message = message)
