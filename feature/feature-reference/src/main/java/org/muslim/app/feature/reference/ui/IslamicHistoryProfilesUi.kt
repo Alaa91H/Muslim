@@ -165,15 +165,15 @@ private fun PersonProfileView(
             ProfileHeader(
                 title = person.name.resolve(language),
                 subtitle = person.years,
-                summary = loadedProfile.overview.resolve(language),
+                summary = profile.overview.resolve(language),
             )
         }
-        items(loadedProfile.sections, key = { it.id }) { section ->
+        items(profile.sections, key = { it.id }) { section ->
             ProfileSectionCard(section = section, language = language)
         }
         item {
             PersonRelationsCard(
-                profile = loadedProfile,
+                profile = profile,
                 language = language,
                 onNavigate = onNavigate,
             )
@@ -223,15 +223,15 @@ internal fun HistoryPlaceProfileView(
             ProfileHeader(
                 title = place.title.resolve(language),
                 subtitle = coordinateLabel(place.coordinate.latitude, place.coordinate.longitude),
-                summary = profile.overview.resolve(language),
+                summary = loadedProfile.overview.resolve(language),
             )
         }
-        items(profile.sections, key = { it.id }) { section ->
+        items(loadedProfile.sections, key = { it.id }) { section ->
             ProfileSectionCard(section = section, language = language)
         }
         item {
             PlaceRelationsCard(
-                profile = profile,
+                profile = loadedProfile,
                 language = language,
                 onNavigate = onNavigate,
             )
