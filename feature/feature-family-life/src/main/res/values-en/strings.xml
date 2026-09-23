@@ -44,4 +44,22 @@
     <string name="family_articles_search">Search marriage, family and daily life</string>
     <string name="family_articles_count">Topics: %1$d</string>
     <string name="family_articles_empty">No topics match your search</string>
+    <string name="family_hub_intro_title">Family Fiqh &amp; Muslim Life</string>
+    <string name="family_hub_intro_text">Browse by the stage you need, or open practical tools for ruqyah, names and aqiqah. The content is general education and does not issue personal fatwas.</string>
+    <string name="family_hub_paths_title">Family fiqh paths</string>
+    <string name="family_hub_tools_title">Practical tools</string>
+    <string name="family_hub_article_count">%1$d topics</string>
+    <string name="family_hub_ruqyah_desc">Quranic passages and sound supplications with clear medical guidance</string>
+    <string name="family_hub_names_desc">Boys’ and girls’ names searchable by name and meaning</string>
+    <string name="family_hub_aqiqah_desc">Suggested dates with an optional local reminder</string>
+    <string name="family_guide_all_title">Family fiqh guide</string>
+    <string name="family_guide_intro">Choose a topic path or search across the guide. Open an article for structured details and references.</string>
+    <string name="family_guide_filter_all">All</string>
+    <string name="family_guide_sections_count">%1$d sections</string>
+    <string name="family_guide_open_article">Open article</string>
+    <string name="family_references_title">References</string>
+    <string name="family_sensitive_notice_title">Sensitive-topic notice</string>
+    <string name="family_sensitive_notice_text">Conflict, abuse, divorce and khulʿ can require immediate safety support, a case-specific fatwa or legal action. The app does not use automated answers to decide an individual case.</string>
+    <string name="family_education_notice_title">Educational content</string>
+    <string name="family_education_notice_text">This material is for general learning and organisation. Where schools of law differ or disputes and legal rights are involved, consult trusted scholarly and legal authorities in your country.</string>
 </resources>
