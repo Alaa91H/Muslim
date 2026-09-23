@@ -3,6 +3,7 @@ package org.muslim.app.feature.adhkar.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -17,7 +18,6 @@ import org.muslim.app.feature.adhkar.data.AdhkarRepository
 import org.muslim.app.feature.adhkar.data.AdhkarSpeechController
 import org.muslim.app.feature.adhkar.domain.Dhikr
 import org.muslim.app.feature.adhkar.domain.DhikrCategory
-import javax.inject.Inject
 
 @HiltViewModel
 class AdhkarViewModel @Inject constructor(
@@ -31,24 +31,36 @@ class AdhkarViewModel @Inject constructor(
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
     val selectedCategory = MutableStateFlow<DhikrCategory?>(null)
+    val searchQuery = MutableStateFlow("")
+    val favoritesOnly = MutableStateFlow(false)
 
-    /** Cache of per-dhikr counters so each card collects a stable flow. */
-    private val counts = mutableMapOf<Long, StateFlow<Int>>()
+    private val libraryFilter = combine(
+        selectedCategory,
+        searchQuery,
+        favoritesOnly,
+    ) { category, query, favoritesOnly ->
+        LibraryFilter(
+            category = category,
+            query = query,
+            favoritesOnly = favoritesOnly,
+        )
+    }
 
     /**
-     * Adhkar filtered by the selected category (null = all) and by the user's
-     * customization choices — dhikr disabled in the customize screen stay hidden
-     * from the library too, not just from reminders/overlay.
+     * The complete library after category, search, favorite-only and visibility
+     * filters. Reader mode consumes this exact queue so the session always
+     * mirrors what the user selected in the library screen.
      */
-    val adhkar: StateFlow<List<Dhikr>> = combine(
+    val visibleAdhkar: StateFlow<List<Dhikr>> = combine(
         all,
-        selectedCategory,
+        libraryFilter,
         prefsRepository.prefs,
-    ) { list, category, prefs ->
+    ) { list, filter, prefs ->
         list.filter { dhikr ->
             prefs.isDhikrEnabled(dhikr.id) &&
-                dhikr.id !in prefs.favoriteDhikrIds &&
-                (category == null || dhikr.category == category)
+                (filter.category == null || dhikr.category == filter.category) &&
+                (!filter.favoritesOnly || prefs.isDhikrFavorite(dhikr.id)) &&
+                dhikr.matchesAdhkarQuery(filter.query)
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
 
@@ -57,19 +69,31 @@ class AdhkarViewModel @Inject constructor(
         .map { it.favoriteDhikrIds }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptySet())
 
-    /** Favorite dhikr (enabled ones, matching the selected category), in seed order. */
+    /** Favorite dhikr in the active search/category filter, in stable library order. */
     val favorites: StateFlow<List<Dhikr>> = combine(
-        all,
+        visibleAdhkar,
         favoriteIds,
-        selectedCategory,
-        prefsRepository.prefs,
-    ) { list, favoriteIds, category, prefs ->
-        list.filter { dhikr ->
-            dhikr.id in favoriteIds &&
-                prefs.isDhikrEnabled(dhikr.id) &&
-                (category == null || dhikr.category == category)
-        }
+    ) { list, favoriteIds ->
+        list.filter { it.id in favoriteIds }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    /**
+     * Non-favorite cards. Favorites are shown once in their dedicated section,
+     * so a pinned dhikr never appears twice in the same filtered result set.
+     */
+    val adhkar: StateFlow<List<Dhikr>> = combine(
+        visibleAdhkar,
+        favoriteIds,
+    ) { list, favoriteIds ->
+        list.filter { it.id !in favoriteIds }
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
+
+    val resultCount: StateFlow<Int> = visibleAdhkar
+        .map { it.size }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), 0)
+
+    /** Cache of per-dhikr counters so each card collects a stable flow. */
+    private val counts = mutableMapOf<Long, StateFlow<Int>>()
 
     fun toggleFavorite(dhikrId: Long) {
         viewModelScope.launch {
@@ -117,6 +141,14 @@ class AdhkarViewModel @Inject constructor(
         selectedCategory.value = category
     }
 
+    fun setSearchQuery(query: String) {
+        searchQuery.value = query
+    }
+
+    fun setFavoritesOnly(enabled: Boolean) {
+        favoritesOnly.value = enabled
+    }
+
     fun count(dhikrId: Long): StateFlow<Int> = counts.getOrPut(dhikrId) {
         repository.observeCount(dhikrId)
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), 0)
@@ -155,6 +187,12 @@ class AdhkarViewModel @Inject constructor(
         }
         super.onCleared()
     }
+
+    private data class LibraryFilter(
+        val category: DhikrCategory?,
+        val query: String,
+        val favoritesOnly: Boolean,
+    )
 
     private companion object {
         const val SPEECH_UTTERANCE_PREFIX = "adhkar-dhikr-"

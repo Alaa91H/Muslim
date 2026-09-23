@@ -354,7 +354,7 @@
     },
     {
       "id": 40,
-      "category": "general",
+      "category": "home",
       "arabic": "بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
       "translation": "In the name of Allah, I place my trust in Allah; there is no might nor power except with Allah (upon leaving the home).",
       "source": "رواه أبو داود والترمذي",
@@ -396,6 +396,114 @@
       "source": "رواه أبو داود",
       "repetition": 1,
       "virtue": null
+    },
+    {
+      "id": 45,
+      "category": "home",
+      "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلَجِ وَخَيْرَ الْمَخْرَجِ، بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا",
+      "translation": "O Allah, I ask You for the best entrance and the best exit. In the name of Allah we enter, in the name of Allah we leave, and upon Allah our Lord we rely.",
+      "source": "رواه أبو داود",
+      "repetition": 1,
+      "virtue": "ذكر دخول المنزل"
+    },
+    {
+      "id": 46,
+      "category": "mosque",
+      "arabic": "اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+      "translation": "O Allah, open for me the gates of Your mercy.",
+      "source": "رواه مسلم",
+      "repetition": 1,
+      "virtue": "يقال عند دخول المسجد"
+    },
+    {
+      "id": 47,
+      "category": "mosque",
+      "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ",
+      "translation": "O Allah, I ask You from Your bounty.",
+      "source": "رواه مسلم",
+      "repetition": 1,
+      "virtue": "يقال عند الخروج من المسجد"
+    },
+    {
+      "id": 48,
+      "category": "wudu",
+      "arabic": "أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",
+      "translation": "I bear witness that there is no deity but Allah alone with no partner, and I bear witness that Muhammad is His servant and Messenger.",
+      "source": "رواه مسلم",
+      "repetition": 1,
+      "virtue": "ذكر ما بعد الوضوء"
+    },
+    {
+      "id": 49,
+      "category": "clothing",
+      "arabic": "الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي هَذَا الثَّوْبَ وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ",
+      "translation": "Praise is to Allah who clothed me with this garment and provided it for me without any might or power from me.",
+      "source": "رواه أبو داود والترمذي",
+      "repetition": 1,
+      "virtue": "ذكر لبس الثوب"
+    },
+    {
+      "id": 50,
+      "category": "clothing",
+      "arabic": "اللَّهُمَّ لَكَ الْحَمْدُ أَنْتَ كَسَوْتَنِيهِ، أَسْأَلُكَ مِنْ خَيْرِهِ وَخَيْرِ مَا صُنِعَ لَهُ، وَأَعُوذُ بِكَ مِنْ شَرِّهِ وَشَرِّ مَا صُنِعَ لَهُ",
+      "translation": "O Allah, praise is Yours; You have clothed me with it. I ask You for its good and the good for which it was made, and I seek refuge in You from its evil and the evil for which it was made.",
+      "source": "رواه أبو داود والترمذي",
+      "repetition": 1,
+      "virtue": "دعاء لبس الثوب الجديد"
+    },
+    {
+      "id": 51,
+      "category": "restroom",
+      "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ",
+      "translation": "O Allah, I seek refuge in You from male and female devils.",
+      "source": "رواه البخاري ومسلم",
+      "repetition": 1,
+      "virtue": "يقال قبل دخول الخلاء"
+    },
+    {
+      "id": 52,
+      "category": "restroom",
+      "arabic": "غُفْرَانَكَ",
+      "translation": "I seek Your forgiveness.",
+      "source": "رواه أبو داود والترمذي",
+      "repetition": 1,
+      "virtue": "يقال بعد الخروج من الخلاء"
+    },
+    {
+      "id": 53,
+      "category": "illness",
+      "arabic": "لَا بَأْسَ، طَهُورٌ إِنْ شَاءَ اللَّهُ",
+      "translation": "No harm; may it be a purification, Allah willing.",
+      "source": "رواه البخاري",
+      "repetition": 1,
+      "virtue": "يقال للمريض عند عيادته"
+    },
+    {
+      "id": 54,
+      "category": "illness",
+      "arabic": "أَسْأَلُ اللَّهَ الْعَظِيمَ رَبَّ الْعَرْشِ الْعَظِيمِ أَنْ يَشْفِيَكَ",
+      "translation": "I ask Allah the Magnificent, Lord of the Magnificent Throne, to cure you.",
+      "source": "رواه أبو داود والترمذي",
+      "repetition": 7,
+      "virtue": "يقال للمريض سبع مرات"
+    },
+    {
+      "id": 55,
+      "category": "food",
+      "arabic": "اللَّهُمَّ بَارِكْ لَهُمْ فِيمَا رَزَقْتَهُمْ، وَاغْفِرْ لَهُمْ وَارْحَمْهُمْ",
+      "translation": "O Allah, bless them in what You have provided for them, forgive them, and have mercy on them.",
+      "source": "رواه مسلم",
+      "repetition": 1,
+      "virtue": "دعاء لمن أطعمك"
+    },
+    {
+      "id": 56,
+      "category": "travel",
+      "arabic": "آيِبُونَ تَائِبُونَ عَابِدُونَ لِرَبِّنَا حَامِدُونَ",
+      "translation": "We return repentant, worshipping and praising our Lord.",
+      "source": "رواه البخاري ومسلم",
+      "repetition": 1,
+      "virtue": "ذكر الرجوع من السفر"
     }
   ]
 }
