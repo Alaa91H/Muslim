@@ -32,14 +32,14 @@ class ScholarStudyAnalyticsTest {
             sevenDaysStartEpochMillis = sevenDaysStart,
         )
 
-        assertThat(summary.reviewsToday).isEqualTo(1)
-        assertThat(summary.reviewsLast7Days).isEqualTo(2)
-        assertThat(summary.cardsReviewedLast7Days).isEqualTo(2)
-        assertThat(summary.againLast7Days).isEqualTo(1)
-        assertThat(summary.goodLast7Days).isEqualTo(1)
-        assertThat(summary.completedSessionsLast7Days).isEqualTo(1)
-        assertThat(summary.studiedPassagesLast7Days).isEqualTo(2)
-        assertThat(summary.dueCards).isEqualTo(1)
+        assertThat(summary.review.reviewsToday).isEqualTo(1)
+        assertThat(summary.review.reviewsLast7Days).isEqualTo(2)
+        assertThat(summary.review.cardsReviewedLast7Days).isEqualTo(2)
+        assertThat(summary.review.againLast7Days).isEqualTo(1)
+        assertThat(summary.review.goodLast7Days).isEqualTo(1)
+        assertThat(summary.study.completedSessionsLast7Days).isEqualTo(1)
+        assertThat(summary.study.studiedPassagesLast7Days).isEqualTo(2)
+        assertThat(summary.study.dueCards).isEqualTo(1)
     }
 
     @Test
