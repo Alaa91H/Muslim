@@ -4,6 +4,7 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBookmark
 import org.muslim.app.feature.scholarlibrary.domain.ScholarCategory
 import org.muslim.app.feature.scholarlibrary.domain.ScholarDifficulty
+import org.muslim.app.feature.scholarlibrary.domain.ScholarFlashcardReviewState
 import org.muslim.app.feature.scholarlibrary.domain.ScholarHighlight
 import org.muslim.app.feature.scholarlibrary.domain.ScholarHighlightStyle
 import org.muslim.app.feature.scholarlibrary.domain.ScholarNote
@@ -56,14 +57,16 @@ internal fun ScholarFlashcardEntity.toDomain() = StudyFlashcard(
     passageId = passageId,
     front = front,
     back = back,
-    reviewCount = reviewCount,
-    dueAtEpochMillis = dueAtEpochMillis,
     createdAtEpochMillis = createdAtEpochMillis,
-    intervalDays = intervalDays,
-    easeFactor = easeFactor,
-    lapseCount = lapseCount,
-    lastReviewedAtEpochMillis = lastReviewedAtEpochMillis,
-    lastRating = ScholarReviewRating.fromId(lastRating),
+    reviewState = ScholarFlashcardReviewState(
+        reviewCount = reviewState.reviewCount,
+        dueAtEpochMillis = reviewState.dueAtEpochMillis,
+        intervalDays = reviewState.intervalDays,
+        easeFactor = reviewState.easeFactor,
+        lapseCount = reviewState.lapseCount,
+        lastReviewedAtEpochMillis = reviewState.lastReviewedAtEpochMillis,
+        lastRating = ScholarReviewRating.fromId(reviewState.lastRating),
+    ),
 )
 
 internal fun ScholarBookmarkEntity.toDomain() = ScholarBookmark(
