@@ -1,0 +1,1215 @@
+{
+  "schemaVersion": 2,
+  "book": {
+    "id": "companions",
+    "titleAr": "الصحابة والصحابيات",
+    "titleEn": "Companions of the Prophet",
+    "subtitleAr": "سير مختارة لجيل الصحابة وأدوارهم في العلم والدعوة والمجتمع",
+    "subtitleEn": "Selected biographies of the Companion generation and their roles in learning, mission, and community",
+    "contentRevision": 1,
+    "chapters": [
+      {
+        "id": "foundations",
+        "titleAr": "مدخل إلى جيل الصحابة",
+        "titleEn": "Understanding the Companion Generation",
+        "summaryAr": "التعريف بالمصطلح والمهاجرين والأنصار.",
+        "summaryEn": "Definitions, Muhajirun, and Ansar.",
+        "topicIds": [
+          "who_are_companions",
+          "muhajirun",
+          "ansar"
+        ]
+      },
+      {
+        "id": "early_makkah",
+        "titleAr": "السابقون والمستضعفون",
+        "titleEn": "Early Converts and the Persecuted",
+        "summaryAr": "نماذج من السابقين الذين تحملوا أذى مكة.",
+        "summaryEn": "Examples of early believers who endured Meccan persecution.",
+        "topicIds": [
+          "bilal",
+          "musab",
+          "ammar",
+          "sumayya"
+        ]
+      },
+      {
+        "id": "knowledge",
+        "titleAr": "العلم والرواية والتعليم",
+        "titleEn": "Knowledge, Transmission, and Teaching",
+        "summaryAr": "صحابة برزوا في القرآن والحديث والفقه والتعليم.",
+        "summaryEn": "Companions prominent in Quran, hadith, law, and teaching.",
+        "topicIds": [
+          "ibn_masud",
+          "muadh",
+          "zayd_thabit",
+          "abu_hurayra",
+          "anas",
+          "jabir"
+        ]
+      },
+      {
+        "id": "service_leadership",
+        "titleAr": "الخدمة والقيادة والنصرة",
+        "titleEn": "Service, Leadership, and Support",
+        "summaryAr": "نماذج من القيادة والخدمة والمواقف العملية.",
+        "summaryEn": "Examples of leadership, service, and practical support.",
+        "topicIds": [
+          "salman",
+          "khalid",
+          "usama"
+        ]
+      },
+      {
+        "id": "women_companions",
+        "titleAr": "نماذج من الصحابيات",
+        "titleEn": "Women Companions",
+        "summaryAr": "نماذج من أدوار النساء في الهجرة والنصرة والثبات.",
+        "summaryEn": "Examples of women's roles in migration, support, and steadfastness.",
+        "topicIds": [
+          "asma",
+          "nusaybah"
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "who_are_companions",
+        "titleAr": "من هم الصحابة؟",
+        "titleEn": "Who are the Companions?",
+        "summaryAr": "مدخل يعرّف الصحابي في اصطلاح علماء الحديث ويشرح تنوع أدوار الصحابة في نقل الدين وبناء المجتمع الأول.",
+        "summaryEn": "An introduction to the hadith-scholarly definition of a Companion and the diversity of roles played by the first Muslim generation.",
+        "sections": [
+          {
+            "id": "definition",
+            "titleAr": "التعريف الاصطلاحي",
+            "titleEn": "Scholarly definition",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "استقر عند كثير من المحدثين أن الصحابي هو من لقي النبي ﷺ مؤمنًا به ومات على الإسلام، مع وجود تفاصيل اصطلاحية يناقشها أهل العلم في كتب المصطلح والتراجم.",
+                "en": "Many hadith scholars define a Companion as a person who met the Prophet ﷺ believing in him and died as a Muslim, while technical details are discussed in works of hadith terminology and biography.",
+                "citationIds": [
+                  "ibn-hajar-definition"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "diversity",
+            "titleAr": "جيل متنوع",
+            "titleEn": "A diverse generation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ضم جيل الصحابة مهاجرين وأنصارًا، رجالًا ونساءً، علماء وقادة وعمالًا وتجارًا وفقراء، ولا تُختزل سيرهم في نمط واحد.",
+                "en": "The Companion generation included Emigrants and Helpers, men and women, scholars, leaders, workers, merchants, and people of limited means; their lives cannot be reduced to one model.",
+                "citationIds": [
+                  "quran-9-100"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "muhajirun",
+          "ansar",
+          "sira/first_believers"
+        ],
+        "citations": [
+          {
+            "id": "quran-9-100",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:100"
+          },
+          {
+            "id": "ibn-hajar-definition",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "Introduction: definition of a Companion"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "muhajirun",
+        "titleAr": "المهاجرون",
+        "titleEn": "The Muhajirun",
+        "summaryAr": "الصحابة الذين هاجروا من مكة وغيرها نصرةً للدين وترك كثير منهم أموالًا وروابط خلفهم.",
+        "summaryEn": "The Companions who migrated, especially from Mecca, often leaving property and established ties behind.",
+        "sections": [
+          {
+            "id": "sacrifice",
+            "titleAr": "الهجرة والتضحية",
+            "titleEn": "Migration and sacrifice",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمدح القرآن المهاجرين الذين أُخرجوا من ديارهم وأموالهم يبتغون فضل الله ورضوانه وينصرون الله ورسوله.",
+                "en": "The Quran praises the Emigrants who were driven from homes and property while seeking God's favor and supporting the message.",
+                "citationIds": [
+                  "quran-59-8"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "role",
+            "titleAr": "دورهم في المدينة",
+            "titleEn": "Their role in Medina",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "شارك المهاجرون في بناء المجتمع المدني والتعليم والجهاد والإدارة، ثم انتشر كثير منهم في الأمصار بعد وفاة النبي ﷺ.",
+                "en": "The Muhajirun took part in building the Medinan community, teaching, military defense, and administration, and many later settled in wider Muslim lands.",
+                "citationIds": [
+                  "quran-9-100-muhajirun"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "who_are_companions",
+          "ansar",
+          "sira/migration_permission"
+        ],
+        "citations": [
+          {
+            "id": "quran-59-8",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "59:8"
+          },
+          {
+            "id": "quran-9-100-muhajirun",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:100"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "ansar",
+        "titleAr": "الأنصار",
+        "titleEn": "The Ansar",
+        "summaryAr": "أهل المدينة الذين آووا المهاجرين ونصروا النبي ﷺ، وخاصة الأوس والخزرج الذين دخلوا في الإسلام.",
+        "summaryEn": "The people of Medina who supported the Prophet ﷺ and welcomed the Emigrants, especially believers from Aws and Khazraj.",
+        "sections": [
+          {
+            "id": "support",
+            "titleAr": "الإيواء والنصرة",
+            "titleEn": "Shelter and support",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يمدح القرآن الذين تبوؤوا الدار والإيمان ويحبون من هاجر إليهم ويؤثرون على أنفسهم ولو كان بهم خصاصة.",
+                "en": "The Quran praises those settled in the home of faith who loved those who migrated to them and preferred others even when they themselves were in need.",
+                "citationIds": [
+                  "quran-59-9"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "community",
+            "titleAr": "بناء المجتمع المدني",
+            "titleEn": "Building the Medinan community",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان الأنصار أساسًا اجتماعيًا وعسكريًا للمجتمع في المدينة، وشاركوا في المؤاخاة والتعليم والدفاع وأعمال البر.",
+                "en": "The Ansar formed a central social and defensive base in Medina, participating in brotherhood, teaching, protection, and charitable work.",
+                "citationIds": [
+                  "quran-9-100-ansar"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "who_are_companions",
+          "muhajirun",
+          "sira/brotherhood_ansar"
+        ],
+        "citations": [
+          {
+            "id": "quran-59-9",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "59:9"
+          },
+          {
+            "id": "quran-9-100-ansar",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:100"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "bilal",
+        "titleAr": "بلال بن رباح رضي الله عنه",
+        "titleEn": "Bilal ibn Rabah",
+        "summaryAr": "من السابقين إلى الإسلام، عُرف بثباته تحت التعذيب وبكونه من أشهر مؤذني النبي ﷺ.",
+        "summaryEn": "An early Muslim known for steadfastness under persecution and as one of the Prophet's ﷺ best-known callers to prayer.",
+        "sections": [
+          {
+            "id": "persecution",
+            "titleAr": "الثبات في مكة",
+            "titleEn": "Steadfastness in Mecca",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر كتب التراجم والسيرة تعرض بلال للأذى بسبب إسلامه ثم عتقه، وصارت قصته مثالًا على ثبات المستضعفين في المرحلة المكية.",
+                "en": "Biographical and sira works describe Bilal's persecution because of his faith and his later manumission, making his story a lasting example of early Muslim steadfastness.",
+                "citationIds": [
+                  "isaba-bilal"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "adhan",
+            "titleAr": "مؤذن النبي ﷺ",
+            "titleEn": "Caller to prayer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ارتبط اسم بلال بالأذان في المدينة، وكان صوته من العلامات اليومية البارزة للمجتمع النبوي.",
+                "en": "Bilal became closely associated with the Adhan in Medina, his call becoming a prominent daily feature of the Prophetic community.",
+                "citationIds": [
+                  "bukhari-bilal"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/persecution_early_muslims",
+          "sira/adhan"
+        ],
+        "citations": [
+          {
+            "id": "isaba-bilal",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة بلال بن رباح / Biography of Bilal ibn Rabah"
+          },
+          {
+            "id": "bukhari-bilal",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "كتاب الأذان وفضائل الصحابة / Adhan and virtues of the Companions"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "salman",
+        "titleAr": "سلمان الفارسي رضي الله عنه",
+        "titleEn": "Salman al-Farisi",
+        "summaryAr": "صحابي فارسي اشتهرت رحلة بحثه عن الحق وإشارته بحفر الخندق في غزوة الأحزاب.",
+        "summaryEn": "A Persian Companion remembered for his search for truth and his proposal to dig the trench during the Confederates campaign.",
+        "sections": [
+          {
+            "id": "journey",
+            "titleAr": "رحلة البحث",
+            "titleEn": "Search for truth",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحكي مصادر السيرة رحلة طويلة لسلمان بين بيئات دينية متعددة قبل وصوله إلى المدينة ولقائه بالنبي ﷺ.",
+                "en": "Sira sources recount Salman's long journey through different religious communities before reaching Medina and meeting the Prophet ﷺ.",
+                "citationIds": [
+                  "ibn-ishaq-salman"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "trench",
+            "titleAr": "فكرة الخندق",
+            "titleEn": "The trench proposal",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشتهر سلمان باقتراح حفر الخندق عند اقتراب الأحزاب، وهي وسيلة دفاعية لم تكن مألوفة لقريش.",
+                "en": "Salman is widely associated with proposing the trench as a defensive measure when the confederate forces approached Medina.",
+                "citationIds": [
+                  "isaba-salman"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/khandaq",
+          "who_are_companions"
+        ],
+        "citations": [
+          {
+            "id": "isaba-salman",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة سلمان الفارسي / Biography of Salman al-Farisi"
+          },
+          {
+            "id": "ibn-ishaq-salman",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "خبر إسلام سلمان / Account of Salman's conversion"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "musab",
+        "titleAr": "مصعب بن عمير رضي الله عنه",
+        "titleEn": "Mus'ab ibn Umayr",
+        "summaryAr": "من السابقين، أرسله النبي ﷺ إلى يثرب قبل الهجرة لتعليم القرآن والدعوة، واستشهد يوم أحد.",
+        "summaryEn": "An early Muslim sent to Yathrib before the Hijrah to teach the Quran and invite people to Islam; he was killed at Uhud.",
+        "sections": [
+          {
+            "id": "teacher",
+            "titleAr": "أول مرحلة التعليم في يثرب",
+            "titleEn": "Teaching in Yathrib",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعد بيعة العقبة الأولى أرسل النبي ﷺ مصعبًا إلى يثرب ليقرئ الناس القرآن ويعلمهم الإسلام، فكان له أثر في انتشار الدعوة قبل الهجرة.",
+                "en": "After the first pledge of Aqaba, the Prophet ﷺ sent Mus'ab to Yathrib to teach the Quran and Islam, contributing to the message's spread before the Hijrah.",
+                "citationIds": [
+                  "ibn-hisham-musab"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "uhud",
+            "titleAr": "استشهاده يوم أحد",
+            "titleEn": "His death at Uhud",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "حمل مصعب اللواء يوم أحد وقُتل في المعركة، وتذكره المصادر مثالًا للتحول من حياة الرفاه إلى التضحية في سبيل ما آمن به.",
+                "en": "Mus'ab carried the standard at Uhud and was killed in the battle; sources remember his movement from comfort to costly commitment to his faith.",
+                "citationIds": [
+                  "isaba-musab"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/first_aqaba_pledge",
+          "sira/uhud"
+        ],
+        "citations": [
+          {
+            "id": "isaba-musab",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة مصعب بن عمير / Biography of Mus'ab ibn Umayr"
+          },
+          {
+            "id": "ibn-hisham-musab",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "مصعب في يثرب وأحد / Mus'ab in Yathrib and Uhud"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "ammar",
+        "titleAr": "عمار بن ياسر رضي الله عنه",
+        "titleEn": "Ammar ibn Yasir",
+        "summaryAr": "من السابقين، عانى مع أسرته التعذيب في مكة وشارك بعد ذلك في حياة المجتمع الإسلامي.",
+        "summaryEn": "An early Muslim whose family suffered persecution in Mecca and who later participated broadly in the Muslim community.",
+        "sections": [
+          {
+            "id": "mecca",
+            "titleAr": "الابتلاء في مكة",
+            "titleEn": "Persecution in Mecca",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان عمار وأبواه من المستضعفين الذين لاقوا أذى شديدًا في مكة بسبب إسلامهم، وثبت عمار بعد ذلك في جماعة المسلمين.",
+                "en": "Ammar and his parents were among vulnerable early Muslims who suffered severe persecution in Mecca; Ammar remained part of the Muslim community afterward.",
+                "citationIds": [
+                  "isaba-ammar"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "memory",
+            "titleAr": "مكانته في الرواية والتاريخ",
+            "titleEn": "Memory in hadith and history",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وردت في فضله وأحداث حياته روايات متعددة، ويحتاج ترتيب تفاصيل مواقفه السياسية المتأخرة إلى قراءة المصادر بسياقاتها المختلفة.",
+                "en": "Numerous reports concern his merits and life; reconstructing the details of his later political role requires reading the historical sources in their differing contexts.",
+                "citationIds": [
+                  "bukhari-ammar"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sumayya",
+          "sira/persecution_early_muslims"
+        ],
+        "citations": [
+          {
+            "id": "isaba-ammar",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة عمار بن ياسر / Biography of Ammar ibn Yasir"
+          },
+          {
+            "id": "bukhari-ammar",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "فضائل الصحابة / Virtues of the Companions"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "sumayya",
+        "titleAr": "سمية بنت خياط رضي الله عنها",
+        "titleEn": "Sumayya bint Khayyat",
+        "summaryAr": "من أوائل المسلمات ومن أشهر من عُذبوا في مكة بسبب الإيمان.",
+        "summaryEn": "One of the earliest Muslim women and among the most famous victims of persecution in Mecca.",
+        "sections": [
+          {
+            "id": "faith",
+            "titleAr": "السبق إلى الإسلام",
+            "titleEn": "Early faith",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر كتب التراجم سمية ضمن السابقين، وكانت من أسرة ضعيفة الحماية الاجتماعية في مكة.",
+                "en": "Biographical works include Sumayya among the early Muslims; her family lacked the strong clan protection enjoyed by some Meccan converts.",
+                "citationIds": [
+                  "isaba-sumayya"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "persecution",
+            "titleAr": "القتل تحت التعذيب",
+            "titleEn": "Killed under persecution",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر المصادر الإسلامية المبكرة أنها قُتلت بسبب ثباتها على الإسلام، ولذلك تُذكر في الذاكرة الإسلامية من أوائل الشهداء.",
+                "en": "Early Islamic sources report that she was killed amid persecution for remaining Muslim, and she is remembered among the earliest martyrs.",
+                "citationIds": [
+                  "ibn-sad-sumayya"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ammar",
+          "sira/persecution_early_muslims"
+        ],
+        "citations": [
+          {
+            "id": "isaba-sumayya",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة سمية بنت خياط / Biography of Sumayya bint Khayyat"
+          },
+          {
+            "id": "ibn-sad-sumayya",
+            "kind": "ClassicalBook",
+            "titleAr": "الطبقات الكبرى لابن سعد",
+            "titleEn": "Ibn Sa'd, al-Tabaqat al-Kubra",
+            "locator": "ترجمة سمية / Biography of Sumayya"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "ibn_masud",
+        "titleAr": "عبد الله بن مسعود رضي الله عنه",
+        "titleEn": "Abdullah ibn Mas'ud",
+        "summaryAr": "قارئ وفقيه من السابقين، عُرف بقربه من النبي ﷺ وعلمه بالقرآن.",
+        "summaryEn": "An early Companion, reciter, and jurist known for closeness to the Prophet ﷺ and deep knowledge of the Quran.",
+        "sections": [
+          {
+            "id": "quran",
+            "titleAr": "علمه بالقرآن",
+            "titleEn": "Knowledge of the Quran",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان ابن مسعود من أشهر قراء الصحابة، ونقلت عنه قراءات وتعليم وتفسير وفقه أثر في مدارس العلم اللاحقة.",
+                "en": "Ibn Mas'ud was among the most prominent Companion reciters; his teaching, recitation, interpretation, and legal learning influenced later scholarly traditions.",
+                "citationIds": [
+                  "bukhari-ibn-masud"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "kufa",
+            "titleAr": "التعليم في العراق",
+            "titleEn": "Teaching in Iraq",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ارتبط اسمه بالكوفة وتعليم أهلها، وصار تلاميذه جزءًا مهمًا من تشكل المدرسة العلمية العراقية.",
+                "en": "He became closely associated with teaching in Kufa, and his students formed an important strand in the development of Iraqi scholarship.",
+                "citationIds": [
+                  "isaba-ibn-masud"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/quran",
+          "who_are_companions"
+        ],
+        "citations": [
+          {
+            "id": "isaba-ibn-masud",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة عبد الله بن مسعود / Biography of Abdullah ibn Mas'ud"
+          },
+          {
+            "id": "bukhari-ibn-masud",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "فضائل القرآن وفضائل الصحابة / Virtues of the Quran and Companions"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "muadh",
+        "titleAr": "معاذ بن جبل رضي الله عنه",
+        "titleEn": "Mu'adh ibn Jabal",
+        "summaryAr": "صحابي من الأنصار عُرف بالعلم، وبعثه النبي ﷺ إلى اليمن في مهمة تعليمية وإدارية.",
+        "summaryEn": "An Ansari Companion known for learning, sent by the Prophet ﷺ to Yemen on a teaching and administrative mission.",
+        "sections": [
+          {
+            "id": "knowledge",
+            "titleAr": "العلم والتعليم",
+            "titleEn": "Knowledge and teaching",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان معاذ من شباب الأنصار الذين عُرفوا بالعلم، ووردت عنه مسائل في الحلال والحرام والعبادة.",
+                "en": "Mu'adh was among the younger Ansar known for learning, and reports preserve his teaching on worship and legal matters.",
+                "citationIds": [
+                  "isaba-muadh"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "yemen",
+            "titleAr": "بعثه إلى اليمن",
+            "titleEn": "Mission to Yemen",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعثه النبي ﷺ إلى اليمن ليعلم الناس ويرشدهم في الدين ويقوم بأعمال تتصل بإدارة المجتمع والصدقات.",
+                "en": "The Prophet ﷺ sent him to Yemen to teach the people, guide them in religion, and carry out responsibilities connected with communal administration and almsgiving.",
+                "citationIds": [
+                  "bukhari-muadh-yemen"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ansar",
+          "sira/year_delegations"
+        ],
+        "citations": [
+          {
+            "id": "isaba-muadh",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة معاذ بن جبل / Biography of Mu'adh ibn Jabal"
+          },
+          {
+            "id": "bukhari-muadh-yemen",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "الزكاة والمغازي / Zakat and expeditions: mission to Yemen"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "zayd_thabit",
+        "titleAr": "زيد بن ثابت رضي الله عنه",
+        "titleEn": "Zayd ibn Thabit",
+        "summaryAr": "كاتب للوحي وفقيه من الأنصار، ارتبط اسمه بجمع القرآن في عهد أبي بكر وبنسخ المصاحف في عهد عثمان.",
+        "summaryEn": "A Medinan scribe and jurist associated with collecting the Quran under Abu Bakr and preparing standardized codices under Uthman.",
+        "sections": [
+          {
+            "id": "scribe",
+            "titleAr": "الكتابة والعلم",
+            "titleEn": "Scribe and scholar",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان زيد من كتبة الوحي في المدينة، وتعلم وكتب وأفتى حتى صار من علماء الصحابة المعروفين.",
+                "en": "Zayd served among the scribes in Medina and became known for learning, writing, and legal knowledge.",
+                "citationIds": [
+                  "isaba-zayd-thabit"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "quran",
+            "titleAr": "خدمة المصحف",
+            "titleEn": "Service to the Quranic text",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تجعله روايات صحيح البخاري شخصية مركزية في مشروع جمع الصحف بعد اليمامة، ثم في لجنة نسخ المصاحف في خلافة عثمان.",
+                "en": "Reports in Sahih al-Bukhari place him at the center of the collection after Yamamah and later the committee that prepared codices during Uthman's caliphate.",
+                "citationIds": [
+                  "bukhari-quran-collection"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "rashidun/quran_collection_abu_bakr",
+          "rashidun/uthman_mushaf"
+        ],
+        "citations": [
+          {
+            "id": "isaba-zayd-thabit",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة زيد بن ثابت / Biography of Zayd ibn Thabit"
+          },
+          {
+            "id": "bukhari-quran-collection",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "فضائل القرآن: جمع القرآن / Virtues of the Quran: collection of the Quran"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "abu_hurayra",
+        "titleAr": "أبو هريرة رضي الله عنه",
+        "titleEn": "Abu Hurayra",
+        "summaryAr": "من أكثر الصحابة رواية للحديث، لازم النبي ﷺ في سنوات المدينة الأخيرة واهتم بالحفظ والتعليم.",
+        "summaryEn": "One of the most prolific Companion transmitters of hadith, closely attending the Prophet ﷺ during the later Medinan years.",
+        "sections": [
+          {
+            "id": "companionship",
+            "titleAr": "الملازمة والحفظ",
+            "titleEn": "Close attendance and memorization",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أسلم أبو هريرة في السنوات المدنية ولازم النبي ﷺ، وكرس وقتًا كبيرًا لسماع الحديث وحفظه.",
+                "en": "Abu Hurayra accepted Islam during the Medinan period and closely attended the Prophet ﷺ, devoting substantial time to hearing and memorizing reports.",
+                "citationIds": [
+                  "isaba-abu-hurayra"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "transmission",
+            "titleAr": "الرواية والتعليم",
+            "titleEn": "Transmission and teaching",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كثر الرواة عنه من التابعين، وتحتاج دراسة مروياته كسائر الحديث إلى النظر في الأسانيد والمتون وطرق الرواية.",
+                "en": "Many Successors transmitted from him; as with all hadith material, individual reports are studied through chains of transmission, texts, and variant routes.",
+                "citationIds": [
+                  "bukhari-abu-hurayra"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/sunnah",
+          "who_are_companions"
+        ],
+        "citations": [
+          {
+            "id": "isaba-abu-hurayra",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة أبو هريرة / Biography of Abu Hurayra"
+          },
+          {
+            "id": "bukhari-abu-hurayra",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "العلم وفضائل الصحابة / Knowledge and virtues of the Companions"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "anas",
+        "titleAr": "أنس بن مالك رضي الله عنه",
+        "titleEn": "Anas ibn Malik",
+        "summaryAr": "خدم النبي ﷺ في المدينة سنوات طويلة ونقل كثيرًا من تفاصيل حياته اليومية وأخلاقه.",
+        "summaryEn": "He served the Prophet ﷺ in Medina for many years and transmitted numerous details about his daily life and character.",
+        "sections": [
+          {
+            "id": "service",
+            "titleAr": "خدمة النبي ﷺ",
+            "titleEn": "Service to the Prophet",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قدمت أم أنس ابنها ليخدم النبي ﷺ وهو صغير، فشهد من حياته اليومية ما لم يشهده كثير من الناس.",
+                "en": "Anas's mother presented her young son to serve the Prophet ﷺ, giving him close exposure to aspects of daily life that many others did not witness.",
+                "citationIds": [
+                  "isaba-anas"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "reports",
+            "titleAr": "روايته عن الأخلاق",
+            "titleEn": "Reports on character",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نقلت عنه أحاديث كثيرة في حسن المعاملة والعبادة والآداب، ولذلك يعد مصدرًا مهمًا لتفاصيل السيرة اليومية.",
+                "en": "Many reports from Anas concern conduct, worship, and manners, making him an important transmitter of everyday aspects of the Prophetic biography.",
+                "citationIds": [
+                  "bukhari-anas"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/family_life",
+          "sira/mercy_children"
+        ],
+        "citations": [
+          {
+            "id": "isaba-anas",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة أنس بن مالك / Biography of Anas ibn Malik"
+          },
+          {
+            "id": "bukhari-anas",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "الأدب وفضائل الصحابة / Manners and virtues of the Companions"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "jabir",
+        "titleAr": "جابر بن عبد الله رضي الله عنه",
+        "titleEn": "Jabir ibn Abdullah",
+        "summaryAr": "صحابي أنصاري مكثر من الحديث، اشتهرت عنه روايات في الحج والعبادات وأحداث السيرة.",
+        "summaryEn": "An Ansari Companion and prolific transmitter, especially known for reports on Hajj, worship, and events from the Sira.",
+        "sections": [
+          {
+            "id": "medina",
+            "titleAr": "من شباب الأنصار",
+            "titleEn": "Among the young Ansar",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نشأ جابر في المدينة وشارك في حياة المجتمع النبوي، ثم طال عمره وأصبح مقصدًا لطلاب الحديث.",
+                "en": "Jabir grew up in Medina, participated in the Prophetic community, and lived long enough to become a destination for later students of hadith.",
+                "citationIds": [
+                  "isaba-jabir"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "hajj",
+            "titleAr": "حديث حجة الوداع",
+            "titleEn": "Farewell Pilgrimage report",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "من أشهر مروياته الوصف الطويل لحجة النبي ﷺ، وهو نص أساسي في كتب الحديث والفقه لفهم ترتيب المناسك.",
+                "en": "Among his best-known transmissions is the extended description of the Prophet's ﷺ pilgrimage, a major source for understanding the sequence of Hajj rites.",
+                "citationIds": [
+                  "muslim-jabir-hajj"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/farewell_pilgrimage_detail",
+          "ansar"
+        ],
+        "citations": [
+          {
+            "id": "isaba-jabir",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة جابر بن عبد الله / Biography of Jabir ibn Abdullah"
+          },
+          {
+            "id": "muslim-jabir-hajj",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "كتاب الحج: صفة حجة النبي ﷺ / Book of Hajj: description of the Prophet's pilgrimage"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "khalid",
+        "titleAr": "خالد بن الوليد رضي الله عنه",
+        "titleEn": "Khalid ibn al-Walid",
+        "summaryAr": "قائد عسكري أسلم بعد الحديبية، وبرز في مؤتة ثم في حروب وأحداث لاحقة.",
+        "summaryEn": "A military commander who accepted Islam after Hudaybiyyah and became prominent at Mu'tah and in later campaigns.",
+        "sections": [
+          {
+            "id": "conversion",
+            "titleAr": "إسلامه وخبرته",
+            "titleEn": "Conversion and experience",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "دخل خالد في الإسلام في مرحلة متأخرة نسبيًا من العهد المدني، وجاء بخبرة عسكرية اكتسبها قبل ذلك.",
+                "en": "Khalid accepted Islam relatively late in the Medinan period and brought significant military experience from his earlier life.",
+                "citationIds": [
+                  "isaba-khalid"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mutah",
+            "titleAr": "قيادته في مؤتة",
+            "titleEn": "Command at Mu'tah",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعد استشهاد القادة الثلاثة في مؤتة تولى خالد القيادة ونظم رجوع الجيش، ثم صار من أبرز القادة في السنوات التالية.",
+                "en": "After the three appointed commanders were killed at Mu'tah, Khalid assumed command and organized the army's return, later becoming one of the most prominent commanders of the era.",
+                "citationIds": [
+                  "bukhari-khalid-mutah"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/mutah",
+          "rashidun/ridda_wars"
+        ],
+        "citations": [
+          {
+            "id": "isaba-khalid",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة خالد بن الوليد / Biography of Khalid ibn al-Walid"
+          },
+          {
+            "id": "bukhari-khalid-mutah",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "المغازي: مؤتة / Military Expeditions: Mu'tah"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "usama",
+        "titleAr": "أسامة بن زيد رضي الله عنه",
+        "titleEn": "Usama ibn Zayd",
+        "summaryAr": "صحابي شاب نشأ قريبًا من بيت النبي ﷺ وأسند إليه قيادة جيش في أواخر حياة النبي.",
+        "summaryEn": "A young Companion raised close to the Prophet's ﷺ household and appointed to command an army near the end of the Prophet's life.",
+        "sections": [
+          {
+            "id": "household",
+            "titleAr": "قربه من بيت النبي",
+            "titleEn": "Close to the Prophetic household",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان أبوه زيد بن حارثة من أحب الناس إلى النبي ﷺ، ونشأ أسامة في محيط قريب من البيت النبوي.",
+                "en": "His father Zayd ibn Harithah was especially close to the Prophet ﷺ, and Usama grew up in close connection with the Prophetic household.",
+                "citationIds": [
+                  "isaba-usama"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "command",
+            "titleAr": "قيادة جيش وهو شاب",
+            "titleEn": "Command while young",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ولاه النبي ﷺ قيادة بعث يضم رجالًا أكبر سنًا منه، ودافع عن اختياره عندما اعترض بعض الناس على سنه.",
+                "en": "The Prophet ﷺ appointed him to lead a force containing men older than him and defended the appointment when some questioned his youth.",
+                "citationIds": [
+                  "bukhari-usama"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/final_illness_death",
+          "who_are_companions"
+        ],
+        "citations": [
+          {
+            "id": "isaba-usama",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة أسامة بن زيد / Biography of Usama ibn Zayd"
+          },
+          {
+            "id": "bukhari-usama",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "فضائل الصحابة والمغازي / Virtues and military expeditions"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "asma",
+        "titleAr": "أسماء بنت أبي بكر رضي الله عنها",
+        "titleEn": "Asma bint Abi Bakr",
+        "summaryAr": "من السابقات، ارتبطت قصتها بخدمة خطة الهجرة وعاشت حياة طويلة نقلت فيها العلم.",
+        "summaryEn": "An early Muslim woman remembered for assisting the Hijrah plan and for a long life of transmitting knowledge.",
+        "sections": [
+          {
+            "id": "hijra",
+            "titleAr": "ذات النطاقين",
+            "titleEn": "Support during the Hijrah",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر الروايات أن أسماء جهزت الطعام للنبي ﷺ وأبي بكر في خطة الهجرة وربطت الزاد بنطاقها، فاشتهرت بلقب ذات النطاقين.",
+                "en": "Reports describe Asma preparing provisions for the Prophet ﷺ and Abu Bakr during the Hijrah and tying them with her waistband, giving rise to her well-known epithet.",
+                "citationIds": [
+                  "bukhari-asma-hijra"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "later",
+            "titleAr": "العلم والثبات",
+            "titleEn": "Learning and steadfastness",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عاشت أسماء عمرًا طويلًا وروت أحاديث، كما شهدت أحداثًا أسرية وسياسية متأخرة تحتاج إلى قراءة تاريخية متوازنة في مصادرها.",
+                "en": "Asma lived a long life and transmitted hadith; she also witnessed later family and political events that require balanced historical reading across sources.",
+                "citationIds": [
+                  "isaba-asma"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/cave_thawr",
+          "mothers/aisha"
+        ],
+        "citations": [
+          {
+            "id": "isaba-asma",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة أسماء بنت أبي بكر / Biography of Asma bint Abi Bakr"
+          },
+          {
+            "id": "bukhari-asma-hijra",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "المغازي: الهجرة / Military Expeditions: the Hijrah"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "nusaybah",
+        "titleAr": "نسيبة بنت كعب أم عمارة رضي الله عنها",
+        "titleEn": "Nusaybah bint Ka'b (Umm 'Umarah)",
+        "summaryAr": "صحابية أنصارية اشتهرت بمشاركتها في بيعة العقبة ودفاعها يوم أحد.",
+        "summaryEn": "An Ansari woman remembered for participation in the Aqaba pledge and for defending the Prophet ﷺ at Uhud.",
+        "sections": [
+          {
+            "id": "aqaba",
+            "titleAr": "من أهل العقبة",
+            "titleEn": "Among the people of Aqaba",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر كتب السيرة نسيبة ضمن النساء اللاتي حضرن بيعة العقبة، فكانت من الأنصار السابقين إلى نصرة الدعوة.",
+                "en": "Sira works include Nusaybah among the women present at the Aqaba pledge, placing her among the early Ansar supporters of the mission.",
+                "citationIds": [
+                  "ibn-sad-nusaybah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "uhud",
+            "titleAr": "موقفها يوم أحد",
+            "titleEn": "Her role at Uhud",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "اشتهرت بموقفها في أحد حين شاركت في الدفاع عن النبي ﷺ بعد اضطراب صفوف المسلمين، وأصيبت بجراح.",
+                "en": "She became especially known for helping defend the Prophet ﷺ at Uhud after the Muslim lines were disrupted, suffering wounds in the process.",
+                "citationIds": [
+                  "isaba-nusaybah"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ansar",
+          "sira/uhud"
+        ],
+        "citations": [
+          {
+            "id": "isaba-nusaybah",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة نسيبة بنت كعب / Biography of Nusaybah bint Ka'b"
+          },
+          {
+            "id": "ibn-sad-nusaybah",
+            "kind": "ClassicalBook",
+            "titleAr": "الطبقات الكبرى لابن سعد",
+            "titleEn": "Ibn Sa'd, al-Tabaqat al-Kubra",
+            "locator": "ترجمة أم عمارة / Biography of Umm 'Umarah"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      }
+    ]
+  }
+}
