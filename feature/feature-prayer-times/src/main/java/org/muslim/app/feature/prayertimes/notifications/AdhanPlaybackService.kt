@@ -4,7 +4,9 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.os.Handler
 import android.os.IBinder
+import android.os.Looper
 import android.os.PowerManager
 import android.os.VibrationEffect
 import android.os.Vibrator
@@ -52,6 +54,10 @@ class AdhanPlaybackService : Service() {
     lateinit var deliveryJournal: AdhanDeliveryJournal
 
     private var wakeLock: PowerManager.WakeLock? = null
+    private var activeVibrator: Vibrator? = null
+    private val mainHandler = Handler(Looper.getMainLooper())
+    private var playbackGeneration = 0L
+
     /** The request that currently owns the active foreground notification. */
     private var activeRequest: PlaybackRequest? = null
 
@@ -80,27 +86,48 @@ class AdhanPlaybackService : Service() {
     )
 
     private fun startPlayback(request: PlaybackRequest) {
-        activeRequest = request
+        val generation = beginSession(request)
         val plan = AdhanPlaybackPlan.plan(request.option, hasBundledSound = true, request.vibrateEnabled)
         if (!plan.playSound && !plan.vibrate) {
             deliveryJournal.failed(request.prayer, request.isProbe, "Adhan is configured as silent")
-            stopSelf()
+            finishSession(generation)
             return
         }
         val foregroundStarted = startForegroundNotification(request)
         if (foregroundStarted.isFailure) {
-            startForegroundFailureFallback(request, plan, foregroundStarted.exceptionOrNull())
+            startForegroundFailureFallback(
+                request = request,
+                plan = plan,
+                error = foregroundStarted.exceptionOrNull(),
+                generation = generation,
+            )
             return
         }
-        startManagedPlayback(request, plan)
+        startManagedPlayback(request, plan, generation)
+    }
+
+    /**
+     * Starts a new logical playback generation and invalidates every delayed
+     * callback left behind by the previous one. This prevents a timeout or
+     * fallback runnable from resurrecting audio after the user has stopped it.
+     */
+    private fun beginSession(request: PlaybackRequest): Long {
+        playbackGeneration += 1L
+        mainHandler.removeCallbacksAndMessages(null)
+        soundPlayer.stop()
+        cancelVibration()
+        releaseWakeLock()
+        activeRequest = request
+        return playbackGeneration
     }
 
     private fun startForegroundFailureFallback(
         request: PlaybackRequest,
         plan: AdhanPlaybackPlan.Plan,
         error: Throwable?,
+        generation: Long,
     ) {
-        // Retain the same ongoing card while the one-time direct-audio recovery
+        // Retain the same active card while the one-time direct-audio recovery
         // runs. This is not the normal path: a successful service owns the
         // foreground notification through startForeground below.
         if (request.presentationAllowed) {
@@ -114,29 +141,50 @@ class AdhanPlaybackService : Service() {
         AdhanPlaybackStatus.isPlaying.value = true
         AdhanPlaybackStatus.isPreviewing.value = request.isPreview
         acquireWakeLock()
-        val onFinished = { stopSelf() }
+        scheduleSessionTimeout(generation)
+        val onFinished: () -> Unit = { finishSession(generation) }
         if (plan.playSound) {
             soundPlayer.playSynthesized(
                 request.volumePercent,
-                onStarted = { deliveryJournal.audioStarted(request.prayer, request.isProbe) },
+                onStarted = {
+                    if (isSessionActive(generation)) {
+                        deliveryJournal.audioStarted(request.prayer, request.isProbe)
+                    }
+                },
                 onFinished = onFinished,
             )
         } else if (plan.vibrate) {
             vibrate()
-            mainHandler().postDelayed(onFinished, VIBRATION_DURATION_MS)
+            mainHandler.postDelayed(onFinished, VIBRATION_DURATION_MS)
         }
     }
 
-    private fun startManagedPlayback(request: PlaybackRequest, plan: AdhanPlaybackPlan.Plan) {
+    private fun startManagedPlayback(
+        request: PlaybackRequest,
+        plan: AdhanPlaybackPlan.Plan,
+        generation: Long,
+    ) {
         deliveryJournal.serviceStarted(request.prayer, request.isProbe)
         val deliveryStartedAt = System.currentTimeMillis()
         AdhanPlaybackStatus.isPlaying.value = true
         AdhanPlaybackStatus.isPreviewing.value = request.isPreview
         acquireWakeLock()
-        val onFinished = { stopSelf() }
-        val onAudioStarted = { deliveryJournal.audioStarted(request.prayer, request.isProbe) }
+        scheduleSessionTimeout(generation)
+        val onFinished: () -> Unit = { finishSession(generation) }
+        val onAudioStarted: () -> Unit = {
+            if (isSessionActive(generation)) {
+                deliveryJournal.audioStarted(request.prayer, request.isProbe)
+            }
+        }
         startRequestedAudio(request, plan, onAudioStarted, onFinished)
-        scheduleAudioFallback(request, plan, deliveryStartedAt, onAudioStarted, onFinished)
+        scheduleAudioFallback(
+            request = request,
+            plan = plan,
+            deliveryStartedAt = deliveryStartedAt,
+            generation = generation,
+            onAudioStarted = onAudioStarted,
+            onFinished = onFinished,
+        )
     }
 
     private fun startRequestedAudio(
@@ -152,7 +200,7 @@ class AdhanPlaybackService : Service() {
             plan.vibrate -> {
                 if (request.isProbe) deliveryJournal.failed(request.prayer, true, "Adhan is configured for vibration only")
                 vibrate()
-                mainHandler().postDelayed(onFinished, VIBRATION_DURATION_MS)
+                mainHandler.postDelayed(onFinished, VIBRATION_DURATION_MS)
             }
         }
     }
@@ -161,11 +209,13 @@ class AdhanPlaybackService : Service() {
         request: PlaybackRequest,
         plan: AdhanPlaybackPlan.Plan,
         deliveryStartedAt: Long,
+        generation: Long,
         onAudioStarted: () -> Unit,
         onFinished: () -> Unit,
     ) {
         if (!plan.playSound) return
-        mainHandler().postDelayed({
+        mainHandler.postDelayed({
+            if (!isSessionActive(generation)) return@postDelayed
             if (!audioStartedFor(request, deliveryStartedAt)) {
                 deliveryJournal.audioFallbackStarted(
                     request.prayer,
@@ -173,13 +223,32 @@ class AdhanPlaybackService : Service() {
                     "Bundled audio start timed out; synthetic fallback started",
                 )
                 soundPlayer.playSynthesized(request.volumePercent, onAudioStarted, onFinished)
-                mainHandler().postDelayed({
+                mainHandler.postDelayed({
+                    if (!isSessionActive(generation)) return@postDelayed
                     if (!audioStartedFor(request, deliveryStartedAt)) {
                         deliveryJournal.failed(request.prayer, request.isProbe, "AudioTrack fallback did not start")
                     }
                 }, FALLBACK_AUDIO_START_TIMEOUT_MS)
             }
         }, AUDIO_START_TIMEOUT_MS)
+    }
+
+    private fun scheduleSessionTimeout(generation: Long) {
+        mainHandler.postDelayed({
+            if (isSessionActive(generation)) {
+                finishSession(generation)
+            }
+        }, MAX_PLAYBACK_DURATION_MS)
+    }
+
+    private fun isSessionActive(generation: Long): Boolean =
+        generation == playbackGeneration
+
+    private fun finishSession(generation: Long) {
+        if (!isSessionActive(generation)) return
+        playbackGeneration += 1L
+        mainHandler.removeCallbacksAndMessages(null)
+        stopSelf()
     }
 
     private fun audioStartedFor(request: PlaybackRequest, deliveryStartedAt: Long): Boolean {
@@ -189,8 +258,6 @@ class AdhanPlaybackService : Service() {
             latest.isProbe == request.isProbe &&
             latest.atMillis >= deliveryStartedAt
     }
-
-    private fun mainHandler() = android.os.Handler(android.os.Looper.getMainLooper())
 
     private data class PlaybackRequest(
         val prayer: Prayer,
@@ -212,12 +279,19 @@ class AdhanPlaybackService : Service() {
             getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
         } ?: return
         if (!vibrator.hasVibrator()) return
+        activeVibrator = vibrator
         vibrator.vibrate(
             VibrationEffect.createWaveform(longArrayOf(0, 600, 400, 600, 400, 600), -1),
         )
     }
 
+    private fun cancelVibration() {
+        activeVibrator?.let { vibrator -> runCatching { vibrator.cancel() } }
+        activeVibrator = null
+    }
+
     private fun acquireWakeLock() {
+        releaseWakeLock()
         // Keep the CPU awake while the adhan rings so a sleeping device (the
         // typical dawn-prayer case) cannot cut the audio off right after the
         // notification appears. Released in onDestroy.
@@ -229,6 +303,15 @@ class AdhanPlaybackService : Service() {
             setReferenceCounted(false)
             acquire(PLAYBACK_WAKELOCK_TIMEOUT_MS)
         }
+    }
+
+    private fun releaseWakeLock() {
+        wakeLock?.let { heldLock ->
+            runCatching {
+                if (heldLock.isHeld) heldLock.release()
+            }
+        }
+        wakeLock = null
     }
 
     private fun startForegroundNotification(request: PlaybackRequest) = runCatching {
@@ -265,13 +348,15 @@ class AdhanPlaybackService : Service() {
     }
 
     override fun onDestroy() {
-        wakeLock?.let { runCatching { if (it.isHeld) it.release() } }
-        wakeLock = null
+        playbackGeneration += 1L
+        mainHandler.removeCallbacksAndMessages(null)
+        cancelVibration()
+        releaseWakeLock()
         activeRequest = null
         AdhanPlaybackStatus.isPlaying.value = false
         AdhanPlaybackStatus.isPreviewing.value = false
-        // The card ends only with the owning service: natural completion or
-        // the explicit notification Stop action both stop this service.
+        // The card ends only with the owning playback session: natural
+        // completion, explicit Stop, notification dismissal, or hard timeout.
         AdhanNotifications.cancelActiveAdhan(this)
         soundPlayer.stop()
         super.onDestroy()
@@ -290,6 +375,7 @@ class AdhanPlaybackService : Service() {
         private const val AUDIO_START_TIMEOUT_MS = 12_000L
         private const val FALLBACK_AUDIO_START_TIMEOUT_MS = 5_000L
         private const val PLAYBACK_WAKELOCK_TIMEOUT_MS = 15 * 60 * 1000L
+        private const val MAX_PLAYBACK_DURATION_MS = 10 * 60 * 1000L
         private const val VIBRATION_DURATION_MS = 2_800L
 
         fun start(
@@ -321,9 +407,14 @@ class AdhanPlaybackService : Service() {
             }
         }
 
-        /** Stops the current playback only when the explicit notification action requests it. */
+        /**
+         * Stops every Adhan playback path, including the receiver-level direct
+         * fallback used when Android could not start this foreground service.
+         * Safe to call repeatedly from notification, volume-key, or UI events.
+         */
         fun stop(context: Context) {
             context.stopService(Intent(context, AdhanPlaybackService::class.java))
+            AdhanDirectFallbackSession.stop(context.applicationContext)
         }
 
         /** Stops settings audio only when the current service session is an explicit preview. */
