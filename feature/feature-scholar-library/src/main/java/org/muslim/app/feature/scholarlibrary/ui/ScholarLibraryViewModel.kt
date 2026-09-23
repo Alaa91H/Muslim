@@ -33,6 +33,7 @@ internal data class ScholarLibraryUiState(
     val books: List<ScholarBook> = emptyList(),
     val authors: List<ScholarAuthorSummary> = emptyList(),
     val studyPaths: List<ScholarStudyPath> = emptyList(),
+    val catalogMetadataLoading: Boolean = true,
     val selectedCategory: ScholarCategory? = null,
     val selectedDifficulty: ScholarDifficulty? = null,
     val selectedAuthorName: String? = null,
@@ -69,13 +70,16 @@ class ScholarLibraryViewModel @Inject constructor(
             repository.observeBooks().collect { books -> update { it.copy(books = books) } }
         }
         viewModelScope.launch {
-            runCatching {
+            try {
                 repository.ensureSeeded()
-                repository.authors() to repository.studyPaths()
-            }.onSuccess { (authors, paths) ->
-                update { it.copy(authors = authors, studyPaths = paths) }
-            }.onFailure {
-                update { it.copy(statusMessage = "تعذر تجهيز المسارات الدراسية.") }
+                refreshCatalogMetadata()
+            } catch (_: Exception) {
+                update {
+                    it.copy(
+                        catalogMetadataLoading = false,
+                        statusMessage = "تعذر تجهيز المسارات الدراسية.",
+                    )
+                }
             }
         }
         viewModelScope.launch {
@@ -294,10 +298,13 @@ class ScholarLibraryViewModel @Inject constructor(
         viewModelScope.launch {
             update { it.copy(statusMessage = "يجري فحص الحزمة واستيرادها محلياً…") }
             when (val result = repository.importPack(rawText)) {
-                is ScholarLibraryImportResult.Success -> update {
-                    it.copy(
-                        statusMessage = "تم استيراد ${result.importedBooks} كتب و${result.importedPassages} مقاطع مرخّصة.",
-                    )
+                is ScholarLibraryImportResult.Success -> {
+                    runCatching { refreshCatalogMetadata() }
+                    update {
+                        it.copy(
+                            statusMessage = "تم استيراد ${result.importedBooks} كتب و${result.importedPassages} مقاطع مرخّصة.",
+                        )
+                    }
                 }
                 is ScholarLibraryImportResult.Failure -> update { it.copy(statusMessage = result.message) }
             }
@@ -305,6 +312,18 @@ class ScholarLibraryViewModel @Inject constructor(
     }
 
     fun consumeStatusMessage() = update { it.copy(statusMessage = null) }
+
+    private suspend fun refreshCatalogMetadata() {
+        val authors = repository.authors()
+        val paths = repository.studyPaths()
+        update {
+            it.copy(
+                authors = authors,
+                studyPaths = paths,
+                catalogMetadataLoading = false,
+            )
+        }
+    }
 
     private fun update(transform: (ScholarLibraryUiState) -> ScholarLibraryUiState) {
         mutableState.value = transform(mutableState.value)
