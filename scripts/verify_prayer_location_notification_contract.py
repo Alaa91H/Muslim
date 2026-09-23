@@ -110,18 +110,27 @@ def main() -> None:
     require("runPostSaveSideEffect" in location_vm, "derived refresh failures must not undo a saved GPS location")
     require("com.github.luben.zstd.ZstdInputStreamNoFinalizer { *; }" in app_proguard, "R8 must preserve zstd JNI fields used by coordinate timezone lookup")
     require("com.github.luben.zstd.ZstdOutputStreamNoFinalizer { *; }" in app_proguard, "R8 must preserve zstd JNI output compatibility")
+    launcher_path_blocks = [
+        re.sub(r"\\s+", " ", block.strip())
+        for block in re.findall(r"<path\\b.*?/>", launcher_monochrome, flags=re.DOTALL)
+    ]
+    status_path_blocks = [
+        re.sub(r"\\s+", " ", block.strip())
+        for block in re.findall(r"<path\\b.*?/>", status_bar_icon, flags=re.DOTALL)
+    ]
     launcher_paths = re.findall(r'android:pathData="([^"]+)"', launcher_monochrome)
     status_paths = re.findall(r'android:pathData="([^"]+)"', status_bar_icon)
     require(launcher_paths and status_paths, "launcher and status icons must define vector path data")
-    require(launcher_paths == status_paths, "status-bar icon geometry must match the complete launcher monochrome geometry")
-    require(len(launcher_paths) == 4, "brand icon must keep separate square-frame, diamond-frame, mihrab and crescent paths")
+    require(len(launcher_paths) == 1 and len(status_paths) == 1, "approved identity must remain one traced evenOdd silhouette")
+    require(launcher_paths == status_paths, "status-bar icon pathData must match the launcher monochrome silhouette exactly")
     require(
-        launcher_paths[0].startswith("M20.59,20.59H87.41V87.41"),
-        "brand icon must retain the axis-aligned hollow square frame",
+        launcher_path_blocks == status_path_blocks,
+        "status-bar icon rendering attributes must match the launcher monochrome silhouette exactly",
     )
+    require('android:fillType="evenOdd"' in launcher_monochrome, "approved icon must retain evenOdd negative-space rendering")
     require(
-        launcher_paths[1].startswith("M54,6.75L101.25,54L54,101.25L6.75,54Z"),
-        "brand icon must retain the 45-degree hollow square frame",
+        launcher_paths[0].startswith("M54.146,7.437L51.526,9.765L39.885,22.570"),
+        "approved icon must retain the reviewed launcher-matched silhouette",
     )
     require("ic_muslim_status_bar_v2028" not in notification_sources, "notification producers must not retain the retired status-bar icon")
     require("ic_muslim_status_bar_v2029" in notification_sources, "notification producers must use the current status-bar icon")

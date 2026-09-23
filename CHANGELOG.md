@@ -1,5 +1,33 @@
 # Changelog
 
+## Muslim v1.25.32
+
+### Notification Identity — Approved Launcher-Matched Small Icon
+
+- Rebuilt the Android notification small icon from the user-approved monochrome preview rather than from a simplified geometric approximation.
+- The final artwork is stored as one `evenOdd` vector silhouette so the square/diamond framework, architectural ribbons, central mihrab, crescent, and negative space remain visually consistent with the application launcher identity.
+- Applied the exact same `pathData` to the themed launcher monochrome layer and `ic_muslim_status_bar_v2029`, preventing themed-icon and notification surfaces from drifting apart.
+- Performed optical tuning for the smallest 24dp presentation: tiny extraction gaps were closed and sub-pixel details were strengthened while preserving the approved overall silhouette.
+- Android continues to own the final notification tint and status-bar rendering; the application supplies a transparent, opaque-white monochrome mask only.
+
+### Android 8 / Instrumentation Reliability
+
+- Added an API 26-compatible foreground-location permission fallback for instrumentation tests while retaining the platform runtime-permission API on newer Android versions.
+- Removed fragile final-class MockK dependencies from critical Prayer Home and GPS instrumentation coverage, replacing them with real local repositories, the real prayer calculator where appropriate, and deterministic test fakes.
+- Isolated the Hilt-backed countdown foreground service from the feature-module GPS instrumentation environment so successful location persistence can be verified without starting an application-scoped service from a plain test `Application`.
+- CI now exercises the critical emulator suite on both API 26 and API 36.
+
+### Repository and Contributor Maintenance
+
+- Added a security policy, pull-request template, structured bug-report and feature-request templates, and project funding metadata.
+- Preserved the existing production release gates, stable-signing requirements, prayer-calculation behavior, Adhan delivery logic, Quran behavior, and user notification-channel settings.
+
+### Verification
+
+- Product-identity and notification-lifecycle static contracts cover the approved icon resource and exact launcher/status-bar geometry equality.
+- The release is gated by debug builds, unit tests, Android Lint, Detekt, and emulator instrumentation on API 26 and API 36 before tagging.
+- Production tag builds remain subject to the repository's signing and approved-content release gates.
+
 All notable changes to Muslim are documented here. Release notes use the same
 sectioned format as v1.10.0 and are generated from the commits for each tag.
 
