@@ -85,6 +85,13 @@ private enum class FuneralWillTab(val icon: ImageVector) {
     FuneralGuide(Icons.Filled.AutoStories),
 }
 
+private data class WillIntroActions(
+    val dismissDraftIntro: () -> Unit,
+    val dismissLegalNotice: () -> Unit,
+    val dismissPrivacyNotice: () -> Unit,
+    val restoreAll: () -> Unit,
+)
+
 private val WillDraftSaver: Saver<WillDraft, List<String>> = Saver(
     save = { draft ->
         listOf(
@@ -197,10 +204,12 @@ fun FuneralWillScreen(
                     onSave = { viewModel.save(draft) },
                     onShare = { shareWillDraft(context, draft, isArabic) },
                     onClear = { showClearConfirmation = true },
-                    onDismissDraftIntro = viewModel::dismissDraftIntro,
-                    onDismissLegalNotice = viewModel::dismissLegalNotice,
-                    onDismissPrivacyNotice = viewModel::dismissPrivacyNotice,
-                    onRestoreIntroCards = viewModel::restoreIntroCards,
+                    introActions = WillIntroActions(
+                        dismissDraftIntro = viewModel::dismissDraftIntro,
+                        dismissLegalNotice = viewModel::dismissLegalNotice,
+                        dismissPrivacyNotice = viewModel::dismissPrivacyNotice,
+                        restoreAll = viewModel::restoreIntroCards,
+                    ),
                 )
 
                 FuneralWillTab.FuneralGuide -> FuneralGuideContent(isArabic = isArabic)
@@ -248,10 +257,7 @@ private fun WillDraftContent(
     onSave: () -> Unit,
     onShare: () -> Unit,
     onClear: () -> Unit,
-    onDismissDraftIntro: () -> Unit,
-    onDismissLegalNotice: () -> Unit,
-    onDismissPrivacyNotice: () -> Unit,
-    onRestoreIntroCards: () -> Unit,
+    introActions: WillIntroActions,
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -261,10 +267,10 @@ private fun WillDraftContent(
         willDraftIntroduction(
             isArabic = isArabic,
             visibility = introVisibility,
-            onDismissDraftIntro = onDismissDraftIntro,
-            onDismissLegalNotice = onDismissLegalNotice,
-            onDismissPrivacyNotice = onDismissPrivacyNotice,
-            onRestoreIntroCards = onRestoreIntroCards,
+            onDismissDraftIntro = introActions.dismissDraftIntro,
+            onDismissLegalNotice = introActions.dismissLegalNotice,
+            onDismissPrivacyNotice = introActions.dismissPrivacyNotice,
+            onRestoreIntroCards = introActions.restoreAll,
         )
         willDraftFields(draft, onDraftChange)
         willDraftActions(draft, onSave, onShare, onClear)
