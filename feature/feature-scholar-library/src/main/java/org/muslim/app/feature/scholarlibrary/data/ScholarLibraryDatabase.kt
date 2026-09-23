@@ -42,7 +42,7 @@ abstract class ScholarLibraryDatabase : RoomDatabase() {
                 database.execSQL("ALTER TABLE scholar_books ADD COLUMN subtitle TEXT")
                 database.execSQL("ALTER TABLE scholar_books ADD COLUMN language TEXT NOT NULL DEFAULT 'ar'")
                 database.execSQL(
-                    "ALTER TABLE scholar_books ADD COLUMN difficulty TEXT NOT NULL DEFAULT 'Foundation'",
+                    "ALTER TABLE scholar_books ADD COLUMN difficulty TEXT NOT NULL DEFAULT 'Unspecified'",
                 )
                 database.execSQL("ALTER TABLE scholar_books ADD COLUMN publisher TEXT")
                 database.execSQL("ALTER TABLE scholar_books ADD COLUMN edition TEXT")
