@@ -54,20 +54,10 @@ internal fun TasbihSessionControls(
         )
         Spacer(Modifier.height(8.dp))
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .horizontalScroll(rememberScrollState()),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            TasbihSessionMode.entries.forEach { mode ->
-                FilterChip(
-                    selected = state.sessionMode == mode,
-                    onClick = { onModeSelected(mode) },
-                    label = { Text(sessionModeLabel(mode)) },
-                )
-            }
-        }
+        SessionModeSelector(
+            selected = state.sessionMode,
+            onSelected = onModeSelected,
+        )
 
         Spacer(Modifier.height(6.dp))
         Text(
@@ -78,64 +68,17 @@ internal fun TasbihSessionControls(
 
         if (state.sessionMode == TasbihSessionMode.Rounds) {
             Spacer(Modifier.height(12.dp))
-            Text(
-                text = stringResource(R.string.tasbih_session_rounds_goal),
-                style = MaterialTheme.typography.labelLarge,
-                fontWeight = FontWeight.SemiBold,
+            RoundsGoalSelector(
+                selected = state.roundsGoal,
+                onSelected = onRoundsGoalSelected,
             )
-            Spacer(Modifier.height(6.dp))
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .horizontalScroll(rememberScrollState()),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                ROUND_GOALS.forEach { rounds ->
-                    FilterChip(
-                        selected = state.roundsGoal == rounds,
-                        onClick = { onRoundsGoalSelected(rounds) },
-                        label = { Text(rounds.toString()) },
-                    )
-                }
-            }
         }
 
         Spacer(Modifier.height(14.dp))
-        Text(
-            text = stringResource(R.string.tasbih_session_presets),
-            style = MaterialTheme.typography.labelLarge,
-            fontWeight = FontWeight.SemiBold,
+        SessionPresetSelector(
+            state = state,
+            onPresetSelected = onPresetSelected,
         )
-        Spacer(Modifier.height(6.dp))
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .horizontalScroll(rememberScrollState()),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            FilterChip(
-                selected = state.sessionMode == TasbihSessionMode.Free,
-                onClick = { onPresetSelected(TasbihSessionMode.Free, state.target, state.roundsGoal) },
-                label = { Text(stringResource(R.string.tasbih_preset_free)) },
-            )
-            FilterChip(
-                selected = state.sessionMode == TasbihSessionMode.Target && state.target == 33,
-                onClick = { onPresetSelected(TasbihSessionMode.Target, 33, 1) },
-                label = { Text(stringResource(R.string.tasbih_preset_33)) },
-            )
-            FilterChip(
-                selected = state.sessionMode == TasbihSessionMode.Target && state.target == 100,
-                onClick = { onPresetSelected(TasbihSessionMode.Target, 100, 1) },
-                label = { Text(stringResource(R.string.tasbih_preset_100)) },
-            )
-            FilterChip(
-                selected = state.sessionMode == TasbihSessionMode.Rounds &&
-                    state.target == 33 &&
-                    state.roundsGoal == 3,
-                onClick = { onPresetSelected(TasbihSessionMode.Rounds, 33, 3) },
-                label = { Text(stringResource(R.string.tasbih_preset_33x3)) },
-            )
-        }
 
         Spacer(Modifier.height(14.dp))
         Text(
@@ -145,6 +88,96 @@ internal fun TasbihSessionControls(
         )
         Spacer(Modifier.height(6.dp))
         ActiveSessionSummary(activeSession)
+    }
+}
+
+@Composable
+private fun SessionModeSelector(
+    selected: TasbihSessionMode,
+    onSelected: (TasbihSessionMode) -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .horizontalScroll(rememberScrollState()),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        TasbihSessionMode.entries.forEach { mode ->
+            FilterChip(
+                selected = selected == mode,
+                onClick = { onSelected(mode) },
+                label = { Text(sessionModeLabel(mode)) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun RoundsGoalSelector(
+    selected: Int,
+    onSelected: (Int) -> Unit,
+) {
+    Text(
+        text = stringResource(R.string.tasbih_session_rounds_goal),
+        style = MaterialTheme.typography.labelLarge,
+        fontWeight = FontWeight.SemiBold,
+    )
+    Spacer(Modifier.height(6.dp))
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .horizontalScroll(rememberScrollState()),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        ROUND_GOALS.forEach { rounds ->
+            FilterChip(
+                selected = selected == rounds,
+                onClick = { onSelected(rounds) },
+                label = { Text(rounds.toString()) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun SessionPresetSelector(
+    state: TasbihState,
+    onPresetSelected: (TasbihSessionMode, Int, Int) -> Unit,
+) {
+    Text(
+        text = stringResource(R.string.tasbih_session_presets),
+        style = MaterialTheme.typography.labelLarge,
+        fontWeight = FontWeight.SemiBold,
+    )
+    Spacer(Modifier.height(6.dp))
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .horizontalScroll(rememberScrollState()),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        FilterChip(
+            selected = state.sessionMode == TasbihSessionMode.Free,
+            onClick = { onPresetSelected(TasbihSessionMode.Free, state.target, state.roundsGoal) },
+            label = { Text(stringResource(R.string.tasbih_preset_free)) },
+        )
+        FilterChip(
+            selected = state.sessionMode == TasbihSessionMode.Target && state.target == 33,
+            onClick = { onPresetSelected(TasbihSessionMode.Target, 33, 1) },
+            label = { Text(stringResource(R.string.tasbih_preset_33)) },
+        )
+        FilterChip(
+            selected = state.sessionMode == TasbihSessionMode.Target && state.target == 100,
+            onClick = { onPresetSelected(TasbihSessionMode.Target, 100, 1) },
+            label = { Text(stringResource(R.string.tasbih_preset_100)) },
+        )
+        FilterChip(
+            selected = state.sessionMode == TasbihSessionMode.Rounds &&
+                state.target == 33 &&
+                state.roundsGoal == 3,
+            onClick = { onPresetSelected(TasbihSessionMode.Rounds, 33, 3) },
+            label = { Text(stringResource(R.string.tasbih_preset_33x3)) },
+        )
     }
 }
 
