@@ -50,14 +50,26 @@ import org.muslim.app.core.ui.theme.AppTheme
 import org.muslim.app.core.ui.theme.IslamicDecorationPreview
 import org.muslim.app.core.ui.theme.previewColorsForPalette
 
-internal data class AppearanceSettingsActions(
-    val onThemeModeChanged: (AppThemeMode) -> Unit,
+internal data class AppearanceThemeActions(
+    val onModeChanged: (AppThemeMode) -> Unit,
     val onDynamicColorChanged: (Boolean) -> Unit,
     val onAmoledBlackChanged: (Boolean) -> Unit,
+)
+
+internal data class AppearanceShapeActions(
     val onPaletteChanged: (AppColorPalette) -> Unit,
     val onCornerStyleChanged: (CardCornerStyle) -> Unit,
-    val onOrnamentChanged: (AppOrnamentStyle) -> Unit,
-    val onOrnamentIntensityChanged: (OrnamentIntensity) -> Unit,
+)
+
+internal data class AppearanceOrnamentActions(
+    val onStyleChanged: (AppOrnamentStyle) -> Unit,
+    val onIntensityChanged: (OrnamentIntensity) -> Unit,
+)
+
+internal data class AppearanceSettingsActions(
+    val theme: AppearanceThemeActions,
+    val shape: AppearanceShapeActions,
+    val ornament: AppearanceOrnamentActions,
     val onReduceAnimationsChanged: (Boolean) -> Unit,
 )
 
@@ -101,7 +113,7 @@ internal fun AppearanceSettingsContent(
     )
     AppearanceThemeModeSelector(
         selected = preferences.themeMode,
-        onSelect = actions.onThemeModeChanged,
+        onSelect = actions.theme.onModeChanged,
     )
 
     ListItem(
@@ -111,7 +123,7 @@ internal fun AppearanceSettingsContent(
         trailingContent = {
             Switch(
                 checked = preferences.amoledBlack,
-                onCheckedChange = actions.onAmoledBlackChanged,
+                onCheckedChange = actions.theme.onAmoledBlackChanged,
             )
         },
     )
@@ -134,7 +146,7 @@ internal fun AppearanceSettingsContent(
             Switch(
                 checked = dynamicActive,
                 enabled = dynamicSupported,
-                onCheckedChange = actions.onDynamicColorChanged,
+                onCheckedChange = actions.theme.onDynamicColorChanged,
             )
         },
     )
@@ -155,7 +167,7 @@ internal fun AppearanceSettingsContent(
             selected = preferences.colorPalette,
             darkTheme = resolvedDark,
             amoledBlack = preferences.amoledBlack,
-            onSelect = actions.onPaletteChanged,
+            onSelect = actions.shape.onPaletteChanged,
         )
     }
 
@@ -166,7 +178,7 @@ internal fun AppearanceSettingsContent(
     )
     AppearanceCornerSelector(
         selected = preferences.cardCornerStyle,
-        onSelect = actions.onCornerStyleChanged,
+        onSelect = actions.shape.onCornerStyleChanged,
     )
 
     Text(
@@ -177,7 +189,7 @@ internal fun AppearanceSettingsContent(
     AppearanceOrnamentSelector(
         selected = preferences.ornamentStyle,
         intensity = preferences.ornamentIntensity,
-        onSelect = actions.onOrnamentChanged,
+        onSelect = actions.ornament.onStyleChanged,
     )
 
     Text(
@@ -187,7 +199,7 @@ internal fun AppearanceSettingsContent(
     )
     AppearanceOrnamentIntensitySelector(
         selected = preferences.ornamentIntensity,
-        onSelect = actions.onOrnamentIntensityChanged,
+        onSelect = actions.ornament.onIntensityChanged,
     )
 
     ListItem(
