@@ -103,7 +103,7 @@ The migration described above is now substantially implemented. The Android repo
 
 With the Places/Landmarks and Expanded Glossary phase, the versioned corpus reaches **15 books, 959 topics, 1,628 sections, and 1,836 bilingual Arabic/English paragraphs**.
 
-The expanded glossary intentionally stays concise and links each term back to a long-form reference domain instead of duplicating full articles. The places book explicitly distinguishes:
+The expanded glossary intentionally stays concise and links each term back to a long-form reference domain instead of duplicating full articles. The FAQ book follows the same principle: short answers resolve a misconception quickly, then route the reader to the sourced long-form topic. The places book explicitly distinguishes:
 - ritually sacred sites established by Quran/Sunnah;
 - Sira and early-history locations;
 - historical/civilizational landmarks whose importance does not create a special act of worship.
