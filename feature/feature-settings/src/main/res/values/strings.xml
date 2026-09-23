@@ -242,6 +242,7 @@
     <string name="update_downloading_progress">%1$d%% • %2$s / %3$s</string>
     <string name="update_downloading_bytes">تم تنزيل %1$s</string>
     <string name="update_download_paused">التنزيل متوقف مؤقتًا</string>
+    <string name="update_cancel_download">إلغاء التنزيل</string>
     <string name="update_verifying">جارٍ التحقق من ملف التحديث وتوقيعه…</string>
     <string name="update_ready_to_install">اكتمل التنزيل وتم التحقق من هوية الحزمة والتوقيع. أصبح التحديث جاهزًا للتثبيت.</string>
     <string name="update_integrity_metadata_available">يتضمن هذا الإصدار بيانات تحقق SHA-256 ورقم إصدار موثوقًا قبل التثبيت.</string>
