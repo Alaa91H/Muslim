@@ -60,4 +60,6 @@
     <string name="funeral_will_print">Print draft</string>
     <string name="funeral_will_print_job_name">Islamic will draft</string>
     <string name="funeral_will_print_error">The system print service could not be opened on this device.</string>
+    <string name="funeral_will_reference_index_title">Sources and review index</string>
+    <string name="funeral_will_reference_index_intro">General references for the guidance above. Do not use this index alone to decide a personal ruling or final legal instrument.</string>
 </resources>
