@@ -80,7 +80,7 @@ internal data class AppearanceSettingsActions(
  * real [AppTheme], so the settings screen and the rest of the app cannot drift
  * into different interpretations of a palette, card radius, or ornament.
  */
-@Suppress("LongMethod")
+@Suppress("LongMethod", "LongParameterList")
 @Composable
 internal fun AppearanceSettingsContent(
     preferences: AppPreferences,
