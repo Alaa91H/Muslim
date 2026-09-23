@@ -135,7 +135,8 @@ fun HomeScreen(
         val prayerRowHorizontalPadding = if (narrowLayout) IslamicSpacing.Small else IslamicSpacing.Compact
         val prayerRowInnerVerticalPadding = if (compactLayout) IslamicSpacing.XXSmall else IslamicSpacing.XSmall
         val prayerIconSize = if (narrowLayout) IslamicIconSize.Supporting else IslamicIconSize.Standard
-        IslamicDecorationBand(
+        IslamicOrnamentImage(
+            ornament = ornamentStyle.toIslamicOrnament(),
             tint = MaterialTheme.colorScheme.primary,
             compact = compactLayout,
             modifier = Modifier
@@ -230,7 +231,7 @@ fun HomeScreen(
             contentPadding = androidx.compose.foundation.layout.PaddingValues(cardPadding),
         ) {
             Box {
-                IslamicDecorationCorners(
+                PrayerCardEdgeOrnaments(
                     tint = MaterialTheme.colorScheme.tertiary,
                     compact = compactLayout,
                 )
@@ -328,7 +329,7 @@ fun HomeScreen(
             ),
         ) {
             Box {
-                IslamicDecorationCorners(
+                PrayerCardEdgeOrnaments(
                     tint = MaterialTheme.colorScheme.primary,
                     compact = compactLayout,
                 )
@@ -527,6 +528,35 @@ private fun PrayerAlertAction(
                 ),
             )
         }
+    }
+}
+
+@Composable
+private fun PrayerCardEdgeOrnaments(
+    tint: Color,
+    compact: Boolean = false,
+) {
+    val ornamentSize = if (compact) 56.dp else 72.dp
+    Box(modifier = Modifier.fillMaxSize()) {
+        IslamicOrnamentImage(
+            ornament = IslamicOrnament.Corner,
+            tint = tint,
+            alpha = IslamicOrnamentOpacity.LightActive,
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(4.dp)
+                .size(ornamentSize),
+        )
+        IslamicOrnamentImage(
+            ornament = IslamicOrnament.Corner,
+            tint = tint,
+            alpha = IslamicOrnamentOpacity.LightActive,
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(4.dp)
+                .size(ornamentSize)
+                .graphicsLayer(rotationZ = 180f),
+        )
     }
 }
 
