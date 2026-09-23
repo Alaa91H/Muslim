@@ -69,8 +69,17 @@ class WearPrayerSnapshotTest {
     }
 
     @Test
-    fun `recognizes only the versioned increment path`() {
+    fun `recognizes only versioned watch command paths`() {
         assertThat(WearSyncContract.isSupportedIncrementPath(WearSyncContract.TASBIH_INCREMENT_PATH)).isTrue()
+        assertThat(WearSyncContract.isSupportedSyncRequestPath(WearSyncContract.SYNC_REQUEST_PATH)).isTrue()
         assertThat(WearSyncContract.isSupportedIncrementPath("/muslim/wear/unknown")).isFalse()
+        assertThat(WearSyncContract.isSupportedSyncRequestPath("/muslim/wear/unknown")).isFalse()
+    }
+
+    @Test
+    fun `phone and watch advertise distinct capabilities`() {
+        assertThat(WearSyncContract.CAPABILITY_PHONE_APP).isNotEqualTo(WearSyncContract.CAPABILITY_WATCH_APP)
+        assertThat(WearSyncContract.CAPABILITY_PHONE_APP).contains("phone")
+        assertThat(WearSyncContract.CAPABILITY_WATCH_APP).contains("watch")
     }
 }
