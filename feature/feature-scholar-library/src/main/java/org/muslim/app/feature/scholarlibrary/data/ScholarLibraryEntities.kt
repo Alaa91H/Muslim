@@ -161,3 +161,30 @@ data class ScholarStudySessionEntity(
     val startedAtEpochMillis: Long,
     val completedAtEpochMillis: Long?,
 )
+
+
+data class ScholarReviewOutcomeEntity(
+    val rating: String,
+    val scheduledIntervalDays: Int,
+    val lapseCountAfterReview: Int,
+    val easeFactorAfterReview: Double,
+)
+
+@Entity(
+    tableName = "scholar_review_events",
+    indices = [
+        Index(value = ["flashcardId"]),
+        Index(value = ["bookId"]),
+        Index(value = ["category"]),
+        Index(value = ["reviewedAtEpochMillis"]),
+    ],
+)
+data class ScholarReviewEventEntity(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val flashcardId: Long,
+    val passageId: String,
+    val bookId: String,
+    val category: String,
+    val reviewedAtEpochMillis: Long,
+    @Embedded val outcome: ScholarReviewOutcomeEntity,
+)
