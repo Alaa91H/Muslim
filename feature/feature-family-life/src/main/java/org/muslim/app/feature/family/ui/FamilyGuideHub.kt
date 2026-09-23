@@ -560,7 +560,9 @@ internal fun FamilyArticleDetailContent(
         category == FamilyTopicCategory.Separation
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .testTag(FamilyUiTags.ARTICLE_READER),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 14.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
