@@ -13,6 +13,7 @@ object HistoryContentValidator {
         articles: List<HistoryArticle> = IslamicHistoryArticles.articles,
         states: List<HistoricalState> = IslamicHistoryStates.states,
         events: List<HistoricalEvent> = IslamicHistoricalEvents.events,
+        atlasLayers: List<HistoricalMapLayer> = IslamicHistoryContent.atlasLayers,
         personProfiles: List<HistoryPersonProfile> = IslamicHistoryProfiles.people,
         placeProfiles: List<HistoricalPlaceProfile> = IslamicHistoryProfiles.places,
         civilizationTopics: List<CivilizationTopic> = IslamicCivilizationContent.topics,
@@ -24,7 +25,7 @@ object HistoryContentValidator {
         val topicIds = civilizationTopics.map { it.id }.toSet()
         val personIds = IslamicHistoryContent.personalities.map { it.id }.toSet()
         val stateIds = states.map { it.id }.toSet()
-        val placeIds = IslamicHistoryContent.atlasLayers
+        val placeIds = atlasLayers
             .flatMap { it.places }
             .map { it.id }
             .toSet()
@@ -43,6 +44,7 @@ object HistoryContentValidator {
         duplicateIds("article", articles.map { it.id }, errors)
         duplicateIds("state", states.map { it.id }, errors)
         duplicateIds("event", events.map { it.id }, errors)
+        duplicateIds("atlas layer", atlasLayers.map { it.id }, errors)
         duplicateIds("person profile", personProfiles.map { it.personId }, errors)
         duplicateIds("place profile", placeProfiles.map { it.placeId }, errors)
         duplicateIds("civilization topic", civilizationTopics.map { it.id }, errors)
@@ -51,6 +53,7 @@ object HistoryContentValidator {
         validateEras(eras, errors)
         validateArticles(articles, eraIds, sourceIds, errors)
         validateStates(states, eraIds, sourceIds, errors)
+        validateAtlasLayers(atlasLayers, eraIds, errors)
         validateEvents(
             events,
             eraIds,
@@ -190,6 +193,30 @@ private fun validateStates(
         }
     }
     }
+
+private fun validateAtlasLayers(
+    layers: List<HistoricalMapLayer>,
+    eraIds: Set<String>,
+    errors: MutableList<String>,
+) {
+    val placeIds = mutableSetOf<String>()
+    layers.forEach { layer ->
+        if (layer.eraId !in eraIds) {
+            errors += "Atlas layer ${layer.id} references unknown era ${layer.eraId}"
+        }
+        if (layer.endCe != null && layer.endCe < layer.startCe) {
+            errors += "Atlas layer ${layer.id} ends before it starts"
+        }
+        if (layer.title.arabic.isBlank() || layer.title.english.isBlank()) {
+            errors += "Atlas layer ${layer.id} has an incomplete bilingual title"
+        }
+        layer.places.forEach { place ->
+            if (!placeIds.add(place.id)) {
+                errors += "Duplicate atlas place id: ${place.id}"
+            }
+        }
+    }
+}
 
 @Suppress("LongParameterList")
 private fun validateEvents(
