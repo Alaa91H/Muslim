@@ -24,6 +24,8 @@ data class ReleaseInfo(
     val apkSha256: String? = null,
     /** Minimum Android API declared by the published APK metadata, when available. */
     val minSdk: Int? = null,
+    /** True when GitHub marks this release as a prerelease. */
+    val isPrerelease: Boolean = false,
     /** True only when update-manifest.json matched this release/tag/APK asset. */
     val hasVerifiedMetadata: Boolean = false,
 )
