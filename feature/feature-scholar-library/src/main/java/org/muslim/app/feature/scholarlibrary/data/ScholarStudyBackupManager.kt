@@ -350,6 +350,14 @@ class ScholarStudyBackupManager @Inject constructor(
     }
 
     private fun requireDistinctIds(backup: StudyBackup) {
+        require(backup.core.notes.all { it.id > 0 }) { "معرّف ملاحظة غير صالح." }
+        require(backup.core.flashcards.all { it.id > 0 }) { "معرّف بطاقة مراجعة غير صالح." }
+        require(backup.core.highlights.all { it.id > 0 }) { "معرّف تظليل غير صالح." }
+        require(backup.progress.studyPlans.all { it.id > 0 }) { "معرّف خطة دراسة غير صالح." }
+        require(backup.progress.studySessions.all { it.id > 0 }) { "معرّف جلسة دراسة غير صالح." }
+        require(backup.progress.reviewEvents.all { it.id > 0 && it.reference.flashcardId > 0 }) {
+            "معرّف سجل مراجعة غير صالح."
+        }
         require(backup.core.notes.map { it.id }.isDistinct()) { "معرّفات الملاحظات مكررة." }
         require(backup.core.flashcards.map { it.id }.isDistinct()) { "معرّفات البطاقات مكررة." }
         require(backup.core.bookmarks.map { it.passageId }.isDistinct()) { "الإشارات المرجعية مكررة." }
