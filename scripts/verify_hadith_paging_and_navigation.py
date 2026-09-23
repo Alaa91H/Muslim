@@ -82,7 +82,7 @@ def main() -> None:
     require("hadiths.collection = :collection" in fts_dao, "FTS must be constrained to opened collection")
 
     domain = DOMAIN.read_text(encoding="utf-8")
-    require("val browsableCollections" in domain and "hadithCount" in domain and "coverRes" in domain, "catalogue metadata must stay compact")
+    require("val browsableCollections" in domain and "hadithCount" in domain, "catalogue metadata must stay compact")\n    require("coverRes" not in domain and "hadith_cover_" not in domain, "catalogue metadata must not depend on bitmap cover resources")
     for collection in EXPECTED_BOOKS:
         require(f'"{collection}"' in domain, f"catalogue is missing {collection}")
 
@@ -94,7 +94,7 @@ def main() -> None:
 
     screen = SCREEN.read_text(encoding="utf-8")
     require("HadithCatalogue" in screen and "HadithCollectionCard" in screen, "book catalogue UI is missing")
-    require("painterResource(collection.coverRes)" in screen, "collection cards must show the book cover")
+    require("HadithBookCover" in screen and "HadithCoverPalette" in screen and "Canvas(" in screen, "collection cards must use scalable heritage cover artwork")\n    require("painterResource(collection.coverRes)" not in screen, "bitmap Hadith cover loading must not return")
     require("collectAsLazyPagingItems" in screen, "Compose must consume LazyPagingItems")
     require("HadithChapterRow" in screen and "HadithBookProgress" in screen, "chapter index and bounded-load state are required")
 
