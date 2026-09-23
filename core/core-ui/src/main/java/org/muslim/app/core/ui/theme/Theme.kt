@@ -124,7 +124,11 @@ internal fun appPaletteColorScheme(
     darkTheme: Boolean,
 ): ColorScheme {
     val base = if (darkTheme) MuslimDarkColors else MuslimLightColors
-    if (palette == AppColorPalette.Classic) return base
+    if (palette == AppColorPalette.Classic) {
+        // Preserve the established Islamic palette while tightening text
+        // contrast on the dark primary role.
+        return base.copy(onPrimary = readableOn(base.primary))
+    }
 
     val t = paletteTokens(palette, darkTheme)
     return base.copy(
