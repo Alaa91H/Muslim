@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.scholarlibrary.R
+import org.muslim.app.feature.scholarlibrary.domain.ScholarAuthorSummary
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBookOutlineSection
 import org.muslim.app.feature.scholarlibrary.domain.ScholarDifficulty
@@ -208,6 +209,90 @@ private fun CurriculumBookCard(book: ScholarBook, onClick: () -> Unit) {
                 Text(book.title, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
                 Text(book.author, style = MaterialTheme.typography.bodySmall)
                 Text(book.category.label, style = MaterialTheme.typography.labelSmall)
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ScholarAuthorsScreen(
+    onBack: () -> Unit,
+    onOpenBook: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    viewModel: ScholarLibraryViewModel = hiltViewModel(),
+) {
+    val state by viewModel.state.collectAsStateWithLifecycle()
+    val booksById = state.books.associateBy { it.id }
+
+    Scaffold(
+        modifier = modifier.fillMaxSize(),
+        topBar = {
+            TopAppBar(
+                title = { Text(stringResource(R.string.scholar_library_authors)) },
+                navigationIcon = {
+                    IconButton(onClick = onBack) {
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.scholar_library_back),
+                        )
+                    }
+                },
+            )
+        },
+    ) { padding ->
+        if (state.loading) {
+            Column(
+                modifier = Modifier.fillMaxSize().padding(padding),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                CircularProgressIndicator()
+            }
+        } else {
+            LazyColumn(
+                modifier = Modifier.fillMaxSize().padding(padding),
+                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
+                verticalArrangement = Arrangement.spacedBy(10.dp),
+            ) {
+                items(state.authors, key = { it.name }) { author ->
+                    AuthorCard(
+                        author = author,
+                        booksById = booksById,
+                        onOpenBook = onOpenBook,
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun AuthorCard(
+    author: ScholarAuthorSummary,
+    booksById: Map<String, ScholarBook>,
+    onOpenBook: (String) -> Unit,
+) {
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text(author.name, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+            author.deathYearHijri?.let {
+                Text(
+                    stringResource(R.string.scholar_library_death_year, it),
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
+            Text(
+                stringResource(R.string.scholar_library_author_book_count, author.bookCount),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            author.bookIds.mapNotNull(booksById::get).forEach { book ->
+                Text(
+                    text = "• " + book.title,
+                    modifier = Modifier.fillMaxWidth().clickable { onOpenBook(book.id) }.padding(vertical = 3.dp),
+                    style = MaterialTheme.typography.bodyMedium,
+                )
             }
         }
     }
