@@ -13,7 +13,7 @@ This document defines the migration path for the in-app Islamic Reference Librar
 
 ## Runtime model
 
-The current reader still consumes `ReferenceBook`, `RefTopic`, `RefSection`, and `RefParagraph`. Architecture v2 extends these models without breaking the existing three bundled books.
+The reader consumes `ReferenceBook`, `RefTopic`, `RefSection`, and `RefParagraph` regardless of whether a book originated in legacy Kotlin or a versioned JSON content pack. The original three books now use versioned assets at runtime, and the same model supports newly added reference books.
 
 ### New metadata
 
@@ -28,15 +28,25 @@ Legacy articles default to `NeedsReview`. That default is deliberate: migrating 
 
 ## Repository boundary
 
-`ReferenceRepository` is now the UI-facing content contract. The initial implementation wraps the existing Kotlin content objects. Future work can replace that implementation with an asset- or Room-backed repository without changing the reader's public model.
+`ReferenceRepository` is the UI-facing content contract. Android now constructs the runtime catalogue from versioned `reference_*_v2.json` packs. The three legacy Kotlin books remain only as migration fallbacks while CI parity tests guarantee that their original content is preserved.
 
-Planned migration:
+Current catalogue:
 
-1. Introduce schema and repository boundary. **(this change)**
-2. Define versioned JSON/NDJSON asset schema and parser.
-3. Migrate one book at a time from Kotlin source into bundled content packs.
-4. Add a prebuilt Room/FTS index when the corpus is large enough to justify it.
-5. Remove the legacy Kotlin content objects only after parity tests pass.
+| Book | Asset | Status |
+| --- | --- | --- |
+| Introduction to Islam | `reference_islam_v2.json` | migrated + expanded |
+| Prophetic Biography | `reference_sira_v2.json` | migrated + expanded |
+| Stories of the Prophets | `reference_prophets_v2.json` | migrated + expanded |
+| Companions of the Prophet | `reference_companions_v2.json` | asset-native |
+| Mothers of the Believers | `reference_mothers_v2.json` | asset-native |
+| Ahl al-Bayt | `reference_ahl_al_bayt_v2.json` | asset-native |
+| Rashidun Caliphs | `reference_rashidun_v2.json` | asset-native |
+
+Remaining storage work:
+
+1. Keep extending the source-aware JSON corpus and editorial validation.
+2. Add a prebuilt Room/FTS index when corpus size or profiling shows that in-memory ranked search is no longer appropriate.
+3. Remove the three legacy Kotlin fallback objects only after the migration series is merged and release parity has been exercised.
 
 ## Citation rules
 
@@ -84,14 +94,16 @@ Arabic normalization currently:
 
 Ranking prioritizes exact/prefix title matches, then keyword, title containment, summary, section title, and paragraph text.
 
-## Next implementation milestone
+## Current reader capabilities
 
-The next PR should introduce the versioned asset schema and migrate **Introduction to Islam** first. The migration must include parity tests proving that:
+The library home now supports ranked search across every registered book. Book pages retain chapter grouping and book-local search, while article pages render structured citation lines, a full sources section, editorial review state, and navigable cross-book related topics.
 
-- every legacy topic remains reachable;
-- Arabic and English text is preserved;
-- IDs stay stable;
-- search results remain available;
-- citations/review metadata can be added without changing reader code.
+## Next implementation milestones
 
-After that migration is stable, the same path can be used for Sira and Prophets before expanding the corpus to the larger reference roadmap.
+The architecture is now ready for editorial depth rather than additional structural migration. The next milestones are:
+
+1. expand the new Companions/Ahl al-Bayt/Mothers/Rashidun books from introductory biographies into deeper sourced articles;
+2. add source-level review metadata (reviewer, source edition, review notes) without exposing private reviewer data in the shipped corpus;
+3. add bookmarks/recently-read state for long-form reference reading;
+4. add Room/FTS only after measuring the expanded corpus on low-memory Android devices;
+5. remove legacy Kotlin fallbacks after the stacked migration PRs are merged and release parity has been confirmed.
