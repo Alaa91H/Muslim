@@ -21,6 +21,11 @@ internal data class BilingualContentDto(
     val english: String,
 ) {
     fun toDomain(): HistoryText = HistoryText(arabic, english)
+
+    companion object {
+        fun fromDomain(value: HistoryText): BilingualContentDto =
+            BilingualContentDto(value.arabic, value.english)
+    }
 }
 
 @Serializable
@@ -35,6 +40,15 @@ internal data class HistorySectionDto(
             title = title.toDomain(),
             paragraphs = paragraphs.map(BilingualContentDto::toDomain),
         )
+
+    companion object {
+        fun fromDomain(value: HistoryArticleSection): HistorySectionDto =
+            HistorySectionDto(
+                id = value.id,
+                title = BilingualContentDto.fromDomain(value.title),
+                paragraphs = value.paragraphs.map(BilingualContentDto::fromDomain),
+            )
+    }
 }
 
 @Serializable
@@ -51,6 +65,16 @@ internal data class HistoricalDateDto(
             precision = enumValueOrDefault(precision, HistoryDatePrecision.Exact),
             note = note?.toDomain(),
         )
+
+    companion object {
+        fun fromDomain(value: HistoricalDate): HistoricalDateDto =
+            HistoricalDateDto(
+                startCe = value.startCe,
+                endCe = value.endCe,
+                precision = value.precision.name,
+                note = value.note?.let(BilingualContentDto::fromDomain),
+            )
+    }
 }
 
 @Serializable
@@ -75,6 +99,20 @@ internal data class HistoryArticleDto(
             relatedEraIds = relatedEraIds,
             tags = tags,
         )
+
+    companion object {
+        fun fromDomain(value: HistoryArticle): HistoryArticleDto =
+            HistoryArticleDto(
+                id = value.id,
+                eraId = value.eraId,
+                title = BilingualContentDto.fromDomain(value.title),
+                lead = BilingualContentDto.fromDomain(value.lead),
+                sections = value.sections.map(HistorySectionDto::fromDomain),
+                sourceIds = value.sourceIds,
+                relatedEraIds = value.relatedEraIds,
+                tags = value.tags,
+            )
+    }
 }
 
 @Serializable
@@ -99,6 +137,20 @@ internal data class HistoricalStateDto(
             eraIds = eraIds,
             sourceIds = sourceIds,
         )
+
+    companion object {
+        fun fromDomain(value: HistoricalState): HistoricalStateDto =
+            HistoricalStateDto(
+                id = value.id,
+                title = BilingualContentDto.fromDomain(value.title),
+                period = HistoricalDateDto.fromDomain(value.period),
+                summary = BilingualContentDto.fromDomain(value.summary),
+                region = value.region.name,
+                capitalPlaceIds = value.capitalPlaceIds,
+                eraIds = value.eraIds,
+                sourceIds = value.sourceIds,
+            )
+    }
 }
 
 @Serializable
@@ -136,6 +188,25 @@ internal data class HistoricalEventDto(
             relatedTopicIds = relatedTopicIds,
             sourceIds = sourceIds,
         )
+
+    companion object {
+        fun fromDomain(value: HistoricalEvent): HistoricalEventDto =
+            HistoricalEventDto(
+                id = value.id,
+                date = HistoricalDateDto.fromDomain(value.date),
+                category = value.category.name,
+                title = BilingualContentDto.fromDomain(value.title),
+                summary = BilingualContentDto.fromDomain(value.summary),
+                context = BilingualContentDto.fromDomain(value.context),
+                significance = BilingualContentDto.fromDomain(value.significance),
+                eraIds = value.eraIds,
+                stateIds = value.stateIds,
+                placeIds = value.placeIds,
+                personIds = value.personIds,
+                relatedTopicIds = value.relatedTopicIds,
+                sourceIds = value.sourceIds,
+            )
+    }
 }
 
 @Serializable
@@ -165,6 +236,21 @@ internal data class CivilizationTopicDto(
             sourceIds = sourceIds,
             relatedTopicIds = relatedTopicIds,
         )
+
+    companion object {
+        fun fromDomain(value: CivilizationTopic): CivilizationTopicDto =
+            CivilizationTopicDto(
+                id = value.id,
+                category = value.category.name,
+                title = BilingualContentDto.fromDomain(value.title),
+                summary = BilingualContentDto.fromDomain(value.summary),
+                sections = value.sections.map(HistorySectionDto::fromDomain),
+                personIds = value.personIds,
+                placeIds = value.placeIds,
+                sourceIds = value.sourceIds,
+                relatedTopicIds = value.relatedTopicIds,
+            )
+    }
 }
 
 @Serializable
@@ -191,6 +277,21 @@ internal data class HistoryPersonProfileDto(
             relatedTopicIds = relatedTopicIds,
             sourceIds = sourceIds,
         )
+
+    companion object {
+        fun fromDomain(value: HistoryPersonProfile): HistoryPersonProfileDto =
+            HistoryPersonProfileDto(
+                personId = value.personId,
+                overview = BilingualContentDto.fromDomain(value.overview),
+                sections = value.sections.map(HistorySectionDto::fromDomain),
+                eraIds = value.eraIds,
+                stateIds = value.stateIds,
+                placeIds = value.placeIds,
+                eventIds = value.eventIds,
+                relatedTopicIds = value.relatedTopicIds,
+                sourceIds = value.sourceIds,
+            )
+    }
 }
 
 @Serializable
@@ -217,6 +318,21 @@ internal data class HistoricalPlaceProfileDto(
             relatedPersonIds = relatedPersonIds,
             sourceIds = sourceIds,
         )
+
+    companion object {
+        fun fromDomain(value: HistoricalPlaceProfile): HistoricalPlaceProfileDto =
+            HistoricalPlaceProfileDto(
+                placeId = value.placeId,
+                overview = BilingualContentDto.fromDomain(value.overview),
+                sections = value.sections.map(HistorySectionDto::fromDomain),
+                eraIds = value.eraIds,
+                stateIds = value.stateIds,
+                eventIds = value.eventIds,
+                relatedTopicIds = value.relatedTopicIds,
+                relatedPersonIds = value.relatedPersonIds,
+                sourceIds = value.sourceIds,
+            )
+    }
 }
 
 @Serializable
