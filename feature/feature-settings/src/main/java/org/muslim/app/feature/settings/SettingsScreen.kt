@@ -223,6 +223,7 @@ fun SettingsScreen(
                         preferences = preferences,
                         onThemeModeChanged = viewModel::setThemeMode,
                         onDynamicColorChanged = viewModel::setDynamicColor,
+                        onAmoledBlackChanged = viewModel::setAmoledBlack,
                         onPaletteChanged = viewModel::setColorPalette,
                         onCornerStyleChanged = viewModel::setCardCornerStyle,
                         onOrnamentChanged = viewModel::setOrnamentStyle,
