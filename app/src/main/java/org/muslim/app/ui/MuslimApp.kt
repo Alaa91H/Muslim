@@ -447,7 +447,12 @@ fun MuslimApp(
                     LearnScreen(onBack = { navController.popBackStack() })
                 }
                 composable(FAMILY_LIFE_ROUTE) {
-                    FamilyLifeScreen(onBack = { navController.popBackStack() })
+                    FamilyLifeScreen(
+                        onBack = { navController.popBackStack() },
+                        onOpenQuran = { navController.navigate("quran") },
+                        onOpenHadith = { navController.navigate(HADITH_ROUTE) },
+                        onOpenAdhkar = { navController.navigate(ADHKAR_ROUTE) },
+                    )
                 }
                 composable(FUNERAL_WILL_ROUTE) {
                     FuneralWillScreen(onBack = { navController.popBackStack() })
