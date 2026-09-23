@@ -192,7 +192,7 @@ class ScholarLibraryViewModel @Inject constructor(
             }
         }
         viewModelScope.launch {
-            repository.observeReviewEvents().collect { events ->
+            repository.reviewEvents.collect { events ->
                 update {
                     it.copy(
                         reviewEvents = events,
