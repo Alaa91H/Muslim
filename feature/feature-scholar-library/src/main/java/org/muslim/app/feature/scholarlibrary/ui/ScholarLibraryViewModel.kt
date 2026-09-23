@@ -24,6 +24,10 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarLibraryIndex
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPathProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewRating
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewScheduler
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewSummary
+import org.muslim.app.feature.scholarlibrary.domain.ScholarCategoryMastery
 import org.muslim.app.feature.scholarlibrary.domain.ScholarSearchFilters
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPath
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPlan
@@ -58,6 +62,8 @@ internal data class ScholarLibraryUiState(
     val selectedBookHierarchy: ScholarBookHierarchy? = null,
     val notes: List<StudyNoteWithCitation> = emptyList(),
     val flashcards: List<FlashcardWithCitation> = emptyList(),
+    val reviewSummary: ScholarReviewSummary = ScholarReviewSummary(0, 0, 0, 0, 0),
+    val categoryMastery: List<ScholarCategoryMastery> = emptyList(),
     val bookmarks: List<StudyBookmarkWithCitation> = emptyList(),
     val highlights: List<StudyHighlightWithCitation> = emptyList(),
     val readingProgress: List<ScholarReadingProgress> = emptyList(),
@@ -101,7 +107,16 @@ class ScholarLibraryViewModel @Inject constructor(
             repository.observeNotes().collect { notes -> update { it.copy(notes = notes) } }
         }
         viewModelScope.launch {
-            repository.observeFlashcards().collect { cards -> update { it.copy(flashcards = cards) } }
+            repository.observeFlashcards().collect { cards ->
+                val now = System.currentTimeMillis()
+                update {
+                    it.copy(
+                        flashcards = cards,
+                        reviewSummary = ScholarReviewScheduler.reviewSummary(cards.map { item -> item.card }, now),
+                        categoryMastery = ScholarReviewScheduler.categoryMastery(cards, now),
+                    )
+                }
+            }
         }
         viewModelScope.launch {
             repository.observeBookmarks().collect { bookmarks -> update { it.copy(bookmarks = bookmarks) } }
@@ -263,15 +278,34 @@ class ScholarLibraryViewModel @Inject constructor(
         }
     }
 
-    fun reviewFlashcard(id: Long, remembered: Boolean) {
+    fun reviewFlashcard(id: Long, rating: ScholarReviewRating) {
         viewModelScope.launch {
-            repository.reviewFlashcard(id, remembered)
+            val updated = repository.reviewFlashcard(id, rating)
             update {
                 it.copy(
-                    statusMessage = if (remembered) "حُدد موعد المراجعة التالية." else "أُعيدت البطاقة للمراجعة الآن.",
+                    statusMessage = if (updated) {
+                        when (rating) {
+                            ScholarReviewRating.Again -> "ستعود البطاقة قريباً لتثبيت الاستدعاء."
+                            ScholarReviewRating.Hard -> "تم حفظ تقييم صعب وتقصير الفاصل التالي."
+                            ScholarReviewRating.Good -> "تم حفظ تقييم جيد وتحديد المراجعة التالية."
+                            ScholarReviewRating.Easy -> "تم حفظ تقييم سهل وتوسيع الفاصل التالي."
+                        }
+                    } else {
+                        "تعذر تحديث البطاقة."
+                    },
                 )
             }
         }
+    }
+
+    fun createReviewCardFromPassage(passage: ScholarPassage) {
+        val front = buildString {
+            append("مراجعة: ")
+            append(passage.chapter)
+            passage.section?.takeIf { it.isNotBlank() }?.let { append(" — ").append(it) }
+        }.take(1_000)
+        val back = passage.text.take(1_000)
+        addFlashcard(passage.id, front, back)
     }
 
     fun deleteFlashcard(id: Long) {
