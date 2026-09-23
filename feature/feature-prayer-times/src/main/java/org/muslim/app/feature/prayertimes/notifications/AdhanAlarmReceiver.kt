@@ -230,6 +230,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                 setReferenceCounted(false)
                 acquire(DIRECT_FALLBACK_WAKELOCK_TIMEOUT_MS)
             }
+        val fallbackSession = AdhanDirectFallbackSession.begin(fallbackWakeLock)
         val started = AtomicBoolean(false)
         val onStarted = {
             started.set(true)
@@ -243,8 +244,7 @@ class AdhanAlarmReceiver : BroadcastReceiver() {
                     "Direct AudioTrack fallback could not start output",
                 )
             }
-            if (fallbackWakeLock.isHeld) fallbackWakeLock.release()
-            AdhanNotifications.cancelActiveAdhan(appContext)
+            AdhanDirectFallbackSession.finish(appContext, fallbackSession)
         }
         // Use an offline AudioTrack here rather than retrying the same
         // MediaPlayer source whose service path never became reachable. This is
