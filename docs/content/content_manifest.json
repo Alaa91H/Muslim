@@ -579,6 +579,20 @@
       "required_actions": []
     },
     {
+      "id": "feature_feature-reference_src_main_res_raw_reference_history_civilization_v2_json",
+      "kind": "reference_corpus",
+      "path": "feature/feature-reference/src/main/res/raw/reference_history_civilization_v2.json",
+      "size_bytes": 267079,
+      "sha256": "070377c30378babd6399ea58d31ca65c59506fd9a2c1489516076e42913f56e4",
+      "production_status": "approved",
+      "source": "Project-authored Islamic History and Civilization corpus using structured references to the Metropolitan Museum of Art chronology/resources, UNESCO Silk Roads materials, selected classical historical works, and academic references. Political chronology is kept separate from civilizational analysis, and contested or schematic material is explicitly qualified.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Islamic History and Civilization reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending specialist review of chronology, historical reports, political terminology, sectarian-sensitive material, regional coverage, and scientific-history wording.",
+      "notes": "First versioned edition: 91 topics, 182 sections, and 182 bilingual paragraphs covering methodology, dynasties and regions, Africa/Asia/Indian Ocean networks, sciences, institutions, trade, cities, arts, languages, and historiography.",
+      "required_actions": []
+    },
+    {
       "id": "feature_feature-reference_src_main_res_raw_reference_islam_v2_json",
       "kind": "reference_corpus",
       "path": "feature/feature-reference/src/main/res/raw/reference_islam_v2.json",
@@ -664,8 +678,8 @@
     }
   ],
   "summary": {
-    "asset_count": 45,
-    "approved_for_production": 45,
+    "asset_count": 46,
+    "approved_for_production": 46,
     "blocked_pending_review": 0
   }
 }
