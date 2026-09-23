@@ -19,7 +19,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -32,6 +31,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import org.muslim.app.core.ui.theme.IslamicDecorationBand
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.HajjLocationGuide
 import org.muslim.app.feature.learn.domain.SacredSite
@@ -49,8 +50,8 @@ fun SacredSitesMapScreen(
     var selected by remember { mutableStateOf<SacredSite?>(null) }
     val sites = HajjLocationGuide.locations
 
-    Scaffold(
-        modifier = modifier,
+    MuslimAppScaffold(
+        modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.hajj_map_title)) },
@@ -67,6 +68,12 @@ fun SacredSitesMapScreen(
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
+            item(key = "sacred-sites-decoration") {
+                IslamicDecorationBand(
+                    tint = MaterialTheme.colorScheme.tertiary,
+                    compact = true,
+                )
+            }
             item {
                 Text(
                     text = stringResource(R.string.hajj_map_list_intro),
