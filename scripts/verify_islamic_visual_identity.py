@@ -43,6 +43,13 @@ REQUIRED_SNIPPETS = {
         "IslamicOrnamentOpacity",
         "@DrawableRes",
     ],
+    "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/IslamicDecorationTheme.kt": [
+        "fun IslamicDecorationLayer",
+        "fun IslamicDecorationBand",
+        "fun IslamicDecorationDivider",
+        "fun IslamicDecorationCorners",
+        "OrnamentIntensity.Off",
+    ],
     "core/core-ui/src/main/java/org/muslim/app/core/ui/theme/IslamicComponents.kt": [
         "fun IslamicCard",
         "fun IslamicPrimaryButton",
@@ -63,7 +70,9 @@ REQUIRED_SNIPPETS = {
         "IslamicRadius.Card",
     ],
     "feature/feature-prayer-times/src/main/java/org/muslim/app/feature/prayertimes/ui/home/HomeScreen.kt": [
-        "IslamicOrnament.Geometric12",
+        "IslamicDecorationBand",
+        "IslamicDecorationCorners",
+        "IslamicDecorationDivider",
     ],
     "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/ui/SurahListScreen.kt": [
         "IslamicOrnament.SurahHeader",
