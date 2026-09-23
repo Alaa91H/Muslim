@@ -48,6 +48,8 @@ class WearPrayerSnapshotTest {
 
         assertThat(snapshot.ornamentStyle).isEqualTo(AppOrnamentStyle.Geometry)
         assertThat(snapshot.ornamentIntensity).isEqualTo(OrnamentIntensity.Balanced)
+        assertThat(snapshot.nextPrayerId).isNull()
+        assertThat(snapshot.languageTag).isNull()
     }
 
     @Test
@@ -65,6 +67,24 @@ class WearPrayerSnapshotTest {
 
         assertThat(snapshot.ornamentStyle).isEqualTo(AppOrnamentStyle.Ottoman)
         assertThat(snapshot.ornamentIntensity).isEqualTo(OrnamentIntensity.Rich)
+        assertThat(snapshot.isValid()).isTrue()
+    }
+
+    @Test
+    fun `snapshot carries phone language and stable prayer id`() {
+        val snapshot = WearPrayerSnapshot(
+            nextPrayerName = "Fajr",
+            nextPrayerId = "fajr",
+            nextPrayerAtEpochMillis = 1_700_000_000_000L,
+            tasbihPhrase = "Subhan Allah",
+            tasbihCount = 1,
+            tasbihTarget = 33,
+            syncedAtEpochMillis = 1_699_999_000_000L,
+            languageTag = "de",
+        )
+
+        assertThat(snapshot.nextPrayerId).isEqualTo("fajr")
+        assertThat(snapshot.languageTag).isEqualTo("de")
         assertThat(snapshot.isValid()).isTrue()
     }
 
