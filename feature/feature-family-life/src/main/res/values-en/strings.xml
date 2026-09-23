@@ -41,4 +41,7 @@
     <string name="family_marriage_intro">Plain-language fiqh and parenting articles covering engagement, nikah, marital rights, conflict, and raising children. This is general education, not a case-specific fatwa.</string>
     <string name="aqiqah_notification_title">Aqiqah reminder</string>
     <string name="aqiqah_notification_body">The suggested seventh day for aqiqah has arrived. May Allah accept it from you.</string>
+    <string name="family_articles_search">Search marriage, family and daily life</string>
+    <string name="family_articles_count">Topics: %1$d</string>
+    <string name="family_articles_empty">No topics match your search</string>
 </resources>
