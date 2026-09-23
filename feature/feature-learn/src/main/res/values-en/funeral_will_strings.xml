@@ -36,7 +36,7 @@
     <string name="funeral_will_search_results">%1$d matching topics</string>
     <string name="funeral_will_search_empty">No topics match this search. Try a different word or clear the search.</string>
     <string name="funeral_will_quick_topics">Quick topic navigation</string>
-    <string name="funeral_will_encrypted_notice">Protection: the saved draft is encrypted on this device with an app-specific key stored in Android Keystore.</string>
+    <string name="funeral_will_encrypted_notice">Protection: when you save the draft, it is encrypted on this device with an app-specific key stored in Android Keystore.</string>
     <string name="funeral_will_encryption_error">This encrypted draft could not be opened on this device. Do not overwrite it until you verify the original copy or restore the device data.</string>
     <string name="funeral_will_export_pdf">Export PDF copy</string>
     <string name="funeral_will_export_pdf_title">Save a PDF copy of the draft</string>
