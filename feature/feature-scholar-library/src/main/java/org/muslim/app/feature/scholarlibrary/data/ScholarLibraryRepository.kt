@@ -336,9 +336,10 @@ class ScholarLibraryRepository @Inject constructor(
                 passageId = passageId,
                 front = front.trim(),
                 back = back.trim(),
-                reviewCount = 0,
-                dueAtEpochMillis = now,
                 createdAtEpochMillis = now,
+                reviewState = ScholarFlashcardReviewStateEntity(
+                    dueAtEpochMillis = now,
+                ),
             ),
         )
         return true
@@ -351,15 +352,18 @@ class ScholarLibraryRepository @Inject constructor(
             rating = rating,
             reviewedAtEpochMillis = System.currentTimeMillis(),
         )
-        libraryDao.updateFlashcardReview(
-            id = id,
-            reviewCount = schedule.reviewCount,
-            dueAt = schedule.dueAtEpochMillis,
-            intervalDays = schedule.intervalDays,
-            easeFactor = schedule.easeFactor,
-            lapseCount = schedule.lapseCount,
-            lastReviewedAt = schedule.lastReviewedAtEpochMillis,
-            lastRating = schedule.lastRating.name,
+        libraryDao.updateFlashcard(
+            entity.copy(
+                reviewState = ScholarFlashcardReviewStateEntity(
+                    reviewCount = schedule.reviewCount,
+                    dueAtEpochMillis = schedule.dueAtEpochMillis,
+                    intervalDays = schedule.intervalDays,
+                    easeFactor = schedule.easeFactor,
+                    lapseCount = schedule.lapseCount,
+                    lastReviewedAtEpochMillis = schedule.lastReviewedAtEpochMillis,
+                    lastRating = schedule.lastRating.name,
+                ),
+            ),
         )
         return true
     }
