@@ -27,6 +27,12 @@ The existing `core-design-system` tokens remain the canonical source for palette
 | `MuslimSectionHeader` | Hierarchy for grouped information without excess card nesting. | Home, More, and feature sections. |
 | `LocalMuslimMotionPreferences` | Makes motion durations immediate when the persisted reduced-animation preference is enabled. | Available to all Compose modules through the theme. |
 
+## Islamic decoration engine
+
+The app-wide ornament system is driven by persisted appearance preferences rather than screen-local artwork. `AppOrnamentStyle` selects the motif family and `OrnamentIntensity` controls prominence independently, while `LocalIslamicDecoration` exposes the choice to Compose surfaces. `MuslimAppScaffold` renders a small, bounded number of vector motifs behind content, so the identity remains consistent without adding bitmap memory pressure or repeated per-row drawing.
+
+The available families are Geometry, Arabesque, Stars, Andalusian, Mashrabiya, Ottoman, Mushaf, Royal, and Minimal. Intensity can be Off, Subtle, Balanced, or Rich. Sacred text is never used as decorative material. The settings chooser uses the same renderer as the live app, so its preview reflects the actual selected style.
+
 ## Color and surface language
 
 The palette is semantic rather than decorative. Botanical primary tones establish identity; warm parchment-like light surfaces and layered charcoal dark surfaces establish reading comfort. The tertiary role is reserved for meaningful emphasis, such as the next prayer. Information, warning, error, and success states use semantic roles through Material surfaces rather than locally invented colors.
