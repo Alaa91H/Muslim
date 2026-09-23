@@ -20,6 +20,7 @@ object WearSyncContract {
     const val TASBIH_INCREMENT_PATH = "/muslim/wear/tasbih/increment/v1"
 
     const val KEY_NEXT_PRAYER = "next_prayer"
+    const val KEY_NEXT_PRAYER_ID = "next_prayer_id"
     const val KEY_NEXT_PRAYER_AT = "next_prayer_at"
     const val KEY_TASBIH_PHRASE = "tasbih_phrase"
     const val KEY_TASBIH_COUNT = "tasbih_count"
@@ -27,6 +28,7 @@ object WearSyncContract {
     const val KEY_SYNCED_AT = "synced_at"
     const val KEY_ORNAMENT_STYLE = "ornament_style"
     const val KEY_ORNAMENT_INTENSITY = "ornament_intensity"
+    const val KEY_LANGUAGE_TAG = "language_tag"
 
     fun isSupportedIncrementPath(path: String): Boolean = path == TASBIH_INCREMENT_PATH
 
@@ -36,6 +38,8 @@ object WearSyncContract {
 /** A privacy-minimal snapshot rendered on the watch. */
 data class WearPrayerSnapshot(
     val nextPrayerName: String?,
+    /** Stable non-localized id used by the watch to render the prayer in its synced locale. */
+    val nextPrayerId: String? = null,
     val nextPrayerAtEpochMillis: Long?,
     val tasbihPhrase: String,
     val tasbihCount: Int,
@@ -43,6 +47,8 @@ data class WearPrayerSnapshot(
     val syncedAtEpochMillis: Long,
     val ornamentStyle: AppOrnamentStyle = AppOrnamentStyle.Geometry,
     val ornamentIntensity: OrnamentIntensity = OrnamentIntensity.Balanced,
+    /** Effective BCP-47 UI language resolved from the phone app setting. */
+    val languageTag: String? = null,
 ) {
     fun isValid(): Boolean =
         tasbihPhrase.isNotBlank() &&
