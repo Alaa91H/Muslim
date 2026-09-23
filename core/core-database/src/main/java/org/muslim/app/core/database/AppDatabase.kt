@@ -10,11 +10,13 @@ import org.muslim.app.core.database.dao.AyahDao
 import org.muslim.app.core.database.dao.BookmarkDao
 import org.muslim.app.core.database.dao.SurahDao
 import org.muslim.app.core.database.dao.TafsirDao
+import org.muslim.app.core.database.dao.TasbihSessionDao
 import org.muslim.app.core.database.dao.TranslationDao
 import org.muslim.app.core.database.entity.AyahEntity
 import org.muslim.app.core.database.entity.BookmarkEntity
 import org.muslim.app.core.database.entity.SurahEntity
 import org.muslim.app.core.database.entity.TafsirEntity
+import org.muslim.app.core.database.entity.TasbihSessionEntity
 import org.muslim.app.core.database.entity.TranslationEntity
 
 /**
@@ -29,8 +31,9 @@ import org.muslim.app.core.database.entity.TranslationEntity
         BookmarkEntity::class,
         TranslationEntity::class,
         TafsirEntity::class,
+        TasbihSessionEntity::class,
     ],
-    version = 4,
+    version = 5,
     exportSchema = true,
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -40,6 +43,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun bookmarkDao(): BookmarkDao
     abstract fun translationDao(): TranslationDao
     abstract fun tafsirDao(): TafsirDao
+    abstract fun tasbihSessionDao(): TasbihSessionDao
 
     companion object {
         private const val DB_NAME = "muslim.db"
@@ -124,13 +128,50 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        /**
+         * v4 → v5: durable Tasbih session history.
+         *
+         * DataStore remains responsible for lightweight current counter and UI
+         * preferences; Room stores queryable session history for statistics,
+         * recovery and future phone/Wear synchronization.
+         */
+        val MIGRATION_4_5 = object : Migration(4, 5) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `tasbih_sessions` (
+                        `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                        `phraseId` TEXT NOT NULL,
+                        `mode` TEXT NOT NULL,
+                        `target` INTEGER NOT NULL,
+                        `roundsGoal` INTEGER NOT NULL,
+                        `count` INTEGER NOT NULL,
+                        `startedAtEpochMillis` INTEGER NOT NULL,
+                        `lastUpdatedAtEpochMillis` INTEGER NOT NULL,
+                        `endedAtEpochMillis` INTEGER,
+                        `endReason` TEXT
+                    )
+                    """.trimIndent()
+                )
+                db.execSQL(
+                    "CREATE INDEX IF NOT EXISTS `index_tasbih_sessions_phraseId` ON `tasbih_sessions` (`phraseId`)"
+                )
+                db.execSQL(
+                    "CREATE INDEX IF NOT EXISTS `index_tasbih_sessions_startedAtEpochMillis` ON `tasbih_sessions` (`startedAtEpochMillis`)"
+                )
+                db.execSQL(
+                    "CREATE INDEX IF NOT EXISTS `index_tasbih_sessions_endedAtEpochMillis` ON `tasbih_sessions` (`endedAtEpochMillis`)"
+                )
+            }
+        }
+
         @Volatile
         private var instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase =
             instance ?: synchronized(this) {
                 instance ?: Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, DB_NAME)
-                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
+                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5)
                     .build()
                     .also { instance = it }
             }
