@@ -1,7 +1,10 @@
 package org.muslim.app.ui
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Explore
@@ -26,6 +29,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -218,32 +222,56 @@ fun MuslimApp(
                         color = MaterialTheme.colorScheme.surfaceContainer,
                         tonalElevation = 1.dp,
                     ) {
-                        NavigationBar(
-                            containerColor = Color.Transparent,
-                            tonalElevation = 0.dp,
-                        ) {
-                            visibleTabs.forEach { tab ->
-                                NavigationBarItem(
-                                    selected = currentDestination?.hierarchy?.any { it.route == tab.route } == true,
-                                    onClick = {
-                                        navController.navigate(tab.route) {
-                                            popUpTo(navController.graph.findStartDestination().id) {
-                                                saveState = true
+                        BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
+                            val slotWidth = maxWidth / visibleTabs.size.toFloat()
+                            val compactTabs = slotWidth < 92.dp
+                            val iconSize = if (compactTabs) 21.dp else 24.dp
+                            val labelStyle = if (compactTabs) {
+                                MaterialTheme.typography.labelSmall
+                            } else {
+                                MaterialTheme.typography.labelMedium
+                            }
+
+                            NavigationBar(
+                                containerColor = Color.Transparent,
+                                tonalElevation = 0.dp,
+                            ) {
+                                visibleTabs.forEach { tab ->
+                                    NavigationBarItem(
+                                        selected = currentDestination?.hierarchy?.any { it.route == tab.route } == true,
+                                        onClick = {
+                                            navController.navigate(tab.route) {
+                                                popUpTo(navController.graph.findStartDestination().id) {
+                                                    saveState = true
+                                                }
+                                                launchSingleTop = true
+                                                restoreState = true
                                             }
-                                            launchSingleTop = true
-                                            restoreState = true
-                                        }
-                                    },
-                                    icon = { Icon(tab.icon, contentDescription = null) },
-                                    label = { Text(stringResource(tab.labelRes)) },
-                                    colors = NavigationBarItemDefaults.colors(
-                                        selectedIconColor = MaterialTheme.colorScheme.onSecondaryContainer,
-                                        selectedTextColor = MaterialTheme.colorScheme.onSurface,
-                                        indicatorColor = MaterialTheme.colorScheme.secondaryContainer,
-                                        unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                                        unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    ),
-                                )
+                                        },
+                                        icon = {
+                                            Icon(
+                                                imageVector = tab.icon,
+                                                contentDescription = null,
+                                                modifier = Modifier.size(iconSize),
+                                            )
+                                        },
+                                        label = {
+                                            Text(
+                                                text = stringResource(tab.labelRes),
+                                                maxLines = 1,
+                                                overflow = TextOverflow.Ellipsis,
+                                                style = labelStyle,
+                                            )
+                                        },
+                                        colors = NavigationBarItemDefaults.colors(
+                                            selectedIconColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                                            selectedTextColor = MaterialTheme.colorScheme.onSurface,
+                                            indicatorColor = MaterialTheme.colorScheme.secondaryContainer,
+                                            unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                                            unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        ),
+                                    )
+                                }
                             }
                         }
                     }
