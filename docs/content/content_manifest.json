@@ -537,6 +537,20 @@
       "required_actions": []
     },
     {
+      "id": "feature_feature-reference_src_main_res_raw_reference_fiqh_worship_v2_json",
+      "kind": "reference_corpus",
+      "path": "feature/feature-reference/src/main/res/raw/reference_fiqh_worship_v2.json",
+      "size_bytes": 158400,
+      "sha256": "1f7076d3fab80b8015d6ba5a939b1847ec837c30dca18acbdce742725c3645c2",
+      "production_status": "approved",
+      "source": "Project-authored Fiqh of Worship corpus using structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, and recognized comparative/classical fiqh works including Bidayat al-Mujtahid, al-Majmu', al-Mughni, and usul/ifta literature. Disputed juristic questions are explicitly marked rather than flattened into a single ruling.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Fiqh of Worship reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of legal formulations, school-specific differences, hadith citations, and practical edge cases.",
+      "notes": "First versioned edition: 57 topics, 114 sections, and 114 bilingual paragraphs covering fiqh methodology, purification, prayer, zakat, fasting, and Hajj.",
+      "required_actions": []
+    },
+    {
       "id": "feature_feature-reference_src_main_res_raw_reference_hadith_sciences_v2_json",
       "kind": "reference_corpus",
       "path": "feature/feature-reference/src/main/res/raw/reference_hadith_sciences_v2.json",
@@ -636,8 +650,8 @@
     }
   ],
   "summary": {
-    "asset_count": 43,
-    "approved_for_production": 43,
+    "asset_count": 44,
+    "approved_for_production": 44,
     "blocked_pending_review": 0
   }
 }
