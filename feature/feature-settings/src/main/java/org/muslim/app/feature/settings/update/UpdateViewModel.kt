@@ -145,8 +145,7 @@ class UpdateViewModel @Inject constructor(
 
         when (updateDownloads.currentState()) {
             UpdateDownloadState.Idle,
-            is UpdateDownloadState.Failed,
-            -> {
+            is UpdateDownloadState.Failed -> {
                 _downloadState.value = UpdateDownloadState.Enqueuing
                 _downloadState.value = updateDownloads.enqueue(
                     release = release,
@@ -173,8 +172,7 @@ class UpdateViewModel @Inject constructor(
                     is UpdateDownloadState.Downloading,
                     is UpdateDownloadState.Paused,
                     UpdateDownloadState.Enqueuing,
-                    UpdateDownloadState.Verifying,
-                    -> 750L
+                    UpdateDownloadState.Verifying -> 750L
                     else -> 3_000L
                 }
                 delay(delayMillis)
