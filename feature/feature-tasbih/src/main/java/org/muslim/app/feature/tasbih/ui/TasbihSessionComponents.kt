@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.FilterChip
@@ -274,14 +273,11 @@ private fun SessionHistoryRow(session: TasbihSessionHistoryItem) {
                     overflow = TextOverflow.Ellipsis,
                 )
                 Spacer(Modifier.height(2.dp))
+                val modeLabel = sessionModeLabel(session.mode)
+                val startedAt = formatSessionTime(session.startedAtEpochMillis)
+                val duration = formatSessionDuration(session.durationMillis)
                 Text(
-                    text = buildString {
-                        append(sessionModeLabel(session.mode))
-                        append(" • ")
-                        append(formatSessionTime(session.startedAtEpochMillis))
-                        append(" • ")
-                        append(formatSessionDuration(session.durationMillis))
-                    },
+                    text = "$modeLabel • $startedAt • $duration",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
