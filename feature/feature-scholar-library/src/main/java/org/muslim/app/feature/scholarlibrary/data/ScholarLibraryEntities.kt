@@ -1,6 +1,7 @@
 package org.muslim.app.feature.scholarlibrary.data
 
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.Fts4
 import androidx.room.FtsOptions
@@ -44,6 +45,8 @@ data class ScholarPassageEntity(
     val volume: String?,
     val page: String?,
     val text: String,
+    val section: String? = null,
+    @ColumnInfo(defaultValue = "0") val orderIndex: Int = 0,
 )
 
 /** Normalized Arabic content index for private, offline full-text study search. */
@@ -65,6 +68,16 @@ data class ScholarNoteEntity(
     val createdAtEpochMillis: Long,
 )
 
+data class ScholarFlashcardReviewStateEntity(
+    val reviewCount: Int = 0,
+    val dueAtEpochMillis: Long = 0L,
+    @ColumnInfo(defaultValue = "0") val intervalDays: Int = 0,
+    @ColumnInfo(defaultValue = "2.5") val easeFactor: Double = 2.5,
+    @ColumnInfo(defaultValue = "0") val lapseCount: Int = 0,
+    val lastReviewedAtEpochMillis: Long? = null,
+    val lastRating: String? = null,
+)
+
 @Entity(
     tableName = "scholar_flashcards",
     indices = [Index(value = ["passageId"]), Index(value = ["dueAtEpochMillis"])],
@@ -74,9 +87,8 @@ data class ScholarFlashcardEntity(
     val passageId: String,
     val front: String,
     val back: String,
-    val reviewCount: Int,
-    val dueAtEpochMillis: Long,
     val createdAtEpochMillis: Long,
+    @Embedded val reviewState: ScholarFlashcardReviewStateEntity = ScholarFlashcardReviewStateEntity(),
 )
 
 @Entity(
@@ -111,4 +123,123 @@ data class ScholarReadingProgressEntity(
     val status: String,
     val progressPercent: Int,
     val updatedAtEpochMillis: Long,
+)
+
+@Entity(
+    tableName = "scholar_study_plans",
+    indices = [Index(value = ["pathId"]), Index(value = ["active"])],
+)
+data class ScholarStudyPlanEntity(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val pathId: String,
+    val sessionsPerWeek: Int,
+    val minutesPerSession: Int,
+    val targetPassagesPerSession: Int,
+    val active: Boolean,
+    val createdAtEpochMillis: Long,
+    val updatedAtEpochMillis: Long,
+)
+
+
+@Entity(
+    tableName = "scholar_study_sessions",
+    indices = [
+        Index(value = ["pathId"]),
+        Index(value = ["status"]),
+        Index(value = ["completedAtEpochMillis"]),
+    ],
+)
+data class ScholarStudySessionEntity(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val pathId: String,
+    val planId: Long?,
+    val bookId: String,
+    val targetPassageIds: String,
+    val completedPassageIds: String,
+    val plannedMinutes: Int,
+    val status: String,
+    val startedAtEpochMillis: Long,
+    val completedAtEpochMillis: Long?,
+)
+
+
+data class ScholarReviewOutcomeEntity(
+    val rating: String,
+    val scheduledIntervalDays: Int,
+    val lapseCountAfterReview: Int,
+    val easeFactorAfterReview: Double,
+)
+
+@Entity(
+    tableName = "scholar_review_events",
+    indices = [
+        Index(value = ["flashcardId"]),
+        Index(value = ["bookId"]),
+        Index(value = ["category"]),
+        Index(value = ["reviewedAtEpochMillis"]),
+    ],
+)
+data class ScholarReviewEventEntity(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val flashcardId: Long,
+    val passageId: String,
+    val bookId: String,
+    val category: String,
+    val reviewedAtEpochMillis: Long,
+    @Embedded val outcome: ScholarReviewOutcomeEntity,
+)
+
+
+data class ScholarContentPackIdentityEntity(
+    val packName: String,
+    val packVersion: Int,
+    val schemaVersion: Int,
+)
+
+data class ScholarContentPackSourceEntity(
+    val licenseNotice: String,
+    val sourceName: String,
+    val sourceUrl: String?,
+    val originName: String?,
+)
+
+data class ScholarContentPackInstallationEntity(
+    val bookIds: String,
+    val imported: Boolean,
+    val managed: Boolean,
+    val installedAtEpochMillis: Long,
+    val updatedAtEpochMillis: Long,
+)
+
+@Entity(
+    tableName = "scholar_content_packs",
+    indices = [
+        Index(value = ["imported"]),
+        Index(value = ["updatedAtEpochMillis"]),
+    ],
+)
+data class ScholarContentPackEntity(
+    @PrimaryKey val packId: String,
+    @Embedded val identity: ScholarContentPackIdentityEntity,
+    @Embedded val source: ScholarContentPackSourceEntity,
+    @Embedded val installation: ScholarContentPackInstallationEntity,
+)
+
+data class ScholarStudyBackupCoreEntities(
+    val notes: List<ScholarNoteEntity>,
+    val flashcards: List<ScholarFlashcardEntity>,
+    val bookmarks: List<ScholarBookmarkEntity>,
+    val highlights: List<ScholarHighlightEntity>,
+)
+
+data class ScholarStudyBackupProgressEntities(
+    val readingProgress: List<ScholarReadingProgressEntity>,
+    val studyPlans: List<ScholarStudyPlanEntity>,
+    val studySessions: List<ScholarStudySessionEntity>,
+    val reviewEvents: List<ScholarReviewEventEntity>,
+)
+
+data class ScholarStudyBackupEntities(
+    val core: ScholarStudyBackupCoreEntities,
+    val progress: ScholarStudyBackupProgressEntities,
 )
