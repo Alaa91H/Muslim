@@ -27,7 +27,9 @@ class UpdateChecker(private val context: Context) {
 
     /** Fetches the latest release and compares it with the installed build. */
     suspend fun check(): Result {
-        val release = client().latestRelease() ?: return Result.Unavailable
+        val preferences = prefs().preferences.first()
+        val release = client().latestRelease(preferences.updateChannel)
+            ?: return Result.Unavailable
         val newer = ReleaseVersionPolicy.isNewer(
             release = release,
             installedVersionCode = installedVersionCode(),
