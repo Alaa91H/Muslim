@@ -253,25 +253,27 @@ private fun FamilyLifeDestination(
             isArabic = model.isArabic,
             isFavorite = article.id in state.favoriteArticleIds,
             relatedArticles = FamilyLifeContent.relatedArticles(article.id),
-            onToggleFavorite = { viewModel.toggleArticleFavorite(article.id) },
-            onCopyArticle = {
-                copyFamilyArticle(
-                    context = context,
-                    article = article,
-                    isArabic = model.isArabic,
-                )
-            },
-            onShareArticle = {
-                shareFamilyArticle(
-                    context = context,
-                    article = article,
-                    isArabic = model.isArabic,
-                )
-            },
-            onOpenReference = { reference ->
-                openFamilyReference(reference, actions)
-            },
-            onOpenArticle = actions.openArticle,
+            actions = FamilyArticleReaderActions(
+                onToggleFavorite = { viewModel.toggleArticleFavorite(article.id) },
+                onCopyArticle = {
+                    copyFamilyArticle(
+                        context = context,
+                        article = article,
+                        isArabic = model.isArabic,
+                    )
+                },
+                onShareArticle = {
+                    shareFamilyArticle(
+                        context = context,
+                        article = article,
+                        isArabic = model.isArabic,
+                    )
+                },
+                onOpenReference = { reference ->
+                    openFamilyReference(reference, actions)
+                },
+                onOpenArticle = actions.openArticle,
+            ),
         )
         model.section == FamilySection.Home -> FamilyHubContent(
             isArabic = model.isArabic,
