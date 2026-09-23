@@ -20,6 +20,7 @@ enum class ScholarCategory(val label: String) {
 
 /** Broad reading level. It is descriptive metadata, not a scholarly ranking. */
 enum class ScholarDifficulty {
+    Unspecified,
     Foundation,
     Intermediate,
     Advanced,
@@ -27,7 +28,7 @@ enum class ScholarDifficulty {
 
     companion object {
         fun fromId(id: String): ScholarDifficulty =
-            entries.firstOrNull { it.name.equals(id, ignoreCase = true) } ?: Foundation
+            entries.firstOrNull { it.name.equals(id, ignoreCase = true) } ?: Unspecified
     }
 }
 
@@ -69,7 +70,7 @@ data class ScholarBook(
     val imported: Boolean,
     val subtitle: String? = null,
     val language: String = "ar",
-    val difficulty: ScholarDifficulty = ScholarDifficulty.Foundation,
+    val difficulty: ScholarDifficulty = ScholarDifficulty.Unspecified,
     val publisher: String? = null,
     val edition: String? = null,
     val editor: String? = null,
