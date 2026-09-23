@@ -28,6 +28,7 @@ import org.muslim.app.feature.reference.domain.HistoryLanguage
 import org.muslim.app.feature.reference.domain.HistoryPerson
 import org.muslim.app.feature.reference.domain.HistoryPersonProfile
 import org.muslim.app.feature.reference.domain.HistorySource
+import org.muslim.app.feature.reference.domain.IslamicCivilizationContent
 import org.muslim.app.feature.reference.domain.IslamicHistoricalEvents
 import org.muslim.app.feature.reference.domain.IslamicHistoryContent
 import org.muslim.app.feature.reference.domain.IslamicHistoryProfiles
@@ -273,12 +274,16 @@ private fun PersonRelationsCard(
     val events = profile.eventIds.mapNotNull {
         IslamicHistoricalEvents.byId(it)?.title?.resolve(language)
     }
+    val topics = profile.relatedTopicIds.mapNotNull {
+        IslamicCivilizationContent.byId(it)?.title?.resolve(language)
+    }
     RelationsCard(
         rows = relationRows(
             language = language,
             states = states,
             places = places,
             events = events,
+            topics = topics,
         ),
     )
 }
@@ -295,12 +300,16 @@ private fun PlaceRelationsCard(
     val people = profile.relatedPersonIds.mapNotNull { id ->
         IslamicHistoryContent.personalities.firstOrNull { it.id == id }?.name?.resolve(language)
     }
+    val topics = profile.relatedTopicIds.mapNotNull {
+        IslamicCivilizationContent.byId(it)?.title?.resolve(language)
+    }
     RelationsCard(
         rows = relationRows(
             language = language,
             states = states,
             events = events,
             people = people,
+            topics = topics,
         ),
     )
 }
@@ -311,6 +320,7 @@ private fun relationRows(
     places: List<String> = emptyList(),
     events: List<String> = emptyList(),
     people: List<String> = emptyList(),
+    topics: List<String> = emptyList(),
 ): List<Pair<String, List<String>>> = buildList {
     if (states.isNotEmpty()) {
         add((if (language == HistoryLanguage.Arabic) "الدول المرتبطة" else "Related states") to states)
@@ -323,6 +333,9 @@ private fun relationRows(
     }
     if (people.isNotEmpty()) {
         add((if (language == HistoryLanguage.Arabic) "الشخصيات المرتبطة" else "Related people") to people)
+    }
+    if (topics.isNotEmpty()) {
+        add((if (language == HistoryLanguage.Arabic) "موضوعات حضارية مرتبطة" else "Related civilization topics") to topics)
     }
 }
 
