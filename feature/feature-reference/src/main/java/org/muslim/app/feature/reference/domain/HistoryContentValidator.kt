@@ -10,7 +10,8 @@ object HistoryContentValidator {
     fun validate(
         eras: List<HistoryEra> = IslamicHistoryContent.timeline,
         articles: List<HistoryArticle> = IslamicHistoryArticles.articles,
-        sources: List<HistorySource> = IslamicHistoryArticles.sources,
+        states: List<HistoricalState> = IslamicHistoryStates.states,
+        sources: List<HistorySource> = IslamicHistorySources.all,
     ): List<String> {
         val errors = mutableListOf<String>()
         val eraIds = eras.map { it.id }.toSet()
@@ -18,6 +19,7 @@ object HistoryContentValidator {
 
         duplicateIds("era", eras.map { it.id }, errors)
         duplicateIds("article", articles.map { it.id }, errors)
+        duplicateIds("state", states.map { it.id }, errors)
         duplicateIds("source", sources.map { it.id }, errors)
 
         eras.forEach { era ->
@@ -74,6 +76,30 @@ object HistoryContentValidator {
             article.relatedEraIds.forEach { eraId ->
                 if (eraId !in eraIds) {
                     errors += "Article ${article.id} references unknown related era $eraId"
+                }
+            }
+        }
+
+        states.forEach { state ->
+            if (state.title.arabic.isBlank() || state.title.english.isBlank()) {
+                errors += "State ${state.id} has an incomplete bilingual title"
+            }
+            if (state.summary.arabic.isBlank() || state.summary.english.isBlank()) {
+                errors += "State ${state.id} has an incomplete bilingual summary"
+            }
+            val start = state.period.startCe
+            val end = state.period.endCe
+            if (start != null && end != null && end < start) {
+                errors += "State ${state.id} ends before it starts"
+            }
+            state.eraIds.forEach { eraId ->
+                if (eraId !in eraIds) {
+                    errors += "State ${state.id} references unknown era $eraId"
+                }
+            }
+            state.sourceIds.forEach { sourceId ->
+                if (sourceId !in sourceIds) {
+                    errors += "State ${state.id} references unknown source $sourceId"
                 }
             }
         }
