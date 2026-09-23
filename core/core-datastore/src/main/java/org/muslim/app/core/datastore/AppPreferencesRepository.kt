@@ -34,7 +34,7 @@ class AppPreferencesRepository @Inject constructor(
         AppPreferences(
             themeMode = runCatching { AppThemeMode.valueOf(prefs[Keys.THEME_MODE] ?: AppThemeMode.System.name) }
                 .getOrDefault(AppThemeMode.System),
-            dynamicColor = prefs[Keys.DYNAMIC_COLOR] ?: true,
+            dynamicColor = prefs[Keys.DYNAMIC_COLOR] ?: false,
             colorPalette = enumOr(prefs[Keys.COLOR_PALETTE], AppColorPalette.Classic),
             cardCornerStyle = enumOr(prefs[Keys.CARD_CORNER_STYLE], CardCornerStyle.Soft),
             ornamentStyle = enumOr(prefs[Keys.ORNAMENT_STYLE], AppOrnamentStyle.Geometry),
