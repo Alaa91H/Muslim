@@ -31,7 +31,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -54,6 +53,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.muslim.app.feature.reference.R
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicDecorationBand
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.reference.domain.ReferenceBook
@@ -97,7 +99,7 @@ fun ReferenceScreen(
 
     val book = selectedBook
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
@@ -167,6 +169,13 @@ private fun HubContent(
     modifier: Modifier = Modifier,
 ) {
     LazyColumn(modifier = modifier.fillMaxSize()) {
+        item(key = "reference-decoration") {
+            IslamicDecorationBand(
+                tint = MaterialTheme.colorScheme.tertiary,
+                compact = true,
+                modifier = Modifier.padding(horizontal = 16.dp),
+            )
+        }
         items(ReferenceLibrary.books, key = { it.id }) { book ->
             IslamicCard(
                 modifier = Modifier
@@ -236,6 +245,10 @@ private fun BookContent(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp, vertical = 8.dp),
+        )
+        IslamicDecorationDivider(
+            tint = MaterialTheme.colorScheme.tertiary,
+            modifier = Modifier.padding(horizontal = 24.dp),
         )
         if (results.isEmpty()) {
             MuslimStateSurface(

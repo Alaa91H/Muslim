@@ -23,7 +23,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -54,7 +54,7 @@ fun AccessibilityScreen(
 ) {
     val preferences = viewModel.preferences.collectAsStateWithLifecycle().value
     val context = LocalContext.current
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier,
         topBar = {
             TopAppBar(

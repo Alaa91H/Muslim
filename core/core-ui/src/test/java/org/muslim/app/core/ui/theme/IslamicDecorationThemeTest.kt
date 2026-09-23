@@ -31,6 +31,37 @@ class IslamicDecorationThemeTest {
     }
 
     @Test
+    fun `widget ornaments cover every style and honor off`() {
+        AppOrnamentStyle.entries.forEach { style ->
+            assertEquals(null, widgetOrnamentSpec(style, OrnamentIntensity.Off))
+            OrnamentIntensity.entries
+                .filterNot { it == OrnamentIntensity.Off }
+                .forEach { intensity ->
+                    assertTrue(widgetOrnamentSpec(style, intensity) != null)
+                }
+        }
+    }
+
+    @Test
+    fun `widget ornament intensity increases monotonically`() {
+        val subtle = widgetOrnamentSpec(
+            AppOrnamentStyle.Geometry,
+            OrnamentIntensity.Subtle,
+        )!!.tintAlpha
+        val balanced = widgetOrnamentSpec(
+            AppOrnamentStyle.Geometry,
+            OrnamentIntensity.Balanced,
+        )!!.tintAlpha
+        val rich = widgetOrnamentSpec(
+            AppOrnamentStyle.Geometry,
+            OrnamentIntensity.Rich,
+        )!!.tintAlpha
+
+        assertTrue(balanced > subtle)
+        assertTrue(rich > balanced)
+    }
+
+    @Test
     fun `dark mode keeps feature ornaments restrained`() {
         OrnamentIntensity.entries
             .filterNot { it == OrnamentIntensity.Off }
