@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -36,6 +37,7 @@ import androidx.compose.material.icons.filled.Security
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.WaterDrop
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -431,6 +433,14 @@ private fun LazyListScope.willDraftIntroduction(
             onQueryChange = onEducationQueryChange,
         )
     }
+    item {
+        TopicIndexRow(
+            labels = FuneralContent.willEducationSections.map {
+                it.title.pick(isArabic)
+            },
+            onSelect = onEducationQueryChange,
+        )
+    }
     val matchingEducation = FuneralContent.searchWillEducationSections(
         query = educationQuery,
         isArabic = isArabic,
@@ -718,6 +728,31 @@ private fun FuneralWillSearchField(
 }
 
 @Composable
+private fun TopicIndexRow(
+    labels: List<String>,
+    onSelect: (String) -> Unit,
+) {
+    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+        Text(
+            text = stringResource(R.string.funeral_will_quick_topics),
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        LazyRow(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            contentPadding = PaddingValues(end = 8.dp),
+        ) {
+            items(labels) { label ->
+                AssistChip(
+                    onClick = { onSelect(label) },
+                    label = { Text(label) },
+                )
+            }
+        }
+    }
+}
+
+@Composable
 private fun SearchResultSummary(count: Int) {
     Text(
         text = stringResource(R.string.funeral_will_search_results, count),
@@ -838,6 +873,14 @@ private fun FuneralGuideContent(isArabic: Boolean) {
             FuneralWillSearchField(
                 query = query,
                 onQueryChange = { query = it },
+            )
+        }
+        item {
+            TopicIndexRow(
+                labels = FuneralContent.guideSections.map {
+                    it.title.pick(isArabic)
+                },
+                onSelect = { query = it },
             )
         }
         if (query.isNotBlank()) {
