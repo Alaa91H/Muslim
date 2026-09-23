@@ -44,6 +44,47 @@ class AppPaletteThemeTest {
     }
 
     @Test
+    fun `AMOLED mode turns core dark surfaces true black without changing accents`() {
+        AppColorPalette.entries.forEach { palette ->
+            val base = appPaletteColorScheme(palette, darkTheme = true)
+            val amoled = base.withAmoledBlackSurfaces()
+
+            assertEquals(Color.Black, amoled.background)
+            assertEquals(Color.Black, amoled.surface)
+            assertEquals(Color.Black, amoled.surfaceDim)
+            assertEquals(Color.Black, amoled.surfaceContainerLowest)
+            assertEquals(Color.Black, amoled.surfaceContainerLow)
+            assertEquals(Color.Black, amoled.surfaceContainer)
+            assertEquals(base.primary, amoled.primary)
+            assertEquals(base.secondary, amoled.secondary)
+            assertEquals(base.tertiary, amoled.tertiary)
+        }
+    }
+
+    @Test
+    fun `AMOLED raised surfaces keep a subtle hierarchy above black`() {
+        val amoled = appPaletteColorScheme(AppColorPalette.Classic, darkTheme = true)
+            .withAmoledBlackSurfaces()
+
+        assertTrue(amoled.surfaceContainerHigh != Color.Black)
+        assertTrue(amoled.surfaceContainerHighest != Color.Black)
+        assertTrue(amoled.surfaceBright != Color.Black)
+    }
+
+    @Test
+    fun `AMOLED palette previews show true black in dark mode`() {
+        AppColorPalette.entries.forEach { palette ->
+            val preview = previewColorsForPalette(
+                palette = palette,
+                darkTheme = true,
+                amoledBlack = true,
+            )
+            assertEquals(Color.Black, preview.background)
+            assertEquals(Color.Black, preview.surface)
+        }
+    }
+
+    @Test
     fun `preview swatches are sourced from the real palette scheme`() {
         AppColorPalette.entries.forEach { palette ->
             listOf(false, true).forEach { darkTheme ->

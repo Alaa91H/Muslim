@@ -221,13 +221,22 @@ fun SettingsScreen(
                 ) {
                     AppearanceSettingsContent(
                         preferences = preferences,
-                        onThemeModeChanged = viewModel::setThemeMode,
-                        onDynamicColorChanged = viewModel::setDynamicColor,
-                        onPaletteChanged = viewModel::setColorPalette,
-                        onCornerStyleChanged = viewModel::setCardCornerStyle,
-                        onOrnamentChanged = viewModel::setOrnamentStyle,
-                        onOrnamentIntensityChanged = viewModel::setOrnamentIntensity,
-                        onReduceAnimationsChanged = viewModel::setReduceAnimations,
+                        actions = AppearanceSettingsActions(
+                            theme = AppearanceThemeActions(
+                                onModeChanged = viewModel::setThemeMode,
+                                onDynamicColorChanged = viewModel::setDynamicColor,
+                                onAmoledBlackChanged = viewModel::setAmoledBlack,
+                            ),
+                            shape = AppearanceShapeActions(
+                                onPaletteChanged = viewModel::setColorPalette,
+                                onCornerStyleChanged = viewModel::setCardCornerStyle,
+                            ),
+                            ornament = AppearanceOrnamentActions(
+                                onStyleChanged = viewModel::setOrnamentStyle,
+                                onIntensityChanged = viewModel::setOrnamentIntensity,
+                            ),
+                            onReduceAnimationsChanged = viewModel::setReduceAnimations,
+                        ),
                     )
                 }
             }

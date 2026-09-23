@@ -58,6 +58,8 @@
     <string name="update_open_releases">افتح صفحة الإصدارات في المتصفح</string>
     <string name="settings_section_managers">المديرين والأذونات</string>
 
+    <string name="settings_amoled_black">أسود AMOLED نقي</string>
+    <string name="settings_amoled_black_desc">يجعل خلفيات وأسطح الوضع الداكن سوداء حقيقية (#000000) لتناسب شاشات OLED/AMOLED مع الحفاظ على ألوان الواجهة.</string>
     <string name="settings_color_palette">لوحة الألوان</string>
     <string name="settings_palette_classic">إسلامي كلاسيكي</string>
     <string name="settings_palette_emerald">زمردي</string>

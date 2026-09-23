@@ -50,6 +50,29 @@ import org.muslim.app.core.ui.theme.AppTheme
 import org.muslim.app.core.ui.theme.IslamicDecorationPreview
 import org.muslim.app.core.ui.theme.previewColorsForPalette
 
+internal data class AppearanceThemeActions(
+    val onModeChanged: (AppThemeMode) -> Unit,
+    val onDynamicColorChanged: (Boolean) -> Unit,
+    val onAmoledBlackChanged: (Boolean) -> Unit,
+)
+
+internal data class AppearanceShapeActions(
+    val onPaletteChanged: (AppColorPalette) -> Unit,
+    val onCornerStyleChanged: (CardCornerStyle) -> Unit,
+)
+
+internal data class AppearanceOrnamentActions(
+    val onStyleChanged: (AppOrnamentStyle) -> Unit,
+    val onIntensityChanged: (OrnamentIntensity) -> Unit,
+)
+
+internal data class AppearanceSettingsActions(
+    val theme: AppearanceThemeActions,
+    val shape: AppearanceShapeActions,
+    val ornament: AppearanceOrnamentActions,
+    val onReduceAnimationsChanged: (Boolean) -> Unit,
+)
+
 /**
  * Focused appearance editor extracted from the settings hub.
  *
@@ -61,13 +84,7 @@ import org.muslim.app.core.ui.theme.previewColorsForPalette
 @Composable
 internal fun AppearanceSettingsContent(
     preferences: AppPreferences,
-    onThemeModeChanged: (AppThemeMode) -> Unit,
-    onDynamicColorChanged: (Boolean) -> Unit,
-    onPaletteChanged: (AppColorPalette) -> Unit,
-    onCornerStyleChanged: (CardCornerStyle) -> Unit,
-    onOrnamentChanged: (AppOrnamentStyle) -> Unit,
-    onOrnamentIntensityChanged: (OrnamentIntensity) -> Unit,
-    onReduceAnimationsChanged: (Boolean) -> Unit,
+    actions: AppearanceSettingsActions,
 ) {
     val systemDark = isSystemInDarkTheme()
     val resolvedDark = when (preferences.themeMode) {
@@ -81,6 +98,7 @@ internal fun AppearanceSettingsContent(
     AppearanceLivePreview(
         darkTheme = resolvedDark,
         dynamicColor = dynamicActive,
+        amoledBlack = preferences.amoledBlack,
         palette = preferences.colorPalette,
         cornerStyle = preferences.cardCornerStyle,
         ornamentStyle = preferences.ornamentStyle,
@@ -95,7 +113,19 @@ internal fun AppearanceSettingsContent(
     )
     AppearanceThemeModeSelector(
         selected = preferences.themeMode,
-        onSelect = onThemeModeChanged,
+        onSelect = actions.theme.onModeChanged,
+    )
+
+    ListItem(
+        headlineContent = { Text(stringResource(R.string.settings_amoled_black)) },
+        supportingContent = { Text(stringResource(R.string.settings_amoled_black_desc)) },
+        leadingContent = { Icon(Icons.Filled.DarkMode, contentDescription = null) },
+        trailingContent = {
+            Switch(
+                checked = preferences.amoledBlack,
+                onCheckedChange = actions.theme.onAmoledBlackChanged,
+            )
+        },
     )
 
     ListItem(
@@ -116,7 +146,7 @@ internal fun AppearanceSettingsContent(
             Switch(
                 checked = dynamicActive,
                 enabled = dynamicSupported,
-                onCheckedChange = onDynamicColorChanged,
+                onCheckedChange = actions.theme.onDynamicColorChanged,
             )
         },
     )
@@ -136,7 +166,8 @@ internal fun AppearanceSettingsContent(
         AppearancePaletteSelector(
             selected = preferences.colorPalette,
             darkTheme = resolvedDark,
-            onSelect = onPaletteChanged,
+            amoledBlack = preferences.amoledBlack,
+            onSelect = actions.shape.onPaletteChanged,
         )
     }
 
@@ -147,7 +178,7 @@ internal fun AppearanceSettingsContent(
     )
     AppearanceCornerSelector(
         selected = preferences.cardCornerStyle,
-        onSelect = onCornerStyleChanged,
+        onSelect = actions.shape.onCornerStyleChanged,
     )
 
     Text(
@@ -158,7 +189,7 @@ internal fun AppearanceSettingsContent(
     AppearanceOrnamentSelector(
         selected = preferences.ornamentStyle,
         intensity = preferences.ornamentIntensity,
-        onSelect = onOrnamentChanged,
+        onSelect = actions.ornament.onStyleChanged,
     )
 
     Text(
@@ -168,7 +199,7 @@ internal fun AppearanceSettingsContent(
     )
     AppearanceOrnamentIntensitySelector(
         selected = preferences.ornamentIntensity,
-        onSelect = onOrnamentIntensityChanged,
+        onSelect = actions.ornament.onIntensityChanged,
     )
 
     ListItem(
@@ -177,7 +208,7 @@ internal fun AppearanceSettingsContent(
         trailingContent = {
             Switch(
                 checked = preferences.reduceAnimations,
-                onCheckedChange = onReduceAnimationsChanged,
+                onCheckedChange = actions.onReduceAnimationsChanged,
             )
         },
     )
@@ -188,6 +219,7 @@ internal fun AppearanceSettingsContent(
 private fun AppearanceLivePreview(
     darkTheme: Boolean,
     dynamicColor: Boolean,
+    amoledBlack: Boolean,
     palette: AppColorPalette,
     cornerStyle: CardCornerStyle,
     ornamentStyle: AppOrnamentStyle,
@@ -197,6 +229,7 @@ private fun AppearanceLivePreview(
     AppTheme(
         darkTheme = darkTheme,
         dynamicColor = dynamicColor,
+        amoledBlack = amoledBlack,
         colorPalette = palette,
         cardCornerStyle = cornerStyle,
         ornamentStyle = ornamentStyle,
@@ -325,6 +358,7 @@ private fun AppearanceThemeModeSelector(
 private fun AppearancePaletteSelector(
     selected: AppColorPalette,
     darkTheme: Boolean,
+    amoledBlack: Boolean,
     onSelect: (AppColorPalette) -> Unit,
 ) {
     Column(
@@ -341,6 +375,7 @@ private fun AppearancePaletteSelector(
                         palette = palette,
                         selected = selected == palette,
                         darkTheme = darkTheme,
+                        amoledBlack = amoledBlack,
                         onClick = { onSelect(palette) },
                         modifier = Modifier.weight(1f),
                     )
@@ -356,10 +391,11 @@ private fun AppearancePaletteCard(
     palette: AppColorPalette,
     selected: Boolean,
     darkTheme: Boolean,
+    amoledBlack: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val colors = previewColorsForPalette(palette, darkTheme)
+    val colors = previewColorsForPalette(palette, darkTheme, amoledBlack)
     Card(
         onClick = onClick,
         modifier = modifier,

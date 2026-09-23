@@ -35,6 +35,7 @@ class AppPreferencesRepository @Inject constructor(
             themeMode = runCatching { AppThemeMode.valueOf(prefs[Keys.THEME_MODE] ?: AppThemeMode.System.name) }
                 .getOrDefault(AppThemeMode.System),
             dynamicColor = prefs[Keys.DYNAMIC_COLOR] ?: false,
+            amoledBlack = prefs[Keys.AMOLED_BLACK] ?: false,
             colorPalette = enumOr(prefs[Keys.COLOR_PALETTE], AppColorPalette.Classic),
             cardCornerStyle = enumOr(prefs[Keys.CARD_CORNER_STYLE], CardCornerStyle.Soft),
             ornamentStyle = enumOr(prefs[Keys.ORNAMENT_STYLE], AppOrnamentStyle.Geometry),
@@ -69,6 +70,8 @@ class AppPreferencesRepository @Inject constructor(
     suspend fun setThemeMode(mode: AppThemeMode) = edit { prefs -> prefs[Keys.THEME_MODE] = mode.name }
 
     suspend fun setDynamicColor(enabled: Boolean) = edit { prefs -> prefs[Keys.DYNAMIC_COLOR] = enabled }
+
+    suspend fun setAmoledBlack(enabled: Boolean) = edit { prefs -> prefs[Keys.AMOLED_BLACK] = enabled }
 
     suspend fun setColorPalette(palette: AppColorPalette) = edit { prefs ->
         prefs[Keys.COLOR_PALETTE] = palette.name
@@ -245,6 +248,7 @@ class AppPreferencesRepository @Inject constructor(
     private object Keys {
         val THEME_MODE = stringPreferencesKey("theme_mode")
         val DYNAMIC_COLOR = booleanPreferencesKey("dynamic_color")
+        val AMOLED_BLACK = booleanPreferencesKey("amoled_black")
         val COLOR_PALETTE = stringPreferencesKey("color_palette")
         val CARD_CORNER_STYLE = stringPreferencesKey("card_corner_style")
         val ORNAMENT_STYLE = stringPreferencesKey("ornament_style")

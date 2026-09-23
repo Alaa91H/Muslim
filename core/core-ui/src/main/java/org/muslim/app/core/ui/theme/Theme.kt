@@ -39,6 +39,7 @@ import org.muslim.app.core.ui.accessibility.LocalAccessibilityVisuals
 fun AppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean = true,
+    amoledBlack: Boolean = false,
     highContrast: Boolean = false,
     accessibilityReadingMode: Boolean = false,
     reduceAnimations: Boolean = false,
@@ -48,7 +49,7 @@ fun AppTheme(
     ornamentIntensity: OrnamentIntensity = OrnamentIntensity.Balanced,
     content: @Composable () -> Unit,
 ) {
-    val colorScheme = when {
+    val baseColorScheme = when {
         highContrast && darkTheme -> AccessibilityDarkColors
         highContrast -> AccessibilityLightColors
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
@@ -56,6 +57,11 @@ fun AppTheme(
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
         else -> appPaletteColorScheme(colorPalette, darkTheme)
+    }
+    val colorScheme = if (amoledBlack && darkTheme) {
+        baseColorScheme.withAmoledBlackSurfaces()
+    } else {
+        baseColorScheme
     }
 
     CompositionLocalProvider(
@@ -76,6 +82,29 @@ fun AppTheme(
     }
 }
 
+/**
+ * Converts the dark theme's neutral surface hierarchy to true OLED black while
+ * preserving the selected palette/dynamic accent colors. Main backgrounds and
+ * ordinary containers use #000000 so AMOLED pixels can turn fully off; only
+ * the highest raised surfaces retain tiny near-black steps for hierarchy.
+ */
+internal fun ColorScheme.withAmoledBlackSurfaces(): ColorScheme = copy(
+    background = Color.Black,
+    surface = Color.Black,
+    surfaceDim = Color.Black,
+    surfaceContainerLowest = Color.Black,
+    surfaceContainerLow = Color.Black,
+    surfaceContainer = Color.Black,
+    surfaceContainerHigh = Color(0xFF050505),
+    surfaceContainerHighest = Color(0xFF0A0A0A),
+    surfaceVariant = Color(0xFF0A0A0A),
+    surfaceBright = Color(0xFF101010),
+    onBackground = Color(0xFFF5F5F2),
+    onSurface = Color(0xFFF5F5F2),
+    onSurfaceVariant = Color(0xFFC8C8C3),
+    outlineVariant = Color(0xFF242424),
+)
+
 /** Compact swatches used by the Appearance screen without duplicating theme hex values there. */
 data class PalettePreviewColors(
     val primary: Color,
@@ -88,8 +117,10 @@ data class PalettePreviewColors(
 fun previewColorsForPalette(
     palette: AppColorPalette,
     darkTheme: Boolean,
+    amoledBlack: Boolean = false,
 ): PalettePreviewColors {
-    val scheme = appPaletteColorScheme(palette, darkTheme)
+    val base = appPaletteColorScheme(palette, darkTheme)
+    val scheme = if (amoledBlack && darkTheme) base.withAmoledBlackSurfaces() else base
     return PalettePreviewColors(
         primary = scheme.primary,
         secondary = scheme.secondary,

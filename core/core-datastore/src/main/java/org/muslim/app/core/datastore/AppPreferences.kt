@@ -13,6 +13,8 @@ data class AppPreferences(
     val themeMode: AppThemeMode = AppThemeMode.System,
     /** Dynamic wallpaper color is opt-in so the calm Islamic token palette remains the default identity. */
     val dynamicColor: Boolean = false,
+    /** Uses true-black surfaces while dark mode is active, optimized for OLED/AMOLED displays. */
+    val amoledBlack: Boolean = false,
     /** Curated palette family used when dynamic colour is disabled. */
     val colorPalette: AppColorPalette = AppColorPalette.Classic,
     /** Global corner softness for cards, sheets, and controls. */
