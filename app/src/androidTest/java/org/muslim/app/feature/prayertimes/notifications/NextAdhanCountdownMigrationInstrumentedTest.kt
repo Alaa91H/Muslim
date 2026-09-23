@@ -63,7 +63,7 @@ class NextAdhanCountdownMigrationInstrumentedTest {
     }
 
     @Test
-    fun countdown_keepsTheNextAdhanOnOneCollapsedLine_andShowsMissedAdhanOnlyWhenExpanded() {
+    fun countdown_usesCompactHierarchy_andShowsMissedAdhanOnlyInExpandedRows() {
         val remainingSeconds = 42 * 60L
         val elapsedSeconds = 83 * 60L
         val nextPrayerTime = LocalTime.of(12, 30)
@@ -88,38 +88,47 @@ class NextAdhanCountdownMigrationInstrumentedTest {
             notification.smallIcon.resId ==
                 org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029,
         )
-        val compactLine = requireNotNull(notification.extras.getCharSequence(Notification.EXTRA_TITLE))
-        assertNotNull(compactLine)
-        val expectedNextTitle = context.getString(
-            R.string.next_adhan_notification_title,
-            context.getString(prayerLabelRes(Prayer.Dhuhr)),
-            "12:30",
-        )
+
+        val title = requireNotNull(notification.extras.getCharSequence(Notification.EXTRA_TITLE))
+        val expectedPrayerLabel = context.getString(prayerLabelRes(Prayer.Dhuhr))
+        assertTrue(title.toString().contains(expectedPrayerLabel))
+        assertTrue(title.toString().contains("12:30"))
+        assertFalse(title.toString().contains(context.getString(R.string.next_adhan_remaining, formatCountdown(remainingSeconds))))
+        assertTrue(hasColorSpan(title, context.getColor(R.color.adhan_accent)))
+
+        val compactBody = requireNotNull(notification.extras.getCharSequence(Notification.EXTRA_TEXT))
         val expectedRemaining = context.getString(
             R.string.next_adhan_remaining,
             formatCountdown(remainingSeconds),
         )
+        assertTrue(compactBody.toString().contains(expectedRemaining))
+        assertTrue(hasColorSpan(compactBody, context.getColor(R.color.adhan_accent)))
+
+        val expandedLines = requireNotNull(notification.extras.getCharSequenceArray(Notification.EXTRA_TEXT_LINES))
+        assertNotNull(expandedLines)
+        assertTrue(expandedLines.any { it.toString().contains(expectedRemaining) })
+
         val expectedMissed = context.getString(
             R.string.next_adhan_missed,
             context.getString(prayerLabelRes(Prayer.Fajr)),
             "05:05",
         )
-        assertTrue(compactLine.toString().contains(expectedNextTitle))
-        assertTrue(compactLine.toString().contains(expectedRemaining))
-        assertFalse(compactLine.toString().contains(expectedMissed))
-        assertTrue(hasColorSpan(compactLine, context.getColor(R.color.adhan_accent)))
-        assertTrue(hasColorSpan(compactLine, org.muslim.app.core.notifications.MissedAdhanColors.DEFAULT))
-
-        val expandedLine = requireNotNull(notification.extras.getCharSequence(Notification.EXTRA_BIG_TEXT))
-        assertNotNull(expandedLine)
-        assertTrue(expandedLine.toString().contains(expectedMissed))
+        val expectedElapsed = context.getString(
+            R.string.next_adhan_elapsed,
+            formatCountdown(elapsedSeconds),
+        )
+        val missedLine = requireNotNull(
+            expandedLines.firstOrNull {
+                it.toString().contains(expectedMissed) && it.toString().contains(expectedElapsed)
+            },
+        )
+        assertFalse(missedLine.toString().contains("\n"))
         assertTrue(
-            expandedLine.toString().contains(
-                context.getString(R.string.next_adhan_elapsed, formatCountdown(elapsedSeconds)),
+            hasColorSpan(
+                missedLine,
+                org.muslim.app.core.notifications.MissedAdhanColors.DEFAULT,
             ),
         )
-        assertFalse(expandedLine.toString().contains("\n"))
-        assertTrue(hasColorSpan(expandedLine, org.muslim.app.core.notifications.MissedAdhanColors.DEFAULT))
     }
 
     private fun awaitNotificationState(notificationId: Int, expectedActive: Boolean) {
