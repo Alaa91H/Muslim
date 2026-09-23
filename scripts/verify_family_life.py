@@ -69,6 +69,13 @@ def main() -> int:
         return fail("app does not depend on feature-family-life")
     if "org.muslim.app.feature.family.ui.FamilyLifeScreen" not in app_nav:
         return fail("app navigation does not use the extracted FamilyLifeScreen")
+    family_links = (
+        'onOpenQuran = { navController.navigate("quran") }',
+        "onOpenHadith = { navController.navigate(HADITH_ROUTE) }",
+        "onOpenAdhkar = { navController.navigate(ADHKAR_ROUTE) }",
+    )
+    if not all(link in app_nav for link in family_links):
+        return fail("Family Life cross-feature Quran/Hadith/Adhkar navigation is incomplete")
 
     obsolete = (
         OLD_ROOT / "ui/FamilyLifeScreen.kt",
