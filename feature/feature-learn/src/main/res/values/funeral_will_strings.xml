@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="funeral_will_dismiss_card">إخفاء هذه البطاقة</string>
-    <string name="funeral_will_restore_intro_cards">إظهار الإرشادات والتنبيهات مرة أخرى</string>
-    <string name="funeral_will_education_title">دليل الوصية الشرعية</string>
-    <string name="funeral_will_education_intro">موضوعات أساسية تساعدك على تنظيم المسودة وفهم ما يحتاج إلى مراجعة شرعية وقانونية قبل اعتماد الوصية.</string>
-    <string name="funeral_will_guide_quick_title">ماذا أفعل الآن؟</string>
-    <string name="funeral_will_guide_quick_intro">ترتيب عملي مختصر للحظات الأولى بعد الوفاة. قد تختلف الإجراءات الرسمية حسب البلد والمستشفى والمقبرة.</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="funeral_will_dismiss_card" tools:ignore="MissingTranslation">إخفاء هذه البطاقة</string>
+    <string name="funeral_will_restore_intro_cards" tools:ignore="MissingTranslation">إظهار الإرشادات والتنبيهات مرة أخرى</string>
+    <string name="funeral_will_education_title" tools:ignore="MissingTranslation">دليل الوصية الشرعية</string>
+    <string name="funeral_will_education_intro" tools:ignore="MissingTranslation">موضوعات أساسية تساعدك على تنظيم المسودة وفهم ما يحتاج إلى مراجعة شرعية وقانونية قبل اعتماد الوصية.</string>
+    <string name="funeral_will_guide_quick_title" tools:ignore="MissingTranslation">ماذا أفعل الآن؟</string>
+    <string name="funeral_will_guide_quick_intro" tools:ignore="MissingTranslation">ترتيب عملي مختصر للحظات الأولى بعد الوفاة. قد تختلف الإجراءات الرسمية حسب البلد والمستشفى والمقبرة.</string>
 </resources>
