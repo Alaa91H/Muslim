@@ -493,6 +493,7 @@ private fun GpsRefreshControl(
     }
 }
 
+@Suppress("LongMethod")
 @Composable
 private fun QiblaDirectionDetails(
     presentation: QiblaPresentation,
@@ -627,6 +628,7 @@ private fun displayRotationDegrees(context: Context): Int {
     }
 }
 
+@Suppress("LongMethod")
 @Composable
 private fun CompassRose(
     trueHeading: Float,

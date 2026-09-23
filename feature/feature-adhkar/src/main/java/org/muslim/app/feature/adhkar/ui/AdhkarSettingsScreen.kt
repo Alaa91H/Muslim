@@ -69,7 +69,6 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.common.lang.AppLanguage
-import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.adhkar.R
 import org.muslim.app.feature.adhkar.data.AdhkarSpeechVoiceOption

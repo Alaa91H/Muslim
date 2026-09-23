@@ -69,6 +69,7 @@ internal enum class MosqueSortMode {
 }
 
 /** Lightweight list UI only: this tab intentionally embeds no map tiles or map SDK. */
+@Suppress("LongMethod")
 @Composable
 internal fun NearbyMosquesTab(
     presentation: NearbyMosquesPresentation,
@@ -218,6 +219,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.cachedMosqueRows(plac
     }
 }
 
+@Suppress("LongMethod")
 @Composable
 private fun NearbyMosquesHeader(
     radiusKm: Int,
@@ -320,6 +322,7 @@ private fun NearbyMosquesHeader(
     }
 }
 
+@Suppress("LongMethod")
 @Composable
 private fun MosqueResultsTools(
     query: String,
@@ -436,6 +439,7 @@ private fun CachedMosqueRow(place: MosquePlace) = MosquePlaceRow(
     isNearest = false,
 )
 
+@Suppress("LongMethod")
 @Composable
 private fun MosquePlaceRow(
     place: MosquePlace,

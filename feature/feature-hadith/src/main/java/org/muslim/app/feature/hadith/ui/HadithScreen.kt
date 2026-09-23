@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -31,7 +30,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.Book
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Search
@@ -88,9 +86,7 @@ import kotlinx.coroutines.launch
 import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.text.DigitNormalizedOutlinedTextField
-import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.IslamicDecorationCorners
-import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimCenteredStatus
 import org.muslim.app.core.ui.theme.MuslimContentFrame
@@ -364,6 +360,7 @@ private fun HadithCollection.coverPalette(): HadithCoverPalette = when (this) {
     HadithCollection.Other -> HadithCoverPalette(Color(0xFF454545), Color(0xFFB8A77A), Color(0xFFF2ECDD))
 }
 
+@Suppress("LongMethod")
 @Composable
 private fun HadithBookCover(
     collection: HadithCollection,
@@ -668,6 +665,7 @@ private fun HadithBookFailure(
     )
 }
 
+@Suppress("LongMethod")
 @Composable
 private fun HadithBookIndexOrPages(
     collection: HadithCollection,
