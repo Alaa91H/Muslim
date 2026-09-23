@@ -44,7 +44,6 @@ import kotlinx.coroutines.launch
 import org.muslim.app.core.common.appearance.AppOrnamentStyle
 import org.muslim.app.core.common.appearance.OrnamentIntensity
 import org.muslim.app.core.common.wear.WearPrayerSnapshot
-import org.muslim.app.core.common.wear.WearSyncContract
 import java.text.DateFormat
 import java.util.Date
 
