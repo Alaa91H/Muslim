@@ -43,6 +43,14 @@ All ornaments are Android vector XML resources in `core:core-ui`. `IslamicOrname
 
 The token names `LightBackground`, `LightSection`, and `LightActive` identify the intended visual intensity. They are deliberately low enough to remain non-essential; assistive users must receive the same information through text, semantic labels, and control state.
 
+## Adaptive decoration engine
+
+The app-wide decoration layer is driven by persisted appearance settings rather than screen-local artwork. Users can select Geometry, Arabesque, Stars, Andalusian, Mashrabiya, Ottoman, Mushaf, Royal, or Minimal and independently choose Off, Subtle, Balanced, or Rich intensity. `LocalIslamicDecoration` distributes the choice through Compose so feature screens do not need their own preference flows.
+
+Shared roles keep the system consistent: `IslamicDecorationBand` for major headers, `IslamicDecorationDivider` for section transitions, `IslamicDecorationCorners` for hero cards, `IslamicDecorationMedallion` for circular worship controls, and dedicated `IslamicReading*` primitives for Mushaf surfaces. Feature screens should use these roles instead of selecting vector assets directly.
+
+The rollout covers prayer home, Quran reading and downloads, Adhkar, Hadith, Qibla, Tasbih, Ramadan and habit tracking, Zakat, Islamic finance, learning, reference, family life, Hajj tools, and traveller tools. Long scrolling lists deliberately keep ornamentation at header/section level rather than repeating vectors per row.
+
 ## Quran-reader quietness
 
 The Quran reader preserves its existing light, Sepia, and night modes, Arabic-reading controls, per-ayah bookmarking, last-read progress, download status, and recitation playback. Sepia now resolves from the shared `MuslimSepiaColors` scheme, while the night reader retains a calm deep-green palette. Quran text continues to use the selected Arabic reading font and is not edited by this visual change.
@@ -78,6 +86,12 @@ The system-facing application identity is intentionally split into two assets. T
 | Adhan, countdown and Quran playback cards | Android-owned notification and media templates | Do not provide a custom large app image merely to force branding; the current application identity may be rendered by Android itself. |
 
 The repair uses fresh resource names and fresh current notification IDs, then cancels cards known to be retained from earlier versions. This is a migration mechanism rather than a new visual style. The exact migration IDs, test coverage, user upgrade note, and platform limits are recorded in [`qa/notification_identity_repair.md`](qa/notification_identity_repair.md).
+
+## RTL, dark mode, and performance guardrails
+
+All placement uses logical `Start`/`End` alignment instead of left/right positioning so ornament anchors mirror with RTL layouts. Decoration opacity is reduced or held equal in dark mode, and every optional decorative primitive returns without drawing when intensity is Off. The engine uses vectors only; no bitmap backgrounds, blur, shader, or looping decorative animation is required.
+
+High-frequency surfaces receive at most one lightweight motif behind their active control (for example the Qibla compass or Tasbih counter). Lazy lists, paging lists, trackers, and history rows do not instantiate ornament vectors per item. This keeps decoration visually present while preserving scroll and sensor responsiveness.
 
 ## Verification
 
