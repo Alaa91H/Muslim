@@ -544,6 +544,8 @@ private fun AqiqahDatesCard(
 
 @Composable
 private fun MarriageContent(isArabic: Boolean) {
+    var query by rememberSaveable { mutableStateOf("") }
+    val results = remember(query) { FamilyLifeContent.searchArticles(query) }
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
@@ -556,8 +558,35 @@ private fun MarriageContent(isArabic: Boolean) {
                 text = stringResource(R.string.family_marriage_intro),
             )
         }
-        items(FamilyLifeContent.familyArticles, key = { it.id }) { article ->
+        item {
+            DigitNormalizedOutlinedTextField(
+                value = query,
+                onValueChange = { query = it },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+                placeholder = { Text(stringResource(R.string.family_articles_search)) },
+                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+                keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(keyboardType = KeyboardType.Text),
+            )
+        }
+        item {
+            Text(
+                text = stringResource(R.string.family_articles_count, results.size),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary,
+            )
+        }
+        items(results, key = { it.id }) { article ->
             FamilyArticleCard(article, isArabic)
+        }
+        if (results.isEmpty()) {
+            item {
+                MuslimStateSurface(
+                    title = stringResource(R.string.family_articles_empty),
+                    tone = MuslimStateTone.Neutral,
+                    icon = Icons.Filled.Search,
+                )
+            }
         }
     }
 }
