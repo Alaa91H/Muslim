@@ -165,7 +165,7 @@ jobs:
           disable-animations: true
           script: |
             adb shell cmd audio set-enable-hardening throw
-            ./gradlew :app:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :feature:feature-qibla:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest
+            ./gradlew :app:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :feature:feature-qibla:connectedDebugAndroidTest :feature:feature-family-life:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest
 
       # Instrumentation failures are the hardest to reproduce locally, so the
       # device test report is always kept when this job fails.
