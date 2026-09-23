@@ -18,6 +18,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.AutoStories
+import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.BookmarkBorder
+import androidx.compose.material.icons.filled.Checklist
+import androidx.compose.material.icons.filled.DeleteSweep
+import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.ChildCare
 import androidx.compose.material.icons.filled.FamilyRestroom
 import androidx.compose.material.icons.filled.Favorite
@@ -30,11 +35,13 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Translate
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -52,15 +59,22 @@ import org.muslim.app.core.ui.theme.IslamicCard
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.family.R
+import org.muslim.app.feature.family.domain.FamilyChecklist
+import org.muslim.app.feature.family.domain.FamilyEvidenceType
 import org.muslim.app.feature.family.domain.FamilyGuideArticle
 import org.muslim.app.feature.family.domain.FamilyLifeContent
 import org.muslim.app.feature.family.domain.FamilyTopicCategory
+import org.muslim.app.feature.family.domain.FamilyUtilityContent
 import org.muslim.app.feature.family.domain.LocalizedFamilyText
 
 @Composable
 internal fun FamilyHubContent(
     isArabic: Boolean,
+    favoriteCount: Int,
+    recentCount: Int,
     onOpenCategory: (FamilyTopicCategory) -> Unit,
+    onOpenSaved: () -> Unit,
+    onOpenTools: () -> Unit,
     onOpenRuqyah: () -> Unit,
     onOpenNames: () -> Unit,
     onOpenAqiqah: () -> Unit,
@@ -91,6 +105,34 @@ internal fun FamilyHubContent(
                 isArabic = isArabic,
                 articleCount = FamilyLifeContent.articlesFor(category).size,
                 onClick = { onOpenCategory(category) },
+            )
+        }
+        item {
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = stringResource(R.string.family_hub_library_title),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+            )
+        }
+        item {
+            FamilyToolCard(
+                icon = Icons.Filled.Bookmark,
+                title = stringResource(R.string.family_saved_title),
+                description = stringResource(
+                    R.string.family_saved_summary,
+                    favoriteCount,
+                    recentCount,
+                ),
+                onClick = onOpenSaved,
+            )
+        }
+        item {
+            FamilyToolCard(
+                icon = Icons.Filled.Checklist,
+                title = stringResource(R.string.family_checklists_title),
+                description = stringResource(R.string.family_checklists_summary),
+                onClick = onOpenTools,
             )
         }
         item {
@@ -206,7 +248,9 @@ private fun FamilyToolCard(
 internal fun FamilyGuideCatalogContent(
     isArabic: Boolean,
     initialCategory: FamilyTopicCategory?,
+    favoriteIds: Set<String>,
     onOpenArticle: (String) -> Unit,
+    onToggleFavorite: (String) -> Unit,
 ) {
     var query by rememberSaveable { mutableStateOf("") }
     var categoryName by rememberSaveable(initialCategory) { mutableStateOf(initialCategory?.name) }
@@ -269,7 +313,9 @@ internal fun FamilyGuideCatalogContent(
             FamilyGuideResultCard(
                 article = article,
                 isArabic = isArabic,
+                isFavorite = article.id in favoriteIds,
                 onClick = { onOpenArticle(article.id) },
+                onToggleFavorite = { onToggleFavorite(article.id) },
             )
         }
         if (results.isEmpty()) {
@@ -288,18 +334,32 @@ internal fun FamilyGuideCatalogContent(
 private fun FamilyGuideResultCard(
     article: FamilyGuideArticle,
     isArabic: Boolean,
+    isFavorite: Boolean,
     onClick: () -> Unit,
+    onToggleFavorite: () -> Unit,
 ) {
     IslamicCard(
         modifier = Modifier.fillMaxWidth(),
         onClick = onClick,
     ) {
         Column {
-            Text(
-                text = article.title.pick(isArabic),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-            )
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = article.title.pick(isArabic),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.weight(1f),
+                )
+                IconButton(onClick = onToggleFavorite) {
+                    Icon(
+                        imageVector = if (isFavorite) Icons.Filled.Bookmark else Icons.Filled.BookmarkBorder,
+                        contentDescription = stringResource(
+                            if (isFavorite) R.string.family_remove_favorite else R.string.family_add_favorite,
+                        ),
+                        tint = MaterialTheme.colorScheme.primary,
+                    )
+                }
+            }
             Spacer(Modifier.height(5.dp))
             Text(
                 text = article.summary.pick(isArabic),
