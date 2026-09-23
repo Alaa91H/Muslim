@@ -141,7 +141,7 @@ class UpdateViewModel @Inject constructor(
 
     private suspend fun maybeStartAutomaticDownload(release: ReleaseInfo) {
         val prefs = appPreferencesRepository.preferences.first()
-        if (!prefs.autoUpdateEnabled) return
+        if (!prefs.updateCheckEnabled || !prefs.autoUpdateEnabled) return
 
         when (updateDownloads.currentState()) {
             UpdateDownloadState.Idle,
