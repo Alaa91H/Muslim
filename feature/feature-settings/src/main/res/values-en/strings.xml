@@ -227,6 +227,7 @@
     <string name="update_unavailable">Could not reach the releases page.</string>
     <string name="update_retry">Retry</string>
     <string name="update_new_version">New version %1$s</string>
+    <string name="update_beta_release">Beta release — may contain features still being tested</string>
     <string name="update_current_version">Your current version: %1$s</string>
     <string name="update_changelog">Changelog</string>
     <string name="update_no_changelog">No description for this version.</string>
