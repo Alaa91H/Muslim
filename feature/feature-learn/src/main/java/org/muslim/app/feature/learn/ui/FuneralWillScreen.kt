@@ -410,6 +410,16 @@ private fun LazyListScope.willDraftFields(
     draft: WillDraft,
     onDraftChange: (WillDraft) -> Unit,
 ) {
+    willIdentityFields(draft, onDraftChange)
+    willFinancialFields(draft, onDraftChange)
+    willFamilyFields(draft, onDraftChange)
+    willReviewFields(draft, onDraftChange)
+}
+
+private fun LazyListScope.willIdentityFields(
+    draft: WillDraft,
+    onDraftChange: (WillDraft) -> Unit,
+) {
     item {
         WillFormSection(
             id = "identity",
@@ -450,6 +460,12 @@ private fun LazyListScope.willDraftFields(
             )
         }
     }
+}
+
+private fun LazyListScope.willFinancialFields(
+    draft: WillDraft,
+    onDraftChange: (WillDraft) -> Unit,
+) {
     item {
         WillFormSection(
             id = "financial",
@@ -485,6 +501,12 @@ private fun LazyListScope.willDraftFields(
             )
         }
     }
+}
+
+private fun LazyListScope.willFamilyFields(
+    draft: WillDraft,
+    onDraftChange: (WillDraft) -> Unit,
+) {
     item {
         WillFormSection(
             id = "family",
@@ -510,6 +532,12 @@ private fun LazyListScope.willDraftFields(
             )
         }
     }
+}
+
+private fun LazyListScope.willReviewFields(
+    draft: WillDraft,
+    onDraftChange: (WillDraft) -> Unit,
+) {
     item {
         WillFormSection(
             id = "review",
@@ -561,7 +589,7 @@ private fun LazyListScope.willDraftActions(
     item {
         Button(
             onClick = onSave,
-            enabled = isDirty || draft.isEmpty(),
+            enabled = isDirty,
             modifier = Modifier.fillMaxWidth(),
         ) {
             Icon(
