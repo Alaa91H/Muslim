@@ -25,6 +25,7 @@ enum class TasbihSessionStatus {
 enum class TasbihSessionEndReason(val storageId: String) {
     GoalReached("goal_reached"),
     ContextChanged("context_changed"),
+    DayChanged("day_changed"),
     Reset("reset"),
     ResetAll("reset_all"),
     Manual("manual");
