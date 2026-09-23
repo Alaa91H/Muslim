@@ -78,4 +78,18 @@
 
     <string name="scholar_library_author_book_count">%1$d كتاب/كتب في المكتبة</string>
     <string name="scholar_library_outline_more">و%1$d باب/قسم إضافي…</string>
+
+    <string name="scholar_library_path_progress_title">تقدم المسار</string>
+    <string name="scholar_library_path_progress">%1$d%% · %2$d من %3$d كتب مكتملة</string>
+    <string name="scholar_library_path_next_book">الكتاب التالي: %1$s</string>
+    <string name="scholar_library_study_plan">خطة الدراسة</string>
+    <string name="scholar_library_no_study_plan">لا توجد خطة نشطة لهذا المسار. يمكنك اختيار نمط مناسب والبدء دون إلزام بسلسلة يومية.</string>
+    <string name="scholar_library_study_plan_summary">%1$d جلسات أسبوعياً · %2$d دقيقة للجلسة · %3$d مقاطع مستهدفة في الجلسة</string>
+    <string name="scholar_library_daily_plan">خطة يومية</string>
+    <string name="scholar_library_weekly_plan">خطة أسبوعية</string>
+    <string name="scholar_library_delete_study_plan">حذف الخطة</string>
+    <string name="scholar_library_book_hierarchy">هيكل الكتاب</string>
+    <string name="scholar_library_without_volume">بدون رقم مجلد</string>
+    <string name="scholar_library_section_unspecified">مقاطع الباب</string>
+    <string name="scholar_library_hierarchy_section">%1$s · %2$d مقطع/مقاطع</string>
 </resources>
