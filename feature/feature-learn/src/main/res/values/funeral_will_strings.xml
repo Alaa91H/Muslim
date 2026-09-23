@@ -60,4 +60,6 @@
     <string name="funeral_will_print" tools:ignore="MissingTranslation">طباعة المسودة</string>
     <string name="funeral_will_print_job_name" tools:ignore="MissingTranslation">مسودة وصية شرعية</string>
     <string name="funeral_will_print_error" tools:ignore="MissingTranslation">تعذر فتح خدمة الطباعة على هذا الجهاز.</string>
+    <string name="funeral_will_reference_index_title" tools:ignore="MissingTranslation">فهرس المصادر والمراجعة</string>
+    <string name="funeral_will_reference_index_intro" tools:ignore="MissingTranslation">مراجع عامة لما ورد في الدليل. لا تستخدم هذا الفهرس وحده لإصدار حكم على حالة شخصية أو لصياغة وثيقة قانونية نهائية.</string>
 </resources>
