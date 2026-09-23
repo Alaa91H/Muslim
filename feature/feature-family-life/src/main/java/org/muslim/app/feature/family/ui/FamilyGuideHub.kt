@@ -79,6 +79,9 @@ internal fun FamilyHubContent(
     onOpenRuqyah: () -> Unit,
     onOpenNames: () -> Unit,
     onOpenAqiqah: () -> Unit,
+    onOpenQuran: () -> Unit,
+    onOpenHadith: () -> Unit,
+    onOpenAdhkar: () -> Unit,
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -166,6 +169,38 @@ internal fun FamilyHubContent(
                 title = stringResource(R.string.family_tab_aqiqah),
                 description = stringResource(R.string.family_hub_aqiqah_desc),
                 onClick = onOpenAqiqah,
+            )
+        }
+        item {
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = stringResource(R.string.family_hub_related_sections_title),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+            )
+        }
+        item {
+            FamilyToolCard(
+                icon = Icons.AutoMirrored.Filled.MenuBook,
+                title = stringResource(R.string.family_open_quran_title),
+                description = stringResource(R.string.family_open_quran_desc),
+                onClick = onOpenQuran,
+            )
+        }
+        item {
+            FamilyToolCard(
+                icon = Icons.Filled.AutoStories,
+                title = stringResource(R.string.family_open_hadith_title),
+                description = stringResource(R.string.family_open_hadith_desc),
+                onClick = onOpenHadith,
+            )
+        }
+        item {
+            FamilyToolCard(
+                icon = Icons.Filled.Favorite,
+                title = stringResource(R.string.family_open_adhkar_title),
+                description = stringResource(R.string.family_open_adhkar_desc),
+                onClick = onOpenAdhkar,
             )
         }
     }
