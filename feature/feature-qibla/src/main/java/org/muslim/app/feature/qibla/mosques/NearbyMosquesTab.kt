@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -14,15 +15,24 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.Mosque
 import androidx.compose.material.icons.filled.Navigation
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -118,6 +128,9 @@ private fun NearbyMosquesHeader(
     onRadiusSelected: (Int) -> Unit,
 ) {
     val refreshDescription = stringResource(R.string.nearby_mosques_refresh)
+    val radiusDescription = stringResource(R.string.nearby_mosques_radius_option_description, radiusKm)
+    var radiusMenuExpanded by remember { mutableStateOf(false) }
+
     IslamicCard(modifier = Modifier.fillMaxWidth()) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
@@ -147,30 +160,68 @@ private fun NearbyMosquesHeader(
                 Text(stringResource(R.string.nearby_mosques_refresh))
             }
         }
-        Spacer(Modifier.size(14.dp))
-        Text(
-            text = stringResource(R.string.nearby_mosques_radius),
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        Spacer(Modifier.size(6.dp))
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            NearbyMosqueRadiusOptionsKm.forEach { option ->
-                val radiusDescription = stringResource(R.string.nearby_mosques_radius_option_description, option)
+
+        Spacer(Modifier.size(16.dp))
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            Column(Modifier.weight(1f)) {
+                Text(
+                    text = stringResource(R.string.nearby_mosques_radius),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.size(2.dp))
+                Text(
+                    text = stringResource(R.string.nearby_mosques_radius_selected, radiusKm),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+
+            Box {
                 IslamicSecondaryButton(
-                    onClick = { onRadiusSelected(option) },
-                    enabled = option != radiusKm,
-                    modifier = Modifier.weight(1f).semantics {
-                        contentDescription = radiusDescription
-                    },
+                    onClick = { radiusMenuExpanded = true },
+                    modifier = Modifier.semantics { contentDescription = radiusDescription },
                 ) {
-                    Text(stringResource(R.string.nearby_mosques_radius_value, option))
+                    Text(stringResource(R.string.nearby_mosques_radius_value, radiusKm))
+                    Spacer(Modifier.size(6.dp))
+                    Icon(
+                        imageVector = Icons.Default.KeyboardArrowDown,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp),
+                    )
+                }
+                DropdownMenu(
+                    expanded = radiusMenuExpanded,
+                    onDismissRequest = { radiusMenuExpanded = false },
+                ) {
+                    NearbyMosqueRadiusOptionsKm.forEach { option ->
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.nearby_mosques_radius_value, option)) },
+                            onClick = {
+                                radiusMenuExpanded = false
+                                if (option != radiusKm) onRadiusSelected(option)
+                            },
+                            trailingIcon = {
+                                if (option == radiusKm) {
+                                    Icon(
+                                        imageVector = Icons.Default.Check,
+                                        contentDescription = null,
+                                        tint = MaterialTheme.colorScheme.primary,
+                                    )
+                                }
+                            },
+                        )
+                    }
                 }
             }
         }
     }
 }
-
 @Composable
 private fun NearbyMosqueRow(mosque: NearbyMosque) = MosquePlaceRow(
     place = mosque.place,
@@ -193,7 +244,9 @@ private fun MosquePlaceRow(place: MosquePlace, distanceMeters: Double?) {
     } else {
         stringResource(R.string.nearby_mosques_cached_item_description, mosqueName)
     }
+    val mapDescription = stringResource(R.string.nearby_mosques_map, mosqueName)
     val directionsDescription = stringResource(R.string.nearby_mosques_directions, mosqueName)
+
     IslamicCard(
         modifier = Modifier
             .fillMaxWidth()
@@ -204,6 +257,7 @@ private fun MosquePlaceRow(place: MosquePlace, distanceMeters: Double?) {
                 imageVector = Icons.Default.Mosque,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(26.dp),
             )
             Spacer(Modifier.size(10.dp))
             Column(Modifier.weight(1f)) {
@@ -213,10 +267,11 @@ private fun MosquePlaceRow(place: MosquePlace, distanceMeters: Double?) {
                     fontWeight = FontWeight.SemiBold,
                 )
                 if (distance != null) {
+                    Spacer(Modifier.size(2.dp))
                     Text(
                         text = distance,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.primary,
                     )
                 }
                 place.address?.let { address ->
@@ -229,14 +284,28 @@ private fun MosquePlaceRow(place: MosquePlace, distanceMeters: Double?) {
                 }
             }
         }
-        Spacer(Modifier.size(12.dp))
+
+        Spacer(Modifier.size(14.dp))
+
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.End,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             IslamicSecondaryButton(
+                onClick = { openExternalMap(context, place) },
+                modifier = Modifier
+                    .weight(1f)
+                    .semantics { contentDescription = mapDescription },
+            ) {
+                Icon(Icons.Default.Map, contentDescription = null, modifier = Modifier.size(18.dp))
+                Spacer(Modifier.size(6.dp))
+                Text(stringResource(R.string.nearby_mosques_map_action))
+            }
+            IslamicSecondaryButton(
                 onClick = { openExternalDirections(context, place) },
-                modifier = Modifier.semantics { contentDescription = directionsDescription },
+                modifier = Modifier
+                    .weight(1f)
+                    .semantics { contentDescription = directionsDescription },
             ) {
                 Icon(Icons.Default.Navigation, contentDescription = null, modifier = Modifier.size(18.dp))
                 Spacer(Modifier.size(6.dp))
@@ -245,7 +314,6 @@ private fun MosquePlaceRow(place: MosquePlace, distanceMeters: Double?) {
         }
     }
 }
-
 @Composable
 private fun formatDistance(distanceMeters: Double): String = when {
     distanceMeters < 1_000.0 -> stringResource(R.string.nearby_mosques_distance_meters, distanceMeters.toInt())
@@ -291,13 +359,36 @@ private fun MosqueActionMessage(message: Int, onRefresh: () -> Unit) {
     }
 }
 
-/** Keeps the source coordinates unrounded when constructing a navigation destination. */
+/** Keeps the source coordinates unrounded when constructing a map destination. */
 internal fun navigationCoordinates(mosque: MosquePlace): String =
     "${mosque.latitude},${mosque.longitude}"
 
+/** Standard geo URI for showing a mosque marker without starting turn-by-turn navigation. */
+internal fun mosqueMapUri(mosque: MosquePlace): String {
+    val coordinates = navigationCoordinates(mosque)
+    val label = Uri.encode(mosque.name ?: "Mosque")
+    return "geo:$coordinates?q=$coordinates($label)"
+}
+
 /**
- * Opens an external navigation application. Google Maps is preferred when it is
- * installed; otherwise any application that resolves the standard geo URI can handle it.
+ * Opens the mosque as a map marker. Google Maps is preferred when installed;
+ * otherwise any geo-capable application, then OpenStreetMap in a browser, may handle it.
+ */
+internal fun openExternalMap(context: Context, mosque: MosquePlace) {
+    val coordinates = navigationCoordinates(mosque)
+    val geoUri = Uri.parse(mosqueMapUri(mosque))
+    val googleMaps = Intent(Intent.ACTION_VIEW, geoUri).setPackage("com.google.android.apps.maps")
+    val genericMap = Intent(Intent.ACTION_VIEW, geoUri)
+    val openStreetMap = Intent(
+        Intent.ACTION_VIEW,
+        Uri.parse("https://www.openstreetmap.org/?mlat=${mosque.latitude}&mlon=${mosque.longitude}#map=18/${mosque.latitude}/${mosque.longitude}"),
+    )
+    startFirstAvailable(context, googleMaps, genericMap, openStreetMap)
+}
+
+/**
+ * Opens turn-by-turn navigation. Google Maps navigation is preferred, with a
+ * web directions URL and finally the standard geo URI as graceful fallbacks.
  */
 internal fun openExternalDirections(context: Context, mosque: NearbyMosque) =
     openExternalDirections(context, mosque.place)
@@ -306,14 +397,21 @@ internal fun openExternalDirections(context: Context, mosque: MosquePlace) {
     val coordinates = navigationCoordinates(mosque)
     val googleMaps = Intent(Intent.ACTION_VIEW, Uri.parse("google.navigation:q=$coordinates"))
         .setPackage("com.google.android.apps.maps")
-    val fallback = Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=$coordinates"))
-    try {
-        context.startActivity(googleMaps)
-    } catch (_: ActivityNotFoundException) {
+    val webDirections = Intent(
+        Intent.ACTION_VIEW,
+        Uri.parse("https://www.google.com/maps/dir/?api=1&destination=$coordinates"),
+    )
+    val geoFallback = Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=$coordinates"))
+    startFirstAvailable(context, googleMaps, webDirections, geoFallback)
+}
+
+private fun startFirstAvailable(context: Context, vararg intents: Intent) {
+    for (intent in intents) {
         try {
-            context.startActivity(fallback)
+            context.startActivity(intent)
+            return
         } catch (_: ActivityNotFoundException) {
-            // A maps application is optional; failure to resolve it must not crash the Qibla screen.
+            // Try the next compatible maps/browser application.
         }
     }
 }
