@@ -3,11 +3,14 @@ package org.muslim.app.feature.settings.update
 import android.app.DownloadManager
 import android.content.Context
 import android.net.Uri
+import dagger.hilt.android.qualifiers.ApplicationContext
 import androidx.core.net.toUri
 import kotlinx.coroutines.flow.first
 import org.muslim.app.core.datastore.AppPreferences
 import org.muslim.app.core.datastore.AppPreferencesRepository
 import java.io.File
+import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * Durable update-download coordinator backed by Android DownloadManager.
@@ -18,8 +21,9 @@ import java.io.File
  * can write them without storage permission and FileProvider can expose only
  * the verified update to Android's package installer.
  */
-internal class UpdateDownloadManager(
-    private val context: Context,
+@Singleton
+class UpdateDownloadManager @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val preferencesRepository: AppPreferencesRepository,
 ) {
     private val downloadManager: DownloadManager
