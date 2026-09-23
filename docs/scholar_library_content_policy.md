@@ -16,11 +16,11 @@
 
 ## صيغة حزمة الاستيراد
 
-يجب أن تحتوي الحزمة على `schemaVersion` بالقيمة `1` و`packName` و`licenseNotice`. ويجب أن يحمل كل كتاب `id` فريداً و`title` و`author` و`category` و`sourceName` و`licenseSummary` وقائمة `passages`. ولكل مقطع `id` فريد و`chapter` و`text`، مع `volume` و`page` اختياريين لإسناد أدق.
+الحزمة المرفقة بالتطبيق تستخدم `schemaVersion` بالقيمة `2`. ويظل المستورد متوافقاً مع حزم الإصدار `1` القديمة. يجب أن تحتوي كل حزمة على `packName` و`licenseNotice`. ويجب أن يحمل كل كتاب `id` فريداً و`title` و`author` و`category` و`sourceName` و`licenseSummary` وقائمة `passages`. يضيف الإصدار 2 بيانات اختيارية مثل `subtitle` و`language` و`difficulty` و`publisher` و`edition` و`editor` و`publicationYear` و`volumeCount` و`keywords`، ولا تُفترض هذه البيانات للحزم القديمة إن لم تصرّح بها. ولكل مقطع `id` فريد و`chapter` و`text`، مع `volume` و`page` اختياريين لإسناد أدق.
 
 ```json
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "packName": "حزمة مرخّصة",
   "licenseNotice": "بيان يوضح الإذن ونطاقه",
   "books": [
@@ -33,6 +33,11 @@
       "sourceName": "الناشر أو المصدر المرخّص",
       "sourceUrl": "https://example.org/license",
       "licenseSummary": "ترخيص أو إذن إعادة الاستعمال",
+      "language": "ar",
+      "difficulty": "Unspecified",
+      "publisher": "اسم الناشر إن توفر",
+      "edition": "بيانات الطبعة إن توفرت",
+      "keywords": ["أصول", "دراسة"],
       "passages": [
         {
           "id": "example-passage-01",
@@ -46,6 +51,11 @@
   ]
 }
 ```
+
+
+## بيانات الدراسة المحلية في الإصدار 2
+
+أضيفت في قاعدة البيانات المحلية طبقات مستقلة للتقدم في القراءة، والإشارات المرجعية، والتظليلات. هذه البيانات تخص المستخدم وتبقى محلياً على الجهاز، ولا تصبح جزءاً من حزمة الكتاب عند الاستيراد. ترقية قاعدة البيانات من الإصدار 1 إلى 2 إضافية وغير هدامة، بحيث تبقى الكتب والحزم المستوردة والملاحظات والبطاقات السابقة محفوظة.
 
 ## حدود علمية
 

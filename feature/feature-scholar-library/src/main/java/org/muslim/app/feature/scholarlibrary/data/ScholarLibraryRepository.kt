@@ -18,11 +18,19 @@ import org.muslim.app.core.common.text.ArabicText
 import org.muslim.app.feature.scholarlibrary.domain.Citation
 import org.muslim.app.feature.scholarlibrary.domain.FlashcardWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
+import org.muslim.app.feature.scholarlibrary.domain.ScholarBookmark
 import org.muslim.app.feature.scholarlibrary.domain.ScholarCategory
+import org.muslim.app.feature.scholarlibrary.domain.ScholarDifficulty
+import org.muslim.app.feature.scholarlibrary.domain.ScholarHighlight
+import org.muslim.app.feature.scholarlibrary.domain.ScholarHighlightStyle
 import org.muslim.app.feature.scholarlibrary.domain.ScholarNote
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingStatus
 import org.muslim.app.feature.scholarlibrary.domain.SearchHit
+import org.muslim.app.feature.scholarlibrary.domain.StudyBookmarkWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.StudyFlashcard
+import org.muslim.app.feature.scholarlibrary.domain.StudyHighlightWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.StudyNoteWithCitation
 
 sealed interface ScholarLibraryImportResult {
@@ -50,6 +58,15 @@ private data class ScholarPackBook(
     val sourceUrl: String? = null,
     val licenseSummary: String,
     val passages: List<ScholarPackPassage>,
+    val subtitle: String? = null,
+    val language: String = "ar",
+    val difficulty: String = ScholarDifficulty.Unspecified.name,
+    val publisher: String? = null,
+    val edition: String? = null,
+    val editor: String? = null,
+    val publicationYear: String? = null,
+    val volumeCount: Int? = null,
+    val keywords: List<String> = emptyList(),
 )
 
 @Serializable
@@ -112,6 +129,25 @@ class ScholarLibraryRepository @Inject constructor(
         }
     }
 
+    fun observeBookmarks(): Flow<List<StudyBookmarkWithCitation>> = libraryDao.observeBookmarks().map { bookmarks ->
+        bookmarks.mapNotNull { bookmark ->
+            citationForPassage(bookmark.passageId)?.let { citation ->
+                StudyBookmarkWithCitation(bookmark.toDomain(), citation)
+            }
+        }
+    }
+
+    fun observeHighlights(): Flow<List<StudyHighlightWithCitation>> = libraryDao.observeHighlights().map { highlights ->
+        highlights.mapNotNull { highlight ->
+            citationForPassage(highlight.passageId)?.let { citation ->
+                StudyHighlightWithCitation(highlight.toDomain(), citation)
+            }
+        }
+    }
+
+    fun observeReadingProgress(): Flow<List<ScholarReadingProgress>> =
+        libraryDao.observeReadingProgress().map { rows -> rows.map { it.toDomain() } }
+
     suspend fun book(bookId: String): ScholarBook? = libraryDao.bookById(bookId)?.toDomain()
 
     suspend fun search(rawQuery: String): List<SearchHit> {
@@ -170,10 +206,96 @@ class ScholarLibraryRepository @Inject constructor(
 
     suspend fun deleteFlashcard(id: Long) = libraryDao.deleteFlashcard(id)
 
+    suspend fun setBookmark(passageId: String, bookmarked: Boolean): Boolean {
+        ensureSeeded()
+        if (libraryDao.passageById(passageId) == null) return false
+        if (bookmarked) {
+            libraryDao.upsertBookmark(
+                ScholarBookmarkEntity(
+                    passageId = passageId,
+                    createdAtEpochMillis = System.currentTimeMillis(),
+                ),
+            )
+        } else {
+            libraryDao.deleteBookmark(passageId)
+        }
+        return true
+    }
+
+    suspend fun addHighlight(
+        passageId: String,
+        quote: String,
+        note: String? = null,
+        style: ScholarHighlightStyle = ScholarHighlightStyle.Important,
+    ): Boolean {
+        ensureSeeded()
+        if (libraryDao.passageById(passageId) == null) return false
+        val cleanQuote = quote.trim()
+        val cleanNote = note?.trim()?.takeIf { it.isNotEmpty() }
+        if (cleanQuote.length !in 1..HIGHLIGHT_MAX_LENGTH) return false
+        if (cleanNote != null && cleanNote.length > NOTE_MAX_LENGTH) return false
+        libraryDao.insertHighlight(
+            ScholarHighlightEntity(
+                passageId = passageId,
+                quote = cleanQuote,
+                note = cleanNote,
+                style = style.name,
+                createdAtEpochMillis = System.currentTimeMillis(),
+            ),
+        )
+        return true
+    }
+
+    suspend fun deleteHighlight(id: Long) = libraryDao.deleteHighlight(id)
+
+    suspend fun markBookOpened(bookId: String): Boolean {
+        ensureSeeded()
+        if (libraryDao.bookById(bookId) == null) return false
+        val current = libraryDao.readingProgressByBook(bookId)
+        if (current == null) {
+            libraryDao.upsertReadingProgress(
+                ScholarReadingProgressEntity(
+                    bookId = bookId,
+                    lastPassageId = null,
+                    status = ScholarReadingStatus.InProgress.name,
+                    progressPercent = 0,
+                    updatedAtEpochMillis = System.currentTimeMillis(),
+                ),
+            )
+        }
+        return true
+    }
+
+    suspend fun updateReadingProgress(
+        bookId: String,
+        lastPassageId: String?,
+        progressPercent: Int,
+    ): Boolean {
+        ensureSeeded()
+        if (libraryDao.bookById(bookId) == null) return false
+        if (lastPassageId != null) {
+            val passage = libraryDao.passageById(lastPassageId) ?: return false
+            if (passage.bookId != bookId) return false
+        }
+        val percent = progressPercent.coerceIn(0, 100)
+        val status = if (percent >= 100) ScholarReadingStatus.Completed else ScholarReadingStatus.InProgress
+        libraryDao.upsertReadingProgress(
+            ScholarReadingProgressEntity(
+                bookId = bookId,
+                lastPassageId = lastPassageId,
+                status = status.name,
+                progressPercent = percent,
+                updatedAtEpochMillis = System.currentTimeMillis(),
+            ),
+        )
+        return true
+    }
+
     /**
      * Imports a user-selected JSON pack. The pack must carry source and licence
      * information for every book; it is intentionally not a scraper or remote
-     * downloader for third-party libraries.
+     * downloader for third-party libraries. v1 packs remain accepted while v2
+     * adds richer optional bibliography and study metadata.
      */
     suspend fun importPack(rawText: String): ScholarLibraryImportResult = runCatching {
         ensureSeeded()
@@ -194,6 +316,9 @@ class ScholarLibraryRepository @Inject constructor(
             chapter = passage.chapter,
             volume = passage.volume,
             page = passage.page,
+            edition = book.edition,
+            publisher = book.publisher,
+            publicationYear = book.publicationYear,
         )
     }
 
@@ -208,9 +333,6 @@ class ScholarLibraryRepository @Inject constructor(
         // rebuilding avoids stale/duplicated results after a pack replaces text.
         ftsDao.clearAll()
         val allRows = buildList {
-            // The bundled corpus is seeded once and user packs only add data.
-            // Re-indexing the current pack is sufficient because imported ids are
-            // unique and bundled rows are inserted before it.
             pack.books.forEach { book ->
                 book.passages.forEach { passage ->
                     add(
@@ -223,8 +345,6 @@ class ScholarLibraryRepository @Inject constructor(
             }
         }
         if (allRows.isNotEmpty()) ftsDao.upsertRows(allRows)
-        // The first seed completes the index. Later imports retain searchable
-        // bundled content by rebuilding it in the caller only when needed.
         if (!imported) return
         rebuildIndex()
     }
@@ -249,7 +369,9 @@ class ScholarLibraryRepository @Inject constructor(
 
     private fun decodeAndValidate(rawText: String): ScholarPack {
         val pack = json.decodeFromString<ScholarPack>(rawText)
-        require(pack.schemaVersion == SCHEMA_VERSION) { "إصدار الحزمة غير مدعوم." }
+        require(pack.schemaVersion in MIN_PACK_SCHEMA_VERSION..CURRENT_PACK_SCHEMA_VERSION) {
+            "إصدار الحزمة غير مدعوم."
+        }
         require(pack.packName.isNotBlank()) { "اسم الحزمة مطلوب." }
         require(pack.licenseNotice.isNotBlank()) { "يجب أن تتضمن الحزمة بيان ترخيص واضحاً." }
         require(pack.books.isNotEmpty() && pack.books.size <= MAX_BOOKS_PER_PACK) { "عدد الكتب في الحزمة غير صالح." }
@@ -261,11 +383,23 @@ class ScholarLibraryRepository @Inject constructor(
             require(book.sourceName.isNotBlank() && book.licenseSummary.isNotBlank()) {
                 "يجب توضيح مصدر وترخيص كل كتاب."
             }
+            require(book.language.isNotBlank() && book.language.length <= 20) { "لغة الكتاب غير صالحة." }
+            require(ScholarDifficulty.entries.any { it.name.equals(book.difficulty, ignoreCase = true) }) {
+                "مستوى الكتاب غير مدعوم."
+            }
+            require(book.volumeCount == null || book.volumeCount in 1..MAX_VOLUME_COUNT) {
+                "عدد مجلدات الكتاب غير صالح."
+            }
+            require(book.keywords.size <= MAX_KEYWORDS_PER_BOOK && book.keywords.all { it.length <= MAX_KEYWORD_LENGTH }) {
+                "الكلمات المفتاحية للكتاب تتجاوز الحدود المسموح بها."
+            }
             require(book.passages.isNotEmpty() && book.passages.size <= MAX_PASSAGES_PER_BOOK) {
                 "لا بد من وجود نص واحد على الأقل لكل كتاب ضمن الحدود المسموح بها."
             }
             book.passages.forEach { passage ->
-                require(ID_REGEX.matches(passage.id) && passageIds.add(passage.id)) { "معرّف مقطع مكرر أو غير صالح." }
+                require(ID_REGEX.matches(passage.id) && passageIds.add(passage.id)) {
+                    "معرّف مقطع مكرر أو غير صالح."
+                }
                 require(passage.chapter.isNotBlank() && passage.text.trim().length in 1..PASSAGE_MAX_LENGTH) {
                     "نص أو فصل المقطع غير صالح."
                 }
@@ -285,6 +419,15 @@ class ScholarLibraryRepository @Inject constructor(
         sourceUrl = sourceUrl,
         licenseSummary = licenseSummary,
         imported = imported,
+        subtitle = subtitle,
+        language = language,
+        difficulty = ScholarDifficulty.fromId(difficulty),
+        publisher = publisher,
+        edition = edition,
+        editor = editor,
+        publicationYear = publicationYear,
+        volumeCount = volumeCount,
+        keywords = keywords.split(KEYWORD_SEPARATOR).filter { it.isNotBlank() },
     )
 
     private fun ScholarPassageEntity.toDomain() = ScholarPassage(
@@ -308,6 +451,28 @@ class ScholarLibraryRepository @Inject constructor(
         createdAtEpochMillis = createdAtEpochMillis,
     )
 
+    private fun ScholarBookmarkEntity.toDomain() = ScholarBookmark(
+        passageId = passageId,
+        createdAtEpochMillis = createdAtEpochMillis,
+    )
+
+    private fun ScholarHighlightEntity.toDomain() = ScholarHighlight(
+        id = id,
+        passageId = passageId,
+        quote = quote,
+        note = note,
+        style = ScholarHighlightStyle.fromId(style),
+        createdAtEpochMillis = createdAtEpochMillis,
+    )
+
+    private fun ScholarReadingProgressEntity.toDomain() = ScholarReadingProgress(
+        bookId = bookId,
+        lastPassageId = lastPassageId,
+        status = ScholarReadingStatus.fromId(status),
+        progressPercent = progressPercent.coerceIn(0, 100),
+        updatedAtEpochMillis = updatedAtEpochMillis,
+    )
+
     private fun ScholarPackBook.toEntity(imported: Boolean) = ScholarBookEntity(
         id = id,
         title = title,
@@ -319,6 +484,15 @@ class ScholarLibraryRepository @Inject constructor(
         sourceUrl = sourceUrl,
         licenseSummary = licenseSummary,
         imported = imported,
+        subtitle = subtitle,
+        language = language,
+        difficulty = ScholarDifficulty.fromId(difficulty).name,
+        publisher = publisher,
+        edition = edition,
+        editor = editor,
+        publicationYear = publicationYear,
+        volumeCount = volumeCount,
+        keywords = keywords.joinToString(KEYWORD_SEPARATOR),
     )
 
     private fun ScholarPackPassage.toEntity(bookId: String) = ScholarPassageEntity(
@@ -332,7 +506,8 @@ class ScholarLibraryRepository @Inject constructor(
 
     private companion object {
         const val BUNDLED_CATALOG = "scholar_library_catalog.json"
-        const val SCHEMA_VERSION = 1
+        const val MIN_PACK_SCHEMA_VERSION = 1
+        const val CURRENT_PACK_SCHEMA_VERSION = 2
         const val SEARCH_LIMIT = 100
         const val PACK_MAX_CHARS = 5_000_000
         const val MAX_BOOKS_PER_PACK = 1_000
@@ -340,6 +515,11 @@ class ScholarLibraryRepository @Inject constructor(
         const val PASSAGE_MAX_LENGTH = 30_000
         const val NOTE_MAX_LENGTH = 4_000
         const val FLASHCARD_SIDE_MAX_LENGTH = 1_000
+        const val HIGHLIGHT_MAX_LENGTH = 30_000
+        const val MAX_VOLUME_COUNT = 500
+        const val MAX_KEYWORDS_PER_BOOK = 100
+        const val MAX_KEYWORD_LENGTH = 120
+        const val KEYWORD_SEPARATOR = "\u001F"
         val ID_REGEX = Regex("[A-Za-z0-9_-]{3,120}")
         val REVIEW_INTERVALS_DAYS = intArrayOf(1, 3, 7, 14, 30)
     }

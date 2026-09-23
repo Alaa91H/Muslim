@@ -22,6 +22,15 @@ data class ScholarBookEntity(
     val sourceUrl: String?,
     val licenseSummary: String,
     val imported: Boolean,
+    val subtitle: String? = null,
+    @ColumnInfo(defaultValue = "'ar'") val language: String = "ar",
+    @ColumnInfo(defaultValue = "'Unspecified'") val difficulty: String = "Unspecified",
+    val publisher: String? = null,
+    val edition: String? = null,
+    val editor: String? = null,
+    val publicationYear: String? = null,
+    val volumeCount: Int? = null,
+    @ColumnInfo(defaultValue = "''") val keywords: String = "",
 )
 
 @Entity(
@@ -68,4 +77,38 @@ data class ScholarFlashcardEntity(
     val reviewCount: Int,
     val dueAtEpochMillis: Long,
     val createdAtEpochMillis: Long,
+)
+
+@Entity(
+    tableName = "scholar_bookmarks",
+    indices = [Index(value = ["createdAtEpochMillis"])],
+)
+data class ScholarBookmarkEntity(
+    @PrimaryKey val passageId: String,
+    val createdAtEpochMillis: Long,
+)
+
+@Entity(
+    tableName = "scholar_highlights",
+    indices = [Index(value = ["passageId"]), Index(value = ["createdAtEpochMillis"])],
+)
+data class ScholarHighlightEntity(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val passageId: String,
+    val quote: String,
+    val note: String?,
+    val style: String,
+    val createdAtEpochMillis: Long,
+)
+
+@Entity(
+    tableName = "scholar_reading_progress",
+    indices = [Index(value = ["status"]), Index(value = ["updatedAtEpochMillis"])],
+)
+data class ScholarReadingProgressEntity(
+    @PrimaryKey val bookId: String,
+    val lastPassageId: String?,
+    val status: String,
+    val progressPercent: Int,
+    val updatedAtEpochMillis: Long,
 )
