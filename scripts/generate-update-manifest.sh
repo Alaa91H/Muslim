@@ -11,7 +11,13 @@ if [ ! -f "$APK_PATH" ]; then
   exit 1
 fi
 
-AAPT="$(find "${ANDROID_HOME:-$ANDROID_SDK_ROOT}/build-tools" -type f -name aapt 2>/dev/null | sort -V | tail -1)"
+SDK_ROOT="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-}}"
+if [ -z "$SDK_ROOT" ]; then
+  echo "ANDROID_HOME or ANDROID_SDK_ROOT must point to an Android SDK." >&2
+  exit 1
+fi
+
+AAPT="$(find "$SDK_ROOT/build-tools" -type f -name aapt 2>/dev/null | sort -V | tail -1)"
 if [ -z "$AAPT" ] || [ ! -x "$AAPT" ]; then
   echo "Unable to locate Android aapt in the configured SDK." >&2
   exit 1
