@@ -15,16 +15,27 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import org.muslim.app.feature.learn.R
 
+data class WillDraftProtectionActions(
+    val unlock: () -> Unit,
+    val enable: () -> Unit,
+    val disable: () -> Unit,
+    val lockNow: () -> Unit,
+)
+
 data class WillDraftProtectionSession(
     val loaded: Boolean,
     val enabled: Boolean,
     val unlocked: Boolean,
     val availability: WillDraftAuthenticationAvailability,
     val errorMessage: String?,
-    val unlock: () -> Unit,
-    val enable: () -> Unit,
-    val disable: () -> Unit,
-    val lockNow: () -> Unit,
+    val actions: WillDraftProtectionActions,
+)
+
+private data class ProtectionAuthMessages(
+    val title: String,
+    val subtitle: String,
+    val notConfigured: String,
+    val unavailable: String,
 )
 
 /**
@@ -41,10 +52,12 @@ fun rememberWillDraftProtectionSession(
     val authenticator = remember(activity) {
         activity?.let(::WillDraftAuthenticator)
     }
-    val promptTitle = stringResource(R.string.funeral_will_auth_prompt_title)
-    val promptSubtitle = stringResource(R.string.funeral_will_auth_prompt_subtitle)
-    val notConfiguredMessage = stringResource(R.string.funeral_will_auth_not_configured)
-    val unavailableMessage = stringResource(R.string.funeral_will_auth_unavailable)
+    val messages = ProtectionAuthMessages(
+        title = stringResource(R.string.funeral_will_auth_prompt_title),
+        subtitle = stringResource(R.string.funeral_will_auth_prompt_subtitle),
+        notConfigured = stringResource(R.string.funeral_will_auth_not_configured),
+        unavailable = stringResource(R.string.funeral_will_auth_unavailable),
+    )
     var unlocked by remember { mutableStateOf(false) }
     var errorMessage by rememberSaveable { mutableStateOf<String?>(null) }
     val lifecycleOwner = LocalLifecycleOwner.current
@@ -63,30 +76,17 @@ fun rememberWillDraftProtectionSession(
 
     val availability = authenticator?.availability()
         ?: WillDraftAuthenticationAvailability.Unavailable
-
-    fun authenticate(afterSuccess: () -> Unit) {
-        errorMessage = null
-        when (availability) {
-            WillDraftAuthenticationAvailability.Available -> {
-                authenticator?.authenticate(
-                    title = promptTitle,
-                    subtitle = promptSubtitle,
-                    onSuccess = {
-                        errorMessage = null
-                        afterSuccess()
-                    },
-                    onError = { errorMessage = it },
-                )
-            }
-
-            WillDraftAuthenticationAvailability.NotConfigured -> {
-                errorMessage = notConfiguredMessage
-            }
-
-            WillDraftAuthenticationAvailability.Unavailable -> {
-                errorMessage = unavailableMessage
-            }
-        }
+    val authenticate: ((() -> Unit) -> Unit) = { afterSuccess ->
+        requestDraftAuthentication(
+            authenticator = authenticator,
+            availability = availability,
+            messages = messages,
+            onError = { errorMessage = it },
+            onSuccess = {
+                errorMessage = null
+                afterSuccess()
+            },
+        )
     }
 
     return WillDraftProtectionSession(
@@ -95,26 +95,55 @@ fun rememberWillDraftProtectionSession(
         unlocked = state.loaded && (!state.enabled || unlocked),
         availability = availability,
         errorMessage = errorMessage,
-        unlock = {
-            authenticate {
-                unlocked = true
-            }
-        },
-        enable = {
-            authenticate {
-                unlocked = true
-                onSetEnabled(true)
-            }
-        },
-        disable = {
-            authenticate {
-                unlocked = true
-                onSetEnabled(false)
-            }
-        },
-        lockNow = {
-            errorMessage = null
-            unlocked = false
-        },
+        actions = WillDraftProtectionActions(
+            unlock = {
+                authenticate {
+                    unlocked = true
+                }
+            },
+            enable = {
+                authenticate {
+                    unlocked = true
+                    onSetEnabled(true)
+                }
+            },
+            disable = {
+                authenticate {
+                    unlocked = true
+                    onSetEnabled(false)
+                }
+            },
+            lockNow = {
+                errorMessage = null
+                unlocked = false
+            },
+        ),
     )
+}
+
+private fun requestDraftAuthentication(
+    authenticator: WillDraftAuthenticator?,
+    availability: WillDraftAuthenticationAvailability,
+    messages: ProtectionAuthMessages,
+    onError: (String) -> Unit,
+    onSuccess: () -> Unit,
+) {
+    when (availability) {
+        WillDraftAuthenticationAvailability.Available -> {
+            authenticator?.authenticate(
+                title = messages.title,
+                subtitle = messages.subtitle,
+                onSuccess = onSuccess,
+                onError = onError,
+            )
+        }
+
+        WillDraftAuthenticationAvailability.NotConfigured -> {
+            onError(messages.notConfigured)
+        }
+
+        WillDraftAuthenticationAvailability.Unavailable -> {
+            onError(messages.unavailable)
+        }
+    }
 }
