@@ -35,7 +35,7 @@ class WillDraftRepository @Inject constructor(
     val storageState: Flow<WillDraftStorageState> =
         context.willDraftDataStore.data.map(::readStorageState)
 
-    val draft: Flow<WillDraft> = storageState.map(WillDraftStorageState::draft)
+    val draft: Flow<WillDraft> = storageState.map { it.draft }
 
     /**
      * Converts an existing plaintext draft to encrypted storage in place.
