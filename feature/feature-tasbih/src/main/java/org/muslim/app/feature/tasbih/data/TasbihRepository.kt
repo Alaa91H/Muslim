@@ -60,7 +60,7 @@ class TasbihRepository @Inject constructor(
             val storedDate = prefs[Keys.DATE]?.let { runCatching { LocalDate.parse(it) }.getOrNull() } ?: today
             TasbihState(
                 counts = TasbihCounter.effectiveCounts(storedCounts, storedDate, today),
-                target = prefs[Keys.TARGET] ?: DEFAULT_TARGET,
+                target = (prefs[Keys.TARGET] ?: DEFAULT_TARGET).coerceIn(1, 100_000),
                 phrase = TasbihPersistenceCodec.resolveSelectedPhrase(
                     stableId = prefs[Keys.PHRASE_ID],
                     legacyOrdinal = prefs[Keys.PHRASE],
