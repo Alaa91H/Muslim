@@ -275,6 +275,40 @@ CORPORA = (
             }
         ),
     ),
+    CorpusSpec(
+        name="Ethics, Manners, and Muslim Life",
+        legacy=None,
+        asset=RAW / "reference_ethics_life_v2.json",
+        min_topics=73,
+        min_chapters=8,
+        min_revision=1,
+        required_topic_ids=frozenset(
+            {
+                "ethics_foundations",
+                "intention_sincerity",
+                "truthfulness",
+                "trustworthiness",
+                "patience",
+                "gratitude",
+                "justice",
+                "speech_ethics",
+                "backbiting_slander",
+                "verification_rumors",
+                "parents",
+                "spouses",
+                "children",
+                "neighbors",
+                "work_ethics",
+                "trade_honesty",
+                "debt",
+                "community_service",
+                "rights_dignity",
+                "digital_speech",
+                "digital_privacy",
+                "digital_misinformation",
+            }
+        ),
+    ),
 )
 
 
