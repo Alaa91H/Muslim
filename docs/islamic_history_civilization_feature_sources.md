@@ -19,7 +19,9 @@ The history feature now separates **UI**, **content contracts**, and **curated c
 - `IslamicHistoricalEvents.kt` adds 22 structured chronological anchors with context, significance, category, and links to eras, states, atlas places, people, civilization topics, and sources.
 - `IslamicHistoryPeopleProfiles.kt` and `IslamicHistoryPlaceProfiles.kt` hold the long-form profile catalogues for all 8 exposed historical figures and all 13 atlas places.
 - `IslamicHistoryProfiles.kt` is the compact lookup facade used by UI, validation, and search code.
-- `IslamicHistorySearch.kt` provides offline unified search across eras, states, events, people, places, and civilization topics, including Arabic diacritic/orthographic normalization.
+- `IslamicHistorySearch.kt` remains the dependency-free in-memory search/fallback implementation and Arabic normalization utility.
+- `assets/history/search_index.json` packages the current 79 searchable entities as a versioned JSON snapshot (6 eras, 18 states, 22 events, 12 civilization topics, 8 people, and 13 places).
+- `IslamicHistorySearchDatabase.kt` stores that snapshot in a local Room FTS4 index, while `IslamicHistorySearchRepository.kt` handles version-aware seeding, typed FTS queries, ranking, and automatic fallback to the in-memory search if database/asset initialization fails.
 - `IslamicHistoryNavigation.kt` provides stable cross-section navigation targets so search results and related-entity links can open the correct destination.
 - `HistoryContentValidator.kt` validates unique IDs, bilingual completeness, chronology sanity, atlas time ranges, source references, related-era/topic references, state/era links, event references, person/place links, profile coverage, and section structure.
 - `HistoryContentValidatorTest.kt` makes those rules part of CI so broken references or incomplete articles are caught before merge.
@@ -43,6 +45,21 @@ The Compose screen now exposes dedicated **States & Dynasties**, **Civilization*
 
 
 
+
+## Packaged content and Room/FTS migration boundary
+
+Phase 7 establishes the storage boundary needed to move the growing reference catalogue out of Kotlin constants without forcing a risky all-at-once rewrite.
+
+The first migrated artifact is the **search/content index**:
+
+- the current 79 public history entities are serialized into a packaged, versioned JSON asset;
+- the asset declares both a schema version and a content version;
+- startup/search initialization validates schema compatibility, unique entity keys, known entity types, and bilingual titles before indexing;
+- a local Room FTS4 database is rebuilt transactionally only when the packaged content version or document count changes;
+- search queries are debounced in Compose, normalized for Arabic matching, converted to safe prefix-token FTS expressions, and can be restricted to one entity type;
+- failures in asset loading, Room initialization, or FTS querying fall back to the existing dependency-free search so the reference screen remains usable.
+
+The long-form canonical domain records (articles, state/event/topic/profile details) still remain in Kotlin during this migration step. This is intentional: Phase 7 moves indexing and persistence first, then later content batches can be moved into packaged JSON/Room behind the same repository boundary without rewriting navigation and reader UI again.
 
 ## Search, cross-navigation, and atlas time filter
 
