@@ -111,6 +111,20 @@ fun AdhkarScreen(
     }
 }
 
+private data class AdhkarLibrarySnapshot(
+    val adhkar: List<Dhikr>,
+    val favorites: List<Dhikr>,
+    val visibleCount: Int,
+    val favoriteIds: Set<Long>,
+    val selectedCategory: DhikrCategory?,
+    val searchQuery: String,
+    val favoritesOnly: Boolean,
+    val morningEveningReminderEnabled: Boolean,
+    val speechEnabled: Boolean,
+    val speechReady: Boolean,
+    val speakingDhikrId: Long?,
+)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun AdhkarLibraryContent(
@@ -120,18 +134,19 @@ private fun AdhkarLibraryContent(
     modifier: Modifier = Modifier,
     viewModel: AdhkarViewModel,
 ) {
-    val adhkar by viewModel.adhkar.collectAsStateWithLifecycle()
-    val favorites by viewModel.favorites.collectAsStateWithLifecycle()
-    val visibleAdhkar by viewModel.visibleAdhkar.collectAsStateWithLifecycle()
-    val favoriteIds by viewModel.favoriteIds.collectAsStateWithLifecycle()
-    val selectedCategory by viewModel.selectedCategory.collectAsStateWithLifecycle()
-    val searchQuery by viewModel.searchQuery.collectAsStateWithLifecycle()
-    val favoritesOnly by viewModel.favoritesOnly.collectAsStateWithLifecycle()
-    val resultCount by viewModel.resultCount.collectAsStateWithLifecycle()
-    val morningEveningReminderEnabled by viewModel.morningEveningReminderEnabled.collectAsStateWithLifecycle()
-    val speechEnabled by viewModel.speechEnabled.collectAsStateWithLifecycle()
-    val speechReady by viewModel.speechReady.collectAsStateWithLifecycle()
-    val speakingDhikrId by viewModel.speakingDhikrId.collectAsStateWithLifecycle()
+    val snapshot = AdhkarLibrarySnapshot(
+        adhkar = viewModel.adhkar.collectAsStateWithLifecycle().value,
+        favorites = viewModel.favorites.collectAsStateWithLifecycle().value,
+        visibleCount = viewModel.resultCount.collectAsStateWithLifecycle().value,
+        favoriteIds = viewModel.favoriteIds.collectAsStateWithLifecycle().value,
+        selectedCategory = viewModel.selectedCategory.collectAsStateWithLifecycle().value,
+        searchQuery = viewModel.searchQuery.collectAsStateWithLifecycle().value,
+        favoritesOnly = viewModel.favoritesOnly.collectAsStateWithLifecycle().value,
+        morningEveningReminderEnabled = viewModel.morningEveningReminderEnabled.collectAsStateWithLifecycle().value,
+        speechEnabled = viewModel.speechEnabled.collectAsStateWithLifecycle().value,
+        speechReady = viewModel.speechReady.collectAsStateWithLifecycle().value,
+        speakingDhikrId = viewModel.speakingDhikrId.collectAsStateWithLifecycle().value,
+    )
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val copiedMessage = stringResource(R.string.adhkar_copied)
@@ -162,94 +177,119 @@ private fun AdhkarLibraryContent(
             )
         },
     ) { innerPadding ->
-        Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
-            AdhkarCategoryFilters(
-                selectedCategory = selectedCategory,
-                categories = viewModel.categories,
-                onSelected = viewModel::selectCategory,
-            )
+        AdhkarLibraryBody(
+            snapshot = snapshot,
+            innerPadding = innerPadding,
+            categories = viewModel.categories,
+            viewModel = viewModel,
+            onOpenReader = onOpenReader,
+            onCopied = onCopied,
+        )
+    }
+}
 
-            Spacer(Modifier.height(8.dp))
+@Composable
+private fun AdhkarLibraryBody(
+    snapshot: AdhkarLibrarySnapshot,
+    innerPadding: PaddingValues,
+    categories: List<DhikrCategory>,
+    viewModel: AdhkarViewModel,
+    onOpenReader: () -> Unit,
+    onCopied: () -> Unit,
+) {
+    Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
+        AdhkarCategoryFilters(
+            selectedCategory = snapshot.selectedCategory,
+            categories = categories,
+            onSelected = viewModel::selectCategory,
+        )
+        Spacer(Modifier.height(8.dp))
+        AdhkarLibraryFilters(
+            searchQuery = snapshot.searchQuery,
+            favoritesOnly = snapshot.favoritesOnly,
+            resultCount = snapshot.visibleCount,
+            readerEnabled = snapshot.visibleCount > 0,
+            onSearchQueryChanged = viewModel::setSearchQuery,
+            onFavoritesOnlyChanged = viewModel::setFavoritesOnly,
+            onOpenReader = onOpenReader,
+        )
+        Spacer(Modifier.height(8.dp))
+        ReminderMasterSwitch(
+            enabled = snapshot.morningEveningReminderEnabled,
+            onEnabledChanged = viewModel::setMorningEveningReminderEnabled,
+        )
+        IslamicDecorationDivider(
+            tint = MaterialTheme.colorScheme.tertiary,
+            modifier = Modifier.padding(horizontal = 24.dp),
+        )
+        Spacer(Modifier.height(8.dp))
+        AdhkarList(
+            snapshot = snapshot,
+            viewModel = viewModel,
+            onCopied = onCopied,
+        )
+    }
+}
 
-            AdhkarLibraryFilters(
-                searchQuery = searchQuery,
-                favoritesOnly = favoritesOnly,
-                resultCount = resultCount,
-                readerEnabled = visibleAdhkar.isNotEmpty(),
-                onSearchQueryChanged = viewModel::setSearchQuery,
-                onFavoritesOnlyChanged = viewModel::setFavoritesOnly,
-                onOpenReader = onOpenReader,
-            )
-
-            Spacer(Modifier.height(8.dp))
-            ReminderMasterSwitch(
-                enabled = morningEveningReminderEnabled,
-                onEnabledChanged = viewModel::setMorningEveningReminderEnabled,
-            )
-
-            IslamicDecorationDivider(
-                tint = MaterialTheme.colorScheme.tertiary,
-                modifier = Modifier.padding(horizontal = 24.dp),
-            )
-            Spacer(Modifier.height(8.dp))
-
-            LazyColumn(
-                modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(bottom = 24.dp),
-            ) {
-                if (visibleAdhkar.isEmpty()) {
-                    item(key = "empty") {
-                        Text(
-                            text = stringResource(R.string.adhkar_no_results),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.padding(24.dp),
-                        )
-                    }
-                }
-
-                if (favorites.isNotEmpty()) {
-                    item(key = "favorites-header") {
-                        MuslimSectionHeader(
-                            title = stringResource(R.string.adhkar_favorites),
-                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                        )
-                    }
-                    items(favorites, key = { "fav-${it.id}" }) { dhikr ->
-                        DhikrCard(
-                            dhikr = dhikr,
-                            count = viewModel.count(dhikr.id).collectAsStateWithLifecycle(),
-                            isFavorite = dhikr.id in favoriteIds,
-                            actions = cardActions(
-                                dhikr = dhikr,
-                                viewModel = viewModel,
-                                speechEnabled = speechEnabled && speechReady,
-                                isSpeaking = speakingDhikrId == dhikr.id,
-                                onCopied = onCopied,
-                            ),
-                        )
-                        HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
-                    }
-                }
-
-                items(adhkar, key = { it.id }) { dhikr ->
-                    DhikrCard(
-                        dhikr = dhikr,
-                        count = viewModel.count(dhikr.id).collectAsStateWithLifecycle(),
-                        isFavorite = dhikr.id in favoriteIds,
-                        actions = cardActions(
-                            dhikr = dhikr,
-                            viewModel = viewModel,
-                            speechEnabled = speechEnabled && speechReady,
-                            isSpeaking = speakingDhikrId == dhikr.id,
-                            onCopied = onCopied,
-                        ),
-                    )
-                    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
-                }
+@Composable
+private fun AdhkarList(
+    snapshot: AdhkarLibrarySnapshot,
+    viewModel: AdhkarViewModel,
+    onCopied: () -> Unit,
+) {
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(bottom = 24.dp),
+    ) {
+        if (snapshot.visibleCount == 0) {
+            item(key = "empty") {
+                Text(
+                    text = stringResource(R.string.adhkar_no_results),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(24.dp),
+                )
             }
         }
+
+        if (snapshot.favorites.isNotEmpty()) {
+            item(key = "favorites-header") {
+                MuslimSectionHeader(
+                    title = stringResource(R.string.adhkar_favorites),
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                )
+            }
+            items(snapshot.favorites, key = { "fav-${it.id}" }) { dhikr ->
+                LibraryDhikrItem(dhikr, snapshot, viewModel, onCopied)
+            }
+        }
+
+        items(snapshot.adhkar, key = { it.id }) { dhikr ->
+            LibraryDhikrItem(dhikr, snapshot, viewModel, onCopied)
+        }
     }
+}
+
+@Composable
+private fun LibraryDhikrItem(
+    dhikr: Dhikr,
+    snapshot: AdhkarLibrarySnapshot,
+    viewModel: AdhkarViewModel,
+    onCopied: () -> Unit,
+) {
+    DhikrCard(
+        dhikr = dhikr,
+        count = viewModel.count(dhikr.id).collectAsStateWithLifecycle(),
+        isFavorite = dhikr.id in snapshot.favoriteIds,
+        actions = cardActions(
+            dhikr = dhikr,
+            viewModel = viewModel,
+            speechEnabled = snapshot.speechEnabled && snapshot.speechReady,
+            isSpeaking = snapshot.speakingDhikrId == dhikr.id,
+            onCopied = onCopied,
+        ),
+    )
+    HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
 }
 
 @Composable
