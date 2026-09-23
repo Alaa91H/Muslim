@@ -11,12 +11,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.LazyRow
@@ -35,6 +37,7 @@ import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.PictureAsPdf
+import androidx.compose.material.icons.filled.Print
 import androidx.compose.material.icons.filled.Save
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Security
@@ -69,6 +72,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -81,6 +85,7 @@ import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.data.FuneralWillIntroVisibility
+import org.muslim.app.feature.learn.data.printWillDraft
 import org.muslim.app.feature.learn.domain.FuneralContent
 import org.muslim.app.feature.learn.domain.FuneralGuideSection
 import org.muslim.app.feature.learn.domain.LocalizedFuneralText
@@ -104,6 +109,7 @@ private data class WillDraftActions(
     val onSave: () -> Unit,
     val onShare: () -> Unit,
     val onExportPdf: () -> Unit,
+    val onPrint: () -> Unit,
     val onClear: () -> Unit,
 )
 
@@ -217,6 +223,11 @@ fun FuneralWillScreen(
         isArabic = isArabic,
         status = pdfExportStatus,
     )
+    val printDraft = rememberPrintAction(
+        context = context,
+        draft = draft,
+        isArabic = isArabic,
+    )
     val protectionSession = rememberWillDraftProtectionSession(
         state = draftProtection,
         onSetEnabled = viewModel::setDraftProtectionEnabled,
@@ -261,6 +272,7 @@ fun FuneralWillScreen(
                 onSave = { viewModel.save(draft) },
                 onShare = { showShareConfirmation = true },
                 onExportPdf = exportPdf,
+                onPrint = printDraft,
                 onClear = { showClearConfirmation = true },
             ),
             intro = WillIntroActions(
@@ -305,6 +317,21 @@ private fun rememberPdfExportAction(
     }
 
     return { launcher.launch(filename) }
+}
+
+@Composable
+private fun rememberPrintAction(
+    context: Context,
+    draft: WillDraft,
+    isArabic: Boolean,
+): () -> Unit {
+    val jobName = stringResource(R.string.funeral_will_print_job_name)
+    val errorMessage = stringResource(R.string.funeral_will_print_error)
+    return {
+        if (!printWillDraft(context, draft, isArabic, jobName)) {
+            Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show()
+        }
+    }
 }
 
 @Composable
@@ -398,7 +425,10 @@ private fun FuneralWillBody(
     state: FuneralWillUiState,
     actions: FuneralWillUiActions,
 ) {
-    Column(modifier.fillMaxSize()) {
+    Column(
+        modifier = modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
         IslamicDecorationBand(
             tint = MaterialTheme.colorScheme.tertiary,
             compact = true,
@@ -495,7 +525,10 @@ private fun WillDraftContent(
     var educationQuery by rememberSaveable { mutableStateOf("") }
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .widthIn(max = 900.dp)
+            .fillMaxWidth()
+            .fillMaxHeight(),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
@@ -531,6 +564,7 @@ private fun WillDraftContent(
                 onSave = draftActions.onSave,
                 onShare = draftActions.onShare,
                 onExportPdf = draftActions.onExportPdf,
+                onPrint = draftActions.onPrint,
                 onClear = draftActions.onClear,
             )
         }
@@ -840,6 +874,7 @@ private fun LazyListScope.willDraftActions(
     onSave: () -> Unit,
     onShare: () -> Unit,
     onExportPdf: () -> Unit,
+    onPrint: () -> Unit,
     onClear: () -> Unit,
 ) {
     willDraftSaveState(draft, isDirty)
@@ -866,6 +901,14 @@ private fun LazyListScope.willDraftActions(
             icon = Icons.Filled.PictureAsPdf,
             enabled = !draft.isEmpty(),
             onClick = onExportPdf,
+        )
+    }
+    item {
+        WillDraftActionButton(
+            label = stringResource(R.string.funeral_will_print),
+            icon = Icons.Filled.Print,
+            enabled = !draft.isEmpty(),
+            onClick = onPrint,
         )
     }
     item {
@@ -945,8 +988,13 @@ private fun WillDraftActionButtonContent(
     Text(label)
 }
 
+internal object FuneralWillSearchTestTags {
+    const val FIELD = "funeral_will_search_field"
+    const val CLEAR = "funeral_will_search_clear"
+}
+
 @Composable
-private fun FuneralWillSearchField(
+internal fun FuneralWillSearchField(
     query: String,
     onQueryChange: (String) -> Unit,
 ) {
@@ -962,7 +1010,10 @@ private fun FuneralWillSearchField(
         },
         trailingIcon = if (query.isNotBlank()) {
             {
-                IconButton(onClick = { onQueryChange("") }) {
+                IconButton(
+                    onClick = { onQueryChange("") },
+                    modifier = Modifier.testTag(FuneralWillSearchTestTags.CLEAR),
+                ) {
                     Icon(
                         imageVector = Icons.Filled.Close,
                         contentDescription = stringResource(R.string.funeral_will_search_clear),
@@ -973,7 +1024,9 @@ private fun FuneralWillSearchField(
             null
         },
         singleLine = true,
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .testTag(FuneralWillSearchTestTags.FIELD),
     )
 }
 
@@ -1025,7 +1078,7 @@ private fun SearchEmptyState() {
 }
 
 @Composable
-private fun WillFormSection(
+internal fun WillFormSection(
     id: String,
     title: String,
     initiallyExpanded: Boolean = false,
@@ -1039,6 +1092,7 @@ private fun WillFormSection(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .testTag("will_form_header_$id")
                     .clickable { expanded = !expanded }
                     .padding(horizontal = 16.dp, vertical = 14.dp),
                 verticalAlignment = Alignment.CenterVertically,
@@ -1102,7 +1156,10 @@ private fun FuneralGuideContent(isArabic: Boolean) {
     )
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .widthIn(max = 900.dp)
+            .fillMaxWidth()
+            .fillMaxHeight(),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
