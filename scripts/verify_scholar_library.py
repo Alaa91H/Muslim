@@ -9,6 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "feature/feature-scholar-library/src/main/assets/scholar_library_catalog.json"
+STUDY_PATHS = ROOT / "feature/feature-scholar-library/src/main/assets/scholar_study_paths.json"
 REPOSITORY = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/data/ScholarLibraryRepository.kt"
 DATABASE = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/data/ScholarLibraryDatabase.kt"
 MODELS = ROOT / "feature/feature-scholar-library/src/main/java/org/muslim/app/feature/scholarlibrary/domain/ScholarLibraryModels.kt"
@@ -55,6 +56,33 @@ def main() -> None:
     required_categories = {"Fiqh", "Usul", "Aqidah", "Hadith", "Tafsir", "Arabic"}
     require(required_categories <= categories, "starter catalog must cover core study categories")
 
+    study_paths = json.loads(STUDY_PATHS.read_text(encoding="utf-8"))
+    require(study_paths.get("schemaVersion") == 1, "study path schemaVersion must be 1")
+    require(bool(study_paths.get("notice")), "study paths must state their editorial boundary")
+    path_ids: set[str] = set()
+    stage_ids: set[str] = set()
+    paths = study_paths.get("paths", [])
+    require(len(paths) >= 4, "starter curricula must provide at least four study paths")
+    for path in paths:
+        path_id = path.get("id", "")
+        require(ID_RE.fullmatch(path_id) is not None, f"invalid study path id: {path_id!r}")
+        require(path_id not in path_ids, f"duplicate study path id: {path_id}")
+        path_ids.add(path_id)
+        require(bool(path.get("title")) and bool(path.get("summary")), f"{path_id} must include title and summary")
+        require(path.get("category") in categories, f"{path_id} uses an unknown category")
+        require(path.get("level") in {"Unspecified", "Foundation", "Intermediate", "Advanced"}, f"{path_id} has invalid level")
+        stages = path.get("stages", [])
+        require(stages, f"{path_id} must contain stages")
+        for stage in stages:
+            stage_id = stage.get("id", "")
+            require(ID_RE.fullmatch(stage_id) is not None, f"invalid study stage id: {stage_id!r}")
+            require(stage_id not in stage_ids, f"duplicate study stage id: {stage_id}")
+            stage_ids.add(stage_id)
+            require(bool(stage.get("title")) and bool(stage.get("description")), f"{stage_id} must include title and description")
+            referenced_books = stage.get("bookIds", [])
+            require(referenced_books, f"{stage_id} must reference at least one book")
+            require(set(referenced_books) <= book_ids, f"{stage_id} references a missing book")
+
     repository = REPOSITORY.read_text(encoding="utf-8")
     require("ScholarPassageFtsEntity" in repository, "repository must maintain a full-text index")
     require("sourceName.isNotBlank() && book.licenseSummary.isNotBlank()" in repository, "imports require source and licence")
@@ -65,6 +93,11 @@ def main() -> None:
     require("setBookmark(" in repository, "v2 repository must persist bookmarks")
     require("addHighlight(" in repository, "v2 repository must persist highlights")
     require("updateReadingProgress(" in repository, "v2 repository must persist reading progress")
+    require("studyPaths()" in repository, "repository must expose validated study paths")
+    require("authors()" in repository, "repository must expose the author index")
+    require("bookOutline(" in repository, "repository must expose book volume/chapter outlines")
+    require("ScholarSearchFilters" in repository, "repository search must support advanced filters")
+    require("matchesMetadataQuery" in repository, "search must include book metadata matching")
 
     database = DATABASE.read_text(encoding="utf-8")
     require("version = 2" in database, "Scholar Library Room database must be version 2")
@@ -84,16 +117,21 @@ def main() -> None:
     require("toggleBookmark" in screens, "reader must expose bookmark actions")
     require("togglePassageHighlight" in screens, "reader must expose highlight actions")
     require("markStudied" in screens, "reader must expose explicit progress updates")
+    require("LibraryAdvancedFilters" in screens, "library must expose advanced filters")
+    require("studyPathItems" in screens, "library home must expose study paths")
+    require("BookOutlineCard" in screens, "book reader must expose the volume/chapter outline")
 
     navigation = NAVIGATION.read_text(encoding="utf-8")
     require("SCHOLAR_LIBRARY_ROUTE" in navigation, "library route must be registered")
     require("ScholarLibraryScreen" in navigation, "library screen must be reachable")
+    require("SCHOLAR_LIBRARY_PATH_ROUTE" in navigation, "study path route must be registered")
+    require("ScholarStudyPathScreen" in navigation, "study path screen must be reachable")
     require(POLICY.exists(), "content policy document must be present")
 
     print(
         "Scholar Library v2 verified: "
         f"{len(books)} references, {len(passage_ids)} study passages, "
-        f"{len(categories)} categories, migration + study state present."
+        f"{len(categories)} categories, {len(paths)} study paths, migration + study state present."
     )
 
 
