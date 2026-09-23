@@ -149,6 +149,7 @@ internal fun AppearanceSettingsContent(
         AppearancePaletteSelector(
             selected = preferences.colorPalette,
             darkTheme = resolvedDark,
+            amoledBlack = preferences.amoledBlack,
             onSelect = onPaletteChanged,
         )
     }
@@ -339,6 +340,7 @@ private fun AppearanceThemeModeSelector(
 private fun AppearancePaletteSelector(
     selected: AppColorPalette,
     darkTheme: Boolean,
+    amoledBlack: Boolean,
     onSelect: (AppColorPalette) -> Unit,
 ) {
     Column(
@@ -355,6 +357,7 @@ private fun AppearancePaletteSelector(
                         palette = palette,
                         selected = selected == palette,
                         darkTheme = darkTheme,
+                        amoledBlack = amoledBlack,
                         onClick = { onSelect(palette) },
                         modifier = Modifier.weight(1f),
                     )
@@ -370,10 +373,11 @@ private fun AppearancePaletteCard(
     palette: AppColorPalette,
     selected: Boolean,
     darkTheme: Boolean,
+    amoledBlack: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val colors = previewColorsForPalette(palette, darkTheme)
+    val colors = previewColorsForPalette(palette, darkTheme, amoledBlack)
     Card(
         onClick = onClick,
         modifier = modifier,
