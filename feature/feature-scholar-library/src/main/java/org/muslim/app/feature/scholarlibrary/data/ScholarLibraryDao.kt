@@ -67,8 +67,32 @@ interface ScholarLibraryDao {
     @Query("SELECT * FROM scholar_flashcards ORDER BY dueAtEpochMillis, id")
     fun observeFlashcards(): Flow<List<ScholarFlashcardEntity>>
 
-    @Query("UPDATE scholar_flashcards SET reviewCount = :reviewCount, dueAtEpochMillis = :dueAt WHERE id = :id")
-    suspend fun updateFlashcardReview(id: Long, reviewCount: Int, dueAt: Long)
+    @Query("SELECT * FROM scholar_flashcards WHERE id = :id LIMIT 1")
+    suspend fun flashcardById(id: Long): ScholarFlashcardEntity?
+
+    @Query(
+        """
+        UPDATE scholar_flashcards
+        SET reviewCount = :reviewCount,
+            dueAtEpochMillis = :dueAt,
+            intervalDays = :intervalDays,
+            easeFactor = :easeFactor,
+            lapseCount = :lapseCount,
+            lastReviewedAtEpochMillis = :lastReviewedAt,
+            lastRating = :lastRating
+        WHERE id = :id
+        """,
+    )
+    suspend fun updateFlashcardReview(
+        id: Long,
+        reviewCount: Int,
+        dueAt: Long,
+        intervalDays: Int,
+        easeFactor: Double,
+        lapseCount: Int,
+        lastReviewedAt: Long,
+        lastRating: String,
+    )
 
     @Query("DELETE FROM scholar_flashcards WHERE id = :id")
     suspend fun deleteFlashcard(id: Long)
