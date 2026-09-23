@@ -6,4 +6,26 @@
     <string name="funeral_will_education_intro" tools:ignore="MissingTranslation">موضوعات أساسية تساعدك على تنظيم المسودة وفهم ما يحتاج إلى مراجعة شرعية وقانونية قبل اعتماد الوصية.</string>
     <string name="funeral_will_guide_quick_title" tools:ignore="MissingTranslation">ماذا أفعل الآن؟</string>
     <string name="funeral_will_guide_quick_intro" tools:ignore="MissingTranslation">ترتيب عملي مختصر للحظات الأولى بعد الوفاة. قد تختلف الإجراءات الرسمية حسب البلد والمستشفى والمقبرة.</string>
+
+    <string name="funeral_will_section_identity" tools:ignore="MissingTranslation">البيانات والوصول إلى الوثائق</string>
+    <string name="funeral_will_section_financial" tools:ignore="MissingTranslation">الحقوق والأموال والأمانات</string>
+    <string name="funeral_will_section_family" tools:ignore="MissingTranslation">الأسرة والجنازة والوصايا</string>
+    <string name="funeral_will_section_review" tools:ignore="MissingTranslation">المراجعة والملاحظات</string>
+
+    <string name="funeral_will_document_location" tools:ignore="MissingTranslation">مكان حفظ الوثائق المهمة</string>
+    <string name="funeral_will_document_location_hint" tools:ignore="MissingTranslation">مثال: خزنة منزلية أو ملف موثق؛ لا تكتب كلمات مرور أو رموز فتح</string>
+    <string name="funeral_will_trusted_contacts" tools:ignore="MissingTranslation">جهات اتصال موثوقة</string>
+    <string name="funeral_will_trusted_contacts_hint" tools:ignore="MissingTranslation">أسماء وطرق تواصل أشخاص ينبغي إبلاغهم أو الرجوع إليهم</string>
+    <string name="funeral_will_assets_accounts" tools:ignore="MissingTranslation">الأصول والحسابات ومكان مستنداتها</string>
+    <string name="funeral_will_assets_accounts_hint" tools:ignore="MissingTranslation">صف الأصول والجهات ومكان المستندات دون تسجيل أسرار الدخول</string>
+    <string name="funeral_will_entrusted_property" tools:ignore="MissingTranslation">الأمانات وممتلكات الغير</string>
+    <string name="funeral_will_entrusted_property_hint" tools:ignore="MissingTranslation">ما يجب رده إلى أصحابه وكيف يمكن إثباته أو الوصول إلى مستنداته</string>
+    <string name="funeral_will_digital_access" tools:ignore="MissingTranslation">تعليمات الوصول الرقمي الآمن</string>
+    <string name="funeral_will_digital_access_hint" tools:ignore="MissingTranslation">اكتب مكان خطة الوصول الآمنة فقط؛ لا تكتب كلمات المرور أو PIN أو عبارات الاسترداد أو المفاتيح الخاصة</string>
+    <string name="funeral_will_last_review" tools:ignore="MissingTranslation">تاريخ آخر مراجعة</string>
+    <string name="funeral_will_last_review_hint" tools:ignore="MissingTranslation">مثال: 2026-09-23</string>
+
+    <string name="funeral_will_unsaved_changes" tools:ignore="MissingTranslation">توجد تغييرات غير محفوظة على هذا الجهاز.</string>
+    <string name="funeral_will_saved_locally" tools:ignore="MissingTranslation">جميع التغييرات الحالية محفوظة محليًا على هذا الجهاز.</string>
+    <string name="funeral_will_sensitive_data_notice" tools:ignore="MissingTranslation">للأمان: لا تحفظ في هذه المسودة كلمات المرور أو رموز PIN أو عبارات الاسترداد أو المفاتيح الخاصة. اكتب فقط مكان الوصول إلى خطة آمنة منفصلة.</string>
 </resources>
