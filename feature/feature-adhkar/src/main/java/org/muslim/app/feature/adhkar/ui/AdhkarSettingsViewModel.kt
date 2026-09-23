@@ -78,6 +78,14 @@ class AdhkarSettingsViewModel @Inject constructor(
         viewModelScope.launch { prefsRepository.setSpeechVoiceName(voiceName) }
     }
 
+    fun setSpeechAllowNetworkVoices(enabled: Boolean) {
+        viewModelScope.launch { prefsRepository.setSpeechAllowNetworkVoices(enabled) }
+    }
+
+    fun refreshSpeechVoices() {
+        speechController.refreshVoices()
+    }
+
     fun setSpeechRate(rate: Float) {
         viewModelScope.launch { prefsRepository.setSpeechRate(rate) }
     }
@@ -91,6 +99,7 @@ class AdhkarSettingsViewModel @Inject constructor(
                 text = sample.arabic,
                 voiceName = current.speechVoiceName,
                 rate = current.speechRate,
+                allowNetworkVoices = current.speechAllowNetworkVoices,
                 utteranceId = SPEECH_PREVIEW_UTTERANCE_ID,
             )
         }
@@ -163,6 +172,7 @@ class AdhkarSettingsViewModel @Inject constructor(
                 readAloud = current.speechEnabled,
                 speechVoiceName = current.speechVoiceName,
                 speechRate = current.speechRate,
+                speechAllowNetworkVoices = current.speechAllowNetworkVoices,
             )
         }
     }

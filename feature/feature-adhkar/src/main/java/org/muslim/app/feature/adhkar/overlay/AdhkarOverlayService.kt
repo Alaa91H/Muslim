@@ -79,6 +79,8 @@ class AdhkarOverlayService : Service() {
         val speechVoiceName = intent?.getStringExtra(EXTRA_SPEECH_VOICE_NAME)
         val speechRate = (intent?.getFloatExtra(EXTRA_SPEECH_RATE, DEFAULT_SPEECH_RATE) ?: DEFAULT_SPEECH_RATE)
             .coerceIn(MIN_SPEECH_RATE, MAX_SPEECH_RATE)
+        val speechAllowNetworkVoices =
+            intent?.getBooleanExtra(EXTRA_SPEECH_ALLOW_NETWORK, false) ?: false
 
         activeStartId = startId
         clearDismissTimer()
@@ -98,6 +100,7 @@ class AdhkarOverlayService : Service() {
                 arabic = arabic,
                 voiceName = speechVoiceName,
                 speechRate = speechRate,
+                allowNetworkVoices = speechAllowNetworkVoices,
                 fallbackDurationSeconds = durationSeconds,
                 startId = startId,
             )
@@ -117,6 +120,7 @@ class AdhkarOverlayService : Service() {
         arabic: String,
         voiceName: String?,
         speechRate: Float,
+        allowNetworkVoices: Boolean,
         fallbackDurationSeconds: Int,
         startId: Int,
     ) {
@@ -141,6 +145,7 @@ class AdhkarOverlayService : Service() {
                 text = arabic,
                 voiceName = voiceName,
                 rate = speechRate,
+                allowNetworkVoices = allowNetworkVoices,
                 utteranceId = utteranceId,
             )
             if (!started) {
@@ -324,6 +329,7 @@ class AdhkarOverlayService : Service() {
         private const val EXTRA_READ_ALOUD = "extra_read_aloud"
         private const val EXTRA_SPEECH_VOICE_NAME = "extra_speech_voice_name"
         private const val EXTRA_SPEECH_RATE = "extra_speech_rate"
+        private const val EXTRA_SPEECH_ALLOW_NETWORK = "extra_speech_allow_network"
 
         /**
          * Shows [dhikr] above all apps. With [readAloud] disabled, the card
@@ -340,6 +346,7 @@ class AdhkarOverlayService : Service() {
             readAloud: Boolean = false,
             speechVoiceName: String? = null,
             speechRate: Float = DEFAULT_SPEECH_RATE,
+            speechAllowNetworkVoices: Boolean = false,
         ) {
             val intent = Intent(context, AdhkarOverlayService::class.java)
                 .putExtra(EXTRA_ARABIC, dhikr.arabic)
@@ -352,6 +359,7 @@ class AdhkarOverlayService : Service() {
                 .putExtra(EXTRA_READ_ALOUD, readAloud)
                 .putExtra(EXTRA_SPEECH_VOICE_NAME, speechVoiceName)
                 .putExtra(EXTRA_SPEECH_RATE, speechRate)
+                .putExtra(EXTRA_SPEECH_ALLOW_NETWORK, speechAllowNetworkVoices)
             context.startForegroundService(intent)
         }
     }

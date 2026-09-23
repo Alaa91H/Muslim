@@ -42,6 +42,7 @@ class AdhkarPrefsTest {
         assertThat(prefs.speechEnabled).isFalse()
         assertThat(prefs.speechRate).isEqualTo(1.0f)
         assertThat(prefs.speechVoiceName).isNull()
+        assertThat(prefs.speechAllowNetworkVoices).isFalse()
     }
 
     @Test

@@ -47,6 +47,7 @@ class AdhkarViewModel @Inject constructor(
     ) { list, category, prefs ->
         list.filter { dhikr ->
             prefs.isDhikrEnabled(dhikr.id) &&
+                dhikr.id !in prefs.favoriteDhikrIds &&
                 (category == null || dhikr.category == category)
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptyList())
@@ -141,6 +142,7 @@ class AdhkarViewModel @Inject constructor(
                     text = dhikr.arabic,
                     voiceName = prefs.speechVoiceName,
                     rate = prefs.speechRate,
+                    allowNetworkVoices = prefs.speechAllowNetworkVoices,
                     utteranceId = "$SPEECH_UTTERANCE_PREFIX${dhikr.id}",
                 )
             }
