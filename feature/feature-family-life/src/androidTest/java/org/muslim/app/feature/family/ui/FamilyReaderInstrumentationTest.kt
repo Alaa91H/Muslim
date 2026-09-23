@@ -1,6 +1,7 @@
 package org.muslim.app.feature.family.ui
 
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithContentDescription
@@ -10,6 +11,8 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performTextInput
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.LocalLayoutDirection
 import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
 import org.junit.Rule
@@ -89,4 +92,32 @@ class FamilyReaderInstrumentationTest {
         assertThat(shared).isTrue()
         assertThat(openedReference?.citation).isEqualTo("Quran 25:67")
     }
+    @Test
+    fun articleReader_renders_in_rtl_layout() {
+        val article = FamilyLifeContent.articleById("parents_kindness_boundaries")!!
+
+        composeRule.setContent {
+            CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
+                MaterialTheme {
+                    FamilyArticleDetailContent(
+                        article = article,
+                        isArabic = true,
+                        isFavorite = false,
+                        relatedArticles = emptyList(),
+                        actions = FamilyArticleReaderActions(
+                            onToggleFavorite = {},
+                            onCopyArticle = {},
+                            onShareArticle = {},
+                            onOpenReference = {},
+                            onOpenArticle = {},
+                        ),
+                    )
+                }
+            }
+        }
+
+        composeRule.onNodeWithTag(FamilyUiTags.ARTICLE_READER).assertIsDisplayed()
+        composeRule.onNodeWithText(article.title.arabic).assertIsDisplayed()
+    }
+
 }
