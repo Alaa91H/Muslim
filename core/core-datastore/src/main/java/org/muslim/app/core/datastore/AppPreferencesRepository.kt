@@ -56,6 +56,7 @@ class AppPreferencesRepository @Inject constructor(
             updateCheckEnabled = prefs[Keys.UPDATE_CHECK_ENABLED] ?: false,
             updateCheckFrequency = prefs[Keys.UPDATE_CHECK_FREQUENCY] ?: AppPreferences.UPDATE_CHECK_DAILY,
             autoUpdateEnabled = prefs[Keys.AUTO_UPDATE_ENABLED] ?: false,
+            autoUpdateWifiOnly = prefs[Keys.AUTO_UPDATE_WIFI_ONLY] ?: true,
             lastUpdateCheckEpoch = prefs[Keys.LAST_UPDATE_CHECK] ?: 0L,
             lastNotifiedUpdateVersion = prefs[Keys.LAST_NOTIFIED_UPDATE_VERSION].orEmpty(),
             nearbyMosqueSearchRadiusKm = (prefs[Keys.NEARBY_MOSQUE_SEARCH_RADIUS_KM]
@@ -64,6 +65,9 @@ class AppPreferencesRepository @Inject constructor(
                 ?: AppPreferences.DEFAULT_NEARBY_MOSQUE_RADIUS_KM,
             nearbyMosqueCacheJson = prefs[Keys.NEARBY_MOSQUE_CACHE_JSON].orEmpty(),
             nearbyMosqueCacheSavedAtEpochMillis = prefs[Keys.NEARBY_MOSQUE_CACHE_SAVED_AT] ?: 0L,
+            updateDownloadId = prefs[Keys.UPDATE_DOWNLOAD_ID] ?: -1L,
+            updateDownloadVersion = prefs[Keys.UPDATE_DOWNLOAD_VERSION].orEmpty(),
+            updateDownloadFileName = prefs[Keys.UPDATE_DOWNLOAD_FILE_NAME].orEmpty(),
         )
     }
 
@@ -179,9 +183,14 @@ class AppPreferencesRepository @Inject constructor(
         edit { prefs -> prefs[Keys.UPDATE_CHECK_FREQUENCY] = frequency }
     }
 
-    /** Turns the fully-automatic (Session API) update on/off (off by default). */
+    /** Enables/disables automatic download of newly discovered releases. */
     suspend fun setAutoUpdateEnabled(enabled: Boolean) {
         edit { prefs -> prefs[Keys.AUTO_UPDATE_ENABLED] = enabled }
+    }
+
+    /** Restricts automatic update downloads to Wi-Fi. */
+    suspend fun setAutoUpdateWifiOnly(enabled: Boolean) {
+        edit { prefs -> prefs[Keys.AUTO_UPDATE_WIFI_ONLY] = enabled }
     }
 
     /** Records the timestamp of the last successful update check. */
@@ -192,6 +201,24 @@ class AppPreferencesRepository @Inject constructor(
     /** Records the release version for which a notification was actually posted. */
     suspend fun setLastNotifiedUpdateVersion(version: String) {
         edit { prefs -> prefs[Keys.LAST_NOTIFIED_UPDATE_VERSION] = version.trim() }
+    }
+
+    /** Persists the DownloadManager record so download state survives process death. */
+    suspend fun setUpdateDownload(id: Long, version: String, fileName: String) {
+        edit { prefs ->
+            prefs[Keys.UPDATE_DOWNLOAD_ID] = id
+            prefs[Keys.UPDATE_DOWNLOAD_VERSION] = version.trim()
+            prefs[Keys.UPDATE_DOWNLOAD_FILE_NAME] = fileName
+        }
+    }
+
+    /** Clears persisted update-download metadata after replacement/cancellation. */
+    suspend fun clearUpdateDownload() {
+        edit { prefs ->
+            prefs.remove(Keys.UPDATE_DOWNLOAD_ID)
+            prefs.remove(Keys.UPDATE_DOWNLOAD_VERSION)
+            prefs.remove(Keys.UPDATE_DOWNLOAD_FILE_NAME)
+        }
     }
 
     /** Persists a supported nearby-mosque radius and rejects corrupted values. */
@@ -272,8 +299,12 @@ class AppPreferencesRepository @Inject constructor(
         val UPDATE_CHECK_ENABLED = booleanPreferencesKey("update_check_enabled")
         val UPDATE_CHECK_FREQUENCY = stringPreferencesKey("update_check_frequency")
         val AUTO_UPDATE_ENABLED = booleanPreferencesKey("auto_update_enabled")
+        val AUTO_UPDATE_WIFI_ONLY = booleanPreferencesKey("auto_update_wifi_only")
         val LAST_UPDATE_CHECK = androidx.datastore.preferences.core.longPreferencesKey("last_update_check")
         val LAST_NOTIFIED_UPDATE_VERSION = stringPreferencesKey("last_notified_update_version")
+        val UPDATE_DOWNLOAD_ID = androidx.datastore.preferences.core.longPreferencesKey("update_download_id")
+        val UPDATE_DOWNLOAD_VERSION = stringPreferencesKey("update_download_version")
+        val UPDATE_DOWNLOAD_FILE_NAME = stringPreferencesKey("update_download_file_name")
         val NEARBY_MOSQUE_SEARCH_RADIUS_KM = androidx.datastore.preferences.core.intPreferencesKey("nearby_mosque_search_radius_km")
         val NEARBY_MOSQUE_CACHE_JSON = stringPreferencesKey("nearby_mosque_cache_json")
         val NEARBY_MOSQUE_CACHE_SAVED_AT = androidx.datastore.preferences.core.longPreferencesKey("nearby_mosque_cache_saved_at")
