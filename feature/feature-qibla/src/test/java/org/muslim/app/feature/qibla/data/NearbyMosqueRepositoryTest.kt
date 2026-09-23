@@ -21,10 +21,19 @@ class NearbyMosqueRepositoryTest {
         assertThat(query).contains("[\"religion\"=\"muslim\"]")
         assertThat(query).contains("[\"place_of_worship\"=\"mosque\"]")
         assertThat(query).contains("[\"amenity\"=\"mosque\"]")
-        assertThat(query).contains("out center 100;")
+        assertThat(query).contains("out center 250;")
         assertThat(query).doesNotContain("map")
     }
 
+    @Test
+    fun `largest supported radius is available to the Overpass query`() {
+        assertThat(NearbyMosqueRadiusOptionsKm.last()).isEqualTo(50)
+
+        val query = source.buildQuery(GeoLocation(21.3891, 39.8579), radiusKm = 50)
+
+        assertThat(query).contains("around:50000,21.389100,39.857900")
+        assertThat(query).contains("[timeout:12]")
+    }
     @Test
     fun `nearby results are locally distance sorted even when source order is not`() {
         val user = GeoLocation(24.7136, 46.6753)
