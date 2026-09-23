@@ -110,10 +110,19 @@ def main() -> None:
     require("runPostSaveSideEffect" in location_vm, "derived refresh failures must not undo a saved GPS location")
     require("com.github.luben.zstd.ZstdInputStreamNoFinalizer { *; }" in app_proguard, "R8 must preserve zstd JNI fields used by coordinate timezone lookup")
     require("com.github.luben.zstd.ZstdOutputStreamNoFinalizer { *; }" in app_proguard, "R8 must preserve zstd JNI output compatibility")
-    launcher_path = re.search(r'android:pathData="([^"]+)"', launcher_monochrome)
-    status_path = re.search(r'android:pathData="([^"]+)"', status_bar_icon)
-    require(launcher_path is not None and status_path is not None, "launcher and status icons must define vector path data")
-    require(launcher_path.group(1) == status_path.group(1), "status-bar icon silhouette must match launcher monochrome silhouette")
+    launcher_paths = re.findall(r'android:pathData="([^"]+)"', launcher_monochrome)
+    status_paths = re.findall(r'android:pathData="([^"]+)"', status_bar_icon)
+    require(launcher_paths and status_paths, "launcher and status icons must define vector path data")
+    require(launcher_paths == status_paths, "status-bar icon geometry must match the complete launcher monochrome geometry")
+    require(len(launcher_paths) == 4, "brand icon must keep separate square-frame, diamond-frame, mihrab and crescent paths")
+    require(
+        launcher_paths[0].startswith("M20.59,20.59H87.41V87.41"),
+        "brand icon must retain the axis-aligned hollow square frame",
+    )
+    require(
+        launcher_paths[1].startswith("M54,6.75L101.25,54L54,101.25L6.75,54Z"),
+        "brand icon must retain the 45-degree hollow square frame",
+    )
     require("ic_muslim_status_bar_v2028" not in notification_sources, "notification producers must not retain the retired status-bar icon")
     require("ic_muslim_status_bar_v2029" in notification_sources, "notification producers must use the current status-bar icon")
     require("runCatching" in geocoder_resolver and "geocoder.getFromLocation" in geocoder_resolver, "reverse geocoding must contain platform failures")
