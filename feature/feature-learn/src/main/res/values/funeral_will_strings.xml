@@ -28,4 +28,7 @@
     <string name="funeral_will_unsaved_changes" tools:ignore="MissingTranslation">توجد تغييرات غير محفوظة على هذا الجهاز.</string>
     <string name="funeral_will_saved_locally" tools:ignore="MissingTranslation">جميع التغييرات الحالية محفوظة محليًا على هذا الجهاز.</string>
     <string name="funeral_will_sensitive_data_notice" tools:ignore="MissingTranslation">للأمان: لا تحفظ في هذه المسودة كلمات المرور أو رموز PIN أو عبارات الاسترداد أو المفاتيح الخاصة. اكتب فقط مكان الوصول إلى خطة آمنة منفصلة.</string>
+    <string name="funeral_will_share_dialog_title" tools:ignore="MissingTranslation">مشاركة نسخة من المسودة؟</string>
+    <string name="funeral_will_share_dialog_text" tools:ignore="MissingTranslation">سيُنشئ التطبيق نسخة نصية من البيانات الظاهرة حاليًا ويفتح نافذة المشاركة في Android. راجع المحتوى وتحقق من المستلم، ولا تشارك أسرار الدخول أو البيانات الحساسة مع جهة غير موثوقة.</string>
+    <string name="funeral_will_share_confirm" tools:ignore="MissingTranslation">متابعة للمشاركة</string>
 </resources>
