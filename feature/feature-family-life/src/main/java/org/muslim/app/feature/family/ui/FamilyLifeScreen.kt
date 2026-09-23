@@ -127,27 +127,9 @@ fun FamilyLifeScreen(
         modifier = modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(
-                        selectedArticle?.title?.pick(isArabic)
-                            ?: when (section) {
-                                FamilySection.Home -> stringResource(R.string.family_life_title)
-                                FamilySection.Guide -> stringResource(R.string.family_guide_all_title)
-                                FamilySection.Ruqyah -> stringResource(R.string.family_tab_ruqyah)
-                                FamilySection.Names -> stringResource(R.string.family_tab_names)
-                                FamilySection.Aqiqah -> stringResource(R.string.family_tab_aqiqah)
-                            },
-                    )
-                },
-                navigationIcon = {
-                    IconButton(onClick = ::navigateBack) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.learn_back),
-                        )
-                    }
-                },
+            FamilyLifeTopBar(
+                title = selectedArticle?.title?.pick(isArabic) ?: section.title(),
+                onBack = ::navigateBack,
             )
         },
     ) { innerPadding ->
@@ -192,6 +174,34 @@ fun FamilyLifeScreen(
             }
         }
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun FamilyLifeTopBar(
+    title: String,
+    onBack: () -> Unit,
+) {
+    TopAppBar(
+        title = { Text(title) },
+        navigationIcon = {
+            IconButton(onClick = onBack) {
+                Icon(
+                    Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = stringResource(R.string.learn_back),
+                )
+            }
+        },
+    )
+}
+
+@Composable
+private fun FamilySection.title(): String = when (this) {
+    FamilySection.Home -> stringResource(R.string.family_life_title)
+    FamilySection.Guide -> stringResource(R.string.family_guide_all_title)
+    FamilySection.Ruqyah -> stringResource(R.string.family_tab_ruqyah)
+    FamilySection.Names -> stringResource(R.string.family_tab_names)
+    FamilySection.Aqiqah -> stringResource(R.string.family_tab_aqiqah)
 }
 
 @Composable
