@@ -113,6 +113,29 @@ private data class ReferenceReaderUiState(
     val onLastReadChanged: (ReferenceReaderLocation) -> Unit,
 )
 
+
+private data class ReferenceScreenViewState(
+    val repository: ReferenceRepository,
+    val lang: RefLang,
+    val book: ReferenceBook?,
+    val topic: RefTopic?,
+    val query: String,
+    val hubQuery: String,
+    val readerState: ReferenceReaderUiState,
+    val lastRead: ReferenceReaderLocation?,
+)
+
+private data class ReferenceScreenActions(
+    val onBack: () -> Unit,
+    val onToggleLanguage: () -> Unit,
+    val onClearTopic: () -> Unit,
+    val onClearBook: () -> Unit,
+    val onQueryChanged: (String) -> Unit,
+    val onHubQueryChanged: (String) -> Unit,
+    val onOpenBook: (ReferenceBook) -> Unit,
+    val onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
+)
+
 /**
  * المرجعية الإسلامية (feature-reference): مكتبة مرجعية شاملة ومفهرسة تعرض
  * كتب مترابطة تشمل التعريف بالإسلام والسيرة والأنبياء والصحابة وأمهات
@@ -152,7 +175,6 @@ fun ReferenceScreen(
         query = ""
     }
 
-    val book = selectedBook
     val readerState = ReferenceReaderUiState(
         preferences = readerPreferences,
         bookmarkKeys = bookmarkKeys,
@@ -161,66 +183,95 @@ fun ReferenceScreen(
         onFontStepChanged = { fontStep = readerPreferences.setFontStep(it) },
         onLastReadChanged = { lastRead = it },
     )
+    val viewState = ReferenceScreenViewState(
+        repository = repository,
+        lang = lang,
+        book = selectedBook,
+        topic = selectedTopic,
+        query = query,
+        hubQuery = hubQuery,
+        readerState = readerState,
+        lastRead = lastRead,
+    )
+    val actions = ReferenceScreenActions(
+        onBack = onBack,
+        onToggleLanguage = { lang = lang.toggled() },
+        onClearTopic = { selectedTopic = null },
+        onClearBook = {
+            selectedBook = null
+            query = ""
+        },
+        onQueryChanged = { query = it },
+        onHubQueryChanged = { hubQuery = it },
+        onOpenBook = {
+            selectedBook = it
+            hubQuery = ""
+        },
+        onOpenTopic = ::openTopic,
+    )
+    ReferenceScreenBody(state = viewState, actions = actions, modifier = modifier)
+}
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ReferenceScreenBody(
+    state: ReferenceScreenViewState,
+    actions: ReferenceScreenActions,
+    modifier: Modifier = Modifier,
+) {
     MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             ReferenceTopBar(
-                lang = lang,
-                book = book,
-                topic = selectedTopic,
+                lang = state.lang,
+                book = state.book,
+                topic = state.topic,
                 onBack = {
                     when {
-                        selectedTopic != null -> selectedTopic = null
-                        book != null -> {
-                            selectedBook = null
-                            query = ""
-                        }
-                        else -> onBack()
+                        state.topic != null -> actions.onClearTopic()
+                        state.book != null -> actions.onClearBook()
+                        else -> actions.onBack()
                     }
                 },
-                onToggleLanguage = { lang = lang.toggled() },
+                onToggleLanguage = actions.onToggleLanguage,
             )
         },
     ) { innerPadding ->
         val contentModifier = Modifier.padding(innerPadding)
         when {
-            selectedTopic != null && book != null -> TopicContent(
-                repository = repository,
-                book = book,
-                topic = selectedTopic!!,
-                lang = lang,
-                readerState = readerState,
+            state.topic != null && state.book != null -> TopicContent(
+                repository = state.repository,
+                book = state.book,
+                topic = state.topic,
+                lang = state.lang,
+                readerState = state.readerState,
                 onOpenTopic = { targetBook, targetTopic ->
-                    openTopic(targetBook, targetTopic)
-                    query = ""
+                    actions.onOpenTopic(targetBook, targetTopic)
+                    actions.onQueryChanged("")
                 },
                 modifier = contentModifier,
             )
-            book != null -> BookContent(
-                repository = repository,
-                book = book,
-                lang = lang,
-                query = query,
-                onQueryChanged = { query = it },
-                bookmarkKeys = readerState.bookmarkKeys,
-                onOpenTopic = { openTopic(book, it) },
+            state.book != null -> BookContent(
+                repository = state.repository,
+                book = state.book,
+                lang = state.lang,
+                query = state.query,
+                onQueryChanged = actions.onQueryChanged,
+                bookmarkKeys = state.readerState.bookmarkKeys,
+                onOpenTopic = { actions.onOpenTopic(state.book, it) },
                 modifier = contentModifier,
             )
             else -> HubContent(
-                repository = repository,
-                lang = lang,
-                query = hubQuery,
-                onQueryChanged = { hubQuery = it },
-                bookmarkKeys = readerState.bookmarkKeys,
-                lastRead = lastRead,
-                onOpenBook = {
-                    selectedBook = it
-                    hubQuery = ""
-                },
+                repository = state.repository,
+                lang = state.lang,
+                query = state.hubQuery,
+                onQueryChanged = actions.onHubQueryChanged,
+                bookmarkKeys = state.readerState.bookmarkKeys,
+                lastRead = state.lastRead,
+                onOpenBook = actions.onOpenBook,
                 onOpenTopic = { targetBook, targetTopic ->
-                    openTopic(targetBook, targetTopic)
-                    hubQuery = ""
+                    actions.onOpenTopic(targetBook, targetTopic)
+                    actions.onHubQueryChanged("")
                 },
                 modifier = contentModifier,
             )
