@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 import org.muslim.app.feature.adhkar.data.AdhkarPrefsRepository
 import org.muslim.app.feature.adhkar.data.AdhkarReminderScheduler
 import org.muslim.app.feature.adhkar.data.AdhkarRepository
+import org.muslim.app.feature.adhkar.data.AdhkarSpeechController
 import org.muslim.app.feature.adhkar.domain.Dhikr
 import org.muslim.app.feature.adhkar.domain.DhikrCategory
 import javax.inject.Inject
@@ -23,6 +24,7 @@ class AdhkarViewModel @Inject constructor(
     private val repository: AdhkarRepository,
     private val prefsRepository: AdhkarPrefsRepository,
     private val reminderScheduler: AdhkarReminderScheduler,
+    private val speechController: AdhkarSpeechController,
 ) : ViewModel() {
 
     private val all: StateFlow<List<Dhikr>> = repository.observeAdhkar()
@@ -77,6 +79,21 @@ class AdhkarViewModel @Inject constructor(
 
     val categories: List<DhikrCategory> = DhikrCategory.entries
 
+    val speechEnabled: StateFlow<Boolean> = prefsRepository.prefs
+        .map { it.speechEnabled }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
+
+    val speechReady: StateFlow<Boolean> = speechController.ready
+
+    val speakingDhikrId: StateFlow<Long?> = speechController.activeUtteranceId
+        .map { utteranceId ->
+            utteranceId
+                ?.takeIf { it.startsWith(SPEECH_UTTERANCE_PREFIX) }
+                ?.removePrefix(SPEECH_UTTERANCE_PREFIX)
+                ?.toLongOrNull()
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
+
     /** Master switch for the daily morning/evening adhkar reminders. */
     val morningEveningReminderEnabled: StateFlow<Boolean> = prefsRepository.prefs
         .map { it.morningEveningReminderEnabled }
@@ -110,5 +127,34 @@ class AdhkarViewModel @Inject constructor(
 
     fun reset(dhikrId: Long) {
         viewModelScope.launch { repository.reset(dhikrId) }
+    }
+
+    fun toggleSpeech(dhikr: Dhikr) {
+        viewModelScope.launch {
+            val prefs = prefsRepository.prefs.first()
+            if (!prefs.speechEnabled || !speechController.ready.value) return@launch
+
+            if (speakingDhikrId.value == dhikr.id) {
+                speechController.stop()
+            } else {
+                speechController.speak(
+                    text = dhikr.arabic,
+                    voiceName = prefs.speechVoiceName,
+                    rate = prefs.speechRate,
+                    utteranceId = "$SPEECH_UTTERANCE_PREFIX${dhikr.id}",
+                )
+            }
+        }
+    }
+
+    override fun onCleared() {
+        if (speechController.activeUtteranceId.value?.startsWith(SPEECH_UTTERANCE_PREFIX) == true) {
+            speechController.stop()
+        }
+        super.onCleared()
+    }
+
+    private companion object {
+        const val SPEECH_UTTERANCE_PREFIX = "adhkar-dhikr-"
     }
 }
