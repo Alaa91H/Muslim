@@ -20,7 +20,7 @@ import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.PrimaryTabRow
+import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -109,7 +109,8 @@ fun IslamicHistoryScreen(
                 0 -> TimelineTab(language = language)
                 1 -> StatesTab(language = language)
                 2 -> CivilizationTab(language = language)
-                3 -> AtlasTab(language = language)
+                3 -> EventsTab(language = language)
+                4 -> AtlasTab(language = language)
                 else -> PeopleTab(language = language)
             }
         }
@@ -122,10 +123,14 @@ private fun HistoryTabs(selectedTab: Int, onSelect: (Int) -> Unit) {
         stringResource(R.string.history_timeline_tab),
         stringResource(R.string.history_states_tab),
         stringResource(R.string.history_civilization_tab),
+        stringResource(R.string.history_events_tab),
         stringResource(R.string.history_atlas_tab),
         stringResource(R.string.history_people_tab),
     )
-    PrimaryTabRow(selectedTabIndex = selectedTab) {
+    ScrollableTabRow(
+        selectedTabIndex = selectedTab,
+        edgePadding = 8.dp,
+    ) {
         labels.forEachIndexed { index, label ->
             Tab(
                 selected = selectedTab == index,
