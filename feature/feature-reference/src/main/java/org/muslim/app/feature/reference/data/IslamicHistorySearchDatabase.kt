@@ -25,6 +25,23 @@ internal data class HistorySearchFtsEntity(
     @ColumnInfo(name = "normalized_text") val normalizedText: String,
 )
 
+@Entity(
+    tableName = "history_content_records",
+    primaryKeys = ["entity_type", "entity_id"],
+)
+internal data class HistoryContentEntity(
+    @ColumnInfo(name = "entity_type") val entityType: String,
+    @ColumnInfo(name = "entity_id") val entityId: String,
+    @ColumnInfo(name = "payload_json") val payloadJson: String,
+)
+
+@Entity(tableName = "history_content_meta")
+internal data class HistoryContentMetaEntity(
+    @PrimaryKey val id: Int = SINGLETON_CONTENT_META_ID,
+    @ColumnInfo(name = "content_version") val contentVersion: Int,
+    @ColumnInfo(name = "record_count") val recordCount: Int,
+)
+
 @Entity(tableName = "history_search_meta")
 internal data class HistorySearchMetaEntity(
     @PrimaryKey val id: Int = SINGLETON_META_ID,
@@ -68,12 +85,38 @@ internal interface HistorySearchDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertMetadata(metadata: HistorySearchMetaEntity)
+
+    @Query(
+        """
+        SELECT * FROM history_content_records
+        WHERE entity_type = :entityType AND entity_id = :entityId
+        LIMIT 1
+        """,
+    )
+    suspend fun content(
+        entityType: String,
+        entityId: String,
+    ): HistoryContentEntity?
+
+    @Query("DELETE FROM history_content_records")
+    suspend fun clearContent()
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertContent(rows: List<HistoryContentEntity>)
+
+    @Query("SELECT * FROM history_content_meta WHERE id = 1 LIMIT 1")
+    suspend fun contentMetadata(): HistoryContentMetaEntity?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertContentMetadata(metadata: HistoryContentMetaEntity)
 }
 
 @Database(
     entities = [
         HistorySearchFtsEntity::class,
         HistorySearchMetaEntity::class,
+        HistoryContentEntity::class,
+        HistoryContentMetaEntity::class,
     ],
     version = 1,
     exportSchema = true,
@@ -99,3 +142,4 @@ internal abstract class IslamicHistorySearchDatabase : RoomDatabase() {
 }
 
 private const val SINGLETON_META_ID = 1
+private const val SINGLETON_CONTENT_META_ID = 1
