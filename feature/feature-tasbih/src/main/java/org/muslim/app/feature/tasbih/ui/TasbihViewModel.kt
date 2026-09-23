@@ -10,16 +10,21 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import org.muslim.app.feature.tasbih.data.TasbihActionCoordinator
 import org.muslim.app.feature.tasbih.data.TasbihRepository
+import org.muslim.app.feature.tasbih.data.TasbihSessionRepository
 import org.muslim.app.feature.tasbih.domain.TargetSoundSettings
 import org.muslim.app.feature.tasbih.domain.TasbihCounter
 import org.muslim.app.feature.tasbih.domain.TasbihPhrase
+import org.muslim.app.feature.tasbih.domain.TasbihSessionHistoryItem
 import org.muslim.app.feature.tasbih.domain.TasbihState
 import javax.inject.Inject
 
 @HiltViewModel
 class TasbihViewModel @Inject constructor(
     private val repository: TasbihRepository,
+    private val actionCoordinator: TasbihActionCoordinator,
+    sessionRepository: TasbihSessionRepository,
 ) : ViewModel() {
 
     /** One full round of the active phrase reached a multiple of the target. */
@@ -37,10 +42,18 @@ class TasbihViewModel @Inject constructor(
     /** Emitted whenever a full round completes (count reaches a multiple of the target). */
     val roundCompleted: SharedFlow<RoundCompleted> = _roundCompleted.asSharedFlow()
 
+    /** Durable recent sessions, ready for the next statistics/history UI phase. */
+    val sessionHistory: StateFlow<List<TasbihSessionHistoryItem>> = sessionRepository.observeRecent()
+        .stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(5_000),
+            emptyList(),
+        )
+
     fun increment() = viewModelScope.launch {
         val current = state.value
         val newCount = current.count + 1
-        repository.increment(current.phrase)
+        actionCoordinator.increment(current.phrase, current.target)
         if (TasbihCounter.completesRound(newCount, current.target)) {
             _roundCompleted.tryEmit(
                 RoundCompleted(
@@ -51,15 +64,18 @@ class TasbihViewModel @Inject constructor(
         }
     }
 
-    fun decrement() = viewModelScope.launch { repository.decrement(state.value.phrase) }
+    fun decrement() = viewModelScope.launch {
+        val current = state.value
+        actionCoordinator.decrement(current.phrase, current.target)
+    }
 
-    fun reset() = viewModelScope.launch { repository.reset(state.value.phrase) }
+    fun reset() = viewModelScope.launch { actionCoordinator.reset(state.value.phrase) }
 
-    fun resetAll() = viewModelScope.launch { repository.resetAll() }
+    fun resetAll() = viewModelScope.launch { actionCoordinator.resetAll() }
 
-    fun setTarget(target: Int) = viewModelScope.launch { repository.setTarget(target) }
+    fun setTarget(target: Int) = viewModelScope.launch { actionCoordinator.setTarget(target) }
 
-    fun setPhrase(phrase: TasbihPhrase) = viewModelScope.launch { repository.setPhrase(phrase) }
+    fun setPhrase(phrase: TasbihPhrase) = viewModelScope.launch { actionCoordinator.setPhrase(phrase) }
 
     /** Sound-on-target preferences for the whole misbaha session. */
     val targetSoundSettings: StateFlow<TargetSoundSettings> = repository.targetSoundSettings
