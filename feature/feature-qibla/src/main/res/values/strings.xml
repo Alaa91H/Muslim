@@ -82,6 +82,22 @@
     <string name="nearby_mosques_directions_action" tools:ignore="MissingTranslation">الملاحة</string>
     <string name="nearby_mosques_item_description" tools:ignore="MissingTranslation">%1$s، على بُعد %2$s</string>
     <string name="nearby_mosques_cached_item_description" tools:ignore="MissingTranslation">%1$s، موقع محفوظ مؤقتًا؛ تُحدّث المسافة عند تحديد موقعك الحالي</string>
+    <string name="nearby_mosques_search_hint" tools:ignore="MissingTranslation">ابحث باسم المسجد أو العنوان</string>
+    <string name="nearby_mosques_search_clear" tools:ignore="MissingTranslation">مسح البحث</string>
+    <string name="nearby_mosques_results_count" tools:ignore="MissingTranslation">عرض %1$d من %2$d مسجد</string>
+    <string name="nearby_mosques_sort_distance" tools:ignore="MissingTranslation">الأقرب</string>
+    <string name="nearby_mosques_sort_name" tools:ignore="MissingTranslation">الاسم</string>
+    <string name="nearby_mosques_nearest" tools:ignore="MissingTranslation">الأقرب</string>
+    <string name="nearby_mosques_more_actions" tools:ignore="MissingTranslation">خيارات إضافية</string>
+    <string name="nearby_mosques_share" tools:ignore="MissingTranslation">مشاركة الموقع</string>
+    <string name="nearby_mosques_share_chooser" tools:ignore="MissingTranslation">مشاركة المسجد عبر</string>
+    <string name="nearby_mosques_copy_address" tools:ignore="MissingTranslation">نسخ العنوان</string>
+    <string name="nearby_mosques_copy_coordinates" tools:ignore="MissingTranslation">نسخ الإحداثيات</string>
+    <string name="nearby_mosques_copied" tools:ignore="MissingTranslation">تم النسخ</string>
+    <string name="nearby_mosques_empty_detail" tools:ignore="MissingTranslation">لم نجد نتائج ضمن %1$d كم من موقعك الحالي.</string>
+    <string name="nearby_mosques_expand_radius" tools:ignore="MissingTranslation">البحث ضمن %1$d كم</string>
+    <string name="nearby_mosques_search_empty" tools:ignore="MissingTranslation">لا توجد نتائج مطابقة</string>
+    <string name="nearby_mosques_search_empty_detail" tools:ignore="MissingTranslation">جرّب اسمًا أقصر أو ابحث بالعنوان، أو امسح البحث لعرض جميع المساجد.</string>
 
     <!-- Offline maps download -->
     <string name="offline_maps_title">خرائط بدون إنترنت</string>
