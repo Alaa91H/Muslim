@@ -846,8 +846,22 @@ class ScholarLibraryRepository @Inject constructor(
         require(pack.schemaVersion in MIN_PACK_SCHEMA_VERSION..CURRENT_PACK_SCHEMA_VERSION) {
             "إصدار الحزمة غير مدعوم."
         }
-        require(pack.packName.isNotBlank()) { "اسم الحزمة مطلوب." }
+        require(pack.packName.isNotBlank() && pack.packName.length <= MAX_PACK_NAME_LENGTH) {
+            "اسم الحزمة مطلوب ويجب أن يكون ضمن الحد المسموح."
+        }
         require(pack.licenseNotice.isNotBlank()) { "يجب أن تتضمن الحزمة بيان ترخيص واضحاً." }
+        require(pack.packVersion in 1..MAX_PACK_VERSION) { "رقم إصدار الحزمة غير صالح." }
+        if (pack.schemaVersion >= 4) {
+            require(!pack.packId.isNullOrBlank() && ID_REGEX.matches(pack.packId)) {
+                "حزم الإصدار 4 تتطلب packId ثابتاً وصالحاً."
+            }
+            require(!pack.sourceName.isNullOrBlank() && pack.sourceName.length <= MAX_PACK_SOURCE_LENGTH) {
+                "حزم الإصدار 4 تتطلب اسم مصدر واضحاً للحزمة."
+            }
+            require(pack.sourceUrl == null || pack.sourceUrl.length <= MAX_SOURCE_URL_LENGTH) {
+                "رابط مصدر الحزمة طويل جداً."
+            }
+        }
         require(pack.books.isNotEmpty() && pack.books.size <= MAX_BOOKS_PER_PACK) { "عدد الكتب في الحزمة غير صالح." }
         require(pack.books.map { it.id }.distinct().size == pack.books.size) { "معرّفات الكتب مكررة." }
         val passageIds = mutableSetOf<String>()
@@ -924,7 +938,7 @@ class ScholarLibraryRepository @Inject constructor(
         const val BUNDLED_STUDY_PATHS = "scholar_study_paths.json"
         const val STUDY_PATH_SCHEMA_VERSION = 1
         const val MIN_PACK_SCHEMA_VERSION = 1
-        const val CURRENT_PACK_SCHEMA_VERSION = 3
+        const val CURRENT_PACK_SCHEMA_VERSION = 4
         const val SEARCH_LIMIT = 100
         const val SEARCH_CANDIDATE_LIMIT = 500
         const val METADATA_MATCH_PASSAGES_PER_BOOK = 20
@@ -942,6 +956,10 @@ class ScholarLibraryRepository @Inject constructor(
         const val MAX_VOLUME_COUNT = 500
         const val MAX_KEYWORDS_PER_BOOK = 100
         const val MAX_KEYWORD_LENGTH = 120
+        const val MAX_PACK_NAME_LENGTH = 200
+        const val MAX_PACK_VERSION = 1_000_000
+        const val MAX_PACK_SOURCE_LENGTH = 300
+        const val MAX_SOURCE_URL_LENGTH = 2_000
         const val KEYWORD_SEPARATOR = "\u001F"
         val ID_REGEX = Regex("[A-Za-z0-9_-]{3,120}")
     }
