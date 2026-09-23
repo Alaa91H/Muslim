@@ -34,11 +34,20 @@ object AndroidReferenceRepositoryFactory {
             SiraContent.book
         }
 
+        val prophetsBook = runCatching {
+            context.resources
+                .openRawResource(R.raw.reference_prophets_v2)
+                .bufferedReader()
+                .use { ReferenceAssetCodec.decode(it.readText()) }
+        }.getOrElse {
+            ProphetsContent.book
+        }
+
         return InMemoryReferenceRepository(
             books = listOf(
                 islamBook,
                 siraBook,
-                ProphetsContent.book,
+                prophetsBook,
             ),
         )
     }
