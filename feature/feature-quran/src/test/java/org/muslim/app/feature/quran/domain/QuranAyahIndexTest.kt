@@ -68,4 +68,14 @@ class QuranAyahIndexTest {
         assertThat(QuranAyahIndex.surahOf(6226)).isEqualTo(113)
         assertThat(QuranAyahIndex.ayahInSurah(6226)).isEqualTo(1)
     }
+    @Test
+    fun `global number converts valid surah-local references and rejects invalid ones`() {
+        assertThat(QuranAyahIndex.globalNumber(1, 1)).isEqualTo(1)
+        assertThat(QuranAyahIndex.globalNumber(2, 1)).isEqualTo(8)
+        assertThat(QuranAyahIndex.globalNumber(2, 255)).isEqualTo(262)
+        assertThat(QuranAyahIndex.globalNumber(114, 6)).isEqualTo(QuranAyahIndex.TOTAL_AYAHS)
+        assertThat(QuranAyahIndex.globalNumber(0, 1)).isEqualTo(-1)
+        assertThat(QuranAyahIndex.globalNumber(2, 287)).isEqualTo(-1)
+    }
+
 }
