@@ -75,9 +75,12 @@ import org.muslim.app.feature.reference.ui.IslamicHistoryScreen
 import org.muslim.app.feature.reference.ui.ReferenceScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarAuthorsScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarBookDetailScreen
+import org.muslim.app.feature.scholarlibrary.ui.ScholarLibraryDataManagerScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarLibraryScreen
+import org.muslim.app.feature.scholarlibrary.ui.ScholarReviewCenterScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarStudyDeskScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarStudyPathScreen
+import org.muslim.app.feature.scholarlibrary.ui.ScholarStudySessionScreen
 import org.muslim.app.feature.settings.AccessibilityScreen
 import org.muslim.app.feature.settings.AboutScreen
 import org.muslim.app.feature.settings.NotificationSettingsScreen
@@ -150,6 +153,9 @@ private const val SCHOLAR_LIBRARY_BOOK_ROUTE = "scholar-library/book"
 private const val SCHOLAR_LIBRARY_STUDY_ROUTE = "scholar-library/study"
 private const val SCHOLAR_LIBRARY_PATH_ROUTE = "scholar-library/path"
 private const val SCHOLAR_LIBRARY_AUTHORS_ROUTE = "scholar-library/authors"
+private const val SCHOLAR_LIBRARY_SESSION_ROUTE = "scholar-library/session"
+private const val SCHOLAR_LIBRARY_REVIEW_ROUTE = "scholar-library/review"
+private const val SCHOLAR_LIBRARY_DATA_ROUTE = "scholar-library/data"
 
 @Composable
 fun MuslimApp(
@@ -414,6 +420,12 @@ fun MuslimApp(
                         onOpenStudyDesk = { navController.navigate(SCHOLAR_LIBRARY_STUDY_ROUTE) },
                         onOpenStudyPath = { pathId -> navController.navigate("$SCHOLAR_LIBRARY_PATH_ROUTE/$pathId") },
                         onOpenAuthors = { navController.navigate(SCHOLAR_LIBRARY_AUTHORS_ROUTE) },
+                        onOpenDataManager = { navController.navigate(SCHOLAR_LIBRARY_DATA_ROUTE) },
+                    )
+                }
+                composable(SCHOLAR_LIBRARY_DATA_ROUTE) {
+                    ScholarLibraryDataManagerScreen(
+                        onBack = { navController.popBackStack() },
                     )
                 }
                 composable(
@@ -426,7 +438,20 @@ fun MuslimApp(
                     )
                 }
                 composable(SCHOLAR_LIBRARY_STUDY_ROUTE) {
-                    ScholarStudyDeskScreen(onBack = { navController.popBackStack() })
+                    ScholarStudyDeskScreen(
+                        onBack = { navController.popBackStack() },
+                        onOpenSession = { pathId ->
+                            navController.navigate("$SCHOLAR_LIBRARY_SESSION_ROUTE/$pathId")
+                        },
+                        onOpenReviewCenter = {
+                            navController.navigate(SCHOLAR_LIBRARY_REVIEW_ROUTE)
+                        },
+                    )
+                }
+                composable(SCHOLAR_LIBRARY_REVIEW_ROUTE) {
+                    ScholarReviewCenterScreen(
+                        onBack = { navController.popBackStack() },
+                    )
                 }
                 composable(SCHOLAR_LIBRARY_AUTHORS_ROUTE) {
                     ScholarAuthorsScreen(
@@ -442,6 +467,18 @@ fun MuslimApp(
                         pathId = entry.arguments?.getString("pathId").orEmpty(),
                         onBack = { navController.popBackStack() },
                         onOpenBook = { bookId -> navController.navigate("$SCHOLAR_LIBRARY_BOOK_ROUTE/$bookId") },
+                        onOpenSession = { pathId ->
+                            navController.navigate("$SCHOLAR_LIBRARY_SESSION_ROUTE/$pathId")
+                        },
+                    )
+                }
+                composable(
+                    route = "$SCHOLAR_LIBRARY_SESSION_ROUTE/{pathId}",
+                    arguments = listOf(navArgument("pathId") { type = NavType.StringType }),
+                ) { entry ->
+                    ScholarStudySessionScreen(
+                        pathId = entry.arguments?.getString("pathId").orEmpty(),
+                        onBack = { navController.popBackStack() },
                     )
                 }
                 composable(HADITH_ROUTE) {

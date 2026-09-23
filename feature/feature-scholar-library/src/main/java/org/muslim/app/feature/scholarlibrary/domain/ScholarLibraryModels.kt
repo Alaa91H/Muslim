@@ -57,6 +57,32 @@ enum class ScholarHighlightStyle {
     }
 }
 
+data class ScholarPackSource(
+    val name: String,
+    val url: String?,
+    val licenseNotice: String,
+    val originName: String?,
+)
+
+data class ScholarPackInstallation(
+    val bookIds: List<String>,
+    val imported: Boolean,
+    val managed: Boolean,
+    val installedAtEpochMillis: Long,
+    val updatedAtEpochMillis: Long,
+) {
+    val bookCount: Int get() = bookIds.size
+}
+
+data class ScholarContentPack(
+    val id: String,
+    val name: String,
+    val version: Int,
+    val schemaVersion: Int,
+    val source: ScholarPackSource,
+    val installation: ScholarPackInstallation,
+)
+
 data class ScholarBook(
     val id: String,
     val title: String,
@@ -101,15 +127,45 @@ data class ScholarNote(
     val createdAtEpochMillis: Long,
 )
 
+enum class ScholarReviewRating {
+    Again,
+    Hard,
+    Good,
+    Easy,
+    ;
+
+    companion object {
+        fun fromId(id: String?): ScholarReviewRating? =
+            id?.let { raw -> entries.firstOrNull { it.name.equals(raw, ignoreCase = true) } }
+    }
+}
+
+data class ScholarFlashcardReviewState(
+    val reviewCount: Int = 0,
+    val dueAtEpochMillis: Long = 0L,
+    val intervalDays: Int = 0,
+    val easeFactor: Double = 2.5,
+    val lapseCount: Int = 0,
+    val lastReviewedAtEpochMillis: Long? = null,
+    val lastRating: ScholarReviewRating? = null,
+)
+
 data class StudyFlashcard(
     val id: Long,
     val passageId: String,
     val front: String,
     val back: String,
-    val reviewCount: Int,
-    val dueAtEpochMillis: Long,
     val createdAtEpochMillis: Long,
-)
+    val reviewState: ScholarFlashcardReviewState = ScholarFlashcardReviewState(),
+) {
+    val reviewCount: Int get() = reviewState.reviewCount
+    val dueAtEpochMillis: Long get() = reviewState.dueAtEpochMillis
+    val intervalDays: Int get() = reviewState.intervalDays
+    val easeFactor: Double get() = reviewState.easeFactor
+    val lapseCount: Int get() = reviewState.lapseCount
+    val lastReviewedAtEpochMillis: Long? get() = reviewState.lastReviewedAtEpochMillis
+    val lastRating: ScholarReviewRating? get() = reviewState.lastRating
+}
 
 data class ScholarBookmark(
     val passageId: String,
@@ -202,6 +258,48 @@ data class ScholarStudyPlan(
     val updatedAtEpochMillis: Long,
 )
 
+enum class ScholarStudySessionStatus {
+    InProgress,
+    Completed,
+    Abandoned,
+    ;
+
+    companion object {
+        fun fromId(id: String): ScholarStudySessionStatus =
+            entries.firstOrNull { it.name.equals(id, ignoreCase = true) } ?: InProgress
+    }
+}
+
+data class ScholarStudySession(
+    val id: Long,
+    val pathId: String,
+    val planId: Long?,
+    val bookId: String,
+    val targetPassageIds: List<String>,
+    val completedPassageIds: List<String>,
+    val plannedMinutes: Int,
+    val status: ScholarStudySessionStatus,
+    val startedAtEpochMillis: Long,
+    val completedAtEpochMillis: Long?,
+) {
+    val nextPassageId: String?
+        get() = targetPassageIds.firstOrNull { it !in completedPassageIds }
+
+    val progressPercent: Int
+        get() = if (targetPassageIds.isEmpty()) {
+            0
+        } else {
+            (completedPassageIds.size * 100 / targetPassageIds.size).coerceIn(0, 100)
+        }
+}
+
+data class ScholarWeeklyStudySummary(
+    val pathId: String,
+    val completedSessions: Int,
+    val studiedMinutes: Int,
+    val completedPassages: Int,
+)
+
 data class ScholarSearchFilters(
     val category: ScholarCategory? = null,
     val difficulty: ScholarDifficulty? = null,
@@ -247,6 +345,61 @@ data class StudyNoteWithCitation(
 data class FlashcardWithCitation(
     val card: StudyFlashcard,
     val citation: Citation,
+    val bookId: String,
+    val category: ScholarCategory,
+)
+
+data class ScholarReviewSummary(
+    val totalCards: Int,
+    val dueCards: Int,
+    val learningCards: Int,
+    val matureCards: Int,
+    val estimatedMasteryPercent: Int,
+)
+
+data class ScholarReviewOutcome(
+    val rating: ScholarReviewRating,
+    val scheduledIntervalDays: Int,
+    val lapseCountAfterReview: Int,
+    val easeFactorAfterReview: Double,
+)
+
+data class ScholarReviewEvent(
+    val id: Long,
+    val flashcardId: Long,
+    val passageId: String,
+    val bookId: String,
+    val category: ScholarCategory,
+    val reviewedAtEpochMillis: Long,
+    val outcome: ScholarReviewOutcome,
+)
+
+data class ScholarReviewActivity(
+    val reviewsToday: Int,
+    val reviewsLast7Days: Int,
+    val cardsReviewedLast7Days: Int,
+    val againLast7Days: Int,
+    val hardLast7Days: Int,
+    val goodLast7Days: Int,
+    val easyLast7Days: Int,
+)
+
+data class ScholarStudyActivity(
+    val completedSessionsLast7Days: Int,
+    val studiedPassagesLast7Days: Int,
+    val dueCards: Int,
+)
+
+data class ScholarStudyActivitySummary(
+    val review: ScholarReviewActivity,
+    val study: ScholarStudyActivity,
+)
+
+data class ScholarCategoryMastery(
+    val category: ScholarCategory,
+    val totalCards: Int,
+    val dueCards: Int,
+    val estimatedMasteryPercent: Int,
 )
 
 data class StudyBookmarkWithCitation(

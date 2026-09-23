@@ -3,15 +3,44 @@ package org.muslim.app.feature.scholarlibrary.data
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
 import org.muslim.app.feature.scholarlibrary.domain.ScholarBookmark
 import org.muslim.app.feature.scholarlibrary.domain.ScholarCategory
+import org.muslim.app.feature.scholarlibrary.domain.ScholarContentPack
 import org.muslim.app.feature.scholarlibrary.domain.ScholarDifficulty
+import org.muslim.app.feature.scholarlibrary.domain.ScholarFlashcardReviewState
 import org.muslim.app.feature.scholarlibrary.domain.ScholarHighlight
 import org.muslim.app.feature.scholarlibrary.domain.ScholarHighlightStyle
 import org.muslim.app.feature.scholarlibrary.domain.ScholarNote
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
+import org.muslim.app.feature.scholarlibrary.domain.ScholarPackInstallation
+import org.muslim.app.feature.scholarlibrary.domain.ScholarPackSource
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingStatus
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewEvent
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewOutcome
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewRating
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPlan
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySession
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySessionStatus
 import org.muslim.app.feature.scholarlibrary.domain.StudyFlashcard
+
+internal fun ScholarContentPackEntity.toDomain() = ScholarContentPack(
+    id = packId,
+    name = identity.packName,
+    version = identity.packVersion,
+    schemaVersion = identity.schemaVersion,
+    source = ScholarPackSource(
+        name = source.sourceName,
+        url = source.sourceUrl,
+        licenseNotice = source.licenseNotice,
+        originName = source.originName,
+    ),
+    installation = ScholarPackInstallation(
+        bookIds = installation.bookIds.toStoredIdList(),
+        imported = installation.imported,
+        managed = installation.managed,
+        installedAtEpochMillis = installation.installedAtEpochMillis,
+        updatedAtEpochMillis = installation.updatedAtEpochMillis,
+    ),
+)
 
 internal fun ScholarBookEntity.toDomain() = ScholarBook(
     id = id,
@@ -53,9 +82,31 @@ internal fun ScholarFlashcardEntity.toDomain() = StudyFlashcard(
     passageId = passageId,
     front = front,
     back = back,
-    reviewCount = reviewCount,
-    dueAtEpochMillis = dueAtEpochMillis,
     createdAtEpochMillis = createdAtEpochMillis,
+    reviewState = ScholarFlashcardReviewState(
+        reviewCount = reviewState.reviewCount,
+        dueAtEpochMillis = reviewState.dueAtEpochMillis,
+        intervalDays = reviewState.intervalDays,
+        easeFactor = reviewState.easeFactor,
+        lapseCount = reviewState.lapseCount,
+        lastReviewedAtEpochMillis = reviewState.lastReviewedAtEpochMillis,
+        lastRating = ScholarReviewRating.fromId(reviewState.lastRating),
+    ),
+)
+
+internal fun ScholarReviewEventEntity.toDomain() = ScholarReviewEvent(
+    id = id,
+    flashcardId = flashcardId,
+    passageId = passageId,
+    bookId = bookId,
+    category = ScholarCategory.fromId(category),
+    reviewedAtEpochMillis = reviewedAtEpochMillis,
+    outcome = ScholarReviewOutcome(
+        rating = ScholarReviewRating.fromId(outcome.rating) ?: ScholarReviewRating.Good,
+        scheduledIntervalDays = outcome.scheduledIntervalDays,
+        lapseCountAfterReview = outcome.lapseCountAfterReview,
+        easeFactorAfterReview = outcome.easeFactorAfterReview,
+    ),
 )
 
 internal fun ScholarBookmarkEntity.toDomain() = ScholarBookmark(
@@ -91,4 +142,23 @@ internal fun ScholarStudyPlanEntity.toDomain() = ScholarStudyPlan(
     updatedAtEpochMillis = updatedAtEpochMillis,
 )
 
+internal fun ScholarStudySessionEntity.toDomain() = ScholarStudySession(
+    id = id,
+    pathId = pathId,
+    planId = planId,
+    bookId = bookId,
+    targetPassageIds = targetPassageIds.toStoredIdList(),
+    completedPassageIds = completedPassageIds.toStoredIdList(),
+    plannedMinutes = plannedMinutes,
+    status = ScholarStudySessionStatus.fromId(status),
+    startedAtEpochMillis = startedAtEpochMillis,
+    completedAtEpochMillis = completedAtEpochMillis,
+)
+
+internal fun List<String>.toStoredIds(): String = joinToString(PASSAGE_ID_SEPARATOR)
+
+internal fun String.toStoredIdList(): List<String> =
+    split(PASSAGE_ID_SEPARATOR).filter { it.isNotBlank() }
+
 private const val KEYWORD_SEPARATOR = "\u001F"
+private const val PASSAGE_ID_SEPARATOR = "\u001E"

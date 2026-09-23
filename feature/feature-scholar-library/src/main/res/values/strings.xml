@@ -92,4 +92,71 @@
     <string name="scholar_library_without_volume">بدون رقم مجلد</string>
     <string name="scholar_library_section_unspecified">مقاطع الباب</string>
     <string name="scholar_library_hierarchy_section">%1$s · %2$d مقطع/مقاطع</string>
+
+    <string name="scholar_library_open_study_session">ابدأ/تابع الجلسة</string>
+    <string name="scholar_library_weekly_summary">ملخص آخر 7 أيام</string>
+    <string name="scholar_library_weekly_summary_values">%1$d جلسات مكتملة · %2$d مقاطع · %3$d دقيقة مسجلة للجلسات</string>
+    <string name="scholar_library_study_session">جلسة الدراسة</string>
+    <string name="scholar_library_session_unavailable">لا توجد جلسة قابلة للبدء. فعّل خطة دراسة للمسار أو أكمل مادة متبقية فيه.</string>
+    <string name="scholar_library_session_progress">%1$d من %2$d مقاطع · المدة المخططة %3$d دقيقة</string>
+    <string name="scholar_library_session_passage_completed">تمت دراسة هذا المقطع</string>
+    <string name="scholar_library_complete_session_passage">تسجيل هذا المقطع كمكتمل</string>
+    <string name="scholar_library_session_waiting_previous">أكمل المقطع السابق أولاً للحفاظ على ترتيب الجلسة.</string>
+    <string name="scholar_library_session_completed">اكتملت أهداف هذه الجلسة وتم تحديث تقدم الكتاب.</string>
+    <string name="scholar_library_start_next_session">بدء الجلسة التالية</string>
+    <string name="scholar_library_page_label">الصفحة: %1$s</string>
+
+    <string name="scholar_library_recent_study_sessions">الجلسات الأخيرة</string>
+    <string name="scholar_library_no_study_sessions">لا توجد جلسات دراسة بعد. ابدأ من أحد المسارات العلمية.</string>
+    <string name="scholar_library_session_history_progress">%1$d من %2$d مقاطع منجزة</string>
+    <string name="scholar_library_session_history_completed">جلسة مكتملة</string>
+    <string name="scholar_library_resume_session">متابعة الجلسة</string>
+    <string name="scholar_library_session_history_abandoned">جلسة غير مكتملة أُغلقت بعد تغيّر محتواها.</string>
+
+    <string name="scholar_library_review_summary_v2">%1$d مستحقة من %2$d · %3$d قيد التعلّم · %4$d ناضجة · مؤشر الإتقان التقديري %5$d%%</string>
+    <string name="scholar_library_mastery_by_category">مؤشر الإتقان التقديري حسب العلم</string>
+    <string name="scholar_library_no_mastery_data">لا توجد بيانات مراجعة كافية بعد. أنشئ بطاقات وابدأ المراجعة لبناء المؤشر.</string>
+    <string name="scholar_library_mastery_category_summary">%1$d%% تقديري · %2$d بطاقة · %3$d مستحقة</string>
+    <string name="scholar_library_review_card_state">الفاصل %1$d يوم · %2$d مراجعة · %3$d إخفاق/إخفاقات</string>
+    <string name="scholar_library_rating_again">مرة أخرى</string>
+    <string name="scholar_library_rating_hard">صعب</string>
+    <string name="scholar_library_rating_good">جيد</string>
+    <string name="scholar_library_rating_easy">سهل</string>
+    <string name="scholar_library_create_review_card">إنشاء بطاقة مراجعة من المقطع</string>
+    <string name="scholar_library_mastery_disclaimer">هذا مؤشر تنظيمي مبني على تباعد المراجعات، وليس حكماً على التحصيل العلمي أو صحة الفهم.</string>
+
+    <string name="scholar_library_review_center">مركز المراجعة</string>
+    <string name="scholar_library_open_review_center">فتح مركز المراجعة</string>
+    <string name="scholar_library_activity_summary">نشاط الدراسة والمراجعة</string>
+    <string name="scholar_library_activity_reviews">اليوم: %1$d مراجعة · آخر 7 أيام: %2$d مراجعة عبر %3$d بطاقة</string>
+    <string name="scholar_library_activity_sessions">آخر 7 أيام: %1$d جلسات مكتملة · %2$d مقاطع مدروسة · %3$d بطاقات مستحقة الآن</string>
+    <string name="scholar_library_activity_ratings">تقييمات آخر 7 أيام — مرة أخرى: %1$d · صعب: %2$d · جيد: %3$d · سهل: %4$d</string>
+    <string name="scholar_library_review_filters">تصفية طابور المراجعة</string>
+    <string name="scholar_library_filter_by_category">حسب العلم</string>
+    <string name="scholar_library_filter_by_path">حسب المسار</string>
+    <string name="scholar_library_filter_by_book">حسب الكتاب</string>
+    <string name="scholar_library_all_paths">كل المسارات</string>
+    <string name="scholar_library_all_books">كل الكتب</string>
+    <string name="scholar_library_focused_review">المراجعة المركزة</string>
+    <string name="scholar_library_review_queue_empty">لا توجد بطاقات مستحقة ضمن هذه الفلاتر.</string>
+    <string name="scholar_library_review_queue_remaining">%1$d بطاقة مستحقة في الطابور الحالي</string>
+    <string name="scholar_library_review_filter_match">%1$d بطاقة مستحقة مطابقة عبر %2$d كتاب/كتب</string>
+    <string name="scholar_library_recent_review_activity">آخر التقييمات المسجلة</string>
+    <string name="scholar_library_no_review_activity">لا يوجد سجل مراجعة بعد. سيظهر هنا كل تقييم جديد للبطاقات.</string>
+    <string name="scholar_library_review_history_item">التقييم: %1$s · الفاصل التالي: %2$d يوم · الإخفاقات التراكمية: %3$d</string>
+
+    <string name="scholar_library_data_manager">إدارة المحتوى والنسخ الاحتياطي</string>
+    <string name="scholar_library_content_and_backup">الحزم وبيانات الدراسة</string>
+    <string name="scholar_library_backup_scope_notice">النسخة الاحتياطية تشمل الملاحظات والبطاقات والإشارات والتظليلات والتقدم والخطط والجلسات وسجل المراجعات فقط. نصوص الكتب والحزم المرخصة لا تُضمّن داخل النسخة.</string>
+    <string name="scholar_library_import_or_update_pack">استيراد أو تحديث حزمة محتوى</string>
+    <string name="scholar_library_export_study_backup">تصدير نسخة</string>
+    <string name="scholar_library_restore_study_backup">استعادة نسخة</string>
+    <string name="scholar_library_installed_packs">الحزم المثبتة</string>
+    <string name="scholar_library_no_registered_packs">لا توجد حزم مسجلة بعد.</string>
+    <string name="scholar_library_pack_version_summary">إصدار الحزمة %1$d · مخطط %2$d · %3$d كتاب/كتب</string>
+    <string name="scholar_library_pack_managed">حزمة مُدارة: يمكن تحديثها بأمان باستخدام packId نفسه وإصدار مساوي أو أحدث.</string>
+    <string name="scholar_library_pack_legacy">حزمة قديمة: متوافقة، لكنها لا تحمل هوية وإصدار إدارة v4 كاملين.</string>
+    <string name="scholar_library_pack_source">المصدر: %1$s</string>
+    <string name="scholar_library_pack_origin">ملف التثبيت: %1$s</string>
+    <string name="scholar_library_pack_license">بيان الترخيص</string>
 </resources>
