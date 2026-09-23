@@ -45,6 +45,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.scholarlibrary.R
 import org.muslim.app.feature.scholarlibrary.domain.FlashcardWithCitation
+import org.muslim.app.feature.scholarlibrary.domain.ScholarBook
 import org.muslim.app.feature.scholarlibrary.domain.ScholarCategory
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewEvent
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewRating
@@ -72,7 +73,7 @@ fun ScholarReviewCenterScreen(
         }
     }
 
-    val category = selectedCategoryName?.let(ScholarCategory::fromId)
+    val category = selectedCategoryName?.let { ScholarCategory.fromId(it) }
     val path = state.studyPaths.firstOrNull { it.id == selectedPathId }
     val queue = ScholarStudyAnalytics.dueCards(
         cards = state.flashcards,
@@ -114,30 +115,34 @@ fun ScholarReviewCenterScreen(
             item {
                 ReviewFilters(
                     state = state,
-                    selectedCategoryName = selectedCategoryName,
-                    selectedPathId = selectedPathId,
-                    selectedBookId = selectedBookId,
-                    filterBooks = filterBooks,
-                    onCategory = {
-                        selectedCategoryName = it
-                        selectedBookId = null
-                        revealedCardId = null
-                    },
-                    onPath = {
-                        selectedPathId = it
-                        selectedBookId = null
-                        revealedCardId = null
-                    },
-                    onBook = {
-                        selectedBookId = it
-                        revealedCardId = null
-                    },
-                    onClear = {
-                        selectedCategoryName = null
-                        selectedPathId = null
-                        selectedBookId = null
-                        revealedCardId = null
-                    },
+                    filterState = ReviewFilterState(
+                        selectedCategoryName = selectedCategoryName,
+                        selectedPathId = selectedPathId,
+                        selectedBookId = selectedBookId,
+                        filterBooks = filterBooks,
+                    ),
+                    actions = ReviewFilterActions(
+                        onCategory = {
+                            selectedCategoryName = it
+                            selectedBookId = null
+                            revealedCardId = null
+                        },
+                        onPath = {
+                            selectedPathId = it
+                            selectedBookId = null
+                            revealedCardId = null
+                        },
+                        onBook = {
+                            selectedBookId = it
+                            revealedCardId = null
+                        },
+                        onClear = {
+                            selectedCategoryName = null
+                            selectedPathId = null
+                            selectedBookId = null
+                            revealedCardId = null
+                        },
+                    ),
                 )
             }
             item {
@@ -201,26 +206,26 @@ private fun ReviewActivityCard(state: ScholarLibraryUiState) {
             Text(
                 stringResource(
                     R.string.scholar_library_activity_reviews,
-                    summary.reviewsToday,
-                    summary.reviewsLast7Days,
-                    summary.cardsReviewedLast7Days,
+                    summary.review.reviewsToday,
+                    summary.review.reviewsLast7Days,
+                    summary.review.cardsReviewedLast7Days,
                 ),
             )
             Text(
                 stringResource(
                     R.string.scholar_library_activity_sessions,
-                    summary.completedSessionsLast7Days,
-                    summary.studiedPassagesLast7Days,
-                    summary.dueCards,
+                    summary.study.completedSessionsLast7Days,
+                    summary.study.studiedPassagesLast7Days,
+                    summary.study.dueCards,
                 ),
             )
             Text(
                 stringResource(
                     R.string.scholar_library_activity_ratings,
-                    summary.againLast7Days,
-                    summary.hardLast7Days,
-                    summary.goodLast7Days,
-                    summary.easyLast7Days,
+                    summary.review.againLast7Days,
+                    summary.review.hardLast7Days,
+                    summary.review.goodLast7Days,
+                    summary.review.easyLast7Days,
                 ),
                 style = MaterialTheme.typography.bodySmall,
             )
@@ -228,17 +233,25 @@ private fun ReviewActivityCard(state: ScholarLibraryUiState) {
     }
 }
 
+private data class ReviewFilterState(
+    val selectedCategoryName: String?,
+    val selectedPathId: String?,
+    val selectedBookId: String?,
+    val filterBooks: List<ScholarBook>,
+)
+
+private data class ReviewFilterActions(
+    val onCategory: (String?) -> Unit,
+    val onPath: (String?) -> Unit,
+    val onBook: (String?) -> Unit,
+    val onClear: () -> Unit,
+)
+
 @Composable
 private fun ReviewFilters(
     state: ScholarLibraryUiState,
-    selectedCategoryName: String?,
-    selectedPathId: String?,
-    selectedBookId: String?,
-    filterBooks: List<org.muslim.app.feature.scholarlibrary.domain.ScholarBook>,
-    onCategory: (String?) -> Unit,
-    onPath: (String?) -> Unit,
-    onBook: (String?) -> Unit,
-    onClear: () -> Unit,
+    filterState: ReviewFilterState,
+    actions: ReviewFilterActions,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
@@ -247,8 +260,12 @@ private fun ReviewFilters(
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
             )
-            if (selectedCategoryName != null || selectedPathId != null || selectedBookId != null) {
-                OutlinedButton(onClick = onClear) {
+            if (
+                filterState.selectedCategoryName != null ||
+                filterState.selectedPathId != null ||
+                filterState.selectedBookId != null
+            ) {
+                OutlinedButton(onClick = actions.onClear) {
                     Text(stringResource(R.string.scholar_library_clear_filters))
                 }
             }
@@ -256,25 +273,25 @@ private fun ReviewFilters(
         FilterRow(
             title = stringResource(R.string.scholar_library_filter_by_category),
             allLabel = stringResource(R.string.scholar_library_all_categories),
-            selectedId = selectedCategoryName,
+            selectedId = filterState.selectedCategoryName,
             options = state.flashcards.map { it.category }.distinct().map { it.name to it.label },
-            onSelected = onCategory,
+            onSelected = actions.onCategory,
         )
         FilterRow(
             title = stringResource(R.string.scholar_library_filter_by_path),
             allLabel = stringResource(R.string.scholar_library_all_paths),
-            selectedId = selectedPathId,
+            selectedId = filterState.selectedPathId,
             options = state.studyPaths
                 .filter { path -> state.flashcards.any { path.containsBook(it.bookId) } }
                 .map { it.id to it.title },
-            onSelected = onPath,
+            onSelected = actions.onPath,
         )
         FilterRow(
             title = stringResource(R.string.scholar_library_filter_by_book),
             allLabel = stringResource(R.string.scholar_library_all_books),
-            selectedId = selectedBookId,
-            options = filterBooks.map { it.id to it.title },
-            onSelected = onBook,
+            selectedId = filterState.selectedBookId,
+            options = filterState.filterBooks.map { it.id to it.title },
+            onSelected = actions.onBook,
         )
     }
 }
