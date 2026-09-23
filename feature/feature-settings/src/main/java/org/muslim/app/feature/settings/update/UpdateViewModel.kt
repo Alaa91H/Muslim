@@ -34,6 +34,8 @@ sealed interface UpdateUiState {
 class UpdateViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val appPreferencesRepository: AppPreferencesRepository,
+    private val updateChecker: UpdateChecker,
+    private val updateDownloads: UpdateDownloadManager,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<UpdateUiState>(UpdateUiState.Loading)
@@ -48,9 +50,7 @@ class UpdateViewModel @Inject constructor(
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), 0L)
 
     /** The version currently installed on the device. */
-    val installedVersion: String = UpdateChecker(context).installedVersion()
-
-    private val updateDownloads = UpdateDownloadManager(context, appPreferencesRepository)
+    val installedVersion: String = updateChecker.installedVersion()
 
     init {
         refresh()
@@ -60,10 +60,12 @@ class UpdateViewModel @Inject constructor(
     fun refresh() {
         viewModelScope.launch {
             _uiState.value = UpdateUiState.Loading
-            val checker = UpdateChecker(context)
-            when (val result = checker.check()) {
+            when (val result = updateChecker.check()) {
                 is UpdateChecker.Result.UpdateAvailable -> {
-                    _uiState.value = UpdateUiState.Available(result.release, checker.installedVersion())
+                    _uiState.value = UpdateUiState.Available(
+                        result.release,
+                        updateChecker.installedVersion(),
+                    )
                     appPreferencesRepository.setLastUpdateCheck(System.currentTimeMillis())
                     maybeStartAutomaticDownload(result.release)
                 }
