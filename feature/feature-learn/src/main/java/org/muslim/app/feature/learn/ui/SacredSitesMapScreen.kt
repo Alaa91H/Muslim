@@ -63,67 +63,82 @@ fun SacredSitesMapScreen(
             )
         },
     ) { padding ->
-        LazyColumn(
-            modifier = Modifier.fillMaxSize().padding(padding),
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp),
-        ) {
-            item(key = "sacred-sites-decoration") {
-                IslamicDecorationBand(
-                    tint = MaterialTheme.colorScheme.tertiary,
-                    compact = true,
-                )
-            }
-            item {
-                Text(
-                    text = stringResource(R.string.hajj_map_list_intro),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(bottom = 2.dp),
-                )
-            }
-            items(sites, key = { it.site.name }) { location ->
-                val info = HajjLocationGuide.guidanceFor(location.site)
-                Card(
-                    modifier = Modifier.fillMaxWidth().clickable {
-                        selected = if (selected == location.site) null else location.site
-                    },
-                ) {
-                    Column(Modifier.padding(16.dp)) {
-                        androidx.compose.foundation.layout.Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Icon(
-                                Icons.Filled.LocationOn,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary,
-                            )
-                            Spacer(Modifier.width(10.dp))
-                            Text(
-                                text = location.label,
-                                style = MaterialTheme.typography.titleMedium,
-                                fontWeight = FontWeight.Bold,
-                            )
-                        }
-                        if (selected == location.site) {
-                            Text(
-                                text = info.title,
-                                style = MaterialTheme.typography.labelLarge,
-                                color = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.padding(top = 12.dp),
-                            )
-                            Text(
-                                text = info.supplication,
-                                style = MaterialTheme.typography.bodyLarge,
-                                modifier = Modifier.padding(top = 6.dp),
-                            )
-                            Text(
-                                text = info.note,
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier.padding(top = 8.dp),
-                            )
-                        }
+        SacredSitesContent(
+            sites = sites,
+            selected = selected,
+            onSelect = { selected = it },
+            modifier = Modifier.padding(padding),
+        )
+    }
+}
+
+@Composable
+private fun SacredSitesContent(
+    sites: List<org.muslim.app.feature.learn.domain.HajjLocation>,
+    selected: SacredSite?,
+    onSelect: (SacredSite?) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    LazyColumn(
+        modifier = modifier.fillMaxSize(),
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        item(key = "sacred-sites-decoration") {
+            IslamicDecorationBand(
+                tint = MaterialTheme.colorScheme.tertiary,
+                compact = true,
+            )
+        }
+        item {
+            Text(
+                text = stringResource(R.string.hajj_map_list_intro),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(bottom = 2.dp),
+            )
+        }
+        items(sites, key = { it.site.name }) { location ->
+            val info = HajjLocationGuide.guidanceFor(location.site)
+            Card(
+                modifier = Modifier.fillMaxWidth().clickable {
+                    onSelect(if (selected == location.site) null else location.site)
+                },
+            ) {
+                Column(Modifier.padding(16.dp)) {
+                    androidx.compose.foundation.layout.Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Icon(
+                            Icons.Filled.LocationOn,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
+                        )
+                        Spacer(Modifier.width(10.dp))
+                        Text(
+                            text = location.label,
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold,
+                        )
+                    }
+                    if (selected == location.site) {
+                        Text(
+                            text = info.title,
+                            style = MaterialTheme.typography.labelLarge,
+                            color = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.padding(top = 12.dp),
+                        )
+                        Text(
+                            text = info.supplication,
+                            style = MaterialTheme.typography.bodyLarge,
+                            modifier = Modifier.padding(top = 6.dp),
+                        )
+                        Text(
+                            text = info.note,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(top = 8.dp),
+                        )
                     }
                 }
             }
