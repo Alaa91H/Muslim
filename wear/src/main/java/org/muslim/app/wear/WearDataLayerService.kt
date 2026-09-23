@@ -2,7 +2,9 @@ package org.muslim.app.wear
 
 import android.content.Context
 import androidx.core.content.edit
+import com.google.android.gms.wearable.DataEvent
 import com.google.android.gms.wearable.DataEventBuffer
+import com.google.android.gms.wearable.DataMap
 import com.google.android.gms.wearable.DataMapItem
 import com.google.android.gms.wearable.WearableListenerService
 import org.muslim.app.core.common.appearance.AppOrnamentStyle
@@ -19,27 +21,12 @@ class WearDataLayerService : WearableListenerService() {
 
     override fun onDataChanged(dataEvents: DataEventBuffer) {
         try {
-            dataEvents.filter { event -> event.type == com.google.android.gms.wearable.DataEvent.TYPE_CHANGED }
+            dataEvents
+                .filter { event -> event.type == DataEvent.TYPE_CHANGED }
                 .filter { event -> event.dataItem.uri.path == WearSyncContract.DATA_PATH }
                 .forEach { event ->
                     val data = DataMapItem.fromDataItem(event.dataItem).dataMap
-                    val snapshot = WearPrayerSnapshot(
-                        nextPrayerName = data.getString(WearSyncContract.KEY_NEXT_PRAYER),
-                        nextPrayerAtEpochMillis = data.getLong(WearSyncContract.KEY_NEXT_PRAYER_AT, 0L)
-                            .takeIf { value -> value > 0L },
-                        tasbihPhrase = data.getString(WearSyncContract.KEY_TASBIH_PHRASE).orEmpty(),
-                        tasbihCount = data.getInt(WearSyncContract.KEY_TASBIH_COUNT, 0),
-                        tasbihTarget = data.getInt(WearSyncContract.KEY_TASBIH_TARGET, 33),
-                        syncedAtEpochMillis = data.getLong(WearSyncContract.KEY_SYNCED_AT, 0L),
-                        ornamentStyle = enumOr(
-                            data.getString(WearSyncContract.KEY_ORNAMENT_STYLE),
-                            AppOrnamentStyle.Geometry,
-                        ),
-                        ornamentIntensity = enumOr(
-                            data.getString(WearSyncContract.KEY_ORNAMENT_INTENSITY),
-                            OrnamentIntensity.Balanced,
-                        ),
-                    )
+                    val snapshot = wearSnapshotFrom(data)
                     if (snapshot.isValid()) WearSnapshotStore.save(applicationContext, snapshot)
                 }
         } finally {
@@ -47,6 +34,25 @@ class WearDataLayerService : WearableListenerService() {
         }
     }
 }
+
+internal fun wearSnapshotFrom(data: DataMap): WearPrayerSnapshot =
+    WearPrayerSnapshot(
+        nextPrayerName = data.getString(WearSyncContract.KEY_NEXT_PRAYER),
+        nextPrayerAtEpochMillis = data.getLong(WearSyncContract.KEY_NEXT_PRAYER_AT, 0L)
+            .takeIf { value -> value > 0L },
+        tasbihPhrase = data.getString(WearSyncContract.KEY_TASBIH_PHRASE).orEmpty(),
+        tasbihCount = data.getInt(WearSyncContract.KEY_TASBIH_COUNT, 0),
+        tasbihTarget = data.getInt(WearSyncContract.KEY_TASBIH_TARGET, 33),
+        syncedAtEpochMillis = data.getLong(WearSyncContract.KEY_SYNCED_AT, 0L),
+        ornamentStyle = enumOr(
+            data.getString(WearSyncContract.KEY_ORNAMENT_STYLE),
+            AppOrnamentStyle.Geometry,
+        ),
+        ornamentIntensity = enumOr(
+            data.getString(WearSyncContract.KEY_ORNAMENT_INTENSITY),
+            OrnamentIntensity.Balanced,
+        ),
+    )
 
 /** Local storage for the non-sensitive state rendered by [WearMainActivity]. */
 internal object WearSnapshotStore {
@@ -94,6 +100,6 @@ internal object WearSnapshotStore {
         return snapshot.takeIf(WearPrayerSnapshot::isValid)
     }
 }
+
 private fun <T : Enum<T>> enumOr(value: String?, default: T): T =
     value?.let { raw -> default::class.java.enumConstants?.firstOrNull { it.name == raw } } ?: default
-
