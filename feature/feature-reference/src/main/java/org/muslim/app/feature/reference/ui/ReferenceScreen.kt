@@ -72,12 +72,16 @@ private val bookIcons = mapOf(
     "islam" to Icons.Filled.AutoStories,
     "sira" to Icons.Filled.History,
     "prophets" to Icons.Filled.Groups,
+    "companions" to Icons.Filled.Groups,
+    "mothers" to Icons.Filled.AutoStories,
+    "ahl_al_bayt" to Icons.Filled.Groups,
+    "rashidun" to Icons.Filled.History,
 )
 
 /**
  * المرجعية الإسلامية (feature-reference): مكتبة مرجعية شاملة ومفهرسة تعرض
- * ثلاثة كتب — «التعريف بالإسلام»، «السيرة النبوية»، «قصص الأنبياء» — مع
- * بحث نصي في كل كتاب وتبديل لغة المحتوى (عربي/English).
+ * كتب مترابطة تشمل التعريف بالإسلام والسيرة والأنبياء والصحابة وأمهات
+ * المؤمنين وأهل البيت والخلفاء الراشدين، مع بحث نصي ثنائي اللغة.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
