@@ -52,6 +52,7 @@
     <string name="scholar_library_no_highlights">لا توجد تظليلات بعد. يمكنك حفظ مقطع مهم من صفحة الكتاب.</string>
     <string name="scholar_library_delete_highlight">حذف التظليل</string>
     <string name="scholar_library_level">المستوى: %1$s</string>
+    <string name="scholar_library_level_unspecified">غير محدد</string>
     <string name="scholar_library_level_foundation">تأسيسي</string>
     <string name="scholar_library_level_intermediate">متوسط</string>
     <string name="scholar_library_level_advanced">متقدم</string>
