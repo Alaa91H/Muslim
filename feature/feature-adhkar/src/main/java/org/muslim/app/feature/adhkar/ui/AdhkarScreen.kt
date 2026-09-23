@@ -211,9 +211,11 @@ private fun AdhkarLibraryContent(
                             onToggleFavorite = { viewModel.toggleFavorite(dhikr.id) },
                             onIncrement = { viewModel.increment(dhikr.id) },
                             onReset = { viewModel.reset(dhikr.id) },
-                            speechEnabled = speechEnabled && speechReady,
-                            isSpeaking = speakingDhikrId == dhikr.id,
-                            onToggleSpeech = { viewModel.toggleSpeech(dhikr) },
+                            speech = DhikrSpeechControls(
+                                enabled = speechEnabled && speechReady,
+                                isSpeaking = speakingDhikrId == dhikr.id,
+                                onToggle = { viewModel.toggleSpeech(dhikr) },
+                            ),
                             onCopied = onCopied,
                         )
                         HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
@@ -227,9 +229,11 @@ private fun AdhkarLibraryContent(
                         onToggleFavorite = { viewModel.toggleFavorite(dhikr.id) },
                         onIncrement = { viewModel.increment(dhikr.id) },
                         onReset = { viewModel.reset(dhikr.id) },
-                        speechEnabled = speechEnabled && speechReady,
-                        isSpeaking = speakingDhikrId == dhikr.id,
-                        onToggleSpeech = { viewModel.toggleSpeech(dhikr) },
+                        speech = DhikrSpeechControls(
+                            enabled = speechEnabled && speechReady,
+                            isSpeaking = speakingDhikrId == dhikr.id,
+                            onToggle = { viewModel.toggleSpeech(dhikr) },
+                        ),
                         onCopied = onCopied,
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
@@ -239,6 +243,12 @@ private fun AdhkarLibraryContent(
     }
 }
 
+private data class DhikrSpeechControls(
+    val enabled: Boolean,
+    val isSpeaking: Boolean,
+    val onToggle: () -> Unit,
+)
+
 @Composable
 private fun DhikrCard(
     dhikr: Dhikr,
@@ -247,9 +257,7 @@ private fun DhikrCard(
     onToggleFavorite: () -> Unit,
     onIncrement: () -> Unit,
     onReset: () -> Unit,
-    speechEnabled: Boolean,
-    isSpeaking: Boolean,
-    onToggleSpeech: () -> Unit,
+    speech: DhikrSpeechControls,
     onCopied: () -> Unit,
 ) {
     val currentCount by count
@@ -371,15 +379,15 @@ private fun DhikrCard(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                if (speechEnabled) {
+                if (speech.enabled) {
                     OutlinedIconButton(
-                        onClick = onToggleSpeech,
+                        onClick = speech.onToggle,
                         modifier = Modifier.size(48.dp),
                     ) {
                         Icon(
-                            imageVector = if (isSpeaking) Icons.Filled.StopCircle else Icons.Filled.VolumeUp,
+                            imageVector = if (speech.isSpeaking) Icons.Filled.StopCircle else Icons.Filled.VolumeUp,
                             contentDescription = stringResource(
-                                if (isSpeaking) R.string.adhkar_speech_stop else R.string.adhkar_speech_play,
+                                if (speech.isSpeaking) R.string.adhkar_speech_stop else R.string.adhkar_speech_play,
                             ),
                         )
                     }
