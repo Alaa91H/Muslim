@@ -22,10 +22,20 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import org.muslim.app.feature.learn.R
+
+internal object WillDraftProtectionTestTags {
+    const val PROTECTION_CARD = "will_protection_card"
+    const val ENABLE = "will_protection_enable"
+    const val LOCK_NOW = "will_protection_lock_now"
+    const val DISABLE = "will_protection_disable"
+    const val LOCKED_CONTENT = "will_locked_content"
+    const val UNLOCK = "will_unlock"
+}
 
 @Composable
 fun WillDraftProtectionCard(
@@ -33,7 +43,9 @@ fun WillDraftProtectionCard(
     modifier: Modifier = Modifier,
 ) {
     Card(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth()
+            .testTag(WillDraftProtectionTestTags.PROTECTION_CARD),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.secondaryContainer,
         ),
@@ -67,7 +79,9 @@ fun WillDraftProtectionCard(
                 )
                 Button(
                     onClick = session.lockNow,
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .testTag(WillDraftProtectionTestTags.LOCK_NOW),
                 ) {
                     Icon(Icons.Filled.Lock, contentDescription = null)
                     Spacer(Modifier.width(8.dp))
@@ -75,7 +89,9 @@ fun WillDraftProtectionCard(
                 }
                 OutlinedButton(
                     onClick = session.disable,
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .testTag(WillDraftProtectionTestTags.DISABLE),
                 ) {
                     Text(stringResource(R.string.funeral_will_protection_disable))
                 }
@@ -83,7 +99,9 @@ fun WillDraftProtectionCard(
                 Button(
                     onClick = session.enable,
                     enabled = session.availability == WillDraftAuthenticationAvailability.Available,
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .testTag(WillDraftProtectionTestTags.ENABLE),
                 ) {
                     Icon(Icons.Filled.Lock, contentDescription = null)
                     Spacer(Modifier.width(8.dp))
@@ -110,6 +128,7 @@ fun WillDraftLockedContent(
     Column(
         modifier = modifier
             .fillMaxSize()
+            .testTag(WillDraftProtectionTestTags.LOCKED_CONTENT)
             .padding(24.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -135,6 +154,7 @@ fun WillDraftLockedContent(
             enabled = session.availability == WillDraftAuthenticationAvailability.Available,
             modifier = Modifier
                 .fillMaxWidth()
+                .testTag(WillDraftProtectionTestTags.UNLOCK)
                 .padding(top = 18.dp),
         ) {
             Icon(Icons.Filled.LockOpen, contentDescription = null)
