@@ -12,6 +12,8 @@ object HistoryContentValidator {
         articles: List<HistoryArticle> = IslamicHistoryArticles.articles,
         states: List<HistoricalState> = IslamicHistoryStates.states,
         events: List<HistoricalEvent> = IslamicHistoricalEvents.events,
+        personProfiles: List<HistoryPersonProfile> = IslamicHistoryProfiles.people,
+        placeProfiles: List<HistoricalPlaceProfile> = IslamicHistoryProfiles.places,
         civilizationTopics: List<CivilizationTopic> = IslamicCivilizationContent.topics,
         sources: List<HistorySource> = IslamicHistorySources.all,
     ): List<String> {
@@ -25,11 +27,23 @@ object HistoryContentValidator {
             .flatMap { it.places }
             .map { it.id }
             .toSet()
+        val eventIds = events.map { it.id }.toSet()
+        val profileReferences = ProfileReferences(
+            eraIds = eraIds,
+            stateIds = stateIds,
+            placeIds = placeIds,
+            eventIds = eventIds,
+            topicIds = topicIds,
+            personIds = personIds,
+            sourceIds = sourceIds,
+        )
 
         duplicateIds("era", eras.map { it.id }, errors)
         duplicateIds("article", articles.map { it.id }, errors)
         duplicateIds("state", states.map { it.id }, errors)
         duplicateIds("event", events.map { it.id }, errors)
+        duplicateIds("person profile", personProfiles.map { it.personId }, errors)
+        duplicateIds("place profile", placeProfiles.map { it.placeId }, errors)
         duplicateIds("civilization topic", civilizationTopics.map { it.id }, errors)
         duplicateIds("source", sources.map { it.id }, errors)
 
@@ -46,6 +60,8 @@ object HistoryContentValidator {
             sourceIds,
             errors,
         )
+        validatePersonProfiles(personProfiles, profileReferences, errors)
+        validatePlaceProfiles(placeProfiles, profileReferences, errors)
         validateCivilizationTopics(
             civilizationTopics,
             topicIds,
@@ -227,6 +243,135 @@ object HistoryContentValidator {
         }
         if (event.eraIds.isEmpty()) errors += "Event ${event.id} has no era links"
         if (event.sourceIds.isEmpty()) errors += "Event ${event.id} has no sources"
+    }
+
+    private data class ProfileReferences(
+        val eraIds: Set<String>,
+        val stateIds: Set<String>,
+        val placeIds: Set<String>,
+        val eventIds: Set<String>,
+        val topicIds: Set<String>,
+        val personIds: Set<String>,
+        val sourceIds: Set<String>,
+    )
+
+    private fun validatePersonProfiles(
+        profiles: List<HistoryPersonProfile>,
+        refs: ProfileReferences,
+        errors: MutableList<String>,
+    ) {
+        profiles.forEach { profile ->
+            if (profile.personId !in refs.personIds) {
+                errors += "Person profile references unknown person ${profile.personId}"
+            }
+            validateProfileText(
+                label = "Person profile ${profile.personId}",
+                overview = profile.overview,
+                sections = profile.sections,
+                errors = errors,
+            )
+            validateProfileReferences(
+                label = "Person profile ${profile.personId}",
+                eraIds = profile.eraIds,
+                stateIds = profile.stateIds,
+                placeIds = profile.placeIds,
+                eventIds = profile.eventIds,
+                topicIds = profile.relatedTopicIds,
+                personIds = emptyList(),
+                sourceIds = profile.sourceIds,
+                refs = refs,
+                errors = errors,
+            )
+        }
+    }
+
+    private fun validatePlaceProfiles(
+        profiles: List<HistoricalPlaceProfile>,
+        refs: ProfileReferences,
+        errors: MutableList<String>,
+    ) {
+        profiles.forEach { profile ->
+            if (profile.placeId !in refs.placeIds) {
+                errors += "Place profile references unknown place ${profile.placeId}"
+            }
+            validateProfileText(
+                label = "Place profile ${profile.placeId}",
+                overview = profile.overview,
+                sections = profile.sections,
+                errors = errors,
+            )
+            validateProfileReferences(
+                label = "Place profile ${profile.placeId}",
+                eraIds = profile.eraIds,
+                stateIds = profile.stateIds,
+                placeIds = emptyList(),
+                eventIds = profile.eventIds,
+                topicIds = profile.relatedTopicIds,
+                personIds = profile.relatedPersonIds,
+                sourceIds = profile.sourceIds,
+                refs = refs,
+                errors = errors,
+            )
+        }
+    }
+
+    private fun validateProfileText(
+        label: String,
+        overview: HistoryText,
+        sections: List<HistoryArticleSection>,
+        errors: MutableList<String>,
+    ) {
+        if (overview.arabic.isBlank() || overview.english.isBlank()) {
+            errors += "$label has an incomplete bilingual overview"
+        }
+        if (sections.isEmpty()) errors += "$label has no sections"
+        duplicateIds("section in $label", sections.map { it.id }, errors)
+        sections.forEach { section ->
+            if (section.title.arabic.isBlank() || section.title.english.isBlank()) {
+                errors += "$label has an incomplete bilingual section title"
+            }
+            if (section.paragraphs.isEmpty()) errors += "$label has an empty section"
+            section.paragraphs.forEach { paragraph ->
+                if (paragraph.arabic.isBlank() || paragraph.english.isBlank()) {
+                    errors += "$label contains a non-bilingual paragraph"
+                }
+            }
+        }
+    }
+
+    @Suppress("LongParameterList")
+    private fun validateProfileReferences(
+        label: String,
+        eraIds: List<String>,
+        stateIds: List<String>,
+        placeIds: List<String>,
+        eventIds: List<String>,
+        topicIds: List<String>,
+        personIds: List<String>,
+        sourceIds: List<String>,
+        refs: ProfileReferences,
+        errors: MutableList<String>,
+    ) {
+        validateIds(label, "era", eraIds, refs.eraIds, errors)
+        validateIds(label, "state", stateIds, refs.stateIds, errors)
+        validateIds(label, "place", placeIds, refs.placeIds, errors)
+        validateIds(label, "event", eventIds, refs.eventIds, errors)
+        validateIds(label, "topic", topicIds, refs.topicIds, errors)
+        validateIds(label, "person", personIds, refs.personIds, errors)
+        validateIds(label, "source", sourceIds, refs.sourceIds, errors)
+        if (sourceIds.isEmpty()) errors += "$label has no sources"
+    }
+
+    private fun validateIds(
+        label: String,
+        kind: String,
+        ids: List<String>,
+        knownIds: Set<String>,
+        errors: MutableList<String>,
+    ) {
+        ids.forEach { id ->
+            if (id !in knownIds) errors += "$label references unknown $kind $id"
+        }
     }
 
     private fun validateCivilizationTopics(
