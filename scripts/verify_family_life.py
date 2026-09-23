@@ -11,6 +11,8 @@ MODULE = ROOT / "feature/feature-family-life"
 SCREEN = MODULE / "src/main/java/org/muslim/app/feature/family/ui/FamilyLifeScreen.kt"
 CONTENT = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyLifeContent.kt"
 ADVANCED_CONTENT = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyAdvancedContent.kt"
+PARENTING_CONTENT = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyParentingContent.kt"
+NAMES_EXPANSION = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyNamesExpansion.kt"
 GUIDE_HUB = MODULE / "src/main/java/org/muslim/app/feature/family/ui/FamilyGuideHub.kt"
 AR_STRINGS = MODULE / "src/main/res/values/strings.xml"
 EN_STRINGS = MODULE / "src/main/res/values-en/strings.xml"
@@ -37,6 +39,8 @@ def main() -> int:
         SCREEN,
         CONTENT,
         ADVANCED_CONTENT,
+        PARENTING_CONTENT,
+        NAMES_EXPANSION,
         GUIDE_HUB,
         MODULE / "src/main/java/org/muslim/app/feature/family/ui/FamilyLifeViewModel.kt",
         MODULE / "src/main/java/org/muslim/app/feature/family/domain/AqiqahCalculator.kt",
@@ -90,7 +94,12 @@ def main() -> int:
 
     content = CONTENT.read_text(encoding="utf-8")
     advanced_content = ADVANCED_CONTENT.read_text(encoding="utf-8")
-    article_ids = re.findall(r'FamilyGuideArticle\(\s*id\s*=\s*"([^"]+)"', content + "\n" + advanced_content)
+    parenting_content = PARENTING_CONTENT.read_text(encoding="utf-8")
+    names_expansion = NAMES_EXPANSION.read_text(encoding="utf-8")
+    article_ids = re.findall(
+        r'FamilyGuideArticle\(\s*id\s*=\s*"([^"]+)"',
+        content + "\n" + advanced_content + "\n" + parenting_content,
+    )
     if len(article_ids) != len(set(article_ids)):
         return fail("Duplicate family article IDs detected")
     required_articles = {
@@ -110,11 +119,32 @@ def main() -> int:
         "separation_divorce",
         "divorce_general_principles",
         "khul_annulment",
+        "pregnancy_preparation",
+        "postpartum_family_support",
+        "newborn_sunnahs_evidence",
+        "breastfeeding_child_care",
+        "aqiqah_complete_guide",
+        "choosing_child_name",
+        "parenting_early_years",
+        "parenting_school_age",
+        "parenting_teens",
+        "children_prayer_quran",
+        "discipline_without_harm",
+        "child_digital_safety",
+        "body_privacy_safeguarding",
+        "sibling_fairness",
+        "children_faith_questions",
     }
     if not required_articles.issubset(article_ids):
         return fail("Expanded family guide articles are missing")
-    if len(article_ids) < 19:
+    if len(article_ids) < 34:
         return fail(f"Family guide unexpectedly small: {len(article_ids)} articles")
+    expanded_names = re.findall(r'(?:prophet|arabic)\("([^"]+)"', names_expansion)
+    if len(expanded_names) < 60:
+        return fail(f"Baby-name expansion unexpectedly small: {len(expanded_names)} names")
+    ruqyah_duas = re.findall(r'RuqyahSupplication\(\s*id\s*=\s*"([^"]+)"', parenting_content)
+    if len(ruqyah_duas) < 5:
+        return fail("Ruqyah supplication catalogue is incomplete")
     if "FamilyArticleDetailContent" not in screen_text or "FamilyHubContent" not in screen_text:
         return fail("FamilyLifeScreen is not wired to the hub/article reader")
 
