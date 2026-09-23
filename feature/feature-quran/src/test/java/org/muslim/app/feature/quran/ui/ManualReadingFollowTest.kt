@@ -33,4 +33,65 @@ class ManualReadingFollowTest {
         assertThat(contentIndexToReaderPagerPage(0)).isEqualTo(1)
         assertThat(contentIndexToReaderPagerPage(7)).isEqualTo(8)
     }
+
+    @Test
+    fun `follow scroll keeps a fully visible multi line ayah in place`() {
+        assertThat(
+            calculateAyahFollowScrollDelta(
+                ayahTopPx = 200f,
+                ayahBottomPx = 400f,
+                viewportTopPx = 100f,
+                viewportHeightPx = 500,
+            ),
+        ).isEqualTo(0f)
+    }
+
+    @Test
+    fun `follow scroll reveals the clipped bottom of the complete ayah`() {
+        assertThat(
+            calculateAyahFollowScrollDelta(
+                ayahTopPx = 360f,
+                ayahBottomPx = 580f,
+                viewportTopPx = 100f,
+                viewportHeightPx = 500,
+            ),
+        ).isEqualTo(40f)
+    }
+
+    @Test
+    fun `follow scroll reveals the clipped top of the complete ayah`() {
+        assertThat(
+            calculateAyahFollowScrollDelta(
+                ayahTopPx = 120f,
+                ayahBottomPx = 300f,
+                viewportTopPx = 100f,
+                viewportHeightPx = 500,
+            ),
+        ).isEqualTo(-40f)
+    }
+
+    @Test
+    fun `initial ayah centering uses the whole ayah instead of its first line`() {
+        assertThat(
+            calculateAyahFollowScrollDelta(
+                ayahTopPx = 300f,
+                ayahBottomPx = 500f,
+                viewportTopPx = 100f,
+                viewportHeightPx = 500,
+                center = true,
+            ),
+        ).isEqualTo(50f)
+    }
+
+    @Test
+    fun `oversized ayah aligns its first line to the safe top band`() {
+        assertThat(
+            calculateAyahFollowScrollDelta(
+                ayahTopPx = 120f,
+                ayahBottomPx = 600f,
+                viewportTopPx = 100f,
+                viewportHeightPx = 500,
+            ),
+        ).isEqualTo(-40f)
+    }
 }
