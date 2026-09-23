@@ -112,45 +112,62 @@ fun IslamicHistoryScreen(
                 tint = MaterialTheme.colorScheme.tertiary,
                 modifier = Modifier.padding(horizontal = 24.dp),
             )
-            when (selectedTab) {
-                0 -> TimelineTab(
-                    language = language,
-                    target = pendingTarget,
-                    onTargetConsumed = { pendingTarget = null },
-                )
-                1 -> StatesTab(
-                    language = language,
-                    target = pendingTarget,
-                    onTargetConsumed = { pendingTarget = null },
-                    onNavigate = openTarget,
-                )
-                2 -> CivilizationTab(
-                    language = language,
-                    target = pendingTarget,
-                    onTargetConsumed = { pendingTarget = null },
-                    onNavigate = openTarget,
-                )
-                3 -> EventsTab(
-                    language = language,
-                    target = pendingTarget,
-                    onTargetConsumed = { pendingTarget = null },
-                    onNavigate = openTarget,
-                )
-                4 -> AtlasTab(
-                    language = language,
-                    target = pendingTarget,
-                    onTargetConsumed = { pendingTarget = null },
-                    onNavigate = openTarget,
-                )
-                5 -> PeopleTab(
-                    language = language,
-                    target = pendingTarget,
-                    onTargetConsumed = { pendingTarget = null },
-                    onNavigate = openTarget,
-                )
-                else -> HistorySearchTab(language = language, onOpen = openTarget)
-            }
+            HistoryDestinationContent(
+                selectedTab = selectedTab,
+                language = language,
+                target = pendingTarget,
+                onTargetConsumed = { pendingTarget = null },
+                onNavigate = openTarget,
+            )
         }
+    }
+}
+
+@Composable
+private fun HistoryDestinationContent(
+    selectedTab: Int,
+    language: HistoryLanguage,
+    target: HistoryNavigationTarget?,
+    onTargetConsumed: () -> Unit,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
+) {
+    when (selectedTab) {
+        0 -> TimelineTab(
+            language = language,
+            target = target,
+            onTargetConsumed = onTargetConsumed,
+        )
+        1 -> StatesTab(
+            language = language,
+            target = target,
+            onTargetConsumed = onTargetConsumed,
+            onNavigate = onNavigate,
+        )
+        2 -> CivilizationTab(
+            language = language,
+            target = target,
+            onTargetConsumed = onTargetConsumed,
+            onNavigate = onNavigate,
+        )
+        3 -> EventsTab(
+            language = language,
+            target = target,
+            onTargetConsumed = onTargetConsumed,
+            onNavigate = onNavigate,
+        )
+        4 -> AtlasTab(
+            language = language,
+            target = target,
+            onTargetConsumed = onTargetConsumed,
+            onNavigate = onNavigate,
+        )
+        5 -> PeopleTab(
+            language = language,
+            target = target,
+            onTargetConsumed = onTargetConsumed,
+            onNavigate = onNavigate,
+        )
+        else -> HistorySearchTab(language = language, onOpen = onNavigate)
     }
 }
 
@@ -579,65 +596,91 @@ private fun HistoricalStateDetail(
                 )
             }
         }
-        item {
-            Text(
-                text = state.title.resolve(language),
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
-            )
-            Text(
-                text = statePeriodLabel(state, language),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.padding(top = 4.dp),
-            )
-            Text(
-                text = state.summary.resolve(language),
-                style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier.padding(top = 10.dp),
-            )
-        }
+        item { HistoricalStateHeader(state = state, language = language) }
         if (events.isNotEmpty()) {
             item {
-                Text(
-                    text = if (language == HistoryLanguage.Arabic) "أحداث مرتبطة" else "Related events",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                )
+                HistoricalStateEventsHeading(language = language)
             }
             items(events, key = { it.id }) { event ->
-                Card {
-                    Column(modifier = Modifier.padding(12.dp)) {
-                        Text(
-                            text = event.title.resolve(language),
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
-                        TextButton(
-                            onClick = {
-                                onNavigate(
-                                    HistoryNavigationTarget(
-                                        HistoryTargetType.Event,
-                                        event.id,
-                                    ),
-                                )
-                            },
-                        ) {
-                            Text(
-                                if (language == HistoryLanguage.Arabic) {
-                                    "فتح الحدث"
-                                } else {
-                                    "Open event"
-                                },
-                            )
-                        }
-                    }
-                }
+                HistoricalStateEventCard(
+                    event = event,
+                    language = language,
+                    onNavigate = onNavigate,
+                )
             }
         }
         if (sources.isNotEmpty()) {
             item { HistorySourcesHeading(language) }
             items(sources, key = { it.id }) { source ->
                 HistorySourceCard(source = source, language = language)
+            }
+        }
+    }
+}
+
+@Composable
+private fun HistoricalStateHeader(
+    state: HistoricalState,
+    language: HistoryLanguage,
+) {
+    Column {
+        Text(
+            text = state.title.resolve(language),
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold,
+        )
+        Text(
+            text = statePeriodLabel(state, language),
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.padding(top = 4.dp),
+        )
+        Text(
+            text = state.summary.resolve(language),
+            style = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.padding(top = 10.dp),
+        )
+    }
+}
+
+@Composable
+private fun HistoricalStateEventsHeading(language: HistoryLanguage) {
+    Text(
+        text = if (language == HistoryLanguage.Arabic) "أحداث مرتبطة" else "Related events",
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.Bold,
+    )
+}
+
+@Composable
+private fun HistoricalStateEventCard(
+    event: org.muslim.app.feature.reference.domain.HistoricalEvent,
+    language: HistoryLanguage,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
+) {
+    Card {
+        Column(modifier = Modifier.padding(12.dp)) {
+            Text(
+                text = event.title.resolve(language),
+                style = MaterialTheme.typography.bodyMedium,
+            )
+            TextButton(
+                onClick = {
+                    onNavigate(
+                        HistoryNavigationTarget(
+                            HistoryTargetType.Event,
+                            event.id,
+                        ),
+                    )
+                },
+            ) {
+                Text(
+                    if (language == HistoryLanguage.Arabic) {
+                        "فتح الحدث"
+                    } else {
+                        "Open event"
+                    },
+                )
             }
         }
     }
@@ -839,77 +882,23 @@ private fun CivilizationTopicView(
             HistoryArticleSectionCard(section = section, language = language)
         }
         if (people.isNotEmpty()) {
-            item {
-                Text(
-                    text = if (language == HistoryLanguage.Arabic) "شخصيات مرتبطة" else "Related people",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                )
-            }
+            item { CivilizationPeopleHeading(language = language) }
             items(people, key = { it.id }) { person ->
-                Card {
-                    Column(modifier = Modifier.padding(16.dp)) {
-                        Text(
-                            text = person.name.resolve(language),
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold,
-                        )
-                        Text(
-                            text = person.summary.resolve(language),
-                            style = MaterialTheme.typography.bodySmall,
-                            modifier = Modifier.padding(top = 6.dp),
-                        )
-                        TextButton(
-                            onClick = {
-                                onNavigate(
-                                    HistoryNavigationTarget(
-                                        HistoryTargetType.Person,
-                                        person.id,
-                                    ),
-                                )
-                            },
-                        ) {
-                            Text(
-                                if (language == HistoryLanguage.Arabic) {
-                                    "فتح ملف الشخصية"
-                                } else {
-                                    "Open person profile"
-                                },
-                            )
-                        }
-                    }
-                }
+                CivilizationPersonLink(
+                    person = person,
+                    language = language,
+                    onNavigate = onNavigate,
+                )
             }
         }
         if (topic.relatedTopicIds.isNotEmpty()) {
-            item {
-                Text(
-                    text = if (language == HistoryLanguage.Arabic) {
-                        "موضوعات حضارية مرتبطة"
-                    } else {
-                        "Related civilization topics"
-                    },
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                )
-            }
+            item { CivilizationRelatedHeading(language = language) }
             items(topic.relatedTopicIds, key = { it }) { relatedId ->
-                IslamicCivilizationContent.byId(relatedId)?.let { related ->
-                    Card {
-                        TextButton(
-                            onClick = {
-                                onNavigate(
-                                    HistoryNavigationTarget(
-                                        HistoryTargetType.CivilizationTopic,
-                                        relatedId,
-                                    ),
-                                )
-                            },
-                        ) {
-                            Text(related.title.resolve(language))
-                        }
-                    }
-                }
+                CivilizationRelatedTopicLink(
+                    topicId = relatedId,
+                    language = language,
+                    onNavigate = onNavigate,
+                )
             }
         }
         if (sources.isNotEmpty()) {
@@ -917,6 +906,91 @@ private fun CivilizationTopicView(
             items(sources, key = { it.id }) { source ->
                 HistorySourceCard(source = source, language = language)
             }
+        }
+    }
+}
+
+@Composable
+private fun CivilizationPeopleHeading(language: HistoryLanguage) {
+    Text(
+        text = if (language == HistoryLanguage.Arabic) "شخصيات مرتبطة" else "Related people",
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.Bold,
+    )
+}
+
+@Composable
+private fun CivilizationPersonLink(
+    person: HistoryPerson,
+    language: HistoryLanguage,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
+) {
+    Card {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = person.name.resolve(language),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                text = person.summary.resolve(language),
+                style = MaterialTheme.typography.bodySmall,
+                modifier = Modifier.padding(top = 6.dp),
+            )
+            TextButton(
+                onClick = {
+                    onNavigate(
+                        HistoryNavigationTarget(
+                            HistoryTargetType.Person,
+                            person.id,
+                        ),
+                    )
+                },
+            ) {
+                Text(
+                    if (language == HistoryLanguage.Arabic) {
+                        "فتح ملف الشخصية"
+                    } else {
+                        "Open person profile"
+                    },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun CivilizationRelatedHeading(language: HistoryLanguage) {
+    Text(
+        text = if (language == HistoryLanguage.Arabic) {
+            "موضوعات حضارية مرتبطة"
+        } else {
+            "Related civilization topics"
+        },
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.Bold,
+    )
+}
+
+@Composable
+private fun CivilizationRelatedTopicLink(
+    topicId: String,
+    language: HistoryLanguage,
+    onNavigate: (HistoryNavigationTarget) -> Unit,
+) {
+    val related = IslamicCivilizationContent.byId(topicId) ?: return
+    Card {
+        TextButton(
+            onClick = {
+                onNavigate(
+                    HistoryNavigationTarget(
+                        HistoryTargetType.CivilizationTopic,
+                        topicId,
+                    ),
+                )
+            },
+        ) {
+            Text(related.title.resolve(language))
         }
     }
 }
@@ -1097,60 +1171,91 @@ private fun AtlasList(
             )
         }
         if (layer.routes.isNotEmpty()) {
-            item {
-                Text(
-                    text = stringResource(R.string.history_atlas_routes),
-                    style = MaterialTheme.typography.labelLarge,
-                    fontWeight = FontWeight.Bold,
-                )
-            }
+            item { AtlasRoutesHeading(language = language) }
             items(layer.routes, key = { it.id }) { route ->
-                Card {
-                    Column(Modifier.padding(16.dp)) {
-                        Text(route.title.resolve(language), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                        Text(
-                            route.note.resolve(language),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.padding(top = 6.dp),
-                        )
-                    }
-                }
+                AtlasRouteCard(route = route, language = language)
             }
         }
-        item {
-            Text(
-                text = stringResource(R.string.history_atlas_places),
-                style = MaterialTheme.typography.labelLarge,
-                fontWeight = FontWeight.Bold,
+        item { AtlasPlacesHeading(language = language) }
+        items(layer.places, key = { it.id }) { place ->
+            AtlasPlaceCard(
+                place = place,
+                language = language,
+                onOpen = { onOpenPlace(place.id) },
             )
         }
-        items(layer.places, key = { it.id }) { place ->
-            Card {
-                Column(Modifier.padding(16.dp)) {
-                    Text(
-                        place.title.resolve(language),
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    Text(
-                        place.note.resolve(language),
-                        style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.padding(top = 6.dp),
-                    )
-                    TextButton(
-                        onClick = { onOpenPlace(place.id) },
-                        modifier = Modifier.padding(top = 4.dp),
-                    ) {
-                        Text(
-                            if (language == HistoryLanguage.Arabic) {
-                                "فتح ملف المكان"
-                            } else {
-                                "Open place profile"
-                            },
-                        )
-                    }
-                }
+    }
+}
+
+@Composable
+private fun AtlasRoutesHeading(language: HistoryLanguage) {
+    Text(
+        text = stringResource(R.string.history_atlas_routes),
+        style = MaterialTheme.typography.labelLarge,
+        fontWeight = FontWeight.Bold,
+    )
+}
+
+@Composable
+private fun AtlasRouteCard(
+    route: org.muslim.app.feature.reference.domain.HistoricalRoute,
+    language: HistoryLanguage,
+) {
+    Card {
+        Column(Modifier.padding(16.dp)) {
+            Text(
+                route.title.resolve(language),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                route.note.resolve(language),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 6.dp),
+            )
+        }
+    }
+}
+
+@Composable
+private fun AtlasPlacesHeading(language: HistoryLanguage) {
+    Text(
+        text = stringResource(R.string.history_atlas_places),
+        style = MaterialTheme.typography.labelLarge,
+        fontWeight = FontWeight.Bold,
+    )
+}
+
+@Composable
+private fun AtlasPlaceCard(
+    place: org.muslim.app.feature.reference.domain.HistoricalPlace,
+    language: HistoryLanguage,
+    onOpen: () -> Unit,
+) {
+    Card {
+        Column(Modifier.padding(16.dp)) {
+            Text(
+                place.title.resolve(language),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                place.note.resolve(language),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(top = 6.dp),
+            )
+            TextButton(
+                onClick = onOpen,
+                modifier = Modifier.padding(top = 4.dp),
+            ) {
+                Text(
+                    if (language == HistoryLanguage.Arabic) {
+                        "فتح ملف المكان"
+                    } else {
+                        "Open place profile"
+                    },
+                )
             }
         }
     }
