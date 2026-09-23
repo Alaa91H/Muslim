@@ -12,18 +12,32 @@ REQUIRED_SNIPPETS = {
     "settings.gradle.kts": [
         'include(":wear")',
     ],
+    "gradle.properties": [
+        "muslim.applicationId=org.muslim.app",
+    ],
     "wear/build.gradle.kts": [
-        'applicationId = "org.muslim.app"',
+        "applicationId = muslimApplicationId",
         'implementation(libs.google.play.services.wearable)',
+        'implementation(libs.kotlinx.coroutines.play.services)',
         'implementation(libs.androidx.wear.compose.material3)',
     ],
     "app/build.gradle.kts": [
+        "applicationId = muslimApplicationId",
         'implementation(libs.google.play.services.wearable)',
+        'implementation(libs.kotlinx.coroutines.play.services)',
+    ],
+    "app/src/main/res/values/wear.xml": [
+        "android_wear_capabilities",
+        "muslim_phone_companion_v1",
+    ],
+    "wear/src/main/res/values/wear.xml": [
+        "android_wear_capabilities",
+        "muslim_watch_companion_v1",
     ],
     "app/src/main/AndroidManifest.xml": [
         "WearCompanionDataService",
         "com.google.android.gms.wearable.MESSAGE_RECEIVED",
-        "/muslim/wear/tasbih/increment/v1",
+        'android:pathPrefix="/muslim/wear/"',
         "android.media.browse.MediaBrowserService",
         "android.media.action.MEDIA_PLAY_FROM_SEARCH",
         "com.google.android.gms.car.application",
@@ -36,18 +50,32 @@ REQUIRED_SNIPPETS = {
         'android:value="false"',
     ],
     "core/core-common/src/main/java/org/muslim/app/core/common/wear/WearSyncContract.kt": [
+        "CAPABILITY_PHONE_APP",
+        "CAPABILITY_WATCH_APP",
         "DATA_PATH",
+        "SYNC_REQUEST_PATH",
         "TASBIH_INCREMENT_PATH",
         "isValid",
     ],
     "app/src/main/java/org/muslim/app/wear/WearCompanionPublisher.kt": [
         "wearCompanionEnabled",
         "WearSyncContract.DATA_PATH",
+        "WearSyncContract.CAPABILITY_WATCH_APP",
+        "pushNow()",
+        "setUrgent()",
         "No location, calculation method",
     ],
     "app/src/main/java/org/muslim/app/wear/WearCompanionDataService.kt": [
-        "isSupportedIncrementPath",
+        "WearSyncContract.SYNC_REQUEST_PATH",
+        "wearCompanionPublisher.pushNow()",
         "wearCompanionEnabled",
+    ],
+    "wear/src/main/java/org/muslim/app/wear/WearConnectionManager.kt": [
+        "CAPABILITY_PHONE_APP",
+        "connectedNodes",
+        "SYNC_REQUEST_PATH",
+        "MAX_SYNC_ATTEMPTS",
+        "sendTasbihIncrement",
     ],
     "feature/feature-quran/src/main/java/org/muslim/app/feature/quran/data/RecitationPlaybackService.kt": [
         "MediaBrowserServiceCompat",
@@ -88,6 +116,8 @@ XML_FILES = [
     "app/src/main/res/xml/automotive_app_desc.xml",
     "feature/feature-quran/src/main/AndroidManifest.xml",
     "wear/src/main/AndroidManifest.xml",
+    "app/src/main/res/values/wear.xml",
+    "wear/src/main/res/values/wear.xml",
     "wear/src/main/res/values/strings.xml",
     "wear/src/main/res/values-en/strings.xml",
     "feature/feature-settings/src/main/res/values/strings.xml",
