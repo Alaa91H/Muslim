@@ -47,9 +47,20 @@ data class FamilyGuideSection(
     val paragraphs: List<LocalizedFamilyText>,
 )
 
+enum class FamilyEvidenceType {
+    Quran,
+    Hadith,
+    Fiqh,
+    Legal,
+    Health,
+    Guidance,
+}
+
 data class FamilyEvidenceReference(
     val title: LocalizedFamilyText,
     val citation: String,
+    val type: FamilyEvidenceType = FamilyEvidenceType.Quran,
+    val note: LocalizedFamilyText? = null,
 )
 
 data class FamilyGuideArticle(
@@ -438,7 +449,8 @@ object FamilyLifeContent {
                 ),
             ),
         )
-    ) + FamilyAdvancedContent.articles + FamilyParentingContent.articles
+    ) + FamilyAdvancedContent.articles + FamilyParentingContent.articles +
+        FamilyDailyKinshipContent.articles
 
     val familyArticleMetadata: List<FamilyTopicMetadata> = listOf(
         FamilyTopicMetadata("engagement", FamilyTopicCategory.BeforeMarriage, listOf("خطبة", "تعارف", "engagement", "istikhara")),
@@ -450,7 +462,8 @@ object FamilyLifeContent {
         FamilyTopicMetadata("newborn", FamilyTopicCategory.Newborn, listOf("مولود", "عقيقة", "رضاعة", "newborn", "aqiqah")),
         FamilyTopicMetadata("kinship", FamilyTopicCategory.Kinship, listOf("والدان", "رحم", "أقارب", "parents", "kinship")),
         FamilyTopicMetadata("daily_family_life", FamilyTopicCategory.DailyLife, listOf("بيت", "خصوصية", "تقنية", "home", "privacy")),
-    ) + FamilyAdvancedContent.metadata + FamilyParentingContent.metadata
+    ) + FamilyAdvancedContent.metadata + FamilyParentingContent.metadata +
+        FamilyDailyKinshipContent.metadata
 
     fun articleById(articleId: String): FamilyGuideArticle? =
         familyArticles.firstOrNull { it.id == articleId }
@@ -461,12 +474,20 @@ object FamilyLifeContent {
     fun searchArticles(
         query: String,
         category: FamilyTopicCategory? = null,
+        evidenceType: FamilyEvidenceType? = null,
     ): List<FamilyGuideArticle> {
         val normalized = normalizeSearch(query)
         val categoryFiltered = if (category == null) familyArticles else articlesFor(category)
-        if (normalized.isEmpty()) return categoryFiltered
+        val sourceFiltered = if (evidenceType == null) {
+            categoryFiltered
+        } else {
+            categoryFiltered.filter { article ->
+                article.references.any { it.type == evidenceType }
+            }
+        }
+        if (normalized.isEmpty()) return sourceFiltered
         val metadata = familyArticleMetadata.associateBy { it.articleId }
-        return categoryFiltered.filter { article ->
+        return sourceFiltered.filter { article ->
             val text = buildList {
                 add(article.title.arabic)
                 add(article.title.english)
@@ -489,7 +510,19 @@ object FamilyLifeContent {
     fun categoryFor(articleId: String): FamilyTopicCategory? =
         familyArticleMetadata.firstOrNull { it.articleId == articleId }?.category
 
-    private fun normalizeSearch(value: String): String =
+    fun relatedArticles(
+        articleId: String,
+        limit: Int = 3,
+    ): List<FamilyGuideArticle> {
+        val category = categoryFor(articleId) ?: return emptyList()
+        return articlesFor(category)
+            .asSequence()
+            .filterNot { it.id == articleId }
+            .take(limit.coerceAtLeast(0))
+            .toList()
+    }
+
+    internal fun normalizeSearch(value: String): String =
         value.trim()
             .lowercase()
             .replace(Regex("[\\u064B-\\u065F\\u0670]"), "")

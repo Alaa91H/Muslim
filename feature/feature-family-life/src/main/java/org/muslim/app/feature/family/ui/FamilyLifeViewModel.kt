@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.muslim.app.feature.family.data.AqiqahPrefsRepository
 import org.muslim.app.feature.family.data.AqiqahReminderScheduler
+import org.muslim.app.feature.family.data.FamilyLibraryPrefsRepository
 import org.muslim.app.feature.family.domain.AqiqahReminderDay
 import java.time.LocalDate
 import javax.inject.Inject
@@ -21,19 +22,57 @@ data class FamilyLifeUiState(
     val birthDate: LocalDate? = null,
     val aqiqahReminderEnabled: Boolean = false,
     val aqiqahReminderDay: AqiqahReminderDay = AqiqahReminderDay.Seventh,
+    val favoriteArticleIds: Set<String> = emptySet(),
+    val recentArticleIds: List<String> = emptyList(),
+    val completedChecklistItemIds: Set<String> = emptySet(),
+)
+
+private data class AqiqahUiPrefs(
+    val birthDate: LocalDate?,
+    val reminderEnabled: Boolean,
+    val reminderDay: AqiqahReminderDay,
+)
+
+private data class FamilyLibraryUiPrefs(
+    val favoriteArticleIds: Set<String>,
+    val recentArticleIds: List<String>,
+    val completedChecklistItemIds: Set<String>,
 )
 
 @HiltViewModel
 class FamilyLifeViewModel @Inject constructor(
     private val aqiqahPrefsRepository: AqiqahPrefsRepository,
+    private val familyLibraryPrefsRepository: FamilyLibraryPrefsRepository,
     @ApplicationContext private val context: Context,
 ) : ViewModel() {
-    val state: StateFlow<FamilyLifeUiState> = combine(
+    private val aqiqahUiPrefs = combine(
         aqiqahPrefsRepository.birthDate,
         aqiqahPrefsRepository.reminderEnabled,
         aqiqahPrefsRepository.reminderDay,
     ) { birthDate, reminderEnabled, reminderDay ->
-        FamilyLifeUiState(birthDate, reminderEnabled, reminderDay)
+        AqiqahUiPrefs(birthDate, reminderEnabled, reminderDay)
+    }
+
+    private val familyLibraryUiPrefs = combine(
+        familyLibraryPrefsRepository.favoriteArticleIds,
+        familyLibraryPrefsRepository.recentArticleIds,
+        familyLibraryPrefsRepository.completedChecklistItemIds,
+    ) { favoriteIds, recentIds, completedIds ->
+        FamilyLibraryUiPrefs(favoriteIds, recentIds, completedIds)
+    }
+
+    val state: StateFlow<FamilyLifeUiState> = combine(
+        aqiqahUiPrefs,
+        familyLibraryUiPrefs,
+    ) { aqiqah, library ->
+        FamilyLifeUiState(
+            birthDate = aqiqah.birthDate,
+            aqiqahReminderEnabled = aqiqah.reminderEnabled,
+            aqiqahReminderDay = aqiqah.reminderDay,
+            favoriteArticleIds = library.favoriteArticleIds,
+            recentArticleIds = library.recentArticleIds,
+            completedChecklistItemIds = library.completedChecklistItemIds,
+        )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), FamilyLifeUiState())
 
     init {
@@ -75,6 +114,40 @@ class FamilyLifeViewModel @Inject constructor(
                     AqiqahReminderScheduler.cancel(context)
                 }
             }
+        }
+    }
+
+
+    fun toggleArticleFavorite(articleId: String) {
+        viewModelScope.launch {
+            val shouldFavorite = articleId !in state.value.favoriteArticleIds
+            familyLibraryPrefsRepository.setArticleFavorite(articleId, shouldFavorite)
+        }
+    }
+
+    fun recordArticleOpened(articleId: String) {
+        viewModelScope.launch {
+            familyLibraryPrefsRepository.recordArticleOpened(articleId)
+        }
+    }
+
+    fun clearReadingHistory() {
+        viewModelScope.launch {
+            familyLibraryPrefsRepository.clearRecentArticles()
+        }
+    }
+
+    fun setChecklistItemCompleted(
+        checklistId: String,
+        itemId: String,
+        completed: Boolean,
+    ) {
+        viewModelScope.launch {
+            familyLibraryPrefsRepository.setChecklistItemCompleted(
+                checklistId = checklistId,
+                itemId = itemId,
+                completed = completed,
+            )
         }
     }
 
