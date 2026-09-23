@@ -55,11 +55,15 @@ internal fun EventsTab(
             onTargetConsumed()
         }
     }
-    val selectedEvent = selectedEventId?.let(IslamicHistoricalEvents::byId)
+    val selectedEvent by rememberHistoricalEvent(selectedEventId)
 
-    if (selectedEvent != null) {
+    if (selectedEventId != null) {
+        if (selectedEvent == null) {
+            HistoryContentLoading()
+            return
+        }
         HistoricalEventView(
-            event = selectedEvent,
+            event = requireNotNull(selectedEvent),
             language = language,
             onBack = { selectedEventId = null },
             onNavigate = onNavigate,
