@@ -31,6 +31,7 @@ import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Save
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Security
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.WaterDrop
@@ -314,6 +315,8 @@ private fun WillDraftContent(
     draftActions: WillDraftActions,
     introActions: WillIntroActions,
 ) {
+    var educationQuery by rememberSaveable { mutableStateOf("") }
+
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
@@ -326,6 +329,8 @@ private fun WillDraftContent(
             onDismissLegalNotice = introActions.dismissLegalNotice,
             onDismissPrivacyNotice = introActions.dismissPrivacyNotice,
             onRestoreIntroCards = introActions.restoreAll,
+            educationQuery = educationQuery,
+            onEducationQueryChange = { educationQuery = it },
         )
         willDraftFields(draft, draftActions.onChange)
         willDraftActions(
@@ -345,6 +350,8 @@ private fun LazyListScope.willDraftIntroduction(
     onDismissLegalNotice: () -> Unit,
     onDismissPrivacyNotice: () -> Unit,
     onRestoreIntroCards: () -> Unit,
+    educationQuery: String,
+    onEducationQueryChange: (String) -> Unit,
 ) {
     if (visibility.draftIntroVisible) {
         item {
@@ -418,8 +425,29 @@ private fun LazyListScope.willDraftIntroduction(
             )
         }
     }
-    items(FuneralContent.willEducationSections, key = { it.id }) { section ->
-        WillEducationCard(section = section, isArabic = isArabic)
+    item {
+        FuneralWillSearchField(
+            query = educationQuery,
+            onQueryChange = onEducationQueryChange,
+        )
+    }
+    val matchingEducation = FuneralContent.searchWillEducationSections(
+        query = educationQuery,
+        isArabic = isArabic,
+    )
+    if (educationQuery.isNotBlank()) {
+        item {
+            SearchResultSummary(count = matchingEducation.size)
+        }
+    }
+    if (matchingEducation.isEmpty()) {
+        item {
+            SearchEmptyState()
+        }
+    } else {
+        items(matchingEducation, key = { it.id }) { section ->
+            WillEducationCard(section = section, isArabic = isArabic)
+        }
     }
     item {
         Text(
@@ -658,6 +686,60 @@ private fun LazyListScope.willDraftActions(
 }
 
 @Composable
+private fun FuneralWillSearchField(
+    query: String,
+    onQueryChange: (String) -> Unit,
+) {
+    OutlinedTextField(
+        value = query,
+        onValueChange = onQueryChange,
+        label = { Text(stringResource(R.string.funeral_will_search)) },
+        leadingIcon = {
+            Icon(
+                imageVector = Icons.Filled.Search,
+                contentDescription = null,
+            )
+        },
+        trailingIcon = if (query.isNotBlank()) {
+            {
+                IconButton(onClick = { onQueryChange("") }) {
+                    Icon(
+                        imageVector = Icons.Filled.Close,
+                        contentDescription = stringResource(R.string.funeral_will_search_clear),
+                    )
+                }
+            }
+        } else {
+            null
+        },
+        singleLine = true,
+        modifier = Modifier.fillMaxWidth(),
+    )
+}
+
+@Composable
+private fun SearchResultSummary(count: Int) {
+    Text(
+        text = stringResource(R.string.funeral_will_search_results, count),
+        style = MaterialTheme.typography.labelMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.fillMaxWidth(),
+    )
+}
+
+@Composable
+private fun SearchEmptyState() {
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Text(
+            text = stringResource(R.string.funeral_will_search_empty),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(16.dp),
+        )
+    }
+}
+
+@Composable
 private fun WillFormSection(
     id: String,
     title: String,
@@ -728,6 +810,12 @@ private fun WillField(
 
 @Composable
 private fun FuneralGuideContent(isArabic: Boolean) {
+    var query by rememberSaveable { mutableStateOf("") }
+    val matchingSections = FuneralContent.searchGuideSections(
+        query = query,
+        isArabic = isArabic,
+    )
+
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
@@ -747,6 +835,17 @@ private fun FuneralGuideContent(isArabic: Boolean) {
             )
         }
         item {
+            FuneralWillSearchField(
+                query = query,
+                onQueryChange = { query = it },
+            )
+        }
+        if (query.isNotBlank()) {
+            item {
+                SearchResultSummary(count = matchingSections.size)
+            }
+        }
+        item {
             Column {
                 Text(
                     text = stringResource(R.string.funeral_will_guide_quick_title),
@@ -764,8 +863,14 @@ private fun FuneralGuideContent(isArabic: Boolean) {
         items(FuneralContent.quickActionSteps) { quickStep ->
             ChecklistRow(quickStep.pick(isArabic))
         }
-        items(FuneralContent.guideSections, key = { it.id }) { section ->
-            FuneralGuideCard(section = section, isArabic = isArabic)
+        if (matchingSections.isEmpty()) {
+            item {
+                SearchEmptyState()
+            }
+        } else {
+            items(matchingSections, key = { it.id }) { section ->
+                FuneralGuideCard(section = section, isArabic = isArabic)
+            }
         }
     }
 }
