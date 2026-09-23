@@ -449,7 +449,13 @@ fun MuslimApp(
                 composable(FAMILY_LIFE_ROUTE) {
                     FamilyLifeScreen(
                         onBack = { navController.popBackStack() },
-                        onOpenQuran = { navController.navigate("quran") },
+                        onOpenQuran = { surahNumber ->
+                            if (surahNumber == null) {
+                                navController.navigate("quran")
+                            } else {
+                                navController.navigate("$READER_ROUTE/$surahNumber")
+                            }
+                        },
                         onOpenHadith = { navController.navigate(HADITH_ROUTE) },
                         onOpenAdhkar = { navController.navigate(ADHKAR_ROUTE) },
                     )
