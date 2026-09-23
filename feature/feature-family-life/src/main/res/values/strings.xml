@@ -62,4 +62,23 @@
     <string name="family_sensitive_notice_text" tools:ignore="MissingTranslation">الخلاف والعنف والطلاق والخلع مسائل قد تتطلب حماية فورية أو فتوى خاصة أو إجراءً قانونيًا. لا يعتمد التطبيق على إجابات آلية لتقرير حكم واقعة شخصية.</string>
     <string name="family_education_notice_title" tools:ignore="MissingTranslation">محتوى تعليمي</string>
     <string name="family_education_notice_text" tools:ignore="MissingTranslation">هذا الشرح للتعلم والتنظيم العام. عند اختلاف المذاهب أو وجود نزاع أو حقوق قانونية، راجع جهة علمية وقانونية موثوقة في بلدك.</string>
+    <string name="family_hub_library_title" tools:ignore="MissingTranslation">مكتبتي وأدواتي</string>
+    <string name="family_saved_title" tools:ignore="MissingTranslation">المحفوظات وسجل القراءة</string>
+    <string name="family_saved_summary" tools:ignore="MissingTranslation">%1$d مفضلة · %2$d قراءة حديثة</string>
+    <string name="family_saved_intro" tools:ignore="MissingTranslation">احفظ المقالات المهمة وارجع إلى آخر ما قرأته. تبقى هذه البيانات محليًا على جهازك.</string>
+    <string name="family_favorites_heading" tools:ignore="MissingTranslation">المقالات المفضلة</string>
+    <string name="family_favorites_empty" tools:ignore="MissingTranslation">لم تحفظ أي مقال بعد</string>
+    <string name="family_history_heading" tools:ignore="MissingTranslation">آخر القراءات</string>
+    <string name="family_history_empty" tools:ignore="MissingTranslation">لا يوجد سجل قراءة بعد</string>
+    <string name="family_history_clear" tools:ignore="MissingTranslation">مسح السجل</string>
+    <string name="family_add_favorite" tools:ignore="MissingTranslation">إضافة إلى المفضلة</string>
+    <string name="family_remove_favorite" tools:ignore="MissingTranslation">إزالة من المفضلة</string>
+    <string name="family_related_title" tools:ignore="MissingTranslation">موضوعات ذات صلة</string>
+    <string name="family_checklists_title" tools:ignore="MissingTranslation">قوائم الأسرة العملية</string>
+    <string name="family_checklists_summary" tools:ignore="MissingTranslation">قوائم قابلة للتأشير للاجتماع الأسري والمولود والزواج والسلامة والطوارئ</string>
+    <string name="family_checklists_intro" tools:ignore="MissingTranslation">استخدم القوائم للتنظيم فقط. تُحفظ العلامات محليًا ولا تحل محل الاستشارة الطبية أو القانونية أو الشرعية المتخصصة.</string>
+    <string name="family_checklist_progress" tools:ignore="MissingTranslation">مكتمل: %1$d من %2$d</string>
+    <string name="family_checklists_back" tools:ignore="MissingTranslation">العودة إلى القوائم</string>
+    <string name="family_checklists_notice_title" tools:ignore="MissingTranslation">أداة تنظيمية</string>
+    <string name="family_checklists_notice_text" tools:ignore="MissingTranslation">يمكنك تعديل استخدام القائمة حسب ظروف أسرتك. البنود ليست فتوى ولا تشخيصًا ولا التزامًا قانونيًا.</string>
 </resources>
