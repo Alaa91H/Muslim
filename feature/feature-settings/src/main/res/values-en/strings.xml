@@ -215,6 +215,8 @@
     <string name="settings_updates_weekly">Weekly</string>
     <string name="settings_updates_monthly">Monthly</string>
     <string name="settings_updates_check_now">Check now</string>
+    <string name="settings_updates_checking">Checking…</string>
+    <string name="settings_updates_last_successful">Last successful check: %1$s</string>
     <string name="settings_updates_open">View updates</string>
     <string name="settings_updates_found">A newer version is available: %1$s</string>
     <string name="settings_updates_latest">You are on the latest version.</string>
