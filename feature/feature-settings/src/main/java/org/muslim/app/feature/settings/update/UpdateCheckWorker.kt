@@ -30,8 +30,7 @@ open class UpdateCheckWorker(
         val checker = UpdateChecker(applicationContext)
         return when (checker.checkAndNotify()) {
             is UpdateChecker.Result.UpdateAvailable,
-            UpdateChecker.Result.UpToDate,
-            -> {
+            UpdateChecker.Result.UpToDate -> {
                 prefsRepository.setLastUpdateCheck(System.currentTimeMillis())
                 Result.success()
             }
