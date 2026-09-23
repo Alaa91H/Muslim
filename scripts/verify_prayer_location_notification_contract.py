@@ -152,9 +152,11 @@ def main() -> None:
     require("defaultProfile.userAdjustments[Prayer.Isha]).isEqualTo(0)" in calculator_test, "Isha must have no hidden user offset")
     require("GLOBAL_MWL_REFERENCE_CASES" in calculator_test and "Berlin late summer" in calculator_test, "Isha requires cross-region reference coverage")
 
-    require("ForegroundColorSpan(upcomingTimeColor)" in notifications, "next prayer time must receive a foreground colour span")
-    require("context.getColor(R.color.adhan_accent)" in notifications, "next prayer time must use the green Adhan accent")
-    require("durationColor = MissedAdhanColors.DEFAULT" in notifications, "remaining and elapsed durations must use the red semantic colour")
+    require("setCustomBigContentView(expanded)" in notifications, "next prayer notification must expose the five-prayer expanded custom surface")
+    require("R.color.notification_primary" in notifications, "upcoming prayer must use the app primary notification colour")
+    require("R.color.notification_gold" in notifications, "upcoming prayer highlight must retain the app gold accent")
+    require("R.color.notification_error" in notifications, "elapsed prayer status must use the app semantic error colour")
+    require("setChronometerCountDown" in notifications, "remaining and elapsed prayer status must use live system chronometers")
     require("missedAdhanColor" not in service, "service must not pass a user-selected duration colour")
     require("START_NOT_STICKY" in service and "catch (_: Throwable)" in service, "countdown-service startup failures must not crash the app process")
     require("HomeAdhanCustomizationDialog" in home, "home alert icon must open the modal customizer")
@@ -169,7 +171,7 @@ def main() -> None:
     require("uprightPhoneIsRejected" in compass_posture_test, "compass posture must have a regression test for upright phones")
     require("ToneGenerator" not in qibla_screen and "startTone" not in qibla_screen, "Qibla must not generate automatic tones")
 
-    print("Prayer GPS, Isha, AudioTrack, notification colour and direct-customisation contract verified.")
+    print("Prayer GPS, Isha, AudioTrack, custom notification theme and direct-customisation contract verified.")
 
 
 if __name__ == "__main__":

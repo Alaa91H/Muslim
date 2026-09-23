@@ -4,13 +4,14 @@ import android.app.Notification
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.text.SpannableStringBuilder
-import android.text.Spanned
-import android.text.style.ForegroundColorSpan
+import android.os.SystemClock
+import android.view.View
+import android.widget.RemoteViews
+import androidx.annotation.IdRes
 import androidx.core.app.NotificationCompat
 import androidx.core.net.toUri
+import org.muslim.app.core.common.prayer.Prayer
 import org.muslim.app.core.common.time.TimeFormats
-import org.muslim.app.core.notifications.MissedAdhanColors
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.prayertimes.R
 import org.muslim.app.feature.prayertimes.domain.PrayerCountdownData
@@ -18,11 +19,15 @@ import org.muslim.app.feature.prayertimes.domain.formatCountdown
 import org.muslim.app.feature.prayertimes.ui.prayerLabelRes
 
 /**
- * Builders for the permanent next-Adhan countdown notification.
+ * Builds the permanent prayer-status notification.
  *
- * The compact line marks the upcoming prayer's wall-clock time in Islamic green
- * and the remaining duration in red. The expanded elapsed duration follows the
- * same red danger/status treatment; these semantic colours are not user-tinted.
+ * The collapsed surface stays intentionally concise. Expanding it reveals all
+ * five daily prayers in one horizontal strip, with the upcoming prayer
+ * highlighted and the most recently elapsed prayer visually distinguished.
+ *
+ * Countdown/count-up values are Android [android.widget.Chronometer] views, so
+ * they remain second-accurate without rebuilding the whole notification once
+ * per second.
  */
 object NextAdhanNotifications {
 
@@ -33,6 +38,52 @@ object NextAdhanNotifications {
     private const val OLDER_RETIRED_COUNTDOWN_NOTIFICATION_ID = 1011
     private const val ORIGINAL_RETIRED_COUNTDOWN_NOTIFICATION_ID = 1004
     private const val OLDEST_RETIRED_COUNTDOWN_NOTIFICATION_ID = 1003
+
+    private val DISPLAY_PRAYERS = listOf(
+        Prayer.Fajr,
+        Prayer.Dhuhr,
+        Prayer.Asr,
+        Prayer.Maghrib,
+        Prayer.Isha,
+    )
+
+    private val PRAYER_VIEW_IDS = mapOf(
+        Prayer.Fajr to PrayerViewIds(
+            R.id.notification_prayer_fajr_cell,
+            R.id.notification_prayer_fajr_name,
+            R.id.notification_prayer_fajr_time,
+            R.id.notification_prayer_fajr_status_label,
+            R.id.notification_prayer_fajr_status_timer,
+        ),
+        Prayer.Dhuhr to PrayerViewIds(
+            R.id.notification_prayer_dhuhr_cell,
+            R.id.notification_prayer_dhuhr_name,
+            R.id.notification_prayer_dhuhr_time,
+            R.id.notification_prayer_dhuhr_status_label,
+            R.id.notification_prayer_dhuhr_status_timer,
+        ),
+        Prayer.Asr to PrayerViewIds(
+            R.id.notification_prayer_asr_cell,
+            R.id.notification_prayer_asr_name,
+            R.id.notification_prayer_asr_time,
+            R.id.notification_prayer_asr_status_label,
+            R.id.notification_prayer_asr_status_timer,
+        ),
+        Prayer.Maghrib to PrayerViewIds(
+            R.id.notification_prayer_maghrib_cell,
+            R.id.notification_prayer_maghrib_name,
+            R.id.notification_prayer_maghrib_time,
+            R.id.notification_prayer_maghrib_status_label,
+            R.id.notification_prayer_maghrib_status_timer,
+        ),
+        Prayer.Isha to PrayerViewIds(
+            R.id.notification_prayer_isha_cell,
+            R.id.notification_prayer_isha_name,
+            R.id.notification_prayer_isha_time,
+            R.id.notification_prayer_isha_status_label,
+            R.id.notification_prayer_isha_status_timer,
+        ),
+    )
 
     fun cancelRetiredCountdown(context: Context) {
         context.getSystemService(android.app.NotificationManager::class.java).apply {
@@ -49,25 +100,13 @@ object NextAdhanNotifications {
         showMissed: Boolean = true,
         use24h: Boolean = false,
     ): Notification {
-        val upcomingTimeColor = context.getColor(R.color.adhan_accent)
-        val textLines = buildTextLines(
-            context = context,
-            data = data,
-            showMissed = showMissed,
-            use24h = use24h,
-            upcomingTimeColor = upcomingTimeColor,
-        )
-
-        // Tapping the notification opens the prayer-times screen directly.
         val contentIntent = createContentIntent(context)
+        val fallback = buildFallbackText(context, data, use24h)
 
         val builder = NotificationCompat.Builder(context, NotificationChannels.PRAYER_COUNTDOWN)
             .setSmallIcon(org.muslim.app.core.notifications.R.drawable.ic_muslim_status_bar_v2029)
-            // This is a silent status/countdown card, not the active Adhan alert.
-            // It must never attach a large icon that could make the compact card
-            // look like a duplicate, retired, or active alarm notification.
-            .setContentTitle(textLines.compact)
-            .setSubText(data.nextPrayer?.let { context.getString(prayerLabelRes(it)) })
+            .setContentTitle(fallback.first)
+            .setContentText(fallback.second)
             .setCategory(NotificationCompat.CATEGORY_STATUS)
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .setBadgeIconType(NotificationCompat.BADGE_ICON_NONE)
@@ -76,83 +115,168 @@ object NextAdhanNotifications {
             .setShowWhen(false)
             .setUsesChronometer(false)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+            .setColor(context.getColor(R.color.notification_primary))
+            .setColorized(false)
             .setContentIntent(contentIntent)
 
-        // BigText is deliberately supplied only for the optional second line.
-        // The system keeps [compactLine] as the one-line collapsed presentation.
-        if (textLines.expandedMissed.isNotEmpty()) {
-            builder.setStyle(NotificationCompat.BigTextStyle().bigText(textLines.expandedMissed))
+        if (data.hasLocation && data.nextPrayer != null && data.nextPrayerAt != null) {
+            val compact = buildCompactRemoteViews(context, data, use24h)
+            val expanded = buildExpandedRemoteViews(context, data, showMissed, use24h)
+            builder
+                .setStyle(NotificationCompat.DecoratedCustomViewStyle())
+                .setCustomContentView(compact)
+                .setCustomBigContentView(expanded)
         }
-        if (data.nextPrayerAt != null) {
-            builder.setColor(upcomingTimeColor)
-        }
+
         return builder.build()
     }
 
-    private data class CountdownTextLines(
-        val compact: SpannableStringBuilder,
-        val expandedMissed: SpannableStringBuilder,
-    )
-
-    private fun buildTextLines(
+    private fun buildFallbackText(
         context: Context,
         data: PrayerCountdownData,
-        showMissed: Boolean,
         use24h: Boolean,
-        upcomingTimeColor: Int,
-    ): CountdownTextLines {
-        val compact = SpannableStringBuilder()
-        val expandedMissed = SpannableStringBuilder()
-        val durationColor = MissedAdhanColors.DEFAULT
+    ): Pair<CharSequence, CharSequence> {
         val nextPrayer = data.nextPrayer
-        if (!data.hasLocation || nextPrayer == null) {
-            compact.append(context.getString(R.string.next_adhan_no_location))
-            return CountdownTextLines(compact, expandedMissed)
+        val nextAt = data.nextPrayerAt
+        if (!data.hasLocation || nextPrayer == null || nextAt == null) {
+            return context.getString(R.string.next_adhan_no_location) to ""
         }
 
-        val wallClockTime = TimeFormats.timeFormatter(use24h).format(data.nextPrayerAt)
+        val wallClockTime = TimeFormats.timeFormatter(use24h).format(nextAt)
         val title = context.getString(
             R.string.next_adhan_notification_title,
             context.getString(prayerLabelRes(nextPrayer)),
             wallClockTime,
         )
-        compact.append(title)
-        compact.setSpan(
-            ForegroundColorSpan(upcomingTimeColor),
-            title.lastIndexOf(wallClockTime).coerceAtLeast(0),
-            (title.lastIndexOf(wallClockTime).coerceAtLeast(0) + wallClockTime.length).coerceAtMost(compact.length),
-            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
+        val remaining = context.getString(
+            R.string.next_adhan_remaining,
+            formatCountdown(data.remainingSeconds),
         )
-        compact.append(" · ")
-        val remainingStart = compact.length
-        compact.append(context.getString(R.string.next_adhan_remaining, formatCountdown(data.remainingSeconds)))
-        compact.setSpan(
-            ForegroundColorSpan(durationColor),
-            remainingStart,
-            compact.length,
-            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
-        )
+        return title to remaining
+    }
 
-        data.missedPrayer?.takeIf { showMissed }?.let { missed ->
-            expandedMissed.append(
+    private fun buildCompactRemoteViews(
+        context: Context,
+        data: PrayerCountdownData,
+        use24h: Boolean,
+    ): RemoteViews {
+        val nextPrayer = requireNotNull(data.nextPrayer)
+        val nextAt = requireNotNull(data.nextPrayerAt)
+        return RemoteViews(context.packageName, R.layout.notification_next_adhan_compact).apply {
+            setTextViewText(
+                R.id.notification_compact_title,
                 context.getString(
-                    R.string.next_adhan_missed,
-                    context.getString(prayerLabelRes(missed)),
-                    TimeFormats.timeFormatter(use24h).format(data.missedPrayerAt),
+                    R.string.next_adhan_notification_title,
+                    context.getString(prayerLabelRes(nextPrayer)),
+                    TimeFormats.timeFormatter(use24h).format(nextAt),
                 ),
             )
-            expandedMissed.append(" · ")
-            val elapsedStart = expandedMissed.length
-            expandedMissed.append(context.getString(R.string.next_adhan_elapsed, formatCountdown(data.elapsedSeconds)))
-            expandedMissed.setSpan(
-                ForegroundColorSpan(durationColor),
-                elapsedStart,
-                expandedMissed.length,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,
+            setChronometer(
+                R.id.notification_compact_remaining,
+                remainingChronometerBase(data.remainingSeconds),
+                context.getString(R.string.next_adhan_remaining, "%s"),
+                true,
+            )
+            setChronometerCountDown(R.id.notification_compact_remaining, true)
+            setTextColor(
+                R.id.notification_compact_remaining,
+                context.getColor(R.color.notification_primary),
             )
         }
-        return CountdownTextLines(compact, expandedMissed)
     }
+
+    private fun buildExpandedRemoteViews(
+        context: Context,
+        data: PrayerCountdownData,
+        showMissed: Boolean,
+        use24h: Boolean,
+    ): RemoteViews {
+        val nextPrayer = requireNotNull(data.nextPrayer)
+        val nextAt = requireNotNull(data.nextPrayerAt)
+        val timeFormatter = TimeFormats.timeFormatter(use24h)
+
+        return RemoteViews(context.packageName, R.layout.notification_next_adhan_expanded).apply {
+            setTextViewText(
+                R.id.notification_expanded_title,
+                context.getString(
+                    R.string.next_adhan_notification_title,
+                    context.getString(prayerLabelRes(nextPrayer)),
+                    timeFormatter.format(nextAt),
+                ),
+            )
+
+            DISPLAY_PRAYERS.forEach { prayer ->
+                val ids = requireNotNull(PRAYER_VIEW_IDS[prayer])
+                setTextViewText(ids.name, context.getString(prayerLabelRes(prayer)))
+                setTextViewText(
+                    ids.time,
+                    data.prayerTimes[prayer]?.let(timeFormatter::format) ?: "—",
+                )
+                setViewVisibility(ids.statusLabel, View.INVISIBLE)
+                setViewVisibility(ids.statusTimer, View.INVISIBLE)
+                setInt(ids.container, "setBackgroundResource", R.drawable.notification_prayer_cell)
+                setTextColor(ids.name, context.getColor(R.color.notification_text_primary))
+                setTextColor(ids.time, context.getColor(R.color.notification_text_secondary))
+            }
+
+            PRAYER_VIEW_IDS[nextPrayer]?.let { ids ->
+                setInt(ids.container, "setBackgroundResource", R.drawable.notification_prayer_cell_next)
+                setTextColor(ids.name, context.getColor(R.color.notification_gold))
+                setTextColor(ids.time, context.getColor(R.color.notification_text_primary))
+                setTextViewText(ids.statusLabel, shortStatusLabel(context, R.string.next_adhan_remaining))
+                setTextColor(ids.statusLabel, context.getColor(R.color.notification_primary))
+                setTextColor(ids.statusTimer, context.getColor(R.color.notification_primary))
+                setViewVisibility(ids.statusLabel, View.VISIBLE)
+                setViewVisibility(ids.statusTimer, View.VISIBLE)
+                setChronometer(
+                    ids.statusTimer,
+                    remainingChronometerBase(data.remainingSeconds),
+                    null,
+                    true,
+                )
+                setChronometerCountDown(ids.statusTimer, true)
+            }
+
+            data.missedPrayer
+                ?.takeIf { showMissed && it != nextPrayer }
+                ?.let { missedPrayer ->
+                    PRAYER_VIEW_IDS[missedPrayer]?.let { ids ->
+                        setInt(ids.container, "setBackgroundResource", R.drawable.notification_prayer_cell_missed)
+                        setTextViewText(ids.statusLabel, shortStatusLabel(context, R.string.next_adhan_elapsed))
+                        setTextColor(ids.statusLabel, context.getColor(R.color.notification_error))
+                        setTextColor(ids.statusTimer, context.getColor(R.color.notification_error))
+                        setViewVisibility(ids.statusLabel, View.VISIBLE)
+                        setViewVisibility(ids.statusTimer, View.VISIBLE)
+                        setChronometer(
+                            ids.statusTimer,
+                            elapsedChronometerBase(data.elapsedSeconds),
+                            null,
+                            true,
+                        )
+                        setChronometerCountDown(ids.statusTimer, false)
+                    }
+                }
+        }
+    }
+
+    /**
+     * Reuses the existing fully-localized status phrases without adding a new
+     * translation key to every locale. The duration placeholder is removed,
+     * leaving the locale's own label (e.g. "الوقت المتبقي" / "Remaining").
+     */
+    private fun shortStatusLabel(context: Context, stringRes: Int): String {
+        val marker = "__TIME__"
+        return context.getString(stringRes, marker)
+            .replace(marker, "")
+            .trim()
+            .trim(' ', ':', '：', '·', '—', '-')
+    }
+
+    private fun remainingChronometerBase(remainingSeconds: Long): Long =
+        SystemClock.elapsedRealtime() + remainingSeconds.coerceAtLeast(0) * 1_000L
+
+    private fun elapsedChronometerBase(elapsedSeconds: Long): Long =
+        SystemClock.elapsedRealtime() - elapsedSeconds.coerceAtLeast(0) * 1_000L
 
     private fun createContentIntent(context: Context): PendingIntent? = runCatching {
         val intent = Intent(Intent.ACTION_VIEW, "muslim://times".toUri())
@@ -162,4 +286,12 @@ object NextAdhanNotifications {
     }.getOrNull() ?: context.packageManager.getLaunchIntentForPackage(context.packageName)?.let {
         PendingIntent.getActivity(context, 0, it, PendingIntent.FLAG_IMMUTABLE)
     }
+
+    private data class PrayerViewIds(
+        @IdRes val container: Int,
+        @IdRes val name: Int,
+        @IdRes val time: Int,
+        @IdRes val statusLabel: Int,
+        @IdRes val statusTimer: Int,
+    )
 }

@@ -1,0 +1,13 @@
+<resources>
+    <!-- Mirrors core-design-system/IslamicPalette.Dark. -->
+    <color name="notification_surface">#151C19</color>
+    <color name="notification_surface_elevated">#1C2923</color>
+    <color name="notification_primary">#527A68</color>
+    <color name="notification_primary_container">#3F6655</color>
+    <color name="notification_text_primary">#E9E5D8</color>
+    <color name="notification_text_secondary">#A9AAA2</color>
+    <color name="notification_text_muted">#777D77</color>
+    <color name="notification_border">#2A332F</color>
+    <color name="notification_gold">#D0BA82</color>
+    <color name="notification_error">#FFB4AB</color>
+</resources>
