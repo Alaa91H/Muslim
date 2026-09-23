@@ -167,7 +167,7 @@ fun SettingsScreen(
     // the previously expanded section (single expanded card at a time).
     var expandedSection by rememberSaveable { mutableStateOf<String?>(null) }
 
-    // One-time confirmation before fully-automatic updates can install APKs.
+    // One-time confirmation before background update downloads are enabled.
     var confirmAutoUpdate by remember { mutableStateOf(false) }
 
     // Every locale the APK ships resources for, shown in its own native name
@@ -542,6 +542,23 @@ fun SettingsScreen(
                                 )
                             },
                         )
+                        if (preferences.autoUpdateEnabled) {
+                            ListItem(
+                                headlineContent = {
+                                    Text(stringResource(R.string.settings_auto_update_wifi_only))
+                                },
+                                supportingContent = {
+                                    Text(stringResource(R.string.settings_auto_update_wifi_only_desc))
+                                },
+                                leadingContent = { Icon(Icons.Filled.Download, contentDescription = null) },
+                                trailingContent = {
+                                    Switch(
+                                        checked = preferences.autoUpdateWifiOnly,
+                                        onCheckedChange = viewModel::setAutoUpdateWifiOnly,
+                                    )
+                                },
+                            )
+                        }
                         Text(
                             text = stringResource(R.string.settings_updates_frequency),
                             style = MaterialTheme.typography.labelLarge,
