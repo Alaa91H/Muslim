@@ -83,6 +83,7 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarDifficulty
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingStatus
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySessionStatus
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -528,6 +529,7 @@ private fun ScholarBookDialogs(
 @Composable
 fun ScholarStudyDeskScreen(
     onBack: () -> Unit,
+    onOpenSession: (String) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: ScholarLibraryViewModel = hiltViewModel(),
 ) {
@@ -552,6 +554,7 @@ fun ScholarStudyDeskScreen(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
+            studySessionItems(state, onOpenSession)
             studyReviewItems(
                 state = state,
                 showingAnswerFor = showingAnswerFor,
@@ -561,6 +564,47 @@ fun ScholarStudyDeskScreen(
             studyBookmarkItems(state, viewModel)
             studyHighlightItems(state, viewModel)
             studyNoteItems(state, viewModel)
+        }
+    }
+}
+
+private fun LazyListScope.studySessionItems(
+    state: ScholarLibraryUiState,
+    onOpenSession: (String) -> Unit,
+) {
+    val sessions = state.studySessions.take(10)
+    item { SectionLabel(stringResource(R.string.scholar_library_recent_study_sessions)) }
+    if (sessions.isEmpty()) {
+        item { EmptyState(stringResource(R.string.scholar_library_no_study_sessions)) }
+        return
+    }
+    items(sessions, key = { "session_${it.id}" }) { session ->
+        val pathTitle = state.studyPaths.firstOrNull { it.id == session.pathId }?.title ?: session.pathId
+        val bookTitle = state.books.firstOrNull { it.id == session.bookId }?.title ?: session.bookId
+        Card {
+            Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                Text(pathTitle, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
+                Text(bookTitle, style = MaterialTheme.typography.bodyMedium)
+                Text(
+                    stringResource(
+                        R.string.scholar_library_session_history_progress,
+                        session.completedPassageIds.size,
+                        session.targetPassageIds.size,
+                    ),
+                    style = MaterialTheme.typography.labelMedium,
+                )
+                if (session.status == ScholarStudySessionStatus.InProgress) {
+                    Button(onClick = { onOpenSession(session.pathId) }) {
+                        Text(stringResource(R.string.scholar_library_resume_session))
+                    }
+                } else {
+                    Text(
+                        stringResource(R.string.scholar_library_session_history_completed),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+            }
         }
     }
 }
