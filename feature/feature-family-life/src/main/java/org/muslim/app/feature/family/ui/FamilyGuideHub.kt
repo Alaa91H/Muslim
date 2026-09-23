@@ -88,6 +88,28 @@ internal enum class FamilyHubDestination {
     Adhkar,
 }
 
+internal data class FamilyArticleReaderActions(
+    val onToggleFavorite: () -> Unit,
+    val onCopyArticle: () -> Unit,
+    val onShareArticle: () -> Unit,
+    val onOpenReference: (FamilyEvidenceReference) -> Unit,
+    val onOpenArticle: (String) -> Unit,
+)
+
+private data class FamilyGuideFilterState(
+    val category: FamilyTopicCategory?,
+    val evidenceType: FamilyEvidenceType?,
+    val favoritesOnly: Boolean,
+    val query: String,
+)
+
+private data class FamilyGuideFilterActions(
+    val onQueryChange: (String) -> Unit,
+    val onCategoryChange: (FamilyTopicCategory?) -> Unit,
+    val onEvidenceTypeChange: (FamilyEvidenceType?) -> Unit,
+    val onFavoritesOnlyChange: (Boolean) -> Unit,
+)
+
 @Composable
 internal fun FamilyHubContent(
     isArabic: Boolean,
@@ -357,14 +379,18 @@ internal fun FamilyGuideCatalogContent(
         item {
             FamilyGuideFilters(
                 isArabic = isArabic,
-                category = category,
-                evidenceType = evidenceType,
-                favoritesOnly = favoritesOnly,
-                query = query,
-                onQueryChange = { query = it },
-                onCategoryChange = { categoryName = it?.name },
-                onEvidenceTypeChange = { evidenceTypeName = it?.name },
-                onFavoritesOnlyChange = { favoritesOnly = it },
+                state = FamilyGuideFilterState(
+                    category = category,
+                    evidenceType = evidenceType,
+                    favoritesOnly = favoritesOnly,
+                    query = query,
+                ),
+                actions = FamilyGuideFilterActions(
+                    onQueryChange = { query = it },
+                    onCategoryChange = { categoryName = it?.name },
+                    onEvidenceTypeChange = { evidenceTypeName = it?.name },
+                    onFavoritesOnlyChange = { favoritesOnly = it },
+                ),
             )
         }
         item {
@@ -398,25 +424,19 @@ internal fun FamilyGuideCatalogContent(
 @Composable
 private fun FamilyGuideFilters(
     isArabic: Boolean,
-    category: FamilyTopicCategory?,
-    evidenceType: FamilyEvidenceType?,
-    favoritesOnly: Boolean,
-    query: String,
-    onQueryChange: (String) -> Unit,
-    onCategoryChange: (FamilyTopicCategory?) -> Unit,
-    onEvidenceTypeChange: (FamilyEvidenceType?) -> Unit,
-    onFavoritesOnlyChange: (Boolean) -> Unit,
+    state: FamilyGuideFilterState,
+    actions: FamilyGuideFilterActions,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         MuslimStateSurface(
-            title = category?.title(isArabic) ?: stringResource(R.string.family_guide_all_title),
+            title = state.category?.title(isArabic) ?: stringResource(R.string.family_guide_all_title),
             supportingText = stringResource(R.string.family_guide_intro),
             tone = MuslimStateTone.Information,
-            icon = category?.icon() ?: Icons.AutoMirrored.Filled.MenuBook,
+            icon = state.category?.icon() ?: Icons.AutoMirrored.Filled.MenuBook,
         )
         DigitNormalizedOutlinedTextField(
-            value = query,
-            onValueChange = onQueryChange,
+            value = state.query,
+            onValueChange = actions.onQueryChange,
             modifier = Modifier
                 .fillMaxWidth()
                 .testTag(FamilyUiTags.GUIDE_SEARCH_FIELD),
@@ -427,25 +447,25 @@ private fun FamilyGuideFilters(
         LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             item {
                 FilterChip(
-                    selected = category == null,
-                    onClick = { onCategoryChange(null) },
+                    selected = state.category == null,
+                    onClick = { actions.onCategoryChange(null) },
                     label = { Text(stringResource(R.string.family_guide_filter_all)) },
                 )
             }
             items(FamilyTopicCategory.entries, key = { it.name }) { item ->
                 FilterChip(
-                    selected = category == item,
-                    onClick = { onCategoryChange(item) },
+                    selected = state.category == item,
+                    onClick = { actions.onCategoryChange(item) },
                     label = { Text(item.title(isArabic)) },
                 )
             }
         }
         FamilyEvidenceFilters(
             isArabic = isArabic,
-            evidenceType = evidenceType,
-            favoritesOnly = favoritesOnly,
-            onEvidenceTypeChange = onEvidenceTypeChange,
-            onFavoritesOnlyChange = onFavoritesOnlyChange,
+            evidenceType = state.evidenceType,
+            favoritesOnly = state.favoritesOnly,
+            onEvidenceTypeChange = actions.onEvidenceTypeChange,
+            onFavoritesOnlyChange = actions.onFavoritesOnlyChange,
         )
     }
 }
@@ -549,11 +569,7 @@ internal fun FamilyArticleDetailContent(
     isArabic: Boolean,
     isFavorite: Boolean,
     relatedArticles: List<FamilyGuideArticle>,
-    onToggleFavorite: () -> Unit,
-    onCopyArticle: () -> Unit,
-    onShareArticle: () -> Unit,
-    onOpenReference: (FamilyEvidenceReference) -> Unit,
-    onOpenArticle: (String) -> Unit,
+    actions: FamilyArticleReaderActions,
 ) {
     val category = FamilyLifeContent.categoryFor(article.id)
     val sensitive = category == FamilyTopicCategory.ConflictResolution ||
@@ -572,13 +588,13 @@ internal fun FamilyArticleDetailContent(
                 category = category,
                 isArabic = isArabic,
                 isFavorite = isFavorite,
-                onToggleFavorite = onToggleFavorite,
+                onToggleFavorite = actions.onToggleFavorite,
             )
         }
         item {
             FamilyArticleActions(
-                onCopyArticle = onCopyArticle,
-                onShareArticle = onShareArticle,
+                onCopyArticle = actions.onCopyArticle,
+                onShareArticle = actions.onShareArticle,
             )
         }
         if (sensitive) {
@@ -594,7 +610,7 @@ internal fun FamilyArticleDetailContent(
                     reference = reference,
                     isArabic = isArabic,
                     onOpen = if (FamilyReferenceParser.canOpenInApp(reference)) {
-                        { onOpenReference(reference) }
+                        { actions.onOpenReference(reference) }
                     } else {
                         null
                     },
@@ -607,7 +623,7 @@ internal fun FamilyArticleDetailContent(
                 FamilyRelatedArticleCard(
                     article = related,
                     isArabic = isArabic,
-                    onClick = { onOpenArticle(related.id) },
+                    onClick = { actions.onOpenArticle(related.id) },
                 )
             }
         }
