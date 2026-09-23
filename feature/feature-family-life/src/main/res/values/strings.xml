@@ -11,7 +11,7 @@
     <string name="family_ruqyah_health_notice" tools:ignore="MissingTranslation">تنبيه: الرقية عبادة وسبب مشروع، وليست بديلًا عن الطبيب أو العلاج النفسي. اطلب المساعدة الطبية عند وجود أعراض مستمرة أو طارئة.</string>
     <string name="family_ruqyah_steps_title" tools:ignore="MissingTranslation">كيف تكون الرقية؟</string>
     <string name="family_ruqyah_passages_title" tools:ignore="MissingTranslation">آيات وسور الرقية</string>
-    <string name="family_ruqyah_audio_title" tools:ignore="MissingTranslation">استماع إلى التلاوة</string>
+    <string name="family_ruqyah_supplications_title" tools:ignore="MissingTranslation">أدعية مأثورة للرقية</string>\n    <string name="family_ruqyah_audio_title" tools:ignore="MissingTranslation">استماع إلى التلاوة</string>
     <string name="family_audio_play" tools:ignore="MissingTranslation">استماع</string>
     <string name="family_audio_unavailable" tools:ignore="MissingTranslation">مصدر الصوت غير متاح حاليًا</string>
     <string name="family_names_title" tools:ignore="MissingTranslation">أسماء إسلامية للمواليد</string>
@@ -20,7 +20,7 @@
     <string name="family_names_all" tools:ignore="MissingTranslation">الكل</string>
     <string name="family_names_boys" tools:ignore="MissingTranslation">أولاد</string>
     <string name="family_names_girls" tools:ignore="MissingTranslation">بنات</string>
-    <string name="family_names_count" tools:ignore="MissingTranslation">عدد النتائج: %1$d</string>
+    <string name="family_names_count" tools:ignore="MissingTranslation">عدد النتائج: %1$d</string>\n    <string name="family_name_origin" tools:ignore="MissingTranslation">الأصل/الاستعمال: %1$s</string>
     <string name="family_names_empty" tools:ignore="MissingTranslation">لا توجد أسماء مطابقة</string>
     <string name="family_aqiqah_title" tools:ignore="MissingTranslation">حاسبة العقيقة والتنبيه</string>
     <string name="family_aqiqah_intro" tools:ignore="MissingTranslation">أدخل تاريخ الميلاد لعرض اليوم السابع، والرابع عشر، والحادي والعشرين كتذكيرات مقترحة. اليوم السابع هو الخيار الأول في القائمة، وهذه أداة تذكير وليست فتوى شخصية.</string>
@@ -33,14 +33,14 @@
     <string name="family_aqiqah_day_fourteen" tools:ignore="MissingTranslation">اليوم الرابع عشر</string>
     <string name="family_aqiqah_day_twenty_one" tools:ignore="MissingTranslation">اليوم الحادي والعشرون</string>
     <string name="family_aqiqah_reminder" tools:ignore="MissingTranslation">تنبيه موعد العقيقة</string>
-    <string name="family_aqiqah_reminder_desc" tools:ignore="MissingTranslation">سيُرسل تذكيرًا محليًا صباح اليوم السابع عند بقاء الموعد.</string>
+    <string name="family_aqiqah_reminder_desc" tools:ignore="MissingTranslation">سيُرسل تذكيرًا محليًا صباح اليوم %1$d إذا كان الموعد ما يزال قادمًا.</string>\n    <string name="family_aqiqah_choose_reminder_day" tools:ignore="MissingTranslation">اختر يوم التنبيه</string>\n    <string name="family_aqiqah_day_number" tools:ignore="MissingTranslation">اليوم %1$d</string>\n    <string name="family_aqiqah_selected_date_passed" tools:ignore="MissingTranslation">مرّ موعد اليوم %1$d؛ اختر موعدًا لاحقًا أو عطّل التنبيه.</string>
     <string name="family_aqiqah_set_birth_first" tools:ignore="MissingTranslation">احفظ تاريخ الميلاد أولًا لتفعيل التنبيه.</string>
     <string name="family_aqiqah_date_passed" tools:ignore="MissingTranslation">مرّ موعد اليوم السابع؛ ما زالت المواعيد البديلة ظاهرة للتخطيط.</string>
     <string name="family_aqiqah_fiqh_note" tools:ignore="MissingTranslation">من السنة أن تكون العقيقة عن الغلام شاتان وعن الجارية شاة عند القدرة، وتراعى أحكام الذبح والإحسان إلى الفقير وقوانين البلد. راجع عالمًا موثوقًا في المسائل التفصيلية.</string>
     <string name="family_marriage_title" tools:ignore="MissingTranslation">دليل الزواج والأسرة</string>
     <string name="family_marriage_intro" tools:ignore="MissingTranslation">مقالات فقهية وتربوية مبسطة عن الخطبة، وعقد النكاح، والحقوق الزوجية، والخلاف، وتربية الأبناء. المحتوى تعليمي عام وليس فتوى لحالة خاصة.</string>
     <string name="aqiqah_notification_title" tools:ignore="MissingTranslation">تذكير العقيقة</string>
-    <string name="aqiqah_notification_body" tools:ignore="MissingTranslation">حلّ اليوم السابع المقترح للعقيقة. تقبل الله منكم.</string>
+    <string name="aqiqah_notification_body" tools:ignore="MissingTranslation">حلّ اليوم %1$d الذي اخترته كتذكير للعقيقة. تقبل الله منكم.</string>
     <string name="family_articles_search" tools:ignore="MissingTranslation">ابحث في الزواج والأسرة والحياة اليومية</string>
     <string name="family_articles_count" tools:ignore="MissingTranslation">الموضوعات: %1$d</string>
     <string name="family_articles_empty" tools:ignore="MissingTranslation">لا توجد موضوعات مطابقة لبحثك</string>
