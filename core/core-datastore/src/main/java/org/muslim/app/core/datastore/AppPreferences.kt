@@ -95,6 +95,10 @@ data class AppPreferences(
     val updateDownloadVersion: String = "",
     /** File name associated with [updateDownloadId] inside the app updates directory. */
     val updateDownloadFileName: String = "",
+    /** Expected SHA-256 for the persisted APK, empty for legacy releases without metadata. */
+    val updateDownloadSha256: String = "",
+    /** Expected release versionCode, 0 for legacy releases without metadata. */
+    val updateDownloadVersionCode: Long = 0L,
 ) {
     companion object {
         const val SYSTEM_LANGUAGE = "system"
