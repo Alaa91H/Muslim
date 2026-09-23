@@ -3,7 +3,9 @@ package org.muslim.app.core.ui.theme
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -14,6 +16,8 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.muslim.app.core.common.appearance.AppOrnamentStyle
@@ -167,6 +171,60 @@ fun IslamicDecorationLayer(
 }
 
 /**
+ * Reader-specific decoration keeps a recognisable Mushaf identity while still
+ * respecting the app-wide ornament intensity. Sacred text remains the focus:
+ * these vectors are short header/divider accents and never form a text
+ * background.
+ */
+@Composable
+fun IslamicReadingHeaderDecoration(
+    modifier: Modifier = Modifier,
+    tint: Color = MaterialTheme.colorScheme.tertiary,
+) {
+    val preferences = LocalIslamicDecoration.current
+    if (preferences.intensity == OrnamentIntensity.Off) return
+
+    IslamicOrnamentImage(
+        ornament = IslamicOrnament.SurahHeader,
+        tint = tint,
+        alpha = preferences.intensity.featureAlpha(preferences.darkTheme) * 0.72f,
+        modifier = modifier.fillMaxWidth().height(18.dp),
+    )
+}
+
+@Composable
+fun IslamicReadingDivider(
+    modifier: Modifier = Modifier,
+    tint: Color = MaterialTheme.colorScheme.tertiary,
+) {
+    val preferences = LocalIslamicDecoration.current
+    if (preferences.intensity == OrnamentIntensity.Off) return
+
+    IslamicOrnamentImage(
+        ornament = IslamicOrnament.MushafDivider,
+        tint = tint,
+        alpha = preferences.intensity.featureAlpha(preferences.darkTheme) * 0.78f,
+        modifier = modifier.fillMaxWidth().height(14.dp),
+    )
+}
+
+@Composable
+fun IslamicReadingBasmalaAccent(
+    modifier: Modifier = Modifier,
+    tint: Color = MaterialTheme.colorScheme.tertiary,
+) {
+    val preferences = LocalIslamicDecoration.current
+    if (preferences.intensity == OrnamentIntensity.Off) return
+
+    IslamicOrnamentImage(
+        ornament = IslamicOrnament.Star8,
+        tint = tint,
+        alpha = preferences.intensity.featureAlpha(preferences.darkTheme) * 0.86f,
+        modifier = modifier.fillMaxWidth().height(18.dp),
+    )
+}
+
+/**
  * Compact live preview used by Appearance settings. It reuses the exact same
  * renderer as the app background, so the chooser never lies about the result.
  */
@@ -198,5 +256,161 @@ fun IslamicDecorationPreview(
         ) {
             IslamicDecorationLayer()
         }
+    }
+}
+
+
+internal fun OrnamentIntensity.featureAlpha(darkTheme: Boolean): Float = when (this) {
+    OrnamentIntensity.Off -> 0f
+    OrnamentIntensity.Subtle -> if (darkTheme) 0.060f else 0.070f
+    OrnamentIntensity.Balanced -> if (darkTheme) 0.090f else 0.105f
+    OrnamentIntensity.Rich -> if (darkTheme) 0.125f else 0.145f
+}
+
+internal fun AppOrnamentStyle.sectionOrnament(): IslamicOrnament = when (this) {
+    AppOrnamentStyle.Geometry -> IslamicOrnament.Geometric12
+    AppOrnamentStyle.Arabesque -> IslamicOrnament.Arabesque
+    AppOrnamentStyle.Stars -> IslamicOrnament.Star12
+    AppOrnamentStyle.Andalusian -> IslamicOrnament.Geometric8
+    AppOrnamentStyle.Mashrabiya -> IslamicOrnament.Geometric12
+    AppOrnamentStyle.Ottoman -> IslamicOrnament.Arabesque
+    AppOrnamentStyle.Mushaf -> IslamicOrnament.SurahHeader
+    AppOrnamentStyle.Royal -> IslamicOrnament.Star12
+    AppOrnamentStyle.Minimal -> IslamicOrnament.Corner
+}
+
+internal fun AppOrnamentStyle.dividerOrnament(): IslamicOrnament = when (this) {
+    AppOrnamentStyle.Mushaf,
+    AppOrnamentStyle.Minimal,
+    -> IslamicOrnament.MushafDivider
+
+    AppOrnamentStyle.Arabesque,
+    AppOrnamentStyle.Ottoman,
+    -> IslamicOrnament.Arabesque
+
+    AppOrnamentStyle.Stars,
+    AppOrnamentStyle.Royal,
+    -> IslamicOrnament.Star8
+
+    AppOrnamentStyle.Geometry,
+    AppOrnamentStyle.Andalusian,
+    AppOrnamentStyle.Mashrabiya,
+    -> IslamicOrnament.Geometric8
+}
+
+internal fun AppOrnamentStyle.cornerOrnament(): IslamicOrnament = when (this) {
+    AppOrnamentStyle.Geometry -> IslamicOrnament.Geometric8
+    AppOrnamentStyle.Stars -> IslamicOrnament.Star8
+    AppOrnamentStyle.Mashrabiya -> IslamicOrnament.Geometric12
+    AppOrnamentStyle.Ottoman -> IslamicOrnament.Arabesque
+    AppOrnamentStyle.Arabesque,
+    AppOrnamentStyle.Andalusian,
+    AppOrnamentStyle.Mushaf,
+    AppOrnamentStyle.Royal,
+    AppOrnamentStyle.Minimal,
+    -> IslamicOrnament.Corner
+}
+
+/**
+ * Centered motif for circular worship controls such as the Qibla compass and
+ * digital misbaha. It is intentionally a single vector so it remains cheap
+ * while the surrounding sensor/counter UI updates frequently.
+ */
+@Composable
+fun IslamicDecorationMedallion(
+    modifier: Modifier = Modifier,
+    tint: Color = MaterialTheme.colorScheme.tertiary,
+) {
+    val preferences = LocalIslamicDecoration.current
+    if (preferences.intensity == OrnamentIntensity.Off) return
+
+    IslamicOrnamentImage(
+        ornament = preferences.style.sectionOrnament(),
+        tint = tint,
+        alpha = preferences.intensity.featureAlpha(preferences.darkTheme) * 0.56f,
+        modifier = modifier.fillMaxSize(),
+    )
+}
+
+/**
+ * A short decorative band for feature headers. It follows the globally
+ * selected ornament and intensity and disappears completely when decoration
+ * is disabled.
+ */
+@Composable
+fun IslamicDecorationBand(
+    modifier: Modifier = Modifier,
+    tint: Color = MaterialTheme.colorScheme.primary,
+    compact: Boolean = false,
+) {
+    val preferences = LocalIslamicDecoration.current
+    if (preferences.intensity == OrnamentIntensity.Off) return
+
+    IslamicOrnamentImage(
+        ornament = preferences.style.sectionOrnament(),
+        tint = tint,
+        alpha = preferences.intensity.featureAlpha(preferences.darkTheme),
+        modifier = modifier
+            .fillMaxWidth()
+            .height(if (compact) 56.dp else 84.dp),
+    )
+}
+
+/** A low-profile ornamental divider for section transitions. */
+@Composable
+fun IslamicDecorationDivider(
+    modifier: Modifier = Modifier,
+    tint: Color = MaterialTheme.colorScheme.tertiary,
+) {
+    val preferences = LocalIslamicDecoration.current
+    if (preferences.intensity == OrnamentIntensity.Off) return
+
+    IslamicOrnamentImage(
+        ornament = preferences.style.dividerOrnament(),
+        tint = tint,
+        alpha = preferences.intensity.featureAlpha(preferences.darkTheme) * 0.82f,
+        modifier = modifier
+            .fillMaxWidth()
+            .height(14.dp),
+    )
+}
+
+/**
+ * Mirrored decorative anchors for hero cards and major grouped surfaces.
+ * The motifs remain non-semantic and are intentionally bounded to two vectors.
+ */
+@Composable
+fun IslamicDecorationCorners(
+    tint: Color,
+    modifier: Modifier = Modifier,
+    compact: Boolean = false,
+) {
+    val preferences = LocalIslamicDecoration.current
+    if (preferences.intensity == OrnamentIntensity.Off) return
+
+    val ornament = preferences.style.cornerOrnament()
+    val alpha = preferences.intensity.featureAlpha(preferences.darkTheme)
+    val ornamentSize = if (compact) 52.dp else 68.dp
+
+    Box(modifier = modifier.fillMaxSize().clipToBounds()) {
+        IslamicOrnamentImage(
+            ornament = ornament,
+            tint = tint,
+            alpha = alpha,
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(4.dp)
+                .size(ornamentSize),
+        )
+        IslamicOrnamentImage(
+            ornament = ornament,
+            tint = tint,
+            alpha = alpha,
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(4.dp)
+                .size(ornamentSize)
+                .graphicsLayer(rotationZ = 180f),
+        )
     }
 }

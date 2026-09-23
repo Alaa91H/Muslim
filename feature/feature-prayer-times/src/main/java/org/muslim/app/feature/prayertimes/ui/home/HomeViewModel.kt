@@ -14,7 +14,6 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.stateIn
-import org.muslim.app.core.common.appearance.AppOrnamentStyle
 import org.muslim.app.core.common.time.HijriDate
 import org.muslim.app.core.datastore.AppPreferencesRepository
 import org.muslim.app.core.datastore.prayer.PrayerCompletionRepository
@@ -47,12 +46,6 @@ class HomeViewModel @Inject constructor(
         appPreferencesRepository.preferences
             .map { it.timeFormat24h }
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
-
-    /** Decorative background style selected in app appearance settings. */
-    val ornamentStyle: StateFlow<AppOrnamentStyle> =
-        appPreferencesRepository.preferences
-            .map { it.ornamentStyle }
-            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), AppOrnamentStyle.Geometry)
 
     /** Home display of the prayer checklist is an explicit, disabled-by-default choice. */
     val showPrayerTrackerOnHome: StateFlow<Boolean> =

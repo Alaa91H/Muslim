@@ -36,7 +36,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -60,6 +59,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.learn.R
 import org.muslim.app.feature.learn.domain.ArabicLetter
 import org.muslim.app.feature.learn.domain.BeginnerLanguage
@@ -87,7 +88,7 @@ fun NooraniNewMuslimScreen(
     }
     BackHandler(onBack = onBack)
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
@@ -105,6 +106,10 @@ fun NooraniNewMuslimScreen(
     ) { innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)) {
             NooraniTabs(selectedTab = selectedTab, onSelect = { selectedTab = it })
+            IslamicDecorationDivider(
+                tint = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(horizontal = 24.dp),
+            )
             when (selectedTab) {
                 0 -> LetterLesson(speaker = speaker)
                 1 -> ReadingBasics(speaker = speaker)

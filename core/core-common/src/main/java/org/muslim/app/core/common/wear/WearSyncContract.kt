@@ -1,5 +1,8 @@
 package org.muslim.app.core.common.wear
 
+import org.muslim.app.core.common.appearance.AppOrnamentStyle
+import org.muslim.app.core.common.appearance.OrnamentIntensity
+
 /**
  * Versioned, minimal payload contract shared by the phone and paired Wear OS
  * app. The contract contains no location, prayer-calculation settings, audio,
@@ -16,6 +19,8 @@ object WearSyncContract {
     const val KEY_TASBIH_COUNT = "tasbih_count"
     const val KEY_TASBIH_TARGET = "tasbih_target"
     const val KEY_SYNCED_AT = "synced_at"
+    const val KEY_ORNAMENT_STYLE = "ornament_style"
+    const val KEY_ORNAMENT_INTENSITY = "ornament_intensity"
 
     fun isSupportedIncrementPath(path: String): Boolean = path == TASBIH_INCREMENT_PATH
 }
@@ -28,6 +33,8 @@ data class WearPrayerSnapshot(
     val tasbihCount: Int,
     val tasbihTarget: Int,
     val syncedAtEpochMillis: Long,
+    val ornamentStyle: AppOrnamentStyle = AppOrnamentStyle.Geometry,
+    val ornamentIntensity: OrnamentIntensity = OrnamentIntensity.Balanced,
 ) {
     fun isValid(): Boolean =
         tasbihPhrase.isNotBlank() &&

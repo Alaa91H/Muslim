@@ -34,7 +34,6 @@ import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -68,7 +67,10 @@ import kotlinx.coroutines.launch
 import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.core.ui.text.DigitNormalizedOutlinedTextField
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicDecorationBand
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicSecondaryButton
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.learn.R
@@ -104,7 +106,7 @@ fun FamilyLifeScreen(
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
@@ -119,6 +121,10 @@ fun FamilyLifeScreen(
         },
     ) { innerPadding ->
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
+            IslamicDecorationBand(
+                tint = MaterialTheme.colorScheme.tertiary,
+                compact = true,
+            )
             PrimaryScrollableTabRow(
                 selectedTabIndex = selectedTab,
                 edgePadding = 12.dp,
@@ -141,6 +147,10 @@ fun FamilyLifeScreen(
                     )
                 }
             }
+            IslamicDecorationDivider(
+                tint = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(horizontal = 24.dp),
+            )
             when (FamilyTab.entries[selectedTab]) {
                 FamilyTab.Ruqyah -> RuqyahContent(
                     isArabic = isArabic,
