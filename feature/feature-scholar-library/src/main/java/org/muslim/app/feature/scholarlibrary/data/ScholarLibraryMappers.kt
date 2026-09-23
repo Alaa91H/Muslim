@@ -10,6 +10,7 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarNote
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingStatus
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewRating
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPlan
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySession
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySessionStatus
@@ -58,6 +59,11 @@ internal fun ScholarFlashcardEntity.toDomain() = StudyFlashcard(
     reviewCount = reviewCount,
     dueAtEpochMillis = dueAtEpochMillis,
     createdAtEpochMillis = createdAtEpochMillis,
+    intervalDays = intervalDays,
+    easeFactor = easeFactor,
+    lapseCount = lapseCount,
+    lastReviewedAtEpochMillis = lastReviewedAtEpochMillis,
+    lastRating = ScholarReviewRating.fromId(lastRating),
 )
 
 internal fun ScholarBookmarkEntity.toDomain() = ScholarBookmark(
