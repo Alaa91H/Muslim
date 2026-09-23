@@ -537,6 +537,20 @@
       "required_actions": []
     },
     {
+      "id": "feature_feature-reference_src_main_res_raw_reference_ethics_life_v2_json",
+      "kind": "reference_corpus",
+      "path": "feature/feature-reference/src/main/res/raw/reference_ethics_life_v2.json",
+      "size_bytes": 192986,
+      "sha256": "09e9e3adb0f9aedd26da9996f703db2fd41aed71679c4affc34be6b10cf9a70f",
+      "production_status": "approved",
+      "source": "Project-authored Ethics, Manners, and Muslim Life corpus using structured references to the Quran, Sahih al-Bukhari, Sahih Muslim, and classical adab works. Modern digital-life articles apply general ethical principles transparently rather than presenting platform-specific customs as revelation.",
+      "licence": "Project source licence; this JSON is project-authored reference content and bibliographic metadata.",
+      "attribution": "Ethics, Manners, and Muslim Life reference content bundled with the Muslim app.",
+      "religious_review": "No independent scholarly certification is claimed. Every article remains NeedsReview pending article-level review of citations, legal/ethical formulations, and modern applications.",
+      "notes": "First versioned edition: 73 topics, 146 sections, and 146 bilingual paragraphs covering character, speech, daily life, family, community, work/wealth, public responsibility, and digital ethics.",
+      "required_actions": []
+    },
+    {
       "id": "feature_feature-reference_src_main_res_raw_reference_fiqh_worship_v2_json",
       "kind": "reference_corpus",
       "path": "feature/feature-reference/src/main/res/raw/reference_fiqh_worship_v2.json",
@@ -650,8 +664,8 @@
     }
   ],
   "summary": {
-    "asset_count": 44,
-    "approved_for_production": 44,
+    "asset_count": 45,
+    "approved_for_production": 45,
     "blocked_pending_review": 0
   }
 }
