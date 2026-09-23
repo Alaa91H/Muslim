@@ -397,7 +397,6 @@ fun ScholarStudyDeskScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     var showingAnswerFor by remember { mutableStateOf<Long?>(null) }
-    val dueCards = state.flashcards.filter { it.card.dueAtEpochMillis <= System.currentTimeMillis() }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -417,105 +416,145 @@ fun ScholarStudyDeskScreen(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
-            item {
-                Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)) {
-                    Column(Modifier.padding(16.dp)) {
-                        Text(stringResource(R.string.scholar_library_review_title), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                        Text(
-                            stringResource(R.string.scholar_library_review_summary, dueCards.size, state.flashcards.size),
-                            style = MaterialTheme.typography.bodyMedium,
+            studyReviewItems(
+                state = state,
+                showingAnswerFor = showingAnswerFor,
+                onShowingAnswerChange = { showingAnswerFor = it },
+                viewModel = viewModel,
+            )
+            studyBookmarkItems(state, viewModel)
+            studyHighlightItems(state, viewModel)
+            studyNoteItems(state, viewModel)
+        }
+    }
+}
+
+private fun LazyListScope.studyReviewItems(
+    state: ScholarLibraryUiState,
+    showingAnswerFor: Long?,
+    onShowingAnswerChange: (Long?) -> Unit,
+    viewModel: ScholarLibraryViewModel,
+) {
+    val dueCards = state.flashcards.filter { it.card.dueAtEpochMillis <= System.currentTimeMillis() }
+    item {
+        Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)) {
+            Column(Modifier.padding(16.dp)) {
+                Text(
+                    stringResource(R.string.scholar_library_review_title),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
+                Text(
+                    stringResource(R.string.scholar_library_review_summary, dueCards.size, state.flashcards.size),
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+            }
+        }
+    }
+    item { SectionLabel(stringResource(R.string.scholar_library_due_cards)) }
+    if (dueCards.isEmpty()) {
+        item { EmptyState(stringResource(R.string.scholar_library_no_due_cards)) }
+    } else {
+        items(dueCards, key = { it.card.id }) { card ->
+            FlashcardCard(
+                card = card,
+                showAnswer = showingAnswerFor == card.card.id,
+                onReveal = { onShowingAnswerChange(card.card.id) },
+                onRemembered = {
+                    onShowingAnswerChange(null)
+                    viewModel.reviewFlashcard(card.card.id, remembered = true)
+                },
+                onAgain = {
+                    onShowingAnswerChange(null)
+                    viewModel.reviewFlashcard(card.card.id, remembered = false)
+                },
+                onDelete = { viewModel.deleteFlashcard(card.card.id) },
+            )
+        }
+    }
+}
+
+private fun LazyListScope.studyBookmarkItems(
+    state: ScholarLibraryUiState,
+    viewModel: ScholarLibraryViewModel,
+) {
+    item { SectionLabel(stringResource(R.string.scholar_library_bookmarks)) }
+    if (state.bookmarks.isEmpty()) {
+        item { EmptyState(stringResource(R.string.scholar_library_no_bookmarks)) }
+        return
+    }
+    items(state.bookmarks, key = { it.bookmark.passageId }) { bookmark ->
+        Card {
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    CitationLabel(bookmark.citation)
+                }
+                IconButton(onClick = { viewModel.toggleBookmark(bookmark.bookmark.passageId) }) {
+                    Icon(
+                        Icons.Filled.Bookmark,
+                        contentDescription = stringResource(R.string.scholar_library_remove_bookmark),
+                    )
+                }
+            }
+        }
+    }
+}
+
+private fun LazyListScope.studyHighlightItems(
+    state: ScholarLibraryUiState,
+    viewModel: ScholarLibraryViewModel,
+) {
+    item { SectionLabel(stringResource(R.string.scholar_library_highlights)) }
+    if (state.highlights.isEmpty()) {
+        item { EmptyState(stringResource(R.string.scholar_library_no_highlights)) }
+        return
+    }
+    items(state.highlights, key = { it.highlight.id }) { highlight ->
+        Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)) {
+            Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(
+                    highlight.highlight.quote,
+                    style = MaterialTheme.typography.bodyLarge,
+                    maxLines = 5,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                CitationLabel(highlight.citation)
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                    IconButton(onClick = { viewModel.deleteHighlight(highlight.highlight.id) }) {
+                        Icon(
+                            Icons.Filled.DeleteOutline,
+                            contentDescription = stringResource(R.string.scholar_library_delete_highlight),
                         )
                     }
                 }
             }
-            item { SectionLabel(stringResource(R.string.scholar_library_due_cards)) }
-            if (dueCards.isEmpty()) {
-                item { EmptyState(stringResource(R.string.scholar_library_no_due_cards)) }
-            } else {
-                items(dueCards, key = { it.card.id }) { card ->
-                    FlashcardCard(
-                        card = card,
-                        showAnswer = showingAnswerFor == card.card.id,
-                        onReveal = { showingAnswerFor = card.card.id },
-                        onRemembered = {
-                            showingAnswerFor = null
-                            viewModel.reviewFlashcard(card.card.id, remembered = true)
-                        },
-                        onAgain = {
-                            showingAnswerFor = null
-                            viewModel.reviewFlashcard(card.card.id, remembered = false)
-                        },
-                        onDelete = { viewModel.deleteFlashcard(card.card.id) },
-                    )
-                }
-            }
+        }
+    }
+}
 
-            item { SectionLabel(stringResource(R.string.scholar_library_bookmarks)) }
-            if (state.bookmarks.isEmpty()) {
-                item { EmptyState(stringResource(R.string.scholar_library_no_bookmarks)) }
-            } else {
-                items(state.bookmarks, key = { it.bookmark.passageId }) { bookmark ->
-                    Card {
-                        Row(
-                            modifier = Modifier.fillMaxWidth().padding(16.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                                CitationLabel(bookmark.citation)
-                            }
-                            IconButton(onClick = { viewModel.toggleBookmark(bookmark.bookmark.passageId) }) {
-                                Icon(
-                                    Icons.Filled.Bookmark,
-                                    contentDescription = stringResource(R.string.scholar_library_remove_bookmark),
-                                )
-                            }
-                        }
-                    }
-                }
-            }
-
-            item { SectionLabel(stringResource(R.string.scholar_library_highlights)) }
-            if (state.highlights.isEmpty()) {
-                item { EmptyState(stringResource(R.string.scholar_library_no_highlights)) }
-            } else {
-                items(state.highlights, key = { it.highlight.id }) { highlight ->
-                    Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)) {
-                        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                            Text(
-                                highlight.highlight.quote,
-                                style = MaterialTheme.typography.bodyLarge,
-                                maxLines = 5,
-                                overflow = TextOverflow.Ellipsis,
-                            )
-                            CitationLabel(highlight.citation)
-                            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                                IconButton(onClick = { viewModel.deleteHighlight(highlight.highlight.id) }) {
-                                    Icon(
-                                        Icons.Filled.DeleteOutline,
-                                        contentDescription = stringResource(R.string.scholar_library_delete_highlight),
-                                    )
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            item { SectionLabel(stringResource(R.string.scholar_library_notes)) }
-            if (state.notes.isEmpty()) {
-                item { EmptyState(stringResource(R.string.scholar_library_no_notes)) }
-            } else {
-                items(state.notes, key = { it.note.id }) { note ->
-                    Card {
-                        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                            Text(note.note.text, style = MaterialTheme.typography.bodyLarge)
-                            CitationLabel(note.citation)
-                            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                                IconButton(onClick = { viewModel.deleteNote(note.note.id) }) {
-                                    Icon(Icons.Filled.DeleteOutline, contentDescription = stringResource(R.string.scholar_library_delete_note))
-                                }
-                            }
-                        }
+private fun LazyListScope.studyNoteItems(
+    state: ScholarLibraryUiState,
+    viewModel: ScholarLibraryViewModel,
+) {
+    item { SectionLabel(stringResource(R.string.scholar_library_notes)) }
+    if (state.notes.isEmpty()) {
+        item { EmptyState(stringResource(R.string.scholar_library_no_notes)) }
+        return
+    }
+    items(state.notes, key = { it.note.id }) { note ->
+        Card {
+            Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(note.note.text, style = MaterialTheme.typography.bodyLarge)
+                CitationLabel(note.citation)
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                    IconButton(onClick = { viewModel.deleteNote(note.note.id) }) {
+                        Icon(
+                            Icons.Filled.DeleteOutline,
+                            contentDescription = stringResource(R.string.scholar_library_delete_note),
+                        )
                     }
                 }
             }
