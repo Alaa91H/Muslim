@@ -209,16 +209,22 @@ private fun TimelineTab(
             onTargetConsumed()
         }
     }
-    val selectedArticle = selectedEraId?.let(IslamicHistoryArticles::articleForEra)
+    val selectedArticle by rememberHistoryArticle(selectedEraId)
 
-    if (selectedArticle != null) {
+    if (selectedEraId != null) {
+        if (selectedArticle == null) {
+            HistoryContentLoading()
+            return
+        }
         HistoryArticleView(
-            article = selectedArticle,
+            article = requireNotNull(selectedArticle),
             language = language,
             onBack = { selectedEraId = null },
         )
-    } else {
-        LazyColumn(
+        return
+    }
+
+    LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -235,7 +241,6 @@ private fun TimelineTab(
             }
             item { HistoryNotice(stringResource(R.string.history_sources_notice)) }
         }
-    }
 }
 
 @Composable
@@ -436,10 +441,14 @@ private fun StatesTab(
             onTargetConsumed()
         }
     }
-    val selectedState = selectedStateId?.let(IslamicHistoryStates::byId)
-    if (selectedState != null) {
+    val selectedState by rememberHistoricalState(selectedStateId)
+    if (selectedStateId != null) {
+        if (selectedState == null) {
+            HistoryContentLoading()
+            return
+        }
         HistoricalStateDetail(
-            state = selectedState,
+            state = requireNotNull(selectedState),
             language = language,
             onBack = { selectedStateId = null },
             onNavigate = onNavigate,
@@ -732,11 +741,15 @@ private fun CivilizationTab(
             onTargetConsumed()
         }
     }
-    val selectedTopic = selectedTopicId?.let(IslamicCivilizationContent::byId)
+    val selectedTopic by rememberCivilizationTopic(selectedTopicId)
 
-    if (selectedTopic != null) {
+    if (selectedTopicId != null) {
+        if (selectedTopic == null) {
+            HistoryContentLoading()
+            return
+        }
         CivilizationTopicView(
-            topic = selectedTopic,
+            topic = requireNotNull(selectedTopic),
             language = language,
             onBack = { selectedTopicId = null },
             onNavigate = onNavigate,
