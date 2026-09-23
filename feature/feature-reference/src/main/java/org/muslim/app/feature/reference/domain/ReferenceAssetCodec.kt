@@ -1,6 +1,7 @@
 package org.muslim.app.feature.reference.domain
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
 /** Decoder for versioned, bundled reference-library content packs. */
@@ -10,7 +11,6 @@ object ReferenceAssetCodec {
 
     private val json = Json {
         ignoreUnknownKeys = false
-        explicitNulls = false
     }
 
     fun decode(rawJson: String): ReferenceBook {
