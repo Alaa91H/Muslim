@@ -196,6 +196,7 @@ fun MuslimApp(
     AppTheme(
         darkTheme = darkTheme,
         dynamicColor = preferences.dynamicColor,
+        amoledBlack = preferences.amoledBlack,
         highContrast = preferences.accessibilityHighContrast,
         accessibilityReadingMode = preferences.accessibilityReadingMode,
         reduceAnimations = preferences.reduceAnimations,

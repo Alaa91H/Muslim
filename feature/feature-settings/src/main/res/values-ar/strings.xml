@@ -58,11 +58,24 @@
     <string name="update_open_releases">افتح صفحة الإصدارات في المتصفح</string>
     <string name="settings_section_managers">المديرين والأذونات</string>
 
+    <string name="settings_amoled_black">أسود AMOLED نقي</string>
+    <string name="settings_amoled_black_desc">يجعل خلفيات وأسطح الوضع الداكن سوداء حقيقية (#000000) لتناسب شاشات OLED/AMOLED مع الحفاظ على ألوان الواجهة.</string>
     <string name="settings_color_palette">لوحة الألوان</string>
     <string name="settings_palette_classic">إسلامي كلاسيكي</string>
     <string name="settings_palette_emerald">زمردي</string>
     <string name="settings_palette_midnight">ليلي</string>
     <string name="settings_palette_sand">رملي</string>
+    <string name="settings_palette_royal_blue">أزرق ملكي</string>
+    <string name="settings_palette_turquoise">فيروزي</string>
+    <string name="settings_palette_olive">زيتي</string>
+    <string name="settings_palette_burgundy">عنابي</string>
+    <string name="settings_palette_amethyst">جمشت</string>
+    <string name="settings_palette_copper">نحاسي</string>
+    <string name="settings_palette_slate">أردوازي</string>
+    <string name="settings_palette_sepia">سيبيا</string>
+    <string name="settings_color_palette_desc">اختر هوية لونية متكاملة؛ لكل لوحة نسختان متناسقتان للوضعين الفاتح والداكن.</string>
+    <string name="settings_appearance_preview">معاينة المظهر</string>
+    <string name="settings_dynamic_color_unavailable">الألوان الديناميكية تتطلب أندرويد 12 أو أحدث؛ ستُستخدم لوحة الألوان المختارة بدلاً منها.</string>
     <string name="settings_card_corners">نعومة زوايا البطاقات</string>
     <string name="settings_corners_compact">مضغوطة</string>
     <string name="settings_corners_soft">ناعمة</string>

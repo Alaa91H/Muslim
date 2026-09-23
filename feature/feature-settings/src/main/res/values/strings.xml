@@ -10,6 +10,8 @@
     <string name="settings_theme_system">حسب النظام</string>
     <string name="settings_theme_light">فاتح</string>
     <string name="settings_theme_dark">داكن</string>
+    <string name="settings_amoled_black" tools:ignore="MissingTranslation">أسود AMOLED نقي</string>
+    <string name="settings_amoled_black_desc" tools:ignore="MissingTranslation">يجعل خلفيات وأسطح الوضع الداكن سوداء حقيقية (#000000) لتناسب شاشات OLED/AMOLED مع الحفاظ على ألوان الواجهة.</string>
     <string name="settings_dynamic_color">ألوان ديناميكية</string>
     <string name="settings_dynamic_color_desc">استخدام ألوان خلفية جهازك (Material You) على أندرويد 12 فأحدث</string>
     <string name="settings_color_palette">لوحة الألوان</string>
@@ -17,6 +19,17 @@
     <string name="settings_palette_emerald">زمردي</string>
     <string name="settings_palette_midnight">ليلي</string>
     <string name="settings_palette_sand">رملي</string>
+    <string name="settings_palette_royal_blue" tools:ignore="MissingTranslation">أزرق ملكي</string>
+    <string name="settings_palette_turquoise" tools:ignore="MissingTranslation">فيروزي</string>
+    <string name="settings_palette_olive" tools:ignore="MissingTranslation">زيتي</string>
+    <string name="settings_palette_burgundy" tools:ignore="MissingTranslation">عنابي</string>
+    <string name="settings_palette_amethyst" tools:ignore="MissingTranslation">جمشت</string>
+    <string name="settings_palette_copper" tools:ignore="MissingTranslation">نحاسي</string>
+    <string name="settings_palette_slate" tools:ignore="MissingTranslation">أردوازي</string>
+    <string name="settings_palette_sepia" tools:ignore="MissingTranslation">سيبيا</string>
+    <string name="settings_color_palette_desc" tools:ignore="MissingTranslation">اختر هوية لونية متكاملة؛ لكل لوحة نسختان متناسقتان للوضعين الفاتح والداكن.</string>
+    <string name="settings_appearance_preview" tools:ignore="MissingTranslation">معاينة المظهر</string>
+    <string name="settings_dynamic_color_unavailable" tools:ignore="MissingTranslation">الألوان الديناميكية تتطلب أندرويد 12 أو أحدث؛ ستُستخدم لوحة الألوان المختارة بدلاً منها.</string>
     <string name="settings_card_corners">نعومة زوايا البطاقات</string>
     <string name="settings_corners_compact">مضغوطة</string>
     <string name="settings_corners_soft">ناعمة</string>

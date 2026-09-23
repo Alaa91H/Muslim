@@ -20,13 +20,10 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
-import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Language
-import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.PrivacyTip
@@ -68,17 +65,11 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.launch
-import org.muslim.app.core.common.appearance.AppColorPalette
-import org.muslim.app.core.common.appearance.CardCornerStyle
-import org.muslim.app.core.common.appearance.AppOrnamentStyle
-import org.muslim.app.core.common.appearance.OrnamentIntensity
 import org.muslim.app.core.datastore.AppPreferences
-import org.muslim.app.core.datastore.AppThemeMode
 import org.muslim.app.feature.settings.R
 import org.muslim.app.core.designsystem.IslamicIconSize
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
-import org.muslim.app.core.ui.theme.IslamicDecorationPreview
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimContentFrame
 
@@ -228,83 +219,24 @@ fun SettingsScreen(
                     expanded = expandedSection == SettingsSection.Appearance.name,
                     onToggle = { toggleSection(SettingsSection.Appearance) },
                 ) {
-                    ListItem(
-                        headlineContent = { Text(stringResource(R.string.settings_theme_mode)) },
-                        leadingContent = {
-                            Icon(
-                                imageVector = if (preferences.themeMode == AppThemeMode.Dark) {
-                                    Icons.Filled.DarkMode
-                                } else {
-                                    Icons.Filled.LightMode
-                                },
-                                contentDescription = null,
-                            )
-                        },
-                    )
-                    ThemeModeSelector(
-                        selected = preferences.themeMode,
-                        onSelect = viewModel::setThemeMode,
-                    )
-                    ListItem(
-                        headlineContent = { Text(stringResource(R.string.settings_dynamic_color)) },
-                        supportingContent = { Text(stringResource(R.string.settings_dynamic_color_desc)) },
-                        leadingContent = { Icon(Icons.Filled.Palette, contentDescription = null) },
-                        trailingContent = {
-                            Switch(
-                                checked = preferences.dynamicColor,
-                                onCheckedChange = viewModel::setDynamicColor,
-                            )
-                        },
-                    )
-                    if (!preferences.dynamicColor) {
-                        Text(
-                            text = stringResource(R.string.settings_color_palette),
-                            style = MaterialTheme.typography.labelLarge,
-                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                        )
-                        PaletteSelector(
-                            selected = preferences.colorPalette,
-                            onSelect = viewModel::setColorPalette,
-                        )
-                    }
-                    Text(
-                        text = stringResource(R.string.settings_card_corners),
-                        style = MaterialTheme.typography.labelLarge,
-                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                    )
-                    CornerStyleSelector(
-                        selected = preferences.cardCornerStyle,
-                        onSelect = viewModel::setCardCornerStyle,
-                    )
-                    Text(
-                        text = stringResource(R.string.settings_ornament),
-                        style = MaterialTheme.typography.labelLarge,
-                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                    )
-                    OrnamentSelector(
-                        selected = preferences.ornamentStyle,
-                        intensity = preferences.ornamentIntensity,
-                        onSelect = viewModel::setOrnamentStyle,
-                    )
-                    Text(
-                        text = stringResource(R.string.settings_ornament_intensity),
-                        style = MaterialTheme.typography.labelLarge,
-                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                    )
-                    OrnamentIntensitySelector(
-                        selected = preferences.ornamentIntensity,
-                        onSelect = viewModel::setOrnamentIntensity,
-                    )
-                    ListItem(
-                        headlineContent = { Text(stringResource(R.string.settings_reduce_animations)) },
-                        supportingContent = { Text(stringResource(R.string.settings_reduce_animations_desc)) },
-                        leadingContent = { Icon(Icons.Filled.Nightlight, contentDescription = null) },
-                        trailingContent = {
-                            Switch(
-                                checked = preferences.reduceAnimations,
-                                onCheckedChange = viewModel::setReduceAnimations,
-                            )
-                        },
+                    AppearanceSettingsContent(
+                        preferences = preferences,
+                        actions = AppearanceSettingsActions(
+                            theme = AppearanceThemeActions(
+                                onModeChanged = viewModel::setThemeMode,
+                                onDynamicColorChanged = viewModel::setDynamicColor,
+                                onAmoledBlackChanged = viewModel::setAmoledBlack,
+                            ),
+                            shape = AppearanceShapeActions(
+                                onPaletteChanged = viewModel::setColorPalette,
+                                onCornerStyleChanged = viewModel::setCardCornerStyle,
+                            ),
+                            ornament = AppearanceOrnamentActions(
+                                onStyleChanged = viewModel::setOrnamentStyle,
+                                onIntensityChanged = viewModel::setOrnamentIntensity,
+                            ),
+                            onReduceAnimationsChanged = viewModel::setReduceAnimations,
+                        ),
                     )
                 }
             }
@@ -749,231 +681,10 @@ private val updateFrequencyOptions = listOf(
 )
 
 @Composable
-private fun ThemeModeSelector(
-    selected: AppThemeMode,
-    onSelect: (AppThemeMode) -> Unit,
-) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 4.dp)
-            .selectableGroup(),
-    ) {
-        ThemeMode.entries.forEach { mode ->
-            val label = stringResource(mode.labelRes)
-            val icon = when (mode) {
-                ThemeMode.System -> Icons.Filled.Palette
-                ThemeMode.Light -> Icons.Filled.LightMode
-                ThemeMode.Dark -> Icons.Filled.DarkMode
-            }
-            androidx.compose.material3.FilterChip(
-                selected = selected == mode.mode,
-                onClick = { onSelect(mode.mode) },
-                label = { Text(label) },
-                leadingIcon = { Icon(icon, contentDescription = null) },
-                modifier = Modifier.padding(end = 8.dp),
-            )
-        }
-    }
-}
-
-private enum class ThemeMode(val mode: AppThemeMode, val labelRes: Int) {
-    System(AppThemeMode.System, R.string.settings_theme_system),
-    Light(AppThemeMode.Light, R.string.settings_theme_light),
-    Dark(AppThemeMode.Dark, R.string.settings_theme_dark),
-}
-
-@Composable
 private fun Chevron() {
     Icon(
         imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
         contentDescription = null,
         tint = MaterialTheme.colorScheme.onSurfaceVariant,
     )
-}
-
-@Composable
-private fun PaletteSelector(
-    selected: AppColorPalette,
-    onSelect: (AppColorPalette) -> Unit,
-) {
-    Column(modifier = Modifier.padding(horizontal = 16.dp)) {
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            PaletteChip(AppColorPalette.Classic, selected, onSelect)
-            PaletteChip(AppColorPalette.Emerald, selected, onSelect)
-        }
-        Spacer(Modifier.height(6.dp))
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            PaletteChip(AppColorPalette.Midnight, selected, onSelect)
-            PaletteChip(AppColorPalette.Sand, selected, onSelect)
-        }
-    }
-}
-
-@Composable
-private fun PaletteChip(
-    palette: AppColorPalette,
-    selected: AppColorPalette,
-    onSelect: (AppColorPalette) -> Unit,
-) {
-    FilterChip(
-        selected = selected == palette,
-        onClick = { onSelect(palette) },
-        label = { Text(stringResource(palette.labelRes())) },
-    )
-}
-
-@Composable
-private fun CornerStyleSelector(
-    selected: CardCornerStyle,
-    onSelect: (CardCornerStyle) -> Unit,
-) {
-    Row(
-        modifier = Modifier.padding(horizontal = 16.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        CardCornerStyle.entries.forEach { style ->
-            FilterChip(
-                selected = selected == style,
-                onClick = { onSelect(style) },
-                label = { Text(stringResource(style.labelRes())) },
-            )
-        }
-    }
-}
-
-private fun AppColorPalette.labelRes(): Int = when (this) {
-    AppColorPalette.Classic -> R.string.settings_palette_classic
-    AppColorPalette.Emerald -> R.string.settings_palette_emerald
-    AppColorPalette.Midnight -> R.string.settings_palette_midnight
-    AppColorPalette.Sand -> R.string.settings_palette_sand
-}
-
-private fun CardCornerStyle.labelRes(): Int = when (this) {
-    CardCornerStyle.Compact -> R.string.settings_corners_compact
-    CardCornerStyle.Soft -> R.string.settings_corners_soft
-    CardCornerStyle.Rounded -> R.string.settings_corners_rounded
-}
-
-@Composable
-private fun OrnamentSelector(
-    selected: AppOrnamentStyle,
-    intensity: OrnamentIntensity,
-    onSelect: (AppOrnamentStyle) -> Unit,
-) {
-    val previewIntensity = if (intensity == OrnamentIntensity.Off) {
-        OrnamentIntensity.Balanced
-    } else {
-        intensity
-    }
-
-    Column(
-        modifier = Modifier.padding(horizontal = 16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        AppOrnamentStyle.entries.chunked(2).forEach { rowStyles ->
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                rowStyles.forEach { ornament ->
-                    OrnamentPreviewCard(
-                        ornament = ornament,
-                        selected = selected == ornament,
-                        intensity = previewIntensity,
-                        onSelect = onSelect,
-                        modifier = Modifier.weight(1f),
-                    )
-                }
-                if (rowStyles.size == 1) {
-                    Spacer(modifier = Modifier.weight(1f))
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun OrnamentPreviewCard(
-    ornament: AppOrnamentStyle,
-    selected: Boolean,
-    intensity: OrnamentIntensity,
-    onSelect: (AppOrnamentStyle) -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    Column(
-        modifier = modifier
-            .selectable(
-                selected = selected,
-                onClick = { onSelect(ornament) },
-            )
-            .padding(4.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-    ) {
-        IslamicDecorationPreview(
-            style = ornament,
-            intensity = intensity,
-            selected = selected,
-            modifier = Modifier.fillMaxWidth(),
-        )
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            RadioButton(
-                selected = selected,
-                onClick = null,
-            )
-            Text(
-                text = stringResource(ornament.labelRes()),
-                style = MaterialTheme.typography.labelMedium,
-                color = if (selected) {
-                    MaterialTheme.colorScheme.primary
-                } else {
-                    MaterialTheme.colorScheme.onSurfaceVariant
-                },
-            )
-        }
-    }
-}
-
-@Composable
-private fun OrnamentIntensitySelector(
-    selected: OrnamentIntensity,
-    onSelect: (OrnamentIntensity) -> Unit,
-) {
-    Column(
-        modifier = Modifier.padding(horizontal = 16.dp),
-        verticalArrangement = Arrangement.spacedBy(6.dp),
-    ) {
-        OrnamentIntensity.entries.chunked(2).forEach { rowIntensities ->
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                rowIntensities.forEach { intensity ->
-                    FilterChip(
-                        selected = selected == intensity,
-                        onClick = { onSelect(intensity) },
-                        label = { Text(stringResource(intensity.labelRes())) },
-                    )
-                }
-            }
-        }
-    }
-}
-
-private fun AppOrnamentStyle.labelRes(): Int = when (this) {
-    AppOrnamentStyle.Geometry -> R.string.settings_ornament_geometry
-    AppOrnamentStyle.Arabesque -> R.string.settings_ornament_arabesque
-    AppOrnamentStyle.Stars -> R.string.settings_ornament_stars
-    AppOrnamentStyle.Andalusian -> R.string.settings_ornament_andalusian
-    AppOrnamentStyle.Mashrabiya -> R.string.settings_ornament_mashrabiya
-    AppOrnamentStyle.Ottoman -> R.string.settings_ornament_ottoman
-    AppOrnamentStyle.Mushaf -> R.string.settings_ornament_mushaf
-    AppOrnamentStyle.Royal -> R.string.settings_ornament_royal
-    AppOrnamentStyle.Minimal -> R.string.settings_ornament_minimal
-}
-
-private fun OrnamentIntensity.labelRes(): Int = when (this) {
-    OrnamentIntensity.Off -> R.string.settings_ornament_intensity_off
-    OrnamentIntensity.Subtle -> R.string.settings_ornament_intensity_subtle
-    OrnamentIntensity.Balanced -> R.string.settings_ornament_intensity_balanced
-    OrnamentIntensity.Rich -> R.string.settings_ornament_intensity_rich
 }

@@ -1,11 +1,17 @@
 package org.muslim.app.core.datastore
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Test
 
 class AppPreferencesTest {
 
     private val default = AppPreferences.DEFAULT_MORE_SECTION_ORDER
+
+    @Test
+    fun `AMOLED black is opt in by default`() {
+        assertFalse(AppPreferences().amoledBlack)
+    }
 
     @Test
     fun `decoration defaults are balanced geometric`() {
