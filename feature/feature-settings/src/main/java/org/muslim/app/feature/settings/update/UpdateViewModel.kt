@@ -99,6 +99,7 @@ class UpdateViewModel @Inject constructor(
             when (val result = checker.check()) {
                 is UpdateChecker.Result.UpdateAvailable -> {
                     _uiState.value = UpdateUiState.Available(result.release, checker.installedVersion())
+                    appPreferencesRepository.setLastUpdateCheck(System.currentTimeMillis())
                     // Fully automatic mode (Session API install, user already
                     // confirmed once in Settings): download + install silently.
                     autoUpdateMode = appPreferencesRepository.preferences.first().autoUpdateEnabled
@@ -106,10 +107,12 @@ class UpdateViewModel @Inject constructor(
                         startDownload()
                     }
                 }
-                UpdateChecker.Result.UpToDate -> _uiState.value = UpdateUiState.UpToDate
+                UpdateChecker.Result.UpToDate -> {
+                    _uiState.value = UpdateUiState.UpToDate
+                    appPreferencesRepository.setLastUpdateCheck(System.currentTimeMillis())
+                }
                 UpdateChecker.Result.Unavailable -> _uiState.value = UpdateUiState.Unavailable
             }
-            appPreferencesRepository.setLastUpdateCheck(System.currentTimeMillis())
         }
     }
 
