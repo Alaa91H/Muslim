@@ -57,4 +57,7 @@
     <string name="funeral_will_auth_not_configured">No eligible authentication method is configured. Set up a screen lock or biometric in Android settings first.</string>
     <string name="funeral_will_auth_unavailable">Biometric or device-lock authentication is not available on this device.</string>
     <string name="funeral_will_protection_loading">Checking draft protection settings…</string>
+    <string name="funeral_will_print">Print draft</string>
+    <string name="funeral_will_print_job_name">Islamic will draft</string>
+    <string name="funeral_will_print_error">The system print service could not be opened on this device.</string>
 </resources>
