@@ -109,13 +109,13 @@ jobs:
 
   # ---------------------------------------------------------------------------
   # Device tests: real Compose UI instrumentation tests on an Android emulator
-  # for the critical prayer home and Qibla/Nearby Mosques flows. Kept in its
+  # for the critical prayer home, Qibla/Nearby Mosques and Family Life flows. Kept in its
   # own job so emulator boot time does not delay the fast gate, but it is a
   # hard requirement — no continue-on-error — so a broken critical path can
   # never merge.
   # ---------------------------------------------------------------------------
   emulator-tests:
-    name: Emulator tests (prayer home + Qibla mosques · API ${{ matrix.api-level }})
+    name: Emulator tests (prayer home + Qibla + Family Life · API ${{ matrix.api-level }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
