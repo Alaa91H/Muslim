@@ -633,7 +633,18 @@ private fun WillEducationSection.searchableText(isArabic: Boolean): String = bui
 private fun LocalizedFuneralText.pick(isArabic: Boolean): String =
     if (isArabic) arabic else english
 
+private val ArabicDiacritics = Regex("[\\u0610-\\u061A\\u064B-\\u065F\\u0670\\u06D6-\\u06ED]")
+
 private fun String.containsQuery(query: String): Boolean {
-    val normalizedQuery = query.trim()
-    return normalizedQuery.isEmpty() || contains(normalizedQuery, ignoreCase = true)
+    val normalizedQuery = query.normalizeForSearch()
+    return normalizedQuery.isEmpty() || normalizeForSearch().contains(normalizedQuery)
 }
+
+private fun String.normalizeForSearch(): String = trim()
+    .lowercase()
+    .replace(ArabicDiacritics, "")
+    .replace("ـ", "")
+    .replace("أ", "ا")
+    .replace("إ", "ا")
+    .replace("آ", "ا")
+    .replace("ى", "ي")
