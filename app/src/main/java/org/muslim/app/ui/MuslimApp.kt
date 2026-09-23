@@ -76,6 +76,7 @@ import org.muslim.app.feature.reference.ui.ReferenceScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarBookDetailScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarLibraryScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarStudyDeskScreen
+import org.muslim.app.feature.scholarlibrary.ui.ScholarStudyPathScreen
 import org.muslim.app.feature.settings.AccessibilityScreen
 import org.muslim.app.feature.settings.AboutScreen
 import org.muslim.app.feature.settings.NotificationSettingsScreen
@@ -146,6 +147,7 @@ private const val QURAN_DOWNLOADS_ROUTE = "quran/downloads"
 private const val SCHOLAR_LIBRARY_ROUTE = "scholar-library"
 private const val SCHOLAR_LIBRARY_BOOK_ROUTE = "scholar-library/book"
 private const val SCHOLAR_LIBRARY_STUDY_ROUTE = "scholar-library/study"
+private const val SCHOLAR_LIBRARY_PATH_ROUTE = "scholar-library/path"
 
 @Composable
 fun MuslimApp(
@@ -408,6 +410,7 @@ fun MuslimApp(
                         onBack = { navController.popBackStack() },
                         onOpenBook = { bookId -> navController.navigate("$SCHOLAR_LIBRARY_BOOK_ROUTE/$bookId") },
                         onOpenStudyDesk = { navController.navigate(SCHOLAR_LIBRARY_STUDY_ROUTE) },
+                        onOpenStudyPath = { pathId -> navController.navigate("$SCHOLAR_LIBRARY_PATH_ROUTE/$pathId") },
                     )
                 }
                 composable(
@@ -421,6 +424,16 @@ fun MuslimApp(
                 }
                 composable(SCHOLAR_LIBRARY_STUDY_ROUTE) {
                     ScholarStudyDeskScreen(onBack = { navController.popBackStack() })
+                }
+                composable(
+                    route = "$SCHOLAR_LIBRARY_PATH_ROUTE/{pathId}",
+                    arguments = listOf(navArgument("pathId") { type = NavType.StringType }),
+                ) { entry ->
+                    ScholarStudyPathScreen(
+                        pathId = entry.arguments?.getString("pathId").orEmpty(),
+                        onBack = { navController.popBackStack() },
+                        onOpenBook = { bookId -> navController.navigate("$SCHOLAR_LIBRARY_BOOK_ROUTE/$bookId") },
+                    )
                 }
                 composable(HADITH_ROUTE) {
                     HadithScreen(onBack = { navController.popBackStack() })
