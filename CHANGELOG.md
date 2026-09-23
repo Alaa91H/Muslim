@@ -1,5 +1,35 @@
 # Changelog
 
+## Muslim v1.25.34
+
+### Prayer Times Home — Five Daily Prayers
+
+- Removed **Sunrise** from the visible daily prayer timetable so the Home screen now focuses exclusively on **Fajr, Dhuhr, Asr, Maghrib, and Isha**.
+- Excluded Sunrise from the Home screen's **next-prayer countdown** while keeping it available inside the astronomical prayer-calculation model where it is still required.
+- Updated daily schedule sharing so exported prayer times contain the same five-prayer set shown in the interface.
+- Preserved per-prayer Adhan controls, highlighting of the upcoming prayer, daily/monthly navigation, prayer tracking, and the existing calculation settings.
+
+### Responsive Home Layout
+
+- Added width- and height-aware sizing for narrow phones, compact-height devices, and wider displays.
+- Refined page padding, prayer-row spacing, icon sizing, decorative ornament sizing, and typography so the timetable remains balanced across different screen sizes and aspect ratios.
+- Improved the date/location header with proportional space allocation and safe ellipsis handling for long place names.
+- Reduced visual crowding on smaller screens without sacrificing readable hierarchy or accessible interaction targets.
+
+### Expanded Prayer Notification — Better Horizontal Use
+
+- Reduced app-controlled horizontal insets inside the expanded five-prayer notification so the prayer cards use more of the width actually provided by Android SystemUI.
+- Tightened spacing between the five equal prayer cells while slightly increasing cell height for a cleaner, more confident layout.
+- Increased prayer-name and prayer-time text sizes for improved readability in the expanded notification.
+- Preserved equal card sizing, RTL/LTR behavior, live remaining/elapsed timers, next/missed-prayer states, and the app's existing light/dark notification colors.
+- Android's own outer notification-template inset remains system-managed on Android 12 and newer; the app now minimizes only its internal unused space.
+
+### Verification
+
+- The responsive Home changes passed debug builds, unit tests, Android Lint, Detekt, and instrumented emulator tests on **Android API 26** and **Android API 36** before merge.
+- The release workflow re-runs the full CI quality gates and production signing/content checks before publishing artifacts.
+- Stable production signing is required before the release is made public.
+
 ## Muslim v1.25.33
 
 ### Prayer Countdown Notification — Five-Prayer Timeline
