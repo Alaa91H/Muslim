@@ -189,10 +189,12 @@ fun ScholarStudyPathScreen(
                 StudyPathContent(
                     path = path,
                     books = state.books,
-                    progress = progress,
-                    activePlan = activePlan,
-                    hasActiveSession = hasActiveSession,
-                    weeklySummary = weeklySummary,
+                    displayState = StudyPathDisplayState(
+                        progress = progress,
+                        activePlan = activePlan,
+                        hasActiveSession = displayState.hasActiveSession,
+                        weeklySummary = weeklySummary,
+                    ),
                     padding = padding,
                     actions = StudyPathActions(
                         onOpenBook = onOpenBook,
@@ -207,6 +209,13 @@ fun ScholarStudyPathScreen(
     }
 }
 
+private data class StudyPathDisplayState(
+    val progress: ScholarPathProgress?,
+    val activePlan: ScholarStudyPlan?,
+    val hasActiveSession: Boolean,
+    val weeklySummary: ScholarWeeklyStudySummary?,
+)
+
 private data class StudyPathActions(
     val onOpenBook: (String) -> Unit,
     val onOpenSession: () -> Unit,
@@ -219,10 +228,7 @@ private data class StudyPathActions(
 private fun StudyPathContent(
     path: ScholarStudyPath,
     books: List<ScholarBook>,
-    progress: ScholarPathProgress?,
-    activePlan: ScholarStudyPlan?,
-    hasActiveSession: Boolean,
-    weeklySummary: ScholarWeeklyStudySummary?,
+    displayState: StudyPathDisplayState,
     padding: PaddingValues,
     actions: StudyPathActions,
 ) {
@@ -244,11 +250,11 @@ private fun StudyPathContent(
             }
         }
         item {
-            PathProgressCard(progress = progress, books = books)
+            PathProgressCard(progress = displayState.progress, books = books)
         }
         item {
             StudyPlanCard(
-                plan = activePlan,
+                plan = displayState.activePlan,
                 hasActiveSession = hasActiveSession,
                 onOpenSession = actions.onOpenSession,
                 onDailyPlan = actions.onDailyPlan,
@@ -257,7 +263,7 @@ private fun StudyPathContent(
             )
         }
         item {
-            WeeklyStudySummaryCard(weeklySummary)
+            WeeklyStudySummaryCard(displayState.weeklySummary)
         }
         path.stages.forEachIndexed { index, stage ->
             item(key = "stage_${stage.id}") {
