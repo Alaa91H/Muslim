@@ -76,6 +76,7 @@ import org.muslim.app.core.common.appearance.OrnamentIntensity
 import org.muslim.app.core.datastore.AppPreferences
 import org.muslim.app.core.datastore.AppThemeMode
 import org.muslim.app.feature.settings.R
+import org.muslim.app.feature.settings.update.formatCheckDate
 import org.muslim.app.core.designsystem.IslamicIconSize
 import org.muslim.app.core.designsystem.IslamicSpacing
 import org.muslim.app.core.ui.theme.IslamicCard
@@ -644,6 +645,17 @@ fun SettingsScreen(
                         ) {
                             Text(stringResource(R.string.settings_updates_open))
                         }
+                    }
+                    if (preferences.lastUpdateCheckEpoch > 0L) {
+                        Text(
+                            text = stringResource(
+                                R.string.settings_updates_last_successful,
+                                formatCheckDate(preferences.lastUpdateCheckEpoch),
+                            ),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+                        )
                     }
                     when (updateCheckResult) {
                         is org.muslim.app.feature.settings.update.UpdateChecker.Result.UpdateAvailable -> {
