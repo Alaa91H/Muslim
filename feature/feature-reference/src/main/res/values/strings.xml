@@ -11,13 +11,15 @@
     <!-- Islamic history and civilization: content ships with a dedicated Arabic/English toggle. -->
     <string name="history_title" tools:ignore="MissingTranslation">التاريخ والحضارة الإسلامية</string>
     <string name="history_timeline_tab" tools:ignore="MissingTranslation">الخط الزمني</string>
-    <string name="history_states_tab" tools:ignore="MissingTranslation">الدول والسلالات</string>
+    <string name="history_states_tab" tools:ignore="MissingTranslation">الدول</string>
+    <string name="history_civilization_tab" tools:ignore="MissingTranslation">الحضارة</string>
     <string name="history_atlas_tab" tools:ignore="MissingTranslation">الأطلس</string>
-    <string name="history_people_tab" tools:ignore="MissingTranslation">شخصيات وأعلام</string>
+    <string name="history_people_tab" tools:ignore="MissingTranslation">الأعلام</string>
     <string name="history_language_english" tools:ignore="MissingTranslation">English</string>
     <string name="history_language_arabic" tools:ignore="MissingTranslation">العربية</string>
     <string name="history_timeline_intro" tools:ignore="MissingTranslation">خط زمني تعليمي مختصر من البعثة إلى العصر الحديث. يعرض محطات كبرى ولا يغني عن دراسة المصادر المتخصصة.</string>
     <string name="history_states_intro" tools:ignore="MissingTranslation">دول وسلالات متزامنة في مناطق مختلفة من العالم الإسلامي. لا تعني طريقة العرض أن دولة واحدة ورثت الأخرى مباشرة أو حكمت جميع المناطق في الفترة نفسها.</string>
+    <string name="history_civilization_intro" tools:ignore="MissingTranslation">موضوعات حضارية مترابطة في العلوم والمؤسسات والاقتصاد والعمران والفنون. تُعرض بوصفها تجارب تاريخية متعددة المراكز لا نموذجاً واحداً ثابتاً.</string>
     <string name="history_era_range" tools:ignore="MissingTranslation">%1$d–%2$s م</string>
     <string name="history_present" tools:ignore="MissingTranslation">الوقت الحاضر</string>
     <string name="history_era_highlights" tools:ignore="MissingTranslation">محطات مختارة</string>
