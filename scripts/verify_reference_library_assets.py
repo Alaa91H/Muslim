@@ -170,6 +170,78 @@ CORPORA = (
             }
         ),
     ),
+    CorpusSpec(
+        name="Aqeedah and Foundations of Faith",
+        legacy=None,
+        asset=RAW / "reference_aqeedah_v2.json",
+        min_topics=25,
+        min_chapters=6,
+        min_revision=1,
+        required_topic_ids=frozenset(
+            {
+                "tawhid",
+                "names_attributes",
+                "faith_components",
+                "angels",
+                "revealed_books",
+                "messengers",
+                "final_prophet",
+                "qadar",
+                "resurrection",
+                "judgment",
+                "takfir_caution",
+            }
+        ),
+    ),
+    CorpusSpec(
+        name="Quranic Sciences",
+        legacy=None,
+        asset=RAW / "reference_quran_sciences_v2.json",
+        min_topics=25,
+        min_chapters=6,
+        min_revision=1,
+        required_topic_ids=frozenset(
+            {
+                "quran_definition",
+                "revelation",
+                "preservation",
+                "collection_abu_bakr",
+                "uthman_codex",
+                "seven_ahruf",
+                "qiraat",
+                "canonical_qiraat",
+                "asbab_nuzul",
+                "nasikh_mansukh",
+                "tafsir_principles",
+                "translation",
+            }
+        ),
+    ),
+    CorpusSpec(
+        name="Hadith and Sunnah Sciences",
+        legacy=None,
+        asset=RAW / "reference_hadith_sciences_v2.json",
+        min_topics=28,
+        min_chapters=7,
+        min_revision=1,
+        required_topic_ids=frozenset(
+            {
+                "sunnah_authority",
+                "isnad_matn",
+                "sahih",
+                "hasan",
+                "daif",
+                "fabricated",
+                "mutawatir_ahad",
+                "jarh_tadil",
+                "hidden_defects",
+                "takhrij",
+                "grading_disagreement",
+                "bukhari_muslim",
+                "digital_hadith_verification",
+            }
+        ),
+    ),
 )
 
 
