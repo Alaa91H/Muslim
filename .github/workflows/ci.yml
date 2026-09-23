@@ -70,14 +70,24 @@ jobs:
           python3 scripts/verify_hadith_chapter_localization.py
           python3 scripts/verify_prayer_location_notification_contract.py
           python3 scripts/verify_nearby_mosques_contract.py
+          python3 scripts/verify_funeral_will.py
           python3 scripts/verify_responsive_customization_layout.py
           python3 scripts/verify_design_system_adoption.py
           python3 scripts/verify_home_uiux_contract.py
           python3 scripts/verify_family_life.py
+          python3 scripts/verify_scholar_library.py
           git diff --check
 
       - name: Build debug APKs
         run: ./gradlew :app:assembleDebug :wear:assembleDebug --stacktrace
+
+      - name: Smoke-test update manifest generator
+        run: |
+          set -euo pipefail
+          PHONE_APK="$(find app/build/outputs/apk/debug -name '*.apk' | head -1)"
+          [ -n "$PHONE_APK" ] || { echo "No debug phone APK found" >&2; exit 1; }
+          bash scripts/generate-update-manifest.sh "$PHONE_APK" /tmp/update-manifest.json debug debug
+          python3 -m json.tool /tmp/update-manifest.json >/dev/null
 
       - name: Run unit tests
         run: ./gradlew testDebugUnitTest :wear:testDebugUnitTest
@@ -109,13 +119,13 @@ jobs:
 
   # ---------------------------------------------------------------------------
   # Device tests: real Compose UI instrumentation tests on an Android emulator
-  # for the critical prayer home, Qibla/Nearby Mosques and Family Life flows. Kept in its
+  # for the critical prayer home and Qibla/Nearby Mosques flows. Kept in its
   # own job so emulator boot time does not delay the fast gate, but it is a
   # hard requirement — no continue-on-error — so a broken critical path can
   # never merge.
   # ---------------------------------------------------------------------------
   emulator-tests:
-    name: Emulator tests (prayer home + Qibla + Family Life · API ${{ matrix.api-level }})
+    name: Emulator tests (prayer home + Qibla mosques · API ${{ matrix.api-level }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -164,8 +174,10 @@ jobs:
           arch: x86_64
           disable-animations: true
           script: |
+            ./gradlew :feature:feature-scholar-library:connectedDebugAndroidTest
+            ./gradlew :feature:feature-family-life:connectedDebugAndroidTest
             adb shell cmd audio set-enable-hardening throw
-            ./gradlew :app:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :feature:feature-qibla:connectedDebugAndroidTest :feature:feature-family-life:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest
+            ./gradlew :app:connectedDebugAndroidTest :feature:feature-learn:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :feature:feature-qibla:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest
 
       # Instrumentation failures are the hardest to reproduce locally, so the
       # device test report is always kept when this job fails.
@@ -322,12 +334,25 @@ jobs:
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
 
+      - name: Generate update integrity manifest
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          set -euo pipefail
+          PHONE_APK="$(find app/build/outputs/apk/release -name '*.apk' | head -1)"
+          [ -n "$PHONE_APK" ] || { echo "No phone release APK found" >&2; exit 1; }
+          bash scripts/generate-update-manifest.sh \
+            "$PHONE_APK" \
+            "app/build/outputs/apk/release/update-manifest.json" \
+            "stable" \
+            "${GITHUB_REF#refs/tags/}"
+
       - name: Upload release artifacts
         uses: actions/upload-artifact@v7
         with:
           name: muslim-release-apk
           path: |
             app/build/outputs/apk/release/*.apk
+            app/build/outputs/apk/release/update-manifest.json
             app/build/outputs/bundle/release/*.aab
             wear/build/outputs/apk/release/*.apk
           if-no-files-found: error
@@ -350,12 +375,14 @@ jobs:
           fi
           PHONE_APK="$(find app/build/outputs/apk/release -name '*.apk' | head -1)"
           WEAR_APK="$(find wear/build/outputs/apk/release -name '*.apk' | head -1)"
+          UPDATE_MANIFEST="app/build/outputs/apk/release/update-manifest.json"
           [ -n "$PHONE_APK" ] || { echo "No phone release APK found" >&2; exit 1; }
           [ -n "$WEAR_APK" ] || { echo "No Wear OS release APK found" >&2; exit 1; }
+          [ -f "$UPDATE_MANIFEST" ] || { echo "No update integrity manifest found" >&2; exit 1; }
           NOTES="$(printf '%b' "## Muslim $TAG\n\nBuilt automatically from the $TAG tag by GitHub Actions. The in-app version matches exactly and the stable signing key lets users update over existing installs.\n\n### Changes since $PREV\n$CHANGELOG\n\n### Install\n- Download the APK and open it (allow install from unknown sources if prompted).\n\n### Support\n- GitHub: https://github.com/Alaa91H\n- Email: alahus2591@gmail.com\n- Telegram: https://t.me/Alaa91h\n- Ko-fi: https://ko-fi.com/alaa91h")"
           if ! gh release view "$TAG" >/dev/null 2>&1; then
             gh release create "$TAG" --title "Muslim $TAG" --notes "$NOTES" --draft
           fi
-          gh release upload "$TAG" "$PHONE_APK" "$WEAR_APK" --clobber
+          gh release upload "$TAG" "$PHONE_APK" "$WEAR_APK" "$UPDATE_MANIFEST" --clobber
           gh release edit "$TAG" --draft=false
           echo "Published https://github.com/${{ github.repository }}/releases/tag/$TAG"
