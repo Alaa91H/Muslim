@@ -97,6 +97,14 @@ class UpdateViewModel @Inject constructor(
         }
     }
 
+    /** Cancels the current update transfer and clears its persisted state. */
+    fun cancelDownload() {
+        viewModelScope.launch {
+            updateDownloads.cancelCurrent()
+            _downloadState.value = UpdateDownloadState.Idle
+        }
+    }
+
     /**
      * Re-verifies the persisted APK immediately before handing it to Android's
      * package installer. Installation itself always remains system-confirmed.
