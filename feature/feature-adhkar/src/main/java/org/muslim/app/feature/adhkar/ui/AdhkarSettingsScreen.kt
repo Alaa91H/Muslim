@@ -72,6 +72,7 @@ import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.core.ui.theme.IslamicDecorationBand
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.adhkar.R
+import org.muslim.app.feature.adhkar.data.AdhkarSpeechVoiceOption
 import org.muslim.app.feature.adhkar.domain.Dhikr
 import org.muslim.app.feature.adhkar.domain.DhikrCategory
 import androidx.compose.ui.text.style.TextOverflow
@@ -93,6 +94,9 @@ fun AdhkarSettingsScreen(
     val prefs by viewModel.prefs.collectAsStateWithLifecycle()
     val previewDhikr by viewModel.previewDhikr.collectAsStateWithLifecycle()
     val use24h by viewModel.use24h.collectAsStateWithLifecycle()
+    val speechVoices by viewModel.speechVoices.collectAsStateWithLifecycle()
+    val speechReady by viewModel.speechReady.collectAsStateWithLifecycle()
+    val speechInitializationFailed by viewModel.speechInitializationFailed.collectAsStateWithLifecycle()
     val context = LocalContext.current
 
     MuslimAppScaffold(
@@ -115,10 +119,48 @@ fun AdhkarSettingsScreen(
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 16.dp),
         ) {
-            IslamicDecorationBand(
-                tint = MaterialTheme.colorScheme.tertiary,
-                compact = true,
+            SectionHeader(stringResource(R.string.adhkar_speech_section))
+
+            SwitchRow(
+                label = stringResource(R.string.adhkar_speech_toggle),
+                checked = prefs.speechEnabled,
+                onCheckedChange = viewModel::setSpeechEnabled,
             )
+            Text(
+                text = stringResource(R.string.adhkar_speech_desc),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            if (prefs.speechEnabled) {
+                Spacer(Modifier.height(10.dp))
+                SpeechVoiceDropdown(
+                    voices = speechVoices,
+                    currentVoiceName = prefs.speechVoiceName,
+                    onSelected = viewModel::setSpeechVoiceName,
+                )
+                Spacer(Modifier.height(10.dp))
+                SpeechRateControl(
+                    rate = prefs.speechRate,
+                    onRateChanged = viewModel::setSpeechRate,
+                )
+                Spacer(Modifier.height(10.dp))
+                OutlinedButton(
+                    onClick = viewModel::previewSpeech,
+                    enabled = speechReady && previewDhikr != null,
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Text(stringResource(R.string.adhkar_speech_preview))
+                }
+                if (speechInitializationFailed) {
+                    Spacer(Modifier.height(6.dp))
+                    Text(
+                        text = stringResource(R.string.adhkar_speech_unavailable),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.error,
+                    )
+                }
+            }
+
             SectionHeader(stringResource(R.string.adhkar_overlay_section))
 
             SwitchRow(
@@ -571,6 +613,79 @@ private fun ChoiceChips(
             }
         }
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun SpeechVoiceDropdown(
+    voices: List<AdhkarSpeechVoiceOption>,
+    currentVoiceName: String?,
+    onSelected: (String?) -> Unit,
+) {
+    var expanded by remember { mutableStateOf(false) }
+    val defaultLabel = stringResource(R.string.adhkar_speech_voice_default)
+    val currentLabel = voices.firstOrNull { it.name == currentVoiceName }?.label ?: defaultLabel
+
+    ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
+        OutlinedTextField(
+            value = currentLabel,
+            onValueChange = {},
+            readOnly = true,
+            label = { Text(stringResource(R.string.adhkar_speech_voice)) },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable),
+        )
+        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+            DropdownMenuItem(
+                text = { Text(defaultLabel) },
+                onClick = {
+                    expanded = false
+                    onSelected(null)
+                },
+            )
+            voices.forEach { voice ->
+                DropdownMenuItem(
+                    text = {
+                        Text(
+                            text = voice.label,
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    },
+                    onClick = {
+                        expanded = false
+                        onSelected(voice.name)
+                    },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun SpeechRateControl(
+    rate: Float,
+    onRateChanged: (Float) -> Unit,
+) {
+    var pendingRate by remember(rate) { mutableFloatStateOf(rate) }
+    Text(
+        text = stringResource(
+            R.string.adhkar_speech_rate_value,
+            String.format(Locale.ROOT, "%.2f", pendingRate),
+        ),
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+    Slider(
+        value = pendingRate,
+        onValueChange = { pendingRate = it },
+        onValueChangeFinished = { onRateChanged(pendingRate) },
+        valueRange = 0.5f..2.0f,
+        steps = 5,
+        modifier = Modifier.fillMaxWidth(),
+    )
 }
 
 @Composable

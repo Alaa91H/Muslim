@@ -16,9 +16,21 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.app.NotificationCompat
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 import org.muslim.app.core.common.lang.AppLanguage
 import org.muslim.app.core.notifications.NotificationChannels
 import org.muslim.app.feature.adhkar.R
+import org.muslim.app.feature.adhkar.data.AdhkarSpeechController
 import org.muslim.app.feature.adhkar.domain.Dhikr
 
 /**
@@ -26,16 +38,24 @@ import org.muslim.app.feature.adhkar.domain.Dhikr
  * [android.Manifest.permission.SYSTEM_ALERT_WINDOW]). It auto-dismisses after
  * the user-configured duration (default 5 seconds) and dismisses instantly on
  * tap. Runs as a [Service] so it keeps showing while the app is in the
- * background.
+ * background. When read-aloud is enabled, the same dhikr is spoken
+ * automatically and the overlay closes only after speech finishes.
  */
 @AndroidEntryPoint
 class AdhkarOverlayService : Service() {
 
+    @Inject
+    lateinit var speechController: AdhkarSpeechController
+
     private lateinit var windowManager: WindowManager
     private var overlayView: View? = null
     private val handler = Handler(Looper.getMainLooper())
+    private val serviceScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
-    private val dismissRunnable = Runnable { stopSelf() }
+    private var dismissRunnable: Runnable? = null
+    private var speechJob: Job? = null
+    private var activeSpeechUtteranceId: String? = null
+    private var activeStartId: Int = 0
 
     override fun onBind(intent: Intent?): IBinder? = null
 
@@ -55,6 +75,14 @@ class AdhkarOverlayService : Service() {
             ?: DEFAULT_CORNER_RADIUS_DP).coerceIn(0, 48)
         val fontSizeSp = (intent?.getIntExtra(EXTRA_FONT_SIZE_SP, DEFAULT_FONT_SIZE_SP) ?: DEFAULT_FONT_SIZE_SP)
             .coerceIn(14, 36)
+        val readAloud = intent?.getBooleanExtra(EXTRA_READ_ALOUD, false) ?: false
+        val speechVoiceName = intent?.getStringExtra(EXTRA_SPEECH_VOICE_NAME)
+        val speechRate = (intent?.getFloatExtra(EXTRA_SPEECH_RATE, DEFAULT_SPEECH_RATE) ?: DEFAULT_SPEECH_RATE)
+            .coerceIn(MIN_SPEECH_RATE, MAX_SPEECH_RATE)
+
+        activeStartId = startId
+        clearDismissTimer()
+        cancelSpeechForCurrentOverlay()
 
         NotificationChannels.create(this)
         startForeground(NOTIFICATION_ID, foregroundNotification(arabic))
@@ -65,9 +93,97 @@ class AdhkarOverlayService : Service() {
         }
 
         showOverlay(arabic, translation, source, backgroundColor, cornerRadiusDp, fontSizeSp)
-        handler.removeCallbacks(dismissRunnable)
-        handler.postDelayed(dismissRunnable, durationSeconds * 1_000L)
+        if (readAloud) {
+            startAutomaticReading(
+                arabic = arabic,
+                voiceName = speechVoiceName,
+                speechRate = speechRate,
+                fallbackDurationSeconds = durationSeconds,
+                startId = startId,
+            )
+        } else {
+            scheduleDismiss(startId, durationSeconds * 1_000L)
+        }
         return START_NOT_STICKY
+    }
+
+    /**
+     * Waits briefly for a newly-created TTS engine, reads the exact dhikr shown
+     * in the overlay, then closes this specific service start after playback.
+     * Any TTS initialization/playback failure falls back to the configured
+     * visual duration instead of leaving the overlay on screen.
+     */
+    private fun startAutomaticReading(
+        arabic: String,
+        voiceName: String?,
+        speechRate: Float,
+        fallbackDurationSeconds: Int,
+        startId: Int,
+    ) {
+        scheduleDismiss(startId, TTS_INIT_TIMEOUT_MS + fallbackDurationSeconds * 1_000L)
+        speechJob = serviceScope.launch {
+            val readiness = withTimeoutOrNull(TTS_INIT_TIMEOUT_MS) {
+                combine(
+                    speechController.ready,
+                    speechController.initializationFailed,
+                ) { ready, failed -> ready to failed }
+                    .first { (ready, failed) -> ready || failed }
+            }
+            if (activeStartId != startId) return@launch
+            if (readiness?.first != true) {
+                scheduleDismiss(startId, fallbackDurationSeconds * 1_000L)
+                return@launch
+            }
+
+            val utteranceId = "$OVERLAY_UTTERANCE_PREFIX$startId"
+            activeSpeechUtteranceId = utteranceId
+            val started = speechController.speak(
+                text = arabic,
+                voiceName = voiceName,
+                rate = speechRate,
+                utteranceId = utteranceId,
+            )
+            if (!started) {
+                activeSpeechUtteranceId = null
+                scheduleDismiss(startId, fallbackDurationSeconds * 1_000L)
+                return@launch
+            }
+
+            // Speech now owns the lifetime of the overlay, so the fixed visual
+            // timer must not hide the dhikr while it is still being recited.
+            clearDismissTimer()
+            speechController.activeUtteranceId.first { it != utteranceId }
+            if (activeStartId != startId) return@launch
+
+            activeSpeechUtteranceId = null
+            delay(POST_SPEECH_DISMISS_DELAY_MS)
+            if (activeStartId == startId) {
+                stopSelfResult(startId)
+            }
+        }
+    }
+
+    private fun scheduleDismiss(startId: Int, delayMillis: Long) {
+        clearDismissTimer()
+        val runnable = Runnable {
+            if (activeStartId == startId) {
+                stopSelfResult(startId)
+            }
+        }
+        dismissRunnable = runnable
+        handler.postDelayed(runnable, delayMillis)
+    }
+
+    private fun clearDismissTimer() {
+        dismissRunnable?.let(handler::removeCallbacks)
+        dismissRunnable = null
+    }
+
+    private fun cancelSpeechForCurrentOverlay() {
+        speechJob?.cancel()
+        speechJob = null
+        activeSpeechUtteranceId?.let(speechController::stop)
+        activeSpeechUtteranceId = null
     }
 
     /** Renders the dhikr card and attaches it to the window manager. */
@@ -177,7 +293,9 @@ class AdhkarOverlayService : Service() {
     }
 
     override fun onDestroy() {
-        handler.removeCallbacks(dismissRunnable)
+        clearDismissTimer()
+        cancelSpeechForCurrentOverlay()
+        serviceScope.cancel()
         removeOverlay()
         super.onDestroy()
     }
@@ -188,6 +306,13 @@ class AdhkarOverlayService : Service() {
         val DEFAULT_BG_COLOR: Int = 0xE6282830.toInt()
         const val DEFAULT_CORNER_RADIUS_DP = 20
         const val DEFAULT_FONT_SIZE_SP = 22
+        const val DEFAULT_SPEECH_RATE = 1.0f
+
+        private const val MIN_SPEECH_RATE = 0.5f
+        private const val MAX_SPEECH_RATE = 2.0f
+        private const val TTS_INIT_TIMEOUT_MS = 4_000L
+        private const val POST_SPEECH_DISMISS_DELAY_MS = 450L
+        private const val OVERLAY_UTTERANCE_PREFIX = "adhkar-overlay-"
 
         private const val EXTRA_ARABIC = "extra_arabic"
         private const val EXTRA_TRANSLATION = "extra_translation"
@@ -196,11 +321,14 @@ class AdhkarOverlayService : Service() {
         private const val EXTRA_BG_COLOR = "extra_bg_color"
         private const val EXTRA_CORNER_RADIUS_DP = "extra_corner_radius_dp"
         private const val EXTRA_FONT_SIZE_SP = "extra_font_size_sp"
+        private const val EXTRA_READ_ALOUD = "extra_read_aloud"
+        private const val EXTRA_SPEECH_VOICE_NAME = "extra_speech_voice_name"
+        private const val EXTRA_SPEECH_RATE = "extra_speech_rate"
 
         /**
-         * Shows [dhikr] above all apps for [durationSeconds]; dismisses on tap.
-         * Appearance (background colour, corner radius, font size) can be tuned
-         * from the adhkar settings and is applied to the real overlay card.
+         * Shows [dhikr] above all apps. With [readAloud] disabled, the card
+         * follows [durationSeconds]. With [readAloud] enabled, it reads the same
+         * Arabic text automatically and closes after speech completes.
          */
         fun start(
             context: Context,
@@ -209,6 +337,9 @@ class AdhkarOverlayService : Service() {
             backgroundColor: Int = DEFAULT_BG_COLOR,
             cornerRadiusDp: Int = DEFAULT_CORNER_RADIUS_DP,
             fontSizeSp: Int = DEFAULT_FONT_SIZE_SP,
+            readAloud: Boolean = false,
+            speechVoiceName: String? = null,
+            speechRate: Float = DEFAULT_SPEECH_RATE,
         ) {
             val intent = Intent(context, AdhkarOverlayService::class.java)
                 .putExtra(EXTRA_ARABIC, dhikr.arabic)
@@ -218,6 +349,9 @@ class AdhkarOverlayService : Service() {
                 .putExtra(EXTRA_BG_COLOR, backgroundColor)
                 .putExtra(EXTRA_CORNER_RADIUS_DP, cornerRadiusDp)
                 .putExtra(EXTRA_FONT_SIZE_SP, fontSizeSp)
+                .putExtra(EXTRA_READ_ALOUD, readAloud)
+                .putExtra(EXTRA_SPEECH_VOICE_NAME, speechVoiceName)
+                .putExtra(EXTRA_SPEECH_RATE, speechRate)
             context.startForegroundService(intent)
         }
     }

@@ -25,6 +25,8 @@ import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.StopCircle
+import androidx.compose.material.icons.filled.VolumeUp
 import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
@@ -33,6 +35,8 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedIconButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
@@ -111,6 +115,9 @@ private fun AdhkarLibraryContent(
     val favoriteIds by viewModel.favoriteIds.collectAsStateWithLifecycle()
     val selectedCategory by viewModel.selectedCategory.collectAsStateWithLifecycle()
     val morningEveningReminderEnabled by viewModel.morningEveningReminderEnabled.collectAsStateWithLifecycle()
+    val speechEnabled by viewModel.speechEnabled.collectAsStateWithLifecycle()
+    val speechReady by viewModel.speechReady.collectAsStateWithLifecycle()
+    val speakingDhikrId by viewModel.speakingDhikrId.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val copiedMessage = stringResource(R.string.adhkar_copied)
@@ -207,10 +214,17 @@ private fun AdhkarLibraryContent(
                             dhikr = dhikr,
                             count = viewModel.count(dhikr.id).collectAsStateWithLifecycle(),
                             isFavorite = dhikr.id in favoriteIds,
-                            onToggleFavorite = { viewModel.toggleFavorite(dhikr.id) },
-                            onIncrement = { viewModel.increment(dhikr.id) },
-                            onReset = { viewModel.reset(dhikr.id) },
-                            onCopied = onCopied,
+                            actions = DhikrCardActions(
+                                onToggleFavorite = { viewModel.toggleFavorite(dhikr.id) },
+                                onIncrement = { viewModel.increment(dhikr.id) },
+                                onReset = { viewModel.reset(dhikr.id) },
+                                onCopied = onCopied,
+                                speech = DhikrSpeechControls(
+                                    enabled = speechEnabled && speechReady,
+                                    isSpeaking = speakingDhikrId == dhikr.id,
+                                    onToggle = { viewModel.toggleSpeech(dhikr) },
+                                ),
+                            ),
                         )
                         HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
                     }
@@ -220,10 +234,17 @@ private fun AdhkarLibraryContent(
                         dhikr = dhikr,
                         count = viewModel.count(dhikr.id).collectAsStateWithLifecycle(),
                         isFavorite = dhikr.id in favoriteIds,
-                        onToggleFavorite = { viewModel.toggleFavorite(dhikr.id) },
-                        onIncrement = { viewModel.increment(dhikr.id) },
-                        onReset = { viewModel.reset(dhikr.id) },
-                        onCopied = onCopied,
+                        actions = DhikrCardActions(
+                            onToggleFavorite = { viewModel.toggleFavorite(dhikr.id) },
+                            onIncrement = { viewModel.increment(dhikr.id) },
+                            onReset = { viewModel.reset(dhikr.id) },
+                            onCopied = onCopied,
+                            speech = DhikrSpeechControls(
+                                enabled = speechEnabled && speechReady,
+                                isSpeaking = speakingDhikrId == dhikr.id,
+                                onToggle = { viewModel.toggleSpeech(dhikr) },
+                            ),
+                        ),
                     )
                     HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
                 }
@@ -232,41 +253,30 @@ private fun AdhkarLibraryContent(
     }
 }
 
+private data class DhikrSpeechControls(
+    val enabled: Boolean,
+    val isSpeaking: Boolean,
+    val onToggle: () -> Unit,
+)
+
+private data class DhikrCardActions(
+    val onToggleFavorite: () -> Unit,
+    val onIncrement: () -> Unit,
+    val onReset: () -> Unit,
+    val onCopied: () -> Unit,
+    val speech: DhikrSpeechControls,
+)
+
 @Composable
 private fun DhikrCard(
     dhikr: Dhikr,
     count: androidx.compose.runtime.State<Int>,
     isFavorite: Boolean,
-    onToggleFavorite: () -> Unit,
-    onIncrement: () -> Unit,
-    onReset: () -> Unit,
-    onCopied: () -> Unit,
+    actions: DhikrCardActions,
 ) {
     val currentCount by count
-    val haptics = LocalHapticFeedback.current
-    val accessibilityVisuals = LocalAccessibilityVisuals.current
     val complete = currentCount >= dhikr.repetition
-    val context = LocalContext.current
-    val clipboard = context.getSystemService(android.content.ClipboardManager::class.java)
-    // English fallback is hidden when the UI language is Arabic (each language
-    // shows its own texts — an Arabic reader reads the Arabic original only).
     val showEnglishFallback = AppLanguage.showEnglishFallback()
-    val shareText = buildString {
-        append(dhikr.arabic)
-        if (showEnglishFallback) append("\n\n").append(dhikr.translation)
-        append("\n\n").append(dhikr.source)
-    }
-    fun copyDhikr() {
-        clipboard?.setPrimaryClip(ClipData.newPlainText("dhikr", shareText))
-        onCopied()
-    }
-    fun shareDhikr() {
-        val intent = Intent(Intent.ACTION_SEND).apply {
-            type = "text/plain"
-            putExtra(Intent.EXTRA_TEXT, shareText)
-        }
-        runCatching { context.startActivity(Intent.createChooser(intent, null)) }
-    }
 
     IslamicCard(
         modifier = Modifier
@@ -279,47 +289,12 @@ private fun DhikrCard(
         },
     ) {
         Column {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.Top,
-            ) {
-                Text(
-                    text = dhikr.arabic,
-                    style = MaterialTheme.typography.bodyLarge.copy(
-                        fontSize = 20.sp,
-                        lineHeight = (20f * accessibilityVisuals.arabicLineHeightMultiplier).sp,
-                        fontFamily = accessibilityVisuals.arabicReadingFont,
-                    ),
-                    modifier = Modifier.weight(1f),
-                )
-                IconButton(onClick = onToggleFavorite) {
-                    Icon(
-                        imageVector = if (isFavorite) Icons.Filled.Star else Icons.Outlined.StarBorder,
-                        contentDescription = stringResource(
-                            if (isFavorite) R.string.adhkar_remove_favorite else R.string.adhkar_add_favorite,
-                        ),
-                        tint = if (isFavorite) {
-                            MaterialTheme.colorScheme.primary
-                        } else {
-                            MaterialTheme.colorScheme.onSurfaceVariant
-                        },
-                    )
-                }
-                IconButton(onClick = ::copyDhikr) {
-                    Icon(
-                        imageVector = Icons.Filled.ContentCopy,
-                        contentDescription = stringResource(R.string.adhkar_copy),
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-                IconButton(onClick = ::shareDhikr) {
-                    Icon(
-                        imageVector = Icons.Filled.Share,
-                        contentDescription = stringResource(R.string.adhkar_share),
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-            }
+            DhikrHeader(
+                dhikr = dhikr,
+                isFavorite = isFavorite,
+                onToggleFavorite = actions.onToggleFavorite,
+                onCopied = actions.onCopied,
+            )
             dhikr.virtue?.let { virtue ->
                 Spacer(Modifier.height(8.dp))
                 Text(
@@ -333,67 +308,165 @@ private fun DhikrCard(
                 TranslationToggle(dhikr.translation)
             }
             Spacer(Modifier.height(10.dp))
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Surface(
-                    shape = MaterialTheme.shapes.small,
-                    color = MaterialTheme.colorScheme.secondaryContainer,
-                ) {
-                    Text(
-                        text = dhikr.source,
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSecondaryContainer,
-                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp),
-                    )
-                }
-                Spacer(Modifier.weight(1f))
-                Text(
-                    text = stringResource(
-                        R.string.adhkar_repetition_label,
-                        dhikr.repetition.toString(),
+            DhikrMetadata(dhikr)
+            Spacer(Modifier.height(12.dp))
+            DhikrControls(
+                currentCount = currentCount,
+                complete = complete,
+                actions = actions,
+            )
+        }
+    }
+}
+
+@Composable
+private fun DhikrHeader(
+    dhikr: Dhikr,
+    isFavorite: Boolean,
+    onToggleFavorite: () -> Unit,
+    onCopied: () -> Unit,
+) {
+    val accessibilityVisuals = LocalAccessibilityVisuals.current
+    val context = LocalContext.current
+    val clipboard = context.getSystemService(android.content.ClipboardManager::class.java)
+    val showEnglishFallback = AppLanguage.showEnglishFallback()
+    val shareText = buildString {
+        append(dhikr.arabic)
+        if (showEnglishFallback) append("\n\n").append(dhikr.translation)
+        append("\n\n").append(dhikr.source)
+    }
+    val copyDhikr = {
+        clipboard?.setPrimaryClip(ClipData.newPlainText("dhikr", shareText))
+        onCopied()
+    }
+    val shareDhikr = {
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TEXT, shareText)
+        }
+        runCatching { context.startActivity(Intent.createChooser(intent, null)) }
+        Unit
+    }
+
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.Top,
+    ) {
+        Text(
+            text = dhikr.arabic,
+            style = MaterialTheme.typography.bodyLarge.copy(
+                fontSize = 20.sp,
+                lineHeight = (20f * accessibilityVisuals.arabicLineHeightMultiplier).sp,
+                fontFamily = accessibilityVisuals.arabicReadingFont,
+            ),
+            modifier = Modifier.weight(1f),
+        )
+        IconButton(onClick = onToggleFavorite) {
+            Icon(
+                imageVector = if (isFavorite) Icons.Filled.Star else Icons.Outlined.StarBorder,
+                contentDescription = stringResource(
+                    if (isFavorite) R.string.adhkar_remove_favorite else R.string.adhkar_add_favorite,
+                ),
+                tint = if (isFavorite) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        IconButton(onClick = copyDhikr) {
+            Icon(
+                imageVector = Icons.Filled.ContentCopy,
+                contentDescription = stringResource(R.string.adhkar_copy),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        IconButton(onClick = shareDhikr) {
+            Icon(
+                imageVector = Icons.Filled.Share,
+                contentDescription = stringResource(R.string.adhkar_share),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+
+@Composable
+private fun DhikrMetadata(dhikr: Dhikr) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Surface(
+            shape = MaterialTheme.shapes.small,
+            color = MaterialTheme.colorScheme.secondaryContainer,
+        ) {
+            Text(
+                text = dhikr.source,
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp),
+            )
+        }
+        Spacer(Modifier.weight(1f))
+        Text(
+            text = stringResource(R.string.adhkar_repetition_label, dhikr.repetition.toString()),
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
+@Composable
+private fun DhikrControls(
+    currentCount: Int,
+    complete: Boolean,
+    actions: DhikrCardActions,
+) {
+    val haptics = LocalHapticFeedback.current
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        if (actions.speech.enabled) {
+            OutlinedIconButton(
+                onClick = actions.speech.onToggle,
+                modifier = Modifier.size(48.dp),
+            ) {
+                Icon(
+                    imageVector = if (actions.speech.isSpeaking) {
+                        Icons.Filled.StopCircle
+                    } else {
+                        Icons.Filled.VolumeUp
+                    },
+                    contentDescription = stringResource(
+                        if (actions.speech.isSpeaking) R.string.adhkar_speech_stop else R.string.adhkar_speech_play,
                     ),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
-            Spacer(Modifier.height(12.dp))
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                FilledIconButton(
-                    onClick = {
-                        haptics.performHapticFeedback(HapticFeedbackType.LongPress)
-                        onIncrement()
-                    },
-                    enabled = !complete,
-                    modifier = Modifier.size(72.dp),
-                ) {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text(
-                            text = if (complete) {
-                                stringResource(R.string.adhkar_complete)
-                            } else {
-                                currentCount.toString()
-                            },
-                            style = MaterialTheme.typography.titleLarge,
-                            fontWeight = FontWeight.Bold,
-                        )
-                        if (complete) {
-                            Icon(Icons.Filled.Check, contentDescription = null, modifier = Modifier.size(20.dp))
-                        }
-                    }
+            Spacer(Modifier.size(12.dp))
+        }
+        FilledIconButton(
+            onClick = {
+                haptics.performHapticFeedback(HapticFeedbackType.LongPress)
+                actions.onIncrement()
+            },
+            enabled = !complete,
+            modifier = Modifier.size(72.dp),
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = if (complete) stringResource(R.string.adhkar_complete) else currentCount.toString(),
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold,
+                )
+                if (complete) {
+                    Icon(Icons.Filled.Check, contentDescription = null, modifier = Modifier.size(20.dp))
                 }
-                Spacer(Modifier.size(12.dp))
-                if (currentCount > 0) {
-                    IconButton(onClick = onReset) {
-                        Icon(
-                            Icons.Filled.Refresh,
-                            contentDescription = stringResource(R.string.adhkar_reset),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                }
+            }
+        }
+        Spacer(Modifier.size(12.dp))
+        if (currentCount > 0) {
+            IconButton(onClick = actions.onReset) {
+                Icon(
+                    Icons.Filled.Refresh,
+                    contentDescription = stringResource(R.string.adhkar_reset),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
             }
         }
     }

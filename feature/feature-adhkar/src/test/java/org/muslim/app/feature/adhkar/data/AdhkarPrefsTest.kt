@@ -37,6 +37,14 @@ class AdhkarPrefsTest {
     }
 
     @Test
+    fun `read aloud is disabled by default with normal speed and no pinned voice`() {
+        val prefs = AdhkarPrefs()
+        assertThat(prefs.speechEnabled).isFalse()
+        assertThat(prefs.speechRate).isEqualTo(1.0f)
+        assertThat(prefs.speechVoiceName).isNull()
+    }
+
+    @Test
     fun `no dhikr is a favorite by default`() {
         assertThat(AdhkarPrefs().isDhikrFavorite(7)).isFalse()
     }

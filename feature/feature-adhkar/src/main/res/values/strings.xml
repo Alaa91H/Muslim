@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="adhkar_title">الأذكار</string>
     <string name="adhkar_back">رجوع</string>
     <string name="adhkar_all">الكل</string>
@@ -19,6 +19,16 @@
     <string name="adhkar_reset">إعادة العداد</string>
     <string name="adhkar_show_translation">عرض الترجمة</string>
     <string name="adhkar_settings_title">إعدادات الأذكار</string>
+    <string name="adhkar_speech_section" tools:ignore="MissingTranslation">القراءة الصوتية</string>
+    <string name="adhkar_speech_toggle" tools:ignore="MissingTranslation">قراءة الأذكار بصوت مسموع</string>
+    <string name="adhkar_speech_desc" tools:ignore="MissingTranslation">عند تفعيلها مع الرسالة العائمة، يُقرأ الذكر الظاهر تلقائيًا بصوت عربي محلي ثم تُغلق الرسالة بعد انتهاء القراءة. تبقى الميزة متوقفة افتراضيًا.</string>
+    <string name="adhkar_speech_voice" tools:ignore="MissingTranslation">الصوت</string>
+    <string name="adhkar_speech_voice_default" tools:ignore="MissingTranslation">الصوت العربي المحلي الافتراضي</string>
+    <string name="adhkar_speech_rate_value" tools:ignore="MissingTranslation">السرعة: %1$s×</string>
+    <string name="adhkar_speech_preview" tools:ignore="MissingTranslation">تجربة الصوت</string>
+    <string name="adhkar_speech_unavailable" tools:ignore="MissingTranslation">لا يتوفر حاليًا صوت عربي محلي للقراءة على هذا الجهاز. ثبّت بيانات صوت عربية في إعدادات تحويل النص إلى كلام.</string>
+    <string name="adhkar_speech_play" tools:ignore="MissingTranslation">قراءة الذكر</string>
+    <string name="adhkar_speech_stop" tools:ignore="MissingTranslation">إيقاف القراءة</string>
     <string name="adhkar_overlay_section">الرسالة العائمة</string>
     <string name="adhkar_overlay_toggle">عرض الأذكار كرسالة فوق جميع التطبيقات</string>
     <string name="adhkar_overlay_desc">تظهر رسالة قصيرة بالذكر المختار فوق أي تطبيق، وتختفي تلقائيًا بعد المدة التي تحددها أو فور الضغط عليها.</string>

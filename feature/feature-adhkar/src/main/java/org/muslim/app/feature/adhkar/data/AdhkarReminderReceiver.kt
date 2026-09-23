@@ -52,6 +52,9 @@ class AdhkarReminderReceiver : BroadcastReceiver() {
                             prefs.overlayBackgroundColor,
                             prefs.overlayCornerRadiusDp,
                             prefs.overlayFontSizeSp,
+                            readAloud = prefs.speechEnabled,
+                            speechVoiceName = prefs.speechVoiceName,
+                            speechRate = prefs.speechRate,
                         )
                     } else {
                         AdhkarNotifications.showReminder(appContext, dhikr)
