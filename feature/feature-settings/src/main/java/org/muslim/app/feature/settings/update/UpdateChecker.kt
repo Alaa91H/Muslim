@@ -1,6 +1,7 @@
 package org.muslim.app.feature.settings.update
 
 import android.content.Context
+import android.os.Build
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
@@ -24,15 +25,17 @@ class UpdateChecker(private val context: Context) {
         data object Unavailable : Result
     }
 
-    /** Fetches the latest release and compares it with the installed version. */
+    /** Fetches the latest release and compares it with the installed build. */
     suspend fun check(): Result {
         val release = client().latestRelease() ?: return Result.Unavailable
-        val installed = installedVersion()
-        return if (VersionCompare.isNewer(release.version, installed)) {
-            Result.UpdateAvailable(release)
-        } else {
-            Result.UpToDate
-        }
+        val installedName = installedVersion()
+        val installedCode = installedVersionCode()
+        val newer = release.versionCode
+            ?.takeIf { it > 0L }
+            ?.let { it > installedCode }
+            ?: VersionCompare.isNewer(release.version, installedName)
+
+        return if (newer) Result.UpdateAvailable(release) else Result.UpToDate
     }
 
     /**
@@ -62,6 +65,14 @@ class UpdateChecker(private val context: Context) {
         runCatching {
             context.packageManager.getPackageInfo(context.packageName, 0).versionName.orEmpty()
         }.getOrDefault("")
+
+    fun installedVersionCode(): Long =
+        runCatching {
+            val info = context.packageManager.getPackageInfo(context.packageName, 0)
+            @Suppress("DEPRECATION")
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) info.longVersionCode
+            else info.versionCode.toLong()
+        }.getOrDefault(0L)
 
     private fun client(): GithubReleasesClient =
         EntryPointAccessors.fromApplication(context, UpdateEntryPoint::class.java).releasesClient()
