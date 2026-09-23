@@ -99,6 +99,30 @@ data class HistoricalState(
     val sourceIds: List<String> = emptyList(),
 )
 
+data class HistoryPersonProfile(
+    val personId: String,
+    val overview: HistoryText,
+    val sections: List<HistoryArticleSection>,
+    val eraIds: List<String> = emptyList(),
+    val stateIds: List<String> = emptyList(),
+    val placeIds: List<String> = emptyList(),
+    val eventIds: List<String> = emptyList(),
+    val relatedTopicIds: List<String> = emptyList(),
+    val sourceIds: List<String> = emptyList(),
+)
+
+data class HistoricalPlaceProfile(
+    val placeId: String,
+    val overview: HistoryText,
+    val sections: List<HistoryArticleSection>,
+    val eraIds: List<String> = emptyList(),
+    val stateIds: List<String> = emptyList(),
+    val eventIds: List<String> = emptyList(),
+    val relatedTopicIds: List<String> = emptyList(),
+    val relatedPersonIds: List<String> = emptyList(),
+    val sourceIds: List<String> = emptyList(),
+)
+
 enum class CivilizationCategory {
     KnowledgeAndSciences,
     Institutions,
