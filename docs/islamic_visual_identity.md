@@ -87,6 +87,12 @@ The system-facing application identity is intentionally split into two assets. T
 
 The repair uses fresh resource names and fresh current notification IDs, then cancels cards known to be retained from earlier versions. This is a migration mechanism rather than a new visual style. The exact migration IDs, test coverage, user upgrade note, and platform limits are recorded in [`qa/notification_identity_repair.md`](qa/notification_identity_repair.md).
 
+## External surfaces: home widgets and Wear OS
+
+Home-screen widgets cannot consume Compose composition locals, so they read the persisted ornament style and intensity directly and resolve them through `WidgetOrnamentSpec`. Prayer-times and Misbaha widgets render the same vector family as the phone UI with a compact antique-gold tint. `Off` removes the accent entirely, while Subtle/Balanced/Rich scale its prominence. The app explicitly refreshes both widgets when the user changes either decoration preference.
+
+The paired Wear OS companion receives ornament style and intensity as optional fields in the existing versioned Data Layer snapshot. Defaults preserve compatibility with snapshots created before the fields existed. Wear renders a tiny Canvas-based ornament band rather than shipping the phone vector catalogue to the watch, keeping the companion lightweight while still reflecting Geometry, Arabesque, Stars, Andalusian, Mashrabiya, Ottoman, Mushaf, Royal, and Minimal families.
+
 ## RTL, dark mode, and performance guardrails
 
 All placement uses logical `Start`/`End` alignment instead of left/right positioning so ornament anchors mirror with RTL layouts. Decoration opacity is reduced or held equal in dark mode, and every optional decorative primitive returns without drawing when intensity is Off. The engine uses vectors only; no bitmap backgrounds, blur, shader, or looping decorative animation is required.
