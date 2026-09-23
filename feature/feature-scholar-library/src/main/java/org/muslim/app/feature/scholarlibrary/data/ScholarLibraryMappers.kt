@@ -11,6 +11,8 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarPassage
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingStatus
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPlan
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySession
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySessionStatus
 import org.muslim.app.feature.scholarlibrary.domain.StudyFlashcard
 
 internal fun ScholarBookEntity.toDomain() = ScholarBook(
@@ -91,4 +93,23 @@ internal fun ScholarStudyPlanEntity.toDomain() = ScholarStudyPlan(
     updatedAtEpochMillis = updatedAtEpochMillis,
 )
 
+internal fun ScholarStudySessionEntity.toDomain() = ScholarStudySession(
+    id = id,
+    pathId = pathId,
+    planId = planId,
+    bookId = bookId,
+    targetPassageIds = targetPassageIds.toStoredIdList(),
+    completedPassageIds = completedPassageIds.toStoredIdList(),
+    plannedMinutes = plannedMinutes,
+    status = ScholarStudySessionStatus.fromId(status),
+    startedAtEpochMillis = startedAtEpochMillis,
+    completedAtEpochMillis = completedAtEpochMillis,
+)
+
+internal fun List<String>.toStoredIds(): String = joinToString(PASSAGE_ID_SEPARATOR)
+
+internal fun String.toStoredIdList(): List<String> =
+    split(PASSAGE_ID_SEPARATOR).filter { it.isNotBlank() }
+
 private const val KEYWORD_SEPARATOR = "\u001F"
+private const val PASSAGE_ID_SEPARATOR = "\u001E"
