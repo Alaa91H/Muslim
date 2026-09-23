@@ -40,7 +40,9 @@ enum class UpdateDownloadFailure {
     InvalidPackage,
     WrongPackage,
     SignatureMismatch,
+    ChecksumMismatch,
     VersionMismatch,
+    VersionCodeMismatch,
     NotNewer,
     Unknown,
 }
