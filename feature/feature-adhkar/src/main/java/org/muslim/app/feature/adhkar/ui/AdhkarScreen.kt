@@ -4,7 +4,6 @@ import android.content.ClipData
 import android.content.Intent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -19,6 +18,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Refresh
@@ -26,7 +26,6 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.StopCircle
-import androidx.compose.material.icons.filled.VolumeUp
 import androidx.compose.material.icons.outlined.StarBorder
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
@@ -368,23 +367,12 @@ private fun DhikrBottomBar(
     isFavorite: Boolean,
     actions: DhikrCardActions,
 ) {
-    val haptics = LocalHapticFeedback.current
     val context = LocalContext.current
     val clipboard = context.getSystemService(android.content.ClipboardManager::class.java)
     val showEnglishFallback = AppLanguage.showEnglishFallback()
-
     val shareText = remember(dhikr, showEnglishFallback) {
-        buildString {
-            append(dhikr.arabic)
-            if (showEnglishFallback && dhikr.translation.isNotBlank()) {
-                append("\n\n").append(dhikr.translation)
-            }
-            if (dhikr.source.isNotBlank()) {
-                append("\n\n").append(dhikr.source)
-            }
-        }
+        dhikrShareText(dhikr, showEnglishFallback)
     }
-
     val copyDhikr = {
         clipboard?.setPrimaryClip(ClipData.newPlainText("dhikr", shareText))
         actions.onCopied()
@@ -402,104 +390,19 @@ private fun DhikrBottomBar(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        if (actions.speech.enabled) {
-            OutlinedIconButton(
-                onClick = actions.speech.onToggle,
-                modifier = Modifier.size(48.dp),
-            ) {
-                Icon(
-                    imageVector = if (actions.speech.isSpeaking) {
-                        Icons.Filled.StopCircle
-                    } else {
-                        Icons.Filled.VolumeUp
-                    },
-                    contentDescription = stringResource(
-                        if (actions.speech.isSpeaking) {
-                            R.string.adhkar_speech_stop
-                        } else {
-                            R.string.adhkar_speech_play
-                        },
-                    ),
-                )
-            }
-            Spacer(Modifier.size(8.dp))
-        }
-
-        FilledIconButton(
-            onClick = {
-                haptics.performHapticFeedback(HapticFeedbackType.LongPress)
-                actions.onIncrement()
-            },
-            enabled = !complete,
-            modifier = Modifier.size(68.dp),
-        ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                if (complete) {
-                    Icon(
-                        Icons.Filled.Check,
-                        contentDescription = null,
-                        modifier = Modifier.size(18.dp),
-                    )
-                }
-                Text(
-                    text = "${currentCount}/${dhikr.repetition}",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                )
-            }
-        }
-
-        if (currentCount > 0) {
-            IconButton(
-                onClick = actions.onReset,
-                modifier = Modifier.size(44.dp),
-            ) {
-                Icon(
-                    Icons.Filled.Refresh,
-                    contentDescription = stringResource(R.string.adhkar_reset),
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
-
+        DhikrPrimaryControls(
+            dhikr = dhikr,
+            currentCount = currentCount,
+            complete = complete,
+            actions = actions,
+        )
         Spacer(Modifier.weight(1f))
-
-        IconButton(
-            onClick = actions.onToggleFavorite,
-            modifier = Modifier.size(44.dp),
-        ) {
-            Icon(
-                imageVector = if (isFavorite) Icons.Filled.Star else Icons.Outlined.StarBorder,
-                contentDescription = stringResource(
-                    if (isFavorite) R.string.adhkar_remove_favorite else R.string.adhkar_add_favorite,
-                ),
-                tint = if (isFavorite) {
-                    MaterialTheme.colorScheme.primary
-                } else {
-                    MaterialTheme.colorScheme.onSurfaceVariant
-                },
-            )
-        }
-        IconButton(
-            onClick = copyDhikr,
-            modifier = Modifier.size(44.dp),
-        ) {
-            Icon(
-                imageVector = Icons.Filled.ContentCopy,
-                contentDescription = stringResource(R.string.adhkar_copy),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-        IconButton(
-            onClick = shareDhikr,
-            modifier = Modifier.size(44.dp),
-        ) {
-            Icon(
-                imageVector = Icons.Filled.Share,
-                contentDescription = stringResource(R.string.adhkar_share),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
+        DhikrSecondaryActions(
+            isFavorite = isFavorite,
+            onToggleFavorite = actions.onToggleFavorite,
+            onCopy = copyDhikr,
+            onShare = shareDhikr,
+        )
     }
 
     if (complete) {
@@ -509,6 +412,131 @@ private fun DhikrBottomBar(
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier.fillMaxWidth(),
+        )
+    }
+}
+
+private fun dhikrShareText(dhikr: Dhikr, showEnglishFallback: Boolean): String = buildString {
+    append(dhikr.arabic)
+    if (showEnglishFallback && dhikr.translation.isNotBlank()) {
+        append("\n\n").append(dhikr.translation)
+    }
+    if (dhikr.source.isNotBlank()) {
+        append("\n\n").append(dhikr.source)
+    }
+}
+
+@Composable
+private fun DhikrPrimaryControls(
+    dhikr: Dhikr,
+    currentCount: Int,
+    complete: Boolean,
+    actions: DhikrCardActions,
+) {
+    val haptics = LocalHapticFeedback.current
+
+    if (actions.speech.enabled) {
+        OutlinedIconButton(
+            onClick = actions.speech.onToggle,
+            modifier = Modifier.size(48.dp),
+        ) {
+            Icon(
+                imageVector = if (actions.speech.isSpeaking) {
+                    Icons.Filled.StopCircle
+                } else {
+                    Icons.AutoMirrored.Filled.VolumeUp
+                },
+                contentDescription = stringResource(
+                    if (actions.speech.isSpeaking) {
+                        R.string.adhkar_speech_stop
+                    } else {
+                        R.string.adhkar_speech_play
+                    },
+                ),
+            )
+        }
+        Spacer(Modifier.size(8.dp))
+    }
+
+    FilledIconButton(
+        onClick = {
+            haptics.performHapticFeedback(HapticFeedbackType.LongPress)
+            actions.onIncrement()
+        },
+        enabled = !complete,
+        modifier = Modifier.size(68.dp),
+    ) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            if (complete) {
+                Icon(
+                    Icons.Filled.Check,
+                    contentDescription = null,
+                    modifier = Modifier.size(18.dp),
+                )
+            }
+            Text(
+                text = "${currentCount}/${dhikr.repetition}",
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+        }
+    }
+
+    if (currentCount > 0) {
+        IconButton(
+            onClick = actions.onReset,
+            modifier = Modifier.size(44.dp),
+        ) {
+            Icon(
+                Icons.Filled.Refresh,
+                contentDescription = stringResource(R.string.adhkar_reset),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+
+@Composable
+private fun DhikrSecondaryActions(
+    isFavorite: Boolean,
+    onToggleFavorite: () -> Unit,
+    onCopy: () -> Unit,
+    onShare: () -> Unit,
+) {
+    IconButton(
+        onClick = onToggleFavorite,
+        modifier = Modifier.size(44.dp),
+    ) {
+        Icon(
+            imageVector = if (isFavorite) Icons.Filled.Star else Icons.Outlined.StarBorder,
+            contentDescription = stringResource(
+                if (isFavorite) R.string.adhkar_remove_favorite else R.string.adhkar_add_favorite,
+            ),
+            tint = if (isFavorite) {
+                MaterialTheme.colorScheme.primary
+            } else {
+                MaterialTheme.colorScheme.onSurfaceVariant
+            },
+        )
+    }
+    IconButton(
+        onClick = onCopy,
+        modifier = Modifier.size(44.dp),
+    ) {
+        Icon(
+            imageVector = Icons.Filled.ContentCopy,
+            contentDescription = stringResource(R.string.adhkar_copy),
+            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+    IconButton(
+        onClick = onShare,
+        modifier = Modifier.size(44.dp),
+    ) {
+        Icon(
+            imageVector = Icons.Filled.Share,
+            contentDescription = stringResource(R.string.adhkar_share),
+            tint = MaterialTheme.colorScheme.onSurfaceVariant,
         )
     }
 }
