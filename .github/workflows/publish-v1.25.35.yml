@@ -1,0 +1,164 @@
+name: Publish v1.25.35
+
+on:
+  push:
+    branches:
+      - chore/publish-v1.25.35
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      TAG: v1.25.35
+      TARGET_SHA: 00616f8aca4511b1c2fbe1ea4d4fd18d322755ea
+      HELPER_BRANCH: chore/publish-v1.25.35
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout helper branch
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Prepare professional release notes
+        shell: bash
+        run: |
+          cat > /tmp/release-notes.md <<'EOF'
+          ## Muslim v1.25.35
+
+          This release consolidates the latest feature work into `main` and delivers a major visual, accessibility, worship-flow, and reliability upgrade across the app.
+
+          ### Islamic Visual System & Personalization
+
+          - Introduces a new app-wide Islamic decoration engine built with lightweight vector ornaments.
+          - Adds **nine selectable ornament styles**: Geometric, Arabesque, Stars, Andalusian, Mashrabiya, Ottoman, Mushaf, Royal, and Minimal.
+          - Adds **four ornament intensity levels**: Off, Subtle, Balanced, and Rich.
+          - Extends the visual system across major experiences including Quran, Adhkar, Hadith, Prayer Times, Qibla, Tasbih, Ramadan, Zakat, learning/reference screens, Settings, widgets, and Wear OS.
+          - Keeps sacred text visually prioritized while decorative elements remain theme-aware and performance-conscious.
+
+          ### Adhkar Read-Aloud
+
+          - Adds optional **local Arabic text-to-speech** for adhkar, disabled by default.
+          - Adds selectable voice support, speech-speed control, and an in-app voice preview.
+          - When enabled with floating adhkar, the visible dhikr can be read automatically and the overlay closes after speech completes.
+          - Adds explicit play/stop behavior and lifecycle handling so speech stops cleanly when appropriate.
+          - Keeps processing local to the device and gracefully handles devices without an installed Arabic voice.
+
+          ### Hadith Library
+
+          - Redesigns the Hadith collection gallery with a more polished heritage-inspired presentation.
+          - Replaces bundled bitmap book-cover assets with scalable native Compose artwork.
+          - Adds distinct visual identities for Hadith collections while keeping collection metadata authoritative.
+          - Improves layout hierarchy, spacing, typography, and responsiveness across the Hadith experience.
+
+          ### Quran & Recitation
+
+          - Improves the reciter selector so each reciter is presented in a dedicated card with portrait treatment.
+          - Fixes recitation follow-along behavior so the active ayah remains visible while playback advances.
+          - Improves reader-state tracking and scrolling reliability during continuous recitation.
+
+          ### Qibla & Nearby Mosques
+
+          - Refreshes the Qibla screen and compass with a more adaptive, balanced layout.
+          - Expands nearby-mosque search range support and adds a cleaner distance-selection flow.
+          - Adds a direct **View on map** action alongside navigation for discovered mosques.
+          - Improves nearby-mosque UI logic, empty/loading states, and automated coverage.
+
+          ### Adhan & Prayer Notifications
+
+          - Improves Adhan playback lifecycle handling and makes stopping playback more reliable.
+          - Adds support for stopping Adhan through volume-key interaction and notification dismissal flows.
+          - Adds a direct fallback session for more resilient playback behavior.
+          - Further refines the expanded next-Adhan notification to use available horizontal space more effectively.
+          - Preserves clear next/missed-prayer highlighting, elapsed/remaining timing, RTL/LTR behavior, and five-prayer presentation.
+
+          ### Prayer Home & Widgets
+
+          - Integrates the final responsive five-prayer Home refinements into the main branch.
+          - Improves adaptive sizing and consistency across phone layouts.
+          - Extends Islamic ornament styling to prayer widgets and related surfaces.
+          - Improves synchronization of appearance preferences with Wear OS.
+
+          ### Quality, Stability & Maintenance
+
+          - Consolidates all completed feature and fix branches into `main`.
+          - Expands automated verification for Islamic visual identity, Adhan lifecycle, Hadith navigation, nearby mosques, responsive layouts, and other critical UI contracts.
+          - Removes obsolete temporary release workflow material from the source tree.
+          - Keeps the production release protected by signed-build verification, unit tests, Android lint, Detekt, and emulator-based instrumentation tests before artifacts are published.
+
+          ### Release Assets
+
+          The release workflow publishes the signed Android application artifacts after all production gates pass:
+
+          - `app-release.apk` — phone/tablet APK
+          - `wear-release.apk` — Wear OS APK
+          - `app-release.aab` — Android App Bundle when produced by the production build
+
+          Existing compatible installations can update in place using the stable signing identity.
+          EOF
+
+      - name: Create tag and draft release
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "::error::Release $TAG already exists."
+            exit 1
+          fi
+          gh release create "$TAG"             --repo "$GITHUB_REPOSITORY"             --target "$TARGET_SHA"             --title "Muslim $TAG"             --notes-file /tmp/release-notes.md             --draft
+
+      - name: Dispatch production CI for the tag
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh workflow run ci.yml --repo "$GITHUB_REPOSITORY" --ref "$TAG"
+
+      - name: Locate dispatched CI run
+        id: ci
+        shell: bash
+        run: |
+          set -euo pipefail
+          RUN_ID=""
+          for _ in $(seq 1 60); do
+            RUN_ID="$(gh run list               --repo "$GITHUB_REPOSITORY"               --workflow ci.yml               --event workflow_dispatch               --branch "$TAG"               --limit 10               --json databaseId,headBranch,headSha               --jq '.[] | select(.headBranch == env.TAG and .headSha == env.TARGET_SHA) | .databaseId'               | head -1)"
+            if [ -n "$RUN_ID" ]; then
+              break
+            fi
+            sleep 5
+          done
+          if [ -z "$RUN_ID" ]; then
+            echo "::error::Could not locate the dispatched CI run for $TAG."
+            exit 1
+          fi
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "CI run: $RUN_ID"
+
+      - name: Wait for production CI
+        shell: bash
+        run: |
+          gh run watch "${{ steps.ci.outputs.run_id }}" --repo "$GITHUB_REPOSITORY" --exit-status
+
+      - name: Attach all produced release artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/release-artifacts
+          gh run download "${{ steps.ci.outputs.run_id }}"             --repo "$GITHUB_REPOSITORY"             --name muslim-release-apk             --dir /tmp/release-artifacts
+          while IFS= read -r -d '' file; do
+            echo "Uploading $(basename "$file")"
+            gh release upload "$TAG" "$file" --repo "$GITHUB_REPOSITORY" --clobber
+          done < <(find /tmp/release-artifacts -type f \( -name '*.apk' -o -name '*.aab' \) -print0)
+
+      - name: Publish release
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --draft=false
+
+      - name: Remove helper branch
+        shell: bash
+        run: |
+          git push origin --delete "$HELPER_BRANCH"
