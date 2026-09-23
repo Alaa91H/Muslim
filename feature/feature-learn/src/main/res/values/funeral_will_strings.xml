@@ -43,4 +43,18 @@
     <string name="funeral_will_export_pdf_success" tools:ignore="MissingTranslation">تم حفظ ملف PDF بنجاح.</string>
     <string name="funeral_will_export_pdf_error" tools:ignore="MissingTranslation">تعذر إنشاء ملف PDF. حاول اختيار مكان آخر أو إعادة المحاولة.</string>
     <string name="funeral_will_pdf_filename" tools:ignore="MissingTranslation">مسودة-وصية-شرعية.pdf</string>
+    <string name="funeral_will_protection_title" tools:ignore="MissingTranslation">قفل المسودة الخاصة</string>
+    <string name="funeral_will_protection_description" tools:ignore="MissingTranslation">يمكنك طلب بصمة أو وجه أو رمز/نمط/كلمة مرور قفل الجهاز قبل عرض مسودة الوصية. لا يخزن التطبيق رمز PIN خاصًا به.</string>
+    <string name="funeral_will_protection_enabled" tools:ignore="MissingTranslation">الحماية مفعلة لهذه المسودة.</string>
+    <string name="funeral_will_protection_enable" tools:ignore="MissingTranslation">تفعيل قفل الجهاز</string>
+    <string name="funeral_will_protection_disable" tools:ignore="MissingTranslation">إيقاف الحماية</string>
+    <string name="funeral_will_protection_lock_now" tools:ignore="MissingTranslation">قفل المسودة الآن</string>
+    <string name="funeral_will_locked_title" tools:ignore="MissingTranslation">المسودة مقفلة</string>
+    <string name="funeral_will_locked_text" tools:ignore="MissingTranslation">تم إخفاء محتوى المسودة وعمليات الحفظ والمشاركة والتصدير. افتحها باستخدام وسيلة التحقق المسجلة على جهازك.</string>
+    <string name="funeral_will_unlock" tools:ignore="MissingTranslation">فتح المسودة</string>
+    <string name="funeral_will_auth_prompt_title" tools:ignore="MissingTranslation">فتح مسودة الوصية</string>
+    <string name="funeral_will_auth_prompt_subtitle" tools:ignore="MissingTranslation">استخدم البصمة أو الوجه أو قفل الجهاز للمتابعة</string>
+    <string name="funeral_will_auth_not_configured" tools:ignore="MissingTranslation">لا توجد وسيلة تحقق مؤهلة على الجهاز. أعدّ قفل الشاشة أو البصمة/الوجه من إعدادات Android أولًا.</string>
+    <string name="funeral_will_auth_unavailable" tools:ignore="MissingTranslation">التحقق بالبصمة أو قفل الجهاز غير متاح على هذا الجهاز.</string>
+    <string name="funeral_will_protection_loading" tools:ignore="MissingTranslation">جارٍ التحقق من إعدادات حماية المسودة…</string>
 </resources>
