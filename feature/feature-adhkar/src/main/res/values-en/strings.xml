@@ -21,7 +21,7 @@
     <string name="adhkar_settings_title">Adhkar settings</string>
     <string name="adhkar_speech_section">Read aloud</string>
     <string name="adhkar_speech_toggle">Read adhkar aloud</string>
-    <string name="adhkar_speech_desc">Uses an Arabic voice available locally on your device to read the dhikr text. The feature is off by default.</string>
+    <string name="adhkar_speech_desc">When enabled with the floating message, the visible dhikr is read automatically with a local Arabic voice and the message closes after speech finishes. The feature is off by default.</string>
     <string name="adhkar_speech_voice">Voice</string>
     <string name="adhkar_speech_voice_default">Default local Arabic voice</string>
     <string name="adhkar_speech_rate_value">Speed: %1$s×</string>
