@@ -25,6 +25,7 @@ def bundled_paths() -> set[str]:
         *ROOT.glob("feature/feature-hadith/src/main/assets/**/*"),
         *ROOT.glob("feature/feature-quran/src/main/assets/*"),
         *ROOT.glob("feature/feature-prayer-times/src/main/res/raw/*"),
+        *ROOT.glob("feature/feature-reference/src/main/res/raw/reference_*.json"),
     ]
     return {path.relative_to(ROOT).as_posix() for path in paths if path.is_file()}
 
