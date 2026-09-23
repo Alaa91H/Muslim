@@ -41,8 +41,10 @@ data class AdhkarPrefs(
     val favoriteDhikrIds: Set<Long> = emptySet(),
     /** Read adhkar aloud using an Arabic voice available on this device. */
     val speechEnabled: Boolean = false,
-    /** Selected Android TTS voice name; null selects the first available local Arabic voice. */
+    /** Selected Android TTS voice name; null selects the best available Arabic voice. */
     val speechVoiceName: String? = null,
+    /** Allow Arabic voices that require a network connection. Local voices stay preferred. */
+    val speechAllowNetworkVoices: Boolean = false,
     /** Speech-rate multiplier, where 1.0 is the normal engine speed. */
     val speechRate: Float = 1.0f,
     /** Daily morning adhkar reminder (default 06:00). */
@@ -116,6 +118,7 @@ class AdhkarPrefsRepository @Inject constructor(
                 .toSet(),
             speechEnabled = p[Keys.SPEECH_ENABLED] ?: false,
             speechVoiceName = p[Keys.SPEECH_VOICE_NAME],
+            speechAllowNetworkVoices = p[Keys.SPEECH_ALLOW_NETWORK] ?: false,
             speechRate = (p[Keys.SPEECH_RATE] ?: 1.0f).coerceIn(0.5f, 2.0f),
             morningReminderEnabled = p[Keys.MORNING_ENABLED] ?: false,
             morningHour = (p[Keys.MORNING_HOUR] ?: 6).coerceIn(0, 23),
@@ -195,6 +198,14 @@ class AdhkarPrefsRepository @Inject constructor(
         }
     }
 
+    suspend fun setSpeechAllowNetworkVoices(enabled: Boolean) = edit {
+        it[Keys.SPEECH_ALLOW_NETWORK] = enabled
+        if (!enabled) {
+            // A previously selected network voice is resolved safely to a local
+            // fallback by AdhkarSpeechController the next time speech starts.
+        }
+    }
+
     suspend fun setSpeechRate(rate: Float) = edit {
         it[Keys.SPEECH_RATE] = rate.coerceIn(0.5f, 2.0f)
     }
@@ -254,6 +265,7 @@ class AdhkarPrefsRepository @Inject constructor(
         val FAVORITE_DHIKR_IDS = stringSetPreferencesKey("favorite_dhikr_ids")
         val SPEECH_ENABLED = booleanPreferencesKey("speech_enabled")
         val SPEECH_VOICE_NAME = stringPreferencesKey("speech_voice_name")
+        val SPEECH_ALLOW_NETWORK = booleanPreferencesKey("speech_allow_network_voices")
         val SPEECH_RATE = floatPreferencesKey("speech_rate")
         val MORNING_ENABLED = booleanPreferencesKey("morning_reminder_enabled")
         val MORNING_HOUR = intPreferencesKey("morning_reminder_hour")
