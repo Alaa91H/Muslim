@@ -44,4 +44,22 @@
     <string name="family_articles_search" tools:ignore="MissingTranslation">ابحث في الزواج والأسرة والحياة اليومية</string>
     <string name="family_articles_count" tools:ignore="MissingTranslation">الموضوعات: %1$d</string>
     <string name="family_articles_empty" tools:ignore="MissingTranslation">لا توجد موضوعات مطابقة لبحثك</string>
+    <string name="family_hub_intro_title" tools:ignore="MissingTranslation">مرجع الأسرة وحياة المسلم</string>
+    <string name="family_hub_intro_text" tools:ignore="MissingTranslation">تصفح الموضوع بحسب المرحلة التي تحتاجها، أو افتح الأدوات العملية للرقية والأسماء والعقيقة. المحتوى تعليمي عام ولا يصدر فتوى شخصية.</string>
+    <string name="family_hub_paths_title" tools:ignore="MissingTranslation">مسارات فقه الأسرة</string>
+    <string name="family_hub_tools_title" tools:ignore="MissingTranslation">أدوات عملية</string>
+    <string name="family_hub_article_count" tools:ignore="MissingTranslation">%1$d موضوع</string>
+    <string name="family_hub_ruqyah_desc" tools:ignore="MissingTranslation">آيات وأدعية صحيحة مع تنبيه طبي واضح</string>
+    <string name="family_hub_names_desc" tools:ignore="MissingTranslation">أسماء أولاد وبنات مع البحث بالاسم والمعنى</string>
+    <string name="family_hub_aqiqah_desc" tools:ignore="MissingTranslation">حساب المواعيد المقترحة وتنبيه محلي اختياري</string>
+    <string name="family_guide_all_title" tools:ignore="MissingTranslation">دليل فقه الأسرة</string>
+    <string name="family_guide_intro" tools:ignore="MissingTranslation">اختر محورًا أو ابحث في جميع الموضوعات. افتح المقال لقراءة التفاصيل والمراجع بشكل منظم.</string>
+    <string name="family_guide_filter_all" tools:ignore="MissingTranslation">الكل</string>
+    <string name="family_guide_sections_count" tools:ignore="MissingTranslation">%1$d أقسام</string>
+    <string name="family_guide_open_article" tools:ignore="MissingTranslation">فتح المقال</string>
+    <string name="family_references_title" tools:ignore="MissingTranslation">المراجع والإحالات</string>
+    <string name="family_sensitive_notice_title" tools:ignore="MissingTranslation">تنبيه للمسائل الحساسة</string>
+    <string name="family_sensitive_notice_text" tools:ignore="MissingTranslation">الخلاف والعنف والطلاق والخلع مسائل قد تتطلب حماية فورية أو فتوى خاصة أو إجراءً قانونيًا. لا يعتمد التطبيق على إجابات آلية لتقرير حكم واقعة شخصية.</string>
+    <string name="family_education_notice_title" tools:ignore="MissingTranslation">محتوى تعليمي</string>
+    <string name="family_education_notice_text" tools:ignore="MissingTranslation">هذا الشرح للتعلم والتنظيم العام. عند اختلاف المذاهب أو وجود نزاع أو حقوق قانونية، راجع جهة علمية وقانونية موثوقة في بلدك.</string>
 </resources>
