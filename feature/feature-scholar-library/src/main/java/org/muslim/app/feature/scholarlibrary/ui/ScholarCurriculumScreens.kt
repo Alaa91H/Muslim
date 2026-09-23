@@ -49,6 +49,7 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarDifficulty
 import org.muslim.app.feature.scholarlibrary.domain.ScholarPathProgress
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPath
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPlan
+import org.muslim.app.feature.scholarlibrary.domain.ScholarWeeklyStudySummary
 
 internal fun LazyListScope.studyPathItems(
     paths: List<ScholarStudyPath>,
@@ -129,6 +130,7 @@ fun ScholarStudyPathScreen(
     pathId: String,
     onBack: () -> Unit,
     onOpenBook: (String) -> Unit,
+    onOpenSession: (String) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: ScholarLibraryViewModel = hiltViewModel(),
 ) {
@@ -136,6 +138,7 @@ fun ScholarStudyPathScreen(
     val path = state.studyPaths.firstOrNull { it.id == pathId }
     val progress = state.pathProgress.firstOrNull { it.pathId == pathId }
     val activePlan = state.studyPlans.firstOrNull { it.pathId == pathId && it.active }
+    val weeklySummary = state.weeklyStudySummaries.firstOrNull { it.pathId == pathId }
     val snackbarHostState = remember { SnackbarHostState() }
 
     LaunchedEffect(state.statusMessage) {
@@ -184,9 +187,11 @@ fun ScholarStudyPathScreen(
                     books = state.books,
                     progress = progress,
                     activePlan = activePlan,
+                    weeklySummary = weeklySummary,
                     padding = padding,
                     actions = StudyPathActions(
                         onOpenBook = onOpenBook,
+                        onOpenSession = { onOpenSession(path.id) },
                         onDailyPlan = { viewModel.createDailyStudyPlan(path.id) },
                         onWeeklyPlan = { viewModel.createWeeklyStudyPlan(path.id) },
                         onDeletePlan = { id -> viewModel.deleteStudyPlan(id) },
@@ -199,6 +204,7 @@ fun ScholarStudyPathScreen(
 
 private data class StudyPathActions(
     val onOpenBook: (String) -> Unit,
+    val onOpenSession: () -> Unit,
     val onDailyPlan: () -> Unit,
     val onWeeklyPlan: () -> Unit,
     val onDeletePlan: (Long) -> Unit,
@@ -210,6 +216,7 @@ private fun StudyPathContent(
     books: List<ScholarBook>,
     progress: ScholarPathProgress?,
     activePlan: ScholarStudyPlan?,
+    weeklySummary: ScholarWeeklyStudySummary?,
     padding: PaddingValues,
     actions: StudyPathActions,
 ) {
@@ -236,10 +243,14 @@ private fun StudyPathContent(
         item {
             StudyPlanCard(
                 plan = activePlan,
+                onOpenSession = actions.onOpenSession,
                 onDailyPlan = actions.onDailyPlan,
                 onWeeklyPlan = actions.onWeeklyPlan,
                 onDeletePlan = actions.onDeletePlan,
             )
+        }
+        item {
+            WeeklyStudySummaryCard(weeklySummary)
         }
         path.stages.forEachIndexed { index, stage ->
             item(key = "stage_${stage.id}") {
@@ -450,6 +461,7 @@ private fun PathProgressCard(
 @Composable
 private fun StudyPlanCard(
     plan: ScholarStudyPlan?,
+    onOpenSession: () -> Unit,
     onDailyPlan: () -> Unit,
     onWeeklyPlan: () -> Unit,
     onDeletePlan: (Long) -> Unit,
@@ -482,10 +494,35 @@ private fun StudyPlanCard(
                 }
             }
             plan?.let {
+                Button(onClick = onOpenSession) {
+                    Text(stringResource(R.string.scholar_library_open_study_session))
+                }
                 OutlinedButton(onClick = { onDeletePlan(it.id) }) {
                     Text(stringResource(R.string.scholar_library_delete_study_plan))
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun WeeklyStudySummaryCard(summary: ScholarWeeklyStudySummary?) {
+    Card {
+        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            Text(
+                stringResource(R.string.scholar_library_weekly_summary),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                stringResource(
+                    R.string.scholar_library_weekly_summary_values,
+                    summary?.completedSessions ?: 0,
+                    summary?.completedPassages ?: 0,
+                    summary?.studiedMinutes ?: 0,
+                ),
+                style = MaterialTheme.typography.bodyMedium,
+            )
         }
     }
 }
