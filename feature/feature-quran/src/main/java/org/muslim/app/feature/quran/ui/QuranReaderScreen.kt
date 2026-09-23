@@ -1667,7 +1667,10 @@ private fun MushafPageCard(
                 }
             }
             if (ayah.globalNumber == presentation.scrollTargetAyahGlobal) {
-                targetCharEndExclusive = length
+                // Exclude the separator space after the ayah marker from the
+                // measured bounds so a wrapped trailing blank cannot create a
+                // phantom extra line at the bottom.
+                targetCharEndExclusive = (length - 1).coerceAtLeast(targetCharOffset + 1)
             }
         }
     }
