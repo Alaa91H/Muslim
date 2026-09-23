@@ -85,6 +85,8 @@ import java.time.format.DateTimeFormatter
 private enum class FamilySection {
     Home,
     Guide,
+    Saved,
+    Tools,
     Ruqyah,
     Names,
     Aqiqah,
@@ -106,6 +108,9 @@ fun FamilyLifeScreen(
     }
     val selectedArticle = articleId?.let(FamilyLifeContent::articleById)
     val state by viewModel.state.collectAsStateWithLifecycle()
+    LaunchedEffect(selectedArticle?.id) {
+        selectedArticle?.id?.let(viewModel::recordArticleOpened)
+    }
     val isArabic = AppLanguage.isArabicUi()
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
@@ -148,10 +153,18 @@ fun FamilyLifeScreen(
                 selectedArticle != null -> FamilyArticleDetailContent(
                     article = selectedArticle,
                     isArabic = isArabic,
+                    isFavorite = selectedArticle.id in state.favoriteArticleIds,
+                    relatedArticles = FamilyLifeContent.relatedArticles(selectedArticle.id),
+                    onToggleFavorite = { viewModel.toggleArticleFavorite(selectedArticle.id) },
+                    onOpenArticle = { articleId = it },
                 )
                 section == FamilySection.Home -> FamilyHubContent(
                     isArabic = isArabic,
+                    favoriteCount = state.favoriteArticleIds.size,
+                    recentCount = state.recentArticleIds.size,
                     onOpenCategory = { category -> navigate(FamilySection.Guide, category) },
+                    onOpenSaved = { navigate(FamilySection.Saved) },
+                    onOpenTools = { navigate(FamilySection.Tools) },
                     onOpenRuqyah = { navigate(FamilySection.Ruqyah) },
                     onOpenNames = { navigate(FamilySection.Names) },
                     onOpenAqiqah = { navigate(FamilySection.Aqiqah) },
@@ -159,7 +172,21 @@ fun FamilyLifeScreen(
                 section == FamilySection.Guide -> FamilyGuideCatalogContent(
                     isArabic = isArabic,
                     initialCategory = selectedCategory,
+                    favoriteIds = state.favoriteArticleIds,
                     onOpenArticle = { articleId = it },
+                    onToggleFavorite = viewModel::toggleArticleFavorite,
+                )
+                section == FamilySection.Saved -> FamilySavedContent(
+                    isArabic = isArabic,
+                    favoriteIds = state.favoriteArticleIds,
+                    recentArticleIds = state.recentArticleIds,
+                    onOpenArticle = { articleId = it },
+                    onClearHistory = viewModel::clearReadingHistory,
+                )
+                section == FamilySection.Tools -> FamilyToolsContent(
+                    isArabic = isArabic,
+                    completedItemIds = state.completedChecklistItemIds,
+                    onSetCompleted = viewModel::setChecklistItemCompleted,
                 )
                 section == FamilySection.Ruqyah -> RuqyahContent(
                     isArabic = isArabic,
@@ -201,6 +228,8 @@ private fun FamilyLifeTopBar(
 private fun FamilySection.title(): String = when (this) {
     FamilySection.Home -> stringResource(R.string.family_life_title)
     FamilySection.Guide -> stringResource(R.string.family_guide_all_title)
+    FamilySection.Saved -> stringResource(R.string.family_saved_title)
+    FamilySection.Tools -> stringResource(R.string.family_checklists_title)
     FamilySection.Ruqyah -> stringResource(R.string.family_tab_ruqyah)
     FamilySection.Names -> stringResource(R.string.family_tab_names)
     FamilySection.Aqiqah -> stringResource(R.string.family_tab_aqiqah)
