@@ -411,6 +411,43 @@ CORPORA = (
             }
         ),
     ),
+    CorpusSpec(
+        name="FAQs and Common Misconceptions",
+        legacy=None,
+        asset=RAW / "reference_faq_misconceptions_v2.json",
+        min_topics=72,
+        min_chapters=9,
+        min_revision=1,
+        required_topic_ids=frozenset(
+            {
+                "faq_method",
+                "who_is_allah_faq",
+                "qadar_free_will",
+                "why_suffering",
+                "quran_preserved_faq",
+                "uthman_burned_quran",
+                "qiraat_contradictions",
+                "why_sunnah",
+                "hadith_compiled_late",
+                "bukhari_infallible",
+                "why_five_prayers",
+                "hajj_kaaba_worship",
+                "women_spiritual_equal",
+                "inheritance_half",
+                "testimony_half",
+                "marriage_consent",
+                "sharia_punishments",
+                "forced_conversion",
+                "takfir_people",
+                "jihad_holy_war",
+                "spread_by_sword",
+                "one_caliphate_history",
+                "why_muslims_disagree",
+                "verify_religious_content",
+                "app_reference_limits",
+            }
+        ),
+    ),
 )
 
 
