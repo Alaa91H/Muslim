@@ -70,6 +70,7 @@ import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.family.R
 import org.muslim.app.feature.family.domain.AqiqahCalculator
+import org.muslim.app.feature.family.domain.AqiqahReminderDay
 import org.muslim.app.feature.family.domain.BabyNameGender
 import org.muslim.app.feature.family.domain.FamilyTopicCategory
 import org.muslim.app.feature.family.domain.FamilyLifeContent
@@ -77,6 +78,7 @@ import org.muslim.app.feature.family.domain.IslamicBabyName
 import org.muslim.app.feature.family.domain.LocalizedFamilyText
 import org.muslim.app.feature.family.domain.RuqyahAudioTrack
 import org.muslim.app.feature.family.domain.RuqyahPassage
+import org.muslim.app.feature.family.domain.RuqyahSupplication
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -264,6 +266,17 @@ private fun RuqyahContent(
         }
         item {
             Text(
+                text = stringResource(R.string.family_ruqyah_supplications_title),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(top = 4.dp),
+            )
+        }
+        items(FamilyLifeContent.ruqyahSupplications, key = { it.id }) { supplication ->
+            RuqyahSupplicationCard(supplication = supplication, isArabic = isArabic)
+        }
+        item {
+            Text(
                 text = stringResource(R.string.family_ruqyah_audio_title),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
@@ -316,6 +329,40 @@ private fun RuqyahPassageCard(
                 color = MaterialTheme.colorScheme.primary,
             )
         }
+    }
+}
+
+@Composable
+private fun RuqyahSupplicationCard(
+    supplication: RuqyahSupplication,
+    isArabic: Boolean,
+) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Text(
+            text = supplication.title.pick(isArabic),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+        )
+        Spacer(Modifier.height(8.dp))
+        Text(
+            text = supplication.arabic,
+            style = MaterialTheme.typography.bodyLarge,
+            textAlign = TextAlign.End,
+            modifier = Modifier.fillMaxWidth(),
+        )
+        Spacer(Modifier.height(8.dp))
+        Text(
+            text = supplication.meaning.pick(isArabic),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Spacer(Modifier.height(6.dp))
+        Text(
+            text = supplication.reference.pick(isArabic),
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.primary,
+        )
     }
 }
 
@@ -437,6 +484,20 @@ private fun BabyNameCard(name: IslamicBabyName, isArabic: Boolean) {
                     text = if (isArabic) name.meaningArabic else name.meaningEnglish,
                     style = MaterialTheme.typography.bodyMedium,
                 )
+                name.origin?.let { origin ->
+                    Text(
+                        text = stringResource(R.string.family_name_origin, origin.pick(isArabic)),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+                name.note?.let { note ->
+                    Text(
+                        text = note.pick(isArabic),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
             }
         }
     }
@@ -456,7 +517,9 @@ private fun AqiqahContent(
         if (text.isEmpty()) null else runCatching { LocalDate.parse(text) }.getOrNull()
     }
     val schedule = birthDate?.let(AqiqahCalculator::schedule)
-    val daysUntil = birthDate?.let { AqiqahCalculator.daysUntilFirst(it, LocalDate.now()) }
+    val daysUntil = birthDate?.let {
+        AqiqahCalculator.daysUntil(it, state.aqiqahReminderDay, LocalDate.now())
+    }
     val reminderAvailable = daysUntil != null && daysUntil >= 0
 
     LazyColumn(
@@ -505,8 +568,15 @@ private fun AqiqahContent(
             }
         }
         item {
+            AqiqahReminderDaySelector(
+                selectedDay = state.aqiqahReminderDay,
+                onSelected = viewModel::setAqiqahReminderDay,
+            )
+        }
+        item {
             AqiqahReminderCard(
                 birthDate = birthDate,
+                reminderDay = state.aqiqahReminderDay,
                 reminderAvailable = reminderAvailable,
                 reminderEnabled = state.aqiqahReminderEnabled,
                 onToggleReminder = { viewModel.setAqiqahReminderEnabled(it) },
@@ -522,8 +592,33 @@ private fun AqiqahContent(
 }
 
 @Composable
+private fun AqiqahReminderDaySelector(
+    selectedDay: AqiqahReminderDay,
+    onSelected: (AqiqahReminderDay) -> Unit,
+) {
+    IslamicCard(modifier = Modifier.fillMaxWidth()) {
+        Text(
+            text = stringResource(R.string.family_aqiqah_choose_reminder_day),
+            style = MaterialTheme.typography.titleSmall,
+            fontWeight = FontWeight.Bold,
+        )
+        Spacer(Modifier.height(8.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            AqiqahReminderDay.entries.forEach { day ->
+                FilterChip(
+                    selected = selectedDay == day,
+                    onClick = { onSelected(day) },
+                    label = { Text(stringResource(R.string.family_aqiqah_day_number, day.offsetDays)) },
+                )
+            }
+        }
+    }
+}
+
+@Composable
 private fun AqiqahReminderCard(
     birthDate: LocalDate?,
+    reminderDay: AqiqahReminderDay,
     reminderAvailable: Boolean,
     reminderEnabled: Boolean,
     onToggleReminder: (Boolean) -> Unit,
@@ -536,8 +631,11 @@ private fun AqiqahReminderCard(
                 Text(stringResource(R.string.family_aqiqah_reminder), style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Bold)
                 Text(
                     text = if (birthDate == null) stringResource(R.string.family_aqiqah_set_birth_first)
-                    else if (reminderAvailable) stringResource(R.string.family_aqiqah_reminder_desc)
-                    else stringResource(R.string.family_aqiqah_date_passed),
+                    else if (reminderAvailable) {
+                        stringResource(R.string.family_aqiqah_reminder_desc, reminderDay.offsetDays)
+                    } else {
+                        stringResource(R.string.family_aqiqah_selected_date_passed, reminderDay.offsetDays)
+                    },
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
