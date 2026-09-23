@@ -10,6 +10,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -133,12 +134,14 @@ class AdhanNotificationsInstrumentedTest {
     }
 
     @Test
-    fun activeAdhan_isOngoingPublicHighPriority_andExposesOnlyTheExplicitStopAction() {
+    fun activeAdhan_exposesStopDismissAndLockScreenControls() {
         val notification = AdhanNotifications.adhanNotification(context, Prayer.Fajr)
 
         assertTrue(notification.flags and Notification.FLAG_ONGOING_EVENT != 0)
         assertFalse(notification.flags and Notification.FLAG_AUTO_CANCEL != 0)
-        assertNull(notification.deleteIntent)
+        assertNotNull("Swipe dismissal must reach the Adhan stop receiver", notification.deleteIntent)
+        assertNotNull("Tapping the alert must open Adhan controls", notification.contentIntent)
+        assertNotNull("Alarm notification must expose lock-screen controls", notification.fullScreenIntent)
         assertEquals(NotificationCompat.VISIBILITY_PUBLIC, notification.visibility)
         assertEquals(NotificationCompat.PRIORITY_HIGH, notification.priority)
         assertEquals(1, notification.actions.size)
