@@ -18,10 +18,12 @@ object ReferenceContentValidator {
     private val isoDate = Regex("""\d{4}-\d{2}-\d{2}""")
 
     fun validate(books: List<ReferenceBook>): List<ReferenceValidationIssue> = buildList {
-        val duplicateBookIds = books.groupBy { it.id }.filterValues { it.size > 1 }.keys
-        duplicateBookIds.forEach { id ->
-            add(issue("duplicate_book_id", "book:$id", "Book id '$id' is duplicated."))
-        }
+        books.groupBy { it.id }
+            .filterValues { it.size > 1 }
+            .keys
+            .forEach { id ->
+                add(issue("duplicate_book_id", "book:$id", "Book id '$id' is duplicated."))
+            }
 
         val qualifiedTopics = books.flatMap { book ->
             book.topics.map { topic -> "${book.id}/${topic.id}" }
@@ -29,32 +31,44 @@ object ReferenceContentValidator {
 
         books.forEach { book ->
             val bookPath = "book:${book.id}"
-            if (book.id.isBlank()) add(issue("blank_book_id", bookPath, "Book id must not be blank."))
-            if (book.titleAr.isBlank() || book.titleEn.isBlank()) {
-                add(issue("blank_book_title", bookPath, "Book titles must be present in Arabic and English."))
-            }
-            if (book.contentRevision < 1) {
-                add(issue("invalid_revision", bookPath, "Content revision must be at least 1."))
-            }
-
-            val duplicateTopicIds = book.topics.groupBy { it.id }.filterValues { it.size > 1 }.keys
-            duplicateTopicIds.forEach { id ->
-                add(issue("duplicate_topic_id", "$bookPath/topic:$id", "Topic id '$id' is duplicated in the book."))
-            }
+            validateBookHeader(book, bookPath, this)
 
             val topicIds = book.topics.map { it.id }.toSet()
             validateChapters(book, topicIds, bookPath, this)
-
             book.topics.forEach { topic ->
-                validateTopic(
-                    bookId = book.id,
-                    topic = topic,
-                    localTopicIds = topicIds,
-                    qualifiedTopics = qualifiedTopics,
-                    destination = this,
-                )
+                validateTopic(book.id, topic, topicIds, qualifiedTopics, this)
             }
         }
+    }
+
+    private fun validateBookHeader(
+        book: ReferenceBook,
+        path: String,
+        destination: MutableList<ReferenceValidationIssue>,
+    ) {
+        if (book.id.isBlank()) {
+            destination += issue("blank_book_id", path, "Book id must not be blank.")
+        }
+        if (book.titleAr.isBlank() || book.titleEn.isBlank()) {
+            destination += issue(
+                "blank_book_title",
+                path,
+                "Book titles must be present in Arabic and English.",
+            )
+        }
+        if (book.contentRevision < 1) {
+            destination += issue("invalid_revision", path, "Content revision must be at least 1.")
+        }
+        book.topics.groupBy { it.id }
+            .filterValues { it.size > 1 }
+            .keys
+            .forEach { id ->
+                destination += issue(
+                    "duplicate_topic_id",
+                    "$path/topic:$id",
+                    "Topic id '$id' is duplicated in the book.",
+                )
+            }
     }
 
     private fun validateChapters(
@@ -63,14 +77,16 @@ object ReferenceContentValidator {
         bookPath: String,
         destination: MutableList<ReferenceValidationIssue>,
     ) {
-        val duplicateChapterIds = book.chapters.groupBy { it.id }.filterValues { it.size > 1 }.keys
-        duplicateChapterIds.forEach { id ->
-            destination += issue(
-                "duplicate_chapter_id",
-                "$bookPath/chapter:$id",
-                "Chapter id '$id' is duplicated in the book.",
-            )
-        }
+        book.chapters.groupBy { it.id }
+            .filterValues { it.size > 1 }
+            .keys
+            .forEach { id ->
+                destination += issue(
+                    "duplicate_chapter_id",
+                    "$bookPath/chapter:$id",
+                    "Chapter id '$id' is duplicated in the book.",
+                )
+            }
 
         book.chapters.forEach { chapter ->
             val path = "$bookPath/chapter:${chapter.id}"
@@ -84,24 +100,32 @@ object ReferenceContentValidator {
                     "Chapter titles must be present in Arabic and English.",
                 )
             }
-            chapter.topicIds
-                .groupBy { it }
-                .filterValues { it.size > 1 }
-                .keys
-                .forEach { duplicate ->
-                    destination += issue(
-                        "duplicate_chapter_topic",
-                        path,
-                        "Topic '$duplicate' is listed more than once in the chapter.",
-                    )
-                }
-            chapter.topicIds.filterNot(topicIds::contains).forEach { missing ->
+            validateChapterTopicIds(chapter, topicIds, path, destination)
+        }
+    }
+
+    private fun validateChapterTopicIds(
+        chapter: RefChapter,
+        topicIds: Set<String>,
+        path: String,
+        destination: MutableList<ReferenceValidationIssue>,
+    ) {
+        chapter.topicIds.groupBy { it }
+            .filterValues { it.size > 1 }
+            .keys
+            .forEach { duplicate ->
                 destination += issue(
-                    "missing_chapter_topic",
+                    "duplicate_chapter_topic",
                     path,
-                    "Chapter points to missing topic '$missing'.",
+                    "Topic '$duplicate' is listed more than once in the chapter.",
                 )
             }
+        chapter.topicIds.filterNot(topicIds::contains).forEach { missing ->
+            destination += issue(
+                "missing_chapter_topic",
+                path,
+                "Chapter points to missing topic '$missing'.",
+            )
         }
     }
 
@@ -113,6 +137,18 @@ object ReferenceContentValidator {
         destination: MutableList<ReferenceValidationIssue>,
     ) {
         val path = "book:$bookId/topic:${topic.id}"
+        validateTopicHeader(topic, path, destination)
+        val citationIds = validateCitations(topic, path, destination)
+        validateSections(topic, citationIds, path, destination)
+        validateRelatedTopics(topic, localTopicIds, qualifiedTopics, path, destination)
+        validateReviewState(topic, path, destination)
+    }
+
+    private fun validateTopicHeader(
+        topic: RefTopic,
+        path: String,
+        destination: MutableList<ReferenceValidationIssue>,
+    ) {
         if (topic.id.isBlank()) {
             destination += issue("blank_topic_id", path, "Topic id must not be blank.")
         }
@@ -133,19 +169,24 @@ object ReferenceContentValidator {
         if (topic.sections.isEmpty()) {
             destination += issue("missing_sections", path, "Topic must contain at least one section.")
         }
+        topic.sections.groupBy { it.id }
+            .filterValues { it.size > 1 }
+            .keys
+            .forEach { id ->
+                destination += issue(
+                    "duplicate_section_id",
+                    "$path/section:$id",
+                    "Section id '$id' is duplicated in the topic.",
+                )
+            }
+    }
 
-        val duplicateSectionIds = topic.sections.groupBy { it.id }.filterValues { it.size > 1 }.keys
-        duplicateSectionIds.forEach { id ->
-            destination += issue(
-                "duplicate_section_id",
-                "$path/section:$id",
-                "Section id '$id' is duplicated in the topic.",
-            )
-        }
-
-        val citationIds = topic.citations.map { it.id }
-        citationIds
-            .groupBy { it }
+    private fun validateCitations(
+        topic: RefTopic,
+        path: String,
+        destination: MutableList<ReferenceValidationIssue>,
+    ): Set<String> {
+        topic.citations.groupBy { it.id }
             .filterValues { it.size > 1 }
             .keys
             .forEach { id ->
@@ -155,7 +196,6 @@ object ReferenceContentValidator {
                     "Citation id '$id' is duplicated in the topic.",
                 )
             }
-        val citationIdSet = citationIds.toSet()
 
         topic.citations.forEach { citation ->
             val citationPath = "$path/citation:${citation.id}"
@@ -172,7 +212,15 @@ object ReferenceContentValidator {
                 )
             }
         }
+        return topic.citations.map { it.id }.toSet()
+    }
 
+    private fun validateSections(
+        topic: RefTopic,
+        citationIds: Set<String>,
+        path: String,
+        destination: MutableList<ReferenceValidationIssue>,
+    ) {
         topic.sections.forEach { section ->
             val sectionPath = "$path/section:${section.id}"
             if (section.id.isBlank()) {
@@ -193,26 +241,38 @@ object ReferenceContentValidator {
                 )
             }
 
-            validateCitationIds(section.citationIds, citationIdSet, sectionPath, destination)
+            validateCitationIds(section.citationIds, citationIds, sectionPath, destination)
             section.paragraphs.forEachIndexed { index, paragraph ->
-                val paragraphPath = "$sectionPath/paragraph:$index"
-                if (paragraph.ar.isBlank() || paragraph.en.isBlank()) {
-                    destination += issue(
-                        "blank_paragraph",
-                        paragraphPath,
-                        "Paragraph text must be present in Arabic and English.",
-                    )
-                }
-                validateCitationIds(paragraph.citationIds, citationIdSet, paragraphPath, destination)
+                validateParagraph(paragraph, citationIds, "$sectionPath/paragraph:$index", destination)
             }
         }
+    }
 
+    private fun validateParagraph(
+        paragraph: RefParagraph,
+        citationIds: Set<String>,
+        path: String,
+        destination: MutableList<ReferenceValidationIssue>,
+    ) {
+        if (paragraph.ar.isBlank() || paragraph.en.isBlank()) {
+            destination += issue(
+                "blank_paragraph",
+                path,
+                "Paragraph text must be present in Arabic and English.",
+            )
+        }
+        validateCitationIds(paragraph.citationIds, citationIds, path, destination)
+    }
+
+    private fun validateRelatedTopics(
+        topic: RefTopic,
+        localTopicIds: Set<String>,
+        qualifiedTopics: Set<String>,
+        path: String,
+        destination: MutableList<ReferenceValidationIssue>,
+    ) {
         topic.relatedTopicIds.forEach { related ->
-            val exists = if ('/' in related) {
-                related in qualifiedTopics
-            } else {
-                related in localTopicIds
-            }
+            val exists = if ('/' in related) related in qualifiedTopics else related in localTopicIds
             if (!exists) {
                 destination += issue(
                     "missing_related_topic",
@@ -221,22 +281,27 @@ object ReferenceContentValidator {
                 )
             }
         }
+    }
 
-        if (topic.reviewStatus == ReferenceReviewStatus.Reviewed) {
-            if (topic.citations.isEmpty()) {
-                destination += issue(
-                    "reviewed_without_citations",
-                    path,
-                    "Reviewed topics must contain at least one structured citation.",
-                )
-            }
-            if (topic.lastReviewed == null || !isoDate.matches(topic.lastReviewed)) {
-                destination += issue(
-                    "invalid_review_date",
-                    path,
-                    "Reviewed topics require lastReviewed in yyyy-MM-dd format.",
-                )
-            }
+    private fun validateReviewState(
+        topic: RefTopic,
+        path: String,
+        destination: MutableList<ReferenceValidationIssue>,
+    ) {
+        if (topic.reviewStatus != ReferenceReviewStatus.Reviewed) return
+        if (topic.citations.isEmpty()) {
+            destination += issue(
+                "reviewed_without_citations",
+                path,
+                "Reviewed topics must contain at least one structured citation.",
+            )
+        }
+        if (topic.lastReviewed == null || !isoDate.matches(topic.lastReviewed)) {
+            destination += issue(
+                "invalid_review_date",
+                path,
+                "Reviewed topics require lastReviewed in yyyy-MM-dd format.",
+            )
         }
     }
 
