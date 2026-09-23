@@ -29,6 +29,10 @@
     <string name="funeral_will_saved_locally">All current changes are saved locally on this device.</string>
     <string name="funeral_will_sensitive_data_notice">Security: do not store passwords, PINs, recovery phrases, or private keys in this draft. Record only where a separate secure access plan can be found.</string>
     <string name="funeral_will_share_dialog_title">Share a copy of the draft?</string>
-    <string name="funeral_will_share_dialog_text">The app will create a text copy of the currently displayed draft and open Android's share sheet. Review the content and recipient, and do not share access secrets or sensitive information with an untrusted destination.</string>
+    <string name="funeral_will_share_dialog_text">The app will create a text copy of the currently displayed draft and open Android\'s share sheet. Review the content and recipient, and do not share access secrets or sensitive information with an untrusted destination.</string>
     <string name="funeral_will_share_confirm">Continue to share</string>
+    <string name="funeral_will_search">Search this section</string>
+    <string name="funeral_will_search_clear">Clear search</string>
+    <string name="funeral_will_search_results">%1$d matching topics</string>
+    <string name="funeral_will_search_empty">No topics match this search. Try a different word or clear the search.</string>
 </resources>
