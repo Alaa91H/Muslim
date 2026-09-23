@@ -102,6 +102,16 @@ private val bookIcons = mapOf(
     "faq_misconceptions" to Icons.Filled.Search,
 )
 
+
+private data class ReferenceReaderUiState(
+    val preferences: ReferenceReaderPreferences,
+    val bookmarkKeys: Set<String>,
+    val fontStep: Int,
+    val onBookmarkKeysChanged: (Set<String>) -> Unit,
+    val onFontStepChanged: (Int) -> Unit,
+    val onLastReadChanged: (ReferenceReaderLocation) -> Unit,
+)
+
 /**
  * المرجعية الإسلامية (feature-reference): مكتبة مرجعية شاملة ومفهرسة تعرض
  * كتب مترابطة تشمل التعريف بالإسلام والسيرة والأنبياء والصحابة وأمهات
@@ -142,6 +152,14 @@ fun ReferenceScreen(
     }
 
     val book = selectedBook
+    val readerState = ReferenceReaderUiState(
+        preferences = readerPreferences,
+        bookmarkKeys = readerState.bookmarkKeys,
+        fontStep = readerState.fontStep,
+        onBookmarkKeysChanged = { bookmarkKeys = it },
+        onFontStepChanged = { fontStep = readerPreferences.setFontStep(it) },
+        onLastReadChanged = { lastRead = it },
+    )
 
     MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
@@ -171,14 +189,7 @@ fun ReferenceScreen(
                 book = book,
                 topic = selectedTopic!!,
                 lang = lang,
-                readerPreferences = readerPreferences,
-                bookmarkKeys = bookmarkKeys,
-                fontStep = fontStep,
-                onBookmarkKeysChanged = { bookmarkKeys = it },
-                onFontStepChanged = {
-                    fontStep = readerPreferences.setFontStep(it)
-                },
-                onLastReadChanged = { lastRead = it },
+                readerState = readerState,
                 onOpenTopic = { targetBook, targetTopic ->
                     openTopic(targetBook, targetTopic)
                     query = ""
@@ -191,7 +202,7 @@ fun ReferenceScreen(
                 lang = lang,
                 query = query,
                 onQueryChanged = { query = it },
-                bookmarkKeys = bookmarkKeys,
+                bookmarkKeys = readerState.bookmarkKeys,
                 onOpenTopic = { openTopic(book, it) },
                 modifier = contentModifier,
             )
@@ -200,7 +211,7 @@ fun ReferenceScreen(
                 lang = lang,
                 query = hubQuery,
                 onQueryChanged = { hubQuery = it },
-                bookmarkKeys = bookmarkKeys,
+                bookmarkKeys = readerState.bookmarkKeys,
                 lastRead = lastRead,
                 onOpenBook = {
                     selectedBook = it
@@ -553,7 +564,7 @@ private fun BookContent(
                             TopicListItem(
                                 topic = topic,
                                 lang = lang,
-                                bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in bookmarkKeys,
+                                bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in readerState.bookmarkKeys,
                                 onOpenTopic = onOpenTopic,
                             )
                         }
@@ -563,7 +574,7 @@ private fun BookContent(
                         TopicListItem(
                             topic = topic,
                             lang = lang,
-                            bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in bookmarkKeys,
+                            bookmarked = ReferenceReaderKeyCodec.topicKey(book.id, topic.id) in readerState.bookmarkKeys,
                             onOpenTopic = onOpenTopic,
                         )
                     }
@@ -601,12 +612,7 @@ private fun TopicContent(
     book: ReferenceBook,
     topic: RefTopic,
     lang: RefLang,
-    readerPreferences: ReferenceReaderPreferences,
-    bookmarkKeys: Set<String>,
-    fontStep: Int,
-    onBookmarkKeysChanged: (Set<String>) -> Unit,
-    onFontStepChanged: (Int) -> Unit,
-    onLastReadChanged: (ReferenceReaderLocation) -> Unit,
+    readerState: ReferenceReaderUiState,
     onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -632,8 +638,8 @@ private fun TopicContent(
         snapshotFlow { listState.firstVisibleItemIndex }
             .distinctUntilChanged()
             .collect { scrollIndex ->
-                readerPreferences.saveScrollIndex(book.id, topic.id, scrollIndex)
-                onLastReadChanged(
+                readerState.preferences.saveScrollIndex(book.id, topic.id, scrollIndex)
+                readerState.onLastReadChanged(
                     ReferenceReaderLocation(
                         bookId = book.id,
                         topicId = topic.id,
@@ -652,22 +658,22 @@ private fun TopicContent(
             ReaderControls(
                 lang = lang,
                 bookmarked = bookmarked,
-                fontStep = fontStep,
+                fontStep = readerState.fontStep,
                 onToggleBookmark = {
-                    onBookmarkKeysChanged(
-                        readerPreferences.setBookmarked(
+                    readerState.onBookmarkKeysChanged(
+                        readerState.preferences.setBookmarked(
                             bookId = book.id,
                             topicId = topic.id,
                             bookmarked = !bookmarked,
                         ),
                     )
                 },
-                onDecreaseFont = { onFontStepChanged(fontStep - 1) },
-                onIncreaseFont = { onFontStepChanged(fontStep + 1) },
+                onDecreaseFont = { readerState.onFontStepChanged(readerState.fontStep - 1) },
+                onIncreaseFont = { readerState.onFontStepChanged(readerState.fontStep + 1) },
             )
         }
         item(key = "topic-header") {
-            TopicHeader(topic = topic, lang = lang, fontStep = fontStep)
+            TopicHeader(topic = topic, lang = lang, fontStep = readerState.fontStep)
         }
         item(key = "topic-toc") {
             TopicTableOfContents(
@@ -685,7 +691,7 @@ private fun TopicContent(
                 topic = topic,
                 section = section,
                 lang = lang,
-                fontStep = fontStep,
+                fontStep = readerState.fontStep,
             )
         }
         if (topic.citations.isNotEmpty()) {
@@ -890,7 +896,7 @@ private fun TopicSectionContent(
                 topic.citations.firstOrNull { it.id == citationId }
             },
             lang = lang,
-            fontStep = fontStep,
+            fontStep = readerState.fontStep,
         )
     }
     val sectionCitations = section.citationIds.mapNotNull { citationId ->
