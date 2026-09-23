@@ -5,6 +5,7 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import org.muslim.app.feature.tasbih.domain.TasbihPhrase
 import org.muslim.app.feature.tasbih.domain.TasbihSessionEndReason
+import org.muslim.app.feature.tasbih.domain.TasbihSessionMode
 import org.muslim.app.feature.tasbih.domain.TasbihSessionTransition
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -26,16 +27,23 @@ class TasbihActionCoordinator @Inject constructor(
     suspend fun increment(
         phrase: TasbihPhrase,
         target: Int,
+        mode: TasbihSessionMode = TasbihSessionMode.Free,
+        roundsGoal: Int = TasbihRepository.DEFAULT_ROUNDS_GOAL,
     ): TasbihSessionTransition? = actionMutex.withLock {
         counterRepository.increment(phrase)
-        runCatching { sessionRepository.increment(phrase, target) }
+        runCatching { sessionRepository.increment(phrase, target, mode, roundsGoal) }
             .onFailure { Log.w(TAG, "Could not persist tasbih session increment", it) }
             .getOrNull()
     }
 
-    suspend fun decrement(phrase: TasbihPhrase, target: Int) = actionMutex.withLock {
+    suspend fun decrement(
+        phrase: TasbihPhrase,
+        target: Int,
+        mode: TasbihSessionMode = TasbihSessionMode.Free,
+        roundsGoal: Int = TasbihRepository.DEFAULT_ROUNDS_GOAL,
+    ) = actionMutex.withLock {
         counterRepository.decrement(phrase)
-        runCatching { sessionRepository.decrement(phrase, target) }
+        runCatching { sessionRepository.decrement(phrase, target, mode, roundsGoal) }
             .onFailure { Log.w(TAG, "Could not persist tasbih session decrement", it) }
         Unit
     }
@@ -53,6 +61,15 @@ class TasbihActionCoordinator @Inject constructor(
     suspend fun setTarget(target: Int) = actionMutex.withLock {
         closeSessionBestEffort(TasbihSessionEndReason.ContextChanged)
         counterRepository.setTarget(target)
+    }
+
+    suspend fun configureSession(
+        mode: TasbihSessionMode,
+        target: Int,
+        roundsGoal: Int,
+    ) = actionMutex.withLock {
+        closeSessionBestEffort(TasbihSessionEndReason.ContextChanged)
+        counterRepository.setSessionConfig(mode, target, roundsGoal)
     }
 
     suspend fun setPhrase(phrase: TasbihPhrase) = actionMutex.withLock {
