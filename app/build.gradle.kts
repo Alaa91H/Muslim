@@ -2,6 +2,8 @@ import java.util.Base64
 import java.util.Properties
 import org.gradle.api.tasks.Exec
 
+val muslimApplicationId = providers.gradleProperty("muslim.applicationId").get()
+
 // Derives versionCode/versionName from the nearest `v*` git tag so the release
 // version is never hardcoded (PROJECT_PROMPT.md §8). scripts/release.sh pushes
 // the tag before building, so `git describe` returns e.g. "v1.3.0"; VERSION_TAG
@@ -57,7 +59,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "org.muslim.app"
+        applicationId = muslimApplicationId
         minSdk = 26
         targetSdk = 37
         val (code, name) = deriveVersion(gitVersionTag.get(), System.getenv("VERSION_TAG").orEmpty())
