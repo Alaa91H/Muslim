@@ -73,7 +73,8 @@ internal class UpdateDownloadManager(
     }
 
     suspend fun currentState(): UpdateDownloadState =
-        state(preferencesRepository.preferences.first())
+        runCatching { state(preferencesRepository.preferences.first()) }
+            .getOrElse { UpdateDownloadState.Failed(UpdateDownloadFailure.Unknown) }
 
     suspend fun currentFile(): File? {
         val prefs = preferencesRepository.preferences.first()
@@ -163,8 +164,10 @@ internal class UpdateDownloadManager(
         preferencesRepository.clearUpdateDownload()
     }
 
-    private fun updatesDirectory(): File =
-        File(context.getExternalFilesDir(null), UPDATES_DIR)
+    private fun updatesDirectory(): File {
+        val baseDirectory = context.getExternalFilesDir(null) ?: context.filesDir
+        return File(baseDirectory, UPDATES_DIR)
+    }
 
     private fun safeVersion(version: String): String =
         version.trim().ifBlank { "update" }
