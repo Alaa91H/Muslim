@@ -64,6 +64,7 @@ internal data class IslamicDecorationSpec(
     val secondaryRotation: Float = 0f,
 )
 
+@Suppress("LongMethod")
 internal fun AppOrnamentStyle.decorationSpec(): IslamicDecorationSpec = when (this) {
     AppOrnamentStyle.Geometry -> IslamicDecorationSpec(
         primary = IslamicOrnament.Geometric12,
