@@ -197,7 +197,6 @@ fun ScholarStudyPathScreen(
     }
 }
 
-@Composable
 private data class StudyPathActions(
     val onOpenBook: (String) -> Unit,
     val onDailyPlan: () -> Unit,
