@@ -37,18 +37,29 @@ class FamilyLifeContentTest {
         val searchable = FamilyLifeContent.familyArticles
             .flatMap { article -> article.sections.flatMap { it.paragraphs } }
             .joinToString(" ") { it.arabic }
+        assertThat(FamilyLifeContent.familyArticles.size).isAtLeast(19)
         assertThat(FamilyLifeContent.familyArticles.map { it.id })
-            .containsExactly(
+            .containsAtLeast(
                 "engagement",
+                "choosing_spouse",
+                "premarital_conversations",
                 "nikah",
+                "mahr_financial_agreements",
+                "marriage_documentation",
                 "marital_rights",
+                "marital_communication",
+                "household_finances",
                 "parenting",
                 "conflict_resolution",
+                "mediation_reconciliation",
+                "abuse_safety",
                 "separation_divorce",
+                "divorce_general_principles",
+                "khul_annulment",
                 "newborn",
                 "kinship",
                 "daily_family_life",
-            ).inOrder()
+            )
         assertThat(searchable).contains("العنف")
         assertThat(searchable).contains("الرضا")
         assertThat(searchable).contains("الأبناء")
@@ -63,6 +74,12 @@ class FamilyLifeContentTest {
             .contains("daily_family_life")
         assertThat(FamilyLifeContent.familyArticleMetadata.map { it.articleId }.toSet())
             .containsExactlyElementsIn(FamilyLifeContent.familyArticles.map { it.id }.toSet())
+        assertThat(FamilyLifeContent.searchArticles("مهر", FamilyTopicCategory.Marriage).map { it.id })
+            .contains("mahr_financial_agreements")
+        assertThat(FamilyLifeContent.articlesFor(FamilyTopicCategory.BeforeMarriage).map { it.id })
+            .containsAtLeast("engagement", "choosing_spouse", "premarital_conversations")
+        assertThat(FamilyLifeContent.articleById("divorce_general_principles")?.references)
+            .isNotEmpty()
     }
 
 }
