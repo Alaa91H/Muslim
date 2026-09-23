@@ -256,11 +256,24 @@ class ScholarStudyBackupManager @Inject constructor(
             libraryDao.observePassagesForBook(bookId).first()
         }.associateBy { it.id }
 
-        backup.core.notes.forEach {
+        validateCore(backup.core, passages)
+        validateProgress(
+            progress = backup.progress,
+            books = books,
+            passages = passages,
+            validPathIds = validPathIds,
+        )
+    }
+
+    private fun validateCore(
+        core: BackupCore,
+        passages: Map<String, ScholarPassageEntity>,
+    ) {
+        core.notes.forEach {
             requirePassage(passages, it.passageId)
             require(it.text.isNotBlank() && it.text.length <= 4_000) { "نص ملاحظة غير صالح." }
         }
-        backup.core.flashcards.forEach {
+        core.flashcards.forEach {
             requirePassage(passages, it.passageId)
             require(it.front.isNotBlank() && it.front.length <= 1_000) { "وجه بطاقة مراجعة غير صالح." }
             require(it.back.isNotBlank() && it.back.length <= 1_000) { "جواب بطاقة مراجعة غير صالح." }
@@ -272,34 +285,41 @@ class ScholarStudyBackupManager @Inject constructor(
                 "آخر تقييم للبطاقة غير معروف."
             }
         }
-        backup.core.bookmarks.forEach { requirePassage(passages, it.passageId) }
-        backup.core.highlights.forEach {
+        core.bookmarks.forEach { requirePassage(passages, it.passageId) }
+        core.highlights.forEach {
             requirePassage(passages, it.passageId)
             require(it.quote.isNotBlank() && it.quote.length <= 30_000) { "نص تظليل غير صالح." }
             require(ScholarHighlightStyle.entries.any { style -> style.name == it.style }) {
                 "نمط تظليل غير معروف."
             }
         }
+    }
 
-        backup.progress.readingProgress.forEach { progress ->
-            require(progress.bookId in books) { "النسخة تشير إلى كتاب غير مثبت: ${progress.bookId}" }
-            require(progress.progressPercent in 0..100) { "نسبة تقدم غير صالحة." }
-            require(ScholarReadingStatus.entries.any { it.name == progress.status }) {
+    private fun validateProgress(
+        progress: BackupProgress,
+        books: Map<String, ScholarBookEntity>,
+        passages: Map<String, ScholarPassageEntity>,
+        validPathIds: Set<String>,
+    ) {
+        progress.readingProgress.forEach { item ->
+            require(item.bookId in books) { "النسخة تشير إلى كتاب غير مثبت: ${item.bookId}" }
+            require(item.progressPercent in 0..100) { "نسبة تقدم غير صالحة." }
+            require(ScholarReadingStatus.entries.any { it.name == item.status }) {
                 "حالة قراءة غير معروفة."
             }
-            progress.lastPassageId?.let { passageId ->
-                require(passages[passageId]?.bookId == progress.bookId) {
+            item.lastPassageId?.let { passageId ->
+                require(passages[passageId]?.bookId == item.bookId) {
                     "موضع القراءة لا ينتمي إلى الكتاب المحدد."
                 }
             }
         }
-        backup.progress.studyPlans.forEach { plan ->
+        progress.studyPlans.forEach { plan ->
             require(plan.pathId in validPathIds) { "النسخة تشير إلى مسار دراسي غير موجود: ${plan.pathId}" }
             require(plan.cadence.sessionsPerWeek in 1..7) { "عدد جلسات الخطة غير صالح." }
             require(plan.cadence.minutesPerSession in 5..180) { "مدة جلسة الخطة غير صالحة." }
             require(plan.cadence.targetPassagesPerSession in 1..100) { "هدف المقاطع في الخطة غير صالح." }
         }
-        backup.progress.studySessions.forEach { session ->
+        progress.studySessions.forEach { session ->
             require(session.context.pathId in validPathIds) { "جلسة مرتبطة بمسار غير موجود." }
             require(session.context.bookId in books) { "جلسة مرتبطة بكتاب غير مثبت." }
             require(ScholarStudySessionStatus.entries.any { it.name == session.status }) {
@@ -315,7 +335,7 @@ class ScholarStudyBackupManager @Inject constructor(
                 }
             }
         }
-        backup.progress.reviewEvents.forEach { event ->
+        progress.reviewEvents.forEach { event ->
             require(passages[event.reference.passageId]?.bookId == event.reference.bookId) {
                 "سجل مراجعة مرتبط بمصدر غير موجود."
             }
