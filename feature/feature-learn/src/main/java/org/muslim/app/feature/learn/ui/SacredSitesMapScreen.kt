@@ -74,7 +74,7 @@ fun SacredSitesMapScreen(
 
 @Composable
 private fun SacredSitesContent(
-    sites: List<org.muslim.app.feature.learn.domain.HajjLocation>,
+    sites: List<org.muslim.app.feature.learn.domain.SacredSiteLocation>,
     selected: SacredSite?,
     onSelect: (SacredSite?) -> Unit,
     modifier: Modifier = Modifier,
