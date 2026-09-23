@@ -1,6 +1,7 @@
 package org.muslim.app.wear
 
 import android.content.Context
+import android.content.res.Resources
 import android.util.Log
 import com.google.android.gms.wearable.CapabilityClient
 import com.google.android.gms.wearable.PutDataMapRequest
@@ -97,6 +98,7 @@ class WearCompanionPublisher @Inject constructor(
         )
         val snapshot = WearPrayerSnapshot(
             nextPrayerName = countdown.nextPrayer?.watchLabel(),
+            nextPrayerId = countdown.nextPrayer?.watchId(),
             nextPrayerAtEpochMillis = countdown.nextPrayerAt?.let {
                 inputs.nowMillis + countdown.remainingSeconds * 1_000L
             },
@@ -106,11 +108,13 @@ class WearCompanionPublisher @Inject constructor(
             syncedAtEpochMillis = inputs.nowMillis,
             ornamentStyle = inputs.preferences.ornamentStyle,
             ornamentIntensity = inputs.preferences.ornamentIntensity,
+            languageTag = resolvedLanguageTag(inputs.preferences.languageCode),
         )
         if (!snapshot.isValid()) return
 
         val request = PutDataMapRequest.create(WearSyncContract.DATA_PATH).apply {
             dataMap.putString(WearSyncContract.KEY_NEXT_PRAYER, snapshot.nextPrayerName.orEmpty())
+            dataMap.putString(WearSyncContract.KEY_NEXT_PRAYER_ID, snapshot.nextPrayerId.orEmpty())
             dataMap.putLong(WearSyncContract.KEY_NEXT_PRAYER_AT, snapshot.nextPrayerAtEpochMillis ?: 0L)
             dataMap.putString(WearSyncContract.KEY_TASBIH_PHRASE, snapshot.tasbihPhrase)
             dataMap.putInt(WearSyncContract.KEY_TASBIH_COUNT, snapshot.tasbihCount)
@@ -118,6 +122,7 @@ class WearCompanionPublisher @Inject constructor(
             dataMap.putLong(WearSyncContract.KEY_SYNCED_AT, snapshot.syncedAtEpochMillis)
             dataMap.putString(WearSyncContract.KEY_ORNAMENT_STYLE, snapshot.ornamentStyle.name)
             dataMap.putString(WearSyncContract.KEY_ORNAMENT_INTENSITY, snapshot.ornamentIntensity.name)
+            dataMap.putString(WearSyncContract.KEY_LANGUAGE_TAG, snapshot.languageTag.orEmpty())
         }.asPutDataRequest().setUrgent()
 
         runCatching {
@@ -181,6 +186,26 @@ class WearCompanionPublisher @Inject constructor(
         Prayer.Maghrib -> "المغرب"
         Prayer.Isha -> "العشاء"
     }
+
+    private fun Prayer.watchId(): String = when (this) {
+        Prayer.Fajr -> "fajr"
+        Prayer.Sunrise -> "sunrise"
+        Prayer.Dhuhr -> "dhuhr"
+        Prayer.Asr -> "asr"
+        Prayer.Maghrib -> "maghrib"
+        Prayer.Isha -> "isha"
+    }
+
+    /**
+     * Resolve "system" on the phone before transport so the watch follows the
+     * phone app's effective language even when the watch OS uses another locale.
+     */
+    private fun resolvedLanguageTag(languageCode: String): String =
+        if (languageCode == AppPreferences.SYSTEM_LANGUAGE) {
+            Resources.getSystem().configuration.locales[0].toLanguageTag()
+        } else {
+            languageCode
+        }
 
     private data class WearSyncInputs(
         val preferences: AppPreferences,
