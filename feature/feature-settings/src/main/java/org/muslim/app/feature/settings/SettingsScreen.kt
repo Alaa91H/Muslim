@@ -37,6 +37,7 @@ import androidx.compose.material.icons.filled.SystemUpdate
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
@@ -161,6 +162,7 @@ fun SettingsScreen(
     val preferences by viewModel.preferences.collectAsStateWithLifecycle()
     val updateCheckResult by viewModel.updateCheckResult.collectAsStateWithLifecycle()
     val updateCheckError by viewModel.updateCheckError.collectAsStateWithLifecycle()
+    val isCheckingForUpdates by viewModel.isCheckingForUpdates.collectAsStateWithLifecycle()
     val scope = rememberCoroutineScope()
 
     // Accordion: sections start collapsed; tapping one expands it and collapses
@@ -622,9 +624,19 @@ fun SettingsScreen(
                     ) {
                         OutlinedButton(
                             onClick = viewModel::checkForUpdatesNow,
+                            enabled = !isCheckingForUpdates,
                             modifier = Modifier.weight(1f),
                         ) {
-                            Text(stringResource(R.string.settings_updates_check_now))
+                            if (isCheckingForUpdates) {
+                                CircularProgressIndicator(
+                                    modifier = Modifier.size(18.dp),
+                                    strokeWidth = 2.dp,
+                                )
+                                Spacer(Modifier.width(8.dp))
+                                Text(stringResource(R.string.settings_updates_checking))
+                            } else {
+                                Text(stringResource(R.string.settings_updates_check_now))
+                            }
                         }
                         Button(
                             onClick = onOpenUpdates,
