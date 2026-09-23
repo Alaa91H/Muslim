@@ -12,6 +12,9 @@ SCREEN = MODULE / "src/main/java/org/muslim/app/feature/family/ui/FamilyLifeScre
 CONTENT = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyLifeContent.kt"
 ADVANCED_CONTENT = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyAdvancedContent.kt"
 PARENTING_CONTENT = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyParentingContent.kt"
+DAILY_KINSHIP_CONTENT = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyDailyKinshipContent.kt"
+UTILITY_CONTENT = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyUtilityContent.kt"
+LIBRARY_PREFS = MODULE / "src/main/java/org/muslim/app/feature/family/data/FamilyLibraryPrefsRepository.kt"
 NAMES_EXPANSION = MODULE / "src/main/java/org/muslim/app/feature/family/domain/FamilyNamesExpansion.kt"
 GUIDE_HUB = MODULE / "src/main/java/org/muslim/app/feature/family/ui/FamilyGuideHub.kt"
 AR_STRINGS = MODULE / "src/main/res/values/strings.xml"
@@ -40,6 +43,9 @@ def main() -> int:
         CONTENT,
         ADVANCED_CONTENT,
         PARENTING_CONTENT,
+        DAILY_KINSHIP_CONTENT,
+        UTILITY_CONTENT,
+        LIBRARY_PREFS,
         NAMES_EXPANSION,
         GUIDE_HUB,
         MODULE / "src/main/java/org/muslim/app/feature/family/ui/FamilyLifeViewModel.kt",
@@ -95,10 +101,13 @@ def main() -> int:
     content = CONTENT.read_text(encoding="utf-8")
     advanced_content = ADVANCED_CONTENT.read_text(encoding="utf-8")
     parenting_content = PARENTING_CONTENT.read_text(encoding="utf-8")
+    daily_kinship_content = DAILY_KINSHIP_CONTENT.read_text(encoding="utf-8")
+    utility_content = UTILITY_CONTENT.read_text(encoding="utf-8")
+    library_prefs = LIBRARY_PREFS.read_text(encoding="utf-8")
     names_expansion = NAMES_EXPANSION.read_text(encoding="utf-8")
     article_ids = re.findall(
         r'FamilyGuideArticle\(\s*id\s*=\s*"([^"]+)"',
-        content + "\n" + advanced_content + "\n" + parenting_content,
+        content + "\n" + advanced_content + "\n" + parenting_content + "\n" + daily_kinship_content,
     )
     if len(article_ids) != len(set(article_ids)):
         return fail("Duplicate family article IDs detected")
@@ -134,10 +143,25 @@ def main() -> int:
         "body_privacy_safeguarding",
         "sibling_fairness",
         "children_faith_questions",
+        "parents_kindness_boundaries",
+        "elder_parent_care",
+        "supporting_parents_financially",
+        "maintaining_kinship",
+        "harmful_relatives_boundaries",
+        "inlaws_household_boundaries",
+        "family_reconciliation_after_distance",
+        "household_worship_routine",
+        "family_shura_decisions",
+        "family_budget_moderation",
+        "household_privacy_devices",
+        "family_work_study_balance",
+        "guests_neighbours_home",
+        "family_healthcare_planning",
+        "family_weekly_meeting",
     }
     if not required_articles.issubset(article_ids):
         return fail("Expanded family guide articles are missing")
-    if len(article_ids) < 34:
+    if len(article_ids) < 49:
         return fail(f"Family guide unexpectedly small: {len(article_ids)} articles")
     expanded_names = re.findall(r'(?:prophet|arabicBoy|arabicGirl)\("([^"]+)"', names_expansion)
     if len(expanded_names) < 60:
@@ -145,8 +169,21 @@ def main() -> int:
     ruqyah_duas = re.findall(r'RuqyahSupplication\(\s*id\s*=\s*"([^"]+)"', parenting_content)
     if len(ruqyah_duas) < 5:
         return fail("Ruqyah supplication catalogue is incomplete")
-    if "FamilyArticleDetailContent" not in screen_text or "FamilyHubContent" not in screen_text:
-        return fail("FamilyLifeScreen is not wired to the hub/article reader")
+    checklist_ids = re.findall(r'FamilyChecklist\(\s*id\s*=\s*"([^"]+)"', utility_content)
+    if len(checklist_ids) < 5 or len(checklist_ids) != len(set(checklist_ids)):
+        return fail("Family checklist catalogue is incomplete or has duplicate IDs")
+    if 'preferencesDataStore(name = "family_library_prefs")' not in library_prefs:
+        return fail("Family library preferences DataStore is missing or renamed")
+    if "MAX_RECENT_ARTICLES = 20" not in library_prefs:
+        return fail("Family reading history must remain bounded")
+    required_ui = (
+        "FamilyArticleDetailContent",
+        "FamilyHubContent",
+        "FamilySavedContent",
+        "FamilyToolsContent",
+    )
+    if not all(symbol in screen_text + "\n" + guide_text for symbol in required_ui):
+        return fail("Family Life UI is missing hub, saved library or checklist wiring")
 
     audio_urls = re.findall(r'https://everyayah\.com/data/[^"\s]+\.mp3', content)
     if len(audio_urls) < 3:
