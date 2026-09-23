@@ -2,6 +2,8 @@ import java.io.File
 import java.util.Base64
 import java.util.Properties
 
+val muslimApplicationId = providers.gradleProperty("muslim.applicationId").get()
+
 val gitVersionTag = providers.exec {
     commandLine("git", "describe", "--tags", "--match", "v*", "--always")
     workingDir = rootProject.projectDir
@@ -30,7 +32,7 @@ android {
     defaultConfig {
         // Data Layer communication is restricted to the same application id
         // and signing certificate on the paired phone and watch.
-        applicationId = "org.muslim.app"
+        applicationId = muslimApplicationId
         minSdk = 30
         targetSdk = 37
         val (code, name) = deriveVersion(gitVersionTag.get(), System.getenv("VERSION_TAG").orEmpty())
