@@ -23,6 +23,16 @@ interface TasbihSessionDao {
     @Query(
         """
         SELECT * FROM tasbih_sessions
+        WHERE endedAtEpochMillis IS NULL
+        ORDER BY lastUpdatedAtEpochMillis DESC
+        LIMIT 1
+        """
+    )
+    fun observeActive(): Flow<TasbihSessionEntity?>
+
+    @Query(
+        """
+        SELECT * FROM tasbih_sessions
         ORDER BY startedAtEpochMillis DESC
         LIMIT :limit
         """
