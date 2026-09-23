@@ -47,7 +47,9 @@ class UpdateChecker(private val context: Context) {
 
         val preferences = prefs()
         val lastNotifiedVersion = preferences.preferences.first().lastNotifiedUpdateVersion
-        if (lastNotifiedVersion == result.release.version) return result
+        if (!UpdateNotificationPolicy.shouldNotify(result.release.version, lastNotifiedVersion)) {
+            return result
+        }
 
         val posted = runCatching { notifier().show(result.release) }.getOrDefault(false)
         if (posted) {
