@@ -166,6 +166,35 @@ class TasbihCounterTest {
     }
 
     @Test
+    fun `session settings preserve legacy free counting by default`() {
+        val state = TasbihState(
+            counts = emptyMap(),
+            target = 33,
+            phrase = TasbihPhrase.SubhanAllah,
+            history = emptyList(),
+        )
+
+        assertThat(state.sessionMode).isEqualTo(TasbihSessionMode.Free)
+        assertThat(state.roundsGoal).isEqualTo(3)
+    }
+
+    @Test
+    fun `rounds mode keeps daily aggregate independent from session goal`() {
+        val state = TasbihState(
+            counts = mapOf(TasbihPhrase.SubhanAllah to 120),
+            target = 33,
+            phrase = TasbihPhrase.SubhanAllah,
+            history = emptyList(),
+            sessionMode = TasbihSessionMode.Rounds,
+            roundsGoal = 3,
+        )
+
+        assertThat(state.count).isEqualTo(120)
+        assertThat(state.totalToday).isEqualTo(120)
+        assertThat(state.rounds).isEqualTo(3)
+    }
+
+    @Test
     fun `target sound is off with the notification tone by default`() {
         val settings = TargetSoundSettings()
         assertThat(settings.enabled).isFalse()
