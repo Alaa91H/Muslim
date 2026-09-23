@@ -58,8 +58,9 @@ import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.core.ui.theme.MuslimStateSurface
 import org.muslim.app.core.ui.theme.MuslimStateTone
+import org.muslim.app.feature.reference.data.AndroidReferenceRepositoryFactory
 import org.muslim.app.feature.reference.domain.ReferenceBook
-import org.muslim.app.feature.reference.domain.ReferenceLibrary
+import org.muslim.app.feature.reference.domain.ReferenceRepository
 import org.muslim.app.feature.reference.domain.RefLang
 import org.muslim.app.feature.reference.domain.RefTopic
 
@@ -80,6 +81,8 @@ fun ReferenceScreen(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val appContext = LocalContext.current.applicationContext
+    val repository = remember(appContext) { AndroidReferenceRepositoryFactory.create(appContext) }
     var lang by remember { mutableStateOf(RefLang.Arabic) }
     var selectedBook by remember { mutableStateOf<ReferenceBook?>(null) }
     var selectedTopic by remember { mutableStateOf<RefTopic?>(null) }
@@ -146,6 +149,7 @@ fun ReferenceScreen(
                 modifier = contentModifier,
             )
             book != null -> BookContent(
+                repository = repository,
                 book = book,
                 lang = lang,
                 query = query,
@@ -154,6 +158,7 @@ fun ReferenceScreen(
                 modifier = contentModifier,
             )
             else -> HubContent(
+                repository = repository,
                 lang = lang,
                 onOpenBook = { selectedBook = it },
                 modifier = contentModifier,
@@ -164,6 +169,7 @@ fun ReferenceScreen(
 
 @Composable
 private fun HubContent(
+    repository: ReferenceRepository,
     lang: RefLang,
     onOpenBook: (ReferenceBook) -> Unit,
     modifier: Modifier = Modifier,
@@ -176,7 +182,7 @@ private fun HubContent(
                 modifier = Modifier.padding(horizontal = 16.dp),
             )
         }
-        items(ReferenceLibrary.books, key = { it.id }) { book ->
+        items(repository.books, key = { it.id }) { book ->
             IslamicCard(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -226,6 +232,7 @@ private fun HubContent(
 
 @Composable
 private fun BookContent(
+    repository: ReferenceRepository,
     book: ReferenceBook,
     lang: RefLang,
     query: String,
@@ -233,7 +240,7 @@ private fun BookContent(
     onOpenTopic: (RefTopic) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val results = ReferenceLibrary.search(book, query, lang)
+    val results = repository.search(book, query, lang)
     Column(modifier = modifier.fillMaxSize()) {
         OutlinedTextField(
             value = query,
