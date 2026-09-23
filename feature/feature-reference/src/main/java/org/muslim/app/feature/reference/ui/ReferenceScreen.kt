@@ -1102,6 +1102,19 @@ private fun buildTopicShareText(topic: RefTopic, lang: RefLang): String = buildS
     }
 }
 
+private fun resolveStoredTopic(
+    repository: ReferenceRepository,
+    key: String,
+): Pair<ReferenceBook, RefTopic>? {
+    val separator = key.indexOf('/')
+    if (separator <= 0 || separator == key.lastIndex) return null
+    val bookId = key.substring(0, separator)
+    val topicId = key.substring(separator + 1)
+    val book = repository.byId(bookId) ?: return null
+    val topic = book.topics.firstOrNull { it.id == topicId } ?: return null
+    return book to topic
+}
+
 private fun resolveRelatedTopics(
     repository: ReferenceRepository,
     currentBook: ReferenceBook,
