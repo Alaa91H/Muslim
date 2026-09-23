@@ -112,9 +112,9 @@ android {
     }
 
     lint {
-        // The watch UI is professionally maintained in Arabic and English; other
-        // app locales fall back safely instead of carrying copied translations.
-        disable += "MissingTranslation"
+        // Wear strings are generated from the same locale corpus as the phone.
+        // Keep the lint block available for module-specific checks without
+        // suppressing missing translations.
     }
 }
 
