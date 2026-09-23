@@ -73,7 +73,10 @@ import org.muslim.app.core.location.MagneticDeclination
 import org.muslim.app.core.permissions.AppPermission
 import org.muslim.app.core.permissions.PermissionEntryPoint
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicDecorationMedallion
+import org.muslim.app.core.ui.theme.MuslimStateSurface
+import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.qibla.R
 import org.muslim.app.feature.qibla.domain.QiblaCalculator
 import org.muslim.app.feature.qibla.mosques.NearbyMosquesTab
@@ -350,7 +353,12 @@ internal fun QiblaCompassContent(
                 modifier = Modifier.fillMaxWidth().widthIn(max = 560.dp),
             )
 
-            Spacer(Modifier.height(gap))
+            Spacer(Modifier.height(if (compact) 2.dp else 4.dp))
+            IslamicDecorationDivider(
+                tint = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.fillMaxWidth().widthIn(max = 320.dp),
+            )
+            Spacer(Modifier.height(if (compact) 2.dp else 4.dp))
 
             BoxWithConstraints(
                 modifier = Modifier
@@ -443,13 +451,11 @@ private fun QiblaLocationSummary(
             )
         }
         if (gpsState == QiblaGpsState.Error) {
-            Spacer(Modifier.height(4.dp))
-            Text(
-                text = stringResource(R.string.qibla_gps_error),
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.error,
+            Spacer(Modifier.height(6.dp))
+            MuslimStateSurface(
+                title = stringResource(R.string.qibla_gps_error),
+                tone = MuslimStateTone.Critical,
+                modifier = Modifier.fillMaxWidth(),
             )
         }
     }
