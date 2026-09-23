@@ -82,4 +82,13 @@ class FuneralContentTest {
         assertThat(matches.map(WillEducationSection::id)).contains("executor_and_documents")
         assertThat(all).hasSize(FuneralContent.willEducationSections.size)
     }
+    @Test
+    fun `arabic search tolerates common alif variants and diacritics`() {
+        val matches = FuneralContent.searchGuideSections(
+            query = "الوفاه",
+            isArabic = true,
+        )
+
+        assertThat(matches.map(FuneralGuideSection::id)).contains("first_steps")
+    }
 }
