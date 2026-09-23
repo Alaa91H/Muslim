@@ -96,6 +96,9 @@ private enum class FamilySection {
 @Composable
 fun FamilyLifeScreen(
     onBack: () -> Unit,
+    onOpenQuran: () -> Unit,
+    onOpenHadith: () -> Unit,
+    onOpenAdhkar: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: FamilyLifeViewModel = hiltViewModel(),
 ) {
@@ -168,6 +171,9 @@ fun FamilyLifeScreen(
                     onOpenRuqyah = { navigate(FamilySection.Ruqyah) },
                     onOpenNames = { navigate(FamilySection.Names) },
                     onOpenAqiqah = { navigate(FamilySection.Aqiqah) },
+                    onOpenQuran = onOpenQuran,
+                    onOpenHadith = onOpenHadith,
+                    onOpenAdhkar = onOpenAdhkar,
                 )
                 section == FamilySection.Guide -> FamilyGuideCatalogContent(
                     isArabic = isArabic,
