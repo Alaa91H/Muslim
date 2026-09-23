@@ -42,4 +42,5 @@
     <string name="funeral_will_export_pdf_title">Save a PDF copy of the draft</string>
     <string name="funeral_will_export_pdf_success">The PDF was saved successfully.</string>
     <string name="funeral_will_export_pdf_error">The PDF could not be created. Try another location or try again.</string>
+    <string name="funeral_will_pdf_filename">islamic-will-draft.pdf</string>
 </resources>
