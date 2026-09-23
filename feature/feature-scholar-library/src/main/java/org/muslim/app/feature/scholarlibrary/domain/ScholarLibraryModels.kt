@@ -57,6 +57,32 @@ enum class ScholarHighlightStyle {
     }
 }
 
+data class ScholarPackSource(
+    val name: String,
+    val url: String?,
+    val licenseNotice: String,
+    val originName: String?,
+)
+
+data class ScholarPackInstallation(
+    val bookIds: List<String>,
+    val imported: Boolean,
+    val managed: Boolean,
+    val installedAtEpochMillis: Long,
+    val updatedAtEpochMillis: Long,
+) {
+    val bookCount: Int get() = bookIds.size
+}
+
+data class ScholarContentPack(
+    val id: String,
+    val name: String,
+    val version: Int,
+    val schemaVersion: Int,
+    val source: ScholarPackSource,
+    val installation: ScholarPackInstallation,
+)
+
 data class ScholarBook(
     val id: String,
     val title: String,
@@ -329,6 +355,44 @@ data class ScholarReviewSummary(
     val learningCards: Int,
     val matureCards: Int,
     val estimatedMasteryPercent: Int,
+)
+
+data class ScholarReviewOutcome(
+    val rating: ScholarReviewRating,
+    val scheduledIntervalDays: Int,
+    val lapseCountAfterReview: Int,
+    val easeFactorAfterReview: Double,
+)
+
+data class ScholarReviewEvent(
+    val id: Long,
+    val flashcardId: Long,
+    val passageId: String,
+    val bookId: String,
+    val category: ScholarCategory,
+    val reviewedAtEpochMillis: Long,
+    val outcome: ScholarReviewOutcome,
+)
+
+data class ScholarReviewActivity(
+    val reviewsToday: Int,
+    val reviewsLast7Days: Int,
+    val cardsReviewedLast7Days: Int,
+    val againLast7Days: Int,
+    val hardLast7Days: Int,
+    val goodLast7Days: Int,
+    val easyLast7Days: Int,
+)
+
+data class ScholarStudyActivity(
+    val completedSessionsLast7Days: Int,
+    val studiedPassagesLast7Days: Int,
+    val dueCards: Int,
+)
+
+data class ScholarStudyActivitySummary(
+    val review: ScholarReviewActivity,
+    val study: ScholarStudyActivity,
 )
 
 data class ScholarCategoryMastery(

@@ -1,6 +1,5 @@
 package org.muslim.app.feature.scholarlibrary.ui
 
-import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.text.selection.SelectionContainer
@@ -95,14 +94,17 @@ fun ScholarLibraryScreen(
     onOpenStudyDesk: () -> Unit,
     onOpenStudyPath: (String) -> Unit,
     onOpenAuthors: () -> Unit,
+    onOpenDataManager: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: ScholarLibraryViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
     val context = LocalContext.current
-    val importLauncher = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
-        viewModel.importPack(readSelectedPack(context, uri) ?: "{}")
+    val importLauncher = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        readScholarTextFile(context, uri)?.let { selected ->
+            viewModel.importPack(selected.text, selected.displayName)
+        }
     }
     LaunchedEffect(state.statusMessage) {
         state.statusMessage?.let { message ->
@@ -112,7 +114,14 @@ fun ScholarLibraryScreen(
     }
     Scaffold(
         modifier = modifier.fillMaxSize(),
-        topBar = { ScholarLibraryTopBar(onBack, onOpenStudyDesk, onOpenAuthors) },
+        topBar = {
+            ScholarLibraryTopBar(
+                onBack = onBack,
+                onOpenStudyDesk = onOpenStudyDesk,
+                onOpenAuthors = onOpenAuthors,
+                onOpenDataManager = onOpenDataManager,
+            )
+        },
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { padding ->
         ScholarLibraryContent(
@@ -127,18 +136,13 @@ fun ScholarLibraryScreen(
     }
 }
 
-private fun readSelectedPack(context: android.content.Context, uri: Uri?): String? = uri?.let {
-    runCatching {
-        context.contentResolver.openInputStream(it)?.bufferedReader(Charsets.UTF_8)?.use { reader -> reader.readText() }
-    }.getOrNull()
-}
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ScholarLibraryTopBar(
     onBack: () -> Unit,
     onOpenStudyDesk: () -> Unit,
     onOpenAuthors: () -> Unit,
+    onOpenDataManager: () -> Unit,
 ) {
     TopAppBar(
         title = { Text(stringResource(R.string.scholar_library_title)) },
@@ -150,6 +154,12 @@ private fun ScholarLibraryTopBar(
         actions = {
             IconButton(onClick = onOpenAuthors) {
                 Icon(Icons.Filled.Person, contentDescription = stringResource(R.string.scholar_library_authors))
+            }
+            IconButton(onClick = onOpenDataManager) {
+                Icon(
+                    Icons.Filled.Download,
+                    contentDescription = stringResource(R.string.scholar_library_data_manager),
+                )
             }
             IconButton(onClick = onOpenStudyDesk) {
                 Icon(Icons.Filled.Bookmarks, contentDescription = stringResource(R.string.scholar_library_study_desk))
@@ -532,6 +542,7 @@ private fun ScholarBookDialogs(
 fun ScholarStudyDeskScreen(
     onBack: () -> Unit,
     onOpenSession: (String) -> Unit,
+    onOpenReviewCenter: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: ScholarLibraryViewModel = hiltViewModel(),
 ) {
@@ -556,6 +567,7 @@ fun ScholarStudyDeskScreen(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
+            studyActivityItems(state, onOpenReviewCenter)
             studySessionItems(state, onOpenSession)
             studyReviewItems(
                 state = state,
@@ -566,6 +578,45 @@ fun ScholarStudyDeskScreen(
             studyBookmarkItems(state, viewModel)
             studyHighlightItems(state, viewModel)
             studyNoteItems(state, viewModel)
+        }
+    }
+}
+
+private fun LazyListScope.studyActivityItems(
+    state: ScholarLibraryUiState,
+    onOpenReviewCenter: () -> Unit,
+) {
+    val summary = state.studyActivitySummary
+    item {
+        Card(
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
+        ) {
+            Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(
+                    stringResource(R.string.scholar_library_activity_summary),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
+                Text(
+                    stringResource(
+                        R.string.scholar_library_activity_reviews,
+                        summary.review.reviewsToday,
+                        summary.review.reviewsLast7Days,
+                        summary.review.cardsReviewedLast7Days,
+                    ),
+                )
+                Text(
+                    stringResource(
+                        R.string.scholar_library_activity_sessions,
+                        summary.study.completedSessionsLast7Days,
+                        summary.study.studiedPassagesLast7Days,
+                        summary.study.dueCards,
+                    ),
+                )
+                Button(onClick = onOpenReviewCenter) {
+                    Text(stringResource(R.string.scholar_library_open_review_center))
+                }
+            }
         }
     }
 }

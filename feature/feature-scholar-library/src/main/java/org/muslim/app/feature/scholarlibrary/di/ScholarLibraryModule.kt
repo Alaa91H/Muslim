@@ -8,6 +8,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 import kotlinx.serialization.json.Json
+import org.muslim.app.feature.scholarlibrary.data.ScholarContentPackManager
 import org.muslim.app.feature.scholarlibrary.data.ScholarLibraryDao
 import org.muslim.app.feature.scholarlibrary.data.ScholarLibraryDatabase
 import org.muslim.app.feature.scholarlibrary.data.ScholarLibraryFtsDao
@@ -34,5 +35,12 @@ object ScholarLibraryModule {
         libraryDao: ScholarLibraryDao,
         ftsDao: ScholarLibraryFtsDao,
         json: Json,
-    ): ScholarLibraryRepository = ScholarLibraryRepository(context, libraryDao, ftsDao, json)
+        packManager: ScholarContentPackManager,
+    ): ScholarLibraryRepository = ScholarLibraryRepository(
+        context = context,
+        libraryDao = libraryDao,
+        ftsDao = ftsDao,
+        json = json,
+        packManager = packManager,
+    )
 }

@@ -161,3 +161,85 @@ data class ScholarStudySessionEntity(
     val startedAtEpochMillis: Long,
     val completedAtEpochMillis: Long?,
 )
+
+
+data class ScholarReviewOutcomeEntity(
+    val rating: String,
+    val scheduledIntervalDays: Int,
+    val lapseCountAfterReview: Int,
+    val easeFactorAfterReview: Double,
+)
+
+@Entity(
+    tableName = "scholar_review_events",
+    indices = [
+        Index(value = ["flashcardId"]),
+        Index(value = ["bookId"]),
+        Index(value = ["category"]),
+        Index(value = ["reviewedAtEpochMillis"]),
+    ],
+)
+data class ScholarReviewEventEntity(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val flashcardId: Long,
+    val passageId: String,
+    val bookId: String,
+    val category: String,
+    val reviewedAtEpochMillis: Long,
+    @Embedded val outcome: ScholarReviewOutcomeEntity,
+)
+
+
+data class ScholarContentPackIdentityEntity(
+    val packName: String,
+    val packVersion: Int,
+    val schemaVersion: Int,
+)
+
+data class ScholarContentPackSourceEntity(
+    val licenseNotice: String,
+    val sourceName: String,
+    val sourceUrl: String?,
+    val originName: String?,
+)
+
+data class ScholarContentPackInstallationEntity(
+    val bookIds: String,
+    val imported: Boolean,
+    val managed: Boolean,
+    val installedAtEpochMillis: Long,
+    val updatedAtEpochMillis: Long,
+)
+
+@Entity(
+    tableName = "scholar_content_packs",
+    indices = [
+        Index(value = ["imported"]),
+        Index(value = ["updatedAtEpochMillis"]),
+    ],
+)
+data class ScholarContentPackEntity(
+    @PrimaryKey val packId: String,
+    @Embedded val identity: ScholarContentPackIdentityEntity,
+    @Embedded val source: ScholarContentPackSourceEntity,
+    @Embedded val installation: ScholarContentPackInstallationEntity,
+)
+
+data class ScholarStudyBackupCoreEntities(
+    val notes: List<ScholarNoteEntity>,
+    val flashcards: List<ScholarFlashcardEntity>,
+    val bookmarks: List<ScholarBookmarkEntity>,
+    val highlights: List<ScholarHighlightEntity>,
+)
+
+data class ScholarStudyBackupProgressEntities(
+    val readingProgress: List<ScholarReadingProgressEntity>,
+    val studyPlans: List<ScholarStudyPlanEntity>,
+    val studySessions: List<ScholarStudySessionEntity>,
+    val reviewEvents: List<ScholarReviewEventEntity>,
+)
+
+data class ScholarStudyBackupEntities(
+    val core: ScholarStudyBackupCoreEntities,
+    val progress: ScholarStudyBackupProgressEntities,
+)
