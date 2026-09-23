@@ -37,7 +37,6 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.PrimaryScrollableTabRow
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -60,7 +59,10 @@ import kotlinx.coroutines.launch
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.muslim.app.feature.quran.R
 import org.muslim.app.core.ui.theme.IslamicCard
+import org.muslim.app.core.ui.theme.IslamicDecorationDivider
 import org.muslim.app.core.ui.theme.IslamicPrimaryButton
+import org.muslim.app.core.ui.theme.IslamicReadingHeaderDecoration
+import org.muslim.app.core.ui.theme.MuslimAppScaffold
 import org.muslim.app.feature.quran.data.DownloadScope
 import org.muslim.app.feature.quran.data.DownloadStatus
 import org.muslim.app.feature.quran.data.DownloadTaskUi
@@ -112,7 +114,7 @@ fun QuranDownloadsScreen(
         if (pageReciter.id != selectedReciterId) viewModel.selectReciter(pageReciter.id)
     }
 
-    Scaffold(
+    MuslimAppScaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
@@ -130,6 +132,10 @@ fun QuranDownloadsScreen(
                 .fillMaxSize()
                 .padding(innerPadding),
         ) {
+            IslamicReadingHeaderDecoration(
+                tint = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+            )
             // Everything downloaded across all reciters, at a glance.
             TotalSummaryCard(summary = totalSummary)
 
@@ -158,6 +164,10 @@ fun QuranDownloadsScreen(
                     )
                 }
             }
+            IslamicDecorationDivider(
+                tint = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier.padding(horizontal = 24.dp),
+            )
 
             HorizontalPager(
                 state = pagerState,
