@@ -92,22 +92,52 @@ private data class WillIntroActions(
     val restoreAll: () -> Unit,
 )
 
+private data class WillDraftActions(
+    val onChange: (WillDraft) -> Unit,
+    val onSave: () -> Unit,
+    val onShare: () -> Unit,
+    val onClear: () -> Unit,
+)
+
 private val WillDraftSaver: Saver<WillDraft, List<String>> = Saver(
     save = { draft ->
         listOf(
             draft.fullName,
+            draft.documentLocation,
             draft.executorName,
             draft.executorContact,
+            draft.trustedContacts,
             draft.debtsAndRights,
+            draft.assetsAndAccounts,
+            draft.entrustedProperty,
+            draft.digitalAccessInstructions,
             draft.funeralWishes,
             draft.guardianshipNotes,
             draft.charitableBequests,
+            draft.lastReviewDate,
             draft.additionalNotes,
         )
     },
     restore = { values ->
-        if (values.size == 8) {
-            WillDraft(
+        when (values.size) {
+            14 -> WillDraft(
+                fullName = values[0],
+                documentLocation = values[1],
+                executorName = values[2],
+                executorContact = values[3],
+                trustedContacts = values[4],
+                debtsAndRights = values[5],
+                assetsAndAccounts = values[6],
+                entrustedProperty = values[7],
+                digitalAccessInstructions = values[8],
+                funeralWishes = values[9],
+                guardianshipNotes = values[10],
+                charitableBequests = values[11],
+                lastReviewDate = values[12],
+                additionalNotes = values[13],
+            )
+
+            8 -> WillDraft(
                 fullName = values[0],
                 executorName = values[1],
                 executorContact = values[2],
@@ -117,8 +147,8 @@ private val WillDraftSaver: Saver<WillDraft, List<String>> = Saver(
                 charitableBequests = values[6],
                 additionalNotes = values[7],
             )
-        } else {
-            WillDraft()
+
+            else -> WillDraft()
         }
     },
 )
@@ -200,10 +230,13 @@ fun FuneralWillScreen(
                     draft = draft,
                     isArabic = isArabic,
                     introVisibility = introVisibility,
-                    onDraftChange = { draft = it },
-                    onSave = { viewModel.save(draft) },
-                    onShare = { shareWillDraft(context, draft, isArabic) },
-                    onClear = { showClearConfirmation = true },
+                    isDirty = draft != storedDraft,
+                    draftActions = WillDraftActions(
+                        onChange = { draft = it },
+                        onSave = { viewModel.save(draft) },
+                        onShare = { shareWillDraft(context, draft, isArabic) },
+                        onClear = { showClearConfirmation = true },
+                    ),
                     introActions = WillIntroActions(
                         dismissDraftIntro = viewModel::dismissDraftIntro,
                         dismissLegalNotice = viewModel::dismissLegalNotice,
@@ -253,10 +286,8 @@ private fun WillDraftContent(
     draft: WillDraft,
     isArabic: Boolean,
     introVisibility: FuneralWillIntroVisibility,
-    onDraftChange: (WillDraft) -> Unit,
-    onSave: () -> Unit,
-    onShare: () -> Unit,
-    onClear: () -> Unit,
+    isDirty: Boolean,
+    draftActions: WillDraftActions,
     introActions: WillIntroActions,
 ) {
     LazyColumn(
@@ -272,8 +303,14 @@ private fun WillDraftContent(
             onDismissPrivacyNotice = introActions.dismissPrivacyNotice,
             onRestoreIntroCards = introActions.restoreAll,
         )
-        willDraftFields(draft, onDraftChange)
-        willDraftActions(draft, onSave, onShare, onClear)
+        willDraftFields(draft, draftActions.onChange)
+        willDraftActions(
+            draft = draft,
+            isDirty = isDirty,
+            onSave = draftActions.onSave,
+            onShare = draftActions.onShare,
+            onClear = draftActions.onClear,
+        )
     }
 }
 
@@ -374,81 +411,157 @@ private fun LazyListScope.willDraftFields(
     onDraftChange: (WillDraft) -> Unit,
 ) {
     item {
-        WillField(
-            value = draft.fullName,
-            onValueChange = { onDraftChange(draft.copy(fullName = it)) },
-            label = stringResource(R.string.funeral_will_full_name),
-            singleLine = true,
-        )
+        WillFormSection(
+            id = "identity",
+            title = stringResource(R.string.funeral_will_section_identity),
+            initiallyExpanded = true,
+        ) {
+            WillField(
+                value = draft.fullName,
+                onValueChange = { onDraftChange(draft.copy(fullName = it)) },
+                label = stringResource(R.string.funeral_will_full_name),
+                singleLine = true,
+            )
+            WillField(
+                value = draft.documentLocation,
+                onValueChange = { onDraftChange(draft.copy(documentLocation = it)) },
+                label = stringResource(R.string.funeral_will_document_location),
+                supportingText = stringResource(R.string.funeral_will_document_location_hint),
+            )
+            WillField(
+                value = draft.executorName,
+                onValueChange = { onDraftChange(draft.copy(executorName = it)) },
+                label = stringResource(R.string.funeral_will_executor_name),
+                supportingText = stringResource(R.string.funeral_will_executor_name_hint),
+                singleLine = true,
+            )
+            WillField(
+                value = draft.executorContact,
+                onValueChange = { onDraftChange(draft.copy(executorContact = it)) },
+                label = stringResource(R.string.funeral_will_executor_contact),
+                supportingText = stringResource(R.string.funeral_will_executor_contact_hint),
+                singleLine = true,
+            )
+            WillField(
+                value = draft.trustedContacts,
+                onValueChange = { onDraftChange(draft.copy(trustedContacts = it)) },
+                label = stringResource(R.string.funeral_will_trusted_contacts),
+                supportingText = stringResource(R.string.funeral_will_trusted_contacts_hint),
+            )
+        }
     }
     item {
-        WillField(
-            value = draft.executorName,
-            onValueChange = { onDraftChange(draft.copy(executorName = it)) },
-            label = stringResource(R.string.funeral_will_executor_name),
-            supportingText = stringResource(R.string.funeral_will_executor_name_hint),
-            singleLine = true,
-        )
+        WillFormSection(
+            id = "financial",
+            title = stringResource(R.string.funeral_will_section_financial),
+        ) {
+            WillField(
+                value = draft.debtsAndRights,
+                onValueChange = { onDraftChange(draft.copy(debtsAndRights = it)) },
+                label = stringResource(R.string.funeral_will_debts),
+                supportingText = stringResource(R.string.funeral_will_debts_hint),
+            )
+            WillField(
+                value = draft.assetsAndAccounts,
+                onValueChange = { onDraftChange(draft.copy(assetsAndAccounts = it)) },
+                label = stringResource(R.string.funeral_will_assets_accounts),
+                supportingText = stringResource(R.string.funeral_will_assets_accounts_hint),
+            )
+            WillField(
+                value = draft.entrustedProperty,
+                onValueChange = { onDraftChange(draft.copy(entrustedProperty = it)) },
+                label = stringResource(R.string.funeral_will_entrusted_property),
+                supportingText = stringResource(R.string.funeral_will_entrusted_property_hint),
+            )
+            NoticeCard(
+                icon = Icons.Filled.Security,
+                text = stringResource(R.string.funeral_will_sensitive_data_notice),
+            )
+            WillField(
+                value = draft.digitalAccessInstructions,
+                onValueChange = { onDraftChange(draft.copy(digitalAccessInstructions = it)) },
+                label = stringResource(R.string.funeral_will_digital_access),
+                supportingText = stringResource(R.string.funeral_will_digital_access_hint),
+            )
+        }
     }
     item {
-        WillField(
-            value = draft.executorContact,
-            onValueChange = { onDraftChange(draft.copy(executorContact = it)) },
-            label = stringResource(R.string.funeral_will_executor_contact),
-            supportingText = stringResource(R.string.funeral_will_executor_contact_hint),
-            singleLine = true,
-        )
+        WillFormSection(
+            id = "family",
+            title = stringResource(R.string.funeral_will_section_family),
+        ) {
+            WillField(
+                value = draft.funeralWishes,
+                onValueChange = { onDraftChange(draft.copy(funeralWishes = it)) },
+                label = stringResource(R.string.funeral_will_funeral_wishes),
+                supportingText = stringResource(R.string.funeral_will_funeral_wishes_hint),
+            )
+            WillField(
+                value = draft.guardianshipNotes,
+                onValueChange = { onDraftChange(draft.copy(guardianshipNotes = it)) },
+                label = stringResource(R.string.funeral_will_guardianship),
+                supportingText = stringResource(R.string.funeral_will_guardianship_hint),
+            )
+            WillField(
+                value = draft.charitableBequests,
+                onValueChange = { onDraftChange(draft.copy(charitableBequests = it)) },
+                label = stringResource(R.string.funeral_will_charity),
+                supportingText = stringResource(R.string.funeral_will_charity_hint),
+            )
+        }
     }
     item {
-        WillField(
-            value = draft.debtsAndRights,
-            onValueChange = { onDraftChange(draft.copy(debtsAndRights = it)) },
-            label = stringResource(R.string.funeral_will_debts),
-            supportingText = stringResource(R.string.funeral_will_debts_hint),
-        )
-    }
-    item {
-        WillField(
-            value = draft.funeralWishes,
-            onValueChange = { onDraftChange(draft.copy(funeralWishes = it)) },
-            label = stringResource(R.string.funeral_will_funeral_wishes),
-            supportingText = stringResource(R.string.funeral_will_funeral_wishes_hint),
-        )
-    }
-    item {
-        WillField(
-            value = draft.guardianshipNotes,
-            onValueChange = { onDraftChange(draft.copy(guardianshipNotes = it)) },
-            label = stringResource(R.string.funeral_will_guardianship),
-            supportingText = stringResource(R.string.funeral_will_guardianship_hint),
-        )
-    }
-    item {
-        WillField(
-            value = draft.charitableBequests,
-            onValueChange = { onDraftChange(draft.copy(charitableBequests = it)) },
-            label = stringResource(R.string.funeral_will_charity),
-            supportingText = stringResource(R.string.funeral_will_charity_hint),
-        )
-    }
-    item {
-        WillField(
-            value = draft.additionalNotes,
-            onValueChange = { onDraftChange(draft.copy(additionalNotes = it)) },
-            label = stringResource(R.string.funeral_will_additional_notes),
-        )
+        WillFormSection(
+            id = "review",
+            title = stringResource(R.string.funeral_will_section_review),
+        ) {
+            WillField(
+                value = draft.lastReviewDate,
+                onValueChange = { onDraftChange(draft.copy(lastReviewDate = it)) },
+                label = stringResource(R.string.funeral_will_last_review),
+                supportingText = stringResource(R.string.funeral_will_last_review_hint),
+                singleLine = true,
+            )
+            WillField(
+                value = draft.additionalNotes,
+                onValueChange = { onDraftChange(draft.copy(additionalNotes = it)) },
+                label = stringResource(R.string.funeral_will_additional_notes),
+            )
+        }
     }
 }
 
 private fun LazyListScope.willDraftActions(
     draft: WillDraft,
+    isDirty: Boolean,
     onSave: () -> Unit,
     onShare: () -> Unit,
     onClear: () -> Unit,
 ) {
+    if (!draft.isEmpty()) {
+        item {
+            Text(
+                text = stringResource(
+                    if (isDirty) {
+                        R.string.funeral_will_unsaved_changes
+                    } else {
+                        R.string.funeral_will_saved_locally
+                    },
+                ),
+                style = MaterialTheme.typography.bodySmall,
+                color = if (isDirty) {
+                    MaterialTheme.colorScheme.error
+                } else {
+                    MaterialTheme.colorScheme.primary
+                },
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
+    }
     item {
         Button(
             onClick = onSave,
+            enabled = isDirty || draft.isEmpty(),
             modifier = Modifier.fillMaxWidth(),
         ) {
             Icon(
@@ -488,6 +601,56 @@ private fun LazyListScope.willDraftActions(
             )
             Spacer(Modifier.width(8.dp))
             Text(stringResource(R.string.funeral_will_clear))
+        }
+    }
+}
+
+@Composable
+private fun WillFormSection(
+    id: String,
+    title: String,
+    initiallyExpanded: Boolean = false,
+    content: @Composable () -> Unit,
+) {
+    var expanded by rememberSaveable("will_form_" + id) {
+        mutableStateOf(initiallyExpanded)
+    }
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Column {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { expanded = !expanded }
+                    .padding(horizontal = 16.dp, vertical = 14.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.weight(1f),
+                )
+                Icon(
+                    imageVector = if (expanded) {
+                        Icons.Filled.ExpandLess
+                    } else {
+                        Icons.Filled.ExpandMore
+                    },
+                    contentDescription = null,
+                )
+            }
+            if (expanded) {
+                Column(
+                    modifier = Modifier.padding(
+                        start = 14.dp,
+                        end = 14.dp,
+                        bottom = 14.dp,
+                    ),
+                    verticalArrangement = Arrangement.spacedBy(10.dp),
+                ) {
+                    content()
+                }
+            }
         }
     }
 }
