@@ -1,0 +1,803 @@
+{
+  "schemaVersion": 2,
+  "book": {
+    "id": "mothers",
+    "titleAr": "أمهات المؤمنين",
+    "titleEn": "Mothers of the Believers",
+    "subtitleAr": "سير زوجات النبي ﷺ ودورهن في البيت النبوي والعلم والرواية",
+    "subtitleEn": "Biographies of the Prophet's ﷺ wives and their roles in household, learning, and transmission",
+    "contentRevision": 1,
+    "chapters": [
+      {
+        "id": "status_role",
+        "titleAr": "المكانة والدور العلمي",
+        "titleEn": "Status and Scholarly Role",
+        "summaryAr": "مكانة أمهات المؤمنين ودورهن في حفظ السنة.",
+        "summaryEn": "Their Quranic status and role in preserving Prophetic teaching.",
+        "topicIds": [
+          "mothers_status"
+        ]
+      },
+      {
+        "id": "meccan_household",
+        "titleAr": "البيت النبوي من مكة إلى الهجرة",
+        "titleEn": "The Household from Mecca to the Hijrah",
+        "summaryAr": "خديجة وسودة وعائشة وحفصة.",
+        "summaryEn": "Khadijah, Sawdah, Aisha, and Hafsa.",
+        "topicIds": [
+          "khadijah",
+          "sawdah",
+          "aisha",
+          "hafsah"
+        ]
+      },
+      {
+        "id": "medinan_household",
+        "titleAr": "أمهات المؤمنين في المدينة",
+        "titleEn": "Mothers of the Believers in Medina",
+        "summaryAr": "سير بقية أمهات المؤمنين في العهد المدني.",
+        "summaryEn": "Biographies of the remaining Mothers of the Believers in Medina.",
+        "topicIds": [
+          "zaynab_khuzayma",
+          "umm_salama",
+          "zaynab_jahsh",
+          "juwayriya",
+          "umm_habiba",
+          "safiyya",
+          "maymuna"
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "mothers_status",
+        "titleAr": "أمهات المؤمنين ومكانتهن",
+        "titleEn": "The Mothers of the Believers",
+        "summaryAr": "مدخل إلى زوجات النبي ﷺ اللاتي سماهن القرآن أمهات المؤمنين، وإلى دورهن في البيت النبوي ونقل العلم.",
+        "summaryEn": "An introduction to the Prophet's ﷺ wives whom the Quran calls Mothers of the Believers and to their role in the Prophetic household and transmission of knowledge.",
+        "sections": [
+          {
+            "id": "status",
+            "titleAr": "المكانة القرآنية",
+            "titleEn": "Quranic status",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ينص القرآن على أن أزواج النبي ﷺ أمهات للمؤمنين من حيث الحرمة والمكانة، ولهن أحكام خاصة مرتبطة ببيت النبوة.",
+                "en": "The Quran states that the Prophet's ﷺ wives are Mothers of the Believers in status and marriage prohibition, with responsibilities unique to the Prophetic household.",
+                "citationIds": [
+                  "quran-33-6"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "knowledge",
+            "titleAr": "العلم من داخل البيت",
+            "titleEn": "Knowledge from within the household",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أسهمت أمهات المؤمنين في نقل تفاصيل لا يطلع عليها غير أهل البيت، خاصة في العبادة والحياة الأسرية والأحكام المتعلقة بالنساء.",
+                "en": "The Mothers of the Believers transmitted details especially accessible within the household, including worship, family life, and matters concerning women.",
+                "citationIds": [
+                  "quran-33-28-34"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/wives_household",
+          "ahl_al_bayt/household_scope"
+        ],
+        "citations": [
+          {
+            "id": "quran-33-6",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:6"
+          },
+          {
+            "id": "quran-33-28-34",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:28-34"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "khadijah",
+        "titleAr": "خديجة بنت خويلد رضي الله عنها",
+        "titleEn": "Khadijah bint Khuwaylid",
+        "summaryAr": "أول زوجات النبي ﷺ، وأول من ثبته وآمن به في بداية الوحي، وكان لها أثر بالغ في المرحلة المكية.",
+        "summaryEn": "The Prophet's ﷺ first wife, who reassured and believed him at the beginning of revelation and played a major role in the Meccan period.",
+        "sections": [
+          {
+            "id": "beginning",
+            "titleAr": "معه قبل البعثة وبعدها",
+            "titleEn": "Before and after revelation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تزوجها النبي ﷺ قبل البعثة، وعاش معها سنوات طويلة، وكانت أم أكثر أولاده ومصدر سكينة ودعم في حياته الأولى.",
+                "en": "The Prophet ﷺ married Khadijah before revelation and lived with her for many years; she was the mother of most of his children and a major source of stability and support.",
+                "citationIds": [
+                  "isaba-khadijah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "revelation",
+            "titleAr": "تثبيتها عند بدء الوحي",
+            "titleEn": "Support at the first revelation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عندما عاد من حراء مرتجفًا طمأنته خديجة وذكّرته بخصاله من صلة الرحم وصدق الحديث وإعانة الضعيف، ثم ذهبت معه لطلب البيان.",
+                "en": "When he returned from Hira shaken, Khadijah reassured him by recalling his virtues—maintaining kinship, truthfulness, and helping the vulnerable—and sought clarification with him.",
+                "citationIds": [
+                  "bukhari-khadijah"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/marriage_khadijah",
+          "sira/first_revelation_detail"
+        ],
+        "citations": [
+          {
+            "id": "isaba-khadijah",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة خديجة بنت خويلد / Biography of Khadijah bint Khuwaylid"
+          },
+          {
+            "id": "bukhari-khadijah",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "بدء الوحي وفضائل الصحابة / Beginning of Revelation and virtues"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "sawdah",
+        "titleAr": "سودة بنت زمعة رضي الله عنها",
+        "titleEn": "Sawdah bint Zam'ah",
+        "summaryAr": "من أوائل زوجاته بعد وفاة خديجة، وكانت من المهاجرات إلى الحبشة قبل عودتها إلى مكة.",
+        "summaryEn": "One of the Prophet's ﷺ early wives after Khadijah's death, who had earlier migrated to Abyssinia.",
+        "sections": [
+          {
+            "id": "migration",
+            "titleAr": "من المهاجرات إلى الحبشة",
+            "titleEn": "Among the Abyssinian migrants",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "أسلمت سودة مبكرًا وهاجرت مع زوجها إلى الحبشة، ثم عادت إلى مكة بعد وفاته.",
+                "en": "Sawdah accepted Islam early and migrated with her husband to Abyssinia, later returning to Mecca after his death.",
+                "citationIds": [
+                  "isaba-sawdah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "marriage",
+            "titleAr": "زواجها من النبي ﷺ",
+            "titleEn": "Marriage to the Prophet",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تزوجها النبي ﷺ في المرحلة المكية المتأخرة، وعاشت معه بعد الهجرة ضمن بيت النبوة في المدينة.",
+                "en": "The Prophet ﷺ married her in the later Meccan period, and she later lived in the Prophetic household in Medina after the Hijrah.",
+                "citationIds": [
+                  "isaba-sawdah"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "khadijah",
+          "sira/abyssinia"
+        ],
+        "citations": [
+          {
+            "id": "isaba-sawdah",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة سودة بنت زمعة / Biography of Sawdah bint Zam'ah"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "aisha",
+        "titleAr": "عائشة بنت أبي بكر رضي الله عنها",
+        "titleEn": "Aisha bint Abi Bakr",
+        "summaryAr": "من أكثر أمهات المؤمنين رواية للحديث، وكان لها أثر كبير في التعليم والفقه ونقل تفاصيل الحياة النبوية.",
+        "summaryEn": "One of the most prolific hadith transmitters among the Mothers of the Believers, with a major role in teaching and jurisprudence.",
+        "sections": [
+          {
+            "id": "knowledge",
+            "titleAr": "العلم والرواية",
+            "titleEn": "Learning and transmission",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "روت عائشة عددًا كبيرًا من الأحاديث، ورجع إليها الصحابة والتابعون في مسائل تتصل بالسنة والفقه واللغة والحياة الخاصة للنبي ﷺ.",
+                "en": "Aisha transmitted a large body of hadith, and Companions and Successors consulted her on Sunnah, law, language, and aspects of the Prophet's ﷺ private life.",
+                "citationIds": [
+                  "isaba-aisha"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "household",
+            "titleAr": "شاهد من داخل البيت",
+            "titleEn": "Witness within the household",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كانت رواياتها مصدرًا مهمًا لمعرفة عبادته ﷺ في البيت ومعاشرته لأهله وأحوال مرضه الأخير.",
+                "en": "Her reports are especially important for understanding the Prophet's ﷺ worship at home, family interactions, and final illness.",
+                "citationIds": [
+                  "bukhari-aisha"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "companions/asma",
+          "sira/family_life"
+        ],
+        "citations": [
+          {
+            "id": "isaba-aisha",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة عائشة بنت أبي بكر / Biography of Aisha bint Abi Bakr"
+          },
+          {
+            "id": "bukhari-aisha",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "مناقب الأنصار وفضائل الصحابة / Merits of the Ansar and virtues"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "hafsah",
+        "titleAr": "حفصة بنت عمر رضي الله عنها",
+        "titleEn": "Hafsa bint Umar",
+        "summaryAr": "أم المؤمنين وابنة عمر بن الخطاب، ارتبط اسمها بحفظ الصحف التي جُمعت فيها مادة المصحف بعد وفاة النبي ﷺ.",
+        "summaryEn": "A Mother of the Believers and daughter of Umar ibn al-Khattab, associated with safeguarding the sheets used in the early collection of the Quran.",
+        "sections": [
+          {
+            "id": "household",
+            "titleAr": "في بيت النبوة",
+            "titleEn": "In the Prophetic household",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تزوج النبي ﷺ حفصة بعد وفاة زوجها، وكانت ضمن أمهات المؤمنين اللاتي نقلن أحكامًا وأخبارًا من البيت النبوي.",
+                "en": "The Prophet ﷺ married Hafsa after her husband's death; she became one of the Mothers of the Believers who transmitted teachings and household reports.",
+                "citationIds": [
+                  "isaba-hafsah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sheets",
+            "titleAr": "حفظ الصحف",
+            "titleEn": "Safeguarding the Quranic sheets",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر رواية جمع القرآن أن الصحف التي جُمعت في عهد أبي بكر بقيت بعد ذلك عند عمر ثم عند حفصة، قبل أن تستعملها لجنة عثمان في نسخ المصاحف.",
+                "en": "The Quran collection report states that the compiled sheets remained with Umar and then Hafsa before Uthman's committee used them when preparing standardized codices.",
+                "citationIds": [
+                  "bukhari-hafsa-mushaf"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "rashidun/quran_collection_abu_bakr",
+          "companions/zayd_thabit"
+        ],
+        "citations": [
+          {
+            "id": "isaba-hafsah",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة حفصة بنت عمر / Biography of Hafsa bint Umar"
+          },
+          {
+            "id": "bukhari-hafsa-mushaf",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "فضائل القرآن: جمع القرآن / Virtues of the Quran: collection"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "zaynab_khuzayma",
+        "titleAr": "زينب بنت خزيمة رضي الله عنها",
+        "titleEn": "Zaynab bint Khuzayma",
+        "summaryAr": "أم المؤمنين المعروفة بلقب أم المساكين، وتوفيت بعد مدة قصيرة من زواجها بالنبي ﷺ.",
+        "summaryEn": "A Mother of the Believers remembered by the epithet 'Mother of the Poor'; she died not long after marrying the Prophet ﷺ.",
+        "sections": [
+          {
+            "id": "charity",
+            "titleAr": "أم المساكين",
+            "titleEn": "Mother of the Poor",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر كتب التراجم اشتهار زينب بالإحسان إلى المحتاجين حتى عرفت بلقب أم المساكين.",
+                "en": "Biographical works remember Zaynab for generosity toward people in need, giving rise to the epithet 'Mother of the Poor.'",
+                "citationIds": [
+                  "isaba-zaynab-khuzayma"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "short_marriage",
+            "titleAr": "مدة قصيرة في البيت النبوي",
+            "titleEn": "A short time in the Prophetic household",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان زواجها بالنبي ﷺ في المدينة، ثم توفيت في حياته بعد مدة قصيرة مقارنة بسائر أمهات المؤمنين.",
+                "en": "She married the Prophet ﷺ in Medina and died during his lifetime after a comparatively short period in the household.",
+                "citationIds": [
+                  "isaba-zaynab-khuzayma"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "mothers_status",
+          "umm_salama"
+        ],
+        "citations": [
+          {
+            "id": "isaba-zaynab-khuzayma",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة زينب بنت خزيمة / Biography of Zaynab bint Khuzayma"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "umm_salama",
+        "titleAr": "أم سلمة هند بنت أبي أمية رضي الله عنها",
+        "titleEn": "Umm Salama (Hind bint Abi Umayya)",
+        "summaryAr": "مهاجرة وصاحبة تجربة طويلة، عُرفت بالحكمة والرواية وكان لها حضور مهم في أحداث السيرة.",
+        "summaryEn": "An experienced migrant known for wisdom and hadith transmission, with an important presence in several events of the Sira.",
+        "sections": [
+          {
+            "id": "migration",
+            "titleAr": "الهجرة والابتلاء",
+            "titleEn": "Migration and hardship",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "هاجرت أم سلمة في طريق الدعوة، وعانت فراق الأسرة في مرحلة من الهجرة، ثم تزوجها النبي ﷺ بعد وفاة زوجها أبي سلمة.",
+                "en": "Umm Salama migrated for the sake of faith, endured a period of family separation, and later married the Prophet ﷺ after the death of her husband Abu Salama.",
+                "citationIds": [
+                  "isaba-umm-salama"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "hudaybiyyah",
+            "titleAr": "مشورتها يوم الحديبية",
+            "titleEn": "Her counsel at Hudaybiyyah",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر روايات الحديبية مشورتها للنبي ﷺ بأن يبدأ بنفسه في النحر والحلق عندما تثاقل الناس من شدة وقع الصلح، ففعل واقتدوا به.",
+                "en": "Hudaybiyyah reports preserve her counsel that the Prophet ﷺ begin the sacrificial and shaving rites himself when the Companions hesitated under the emotional weight of the treaty; they then followed his example.",
+                "citationIds": [
+                  "bukhari-umm-salama-hudaybiyyah"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/hudaybiyyah_treaty",
+          "ahl_al_bayt/household_scope"
+        ],
+        "citations": [
+          {
+            "id": "isaba-umm-salama",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة أم سلمة هند بنت أبي أمية / Biography of Umm Salama"
+          },
+          {
+            "id": "bukhari-umm-salama-hudaybiyyah",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "المغازي: الحديبية / Military Expeditions: Hudaybiyyah"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "zaynab_jahsh",
+        "titleAr": "زينب بنت جحش رضي الله عنها",
+        "titleEn": "Zaynab bint Jahsh",
+        "summaryAr": "أم المؤمنين التي ورد ذكر زواجها في سورة الأحزاب، وعُرفت بكثرة الصدقة والعمل بيدها.",
+        "summaryEn": "A Mother of the Believers whose marriage is referenced in Surat al-Ahzab and who was remembered for charity and working with her hands.",
+        "sections": [
+          {
+            "id": "marriage",
+            "titleAr": "ذكر زواجها في القرآن",
+            "titleEn": "Marriage referenced in the Quran",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة الأحزاب زواج النبي ﷺ من زينب بعد انتهاء زواجها من زيد بن حارثة في سياق إبطال آثار التبني التي كانت تجعل المتبنَّى كابن النسب.",
+                "en": "Surat al-Ahzab references the Prophet's ﷺ marriage to Zaynab after her marriage to Zayd ibn Harithah ended, in the context of distinguishing adoption from biological lineage.",
+                "citationIds": [
+                  "quran-33-37"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "charity",
+            "titleAr": "العمل والصدقة",
+            "titleEn": "Work and charity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ورد في السنة ما يدل على كثرة صدقتها وعملها بيدها، فاشتهرت بالسخاء بين أمهات المؤمنين.",
+                "en": "Hadith reports indicate that she worked with her hands and gave generously in charity, becoming known for generosity among the Mothers of the Believers.",
+                "citationIds": [
+                  "muslim-zaynab-charity"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "mothers_status",
+          "sira/wives_household"
+        ],
+        "citations": [
+          {
+            "id": "quran-33-37",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "33:37"
+          },
+          {
+            "id": "isaba-zaynab-jahsh",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة زينب بنت جحش / Biography of Zaynab bint Jahsh"
+          },
+          {
+            "id": "muslim-zaynab-charity",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "فضائل الصحابة: أمهات المؤمنين / Virtues: Mothers of the Believers"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "juwayriya",
+        "titleAr": "جويرية بنت الحارث رضي الله عنها",
+        "titleEn": "Juwayriya bint al-Harith",
+        "summaryAr": "أم المؤمنين من بني المصطلق، ارتبط زواجها بإطلاق عدد من الأسرى من قومها بحسب كتب السيرة.",
+        "summaryEn": "A Mother of the Believers from Banu al-Mustaliq; sira sources connect her marriage with the release of a number of captives from her people.",
+        "sections": [
+          {
+            "id": "background",
+            "titleAr": "من بني المصطلق",
+            "titleEn": "From Banu al-Mustaliq",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كانت جويرية بنت الحارث من بني المصطلق، ودخلت بيت النبوة بعد أحداث وقعت بين قومها والمسلمين في العهد المدني.",
+                "en": "Juwayriya bint al-Harith belonged to Banu al-Mustaliq and entered the Prophetic household after conflict involving her people during the Medinan period.",
+                "citationIds": [
+                  "isaba-juwayriya"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "effect",
+            "titleAr": "أثر الزواج في قومها",
+            "titleEn": "Effect on her people",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر مصادر السيرة أن الصحابة أطلقوا أسرى من قومها احترامًا لمصاهرتهم للنبي ﷺ، فكان للزواج أثر اجتماعي ظاهر.",
+                "en": "Sira sources report that Companions released captives from her people out of respect for their new connection to the Prophet ﷺ, giving the marriage a notable social effect.",
+                "citationIds": [
+                  "ibn-sad-juwayriya"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "mothers_status",
+          "sira/medina_state"
+        ],
+        "citations": [
+          {
+            "id": "isaba-juwayriya",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة جويرية بنت الحارث / Biography of Juwayriya bint al-Harith"
+          },
+          {
+            "id": "ibn-sad-juwayriya",
+            "kind": "ClassicalBook",
+            "titleAr": "الطبقات الكبرى لابن سعد",
+            "titleEn": "Ibn Sa'd, al-Tabaqat al-Kubra",
+            "locator": "ترجمة جويرية / Biography of Juwayriya"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "umm_habiba",
+        "titleAr": "أم حبيبة رملة بنت أبي سفيان رضي الله عنها",
+        "titleEn": "Umm Habiba (Ramla bint Abi Sufyan)",
+        "summaryAr": "هاجرت إلى الحبشة وثبتت على الإسلام ثم تزوجها النبي ﷺ وهي هناك.",
+        "summaryEn": "She migrated to Abyssinia, remained Muslim there, and later married the Prophet ﷺ while still abroad.",
+        "sections": [
+          {
+            "id": "abyssinia",
+            "titleAr": "الثبات في الحبشة",
+            "titleEn": "Steadfastness in Abyssinia",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كانت أم حبيبة من المهاجرين إلى الحبشة، وبقيت على الإسلام في ظروف أسرية صعبة بعد تحول زوجها عن دينه هناك بحسب المصادر.",
+                "en": "Umm Habiba was among the migrants to Abyssinia and remained Muslim through difficult family circumstances after her husband's religious change there, according to the sources.",
+                "citationIds": [
+                  "ibn-hisham-umm-habiba"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "marriage",
+            "titleAr": "عقد الزواج في الحبشة",
+            "titleEn": "Marriage arranged in Abyssinia",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تم زواجها بالنبي ﷺ وهي في الحبشة بوساطة النجاشي، ثم قدمت إلى المدينة.",
+                "en": "Her marriage to the Prophet ﷺ was arranged while she was in Abyssinia with the Negus's involvement, and she later came to Medina.",
+                "citationIds": [
+                  "isaba-umm-habiba"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/second_abyssinia_najashi",
+          "mothers_status"
+        ],
+        "citations": [
+          {
+            "id": "isaba-umm-habiba",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة أم حبيبة رملة بنت أبي سفيان / Biography of Umm Habiba"
+          },
+          {
+            "id": "ibn-hisham-umm-habiba",
+            "kind": "ClassicalBook",
+            "titleAr": "السيرة النبوية لابن هشام",
+            "titleEn": "Ibn Hisham, al-Sirah al-Nabawiyyah",
+            "locator": "خبر أم حبيبة في الحبشة / Umm Habiba in Abyssinia"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "safiyya",
+        "titleAr": "صفية بنت حيي رضي الله عنها",
+        "titleEn": "Safiyya bint Huyayy",
+        "summaryAr": "أم المؤمنين من أسرة يهودية من بني النضير، دخلت الإسلام وتزوجها النبي ﷺ بعد خيبر.",
+        "summaryEn": "A Mother of the Believers from a Jewish family associated with Banu Nadir who accepted Islam and married the Prophet ﷺ after Khaybar.",
+        "sections": [
+          {
+            "id": "background",
+            "titleAr": "خلفيتها الأسرية",
+            "titleEn": "Family background",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نشأت صفية في أسرة يهودية ذات مكانة، ثم تغيرت حياتها مع صراعات المدينة وخيبر حتى دخلت بيت النبوة.",
+                "en": "Safiyya grew up in a prominent Jewish family; the conflicts of Medina and Khaybar transformed her circumstances before she entered the Prophetic household.",
+                "citationIds": [
+                  "isaba-safiyya"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "marriage",
+            "titleAr": "بعد خيبر",
+            "titleEn": "After Khaybar",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تزوجها النبي ﷺ بعد خيبر، وتعرض بعض الروايات مواقف دافع فيها عن مكانتها عندما عُيرت بأصلها.",
+                "en": "The Prophet ﷺ married her after Khaybar, and reports preserve occasions when he defended her dignity when others mocked her ancestry.",
+                "citationIds": [
+                  "bukhari-safiyya"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/khaybar",
+          "mothers_status"
+        ],
+        "citations": [
+          {
+            "id": "isaba-safiyya",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة صفية بنت حيي / Biography of Safiyya bint Huyayy"
+          },
+          {
+            "id": "bukhari-safiyya",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "المغازي وفضائل الصحابة / Military Expeditions and virtues"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "maymuna",
+        "titleAr": "ميمونة بنت الحارث رضي الله عنها",
+        "titleEn": "Maymuna bint al-Harith",
+        "summaryAr": "من آخر من تزوج النبي ﷺ من أمهات المؤمنين، وروت أحاديث في الطهارة والعبادة والحياة المنزلية.",
+        "summaryEn": "Among the last women the Prophet ﷺ married, and a transmitter of reports on purification, worship, and household practice.",
+        "sections": [
+          {
+            "id": "marriage",
+            "titleAr": "زواجها في أواخر العهد المدني",
+            "titleEn": "Marriage in the later Medinan period",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تزوج النبي ﷺ ميمونة في السنوات الأخيرة من العهد المدني، وارتبط توقيت الزواج بمرحلة ما حول عمرة القضاء بحسب كتب السيرة.",
+                "en": "The Prophet ﷺ married Maymuna in the later Medinan years; sira works place the marriage around the period of the compensatory Umrah.",
+                "citationIds": [
+                  "isaba-maymuna"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "reports",
+            "titleAr": "روايتها للأحكام المنزلية",
+            "titleEn": "Household reports",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نقلت ميمونة أحاديث تتصل بالاغتسال والطهارة وأحوال البيت، فكانت من مصادر معرفة التطبيق العملي لبعض الأحكام.",
+                "en": "Maymuna transmitted reports concerning bathing, purification, and household practice, contributing to knowledge of practical religious rulings.",
+                "citationIds": [
+                  "bukhari-maymuna"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "sira/umrat_al_qada",
+          "mothers_status"
+        ],
+        "citations": [
+          {
+            "id": "isaba-maymuna",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة ميمونة بنت الحارث / Biography of Maymuna bint al-Harith"
+          },
+          {
+            "id": "bukhari-maymuna",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "الطهارة والاغتسال / Purification and bathing"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      }
+    ]
+  }
+}
