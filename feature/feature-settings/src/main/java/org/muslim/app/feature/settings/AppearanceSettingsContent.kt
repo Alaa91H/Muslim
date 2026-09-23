@@ -57,6 +57,7 @@ import org.muslim.app.core.ui.theme.previewColorsForPalette
  * real [AppTheme], so the settings screen and the rest of the app cannot drift
  * into different interpretations of a palette, card radius, or ornament.
  */
+@Suppress("LongMethod", "LongParameterList")
 @Composable
 internal fun AppearanceSettingsContent(
     preferences: AppPreferences,
@@ -182,6 +183,7 @@ internal fun AppearanceSettingsContent(
     )
 }
 
+@Suppress("LongMethod")
 @Composable
 private fun AppearanceLivePreview(
     darkTheme: Boolean,
