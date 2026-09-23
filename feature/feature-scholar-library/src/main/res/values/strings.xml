@@ -144,4 +144,19 @@
     <string name="scholar_library_recent_review_activity">آخر التقييمات المسجلة</string>
     <string name="scholar_library_no_review_activity">لا يوجد سجل مراجعة بعد. سيظهر هنا كل تقييم جديد للبطاقات.</string>
     <string name="scholar_library_review_history_item">التقييم: %1$s · الفاصل التالي: %2$d يوم · الإخفاقات التراكمية: %3$d</string>
+
+    <string name="scholar_library_data_manager">إدارة المحتوى والنسخ الاحتياطي</string>
+    <string name="scholar_library_content_and_backup">الحزم وبيانات الدراسة</string>
+    <string name="scholar_library_backup_scope_notice">النسخة الاحتياطية تشمل الملاحظات والبطاقات والإشارات والتظليلات والتقدم والخطط والجلسات وسجل المراجعات فقط. نصوص الكتب والحزم المرخصة لا تُضمّن داخل النسخة.</string>
+    <string name="scholar_library_import_or_update_pack">استيراد أو تحديث حزمة محتوى</string>
+    <string name="scholar_library_export_study_backup">تصدير نسخة</string>
+    <string name="scholar_library_restore_study_backup">استعادة نسخة</string>
+    <string name="scholar_library_installed_packs">الحزم المثبتة</string>
+    <string name="scholar_library_no_registered_packs">لا توجد حزم مسجلة بعد.</string>
+    <string name="scholar_library_pack_version_summary">إصدار الحزمة %1$d · مخطط %2$d · %3$d كتاب/كتب</string>
+    <string name="scholar_library_pack_managed">حزمة مُدارة: يمكن تحديثها بأمان باستخدام packId نفسه وإصدار مساوي أو أحدث.</string>
+    <string name="scholar_library_pack_legacy">حزمة قديمة: متوافقة، لكنها لا تحمل هوية وإصدار إدارة v4 كاملين.</string>
+    <string name="scholar_library_pack_source">المصدر: %1$s</string>
+    <string name="scholar_library_pack_origin">ملف التثبيت: %1$s</string>
+    <string name="scholar_library_pack_license">بيان الترخيص</string>
 </resources>

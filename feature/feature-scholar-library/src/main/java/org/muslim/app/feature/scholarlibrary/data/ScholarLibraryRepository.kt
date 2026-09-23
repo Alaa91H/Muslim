@@ -2,14 +2,11 @@ package org.muslim.app.feature.scholarlibrary.data
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
-import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import org.muslim.app.core.common.text.ArabicText
@@ -39,53 +36,6 @@ import org.muslim.app.feature.scholarlibrary.domain.SearchHit
 import org.muslim.app.feature.scholarlibrary.domain.StudyBookmarkWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.StudyHighlightWithCitation
 import org.muslim.app.feature.scholarlibrary.domain.StudyNoteWithCitation
-
-sealed interface ScholarLibraryImportResult {
-    data class Success(val importedBooks: Int, val importedPassages: Int) : ScholarLibraryImportResult
-    data class Failure(val message: String) : ScholarLibraryImportResult
-}
-
-@Serializable
-private data class ScholarPack(
-    val schemaVersion: Int,
-    val packName: String,
-    val licenseNotice: String,
-    val books: List<ScholarPackBook>,
-)
-
-@Serializable
-private data class ScholarPackBook(
-    val id: String,
-    val title: String,
-    val author: String,
-    val category: String,
-    val authorDeathYearHijri: Int? = null,
-    val description: String,
-    val sourceName: String,
-    val sourceUrl: String? = null,
-    val licenseSummary: String,
-    val passages: List<ScholarPackPassage>,
-    val subtitle: String? = null,
-    val language: String = "ar",
-    val difficulty: String = ScholarDifficulty.Unspecified.name,
-    val publisher: String? = null,
-    val edition: String? = null,
-    val editor: String? = null,
-    val publicationYear: String? = null,
-    val volumeCount: Int? = null,
-    val keywords: List<String> = emptyList(),
-)
-
-@Serializable
-private data class ScholarPackPassage(
-    val id: String,
-    val chapter: String,
-    val volume: String? = null,
-    val page: String? = null,
-    val text: String,
-    val section: String? = null,
-    val orderIndex: Int = 0,
-)
 
 @Serializable
 private data class ScholarStudyPathPack(
@@ -123,22 +73,10 @@ class ScholarLibraryRepository @Inject constructor(
     private val libraryDao: ScholarLibraryDao,
     private val ftsDao: ScholarLibraryFtsDao,
     private val json: Json,
+    private val packManager: ScholarContentPackManager,
 ) {
-    private val seeded = AtomicBoolean(false)
-    private val seedMutex = Mutex()
+    suspend fun ensureSeeded() = packManager.ensureSeeded()
 
-    suspend fun ensureSeeded() {
-        if (seeded.get()) return
-        seedMutex.withLock {
-            if (seeded.get()) return
-            if (libraryDao.bookCount() == 0) {
-                val bundled = context.assets.open(BUNDLED_CATALOG).bufferedReader(Charsets.UTF_8).use { it.readText() }
-                val pack = decodeAndValidate(bundled)
-                persistPack(pack, imported = false)
-            }
-            seeded.set(true)
-        }
-    }
 
     fun observeBooks(): Flow<List<ScholarBook>> = libraryDao.observeBooks().map { books ->
         books.map { it.toDomain() }
@@ -194,14 +132,14 @@ class ScholarLibraryRepository @Inject constructor(
         }
     }
 
-    fun observeReadingProgress(): Flow<List<ScholarReadingProgress>> =
-        libraryDao.observeReadingProgress().map { rows -> rows.map { it.toDomain() } }
+    val readingProgress: Flow<List<ScholarReadingProgress>>
+        get() = libraryDao.observeReadingProgress().map { rows -> rows.map { it.toDomain() } }
 
-    fun observeStudyPlans(): Flow<List<ScholarStudyPlan>> =
-        libraryDao.observeStudyPlans().map { rows -> rows.map { it.toDomain() } }
+    val studyPlans: Flow<List<ScholarStudyPlan>>
+        get() = libraryDao.observeStudyPlans().map { rows -> rows.map { it.toDomain() } }
 
-    fun observeStudySessions(): Flow<List<ScholarStudySession>> =
-        libraryDao.observeStudySessions().map { rows -> rows.map { it.toDomain() } }
+    val studySessions: Flow<List<ScholarStudySession>>
+        get() = libraryDao.observeStudySessions().map { rows -> rows.map { it.toDomain() } }
 
     val reviewEvents: Flow<List<ScholarReviewEvent>>
         get() = libraryDao.observeReviewEvents().map { rows -> rows.map { it.toDomain() } }
@@ -587,22 +525,6 @@ class ScholarLibraryRepository @Inject constructor(
         return true
     }
 
-    /**
-     * Imports a user-selected JSON pack. The pack must carry source and licence
-     * information for every book; it is intentionally not a scraper or remote
-     * downloader for third-party libraries. v1/v2 packs remain accepted while
-     * v3 adds optional section/order hierarchy metadata for passages.
-     */
-    suspend fun importPack(rawText: String): ScholarLibraryImportResult = runCatching {
-        ensureSeeded()
-        if (rawText.length > PACK_MAX_CHARS) error("حزمة المكتبة كبيرة جداً؛ الحد الأقصى 5 ميغابايت من النص.")
-        val pack = decodeAndValidate(rawText)
-        persistPack(pack, imported = true)
-        ScholarLibraryImportResult.Success(pack.books.size, pack.books.sumOf { it.passages.size })
-    }.getOrElse { error ->
-        ScholarLibraryImportResult.Failure(error.message ?: "تعذر استيراد حزمة المكتبة.")
-    }
-
     suspend fun citationForPassage(passageId: String): Citation? {
         val passage = libraryDao.passageById(passageId) ?: return null
         val book = libraryDao.bookById(passage.bookId) ?: return null
@@ -619,153 +541,18 @@ class ScholarLibraryRepository @Inject constructor(
         )
     }
 
-    private suspend fun persistPack(pack: ScholarPack, imported: Boolean) {
-        val books = pack.books.map { item -> item.toEntity(imported) }
-        val passages = pack.books.flatMap { book ->
-            book.passages.map { passage -> passage.toEntity(book.id) }
-        }
-        libraryDao.upsertBooks(books)
-        libraryDao.upsertPassages(passages)
-        // FTS4 tables have no practical unique constraint for contentless rows;
-        // rebuilding avoids stale/duplicated results after a pack replaces text.
-        ftsDao.clearAll()
-        val allRows = buildList {
-            pack.books.forEach { book ->
-                book.passages.forEach { passage ->
-                    add(
-                        ScholarPassageFtsEntity(
-                            normalizedText = ArabicText.normalizeForSearch(passage.text),
-                            passageId = passage.id,
-                        ),
-                    )
-                }
-            }
-        }
-        if (allRows.isNotEmpty()) ftsDao.upsertRows(allRows)
-        if (!imported) return
-        rebuildIndex()
-    }
-
-    private suspend fun rebuildIndex() {
-        ftsDao.clearAll()
-        val rows = mutableListOf<ScholarPassageFtsEntity>()
-        libraryDao.observeBooks().map { books -> books.map { book -> book.id } }.let { bookIdsFlow ->
-            val ids = bookIdsFlow.first()
-            ids.forEach { bookId ->
-                val passages = libraryDao.observePassagesForBook(bookId).first()
-                rows += passages.map { passage ->
-                    ScholarPassageFtsEntity(
-                        normalizedText = ArabicText.normalizeForSearch(passage.text),
-                        passageId = passage.id,
-                    )
-                }
-            }
-        }
-        if (rows.isNotEmpty()) ftsDao.upsertRows(rows)
-    }
-
-    private fun decodeAndValidate(rawText: String): ScholarPack {
-        val pack = json.decodeFromString<ScholarPack>(rawText)
-        require(pack.schemaVersion in MIN_PACK_SCHEMA_VERSION..CURRENT_PACK_SCHEMA_VERSION) {
-            "إصدار الحزمة غير مدعوم."
-        }
-        require(pack.packName.isNotBlank()) { "اسم الحزمة مطلوب." }
-        require(pack.licenseNotice.isNotBlank()) { "يجب أن تتضمن الحزمة بيان ترخيص واضحاً." }
-        require(pack.books.isNotEmpty() && pack.books.size <= MAX_BOOKS_PER_PACK) { "عدد الكتب في الحزمة غير صالح." }
-        require(pack.books.map { it.id }.distinct().size == pack.books.size) { "معرّفات الكتب مكررة." }
-        val passageIds = mutableSetOf<String>()
-        pack.books.forEach { book ->
-            require(ID_REGEX.matches(book.id)) { "معرّف كتاب غير صالح: ${book.id}" }
-            require(book.title.isNotBlank() && book.author.isNotBlank()) { "عنوان الكتاب ومؤلفه مطلوبان." }
-            require(book.sourceName.isNotBlank() && book.licenseSummary.isNotBlank()) {
-                "يجب توضيح مصدر وترخيص كل كتاب."
-            }
-            require(book.language.isNotBlank() && book.language.length <= 20) { "لغة الكتاب غير صالحة." }
-            require(ScholarDifficulty.entries.any { it.name.equals(book.difficulty, ignoreCase = true) }) {
-                "مستوى الكتاب غير مدعوم."
-            }
-            require(book.volumeCount == null || book.volumeCount in 1..MAX_VOLUME_COUNT) {
-                "عدد مجلدات الكتاب غير صالح."
-            }
-            require(book.keywords.size <= MAX_KEYWORDS_PER_BOOK && book.keywords.all { it.length <= MAX_KEYWORD_LENGTH }) {
-                "الكلمات المفتاحية للكتاب تتجاوز الحدود المسموح بها."
-            }
-            require(book.passages.isNotEmpty() && book.passages.size <= MAX_PASSAGES_PER_BOOK) {
-                "لا بد من وجود نص واحد على الأقل لكل كتاب ضمن الحدود المسموح بها."
-            }
-            book.passages.forEach { passage ->
-                require(ID_REGEX.matches(passage.id) && passageIds.add(passage.id)) {
-                    "معرّف مقطع مكرر أو غير صالح."
-                }
-                require(passage.chapter.isNotBlank() && passage.text.trim().length in 1..PASSAGE_MAX_LENGTH) {
-                    "نص أو فصل المقطع غير صالح."
-                }
-                require(passage.section == null || passage.section.length <= MAX_SECTION_LENGTH) {
-                    "عنوان قسم المقطع طويل جداً."
-                }
-                require(passage.orderIndex >= 0) { "ترتيب المقطع يجب ألا يكون سالباً." }
-            }
-        }
-        return pack
-    }
-
-    private fun ScholarPackBook.toEntity(imported: Boolean) = ScholarBookEntity(
-        id = id,
-        title = title,
-        author = author,
-        category = ScholarCategory.fromId(category).name,
-        authorDeathYearHijri = authorDeathYearHijri,
-        description = description,
-        sourceName = sourceName,
-        sourceUrl = sourceUrl,
-        licenseSummary = licenseSummary,
-        imported = imported,
-        subtitle = subtitle,
-        language = language,
-        difficulty = ScholarDifficulty.fromId(difficulty).name,
-        publisher = publisher,
-        edition = edition,
-        editor = editor,
-        publicationYear = publicationYear,
-        volumeCount = volumeCount,
-        keywords = keywords.joinToString(KEYWORD_SEPARATOR),
-    )
-
-    private fun ScholarPackPassage.toEntity(bookId: String) = ScholarPassageEntity(
-        id = id,
-        bookId = bookId,
-        chapter = chapter,
-        volume = volume,
-        page = page,
-        text = text,
-        section = section,
-        orderIndex = orderIndex,
-    )
-
     private companion object {
-        const val BUNDLED_CATALOG = "scholar_library_catalog.json"
         const val BUNDLED_STUDY_PATHS = "scholar_study_paths.json"
         const val STUDY_PATH_SCHEMA_VERSION = 1
-        const val MIN_PACK_SCHEMA_VERSION = 1
-        const val CURRENT_PACK_SCHEMA_VERSION = 3
         const val SEARCH_LIMIT = 100
         const val SEARCH_CANDIDATE_LIMIT = 500
         const val METADATA_MATCH_PASSAGES_PER_BOOK = 20
-        const val PACK_MAX_CHARS = 5_000_000
-        const val MAX_BOOKS_PER_PACK = 1_000
-        const val MAX_PASSAGES_PER_BOOK = 20_000
-        const val PASSAGE_MAX_LENGTH = 30_000
         const val NOTE_MAX_LENGTH = 4_000
         const val FLASHCARD_SIDE_MAX_LENGTH = 1_000
         const val HIGHLIGHT_MAX_LENGTH = 30_000
-        const val MAX_SECTION_LENGTH = 300
         const val MIN_SESSION_MINUTES = 5
         const val MAX_SESSION_MINUTES = 180
         const val MAX_TARGET_PASSAGES_PER_SESSION = 100
-        const val MAX_VOLUME_COUNT = 500
-        const val MAX_KEYWORDS_PER_BOOK = 100
-        const val MAX_KEYWORD_LENGTH = 120
-        const val KEYWORD_SEPARATOR = "\u001F"
         val ID_REGEX = Regex("[A-Za-z0-9_-]{3,120}")
     }
 }

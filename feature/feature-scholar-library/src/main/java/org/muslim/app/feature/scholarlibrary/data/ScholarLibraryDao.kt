@@ -173,6 +173,62 @@ interface ScholarLibraryDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertStudySession(session: ScholarStudySessionEntity): Long
+
+    @Query("SELECT * FROM scholar_content_packs ORDER BY imported, updatedAtEpochMillis DESC, packName")
+    fun observeContentPacks(): Flow<List<ScholarContentPackEntity>>
+
+    @Query("SELECT * FROM scholar_content_packs WHERE packId = :packId LIMIT 1")
+    suspend fun contentPackById(packId: String): ScholarContentPackEntity?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertContentPack(pack: ScholarContentPackEntity)
+
+    @Query("DELETE FROM scholar_content_packs WHERE packId = :packId")
+    suspend fun deleteContentPack(packId: String)
+
+    @Transaction
+    suspend fun installContentPack(
+        pack: ScholarContentPackEntity,
+        books: List<ScholarBookEntity>,
+        passages: List<ScholarPassageEntity>,
+    ) {
+        upsertBooks(books)
+        upsertPassages(passages)
+        upsertContentPack(pack)
+    }
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertFlashcards(cards: List<ScholarFlashcardEntity>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertBookmarks(bookmarks: List<ScholarBookmarkEntity>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertHighlights(highlights: List<ScholarHighlightEntity>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertReadingProgress(progress: List<ScholarReadingProgressEntity>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertStudyPlans(plans: List<ScholarStudyPlanEntity>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertStudySessions(sessions: List<ScholarStudySessionEntity>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertReviewEvents(events: List<ScholarReviewEventEntity>)
+
+    @Transaction
+    suspend fun restoreStudyBackup(snapshot: ScholarStudyBackupEntities) {
+        insertNotes(snapshot.core.notes)
+        upsertFlashcards(snapshot.core.flashcards)
+        upsertBookmarks(snapshot.core.bookmarks)
+        upsertHighlights(snapshot.core.highlights)
+        upsertReadingProgress(snapshot.progress.readingProgress)
+        upsertStudyPlans(snapshot.progress.studyPlans)
+        upsertStudySessions(snapshot.progress.studySessions)
+        upsertReviewEvents(snapshot.progress.reviewEvents)
+    }
 }
 
 @Dao
