@@ -1,0 +1,1634 @@
+{
+  "schemaVersion": 2,
+  "book": {
+    "id": "quran_sciences",
+    "titleAr": "علوم القرآن",
+    "titleEn": "Quranic Sciences",
+    "subtitleAr": "الوحي والجمع والقراءات والتفسير وتوثيق النص القرآني",
+    "subtitleEn": "Revelation, compilation, qira'at, tafsir, and Quran text verification",
+    "contentRevision": 1,
+    "chapters": [
+      {
+        "id": "foundations",
+        "titleAr": "الوحي وحفظ القرآن",
+        "titleEn": "Revelation and Preservation",
+        "summaryAr": "تعريف القرآن ونزوله وكتابته وحفظه.",
+        "summaryEn": "Definition, revelation, writing, and preservation.",
+        "topicIds": [
+          "quran_definition",
+          "revelation",
+          "preservation",
+          "collection_prophet"
+        ]
+      },
+      {
+        "id": "compilation",
+        "titleAr": "الجمع والمصحف",
+        "titleEn": "Compilation and the Mushaf",
+        "summaryAr": "جمع أبي بكر والمصاحف العثمانية والرسم والنقط والترتيب.",
+        "summaryEn": "Abu Bakr's collection, Uthmanic codices, rasm, notation, and order.",
+        "topicIds": [
+          "collection_abu_bakr",
+          "uthman_codex",
+          "rasm",
+          "dots_vowels",
+          "surah_ayah_order"
+        ]
+      },
+      {
+        "id": "revelation_context",
+        "titleAr": "سياق النزول",
+        "titleEn": "Context of Revelation",
+        "summaryAr": "المكي والمدني وأسباب النزول.",
+        "summaryEn": "Meccan/Medinan classification and occasions of revelation.",
+        "topicIds": [
+          "makki_madani",
+          "asbab_nuzul"
+        ]
+      },
+      {
+        "id": "readings",
+        "titleAr": "الأحرف والقراءات والأداء",
+        "titleEn": "Ahruf, Qira'at, and Recitation",
+        "summaryAr": "الأحرف السبعة والقراءات والتجويد.",
+        "summaryEn": "Seven ahruf, canonical readings, and tajwid.",
+        "topicIds": [
+          "seven_ahruf",
+          "qiraat",
+          "canonical_qiraat",
+          "tajwid"
+        ]
+      },
+      {
+        "id": "interpretive_sciences",
+        "titleAr": "علوم الدلالة والتفسير",
+        "titleEn": "Interpretive Sciences",
+        "summaryAr": "الناسخ والمنسوخ والمحكم والمتشابه وأصول التفسير.",
+        "summaryEn": "Abrogation, clear/ambiguous verses, and tafsir principles.",
+        "topicIds": [
+          "nasikh_mansukh",
+          "muhkam_mutashabih",
+          "tafsir_principles",
+          "tafsir_quran_quran",
+          "sunnah_explanation",
+          "companion_tafsir",
+          "language_context",
+          "israeliyyat_tafsir"
+        ]
+      },
+      {
+        "id": "access",
+        "titleAr": "الترجمة والنص الرقمي",
+        "titleEn": "Translation and Digital Text",
+        "summaryAr": "ترجمة المعاني وضوابط توثيق القرآن الرقمي.",
+        "summaryEn": "Translation and responsible digital Quran verification.",
+        "topicIds": [
+          "translation",
+          "digital_quran_verification"
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "quran_definition",
+        "titleAr": "ما القرآن؟",
+        "titleEn": "What is the Quran?",
+        "summaryAr": "القرآن كلام الله المنزل على محمد ﷺ المتعبد بتلاوته والمنقول للأمة بالتواتر.",
+        "summaryEn": "The Quran is God's revealed speech to Muhammad ﷺ, recited as worship and transmitted through the Muslim community.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "islam/quran",
+          "revelation"
+        ],
+        "citations": [
+          {
+            "id": "quran-26-192-195",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "26:192-195"
+          },
+          {
+            "id": "quran-15-9",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "15:9"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "revelation",
+            "titleAr": "تنزيل من رب العالمين",
+            "titleEn": "A revelation from the Lord of the worlds",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يصف القرآن نفسه بأنه تنزيل من رب العالمين نزل به الروح الأمين على قلب النبي ﷺ بلسان عربي مبين.",
+                "en": "The Quran describes itself as a revelation from the Lord of the worlds, brought by the trustworthy Spirit to the Prophet's ﷺ heart in clear Arabic.",
+                "citationIds": [
+                  "quran-26-192-195"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "transmission",
+            "titleAr": "النص المحفوظ",
+            "titleEn": "The preserved text",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يرتبط تعريف القرآن في التراث الإسلامي بالنص العربي المنزل المحفوظ والمنقول للأمة، لا بأي ترجمة بشرية لمعانيه.",
+                "en": "In Islamic scholarship, the Quran refers to the revealed Arabic text preserved and transmitted by the community, not to any human translation of its meanings.",
+                "citationIds": [
+                  "quran-15-9"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "revelation",
+        "titleAr": "نزول القرآن",
+        "titleEn": "Revelation of the Quran",
+        "summaryAr": "نزل القرآن على النبي ﷺ منجمًا خلال سنوات الرسالة بحسب الوقائع والتوجيه والتشريع.",
+        "summaryEn": "The Quran was revealed to the Prophet ﷺ over the years of his mission in connection with guidance, events, and legislation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "quran_definition",
+          "makki_madani",
+          "asbab_nuzul"
+        ],
+        "citations": [
+          {
+            "id": "quran-17-106",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:106"
+          },
+          {
+            "id": "quran-25-32",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "25:32"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "gradual",
+            "titleAr": "تنزيل مفرق",
+            "titleEn": "Gradual revelation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يذكر القرآن أنه فرق ليقرأ على الناس على مكث، وأن تنزيله منجمًا ثبت به فؤاد النبي ﷺ.",
+                "en": "The Quran states that it was revealed in portions to be recited to people over time and that this gradual revelation strengthened the Prophet's ﷺ heart.",
+                "citationIds": [
+                  "quran-17-106",
+                  "quran-25-32"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "الوحي والوقائع",
+            "titleEn": "Revelation and events",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ارتبطت آيات وسور بأحداث وأسئلة ومراحل مختلفة، وهو ما يساعد على فهم سياق بعض الأحكام والقصص.",
+                "en": "Verses and surahs were revealed in connection with events, questions, and phases of the mission, helping explain the context of some rulings and narratives.",
+                "citationIds": [
+                  "quran-25-32"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "preservation",
+        "titleAr": "حفظ القرآن",
+        "titleEn": "Preservation of the Quran",
+        "summaryAr": "جمع حفظ القرآن بين التلقي الشفهي والكتابة منذ عصر النبوة ثم مشاريع الجمع والنسخ بعده.",
+        "summaryEn": "Quran preservation combined oral transmission and writing from the Prophetic period through later collection and copying projects.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "collection_prophet",
+          "collection_abu_bakr",
+          "uthman_codex"
+        ],
+        "citations": [
+          {
+            "id": "quran-15-9",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "15:9"
+          },
+          {
+            "id": "bukhari-quran-preservation",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues of the Quran: collection and recitation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "promise",
+            "titleAr": "وإنا له لحافظون",
+            "titleEn": "We will surely preserve it",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة الحجر أن الله أنزل الذكر وأنه له حافظ، وهو أصل إيماني في حفظ القرآن.",
+                "en": "Surat al-Hijr states that God sent down the Reminder and will preserve it, forming a foundational Islamic belief concerning the Quran's preservation.",
+                "citationIds": [
+                  "quran-15-9"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "means",
+            "titleAr": "الحفظ والكتابة",
+            "titleEn": "Memorization and writing",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحقق انتقال القرآن عبر حفظ عدد كبير من الصحابة وكتابته ثم جمعه ونسخ المصاحف، وهي مسارات توثيق متكاملة لا متنافسة.",
+                "en": "The Quran was transmitted through widespread memorization, writing, collection, and codex copying—complementary rather than competing preservation channels.",
+                "citationIds": [
+                  "bukhari-quran-preservation"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "collection_prophet",
+        "titleAr": "كتابة القرآن في عهد النبي ﷺ",
+        "titleEn": "Writing the Quran during the Prophetic period",
+        "summaryAr": "كان للنبي ﷺ كتاب للوحي، وكانت الآيات تكتب في مواد مختلفة مع حفظها في الصدور.",
+        "summaryEn": "The Prophet ﷺ had scribes of revelation, and verses were written on available materials while also memorized.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "preservation",
+          "companions/zayd_thabit"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-scribes",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues of the Quran: scribes and reciters"
+          },
+          {
+            "id": "itqan-prophetic-writing",
+            "kind": "ClassicalBook",
+            "titleAr": "الإتقان في علوم القرآن للسيوطي",
+            "titleEn": "Al-Suyuti, al-Itqan fi Ulum al-Quran",
+            "locator": "Writing of revelation in the Prophetic period"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "scribes",
+            "titleAr": "كتاب الوحي",
+            "titleEn": "Scribes of revelation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "خدم عدد من الصحابة في كتابة الوحي، ومن أشهرهم زيد بن ثابت رضي الله عنه، إلى جانب الحفظ الشفهي الواسع.",
+                "en": "A number of Companions served as scribes of revelation, including Zayd ibn Thabit, alongside broad oral memorization.",
+                "citationIds": [
+                  "bukhari-scribes"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "not_codex",
+            "titleAr": "قبل المصحف الجامع",
+            "titleEn": "Before a single bound codex",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان القرآن مكتوبًا في حياة النبي ﷺ لكنه لم يجمع بعد في مصحف واحد على الصورة الإدارية التي تمت بعد وفاته.",
+                "en": "The Quran was written during the Prophet's ﷺ lifetime but had not yet been administratively gathered into a single codex in the form later produced after his death.",
+                "citationIds": [
+                  "itqan-prophetic-writing"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "collection_abu_bakr",
+        "titleAr": "جمع القرآن في عهد أبي بكر",
+        "titleEn": "Collection under Abu Bakr",
+        "summaryAr": "جمع القرآن في صحف بعد اليمامة تحت إشراف زيد بن ثابت.",
+        "summaryEn": "The Quran was collected into written sheets after Yamamah under Zayd ibn Thabit's supervision.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "rashidun/quran_collection_abu_bakr",
+          "collection_prophet",
+          "uthman_codex"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-abu-bakr-collection",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues of the Quran: Abu Bakr's collection"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "reason",
+            "titleAr": "خوف ذهاب شيء بموت القراء",
+            "titleEn": "Concern after the deaths of reciters",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعد مقتل عدد من القراء في اليمامة اقترح عمر على أبي بكر جمع القرآن في صحف تحفظ النص المكتوب مع التلقي المحفوظ.",
+                "en": "After a number of reciters were killed at Yamamah, Umar proposed to Abu Bakr that the Quran be gathered into written sheets alongside preserved oral transmission.",
+                "citationIds": [
+                  "bukhari-abu-bakr-collection"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "process",
+            "titleAr": "تكليف زيد بن ثابت",
+            "titleEn": "Zayd's commission",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف الرواية الصحيحة تكليف زيد بالجمع من المواد المكتوبة ومن صدور الرجال مع تحر دقيق.",
+                "en": "The authentic report describes Zayd being commissioned to collect from written materials and memorized recitation with careful verification.",
+                "citationIds": [
+                  "bukhari-abu-bakr-collection"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "uthman_codex",
+        "titleAr": "المصاحف العثمانية",
+        "titleEn": "The Uthmanic codices",
+        "summaryAr": "نُسخت مصاحف معيارية في عهد عثمان وأرسلت إلى الأمصار لتقليل النزاع في القراءة.",
+        "summaryEn": "Standard codices were prepared under Uthman and sent to major centers to reduce disputes over recitation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "rashidun/uthman_codex",
+          "rasm",
+          "seven_ahruf"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-uthman-codex-science",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues of the Quran: Uthman's codices"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "reason",
+            "titleAr": "اختلاف أهل الأمصار",
+            "titleEn": "Disputes among regional reciters",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر الرواية الصحيحة أن حذيفة خشي اختلاف الناس في القراءة بعد اجتماعهم في الجبهات، فطلب معالجة الأمر.",
+                "en": "An authentic report says Hudhayfah feared growing disagreement over recitation when Muslims from different regions met in military campaigns.",
+                "citationIds": [
+                  "bukhari-uthman-codex-science"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "copies",
+            "titleAr": "لجنة النسخ والإرسال",
+            "titleEn": "Copying committee and distribution",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "طلب عثمان صحف حفصة وكلف زيدًا ونفرًا من قريش بنسخ مصاحف أرسلت إلى مراكز متعددة.",
+                "en": "Uthman borrowed Hafsa's sheets and commissioned Zayd with several Qurayshis to prepare codices that were sent to major centers.",
+                "citationIds": [
+                  "bukhari-uthman-codex-science"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rasm",
+        "titleAr": "الرسم العثماني",
+        "titleEn": "The Uthmanic rasm",
+        "summaryAr": "الرسم هو الهيئة الكتابية الأساسية لكلمات المصحف في المصاحف العثمانية المبكرة.",
+        "summaryEn": "The rasm is the basic consonantal writing form of Quranic words represented in the early Uthmanic codices.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "uthman_codex",
+          "dots_vowels",
+          "qiraat"
+        ],
+        "citations": [
+          {
+            "id": "muqni-rasm",
+            "kind": "ClassicalBook",
+            "titleAr": "المقنع في رسم مصاحف الأمصار للداني",
+            "titleEn": "Al-Dani, al-Muqni fi Rasm Masahif al-Amsar",
+            "locator": "Uthmanic orthography"
+          },
+          {
+            "id": "itqan-rasm",
+            "kind": "ClassicalBook",
+            "titleAr": "الإتقان في علوم القرآن للسيوطي",
+            "titleEn": "Al-Suyuti, al-Itqan fi Ulum al-Quran",
+            "locator": "Rasm al-Mushaf"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "meaning",
+            "titleAr": "هيئة الكتابة",
+            "titleEn": "Writing convention",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يختلف رسم المصحف في بعض الكلمات عن الإملاء العربي الحديث، وهو تقليد كتابي مرتبط بنقل المصاحف المبكرة.",
+                "en": "The Quranic rasm differs from modern Arabic spelling in some words and represents an early writing convention preserved in Quran manuscripts.",
+                "citationIds": [
+                  "muqni-rasm"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "relation",
+            "titleAr": "الرسم والقراءات",
+            "titleEn": "Rasm and readings",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يرتبط علم الرسم ببحث القراءات لأن هيئة الكتابة المبكرة قد تستوعب أكثر من وجه قراءة منقول في بعض المواضع.",
+                "en": "Rasm is studied alongside qira'at because the early consonantal form can accommodate more than one transmitted reading in some locations.",
+                "citationIds": [
+                  "itqan-rasm"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dots_vowels",
+        "titleAr": "النقط والشكل وتطور كتابة المصحف",
+        "titleEn": "Dots, vowels, and the development of Quranic writing",
+        "summaryAr": "أضيفت أنظمة النقط والحركات تدريجيًا لتيسير القراءة مع اتساع العربية خارج بيئتها الأولى.",
+        "summaryEn": "Dotting and vowel systems developed gradually to support accurate reading as Arabic spread beyond its earliest users.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "rasm",
+          "tajwid"
+        ],
+        "citations": [
+          {
+            "id": "itqan-dots",
+            "kind": "ClassicalBook",
+            "titleAr": "الإتقان في علوم القرآن للسيوطي",
+            "titleEn": "Al-Suyuti, al-Itqan fi Ulum al-Quran",
+            "locator": "Dotting and vocalization of the Mushaf"
+          },
+          {
+            "id": "muqni-dots",
+            "kind": "ClassicalBook",
+            "titleAr": "المقنع للداني",
+            "titleEn": "Al-Dani, al-Muqni",
+            "locator": "Early Quranic orthography and notation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "development",
+            "titleAr": "تطور العلامات",
+            "titleEn": "Development of notation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "المصاحف المبكرة اعتمدت رسمًا أقل من حيث النقط والحركات مقارنة بالمصاحف الحديثة، ثم تطورت العلامات التعليمية تدريجيًا.",
+                "en": "Early codices used fewer dots and vowel marks than modern mushafs; pedagogical notation developed progressively.",
+                "citationIds": [
+                  "itqan-dots"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "purpose",
+            "titleAr": "التيسير لا إنشاء نص جديد",
+            "titleEn": "Aid to reading, not a new text",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وظيفة النقط والشكل بيان القراءة وتيسيرها، لا إنشاء قرآن جديد مستقل عن التلقي الشفهي والرسم المنقول.",
+                "en": "Dots and vowel marks serve to clarify and facilitate recitation rather than create a new text independent of transmitted recitation and rasm.",
+                "citationIds": [
+                  "muqni-dots"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "surah_ayah_order",
+        "titleAr": "ترتيب السور والآيات",
+        "titleEn": "Order of surahs and verses",
+        "summaryAr": "ترتيب الآيات داخل السور منقول في المصحف، بينما ناقش العلماء تفاصيل تاريخ ترتيب السور في مراحل الجمع.",
+        "summaryEn": "The order of verses within surahs is transmitted in the Mushaf, while scholars discussed historical details concerning surah order during compilation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "collection_prophet",
+          "uthman_codex"
+        ],
+        "citations": [
+          {
+            "id": "itqan-order",
+            "kind": "ClassicalBook",
+            "titleAr": "الإتقان في علوم القرآن للسيوطي",
+            "titleEn": "Al-Suyuti, al-Itqan fi Ulum al-Quran",
+            "locator": "Order of verses and surahs"
+          },
+          {
+            "id": "bukhari-surah-order",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues of the Quran: recitation and arrangement reports"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "verses",
+            "titleAr": "مواضع الآيات",
+            "titleEn": "Placement of verses",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تربط علوم القرآن مواضع الآيات بتعليم النبي ﷺ وقراءة الصحابة، فلا يعاد ترتيب الآيات بحسب الموضوع أو تاريخ النزول داخل المصحف.",
+                "en": "Quranic studies connect verse placement with Prophetic instruction and Companion recitation; verses are not rearranged in the Mushaf according to theme or revelation chronology.",
+                "citationIds": [
+                  "itqan-order"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "surahs",
+            "titleAr": "ترتيب السور",
+            "titleEn": "Surah order",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "توجد مناقشات تاريخية بين العلماء حول بعض تفاصيل ترتيب السور ومصاحف الصحابة قبل توحيد المصحف، مع استقرار ترتيب المصحف المتداول.",
+                "en": "Scholars discussed some historical details of surah order and Companion codices before standardization, while the received Mushaf order became established.",
+                "citationIds": [
+                  "bukhari-surah-order",
+                  "itqan-order"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "makki_madani",
+        "titleAr": "المكي والمدني",
+        "titleEn": "Meccan and Medinan revelation",
+        "summaryAr": "يصنف العلماء الوحي إلى مكي ومدني بحسب زمن الهجرة في التعريف الأشهر، مع فوائد تفسيرية وتاريخية.",
+        "summaryEn": "Scholars classify revelation as Meccan or Medinan, commonly by whether it came before or after the Hijrah, with interpretive and historical benefits.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "revelation",
+          "asbab_nuzul"
+        ],
+        "citations": [
+          {
+            "id": "itqan-makki-madani",
+            "kind": "ClassicalBook",
+            "titleAr": "الإتقان في علوم القرآن للسيوطي",
+            "titleEn": "Al-Suyuti, al-Itqan fi Ulum al-Quran",
+            "locator": "Makki and Madani revelation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "definition",
+            "titleAr": "قبل الهجرة وبعدها",
+            "titleEn": "Before and after the Hijrah",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "التعريف الأشهر يجعل ما نزل قبل الهجرة مكيًا وما نزل بعدها مدنيًا ولو كان مكان النزول خارج مكة أو المدينة.",
+                "en": "The common scholarly definition classifies revelation before the Hijrah as Meccan and after it as Medinan, regardless of the exact place of revelation.",
+                "citationIds": [
+                  "itqan-makki-madani"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "benefit",
+            "titleAr": "الفائدة في الفهم",
+            "titleEn": "Interpretive value",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يفيد التصنيف في فهم تطور الخطاب والسياق التشريعي ومراحل الدعوة، لكنه لا يغني عن دراسة الآية وسياقها الخاص.",
+                "en": "The classification helps trace stages of the mission, legal development, and discourse, but does not replace studying each verse in its own context.",
+                "citationIds": [
+                  "itqan-makki-madani"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "asbab_nuzul",
+        "titleAr": "أسباب النزول",
+        "titleEn": "Occasions of revelation",
+        "summaryAr": "بعض الآيات ارتبطت بحدث أو سؤال محدد، ومعرفة السبب تساعد في فهم السياق بشرط صحة الرواية.",
+        "summaryEn": "Some verses were revealed in connection with a specific event or question; knowing the occasion can clarify context when the report is authentic.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "makki_madani",
+          "hadith_sciences/isnad_matn"
+        ],
+        "citations": [
+          {
+            "id": "wahidi-asbab",
+            "kind": "ClassicalBook",
+            "titleAr": "أسباب النزول للواحدي",
+            "titleEn": "Al-Wahidi, Asbab al-Nuzul",
+            "locator": "Occasions of revelation"
+          },
+          {
+            "id": "itqan-asbab",
+            "kind": "ClassicalBook",
+            "titleAr": "الإتقان في علوم القرآن للسيوطي",
+            "titleEn": "Al-Suyuti, al-Itqan fi Ulum al-Quran",
+            "locator": "Asbab al-Nuzul"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "benefit",
+            "titleAr": "فهم سبب الخطاب",
+            "titleEn": "Understanding the immediate context",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "سبب النزول قد يوضح المخاطب والواقعة التي نزلت الآية بشأنها، ويساعد على تجنب تفسير منفصل عن السياق.",
+                "en": "An occasion of revelation can identify the audience and event behind a verse and help prevent context-free interpretation.",
+                "citationIds": [
+                  "wahidi-asbab"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "authenticity",
+            "titleAr": "ليس كل سبب منقول صحيحًا",
+            "titleEn": "Not every reported occasion is authentic",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحتاج روايات أسباب النزول إلى نقد أسانيدها ومتونها؛ فالشهرة في كتب التفسير لا تكفي وحدها لإثبات الحدث.",
+                "en": "Reports of occasions of revelation require hadith criticism; popularity in tafsir literature alone does not establish historical authenticity.",
+                "citationIds": [
+                  "itqan-asbab"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "seven_ahruf",
+        "titleAr": "الأحرف السبعة",
+        "titleEn": "The seven ahruf",
+        "summaryAr": "ثبت في الحديث أن القرآن أنزل على سبعة أحرف، واختلف العلماء في تفسير المراد الدقيق بهذا المصطلح.",
+        "summaryEn": "Authentic hadith state that the Quran was revealed in seven ahruf, while scholars differed over the exact meaning of the term.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "qiraat",
+          "uthman_codex"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-seven-ahruf",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Virtues of the Quran: seven ahruf"
+          },
+          {
+            "id": "muslim-seven-ahruf",
+            "kind": "Hadith",
+            "titleAr": "صحيح مسلم",
+            "titleEn": "Sahih Muslim",
+            "locator": "Prayer of travelers: seven ahruf"
+          },
+          {
+            "id": "itqan-ahruf",
+            "kind": "ClassicalBook",
+            "titleAr": "الإتقان في علوم القرآن للسيوطي",
+            "titleEn": "Al-Suyuti, al-Itqan fi Ulum al-Quran",
+            "locator": "Seven ahruf"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "hadith",
+            "titleAr": "ثبوت أصل الأحرف",
+            "titleEn": "The concept is established in hadith",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تثبت أحاديث صحيحة ورود القراءة على سبعة أحرف في سياق التيسير على الأمة.",
+                "en": "Authentic hadith establish the concept of seven ahruf in the context of facilitation for the Muslim community.",
+                "citationIds": [
+                  "bukhari-seven-ahruf",
+                  "muslim-seven-ahruf"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "interpretation",
+            "titleAr": "الخلاف في تفسيرها",
+            "titleEn": "Scholarly disagreement over meaning",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يوجد تفسير واحد متفق عليه لكل معنى «الأحرف السبعة»، لذلك لا يساوي هذا المصطلح ببساطة القراءات السبع المشهورة.",
+                "en": "There is no single universally agreed explanation of the seven ahruf, so the term should not simply be equated with the later seven canonical qira'at.",
+                "citationIds": [
+                  "itqan-ahruf"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "qiraat",
+        "titleAr": "علم القراءات",
+        "titleEn": "The science of Quranic readings",
+        "summaryAr": "القراءات وجوه منقولة في أداء ألفاظ القرآن ضمن أسانيد ومدارس قراءة معروفة.",
+        "summaryEn": "Qira'at are transmitted modes of reciting Quranic wording through recognized chains and recitation schools.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "seven_ahruf",
+          "canonical_qiraat",
+          "rasm"
+        ],
+        "citations": [
+          {
+            "id": "nashr-qiraat",
+            "kind": "ClassicalBook",
+            "titleAr": "النشر في القراءات العشر لابن الجزري",
+            "titleEn": "Ibn al-Jazari, al-Nashr fi al-Qira'at al-Ashr",
+            "locator": "Foundations of qira'at transmission"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "transmission",
+            "titleAr": "نقل القراءة",
+            "titleEn": "Transmission of recitation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تعتمد القراءات على التلقي والإسناد، لا على احتمال الرسم المجرد وحده؛ فليس كل وجه لغوي ممكن قراءة قرآنية.",
+                "en": "Qira'at depend on oral transmission and chains, not merely on what the consonantal rasm could theoretically allow; not every linguistically possible form is a Quranic reading.",
+                "citationIds": [
+                  "nashr-qiraat"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "criteria",
+            "titleAr": "القبول عند علماء القراءات",
+            "titleEn": "Criteria of acceptance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ناقش علماء القراءات موافقة العربية والرسم وصحة النقل عند الحكم على القراءة، بصيغ وتفاصيل تطورت في كتب الفن.",
+                "en": "Qira'at scholars discussed Arabic conformity, compatibility with the rasm, and sound transmission as criteria for accepting readings, with details developed across the literature.",
+                "citationIds": [
+                  "nashr-qiraat"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "canonical_qiraat",
+        "titleAr": "القراءات المتواترة والمشهورة",
+        "titleEn": "Canonical qira'at",
+        "summaryAr": "استقر تدريس القراءات على أئمة وطرق معروفة، واشتهرت منظومة القراءات العشر في التعليم المتخصص.",
+        "summaryEn": "Teaching of qira'at crystallized around recognized imams and transmission paths, with ten readings becoming standard in specialized study.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "qiraat",
+          "tajwid"
+        ],
+        "citations": [
+          {
+            "id": "nashr-ten",
+            "kind": "ClassicalBook",
+            "titleAr": "النشر في القراءات العشر لابن الجزري",
+            "titleEn": "Ibn al-Jazari, al-Nashr fi al-Qira'at al-Ashr",
+            "locator": "The ten readings and their transmission"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "imams",
+            "titleAr": "أئمة القراءة",
+            "titleEn": "Recitation imams",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نسبت القراءات إلى أئمة اشتهروا بضبطها وتعليمها، بينما تنتقل كل قراءة عبر رواة وطرق متعددة.",
+                "en": "Readings are associated with leading reciters known for preserving and teaching them, while each qira'ah is transmitted through named narrators and paths.",
+                "citationIds": [
+                  "nashr-ten"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "not_versions",
+            "titleAr": "ليست نسخًا متنافسة",
+            "titleEn": "Not competing Quran editions",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "القراءات المقبولة ليست «نسخًا مختلفة» من القرآن بمعنى النصوص المستقلة، بل أوجه أداء ولفظ منقولة ضمن النص القرآني المتلقى.",
+                "en": "Accepted qira'at are not competing independent Quran editions; they are transmitted modes of wording and performance within the received Quranic text.",
+                "citationIds": [
+                  "nashr-ten"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tajwid",
+        "titleAr": "التجويد وأداء التلاوة",
+        "titleEn": "Tajwid and recitation",
+        "summaryAr": "التجويد يدرس مخارج الحروف وصفاتها وأحكام الأداء للمحافظة على القراءة الصحيحة.",
+        "summaryEn": "Tajwid studies articulation, sound qualities, and recitation rules to support accurate Quran reading.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "canonical_qiraat",
+          "dots_vowels"
+        ],
+        "citations": [
+          {
+            "id": "jazariyyah",
+            "kind": "ClassicalBook",
+            "titleAr": "المقدمة الجزرية",
+            "titleEn": "Ibn al-Jazari, al-Muqaddimah al-Jazariyyah",
+            "locator": "Principles of tajwid and articulation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "purpose",
+            "titleAr": "إتقان الأداء",
+            "titleEn": "Accurate performance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يهتم التجويد بإخراج الحروف من مخارجها وضبط الصفات والأحكام التي يتعلمها القارئ بالمشافهة والممارسة.",
+                "en": "Tajwid focuses on correct articulation, sound qualities, and recitation rules learned through guided practice and oral instruction.",
+                "citationIds": [
+                  "jazariyyah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "levels",
+            "titleAr": "التعليم والقدرة",
+            "titleEn": "Learning according to ability",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يحتاج القارئ إلى قدر يحقق سلامة القراءة، بينما تفاصيل الأداء الدقيقة والتخصص في القراءات لها مستويات تعليم أعمق.",
+                "en": "A reader needs enough tajwid to preserve sound recitation, while advanced performance details and qira'at specialization require deeper study.",
+                "citationIds": [
+                  "jazariyyah"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "nasikh_mansukh",
+        "titleAr": "الناسخ والمنسوخ",
+        "titleEn": "Abrogation in Quranic studies",
+        "summaryAr": "بحث أصولي في تغير بعض الأحكام الشرعية بدليل متأخر، وقد اختلف العلماء في عدد أمثلته وشروط إثباته.",
+        "summaryEn": "An usul concept concerning later revelation replacing an earlier ruling, with scholarly disagreement over examples and proof standards.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "muhkam_mutashabih",
+          "tafsir_principles"
+        ],
+        "citations": [
+          {
+            "id": "quran-2-106",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "2:106"
+          },
+          {
+            "id": "itqan-naskh",
+            "kind": "ClassicalBook",
+            "titleAr": "الإتقان في علوم القرآن للسيوطي",
+            "titleEn": "Al-Suyuti, al-Itqan fi Ulum al-Quran",
+            "locator": "Abrogation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "concept",
+            "titleAr": "تغير حكم بدليل متأخر",
+            "titleEn": "A later ruling replacing an earlier one",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تناول العلماء آيات مثل «ما ننسخ من آية» ضمن بحث النسخ، وربطوا إثباته بالتاريخ ودلالة النصوص وعدم إمكان الجمع بينها.",
+                "en": "Scholars connected verses such as 'Whatever verse We abrogate...' with the doctrine of abrogation and required chronology, textual evidence, and inability to reconcile rulings.",
+                "citationIds": [
+                  "quran-2-106",
+                  "itqan-naskh"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "caution",
+            "titleAr": "عدم التوسع في دعوى النسخ",
+            "titleEn": "Caution against overclaiming",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كثير مما سماه بعض المتقدمين نسخًا حمله آخرون على التخصيص أو البيان أو تغير الحال، لذلك لا يثبت النسخ بمجرد التعارض الظاهري.",
+                "en": "Some cases earlier authors called abrogation were later understood as specification, clarification, or changed circumstances, so abrogation is not established merely by apparent tension.",
+                "citationIds": [
+                  "itqan-naskh"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "muhkam_mutashabih",
+        "titleAr": "المحكم والمتشابه",
+        "titleEn": "Clear and less-explicit verses",
+        "summaryAr": "يذكر القرآن آيات محكمات وأخر متشابهات، ويحذر من اتباع المتشابه طلبًا للفتنة.",
+        "summaryEn": "The Quran describes clear foundational verses and others that are less explicit, warning against exploiting ambiguity for discord.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "nasikh_mansukh",
+          "tafsir_principles",
+          "aqeedah/names_attributes"
+        ],
+        "citations": [
+          {
+            "id": "quran-3-7",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "3:7"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "categories",
+            "titleAr": "أم الكتاب والمتشابه",
+            "titleEn": "Foundation and ambiguity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تصف سورة آل عمران المحكمات بأنها أم الكتاب وتذكر وجود متشابهات، ما يدعو إلى رد المحتمل إلى الأوضح.",
+                "en": "Surat Al Imran calls the clear verses the foundation of the Book and acknowledges other verses with ambiguity, encouraging interpretation of the less clear in light of the clearer.",
+                "citationIds": [
+                  "quran-3-7"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ethics",
+            "titleAr": "عدم تتبع المتشابه للفتنة",
+            "titleEn": "Not exploiting ambiguity",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحذر الآية ممن يتبع المتشابه ابتغاء الفتنة، وهو توجيه منهجي ضد بناء الاعتقاد أو الحكم على نص محتمل مع إهمال بقية الوحي.",
+                "en": "The verse warns against pursuing ambiguity to create discord, discouraging doctrine or rulings built on uncertain wording while ignoring the rest of revelation.",
+                "citationIds": [
+                  "quran-3-7"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tafsir_principles",
+        "titleAr": "أصول التفسير",
+        "titleEn": "Principles of Quran interpretation",
+        "summaryAr": "فهم القرآن يحتاج جمع النصوص والسياق واللغة والسنة وأقوال السلف مع تمييز القطعي من الاجتهادي.",
+        "summaryEn": "Interpreting the Quran requires reading texts together with context, Arabic, Sunnah, and early scholarship while distinguishing certainty from interpretation.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "tafsir_quran_quran",
+          "sunnah_explanation",
+          "language_context"
+        ],
+        "citations": [
+          {
+            "id": "quran-16-44",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:44"
+          },
+          {
+            "id": "muqaddima-tafsir",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة في أصول التفسير لابن تيمية",
+            "titleEn": "Ibn Taymiyyah, Muqaddimah fi Usul al-Tafsir",
+            "locator": "Principles of tafsir"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "sources",
+            "titleAr": "مسارات البيان",
+            "titleEn": "Sources of explanation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يستفيد المفسر من تفسير القرآن بالقرآن ومن بيان السنة ومن لغة العرب والسياق وأقوال الصحابة والتابعين مع نقد الروايات.",
+                "en": "An interpreter draws on Quran explaining Quran, Prophetic explanation, Arabic language, context, and reports from early Muslims, while critically evaluating transmitted material.",
+                "citationIds": [
+                  "quran-16-44",
+                  "muqaddima-tafsir"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "discipline",
+            "titleAr": "التفسير ليس انطباعًا حرًا",
+            "titleEn": "Interpretation is not free association",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يكفي أن يحتمل اللفظ معنى لغويًا مجردًا؛ بل ينظر في استعمال القرآن والسياق والسنن التفسيرية والأدلة الأخرى.",
+                "en": "A lexical possibility alone is not enough; interpretation considers Quranic usage, context, established explanatory traditions, and other evidence.",
+                "citationIds": [
+                  "muqaddima-tafsir"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tafsir_quran_quran",
+        "titleAr": "تفسير القرآن بالقرآن",
+        "titleEn": "The Quran explaining the Quran",
+        "summaryAr": "قد يوضح موضع قرآني معنى موضع آخر أو يجمل هنا ويفصل هناك.",
+        "summaryEn": "One Quranic passage may clarify another, giving detail elsewhere to what is concise in one place.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "tafsir_principles",
+          "sunnah_explanation"
+        ],
+        "citations": [
+          {
+            "id": "muqaddima-quran-quran",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة في أصول التفسير",
+            "titleEn": "Ibn Taymiyyah, Muqaddimah fi Usul al-Tafsir",
+            "locator": "Quran explaining Quran"
+          },
+          {
+            "id": "quran-75-16-19",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "75:16-19"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "method",
+            "titleAr": "جمع المواضع",
+            "titleEn": "Reading related passages together",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "من طرق التفسير جمع الآيات المتعلقة بالموضوع نفسه حتى يفسر المجمل بالمبين والعام بما يوضح مراده.",
+                "en": "A major interpretive method is collecting passages on the same subject so concise wording can be read with clearer or more detailed revelation.",
+                "citationIds": [
+                  "muqaddima-quran-quran"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "coherence",
+            "titleAr": "البيان في الوحي",
+            "titleEn": "Explanation within revelation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يشير القرآن إلى أن جمعه وبيانه على الله، ويستفيد المفسر من الروابط بين المواضع بدل عزل الآية عن مجموع الكتاب.",
+                "en": "The Quran speaks of its collection and explanation as belonging to God, and interpreters therefore attend to relationships among passages rather than isolating verses.",
+                "citationIds": [
+                  "quran-75-16-19"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sunnah_explanation",
+        "titleAr": "بيان السنة للقرآن",
+        "titleEn": "The Sunnah explaining the Quran",
+        "summaryAr": "تشرح السنة عبادات وأحكامًا ومعاني ورد أصلها في القرآن.",
+        "summaryEn": "The Sunnah explains practices, rulings, and meanings whose foundations appear in the Quran.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "tafsir_principles",
+          "hadith_sciences/sunnah_authority"
+        ],
+        "citations": [
+          {
+            "id": "quran-16-44",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "16:44"
+          },
+          {
+            "id": "bukhari-prayer-explanation",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "Prayer: Prophetic instruction on how to pray"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "role",
+            "titleAr": "لتبين للناس",
+            "titleEn": "To explain to people",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تذكر سورة النحل أن الذكر أنزل إلى النبي ﷺ ليبين للناس ما نزل إليهم، وهو أصل لدور السنة في البيان.",
+                "en": "Surat al-Nahl states that the Reminder was sent to the Prophet ﷺ so that he may explain to people what was revealed to them, grounding the Sunnah's explanatory role.",
+                "citationIds": [
+                  "quran-16-44"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "example",
+            "titleAr": "تفاصيل الصلاة",
+            "titleEn": "Example: prayer",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يأمر القرآن بالصلاة، بينما نقلت السنة تفاصيل كثيرة من صفة أدائها وأوقاتها وهيئتها العملية.",
+                "en": "The Quran commands prayer, while the Sunnah transmits many practical details of its times and performance.",
+                "citationIds": [
+                  "bukhari-prayer-explanation"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "companion_tafsir",
+        "titleAr": "تفسير الصحابة والتابعين",
+        "titleEn": "Companion and Successor tafsir",
+        "summaryAr": "أقوال الجيل الأول مهمة لقربهم من التنزيل واللغة، لكنها تحتاج إلى تثبت في النسبة وقد تختلف اجتهاداتهم.",
+        "summaryEn": "Interpretations from Companions and Successors are important for proximity to revelation and language, but attribution requires verification and their opinions can differ.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "tafsir_principles",
+          "companions/ibn_abbas",
+          "companions/ibn_masud"
+        ],
+        "citations": [
+          {
+            "id": "tabari-tafsir-early",
+            "kind": "ClassicalBook",
+            "titleAr": "جامع البيان للطبري",
+            "titleEn": "Al-Tabari, Jami al-Bayan",
+            "locator": "Early tafsir reports from Companions and Successors"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "value",
+            "titleAr": "قرب العهد بالتنزيل",
+            "titleEn": "Proximity to revelation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تزداد قيمة أقوال الصحابة عندما تنقل سبب نزول أو استعمالًا لغويًا أو بيانًا تعلموه، مع اختلاف قوة الأسانيد.",
+                "en": "Companion reports are especially valuable when transmitting an occasion of revelation, linguistic usage, or learned explanation, though chains vary in strength.",
+                "citationIds": [
+                  "tabari-tafsir-early"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "difference",
+            "titleAr": "وجود الاختلاف",
+            "titleEn": "Early interpretive differences",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قد تختلف عبارات الصحابة والتابعين في تفسير اللفظ، وأحيانًا يكون الاختلاف تنوعًا لا تضادًا، لذلك لا تسوى جميع الأقوال دون تحليل.",
+                "en": "Companions and Successors sometimes used different expressions for a verse, often reflecting complementary rather than contradictory interpretations, so reports require analysis.",
+                "citationIds": [
+                  "tabari-tafsir-early"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "language_context",
+        "titleAr": "العربية والسياق في التفسير",
+        "titleEn": "Arabic and context in tafsir",
+        "summaryAr": "نزل القرآن بالعربية، وفهم الدلالة يحتاج معرفة الاستعمال العربي والسياق والتركيب لا مجرد ترجمة كلمة منفردة.",
+        "summaryEn": "The Quran was revealed in Arabic, and interpretation requires attention to usage, grammar, rhetoric, and context rather than isolated word substitution.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "tafsir_principles",
+          "islam/arabic_language"
+        ],
+        "citations": [
+          {
+            "id": "quran-12-2",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "12:2"
+          },
+          {
+            "id": "itqan-language",
+            "kind": "ClassicalBook",
+            "titleAr": "الإتقان في علوم القرآن للسيوطي",
+            "titleEn": "Al-Suyuti, al-Itqan fi Ulum al-Quran",
+            "locator": "Arabic language in Quranic interpretation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "arabic",
+            "titleAr": "قرآنًا عربيًا",
+            "titleEn": "An Arabic Quran",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يؤكد القرآن عربية النص، ولذلك تؤثر الدلالة النحوية والبلاغية واستعمال العرب في فهم الآيات.",
+                "en": "The Quran emphasizes its Arabic language, so grammar, rhetoric, and historical Arabic usage matter for understanding verses.",
+                "citationIds": [
+                  "quran-12-2"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "titleAr": "السياق يمنع اقتطاع المعنى",
+            "titleEn": "Context prevents distortion",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "قد يتغير فهم الجملة إذا قطعت عن الآيات السابقة واللاحقة أو عن موضوع السورة، لذلك يدرس السياق قبل تعميم الدلالة.",
+                "en": "A sentence can be misunderstood when detached from surrounding verses or the surah's topic, so context should be examined before generalizing meaning.",
+                "citationIds": [
+                  "itqan-language"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "israeliyyat_tafsir",
+        "titleAr": "الإسرائيليات في التفسير",
+        "titleEn": "Israelite material in tafsir",
+        "summaryAr": "دخلت بعض الأخبار الإسرائيلية في كتب التفسير والقصص، ولا تعامل كلها بدرجة واحدة من الثبوت.",
+        "summaryEn": "Some Israelite material entered tafsir and storytelling literature and should not all be treated with the same level of certainty.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "prophets/israeliyyat_method",
+          "companion_tafsir"
+        ],
+        "citations": [
+          {
+            "id": "muqaddima-israiliyyat",
+            "kind": "ClassicalBook",
+            "titleAr": "مقدمة في أصول التفسير",
+            "titleEn": "Ibn Taymiyyah, Muqaddimah fi Usul al-Tafsir",
+            "locator": "Israelite reports in tafsir"
+          },
+          {
+            "id": "quran-17-36",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "17:36"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "categories",
+            "titleAr": "القبول والرد والتوقف",
+            "titleEn": "Accept, reject, or suspend judgment",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "ميز العلماء بين ما وافق الوحي وما خالفه وما سكت عنه الشرع، مع تفاوتهم في استعمال الأخبار التي لا يصدقها الوحي ولا يكذبها.",
+                "en": "Scholars distinguished reports consistent with revelation, those contradicting it, and those on which revelation is silent, while differing over how much to use the third category.",
+                "citationIds": [
+                  "muqaddima-israiliyyat"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "certainty",
+            "titleAr": "لا تبنى العقيدة على خبر غير ثابت",
+            "titleEn": "No certainty from unsupported stories",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا تحول التفاصيل القصصية غير الموثقة إلى حقائق عقدية أو تاريخية يقينية لمجرد وجودها في كتاب تفسير.",
+                "en": "Unsupported narrative details should not be turned into certain theological or historical facts merely because they appear in a tafsir work.",
+                "citationIds": [
+                  "quran-17-36"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "translation",
+        "titleAr": "ترجمة معاني القرآن",
+        "titleEn": "Translation of Quranic meanings",
+        "summaryAr": "الترجمة وسيلة لفهم المعنى لغير الناطق بالعربية لكنها تفسير بشري لا يطابق كل دلالات النص العربي.",
+        "summaryEn": "Translation helps non-Arabic readers access meaning but remains a human rendering that cannot reproduce every nuance of the Arabic text.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "quran_definition",
+          "language_context"
+        ],
+        "citations": [
+          {
+            "id": "quran-12-2",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "12:2"
+          },
+          {
+            "id": "itqan-translation-context",
+            "kind": "ClassicalBook",
+            "titleAr": "الإتقان في علوم القرآن",
+            "titleEn": "Al-Suyuti, al-Itqan fi Ulum al-Quran",
+            "locator": "Arabic expression and interpretation"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "benefit",
+            "titleAr": "تقريب المعنى",
+            "titleEn": "Making meaning accessible",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تتيح الترجمات لغير العربي التعرف إلى الخطاب القرآني وتعلم الدين، ويستفيد القارئ من مقارنة ترجمات موثوقة عند الإشكال.",
+                "en": "Translations make Quranic meaning accessible to non-Arabic readers, and comparing reliable translations can help when wording is difficult.",
+                "citationIds": [
+                  "quran-12-2"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "limit",
+            "titleAr": "ليست بديلًا مطابقًا للنص",
+            "titleEn": "Not an identical substitute",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لأن الترجمة تتضمن اختيارًا تفسيريًا، لا تعامل صياغتها كأنها كل احتمالات الآية العربية أو ألفاظ القرآن نفسها.",
+                "en": "Because translation requires interpretive choices, its wording should not be treated as exhausting the possibilities of the Arabic verse or as identical with the Quran's wording.",
+                "citationIds": [
+                  "itqan-translation-context"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "digital_quran_verification",
+        "titleAr": "القرآن الرقمي والتحقق من النص",
+        "titleEn": "Digital Quran text and verification",
+        "summaryAr": "النصوص الرقمية تحتاج إلى مصدر موثوق ومقارنة آلية وبشرية لتجنب أخطاء الإدخال والترميز.",
+        "summaryEn": "Digital Quran text requires trusted sourcing and both automated and human checks to prevent transcription and encoding errors.",
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "preservation",
+          "translation"
+        ],
+        "citations": [
+          {
+            "id": "quran-15-9",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "15:9"
+          },
+          {
+            "id": "digital-quran-method",
+            "kind": "ClassicalBook",
+            "titleAr": "منهج توثيق النصوص الرقمية",
+            "titleEn": "Digital Quran verification methodology",
+            "locator": "Text integrity, Unicode normalization, and source comparison"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null,
+        "sections": [
+          {
+            "id": "source",
+            "titleAr": "مصدر النص",
+            "titleEn": "Text provenance",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لا يكفي نسخ نص من موقع مجهول؛ ينبغي معرفة مصدر المصحف الرقمي وإصدار الرسم والقراءة والترميز المستعمل.",
+                "en": "Copying from an unknown website is insufficient; a digital Quran should identify its text source, orthographic edition, reading, and encoding conventions.",
+                "citationIds": [
+                  "digital-quran-method"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "validation",
+            "titleAr": "المقارنة والاختبارات",
+            "titleEn": "Validation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تفيد اختبارات التجزئة والمقارنة وعد الآيات والتحقق من أسماء السور والمواضع، مع مراجعة بشرية عند أي اختلاف.",
+                "en": "Checksums, comparison tests, verse counts, surah metadata, and targeted human review help detect corruption or encoding mistakes.",
+                "citationIds": [
+                  "digital-quran-method"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
