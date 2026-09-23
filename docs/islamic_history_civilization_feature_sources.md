@@ -15,10 +15,11 @@ The history feature now separates **UI**, **content contracts**, and **curated c
 - `IslamicHistorySources.kt` provides one shared source registry for articles, states, and future event/place records.
 - `IslamicHistoryArticles.kt` contains the first long-form bilingual article set.
 - `IslamicHistoryStates.kt` adds 18 major overlapping states and dynasties, grouped by broad region instead of forcing them into a single succession.
-- `HistoryContentValidator.kt` validates unique IDs, bilingual completeness, chronology sanity, source references, related-era references, state/era links, and section structure.
+- `IslamicCivilizationContent.kt` adds 12 long-form thematic topics across knowledge/sciences, institutions, society/economy, and arts/built environment.
+- `HistoryContentValidator.kt` validates unique IDs, bilingual completeness, chronology sanity, source references, related-era/topic references, state/era links, person links, and section structure.
 - `HistoryContentValidatorTest.kt` makes those rules part of CI so broken references or incomplete articles are caught before merge.
 
-The Compose screen now exposes a dedicated **States & Dynasties** tab with regional filters. This makes overlapping histories visible side by side and avoids implying that one state simply replaced another everywhere. This separation is also the migration boundary for the next stage, where the growing catalogue can move from Kotlin constants to packaged JSON/Room content without rewriting the readers.
+The Compose screen now exposes dedicated **States & Dynasties** and **Civilization** tabs. The former uses regional filters to make overlapping political histories visible side by side; the latter uses thematic filters and dedicated readers so science, institutions, economic life, cities, architecture, and visual culture are not reduced to political chronology. This separation is also the migration boundary for a later move from Kotlin constants to packaged JSON/Room content without rewriting the readers.
 
 ## Sources reviewed
 
@@ -28,7 +29,9 @@ The Compose screen now exposes a dedicated **States & Dynasties** tab with regio
 | Fatimid chronology | [The Met: The Art of the Fatimid Period (909–1171)](https://www.metmuseum.org/essays/the-art-of-the-fatimid-period-909-1171) | Used for the Fatimid state range and cautious summary of Cairo-centered cultural development. |
 | Ayyubid chronology | [The Met: The Art of the Ayyubid Period (ca. 1171–1260)](https://www.metmuseum.org/essays/the-art-of-the-ayyubid-period-ca-1171-1260) | Used for the approximate Ayyubid state range and its Egypt/Levant/Yemen framing. |
 | Ilkhanid and Timurid chronology | The Met Heilbrunn Timeline essays for the Ilkhanid and Timurid periods | Used to cross-check their date ranges and regional framing. |
-| Scientific and cultural context | [The Met: Science and the Art of the Islamic World](https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/unit-four) | Informed careful wording on astronomy, medicine, Arabic translation, scientific instruments, and circulation of knowledge; no lone-inventor claims are used. |
+| Scientific and cultural context | [The Met: Science and the Art of the Islamic World](https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world/unit-four) | Informed careful wording on astronomy, medicine, mathematics, optics, Arabic translation, scientific instruments, and circulation of knowledge; no lone-inventor claims are used. |
+| Art and built environment | [The Met: Art of the Islamic World educator resources](https://www.metmuseum.org/learn/educators/curriculum-resources/art-of-the-islamic-world) | Supports the regional, material, and functional framing of architecture, calligraphy, and decorative arts. |
+| Waqf and madrasah orientation | Encyclopaedia Britannica reference entries on waqf and madrasah | Used as supplementary orientation for definitions and institutional framing; local practice is explicitly presented as historically variable. |
 | Trade and caravan networks | [UNESCO: About the Silk Roads](https://www.unesco.org/en/silk-roads/about-silk-roads) | Supports the framing of land and maritime routes as shifting networks carrying goods, ideas, languages, and beliefs rather than one fixed route. |
 | Caliphal chronology context | [World History Encyclopedia: Islamic Caliphates](https://www.worldhistory.org/Islamic_Caliphates/) | Used only as a supplementary overview and cross-checked against the museum chronology; the app avoids importing its interpretive language. |
 | Ibn Khaldun profile | [Ibn Haldun University: About Ibn Haldun](https://www.ihu.edu.tr/en/ibn-haldun-kimdir) | Used for basic dates, roles, and the scope of the *Muqaddimah* in the Ibn Khaldun card. |
