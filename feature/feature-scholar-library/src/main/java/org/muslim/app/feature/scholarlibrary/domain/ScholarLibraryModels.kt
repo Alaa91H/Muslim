@@ -57,6 +57,32 @@ enum class ScholarHighlightStyle {
     }
 }
 
+data class ScholarPackSource(
+    val name: String,
+    val url: String?,
+    val licenseNotice: String,
+    val originName: String?,
+)
+
+data class ScholarPackInstallation(
+    val bookIds: List<String>,
+    val imported: Boolean,
+    val managed: Boolean,
+    val installedAtEpochMillis: Long,
+    val updatedAtEpochMillis: Long,
+) {
+    val bookCount: Int get() = bookIds.size
+}
+
+data class ScholarContentPack(
+    val id: String,
+    val name: String,
+    val version: Int,
+    val schemaVersion: Int,
+    val source: ScholarPackSource,
+    val installation: ScholarPackInstallation,
+)
+
 data class ScholarBook(
     val id: String,
     val title: String,
