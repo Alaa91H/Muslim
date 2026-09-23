@@ -30,6 +30,8 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewEvent
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewRating
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewScheduler
 import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewSummary
+import org.muslim.app.feature.scholarlibrary.domain.ScholarReviewActivity
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyActivity
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyActivitySummary
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyAnalytics
 import org.muslim.app.feature.scholarlibrary.domain.ScholarCategoryMastery
@@ -71,16 +73,20 @@ internal data class ScholarLibraryUiState(
     val categoryMastery: List<ScholarCategoryMastery> = emptyList(),
     val reviewEvents: List<ScholarReviewEvent> = emptyList(),
     val studyActivitySummary: ScholarStudyActivitySummary = ScholarStudyActivitySummary(
-        reviewsToday = 0,
-        reviewsLast7Days = 0,
-        cardsReviewedLast7Days = 0,
-        againLast7Days = 0,
-        hardLast7Days = 0,
-        goodLast7Days = 0,
-        easyLast7Days = 0,
-        completedSessionsLast7Days = 0,
-        studiedPassagesLast7Days = 0,
-        dueCards = 0,
+        review = ScholarReviewActivity(
+            reviewsToday = 0,
+            reviewsLast7Days = 0,
+            cardsReviewedLast7Days = 0,
+            againLast7Days = 0,
+            hardLast7Days = 0,
+            goodLast7Days = 0,
+            easyLast7Days = 0,
+        ),
+        study = ScholarStudyActivity(
+            completedSessionsLast7Days = 0,
+            studiedPassagesLast7Days = 0,
+            dueCards = 0,
+        ),
     ),
     val bookmarks: List<StudyBookmarkWithCitation> = emptyList(),
     val highlights: List<StudyHighlightWithCitation> = emptyList(),
