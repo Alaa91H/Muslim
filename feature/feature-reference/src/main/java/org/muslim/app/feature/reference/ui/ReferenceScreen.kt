@@ -95,6 +95,7 @@ fun ReferenceScreen(
     var selectedBook by remember { mutableStateOf<ReferenceBook?>(null) }
     var selectedTopic by remember { mutableStateOf<RefTopic?>(null) }
     var query by rememberSaveable { mutableStateOf("") }
+    var hubQuery by rememberSaveable { mutableStateOf("") }
 
     // System back steps out of the topic, then the book, then the screen
     // (mirrors the toolbar arrow) — never skips straight to the More root.
@@ -159,7 +160,17 @@ fun ReferenceScreen(
             else -> HubContent(
                 repository = repository,
                 lang = lang,
-                onOpenBook = { selectedBook = it },
+                query = hubQuery,
+                onQueryChanged = { hubQuery = it },
+                onOpenBook = {
+                    selectedBook = it
+                    hubQuery = ""
+                },
+                onOpenTopic = { targetBook, targetTopic ->
+                    selectedBook = targetBook
+                    selectedTopic = targetTopic
+                    hubQuery = ""
+                },
                 modifier = contentModifier,
             )
         }
@@ -209,60 +220,128 @@ private fun ReferenceTopBar(
 private fun HubContent(
     repository: ReferenceRepository,
     lang: RefLang,
+    query: String,
+    onQueryChanged: (String) -> Unit,
     onOpenBook: (ReferenceBook) -> Unit,
+    onOpenTopic: (ReferenceBook, RefTopic) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val results = remember(repository, query, lang) {
+        repository.searchAll(query, lang, limit = 80)
+    }
+
     LazyColumn(modifier = modifier.fillMaxSize()) {
-        item(key = "reference-decoration") {
-            IslamicDecorationBand(
-                tint = MaterialTheme.colorScheme.tertiary,
-                compact = true,
-                modifier = Modifier.padding(horizontal = 16.dp),
-            )
-        }
-        items(repository.books, key = { it.id }) { book ->
-            IslamicCard(
+        item(key = "library-search") {
+            OutlinedTextField(
+                value = query,
+                onValueChange = onQueryChanged,
+                placeholder = {
+                    Text(
+                        if (lang == RefLang.Arabic) {
+                            "ابحث في جميع كتب المكتبة…"
+                        } else {
+                            "Search the entire library…"
+                        },
+                    )
+                },
+                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 8.dp)
-                    .clickable { onOpenBook(book) },
-                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+                    .padding(horizontal = 16.dp, vertical = 8.dp),
+            )
+        }
+
+        if (query.isBlank()) {
+            item(key = "reference-decoration") {
+                IslamicDecorationBand(
+                    tint = MaterialTheme.colorScheme.tertiary,
+                    compact = true,
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                )
+            }
+            items(repository.books, key = { it.id }) { book ->
+                ReferenceBookCard(book = book, lang = lang, onOpenBook = onOpenBook)
+            }
+        } else if (results.isEmpty()) {
+            item(key = "library-no-results") {
+                MuslimStateSurface(
+                    title = stringResource(R.string.reference_no_results),
+                    tone = MuslimStateTone.Neutral,
+                    icon = Icons.Filled.Search,
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 24.dp),
+                )
+            }
+        } else {
+            items(
+                items = results,
+                key = { result -> "${result.book.id}/${result.topic.id}" },
+            ) { result ->
+                ListItem(
+                    headlineContent = {
+                        Text(result.topic.title(lang), fontWeight = FontWeight.Medium)
+                    },
+                    supportingContent = {
+                        Text(
+                            text = "${result.book.title(lang)} • ${result.topic.summary(lang)}",
+                            maxLines = 2,
+                        )
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { onOpenTopic(result.book, result.topic) },
+                )
+                HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
+            }
+        }
+    }
+}
+
+@Composable
+private fun ReferenceBookCard(
+    book: ReferenceBook,
+    lang: RefLang,
+    onOpenBook: (ReferenceBook) -> Unit,
+) {
+    IslamicCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .clickable { onOpenBook(book) },
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Surface(
+                shape = CircleShape,
+                color = MaterialTheme.colorScheme.primaryContainer,
             ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Surface(
-                        shape = CircleShape,
-                        color = MaterialTheme.colorScheme.primaryContainer,
-                    ) {
-                        Icon(
-                            imageVector = bookIcons[book.id] ?: Icons.AutoMirrored.Filled.MenuBook,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                            modifier = Modifier.padding(10.dp).size(24.dp),
-                        )
-                    }
-                    Spacer(Modifier.size(16.dp))
-                    Column {
-                        Text(
-                            text = book.title(lang),
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold,
-                        )
-                        Spacer(Modifier.height(4.dp))
-                        Text(
-                            text = book.subtitle(lang),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                        Spacer(Modifier.height(6.dp))
-                        Text(
-                            text = "${book.topics.size} ${stringResource(R.string.reference_topics_count)}",
-                            style = MaterialTheme.typography.labelMedium,
-                            color = MaterialTheme.colorScheme.primary,
-                        )
-                    }
-                }
+                Icon(
+                    imageVector = bookIcons[book.id] ?: Icons.AutoMirrored.Filled.MenuBook,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                    modifier = Modifier.padding(10.dp).size(24.dp),
+                )
+            }
+            Spacer(Modifier.size(16.dp))
+            Column {
+                Text(
+                    text = book.title(lang),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = book.subtitle(lang),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.height(6.dp))
+                Text(
+                    text = "${book.topics.size} ${stringResource(R.string.reference_topics_count)}",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                )
             }
         }
     }
