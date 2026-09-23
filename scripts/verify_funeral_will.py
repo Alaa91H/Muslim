@@ -45,6 +45,10 @@ PROTECTION_SESSION = (
     ROOT
     / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/WillDraftProtectionSession.kt"
 )
+REFERENCE_INDEX_UI = (
+    ROOT
+    / "feature/feature-learn/src/main/java/org/muslim/app/feature/learn/ui/WillReferenceIndexUi.kt"
+)
 APP_MANIFEST = ROOT / "app/src/main/AndroidManifest.xml"
 BACKUP_RULES = ROOT / "app/src/main/res/xml/backup_rules.xml"
 DATA_EXTRACTION_RULES = ROOT / "app/src/main/res/xml/data_extraction_rules.xml"
@@ -87,7 +91,7 @@ def main() -> int:
 
     ui_resource_text = "\n".join(
         path.read_text(encoding="utf-8")
-        for path in (SCREEN, PROTECTION_UI, PROTECTION_SESSION)
+        for path in (SCREEN, PROTECTION_UI, PROTECTION_SESSION, REFERENCE_INDEX_UI)
     )
     used_names = set(
         re.findall(
@@ -146,6 +150,8 @@ def main() -> int:
         "funeral_will_export_pdf",
         "funeral_will_print",
         "printWillDraft",
+        "willReferenceIndex",
+        "WillReferenceIndex",
         "widthIn(max = 900.dp)",
         "ActivityResultContracts.CreateDocument",
         "rememberWillDraftProtectionSession",
