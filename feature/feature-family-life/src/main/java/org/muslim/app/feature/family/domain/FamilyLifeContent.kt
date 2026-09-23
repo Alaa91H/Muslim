@@ -21,6 +21,14 @@ data class RuqyahAudioTrack(
     val url: String,
 )
 
+data class RuqyahSupplication(
+    val id: String,
+    val title: LocalizedFamilyText,
+    val arabic: String,
+    val meaning: LocalizedFamilyText,
+    val reference: LocalizedFamilyText,
+)
+
 enum class BabyNameGender { Boy, Girl }
 
 data class IslamicBabyName(
@@ -30,6 +38,8 @@ data class IslamicBabyName(
     val gender: BabyNameGender,
     val meaningArabic: String,
     val meaningEnglish: String,
+    val origin: LocalizedFamilyText? = null,
+    val note: LocalizedFamilyText? = null,
 )
 
 data class FamilyGuideSection(
@@ -149,6 +159,8 @@ object FamilyLifeContent {
         ),
     )
 
+    val ruqyahSupplications: List<RuqyahSupplication> = FamilyParentingContent.ruqyahSupplications
+
     val ruqyahAudio = listOf(
         RuqyahAudioTrack(
             id = "ruqyah_short_surahs",
@@ -170,7 +182,7 @@ object FamilyLifeContent {
         ),
     )
 
-    val babyNames: List<IslamicBabyName> = listOf(
+    private val legacyBabyNames: List<IslamicBabyName> = listOf(
         name("adam", "آدم", "Adam", BabyNameGender.Boy, "أبو البشر وأول الأنبياء", "The first human and a prophet"),
         name("ibrahim", "إبراهيم", "Ibrahim", BabyNameGender.Boy, "أبو الأنبياء وخليل الرحمن", "A prophet and the close friend of the Most Merciful"),
         name("ismail", "إسماعيل", "Ismail", BabyNameGender.Boy, "المطيع لله والصابر", "A prophet known for obedience and patience"),
@@ -232,6 +244,9 @@ object FamilyLifeContent {
         name("salsabil", "سلسبيل", "Salsabil", BabyNameGender.Girl, "عين في الجنة عذبة سهلة الشرب", "A pure, easy-drinking spring in Paradise"),
         name("haneen", "حنين", "Haneen", BabyNameGender.Girl, "الشوق والرقة", "Longing and tenderness"),
     )
+
+    val babyNames: List<IslamicBabyName> =
+        (legacyBabyNames + FamilyNamesExpansion.names).distinctBy { it.id }
 
     val familyArticles = listOf(
         FamilyGuideArticle(
@@ -423,7 +438,7 @@ object FamilyLifeContent {
                 ),
             ),
         )
-    ) + FamilyAdvancedContent.articles
+    ) + FamilyAdvancedContent.articles + FamilyParentingContent.articles
 
     val familyArticleMetadata: List<FamilyTopicMetadata> = listOf(
         FamilyTopicMetadata("engagement", FamilyTopicCategory.BeforeMarriage, listOf("خطبة", "تعارف", "engagement", "istikhara")),
@@ -435,7 +450,7 @@ object FamilyLifeContent {
         FamilyTopicMetadata("newborn", FamilyTopicCategory.Newborn, listOf("مولود", "عقيقة", "رضاعة", "newborn", "aqiqah")),
         FamilyTopicMetadata("kinship", FamilyTopicCategory.Kinship, listOf("والدان", "رحم", "أقارب", "parents", "kinship")),
         FamilyTopicMetadata("daily_family_life", FamilyTopicCategory.DailyLife, listOf("بيت", "خصوصية", "تقنية", "home", "privacy")),
-    ) + FamilyAdvancedContent.metadata
+    ) + FamilyAdvancedContent.metadata + FamilyParentingContent.metadata
 
     fun articleById(articleId: String): FamilyGuideArticle? =
         familyArticles.firstOrNull { it.id == articleId }
@@ -485,15 +500,20 @@ object FamilyLifeContent {
             .replace('ة', 'ه')
 
     fun searchNames(query: String, gender: BabyNameGender? = null): List<IslamicBabyName> {
-        val normalized = query.trim().lowercase()
+        val normalized = normalizeSearch(query)
         return babyNames.filter { item ->
+            val searchable = listOfNotNull(
+                item.nameArabic,
+                item.transliteration,
+                item.meaningArabic,
+                item.meaningEnglish,
+                item.origin?.arabic,
+                item.origin?.english,
+                item.note?.arabic,
+                item.note?.english,
+            ).joinToString(" ")
             (gender == null || item.gender == gender) &&
-                (normalized.isEmpty() || listOf(
-                    item.nameArabic,
-                    item.transliteration.lowercase(),
-                    item.meaningArabic,
-                    item.meaningEnglish.lowercase(),
-                ).any { it.contains(normalized) })
+                (normalized.isEmpty() || normalizeSearch(searchable).contains(normalized))
         }
     }
 
