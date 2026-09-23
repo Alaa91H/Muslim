@@ -25,6 +25,57 @@ object ScholarLibraryIndex {
                 )
             }
 
+    fun hierarchy(passages: List<ScholarPassage>): ScholarBookHierarchy {
+        val volumes = passages
+            .sortedWith(compareBy<ScholarPassage> { it.orderIndex }.thenBy { it.id })
+            .groupBy { it.volume.orEmpty() }
+            .map { (volume, volumePassages) ->
+                ScholarVolumeNode(
+                    label = volume.ifBlank { null },
+                    chapters = volumePassages.groupBy { it.chapter }.map { (chapter, chapterPassages) ->
+                        ScholarChapterNode(
+                            title = chapter,
+                            sections = chapterPassages.groupBy { it.section.orEmpty() }.map { (section, sectionPassages) ->
+                                ScholarSectionNode(
+                                    title = section.ifBlank { null },
+                                    passageIds = sectionPassages
+                                        .sortedWith(compareBy<ScholarPassage> { it.orderIndex }.thenBy { it.id })
+                                        .map { it.id },
+                                )
+                            },
+                        )
+                    },
+                )
+            }
+        return ScholarBookHierarchy(volumes = volumes)
+    }
+
+    fun pathProgress(
+        paths: List<ScholarStudyPath>,
+        readingProgress: List<ScholarReadingProgress>,
+    ): List<ScholarPathProgress> {
+        val progressByBook = readingProgress.associateBy { it.bookId }
+        return paths.map { path ->
+            val bookIds = path.stages.flatMap { it.bookIds }.distinct()
+            val completedBooks = bookIds.count { progressByBook[it]?.status == ScholarReadingStatus.Completed }
+            val total = bookIds.size
+            val percent = if (total == 0) {
+                0
+            } else {
+                bookIds.sumOf { progressByBook[it]?.progressPercent ?: 0 } / total
+            }
+            val currentBook = bookIds.firstOrNull { (progressByBook[it]?.progressPercent ?: 0) in 1..99 }
+                ?: bookIds.firstOrNull { (progressByBook[it]?.progressPercent ?: 0) < 100 }
+            ScholarPathProgress(
+                pathId = path.id,
+                completedBooks = completedBooks,
+                totalBooks = total,
+                progressPercent = percent.coerceIn(0, 100),
+                currentBookId = currentBook,
+            )
+        }
+    }
+
     fun matches(book: ScholarBook, filters: ScholarSearchFilters): Boolean =
         (filters.category == null || book.category == filters.category) &&
             (filters.difficulty == null || book.difficulty == filters.difficulty) &&
