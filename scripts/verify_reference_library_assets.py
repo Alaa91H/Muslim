@@ -236,11 +236,23 @@ def main() -> int:
     topic_ids = [topic["id"] for topic in asset_topics if isinstance(topic, dict)]
     failures.extend(verify_chapter_coverage(book, topic_ids))
 
+    if len(asset_topics) < 60:
+        failures.append(
+            f"Comprehensive Introduction to Islam corpus regressed below 60 topics: {len(asset_topics)}."
+        )
+    if len(book.get("chapters", [])) < 7:
+        failures.append("Comprehensive Introduction to Islam must define at least seven chapters.")
+    if book.get("contentRevision", 0) < 5:
+        failures.append("Comprehensive Introduction to Islam must use contentRevision >= 5.")
+
+    legacy_id_set = set(legacy_ids)
     for topic in asset_topics:
         if topic.get("reviewStatus") not in {"Draft", "NeedsReview", "Reviewed"}:
             failures.append(f"Invalid reviewStatus for topic {topic.get('id')}.")
         if "citations" not in topic:
             failures.append(f"Topic {topic.get('id')} lacks citations metadata.")
+        elif topic.get("id") not in legacy_id_set and not topic.get("citations"):
+            failures.append(f"Expanded topic {topic.get('id')} must declare at least one source.")
         if "relatedTopicIds" not in topic:
             failures.append(f"Topic {topic.get('id')} lacks relatedTopicIds metadata.")
 
