@@ -206,6 +206,11 @@
     <string name="settings_cancel">Cancel</string>
     <string name="settings_updates_check_desc">Periodically check GitHub Releases and notify once when a newer version is discovered</string>
     <string name="settings_updates_frequency">Check frequency</string>
+    <string name="settings_updates_channel">Update channel</string>
+    <string name="settings_updates_channel_stable">Stable</string>
+    <string name="settings_updates_channel_beta">Beta</string>
+    <string name="settings_updates_channel_stable_desc">Receive published final releases only.</string>
+    <string name="settings_updates_channel_beta_desc">Receive prereleases as well as stable releases. Beta builds may contain features still being tested.</string>
     <string name="settings_updates_daily">Daily</string>
     <string name="settings_updates_weekly">Weekly</string>
     <string name="settings_updates_monthly">Monthly</string>
