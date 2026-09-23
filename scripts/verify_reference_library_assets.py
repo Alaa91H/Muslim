@@ -40,6 +40,14 @@ CORPORA = (
         min_chapters=8,
         min_revision=3,
     ),
+    CorpusSpec(
+        name="Stories of the Prophets",
+        legacy=DOMAIN / "ProphetsContent.kt",
+        asset=RAW / "reference_prophets_v2.json",
+        min_topics=65,
+        min_chapters=9,
+        min_revision=3,
+    ),
 )
 
 
