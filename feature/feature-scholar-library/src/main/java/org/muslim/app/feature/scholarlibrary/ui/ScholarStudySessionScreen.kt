@@ -88,6 +88,7 @@ fun ScholarStudySessionScreen(
                 bookTitle = state.books.firstOrNull { it.id == session.bookId }?.title.orEmpty(),
                 padding = padding,
                 onCompletePassage = viewModel::completeNextStudySessionPassage,
+                onCreateReviewCard = viewModel::createReviewCardFromPassage,
                 onStartNextSession = viewModel::startNextStudySession,
             )
         }
@@ -126,6 +127,7 @@ private fun StudySessionContent(
     bookTitle: String,
     padding: PaddingValues,
     onCompletePassage: (String) -> Unit,
+    onCreateReviewCard: (ScholarPassage) -> Unit,
     onStartNextSession: () -> Unit,
 ) {
     val completedIds = session.completedPassageIds.toSet()
@@ -143,6 +145,7 @@ private fun StudySessionContent(
                 completed = passage.id in completedIds,
                 isNext = session.nextPassageId == passage.id,
                 onComplete = { onCompletePassage(passage.id) },
+                onCreateReviewCard = { onCreateReviewCard(passage) },
             )
         }
         if (session.status == ScholarStudySessionStatus.Completed) {
@@ -208,6 +211,7 @@ private fun SessionPassageCard(
     completed: Boolean,
     isNext: Boolean,
     onComplete: () -> Unit,
+    onCreateReviewCard: () -> Unit,
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -231,6 +235,9 @@ private fun SessionPassageCard(
                 )
             }
             Text(passage.text, style = MaterialTheme.typography.bodyLarge)
+            OutlinedButton(onClick = onCreateReviewCard) {
+                Text(stringResource(R.string.scholar_library_create_review_card))
+            }
             when {
                 completed -> Text(
                     stringResource(R.string.scholar_library_session_passage_completed),
