@@ -45,7 +45,9 @@ internal class UpdateDownloadManager(
 
         clearPrevious(currentPrefs)
 
-        val directory = updatesDirectory().apply { mkdirs() }
+        val directory = updatesDirectory()
+            ?.apply { mkdirs() }
+            ?: return UpdateDownloadState.Failed(UpdateDownloadFailure.DownloadFailed)
         val fileName = "Muslim-${safeVersion(release.version)}.apk"
         val destination = File(directory, fileName).apply {
             if (exists()) delete()
@@ -54,7 +56,7 @@ internal class UpdateDownloadManager(
         val request = DownloadManager.Request(url.toUri())
             .setTitle(fileName)
             .setDescription(release.name.ifBlank { "Muslim ${release.version}" })
-            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
             .setDestinationUri(Uri.fromFile(destination))
             .setMimeType(APK_MIME)
             .setAllowedOverMetered(!wifiOnly)
@@ -69,7 +71,11 @@ internal class UpdateDownloadManager(
             .getOrElse { return UpdateDownloadState.Failed(UpdateDownloadFailure.DownloadFailed) }
 
         preferencesRepository.setUpdateDownload(id, release.version, fileName)
-        return UpdateDownloadState.Downloading(0L, release.apkSizeBytes, 0)
+        return UpdateDownloadState.Downloading(
+            downloadedBytes = 0L,
+            totalBytes = release.apkSizeBytes,
+            progressPercent = downloadProgress(0L, release.apkSizeBytes),
+        )
     }
 
     suspend fun currentState(): UpdateDownloadState =
@@ -79,14 +85,17 @@ internal class UpdateDownloadManager(
     suspend fun currentFile(): File? {
         val prefs = preferencesRepository.preferences.first()
         if (prefs.updateDownloadFileName.isBlank()) return null
-        return File(updatesDirectory(), prefs.updateDownloadFileName)
+        val directory = updatesDirectory() ?: return null
+        return File(directory, prefs.updateDownloadFileName)
     }
 
     suspend fun verifyCurrent(): UpdateDownloadState {
         val prefs = preferencesRepository.preferences.first()
+        val directory = updatesDirectory()
+            ?: return UpdateDownloadState.Failed(UpdateDownloadFailure.MissingFile)
         val file = prefs.updateDownloadFileName
             .takeIf(String::isNotBlank)
-            ?.let { File(updatesDirectory(), it) }
+            ?.let { File(directory, it) }
             ?: return UpdateDownloadState.Failed(UpdateDownloadFailure.MissingFile)
 
         val failure = verifier.verify(file, prefs.updateDownloadVersion)
@@ -102,6 +111,8 @@ internal class UpdateDownloadManager(
             return UpdateDownloadState.Idle
         }
 
+        val directory = updatesDirectory()
+            ?: return UpdateDownloadState.Failed(UpdateDownloadFailure.MissingFile)
         val query = DownloadManager.Query().setFilterById(prefs.updateDownloadId)
         downloadManager.query(query).use { cursor ->
             if (cursor != null && cursor.moveToFirst()) {
@@ -126,7 +137,7 @@ internal class UpdateDownloadManager(
                         UpdateDownloadState.Failed(UpdateDownloadFailure.DownloadFailed)
 
                     DownloadManager.STATUS_SUCCESSFUL -> {
-                        val file = File(updatesDirectory(), prefs.updateDownloadFileName)
+                        val file = File(directory, prefs.updateDownloadFileName)
                         val failure = verifier.verify(file, prefs.updateDownloadVersion)
                         if (failure == null) {
                             UpdateDownloadState.ReadyToInstall(prefs.updateDownloadVersion)
@@ -142,7 +153,7 @@ internal class UpdateDownloadManager(
 
         // DownloadManager records can be pruned independently. A completed file
         // is still usable only after the same package/signature verification.
-        val file = File(updatesDirectory(), prefs.updateDownloadFileName)
+        val file = File(directory, prefs.updateDownloadFileName)
         if (file.exists()) {
             val failure = verifier.verify(file, prefs.updateDownloadVersion)
             return if (failure == null) {
@@ -159,15 +170,17 @@ internal class UpdateDownloadManager(
             runCatching { downloadManager.remove(prefs.updateDownloadId) }
         }
         if (prefs.updateDownloadFileName.isNotBlank()) {
-            runCatching { File(updatesDirectory(), prefs.updateDownloadFileName).delete() }
+            updatesDirectory()?.let { directory ->
+                runCatching { File(directory, prefs.updateDownloadFileName).delete() }
+            }
         }
         preferencesRepository.clearUpdateDownload()
     }
 
-    private fun updatesDirectory(): File {
-        val baseDirectory = context.getExternalFilesDir(null) ?: context.filesDir
-        return File(baseDirectory, UPDATES_DIR)
-    }
+    private fun updatesDirectory(): File? =
+        context.getExternalFilesDir(null)?.let { baseDirectory ->
+            File(baseDirectory, UPDATES_DIR)
+        }
 
     private fun safeVersion(version: String): String =
         version.trim().ifBlank { "update" }
