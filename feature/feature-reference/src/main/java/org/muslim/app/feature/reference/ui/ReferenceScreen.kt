@@ -896,7 +896,7 @@ private fun TopicSectionContent(
                 topic.citations.firstOrNull { it.id == citationId }
             },
             lang = lang,
-            fontStep = readerState.fontStep,
+            fontStep = fontStep,
         )
     }
     val sectionCitations = section.citationIds.mapNotNull { citationId ->
