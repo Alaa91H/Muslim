@@ -598,6 +598,260 @@ private fun FamilyRelatedArticleCard(
 }
 
 @Composable
+internal fun FamilySavedContent(
+    isArabic: Boolean,
+    favoriteIds: Set<String>,
+    recentArticleIds: List<String>,
+    onOpenArticle: (String) -> Unit,
+    onClearHistory: () -> Unit,
+) {
+    val favorites = favoriteIds.mapNotNull(FamilyLifeContent::articleById)
+    val recent = recentArticleIds.mapNotNull(FamilyLifeContent::articleById)
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 14.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        item {
+            MuslimStateSurface(
+                title = stringResource(R.string.family_saved_title),
+                supportingText = stringResource(R.string.family_saved_intro),
+                tone = MuslimStateTone.Information,
+                icon = Icons.Filled.Bookmark,
+            )
+        }
+        item {
+            FamilySectionLabel(
+                title = stringResource(R.string.family_favorites_heading),
+                count = favorites.size,
+            )
+        }
+        if (favorites.isEmpty()) {
+            item {
+                FamilyEmptyLibraryCard(
+                    text = stringResource(R.string.family_favorites_empty),
+                    icon = Icons.Filled.BookmarkBorder,
+                )
+            }
+        } else {
+            items(favorites, key = { "favorite-" + it.id }) { article ->
+                FamilySavedArticleCard(article, isArabic) { onOpenArticle(article.id) }
+            }
+        }
+        item {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = stringResource(R.string.family_history_heading),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.weight(1f),
+                )
+                if (recent.isNotEmpty()) {
+                    TextButton(onClick = onClearHistory) {
+                        Icon(Icons.Filled.DeleteSweep, contentDescription = null)
+                        Spacer(Modifier.width(4.dp))
+                        Text(stringResource(R.string.family_history_clear))
+                    }
+                }
+            }
+        }
+        if (recent.isEmpty()) {
+            item {
+                FamilyEmptyLibraryCard(
+                    text = stringResource(R.string.family_history_empty),
+                    icon = Icons.Filled.History,
+                )
+            }
+        } else {
+            items(recent, key = { "recent-" + it.id }) { article ->
+                FamilySavedArticleCard(article, isArabic) { onOpenArticle(article.id) }
+            }
+        }
+    }
+}
+
+@Composable
+internal fun FamilyToolsContent(
+    isArabic: Boolean,
+    completedItemIds: Set<String>,
+    onSetCompleted: (String, String, Boolean) -> Unit,
+) {
+    var selectedChecklistId by rememberSaveable { mutableStateOf<String?>(null) }
+    val selected = selectedChecklistId?.let(FamilyUtilityContent::checklistById)
+    if (selected == null) {
+        FamilyChecklistCatalog(
+            isArabic = isArabic,
+            completedItemIds = completedItemIds,
+            onOpen = { selectedChecklistId = it },
+        )
+    } else {
+        FamilyChecklistDetail(
+            checklist = selected,
+            isArabic = isArabic,
+            completedItemIds = completedItemIds,
+            onBack = { selectedChecklistId = null },
+            onSetCompleted = onSetCompleted,
+        )
+    }
+}
+
+@Composable
+private fun FamilyChecklistCatalog(
+    isArabic: Boolean,
+    completedItemIds: Set<String>,
+    onOpen: (String) -> Unit,
+) {
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 14.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        item {
+            MuslimStateSurface(
+                title = stringResource(R.string.family_checklists_title),
+                supportingText = stringResource(R.string.family_checklists_intro),
+                tone = MuslimStateTone.Positive,
+                icon = Icons.Filled.Checklist,
+            )
+        }
+        items(FamilyUtilityContent.checklists, key = { it.id }) { checklist ->
+            val done = checklist.items.count { item ->
+                FamilyUtilityContent.completionKey(checklist.id, item.id) in completedItemIds
+            }
+            IslamicCard(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = { onOpen(checklist.id) },
+            ) {
+                Text(
+                    text = checklist.title.pick(isArabic),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = checklist.description.pick(isArabic),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = stringResource(
+                        R.string.family_checklist_progress,
+                        done,
+                        checklist.items.size,
+                    ),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun FamilyChecklistDetail(
+    checklist: FamilyChecklist,
+    isArabic: Boolean,
+    completedItemIds: Set<String>,
+    onBack: () -> Unit,
+    onSetCompleted: (String, String, Boolean) -> Unit,
+) {
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 14.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        item {
+            TextButton(onClick = onBack) {
+                Text(stringResource(R.string.family_checklists_back))
+            }
+        }
+        item {
+            Text(
+                text = checklist.title.pick(isArabic),
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Bold,
+            )
+            Text(
+                text = checklist.description.pick(isArabic),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        items(checklist.items, key = { it.id }) { item ->
+            val key = FamilyUtilityContent.completionKey(checklist.id, item.id)
+            val checked = key in completedItemIds
+            IslamicCard(modifier = Modifier.fillMaxWidth()) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Checkbox(
+                        checked = checked,
+                        onCheckedChange = {
+                            onSetCompleted(checklist.id, item.id, it)
+                        },
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Text(
+                        text = item.title.pick(isArabic),
+                        style = MaterialTheme.typography.bodyLarge,
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+            }
+        }
+        item {
+            MuslimStateSurface(
+                title = stringResource(R.string.family_checklists_notice_title),
+                supportingText = stringResource(R.string.family_checklists_notice_text),
+                tone = MuslimStateTone.Neutral,
+                icon = Icons.Filled.Info,
+            )
+        }
+    }
+}
+
+@Composable
+private fun FamilySavedArticleCard(
+    article: FamilyGuideArticle,
+    isArabic: Boolean,
+    onClick: () -> Unit,
+) {
+    IslamicCard(modifier = Modifier.fillMaxWidth(), onClick = onClick) {
+        Text(
+            text = article.title.pick(isArabic),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+        )
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = article.summary.pick(isArabic),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
+@Composable
+private fun FamilySectionLabel(title: String, count: Int) {
+    Text(
+        text = "$title ($count)",
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.Bold,
+    )
+}
+
+@Composable
+private fun FamilyEmptyLibraryCard(
+    text: String,
+    icon: ImageVector,
+) {
+    MuslimStateSurface(
+        title = text,
+        tone = MuslimStateTone.Neutral,
+        icon = icon,
+    )
+}
+
+@Composable
 private fun FamilyEducationNotice() {
     MuslimStateSurface(
         title = stringResource(R.string.family_education_notice_title),
