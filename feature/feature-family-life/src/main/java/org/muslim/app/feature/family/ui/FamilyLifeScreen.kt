@@ -22,8 +22,6 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.ChildCare
 import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material.icons.filled.FamilyRestroom
-import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.NotificationsActive
 import androidx.compose.material.icons.filled.PlayArrow
@@ -34,12 +32,10 @@ import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.PrimaryScrollableTabRow
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
-import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -75,7 +71,6 @@ import org.muslim.app.core.ui.theme.MuslimStateTone
 import org.muslim.app.feature.family.R
 import org.muslim.app.feature.family.domain.AqiqahCalculator
 import org.muslim.app.feature.family.domain.BabyNameGender
-import org.muslim.app.feature.family.domain.FamilyGuideArticle
 import org.muslim.app.feature.family.domain.FamilyTopicCategory
 import org.muslim.app.feature.family.domain.FamilyLifeContent
 import org.muslim.app.feature.family.domain.IslamicBabyName
@@ -565,74 +560,6 @@ private fun AqiqahDatesCard(
                     Spacer(Modifier.width(8.dp))
                     Text(stringResource(labelRes), modifier = Modifier.weight(1f))
                     Text(date.format(DateTimeFormatter.ISO_LOCAL_DATE), fontWeight = FontWeight.SemiBold)
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun MarriageContent(isArabic: Boolean) {
-    var query by rememberSaveable { mutableStateOf("") }
-    val results = remember(query) { FamilyLifeContent.searchArticles(query) }
-    LazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp),
-    ) {
-        item {
-            FamilyIntroCard(
-                icon = Icons.Filled.FamilyRestroom,
-                title = stringResource(R.string.family_marriage_title),
-                text = stringResource(R.string.family_marriage_intro),
-            )
-        }
-        item {
-            DigitNormalizedOutlinedTextField(
-                value = query,
-                onValueChange = { query = it },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                placeholder = { Text(stringResource(R.string.family_articles_search)) },
-                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-                keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(keyboardType = KeyboardType.Text),
-            )
-        }
-        item {
-            Text(
-                text = stringResource(R.string.family_articles_count, results.size),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.primary,
-            )
-        }
-        items(results, key = { it.id }) { article ->
-            FamilyArticleCard(article, isArabic)
-        }
-        if (results.isEmpty()) {
-            item {
-                MuslimStateSurface(
-                    title = stringResource(R.string.family_articles_empty),
-                    tone = MuslimStateTone.Neutral,
-                    icon = Icons.Filled.Search,
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun FamilyArticleCard(article: FamilyGuideArticle, isArabic: Boolean) {
-    IslamicCard(modifier = Modifier.fillMaxWidth()) {
-        Column {
-            Text(article.title.pick(isArabic), style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
-            Spacer(Modifier.height(6.dp))
-            Text(article.summary.pick(isArabic), style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            article.sections.forEach { section ->
-                Spacer(Modifier.height(12.dp))
-                Text(section.title.pick(isArabic), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.primary)
-                section.paragraphs.forEach { paragraph ->
-                    Spacer(Modifier.height(6.dp))
-                    Text(paragraph.pick(isArabic), style = MaterialTheme.typography.bodyLarge, lineHeight = MaterialTheme.typography.bodyLarge.lineHeight)
                 }
             }
         }
