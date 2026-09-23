@@ -44,6 +44,24 @@ data class FamilyGuideArticle(
     val sections: List<FamilyGuideSection>,
 )
 
+enum class FamilyTopicCategory {
+    BeforeMarriage,
+    Marriage,
+    MaritalLife,
+    ConflictResolution,
+    Separation,
+    Newborn,
+    Parenting,
+    Kinship,
+    DailyLife,
+}
+
+data class FamilyTopicMetadata(
+    val articleId: String,
+    val category: FamilyTopicCategory,
+    val keywords: List<String>,
+)
+
 /**
  * Offline, conservative family-life reference content.
  *
@@ -294,34 +312,159 @@ object FamilyLifeContent {
                 ),
             ),
         ),
+        FamilyGuideArticle(
+            id = "conflict_resolution",
+            title = LocalizedFamilyText("الخلاف والإصلاح الأسري", "Conflict resolution and reconciliation"),
+            summary = LocalizedFamilyText("خطوات عملية لإدارة الخلاف بهدوء، وطلب الوساطة الموثوقة، وتقديم السلامة عند وجود إساءة أو خطر.", "Practical steps for handling disagreements calmly, seeking trusted mediation, and prioritising safety when abuse or danger is present."),
+            sections = listOf(
+                FamilyGuideSection(
+                    LocalizedFamilyText("من المشكلة إلى الحوار", "From disagreement to dialogue"),
+                    listOf(
+                        LocalizedFamilyText("يُفصل بين المشكلة وشخص الطرف الآخر: تُحدد الواقعة والاحتياج والاتفاق المطلوب دون سب أو تشهير أو تهديد، ويُختار وقت هادئ للحوار.", "Separate the problem from the person: describe what happened, the need and the requested agreement without insults, exposure or threats, and choose a calm time to talk."),
+                        LocalizedFamilyText("عند تكرر النزاع تُكتب النقاط المتفق عليها والمختلف فيها، وتُرتب الأولويات، ويُستعان بمستشار أسري أو حكمين موثوقين عند الحاجة.", "When conflict repeats, write down points of agreement and disagreement, prioritise the issues, and seek a qualified family counsellor or trusted mediators when needed."),
+                    ),
+                ),
+                FamilyGuideSection(
+                    LocalizedFamilyText("السلامة قبل الوساطة", "Safety before mediation"),
+                    listOf(
+                        LocalizedFamilyText("العنف والتهديد والإكراه والسيطرة المالية ليست وسائل إصلاح. عند وجود خطر مباشر تكون الأولوية للوصول إلى مكان آمن وطلب المساعدة من الجهات المختصة.", "Violence, threats, coercion and financial control are not reconciliation tools. When there is immediate danger, reaching safety and contacting qualified local services comes first."),
+                        LocalizedFamilyText("لا يطلب التطبيق من المتضرر مواجهة شخص خطر منفردًا، ولا يصدر حكمًا آليًا في الوقائع التي تحتاج تحقيقًا أو فتوى أو حماية قانونية.", "The app does not advise a person at risk to confront a dangerous individual alone and does not issue automated rulings for cases requiring investigation, a fatwa or legal protection."),
+                    ),
+                ),
+            ),
+        ),
+        FamilyGuideArticle(
+            id = "separation_divorce",
+            title = LocalizedFamilyText("الانفصال والطلاق والخلع", "Separation, divorce and khulʿ"),
+            summary = LocalizedFamilyText("مدخل تعليمي يحفظ الحقوق ويمنع القرارات المتعجلة، مع إحالة المسائل الفردية إلى أهل العلم والجهات القانونية.", "An educational introduction focused on protecting rights and avoiding rushed decisions, while referring individual cases to qualified scholars and legal authorities."),
+            sections = listOf(
+                FamilyGuideSection(
+                    LocalizedFamilyText("قبل اتخاذ القرار", "Before making a decision"),
+                    listOf(
+                        LocalizedFamilyText("تختلف أحكام الطلاق والخلع والفسخ باختلاف اللفظ والنية والظروف والعدد والقضاء والمذهب؛ لذلك لا تعتمد على تطبيق أو رسالة عامة لإثبات وقوع طلاق أو نفيه.", "Rules concerning divorce, khulʿ and annulment can depend on wording, intention, circumstances, prior pronouncements, courts and school of law. Do not rely on an app or generic message to establish whether a divorce occurred."),
+                        LocalizedFamilyText("تُجمع الوثائق المتعلقة بالعقد والمهر والديون والسكن والأبناء، ويُطلب توجيه شرعي وقانوني موثوق قبل التنازل عن حقوق أو توقيع اتفاقات نهائية.", "Gather marriage, mahr, debt, housing and child-related documents and obtain trusted religious and legal guidance before waiving rights or signing final agreements."),
+                    ),
+                ),
+                FamilyGuideSection(
+                    LocalizedFamilyText("الأبناء بعد الانفصال", "Children after separation"),
+                    listOf(
+                        LocalizedFamilyText("لا يُجعل الطفل رسولًا بين الوالدين ولا وسيلة ضغط، وتُحمى علاقته الآمنة بكليهما وفق ما تقرره المصلحة والشرع والقانون.", "A child should not be used as a messenger or leverage between parents. Protect the child's safe relationship with both parents according to welfare, religious guidance and applicable law."),
+                        LocalizedFamilyText("تفاصيل الحضانة والنفقة والزيارة والعدة والرجعة مسائل تختلف باختلاف الحالة والبلد، ولذلك يعرض هذا القسم المبادئ العامة فقط.", "Custody, maintenance, contact, waiting periods and revocation details vary by case and jurisdiction, so this section presents general principles only."),
+                    ),
+                ),
+            ),
+        ),
+        FamilyGuideArticle(
+            id = "newborn",
+            title = LocalizedFamilyText("استقبال المولود وحقوقه", "Welcoming a newborn and the child's rights"),
+            summary = LocalizedFamilyText("إرشادات عملية للتسمية والرعاية والرضاعة والتوثيق والعقيقة، مع تقديم صحة الأم والطفل وسلامتهما.", "Practical guidance on naming, care, breastfeeding, documentation and aqiqah, while putting the health and safety of mother and child first."),
+            sections = listOf(
+                FamilyGuideSection(
+                    LocalizedFamilyText("البداية الآمنة", "A safe beginning"),
+                    listOf(
+                        LocalizedFamilyText("تُقدّم الرعاية الطبية للأم والمولود، وتُتبع تعليمات المختصين في التغذية والنوم واللقاحات والعلامات الطارئة، ولا تُستبدل الرعاية الصحية بممارسات شعبية أو غير مأمونة.", "Prioritise medical care for mother and baby and follow qualified guidance on feeding, sleep, vaccination and urgent warning signs. Health care should not be replaced by unsafe folk practices."),
+                        LocalizedFamilyText("يُختار للمولود اسم حسن المعنى، وتُنجز إجراءات التسجيل والوثائق المطلوبة في البلد دون تأخير، مع حفظ بيانات الطفل وخصوصيته.", "Choose a name with a good meaning, complete required civil registration and documents promptly, and protect the child's personal information and privacy."),
+                    ),
+                ),
+                FamilyGuideSection(
+                    LocalizedFamilyText("العقيقة والرعاية", "Aqiqah and care"),
+                    listOf(
+                        LocalizedFamilyText("يوفر التطبيق حاسبة منفصلة لمواعيد العقيقة كتذكير تنظيمي فقط، أما التفاصيل الفقهية أو تعذر الموعد أو اختلاف العرف فتُراجع فيها جهة علمية موثوقة.", "The app provides a separate aqiqah date calculator as a planning reminder only. Detailed rulings, missed dates and local circumstances should be discussed with a trusted scholarly authority."),
+                        LocalizedFamilyText("الرحمة والعدل وحفظ النفقة والرعاية والتعليم من الحقوق المستمرة للطفل، وليست مرتبطة بالمناسبات الأولى بعد الولادة فقط.", "Mercy, fair treatment, maintenance, care and education are continuing rights of the child, not duties limited to the first days after birth."),
+                    ),
+                ),
+            ),
+        ),
+        FamilyGuideArticle(
+            id = "kinship",
+            title = LocalizedFamilyText("الوالدان وصلة الرحم والأسرة الممتدة", "Parents, kinship and the extended family"),
+            summary = LocalizedFamilyText("التوازن بين بر الوالدين وصلة الأقارب واستقلال البيت الزوجي وحفظ الحدود والخصوصية.", "Balancing kindness to parents and relatives with the independence, boundaries and privacy of the marital home."),
+            sections = listOf(
+                FamilyGuideSection(
+                    LocalizedFamilyText("البر والصلة", "Kindness and kinship"),
+                    listOf(
+                        LocalizedFamilyText("يُحسن المسلم إلى والديه وأقاربه بحسب قدرته، ويصل الرحم بالزيارة أو الاتصال أو المساعدة، مع مراعاة الظروف والمسافات وعدم تحميل الأسرة ما لا تطيق.", "A Muslim treats parents and relatives with kindness according to ability and maintains ties through visits, contact or assistance while respecting circumstances, distance and the family's capacity."),
+                        LocalizedFamilyText("الخلاف العائلي لا يبرر الإهانة أو نشر الأسرار. يمكن تقليل الاحتكاك ووضع حدود واضحة مع استمرار الأدب والسعي للإصلاح قدر المستطاع.", "Family disagreement does not justify humiliation or exposing private matters. Contact can be reduced and clear boundaries set while maintaining respect and seeking reconciliation where reasonably possible."),
+                    ),
+                ),
+                FamilyGuideSection(
+                    LocalizedFamilyText("حدود البيت الزوجي", "Boundaries of the marital home"),
+                    listOf(
+                        LocalizedFamilyText("قرارات السكن والمال والتربية تُناقش بين الزوجين بوضوح، ولا ينبغي تحويل أهل أي طرف إلى وسيلة للضغط أو التجسس أو إدارة تفاصيل البيت.", "Housing, money and parenting decisions should be discussed clearly between spouses. Neither side's relatives should be used to pressure, monitor or manage the household."),
+                        LocalizedFamilyText("عند تعارض الواجبات أو حصول ضرر حقيقي تُطلب مشورة موثوقة تراعي الحقوق الشرعية والواقع والقانون.", "When duties genuinely conflict or harm occurs, seek trusted advice that considers religious rights, real circumstances and applicable law."),
+                    ),
+                ),
+            ),
+        ),
+        FamilyGuideArticle(
+            id = "daily_family_life",
+            title = LocalizedFamilyText("حياة المسلم داخل البيت", "Daily Muslim life at home"),
+            summary = LocalizedFamilyText("عادات يومية تجمع العبادة والرحمة والنظام والخصوصية والاستخدام المسؤول للتقنية.", "Daily habits combining worship, kindness, organisation, privacy and responsible technology use."),
+            sections = listOf(
+                FamilyGuideSection(
+                    LocalizedFamilyText("بيت يعين على الطاعة", "A home that supports worship"),
+                    listOf(
+                        LocalizedFamilyText("تنظم الأسرة أوقات الصلاة والراحة والعمل والدراسة بواقعية، وتخصص وقتًا للقرآن والذكر والحوار العائلي دون تحويل العبادة إلى مصدر توتر أو مقارنة.", "Organise prayer, rest, work and study realistically, with time for Quran, remembrance and family conversation without turning worship into pressure or comparison."),
+                        LocalizedFamilyText("يُربط الطفل والبالغ بالعبادة بالقدوة والرفق والتدرج، وتُراعى القدرة والمرض والسفر والظروف الخاصة.", "Connect children and adults to worship through example, gentleness and gradual learning while respecting ability, illness, travel and individual circumstances."),
+                    ),
+                ),
+                FamilyGuideSection(
+                    LocalizedFamilyText("الخصوصية والتقنية", "Privacy and technology"),
+                    listOf(
+                        LocalizedFamilyText("تُحترم خصوصية الغرف والأجهزة والمحادثات، ويُعلّم الأبناء الاستئذان وعدم نشر صور أو أسرار الأسرة دون إذن.", "Respect privacy in rooms, devices and conversations, and teach children to ask permission and not publish family photos or private information without consent."),
+                        LocalizedFamilyText("تُوضع قواعد معلنة ومتوازنة للشاشات والمحتوى والشراء داخل التطبيقات، وتُراجع بحسب العمر بدل المراقبة السرية المستمرة التي تهدم الثقة.", "Use clear, balanced rules for screen time, content and in-app purchases, reviewed by age rather than relying on constant covert surveillance that damages trust."),
+                    ),
+                ),
+            ),
+        )
     )
 
-    fun searchNames(query: String, gender: BabyNameGender? = null): List<IslamicBabyName> {
-        val normalized = query.trim().lowercase()
-        return babyNames.filter { item ->
-            (gender == null || item.gender == gender) &&
-                (normalized.isEmpty() || listOf(
-                    item.nameArabic,
-                    item.transliteration.lowercase(),
-                    item.meaningArabic,
-                    item.meaningEnglish.lowercase(),
-                ).any { it.contains(normalized) })
+    val familyArticleMetadata: List<FamilyTopicMetadata> = listOf(
+        FamilyTopicMetadata("engagement", FamilyTopicCategory.BeforeMarriage, listOf("خطبة", "تعارف", "engagement", "istikhara")),
+        FamilyTopicMetadata("nikah", FamilyTopicCategory.Marriage, listOf("نكاح", "مهر", "ولي", "marriage", "mahr")),
+        FamilyTopicMetadata("marital_rights", FamilyTopicCategory.MaritalLife, listOf("حقوق", "نفقة", "سكن", "marital rights")),
+        FamilyTopicMetadata("parenting", FamilyTopicCategory.Parenting, listOf("تربية", "أبناء", "children", "parenting")),
+        FamilyTopicMetadata("conflict_resolution", FamilyTopicCategory.ConflictResolution, listOf("خلاف", "إصلاح", "عنف", "conflict", "mediation")),
+        FamilyTopicMetadata("separation_divorce", FamilyTopicCategory.Separation, listOf("طلاق", "خلع", "حضانة", "divorce", "khul")),
+        FamilyTopicMetadata("newborn", FamilyTopicCategory.Newborn, listOf("مولود", "عقيقة", "رضاعة", "newborn", "aqiqah")),
+        FamilyTopicMetadata("kinship", FamilyTopicCategory.Kinship, listOf("والدان", "رحم", "أقارب", "parents", "kinship")),
+        FamilyTopicMetadata("daily_family_life", FamilyTopicCategory.DailyLife, listOf("بيت", "خصوصية", "تقنية", "home", "privacy")),
+    )
+
+    fun searchArticles(query: String): List<FamilyGuideArticle> {
+        val normalized = normalizeSearch(query)
+        if (normalized.isEmpty()) return familyArticles
+        val metadata = familyArticleMetadata.associateBy { it.articleId }
+        return familyArticles.filter { article ->
+            val text = buildList {
+                add(article.title.arabic)
+                add(article.title.english)
+                add(article.summary.arabic)
+                add(article.summary.english)
+                article.sections.forEach { section ->
+                    add(section.title.arabic)
+                    add(section.title.english)
+                    section.paragraphs.forEach { paragraph ->
+                        add(paragraph.arabic)
+                        add(paragraph.english)
+                    }
+                }
+                addAll(metadata[article.id]?.keywords.orEmpty())
+            }.joinToString(" ")
+            normalizeSearch(text).contains(normalized)
         }
     }
 
-    fun isSafeAudioUrl(url: String): Boolean =
-        url.startsWith("https://everyayah.com/data/") &&
-            url.endsWith(".mp3") &&
-            !url.contains("..") &&
-            !url.contains('\n') &&
-            !url.contains('\r')
+    fun categoryFor(articleId: String): FamilyTopicCategory? =
+        familyArticleMetadata.firstOrNull { it.articleId == articleId }?.category
 
-    private fun name(
-        id: String,
-        arabic: String,
-        transliteration: String,
-        gender: BabyNameGender,
-        meaningArabic: String,
-        meaningEnglish: String,
-    ) = IslamicBabyName(id, arabic, transliteration, gender, meaningArabic, meaningEnglish)
-}
+    private fun normalizeSearch(value: String): String =
+        value.trim()
+            .lowercase()
+            .replace(Regex("[\\u064B-\\u065F\\u0670]"), "")
+            .replace('أ', 'ا')
+            .replace('إ', 'ا')
+            .replace('آ', 'ا')
+            .replace('ى', 'ي')
+
+    fun searchNames
