@@ -84,6 +84,8 @@ data class AppPreferences(
         const val SYSTEM_LANGUAGE = "system"
         const val START_TAB_HOME = "home"
         const val DEFAULT_NEARBY_MOSQUE_RADIUS_KM = 5
+        /** Supported search radii for nearby mosques, shared by persistence and the Qibla feature. */
+        val NEARBY_MOSQUE_RADIUS_OPTIONS_KM = listOf(1, 3, 5, 10, 15, 25, 50)
 
         /** The four "More" hub section ids, in their default order. */
         val DEFAULT_MORE_SECTION_ORDER = listOf(
