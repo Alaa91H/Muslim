@@ -207,17 +207,20 @@ class ScholarLibraryRepository @Inject constructor(
         }
     }
 
-    fun observeReadingProgress(): Flow<List<ScholarReadingProgress>> =
-        libraryDao.observeReadingProgress().map { rows -> rows.map { it.toDomain() } }
+    val readingProgress: Flow<List<ScholarReadingProgress>>
+        get() = libraryDao.observeReadingProgress().map { rows -> rows.map { it.toDomain() } }
 
-    fun observeStudyPlans(): Flow<List<ScholarStudyPlan>> =
-        libraryDao.observeStudyPlans().map { rows -> rows.map { it.toDomain() } }
+    val studyPlans: Flow<List<ScholarStudyPlan>>
+        get() = libraryDao.observeStudyPlans().map { rows -> rows.map { it.toDomain() } }
 
-    fun observeStudySessions(): Flow<List<ScholarStudySession>> =
-        libraryDao.observeStudySessions().map { rows -> rows.map { it.toDomain() } }
+    val studySessions: Flow<List<ScholarStudySession>>
+        get() = libraryDao.observeStudySessions().map { rows -> rows.map { it.toDomain() } }
 
     val reviewEvents: Flow<List<ScholarReviewEvent>>
         get() = libraryDao.observeReviewEvents().map { rows -> rows.map { it.toDomain() } }
+
+    val contentPacks: Flow<List<ScholarContentPack>>
+        get() = libraryDao.observeContentPacks().map { rows -> rows.map { it.toDomain() } }
 
     suspend fun book(bookId: String): ScholarBook? = libraryDao.bookById(bookId)?.toDomain()
 
