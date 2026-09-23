@@ -214,6 +214,14 @@ fun UpdateScreen(
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                             )
+                            if (state.release.isPrerelease) {
+                                Spacer(Modifier.height(6.dp))
+                                Text(
+                                    text = stringResource(R.string.update_beta_release),
+                                    style = MaterialTheme.typography.labelLarge,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                )
+                            }
                             if (state.release.hasVerifiedMetadata) {
                                 Spacer(Modifier.height(6.dp))
                                 Text(
