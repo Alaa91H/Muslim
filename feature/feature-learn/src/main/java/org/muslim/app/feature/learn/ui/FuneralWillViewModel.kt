@@ -18,7 +18,6 @@ import org.muslim.app.feature.learn.data.WillDraftRepository
 import org.muslim.app.feature.learn.domain.WillDraft
 import javax.inject.Inject
 
-@HiltViewModel
 enum class WillPdfExportStatus {
     Idle,
     Success,
