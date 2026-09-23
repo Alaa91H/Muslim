@@ -402,9 +402,9 @@ fun QuranReaderScreen(
             -1
         }
         val targetItem = if (pageIndex >= 0 && isWide) {
-            spreadIndexOfPage(pageEntries[pageIndex].key) + 1
+            contentIndexToReaderPagerPage(spreadIndexOfPage(pageEntries[pageIndex].key))
         } else {
-            if (pageIndex >= 0) pageIndex + 1 else 1
+            if (pageIndex >= 0) contentIndexToReaderPagerPage(pageIndex) else 1
         }
         // Wait for the page animation to settle before measuring/centering
         // the ayah, so the one-shot centering sees a stable layout.
@@ -439,7 +439,11 @@ fun QuranReaderScreen(
         val target = scrollTargetAyah ?: return@LaunchedEffect
         val pageIndex = pageEntries.indexOfFirst { (_, ayahs) -> ayahs.any { it.globalNumber == target } }
         if (pageIndex < 0) return@LaunchedEffect
-        val targetItem = if (isWide) spreadIndexOfPage(pageEntries[pageIndex].key) + 1 else pageIndex + 1
+        val targetItem = if (isWide) {
+            contentIndexToReaderPagerPage(spreadIndexOfPage(pageEntries[pageIndex].key))
+        } else {
+            contentIndexToReaderPagerPage(pageIndex)
+        }
         // Smooth glide to a far page instead of an instant teleport; the fine
         // ayah alignment below stays immediate (scrollBy, not animated).
         if (pagerState.currentPage != targetItem) pagerState.animateScrollToPage(targetItem)
@@ -461,7 +465,11 @@ fun QuranReaderScreen(
             ayahs.any { it.globalNumber == target }
         }
         if (targetPageIndex < 0) return@LaunchedEffect
-        val targetItem = if (isWide) spreadIndexOfPage(pageEntries[targetPageIndex].key) else targetPageIndex
+        val targetItem = if (isWide) {
+            contentIndexToReaderPagerPage(spreadIndexOfPage(pageEntries[targetPageIndex].key))
+        } else {
+            contentIndexToReaderPagerPage(targetPageIndex)
+        }
         if (pagerState.currentPage != targetItem) return@LaunchedEffect
         val pad = viewportHeightPx * 0.12f
         val topBound = viewportTopPx + pad
@@ -1286,6 +1294,9 @@ private fun rangeButtonLabel(range: RecitationRange): String = when (range) {
 
 /** One ayah's top coordinate inside the reader's root layout. */
 internal data class AyahViewportPosition(val globalNumber: Int, val topPx: Float)
+
+/** Maps a real mushaf content index to the pager index after the leading edge page. */
+internal fun contentIndexToReaderPagerPage(contentIndex: Int): Int = contentIndex + 1
 
 /** Shared visual state for one or two rendered mushaf pages. */
 private data class MushafPagePresentation(
