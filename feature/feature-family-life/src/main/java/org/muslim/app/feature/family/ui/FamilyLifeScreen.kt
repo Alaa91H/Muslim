@@ -240,14 +240,18 @@ private fun FamilyLifeDestination(
             favoriteCount = state.favoriteArticleIds.size,
             recentCount = state.recentArticleIds.size,
             onOpenCategory = actions.openCategory,
-            onOpenSaved = { actions.openSection(FamilySection.Saved) },
-            onOpenTools = { actions.openSection(FamilySection.Tools) },
-            onOpenRuqyah = { actions.openSection(FamilySection.Ruqyah) },
-            onOpenNames = { actions.openSection(FamilySection.Names) },
-            onOpenAqiqah = { actions.openSection(FamilySection.Aqiqah) },
-            onOpenQuran = actions.openQuran,
-            onOpenHadith = actions.openHadith,
-            onOpenAdhkar = actions.openAdhkar,
+            onOpenDestination = { destination ->
+                when (destination) {
+                    FamilyHubDestination.Saved -> actions.openSection(FamilySection.Saved)
+                    FamilyHubDestination.Tools -> actions.openSection(FamilySection.Tools)
+                    FamilyHubDestination.Ruqyah -> actions.openSection(FamilySection.Ruqyah)
+                    FamilyHubDestination.Names -> actions.openSection(FamilySection.Names)
+                    FamilyHubDestination.Aqiqah -> actions.openSection(FamilySection.Aqiqah)
+                    FamilyHubDestination.Quran -> actions.openQuran()
+                    FamilyHubDestination.Hadith -> actions.openHadith()
+                    FamilyHubDestination.Adhkar -> actions.openAdhkar()
+                }
+            },
         )
         model.section == FamilySection.Guide -> FamilyGuideCatalogContent(
             isArabic = model.isArabic,
