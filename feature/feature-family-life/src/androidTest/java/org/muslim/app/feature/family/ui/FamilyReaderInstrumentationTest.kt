@@ -67,11 +67,13 @@ class FamilyReaderInstrumentationTest {
                     isArabic = false,
                     isFavorite = false,
                     relatedArticles = emptyList(),
-                    onToggleFavorite = {},
-                    onCopyArticle = { copied = true },
-                    onShareArticle = { shared = true },
-                    onOpenReference = { openedReference = it },
-                    onOpenArticle = {},
+                    actions = FamilyArticleReaderActions(
+                        onToggleFavorite = {},
+                        onCopyArticle = { copied = true },
+                        onShareArticle = { shared = true },
+                        onOpenReference = { openedReference = it },
+                        onOpenArticle = {},
+                    ),
                 )
             }
         }
