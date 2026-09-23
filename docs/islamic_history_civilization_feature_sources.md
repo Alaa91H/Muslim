@@ -17,7 +17,8 @@ The history feature now separates **UI**, **content contracts**, and **curated c
 - `IslamicHistoryStates.kt` adds 18 major overlapping states and dynasties, grouped by broad region instead of forcing them into a single succession.
 - `IslamicCivilizationContent.kt` adds 12 long-form thematic topics across knowledge/sciences, institutions, society/economy, and arts/built environment.
 - `IslamicHistoricalEvents.kt` adds 22 structured chronological anchors with context, significance, category, and links to eras, states, atlas places, people, civilization topics, and sources.
-- `IslamicHistoryProfiles.kt` adds long-form profiles for all 8 exposed historical figures and all 13 atlas places, with sections, cross-links, and explicit sources.
+- `IslamicHistoryPeopleProfiles.kt` and `IslamicHistoryPlaceProfiles.kt` hold the long-form profile catalogues for all 8 exposed historical figures and all 13 atlas places.
+- `IslamicHistoryProfiles.kt` is the compact lookup facade used by UI, validation, and future search code.
 - `HistoryContentValidator.kt` validates unique IDs, bilingual completeness, chronology sanity, source references, related-era/topic references, state/era links, event references, person/place links, profile coverage, and section structure.
 - `HistoryContentValidatorTest.kt` makes those rules part of CI so broken references or incomplete articles are caught before merge.
 
