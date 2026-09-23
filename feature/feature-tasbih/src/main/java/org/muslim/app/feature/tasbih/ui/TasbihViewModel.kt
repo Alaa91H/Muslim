@@ -73,9 +73,15 @@ class TasbihViewModel @Inject constructor(
 
     fun resetAll() = viewModelScope.launch { actionCoordinator.resetAll() }
 
-    fun setTarget(target: Int) = viewModelScope.launch { actionCoordinator.setTarget(target) }
+    fun setTarget(target: Int) {
+        if (target == state.value.target) return
+        viewModelScope.launch { actionCoordinator.setTarget(target) }
+    }
 
-    fun setPhrase(phrase: TasbihPhrase) = viewModelScope.launch { actionCoordinator.setPhrase(phrase) }
+    fun setPhrase(phrase: TasbihPhrase) {
+        if (phrase == state.value.phrase) return
+        viewModelScope.launch { actionCoordinator.setPhrase(phrase) }
+    }
 
     /** Sound-on-target preferences for the whole misbaha session. */
     val targetSoundSettings: StateFlow<TargetSoundSettings> = repository.targetSoundSettings
