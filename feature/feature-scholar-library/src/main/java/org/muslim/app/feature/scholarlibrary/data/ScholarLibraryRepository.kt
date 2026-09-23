@@ -31,6 +31,8 @@ import org.muslim.app.feature.scholarlibrary.domain.ScholarReadingStatus
 import org.muslim.app.feature.scholarlibrary.domain.ScholarSearchFilters
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPath
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyPlan
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySession
+import org.muslim.app.feature.scholarlibrary.domain.ScholarStudySessionStatus
 import org.muslim.app.feature.scholarlibrary.domain.ScholarStudyStage
 import org.muslim.app.feature.scholarlibrary.domain.SearchHit
 import org.muslim.app.feature.scholarlibrary.domain.StudyBookmarkWithCitation
@@ -181,6 +183,9 @@ class ScholarLibraryRepository @Inject constructor(
 
     fun observeStudyPlans(): Flow<List<ScholarStudyPlan>> =
         libraryDao.observeStudyPlans().map { rows -> rows.map { it.toDomain() } }
+
+    fun observeStudySessions(): Flow<List<ScholarStudySession>> =
+        libraryDao.observeStudySessions().map { rows -> rows.map { it.toDomain() } }
 
     suspend fun book(bookId: String): ScholarBook? = libraryDao.bookById(bookId)?.toDomain()
 
@@ -405,6 +410,79 @@ class ScholarLibraryRepository @Inject constructor(
     }
 
     suspend fun deleteStudyPlan(id: Long) = libraryDao.deleteStudyPlan(id)
+
+    suspend fun startOrResumeStudySession(pathId: String): ScholarStudySession? {
+        ensureSeeded()
+        libraryDao.activeStudySessionForPath(pathId)?.let { return it.toDomain() }
+        val plan = libraryDao.activeStudyPlanForPath(pathId) ?: return null
+        val path = studyPaths().firstOrNull { it.id == pathId } ?: return null
+        val progress = libraryDao.observeReadingProgress().first().map { it.toDomain() }
+        val bookId = ScholarLibraryIndex.pathProgress(listOf(path), progress)
+            .single()
+            .currentBookId
+            ?: return null
+        val passages = libraryDao.observePassagesForBook(bookId).first().map { it.toDomain() }
+        val bookProgress = progress.firstOrNull { it.bookId == bookId }
+        val targets = ScholarLibraryIndex.sessionTargets(
+            passages = passages,
+            lastPassageId = bookProgress?.lastPassageId,
+            targetCount = plan.targetPassagesPerSession,
+        )
+        if (targets.isEmpty()) return null
+
+        val now = System.currentTimeMillis()
+        val id = libraryDao.upsertStudySession(
+            ScholarStudySessionEntity(
+                pathId = pathId,
+                planId = plan.id,
+                bookId = bookId,
+                targetPassageIds = targets.map { it.id }.toStoredIds(),
+                completedPassageIds = emptyList<String>().toStoredIds(),
+                plannedMinutes = plan.minutesPerSession,
+                status = ScholarStudySessionStatus.InProgress.name,
+                startedAtEpochMillis = now,
+                completedAtEpochMillis = null,
+            ),
+        )
+        return libraryDao.studySessionById(id)?.toDomain()
+    }
+
+    suspend fun studySessionPassages(sessionId: Long): List<ScholarPassage> {
+        val session = libraryDao.studySessionById(sessionId)?.toDomain() ?: return emptyList()
+        return session.targetPassageIds.mapNotNull { id -> libraryDao.passageById(id)?.toDomain() }
+    }
+
+    suspend fun completeNextSessionPassage(sessionId: Long, passageId: String): Boolean {
+        val entity = libraryDao.studySessionById(sessionId) ?: return false
+        val session = entity.toDomain()
+        if (session.status != ScholarStudySessionStatus.InProgress) return false
+        if (session.nextPassageId != passageId) return false
+        val passage = libraryDao.passageById(passageId)?.toDomain() ?: return false
+        if (passage.bookId != session.bookId) return false
+
+        val completed = session.completedPassageIds + passageId
+        val allDone = completed.size == session.targetPassageIds.size
+        val now = System.currentTimeMillis()
+        libraryDao.upsertStudySession(
+            entity.copy(
+                completedPassageIds = completed.toStoredIds(),
+                status = if (allDone) {
+                    ScholarStudySessionStatus.Completed.name
+                } else {
+                    ScholarStudySessionStatus.InProgress.name
+                },
+                completedAtEpochMillis = if (allDone) now else null,
+            ),
+        )
+
+        val passages = libraryDao.observePassagesForBook(session.bookId).first().map { it.toDomain() }
+        val index = passages.indexOfFirst { it.id == passageId }
+        if (index >= 0) {
+            val percent = ((index + 1) * 100 / passages.size.coerceAtLeast(1)).coerceIn(0, 100)
+            updateReadingProgress(session.bookId, passageId, percent)
+        }
+        return true
+    }
 
     suspend fun markBookOpened(bookId: String): Boolean {
         ensureSeeded()
