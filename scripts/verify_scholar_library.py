@@ -108,14 +108,20 @@ def main() -> None:
     require("createStudyPlan(" in repository, "repository must persist study plans")
     require("observeStudyPlans()" in repository, "repository must expose study plans")
     require("observeStudySessions()" in repository, "repository must expose study-session history")
+    require("ScholarReviewScheduler.schedule" in repository, "repository must use graded spaced-review scheduling")
+    require("reviewFlashcard(id: Long, rating: ScholarReviewRating)" in repository, "flashcard review must accept graded ratings")
     require("startOrResumeStudySession(" in repository, "repository must start or resume study sessions")
     require("completeNextSessionPassage(" in repository, "repository must advance sessions in order")
 
     database = DATABASE.read_text(encoding="utf-8")
-    require("version = 4" in database, "Scholar Library Room database must be version 4")
+    require("version = 5" in database, "Scholar Library Room database must be version 5")
     require("MIGRATION_1_2" in database, "database v2 must provide a non-destructive 1->2 migration")
     require("MIGRATION_2_3" in database, "database v3 must provide a non-destructive 2->3 migration")
     require("MIGRATION_3_4" in database, "database v4 must provide a non-destructive 3->4 migration")
+    require("MIGRATION_4_5" in database, "database v5 must provide a non-destructive 4->5 migration")
+    require("ALTER TABLE scholar_flashcards ADD COLUMN intervalDays" in database, "v5 must add review intervals")
+    require("ALTER TABLE scholar_flashcards ADD COLUMN easeFactor" in database, "v5 must add review ease")
+    require("ALTER TABLE scholar_flashcards ADD COLUMN lapseCount" in database, "v5 must track review lapses")
     require("scholar_study_sessions" in database, "database v4 must create study-session storage")
     require("scholar_study_plans" in database, "database v3 must create study-plan storage")
     require("ALTER TABLE scholar_passages ADD COLUMN section TEXT" in database, "v3 must add passage section")
@@ -123,7 +129,7 @@ def main() -> None:
     for table in ("scholar_bookmarks", "scholar_highlights", "scholar_reading_progress"):
         require(table in database, f"database migration must create {table}")
     require(
-        ".addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)" in database,
+        ".addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5)" in database,
         "Room builder must install all Scholar Library migrations",
     )
 
@@ -137,6 +143,9 @@ def main() -> None:
     require("data class ScholarPathProgress" in models, "v3 must expose derived path progress")
     require("data class ScholarStudySession" in models, "v4 must expose study sessions")
     require("data class ScholarWeeklyStudySummary" in models, "v4 must expose weekly summaries")
+    require("enum class ScholarReviewRating" in models, "v5 must expose graded review ratings")
+    require("data class ScholarReviewSummary" in models, "v5 must expose review summary")
+    require("data class ScholarCategoryMastery" in models, "v5 must expose category mastery")
 
     screens = SCREENS.read_text(encoding="utf-8")
     require("scholar_library_continue_reading" in screens, "home must expose continue-reading state")
@@ -147,6 +156,8 @@ def main() -> None:
     require("studyPathItems" in screens, "library home must expose study paths")
     require("BookHierarchyCard" in screens, "book reader must expose the volume/chapter/section hierarchy")
     require("studySessionItems" in screens, "study desk must expose recent study-session history")
+    require("studyMasteryItems" in screens, "study desk must expose review mastery by category")
+    require("ScholarReviewRating.Hard" in screens, "study desk must expose graded review actions")
 
     curriculum_screens = CURRICULUM_SCREENS.read_text(encoding="utf-8")
     require("WeeklyStudySummaryCard" in curriculum_screens, "study paths must expose weekly summaries")
@@ -169,9 +180,9 @@ def main() -> None:
     require(POLICY.exists(), "content policy document must be present")
 
     print(
-        "Scholar Library v4 verified: "
+        "Scholar Library v5 verified: "
         f"{len(books)} references, {len(passage_ids)} study passages, "
-        f"{len(categories)} categories, {len(paths)} study paths, hierarchy + plans + sessions + migrations present."
+        f"{len(categories)} categories, {len(paths)} study paths, hierarchy + plans + sessions + adaptive review + migrations present."
     )
 
 
