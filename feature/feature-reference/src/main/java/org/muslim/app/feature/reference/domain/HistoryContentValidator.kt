@@ -11,20 +11,31 @@ object HistoryContentValidator {
         eras: List<HistoryEra> = IslamicHistoryContent.timeline,
         articles: List<HistoryArticle> = IslamicHistoryArticles.articles,
         states: List<HistoricalState> = IslamicHistoryStates.states,
+        civilizationTopics: List<CivilizationTopic> = IslamicCivilizationContent.topics,
         sources: List<HistorySource> = IslamicHistorySources.all,
     ): List<String> {
         val errors = mutableListOf<String>()
         val eraIds = eras.map { it.id }.toSet()
         val sourceIds = sources.map { it.id }.toSet()
+        val topicIds = civilizationTopics.map { it.id }.toSet()
+        val personIds = IslamicHistoryContent.personalities.map { it.id }.toSet()
 
         duplicateIds("era", eras.map { it.id }, errors)
         duplicateIds("article", articles.map { it.id }, errors)
         duplicateIds("state", states.map { it.id }, errors)
+        duplicateIds("civilization topic", civilizationTopics.map { it.id }, errors)
         duplicateIds("source", sources.map { it.id }, errors)
 
         validateEras(eras, errors)
         validateArticles(articles, eraIds, sourceIds, errors)
         validateStates(states, eraIds, sourceIds, errors)
+        validateCivilizationTopics(
+            civilizationTopics,
+            topicIds,
+            personIds,
+            sourceIds,
+            errors,
+        )
         validateSources(sources, errors)
         return errors
     }
@@ -139,6 +150,59 @@ object HistoryContentValidator {
             state.sourceIds.forEach { sourceId ->
                 if (sourceId !in sourceIds) {
                     errors += "State ${state.id} references unknown source $sourceId"
+                }
+            }
+        }
+    }
+
+    private fun validateCivilizationTopics(
+        topics: List<CivilizationTopic>,
+        topicIds: Set<String>,
+        personIds: Set<String>,
+        sourceIds: Set<String>,
+        errors: MutableList<String>,
+    ) {
+        topics.forEach { topic ->
+            if (topic.title.arabic.isBlank() || topic.title.english.isBlank()) {
+                errors += "Civilization topic ${topic.id} has an incomplete bilingual title"
+            }
+            if (topic.summary.arabic.isBlank() || topic.summary.english.isBlank()) {
+                errors += "Civilization topic ${topic.id} has an incomplete bilingual summary"
+            }
+            if (topic.sections.isEmpty()) {
+                errors += "Civilization topic ${topic.id} has no sections"
+            }
+            duplicateIds(
+                "section in civilization topic ${topic.id}",
+                topic.sections.map { it.id },
+                errors,
+            )
+            topic.sections.forEach { section ->
+                if (section.title.arabic.isBlank() || section.title.english.isBlank()) {
+                    errors += "Section ${topic.id}/${section.id} has an incomplete bilingual title"
+                }
+                if (section.paragraphs.isEmpty()) {
+                    errors += "Section ${topic.id}/${section.id} has no paragraphs"
+                }
+                section.paragraphs.forEach { paragraph ->
+                    if (paragraph.arabic.isBlank() || paragraph.english.isBlank()) {
+                        errors += "Civilization topic ${topic.id} contains a non-bilingual paragraph"
+                    }
+                }
+            }
+            topic.sourceIds.forEach { sourceId ->
+                if (sourceId !in sourceIds) {
+                    errors += "Civilization topic ${topic.id} references unknown source $sourceId"
+                }
+            }
+            topic.personIds.forEach { personId ->
+                if (personId !in personIds) {
+                    errors += "Civilization topic ${topic.id} references unknown person $personId"
+                }
+            }
+            topic.relatedTopicIds.forEach { relatedId ->
+                if (relatedId !in topicIds) {
+                    errors += "Civilization topic ${topic.id} references unknown topic $relatedId"
                 }
             }
         }
