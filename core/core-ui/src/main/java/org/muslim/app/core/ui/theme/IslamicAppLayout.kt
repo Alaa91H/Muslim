@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.matchParentSize
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -51,9 +50,9 @@ fun MuslimAppScaffold(
     Box(
         modifier = modifier.background(MaterialTheme.colorScheme.background),
     ) {
-        IslamicDecorationLayer(modifier = Modifier.matchParentSize())
+        IslamicDecorationLayer(modifier = Modifier.fillMaxSize())
         Scaffold(
-            modifier = Modifier.matchParentSize(),
+            modifier = Modifier.fillMaxSize(),
             containerColor = Color.Transparent,
             contentColor = MaterialTheme.colorScheme.onBackground,
             topBar = topBar,
