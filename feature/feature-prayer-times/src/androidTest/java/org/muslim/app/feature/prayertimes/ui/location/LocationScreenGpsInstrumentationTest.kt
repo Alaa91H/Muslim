@@ -2,6 +2,8 @@ package org.muslim.app.feature.prayertimes.ui.location
 
 import android.Manifest
 import android.content.Context
+import android.os.Build
+import android.os.ParcelFileDescriptor
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -40,11 +42,20 @@ class LocationScreenGpsInstrumentationTest {
 
     @Before
     fun grantForegroundLocation() {
-        val targetContext = InstrumentationRegistry.getInstrumentation().targetContext
-        InstrumentationRegistry.getInstrumentation().uiAutomation.grantRuntimePermission(
-            targetContext.packageName,
-            Manifest.permission.ACCESS_FINE_LOCATION,
-        )
+        val instrumentation = InstrumentationRegistry.getInstrumentation()
+        val targetContext = instrumentation.targetContext
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            instrumentation.uiAutomation.grantRuntimePermission(
+                targetContext.packageName,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            )
+        } else {
+            ParcelFileDescriptor.AutoCloseInputStream(
+                instrumentation.uiAutomation.executeShellCommand(
+                    "pm grant ${targetContext.packageName} ${Manifest.permission.ACCESS_FINE_LOCATION}",
+                ),
+            ).use { it.readBytes() }
+        }
     }
 
     @Test
