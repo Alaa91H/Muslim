@@ -2,6 +2,9 @@ package org.muslim.app.feature.learn.ui
 
 import android.content.Context
 import android.content.Intent
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -31,6 +34,7 @@ import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.PictureAsPdf
 import androidx.compose.material.icons.filled.Save
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Security
@@ -99,6 +103,7 @@ private data class WillDraftActions(
     val onChange: (WillDraft) -> Unit,
     val onSave: () -> Unit,
     val onShare: () -> Unit,
+    val onExportPdf: () -> Unit,
     val onClear: () -> Unit,
 )
 
@@ -165,12 +170,46 @@ fun FuneralWillScreen(
 ) {
     val isArabic = AppLanguage.isArabicUi()
     val storedDraft by viewModel.draft.collectAsStateWithLifecycle()
+    val storageError by viewModel.storageError.collectAsStateWithLifecycle()
+    val pdfExportStatus by viewModel.pdfExportStatus.collectAsStateWithLifecycle()
     val introVisibility by viewModel.introVisibility.collectAsStateWithLifecycle()
     var draft by rememberSaveable(stateSaver = WillDraftSaver) { mutableStateOf(WillDraft()) }
     var selectedTab by rememberSaveable { mutableIntStateOf(FuneralWillTab.Will.ordinal) }
     var showClearConfirmation by rememberSaveable { mutableStateOf(false) }
     var showShareConfirmation by rememberSaveable { mutableStateOf(false) }
     val context = LocalContext.current
+    val pdfFilename = stringResource(R.string.funeral_will_pdf_filename)
+    val pdfLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.CreateDocument("application/pdf"),
+    ) { destination ->
+        if (destination != null) {
+            viewModel.exportPdf(destination, draft, isArabic)
+        }
+    }
+
+    LaunchedEffect(pdfExportStatus) {
+        when (pdfExportStatus) {
+            WillPdfExportStatus.Success -> {
+                Toast.makeText(
+                    context,
+                    context.getString(R.string.funeral_will_export_pdf_success),
+                    Toast.LENGTH_SHORT,
+                ).show()
+                viewModel.consumePdfExportStatus()
+            }
+
+            WillPdfExportStatus.Error -> {
+                Toast.makeText(
+                    context,
+                    context.getString(R.string.funeral_will_export_pdf_error),
+                    Toast.LENGTH_LONG,
+                ).show()
+                viewModel.consumePdfExportStatus()
+            }
+
+            WillPdfExportStatus.Idle -> Unit
+        }
+    }
 
     LaunchedEffect(storedDraft) {
         draft = storedDraft
@@ -258,10 +297,12 @@ fun FuneralWillScreen(
                     isArabic = isArabic,
                     introVisibility = introVisibility,
                     isDirty = draft != storedDraft,
+                    storageError = storageError,
                     draftActions = WillDraftActions(
                         onChange = { draft = it },
                         onSave = { viewModel.save(draft) },
                         onShare = { showShareConfirmation = true },
+                        onExportPdf = { pdfLauncher.launch(pdfFilename) },
                         onClear = { showClearConfirmation = true },
                     ),
                     introActions = WillIntroActions(
@@ -314,6 +355,7 @@ private fun WillDraftContent(
     isArabic: Boolean,
     introVisibility: FuneralWillIntroVisibility,
     isDirty: Boolean,
+    storageError: Boolean,
     draftActions: WillDraftActions,
     introActions: WillIntroActions,
 ) {
@@ -334,14 +376,29 @@ private fun WillDraftContent(
             educationQuery = educationQuery,
             onEducationQueryChange = { educationQuery = it },
         )
-        willDraftFields(draft, draftActions.onChange)
-        willDraftActions(
-            draft = draft,
-            isDirty = isDirty,
-            onSave = draftActions.onSave,
-            onShare = draftActions.onShare,
-            onClear = draftActions.onClear,
-        )
+        item {
+            NoticeCard(
+                icon = Icons.Filled.Security,
+                text = stringResource(
+                    if (storageError) {
+                        R.string.funeral_will_encryption_error
+                    } else {
+                        R.string.funeral_will_encrypted_notice
+                    },
+                ),
+            )
+        }
+        if (!storageError) {
+            willDraftFields(draft, draftActions.onChange)
+            willDraftActions(
+                draft = draft,
+                isDirty = isDirty,
+                onSave = draftActions.onSave,
+                onShare = draftActions.onShare,
+                onExportPdf = draftActions.onExportPdf,
+                onClear = draftActions.onClear,
+            )
+        }
     }
 }
 
@@ -626,6 +683,7 @@ private fun LazyListScope.willDraftActions(
     isDirty: Boolean,
     onSave: () -> Unit,
     onShare: () -> Unit,
+    onExportPdf: () -> Unit,
     onClear: () -> Unit,
 ) {
     if (!draft.isEmpty()) {
@@ -676,6 +734,21 @@ private fun LazyListScope.willDraftActions(
             )
             Spacer(Modifier.width(8.dp))
             Text(stringResource(R.string.funeral_will_share))
+        }
+    }
+    item {
+        OutlinedButton(
+            onClick = onExportPdf,
+            enabled = !draft.isEmpty(),
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Icon(
+                Icons.Filled.PictureAsPdf,
+                contentDescription = null,
+                modifier = Modifier.size(18.dp),
+            )
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.funeral_will_export_pdf))
         }
     }
     item {
