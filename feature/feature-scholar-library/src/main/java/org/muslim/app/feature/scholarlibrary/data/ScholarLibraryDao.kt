@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Transaction
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
@@ -73,6 +74,21 @@ interface ScholarLibraryDao {
 
     @Update
     suspend fun updateFlashcard(card: ScholarFlashcardEntity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertReviewEvent(event: ScholarReviewEventEntity): Long
+
+    @Query("SELECT * FROM scholar_review_events ORDER BY reviewedAtEpochMillis DESC, id DESC")
+    fun observeReviewEvents(): Flow<List<ScholarReviewEventEntity>>
+
+    @Transaction
+    suspend fun applyFlashcardReview(
+        card: ScholarFlashcardEntity,
+        event: ScholarReviewEventEntity,
+    ) {
+        updateFlashcard(card)
+        insertReviewEvent(event)
+    }
 
     @Query("DELETE FROM scholar_flashcards WHERE id = :id")
     suspend fun deleteFlashcard(id: Long)
