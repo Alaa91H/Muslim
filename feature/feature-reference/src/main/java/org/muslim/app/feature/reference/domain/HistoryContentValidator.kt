@@ -22,6 +22,17 @@ object HistoryContentValidator {
         duplicateIds("state", states.map { it.id }, errors)
         duplicateIds("source", sources.map { it.id }, errors)
 
+        validateEras(eras, errors)
+        validateArticles(articles, eraIds, sourceIds, errors)
+        validateStates(states, eraIds, sourceIds, errors)
+        validateSources(sources, errors)
+        return errors
+    }
+
+    private fun validateEras(
+        eras: List<HistoryEra>,
+        errors: MutableList<String>,
+    ) {
         eras.forEach { era ->
             if (era.title.arabic.isBlank() || era.title.english.isBlank()) {
                 errors += "Era ${era.id} has an incomplete bilingual title"
@@ -33,7 +44,14 @@ object HistoryContentValidator {
                 errors += "Era ${era.id} ends before it starts"
             }
         }
+    }
 
+    private fun validateArticles(
+        articles: List<HistoryArticle>,
+        eraIds: Set<String>,
+        sourceIds: Set<String>,
+        errors: MutableList<String>,
+    ) {
         articles.forEach { article ->
             if (article.eraId !in eraIds) {
                 errors += "Article ${article.id} references unknown era ${article.eraId}"
@@ -53,33 +71,54 @@ object HistoryContentValidator {
                 article.sections.map { it.id },
                 errors,
             )
+            validateArticleSections(article, errors)
+            validateArticleReferences(article, eraIds, sourceIds, errors)
+        }
+    }
 
-            article.sections.forEach { section ->
-                if (section.title.arabic.isBlank() || section.title.english.isBlank()) {
-                    errors += "Section ${article.id}/${section.id} has an incomplete bilingual title"
-                }
-                if (section.paragraphs.isEmpty()) {
-                    errors += "Section ${article.id}/${section.id} has no paragraphs"
-                }
-                section.paragraphs.forEachIndexed { index, paragraph ->
-                    if (paragraph.arabic.isBlank() || paragraph.english.isBlank()) {
-                        errors += "Paragraph ${index + 1} in ${article.id}/${section.id} is not bilingual"
-                    }
-                }
+    private fun validateArticleSections(
+        article: HistoryArticle,
+        errors: MutableList<String>,
+    ) {
+        article.sections.forEach { section ->
+            if (section.title.arabic.isBlank() || section.title.english.isBlank()) {
+                errors += "Section ${article.id}/${section.id} has an incomplete bilingual title"
             }
-
-            article.sourceIds.forEach { sourceId ->
-                if (sourceId !in sourceIds) {
-                    errors += "Article ${article.id} references unknown source $sourceId"
-                }
+            if (section.paragraphs.isEmpty()) {
+                errors += "Section ${article.id}/${section.id} has no paragraphs"
             }
-            article.relatedEraIds.forEach { eraId ->
-                if (eraId !in eraIds) {
-                    errors += "Article ${article.id} references unknown related era $eraId"
+            section.paragraphs.forEachIndexed { index, paragraph ->
+                if (paragraph.arabic.isBlank() || paragraph.english.isBlank()) {
+                    errors += "Paragraph ${index + 1} in ${article.id}/${section.id} is not bilingual"
                 }
             }
         }
+    }
 
+    private fun validateArticleReferences(
+        article: HistoryArticle,
+        eraIds: Set<String>,
+        sourceIds: Set<String>,
+        errors: MutableList<String>,
+    ) {
+        article.sourceIds.forEach { sourceId ->
+            if (sourceId !in sourceIds) {
+                errors += "Article ${article.id} references unknown source $sourceId"
+            }
+        }
+        article.relatedEraIds.forEach { eraId ->
+            if (eraId !in eraIds) {
+                errors += "Article ${article.id} references unknown related era $eraId"
+            }
+        }
+    }
+
+    private fun validateStates(
+        states: List<HistoricalState>,
+        eraIds: Set<String>,
+        sourceIds: Set<String>,
+        errors: MutableList<String>,
+    ) {
         states.forEach { state ->
             if (state.title.arabic.isBlank() || state.title.english.isBlank()) {
                 errors += "State ${state.id} has an incomplete bilingual title"
@@ -103,14 +142,17 @@ object HistoryContentValidator {
                 }
             }
         }
+    }
 
+    private fun validateSources(
+        sources: List<HistorySource>,
+        errors: MutableList<String>,
+    ) {
         sources.forEach { source ->
             if (source.title.arabic.isBlank() || source.title.english.isBlank()) {
                 errors += "Source ${source.id} has an incomplete bilingual title"
             }
         }
-
-        return errors
     }
 
     private fun duplicateIds(
