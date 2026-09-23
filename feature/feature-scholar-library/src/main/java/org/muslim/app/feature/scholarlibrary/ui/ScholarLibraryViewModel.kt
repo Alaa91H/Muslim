@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import org.muslim.app.feature.scholarlibrary.data.ScholarContentPackManager
 import org.muslim.app.feature.scholarlibrary.data.ScholarLibraryImportResult
 import org.muslim.app.feature.scholarlibrary.data.ScholarLibraryRepository
 import org.muslim.app.feature.scholarlibrary.data.ScholarStudyBackupManager
@@ -101,6 +102,7 @@ internal data class ScholarLibraryUiState(
 @HiltViewModel
 class ScholarLibraryViewModel @Inject constructor(
     private val repository: ScholarLibraryRepository,
+    private val packManager: ScholarContentPackManager,
     private val backupManager: ScholarStudyBackupManager,
 ) : ViewModel() {
     private val mutableState = MutableStateFlow(ScholarLibraryUiState())
@@ -197,7 +199,7 @@ class ScholarLibraryViewModel @Inject constructor(
             }
         }
         viewModelScope.launch {
-            repository.contentPacks.collect { packs ->
+            packManager.contentPacks.collect { packs ->
                 update { it.copy(contentPacks = packs) }
             }
         }
@@ -527,7 +529,7 @@ class ScholarLibraryViewModel @Inject constructor(
     ) {
         viewModelScope.launch {
             update { it.copy(statusMessage = "يجري فحص الحزمة واستيرادها محلياً…") }
-            when (val result = repository.importPack(rawText, originName)) {
+            when (val result = packManager.importPack(rawText, originName)) {
                 is ScholarLibraryImportResult.Success -> {
                     runCatching { refreshCatalogMetadata() }
                     val action = if (result.replacedExisting) "تحديث" else "تثبيت"
