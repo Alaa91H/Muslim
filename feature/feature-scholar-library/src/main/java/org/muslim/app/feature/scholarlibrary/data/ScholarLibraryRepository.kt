@@ -415,7 +415,9 @@ class ScholarLibraryRepository @Inject constructor(
         ensureSeeded()
         libraryDao.activeStudySessionForPath(pathId)?.let { entity ->
             val session = entity.toDomain()
-            val targetsStillExist = session.targetPassageIds.all { id -> libraryDao.passageById(id) != null }
+            val targetsStillExist = session.targetPassageIds.all { id ->
+                libraryDao.passageById(id)?.bookId == session.bookId
+            }
             if (targetsStillExist) return session
             libraryDao.upsertStudySession(
                 entity.copy(
