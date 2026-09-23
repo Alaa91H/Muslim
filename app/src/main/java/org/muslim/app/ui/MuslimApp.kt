@@ -73,6 +73,7 @@ import org.muslim.app.feature.quran.ui.QuranReaderScreen
 import org.muslim.app.feature.quran.ui.SurahListScreen
 import org.muslim.app.feature.reference.ui.IslamicHistoryScreen
 import org.muslim.app.feature.reference.ui.ReferenceScreen
+import org.muslim.app.feature.scholarlibrary.ui.ScholarAuthorsScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarBookDetailScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarLibraryScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarStudyDeskScreen
@@ -148,6 +149,7 @@ private const val SCHOLAR_LIBRARY_ROUTE = "scholar-library"
 private const val SCHOLAR_LIBRARY_BOOK_ROUTE = "scholar-library/book"
 private const val SCHOLAR_LIBRARY_STUDY_ROUTE = "scholar-library/study"
 private const val SCHOLAR_LIBRARY_PATH_ROUTE = "scholar-library/path"
+private const val SCHOLAR_LIBRARY_AUTHORS_ROUTE = "scholar-library/authors"
 
 @Composable
 fun MuslimApp(
@@ -411,6 +413,7 @@ fun MuslimApp(
                         onOpenBook = { bookId -> navController.navigate("$SCHOLAR_LIBRARY_BOOK_ROUTE/$bookId") },
                         onOpenStudyDesk = { navController.navigate(SCHOLAR_LIBRARY_STUDY_ROUTE) },
                         onOpenStudyPath = { pathId -> navController.navigate("$SCHOLAR_LIBRARY_PATH_ROUTE/$pathId") },
+                        onOpenAuthors = { navController.navigate(SCHOLAR_LIBRARY_AUTHORS_ROUTE) },
                     )
                 }
                 composable(
@@ -424,6 +427,12 @@ fun MuslimApp(
                 }
                 composable(SCHOLAR_LIBRARY_STUDY_ROUTE) {
                     ScholarStudyDeskScreen(onBack = { navController.popBackStack() })
+                }
+                composable(SCHOLAR_LIBRARY_AUTHORS_ROUTE) {
+                    ScholarAuthorsScreen(
+                        onBack = { navController.popBackStack() },
+                        onOpenBook = { bookId -> navController.navigate("$SCHOLAR_LIBRARY_BOOK_ROUTE/$bookId") },
+                    )
                 }
                 composable(
                     route = "$SCHOLAR_LIBRARY_PATH_ROUTE/{pathId}",
