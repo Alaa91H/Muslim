@@ -76,6 +76,7 @@ import org.muslim.app.feature.reference.ui.ReferenceScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarAuthorsScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarBookDetailScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarLibraryScreen
+import org.muslim.app.feature.scholarlibrary.ui.ScholarReviewCenterScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarStudyDeskScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarStudyPathScreen
 import org.muslim.app.feature.scholarlibrary.ui.ScholarStudySessionScreen
@@ -152,6 +153,7 @@ private const val SCHOLAR_LIBRARY_STUDY_ROUTE = "scholar-library/study"
 private const val SCHOLAR_LIBRARY_PATH_ROUTE = "scholar-library/path"
 private const val SCHOLAR_LIBRARY_AUTHORS_ROUTE = "scholar-library/authors"
 private const val SCHOLAR_LIBRARY_SESSION_ROUTE = "scholar-library/session"
+private const val SCHOLAR_LIBRARY_REVIEW_ROUTE = "scholar-library/review"
 
 @Composable
 fun MuslimApp(
@@ -433,6 +435,14 @@ fun MuslimApp(
                         onOpenSession = { pathId ->
                             navController.navigate("$SCHOLAR_LIBRARY_SESSION_ROUTE/$pathId")
                         },
+                        onOpenReviewCenter = {
+                            navController.navigate(SCHOLAR_LIBRARY_REVIEW_ROUTE)
+                        },
+                    )
+                }
+                composable(SCHOLAR_LIBRARY_REVIEW_ROUTE) {
+                    ScholarReviewCenterScreen(
+                        onBack = { navController.popBackStack() },
                     )
                 }
                 composable(SCHOLAR_LIBRARY_AUTHORS_ROUTE) {
