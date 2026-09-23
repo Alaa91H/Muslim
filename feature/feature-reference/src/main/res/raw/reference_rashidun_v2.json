@@ -1,0 +1,955 @@
+{
+  "schemaVersion": 2,
+  "book": {
+    "id": "rashidun",
+    "titleAr": "الخلفاء الراشدون",
+    "titleEn": "The Rashidun Caliphs",
+    "subtitleAr": "تاريخ موثق ومحايد للخلافة الأولى وأحداثها الكبرى ومصادر الخلاف التاريخي",
+    "subtitleEn": "A sourced, neutral history of the early caliphate, its major events, and areas of historical disagreement",
+    "contentRevision": 1,
+    "chapters": [
+      {
+        "id": "framework",
+        "titleAr": "الإطار التاريخي والخلاف على الخلافة",
+        "titleEn": "Historical Framework and Succession",
+        "summaryAr": "المصطلح والسقيفة واختلاف القراءات التاريخية.",
+        "summaryEn": "The term, Saqifah, and differing historical interpretations.",
+        "topicIds": [
+          "rashidun_term",
+          "succession_context"
+        ]
+      },
+      {
+        "id": "abu_bakr_period",
+        "titleAr": "خلافة أبي بكر",
+        "titleEn": "Abu Bakr's Caliphate",
+        "summaryAr": "سيرته، حروب الردة، ومشروع جمع القرآن.",
+        "summaryEn": "His leadership, Ridda wars, and the early Quran collection.",
+        "topicIds": [
+          "abu_bakr",
+          "ridda_wars",
+          "quran_collection_abu_bakr"
+        ]
+      },
+      {
+        "id": "umar_period",
+        "titleAr": "خلافة عمر",
+        "titleEn": "Umar's Caliphate",
+        "summaryAr": "التوسع والإدارة ثم ترتيب الشورى للخلافة التالية.",
+        "summaryEn": "Expansion, administration, and the council for succession.",
+        "topicIds": [
+          "umar",
+          "administration_umar",
+          "succession_council"
+        ]
+      },
+      {
+        "id": "uthman_period",
+        "titleAr": "خلافة عثمان",
+        "titleEn": "Uthman's Caliphate",
+        "summaryAr": "توحيد المصاحف ثم الأزمة السياسية في السنوات الأخيرة.",
+        "summaryEn": "Codex standardization and the political crisis of the later years.",
+        "topicIds": [
+          "uthman",
+          "uthman_mushaf",
+          "late_uthman_crisis"
+        ]
+      },
+      {
+        "id": "ali_period",
+        "titleAr": "خلافة علي ونهاية المرحلة",
+        "titleEn": "Ali's Caliphate and the End of the Period",
+        "summaryAr": "علي والفتنة الأولى ثم انتقال الحكم بعده.",
+        "summaryEn": "Ali, the First Fitna, and the subsequent political transition.",
+        "topicIds": [
+          "ali",
+          "first_fitna",
+          "hasan_transition"
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "id": "rashidun_term",
+        "titleAr": "الخلفاء الراشدون: المصطلح والإطار التاريخي",
+        "titleEn": "The Rashidun: term and historical frame",
+        "summaryAr": "مدخل إلى فترة قيادة أبي بكر وعمر وعثمان وعلي رضي الله عنهم، مع بيان أن توصيف «الراشدين» هو استعمال مركزي في التراث السني وأن قراءات المدارس الإسلامية لتاريخ الخلافة تختلف.",
+        "summaryEn": "An introduction to the leadership period of Abu Bakr, Umar, Uthman, and Ali, noting that 'Rashidun' is a central Sunni term and that Muslim traditions differ in how they interpret caliphal legitimacy.",
+        "sections": [
+          {
+            "id": "period",
+            "titleAr": "الفترة العامة",
+            "titleEn": "General period",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "يطلق جمهور أهل السنة «الخلفاء الراشدين» على أبي بكر وعمر وعثمان وعلي، وهم قادة المجتمع الإسلامي بعد وفاة النبي ﷺ حتى سنة 41هـ تقريبًا عند انتقال الحكم إلى معاوية.",
+                "en": "Sunni tradition commonly applies 'Rightly Guided Caliphs' to Abu Bakr, Umar, Uthman, and Ali, who led the Muslim community after the Prophet's ﷺ death until the transition to Mu'awiya around 41 AH.",
+                "citationIds": [
+                  "britannica-caliphate"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "perspectives",
+            "titleAr": "اختلاف المنظورات",
+            "titleEn": "Different perspectives",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تختلف المدارس السنية والشيعية والإباضية في بعض تقييمات الشرعية السياسية وترتيب الخلافة، ولذلك يعرض هذا الكتاب الوقائع الأساسية وينسب التفسيرات المذهبية إلى أصحابها بدل تقديمها كحقيقة محل إجماع.",
+                "en": "Sunni, Shia, and Ibadi traditions differ on aspects of political legitimacy and succession; this book therefore separates broadly documented events from school-specific interpretations.",
+                "citationIds": [
+                  "britannica-caliphate"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "succession_context",
+          "abu_bakr",
+          "umar",
+          "uthman",
+          "ali"
+        ],
+        "citations": [
+          {
+            "id": "britannica-caliphate",
+            "kind": "AcademicReference",
+            "titleAr": "الموسوعة البريطانية",
+            "titleEn": "Encyclopaedia Britannica",
+            "locator": "Caliphate: early caliphs"
+          },
+          {
+            "id": "hadith-khilafa",
+            "kind": "ClassicalBook",
+            "titleAr": "سنن أبي داود",
+            "titleEn": "Sunan Abi Dawud",
+            "locator": "كتاب السنة: خلافة النبوة / Book of Sunnah: caliphate after prophethood"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "succession_context",
+        "titleAr": "ما بعد وفاة النبي ﷺ واجتماع السقيفة",
+        "titleEn": "After the Prophet's death and the Saqifah meeting",
+        "summaryAr": "الأزمة القيادية التي أعقبت وفاة النبي ﷺ واجتماع جماعة من الأنصار والمهاجرين ثم مبايعة أبي بكر.",
+        "summaryEn": "The leadership crisis after the Prophet's ﷺ death, the meeting involving Ansar and Muhajirun, and the pledge to Abu Bakr.",
+        "sections": [
+          {
+            "id": "meeting",
+            "titleAr": "الاجتماع والبيعة",
+            "titleEn": "Meeting and pledge",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بعد وفاة النبي ﷺ اجتمع فريق من الأنصار في سقيفة بني ساعدة، ثم حضر أبو بكر وعمر وأبو عبيدة وغيرهم من المهاجرين وانتهى النقاش بمبايعة أبي بكر ثم اتساع البيعة.",
+                "en": "After the Prophet's ﷺ death, a group of Ansar gathered at Saqifah Bani Sa'ida; Abu Bakr, Umar, Abu Ubayda, and other Muhajirun joined the discussion, which ended with a pledge to Abu Bakr followed by a broader pledge.",
+                "citationIds": [
+                  "bukhari-saqifah"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "disagreement",
+            "titleAr": "تفاصيل محل نقاش تاريخي",
+            "titleEn": "Historically debated details",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تختلف المصادر في بعض تفاصيل المداولات وتوقيت مبايعة بعض الشخصيات، خاصة علي وبني هاشم، ولذلك لا يصح اختزال الحدث في رواية طائفية واحدة.",
+                "en": "Sources differ over some details of the deliberations and the timing of allegiance by certain figures, especially Ali and members of Banu Hashim, so the event should not be reduced to a single sectarian narrative.",
+                "citationIds": [
+                  "tabari-11-succession"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "rashidun_term",
+          "abu_bakr",
+          "ahl_al_bayt/ali_household"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-saqifah",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "الحدود وفضائل الصحابة: خبر السقيفة / Report of Saqifah"
+          },
+          {
+            "id": "tabari-11-succession",
+            "kind": "ClassicalBook",
+            "titleAr": "تاريخ الرسل والملوك للطبري",
+            "titleEn": "Al-Tabari, History of Prophets and Kings",
+            "locator": "أحداث سنة 11هـ / Events of 11 AH"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "abu_bakr",
+        "titleAr": "أبو بكر الصديق رضي الله عنه",
+        "titleEn": "Abu Bakr al-Siddiq",
+        "summaryAr": "أول الخلفاء بعد النبي ﷺ وصاحبه في الهجرة، استمرت خلافته نحو عامين.",
+        "summaryEn": "The first caliph after the Prophet ﷺ and his companion in the Hijrah; his caliphate lasted about two years.",
+        "sections": [
+          {
+            "id": "companionship",
+            "titleAr": "الصحبة والهجرة",
+            "titleEn": "Companionship and Hijrah",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان أبو بكر من أوائل المسلمين ومن أقرب أصحاب النبي ﷺ، ورافقه في الهجرة كما تشير آية الغار إلى صاحب النبي في ذلك الموقف.",
+                "en": "Abu Bakr was among the earliest Muslims and closest companions of the Prophet ﷺ and accompanied him in the Hijrah, as reflected in the Quranic cave passage.",
+                "citationIds": [
+                  "quran-9-40"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "caliphate",
+            "titleAr": "الخلافة 632–634م",
+            "titleEn": "Caliphate, 632–634 CE",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تولى قيادة المجتمع بعد وفاة النبي ﷺ، وواجه تمردات الجزيرة ثم بدأت في عهده حملات خارج الجزيرة قبل وفاته سنة 634م.",
+                "en": "He led the Muslim community after the Prophet's ﷺ death, confronted Arabian rebellions, and oversaw the beginning of campaigns beyond Arabia before his death in 634 CE.",
+                "citationIds": [
+                  "britannica-abu-bakr"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "succession_context",
+          "ridda_wars",
+          "quran_collection_abu_bakr"
+        ],
+        "citations": [
+          {
+            "id": "britannica-abu-bakr",
+            "kind": "AcademicReference",
+            "titleAr": "الموسوعة البريطانية",
+            "titleEn": "Encyclopaedia Britannica",
+            "locator": "Abu Bakr biography"
+          },
+          {
+            "id": "quran-9-40",
+            "kind": "Quran",
+            "titleAr": "القرآن الكريم",
+            "titleEn": "The Noble Quran",
+            "locator": "9:40"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "ridda_wars",
+        "titleAr": "حروب الردة وتثبيت السلطة في الجزيرة",
+        "titleEn": "The Ridda wars and consolidation in Arabia",
+        "summaryAr": "صراعات أعقبت وفاة النبي ﷺ مع قبائل وحركات رفضت سلطة المدينة أو اتبعت مدعي نبوة، وانتهت بإعادة توحيد معظم الجزيرة تحت سلطة أبي بكر.",
+        "summaryEn": "Conflicts after the Prophet's ﷺ death involving tribes that rejected Medinan authority or followed rival claimants to prophethood, ending with renewed political control over much of Arabia.",
+        "sections": [
+          {
+            "id": "complexity",
+            "titleAr": "حركات متعددة لا حدث واحد",
+            "titleEn": "Multiple movements, not one event",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "شملت حروب الردة قبائل امتنعت عن ترتيبات الزكاة والولاء، وأخرى اتبعت مدعي نبوة أو دخلت في تمرد سياسي؛ وتختلف المصادر في وصف دوافع بعض الجماعات.",
+                "en": "The Ridda wars involved tribes disputing zakat and allegiance arrangements, others following rival prophets, and political rebellions; sources differ in how they characterize the motives of some groups.",
+                "citationIds": [
+                  "tabari-ridda"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "outcome",
+            "titleAr": "النتيجة السياسية",
+            "titleEn": "Political outcome",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "انتهت الحملات بإعادة بسط سلطة المدينة على معظم الجزيرة، وأصبح ذلك تمهيدًا لحملات العراق والشام في أواخر عهد أبي بكر وبداية عهد عمر.",
+                "en": "The campaigns re-established Medinan authority over most of Arabia and preceded campaigns into Iraq and Syria in the late Abu Bakr period and early Umar period.",
+                "citationIds": [
+                  "britannica-ridda"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "abu_bakr",
+          "companions/khalid"
+        ],
+        "citations": [
+          {
+            "id": "britannica-ridda",
+            "kind": "AcademicReference",
+            "titleAr": "الموسوعة البريطانية",
+            "titleEn": "Encyclopaedia Britannica",
+            "locator": "Abu Bakr biography: riddah"
+          },
+          {
+            "id": "tabari-ridda",
+            "kind": "ClassicalBook",
+            "titleAr": "تاريخ الرسل والملوك للطبري",
+            "titleEn": "Al-Tabari, History of Prophets and Kings",
+            "locator": "أحداث الردة في 11–12هـ / Ridda events, 11–12 AH"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "quran_collection_abu_bakr",
+        "titleAr": "جمع القرآن في عهد أبي بكر",
+        "titleEn": "Collection of Quranic materials under Abu Bakr",
+        "summaryAr": "مشروع جمع مكتوب ارتبط بمقتل عدد من القراء في اليمامة، وقاده زيد بن ثابت بتكليف من أبي بكر بعد اقتراح عمر.",
+        "summaryEn": "A written collection project associated with losses among Quran reciters at Yamamah, led by Zayd ibn Thabit under Abu Bakr after Umar's proposal.",
+        "sections": [
+          {
+            "id": "reason",
+            "titleAr": "بعد وقعة اليمامة",
+            "titleEn": "After Yamamah",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تروي المصادر الصحيحة أن عمر خشي ضياع شيء من القرآن بموت القراء بعد اليمامة، فأقنع أبا بكر بمشروع جمعه في صحف.",
+                "en": "Authentic reports state that Umar feared loss of Quranic material as reciters died after Yamamah and persuaded Abu Bakr to commission a written collection.",
+                "citationIds": [
+                  "bukhari-collection-abu-bakr"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "zayd",
+            "titleAr": "مهمة زيد بن ثابت",
+            "titleEn": "Zayd ibn Thabit's task",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كلف أبو بكر زيدًا بجمع المادة المكتوبة والتحقق منها، ثم بقيت الصحف عند أبي بكر فعمر فحفصة قبل مشروع عثمان اللاحق.",
+                "en": "Abu Bakr commissioned Zayd to gather and verify written material; the resulting sheets remained with Abu Bakr, then Umar, then Hafsa before Uthman's later codex project.",
+                "citationIds": [
+                  "bukhari-collection-abu-bakr"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "abu_bakr",
+          "companions/zayd_thabit",
+          "mothers/hafsah"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-collection-abu-bakr",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "فضائل القرآن: جمع القرآن / Virtues of the Quran: collection"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "umar",
+        "titleAr": "عمر بن الخطاب رضي الله عنه",
+        "titleEn": "Umar ibn al-Khattab",
+        "summaryAr": "ثاني الخلفاء، حكم من 634 إلى 644م واتسعت في عهده رقعة الدولة بصورة كبيرة.",
+        "summaryEn": "The second caliph, ruling from 634 to 644 CE, during whose tenure the Muslim polity expanded greatly.",
+        "sections": [
+          {
+            "id": "succession",
+            "titleAr": "توليه بعد أبي بكر",
+            "titleEn": "Succession after Abu Bakr",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "عهد أبو بكر إلى عمر بالخلافة بعد مشاورة عدد من الصحابة، فتولى القيادة سنة 634م.",
+                "en": "Abu Bakr designated Umar to succeed him after consultation with leading Companions, and Umar assumed leadership in 634 CE.",
+                "citationIds": [
+                  "isaba-umar"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "expansion",
+            "titleAr": "اتساع الدولة",
+            "titleEn": "Expansion",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "في عهده توسعت الدولة إلى أجزاء واسعة من العراق والشام ومصر وإيران، وفرض ذلك تطويرًا في الإدارة والجباية وتدبير المدن والأقاليم.",
+                "en": "During his rule, the polity expanded across large parts of Iraq, Syria, Egypt, and Iran, creating new demands for administration, taxation, and provincial governance.",
+                "citationIds": [
+                  "britannica-caliphate-umar"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "abu_bakr",
+          "administration_umar",
+          "succession_council"
+        ],
+        "citations": [
+          {
+            "id": "britannica-caliphate-umar",
+            "kind": "AcademicReference",
+            "titleAr": "الموسوعة البريطانية",
+            "titleEn": "Encyclopaedia Britannica",
+            "locator": "Caliphate: Umar period"
+          },
+          {
+            "id": "isaba-umar",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة عمر بن الخطاب / Biography of Umar"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "administration_umar",
+        "titleAr": "الإدارة والمؤسسات في عهد عمر",
+        "titleEn": "Administration under Umar",
+        "summaryAr": "تطور الدواوين وتنظيم العطاء والقضاء والأمصار في سياق توسع الدولة.",
+        "summaryEn": "Development of registers, stipends, judicial practice, and garrison towns as the state expanded.",
+        "sections": [
+          {
+            "id": "institutions",
+            "titleAr": "تنظيم الإدارة",
+            "titleEn": "Administrative organization",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "نسبت المصادر إلى عهد عمر توسعًا في الدواوين وتنظيم العطاء والولاة والقضاء، وهي مؤسسات تطورت تدريجيًا مع اتساع الأقاليم.",
+                "en": "Sources associate Umar's reign with expansion of registers, stipends, governorships, and judicial administration, institutions that developed gradually with territorial growth.",
+                "citationIds": [
+                  "britannica-early-administration"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "governance",
+            "titleAr": "الرقابة والمساءلة",
+            "titleEn": "Oversight and accountability",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تورد المصادر أخبارًا كثيرة عن متابعة الولاة والشكاوى ومحاسبة المسؤولين؛ ويجب التمييز بين المبادئ العامة وبين التفاصيل القصصية التي تختلف أسانيدها.",
+                "en": "Historical sources preserve many reports of oversight of governors and complaints; broad patterns should be distinguished from anecdotal details whose transmission varies.",
+                "citationIds": [
+                  "tabari-umar-admin"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "umar",
+          "succession_council"
+        ],
+        "citations": [
+          {
+            "id": "britannica-early-administration",
+            "kind": "AcademicReference",
+            "titleAr": "الموسوعة البريطانية",
+            "titleEn": "Encyclopaedia Britannica",
+            "locator": "Caliphate: early administrative and judicial organization"
+          },
+          {
+            "id": "tabari-umar-admin",
+            "kind": "ClassicalBook",
+            "titleAr": "تاريخ الرسل والملوك للطبري",
+            "titleEn": "Al-Tabari, History of Prophets and Kings",
+            "locator": "أحداث خلافة عمر / Umar's reign"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "succession_council",
+        "titleAr": "الشورى بعد طعن عمر",
+        "titleEn": "The succession council after Umar's stabbing",
+        "summaryAr": "رتب عمر قبل وفاته مجلسًا محدودًا من كبار الصحابة لاختيار الخليفة التالي، وانتهى الاختيار إلى عثمان.",
+        "summaryEn": "Before his death, Umar established a limited council of senior Companions to select the next caliph, resulting in Uthman's selection.",
+        "sections": [
+          {
+            "id": "council",
+            "titleAr": "أعضاء الشورى",
+            "titleEn": "The council",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "جعل عمر الاختيار في مجموعة من كبار الصحابة بعد إصابته، وطلب أن يتم الاتفاق خلال مدة قصيرة لتجنب فراغ طويل في القيادة.",
+                "en": "After being fatally wounded, Umar placed the choice among a group of senior Companions and asked that the decision be reached promptly to avoid a prolonged leadership vacuum.",
+                "citationIds": [
+                  "bukhari-umar-shura"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "selection",
+            "titleAr": "اختيار عثمان",
+            "titleEn": "Selection of Uthman",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "انتهت المشاورات إلى مبايعة عثمان بن عفان، وتختلف الروايات التاريخية في بعض تفاصيل المقابلات وآلية ترجيح الاسم النهائي.",
+                "en": "The consultations ended with Uthman ibn Affan receiving the pledge; historical narratives differ in some details of the interviews and how the final preference was reached.",
+                "citationIds": [
+                  "tabari-23-shura"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "umar",
+          "uthman"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-umar-shura",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "فضائل الصحابة: قصة الشورى / Virtues of Companions: the council"
+          },
+          {
+            "id": "tabari-23-shura",
+            "kind": "ClassicalBook",
+            "titleAr": "تاريخ الرسل والملوك للطبري",
+            "titleEn": "Al-Tabari, History of Prophets and Kings",
+            "locator": "أحداث سنة 23هـ / Events of 23 AH"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "uthman",
+        "titleAr": "عثمان بن عفان رضي الله عنه",
+        "titleEn": "Uthman ibn Affan",
+        "summaryAr": "ثالث الخلفاء، حكم من 644 إلى 656م، واتسعت الدولة في عهده ثم تصاعدت معارضة سياسية انتهت بقتله.",
+        "summaryEn": "The third caliph, ruling from 644 to 656 CE; expansion continued under him before political opposition intensified and ended in his killing.",
+        "sections": [
+          {
+            "id": "background",
+            "titleAr": "من السابقين وذي النورين",
+            "titleEn": "Early Companion and family ties",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان عثمان من السابقين إلى الإسلام ومن المهاجرين، وتزوج ابنتين للنبي ﷺ تباعًا، فاشتهر بلقب ذي النورين في التراث الإسلامي.",
+                "en": "Uthman was an early Muslim and migrant and married two daughters of the Prophet ﷺ in succession, leading to the well-known epithet 'Possessor of the Two Lights' in Islamic tradition.",
+                "citationIds": [
+                  "isaba-uthman"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "reign",
+            "titleAr": "فترة خلافته",
+            "titleEn": "His reign",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "استمرت خلافته قرابة اثنتي عشرة سنة؛ اتسعت خلالها الأقاليم واستمرت الإدارة، ثم زادت التوترات والشكاوى في السنوات الأخيرة.",
+                "en": "His caliphate lasted about twelve years; territorial expansion and administration continued, while tensions and complaints grew during the later years.",
+                "citationIds": [
+                  "britannica-caliphate-uthman"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "succession_council",
+          "uthman_mushaf",
+          "late_uthman_crisis"
+        ],
+        "citations": [
+          {
+            "id": "britannica-caliphate-uthman",
+            "kind": "AcademicReference",
+            "titleAr": "الموسوعة البريطانية",
+            "titleEn": "Encyclopaedia Britannica",
+            "locator": "Caliphate: Uthman period"
+          },
+          {
+            "id": "isaba-uthman",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة عثمان بن عفان / Biography of Uthman"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "uthman_mushaf",
+        "titleAr": "توحيد المصاحف في عهد عثمان",
+        "titleEn": "Standardization of Quranic codices under Uthman",
+        "summaryAr": "تشكيل لجنة لنسخ مصاحف معيارية وإرسالها إلى الأمصار عند ظهور اختلافات في القراءة بين الجند.",
+        "summaryEn": "A committee prepared standard codices for major centers after differences in recitation arose among troops from different regions.",
+        "sections": [
+          {
+            "id": "trigger",
+            "titleAr": "ظهور اختلافات في القراءة",
+            "titleEn": "Differences in recitation",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تروي المصادر أن حذيفة بن اليمان خشي من اتساع الخلاف بين أهل الأقاليم في القراءة، فرفع الأمر إلى عثمان.",
+                "en": "Reports state that Hudhayfa ibn al-Yaman became concerned about widening recitation disputes among people from different regions and brought the matter to Uthman.",
+                "citationIds": [
+                  "bukhari-uthman-codices"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "committee",
+            "titleAr": "النسخ والإرسال",
+            "titleEn": "Copying and distribution",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "استعان عثمان بصحف حفصة وشكل لجنة برئاسة زيد بن ثابت مع رجال من قريش لنسخ مصاحف أرسلت إلى مراكز رئيسية، مع إزالة نسخ أخرى لتقليل النزاع النصي.",
+                "en": "Uthman borrowed Hafsa's sheets and appointed a committee led by Zayd ibn Thabit with Qurashi members to prepare codices for major centers, while other copies were withdrawn to reduce textual dispute.",
+                "citationIds": [
+                  "bukhari-uthman-codices"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "uthman",
+          "quran_collection_abu_bakr",
+          "companions/zayd_thabit"
+        ],
+        "citations": [
+          {
+            "id": "bukhari-uthman-codices",
+            "kind": "Hadith",
+            "titleAr": "صحيح البخاري",
+            "titleEn": "Sahih al-Bukhari",
+            "locator": "فضائل القرآن: نسخ المصاحف / Virtues of the Quran: copying the codices"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "late_uthman_crisis",
+        "titleAr": "الأزمة في أواخر خلافة عثمان",
+        "titleEn": "The late crisis of Uthman's caliphate",
+        "summaryAr": "تصاعد شكاوى واعتراضات من أقاليم مختلفة ثم حصار دار عثمان وقتله، مع اختلاف كبير في تفسير الأسباب والمسؤوليات.",
+        "summaryEn": "Complaints and opposition from different provinces escalated into the siege and killing of Uthman, with major disagreement over causes and responsibility.",
+        "sections": [
+          {
+            "id": "grievances",
+            "titleAr": "الشكاوى والمعارضة",
+            "titleEn": "Grievances and opposition",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تجمع المصادر أسبابًا متعددة للتوتر تشمل سياسات الولاة وشبكات القرابة وتوزيع السلطة والمال، لكن وزن كل عامل وتفاصيل الاتهامات محل نقاش تاريخي.",
+                "en": "Sources identify multiple sources of tension, including governors, kinship networks, and distribution of authority and wealth, but the weight of each factor and the accuracy of specific accusations remain historically debated.",
+                "citationIds": [
+                  "tabari-35-crisis"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "killing",
+            "titleAr": "الحصار والقتل",
+            "titleEn": "Siege and killing",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "وصلت مجموعات معارضة إلى المدينة وحاصرت عثمان ثم قتلته سنة 656م، وهو الحدث الذي فتح مرحلة الفتنة الأولى والانقسام المسلح داخل المجتمع.",
+                "en": "Opposition groups reached Medina, besieged Uthman, and killed him in 656 CE, opening the period commonly called the First Fitna and armed conflict within the Muslim community.",
+                "citationIds": [
+                  "britannica-caliphate-crisis"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "uthman",
+          "first_fitna"
+        ],
+        "citations": [
+          {
+            "id": "britannica-caliphate-crisis",
+            "kind": "AcademicReference",
+            "titleAr": "الموسوعة البريطانية",
+            "titleEn": "Encyclopaedia Britannica",
+            "locator": "Caliphate: assassination of Uthman and First Fitna"
+          },
+          {
+            "id": "tabari-35-crisis",
+            "kind": "ClassicalBook",
+            "titleAr": "تاريخ الرسل والملوك للطبري",
+            "titleEn": "Al-Tabari, History of Prophets and Kings",
+            "locator": "أحداث سنة 35هـ / Events of 35 AH"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "ali",
+        "titleAr": "علي بن أبي طالب رضي الله عنه",
+        "titleEn": "Ali ibn Abi Talib",
+        "summaryAr": "رابع الخلفاء في الترتيب السني، وابن عم النبي ﷺ وزوج فاطمة، حكم من 656 إلى 661م في فترة نزاع داخلي شديد.",
+        "summaryEn": "The fourth caliph in Sunni ordering, the Prophet's ﷺ cousin and Fatimah's husband, ruling from 656 to 661 CE amid intense internal conflict.",
+        "sections": [
+          {
+            "id": "background",
+            "titleAr": "القرابة والسبق",
+            "titleEn": "Kinship and early Islam",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "كان علي من أقرباء النبي ﷺ ومن أوائل المسلمين، وعُرف بمشاركته في السيرة وبالعلم والقضاء، ثم تولى الخلافة بعد مقتل عثمان.",
+                "en": "Ali was a close relative of the Prophet ﷺ and among the earliest Muslims, known for participation in the Sira, learning, and judgment; he became caliph after Uthman's killing.",
+                "citationIds": [
+                  "isaba-ali"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "reign",
+            "titleAr": "خلافة في زمن الفتنة",
+            "titleEn": "A caliphate during civil conflict",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "انتقلت عاصمة حكمه عمليًا إلى الكوفة، وواجه نزاعات مع أطراف مختلفة خلال الجمل وصفين ثم الخوارج، قبل اغتياله سنة 661م.",
+                "en": "His governing center shifted to Kufa, and he faced conflicts involving the Battle of the Camel, Siffin, and the Kharijites before being assassinated in 661 CE.",
+                "citationIds": [
+                  "britannica-caliphate-ali"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ahl_al_bayt/ali_household",
+          "first_fitna",
+          "hasan_transition"
+        ],
+        "citations": [
+          {
+            "id": "britannica-caliphate-ali",
+            "kind": "AcademicReference",
+            "titleAr": "الموسوعة البريطانية",
+            "titleEn": "Encyclopaedia Britannica",
+            "locator": "Caliphate: Ali period"
+          },
+          {
+            "id": "isaba-ali",
+            "kind": "ClassicalBook",
+            "titleAr": "الإصابة في تمييز الصحابة لابن حجر",
+            "titleEn": "Ibn Hajar, al-Isaba fi Tamyiz al-Sahaba",
+            "locator": "ترجمة علي بن أبي طالب / Biography of Ali"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "first_fitna",
+        "titleAr": "الفتنة الأولى: الجمل وصفين والتحكيم",
+        "titleEn": "The First Fitna: Camel, Siffin, and arbitration",
+        "summaryAr": "الحرب الأهلية التي أعقبت مقتل عثمان وشملت معركة الجمل وصفين والتحكيم وظهور الخوارج.",
+        "summaryEn": "The civil war after Uthman's killing, including the Battle of the Camel, Siffin, arbitration, and the emergence of the Kharijites.",
+        "sections": [
+          {
+            "id": "conflicts",
+            "titleAr": "تعدد الأطراف والمطالب",
+            "titleEn": "Multiple actors and claims",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "لم تكن الفتنة مواجهة بسيطة بين كتلتين ثابتتين؛ فقد تغيرت التحالفات وتداخل طلب القصاص لعثمان مع سؤال الشرعية والسلطة وتقدير الأولويات.",
+                "en": "The First Fitna was not a simple contest between two fixed blocs; alliances shifted, and demands concerning justice for Uthman's killing intersected with questions of authority and political priority.",
+                "citationIds": [
+                  "tabari-fitna"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "method",
+            "titleAr": "قراءة المصادر بحذر",
+            "titleEn": "Reading the sources carefully",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "تحتوي الروايات المبكرة على اختلافات في الأسانيد والتفاصيل والتقييمات، لذلك ينبغي عرض ما يتفق عليه أصلًا ونسبة الروايات المتنازع عليها إلى مصادرها بدل الجزم بها.",
+                "en": "Early narratives differ in chains, details, and judgments; a responsible account should distinguish broadly established events from disputed reports and attribute contested claims rather than state them as certain.",
+                "citationIds": [
+                  "britannica-first-fitna",
+                  "tabari-fitna"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "late_uthman_crisis",
+          "ali",
+          "hasan_transition"
+        ],
+        "citations": [
+          {
+            "id": "britannica-first-fitna",
+            "kind": "AcademicReference",
+            "titleAr": "الموسوعة البريطانية",
+            "titleEn": "Encyclopaedia Britannica",
+            "locator": "Caliphate: Uthman's assassination and Ali's caliphate"
+          },
+          {
+            "id": "tabari-fitna",
+            "kind": "ClassicalBook",
+            "titleAr": "تاريخ الرسل والملوك للطبري",
+            "titleEn": "Al-Tabari, History of Prophets and Kings",
+            "locator": "أحداث 35–40هـ / Events of 35–40 AH"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      },
+      {
+        "id": "hasan_transition",
+        "titleAr": "الحسن بن علي وانتقال الحكم سنة 41هـ",
+        "titleEn": "Hasan ibn Ali and the transition of 41 AH",
+        "summaryAr": "تولى الحسن موقع القيادة بعد مقتل علي ثم اتفق مع معاوية على إنهاء الحرب، فبدأت مرحلة سياسية جديدة.",
+        "summaryEn": "Hasan assumed leadership after Ali's death and later reached an agreement with Mu'awiya ending the conflict and beginning a new political phase.",
+        "sections": [
+          {
+            "id": "leadership",
+            "titleAr": "بعد اغتيال علي",
+            "titleEn": "After Ali's assassination",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "بايع أنصار علي ابنه الحسن في العراق، بينما بقي معاوية صاحب سلطة واسعة في الشام ومناطق أخرى، فاستمر احتمال الحرب.",
+                "en": "Ali's supporters pledged allegiance to his son Hasan in Iraq, while Mu'awiya retained strong authority in Syria and other regions, leaving the possibility of continued war.",
+                "citationIds": [
+                  "dhahabi-hasan-transition"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "agreement",
+            "titleAr": "اتفاق إنهاء القتال",
+            "titleEn": "Agreement ending hostilities",
+            "citationIds": [],
+            "paragraphs": [
+              {
+                "ar": "انتهى التوتر باتفاق تنازل بموجبه الحسن عن الحكم لمعاوية حقنًا للدماء بحسب الرواية السنية الشائعة؛ وتختلف المصادر في صياغة بعض الشروط والتفاصيل.",
+                "en": "The confrontation ended through an agreement in which Hasan relinquished rule to Mu'awiya, commonly remembered in Sunni sources as preventing further bloodshed; sources differ over some specific terms and details.",
+                "citationIds": [
+                  "britannica-caliphate-transition",
+                  "dhahabi-hasan-transition"
+                ]
+              }
+            ]
+          }
+        ],
+        "keywordsAr": [],
+        "keywordsEn": [],
+        "relatedTopicIds": [
+          "ali",
+          "ahl_al_bayt/hasan"
+        ],
+        "citations": [
+          {
+            "id": "dhahabi-hasan-transition",
+            "kind": "ClassicalBook",
+            "titleAr": "سير أعلام النبلاء للذهبي",
+            "titleEn": "Al-Dhahabi, Siyar A'lam al-Nubala",
+            "locator": "ترجمة الحسن بن علي / Biography of Hasan ibn Ali"
+          },
+          {
+            "id": "britannica-caliphate-transition",
+            "kind": "AcademicReference",
+            "titleAr": "الموسوعة البريطانية",
+            "titleEn": "Encyclopaedia Britannica",
+            "locator": "Caliphate: transition to Umayyad rule"
+          }
+        ],
+        "reviewStatus": "NeedsReview",
+        "lastReviewed": null
+      }
+    ]
+  }
+}
