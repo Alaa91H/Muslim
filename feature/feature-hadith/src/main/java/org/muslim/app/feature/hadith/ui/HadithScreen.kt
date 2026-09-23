@@ -261,6 +261,7 @@ private fun HadithTopBar(
     )
 }
 
+@Suppress("LongMethod")
 @Composable
 private fun HadithCatalogue(
     onOpenCollection: (HadithCollection) -> Unit,
