@@ -69,11 +69,12 @@ data class AppPreferences(
      */
     val updateCheckFrequency: String = UPDATE_CHECK_DAILY,
     /**
-     * Fully automatic updates: when enabled (after a one-time confirmation)
-     * a newly-found release is downloaded and installed through the
-     * PackageInstaller Session API with no further prompts. Default: off.
+     * Automatic update downloads. Android still owns the final installation
+     * confirmation; this flag never implies silent installation.
      */
     val autoUpdateEnabled: Boolean = false,
+    /** Restricts automatic update downloads to Wi-Fi. Manual downloads ignore this preference. */
+    val autoUpdateWifiOnly: Boolean = true,
     /** Epoch millis of the last successful update check (0 = never checked). */
     val lastUpdateCheckEpoch: Long = 0L,
     /** Radius selected for the on-demand nearby-mosque search. */
@@ -88,6 +89,12 @@ data class AppPreferences(
      * user repeatedly about the same release.
      */
     val lastNotifiedUpdateVersion: String = "",
+    /** DownloadManager id for the persisted app-update download, or -1 when none exists. */
+    val updateDownloadId: Long = -1L,
+    /** Release version associated with [updateDownloadId]. */
+    val updateDownloadVersion: String = "",
+    /** File name associated with [updateDownloadId] inside the app updates directory. */
+    val updateDownloadFileName: String = "",
 ) {
     companion object {
         const val SYSTEM_LANGUAGE = "system"
