@@ -249,7 +249,11 @@ private fun ScholarLibraryCatalog(
             searchResultItems(state, onOpenBook)
         } else {
             if (state.studyPaths.isNotEmpty()) {
-                studyPathItems(state.studyPaths, onOpenStudyPath)
+                studyPathItems(
+                    paths = state.studyPaths,
+                    progressByPath = state.pathProgress.associateBy { it.pathId },
+                    onOpenPath = onOpenStudyPath,
+                )
             }
             if (continueReading.isNotEmpty()) {
                 continueReadingItems(continueReading, progressByBook, onOpenBook)
@@ -457,7 +461,7 @@ private fun ScholarBookDetailBody(
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         item { BookMetadataCard(book) }
-        item { BookOutlineCard(state.selectedBookOutline) }
+        item { BookHierarchyCard(state.selectedBookHierarchy) }
         item { SectionLabel(stringResource(R.string.scholar_library_passages)) }
         itemsIndexed(state.selectedBookPassages, key = { _, item -> item.id }) { index, passage ->
             val bookmark = state.bookmarks.any { it.bookmark.passageId == passage.id }
@@ -474,6 +478,7 @@ private fun ScholarBookDetailBody(
                     book.edition,
                     book.publisher,
                     book.publicationYear,
+                    passage.section,
                 ),
                 onAddNote = { onAddNote(passage) },
                 onAddFlashcard = { onAddFlashcard(passage) },
