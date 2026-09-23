@@ -28,8 +28,18 @@ open class UpdateCheckWorker(
         if (!prefs.updateCheckEnabled) return Result.success()
 
         val checker = UpdateChecker(applicationContext)
-        return when (checker.checkAndNotify()) {
-            is UpdateChecker.Result.UpdateAvailable,
+        return when (val result = checker.checkAndNotify()) {
+            is UpdateChecker.Result.UpdateAvailable -> {
+                prefsRepository.setLastUpdateCheck(System.currentTimeMillis())
+                val currentPreferences = prefsRepository.preferences.first()
+                if (currentPreferences.updateCheckEnabled && currentPreferences.autoUpdateEnabled) {
+                    UpdateDownloadManager(applicationContext, prefsRepository).enqueue(
+                        release = result.release,
+                        wifiOnly = currentPreferences.autoUpdateWifiOnly,
+                    )
+                }
+                Result.success()
+            }
             UpdateChecker.Result.UpToDate -> {
                 prefsRepository.setLastUpdateCheck(System.currentTimeMillis())
                 Result.success()

@@ -69,11 +69,17 @@ data class AppPreferences(
      */
     val updateCheckFrequency: String = UPDATE_CHECK_DAILY,
     /**
-     * Fully automatic updates: when enabled (after a one-time confirmation)
-     * a newly-found release is downloaded and installed through the
-     * PackageInstaller Session API with no further prompts. Default: off.
+     * Release channel used by update discovery. Stable ignores GitHub
+     * prereleases; Beta accepts both stable and prerelease builds.
+     */
+    val updateChannel: String = UPDATE_CHANNEL_STABLE,
+    /**
+     * Automatic update downloads. Android still owns the final installation
+     * confirmation; this flag never implies silent installation.
      */
     val autoUpdateEnabled: Boolean = false,
+    /** Restricts automatic update downloads to Wi-Fi. Manual downloads ignore this preference. */
+    val autoUpdateWifiOnly: Boolean = true,
     /** Epoch millis of the last successful update check (0 = never checked). */
     val lastUpdateCheckEpoch: Long = 0L,
     /** Radius selected for the on-demand nearby-mosque search. */
@@ -88,6 +94,16 @@ data class AppPreferences(
      * user repeatedly about the same release.
      */
     val lastNotifiedUpdateVersion: String = "",
+    /** DownloadManager id for the persisted app-update download, or -1 when none exists. */
+    val updateDownloadId: Long = -1L,
+    /** Release version associated with [updateDownloadId]. */
+    val updateDownloadVersion: String = "",
+    /** File name associated with [updateDownloadId] inside the app updates directory. */
+    val updateDownloadFileName: String = "",
+    /** Expected SHA-256 for the persisted APK, empty for legacy releases without metadata. */
+    val updateDownloadSha256: String = "",
+    /** Expected release versionCode, 0 for legacy releases without metadata. */
+    val updateDownloadVersionCode: Long = 0L,
 ) {
     companion object {
         const val SYSTEM_LANGUAGE = "system"
@@ -113,6 +129,9 @@ data class AppPreferences(
         const val UPDATE_CHECK_DAILY = "daily"
         const val UPDATE_CHECK_WEEKLY = "weekly"
         const val UPDATE_CHECK_MONTHLY = "monthly"
+
+        const val UPDATE_CHANNEL_STABLE = "stable"
+        const val UPDATE_CHANNEL_BETA = "beta"
 
         /**
          * Decodes a persisted comma-separated section order into a full, valid

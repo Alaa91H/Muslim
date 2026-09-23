@@ -18,9 +18,28 @@ data class ReleaseInfo(
     val apkUrl: String?,
     /** Size of the APK in bytes (0 when unknown). */
     val apkSizeBytes: Long,
+    /** Authoritative Android versionCode from update-manifest.json when available. */
+    val versionCode: Long? = null,
+    /** SHA-256 of the published phone/tablet APK when release metadata is available. */
+    val apkSha256: String? = null,
+    /** Minimum Android API declared by the published APK metadata, when available. */
+    val minSdk: Int? = null,
+    /** True when GitHub marks this release as a prerelease. */
+    val isPrerelease: Boolean = false,
+    /** True only when update-manifest.json matched this release/tag/APK asset. */
+    val hasVerifiedMetadata: Boolean = false,
 )
 
-/** Compares dotted version strings ("1.5.0" > "1.4.9"). Purely numeric. */
+/** Selects the strongest available update-order signal. */
+object ReleaseVersionPolicy {
+    fun isNewer(release: ReleaseInfo, installedVersionCode: Long, installedVersion: String): Boolean {
+        val releaseCode = release.versionCode?.takeIf { it > 0L }
+        return releaseCode?.let { it > installedVersionCode }
+            ?: VersionCompare.isNewer(release.version, installedVersion)
+    }
+}
+
+/** Compares dotted version strings ("1.5.0" > "1.4.9"). Purely numeric fallback. */
 object VersionCompare {
     fun isNewer(latest: String, installed: String): Boolean {
         val a = latest.trim().trimStart('v').split('.').map { it.toIntOrNull() ?: 0 }

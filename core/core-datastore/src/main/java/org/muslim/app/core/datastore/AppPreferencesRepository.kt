@@ -55,7 +55,14 @@ class AppPreferencesRepository @Inject constructor(
             hiddenMoreSections = AppPreferences.decodeHiddenSections(prefs[Keys.MORE_SECTION_HIDDEN]),
             updateCheckEnabled = prefs[Keys.UPDATE_CHECK_ENABLED] ?: false,
             updateCheckFrequency = prefs[Keys.UPDATE_CHECK_FREQUENCY] ?: AppPreferences.UPDATE_CHECK_DAILY,
+            updateChannel = prefs[Keys.UPDATE_CHANNEL]
+                ?.takeIf {
+                    it == AppPreferences.UPDATE_CHANNEL_STABLE ||
+                        it == AppPreferences.UPDATE_CHANNEL_BETA
+                }
+                ?: AppPreferences.UPDATE_CHANNEL_STABLE,
             autoUpdateEnabled = prefs[Keys.AUTO_UPDATE_ENABLED] ?: false,
+            autoUpdateWifiOnly = prefs[Keys.AUTO_UPDATE_WIFI_ONLY] ?: true,
             lastUpdateCheckEpoch = prefs[Keys.LAST_UPDATE_CHECK] ?: 0L,
             lastNotifiedUpdateVersion = prefs[Keys.LAST_NOTIFIED_UPDATE_VERSION].orEmpty(),
             nearbyMosqueSearchRadiusKm = (prefs[Keys.NEARBY_MOSQUE_SEARCH_RADIUS_KM]
@@ -64,6 +71,11 @@ class AppPreferencesRepository @Inject constructor(
                 ?: AppPreferences.DEFAULT_NEARBY_MOSQUE_RADIUS_KM,
             nearbyMosqueCacheJson = prefs[Keys.NEARBY_MOSQUE_CACHE_JSON].orEmpty(),
             nearbyMosqueCacheSavedAtEpochMillis = prefs[Keys.NEARBY_MOSQUE_CACHE_SAVED_AT] ?: 0L,
+            updateDownloadId = prefs[Keys.UPDATE_DOWNLOAD_ID] ?: -1L,
+            updateDownloadVersion = prefs[Keys.UPDATE_DOWNLOAD_VERSION].orEmpty(),
+            updateDownloadFileName = prefs[Keys.UPDATE_DOWNLOAD_FILE_NAME].orEmpty(),
+            updateDownloadSha256 = prefs[Keys.UPDATE_DOWNLOAD_SHA256].orEmpty(),
+            updateDownloadVersionCode = prefs[Keys.UPDATE_DOWNLOAD_VERSION_CODE] ?: 0L,
         )
     }
 
@@ -179,9 +191,23 @@ class AppPreferencesRepository @Inject constructor(
         edit { prefs -> prefs[Keys.UPDATE_CHECK_FREQUENCY] = frequency }
     }
 
-    /** Turns the fully-automatic (Session API) update on/off (off by default). */
+    /** Selects stable-only or beta-inclusive GitHub release discovery. */
+    suspend fun setUpdateChannel(channel: String) {
+        require(
+            channel == AppPreferences.UPDATE_CHANNEL_STABLE ||
+                channel == AppPreferences.UPDATE_CHANNEL_BETA,
+        ) { "Unsupported update channel: $channel" }
+        edit { prefs -> prefs[Keys.UPDATE_CHANNEL] = channel }
+    }
+
+    /** Enables/disables automatic download of newly discovered releases. */
     suspend fun setAutoUpdateEnabled(enabled: Boolean) {
         edit { prefs -> prefs[Keys.AUTO_UPDATE_ENABLED] = enabled }
+    }
+
+    /** Restricts automatic update downloads to Wi-Fi. */
+    suspend fun setAutoUpdateWifiOnly(enabled: Boolean) {
+        edit { prefs -> prefs[Keys.AUTO_UPDATE_WIFI_ONLY] = enabled }
     }
 
     /** Records the timestamp of the last successful update check. */
@@ -192,6 +218,36 @@ class AppPreferencesRepository @Inject constructor(
     /** Records the release version for which a notification was actually posted. */
     suspend fun setLastNotifiedUpdateVersion(version: String) {
         edit { prefs -> prefs[Keys.LAST_NOTIFIED_UPDATE_VERSION] = version.trim() }
+    }
+
+    /** Persists the DownloadManager record so download state survives process death. */
+    suspend fun setUpdateDownload(
+        id: Long,
+        version: String,
+        fileName: String,
+        sha256: String?,
+        versionCode: Long?,
+    ) {
+        edit { prefs ->
+            prefs[Keys.UPDATE_DOWNLOAD_ID] = id
+            prefs[Keys.UPDATE_DOWNLOAD_VERSION] = version.trim()
+            prefs[Keys.UPDATE_DOWNLOAD_FILE_NAME] = fileName
+            if (sha256.isNullOrBlank()) prefs.remove(Keys.UPDATE_DOWNLOAD_SHA256)
+            else prefs[Keys.UPDATE_DOWNLOAD_SHA256] = sha256.trim().lowercase()
+            if (versionCode == null || versionCode <= 0L) prefs.remove(Keys.UPDATE_DOWNLOAD_VERSION_CODE)
+            else prefs[Keys.UPDATE_DOWNLOAD_VERSION_CODE] = versionCode
+        }
+    }
+
+    /** Clears persisted update-download metadata after replacement/cancellation. */
+    suspend fun clearUpdateDownload() {
+        edit { prefs ->
+            prefs.remove(Keys.UPDATE_DOWNLOAD_ID)
+            prefs.remove(Keys.UPDATE_DOWNLOAD_VERSION)
+            prefs.remove(Keys.UPDATE_DOWNLOAD_FILE_NAME)
+            prefs.remove(Keys.UPDATE_DOWNLOAD_SHA256)
+            prefs.remove(Keys.UPDATE_DOWNLOAD_VERSION_CODE)
+        }
     }
 
     /** Persists a supported nearby-mosque radius and rejects corrupted values. */
@@ -271,9 +327,16 @@ class AppPreferencesRepository @Inject constructor(
         val MORE_SECTION_HIDDEN = stringPreferencesKey("more_section_hidden")
         val UPDATE_CHECK_ENABLED = booleanPreferencesKey("update_check_enabled")
         val UPDATE_CHECK_FREQUENCY = stringPreferencesKey("update_check_frequency")
+        val UPDATE_CHANNEL = stringPreferencesKey("update_channel")
         val AUTO_UPDATE_ENABLED = booleanPreferencesKey("auto_update_enabled")
+        val AUTO_UPDATE_WIFI_ONLY = booleanPreferencesKey("auto_update_wifi_only")
         val LAST_UPDATE_CHECK = androidx.datastore.preferences.core.longPreferencesKey("last_update_check")
         val LAST_NOTIFIED_UPDATE_VERSION = stringPreferencesKey("last_notified_update_version")
+        val UPDATE_DOWNLOAD_ID = androidx.datastore.preferences.core.longPreferencesKey("update_download_id")
+        val UPDATE_DOWNLOAD_VERSION = stringPreferencesKey("update_download_version")
+        val UPDATE_DOWNLOAD_FILE_NAME = stringPreferencesKey("update_download_file_name")
+        val UPDATE_DOWNLOAD_SHA256 = stringPreferencesKey("update_download_sha256")
+        val UPDATE_DOWNLOAD_VERSION_CODE = androidx.datastore.preferences.core.longPreferencesKey("update_download_version_code")
         val NEARBY_MOSQUE_SEARCH_RADIUS_KM = androidx.datastore.preferences.core.intPreferencesKey("nearby_mosque_search_radius_km")
         val NEARBY_MOSQUE_CACHE_JSON = stringPreferencesKey("nearby_mosque_cache_json")
         val NEARBY_MOSQUE_CACHE_SAVED_AT = androidx.datastore.preferences.core.longPreferencesKey("nearby_mosque_cache_saved_at")

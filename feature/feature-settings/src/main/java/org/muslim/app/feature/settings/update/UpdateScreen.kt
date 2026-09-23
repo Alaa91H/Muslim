@@ -27,6 +27,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import org.muslim.app.core.ui.theme.MuslimAppScaffold
@@ -47,8 +48,9 @@ import java.util.Locale
 /**
  * The "Updates" screen (reached from Settings or from the update-available
  * notification): shows the installed version, the latest published version
- * with its changelog and APK size, and a download button that pulls the APK
- * through Android's DownloadManager and hands it to the system installer.
+ * with its changelog and APK size. Download progress survives process death;
+ * a completed APK is verified for package identity, versionCode and signer
+ * before Android's system installer is allowed to open it.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -154,6 +156,33 @@ fun UpdateScreen(
                     ) {
                         Text(stringResource(R.string.update_retry))
                     }
+                    if (downloadState is UpdateDownloadState.ReadyToInstall) {
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = CardDefaults.cardColors(
+                                containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                            ),
+                        ) {
+                            Text(
+                                text = stringResource(R.string.update_ready_offline),
+                                style = MaterialTheme.typography.bodyMedium,
+                                modifier = Modifier.padding(16.dp),
+                                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                            )
+                        }
+                        Button(
+                            onClick = viewModel::installDownloadedUpdate,
+                            modifier = Modifier.fillMaxWidth(),
+                        ) {
+                            Icon(
+                                Icons.Filled.SystemUpdate,
+                                contentDescription = null,
+                                modifier = Modifier.size(20.dp),
+                            )
+                            Spacer(Modifier.width(8.dp))
+                            Text(stringResource(R.string.update_install))
+                        }
+                    }
                 }
 
                 is UpdateUiState.Available -> {
@@ -185,6 +214,22 @@ fun UpdateScreen(
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                             )
+                            if (state.release.isPrerelease) {
+                                Spacer(Modifier.height(6.dp))
+                                Text(
+                                    text = stringResource(R.string.update_beta_release),
+                                    style = MaterialTheme.typography.labelLarge,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                )
+                            }
+                            if (state.release.hasVerifiedMetadata) {
+                                Spacer(Modifier.height(6.dp))
+                                Text(
+                                    text = stringResource(R.string.update_integrity_metadata_available),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                )
+                            }
                         }
                     }
 
@@ -201,7 +246,7 @@ fun UpdateScreen(
                         )
                     }
 
-                    when (downloadState) {
+                    when (val transfer = downloadState) {
                         UpdateDownloadState.Idle -> {
                             Button(
                                 onClick = viewModel::startDownload,
@@ -222,7 +267,7 @@ fun UpdateScreen(
                             }
                         }
 
-                        UpdateDownloadState.Downloading -> {
+                        UpdateDownloadState.Enqueuing -> {
                             Button(
                                 onClick = {},
                                 enabled = false,
@@ -233,22 +278,122 @@ fun UpdateScreen(
                                     strokeWidth = 2.dp,
                                 )
                                 Spacer(Modifier.width(8.dp))
-                                Text(stringResource(R.string.update_downloading))
+                                Text(stringResource(R.string.update_preparing_download))
                             }
                         }
 
-                        UpdateDownloadState.Downloaded -> {
-                            Button(onClick = {}, enabled = false, modifier = Modifier.fillMaxWidth()) {
-                                Text(stringResource(R.string.update_installing))
+                        is UpdateDownloadState.Downloading -> {
+                            Card(modifier = Modifier.fillMaxWidth()) {
+                                Column(
+                                    modifier = Modifier.padding(16.dp),
+                                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                                ) {
+                                    Text(
+                                        text = downloadProgressText(transfer),
+                                        style = MaterialTheme.typography.bodyMedium,
+                                    )
+                                    transfer.progressPercent?.let { percent ->
+                                        LinearProgressIndicator(
+                                            progress = { percent / 100f },
+                                            modifier = Modifier.fillMaxWidth(),
+                                        )
+                                    } ?: LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+                                }
                             }
                         }
 
-                        UpdateDownloadState.Failed -> {
+                        is UpdateDownloadState.Paused -> {
+                            Card(modifier = Modifier.fillMaxWidth()) {
+                                Column(
+                                    modifier = Modifier.padding(16.dp),
+                                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                                ) {
+                                    Text(
+                                        text = stringResource(R.string.update_download_paused),
+                                        style = MaterialTheme.typography.titleSmall,
+                                    )
+                                    Text(
+                                        text = pausedProgressText(transfer),
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    )
+                                    transfer.progressPercent?.let { percent ->
+                                        LinearProgressIndicator(
+                                            progress = { percent / 100f },
+                                            modifier = Modifier.fillMaxWidth(),
+                                        )
+                                    }
+                                }
+                            }
+                        }
+
+                        UpdateDownloadState.Verifying -> {
+                            Button(
+                                onClick = {},
+                                enabled = false,
+                                modifier = Modifier.fillMaxWidth(),
+                            ) {
+                                CircularProgressIndicator(
+                                    modifier = Modifier.size(18.dp),
+                                    strokeWidth = 2.dp,
+                                )
+                                Spacer(Modifier.width(8.dp))
+                                Text(stringResource(R.string.update_verifying))
+                            }
+                        }
+
+                        is UpdateDownloadState.ReadyToInstall -> {
+                            Card(
+                                modifier = Modifier.fillMaxWidth(),
+                                colors = CardDefaults.cardColors(
+                                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                                ),
+                            ) {
+                                Text(
+                                    text = stringResource(R.string.update_ready_to_install),
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    modifier = Modifier.padding(16.dp),
+                                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                                )
+                            }
+                            Button(
+                                onClick = viewModel::installDownloadedUpdate,
+                                modifier = Modifier.fillMaxWidth(),
+                            ) {
+                                Icon(
+                                    Icons.Filled.SystemUpdate,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(20.dp),
+                                )
+                                Spacer(Modifier.width(8.dp))
+                                Text(stringResource(R.string.update_install))
+                            }
+                        }
+
+                        is UpdateDownloadState.Failed -> {
+                            Card(modifier = Modifier.fillMaxWidth()) {
+                                Row(
+                                    modifier = Modifier.padding(16.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                ) {
+                                    Icon(
+                                        Icons.Filled.ErrorOutline,
+                                        contentDescription = null,
+                                        tint = MaterialTheme.colorScheme.error,
+                                    )
+                                    Spacer(Modifier.width(10.dp))
+                                    Text(
+                                        text = stringResource(downloadFailureMessage(transfer.reason)),
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        modifier = Modifier.weight(1f),
+                                    )
+                                }
+                            }
                             OutlinedButton(
                                 onClick = viewModel::startDownload,
                                 modifier = Modifier.fillMaxWidth(),
                             ) {
-                                Text(stringResource(R.string.update_download_failed))
+                                Text(stringResource(R.string.update_retry_download))
                             }
                         }
                     }
@@ -280,6 +425,49 @@ fun UpdateScreen(
             }
         }
     }
+}
+
+@Composable
+private fun downloadProgressText(state: UpdateDownloadState.Downloading): String {
+    val percent = state.progressPercent
+    return if (percent != null && state.totalBytes > 0L) {
+        stringResource(
+            R.string.update_downloading_progress,
+            percent,
+            formatSize(state.downloadedBytes),
+            formatSize(state.totalBytes),
+        )
+    } else {
+        stringResource(R.string.update_downloading_bytes, formatSize(state.downloadedBytes))
+    }
+}
+
+@Composable
+private fun pausedProgressText(state: UpdateDownloadState.Paused): String {
+    val percent = state.progressPercent
+    return if (percent != null && state.totalBytes > 0L) {
+        stringResource(
+            R.string.update_downloading_progress,
+            percent,
+            formatSize(state.downloadedBytes),
+            formatSize(state.totalBytes),
+        )
+    } else {
+        stringResource(R.string.update_downloading_bytes, formatSize(state.downloadedBytes))
+    }
+}
+
+private fun downloadFailureMessage(reason: UpdateDownloadFailure): Int = when (reason) {
+    UpdateDownloadFailure.DownloadFailed -> R.string.update_failed_download
+    UpdateDownloadFailure.MissingFile -> R.string.update_failed_missing_file
+    UpdateDownloadFailure.InvalidPackage -> R.string.update_failed_invalid_package
+    UpdateDownloadFailure.WrongPackage -> R.string.update_failed_wrong_package
+    UpdateDownloadFailure.SignatureMismatch -> R.string.update_failed_signature
+    UpdateDownloadFailure.ChecksumMismatch -> R.string.update_failed_checksum
+    UpdateDownloadFailure.VersionMismatch -> R.string.update_failed_version
+    UpdateDownloadFailure.VersionCodeMismatch -> R.string.update_failed_version_code
+    UpdateDownloadFailure.NotNewer -> R.string.update_failed_not_newer
+    UpdateDownloadFailure.Unknown -> R.string.update_failed_generic
 }
 
 /** Formats an epoch timestamp as "dd MMM yyyy, HH:mm" (locale-aware). */
