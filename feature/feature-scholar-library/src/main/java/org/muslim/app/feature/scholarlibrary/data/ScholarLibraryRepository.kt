@@ -193,10 +193,58 @@ class ScholarLibraryRepository @Inject constructor(
         if (seeded.get()) return
         seedMutex.withLock {
             if (seeded.get()) return
+            val bundledRaw = context.assets.open(BUNDLED_CATALOG)
+                .bufferedReader(Charsets.UTF_8)
+                .use { it.readText() }
+            val bundledPack = decodeAndValidate(bundledRaw)
+            val bundledId = bundledPack.effectivePackId()
             if (libraryDao.bookCount() == 0) {
-                val bundled = context.assets.open(BUNDLED_CATALOG).bufferedReader(Charsets.UTF_8).use { it.readText() }
-                val pack = decodeAndValidate(bundled)
-                persistPack(pack, imported = false)
+                persistPack(
+                    pack = bundledPack,
+                    imported = false,
+                    originName = BUNDLED_PACK_ORIGIN,
+                    existing = null,
+                )
+            } else if (libraryDao.contentPackById(bundledId) == null) {
+                libraryDao.upsertContentPack(
+                    bundledPack.toRegistryEntity(
+                        imported = false,
+                        originName = BUNDLED_PACK_ORIGIN,
+                        existing = null,
+                    ),
+                )
+            }
+
+            val registeredBookIds = libraryDao.observeContentPacks().first()
+                .flatMap { it.installation.bookIds.toStoredIdList() }
+                .toSet()
+            val legacyImportedBooks = libraryDao.observeBooks().first()
+                .filter { it.imported && it.id !in registeredBookIds }
+            if (legacyImportedBooks.isNotEmpty()) {
+                val now = System.currentTimeMillis()
+                libraryDao.upsertContentPack(
+                    ScholarContentPackEntity(
+                        packId = LEGACY_IMPORTS_PACK_ID,
+                        identity = ScholarContentPackIdentityEntity(
+                            packName = "استيرادات سابقة",
+                            packVersion = 1,
+                            schemaVersion = 3,
+                        ),
+                        source = ScholarContentPackSourceEntity(
+                            licenseNotice = "بيانات الكتب محفوظة بترخيصها ومصدرها الفردي داخل الفهرس.",
+                            sourceName = "استيرادات تمت قبل إضافة إدارة الحزم",
+                            sourceUrl = null,
+                            originName = null,
+                        ),
+                        installation = ScholarContentPackInstallationEntity(
+                            bookIds = legacyImportedBooks.map { it.id }.toStoredIds(),
+                            imported = true,
+                            managed = false,
+                            installedAtEpochMillis = now,
+                            updatedAtEpochMillis = now,
+                        ),
+                    ),
+                )
             }
             seeded.set(true)
         }
