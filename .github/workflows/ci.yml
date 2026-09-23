@@ -165,6 +165,7 @@ jobs:
           arch: x86_64
           disable-animations: true
           script: |
+            ./gradlew :feature:feature-scholar-library:connectedDebugAndroidTest
             adb shell cmd audio set-enable-hardening throw
             ./gradlew :app:connectedDebugAndroidTest :feature:feature-learn:connectedDebugAndroidTest :feature:feature-prayer-times:connectedDebugAndroidTest :feature:feature-qibla:connectedDebugAndroidTest :core:core-location:connectedDebugAndroidTest
 
