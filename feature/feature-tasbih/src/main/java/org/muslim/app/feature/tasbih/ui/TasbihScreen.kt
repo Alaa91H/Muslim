@@ -83,6 +83,7 @@ import org.muslim.app.feature.tasbih.domain.DailyCount
 import org.muslim.app.feature.tasbih.domain.TargetSoundSettings
 import org.muslim.app.feature.tasbih.domain.TasbihCategory
 import org.muslim.app.feature.tasbih.domain.TasbihPhrase
+import org.muslim.app.feature.tasbih.domain.TasbihSessionMode
 import org.muslim.app.feature.tasbih.domain.TasbihState
 import java.time.format.DateTimeFormatter
 import kotlin.math.max
@@ -116,6 +117,21 @@ fun TasbihScreen(
     val counterDescription = "${state.phrase.text}. ${state.count}. " +
         stringResource(R.string.tasbih_of_target, state.target.toString()) + ". " +
         stringResource(R.string.tasbih_tap_hint)
+    val sessionRingProgress = activeSession?.let { session ->
+        when (session.mode) {
+            TasbihSessionMode.Free -> {
+                val remainder = session.count % session.target.toLong()
+                if (session.count > 0L && remainder == 0L) 1f
+                else remainder.toFloat() / session.target.toFloat()
+            }
+            TasbihSessionMode.Target ->
+                (session.count.toFloat() / session.target.toFloat()).coerceIn(0f, 1f)
+            TasbihSessionMode.Rounds -> {
+                val goal = session.target.toLong() * session.roundsGoal.toLong()
+                (session.count.toDouble() / goal.toDouble()).coerceIn(0.0, 1.0).toFloat()
+            }
+        }
+    } ?: 0f
 
     // Vibrate + announce + optional tone whenever a full round completes (33/99/100/…).
     LaunchedEffect(Unit) {
@@ -195,11 +211,7 @@ fun TasbihScreen(
                     modifier = Modifier.fillMaxSize(),
                 )
                 CounterRing(
-                    progress = if (state.target > 0) {
-                        state.count.coerceAtMost(state.target).toFloat() / state.target
-                    } else {
-                        0f
-                    },
+                    progress = sessionRingProgress,
                     trackColor = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.22f),
                     progressColor = MaterialTheme.colorScheme.onPrimaryContainer,
                 )
@@ -215,16 +227,22 @@ fun TasbihScreen(
                         style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                     )
-                    if (state.targetReached) {
+                    if (state.sessionMode == TasbihSessionMode.Free && state.targetReached) {
                         Text(
                             text = stringResource(R.string.tasbih_target_reached),
                             style = MaterialTheme.typography.titleSmall,
                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                         )
                     }
-                    if (state.rounds > 0) {
+                    val visibleRounds = when (state.sessionMode) {
+                        TasbihSessionMode.Free -> state.rounds.toLong()
+                        TasbihSessionMode.Target -> 0L
+                        TasbihSessionMode.Rounds ->
+                            activeSession?.count?.div(state.target.toLong()) ?: 0L
+                    }
+                    if (visibleRounds > 0L) {
                         Text(
-                            text = stringResource(R.string.tasbih_rounds, state.rounds),
+                            text = stringResource(R.string.tasbih_rounds, visibleRounds),
                             style = MaterialTheme.typography.labelMedium,
                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                         )
